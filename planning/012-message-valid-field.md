@@ -3,7 +3,7 @@ ID: 012
 Origin: 012
 UUID: 12a4fe3c
 Parent: message-valid-field-for-statbot-2026-08-23.md
-Status: UAT Approved
+Status: Released
 Status-Detail: >-
   APPROVED FOR IMPLEMENTATION (critique cycle 2 pass 2, `a4bec32`); assembled scope ratified as a
   whole (D15). Code review round 1 REJECTED (`24b8af1`: M6 execution-shell defects; M1–M5

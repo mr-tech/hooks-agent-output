@@ -3,7 +3,7 @@ ID: 012
 Origin: 012
 UUID: 12a4fe3c
 Parent: message-valid-field-for-statbot-2026-08-23.md
-Status: HELD — awaiting owner's DDL confirmation, then a separate release decision
+Status: Superseded by 012-message-valid-field-deployment.md — release executed 2026-08-23
 Status-Detail: >-
   Release assembled and verified. **Nothing has been pushed.** All artifact-side gates pass at the
   assembled tip `c85945f`. Both open questions were answered by the owner on 2026-08-23: the
