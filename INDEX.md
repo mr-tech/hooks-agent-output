@@ -7,16 +7,17 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-80 documents · 12 numbered chains · 8 unnumbered.
+81 documents · 12 numbered chains · 8 unnumbered.
 
 ---
 
 ## By chain
 
-### 012 — 3 open, 1 closed
+### 012 — 4 open, 1 closed
 
 | Stage | Location | Status |
 |---|---|---|
+| code review | `code-review/012-message-valid-field-code-review.md` | In Review |
 | critique | `critiques/closed/012-message-valid-field-critique.md` | Resolved — Cycle 2 closed at rev 9 (commit b5d8a6e): F10/F11 verified landed in Validation item 4 — the ordering constraint with the flip's meaning stated, and 4(e) carrying M2-f's discriminating flag-free clause with its reason inline. All findings across both cycles RESOLVED. Closure does not extend to QA rows R15/R19, which remain QA's to bring current at Phase 2 (named, not closed around). Three routed assumption closures survive the critique with named owners: code-reviewer (atomic backfill write; mode-writer enumeration), qa Phase 2 (JSON-modal round-trip execution). APPROVED FOR IMPLEMENTATION stands; implementer running. |
 | implementation | `implementation/012-message-valid-field-implementation.md` | Active |
 | plan | `planning/012-message-valid-field.md` | Active — Rev 8 (registration pass over rev 7). Three inputs folded at steering's direction: D13 (D11 stands; recovery guidance redirected at the JSON editor, shape-dependent — Validation item 7), D14 (whitespace population measured first via an M6-b category — Validation item 8, risk R5), and critique cycle 2 F5–F9 (M2-e bounded to the mode-switch control, M2-f pinned to a flag-free end state so its pass discriminates D11, plus three one-liners). The assembled rev-5→rev-7 delta is ratified by the owner (D15, registered by steering at rev 8). APPROVED FOR IMPLEMENTATION (critique cycle 2 pass 2, `a4bec32`); implementer running. Rev 9 lands the critique's F10/F11 residuals: the 5712-keyed observables are ordered in Validation item 4, and 4(e) carries M2-f's discriminating flag-free clause. Rev 10 records the mechanism D13's repair path actually rests on (QA rev-5 execution finding) as risk R6, with its falsifier; rev 11 brings R6 current — the transcription residue is closed and the falsifier's control is mutation-verified (qa rev 5b); rev 12 corrects R6's review-attribution (the critic's pass-2 record had named the mechanism; QA's review had not). |
@@ -231,6 +232,7 @@ they are the ID-less artifacts that root new efforts.
 | `010-infopanel-overlap-fix.md` | `planning/closed/010-infopanel-overlap-fix.md` |
 | `010-infopanel-overlap-on-initial-load-analysis.md` | `analysis/closed/010-infopanel-overlap-on-initial-load-analysis.md` |
 | `011-transition-height-react-style-conflict-analysis.md` | `analysis/closed/011-transition-height-react-style-conflict-analysis.md` |
+| `012-message-valid-field-code-review.md` | `code-review/012-message-valid-field-code-review.md` |
 | `012-message-valid-field-critique.md` | `critiques/closed/012-message-valid-field-critique.md` |
 | `012-message-valid-field-implementation.md` | `implementation/012-message-valid-field-implementation.md` |
 | `012-message-valid-field-qa.md` | `qa/012-message-valid-field-qa.md` |
