@@ -4,20 +4,23 @@ Origin: 012
 UUID: 12a4fe3c
 Status: OPEN
 Status-Detail: >-
-  Cycle 2, pass 1 (rev 6, commit 7af8936; delta-scoped re-review of the D11/D12/F-QA2
-  enactment). Cycle-1 approval of rev 4 stands for the unchanged milestones. Two MEDIUM
-  findings against the new M2-e/M2-f criteria (class over-quantified; observable
-  non-discriminating), three LOW. Verdict: REQUEST REVISION, scoped to criterion wording.
+  Cycle 2, pass 2 (rev 7, commit 23e6b58): F5–F9 all verified RESOLVED against the diff and at
+  source; D13/D14/R19/R20/R5 reviewed sound (D13's cost table re-derived at source, including
+  updateMessage's wholesale data replacement); the F6×D13 no-conflict claim tested and holds.
+  Verdict: APPROVED FOR IMPLEMENTATION. Two new LOW residuals (F10 sentinel-observation
+  ordering; F11 Validation 4(e) lags rev-7 M2-f) stay OPEN with a named landing trigger —
+  fold at the next plan touch, before the uat stage executes the 5712-keyed observables; no
+  implementation dependency.
 ---
 
 # Critique — Plan 012: `valid` field on stored messages
 
 | Field | Value |
 |---|---|
-| Artifact | `agent-output/planning/012-message-valid-field.md`, revision 6, commit `7af8936` (rev 5 at `5831de0`) |
-| Analysis | None commissioned (per plan D3). QA Phase 1 (`agent-output/qa/012-message-valid-field-qa.md`, rev 2 at `3810b84`) read as the source of the traces the delta enacts — citations verified, test design not reviewed (qa's domain) |
+| Artifact | `agent-output/planning/012-message-valid-field.md`, revision 7, commit `23e6b58` (rev 5 `5831de0`, rev 6 `7af8936`) |
+| Analysis | None commissioned (per plan D3). QA Phase 1 (`agent-output/qa/012-message-valid-field-qa.md`, rev 4 at `c1aee80`) read as the source of the traces the deltas enact — citations verified, test design not reviewed (qa's domain) |
 | Date | 2026-08-23 |
-| Status | Cycle 2, pass 1 (ladder rung: passes 1–5, normal; cycle-1 count reset on that cycle's resolution) |
+| Status | Cycle 2, pass 2 (ladder rung: passes 1–5, normal; cycle-1 count reset on that cycle's resolution) |
 
 ## Changelog
 
@@ -26,10 +29,26 @@ Status-Detail: >-
 | 2026-08-23 | steering-hooks-012 brief | Critique plan 012 rev 3 | Initial critique (cycle 1, pass 1). Code-level premise verification against both chain branches. 1 HIGH, 2 MEDIUM, 1 LOW. REQUEST REVISION. |
 | 2026-08-23 | steering-hooks-012 | Re-verify rev 4 (`13b4d4c`) | Cycle 1, pass 2: all four findings verified RESOLVED against the diff. Verdict APPROVED. Critique closed, moved to `closed/`. |
 | 2026-08-23 | steering-hooks-012 | Delta-scoped re-review of rev 5/6 (D11, D12, F-QA2 enactment): M2 + M2-e/M2-f, release condition 5, M6-b, R2, register D11/D12 | Cycle 2, pass 1. Critique re-opened from `closed/` (same document, new cycle — new scope on the same artifact). Code-level verification of the M2-e whole-class claim and M2-f's failure semantics. F5–F6 (MEDIUM), F7–F9 (LOW). REQUEST REVISION, scoped to criterion wording. |
+| 2026-08-23 | steering-hooks-012 | Re-verify rev 7 (`23e6b58`); test the F6×D13 no-conflict claim rather than accept it; R19/R20 in scope at my judgement | Cycle 2, pass 2. F5–F9 verified RESOLVED against the diff and at source. D13's shape-dependent cost table re-derived at source (standardizeMessage whitelist; updateMessage wholesale `data` replacement); F6×D13 no-conflict claim tested — holds. D14/Validation 8/R5 sound. Two new LOW residuals (F10, F11) with a pre-UAT landing trigger. **APPROVED FOR IMPLEMENTATION.** |
 
 ## Assumption Not Checked
 
-**Cycle 2, pass 1**: This pass assumes its enumeration of `messageMode` writers is complete —
+**Cycle 2, pass 2**: This pass assumes the JSON-modal Load path behaves at runtime as its static
+composition reads — seed via `standardizeMessage` (whitelist omits `flags` and `components`),
+validation via `discordMessageImportShape`, state write via `updateMessage`'s top-level spread
+replacing `data` wholesale — and does not execute it: my verification of D13's cost table (the
+basis of Validation item 7 / QA row R19) is source reading, not a run. Falsity signature: a
+5712-shaped record still carrying `flags: 32768` after a JSON-modal Load and save — i.e. the
+D13-guided "lossless" repair failing to repair, observable as the record remaining
+`valid: false` after its owner follows the guidance exactly. Owner of closure: the qa stage at
+Phase 2 — its pre-registered spec already carries the JSON-modal/D11 round-trip simulation
+cells, whose execution against the implementation is the discriminating check (named again in
+this pass's handoff report).
+
+**Cycle 2, pass 1** — open, unchanged: the `messageMode` writer enumeration rests on a
+literal-text search; closure owned by the code-reviewer at M2 implementation review. Restated
+in full below; rev 7 changes nothing about it (M2-e now cites the same three writers, which
+makes the enumeration verdict-bearing for the plan too). Original statement: This pass assumes its enumeration of `messageMode` writers is complete —
 it rests on a literal-text search for `setMessageMode` in non-test `src/` (three call sites:
 `detectMode` in `src/providers/MessageProvider/index.tsx`, `handleModeSwitch` in
 `src/components/DiscordMessageEditor/index.tsx`, and the JSON modal Load handler in
@@ -52,7 +71,7 @@ handoff 61f24e56 on every clause chain 012 implements; details in cycle-1 record
 
 ## Value Statement Assessment
 
-Unchanged at rev 6; cycle-1 assessment stands: **PASS**.
+Unchanged through rev 7; cycle-1 assessment stands: **PASS**.
 
 ## Overview — cycle 2 scope and method
 
@@ -130,131 +149,114 @@ an observable criterion), so the expansion is owner-priced, not review-loop grow
 Low, unchanged. D11's one line lands in a branch that already owns the departing-data
 transformation — no new pattern. The M6-b breakout adds a reporting axis, not a subsystem.
 
+## Verification Record — cycle 2, pass 2 (rev 7 checks)
+
+1. **F5–F9 enactments** verified against the diff `d9c9e35..23e6b58`: M2-e bounded to
+   `handleModeSwitch` with the JSON-Load residue named/routed (D9/cb83fd7b) and record-loads
+   excluded with reason; M2-f carries the flag-free persisted end-state clause with the
+   discrimination rationale; the 8b discharge sits at M2's tail; D12's title carries the
+   sole-record clause; R1's mitigation carries the F9 dependency with falsifier and QA's EXT-2
+   tripwire. M1, M4, M5, M7 carry no hunks; M3 changed only in M3-d's cost clause.
+2. **D13's cost table** — re-derived at source, not taken from QA's measurement:
+   `standardizeMessage` (`src/utils/index.ts`) whitelists `username`/`avatar_url`/`content`/
+   `allowed_mentions`/`embeds` and never copies `components` or `flags`, so the JSON-modal seed
+   is lossless exactly for component-free shapes (5712's) and component-destroying otherwise;
+   `updateMessage` (`useApiMethods.ts`) spreads at the message level — `{...oldMessage,
+   ...newMessage}` — so Load replaces `data` wholesale and a stale flag cannot survive; the
+   toggle route's complementary costs (content/embeds destroyed classic→V2, type-1 components
+   preserved) were verified at source at pass 1. The table's "loses one side either way" row
+   follows. Confirmed.
+3. **F6×D13 no-conflict claim** (steering-flagged) — tested, holds. The two clauses bind
+   different things: M2-f's JSON-modal exclusion is the instrument's discrimination requirement
+   (the modal drops the flag via the whitelist with or without D11 — verified — so an
+   observation through it cannot distinguish fixed from unfixed), while D13's guidance names
+   what users are told per shape. The exclusion does not forbid users the modal; the guidance
+   does not change what the criterion measures. No clause of either weakens the other. One
+   residue of the pairing is real and is F10 (ordering, not conflict).
+4. **D14 / Validation item 8 / risk R5** — sound. The whitespace category is computable from
+   stored data by the run itself; sufficiency is bounded with the window stated ("this corpus,
+   at this time"; the class on a zero is "empty **and unguarded**, never safe"); the live-POST
+   prohibition is stated with no approval path, consistent with workspace rules; D14's
+   reopening class is named (a non-zero count, as a new owner question, never a silent gate
+   change); the statbot-side zero is kept as context, not a bound. R5 opens with falsifier,
+   instrument and a rev-7 record entry.
+5. **Register rows D13/D14** — titles carry their operative clauses; D13's route records the
+   superseded first ruling and steering's basis correction rather than papering over it — the
+   re-put on corrected facts is exactly what the register's route column exists to show.
+   Contract check: neither touches a D1 clause (composer guidance; a report category) — the
+   plan's R4 rev-7 record is accurate.
+
 ## Findings — cycle 2
 
-### F5 (MEDIUM, OPEN) — M2-e quantifies over transitions its fix does not govern
+Findings F5–F9 resolved at rev 7 (`23e6b58`); full arguments in the pass-1 text at commit
+`d9c9e35`.
 
-**Description.** M2-e states: "For every V2→classic mode switch, the resulting editor state —
-and the record persisted by any subsequent save — carries no `IS_COMPONENTS_V2_FLAG`… stated
-over the whole class of V2→classic switches, whatever the departing content." Verified at the
-receiving end, `messageMode` has three writers (Verification #1, #3). One of them falsifies the
-property as worded, by construction: a JSON-modal **Load** of classic-structured JSON that
-declares `flags: 32768` moves the editor v2→classic with the flag in the resulting state, and a
-subsequent save persists it — `enforceImportMutualExclusivity` preserves the key and
-`discordMessageImportShape` admits it. D11's one line in `handleModeSwitch` cannot make M2-e
-true over that member, and is not meant to: the JSON path is the deliberately-excluded second
-origin (register D9; handoff `json-editor-bad-configurations-2026-08-23.md`, UUID cb83fd7b).
-QA's own enumeration already reads the class as the toggle (register row R14: departing states
-of the switch control) — so the criterion's words quantify over more than either its fix or its
-instrument governs. The same over-quantification touches the parent claim "the generator is
-closed": the composer-toggle generator closes; the JSON-import mint remains, deliberately.
+- **F5 (MEDIUM) RESOLVED** — M2-e bounded to the mode-switch control; JSON-Load and record-load
+  residues named and routed (D9/cb83fd7b). Verified in the rev-7 diff.
+- **F6 (MEDIUM) RESOLVED** — M2-f pinned to a flag-free persisted end state; the pass now
+  discriminates D11 (pre-D11 the only flag-free path is the excluded JSON modal). Verified.
+- **F7 (LOW) RESOLVED** — 8b-gate discharge recorded at M2's tail. Verified.
+- **F8 (LOW) RESOLVED** — D12 title extended with the sole-planning-record clause. Verified.
+- **F9 (LOW) RESOLVED** — detection-completeness dependency recorded in R1's row with falsifier
+  and QA's EXT-2 as tripwire. Verified.
 
-**Impact.** A criterion falsifiable by an input its fix deliberately does not govern leaves both
-readings available downstream: a QA or UAT pass that constructs the JSON member reports M2-e
-failed on a correct implementation, or the class is silently narrowed at verification time —
-exactly the drift acceptance criteria exist to prevent.
+### F10 (LOW, OPEN) — the 5712-keyed observables interfere, and no order is stated
 
-**Recommendation.** Bound the class to switches performed through the mode-switch control
-(`handleModeSwitch`), and name the residue as bounded: mode transitions via JSON Load (routed —
-D9/cb83fd7b, where this question already lives) and via record loads (`detectMode` aligns mode
-to the loaded record's structure; not a switch of an existing editing state). One or two
-sentences; no new machinery.
+**Description.** Four observables key on the same singleton production record: M6-c (5712
+carries `false` in the backfilled table), Validation 4(a)/QA R2 (GET shows `valid: false`),
+4(d)/R4 (composer shows the notification, Send disabled), and 4(e)/R15 (the repair
+observation). Rev-7's M2-f makes 4(e) a *persisting* act — the flag-free end state must be
+saved to be observed — and any save recomputes `valid` (M4), so executing 4(e) flips 5712 to
+`valid: true` and destroys the precondition of the other three. Executed before the backfill,
+it also fails M6-c's sentinel expectation — a false red on a release gate. D13's guidance
+(Validation 7) reaching the affected guild owner creates the same race from outside: his repair
+is the intended outcome, and it has the same effect on the sentinels. No ordering among these
+observations is stated anywhere in the plan.
 
-### F6 (MEDIUM, OPEN) — M2-f's pass is available on unfixed code, so the observable does not discriminate the change it binds
+**Impact.** A naive execution order produces either a false release-gate red (M6-c) or a
+meaningless/ambiguous pass on 4(a)/4(d) — after a legitimate repair, `valid: true` is correct,
+not a failure, and the rows' stated failure modes ("if it shows `true`…") misread it.
 
-**Description.** M2-f: an affected stored record "can be brought to a Send-enabled state through
-supported composer controls alone, with no recourse to the JSON modal," with the purpose clause
-that if D11's line "turns out not to repair already-stored records… that is this criterion
-failing and it routes back to the owner." Verified (Verification #4): **without D11**, 5712
-reaches Send-enabled through supported controls — toggle to V2, build V2 components, save; the
-stranded flag is then consistent with the structure and the corrected gate accepts it. So the
-criterion's pass condition is satisfiable on pre-D11 code. Steering asked directly whether M2-f
-can fail or passes trivially: it **can** fail (a state with no supported path to Send-enabled
-would fail it), but its **pass does not distinguish** D11-delivered from D11-absent — and for a
-post-deploy observable whose stated job is binding D11 to its purpose, a pass available either
-way is the defect my instrument rule names: both readings stay available to whoever wants one.
-QA's F-QA8 (register R16, with the owner) is the adjacent, distinct gap — the criterion measures
-reachability, not preservation, and passes honestly over content destruction. I concur with
-F-QA8 as traced (Verification #2) and do not re-raise it; F6 is the discrimination gap, which
-F-QA8's disposition does not by itself close.
+**Recommendation.** One sentence in Validation item 4: the 5712-keyed observables are read in
+order — M6-c and 4(a)/4(d) before 4(e), and 4(e) last; after 4(e) (or the guild owner's
+D13-guided repair), 4(a)'s expected value legitimately becomes `true` via M4. Guidance send
+(item 7) follows the sentinel reads or the flip is noted. Sequencing *within* a stage's
+execution remains qa/uat's; the plan owes only the constraint and the flip's meaning.
 
-**Impact.** R15 (M2-f's post-deploy row) can be executed and marked green via the rebuild-as-V2
-path on a build where D11 silently failed to land or work — the criterion then attests a repair
-the fix did not deliver, which is precisely the outcome the owner chose D11 to avoid.
+### F11 (LOW, OPEN) — Validation item 4(e) still states the pre-F6 criterion, and the uat Reading Order routes there
 
-**Recommendation.** Pin the end state so the pass is unavailable without the fix: Send-enabled
-**with the persisted record carrying no `IS_COMPONENTS_V2_FLAG`** (recovery as the classic
-message, not conversion to a different one) — pre-D11 that state is reachable only through the
-JSON modal the criterion already excludes. If the owner's R16 ruling adds a preservation clause,
-fold both into one restated criterion; if he accepts content loss, the flag-free clause is still
-needed on its own.
+**Description.** M2-f gained the flag-free persisted end-state clause at rev 7, but Validation
+item 4(e) still reads "brought to a Send-enabled state through supported composer controls
+alone, no JSON modal (M2-f, D11…)" — the pre-F6, non-discriminating form. The uat Reading
+Order row routes to "Validation and Release Conditions", not to M2, so the text the executing
+stage reads omits exactly the clause that makes the observation discriminate D11 (QA's R15 row
+has the same lag; that document's update is qa's, noted in the handoff). Per the plan's own
+Reading Order discipline, rows route to current text.
 
-### F7 (LOW, OPEN) — rev 5's product-behaviour delta is not discharged against the planner's own re-derivation gate
+**Impact.** The F6 fix's value evaporates at execution: an observer following 4(e) as written
+can pass it via the rebuild-as-V2 path on a build where D11 failed.
 
-**Description.** D11 changes product behaviour (the stored representation written by a supported
-flow). Planner.md's re-derivation gate (Core Responsibility 8b) puts every downstream milestone
-not yet authorised for execution into a `PREMISE-STALE` population, cleared by a one-paragraph
-re-argument. Rev 5 neither marks nor discharges: M3-d and M6-b are revised, but M4/M5/M7 carry
-only the implicit claim that rev-4 approval transfers across the delta. Discharged here so the
-gap is substance-checked, not just named: M3's parity is by construction (shared symbol) and
-indifferent to who writes `flags`; M4's recompute covers post-switch saves by covering all
-saves; M5 exposes whatever is stored; M6's stored population is unchanged by D11 (it stops new
-minting, repairs nothing in place) and the breakout instruments exactly that; M7 is clerical.
-**No premise is actually stale.** The defect is the missing one-line record that the gate was
-run — the next reader must re-derive what one changelog sentence would state.
+**Recommendation.** Add the clause to 4(e): "…and the persisted record carries no
+`IS_COMPONENTS_V2_FLAG` (M2-f's discriminating end state)". One clause.
 
-**Impact.** Every downstream reader pays the re-derivation, or skips it and inherits an
-unchecked transfer claim.
+**Disposition for F10/F11 (landing trigger, not "whenever convenient")**: fold at the next plan
+touch, and in any case before the uat stage executes the 5712-keyed observables. Neither
+touches M1–M5 build work — no implementation dependency, so they do not gate the implementer's
+start.
 
-**Recommendation.** One line (changelog or M2 tail): the 8b gate was considered for the D11
-delta; downstream premises hold for the reasons above. No `PREMISE-STALE` markings needed now —
-this pass's discharge stands in the record via this finding.
-
-### F8 (LOW, OPEN) — D12's row title carries one of its two operative clauses
-
-**Description.** The D12 ruling as registered has two operative clauses: the ordering (in the
-title) and the statbot-side ruling that no chain-023 planning record exists — which is what
-makes this row the **sole** planning-register record on either side (the row's own bolded
-claim). The second clause lives only in the row body. Per the register rule (a two-clause ruling
-under a one-clause title gets consumed at the title), a title-level reader sees an ordering
-constraint and misses that this row is its only planning-document carrier.
-
-**Impact.** Low — release condition 5 restates both clauses in full, and QA row R17 carries the
-executable half. The cost is title-scan legibility of the register itself.
-
-**Recommendation.** Extend the title: "…ORDERED AFTER this chain's live declaration, and this
-row is the sole planning-register record of the constraint on either side (statbot 023 carries
-none, by owner ruling)." Or split into two rows.
-
-### F9 (LOW, OPEN) — the detection-completeness dependency on the import shape is recorded nowhere
-
-**Description.** The chain's V2 detection (`hasV2Components`) classifies by top-level component
-type only. Its completeness over the stored domain is guaranteed not by any nesting check but by
-the domain being unable to express the counterexample: `actionRowShape` admits only link
-buttons, so no payload can carry V2 elements only beneath a top-level Action Row (Verification
-#5; determined by steering, re-derived here). That is load-bearing on an invariant this chain
-does not own: Action Row children staying buttons-only in `topLevelComponentShape`. The blast
-radius is bounded by the contract — gate and predicate share one symbol (M3-a), so a future
-shape change that broke completeness would move both together: parity holds, and the failure
-would be a composer-bug-class event (the D5 shape), not a contract violation. But the plan
-asserts whole-domain properties (M2-a "every composer state", M3-a "every payload the column can
-hold") whose enumeration silently rests on this invariant, and no document records the
-dependency.
-
-**Impact.** A future editor of the component shapes has no signal that widening Action Row
-children re-opens a settled detection question in another part of the system.
-
-**Recommendation.** One sentence in Risks (R1's row is the natural home, as the truth-condition
-neighbourhood): detection completeness rests on `topLevelComponentShape` admitting no V2
-children under Action Rows (verified 2026-08-23); falsifier: any change to that shape admitting
-one. The per-repo architecture record would be the durable home, but none exists for `website`
-(recorded absence) — the risk row suffices for this chain.
 
 ## Questions
 
-None requiring the owner this pass. F6's interaction with R16 (already with the owner via QA) is
-noted inside F6 — the R16 ruling should be made knowing F6's flag-free clause is needed under
-either disposition.
+None requiring the owner at pass 2 — D13 answered pass 1's R16 note (the flag-free clause landed
+alongside the ruling, compatibly). Two clerical items for steering, neither a plan finding: (a)
+the owner's assembled-delta ratification ("Ratify it and let the chain run", relayed 2026-08-23)
+post-dates commit `23e6b58` and is recorded nowhere in the repo — it wants a registration write
+(register row or Status-Detail, steering's grant under planner.md Registration Passes) so the
+plan's "Awaiting: owner approval of the rev-5+7 delta" line stops contradicting the fact; (b)
+QA row R19 describes its guidance class as "records carrying **V2** components and a stranded
+flag" — that shape is consistent V2 and needs no repair; the intended class is flag-stranded
+records carrying **type-1 (legacy)** components (spec cell B3), as the plan's Validation item 7
+correctly states. QA's document is qa's to fix.
 
 ## Risk Assessment
 
@@ -276,21 +278,31 @@ either disposition.
   QA row R17 gives it an executable trace.
 - Plan risk rows R1–R4 rev-5 records are accurate transcriptions; no new member of any
   registered class observed this pass. F9 proposes one addition to R1's row.
+- **Pass 2**: rev-7 records for R1–R4 accurate; R5 (whitespace misvouching) opens correctly
+  (falsifier = the M6-b category count; the general Discord fact marked undeterminable here;
+  statbot-side zero held as context, not bound). No member of any registered class observed.
 
 ## Recommendations
 
-1. **REQUEST REVISION** — scoped to criterion and register wording (F5, F6 the substantive
-   two; F7–F9 one-liners). No structural change, no new machinery, no re-opening of any
-   registered decision.
-2. Route to the planner for the wording revision; F6's recommendation should be enacted in a
-   form compatible with whichever R16 disposition the owner returns (or after it returns, if
-   imminent).
-3. The code-reviewer stage now owns two assumption closures at implementation review: the atomic
-   guarded backfill write (cycle 1) and the mode-writer enumeration (this pass).
+1. **APPROVED FOR IMPLEMENTATION** — all cycle-2 substantive findings (F5–F9) verified enacted
+   at rev 7; the two new LOW residuals (F10, F11) are validation-choreography text with no
+   implementation dependency, held OPEN against a named landing trigger (next plan touch, and
+   before the uat stage executes the 5712-keyed observables). The implementer may start.
+2. Steering: carry the two clerical items in Questions (ratification registration write; QA's
+   R19 class wording) to their owners.
+3. Assumption closures now distributed: code-reviewer at implementation review — atomic guarded
+   backfill write (cycle 1) and mode-writer enumeration (cycle 2 pass 1, now verdict-bearing
+   for M2-e's own residue statement); qa at Phase 2 — runtime execution of the JSON-modal
+   round-trip cells (cycle 2 pass 2, the check that makes D13's guidance table more than static
+   reading).
 
-**Verdict: REQUEST REVISION** — cycle 2, pass 1, rung 1–5 (normal; no ladder requirement binds;
-stop authority not fired — F5 and F6 are one defect neighbourhood but distinct shapes: class
-over-quantification vs. non-discriminating observable, first instance of each this cycle).
+**Verdict: APPROVED FOR IMPLEMENTATION** — cycle 2, pass 2, rung 1–5 (normal; no ladder
+requirement binds; stop authority not fired — F10 and F11 are first instances of their shapes
+this cycle). The critique stays OPEN solely for F10/F11's landing; their trigger is pre-UAT,
+not pre-implementation.
+
+**Pass-1 verdict (superseded)**: REQUEST REVISION on F5/F6 (MEDIUM) + F7–F9 (LOW), all now
+resolved above.
 
 ---
 
@@ -335,3 +347,4 @@ statbot-side gap routed by steering to that domain — not a 012 finding.
 | 2026-08-23 | rev 3 (`c4cf783`) | — (initial) | F1 (HIGH), F2 (MEDIUM), F3 (MEDIUM), F4 (LOW) | Critique opened, Status OPEN |
 | 2026-08-23 | rev 4 (`13b4d4c`) | F1, F2, F3, F4 → RESOLVED (verified against diff) | None | Critique Status → Resolved; moved to `closed/` |
 | 2026-08-23 | rev 6 (`7af8936`, delta from `5831de0`) | — (new cycle) | F5 (MEDIUM), F6 (MEDIUM), F7 (LOW), F8 (LOW), F9 (LOW) | Critique re-opened from `closed/`, Status → OPEN; cycle 2 pass 1; REQUEST REVISION |
+| 2026-08-23 | rev 7 (`23e6b58`) | F5–F9 → RESOLVED (verified against diff and at source) | F10 (LOW), F11 (LOW) — OPEN, landing trigger: next plan touch, pre-UAT | Verdict APPROVED FOR IMPLEMENTATION; critique stays OPEN for F10/F11 only |
