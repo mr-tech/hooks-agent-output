@@ -9,6 +9,7 @@ Last Updated: 2026-08-23
 
 | Date       | Change                                                                 | Rationale                                                                                          | Plan |
 | ---------- | ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ---- |
+| 2026-08-23 | Recorded owner rulings: cdn deployed, website on Vercel, D-002 rationale | Rulings relayed via steering-01; D-002 parity with statbot-utils re-derived in-tree; preview-path seam narrowed and re-scoped | —    |
 | 2026-08-23 | Reconciled to workspace altitude; verified against all five trees      | Doc covered only `website`; Problem Areas were stale (V2 flag fix and Vitest adoption had landed)   | —    |
 | 2026-04-06 | Reviewed Plan 004 lazy loading overhaul                                | Approved with 6 changes; RC-1 blocks React.lazy approach                                            | 004  |
 | 2025-07-15 | Initial creation; Components V2 review                                 | Established baseline during Plan 001 arch review                                                    | 001  |
@@ -26,7 +27,7 @@ The workspace root is `/usr/local/bin/hooks`. It is **not itself a git repositor
 | `website`                 | `hooks-gg/website`                      | `master` | The product: Next.js app, API, and Discord bot endpoints    |
 | `project-utils`           | `hooks-gg/project-utils`                | `master` | Shared data layer: Prisma schema, generated Kysely types    |
 | `preview-image-generator` | `hooks-gg/preview-image-generator`      | `prod`   | Headless-browser screenshot service for message previews    |
-| `cdn`                     | `hooks-gg/cdn`                          | `master` | Legacy preview-serving app (see Problem Areas)              |
+| `cdn`                     | `hooks-gg/cdn`                          | `master` | Preview-serving app at `cdn.hooks.gg` — deployed; legacy toolchain |
 | `agent-output`            | `mr-tech/hooks-agent-output`            | `master` | Process record for the agent pipeline (its own repo)        |
 
 `hooks.code-workspace` at the root defines the **active** working set: `website`, `project-utils`, `preview-image-generator`, `agent-output`, plus two out-of-tree reference clones — `../discord-api-types` (upstream `discordjs/discord-api-types`) and `../embed-generator` (upstream `merlinfuchs/embed-generator`). Both reference clones point at their upstream remotes, not hooks-gg forks; they are consulted, not developed. `cdn` is **not** a member of the workspace. `website.code-workspace` is a narrower view (website + the two reference clones).
@@ -88,10 +89,11 @@ A companion Mermaid diagram lives at `architecture-diagram.mmd`.
 - `POST /generate` (Authorization: API key) → renders the **website's own `/preview` page** (`PREVIEW_ENDPOINT` with the message JSON as a query param) in a pooled puppeteer browser (`generic-pool`), screenshots to JPEG, deletes the message's prior objects, and uploads to the S3-compatible CDN bucket at `previews/{messageId}/{nonce}.jpeg` with `public-read` ACL.
 - Invoked from the website server side: `src/server/api/utils/shared.ts` fetches `env.PREVIEW_IMAGE_URL` with `PREVIEW_IMAGE_API_KEY`; messages carry a `previewImageNonce` for cache-busting.
 
-### cdn (legacy)
+### cdn (deployed; legacy toolchain)
 
-- Next.js 13 Pages Router app (package name still `"website"`), one API route: `src/pages/api/previews/[id]/[file].ts` — serves preview image **blobs out of Postgres** (`MessagePreviewImages` table via project-utils). PM2 config names it `cdn.hooks.gg`.
-- Excluded from `hooks.code-workspace`; last commit 2023-08-02. See Problem Areas for status.
+- Next.js 13 Pages Router app (package name still `"website"`), deployed as `cdn.hooks.gg` (owner ruling 2026-08-23) under PM2. One API route: `src/pages/api/previews/[id]/[file].ts` — serves preview image **blobs out of Postgres** (`MessagePreviewImages` table via project-utils). `next.config.js` permanently redirects `/previews/:path*` → `/api/previews/:path*`, so the URLs the website emits resolve to this route.
+- The website addresses it directly: `getCDNUrl()` (`src/utils/getCDNUrl.ts`) builds preview URLs from `NEXT_PUBLIC_CDN_HOST` = `https://cdn.hooks.gg`.
+- Excluded from `hooks.code-workspace`; checkout matches `origin/master` (2023-08-02). See Problem Areas for the preview-storage seam.
 
 ### agent-output (process record)
 
@@ -103,9 +105,10 @@ A companion Mermaid diagram lives at `architecture-diagram.mmd`.
 
 1. **Edit/save**: browser UI state ↔ tRPC `message` router ↔ Postgres JSONB via project-utils Kysely.
 2. **Send**: UI state → `sendWebhook()` → Discord webhook API (V2 flag applied when set).
-3. **Preview image**: `message.upsert` → website server POSTs to preview-image-generator `/generate` → puppeteer renders website `/preview` → JPEG → S3 `previews/{id}/{nonce}.jpeg` (public) → served via CDN URL.
-4. **Bot interaction**: Discord → `POST /api/interactions-edge` (signature verify) → edge commands answered inline; server commands forwarded to `/api/interactions-server` (`HOOKS_API_TOKEN`) → DB/Redis.
-5. **Cron**: daily `/api/cron?key=vercel` per `vercel.json`.
+3. **Preview image (write)**: `message.upsert` → website server POSTs to preview-image-generator `/generate` → puppeteer renders website `/preview` → JPEG → DigitalOcean Spaces bucket `hooks` at `previews/{id}/{nonce}.jpeg` (public-read); the website's `deleteMessagePreviewImages.ts` cleans the same bucket keys.
+4. **Preview image (read)**: the website emits `https://cdn.hooks.gg/previews/{id}/{nonce}.jpeg`; the cdn app serves that route from Postgres blobs. See Problem Areas — no code in any tree writes those blobs.
+5. **Bot interaction**: Discord → `POST /api/interactions-edge` (signature verify) → edge commands answered inline; server commands forwarded to `/api/interactions-server` (`HOOKS_API_TOKEN`) → DB/Redis.
+6. **Cron**: daily `/api/cron?key=vercel` per `vercel.json`.
 
 ---
 
@@ -130,7 +133,7 @@ A companion Mermaid diagram lives at `architecture-diagram.mmd`.
 
 - **Type safety**: `tsc --noEmit` is the primary gate across repos; `satisfies z.ZodType<...>` locks Zod schemas to TS types in the website.
 - **Tests**: Vitest is present in the website (`vitest.config.ts`; `src/utils/__tests__/` includes `components-v2-data-layer.test.ts`, `mutual-exclusivity.test.ts`). Coverage is narrow — data-layer roundtrips — not broad.
-- **Build/deploy**: website builds with Next (`pnpm`); PM2 ecosystem configs exist for website, cdn, and preview-image-generator; `vercel.json` also exists in website (see Problem Areas — deployment target ambiguity).
+- **Build/deploy**: the website deploys on **Vercel** (owner ruling 2026-08-23); its PM2 `ecosystem.config.json` is not the live path. `preview-image-generator` and `cdn` deploy under PM2.
 
 ---
 
@@ -138,14 +141,15 @@ A companion Mermaid diagram lives at `architecture-diagram.mmd`.
 
 | Area                                   | Severity | Notes                                                                                                                                                              |
 | -------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `cdn` repo status unresolved           | Medium   | Serves previews from Postgres blobs; preview-image-generator writes public S3 objects instead. Whether the `cdn.hooks.gg` PM2 deployment is still live is not determinable from the trees — owner confirmation needed before calling it dead or deleting it. |
-| Deployment-target ambiguity (website)  | Medium   | Both `vercel.json` (crons) and a PM2 `ecosystem.config.json` exist. Which one production actually uses is not stated anywhere in the tree.                          |
+| Preview-storage seam: no blob writer in-tree | High | The write path (PIG, website delete util) operates on the Spaces bucket `hooks`; the read path (`cdn.hooks.gg`, which the owner confirms is deployed) serves Postgres `MessagePreviewImages` blobs — and **no code in any of the five trees inserts those rows**. Either the deployed cdn differs from its `origin/master` checkout, or `cdn.hooks.gg` DNS fronts the Spaces CDN and the app's Postgres route is vestigial, or previews are silently broken. Undeterminable locally; needs a production probe (fetch one live preview URL, compare bytes/headers against bucket object). |
 | ESLint health unverified               | Medium   | Doc previously recorded ESLint as broken (circular structure error). devDependencies show an in-progress flat-config migration (`eslint` ~8.57 pinned alongside `typescript-eslint` v8 and `@eslint/js` v10). Not re-verified 2026-08-23.  |
 | No CLAUDE.md / workspace self-description | Medium | Nothing in the tree states what the workspace is or which members are active; only `hooks.code-workspace` encodes it implicitly.                                    |
 | Per-repo architecture records absent   | Low      | `agent-output/architecture/<repo>.md` owner-sourced records do not exist; invariants live only in code and in this reconciled doc.                                   |
-| 2023-era toolchains in satellite repos | Low      | `cdn` (Next 13) and `preview-image-generator` (2023 deps, puppeteer 21) are far behind the website's stack.                                                          |
+| 2023-era toolchains in deployed satellites | Medium | `cdn` (Next 13) and `preview-image-generator` (2023 deps, puppeteer 21) are far behind the website's stack — and both are live services, not shelfware.              |
 
 Resolved since the 2026-04-06 revision (recorded here as history, not declared above): the three Plan-001-era "High" items — stale V2 component constants, `rekey()` key duplication, and `sendWebhook` missing the V2 flag — no longer reproduce against the tree: the old constant names are gone from `src/constants`, and `sendWebhook.ts` applies `IS_COMPONENTS_V2_FLAG`. "No test framework" was superseded by Vitest adoption.
+
+Resolved 2026-08-23 by owner ruling (via steering-01): "cdn repo status unresolved" — cdn **is** deployed, so the earlier inference that the S3 path had superseded it was wrong about the deployment (the remaining tension is re-scoped as the preview-storage seam above). "Deployment-target ambiguity (website)" — production is Vercel; the PM2 config is not the live path.
 
 ---
 
@@ -159,8 +163,10 @@ Resolved since the 2026-04-06 revision (recorded here as history, not declared a
 
 ### D-002 — Shared data layer as a git-dependency package with committed dist
 - **Context**: Multiple deployables (website, cdn) need one schema and one connection discipline.
-- **Choice** (inferred from code; owner has not restated rationale): `project-utils` owns `schema.prisma`, generates Kysely types via prisma-kysely, exports a `getPostgres()` singleton, and is consumed as `github:hooks-gg/project-utils#master` with `dist/` committed.
-- **Consequences**: No registry publishing needed; consumers pin `#master`, so a project-utils push changes consumers on next install; committed build artifacts must be kept in sync by the pre-commit hook.
+- **Choice**: `project-utils` owns `schema.prisma`, generates Kysely types via prisma-kysely, exports a `getPostgres()` singleton, and is consumed as `github:hooks-gg/project-utils#master` with `dist/` committed. Owner-stated rationale (2026-08-23, verbatim): *"Same architecture as Statbot. To put it shortly; api-extractor."* — a git dependency has no publish step; the committed `dist/` plus the API Extractor `.d.ts` rollup are what make the repo installable as-is.
+- **Verification**: `project-utils` and statbot's `statbot-utils` carry an identical `build:types` script (`tsc -p ./tsconfig.json --declaration true --outDir build/types && api-extractor run`), both hold an `api-extractor.json`, and both track `dist/` in git (13 and 264 files respectively).
+- **Consequences**: No registry publishing needed; consumers pin `#master`, so a project-utils push changes consumers on next install; committed build artifacts must be kept in sync by the pre-commit hook — and must never be "cleaned up" as if they were stray build output.
+- **Related**: statbot workspace (`statbot-utils`), which this deliberately mirrors.
 
 ### D-003 — Preview images by screenshotting the app's own preview route
 - **Context**: Preview images must match what the editor shows (see D-001).
@@ -171,13 +177,12 @@ Resolved since the 2026-04-06 revision (recorded here as history, not declared a
 
 ## Roadmap Readiness
 
-Plans 001–010 (all website-scoped) are closed. No open plans. The workspace-level unknowns in Problem Areas (cdn liveness, deployment target) are the main obstacles to confident release engineering across repos.
+Plans 001–010 (all website-scoped) are closed. No open plans. The preview-storage seam (Problem Areas, High) is the main obstacle to confident work on anything touching preview images; deployment targets are otherwise settled (website on Vercel, satellites on PM2).
 
 ---
 
 ## Recommendations
 
-1. Resolve the `cdn` question with the owner: if the S3/CDN path fully superseded it, archive the repo and remove its PM2 deployment; if not, record why both paths exist.
-2. Record the actual production deployment mechanism for the website (Vercel vs PM2) — one sentence from the owner ends the ambiguity.
-3. Re-verify ESLint health in the website and either close or re-scope that Problem Area.
-4. Start owner-sourced per-repo architecture records (`agent-output/architecture/<repo>.md`), beginning with `website` and `project-utils` — the D-002 rationale in particular is currently inference, not owner testimony.
+1. Close the preview-storage seam (Problem Areas, High): probe one live preview URL against the Spaces bucket object, and diff the deployed cdn against its repo. Until then, no agent should modify either preview path on the assumption it knows which one production exercises.
+2. Re-verify ESLint health in the website and either close or re-scope that Problem Area.
+3. Start owner-sourced per-repo architecture records (`agent-output/architecture/<repo>.md`), beginning with `website` and `preview-image-generator` — D-002's rationale is now owner-sourced, but D-001 and D-003 rationales remain inference from code.

@@ -1,7 +1,7 @@
 %% Hooks.gg workspace architecture — companion to system-architecture.md (2026-08-23)
 graph TB
     subgraph workspace["/usr/local/bin/hooks (plain directory, five sibling repos)"]
-        subgraph website["website (hooks-gg/website, master) — Next.js 16 / React 19"]
+        subgraph website["website (hooks-gg/website, master) — Next.js 16 / React 19 — deploys on Vercel"]
             appui["App Router UI\nsrc/app: message, preview, legal"]
             api["Pages Router API\ntRPC v11 · NextAuth · cron · v1"]
             botmod["bot/\nedgeCommands · serverCommands"]
@@ -10,7 +10,7 @@ graph TB
         end
         pu["project-utils (master)\nschema.prisma → Kysely types\ngetPostgres() singleton\ncommitted dist, git dep #master"]
         pig["preview-image-generator (prod)\nNode http + puppeteer pool\nPOST /generate (API key)"]
-        cdnapp["cdn (master, LEGACY — not in workspace file)\n/api/previews/[id]/[file]\nserves blobs from Postgres"]
+        cdnapp["cdn (master — deployed at cdn.hooks.gg,\nlegacy toolchain, not in workspace file)\n/previews → /api/previews/[id]/[file]\nserves blobs from Postgres"]
         ao["agent-output (mr-tech/hooks-agent-output)\nprocess record"]
     end
 
@@ -20,7 +20,9 @@ graph TB
     s3[("S3-compatible CDN\npreviews/{id}/{nonce}.jpeg")]
     refs["Reference clones (out of tree)\n../discord-api-types (upstream)\n../embed-generator (upstream)"]
 
+    browser["Viewer (preview URLs)"]
     appui --> api
+    browser -->|"GET cdn.hooks.gg/previews/…"| cdnapp
     api -->|Kysely| pu
     pu --> pg
     api --> redis
