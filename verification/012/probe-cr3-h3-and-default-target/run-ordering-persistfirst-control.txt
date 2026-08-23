@@ -1,0 +1,8 @@
+REPORT_ON_DISK=true SIZE=247303
+EXIT code=1 REPORT_ON_DISK=true
+Error: write EPIPE
+    at WriteWrap.onWriteComplete [as oncomplete] (node:internal/stream_base_commons:87:19) {
+  errno: -32,
+  code: 'EPIPE',
+  syscall: 'write'
+}

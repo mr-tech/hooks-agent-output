@@ -1,0 +1,2 @@
+PERSISTED_KEYS=rowsClassifiedThisRun,trueCount,falseCount,perCheckFailureCounts,flagStructureDisagreement,flagStructureDisagreementValidTrue,whitespaceContent,evaluationFailures,tableWideRowCount,interrupted,runId,startedAt,endedAt
+runId=RUNID-SENTINEL startedAt=STARTED-SENTINEL endedAt=ENDED-SENTINEL
