@@ -1,0 +1,40 @@
+{
+  "rowsClassifiedThisRun": 0,
+  "trueCount": 0,
+  "falseCount": 0,
+  "perCheckFailureCounts": {},
+  "flagStructureDisagreement": {
+    "count": 0,
+    "rowIds": []
+  },
+  "flagStructureDisagreementValidTrue": {
+    "count": 0,
+    "rowIds": []
+  },
+  "whitespaceContent": {
+    "count": 0,
+    "rowIds": []
+  },
+  "evaluationFailures": {
+    "count": 0,
+    "rowIds": []
+  },
+  "tableWideRowCount": -1,
+  "interrupted": true
+}
+Error: connect ECONNREFUSED 127.0.0.1:1
+    at /usr/local/bin/hooks/website/node_modules/.pnpm/pg-pool@3.6.1_pg@8.11.1/node_modules/pg-pool/index.js:45:11
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async PostgresDriver.acquireConnection (/usr/local/bin/hooks/website/node_modules/.pnpm/kysely@0.26.1/node_modules/kysely/dist/cjs/dialect/postgres/postgres-driver.js:21:24)
+    at async RuntimeDriver.acquireConnection (/usr/local/bin/hooks/website/node_modules/.pnpm/kysely@0.26.1/node_modules/kysely/dist/cjs/driver/runtime-driver.js:31:28)
+    at async DefaultConnectionProvider.provideConnection (/usr/local/bin/hooks/website/node_modules/.pnpm/kysely@0.26.1/node_modules/kysely/dist/cjs/driver/default-connection-provider.js:10:28)
+    at async DefaultQueryExecutor.executeQuery (/usr/local/bin/hooks/website/node_modules/.pnpm/kysely@0.26.1/node_modules/kysely/dist/cjs/query-executor/query-executor-base.js:36:16)
+    at async SelectQueryBuilder.execute (/usr/local/bin/hooks/website/node_modules/.pnpm/kysely@0.26.1/node_modules/kysely/dist/cjs/query-builder/select-query-builder.js:1136:24)
+    at async runBackfill (/usr/local/bin/hooks/website/src/scripts/backfillValid.ts:132:19)
+    at async main (/usr/local/bin/hooks/website/src/scripts/backfillValid.ts:170:5) {
+  errno: -111,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 1
+}
