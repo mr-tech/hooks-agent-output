@@ -9,9 +9,12 @@ Verified-At: >-
   chain/012-message-valid-field @ eb38a15, both clean, 2026-08-23. Phase 2 records its own.
 Status: Awaiting Implementation
 Status-Detail: >-
-  Phase 1 rev 2. Strategy complete and re-derived against plan rev 6 (`7af8936`), which enacted
+  Phase 1 rev 3. Strategy complete and re-derived against plan rev 6 (`7af8936`), which enacted
   all three QA findings (D11, D12, F-QA2). R12/R13 closed by owner ruling. One new finding —
-  F-QA8, M2-f's recovery is reachable but content-destructive — routes to the owner.
+  F-QA8, M2-f's recovery is reachable but content-destructive — routes to the owner. Rev 3 adds
+  F-QA9 (whitespace-content class, undecided truth condition) and F-QA10 (top-level-only detection
+  is complete over the representable domain, not by checking; falsifier installed), and corrects
+  rev 1's account of the JSON-modal path.
 ---
 
 # QA Report: Plan 012 — `valid` field on stored messages
@@ -28,6 +31,7 @@ Status-Detail: >-
 |------|---------------|---------|---------|
 | 2026-08-23 | steering-hooks-012 | QA Phase 1 — test strategy before implementation | Phase 1 written. Sources read in full: plan rev 4, critique (closed, APPROVED), both handoffs, workspace architecture record. Code read directly on both chain branches. Deliverables: executability determination, testing-infrastructure list, Irreversible Side-Effect Register, per-criterion property audit, pre-registered M2 partition spec (executed — Red confirmed), mutation sweep plan, seven findings, blocking-condition register. |
 | 2026-08-23 | steering-hooks-012 (correction) | Owner ruling *"change, qa-1 will handle both"* — this session carries Phase 2 as well | Remit widened from Phase 1 only to the whole QA remit. Independence measures added (see *Independence Under a Single-Session Remit*) because the session that writes the strategy will later judge against it. |
+| 2026-08-23 | steering-hooks-012 | Relay of a read-only determination (statbot code-review question): whitespace-content gap, JSON-modal cost, top-level-only fragility. Re-derive before acting | **Phase 1 rev 3.** All three re-derived **by execution**, not accepted on relay. (a) **F-QA9** opened — whitespace-only content is not content to the gate (`content.trim()`), a class the frozen partition did not distinguish; M2 moves no whitespace verdict, so it is a **D1 truth-condition** question, not an M2-b risk. Registered as R18 and proposed as an M6-b category. (b) **Rev 1's JSON-modal account corrected** — measured, it drops `components` and `flags` but **preserves `content`**, so for 5712 it is *lossless* while D11's sanctioned path is the lossy one. F-QA8 updated beside its original text, not over it. (c) **F-QA10** — top-level-only V2 detection is complete over the representable domain, not by checking; executable falsifier installed. Spec extended to 36 tests (EXT-1, EXT-2). |
 | 2026-08-23 | steering-hooks-012 | Relay: `check-repo` FAILing at 257; re-derive before acting. Plus owner rulings D11/D12 and plan rev 6 | **Phase 1 rev 2.** (a) Count re-derived independently: **257 confirmed**, exactly two from this document, both dangling repo-rooted citations to Phase-2 destinations. Fixed via the checker's own `check-repo:ignore` opt-out with stated reasons, plus a real `verification/012/README.md`; **re-run reconciles at 255**, zero from this document. (b) Plan rev 6 read: D11, D12 and F-QA2 all enacted. R12/R13 closed. (c) M2-e/M2-f traced and simulated — **new finding F-QA8**: M2-f's recovery is reachable but destroys the user's message content, and M2-f as worded measures reachability, not preservation. Spec extended to 30 tests. |
 
 ## Timeline
@@ -351,6 +355,7 @@ Numbers re-derived by this pass, not carried from any predecessor document.
 |---|---|---|
 | Full existing suite, baseline | `npx vitest run` (website, `72dc7de`, after `pnpm install --frozen-lockfile`) | **14 files, 316 tests. 13 files / 312 tests pass.** The only 4 failures are the pre-registered Red cells below — the pre-existing suite is fully green |
 | Pre-registered M2 partition spec, rev 1 | `npx vitest run src/utils/__tests__/012-send-gate-partition.test.ts` | **16 passed, 4 failed.** Failing: **B3, B5, B7** and the 5712 sentinel (B5's shape). Exactly the set predicted before the run |
+| Same spec, rev 3 (EXT-1 whitespace, EXT-2 nesting falsifier) | same command | **31 passed, 5 failed (36).** The Red set is unchanged — all five are the same pre-M2 defect. Every EXT cell is characterisation or structural and passes today |
 | Same spec, rev 2 (D11 round trip added) | same command | **25 passed, 5 failed (30).** The fifth Red is *"5712 is unsendable as stored"* — the same pre-M2 defect as the other four, and it goes green with them. **The D11 round-trip simulation passes today**, which is what makes F-QA8 a measured result rather than an argument |
 | `check-repo` before / after the citation fix | `node tools/check-repo.js` | **257 → 255.** Independently reproduces the planner's relayed count. Enumerated my document's own citation candidates under the checker's three predicates: **5 total — 3 resolve, 2 suppressed with reasons, 0 failing** |
 | Gate never reads `flags` | `grep -c "flags" src/utils/limits.tsx` | **0** — independently reproduces critique verification #1 |
@@ -393,6 +398,22 @@ its *Load* button replaces `data` wholesale with the parsed object. So opening t
 pressing *Load* — changing nothing — silently drops the flag and fixes the record. That is a real
 path, but it is undiscoverable, undocumented, and it also discards every other non-whitelisted
 field. It is not "editing the message in the composer".
+
+> **CORRECTION, rev 3 (2026-08-23) — recorded beside the paragraph above, not over it.** "Discards
+> every other non-whitelisted field" was true but too vague to be useful, and it obscured the fact
+> that matters. Measured by executing `standardizeMessage(stripKeys(...))` on both record shapes:
+>
+> | Input record | JSON-modal seed after Load |
+> |---|---|
+> | 5712 (`flags`, `content`, `username`, `avatar_url`, `components: []`) | `{username, avatar_url, content}` — **`content` preserved**, `flags` dropped, no components to lose |
+> | flag + Action Row + content (spec cell B3's class) | `{username, content}` — **the Action Row is destroyed** |
+>
+> `standardizeMessage` copies `username`, `avatar_url`, `content`, `allowed_mentions`, `embeds`
+> and rebuilds nothing else — **`components` and `flags` are both dropped**. So the cost is
+> class-dependent, and for the named sentinel it is **zero**: the JSON-modal path repairs 5712
+> losslessly. That inverts the comparison in F-QA8 and is why this correction is load-bearing
+> rather than cosmetic. Provenance: raised by a steering determination from a statbot code-review
+> question; re-derived here by execution before being recorded.
 
 **Why this is a new fact and not ruling D10 re-raised.** D10 (*"Leave it out, note it"*) disposed of
 save-path flag normalisation when the flag's only consequence was the field's value. After M2 the
@@ -511,6 +532,21 @@ honestly, against a recovery that costs the user their content. That gap is invi
 suite and to the criterion's own reading — it is exactly the *"the test discriminates for the
 specified behaviour, but the specified behaviour does not cover the property"* case.
 
+> **SHARPENED, rev 3 (2026-08-23).** Measured (see the correction under F-QA1), the two recovery
+> paths destroy **different things**, and for the named sentinel the sanctioned one is the lossy one:
+>
+> | Path | flag cleared | `content` | `components` | For 5712 |
+> |---|---|---|---|---|
+> | Mode-toggle round trip (**D11**, the sanctioned fix) | yes | **destroyed** — must retype | preserved (type-1 filtered) | **lossy** |
+> | JSON modal *Load* (undiscoverable, pre-existing) | yes | **preserved** | **destroyed** | **lossless** |
+>
+> So for 5712 — the record the owner chose D11 to repair — the pre-existing undiscoverable path
+> costs nothing and D11's path costs the message text. This does not reverse F-QA8; it makes the
+> disposition sharper, because "accept the cost" now means accepting a cost that a path already in
+> the product does not impose on this record. For records carrying **both** components and a
+> stranded flag (spec cell B3's class), the comparison flips again — D11's path is the lossless one
+> there. Neither path is lossless in general.
+
 **Not a blocker, and deliberately not a redesign.** The user is warned before step 1 ("Your embeds
 and content will be removed. This cannot be undone."), and copy-the-text-out-first is an available
 manual workaround. Two dispositions, both the owner's, and both cheap:
@@ -523,6 +559,74 @@ manual workaround. Two dispositions, both the owner's, and both cheap:
 
 **I am pricing, not proposing.** What matters is that the choice is made on the traced cost rather
 than on the assumption that D11 delivered a clean repair. Register row **R16**.
+
+
+### F-QA9 (MEDIUM, opened at rev 3) — whitespace-only content is not content, and nobody has decided whether that is right
+
+**Route: the owner, or statbot's corpus. Register row R18.**
+
+`hasContent` tests `content.trim()`, so `content: "   "` is **not content** to this gate. Verified by
+execution, not by reading:
+
+| Cell | Input | Gate today |
+|---|---|---|
+| W1 | whitespace content + structurally-V2 components | **permits** (`''`) |
+| W2 | tabs/newlines + structurally-V2 components | **permits** |
+| W3 | whitespace content + flag set + no components | *"Message must have content, embeds, or components."* |
+
+The original frozen partition's content-source axis was {content string, embeds array, neither},
+using `'Hi'` and `''` — **no cell separated `"   "` from `""`.** That is a genuine gap in my
+enumeration and I am recording it as mine, not as a relay.
+
+**Two things make this smaller than it first looks, and one keeps it open.**
+
+- **It is not an M2 question.** M2 moves **no** whitespace verdict in either direction — both W1 and
+  W3 are decided by `hasContent === false`, which neither M2 nor D11 touches. So M2-b is not at
+  risk and the frozen residue enumeration (B3/B5/B7) stands unchanged. Asserted executably as cell
+  W4 so a later reader cannot mistake EXT-1 for a hole in M2's coverage.
+- **It is a D1 truth-condition question**: does `valid: true` correctly describe a V2 record whose
+  content is whitespace? If Discord accepts that shape, the gate is right and there is nothing here.
+  If Discord rejects it with `50035`, then hooks.gg marks **sendable** a message that is not — the
+  precise failure this whole chain exists to prevent, arriving at Statbot as a live send failure on
+  a record hooks.gg vouched for.
+- **It is not determinable from this codebase.** It needs a live POST, which is the owner's
+  instrument (as it was for both existing sentinels). I have therefore pinned **characterisation
+  only** — what the gate does today — and entered no guessed correctness expectation into the frozen
+  set.
+
+**Cheapest disposition, and it defers the correctness question to data rather than to judgement:**
+add the class as its **own named category in M6-b's distribution report** — records whose
+`data.components` are structurally V2 and whose `content` is non-empty but whitespace-only. That
+measures the population before anything gates on it, costs one predicate in a report that already
+breaks out three other classes, and puts a number in front of the owner at the review he is already
+doing. If the count is zero, the question is moot and closes itself.
+
+### F-QA10 (LOW, opened at rev 3) — top-level-only V2 detection is complete over the representable domain, not complete by checking
+
+`validateContentRequirements`' inline `.some`, `hasV2Components`, and 012's `hasV2struct` all detect
+V2-ness at **top level only**. That is currently sound, and it is sound **by the shape of the
+schema rather than by any check**:
+
+- the only non-V2 top-level type is the Action Row (`type: 1`);
+- `actionRowShape.components` is `z.array(linkButtonShape)`, and `linkButtonShape` is `type: 2`;
+- `2` is not in `V2_COMPONENT_TYPE_VALUES` (`[9,10,11,12,13,14,17]`);
+- every other top-level type **is** V2 and is caught at top level.
+
+So a V2 element nested where no V2 sits at top level **cannot be built**. No defect exists today, and
+none ever did — the shape has always been this narrow.
+
+**Why it is worth a finding anyway.** The soundness is a property of a *neighbouring* module's schema,
+not of the gate. The day Action Row children widen — a select menu, a general container — the gate,
+`hasV2Components` **and** the 012 predicate all inherit the hole simultaneously and silently, and
+nothing in the suite would go red. That is the definition of a check that is correct by accident.
+
+**Closed with a falsifier rather than a change**: spec block **EXT-2** asserts at source level that
+Action Row children remain link-buttons-only. If that assertion ever fails, three call sites must
+stop being top-level-only, and the spec says which. No action is owed now; this is an installed
+tripwire, not an open item.
+
+Also recorded for the chain: statbot's reviewer had assumed nesting might be reachable. It is not —
+determined structurally here, and the field's history shows it never was.
 
 
 ---
@@ -558,6 +662,7 @@ UAT document, and then the deployment record, are authoritative on each row's ex
 | R14 | pre-release | **M2-e**: every V2→classic switch leaves no `IS_COMPONENTS_V2_FLAG`, over the whole class of departing contents — and clears **only** that bit | The pre-registered spec's M2-e block (5 departing states + a bit-masking control) | QA (automated; no human) | M2 implemented | All green | A `flags = 0` assignment instead of a mask passes every class member and silently destroys unrelated flag bits on every mode switch — for every user, not just affected ones | qa | Open |
 | R15 | post-deploy-observable | **M2-f**: stored record 5712 brought to a Send-enabled state through supported composer controls alone, no JSON modal | Composer UI | Owner (only he can load that guild's message) | After website deploy | Reachable — via the round trip in F-QA8 | If unreachable, D11's one line did not deliver what the owner chose it for, and the fix bought the affected guild owner nothing | uat (owner observes) | Open |
 | R16 | pre-release | **F-QA8**: the owner has ruled on whether M2-f's content-destroying recovery is accepted as-is, or M2-f gains a preservation clause | Owner's ruling, recorded | Owner | Now — decidable before M2 is written | A stated disposition either way | If accepted silently, guild owners are sent to a repair that retypes their message, and nobody tells them to copy the text first. M2-f passes cleanly either way, so nothing downstream will catch it | owner (put by steering) | Open |
+| R18 | pre-release | **F-QA9**: the whitespace-content class is decided — either statbot's corpus/the owner's live POST settles whether Discord accepts flag-set-plus-whitespace content, or M6-b carries the class as its own category so the population is measured before it gates | Owner's live POST, or statbot's corpus, or the M6-b count | Owner (live POST is his instrument, as for both existing sentinels) | Now for the ruling; the count at backfill | Either a Discord verdict, or a category count — plausibly zero, which closes it | If undecided and Discord in fact rejects the shape, hooks.gg marks **sendable** a message that is not, and Statbot attempts a send that fails on a record hooks.gg vouched for — the exact failure the chain exists to prevent | owner (put by steering) | Open |
 | R17 | pre-release | **D12 enactment**: the devops agent records that the statbot-side ordering instruction was **relayed**, and does not claim statbot's compliance (which is that workspace's to verify) | The deployment record | devops (documentary; no human) | At release | Relay recorded | D12 has no planning-document mirror on the statbot side — plan rev 6 makes this row the only executable trace that the constraint travelled at all. An unrecorded relay is indistinguishable from no relay | devops | Open |
 
 R2 satisfies the standing requirement that a chain fixing a user-reported defect register at least
@@ -602,11 +707,16 @@ against those rulings.
 
 **One new item routes, and one is housekeeping:**
 
-1. **F-QA8 (MEDIUM) → the owner, via steering.** D11's recovery works, and it costs the user their
+1. **F-QA9 (MEDIUM) → the owner, via steering.** Whitespace-only content is not content to the
+   gate, and whether that is correct needs a live Discord POST — his instrument. Cheapest close is
+   an M6-b category so the population is measured rather than argued. Register row **R18**.
+2. **F-QA8 (MEDIUM) → the owner, via steering.** D11's recovery works, and it costs the user their
    message text. M2-f measures reachability, not preservation, so it will pass cleanly over that
    cost — which is exactly why it needs saying now rather than at UAT. Priced, not proposed.
-   Register row **R16**.
-2. **`check-repo` is back to 255** — the predecessor-era baseline — with zero failures from this
+   Register row **R16**. Sharpened at rev 3: measured, the JSON-modal path is *lossless for 5712*
+   while D11's is the lossy one, so "accept the cost" means accepting one the product does not
+   already impose on that record.
+3. **`check-repo` is back to 255** — the predecessor-era baseline — with zero failures from this
    document. Both were forward references to Phase-2 destinations; fixed with the checker's own
    `check-repo:ignore` opt-out carrying stated reasons, plus a real `verification/012/README.md`
    registering what will land there. Reconciled by re-run, not by the fix list.
