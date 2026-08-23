@@ -18,8 +18,8 @@ closed. A document's path changes when it closes; its name does not.
 | Stage | Location | Status |
 |---|---|---|
 | critique | `critiques/closed/012-message-valid-field-critique.md` | Resolved — Pass 2 (rev 4, commit 13b4d4c): all four pass-1 findings verified RESOLVED against the diff. Both steering-flagged items judged sound (NULL-only backfill = valid narrowing; F3's false disposition = contract derivation, not amendment). Verdict: APPROVED for implementation. |
-| plan | `planning/012-message-valid-field.md` | Active — Rev 4. Critique pass 1 findings addressed (F1 release total-order, F2 backfill placement subordinated to reuse, F3 evaluation-failure residue named, F4 register rephrase); M1–M5 text unchanged per the critique's re-review expectation. Awaiting critique re-verification. |
-| QA | `qa/012-message-valid-field-qa.md` | Awaiting Implementation — Phase 1 test strategy complete, written before any implementation exists. Blocks on two owner dispositions (register rows R12, R13) before the implementer starts. |
+| plan | `planning/012-message-valid-field.md` | Active — Rev 6. QA Phase 1 complete (qa doc, commit 2455193); two owner rulings enacted — D11 (V2 flag cleared on mode switch back, folded into M2) and D12 (statbot deploy ordered after the live declaration, release condition 5; sole planning-register record on either side, written to stand alone) — and F-QA2 accepted (M6-b flag-residue breakout; R2 threshold retired). Scope delta reported to steering; downstream movement awaits the owner's approval of the delta. |
+| QA | `qa/012-message-valid-field-qa.md` | Awaiting Implementation — Phase 1 rev 2. Strategy complete and re-derived against plan rev 6 (`7af8936`), which enacted all three QA findings (D11, D12, F-QA2). R12/R13 closed by owner ruling. One new finding — F-QA8, M2-f's recovery is reachable but content-destructive — routes to the owner. |
 
 ### 1 — 0 open, 8 closed
 
