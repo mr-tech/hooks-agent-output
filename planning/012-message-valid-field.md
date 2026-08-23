@@ -6,11 +6,14 @@ Parent: message-valid-field-for-statbot-2026-08-23.md
 Status: Active
 Status-Detail: >-
   APPROVED FOR IMPLEMENTATION (critique cycle 2 pass 2, `a4bec32`); assembled scope ratified as a
-  whole (D15). Implementer running. Code review round 1 REJECTED (`24b8af1`: M6 execution-shell
-  defects; M1–M5 assessed ready); round 2 REJECTED narrowly (`66ddcf6`: H3 — the backfill's
-  success path can lose the single-shot M6-b gate evidence behind an unguarded await; H1 and M1
-  closed). Implementer in fix round 2 (H3 and the M2 record correction blocking, then M1-r2, L4,
-  L6). Plan current at rev 14: risk rows R1–R7 carry per-review-pass prediction records; R7
+  whole (D15). Code review round 1 REJECTED (`24b8af1`: M6 execution-shell defects; M1–M5
+  assessed ready); round 2 REJECTED narrowly (`66ddcf6`: H3). **Round 3 APPROVED_WITH_COMMENTS**
+  (website `eb28ae6`): H3 closed on both members — the guard asymmetry structurally, the ordering
+  by execution, the reviewer's own inversion hypothesis raised and refuted; M1, M1-r2, L4 and L6
+  closed or addressed; no HIGH survives. Non-blocking findings routed, none holding the tree: M4
+  (`npm run backfill-valid` defaults to the production database unguarded and **arms at the pin
+  refresh** — a sequencing constraint on that commit, not a re-review trigger), M5 (one stale
+  wiring-seam closure claim left in the implementation doc), L7–L9. Plan current at rev 15: risk rows R1–R7 carry per-review-pass prediction records; R7
   (opened rev 14, review F1 routed by steering) records the D1-parity consequence class —
   per-embed limits unchecked by `validateMessage`, uncountable by M6-b by construction. Revision
   narrative in the Changelog. Next planner touch on steering's signal.
@@ -21,7 +24,7 @@ Status-Detail: >-
 | Field | Value |
 |---|---|
 | Plan ID | 012 |
-| Revision | 14 |
+| Revision | 15 |
 | Target Release | Next `project-utils` `master` push + next `website` `master` deploy (Vercel), plus owner-executed DDL and backfill against the production database. Neither package carries a `version` field or CHANGELOG, so the release is named by the serving refs moving; the devops agent verifies at release. **No roadmap document exists in this workspace** (`roadmap/` is empty) — the target is derived from the originating handoff, not a roadmap grouping. |
 | Epic Alignment | None citable — recorded absence, not an oversight: no roadmap document exists to align against. The effort is owner-directed via handoff `message-valid-field-for-statbot-2026-08-23.md` (UUID 61f24e56). |
 | Lane | standard — blast radius spans the shared data layer (schema), a cross-product API surface, and the production dataset; not small however few the lines. |
@@ -46,6 +49,7 @@ Status-Detail: >-
 | 2026-08-23 | 12 | planner | Review-attribution in R6 and changelog row 10 corrected on steering's withdrawal of its own relay (its message, this date), re-derived at the committed artifact rather than from the withdrawal: the critic's cycle-2 pass-2 record (`critiques/closed/012-message-valid-field-critique.md`, cited there at `f61938a`) names `useApiMethods.ts` and the wholesale `data` replacement in its Assumption Not Checked line and its verification item 2, and itself routed the runtime check to QA — so "neither prior review named the file" was false as to the critic. Accurate history now in R6: QA's review credited `standardizeMessage`; the critic's credited the wholesale replace, named the file, and declared its own static read insufficient. Row 10 re-statused in place with a pointer here. R6's operative content (class, falsifier, instrument, mitigation) unchanged; searched the plan for the withdrawn claim — two sites only, both corrected this row. A planning revision, not a registration: it rewrites body text, though no criterion, milestone or register row changed. |
 | 2026-08-23 | 13 | planner | Review-pass prediction records written against code review round 1 (`24b8af1`, REJECTED; routed by steering, judged planner-side). R2 is the substantive entry: the reviewer's MEDIUM finding judged an **instrument defect caught before first use, not the falsifier firing** — no data exists until backfill, so no member of R2's class was observed; what failed was the named instrument's ability to support the falsifier's required reading (flag-residue breakout id-less; `valid === true` sub-class invisible), with the HIGH truncation finding compounding it selectively for the mass-anomaly case. Both in the implementer's fix round. R1/R3/R4/R5 carry no-member entries; R6 records the class checked at implementation, mechanism intact. No criterion, milestone or register row changed; the review's new TDD assumption is routed to QA Phase 2 by the reviewer and owes this plan nothing. |
 | 2026-08-23 | 14 | planner | Code review round 2 (`66ddcf6`, REJECTED narrowly on H3) F1 judged planner-side (routed by steering, re-derived at source): recorded as risk R7 — per-embed-limit misvouching, the consequence class of D1's parity ruling, with no instrument (M6-b's distribution is computed by the very predicate that omits the checks); parity itself holds, was anticipated (Assumption 1, M3-c), and is not reopened. Class sharpened at source beyond the finding: a live generator exists (embed-editor inputs uncapped, save not send-gated) while the JSON-import path admits no members (`embedShape` Zod caps) and `validateEmbed` is dead (sole exact-name reference its own definition). Round-2 prediction records written on R1–R6 (R2 substantive: H3 as a further instrument-evidence defect caught before first use); Status-Detail compressed to current state per its own budget rule. No criterion, milestone or register row changed. |
+| 2026-08-23 | 15 | code-reviewer | Code review round 3 (website `eb28ae6`): **APPROVED_WITH_COMMENTS**. H3 verified closed on both members — the asymmetric guard structurally (single `emit()` exit, one call site), and the persist/print ordering by execution: the reviewer hypothesised the fix had *inverted* rather than eliminated the hazard, tested it with a subject / positive-control / discriminating-control differential over a broken stdout pipe, and **the hypothesis was refuted** (stdout to a pipe is async on Linux; the durable write completes first). The round-2 verification named for return was independently re-derived: dead-`DATABASE_URL` drive, report printed and persisted byte-identical, `ECONNREFUSED` named. Instruments at `agent-output/verification/012/probe-cr3-h3-and-default-target/`. **A registration write only** — this row and the Status-Detail clause are the whole of it; no body text, criterion, milestone or register row touched. Round-3 prediction records on R1–R7 are the planner's to write and are NOT written here; R7's new sibling (L9, the plan's `backfill-report.md` artifact name versus the shipped `backfill-report-<runId>.md`) is routed to the planner, not absorbed. |
 
 ## Reading Order
 
