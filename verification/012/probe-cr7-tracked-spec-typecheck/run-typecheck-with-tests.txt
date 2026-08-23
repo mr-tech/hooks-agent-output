@@ -1,0 +1,29 @@
+$ cd website
+$ cat > tsconfig.cr7-probe.json <<'CFG'
+{ "extends": "./tsconfig.json", "exclude": ["node_modules"] }
+CFG
+$ npx tsc --noEmit -p tsconfig.cr7-probe.json
+exit=2
+
+total "error TS" lines .................. 27
+errors in 012-backfill-evaluation-failure-category-qa.test.ts ..... 0   <-- SUBJECT
+errors in 012-json-editor-repair-path.test.ts .................... 0
+
+per-file breakdown:
+     10 src/utils/__tests__/components-v2-data-layer.test.ts
+      7 src/utils/__tests__/mutual-exclusivity.test.ts
+      5 src/utils/__tests__/m7-m10-coverage-gaps.test.ts
+      5 src/utils/__tests__/012-message-mode.test.ts
+
+$ rm -f tsconfig.cr7-probe.json      # temp config removed; `git status --porcelain` clean after
+
+--- separate run, same tree ---
+$ npm run build
+  ✓ Compiled successfully in 8.4s
+  ├ ƒ /api/v1/guilds/[guildId]/messages
+  └ ƒ /api/v1/guilds/[guildId]/messages/[id]
+BUILD_EXIT=0
+
+--- round-6 class enumeration, re-run because tracking status is its predicate input ---
+tracked ts/tsx under src/pages at c85945f = 8 ; lacking default export = 0
+files changed under src/pages, 17cada0..c85945f = 0

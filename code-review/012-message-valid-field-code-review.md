@@ -3,14 +3,15 @@ ID: 012
 Origin: 012
 UUID: 12a4fe3c
 Parent: message-valid-field-for-statbot-2026-08-23.md
-Reviewed-At: "Round 6 (post-refresh): website `17cada0` on `chain/012-message-valid-field`; project-utils `749606d` on `master`; agent-output `9b95690` at review start. Plus one uncommitted in-scope file (QA's R6 instrument, held untracked deliberately): `website/src/utils/__tests__/012-json-editor-repair-path.test.ts`, sha256 `cf2066a07e9e921ba224c7cf190b2fa6ff132c4435eedd5d418815f51260c5b7`, re-verified at review start and end and unchanged across all six rounds. Exclusion list: no other foreign or uncommitted file was present in either tree at review start or end. Rounds 1-5 were conducted against website `bc5ee2b`, `681c353`, `eb28ae6`, `ff753a6` and `f983508`; no earlier verdict travels to this tree and none was inherited. Measured connector at THIS SHA, re-derived not carried: `pg` 8.11.1 / `pg-connection-string` 2.6.1."
+Reviewed-At: "Round 7 (delta): website `c85945f` on `chain/012-message-valid-field`; project-utils `749606d` on `master`; agent-output at review start per the round-7 commit. **The website working tree is now fully clean — no uncommitted or foreign file in scope, so this round needs no content-identity manifest.** `c85945f`'s parent is exactly `17cada0`; its whole delta is two added test files, zero production source, zero deletions. One of the two (`src/utils/__tests__/012-json-editor-repair-path.test.ts`) has blob sha256 `cf2066a07e9e921ba224c7cf190b2fa6ff132c4435eedd5d418815f51260c5b7` — byte-identical to round 6's manifest entry. The other (`src/scripts/__tests__/012-backfill-evaluation-failure-category-qa.test.ts`) **postdates round 6 and was reviewed for the first time this round.** Rounds 1-6 ran against `bc5ee2b`, `681c353`, `eb28ae6`, `ff753a6`, `f983508` and `17cada0`; no earlier verdict travels to this tree and none was inherited."
 Status: In Review
 ---
 
 # Code Review: Plan 012 — `valid` field on stored messages
 
 **Plan Reference**: `agent-output/planning/012-message-valid-field.md` (rev 22, `e561967`)
-**Round**: 6 — post-refresh pass. Round 5's verdict expired by its own terms: `17cada0` is a
+**Round**: 7 — delta round at `c85945f`. Round 6 (below) was the last full pass.
+**Round 6 was**: post-refresh pass. Round 5's verdict expired by its own terms: `17cada0` is a
 change to a tracked file since `Reviewed-At: f983508`.
 
 ## Verdict: APPROVED_WITH_COMMENTS
@@ -129,6 +130,112 @@ or fixture changed. The exemption holds.
 
 ---
 
+## Round 7 — delta round at `c85945f`: does the round-6 verdict transfer?
+
+**Asked by steering, correctly, rather than decided by steering.** The tree moved after round 6's
+`Reviewed-At: 17cada0`. Answer: **the verdict transfers, re-anchored — but only after this round,
+because one of the two added files is content no review had seen.**
+
+### What the delta actually is
+
+    git diff --numstat 17cada0 c85945f
+    59   0  src/scripts/__tests__/012-backfill-evaluation-failure-category-qa.test.ts
+    189  0  src/utils/__tests__/012-json-editor-repair-path.test.ts
+
+Parent of `c85945f` is exactly `17cada0`. Two additions, both `A`, zero production source, zero
+deletions, nothing under `src/pages`.
+
+### The relay was right about one file and wrong about the other
+
+Steering's account was that both files "were present as untracked paths throughout both passes", so
+the working-tree *content* was unchanged from what was reviewed and tested. Measured:
+
+| File | Blob at `c85945f` | Present at round 6? |
+|---|---|---|
+| `012-json-editor-repair-path.test.ts` | sha256 `cf2066a0…` | **Yes** — byte-identical to round 6's manifest entry, carried across all six rounds |
+| `012-backfill-evaluation-failure-category-qa.test.ts` | sha256 `363a98d6…` | **No** — mtime **12:15:34**; round 6 committed **11:44:08** |
+
+The second file postdates round 6 by 31 minutes. It was authored by QA *during Phase 2*, to close
+mutation survivor MS-8, and first appears in the record in QA's Phase 2 document (`1881347`,
+12:20:44). Committing does not touch mtime, so the mtime is real evidence of authorship time.
+
+Two things follow, and they point in opposite directions:
+
+1. **Round 6's exclusion-list claim is not falsified.** It said no other uncommitted file was
+   present at review start or end. The file did not yet exist. I checked this before checking
+   anything else, because the alternative was a false claim of my own.
+2. **A delta round was genuinely owed** — not on the tracking technicality, but because 59 lines of
+   new content entered the release that no review had read.
+
+The relay error is an honest one and worth naming only because it is the exact thing "read these
+rather than taking my word" exists to catch. It did.
+
+### The tracking half of the argument is sound
+
+Tracking status is invisible to every tool in this stack: vitest (`include: ['src/**/*.test.ts']`),
+`tsc` (`include`/`exclude` globs) and Next all resolve by filesystem, not by git. Both files were
+already being collected before the commit. What tracking changes is **release scope** — and that is
+a real change, because the new file now ships.
+
+### The new file, attacked
+
+Read in full. One hypothesis available: `MessageData` appears in type position at two sites with no
+import. **Refuted** — it is an ambient global (`src/@types/global.d.ts:116`, inside the file's
+`declare global` block). Recorded rather than dropped.
+
+That was a proxy for the question that matters: is the new spec a member of **F-QA13**'s class —
+specs that would not survive the `**/__tests__` tsconfig exclusion being closed? Reading cannot
+answer it, because the shipped config never typechecks the file. So I built the instrument:
+a throwaway tsconfig extending the real one with `**/__tests__` removed from `exclude`, run under
+`tsc --noEmit`, then deleted. Captured at
+`agent-output/verification/012/probe-cr7-tracked-spec-typecheck/`.
+
+    27 errors total; 0 from either newly-tracked file
+    F-QA13's 5 in 012-message-mode.test.ts reproduce exactly
+    the 22 pre-existing (10 + 7 + 5) reproduce exactly
+
+**Not a member of the class**, and QA's counts are confirmed by my own run rather than carried.
+
+**Guard soundness** — my standing rule is that a fix to a guard gets re-attacked from first
+principles, and an MS-8 survivor-guard is exactly a guard. The shape holds up:
+
+- Test 1 hand-builds the classification object and asserts `{ count: 1, rowIds: ['row-9'] }` as a
+  literal. It does **not** route through `classifyRow`, and its expected value is not computed from
+  the code under test — so it cannot pass vacuously under the defect it names.
+- Test 2 is the composition path (`classifyRow → accumulate → category`) on the non-conformant
+  shape Phase 1's assumption named, again with literal expectations.
+- Test 3 is a **live negative control in the other direction**: a normal refusal must *not* enter
+  the category. It stays green under MS-8 by design, and discriminates the inverted-condition
+  mutant instead.
+
+QA's reported red-under-mutant of 2/3 is exactly what this structure predicts.
+
+### Round-6 enumeration re-run, because its predicate input moved
+
+Round 6's build-defect class was *tracked files under `src/pages` lacking a default export*.
+Tracking status is the predicate's input and tracking status is what changed, so the enumeration was
+re-run rather than assumed stable: **8 tracked `.ts`/`.tsx` under `src/pages`, 0 lacking a default
+export**; 0 files under `src/pages` changed in the delta. Class still empty.
+
+`npm run build` at `c85945f`: **exit 0**, both v1 routes dynamic.
+
+### Considered and dismissed, with the reason
+
+Both new files carry human-prose comment blocks (20 and 64 comment lines), which my review standard
+disfavours in source. **Not raised as a finding**: no comment gate is installed in this repo, and
+the tracked-spec norm here is 12 / 31 / 44 comment lines, so both files sit inside the local norm.
+Raising it would be inventing a standard the repository does not hold, which is the scope expansion
+D18 forbids.
+
+### Round 7 verdict
+
+**APPROVED_WITH_COMMENTS carries to `c85945f`.** No new finding. CR-M7 and CR-L11 stand exactly as
+written — nothing in the delta touches either. The production surface is provably unchanged: zero
+production source in the diff, zero deletions, and the one previously-reviewed file byte-identical
+to its round-6 hash.
+
+---
+
 ## Findings
 
 ### CR-M7 — MEDIUM — a scope verification that is false against the artifact it describes, and not reproducible
@@ -242,11 +349,18 @@ Round 3's assumption remains **devops'**, at the pin-refresh commit. Not mine, a
 
 1. **implementer** — CR-M7's Minimum: correct the four claim sites. The Preferred (verify from the
    commit, not the working tree) is a habit change, not a code change, and needs no round.
-2. **qa (Phase 2)** — full-suite execution against `17cada0`; **owns this round's Assumption Not
-   Checked**, whose falsity signature is a suite failure on unchanged source.
+2. **qa (Phase 2)** — complete at `17cada0` (rev 6, PASS). Round 6's Assumption Not Checked is
+   discharged there.
 3. **devops** — at release, **do not inherit "0 unrelated"**: the lockfile carries 28 package moves
    beyond the pin. Round 3's assumption is still yours at the pin-refresh commit.
 4. **handoff register** — CR-L11 under D18.
 
-**Handing off to the qa subagent for test execution** — routed through steering, per the standing
-correction that stage-to-stage handoffs go through that thread.
+5. **uat** — clear to start against `c85945f`. **Owns round 7's Assumption Not Checked**: this
+   round assumed the two added specs' *runtime* result is unchanged from QA's Phase 2 run, on the
+   ground that vitest collected both files before the commit as it does after. I did not re-run the
+   suite — that is QA's instrument, not mine. Falsity signature: a suite count at `c85945f` other
+   than QA's recorded **22 files / 411 tests**, on source that did not move. Closing it costs one
+   `npx vitest run`, and it is named here so it is routed rather than shelved.
+
+**Handing off to the uat agent** — routed through steering, per the standing correction that
+stage-to-stage handoffs go through that thread.
