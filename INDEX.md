@@ -7,11 +7,17 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-75 documents · 11 numbered chains · 7 unnumbered.
+77 documents · 12 numbered chains · 8 unnumbered.
 
 ---
 
 ## By chain
+
+### 012 — 1 open, 0 closed
+
+| Stage | Location | Status |
+|---|---|---|
+| plan | `planning/012-message-valid-field.md` | Active — Rev 2. OQ-1 ruled by the owner (a composer bug, to be fixed — not a predicate clause); M2 and M5 are PREMISE-STALE pending authorisation of the derived re-scope (one added milestone: correct the send gate in website). Delta reported to steering; no further passes until authorised. Target repos unchanged: project-utils then website. |
 
 ### 1 — 0 open, 8 closed
 
@@ -148,6 +154,7 @@ they are the ID-less artifacts that root new efforts.
 | deployment | `deployment/2026-04-07-plan-005.md` | Released |
 | deployment | `deployment/2026-04-07-plan-006.md` | Released |
 | deployment | `deployment/2026-04-07-plans-001-003-004.md` | Released |
+| handoff | `handoff/json-editor-bad-configurations-2026-08-23.md` | Open — Owner-directed follow-up, raised while ruling on chain 012's OQ-1 and deliberately kept out of that chain. The composer's mode-switch modal already treats message mode as a real property, so the question is whether the JSON editing path can still store configurations the composer itself would refuse. Nothing is built, nothing is investigated, and no effort is committed to — the owner's instruction was that this is worth a handoff and researching later. |
 | handoff | `handoff/message-valid-field-for-statbot-2026-08-23.md` | Open — Owner-directed work on the hooks.gg side, agreed in shape but not yet built. A `valid` boolean is to be added to stored message records so Statbot can refuse messages hooks.gg already knows cannot be sent. The shape below was proposed by statbot chain 023's planner and accepted by the owner unaltered on 2026-08-23; statbot chain 023 is proceeding in parallel against it as a settled contract. Nothing here is built yet. This document records what was agreed and why, so the hooks.gg implementation is not re-derived from a conversation. |
 | UAT | `uat/closed/004-lazy-loading-preload-overhaul-uat.md` | — |
 
@@ -221,6 +228,7 @@ they are the ID-less artifacts that root new efforts.
 | `010-infopanel-overlap-fix.md` | `planning/closed/010-infopanel-overlap-fix.md` |
 | `010-infopanel-overlap-on-initial-load-analysis.md` | `analysis/closed/010-infopanel-overlap-on-initial-load-analysis.md` |
 | `011-transition-height-react-style-conflict-analysis.md` | `analysis/closed/011-transition-height-react-style-conflict-analysis.md` |
+| `012-message-valid-field.md` | `planning/012-message-valid-field.md` |
 | `2026-04-07-plan-005.md` | `deployment/2026-04-07-plan-005.md` |
 | `2026-04-07-plan-006.md` | `deployment/2026-04-07-plan-006.md` |
 | `2026-04-07-plan-007.md` | `deployment/2026-04-07-plan-007.md` |
@@ -228,5 +236,6 @@ they are the ID-less artifacts that root new efforts.
 | `2026-04-09-plan-008.md` | `deployment/2026-04-09-plan-008.md` |
 | `2026-04-12-plan-009.md` | `deployment/2026-04-12-plan-009.md` |
 | `2026-04-12-plan-010.md` | `deployment/2026-04-12-plan-010.md` |
+| `json-editor-bad-configurations-2026-08-23.md` | `handoff/json-editor-bad-configurations-2026-08-23.md` |
 | `message-valid-field-for-statbot-2026-08-23.md` | `handoff/message-valid-field-for-statbot-2026-08-23.md` |
 | `system-architecture.md` | `architecture/system-architecture.md` |
