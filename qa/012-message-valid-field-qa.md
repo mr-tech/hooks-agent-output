@@ -20,7 +20,10 @@ Status-Detail: >-
   residue. Rev 5: R19 and R15 both corrected against the critic's cycle-2 pass-2 items (F-QA11); an
   unrelayed ordering defect in the 5712-keyed rows found and fixed; the critic's static-reading
   assumption on D13's cost table closed by execution (EXT-3) — conclusion intact, justification
-  replaced (F-QA12).
+  replaced (F-QA12). Rev 5b: F-QA12's own instrument had the residue planner rev 10 risk row R6
+  named — it transcribed the merge instead of calling it, so the refactor it guards against left it
+  green. Closed: it now runs the shipped `updateMessage`/`saveMessage`, and the deep-merge mutant is
+  **observed killing 4 of 6** where it previously survived all 6.
 ---
 
 # QA Report: Plan 012 — `valid` field on stored messages
@@ -37,6 +40,7 @@ Status-Detail: >-
 |------|---------------|---------|---------|
 | 2026-08-23 | steering-hooks-012 | QA Phase 1 — test strategy before implementation | Phase 1 written. Sources read in full: plan rev 4, critique (closed, APPROVED), both handoffs, workspace architecture record. Code read directly on both chain branches. Deliverables: executability determination, testing-infrastructure list, Irreversible Side-Effect Register, per-criterion property audit, pre-registered M2 partition spec (executed — Red confirmed), mutation sweep plan, seven findings, blocking-condition register. |
 | 2026-08-23 | steering-hooks-012 (correction) | Owner ruling *"change, qa-1 will handle both"* — this session carries Phase 2 as well | Remit widened from Phase 1 only to the whole QA remit. Independence measures added (see *Independence Under a Single-Session Remit*) because the session that writes the strategy will later judge against it. |
+| 2026-08-23 | steering-hooks-012 | Planner rev 10 (`ed6845e`) risk row R6: EXT-3 would not go red under the refactor it guards against — QA's file, QA's call | **Phase 1 rev 5b.** Confirmed and **closed rather than accepted as a recorded gap**. EXT-3 transcribed the `updateMessage` merge, so it characterised a copy while being cited for protection of the original; the deep-merge falsifier left it green. It now calls the **shipped** `updateMessage` and `saveMessage` (identity-mocking `useCallback` only, no new dependency in a shared tree). Evidence is the mutant, not the claim: transcribed version **survived** it 6/6, shipped version **kills** it 4/6, one failure surfacing the operator-visible consequence — *"Components V2 messages cannot contain embeds or content."* Mutation performed on a file QA does not own under a restore-guard protocol; original md5 confirmed byte-identical afterwards. |
 | 2026-08-23 | steering-hooks-012 | Critic cycle-2 pass 2 APPROVED (`a4bec32`); two items against this register relayed for re-derivation, plus a closure the critic named QA for | **Phase 1 rev 5.** All re-derived. (a) **R19 was wrong twice** — it named "V2 components + stranded flag", a *consistent* record needing no repair, while citing cell B3, which is *type-1 legacy* components; and it collapsed three shapes into two. Corrected; **F-QA11** opened on it as my own defect. (b) **R15 lagged M2-f's rev-7 flag-free clause** and was therefore **non-discriminating** — it passes on pre-D11 code via rebuild-as-V2. Corrected. (c) **Found unrelayed while checking (b)**: the register carried **no execution order** for the 5712-keyed rows, though R15 is a persisting act that destroys R2/R4/M6-c's preconditions; plan rev 9 leaves that sequencing to this document. Ordering note added. (d) The critic's uncovered assumption — D13's cost table verified by static reading, Load path never executed — **closed by execution**: new spec block **EXT-3** runs the real Load→save chain. Conclusion holds; **justification did not** (F-QA12). |
 | 2026-08-23 | steering-hooks-012 | Owner rulings on R16 (F-QA8) and R18 (F-QA9), both taken back to him on the rev-3 correction | **Phase 1 rev 4.** Both rows **closed**. (a) **R16** — *"Stands, but point the guidance at the JSON editor"*: D11 stands, the preservation build is declined a second time on corrected facts, and the guidance becomes **shape-dependent** rather than one line. Steering records that the basis it first gave the owner was wrong in the direction that made accepting look cheaper, and that the rev-3 correction changed the outcome rather than decorating it. Successor row **R19** carries the shape-dependence, which is the part a one-line guidance would lose. (b) **R18** — *"Measure the population first"*: the M6-b category is taken and the owner's live POST is **withdrawn, not deferred**. Successor row **R20** carries the count. Recorded explicitly: a measured zero is **not** a tested-accepted — it closes the question *for this corpus, now*, and leaves Discord's general behaviour undetermined by anything in this chain. |
 | 2026-08-23 | steering-hooks-012 | Relay of a read-only determination (statbot code-review question): whitespace-content gap, JSON-modal cost, top-level-only fragility. Re-derive before acting | **Phase 1 rev 3.** All three re-derived **by execution**, not accepted on relay. (a) **F-QA9** opened — whitespace-only content is not content to the gate (`content.trim()`), a class the frozen partition did not distinguish; M2 moves no whitespace verdict, so it is a **D1 truth-condition** question, not an M2-b risk. Registered as R18 and proposed as an M6-b category. (b) **Rev 1's JSON-modal account corrected** — measured, it drops `components` and `flags` but **preserves `content`**, so for 5712 it is *lossless* while D11's sanctioned path is the lossy one. F-QA8 updated beside its original text, not over it. (c) **F-QA10** — top-level-only V2 detection is complete over the representable domain, not by checking; executable falsifier installed. Spec extended to 36 tests (EXT-1, EXT-2). |
@@ -758,8 +762,53 @@ owner ruling.
 **Instrument captured, not narrated**:
 `website/src/utils/__tests__/012-json-editor-repair-path.test.ts` — **its own file**, 6 tests, all
 passing. Every step calls the **shipped** function — `stripKeys`, `standardizeMessage`,
-`enforceImportMutualExclusivity`, `discordMessageImportShape`, `makeEditable` — with only the
-three-line React state merge (`useApiMethods.ts`) and the two mode-switch branches transcribed.
+`enforceImportMutualExclusivity`, `discordMessageImportShape`, and (from rev 5b) `updateMessage` and
+`saveMessage` themselves. Only the two mode-switch branches are transcribed.
+
+#### Rev 5b — the residue planner rev 10 (`ed6845e`) risk row R6 left here, closed
+
+**The defect, restated as the planner found it and I confirmed it:** at rev 5 the state merge was
+**transcribed** from `useApiMethods.ts` into a local `applyLoad`. So the instrument pinned a *copy*
+of the mechanism while being cited for protection of the *original*, and the sentence this finding
+turns on — *"a deep-merge refactor leaves nothing in the suite red"* — **stayed true after the
+instrument existed**, for exactly the falsifier it was built to guard. My own rev-5 header conceded
+the transcription in as many words; that is a concession, not a control.
+
+**Closed by calling the shipped closures.** `useApiMethods` is a hook factory, and the repo runs
+vitest in the `node` environment with no `@testing-library/react`. Rather than add a dependency to a
+shared tree, the test identity-mocks **`useCallback` only** — the memoisation wrapper, not the merge —
+so the factory is callable and the closures it returns are shipped code. `react-toastify` is stubbed
+(used only by `reloadMessage`, never called here). The provider's `useLatest(message)` ref sync
+(`MessageProvider/index.tsx`) is stood in for. The merge itself is no longer restated anywhere.
+
+**Observed failing before it counted as evidence.** The guarded refactor was applied as a mutant to
+the shipped `updateMessage` — `data: { ...oldMessage.data, ...newMessage.data }` in place of the
+top-level replace — and the suite run:
+
+| | rev 5 (transcribed) | rev 5b (shipped) |
+|---|---|---|
+| deep-merge mutant applied | **6 pass / 0 fail** — mutant survives | **2 pass / 4 fail** — mutant killed |
+| shipped code | 6 pass | 6 pass |
+
+The four killed include the falsity signature itself (*expected 32768 to be +0*) and — the one worth
+quoting to a non-engineer — the losslessness test, which fails with the operator-visible consequence:
+`validateMessage` returns **"Components V2 messages cannot contain embeds or content."** That is
+precisely the guild owner following the owner's written instruction and being told the message is
+still broken.
+
+**Mutation protocol on a shared tree** (`useApiMethods.ts` is not QA's file and no session had it
+modified): byte copy taken to `/tmp`, mutant applied, run, then the working file's checksum verified
+still equal to *my mutant* before restoring — so a concurrent write by another session would have
+aborted the restore rather than being clobbered by it. Restored file md5 `2eb7a4d0…` matches the
+pre-mutation original and `git diff --numstat` is empty. Nothing of another session's was touched.
+
+**What the rev-5b instrument still does not cover**, stated so it is a decision and not a gap: a
+refactor that moves the replace-vs-merge decision *out* of `updateMessage` — into the modal's
+`onConfirm`, or into `makeEditable` — is not covered by this mutant, only by the four assertions'
+end-to-end shape, which would catch it if and only if the resulting behaviour changes. That is
+adequate: the property asserted is end-to-end (*5712 comes back flag-free and intact*), so any
+refactor that breaks the property breaks the test, wherever it lives. What the mutant additionally
+buys is proof that the assertion is **load-bearing on the shipped merge specifically**.
 
 > **Why it is a separate file, decided at rev 5 after first writing it into the partition spec.**
 > The partition spec's *entire* evidential value is that it was pre-registered and frozen **before
