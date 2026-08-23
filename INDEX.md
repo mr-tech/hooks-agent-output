@@ -7,16 +7,17 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-77 documents · 12 numbered chains · 8 unnumbered.
+78 documents · 12 numbered chains · 8 unnumbered.
 
 ---
 
 ## By chain
 
-### 012 — 1 open, 0 closed
+### 012 — 2 open, 0 closed
 
 | Stage | Location | Status |
 |---|---|---|
+| critique | `critiques/012-message-valid-field-critique.md` | OPEN — Initial critique of plan rev 3 (commit c4cf783). Critique-cycle pass 1. One HIGH finding (release-order gap), two MEDIUM, one LOW. Verdict: REQUEST REVISION — all findings addressable in one planner pass; no owner decision required by this critique. |
 | plan | `planning/012-message-valid-field.md` | Active — Rev 3. Re-scope authorised (D8): the composer send-gate fix is milestone M2; both PREMISE-STALE markings cleared with re-argued premises; milestones renumbered M1–M7 by replacement. No open questions. Ready for critique. Target repos: project-utils then website; steering raising chain branches. |
 
 ### 1 — 0 open, 8 closed
@@ -228,6 +229,7 @@ they are the ID-less artifacts that root new efforts.
 | `010-infopanel-overlap-fix.md` | `planning/closed/010-infopanel-overlap-fix.md` |
 | `010-infopanel-overlap-on-initial-load-analysis.md` | `analysis/closed/010-infopanel-overlap-on-initial-load-analysis.md` |
 | `011-transition-height-react-style-conflict-analysis.md` | `analysis/closed/011-transition-height-react-style-conflict-analysis.md` |
+| `012-message-valid-field-critique.md` | `critiques/012-message-valid-field-critique.md` |
 | `012-message-valid-field.md` | `planning/012-message-valid-field.md` |
 | `2026-04-07-plan-005.md` | `deployment/2026-04-07-plan-005.md` |
 | `2026-04-07-plan-006.md` | `deployment/2026-04-07-plan-006.md` |
