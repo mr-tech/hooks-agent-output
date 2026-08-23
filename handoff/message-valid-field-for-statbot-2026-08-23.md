@@ -9,10 +9,11 @@ Status-Detail: >-
   is built yet. This document records what was agreed and why, so the hooks.gg implementation is not
   re-derived from a conversation.
 Owning-Stage: >-
-  Unassigned on the hooks.gg side. The work is a schema addition plus a backfill plus a recompute hook,
-  not a design effort — the design is settled. Whoever plans it inherits the contract verbatim from the
-  Agreed shape section and must not amend it without the owner, because a Statbot chain has already
-  registered it as a decision (statbot agent-output, plan 023, register row D10).
+  Chain 012 (`planning/012-message-valid-field.md`), opened 2026-08-23 at the owner's direction. The
+  plan inherits the contract verbatim from the Agreed shape section and must not amend it without the
+  owner, because a Statbot chain has already registered it as a decision (statbot agent-output, plan
+  023, register row D10). One amendment question is on the owner now: plan 012 OQ-1 (whether the
+  predicate considers the stored flags V2 bit — the composer's own checks do not catch record 5712).
 Review-Trigger: >-
   Re-read this if the field's shape is questioned, if Statbot reports records arriving without `valid`
   after the backfill is believed complete, or if a second consumer beyond Statbot wants to key off
@@ -191,4 +192,5 @@ None blocking. Two worth a decision when the work is planned:
 | Date | Author | Change |
 |---|---|---|
 | 2026-08-23 | steering-023 | Created at the owner's direction, recording the `valid` field shape agreed during statbot chain 023 planning. Shape proposed by statbot's planner, accepted by the owner unaltered by selection prompt the same day (statbot plan 023, register row D10); his three framing statements quoted verbatim. Evidence cited rather than restated: message 5712's contents, the live `50035` rejection, and the 444-guild sweep are all owner-executed instruments recorded in the statbot agent-output repo. Written by a session that does not own the hooks.gg domain; nothing else in this repo was touched. |
+| 2026-08-23 | planner (chain 012) | Owning-Stage routed to chain 012, opened this date at the owner's direction. Both open questions in this document now carry dispositions in plan 012 (OQ-2 resolved by enumeration — one writer persists message data; OQ-3 resolved — backfill gated on an owner-reviewed distribution report before the live declaration). One truth-condition question raised to the owner as plan 012 OQ-1: the composer's checks derive V2-ness structurally and pass record 5712's stored form, so strict UI parity misses the motivating record. No contract clause amended. |
 | 2026-08-23 | steering-023 | Two cross-repo citations (lines 26 and 75) rewritten from `statbot agent-output, <relative-path>` to absolute paths. They read correctly to a human but did not resolve mechanically, so a link checker run against either repo counted them as broken. Route recorded: raised by `steering-01` as an FYI in the statbot agent-output `INBOX.md`, and independently by `critic-023` while reviewing statbot plan 023 — neither by normal handoff. No content, finding or commitment changed. |
