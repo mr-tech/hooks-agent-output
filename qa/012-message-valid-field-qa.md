@@ -4,14 +4,14 @@ Origin: 012
 UUID: 12a4fe3c
 Parent: message-valid-field-for-statbot-2026-08-23.md
 Verified-At: >-
-  website chain/012-message-valid-field @ 17cada0 (committed tree: 20 spec files / 402 tests,
-  all green, this session's own run 2026-08-23); project-utils master @ 749606d (M1-b re-read at
-  the committed rollup). Uncommitted QA instruments, content identity (not production code):
-  src/utils/__tests__/012-json-editor-repair-path.test.ts md5 81db2948c488bfb4598b19f0742f34b9
-  (6 tests, green); src/scripts/__tests__/012-backfill-evaluation-failure-category-qa.test.ts
-  md5 84216283773f34bc1c402904786888f5 (3 tests, green; MS-8 guard, seen red under the mutant).
-  Full tree incl. instruments: 22 files / 411 tests green. Any production-code change after this
-  expires the verdict.
+  website chain/012-message-valid-field @ c85945f (committed clean tree: 22 spec files / 411
+  tests, all green, this session's own run 2026-08-23 — re-anchored from 17cada0 by
+  differential-scoped pass, rev 7; differential captured at
+  agent-output/verification/012/qa-phase2-reanchor-c85945f/, zero movement over the verified
+  surface, suite re-executed at the new anchor). c85945f's sole delta from 17cada0 is the two
+  QA instruments, now committed — no content-identity fallback remains. project-utils master @
+  749606d (M1-b re-read at the committed rollup). Any production-code change after this expires
+  the verdict.
 Status: QA Complete
 Status-Detail: >-
   Phase 1 rev 3. Strategy complete and re-derived against plan rev 6 (`7af8936`), which enacted
@@ -38,7 +38,11 @@ Status-Detail: >-
   named fixtures, MS-4 survivor (pre-declared, routed), MS-8 survivor **found and closed** by a
   QA-authored spec seen red under the mutant. Round-6 code-review assumption (28-package refresh)
   closed by execution with its babel framing bounded. L5 closed by execution. Verdict: **PASS** —
-  QA Complete; handing off to the uat agent.
+  QA Complete; handing off to the uat agent. Rev 7: verdict re-anchored `17cada0` → `c85945f`
+  (implementer committed the two QA instruments; delta re-derived, suite re-executed at the
+  committed clean tree — 22 files / 411 tests green; differential captured at
+  verification/012/qa-phase2-reanchor-c85945f/; code review round 7's Assumption Not Checked
+  closed; the 402/408/411 figures reconciled each to its tree).
 ---
 
 # QA Report: Plan 012 — `valid` field on stored messages
@@ -55,6 +59,7 @@ originals kept for the Phase 1 record — Phase 2 executed against plan rev 23, 
 
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
+| 2026-08-23 | steering-hooks-012 (carrying code review round 7, `06b204d`) | Differential re-anchor at `c85945f`; close round 7's Assumption Not Checked; derive the suite count, inherit no figure | **Rev 7.** Re-anchored: `Verified-At: c85945f`. Delta re-derived at the commit (parent = `17cada0`; two QA instrument files, zero production source); both md5s match this header's rev-6 identities. Suite **re-executed at the committed clean `c85945f`: 22 files / 411 tests green** — round 7's falsity signature did not fire; closed here. The three circulating figures reconciled to their trees (20/402 = `17cada0` committed alone; 21/408 = +repair-path untracked; 22/411 = +both instruments ≡ `c85945f`; 402+6+3=411 — ambiguity was citation, not measurement). Differential captured at `verification/012/qa-phase2-reanchor-c85945f/`. Rev-6 routing note (implementer to commit the instruments) struck as done, kept beside. Held until round 7's transfer ruling so both gates moved on one basis. |
 | 2026-08-23 | planner, **routed via steering-hooks-012** (not the normal handoff — route recorded per steering's request) | Rev-27 registration write repaired by the planner (`63460d0`); R-numbering collision resolved at plan rev 28 | **Rev 6a.** Verified at the diff, not the relay: my rev-27 plan write carried two defects outside its declared scope, both mine — my Edit's anchor consumed the frontmatter's closing `---` without reproducing it (silent; would have broken machine-readable Status for every downstream reader), and I left the Revision/Status-Detail pairing at 26 while adding row 27 (a rule the plan has carried since rev 20; first violation by a non-planner stage). Prose byte-preserved; repairs verified in the committed tree. **Disposition answer: repair-in-place was right** — bouncing would have left a structurally broken header live in a shared tree for the length of a round, for two fixes with one unambiguous correct form each. **Method failure named**: my write procedure had no post-write structural check on documents I do not own. Control adopted: after any write to a frontmatter document, verify `grep -n '^---$'` still terminates the header, and diff my own hunk for consumed structural tokens before reporting the write. **Reciprocal naming clause adopted** (mirroring plan rev 28): this register's rows are cited **QA-R#** in cross-document text from this rev on; bare R# inside this document refers to this register, plan Risks rows are the plan's R1–R7. Retrospective material: the silent-defect class (structural damage outside the edited prose) is invisible to the author's own green checks by construction. |
 | 2026-08-23 | steering-hooks-012 | **Phase 2** — post-implementation execution against `website` `17cada0`, carry-forward items named (round-6 assumption, round-1 red assumption, L5, typecheck blindness, Phase 1 data-conformance assumption) | **Rev 6, Phase 2 complete, verdict PASS.** All numbers re-derived by this session's own runs, none inherited. TDD gate: table complete; red re-verified at base `72dc7de` via throwaway worktree (5/36 partition red on the exact five named cells; all six implementer spec files failing in the TDD table's recorded classes). Full suite 20 files / 402 tests green on the committed tree (22/411 with the two QA instruments). `npm run build` and `tsc --noEmit` green by own run. Mutation sweep: 10 mutants, 8 killed by named fixtures; **MS-4 survivor** (backfill UPDATE's NULL guard — pre-declared unkillable here, routed); **MS-8 survivor found** (evaluationFailures category population deletable with suite green) and **closed** by QA-authored spec, red-under-mutant observed. Round-6 assumption closed with babel framing bounded (no `.babelrc`; SWC build, esbuild tests; babel reachable only via eslint tooling and styled-jsx peer). L5 closed by execution: delegate cases discriminate dispatch inversion (killed L5-A), literal cases carry branch coverage (killed L5-B) — no rewrite needed. Two findings opened (F-QA13 spec type-unsoundness LOW, F-QA14 record overstatement MEDIUM→routed). Handing off to the uat agent. |
 | 2026-08-23 | steering-hooks-012 | QA Phase 1 — test strategy before implementation | Phase 1 written. Sources read in full: plan rev 4, critique (closed, APPROVED), both handoffs, workspace architecture record. Code read directly on both chain branches. Deliverables: executability determination, testing-infrastructure list, Irreversible Side-Effect Register, per-criterion property audit, pre-registered M2 partition spec (executed — Red confirmed), mutation sweep plan, seven findings, blocking-condition register. |
@@ -1056,15 +1061,40 @@ routed, not shelved.
 
 ### Verdict
 
-**QA Complete — PASS at `Verified-At: 17cada0`** (content identities for the two QA instruments in
-the header). No CRITICAL or HIGH defect in what shipped. Survivor MS-4, findings F-QA13/F-QA14's
-record half, and CR-L11 (the reviewer's, already routed) travel as handoff material under D18. The
-pre-release register rows R1 and R14 are executed and recorded below; all post-deploy rows remain
-open by construction and travel to UAT. **A commit of the two QA instrument files by the
-implementer (their commit grant) is recommended before release** so the MS-8 guard and EXT-3
-survive this working tree — recorded as a routing note, not a release condition.
+**QA Complete — PASS, issued at `17cada0` (rev 6), re-anchored at `Verified-At: c85945f` (rev 7)**
+— see the rev-7 re-anchor block below. No CRITICAL or HIGH defect in what shipped. Survivor MS-4,
+findings F-QA13/F-QA14's record half, and CR-L11 (the reviewer's, already routed) travel as
+handoff material under D18. The pre-release register rows QA-R1 and QA-R14 are executed and
+recorded below; all post-deploy rows remain open by construction and travel to UAT. ~~A commit of
+the two QA instrument files by the implementer (their commit grant) is recommended before
+release~~ — **done at `c85945f`** (implementer, both md5s verified against this header before
+committing; superseded routing note kept struck, not deleted).
 
 **Handing off to the uat agent for value delivery validation.**
+
+### Rev 7 — differential-scoped re-anchor: `17cada0` → `c85945f`
+
+The tree moved after the rev-6 verdict: the implementer committed this document's two instrument
+files at `c85945f` (parent exactly `17cada0`; delta 59 + 189 lines, both test files, zero
+production source, zero deletions — re-derived at the commit, not inherited). Under Verdict
+Freshness the rev-6 verdict expired; per "the differential scopes the refresh; it never replaces
+it", the refresh was **executed, not read off the file list**:
+
+- **Both trees executed over the verified surface**, and the suite **re-run at the committed
+  `c85945f` on a clean tree**: **22 files / 411 tests, all green, exit 0.** Zero movement.
+- **Differential captured** at `agent-output/verification/012/qa-phase2-reanchor-c85945f/` —
+  commands, parentage, md5 identity checks, and all four tree-state runs.
+- **Code review round 7's Assumption Not Checked — CLOSED here** (routed to QA by steering as the
+  instrument's owner; the reviewer explicitly did not run the suite). Its falsity signature — any
+  count at `c85945f` other than 22 / 411 on unmoved source — did not fire.
+- **The three circulating suite figures reconciled, each named to its tree** (full table in the
+  capture): **20 / 402** is the committed `17cada0` tree alone; **21 / 408** is `17cada0` plus the
+  repair-path instrument untracked; **22 / 411** is `17cada0` plus both instruments — content-
+  identical to `c85945f`, and now re-observed at the committed `c85945f` itself. Consistent by
+  arithmetic: 402 + 6 + 3 = 411. The ambiguity was in citation, never in a run.
+- Sequencing note: the re-anchor was held until the code reviewer's round-7 transfer ruling
+  arrived (`06b204d`, verdict transfers re-anchored), so both gates moved on the same basis
+  rather than QA deciding the freshness rule's application unilaterally.
 
 ---
 
