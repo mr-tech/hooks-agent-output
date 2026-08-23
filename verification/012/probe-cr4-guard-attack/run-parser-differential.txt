@@ -1,0 +1,7 @@
+  agree  plain              guard="db.example.com:5432"  connects="db.example.com:5432"
+DIVERGE  HOST QUERY PARAM   guard="decoy.invalid:5432"  connects="viaduct.proxy.rlwy.net:5432"
+DIVERGE  host+port params   guard="decoy.invalid:1"  connects="viaduct.proxy.rlwy.net:1"
+  agree  no explicit port   guard="db.example.com:5432"  connects="db.example.com:5432"
+  agree  unencoded pw @     guard="db.example.com:5432"  connects="db.example.com:5432"
+
+DIVERGENCES=2

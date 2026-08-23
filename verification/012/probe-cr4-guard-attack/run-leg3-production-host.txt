@@ -1,0 +1,4 @@
+resolved real target = viaduct.proxy.rlwy.net:12394
+  no confirmation (a bare invocation): REFUSED
+  confirmation for a different host: REFUSED
+  exact confirmation: ALLOWED (guard must not over-block)

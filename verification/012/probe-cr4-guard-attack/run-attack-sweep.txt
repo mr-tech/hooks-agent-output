@@ -1,0 +1,24 @@
+--- MUST REFUSE (no confirmation, or wrong confirmation) ---
+1 dead URL, no confirm                     exit=1 refused=YES connectionAttempt=NO  reportFiles=0
+      guard reported: resolves to "127.0.0.1:1"
+2 confirm empty string                     exit=1 refused=YES connectionAttempt=NO  reportFiles=0
+      guard reported: resolves to "127.0.0.1:1"
+3 near-miss: wrong port                    exit=1 refused=YES connectionAttempt=NO  reportFiles=0
+      guard reported: resolves to "127.0.0.1:1"
+4 near-miss: wrong host                    exit=1 refused=YES connectionAttempt=NO  reportFiles=0
+      guard reported: resolves to "127.0.0.1:1"
+5 whitespace-padded confirm                exit=1 refused=YES connectionAttempt=NO  reportFiles=0
+      guard reported: resolves to "127.0.0.1:1"
+6 case variation of host                   exit=1 refused=NO  connectionAttempt=YES reportFiles=1
+      CONNECTED TO : ECONNREFUSED 127.0.0.1:1
+7 trailing dot host                        exit=1 refused=YES connectionAttempt=NO  reportFiles=0
+      guard reported: resolves to "127.0.0.1.:1"
+--- MUST PROCEED (correct confirmation) — guard must not over-block ---
+8 correct confirm, dead URL                exit=1 refused=NO  connectionAttempt=YES reportFiles=1
+      CONNECTED TO : ECONNREFUSED 127.0.0.1:1
+--- SENTINELS: is 'I could not determine the target' confirmable? ---
+9 unset URL + confirm '(unset)'            exit=1 refused=NO  connectionAttempt=NO  reportFiles=0
+10 junk URL + confirm '(unparseable)'      exit=1 refused=NO  connectionAttempt=NO  reportFiles=0
+--- PARSER DIFFERENTIAL: ?host= overrides for pg, invisible to the guard ---
+11 ?host= override                         exit=1 refused=NO  connectionAttempt=YES reportFiles=1
+      CONNECTED TO : ECONNREFUSED 127.0.0.1:1
