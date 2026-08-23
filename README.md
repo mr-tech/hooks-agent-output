@@ -109,6 +109,7 @@ approval even when every test passes.
 | `handoff/` | Follow-up work seeded for later, often crossing chains or belonging to no chain. A first-class chain root. | any agent |
 | `verification/` | Runnable material — probes, generators, frozen artifacts. Chain-bound. See `verification/README.md`. | qa, implementer |
 | `user-files/` | Raw operator-supplied captures kept verbatim as evidence. | the operator |
+| `tools/` | Standing executables that read and validate **this repository** — `check-repo.js` and `build-index.js`. Nothing here belongs to a chain, which is what separates it from `verification/`. | any agent |
 
 ## Conventions
 
@@ -203,6 +204,21 @@ two known ways, left as written rather than rewritten:
   `NNN-name-deployment.md`.
 
 Historical records are not retrofitted to a later convention. Read them as what they are.
+
+## `tools/`
+
+Two self-maintenance scripts, both acting on this repository and nothing else.
+
+| Script | What it does |
+|---|---|
+| `check-repo.js` | Citations resolve · basenames unique · frontmatter consistent · stage suffixes present · one UUID per chain. Exits non-zero on any failure. `--status` reports chain state instead and is a separate check. |
+| `build-index.js` | Generates `INDEX.md`. **The committed index is generated with `--tracked`** — tracked documents only, so it is correct in a fresh clone — and verified with `--tracked --check`. The default mode includes untracked documents and is a live lookup, never committed. |
+
+**`check-repo.js` currently exits 1 against this repository, and that is expected.** The failures are
+in the predecessor-era documents described above, not in the tooling. A stage agent runs it to
+validate **its own output** — the documents its run wrote — and fixes its own defects before handing
+back. Failures in documents it did not write are not its findings to carry: they go to `INBOX.md`,
+never into a chain's stage document.
 
 ## Coordination files
 
