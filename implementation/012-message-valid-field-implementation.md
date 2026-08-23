@@ -21,6 +21,7 @@ Status: Active
 | 2026-08-23 | steering-hooks-012 | Owner approved the push ("Approve the push"); push `project-utils`' M1 commit, then hold — no pin refresh | `749606d` pushed to `origin/chain/012-message-valid-field` on `project-utils`. Held as instructed: no pin refresh, no reinstall, no rebuild. |
 | 2026-08-23 | steering-hooks-012 | Code review verdict REJECTED (`agent-output/code-review/012-message-valid-field-code-review.md`, `24b8af1`); fix round for H1, H2, and (strongly recommended) M1 | Fix round committed (`681c353`). H1 closed — a second, independent blocker (ts-node's vendored CJS loader rejecting `require()` of `~/env.mjs`) was found while driving the fix past the reviewer's own stopping point, and closed by extracting the env-independent constants `~/utils/limits.tsx` needs into `src/constants/messageLimits.ts`. H2 closed — report persisted to disk, `process.exit()` removed, partial-run reporting on interruption, coverage-labelled fields. M1 closed structurally — every M6-b category is now `{ count, rowIds }`. M2 (recommended) partially closed: `applyModeSwitch` extracted and tested; the `upsertMessage` seam kept at the reviewer's Minimum disposition. L1 (recommended) closed: stale comments deleted. L2, L3 recorded, not actioned this round (see Outstanding Items). Full record: `agent-output/verification/012/probe-fix-round-h1-h2/README.md`. |
 | 2026-08-23 | steering-hooks-012 | Code review round 2 verdict REJECTED, narrowly, on H3 (`agent-output/code-review/012-message-valid-field-code-review.md`, `66ddcf6`); H1/M1/`applyModeSwitch` all CONFIRMED closed. Fix round for H3 (blocking), M2's record correction (blocking), and (strongly recommended) M1-r2, L4, L6 | H3 closed structurally: `main()`'s two success-path loss members (unguarded `tableWideRowCount`, persist-before-print) collapsed into a single `emit()` function used on both the success and interrupted paths, so the asymmetry the reviewer named is unrepresentable rather than patched — stdout now precedes disk, `persistReport` failures are caught inside `emit` and logged rather than propagated, `void main()` now carries `.catch()`. Verified live against a dead `DATABASE_URL`, both legs the reviewer named for return (persisted+printed; persist-failure does not swallow the connection error) — `agent-output/verification/012/probe-fixround2-h3/README.md`. M2 (blocking) — implementation doc corrected: the `handleModeSwitch` seam is accepted at Minimum, not closed; `applyModeSwitch`'s test describe block retitled to stop claiming wiring coverage. M1-r2 (recommended) addressed: `persistReport` refuses to overwrite (`wx` flag), and a new `reportPath(runId)` gives every run its own filename so refusal protects prior evidence rather than blocking the next run; report now carries `runId`/`startedAt`/`endedAt` provenance. L4 (recommended) addressed: the two review-thread comment fragments deleted from `012-backfill-report.test.ts`. L6 (recommended) addressed: the fix-round transcript's residual wording corrected — 26 env-independent exports remain trapped behind `~/env.mjs`, not the narrower "env-dependent" framing originally stated. |
+| 2026-08-23 | steering-hooks-012 | Code review round 3 verdict APPROVED_WITH_COMMENTS (`agent-output/code-review/012-message-valid-field-code-review.md`, `8e87ddf`) — H3 fully closed, no HIGH/CRITICAL survives. M4 (MEDIUM), owner-directed via steering ("Guard it before the pin refresh"): the shipped `backfill-valid` script defaults to the live production `DATABASE_URL` with no guard, inert today only because the held stale pin makes it die before executing — a hazard that arms the moment the pin refresh (queued next) lands. M5 (record correction, not blocking); L7 (LOW, mine to judge for proportionality) | M4 closed at the Preferred/structural action, which also closes L8 in the same change: `main()` now calls `assertConfirmedTarget(resolveTargetHost(DATABASE_URL), BACKFILL_CONFIRM)` before `getPostgres()` is even called, so no bare invocation — against any host, production included — makes a connection attempt; `BACKFILL_REPORT_DIR` gives the report destination an env override, so a verification drive no longer has to write into and clean up after itself in the owner's gate directory. Verified live against the reviewer's exact measured hazard (the real `.env.local` production host) — refuses identically to the dead-host case. M5 closed: the Files Created table's stale `applyModeSwitch`/`backfillValid.ts` rows corrected to match Outstanding Item 9's disposition and the current export list. L7 judged proportional to address given the file was already open this round: `formatReport`'s meta type widened to declare the provenance fields (`interface ReportMeta`, shared with `emit` via `Omit<>`), plus a regression-guard test. 399/399 tests passing (was 390), eslint clean, typecheck unchanged (8 pin-gated errors, same class). Full record: `agent-output/verification/012/probe-fixround3-m4-and-m5/README.md`. |
 
 ## Value Statement
 
@@ -66,9 +67,9 @@ This delivers the communication gap the owner named: hooks.gg can now say a mess
 
 | Path | Purpose | Repo |
 |---|---|---|
-| `src/utils/messageMode.ts` | `switchToV2`/`switchToClassic`, the mode-switch data effects, extracted for testability without component-render infrastructure. Fix round: `applyModeSwitch(targetMode, prev)` added, closing the M2 wiring seam for `handleModeSwitch` | `website` |
+| `src/utils/messageMode.ts` | `switchToV2`/`switchToClassic`, the mode-switch data effects, extracted for testability without component-render infrastructure. Fix round: `applyModeSwitch(targetMode, prev)` added — its extraction is behaviour-preserving (code review round 2, 5,000-case differential), but the `handleModeSwitch` wiring seam to it remains accepted at Minimum, not closed (code review round 2 M2; see Outstanding Item 9) | `website` |
 | `src/server/api/utils/messageValidity.ts` | `isMessageValid`, the M3 predicate | `website` |
-| `src/scripts/backfillValid.ts` | `classifyRow` (pure, tested); `emptyReport`/`accumulate`/`formatReport`/`persistReport` (pure, tested — report shape, coverage labelling, disk persistence, all added or reshaped in the fix round for H2/M1) plus `runBackfill`/`tableWideRowCount`/`main` (DB loop, not unit-tested — no database in this environment, demonstrated live instead) | `website` |
+| `src/scripts/backfillValid.ts` | `classifyRow` (pure, tested); `emptyReport`/`accumulate`/`formatReport`/`persistReport` (pure, tested — report shape, coverage labelling, disk persistence, all added or reshaped in fix round 1 for H2/M1); `emit`/`reportPath` (pure/near-pure, tested — the single exit point that closed H3 in fix round 2, and the per-run overwrite-safe path from M1-r2); `resolveTargetHost`/`assertConfirmedTarget` (pure, tested — the production-default guard from M4, fix round 3, which also gives the report destination an env override, closing L8) plus `runBackfill`/`tableWideRowCount`/`main` (DB loop, not unit-tested — no database in this environment, demonstrated live instead) | `website` |
 | `src/constants/messageLimits.ts` | Fix round (H1): the env-independent constants `limits.tsx`/`messageMode.ts`/`backfillValid.ts` need, with no transitive import of `~/env.mjs` | `website` |
 | `src/utils/__tests__/012-message-mode.test.ts` | TDD spec for `messageMode.ts`, extended in the fix round for `applyModeSwitch` | `website` |
 | `src/utils/__tests__/012-validity-predicate.test.ts` | TDD spec for `messageValidity.ts` | `website` |
@@ -115,8 +116,13 @@ Delivered: the composer's send gate now agrees with Discord's own rejection of f
 | `emit` | `012-backfill-report.test.ts` | Yes | Yes | `TypeError: emit is not a function` (2 cases: symmetric-guard, stdout-before-persist) | Yes |
 | `persistReport` (overwrite-refusal, new behaviour) | `012-backfill-report.test.ts` | Yes | Yes | `AssertionError: expected [Function] to throw an error` — second `persistReport` call to the same path did not throw | Yes |
 | `reportPath` | `012-backfill-report.test.ts` | Yes | Yes | `TypeError: reportPath is not a function` (2 cases) | Yes |
+| **Fix round 3 (M4/L7), code review `8e87ddf`:** |
+| `reportPath` (2nd param, dir override — new behaviour) | `012-backfill-report.test.ts` | Yes | Yes | Override arg silently ignored — path did not honour it | Yes |
+| `resolveTargetHost` | `012-backfill-report.test.ts` | Yes | Yes | `TypeError: resolveTargetHost is not a function` (4 cases) | Yes |
+| `assertConfirmedTarget` | `012-backfill-report.test.ts` | Yes | Yes | `TypeError: assertConfirmedTarget is not a function` (3 cases) | Yes |
+| `formatReport` (provenance fields — regression guard, not red/green) | `012-backfill-report.test.ts` | N/A | N/A | Not a new function or behaviour change — the fields already reached the body through the untyped spread at HEAD, so this case passed immediately; added to catch a *future* regression, per L7's own framing (widening the type does not by itself force the field's presence, since the fields stay optional) | Yes |
 
-No row shows "No" for any column. `runBackfill`/`main` are the DB-execution shell around the tested pure functions; QA's own Testing Strategy states M6's DB-touching half is verified by the backfill's own instruments at execution time and the owner's review, not by this suite — both fix rounds additionally demonstrated that shell live against a deliberately dead database (Code Quality Validation, H1/H2/H3 rows).
+No row shows "No" for any column that applies. `runBackfill`/`main` are the DB-execution shell around the tested pure functions; QA's own Testing Strategy states M6's DB-touching half is verified by the backfill's own instruments at execution time and the owner's review, not by this suite — all three fix rounds additionally demonstrated that shell live against a deliberately dead database, and round 3 additionally against the real (but unreachable in this environment except via the guard's own refusal) production host (Code Quality Validation, H1/H2/H3/M4 rows).
 
 ## Test Coverage
 
@@ -171,6 +177,38 @@ $ DATABASE_URL="postgresql://postgres:pw@127.0.0.1:1/db" \
  resolved without throwing, stdout already written, ENOTDIR logged via console.error — the persist
  failure does not swallow the connection-error evidence. Full transcript:
  agent-output/verification/012/probe-fixround2-h3/README.md.
+
+--- Fix round 3 (M4/L7), against website 8e87ddf's review, owner-directed on M4's sequencing ---
+
+$ npx vitest run   (website, working tree at fix round 3)
+ Test Files  21 passed (21)
+      Tests  399 passed (399)   (+9 over eb28ae6: reportPath dir-override, resolveTargetHost x4,
+                                  assertConfirmedTarget x3, formatReport provenance regression guard)
+
+$ npx eslint src/scripts/backfillValid.ts
+ No issues found.
+
+$ npx tsc --noEmit -p tsconfig.json
+ 8 errors — same 8 sites, same class, unchanged by this round's edits. RED, pin-gated, as before.
+
+$ DATABASE_URL="postgresql://postgres:pw@127.0.0.1:1/db" \
+    node -r ts-node/register/transpile-only -r tsconfig-paths/register -r dotenv/config \
+    src/scripts/backfillValid.ts dotenv_config_path=.env.local
+ Error: Refusing to run: DATABASE_URL resolves to "127.0.0.1:1", but BACKFILL_CONFIRM was not set.
+ Exit 1. Zero connection attempt — no ECONNREFUSED, refused before getPostgres() ran.
+
+$ DATABASE_URL="postgresql://postgres:pw@127.0.0.1:1/db" BACKFILL_CONFIRM="127.0.0.1:1" \
+    BACKFILL_REPORT_DIR="/tmp/012-m4-report-dir" \
+    node -r ts-node/register/transpile-only -r tsconfig-paths/register -r dotenv/config \
+    src/scripts/backfillValid.ts dotenv_config_path=.env.local
+ Reaches ECONNREFUSED as before; report printed and persisted to /tmp/012-m4-report-dir/, NOT
+ agent-output/verification/012/ — nothing left in the gate directory to clean up (L8).
+
+$ node -r ts-node/register/transpile-only -r tsconfig-paths/register -r dotenv/config \
+    src/scripts/backfillValid.ts dotenv_config_path=.env.local   (bare invocation, real .env.local)
+ Error: Refusing to run: DATABASE_URL resolves to "viaduct.proxy.rlwy.net:12394", but
+ BACKFILL_CONFIRM was not set.   — the reviewer's exact measured production hazard, refused
+ identically. Full transcript: agent-output/verification/012/probe-fixround3-m4-and-m5/README.md.
 ```
 
 ## Class Sweep Table
@@ -220,6 +258,42 @@ coverage. **L4** (2 review-thread comment fragments in `012-backfill-report.test
 **0**; both deleted. **L6** (residual wording) — corrected in Outstanding Item 10 (below) and in
 `probe-fix-round-h1-h2/README.md`'s appended correction note; the historical probe text above it is
 left unedited as the record of what that drive actually said at the time.
+
+### Round 3 (M4, M5, L7), against code review `8e87ddf` — M4's sequencing owner-directed
+
+| Finding | Enumeration | Full output | Disposition |
+|---|---|---|---|
+| **M4** — production-database default with no guard of any kind | `grep -c "process\.argv\|NODE_ENV\|confirm\|dry\|readline\|prompt" src/scripts/backfillValid.ts` (reviewer's own predicate) | Pre-fix: **0** hits. Post-fix: **3** — the `assertConfirmedTarget` function name and body, all matched by the predicate's own `confirm` token. | Preferred/structural: `assertConfirmedTarget(resolveTargetHost(DATABASE_URL), BACKFILL_CONFIRM)` runs as `main`'s first statement, before `getPostgres()`, so no bare invocation against any host reaches a connection attempt. Verified live against the reviewer's exact measured production hazard (`viaduct.proxy.rlwy.net:12394`, the real `.env.local` value) — refused identically to a dead-host drive, zero connection attempts either way. `agent-output/verification/012/probe-fixround3-m4-and-m5/README.md`, Legs 1 and 3. |
+| **L8** — report destination not overridable, 3/3 rounds contaminated the gate directory | `grep -rl "agent-output" src` (reviewer's own predicate) | Pre-fix: **1** file (`backfillValid.ts`, the hardcoded `DEFAULT_REPORT_DIR`/former `REPORT_DIR`). Post-fix: **1** file still — the hardcoded path remains as the *default*, which is correct (the owner-executed run still wants the gate directory by default); what changed is that `BACKFILL_REPORT_DIR` now overrides it. | Closed in the same M4 change, as the reviewer predicted. Verified live: a drive with the override set left nothing under `agent-output/verification/012/` — the first of four rounds' drives not to. `probe-fixround3-m4-and-m5/README.md`, Leg 2. |
+
+**M5** (record correction only, no enumeration owed beyond the reviewer's own two predicates, already
+re-run and matching — see below) is closed by editing the Files Created table's `messageMode.ts` and
+`backfillValid.ts` rows to state the `handleModeSwitch` seam's correct disposition (accepted at
+Minimum, not closed) and to list `emit`/`reportPath`/`resolveTargetHost`/`assertConfirmedTarget`
+among the tested exports. Re-run of the reviewer's own predicates
+(`"closing the M2 wiring seam|wiring seam.*clos|seam.*closed"` and `"handleModeSwitch"` across
+`agent-output/*.md`) post-fix: the only remaining hits are the frozen changelog row (a record area,
+correctly not rewritten — the reviewer's own stated exclusion), Outstanding Item 9's correction text
+(a negation, not a claim), and the code-review document itself (not this stage's to edit). No live
+stale "closed" claim remains.
+
+**L7** (LOW, judged proportional to address given the file was already open this round, per the
+reviewer's explicit hand-off of that judgement) — `formatReport`'s `meta` parameter widened from an
+inline `{ tableWideRowCount: number, interrupted?: boolean }` to a named `interface ReportMeta`
+declaring `runId?`/`startedAt?`/`endedAt?`, shared with `emit`'s `extra` parameter via
+`Omit<ReportMeta, 'tableWideRowCount'>` rather than duplicated. **Disposition, stated plainly**: this
+is the Preferred action's *declaration* half, not its *enforcement* half — the fields stay optional,
+so a future refactor that stops passing `runId` would still not be a type error (only an *undeclared*
+field vanishing silently would have been prevented if that were the only gap; declaring the field as
+optional removes the "not declared at all" defect L7 named, but does not make omission a compile
+error). Enforcement would require making the fields non-optional on `emit`'s boundary, which was not
+done: `emit` is called from exactly one production site (`main`), which always supplies all three, so
+there is no live gap today — the residual is a *future* one. Added the assertion the reviewer named
+at Minimum (`formatReport` case asserting `runId`/`startedAt`/`endedAt` reach the parsed body) as a
+regression guard, explicitly labelled in the TDD table as not a red/green case since the behaviour
+already existed. On-next-touch note: promoting `emit`'s `extra` fields to required, the moment a
+second call site with materially different provenance needs is introduced, would close the
+enforcement gap fully.
 
 ## Assumption Not Checked — closure (QA's handoff to the implementer)
 
