@@ -20,8 +20,9 @@ Status-Detail: >-
   R18 SUPERSEDED by owner rulings) with **10 outstanding** — QA-R3, R4, R5, R6, R7, R8, R9, R15,
   R19, R20. Walkthrough round 1: M6-c and QA-R2 PASS; **QA-R4 and QA-R15 NOT EXECUTED** — their
   subject, record 5712 in the composer, is unreachable by the owner, so the instrument could not
-  be brought to bear (U-5, routed up: re-specify via QA, or an owner WITHDRAWN with its cost
-  stated). The QA-R19 **send** is held on two independent grounds: U-4 (row 5842's shape unknown)
+  be brought to bear (U-5). **Owner ruled D19, verbatim "Leave them open"** (plan rev 32): neither
+  re-specified nor withdrawn, so both stay `NOT EXECUTED` — open by ruling, still not terminal, and
+  chain closure stays blocked as the consequence he accepted. The QA-R19 **send** is held on two independent grounds: U-4 (row 5842's shape unknown)
   and U-6 (the JSON-editor route for 5712's own shape is a candidate falsifier for plan Risks R6).
   Value Statement delivered **in mechanism and now in the stored verdict and its exposure** —
   M6-c and QA-R2 confirm both against production. Silent classes still unverified, not covered:
@@ -45,6 +46,7 @@ verdict below (see the changelog), so the rev-29 citation is the reviewed revisi
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-08-23 | steering-hooks-012 (carrying QA PASS at `c85945f` and code review round 7) | Validate value delivery against the plan's Value Statement; consume the chain's blocking-condition register; issue a release decision | **UAT Complete. APPROVED FOR RELEASE, CONDITIONAL.** Value Statement delivered in mechanism at `c85945f`; delivery *in effect* depends on owner-executed DDL/backfill/declaration. Register consumed: 6 rows terminal, 14 outstanding with owners and terminal states named. Three findings recorded (U-1 R7's silent class has no instrument; U-2 `49f2bf1`'s commit message carries a superseded claim devops must not inherit; U-3 two devops obligations found outside the register, folded in). |
+| 2026-08-23 | steering-hooks-012 (relaying owner ruling D19) | Record the owner's ruling on U-5 | **Owner ruled option (c), verbatim: "Leave them open"** — registered as plan **D19** (rev 32, `a50e75d`), verified at source. QA-R4 and QA-R15 stay **`NOT EXECUTED`**: neither re-specified nor withdrawn. UAT's recommendation (a) not taken; recorded, not re-litigated. **What changes is why they stand open — by ruling, not by oversight; what does not change is that `NOT EXECUTED` is not terminal**, so both remain in this register and **chain closure stays blocked**, the stated consequence he accepted with the ruling. Noted: D19 sets no review trigger, so nothing schedules a re-read — recorded as a fact, not promoted into an instruction, and named for the retrospective. Release decision unaffected. |
 | 2026-08-23 | steering-hooks-012 (relaying the owner's walkthrough round 1) | Record M6-c, QA-R2, QA-R4, QA-R15 results against their predictions | **M6-c EXECUTED PASS** (both sentinels). **QA-R2 EXECUTED PASS** — `valid: false` at top level; payload also establishes 5712 as cell B5 / guidance shape (i) from production. **QA-R4 and QA-R15 NOT EXECUTED** — the owner cannot load 5712 in the composer, so both were attempted against an imported copy whose state is unverifiable by his own account; neither a pass nor a fail is available, and the rows stand open. Two findings raised: **U-5** (HIGH — the two 5712-keyed rows may be unexecutable by anyone: a specification defect, not a pending task; RECOMMEND re-specification via QA, with owner WITHDRAWN as the alternative and its cost stated) and **U-6** (HIGH — the owner's report that the JSON view may not support V2 and may strip content is a candidate falsifier for plan Risks R6, and bears on QA-R19 guidance shape (i), which is 5712's own shape). Release decision unchanged and correctly discharged; **chain closure blocked**. |
 | 2026-08-23 | uat (self-recorded) | Registration write into the plan, per this stage's Status-tracking remit | Plan `Status` → **UAT Approved**, Revision → 30, one registration changelog row, and the stale Status-Detail clause `Next gate: UAT (clear to start)` replaced (a declarative surface, corrected by replacement). **A registration write only** — no body text, criterion, milestone, register row or Risks row touched, and no prediction record written (those are the planner's). **Not committed by this stage**: CLAUDE.md's commit exception covers only the document a stage itself produced, and the plan is the planner's. Routed as a blocking question; **owner ruled 2026-08-23, verbatim: "The planner commits it."** — relayed by steering-hooks-012. The ruling settles *who* commits, not whether the content is sound; that judgement remains the planner's. |
 
@@ -749,3 +751,73 @@ instrument, its members inside the 4750 `true` rows), and now the recovery path 
 signature is a guild owner quietly losing content while following instructions. A working field is
 the most persuasive available argument for laundering exactly those, and it is not accepted here as
 one.
+
+---
+
+## Addendum 3 — 2026-08-23: owner ruling D19 on QA-R4 and QA-R15
+
+**Authority**: plan register row **D19** (`agent-output/planning/012-message-valid-field.md`, rev 32,
+`a50e75d`), re-read at this document's write time rather than carried from the relay. Reopening
+class: owner withdrawal only.
+
+**Ruling, verbatim and entire**: *"Leave them open"* — a selection-prompt answer; the three options
+were this stage's, the wording steering's. **Option (c).** This stage's recommendation (a), route
+back to QA for re-specification, was **not taken**; (b), owner-ruled `WITHDRAWN`, was **not taken**
+either. Recorded as the ruling it is and not re-litigated.
+
+Nothing else was said — no reasoning, no condition, no revisit direction. **The absence is recorded
+as an absence and is not read as an instruction**, and this stage supplies none.
+
+### Effect on the ledger — what changes, and what deliberately does not
+
+| | |
+|---|---|
+| **QA-R4 state** | `NOT EXECUTED` — **unchanged** |
+| **QA-R15 state** | `NOT EXECUTED` — **unchanged** |
+| **What D19 changes** | *Why* they stand there. They are now open **by owner ruling**, not by oversight or by an instrument nobody got to |
+| **What D19 does not change** | `NOT EXECUTED` **is still not a terminal state.** D19 is not a withdrawal, and only a withdrawal retires a row. Both rows remain in this register, remain blocking, and are not removed from it |
+
+**Chain closure therefore remains blocked** — which is not a side effect but the **stated consequence
+of the option he selected**: *"chain closure stays blocked indefinitely, pending the separate
+Components-V2-editing research effort; everything else in the queue still runs."* Accepted with the
+ruling rather than merely predicted by it. The release decision is unaffected and stays correctly
+discharged.
+
+**Recorded because a queue is not the register**: steering has removed QA-R4 and QA-R15 from
+`OWNER-QUEUE.md` (`a7191c5`) on the sound ground that a ruled item is no longer an owner item. That
+is correct for a working queue and changes nothing here — **this register is where the two rows
+live, and D19 says so explicitly.** A reader who finds them absent from the queue should not read
+that as terminal.
+
+### One fact about the ruling's shape, stated and not converted into an instruction
+
+D19 attaches **no review trigger** to either row. Its accepted consequence names the V2-editing
+research effort as what *closure* waits on, but that is a consequence of the ruling, not a
+`Review-Trigger` on the rows themselves — and this stage will not promote it into one, because the
+owner did not.
+
+The consequence is that **nothing currently schedules a re-read of QA-R4 or QA-R15.** Per
+document-lifecycle, a routed item without a trigger "sits open indefinitely" — which here is the
+ruled outcome rather than a defect in it, and is recorded so a later reader knows the openness is
+deliberate and unscheduled. Named for the **retrospective** as an observation about the record's
+shape, not raised back to the owner: he has just ruled, and re-putting a settled question in
+different words is not available to this stage.
+
+### Still runnable, unaffected by D19
+
+QA-R3, QA-R5, QA-R6, QA-R7, QA-R8, QA-R9, QA-R20 — and the 5842 shape question (U-4) and the live
+declaration. **The 5712 preservation rule stands**: open rows still carry preconditions that a save
+destroys, so QA-R5, QA-R6 and QA-R7 remain scratch-message-only.
+
+**QA-R5, QA-R6 and QA-R7 still matter more than their position in the queue suggests**: they close
+wiring seams (`handleModeSwitch` -> `applyModeSwitch`; `upsertMessage` -> `buildMessageValues`) that
+QA-R4 and QA-R15 do not, so QA's Phase 2 Assumption Not Checked is **not** wholly stranded by D19.
+That class narrows to the two 5712-keyed rows alone.
+
+### Register state at this addendum
+
+**10 of 20 terminal** — QA-R1, R2, R10, R11, R14, R17 `EXECUTED`; QA-R12, R13, R16, R18
+`SUPERSEDED`.
+**10 outstanding** — QA-R3, R4, R5, R6, R7, R8, R9, R15, R19, R20; of these **QA-R4 and QA-R15 are
+open by ruling D19**, the rest are runnable now.
+**Held**: the QA-R19 *send*, on U-4 and U-6, both independent and both still standing.
