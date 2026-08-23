@@ -24,45 +24,17 @@ in its commit message what the deleted text carried and where it now lives.
 Released and live; backfill done (4825 rows classified). These close the chain. **Nothing here is
 optional: no release is recorded complete while any of them is unrun.**
 
-### Read this before starting — two ways to destroy your own evidence
+### Read this before starting — do not destroy your own evidence
 
-- **QA-R5, QA-R6 and QA-R7 must be run on a SCRATCH message you create. Never on message 5712.**
-  Each of them saves, which recomputes `valid` and wipes out the preconditions of M6-c, QA-R2 and
-  QA-R4. The published ordering only guards against QA-R15; this one it leaves implicit.
-- **QA-R15 goes LAST.** It deliberately changes 5712, and afterwards QA-R2's expected answer becomes
-  `true` rather than `false`.
+**QA-R5, QA-R6 and QA-R7 must be run on a SCRATCH message you create. Never on message 5712.** Each
+of them saves, which recomputes `valid`. 5712 is still the subject of two unresolved rows, and a
+save wipes their preconditions permanently.
 
-### These four are ordered. Do them in this sequence.
+### Run any of these, any time — none depends on another
 
-**M6-c — sentinel spot-check.** Two SQL reads against production:
-```sql
-SELECT id, valid FROM "Messages" WHERE id = 5712;
-SELECT id, valid FROM "Messages" WHERE id = <one known bare-Text-Display V2 record>;
-```
-**Pass:** 5712 → `false`; the bare-V2 record → `true`. **Do not check this against the backfill
-report** — 5712's expected `false` traces to the Discord `400`/`50035` you recorded, and the report is
-the predicate's own output, so using it here is circular. **Record both values and the time. If either
-is wrong, STOP and do not run the rest.**
-
-**QA-R2 — 5712 over the API.** GET the v1 guild-messages endpoint for guild `966088462803537960` and
-find message 5712. **Pass:** `valid: false` appearing at **top level**, beside `id`/`name` — not inside
-`data`. **Fail:** `true`, or the key missing entirely (missing means the row is still NULL, i.e. a
-backfill gap).
-
-**QA-R4 — 5712 in the composer.** Load it. **Pass:** the mutual-exclusivity notification shows **and**
-Send is disabled. **Read-only — do not save.** Send still enabled means the original defect is unfixed.
-
-**QA-R15 — LAST, and it persists.** Load 5712 and bring it to Send-enabled using the composer's
-supported controls **only — no JSON modal**. Save. Then check the persisted record's flags.
-**Pass, both halves:** it was reachable **and** the saved record carries **no `IS_COMPONENTS_V2_FLAG`**.
-Without the second half the check proves nothing — Send-enabled is reachable on the old code too, by
-rebuilding it as genuine V2 with the flag still set.
-
-### These four are order-free. Any time.
-
-**QA-R3 — positive control.** Same GET as QA-R2, but for a guild holding a bare-Text-Display V2
-record. **Pass:** `valid: true` at top level. A `false` here is the mass-invalidation failure, and it
-arrives as silence rather than as an error.
+**QA-R3 — positive control.** GET the v1 guild-messages endpoint for a guild holding a
+bare-Text-Display V2 record. **Pass:** `valid: true` at top level, beside `id`/`name`. A `false`
+here is the mass-invalidation failure, and it arrives as silence rather than as an error.
 
 **QA-R8 — NULL sweep.** `SELECT count(*) FROM "Messages" WHERE valid IS NULL;` **Pass:** 0. **Must be
 before the live declaration.** The backfill report corroborates this but is not the instrument — it is
@@ -76,6 +48,14 @@ Cancel it; you do not need to confirm.
 and save it. **Pass, two halves:** (a) the save **succeeds**, and (b) that record's v1 representation
 then shows `valid: false`. **(a) is the one that matters** — if the save is rejected, the field has
 become a gate, which the plan forbids, and it goes back to the implementer.
+
+### Blocked on your ruling — do not attempt these
+
+**QA-R4 and QA-R15 are held.** Both name *record 5712 loaded in the composer* as their subject, and
+you report that record cannot be brought to the composer at all. UAT has ruled both NOT EXECUTED and
+raised it as a specification defect (U-5, HIGH): a row whose subject nobody can put in front of the
+instrument does not resolve by waiting. **A selection prompt is with you.** Nothing runs on these
+until you answer, and the chain does not close while they stand open.
 
 ## 2. Only you can do these — no agent may
 
@@ -107,8 +87,16 @@ unguarded*, and what lands in it next is decided by gate behaviour nobody has te
 **The live declaration to statbot.** Only after QA-R9 and QA-R20 are both reviewed and accepted.
 Then statbot 023 deploys its gate. Record your words and the time.
 
-**Sending the repair guidance.** Devops has drafted it; the text is in the deployment record. **Held
-until row 5842 is settled**, above.
+**Sending the repair guidance. Now held on two independent grounds, not one.**
+Devops has drafted it; the text is in the deployment record.
+- **Row 5842's shape is unknown** — above.
+- **The guidance's main route may itself destroy content.** Its shape-(i) advice points affected
+  guild owners at the JSON editor's **Load** — and shape (i) is the shape 5712 actually has, measured
+  from production. Your observation that the JSON view may strip V2 content is a candidate falsifier
+  for exactly that route. Candidate, not established. If it holds, the guidance tells people to do
+  something that loses their data, and it reads to them as a hooks.gg bug rather than as following
+  instructions. **Do not send it until this is settled**; the generic research handoff is written and
+  committed.
 
 **Standing rule, for context:** no agent on this machine ever posts a message anywhere — not Discord,
 modmail, support threads, email or ticket replies. Work that ends in "tell someone X" stops at
