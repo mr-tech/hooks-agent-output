@@ -755,11 +755,20 @@ property that emerges from the composition.** The critic's own instinct to flag 
 right, and the assumption was more load-bearing than its LOW framing suggested — it sits under an
 owner ruling.
 
-**Instrument captured, not narrated**: block `EXT-3` in
-`website/src/utils/__tests__/012-send-gate-partition.test.ts`. Every step calls the **shipped**
-function — `stripKeys`, `standardizeMessage`, `enforceImportMutualExclusivity`,
-`discordMessageImportShape`, `makeEditable` — with only the three-line React state merge transcribed,
-from `useApiMethods.ts`.
+**Instrument captured, not narrated**:
+`website/src/utils/__tests__/012-json-editor-repair-path.test.ts` — **its own file**, 6 tests, all
+passing. Every step calls the **shipped** function — `stripKeys`, `standardizeMessage`,
+`enforceImportMutualExclusivity`, `discordMessageImportShape`, `makeEditable` — with only the
+three-line React state merge (`useApiMethods.ts`) and the two mode-switch branches transcribed.
+
+> **Why it is a separate file, decided at rev 5 after first writing it into the partition spec.**
+> The partition spec's *entire* evidential value is that it was pre-registered and frozen **before
+> any implementation existed**. This block was written **after the implementer began**. Appending it
+> there would have blurred the one property that makes that file evidence, and would have left
+> QA-authored hunks inside a file the implementer now commits — where a `git commit --only` on that
+> path would have swept them in unknowingly. The partition spec has been restored **byte-identical
+> to `a7ebe4d`** (`git diff --numstat` returns nothing against it), so its Red-before-Green record is
+> untouched by anything QA did afterwards.
 
 ---
 
