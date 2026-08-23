@@ -1,0 +1,10 @@
+{
+  "version": "0.2",
+  "language": "en,en-GB",
+  "ignorePaths": [
+    ".git",
+    "user-files/",
+    "WORKING-NOTES.md"
+  ],
+  "words": []
+}

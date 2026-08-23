@@ -1,0 +1,21 @@
+# Temporary working file — scratch notes for an in-flight agent run.
+# Never commit: it is deleted at the end of each session and its contents are
+# unreviewed.
+WORKING-NOTES.md
+
+# Credentials. This repository documents internals; it must never accumulate
+# secrets alongside them.
+.env
+.env.*
+
+# Dependencies
+node_modules/
+
+# OS and editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Logs
+*.log
