@@ -5,8 +5,10 @@ UUID: 12a4fe3c
 Parent: message-valid-field-for-statbot-2026-08-23.md
 Status: Active
 Status-Detail: >-
-  Plan drafted; blocked on OQ-1 (owner ruling on the flags-bit clause in the validity predicate)
-  before critique. All other questions resolved in-plan. Target repos: project-utils then website.
+  Rev 2. OQ-1 ruled by the owner (a composer bug, to be fixed — not a predicate clause); M2 and M5
+  are PREMISE-STALE pending authorisation of the derived re-scope (one added milestone: correct the
+  send gate in website). Delta reported to steering; no further passes until authorised. Target
+  repos unchanged: project-utils then website.
 ---
 
 # Plan 012 — `valid` field on stored messages
@@ -14,7 +16,7 @@ Status-Detail: >-
 | Field | Value |
 |---|---|
 | Plan ID | 012 |
-| Revision | 1 |
+| Revision | 2 |
 | Target Release | Next `project-utils` `master` push + next `website` `master` deploy (Vercel), plus owner-executed DDL and backfill against the production database. Neither package carries a `version` field or CHANGELOG, so the release is named by the serving refs moving; the devops agent verifies at release. **No roadmap document exists in this workspace** (`roadmap/` is empty) — the target is derived from the originating handoff, not a roadmap grouping. |
 | Epic Alignment | None citable — recorded absence, not an oversight: no roadmap document exists to align against. The effort is owner-directed via handoff `message-valid-field-for-statbot-2026-08-23.md` (UUID 61f24e56). |
 | Lane | standard — blast radius spans the shared data layer (schema), a cross-product API surface, and the production dataset; not small however few the lines. |
@@ -26,14 +28,15 @@ Status-Detail: >-
 | Date | Rev | Author | Change |
 |---|---|---|---|
 | 2026-08-23 | 1 | planner | Created from handoff 61f24e56. Contract carried verbatim from the handoff and statbot plan 023 register rows D9/D10 (read directly). Repository context from three exploration sweeps of `website` and `project-utils` (this date). OQ-1 opened: the composer's send-gate checks do not catch the motivating record 5712 — flags-bit clause needs an owner ruling. |
+| 2026-08-23 | 2 | planner | Three owner rulings registered (D5–D7, relayed by steering-hooks-012). OQ-1 resolved: the gap is a composer bug to fix, not a predicate clause — D1 preserved. M2 and M5 marked PREMISE-STALE; re-scope (one added milestone: correct the send gate) derived and PROPOSED, reported to steering, awaiting authorisation before any further pass builds on it. R4's live member resolved. Not a registration pass — the ruling changes what M2's criteria require. |
 
 ## Reading Order
 
 | Role | Read, in order |
 |---|---|
-| implementer | Decisions Register → OQ-1 disposition → Milestones → Serialised Shared Files → Risks |
-| code-reviewer | Decisions Register → Milestones (acceptance properties) → Out of Scope |
-| qa | Acceptance properties in Milestones → Testing Strategy → Validation and Release Conditions |
+| implementer | Decisions Register → Proposed Re-Scope Under D5 → Milestones → Serialised Shared Files → Risks |
+| code-reviewer | Decisions Register → Proposed Re-Scope Under D5 → Milestones (acceptance properties) → Out of Scope |
+| qa | Proposed Re-Scope Under D5 → Acceptance properties in Milestones → Testing Strategy → Validation and Release Conditions |
 | uat | Value Statement → Validation and Release Conditions → Known Consequence (under Objective) |
 | devops | Target Release row → Milestone ordering notes (M1→M3 pin discipline) → Validation and Release Conditions → Rollback |
 
@@ -63,6 +66,9 @@ The owner's framing, verbatim (2026-08-23, carried from the handoff):
 | D2 | Validation for message compliance is hooks.gg's, not Statbot's; Statbot does not revalidate | 2026-08-23 | *"Let me phrase it this way, validation for compliance is on hooksgg. Statbot should not be concerned with revalidating that which should not have been broken in the first place."* Route: witnessed by statbot steering-023, registered at statbot plan 023 row D9, carried into handoff 61f24e56; both read directly. | Owner withdrawal only. |
 | D3 | If this plan needs an analyst, it asks the owner for a durable analyst session — it does not spawn an analyst subagent | 2026-08-23 | *"If the planner needs an analyst agent, tell it to ask me for a durable one."* Route: relayed by steering-hooks-012 in this chain's launch brief, 2026-08-23. | Owner withdrawal only. (Process ruling; recorded because it binds this chain's conduct.) |
 | D4 | Chain 012 is opened for this handoff; the planner mints the ID | 2026-08-23 | No verbatim wording available — direction relayed, not quoted: the owner named this chain 012 in directing the launch (agent-recorded, author: steering-hooks-012). Route: relayed by steering-hooks-012 in the launch brief, 2026-08-23; `.next-id` read 12 at mint, agreeing with the naming. | Owner withdrawal only. |
+| D5 | The UI failing to catch 5712's stored state is a BUG IN THE COMPOSER that must be fixed — not a question about the field's truth value; the truth condition (D1) stands unamended | 2026-08-23 | *"So you're saying there's a bug where the UI is saying something is valid when it's not? That's not a question about about the truth value, it's a bug in the UI that must be fixed."* [sic] Route: relayed by steering-hooks-012, 2026-08-23, in answer to OQ-1 as put through steering; none of the three enumerated options was selected. | Owner withdrawal only. |
+| D6 | The expanded scope is confirmed: the backfill's per-check outcome distribution stays, as the gate the owner reviews before the field is declared live to Statbot; risk R2 remains carried, not escalated | 2026-08-23 | Selection-prompt answer; option agent-authored (worded by steering-hooks-012), owner selected *"Confirm the expanded scope"* unaltered. Route: relayed by steering-hooks-012, 2026-08-23. | Owner withdrawal only. |
+| D7 | The unauthenticated state of the v1 read endpoints is known and accepted; no action | 2026-08-23 | *"This is known and accepted. No action necessary."* Route: relayed by steering-hooks-012, 2026-08-23, in answer to the finding routed in this plan's rev-1 report. Dismissal scope: it retires the class *findings that the v1 guild-messages read surface lacks authentication*, and releases no gate (the finding was routed for disposition, never gating this chain). | Owner withdrawal; or a change that adds write capability or a new data class to the v1 surface — a new fact, not this finding re-raised. |
 
 Standing constraint restated from the handoff's `Owning-Stage`: whoever plans this **inherits the contract verbatim from the Agreed shape section and must not amend it without the owner**, because statbot chain 023 has registered it as a decision (row D10). Expiry condition: owner ruling amending the shape (which OQ-1 below explicitly requests for one clause). Recorded 2026-08-23.
 
@@ -99,19 +105,9 @@ This field does not address the Statbot 500s on Components V2 statrole notificat
 
 ## Open Questions
 
-### OPEN QUESTION OQ-1 (BLOCKING — owner ruling required before critique): does the validity predicate consider the stored `flags` V2 bit?
+### OPEN QUESTION [RESOLVED] OQ-1: does the validity predicate consider the stored `flags` V2 bit?
 
-**The finding.** The composer derives Components-V2-ness *structurally* — `validateContentRequirements` (`src/utils/limits.tsx`) tests `components.some(c => V2_TYPES.has(c.type))`. It never reads the `flags` field. Message 5712's stored form is `flags: 32768` + non-empty `content` + **empty** `components` — a state the editor cannot represent (the editor sets the flag from structure). Run on that stored data, the composer's own checks find no V2 components, see content present, and pass it: **strict reuse of the UI's checks computes `valid: true` for the exact record this field exists to mark `false`.** (Corroborating: loaded into the editor today, 5712 enables the Send button; the composer itself would let it through to Discord's 400.)
-
-D1's truth condition ("the field is those existing notifications made machine-readable — not a new validation regime; if a check does not already exist in the UI, it does not belong in this field") and the handoff's "it is exactly the record a `valid` field should mark `false`" cannot both hold without one addition. The class at issue is bounded and nameable: **stored records whose `flags` V2 bit disagrees with their component structure** — representational residue outside the editor's domain, which the UI checks were never written to decide.
-
-**Options (the ruling is the owner's; the contract bars unilateral amendment):**
-
-1. **(Recommended) Extend V2-ness detection by one clause**: the predicate treats a record as Components V2 when its components are structurally V2 **or** its stored `flags` carries `IS_COMPONENTS_V2_FLAG`. Rationale: it decides only the residue class the UI cannot see, it mirrors what Discord itself enforces (the recorded `50035`), and it is what makes 5712 compute `false`. One clause, named in the plan as a deliberate, owner-ruled extension.
-2. **Strict UI parity, no extension**: 5712 computes `valid: true`; the field fails its motivating case and Statbot's gate never fires for it (today's accidental delivery continues until any Statbot flag-handling correction turns it into a live failure — the scenario the handoff records).
-3. **Don't do it**: hold the whole effort pending owner re-thought of the truth condition. (Real option; nothing downstream is authorised yet.)
-
-Until ruled: milestone M2's predicate definition and the 5712 post-deploy observable are **not final**; M1 (schema), M3 (wiring), M4 (exposure) are unaffected by the ruling but are not to be implemented before critique anyway.
+**OQ-1 RESOLVED — owner ruling D5, 2026-08-23: neither enumerated option.** The owner relocated the defect: *"That's not a question about about the truth value, it's a bug in the UI that must be fixed."* The composer's send gate failing to catch 5712's stored state (`flags: 32768` + content + empty components — the gate derives V2-ness structurally and never reads `flags`) is a **composer bug**; fixing it makes the gate itself catch 5712, and the predicate — which reuses the gate — inherits the catch with **no extension clause**, so D1's "no check that does not already exist in the UI" holds without contradiction. The full rev-1 argument lives at commit `8d012bf`. Consequences carried into the re-scope below; the finding's substance (which checks miss what, and why) is preserved there and in M2's PREMISE-STALE note.
 
 ### OPEN QUESTION [RESOLVED] OQ-2: where does the recompute hook attach?
 
@@ -122,6 +118,41 @@ The handoff asked whether mutation paths beyond the normal save exist. **Resolve
 Yes, and strengthened: the backfill emits an outcome distribution (per-check counts for every record computed `false`), the named sentinel records are checked against **Discord's recorded verdicts** (not against the predicate itself), and the owner reviews the distribution before the live declaration (M5). Resolution rationale: the truth condition is defined by parity with the UI, and a separately executed compute run is exactly where parity drift or an unexpected mass-invalidation would surface — the review gate converts both risks into an observed decision instead of a silent ship.
 
 ---
+
+## Proposed Re-Scope Under D5 — NOT YET AUTHORISED
+
+Derived from ruling D5; reported to steering 2026-08-23 as a scope delta and **awaiting
+authorisation before any pass builds on it**. Nothing below is enacted; M2 and M5 stand
+PREMISE-STALE until this proposal (or a directed alternative) is authorised and the markings are
+cleared with re-arguing paragraphs.
+
+1. **One added milestone — correct the composer's send gate (repo: `website`).** The send gate
+   treats a message as Components V2 when its components are structurally V2 **or** its loaded
+   `flags` carry `IS_COMPONENTS_V2_FLAG` — so a 5712-shaped editor state disables Send and shows
+   the mutual-exclusivity notification whose copy already exists ("Components V2 messages cannot
+   contain embeds or content."). This is the owner-ruled bug fix, a change to shipped product
+   behaviour: states that today reach Discord's `400` become blocked-with-explanation in the
+   composer. The fix lands in the gate's own module (`src/utils/limits.tsx` neighbourhood — the
+   check must see `flags`, which `validateContentRequirements` today does not receive; where the
+   signature threads through is the implementer's), never in a server-side fork of it.
+2. **The predicate milestone simplifies.** The M2 predicate reuses the corrected gate **unmodified
+   — no extension clause of any kind**. Parity (M2-a) loses its residue-class exception entirely:
+   one symbol, two callers, over the whole domain.
+3. **Records already stored in states the corrected gate refuses** are not repaired: they compute
+   `valid: false`, surface through M4/M5, and are fixed by their owners in the composer — where
+   the corrected gate now *explains* the problem. This is the handoff's own accepted resolution
+   ("resolved by that guild's owner editing the message in the hooks.gg composer"), now made
+   honest by the fix.
+4. **Settled contingencies**: M5-c's 5712 sentinel verdict is `false` (no longer
+   ruling-contingent); a new human-observable post-deploy row joins Validation — loading 5712 in
+   the composer shows the cannot-send notification with Send disabled.
+5. **Deliberately not derived into scope**: whether the *save path* should stop producing new
+   flag/structure-disagreeing records (e.g. normalising `flags` when structure carries no V2
+   components). The field marks any such record `false` either way, so nothing is silently wrong
+   without it; preventing their creation is a separate product-behaviour choice left as an
+   on-next-touch note unless the owner asks for it.
+
+Target repos are unchanged by this re-scope: `project-utils` then `website`.
 
 ## Milestones
 
@@ -137,7 +168,14 @@ The DDL against the production database (adding the nullable column) is **owner-
 - **M1-a.** For the whole population of existing `Messages` rows, adding the column changes no stored value and no consumer-visible behaviour: every row reads `valid IS NULL` until M3/M5 write it, and (per the exposure rule in M4) a `NULL` produces no `valid` key downstream. Instrument: SQL count of non-null `valid` immediately after DDL, read once before any M3/M5 write — expected 0.
 - **M1-b.** The regenerated package exports the column through the committed rollup: `DatabaseSchema.Messages` as seen by a consumer installing the pinned package includes optional `valid`. Instrument: the committed `dist/index.d.ts` at the M1 commit (verified against the committed tree, never an installed copy — cross-repo-contract skill, "Pinned Dependency Verification").
 
-### M2 — The validity predicate (repo: `website`)
+### M2 — The validity predicate (repo: `website`) — **PREMISE-STALE**
+
+**PREMISE-STALE (2026-08-23, ruling D5).** As written below, M2 anticipates carrying an OQ-1
+extension clause in the predicate; D5 rules the missing check a composer bug instead, so the
+corrected gate carries it and the predicate carries nothing. M2 is not implemented, reviewed, or
+tested until the re-scope above is authorised and this marking is cleared with a re-argued
+premise. The body below is rev-1 text, retained so the criteria's structure (parity, expectations
+independence, stated asymmetries) is visible to the re-argument.
 
 A server-side predicate that answers, for a stored `data` payload, exactly what the composer's Send gate answers — **by reusing the gate's own aggregation, `validateMessage` from `src/utils/limits.tsx` (imported directly, not via the `~/utils` barrel), never by reimplementing its checks** — extended by the flags-bit clause if and only as OQ-1 is ruled. The predicate is the truth condition made callable; it adds no check the Send gate lacks (OQ-1's clause, if ruled in, is the one named, owner-ruled exception, deciding only the residue class the UI cannot represent).
 
@@ -165,7 +203,12 @@ Both v1 endpoints (`src/pages/api/v1/guilds/[guildId]/messages.ts` and `…/mess
 - **M4-b (containment, negative).** For every response, `data` carries no `valid` key the mapping introduced — the field "can never leak into what gets mapped or sent" (D1's placement rationale). Instrument: the response `data` for records whose stored `data` lacks the key; any `valid` inside `data` is the mapping's defect. (A stored `data` that happens to contain a user-authored `valid` key inside message content is out of this criterion's class — the criterion governs what the mapping adds.)
 - **M4-c (no other surface changes).** The editor-facing tRPC read paths (`mapMessage`, `ApiMessage`) are deliberately **not** extended: no consumer needs `valid` there (the composer computes its notifications live), and YAGNI holds until one does. The property: outside the two v1 endpoints and the write path, no response shape in the repo changes. On-next-touch note, not scope: if the editor ever wants the stored verdict, `mapMessage`'s fixed field list is the single place it lands.
 
-### M5 — Backfill, distribution report, and the live declaration
+### M5 — Backfill, distribution report, and the live declaration — **PREMISE-STALE (M5-c only)**
+
+**PREMISE-STALE, scoped (2026-08-23, ruling D5).** M5-a/b stand as written (and are
+owner-confirmed, D6). M5-c's sentinel framing is stale: it states 5712's expected verdict as
+contingent on an OQ-1 option ruling; under D5 the verdict is settled `false`, reached through the
+corrected gate. Cleared together with M2's marking when the re-scope is authorised.
 
 A one-off backfill computes and writes `valid` for **every** row of `Messages` (the whole table, not only the 1,976 Statbot-visible records; total counted by the run itself, with instrument and date recorded beside the number). The script lives at `agent-output/verification/012/` (the workspace's home for chain-bound runnable material; precedent: the owner-executed sweep). It must use the same predicate the save path uses — the M2 module, not a reimplementation — so backfill parity with saves holds by construction. Execution against the production database is **owner-executed** (Assumption 4); his attestation of the run and its printed summary, quoted with timestamp in the implementation or deployment document, is complete evidence, and no capture file is owed for it. Where any agent instead executes it against a database the owner provides, the output is captured by the executing agent as a backfill report file (named `backfill-report.md`) under `agent-output/verification/012/`.
 
@@ -210,11 +253,11 @@ High level only; cases, fixtures and files are the qa subagent's (`agent-output/
 | **R1 — Truth-condition drift**: the predicate and the Send gate diverge as either evolves; the class is any payload where the two disagree outside the OQ-1 residue. | A payload observed with predicate verdict ≠ Send-gate verdict (suite or production report). | M2-a's by-construction sharing (one symbol, two callers) makes divergence a code-review-visible act, not a silent drift. | rev 1: no member observed. |
 | **R2 — Mass invalidation at backfill**: the class is existing records failing checks users never hit at save time (the username default is the known candidate; the OQ-1 clause, if ruled in, is another). A large `false` population would make Statbot skip deliveries at scale the moment it gates. | M5-b's distribution report showing a `false` count materially above the sweep's expectation (~1 in 1,976 among Statbot-visible records; instrument and date recorded in Objective). | The M5-b review gate: the owner sees the distribution **before** the live declaration; a surprising distribution stops the declaration, not deliveries. | rev 1: opened; no data until backfill. |
 | **R3 — Stale-types footgun**: a schema edit without `prisma generate` passes the pre-commit hook while generated types lag. | M1-b's committed-rollup check failing, or website type-check failing against the refreshed pin. | The ordered M1 steps name generation explicitly; M1-b verifies against the committed tree. | rev 1: no member observed. |
-| **R4 — Parallel-chain premise**: statbot chain 023 proceeds against this contract; a change here that alters any D1 clause invalidates its premise. | Any plan revision touching a D1 clause (OQ-1's ruling is the one anticipated instance, and it is put to the owner, who owns both registers). | Scope constraint (Decisions Register, standing constraint) plus OQ-1's explicit routing to the owner; steering relays outcomes across workspaces. | rev 1: OQ-1 pending — this is the live member; resolved by the ruling. |
+| **R4 — Parallel-chain premise**: statbot chain 023 proceeds against this contract; a change here that alters any D1 clause invalidates its premise. | Any plan revision touching a D1 clause (OQ-1's ruling was the one anticipated instance, and it was put to the owner, who owns both registers). | Scope constraint (Decisions Register, standing constraint); steering relays outcomes across workspaces. | rev 1: OQ-1 pending — the live member. rev 2: resolved without a member appearing — D5 relocated the fix to the composer and amended no D1 clause; the contract statbot 023 builds on is untouched. No new member observed. |
 
 ## Out of Scope — findings routed, not absorbed
 
-- **v1 endpoints are effectively unauthenticated** (found 2026-08-23 during exploration): the middleware's matcher never covers `/api/v1/…`, and its guard tests a path prefix containing a literal `*`, which no path matches; the handlers check nothing themselves. Not this chain's work and **not a rider** — gating those routes would break Statbot's current reads and is an owner-level coordination decision with its own blast radius. Routed to the steering thread in this plan's report for owner disposition (likely its own chain, possibly through the security agent). This plan's M4 changes response *shape* only and neither narrows nor widens access.
+- **v1 endpoints are effectively unauthenticated** (found 2026-08-23 during exploration): the middleware's matcher never covers `/api/v1/…`, and its guard tests a path prefix containing a literal `*`, which no path matches; the handlers check nothing themselves. **Ruled by the owner, 2026-08-23 (register row D7): "This is known and accepted. No action necessary."** Terminal; not re-raised without evidence in D7's stated reopening class. This plan's M4 changes response *shape* only and neither narrows nor widens access.
 - **Orphan generated-types artifact** (`project-utils/src/generated/Database/types.ts`, capital D, frozen at an old commit): dead but tracked. On-next-touch note for whichever chain next works `project-utils` housekeeping; deliberately untouched here (drop disposition: none owed — never scoped in).
 - **Editor display of `valid`**: excluded (M4-c). The composer already explains invalidity live; the stored verdict has no UI consumer.
 
