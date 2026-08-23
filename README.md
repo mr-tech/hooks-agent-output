@@ -1,0 +1,213 @@
+# agent-output
+
+The working record of the multi-agent development workflow for the **Hooks.gg** workspace
+(`/usr/local/bin/hooks/`). Every plan, review, test verdict, release decision and retrospective
+produced for that workspace lives here.
+
+This repository holds documents *about* the code. It holds no product source. The repos it describes
+are separate; this is the record of how and why they were changed.
+
+> **Keep this repository private.** It documents production internals of a live product — service
+> topology, data-layer design, deployment shape and defect history. Nothing here is redacted.
+
+---
+
+## What Hooks.gg is
+
+A Discord message and embed builder: a WYSIWYG editor in the browser that composes a message and
+sends it through a Discord webhook, with a companion Discord bot. The product is the `website` repo;
+everything else supports it.
+
+**The workspace root is a plain directory, not a git repository.** `/usr/local/bin/hooks/` holds
+sibling repos, and `git` commands run at the root fail rather than spanning them.
+
+| Repo | State | What it is |
+|---|---|---|
+| `website` | **active** | The product. Next.js hybrid — App Router UI (`src/app`) plus Pages Router API (tRPC, NextAuth, Discord interaction endpoints, cron). The bot lives in `bot/`: edge commands are answered at the signature-verified edge endpoint, server commands are forwarded on. |
+| `project-utils` | **active** | The shared data layer, and the **source of truth for the database schema** (`prisma/schema.prisma`). Owns the generated Kysely types and the Postgres client singleton. |
+| `preview-image-generator` | **dormant but deployed** | A bare Node HTTP server on branch `prod`. Renders the website's own `/preview` page with pooled puppeteer and uploads a JPEG to the CDN bucket. The code has not changed since 2023; the role is current. |
+| `cdn` | **legacy** | A Next 13 app with a single API route serving preview blobs out of Postgres — a storage path the preview generator's bucket upload supersedes. |
+| `agent-output` | — | This repository. |
+
+**Membership is defined by `hooks.code-workspace`, and the folder list is not self-describing.**
+`cdn` is the one sibling the workspace file excludes, which is the clearest in-tree signal that it is
+no longer active.
+
+Two members of that workspace are **not in this tree and not owned code**: `../discord-api-types` and
+`../embed-generator` are clones of upstream repositories, kept for reference. Do not treat a change
+there as workspace work.
+
+**Two things this repository deliberately does not assert.** Whether `cdn` is still deployed, and
+whether the website serves from Vercel or PM2 — the tree carries configuration for both and states
+neither as the answer. See `OPEN_QUESTIONS.md`.
+
+## How work moves through here
+
+A unit of work is a **chain**: one numbered thread that passes through a sequence of agents, each
+writing into its own directory. The chain keeps a single ID from the first document to the last.
+
+A chain begins at one of four entry points, and **only one of them mints a number**:
+
+| Entry point | Takes an ID? | Form |
+|---|---|---|
+| operator-direct | no | `topic-YYYY-MM-DD.md` — a note recording what was asked, when |
+| handoff | no | `topic-YYYY-MM-DD.md` — work seeded for later |
+| research | no | `topic-YYYY-MM-DD.md` — exploration before committing to an effort |
+| **planner** | **yes** | reads and increments `.next-id` |
+
+```
+research · handoff · operator-direct
+                 │
+                 ▼
+roadmap ──▶ planner ──▶ critic ──▶ implementer ──▶ code-reviewer ──▶ qa ──▶ uat ──▶ devops
+               │                                                            │
+       analyst · architect · security                              retrospective ──▶ pi
+     (commissioned or consulted at any point,
+             not queue stages)
+```
+
+Not every chain runs the full sequence; some plans never reach release. The sequence is the order of
+gates, not a promise that all of them fire. Exploration that never becomes an effort stays in
+`research/` and never enters the numbered sequence at all.
+
+The retrospective hangs off **UAT**, not off release. It needs QA and UAT complete and nothing more,
+so a chain still gets one when the release is executed by hand outside the pipeline.
+
+Each stage is a gate with authority to send work backwards. The critic blocks a plan before anyone
+writes code; the code reviewer can reject an implementation on quality alone before QA spends time on
+it; QA can reject on TDD non-compliance before running a single test; UAT can withhold release
+approval even when every test passes.
+
+## Directories
+
+| Directory | Holds | Written by |
+|---|---|---|
+| `roadmap/` | The Master Product Objective, priority-ordered epics, and the release tracker. Evergreen. | roadmap |
+| `research/` | Exploration upstream of committing to an effort. ID-less and **never promoted** — a plan cites a research document, it never becomes one. | researcher |
+| `analysis/` | Investigation a plan commissioned during its own cycle. Findings and evidence only, no proposed solutions. Inherits the plan's ID. | analyst |
+| `operator-direct/` | Notes rooting work the operator requested directly, with no plan behind it. ID-less chain roots. | any agent |
+| `architecture/` | The evergreen `system-architecture.md` and its diagram, plus per-chain findings. | architect |
+| `planning/` | Implementation plans. WHAT and WHY, never HOW — no code in plans. | planner |
+| `critiques/` | Pre-implementation review of a plan: clarity, completeness, risk, scope. | critic |
+| `implementation/` | What was actually built: files touched, TDD compliance table, class-sweep table, test output. | implementer |
+| `code-review/` | Post-implementation quality gate. Verdict: APPROVED / APPROVED_WITH_COMMENTS / REJECTED. | code-reviewer |
+| `qa/` | Test strategy (written *before* implementation) and execution results (after). | qa |
+| `security/` | Threat models, code and dependency audits, pre-production gates. | security |
+| `uat/` | Business-value validation and the release decision. | uat |
+| `deployment/` | Release readiness, user confirmation, and execution record. | devops |
+| `retrospectives/` | Process lessons, written only after both QA and UAT complete. | retrospective |
+| `process-improvement/` | Changes to the agent instructions themselves, extracted from retrospectives. | pi |
+| `handoff/` | Follow-up work seeded for later, often crossing chains or belonging to no chain. A first-class chain root. | any agent |
+| `verification/` | Runnable material — probes, generators, frozen artifacts. Chain-bound. See `verification/README.md`. | qa, implementer |
+| `user-files/` | Raw operator-supplied captures kept verbatim as evidence. | the operator |
+
+## Conventions
+
+### One ID per chain
+
+`.next-id` holds the next unused integer. **The planner is the only agent that reads or increments
+it, and it does so only on the owner's word** — opening a new chain is an owner decision, asked as
+its own question; approval of a remedy, finding or direction is not approval to mint. Every other
+document inherits that ID rather than taking a new one, including any analysis the plan commissions.
+
+**IDs never branch.** Nothing that owns a number is ever the parent of anything — every branch point
+is an ID-less artifact instead. That is what keeps two efforts from sharing a leading ID. A released
+number stays retired: freed IDs are never reused and `.next-id` only moves up.
+
+Documents are named `NNN-descriptive-name-stage.md` — the plan carries the effort's canonical name
+**bare**, and every other stage appends what it is (`-analysis`, `-critique`, `-implementation`,
+`-code-review`, `-qa`, `-uat`, `-deployment`, `-retrospective`). Artifact form, not agent form:
+`-critique`, not `-critic`. Basenames are globally unique across `NNN-*` documents.
+
+**Scope suffixes name plan-defined subdivisions only.** An agent may not coin a scope word: if the
+plan defines Milestone 4 then `-m4` is legal and `-m4-tooling` is not. Where the plan defines no
+subdivisions, a second document at that stage is not permitted — revise the existing one in place.
+
+### Frontmatter
+
+```yaml
+---
+ID: 011         # the chain's number, three digits zero-padded
+Origin: 011     # where the chain started (same as ID for originating docs)
+UUID: c1e70da3  # 8-char hex, stable across the whole chain
+Status: Active  # current lifecycle state
+---
+```
+
+ID-less documents — research, handoffs, operator-direct notes — carry `UUID` and `Status` but no `ID`
+and no `Origin`. `Parent` records descent from a document that owns no ID, and names a **document
+name**, never a path or a chain ID.
+
+QA documents carry `Verified-At: <sha>`, the exact tree the suite ran against. **A QA verdict applies
+to that tree and no other**; any later change to production code expires it. Code review carries
+`Reviewed-At: <sha>` on the same principle.
+
+### Status, and `closed/`
+
+Active work stays at the top level of its directory. A document that reaches a **terminal status**
+moves into that directory's `closed/` subfolder — archived, still readable, out of the way.
+
+Terminal statuses: `Committed` and `Released` (devops), `Resolved` (critiques, judged by the critic),
+`Answered` (research, by the researcher), `Processed` (retrospectives, via pi), `Applied`
+(process-improvement), `Addressed` (handoffs), and the manual `Superseded` / `Abandoned` / `Deferred`.
+
+`ADDRESSED` on a critique is **not** terminal — findings are addressed and await verification; the
+critique stays open until the critic records `Resolved`.
+
+**Closing a document means three things together**: set the terminal `Status`, add a changelog row,
+then move the file. A status set without the move leaves an orphan. **Judging a closure and executing
+one are separate acts** — whether the criteria are met is the owning role's ruling; executing the
+move is mechanical and the steering session does it directly. Move with plain `mv`, never `git mv`,
+which stages the rename into an index shared between sessions.
+
+**Closure never breaks a citation, and nobody repoints one.** Basenames are globally unique, so a
+citation naming a document at its open path still resolves after it moves.
+
+### Deploy and release are different events
+
+A **deploy** is the serving branch moving. It produces no document here. A **release** is a plan chain
+reaching its end with its gates recorded, and produces one document per plan in `deployment/`.
+**Not every deploy is a release** — a change visible in git with no deployment document is not
+necessarily a missing record.
+
+### Documents are revised in place
+
+A document is not a snapshot. Plans, critiques and QA reports are rewritten across passes as the work
+moves, each carrying a changelog table recording what changed and why. The prior *text* of a revised
+section lives only in git history.
+
+### Landmark documents declare affirmatively
+
+Evergreen references — `architecture/system-architecture.md`, `roadmap/` — follow a stricter rule
+than chain documents: **the declarative body states only what is.** Corrections, superseded beliefs
+and gotchas belong exclusively in the document's record areas. If a sentence in a declarative section
+needs the word "was", "previously" or "misleading", it belongs in a record area or in git history.
+
+## The documents already here
+
+Plans 001–010 are closed and **all target the `website` repo only**; no other sibling has been through
+a chain. They were produced by a **predecessor workflow** and diverge from the conventions above in
+two known ways, left as written rather than rewritten:
+
+- frontmatter reads `ID: 1` where the convention is `ID: 001`, three digits zero-padded;
+- the seven files in `deployment/` are named by date (`2026-04-07-plan-005.md`) rather than
+  `NNN-name-deployment.md`.
+
+Historical records are not retrofitted to a later convention. Read them as what they are.
+
+## Coordination files
+
+`INBOX.md` is what other sessions need from this domain — written by any session **except** the one
+that owns the domain, and never by editing this repo's other files. `OPEN_QUESTIONS.md` holds what
+only the owner can decide. `TODO.md` holds what is not started. `OWNER-QUEUE.md` holds items waiting
+on the owner, written so each can be acted on without opening another document.
+
+**Resolution is deletion in all four.** A resolved entry is deleted, not ticked — the memory is the
+change it caused: the edit, the commit, the file that now exists.
+
+## Where the rules actually live
+
+This README **describes** the workflow; it does not define it. The authoritative instructions are the
+agent definitions in `~/.claude/agents/`, and the shared skills they draw on in
+`~/.claude/agent-skills/`. Where this file and an agent definition disagree, **the definition wins and
+this file is wrong.**
