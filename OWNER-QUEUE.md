@@ -19,11 +19,31 @@ in its commit message what the deleted text carried and where it now lives.
 
 ---
 
-## 1. Blocking — nothing
+## 1. Blocking — the production DDL
+
+**Run this against the production database:**
+
+```sql
+ALTER TABLE "Messages" ADD COLUMN valid BOOLEAN;
+```
+
+**Pass:** the statement succeeds. Existing rows get `NULL`; the live site does not know the column
+exists, so nothing changes until the `website` deploy. Safe to run at any time.
+
+**Then tell steering it is done.** The deploy is a *separate* approval and does not follow from this
+one — you said a push to `master` auto-deploys, so approving the deploy is approving production
+changing that instant. Steering will come back for it.
+
+**Notes, so you do not have to check:** the table is `Messages`, plural, though the Prisma model is
+singular. The column is nullable, matching the schema at the `project-utils` commit already pushed.
+There is no migration tooling in that repo to run instead — this is a manual statement in your own
+session, which is why no agent could do it.
 
 ## 2. Only you can do these — no agent may
 
-Nothing.
+Nothing right now. Three owner-executed steps sit behind the deploy — the backfill run, the
+distribution review, and sending the repair guidance — and will be listed here, with their steps,
+when each becomes runnable. They are not listed now because this file is for what you can act on.
 
 **Standing rule, for context:** no agent on this machine ever posts a message anywhere — not Discord,
 modmail, support threads, email or ticket replies. Work that ends in "tell someone X" stops at

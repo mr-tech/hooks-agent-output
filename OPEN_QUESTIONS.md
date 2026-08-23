@@ -60,67 +60,13 @@ prohibition with no approval path, not a permission a session could seek. Nobody
 be run; it is recorded so the assumption stops being invisible.
 
 
-## 2026-08-23 — steering-hooks-012 — chain 012 release: everything that needs the owner
+## 2026-08-23 — steering-hooks-012 — the devops session cannot verify its own pushes
 
-These were carried in this thread's docket and relayed in conversation, which is the wrong home for
-them — the docket is where a steering thread left off, not a queue the owner works. Written here so
-they are actionable without a conversation and survive this session.
+Its read-only `ls-remote` after the `project-utils` push was blocked by its own session's classifier.
+It reported rather than retried, and refused to route the check through the steering thread — both
+correct, and the second one is the control working. But its record stands **NOT VERIFIED**, and an
+independent check by another session does not discharge its gate.
 
-**Everything below is blocked behind item 1.** Nothing else in chain 012 can move until it lands.
-
-### 1. ACTIONABLE NOW — the production DDL
-
-```sql
-ALTER TABLE "Messages" ADD COLUMN valid BOOLEAN;
-```
-
-- Table is **`Messages`**, plural — the Prisma model is singular `Message` with `@@map("Messages")`
-  at `schema.prisma:119`. Verified, not assumed.
-- Column is **nullable**, matching `valid Boolean?` in the schema at the already-pushed
-  `project-utils` commit `749606d` (checked at that SHA, not in the working tree).
-- **Additive and safe to run now.** Existing rows get `NULL`; the currently deployed site does not
-  know the column exists, so nothing changes until the `website` push.
-- **There is no migration tooling to run instead** — QA verified across `project-utils`' full git
-  history that no migration mechanism exists. This is a manual statement in the owner's own session,
-  which is why no agent could ever have done it.
-- Recorded as plan milestone M1's attestation; no register row carries the DDL, which is why devops
-  refused to infer its state and held the release.
-
-### 2. The release act itself — a separate decision, not implied by item 1
-
-Confirming the DDL landed does **not** approve the release. The release is a fast-forward of
-`website` `master` `72dc7de` → `c85945f`, and per the owner's own statement (2026-08-23) **a push to
-`master` auto-deploys**, so merge and deploy are the same instant. Assembled and held at devops
-readiness `9c6de10` / `2838a04`; `origin/master` verified still `72dc7ded`.
-
-**All verdicts expire if any production code lands on the chain branch during the hold** — code
-review `06b204d`, QA `cc3763a`, UAT `522096c` and the readiness assessment would need re-running
-rather than reusing.
-
-### 3. Sequenced behind the deploy — owner-executed, in this order
-
-The order is load-bearing: **backfill → M6-a/M6-b/M6-c → QA-R2 → QA-R4 → QA-R15 → live declaration
-to statbot**. QA-R15 is a *persisting* act and destroys the other rows' preconditions if run first.
-
-- **The backfill run.** Exact invocation is in the implementation and readiness documents; the script
-  guards refuse to run without an explicit confirmation of the target host, by design (owner ruling
-  D17, *"Guard it before the pin refresh"*). This thread will surface the executable line once the
-  deploy has happened and it is actually runnable — it is not runnable before then.
-- **The M6-b distribution review.** **A clean M6-b report does not speak to plan Risk R7** — per-embed
-  misvouching is counted nowhere, because the distribution is computed by the very predicate that
-  omits those checks, so its members sit in the `true` column. UAT recorded R7 unverified rather than
-  covered (finding U-1). Do not read a clean distribution as evidence against it.
-- **QA-R9 and QA-R20** — owner gates whose earliest-decidable moment is *after* the backfill.
-- **The repair guidance (QA-R19).** Devops has **drafted** three shapes (B5/5712 text-no-components →
-  JSON editor Load, lossless; B4 components-no-content → mode toggle, lossless; B3 both → no lossless
-  path, guidance names which side is lost). Full text in the readiness document. **The owner sends
-  it.** No agent on this machine may post or deliver a message to any person or channel — a standing
-  prohibition with no approval path.
-
-### 4. Not blocking, but only the owner can settle it
-
-**The devops session cannot verify its own pushes.** Its read-only `ls-remote` after the
-`project-utils` push was blocked by its session's classifier. It reported rather than retried, and
-refused to route the check through this thread — both correct. Its record stands **NOT VERIFIED**,
-and an independent check by this thread does not discharge its gate. A session that can push but
-cannot confirm what it pushed will keep producing records marked NOT VERIFIED.
+A session that can push but cannot confirm what it pushed will keep producing records marked NOT
+VERIFIED. Only the owner can decide whether that is the intended posture or a permission to widen.
+Nothing is being asked for; it is recorded so the gap stops being invisible.
