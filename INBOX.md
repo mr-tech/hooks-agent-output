@@ -38,6 +38,10 @@ Until 2026-08-23 exactly two domains on this machine had an inbox: the Agents do
 address. This repo becoming a third such domain is the owner's ruling of 2026-08-23, taken with
 that consequence stated at the time: an inbox implies an owning interpreter for this repo.
 
+**That interpreter is the hooks steering session** — the steering thread standing in
+`/usr/local/bin/hooks` — by the owner's ruling of 2026-08-23. It processes this file at spawn, and
+it is the session other domains address about this repo.
+
 Entries follow, newest at the bottom.
 
 *No entries.*
