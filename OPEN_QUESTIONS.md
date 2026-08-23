@@ -29,3 +29,32 @@ path, or a repo named in prose exempts the path — neither repo's README states
 *different* case from a **forward** reference to a file that does not exist yet: that one already has
 a sanctioned disposition, the `check-repo:ignore` marker with its reason stated on the citing line,
 and rewording around it costs the path, which in an instruments table is the content.
+
+
+## 2026-08-23 — steering-hooks-012 — one live send would close a four-month-old assumption
+
+**Do Thumbnail `accessory.description` and MediaGallery item `description` count toward Discord's
+4000-character Components V2 displayable-text total?**
+
+This codebase assumes **not**, and enforces the sum over Text Display `content` only (descending into
+Sections and Containers). That assumption is recorded as an assumption, not a finding: plan 007
+(`planning/closed/007-components-v2-displayable-text-limit.md`) states it was taken from the shape of
+the user's reproduction case and closed as "can be revisited if a user report contradicts this", and
+the paired analysis explicitly recommends a proof against the live API that was never run.
+
+**Why it is worth raising now rather than leaving where 007 left it.** It has a second consumer. The
+statbot side is budgeting mention substitution into Text Displays and asked hooks.gg what the limit
+is; the summed-versus-per-component half of that question is settled by a captured Discord rejection
+(50035 / `COMPONENT_DISPLAYABLE_TEXT_SIZE_EXCEEDED`, quoted in 007's analysis) and was relayed to
+them. This half is not settled, and if descriptions **do** count, both this codebase's gate and their
+budget are over-generous in the same direction — messages pass our checks and Discord rejects them,
+which is a silent-drop shape rather than a visible error.
+
+**What would settle it: one message, owner-sent.** A payload whose Text Display content is small
+enough to pass alone, plus gallery or thumbnail descriptions sized so the total only breaches 4000 if
+descriptions count. HTTP 200 means they do not count and the assumption becomes a finding; HTTP 400
+with 50035 means they do, and both gates need the wider sum.
+
+Recorded as owner-executed because **no agent on this machine may post to any channel** — a standing
+prohibition with no approval path, not a permission a session could seek. Nobody is asking for it to
+be run; it is recorded so the assumption stops being invisible.
