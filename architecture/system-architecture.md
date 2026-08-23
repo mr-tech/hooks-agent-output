@@ -9,6 +9,7 @@ Last Updated: 2026-08-23
 
 | Date       | Change                                                                 | Rationale                                                                                          | Plan |
 | ---------- | ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ---- |
+| 2026-08-23 | PIG prod SHA recorded: deployed commit `471578fa` = the checkout, zero drift | Owner ruling; SHA identity re-derived. Every step of the preview pipeline is now evidenced against deployed code, none inferred | —    |
 | 2026-08-23 | Closed preview seam: owner ruling + DNS — `cdn.hooks.gg` CNAMEs to the Spaces CDN | Read and write paths are the same bucket; cdn app's preview route is bypassed. New open item: what the cdn deployment still serves | —    |
 | 2026-08-23 | Corrected cdn mechanism: no node_modules; lockfile pins pre-removal SHA | Prior revision wrongly claimed a frozen 2023 node_modules snapshot (error caught by steering-01, re-derived here); floating-ref-vs-lock fragility added | —    |
 | 2026-08-23 | Recorded owner rulings: cdn deployed, website on Vercel, D-002 rationale | Rulings relayed via steering-01; D-002 parity with statbot-utils re-derived in-tree; preview-path seam narrowed and re-scoped | —    |
@@ -87,7 +88,7 @@ A companion Mermaid diagram lives at `architecture-diagram.mmd`.
 
 ### preview-image-generator (screenshot service)
 
-- Standalone Node `http` server (no framework), deployed under PM2 (`ecosystem.config.js`, `wait_ready`, graceful SIGINT drain). Deployment branch is `prod`.
+- Standalone Node `http` server (no framework), deployed under PM2 (`ecosystem.config.js`, `wait_ready`, graceful SIGINT drain). Deployment branch is `prod`, and **the checkout is production**: the owner names running-in-prod commit `471578fa` (2026-08-23, with previews observed generating normally), which is this tree's `prod` HEAD with zero drift in either direction. The 2023-08-22 last-commit date means unchanged, not stale.
 - `POST /generate` (Authorization: API key) → renders the **website's own `/preview` page** (`PREVIEW_ENDPOINT` with the message JSON as a query param) in a pooled puppeteer browser (`generic-pool`), screenshots to JPEG, deletes the message's prior objects, and uploads to the S3-compatible CDN bucket at `previews/{messageId}/{nonce}.jpeg` with `public-read` ACL.
 - Invoked from the website server side: `src/server/api/utils/shared.ts` fetches `env.PREVIEW_IMAGE_URL` with `PREVIEW_IMAGE_API_KEY`; messages carry a `previewImageNonce` for cache-busting.
 
@@ -154,7 +155,7 @@ Resolved since the 2026-04-06 revision (recorded here as history, not declared a
 
 Resolved 2026-08-23 by owner ruling (via steering-01): "cdn repo status unresolved" — cdn **is** deployed, so the earlier inference that the S3 path had superseded it was wrong about the deployment (the remaining tension is re-scoped as the preview-storage seam above). "Deployment-target ambiguity (website)" — production is Vercel; the PM2 config is not the live path.
 
-Resolved 2026-08-23, later the same day (owner ruling + DNS corroboration, re-derived by this agent): the **preview-storage seam**, formerly the High row here. `cdn.hooks.gg` is a CNAME to `hooks.nyc3.cdn.digitaloceanspaces.com` — read and write paths are the same bucket, previews are not broken, and the production table's existence is moot for previews since no preview request reaches the cdn app. What the seam investigation established remains recorded in the cdn section and the floating-ref row: the app's Postgres route is vestigial (its table was removed from the schema by project-utils `4b5c9b6`; only cdn's lockfile-pinned pre-removal commit still declares it — as model `MessagePreviewImage`, singular, mapped via `@@map` to the plural table name). The residue is the "current function unknown" row above.
+Resolved 2026-08-23, later the same day (owner ruling + DNS corroboration, re-derived by this agent): the **preview-storage seam**, formerly the High row here. `cdn.hooks.gg` is a CNAME to `hooks.nyc3.cdn.digitaloceanspaces.com` — read and write paths are the same bucket, previews are not broken, and the production table's existence is moot for previews since no preview request reaches the cdn app. What the seam investigation established remains recorded in the cdn section and the floating-ref row: the app's Postgres route is vestigial (its table was removed from the schema by project-utils `4b5c9b6`; only cdn's lockfile-pinned pre-removal commit still declares it — as model `MessagePreviewImage`, singular, mapped via `@@map` to the plural table name). The residue is the "current function unknown" row above. Later the same day the write path's last inference was also closed: the owner named PIG's running-in-prod commit (`471578fa`), which is identical to this tree's `prod` HEAD, and observed previews generating normally — so every step of the pipeline (write code, bucket, DNS, outcome) is evidenced against production rather than read from a tree that might differ from it.
 
 ---
 
