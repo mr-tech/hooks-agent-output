@@ -7,7 +7,7 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-81 documents · 12 numbered chains · 8 unnumbered.
+82 documents · 12 numbered chains · 9 unnumbered.
 
 ---
 
@@ -154,6 +154,7 @@ they are the ID-less artifacts that root new efforts.
 | Kind | Location | Status |
 |---|---|---|
 | architecture | `architecture/system-architecture.md` | Active |
+| code review | `code-review/012-carry-forward-to-post-refresh-pass.md` | — |
 | code review | `code-review/closed/001-components-v2-state-management-code-review.md` | — |
 | deployment | `deployment/2026-04-07-plan-005.md` | Released |
 | deployment | `deployment/2026-04-07-plan-006.md` | Released |
@@ -232,6 +233,7 @@ they are the ID-less artifacts that root new efforts.
 | `010-infopanel-overlap-fix.md` | `planning/closed/010-infopanel-overlap-fix.md` |
 | `010-infopanel-overlap-on-initial-load-analysis.md` | `analysis/closed/010-infopanel-overlap-on-initial-load-analysis.md` |
 | `011-transition-height-react-style-conflict-analysis.md` | `analysis/closed/011-transition-height-react-style-conflict-analysis.md` |
+| `012-carry-forward-to-post-refresh-pass.md` | `code-review/012-carry-forward-to-post-refresh-pass.md` |
 | `012-message-valid-field-code-review.md` | `code-review/012-message-valid-field-code-review.md` |
 | `012-message-valid-field-critique.md` | `critiques/closed/012-message-valid-field-critique.md` |
 | `012-message-valid-field-implementation.md` | `implementation/012-message-valid-field-implementation.md` |
