@@ -9,8 +9,9 @@ Verified-At: >-
   chain/012-message-valid-field @ eb38a15, both clean, 2026-08-23. Phase 2 records its own.
 Status: Awaiting Implementation
 Status-Detail: >-
-  Phase 1 test strategy complete, written before any implementation exists. Blocks on two owner
-  dispositions (register rows R12, R13) before the implementer starts.
+  Phase 1 rev 2. Strategy complete and re-derived against plan rev 6 (`7af8936`), which enacted
+  all three QA findings (D11, D12, F-QA2). R12/R13 closed by owner ruling. One new finding —
+  F-QA8, M2-f's recovery is reachable but content-destructive — routes to the owner.
 ---
 
 # QA Report: Plan 012 — `valid` field on stored messages
@@ -27,6 +28,7 @@ Status-Detail: >-
 |------|---------------|---------|---------|
 | 2026-08-23 | steering-hooks-012 | QA Phase 1 — test strategy before implementation | Phase 1 written. Sources read in full: plan rev 4, critique (closed, APPROVED), both handoffs, workspace architecture record. Code read directly on both chain branches. Deliverables: executability determination, testing-infrastructure list, Irreversible Side-Effect Register, per-criterion property audit, pre-registered M2 partition spec (executed — Red confirmed), mutation sweep plan, seven findings, blocking-condition register. |
 | 2026-08-23 | steering-hooks-012 (correction) | Owner ruling *"change, qa-1 will handle both"* — this session carries Phase 2 as well | Remit widened from Phase 1 only to the whole QA remit. Independence measures added (see *Independence Under a Single-Session Remit*) because the session that writes the strategy will later judge against it. |
+| 2026-08-23 | steering-hooks-012 | Relay: `check-repo` FAILing at 257; re-derive before acting. Plus owner rulings D11/D12 and plan rev 6 | **Phase 1 rev 2.** (a) Count re-derived independently: **257 confirmed**, exactly two from this document, both dangling repo-rooted citations to Phase-2 destinations. Fixed via the checker's own `check-repo:ignore` opt-out with stated reasons, plus a real `verification/012/README.md`; **re-run reconciles at 255**, zero from this document. (b) Plan rev 6 read: D11, D12 and F-QA2 all enacted. R12/R13 closed. (c) M2-e/M2-f traced and simulated — **new finding F-QA8**: M2-f's recovery is reachable but destroys the user's message content, and M2-f as worded measures reachability, not preservation. Spec extended to 30 tests. |
 
 ## Timeline
 
@@ -208,12 +210,12 @@ path, per *An Instrument That Discriminates a Finding Is Captured, Not Narrated*
 
 | Instrument | Path | State |
 |---|---|---|
-| M2 partition spec + M3-b sentinels | `website/src/utils/__tests__/012-send-gate-partition.test.ts` | **Written and executed at Phase 1.** Uncommitted — it is `website` source on a chain branch, and the chain-branch commit grant is the implementer's, not QA's. See *Handoff* |
+| M2 partition spec + M3-b sentinels + **D11 round-trip simulation (rev 2)** | `website/src/utils/__tests__/012-send-gate-partition.test.ts` | **Written and executed at Phase 1.** Uncommitted — it is `website` source on a chain branch, and the chain-branch commit grant is the implementer's, not QA's. See *Handoff* |
 | M3 predicate spec | `website/src/utils/__tests__/012-validity-predicate.test.ts` | Phase 2 — cannot be written before the module it imports exists |
 | M4 write-path spec | `website/src/server/api/utils/__tests__/012-upsert-valid.test.ts` | Phase 2 |
 | M5 endpoint spec | `website/src/pages/api/v1/__tests__/012-valid-exposure.test.ts` | Phase 2 |
-| Mutation sweep record | `agent-output/verification/012/mutation-sweep.md` | Phase 2 |
-| Backfill report (only if an agent executes it) | `agent-output/verification/012/backfill-report.md` | M6 |
+| Mutation sweep record | `agent-output/verification/012/mutation-sweep.md` <!-- check-repo:ignore — forward reference: a Phase-2 destination declared at Phase 1, listed in `agent-output/verification/012/README.md`. No verdict cites it yet; it resolves once QA writes it. --> | Phase 2 — destination registered in `verification/012/README.md` |
+| Backfill report (only if an agent executes it) | `agent-output/verification/012/backfill-report.md` <!-- check-repo:ignore — forward reference, and conditional: this file exists only if an AGENT executes the backfill. Owner-executed is the expected case (plan Assumption 4), in which it never exists by design. --> | M6 — and may never exist: see `verification/012/README.md` |
 
 ### Unit — M2, the corrected gate
 
@@ -348,7 +350,9 @@ Numbers re-derived by this pass, not carried from any predecessor document.
 | Instrument | Command | Result |
 |---|---|---|
 | Full existing suite, baseline | `npx vitest run` (website, `72dc7de`, after `pnpm install --frozen-lockfile`) | **14 files, 316 tests. 13 files / 312 tests pass.** The only 4 failures are the pre-registered Red cells below — the pre-existing suite is fully green |
-| Pre-registered M2 partition spec | `npx vitest run src/utils/__tests__/012-send-gate-partition.test.ts` | **16 passed, 4 failed.** Failing: **B3, B5, B7** and the 5712 sentinel (B5's shape). Exactly the set predicted before the run |
+| Pre-registered M2 partition spec, rev 1 | `npx vitest run src/utils/__tests__/012-send-gate-partition.test.ts` | **16 passed, 4 failed.** Failing: **B3, B5, B7** and the 5712 sentinel (B5's shape). Exactly the set predicted before the run |
+| Same spec, rev 2 (D11 round trip added) | same command | **25 passed, 5 failed (30).** The fifth Red is *"5712 is unsendable as stored"* — the same pre-M2 defect as the other four, and it goes green with them. **The D11 round-trip simulation passes today**, which is what makes F-QA8 a measured result rather than an argument |
+| `check-repo` before / after the citation fix | `node tools/check-repo.js` | **257 → 255.** Independently reproduces the planner's relayed count. Enumerated my document's own citation candidates under the checker's three predicates: **5 total — 3 resolve, 2 suppressed with reasons, 0 failing** |
 | Gate never reads `flags` | `grep -c "flags" src/utils/limits.tsx` | **0** — independently reproduces critique verification #1 |
 | Every `.flags` write in `src/` | `grep -rn "\.flags" src/ --include=*.ts --include=*.tsx`, tests excluded | **Exactly two sites**: one write (`stripKeys`, `src/utils/index.ts`) and one read (`sendWebhook.ts`). *Predicate: literal `.flags` member access in non-test `src/`; excludes `bot/`, destructured bindings, and dynamic `['flags']` access* |
 | Registry / SSH reachability | see *Can This Strategy Be Executed…* | both reachable; pin `eb38a15` = remote `master` HEAD |
@@ -477,6 +481,50 @@ rather than filing. Two dispositions, both the owner's: order statbot's deploy e
 declaration, or accept the window knowingly. **Either is fine; the default — nobody having decided —
 is not.** Routed, not absorbed.
 
+### F-QA8 (MEDIUM, opened at rev 2) — M2-f's recovery is reachable, but it destroys the user's message
+
+**Route: the owner, through steering.** M2-f itself says a shortfall here "routes back to the owner
+— never a narrowing absorbed silently", so this is the criterion working, not the criterion failing.
+
+D11 clears `IS_COMPONENTS_V2_FLAG` in `handleModeSwitch`'s **V2→classic** branch. M2-f already
+identifies the wrinkle: an affected stored record loads in **classic** mode (`detectMode` derives
+mode from `hasV2Components` — structure only), so reaching the patched branch "requires toggling
+through". Traced to its end, and **simulated executably** in the pre-registered spec:
+
+| Step | Action | `flags` | `content` | Gate verdict |
+|---|---|---|---|---|
+| 0 | 5712 as stored, loaded in classic mode | `32768` | present | refused (after M2) — mutual exclusivity |
+| 1 | toggle classic→V2 | `32768` | **destroyed** — the branch clears `content` and `embeds` unconditionally | — |
+| 2 | toggle V2→classic (**D11 clears the flag here**) | `0` | still empty | refused — *"Message must have content, embeds, or components."* |
+| 3 | user **retypes** the message | `0` | retyped | **sendable** |
+
+So the record *is* recoverable through supported controls alone, exactly as M2-f requires — **and
+the price is the message text.** For 5712 that is a real Italian Member-of-the-Month notification its
+guild owner would have to type again. There is no shorter path: `stripKeys` is the only `.flags`
+write in `src/` and it only ever **sets** the bit, and save-path normalisation that would clear it is
+ruled out of scope by D10. The classic→V2 leg is mandatory, and its clearing of `content`/`embeds` is
+unconditional — `hasDepartingData` gates only the *warning*, not the destruction.
+
+**The criterion-completeness point, which is the substance of this finding.** M2-f measures
+**reachability**; it does not measure **preservation**. As worded it will pass, cleanly and
+honestly, against a recovery that costs the user their content. That gap is invisible to a green
+suite and to the criterion's own reading — it is exactly the *"the test discriminates for the
+specified behaviour, but the specified behaviour does not cover the property"* case.
+
+**Not a blocker, and deliberately not a redesign.** The user is warned before step 1 ("Your embeds
+and content will be removed. This cannot be undone."), and copy-the-text-out-first is an available
+manual workaround. Two dispositions, both the owner's, and both cheap:
+
+1. **Accept the cost explicitly**, and let M2-f stand as a reachability criterion — in which case
+   the guidance given to affected guild owners should say *copy your message text before toggling*,
+   because nothing in the UI will.
+2. **Extend M2-f with a preservation clause** — recovery without content loss — which is a
+   materially larger change than D11's one line and would reopen the D10 boundary.
+
+**I am pricing, not proposing.** What matters is that the choice is made on the traced cost rather
+than on the assumption that D11 delivered a clean repair. Register row **R16**.
+
+
 ---
 
 ## BLOCKING RELEASE CONDITIONS — chain 012 register
@@ -505,8 +553,12 @@ UAT document, and then the deployment record, are authoritative on each row's ex
 | R9 | pre-release **(gate, not a check)** | The owner has reviewed the M6-b outcome distribution — including the evaluation-failure category's count **and** row ids — **before** the live declaration | The backfill's own report | **Owner — this row is his decision, not a QA verdict.** No agent may mark it passed | After backfill completes, before declaration | A `false` count consistent with a small residue class; see **F-QA2** on why "~1" is not the right yardstick | If the declaration goes out unreviewed, an unexpected mass-invalidation reaches Statbot's gate as stopped deliveries across many guilds, discovered by guild owners rather than by us | owner (recorded by devops) | Open |
 | R10 | pre-release | Pinned-build proof: after the approved `project-utils` push and the `website` pin/lockfile refresh, remove the installed copy, `pnpm install --frozen-lockfile`, rebuild — passes | Shell | devops (automated; no human) | After `project-utils` push | Clean install and build | Without it, every "done" in this chain may rest on a locally-resolved dependency that no deploy will ever see, and production breaks on a column its `DatabaseSchema` does not declare | devops | Open |
 | R11 | pre-release | Release order verified as an **order**, not as occurrence: DDL → `project-utils` push → `website` pin refresh + deploy → backfill → review → declaration | The deployment record | devops (automated/documentary; no human) | At release | Order holds | Misordering (i): **every message save fails** between deploy and DDL. Misordering (ii): records saved in the window carry stale verdicts M6-a's NULL count cannot see, breaking the freshness clause Statbot is entitled to trust | devops | Open |
-| R12 | pre-release | **F-QA7**: the owner has stated whether statbot chain 023's deploy is ordered after the live declaration, or the window is knowingly accepted | Owner's ruling, recorded | Owner | Now — decidable today, before anything ships | A stated disposition either way | If nobody decides, Statbot may gate on an unreviewed distribution and stop deliveries before the owner has seen a single number — routing around the plan's own central risk control | owner (put by steering) | Open |
-| R13 | pre-release | **F-QA1**: the owner has ruled on whether the V2 flag is cleared on mode switch, or the composer-recovery consequence is accepted with a stated plan for telling affected guild owners | Owner's ruling, recorded | Owner | Now — decidable today, before M2 is written | A stated disposition either way | If unaddressed, affected guild owners are told to fix their message in the composer and find no control that does it. The chain ships a clearer error and no way to act on it | owner (put by steering) | Open |
+| R12 | pre-release | **F-QA7**: the owner has stated whether statbot chain 023's deploy is ordered after the live declaration, or the window is knowingly accepted | Owner's ruling, recorded | Owner | Now — decidable today, before anything ships | A stated disposition either way | If nobody decides, Statbot may gate on an unreviewed distribution and stop deliveries before the owner has seen a single number — routing around the plan's own central risk control | owner (put by steering) | **CLOSED 2026-08-23** — *"Order Statbot's deploy last"*; plan register D12, release condition 5 extended to five ordered components. **Superseded by R17**, which is the executable half |
+| R13 | pre-release | **F-QA1**: the owner has ruled on whether the V2 flag is cleared on mode switch, or the composer-recovery consequence is accepted with a stated plan for telling affected guild owners | Owner's ruling, recorded | Owner | Now — decidable today, before M2 is written | A stated disposition either way | If unaddressed, affected guild owners are told to fix their message in the composer and find no control that does it. The chain ships a clearer error and no way to act on it | owner (put by steering) | **CLOSED 2026-08-23** — *"Clear the flag on switch back"*; plan register D11, enacted in M2 (M2-d revised, M2-e/M2-f added). **Succeeded by R14, R15, R16** |
+| R14 | pre-release | **M2-e**: every V2→classic switch leaves no `IS_COMPONENTS_V2_FLAG`, over the whole class of departing contents — and clears **only** that bit | The pre-registered spec's M2-e block (5 departing states + a bit-masking control) | QA (automated; no human) | M2 implemented | All green | A `flags = 0` assignment instead of a mask passes every class member and silently destroys unrelated flag bits on every mode switch — for every user, not just affected ones | qa | Open |
+| R15 | post-deploy-observable | **M2-f**: stored record 5712 brought to a Send-enabled state through supported composer controls alone, no JSON modal | Composer UI | Owner (only he can load that guild's message) | After website deploy | Reachable — via the round trip in F-QA8 | If unreachable, D11's one line did not deliver what the owner chose it for, and the fix bought the affected guild owner nothing | uat (owner observes) | Open |
+| R16 | pre-release | **F-QA8**: the owner has ruled on whether M2-f's content-destroying recovery is accepted as-is, or M2-f gains a preservation clause | Owner's ruling, recorded | Owner | Now — decidable before M2 is written | A stated disposition either way | If accepted silently, guild owners are sent to a repair that retypes their message, and nobody tells them to copy the text first. M2-f passes cleanly either way, so nothing downstream will catch it | owner (put by steering) | Open |
+| R17 | pre-release | **D12 enactment**: the devops agent records that the statbot-side ordering instruction was **relayed**, and does not claim statbot's compliance (which is that workspace's to verify) | The deployment record | devops (documentary; no human) | At release | Relay recorded | D12 has no planning-document mirror on the statbot side — plan rev 6 makes this row the only executable trace that the constraint travelled at all. An unrecorded relay is indistinguishable from no relay | devops | Open |
 
 R2 satisfies the standing requirement that a chain fixing a user-reported defect register at least
 one post-deploy observable distinguishing **fixed from unfixed in production** — the fix's signature
@@ -539,17 +591,25 @@ handoff below, so this is routed rather than shelved.
 
 ## Handoff
 
-**Phase 1 complete. QA Status → Awaiting Implementation.**
+**Phase 1 complete (rev 2). QA Status → Awaiting Implementation.**
 
-Three things need routing before the implementer starts, and two of them are the owner's:
+**Rev-1 routing, now closed.** All three findings put to the owner or the planner were accepted and
+enacted at plan rev 6 (`7af8936`): **F-QA1 → D11** (flag cleared on switch back, folded into M2 with
+M2-d revised and M2-e/M2-f added), **F-QA7 → D12** (statbot's deploy ordered after the live
+declaration), **F-QA2 → accepted** (M6-b breaks out the flag/structure-disagreement class; R2's
+"~1 in 1,976" retired as a threshold and kept as context). Register rows R12 and R13 are closed
+against those rulings.
 
-1. **F-QA1 (HIGH) → the owner, via steering.** No composer control clears
-   `IS_COMPONENTS_V2_FLAG`; the recovery both the handoff and M3-d promise does not exist. Priced,
-   not proposed as scope. Register row **R13**.
-2. **F-QA7 (MEDIUM) → the owner, via steering.** Statbot's deploy is not ordered against the live
-   declaration, and chain 023 is building right now. Register row **R12**.
-3. **F-QA2 (MEDIUM) → the planner**, if the owner wants it in the plan: R2's threshold and M6-b's
-   category breakdown. Small and self-contained; it can equally ride M6 as an implementer note.
+**One new item routes, and one is housekeeping:**
+
+1. **F-QA8 (MEDIUM) → the owner, via steering.** D11's recovery works, and it costs the user their
+   message text. M2-f measures reachability, not preservation, so it will pass cleanly over that
+   cost — which is exactly why it needs saying now rather than at UAT. Priced, not proposed.
+   Register row **R16**.
+2. **`check-repo` is back to 255** — the predecessor-era baseline — with zero failures from this
+   document. Both were forward references to Phase-2 destinations; fixed with the checker's own
+   `check-repo:ignore` opt-out carrying stated reasons, plus a real `verification/012/README.md`
+   registering what will land there. Reconciled by re-run, not by the fix list.
 
 **To the implementer**, when authorised:
 
@@ -569,8 +629,13 @@ Three things need routing before the implementer starts, and two of them are the
 - The **TDD Compliance table** is the first thing Phase 2 checks. Missing or incomplete is an
   immediate reject, before any test is run.
 
-**Next agent: the implementer subagent**, once F-QA1 and F-QA7 have owner dispositions. Phase 2
-(execution and verdict) returns to this session.
+- **M2-e is the one to watch for a masking defect.** Clear the bit with `& ~IS_COMPONENTS_V2_FLAG`,
+  never `flags = 0`. The spec's bit-masking control is the only cell that catches the difference.
+
+**Next agent: the implementer subagent**, after the owner approves the rev-6 delta and the scoped
+critic re-review completes. F-QA8/R16 does not block M1 and need not block M2's flag-clear either —
+it decides what is *said* about the recovery, not what is built. Phase 2 (execution and verdict)
+returns to this session.
 
 *Phase 2 not yet reached — no verdict is carried by this revision, and no `Verified-At` anchor is
 claimed.*
