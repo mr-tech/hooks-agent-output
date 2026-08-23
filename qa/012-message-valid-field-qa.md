@@ -14,7 +14,10 @@ Status-Detail: >-
   F-QA8, M2-f's recovery is reachable but content-destructive — routes to the owner. Rev 3 adds
   F-QA9 (whitespace-content class, undecided truth condition) and F-QA10 (top-level-only detection
   is complete over the representable domain, not by checking; falsifier installed), and corrects
-  rev 1's account of the JSON-modal path.
+  rev 1's account of the JSON-modal path. Rev 4: R16 and R18 both **closed by owner ruling** —
+  F-QA8 accepted with the guidance redirected to the JSON editor, F-QA9's live POST **withdrawn**
+  in favour of measuring the population at M6-b. Successor rows R19 and R20 carry the executable
+  residue.
 ---
 
 # QA Report: Plan 012 — `valid` field on stored messages
@@ -31,6 +34,7 @@ Status-Detail: >-
 |------|---------------|---------|---------|
 | 2026-08-23 | steering-hooks-012 | QA Phase 1 — test strategy before implementation | Phase 1 written. Sources read in full: plan rev 4, critique (closed, APPROVED), both handoffs, workspace architecture record. Code read directly on both chain branches. Deliverables: executability determination, testing-infrastructure list, Irreversible Side-Effect Register, per-criterion property audit, pre-registered M2 partition spec (executed — Red confirmed), mutation sweep plan, seven findings, blocking-condition register. |
 | 2026-08-23 | steering-hooks-012 (correction) | Owner ruling *"change, qa-1 will handle both"* — this session carries Phase 2 as well | Remit widened from Phase 1 only to the whole QA remit. Independence measures added (see *Independence Under a Single-Session Remit*) because the session that writes the strategy will later judge against it. |
+| 2026-08-23 | steering-hooks-012 | Owner rulings on R16 (F-QA8) and R18 (F-QA9), both taken back to him on the rev-3 correction | **Phase 1 rev 4.** Both rows **closed**. (a) **R16** — *"Stands, but point the guidance at the JSON editor"*: D11 stands, the preservation build is declined a second time on corrected facts, and the guidance becomes **shape-dependent** rather than one line. Steering records that the basis it first gave the owner was wrong in the direction that made accepting look cheaper, and that the rev-3 correction changed the outcome rather than decorating it. Successor row **R19** carries the shape-dependence, which is the part a one-line guidance would lose. (b) **R18** — *"Measure the population first"*: the M6-b category is taken and the owner's live POST is **withdrawn, not deferred**. Successor row **R20** carries the count. Recorded explicitly: a measured zero is **not** a tested-accepted — it closes the question *for this corpus, now*, and leaves Discord's general behaviour undetermined by anything in this chain. |
 | 2026-08-23 | steering-hooks-012 | Relay of a read-only determination (statbot code-review question): whitespace-content gap, JSON-modal cost, top-level-only fragility. Re-derive before acting | **Phase 1 rev 3.** All three re-derived **by execution**, not accepted on relay. (a) **F-QA9** opened — whitespace-only content is not content to the gate (`content.trim()`), a class the frozen partition did not distinguish; M2 moves no whitespace verdict, so it is a **D1 truth-condition** question, not an M2-b risk. Registered as R18 and proposed as an M6-b category. (b) **Rev 1's JSON-modal account corrected** — measured, it drops `components` and `flags` but **preserves `content`**, so for 5712 it is *lossless* while D11's sanctioned path is the lossy one. F-QA8 updated beside its original text, not over it. (c) **F-QA10** — top-level-only V2 detection is complete over the representable domain, not by checking; executable falsifier installed. Spec extended to 36 tests (EXT-1, EXT-2). |
 | 2026-08-23 | steering-hooks-012 | Relay: `check-repo` FAILing at 257; re-derive before acting. Plus owner rulings D11/D12 and plan rev 6 | **Phase 1 rev 2.** (a) Count re-derived independently: **257 confirmed**, exactly two from this document, both dangling repo-rooted citations to Phase-2 destinations. Fixed via the checker's own `check-repo:ignore` opt-out with stated reasons, plus a real `verification/012/README.md`; **re-run reconciles at 255**, zero from this document. (b) Plan rev 6 read: D11, D12 and F-QA2 all enacted. R12/R13 closed. (c) M2-e/M2-f traced and simulated — **new finding F-QA8**: M2-f's recovery is reachable but destroys the user's message content, and M2-f as worded measures reachability, not preservation. Spec extended to 30 tests. |
 
@@ -560,6 +564,25 @@ manual workaround. Two dispositions, both the owner's, and both cheap:
 **I am pricing, not proposing.** What matters is that the choice is made on the traced cost rather
 than on the assumption that D11 delivered a clean repair. Register row **R16**.
 
+> **RULED, rev 4 (2026-08-23).** Owner, verbatim: **"Stands, but point the guidance at the JSON
+> editor"**. Disposition 1 — D11 stands, M2-f stays a reachability criterion, and the preservation
+> build is declined **a second time, on the corrected facts** rather than on the original ones.
+>
+> The finding's own routing worked in the strict sense: steering had already put F-QA8 to the owner
+> and he had accepted the cost, **on a basis that was wrong in the direction that made accepting
+> look cheaper** — the JSON path relayed as uniformly destructive, unchecked against 5712, the one
+> record the decision turned on. The rev-3 measurement went back to him and he re-ruled on it.
+> Recorded here because it is the concrete case for *"re-derive anything you intend to make
+> verdict-bearing"*: the correction changed which facts the ruling stands on, not merely its
+> footnotes.
+>
+> **What the ruling does not settle, and what R19 therefore carries.** "Point the guidance at the
+> JSON editor" is correct **for 5712's shape** and wrong for cell B3's — a record carrying both
+> components and a stranded flag loses its components down the JSON path and nothing down the
+> toggle. Neither path is lossless in general, so guidance stated as one line will be wrong for one
+> of the two shapes whichever line it is. That is the half of this finding that survives its own
+> closure.
+
 
 ### F-QA9 (MEDIUM, opened at rev 3) — whitespace-only content is not content, and nobody has decided whether that is right
 
@@ -600,6 +623,23 @@ add the class as its **own named category in M6-b's distribution report** — re
 measures the population before anything gates on it, costs one predicate in a report that already
 breaks out three other classes, and puts a number in front of the owner at the review he is already
 doing. If the count is zero, the question is moot and closes itself.
+
+> **RULED, rev 4 (2026-08-23).** Owner, verbatim: **"Measure the population first"**. The M6-b
+> category is taken, and the owner's live POST is **withdrawn — not deferred**. No Discord
+> determination will be made in this chain.
+>
+> **A measured zero is not a tested-accepted, and R20's closure is worded to keep the two apart.**
+> A zero count says *no record in this corpus is in the class today*, which is a fact about the
+> corpus at backfill time. It does **not** say Discord accepts flag-set-plus-whitespace content —
+> that general question stays open, undetermined by anything in this chain, and no agent here can
+> determine it. The distinction is load-bearing rather than pedantic: a later reader who sees R20
+> closed on a zero and concludes *the whitespace class is safe* would be entitled to write the
+> first record into it. What is actually true is that the class is **empty and unguarded**, and the
+> next record to enter it is decided by the gate's current behaviour with nothing having tested
+> whether that behaviour is right.
+>
+> Characterisation cells W1–W4 stand as they are. No correctness expectation entered the frozen
+> set, and none may enter it on the strength of a count.
 
 ### F-QA10 (LOW, opened at rev 3) — top-level-only V2 detection is complete over the representable domain, not complete by checking
 
@@ -661,9 +701,11 @@ UAT document, and then the deployment record, are authoritative on each row's ex
 | R13 | pre-release | **F-QA1**: the owner has ruled on whether the V2 flag is cleared on mode switch, or the composer-recovery consequence is accepted with a stated plan for telling affected guild owners | Owner's ruling, recorded | Owner | Now — decidable today, before M2 is written | A stated disposition either way | If unaddressed, affected guild owners are told to fix their message in the composer and find no control that does it. The chain ships a clearer error and no way to act on it | owner (put by steering) | **CLOSED 2026-08-23** — *"Clear the flag on switch back"*; plan register D11, enacted in M2 (M2-d revised, M2-e/M2-f added). **Succeeded by R14, R15, R16** |
 | R14 | pre-release | **M2-e**: every V2→classic switch leaves no `IS_COMPONENTS_V2_FLAG`, over the whole class of departing contents — and clears **only** that bit | The pre-registered spec's M2-e block (5 departing states + a bit-masking control) | QA (automated; no human) | M2 implemented | All green | A `flags = 0` assignment instead of a mask passes every class member and silently destroys unrelated flag bits on every mode switch — for every user, not just affected ones | qa | Open |
 | R15 | post-deploy-observable | **M2-f**: stored record 5712 brought to a Send-enabled state through supported composer controls alone, no JSON modal | Composer UI | Owner (only he can load that guild's message) | After website deploy | Reachable — via the round trip in F-QA8 | If unreachable, D11's one line did not deliver what the owner chose it for, and the fix bought the affected guild owner nothing | uat (owner observes) | Open |
-| R16 | pre-release | **F-QA8**: the owner has ruled on whether M2-f's content-destroying recovery is accepted as-is, or M2-f gains a preservation clause | Owner's ruling, recorded | Owner | Now — decidable before M2 is written | A stated disposition either way | If accepted silently, guild owners are sent to a repair that retypes their message, and nobody tells them to copy the text first. M2-f passes cleanly either way, so nothing downstream will catch it | owner (put by steering) | Open |
-| R18 | pre-release | **F-QA9**: the whitespace-content class is decided — either statbot's corpus/the owner's live POST settles whether Discord accepts flag-set-plus-whitespace content, or M6-b carries the class as its own category so the population is measured before it gates | Owner's live POST, or statbot's corpus, or the M6-b count | Owner (live POST is his instrument, as for both existing sentinels) | Now for the ruling; the count at backfill | Either a Discord verdict, or a category count — plausibly zero, which closes it | If undecided and Discord in fact rejects the shape, hooks.gg marks **sendable** a message that is not, and Statbot attempts a send that fails on a record hooks.gg vouched for — the exact failure the chain exists to prevent | owner (put by steering) | Open |
+| R16 | pre-release | **F-QA8**: the owner has ruled on whether M2-f's content-destroying recovery is accepted as-is, or M2-f gains a preservation clause | Owner's ruling, recorded | Owner | Now — decidable before M2 is written | A stated disposition either way | If accepted silently, guild owners are sent to a repair that retypes their message, and nobody tells them to copy the text first. M2-f passes cleanly either way, so nothing downstream will catch it | owner (put by steering) | **CLOSED 2026-08-23** — *"Stands, but point the guidance at the JSON editor"*. D11 stands; preservation build declined a second time, on the rev-3 corrected facts. **Succeeded by R19** |
+| R18 | pre-release | **F-QA9**: the whitespace-content class is decided — either statbot's corpus/the owner's live POST settles whether Discord accepts flag-set-plus-whitespace content, or M6-b carries the class as its own category so the population is measured before it gates | Owner's live POST, or statbot's corpus, or the M6-b count | Owner (live POST is his instrument, as for both existing sentinels) | Now for the ruling; the count at backfill | Either a Discord verdict, or a category count — plausibly zero, which closes it | If undecided and Discord in fact rejects the shape, hooks.gg marks **sendable** a message that is not, and Statbot attempts a send that fails on a record hooks.gg vouched for — the exact failure the chain exists to prevent | owner (put by steering) | **CLOSED 2026-08-23** — *"Measure the population first"*. M6-b category taken; owner's live POST **withdrawn, not deferred**. **Succeeded by R20** |
 | R17 | pre-release | **D12 enactment**: the devops agent records that the statbot-side ordering instruction was **relayed**, and does not claim statbot's compliance (which is that workspace's to verify) | The deployment record | devops (documentary; no human) | At release | Relay recorded | D12 has no planning-document mirror on the statbot side — plan rev 6 makes this row the only executable trace that the constraint travelled at all. An unrecorded relay is indistinguishable from no relay | devops | Open |
+| R19 | pre-release | **R16 enactment**: the guidance given to affected guild owners is **shape-dependent** — records whose only V2 marker is a stranded flag (5712's shape) are pointed at the JSON editor *Load*; records carrying V2 components **and** a stranded flag are pointed at the mode toggle, because the editor destroys their components | The recorded guidance text | Owner (he communicates; no agent may) | Now — decidable before M2 ships | Two paths named, each against its shape | Guidance written as one line will be **wrong for one of the two shapes whichever line it is** — a guild owner following the JSON-editor instruction against a components-carrying record loses the components and is not told, and the loss looks like a hooks.gg bug rather than like following instructions | owner (drafted by whoever writes the release note) | Open |
+| R20 | pre-release **(gate, not a check)** | **R18 enactment**: M6-b's distribution report carries the whitespace-content class as its **own named category** — `data.components` structurally V2 and `content` non-empty but whitespace-only — with a count **and** row ids, reviewed by the owner at the R9 review he is already doing | The backfill's own report | **Owner — his decision, not a QA verdict**; the count itself is automated | After backfill completes, before declaration | Plausibly **0**. A zero closes the question *for this corpus, at this time* — it is **not** a Discord determination and must not be recorded as one | A non-zero count means live records are being marked **sendable** on a shape nobody has tested Discord against; Statbot then attempts sends hooks.gg vouched for and they fail — the exact failure this chain exists to prevent, arriving as delivery failures rather than as an alert | owner (recorded by devops) | Open |
 
 R2 satisfies the standing requirement that a chain fixing a user-reported defect register at least
 one post-deploy observable distinguishing **fixed from unfixed in production** — the fix's signature
@@ -705,17 +747,17 @@ declaration), **F-QA2 → accepted** (M6-b breaks out the flag/structure-disagre
 "~1 in 1,976" retired as a threshold and kept as context). Register rows R12 and R13 are closed
 against those rulings.
 
-**One new item routes, and one is housekeeping:**
+**Nothing now routes to the owner. Both open items closed at rev 4; their executable residue
+stays here:**
 
-1. **F-QA9 (MEDIUM) → the owner, via steering.** Whitespace-only content is not content to the
-   gate, and whether that is correct needs a live Discord POST — his instrument. Cheapest close is
-   an M6-b category so the population is measured rather than argued. Register row **R18**.
-2. **F-QA8 (MEDIUM) → the owner, via steering.** D11's recovery works, and it costs the user their
-   message text. M2-f measures reachability, not preservation, so it will pass cleanly over that
-   cost — which is exactly why it needs saying now rather than at UAT. Priced, not proposed.
-   Register row **R16**. Sharpened at rev 3: measured, the JSON-modal path is *lossless for 5712*
-   while D11's is the lossy one, so "accept the cost" means accepting one the product does not
-   already impose on that record.
+1. **F-QA8 / R16 — CLOSED.** *"Stands, but point the guidance at the JSON editor."* D11 stands and
+   M2-f stays a reachability criterion. What survives the closure is **R19**: the guidance is
+   shape-dependent, and stated as one line it will be wrong for one of the two shapes whichever
+   line it is.
+2. **F-QA9 / R18 — CLOSED.** *"Measure the population first."* The M6-b category is taken and the
+   live POST is **withdrawn, not deferred**. **R20** carries the count, worded so that a measured
+   zero is not mistaken for a tested-accepted: it would say the class is *empty*, never that the
+   shape is *safe*.
 3. **`check-repo` is back to 255** — the predecessor-era baseline — with zero failures from this
    document. Both were forward references to Phase-2 destinations; fixed with the checker's own
    `check-repo:ignore` opt-out carrying stated reasons, plus a real `verification/012/README.md`
@@ -742,9 +784,10 @@ against those rulings.
 - **M2-e is the one to watch for a masking defect.** Clear the bit with `& ~IS_COMPONENTS_V2_FLAG`,
   never `flags = 0`. The spec's bit-masking control is the only cell that catches the difference.
 
-**Next agent: the implementer subagent**, after the owner approves the rev-6 delta and the scoped
-critic re-review completes. F-QA8/R16 does not block M1 and need not block M2's flag-clear either —
-it decides what is *said* about the recovery, not what is built. Phase 2 (execution and verdict)
+**Next agent: the implementer subagent**, after the owner approves the rev-7 delta and the scoped
+critic re-review completes. Nothing in this document blocks M1 or M2. R19 and R20 are enactment
+rows, not decisions — R19 decides what is *said* about the recovery, R20 adds one predicate to a
+report that already breaks out three other classes. Phase 2 (execution and verdict)
 returns to this session.
 
 *Phase 2 not yet reached — no verdict is carried by this revision, and no `Verified-At` anchor is
