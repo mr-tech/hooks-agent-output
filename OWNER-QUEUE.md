@@ -21,14 +21,16 @@ in its commit message what the deleted text carried and where it now lives.
 
 ## 1. Blocking — the post-release checks
 
-Released and live; backfill done (4825 rows classified). These close the chain. **Nothing here is
-optional: no release is recorded complete while any of them is unrun.**
+Released and live; backfill done (4825 rows classified). **Nothing here is optional: no release is
+recorded complete while any of them is unrun.** They no longer close the chain on their own —
+you ruled QA-R4 and QA-R15 stay open, so closure waits on the separate Components-V2-editing
+research effort however these go. Run them anyway; each one is a live defect check.
 
 ### Read this before starting — do not destroy your own evidence
 
 **QA-R5, QA-R6 and QA-R7 must be run on a SCRATCH message you create. Never on message 5712.** Each
-of them saves, which recomputes `valid`. 5712 is still the subject of two unresolved rows, and a
-save wipes their preconditions permanently.
+of them saves, which recomputes `valid`. 5712 is still the subject of two open rows, and a save
+wipes their preconditions permanently.
 
 ### Run any of these, any time — none depends on another
 
@@ -48,14 +50,6 @@ Cancel it; you do not need to confirm.
 and save it. **Pass, two halves:** (a) the save **succeeds**, and (b) that record's v1 representation
 then shows `valid: false`. **(a) is the one that matters** — if the save is rejected, the field has
 become a gate, which the plan forbids, and it goes back to the implementer.
-
-### Blocked on your ruling — do not attempt these
-
-**QA-R4 and QA-R15 are held.** Both name *record 5712 loaded in the composer* as their subject, and
-you report that record cannot be brought to the composer at all. UAT has ruled both NOT EXECUTED and
-raised it as a specification defect (U-5, HIGH): a row whose subject nobody can put in front of the
-instrument does not resolve by waiting. **A selection prompt is with you.** Nothing runs on these
-until you answer, and the chain does not close while they stand open.
 
 ## 2. Only you can do these — no agent may
 
