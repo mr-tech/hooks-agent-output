@@ -510,3 +510,88 @@ these items' current state.*
 3. **retrospective** — UAT Complete satisfies its precondition; it need not wait on the release.
 4. **handoff register** — MS-4, F-QA13, CR-L11, CR-M6's Preferred, the `PGHOST`/`service=` residual,
    L10's structural alternative, and the round-5 eslint findings, all under D18.
+
+---
+
+## Addendum — 2026-08-23, post-backfill: decidability reached
+
+*Appended by the uat agent at the earliest-decidable condition of the post-deploy rows, per this
+stage's duty to watch for decidability rather than wait for someone to look. The release executed
+after this document existed (`aa07a59`), so the ordering was the sanctioned one; this is not a
+retroactive gate.*
+
+**Gate evidence**: `verification/012/backfill-report-1787522866564-i3s31k.md` (committed `08e6c73`),
+with the guard's refusal-path report (`...-i0womw.md`, `rowsClassifiedThisRun` 0, `interrupted`
+true) committed alongside it — D16's disambiguation rule needs both runs in the record to mean
+anything.
+
+**Figures reproduced by this pass from the report, not accepted from relay**: 4825 classified /
+4750 `true` / 75 `false`; `tableWideRowCount` 4825; `evaluationFailures` 0; `whitespaceContent` 0;
+`flagStructureDisagreement` 2 (rows **5712**, **5842**), `flagStructureDisagreementValidTrue` 0.
+Internally consistent: `4750 + 75 = 4825`, and the seven `perCheckFailureCounts` sum to 75.
+
+### `flagStructureDisagreementValidTrue` — semantics confirmed from the record, not inferred
+
+Asked to confirm rather than infer. The definition is established in the committed document record
+at `verification/012/probe-fix-round-h1-h2/README.md` §M1: the field is the previously-invisible
+sub-class **`flagStructureDisagreement && valid === true`**, promoted to its own named category
+with ids (the reviewer's Preferred fix). A count of **0** therefore means **neither disagreement row
+was stored `valid: true`** — hooks.gg is vouching for neither 5712 nor 5842. That is the reassuring
+reading, and it is supported. Confirmed from documents; no source was read.
+
+### What the clean report does and does not close
+
+| Item | Effect of this report |
+|---|---|
+| QA's **Phase 1 Assumption Not Checked** (production `data` structurally conformant) | Its stated falsity signature was *`evaluationFailures` comes back non-empty*. **Measured 0 — it did not fire.** Materially supported |
+| **QA-R20** / plan Risks **R5** (whitespace) | `whitespaceContent` **0**. Closes the question **for this corpus, at this time** — **not** a Discord determination. The class is now empty **and unguarded** |
+| **U-1** / plan Risks **R7** (per-embed misvouching) | **Closes nothing, and this is the concrete instance of U-1.** The only embed check in `perCheckFailureCounts` is the 6,000-char aggregate ("Embeds exceed 6000 characters": 1). The per-field limits are not evaluated, so R7's members are inside the **4750 `true`** rows, uncounted. **A clean report is not evidence against R7** |
+| **M6-c** | **Not satisfied by this report, and cannot be.** M6-c requires 5712's expected `false` to be *sourced from the owner-recorded Discord `400`/`50035`, never from the predicate*. The report **is** the predicate's own output; reading it as the check is circular |
+| **QA-R2 / QA-R3** | Not satisfied. The report proves what the backfill *computed*; R2/R3 prove what the v1 API *exposes* (M5). Different property, different instrument |
+| **QA-R8** | Not satisfied. `tableWideRowCount` 4825 = `rowsClassifiedThisRun` 4825 is strong corroboration, but R8's named instrument is a SQL `count(*)` and it is one line |
+
+Recorded so that none of these is closed **incidentally**: an item "satisfied incidentally" is
+either recorded `EXECUTED` with its evidence, or it was never a gate.
+
+### U-4 (MEDIUM, new) — row 5842 is outside every shape the QA-R19 guidance was built from
+
+`grep` across all of `agent-output` returns **5842 exactly once** — in this backfill report — against
+**5712 in eleven documents**. It is a real member of the flag/structure-disagreement class that no
+stage has ever seen.
+
+QA-R19 requires the repair guidance to be **shape-dependent**, naming the lossless path *per record
+shape*, over three shapes all derived from 5712's class. **Whether 5842 falls inside one of those
+three is not established, and must not be assumed.** If it is a fourth shape, the drafted guidance
+is incomplete for it — and R19's own failure mode applies exactly: *a guild owner who follows it
+loses data while doing exactly what he was told.*
+
+**This is not scope expansion under D18**: QA-R19 already requires shape-completeness over the
+population. Applying it to the population that actually exists is the row's own content.
+
+**Required before the QA-R19 guidance is sent** (the send is the owner's; no agent may): determine
+5842's shape — no components (5712's shape, cell B5), type-1 components and no content (B4), both
+content and type-1 components (B3), or a fourth shape none of the three cover. One read of the
+row's `data`. **Owner-executed**; routed to him through steering as a blocking question, not
+resolved here.
+
+**Terminal state**: `NOT EXECUTED`. Owner. Blocks the *sending* of the QA-R19 guidance, not the
+release act — which has already occurred.
+
+### Hazard not spelled out in the register, stated here because the queue will be followed literally
+
+**QA-R5, QA-R6 and QA-R7 must be performed on a scratch message, never on 5712.** The register names
+the *behaviour* (mode-toggle modal; save-an-unsendable-draft) without naming a subject. Performed on
+5712, each is a persisting act with the same consequence the ordering note gives QA-R15: it
+recomputes `valid` and **destroys the preconditions of M6-c, QA-R2 and QA-R4**. The published order
+(M6-c → QA-R2 → QA-R4 → QA-R15) protects against QA-R15 only.
+
+### Row states as at this addendum
+
+**Now decidable, all runnable**: M6-c, QA-R2, QA-R3, QA-R4, QA-R5, QA-R6, QA-R7, QA-R8, QA-R9,
+QA-R20 — all still `NOT EXECUTED`.
+**Runnable last, persisting**: QA-R15.
+**Held**: the QA-R19 *send*, behind U-4.
+**Executed by devops since the release**: QA-R10, QA-R11, QA-R17 (`EXECUTED, PASS`); QA-R19 **draft**
+discharged, `DRAFTED, UNSENT`.
+**Unchanged**: this decision's conditional form, and the rule that no release is recorded complete
+while any condition stands at `NOT EXECUTED`.
