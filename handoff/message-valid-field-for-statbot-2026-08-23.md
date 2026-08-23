@@ -23,7 +23,7 @@ Review-Trigger: >-
 # Handoff — add a `valid` field to stored hooks.gg messages
 
 **Raised:** 2026-08-23, by the owner, during statbot chain 023's planning.
-**Counterpart record:** statbot agent-output, `planning/023-statrole-cv2-notification-refix.md`
+**Counterpart record:** `/usr/local/bin/statbot/agent-output/planning/023-statrole-cv2-notification-refix.md`
 (register rows D9 and D10). That chain is proceeding in parallel on the assumption this field will exist.
 **Written by:** `steering-023` (statbot workspace steering thread), at the owner's direction. This
 thread does not own the hooks.gg domain and has written nothing else here.
@@ -72,7 +72,7 @@ record into a live failure. It is exactly the record a `valid` field should mark
 
 **Scale, measured:** a full sweep of all 444 guilds configuring hooks.gg for Statbot statroles —
 1,976 stored messages, 444/444 responding, no errors — found **one** such record. The problem is real
-but rare. (Instrument: statbot agent-output `user-files/023/hooksgg-sweep.js` → `r.json`, executed by
+but rare. (Instrument: `/usr/local/bin/statbot/agent-output/user-files/023/hooksgg-sweep.js` → `r.json`, executed by
 the owner, 2026-08-23.)
 
 ---
@@ -191,3 +191,4 @@ None blocking. Two worth a decision when the work is planned:
 | Date | Author | Change |
 |---|---|---|
 | 2026-08-23 | steering-023 | Created at the owner's direction, recording the `valid` field shape agreed during statbot chain 023 planning. Shape proposed by statbot's planner, accepted by the owner unaltered by selection prompt the same day (statbot plan 023, register row D10); his three framing statements quoted verbatim. Evidence cited rather than restated: message 5712's contents, the live `50035` rejection, and the 444-guild sweep are all owner-executed instruments recorded in the statbot agent-output repo. Written by a session that does not own the hooks.gg domain; nothing else in this repo was touched. |
+| 2026-08-23 | steering-023 | Two cross-repo citations (lines 26 and 75) rewritten from `statbot agent-output, <relative-path>` to absolute paths. They read correctly to a human but did not resolve mechanically, so a link checker run against either repo counted them as broken. Route recorded: raised by `steering-01` as an FYI in the statbot agent-output `INBOX.md`, and independently by `critic-023` while reviewing statbot plan 023 — neither by normal handoff. No content, finding or commitment changed. |
