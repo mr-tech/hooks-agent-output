@@ -1,0 +1,7 @@
+oracle = TCP connection event observed at a loopback listener
+
+   ok   control: authority=loopback        reportedHost=127.0.0.1          socketObserved=true  expected=true  err=Connection terminated unexpectedly
+   ok   control: authority=unresolvable    reportedHost=no.such.host.invalid socketObserved=false  expected=false  err=ENOTFOUND
+   ok   subject: ?host= overrides authority reportedHost=127.0.0.1          socketObserved=true  expected=true  err=Connection terminated unexpectedly
+
+RESULT: pg dials the host it reports — assumption DISCHARGED
