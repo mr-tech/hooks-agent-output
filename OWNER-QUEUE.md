@@ -19,44 +19,96 @@ in its commit message what the deleted text carried and where it now lives.
 
 ---
 
-## 1. Blocking — run the backfill
+## 1. Blocking — the post-release checks
 
-Released and live: `website` `master` is now `c85945f`. The backfill fills `valid` for every existing
-row; until it runs, old rows stay `NULL`. **Run it from the `website` working directory.**
+Released and live; backfill done (4825 rows classified). These close the chain. **Nothing here is
+optional: no release is recorded complete while any of them is unrun.**
 
-**Step 1 — run it bare. It will refuse, and that is correct:**
+### Read this before starting — two ways to destroy your own evidence
 
+- **QA-R5, QA-R6 and QA-R7 must be run on a SCRATCH message you create. Never on message 5712.**
+  Each of them saves, which recomputes `valid` and wipes out the preconditions of M6-c, QA-R2 and
+  QA-R4. The published ordering only guards against QA-R15; this one it leaves implicit.
+- **QA-R15 goes LAST.** It deliberately changes 5712, and afterwards QA-R2's expected answer becomes
+  `true` rather than `false`.
+
+### These four are ordered. Do them in this sequence.
+
+**M6-c — sentinel spot-check.** Two SQL reads against production:
+```sql
+SELECT id, valid FROM "Messages" WHERE id = 5712;
+SELECT id, valid FROM "Messages" WHERE id = <one known bare-Text-Display V2 record>;
 ```
-npm run backfill-valid
-```
+**Pass:** 5712 → `false`; the bare-V2 record → `true`. **Do not check this against the backfill
+report** — 5712's expected `false` traces to the Discord `400`/`50035` you recorded, and the report is
+the predicate's own output, so using it here is circular. **Record both values and the time. If either
+is wrong, STOP and do not run the rest.**
 
-The refusal names the exact host your `DATABASE_URL` resolves to and tells you the value to set. This
-is the guard you asked for on 2026-08-23 ("Guard it before the pin refresh"); a bare run refusing is
-the guard working, not a fault.
+**QA-R2 — 5712 over the API.** GET the v1 guild-messages endpoint for guild `966088462803537960` and
+find message 5712. **Pass:** `valid: false` appearing at **top level**, beside `id`/`name` — not inside
+`data`. **Fail:** `true`, or the key missing entirely (missing means the row is still NULL, i.e. a
+backfill gap).
 
-**Step 2 — re-run with the host it named:**
+**QA-R4 — 5712 in the composer.** Load it. **Pass:** the mutual-exclusivity notification shows **and**
+Send is disabled. **Read-only — do not save.** Send still enabled means the original defect is unfixed.
 
-```
-BACKFILL_CONFIRM="<host from the refusal>" npm run backfill-valid
-```
+**QA-R15 — LAST, and it persists.** Load 5712 and bring it to Send-enabled using the composer's
+supported controls **only — no JSON modal**. Save. Then check the persisted record's flags.
+**Pass, both halves:** it was reachable **and** the saved record carries **no `IS_COMPONENTS_V2_FLAG`**.
+Without the second half the check proves nothing — Send-enabled is reachable on the old code too, by
+rebuilding it as genuine V2 with the flag still set.
 
-Nothing here reconstructs the host; the guard tells you, which is the whole point of it. Optional:
-`BACKFILL_REPORT_DIR=<dir>` moves where the report is written.
+### These four are order-free. Any time.
 
-**Pass:** the run completes and writes a per-run report. The report that counts as gate evidence is
-the one where `rowsClassifiedThisRun > 0` — your own ruling of 2026-08-23 ("Correct the plan text").
+**QA-R3 — positive control.** Same GET as QA-R2, but for a guild holding a bare-Text-Display V2
+record. **Pass:** `valid: true` at top level. A `false` here is the mass-invalidation failure, and it
+arrives as silence rather than as an error.
 
-**What to do with the result:** it is the input to your distribution review. **One thing to know
-before you read it: a clean distribution is not evidence that per-embed limits are being checked.**
-The distribution is computed by the same predicate that skips those checks, so anything failing that
-way is counted as valid. UAT recorded that risk as unverified rather than covered. Then tell steering
-the run is done and it will queue what follows.
+**QA-R8 — NULL sweep.** `SELECT count(*) FROM "Messages" WHERE valid IS NULL;` **Pass:** 0. **Must be
+before the live declaration.** The backfill report corroborates this but is not the instrument — it is
+one line of SQL, run it.
+
+**QA-R5 / QA-R6 — mode toggle, both directions, ON A SCRATCH MESSAGE.** Toggle classic→V2, then
+V2→classic. **Pass:** the "Switch message mode?" modal appears and warns you about losing content.
+Cancel it; you do not need to confirm.
+
+**QA-R7 — save an unsendable draft, ON A SCRATCH MESSAGE.** Compose something deliberately unsendable
+and save it. **Pass, two halves:** (a) the save **succeeds**, and (b) that record's v1 representation
+then shows `valid: false`. **(a) is the one that matters** — if the save is rejected, the field has
+become a gate, which the plan forbids, and it goes back to the implementer.
 
 ## 2. Only you can do these — no agent may
 
-Nothing right now. Three owner-executed steps sit behind the deploy — the backfill run, the
-distribution review, and sending the repair guidance — and will be listed here, with their steps,
-when each becomes runnable. They are not listed now because this file is for what you can act on.
+**Decide row 5842 — this blocks sending the repair guidance, nothing else.** The backfill found two
+records whose flags and structure disagree: 5712, which this whole chain is built around, and **5842,
+which appears nowhere in any document except the backfill report**. The repair guidance drafted for
+you has three shapes, all derived from 5712. If 5842 is a fourth shape, the guidance is wrong for it —
+and the specific failure is that someone follows it and loses data doing exactly what they were told.
+**One read of row 5842's `data` settles it:** is it (i) no components, (ii) type-1 components and no
+content, (iii) both content and type-1 components, or (iv) none of those? Tell steering the answer.
+
+**Review the distribution (QA-R9). Your decision — no agent may mark it passed.** Read
+`verification/012/backfill-report-1787522866564-i3s31k.md`. Figures: **4825 classified, 4750 valid, 75
+invalid**; `evaluationFailures` **0**; `flagStructureDisagreement` **2** (5712, 5842) with
+`flagStructureDisagreementValidTrue` **0**, meaning neither was stored as valid. **A surprising
+distribution stops the live declaration, not deliveries.** Record your words and the time.
+
+**One thing the clean report does NOT establish, in the same sitting.** The only embed check in that
+breakdown is the 6,000-character aggregate. The **per-field embed limits were never evaluated**, so
+records that violate them are sitting inside the 4750 marked valid, uncounted. A clean report is not
+evidence against that risk, and a working system is the most persuasive possible argument for
+quietly treating it as if it were.
+
+**QA-R20 — the whitespace category, same sitting.** Confirm the category is present with both a count
+and row ids. Measured **0**. **Record it as: empty for this corpus, at this time.** It is not a
+determination about Discord's behaviour and must not become one — the class is now empty *and
+unguarded*, and what lands in it next is decided by gate behaviour nobody has tested.
+
+**The live declaration to statbot.** Only after QA-R9 and QA-R20 are both reviewed and accepted.
+Then statbot 023 deploys its gate. Record your words and the time.
+
+**Sending the repair guidance.** Devops has drafted it; the text is in the deployment record. **Held
+until row 5842 is settled**, above.
 
 **Standing rule, for context:** no agent on this machine ever posts a message anywhere — not Discord,
 modmail, support threads, email or ticket replies. Work that ends in "tell someone X" stops at
