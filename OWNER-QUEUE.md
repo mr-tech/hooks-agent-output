@@ -19,7 +19,21 @@ in its commit message what the deleted text carried and where it now lives.
 
 ---
 
-## 1. Blocking — the post-release checks
+## EVERYTHING BELOW IS ON HOLD — 2026-08-23
+
+**Your words:** *"This effort is on hold until the fixes are implemented."* Registered as **D20**
+(plan rev 34, `827dfb0`), read as the whole effort and as the Components-V2 editing fixes.
+
+**Nothing in this file is asking you to do anything right now.** It is kept rather than emptied
+because none of it is done and none of it is withdrawn — the hold is a pause, not a disposition.
+When the hold lifts, this is the list, unchanged.
+
+**One consequence you may not have had in view when you said it:** the live declaration is in here,
+and D12 orders statbot chain 023's deploy of its `valid` gate *after* that declaration. So statbot
+023 is held too, for as long as this is. No session has been told — telling statbot's steering
+thread is yours to call, not mine.
+
+## 1. On hold — the post-release checks
 
 Released and live; backfill done (4825 rows classified). **Nothing here is optional: no release is
 recorded complete while any of them is unrun.** They no longer close the chain on their own —
@@ -51,7 +65,7 @@ and save it. **Pass, two halves:** (a) the save **succeeds**, and (b) that recor
 then shows `valid: false`. **(a) is the one that matters** — if the save is rejected, the field has
 become a gate, which the plan forbids, and it goes back to the implementer.
 
-## 2. Only you can do these — no agent may
+## 2. On hold — only you can do these, no agent may
 
 **Decide row 5842 — this blocks sending the repair guidance, nothing else.** The backfill found two
 records whose flags and structure disagree: 5712, which this whole chain is built around, and **5842,
