@@ -23,7 +23,10 @@ Status-Detail: >-
   replaced (F-QA12). Rev 5b: F-QA12's own instrument had the residue planner rev 10 risk row R6
   named — it transcribed the merge instead of calling it, so the refactor it guards against left it
   green. Closed: it now runs the shipped `updateMessage`/`saveMessage`, and the deep-merge mutant is
-  **observed killing 4 of 6** where it previously survived all 6.
+  **observed killing 4 of 6** where it previously survived all 6. Rev 5c: F-QA12 **narrowed by
+  correction** — my rev-5 claim that `useApiMethods.ts` was "a third file neither review named" is
+  false; the critic named it and credited the mechanism. Struck beside the original. The execution
+  and the rev-5b pin stand; the finding is now a correction to QA's own account, not to the critic's.
 ---
 
 # QA Report: Plan 012 — `valid` field on stored messages
@@ -40,6 +43,7 @@ Status-Detail: >-
 |------|---------------|---------|---------|
 | 2026-08-23 | steering-hooks-012 | QA Phase 1 — test strategy before implementation | Phase 1 written. Sources read in full: plan rev 4, critique (closed, APPROVED), both handoffs, workspace architecture record. Code read directly on both chain branches. Deliverables: executability determination, testing-infrastructure list, Irreversible Side-Effect Register, per-criterion property audit, pre-registered M2 partition spec (executed — Red confirmed), mutation sweep plan, seven findings, blocking-condition register. |
 | 2026-08-23 | steering-hooks-012 (correction) | Owner ruling *"change, qa-1 will handle both"* — this session carries Phase 2 as well | Remit widened from Phase 1 only to the whole QA remit. Independence measures added (see *Independence Under a Single-Session Remit*) because the session that writes the strategy will later judge against it. |
+| 2026-08-23 | steering-hooks-012 | Correction: rev 5's "a third file neither review named" is false as to the critic | **Phase 1 rev 5c.** Verified at the critic's committed record before acting, not on the relay: cycle-2 pass-2 names `useApiMethods.ts` and credits `updateMessage`'s wholesale `data` replace in **two** places. Two claims struck beside their originals — that the critic credited `standardizeMessage`, and that the file was unnamed by *either* review. Accurate history: **QA's** review credited `standardizeMessage`; the critic's was right by reading and simply unexecuted. F-QA12 narrows to *execution plus the rev-5b pin*, and must be cited downstream in that form. Error is QA's own: I characterised another document without opening it, while arguing that static reads cannot settle properties — the document was committed and one `grep` away. |
 | 2026-08-23 | steering-hooks-012 | Planner rev 10 (`ed6845e`) risk row R6: EXT-3 would not go red under the refactor it guards against — QA's file, QA's call | **Phase 1 rev 5b.** Confirmed and **closed rather than accepted as a recorded gap**. EXT-3 transcribed the `updateMessage` merge, so it characterised a copy while being cited for protection of the original; the deep-merge falsifier left it green. It now calls the **shipped** `updateMessage` and `saveMessage` (identity-mocking `useCallback` only, no new dependency in a shared tree). Evidence is the mutant, not the claim: transcribed version **survived** it 6/6, shipped version **kills** it 4/6, one failure surfacing the operator-visible consequence — *"Components V2 messages cannot contain embeds or content."* Mutation performed on a file QA does not own under a restore-guard protocol; original md5 confirmed byte-identical afterwards. |
 | 2026-08-23 | steering-hooks-012 | Critic cycle-2 pass 2 APPROVED (`a4bec32`); two items against this register relayed for re-derivation, plus a closure the critic named QA for | **Phase 1 rev 5.** All re-derived. (a) **R19 was wrong twice** — it named "V2 components + stranded flag", a *consistent* record needing no repair, while citing cell B3, which is *type-1 legacy* components; and it collapsed three shapes into two. Corrected; **F-QA11** opened on it as my own defect. (b) **R15 lagged M2-f's rev-7 flag-free clause** and was therefore **non-discriminating** — it passes on pre-D11 code via rebuild-as-V2. Corrected. (c) **Found unrelayed while checking (b)**: the register carried **no execution order** for the 5712-keyed rows, though R15 is a persisting act that destroys R2/R4/M6-c's preconditions; plan rev 9 leaves that sequencing to this document. Ordering note added. (d) The critic's uncovered assumption — D13's cost table verified by static reading, Load path never executed — **closed by execution**: new spec block **EXT-3** runs the real Load→save chain. Conclusion holds; **justification did not** (F-QA12). |
 | 2026-08-23 | steering-hooks-012 | Owner rulings on R16 (F-QA8) and R18 (F-QA9), both taken back to him on the rev-3 correction | **Phase 1 rev 4.** Both rows **closed**. (a) **R16** — *"Stands, but point the guidance at the JSON editor"*: D11 stands, the preservation build is declined a second time on corrected facts, and the guidance becomes **shape-dependent** rather than one line. Steering records that the basis it first gave the owner was wrong in the direction that made accepting look cheaper, and that the rev-3 correction changed the outcome rather than decorating it. Successor row **R19** carries the shape-dependence, which is the part a one-line guidance would lose. (b) **R18** — *"Measure the population first"*: the M6-b category is taken and the owner's live POST is **withdrawn, not deferred**. Successor row **R20** carries the count. Recorded explicitly: a measured zero is **not** a tested-accepted — it closes the question *for this corpus, now*, and leaves Discord's general behaviour undetermined by anything in this chain. |
@@ -722,7 +726,7 @@ and leaves the sequencing to qa/uat — that is this document, and it was absent
 under the register. Out of order, R2 and R4 report *the fix never worked* over a fix that worked and
 was then overwritten by the very next row.
 
-### F-QA12 (LOW-severity finding, HIGH-value correction, opened at rev 5) — D13's cost table is true, and the reason given for it was not
+### F-QA12 (opened at rev 5; **materially narrowed at rev 5c** — see the correction block at its foot) — D13's cost table is true, and *my* reason for it was not
 
 **This closes the critic's cycle-2 Assumption Not Checked**, which it named QA for: its verification
 of D13's cost table was **static source reading** and never executed the JSON-modal *Load* path. Its
@@ -733,23 +737,26 @@ asserted directly, as the first test in spec block **EXT-3**.
 content intact, and after M2 the repaired record passes the gate. The owner's guidance ruling rests
 on a true premise.
 
-**But the justification was wrong, and it is worth more than the confirmation.** Both my rev-3
-measurement and the critic's static reading attributed the losslessness to `standardizeMessage`
-dropping `flags`. Executed, **`standardizeMessage` is not on the Load path at all.** It shapes only
+**But the justification was wrong, and it is worth more than the confirmation.** ~~Both my rev-3
+measurement and the critic's static reading attributed~~ **— corrected at rev 5c: *my* rev-3
+measurement attributed** the losslessness to `standardizeMessage` dropping `flags`. **The critic's
+did not; it credited both the seed whitelist and the wholesale replace.** Executed, **`standardizeMessage` is not on the Load path at all.** It shapes only
 the textarea's initial value (`JsonModalBody`, the `usePassedProp` initialiser). *Load* runs a
 different chain entirely:
 
 `JSON.parse` → `enforceImportMutualExclusivity` → `discordMessageImportShape.parse` → `updateMessage`
 
-The flag actually clears for two independent reasons, **neither of them the one on record**:
+The flag actually clears for two independent reasons, **neither of them the one *I* had on record**
+(at rev 5 this read "the one on record", which was wrong about the critic — see rev 5c below):
 
 1. the flag never reaches the textarea, so an unedited *Load* has no flag to carry back; and
 2. `updateMessage` (`useApiMethods.ts`) **replaces `data` wholesale** — `{ ...oldMessage, ...newMessage }`
    merges at the *top* level, and the modal passes `{ data: validated }`, so the stored `data` object
    with its `flags: 32768` is discarded rather than merged into.
 
-**Why a right answer for the wrong reason is still a finding.** Reason 2 lives in a **third file**,
-in a function neither review named. The day `updateMessage` becomes a deep merge — an unremarkable
+**Why a right answer for the wrong reason is still a finding.** ~~Reason 2 lives in a **third file**,
+in a function neither review named.~~ **Struck at rev 5c — false as to the critic, which named both
+the file and the mechanism.** What stands without it: the day `updateMessage` becomes a deep merge — an unremarkable
 refactor, made to fix an unrelated field being clobbered — the flag survives *Load*, D13's guidance
 silently stops repairing anything, and the guild owner following the owner's instruction is told his
 message is fixed when it is not. Nothing in the suite would have gone red before EXT-3 existed.
@@ -809,6 +816,43 @@ end-to-end shape, which would catch it if and only if the resulting behaviour ch
 adequate: the property asserted is end-to-end (*5712 comes back flag-free and intact*), so any
 refactor that breaks the property breaks the test, wherever it lives. What the mutant additionally
 buys is proof that the assertion is **load-bearing on the shipped merge specifically**.
+
+#### Rev 5c — correction: the critic *had* named the file, and this finding is smaller than I wrote it
+
+Relayed by steering, and **verified here at the critic's committed record before acting on it**, not
+accepted on the relay: `agent-output/critiques/closed/012-message-valid-field-critique.md`, cycle 2
+pass 2. It names `useApiMethods.ts` and credits the mechanism in **two** places — its Assumption Not
+Checked reads *"state write via `updateMessage`'s top-level spread replacing `data` wholesale"*, and
+its D13 verification reads *"`updateMessage` (`useApiMethods.ts`) spreads at the message level —
+`{...oldMessage, ...newMessage}` — so Load replaces `data` wholesale and a stale flag cannot
+survive."*
+
+**So two claims of mine were false and are struck above**: that the critic attributed losslessness to
+`standardizeMessage`, and that reason 2 lived in a function *neither* review named. The accurate
+history is narrower and less flattering to this finding: **my** review credited `standardizeMessage`;
+**the critic's credited the wholesale replace and named the file.** Its recorded reason *survived* my
+execution rather than being displaced by it. The critic checked its own record before challenging me,
+which is the right order and is why this correction exists at all.
+
+**What survives, and it is not nothing.** The execution was still the discriminating act — the
+critic's own Assumption Not Checked says so, and neither review had established the property by
+running it. `standardizeMessage`'s absence from the Load path is still a correction to *my* rev-3
+account. And the sentence this finding turns on — *nothing in the suite would have gone red* — never
+depended on who had named the file; it depended on nothing pinning the mechanism, which is what rev
+5b fixed.
+
+**What this changes in how the finding should be read.** F-QA12 is **not** "both reviews got the
+reason wrong." It is: *QA got the reason wrong, the critic got it right by reading, and neither had
+run it — so the instrument's value is execution plus the rev-5b pin, not a correction to the
+critic's record.* Anyone citing F-QA12 downstream should cite it in that narrower form.
+
+**Attribution of the error, stated because a correction that only stops repeating a claim leaves the
+accusation standing.** The false claim is mine — I wrote it and it went into my rev-5 report. Steering
+has withdrawn its onward relay in both channels and called that share its own; I am not passing this
+one along to it. The method failure worth naming is specific: **I characterised what another
+document said without opening it**, while in the same breath insisting that a static read cannot
+settle a property. The document was committed and one `grep` away. The rule I applied to source code
+— verify the artifact, do not infer it from prose — I did not apply to a peer's record.
 
 > **Why it is a separate file, decided at rev 5 after first writing it into the partition spec.**
 > The partition spec's *entire* evidential value is that it was pre-registered and frozen **before
