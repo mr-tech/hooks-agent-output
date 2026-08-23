@@ -19,11 +19,38 @@ in its commit message what the deleted text carried and where it now lives.
 
 ---
 
-## 1. Blocking — nothing
+## 1. Blocking — run the backfill
 
-The DDL is done and the release is approved; devops is executing the push. The next thing that needs
-you is the backfill run, which is not runnable until the deploy lands — it will be listed here, with
-its steps, the moment it is.
+Released and live: `website` `master` is now `c85945f`. The backfill fills `valid` for every existing
+row; until it runs, old rows stay `NULL`. **Run it from the `website` working directory.**
+
+**Step 1 — run it bare. It will refuse, and that is correct:**
+
+```
+npm run backfill-valid
+```
+
+The refusal names the exact host your `DATABASE_URL` resolves to and tells you the value to set. This
+is the guard you asked for on 2026-08-23 ("Guard it before the pin refresh"); a bare run refusing is
+the guard working, not a fault.
+
+**Step 2 — re-run with the host it named:**
+
+```
+BACKFILL_CONFIRM="<host from the refusal>" npm run backfill-valid
+```
+
+Nothing here reconstructs the host; the guard tells you, which is the whole point of it. Optional:
+`BACKFILL_REPORT_DIR=<dir>` moves where the report is written.
+
+**Pass:** the run completes and writes a per-run report. The report that counts as gate evidence is
+the one where `rowsClassifiedThisRun > 0` — your own ruling of 2026-08-23 ("Correct the plan text").
+
+**What to do with the result:** it is the input to your distribution review. **One thing to know
+before you read it: a clean distribution is not evidence that per-embed limits are being checked.**
+The distribution is computed by the same predicate that skips those checks, so anything failing that
+way is counted as valid. UAT recorded that risk as unverified rather than covered. Then tell steering
+the run is done and it will queue what follows.
 
 ## 2. Only you can do these — no agent may
 
