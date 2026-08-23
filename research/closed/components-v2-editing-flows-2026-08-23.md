@@ -17,6 +17,7 @@ Status-Detail: >-
 | Date | Agent | Change |
 |---|---|---|
 | 2026-08-23 | researcher | Created from handoff `components-v2-editing-support-2026-08-23.md` (UUID `8f3fa8c3`). Source reading of every flow that reads, writes or re-types message data; 15-assertion execution probe against `website` at `c85945f` (all pass); architect consulted on system fit. Status Answered. |
+| 2026-08-23 | researcher | Added "Branch base for the successor effort" at the owner's request: deployed tip `c85945f` vs pre-012 `72dc7de`, both sides argued, determination recorded. Status unchanged. |
 
 ## Question
 
@@ -245,6 +246,69 @@ needed — it is a direct observation.
 
 None that block planning. G1–G3 refine priority and guidance text; the determination stands without
 them.
+
+## Branch base for the successor effort (owner-requested rationale, 2026-08-23)
+
+The owner asked, after the determination above, whether the successor chain (013 by `.next-id`
+sequence; the planner mints it) is better continued off "the current 012 branch" or branched off
+prior to 012, fixed, and reconciled afterwards. Recorded here because the answer rests on facts this
+document established. It is a rationale about *where to base a tree*, not a plan.
+
+**Premise corrected first.** There is no 012 branch distinct from master: `chain/012-message-valid-field`
+and `master` both stand at `c85945f` (verified `git branch -v`, 2026-08-23), that commit is deployed
+(Vercel deploys `master` on contact — deployment record `012-message-valid-field-deployment.md`), and
+the `valid` column exists in production (owner-attested). The real choice is **base 013 on the
+deployed tip `c85945f`** versus **base it on `72dc7de`, the last pre-012 commit, and merge later**.
+
+**For the deployed tip**
+
+1. *This research is bound to that tree.* Every probe assertion ran at `c85945f`. Two of the
+   mechanisms behind observations 4 and 7 — `applyModeSwitch` clearing the flag on toggle-back
+   (chain 012 D11) and `validateContentRequirements` reading the stored flag — do not exist at
+   `72dc7de`: `src/utils/messageMode.ts` is a 012 file and `src/utils/limits.tsx` was changed by 012.
+   A pre-012 base means re-deriving the findings against a tree that will never ship.
+2. *013's acceptance criteria only express on top of 012.* "Save As of a V2 message yields a copy that
+   is not `valid=false`" needs `upsertMessage` computing `valid` (012's `shared.ts`). The 29 empty
+   rows (F6) were measured by 012's instrument. Pre-012, QA cannot assert the thing the effort exists
+   to change.
+3. *013 is the "next touch" 012 deferred to.* D10 parked save-path flag normalisation on-next-touch;
+   D13 points repair guidance at the JSON modal — the surface 013 rewrites. These are semantic
+   dependencies, not merely file overlap.
+4. *The overlap is at the seams, not the sites.* 012 touched 19 files (`git diff --stat 72dc7de
+   c85945f`). 013's core sites — `standardizeMessage`, `SaveAsMenu`, `JsonModalBody`,
+   `discordResponseToMessage`, `messageStore`, `NewMessageJsonInput` — are none of them. But 013 will
+   brush `shared.ts`, `limits.tsx`, `messageMode.ts`, `DiscordMessageEditor/index.tsx` and
+   `package.json`/`pnpm-lock.yaml`, all 012 files. A pre-012 base guarantees a real merge in exactly
+   those files.
+5. *QA verdicts bind to a tree* (`Verified-At`). A verdict on a pre-012 branch expires when 013 merges
+   master; the choice is QA twice or QA only after the merge — which is the deployed-tip option with
+   extra steps.
+6. *Shared-tree cost.* One tree, one branch, several sessions. Checking out `72dc7de` reverts the
+   project-utils pin (`49f2bf1`, `749606d`) and the lockfile under every live session, and
+   `node_modules` no longer matches. The merge back is a merge commit or a rebase — the latter a
+   history rewrite needing a single owner over a clean tree — and today every push is a fast-forward.
+
+**For a pre-012 base**
+
+1. *Isolation from a 012 rollback* — the only substantive argument. Nothing in the record points that
+   way: post-release checks are queued and owner-executed, not failing; the release reconciled exact
+   in both repos; the column is live. And 012 is not cleanly revertible (schema in `project-utils`,
+   backfilled data), so "revert 012, keep 013" would be its own effort, not a branch choice.
+2. *A cleaner diff for review* — weak; a branch off `c85945f` has an equally clean diff, only the base
+   differs.
+3. *Independent hotfix cadence* — moot; 013 cannot deploy without merging `master`, which has 012.
+
+**Determination.** Base 013 on `c85945f`. The pre-012 option buys isolation from a rollback nobody is
+proposing and pays for it with a guaranteed seam merge, an expiring QA verdict, a checkout that moves
+the lockfile under every live session, and findings re-derived against an unshippable tree. If a 012
+rollback ever becomes a live question, revisit then, as its own decision, with the DB column on the
+table.
+
+**One decision that stays the owner's**: whether 013 *starts* before 012's queued post-release checks
+(backfill review → live declaration → statbot gate deploy) are done. Starting is safe — nothing in
+013 changes what those checks measure. A 013 *release* before the statbot gate deploys would change
+the `valid` population under a gate not yet declared live; that ordering is chain 012's D12 and is
+not this document's to relax.
 
 ## Appendix A — Execution probe (reproducible)
 
