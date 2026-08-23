@@ -18,7 +18,7 @@ closed. A document's path changes when it closes; its name does not.
 | Stage | Location | Status |
 |---|---|---|
 | critique | `critiques/012-message-valid-field-critique.md` | OPEN — Initial critique of plan rev 3 (commit c4cf783). Critique-cycle pass 1. One HIGH finding (release-order gap), two MEDIUM, one LOW. Verdict: REQUEST REVISION — all findings addressable in one planner pass; no owner decision required by this critique. |
-| plan | `planning/012-message-valid-field.md` | Active — Rev 3. Re-scope authorised (D8): the composer send-gate fix is milestone M2; both PREMISE-STALE markings cleared with re-argued premises; milestones renumbered M1–M7 by replacement. No open questions. Ready for critique. Target repos: project-utils then website; steering raising chain branches. |
+| plan | `planning/012-message-valid-field.md` | Active — Rev 4. Critique pass 1 findings addressed (F1 release total-order, F2 backfill placement subordinated to reuse, F3 evaluation-failure residue named, F4 register rephrase); M1–M5 text unchanged per the critique's re-review expectation. Awaiting critique re-verification. |
 
 ### 1 — 0 open, 8 closed
 
