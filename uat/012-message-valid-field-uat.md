@@ -13,13 +13,19 @@ Verified-At: >-
   them.**
 Status: Active
 Status-Detail: >-
-  UAT Complete. Release decision: **APPROVED FOR RELEASE, CONDITIONAL** on the outstanding-condition
-  ledger below — 6 of the chain's 20 register rows are terminal, 14 stand open, and none may be
-  silently dropped. No unconditional approval is available while any pre-release row is NOT
-  EXECUTED. Value Statement judged **delivered in mechanism, not yet in effect**: the field is
-  built, tested and exposed, but it reaches Statbot only when the owner-executed DDL, backfill and
-  live declaration complete. Two silent failure classes recorded as unverified rather than covered
-  (plan Risks R7 — no instrument by construction; plan Risks R5 — instrument is QA-R20's count).
+  UAT Complete. Release decision **APPROVED FOR RELEASE, CONDITIONAL** — issued 2026-08-23 at
+  `c85945f`, and correctly discharged: the release act occurred within its terms (`aa07a59`).
+  **The chain is NOT closed.** Post-deploy-observable rows gate closure, not the release act, and
+  10 of the 20 register rows are terminal (QA-R1, R2, R10, R11, R14, R17 EXECUTED; R12, R13, R16,
+  R18 SUPERSEDED by owner rulings) with **10 outstanding** — QA-R3, R4, R5, R6, R7, R8, R9, R15,
+  R19, R20. Walkthrough round 1: M6-c and QA-R2 PASS; **QA-R4 and QA-R15 NOT EXECUTED** — their
+  subject, record 5712 in the composer, is unreachable by the owner, so the instrument could not
+  be brought to bear (U-5, routed up: re-specify via QA, or an owner WITHDRAWN with its cost
+  stated). The QA-R19 **send** is held on two independent grounds: U-4 (row 5842's shape unknown)
+  and U-6 (the JSON-editor route for 5712's own shape is a candidate falsifier for plan Risks R6).
+  Value Statement delivered **in mechanism and now in the stored verdict and its exposure** —
+  M6-c and QA-R2 confirm both against production. Silent classes still unverified, not covered:
+  plan Risks R7 (no instrument by construction) and the recovery path (U-5/U-6).
 ---
 
 # UAT Report: Plan 012 — `valid` field on stored messages
@@ -39,6 +45,7 @@ verdict below (see the changelog), so the rev-29 citation is the reviewed revisi
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-08-23 | steering-hooks-012 (carrying QA PASS at `c85945f` and code review round 7) | Validate value delivery against the plan's Value Statement; consume the chain's blocking-condition register; issue a release decision | **UAT Complete. APPROVED FOR RELEASE, CONDITIONAL.** Value Statement delivered in mechanism at `c85945f`; delivery *in effect* depends on owner-executed DDL/backfill/declaration. Register consumed: 6 rows terminal, 14 outstanding with owners and terminal states named. Three findings recorded (U-1 R7's silent class has no instrument; U-2 `49f2bf1`'s commit message carries a superseded claim devops must not inherit; U-3 two devops obligations found outside the register, folded in). |
+| 2026-08-23 | steering-hooks-012 (relaying the owner's walkthrough round 1) | Record M6-c, QA-R2, QA-R4, QA-R15 results against their predictions | **M6-c EXECUTED PASS** (both sentinels). **QA-R2 EXECUTED PASS** — `valid: false` at top level; payload also establishes 5712 as cell B5 / guidance shape (i) from production. **QA-R4 and QA-R15 NOT EXECUTED** — the owner cannot load 5712 in the composer, so both were attempted against an imported copy whose state is unverifiable by his own account; neither a pass nor a fail is available, and the rows stand open. Two findings raised: **U-5** (HIGH — the two 5712-keyed rows may be unexecutable by anyone: a specification defect, not a pending task; RECOMMEND re-specification via QA, with owner WITHDRAWN as the alternative and its cost stated) and **U-6** (HIGH — the owner's report that the JSON view may not support V2 and may strip content is a candidate falsifier for plan Risks R6, and bears on QA-R19 guidance shape (i), which is 5712's own shape). Release decision unchanged and correctly discharged; **chain closure blocked**. |
 | 2026-08-23 | uat (self-recorded) | Registration write into the plan, per this stage's Status-tracking remit | Plan `Status` → **UAT Approved**, Revision → 30, one registration changelog row, and the stale Status-Detail clause `Next gate: UAT (clear to start)` replaced (a declarative surface, corrected by replacement). **A registration write only** — no body text, criterion, milestone, register row or Risks row touched, and no prediction record written (those are the planner's). **Not committed by this stage**: CLAUDE.md's commit exception covers only the document a stage itself produced, and the plan is the planner's. Routed as a blocking question; **owner ruled 2026-08-23, verbatim: "The planner commits it."** — relayed by steering-hooks-012. The ruling settles *who* commits, not whether the content is sound; that judgement remains the planner's. |
 
 ---
@@ -595,3 +602,150 @@ QA-R20 — all still `NOT EXECUTED`.
 discharged, `DRAFTED, UNSENT`.
 **Unchanged**: this decision's conditional form, and the rule that no release is recorded complete
 while any condition stands at `NOT EXECUTED`.
+
+---
+
+## Addendum 2 — 2026-08-23, owner walkthrough round 1: results recorded against predictions
+
+*Observed results are recorded **beside** each prediction, never over it. Owner attestation is the
+terminal form of owner-supplied evidence: his statement is recorded with its timestamp and
+terminalised on. No capture file was requested of him and none is recorded as missing.*
+
+Source: owner's material relayed verbatim by steering-hooks-012, 2026-08-23. Classifications below
+are this stage's, reached from his material — steering's own readings were explicitly offered as
+non-binding and are not adopted as such.
+
+### M6-c — **EXECUTED, PASS (2026-08-23)**
+
+Owner, verbatim: *"5712 `false`, other `true`"* — both halves, both sentinels.
+Prediction (5712 `false`; at least one of the 16 bare-Text-Display V2 records `true`): **met**.
+The expected `false` is independently sourced (owner-recorded Discord `400`/`50035`, per M3-b), not
+from the predicate, so the row is not circular. **Terminal.**
+
+### QA-R2 — **EXECUTED, PASS (2026-08-23)**
+
+The returned record carries `"valid": false` **at top level, beside `id` and `name`** — the stated
+criterion exactly. Prediction (`valid: false`, single observation sufficient): **met on one
+discriminating instance**, which this row's prediction declares closes it. **Terminal.**
+
+Two facts the payload settles in passing, recorded because they were open:
+
+1. **5712's shape is now established from production**: `flags` **32768** (`= 1<<15`,
+   `IS_COMPONENTS_V2_FLAG` set), `content` non-empty, `components` **`[]`**. That is
+   **cell B5 / QA-R19 guidance shape (i)** — flag-stranded with no components. 5712's own class is
+   no longer inferred from the handoff; it is measured. **This says nothing about 5842** (U-4
+   stands, entirely untouched).
+2. **M5-b (containment) incidentally corroborated** — the returned `data` carries no `valid` key.
+   Recorded as corroboration only; M5-b is not this row's criterion and is not marked executed on it.
+
+### QA-R4 — **NOT EXECUTED** (blocking; not a failure)
+
+Owner, verbatim: *"I cannot access 5712, there is no permission overriding behavior. I instead
+imported the JSON. Both conditions pass, error message shows, but sending being disabled is hard to
+check…"* and *"There's no way to see what the state under the hood is."*
+
+Prediction (notification shown, Send disabled) — **observed result recorded beside it**: the
+mutual-exclusivity notification **was** observed; **Send-disabled was not confirmed**; and the
+subject was **an imported copy, not record 5712**.
+
+**Why this is NOT EXECUTED rather than PASS or FAIL.** The row's subject is *5712 loaded in the
+composer*. It was not loaded — it cannot be. The substitute's state is unverifiable **by the
+observer's own account**, and he reports the import sets the message type to `Classic` and may be
+stripping content, so it is not established that the copy is even a member of the class this row
+tests. Marking a pass here would be recording a result the instrument did not produce; marking a
+fail would assert a defect no evidence supports. **Neither is available, so the row stands open.**
+
+*Partial credit is not a terminal state, and "satisfied incidentally" is not one either.*
+
+### QA-R15 — **NOT EXECUTED** (blocking), and its instrument is confounded
+
+Owner, verbatim: *"Unable to do QA-R15… There is no way to remove the flag without clearing the
+message content… or going into the JSON modal."* — and the JSON modal is what this row forbids.
+
+**A precise and important non-finding.** He also reports: *"clicking Components V2 and accepting the
+clear, then adding a Text Display passes the check."* **That path must not be recorded as a pass.**
+It is the exact non-discriminating route QA-R15's flag-free clause was written to exclude — the
+register's own words: *"a user reaches Send-enabled on pre-D11 code by rebuilding the record as a
+genuine V2 message (delete the content, add a Text Display), flag still set."* The owner
+independently rediscovered the trap the row was hardened against, which is the clause working.
+
+**Why not FAIL, when "unreachable" is this row's stated failure mode.** Because the subject was
+never the real record. He could not load 5712, and the imported copy arrived as `Classic` — so he
+may never have held the V2 state that D11's V2→classic branch acts on. The row predicts reachability
+*via the F-QA8 round trip* (the content-destroying mode toggle, accepted at D13); on this evidence
+it is not established that that route was available to try. **The instrument is confounded, so the
+row is open — not refuted.**
+
+### U-5 (HIGH, new) — the two 5712-keyed composer rows may be unexecutable **by anyone**, which is a specification defect, not a pending task
+
+Steering asked the right question and it is this stage's, not the owner's. If *"I cannot access
+5712, there is no permission overriding behavior"* holds generally, then **QA-R4 and QA-R15 as
+written name a subject no one can bring to the instrument.** That is categorically different from
+"not yet run", and it does not resolve by waiting.
+
+Both rows exist to close QA's Phase 2 **Assumption Not Checked** — the wiring seams no suite in this
+repository can execute. **That class is not wholly stranded**: QA-R5 and QA-R6 probe the mode-switch
+seam (`handleModeSwitch` → `applyModeSwitch`) and QA-R7 probes the save seam (`upsertMessage` →
+`buildMessageValues`), and all three remain runnable on a scratch message. What QA-R4 and QA-R15
+uniquely carry is behaviour **on the actual stranded record** and whether **D11's recovery works
+end to end** — which is the half D11 was chosen for.
+
+**Recommendation, routed up rather than decided here** — this stage does not withdraw conditions:
+
+- **Preferred — route back to QA for re-specification.** The property is worth keeping; the subject
+  is what is unavailable. A reachable subject would test the same property. This stage does not
+  design the instrument — that is QA's — and notes only that the owner reports the flag-stranded
+  state may not be constructible through supported controls, which QA must establish rather than
+  assume.
+- **Alternative — owner rules `WITHDRAWN`.** His alone. **Cost of withdrawing without a
+  replacement, stated plainly**: nothing then verifies D11 end to end, and D11's one line was the
+  thing the owner chose at F-QA1 specifically so affected guild owners would have a control that
+  works. Withdrawn bare, the chain ships a clearer error and an unverified recovery.
+- **Not available: recording either row as passed on the imported copy.**
+
+### U-6 (HIGH, new) — the owner's report is a candidate falsifier for plan Risks **R6**, and it threatens the QA-R19 guidance this stage already put on hold
+
+Owner, verbatim: *"the JSON view seems to not support components V2 at all. It's possible that the
+import is stripping content."*
+
+**Why this matters beyond the two rows above.** QA-R19 shape **(i)** — now confirmed by QA-R2's
+payload to be **5712's own shape** — points affected guild owners at the **JSON editor *Load***, on
+the measured finding (qa rev 3) that it is *lossless* for that shape. Plan Risks **R6** records the
+mechanism that makes it lossless (`updateMessage`'s shallow top-level spread replacing `data`
+wholesale) **together with its falsifier**. An observation that the JSON path does not handle V2 and
+may strip content is a **candidate member of R6's falsifier class**.
+
+If it holds, the guidance's shape-(i) route — the route for the one record class this chain has
+actually seen in production — **tells guild owners to do something that loses their content**, which
+is precisely the harm R19 exists to prevent.
+
+**Effect on the hold already placed**: the QA-R19 **send** was held at U-4 pending 5842's shape. It
+is now held on **two** independent grounds, and this second one bears on shape (i), which U-4 does
+not touch. **Recorded per R6's own contract** — a member of an existing Risks row's falsifier class
+is that row's record to keep, which D18 explicitly does not foreclose. **Candidate, not
+established**: the owner offers it as a possibility, and this stage does not upgrade his hypothesis
+to a determination.
+
+His broader statement — *"assume that the entire implementation of V2 ONLY included the flow of
+creating the message and sending it"* — is recorded as **his stated hypothesis**, not as a finding of
+this chain.
+
+### Effect on the release decision and on chain closure
+
+**The release decision is unchanged and remains correctly discharged.** It was issued conditional,
+the release act occurred within its terms, and post-deploy-observable rows were stated from the
+outset to gate **closure**, not the release act.
+
+**The chain cannot be recorded complete.** QA-R4 and QA-R15 stand at `NOT EXECUTED`; QA-R3, R5, R6,
+R7, R8, R9 and R20 are runnable and not yet run; the QA-R19 send is held on U-4 and U-6. Per this
+document's standing rule, **no release is recorded complete while any condition stands at
+`NOT EXECUTED`** — and `NOT EXECUTED` is not made terminal by the passage of time or by production
+looking healthy.
+
+**Weighing what production has shown, per "Weighing Operator Attestation".** M6-c and QA-R2 are
+genuine passes on the *stored verdict* and its *exposure* — real evidence against the **loud**
+failure modes. They are **no evidence at all** against the silent ones: plan Risks **R7** (still no
+instrument, its members inside the 4750 `true` rows), and now the recovery path in **U-5/U-6**, whose
+signature is a guild owner quietly losing content while following instructions. A working field is
+the most persuasive available argument for laundering exactly those, and it is not accepted here as
+one.
