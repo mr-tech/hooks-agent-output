@@ -10,7 +10,7 @@ graph TB
         end
         pu["project-utils (master)\nschema.prisma → Kysely types\ngetPostgres() singleton\ncommitted dist, git dep #master"]
         pig["preview-image-generator (prod)\nNode http + puppeteer pool\nPOST /generate (API key)"]
-        cdnapp["cdn (master — deployed at cdn.hooks.gg,\nlegacy toolchain, not in workspace file)\n/previews → /api/previews/[id]/[file]\nserves blobs from Postgres"]
+        cdnapp["cdn (master — deployed, function unknown;\nbypassed for previews; legacy toolchain,\nnot in workspace file)\nvestigial route: /previews → Postgres blobs"]
         ao["agent-output (mr-tech/hooks-agent-output)\nprocess record"]
     end
 
@@ -22,7 +22,7 @@ graph TB
 
     browser["Viewer (preview URLs)"]
     appui --> api
-    browser -->|"GET cdn.hooks.gg/previews/…"| cdnapp
+    browser -->|"GET cdn.hooks.gg/previews/…\n(CNAME → hooks.nyc3.cdn.digitaloceanspaces.com)"| s3
     api -->|Kysely| pu
     pu --> pg
     api --> redis
