@@ -18,6 +18,8 @@ Status: Active
 | Date | Handoff | Request | Summary |
 |---|---|---|---|
 | 2026-08-23 | steering-hooks-012 | Chain 012 approved for implementation; execute the plan per rev 8, QA Phase 1 rev 4, critique `a4bec32` | M1–M6 implemented on the chain branch in both repos. M7 (handoff closure) left to the closing stage per the plan's own text. Reached the owner-gated push boundary at release condition 3/5 — reported back to steering rather than proceeding past it. |
+| 2026-08-23 | steering-hooks-012 | Owner approved the push ("Approve the push"); push `project-utils`' M1 commit, then hold — no pin refresh | `749606d` pushed to `origin/chain/012-message-valid-field` on `project-utils`. Held as instructed: no pin refresh, no reinstall, no rebuild. |
+| 2026-08-23 | steering-hooks-012 | Code review verdict REJECTED (`agent-output/code-review/012-message-valid-field-code-review.md`, `24b8af1`); fix round for H1, H2, and (strongly recommended) M1 | Fix round committed (`681c353`). H1 closed — a second, independent blocker (ts-node's vendored CJS loader rejecting `require()` of `~/env.mjs`) was found while driving the fix past the reviewer's own stopping point, and closed by extracting the env-independent constants `~/utils/limits.tsx` needs into `src/constants/messageLimits.ts`. H2 closed — report persisted to disk, `process.exit()` removed, partial-run reporting on interruption, coverage-labelled fields. M1 closed structurally — every M6-b category is now `{ count, rowIds }`. M2 (recommended) partially closed: `applyModeSwitch` extracted and tested; the `upsertMessage` seam kept at the reviewer's Minimum disposition. L1 (recommended) closed: stale comments deleted. L2, L3 recorded, not actioned this round (see Outstanding Items). Full record: `agent-output/verification/012/probe-fix-round-h1-h2/README.md`. |
 
 ## Value Statement
 
@@ -32,7 +34,7 @@ This delivers the communication gap the owner named: hooks.gg can now say a mess
 - [x] **M3** — `src/server/api/utils/messageValidity.ts`: `isMessageValid`, calling `validateMessage` from `~/utils/limits` directly (not the `~/utils` barrel), adding no clause of its own; a throwing payload computes `false`.
 - [x] **M4** — `src/server/api/utils/shared.ts`: `buildMessageValues` (computes `valid` via the M3 predicate on every write) and `buildUpsertMessageQuery` (`valid` named in both the insert column list and the `on conflict … do update set` list) extracted from `upsertMessage`, which now composes them. S4/S5 (preview-image POST, Pusher broadcast) call sites unchanged in count, order and payload — verified by diff inspection, not by test (no existing infra reaches them without a live process).
 - [x] **M5** — both v1 endpoints (`src/pages/api/v1/guilds/[guildId]/messages.ts`, `.../messages/[id].ts`) select `Messages.valid` and emit it at top level via a conditional spread, omitting the key entirely (never `null`) when the stored value is `NULL`.
-- [x] **M6** — `src/scripts/backfillValid.ts`: NULL-only, idempotent backfill (`UPDATE … WHERE id = $1 AND valid IS NULL`, the guard inside the write per S2/MS-4), reusing the M3 predicate; report carries `total`/`trueCount`/`falseCount`, per-check failure counts, the flag/structure-disagreement class (F-QA2), the whitespace-content class with row ids (D14), and the evaluation-failure class with row ids (the Assumption Not Checked closure this document owns — see below). **Not executed** — owner-executed against production per Assumption 4, and no database was reachable in this environment.
+- [x] **M6** — `src/scripts/backfillValid.ts`: NULL-only, idempotent backfill (`UPDATE … WHERE id = $1 AND valid IS NULL`, the guard inside the write per S2/MS-4), reusing the M3 predicate; report carries `rowsClassifiedThisRun`/`trueCount`/`falseCount`, per-check failure counts, and four `{ count, rowIds }` categories: flag/structure-disagreement (F-QA2), its `valid === true` sub-class (code-review M1), whitespace-content (D14), and evaluation-failure (the Assumption Not Checked closure this document owns — see below). The report is persisted to `agent-output/verification/012/backfill-report.md`, labelled with a table-wide row count distinct from the run's own count, and marked `interrupted: true` with a partial dump on any mid-run failure (code-review H2). **Not executed against production** — owner-executed per Assumption 4, and no production database was reachable in this environment; the persistence/interruption mechanism was demonstrated live against a deliberately dead database during the fix round (see `agent-output/verification/012/probe-fix-round-h1-h2/README.md`).
 - [ ] **M7** — handoff closure. Per the plan's own text this is "executed by the closing stage per the workspace's close procedure, not by this plan." Not attempted here.
 
 ## Entry Conditions (QA's probe shapes, executed before the milestone that consumes them)
@@ -55,33 +57,40 @@ This delivers the communication gap the owner named: hooks.gg can now say a mess
 | `src/pages/api/v1/guilds/[guildId]/messages.ts` | Selects and emits `valid` (conditional spread) | `website` |
 | `src/pages/api/v1/guilds/[guildId]/messages/[id].ts` | Same, single-record endpoint | `website` |
 | `src/server/api/utils/shared.ts` | `buildMessageValues`/`buildUpsertMessageQuery` extracted; `upsertMessage` composes them | `website` |
-| `package.json` | Added `test`/`test:watch` scripts (QA's proposal) and `backfill-valid` script | `website` |
+| `package.json` | Added `test`/`test:watch` scripts (QA's proposal) and `backfill-valid` script; fix round: added `-r tsconfig-paths/register` to all three `ts-node` scripts, `tsconfig-paths` devDependency (H1) | `website` |
+| `pnpm-lock.yaml` | Fix round: `tsconfig-paths` and its own transitive deps added; `project-utils` entry untouched (verified by diff) | `website` |
+| `src/constants/index.ts` | Fix round (H1): the eleven env-independent constants `~/utils/limits.tsx` needs moved to `src/constants/messageLimits.ts`, re-exported (`export * from './messageLimits'`) so the barrel's public surface is unchanged | `website` |
 
 ## Files Created
 
 | Path | Purpose | Repo |
 |---|---|---|
-| `src/utils/messageMode.ts` | `switchToV2`/`switchToClassic`, the mode-switch data effects, extracted for testability without component-render infrastructure | `website` |
+| `src/utils/messageMode.ts` | `switchToV2`/`switchToClassic`, the mode-switch data effects, extracted for testability without component-render infrastructure. Fix round: `applyModeSwitch(targetMode, prev)` added, closing the M2 wiring seam for `handleModeSwitch` | `website` |
 | `src/server/api/utils/messageValidity.ts` | `isMessageValid`, the M3 predicate | `website` |
-| `src/scripts/backfillValid.ts` | `classifyRow`/`accumulate`/`emptyReport` (pure, tested) plus `runBackfill`/`main` (DB loop, not unit-tested — no database in this environment) | `website` |
-| `src/utils/__tests__/012-message-mode.test.ts` | TDD spec for `messageMode.ts` | `website` |
+| `src/scripts/backfillValid.ts` | `classifyRow` (pure, tested); `emptyReport`/`accumulate`/`formatReport`/`persistReport` (pure, tested — report shape, coverage labelling, disk persistence, all added or reshaped in the fix round for H2/M1) plus `runBackfill`/`tableWideRowCount`/`main` (DB loop, not unit-tested — no database in this environment, demonstrated live instead) | `website` |
+| `src/constants/messageLimits.ts` | Fix round (H1): the env-independent constants `limits.tsx`/`messageMode.ts`/`backfillValid.ts` need, with no transitive import of `~/env.mjs` | `website` |
+| `src/utils/__tests__/012-message-mode.test.ts` | TDD spec for `messageMode.ts`, extended in the fix round for `applyModeSwitch` | `website` |
 | `src/utils/__tests__/012-validity-predicate.test.ts` | TDD spec for `messageValidity.ts` | `website` |
 | `src/server/api/utils/__tests__/012-upsert-valid.test.ts` | TDD spec for `buildMessageValues`/`buildUpsertMessageQuery` | `website` |
 | `src/pages/api/v1/__tests__/012-valid-exposure.test.ts` | TDD spec for M5 | `website` |
-| `src/scripts/__tests__/012-backfill-classify.test.ts` | TDD spec for `classifyRow`/`accumulate` | `website` |
+| `src/scripts/__tests__/012-backfill-classify.test.ts` | TDD spec for `classifyRow` | `website` |
+| `src/scripts/__tests__/012-backfill-report.test.ts` | Fix round: TDD spec for `emptyReport`/`accumulate`'s new shape, `formatReport`, `persistReport` (H2, M1) | `website` |
 
 `website/src/utils/__tests__/012-send-gate-partition.test.ts` was written by QA at Phase 1 and committed by this session (`a7ebe4d`) before M2 was implemented — not listed above as "created" since it is QA's document, not this session's.
 
 ## Code Quality Validation
 
-- [x] Vitest suite: 20 files, 376 tests, all passing (`npx vitest run`, `website` chain branch, after this session's commits).
-- [x] Lint (`npx eslint <changed files>`): clean on every file this session created or modified, except the 5 pre-existing errors in `src/utils/limits.tsx` (member-delimiter-style at an unrelated line, one unused `validateEmbed` export) — confirmed identical on the pre-session baseline via `git stash`; not this session's to fix (not touched by this plan's scope) and not gating (`website` carries no pre-commit lint hook — confirmed: no `.githooks` in this repo, unlike `project-utils`).
-- [x] **Typecheck: RED**, as QA predicted. `npx tsc --noEmit -p tsconfig.json` — 10 errors, every one a variant of "`valid` does not exist on `DatabaseSchema`/`InsertObject<DatabaseSchema,'Messages'>`", across `messages.ts`, `messages/[id].ts`, `backfillValid.ts`, `shared.ts`. Cause: `website`'s installed `project-utils` resolves the old pin `eb38a15` (no `valid` column). Stays red until the `project-utils` M1 commit (`749606d`) is pushed and `website`'s pin/lockfile is refreshed (release condition 3) — **this is the owner-gated boundary this session reached and did not cross**.
+- [x] Vitest suite: 21 files, 385 tests, all passing (`npx vitest run`, `website` chain branch, after the fix-round commit).
+- [x] Lint (`npx eslint <changed files>`): clean on every file this session created or modified, except the 5 pre-existing errors in `src/utils/limits.tsx` (member-delimiter-style at an unrelated line, one unused `validateEmbed` export) — confirmed identical on the pre-session baseline via `git stash`; not this session's to fix (not touched by this plan's scope) and not gating (`website` carries no pre-commit lint hook — confirmed: no `.githooks` in this repo, unlike `project-utils`). **False-signal note**: `npx eslint package.json` run directly reports ~320 errors (quote style, etc.) on both the pre- and post-fix-round tree — confirmed pre-existing and confirmed not real: `npm run lint`'s actual invocation (`eslint --fix .`) only traverses `.js`/`.ts`/`.tsx` by extension and never reaches `package.json`; naming the file directly on the CLI bypasses that filter and lints it as loose JS. Recorded so a future reader does not mistake this diagnostic artifact for a real lint failure.
+- [x] **Typecheck: RED, unchanged in class** (8 errors, all "`valid` does not exist" against the stale `project-utils` pin `eb38a15` — same defect class as the 10 originally reported; the count differs only because line numbers shifted). `website`'s installed dependency still resolves the old pin. Stays red until `website`'s pin/lockfile is refreshed (release condition 3) — **explicitly deferred this round on steering's sequencing instruction** ("still no pin refresh... do not stack a lockfile change on top of the fix round"), not because it could not be attempted.
 - [x] `project-utils` pre-commit hook (`npm run rebuild` + `git ls-files -m` check) passed on the M1 commit — confirmed by a clean `git status` immediately after.
+- [x] **`project-utils`'s M1 commit (`749606d`) pushed** to `origin/chain/012-message-valid-field`, owner-approved ("Approve the push", verbatim, relayed by steering). Verified after push: `git log --oneline origin/chain/012-message-valid-field` shows exactly `749606d` → `eb38a15` → `565ade5`; working tree clean.
+- [x] **H1 (code review) verified by execution, not by reasoning**, per the reviewer's own required verification: `DATABASE_URL=<dead> npx ts-node --transpile-only -r tsconfig-paths/register -r dotenv/config src/scripts/backfillValid.ts` now fails with `Error: connect ECONNREFUSED 127.0.0.1:1` — module resolution and the `~/env.mjs` ESM-interop blocker (found while driving this verification, not in the reviewer's own probe) are both clear. Full transcript: `agent-output/verification/012/probe-fix-round-h1-h2/README.md`.
+- [x] **H2 demonstrated live on the same drive**: the interrupted report was persisted to disk (`agent-output/verification/012/backfill-report.md`, verified present then deleted — a dead-DB test artifact, not real backfill evidence) and printed to stdout, carrying `"interrupted": true` and `"tableWideRowCount": -1`; `process.exitCode` (not `process.exit()`) was used throughout.
 
 ## Value Statement Validation
 
-Delivered: the composer's send gate now agrees with Discord's own rejection of flag/structure-disagreeing messages; the corrected verdict is callable server-side (M3), written on every save (M4), and exposed to Statbot (M5). Not yet delivered: the backfill has not run (owner-executed, no database available here) and the field is not yet declared live — both are explicitly gated on the owner's review of the backfill distribution (M6-b, D6), which cannot happen before the backfill runs, which cannot happen before the `project-utils` push this session could not make.
+Delivered: the composer's send gate now agrees with Discord's own rejection of flag/structure-disagreeing messages; the corrected verdict is callable server-side (M3), written on every save (M4), and exposed to Statbot (M5). Not yet delivered: the backfill has not run against production (owner-executed; its execution shell was code-review-rejected once for not running at all, fixed, and re-demonstrated live against a dead database this round) and the field is not yet declared live — both are explicitly gated on the owner's review of the backfill distribution (M6-b, D6), which follows the website pin refresh and pinned-build proof, both held this round pending a clean code-review verdict.
 
 ## TDD Compliance
 
@@ -95,10 +104,14 @@ Delivered: the composer's send gate now agrees with Discord's own rejection of f
 | `buildUpsertMessageQuery` | `012-upsert-valid.test.ts` | Yes | Yes | `buildUpsertMessageQuery is not a function` | Yes |
 | v1 endpoint `valid` exposure (both handlers) | `012-valid-exposure.test.ts` | Yes | Yes | 4/6 AssertionError (`valid` absent where expected present, for both `true` and `false` stored states, both endpoints) | Yes (6/6) |
 | `classifyRow` | `012-backfill-classify.test.ts` | Yes | Yes | Cannot find module `~/scripts/backfillValid` | Yes |
-| `accumulate` / `emptyReport` | `012-backfill-classify.test.ts` (exercised indirectly via `classifyRow`'s consumers in the same file) | Yes | Yes | Same module-not-found failure as `classifyRow` | Yes |
-| `runBackfill` / `main` (DB loop) | — | N/A | N/A | No database in this environment; not unit-tested (QA: "Suites cannot reach the production database — M6's properties are verified by the backfill's own instruments and the owner's review") | N/A |
+| `runBackfill` / `main` (DB loop) | — | N/A | N/A | No database in this environment; not unit-tested (QA: "Suites cannot reach the production database — M6's properties are verified by the backfill's own instruments and the owner's review"); demonstrated live instead (Code Quality Validation) | N/A |
+| **Fix round (H1/H2/M1), code review `24b8af1`:** |
+| `applyModeSwitch` | `012-message-mode.test.ts` | Yes | Yes | `applyModeSwitch is not a function` | Yes |
+| `emptyReport`/`accumulate` (new shape: `rowsClassifiedThisRun`, `flagStructureDisagreementValidTrue`) | `012-backfill-report.test.ts` | Yes | Yes | `report.rowsClassifiedThisRun` `undefined`; `flagStructureDisagreement.rowIds` `undefined`; `flagStructureDisagreementValidTrue` `undefined` | Yes |
+| `formatReport` | `012-backfill-report.test.ts` | Yes | Yes | `formatReport is not a function` | Yes |
+| `persistReport` | `012-backfill-report.test.ts` | Yes | Yes | `persistReport is not a function` | Yes |
 
-No row shows "No" for any column. `runBackfill`/`main` are the DB-execution shell around the tested pure functions (`classifyRow`, `accumulate`, `emptyReport`) and the tested query builders (`buildUpsertMessageQuery`'s pattern reused for the per-row `UPDATE`); QA's own Testing Strategy states M6's DB-touching half is verified by the backfill's own instruments at execution time and the owner's review, not by this suite.
+No row shows "No" for any column. `runBackfill`/`main` are the DB-execution shell around the tested pure functions; QA's own Testing Strategy states M6's DB-touching half is verified by the backfill's own instruments at execution time and the owner's review, not by this suite — the fix round additionally demonstrated that shell live against a deliberately dead database (Code Quality Validation, H1/H2 rows).
 
 ## Test Coverage
 
@@ -111,21 +124,50 @@ No row shows "No" for any column. `runBackfill`/`main` are the DB-execution shel
 ## Test Execution Results
 
 ```
-$ npx vitest run   (website, chain/012-message-valid-field, HEAD bc5ee2b)
- Test Files  20 passed (20)
-      Tests  376 passed (376)
+$ npx vitest run   (website, chain/012-message-valid-field, HEAD 681c353)
+ Test Files  21 passed (21)
+      Tests  385 passed (385)
 
 $ npx tsc --noEmit -p tsconfig.json
- 10 errors — every one "'valid' does not exist" against the old project-utils pin (eb38a15).
- RED, as predicted. See Code Quality Validation.
+ 8 errors — every one "'valid' does not exist" against the old project-utils pin (eb38a15).
+ RED, unchanged in class from the first round. See Code Quality Validation.
 
 $ npm run rebuild   (project-utils, chain/012-message-valid-field, HEAD 749606d)
  lint, tsc build, api-extractor — all passed; pre-commit hook's own ls-files -m check passed.
+
+$ git push origin chain/012-message-valid-field   (project-utils)
+ * [new branch]  chain/012-message-valid-field -> chain/012-message-valid-field
+
+$ DATABASE_URL=<dead> npx ts-node --transpile-only -r tsconfig-paths/register \
+    -r dotenv/config src/scripts/backfillValid.ts dotenv_config_path=.env.local
+ Error: connect ECONNREFUSED 127.0.0.1:1   (exit 1 — H1's required verification, met)
 ```
 
 ## Class Sweep Table
 
-Not applicable — this is a first-delivery implementation pass, not a fix round against reviewer findings or a self-found mutation gap. No class sweep is owed for this document.
+Fix round against code review `agent-output/code-review/012-message-valid-field-code-review.md`
+(`24b8af1`), verdict REJECTED. Two findings carry an enumeration in the reviewer's own document
+(H1, M1); H2 has none named (a shape/behaviour defect, not a population to enumerate over) and is
+recorded with its own before/after evidence instead. One additional class-sweep row is owed under
+this session's own definition (Core Responsibility, Fix Round Class Sweep) for the ESM-interop
+blocker this session found while executing H1's required verification — a gap exposed by the
+verification instrument itself, not by the reviewer, and the same rule applies: the class the
+instrument was sampling gets swept, not just the coordinate it hit.
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---|---|---|---|
+| **H1** — `ts-node` entry points lacking `tsconfig-paths/register` | `grep -c '"ts-node ' package.json` (entry-point count); `grep -n "from '~" lang/build.ts bot/scripts/publishAppCommands.ts src/scripts/backfillValid.ts` (alias imports per entry, direct) | Pre-fix: 3 entry points (`lang`, `push-commands`, `backfill-valid`), 0 registered `tsconfig-paths`; alias imports: `lang/build.ts` 0, `publishAppCommands.ts` 0, `backfillValid.ts` 3 (`~/server/api/utils/messageValidity`, `~/constants/messageLimits`, `~/utils/limits`). Post-fix: 3 entry points, all 3 registered (`grep -c "tsconfig-paths" package.json` → 4, one dependency line + 3 script flags). | All 3 scripts fixed identically (Preferred/structural, not just the affected one) — `lang` and `push-commands` had no alias imports to exercise today, but the fix makes the class unrepresentable for any of the three regardless of what they import in future. Re-run post-fix: 3/3 registered, 0 residual. |
+| **H1-b (self-found during H1's verification)** — `ts-node` entry points whose reachable import graph crosses into `~/env.mjs` | `grep -rln "from '~/env.mjs'\|from '~/utils/getBaseUrl'" src/constants/*.ts` (direct env-dependent exports); manual trace of `backfillValid.ts`'s import graph before/after the split | Pre-fix: `~/constants/index.ts` imports `~/env.mjs` for `INVITE_URL` and `~/utils/getBaseUrl` for `LOGO_IMAGE_URL`/`INVITE_URL` — both reachable from `backfillValid.ts` transitively via `~/utils/limits` → `~/constants`. Post-fix: `src/constants/messageLimits.ts` (the 11 constants `limits.tsx`/`messageMode.ts`/`backfillValid.ts` actually need) imports neither. | `backfillValid.ts`'s reachable graph fixed (verified: `ECONNREFUSED`, not `ERR_REQUIRE_ESM`). **Residual, stated not hidden**: `~/constants/index.ts` itself (the barrel) still imports both, so a *future* `ts-node` script needing `INVITE_URL` or another env-derived export would still hit this — that population is real and unswept, because closing it generally is a larger, unscoped change (making `env.mjs` itself require-safe, or moving to dynamic `import()` throughout) that this milestone does not own. Named in the verification transcript (`probe-fix-round-h1-h2/README.md`) so it is not rediscovered as a surprise. |
+| **M1** — `BackfillReport` categories lacking `rowIds` | `grep -n "count: number" src/scripts/backfillValid.ts` (pre-fix, categories with a bare count shape) | Pre-fix: 1 hit (`flagStructureDisagreement: { count: number }`); the other two categories (`whitespaceContent`, `evaluationFailures`) already carried `rowIds`. Post-fix: 0 hits — `Category` is one shape (`{ count, rowIds }`) used by all four fields, including the new `flagStructureDisagreementValidTrue`. | Fixed structurally: the type itself makes an id-less category unrepresentable, so no per-instance disposition is needed — re-run post-fix: 0/4 categories lack `rowIds`. |
+
+**H2** has no enumeration predicate (it is a control-flow/persistence defect in two functions,
+`main`/`runBackfill`, not a population of sites) and is closed with before/after execution evidence
+instead: pre-fix, `process.exit(0)` truncated piped output above ~64KB (reviewer's measurement) and
+a thrown error inside `runBackfill` discarded the whole report (no `.catch()`); post-fix, both
+mechanisms are removed (`process.exitCode`, `try`/`catch` around `runBackfill` with the partial
+report persisted and printed) and demonstrated live on the dead-DB drive (`interrupted: true`,
+report present on disk before being deleted as test residue). See
+`agent-output/verification/012/probe-fix-round-h1-h2/README.md` for the full transcript.
 
 ## Assumption Not Checked — closure (QA's handoff to the implementer)
 
@@ -133,16 +175,19 @@ QA's document names this session as the closure owner: the M6-b evaluation-failu
 
 ## Outstanding Items
 
-1. **Owner-gated push, reached and not crossed.** `project-utils`'s M1 commit (`749606d`) is on the chain branch, unpushed. Per this session's grant, pushing is not mine to seek by proceeding — reported to steering-hooks-012 per the brief's explicit instruction ("Tell me when you reach it"). Everything downstream of the push (typecheck green, `website`'s pin/lockfile refresh, the pinned-build proof at release condition 3, the total release order at release condition 5) is blocked on it.
-2. **Backfill not executed.** `src/scripts/backfillValid.ts` is written and its pure classification logic is unit-tested; the DB-touching loop (`runBackfill`/`main`) has not run against any database — none was reachable in this environment, and execution is owner-executed per Assumption 4 regardless.
-3. **M6-a/b/c, and post-deploy observables R2–R7, are all unexecuted** — each requires either a live production database or the deployed composer/API, neither available here. All are registered in the QA document's BLOCKING RELEASE CONDITIONS register as post-deploy-observable or pre-release-pending-backfill rows; none is claimed complete by this document.
-4. **M4-e (S4/S5 unchanged)** was verified by reading the diff, not by an executed test — no existing infrastructure in this repo drives `upsertMessage`'s Pusher/preview-image side effects without a live process, and adding one was judged out of proportion to a two-call-site, unchanged-payload property. Recorded as a self-diagnosed gap: the property is asserted by argument, not by an instrument that would fail if the argument were wrong.
-5. **Foreign, shared-tree file observed, not touched**: `src/utils/__tests__/012-json-editor-repair-path.test.ts` appeared in the working tree during this session, untracked, authored by a concurrent session (not this one — never created or edited by this session). It failed briefly during this session's work (4/4 tests in that file), then passed on a later run — resolved by its own author, not by this session. Never committed by this session, never investigated beyond confirming it wasn't mine.
-6. **A pre-existing foreign hunk was seen and excluded, not committed**: `src/providers/MessageProvider/useApiMethods.ts` showed as modified in the working tree at one point during this session (`git status`, before the M2–M6 commit). It was never part of this plan's Serialised Shared Files and was excluded from the commit's pathspec; by the time of the commit it no longer showed as modified (resolved by its own author).
-7. **Method-level self-diagnosis**: this session's M4 test coverage (`012-upsert-valid.test.ts`) proves the compiled SQL shape and the computed `valid` value in isolation, but does not exercise `upsertMessage` end-to-end (count query, guild upsert, preview-image POST, Pusher trigger, `getMessage` re-read) — the property the plan actually cares about (a real save recomputes and persists `valid`) is verified by construction (the extracted functions are the ones `upsertMessage` calls) rather than by an end-to-end instrument. If a future edit reconnects the pieces differently, this test suite would not catch it; only a database-backed integration test would.
+1. **Push done; pin refresh explicitly deferred.** `project-utils`'s M1 commit (`749606d`) was owner-approved and pushed to `origin/chain/012-message-valid-field`. Per steering's sequencing call, `website`'s pin/lockfile refresh, the pinned-build proof (release condition 3), and `tsc` going green all wait for a clean code-review verdict — not attempted this round, on instruction, not because they could not be.
+2. **Backfill not executed against production.** `src/scripts/backfillValid.ts` is written, its pure classification and reporting logic is unit-tested, and its DB-touching shell (`runBackfill`/`main`, persistence, interruption handling) was demonstrated live against a deliberately dead database during the fix round — but no production database was reachable in this environment, and execution is owner-executed per Assumption 4 regardless.
+3. **L2 (code review, low) deferred by the reviewer's own disposition.** The two `as boolean` casts in the v1 endpoints are not load-bearing today (the typecheck is RED on those lines for the unrelated pin reason) and the reviewer's Required Action names removing them as part of the pin-refresh commit specifically — left in place this round.
+4. **L3 (code review, low) reconciled here, not by rewriting history.** Commit `a7ebe4d`'s message states *"4/20 partition cells... currently fail"*; the file it commits has 36 tests, and the correct pre-M2 Red count is **5/36** (B3, B5, B7, the 5712 sentinel, and the M2-f "unsendable as stored" case) — matching this document's own TDD Compliance table, not the commit message. The commit message's counts are wrong; the spec file and the TDD table are the record to trust. Commit messages are immutable and are not rewritten.
+5. **M6-a/b/c, and post-deploy observables R2–R7, are all unexecuted** — each requires either a live production database or the deployed composer/API, neither available here. All are registered in the QA document's BLOCKING RELEASE CONDITIONS register as post-deploy-observable or pre-release-pending-backfill rows; none is claimed complete by this document.
+6. **M4-e (S4/S5 unchanged)** was verified by reading the diff, not by an executed test — no existing infrastructure in this repo drives `upsertMessage`'s Pusher/preview-image side effects without a live process, and adding one was judged out of proportion to a two-call-site, unchanged-payload property. Recorded as a self-diagnosed gap: the property is asserted by argument, not by an instrument that would fail if the argument were wrong.
+7. **Foreign, shared-tree file observed, not touched**: `src/utils/__tests__/012-json-editor-repair-path.test.ts` appeared in the working tree during this session, untracked, authored by a concurrent session (not this one — never created or edited by this session). It failed briefly during this session's work (4/4 tests in that file), then passed on a later run — resolved by its own author, not by this session. Never committed by this session, never investigated beyond confirming it wasn't mine.
+8. **A pre-existing foreign hunk was seen and excluded, not committed**: `src/providers/MessageProvider/useApiMethods.ts` showed as modified in the working tree at one point during this session (`git status`, before the M2–M6 commit). It was never part of this plan's Serialised Shared Files and was excluded from the commit's pathspec; by the time of the commit it no longer showed as modified (resolved by its own author).
+9. **Method-level self-diagnosis, updated by the fix round.** M4's original gap stands as recorded: `012-upsert-valid.test.ts` proves the compiled SQL shape and the computed `valid` value in isolation, but does not exercise `upsertMessage` end-to-end — the property is verified by construction (the extracted functions are the ones `upsertMessage` calls), not by an end-to-end instrument. The code review named this as its own finding (Medium: "two extraction seams... their wiring is asserted by reading") and split it in two: the `handleModeSwitch` half is now closed (`applyModeSwitch` extracted and tested, `012-message-mode.test.ts`); the `upsertMessage` half is accepted at the reviewer's own Minimum disposition — "accept as-is for this release on the strength of the registered post-deploy observables" (Validation 4(c)) — rather than built out this round. If a future edit stops `upsertMessage` from calling `buildMessageValues`, or calls it with different arguments, this suite would not catch it; only a database-backed integration test would.
+10. **ESM-interop residual, named in the fix round's class sweep, not closed.** `src/constants/index.ts` (the barrel) still imports `~/env.mjs` and `~/utils/getBaseUrl` for `INVITE_URL`/`LOGO_IMAGE_URL`. Any *future* `ts-node` script needing one of those specific exports would hit the same `ERR_REQUIRE_ESM` this round found and closed for `backfillValid.ts`'s own reachable graph. Closing it generally (making `env.mjs` requireable under `ts-node`'s vendored CJS loader, or moving those two exports to lazy/dynamic access) is a larger, unscoped change this milestone does not own — on-next-touch note for whichever chain next adds a `ts-node` script that needs an env-derived constant.
 
 ## Next Steps
 
-1. **Report to steering-hooks-012**: the M1 push boundary reached; owner approval needed to push `project-utils`, after which `website`'s pin/lockfile refresh and the pinned-build proof (release condition 3) can proceed, followed by `tsc` going green.
-2. **code-reviewer**, once steering has this document, to review code quality before QA re-engages for Phase 2 (execution and verdict) per the QA document's own remit.
-3. **qa** (Phase 2, same session per the owner's ruling) to verify against this implementation, execute the mutation sweep, and — once the owner has pushed and provided database access — verify M1/M6's production-dependent properties.
+1. **code-reviewer**, re-running against `681c353` per its own stated intent ("every enumeration above is re-run by me — including breaking the predicates, not merely re-executing them"). Reported to steering-hooks-012; awaiting the re-review verdict.
+2. On a clean verdict: **the website pin/lockfile refresh** (release condition 3) — explicitly held this round on steering's sequencing instruction, not attempted.
+3. **qa** (Phase 2, same session per the owner's ruling) to verify against this implementation, execute the mutation sweep, and — once the owner has pushed and provided database access — verify M1/M6's production-dependent properties. Carries two items from the code review: the Assumption Not Checked (red-before-green reconstruction for the 8 rows that landed inside a single commit) and confirmation that R6's instrument remains sound.
