@@ -27,6 +27,12 @@ Status-Detail: >-
   Value Statement delivered **in mechanism and now in the stored verdict and its exposure** —
   M6-c and QA-R2 confirm both against production. Silent classes still unverified, not covered:
   plan Risks R7 (no instrument by construction) and the recovery path (U-5/U-6).
+  **THE EFFORT IS ON HOLD** — owner ruling **D20** (plan rev 34), verbatim *"This effort is on hold
+  until the fixes are implemented."* Whole chain, not closure alone. No row changed state and none
+  is withdrawn; the seven runnable rows will not be run. `Status` is kept **Active** on purpose —
+  `Deferred` is terminal and would archive a ledger carrying ten live conditions. **UAT's own work
+  is complete and needs no successor**; Addendum 4 is the resumable record, and by D12 the held
+  live declaration also holds statbot chain 023.
 ---
 
 # UAT Report: Plan 012 — `valid` field on stored messages
@@ -46,6 +52,7 @@ verdict below (see the changelog), so the rev-29 citation is the reviewed revisi
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-08-23 | steering-hooks-012 (carrying QA PASS at `c85945f` and code review round 7) | Validate value delivery against the plan's Value Statement; consume the chain's blocking-condition register; issue a release decision | **UAT Complete. APPROVED FOR RELEASE, CONDITIONAL.** Value Statement delivered in mechanism at `c85945f`; delivery *in effect* depends on owner-executed DDL/backfill/declaration. Register consumed: 6 rows terminal, 14 outstanding with owners and terminal states named. Three findings recorded (U-1 R7's silent class has no instrument; U-2 `49f2bf1`'s commit message carries a superseded claim devops must not inherit; U-3 two devops obligations found outside the register, folded in). |
+| 2026-08-23 | steering-hooks-012 (relaying owner ruling D20) | Record the hold | **Owner ruled, verbatim: "This effort is on hold until the fixes are implemented."** — plan **D20** (rev 34, `827dfb0`), verified at source. Whole chain held, not closure alone. **No row changes state**: ten remain outstanding, none withdrawn; a hold stops work but does not terminalise conditions. `Status` kept **Active** deliberately — `Deferred` would archive a ledger with ten live rows. Addendum 3's routing of the no-review-trigger fact to the retrospective is **reconciled, not overwritten**: that stage is itself held, so the fact and four other retrospective-bound observations are relocated into this document to survive. Cross-workspace consequence recorded: the live declaration is inside the hold, so by D12 statbot chain 023 is held too — not acted on; informing that side is the owner's call and unmade. |
 | 2026-08-23 | steering-hooks-012 (relaying owner ruling D19) | Record the owner's ruling on U-5 | **Owner ruled option (c), verbatim: "Leave them open"** — registered as plan **D19** (rev 32, `a50e75d`), verified at source. QA-R4 and QA-R15 stay **`NOT EXECUTED`**: neither re-specified nor withdrawn. UAT's recommendation (a) not taken; recorded, not re-litigated. **What changes is why they stand open — by ruling, not by oversight; what does not change is that `NOT EXECUTED` is not terminal**, so both remain in this register and **chain closure stays blocked**, the stated consequence he accepted with the ruling. Noted: D19 sets no review trigger, so nothing schedules a re-read — recorded as a fact, not promoted into an instruction, and named for the retrospective. Release decision unaffected. |
 | 2026-08-23 | steering-hooks-012 (relaying the owner's walkthrough round 1) | Record M6-c, QA-R2, QA-R4, QA-R15 results against their predictions | **M6-c EXECUTED PASS** (both sentinels). **QA-R2 EXECUTED PASS** — `valid: false` at top level; payload also establishes 5712 as cell B5 / guidance shape (i) from production. **QA-R4 and QA-R15 NOT EXECUTED** — the owner cannot load 5712 in the composer, so both were attempted against an imported copy whose state is unverifiable by his own account; neither a pass nor a fail is available, and the rows stand open. Two findings raised: **U-5** (HIGH — the two 5712-keyed rows may be unexecutable by anyone: a specification defect, not a pending task; RECOMMEND re-specification via QA, with owner WITHDRAWN as the alternative and its cost stated) and **U-6** (HIGH — the owner's report that the JSON view may not support V2 and may strip content is a candidate falsifier for plan Risks R6, and bears on QA-R19 guidance shape (i), which is 5712's own shape). Release decision unchanged and correctly discharged; **chain closure blocked**. |
 | 2026-08-23 | uat (self-recorded) | Registration write into the plan, per this stage's Status-tracking remit | Plan `Status` → **UAT Approved**, Revision → 30, one registration changelog row, and the stale Status-Detail clause `Next gate: UAT (clear to start)` replaced (a declarative surface, corrected by replacement). **A registration write only** — no body text, criterion, milestone, register row or Risks row touched, and no prediction record written (those are the planner's). **Not committed by this stage**: CLAUDE.md's commit exception covers only the document a stage itself produced, and the plan is the planner's. Routed as a blocking question; **owner ruled 2026-08-23, verbatim: "The planner commits it."** — relayed by steering-hooks-012. The ruling settles *who* commits, not whether the content is sound; that judgement remains the planner's. |
@@ -821,3 +828,109 @@ That class narrows to the two 5712-keyed rows alone.
 **10 outstanding** — QA-R3, R4, R5, R6, R7, R8, R9, R15, R19, R20; of these **QA-R4 and QA-R15 are
 open by ruling D19**, the rest are runnable now.
 **Held**: the QA-R19 *send*, on U-4 and U-6, both independent and both still standing.
+
+---
+
+## Addendum 4 — 2026-08-23: owner ruling D20, the effort is on hold. This document is the resumable record.
+
+**Authority**: plan register row **D20** (rev 34, `827dfb0`), read at source at this document's write
+time. Reopening class: owner withdrawal only.
+
+**Ruling, verbatim and entire**: *"This effort is on hold until the fixes are implemented."*
+
+Steering's two readings — *"the fixes"* = the Components-V2 editing effort
+(`handoff/components-v2-editing-support-2026-08-23.md`, `6a7b878`), and *"this effort"* = the whole
+chain rather than closure alone — are recorded in D20 as **steering's readings, not his phrasing**,
+and are carried here on the same terms. Only the quoted sentence is his. **This stage adopts both
+readings and adds none**; if either is wrong the correction is the owner's.
+
+### Effect on the ledger: none. That is the point.
+
+**No row changes state.** Ten stand outstanding, exactly as before: QA-R3, R4, R5, R6, R7, R8, R9,
+R15, R19, R20. A hold stops work; it does not terminalise conditions, and **`NOT EXECUTED` is not
+made terminal by a chain stopping any more than by time passing or by production looking healthy.**
+The seven previously-runnable rows are now *not going to be run* — that is a fact about the schedule,
+**not** a disposition, and none of them is withdrawn.
+
+**Nothing is asked of the owner.** Steering has banked `OWNER-QUEUE.md` under a hold banner
+(`8dbea73`) rather than emptying it, which is the right call for the same reason the register keeps
+these rows: an item that is neither done nor withdrawn must remain visible.
+
+**This document's `Status` stays `Active`, deliberately.** `Deferred` is a terminal status that
+triggers closure into `closed/`, and archiving a ledger with ten live conditions would bury exactly
+what a resumption needs. D20 also carries a resumption condition, so it is a hold, not indefinite
+postponement. Recorded so a later orphan sweep reads the `Active` status as intended rather than as
+an oversight.
+
+### Reconcile note — Addendum 3's routing of the no-review-trigger fact
+
+**Addendum 3 said**, of the fact that D19 attaches no review trigger to QA-R4/QA-R15: *"Named for the
+**retrospective** as an observation about the record's shape."* That text stands as written and is
+not overwritten.
+
+**Why it was defensible when written**: at that moment the retrospective's precondition was
+satisfied and it was the correct destination for an observation about the record's shape.
+
+**What has changed**: the retrospective is itself **held** by ruling this date. The routing is
+therefore dead, and an observation routed to a held stage is an observation that dies in a
+session's context. **Corrected by relocation, not by re-routing**: the fact now lives in this
+document, below, where it survives without depending on any stage running.
+
+### Carried here so it survives the hold
+
+Material this stage would otherwise have handed to the retrospective. Recorded as observations, not
+as new conditions — **D18 and D20 both foreclose adding scope, and none of this asks for any.**
+
+1. **D19 attaches no review trigger to QA-R4 or QA-R15, so nothing schedules their re-read.** That is
+   the ruled outcome, not a defect in it. Under D20 the same is now true of the chain as a whole:
+   the resumption condition is an *event* (*"until the fixes are implemented"*), which is the correct
+   form for a trigger — but no stage is named to watch for it. **Whoever resumes chain 012 reads this
+   register first**; that sentence is the closest thing to a trigger that exists, and it is written
+   here rather than assumed.
+2. **QA-R15's flag-free clause earned its keep.** The owner independently found the
+   *"clear, then add a Text Display"* route and reported it as passing. It is the exact
+   non-discriminating path the clause was written to exclude — pre-D11 code reaches Send-enabled
+   that way with the flag still set. Had the row been written without that clause, this chain would
+   have recorded a pass on a fix that was not demonstrated. **A pre-registered discriminator caught a
+   false positive that a human observer, acting in good faith, was about to hand in.**
+3. **A queue and a register are different instruments and must not be conflated.** Twice here a
+   working queue correctly dropped items (`a7191c5`, then the `8dbea73` banner) that the register
+   correctly kept. Both were right. The lesson is that row state belongs to the register, and a
+   reader who finds an item absent from a queue must not infer it is closed.
+4. **The chain ran on one register and never grew a second.** QA minted QA-R1–QA-R20; later gates
+   appended. The two obligations found travelling outside it (U-3) were folded in rather than carried
+   parallel. Worth preserving because the failure mode — a second travelling list — is invisible
+   until the two disagree.
+5. **A clean production result is not evidence against a silent class.** Recorded three times on this
+   chain and still true at the hold: plan Risks **R7** has no instrument by construction, and the
+   backfill's clean report is computed by the very predicate that omits the checks R7 is about.
+
+### Cross-workspace consequence of the hold — recorded, not acted on
+
+The **live declaration is inside the hold**, and **D12** orders statbot chain 023's `valid`-gate
+deploy *after* that declaration. **Statbot chain 023 is therefore held too, for as long as this is.**
+
+D12 is, by its own terms, *the sole planning-register record of that constraint on either side* — the
+statbot side carries none by owner ruling — so this consequence exists in no planning document but
+D12 and the records that restate it, of which this is one.
+
+**No session has been told, and this stage does not tell one.** Whether to inform the statbot side is
+the owner's call; it has not been made. This is recorded here for the same reason QA-R17 exists: an
+unrecorded consequence is indistinguishable from one nobody noticed.
+
+### State at the hold — the resumable summary
+
+| | |
+|---|---|
+| **Release** | Executed and live. `website` `c85945f`; `project-utils` `749606d` on `origin/master`. Backfill complete, 4825 rows |
+| **Release decision** | **APPROVED FOR RELEASE, CONDITIONAL** — issued at `c85945f`, correctly discharged; the release act fell within its terms |
+| **Chain closure** | **BLOCKED**, and now also **HELD** — two independent reasons, neither of which the other resolves |
+| **Register** | **10 of 20 terminal** — QA-R1, R2, R10, R11, R14, R17 `EXECUTED`; QA-R12, R13, R16, R18 `SUPERSEDED`. **10 outstanding** — QA-R3, R4, R5, R6, R7, R8, R9, R15, R19, R20 |
+| **Open by ruling** | QA-R4, QA-R15 (D19) |
+| **Held** | Everything else, incl. the QA-R19 *send* — which was already held on **U-4** (row 5842's shape unknown) and **U-6** (the JSON route for 5712's own shape is a candidate falsifier for plan Risks R6). Both stand |
+| **Unverified, not covered** | Plan Risks **R7** (silent, no instrument); the D11 recovery path (U-5/U-6); QA's Phase 2 wiring-seam assumption, now narrowed to the two 5712-keyed rows — QA-R5/R6/R7 would have closed the mode-switch and save seams and were not run |
+| **On resumption** | Read this register before acting. The 5712 preservation rule still binds: QA-R5/R6/R7 are scratch-message-only, and the order M6-c → QA-R2 → QA-R4 → QA-R15 governs the 5712-keyed rows, R15 last because it persists |
+
+**UAT's own work is complete and needs no successor.** The verdict is issued, the ledger is current,
+and every outstanding row carries an owner and the terminal state it must still reach. What remains
+is execution the owner has held.
