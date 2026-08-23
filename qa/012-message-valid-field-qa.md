@@ -4,10 +4,15 @@ Origin: 012
 UUID: 12a4fe3c
 Parent: message-valid-field-for-statbot-2026-08-23.md
 Verified-At: >-
-  Phase 1 — NOT a verdict anchor. Strategy designed and the M2 spec executed against
-  `website` chain/012-message-valid-field @ 72dc7de and `project-utils`
-  chain/012-message-valid-field @ eb38a15, both clean, 2026-08-23. Phase 2 records its own.
-Status: Awaiting Implementation
+  website chain/012-message-valid-field @ 17cada0 (committed tree: 20 spec files / 402 tests,
+  all green, this session's own run 2026-08-23); project-utils master @ 749606d (M1-b re-read at
+  the committed rollup). Uncommitted QA instruments, content identity (not production code):
+  src/utils/__tests__/012-json-editor-repair-path.test.ts md5 81db2948c488bfb4598b19f0742f34b9
+  (6 tests, green); src/scripts/__tests__/012-backfill-evaluation-failure-category-qa.test.ts
+  md5 84216283773f34bc1c402904786888f5 (3 tests, green; MS-8 guard, seen red under the mutant).
+  Full tree incl. instruments: 22 files / 411 tests green. Any production-code change after this
+  expires the verdict.
+Status: QA Complete
 Status-Detail: >-
   Phase 1 rev 3. Strategy complete and re-derived against plan rev 6 (`7af8936`), which enacted
   all three QA findings (D11, D12, F-QA2). R12/R13 closed by owner ruling. One new finding —
@@ -27,6 +32,13 @@ Status-Detail: >-
   correction** — my rev-5 claim that `useApiMethods.ts` was "a third file neither review named" is
   false; the critic named it and credited the mechanism. Struck beside the original. The execution
   and the rev-5b pin stand; the finding is now a correction to QA's own account, not to the critic's.
+  Rev 6 (Phase 2): full execution against `17cada0`. TDD gate passed with red re-derived at the
+  chain base by this session's own worktree run (5/36 partition; all six implementer spec files
+  failing in the recorded classes). Bounded mutation sweep executed: 10 mutants, 8 killed by their
+  named fixtures, MS-4 survivor (pre-declared, routed), MS-8 survivor **found and closed** by a
+  QA-authored spec seen red under the mutant. Round-6 code-review assumption (28-package refresh)
+  closed by execution with its babel framing bounded. L5 closed by execution. Verdict: **PASS** —
+  QA Complete; handing off to the uat agent.
 ---
 
 # QA Report: Plan 012 — `valid` field on stored messages
@@ -34,13 +46,16 @@ Status-Detail: >-
 **Plan Reference**: `agent-output/planning/012-message-valid-field.md` (rev 4, commit `13b4d4c`)
 **Critique Reference**: `agent-output/critiques/closed/012-message-valid-field-critique.md` (commit `cd742f7`, APPROVED)
 **Contract**: `agent-output/handoff/message-valid-field-for-statbot-2026-08-23.md` (UUID 61f24e56) — owner-accepted, not amendable without him
-**QA Status**: Awaiting Implementation
+**QA Status**: QA Complete (Phase 2 verdict PASS at `17cada0`; plan references above are the rev-4
+originals kept for the Phase 1 record — Phase 2 executed against plan rev 23, code review round 6
+`15de931`, implementation doc `1db8186`)
 **QA Specialist**: qa (session `qa-hooks-012-1`)
 
 ## Changelog
 
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
+| 2026-08-23 | steering-hooks-012 | **Phase 2** — post-implementation execution against `website` `17cada0`, carry-forward items named (round-6 assumption, round-1 red assumption, L5, typecheck blindness, Phase 1 data-conformance assumption) | **Rev 6, Phase 2 complete, verdict PASS.** All numbers re-derived by this session's own runs, none inherited. TDD gate: table complete; red re-verified at base `72dc7de` via throwaway worktree (5/36 partition red on the exact five named cells; all six implementer spec files failing in the TDD table's recorded classes). Full suite 20 files / 402 tests green on the committed tree (22/411 with the two QA instruments). `npm run build` and `tsc --noEmit` green by own run. Mutation sweep: 10 mutants, 8 killed by named fixtures; **MS-4 survivor** (backfill UPDATE's NULL guard — pre-declared unkillable here, routed); **MS-8 survivor found** (evaluationFailures category population deletable with suite green) and **closed** by QA-authored spec, red-under-mutant observed. Round-6 assumption closed with babel framing bounded (no `.babelrc`; SWC build, esbuild tests; babel reachable only via eslint tooling and styled-jsx peer). L5 closed by execution: delegate cases discriminate dispatch inversion (killed L5-A), literal cases carry branch coverage (killed L5-B) — no rewrite needed. Two findings opened (F-QA13 spec type-unsoundness LOW, F-QA14 record overstatement MEDIUM→routed). Handing off to the uat agent. |
 | 2026-08-23 | steering-hooks-012 | QA Phase 1 — test strategy before implementation | Phase 1 written. Sources read in full: plan rev 4, critique (closed, APPROVED), both handoffs, workspace architecture record. Code read directly on both chain branches. Deliverables: executability determination, testing-infrastructure list, Irreversible Side-Effect Register, per-criterion property audit, pre-registered M2 partition spec (executed — Red confirmed), mutation sweep plan, seven findings, blocking-condition register. |
 | 2026-08-23 | steering-hooks-012 (correction) | Owner ruling *"change, qa-1 will handle both"* — this session carries Phase 2 as well | Remit widened from Phase 1 only to the whole QA remit. Independence measures added (see *Independence Under a Single-Session Remit*) because the session that writes the strategy will later judge against it. |
 | 2026-08-23 | steering-hooks-012 | Correction: rev 5's "a third file neither review named" is false as to the critic | **Phase 1 rev 5c.** Verified at the critic's committed record before acting, not on the relay: cycle-2 pass-2 names `useApiMethods.ts` and credits `updateMessage`'s wholesale `data` replace in **two** places. Two claims struck beside their originals — that the critic credited `standardizeMessage`, and that the file was unnamed by *either* review. Accurate history: **QA's** review credited `standardizeMessage`; the critic's was right by reading and simply unexecuted. F-QA12 narrows to *execution plus the rev-5b pin*, and must be cited downstream in that form. Error is QA's own: I characterised another document without opening it, while arguing that static reads cannot settle properties — the document was committed and one `grep` away. |
@@ -54,10 +69,10 @@ Status-Detail: >-
 
 - **Test Strategy Started**: 2026-08-23
 - **Test Strategy Completed**: 2026-08-23
-- **Implementation Received**: —
-- **Testing Started**: —
-- **Testing Completed**: —
-- **Final Status**: pending
+- **Implementation Received**: 2026-08-23 (`17cada0`, code review round 6 APPROVED_WITH_COMMENTS)
+- **Testing Started**: 2026-08-23
+- **Testing Completed**: 2026-08-23
+- **Final Status**: QA Complete (PASS at `17cada0`)
 
 ---
 
@@ -865,6 +880,193 @@ settle a property. The document was committed and one `grep` away. The rule I ap
 
 ---
 
+## Phase 2 — Test Execution (rev 6, 2026-08-23)
+
+**Subject**: `website` `chain/012-message-valid-field` @ **`17cada0`** (chain base `72dc7de`);
+`project-utils` `master` @ **`749606d`**. Tree state at execution: clean except two untracked QA
+instruments (both this session's, identities in the header). Governing disposition: **D18** — new
+findings become handoff material; a CRITICAL or HIGH defect in what shipped would still hold the
+tree. None was found.
+
+Every number below is this session's own run. Nothing is inherited from the implementation
+document, the code review, or the steering brief.
+
+### TDD Compliance Gate — PASSED, with red independently re-derived
+
+The implementation doc's TDD Compliance table exists and is complete: every new function/class has
+a row; no applicable column reads "No". Beyond the table's existence, the **round-1 code-review
+assumption** (eight TDD rows landed in one commit, red-before-green *assumed*; falsity signature:
+any new spec passing against `72dc7de`) was discharged by execution, not by reading:
+
+- Throwaway worktree at `72dc7de` (`git worktree add`, metadata-only — the shared tree never moved;
+  removed after use), HEAD's spec files copied in, `node_modules` symlinked.
+- **All six implementer spec files fail at base**, each in the class the TDD table records:
+  `012-message-mode`, `012-validity-predicate`, `012-backfill-classify`, `012-backfill-report` die
+  on `Cannot find module`; `012-upsert-valid` 6/6 assertion/`not a function` failures;
+  `012-valid-exposure` 4/6 failures.
+- **Partition spec at base: 36 tests, 5 failed** — exactly B3, B5, B7, the 5712 sentinel, and the
+  M2-f "unsendable as stored" case. Reproduces the TDD table's 5/36 claim (and confirms commit
+  `a7ebe4d`'s message counts are wrong, as the implementation doc already records at L3).
+- Precision owed on the falsity signature: at *test* granularity, 2 of `012-valid-exposure`'s 6
+  cases (the two stored-NULL cells) pass vacuously at base — the pre-M5 handlers never emit the
+  key, so "absent where NULL" holds trivially. Their discriminating power is established separately
+  by mutation (MS-7a/MS-7b below), so this is stated, not waved through.
+
+### Execution record
+
+| Instrument | Command / method | Result |
+|---|---|---|
+| Full suite, committed tree only | `npx vitest run --exclude "**/012-json-editor-repair-path**"` at `17cada0` (before the MS-8 spec existed) | **20 files / 402 tests, all green** |
+| Full suite, with QA instruments | `npx vitest run` | **22 files / 411 tests, all green** (408 before the MS-8 guard spec; its 3 tests added after being seen red under the mutant) |
+| Production typecheck | `npx tsc --noEmit -p tsconfig.json` | **0 errors** — reproduces round 6's green |
+| Production build | `npm run build` | **Compiled successfully** (own run; round 6's result reproduced) |
+| Frozen-spec integrity | `git diff a7ebe4d 17cada0 -- …012-send-gate-partition.test.ts` | **Empty** — the pre-registered spec is byte-identical to its pre-implementation commit |
+| M1-b, committed rollup | `git -C project-utils show 749606d:dist/index.d.ts` | `valid: boolean \| null` on `Messages` at the committed rollup; **installed copy identical** at the same declaration |
+| M4-a writer re-enumeration | `grep -rn "updateTable('Messages')\|insertInto('Messages')" src` (non-test) | **3 sites**: `buildUpsertMessageQuery` (persists `data`, writes `valid` — covered), `updateRecentMessageData` (recent\* columns only, never `data` — the negative member, correctly gains no `valid` write), `backfillValid` (writes `valid` by design, NULL-guarded). Exactly one persister of `data` on the app path, matching the plan's enumeration |
+| M5-c | `mapMessage` at base vs `17cada0`, function-scoped diff | **Byte-unchanged**; carries no `valid`. Instrument substitution recorded: Phase 1's audit table asked for a unit assertion on `mapMessage`'s key set; none exists — verified by diff enumeration instead, which answers the criterion ("no other response shape changes") directly |
+| M4-e (S4/S5) | Diff read of `upsertMessage`'s hunks | Side-effect call sites outside the changed hunks / unchanged in form; the hunks replace inline values/query with the extracted builders. Accepted at the reviewer's Minimum (implementation Outstanding item 6): asserted by diff, backstopped by register row **R7** |
+| Coverage tooling | `check-coverage.sh` (testing-patterns) | No coverage provider configured in the repo — coverage evidence in this chain is the criterion→instrument map plus the mutation kills below, which for the changed surface is stronger than line coverage |
+| Version artifacts | — | N/A per plan M7: neither package carries a `version` field or CHANGELOG |
+
+### Mutation sweep — executed (Phase 1 plan, plus two L5 probes and one new seed)
+
+Protocol per file: md5 before; byte copy to `/tmp`; mutant applied by `sed` and confirmed present;
+targeted spec run captured to a file; original restored; md5 and `git diff --numstat` confirmed
+byte-identical. All mutated files are the implementer's committed work — temporarily mutated and
+restored under the same restore-guard protocol as rev 5b, disclosed here in the round it happened.
+
+| # | Mutant | Result | Killed by |
+|---|---|---|---|
+| MS-1 | gate `\|\|` → `&&` | **KILLED** (8 red) | **B5** as required, plus A1/A2 sole-carrier controls |
+| MS-2 | gate drops the flag disjunct | **KILLED** (5 red) | **Exactly** B3, B5, B7 + both 5712 rows — the flag disjunct is the sole carrier in all five, and every structural cell stayed green |
+| MS-3 | gate `hasV2 = true` | **KILLED** (3 red) | A4, A6, and the M2-f recovery case. **Prediction correction, recorded beside the original**: Phase 1's table named "B2 and A4"; B2 cannot discriminate this mutant (B2 is already V2-side, verdict invariant). The kill is carried by the classic-side positive controls. The Phase 1 kill-cell prediction was wrong for B2; the mutant is killed regardless |
+| MS-4 | backfill UPDATE loses `.where('valid','is',null)` | **SURVIVOR** — 41/41 green | Pre-declared in Phase 1: not equivalent, and no executable fixture in this environment can kill it (requires DB concurrency). **Disposition**: guard verified present at source (`backfillValid.ts`, the per-row `updateTable` chain); damage bounded by release order (saves recompute their own rows) and caught in aggregate by M6-a only if rows are left NULL, which this mutant does not cause. **Routed as handoff material under D18** — a DB-backed integration harness is the only closure |
+| MS-5 | `valid` out of `DO UPDATE SET` | **KILLED** (2 red) | The enumerated-trap case + the verdict-unchanged case |
+| MS-6 | `valid` out of insert values | **KILLED** (3 red) | The `built.valid` compute cells. Instrument note: the "insert column list carries `valid`" regex stayed green under this mutant (it matches the conflict clause's `"valid"` too) — the insert-list property's real carriers are the compute cells, which is sufficient; noted so nobody reads that one assertion as the carrier |
+| MS-7a | list endpoint: conditional spread → unconditional | **KILLED** (1 red) | That endpoint's stored-NULL cell |
+| MS-7b | [id] endpoint: same | **KILLED** (1 red) | That endpoint's stored-NULL cell |
+| L5-A | `applyModeSwitch` ternary inverted | **KILLED** (2 red) | Both delegate cases |
+| L5-B | `switchToClassic` mask → `flags = 0` | **KILLED** (1 red) | The named "clears ONLY the V2 bit" control |
+| MS-8 | `accumulate` drops the `evaluationFailures` population line | **SURVIVOR at `17cada0`** (41/41 green) — **CLOSED by QA spec** | New QA-authored spec `012-backfill-evaluation-failure-category-qa.test.ts`: **red under the mutant (2/3), green on shipped code (3/3)**. See F-QA14 |
+
+Predicate, travelling with the counts: *11 mutants seeded at the branch conditions and decision
+constants of the M2 gate, the mode-switch functions, the M4 write builders, the M5 mappings, and
+the M6 backfill guard/accumulator — excludes the checks `validateMessage` runs after the
+content/V2 clause (username, embed-character, displayable-text, message-length), which this chain
+does not modify, and excludes the DB-execution shells (`runBackfill`/`main`, `upsertMessage`
+wiring), which no suite in this repo can execute.*
+
+### Carry-forward items — each re-derived, none inherited
+
+**1. Round 6's Assumption Not Checked (28 unrelated package upgrades behaviourally inert) —
+CLOSED, with its framing bounded.** The named falsity signature — a suite failure on unchanged
+source against the refreshed lockfile — did not fire: full suite green (my run), `npm run build`
+green (my run), `tsc` green (my run). Source between `f983508` and `17cada0` is the lockfile plus
+one moved test file (`git diff --stat`, own run: 2 files). Bounding the framing: **babel is not
+this app's transpiler** — the repo has no `.babelrc`/`babel.config`, so `next build` compiles with
+SWC and vitest transforms with esbuild; `pnpm why @babel/core` shows babel reachable only as a peer
+of eslint tooling and of Next-internal `styled-jsx`. So "the transpiler is precisely what moved"
+overstates the exposure: the moved `@babel/*` packages sit on paths my instruments either exercise
+indirectly (build) or not at all (lint). What my instruments genuinely do not exercise is the
+**deployed bundle executing** — that residue is exactly what the register's post-deploy rows
+(R2–R7) exist to observe, and it is theirs, not a further pre-release check.
+
+**2. Round 1's red-before-green assumption — CLOSED** (TDD gate section above).
+
+**3. L5 — CLOSED by execution, no rewrite required.** The reviewer was right that the two
+`applyModeSwitch` delegate cases are tautological with respect to defects in the branch functions —
+and they are also the *sole* discriminators of dispatch inversion, observed killing L5-A. Branch
+coverage is carried by the literal-expectation cases, observed killing L5-B. The describe title
+already carries the wiring disclaimer. The suite partitions responsibility correctly; independence
+holds where it matters.
+
+**4. Typecheck blindness (`tsconfig` excludes `**/__tests__`) — probed, one LOW finding.** A
+QA-side tsc run with tests included (override config; the shipped config's other includes
+preserved except `next-env.d.ts` and non-src trees): **28 errors, all in test files** — 5 in this
+chain's `012-message-mode.test.ts` (F-QA13), 22 in pre-existing chain-011-and-earlier specs, 1 a
+probe artifact (the omitted `next-env.d.ts` carries Next's image-type declarations; confirmed by
+reading it). **No production-source error surfaces when tests are included.** The blindness itself
+is the repo-wide tooling gap the implementation doc's round 5 already names and routes.
+
+**5. Phase 1's own Assumption Not Checked (production `Messages.data` structurally conformant) —
+mechanism verified, one overstatement found (F-QA14), measurement still the owner's.** The
+detection mechanism is real and tested (`classifyRow` catches throws; three fixture classes). The
+**category population** — count *and row ids* reaching the report the owner reviews at R9 — was
+unguarded (MS-8) and the implementation doc's closure section overstates what the classify spec
+proves. Now guarded by the QA spec. The measurement itself remains the owner's at M6-b, exactly as
+routed.
+
+### Property-audit delivery check
+
+The Phase 1 audit table (above) stated, per criterion, the class each example belongs to and the
+required sole-carrier/positive-control fixtures. Phase 2 verified delivery: M2's partition delivers
+every named sole-carrier cell (proven live by MS-1/MS-2/MS-3's kill patterns); M3 delivers T2/T3
+(source-level single-call + direct-import + symbol identity), both sentinels with recorded
+provenance, the username asymmetry **with its permitting control**, purity, and throw-handling in
+both directions; M4 delivers both branches × both verdict directions on compiled SQL plus the
+injection cell (and M4-d's top-level half holds structurally: `buildMessageValues` picks only
+`name`/`data`); M5 delivers both endpoints × three stored states at the serialized-JSON layer
+(F-QA4's instrument, vindicated by the MS-7 kills). Departures from the audit table, all recorded
+above: M5-c verified by diff enumeration instead of a unit assertion; M4-e accepted at the
+reviewer's Minimum; M6's DB half owner-executed per the strategy.
+
+### New findings (Phase 2)
+
+#### F-QA13 (LOW, routed as handoff material under D18) — `012-message-mode.test.ts` is not type-sound
+
+Five TS2345 errors when tests are typechecked: fixtures pass `{ type: number }` skeletons where
+`ModeSwitchDraft` declares `SupportedTopLevelComponent[]`. Behaviourally sound — the functions read
+only `.type`, and the mutation kills above prove the assertions discriminate — but the spec would
+not survive the tsconfig gap being closed, and unsound fixtures are exactly how a future
+type-narrowing refactor gets a green suite while changing behaviour for real component shapes.
+Fix is mechanical (typed fixture builders or targeted casts); belongs with whichever chain closes
+the `**/__tests__` exclusion. The 22 errors in pre-existing specs are the same class, pre-dating
+this chain.
+
+#### F-QA14 (MEDIUM as a record defect, coverage half CLOSED here) — the evaluation-failure category was detectable-but-unguarded, and the implementation doc's closure of my assumption overstates its evidence
+
+The implementation doc ("Assumption Not Checked — closure") states the count-and-row-ids category
+is "tested: `012-backfill-classify.test.ts`, describe `classifyRow — evaluation failures`". That
+describe proves **detection** (the boolean on the classification). Nothing drove an
+`evaluationFailure` classification through `accumulate` into `report.evaluationFailures` — proven
+live by MS-8: deleting the population line left the committed suite green 41/41. The category is
+the one instrument that lets the owner's R9 review distinguish "cannot evaluate" from "genuinely
+invalid", on a **one-shot** run the NULL guard makes unregeneratable. Source verified correct by
+reading; the coverage gap is **closed by the QA spec** (red under MS-8, green on shipped code);
+what remains is the record: the implementation doc's closure sentence should narrow from "tested"
+to "detection tested; population guarded by QA's Phase 2 spec" — the implementer's document, the
+implementer's correction, routed in the handoff. Not a shipped-behaviour defect; does not hold the
+tree.
+
+### Assumption Not Checked (Phase 2)
+
+**This pass assumes the wiring seams no suite in this repository can execute — that
+`handleModeSwitch` calls `applyModeSwitch`, and `upsertMessage` calls
+`buildMessageValues`/`buildUpsertMessageQuery`, each with the right arguments — and it does not
+test them.** The premise is specific: every executed instrument above exercises the *extracted*
+functions; the callers' wiring to them is asserted by reading (implementation Outstanding item 9
+says the same, and the reviewer accepted it at his Minimum). **Falsity signature**: production
+composer or save behaviour diverging from the extracted functions' proven behaviour while every
+suite here stays green — most visibly, a mode toggle in the deployed editor that does not clear
+the flag (R5/R6/R15's surface), or a deployed save that stores no verdict (R7's surface).
+**Closure owner: the uat agent and the owner, at the register's post-deploy rows R4–R7 and R15** —
+which exist for exactly this class and are named again in the handoff, so the assumption is
+routed, not shelved.
+
+### Verdict
+
+**QA Complete — PASS at `Verified-At: 17cada0`** (content identities for the two QA instruments in
+the header). No CRITICAL or HIGH defect in what shipped. Survivor MS-4, findings F-QA13/F-QA14's
+record half, and CR-L11 (the reviewer's, already routed) travel as handoff material under D18. The
+pre-release register rows R1 and R14 are executed and recorded below; all post-deploy rows remain
+open by construction and travel to UAT. **A commit of the two QA instrument files by the
+implementer (their commit grant) is recommended before release** so the MS-8 guard and EXT-3
+survive this working tree — recorded as a routing note, not a release condition.
+
+**Handing off to the uat agent for value delivery validation.**
+
+---
+
 ## BLOCKING RELEASE CONDITIONS — chain 012 register
 
 > **BLOCKING RELEASE CONDITION** — each **pre-release** row below must be executed and recorded in
@@ -880,7 +1082,7 @@ UAT document, and then the deployment record, are authoritative on each row's ex
 
 | ID | Class | Condition | Primary instrument | Subject / fallback | Earliest-decidable condition | Predicted value | Failure mode (operator terms) | Owner | State |
 |---|---|---|---|---|---|---|---|---|---|
-| R1 | pre-release | The 14-cell M2 partition is green, with B3/B5/B7 flipped and A1–A7/B1/B2/B4/B6 unmoved | `npx vitest run src/utils/__tests__/012-send-gate-partition.test.ts` | QA (automated; no human) | M2 implemented | 20/20 pass | If a cell outside the residue moved, M2 changed sendability for messages nobody asked it to touch — users lose the ability to send messages that work today | qa | Open |
+| R1 | pre-release | The 14-cell M2 partition is green, with B3/B5/B7 flipped and A1–A7/B1/B2/B4/B6 unmoved | `npx vitest run src/utils/__tests__/012-send-gate-partition.test.ts` | QA (automated; no human) | M2 implemented | 20/20 pass | If a cell outside the residue moved, M2 changed sendability for messages nobody asked it to touch — users lose the ability to send messages that work today | qa | **EXECUTED, PASS — Phase 2, `17cada0`**: 36/36 green (the spec grew from the 20 cells this row's prediction was sized against to 36 — rev-1 prediction superseded by spec growth, recorded beside, not over); the five previously-red cells (B3/B5/B7 + both 5712 rows) flipped green and every A-cell unmoved, with the partition file byte-identical to its pre-implementation commit `a7ebe4d` |
 | R2 | post-deploy-observable | GET v1 guild-messages for `966088462803537960` shows message 5712 with top-level `valid: false` | HTTP GET against production | Owner (the read is owner-executed; a hooks-side agent read was blocked by the classifier in the statbot workspace — if that block fires here, **stop and report, never reword**) | After backfill completes | `valid: false` — a **single** observation refutes by construction | If it shows `true` or omits the key, the field is not communicating what it was built to communicate, and Statbot gates on nothing | devops (owner observes) | Open |
 | R3 | post-deploy-observable | The same request for a guild holding a bare-Text-Display V2 record shows `valid: true` | HTTP GET against production | Owner | After backfill completes | `valid: true` — single observation suffices | **This is R2's paired positive control.** If it shows `false`, the field marks well-formed messages invalid and Statbot silently stops delivering messages that work — the mass-invalidation failure, arriving as silence rather than as an error | devops (owner observes) | Open |
 | R4 | post-deploy-observable | 5712 loaded in the composer shows the mutual-exclusivity notification with Send disabled (M2-c) | Composer UI | Owner (only he can load that guild's message) | After website deploy | Notification shown, Send disabled | If Send is still enabled, the composer keeps telling users a message is fine that Discord rejects with `50035` — the original defect, unfixed | uat (owner observes) | Open |
@@ -893,7 +1095,7 @@ UAT document, and then the deployment record, are authoritative on each row's ex
 | R11 | pre-release | Release order verified as an **order**, not as occurrence: DDL → `project-utils` push → `website` pin refresh + deploy → backfill → review → declaration | The deployment record | devops (automated/documentary; no human) | At release | Order holds | Misordering (i): **every message save fails** between deploy and DDL. Misordering (ii): records saved in the window carry stale verdicts M6-a's NULL count cannot see, breaking the freshness clause Statbot is entitled to trust | devops | Open |
 | R12 | pre-release | **F-QA7**: the owner has stated whether statbot chain 023's deploy is ordered after the live declaration, or the window is knowingly accepted | Owner's ruling, recorded | Owner | Now — decidable today, before anything ships | A stated disposition either way | If nobody decides, Statbot may gate on an unreviewed distribution and stop deliveries before the owner has seen a single number — routing around the plan's own central risk control | owner (put by steering) | **CLOSED 2026-08-23** — *"Order Statbot's deploy last"*; plan register D12, release condition 5 extended to five ordered components. **Superseded by R17**, which is the executable half |
 | R13 | pre-release | **F-QA1**: the owner has ruled on whether the V2 flag is cleared on mode switch, or the composer-recovery consequence is accepted with a stated plan for telling affected guild owners | Owner's ruling, recorded | Owner | Now — decidable today, before M2 is written | A stated disposition either way | If unaddressed, affected guild owners are told to fix their message in the composer and find no control that does it. The chain ships a clearer error and no way to act on it | owner (put by steering) | **CLOSED 2026-08-23** — *"Clear the flag on switch back"*; plan register D11, enacted in M2 (M2-d revised, M2-e/M2-f added). **Succeeded by R14, R15, R16** |
-| R14 | pre-release | **M2-e**: every V2→classic switch leaves no `IS_COMPONENTS_V2_FLAG`, over the whole class of departing contents — and clears **only** that bit | The pre-registered spec's M2-e block (5 departing states + a bit-masking control) | QA (automated; no human) | M2 implemented | All green | A `flags = 0` assignment instead of a mask passes every class member and silently destroys unrelated flag bits on every mode switch — for every user, not just affected ones | qa | Open |
+| R14 | pre-release | **M2-e**: every V2→classic switch leaves no `IS_COMPONENTS_V2_FLAG`, over the whole class of departing contents — and clears **only** that bit | The pre-registered spec's M2-e block (5 departing states + a bit-masking control) | QA (automated; no human) | M2 implemented | All green | A `flags = 0` assignment instead of a mask passes every class member and silently destroys unrelated flag bits on every mode switch — for every user, not just affected ones | qa | **EXECUTED, PASS — Phase 2, `17cada0`**: the partition spec's M2-e block green **and** the real extracted function proven — `012-message-mode.test.ts`'s five departing states + masking control green, with the `flags = 0` mutant (L5-B) and the dropped-disjunct mutant (MS-2) both observed killed. Residue: the `handleModeSwitch`→`applyModeSwitch` wiring is unexecutable here — carried by R5/R6/R15, per the Phase 2 Assumption Not Checked |
 | R15 | post-deploy-observable | **M2-f**: stored record 5712 brought to a Send-enabled state through supported composer controls alone, no JSON modal, **and the persisted record then carries no `IS_COMPONENTS_V2_FLAG`** (plan Validation 4(e); critique F6/F11) — **run LAST of the 5712 rows; see the ordering note below** | Composer UI, then the persisted record | Owner (only he can load that guild's message) | After website deploy, and **after R2, R4 and M6-c have been read** | Reachable, and flag-free afterwards — via the round trip in F-QA8 | If unreachable, D11's one line did not deliver what the owner chose it for, and the fix bought the affected guild owner nothing. **Without the flag-free clause this row does not discriminate at all** — a user reaches Send-enabled on *pre-D11* code by rebuilding the record as a genuine V2 message (delete the content, add a Text Display), flag still set. As I first wrote it, this row would have confirmed a fix that was not there. Corrected 2026-08-23 against plan rev 7's M2-f | uat (owner observes) | Open |
 | R16 | pre-release | **F-QA8**: the owner has ruled on whether M2-f's content-destroying recovery is accepted as-is, or M2-f gains a preservation clause | Owner's ruling, recorded | Owner | Now — decidable before M2 is written | A stated disposition either way | If accepted silently, guild owners are sent to a repair that retypes their message, and nobody tells them to copy the text first. M2-f passes cleanly either way, so nothing downstream will catch it | owner (put by steering) | **CLOSED 2026-08-23** — *"Stands, but point the guidance at the JSON editor"*. D11 stands; preservation build declined a second time, on the rev-3 corrected facts. **Succeeded by R19** |
 | R18 | pre-release | **F-QA9**: the whitespace-content class is decided — either statbot's corpus/the owner's live POST settles whether Discord accepts flag-set-plus-whitespace content, or M6-b carries the class as its own category so the population is measured before it gates | Owner's live POST, or statbot's corpus, or the M6-b count | Owner (live POST is his instrument, as for both existing sentinels) | Now for the ruling; the count at backfill | Either a Discord verdict, or a category count — plausibly zero, which closes it | If undecided and Discord in fact rejects the shape, hooks.gg marks **sendable** a message that is not, and Statbot attempts a send that fails on a record hooks.gg vouched for — the exact failure the chain exists to prevent | owner (put by steering) | **CLOSED 2026-08-23** — *"Measure the population first"*. M6-b category taken; owner's live POST **withdrawn, not deferred**. **Succeeded by R20** |
@@ -941,6 +1143,11 @@ that class, so nothing I have written would have caught it.
 not a count alone, because only the ids let a non-empty class be examined rather than merely noted.
 The **owner's** M6-b review (R9) is where its falsity becomes a decision. Both are named again in the
 handoff below, so this is routed rather than shelved.
+
+> **Phase 2 state (2026-08-23)**: the mechanism half is built and now guarded — detection was
+> tested by the implementer; the category *population* was unguarded (mutation survivor MS-8) and
+> is closed by QA's own spec, red-under-mutant observed (see Phase 2, F-QA14). The measurement
+> half remains the owner's at M6-b, unchanged.
 
 ---
 
