@@ -5,7 +5,7 @@ UUID: 12a4fe3c
 Parent: message-valid-field-for-statbot-2026-08-23.md
 Status: Active
 Status-Detail: >-
-  Rev 7. Three inputs folded at steering's direction: D13 (D11 stands; recovery guidance
+  Rev 8 (registration pass over rev 7). Three inputs folded at steering's direction: D13 (D11 stands; recovery guidance
   redirected at the JSON editor, shape-dependent — Validation item 7), D14 (whitespace population
   measured first via an M6-b category — Validation item 8, risk R5), and critique cycle 2 F5–F9
   (M2-e bounded to the mode-switch control, M2-f pinned to a flag-free end state so its pass
