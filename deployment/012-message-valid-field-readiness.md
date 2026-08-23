@@ -3,12 +3,16 @@ ID: 012
 Origin: 012
 UUID: 12a4fe3c
 Parent: message-valid-field-for-statbot-2026-08-23.md
-Status: Awaiting Release Approval
+Status: HELD — awaiting owner's DDL confirmation, then a separate release decision
 Status-Detail: >-
   Release assembled and verified. **Nothing has been pushed.** All artifact-side gates pass at the
-  assembled tip `c85945f`. Two decisions are the owner's before any ref moves: (1) whether the
-  production DDL has been executed, and (2) whether pushing `website` `master` is itself the
-  production deploy. Both are recorded as OPEN, and the release act is held on them.
+  assembled tip `c85945f`. Both open questions were answered by the owner on 2026-08-23: the
+  production **DDL has NOT been executed**, and pushing `website` `master` **does auto-deploy
+  production**. That combination is the plan's named failure (i) — there is no window between merge
+  and deploy — so the release act is **HELD** and the plan's own ordering (DDL first) governs. The
+  push remains **unapproved**; answering two factual questions was not approval of the release act.
+  When the DDL is done, **his confirmation is required** — it may not be inferred from any database
+  observation — and the release decision then returns to him as its own decision.
 ---
 
 # Deployment Readiness — Plan 012: `valid` field on stored messages
@@ -150,9 +154,38 @@ For QA-R17 the record will state that the ordering instruction was **relayed** t
 workspace via that workspace's own thread, and will **not** claim statbot's compliance — which this
 workspace cannot observe and must not assert.
 
-## 5. Two open questions that gate the release act — the owner's, not mine
+## 5. Two questions that gate the release act — the owner's, not mine
 
-### OPEN-1 — Has the production DDL been executed?
+> **Reconcile note — 2026-08-23, after the owner answered.** Both questions below were put to the
+> owner and **both are now ANSWERED**. The question text is preserved as written, and the answers
+> are recorded beneath each — nothing here is overwritten. When written, both were correctly
+> recorded as OPEN: no register row carried the DDL's state and the repo's own configuration could
+> not settle the deploy trigger. **Outcome: the release act is HELD.**
+>
+> | Q | Owner's answer (2026-08-23, verbatim) | Consequence |
+> |---|---|---|
+> | Q1 — DDL executed? | **"No, not yet."** | The release order's first component is outstanding |
+> | Q2 — Does the push deploy? | **"Yes, push auto-deploys."** | Merge and deploy are the **same instant** |
+>
+> **This is the combination §5 flagged as the failure mode**: the DDL is outstanding *and* merge
+> equals deploy, so there is no window between the two instants in which the DDL could land.
+> Pushing now would realise the plan's named failure (i) — the upsert names a column the production
+> table lacks and **every message save fails** from deploy until the DDL lands. The plan's own
+> ordering (**DDL → `project-utils` push → `website` deploy**) governs, and the `website` half of it
+> is not yet due.
+>
+> **The push remains UNAPPROVED.** The owner answered two factual questions; he did **not** approve
+> the release act, and today's answers must not be read as approving it. **"DDL first, then
+> release" is not a standing authorisation whose condition I may judge satisfied myself** — the
+> confirmation that the DDL landed is **his to give**, and I may not infer it from any observation
+> of the database. When he confirms, the release decision returns to him as **its own decision**.
+>
+> Independently corroborated by steering before the questions were put: `website` has no
+> `.github/workflows` directory and `vercel.json` carries only a cron entry. The repo genuinely
+> cannot settle Q2 — the answer lives in the Vercel dashboard, which no agent here can see — so
+> refusing to treat a relayed remark as establishing the mechanism was correct.
+
+### OPEN-1 — Has the production DDL been executed? → **ANSWERED: NO** (owner, 2026-08-23)
 
 The release order's **first** component is the owner-executed DDL. **No register row records it as
 executed**, and I have no evidence either way; I will not infer it.
@@ -161,7 +194,7 @@ The misordering this guards against is named in the plan as failure (i): *websit
 DDL* → the upsert names a column the production table lacks, and **every message save fails**, from
 deploy until the DDL lands. This is the single highest-consequence ordering fact in the release.
 
-### OPEN-2 — Does pushing `website` `master` itself deploy production?
+### OPEN-2 — Does pushing `website` `master` itself deploy production? → **ANSWERED: YES** (owner, 2026-08-23)
 
 Established from the repo's own configuration: `website` carries `vercel.json` (crons only) and
 `.vercel/project.json` (project + org id). **That establishes Vercel as the platform. It does not
@@ -173,7 +206,8 @@ instant**, and OPEN-1's DDL must be complete *before* the push — there is no w
 which to check.
 
 **Conservative posture pending his answer:** treat the push as deploying, and therefore require the
-DDL first.
+DDL first. — **Confirmed correct by his answer**: the push does auto-deploy, so the posture the
+record took while the question was open turned out to match the fact, and the DDL is required first.
 
 ## 6. Serving refs — one line of history
 
@@ -227,9 +261,28 @@ deploy) are **owner-executed** and outside this agent's reach.
 references, pinned-build proof, packaging, workspace cleanliness, serving-ref ordering.
 
 **Release act: HELD.** Not on any artifact defect, but on:
-1. The owner's approval **of the release** (he approved waking this session; that is not approval
-   to push), and
-2. OPEN-1 (DDL executed?) and OPEN-2 (does the push deploy?).
+1. The owner's approval **of the release** (he approved waking this session, and later answered two
+   factual questions; **neither is approval to push**), and
+2. OPEN-1 and OPEN-2 — now **answered**, and the answers **confirm the hold** rather than lift it.
+
+**Resolved position, 2026-08-23.** DDL **not executed**; push **does auto-deploy**. The release act
+is held on the plan's own ordering. **Nothing in this repository moves until the owner confirms the
+DDL has landed and then, separately, approves the release.**
+
+**The precise sequence from here** — none of it startable by me:
+
+1. **Owner** executes the production DDL.
+2. **Owner confirms** it landed. *This confirmation is his to give. I may not infer it from any
+   observation of the database, and no observation substitutes for it.*
+3. **Owner approves the release** as its own decision — distinct from step 2, and not implied by it.
+4. Only then: `website` `master` `72dc7de` → `c85945f` (fast-forward), which deploys on push.
+5. Then the owner-executed remainder: backfill → M6-b distribution review (QA-R9, QA-R20) → live
+   declaration → statbot's gate deploy (D12, relayed only).
+
+Everything verified in this document — the release-tip verdict at `c85945f`, QA-R10, the cross-repo
+references, the serving-ref ordering — **remains valid while the hold stands**, because the tree is
+unchanged. It expires the moment any production code changes, per the QA, code-review and UAT
+verdicts' own terms.
 
 ## 12. Post-release status (to be completed after execution)
 
