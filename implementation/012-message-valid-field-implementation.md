@@ -22,6 +22,7 @@ Status: Active
 | 2026-08-23 | steering-hooks-012 | Code review verdict REJECTED (`agent-output/code-review/012-message-valid-field-code-review.md`, `24b8af1`); fix round for H1, H2, and (strongly recommended) M1 | Fix round committed (`681c353`). H1 closed — a second, independent blocker (ts-node's vendored CJS loader rejecting `require()` of `~/env.mjs`) was found while driving the fix past the reviewer's own stopping point, and closed by extracting the env-independent constants `~/utils/limits.tsx` needs into `src/constants/messageLimits.ts`. H2 closed — report persisted to disk, `process.exit()` removed, partial-run reporting on interruption, coverage-labelled fields. M1 closed structurally — every M6-b category is now `{ count, rowIds }`. M2 (recommended) partially closed: `applyModeSwitch` extracted and tested; the `upsertMessage` seam kept at the reviewer's Minimum disposition. L1 (recommended) closed: stale comments deleted. L2, L3 recorded, not actioned this round (see Outstanding Items). Full record: `agent-output/verification/012/probe-fix-round-h1-h2/README.md`. |
 | 2026-08-23 | steering-hooks-012 | Code review round 2 verdict REJECTED, narrowly, on H3 (`agent-output/code-review/012-message-valid-field-code-review.md`, `66ddcf6`); H1/M1/`applyModeSwitch` all CONFIRMED closed. Fix round for H3 (blocking), M2's record correction (blocking), and (strongly recommended) M1-r2, L4, L6 | H3 closed structurally: `main()`'s two success-path loss members (unguarded `tableWideRowCount`, persist-before-print) collapsed into a single `emit()` function used on both the success and interrupted paths, so the asymmetry the reviewer named is unrepresentable rather than patched — stdout now precedes disk, `persistReport` failures are caught inside `emit` and logged rather than propagated, `void main()` now carries `.catch()`. Verified live against a dead `DATABASE_URL`, both legs the reviewer named for return (persisted+printed; persist-failure does not swallow the connection error) — `agent-output/verification/012/probe-fixround2-h3/README.md`. M2 (blocking) — implementation doc corrected: the `handleModeSwitch` seam is accepted at Minimum, not closed; `applyModeSwitch`'s test describe block retitled to stop claiming wiring coverage. M1-r2 (recommended) addressed: `persistReport` refuses to overwrite (`wx` flag), and a new `reportPath(runId)` gives every run its own filename so refusal protects prior evidence rather than blocking the next run; report now carries `runId`/`startedAt`/`endedAt` provenance. L4 (recommended) addressed: the two review-thread comment fragments deleted from `012-backfill-report.test.ts`. L6 (recommended) addressed: the fix-round transcript's residual wording corrected — 26 env-independent exports remain trapped behind `~/env.mjs`, not the narrower "env-dependent" framing originally stated. |
 | 2026-08-23 | steering-hooks-012 | Code review round 3 verdict APPROVED_WITH_COMMENTS (`agent-output/code-review/012-message-valid-field-code-review.md`, `8e87ddf`) — H3 fully closed, no HIGH/CRITICAL survives. M4 (MEDIUM), owner-directed via steering ("Guard it before the pin refresh"): the shipped `backfill-valid` script defaults to the live production `DATABASE_URL` with no guard, inert today only because the held stale pin makes it die before executing — a hazard that arms the moment the pin refresh (queued next) lands. M5 (record correction, not blocking); L7 (LOW, mine to judge for proportionality) | M4 closed at the Preferred/structural action, which also closes L8 in the same change: `main()` now calls `assertConfirmedTarget(resolveTargetHost(DATABASE_URL), BACKFILL_CONFIRM)` before `getPostgres()` is even called, so no bare invocation — against any host, production included — makes a connection attempt; `BACKFILL_REPORT_DIR` gives the report destination an env override, so a verification drive no longer has to write into and clean up after itself in the owner's gate directory. Verified live against the reviewer's exact measured hazard (the real `.env.local` production host) — refuses identically to the dead-host case. M5 closed: the Files Created table's stale `applyModeSwitch`/`backfillValid.ts` rows corrected to match Outstanding Item 9's disposition and the current export list. L7 judged proportional to address given the file was already open this round: `formatReport`'s meta type widened to declare the provenance fields (`interface ReportMeta`, shared with `emit` via `Omit<>`), plus a regression-guard test. 399/399 tests passing (was 390), eslint clean, typecheck unchanged (8 pin-gated errors, same class). Full record: `agent-output/verification/012/probe-fixround3-m4-and-m5/README.md`. |
+| 2026-08-23 | steering-hooks-012 | Code review round 4 verdict APPROVED_WITH_COMMENTS (`agent-output/code-review/012-message-valid-field-code-review.md`, `02125eb`) — D17 satisfied, guard adversarially attacked (11 inputs, oracle fixed in advance) and held. New M6 (MEDIUM, latent): the guard's WHATWG `new URL()` and `pg`'s own connection-string parser disagree on a `host=`/`port=` query override — demonstrated end-to-end, a decoy authority host satisfied `BACKFILL_CONFIRM` while the process connected elsewhere. Owner ruling relayed by steering, verbatim: "Close the hole first" — implement the reviewer's Minimum only, explicitly not the Preferred (declined by the owner: it changes `project-utils` itself and tangles with the pin refresh). L10 (LOW, mine to judge) | M6 closed at the ruled Minimum: `assertNoHostOverride(databaseUrl)` runs as `main`'s first statement, ahead of the M4 guard, and throws unconditionally when `DATABASE_URL` carries a `host` or `port` search parameter — no confirmation value, correct or not, can get past a URL the guard cannot trust its own parse of. Verified live by reproducing the reviewer's exact decoy-host attack (now refused, zero connection attempts) and confirming a plain `DATABASE_URL` still proceeds (no over-block). L10 closed at its own Minimum, judged proportional: `assertConfirmedTarget` now rejects any confirmation value starting with `"("` before comparing it to the resolved host, so the guard's own `(unset)`/`(unparseable)` sentinels can no longer be confirmed as if they were real targets. 408/408 tests passing (was 399), eslint clean, typecheck unchanged (8 pin-gated errors, same class). Not done, by explicit ruling not oversight: deriving the guarded host from `pg`'s own parser (the Preferred action) — routed to the post-refresh review pass, as steering specified; `pg`'s `PGHOST`-family env fallbacks and `service=` file lookups remain untested (the reviewer's own disclosed residual, not closed by this Minimum). Full record: `agent-output/verification/012/probe-fixround4-m6-l10/README.md`. |
 
 ## Value Statement
 
@@ -121,6 +122,10 @@ Delivered: the composer's send gate now agrees with Discord's own rejection of f
 | `resolveTargetHost` | `012-backfill-report.test.ts` | Yes | Yes | `TypeError: resolveTargetHost is not a function` (4 cases) | Yes |
 | `assertConfirmedTarget` | `012-backfill-report.test.ts` | Yes | Yes | `TypeError: assertConfirmedTarget is not a function` (3 cases) | Yes |
 | `formatReport` (provenance fields — regression guard, not red/green) | `012-backfill-report.test.ts` | N/A | N/A | Not a new function or behaviour change — the fields already reached the body through the untyped spread at HEAD, so this case passed immediately; added to catch a *future* regression, per L7's own framing (widening the type does not by itself force the field's presence, since the fields stay optional) | Yes |
+| **Fix round 4 (code-review-M6/L10, disambiguated from plan milestone M6), code review `02125eb`:** |
+| `hasConnectionOverrideParams` | `012-backfill-report.test.ts` | Yes | Yes | `TypeError: hasConnectionOverrideParams is not a function` (4 cases) | Yes |
+| `assertNoHostOverride` | `012-backfill-report.test.ts` | Yes | Yes | `TypeError: assertNoHostOverride is not a function` (4 cases) | Yes |
+| `assertConfirmedTarget` (sentinel-rejection — new behaviour) | `012-backfill-report.test.ts` | Yes | Yes | Sentinel confirmation did not throw (no `sentinel` message) | Yes |
 
 No row shows "No" for any column that applies. `runBackfill`/`main` are the DB-execution shell around the tested pure functions; QA's own Testing Strategy states M6's DB-touching half is verified by the backfill's own instruments at execution time and the owner's review, not by this suite — all three fix rounds additionally demonstrated that shell live against a deliberately dead database, and round 3 additionally against the real (but unreachable in this environment except via the guard's own refusal) production host (Code Quality Validation, H1/H2/H3/M4 rows).
 
@@ -209,6 +214,40 @@ $ node -r ts-node/register/transpile-only -r tsconfig-paths/register -r dotenv/c
  Error: Refusing to run: DATABASE_URL resolves to "viaduct.proxy.rlwy.net:12394", but
  BACKFILL_CONFIRM was not set.   — the reviewer's exact measured production hazard, refused
  identically. Full transcript: agent-output/verification/012/probe-fixround3-m4-and-m5/README.md.
+
+--- Fix round 4 (code-review-M6/L10), against website 02125eb's review, owner-directed: Minimum only ---
+
+$ npx vitest run   (website, working tree at fix round 4)
+ Test Files  21 passed (21)
+      Tests  408 passed (408)   (+9 over ff753a6: hasConnectionOverrideParams x4,
+                                  assertNoHostOverride x4, assertConfirmedTarget sentinel-rejection)
+
+$ npx eslint src/scripts/backfillValid.ts
+ No issues found.
+
+$ npx tsc --noEmit -p tsconfig.json
+ 8 errors — same 8 sites, same class, unchanged by this round's edits. RED, pin-gated, as before.
+
+$ DATABASE_URL="postgresql://postgres:pw@decoy.invalid:1/db?host=127.0.0.1" \
+    BACKFILL_CONFIRM="decoy.invalid:1" \
+    node -r ts-node/register/transpile-only -r tsconfig-paths/register -r dotenv/config \
+    src/scripts/backfillValid.ts dotenv_config_path=.env.local
+ Error: Refusing to run: DATABASE_URL carries a "host" or "port" query parameter. [...]
+ Exit 1. Zero connection attempt — the reviewer's exact sweep-case-11 attack, refused before the
+ M4 guard even runs, regardless of the (matching) BACKFILL_CONFIRM.
+
+$ BACKFILL_CONFIRM="(unset)" \
+    node -r ts-node/register/transpile-only -r tsconfig-paths/register -r dotenv/config \
+    src/scripts/backfillValid.ts dotenv_config_path=/dev/null
+ Error: Refusing to run: BACKFILL_CONFIRM="(unset)" looks like a guard sentinel [...]
+ Exit 1 — L10's attack, refused.
+
+$ DATABASE_URL="postgresql://postgres:pw@127.0.0.1:1/db" BACKFILL_CONFIRM="127.0.0.1:1" \
+    BACKFILL_REPORT_DIR="/tmp/012-m6-report" \
+    node -r ts-node/register/transpile-only -r tsconfig-paths/register -r dotenv/config \
+    src/scripts/backfillValid.ts dotenv_config_path=.env.local
+ Reaches ECONNREFUSED as before — a plain URL with no override is not over-blocked. Full
+ transcript: agent-output/verification/012/probe-fixround4-m6-l10/README.md.
 ```
 
 ## Class Sweep Table
@@ -294,6 +333,18 @@ regression guard, explicitly labelled in the TDD table as not a red/green case s
 already existed. On-next-touch note: promoting `emit`'s `extra` fields to required, the moment a
 second call site with materially different provenance needs is introduced, would close the
 enforcement gap fully.
+
+### Round 4 (code-review-M6, L10), against code review `02125eb` — owner-directed: Minimum only
+
+The reviewer's own M6 enumeration (`agent-output/verification/012/probe-cr4-guard-attack/`) put five
+connection-string forms to both the guard's `URL` parser and the connecting `pg` `Client`: **2 of 5
+diverge**, both via a `host=`/`port=` query override, demonstrated end-to-end (sweep case 11) with a
+decoy authority host satisfying `BACKFILL_CONFIRM` while the process connected to `127.0.0.1:1`.
+
+| Finding | Enumeration | Full output | Disposition |
+|---|---|---|---|
+| **code-review-M6** — guard/connector parser disagreement via a `host`/`port` query override | Manual re-derivation of the reviewer's own 5-form differential (loopback target, no production credentials touched); live reproduction of sweep case 11 | Pre-fix: the decoy-host attack (`DATABASE_URL` authority = `decoy.invalid:1`, `?host=127.0.0.1`, `BACKFILL_CONFIRM="decoy.invalid:1"`) proceeded past the guard. Post-fix: **refused**, before the guard's own `resolveTargetHost`/`assertConfirmedTarget` even run — `assertNoHostOverride` is `main`'s first statement now. | Minimum, as explicitly ruled by the owner (verbatim: "Close the hole first"; the Preferred — deriving the guarded host from `pg`'s own parser via `project-utils` — was on the ballot and declined, since it changes the pinned package and tangles with the refresh). Verified live against the reviewer's exact attack shape; re-verified a plain URL with no query string is not over-blocked. **Not closed by this fix, stated not hidden**: `pg`'s `PGHOST`-family environment fallbacks and `service=` file lookups, which the reviewer's own enumeration disclosed as untested and this Minimum (a query-parameter check) does not reach — routed with the Preferred action to the post-refresh review pass, as steering specified. |
+| **L10** — guard sentinels (`(unset)`/`(unparseable)`) themselves confirmable | `grep -n "startsWith\|(unset)\|(unparseable)"` re-derivation of the reviewer's own 2-member sentinel enumeration; live reproduction of sweep cases 9/10's shape | Pre-fix: `BACKFILL_CONFIRM='(unset)'` satisfied `assertConfirmedTarget` when the host also resolved to `(unset)` (protected only incidentally by `project-utils`' downstream zod validation). Post-fix: **refused** — any confirmation value starting with `"("` is rejected before the host comparison runs. | Minimum, judged proportional (file already open, reviewer left the judgement to this stage). Not done: the reviewer's Preferred (a distinct, unconfirmable type for "undetermined" rather than a string comparison) — a larger refactor of `resolveTargetHost`'s return type for a LOW, non-blocking finding; left as on-next-touch if the sentinel set ever grows past its current two members, at which point a string-prefix check stops being self-evidently exhaustive. |
 
 ## Assumption Not Checked — closure (QA's handoff to the implementer)
 
