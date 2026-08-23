@@ -7,18 +7,19 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-78 documents · 12 numbered chains · 8 unnumbered.
+79 documents · 12 numbered chains · 8 unnumbered.
 
 ---
 
 ## By chain
 
-### 012 — 1 open, 1 closed
+### 012 — 2 open, 1 closed
 
 | Stage | Location | Status |
 |---|---|---|
 | critique | `critiques/closed/012-message-valid-field-critique.md` | Resolved — Pass 2 (rev 4, commit 13b4d4c): all four pass-1 findings verified RESOLVED against the diff. Both steering-flagged items judged sound (NULL-only backfill = valid narrowing; F3's false disposition = contract derivation, not amendment). Verdict: APPROVED for implementation. |
 | plan | `planning/012-message-valid-field.md` | Active — Rev 4. Critique pass 1 findings addressed (F1 release total-order, F2 backfill placement subordinated to reuse, F3 evaluation-failure residue named, F4 register rephrase); M1–M5 text unchanged per the critique's re-review expectation. Awaiting critique re-verification. |
+| QA | `qa/012-message-valid-field-qa.md` | Awaiting Implementation — Phase 1 test strategy complete, written before any implementation exists. Blocks on two owner dispositions (register rows R12, R13) before the implementer starts. |
 
 ### 1 — 0 open, 8 closed
 
@@ -230,6 +231,7 @@ they are the ID-less artifacts that root new efforts.
 | `010-infopanel-overlap-on-initial-load-analysis.md` | `analysis/closed/010-infopanel-overlap-on-initial-load-analysis.md` |
 | `011-transition-height-react-style-conflict-analysis.md` | `analysis/closed/011-transition-height-react-style-conflict-analysis.md` |
 | `012-message-valid-field-critique.md` | `critiques/closed/012-message-valid-field-critique.md` |
+| `012-message-valid-field-qa.md` | `qa/012-message-valid-field-qa.md` |
 | `012-message-valid-field.md` | `planning/012-message-valid-field.md` |
 | `2026-04-07-plan-005.md` | `deployment/2026-04-07-plan-005.md` |
 | `2026-04-07-plan-006.md` | `deployment/2026-04-07-plan-006.md` |
