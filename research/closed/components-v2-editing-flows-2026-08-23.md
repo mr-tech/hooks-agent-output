@@ -18,6 +18,7 @@ Status-Detail: >-
 |---|---|---|
 | 2026-08-23 | researcher | Created from handoff `components-v2-editing-support-2026-08-23.md` (UUID `8f3fa8c3`). Source reading of every flow that reads, writes or re-types message data; 15-assertion execution probe against `website` at `c85945f` (all pass); architect consulted on system fit. Status Answered. |
 | 2026-08-23 | researcher | Added "Branch base for the successor effort" at the owner's request: deployed tip `c85945f` vs pre-012 `72dc7de`, both sides argued, determination recorded. Status unchanged. |
+| 2026-08-23 | researcher | Context: cross-reference to `json-editor-flag-mint-2026-08-23.md`, the sibling handoff's research, assessed as a rider sub-case. Status unchanged. |
 
 ## Question
 
@@ -52,6 +53,9 @@ established a fact by execution it is cited, and it was re-derived here rather t
 - **Tree**: `website` at `c85945f` (master, clean working tree at the time of reading). The owner's
   note that deprecated repos live in `/usr/local/bin/hooks-deprecated/` is acknowledged; none is on
   any code path examined here.
+- **Sibling handoff** `json-editor-bad-configurations-2026-08-23.md` is researched separately in
+  `json-editor-flag-mint-2026-08-23.md` (UUID `5c1e9d27`), which assesses it as a sub-case of this
+  document's invariant and suitable as a rider on the successor effort.
 - **Owner's observations** (handoff §"What was observed", numbered 1–7) are treated as reliable
   symptoms and unreliable causes, as the handoff instructs. Each is mapped to a mechanism below.
 
