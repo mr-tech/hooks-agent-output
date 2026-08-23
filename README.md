@@ -26,7 +26,7 @@ sibling repos, and `git` commands run at the root fail rather than spanning them
 | `website` | **active** | The product. Next.js hybrid — App Router UI (`src/app`) plus Pages Router API (tRPC, NextAuth, Discord interaction endpoints, cron). The bot lives in `bot/`: edge commands are answered at the signature-verified edge endpoint, server commands are forwarded on. |
 | `project-utils` | **active** | The shared data layer, and the **source of truth for the database schema** (`prisma/schema.prisma`). Owns the generated Kysely types and the Postgres client singleton. |
 | `preview-image-generator` | **dormant but deployed** | A bare Node HTTP server on branch `prod`. Renders the website's own `/preview` page with pooled puppeteer and uploads a JPEG to the CDN bucket. The code has not changed since 2023; the role is current. |
-| `cdn` | **legacy** | A Next 13 app with a single API route serving preview blobs out of Postgres — a storage path the preview generator's bucket upload supersedes. |
+| `cdn` | **legacy, still deployed** | A Next 13 app with a single API route serving preview blobs out of Postgres. The preview generator's bucket upload supersedes that storage path, but `cdn.hooks.gg` is still serving (owner, 2026-08-23) — legacy by code age, not retired. |
 | `agent-output` | — | This repository. |
 
 **Membership is defined by `hooks.code-workspace`, and the folder list is not self-describing.**
@@ -37,9 +37,18 @@ Two members of that workspace are **not in this tree and not owned code**: `../d
 `../embed-generator` are clones of upstream repositories, kept for reference. Do not treat a change
 there as workspace work.
 
-**Two things this repository deliberately does not assert.** Whether `cdn` is still deployed, and
-whether the website serves from Vercel or PM2 — the tree carries configuration for both and states
-neither as the answer. See `OPEN_QUESTIONS.md`.
+**The website serves from Vercel** (owner, 2026-08-23). The `website` repo also carries a PM2
+ecosystem config; it is not the live path, and the tree does not distinguish them on its own.
+`preview-image-generator` and `cdn` are PM2.
+
+**`project-utils` is consumed as a git dependency with its build output committed** —
+`github:hooks-gg/project-utils#master`, with `main` and `types` pointing into a tracked `dist/`.
+This is deliberate and is the same arrangement `statbot-utils` uses in the statbot workspace (owner,
+2026-08-23): the two repos carry an identical `build:types` script — `tsc … --declaration true
+--outDir build/types && api-extractor run` — and both commit `dist/`. A git dependency has no
+publish step, so npm installs the repository as it stands; the committed build output and the
+API Extractor rollup at `dist/index.d.ts` are what make it resolvable at all. **Do not "clean up" a
+tracked `dist/` here** — a pre-commit hook rebuilds it, and removing it breaks both consumers.
 
 ## How work moves through here
 
