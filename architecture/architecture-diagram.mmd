@@ -1,0 +1,36 @@
+%% Hooks.gg workspace architecture — companion to system-architecture.md (2026-08-23)
+graph TB
+    subgraph workspace["/usr/local/bin/hooks (plain directory, five sibling repos)"]
+        subgraph website["website (hooks-gg/website, master) — Next.js 16 / React 19"]
+            appui["App Router UI\nsrc/app: message, preview, legal"]
+            api["Pages Router API\ntRPC v11 · NextAuth · cron · v1"]
+            botmod["bot/\nedgeCommands · serverCommands"]
+            edge["/api/interactions-edge\n(signature verify)"]
+            srv["/api/interactions-server\n(HOOKS_API_TOKEN)"]
+        end
+        pu["project-utils (master)\nschema.prisma → Kysely types\ngetPostgres() singleton\ncommitted dist, git dep #master"]
+        pig["preview-image-generator (prod)\nNode http + puppeteer pool\nPOST /generate (API key)"]
+        cdnapp["cdn (master, LEGACY — not in workspace file)\n/api/previews/[id]/[file]\nserves blobs from Postgres"]
+        ao["agent-output (mr-tech/hooks-agent-output)\nprocess record"]
+    end
+
+    discord["Discord"]
+    pg[("PostgreSQL")]
+    redis[("Redis")]
+    s3[("S3-compatible CDN\npreviews/{id}/{nonce}.jpeg")]
+    refs["Reference clones (out of tree)\n../discord-api-types (upstream)\n../embed-generator (upstream)"]
+
+    appui --> api
+    api -->|Kysely| pu
+    pu --> pg
+    api --> redis
+    api -->|"POST /generate"| pig
+    pig -->|"renders /preview"| appui
+    pig -->|JPEG public-read| s3
+    discord -->|interactions| edge
+    edge --> botmod
+    edge -->|server commands| srv
+    api -->|sendWebhook + V2 flag| discord
+    cdnapp -.->|git dep| pu
+    cdnapp -.->|reads blobs| pg
+    website -.consults.-> refs
