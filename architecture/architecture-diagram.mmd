@@ -1,6 +1,6 @@
 %% Hooks.gg workspace architecture — companion to system-architecture.md (2026-08-23)
 graph TB
-    subgraph workspace["/usr/local/bin/hooks (plain directory, five sibling repos)"]
+    subgraph workspace["/usr/local/bin/hooks (plain directory, four sibling repos)"]
         subgraph website["website (hooks-gg/website, master) — Next.js 16 / React 19 — deploys on Vercel"]
             appui["App Router UI\nsrc/app: message, preview, legal"]
             api["Pages Router API\ntRPC v11 · NextAuth · cron · v1"]
@@ -10,7 +10,6 @@ graph TB
         end
         pu["project-utils (master)\nschema.prisma → Kysely types\ngetPostgres() singleton\ncommitted dist, git dep #master"]
         pig["preview-image-generator (prod)\nNode http + puppeteer pool\nPOST /generate (API key)"]
-        cdnapp["cdn (master — deployed, function unknown;\nbypassed for previews; legacy toolchain,\nnot in workspace file)\nvestigial route: /previews → Postgres blobs"]
         ao["agent-output (mr-tech/hooks-agent-output)\nprocess record"]
     end
 
@@ -33,6 +32,4 @@ graph TB
     edge --> botmod
     edge -->|server commands| srv
     api -->|sendWebhook + V2 flag| discord
-    cdnapp -.->|git dep| pu
-    cdnapp -.->|reads blobs| pg
     website -.consults.-> refs
