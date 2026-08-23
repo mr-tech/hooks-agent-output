@@ -24,7 +24,9 @@ Status-Detail: >-
 
 # UAT Report: Plan 012 — `valid` field on stored messages
 
-**Plan Reference**: `agent-output/planning/012-message-valid-field.md` (rev 29, `272fbb7`)
+**Plan Reference**: `agent-output/planning/012-message-valid-field.md` — **rev 29 (`272fbb7`) is
+the revision this pass reviewed**. Rev 30 is this stage's own registration write recording the
+verdict below (see the changelog), so the rev-29 citation is the reviewed revision, not staleness.
 **Code Review Reference**: `agent-output/code-review/012-message-valid-field-code-review.md` (round 7, `06b204d`)
 **QA Reference**: `agent-output/qa/012-message-valid-field-qa.md` (rev 7, `cc3763a`)
 **Implementation Reference**: `agent-output/implementation/012-message-valid-field-implementation.md` (`35cd23b`)
@@ -37,6 +39,7 @@ Status-Detail: >-
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-08-23 | steering-hooks-012 (carrying QA PASS at `c85945f` and code review round 7) | Validate value delivery against the plan's Value Statement; consume the chain's blocking-condition register; issue a release decision | **UAT Complete. APPROVED FOR RELEASE, CONDITIONAL.** Value Statement delivered in mechanism at `c85945f`; delivery *in effect* depends on owner-executed DDL/backfill/declaration. Register consumed: 6 rows terminal, 14 outstanding with owners and terminal states named. Three findings recorded (U-1 R7's silent class has no instrument; U-2 `49f2bf1`'s commit message carries a superseded claim devops must not inherit; U-3 two devops obligations found outside the register, folded in). |
+| 2026-08-23 | uat (self-recorded) | Registration write into the plan, per this stage's Status-tracking remit | Plan `Status` → **UAT Approved**, Revision → 30, one registration changelog row, and the stale Status-Detail clause `Next gate: UAT (clear to start)` replaced (a declarative surface, corrected by replacement). **A registration write only** — no body text, criterion, milestone, register row or Risks row touched, and no prediction record written (those are the planner's). **Not committed by this stage**: CLAUDE.md's commit exception covers only the document a stage itself produced, and the plan is the planner's. Routed as a blocking question; **owner ruled 2026-08-23, verbatim: "The planner commits it."** — relayed by steering-hooks-012. The ruling settles *who* commits, not whether the content is sound; that judgement remains the planner's. |
 
 ---
 
