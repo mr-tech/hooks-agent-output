@@ -20,6 +20,7 @@ Status: Active
 | 2026-08-23 | steering-hooks-012 | Chain 012 approved for implementation; execute the plan per rev 8, QA Phase 1 rev 4, critique `a4bec32` | M1–M6 implemented on the chain branch in both repos. M7 (handoff closure) left to the closing stage per the plan's own text. Reached the owner-gated push boundary at release condition 3/5 — reported back to steering rather than proceeding past it. |
 | 2026-08-23 | steering-hooks-012 | Owner approved the push ("Approve the push"); push `project-utils`' M1 commit, then hold — no pin refresh | `749606d` pushed to `origin/chain/012-message-valid-field` on `project-utils`. Held as instructed: no pin refresh, no reinstall, no rebuild. |
 | 2026-08-23 | steering-hooks-012 | Code review verdict REJECTED (`agent-output/code-review/012-message-valid-field-code-review.md`, `24b8af1`); fix round for H1, H2, and (strongly recommended) M1 | Fix round committed (`681c353`). H1 closed — a second, independent blocker (ts-node's vendored CJS loader rejecting `require()` of `~/env.mjs`) was found while driving the fix past the reviewer's own stopping point, and closed by extracting the env-independent constants `~/utils/limits.tsx` needs into `src/constants/messageLimits.ts`. H2 closed — report persisted to disk, `process.exit()` removed, partial-run reporting on interruption, coverage-labelled fields. M1 closed structurally — every M6-b category is now `{ count, rowIds }`. M2 (recommended) partially closed: `applyModeSwitch` extracted and tested; the `upsertMessage` seam kept at the reviewer's Minimum disposition. L1 (recommended) closed: stale comments deleted. L2, L3 recorded, not actioned this round (see Outstanding Items). Full record: `agent-output/verification/012/probe-fix-round-h1-h2/README.md`. |
+| 2026-08-23 | steering-hooks-012 | Code review round 2 verdict REJECTED, narrowly, on H3 (`agent-output/code-review/012-message-valid-field-code-review.md`, `66ddcf6`); H1/M1/`applyModeSwitch` all CONFIRMED closed. Fix round for H3 (blocking), M2's record correction (blocking), and (strongly recommended) M1-r2, L4, L6 | H3 closed structurally: `main()`'s two success-path loss members (unguarded `tableWideRowCount`, persist-before-print) collapsed into a single `emit()` function used on both the success and interrupted paths, so the asymmetry the reviewer named is unrepresentable rather than patched — stdout now precedes disk, `persistReport` failures are caught inside `emit` and logged rather than propagated, `void main()` now carries `.catch()`. Verified live against a dead `DATABASE_URL`, both legs the reviewer named for return (persisted+printed; persist-failure does not swallow the connection error) — `agent-output/verification/012/probe-fixround2-h3/README.md`. M2 (blocking) — implementation doc corrected: the `handleModeSwitch` seam is accepted at Minimum, not closed; `applyModeSwitch`'s test describe block retitled to stop claiming wiring coverage. M1-r2 (recommended) addressed: `persistReport` refuses to overwrite (`wx` flag), and a new `reportPath(runId)` gives every run its own filename so refusal protects prior evidence rather than blocking the next run; report now carries `runId`/`startedAt`/`endedAt` provenance. L4 (recommended) addressed: the two review-thread comment fragments deleted from `012-backfill-report.test.ts`. L6 (recommended) addressed: the fix-round transcript's residual wording corrected — 26 env-independent exports remain trapped behind `~/env.mjs`, not the narrower "env-dependent" framing originally stated. |
 
 ## Value Statement
 
@@ -110,8 +111,12 @@ Delivered: the composer's send gate now agrees with Discord's own rejection of f
 | `emptyReport`/`accumulate` (new shape: `rowsClassifiedThisRun`, `flagStructureDisagreementValidTrue`) | `012-backfill-report.test.ts` | Yes | Yes | `report.rowsClassifiedThisRun` `undefined`; `flagStructureDisagreement.rowIds` `undefined`; `flagStructureDisagreementValidTrue` `undefined` | Yes |
 | `formatReport` | `012-backfill-report.test.ts` | Yes | Yes | `formatReport is not a function` | Yes |
 | `persistReport` | `012-backfill-report.test.ts` | Yes | Yes | `persistReport is not a function` | Yes |
+| **Fix round 2 (H3/M1-r2), code review `66ddcf6`:** |
+| `emit` | `012-backfill-report.test.ts` | Yes | Yes | `TypeError: emit is not a function` (2 cases: symmetric-guard, stdout-before-persist) | Yes |
+| `persistReport` (overwrite-refusal, new behaviour) | `012-backfill-report.test.ts` | Yes | Yes | `AssertionError: expected [Function] to throw an error` — second `persistReport` call to the same path did not throw | Yes |
+| `reportPath` | `012-backfill-report.test.ts` | Yes | Yes | `TypeError: reportPath is not a function` (2 cases) | Yes |
 
-No row shows "No" for any column. `runBackfill`/`main` are the DB-execution shell around the tested pure functions; QA's own Testing Strategy states M6's DB-touching half is verified by the backfill's own instruments at execution time and the owner's review, not by this suite — the fix round additionally demonstrated that shell live against a deliberately dead database (Code Quality Validation, H1/H2 rows).
+No row shows "No" for any column. `runBackfill`/`main` are the DB-execution shell around the tested pure functions; QA's own Testing Strategy states M6's DB-touching half is verified by the backfill's own instruments at execution time and the owner's review, not by this suite — both fix rounds additionally demonstrated that shell live against a deliberately dead database (Code Quality Validation, H1/H2/H3 rows).
 
 ## Test Coverage
 
@@ -141,6 +146,31 @@ $ git push origin chain/012-message-valid-field   (project-utils)
 $ DATABASE_URL=<dead> npx ts-node --transpile-only -r tsconfig-paths/register \
     -r dotenv/config src/scripts/backfillValid.ts dotenv_config_path=.env.local
  Error: connect ECONNREFUSED 127.0.0.1:1   (exit 1 — H1's required verification, met)
+
+--- Fix round 2 (H3/M1-r2), against website 66ddcf6's review ---
+
+$ npx vitest run   (website, working tree at fix round 2, pre-push)
+ Test Files  21 passed (21)
+      Tests  390 passed (390)   (+5 over 681c353: 2 `emit` cases, 1 overwrite-refusal case,
+                                  2 `reportPath` cases)
+
+$ npx eslint src/scripts/backfillValid.ts
+ No issues found.
+
+$ npx tsc --noEmit -p tsconfig.json
+ 8 errors — same 8 sites (2 route selects, 3 backfillValid.ts, 3 shared.ts), same class, unchanged
+ by this round's edits. RED, pin-gated, as before.
+
+$ DATABASE_URL="postgresql://postgres:pw@127.0.0.1:1/db" \
+    node -r ts-node/register/transpile-only -r tsconfig-paths/register -r dotenv/config \
+    src/scripts/backfillValid.ts dotenv_config_path=.env.local
+ report printed to stdout (tableWideRowCount: -1, interrupted: true, runId/startedAt/endedAt
+ stamped) followed by the named `ECONNREFUSED 127.0.0.1:1`; report also persisted to
+ agent-output/verification/012/backfill-report-<runId>.md (captured, then deleted — H3's required
+ verification, met). Separately: emit() called directly against an unwritable target (ENOTDIR)
+ resolved without throwing, stdout already written, ENOTDIR logged via console.error — the persist
+ failure does not swallow the connection-error evidence. Full transcript:
+ agent-output/verification/012/probe-fixround2-h3/README.md.
 ```
 
 ## Class Sweep Table
@@ -169,6 +199,28 @@ report persisted and printed) and demonstrated live on the dead-DB drive (`inter
 report present on disk before being deleted as test residue). See
 `agent-output/verification/012/probe-fix-round-h1-h2/README.md` for the full transcript.
 
+### Round 2 (H3, M1-r2), against code review `66ddcf6`
+
+The reviewer's own H3 enumeration (`agent-output/verification/012/probe-cr2-h3-persist-ordering/README.md`)
+is a manual control-flow walk of `main`'s 25-line body: **7 throw sites, 5 safe, 2 lossy** — both
+lossy sites on the success path (`tableWideRowCount` unguarded; `persistReport` before
+`process.stdout.write`). Re-run of the same walk against this round's `main`/`emit`:
+
+| Finding | Enumeration | Full output | Disposition |
+|---|---|---|---|
+| **H3** — throw sites in `main` between the completion of `runBackfill` and the persistence of its evidence | Manual control-flow walk of `main`'s body (same method the reviewer used; `main` is now 12 lines after the extraction, fully visible) | Pre-fix: 2 lossy sites, both on the success path (as the reviewer found). Post-fix: **0** — both call sites (success and interrupted) now go through the single `emit()` function, which (a) guards `tableWideRowCount` with `.catch(() => -1)` unconditionally, (b) writes stdout before attempting `persistReport`, and (c) catches `persistReport`'s own throw internally so it cannot propagate past `emit`. `void main()` now carries `.catch()`, so no residual throw in `main` itself can surface as an unhandled rejection. | Structural (Preferred): the two-path asymmetry the reviewer named is unrepresentable now that there is only one path. Verified live twice — dead-DB drive (persisted+printed, `agent-output/verification/012/probe-fixround2-h3/README.md` Run 1) and a direct `emit()` call against an unwritable target (Run 2) — both matching the reviewer's own required verification shape. |
+| **M1-r2** — gate evidence written to a constant filename, no provenance, no overwrite protection | `grep -c "REPORT_PATH" src/scripts/backfillValid.ts` (reviewer's own predicate; the constant no longer exists post-fix) | Pre-fix: 3 hits (1 definition, 2 call sites). Post-fix: **0** — `REPORT_PATH` removed; `reportPath(runId)` derives a per-run filename, and `persistReport` writes with `wx` (create-exclusive). | Minimum action taken: `persistReport` throws `EEXIST` on an existing target (TDD'd); every run gets its own filename via `runId`, so refusal protects a prior run's evidence rather than blocking the next legitimate run; the report body now carries `runId`/`startedAt`/`endedAt`. **Not done** (stated, not hidden): taking the destination out of source via argv/env override, and stamping database host identity — left as an on-next-touch note (`probe-fixround2-h3/README.md`), since the Preferred structural fix here is a larger, unscoped change for a strongly-recommended (non-blocking) item. |
+
+**M2** (record-correction only, no enumeration — a claim in this document was wrong, not a code
+defect) is closed by editing Outstanding Item 9 (below) to state the `handleModeSwitch` seam is
+accepted at Minimum, matching its `upsertMessage` sibling, and by retitling
+`012-message-mode.test.ts`'s `applyModeSwitch` describe block so it no longer claims wiring
+coverage. **L4** (2 review-thread comment fragments in `012-backfill-report.test.ts`) — enumeration
+`grep -rn "code-review\|reviewer\|M1's finding" src --include=*.test.ts` → pre-fix 2, post-fix
+**0**; both deleted. **L6** (residual wording) — corrected in Outstanding Item 10 (below) and in
+`probe-fix-round-h1-h2/README.md`'s appended correction note; the historical probe text above it is
+left unedited as the record of what that drive actually said at the time.
+
 ## Assumption Not Checked — closure (QA's handoff to the implementer)
 
 QA's document names this session as the closure owner: the M6-b evaluation-failure category "must carry a count and the row ids, not a count alone." `src/scripts/backfillValid.ts`'s `accumulate` function implements this: `report.evaluationFailures` is `{ count: number; rowIds: string[] }`, populated whenever `classifyRow` catches a throw from `validateMessage` (tested: `012-backfill-classify.test.ts`, describe `classifyRow — evaluation failures`). **The category itself has not been measured against production** — no database was reachable in this environment, so the falsity signature QA named (a non-empty evaluation-failure category) remains unmeasured. The mechanism is built and tested; the measurement is the owner's, at backfill execution.
@@ -183,8 +235,8 @@ QA's document names this session as the closure owner: the M6-b evaluation-failu
 6. **M4-e (S4/S5 unchanged)** was verified by reading the diff, not by an executed test — no existing infrastructure in this repo drives `upsertMessage`'s Pusher/preview-image side effects without a live process, and adding one was judged out of proportion to a two-call-site, unchanged-payload property. Recorded as a self-diagnosed gap: the property is asserted by argument, not by an instrument that would fail if the argument were wrong.
 7. **Foreign, shared-tree file observed, not touched**: `src/utils/__tests__/012-json-editor-repair-path.test.ts` appeared in the working tree during this session, untracked, authored by a concurrent session (not this one — never created or edited by this session). It failed briefly during this session's work (4/4 tests in that file), then passed on a later run — resolved by its own author, not by this session. Never committed by this session, never investigated beyond confirming it wasn't mine.
 8. **A pre-existing foreign hunk was seen and excluded, not committed**: `src/providers/MessageProvider/useApiMethods.ts` showed as modified in the working tree at one point during this session (`git status`, before the M2–M6 commit). It was never part of this plan's Serialised Shared Files and was excluded from the commit's pathspec; by the time of the commit it no longer showed as modified (resolved by its own author).
-9. **Method-level self-diagnosis, updated by the fix round.** M4's original gap stands as recorded: `012-upsert-valid.test.ts` proves the compiled SQL shape and the computed `valid` value in isolation, but does not exercise `upsertMessage` end-to-end — the property is verified by construction (the extracted functions are the ones `upsertMessage` calls), not by an end-to-end instrument. The code review named this as its own finding (Medium: "two extraction seams... their wiring is asserted by reading") and split it in two: the `handleModeSwitch` half is now closed (`applyModeSwitch` extracted and tested, `012-message-mode.test.ts`); the `upsertMessage` half is accepted at the reviewer's own Minimum disposition — "accept as-is for this release on the strength of the registered post-deploy observables" (Validation 4(c)) — rather than built out this round. If a future edit stops `upsertMessage` from calling `buildMessageValues`, or calls it with different arguments, this suite would not catch it; only a database-backed integration test would.
-10. **ESM-interop residual, named in the fix round's class sweep, not closed.** `src/constants/index.ts` (the barrel) still imports `~/env.mjs` and `~/utils/getBaseUrl` for `INVITE_URL`/`LOGO_IMAGE_URL`. Any *future* `ts-node` script needing one of those specific exports would hit the same `ERR_REQUIRE_ESM` this round found and closed for `backfillValid.ts`'s own reachable graph. Closing it generally (making `env.mjs` requireable under `ts-node`'s vendored CJS loader, or moving those two exports to lazy/dynamic access) is a larger, unscoped change this milestone does not own — on-next-touch note for whichever chain next adds a `ts-node` script that needs an env-derived constant.
+9. **Method-level self-diagnosis, updated by the fix round, then corrected by code review round 2 (M2).** M4's original gap stands as recorded: `012-upsert-valid.test.ts` proves the compiled SQL shape and the computed `valid` value in isolation, but does not exercise `upsertMessage` end-to-end — the property is verified by construction (the extracted functions are the ones `upsertMessage` calls), not by an end-to-end instrument. The code review named this as its own finding (round 1 Medium: "two extraction seams... their wiring is asserted by reading") and the fix round split it in two, but overstated the `handleModeSwitch` half's disposition: round 2's M2 correctly found the new `applyModeSwitch` cases test the extracted function in isolation, not the wiring from `handleModeSwitch` to it — no test in this repo can, because `vitest.config.ts` is `environment: 'node'` with no component-testing-library dependency (M2's harness question is routed to the planner). **Corrected disposition**: both the `handleModeSwitch` half and the `upsertMessage` half are accepted at the reviewer's own Minimum — "accept as-is for this release on the strength of the registered post-deploy observables" (Validation 4(c)) — not closed. What round 2 *did* independently verify by execution is a narrower, honest claim: the `applyModeSwitch` extraction is behaviour-preserving relative to the pre-extraction inline dispatch (5,000-case differential with a live positive control, `agent-output/verification/012/probe-cr2-modeswitch-differential/`). That is a correctness claim about the extracted function, not a wiring-seam closure. If a future edit stops `handleModeSwitch` or `upsertMessage` from calling their extracted functions, or calls them with the wrong arguments, no suite in this repo would catch it; only a database-backed integration test (`upsertMessage`) or a component-rendering test (`handleModeSwitch`) would.
+10. **ESM-interop residual, named in the fix round's class sweep, not closed — wording corrected by code review round 2 (L6).** `src/constants/index.ts` (the barrel) still imports `~/env.mjs` and `~/utils/getBaseUrl`. The residual was originally stated as scoped to *env-dependent* exports (`INVITE_URL`, `LOGO_IMAGE_URL`); round 2 correctly found that framing too narrow. The class is **any env-independent constant reachable only through the env-importing barrel**, not only the two genuinely env-coupled ones. Enumeration: `grep -c '^export' src/constants/index.ts` → 30 export lines (1 is `export * from './messageLimits'`); of the remaining 29, 2 are genuinely env/URL-coupled (`INVITE_URL`, `LOGO_IMAGE_URL`) and 1 is browser-coupled but node-safe (`IS_MOBILE`, guarded by `typeof window`) — **26 env-independent exports remain trapped** behind `~/env.mjs`, including `MAX_EMBED_AUTHOR_NAME_LENGTH` and `MAX_EMBED_FOOTER_TEXT_LENGTH`, whose 256-character-limit siblings did move to `messageLimits.ts`. The split line was drawn at "what `limits.tsx`/`messageMode.ts`/`backfillValid.ts` import today", not at "what is env-independent" — so any *future* `ts-node` script needing one of those 26 would hit the same `ERR_REQUIRE_ESM` this round found and closed for the 11 constants it did move. Closing the class generally (inverting the barrel so only `INVITE_URL`/`LOGO_IMAGE_URL` remain env-coupled, moving the other 26 beside `messageLimits.ts`) is a larger, unscoped change this milestone does not own — on-next-touch note for whichever chain next adds a `ts-node` script that needs one of the 26.
 
 ## Next Steps
 

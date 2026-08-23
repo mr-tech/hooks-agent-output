@@ -122,3 +122,14 @@ Every breakout category (`flagStructureDisagreement`, `flagStructureDisagreement
 itself makes an id-less category unrepresentable (the reviewer's Preferred fix, not the Minimum).
 The previously-invisible sub-class (`flagStructureDisagreement && valid === true`) is now its own
 named category with ids, tested in `012-backfill-report.test.ts`.
+
+## Correction (code review round 2, L6): this transcript's residual wording was mis-scoped
+
+Line 62 above frames the H1-b residual as scoped to a "hypothetical future `ts-node` script needing
+an env-*dependent* export of `~/constants`". Round 2 correctly found that framing too narrow: the
+class is any **env-independent** constant reachable only through the env-importing barrel, not only
+the genuinely env-coupled ones. 26 of `~/constants/index.ts`'s 29 non-`export *` exports are
+env-independent and remain trapped behind `~/env.mjs`. This transcript is left unedited above as
+the historical record of the drive that produced it; the corrected scope and full enumeration are
+recorded in `agent-output/implementation/012-message-valid-field-implementation.md`, Outstanding
+Item 10.
