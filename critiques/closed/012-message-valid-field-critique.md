@@ -2,25 +2,25 @@
 ID: 012
 Origin: 012
 UUID: 12a4fe3c
-Status: OPEN
+Status: Resolved
 Status-Detail: >-
-  Cycle 2, pass 2 (rev 7, commit 23e6b58): F5–F9 all verified RESOLVED against the diff and at
-  source; D13/D14/R19/R20/R5 reviewed sound (D13's cost table re-derived at source, including
-  updateMessage's wholesale data replacement); the F6×D13 no-conflict claim tested and holds.
-  Verdict: APPROVED FOR IMPLEMENTATION. Two new LOW residuals (F10 sentinel-observation
-  ordering; F11 Validation 4(e) lags rev-7 M2-f) stay OPEN with a named landing trigger —
-  fold at the next plan touch, before the uat stage executes the 5712-keyed observables; no
-  implementation dependency.
+  Cycle 2 closed at rev 9 (commit b5d8a6e): F10/F11 verified landed in Validation item 4 —
+  the ordering constraint with the flip's meaning stated, and 4(e) carrying M2-f's
+  discriminating flag-free clause with its reason inline. All findings across both cycles
+  RESOLVED. Closure does not extend to QA rows R15/R19, which remain QA's to bring current at
+  Phase 2 (named, not closed around). Three routed assumption closures survive the critique
+  with named owners: code-reviewer (atomic backfill write; mode-writer enumeration), qa Phase 2
+  (JSON-modal round-trip execution). APPROVED FOR IMPLEMENTATION stands; implementer running.
 ---
 
 # Critique — Plan 012: `valid` field on stored messages
 
 | Field | Value |
 |---|---|
-| Artifact | `agent-output/planning/012-message-valid-field.md`, revision 7, commit `23e6b58` (rev 5 `5831de0`, rev 6 `7af8936`) |
+| Artifact | `agent-output/planning/012-message-valid-field.md`, revision 9, commit `b5d8a6e` (rev 5 `5831de0`, rev 6 `7af8936`, rev 7 `23e6b58`, rev 8 `2589ee8`) |
 | Analysis | None commissioned (per plan D3). QA Phase 1 (`agent-output/qa/012-message-valid-field-qa.md`, rev 4 at `c1aee80`) read as the source of the traces the deltas enact — citations verified, test design not reviewed (qa's domain) |
 | Date | 2026-08-23 |
-| Status | Cycle 2, pass 2 (ladder rung: passes 1–5, normal; cycle-1 count reset on that cycle's resolution) |
+| Status | Cycle 2 closed (verdict at pass 2, rung 1–5 normal; closure verification at rev 9) |
 
 ## Changelog
 
@@ -30,6 +30,7 @@ Status-Detail: >-
 | 2026-08-23 | steering-hooks-012 | Re-verify rev 4 (`13b4d4c`) | Cycle 1, pass 2: all four findings verified RESOLVED against the diff. Verdict APPROVED. Critique closed, moved to `closed/`. |
 | 2026-08-23 | steering-hooks-012 | Delta-scoped re-review of rev 5/6 (D11, D12, F-QA2 enactment): M2 + M2-e/M2-f, release condition 5, M6-b, R2, register D11/D12 | Cycle 2, pass 1. Critique re-opened from `closed/` (same document, new cycle — new scope on the same artifact). Code-level verification of the M2-e whole-class claim and M2-f's failure semantics. F5–F6 (MEDIUM), F7–F9 (LOW). REQUEST REVISION, scoped to criterion wording. |
 | 2026-08-23 | steering-hooks-012 | Re-verify rev 7 (`23e6b58`); test the F6×D13 no-conflict claim rather than accept it; R19/R20 in scope at my judgement | Cycle 2, pass 2. F5–F9 verified RESOLVED against the diff and at source. D13's shape-dependent cost table re-derived at source (standardizeMessage whitelist; updateMessage wholesale `data` replacement); F6×D13 no-conflict claim tested — holds. D14/Validation 8/R5 sound. Two new LOW residuals (F10, F11) with a pre-UAT landing trigger. **APPROVED FOR IMPLEMENTATION.** |
+| 2026-08-23 | steering-hooks-012 | Verify F10/F11's landing at rev 9 (`b5d8a6e`); judge the planner's Reading Order non-change; close or hold | Closure verification. F10/F11 verified landed in the diff `a4bec32..b5d8a6e` (write confined to header, changelog, D15, Validation 4). Rev-8 registration boundary checked at the diff: D15's write set matches Registration Passes and changes no criterion — within steering's grant; planner concurrence recorded in rev 9's changelog. Reading Order judgement made (see Closure Record). F10/F11 → RESOLVED. All findings resolved; Status → Resolved; moved to `closed/`. |
 
 ## Assumption Not Checked
 
@@ -200,49 +201,39 @@ Findings F5–F9 resolved at rev 7 (`23e6b58`); full arguments in the pass-1 tex
 - **F9 (LOW) RESOLVED** — detection-completeness dependency recorded in R1's row with falsifier
   and QA's EXT-2 as tripwire. Verified.
 
-### F10 (LOW, OPEN) — the 5712-keyed observables interfere, and no order is stated
+## Closure Record — cycle 2 (rev 9, `b5d8a6e`)
 
-**Description.** Four observables key on the same singleton production record: M6-c (5712
-carries `false` in the backfilled table), Validation 4(a)/QA R2 (GET shows `valid: false`),
-4(d)/R4 (composer shows the notification, Send disabled), and 4(e)/R15 (the repair
-observation). Rev-7's M2-f makes 4(e) a *persisting* act — the flag-free end state must be
-saved to be observed — and any save recomputes `valid` (M4), so executing 4(e) flips 5712 to
-`valid: true` and destroys the precondition of the other three. Executed before the backfill,
-it also fails M6-c's sentinel expectation — a false red on a release gate. D13's guidance
-(Validation 7) reaching the affected guild owner creates the same race from outside: his repair
-is the intended outcome, and it has the same effect on the sentinels. No ordering among these
-observations is stated anywhere in the plan.
-
-**Impact.** A naive execution order produces either a false release-gate red (M6-c) or a
-meaningless/ambiguous pass on 4(a)/4(d) — after a legitimate repair, `valid: true` is correct,
-not a failure, and the rows' stated failure modes ("if it shows `true`…") misread it.
-
-**Recommendation.** One sentence in Validation item 4: the 5712-keyed observables are read in
-order — M6-c and 4(a)/4(d) before 4(e), and 4(e) last; after 4(e) (or the guild owner's
-D13-guided repair), 4(a)'s expected value legitimately becomes `true` via M4. Guidance send
-(item 7) follows the sentinel reads or the flip is noted. Sequencing *within* a stage's
-execution remains qa/uat's; the plan owes only the constraint and the flip's meaning.
-
-### F11 (LOW, OPEN) — Validation item 4(e) still states the pre-F6 criterion, and the uat Reading Order routes there
-
-**Description.** M2-f gained the flag-free persisted end-state clause at rev 7, but Validation
-item 4(e) still reads "brought to a Send-enabled state through supported composer controls
-alone, no JSON modal (M2-f, D11…)" — the pre-F6, non-discriminating form. The uat Reading
-Order row routes to "Validation and Release Conditions", not to M2, so the text the executing
-stage reads omits exactly the clause that makes the observation discriminate D11 (QA's R15 row
-has the same lag; that document's update is qa's, noted in the handoff). Per the plan's own
-Reading Order discipline, rows route to current text.
-
-**Impact.** The F6 fix's value evaporates at execution: an observer following 4(e) as written
-can pass it via the rebuild-as-V2 path on a build where D11 failed.
-
-**Recommendation.** Add the clause to 4(e): "…and the persisted record carries no
-`IS_COMPONENTS_V2_FLAG` (M2-f's discriminating end state)". One clause.
-
-**Disposition for F10/F11 (landing trigger, not "whenever convenient")**: fold at the next plan
-touch, and in any case before the uat stage executes the 5712-keyed observables. Neither
-touches M1–M5 build work — no implementation dependency, so they do not gate the implementer's
-start.
+- **F10 (LOW) RESOLVED** — the ordering constraint sits in Validation item 4 where the
+  observables live: M6-c and (a)/(d) read first, (e) last as the persisting act; the
+  post-repair flip's meaning stated (a legitimate `true` via M4, never a false red if the
+  order held); the item-7 guidance send sequenced after the sentinel reads or the flip noted;
+  within-stage sequencing correctly left to qa/uat. Verified in the diff.
+- **F11 (LOW) RESOLVED** — Validation 4(e) carries M2-f's flag-free persisted-end-state clause
+  with the discrimination reason inline. Verified in the diff.
+- **Reading Order judgement** (steering-flagged, this stage's call): the planner deliberately
+  left the uat Reading Order row untouched, arguing the routing was never the defect — the
+  stale copy was. **Accepted for this chain.** The row routes to "Validation and Release
+  Conditions", which is now current, and routing uat to Validation is the design, not a
+  divergence. The mechanism that produced F11 — one criterion stated in two places, revisable
+  independently — does survive, and is recorded here as a **stated limit** rather than a new
+  finding: rev 9's 4(e) now cites F6/F11 inline with its reason, which marks the clause as
+  load-bearing to any future editor, and the chain is one stage from UAT with the plan under
+  no further criterion revision. A longer-lived plan would owe a standing constraint (a
+  criterion revision updates its Validation summary in the same pass); this one is priced out
+  by the chain's remaining life. Detection cost, per the closure-transfer rule, falls to this
+  stage at any future pass over a revised M2-f, and the action on finding a member is a
+  same-shape F11 filed against the revising pass.
+- **Rev-8 registration (D15) boundary** — verified at the diff: write set is the row, one
+  changelog line, and the Status-Detail clause; no criterion, milestone or release condition
+  changed requirement. Within steering's grant under planner.md Registration Passes; the
+  planner's diff-level concurrence is in rev 9's changelog, in the chain's record where it
+  belongs.
+- **Explicitly not closed by this closure** (steering asked this be stated rather than closed
+  around): QA rows R15 (lags M2-f's flag-free clause) and R19 (class description names "V2
+  components" where the class is B3's legacy-components shape) are QA's document and QA's to
+  bring current at Phase 2 — relayed by steering, tracked there, and no part of F10/F11's
+  resolution depends on them: the clause's authoritative homes (M2-f; Validation 4(e)) are
+  current in the plan.
 
 
 ## Questions
@@ -298,8 +289,9 @@ correctly states. QA's document is qa's to fix.
 
 **Verdict: APPROVED FOR IMPLEMENTATION** — cycle 2, pass 2, rung 1–5 (normal; no ladder
 requirement binds; stop authority not fired — F10 and F11 are first instances of their shapes
-this cycle). The critique stays OPEN solely for F10/F11's landing; their trigger is pre-UAT,
-not pre-implementation.
+this cycle). The critique stayed OPEN solely for F10/F11's landing; verified landed at rev 9
+(`b5d8a6e`, Closure Record above) and the critique is closed — all findings across both cycles
+RESOLVED, Status Resolved, moved to `closed/`.
 
 **Pass-1 verdict (superseded)**: REQUEST REVISION on F5/F6 (MEDIUM) + F7–F9 (LOW), all now
 resolved above.
@@ -348,3 +340,4 @@ statbot-side gap routed by steering to that domain — not a 012 finding.
 | 2026-08-23 | rev 4 (`13b4d4c`) | F1, F2, F3, F4 → RESOLVED (verified against diff) | None | Critique Status → Resolved; moved to `closed/` |
 | 2026-08-23 | rev 6 (`7af8936`, delta from `5831de0`) | — (new cycle) | F5 (MEDIUM), F6 (MEDIUM), F7 (LOW), F8 (LOW), F9 (LOW) | Critique re-opened from `closed/`, Status → OPEN; cycle 2 pass 1; REQUEST REVISION |
 | 2026-08-23 | rev 7 (`23e6b58`) | F5–F9 → RESOLVED (verified against diff and at source) | F10 (LOW), F11 (LOW) — OPEN, landing trigger: next plan touch, pre-UAT | Verdict APPROVED FOR IMPLEMENTATION; critique stays OPEN for F10/F11 only |
+| 2026-08-23 | rev 9 (`b5d8a6e`; rev 8 registration `2589ee8`) | F10, F11 → RESOLVED (verified against diff; Reading Order judgement recorded as a stated limit) | None | Critique Status → Resolved; moved to `closed/` |
