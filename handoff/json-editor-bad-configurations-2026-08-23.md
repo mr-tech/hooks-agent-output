@@ -95,3 +95,32 @@ them from this document:
   Proposed Re-Scope section; the 5712 mechanism is established there and is not restated here.
 - `handoff/message-valid-field-for-statbot-2026-08-23.md` — the contract chain 012 implements, and
   the origin of the 5712 case.
+
+## Two findings established by execution, 2026-08-23
+
+Added by `steering-hooks-012`. These arrived by a route other than the normal handoff: a read-only
+determination this thread commissioned to answer a question raised by statbot's code reviewer during
+chain 012, briefed with the question and not with where to look. It worked by loading the modules
+into Node and running payloads through them, so these are execution results rather than readings.
+They are recorded here **because this document is the only durable place they fit** — no research or
+analysis document established them, and a fact that lives only in a session's context is invisible by
+construction. Whoever picks this up should re-derive both before acting on either.
+
+- **The JSON modal's Load destroys `components` and `flags`.** `JsonModalBody` seeds its editor from
+  `standardizeMessage(stripKeys(message).data)`, and `standardizeMessage` (`website`
+  `src/utils/index.ts`) rebuilds the object from scratch copying only `username`, `avatar_url`,
+  `content`, `allowed_mentions` and `embeds`. Opening the modal and pressing Load on an unchanged
+  payload therefore silently drops the record's components and clears its V2 flag. Chain 012's QA
+  identified this same path as the accidental, undiscoverable *escape* from a stranded flag
+  (its finding F-QA1); the determination shows it is also an active data-loss path. Both readings are
+  true of the same mechanism, and the second is the one that matters to this effort.
+- **`SUPPORTED_TOP_LEVEL_TYPES` and `topLevelComponentShape` disagree about Thumbnail (11).** The
+  supported-types set includes it; the shape union has no thumbnail member. So a top-level thumbnail
+  survives the lenient import filter and then hard-rejects the whole import, instead of being
+  filtered out as the lenient path intends. The lenient shape is not lenient for that one type.
+
+One determination that **narrows** this effort rather than widening it: a payload whose only
+Components V2 elements sit nested beneath a top-level Action Row is not representable by any route,
+including this one — an Action Row's children are typed as link buttons only, and every other
+top-level member is itself a V2 type. So the JSON path cannot mint a nested-only record, and this
+research need not look for one.
