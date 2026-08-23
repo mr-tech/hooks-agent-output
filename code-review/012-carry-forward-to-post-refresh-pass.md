@@ -51,26 +51,37 @@ The error's shape: I never committed it myself (correctly — the plan is anothe
 so "it had landed" was an **inference from my own non-action**, not an observation. Steering's
 direct `git status` beat my inference, as it should.
 
-## 5. The SHA hazard: mechanism established, control replaced
+## 5. The SHA hazard: mechanism measured, and both prior models were wrong
 
-I had recorded this as a discipline failure I kept repeating ("a second Bash call inherits the
-previous call's working directory"). **That model was wrong**, in the direction that matters.
-Measured this session:
+Steering reframed this as a workspace hazard rather than a discipline failure, on the model that
+**the shell resets to `/usr/local/bin/hooks` between commands** and that path is not a git
+repository — so a bare `git` fails outright. I very nearly adopted that. **Measured, it is wrong**,
+and my own earlier model was closer but stated for the wrong reason. What actually happens:
 
-- `cd /tmp` in one call, then a bare `pwd` in the next, returns `/usr/local/bin/hooks`. The harness
-  announces `Shell cwd was reset`. Working directory does **not** persist across calls — it resets.
-- `/usr/local/bin/hooks` is **not a git repository** (`fatal: not a git repository (or any of the
-  parent directories)`).
+- `cd /usr/local/bin/hooks/website` in one call, then a **bare** `pwd` and `git rev-parse HEAD` in
+  the *next* call, returns `/usr/local/bin/hooks/website` and `f983508`. **Working directory
+  persists across calls**, exactly as the tool contract says.
+- The reset I saw — the harness printing `Shell cwd was reset to /usr/local/bin/hooks` — fired only
+  when I `cd`-ed to **`/tmp`**. That is a sandbox guard bouncing cwd back to the workspace root when
+  it lands **outside** the workspace, not a general per-command reset.
+- `/usr/local/bin/hooks` is genuinely not a git repository. That part of steering's report is right;
+  it is just not the state a command normally starts in.
 
-Consequence: a bare `git` in a fresh call **fails loudly** and is therefore safe. The real hazard is
-confined to **compound commands**, where a `cd <repo> &&` persists for the rest of that single
-command and a later segment reports the wrong repo's SHA under another repo's label — silently, with
-a plausible-looking value.
+**Why the wrong model is dangerous rather than merely inaccurate.** Under it, a bare `git` in a
+fresh call fails loudly and is therefore safe. Measured, it does not fail — it silently reports
+whichever repository the shell last landed in, which is precisely the wrong-SHA-under-the-wrong-label
+failure. The reassuring half of the model covers the actual hazard.
 
-**Control: `git -C <repo>` on every invocation**, not `cd <repo> && …`. This is strictly stronger
-than per-command `cd`: `-C` binds the repository to each *invocation*, so two invocations inside one
-compound command cannot contaminate each other, whereas `cd A && … ; git …` still can. "I caught it
-seven times" was never a control.
+So the hazard is **both** cross-call and intra-command, and is silent in both directions.
+
+**Control: `git -C <repo>` on every invocation**, never `cd <repo> && …` and never a bare `git`.
+`-C` binds the repository to each *invocation*, so it is immune to inherited cwd (cross-call) and to
+a `cd` earlier in the same compound command (intra-command); per-command `cd` fixes only the second.
+"I caught it seven times" was never a control.
+
+Note the shape of this correction: steering's remedy was right and its mechanism was wrong, and I
+was about to accept the mechanism because the remedy worked and the reframing was generous. A
+control adopted for a wrong reason survives only until someone reasons from it.
 
 Standing request to steering, reciprocated: **if a SHA looks wrong for its label, challenge it
 rather than assume it was checked.**
