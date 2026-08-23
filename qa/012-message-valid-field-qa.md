@@ -17,7 +17,10 @@ Status-Detail: >-
   rev 1's account of the JSON-modal path. Rev 4: R16 and R18 both **closed by owner ruling** —
   F-QA8 accepted with the guidance redirected to the JSON editor, F-QA9's live POST **withdrawn**
   in favour of measuring the population at M6-b. Successor rows R19 and R20 carry the executable
-  residue.
+  residue. Rev 5: R19 and R15 both corrected against the critic's cycle-2 pass-2 items (F-QA11); an
+  unrelayed ordering defect in the 5712-keyed rows found and fixed; the critic's static-reading
+  assumption on D13's cost table closed by execution (EXT-3) — conclusion intact, justification
+  replaced (F-QA12).
 ---
 
 # QA Report: Plan 012 — `valid` field on stored messages
@@ -34,6 +37,7 @@ Status-Detail: >-
 |------|---------------|---------|---------|
 | 2026-08-23 | steering-hooks-012 | QA Phase 1 — test strategy before implementation | Phase 1 written. Sources read in full: plan rev 4, critique (closed, APPROVED), both handoffs, workspace architecture record. Code read directly on both chain branches. Deliverables: executability determination, testing-infrastructure list, Irreversible Side-Effect Register, per-criterion property audit, pre-registered M2 partition spec (executed — Red confirmed), mutation sweep plan, seven findings, blocking-condition register. |
 | 2026-08-23 | steering-hooks-012 (correction) | Owner ruling *"change, qa-1 will handle both"* — this session carries Phase 2 as well | Remit widened from Phase 1 only to the whole QA remit. Independence measures added (see *Independence Under a Single-Session Remit*) because the session that writes the strategy will later judge against it. |
+| 2026-08-23 | steering-hooks-012 | Critic cycle-2 pass 2 APPROVED (`a4bec32`); two items against this register relayed for re-derivation, plus a closure the critic named QA for | **Phase 1 rev 5.** All re-derived. (a) **R19 was wrong twice** — it named "V2 components + stranded flag", a *consistent* record needing no repair, while citing cell B3, which is *type-1 legacy* components; and it collapsed three shapes into two. Corrected; **F-QA11** opened on it as my own defect. (b) **R15 lagged M2-f's rev-7 flag-free clause** and was therefore **non-discriminating** — it passes on pre-D11 code via rebuild-as-V2. Corrected. (c) **Found unrelayed while checking (b)**: the register carried **no execution order** for the 5712-keyed rows, though R15 is a persisting act that destroys R2/R4/M6-c's preconditions; plan rev 9 leaves that sequencing to this document. Ordering note added. (d) The critic's uncovered assumption — D13's cost table verified by static reading, Load path never executed — **closed by execution**: new spec block **EXT-3** runs the real Load→save chain. Conclusion holds; **justification did not** (F-QA12). |
 | 2026-08-23 | steering-hooks-012 | Owner rulings on R16 (F-QA8) and R18 (F-QA9), both taken back to him on the rev-3 correction | **Phase 1 rev 4.** Both rows **closed**. (a) **R16** — *"Stands, but point the guidance at the JSON editor"*: D11 stands, the preservation build is declined a second time on corrected facts, and the guidance becomes **shape-dependent** rather than one line. Steering records that the basis it first gave the owner was wrong in the direction that made accepting look cheaper, and that the rev-3 correction changed the outcome rather than decorating it. Successor row **R19** carries the shape-dependence, which is the part a one-line guidance would lose. (b) **R18** — *"Measure the population first"*: the M6-b category is taken and the owner's live POST is **withdrawn, not deferred**. Successor row **R20** carries the count. Recorded explicitly: a measured zero is **not** a tested-accepted — it closes the question *for this corpus, now*, and leaves Discord's general behaviour undetermined by anything in this chain. |
 | 2026-08-23 | steering-hooks-012 | Relay of a read-only determination (statbot code-review question): whitespace-content gap, JSON-modal cost, top-level-only fragility. Re-derive before acting | **Phase 1 rev 3.** All three re-derived **by execution**, not accepted on relay. (a) **F-QA9** opened — whitespace-only content is not content to the gate (`content.trim()`), a class the frozen partition did not distinguish; M2 moves no whitespace verdict, so it is a **D1 truth-condition** question, not an M2-b risk. Registered as R18 and proposed as an M6-b category. (b) **Rev 1's JSON-modal account corrected** — measured, it drops `components` and `flags` but **preserves `content`**, so for 5712 it is *lossless* while D11's sanctioned path is the lossy one. F-QA8 updated beside its original text, not over it. (c) **F-QA10** — top-level-only V2 detection is complete over the representable domain, not by checking; executable falsifier installed. Spec extended to 36 tests (EXT-1, EXT-2). |
 | 2026-08-23 | steering-hooks-012 | Relay: `check-repo` FAILing at 257; re-derive before acting. Plus owner rulings D11/D12 and plan rev 6 | **Phase 1 rev 2.** (a) Count re-derived independently: **257 confirmed**, exactly two from this document, both dangling repo-rooted citations to Phase-2 destinations. Fixed via the checker's own `check-repo:ignore` opt-out with stated reasons, plus a real `verification/012/README.md`; **re-run reconciles at 255**, zero from this document. (b) Plan rev 6 read: D11, D12 and F-QA2 all enacted. R12/R13 closed. (c) M2-e/M2-f traced and simulated — **new finding F-QA8**: M2-f's recovery is reachable but destroys the user's message content, and M2-f as worded measures reachability, not preservation. Spec extended to 30 tests. |
@@ -360,6 +364,8 @@ Numbers re-derived by this pass, not carried from any predecessor document.
 | Full existing suite, baseline | `npx vitest run` (website, `72dc7de`, after `pnpm install --frozen-lockfile`) | **14 files, 316 tests. 13 files / 312 tests pass.** The only 4 failures are the pre-registered Red cells below — the pre-existing suite is fully green |
 | Pre-registered M2 partition spec, rev 1 | `npx vitest run src/utils/__tests__/012-send-gate-partition.test.ts` | **16 passed, 4 failed.** Failing: **B3, B5, B7** and the 5712 sentinel (B5's shape). Exactly the set predicted before the run |
 | Same spec, rev 3 (EXT-1 whitespace, EXT-2 nesting falsifier) | same command | **31 passed, 5 failed (36).** The Red set is unchanged — all five are the same pre-M2 defect. Every EXT cell is characterisation or structural and passes today |
+| Same spec, rev 5 (EXT-3 added), 2026-08-23 | `npx vitest run src/utils/__tests__/012-send-gate-partition.test.ts` | **42 passed, 0 failed.** ⚠ **NOT a verdict, and not evidence about M2.** This run happened against a working tree in which the implementer's M2 edit to `limits.tsx` is **present and uncommitted** — `git status` shows ` M src/utils/limits.tsx`, another session's work in progress, which I did not touch. The previously-Red cells (B3/B5/B7 and the two 5712 rows) are green *because M2 is partly built*, not because anything of mine changed. Phase 2 will re-run this against a committed tree and record its own `Verified-At`. **What this run does establish** is EXT-3's cost table, which depends on `utils/index.ts`, `shapes.ts` and `useApiMethods.ts` — all unmodified in the tree — and not on `limits.tsx`; the single EXT-3 assertion that does touch the gate (`validateMessage` on the repaired 5712) is flagged here as provisional |
+| **Red-before-Green, measured rather than asserted** | `git show a7ebe4d:src/utils/limits.tsx \| grep -c flags` → **0**; working tree → **6** | The implementer committed the pre-registered spec at **`a7ebe4d`** against a `limits.tsx` containing **no `flags` handling at all**. The Red therefore preceded the Green **in the repository's own history**, not merely in a narrative. This is the check that TDD compliance actually turns on, and it is available to any later reader from the two commits alone |
 | Same spec, rev 2 (D11 round trip added) | same command | **25 passed, 5 failed (30).** The fifth Red is *"5712 is unsendable as stored"* — the same pre-M2 defect as the other four, and it goes green with them. **The D11 round-trip simulation passes today**, which is what makes F-QA8 a measured result rather than an argument |
 | `check-repo` before / after the citation fix | `node tools/check-repo.js` | **257 → 255.** Independently reproduces the planner's relayed count. Enumerated my document's own citation candidates under the checker's three predicates: **5 total — 3 resolve, 2 suppressed with reasons, 0 failing** |
 | Gate never reads `flags` | `grep -c "flags" src/utils/limits.tsx` | **0** — independently reproduces critique verification #1 |
@@ -669,6 +675,92 @@ Also recorded for the chain: statbot's reviewer had assumed nesting might be rea
 determined structurally here, and the field's history shows it never was.
 
 
+### F-QA11 (MEDIUM, opened at rev 5, **against my own register**) — R19 named a class that cannot have members, and R15 could not observe its own failure
+
+Relayed by steering as the critic's, with an instruction to re-derive. Both re-derived and both
+stand. Recording them as findings rather than as silent edits, because they are the same defect
+class this document exists to catch, committed by this document.
+
+**R19 named the wrong class.** I wrote *"records carrying **V2 components** and a stranded flag"*.
+A record carrying genuine V2 components **and** the V2 flag is **consistent** — `stripKeys` sets that
+flag precisely because those components are present. It is sendable, it is not in the affected
+population, and it needs no guidance at all. The class I meant, which plan Validation item 7 states
+and which my own cell **B3** enumerates, is flag-stranded records carrying **type-1 legacy**
+components. So the row pointed guidance at a class that **cannot have members**, while the class
+that does have members went unnamed.
+
+**And it collapsed three shapes into two.** Derived executably at EXT-3, the repair costs are:
+
+| Shape | Cell | JSON editor *Load* | Mode toggle | Lossless path |
+|---|---|---|---|---|
+| flag stranded, **no components** (5712) | B5 | content kept, nothing to lose | content **destroyed** | **editor** |
+| flag stranded, **type-1 components, no content** | B4 | components **destroyed** | components kept, no content to lose | **toggle** |
+| flag stranded, **content *and* type-1 components** | B3 | content kept, components **destroyed** | components kept, content **destroyed** | **none — each route destroys what the other preserves** |
+
+My two-way split had no room for the third row, so the shape with **no safe instruction** was the one
+the register did not mention. Guidance derived from my row would have sent B3-class owners down the
+toggle and told them nothing about the content loss.
+
+**R15 could not observe its own failure.** As written it asked only that 5712 reach a Send-enabled
+state through composer controls. That is satisfiable on **pre-D11 code**: delete the content, add a
+Text Display, and the record is a genuine V2 message — Send-enabled, flag still stranded. The row
+would have gone green against the unfixed build. Plan rev 7 added the discriminating clause (**the
+persisted record carries no `IS_COMPONENTS_V2_FLAG`**) after critique F6; my row had not followed it.
+
+I hold every other agent to *"a control counts as installed only once observed to fire"*. R15 was
+wired and not installed, and I did not catch it — the critic did. Both rows are corrected in place
+with the correction noted in the row, per *Restating and Correcting*.
+
+**A third defect, found here rather than relayed.** Checking R15 against plan rev 9 surfaced that the
+register carried **no execution order** at all for the 5712-keyed rows, although R15 is a *persisting*
+act whose execution destroys R2's, R4's and M6-c's preconditions. Plan rev 9 states the constraint
+and leaves the sequencing to qa/uat — that is this document, and it was absent. See the ordering note
+under the register. Out of order, R2 and R4 report *the fix never worked* over a fix that worked and
+was then overwritten by the very next row.
+
+### F-QA12 (LOW-severity finding, HIGH-value correction, opened at rev 5) — D13's cost table is true, and the reason given for it was not
+
+**This closes the critic's cycle-2 Assumption Not Checked**, which it named QA for: its verification
+of D13's cost table was **static source reading** and never executed the JSON-modal *Load* path. Its
+falsity signature — *a 5712-shaped record still carrying `flags: 32768` after Load and save* — is now
+asserted directly, as the first test in spec block **EXT-3**.
+
+**Verdict: the signature does not occur.** The table holds. 5712 comes back flag-free with its
+content intact, and after M2 the repaired record passes the gate. The owner's guidance ruling rests
+on a true premise.
+
+**But the justification was wrong, and it is worth more than the confirmation.** Both my rev-3
+measurement and the critic's static reading attributed the losslessness to `standardizeMessage`
+dropping `flags`. Executed, **`standardizeMessage` is not on the Load path at all.** It shapes only
+the textarea's initial value (`JsonModalBody`, the `usePassedProp` initialiser). *Load* runs a
+different chain entirely:
+
+`JSON.parse` → `enforceImportMutualExclusivity` → `discordMessageImportShape.parse` → `updateMessage`
+
+The flag actually clears for two independent reasons, **neither of them the one on record**:
+
+1. the flag never reaches the textarea, so an unedited *Load* has no flag to carry back; and
+2. `updateMessage` (`useApiMethods.ts`) **replaces `data` wholesale** — `{ ...oldMessage, ...newMessage }`
+   merges at the *top* level, and the modal passes `{ data: validated }`, so the stored `data` object
+   with its `flags: 32768` is discarded rather than merged into.
+
+**Why a right answer for the wrong reason is still a finding.** Reason 2 lives in a **third file**,
+in a function neither review named. The day `updateMessage` becomes a deep merge — an unremarkable
+refactor, made to fix an unrelated field being clobbered — the flag survives *Load*, D13's guidance
+silently stops repairing anything, and the guild owner following the owner's instruction is told his
+message is fixed when it is not. Nothing in the suite would have gone red before EXT-3 existed.
+
+This is the general form worth carrying: **a static read of the named function cannot settle a
+property that emerges from the composition.** The critic's own instinct to flag the assumption was
+right, and the assumption was more load-bearing than its LOW framing suggested — it sits under an
+owner ruling.
+
+**Instrument captured, not narrated**: block `EXT-3` in
+`website/src/utils/__tests__/012-send-gate-partition.test.ts`. Every step calls the **shipped**
+function — `stripKeys`, `standardizeMessage`, `enforceImportMutualExclusivity`,
+`discordMessageImportShape`, `makeEditable` — with only the three-line React state merge transcribed,
+from `useApiMethods.ts`.
+
 ---
 
 ## BLOCKING RELEASE CONDITIONS — chain 012 register
@@ -700,12 +792,26 @@ UAT document, and then the deployment record, are authoritative on each row's ex
 | R12 | pre-release | **F-QA7**: the owner has stated whether statbot chain 023's deploy is ordered after the live declaration, or the window is knowingly accepted | Owner's ruling, recorded | Owner | Now — decidable today, before anything ships | A stated disposition either way | If nobody decides, Statbot may gate on an unreviewed distribution and stop deliveries before the owner has seen a single number — routing around the plan's own central risk control | owner (put by steering) | **CLOSED 2026-08-23** — *"Order Statbot's deploy last"*; plan register D12, release condition 5 extended to five ordered components. **Superseded by R17**, which is the executable half |
 | R13 | pre-release | **F-QA1**: the owner has ruled on whether the V2 flag is cleared on mode switch, or the composer-recovery consequence is accepted with a stated plan for telling affected guild owners | Owner's ruling, recorded | Owner | Now — decidable today, before M2 is written | A stated disposition either way | If unaddressed, affected guild owners are told to fix their message in the composer and find no control that does it. The chain ships a clearer error and no way to act on it | owner (put by steering) | **CLOSED 2026-08-23** — *"Clear the flag on switch back"*; plan register D11, enacted in M2 (M2-d revised, M2-e/M2-f added). **Succeeded by R14, R15, R16** |
 | R14 | pre-release | **M2-e**: every V2→classic switch leaves no `IS_COMPONENTS_V2_FLAG`, over the whole class of departing contents — and clears **only** that bit | The pre-registered spec's M2-e block (5 departing states + a bit-masking control) | QA (automated; no human) | M2 implemented | All green | A `flags = 0` assignment instead of a mask passes every class member and silently destroys unrelated flag bits on every mode switch — for every user, not just affected ones | qa | Open |
-| R15 | post-deploy-observable | **M2-f**: stored record 5712 brought to a Send-enabled state through supported composer controls alone, no JSON modal | Composer UI | Owner (only he can load that guild's message) | After website deploy | Reachable — via the round trip in F-QA8 | If unreachable, D11's one line did not deliver what the owner chose it for, and the fix bought the affected guild owner nothing | uat (owner observes) | Open |
+| R15 | post-deploy-observable | **M2-f**: stored record 5712 brought to a Send-enabled state through supported composer controls alone, no JSON modal, **and the persisted record then carries no `IS_COMPONENTS_V2_FLAG`** (plan Validation 4(e); critique F6/F11) — **run LAST of the 5712 rows; see the ordering note below** | Composer UI, then the persisted record | Owner (only he can load that guild's message) | After website deploy, and **after R2, R4 and M6-c have been read** | Reachable, and flag-free afterwards — via the round trip in F-QA8 | If unreachable, D11's one line did not deliver what the owner chose it for, and the fix bought the affected guild owner nothing. **Without the flag-free clause this row does not discriminate at all** — a user reaches Send-enabled on *pre-D11* code by rebuilding the record as a genuine V2 message (delete the content, add a Text Display), flag still set. As I first wrote it, this row would have confirmed a fix that was not there. Corrected 2026-08-23 against plan rev 7's M2-f | uat (owner observes) | Open |
 | R16 | pre-release | **F-QA8**: the owner has ruled on whether M2-f's content-destroying recovery is accepted as-is, or M2-f gains a preservation clause | Owner's ruling, recorded | Owner | Now — decidable before M2 is written | A stated disposition either way | If accepted silently, guild owners are sent to a repair that retypes their message, and nobody tells them to copy the text first. M2-f passes cleanly either way, so nothing downstream will catch it | owner (put by steering) | **CLOSED 2026-08-23** — *"Stands, but point the guidance at the JSON editor"*. D11 stands; preservation build declined a second time, on the rev-3 corrected facts. **Succeeded by R19** |
 | R18 | pre-release | **F-QA9**: the whitespace-content class is decided — either statbot's corpus/the owner's live POST settles whether Discord accepts flag-set-plus-whitespace content, or M6-b carries the class as its own category so the population is measured before it gates | Owner's live POST, or statbot's corpus, or the M6-b count | Owner (live POST is his instrument, as for both existing sentinels) | Now for the ruling; the count at backfill | Either a Discord verdict, or a category count — plausibly zero, which closes it | If undecided and Discord in fact rejects the shape, hooks.gg marks **sendable** a message that is not, and Statbot attempts a send that fails on a record hooks.gg vouched for — the exact failure the chain exists to prevent | owner (put by steering) | **CLOSED 2026-08-23** — *"Measure the population first"*. M6-b category taken; owner's live POST **withdrawn, not deferred**. **Succeeded by R20** |
 | R17 | pre-release | **D12 enactment**: the devops agent records that the statbot-side ordering instruction was **relayed**, and does not claim statbot's compliance (which is that workspace's to verify) | The deployment record | devops (documentary; no human) | At release | Relay recorded | D12 has no planning-document mirror on the statbot side — plan rev 6 makes this row the only executable trace that the constraint travelled at all. An unrecorded relay is indistinguishable from no relay | devops | Open |
-| R19 | pre-release | **R16 enactment**: the guidance given to affected guild owners is **shape-dependent** — records whose only V2 marker is a stranded flag (5712's shape) are pointed at the JSON editor *Load*; records carrying V2 components **and** a stranded flag are pointed at the mode toggle, because the editor destroys their components | The recorded guidance text | Owner (he communicates; no agent may) | Now — decidable before M2 ships | Two paths named, each against its shape | Guidance written as one line will be **wrong for one of the two shapes whichever line it is** — a guild owner following the JSON-editor instruction against a components-carrying record loses the components and is not told, and the loss looks like a hooks.gg bug rather than like following instructions | owner (drafted by whoever writes the release note) | Open |
+| R19 | pre-release | **R16/D13 enactment**: the guidance is **shape-dependent over THREE shapes**, not two (plan Validation item 7) — (i) flag-stranded with **no components** (5712; cell B5) → JSON editor *Load*, lossless; (ii) flag-stranded with **type-1 legacy components and no content** (cell B4) → mode toggle, lossless; (iii) flag-stranded with **both content and type-1 components** (cell B3) → **no lossless path exists**; each route destroys what the other preserves, so the guidance must state which side is lost rather than name a winner | The recorded guidance text | Owner (he communicates; no agent may) | Now — decidable before M2 ships | Three shapes named — two with a lossless path, one with none. Executed as **EXT-3** in the pre-registered spec | Guidance written as one line is **wrong for at least one shape whichever line it is**, and a guild owner who follows it loses data while doing exactly what he was told — a loss that reads as a hooks.gg bug rather than as following instructions. **My first wording of this row was itself wrong in two ways** (F-QA11), which is this same defect at one remove | owner (drafted by whoever writes the release note; **he sends it — no agent does**) | Open |
 | R20 | pre-release **(gate, not a check)** | **R18 enactment**: M6-b's distribution report carries the whitespace-content class as its **own named category** — `data.components` structurally V2 and `content` non-empty but whitespace-only — with a count **and** row ids, reviewed by the owner at the R9 review he is already doing | The backfill's own report | **Owner — his decision, not a QA verdict**; the count itself is automated | After backfill completes, before declaration | Plausibly **0**. A zero closes the question *for this corpus, at this time* — it is **not** a Discord determination and must not be recorded as one | A non-zero count means live records are being marked **sendable** on a shape nobody has tested Discord against; Statbot then attempts sends hooks.gg vouched for and they fail — the exact failure this chain exists to prevent, arriving as delivery failures rather than as an alert | owner (recorded by devops) | Open |
+
+> **EXECUTION ORDER — the 5712-keyed rows interfere, and this register did not say so.**
+> **R15 is a persisting act.** Any save recomputes `valid` (M4), so executing R15 flips 5712 to
+> `valid: true` and **destroys the preconditions of R2, R4 and M6-c's sentinel**. Read them in the
+> order **M6-c → R2 → R4 → R15**. After R15 — or after the affected guild owner performs his own
+> D13-guided repair, whose timing nobody here controls — R2's expected value legitimately becomes
+> `true` via M4. That is a correct recompute, **not** a failure of the fixed-vs-unfixed distinction
+> and not a false red on M6-c, provided the order held.
+>
+> Plan rev 9 states the constraint (Validation item 4, critique F10) and explicitly leaves
+> sequencing *within* a stage to qa/uat — **which makes this register the place it has to live, and
+> it was not here.** Found by reading plan rev 9 against my own rows; not relayed. Added 2026-08-23.
+> Whoever executes these rows reads this note first: run out of order, R2 and R4 return
+> `true`/enabled and read as *the fix never worked*, when in fact it worked and was then overwritten.
 
 R2 satisfies the standing requirement that a chain fixing a user-reported defect register at least
 one post-deploy observable distinguishing **fixed from unfixed in production** — the fix's signature
