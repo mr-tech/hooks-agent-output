@@ -25,7 +25,7 @@ sibling repos, and `git` commands run at the root fail rather than spanning them
 |---|---|---|
 | `website` | **active** | The product. Next.js hybrid — App Router UI (`src/app`) plus Pages Router API (tRPC, NextAuth, Discord interaction endpoints, cron). The bot lives in `bot/`: edge commands are answered at the signature-verified edge endpoint, server commands are forwarded on. |
 | `project-utils` | **active** | The shared data layer, and the **source of truth for the database schema** (`prisma/schema.prisma`). Owns the generated Kysely types and the Postgres client singleton. |
-| `preview-image-generator` | **dormant but deployed** | A bare Node HTTP server on branch `prod`. Renders the website's own `/preview` page with pooled puppeteer and uploads a JPEG to the CDN bucket. The code has not changed since 2023; the role is current. |
+| `preview-image-generator` | **dormant but deployed, and current** | A bare Node HTTP server on branch `prod`. Renders the website's own `/preview` page with pooled puppeteer and uploads a JPEG to the Spaces bucket. The code has not changed since 2023, but **production runs `471578fa` — exactly this checkout's `prod` HEAD, zero commits either way** (owner, 2026-08-23). Dormant means unchanged, not drifted. |
 | `cdn` | **legacy; serves no preview traffic** | A Next 13 app whose single API route reads preview blobs from a Postgres table. **That route is dead code**: `cdn.hooks.gg` is a CNAME to the Spaces bucket and never reaches this app. Whatever the deployment still serves, it is not previews. |
 | `agent-output` | — | This repository. |
 
@@ -47,6 +47,10 @@ served straight from it.** `cdn.hooks.gg` is a **CNAME to the bucket** (owner, 2
 never reach the `cdn` application at all. The loop closes exactly: the generator writes key
 `previews/{messageId}/{nonce}.jpeg` to bucket `hooks` in `nyc3`, and the website emits that same
 path under `NEXT_PUBLIC_CDN_HOST=https://cdn.hooks.gg`.
+
+**The loop is verified, not inferred.** Production runs `preview-image-generator` at `471578fa`,
+which is this tree's `prod` HEAD exactly, so the write path read here is the deployed write path.
+The owner confirms previews are generating normally (2026-08-23).
 
 **Two things follow, and both have misled a reader of this tree already.**
 
