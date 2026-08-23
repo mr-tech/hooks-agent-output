@@ -70,6 +70,25 @@ Stated as questions, not as a plan — whoever picks this up derives its own sha
   Chain 012's backfill distribution report (milestone M5) is the natural instrument and will exist
   before this is picked up.
 
+## Where to start — pointers, not findings
+
+Supplied by `planner-hooks-012` in its rev-3 report to steering, 2026-08-23, out of chain 012's
+exploration record (commit `8d012bf`). Recorded here as **surfaces to examine**, with their claims
+left where they were established — whoever researches this re-derives them rather than inheriting
+them from this document:
+
+- The JSON-import path runs through tRPC `message.upsert`, validated by `discordMessageImportShape`
+  (`website` `src/server/api/utils/shapes.ts`). How `flags` is constrained there, if at all, against
+  content and embeds is the first thing to establish.
+- `enforceImportMutualExclusivity` (`website` `src/utils/index.ts`) reconciles imported JSON.
+  **The open question named by the planner:** whether it clears or preserves a stray flags bit when
+  the structure is classic. If it preserves one, import is a mint for 5712-shaped records; if it
+  clears one, this handoff may close without an effort.
+- `shapes-v2.test.ts` in `website` is where existing coverage of `flags: 32768` lives.
+- Two facts that bound the blast radius once chain 012 ships: every import flows through
+  `upsertMessage`, which M4 makes recompute `valid`; and D10's on-next-touch note (save-path flag
+  normalisation) sits in 012's Out of Scope, so this research may be that next touch.
+
 ## Sources
 
 - `planning/012-message-valid-field.md` — rulings D5 (the composer-bug ruling, verbatim) and the

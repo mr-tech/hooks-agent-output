@@ -17,7 +17,7 @@ closed. A document's path changes when it closes; its name does not.
 
 | Stage | Location | Status |
 |---|---|---|
-| plan | `planning/012-message-valid-field.md` | Active — Rev 2. OQ-1 ruled by the owner (a composer bug, to be fixed — not a predicate clause); M2 and M5 are PREMISE-STALE pending authorisation of the derived re-scope (one added milestone: correct the send gate in website). Delta reported to steering; no further passes until authorised. Target repos unchanged: project-utils then website. |
+| plan | `planning/012-message-valid-field.md` | Active — Rev 3. Re-scope authorised (D8): the composer send-gate fix is milestone M2; both PREMISE-STALE markings cleared with re-argued premises; milestones renumbered M1–M7 by replacement. No open questions. Ready for critique. Target repos: project-utils then website; steering raising chain branches. |
 
 ### 1 — 0 open, 8 closed
 
