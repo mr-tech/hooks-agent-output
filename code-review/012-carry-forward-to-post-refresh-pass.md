@@ -51,6 +51,33 @@ The error's shape: I never committed it myself (correctly — the plan is anothe
 so "it had landed" was an **inference from my own non-action**, not an observation. Steering's
 direct `git status` beat my inference, as it should.
 
+### 4b. The same class again, one message later — and why it was uncheckable
+
+Reporting state to steering I described `d84dbf7` as "an `INDEX.md` registration line **by another
+stage**." I had read that commit's subject and stat. I had not read its author, and I asserted
+provenance anyway. Steering — who made it — reports it as theirs. Accepted.
+
+That is the identical error to §4, made **one message after** I wrote §4 up as a lesson. Claiming
+the lesson is not the same as holding it, and the interval was a single message.
+
+**What makes this one structural rather than merely careless.** Checking afterwards, provenance was
+not available to me at all:
+
+- Every commit in `agent-output` has the same author — `git log --format='%an' | sort -u` returns
+  exactly one name, `lando`. Authorship metadata cannot distinguish stages here.
+- Provenance therefore rests entirely on the `Claude-Session:` trailer. Of `d84dbf7`, `e561967`,
+  `d8cf9ff` and `747ddcb`, three carry one; **`d84dbf7` has no body at all** — and it is precisely
+  the commit whose provenance was gotten wrong.
+
+So the correct move was not "read the author" — that would have told me nothing. It was to say
+**"an `INDEX.md` regeneration; I cannot tell which session made it."** The available honest answer
+was weaker than the one I gave, which is the whole failure: an unattributable commit got attributed
+because a confident sentence was easier to write than an admission of a gap.
+
+**Rule taken from it:** in this repo a commit is attributable to a stage only where it carries a
+session trailer. Absent one, provenance is reported as unknown, or sourced to whoever reports it
+first-hand — never inferred from a subject line.
+
 ## 5. The SHA hazard: mechanism measured, and both prior models were wrong
 
 Steering reframed this as a workspace hazard rather than a discipline failure, on the model that
