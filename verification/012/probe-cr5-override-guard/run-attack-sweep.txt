@@ -1,0 +1,18 @@
+--- M6 (parser-differential finding): the override must refuse UNCONDITIONALLY ---
+1 ?host= , NO confirmation                     refused=YES conn=NO  files=0 [override-guard]
+2 ?host= , confirm MATCHES decoy               refused=YES conn=NO  files=0 [override-guard]
+3 ?host= , confirm matches REAL                refused=YES conn=NO  files=0 [override-guard]
+4 ?port= only                                  refused=YES conn=NO  files=0 [override-guard]
+5 ?%68ost= percent-encoded                     refused=YES conn=NO  files=0 [override-guard]
+6 ?host repeated                               refused=YES conn=NO  files=0 [override-guard]
+--- L10: sentinels must not confirm ---
+7 unset URL + confirm '(unset)'                refused=YES conn=NO  files=0 [sentinel-guard]
+8 junk URL + confirm '(unparseable)'           refused=YES conn=NO  files=0 [sentinel-guard]
+--- M4 regression: round-4 refusals must still hold ---
+9 dead URL, no confirmation                    refused=YES conn=NO  files=0 [confirm-guard]
+10 near-miss wrong port                        refused=YES conn=NO  files=0 [confirm-guard]
+--- NO-REGRESSION: a plain URL with correct confirmation must still PROCEED ---
+11 plain URL, correct confirm                  refused=NO  conn=YES files=1 
+       dialled: ECONNREFUSED 127.0.0.1:1
+--- extra: non-standard socket: scheme (guard host string vs dialled path) ---
+12 socket: scheme                              refused=NO  conn=NO  files=1 

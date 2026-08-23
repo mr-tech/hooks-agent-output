@@ -1,0 +1,5 @@
+DIVERGE  socket: scheme             guard=":5432"                                dials="/var/run/postgresql:5432"
+DIVERGE  %2f-encoded unix host      guard="%2Fvar%2Frun%2Fpostgresql:5432"       dials="/var/run/postgresql:5432"
+  agree  plain remote (control)     guard="viaduct.proxy.rlwy.net:12394"         dials="viaduct.proxy.rlwy.net:12394"
+
+DIVERGENCES=2

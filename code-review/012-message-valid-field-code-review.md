@@ -3,252 +3,206 @@ ID: 012
 Origin: 012
 UUID: 12a4fe3c
 Parent: message-valid-field-for-statbot-2026-08-23.md
-Reviewed-At: "Round 4: website `ff753a6`, project-utils `749606d` — both on `chain/012-message-valid-field`; agent-output `0fc444f`. Plus one uncommitted in-scope file (QA's R6 instrument, held untracked deliberately): `website/src/utils/__tests__/012-json-editor-repair-path.test.ts`, sha256 re-verified at review start and end. Base SHAs: project-utils `eb38a15`, website `72dc7de`. Exclusion list: no other foreign or uncommitted file was present in either tree at review start or end. Rounds 1–3 were conducted against website `bc5ee2b`, `681c353` and `eb28ae6`; no earlier verdict travels to this tree and none was inherited — every enumeration below was re-run here, including the two predicates the implementer reports having re-run."
+Reviewed-At: "Round 5: website `f983508`, project-utils `749606d` — both on `chain/012-message-valid-field`; agent-output `3995eed`. Plus one uncommitted in-scope file (QA's R6 instrument, held untracked deliberately): `website/src/utils/__tests__/012-json-editor-repair-path.test.ts`, sha256 re-verified at review start and end. Base SHAs: project-utils `eb38a15`, website `72dc7de`. Exclusion list: no other foreign or uncommitted file was present in either tree at review start or end. Rounds 1–4 were conducted against website `bc5ee2b`, `681c353`, `eb28ae6` and `ff753a6`; no earlier verdict travels to this tree and none was inherited. Measured connector, on which this round's completeness result depends: `pg` 8.11.1 / `pg-connection-string` 2.6.1 as installed at this SHA."
 Status: In Review
 ---
 
 # Code Review: Plan 012 — `valid` field on stored messages
 
-**Plan Reference**: `agent-output/planning/012-message-valid-field.md` (rev 18, `299271d`) — D16 (L9 enacted), D17 (owner's guard-first ruling)
-**Implementation Reference**: `agent-output/implementation/012-message-valid-field-implementation.md` (`65574ca`)
-**Round**: 4 (re-review after the guard round). Rounds 1–2 REJECTED; round 3 APPROVED_WITH_COMMENTS.
-**Captured instruments**: `agent-output/verification/012/probe-cr4-guard-attack/`
+**Plan Reference**: `agent-output/planning/012-message-valid-field.md` (rev 20, `9358546`)
+**Implementation Reference**: `agent-output/implementation/012-message-valid-field-implementation.md` (`3995eed`)
+**Round**: 5 (re-review after the override-guard round). Rounds 1–2 REJECTED; 3–4 APPROVED_WITH_COMMENTS.
+**Captured instruments**: `agent-output/verification/012/probe-cr5-override-guard/`
+
+> **Naming.** In this document **CR-M6** is the code-review finding (the guard/connector parser
+> disagreement, raised round 4). **M6** unqualified is the plan's milestone — backfill, distribution
+> report, live declaration. The collision entered the record in my round-4 registration row; the
+> implementer flagged it and I am adopting the prefix rather than leaving a later reader to guess.
 
 ---
 
 ## Verdict: APPROVED_WITH_COMMENTS
 
-**The M4 guard satisfies D17 as the owner ruled it.** A bare invocation cannot reach the production
-database: I drove eleven inputs through the shipped entry point with the oracle fixed in advance,
-and every refusal case refused on all three surfaces — refusal message present, **no connection
-attempt of any kind**, **no file written**. The guard also does not over-block. L8 is closed and I
-verified it by using it: this is the first of four rounds in which my drives left nothing to clean
-up in the owner's gate directory.
+**CR-M6 is closed, and by a stronger result than "closed at the Minimum".** The owner ruled the
+Minimum and declined the Preferred, so the question I set out to answer was not *"does it stop the
+attack I demonstrated"* — it plainly does — but *"is a name-based query-parameter check complete
+over the class the connector actually honours"*. Answered two independent ways: **zero redirects
+the guard does not see.** For this class the ruled Minimum is not a partial fix. The owner's
+ruling cost nothing in coverage.
 
-**One new MEDIUM, latent rather than live.** The guard decides the target with WHATWG `new URL()`;
-the connection is made by `pg`'s own parser. Those two disagree on a supported connection-string
-form, and I demonstrated the disagreement end-to-end through the shipped entry point (M6). It does
-**not** affect the current production URL, which carries no query string — so it does not undermine
-D17's guarantee today, and it routes naturally to the post-refresh review pass you have already
-scheduled.
+**L10 closed**, and the implementer's decline of my Preferred is sound.
 
-No HIGH or CRITICAL. Nothing here holds the tree.
+**One new LOW (L11)**: the same class reachable through a URL *form* rather than a query
+parameter — a `socket:` or `%2f`-encoded unix-socket URL passes every guard, and the M4 guard's
+message actively instructs the operator to confirm a string naming nothing. It cannot reach the
+remote production database, which is what keeps it LOW. It routes to the post-refresh pass
+alongside the Preferred and the already-booked residual.
+
+No HIGH or CRITICAL. Nothing holds the tree.
 
 ---
 
 ## Scope and Method
 
-Two files, +91/−8: `src/scripts/backfillValid.ts` and its spec. Everything else untouched,
-confirmed by `git diff --stat eb28ae6 ff753a6`.
+Two files, +73/−1. Containment claims verified rather than accepted: `resolveTargetHost`'s body is
+**byte-identical** to `ff753a6`, `project-utils` is unchanged at `749606d`, and the guard order in
+`main()` is `assertNoHostOverride` → `resolveTargetHost` → `assertConfirmedTarget` → `getPostgres()`.
 
-This round's subject is a **guard on an irreversible action**, which triggers two obligations in my
-definition: adversarial execution against the running entry point, and re-attack from first
-principles rather than reading the fix and agreeing with it. Both were met. I named the process
-whose output would be my evidence before choosing instruments: the shipped `main()` under a real
-Node process, and — for the parser question — the `pg` `Client` object that actually connects,
-resolved through the same path the script uses, not a library consulted in isolation.
+This is a guard fix, so it was re-attacked from first principles. Twelve inputs through the shipped
+entry point against the round-4 oracle — refusal message, **no connection attempt of any kind**,
+**no file written** — with one addition: the sweep now records *which* guard fired, so a case
+cannot pass for the wrong reason. That mattered: it is how I confirmed cases 7–8 are stopped by the
+new sentinel check rather than by the pre-existing equality check.
 
-**Two of my own instrument errors, caught and corrected mid-round**, recorded because a sweep whose
-harness was broken is worthless and the corrections are what make the counts trustworthy:
-
-1. My first sweep ran without `NODE_ENV`, so six cases died in `project-utils`' zod validation
-   *downstream* of the guard and reported "no connection" for the wrong reason. Caught because
-   case 8 — which *must* proceed — showed no connection either. A contradiction against a case
-   whose expected outcome I had fixed in advance is what exposed it, not re-reading the output.
-2. `git diff | grep "^\+"` returned nothing for the spec's new tests. That is the known
-   filtered-diff hazard; I re-took it by writing the diff to a file and reading that.
-
-**I declined one test and will say why rather than let it read as coverage.** Driving `main()`
-against live production credentials to prove the guard refuses is a test whose failure mode *is*
-the harm it tests for — a broken guard would run the backfill against production and consume the
-owner's single-shot M6-b gate. I decomposed it instead: the predicate exercised directly against
-the real resolved host, and the ordering established by the dead-URL cases where a broken guard
-costs nothing. The implementer did run the live leg; my decomposition is not weaker, and I did not
-inherit their result.
+**On judging a Minimum.** A Minimum is normally a knowingly partial fix, and the honest reviewer
+question is how partial. I answered it against the connector rather than against documentation,
+because "libqp supports X" is a claim about libpq, not about the code that will run here.
 
 ---
 
 ## Confirmed Closed
 
-### M4 — the production-default guard — **CLOSED at the Preferred action**
+### CR-M6 — guard/connector parser disagreement — **CLOSED, and the Minimum is complete**
 
-`main()`'s first two statements are `resolveTargetHost` and `assertConfirmedTarget`; `getPostgres()`
-is the third. Re-read at this SHA. `assertConfirmedTarget` uses **strict inequality** against the
-resolved host — no substring, prefix or truthiness matching, which is where guards of this shape
-usually fail — and is fail-closed by default, since `undefined !== host`.
+`assertNoHostOverride` is `main`'s first statement, ahead of the M4 guard, and throws
+**unconditionally** — no confirmation value gets past it. Verified: sweep cases 1, 2 and 3 refuse
+identically whether the confirmation is absent, matches the decoy authority (round 4's exact
+bypass), or matches the genuinely-dialled host.
 
-Eleven inputs driven through the shipped entry point (`probe-cr4-guard-attack/README.md`):
+The interesting result is the completeness check:
 
-- **Refuses, with zero connection attempts and zero files written**: no confirmation; empty-string
-  confirmation; near-miss on port; near-miss on host; whitespace-padded confirmation; trailing-dot
-  host.
-- **Proceeds on exact confirmation** — the guard does not over-block.
-- **Against the real production URL**: resolves `viaduct.proxy.rlwy.net:12394`; a bare invocation
-  and a wrong-host confirmation are both refused; exact confirmation is allowed.
+**Method 1 — empirical, against the object that connects.** Nine query-string forms put to both the
+shipped predicate and a `pg` `Client`, each compared to a no-params baseline. **Redirects the guard
+does not see: 0.** Notably `?hostaddr=` — the libpq parameter that bypasses DNS, and the first
+thing I went looking for — is **not implemented by this connector at all**, so it was never a
+member of the class. Case-variant keys (`?HOST=`) are likewise not honoured, so the guard's
+case-sensitivity introduces no false negative. Percent-encoded keys (`?%68ost=`) are decoded by
+both sides, so they are caught.
 
-One case I initially mis-designed and am recording as such: host case variation (`LocalHost`)
-*matched* rather than refused. That is correct — `postgresql:` is a non-special scheme, so WHATWG
-`URL` preserves host case instead of lowercasing it, and the confirmation genuinely named what was
-resolved. My expectation was wrong, not the guard. The residue is that the guard is case-sensitive
-where DNS is not, which is fail-closed and not a defect.
+**Method 2 — reading the connector's merge logic.** In `pg-connection-string@2.6.1`, every query
+parameter is copied onto the config, but `config.port = result.port` then *unconditionally*
+overwrites any `?port=`, and the authority host applies only `if (!config.host)`. So `host` is the
+sole query parameter that moves the target, and there is no `hostaddr` or `service` handling in
+this version.
 
-### L8 — the report destination override — **CLOSED, verified by use**
+Both methods agree, which is why I am willing to state completeness rather than absence of
+counter-examples. The `port` clause is a harmless **over-refusal** — defensible as defence in depth
+if the connector's precedence ever changes.
 
-`BACKFILL_REPORT_DIR` is honoured (`resolveReportDir`, with an empty string correctly falling
-through to the default). Every drive this round used it, and the three cases that got past the
-guard wrote their reports there. The gate directory was listed afterwards: **no stray report**.
-Rounds 1, 2 and 3 each required a capture-and-delete; this round required none.
+### L10 — sentinels are no longer confirmable — **CLOSED; the decline is sound**
 
-### M5 — the record correction — **CLOSED**, re-run with my own predicates
+`assertConfirmedTarget` rejects any confirmation beginning with `(` before comparing. Sweep cases 7
+and 8 refuse, and the sweep confirms the **sentinel** guard fired rather than the equality check.
+No false positives are possible: a hostname cannot begin with `(`.
 
-I did not accept that my predicates had been re-run; I re-ran them. Both, across
-`agent-output/*.md`. The `messageMode.ts` row now reads *"its extraction is behaviour-preserving …
-but the `handleModeSwitch` wiring seam to it remains accepted at Minimum, not closed"* — accurate,
-and it distinguishes the claim my round-2 differential actually established from the one it did
-not. The `backfillValid.ts` row is corrected too. Surviving hits are exactly the exclusions I
-stated: frozen changelog rows, Outstanding Item 9's correction text, the fix round's own record of
-making the fix, my own review document, my probe README (a negation), and closed plan-001 docs.
+**Judging the decline, as asked.** Declining a distinct unconfirmable type for a LOW with a
+closed two-member sentinel set is proportionate, and the on-next-touch note is the right place for
+it. I accept it.
 
-Two other rows in that table — *"`handleModeSwitch` delegates to `switchToV2`/`switchToClassic`"*
-and *"wired into `DiscordMessageEditor`'s `handleModeSwitch`"* — are factual statements about what
-the code does, not claims about test coverage. Correctly left alone.
-
-### L7 — provenance typing — **ADDRESSED at half the Preferred action, accurately declared**
-
-`ReportMeta` is a named interface declaring all five fields, shared with `emit`'s `extra` via
-`Omit<ReportMeta, 'tableWideRowCount'>` — so the two cannot drift apart. The fields remain
-optional, so a future omission is still not a type error; the implementer says exactly this rather
-than claiming the finding closed, and defers the remaining half. That is the right way to report a
-partial fix, and I am not re-raising it.
-
-The Minimum regression guard is present and **labelled in the test's own name** as a regression
-guard rather than a red/green case, since the behaviour already existed. Declaring a non-TDD test
-as non-TDD in the TDD table is what the table is for.
+One observation, offered rather than raised as a finding: the Preferred/Minimum choice here was a
+false dichotomy. Guarding on **`host.startsWith('(')`** instead of `confirmed.startsWith('(')`
+would have been the same size — one word — while expressing the actual invariant (*the target could
+not be determined*) rather than its symptom (*what the operator typed*). Both are functionally
+complete today, since a sentinel host refuses through the equality check for any other confirmation.
+But the host-side form is robust to the sentinel *format* changing, which is exactly the
+on-next-touch risk the implementer identified. Worth a word next time that file is open.
 
 ### Suite, lint, typecheck
 
-- **399/399 across 21 files**, up from 390 — the +9 the implementer reported, matching nine new
-  cases I enumerated from the diff (provenance guard; report-dir override; `resolveTargetHost` ×4;
-  `assertConfirmedTarget` ×3).
+- **408/408 across 21 files**, up from 399 — the +9 I enumerated from the diff
+  (`hasConnectionOverrideParams` ×4, `assertNoHostOverride` ×4, sentinel rejection ×1).
+- **TDD table complete** for all nine. The sentinel row records *"Sentinel confirmation did not
+  throw"* rather than a "not a function" — the correct signature for a behaviour change on an
+  existing function, and the mark of a genuine red-first.
 - **`npx eslint src/scripts/backfillValid.ts` → clean.**
-- **Typecheck RED, 8 errors**, identical distribution to round 3
-  (TS2820 ×2, TS2345 ×2, TS2769 ×1, TS2353 ×2, TS2339 ×1) — the same stale-pin class, untouched.
+- **Typecheck RED, 8 errors**, identical distribution to rounds 3 and 4 — same stale-pin class.
 
 ---
 
 ## Findings
 
-### M6 — MEDIUM — the guard and the connector use different parsers, and they disagree
+### L11 — LOW — the same class through a URL form rather than a query parameter
 
-**Location**: `website/src/scripts/backfillValid.ts`, symbol `resolveTargetHost` (WHATWG `new URL`)
-versus the connection path `getPostgres()` → `new Pool({ connectionString })` → `pg` `Client`.
+**Location**: `website/src/scripts/backfillValid.ts`, symbols `resolveTargetHost` and
+`assertNoHostOverride`.
 
-**Class**: Any `DATABASE_URL` for which the parser that *authorises* the run and the parser that
-*makes the connection* resolve different hosts — so the operator confirms one target and the script
-mutates another.
+**Class**: `DATABASE_URL` forms for which the guard's host string does not name the host the
+connector dials — of which the `host` query parameter, now closed, was one member.
 
-**Enumeration**: five connection-string forms put to both parsers, asking the `pg` `Client` object
-that actually connects (`parser-differential.js`) — **2 of 5 diverge**, both via the `host` query
-parameter, a supported libpq/`pg` form used for PgBouncer, Unix sockets and proxied hosts. Driven
-end-to-end through the shipped entry point as sweep case 11, with the override pointed at
-`127.0.0.1` so nothing production was touched: `BACKFILL_CONFIRM="decoy.invalid:1"` satisfied the
-guard, and the process then connected to `127.0.0.1:1`. What the enumeration does **not** cover:
-`pg`'s environment-variable fallbacks (`PGHOST` and friends) when the connection string omits a
-host, and `service=` file lookups — both are further members of the same class and I did not test
-them.
+**Enumeration**: three URL forms put to both the guard's derivation and a `pg` `Client`
+(`url-forms.js`) — **2 of 3 diverge**, both unix-socket forms:
 
-**Why it is not HIGH, and not a challenge to D17**: the real `.env.local` URL carries no query
-string — established by printing `u.search.length` and the parameter-name list only, never
-credentials — so the guard names the correct host for the target that actually exists today. The
-input is operator-controlled rather than externally reachable, and the guard's threat model is
-accidental invocation, not a deliberate operator. But the guard's entire value is *naming the host
-you are about to mutate*, and a guard that names the wrong host while passing manufactures
-confidence rather than providing it.
+| form | guard demands confirmation of | connector dials |
+|---|---|---|
+| `socket:/var/run/postgresql` | `":5432"` | `/var/run/postgresql` |
+| `postgresql://%2Fvar%2Frun%2Fpostgresql/db` | `"%2Fvar%2Frun%2Fpostgresql:5432"` | `/var/run/postgresql` |
+| plain remote (control) | `viaduct.proxy.rlwy.net:12394` | same — **agrees** |
+
+Sweep case 12 confirms it end-to-end: a `socket:` URL passes **every** guard and reaches `emit`.
+What the enumeration does **not** cover: `pg`'s `PGHOST`-family environment fallbacks and `service=`
+file lookups — my own previously-disclosed residual, already booked to the post-refresh pass.
+
+**Why LOW, stated plainly rather than inflated**: both divergent forms dial a **local unix
+socket**, which cannot be the remote production database. The confirm-one-host-mutate-another harm
+does not reach production by this route, and the current production URL is unaffected (the
+control). What is genuinely wrong is smaller but real: the M4 guard's error message *instructs* the
+operator to set `BACKFILL_CONFIRM=":5432"` — a string naming nothing — so the guard would walk an
+operator through confirming a target it never identified.
 
 **Required Action** — *eliminate the class*:
-- **Preferred (structural)**: derive the guarded host from the same parser that connects, so the
-  two cannot disagree by construction. `pg` is `project-utils`' dependency, not the website's, so
-  the clean shape is `project-utils` exposing the resolved target alongside `getPostgres` — which
-  also puts the guard's fact next to the connection it guards.
-- **Minimum**: refuse outright when the URL carries a `host` or `port` query parameter — two lines,
-  no new dependency, fail-closed on the demonstrated member.
+- **Preferred (structural)**: the already-routed Preferred for CR-M6 — derive the guarded host from
+  the connecting parser — closes this member too, because it removes the second derivation
+  entirely. This is one more reason that fix is the right end state, and one more thing for the
+  post-refresh pass to check when it lands.
+- **Minimum**: refuse when the derived host is empty or `%2f`-prefixed, i.e. when
+  `resolveTargetHost` cannot produce a hostname — the same fail-closed shape as the sentinel check.
 
-**Routing**: to the post-refresh review pass, which is already scheduled and where a guard change
-would be reviewed anyway. Not blocking this verdict.
-
-### L10 — LOW — a sentinel meaning "target undetermined" is accepted as a confirmation
-
-**Location**: `website/src/scripts/backfillValid.ts`, symbols `resolveTargetHost` /
-`assertConfirmedTarget`.
-
-**Class**: Confirmation values that satisfy the guard without naming a real target.
-
-**Enumeration**: the sentinel set is closed and has exactly **2 members** — `(unset)` and
-`(unparseable)`. Both are confirmable: sweep cases 9 and 10 passed the guard with
-`BACKFILL_CONFIRM='(unset)'` and `'(unparseable)'` respectively.
-
-Neither reaches a database today, but not because the guard stopped it — `project-utils`' zod env
-validation rejects both downstream. The guard itself does not fail closed here, and the protection
-is therefore incidental to a validator in another package that this script does not control.
-
-**Required Action** — **Preferred (structural)**: make the sentinels unrepresentable as
-confirmations by returning a distinct type for "undetermined" that `assertConfirmedTarget` rejects
-unconditionally, rather than a string it compares. **Minimum**: reject any `confirmed` value
-beginning with `(`. Recorded as **`no test`** — a framework already reaches this code, so the
-instrument is the implementer's to author; the case shapes are in `run-attack-sweep.txt`.
+Recorded as **`no test`**: a framework already reaches this code, so the instrument is the
+implementer's to author; the case shapes are in `run-url-forms.txt` and sweep case 12.
 
 ### Carried, unchanged, correctly not actioned
 
-**L2** (two `as boolean` casts), **L3** (`a7ebe4d`'s count mismatch, reconciled rather than
-rewritten), **L5** (the older `applyModeSwitch` assertions still compute their expected value by
-calling the delegate they name, so they cannot fail under a defect in that delegation), **L6
-residual** (26 env-independent exports still trapped behind the barrel), **L7's remaining half**
-(optional fields), **F1/R7** (per-embed-limit misvouching, no instrument by construction).
-
----
-
-## Correction to my own round-3 record
-
-My rev-15 Status-Detail called M4 *"not a re-review trigger"*. That was written before the owner's
-ruling and before steering's gating decision, and it is now wrong: the pin refresh is a
-production-code change after a verdict, so it expires this verdict and triggers a further review
-pass before QA Phase 2. Plan rev 18 records the corrected order. Steering has taken responsibility
-for the correction; I am restating it here so that this document — which is what a later reader
-consults — does not carry the superseded claim.
+**L2**, **L3**, **L5**, **L6 residual** (26 trapped exports), **L7's remaining half** (optional
+provenance fields), **F1/R7** (per-embed-limit misvouching, no instrument by construction), and
+CR-M6's **Preferred** plus the `PGHOST`/`service=` residual — the last two owner-deferred and
+steering-routed to the post-refresh pass, not omissions.
 
 ---
 
 ## Assumption Not Checked
 
-**This review assumes `pg` resolves `DATABASE_URL` at connection time exactly as the `Client`
-constructor reports it at construction time, and does not test the connection itself.** M6's
-divergence was measured from `new Client({ connectionString }).host` — the object the pool builds —
-not from an observed TCP connection to the overridden host, because directing a real connection at
-a production hostname is precisely what this chain must not do.
+**This review assumes the completeness result above transfers to the connector that will be
+installed after the pin refresh, and does not test that.** Every measurement here was taken against
+`pg` 8.11.1 / `pg-connection-string` 2.6.1 as installed at this SHA. The pin refresh changes
+`project-utils`, which is the package that owns the `pg` dependency — so the refresh is precisely
+the event that could move the connector underneath a guard whose completeness I just certified
+against it. If a newer `pg-connection-string` honours `hostaddr`, or changes the
+`config.port = result.port` precedence, then `host`/`port` stops being exhaustive and CR-M6 partly
+reopens.
 
-**Falsity signature**: a run in which `Client.host` and the host actually dialled differ — visible
-as a connection error, or a `pg_stat_activity` entry, naming a host other than the one the
-constructor reported. If that ever appears, M6's severity moves rather than disappears: it would
-mean the guard is wrong about the target in a *further* way, not that it is right.
+**Falsity signature**: after the refresh, `pg-connection-string`'s installed version differs from
+2.6.1, **or** re-running `probe-cr5-override-guard/param-class.js` reports a non-zero *"redirects
+the guard does not see"*.
 
-**Owner**: the **post-refresh review pass**, where M6's fix is reviewed and where a
-`BACKFILL_CONFIRM`-gated run against a non-production host can dial a real connection safely and
-compare the two. Named again in Next Steps.
+**Owner**: the **post-refresh review pass**, already scheduled. This is cheap to discharge there —
+the instrument is captured and re-runnable as-is, and `measured-connector-version.txt` records the
+baseline to compare against. Named again in Next Steps.
 
-My round-3 Assumption Not Checked (the eight typecheck errors exhaustively the stale-pin class)
-remains devops' at the pin-refresh commit, per steering's routing, and is not re-owned here.
+Round 4's assumption (that `pg` dials the host its `Client` constructor reports) and the
+`PGHOST`/`service=` residual are already booked to that same pass. Round 3's remains devops'.
 
 ---
 
 ## Next Steps
 
-1. **steering / devops — the pin refresh**, on your signal. D17 is satisfied: the guard is in place
-   and verified adversarially, so the ordering the owner ruled has been met.
-2. **post-refresh review pass** — M6 (Preferred: derive the guarded host from the connecting
-   parser), L10, and this round's Assumption Not Checked. That pass is the natural home for all
-   three; none needs a round before the refresh.
-3. **implementer** — M6 and L10 when that pass calls for them; L7's remaining half is already
-   recorded as on-next-touch.
+1. **steering / devops — the pin refresh**, on your signal. The owner's "close the hole first" is
+   discharged: the hole is closed, and closed completely for the class it names.
+2. **post-refresh review pass** — now carrying four items, all cheap and all with captured
+   instruments: this round's Assumption Not Checked (re-run `param-class.js`, compare the connector
+   version); round 4's assumption (a confirmation-gated dial against a non-production host);
+   the `PGHOST`/`service=` residual; and CR-M6's Preferred, which closes **L11** as a side effect.
+3. **implementer** — L11 when that pass calls for it; the `host.startsWith('(')` refinement next
+   time the file is open. Neither needs a round of its own.
 4. **qa (Phase 2)** — after the post-refresh pass, per the corrected sequencing.
 
 **Handing off to the qa subagent for test execution** — routed through steering, per the standing

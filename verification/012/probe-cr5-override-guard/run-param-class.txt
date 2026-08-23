@@ -1,0 +1,13 @@
+baseline (no params) -> authority.invalid:5432
+
+   ok   no params (control)    guardRefuses=false connects=authority.invalid:5432
+   ok   ?host=                 guardRefuses=true  connects=redirected.invalid:5432   <-- REDIRECTED
+   ok   ?port=                 guardRefuses=true  connects=authority.invalid:5432
+   ok   ?hostaddr=             guardRefuses=false connects=authority.invalid:5432
+   ok   ?HOST= (uppercase)     guardRefuses=false connects=authority.invalid:5432
+   ok   ?Host= (mixed)         guardRefuses=false connects=authority.invalid:5432
+   ok   ?%68ost= (encoded h)   guardRefuses=true  connects=redirected.invalid:5432   <-- REDIRECTED
+   ok   ?host repeated         guardRefuses=true  connects=b.invalid:5432   <-- REDIRECTED
+   ok   ?host= (empty value)   guardRefuses=true  connects=authority.invalid:5432
+
+REDIRECTS THE GUARD DOES NOT SEE = 0
