@@ -238,7 +238,40 @@ to its round-6 hash.
 
 ## Findings
 
-### CR-M7 — MEDIUM — a scope verification that is false against the artifact it describes, and not reproducible
+### CR-M7 — MEDIUM — **CLOSED at `1db8186`** — a scope verification that is false against the artifact it describes, and not reproducible
+
+> **Disposition (round 7).** Both halves recorded, per the rule that a disposition states that the
+> class is gone *and* names the check that fails if it returns.
+>
+> **1. The class is gone — sweep re-run by me, not accepted.** My own rule is to verify the sweep
+> rather than the flagged sites, and to break the predicate rather than only run it. The original
+> enumeration was phrased on the flagged instances' wording (`0 unrelated`), which would pass its
+> own hits and miss the rest of the class, so I broadened it across **all** of `agent-output`:
+> `0 unrelated` **and** `all project-utils` / `project-utils-scoped` **and**
+> `no|none|zero unrelated`. 17 hits total (5 code-review, 3 planning, 9 implementation).
+> **Every one is a correction, a citation of the claim as false, or a warning not to inherit it.
+> Zero standing uncorrected claims.** The third phrasing returned nothing, which is itself
+> informative — the class had exactly the two surface forms.
+> *Instrument blind spot, stated:* my context-display predicate used 75 leading characters and so
+> could not render hits nearer than that to a line start; the two `project-utils-scoped` hits
+> (implementation lines 271 and 276-277) were confirmed by direct read instead — they are the
+> preserved original transcript with its correction immediately beneath.
+>
+> **2. The check that fails if it returns: `no test`, explicitly.** The class is a *record* defect —
+> a number computed against the working tree instead of the commit — with no code surface to guard.
+> The durable control the implementer adopted is the habit (`git show <sha> -- <path>`, never the
+> working tree), which no executable check can enforce from here. Building a lockfile-claim
+> verifier would be the scope expansion D18 forbids, so it is declined deliberately rather than
+> overlooked.
+>
+> The fix is better than the Minimum I asked for: corrections placed **beside** the originals rather
+> than rewritten over them, the root cause found and recorded (the scope check ran against the
+> working tree before `git commit --only` fixed the commit's content), the Preferred habit adopted,
+> and `49f2bf1`'s commit message deliberately left unrewritten with this document named as the
+> record to trust. That is the right call in a shared tree.
+
+**Original finding, preserved as written:**
+
 
 **Location**: `website` commit `49f2bf1` message body; and
 `agent-output/implementation/012-message-valid-field-implementation.md` at four sites — the
@@ -347,20 +380,37 @@ Round 3's assumption remains **devops'**, at the pin-refresh commit. Not mine, a
 
 ## Next Steps
 
-1. **implementer** — CR-M7's Minimum: correct the four claim sites. The Preferred (verify from the
-   commit, not the working tree) is a habit change, not a code change, and needs no round.
+1. ~~**implementer** — CR-M7's Minimum~~ — **done at `1db8186`**, Minimum and Preferred both; the
+   sweep is re-run and the disposition recorded at the finding. Nothing outstanding.
 2. **qa (Phase 2)** — complete at `17cada0` (rev 6, PASS). Round 6's Assumption Not Checked is
    discharged there.
-3. **devops** — at release, **do not inherit "0 unrelated"**: the lockfile carries 28 package moves
-   beyond the pin. Round 3's assumption is still yours at the pin-refresh commit.
+3. **devops** — at release, **do not inherit "0 unrelated"** from any upstream document *or from
+   `49f2bf1`'s commit message*, which still carries the superseded claim by deliberate choice: the
+   lockfile carries 436 unrelated changed lines and 28 package moves beyond the pin. Round 3's
+   assumption is still yours at the pin-refresh commit.
 4. **handoff register** — CR-L11 under D18.
 
 5. **uat** — clear to start against `c85945f`. **Owns round 7's Assumption Not Checked**: this
    round assumed the two added specs' *runtime* result is unchanged from QA's Phase 2 run, on the
    ground that vitest collected both files before the commit as it does after. I did not re-run the
-   suite — that is QA's instrument, not mine. Falsity signature: a suite count at `c85945f` other
-   than QA's recorded **22 files / 411 tests**, on source that did not move. Closing it costs one
-   `npx vitest run`, and it is named here so it is routed rather than shelved.
+   suite — that is QA's instrument, not mine.
+
+   **Which of QA's two figures is the baseline, since the question was raised.** They are not in
+   conflict; they are the same measurement of two different trees:
+
+   | QA figure | Configuration | Corresponds to |
+   |---|---|---|
+   | 20 files / 402 tests | `npx vitest run --exclude "**/012-json-editor-repair-path**"` at `17cada0`, before the MS-8 spec existed | committed tree at **`17cada0`** |
+   | 22 files / 411 tests | bare `npx vitest run`, both instruments present | committed tree at **`c85945f`** |
+
+   Confirmed from git rather than from the arithmetic: tracked `src/**/*.test.ts` is **20 at
+   `17cada0`** and **22 at `c85945f`**. The commit is exactly what turned the second configuration
+   into the committed tree, so `c85945f`'s baseline is unambiguously **22 files / 411 tests**
+   (QA's own note that 408 preceded the MS-8 guard's 3 tests reconciles it: 402 + 6 + 3 = 411).
+
+   Falsity signature: a suite count at `c85945f` other than 22 / 411, on source that did not move.
+   Closing it costs one `npx vitest run` and belongs to **qa**, whose instrument it is — routed
+   there rather than to UAT's reading.
 
 **Handing off to the uat agent** — routed through steering, per the standing correction that
 stage-to-stage handoffs go through that thread.
