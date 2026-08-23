@@ -19,25 +19,11 @@ in its commit message what the deleted text carried and where it now lives.
 
 ---
 
-## 1. Blocking — the production DDL
+## 1. Blocking — nothing
 
-**Run this against the production database:**
-
-```sql
-ALTER TABLE "Messages" ADD COLUMN valid BOOLEAN;
-```
-
-**Pass:** the statement succeeds. Existing rows get `NULL`; the live site does not know the column
-exists, so nothing changes until the `website` deploy. Safe to run at any time.
-
-**Then tell steering it is done.** The deploy is a *separate* approval and does not follow from this
-one — you said a push to `master` auto-deploys, so approving the deploy is approving production
-changing that instant. Steering will come back for it.
-
-**Notes, so you do not have to check:** the table is `Messages`, plural, though the Prisma model is
-singular. The column is nullable, matching the schema at the `project-utils` commit already pushed.
-There is no migration tooling in that repo to run instead — this is a manual statement in your own
-session, which is why no agent could do it.
+The DDL is done and the release is approved; devops is executing the push. The next thing that needs
+you is the backfill run, which is not runnable until the deploy lands — it will be listed here, with
+its steps, the moment it is.
 
 ## 2. Only you can do these — no agent may
 
