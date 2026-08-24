@@ -1,4 +1,4 @@
-%% Hooks.gg workspace architecture — companion to system-architecture.md (2026-08-23)
+%% Hooks.gg workspace architecture — companion to system-architecture.md (2026-08-24)
 graph TB
     subgraph workspace["/usr/local/bin/hooks (plain directory, four sibling repos)"]
         subgraph website["website (hooks-gg/website, master) — Next.js 16 / React 19 — deploys on Vercel"]
@@ -19,7 +19,7 @@ graph TB
     s3[("S3-compatible CDN\npreviews/{id}/{nonce}.jpeg")]
     refs["Reference clones (out of tree)\n../discord-api-types (upstream)\n../embed-generator (upstream)"]
 
-    browser["Viewer (preview URLs)"]
+    browser["Browser (composer + viewer)"]
     appui --> api
     browser -->|"GET cdn.hooks.gg/previews/…\n(CNAME → hooks.nyc3.cdn.digitaloceanspaces.com)"| s3
     api -->|Kysely| pu
@@ -31,5 +31,6 @@ graph TB
     discord -->|interactions| edge
     edge --> botmod
     edge -->|server commands| srv
-    api -->|sendWebhook + V2 flag| discord
+    browser -->|"stripKeys() applies V2 flag\nsendWebhook() → with_components=true"| discord
+    browser -->|"message.upsert (tRPC)"| api
     website -.consults.-> refs
