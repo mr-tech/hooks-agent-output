@@ -1,0 +1,16 @@
+CR12 — the M2-c overwrite confirmation body at 299b842.
+Dialog is: title "Are you sure?" / this message / button "Load".
+Prior text on every path was: "This will overwrite the current message."
+
+  edit text inside a container     -> "No component or mode changes."
+  replace a classic message body   -> "No component or mode changes."
+  replace all embeds               -> "No component or mode changes."
+  collapse 3 containers to 1       -> "No component or mode changes."
+  remove an Action Row             -> "This will remove Action Row."
+  add a Container + mode switch    -> "This will add Container; switch from Classic to Components V2."
+  flag-only mode change            -> "This will switch from Classic to Components V2."
+
+The last three are correct and are a real improvement.
+The first four are Loads that overwrite the user's message and tell them
+"No component or mode changes." — the overwrite warning is gone from the
+dominant path, which is editing the seeded JSON and loading it back.

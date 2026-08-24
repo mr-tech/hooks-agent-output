@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/agent-output/verification/013/probe-cr12-load-confirmation
+
+
+ Test Files  1 passed (1)
+      Tests  13 passed (13)
+   Start at  08:58:56
+   Duration  648ms (transform 120ms, setup 0ms, import 476ms, tests 42ms, environment 0ms)
+

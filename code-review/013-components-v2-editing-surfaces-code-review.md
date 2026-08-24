@@ -2,25 +2,26 @@
 ID: 013
 Origin: 013
 UUID: 22d69e06
-Reviewed-At: "Round 11 (current, binding): 54fed635686b3dcd813c95bb464056ff97a00a6a (chain/013-components-v2-editing-surfaces) — the round-10 fix round, one file 0/1, a pure deletion. Verified at the start of the pass and again at the end; the tree did not move. Superseded, retained for the record: round 10 at 82af843, round 9 at ee3bc3e, round 8 at b3f8ea9, round 7 at 87cfbd8, round 6 at 816d7fd, round 5 at 0c8fad5, round 4 at 92ce026, round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
+Reviewed-At: "Round 12 (current, binding): 299b842d22712c6922bdae72797d53b8b6e4afa4 (chain/013-components-v2-editing-surfaces) — M2-c, the Load overwrite confirmation; three files, utils 57/6, JsonModalBody 11/5, new spec 125/0. Verified at the start of the pass and again at the end; the tree did not move. Superseded, retained for the record: round 11 at 54fed63, round 10 at 82af843, round 9 at ee3bc3e, round 8 at b3f8ea9, round 7 at 87cfbd8, round 6 at 816d7fd, round 5 at 0c8fad5, round 4 at 92ce026, round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
 Status: In Review
 Status-Detail: >-
-  Round 11, the round-10 fix round, at 54fed63. APPROVED — no findings hold the tree, and EVERY
-  finding this reviewer raised against the paste surface is now closed or routed. MEDIUM-2's residual
-  is CLOSED: a one-line pure deletion of the catch-branch reset, established by probe-cr11 (17/17)
-  whose two arms are one transcription parameterised by a single boolean, so the difference is
-  attributable to that line alone. Attacked for holes the deletion could open rather than only
-  confirming it: a genuine class change still warns across an invalid state, row E does not swallow a
-  following settled warning, and a first-ever warning is not suppressed. The row-A excursion is
-  deliberately preserved and now ASSERTED, so a later tidy cannot silently remove a warning the review
-  chose to keep. INSTRUMENT DEFECT FOUND AND RECORDED: probe-cr10 is stale by construction — it
-  hardcodes the pre-fix effect body and so reported 12/12 at 54fed63 too, on a tree where the defect
-  is fixed; it is superseded by CR11 and its passing is not evidence about any later tree. This is the
-  probe-cr1 hazard reproduced in a new instrument, caught only by re-running the old probe against the
-  new tree. CR11 shares the architecture and is not exempted: it establishes what the line DOES, while
-  the diff establishes the line is GONE — neither closes the finding alone. Verification re-run:
-  tsc 0, eslint 0, expected-six MATCH at clean 481/475/6, CR3 122/122, CR9 24/24, T2 EMPTY with both
-  controls for the fourth consecutive round. Plan Status field NOT set, per both seams and steering.
+  Round 12, M2-c at 299b842. REJECTED — one HIGH. The new functions are correct and M2-c's stated
+  criterion IS met: added/removed top-level component types and a mode change are named well, and the
+  flag-only case is caught because isMessageV2 was reused rather than reimplemented. The defect is what
+  the wiring REMOVED. describeLoadDiff returns "No component or mode changes." when the type sets and
+  mode match, and that string replaced "This will overwrite the current message." as the ENTIRE body of
+  the confirmation (title is generic, button is a verb). Executed (probe-cr12, 13/13): on the modal's
+  DOMINANT path — the modal is seeded with the current message, so the normal Load is editing that JSON
+  and loading it back — the user overwrites their message and is told "No component or mode changes.".
+  Same for content replaced, embeds replaced, and three containers collapsing to one. The repo's other
+  two confirmations both state their consequence; after this commit the Load one uniquely does not.
+  Class: a confirmation asserting absence of change over a wider scope than the comparison it performed.
+  Fix is small — make the overwrite sentence unconditional and the diff additive; explicitly NOT widening
+  the diff, which would not fix the class. TDD is the strongest on this plan: red verified independently
+  at 299b842~1 (12 failed), and because an existence-red proves only absence, three mutants were run and
+  all killed (7/1/3). joinWithAnd's behaviour-preservation settled by execution — 2000-case randomised
+  differential with a positive control, identical throughout. import/no-cycle confirmed pre-existing from
+  the line-17 import at 54fed63. Pairing run; T2 empty for the fifth consecutive round.
 ---
 
 # Code Review: Plan 013 — Components V2 support across the editing surfaces (M1 only)
@@ -36,6 +37,7 @@ Status-Detail: >-
 
 | Date | Agent Handoff | Request | Summary |
 |---|---|---|---|
+| 2026-08-24 | implementer-hooks-013-3 (direct, per D22/D26) | Review M2-c at `299b842` (three files), doc `b7a7801` | **Round 12. REJECTED — one HIGH.** M2-c's criterion is met and the new functions are correct; the defect is what the wiring **removed**. `describeLoadDiff`'s no-diff branch returns "No component or mode changes.", and that replaced "This will overwrite the current message." as the entire confirmation body. Executed (`probe-cr12`, 13/13): on the **dominant** path — the modal is seeded with the current message — a user overwriting their own edited message is told there are no changes; same for content replaced, embeds replaced, and 3 containers collapsing to 1. The repo's other two confirmations both state their consequence. **TDD verified, not accepted**: red reproduced at `299b842~1` (12 failed), and since an existence-red proves only absence, **three mutants run, all killed (7/1/3)**. `joinWithAnd`'s behaviour-preservation **settled by execution** — 2000-case randomised differential with a positive control. `import/no-cycle` confirmed pre-existing from the line-17 import. Pairing run; T2 empty for the fifth round. |
 | 2026-08-24 | implementer-hooks-013-3 (direct, per D22/D26) | Re-verify the round-10 fix at `54fed63` (`0/1`, pure deletion), doc `ee1b3a3` | **Round 11. APPROVED.** MEDIUM-2 residual CLOSED — `probe-cr11` (17/17), two arms differing only by the deleted line, so the closure is a measurement not an assertion. Attacked the deletion for suppression holes rather than only confirming it: genuine class changes still warn across an invalid state, row E does not swallow a following warning, the first warning is not suppressed. The row-A re-fire is deliberately preserved and now **asserted**, so a later tidy cannot remove a warning the review chose to keep. **Instrument defect found**: `probe-cr10` is **stale by construction** — it hardcodes the pre-fix body and reported 12/12 at `54fed63` too, where the defect is fixed. Superseded by CR11; the `probe-cr1` hazard reproduced in a new instrument, caught only by re-running the old probe against the new tree. CR11 not exempted from the same critique: it establishes what the line does, the diff establishes it is gone, neither alone suffices. All round-9 findings now closed or routed; pairing run, T2 empty for the fourth round. |
 | 2026-08-24 | implementer-hooks-013-3 (direct, per D22/D26) | Re-review the round-9 fix round at `82af843` (`33/4`), doc `46d84aa` | **Round 10. APPROVED_WITH_COMMENTS.** Fix round, so the guard was **attacked, not read**. **MEDIUM-3 CLOSED structurally** — the Preferred fix taken when the Minimum was on offer; `dismissedChoice` + a Resolve button re-entering the same object, cleared on text change. Captured check `probe-cr10` CR10-D **with a pre-fix control**, so it fails if the class returns. **LOW-2 CLOSED** — and the implementer's sweep predicate was **broken and re-run**: theirs matched line-leading `//` only, blind to trailing, block, JSDoc and JSX comments; all four re-swept, zero of any form. **MEDIUM-2 NOT CLOSED** — `probe-cr10` (12/12) falsifies the claim that the transition guard removes the class: the `catch` branch clears `lastNoticeClassRef`, so any unparseable intermediate re-arms the notice and the same warning re-fires, including on text that ends byte-identical; 8 round trips → 9 identical toasts, a measured **lower bound**. The row-A excursion also re-fires but is **defensible and deliberately not raised** — lumping them would have demanded a worse guard. Residual is one line, does not hold the tree, and a reasoned disagreement goes to steering. MEDIUM-1 untouched as routed (`probe-cr9` 24/24). Pairing run both halves; T2 empty at `82af843` with both controls. |
 | 2026-08-24 | implementer-hooks-013-3 (direct, per D22/D26) + code-reviewer-hooks-013-2 seam flush (`7e764f2`) | First pass on `ee3bc3e` — the paste surface, M8-F/M8-E parity, one file 69/7 | **Round 9. APPROVED_WITH_COMMENTS.** Third generation on this plan; this is the review the second seam names as the successor's first action. Reviewed as a FIRST PASS, not a fix round — the sweep is the whole surface. Verification re-run and nothing inherited: tsc 0, eslint 0, expected-six MATCH at clean 481/475/6, CR3 122/122, the R9 sweeps, and T2 EMPTY at `ee3bc3e` with path and predicate controls (M8-G still unwired; persist attack still not owed). Built `probe-cr9-paste-surface` (24/24) and with it established by EXECUTION that the disposition is taken on the post-`z.preprocess` object, so `filterSupportedComponents` deletes V2 components before `resolveContentLoss` sees them and row E flips to a settled row — M8-E's "nothing lands until you choose" is bypassed for an enumerated input class, and the notice names only the flag. An old-vs-new differential shows the commit changed WHICH half is silently lost rather than closing the silence. Routed to **M4-b** (D9) rather than held against the tree. Two cheap unit-own MEDIUMs: `toast.warn` fired from a keystroke-keyed effect, and Cancel stranding the surface with no stated cause. **Record correction**: `system-architecture.md` and the 013 architecture findings BOTH EXIST and existed at rounds 6/7/8 — round 6's absence claim is false and three verdicts were scoped by it; re-checked here, not inherited. Plan Status field NOT set, per both seams and steering. |
@@ -4196,3 +4198,223 @@ row D → row E → Cancel → row D, counting toasts. Named again in Next Steps
    round owes the persist-path attack against a running instance, asserting the negative **on the
    persistence surface**, never on a response status; and `.env.local` points at a **remote hosted
    database** — a dummy env with `DATABASE_URL` on a dead port is what makes the oracle work.
+
+---
+
+# ROUND 12 — M2-c, the Load overwrite confirmation, at `299b842`
+
+**Reviewed-At**: `299b842d22712c6922bdae72797d53b8b6e4afa4` (chain branch
+`chain/013-components-v2-editing-surfaces`). Verified at the start of the pass and again at the end;
+the tree did not move. `agent-output` at `b7a7801` on entry.
+
+**Verdict: REJECTED.** One HIGH. The new confirmation meets M2-c's stated criterion — it does name
+added and removed top-level component types and a mode change, and it does it well — but **it replaced
+the sentence telling the user an overwrite is happening, and on the modal's dominant path the user is
+now told "No component or mode changes." while their message is overwritten.** That is a regression in
+a confirmation guarding an irreversible, data-destroying action. The fix is small and local.
+
+The TDD on this unit is the strongest I have seen on this plan, and the finding is not about the new
+functions — both are correct. It is about what the wiring removed.
+
+## Scope actually assessed
+
+`git diff --numstat 54fed63 299b842` → three files: `src/utils/index.ts` (57/6),
+`JsonModalBody.tsx` (11/5), and a new spec `013-m2c-load-diff.test.ts` (125/0). Read at `299b842` via
+`git show`.
+
+## Verification re-run — nothing inherited
+
+| claim | instrument | result |
+|---|---|---|
+| typecheck | `npx tsc --noEmit` | **exit 0** |
+| lint, both changed production files | `npx eslint … --max-warnings=0` | **1 error, `import/no-cycle`** — pre-existing, see below |
+| failure **set** unchanged | `check-expected-six.sh 299b842` | **MATCH**, clean **493/487/6** |
+| the pairing's other half | `probe-cr3-mode-predicate/` | **122/122** |
+| earlier findings still where routed | `probe-cr9` / `probe-cr11` | **24/24** / **17/17** |
+| this round | `probe-cr12-load-confirmation/` | **13/13** |
+
+**Pairing run, both halves.** **T2 at `299b842`: empty**, both controls firing — **fifth consecutive
+round; M8-G still unwired.** The implementer's true figure **493/487/6** is reproduced exactly.
+
+**The `import/no-cycle` is pre-existing and I established that rather than accepting it.** The
+instruments README records that eslint cannot run from a `git archive` extraction, so provenance is
+answered from the real tree plus `git show`:
+
+```
+54fed63:src/utils/index.ts:17  import { applyModeSwitch } from '~/utils/messageMode';
+299b842:src/utils/index.ts:17  import { applyModeSwitch, isMessageV2 } from '~/utils/messageMode';
+```
+
+Line 17 already imported from that module. Adding a second binding to the **same import statement**
+cannot create a cycle the statement did not already carry. Round 5's INFO-1, introduced at `2f49182`.
+
+## TDD compliance — verified, not accepted, and it holds
+
+**Red verified independently.** I extracted `299b842~1`, dropped the new spec in, and ran it:
+**12 failed**, every one `computeLoadDiff is not a function` / `describeLoadDiff is not a function`.
+The implementer's 12/12 red claim is exact.
+
+**But "is not a function" only proves absence, so I mutated the implementation to establish that the
+spec discriminates behaviour**, which an all-existence red does not show:
+
+| mutant | tests killed |
+|---|---|
+| M1 — dedupe removed (`Set` → per-instance) | **7 of 12** |
+| M2 — mode taken from components only, ignoring the flag | **1 of 12** (the flag-only test — precisely the one that exists for it) |
+| M3 — `addedTypes` / `removedTypes` swapped | **3 of 12** |
+| (restored) | 12/12 pass |
+
+**Expectations are independent**: the fixtures assert literal strings (`'Action Row'`, `'Container'`)
+and the literal `32768`, not values re-derived from `TOP_LEVEL_COMPONENT_LABELS` or
+`IS_COMPONENTS_V2_FLAG`. A test computing its expectation from the map the code reads could not fail
+under a wrong map; these can and would.
+
+**The behaviour-preservation claim for `joinWithAnd` is settled by execution, not by the 7/7 re-run.**
+CR12-E compares the real post-extraction `describeDropSet` against the `54fed63` body transcribed
+verbatim, over a **2000-case deterministic randomised corpus** (no `Math.random`), **with a positive
+control** confirming the comparator reports DIFFER when the old body is perturbed, and a check that the
+zero-length early return survived. **Identical on all 2000.** The extraction is behaviour-preserving.
+
+## Findings
+
+### HIGH-1 — the Load confirmation no longer says an overwrite is happening, and on the dominant path it says the opposite
+
+**Location**: `src/utils/index.ts`, `describeLoadDiff` — the `if (!parts.length) return 'No component
+or mode changes.';` branch; and `JsonModalBody.tsx`'s `withConfirmation({ message: … })`, which
+replaced `'This will overwrite the current message.'` with the computed line.
+
+**The dialog the user reads** is `title: 'Are you sure?'` / this message / button `'Load'`. The title
+is generic and the button is a verb — **`message` is the entire informative body.**
+
+**Executed** (`probe-cr12-load-confirmation/`, 13/13, `dialog-table.txt`):
+
+```
+  edit text inside a container     -> "No component or mode changes."
+  replace a classic message body   -> "No component or mode changes."
+  replace all embeds               -> "No component or mode changes."
+  collapse 3 containers to 1       -> "No component or mode changes."
+  remove an Action Row             -> "This will remove Action Row."
+  add a Container + mode switch    -> "This will add Container; switch from Classic to Components V2."
+  flag-only mode change            -> "This will switch from Classic to Components V2."
+```
+
+**The last three are correct, useful, and a real improvement over the generic sentence.** The first
+four are the problem, and the first is the *dominant* path: **the modal is seeded with the current
+message** (`jsonModalSeed(message)`), so the overwhelmingly common Load is "I edited this message's own
+JSON and I am loading it back" — which changes text inside components, leaves top-level types
+identical, and now produces **"No component or mode changes."**
+
+**Class**: *a confirmation that asserts the absence of change over a wider scope than the comparison it
+actually performed.* The comparison is top-level component **types** plus mode. The sentence is read as
+"nothing will change", and it displaced the only statement that an overwrite occurs.
+
+**Enumeration**: `git grep -c "describeLoadDiff\|computeLoadDiff" 299b842 -- 'src/**/*.ts' 'src/**/*.tsx'`
+→ 3 hits: `JsonModalBody.tsx:2` (**the sole production consumer**), `src/utils/index.ts:2`
+(definitions), `013-m2c-load-diff.test.ts:16`. **1 production call site, and it is a member.**
+`git grep -n "overwrite"` over `src` shows the word now survives in `JsonModalBody.tsx` **only on the
+`validatedDraft`-null fallback**, which the implementer correctly notes is unreachable while Load is
+disabled without a validated draft — so in practice **the word is gone from the reachable dialog**.
+**Does not match**: a confirmation whose text is composed elsewhere or passed as a variable; and it
+does not evaluate the other two `withConfirmation` sites, which I read separately.
+
+**The house style corroborates this.** The repo's other two confirmations both state their consequence:
+`'Are you sure you want to clear this message?'` and `'Are you sure you want to refresh this message?
+Your changes will be lost.'` After this commit the Load confirmation is the only destructive one that
+does not.
+
+**M2-c's stated criterion is met, and I want that on the record.** Its class is *"every Load whose
+accepted object differs from the current `data` in components or flags"*, and over that class the
+confirmation names the difference in one line — correctly, as the last three rows show. A Load
+differing only in `content`, `embeds`, component **count** or **nesting** is outside that class, so the
+criterion does not require naming it. **The defect is not a failure of M2-c; it is a regression
+introduced alongside it** — the base warning was removed when the criterion only asked for it to be
+augmented.
+
+**Required Action — eliminate the class, not the four rows.**
+- **Preferred (structural)**: make the overwrite statement unconditional and the diff an addition to
+  it, so no computed branch can ever produce a body that omits the consequence. Something of the shape
+  `This will overwrite the current message.` + (when there is a diff) ` It will remove …; add …; switch
+  ….` The no-diff branch then reads as an overwrite with no *component or mode* change, which is both
+  true and complete.
+- **Minimum**: change the no-diff return so it still names the overwrite.
+
+**Do not** simply widen the diff to cover content, embeds, counts and nesting. That is a larger change,
+it is outside M2-c's criterion, and it would not fix the class — a wider comparison can still come up
+empty and would assert absence just as confidently.
+
+**Magnitude**: reachability is not hypothesised — the seeded-modal path is how this dialog is normally
+reached, and CR12-A drives it. **Unmeasured**: the real-world ratio of edit-and-reload Loads to
+paste-a-different-message Loads.
+
+### INFO-1 — the spec's "no changes" test is purely negative, and it is what let HIGH-1 through
+
+`describeLoadDiff`'s no-change test asserts only `not.toMatch(/remove/i)`, `not.toMatch(/add/i)`,
+`not.toMatch(/switch/i)`. **Every one of those passes for the empty string.** Nothing pins what the
+user is actually told on that branch, which is exactly the branch HIGH-1 is about.
+
+The rest of the spec is strong — this one test is the gap, and it is the same shape as the standing
+caution about negative assertions: a test that says only what a string *lacks* cannot notice that it
+also lacks the thing that mattered. **Required Action**: whatever text the HIGH-1 fix lands on, pin it
+positively on that branch.
+
+## Positive observations
+
+- **The TDD is the best on this plan.** Genuine red at `299b842~1`, independent literal expectations,
+  and a spec that killed all three mutants I aimed at it — including a mutant on the flag-only mode
+  path, which is the subtle one and has a test written specifically for it.
+- **`isMessageV2` reused rather than reimplemented**, so the mode question is answered by the same
+  predicate M7-a's criterion names. That is the right call and it is why M2 catches a flag-only change.
+- **The `joinWithAnd` extraction is a real DRY win and is genuinely behaviour-preserving** — 2000 cases,
+  identical, with a positive control. Extracting it *while* adding the second consumer is the right
+  moment to do it.
+- **The scope note is correct**: computing the diff pre-disposition is right, because this confirmation
+  fires before Load commits anything, and M8-E's per-option `describeDropSet` remains the separate
+  statement for row E's own choices.
+- **The `validated` → `validatedDraft` rename** resolves a real shadow against `commitSettled`'s
+  parameter rather than suppressing the rule.
+
+## Assumption Not Checked
+
+**This review assumes `message?.data` — the "current" side of the diff — is the same object the Load
+will actually overwrite, and does not test it.** `computeLoadDiff(message?.data ?? {}, validatedDraft)`
+reads provider state at render time, while `commitSettled` writes at confirm time. If anything mutates
+`message.data` between the dialog opening and the user confirming (a cross-tab update, a Pusher event —
+the architecture record names Pusher on this surface), the diff the user read describes a state that no
+longer exists.
+
+**Falsity signature**: a user who leaves the confirmation dialog open while another tab edits the same
+message sees a diff naming types that are no longer present, and confirms an overwrite whose stated
+effect differs from its real one.
+
+**Owner: QA**, at Phase 2, with the cross-tab work M1 already touches; the discriminating check is to
+open the dialog, mutate `message.data` from another source, and compare the rendered diff against a
+diff recomputed at confirm time. Unreachable here without a component harness. Named in Next Steps.
+
+## Captured instruments
+
+| path | what it is |
+|---|---|
+| `verification/013/probe-cr12-load-confirmation/confirmation.cr12.test.ts` | 13 assertions: the dominant path, count/nesting invisibility, three correct-behaviour controls, the prior-vs-new comparison, and CR12-E's 2000-case behaviour-preservation differential with a positive control |
+| `…/probe-cr12-load-confirmation/vitest.cr12.config.ts` | its config |
+| `…/probe-cr12-load-confirmation/run-cr12-299b842.txt` | the run — 13/13 |
+| `…/probe-cr12-load-confirmation/dialog-table.txt` | the seven dialog bodies |
+| `…/probe-cr12-load-confirmation/README.md` | the claim, the transcription limit, blind spots |
+
+**The mutation run is not captured as a file** — it was three in-place edits to a `/tmp` extraction,
+reproduced in the round-12 table above with its exact mutants. `no test` for it as a standing
+instrument: it is a one-off audit of a spec, not a property of the tree, and re-running it means
+re-applying the three mutants listed.
+
+## Required Actions
+
+1. **HIGH-1** — the confirmation must state the overwrite on every reachable path. Preferred: make the
+   overwrite sentence unconditional and the diff additive.
+2. **INFO-1** — pin the no-diff branch's text positively once HIGH-1 lands.
+
+## Next Steps
+
+1. **`implementer-hooks-013-3`** — HIGH-1 then INFO-1. Both are local to `describeLoadDiff` and its one
+   call site; neither needs a new function.
+2. **QA** — this round's Assumption Not Checked (the diff is computed at render, applied at confirm);
+   plus the carried ones from rounds 9 and 11, and round-8 INFO-1.
+3. **A planner pass, when that queue reopens** — MEDIUM-1's reach into M4's Risks, unchanged.
