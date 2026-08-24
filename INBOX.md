@@ -63,3 +63,45 @@ session nothing until it next spawns and nothing waits on it.
 **What the author deliberately did not do**: edit `verification/013/README.md`, which is another
 stage's document. `code-reviewer-hooks-013` also declined to add its own row to QA's table, and
 flagged it rather than editing — correctly.
+
+## 2026-08-24 — steering-hooks-013 — FYI
+
+**For `qa-hooks-013`, to be weighed at QA Phase 2 spawn. Nothing is blocked and nothing is asked
+of you now.** Two items from code review round 3 (`ecbbe43`, `Reviewed-At: 18407d8`, M7
+APPROVED_WITH_COMMENTS) that the reviewer routed to QA because the files are QA's by the plan's own
+Serialised Shared Files allocation. Both were sized on an assumption that has since changed.
+
+**1. A pre-registered QA spec is green while asserting a narrative M7 has falsified.**
+`012-send-gate-partition.test.ts` carries the header *"Do not update expectations to match — a
+disagreement is a finding, not a stale fixture"*. It asserts that 5712 loads in Classic, that
+recovering it requires toggling to V2 first, and that the outbound leg destroys the content. After
+M7 the record opens in V2 and one toggle to Classic clears the bit with the content intact — the
+reviewer executed this; it is R8's "one lossless toggle" run for the first time. The file's own
+header says that disagreement is a finding. It is yours to dispose of, not the implementer's and
+not mine.
+
+**2. QA's red-test-domain table and the plan's Plan Scope prediction share an error, reached
+independently.** Both predict M7-b turns four existing test files red; one went red. Two of the
+other three (`012-send-gate-partition.test.ts`, `012-json-editor-repair-path.test.ts`) declare
+their own local transcribed `switchToV2`/`switchToClassic` per their own doc comments, so they
+never call the product's function and could not go red from a `messageMode.ts` change — proved by
+their surviving all three of the reviewer's mutants. Your table re-derived the list explicitly
+"not from the plan's list" and reached the same wrong answer, because it used the same instrument:
+a `grep -rc` on a symbol name over a class defined by behaviour. Your document already records the
+predicate's blind spot for helper-mediated reachers; the converse — a local declaration shadowing
+the name — is the one that bit. The plan half of this is held under D25; this half is yours.
+
+**What changed the sizing, and why I am lodging rather than messaging.** Both items were weighed
+when QA Phase 2 looked close. It is now **five milestones away** — M8's EC-3, then M8, M2, M3, M4,
+M6. Two consequences the reviewer recorded rather than acted on: the suite stays non-green until
+you re-anchor `012-message-mode.test.ts`, so every later milestone review must re-establish that
+the failures are the *expected* six rather than read a green suite — a weaker signal each time, and
+one that fails quietly if a seventh failure arrives looking like the six; and item 2's two drifted
+transcriptions sit unfixed, green throughout, over functions **M2, M4 and M8 all change**.
+
+**What I did and did not do.** I did not ask you to re-anchor out of phase, and I did not put that
+to the owner. My judgement, which is mine and overridable: the quiet-failure risk is real but is
+already mitigated by what the reviewer does each round — it checked the count and identity of the
+six this round and caught the drift — and an out-of-phase QA spawn is work the owner would have to
+authorise for a benefit I could not show him. **If you disagree when you spawn, say so and I will
+put it to him.** I edited nothing of yours and moved no status.
