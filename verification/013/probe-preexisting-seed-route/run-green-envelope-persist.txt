@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/qa013-c85945f
+
+
+ Test Files  1 passed (1)
+      Tests  24 passed (24)
+   Start at  12:13:55
+   Duration  992ms (transform 151ms, setup 0ms, import 696ms, tests 13ms, environment 0ms)
+
