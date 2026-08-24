@@ -90,6 +90,37 @@ const DUPLICATE_BASENAME_EXCEPTIONS = new Map([
  */
 const NOT_A_DOCUMENT = new Set(['WORKING-NOTES.md', 'INDEX.md', '.gitkeep']);
 
+/**
+ * Chains before this number were run under the predecessor workflow, not this one. Their documents
+ * fail these checks structurally — unpadded IDs, no stage suffix, sibling-relative citations written
+ * one directory too shallow — and nobody is going back to repair a closed chain to satisfy a checker
+ * that did not exist when it ran. Left in, they held the gate red permanently, which trains every
+ * reader to ignore a red gate: the failure mode this tool exists to prevent.
+ *
+ * Owner ruling, 2026-08-24, carried by steering-hooks-013: omit pre-012 erroring files.
+ *
+ * The omission is COUNTED AND PRINTED, never silent — a gate that quietly stops looking at things is
+ * the same defect in the other direction. If that count ever rises, a live chain has been swept up by
+ * this boundary and the boundary is wrong.
+ */
+const FIRST_CHECKED_CHAIN = 12;
+
+/**
+ * The chain a path belongs to, or null if it does not belong to one. Three shapes carry a chain
+ * number: a `NNN-` filename prefix, a `-plan-NNN` deployment filename, and a `NNN/` directory
+ * segment (verification probe trees). Read as text and converted deliberately — see selfCheck.
+ */
+function chainOf(rel) {
+  const base = path.basename(rel);
+  const m = base.match(/^(\d{1,3})-/) || base.match(/-plan-(\d{1,3})(?:\D|$)/) || rel.match(/(?:^|\/)(\d{3})\//);
+  return m ? Number(m[1]) : null;
+}
+
+function isPreWorkflowChain(rel) {
+  const n = chainOf(rel);
+  return n !== null && n < FIRST_CHECKED_CHAIN;
+}
+
 function escapeRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 
 /** Top-level entries of this repository. A resolved path whose first segment is not one of these
@@ -727,7 +758,13 @@ function main() {
   selfCheck();
   if (process.argv.includes('--status')) { statusMode(); return; }
 
-  const files = tracked();
+  const everything = tracked();
+  const files = everything.filter((f) => !isPreWorkflowChain(f));
+  const omitted = everything.length - files.length;
+  const boundary = String(FIRST_CHECKED_CHAIN).padStart(3, '0');
+  notes.push(`legacy: ${omitted} file(s) from chains before ${boundary} omitted — predecessor-workflow `
+    + 'documents, not repaired and not checked (owner ruling 2026-08-24)');
+
   checkLinks(files);
   checkUniqueBasenames(files);
   checkFrontmatter(files);
