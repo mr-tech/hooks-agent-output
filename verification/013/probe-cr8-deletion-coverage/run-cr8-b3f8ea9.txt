@@ -1,0 +1,39 @@
+Round 8, tree b3f8ea9. All runs from an isolated `git archive` extraction; the shared website
+working tree was never modified.
+
+=== 1. Did the deletion lose coverage? (five mutants, POST-deletion file, 31 tests) ===
+BASELINE                                        31 passed
+M1  switchToV2 stops clearing embeds            2 failed | 29 passed
+M2  switchToV2 stops clearing content           6 failed | 25 passed
+M3  row E ignores chosenMode, always classic    1 failed | 30 passed
+M4  switchToV2 injects a stray embed            7 failed | 24 passed   <- built for the DELETED test's unique draft
+M5  applyDisposition drops the row-E guard      1 failed | 30 passed
+=> all five still caught after the deletion. Zero detection capability lost.
+
+=== 2. Mutant x test dominance matrix, applyDisposition block (6 tests, 14 mutants) ===
+kill sets:
+  row A/settled                 ['M10', 'M12']
+  row B/C settled               ['M4', 'M8', 'M9', 'M11']
+  row D settled                 ['M7', 'M10', 'M11', 'M12']
+  row E with no chosen mode     ['M5']
+  row E with the classic mode   ['M6', 'M12']
+  row E with the v2 mode        ['M1', 'M2', 'M3', 'M4', 'M8']
+=> with 14 mutants, NO dominance survives.
+
+Four dominance reports along the way, all artifacts of an incomplete mutant set:
+  'row B/C settled' < 'row E v2'      dissolved by M9/M10/M11 (settled-branch mutants)
+  'row A/settled' kills nothing       dissolved by M10
+  'row A/settled' < 'row B/C settled' dissolved by M12 (classic clears content)
+  'row A/settled' < 'row D settled'   dissolved by M14, executed:
+        M14 = switchToClassic ORs in a stray non-V2 bit
+        -> row A/settled  FAILED   (asserts flags === 0)
+        -> row D settled  PASSED   (asserts only that the V2 bit is clear)
+
+=== 3. M13 - switchToClassic clears embeds - across ALL of src/utils/__tests__ ===
+baseline passing: 370
+newly failing under M13: 1
+  -> "...v2 option claims 'embeds' only when the draft actually carries meaningful embeds
+      (MEDIUM-2, round 5) - an empty embeds array is not a real loss"
+=> the property is held by ONE INCIDENTAL assertion (it catches the mutant only because
+   diffDroppedKeys executes the real applyModeSwitch). Within the EC-3 applyDisposition
+   block, M13 kills 0 of 6. INFO-1 (round 8).

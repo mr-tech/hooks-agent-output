@@ -2,30 +2,27 @@
 ID: 013
 Origin: 013
 UUID: 22d69e06
-Reviewed-At: "Round 7 (current, binding): 87cfbd84943eb598d59f7276287ac661a98b1c4f (chain/013-components-v2-editing-surfaces) — covers 816d7fd..87cfbd8 in full, i.e. BOTH the round-6 fix round AND a3e758b, the M2+M8 Load wiring, which no earlier round reviewed. Verified at the start of the pass and again at the end; all files read via git show. Superseded, retained for the record: round 6 at 816d7fd, round 5 at 0c8fad5, round 4 at 92ce026, round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
+Reviewed-At: "Round 8 (current, binding): b3f8ea901b2b747252fd1e5b0b83f85bfcf6d53e (chain/013-components-v2-editing-surfaces) — the round-7 fix round, a test-only deletion (0 additions, 15 deletions, no production source touched). Verified at the start of the pass and again at the end; the tree did not move. Superseded, retained for the record: round 7 at 87cfbd8 (which covered 816d7fd..87cfbd8 in full, wiring included), round 6 at 816d7fd, round 5 at 0c8fad5, round 4 at 92ce026, round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
 Status: In Review
 Status-Detail: >-
-  Round 7, the M2+M8 Load wiring plus the round-6 fix round, at 87cfbd8. APPROVED_WITH_COMMENTS for
-  plan 013. SEPARATELY, ONE CRITICAL OUTSIDE THIS CHAIN, ESCALATED IMMEDIATE AND NOT PART OF THE 013
-  VERDICT: src/middleware.ts guards the two Statbot-facing /api/v1 endpoints with a Bearer check that
-  cannot fire — config.matcher excludes /api/v1/... so the middleware never runs there, AND the
-  branch tests startsWith('/api/v1/*'), a literal asterisk no real path contains. Both v1 handlers
-  carry no authorization of their own (2 of 2). Demonstrated against a running instance from a raw
-  socket: unauthenticated, wrong-bearer and empty-bearer GETs all return 500 from the handler's own
-  catch after it reaches the (deliberately dead) database, and POST returns the handler's own 405 —
-  the handler executes, the guard does not fire. Pre-existing; middleware.ts is untouched by chain
-  013, so it does not reject this implementation. On plan 013 itself: round 6's MEDIUM-2 is closed
-  structurally — the probe that demonstrated it can no longer be written — and the MEDIUM-1 Minimum
-  landed as an accurate record correction while its Preferred half was correctly declined and routed
-  as scope growth. The adversarial obligation, live since a3e758b, was discharged: 42 raw-socket
-  cases against message.upsert (methods, path encodings, dot segments, casings, content types,
-  duplicate headers, forged session cookies and Host) yielded 0 bypasses. The wiring's key property
-  verified rather than assumed: row E reaches neither state nor the localStorage store before a
-  choice, which matters because a newer local record beats the server's on reload. New: one MEDIUM
-  routed to steering as a plan-level question (the persist API accepts the 5712 shape from any
-  caller, so D18/D19 is a client convention rather than an enforced invariant — six payloads
-  accepted, with a negative control), one LOW (the replacement regression test again does not
-  discriminate — 4 mutants, no separation, second instance of the class), and two INFO.
+  Round 8, the round-7 fix round, at b3f8ea9. APPROVED — no findings hold the tree. A test-only
+  deletion: no production source touched, so behaviour is unchanged by construction. What a deletion
+  can do is remove coverage silently, and that is what was checked: exactly one test removed (32->31,
+  counted independently), and ZERO mutant-detection capability lost — five mutants including the one
+  built for the deleted test's own unique draft are all still caught post-deletion. Spec 31/31, tsc 0,
+  expected-six MATCH at clean 481/475/6 (the implementer's stated true figure, right for the fourth
+  consecutive round), CR3 pairing 122/122, CR7 17/17, CR6 8/10 unchanged instrument expiry. One INFO
+  to the follow-up register: switchToClassic's embed preservation is caught by exactly ONE incidental
+  assertion across 370 tests — the round-5 dropSet test, which catches it only because diffDroppedKeys
+  executes the real switch; that test has been rewritten twice in this chain, and a third rewrite
+  would drop the property's last check with a green suite. Owner QA. Also recorded, against my own
+  round-7 rule: a mutant x test dominance matrix reported a dominated pair FOUR times and all four
+  were artifacts of an incomplete mutant set, each dissolving when the missing mutant was added.
+  Dominance justifies deleting a test only when it is STRUCTURAL — strictly weaker input and a subset
+  of assertions, readable from the test itself — which is what round 7's deletion actually rested on.
+  Kill-set subset relations alone are a hypothesis about the mutant set, not a finding about tests.
+  Still open elsewhere and unchanged: the middleware.ts CRITICAL (immediate, outside this chain), the
+  plan-level MEDIUM on the persist API, and tsconfig.test.json — all with steering.
 ---
 
 # Code Review: Plan 013 — Components V2 support across the editing surfaces (M1 only)
@@ -51,6 +48,7 @@ Status-Detail: >-
 | 2026-08-24 | implementer-hooks-013 (direct, per D22) | Re-review the EC-3 fix round at `0c8fad5` (`2f49182` + `0c8fad5`) | Round 5. Sweep re-run rather than the flagged sites checked; the round fixed a **guard** and an **instrument**, so both were re-attacked from first principles rather than read. Fifth probe built (`probe-cr5-application-half/`): all three round-4 MEDIUMs verified closed by execution, the implementer's vacuous-`.toThrow()` self-catch confirmed by reintroducing the loose form (it passes against a tree with no `applyDisposition`), and the new import cycle probed in **both** module orders. Two new MEDIUM found by re-attack, both in `applyDisposition` — an untied draft/disposition pair demonstrated to destroy a body silently, and an advertised `dropSet` that disagrees with what is enacted. One INFO records my own round-4 inconsistency (the spec's header row table). **APPROVED_WITH_COMMENTS.** |
 | 2026-08-24 | implementer-hooks-013-2 (direct, per D22) | Re-review the round-5 fix round at `52e0e8a`; re-anchored mid-pass to `816d7fd` | Round 6, and the first round by this reviewer generation — carried from files (`e0f477f`, `3304fad`), not from a conversation. Every sweep and every figure in the implementation document re-derived rather than accepted, including the architecture document's absence, which was re-checked from the workspace root rather than inherited. The implementer's comment-only claim for `816d7fd` was settled by **executing** it — emitted JavaScript compared byte-for-byte at both commits — after a **positive control** caught my first comparison reporting IDENTICAL over four empty files, which is recorded in full because it is the defect this role raises against others. Sixth probe built (`probe-cr6-derivation-round/`): an exhaustive 1120-draft corpus, an oracle written independently of the implementation, a mutant control, and a purity check under frozen inputs. TDD red re-derived (10 red, matching) and **classified** — 5 discriminators, 4 pre-existence TypeErrors, 1 throw-match — so MEDIUM-2's fix is test-gated and MEDIUM-1's is not. Both round-5 MEDIUMs closed structurally; two new MEDIUM about enforcement rather than behaviour, one of them found by mutating the code to re-add the deleted parameter and watching every gate stay green. The implementer's comment sweep was verified by **breaking its predicate**, which found the class is wider than its comment-shaped form. The plan's Status field was NOT set, for the reasoning given in the verdict. **APPROVED_WITH_COMMENTS**, bound to `816d7fd` and to no other tree. |
 | 2026-08-24 | implementer-hooks-013-2 (direct, per D22) | Re-review the round-6 fix round at `87cfbd8` | Round 7. **Scope widened on my own initiative**: `87cfbd8` sits on `a3e758b`, the M2+M8 Load wiring, which no round had reviewed — reviewing only the 1-line delta would have passed the wiring through unexamined. **The adversarial-execution obligation, live since `a3e758b`, was discharged**: an isolated instance stood up with a wholly dummy environment and its database pointed at a dead port (the repository's real config names a remote hosted database, which is not mine to write to), then driven from **raw sockets** — 42 enumerated cases against `message.upsert`, **0 bypasses**, oracle fixed before the attack and asserted on the response and the server log rather than a status code. **Enumerating what the entry point branches on at module scope — a required step of that attack — surfaced a CRITICAL outside this chain**: the `/api/v1` authorization guard cannot fire, for two independent reasons, in front of two handlers with no auth of their own; demonstrated by execution and escalated IMMEDIATE, but kept out of the 013 verdict because `middleware.ts` is untouched by this chain. Seventh probe built (`probe-cr7-wiring-and-boundary/`, 17/17) with a negative control on the validator. Two hypotheses of mine were tested and **died** — the top-level component-type gap, and a `dropSet` wording concern from round 6 that `DROP_SET_LABELS` already resolves — and are recorded as such. TDD red re-derived: 3/3, all discriminating, no arity artifacts. LOW-1's class recurred in its own replacement, established by 4 mutants with no separation, so the ask is a rule rather than another point fix. **APPROVED_WITH_COMMENTS**, bound to `87cfbd8`. |
+| 2026-08-24 | implementer-hooks-013-2 (direct, per D22) | Re-review the round-7 fix round at `b3f8ea9` (LOW-1: delete a dominated regression test) | Round 8, deliberately short — a 15-line test-only deletion. Verified what a deletion can actually break rather than re-reviewing the tree: exactly one test removed (counted independently on both trees), and **zero mutant-detection capability lost**, established by re-running round 7's mutant set plus more against the post-deletion file. Pairing, probes, spec, typecheck and the pinned failure set all re-run. **One INFO found while checking the deletion**: `switchToClassic`'s embed preservation is held by exactly one *incidental* assertion across 370 tests, and that test has already been rewritten twice in this chain — routed to QA's follow-up register, not held against the tree, per the rounds-stop rule. **A correction to my own round-7 rule, recorded rather than quietly applied**: a dominance matrix reported a dominated pair four times and all four were artifacts of my mutant set, each dissolving when the missing mutant was added — so dominance licenses deletion only when it is *structural*, which is what round 7's actually rested on. **APPROVED**, bound to `b3f8ea9`. |
 
 ## Scope Actually Assessed
 
@@ -3116,3 +3114,129 @@ unrepresentable. CR6-A/B/D/E remain current.
 **QA is still not the next stage.** M3, M4, M6 and M8-G remain.
 
 **Rounds 1–6's verdicts are unaffected.** Each stands on its own tree.
+
+---
+
+# Round 8 — the round-7 fix round (a test deletion), at `b3f8ea9`
+
+**Reviewed-At**: `b3f8ea901b2b747252fd1e5b0b83f85bfcf6d53e`. Verified at the start of the pass and
+again at the end; the tree did not move during it.
+
+**Verdict: APPROVED.** No findings hold the tree. One INFO routes to the follow-up register.
+
+**This is a delta round and it is deliberately short.** The change is `0 additions, 15 deletions` in
+one test file, and `git diff --name-only 87cfbd8 b3f8ea9 | grep -v __tests__` returns **nothing** —
+no production source was touched, so production behaviour is unchanged by construction and no
+differential over it is possible or needed. What a deletion *can* do is quietly remove coverage,
+and that is what this round actually checks.
+
+## The deletion, verified rather than accepted
+
+- **Exactly one test removed, and it is the named one.** Counted independently with `grep -c` on
+  both trees (computing before the output filter, not from the diff): **32 → 31**. The removed block
+  is `it('MEDIUM-2 (round 6) regression: …')`, matching the implementer's account.
+- **Zero mutant-detection capability lost.** I re-ran round 7's mutant set — and more — against the
+  **post-deletion** file: `switchToV2` stops clearing embeds; stops clearing content; row E ignores
+  `chosenMode`; `switchToV2` *injects* a stray embed (the mutant I built specifically for the deleted
+  test's unique draft); and the row-E guard removed. **All five still caught**, the injecting mutant
+  by 7 tests. The deleted test was carrying nothing its siblings were not.
+- Spec **31/31**; `tsc --noEmit` **0**; `check-expected-six.sh b3f8ea9` **MATCH** at clean
+  **481/475/6** — exactly the implementer's stated true figure, and the fourth consecutive round in
+  which their corrected number is right. The pairing was run: `probe-cr3-mode-predicate/`
+  **122/122**, so steering's conditional judgement has not lapsed. `probe-cr7-…` **17/17**;
+  `probe-cr6-…` 8/10, the same two CR6-C instrument-expiry failures as round 7, unchanged.
+- The rule was **adopted in the document, not just applied**, and the implementer added a residual
+  count of their own ("no test named as a regression check remains without either a separating
+  mutant or an explicit `no test` note. Residual count: 0"). Round 7's Assumption Not Checked is
+  carried to Outstanding Items with its falsity signature and QA named as owner.
+
+## INFO-1 (round 8) — `switchToClassic`'s embed preservation is held by exactly one incidental assertion
+
+Found while checking the deletion, not by looking for it.
+
+- **Class**: a behavioural property protected only by a test that does not name it — the property
+  survives as a side effect of an assertion about something else.
+- **Enumeration and demonstration, executed**: mutate `switchToClassic` to clear `embeds`, then run
+  **all of `src/utils/__tests__`** (370 passing tests at baseline). **Exactly 1 test newly fails** —
+  and it is the round-5 `dropSet` test *"v2 option claims 'embeds' only when the draft actually
+  carries meaningful embeds"*, which catches it only because `diffDroppedKeys` executes the real
+  `applyModeSwitch` and the computed label shifts. No test asserts the property directly: every
+  classic-path draft in the EC-3 block carries `embeds: []`, so within that block the same mutant
+  kills **0 of 6**. *What this does not match*: tests outside `src/utils/__tests__`; I did not sweep
+  `src/server/api/utils/__tests__` or the component trees.
+- **Why it is worth recording**: the one test holding it up has been **rewritten twice in this chain
+  already** (round 5's `dropSet` derivation, round 6's signature change). A third rewrite that
+  changes its fixture drops the last check on a data-preservation property, silently and with a
+  green suite. That is the "check that exists only by accident" shape.
+- **Required Action** — **Minimum**: one test asserting directly that a classic application
+  preserves a draft's meaningful embeds. **Preferred (structural)**: none warranted; this is a
+  missing assertion, not a design defect. **Owner: `qa-hooks-013`**, whose role covers auditing the
+  implementer's tests — authoring it is not mine.
+- **Routed to the follow-up register, not held against the tree**, per the rounds-stop rule: no
+  finding this round changes a decision, and this one predates the round.
+
+## Method note — four dominance reports, four artifacts, and what that means for round 7's rule
+
+I set out to close a residual question rather than declare it: round 7's LOW-1 removed one dominated
+test, so are there others in that block? I built a mutant × test matrix over the six remaining
+`applyDisposition` tests and computed subset relations on their kill sets.
+
+**It reported a dominated pair four times, and all four were artifacts of my own mutant set.** Each
+time I added the mutant the set was missing, the reported dominance dissolved:
+
+| reported | why it was wrong | the mutant that dissolved it |
+|---|---|---|
+| `row B/C settled` ⊂ `row E v2` | 8 mutants, none touching the **settled** return | M9/M10/M11 — settled branch always classic / always v2 / returns draft |
+| `row A/settled` kills nothing | same gap | M10 |
+| `row A/settled` ⊂ `row B/C settled` | no mutant on the **classic** content path | M12 — `switchToClassic` clears content |
+| `row A/settled` ⊂ `row D settled` | no mutant separating "flags is exactly 0" from "the V2 bit is clear" | M14 — `switchToClassic` ORs in a stray non-V2 bit: **row A fails, row D passes**, executed |
+
+**With 14 mutants, no dominance survives in that block.** More usefully: mutant-based dominance is
+only ever a statement about the mutant set, and I watched it produce four false positives in a row.
+Reporting any of them would have asked for the deletion of a test that carries real, distinct
+coverage — the exact opposite of the intended effect.
+
+**This refines round 7's rule rather than undermining it, and the distinction is the point.** Round
+7's LOW-1 did not rest on mutant evidence: that test's input was the sibling's draft with `embeds`
+already empty and its assertions a strict subset, so domination was **structural** — provable from
+the test's own text, with the mutants as confirmation. Everything above is mutant evidence alone, and
+it was wrong every time. So:
+
+> **Dominance justifies deleting a test only when it is structural — strictly weaker input *and* a
+> subset of assertions, readable from the test itself. A subset relation between kill sets over a
+> hand-built mutant set is a hypothesis about the mutant set, not a finding about the tests.**
+
+I am recording this against my own round-7 finding rather than quietly applying it, because a reader
+could reasonably take round 7's rule as licensing kill-set-subset deletions, and it does not.
+
+## Assumption Not Checked
+
+**This review assumes the 14 mutants are representative of how `applyDisposition` and
+`applyModeSwitch` actually break, and does not test that.** Every one is a single-line edit at a
+return site or a field assignment. **None models an interaction defect** — one where
+`resolveContentLoss` misroutes a draft *and* the switch mishandles it, such that the two errors
+cancel inside the assertions.
+
+**Falsity signature**: a change to `hasClassicContent`'s embed predicate (which already carries the
+`_key`-exclusion special case) shifts a draft from row E to row B while `switchToV2` still clears the
+same fields — every assertion in the block passes, `dropSet` is computed from the same shifted
+predicate so it agrees, and a real draft lands in V2 with its embed destroyed and no choice offered.
+Single-line mutants cannot produce that shape, so a green result under all 14 is not evidence
+against it.
+
+**Owner**: `qa-hooks-013`, at M8's test audit — this is a statement about the test block's
+discriminating power, which is QA's to assess, not a defect in the code. Named again in Next Steps.
+
+## Next Steps
+
+1. **`qa-hooks-013`** — INFO-1 (a direct assertion that classic application preserves embeds), plus
+   the round-8 Assumption Not Checked above, plus round 7's items 6 and 7 already routed.
+2. **`steering-hooks-013-2`** — nothing new. Still open from earlier rounds: the `middleware.ts`
+   CRITICAL (immediate, outside this chain), the plan-level MEDIUM on the persist API, and
+   `tsconfig.test.json`.
+3. **`implementer-hooks-013-2`** — nothing outstanding from code review. Next units are M3, M4, M6
+   and M8-G.
+
+**QA is still not the next stage.** M3, M4, M6 and M8-G remain.
+
+**Rounds 1–7's verdicts are unaffected.** Each stands on its own tree.

@@ -15,6 +15,7 @@ the question changes, rebuild rather than re-run.
 | `probe-cr4-disposition-gate/` | `92ce026` | D17's eight-cell disposition, executed against the **plan's** table; 4 mutants; gate re-derivations | Superseded in part by CR5 — the signature changed at `2f49182` (`flagBit: boolean` → `flags: number`), so **CR4's boolean call shape now under-reads**. Kept for the record; use CR5 |
 | `probe-cr5-application-half/` | `0c8fad5` | the application half (`applyDisposition`), the throw guard re-attacked, the vacuity control, and the `utils` ↔ `messageMode` import cycle in both module orders | **Superseded in part by CR6.** CR5-B/C/D (3 of 19) now fail — **all three by instrument expiry, none by defect**: they were built for the 3-parameter signature and the constant `dropSet`, both removed at `52e0e8a`. Their failure *is* the fix working. CR5-A and the two cycle probes remain valid and pass |
 | `probe-cr6-derivation-round/` | `816d7fd` | the round-5 fix round: both closures verified over an **exhaustive 1120-draft corpus** with an independent oracle and a mutant control; purity under frozen inputs; the `chosenOption` residual; the key-granularity bound | **Current except CR6-C** (2 of 10), which is **instrument expiry, not defect**: the round-6 fix made the stale-label class unrepresentable, so the tests that expressed it cannot run. CR6-A/B/D/E still pass |
+| `probe-cr8-deletion-coverage/` | `b3f8ea9` | what a test deletion costs: zero mutant detection lost; a 14-mutant dominance matrix over the `applyDisposition` block; and the one incidental assertion holding `switchToClassic`'s embed preservation | **Yes — current** |
 | `probe-cr7-wiring-and-boundary/` | `87cfbd8` | the M2+M8 Load wiring and the persist boundary: the persist shape accepts six 5712 payloads (with a negative control); the top-level type complement; the surviving pre-parse silent strip; the re-attacked guard; **and the adversarial run — 42 raw-socket cases against `message.upsert`, 0 bypasses, plus the six that establish CRITICAL-1** | **Yes — current** |
 | `baseline-expected-six/` | pinned at `92ce026` | the suite's failure **set**, by identity and reason, via a clean `git archive` extraction | **Yes — run every round** |
 
@@ -110,3 +111,19 @@ stated in a verdict rather than worked around.
 
 **A sixth rig failure**: `pkill -f "next dev -p <port>"` also matches the shell command that contains
 that string, killing the caller. Match on something the caller does not contain, or capture the pid.
+
+## A standing caution about mutant-based reasoning, from round 8
+
+A mutant × test **dominance** matrix reported a dominated pair four times in one sitting, and **all
+four were artifacts of an incomplete mutant set** — each dissolved when the missing mutant was added.
+Acting on any of them would have deleted a test carrying real, distinct coverage.
+
+**Dominance licenses deleting a test only when it is *structural*** — strictly weaker input **and** a
+subset of assertions, readable from the test's own text. A kill-set subset relation over a hand-built
+mutant set is a hypothesis about that set, not a finding about the tests. Mutants confirm a
+structural argument; they do not substitute for one.
+
+The same caution does not apply to the other use of mutants in this chain — showing that a check
+**can** fail (a positive control). That direction is sound: one mutant that kills a test proves the
+test discriminates. It is the *negative* direction — "no mutant separates them, therefore one is
+redundant" — that is only as strong as the set.
