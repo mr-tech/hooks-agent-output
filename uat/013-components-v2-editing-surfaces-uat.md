@@ -29,7 +29,14 @@ Status-Detail: >-
   correction that `valid = false` **does not discriminate** (the seeds are invalid for two independent
   reasons; key on the reason string, never the boolean). **Rev 8** records the F-QA14 method
   concurrence and a resumption table; this session ended near its run-length ceiling with its work
-  complete, not truncated.
+  complete, not truncated. **Rev 9 — QA COMPLETE was handed in and this session DECLINED THE VERDICT
+  on run-length grounds, early and deliberately**: a verdict abandoned two-thirds through is worse than
+  one not started. **No predecessor document was read and no release decision is issued**; a successor
+  re-reads all of them. Rev 9 adds only what makes the successor cheaper: conditions **C-1** (the
+  release tip will move once; QA's green rests on an uncommitted tree; the identity is a content
+  manifest) through **C-4**, and folds **BC-15** into Appendix A with an ordering hazard — **BC-11b
+  must run before BC-15 on any record**, and Save must not follow BC-15's Load, or the seed is
+  consumed and cannot be re-minted.
 ---
 
 # UAT Report: Plan 013 — Components V2 support across the editing surfaces
@@ -51,6 +58,7 @@ Status-Detail: >-
 | 2026-08-24 | qa-hooks-013-2, direct under D27 (`9946eb9`) | Both UAT digests actioned: extensions executed, BC-11 split, one assumption routed back that lands on Appendix A | Rev 6. Both extensions **CONFIRMED by QA's execution** (24 assertions, 5 mutants killed), including the conflict-UPDATE leg Half B actually exercises. BC-11 **split into BC-11a (`EXECUTED`, terminal) / BC-11b (`NOT EXECUTED`)**, both defect reports adopted; register restated here from QA's document re-read at write time. **Appendix A amended**: QA's unexamined read path makes a Classic-mode open ambiguous between a read-path defect and the ask not firing — the script now stops the observer there rather than letting either conclusion be drawn. **F-QA11 ruled out for this script by this pass**: `SaveAsMenu` uses `?? ''` → `null` (accepted), not `NewMessageModal`'s `?? '0'` (refused), so Save As is not exposed. Still no verdict. |
 | 2026-08-24 | qa-hooks-013-2, direct under D27 (`32737d3`) | Both items this pass handed over were **executed** rather than recorded at read level | Rev 7. **R7's first limb CONFIRMED not tripped** by the seeds — U-1 is narrower than raised. **Correction carried**: `valid = false` does not discriminate; the seeds are invalid for **two** independent reasons (no username, plus the V2/classic conflict), so anything keying on the boolean must key on the **reason string**. **F-QA11 class-closed by QA over a predicate** (4 sites; two guard `'0'` explicitly), making it a single-site oversight and this pass's Save As read mutant-checked rather than read-level. Appendix A's F-QA11 note strengthened to *positively distinguishable*. Still no verdict. |
 | 2026-08-24 | qa-hooks-013-2 (`30f419f`) — receipt both ways, nothing owed | — | Rev 8. **F-QA14 concurrence recorded here**, because QA recorded it as concurred by both stages and a concurrence present in only one document is not one: an inference with a **sound conclusion** is the dangerous case, since the trap travels attached to a correct answer and nothing downstream contradicts it — **a stated gap survives being right**. **Run Record and Resumption** table added: BC-11a and the D20 clause terminal; **BC-11b owed and blocking**; U-1 with steering; the UAT gate itself entirely unstarted. Session ended near its run-length ceiling with work **complete, not truncated**. Still no verdict. |
+| 2026-08-24 | steering-hooks-013-2 — **QA COMPLETE handed in, verdict invited** | Run the UAT gate and issue the release decision | Rev 9. **VERDICT DECLINED ON RUN-LENGTH GROUNDS, flagged early as instructed.** ~58 requests, 226k prefix; a sound verdict needs the identity re-derived as a content manifest (three uncommitted `website` source files in scope), four predecessor documents read directly, and **15** register rows driven terminal — far beyond the ceiling's ~10-request exception. **No predecessor document read, no status restated, no release decision issued.** Successor re-reads everything. Remaining budget spent only on what lowers their cost: **C-1…C-4** recorded as conditions rather than prose, and **BC-15/D28 re-derived from QA's register and the plan directly** (not from steering's restatement) and folded into Appendix A — including an ordering hazard nobody had stated: **BC-11b must precede BC-15 on any record**, and no Save may follow BC-15's Load, or the seed is consumed and cannot be re-minted. |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -468,6 +476,42 @@ first. This one was caught instead by the originator declining to let the first 
 alone — **cheaper than either**, because it costs one sentence at handover rather than a second
 instrument later.
 
+## Conditions the Successor Inherits — written as conditions, not prose
+
+**Added rev 9, on steering's hand-in of QA COMPLETE. This pass did NOT read the predecessor documents
+and issues no verdict; the successor re-reads all of them directly. What follows is recorded as
+conditions so they are inherited as such rather than rediscovered in someone's prose.**
+
+**C-1 — The release tip WILL move once, and QA's green rests on an uncommitted tree.** Per steering
+(not re-derived by this pass): three `website` **source** files are QA's re-anchor and coverage work
+and are uncommitted — `012-json-editor-repair-path.test.ts` and `012-message-mode.test.ts` (modified),
+`013-fqa19-ingress-gate-reachability.test.ts` (untracked); `website` HEAD stands at `164d720`; QA's
+commit grant covers `agent-output` only, so it correctly did not commit them. **Consequences the
+successor must carry as conditions**: (a) `164d720` is **not** the final release tip; (b) the
+code-reviewer's δ re-verification **re-opens** when the tip moves; (c) the verdict identity is
+therefore a **per-path content manifest** — base SHA, exclusion list, uncovered populations named —
+not a bare SHA, per the document-lifecycle rule for uncommitted content; (d) **those three files are
+not this stage's to commit or revert.**
+
+**C-2 — BC-15 exists and is `PRE`, and its owner column is `uat`.** Re-derived from QA's register and
+plan rev 20 directly, not from steering's restatement. **D28** (owner ruling, selection prompt
+2026-08-24) closes the mounted-render check by **the owner's own browser observation folded into
+BC-11b's sitting**; no DOM harness joins this chain. BC-15's condition: *the owner observes that
+5712's Load button is genuinely **enabled**, and that pressing it unedited clears the flag while
+keeping the content.* Prediction: **button enabled; content intact; bit cleared.** Falsity signature,
+in QA's and the reviewer's shared words: *an operator opens 5712's JSON, presses Load, and the button
+is still inert although the gate computes false.* **If the observation contradicts the gate, that is a
+finding and it re-opens QA's verdict** — it is not for the observer or this stage to reconcile.
+
+**C-3 — BC-11b is unchanged.** `NOT EXECUTED`, non-terminal, blocking an unconditional approval. Its
+subject remains *any party with a browser and a chain-tip environment carrying the shape*; the M8-G
+clause admits *"in any environment seeded with the shape"*, and the owner is merely the only party
+with a browser. **That is a fact about tooling and must not harden into a plan requirement.**
+
+**C-4 — Not this stage's to settle, and no remedy is to be adopted**: R-5's widening is the blocking
+edge before devops writes the deployment record, and **U-1 folds into that same decision point and is
+not raised separately**. The seeds' disposition stays unruled (D20).
+
 ## Run Record and Resumption
 
 **This session stopped near its run-length ceiling, with its work for the night complete rather than
@@ -542,6 +586,34 @@ rev 7**: QA closed this class by execution (`32737d3`) over the predicate *a sit
 the `'0'` sentinel explicitly**, so F-QA11 is a **single-site oversight, not a design choice**, and the
 Save As clear is mutant-checked rather than merely read. A guild error at Save As is therefore
 **positively distinguishable**, not just "not F-QA11 as far as anyone read".
+
+### The sitting now carries TWO observations (rev 9), and their ORDER matters
+
+Under **D28** the same browser sitting owes **BC-15** as well as BC-11b: *5712's Load button is
+genuinely enabled, and pressing it unedited clears the flag while keeping the content* (prediction:
+**button enabled; content intact; bit cleared**).
+
+**ORDERING HAZARD — read before starting, because a one-shot sitting can destroy its own subject.**
+BC-15's Load applies row D to the **draft**: after it, the composer's draft is Classic, content kept,
+bit cleared. That draft **is no longer a row-E candidate**, which is precisely what BC-11b needs.
+
+**Therefore, on any given record: run BC-11b FIRST, then BC-15.**
+
+- BC-11b is **non-destructive as scripted** — step 4 dismisses without choosing, so nothing is written.
+- **After BC-15's Load, do NOT press Save.** Loading alone changes the draft, not the stored record;
+  saving would **persist the cleared bit and consume the seed permanently**, and the seeds cannot be
+  re-minted — the mint route closed at deploy.
+- If BC-11b has to be repeated after a BC-15 Load, **re-open the record fresh**; do not continue from
+  the post-Load draft.
+
+**This ordering is this pass's reading, not an executed result.** It follows from row D's stated effect
+and from BC-11b needing a flag-over-content draft. **If the observer's environment behaves otherwise,
+record what was seen and hand it back** — under the ambiguity rule above, not as a conclusion.
+
+**BC-15 steps** (after BC-11b is complete on that record): open the 5712-shaped record → open **Message
+JSON** → confirm the **Load button is enabled**, not inert → press **Load** with **no edits** → record
+whether the warning appears, the body text `hi` **survives**, and the record shows as **Classic**.
+**Then stop — do not Save.**
 
 **If it cannot be run**, the disposition is already written by the planner and is not improvised: where
 the D19 repair has run **and** no seeded environment is available, the suite is the evidence and the
