@@ -19,8 +19,11 @@ Status-Detail: >-
   M7 and M8 specs, because three of the plan's stated instruments are not executable against
   `c85945f` as written. Two of the critic's four inherited Assumption-Not-Checked lines are
   CLOSED here (passes 3 and 5); pass 2's premise is CONFIRMED by execution; pass 4's stays live
-  with the implementer and gains a post-deploy detector row. One decision is routed to steering
-  for the owner: Validation item 8's observation window (BQ-1). Awaiting implementation.
+  with the implementer and gains a post-deploy detector row. BQ-1 (Validation item 8's observation
+  window) was routed and is **RESOLVED** — owner ruling D20, plan rev 13 (`e2495b0`): UAT mints
+  its own two seed records before the release act, so the D19 repair is no longer a one-way door;
+  BC-11 is released. F-QA1 is resolved by D21 (the implementer adds a `typecheck` script). Nine
+  findings remain live, F-QA2/3/4 being the entry conditions. Awaiting implementation.
 ---
 
 # QA Report: Plan 013 — Components V2 support across the editing surfaces
@@ -35,6 +38,7 @@ Status-Detail: >-
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-08-24 | steering-hooks-013 (cross-session brief) | QA Phase 1: test strategy against plan rev 12 before any code exists; re-derive the critic's four transferred assumptions and M-10 from source; read Validation item 8 with M8-G's coverage entry | Phase 1 written. M-10's domain enumerated by `grep -rc` at the chain base: **7 files**, one more than plan and critique name between them. Irreversible Side-Effect Register produced. Three plan instruments found not executable at `c85945f` (F-QA2/3/4) and issued as entry conditions. Probe captured at `verification/013/probe-preexisting-seed-route/` establishing UAT can mint its own M8-G seed pre-deploy. Blocking-condition register minted (13 rows). BQ-1 routed to steering. |
+| 2026-08-24 | steering-hooks-013 (rulings relay) | Register D20 and D21, read directly at plan rev 13 (`e2495b0`); release BC-11 | **Post-Phase-1 registration pass; no re-derivation, no new finding, no verdict.** BQ-1 collapsed to its disposition line with trim accounting; BC-11 released from `BLOCKED` and its Earliest-decidable condition rewritten to D20's mechanism (UAT mints its own two seeds before the release act; the route expires at deploy; UAT re-derives the mintability). F-QA1 collapsed to its D21 disposition. Nothing else in the strategy moved: the enumerations, the register, EC-1..EC-5 and the assumption closures stand as written at `98f978e`. |
 
 ## Timeline
 
@@ -47,43 +51,22 @@ Status-Detail: >-
 
 ---
 
-## BLOCKING QUESTION — routed to steering, for the owner
+## BQ-1 — RESOLVED
 
-**BQ-1 — Validation item 8's observation window closes the moment the D19 repair runs, and nothing currently asks anyone to hold it.**
+`BQ-1  RESOLVED 2026-08-24 — owner ruled by selection prompt: UAT mints its own two throwaway
+seed records before the release act; he holds nothing and repairs 5712/5842 on his own schedule.
+Registered as D20, plan rev 13 (\`e2495b0\`). Enacted here at BC-11, which is released.`
 
-Plan Validation item 8 says M8-G's production-reachable observation (open 5712 → add one container
-→ Save → the ask) exists *only while 5712 and 5842 are unrepaired*, that the repair is the
-owner's action outside the plan, and that "whether the repair waits for the observation is the
-owner's call". Nothing in the plan asks for that call. If he runs the SQL before 013 deploys — at
-any moment, for reasons unrelated to 013 — the central new behaviour D18 introduces ships on suite
-evidence alone and can never be observed in production, because after 013 **no surface can write the
-shape again** (M8-D clears the bit, M4-a sets it from structure, the toggle clears content).
-
-**I do not conclude the ordering cannot be met** — item 8 is satisfiable either way, since it only
-forbids the two being ordered by accident. What I am reporting is that it can be met **cheaply and
-without asking him to hold anything**, and that the cheap route expires at deploy:
-
-> **This pass established by execution that the shape can be minted through the product's own UI
-> at `c85945f`, with no SQL and no database access.** `enforceImportMutualExclusivity` passes
-> `{"content":"hi","flags":32768}` through untouched, and both `discordMessageImportShape` (client)
-> and `discordMessageShape` (the server's `message.upsert` input) accept it. So **pasting that JSON
-> into New Message today mints a 5712-shaped record**, and `{"content":"hi","flags":32768,"components":[]}`
-> mints a 5842-shaped one. Instrument, control and two killed mutants:
-> `agent-output/verification/013/probe-preexisting-seed-route/`.
-
-**The decision, in the owner's terms** — he does not need to change D19 or delay anything:
-
-| Option | What it costs | What it buys |
-|---|---|---|
-| **(a) UAT mints two seed messages before the deploy** (recommended) | one JSON paste each, in the live app, by whoever runs UAT; two junk messages left in the account | D18's central behaviour is observed in production regardless of when he repairs 5712/5842. The repair stops being a one-way door. Costs him nothing and asks him to hold nothing. |
-| (b) He holds the repair until UAT has observed | he waits on an agent pipeline for a data fix he has already ruled on | same observation, at his cost |
-| (c) Do neither — M8-G ships on suite evidence | nothing now | the one behaviour D18 exists for is never seen working in production; UAT records *"the D19 repair preceded the deploy"* as the reason, which item 8 explicitly permits |
-
-I have written the register row (**BC-11**) for **(a)** and marked it `BLOCKED — awaiting BQ-1`. If
-no answer comes, I follow the last explicit ruling's direction — item 8's own words, which permit
-(c) — and the row is recorded as held, not dropped.
-
----
+**Trim accounting** (document-lifecycle, "A rule-driven trim states what the deleted text carried"):
+the argument removed from this section on 2026-08-24 carried three things, each of which now lives
+elsewhere. (i) The three enumerated options and their costs — superseded by the D20 register row,
+which records what was put to the owner, the two options he did not take, and what is steering's
+carriage rather than his; read the row, not a restatement. (ii) The mintability finding and its
+method — carried by `agent-output/verification/013/probe-preexisting-seed-route/` (README, spec,
+green run, control, two killed mutants) and cited from BC-11; D20 records that this finding is
+QA's, established by execution, and that **UAT re-derives it rather than inheriting it**. (iii) The
+held-fallback instruction, should no answer come — it carried nothing once answered and is gone.
+The full argument remains recoverable at commit `98f978e`, which carried it while it was current.
 
 ## Method, and what this pass did not take on trust
 
@@ -572,7 +555,7 @@ space, and names this document as the register it appended to.
 | **BC-8** | PRE | M8-D: paste `{"content":"hi","flags":32768}` → **Classic**, content intact, bit cleared, **visible warning**, no V2 error | operator observation | UAT agent | chain tip deployed | Classic, `hi` present, warning shown | *This is 5712's own repair route. If the warning is missing the user cannot tell a repair from a corruption.* | uat | Not started |
 | **BC-9** | PRE | M8-E: paste `{"content":"hi","components":[<container>]}` → **two options**, each naming its drop; **nothing created** until one is taken; dismissal leaves message and pasted text unchanged | operator observation **paired with** the suite's `requiresChoice` assertion (EC-3) | UAT agent | chain tip deployed | two options; nothing created before a choice; both outcomes verified by repeating with the other option | *Today this silently strips the content. If the choice does not appear, D17's governing principle is not shipped — content is still lost without asking.* | uat | Not started |
 | **BC-10** | PRE | M8-F parity: **the same eight-cell fixture set** produces the same row, drop set and notice class at the modal Load **and** the New Message paste | the suite (R9's own mitigation), **plus** spot observation of two cells at both surfaces | suite is primary; UAT agent for the spot check | M8 implemented | identical dispositions, cell by cell | *One object treated two ways is exactly the hazard R9 names; a user who learns the modal's behaviour is then surprised by the paste.* | qa (suite) | Not started |
-| **BC-11** | PRE | **M8-G, production-reachable form**: open a **5712-shaped** record (V2 mode, V2 error visible, components section shown), add one container, press **Save** → the ask appears naming both drops and **nothing is written** until one is taken. Same at **Save As**. Repeat on a **5842-shaped** record (`components: []`) | operator observation | UAT agent | **a seed record exists.** Per BQ-1 option (a) this is satisfiable **before deploy** by pasting `{"content":"hi","flags":32768}` (and the `components:[]` variant) into New Message — no SQL, no DB access; instrument: `verification/013/probe-preexisting-seed-route/`. Otherwise: only while rows 5712/5842 are unrepaired | the ask appears; nothing written before a choice | *This is the whole of D18. If the ask does not appear, the save path is still silently destroying the user's classic body — the defect the owner folded into 013 — and the suite alone cannot show it working for a real user.* **Precondition, from this pass's read**: `showComponentButton` requires `isEditing && isV2Mode && showComponentsEditable && canAddComponent`; an observer who has collapsed the components section will see no add-component control and wrongly report the ask as unreachable. | uat | **BLOCKED — awaiting BQ-1** |
+| **BC-11** | PRE | **M8-G, production-reachable form**: open a **5712-shaped** record (V2 mode, V2 error visible, components section shown), add one container, press **Save** → the ask appears naming both drops and **nothing is written** until one is taken. Same at **Save As**. Repeat on a **5842-shaped** record (`components: []`) | operator observation | UAT agent | **a seed record exists — and under D20 (plan rev 13, `e2495b0`) UAT mints its own.** Before the release act, paste `{"content":"hi","flags":32768}` and `{"content":"hi","flags":32768,"components":[]}` into New Message, creating one 5712-shaped and one 5842-shaped record of UAT's own. **The route expires at deploy** — after 013 no surface writes the shape (M8-D, M4-a, the toggle) — so the seeds must be minted *before* go-live, not after. The owner holds nothing and repairs 5712/5842 on his own schedule; his repair is no longer a dependency of this row. **D20 requires UAT to re-derive the mintability rather than inherit it**: instrument, control and two killed mutants at `verification/013/probe-preexisting-seed-route/`. Whether the two seed records are removed afterwards is not ruled and is not a gap (D20) | the ask appears; nothing written before a choice | *This is the whole of D18. If the ask does not appear, the save path is still silently destroying the user's classic body — the defect the owner folded into 013 — and the suite alone cannot show it working for a real user.* **Precondition, from this pass's read**: `showComponentButton` requires `isEditing && isV2Mode && showComponentsEditable && canAddComponent`; an observer who has collapsed the components section will see no add-component control and wrongly report the ask as unreachable. | uat | **RELEASED by D20** — not started |
 | **BC-12** | POST | M8-G's send-path form is accepted by Discord: a V2 message that sent at `c85945f` still sends after deploy | the existing post-deploy observable *"Save As on a V2 message yields a V2 copy that sends"* (Validation item 6), and M3-a's send form | UAT agent, then owner in normal use | the deploy is live | **the send succeeds. A single 4xx refutes by construction** — this is not a rate to accumulate; one failure closes the critic's pass-4 assumption negatively and is a hotfix trigger | *Every V2 send starts failing at Discord because the wire form gained `content:""`. Users cannot send, and the cause is invisible in the app.* | implementer owns the decision (M8-G send path); uat owns the observation | Not started |
 | **BC-13** | POST | M3-b's pre-deploy-code residue: bot codes stored **before** go-live carry no dropped set, so the notice cannot render for them | elapsed time against the store's 1h TTL | no human subject — decided by the clock | one hour after the deploy SHA is live | the residue is empty | *For one hour after deploy, a code import can drop components silently — the exact behaviour M3-b fixes. Nobody will connect the two.* | devops (records the window in the deployment record) | Not started |
 | **BC-14** | POST | **The user-reported defect is fixed in production** (handoff `8f3fa8c3`, observations 1/2/5/6/7): Save As on a V2 message yields a V2 copy with every component; Message JSON shows the components; a component-only edit in one tab raises *"Message Update Detected"* in another and a no-op save raises nothing | operator observation in production | owner, in normal use; fallback UAT agent | the deploy is live | all four observed | *A deploy having happened says nothing about the fix having worked. The failure's signature here is **absence** — a copy that is empty, a prompt that never fires — and absence is what nobody reports.* | uat | Not started |
@@ -666,7 +649,7 @@ needs a different shape. Named again in the handoff below so it is routed, not s
 
 | ID | Severity | Finding | Routes to |
 |---|---|---|---|
-| **F-QA1** | Medium | **`pnpm typecheck` does not exist.** `grep -c typecheck package.json` → 0 at `c85945f`. Plan Validation item 1 requires it. Remedy: add `"typecheck": "tsc --noEmit"`; QA substitutes `npx tsc --noEmit` meanwhile and records the substitution. | implementer (M1) |
+| **F-QA1** | Medium | **RESOLVED 2026-08-24 — D21** (plan rev 13, `e2495b0`): the implementer adds a `typecheck` script to `website/package.json`, making Validation item 1 true as written. The validation step is *not* reworded; a planner pass to reword it was put to the owner and declined with the alternative in front of him. Script body is the implementer's, not ruled. `package.json` is touched without joining the 18-file inventory. | CLOSED — implementer enacts |
 | **F-QA2** | **High** | **M7-a's instrument is not executable.** `detectMode` is a non-exported function inside the `MessageProvider` component body (`src/providers/MessageProvider/index.tsx:112`); no importable path to the value M7-a asserts over. Entry condition **EC-1**. | implementer (M7, before writing the spec) |
 | **F-QA3** | **High** | **M7-c's instrument is not executable.** `messageHasV2` / `showV2PatchWarning` are inline consts in `send/page.tsx` (lines 160, 163); `grep -rc` over all test files → no match for either. Entry condition **EC-2**. | implementer (M7) |
 | **F-QA4** | **High** | **M3-c, M8-E's negative and M8-G's negative all name call-site observation inside React components/hooks**, which `environment: 'node'` + `include: src/**/*.test.ts` + no `@testing-library` cannot make. Entry condition **EC-3**: the disposition and the persist gate must be pure importable functions returning a decision, which is the plan's own R9 mitigation made executable. Skipping it moves ~12 criteria onto the blocking manual checklist the plan never budgeted for. | implementer (M8, before writing any M8 spec) |
@@ -721,12 +704,11 @@ Not applicable at Phase 1. **Baseline recorded**, re-executed by this pass and n
 
 Routed, in order:
 
-1. **To steering, for the owner — BQ-1, and it is time-sensitive.** Validation item 8's production
-   observation window closes the moment the D19 repair runs, and this pass established a cheap way to
-   keep it open that itself expires at deploy (paste two JSON objects into New Message before go-live;
-   no SQL, no DB access; instrument captured). Options (a)/(b)/(c) are enumerated above, (a)
-   recommended, (c) — do nothing — is a real option the plan already permits. **BC-11 is held
-   `BLOCKED` pending the answer**, not dropped.
+1. **BQ-1 is resolved — no longer routed.** Owner ruling **D20** (plan rev 13, `e2495b0`): UAT
+   mints its own two throwaway seed records through New Message before the release act; the owner
+   holds nothing. **BC-11 is released**, its instruction is D20's, and the route **expires at
+   deploy** — the seeds must exist before go-live. D20 requires UAT to **re-derive** the
+   mintability rather than inherit it (`verification/013/probe-preexisting-seed-route/`).
 2. **To the implementer — five entry conditions, EC-1 to EC-5, before M7 and M8 specs are written.**
    Three of the plan's stated instruments (M7-a, M7-c, and the negatives of M3-c/M8-E/M8-G) cannot
    execute against `c85945f` as written. EC-3 is the load-bearing one and is a **design** condition:
