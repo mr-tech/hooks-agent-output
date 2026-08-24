@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/agent-output/verification/013/probe-cr20-item7-discharge
+
+
+ Test Files  1 passed (1)
+      Tests  10 passed (10)
+   Start at  12:18:30
+   Duration  640ms (transform 127ms, setup 0ms, import 497ms, tests 10ms, environment 0ms)
+
