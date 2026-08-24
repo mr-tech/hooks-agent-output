@@ -1,0 +1,33 @@
+
+ RUN  v4.1.2 /tmp/013-18407d8/src
+
+ ❯ utils/__tests__/012-message-mode.test.ts (6 tests | 1 failed) 11ms
+     × clears content and embeds, preserves components and flags 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  utils/__tests__/012-message-mode.test.ts > switchToV2 — classic -> v2 branch > clears content and embeds, preserves components and flags
+AssertionError: expected 32768 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 32768
+
+ ❯ utils/__tests__/012-message-mode.test.ts:29:24
+     27|     expect(next.embeds).toEqual([]);
+     28|     expect(next.components).toEqual([{ type: 1 }]);
+     29|     expect(next.flags).toBe(0);
+       |                        ^
+     30|   });
+     31| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 57 passed (58)
+   Start at  03:39:06
+   Duration  788ms (transform 291ms, setup 0ms, import 1.03s, tests 26ms, environment 0ms)
+

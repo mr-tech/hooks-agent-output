@@ -1,0 +1,128 @@
+
+ RUN  v4.1.2 /tmp/013-mut-isv2/src
+
+ ❯ utils/__tests__/012-message-mode.test.ts (6 tests | 1 failed) 10ms
+     × clears content and embeds, preserves components and flags 7ms
+ ❯ utils/__tests__/013-m7-mode-follows-flag.test.ts (16 tests | 5 failed) 13ms
+     × is true when the V2 flag bit is set, with no components at all (research G4) 7ms
+     × is true when the V2 flag bit is set over Action-Rows-only components (D12) 1ms
+     × returns v2 for a flag-only record with no `components` key (5712-shaped) 1ms
+     × a V2-mode draft with only Action Rows, saved and reloaded, opens in V2 (OQ-7 misreport cannot occur) 0ms
+     × warns when editing (showEdit) an already-sent message (oldMessage) that is V2 by flag alone 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  utils/__tests__/012-message-mode.test.ts > switchToV2 — classic -> v2 branch > clears content and embeds, preserves components and flags
+AssertionError: expected 32768 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 32768
+
+ ❯ utils/__tests__/012-message-mode.test.ts:29:24
+     27|     expect(next.embeds).toEqual([]);
+     28|     expect(next.components).toEqual([{ type: 1 }]);
+     29|     expect(next.flags).toBe(0);
+       |                        ^
+     30|   });
+     31| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  utils/__tests__/013-m7-mode-follows-flag.test.ts > M7-a — isMessageV2, the shared mode predicate (EC-1) > is true when the V2 flag bit is set, with no components at all (research G4)
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ utils/__tests__/013-m7-mode-follows-flag.test.ts:14:59
+     12| describe('M7-a — isMessageV2, the shared mode predicate (EC-1)', () =>…
+     13|   it('is true when the V2 flag bit is set, with no components at all (…
+     14|     expect(isMessageV2({ flags: IS_COMPONENTS_V2_FLAG })).toBe(true);
+       |                                                           ^
+     15|   });
+     16|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  utils/__tests__/013-m7-mode-follows-flag.test.ts > M7-a — isMessageV2, the shared mode predicate (EC-1) > is true when the V2 flag bit is set over Action-Rows-only components (D12)
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ utils/__tests__/013-m7-mode-follows-flag.test.ts:21:9
+     19|       flags: IS_COMPONENTS_V2_FLAG,
+     20|       components: [{ type: 1, components: [] }],
+     21|     })).toBe(true);
+       |         ^
+     22|   });
+     23|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  utils/__tests__/013-m7-mode-follows-flag.test.ts > M7-a — detectMessageMode reads the flag regardless of components presence > returns v2 for a flag-only record with no `components` key (5712-shaped)
+AssertionError: expected 'classic' to be 'v2' // Object.is equality
+
+Expected: "v2"
+Received: "classic"
+
+ ❯ utils/__tests__/013-m7-mode-follows-flag.test.ts:36:99
+     34| describe('M7-a — detectMessageMode reads the flag regardless of compon…
+     35|   it('returns v2 for a flag-only record with no `components` key (5712…
+     36|     expect(detectMessageMode({ data: { flags: IS_COMPONENTS_V2_FLAG, c…
+       |                                                                                                   ^
+     37|   });
+     38|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  utils/__tests__/013-m7-mode-follows-flag.test.ts > M7-b — the toggle sets what it shows (D16) > a V2-mode draft with only Action Rows, saved and reloaded, opens in V2 (OQ-7 misreport cannot occur)
+AssertionError: expected 'classic' to be 'v2' // Object.is equality
+
+Expected: "v2"
+Received: "classic"
+
+ ❯ utils/__tests__/013-m7-mode-follows-flag.test.ts:74:68
+     72|   it('a V2-mode draft with only Action Rows, saved and reloaded, opens…
+     73|     const draftAfterSwitch = switchToV2({ flags: 0, components: [{ typ…
+     74|     expect(detectMessageMode({ data: draftAfterSwitch } as never)).toB…
+       |                                                                    ^
+     75|   });
+     76| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  utils/__tests__/013-m7-mode-follows-flag.test.ts > M7-c — showV2PatchWarning, the extracted predicate (EC-2) > warns when editing (showEdit) an already-sent message (oldMessage) that is V2 by flag alone
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ utils/__tests__/013-m7-mode-follows-flag.test.ts:81:80
+     79|   it('warns when editing (showEdit) an already-sent message (oldMessag…
+     80|     const message = { data: { flags: IS_COMPONENTS_V2_FLAG, components…
+     81|     expect(showV2PatchWarning(message as never, { id: '123' } as never…
+       |                                                                                ^
+     82|   });
+     83|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+
+
+ Test Files  2 failed | 1 passed (3)
+      Tests  6 failed | 52 passed (58)
+   Start at  03:39:09
+   Duration  767ms (transform 280ms, setup 0ms, import 992ms, tests 33ms, environment 0ms)
+

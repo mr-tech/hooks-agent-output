@@ -1,0 +1,129 @@
+=== CR3 matrix (mutant-switchv2) === M7 exports present: true
+A    | R00 | limits=false predicate=false expected=false | agree
+A    | R01 | limits=false predicate=false expected=false | agree
+A    | R02 | limits=false predicate=false expected=false | agree
+A    | R03 | limits=true predicate=true expected=true | agree
+A    | R04 | limits=true predicate=true expected=true | agree
+A    | R05 | limits=true predicate=true expected=true | agree
+A    | R10 | limits=false predicate=false expected=false | agree
+A    | R11 | limits=false predicate=false expected=false | agree
+A    | R12 | limits=false predicate=false expected=false | agree
+A    | R13 | limits=true predicate=true expected=true | agree
+A    | R14 | limits=true predicate=true expected=true | agree
+A    | R15 | limits=true predicate=true expected=true | agree
+A    | R20 | limits=true predicate=true expected=true | agree
+A    | R21 | limits=true predicate=true expected=true | agree
+A    | R22 | limits=true predicate=true expected=true | agree
+A    | R23 | limits=true predicate=true expected=true | agree
+A    | R24 | limits=true predicate=true expected=true | agree
+A    | R25 | limits=true predicate=true expected=true | agree
+A    | R30 | limits=true predicate=true expected=true | agree
+A    | R31 | limits=true predicate=true expected=true | agree
+A    | R32 | limits=true predicate=true expected=true | agree
+A    | R33 | limits=true predicate=true expected=true | agree
+A    | R34 | limits=true predicate=true expected=true | agree
+A    | R35 | limits=true predicate=true expected=true | agree
+A    | R40 | limits=false predicate=false expected=false | agree
+A    | R41 | limits=false predicate=false expected=false | agree
+A    | R42 | limits=false predicate=false expected=false | agree
+A    | R43 | limits=true predicate=true expected=true | agree
+A    | R44 | limits=true predicate=true expected=true | agree
+A    | R45 | limits=true predicate=true expected=true | agree
+A    | R50 | limits=false predicate=false expected=false | agree
+A    | R51 | limits=false predicate=false expected=false | agree
+A    | R52 | limits=false predicate=false expected=false | agree
+A    | R53 | limits=true predicate=true expected=true | agree
+A    | R54 | limits=true predicate=true expected=true | agree
+A    | R55 | limits=true predicate=true expected=true | agree
+B    | R00 | old=null new=classic | CHANGED
+B*   | R00 | mode now WRITTEN where none was (classic) | flagSet=false
+B    | R01 | old=classic new=classic | same
+B    | R02 | old=classic new=classic | same
+B    | R03 | old=v2 new=v2 | same
+B    | R04 | old=v2 new=v2 | same
+B    | R05 | old=v2 new=v2 | same
+B    | R10 | old=null new=classic | CHANGED
+B*   | R10 | mode now WRITTEN where none was (classic) | flagSet=false
+B    | R11 | old=classic new=classic | same
+B    | R12 | old=classic new=classic | same
+B    | R13 | old=v2 new=v2 | same
+B    | R14 | old=v2 new=v2 | same
+B    | R15 | old=v2 new=v2 | same
+B    | R20 | old=null new=v2 | CHANGED
+B*   | R20 | mode now WRITTEN where none was (v2) | flagSet=true
+B    | R21 | old=classic new=v2 | CHANGED
+B    | R22 | old=classic new=v2 | CHANGED
+B    | R23 | old=v2 new=v2 | same
+B    | R24 | old=v2 new=v2 | same
+B    | R25 | old=v2 new=v2 | same
+B    | R30 | old=null new=v2 | CHANGED
+B*   | R30 | mode now WRITTEN where none was (v2) | flagSet=true
+B    | R31 | old=classic new=v2 | CHANGED
+B    | R32 | old=classic new=v2 | CHANGED
+B    | R33 | old=v2 new=v2 | same
+B    | R34 | old=v2 new=v2 | same
+B    | R35 | old=v2 new=v2 | same
+B    | R40 | old=null new=classic | CHANGED
+B*   | R40 | mode now WRITTEN where none was (classic) | flagSet=false
+B    | R41 | old=classic new=classic | same
+B    | R42 | old=classic new=classic | same
+B    | R43 | old=v2 new=v2 | same
+B    | R44 | old=v2 new=v2 | same
+B    | R45 | old=v2 new=v2 | same
+B    | R50 | old=null new=classic | CHANGED
+B*   | R50 | mode now WRITTEN where none was (classic) | flagSet=false
+B    | R51 | old=classic new=classic | same
+B    | R52 | old=classic new=classic | same
+B    | R53 | old=v2 new=v2 | same
+B    | R54 | old=v2 new=v2 | same
+B    | R55 | old=v2 new=v2 | same
+C    | R00 | oldWarn=false newWarn=false | same
+C    | R01 | oldWarn=false newWarn=false | same
+C    | R02 | oldWarn=false newWarn=false | same
+C    | R03 | oldWarn=true newWarn=true | same
+C    | R04 | oldWarn=true newWarn=true | same
+C    | R05 | oldWarn=true newWarn=true | same
+C    | R10 | oldWarn=false newWarn=false | same
+C    | R11 | oldWarn=false newWarn=false | same
+C    | R12 | oldWarn=false newWarn=false | same
+C    | R13 | oldWarn=true newWarn=true | same
+C    | R14 | oldWarn=true newWarn=true | same
+C    | R15 | oldWarn=true newWarn=true | same
+C    | R20 | oldWarn=false newWarn=true | CHANGED
+C    | R21 | oldWarn=false newWarn=true | CHANGED
+C    | R22 | oldWarn=false newWarn=true | CHANGED
+C    | R23 | oldWarn=true newWarn=true | same
+C    | R24 | oldWarn=true newWarn=true | same
+C    | R25 | oldWarn=true newWarn=true | same
+C    | R30 | oldWarn=false newWarn=true | CHANGED
+C    | R31 | oldWarn=false newWarn=true | CHANGED
+C    | R32 | oldWarn=false newWarn=true | CHANGED
+C    | R33 | oldWarn=true newWarn=true | same
+C    | R34 | oldWarn=true newWarn=true | same
+C    | R35 | oldWarn=true newWarn=true | same
+C    | R40 | oldWarn=false newWarn=false | same
+C    | R41 | oldWarn=false newWarn=false | same
+C    | R42 | oldWarn=false newWarn=false | same
+C    | R43 | oldWarn=true newWarn=true | same
+C    | R44 | oldWarn=true newWarn=true | same
+C    | R45 | oldWarn=true newWarn=true | same
+C    | R50 | oldWarn=false newWarn=false | same
+C    | R51 | oldWarn=false newWarn=false | same
+C    | R52 | oldWarn=false newWarn=false | same
+C    | R53 | oldWarn=true newWarn=true | same
+C    | R54 | oldWarn=true newWarn=true | same
+C    | R55 | oldWarn=true newWarn=true | same
+D    | to-v2 other=0 | flags=0 content="" components=[{"type":1}]
+D    | to-classic other=0 | flags=0 components=[{"type":1}]
+D    | to-v2 other=4 | flags=4 content="" components=[{"type":1}]
+D    | to-classic other=4 | flags=4 components=[{"type":1}]
+D    | to-v2 other=4096 | flags=4096 content="" components=[{"type":1}]
+D    | to-classic other=4096 | flags=4096 components=[{"type":1}]
+D    | to-v2 other=4100 | flags=4100 content="" components=[{"type":1}]
+D    | to-classic other=4100 | flags=4100 components=[{"type":1}]
+D    | round-trip | flags=4096
+D    | OQ-7 | mode after reload=classic
+E    | 5712 load mode | old=classic new=v2
+E    | 5712 one-toggle exit | flags=0 content="Message of the moment"
+CTRL | 1 structural-only=false limits=true | disagree (as required)
+CTRL | 2 quadrants flag/struct: TT=6 TF=6 FT=12 FF=12

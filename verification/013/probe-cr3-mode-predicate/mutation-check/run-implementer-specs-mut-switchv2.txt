@@ -1,0 +1,70 @@
+
+ RUN  v4.1.2 /tmp/013-mut-switchv2/src
+
+ ❯ utils/__tests__/013-m7-mode-follows-flag.test.ts (16 tests | 3 failed) 14ms
+     × switchToV2 sets IS_COMPONENTS_V2_FLAG, mirroring switchToClassic clearing it 6ms
+     × switchToV2 preserves other bits already set in flags (D7 residue) 1ms
+     × a V2-mode draft with only Action Rows, saved and reloaded, opens in V2 (OQ-7 misreport cannot occur) 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  utils/__tests__/013-m7-mode-follows-flag.test.ts > M7-b — the toggle sets what it shows (D16) > switchToV2 sets IS_COMPONENTS_V2_FLAG, mirroring switchToClassic clearing it
+AssertionError: expected +0 to be 32768 // Object.is equality
+
+- Expected
++ Received
+
+- 32768
++ 0
+
+ ❯ utils/__tests__/013-m7-mode-follows-flag.test.ts:57:26
+     55|   it('switchToV2 sets IS_COMPONENTS_V2_FLAG, mirroring switchToClassic…
+     56|     const result = switchToV2({ flags: 0, content: 'hi', embeds: [] });
+     57|     expect(result.flags).toBe(IS_COMPONENTS_V2_FLAG);
+       |                          ^
+     58|   });
+     59|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  utils/__tests__/013-m7-mode-follows-flag.test.ts > M7-b — the toggle sets what it shows (D16) > switchToV2 preserves other bits already set in flags (D7 residue)
+AssertionError: expected 4096 to be 36864 // Object.is equality
+
+- Expected
++ Received
+
+- 36864
++ 4096
+
+ ❯ utils/__tests__/013-m7-mode-follows-flag.test.ts:63:26
+     61|     const SUPPRESS_NOTIFICATIONS = 4096;
+     62|     const result = switchToV2({ flags: SUPPRESS_NOTIFICATIONS });
+     63|     expect(result.flags).toBe(SUPPRESS_NOTIFICATIONS | IS_COMPONENTS_V…
+       |                          ^
+     64|   });
+     65|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  utils/__tests__/013-m7-mode-follows-flag.test.ts > M7-b — the toggle sets what it shows (D16) > a V2-mode draft with only Action Rows, saved and reloaded, opens in V2 (OQ-7 misreport cannot occur)
+AssertionError: expected 'classic' to be 'v2' // Object.is equality
+
+Expected: "v2"
+Received: "classic"
+
+ ❯ utils/__tests__/013-m7-mode-follows-flag.test.ts:74:68
+     72|   it('a V2-mode draft with only Action Rows, saved and reloaded, opens…
+     73|     const draftAfterSwitch = switchToV2({ flags: 0, components: [{ typ…
+     74|     expect(detectMessageMode({ data: draftAfterSwitch } as never)).toB…
+       |                                                                    ^
+     75|   });
+     76| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  3 failed | 55 passed (58)
+   Start at  03:39:12
+   Duration  772ms (transform 295ms, setup 0ms, import 1.03s, tests 29ms, environment 0ms)
+

@@ -2,19 +2,20 @@
 ID: 013
 Origin: 013
 UUID: 22d69e06
-Reviewed-At: "Round 2 (current, binding): 495463ac3198a2c810198bdb6199bb5944ec6505 (chain/013-components-v2-editing-surfaces tip; predecessor a4eb00d, base c85945f). Verified at the start of the pass and re-verified unmoved at the end; no tracked working-tree modifications at either check — the same two untracked out-of-scope files as round 1. Round 1 (superseded, retained for the record): a4eb00d2c4869844bca4cbfa974749cbacc962fa."
+Reviewed-At: "Round 3 (current, binding): 18407d8d03411103cec06124c8c476362c0ad3f8 (chain/013-components-v2-editing-surfaces tip; predecessor 495463a, base c85945f) — milestone M7. Verified at the start of the pass and re-verified unmoved at the end; no tracked working-tree modifications at either check, and one untracked out-of-scope file. Superseded, retained for the record: round 2 at 495463a (M1 fix round), round 1 at a4eb00d (M1)."
 Status: In Review
 Status-Detail: >-
-  Round 2, M1 only, at 495463a. APPROVED_WITH_COMMENTS. HIGH-1 and MEDIUM-1 both closed — verified
-  by re-attacking from first principles, not by reading the fix. HIGH-1's class is gone across a
-  35-case differential spanning four trees, and the re-attack found the class was WIDER than round 1
-  measured (three false-prompt sources predating the chain, now also closed) while confirming the
-  normaliser does not blind the detector. MEDIUM-1's extraction is byte-equivalent by execution over
-  26 rows, and the implementer's own specs are shown to discriminate under mutation. LOW-1/LOW-2
-  closed in the document; LOW-3 carried unchanged to M2; four new INFO items routed to a follow-up
-  register per "Rounds stop" rather than held against the tree. Probes at
-  verification/013/probe-cr1-hash-producer-consumer/ and probe-cr2-m1bc-extraction-equivalence/.
-  M2-M8 not reviewed and not scored; they do not exist at this tree.
+  Round 3, milestone M7 only, at 18407d8. APPROVED_WITH_COMMENTS. No HIGH. The predicate is correct
+  and its change was settled by execution over the whole (flag x structure) partition: 122/122 at
+  18407d8, 11 failures at 495463a, and three independent mutants killed. Two MEDIUM findings, both
+  about the record and the verification rather than the code: the class of records whose mode
+  changes is WIDER than the plan's R8 row and the implementation document describe (a mode is now
+  written for every record with no components key, not only flag-carrying ones), and two of the four
+  files the plan and QA name as M7's red-test domain transcribe the mode functions locally and
+  cannot go red from a messageMode.ts change at all — their transcriptions have now silently drifted
+  from the product. Two LOW, three INFO. R2's plan-assigned reviewer obligation discharged here for
+  the first time. Probe at verification/013/probe-cr3-mode-predicate/. M1 remains approved at
+  495463a; M2-M6 and M8 do not exist at this tree and are not reviewed.
 ---
 
 # Code Review: Plan 013 — Components V2 support across the editing surfaces (M1 only)
@@ -33,6 +34,7 @@ Status-Detail: >-
 | 2026-08-24 | steering-hooks-013 (cross-session brief) | Review `a4eb00d` — milestone M1 only, mid-implementation | Round 1. Read plan rev 13 per the Reading Order for this role (Decisions Register in full → Milestones → Out of Scope → Risks), QA Phase 1 (EC-5 and the M1 unit obligations), the critique, both architecture documents, and the implementation document. Every count in the implementation document re-derived rather than accepted. Built and ran a two-tree differential probe (`verification/013/probe-cr1-hash-producer-consumer/`) to settle M1-d's final clause by execution. **REJECTED** on one HIGH. |
 | 2026-08-24 | steering-hooks-013 (D22 amendment, mid-pass) | Fix rounds run direct with the implementer from the first finding set onward | Read D22 at plan rev 14 (`ae13df0`) directly, not from the relay. This verdict still goes to steering, as the amendment says. Findings from here go to `implementer-hooks-013`; the four never-settled classes are marked inline where they arise (HIGH-1 carries one). |
 | 2026-08-24 | implementer-hooks-013 (direct, per D22) | Re-review M1 fix round 1 at `495463a`; implementation doc at `acbbe58` | Round 2. Every enumeration in round 1 re-run rather than inherited, and the differential re-derived from first principles: the round-1 instrument hardcoded the old consumer form, so it was rewired to read the tree under test and then validated by reproducing the round-1 captures case-for-case before it was trusted. Sixteen new cases added, including two false-negative controls the round-1 corpus had no way to express. Second probe built to settle MEDIUM-1's extraction by execution. Implementer's own specs mutation-tested. Two of my own slips are disclosed rather than left silent: I introduced a `check-repo.js` basename collision mid-pass and cleared it by renaming the three probe configs, and one append landed a stray copy of a review-document fragment in the `website` working tree, which I removed within the same minute — `git status` in `website` is back to the same two untracked out-of-scope files it started with, and no tracked file was touched. **APPROVED_WITH_COMMENTS.** |
+| 2026-08-24 | implementer-hooks-013 (direct, per D22) | Review M7 — mode follows the flag (D15) — at `18407d8`; implementation doc at `83164da` | Round 3. First pass on M7. Plan re-read at rev 16 per this role's Reading Order (Decisions Register -> Milestones -> Out of Scope -> Risks), including D15/D16/D7/D17/D24 and R8. Every enumeration in the implementation document re-derived. Third probe built (`probe-cr3-mode-predicate/`) to settle the classification change by execution over the whole 36-cell (flag x structure) partition rather than from the diff, with three mutants as controls and the implementer's own spec mutation-checked. **APPROVED_WITH_COMMENTS.** |
 
 ## Scope Actually Assessed
 
@@ -856,3 +858,534 @@ prediction record, both the planner's and both **HELD** as one pass under owner 
 
 **Where a finding instantiates a plan Risks row**: HIGH-1 was R4's falsifier and it is now closed;
 that outcome is the planner's to write into the prediction record when D23's held pass runs.
+
+---
+
+# ROUND 3 — milestone M7, "Mode follows the flag" (D15), at `18407d8`
+
+Rounds 1 and 2 above are M1 and are retained unedited. **M1's approval at `495463a` is unaffected
+by this round**; nothing M7 touches is in M1's file set. The binding verdict for M7 is below.
+
+## Scope Actually Assessed
+
+```
+git -C website diff --numstat 495463a 18407d8
+3    5   src/app/message/m/[id]/send/page.tsx
+4    5   src/providers/MessageProvider/index.tsx
+98   0   src/utils/__tests__/013-m7-mode-follows-flag.test.ts
+22   0   src/utils/messageMode.ts
+```
+
+One commit, four files, `+127 / -10`. Re-derived from the tree, not read off the implementation
+document's tables, and matching them. All four read in full via `git show 18407d8:<path>`.
+
+Three files were **not** changed and were nevertheless read in full at `18407d8`, because M7's
+correctness is a set of claims about them: `src/utils/limits.tsx` (whose `validateContentRequirements`
+is the predicate M7-a says the mode must agree with), `src/utils/index.ts` (`hasV2Components`,
+`V2_COMPONENT_TYPES`) and `src/components/DiscordMessageEditor/index.tsx` (the toggle that calls
+`applyModeSwitch`, whose output M7-b changes without the file changing).
+
+`JsonModalBody.tsx` is untouched. The implementer says this was confirmed with steering; I confirmed
+it against the plan independently — M7's **Files** line reads *"The modal's mode writer
+(`JsonModalBody.tsx` Load) is **not** M7's file: it is M8's."* Correct.
+
+**M2–M6 and M8 are not reviewed, not scored and not commented on.** They do not exist at this tree.
+
+## Verification Re-Run (nothing inherited)
+
+| Check | Method | Result |
+|---|---|---|
+| Typecheck | `npx tsc --noEmit` **in the real repo** | **0 errors** (`TSC_EXIT=0`). Run in `website` itself: a `/tmp` materialisation fails on gitignored assets, which is an artifact of `git archive`, not of the commit. |
+| Build | `npx next build` | `BUILD_EXIT=0`, **0 warnings** (`grep -ci warn` over the captured output → 0). |
+| Full suite, **committed tree** | clean `/tmp` materialisation of `18407d8` | **443 total / 437 pass / 6 fail**, 26 test files. |
+| Failure identity **and reason** | `grep -E "AssertionError\|TypeError"` over the run | 5 × `TypeError: standardizeMessage is not a function` — byte-for-byte the known pre-existing set, **same reason** as at `495463a`, not merely the same count — plus **one new**: `012-message-mode.test.ts > switchToV2 — classic -> v2 branch > clears content and embeds, preserves components and flags`, failing `AssertionError: expected 32768 to be +0`. That is D16 being enacted against a test that asserts the pre-D16 behaviour. |
+| Provenance of the reported figure | diff against the implementation document | The document reports `450 / 444 / 6`, a **working-tree** figure; the committed tree gives `443 / 437 / 6`. The 7-test delta is the one untracked out-of-scope file. Same class as round 2's INFO-5, second occurrence — see INFO-3. |
+| **R2's plan-assigned reviewer obligation** | `git rev-parse c85945f:src/server/api/utils/messageValidity.ts` vs `18407d8:` | **Discharged.** Both resolve to blob `f477b7129e49e69ccf1b73b4654359e5d4c5f698` — byte-identical between chain base and tip. Risk R2's mitigation reads *"the file's hash unchanged between base and tip is captured by the reviewer"*; this is the first round that has captured it. Note the path: the plan cites the file bare, and it resolves only as `src/server/api/utils/messageValidity.ts` — round 1's R2 finding, still held under D24. |
+
+**On the one red test.** It is not a defect and it is not the implementer's to fix. The plan names it
+by name and assigns it: Plan Scope records `012-message-mode.test.ts` among the *"existing tests …
+whose `flags` assertions M7-b makes red"* and closes *"Named here as a coordination fact; what to do
+with them is QA's."* Serialised Shared Files repeats it: *"The 012 test files named in Plan Scope are
+QA's to re-anchor; the implementer does not edit them."* I verified both lines rather than accepting
+the implementer's account of them. **Validation and Release Conditions item 1 — the full suite green
+— therefore remains unmet at this tip, by design, and is QA's to close.** It is a release condition,
+not a milestone gate, and it does not hold this verdict.
+
+## Enumerations Re-Run — the sweep, not the flagged sites
+
+| Class | Predicate I ran | Hits | Disposition |
+|---|---|---|---|
+| `IS_COMPONENTS_V2_FLAG` readers in source | `git grep -c "IS_COMPONENTS_V2_FLAG" 18407d8 -- src bot` | 6 source files: `constants/messageLimits.ts`, `scripts/backfillValid.ts`, `utils/index.ts`, `utils/limits.tsx`, `utils/messageMode.ts`, `utils/sendWebhook.ts` | Exactly the plan's own six. Confirms the implementer's count; re-derived, not accepted. |
+| `setMessageMode` writers | `git grep -c "setMessageMode" 18407d8 -- src` | 3 writers (`MessageProvider/index.tsx`, `DiscordMessageEditor/index.tsx`, `JsonModalBody.tsx`) plus the definition in `useEditableState.ts` and the type in `global.d.ts` | Matches the plan's enumeration. M7 owns the first, M7-b reaches the second through `applyModeSwitch`, and the third is M8's by the plan's own assignment. |
+| The two V2-type sets | `git grep -c "V2_TYPES\|V2_COMPONENT_TYPES"` plus reading both definitions | `limits.tsx`'s `V2_TYPES` and `utils/index.ts`'s `V2_COMPONENT_TYPES` are **both** `new Set(V2_COMPONENT_TYPE_VALUES)` | They cannot disagree on membership: one array constant, two Sets. This is why M7-a's "same predicate" clause holds — see INFO-1 for the residue. |
+| Consumers of the three new exports | `git grep -c` union'd with serena `find_referencing_symbols` | `send/page.tsx`, `MessageProvider/index.tsx`, the M7 spec, and `messageMode.ts` itself | No stragglers; no inline copy of either predicate left behind in either component. |
+| `hasV2Components` consumers | same | `utils/index.ts` (definition + 2 internal uses), `messageMode.ts` | Both former component-level callers are gone, which is M7-c's point. |
+| Test files referencing `switchToV2` / `applyModeSwitch` | `git grep -c` over `src/utils/__tests__` | 4 files | **Two of them do not reference the product's function at all** — see MEDIUM-2. This is the enumeration that produced this round's most consequential finding. |
+
+**Blind spot, stated at authoring time**: `git grep -c` on a symbol name matches a *name*, not a
+symbol, so it cannot distinguish a reference to the product's export from a local declaration that
+shadows it. That is precisely what it failed to distinguish here, and it is the same limit round 1's
+LOW-2 established for a *deleted* symbol — the superset property that made the grep sound there makes
+it unsound here, where the symbol survives. I used serena `find_referencing_symbols` for the new
+exports and read both suspect files directly rather than trusting either count.
+
+## Adversarial Execution — why the trigger is not met, and what was executed instead
+
+M7 touches `showV2PatchWarning`, which decides whether a caution is shown before a user patches an
+already-sent Discord message. That is adjacent to an irreversible action, so the trigger deserves an
+answer rather than an assumption.
+
+**It is not met.** The predicate feeds exactly one thing —
+`<NullableComponent show={showV2PatchWarning}>` — and I checked the gate it does *not* feed:
+
+```
+const allowSave = !!(isMessageValid && selectedWebhook && !isLoading && (!showEdit || oldMessage));
+```
+
+`allowSave` does not read the warning, and M7 does not touch `allowSave`. So M7-c can add or remove
+a caution; it cannot permit or forbid the irreversible act. There is no authentication or
+authorisation gate anywhere in M7's four files, and no security boundary.
+
+**What was executed instead**, because "it only affects a warning" is still a claim about direction:
+the probe asserts **monotonicity of the warning set over the whole 36-row partition** — no message
+that warned before M7 stops warning, and both suppressing conjuncts (`showEdit`, `oldMessage`) still
+suppress on every row. Measured: six cells change `false → true`, zero change `true → false`. The
+change is strictly toward more caution, and that is established by running it, not by reading it.
+
+## The Differential — 36 cells, four trees
+
+`probe-cr3-mode-predicate/` runs the tree's own `isMessageV2`, `detectMessageMode`,
+`showV2PatchWarning` and `applyModeSwitch` over every combination of six flag states and six
+component shapes. The new side transcribes nothing; the old side is a **declared model** — two lines
+of guard quoted verbatim from `git show 495463a:.../MessageProvider/index.tsx`, wrapped around the
+*real* `hasV2Components` imported from the tree under test, because `detectMode` is declared inside
+`useValue()` and is not importable. That asymmetry is stated in the probe and in its README rather
+than glossed.
+
+M7-a's "same predicate" clause is checked against the product, not against a model:
+`validateContentRequirements` emits *"Components V2 messages cannot contain embeds or content."*
+**iff** its own internal `hasV2` is true, so giving it content turns that error into a readable oracle
+for a variable that is not exported.
+
+| Tree | Result |
+|---|---|
+| **`18407d8`** (M7) | **122 / 122 passed** |
+| `495463a` (pre-M7) | 11 failed — **6 in section A** (the mode predicate disagrees with `validateContentRequirements` on every flag-only row) and **5 in section D** (`switchToV2` does not set the bit; OQ-7's misreport is live) |
+| `18407d8` + flag disjunct deleted from `isMessageV2` | 14 failed — killed |
+| `18407d8` + `switchToV2` stops ORing the bit | 5 failed — killed |
+| `18407d8` + `applyModeSwitch`'s ternary inverted | 11 failed — killed |
+
+Four things follow that reading the diff could not produce.
+
+**1. Twelve of thirty-six mode cells changed, and they fall into two classes, not one.** Six are
+cells the flag decides — the V2 bit set with no V2 components — of which four flip `classic → v2`
+(D15/D12's class, the milestone's whole purpose) and two go from *no mode written* to `v2`. The other
+six are cells where **a mode is now written where the pre-M7 guard wrote none**, and **four of those
+have nothing to do with the flag**. See MEDIUM-1.
+
+**2. Nothing moves in the unsafe direction.** No row that classified as `v2` becomes `classic`, and
+after M7 no row in the partition is left with no mode written at all. Research G4's gap is closed
+for the whole partition, not only for the flag-carrying records the plan's text discusses.
+
+**3. `applyModeSwitch` — the plan's *named* M7-b instrument — behaves over the D7 residue.** Driven
+through `applyModeSwitch` rather than through `switchToV2`/`switchToClassic` directly, over four
+unrelated-bit combinations in both directions plus a round trip: bits preserved exactly, Action Rows
+surviving the outbound leg, and the round trip restoring the original `flags` value. D7's residue is
+intact in both directions, which M7-b requires and which no test in M7's own spec asserts through
+the named instrument (LOW-1).
+
+**4. M7 makes 5712's recovery non-destructive, and that is bigger than the plan's one-line note.**
+Pre-M7 the record opened in **Classic**, so reaching the flag-clearing toggle required switching *to*
+V2 first — and that outbound leg unconditionally cleared `content`. The existing 012 spec states this
+as settled fact in its own header comment: *"reaching the V2->classic branch that D11 patches
+requires toggling classic->V2 FIRST. That outbound leg unconditionally clears content and embeds."*
+After M7 the record opens in V2 and **one toggle to Classic clears the bit with the content intact** —
+executed, section E. R8 calls this "one lossless toggle"; this is the first time it has been run.
+
+## Findings
+
+### MEDIUM-1 — the class of records whose mode changes is wider than the plan and the document describe
+
+**Location**: `src/providers/MessageProvider/index.tsx`, `detectMode` (the removed
+`if (msg?.data?.components)` guard); recorded against
+`agent-output/implementation/013-components-v2-editing-surfaces-implementation.md` (`83164da`) and
+the plan's **R8** row and **Validation and Release Conditions item 5**.
+
+**Class**: a behaviour change described by one of the two classes it produces. The implementation
+document and R8 both frame M7's mode change as *"every existing record with the bit set and no V2
+components opens in V2 where it opened in Classic before"*. That is true and it is half of it. The
+old guard skipped **every** message with no `components` key, flag or no flag, leaving whatever mode
+was standing; the new predicate writes a mode for all of them. So an ordinary classic message — no
+flag, no components key — now actively sets **Classic** where it previously set nothing.
+
+**Enumeration**: the full 36-cell partition, run rather than reasoned —
+`probe-cr3-mode-predicate/run-cr3-18407d8.txt`, rows marked `B*`. Six cells gain a written mode;
+**four of them (`R00`, `R10`, `R40`, `R50`) are not flag-related**. `git grep -c` cannot enumerate
+this class at all: it is a property of a removed conditional, not of any symbol, which is why it took
+execution to find. The predicate does not see load paths that never called `detectMode` in the first
+place — if one exists, its cells are outside this count.
+
+**Is the code wrong? No.** M7-a says the mode is *"V2 iff … and **Classic otherwise**"*, over the
+class *"every message the composer loads into the editor"*. Writing Classic for a classic message is
+the criterion, not scope growth. The implementation is correct and I am not asking for a code change.
+
+**Magnitude**: user-visible, and this is a **reasoned consequence, not a measurement** — I have no
+production access and state it as a hypothesis. A user composing in V2 who then loads a classic
+message (a Save As copy, a local-store restore, a bot code) previously kept V2 mode and now gets
+switched to Classic. Whether that is better is not mine to judge; that it is a change nobody has
+written down is the finding.
+
+**Required Action — eliminate the class of *undescribed* change, not the line**:
+- **Preferred (structural)**: the implementation document's M7 section states the change as its two
+  classes with the cell counts, so no downstream stage reconstructs it from the diff; and **the
+  planner widens R8 and Validation item 5's deployment-record clause** to name both classes, since
+  R-5 currently obliges the deployment record to state only the flag class.
+- **Minimum**: the implementation document records the second class in one sentence.
+
+**This one is not settled between us.** The half that touches R8 and R-5 is **D22 exception 1** — a
+finding implying the plan is incomplete — and goes to steering for the planner, not to the
+implementer. Flagged inline as the rule requires.
+
+**Check that fails if the class is reintroduced or mis-described**:
+`agent-output/verification/013/probe-cr3-mode-predicate/mode-differential.test.ts`, section B, whose
+`B*` rows print the class explicitly; captured at `run-cr3-18407d8.txt`.
+
+### MEDIUM-2 — two of the four files named as M7's red-test domain cannot go red, and their transcriptions have drifted
+
+**Location**: `src/utils/__tests__/012-send-gate-partition.test.ts` and
+`src/utils/__tests__/012-json-editor-repair-path.test.ts`; recorded against the implementation
+document's reconciliation sweep (`83164da`), the plan's **Plan Scope** red-domain sentence, and QA's
+**red-test domain** table rows 1 and 4 (`qa/013-components-v2-editing-surfaces-qa.md`).
+
+**Class**: a test that **models** the function under test instead of executing it, listed as
+coverage of that function — and, downstream of that, a reconciliation sweep that reads *"still
+green"* from such a file as evidence that nothing regressed.
+
+Both files declare their own local `switchToV2` / `switchToClassic`. `012-send-gate-partition.test.ts`
+says so in a comment — *"Transcribed from handleModeSwitch's `switchMode`"*, and above it,
+*"SEMANTICS the implementation must have, not the implementation."* Its local `switchToV2` is
+`{...prev, content: '', embeds: []}` — the **pre-D16** behaviour. The product's is not that any more.
+The transcription has silently drifted, and it is green.
+
+Three consequences, in increasing order of importance:
+
+1. **The plan's prediction could never have fired.** Plan Scope predicts M7-b turns
+   `012-send-gate-partition.test.ts` red *"(3)"* and lists `switchToV2`/`applyModeSwitch` *"3"* for
+   `012-json-editor-repair-path.test.ts`. Neither file calls the product's function. Predicted red:
+   four files; actual red: one. The prediction was derived by counting a **name**, which is exactly
+   the substitution round 1's LOW-2 established as unsound wherever the symbol survives — and QA
+   re-derived it independently and reached the same wrong answer **using the same instrument**, its
+   own predicate being *"every file whose text references a symbol whose behaviour a milestone
+   changes … enumerated by `grep -rc`"*. QA recorded the predicate's blind spot for
+   helper-mediated reachers; the converse blind spot — a local declaration shadowing the name — is
+   not recorded, and it is the one that bit.
+2. **The sweep's conclusion is right by accident.** The implementation document reports these files
+   *"fully green — no unexpected regression"*. Green from a file that cannot go red carries no
+   information about M7 either way. The reasoning, not the conclusion, is the defect.
+3. **`012-send-gate-partition.test.ts` now carries a claim M7 has falsified**, in a file whose own
+   header says *"Do not 'update expectations to match' — a disagreement is a finding, not a stale
+   fixture."* Its comment reads *"detectMode derives mode from structure, never flags"* and its
+   narrative asserts that recovering 5712 *"requires toggling classic->V2 FIRST"* and that *"that
+   outbound leg destroys the content."* After M7 all three are false — the probe's section E shows
+   the one-toggle lossless exit. A pre-registered spec asserting a superseded narrative, still
+   passing, is the failure mode its own header was written to prevent.
+
+**Enumeration**, run before this finding was written, with two independent predicates that agree:
+
+```
+git grep -c "^function switchToV2\|^function switchToClassic" 18407d8 -- src/utils/__tests__
+  → 012-json-editor-repair-path.test.ts: 2      012-send-gate-partition.test.ts: 2
+git grep -lc "Transcribed from\|not the implementation\|SEMANTICS the implementation" 18407d8 -- src bot
+  → the same two files, and no others
+```
+
+Both predicates match only these two files. Neither can see a transcription written as
+`const switchToV2 = …`, a transcription of a *differently named* product function, or an inline
+re-implementation with no declaration at all — so the true class may be larger and these two
+predicates cannot tell me by how much.
+
+**Settled by execution, not by reading.** `mutation-check/` runs both files, plus the M7 spec,
+against three mutants of `messageMode.ts`. `012-send-gate-partition.test.ts` fails on **none** of
+them — it is inert with respect to the module it is listed as covering.
+
+**Required Action — eliminate the class**:
+- **Preferred (structural)**: both files import `switchToV2`/`switchToClassic` from
+  `~/utils/messageMode` and delete their local copies. A transcription that can drift is the defect;
+  a file that imports the product cannot drift silently. Where a test genuinely needs the *old*
+  behaviour as a historical fixture, it states the old value as a literal rather than as a
+  re-implementation that looks live.
+- **Minimum**: the stale comment and the falsified narrative in `012-send-gate-partition.test.ts` are
+  corrected, and QA's red-domain table records that rows 1 and 4 are name-matches, not behaviour
+  members.
+
+**Owner: QA, not the implementer.** Both are 012 test files, which Serialised Shared Files puts
+explicitly out of the implementer's hands. What *is* the implementer's is the sweep's reasoning — see
+the Required Actions list. The plan-side half (Plan Scope's prediction) is **D22 exception 1** and
+goes to steering.
+
+**Check**:
+`agent-output/verification/013/probe-cr3-mode-predicate/mutation-check/` —
+`run-implementer-specs-mut-isv2.txt`, `run-implementer-specs-mut-switchv2.txt`,
+`run-implementer-specs-mut-apply.txt`. The absence of any `012-send-gate-partition.test.ts` failure
+across all three is the finding's evidence.
+
+### LOW-1 — M7's own spec does not reach M7-b's named instrument, and the document says it does
+
+**Location**: `src/utils/__tests__/013-m7-mode-follows-flag.test.ts`; the implementation document's
+**Test Coverage** bullet for M7.
+
+**Class**: a milestone's stated instrument replaced by an assertion one level below its call site, so
+the dispatch between them is unasserted — plus a coverage claim naming a symbol the spec never
+imports.
+
+M7-b's criterion names its instrument explicitly: *"Instrument: the draft `applyModeSwitch` returns,
+asserted over the class in the suite."* The spec asserts `switchToV2` and `switchToClassic` directly.
+The document's Test Coverage bullet says the spec covers *"`switchToV2`/`switchToClassic`/
+`applyModeSwitch` over the D7-residue … and OQ-7 … properties"*.
+
+**Enumeration**: `git grep -c "applyModeSwitch" 18407d8 -- src` → `messageMode.ts` 1,
+`DiscordMessageEditor/index.tsx` 2 (the real toggle), `012-message-mode.test.ts` 4. The M7 spec: **0**.
+The predicate would not see the symbol reached through an alias or a re-export; neither exists here.
+
+**Settled by execution.** With `applyModeSwitch`'s ternary inverted, the M7 spec passes **entirely**;
+the mutant is killed only by `012-message-mode.test.ts`
+(`mutation-check/run-implementer-specs-mut-apply.txt`). So the dispatch *is* covered — by the one
+file the plan hands to QA for re-anchoring, and which currently carries this round's single red test.
+That is a fragile place for a milestone's named instrument to live.
+
+**Magnitude**: low. `applyModeSwitch` is a one-line ternary and it is covered today.
+
+**Required Action**: **Preferred** — the M7 spec's M7-b cases drive `applyModeSwitch(targetMode, …)`
+rather than the two branch functions, which is what the criterion names and costs one line per case;
+my section D can be copied. **Minimum** — correct the Test Coverage bullet, which currently claims
+coverage the spec does not have.
+
+### LOW-2 — the TDD table under-counts the red set (second instance on this plan)
+
+**Location**: implementation document (`83164da`), TDD Compliance table, the `detectMessageMode` and
+`switchToV2` rows.
+
+**Class**: a TDD table whose per-symbol red counts do not sum to the red set that was actually
+observed — so a reader cannot reconstruct the red run from the table.
+
+**Enumeration and measurement**: I ran the M7 spec from `18407d8` against `495463a`'s source
+(`mutation-check/vitest.redcheck.config.ts`, captured at
+`mutation-check/run-m7spec-vs-495463a.txt`). **15 of 16 red**, the one green being the unchanged
+`switchToClassic` case — which the document names correctly. The table's rows sum to 14:
+`isMessageV2` 4 + `detectMessageMode` 4 + `showV2PatchWarning` 4 + `switchToV2` 2. The measured
+reasons are `isMessageV2` 4, `detectMessageMode` **5**, `showV2PatchWarning` 4, `AssertionError` 2.
+The extra `detectMessageMode` red is M7-b's OQ-7 case, which calls `detectMessageMode` and so went
+red on a `TypeError` rather than on the flag assertion the table attributes to that row.
+
+**Why it is worth a line**: this is the **second instance of the same class on this plan** — round 1's
+LOW-1 recorded a TDD table naming one red case where there were three (`ba0f6e3`, `Reviewed-At:
+a4eb00d`), and this is the second (`e1ca0e8` line, `Reviewed-At: 18407d8`). Two citable instances
+make it a **pattern**, and it is routed as one in Next Steps. The under-count is small each time; the
+recurrence is the point, because the TDD table is the only record that the red was red for the
+milestone's reason.
+
+**Required Action**: state each row's red set by *case*, and where a case goes red for a reason
+belonging to a different row, say so. **Minimum**: correct the two counts.
+
+### INFO-1 — one product predicate, two implementations, and why the tidy fix is the wrong one
+
+M7-a requires the mode predicate to be *"the same predicate as `validateContentRequirements`'s
+`hasV2`, so the two never disagree on one record."* What is delivered is two implementations that
+agree: `isMessageV2` composes `hasV2Components` with the flag mask; `limits.tsx` inlines
+`components.some((c) => V2_TYPES.has(c.type)) || !!(flags & IS_COMPONENTS_V2_FLAG)`.
+
+They cannot disagree on membership — `V2_TYPES` and `V2_COMPONENT_TYPES` are both
+`new Set(V2_COMPONENT_TYPE_VALUES)`, one array constant — and I verified agreement by execution on
+all 36 rows (probe section A, 36/36 `agree`). The residue is the guard: `hasV2Components` returns
+`false` for a non-array `components`, where `limits.tsx` would throw; `validateMessage`'s
+destructuring default makes that unreachable today.
+
+**I am not asking for the tidy fix, and this is the reason.** `src/utils/index.ts` does
+`export * from './limits'`, so `limits.tsx` importing `isMessageV2` from `~/utils/messageMode`
+— which imports `~/utils` — closes a cycle `limits → messageMode → utils/index → limits`. The
+duplication is a consequence of the module layout and predates M7. A cleanup that unified them the
+obvious way would trade a harmless duplication for an import cycle: the safe fix here is not the tidy
+one. If it is ever unified, the structural home is a leaf module both can import — beside
+`V2_COMPONENT_TYPE_VALUES` in `constants/messageLimits.ts`, or a new `utils/v2.ts` — and that is M2's
+or a later milestone's call, not M7's.
+
+**Check**: probe section A, all 36 rows, plus `CTRL-1`, which asserts that a structural-only
+predicate **disagrees** with `limits.tsx` on a flag-only row — so section A's agreement is
+distinguishable from a comparison of two references to the same function.
+
+### INFO-2 — the removed `?.data?.` guard: disposed of, not overlooked
+
+The old `detectMode` and `messageHasV2` both guarded `msg?.data?.components`; the new predicates
+guard only the message and then read `data.components`. Applying the input-robustness order rather
+than reflexively asking for a runtime guard: **`ActiveMessage.data` is declared non-optional**
+(`type ActiveMessage = … & { data: EditableMessageData }`, `src/@types/global.d.ts`), so the contract
+says the caller cannot send `data: undefined` — step 1, no finding, stop. Nothing here could exploit,
+so step 3 does not reopen it. Recorded explicitly so a later round does not re-raise it as an
+oversight; the removal is correct and the old guard was defending against something the type forbids.
+
+### INFO-3 — suite figure provenance, second occurrence
+
+The document's `450 / 444 / 6` is a working-tree figure; `18407d8` itself gives `443 / 437 / 6`. No
+correctness impact — the six failures are identical in identity and reason at both counts — but the
+figure cannot be reproduced by anyone checking out the sha it is attached to. Round 2 raised the same
+class (INFO-5) against my own round-1 count as much as against the document's. Second occurrence;
+routed with LOW-2 as part of the same record-accuracy pattern in Next Steps.
+
+## Positive Observations
+
+- **The closure section is the best thing in this round's document.** The QA-routed Assumption Not
+  Checked asked whether the two predicates could be lifted without changing behaviour. The
+  implementer read both closures directly, reported that **the risk QA named did not materialise**,
+  and then reported the thing QA had not asked about: that a *faithful* lift would have shipped the
+  bug M7 exists to fix, because both originals were structural-only. Answering the question that was
+  asked, finding that it was the wrong question, and saying both — rather than reporting "no closure
+  risk, extraction safe" and lifting — is the behaviour the assumption mechanism exists to produce.
+- **The fix inherits the disjunction rather than re-deriving it.** `isMessageV2` composes the
+  existing `hasV2Components` and the existing constant; it invents no leaf list and no second
+  definition of "V2". This is the same structural instinct that made M1's fix round hold, applied
+  again without being asked.
+- **`switchToClassic` was left alone.** I-D11's behaviour is untouched, the plan says it should be,
+  and the spec's one green-at-base case documents that deliberately rather than by omission.
+- **The `switchToV2` diff is `+1` with no deletions and preserves every other bit** — `| FLAG` rather
+  than an assignment. D7's residue survives in both directions, which I verified through
+  `applyModeSwitch` over four bit combinations and a round trip, not from the diff.
+- **`JsonModalBody.tsx` was not touched**, against the pull of it being the obvious third mode
+  writer. The plan assigns it to M8 and the implementer checked rather than assumed.
+- **The red was verified for the right reason before the green.** Fifteen of sixteen cases red at the
+  chain base, and the sixteenth green because its behaviour genuinely does not change.
+
+## Assumption Not Checked
+
+**This review assumes that `MessageProvider`'s four `detectMode` call sites are the complete set of
+paths by which a message reaches the composer's editor, and it does not test that.** Everything above
+is a statement about the *predicate*: given a message, which mode does it classify to. Whether the
+predicate is *reached* on every load path is a different claim, and the probe cannot make it — the
+repo has no browser harness (plan assumption 5), so I read the call sites rather than exercising
+them. M7-a's class is *"every message the composer loads into the editor — by id from the API, from
+a bot code, from local store, a Save As copy, a JSON Load, a New Message import"*, which is six named
+entry points against four call sites; the plan reconciles that by assigning the JSON Load to M8, but
+the reconciliation is prose and I did not execute it.
+
+**Falsity signature**: a load path that populates `message` without passing through `detectMode`.
+Its observable signature is specific and distinguishable from every other defect in this plan — the
+mode on screen is *stale rather than wrong*: it shows whatever the previous message's mode was, so
+the same record opens in V2 or Classic **depending on what the user looked at before it**. Path
+dependence is the discriminator. A record that always opens in the same wrong mode is MEDIUM-1's
+class or a predicate bug; a record whose opening mode depends on history is an unreached call site.
+
+**Owning stage: QA, Phase 2.** QA's required-tests table already scopes M7-a over the load-path
+class, and the discharging check is a call-site enumeration by reference-following from
+`setMessageMode` and from the provider's message-setting effects — not by grep, for the reason
+MEDIUM-2 documents at length. Named again in Next Steps so it is routed rather than shelved.
+
+## Verdict
+
+**Status**: **APPROVED_WITH_COMMENTS**
+
+**Rationale**: M7's code is correct and the milestone's substance is delivered. That is established
+by execution over the whole 36-cell (flag × structure) partition rather than argued from a
+four-file diff: 122/122 at `18407d8`, 11 failures at `495463a` locating the defect precisely on the
+six flag-only rows and on `switchToV2`, and three independent mutants — one per moving part — all
+killed. Every one of the twelve cells whose classification changed is explained by a clause of M7-a,
+no cell moves in the unsafe direction, the patch warning only ever grows, and D7's residue survives
+the toggle in both directions through the plan's named instrument. The predicate agrees with
+`validateContentRequirements` on all 36 rows against a positive control that shows the comparison can
+fail. Typecheck 0, build 0/0.
+
+**Two MEDIUM findings, neither of which is a defect in the code.** MEDIUM-1 is a change that is
+correct and under-described: the mode-writing class is twice the size the plan's R8 row and the
+implementation document state, and four of the six newly-written cells have nothing to do with the
+flag. MEDIUM-2 is a pre-existing test-quality defect that M7 *surfaced* rather than caused — two of
+the four files named as M7's red-test domain transcribe the mode functions locally, cannot go red
+from a `messageMode.ts` change, and now carry a narrative M7 has falsified while still passing. Its
+owner is QA. What is the implementer's in MEDIUM-2 is narrower and worth stating plainly: a
+reconciliation sweep that reads *"still green"* as evidence, from files that could not have gone red.
+
+**Neither MEDIUM blocks QA**, and one of them is QA's to fix. The single red test in the suite is
+predicted by name in the plan and assigned to QA by two separate sections, both of which I verified
+rather than accepted; Validation item 1 therefore remains open by design.
+
+**Not settled here, per D22 exception 1** — both halves that imply the plan is incomplete go to
+steering for the planner, not to the implementer: R8 and Validation item 5's deployment-record clause
+name only the flag class (MEDIUM-1), and Plan Scope's red-domain prediction counts names rather than
+behaviour members (MEDIUM-2).
+
+**This verdict binds `18407d8d03411103cec06124c8c476362c0ad3f8` and no other tree.** Verified at the
+start of the pass and re-verified unmoved at the end. Any change to any covered blob expires it and
+the review re-runs. **M1's approval at `495463a` stands and is untouched by this round.**
+
+## Required Actions
+
+**None blocking.** The gate is passed and QA may proceed.
+
+To the implementer, before M7 is called closed in the record:
+
+1. **MEDIUM-1 (minimum half)** — the implementation document states the second mode-writing class:
+   a mode is now written for every record with no `components` key, not only flag-carrying ones.
+   Four of the six newly-written cells are not flag-related.
+2. **MEDIUM-2 (the half that is yours)** — the reconciliation sweep's entry for
+   `012-send-gate-partition.test.ts` and `012-json-editor-repair-path.test.ts` records that green
+   there is **uninformative**, because both transcribe the functions locally. The conclusion may
+   stand; the reasoning may not.
+3. **LOW-1** — drive M7-b's cases through `applyModeSwitch` (preferred), or correct the Test Coverage
+   bullet, which claims coverage the spec does not have.
+4. **LOW-2** — correct the two TDD-table red counts and state each row's red set by case.
+5. **INFO-3** — take suite figures from a clean materialisation of the sha they are attached to.
+
+To QA, at Phase 2 (not blocking this verdict):
+
+6. **MEDIUM-2 (the substance)** — re-anchor `012-message-mode.test.ts`'s pre-D16 assertion, and treat
+   the two transcribing files as the finding their own header describes: import the product's
+   functions and delete the local copies, rather than updating the transcriptions to match.
+7. **The Assumption Not Checked** — enumerate the composer's load paths by reference-following and
+   confirm each reaches `detectMode`.
+
+## Captured Instruments (round 3)
+
+| Path | What it settles |
+|---|---|
+| `agent-output/verification/013/probe-cr3-mode-predicate/` | What M7 actually changed, by execution over the whole mode-decision input class. `mode-differential.test.ts` (122 assertions over 36 rows: predicate agreement against `validateContentRequirements`'s own error as oracle, the old/new classification differential, warning monotonicity, the flag algebra through `applyModeSwitch`, and 5712's one-toggle exit), `vitest.cr3.config.ts` (tree-selectable via `PROBE_SRC`, output via `PROBE_OUT`), captures for `18407d8`, `495463a` and three mutants, and a README stating what the probe proves, that its old side is a **declared model** rather than a probe, and what it cannot see. |
+| `agent-output/verification/013/probe-cr3-mode-predicate/mutation-check/` | Whether the **implementer's own** M7 spec and the two 012 specs discriminate. `vitest.cr3-mutation.config.ts` plus `vitest.redcheck.config.ts` (spec from one tree, source from another — how LOW-2's red count was measured). Runs: clean, three mutants, and the M7 spec against `495463a` (15/16 red). |
+
+Both carry positive controls and both kill their mutants, so a green run from either is
+distinguishable from an instrument that imported nothing.
+
+**`no test` from me, explicitly**, for M7's in-suite coverage: Vitest already reaches
+`src/**/__tests__/`, the plan puts M7-a/b/c's enumerations in the project's own suite, and QA owns
+the acceptance cases. What I owed instead was evidence that the in-suite version can fail, and
+`mutation-check/` is that evidence — including the finding that one of its four mutant-detections
+lives in a file scheduled for rework by another stage.
+
+## Next Steps
+
+**Handing off to the qa subagent for test execution.**
+
+**Routed, not shelved** — the Assumption Not Checked above belongs to **QA Phase 2**: enumerate the
+composer's load paths by reference-following and confirm each reaches `detectMode`. Its falsity
+signature is path-dependent mode on open. QA's two still-open assumptions from earlier rounds ride
+the same phase: `safeParse` over the stored `Messages.data` corpus (round 2) and **F-QA8**'s
+`message.upsert` writer set (round 1).
+
+**To steering, for the planner** — two items settled by neither of us, both **D22 exception 1**:
+
+1. **R8 and Validation item 5** name only the flag class of M7's mode change. The measured class is
+   twice that size and four of the six newly-written cells are not flag-related (MEDIUM-1). R-5's
+   deployment-record clause inherits the gap.
+2. **Plan Scope's red-domain prediction** counts symbol *names*, not behaviour members: two of its
+   four M7 files transcribe the functions locally and could never go red (MEDIUM-2). QA's own
+   re-derivation reproduced the error with the same instrument, so this is a plan-and-QA item, not a
+   plan-only one.
+
+**Pattern, with two citable instances** — the TDD table under-counting its red set: round 1's LOW-1
+(`ba0f6e3`, `Reviewed-At: a4eb00d`) and this round's LOW-2 (`Reviewed-At: 18407d8`). Recorded for the
+retrospective. INFO-3's suite-figure provenance is a second occurrence of round 2's INFO-5 and rides
+with it. Neither is escalated further; both are small each time and the recurrence is the signal.
+
+**Also for steering, discharged rather than outstanding**: risk **R2**'s mitigation — *"the file's
+hash unchanged between base and tip is captured by the reviewer"* — is captured here for the first
+time. `src/server/api/utils/messageValidity.ts` is blob `f477b71…` at both `c85945f` and `18407d8`.
+The plan's bare citation of that filename remains the unresolvable one from round 1, still **held**
+under D24 along with R4's prediction record; until that pass runs, this review is the authoritative
+statement of both.
+
+**M1 is unaffected.** Its approval at `495463a` (round 2, `e1ca0e8`) stands.
