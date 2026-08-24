@@ -134,6 +134,74 @@ M1–M4 were run against the 22-assertion form and M5 against the 24-assertion f
 are as observed at each point. Source mutants were reverted with `git checkout --` in the throwaway
 worktree and the tree re-run green (`24 passed`) after each.
 
+## Second round, same day — EXT-C and EXT-D (36 assertions total)
+
+Added after `uat-hooks-013`'s third digest (`9e6b43e`, doc rev 6).
+
+### EXT-C — F-QA11 bounded to its class, **by execution**
+
+UAT reported at read level that `SaveAsMenu` is clear of F-QA11. It is. Rather than record that at
+read level, the class was **enumerated on a predicate derived from the defect's definition** — *a
+site that builds `message.upsert`'s `guildId` from a value the user picked this session, rather than
+from a persisted record* — and every match executed.
+
+**4 sites matching that predicate in `src/` at `c85945f` — excludes sites whose `guildId` comes from
+a loaded record, and sites feeding procedures other than `message.upsert`:**
+
+| # | Site | Produces | Verdict |
+|---|---|---|---|
+| 1 | `NewMessageModal.tsx:143` | `'0'` default, **unguarded** | **F-QA11 — refused at the boundary** |
+| 2 | `SaveAsMenu.tsx:41` | `message.guildId ?? ''` → `null` | clear |
+| 3 | `f/[id]/page.tsx:354` | `folderId !== '0' ? folderId : undefined` | clear — **guards the same sentinel explicitly** |
+| 4 | `m/new/page.tsx:58,68` via `copyIntroMessage()` | omits the key | clear |
+
+**Excluded, named rather than dropped**: `useApiMethods.ts:63` (`guildId` from the loaded record —
+in the *writer* class, not this one); `GuildProvider.tsx:87/102/120` (feeds `api.guild.*`);
+`utils/hooks/index.ts:183` `useParsePathname` (produces `''` but is not an upsert payload). The
+known instance is among the matches — the check that the predicate is a predicate and not a
+coordinate list.
+
+**The load-bearing result**: two of the four siblings **guard the exact `'0'` sentinel**. So F-QA11
+is a single-site oversight, not a design choice — which is what makes it cheap to act on. The four
+producible values are also settled at the boundary itself: `'0'` refused; `''`→`null`, `undefined`
+and a real snowflake accepted.
+
+### EXT-D — R7's first limb: the seeds carry `valid = false`
+
+`uat-hooks-013` stated this as an inference and **deliberately left it unexecuted**, asking that it
+be executed rather than inherited. Executed here. **Confirmed**, with a precision the inference did
+not carry:
+
+| Fixture | `isMessageValid` | `validateMessage` |
+|---|---|---|
+| `{content:'hi', flags:32768}` (5712) | `false` | *"Components V2 messages cannot contain embeds or content."* |
+| `{content:'hi', flags:32768, components:[]}` (5842) | `false` | same |
+| `{content:'hi', flags:0}` — **no username** | `false` | *"This username is too short or too long."* |
+| `{content:'hi', flags:32768, username:'Hooks.gg Bot'}` | `false` | the V2 reason — **the conjunct alone** |
+| `{content:'hi', flags:0, username:'Hooks.gg Bot'}` | `true` | `''` |
+| proper V2 (container + text display, username) | `true` | `''` |
+
+**The precision that matters**: an unqualified *"the seeds are `valid = false`"* does **not**
+discriminate — a username-less message is refused for an unrelated reason. Only with a username
+supplied is the V2/classic conflict the **sole carrier** of the refusal. Anything downstream keying
+on `valid = false` must key on the reason, not the boolean.
+
+So the seeds stay out of R7's `flagStructureDisagreementValidTrue`, as UAT reasoned — established
+by execution, not by shape identity.
+
+### Mutants, second round — four more, all killed, tree restored green at 36
+
+| # | Mutant | Result |
+|---|---|---|
+| M6 | `SaveAsMenu` initialised to `'0'` instead of `''` | 1 failed / 35 passed — **killed** |
+| M7 | the folder page's `'0'` guard removed | 1 failed / 35 passed — **killed** |
+| M8 | `limits.tsx`: the V2-**flag** limb dropped from `hasV2` (structural only) | 3 failed / 33 passed — **killed** |
+| M9 | `limits.tsx`: the V2/content rule inverted | 4 failed / 32 passed — **killed** |
+
+**Nine mutants across both rounds, nine killed.** No equivalent mutants were found; none were dropped.
+
+---
+
 ## What is still NOT established by this instrument
 
 **No authenticated call and no database write were made.** This establishes that the shapes pass the

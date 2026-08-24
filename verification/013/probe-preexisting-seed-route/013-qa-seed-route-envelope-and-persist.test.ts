@@ -239,3 +239,118 @@ describe('EXT-B — the persist leg writes `data` verbatim, so the seed is a row
     expect(compiled.sql.slice(compiled.sql.indexOf('on conflict'))).not.toContain('insert into');
   });
 });
+
+/**
+ * EXT-C and EXT-D added 2026-08-24 after `uat-hooks-013`'s third digest (`9e6b43e`, doc rev 6):
+ *  - EXT-C bounds F-QA11 to its class BY EXECUTION. UAT reported at read level that `SaveAsMenu`
+ *    is clear. It is — and so are the other two members. The class is enumerated on a PREDICATE
+ *    derived from the defect's definition, not from the phrasing of the one instance.
+ *  - EXT-D executes the inference UAT deliberately left unexecuted (its rev 5, `5708a44`): do the
+ *    seeds carry `valid = false`, keeping them out of R7's `flagStructureDisagreementValidTrue`?
+ */
+
+import { isMessageValid } from '~/server/api/utils/messageValidity';
+import { validateMessage } from '~/utils/limits';
+
+// ---------------------------------------------------------------------------------------------
+// EXT-C — F-QA11's class: sites that build `message.upsert`'s `guildId` from CLIENT-HELD UI STATE
+//
+// SWEEP PREDICATE (derived from the class definition, not from NewMessageModal's phrasing):
+//   a site that constructs the `guildId` field of a `message.upsert` payload from a value the
+//   user picked in this session, rather than from a persisted record.
+//
+// MATCHES — 4, enumerated at c85945f:
+//   1. src/app/message/_components/NewMessageModal.tsx:143   -> '0' default,  UNGUARDED  <-- F-QA11
+//   2. src/app/message/m/[id]/_components/SaveAsMenu.tsx:41   -> '' default,   safe
+//   3. src/app/message/f/[id]/page.tsx:354                    -> guards '0',   safe
+//   4. src/app/message/m/new/page.tsx:58,68 via copyIntroMessage() -> omits it, safe
+// EXCLUDED, with reason (an excluded site is named, never silently dropped):
+//   - src/providers/MessageProvider/useApiMethods.ts:63 — `guildId` comes from the loaded record
+//     (`stripKeys(messageRef.current)`), not from a UI selection. In the writer class, not this one.
+//   - src/providers/GuildProvider.tsx:87/102/120 — feeds `api.guild.*`, never `message.upsert`.
+//   - src/utils/hooks/index.ts:183 (`useParsePathname`) — produces `''`, but is not an upsert
+//     payload; it feeds GuildProvider.
+// The known instance (NewMessageModal) is among the matches, which is the check that the predicate
+// is a predicate and not a coordinate list.
+// ---------------------------------------------------------------------------------------------
+describe('EXT-C — F-QA11 is ONE site of four in its class; two siblings guard the exact same sentinel', () => {
+  const read = (rel: string) => readFileSync(resolve(__dirname, '../../../../..', rel), 'utf8');
+
+  it('MEMBER 1 (the defect): NewMessageModal initialises the guild state to the sentinel `\'0\'`', () => {
+    expect(read('src/app/message/_components/NewMessageModal.tsx'))
+      .toContain("useState(guildId ?? '0')");
+  });
+
+  it('MEMBER 1: and its save gate does not mention the guild at all', () => {
+    const src = read('src/app/message/_components/NewMessageModal.tsx');
+    const gate = src.slice(src.indexOf('const disableSave ='), src.indexOf('const disableSave =') + 200);
+    expect(gate).not.toContain('selectedGuildId');
+  });
+
+  it('MEMBER 2 (clear): SaveAsMenu initialises to `\'\'`, not to the sentinel', () => {
+    expect(read('src/app/message/m/[id]/_components/SaveAsMenu.tsx'))
+      .toContain("useState(message.guildId ?? '')");
+  });
+
+  it('MEMBER 3 (clear): the folder page GUARDS `\'0\'` explicitly — the sentinel is known here', () => {
+    expect(read('src/app/message/f/[id]/page.tsx'))
+      .toContain("guildId: folderId !== '0' ? folderId : undefined");
+  });
+
+  it('MEMBER 4 (clear): copyIntroMessage() sets `guildId` only when one is passed', () => {
+    expect(read('src/utils/copyIntroMessage.ts'))
+      .toContain('if (guildId) introMessage.guildId = guildId;');
+  });
+
+  // The boundary outcome for every value the four members can produce — the class settled on
+  // behaviour, not only on text.
+  it('the four producible values, at the boundary: `\'0\'` REFUSED; `\'\'`->null, undefined and a real snowflake ACCEPTED', () => {
+    expect(upsertInput.safeParse(envelope(DATA_5712, { guildId: '0' })).success).toBe(false);
+    expect(upsertInput.safeParse(envelope(DATA_5712, { guildId: '' || null })).success).toBe(true);
+    expect(upsertInput.safeParse(envelope(DATA_5712, { guildId: undefined })).success).toBe(true);
+    expect(upsertInput.safeParse(envelope(DATA_5712, { guildId: '123456789012345678' })).success).toBe(true);
+  });
+});
+
+// ---------------------------------------------------------------------------------------------
+// EXT-D — R7's first limb. Executed, not inherited from UAT's stated inference.
+// Expectations are stated as facts of the domain: a message carrying the V2 flag together with a
+// classic body violates the send floor's V2 rule, and that violation is what `valid` records.
+// ---------------------------------------------------------------------------------------------
+describe('EXT-D — the seeds carry `valid = false`, and the V2 conjunct is what carries it', () => {
+  it('5712 seed: invalid, and the REASON is the V2/classic conflict — not something incidental', () => {
+    expect(isMessageValid(DATA_5712 as never)).toBe(false);
+    expect(validateMessage(DATA_5712 as never)).toBe('Components V2 messages cannot contain embeds or content.');
+  });
+
+  it('5842 seed: same verdict and same reason', () => {
+    expect(isMessageValid(DATA_5842 as never)).toBe(false);
+    expect(validateMessage(DATA_5842 as never)).toBe('Components V2 messages cannot contain embeds or content.');
+  });
+
+  // CONJUNCT ISOLATION. Without a `username` the floor ALSO refuses, for an unrelated reason —
+  // so an unqualified "valid is false" does not discriminate. With a username supplied, the
+  // V2/classic conflict is the SOLE carrier of the refusal.
+  it('CONTROL — a username-less classic message is also invalid, but for a DIFFERENT reason', () => {
+    const plain = { content: 'hi', flags: 0 };
+    expect(validateMessage(plain as never)).toBe('This username is too short or too long.');
+  });
+
+  it('the V2 conjunct alone: with a valid username, the 5712 shape is STILL refused, same reason', () => {
+    const named = { content: 'hi', flags: 1 << 15, username: 'Hooks.gg Bot' };
+    expect(isMessageValid(named as never)).toBe(false);
+    expect(validateMessage(named as never)).toBe('Components V2 messages cannot contain embeds or content.');
+  });
+
+  it('POSITIVE PAIR (classic): the same message without the flag is VALID', () => {
+    const named = { content: 'hi', flags: 0, username: 'Hooks.gg Bot' };
+    expect(isMessageValid(named as never)).toBe(true);
+    expect(validateMessage(named as never)).toBe('');
+  });
+
+  it('POSITIVE PAIR (V2): a properly-formed V2 message is VALID — the rule is not "flag means invalid"', () => {
+    const proper = { flags: 1 << 15, username: 'Hooks.gg Bot', components: [{ type: 17, components: [{ type: 10, content: 'x' }] }] };
+    expect(isMessageValid(proper as never)).toBe(true);
+    expect(validateMessage(proper as never)).toBe('');
+  });
+});
