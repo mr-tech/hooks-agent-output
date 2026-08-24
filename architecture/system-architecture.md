@@ -213,5 +213,5 @@ Plans 001–010 (all website-scoped) are closed. Plan 012 (`message.valid` for s
 ## Recommendations
 
 1. Re-verify ESLint health in the website and either close or re-scope that Problem Area.
-2. Continue the per-repo records: `website.md` exists as of 2026-08-24; `preview-image-generator` is the next most valuable, since D-003 is now known to rest on a route the owner knew rather than one he weighed, and the service is 2023-era and live in production.
+2. Continue the per-repo records: `website.md` exists as of 2026-08-24; `preview-image-generator` is the next most valuable, since D-003 is now known to rest on a route the owner knew rather than one he weighed, and the service is 2023-era and live in production. Six owner questions for it are drafted and queued with steering (2026-08-24) — they need only his time, not further preparation.
 3. When refreshing website's project-utils pin after a project-utils push, treat the lockfile update as a deliberate step (see Dependencies) — the declaration alone never says what a fresh install builds against.
