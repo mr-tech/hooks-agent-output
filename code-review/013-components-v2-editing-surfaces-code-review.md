@@ -36,6 +36,7 @@ Status-Detail: >-
 | 2026-08-24 | implementer-hooks-013 (direct, per D22) | Re-review M1 fix round 1 at `495463a`; implementation doc at `acbbe58` | Round 2. Every enumeration in round 1 re-run rather than inherited, and the differential re-derived from first principles: the round-1 instrument hardcoded the old consumer form, so it was rewired to read the tree under test and then validated by reproducing the round-1 captures case-for-case before it was trusted. Sixteen new cases added, including two false-negative controls the round-1 corpus had no way to express. Second probe built to settle MEDIUM-1's extraction by execution. Implementer's own specs mutation-tested. Two of my own slips are disclosed rather than left silent: I introduced a `check-repo.js` basename collision mid-pass and cleared it by renaming the three probe configs, and one append landed a stray copy of a review-document fragment in the `website` working tree, which I removed within the same minute — `git status` in `website` is back to the same two untracked out-of-scope files it started with, and no tracked file was touched. **APPROVED_WITH_COMMENTS.** |
 | 2026-08-24 | implementer-hooks-013 (direct, per D22) | Review M7 — mode follows the flag (D15) — at `18407d8`; implementation doc at `83164da` | Round 3. First pass on M7. Plan re-read at rev 16 per this role's Reading Order (Decisions Register -> Milestones -> Out of Scope -> Risks), including D15/D16/D7/D17/D24 and R8. Every enumeration in the implementation document re-derived. Third probe built (`probe-cr3-mode-predicate/`) to settle the classification change by execution over the whole 36-cell (flag x structure) partition rather than from the diff, with three mutants as controls and the implementer's own spec mutation-checked. **APPROVED_WITH_COMMENTS.** |
 | 2026-08-24 | steering-hooks-013 (correction, post-verdict) | "QA is not the next stage" — second round running | Correction pass, no verdict change and no re-review: `18407d8` unmoved. Verified the phasing against the plan myself rather than on the relay — Testing Strategy says QA Phase 1 runs **before** implementation, so Phase 2 follows implementation's completion, not a milestone; five milestones remain and the implementer's next step is M8's **EC-3** (QA's F-QA4, High). Round 3's Next Steps rewritten and round 2's left standing with a marked correction rather than silently edited. Round 1 had this right; rounds 2 and 3 drifted from it, which is my regression and is recorded as such. Steering has lodged the underlying definition gap for retrospective → pi (`~/.claude/agents/INBOX.md`, `ee1ae0e`). |
+| 2026-08-24 | steering-hooks-013 (D25 round) — self-initiated follow-up | Steering asked to be told if the per-round expected-six check is thinner than it is being treated as | Between-rounds note, **no verdict, no re-review**; `18407d8` remains the binding tree and `92ce026` is unsubmitted. Tested the check rather than introspecting about it. One of my own worries collapsed — the five `standardizeMessage` reds are per-test, not module-load, so nothing is masked and the check is stronger than I had framed it. The baseline itself was prose, so it is now an instrument: `verification/013/baseline-expected-six/` (`63b9a91`), four controls, end-to-end run re-deriving round 3's 443/437/6. Building it diagnosed **INFO-4** — suite figures are quoted from the shared working tree, which vitest contaminates with other sessions' untracked test files; measured twice at +7/+7/+0, cause named as `qa-hooks-013`'s 7-test probe. Residual blind spot stated, not closed, with CR3 named as the compensating instrument. No QA re-anchor requested. |
 
 ## Scope Actually Assessed
 
@@ -1418,3 +1419,71 @@ under D24 along with R4's prediction record; until that pass runs, this review i
 statement of both.
 
 **M1 is unaffected.** Its approval at `495463a` (round 2, `e1ca0e8`) stands.
+
+---
+
+# Between rounds — the expected-six baseline is now an instrument (2026-08-24)
+
+Not a review round. **No verdict here applies to `92ce026`**, which has not been submitted; the
+binding verdict remains round 3 at `18407d8`.
+
+Steering's D25 reply made this reviewer's per-round *"still the expected six"* check the standing
+mitigation for the five milestones during which the suite cannot be green, in preference to an
+out-of-phase QA re-anchor. Steering asked to be told if that check is thinner than it was being
+treated as. Answering that honestly required testing the check rather than introspecting about it,
+so the check was tested, and one worry of mine collapsed while a different one was confirmed and
+closed.
+
+**The worry that collapsed.** I had been treating the five `standardizeMessage` reds as possible
+whole-file masking — if the module failed at load, everything else in the file would be invisible.
+It does not. `standardizeMessage` is called inside the per-test helper `editorRoundTrip`, not at
+module scope; the file loads, all six of its tests are collected, and one passes. Nothing is masked,
+and a new test in that file that broke would raise the count. **The check is stronger in that
+dimension than I had been treating it as**, and steering's judgement is better supported than my own
+framing of it was.
+
+**The worry that was confirmed, and what it cost.** The baseline the check compares against existed
+only as sentences in this document. By my own deliverables rule, *a number reproducible only by
+rebuilding the instrument is prose* — and the next four reviews were being asked to re-derive it
+from my paragraphs. It is now
+`agent-output/verification/013/baseline-expected-six/`: `check-expected-six.sh <sha>` re-derives the
+failure **set** and diffs it against a pin, exit 2 on divergence. Four controls, including reason
+drift on the same test and a simulated seventh failure; both diverge as required, and an end-to-end
+run at `18407d8` independently re-derives round 3's `443/437/6`.
+
+**What building it turned up — INFO-4, and it is the reason this was worth doing now.** Suite figures
+in the implementation record are taken from the shared *working tree*, which carries other sessions'
+untracked test files, and **vitest collects them**. Measured twice, identical signature:
+
+| round | reported | clean `git archive` extraction | delta |
+|---|---|---|---|
+| M7 `18407d8` | 450/444/6 | **443/437/6** | +7 / +7 / +0 |
+| M8-EC3 `92ce026` | 469/463/6 | **462/456/6** | +7 / +7 / +0 |
+
+Cause, now named rather than inferred: `src/utils/__tests__/013-qa-phase1-seed-route-probe.test.ts`,
+7 tests, untracked, `qa-hooks-013`'s work in progress. Round 3 recorded the M7 gap as
+working-tree-versus-committed without identifying the file; this is the same mechanism, so INFO-3's
+provenance note now has a diagnosed cause and a second instance.
+
+**Class:** a suite figure quoted from a tree that is not the commit. **Enumeration:** `git -C
+website status --short` before any suite run — any `??` under a test glob contaminates it; this does
+not match files ignored by `.gitignore` but still collected, nor a *tracked* file another session has
+modified but not committed, which changes results without appearing as `??`. **Required action —
+Preferred (structural):** quote suite figures from `check-expected-six.sh <sha>`, which extracts
+clean and cannot see the working tree. **Minimum:** state the tree the figures came from.
+
+Severity stays INFO: both times the foreign tests all passed, so they inflated totals without
+touching the failure set, and both conclusions held. That is luck about the foreign file's colour,
+not a property of the method — a foreign red would have been read as a regression in the commit.
+
+**The residual blind spot, stated rather than closed.** The comparator keys on
+`file :: test :: first reason line`, so a new defect reproducing an existing red *exactly* is
+invisible to it — live here, since any future defect leaving the V2 flag set at that point yields
+`012-message-mode.test.ts`'s identical `expected 32768 to be +0`. Reason *drift* is caught (control
+1). The compensating instrument is `probe-cr3-mode-predicate/`, which covers that surface
+behaviourally over 36 rows and keys on nothing in the suite output. That pairing is what makes the
+mitigation adequate; the count check alone would not be.
+
+**No re-anchor requested.** With the baseline mechanical and CR3 covering the collision-prone
+surface, steering's call to prefer this over an out-of-phase QA spawn holds on the evidence, not
+merely on the absence of a counter-argument.
