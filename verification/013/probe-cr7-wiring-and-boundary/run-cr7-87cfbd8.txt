@@ -1,0 +1,26 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/agent-output/verification/013/probe-cr7-wiring-and-boundary
+
+ ✓ boundary.cr7.test.ts > CR7-A — the server-side persist surface accepts the shape D19 exists to abolish > messageShape ACCEPTS a 5712-shaped record: flag + content 2ms
+ ✓ boundary.cr7.test.ts > CR7-A — the server-side persist surface accepts the shape D19 exists to abolish > messageShape ACCEPTS a 5712-shaped record: flag + embed 1ms
+ ✓ boundary.cr7.test.ts > CR7-A — the server-side persist surface accepts the shape D19 exists to abolish > messageShape ACCEPTS a 5712-shaped record: flag + content + V2 container 0ms
+ ✓ boundary.cr7.test.ts > CR7-A — the server-side persist surface accepts the shape D19 exists to abolish > messageShape ACCEPTS a 5712-shaped record: flag + embed + V2 container 0ms
+ ✓ boundary.cr7.test.ts > CR7-A — the server-side persist surface accepts the shape D19 exists to abolish > messageShape ACCEPTS a 5712-shaped record: flag + content + embed + container 0ms
+ ✓ boundary.cr7.test.ts > CR7-A — the server-side persist surface accepts the shape D19 exists to abolish > messageShape ACCEPTS a 5712-shaped record: residue flag 4 | BIT + content 0ms
+ ✓ boundary.cr7.test.ts > CR7-A — the server-side persist surface accepts the shape D19 exists to abolish > NEGATIVE CONTROL: the same validator DOES reject something, so acceptance is meaningful 1ms
+ ✓ boundary.cr7.test.ts > CR7-A — the server-side persist surface accepts the shape D19 exists to abolish > there is no mutual-exclusivity refinement anywhere on the persist input shape 1ms
+ ✓ boundary.cr7.test.ts > CR7-B — the Load path: what filterSupportedComponents leaves for switchToClassic > the import shape admits ONLY type 1 or a V2 type at top level, so switchToClassic's type===1 filter is exact 1ms
+ ✓ boundary.cr7.test.ts > CR7-B — the Load path: what filterSupportedComponents leaves for switchToClassic > BUT the pre-parse strip is silent: components the user pasted vanish with no notice and no row-E choice 0ms
+ ✓ boundary.cr7.test.ts > CR7-B — the Load path: what filterSupportedComponents leaves for switchToClassic > a container whose children are ALL unsupported is dropped entirely, again silently 0ms
+ ✓ boundary.cr7.test.ts > CR7-C — applyDisposition after the round-6 fix: the mode signature, re-attacked > the stale-label replay from round 6 (CR6-C) is now unrepresentable: no label crosses the boundary 0ms
+ ✓ boundary.cr7.test.ts > CR7-C — applyDisposition after the round-6 fix: the mode signature, re-attacked > a mode is honoured on row E and IGNORED on every settled row 0ms
+ ✓ boundary.cr7.test.ts > CR7-C — applyDisposition after the round-6 fix: the mode signature, re-attacked > GUARD re-attacked from first principles: every falsy / non-mode value on row E 1ms
+ ✓ boundary.cr7.test.ts > CR7-C — applyDisposition after the round-6 fix: the mode signature, re-attacked > GUARD HOLE: a truthy non-mode string is NOT rejected — it falls through to Classic 0ms
+ ✓ boundary.cr7.test.ts > CR7-D — describeDropSet: the notice the user actually reads > a partial components drop is described as "your Components V2 components" 0ms
+ ✓ boundary.cr7.test.ts > CR7-D — describeDropSet: the notice the user actually reads > describeDropSet on an empty set says nothing will be lost — and no row-E option can be empty 0ms
+
+ Test Files  1 passed (1)
+      Tests  17 passed (17)
+   Start at  05:19:35
+   Duration  636ms (transform 123ms, setup 0ms, import 483ms, tests 12ms, environment 0ms)
+

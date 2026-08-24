@@ -14,7 +14,8 @@ the question changes, rebuild rather than re-run.
 | `probe-cr3-mode-predicate/` | `18407d8` | M7's mode predicate over the whole 36-cell (flag × structure) partition, 122 assertions, 3 mutants | **Yes — and load-bearing, see the pairing below** |
 | `probe-cr4-disposition-gate/` | `92ce026` | D17's eight-cell disposition, executed against the **plan's** table; 4 mutants; gate re-derivations | Superseded in part by CR5 — the signature changed at `2f49182` (`flagBit: boolean` → `flags: number`), so **CR4's boolean call shape now under-reads**. Kept for the record; use CR5 |
 | `probe-cr5-application-half/` | `0c8fad5` | the application half (`applyDisposition`), the throw guard re-attacked, the vacuity control, and the `utils` ↔ `messageMode` import cycle in both module orders | **Superseded in part by CR6.** CR5-B/C/D (3 of 19) now fail — **all three by instrument expiry, none by defect**: they were built for the 3-parameter signature and the constant `dropSet`, both removed at `52e0e8a`. Their failure *is* the fix working. CR5-A and the two cycle probes remain valid and pass |
-| `probe-cr6-derivation-round/` | `816d7fd` | the round-5 fix round: both closures verified over an **exhaustive 1120-draft corpus** with an independent oracle and a mutant control; purity under frozen inputs; the `chosenOption` residual; the key-granularity bound | **Yes — current for EC-3** |
+| `probe-cr6-derivation-round/` | `816d7fd` | the round-5 fix round: both closures verified over an **exhaustive 1120-draft corpus** with an independent oracle and a mutant control; purity under frozen inputs; the `chosenOption` residual; the key-granularity bound | **Current except CR6-C** (2 of 10), which is **instrument expiry, not defect**: the round-6 fix made the stale-label class unrepresentable, so the tests that expressed it cannot run. CR6-A/B/D/E still pass |
+| `probe-cr7-wiring-and-boundary/` | `87cfbd8` | the M2+M8 Load wiring and the persist boundary: the persist shape accepts six 5712 payloads (with a negative control); the top-level type complement; the surviving pre-parse silent strip; the re-attacked guard; **and the adversarial run — 42 raw-socket cases against `message.upsert`, 0 bypasses, plus the six that establish CRITICAL-1** | **Yes — current** |
 | `baseline-expected-six/` | pinned at `92ce026` | the suite's failure **set**, by identity and reason, via a clean `git archive` extraction | **Yes — run every round** |
 
 ## The pairing — do not run one without the other
@@ -94,3 +95,18 @@ bytes, and four empty files compare equal. The sha256 was `e3b0c44298fc…` — 
 is what made it visible. Requiring the comparator to report DIFFER on a copy with one token changed
 is what makes an IDENTICAL result mean anything. A control tests the comparator; a mutant tests the
 code. Both are needed.
+
+## Standing safety constraint for any adversarial round in this repository
+
+**`.env.local` points at a REMOTE HOSTED DATABASE.** Never stand an instance up against it and never
+drive a mutation through it. Round 7's instance ran from an isolated `git archive` extraction with a
+wholly dummy environment and `DATABASE_URL` on a **dead local port** — which is not merely safe but
+is what makes the oracle work: "the handler executed" then manifests as an observable connection
+failure rather than as a silent write.
+
+**There is no `schema.prisma` anywhere in this repository.** A database-backed instance cannot be
+built from it. That is a hard bound on what any adversarial round here can reach, and it should be
+stated in a verdict rather than worked around.
+
+**A sixth rig failure**: `pkill -f "next dev -p <port>"` also matches the shell command that contains
+that string, killing the caller. Match on something the caller does not contain, or capture the pid.

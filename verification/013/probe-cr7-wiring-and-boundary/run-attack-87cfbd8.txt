@@ -1,0 +1,68 @@
+Captured adversarial run — round 7, tree 87cfbd8.
+Instance: isolated `git archive` extraction, `next dev -p 3117`, wholly dummy environment,
+DATABASE_URL=postgresql://nobody:nobody@127.0.0.1:59999/nonexistent (dead port, fails closed).
+The repository's real .env.local points at a REMOTE HOSTED DATABASE and was never used.
+
+ORACLE (fixed before the attack):
+  auth HELD     -> body says UNAUTHORIZED and nothing shows the resolver ran
+  auth BYPASSED -> any sign the resolver executed: a DB reach attempt
+                   (ECONNREFUSED / P1001 / "Can't reach database") or a success payload
+Asserted on the response AND on the dev-server log, never on a status code alone.
+
+--- attack-upsert.py : 42 cases against /api/trpc/message.upsert ---
+HELD       | POST    | method POST                                          | HTTP/1.1 401 Unauthorized
+OTHER      | GET     | method GET                                           | HTTP/1.1 405 Method Not Allowed
+OTHER      | PUT     | method PUT                                           | HTTP/1.1 405 Method Not Allowed
+OTHER      | PATCH   | method PATCH                                         | HTTP/1.1 405 Method Not Allowed
+OTHER      | DELETE  | method DELETE                                        | HTTP/1.1 405 Method Not Allowed
+OTHER      | OPTIONS | method OPTIONS                                       | HTTP/1.1 405 Method Not Allowed
+OTHER      | HEAD    | method HEAD                                          | HTTP/1.1 204 No Content
+OTHER      | TRACE   | method TRACE                                         | HTTP/1.1 500 Internal Server Error
+OTHER      | FOO     | method FOO                                           | HTTP/1.1 400 Bad Request
+HELD       | POST    | path /api/trpc/message.upsert                        | HTTP/1.1 401 Unauthorized
+HELD       | POST    | path /api/trpc/message.upsert?batch=1                | HTTP/1.1 401 Unauthorized
+HELD       | POST    | path /api/trpc/message%2Eupsert?batch=1              | HTTP/1.1 401 Unauthorized
+OTHER      | POST    | path /api/trpc/message.UPSERT?batch=1                | HTTP/1.1 404 Not Found
+OTHER      | POST    | path /api/trpc/MESSAGE.UPSERT?batch=1                | HTTP/1.1 404 Not Found
+OTHER      | POST    | path /api/trpc/Message.Upsert?batch=1                | HTTP/1.1 404 Not Found
+OTHER      | POST    | path /api/trpc/message.upsert/?batch=1               | HTTP/1.1 308 Permanent Redirect
+OTHER      | POST    | path /api/trpc/message.upsert.?batch=1               | HTTP/1.1 404 Not Found
+OTHER      | POST    | path //api/trpc/message.upsert?batch=1               | HTTP/1.1 308 Permanent Redirect
+OTHER      | POST    | path /api//trpc/message.upsert?batch=1               | HTTP/1.1 308 Permanent Redirect
+OTHER      | POST    | path /api/./trpc/message.upsert?batch=1              | HTTP/1.1 404 Not Found
+OTHER      | POST    | path /api/foo/../trpc/message.upsert?batch=1         | HTTP/1.1 404 Not Found
+OTHER      | POST    | path /api/trpc/../trpc/message.upsert?batch=1        | HTTP/1.1 404 Not Found
+OTHER      | POST    | path /api/trpc/message.upsert%00?batch=1             | HTTP/1.1 404 Not Found
+OTHER      | POST    | path /api/trpc/message.upsert%20?batch=1             | HTTP/1.1 404 Not Found
+OTHER      | POST    | path /api/trpc/message.getOne,message.upsert?batch=1 | HTTP/1.1 400 Bad Request
+OTHER      | POST    | path /api/trpc/message.upsert,message.getOne?batch=1 | HTTP/1.1 400 Bad Request
+OTHER      | POST    | path /%61pi/trpc/message.upsert?batch=1              | HTTP/1.1 404 Not Found
+HELD       | POST    | path /api/trpc/message.upsert?batch=1&input=%7B%7D   | HTTP/1.1 401 Unauthorized
+HELD       | POST    | content-type 'application/json'                      | HTTP/1.1 401 Unauthorized
+OTHER      | POST    | content-type 'text/plain'                            | HTTP/1.1 415 Unsupported Media Type
+OTHER      | POST    | content-type 'application/x-www-form-urlencoded'     | HTTP/1.1 415 Unsupported Media Type
+HELD       | POST    | content-type 'application/json; charset=utf-8'       | HTTP/1.1 401 Unauthorized
+OTHER      | POST    | content-type 'APPLICATION/JSON'                      | HTTP/1.1 415 Unsupported Media Type
+OTHER      | POST    | content-type ''                                      | HTTP/1.1 415 Unsupported Media Type
+HELD       | POST    | dup Content-Type                                     | HTTP/1.1 401 Unauthorized
+HELD       | POST    | forged auth headers                                  | HTTP/1.1 401 Unauthorized
+HELD       | POST    | forged session cookie                                | HTTP/1.1 401 Unauthorized
+HELD       | POST    | forged host                                          | HTTP/1.1 401 Unauthorized
+HELD       | POST    | non-batch simple body                                | HTTP/1.1 401 Unauthorized
+OTHER      | GET     | middleware branch /api/v1/anything                   | HTTP/1.1 404 Not Found
+OTHER      | GET     | middleware branch /api/v1/*                          | HTTP/1.1 404 Not Found
+OTHER      | GET     | middleware branch /api/v1/*/anything                 | HTTP/1.1 404 Not Found
+
+=== SUMMARY ===  HELD: 12   OTHER: 30   total: 42   POSSIBLE BYPASSES: 0
+
+--- attack-v1.py : the real v1 routes (CRITICAL-1) ---
+no auth header             | GET   | HTTP/1.1 500 Internal Server Error
+wrong bearer               | GET   | HTTP/1.1 500 Internal Server Error
+empty bearer               | GET   | HTTP/1.1 500 Internal Server Error
+single message, no auth    | GET   | HTTP/1.1 500 Internal Server Error
+bad guildId (control)      | GET   | (empty response -- handler's `res.status(400)` has no .end())
+POST (control, 405)        | POST  | HTTP/1.1 405 Method Not Allowed
+
+Reading: a 500 is the handler's OWN catch after reaching for the dead-port database, and the 405
+is the handler's OWN method check. Both prove the handler executed. Had the middleware guard fired,
+the response would have been its rewrite instead. The guard did not fire.

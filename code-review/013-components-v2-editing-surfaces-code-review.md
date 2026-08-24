@@ -2,28 +2,30 @@
 ID: 013
 Origin: 013
 UUID: 22d69e06
-Reviewed-At: "Round 6 (current, binding): 816d7fd5804fee5d51e526d7d01622624bde108b (chain/013-components-v2-editing-surfaces; the round-5 fix round 52e0e8a plus its comment correction 816d7fd) — M8 ENTRY CONDITION EC-3 only, not milestone M8. Verified at the start of the pass and re-verified at the end. The tree moved TWICE during the pass: 52e0e8a -> 816d7fd (re-anchored mid-pass; emitted-code identity between the two established by execution with a positive control, so the attack results carry and were re-run anyway), then -> a3e758b (the M2+M8 wiring, a DIFFERENT UNIT OF WORK that this verdict does not reach). Superseded, retained for the record: round 5 at 0c8fad5 (EC-3 fix), round 4 at 92ce026 (EC-3), round 3 at 18407d8 (M7), round 2 at 495463a (M1 fix round), round 1 at a4eb00d (M1). NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
+Reviewed-At: "Round 7 (current, binding): 87cfbd84943eb598d59f7276287ac661a98b1c4f (chain/013-components-v2-editing-surfaces) — covers 816d7fd..87cfbd8 in full, i.e. BOTH the round-6 fix round AND a3e758b, the M2+M8 Load wiring, which no earlier round reviewed. Verified at the start of the pass and again at the end; all files read via git show. Superseded, retained for the record: round 6 at 816d7fd, round 5 at 0c8fad5, round 4 at 92ce026, round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
 Status: In Review
 Status-Detail: >-
-  Round 6, the round-5 fix round, at 816d7fd. APPROVED_WITH_COMMENTS. No HIGH. Both round-5 MEDIUMs
-  are closed STRUCTURALLY (the Preferred fix each time) and both closures are established by
-  execution over an EXHAUSTIVE 1120-draft corpus with an independent oracle and a mutant control,
-  not by reading the diff: D18's core invariant (gate.mustAsk <=> applyDisposition throws) holds
-  1120/1120, no settled draft loses content it was carrying (795/795), and every row-E option's
-  advertised dropSet equals the keys the real serialiser changes (325/325). Purity survives a change
-  that put it at risk. Two new MEDIUM, both about ENFORCEMENT rather than behaviour. First: the EC-3
-  contract is checked by NO instrument in the repository — tsconfig excludes **/__tests__ and vitest
-  does not typecheck, so re-adding the very parameter round-5 MEDIUM-1 deleted leaves tsc at 0
-  errors and the suite 32/32 green; the round-5 disposition record counts a control that is dead.
-  Narrows but does not close at a3e758b (4 of 7 EC-3 symbols still have zero typechecked consumers,
-  gateBeforePersist among them). Second: chosenOption still carries a draft-derived label the
-  applier never reads, so the class closed at one parameter is residual at the one beside it — and
-  this residual UNDERSTATES the loss where its predecessor overstated it, so the safe-direction
-  argument does not carry over. Two LOW: the test named as MEDIUM-1's regression check is separated
-  from its sibling by none of four mutants, and review-round numbers survive in test-name strings
-  where a comment-shaped sweep cannot see them. Adversarial execution correctly exempt at 816d7fd
-  (trigger tested mechanically, empty, with a control) and EXPIRED at a3e758b — round 7 is under the
-  mandatory obligation.
+  Round 7, the M2+M8 Load wiring plus the round-6 fix round, at 87cfbd8. APPROVED_WITH_COMMENTS for
+  plan 013. SEPARATELY, ONE CRITICAL OUTSIDE THIS CHAIN, ESCALATED IMMEDIATE AND NOT PART OF THE 013
+  VERDICT: src/middleware.ts guards the two Statbot-facing /api/v1 endpoints with a Bearer check that
+  cannot fire — config.matcher excludes /api/v1/... so the middleware never runs there, AND the
+  branch tests startsWith('/api/v1/*'), a literal asterisk no real path contains. Both v1 handlers
+  carry no authorization of their own (2 of 2). Demonstrated against a running instance from a raw
+  socket: unauthenticated, wrong-bearer and empty-bearer GETs all return 500 from the handler's own
+  catch after it reaches the (deliberately dead) database, and POST returns the handler's own 405 —
+  the handler executes, the guard does not fire. Pre-existing; middleware.ts is untouched by chain
+  013, so it does not reject this implementation. On plan 013 itself: round 6's MEDIUM-2 is closed
+  structurally — the probe that demonstrated it can no longer be written — and the MEDIUM-1 Minimum
+  landed as an accurate record correction while its Preferred half was correctly declined and routed
+  as scope growth. The adversarial obligation, live since a3e758b, was discharged: 42 raw-socket
+  cases against message.upsert (methods, path encodings, dot segments, casings, content types,
+  duplicate headers, forged session cookies and Host) yielded 0 bypasses. The wiring's key property
+  verified rather than assumed: row E reaches neither state nor the localStorage store before a
+  choice, which matters because a newer local record beats the server's on reload. New: one MEDIUM
+  routed to steering as a plan-level question (the persist API accepts the 5712 shape from any
+  caller, so D18/D19 is a client convention rather than an enforced invariant — six payloads
+  accepted, with a negative control), one LOW (the replacement regression test again does not
+  discriminate — 4 mutants, no separation, second instance of the class), and two INFO.
 ---
 
 # Code Review: Plan 013 — Components V2 support across the editing surfaces (M1 only)
@@ -48,6 +50,7 @@ Status-Detail: >-
 | 2026-08-24 | implementer-hooks-013 (direct, per D22) | Review M8's **entry condition EC-3** — the pure resolver and persist gate — at `92ce026` | Round 4. First pass on EC-3; **not** milestone M8, which has not started. Fourth probe built (`probe-cr4-disposition-gate/`) to settle the disposition by execution over the whole eight-cell partition, with expectations transcribed from the **plan's** table rather than the code, four mutants as controls, and one attempted mutant recorded as NOT RUN because the shell left a literal `\n` and its green is not evidence. TDD red re-derived by reverting `utils/index.ts` to `18407d8` against the `92ce026` spec (15/4 TypeError, matching the table). Implementer's spec mutation-checked and genuine. `tsc`, `next build` and the failure set all re-derived on clean extractions; two instrument failures of my own (Turbopack rejecting an out-of-root `node_modules` symlink, and a gitignored `.env`) are recorded in `gates/README.md` rather than reported as build failures. Three MEDIUM, one LOW (routed to QA), two INFO. **APPROVED_WITH_COMMENTS.** |
 | 2026-08-24 | implementer-hooks-013 (direct, per D22) | Re-review the EC-3 fix round at `0c8fad5` (`2f49182` + `0c8fad5`) | Round 5. Sweep re-run rather than the flagged sites checked; the round fixed a **guard** and an **instrument**, so both were re-attacked from first principles rather than read. Fifth probe built (`probe-cr5-application-half/`): all three round-4 MEDIUMs verified closed by execution, the implementer's vacuous-`.toThrow()` self-catch confirmed by reintroducing the loose form (it passes against a tree with no `applyDisposition`), and the new import cycle probed in **both** module orders. Two new MEDIUM found by re-attack, both in `applyDisposition` — an untied draft/disposition pair demonstrated to destroy a body silently, and an advertised `dropSet` that disagrees with what is enacted. One INFO records my own round-4 inconsistency (the spec's header row table). **APPROVED_WITH_COMMENTS.** |
 | 2026-08-24 | implementer-hooks-013-2 (direct, per D22) | Re-review the round-5 fix round at `52e0e8a`; re-anchored mid-pass to `816d7fd` | Round 6, and the first round by this reviewer generation — carried from files (`e0f477f`, `3304fad`), not from a conversation. Every sweep and every figure in the implementation document re-derived rather than accepted, including the architecture document's absence, which was re-checked from the workspace root rather than inherited. The implementer's comment-only claim for `816d7fd` was settled by **executing** it — emitted JavaScript compared byte-for-byte at both commits — after a **positive control** caught my first comparison reporting IDENTICAL over four empty files, which is recorded in full because it is the defect this role raises against others. Sixth probe built (`probe-cr6-derivation-round/`): an exhaustive 1120-draft corpus, an oracle written independently of the implementation, a mutant control, and a purity check under frozen inputs. TDD red re-derived (10 red, matching) and **classified** — 5 discriminators, 4 pre-existence TypeErrors, 1 throw-match — so MEDIUM-2's fix is test-gated and MEDIUM-1's is not. Both round-5 MEDIUMs closed structurally; two new MEDIUM about enforcement rather than behaviour, one of them found by mutating the code to re-add the deleted parameter and watching every gate stay green. The implementer's comment sweep was verified by **breaking its predicate**, which found the class is wider than its comment-shaped form. The plan's Status field was NOT set, for the reasoning given in the verdict. **APPROVED_WITH_COMMENTS**, bound to `816d7fd` and to no other tree. |
+| 2026-08-24 | implementer-hooks-013-2 (direct, per D22) | Re-review the round-6 fix round at `87cfbd8` | Round 7. **Scope widened on my own initiative**: `87cfbd8` sits on `a3e758b`, the M2+M8 Load wiring, which no round had reviewed — reviewing only the 1-line delta would have passed the wiring through unexamined. **The adversarial-execution obligation, live since `a3e758b`, was discharged**: an isolated instance stood up with a wholly dummy environment and its database pointed at a dead port (the repository's real config names a remote hosted database, which is not mine to write to), then driven from **raw sockets** — 42 enumerated cases against `message.upsert`, **0 bypasses**, oracle fixed before the attack and asserted on the response and the server log rather than a status code. **Enumerating what the entry point branches on at module scope — a required step of that attack — surfaced a CRITICAL outside this chain**: the `/api/v1` authorization guard cannot fire, for two independent reasons, in front of two handlers with no auth of their own; demonstrated by execution and escalated IMMEDIATE, but kept out of the 013 verdict because `middleware.ts` is untouched by this chain. Seventh probe built (`probe-cr7-wiring-and-boundary/`, 17/17) with a negative control on the validator. Two hypotheses of mine were tested and **died** — the top-level component-type gap, and a `dropSet` wording concern from round 6 that `DROP_SET_LABELS` already resolves — and are recorded as such. TDD red re-derived: 3/3, all discriminating, no arity artifacts. LOW-1's class recurred in its own replacement, established by 4 mutants with no separation, so the ask is a rule rather than another point fix. **APPROVED_WITH_COMMENTS**, bound to `87cfbd8`. |
 
 ## Scope Actually Assessed
 
@@ -2691,3 +2694,425 @@ before the output filter. This is not caution for its own sake: an exact-match o
 predicate over filtered output is unsound rather than merely inaccurate, and reproduces stably, so
 re-running it looks like confirmation. Where a claim rested on a count, a contradicting counter was
 what would have caught it — never a second run of the same filtered form.
+
+---
+
+# Round 7 — the M2+M8 Load wiring and the round-6 fix round, at `87cfbd8`
+
+**Reviewed-At**: `87cfbd84943eb598d59f7276287ac661a98b1c4f` (chain branch
+`chain/013-components-v2-editing-surfaces`). Verified at the start of the pass and again at the end.
+All files read via `git show 87cfbd8:<path>`, never from the working tree.
+
+**Scope is wider than the fix round.** The implementer asked for a re-review of `87cfbd8`, but
+`87cfbd8` sits on `a3e758b` — the M2+M8 Load wiring, which **no round has reviewed**. Round 7 therefore
+covers `816d7fd..87cfbd8` in full: `JsonModalBody.tsx` (+77/−10), `index.ts` (+31/−4), and two spec
+files. Reviewing only the 1-line fix-round delta would have passed the wiring through unexamined.
+
+**Verdict: APPROVED_WITH_COMMENTS** for the plan-013 work at `87cfbd8`.
+
+**Separately, and not part of that verdict: one CRITICAL finding outside this chain, escalated
+immediately.** It was found by following this role's own instruction to enumerate what the entry
+point branches on at module scope *before* attacking, and it is pre-existing — `src/middleware.ts`
+is untouched by chain 013. It does not change the 013 verdict and 013 does not depend on it. It is
+stated first because of its severity, not because of its relevance to the milestone.
+
+## CRITICAL-1 (round 7) — an authorization guard that cannot fire, in front of two unauthenticated data endpoints
+
+**NOT A PLAN-013 FINDING.** Pre-existing, outside this chain's diff, and outside its scope.
+Escalated per this role's IMMEDIATE tier (security vulnerability, <1h) and routed to steering
+under D22 as needing the owner's word.
+
+- **Location**: `src/middleware.ts` — the `config.matcher` array and the
+  `url.pathname.startsWith('/api/v1/*')` branch — guarding
+  `src/pages/api/v1/guilds/[guildId]/messages.ts` and
+  `src/pages/api/v1/guilds/[guildId]/messages/[id].ts`.
+- **Class**: an authorization guard whose predicate cannot match the paths it exists to protect,
+  in front of handlers that perform no authorization of their own.
+- **Two independent reasons the guard is dead**, either of which alone would disable it:
+  1. `config.matcher = ['/message/(.*)', '/api/guilds/(.*)', '/preview']`. The route is
+     `/api/v1/guilds/…`, not `/api/guilds/…`, so **the middleware never executes for it**.
+  2. `url.pathname.startsWith('/api/v1/*')` tests for a **literal asterisk** in the path. No real
+     request URL contains one, so the `Bearer ${STATBOT_API_KEY}` comparison is unreachable even
+     when the middleware does run.
+- **Enumeration**: `git ls-tree -r --name-only 87cfbd8 | grep "pages/api/v1"` → **2 handlers**;
+  `git grep -n "auth\|session\|Bearer\|STATBOT\|token"` inside each → **0 hits in both**. **2 of 2
+  carry no authorization of their own.** *What the predicate does not match*: protection applied by
+  a wrapper the handler is exported through (there is none — both are
+  `export default async function handler` directly), and any edge, CDN or platform rule living
+  outside this repository.
+- **Demonstrated by execution against a running instance**, raw socket, no client library:
+
+  | request | response |
+  |---|---|
+  | `GET /api/v1/guilds/123456789012345678/messages`, no auth header | **500** |
+  | same, `Authorization: Bearer wrong` | **500** |
+  | same, `Authorization: Bearer ` (empty) | **500** |
+  | `GET /api/v1/guilds/123456789012345678/messages/1`, no auth | **500** |
+  | `POST` same path (control) | **405** — from the handler's own `req.method !== 'GET'` check |
+
+  **The oracle was fixed before the attack**: the instance ran with `DATABASE_URL` pointed at a dead
+  local port, so *the handler executing* manifests as a 500 from its own `catch`, while *the guard
+  firing* would have produced the middleware's rewrite instead. The 500s and the handler-authored
+  405 both prove the handler ran. **The guard did not fire.**
+- **What the endpoint returns when a database is present**: every message row for the supplied guild
+  — `id`, `name`, the full `data` object, and `valid`. Discord guild IDs are not secrets.
+- **Magnitude**: unauthenticated read of all stored messages per guild id, on a local instance built
+  from `87cfbd8`. **Explicitly unmeasured**: whether an edge or platform layer in front of the
+  deployed application blocks `/api/v1/*`. I did not test any deployed environment and did not try;
+  the hosted database this repository is configured against is not mine to touch.
+- **Required Action**:
+  - **Preferred (structural)**: authenticate **in the handlers**, not in path-matching middleware —
+    a shared `requireStatbotAuth(req)` as the first statement of each, so a newly added v1 route
+    cannot be unprotected by omission. Path-pattern authorization fails open on every route someone
+    forgets to list; handler-side authorization fails closed.
+  - **Minimum**: fix **both** the matcher and the predicate.
+  - **A partial fix here looks correct and changes nothing.** The two defects mask each other:
+    repairing `startsWith('/api/v1/*')` alone leaves the matcher excluding the route, and repairing
+    the matcher alone leaves the predicate unmatchable. Whoever fixes this must verify by execution
+    that an unauthenticated request is actually refused, not that the code now reads correctly.
+- **Not mine to communicate.** I have not contacted anyone and will not. This is stated here and
+  reported to the repository owner through my own session and to `steering-hooks-013-2`.
+
+---
+
+## Plan 013 at `87cfbd8` — the rest of round 7
+
+### Adversarial execution — the obligation, discharged and bounded
+
+The exemption expired at `a3e758b`. **I did not read the wiring and agree with it; I stood the
+service up and attacked it.**
+
+**Before standing it up I enumerated what the entry point branches on at module scope** and checked
+each condition's live value in this box. That step is what produced CRITICAL-1 — `middleware.ts`
+reads `STATBOT_API_KEY` at module scope and branches on it, and the branch is dead. A live-capable
+branch discovered by accident would have been a hazard; this one was discovered on purpose.
+
+**What I ran it against, and the safety constraint that shaped it.** `.env.local` configures this
+repository against a **remote hosted database** (`viaduct.proxy.rlwy.net`). Driving mutations into
+that is not review, so the instance ran from an isolated `git archive` extraction with an entirely
+dummy environment and `DATABASE_URL` pointed at a dead local port — every persistence attempt fails
+closed and is observable. **There is no `schema.prisma` anywhere in this repository**, so a
+database-backed instance cannot be built from it at all; that bounds what any adversarial round here
+can reach, and it is a fact about the repository rather than a choice of mine.
+
+**Oracle, fixed before the attack**: auth *held* for an input iff the response says `UNAUTHORIZED`
+and nothing shows the resolver ran; auth was *bypassed* iff anything showed the resolver executing —
+a database reach attempt (`ECONNREFUSED`, `P1001`), or a success payload. I asserted the negative on
+both the response and the server log, not on a status code alone.
+
+**Input class enumerated, not sampled** — 42 cases driven from a raw socket, so nothing
+percent-encoded, canonicalised or repaired my bytes on the way in:
+
+| dimension | cases |
+|---|---|
+| methods | POST, GET, PUT, PATCH, DELETE, OPTIONS, HEAD, TRACE, and an invented `FOO` |
+| path forms | batch and non-batch, `%2E`-encoded dot, three casings, trailing `/`, trailing `.`, `%00`, `%20`, doubled slashes, `/./`, two `..` traversals, `%61pi`, and both orderings of a two-procedure batch |
+| content types | `application/json`, with charset, uppercased, `text/plain`, form-encoded, and absent |
+| headers | duplicate and conflicting `Content-Type`, forged `Authorization`, forged `X-Forwarded-For`/`-Host`/`X-Real-IP`, forged `next-auth` and `__Secure-next-auth` session cookies, forged `Host` |
+
+**Result: 0 bypasses in 42.** Twelve reached the procedure and were refused `UNAUTHORIZED`; the rest
+were refused earlier (404/405/415/400/308). `protectedProcedure`'s `enforceUserIsAuthed` holds
+across the whole class, including against forged session cookies and every path-normalisation trick
+I could drive. **That is a negative result and it is worth having**: it is the part of D18's
+persistence story that is actually sound, and it was established by execution rather than assumed.
+
+**What this could not reach, stated rather than glossed**: the five IS-1 writers are client-side
+React call sites, and the plan's own assumption 5 records that no component or browser harness
+exists here. My predecessor's standing note directed the expiring round to "drive the five IS-1
+writers"; that instruction was written expecting the wiring to be the *persist* path. The wiring
+that actually landed is the **Load** path, which does not persist. I drove the persistence boundary
+those writers all funnel into (`message.upsert`) instead, and say so rather than claiming their
+coverage.
+
+### Verification re-run — nothing inherited
+
+| claim | instrument | result |
+|---|---|---|
+| the EC-3 spec passes | `vitest run 013-m8-ec3-resolver-gate.test.ts` | **32/32** |
+| typecheck | `npx tsc --noEmit` | **exit 0, 0 errors** |
+| failure **set** unchanged | `check-expected-six.sh 87cfbd8` | **MATCH**; clean totals **482/476/6** |
+| the paired behavioural probe | `probe-cr3-mode-predicate/` | **122/122** |
+| round-5's closures still hold | `probe-cr6-derivation-round/` | **8/10** — the 2 failures are CR6-C, **instrument expiry, not defect** (below) |
+| new this round | `probe-cr7-wiring-and-boundary/` | **17/17** |
+
+**The suite figure is right again.** The implementer reported working-tree `489/483/6` and true
+`482/476/6`; I reproduce **482/476/6** from a clean extraction. Third consecutive round in which
+their corrected figure is exactly right. The `+7` remains the foreign untracked QA probe.
+
+**The pairing was run**, so the judgement `steering-hooks-013-2` is carrying conditional on it has
+not lapsed.
+
+### Enumerations re-run — the sweep, not the flagged sites
+
+All at `87cfbd8`, by me, with `git grep -c`:
+
+| predicate | implementer reported | I reproduce |
+|---|---|---|
+| `applyDisposition(` outside `__tests__` | 2, both in `JsonModalBody.tsx` | **2, both there** |
+| `chosenOption` anywhere in `src` | none threaded into `applyDisposition` | **3, all in `JsonModalBody.tsx`**, all local to `commitChoice`, none crossing the boundary |
+| `ContentLossOption` outside `__tests__` | 5, type-only or display-labelling | **2 files** (`JsonModalBody.tsx`, `index.ts`), none passed to `applyDisposition` |
+| `gateBeforePersist` callers | 1 hit = the declaration, **0 callers** | **confirmed** — the one hit is `index.ts:183`, the declaration |
+| `enforceImportMutualExclusivity` remaining | still live at the paste surface | **confirmed** — `NewMessageJsonInput.tsx:61` |
+
+The implementer **self-corrected a grep error while writing their own handoff** — that
+`gateBeforePersist(` matches its own declaration — and reported the corrected count. I reproduce
+their corrected number, not their first one.
+
+### Dispositions of the round-6 findings
+
+| finding | class gone? | check that fails if it returns |
+|---|---|---|
+| **MEDIUM-2 (r6)** `chosenOption` carries a stale label | **Yes, structurally** — the parameter is now `chosenMode?: MessageMode`; no label crosses the boundary at all. CR6-C, the probe that demonstrated the defect, **can no longer be expressed** | CR7-C, and the project's own new regression row. Type-level: `tsc` at `JsonModalBody.tsx`'s typechecked call site |
+| **MEDIUM-1 (r6)** Minimum — the record | **Yes** — the implementation doc now carries a correction paragraph stating plainly that *no test* enforced the round-5 closure before `a3e758b`, and naming where enforcement begins. I read it; it is accurate and does not overstate | the correction is the deliverable |
+| **MEDIUM-1 (r6)** Preferred — `tsconfig.test.json` | **Not done, correctly** — routed to steering as scope growth. The implementer declined it on exactly that basis rather than taking it on their own initiative | still open, with steering |
+| **LOW-1 (r6)** the vacuous regression test | **Deleted.** But its class recurred in the replacement — see LOW-1 (round 7) | — |
+| **LOW-2 (r6)** bare round numbers | **Yes** — `(MEDIUM-2 round 4 / MEDIUM-1 round 5, D18)` → `(D18)`. The four already-paired references were left alone, as asked | — |
+| **Assumption Not Checked (r6)** | **Carried, explicitly not closed**, with the falsity signature and the obligation on the future wiring named in Outstanding Items | carried again below |
+
+**CR6-C's two failures are the fix working.** Round 6's probe demonstrated the stale-label replay;
+that class is now unrepresentable, so the tests that expressed it cannot run. Instrument expiry, not
+regression — CR6-A, B, D and E all still pass, so round 5's closures also still hold.
+
+### TDD Compliance
+
+**Table present, rows complete, no exemption claimed.** Re-derived rather than accepted: reverting
+`index.ts` to `a3e758b` against the `87cfbd8` spec gives **3 failed / 29 passed**, matching the
+implementer's claim exactly. The reasons are the discriminating ones, which is the part that matters:
+
+- `expected 'hi' to be ''` — a mode **string** read as `.mode` yields `undefined`, so both row-E
+  applications fell through to `switchToClassic` regardless of the mode requested.
+- `expected [Function] to throw error matching /chosenMode/ but got '…chosenOption is r…'`.
+- `expected [ { title: 'x' } ] to deeply equal []` — the new regression row.
+
+**No pre-existence `TypeError`s this time.** Round 6's red set was 5 discriminators to 4
+arity-artifacts; this one is 3 for 3. That is a real improvement in the gate's quality and not just
+in its count.
+
+### Findings
+
+#### MEDIUM-1 (round 7) — D18/D19 is enforced in one client component and nowhere else; the persist API accepts the shape it exists to abolish
+
+- **Location**: `messageShape` / `discordMessageShape` in `src/server/api/utils/shapes.ts`, against
+  `message.upsert` in `src/server/api/routers/message.ts`.
+- **Class**: a data-integrity invariant enforced only on one client path, while the persistence API
+  accepts violations of it from every caller.
+- **Enumeration**: refinements reachable from the persist input shape —
+  `optionalIdMessageShape` → `messageShape` → `discordMessageShape` →
+  `discordMessageBaseShape.superRefine(refineDisplayableText)`. **One refinement, and it checks
+  displayable-text size only: 0 of 1 concerns V2/classic exclusivity.** Separately, the five IS-1
+  writers: **0 of 5 gated.** *What the predicate does not match*: a check inside `upsertMessage`'s
+  own body (I read `shared.ts:234` — there is none) and a database-level constraint, which I
+  **cannot cover at all** because no schema lives in this repository; that population is uncovered
+  and its fallback is whoever owns `project-utils`.
+- **Demonstrated by execution** (CR7-A): six 5712-shaped payloads — flag+content, flag+embed,
+  flag+content+container, flag+embed+container, all three together, and residue-flag `4|BIT`+content
+  — are **all accepted** by `messageShape.safeParse`. **Negative control**: the same validator does
+  reject an empty name and a negative `flags`, so acceptance is a real signal rather than a validator
+  that passes everything.
+- **Why it matters**: D19 exists to abolish the 5712 shape. At `87cfbd8` the only thing preventing
+  it is `JsonModalBody`'s Load path. Gating the five writers at M8-G will make the *clients* well
+  behaved; it will not make the invariant true, because the API still accepts violations.
+- **Magnitude**: measured at the validator (6 of 6 accepted, control rejects). Production
+  consequence unmeasured — I did not and will not drive the hosted database.
+- **Severity MEDIUM, not HIGH**: M8-G is scheduled and the gap is already a named Outstanding Item.
+  What is new here is the *measurement* — that client-side gating is not sufficient — not the
+  existence of ungated writers.
+- **Required Action**:
+  - **Preferred (structural)**: a `superRefine` on the persist shape rejecting *flag set together
+    with classic content*, so the invariant holds at a boundary no client can bypass.
+  - **Minimum**: deliver M8-G as planned, and record in the plan that the client gate is a
+    convenience, not a boundary.
+- **Routed to `steering-hooks-013-2`, not settled here.** This is D22's first never-settle class: it
+  implies the plan's own model of where D18/D19 is enforced is incomplete. It is not for the
+  implementer and me to decide.
+
+#### LOW-1 (round 7) — the replacement regression test again does not discriminate; second instance of the class
+
+- **Location**: `013-m8-ec3-resolver-gate.test.ts`, `it('MEDIUM-2 (round 6) regression: …')`.
+- **Class**: a test whose name asserts a property its body does not isolate — it is dominated by an
+  existing sibling, so no defect can fail it without failing that sibling first.
+- **Enumeration**: four mutants, each recorded against the new test **and** its nearest sibling
+  (`row E with the v2 mode chosen`): (M1) `switchToV2` stops clearing `embeds`; (M2) stops clearing
+  `content`; (M3) row E ignores `chosenMode` and always applies classic; (M4) `switchToV2` *injects*
+  a stray embed — designed specifically so only the new test's unique draft could catch it.
+  **Identical in 4 of 4.** *What this does not match*: four hand-chosen mutants at two functions; I
+  did not search exhaustively.
+- **And here no mutant can separate them**, which is the sharper statement: the new test's first
+  draft is the sibling's draft with `embeds` already empty, and its assertions are a strict subset
+  of the sibling's. A strictly weaker input with strictly weaker assertions cannot fail where the
+  sibling passes, unless a defect keys on the input difference — and "clears embeds only when
+  non-empty" passes both.
+- **This is the second instance**, after round 6's LOW-1. The fix for the first produced the second,
+  which makes it a habit rather than a slip and is why it is worth a rule rather than another
+  point fix.
+- **Required Action**:
+  - **Preferred (structural)** — adopt the rule, not the edit: **a test named as a regression check
+    ships with the mutant that separates it from its nearest sibling. If no such mutant exists, the
+    honest record is `no test` plus the naming of what does enforce the property** — here, `tsc` at
+    `JsonModalBody.tsx`'s call site, which the implementation doc already states correctly.
+  - **Minimum**: rename it to what it checks, or delete it and rely on the correction paragraph.
+
+#### INFO-1 (round 7) — one silent strip was retired; another still sits in front of the gate
+
+`a3e758b`'s stated purpose was retiring the pre-Zod silent strip
+(`enforceImportMutualExclusivity`) from Load, and it did. But `discordMessageImportShape` runs
+`filterSupportedComponents` as a `z.preprocess`, **before** `resolveContentLoss` ever sees the
+object. Executed (CR7-B): pasting `{content:'hi', components:[{type:3, …}]}` yields
+`components: []`, and the resolver then reports **row A, `requiresChoice: false`,
+`noticeClass: 'none'`** — the user's select is gone with no notice and no choice. Same for a
+container whose children are all unsupported: the whole container is dropped and the draft looks
+loss-free.
+
+Not a regression and not this round's doing — it is pre-existing behaviour of the import shape. It
+is named because the round's own framing was "retire the silent strip", and one remains, upstream of
+the gate, where the gate cannot see what it removed. The right owner is the plan: D18 asks that the
+save path stop silently destroying user content, and this is a second, narrower instance of exactly
+that on the same surface.
+
+#### INFO-2 (round 7) — a guard hole disposed of at step 1, with the same conditional as round 6
+
+Executed (CR7-C): `applyDisposition(rowEDraft, 'V2')` — wrong case — is **not** rejected. It is
+truthy, so the guard passes, and `applyModeSwitch` treats anything that is not exactly `'v2'` as
+classic, so the draft's components are dropped instead of its content. Every *falsy* non-mode value
+(`undefined`, `null`, `''`, `0`, `false`, `NaN`) does throw `/chosenMode/`, verified across all six.
+
+Applying the disposition order: **can the caller send it?** `chosenMode?: MessageMode` is a closed
+union, and the sole call site is now in typechecked production code — so **no, and there is no
+finding**. Recorded anyway because the underlying default is the unsafe direction (`applyModeSwitch`
+silently falls to classic rather than refusing an unknown mode), and because the step-1 answer
+depends on the call site staying typechecked — which is exactly what MEDIUM-1 (round 6) showed is
+not automatic here.
+
+### Positive observations
+
+- **The wiring gets the hard part right, and I checked it rather than assuming.** For row E,
+  `commitSettled` calls `setPendingChoice` and returns **without** calling `updateMessage` — so
+  nothing reaches the persistence-adjacent surfaces at all. That matters more than it looks:
+  `MessageProvider` carries `useEffect(… , [message])` writing every message change into
+  `localMessageStore`, and `getMessage` lets a newer local record **win over the server's** on the
+  next load. Had row E updated state before the choice, a discarded draft would have survived a
+  reload and beaten the saved message. It does not. I traced that surface specifically because a
+  response status would never have shown it.
+- **`describeDropSet` resolves round 6's INFO-2 rather than inheriting it.** I flagged that
+  `dropSet` is key-granular and cannot express a partial components loss. The wiring solves it in
+  the *wording*: `components` maps to "your Components V2 components", so for
+  `[container, actionRow]` the notice reads "This will drop your Components V2 components" and the
+  Action Row genuinely survives. Executed (CR7-D): the notice is **true** for the partial case. That
+  is the right fix in the right place, and it is where I said the fix belonged.
+- **`switchToClassic`'s `type === 1` filter is exactly right on this path, and I tried to break it.**
+  I expected a gap between "keep only Action Rows" and "drop only V2 types" — a top-level type-3
+  select would then be dropped silently on a row the resolver calls loss-free. Executed (CR7-B):
+  `SUPPORTED_TOP_LEVEL_TYPES` is `{1} ∪ V2_COMPONENT_TYPE_VALUES` exactly, so after the import shape
+  the two predicates are exact complements. **The hypothesis was wrong and the code was right.**
+- **Three self-catches this round.** The comment sweep and suite figure last round; this round, a
+  grep error caught while writing the handoff (`gateBeforePersist(` matching its own declaration),
+  corrected before it reached me. And `gateBeforePersist`'s unwired state was recorded as a
+  **deliberate open decision with the alternatives spelled out**, rather than settled by omission —
+  which is precisely what I asked for and is better than what I asked for.
+- **The TDD gate improved in kind, not just in count**: 3 of 3 discriminating reds, versus round 6's
+  5 of 9.
+
+### Assumption Not Checked
+
+**This review assumes that `commitSettled`, `commitChoice` and `cancelChoice` behave as React
+callbacks the way they behave as straight-line functions, and does not test it.** Every CR7
+assertion calls the pure functions directly; nothing drives the component. The plan's own assumption
+5 records that no component or browser harness exists here, and standing the server up does not
+reach a client-side callback — so this is the residue that remained after the adversarial run, not
+something I skipped.
+
+**Falsity signature**: a re-render between `setPendingChoice` and `commitChoice` — a Pusher-driven
+`reloadMessage`, a refetch, a parent remount — replaces the draft under the pending choice, so
+`pendingChoice.validated` is no longer the object the displayed `dropSet` was computed from. The
+user then reads a notice describing one draft and has another applied: **round 6's MEDIUM-2 class
+re-entering through React state instead of through a parameter**, where deleting the parameter
+cannot reach it. `MessageProvider` wires `usePusher(messageRef, reloadMessage, hasChanged)`, so an
+external reload during the choice is a real event, not a hypothetical one.
+
+**Owner**: `qa-hooks-013`, at M8-E's instrument — the only stage positioned to assert it, and the
+reason the plan's assumption 5 needs revisiting rather than restating. If a component harness is
+ever added, this is the first thing to point it at. Named again in Next Steps.
+
+### Verdict
+
+**Status: APPROVED_WITH_COMMENTS**, bound to **`87cfbd8`** and to no other tree.
+
+**Rationale.** Round 6's MEDIUM-2 is closed structurally — the probe that demonstrated the defect can
+no longer be written, which is the strongest form of closure available. The Minimum on MEDIUM-1 was
+delivered as an accurate record correction that does not overstate itself, and the Preferred half was
+correctly declined and routed rather than taken unilaterally. The wiring itself is sound where it
+matters most: nothing reaches state, storage or the network before a choice is made, and I verified
+that against the localStorage surface specifically rather than against a status code. The
+adversarial obligation was discharged — 42 raw-socket cases against the persistence boundary, zero
+bypasses — and its limits are stated rather than papered over.
+
+**Nothing here reaches HIGH for plan 013.** MEDIUM-1 (round 7) describes a boundary that was always
+this way and that M8-G is scheduled to address on the client side; what I add is the measurement that
+the client side is not sufficient, which is a question for the plan and not a defect in the delivered
+code. LOW-1 is a test-quality habit, not a behaviour risk.
+
+**I am not setting the plan's `Status` field**, for the reason given in round 6 and unchanged: three
+milestones and M8-G remain, and a plan-level approval asserted from a milestone-level verdict would
+be false.
+
+**CRITICAL-1 does not reject this implementation**, because it is not this implementation. Reject
+authority covers the work under review; CRITICAL-1 is a pre-existing defect in a file this chain
+never touched, and holding plan 013's milestone hostage to it would misroute both.
+
+### Required Actions
+
+**To the repository owner, via `steering-hooks-013-2` — IMMEDIATE:**
+
+1. **CRITICAL-1.** Two unauthenticated data endpoints behind a guard that cannot fire. Fix both the
+   matcher and the predicate, or better, move authorization into the handlers. Verify the fix by
+   executing an unauthenticated request, not by reading the code — the two defects mask each other
+   and a half-fix reads as correct.
+
+**To `steering-hooks-013-2` — plan-level, per D22:**
+
+2. **MEDIUM-1 (round 7).** The persist API accepts the 5712 shape from any caller. Does D18/D19 mean
+   a client convention or a server-enforced invariant? M8-G as planned delivers the former. This
+   changes what the plan must contain, so it is not mine or the implementer's to settle.
+3. **MEDIUM-1 (round 6) Preferred** — `tsconfig.test.json` — still open with you from last round.
+
+**To `implementer-hooks-013-2`:**
+
+4. **LOW-1 (round 7)** — adopt the rule (a regression test ships with its separating mutant, or
+   records `no test`), and rename or delete the current one. The rule matters more than the edit.
+5. Carry the round-7 Assumption Not Checked forward alongside round 6's; both concern the same
+   seam — the object a real call site hands in — from different directions.
+
+**To `qa-hooks-013`:**
+
+6. M8-E's notice instrument should assert the rendered notice against the applied result. Round 6's
+   concern about partial-component wording is **resolved** by `DROP_SET_LABELS` — verify it stays
+   resolved rather than re-raising it.
+7. **The round-7 Assumption Not Checked is yours**: a re-render between choice and commit. It is the
+   one thing neither the probe nor the running instance could reach.
+
+### Captured Instruments (round 7)
+
+New, at `agent-output/verification/013/probe-cr7-wiring-and-boundary/`:
+
+| file | what it establishes |
+|---|---|
+| `boundary.cr7.test.ts` | CR7-A the persist shape accepts six 5712 payloads with a negative control; CR7-B the top-level type complement and the surviving silent strip; CR7-C the re-attacked guard and its truthy-string hole; CR7-D the notice the user actually reads | 
+| `vitest.cr7.config.ts`, `run-cr7-87cfbd8.txt` | config and the captured 17/17 run |
+| `attack-upsert.py`, `attack-v1.py`, `run-attack-87cfbd8.txt` | the raw-socket adversarial run — 42 cases against `message.upsert`, and the six that establish CRITICAL-1 |
+
+**Superseded**: `probe-cr6-derivation-round/`'s CR6-C (2 of 10) — instrument expiry, the class is
+unrepresentable. CR6-A/B/D/E remain current.
+
+### Next Steps
+
+1. **`steering-hooks-013-2`** — CRITICAL-1 immediately; then MEDIUM-1 (round 7) and the carried
+   `tsconfig.test.json` question.
+2. **`implementer-hooks-013-2`** — LOW-1's rule; then M3, M4, M6 and M8-G. **M8-G is the round where
+   the persist gate finally gets a consumer**, and where the open decision the implementer recorded
+   (which of `gateBeforePersist` / `resolveContentLoss` / `applyDisposition` each writer needs) has
+   to be made explicitly.
+3. **`qa-hooks-013`** — items 6 and 7.
+
+**QA is still not the next stage.** M3, M4, M6 and M8-G remain.
+
+**Rounds 1–6's verdicts are unaffected.** Each stands on its own tree.
