@@ -21,7 +21,10 @@ Status-Detail: >-
   are permanent members of the category 012's classifier counts, so both limbs of the plan's own
   falsifier for assumption 7 now fire by construction — a working D19 repair will read as a failed
   one. Routed to steering; no remedy adopted here. This document is authoritative on register state
-  from rev 1 forward.
+  from rev 1 forward. **Rev 6**: QA split BC-11 into **BC-11a (`EXECUTED`, terminal)** and **BC-11b
+  (`NOT EXECUTED`)** at `9946eb9`, adopting both defect reports; Appendix A amended for QA's
+  unexamined-read-path assumption, which makes a Classic-mode open **ambiguous** and not reportable
+  as either a read-path defect or the ask failing.
 ---
 
 # UAT Report: Plan 013 — Components V2 support across the editing surfaces
@@ -40,6 +43,7 @@ Status-Detail: >-
 | 2026-08-24 | steering-hooks-013-2 (an inference offered **explicitly as unestablished**, to re-derive not adopt) | Test whether Half B is blocked for the same reasons as Half A, and if so prepare a one-shot observation script | Rev 3. **Inference SURVIVES in part and is corrected in part.** Survives: Half B is not executable by this session — all 8 message-router procedures are `protectedProcedure` (0 `publicProcedure`) and the oracle is a UI event, so the browser constraint decides it independently of timing. Corrected: **it does not follow that Half B is the owner's** — the plan's M8-G clause admits the form *"in any environment seeded with the shape"*, and the planner already wrote a fallback disposition for the no-seeded-environment case. Two register defects found and sent to QA: BC-11's **Subject** cell names `UAT agent` with no fallback, which is wrong for both halves; its **earliest-decidable** cell states Half A's precondition only and omits Half B's. Observation script for the designated observer added as Appendix A, **not executed**. Still no verdict. |
 | 2026-08-24 | **owner**, attested in the steering session; **route: relayed out-of-band by steering-hooks-013-2 — not a stage handoff** | Deliver the owner's attestation that the two seed records exist, for UAT to judge under its own gate | Rev 4. **BC-11 Half A → `EXECUTED`, terminal.** His words, verbatim: *"Re: UAT's JSON message - both are created. 5855 and 5856"* (2026-08-24). Terminalised on the attestation per the plan's evidence rule and this agent's own — never record a capture as missing against a condition he executed. **Not recorded as fact**: the shape-to-ID mapping (steering expressly did not assert it; Half B exercises both records by its own terms, so nothing is blocked). **D20's re-derivation clause RESOLVED on the substance** — discharged by production execution rather than by UAT's instrument, delta and route-residual recorded; classifier block retired for that purpose. Half B unchanged and still owed. Still no verdict. |
 | 2026-08-24 | *(none — raised by this pass)* | — | Rev 5. **Finding U-1 raised**: D20's seed records (5855, 5856) are permanent members of `flagStructureDisagreement`, so after the owner's D19 repair the plan's assumption-7 detector reads **2** where he expects **0** — a working repair looks like a failed one — and the V2-error limb fires too, since that is Half B's precondition. Verified verbatim against the plan's Assumptions item 7 and its "29 empty, 2 disagreeing" count. Routed to steering as plan-touching; no remedy adopted. One inference left deliberately unexecuted and flagged. Still no verdict. |
+| 2026-08-24 | qa-hooks-013-2, direct under D27 (`9946eb9`) | Both UAT digests actioned: extensions executed, BC-11 split, one assumption routed back that lands on Appendix A | Rev 6. Both extensions **CONFIRMED by QA's execution** (24 assertions, 5 mutants killed), including the conflict-UPDATE leg Half B actually exercises. BC-11 **split into BC-11a (`EXECUTED`, terminal) / BC-11b (`NOT EXECUTED`)**, both defect reports adopted; register restated here from QA's document re-read at write time. **Appendix A amended**: QA's unexamined read path makes a Classic-mode open ambiguous between a read-path defect and the ask not firing — the script now stops the observer there rather than letting either conclusion be drawn. **F-QA11 ruled out for this script by this pass**: `SaveAsMenu` uses `?? ''` → `null` (accepted), not `NewMessageModal`'s `?? '0'` (refused), so Save As is not exposed. Still no verdict. |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -225,7 +229,7 @@ debris, and the shared tree's branch was **not** switched.
 ## Blocking Release Condition Register — Adopted
 
 **Register of record**: `agent-output/qa/013-components-v2-editing-surfaces-qa.md`, section *Blocking
-Release Condition Register — chain 013*, re-read at write time 2026-08-24. That document states it is
+Release Condition Register — chain 013*, re-read at write time 2026-08-24. **Re-read again at rev 6 (QA doc rev 2, `9946eb9`)**, the authority for the BC-11a/BC-11b split restated below; QA also added a dated register maintenance log there. That document states it is
 chain 013's **single** register; this pass found no second travelling list and mints none. From this
 revision forward **this document is authoritative on each row's state**, per the register's own
 standing note.
@@ -237,7 +241,9 @@ standing note.
 | Row | Class | State after this pass | Note |
 |---|---|---|---|
 | BC-1 … BC-10 | PRE | Not started | Not reachable: they need the chain tip, and M4/M6 are open |
-| **BC-11** | PRE | **Half A: `EXECUTED` 2026-08-24 (terminal).** **Half B: `NOT EXECUTED`** | Half A discharged by the owner's attestation, quoted verbatim above (records 5855, 5856). Half B still owed; **`NOT EXECUTED` is not a terminal state** and blocks an unconditional approval |
+| **BC-11** | — | **SUPERSEDED by BC-11a + BC-11b** | Split by QA at `9946eb9` on this pass's two defect reports; retained as a pointer row. **No requirement withdrawn**, both halves survive verbatim, same ID space |
+| **BC-11a** (the mint) | PRE | **`EXECUTED` 2026-08-24 — TERMINAL** | The owner's attestation, quoted verbatim above (5855, 5856). Two residues recorded and not asserted: the shape-to-ID mapping, and that his words reached the register by citation of this document rather than by his writing into a stage document |
+| **BC-11b** (the ask) | PRE | **`NOT EXECUTED`** | Non-terminal; **blocks an unconditional approval**. Appendix A is its one-shot script. Subject is now *any party with a browser and a chain-tip environment carrying the shape* — today the owner, **because no session on this box holds browser tooling: a fact about tooling, not a plan requirement** |
 | BC-12, BC-13, BC-14 | POST | Not started | Post-deploy-observable; gate chain closure, not the release act. BC-13's owner is devops and its primary instrument is **the clock — no human subject** |
 
 ### BC-11, read apart into its two halves
@@ -447,7 +453,7 @@ real UAT pass, not assumed from this script.
 
 | # | Action | Record |
 |---|---|---|
-| 1 | Open the 5712-shaped record in the composer | Does it open in **V2 mode**? Is the **V2 error** visible? Is the body text `hi` still shown? |
+| 1 | Open the 5712-shaped record in the composer | Does it open in **V2 mode**? Is the **V2 error** visible? Is the body text `hi` still shown? **If it opens in Classic with no V2 error and no components section, STOP — see the ambiguity rule below. Do not conclude anything.** |
 | 2 | Add **one container** | Did the add-component control appear at all? (If not, check the section is expanded before concluding anything) |
 | 3 | Press **Save** | **The ask appears**, and it **names both drops**. Record the wording verbatim |
 | 4 | Dismiss without choosing, then re-open the record | **Nothing was written** — the record is as it was. This is the negative half and is the easiest to skip |
@@ -457,6 +463,26 @@ real UAT pass, not assumed from this script.
 prediction is: *the ask appears; nothing is written before a choice.* If the observer is the owner,
 his attestation **quoted with its timestamp** is complete evidence — no capture file is minted, none
 is owed, and none is recorded as missing.
+
+**Ambiguity rule (added at rev 6 on QA's Assumption Not Checked, `9946eb9` §4) — read before step 1.**
+Everything QA established about these records stops at the values handed to the insert/update statement.
+**The read path is unexamined.** If `getMessage`, or whatever `MessageProvider` runs on load, coerces or
+defaults `flags` on the way *out*, then 5855/5856 are stored as row-D members and nonetheless **open as
+something else**.
+
+So if the record opens in **Classic mode with no V2 error and no components section**, that observation
+is **ambiguous between a read-path defect and the ask not firing.** **Do not record it as either.**
+Record exactly what was seen and hand it back — QA owns closing it at Phase 2, in M7-a's
+mode-derivation coverage, by exercising the extracted `detectMode` over a fixture shaped the way
+storage returns it rather than over a literal. The same applies to any **validation error appearing
+instead of the ask**: record it; do not read it as the ask having failed.
+
+**One false alarm ruled out in advance (rev 6).** F-QA11 — `NewMessageModal` opening with
+`useState(guildId ?? '0')`, so Save is enabled while the dropdown still reads "Select a Guild" and `'0'`
+is refused by `discordIdShape` — **does not apply to this script.** Step 5's Save As uses
+`useState(message.guildId ?? '')` and sends `selectedGuildId || null`, reaching the boundary as `null`,
+which QA executed and found accepted. **F-QA11 is a New Message defect, not a Save As one**; an observer
+hitting a guild validation error at Save As has found something new, not F-QA11.
 
 **If it cannot be run**, the disposition is already written by the planner and is not improvised: where
 the D19 repair has run **and** no seeded environment is available, the suite is the evidence and the
