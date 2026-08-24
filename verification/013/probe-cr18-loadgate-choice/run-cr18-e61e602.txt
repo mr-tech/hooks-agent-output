@@ -1,0 +1,25 @@
+ RUN  v4.1.2 /usr/local/bin/hooks/agent-output/verification/013/probe-cr18-loadgate-choice
+ ✓ discriminate.cr18b.test.ts > CR18b — the parity extraction returns REAL discriminants, not vacuous > top-level extraction is the concrete set {1,9,10,12,13,14,17} 2ms
+ ✓ discriminate.cr18b.test.ts > CR18b — the parity extraction returns REAL discriminants, not vacuous > container-child extraction is the concrete set {1,9,10,12,13,14} 0ms
+ ✓ discriminate.cr18b.test.ts > CR18b — the parity extraction returns REAL discriminants, not vacuous > DISCRIMINATION: a divergence between SUPPORTED and schema WOULD break toEqual 0ms
+ ✓ discriminate.cr18b.test.ts > CR18b — the parity extraction returns REAL discriminants, not vacuous > current SUPPORTED sets match schema (the real assertion the suite makes) 0ms
+ ✓ medium5.cr18c.test.ts > CR18c-PASTE — filterSupportedComponents drops a non-link-accessory Section > the section is dropped (not carried to a failing parse) 3ms
+ ✓ medium5.cr18c.test.ts > CR18c-PASTE — filterSupportedComponents drops a non-link-accessory Section > and the drop is NAMED 1ms
+ ✓ medium5.cr18c.test.ts > CR18c-PASTE — filterSupportedComponents drops a non-link-accessory Section > a Thumbnail accessory is KEPT (control — the fix is not over-broad) 1ms
+ ✓ medium5.cr18c.test.ts > CR18c-INGRESS — discordResponseToMessage drops the same Section > non-link accessory section does not survive ingress, and is named 1ms
+ ✓ medium5.cr18c.test.ts > CR18c-INGRESS — discordResponseToMessage drops the same Section > thumbnail accessory section survives ingress 0ms
+ ✓ gate-choice.cr18.test.ts > CR18-A — a genuine row-E paste: the choice is WANTED but the Load button is DISABLED > resolveContentLoss wants the choice 3ms
+ ✓ gate-choice.cr18.test.ts > CR18-A — a genuine row-E paste: the choice is WANTED but the Load button is DISABLED > M4-c disables Load on exactly that draft -> commitSettled/pendingChoice unreachable 0ms
+ ✓ gate-choice.cr18.test.ts > CR18-A — a genuine row-E paste: the choice is WANTED but the Load button is DISABLED > CONTROL: the parent gate left it ENABLED, so the choice flow used to be reachable 0ms
+ ✓ gate-choice.cr18.test.ts > CR18-B — SUPERSET: every draft that requiresChoice is disabled by the M4-c gate > corpus[0]: requiresChoice === (gate disables) — the choice can never be reached 0ms
+ ✓ gate-choice.cr18.test.ts > CR18-B — SUPERSET: every draft that requiresChoice is disabled by the M4-c gate > corpus[1]: requiresChoice === (gate disables) — the choice can never be reached 0ms
+ ✓ gate-choice.cr18.test.ts > CR18-B — SUPERSET: every draft that requiresChoice is disabled by the M4-c gate > corpus[2]: requiresChoice === (gate disables) — the choice can never be reached 0ms
+ ✓ gate-choice.cr18.test.ts > CR18-B — SUPERSET: every draft that requiresChoice is disabled by the M4-c gate > corpus[3]: requiresChoice === (gate disables) — the choice can never be reached 0ms
+ ✓ gate-choice.cr18.test.ts > CR18-C — collateral: row D (flag+content, cleanly resolvable) is also blocked > resolveContentLoss SETTLES row D to classic with no choice 0ms
+ ✓ gate-choice.cr18.test.ts > CR18-C — collateral: row D (flag+content, cleanly resolvable) is also blocked > but M4-c disables Load anyway — a resolvable input is blocked 0ms
+ ✓ gate-choice.cr18.test.ts > CR18-D — the gate SHOULD apply to the RESOLVED object, which always passes > row E resolved to either mode passes validateContentRequirements 0ms
+ ✓ gate-choice.cr18.test.ts > CR18-D — the gate SHOULD apply to the RESOLVED object, which always passes > the empty floor is NOT resolvable and correctly stays blocked under any gate 0ms
+ ✓ gate-choice.cr18.test.ts > CR18-E — non-members: legitimately loadable drafts stay enabled > row B (structural V2, no content) loads 0ms
+ ✓ gate-choice.cr18.test.ts > CR18-E — non-members: legitimately loadable drafts stay enabled > row A (classic only) loads 0ms
+ Test Files  3 passed (3)
+      Tests  22 passed (22)

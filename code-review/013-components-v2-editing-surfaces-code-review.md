@@ -2,29 +2,33 @@
 ID: 013
 Origin: 013
 UUID: 22d69e06
-Reviewed-At: "Round 15 (current, binding): 12f4ce672edc914be3e7998f8488a39dc3204393 (chain/013-components-v2-editing-surfaces) — M3, Discord ingress carries V2 (M3-a/b/c), ten files. Verified at the start of the pass and again at the end; the tree did not move. Superseded, retained for the record: round 14 at 66e1974, round 13 at 7890fc9, round 12 at 299b842, round 11 at 54fed63, round 10 at 82af843, round 9 at ee3bc3e, round 8 at b3f8ea9, round 7 at 87cfbd8, round 6 at 816d7fd, round 5 at 0c8fad5, round 4 at 92ce026, round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
+Reviewed-At: "Round 16 (current, binding): e61e6025918a63bb435e2aeff1c2e6eb920de1bf (chain/013-components-v2-editing-surfaces) — M4, create-path parity + lenient-filter consistency (M4-a/b/c, MEDIUM-5, MEDIUM-4-minimum), eight files. Verified at the start of the pass and again at the end; the tree did not move. Superseded, retained for the record: round 15 at 12f4ce6, round 14 at 66e1974, round 13 at 7890fc9, round 12 at 299b842, round 11 at 54fed63, round 10 at 82af843, round 9 at ee3bc3e, round 8 at b3f8ea9, round 7 at 87cfbd8, round 6 at 816d7fd, round 5 at 0c8fad5, round 4 at 92ce026, round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
 Status: In Review
 Status-Detail: >-
-  Round 15, M3 — Discord ingress carries V2 (M3-a/b/c), at 12f4ce6. APPROVED_WITH_COMMENTS — the three
-  sub-criteria are MET and verified, nothing holds the tree. M3-a carries components and the flag; the
-  WHOLE flags field is copied and that is the RULED-CORRECT pass-through, settled by the architecture
-  doc's own owner ruling (system-architecture.md:91: non-V2 bits are user data that passes through
-  unexamined and unchanged) — I checked the ruling before raising it, and it dissolved my first
-  finding. M3-b's core is right: the converter's kept-set EXACTLY matches the strict persist shape's
-  discriminants, unsupported top-level/container-child types and non-link ActionRow buttons are dropped
-  and labelled, and the label reaches all three entry points (the code-path toast is a stable one-shot,
-  not the round-9 re-fire). M3-c refuses empty success fail-safe. TDD red reproduced independently (9
-  fails, TypeError on the new return shape); the implementer disclosed a TDD ordering lapse, handled
-  correctly. Baseline MATCH at clean 504/498/6, CR3 122/122, tsc 0. Architectural grounding EXISTS
-  (re-checked, not inherited). Two findings routed, neither holding the tree. MEDIUM-5: a Section
-  ACCESSORY is never filtered, so a non-link (interactive) button accessory from ingress is carried
-  UNNAMED and fails opaquely at persist -- the D9-avoided mode; ingress-specific (paste rejects it
-  loud), outside M3-b's DECLARED class, narrow, fail-safe. Fix filters accessories in the converter;
-  do not special-case. LOW-5: the committed tree FAILS eslint --max-warnings=0 (member-delimiter-style
-  error on the new RawComponent type at discordResponseToMessage.ts:44), contradicting the ESLint-clean
-  claim -- likely a --fixed working state not committed. INFO-2 (a round-14 miss of mine): M8-G's
-  NewMessageModal choice branch is dead code because loadedMessage is never row E. Plan Status field
-  NOT set, per both seams and steering.
+  Round 16, M4 — create-path parity + lenient-filter consistency (M4-a/b/c, MEDIUM-5), at e61e602.
+  REJECTED — one HIGH, in M4-c. M4-a, M4-b and the MEDIUM-5 fix are sound and verified; the defect is
+  the M4-c Load gate on JsonModalBody. M4-c added `|| !!contentFloorError` to the Load button's
+  isDisabled, with contentFloorError = validateContentRequirements(validatedDraft) over the UN-resolved
+  draft. That predicate ((structuralV2||flagV2) && (content||embeds)) is a SUPERSET of
+  resolveContentLoss's requiresChoice predicate (hasV2Components(structural) && hasClassicContent), so
+  EVERY draft that would trigger the inline row-E choice (commitSettled -> pendingChoice) is disabled at
+  the Load button first: the row-E choice flow is unreachable dead code. This violates D17 (JSON
+  submission surfaces resolve row E via the five-row CHOICE, not the composer's validateContentRequirements
+  error, which is D15/composer-only). Confirmed by probe-cr18 (13/13) with a parent-gate control that
+  left row E ENABLED. The impl doc's TDD exemption for the M4-c wiring ("render-path only, no new logic")
+  is FALSIFIED: the isDisabled composition changed the reachability of a code branch. Fix: gate on
+  `!requiresChoice && contentFloorError` (Preferred: route row E to the choice in the effect, as the
+  sibling NewMessageJsonInput already does) — this also PRESERVES the round-14 MEDIUM-4 empty-embed
+  mitigation M4-c incidentally provides, so do not simply remove the gate. Verified good: M4-b parity
+  test is non-vacuous and discriminating (probe-cr18b 4/4; SUPPORTED sets = schema discriminants, stray
+  11 removed); MEDIUM-5 section-accessory drop+label closed on BOTH paste and ingress (probe-cr18c);
+  M4-a saveAsPayload wrap matches the persist normalization; tsc 0; eslint neutral on touched files (all
+  flagged issues pre-existing); baseline six MATCH at clean 517/511/6 (implementer's 524 was
+  working-tree-inflated by the +7 foreign QA file, conclusion identical); CR3 122/122; TDD reds
+  reproduced (implementer's git-stash differential + my re-verify). Carried: MEDIUM-4 predicates still
+  diverge in code (limits.tsx/index.ts untouched this chain) — steering routed minimum-fix-only; the
+  M4-c gate is its current incidental mitigation, which the HIGH fix must keep. Plan Status field NOT
+  advanced (REJECTED).
 ---
 
 # Code Review: Plan 013 — Components V2 support across the editing surfaces (M1 only)
@@ -40,6 +44,7 @@ Status-Detail: >-
 
 | Date | Agent Handoff | Request | Summary |
 |---|---|---|---|
+| 2026-08-24 | implementer-hooks-013-3 (direct, per D22/D26) | Review M4 at `e61e602` (eight files), doc `b365ef0` | **Round 16. REJECTED — one HIGH, in M4-c.** M4-a, M4-b and MEDIUM-5 are sound; the defect is the M4-c Load gate on `JsonModalBody`. M4-c added `\|\| !!contentFloorError` to the Load `isDisabled`, with `contentFloorError = validateContentRequirements(validatedDraft)` over the **un-resolved** draft. That predicate is a **superset** of `resolveContentLoss`'s `requiresChoice`, so **every** draft that would trigger the inline row-E choice (`commitSettled`→`pendingChoice`) is disabled at the Load button first — **the row-E choice flow is unreachable dead code.** Violates **D17** (JSON submission surfaces resolve row E via the five-row CHOICE; the `validateContentRequirements` error is D15/composer-only). `probe-cr18` **13/13** with a parent-gate control (row E was ENABLED before M4-c). The impl doc's **TDD exemption** for the M4-c wiring ("render-path only, no new logic") is **falsified** — the `isDisabled` composition changed branch reachability. Fix: gate on `!requiresChoice && contentFloorError` (Preferred: route row E to the choice in the effect, as the sibling `NewMessageJsonInput` already does) — this also **preserves** the round-14 MEDIUM-4 empty-embed mitigation M4-c incidentally provides, so do NOT simply remove the gate. **Verified good**: M4-b parity test non-vacuous & discriminating (`probe-cr18b` 4/4; SUPPORTED sets = schema discriminants, stray Thumbnail-11 removed); **MEDIUM-5 CLOSED** on both paste & ingress (`probe-cr18c`, section dropped+named); M4-a `saveAsPayload` wrap sound; tsc 0; eslint neutral on touched files (flagged issues pre-existing); baseline six **MATCH** at clean **517/511/6** (implementer's 524 was working-tree-inflated by the +7 foreign QA file — same conclusion); CR3 122/122; TDD reds reproduced (git-stash differential + my re-verify). **Carried**: MEDIUM-4 predicates still diverge in code (steering: minimum-fix-only; the M4-c gate is its incidental mitigation). Plan Status NOT advanced. |
 | 2026-08-24 | implementer-hooks-013-3 (direct, per D22/D26) | Review M3 at `12f4ce6` (ten files), doc `f8dd433` | **Round 15. APPROVED_WITH_COMMENTS — M3 complete.** First pass; the sweep is the whole surface. **M3-a**: components + the flag carried; the WHOLE `flags` field is copied and that is the **ruled-correct** pass-through (`system-architecture.md:91`, owner ruling: non-V2 bits pass through unexamined) — **I checked the ruling before raising it, and it dissolved my first finding.** **M3-b core correct**: the converter's kept-set **exactly matches** the strict persist shape's discriminants; unsupported top-level/container-child types + non-link ActionRow buttons dropped and labelled; residue reaches all three entry points (code-path toast is a stable one-shot, not the round-9 re-fire). **M3-c** refuses empty success fail-safe. **TDD red reproduced independently** (9 fails, `TypeError` on the new `{data,droppedComponentTypes}` return); implementer **disclosed** a TDD ordering lapse — handled right. `probe-cr17` 15/15, tsc 0, baseline MATCH clean **504/498/6**, CR3 122/122. Architectural grounding **exists**, re-checked. **MEDIUM-5**: a Section **accessory** is never filtered — a non-link button accessory from ingress is carried **unnamed** and fails opaquely at persist (the D9-avoided mode); ingress-specific (paste rejects it loud), outside M3-b's **declared** class, narrow, fail-safe. **LOW-5**: committed tree **fails** `eslint --max-warnings=0` (`member-delimiter-style` on the new `RawComponent` type), contradicting the ESLint-clean claim. **INFO-2** (my round-14 miss): M8-G's `NewMessageModal` choice branch is **dead code** — `loadedMessage` is never row E. Pairing run. |
 | 2026-08-24 | implementer-hooks-013-3 (direct, per D22/D26) | Review M8-G at `66e1974` (eight files), doc `e1305c9` | **Round 14. APPROVED_WITH_COMMENTS — M8-G complete.** **T2 fired for the first time in seven rounds** and the persist-path attack it owed was run: an isolated instance (git archive, dummy env, `DATABASE_URL` on dead port `59999` set explicitly per probe-cr14) driven with raw sockets — **every `message.upsert` body returned 401**, so unauth cannot persist; the server shape has no mutual-exclusivity refinement, so once authed the **only** gate is client-side. **TDD red reproduced independently and behavioural**: 5 fails against real deleting code at `7890fc9`+new tests, incl. the exact `expected undefined to be 'Hello world'`. Writer sweep re-run and broadened to the v1 write surface (GET-only, no server writer); all three real writers gated, both canned-intro writers confirmed non-members. **MEDIUM-4**: the persist gate's `hasClassicContent` is narrower than the send floor's `validateContentRequirements` — they disagree on empty-ish embeds — so retiring `stripKeys`' deletion turns a pasted V2+empty-embed from cleaned-and-sendable into retained-but-**unsendable with no choice** (`probe-cr16` 21/21, with a `7890fc9` control); malformed-paste-only, fail-safe, root pre-existing; fix **aligns the predicates**, not restore the deletion. **LOW-3**: the choice UI is triplicated and `SaveAsMenu` strands its choice on dismissal — round-9 MEDIUM-3 recurring in a new copy; `SaveChoiceModal` extracted but used by one of three sites. Two non-test `stripKeys` consumers (send wire form fail-closed, `usePusher` hash parity) cleared. CRITICAL-1 reconfirmed live on the v1 control, **not re-escalated**. Pairing run; **T2 fired**. |
 | 2026-08-24 | implementer-hooks-013-3 (direct, per D22/D26) | Re-verify the round-12 HIGH-1/INFO-1 fix at `7890fc9` (two files), doc `4d00fa1` | **Round 13. APPROVED — M2-c complete.** HIGH-1 closed **structurally**: the overwrite sentence is unconditional and the diff additive, so the class is unrepresentable. `probe-cr13` (16/16) with a `299b842` control that fails the same assertion, plus an exhaustive 18-cell sweep. Red reproduced at `7890fc9~1` and it is **behavioural**, not existence-only. `probe-cr12` correctly expired 6/13 — and the contrast with `probe-cr10` (which never expires) validates round 11: **import your subject, do not transcribe it.** **The class sweep was incomplete** — their predicate could not see `showConfirmation(` or `.ts` files, so there are **five** sites, not three. `usePusher.ts:43` is a genuine member; root cause is `hasChanged` being gated on `status === "authenticated"`, which also makes `Navigation`'s Reload **skip its dialog entirely**. Pre-existing and out of chain scope — **routed to steering as a handoff candidate, not held**. Pairing run; T2 empty for the sixth round. |
@@ -5127,3 +5132,206 @@ opaque failure, outside M3-b's declared class) and LOW-5 (lint gate) are routed 
    round-8 INFO-1.
 3. **A planner pass, when that queue reopens** — MEDIUM-1's reach into M4's Risks, unchanged; and the
    M4-b Thumbnail-11 finding the implementer named (out of M3 scope).
+
+---
+
+# ROUND 16 — M4, create-path parity + lenient-filter consistency, at `e61e602`
+
+**Reviewed-At**: `e61e6025918a63bb435e2aeff1c2e6eb920de1bf` (chain branch
+`chain/013-components-v2-editing-surfaces`). Verified at the start of the pass and again at the end;
+the tree did not move. `agent-output` at `b365ef0` on entry.
+
+**Verdict: REJECTED — one HIGH, localized to M4-c.** M4-a (`saveAsPayload` wrap), M4-b (SUPPORTED/schema
+set-equality parity) and the MEDIUM-5 Section-accessory fix are **sound and verified**. The defect is the
+**M4-c Load-button gate on `JsonModalBody`**, which makes the D17-mandated row-E choice flow unreachable
+dead code. It is introduced by this pass, it is grounded in a specific owner ruling, and the impl doc's
+TDD-exemption that would have justified not testing it is falsified by execution. It should be fixed
+before QA rather than filed as a comment.
+
+## Scope actually assessed
+
+`git diff --numstat e61e602~1 e61e602` (plus the intermediate LOW-5 fix `15f2669` folded into this
+range) → the eight files the implementer named: `shapes.ts` (M4-b/MEDIUM-5), `discordResponseToMessage.ts`
+(MEDIUM-5 ingress), `JsonModalBody.tsx` (M4-b/M4-c), `NewMessageModal.tsx` (M4-a), `NewMessageJsonInput.tsx`
+(M4-b), the parity test `013-m4-shapes-parity.test.ts`, and the appended `013-m3-discord-ingress.test.ts`
+and `shapes-v2.test.ts`. `limits.tsx` and `index.ts` — **unchanged this chain** (`git log 66e1974..e61e602`
+empty for both), which is the MEDIUM-4 fact below.
+
+## Verification re-run — nothing inherited
+
+| claim | instrument | result |
+|---|---|---|
+| typecheck | `npx tsc --noEmit` | **exit 0** |
+| lint, touched source files | `npx eslint --max-warnings=0 <6 M4 src files>` | flagged issues are **all pre-existing** (shapes.ts `sumDisplayableText` line 160 delimiter/len — same line at `e61e602~1`; the avatar_url 136-char line; the standard `__tests__`-not-in-tsconfig parsing error). **M4 added no >100-char line and no new rule violation in its own hunks.** |
+| failure **set** unchanged | `check-expected-six.sh e61e602` | **MATCH** — the expected six by identity and reason. Totals **517/511/6** (clean extraction). |
+| the pairing's other half | `probe-cr3-mode-predicate/` | **122/122** |
+| this round | `probe-cr18-loadgate-choice/` | **22/22** (13 + 4 + 5) |
+
+**On the total.** The implementer reported **524/518/6**; my clean `git archive` extraction gives
+**517/511/6**. The +7 is the untracked foreign file `013-qa-phase1-seed-route-probe.test.ts` (7 passing
+tests) that `vitest` collects from the shared working tree — exactly the contamination
+`baseline-expected-six` exists to defeat. The failure **set** is identical, so the conclusion ("no new
+failures, the six pre-existing reds unchanged") holds; the count is corrected, not the finding.
+
+## HIGH-1 — M4-c's Load gate makes `JsonModalBody`'s row-E choice unreachable
+
+**Severity: HIGH.** Designed, previously-reachable, user-facing functionality on the JSON edit surface
+is made unreachable dead code by the change under review, in violation of owner ruling D17.
+
+**Location.** `src/app/message/m/[id]/_components/JsonModalBody.tsx`, the Load `Button`'s
+`isDisabled={!!error || !isValid || !!contentFloorError}` (the `|| !!contentFloorError` clause added by
+M4-c), where `contentFloorError = validatedDraft ? validateContentRequirements(validatedDraft) : undefined`
+and `validatedDraft = discordMessageImportShape.parse(rawParsed)` — the **un-resolved** import, set in the
+effect, never passed through `resolveContentLoss`/`applyDisposition`.
+
+**Class.** *A JSON submission surface gates its load/submit action on the composer's
+`validateContentRequirements` floor predicate applied to an un-resolved draft, so it blocks row E — which
+D17 mandates be resolved by the five-row CHOICE, not errored — instead of gating only the empty floor on
+the resolved object.* The two row-E predicates disagree, and the gate uses the wrong one:
+
+- `resolveContentLoss(...).requiresChoice` = `hasV2Components(**structural**) && hasClassicContent` — the
+  surface's own disposition predicate (`src/utils/index.ts`).
+- `validateContentRequirements` errors when `hasV2 && hasContent`, `hasV2 = hasStructuralV2 || **hasFlagV2**`,
+  `hasContent = content.trim() || embeds.length>0` (`src/utils/limits.tsx`) — the **composer's** error rule
+  (D15), a **superset** of the choice predicate.
+
+Because the gate predicate is a superset, **every** draft that would set `pendingChoice` also trips the
+gate: `commitSettled` → `setPendingChoice` is unreachable, and the "Save as Components V2 / Save as Classic"
+UI it renders is dead. Owner ruling **D17** (planning doc, D15 row and the five-row bullet): at the two
+**JSON submission surfaces** the disposition is "not a function of that predicate but of the three-way cell",
+and row E (V2 components + content/embeds, whatever the flag) → "the user **chooses** Classic or V2". The
+`validateContentRequirements` **error** is the **composer's** behaviour (D15's second sentence), not the JSON
+surface's. M4-c applied the composer's rule to a JSON submission surface.
+
+**Enumeration.** `git grep -n "validateContentRequirements(" e61e602 -- 'src/**/*.tsx' ':!**/__tests__/**'`
+→ **3** gate sites:
+
+| site | draft it gates | member? |
+|---|---|---|
+| `JsonModalBody.tsx:139` (Load) | `validatedDraft` = **un-resolved** `discordMessageImportShape.parse` — **can be row E** | **MEMBER** |
+| `NewMessageModal.tsx:125` (Save) | `loadedMessage` = `makeEditable(...).data` over `jsonMessage`, which `NewMessageJsonInput` **`applyDisposition`-resolves** upstream (lines 94–113) before `setMessage` — **never row E** (round-15 CR17-D, re-verified at e61e602) | **not a member** (its own `gateBeforePersist` choice branch was already dead — round-15 INFO-2) |
+| `DiscordMessageEditor/index.tsx:198` | `message` — this **is** the composer; the error rule is **correct** here (D15) | **not a member** |
+
+*Does not match* (stated at authoring time): a submit/load gate that reads `validateContentRequirements`
+indirectly (through `validateMessage` or another wrapper) — the predicate is the literal call; and any JSON
+surface that resolves the draft *before* the gate (as `NewMessageJsonInput` does), which removes it from the
+class by construction rather than by the predicate.
+
+**Established by execution** — `probe-cr18-loadgate-choice/gate-choice.cr18.test.ts`, **13/13**, the real
+functions imported:
+- **CR18-A**: a genuine row-E paste — `choiceWanted` (real `resolveContentLoss`) is `true`, and
+  `loadDisabled_M4c` (real `validateContentRequirements` over the real parse) is `true`. The choice is wanted
+  and the button that reaches it is disabled.
+- **CONTROL**: the parent gate `!!error || !isValid` returns `false` on that same draft — so this is a
+  **measurement of M4-c's added clause**, not a vacuous pass. The choice flow *was* reachable before M4-c.
+- **CR18-B**: over a corpus, `requiresChoice ⇒ gate-disabled` holds for every member — the choice can never
+  be reached.
+- **CR18-D**: `applyDisposition(rowE,'v2')` and `applyDisposition(rowE,'classic')` **both** pass
+  `validateContentRequirements` — the gate belongs on the **resolved** object (which always passes), not the
+  raw draft.
+
+**The TDD-exemption claim is falsified.** The impl doc (`## …M4-b/M4-c JSON-surface wiring` note) exempts
+the M4-c gate from a TDD row as "React render-path changes over data already returned by TDD-gated pure
+functions … with no new logic of their own." Per my obligation to verify an exemption rather than accept it,
+I executed both trees over the affected surface (CR18-A control): M4-c's `isDisabled` composition **changed
+the reachability** of the `pendingChoice` branch. That is a behaviour change, not a render-path no-op, so the
+exemption does not hold and the defect it covered is this finding.
+
+**Required Action — eliminate the class, do not patch the site.**
+
+- **Preferred (structural).** Route row E to the choice **in the effect**, exactly as the sibling
+  `NewMessageJsonInput.tsx` already does (lines 94–113: compute `resolveContentLoss`, and on `requiresChoice`
+  set `pendingChoice` there rather than deferring to the Load button). Then the Load gate never sees a row-E
+  draft, and the class — "a JSON surface gates on the composer floor over an un-resolved draft" — cannot be
+  represented on this surface.
+- **Minimum (point fix).** Gate on `!requiresChoice && contentFloorError` instead of bare `contentFloorError`,
+  i.e. only block when the disposition does **not** offer a choice. Concretely, derive
+  `const requiresChoice = validatedDraft ? resolveContentLoss(validatedDraft.flags, validatedDraft.components,
+  validatedDraft.content, validatedDraft.embeds).requiresChoice : false;` and disable on
+  `!!error || !isValid || (!requiresChoice && !!contentFloorError)`.
+
+**This fix must not reintroduce a class it is adjacent to.** The M4-c gate is *also* what incidentally blocks
+the round-14 **MEDIUM-4** empty-embed case on this surface (V2 + an empty embed `{}`: `requiresChoice=false`
+because `hasClassicContent` filters empty embeds, but `contentFloorError=true` because
+`validateContentRequirements` counts `embeds.length>0`). Both fixes above **preserve** that: for the
+empty-embed draft `requiresChoice=false`, so `!requiresChoice && contentFloorError` still blocks it; only the
+true row-E draft (`requiresChoice=true`) is unblocked. **Do not fix HIGH-1 by removing the gate** — that would
+re-expose MEDIUM-4 on `JsonModalBody`.
+
+Where this instantiates a plan Risks row: this is the **D18 predicate-divergence** family the round-14
+MEDIUM-4 already named — the same two predicates (`hasClassicContent` vs `validateContentRequirements`)
+disagreeing, here surfaced as a *reachability* defect rather than a *sendability* one.
+
+## What is sound — verified, not assumed
+
+- **M4-b — the parity test is a real, discriminating instrument.** `probe-cr18b` (4/4):
+  `topLevelComponentShape.options.map(o => o.shape.type.value)` returns the concrete set `{1,9,10,12,13,14,17}`
+  (7 real numbers), container-child `{1,9,10,12,13,14}` (6) — **not** vacuous, and a simulated divergence (a
+  stray `11`, the M3-era Thumbnail bug) **would** break the `toEqual`. The real `SUPPORTED_TOP_LEVEL_TYPES` at
+  e61e602 is `{1,9,10,12,13,14,17}` — the stray `11` the M3-era code carried is **removed**, so the two
+  independent sources now agree and are pinned to agree. Good design: the assertion reads the schema, so a
+  future SUPPORTED/schema drift fails the suite.
+- **MEDIUM-5 — CLOSED on both surfaces.** `probe-cr18c` (5/5): a Section whose accessory is a non-link
+  (interactive) button is **dropped and named** (`'Button'`) by `filterSupportedComponents`/
+  `discordMessageImportShape` (paste) and by `discordResponseToMessage` (ingress); a Thumbnail accessory is
+  **kept** (control — the fix is not over-broad). `filterSection`/`isSupportedAccessory` are shared with
+  `describeUnsupportedComponentTypes` via the one `filterTopLevelComponent`, so the notice and the filter
+  cannot drift.
+- **M4-a — `saveAsPayload` wrap is correct.** `submitData` now sends `data: saveAsPayload({ data })` =
+  `stripKeys({data}).data`, which strips `_key`s and OR-derives the V2 bit from structure without deleting
+  content/embeds — the same persist normalization the other writers use. Before M4-a the create path sent raw
+  `data`. `saveAsPayload` is TDD-gated at M1; the wrap is a one-line call-site change.
+- **TDD.** The implementer's reds are behavioural/existence and reproduced two ways: their own
+  `git stash`/re-run/`git stash pop` differential (10 new-test reds on the reverted source, the same 6
+  pre-existing), and my independent baseline comparator (set MATCH). The parity reds
+  (`describeUnsupportedComponentTypes is not a function`; `Set{…11…} to deeply equal Set{…}`) and the MEDIUM-5
+  red (`expected false to be true`) match the impl doc's TDD table.
+- **LOW-5 (round 15) is fixed** at the intermediate `15f2669`: `discordResponseToMessage.ts`'s `RawComponent`
+  delimiters corrected; the touched file no longer carries the `member-delimiter-style` error.
+
+## Assumption Not Checked
+
+**This review assumes that standing up `JsonModalBody` in a browser and pasting a row-E JSON reproduces the
+disabled Load button with the choice UI never appearing — I established it by executing the real
+`resolveContentLoss`/`validateContentRequirements`/`discordMessageImportShape` over the exact expressions the
+component computes, but did not render the React component in a DOM.** No browser/component harness exists in
+this repo (impl doc, Surfaces Without Automated Coverage, assumption 5), so the render-path composition of
+`isDisabled` from those values is verified by reading the JSX, not by mounting it.
+
+**Falsity signature**: the component, mounted, shows the row-E choice despite the disabled Load button —
+i.e. some render path reaches `pendingChoice` without going through the Load `onConfirm` I traced (there is
+none in the source at e61e602, but a DOM run is the discriminating check).
+
+**Owner: QA**, at Phase 2, as one row in whatever inventory it builds of the JSON-import surfaces: mount
+`JsonModalBody`, paste `{ flags: 32768, content: 'x', components: [{ type: 17, components: [{ type: 10,
+content: 'y' }] }] }`, and assert whether the choice buttons ever appear. Named again in Next Steps.
+
+## Captured instruments
+
+| path | what it is |
+|---|---|
+| `verification/013/probe-cr18-loadgate-choice/gate-choice.cr18.test.ts` | 13 assertions: HIGH-1 — row E wanted-but-disabled, parent-gate control, the superset invariant over a corpus, the resolved-object-always-passes fact, and the row-D collateral. **This is the check that fails if the class returns.** |
+| `…/discriminate.cr18b.test.ts` | 4 assertions: the M4-b parity extraction is non-vacuous and would break under a SUPPORTED/schema divergence |
+| `…/medium5.cr18c.test.ts` | 5 assertions: MEDIUM-5 closed — non-link Section accessory dropped+named on paste AND ingress; Thumbnail kept |
+| `…/vitest.cr18.config.ts`, `…/run-cr18-e61e602.txt`, `…/README.md` | config, the 22/22 run, and the claims + blind spots |
+
+## Required Actions
+
+1. **HIGH-1** — fix the M4-c Load gate on `JsonModalBody` per Required Action above (Preferred: route row E to
+   the choice in the effect; Minimum: `!requiresChoice && contentFloorError`). **Must not remove the gate**
+   (re-exposes MEDIUM-4). A fix round re-attacks this from first principles (the trigger is that the fix
+   touches a guard).
+
+## Next Steps
+
+1. **`implementer-hooks-013-3`** — HIGH-1 above, then re-submit M4 for a delta round. When you fix it, show
+   the sweep of the three `validateContentRequirements` gate sites and the disposition of each; I will re-run
+   `probe-cr18` and break its predicate, not just re-run it.
+2. **`steering-hooks-013-2`** — **MEDIUM-4 is still unfixed in code** (`limits.tsx`/`index.ts` untouched this
+   chain); the M4-c gate is currently its only incidental mitigation on `JsonModalBody`, and HIGH-1's fix is
+   written to preserve that. If the minimum-fix-only instruction still stands, the predicate alignment remains
+   a routed pre-existing item, not a chain fix — flagging that the two are now coupled through one gate.
+3. **QA** — this round's Assumption Not Checked (mount `JsonModalBody`, paste row E, assert the choice UI
+   appears once HIGH-1 is fixed), plus the MEDIUM-5 UX check carried from round 15 and the assumptions carried
+   from rounds 9, 11, 12, 13, 14, and round-8 INFO-1.
+4. **A planner pass, when that queue reopens** — MEDIUM-1's reach into M4's Risks, unchanged.
