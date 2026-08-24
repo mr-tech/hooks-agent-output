@@ -1,0 +1,317 @@
+
+ RUN  v4.1.2 /tmp/qa013-tip
+
+ ❯ src/utils/__tests__/zz-qa-p2-rowd-load-gate.test.ts (29 tests | 1 failed) 19ms
+     × Load is disabled on !validatedDraft || !!contentFloorError 13ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/utils/__tests__/zz-qa-p2-rowd-load-gate.test.ts > A — the modelled gate is the shipped gate > Load is disabled on !validatedDraft || !!contentFloorError
+AssertionError: expected 'import { ArrowDownTrayIcon, Clipboard…' to contain 'isDisabled={!validatedDraft || !!cont…'
+
+- Expected
++ Received
+
+- isDisabled={!validatedDraft || !!contentFloorError}
++ import { ArrowDownTrayIcon, ClipboardDocumentIcon } from '@heroicons/react/20/solid';
++ import classNames from 'classnames';
++ import { useEffect, useState } from 'react';
++ import { toast } from 'react-toastify';
++ import { z } from 'zod';
++ import { generateErrorMessage } from 'zod-error';
++
++ import type { ContentLossChoice, ContentLossOption } from '~/utils';
++
++ import Button from '~/components/Button';
++ import LoadingDots from '~/components/LoadingDots';
++ import NullableComponent from '~/components/NullableComponent';
++ import { DialogFooter } from '~/components/PresetDialog';
++ import StyledButtonGroup from '~/components/StyledButtonGroup';
++ import { useConfirmation } from '~/providers/ConfirmationProvider';
++ import { useMessage } from '~/providers/MessageProvider';
++ import { describeUnsupportedComponentTypes, discordMessageImportShape } from '~/server/api/utils/shapes';
++ import styles from '~/styles';
++ import {
++   applyDisposition, computeLoadDiff, describeDropSet, describeLoadDiff, jsonModalSeed,
++   noticeMessageForSettled, resolveContentLoss, validateContentRequirements,
++ } from '~/utils';
++ import { usePassedProp } from '~/utils/hooks';
++ import useCodeMirror from '~/utils/hooks/useCodeMirror';
++ import useCopyToClipboard from '~/utils/hooks/useCopyToClipboard';
++
++ function isJSONParsable(str: string) {
++   try {
++     JSON.parse(str);
++   } catch (e) {
++     return false;
++   }
++   return true;
++ }
++
++ interface Props {
++   onClose: VoidFunction;
++   setAllowMenuClose: (allow: boolean) => void;
++ }
++
++ const JsonModalBody: FC<Props> = ({ onClose, setAllowMenuClose }) => {
++   const { message, updateMessage, editableState } = useMessage();
++   const { withConfirmation } = useConfirmation();
++
++   const [messageString, setMessageString] = usePassedProp(
++     jsonModalSeed(message),
++   );
++   const [copyState, copy] = useCopyToClipboard();
++
++   const [error, setError] = useState<null | string>(null);
++   const [droppedComponentTypes, setDroppedComponentTypes] = useState<string[]>([]);
++   const [validatedDraft, setValidatedDraft] = useState<null | MessageData>(null);
++   const [pendingChoice, setPendingChoice] = useState<null | {
++     validated: MessageData;
++     disposition: ContentLossChoice;
++   }>(null);
++   const [dismissedChoice, setDismissedChoice] = useState<null | {
++     validated: MessageData;
++     disposition: ContentLossChoice;
++   }>(null);
++
++   const commitLoad = () => {
++     if (!validatedDraft) return;
++     const disposition = resolveContentLoss(
++       validatedDraft.flags as number | undefined,
++       validatedDraft.components as undefined | { type: number }[],
++       validatedDraft.content,
++       validatedDraft.embeds,
++     );
++     if (disposition.requiresChoice) return;
++     const notice = noticeMessageForSettled(disposition);
++     if (notice) toast.warn(notice);
++     const next = applyDisposition(validatedDraft);
++     updateMessage({ data: next, updatedAt: Date.now() });
++     editableState.setMessageMode(disposition.mode);
++     onClose();
++   };
++
++   const commitChoice = (chosenOption: ContentLossOption) => {
++     if (!pendingChoice) return;
++     const next = applyDisposition(pendingChoice.validated, chosenOption.mode);
++     updateMessage({ data: next, updatedAt: Date.now() });
++     editableState.setMessageMode(chosenOption.mode);
++     setAllowMenuClose(true);
++     setPendingChoice(null);
++     onClose();
++   };
++
++   const cancelChoice = () => {
++     if (pendingChoice) setDismissedChoice(pendingChoice);
++     setPendingChoice(null);
++     setAllowMenuClose(true);
++   };
++
++   const reopenChoice = () => {
++     if (!dismissedChoice) return;
++     setPendingChoice(dismissedChoice);
++     setDismissedChoice(null);
++     setAllowMenuClose(false);
++   };
++
++   let copyButtonText;
++   if (copyState === 'copying') {
++     copyButtonText = (
++       <>
++         <LoadingDots />
++         Copying...
++       </>
++     );
++   } else if (copyState === 'copied') {
++     copyButtonText = 'Copied!';
++   } else {
++     copyButtonText = (
++       <>
++         <ClipboardDocumentIcon className={styles.smallIcon} />
++         Copy to Clipboard
++       </>
++     );
++   }
++
++   useEffect(() => {
++     setDismissedChoice(null);
++     try {
++       const rawParsed = JSON.parse(messageString) as { components?: unknown };
++       setDroppedComponentTypes(describeUnsupportedComponentTypes(rawParsed.components));
++       const parsed = discordMessageImportShape.parse(rawParsed) as MessageData;
++       setError(null);
++       const disposition = resolveContentLoss(
++         parsed.flags as number | undefined,
++         parsed.components as undefined | { type: number }[],
++         parsed.content,
++         parsed.embeds,
++       );
++       if (disposition.requiresChoice) {
++         setPendingChoice({ validated: parsed, disposition });
++         setValidatedDraft(null);
++         setAllowMenuClose(false);
++         return;
++       }
++       setPendingChoice(null);
++       setValidatedDraft(parsed);
++     } catch (err) {
++       setPendingChoice(null);
++       if (err instanceof z.ZodError) {
++         setError(generateErrorMessage(err.issues).split(' | ').join('\n'));
++       } else {
++         setDroppedComponentTypes([]);
++         setError((err as Error).message);
++       }
++       setValidatedDraft(null);
++     }
++   }, [messageString]);
++
++   const { ref, updateDoc } = useCodeMirror({
++     value: messageString,
++     onChange: setMessageString,
++   });
++
++   const contentFloorError = validatedDraft
++     ? validateContentRequirements(validatedDraft) : undefined;
++
++   if (pendingChoice) {
++     return (
++       <div className={styles.flex({ col: true, gap: 2 })}>
++         <p className="text-sm">
++           This message has both Components V2 and classic content (text or embeds) — Discord
++           cannot show both. Choose which to keep; nothing is saved until you choose.
++         </p>
++         <div className={styles.flex({ col: true, gap: 2 })}>
++           {pendingChoice.disposition.options.map((option) => (
++             <Button
++               key={option.mode}
++               preset='tertiary'
++               onPress={() => commitChoice(option)}
++             >
++               {option.mode === 'v2' ? 'Save as Components V2' : 'Save as Classic'}
++               {' — '}
++               {describeDropSet(option.dropSet)}
++             </Button>
++           ))}
++         </div>
++         <DialogFooter>
++           <Button preset='hyperlink' onPress={cancelChoice}>
++             Cancel
++           </Button>
++           <span />
++         </DialogFooter>
++       </div>
++     );
++   }
++
++   return (
++     <div className={styles.flex({ col: true, gap: 2 })}>
++       <div>
++         <div ref={ref} className='max-h-full w-full resize-none rounded bg-tertiary p-2 text-sm' />
++         {/* <code
++             {...fieldProps}
++             {...keyboardProps}
++             ref={codeRef}
++             role="textbox"
++             tabIndex={0}
++             contentEditable
++             // eslint-disable-next-line react/no-danger
++             dangerouslySetInnerHTML={{
++               __html: sanitizeHtml(
++                 hljs.highlight(useMemo(() => JSON.stringify(data, null, 2), []), { language: 'json', ignoreIllegals: true }).value,
++                 { allowedAttributes: { span: ['class'] } },
++               ),
++             }}
++           /> */}
++         <div className='text-right'>
++           <Button
++             className={classNames(styles.hyperlink, 'p-2 text-sm')}
++             onPress={() => updateDoc(JSON.stringify(JSON.parse(messageString), null, 2))}
++             isDisabled={!isJSONParsable(messageString)}
++           >
++             Pretty print
++           </Button>
++         </div>
++       </div>
++       <NullableComponent show={error}>
++         <span className="whitespace-pre-line text-sm text-error">{error}</span>
++       </NullableComponent>
++       <NullableComponent show={droppedComponentTypes.length > 0}>
++         <span className="whitespace-pre-line text-sm text-error">
++           {`Not carried: ${droppedComponentTypes.join(', ')}. Discord does not support these on hooks.gg.`}
++         </span>
++       </NullableComponent>
++       <NullableComponent show={!error && !!validatedDraft && contentFloorError}>
++         <span className="whitespace-pre-line text-sm text-error">{contentFloorError}</span>
++       </NullableComponent>
++       <NullableComponent show={!error && dismissedChoice}>
++         <span className="whitespace-pre-line text-sm text-error">
++           {'This message has both Components V2 and classic content — nothing was loaded. Choose which to keep, or edit the JSON. '}
++           <Button
++             className={styles.hyperlink}
++             onPress={reopenChoice}
++           >
++             Resolve
++           </Button>
++         </span>
++       </NullableComponent>
++       <DialogFooter>
++         <Button
++           preset='hyperlink'
++           onPress={onClose}
++         >
++           Cancel
++         </Button>
++         <StyledButtonGroup>
++           <Button
++             preset='tertiary'
++             onPress={() => copy(
++               JSON.stringify(discordMessageImportShape.parse(JSON.parse(messageString)), null, 2),
++             )}
++             isDisabled={!!copyState}
++           >
++             {copyButtonText}
++           </Button>
++           <Button
++             preset='success'
++             onPress={withConfirmation({
++               enabled: true,
++               title: 'Are you sure?',
++               message: validatedDraft
++                 ? describeLoadDiff(computeLoadDiff(message?.data ?? {}, validatedDraft))
++                 : 'This will overwrite the current message.',
++               confirmText: 'Load',
++               onTrigger: () => { setAllowMenuClose(false); },
++               onCancel: () => { setAllowMenuClose(true); },
++               onConfirm: commitLoad,
++             })}
++             isDisabled={!validatedDraft}
++           >
++             <ArrowDownTrayIcon className={styles.smallIcon} />
++             Load
++           </Button>
++         </StyledButtonGroup>
++       </DialogFooter>
++     </div>
++   );
++ };
++
++ export default JsonModalBody;
++
+
+ ❯ src/utils/__tests__/zz-qa-p2-rowd-load-gate.test.ts:42:17
+     40| describe('A — the modelled gate is the shipped gate', () => {
+     41|   it('Load is disabled on !validatedDraft || !!contentFloorError', () …
+     42|     expect(SRC).toContain('isDisabled={!validatedDraft || !!contentFlo…
+       |                 ^
+     43|   });
+     44|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 28 passed (29)
+   Start at  15:46:02
+   Duration  766ms (transform 112ms, setup 0ms, import 459ms, tests 19ms, environment 0ms)
+

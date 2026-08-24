@@ -1,0 +1,107 @@
+
+ RUN  v4.1.2 /tmp/qa013-tip
+
+ ❯ src/utils/__tests__/zz-qa-p2-rowd-load-gate.test.ts (29 tests | 11 failed) 18ms
+     × row D member — content only (the plan's own M8-D member, record 5712 shape) — LOAD IS DISABLED (the defect) 6ms
+     × row D member — embeds only — LOAD IS DISABLED (the defect) 1ms
+     × row D member — content AND embeds — LOAD IS DISABLED (the defect) 0ms
+     × row D member — content + a non-V2 action row — LOAD IS DISABLED (the defect) 0ms
+     × row D member — embeds + a non-V2 action row — LOAD IS DISABLED (the defect) 0ms
+     × row D member — whitespace-padded content — LOAD IS DISABLED (the defect) 0ms
+     × row D member — flag OR-ed with other bits (SUPPRESS_EMBEDS) — LOAD IS DISABLED (the defect) 1ms
+     × row D member — flag OR-ed with EPHEMERAL — LOAD IS DISABLED (the defect) 1ms
+     × CONJUNCT ISOLATION — the flag alone carries the refusal: drop the flag and the SAME body loads 1ms
+     × CONJUNCT ISOLATION — the body alone carries it: keep the flag, empty the body, and it loads 1ms
+     × THE DEFECT — and the gate then refuses to let the user apply that repair 0ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 11 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/utils/__tests__/zz-qa-p2-rowd-load-gate.test.ts > B — every member of row D is refused by the Load gate > row D member — content only (the plan's own M8-D member, record 5712 shape) — LOAD IS DISABLED (the defect)
+ FAIL  src/utils/__tests__/zz-qa-p2-rowd-load-gate.test.ts > B — every member of row D is refused by the Load gate > row D member — embeds only — LOAD IS DISABLED (the defect)
+ FAIL  src/utils/__tests__/zz-qa-p2-rowd-load-gate.test.ts > B — every member of row D is refused by the Load gate > row D member — content AND embeds — LOAD IS DISABLED (the defect)
+ FAIL  src/utils/__tests__/zz-qa-p2-rowd-load-gate.test.ts > B — every member of row D is refused by the Load gate > row D member — content + a non-V2 action row — LOAD IS DISABLED (the defect)
+ FAIL  src/utils/__tests__/zz-qa-p2-rowd-load-gate.test.ts > B — every member of row D is refused by the Load gate > row D member — embeds + a non-V2 action row — LOAD IS DISABLED (the defect)
+ FAIL  src/utils/__tests__/zz-qa-p2-rowd-load-gate.test.ts > B — every member of row D is refused by the Load gate > row D member — whitespace-padded content — LOAD IS DISABLED (the defect)
+ FAIL  src/utils/__tests__/zz-qa-p2-rowd-load-gate.test.ts > B — every member of row D is refused by the Load gate > row D member — flag OR-ed with other bits (SUPPRESS_EMBEDS) — LOAD IS DISABLED (the defect)
+ FAIL  src/utils/__tests__/zz-qa-p2-rowd-load-gate.test.ts > B — every member of row D is refused by the Load gate > row D member — flag OR-ed with EPHEMERAL — LOAD IS DISABLED (the defect)
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/zz-qa-p2-rowd-load-gate.test.ts:83:33
+     81|
+     82|   it.each(rowDMembers)('row D member — %s — LOAD IS DISABLED (the defe…
+     83|     expect(loadDisabled(draft)).toBe(true);
+       |                                 ^
+     84|     expect(validateContentRequirements(draft as never))
+     85|       .toBe('Components V2 messages cannot contain embeds or content.'…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/11]⎯
+
+ FAIL  src/utils/__tests__/zz-qa-p2-rowd-load-gate.test.ts > C — controls: the gate PERMITS the rows it is supposed to permit > CONJUNCT ISOLATION — the flag alone carries the refusal: drop the flag and the SAME body loads
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/zz-qa-p2-rowd-load-gate.test.ts:112:52
+    110|   it('CONJUNCT ISOLATION — the flag alone carries the refusal: drop th…
+    111|     const body = { content: 'hi' };
+    112|     expect(loadDisabled({ ...body, flags: FLAG })).toBe(true);
+       |                                                    ^
+    113|     expect(loadDisabled(body)).toBe(false);
+    114|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/11]⎯
+
+ FAIL  src/utils/__tests__/zz-qa-p2-rowd-load-gate.test.ts > C — controls: the gate PERMITS the rows it is supposed to permit > CONJUNCT ISOLATION — the body alone carries it: keep the flag, empty the body, and it loads
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/zz-qa-p2-rowd-load-gate.test.ts:117:58
+    115|
+    116|   it('CONJUNCT ISOLATION — the body alone carries it: keep the flag, e…
+    117|     expect(loadDisabled({ content: 'hi', flags: FLAG })).toBe(true);
+       |                                                          ^
+    118|     expect(loadDisabled({ flags: FLAG, components: [{ type: 17, compon…
+    119|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/11]⎯
+
+ FAIL  src/utils/__tests__/zz-qa-p2-rowd-load-gate.test.ts > E — record 5712 end to end through the shipped Load path > THE DEFECT — and the gate then refuses to let the user apply that repair
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/zz-qa-p2-rowd-load-gate.test.ts:172:36
+    170|
+    171|   it('THE DEFECT — and the gate then refuses to let the user apply tha…
+    172|     expect(loadDisabled(seeded())).toBe(true);
+       |                                    ^
+    173|   });
+    174|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/11]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  11 failed | 18 passed (29)
+   Start at  15:46:03
+   Duration  778ms (transform 111ms, setup 0ms, import 458ms, tests 18ms, environment 0ms)
+

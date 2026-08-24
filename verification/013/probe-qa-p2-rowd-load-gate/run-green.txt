@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/qa013-tip
+
+
+ Test Files  1 passed (1)
+      Tests  29 passed (29)
+   Start at  15:45:37
+   Duration  760ms (transform 115ms, setup 0ms, import 478ms, tests 8ms, environment 0ms)
+

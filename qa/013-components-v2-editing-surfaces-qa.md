@@ -3,14 +3,17 @@ ID: 013
 Origin: 013
 UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
-Verified-At: >-
-  Phase 1 issues NO verdict, so nothing here is anchored as a PASS. The enumerations, counts and
-  probe below were derived at `website` `chain/013-components-v2-editing-surfaces` @ `c85945f`
-  (clean tree at read; `git status --porcelain` empty before this pass wrote its probe spec).
-  Suite state at that anchor, re-executed by this pass and not inherited from any document:
-  `pnpm test` → 22 files / 411 tests, 411 passed, exit 0, 2026-08-24. A `Verified-At` SHA is
-  owed at Phase 2 and is not owed now.
-Status: Awaiting Implementation
+Status: QA Failed
+Verified-At: 4e9da96043a471d8eafc59c43f92d85d9a279a09
+Verified-At-Detail: >-
+  Phase 2 anchor, re-derived by this pass and not inherited. `website` @
+  `chain/013-components-v2-editing-surfaces`, HEAD = `4e9da96` (`git rev-parse HEAD`, exact match
+  to the fix commit closing MED-6). **No production source is uncommitted at this anchor** —
+  `git status --porcelain src/ bot/` returns exactly one line, an untracked QA probe spec
+  (`src/utils/__tests__/013-qa-phase1-seed-route-probe.test.ts`), so the SHA stands alone and no
+  content-identity manifest fallback is owed. Phase 1's anchor was `c85945f` and is superseded for
+  verdict purposes; it is retained below as the regression baseline.
+  **The verdict at this anchor is QA FAILED.** See F-QA15.
 Status-Detail: >-
   Phase 1 rev 1, written against plan rev 12 (`4906fbc`, Status `Approved`) and critique
   `d38f057` (cycle 1 pass 5, APPROVE), both read directly. Scoped per the plan's Reading Order
@@ -40,13 +43,24 @@ Status-Detail: >-
   confirmed** — the seeds are `valid = false` — with the correction that the boolean alone does not
   discriminate and the reason string must be keyed on. **F-QA13** records UAT's finding U-1 as a Phase 2
   constraint on detector selection. Instrument now **36 assertions, nine mutants, nine killed**.
+  **Phase 2, 2026-08-24 (rev 4) — EXECUTED at `4e9da96`. Verdict: QA FAILED.** The block above is
+  retained verbatim as the Phase 1 record; this paragraph is recorded beside it, not over it.
+  One blocking defect, **F-QA15**: the Message JSON modal floors the *unresolved* draft, so every
+  member of disposition row D is refused and M2-a's repair path for 5712/5842/5855/5856 is closed.
+  Confirmed end to end on record 5712 through the shipped pipeline; regression against base
+  `c85945f`, where the same records loaded. **TDD gate PASSES** on re-derivation, and this pass
+  **withdraws** its own earlier claim that `SaveChoiceModal.tsx` lacked a TDD exemption — it has
+  one, stated and classed. **INFO-2 falsified**: `NewMessageModal`'s gate branch is live, not dead,
+  though exercised by no spec (F-QA19). Suite re-run and re-counted: 517 tracked tests, 6 failed,
+  both failing files in Phase 1's declared red-test domain. Four new findings, F-QA15–F-QA19;
+  register appended at BC-13/BC-14. Not handed to UAT — the chain returns to the implementer.
 ---
 
 # QA Report: Plan 013 — Components V2 support across the editing surfaces
 
 **Plan Reference**: `agent-output/planning/013-components-v2-editing-surfaces.md` (rev 12, `4906fbc`, Status `Approved`)
 **Critique Reference**: `agent-output/critiques/013-components-v2-editing-surfaces-critique.md` (`d38f057`, cycle 1 pass 5, APPROVE)
-**QA Status**: Awaiting Implementation
+**QA Status**: **QA Failed** (Phase 2 executed 2026-08-24 at `4e9da96`)
 **QA Specialist**: qa
 
 ## Changelog
@@ -58,6 +72,7 @@ Status-Detail: >-
 | 2026-08-24 | uat-hooks-013 (direct, under D27) | Two read-level extensions to QA's seed-route probe (the real write boundary is one layer out; the persist leg is uncovered), and the observation that BC-11 spans two instants with opposite timing | **Probe-extension pass. No verdict, no Phase 2, no criterion moved.** Both of UAT's reads **re-derived by execution** at `c85945f` in QA's own detached worktree — 24 assertions green, **five mutants killed**, captured at `verification/013/probe-preexisting-seed-route/`. UAT is right on both points. The extension turned up **F-QA11**: `NewMessageModal` opens with `guildId` defaulting to `'0'`, `disableSave` does not check it, and `discordIdShape` refuses `'0'` — so an operator who presses Save without touching **Save To** gets a boundary refusal and would report the mint route as closed. **BC-11 SPLIT** into **BC-11a** (the mint — pre-deploy, expires at deploy) and **BC-11b** (the ask — needs the chain tip); BC-11 retained as a pointer. Half A recorded **NOT EXECUTED** on UAT's report; the owner's stated intent is **not** treated as attestation. **D20's re-derivation clause remains outstanding** — it is UAT's to discharge and this instrument does not discharge it. |
 | 2026-08-24 | uat-hooks-013 (direct, under D27, second digest) | Correction to the digest above, plus two defects in BC-11 as written | **Recorded beside the row above, not over it.** Two claims in that row are now **superseded**: (1) BC-11 Half A is **EXECUTED and terminal** — the owner minted both seeds himself and named them (5855, 5856), attestation quoted verbatim in BC-11a; (2) **D20's re-derivation clause is RESOLVED on the substance**, not outstanding — mintability is now established *by execution in production*, a stronger derivation than the module-level probe D20 contemplated, and UAT's classifier-blocked probe is retired for that purpose. UAT's two defects in BC-11 are **accepted and fixed here**: the Subject cell named a party who can execute neither half, and the Earliest-decidable cell was silent on Half B's environment precondition — both now carried by BC-11a/BC-11b. UAT's `publicProcedure` count re-derived here rather than repeated: **8 procedure definitions in `message.ts` at `c85945f`, 8 protected, 0 public**. |
 | 2026-08-24 | uat-hooks-013 (direct, under D27, third digest) | UAT reports F-QA11 does not generalise to Save As (read-level, asked to be recorded as such), and hands over **finding U-1** plus one inference it deliberately left unexecuted about `valid` and R7 | **Executed rather than recorded at read level.** **F-QA11 is bounded by execution to 1 of 4** sites matching the sweep predicate — *builds `message.upsert`'s `guildId` from a value the user picked this session* — and the load-bearing result is that **two siblings guard the exact `'0'` sentinel**, so it is a single-site oversight, not a design. **UAT's unexecuted inference CONFIRMED**: both seeds carry `valid = false`, so they stay out of R7's `flagStructureDisagreementValidTrue` — with one correction UAT's reasoning did not carry, that a username-less message is *also* refused for an unrelated reason, so **anything keying on `valid = false` must key on the reason, not the boolean**. **U-1 recorded as a Phase 2 constraint** on detector selection. Four more mutants; **nine across the pass, nine killed**. Instrument now 36 assertions. |
+| 2026-08-24 | steering-hooks-013-2 | Run QA Phase 2 at chain tip `4e9da96` | **Phase 2 executed. Verdict: QA FAILED on F-QA15** — the Message JSON modal's Load button is gated on a content floor computed over the *unresolved* draft, so **every** member of disposition row D is refused, closing M2-a's stated repair path for records 5712/5842/5855/5856. Confirmed end to end on record 5712 through the shipped pipeline, captured at `verification/013/probe-qa-p2-rowd-load-gate/` (29 assertions, mutants R1-R3 killed). Regression vs base `c85945f`, where Load was gated only on "does it parse". **TDD gate: PASS** — re-derived against the current implementation document; this pass **withdraws** its own earlier working claim that `SaveChoiceModal.tsx` lacked an exemption. **INFO-2 falsified** by execution. Suite re-run and re-counted. |
 
 ## Timeline
 
@@ -66,7 +81,9 @@ Status-Detail: >-
 - **Implementation Received**: —
 - **Testing Started**: —
 - **Testing Completed**: —
-- **Final Status**: —
+- **Testing Started**: 2026-08-24
+- **Testing Completed**: 2026-08-24
+- **Final Status**: **QA Failed** — F-QA15
 
 ---
 
@@ -831,3 +848,321 @@ that line is owed at the end of Phase 2, and Phase 2 has not run.
 **Roadmap**: `agent-output/roadmap/` holds only `.gitkeep` (read 2026-08-24, agreeing with the plan's
 own note), so **no roadmap epic acceptance criterion changes state on this record**. Recorded here
 rather than omitted, per the obligation to note where a document would have been cited.
+
+---
+
+# Phase 2 — Post-Implementation Test Execution
+
+**Executed 2026-08-24 at `4e9da96`. Verdict: QA FAILED.** One blocking defect, F-QA15. Everything
+else in this phase passed or is dispositioned below.
+
+## 1. Tree identity, re-derived
+
+Phase 1 committed this pass to re-deriving rather than inheriting, and it did:
+
+| Fact | Instrument | Value |
+|---|---|---|
+| Branch | `git rev-parse --abbrev-ref HEAD` | `chain/013-components-v2-editing-surfaces` |
+| Tip | `git rev-parse HEAD` | `4e9da96043a471d8eafc59c43f92d85d9a279a09` |
+| Tip subject | `git log -1 --format=%s` | `fix(013): close MED-6 — dismissed-choice Load is n…` |
+| Uncommitted production source | `git status --porcelain src/ bot/` | **none** — one untracked QA probe spec only |
+| Regression baseline | Phase 1 anchor | `c85945f` |
+
+Because no production source is uncommitted, `Verified-At` is the **SHA**, and the content-identity
+manifest fallback is not owed. The single untracked file is a QA probe and is not product surface —
+but it **is** collected by the suite's include glob, which is why §2 reports the tracked-only figure.
+
+## 2. Suite execution — re-run and re-counted, not carried
+
+**Command**: `DATABASE_URL=<unreachable> npx vitest run` at `4e9da96`.
+
+> **Instrument score with its predicate.** **517 tests across 33 spec files matching
+> `src/**/*.test.ts` tracked by git — 511 passed, 6 failed.** The predicate **excludes** (a) the one
+> untracked QA probe spec, which the glob would otherwise collect and which is in flux on this shared
+> tree, and (b) everything outside `src/`: `git ls-files 'bot/**/*.test.ts'` → **0**, so the `bot/`
+> tree carries no collected specs at all under this configuration. Running *with* the untracked probe
+> gives 524/518/6 — the failure count is identical either way.
+
+**Note on a differing figure.** A subagent pass earlier the same day reported 541 tests. That is not
+a contradiction to reconcile away: the untracked probe file's content changed between the two runs
+(shared tree, another session's probe in flight). The tracked-only figure above is the stable one and
+is the figure this verdict uses. **The six failures are in tracked files in both runs.**
+
+### The six failures, dispositioned
+
+| File | Count | Reason | Disposition |
+|---|---|---|---|
+| `012-json-editor-repair-path.test.ts` | 5 | `TypeError: standardizeMessage is not a function` | **Re-anchoring work, owned by QA** — M1-a deliberately deleted the symbol. The spec models the *old* pipeline (`standardizeMessage` → `enforceImportMutualExclusivity`), which 013 replaced. **See the sting in §5.** |
+| `012-message-mode.test.ts` | 1 | `AssertionError: expected +0 to be 32768`, `switchToV2 … preserves components and flags` | **Re-anchoring work, owned by QA** — M7-b/D16 now sets the bit in `switchToV2`. The spec asserts the pre-D16 behaviour. |
+
+Both files are in Phase 1's declared **red-test domain** (M-10), where Phase 1 recorded: *"None is
+yours to delete or edit"* (to the implementer) and *"QA re-anchors them at Phase 2."* So their
+redness is **expected and owned**, not a surprise. It nonetheless means the plan's **Validation item
+1 ("full Vitest suite green") is not met at `4e9da96`**, and cannot be met until the re-anchoring
+lands — which, per §5, cannot honestly be done while F-QA15 stands.
+
+## 3. TDD Compliance Gate — **PASS**, with this pass withdrawing an earlier claim of its own
+
+The implementation document carries a TDD Compliance table with rows for every new/changed pure
+function, each naming a **specific** red reason (`TypeError: X is not a function`, or a quoted
+`AssertionError` for behaviour changes) rather than a bare "Yes". Several rows go further than the
+gate requires — `applyDisposition`'s row re-verified a tightened assertion against the pre-fix source
+by `git checkout` and back, because the original `.toThrow()` was vacuously satisfied by the
+pre-existence `TypeError`. That is the gate working as intended.
+
+**Self-disclosed lapses, all recorded by the implementer rather than found by QA.** Each is disclosed
+in the round it happened, which is what the disclosure rule asks:
+
+| Lapse | Where | QA's assessment |
+|---|---|---|
+| `messageStore.store` — test written **after** the change (ordering lapse) | implementation doc, note under the M3 rows | **Accepted with compensating evidence**: isolated by `git stash push` on that file alone, re-run, confirmed red for the right reason (`AssertionError: expected undefined to deeply equal [...]`), restored. This is the correct remedy and it was self-reported. |
+| `applyDisposition` round-5 row **overstated** its structural enforcement | implementation doc, round-6 correction | **Accepted, and the correction is the right one.** `tsconfig.json` excludes `**/__tests__` and vitest does not typecheck, so the round-5 "structurally unrepresentable" claim held only at the value level. The reviewer executed the control (re-added the deleted parameter; `tsc --noEmit` exit 0 and 32/32 green) rather than reasoning about it. Corrected classification recorded beside the original claim. |
+| `gateBeforePersist` has **no** production caller enforcing its signature at the type level | implementation doc, Outstanding Items | **Accepted as disclosed.** Carried to §7 as a standing item, not a gate failure. |
+
+**Exemptions** are claimed only for React event-handler closures over already-TDD-gated pure
+functions, each naming the same stated class (*Surfaces Without Automated Coverage*, assumption 5 —
+no browser/component harness in this repo). That is a real constraint of this tree, independently
+re-confirmed by this pass in §6, not a convenience.
+
+> **CORRECTION — this pass withdraws a claim it made earlier in its own working notes.** Those notes
+> recorded that `src/providers/MessageProvider/SaveChoiceModal.tsx` — the chain's only new production
+> file — carried **"no TDD row, no exemption"**, and that finding was one of four defects this pass
+> was, at the time, heading to **REJECT** on. Re-derived against the current implementation document:
+> **that is wrong.** `SaveChoiceModal.tsx` is named explicitly in the M8-G changelog row as *"New
+> shared UI"*, and the same row places the three writers' wiring — `SaveChoiceModal` included — in
+> the stated exemption class, with its reasoning given. The claim was made from memory of an earlier
+> revision rather than from the document as it now stands. **Withdrawing it is recorded here rather
+> than quietly dropped**, and the method failure that produced it is named in §8.
+>
+> With that withdrawn, and the remaining three items being **implementer self-disclosures already
+> carrying their own compensating evidence**, the TDD gate is a **PASS**. The QA Failed verdict rests
+> on F-QA15 alone — which is a cleaner and stronger position than the one this pass started from.
+
+## 4. Property audit (mandatory step 2b) — example vs class, per criterion
+
+The question asked in writing of every criterion that names an example: *what class is this an
+example of, and does the suite enumerate the class?*
+
+| Criterion | Class | Enumerated? |
+|---|---|---|
+| **M1-a** projection confinement | all `standardizeMessage` call sites | **CLASS ENUMERATED** — `grep -rc` is exhaustive over the source; 0 in product code |
+| **M1-b** / **M1-c** faithful copy, whole message | every shape `optionalIdMessageShape` accepts | **EXAMPLE ONLY** — one container→TextDisplay witness |
+| **M1-d** hash sees V2 | all pairs differing in any component field | **EXAMPLE ONLY, class closed by construction** — `canonicalize` recurses over every key, so field coverage is uniform. Residual: `normalizeForHash`'s `safeParse`-failure fallback is asserted only "does not throw", never for hash parity |
+| **M2-a** round-trip closure | every message loadable in the composer | **NO COVERAGE** — and see F-QA15, which makes it worse than uncovered |
+| **M2-b** hand-authored V2 loads as V2 | every import-accepted object with ≥1 V2 type | **EXAMPLE ONLY** — one V2 type witness, resolver only, no surface assertion |
+| **M2-c** truthful confirmation | every Load differing in components or flags | **EXAMPLE ONLY, low risk** — `TOP_LEVEL_COMPONENT_LABELS` is a total lookup with a `` `type ${t}` `` fallback, so unlabelled types degrade safely |
+| **M3-a** ingress preservation | supported top-level ∪ container children, **× all three entry points** | **EXAMPLE ONLY** — types 12/13/14 and 17-with-children never asserted as *carried*; `getFromUrl` and `useValidateWebhook` never exercised |
+| **M3-b** residue bounded and loud | complement of the supported sets over `ComponentType` | **EXAMPLE ONLY** — types 4,5,6,7,8, top-level 11 and the `` `type ${n}` `` fallback unexercised |
+| **M3-c** no empty success | every import reaching `message.upsert` failing the floor | **NO COVERAGE** — the plan names "observe the call at its call site"; nothing observes it |
+| **M4-a** same object validated and forwarded | every pasteable object | **EXAMPLE ONLY** — 2 fixtures |
+| **M4-b** supported set ≡ shape union | the two sets themselves | **CLASS ENUMERATED** — the model criterion of the plan; asserted over the sets, not over members. Caveat: F-QA17 |
+| **M4-c** import verdict agrees with floor | every pasted object, floored after M8 resolves it | **NO COVERAGE** |
+| **M7-a** mode predicate | all four (flag × structure) cells; **and** every call site | **Predicate: CLASS ENUMERATED** (8 cases, all four cells). **Call-site class: EXAMPLE ONLY.** Untested: masked non-V2 bits into `isMessageV2` |
+| **M7-b** toggle sets what it shows | every switch from every prior draft state | **EXAMPLE ONLY** — 4 switches |
+| **M7-c** V2-readers use the predicate | every reader in `src/` | **EXAMPLE ONLY** — reader set is a doc instrument, not a spec |
+| **M8-A…E** five rows | 8 cells over (bit × hasV2Components × hasClassicContent), **at both surfaces** | **Cell partition: CLASS ENUMERATED** — all 8 cells plus mask regressions plus conjunct isolation. **Surface application: NO COVERAGE**, and row D is **dead at one surface** — F-QA15 |
+| **M8-F** parity across surfaces | every accepted object × {modal, paste} | **NO COVERAGE — and observably false**, per F-QA15 |
+| **M8-G** persist gate | every draft reaching a persisting writer | **EXAMPLE ONLY** — the gate *function* is enumerated over row E; the **caller set** is pinned by no spec |
+
+**The audit's own finding about itself**: the pattern is consistent and diagnosable. Wherever the
+plan's instrument is a **pure function**, the class is enumerated, often exhaustively. Wherever the
+instrument is **"observe this at its call site"** (M3-c, M8-E, M8-G) or **"at both surfaces"** (M8-F,
+M8-A…E), coverage is absent — because this tree has no harness that can make that observation. That
+is not carelessness by the implementer; it is EC-3's residue, which Phase 1 predicted and which
+§6 confirms is still unresolvable here. It is routed, not absorbed.
+
+## 5. **F-QA15 — the blocking defect.** Row D is unreachable at the Message JSON modal
+
+**Severity: blocking. Class: regression introduced by this chain. Confirmed by execution end to end
+on the production record the plan itself names.**
+
+**Instrument**: `agent-output/verification/013/probe-qa-p2-rowd-load-gate/` — 29 assertions green at
+`4e9da96`; mutants **R1, R2, R3 all killed**; tree restored byte-identical (`diff -q`) after each.
+
+### What is wrong
+
+```
+JsonModalBody.tsx  parse effect  setValidatedDraft(parsed)                    <- UNRESOLVED draft
+JsonModalBody.tsx                contentFloorError = validateContentRequirements(validatedDraft)
+JsonModalBody.tsx  Load button   isDisabled={!validatedDraft || !!contentFloorError}
+limits.tsx         floor         hasV2 = hasStructuralV2 || hasFlagV2
+                                 if (hasV2 && hasContent) return 'Components V2 messages cannot
+                                                                 contain embeds or content.'
+```
+
+Row D's membership condition is exactly `hasFlagV2 && hasContent && !hasStructuralV2`. The floor's
+first rule fires on `hasFlagV2 && hasContent`. **Row D is therefore a strict subset of the floor's
+refusal set** — the refusal is total over the row, not an edge case inside it. All 8 row-D members
+the probe enumerates are refused; rows A, B and C are permitted, and both conjuncts are isolated.
+
+### Executed, on record 5712, through the shipped pipeline
+
+```
+SEEDED_FLAGS  = 32768                <- jsonModalSeed CARRIES the flag into the textarea
+ROW           = requiresChoice=false   mode=classic   noticeClass=warn-v2-flag-conflict
+FLOOR         = "Components V2 messages cannot contain embeds or content."
+LOAD_DISABLED = true
+```
+
+**The disposition engine computes exactly the right repair — row D, classic mode, the
+`warn-v2-flag-conflict` notice — and the gate then refuses to let the user apply it.** Everything
+013 built for this record works. The button is disabled in front of it.
+
+### Why it is a regression, not a pre-existing condition
+
+`validateContentRequirements` is **byte-identical at base and tip**; the floor did not change. What
+013 changed is **wiring it into the Load gate**. At `c85945f` the gate was
+`isDisabled={!!error || !isValid}`, where `isValid` meant only *"parses under
+`discordMessageImportShape`"* — and a row-D object parses cleanly. **Base enabled Load for row D**,
+and `enforceImportMutualExclusivity` in `onConfirm` resolved the conflict on the way through. **The
+repair worked at base and does not work at the tip.**
+
+### Operator consequence
+
+M2-a names the Load as the repair path for the flag-conflict records **5712 / 5842 / 5855 / 5856**:
+open JSON, press Load with zero edits, save. *That path is closed.* The `warn-v2-flag-conflict`
+notice is unreachable from this surface. A user looking at the record sees a correct diagnosis and a
+dead button, with no way to act on it and no message telling them why the button is dead — the floor
+error is computed but the draft it describes is not the draft they would be saving.
+
+### It also breaks M8-F parity, which is the criterion that should have caught it
+
+The **same object at the paste surface works**, because `NewMessageJsonInput` sets
+`applyDisposition(validated)` and `NewMessageModal` floors the **resolved** object. Two surfaces,
+same input, opposite outcomes. M8-F asserts exactly that this cannot happen, and has **no coverage**
+(§4) — so the criterion written to catch this class is the one that was never enumerated.
+
+### The repair this finding endorses — and the one it rejects
+
+Floor the **resolved** draft (`applyDisposition` first), matching what the paste surface already
+does. Mutant **R3** models that fix and the probe flips, so the fixer has an instrument that moves.
+
+**Rejected repair**: making the floor stop seeing the flag (`hasV2 = hasStructuralV2`). Mutant **R2**
+models it and the probe kills it in 11 places — it would fix row D by re-permitting genuinely
+invalid saves everywhere else.
+
+### The sting for §2's re-anchoring work
+
+`012-json-editor-repair-path.test.ts`'s five failures are `standardizeMessage is not a function` — a
+deleted symbol, i.e. mechanically re-anchorable. **But re-anchoring it to the new path makes it fail
+again, for a real reason**: its `STORED_5712_FULL` fixture is exactly row D, and its assertions are
+that the repair completes losslessly. That is F-QA15. Further, its third assertion — *"the flag never
+reaches the textarea in the first place"* — is now **substantively false**, because D18 retired
+`stripKeys`' deletion (executed above: `SEEDED_FLAGS = 32768`).
+
+**QA therefore does not re-anchor that file in this pass**, and states why rather than leaving the
+omission to be read as an oversight: re-anchoring it now would require either encoding the defect as
+expected behaviour, or writing a spec that is red on delivery. Both are worse than leaving it red
+with this explanation attached. **The re-anchoring is owed by QA immediately after F-QA15 is fixed**,
+and is listed in §7. `012-message-mode.test.ts`'s single failure is genuinely just a D16 re-anchor
+and is unaffected by F-QA15.
+
+## 6. INFO-2 — **falsified by execution**
+
+Steering closed R9 on the condition that every application site *routes* through the gate, recording
+**INFO-2**: *"`NewMessageModal`'s `gateBeforePersist` branch is dead today — no M3 ingress source
+produces a row-E `loadedMessage`"*, with the instruction *"routing is not reachability, and what you
+need is 'exercised', not 'wired' — say so if that is what you find."*
+
+**Executed** (`verification/013/probe-qa-p2-med6-loadgate/`, block P2-E, 29 assertions green;
+mutant **P8** — a hypothetical converter that normalises content away under the flag — killed):
+
+| Question | Answer | Evidence |
+|---|---|---|
+| Does `discordResponseToMessage` preserve content, components **and** the flag together? | **Yes** — it does not normalise | `content:'hi'`, `flags:32768`, 1 component all survive |
+| Is that output a **row-E** record? | **Yes** — `gateBeforePersist(...).mustAsk === true`, 2 options | executed |
+| Is `mustAsk` simply always true? | **No** — controls: classic-only → `false`; V2-only → `false` | executed |
+
+**So INFO-2 is wrong: the branch is reachable, not dead.** The converter can and does emit a row-E
+record, so the gate is live on the ingress path.
+
+**What remains true, and is the sharper form of steering's concern**: the **call site is still
+unexercised**. `gateBeforePersist` itself is well covered (`013-m8-ec3-resolver-gate.test.ts`), but
+no spec invokes `NewMessageModal.onSubmit`, so nothing executes the branch *at* `NewMessageModal:163`.
+Steering's distinction was the right one — it was simply applied to the wrong half. The finding is
+**not** "one of three call sites is dead"; it is **"the branch is live and nothing exercises it"**,
+which is the more concerning of the two.
+
+**Residue not settled here**: whether Discord's API can itself *return* a message carrying both.
+Discord refuses to *send* V2-with-content, but the import path reads pre-existing messages and
+nothing in this code prevents it. That is an external-behaviour question, routed to the register as
+**BC-14**, not answered by reading.
+
+## 7. Findings raised by this pass
+
+| ID | Finding | Severity | Routed to |
+|---|---|---|---|
+| **F-QA15** | Row D unreachable at the Message JSON modal; M2-a's repair path closed for 5712/5842/5855/5856; M8-F parity observably false. Regression vs `c85945f`. | **BLOCKING** | **implementer**, immediately |
+| **F-QA16** | `012-json-editor-repair-path.test.ts` re-anchoring is **blocked on F-QA15** and is owed by **QA** the moment it is fixed; its third assertion must be rewritten, not restored, because D18 made it substantively false. `012-message-mode.test.ts` is a clean D16 re-anchor, owed by QA, not blocked. | High | **QA** (self), after the fix |
+| **F-QA17** | `SUPPORTED_TOP_LEVEL_TYPES` exists **twice** — `server/api/utils/shapes.ts` (pinned set-equal to the schema union by M4-b) and a private duplicate in `utils/discordResponseToMessage.ts`. They agree today; **nothing asserts they stay equal**. Adding a type to the schema side alone silently makes the ingress converter drop-and-report a type the JSON surfaces accept. M3-b states its class as if there were one set. | Medium | **implementer** (a set-equality spec, cheap) |
+| **F-QA18** | Type-11 (Thumbnail) — the one member that is a V2 type *and* outside `SUPPORTED_TOP_LEVEL_TYPES` — has no coverage into `gateBeforePersist`, which receives the **unfiltered** draft. At the JSON surfaces the lenient filter strips it first, so the gap is reachable only through the persist gate. | Medium | **implementer** |
+| **F-QA19** | `NewMessageModal`'s `gateBeforePersist` branch is **live** (F-QA15's sibling finding, §6) but **exercised by no spec**. INFO-2's "dead today" is withdrawn on QA's evidence. | Medium | **steering** — R9's closure basis is affected |
+
+**Carried from Phase 1, unchanged**: F-QA11 (bounded to `NewMessageModal` alone; pre-existing at
+`c85945f`, held item, not a fix round), F-QA12 (QA's own probe defect, retrospective), F-QA13 (nothing
+may key on `valid = false` as a detector without keying on the **reason** string).
+
+## 8. Assumption Not Checked
+
+**This pass assumes that `applyDisposition`, when applied to a row-D draft, produces a draft the
+floor then accepts — and it does not test it.** The fix F-QA15 endorses (floor the *resolved* draft)
+is only a fix if that composition holds; this pass executed the floor over **unresolved** drafts
+throughout, and executed `applyDisposition` nowhere.
+
+- **Observable signature of its falsity**: the implementer applies R3's shape, and Load stays
+  disabled for row D — or worse, becomes enabled while `applyDisposition` has silently dropped the
+  content the repair exists to preserve, turning a dead button into silent data loss.
+- **Stage that owns closing it**: the **implementer**, in the F-QA15 fix round, by executing
+  `validateContentRequirements(applyDisposition(draft))` over the probe's 8 row-D members before
+  changing the component — the probe is already in the tree and its `loadDisabled` helper is one line
+  from becoming that test.
+
+**Method failure this pass records against itself** (per the withdrawal in §3): a TDD-gate defect
+tally was carried in working notes across a context boundary and restated **from memory of an earlier
+document revision** instead of being re-derived from the document as it stood. One of the four items
+did not survive re-derivation. The rule this pass should have followed is the one it applies to
+everyone else — reproduce the numbers you carry forward. Routed to the **retrospective**, alongside
+F-QA12.
+
+**Second, narrower method note**: during this pass `git show … | sed -n '/x/,/^}/p'` returned a
+**false absence** and led to a wrong statement that `validateContentRequirements` did not exist at
+base. It was caught by a contradicting `grep -c` and corrected within the same pass. This is the
+documented RTK positional-predicate hazard; the sound form (`git show > file` then read the file) is
+recorded in the probe README so the next reader does not repeat it.
+
+## 9. Blocking Release Condition Register — appends
+
+Appended to **chain 013's single register** (above, this document). No parallel ID space minted;
+continuing at BC-13.
+
+| ID | Class | Condition | Primary instrument | Subject / fallback | Earliest-decidable condition | Predicted value | Failure mode (operator terms) | Owner | State |
+|---|---|---|---|---|---|---|---|---|---|
+| **BC-13** | PRE | **F-QA15**: open record 5712's Message JSON modal and confirm the **Load button is enabled**, and that pressing it with zero edits clears the flag and preserves the content | `verification/013/probe-qa-p2-rowd-load-gate/` re-run green after the fix (**settles it without a human**) | fallback only: operator observation, since no mounted render exists here | the F-QA15 fix is committed | probe green; then 5712 loads and saves with content intact and the bit cleared | *The user sees a correct diagnosis of their broken record and a dead button. The repair 013 exists to deliver is computed and then withheld.* | **implementer** (primary needs no human) | **Not started — BLOCKING** |
+| **BC-14** | POST | Can Discord's API **return** a message carrying both classic content and V2 components? (§6's residue — it refuses to *send* one, but the import path reads pre-existing messages) | production observation of the URL-import path | UAT agent | chain tip deployed **and** an import attempted against a message known to predate V2 enforcement | if such a message exists, the row-E choice appears rather than silent loss | *If Discord can return one and the branch is wrong, the user loses half their message on import with no prompt — and the branch is exercised by no spec (F-QA19), so nothing else would catch it.* | uat | Not started |
+
+**Standing note applies**: this list is point-in-time; the UAT document, then the deployment record,
+are authoritative on each row's state.
+
+## 10. Handoff
+
+**QA Phase 2 is complete. Status: QA FAILED.**
+
+**This is NOT a handoff to the uat agent.** That line is owed only on a pass, and this pass did not
+pass. The chain does not advance to UAT until F-QA15 is fixed and this verdict is refreshed.
+
+**Recommended next subagent: the implementer**, for a fix round scoped to:
+
+1. **F-QA15 (blocking)** — floor the **resolved** draft at `JsonModalBody.tsx`, matching what
+   `NewMessageJsonInput`/`NewMessageModal` already do. Mutant R3 in the captured probe models the
+   shape; R2 records the repair that must **not** be taken. Close §8's assumption as part of it.
+2. **F-QA17** — one set-equality spec pinning the two `SUPPORTED_TOP_LEVEL_TYPES` copies.
+3. **F-QA18** — a type-11 draft through `gateBeforePersist`.
+
+**Then QA, for F-QA16** — re-anchor both 012 specs, which cannot honestly be done before (1) lands.
+
+**Verdict freshness.** This verdict is anchored to `4e9da96` **and to that tree only**. The fix round
+**automatically expires it**; a refresh pass recording a new `Verified-At` is required before the
+plan advances to UAT, and no other agent should be relied on to notice that.
+
+**Roadmap**: `agent-output/roadmap/` still holds only `.gitkeep` (re-checked this pass), so **no
+roadmap epic acceptance criterion changes state on this record.** Recorded rather than omitted.
