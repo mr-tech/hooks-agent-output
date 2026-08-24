@@ -5,38 +5,39 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
-  Rev 4 — **D20 PRECONDITION PASS ONLY. NO VERDICT IS ISSUED AND NONE IS INVITED.** This document
-  exists before the deploy it will cover, as the UAT gate requires, and carries **no** release
-  decision. QA Phase 2 has not run (`qa/013-...-qa.md`, Status `Awaiting Implementation`); M4 and
-  M6 are open. **BC-11 Half A (the mint) is `EXECUTED`, 2026-08-24, terminal** — the owner minted
-  both records himself and attested it verbatim (5855, 5856); his attestation is the terminal form
-  of owner-supplied evidence and this pass terminalises on it rather than manufacturing a further
-  gate. **Half B (the ask) is `NOT EXECUTED`** — not a terminal state, and it blocks an
-  unconditional approval; it needs a browser and a chain-tip environment carrying the shape, which
-  per the plan need not be production, so it is **not** automatically the owner's. **Appendix A is
-  its one-shot script, ready.** **D20's re-derivation clause is RESOLVED on the substance**,
-  discharged by production execution rather than by UAT's instrument; the classifier-blocked probe
-  is retired for that purpose and needs no ruling. Two defects in BC-11 as written (Subject cell;
-  earliest-decidable cell) are routed to QA, whose row it is. **Rev 5 raises finding U-1**: the seeds
-  are permanent members of the category 012's classifier counts, so both limbs of the plan's own
-  falsifier for assumption 7 now fire by construction — a working D19 repair will read as a failed
-  one. Routed to steering; no remedy adopted here. This document is authoritative on register state
-  from rev 1 forward. **Rev 6**: QA split BC-11 into **BC-11a (`EXECUTED`, terminal)** and **BC-11b
-  (`NOT EXECUTED`)** at `9946eb9`, adopting both defect reports; Appendix A amended for QA's
-  unexamined-read-path assumption, which makes a Classic-mode open **ambiguous** and not reportable
-  as either a read-path defect or the ask failing. **Rev 7**: QA executed both items this pass handed
-  over (`32737d3`) — R7's first limb is **confirmed not tripped** by the seeds, narrowing U-1, with the
-  correction that `valid = false` **does not discriminate** (the seeds are invalid for two independent
-  reasons; key on the reason string, never the boolean). **Rev 8** records the F-QA14 method
-  concurrence and a resumption table; this session ended near its run-length ceiling with its work
-  complete, not truncated. **Rev 9 — QA COMPLETE was handed in and this session DECLINED THE VERDICT
-  on run-length grounds, early and deliberately**: a verdict abandoned two-thirds through is worse than
-  one not started. **No predecessor document was read and no release decision is issued**; a successor
-  re-reads all of them. Rev 9 adds only what makes the successor cheaper: conditions **C-1** (the
-  release tip will move once; QA's green rests on an uncommitted tree; the identity is a content
-  manifest) through **C-4**, and folds **BC-15** into Appendix A with an ordering hazard — **BC-11b
-  must run before BC-15 on any record**, and Save must not follow BC-15's Load, or the seed is
-  consumed and cannot be re-minted.
+  **Rev 10 — THE UAT GATE HAS RUN. A RELEASE DECISION IS ISSUED: `APPROVED FOR RELEASE, CONDITIONAL`.**
+  Predecessor documents read directly this pass and the tree identity re-derived from the tree, not
+  inherited. **QA: `QA Complete` at `821330d` + a three-path content manifest, reproduced digest-for-digest
+  by this pass.** **Code review: binding verdict round 19 `APPROVED`, δ-cleared at `164d720`; its document
+  Status is `In Review` and NO code-review verdict covers the release tip `821330d`** — condition **U-C1**.
+  **Implementation: Status `Active`, M6 unchecked, and the document does not record `821330d`/F-QA21 at
+  all** (`grep -c` = 0) — condition **U-C2**. Value is judged **delivered at the data layer and
+  unobserved at the surface layer**: every milestone but M6 is delivered and reviewed, the suite is
+  green on QA's instrument, and **not one of the twelve `PRE` operator-observable register rows has been
+  executed** — which is the plan's own Validation item 3, owed *before* this verdict and not met. The
+  approval is therefore conditional in the form this agent's definition fixes, over a ledger in which
+  **every row carries an owner and a terminal state**. **Finding U-2 raised: the register carries
+  duplicate IDs** — two distinct `BC-13`s and two distinct `BC-14`s — so any reference by number alone
+  can invert a blocking status; every row in this document is named as well as numbered, and the
+  renumbering is routed to QA. **Nothing here withdraws a condition; `WITHDRAWN` is the owner's ruling
+  alone.** Rev 9 and earlier are preserved as written; no superseded text was overwritten.
+Verified-At: >-
+  Production-code identity, re-derived from the tree by this pass and not inherited. `website` @
+  `chain/013-components-v2-editing-surfaces`, HEAD = `821330d` (`git rev-parse HEAD`); `c85945f`
+  confirmed an ancestor (`git merge-base --is-ancestor` → true), so integration is a fast-forward.
+  Uncommitted, in scope, hashed as file bytes (`sha256sum`), reproducing QA's manifest exactly:
+  `src/utils/__tests__/012-json-editor-repair-path.test.ts` 33af76e25e0bd5f6350c9fd398c2a135fb9db53f8be6c352eee1af4768021714;
+  `src/utils/__tests__/012-message-mode.test.ts` 94cd8738162139121c421056737edf7d1b9da53ca91dac2209288bcf2f5fe411;
+  `src/utils/__tests__/013-fqa19-ingress-gate-reachability.test.ts` 82e92af1ab7c4c6bf718f28d10c4977479b00644d538f7798ce82253de9c3fcd.
+  Base SHA for the uncommitted population: `821330d`. **Exclusion list: empty** — `git status --porcelain
+  --untracked-files=all` over `website` returns exactly those three paths and nothing foreign.
+  Uncovered population: none in `website`; `project-utils` and `preview-image-generator` are untouched by
+  this chain (plan Validation item 7) and are not covered here. **Any change to a production-code blob
+  expires the predecessor verdicts and this decision with them.** Committing QA's three test paths moves
+  the SHA but **not** the production-code identity — established by `git diff --numstat`, which confines
+  every delta from `53beb37` (the round-19 anchor) to `821330d` to one file under
+  `src/utils/__tests__/`, and by the two reviewed source blobs being byte-identical at `53beb37`,
+  `164d720` and `821330d` (`JsonModalBody.tsx` cfbec5b, `discordResponseToMessage.ts` 81f4562).
 ---
 
 # UAT Report: Plan 013 — Components V2 support across the editing surfaces
@@ -44,7 +45,8 @@ Status-Detail: >-
 **Plan Reference**: `agent-output/planning/013-components-v2-editing-surfaces.md` — rev 18, Status
 `Approved` (frontmatter re-read at write time, 2026-08-24)
 **Date**: 2026-08-24
-**UAT Agent**: Product Owner (UAT) — session `uat-hooks-013`
+**UAT Agent**: Product Owner (UAT) — session `uat-hooks-013` (rev 1–9); `uat-hooks-013-2` (rev 10, the gate pass)
+**Plan Reference re-read at rev 10**: `agent-output/planning/013-components-v2-editing-surfaces.md` — **rev 20**, `Status: Approved`, frontmatter and D28 read directly 2026-08-24
 
 ## Changelog
 
@@ -59,6 +61,7 @@ Status-Detail: >-
 | 2026-08-24 | qa-hooks-013-2, direct under D27 (`32737d3`) | Both items this pass handed over were **executed** rather than recorded at read level | Rev 7. **R7's first limb CONFIRMED not tripped** by the seeds — U-1 is narrower than raised. **Correction carried**: `valid = false` does not discriminate; the seeds are invalid for **two** independent reasons (no username, plus the V2/classic conflict), so anything keying on the boolean must key on the **reason string**. **F-QA11 class-closed by QA over a predicate** (4 sites; two guard `'0'` explicitly), making it a single-site oversight and this pass's Save As read mutant-checked rather than read-level. Appendix A's F-QA11 note strengthened to *positively distinguishable*. Still no verdict. |
 | 2026-08-24 | qa-hooks-013-2 (`30f419f`) — receipt both ways, nothing owed | — | Rev 8. **F-QA14 concurrence recorded here**, because QA recorded it as concurred by both stages and a concurrence present in only one document is not one: an inference with a **sound conclusion** is the dangerous case, since the trap travels attached to a correct answer and nothing downstream contradicts it — **a stated gap survives being right**. **Run Record and Resumption** table added: BC-11a and the D20 clause terminal; **BC-11b owed and blocking**; U-1 with steering; the UAT gate itself entirely unstarted. Session ended near its run-length ceiling with work **complete, not truncated**. Still no verdict. |
 | 2026-08-24 | steering-hooks-013-2 — **QA COMPLETE handed in, verdict invited** | Run the UAT gate and issue the release decision | Rev 9. **VERDICT DECLINED ON RUN-LENGTH GROUNDS, flagged early as instructed.** ~58 requests, 226k prefix; a sound verdict needs the identity re-derived as a content manifest (three uncommitted `website` source files in scope), four predecessor documents read directly, and **15** register rows driven terminal — far beyond the ceiling's ~10-request exception. **No predecessor document read, no status restated, no release decision issued.** Successor re-reads everything. Remaining budget spent only on what lowers their cost: **C-1…C-4** recorded as conditions rather than prose, and **BC-15/D28 re-derived from QA's register and the plan directly** (not from steering's restatement) and folded into Appendix A — including an ordering hazard nobody had stated: **BC-11b must precede BC-15 on any record**, and no Save may follow BC-15's Load, or the seed is consumed and cannot be re-minted. |
+| 2026-08-24 | steering-hooks-013-2 — successor spawned by the owner after rev 9's ceiling handback | Run the UAT gate and issue the release decision | **Rev 10. THE GATE RAN. Release decision: `APPROVED FOR RELEASE, CONDITIONAL` over an 18-row ledger.** Resumed from rev 9's Run Record; **C-1…C-4 all discharged and each re-derived rather than adopted** — C-1's tip had already moved (`164d720` → **`821330d`**) and the three-path manifest reproduces digest-for-digest; C-2's BC-15 and D28 read from QA's register and plan rev 20 directly; C-3 stands unchanged; C-4 adopted no remedy. All four predecessor documents read directly: **QA `QA Complete` @ `821330d`** (green), **code review round 19 `APPROVED` but its document Status is `In Review` and no verdict covers `821330d`** (U-C1), **implementation Status `Active`, M6 unchecked, `821330d`/F-QA21 absent from it entirely** (U-C2). **Finding U-2 raised — the register carries two distinct `BC-13`s and two distinct `BC-14`s**; the Phase-1 `BC-14` (*the user-reported defect is fixed in production*) is the row a by-number reference silently drops, and it is the chain's own reason for existing. Routed to QA; every row here is named as well as numbered. **Twelve `PRE` rows stand outstanding** (eleven `NOT EXECUTED` outright; `BC-10` met on its suite limb with its spot observation owed) — Validation item 3 is owed before this verdict and is not met, which is why the approval is conditional and not unconditional. |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -421,11 +424,15 @@ silently dropped) are **silent by signature**.
 
 ## UAT Status
 
+> **Dated pointer, 2026-08-24 (rev 10).** The text below is rev 4–9's and is preserved as written; it was correct for those passes, which deliberately issued no verdict. **The gate has since run.** The current UAT status and the release decision are in **“Rev 10 — The UAT Gate, Executed”** at the end of this document, and the frontmatter `Status-Detail` carries the short form.
+
 **Status**: **NOT A VERDICT — precondition pass only.** Neither `UAT Complete` nor `UAT Failed`.
 **Rationale**: QA Phase 2 has not run and the chain is not finished (M4 open, M6 open). The gate was
 not exercised; one pre-deploy precondition was attempted and is blocked.
 
 ## Release Decision
+
+> **Dated pointer, 2026-08-24 (rev 10).** The text below is rev 4–9's and is preserved as written; it was correct for those passes, which deliberately issued no verdict. **The gate has since run.** The current UAT status and the release decision are in **“Rev 10 — The UAT Gate, Executed”** at the end of this document, and the frontmatter `Status-Detail` carries the short form.
 
 **None issued.** No `APPROVED FOR RELEASE`, no conditional approval, no `NOT APPROVED`.
 
@@ -437,6 +444,8 @@ decision with them. The anchors touched by *this* revision are `website` `master
 verified). **Neither is a verdict anchor.**
 
 ## Next Actions
+
+> **Dated pointer, 2026-08-24 (rev 10).** The text below is rev 4–9's and is preserved as written; it was correct for those passes, which deliberately issued no verdict. **The gate has since run.** The current UAT status and the release decision are in **“Rev 10 — The UAT Gate, Executed”** at the end of this document, and the frontmatter `Status-Detail` carries the short form.
 
 *Point-in-time list — later stage documents are authoritative on these items' current state.*
 
@@ -478,6 +487,8 @@ instrument later.
 
 ## Conditions the Successor Inherits — written as conditions, not prose
 
+> **Dated pointer, 2026-08-24 (rev 10).** **C-1, C-2, C-3 and C-4 are all discharged this pass**, each re-derived from the tree and the source documents rather than adopted. Their dispositions are recorded in **“Rev 10 — The UAT Gate, Executed” § C-1…C-4**. The text below is preserved as written.
+
 **Added rev 9, on steering's hand-in of QA COMPLETE. This pass did NOT read the predecessor documents
 and issues no verdict; the successor re-reads all of them directly. What follows is recorded as
 conditions so they are inherited as such rather than rediscovered in someone's prose.**
@@ -513,6 +524,8 @@ edge before devops writes the deployment record, and **U-1 folds into that same 
 not raised separately**. The seeds' disposition stays unruled (D20).
 
 ## Run Record and Resumption
+
+> **Dated pointer, 2026-08-24 (rev 10).** This table described rev 9's stopping state and is preserved as written. It is **no longer current**: the successor session ran, and the row that read *“Not started — the UAT gate itself”* is now executed. See **“Rev 10 — The UAT Gate, Executed”**.
 
 **This session stopped near its run-length ceiling, with its work for the night complete rather than
 truncated.** Nothing was left mid-flight. A successor UAT session resumes **from this document alone**
@@ -619,3 +632,410 @@ whether the warning appears, the body text `hi` **survives**, and the record sho
 the D19 repair has run **and** no seeded environment is available, the suite is the evidence and the
 reason recorded is *"the D19 repair preceded the deploy"* — **not** "no member to observe". If either
 limb of that condition is unmet, the row is still owed and `NOT EXECUTED` is not a terminal state.
+
+---
+
+# Rev 10 — The UAT Gate, Executed
+
+**Date**: 2026-08-24 · **Session**: `uat-hooks-013-2` (successor to `uat-hooks-013`, which handed back
+at rev 9 on run-length grounds without issuing a verdict) · **Return channel**: `steering-hooks-013-2`.
+
+Everything above this line is preserved as written. Nothing was overwritten; where this pass corrects
+or supersedes an earlier statement it says so, dated, in place.
+
+**What this pass did**: read the four predecessor documents directly, re-derived the tree identity from
+the tree, drove every blocking-release-condition row to a state, and issued the release decision. It did
+**not** inspect production source to form the verdict (this stage is a document review), did **not**
+re-run the suite, and adopted **no** remedy for a finding that is somebody else's to settle.
+
+---
+
+## 1. Predecessor Status Verification
+
+The gate my definition sets is: Implementation *complete*, Code Review *approved*, QA *QA Complete*.
+Each read directly at write time, 2026-08-24. **One of the three is unambiguously met.**
+
+| Predecessor | Required | Found | Verdict |
+|---|---|---|---|
+| **QA** — `agent-output/qa/013-components-v2-editing-surfaces-qa.md` | `QA Complete` | **`QA Complete`**, `Verified-At: 821330d` plus a three-path content manifest; suite **550 tests / 37 files / exit 0** at that composite identity | **MET** |
+| **Code Review** — `agent-output/code-review/013-components-v2-editing-surfaces-code-review.md` | approved | Binding verdict **round 19 `APPROVED`** at `53beb37`; **round 19-δ CLEARED** at `164d720`. But the document's `Status` field reads **`In Review`**, and **no code-review verdict covers the release tip `821330d`** | **NOT MET as written** → condition **U-C1** |
+| **Implementation** — `agent-output/implementation/013-components-v2-editing-surfaces-implementation.md` | complete | `Status: Active`. Six of seven milestones checked (M1, M2, M3, M4, M7, M8, all reviewed); **M6 unchecked**. The document does **not record `821330d` or F-QA21 anywhere** — `grep -c "F-QA21"` returns **0** | **NOT MET as written** → conditions **U-C2**, **U-C3** |
+
+**Neither shortfall is a failure verdict, and this pass does not dress them as one.** No predecessor
+returned FAILED; QA's Phase 2 `QA FAILED` at `4e9da96` was closed by the F-QA15 fix and superseded by
+the refresh pass. What is missing is *coverage of the release tip* and *record closure* — both real,
+both named below with an owner, neither a defect in the delivered behaviour.
+
+**On the code-review gap specifically, and why this pass does not close it itself.** The reviewer's own
+standing condition is that *any commit after `53beb37` re-opens re-verification*. `821330d` is such a
+commit. This pass re-derived, from the tree, that the delta is confined to one test file and that both
+reviewed source blobs are byte-identical across `53beb37`, `164d720` and `821330d` (`JsonModalBody.tsx`
+`cfbec5b`, `discordResponseToMessage.ts` `81f4562`). **That is evidence for the reviewer's ruling; it is
+not the ruling.** Whether a byte-identical source tree carries the verdict forward is the code-reviewer's
+call under its own delta-round rule, and UAT taking it would be transferring a verdict, which is the
+prohibited act.
+
+---
+
+## 2. Verdict Identity, Re-Derived From The Tree
+
+Constructed this pass, not inherited — the full manifest is in the frontmatter `Verified-At`. In short:
+
+- `website` HEAD = **`821330d`**, branch `chain/013-components-v2-editing-surfaces`; `c85945f` is an
+  ancestor, so integration is a fast-forward.
+- Three uncommitted **test** paths in scope, hashed as file bytes; **all three digests reproduce QA's
+  manifest exactly**. Exclusion list **empty** — nothing foreign is in `website`'s working tree.
+- **`master` is still `c85945f`, locally and on `origin`.** *The deploy has not run.* This is a
+  pre-deploy UAT in the sanctioned order, not a recovery pass.
+
+**Expiry, stated as this stage must state it**: any change to a **production-code** blob expires the
+predecessor verdicts and this decision with them. Committing QA's three test paths moves the SHA but
+**not** the production-code identity, and this decision survives that specific move — established by
+`git diff --numstat` confining every delta from `53beb37` to `821330d` to one file under
+`src/utils/__tests__/`, and by the two reviewed blob hashes above. It does **not** survive anything else.
+
+---
+
+## 3. C-1 … C-4 — the conditions rev 9 handed forward
+
+Each re-derived from the tree or the source document, never adopted from a restatement.
+
+- **C-1 — the tip will move; QA's green rests on an uncommitted tree. DISCHARGED, and it had already
+  moved.** Rev 9 recorded HEAD at `164d720`; **the tree now stands at `821330d`** (the implementer's
+  F-QA21 fix, committed after rev 9 was written). The three-path manifest reproduces digest-for-digest.
+  QA's own re-anchor note records the move and re-ran at the new identity. C-1's consequence (a) is
+  therefore *already realised once*; consequences (b), (c), (d) all stand and are carried as **U-C1**,
+  the frontmatter identity, and **U-C4** respectively. **The three files remain not this stage's to
+  commit or revert, and were not touched.**
+- **C-2 — BC-15 exists, is `PRE`, D28 closes the mounted-render check by the owner's observation.
+  DISCHARGED.** Re-derived from QA's register §10 and plan rev 20's D28 row directly. BC-15's owner
+  column reads `uat (to record the owner's attestation)`; its subject is *the owner, in the BC-11b
+  sitting*; its prediction is **button enabled; content intact; bit cleared**. **Confirmed: no DOM
+  harness was added** — D28's ruling is honoured on both sides. Carried into the ledger below.
+- **C-3 — BC-11b unchanged. CONFIRMED.** `NOT EXECUTED`, non-terminal, blocking an unconditional
+  approval. Its subject remains *any party with a browser and a chain-tip environment carrying the
+  shape*; M8-G's clause admits *"in any environment seeded with the shape"*. **This pass restates, as
+  rev 9 did, that the owner's involvement is a fact about available tooling and not a plan
+  requirement**, and does not write it into the ledger as one.
+- **C-4 — R-5's widening and U-1 are not this stage's; adopt no remedy. HONOURED.** R-5's widening is
+  recorded as **U-C5** and routed, not decided. **U-1 is folded into that same decision point and is
+  not raised separately**, exactly as instructed. The seeds' disposition stays unruled (D20). No remedy
+  is proposed for any of the three.
+
+---
+
+## 4. Value Delivery Assessment
+
+**The Value Statement, clause by clause, against what the documents establish.** The plan's own
+Objective is the yardstick: projection confinement, round-trip closure, and *the flag is the mode*.
+
+| Value-statement clause | Delivering milestone | Documentary evidence | Delivered? |
+|---|---|---|---|
+| *"Save As" carries components and the V2 flag* | M1 (transport form at every write boundary), M8-G (persist gate) | Impl: M1-a…d delivered, round-2 `APPROVED_WITH_COMMENTS`; M8-G all three real persisting writers gate via `gateBeforePersist`, round 14 `APPROVED_WITH_COMMENTS` | **Yes, at the data layer** |
+| *the Message JSON view carries them* | M2, M7 | M2-a/b/c delivered, round 13 `APPROVED`; JSON view shows stored `flags` | **Yes, at the data layer** |
+| *copy and Load carry them* | M2-a, M2-c, M4-c, F-QA15 fix | The Load gate now floors the **resolved** draft, so row D loads: reviewer's closure/no-hole/no-crash attack at round 19, QA's fix-verify probe green (25 assertions, F1/F2 killed) | **Yes, at the data layer** |
+| *import from a message URL, a webhook URL, or the bot's "Get Message"* | M3-a/b/c | `discordResponseToMessage` carries `components` and copies Discord's `flags` bit exactly, never derived from structure; unsupported types dropped **and named**; round 15 `APPROVED_WITH_COMMENTS` | **Yes, at the data layer** |
+| *cross-tab change detection* | M1-d | `normalizeForHash` runs the live draft through the server's own zod normalisation before hashing; round-2 re-derivation widened the false-prompt class to 8/4 cases and confirmed the fix closes the wider class | **Yes, at the data layer** |
+| *no editing action silently discards what I built* | M8 (D17's five rows), M8-E's choice UI | `enforceImportMutualExclusivity`'s silent strip retired at **both** JSON surfaces; row E asks and writes **nothing** before a choice; `applyDisposition` is the sole application path, grep-confirmed by the implementer and re-derived by the reviewer | **Yes, at the data layer** |
+| *never misreports what kind of message it is* | M7 (D15/D16) | `isMessageV2` is the single predicate; `switchToV2` sets the bit; the composer shows V2 for every such record | **Yes, at the data layer** |
+| *I never land on an empty copy of a message that was whole a moment ago* | M1 + M8-G together | The class the research named (flows 6, 11, 12, 13 producing empty records with `valid=false` and no error shown) is closed at the transport form and gated at every persisting writer | **Yes, at the data layer** |
+
+**And the sentence this assessment turns on:**
+
+> **Every clause above is delivered *in mechanism* and *unobserved in effect*.** Not one of the plan's
+> twelve `PRE` operator-observable conditions has been executed. The evidence is module-level: pure
+> functions, source text, a green suite, and adversarial probes. **What no document in this chain
+> records is a human seeing any of it happen in a browser.**
+
+That is not pedantry here, and the reason is structural rather than procedural. **013 exists to fix
+failure modes whose signature is *absence*** — an empty copy, a body silently dropped, a prompt that
+never fires, a button that is inert. A suite proves the gate *computes* the right answer. It cannot
+prove React *applied* it — which is precisely what D28 registers, in QA's and the code-reviewer's
+independently-reached shared words: *an operator opens 5712's JSON, presses Load, and the button is
+still inert although the gate computes false.* **A silent failure mode is invisible to every instrument
+this chain has run.** BC-15 and BC-11b are not tidy-up; they are the only instrument pointed at the
+class the chain was commissioned to close.
+
+**Verdict on value**: the objective is **achieved in the delivered code as documented**, and **not yet
+demonstrated at the surface the user touches**. Core value is not deferred — it is built and unwatched.
+
+---
+
+## 5. Objective Alignment and Drift
+
+**Does the code meet the original plan objective?** — **YES, with the surface layer unobserved.**
+
+**Drift detected: none of substance.** Specifically checked and found clean:
+
+- **Scope**: 18 files in the plan's inventory; 16 carry a real diff, 2 investigated and confirmed to
+  need no change, both disclosed at the milestone that determined it. Two out-of-inventory deltas —
+  `package.json` (D21, pre-explained) and `SaveChoiceModal.tsx` (new production file, M8-G) — are
+  **explained, not absorbed**, by the implementer's own M6 reconciliation, derived from
+  `git diff --numstat` against the merge-base rather than from any total stated aloud.
+- **No feature growth**: D28 was taken specifically to *avoid* adding a DOM harness mid-chain, and the
+  tree confirms it was not added.
+- **Findings routed rather than silently absorbed**: B3-lossless to `agent-output/TODO.md` (a chain-012
+  consequence), F-QA22 (`enforceImportMutualExclusivity` now has zero production callers) held as a
+  planner item, F-QA11 bounded by execution to a single pre-existing site outside 013.
+
+**One residual worth the owner's eye, recorded and not acted on**: 013 falsifies a plan-012 conclusion —
+the B3 class now **has** a lossless path where 012 recorded that it had none, so 012's R19 repair
+guidance is superseded. QA flagged it; it is lodged in `TODO.md`. **It changes what someone should be
+told, not what 013 ships.** Communicating it is the owner's, not any agent's.
+
+---
+
+## 6. Finding U-2 — the register carries duplicate IDs, and one collision hides the chain's own reason for existing
+
+**Raised by this pass. Not previously recorded by any stage. Routed to QA, whose register it is.**
+
+Chain 013 has exactly **one** blocking-condition register, in QA's document, and this pass found no
+second travelling list and mints none. But that single register now carries **two distinct rows numbered
+`BC-13` and two distinct rows numbered `BC-14`**, because QA's Phase 2 append states *"continuing at
+BC-13"* when the Phase 1 register already ran to `BC-14`:
+
+| Number | The two rows it now names | Class | Owner | Terminal state |
+|---|---|---|---|---|
+| **BC-13** | *(Phase 1)* **bot-code TTL residue** — codes stored before go-live carry no dropped set, so the notice cannot render for them | POST | **devops** | outstanding, see ledger |
+| | *(Phase 2)* **F-QA15's Load gate** — 5712's Load button is enabled and the repair completes | PRE | implementer | **DISCHARGED 2026-08-24** |
+| **BC-14** | *(Phase 1)* **the user-reported defect is fixed in production** (handoff `8f3fa8c3`, observations 1/2/5/6/7) | POST | **uat** | outstanding, see ledger |
+| | *(Phase 2)* **can Discord's API *return* a message carrying both classic content and V2 components** | POST | **uat** | outstanding, see ledger |
+
+**Why this is a finding and not a tidiness note.** A reference by number alone silently resolves to one
+of two rows, and a numbering slip can invert a blocking status invisibly to every check that reads the
+sentence instead of the target. The concrete exposure here: **the Phase-1 `BC-14` is the row that
+distinguishes *fixed* from *unfixed* in production for the user-reported defect this entire chain was
+commissioned to fix.** It is the row most likely to be dropped by a reader who follows the number to the
+Phase-2 append and stops. This pass caught it only by checking every numbered reference against the
+register rather than following it.
+
+**Disposition**: routed to QA for renumbering; **no row is withdrawn, no requirement changes, and this
+document does not edit QA's register.** Every row in the ledger below is carried by **name as well as
+number**, so a later renumbering cannot invert anything here.
+
+## 7. Finding U-3 — two record-hygiene defects, neither blocking
+
+1. **QA's `Verified-At` frontmatter is truncated by YAML.** It reads
+   `Verified-At: 821330d  # re-anchored 2026-08-24; supersedes 164d720 (see Re-anchor note)`. The
+   `#` comment is dropped by any YAML reader, so the pointer to the Re-anchor note — which is what makes
+   the value auditable — is invisible to every machine reader. Caught by
+   `node tools/check-repo.js`, which names this failure explicitly. **The value itself (`821330d`) is
+   correct and this pass verified it against the tree**; only the pointer is lost. Routed to QA.
+   *(Document-lifecycle: free-prose frontmatter values are always quoted.)*
+2. **`node tools/check-repo.js` reports FAIL, 14 problems.** Run from `agent-output/` this pass.
+   **None is in `uat/`.** One is U-3.1 above; four are stale links in 012 documents and probe READMEs;
+   six are duplicate basenames across `verification/013/` probe directories (a convention, not a
+   defect); three are stage-suffix conventions for `deployment/` and a 012 carry-forward file.
+   **Recorded because the skill requires it and because a FAIL that is always FAIL stops being read.**
+   Not blocking; not this stage's to fix.
+
+---
+
+## 8. Weighing of Production Evidence
+
+**None is offered, none is claimed, and none is available.** `master` stands at `c85945f`; 013 has not
+deployed. There is no *"it has been running a week with no errors"* to weigh here, and this pass
+records the absence deliberately rather than leaving it to be inferred.
+
+Recorded so it cannot be reached for later: **were such an attestation offered after deploy, it would be
+evidence against 013's loud failure modes only** — a crash, a 4xx on send, a broken render every user
+sees. **It would be no evidence at all against the silent ones**, and 013's entire subject matter is
+silent: an empty copy, a body dropped without a word, a prompt that never fires, a button that stays
+inert. Those signatures *are* absence, so an argument from absence would be circular. **BC-1…BC-11b,
+BC-14 and BC-15 are what covers the silent class. Nothing else does.**
+
+---
+
+## 9. The Blocking Release Condition Ledger
+
+**This is the chain's one register, restated by state.** QA's document
+(`agent-output/qa/013-components-v2-editing-surfaces-qa.md`, re-read at write time 2026-08-24) is the
+authority on row **definitions**; **this document is authoritative on row state**, per the register's own
+standing note. Rows are named as well as numbered (finding U-2). **No row is withdrawn — `WITHDRAWN` is
+the owner's ruling alone, and this pass rules none.**
+
+`PRE` = must be terminal **before the release act**. `POST` = post-deploy-observable; gates the **chain's
+closure**, never the release act.
+
+### 9.1 `PRE` rows — terminal before the release act
+
+| Row (number · name) | Owner (from the **primary** instrument) | Prediction | State |
+|---|---|---|---|
+| **BC-1 · Load confirmation names what changes** | operator with a browser at a chain tip | the confirmation names both differences before anything is committed | **NOT EXECUTED** |
+| **BC-2 · URL/webhook import names uncarried types** | operator | dialog shows supported components **and** a notice naming the select | **NOT EXECUTED** |
+| **BC-3 · bot `Get Message` path shows the same notice** | operator | editor opens with supported components and the same notice | **NOT EXECUTED** |
+| **BC-4 · import failing the floor keeps the dialog open, does not navigate** | operator, **paired with** the suite's no-upsert assertion (EC-3) | dialog stays, error shown, no new message created | **NOT EXECUTED** (suite limb met) |
+| **BC-5 · folder-page export paste shows the floor error, not green** | operator | *"Message must have content, embeds, or components."* | **NOT EXECUTED** |
+| **BC-6 · the lenient filter names the dropped types** | operator | the notice names the type | **NOT EXECUTED** |
+| **BC-7 · paste a container → V2, bit set, visible warning** | operator | editor in V2 with the container **and** a warning | **NOT EXECUTED** |
+| **BC-8 · paste the 5712 shape → Classic, content intact, bit cleared, warning, no V2 error** | operator | Classic, `hi` present, warning shown | **NOT EXECUTED** |
+| **BC-9 · paste content+container → two options, nothing created before a choice** | operator, paired with the suite | two options; nothing created before a choice; **both** outcomes verified by repeating with the other option | **NOT EXECUTED** |
+| **BC-10 · M8-F parity across modal Load and New Message paste** | **qa (suite is primary)**; operator for a two-cell spot check | identical dispositions, cell by cell | **SUITE LIMB MET** — 550/37/exit 0 at the verdict identity; **spot-observation limb NOT EXECUTED** |
+| **BC-11 · (pointer)** | — | — | **SUPERSEDED by BC-11a + BC-11b.** No requirement withdrawn |
+| **BC-11a · the mint** | uat (records the attestation) | both records appear; a single successful save refutes *"the route is closed"* by construction | **`EXECUTED` 2026-08-24 — TERMINAL.** The owner minted 5855 and 5856 and attested it verbatim (quoted above, rev 4). Confirmed unchanged this pass |
+| **BC-11b · the ask fires on save over a seed** | operator with a browser at a chain tip carrying the shape (**not automatically the owner** — C-3) | the ask appears naming both drops; **nothing written** before a choice | **NOT EXECUTED** — non-terminal, **blocks an unconditional approval** |
+| **BC-13 *(Phase 2)* · F-QA15's Load gate** | **implementer** — its primary needs no human | probe green; 5712 loads and saves with content intact and the bit cleared | **`EXECUTED` / DISCHARGED 2026-08-24** at `164d720`; probe green, 25 assertions, mutants F1/F2 killed. **Its mounted-render half moved to BC-15** |
+| **BC-15 · D28's mounted render** | uat (records the owner's attestation), observed by the owner in the BC-11b sitting | **button enabled; content intact; bit cleared** | **NOT EXECUTED** — non-terminal, **blocks an unconditional approval** |
+
+**Twelve `PRE` rows stand outstanding**: eleven `NOT EXECUTED` outright (BC-1…BC-9, BC-11b, BC-15) and
+**BC-10** met on its suite limb with its spot observation owed. **Two are terminal** (BC-11a, BC-13/P2).
+
+**The plan's Validation item 3 requires every human-observable form to be executed and recorded
+*before UAT's verdict*. It is not met, and this pass does not pretend otherwise** — that shortfall is
+the entire reason the approval below is conditional rather than unconditional.
+
+### 9.2 `POST` rows — gate the chain's closure, never the release act
+
+Per this stage's rule, each is acted on **at its earliest-decidable condition** — watched for
+decidability, not left until somebody happens to look.
+
+| Row (number · name) | Owner | Earliest decidable | Prediction | State |
+|---|---|---|---|---|
+| **BC-12 · a V2 message that sent at `c85945f` still sends after deploy** | implementer owns the decision (M8-G send path); **uat owns the observation** | the deploy is live | **the send succeeds. A single 4xx refutes by construction** — not a rate to accumulate; one failure is a hotfix trigger | **NOT EXECUTED** — conditionally approved, gates chain closure |
+| **BC-13 *(Phase 1)* · bot-code TTL residue** | **devops** (records the window in the deployment record) | **one hour after the deploy SHA is live** | the residue is empty | **NOT EXECUTED** — devops resolved the instrument as the owner's attestation timestamp, a conservative upper bound (readiness F-1) |
+| **BC-14 *(Phase 1)* · the user-reported defect is fixed in production** | **uat** | the deploy is live | all four observations confirmed | **NOT EXECUTED** — *the row a by-number reference drops; see U-2* |
+| **BC-14 *(Phase 2)* · can Discord's API *return* a message carrying both classic content and V2 components** | **uat** | chain tip deployed **and** an import attempted against a message known to predate V2 enforcement | if such a message exists, the row-E choice appears rather than silent loss | **NOT EXECUTED** |
+
+**Single-observation sufficiency, read off the rows themselves**: BC-12's prediction states that one 4xx
+refutes by construction, and BC-11a's states that one successful save refutes by construction. Those
+rows close on **one discriminating instance** and must not be left accumulating a rate.
+
+### 9.3 Conditions this stage adds — documentary, not behavioural
+
+| ID · name | Owner | What is owed | State |
+|---|---|---|---|
+| **U-C1 · code-review coverage of the release tip** | **code-reviewer** | A δ re-verification covering `821330d` — and, once QA's three test paths land, the tip they produce. Steering is holding one ping so a single pass covers both moves; this pass endorses that sequencing but does not schedule it | **NOT EXECUTED** |
+| **U-C2 · the implementation document records the release tip** | **implementer** | `821330d` and F-QA21 appear nowhere in it (`grep -c` = 0). The chain's release tip must be recorded in the document that owns delivery, and the doc's `Status` must reach a completed state | **NOT EXECUTED** |
+| **U-C3 · M6 record closure** | **steering** (the two handoff re-status lines) and **the architect** (the architecture correction) | The implementer's share is delivered; the two other shares are not. M6 is the only unchecked milestone | **NOT EXECUTED** |
+| **U-C4 · commit approval for QA's three test paths** | **the owner** (approval); **devops** (integration) | QA's grant covers `agent-output` only and it correctly declined the implementer's offer to commit on its behalf. Until they land, the suite-green half of QA's verdict rests on a working tree | **NOT EXECUTED** |
+| **U-C5 · R-5's widening** | **the owner** | The deployment record is known incomplete as the plan states it. Devops names this **the blocking edge** before the record can be written. **U-1 folds into this same decision point and is not raised separately.** No remedy is adopted or proposed here | **NOT EXECUTED — owner's decision, routed not decided** |
+
+**On U-1, once, so it is not mistaken for silence**: records 5855 and 5856 are permanent members of
+`flagStructureDisagreement`, so a working D19 repair will read as a failed one unless the residual is
+named. **The wording is the planner's, the deployment-record line is devops's, the seeds' disposition is
+the owner's (D20 left it expressly unruled). This pass adopts none of them.** It folds into U-C5.
+
+---
+
+## 10. Validation and Release Conditions — plan compliance
+
+| # | Condition | State |
+|---|---|---|
+| 1 | typecheck, full suite, build green on the chain tip (reviewer and QA re-run, never inherit) | **MET** on QA's and the reviewer's own instruments: 550/37/exit 0 at the verdict identity; `tsc` 0; `next build` 0. **Not re-run by this stage, which does not re-execute tests** |
+| 2 | M1-a's reference list captured and reconciled by `grep -rc` | **MET** — captured in the implementation doc, counts computed inside grep |
+| 3 | **Every human-observable form executed and recorded before UAT's verdict** | **NOT MET** — twelve `PRE` rows outstanding. This is the condition the conditional approval is built around |
+| 4 | R-4: no live `valid` declaration, nothing triggered in the statbot workspace; the deployment record says so in one line | **OWED at the deployment record** — devops's line, not written |
+| 5 | R-5: the deployment record states, per flow, that the surface no longer writes floor-failing records, plus the D12 import line | **OWED — U-C5, the owner's decision. The blocking edge before devops writes the record** |
+| 6 | Post-deploy observables, owner-observed | **OWED** — carried as BC-12, BC-14 (Phase 1), BC-14 (Phase 2) |
+| 7 | Rollback: the serving ref moves back to `c85945f`; no schema, no data migration, nothing in `project-utils` | **UNDERSTOOD, with a devops caveat this pass carries rather than resolves**: the readiness assessment records that the rollback *as the plan states it* is a force-push, **which is nobody's to run on their own initiative**. Devops's finding, devops's to resolve before the release act |
+| 8 | The deployment record **and UAT's release decision** each state, in one line, which came first: M8-G's production observation, or the owner's D19 repair | **STATED BELOW — §11** |
+
+---
+
+## 11. Validation item 8 — the ordering line, re-derived at this pass
+
+Required in one line, and re-derived at write time rather than carried from rev 9:
+
+> **As of 2026-08-24, neither has occurred.** M8-G's production observation has not happened — BC-11b is
+> `NOT EXECUTED` and the deploy has not run (`master` = `c85945f`). No declaration by the owner that the
+> D19 repair of 5712/5842 has run appears in the plan, the QA document, the deployment readiness
+> assessment, or `agent-output/OWNER-QUEUE.md`, each read at write time.
+
+**Consequence, stated because it is a one-way door and it closes on its own**: M8-G's production-reachable
+observation exists **only while a member of the population is unrepaired**. Seeds 5855 and 5856 are that
+population now, and **they cannot be re-minted — the mint route closes at deploy**. If the D19 repair runs
+before BC-11b and BC-15 are observed, and no seeded environment is stood up, the planner's own fallback
+applies verbatim — *the suite is the evidence, and the reason recorded is "the D19 repair preceded the
+deploy", not "no member to observe"*. That fallback is **conjunctive** and is not available today: the
+repair has **not** run. **Until it does, the row is owed and `NOT EXECUTED` remains non-terminal.**
+
+**The ordering hazard rev 9 established stands and is carried, not re-derived live at the sitting**:
+on any given record, **BC-11b runs FIRST, then BC-15**; **after BC-15's Load, do NOT press Save** — Load
+changes the draft, not the stored record, and a Save would persist the cleared bit and **consume the seed
+permanently**. Appendix A is the one-shot script, current, and is marked as this chain's reading rather
+than an executed result.
+
+---
+
+## 12. UAT Status
+
+**Status**: **UAT Complete**
+
+**Rationale**: the gate ran. The Value Statement is delivered in mechanism across every clause, with the
+delivering milestone and the reviewing round named for each; drift is nil; no predecessor returned a
+failure verdict; and the residue is fully enumerated with an owner and a terminal state per row. **UAT
+Complete is a statement about this stage's work being finished, not a claim that the surface layer has
+been observed** — it has not, and §4 and §9 say so at length.
+
+## 13. Release Decision
+
+**Final Status**: **APPROVED FOR RELEASE, conditional on the human click-through of BC-1 … BC-10,
+BC-11b and BC-15. If any of these fail, return to the implementer before release.**
+
+Additionally conditional on **U-C1 … U-C5** reaching a terminal state before the release act.
+
+**This is a ledger, not an exception.** Every outstanding condition above names an owner and one of
+three terminal states — `EXECUTED` (with result and date), `WITHDRAWN` (the owner's ruling alone), or
+`SUPERSEDED` (with what replaced it). **`NOT EXECUTED` is not a terminal state**: it blocks an
+unconditional approval, and **no release is recorded complete while any `PRE` condition stands at it**.
+*"Satisfied incidentally"* is not a terminal state either — record it as `EXECUTED` with the evidence, or
+it was never a gate. **This pass withdraws nothing; any request to withdraw a condition goes to the
+owner through steering.**
+
+**The identity this decision is anchored at**: `website` `821330d` plus the three-path test manifest in
+the frontmatter, re-derived from the tree by this pass and not inherited from any predecessor.
+**Any change to a production-code blob expires the predecessor verdicts and this decision with them.**
+Committing QA's three test paths is the one move this decision survives, on the derivation in §2.
+
+**Why conditional and not `NOT APPROVED`**: nothing in the delivered behaviour is known to be wrong.
+Every gate that has run has passed, the one blocking QA defect was found, fixed, and independently
+fix-verified, and the outstanding work is a browser sitting plus four documentary closures. **Why not
+unconditional**: the plan's Validation item 3 places the walkthrough *before* this verdict, twelve `PRE`
+rows are outstanding, two predecessor documents do not cover the release tip, and the failure class 013
+exists to close is silent — invisible to every instrument that has run so far.
+
+**Recommended version**: **none, and none is to be synthesised.** `website/package.json` carries no
+`version` field and the repo has no CHANGELOG (plan, *Release Artifacts*); the release **is the serving
+ref moving from `c85945f`**, which devops names in the deployment record. Recommending a semver bump here
+would mint an artifact the plan expressly declines.
+
+**Key changes for the release record** (devops's to place; content, not wording):
+
+- Components V2 components and the V2 flag now survive every editing surface: Save As, the Message JSON
+  view, copy/Load, URL / webhook / bot-code import, and cross-tab change detection.
+- The silent content strip at both JSON surfaces is retired; content loss is now disposed of by five
+  explicit rows, and the ambiguous case **asks** and writes nothing until the user chooses.
+- A record whose V2 flag is set without V2 components now opens in V2 mode and can be repaired with one
+  unedited Load — *open JSON, Load, Save*, zero edits.
+- Discord ingress carries the V2 flag exactly as Discord sent it and names any component types it could
+  not carry.
+- Cross-tab *"Message Update Detected"* no longer fires on a no-op save.
+- **Consumers of chain 012's guidance**: the B3 class now has a lossless path where 012 recorded it had
+  none; 012's R19 repair guidance is superseded.
+
+---
+
+## 14. Next Actions
+
+*Point-in-time list — later stage documents are authoritative on these items' current state.*
+
+1. **The browser sitting — BC-1 … BC-10, BC-11b, BC-15.** One sitting, at a chain-tip environment (per
+   M8-G, production is not required — any environment seeded with the shape qualifies). **Appendix A is
+   the one-shot script and is current.** Order: **BC-11b before BC-15 on any record; no Save after
+   BC-15's Load.** The observed result is recorded **beside** the prediction, never over it. **If the
+   observation contradicts the gate, that is a finding and QA wants it back — not a stale fixture to
+   explain away.**
+2. **U-C1 — code-reviewer**: one δ re-verification covering `821330d` and the tip QA's three files
+   produce.
+3. **U-C2 — implementer**: record `821330d`/F-QA21 in the implementation document and bring its `Status`
+   to a completed state.
+4. **U-C3 — steering and the architect**: M6's two remaining shares.
+5. **U-C4 — the owner**: commit approval for QA's three test paths.
+6. **U-C5 — the owner**: R-5's widening, the blocking edge before devops writes the deployment record.
+   **U-1 folds into this decision and is not a separate ask.**
+7. **U-2 — QA**: renumber the duplicate `BC-13` / `BC-14` rows. No requirement changes; the exposure is
+   that the Phase-1 `BC-14` is the row a by-number reference drops.
+8. **U-3 — QA**: quote the `Verified-At` frontmatter value so its pointer survives YAML.
+9. **After the sitting**: the retrospective's precondition (UAT Complete) is satisfied now; devops
+   executes the release once the `PRE` ledger is terminal.
+
