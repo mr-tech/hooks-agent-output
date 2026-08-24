@@ -3,7 +3,7 @@ ID: 013
 Origin: 013
 UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
-Status: Approved
+Status: UAT Approved
 Status-Detail: >-
   Rev 12, planner pass 10. Rev 11 answered critique cycle 1 pass 4 (`ef6a5e0`, REQUEST REVISION scoped
   to M2): M-8 (M2-a's second bounded exception, row B) and M-9 (the rider's yield and priced
@@ -37,10 +37,14 @@ Status-Detail: >-
   Rev 20, steering registration pass: D28 registered — the mounted-render check is closed by the owner's
   own browser observation folded into BC-11b's sitting; no DOM test harness is added to this chain.
   Changes no criterion: the plan names no mounted-render check. Status unmoved.
+  Rev 21, uat gate pass: **Status MOVED `Approved` → `UAT Approved`** on UAT's verdict
+  (`uat/013-components-v2-editing-surfaces-uat.md` rev 10 — **UAT Complete**; release decision
+  **APPROVED FOR RELEASE, CONDITIONAL**). **Not a release clearance**: twelve `PRE` release
+  conditions are outstanding, so Validation item 3 is not met. Changes no criterion.
 Target-Release: website serving ref `master` moving from `c85945f`; release ordered by 012 D12/D20 (see Validation and Release Conditions)
 Lane: standard
 Architectural-Surface: none added — consolidation of an existing serialisation seam inside `website`; no new layer, contract or core path
-Rev: 20
+Rev: 21
 ---
 
 # Plan 013 — Components V2 support across the editing surfaces
@@ -71,6 +75,7 @@ Rev: 20
 | 2026-08-24 | 18 | **steering** (steering-hooks-013-2, registration pass) | **D26 registered** — owner ruling given in the steering session 2026-08-24, narrowing **D22**: stage sessions report to steering only when they need an action that **prevents them from continuing**, and everything else — scope changes, new considerations — is raised at the end of the run. **D22's four never-settled classes are unchanged in substance and retimed, not waived**, and no gate of any stage is waived. Registered by steering directly as a ruling needing only registration: it changes the reporting protocol between stages and steering, and changes no criterion, milestone or release condition. **No body text changed** — registration write set only (one register row, this line, the Rev increment and the Status-Detail sentence). Status unmoved: `Approved`. |
 | 2026-08-24 | 19 | **steering** (steering-hooks-013-2, registration pass) | **D27 registered** — owner ruling given in the steering session 2026-08-24, generalising **D22**: stages talk to each other directly where it makes sense, and do not spend tokens reporting to steering things that do not need steering input. **D22's four never-settled classes and D26's timing are unchanged**, since those are by construction things that DO need steering input; no gate of any stage is waived. Registered by steering directly as a ruling needing only registration: it changes the communication topology between stages and changes no criterion, milestone or release condition. Registered **chain-scoped**, as D22 is — whether the owner meant it fleet-wide is flagged in the row and is his to say. **No body text changed** — registration write set only (one register row, this line, the Rev increment and the Status-Detail sentence). Status unmoved: `Approved`. |
 | 2026-08-24 | 20 | **steering** (steering-hooks-013-2, registration pass) | **D28 registered** — owner ruling given by selection prompt in the steering session 2026-08-24, on the verification gap that **qa-hooks-013-2's Phase 2 pass and code review round 19 independently closed on**: the F-QA15 fix is verified as a pure function and as source text, and **nobody has observed React applying `isDisabled` to the rendered button**. Both stages state the same falsity signature. Steering established the tree facts before framing the choice: `website/vitest.config.ts` is `environment: 'node'` with `include: ['src/**/*.test.ts']`, and `package.json` carries no jsdom, happy-dom or testing-library — **so a harness would be an addition, not a configuration**. The owner folded the observation into BC-11b's browser sitting instead. **No body text changed** — registration write set only (one register row, this line, the Rev increment and the Status-Detail sentence). Status unmoved: `Approved`. |
+| 2026-08-24 | 21 | **uat** (uat-hooks-013-2, gate pass — Status field only, no body change) | **Status moved `Approved` → `UAT Approved` on UAT's verdict.** `agent-output/uat/013-components-v2-editing-surfaces-uat.md` rev 10 records **UAT Complete** and a release decision of **APPROVED FOR RELEASE, CONDITIONAL**. **This is not a release clearance.** Twelve `PRE` blocking-release-condition rows are outstanding (BC-1…BC-10, BC-11b, BC-15 — the browser sitting), so **Validation item 3 is NOT met**, and five documentary conditions (U-C1…U-C5) are owed, of which **U-C5 (R-5's widening) is the owner's and is devops's stated blocking edge**. Validation item 8's ordering line, re-derived at write time: **neither M8-G's production observation nor the owner's D19 repair has occurred.** No criterion, milestone or release condition is amended by this row; the plan body is untouched — **Status-field write set only** (this line, the `Rev` increment, the Status-Detail sentence, and the `Status` field itself, which is the one thing a registration pass does not touch). |
 
 ## Reading Order
 
