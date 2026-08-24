@@ -2,32 +2,32 @@
 ID: 013
 Origin: 013
 UUID: 22d69e06
-Reviewed-At: "Round 18 (current, binding): 4e9da96043a471d8eafc59c43f92d85d9a279a09 (chain/013-components-v2-editing-surfaces) — the round-17 MED-6 fix round: JsonModalBody Load gate becomes `!validatedDraft || !!contentFloorError` and the isValid state is removed; one file (JsonModalBody.tsx, 1/4). Verified at the start of the pass and again at the end; the tree did not move. Superseded, retained for the record: round 17 at ad9f331, round 16 at e61e602, round 15 at 12f4ce6, round 14 at 66e1974, round 13 at 7890fc9, round 12 at 299b842, round 11 at 54fed63, round 10 at 82af843, round 9 at ee3bc3e, round 8 at b3f8ea9, round 7 at 87cfbd8, round 6 at 816d7fd, round 5 at 0c8fad5, round 4 at 92ce026, round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
+Reviewed-At: "Round 19 (current, binding): 53beb37 (chain/013-components-v2-editing-surfaces) — the QA Phase 2 fix round: JsonModalBody Load gate floors the RESOLVED draft `validateContentRequirements(applyDisposition(validatedDraft))` (F-QA15), and discordResponseToMessage.ts exports its two SUPPORTED_*_TYPES sets (F-QA17, export-only); two files. HEAD and both reviewed blobs (JsonModalBody.tsx cfbec5b, discordResponseToMessage.ts 81f4562) verified byte-identical to the commit at pass start AND end; the tree did not move. Superseded, retained for the record: round 18 at 4e9da96, round 17 at ad9f331, round 16 at e61e602, round 15 at 12f4ce6, round 14 at 66e1974, round 13 at 7890fc9, round 12 at 299b842, round 11 at 54fed63, round 10 at 82af843, round 9 at ee3bc3e, round 8 at b3f8ea9, round 7 at 87cfbd8, round 6 at 816d7fd, round 5 at 0c8fad5, round 4 at 92ce026, round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
 Status: In Review
 Status-Detail: >-
-  Round 18, the round-17 MED-6 fix round, at 4e9da96 (one file, JsonModalBody.tsx, 1/4). APPROVED —
-  MED-6 CLOSED structurally; with HIGH-1 (round 17) that clears the two code-review findings on M4.
-  The Load gate changed from `!!error || !isValid || !!contentFloorError` to
-  `!validatedDraft || !!contentFloorError`, and the isValid state was removed entirely. Re-attacked from
-  first principles (guard fix): a full state table over every reachable Load-rendered state shows the new
-  gate reproduces the old decision on all three (fresh loadable draft → enabled; floor-failing draft →
-  disabled; parse error → disabled) and flips ONLY the dismissed-choice state (enabled → DISABLED), which
-  is exactly MED-6. The isValid removal is behaviour-preserving: isValid was false only in the catch
-  branch, where validatedDraft is also null, and it had no other reader (grep-confirmed zero); dropping
-  `!!error` is safe because error is truthy only in the catch branch, where validatedDraft is null. The
-  `!!contentFloorError` term is kept, so MEDIUM-4's incidental mitigation on this surface is not widened.
-  MED-6 is now unrepresentable — Load disables whenever there is no loadable resolved draft — at parity
-  with the approved sibling's disableSave. Established by execution (probe-cr19 updated to 17/17): CR19-B
-  carries BOTH gates — loadDisabled_old (round-17, dismissed → ENABLED, the defect) as the control and
-  loadDisabled_new (round-18, dismissed → DISABLED, = sibling) as the fix — so the flip is a measured
-  before/after. Verification: tsc 0; eslint 0 on JsonModalBody; baseline six MATCH clean 517/511/6
-  (implementer's 524 = +7 foreign QA file; no new test, a gate-expression change + dead-state removal);
-  CR3 122/122; next build exit 0. TDD: no new logic, no new pure function — accepted. Carried, unchanged:
-  MEDIUM-4 predicates still diverge in code (steering ruling holds: minimum-fix-only, owner-pending). M4
-  now PASSES CODE REVIEW; the one remaining M4 obligation is QA Phase 2's mounted-render check for the
-  row-E choice (this chain's carried Assumption Not Checked), which is a QA-stage item, not a code-review
-  blocker. Plan Status field left to steering (M6 remains unimplemented; plan-level status is not mine to
-  advance mid-plan). Handing off to the qa subagent for the mount check.
+  Round 19, the QA Phase 2 fix round, at 53beb37 (two files: JsonModalBody.tsx, discordResponseToMessage.ts).
+  APPROVED. F-QA15: the Load gate now floors the RESOLVED draft — `validateContentRequirements(applyDisposition(
+  validatedDraft))` — which is exactly what commitLoad loads (line 73), the structural fix recommended at
+  round 16 (CR18-D). Re-attacked from first principles (gate fix, established by execution, probe-cr21 30/30):
+  CLOSURE — all 8 row-D members now load (switchToClassic clears the flag + filters to type-1, so the floor's
+  hasV2&&hasContent branch cannot fire post-resolution); NO HOLE — empty, flag-only-empty (row C → switchToV2
+  keeps empty), and whitespace-only all stay blocked (my CR21-C, the negative the implementer's test lacks →
+  non-blocking INFO-3); NO CRASH — the unguarded applyDisposition at the gate is safe only because the parse
+  effect stores validatedDraft=null for row E, asserted invariant (CR21-E). Mutation evidence: OLD gate (raw
+  floor) blocks the 5712 shape, FIXED gate enables it — CR21-B flips on revert. Steering's four checks each
+  re-derived: (1) closure+no-hole CONFIRMED; (2) QA's own probe reproduced independently → 28/29, the sole
+  failure being Block A's now-obsolete pre-fix source anchor (QA owns re-anchoring, F-QA16), Blocks B/C/E green
+  = no real regression; (3) F-QA18 sweep COMPLETE — all 5 production V2-classification predicates derive from
+  V2_COMPONENT_TYPE_VALUES=[9,10,11,12,13,14,17] (incl. Thumbnail 11), no hand-rolled classifier bypasses it,
+  gateBeforePersist routes through hasV2Components; (4) F-QA17 export-only, both SUPPORTED_*_TYPES copies
+  execute to equal sets {1,9,10,12,13,14,17}/{1,9,10,12,13,14} at runtime (CR21-G). Verification: tsc 0
+  project-wide; eslint 0 errors on both changed files (1 warning at discordResponseToMessage.ts:159 is
+  PRE-EXISTING, byte-identical at parent, not on a changed line). No CRITICAL/HIGH/MEDIUM findings this round;
+  one non-blocking INFO-3 (fix test asserts closure but not no-hole) routed to the implementer. Carried,
+  unchanged: MEDIUM-4 predicates still diverge in code (owner-pending); F-QA15's floor gate remains its
+  incidental mitigation, preserved by keeping the !!contentFloorError term. Assumption Not Checked (DOM: the
+  computed isDisabled actually renders an enabled Load button for row D — no DOM harness at this tree) routed
+  to QA Phase 2's refresh pass. Plan Status left to steering. Handing off to the qa subagent for test execution.
 ---
 
 # Code Review: Plan 013 — Components V2 support across the editing surfaces (M1 only)
@@ -43,6 +43,7 @@ Status-Detail: >-
 
 | Date | Agent Handoff | Request | Summary |
 |---|---|---|---|
+| 2026-08-24 | steering-hooks-013-2 (return channel) | Review chain 013's QA Phase 2 fix round at `53beb37` (two files: `JsonModalBody.tsx`, `discordResponseToMessage.ts`), doc `5456527`; re-derive four checks | **Round 19. APPROVED.** F-QA15: the Load gate now floors the **RESOLVED** draft — `validateContentRequirements(applyDisposition(validatedDraft))` — exactly what `commitLoad` loads (`:73`), the structural fix recommended at round 16 (CR18-D). Re-attacked from first principles (gate fix, established by execution — `probe-cr21` **30/30** + mutation evidence): **CLOSURE** all 8 row-D members now load (`switchToClassic` clears the flag + filters to type-1, so the floor's `hasV2&&hasContent` can't fire post-resolution); **NO HOLE** empty / flag-only-empty (row C → `switchToV2` keeps empty) / whitespace-only stay blocked (my **CR21-C**, the negative the implementer's own test lacks → non-blocking **INFO-3**); **NO CRASH** the unguarded `applyDisposition` at the gate is safe **only** because the parse effect stores `validatedDraft=null` for row E (asserted invariant, CR21-E). Mutation: OLD gate (raw floor) blocks the 5712 shape, FIXED gate enables it — CR21-B flips on revert. **Steering's four checks each re-derived, not trusted**: (1) closure+no-hole CONFIRMED; (2) reproduced QA's own probe independently → **28/29**, sole failure = Block A's now-obsolete pre-fix source anchor (QA owns re-anchoring, F-QA16), Blocks B/C/E green = no real regression; (3) **F-QA18 sweep COMPLETE** — all 5 production V2-classification predicates (`index.ts:31,71,655`, `limits.tsx:117`, `backfillValid.ts:79`) derive from `V2_COMPONENT_TYPE_VALUES=[9,10,11,12,13,14,17]` (incl. Thumbnail 11); no hand-rolled classifier bypasses it (the only hardcoded `type===N` are structural tree-walks); `gateBeforePersist`→`resolveContentLoss`→`hasV2Components`; (4) **F-QA17 export-only**, both `SUPPORTED_*_TYPES` copies execute to equal sets `{1,9,10,12,13,14,17}`/`{1,9,10,12,13,14}` at runtime (CR21-G, my instrument, not QA's suite). Verification: **tsc 0** project-wide; **eslint 0 errors** on both changed files (1 warning at `discordResponseToMessage.ts:159` is **PRE-EXISTING**, byte-identical at parent, not on a changed line). No CRITICAL/HIGH/MEDIUM this round; one non-blocking **INFO-3** (fix test asserts closure, not no-hole) routed to the implementer. **Carried, unchanged**: MEDIUM-4 (owner-pending; F-QA15's floor gate remains its incidental mitigation, `!!contentFloorError` term preserved). **Assumption Not Checked** (DOM: the computed `isDisabled` actually renders an enabled Load button for row D — no DOM harness at this tree) routed to QA Phase 2's refresh pass. SHA verified byte-identical at pass start AND end. Plan Status left to steering. Handing off to the qa subagent for test execution. |
 | 2026-08-24 | implementer-hooks-013-3 (direct, per D22/D26) | Re-review the round-17 MED-6 fix at `4e9da96` (one file, `JsonModalBody.tsx` 1/4), doc `e5c982a` | **Round 18. APPROVED — MED-6 CLOSED; M4 passes code review.** Delta round on the Load guard, re-attacked from first principles. Gate changed to `!validatedDraft || !!contentFloorError`; `isValid` state removed. A full state table over every reachable Load-rendered state shows the new gate **reproduces** the old decision on all three (fresh loadable→enabled, floor-failing→disabled, parse-error→disabled) and flips **only** the dismissed-choice state (enabled→**DISABLED**) — exactly MED-6. The `isValid` removal is behaviour-preserving (`isValid` false only in the catch branch, where `validatedDraft` is also null; **no other reader**, grep-confirmed), and dropping `!!error` is safe (`error` truthy only in the catch branch, `validatedDraft` null there). `!!contentFloorError` **kept**, so MEDIUM-4's mitigation is not widened. MED-6 is now **unrepresentable** — Load disables whenever there is no loadable resolved draft — **at parity with the sibling's `disableSave`**. Executed: `probe-cr19` updated to **17/17**, CR19-B carrying BOTH gates (old=ENABLED control, new=DISABLED fix) so the flip is a measured before/after. tsc 0; eslint 0 on the file; baseline six **MATCH** clean **517/511/6** (implementer's 524 = +7 foreign QA file; **no new test** — gate-expression change + dead-state removal); CR3 122/122; `next build` 0. **Carried, unchanged**: MEDIUM-4 (steering: minimum-fix-only, owner-pending). **M4 passes code review** (HIGH-1 + MED-6 both closed); the one remaining M4 obligation is **QA Phase 2's mounted-render check** for the row-E choice (carried Assumption Not Checked) — a QA-stage item, not a code-review blocker. Plan Status left to steering (M6 unimplemented). Handing off to qa. |
 | 2026-08-24 | implementer-hooks-013-3 (direct, per D22/D26) | Re-review the round-16 HIGH-1 fix at `ad9f331` (one file, `JsonModalBody.tsx` 48/17), doc `324cfb9` | **Round 17. APPROVED_WITH_COMMENTS — HIGH-1 CLOSED.** Delta round on a guard fix, re-attacked from first principles. The Preferred/structural fix was taken: `resolveContentLoss` runs **inside the parsing `useEffect`**, and on `requiresChoice` sets `pendingChoice` + `setValidatedDraft(null)` + returns, so the render short-circuits `if (pendingChoice) return <choice/>` **before** the Load gate — `validatedDraft` is null for a row-E draft, so `contentFloorError` no longer hides the choice. JsonModalBody now mirrors the approved sibling `NewMessageJsonInput` exactly. Established by execution: `probe-cr19` **16/16** with a CONTROL modelling the removed `e61e602` wiring (choice unreachable there) — a measured difference, not a vacuous pass. `commitLoad` is doubly guarded (`!validatedDraft` AND `requiresChoice`); no row-E load path exists. Class re-swept and predicate broken: the class is closed on **both** import surfaces; `NewMessageModal:125` (pre-resolved), `DiscordMessageEditor:198` (D15 composer floor) and `limits.tsx:133` (`validateMessage` composition) confirmed non-members. **One NEW MEDIUM (MED-6), does NOT hold the tree**: the escape hatch (`dismissedChoice`/`reopenChoice`) was ported from the sibling but the sibling's submit gate was not — in the dismissed-choice state Load is **ENABLED** (`isDisabled` omits the `!validatedDraft` term the sibling carries as `!loadedMessage`); a click runs a confirmation dialog then no-ops. Integrity intact (`commitLoad` no-ops); the defect is an enabled control that misrepresents its effect. Routed as follow-up. Verification re-run: tsc 0; eslint 0 on JsonModalBody; baseline six **MATCH** clean **517/511/6** (implementer's 524 = +7 foreign QA file; **no new test added**, consistent with a UI-wiring fix); CR3 122/122; cr18 22/22 (predicate facts, now **superseded by cr19** for the wiring). **TDD note accepted**: no new pure function; the falsified M4-c exemption claim corrected in place. **Carried**: MEDIUM-4 still diverges in code (steering: minimum-fix-only); the floor gate still blocks flag-only-V2+content, so its incidental mitigation survives. Plan Status NOT advanced (M4 not complete until MED-6 dispositioned + QA mount check). |
 | 2026-08-24 | implementer-hooks-013-3 (direct, per D22/D26) | Review M4 at `e61e602` (eight files), doc `b365ef0` | **Round 16. REJECTED — one HIGH, in M4-c.** M4-a, M4-b and MEDIUM-5 are sound; the defect is the M4-c Load gate on `JsonModalBody`. M4-c added `\|\| !!contentFloorError` to the Load `isDisabled`, with `contentFloorError = validateContentRequirements(validatedDraft)` over the **un-resolved** draft. That predicate is a **superset** of `resolveContentLoss`'s `requiresChoice`, so **every** draft that would trigger the inline row-E choice (`commitSettled`→`pendingChoice`) is disabled at the Load button first — **the row-E choice flow is unreachable dead code.** Violates **D17** (JSON submission surfaces resolve row E via the five-row CHOICE; the `validateContentRequirements` error is D15/composer-only). `probe-cr18` **13/13** with a parent-gate control (row E was ENABLED before M4-c). The impl doc's **TDD exemption** for the M4-c wiring ("render-path only, no new logic") is **falsified** — the `isDisabled` composition changed branch reachability. Fix: gate on `!requiresChoice && contentFloorError` (Preferred: route row E to the choice in the effect, as the sibling `NewMessageJsonInput` already does) — this also **preserves** the round-14 MEDIUM-4 empty-embed mitigation M4-c incidentally provides, so do NOT simply remove the gate. **Verified good**: M4-b parity test non-vacuous & discriminating (`probe-cr18b` 4/4; SUPPORTED sets = schema discriminants, stray Thumbnail-11 removed); **MEDIUM-5 CLOSED** on both paste & ingress (`probe-cr18c`, section dropped+named); M4-a `saveAsPayload` wrap sound; tsc 0; eslint neutral on touched files (flagged issues pre-existing); baseline six **MATCH** at clean **517/511/6** (implementer's 524 was working-tree-inflated by the +7 foreign QA file — same conclusion); CR3 122/122; TDD reds reproduced (git-stash differential + my re-verify). **Carried**: MEDIUM-4 predicates still diverge in code (steering: minimum-fix-only; the M4-c gate is its incidental mitigation). Plan Status NOT advanced. |
@@ -5708,3 +5709,174 @@ Cancel and assert the Load button is **disabled** with the Resolve banner shown.
    mitigation and the MED-6 fix kept the `!!contentFloorError` term so it survives. Plan-level Status is
    yours to advance across M4/M6.
 4. **A planner pass, when that queue reopens** — MEDIUM-1's reach into M4's Risks, unchanged.
+
+# ROUND 19 — QA Phase 2 fix round (F-QA15/F-QA17/F-QA18), at `53beb37`
+
+**Verdict: APPROVED.** The QA Phase 2 fix round passes code review. F-QA15 is closed structurally
+(the Load gate now floors the RESOLVED draft — exactly what `commitLoad` loads); F-QA17 is an
+export-only change over two set-equal constants; F-QA18 is coverage-only and its sweep is complete.
+`Reviewed-At: 53beb37` — HEAD and both reviewed blobs (JsonModalBody.tsx `cfbec5b`,
+discordResponseToMessage.ts `81f4562`) verified byte-identical to the commit at pass start AND end;
+the tree did not move.
+
+## The change (two source files, three findings)
+
+- **F-QA15** — `JsonModalBody.tsx:159-160`. Was `contentFloorError = validatedDraft ?
+  validateContentRequirements(validatedDraft) : undefined`; now
+  `validateContentRequirements(applyDisposition(validatedDraft))`. The floor is computed over the
+  RESOLVED draft. `commitLoad` (`:73`) loads `applyDisposition(validatedDraft)` — the gate now
+  floors **exactly** the object Load produces. This is the structural fix recommended at round 16
+  (CR18-D), not a point patch.
+- **F-QA17** — `utils/discordResponseToMessage.ts:10,20`. `const` → `export const` on
+  `SUPPORTED_TOP_LEVEL_TYPES`/`SUPPORTED_CONTAINER_CHILD_TYPES`. Diff is export-only (verified
+  `53beb37~1..53beb37`); no membership change. The export lets F-QA17's parity test import the
+  ingress copy and pin it set-equal to the shapes.ts copy.
+- **F-QA18** — no code change (coverage-only), resolved on a sweep of V2-classification predicates.
+
+## Re-attack from first principles — the fix touches a gate, so it was re-derived, not read-and-agreed
+
+The Input Robustness order and the "re-attack any guard fix" rule apply. Established by execution
+(`probe-cr21-fqa15-closure`, 30 assertions green at `53beb37`; mutation evidence recorded):
+
+- **CLOSURE (CR21-B, 16 assertions).** All 8 row-D members QA enumerates classify row D
+  (`requiresChoice=false`, `mode=classic`) AND now LOAD (`contentFloorError===undefined`). `switchToClassic`
+  clears `IS_COMPONENTS_V2_FLAG` and filters components to type-1, so the resolved draft has
+  `hasFlagV2=false` and `hasStructuralV2=false`; the floor's `hasV2 && hasContent` branch cannot fire
+  post-resolution. The M2-a repair path for records 5712/5842/5855/5856 is open.
+- **NO HOLE (CR21-C, 3 assertions).** The implementer's own test asserts only that row D loads. This
+  probe adds the negative: empty draft, flag-only-empty (row C → `switchToV2` keeps it empty), and
+  whitespace-only content all stay BLOCKED through the fixed gate (floor Branch 2, `!hasContent &&
+  !hasComponents`). `applyDisposition` never manufactures content, so the fix opens nothing that was
+  previously refused.
+- **NO CRASH (CR21-E, 4 assertions).** The gate calls `applyDisposition(validatedDraft)` UNGUARDED,
+  and `applyDisposition` throws when `requiresChoice` (row E). It is safe **only** because the parse
+  effect stores `validatedDraft=null` for row E (`setValidatedDraft(null)` on `requiresChoice`, then
+  return) and the gate short-circuits on `!validatedDraft`. Every row-E member is asserted
+  `requiresChoice=true` AND `applyDisposition(rowE)` throws — documenting the load-bearing coupling.
+  Because `resolveContentLoss` is a pure function of the draft's own fields, the render-time
+  recomputation inside `applyDisposition(validatedDraft)` cannot diverge from the parse-time
+  classification that produced the stored non-null `validatedDraft`.
+- **CONTROLS (CR21-D).** Rows A/B/C legit drafts still LOAD — the fix is not a blanket permit.
+
+**Mutation evidence.** Modelled OLD gate (floor raw draft) vs FIXED gate (floor `applyDisposition`)
+on the 5712 shape: OLD → disabled=true (the defect), FIXED → disabled=false (the fix). Both asserted,
+both passed — CR21-B genuinely flips red on a revert.
+
+## Steering's four checks — each re-derived, not trusted
+
+1. **F-QA15 closure over all 8 row-D members + no hole on the resolved draft** — CONFIRMED
+   (CR21-B/C/E above). The gate floors the resolved draft = what `commitLoad` loads; there is no
+   double-strip because `validatedDraft` is the raw parsed object and `applyDisposition` is applied
+   once, identically, at both the gate and `commitLoad`.
+2. **Implementer's "28/29, sole failure = obsolete regression-anchor"** — CONFIRMED independently. Ran
+   QA's `probe-qa-p2-rowd-load-gate` at `53beb37`: 28 passed / 1 failed. The one failure is Block A's
+   source-text anchor asserting the PRE-fix gate expression `validateContentRequirements(validatedDraft)`
+   is present; the fix replaced it with `applyDisposition(validatedDraft)`. This is exactly the
+   README's predicted R3 kill. Blocks B/C/E all green — no real regression; the anchor is obsolete by
+   design, and QA owns re-anchoring it (F-QA16).
+3. **F-QA18 sweep completeness** — CONFIRMED. Every production V2-classification predicate —
+   `hasV2Components` (`index.ts:31`), the two same-set uses at `index.ts:71,655`, and the two inline
+   duplicates at `limits.tsx:117` and `backfillValid.ts:79` — derives from the single constant
+   `V2_COMPONENT_TYPE_VALUES = [9,10,11,12,13,14,17]` (`constants/messageLimits.ts:9`), which includes
+   type 11 (Thumbnail). Probed the predicate's blind spot (a hand-rolled classifier hardcoding type
+   numbers): the only hardcoded `type===N` comparisons are structural tree-walks (`sumDisplayableText`,
+   drop-labeling recursion), none a V2/classic classifier. `gateBeforePersist` → `resolveContentLoss`
+   → `hasV2Components`, so the persist gate treats a top-level Thumbnail as V2. Coverage-only resolution
+   is sound.
+4. **F-QA17 sets genuinely agree today** — CONFIRMED at runtime (CR21-G, my own instrument, not QA's
+   suite). Both copies execute to top-level `{1,9,10,12,13,14,17}` and container-child
+   `{1,9,10,12,13,14}`. Export-only diff; sets unchanged and equal.
+
+## Verification — nothing inherited
+
+- **tsc**: 0 errors project-wide at `53beb37` (`DATABASE_URL` on a dead port).
+- **eslint** on the two changed files: 0 errors, 1 warning — `discordResponseToMessage.ts:159`
+  max-len 136 — which is **pre-existing** (byte-identical at `53beb37~1`, not introduced by the
+  export-only change, and not on a changed line). Not a finding for this round; it predates F-QA17.
+- **probe-cr21-fqa15-closure**: 30/30 (closure + hole + crash-invariant + parity) plus CR21-G 2/2.
+- **QA's probe reproduced**: 28/29, the single failure being the obsolete Block-A anchor.
+
+## TDD
+
+No exemption claimed. F-QA15 ships with `013-fqa15-rowd-load-gate.test.ts`, F-QA17 with
+`013-fqa17-supported-types-parity.test.ts`, F-QA18 with `013-fqa18-thumbnail-persist-gate.test.ts`
+(the implementer's tests — QA owns executing them). The one coverage gap I note, not as a blocker:
+the implementer's F-QA15 test asserts only that row D LOADS; it lacks the negative (that
+empty/flag-only-empty still BLOCK). My CR21-C supplies that hole-check as review evidence. Handed to
+the implementer with the finding below.
+
+## Positive observations
+
+- The fix is the **structural** option from round 16 (CR18-D), not a point patch: making the gate
+  floor the same resolved object `commitLoad` persists eliminates the class "gate and load disagree
+  about the draft," rather than special-casing row D.
+- F-QA17 follows the M4-b pin-set-equal pattern already used against the schema discriminants —
+  consistent with the established approach to duplicated support sets.
+
+## Finding — INFO (routed, non-blocking)
+
+**INFO-3 — F-QA15's shipped test asserts closure but not the absence of a hole.**
+- **Location**: `website/src/utils/__tests__/013-fqa15-rowd-load-gate.test.ts` (the row-D-loads test).
+- **Class**: a fix test that asserts the newly-permitted set loads but not that the
+  previously-refused-and-still-invalid set stays refused cannot catch a future regression that
+  widens the gate into a blanket permit.
+- **Enumeration**: the draft classes that MUST stay blocked through this gate are exactly
+  {empty draft; flag-only-empty (row C resolving to empty); whitespace-only content, no flag/comps}.
+  Three members; enumerated and executed green in `probe-cr21-fqa15-closure` CR21-C. The predicate
+  does NOT cover row-E drafts (they never reach the floor — `validatedDraft` is null), which is
+  correct to exclude.
+- **Required Action**: **Minimum** — the implementer adds the three CR21-C negative cases to
+  `013-fqa15-rowd-load-gate.test.ts` (the instrument already exists at
+  `verification/013/probe-cr21-fqa15-closure/fqa15-closure.cr21.test.ts` CR21-C; port it).
+  **Preferred (structural)** — none; the gate itself is already structural. `no test` is NOT recorded:
+  the check belongs in the project's own suite (a vitest spec already reaches this code), so authoring
+  it is the implementer's, not mine.
+- **Magnitude**: not a correctness defect in shipped code — the gate is correct today (proven by
+  CR21-C). This is a test-coverage gap: an unmeasured future-regression exposure, not a present fault.
+
+## Assumption Not Checked
+
+**This review assumes React applies the computed `isDisabled` to the rendered Load button as
+written (`!validatedDraft || !!contentFloorError`), and does not test it.** The premise: the pure
+function `contentFloorError` computing `undefined` for a row-D draft actually renders an enabled
+button in a mounted `JsonModalBody`. Falsity signature: an operator opens record 5712's JSON, sees
+the flag-conflict notice, presses Load, and the button is still inert — row D remains non-loadable
+in the browser despite the gate computing `false`. This is the identical DOM residue QA's own probe
+states (no `@testing-library/react`/jsdom/happy-dom at this tree; vitest `environment: node`,
+`include: src/**/*.test.ts` excludes `.tsx`). **Owner: QA Phase 2's refresh pass** — a mounted or
+manual-in-browser check of the Load button's disabled state for a row-D draft, routed in Next Steps.
+
+## Captured instruments
+
+| path | what it is |
+|---|---|
+| `verification/013/probe-cr21-fqa15-closure/fqa15-closure.cr21.test.ts` | 30 assertions at `53beb37`: CR21-A shipped-gate anchors; **CR21-B closure** (8 row-D members load); **CR21-C hole check** (empty/flag-only-empty/whitespace stay blocked); CR21-D controls; **CR21-E crash-invariant** (row-E → null stored, applyDisposition throws); CR21-F single-source parity |
+| `…/probe-cr21-fqa15-closure/fqa17-parity.cr21.test.ts` | CR21-G, 2 assertions — the two `SUPPORTED_*_TYPES` copies execute to equal sets, independent of QA's suite |
+| `…/probe-cr21-fqa15-closure/vitest.config.ts` | aliases `~`→website/src; run from `website/` |
+| `…/probe-cr21-fqa15-closure/README.md` | claim-vs-QA's-claim boundary, fix description, block table, mutation evidence, DOM residue |
+
+QA's `probe-qa-p2-rowd-load-gate` was reproduced read-only from its intended location (temp copy
+into `src/utils/__tests__/`, removed after) — 28/29 as above; not modified.
+
+## Required Actions
+
+**None blocking.** F-QA15/F-QA17/F-QA18 all pass code review. One non-blocking INFO-3 (test-coverage
+gap) routed to the implementer.
+
+## Next Steps
+
+1. **QA, Phase 2 refresh pass** — (a) this round's Assumption Not Checked: the mounted/in-browser
+   Load-button disabled-state check for a row-D draft (record 5712), which also closes the carried
+   row-E mount assumption from rounds 16-18; (b) **F-QA16** — re-anchor
+   `probe-qa-p2-rowd-load-gate` Block A to the fixed gate (its one failure is the now-obsolete
+   pre-fix source anchor; do NOT restore the Block-E first line asserting "the flag never reaches the
+   textarea" — substantively false at the tip under D18); (c) execute the three shipped fix tests
+   (`013-fqa15/17/18-*.test.ts`) and the carried assumptions from earlier rounds. **Handing off to
+   the qa subagent for test execution.**
+2. **`implementer-hooks-013-3`** — non-blocking **INFO-3**: port the three CR21-C negative cases into
+   `013-fqa15-rowd-load-gate.test.ts` so the fix test asserts no-hole, not only closure. Nothing else
+   outstanding on F-QA15/17/18 from code review.
+3. **`steering-hooks-013-2`** — verdict APPROVED at `53beb37`. **MEDIUM-4** remains the one routed
+   pre-existing item (predicates diverge in `limits.tsx`/`index.ts`, owner-pending); F-QA15's floor
+   gate is still its incidental mitigation and the fix preserved the `!!contentFloorError` term, so it
+   survives. Any commit after `53beb37` re-opens full re-verification — tell me the new SHA.
