@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/agent-output/verification/013/probe-cr19-loadgate-fix
+
+
+ Test Files  1 passed (1)
+      Tests  16 passed (16)
+   Start at  11:56:58
+   Duration  584ms (transform 116ms, setup 0ms, import 451ms, tests 9ms, environment 0ms)
+
