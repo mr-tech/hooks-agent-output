@@ -1,0 +1,30 @@
+CR15 — useUnloadAlert reachability at 7890fc9
+
+--- 1. is there any Pages Router PAGE to emit Router.events? ---
+  src/pages entries      : 8
+  of which under api/    : 8
+  => src/pages holds ONLY API routes. No Pages Router page exists.
+
+--- 2. where is useUnloadAlert called from? ---
+7890fc90600fd53ffe810a5cf78d0a9a5698aafd:src/app/message/m/[id]/edit/page.tsx:100:  useUnloadAlert(hasChanged);
+  callers: 1   of which under src/app (App Router): 1
+  => every caller is an App Router page.
+
+--- 3. which event bus does it register on? ---
+  useUnloadAlert imports Router from 'next/router' (the PAGES Router singleton).
+  next/dist/client/router.js defines .events as a passthrough to the Pages
+  Router's static bus, and .on() does NOT call getRouter(), so registering
+  throws nothing and warns nothing even with no Pages Router mounted.
+  occurrences of 'events' in the App Router navigation module: 0
+  => the App Router API has NO events bus. Nothing emits beforeHistoryChange.
+
+--- CONCLUSION ---
+  The beforeHistoryChange handler registers SILENTLY and can never fire in
+  this application. The guard is dead for EVERY user, authenticated or not.
+  It is NOT gated on hasChanged in any observable way.
+
+  useBeforeUnload (the other half) is the browser's native beforeunload and
+  is framework-independent, so THAT half is genuinely gated on hasChanged.
+
+  => fixing hasChanged restores the unload warning and does NOT restore the
+     in-app navigation guard. Two defects, one fix each.

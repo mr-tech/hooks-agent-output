@@ -23,6 +23,7 @@ the question changes, rebuild rather than re-run.
 | `probe-cr12-load-confirmation/` | `299b842` | the M2-c Load confirmation: what the dialog body actually says on seven paths, plus CR12-E, a 2000-case randomised differential establishing the `joinWithAnd` extraction is behaviour-preserving | **EXPIRED IN PART at `7890fc9` — 6 of 13 fail, and their failure IS the round-12 fix working** (they assert the `299b842` strings). CR12-E and the three controls still pass. **Note the contrast with CR10**: CR12 *imports* `describeLoadDiff`, so it reads the tree and expires correctly; CR10 *transcribes* and so never expires. Superseded for the closure claim by CR13 |
 | `probe-cr13-overwrite-closure/` | `7890fc9` | HIGH-1's closure (imported subject, `299b842` control, exhaustive 18-cell sweep) **and** the confirmation class sweep re-run with a broadened predicate — five sites, not three, with each disposition | **Yes — current**. 16/16 |
 | `probe-cr14-env-precedence/` | **not tree-indexed** — measures loader behaviour, not the chain branch | Which `DATABASE_URL` a process actually gets: `#`-commented entries are never selected; two active entries are last-wins; explicit `process.env` survives `dotenv` default and `@next/env` `loadEnvConfig`, but **not** `dotenv({override:true})` | **Yes — current**. Exits non-zero if the M8-G safety constraint stops being sound. Re-run on any `next`/`dotenv` upgrade |
+| `probe-cr15-unload-guard/` | `7890fc9` (structural facts; the loader/router facts are dependency-indexed) | whether `useUnloadAlert`'s `beforeHistoryChange` guard is reachable **at all**: no Pages Router page exists, its only caller is an App Router page, and the App Router has no events bus | **Yes — current**, exit 0. **Corrects handoff `35274074`**: that half of the hook is dead for EVERY user and is not gated on `hasChanged`, so fixing the predicate does not restore it |
 | `baseline-expected-six/` | pinned at `92ce026` | the suite's failure **set**, by identity and reason, via a clean `git archive` extraction | **Yes — run every round** |
 
 ## The pairing — do not run one without the other
@@ -209,6 +210,21 @@ demonstrated to distinguish them rather than assumed to.
 
 These `node_modules` entries appear as **untracked** in `git status`. They belong to these probes,
 not to another session — do not mistake them for foreign work, and never commit them.
+
+## `grep -c` exits 1 on a count of ZERO (added at round 13's follow-up)
+
+`navev=$(grep -c 'events' "$f" || echo ERR)` overwrote a **correct** `0` with `ERR` and failed the
+run. `grep -c` prints the count and then exits **1** when that count is zero, so `||` fires on a
+true negative. Capture the count and the status separately and treat only `rc > 1` as an error:
+
+```bash
+n=$(grep -c PAT "$f"); rc=$?
+if [ "$rc" -gt 1 ]; then n=ERR; fi
+```
+
+Same family as the RTK hazard below — **the instrument was wrong, not the tree** — but a different
+cause, and it bites in plain bash with no filter involved. Caught in `probe-cr15` by the result
+contradicting the section's own printed count, which is the signal to trust.
 
 ## A new instance of the RTK counting hazard, caught at the second seam
 
