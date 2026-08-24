@@ -1,0 +1,27 @@
+CR14 — DATABASE_URL selection and precedence. All fixtures synthetic.
+
+--- A. does a #-commented entry ever get selected? ---
+  active first, #comment second    -> "A_LIVE"
+  #comment first, active second    -> "A_LIVE"
+  indented #comment                -> "A_LIVE"
+  #comment only, no active entry   -> undefined
+  CONCLUSION: a #-commented entry is NEVER selected, at any position or indent.
+
+--- B. two ACTIVE entries: which wins? ---
+  first vs second -> "SECOND"
+  CONCLUSION: last-wins. (Only relevant if BOTH are active; see A.)
+
+--- C. does an explicitly-set process env survive a file load? ---
+  dotenv.config() [default]              -> EXPLICIT WINS
+  dotenv.config({override:true})         -> FILE CLOBBERED EXPLICIT
+  @next/env loadEnvConfig (Next 16.1.6)  -> EXPLICIT WINS
+
+--- VERDICT ---
+  dotenv default          : safe
+  dotenv override:true    : UNSAFE — this form defeats the constraint
+  @next/env loadEnvConfig : safe
+
+  Setting DATABASE_URL explicitly in the attack process IS sound against the
+  loader Next actually uses, and against dotenv default. It is NOT sound against
+  any loader invoked with override semantics. The oracle must therefore still be
+  asserted on the persistence surface, never on the process env alone.

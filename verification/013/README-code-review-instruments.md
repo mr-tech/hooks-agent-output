@@ -22,6 +22,7 @@ the question changes, rebuild rather than re-run.
 | `probe-cr11-guard-closure/` | `54fed63` | whether the round-10 MEDIUM-2 class is closed: one transcription parameterised by a single boolean (`clearOnCatch`), so the two columns differ only by the deleted line. Plus four suppression attacks and an explicit non-claim | **Yes — current**. 17/17. **Cannot establish the line is gone from the tree** — that is the `82af843..54fed63` diff; neither closes the finding alone |
 | `probe-cr12-load-confirmation/` | `299b842` | the M2-c Load confirmation: what the dialog body actually says on seven paths, plus CR12-E, a 2000-case randomised differential establishing the `joinWithAnd` extraction is behaviour-preserving | **EXPIRED IN PART at `7890fc9` — 6 of 13 fail, and their failure IS the round-12 fix working** (they assert the `299b842` strings). CR12-E and the three controls still pass. **Note the contrast with CR10**: CR12 *imports* `describeLoadDiff`, so it reads the tree and expires correctly; CR10 *transcribes* and so never expires. Superseded for the closure claim by CR13 |
 | `probe-cr13-overwrite-closure/` | `7890fc9` | HIGH-1's closure (imported subject, `299b842` control, exhaustive 18-cell sweep) **and** the confirmation class sweep re-run with a broadened predicate — five sites, not three, with each disposition | **Yes — current**. 16/16 |
+| `probe-cr14-env-precedence/` | **not tree-indexed** — measures loader behaviour, not the chain branch | Which `DATABASE_URL` a process actually gets: `#`-commented entries are never selected; two active entries are last-wins; explicit `process.env` survives `dotenv` default and `@next/env` `loadEnvConfig`, but **not** `dotenv({override:true})` | **Yes — current**. Exits non-zero if the M8-G safety constraint stops being sound. Re-run on any `next`/`dotenv` upgrade |
 | `baseline-expected-six/` | pinned at `92ce026` | the suite's failure **set**, by identity and reason, via a clean `git archive` extraction | **Yes — run every round** |
 
 ## The pairing — do not run one without the other
@@ -116,6 +117,31 @@ stated in a verdict rather than worked around.
 
 **A sixth rig failure**: `pkill -f "next dev -p <port>"` also matches the shell command that contains
 that string, killing the caller. Match on something the caller does not contain, or capture the pid.
+
+### Sharpened at the M8-G handover, and one peer claim corrected (`probe-cr14`)
+
+**Set `DATABASE_URL` explicitly in the attack process's own environment. Never let that round
+inherit the ambient env or `website/.env.local`.** Measured against the loader Next 16.1.6 actually
+uses (`@next/env` `loadEnvConfig`) and against `dotenv` default: **an explicit setting wins.** So
+the constraint is mechanically sound.
+
+**It is necessary and NOT sufficient.** `dotenv.config({override:true})` clobbers an explicit
+setting, and any loader in the path could use that form. The oracle must therefore still be
+asserted **on the persistence surface** — no `message.upsert` before a choice — never on the
+process env, and never on a response status.
+
+**A correction to a peer claim, verified before being made.** `steering-hooks-013-2` reported two
+`DATABASE_URL` entries in `.env.local` and inferred a loader-precedence ambiguity, such that a run
+avoiding one URL could still reach a live database. **The count is right and the inference does not
+follow**: the second occurrence is `#`-commented, and no loader here ever selects a `#` line. There
+is exactly one selectable entry, so no precedence question arises.
+
+**The instruction survives for a stronger reason.** The one selectable entry *is* the remote hosted
+database — so inheriting the file reaches a live database with **certainty**, not by ambiguity.
+Keep the discipline; drop the reasoning that was offered for it.
+
+**The file was not read.** Key names were counted with values redacted; that is enough to settle
+both the count and the comment, and it is as far as this went.
 
 ## A standing caution about mutant-based reasoning, from round 8
 
