@@ -17,6 +17,7 @@ the question changes, rebuild rather than re-run.
 | `probe-cr6-derivation-round/` | `816d7fd` | the round-5 fix round: both closures verified over an **exhaustive 1120-draft corpus** with an independent oracle and a mutant control; purity under frozen inputs; the `chosenOption` residual; the key-granularity bound | **Current except CR6-C** (2 of 10), which is **instrument expiry, not defect**: the round-6 fix made the stale-label class unrepresentable, so the tests that expressed it cannot run. CR6-A/B/D/E still pass |
 | `probe-cr8-deletion-coverage/` | `b3f8ea9` | what a test deletion costs: zero mutant detection lost; a 14-mutant dominance matrix over the `applyDisposition` block; and the one incidental assertion holding `switchToClassic`'s embed preservation | **Yes — current** |
 | `probe-cr7-wiring-and-boundary/` | `87cfbd8` | the M2+M8 Load wiring and the persist boundary: the persist shape accepts six 5712 payloads (with a negative control); the top-level type complement; the surviving pre-parse silent strip; the re-attacked guard; **and the adversarial run — 42 raw-socket cases against `message.upsert`, 0 bypasses, plus the six that establish CRITICAL-1** | **Yes — current** |
+| `probe-cr9-paste-surface/` | `ee3bc3e` | the paste surface: whether the disposition is taken on the object the user pasted. It is not — `filterSupportedComponents` (a `z.preprocess`) deletes V2 components before `resolveContentLoss` sees them, flipping row E to a settled row. Includes the child-type sweep, the empty-container case, an old-vs-new differential, and two comparator controls | **Yes — current**. 24/24; every test asserts behaviour that IS present, so a pass documents the defect |
 | `baseline-expected-six/` | pinned at `92ce026` | the suite's failure **set**, by identity and reason, via a clean `git archive` extraction | **Yes — run every round** |
 
 ## The pairing — do not run one without the other
@@ -127,6 +128,27 @@ The same caution does not apply to the other use of mutants in this chain — sh
 **can** fail (a positive control). That direction is sound: one mutant that kills a test proves the
 test discriminates. It is the *negative* direction — "no mutant separates them, therefore one is
 redundant" — that is only as strong as the set.
+
+## `probe-cr8`'s rig lives in `/tmp` and does NOT survive (added at round 9)
+
+`m13-embed-preservation.py` and `m14-separates-rowA-from-rowD.py` both begin
+`os.chdir('/tmp/cr8-mut')` and read `mm.pristine.ts` from there. `probe-cr8-deletion-coverage/` has
+**no `node_modules` of its own** and is not repaired by the symlink check below — its rig is that
+extraction, and `/tmp` had been cleared by round 9. Without it the script dies immediately, which
+reads as a probe failure rather than a rig failure: the same shape as the symlink hazard.
+
+Rebuild before running either script:
+
+```bash
+rm -rf /tmp/cr8-mut && mkdir -p /tmp/cr8-mut
+cd /usr/local/bin/hooks/website && git archive <sha> | tar -x -C /tmp/cr8-mut
+cd /tmp/cr8-mut && ln -sfn /usr/local/bin/hooks/website/node_modules node_modules
+cp /usr/local/bin/hooks/website/next-env.d.ts . 2>/dev/null || true
+cp src/utils/messageMode.ts mm.pristine.ts
+```
+
+Rebuilt and run this way at `ee3bc3e`: **1 newly-failing test of 370**, unchanged from `b3f8ea9`, so
+round-8 INFO-1 is still open.
 
 ## Rig health — check this BEFORE running any probe (added at the second seam)
 
