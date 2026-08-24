@@ -1,0 +1,278 @@
+
+ RUN  v4.1.2 /tmp/cr4-red
+
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row A: bit clear, no components, no content — lands unchanged, Classic, no notice 4ms
+   → resolveContentLoss is not a function
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row A: bit clear, no components, WITH content — still A, Classic, no notice 0ms
+   → resolveContentLoss is not a function
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row B: bit clear, V2 components, no content — V2, bit set, warning 1ms
+   → resolveContentLoss is not a function
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row E: bit clear, V2 components AND content — the user chooses 1ms
+   → resolveContentLoss is not a function
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row C: bit set, no V2 components, no content (Action Rows only) — V2 silently, D13 0ms
+   → resolveContentLoss is not a function
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row C: bit set, no components at all, no content — V2 silently 0ms
+   → resolveContentLoss is not a function
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row D: bit set, no V2 components, WITH content — Classic, warning, bit cleared 0ms
+   → resolveContentLoss is not a function
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row C: bit set, V2 components, no content — V2 silently kept 0ms
+   → resolveContentLoss is not a function
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row E: bit set, V2 components AND content — the user chooses 0ms
+   → resolveContentLoss is not a function
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — conjunct isolation: the bit alone selects the row within each (components, content) combo > no components, no content: bit is the sole carrier between A and C 0ms
+   → resolveContentLoss is not a function
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — conjunct isolation: the bit alone selects the row within each (components, content) combo > no components, with content: bit is the sole carrier between A and D 0ms
+   → resolveContentLoss is not a function
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — conjunct isolation: the bit alone selects the row within each (components, content) combo > V2 components, no content: bit is the sole carrier between B and C 0ms
+   → resolveContentLoss is not a function
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — conjunct isolation: the bit alone selects the row within each (components, content) combo > V2 components, with content: row is E regardless of the bit (both directions) 0ms
+   → resolveContentLoss is not a function
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — both-directions obligation (QA) > M8-C is not re-admitted by an Action-Rows-only fixture (D13, "not a conflict") 1ms
+   → resolveContentLoss is not a function
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — both-directions obligation (QA) > M8-A and M8-C together isolate M8-E: cells exist where requiresChoice is false and something lands immediately 0ms
+   → resolveContentLoss is not a function
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — gateBeforePersist, the persist gate (D18, M8-G) > mustAsk is true for a row-E draft (5712-shaped: V2 components retained alongside classic content) 0ms
+   → gateBeforePersist is not a function
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — gateBeforePersist, the persist gate (D18, M8-G) > mustAsk is false for an ordinary classic draft (a canned-intro writer: never a member) 0ms
+   → gateBeforePersist is not a function
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — gateBeforePersist, the persist gate (D18, M8-G) > mustAsk is false for a pure V2 draft with no classic body 0ms
+   → gateBeforePersist is not a function
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — gateBeforePersist, the persist gate (D18, M8-G) > mustAsk is true regardless of whether the flag bit happens to be set (both row-E members) 0ms
+   → gateBeforePersist is not a function
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 19 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row A: bit clear, no components, no content — lands unchanged, Classic, no notice
+TypeError: resolveContentLoss is not a function
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:29:15
+     27| describe('EC-3 — resolveContentLoss, all eight cells (M8-F)', () => {
+     28|   it('row A: bit clear, no components, no content — lands unchanged, C…
+     29|     const d = resolveContentLoss(false, undefined, undefined, undefine…
+       |               ^
+     30|     expect(d.row).toBe('A');
+     31|     expect(d.mode).toBe('classic');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/19]⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row A: bit clear, no components, WITH content — still A, Classic, no notice
+TypeError: resolveContentLoss is not a function
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:38:15
+     36|
+     37|   it('row A: bit clear, no components, WITH content — still A, Classic…
+     38|     const d = resolveContentLoss(false, undefined, 'hi', undefined);
+       |               ^
+     39|     expect(d.row).toBe('A');
+     40|     expect(d.mode).toBe('classic');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/19]⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row B: bit clear, V2 components, no content — V2, bit set, warning
+TypeError: resolveContentLoss is not a function
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:46:15
+     44|
+     45|   it('row B: bit clear, V2 components, no content — V2, bit set, warni…
+     46|     const d = resolveContentLoss(false, V2_CONTAINER, undefined, undef…
+       |               ^
+     47|     expect(d.row).toBe('B');
+     48|     expect(d.mode).toBe('v2');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/19]⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row E: bit clear, V2 components AND content — the user chooses
+TypeError: resolveContentLoss is not a function
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:55:15
+     53|
+     54|   it('row E: bit clear, V2 components AND content — the user chooses',…
+     55|     const d = resolveContentLoss(false, V2_CONTAINER, 'hi', undefined);
+       |               ^
+     56|     expect(d.row).toBe('E');
+     57|     expect(d.requiresChoice).toBe(true);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/19]⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row C: bit set, no V2 components, no content (Action Rows only) — V2 silently, D13
+TypeError: resolveContentLoss is not a function
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:67:15
+     65|
+     66|   it('row C: bit set, no V2 components, no content (Action Rows only) …
+     67|     const d = resolveContentLoss(true, ACTION_ROW, undefined, undefine…
+       |               ^
+     68|     expect(d.row).toBe('C');
+     69|     expect(d.mode).toBe('v2');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/19]⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row C: bit set, no components at all, no content — V2 silently
+TypeError: resolveContentLoss is not a function
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:75:15
+     73|
+     74|   it('row C: bit set, no components at all, no content — V2 silently',…
+     75|     const d = resolveContentLoss(true, undefined, undefined, undefined…
+       |               ^
+     76|     expect(d.row).toBe('C');
+     77|     expect(d.mode).toBe('v2');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/19]⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row D: bit set, no V2 components, WITH content — Classic, warning, bit cleared
+TypeError: resolveContentLoss is not a function
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:82:15
+     80|
+     81|   it('row D: bit set, no V2 components, WITH content — Classic, warnin…
+     82|     const d = resolveContentLoss(true, undefined, 'hi', undefined);
+       |               ^
+     83|     expect(d.row).toBe('D');
+     84|     expect(d.mode).toBe('classic');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/19]⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row C: bit set, V2 components, no content — V2 silently kept
+TypeError: resolveContentLoss is not a function
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:91:15
+     89|
+     90|   it('row C: bit set, V2 components, no content — V2 silently kept', (…
+     91|     const d = resolveContentLoss(true, V2_CONTAINER, undefined, undefi…
+       |               ^
+     92|     expect(d.row).toBe('C');
+     93|     expect(d.mode).toBe('v2');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/19]⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row E: bit set, V2 components AND content — the user chooses
+TypeError: resolveContentLoss is not a function
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:98:15
+     96|
+     97|   it('row E: bit set, V2 components AND content — the user chooses', (…
+     98|     const d = resolveContentLoss(true, V2_CONTAINER, 'hi', undefined);
+       |               ^
+     99|     expect(d.row).toBe('E');
+    100|     expect(d.requiresChoice).toBe(true);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/19]⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — conjunct isolation: the bit alone selects the row within each (components, content) combo > no components, no content: bit is the sole carrier between A and C
+TypeError: resolveContentLoss is not a function
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:110:12
+    108| describe('EC-3 — conjunct isolation: the bit alone selects the row wit…
+    109|   it('no components, no content: bit is the sole carrier between A and…
+    110|     expect(resolveContentLoss(false, undefined, undefined, undefined).…
+       |            ^
+    111|     expect(resolveContentLoss(true, undefined, undefined, undefined).r…
+    112|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/19]⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — conjunct isolation: the bit alone selects the row within each (components, content) combo > no components, with content: bit is the sole carrier between A and D
+TypeError: resolveContentLoss is not a function
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:115:12
+    113|
+    114|   it('no components, with content: bit is the sole carrier between A a…
+    115|     expect(resolveContentLoss(false, undefined, 'hi', undefined).row).…
+       |            ^
+    116|     expect(resolveContentLoss(true, undefined, 'hi', undefined).row).t…
+    117|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/19]⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — conjunct isolation: the bit alone selects the row within each (components, content) combo > V2 components, no content: bit is the sole carrier between B and C
+TypeError: resolveContentLoss is not a function
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:120:12
+    118|
+    119|   it('V2 components, no content: bit is the sole carrier between B and…
+    120|     expect(resolveContentLoss(false, V2_CONTAINER, undefined, undefine…
+       |            ^
+    121|     expect(resolveContentLoss(true, V2_CONTAINER, undefined, undefined…
+    122|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/19]⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — conjunct isolation: the bit alone selects the row within each (components, content) combo > V2 components, with content: row is E regardless of the bit (both directions)
+TypeError: resolveContentLoss is not a function
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:125:12
+    123|
+    124|   it('V2 components, with content: row is E regardless of the bit (bot…
+    125|     expect(resolveContentLoss(false, V2_CONTAINER, 'hi', undefined).ro…
+       |            ^
+    126|     expect(resolveContentLoss(true, V2_CONTAINER, 'hi', undefined).row…
+    127|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/19]⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — both-directions obligation (QA) > M8-C is not re-admitted by an Action-Rows-only fixture (D13, "not a conflict")
+TypeError: resolveContentLoss is not a function
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:132:15
+    130| describe('EC-3 — both-directions obligation (QA)', () => {
+    131|   it('M8-C is not re-admitted by an Action-Rows-only fixture (D13, "no…
+    132|     const d = resolveContentLoss(true, ACTION_ROW, undefined, undefine…
+       |               ^
+    133|     expect(d.row).toBe('C');
+    134|     expect(d.noticeClass).toBe('none');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/19]⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — both-directions obligation (QA) > M8-A and M8-C together isolate M8-E: cells exist where requiresChoice is false and something lands immediately
+TypeError: resolveContentLoss is not a function
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:138:12
+    136|
+    137|   it('M8-A and M8-C together isolate M8-E: cells exist where requiresC…
+    138|     expect(resolveContentLoss(false, undefined, undefined, undefined).…
+       |            ^
+    139|     expect(resolveContentLoss(true, V2_CONTAINER, undefined, undefined…
+    140|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/19]⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — gateBeforePersist, the persist gate (D18, M8-G) > mustAsk is true for a row-E draft (5712-shaped: V2 components retained alongside classic content)
+TypeError: gateBeforePersist is not a function
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:145:18
+    143| describe('EC-3 — gateBeforePersist, the persist gate (D18, M8-G)', () …
+    144|   it('mustAsk is true for a row-E draft (5712-shaped: V2 components re…
+    145|     const gate = gateBeforePersist({ flags: 32768, components: V2_CONT…
+       |                  ^
+    146|     expect(gate.mustAsk).toBe(true);
+    147|     expect(gate.options).toEqual([
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/19]⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — gateBeforePersist, the persist gate (D18, M8-G) > mustAsk is false for an ordinary classic draft (a canned-intro writer: never a member)
+TypeError: gateBeforePersist is not a function
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:154:18
+    152|
+    153|   it('mustAsk is false for an ordinary classic draft (a canned-intro w…
+    154|     const gate = gateBeforePersist({ flags: 0, components: [], content…
+       |                  ^
+    155|     expect(gate.mustAsk).toBe(false);
+    156|     expect(gate.options).toBe(null);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/19]⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — gateBeforePersist, the persist gate (D18, M8-G) > mustAsk is false for a pure V2 draft with no classic body
+TypeError: gateBeforePersist is not a function
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:160:18
+    158|
+    159|   it('mustAsk is false for a pure V2 draft with no classic body', () =…
+    160|     const gate = gateBeforePersist({ flags: 32768, components: V2_CONT…
+       |                  ^
+    161|     expect(gate.mustAsk).toBe(false);
+    162|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/19]⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — gateBeforePersist, the persist gate (D18, M8-G) > mustAsk is true regardless of whether the flag bit happens to be set (both row-E members)
+TypeError: gateBeforePersist is not a function
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:165:12
+    163|
+    164|   it('mustAsk is true regardless of whether the flag bit happens to be…
+    165|     expect(gateBeforePersist({ flags: 0, components: V2_CONTAINER, con…
+       |            ^
+    166|     expect(gateBeforePersist({ flags: 32768, components: V2_CONTAINER,…
+    167|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/19]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  19 failed (19)
+   Start at  04:10:10
+   Duration  780ms (transform 96ms, setup 0ms, import 433ms, tests 11ms, environment 0ms)
+

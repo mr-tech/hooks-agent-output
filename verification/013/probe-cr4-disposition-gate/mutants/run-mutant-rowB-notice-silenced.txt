@@ -1,0 +1,12 @@
+       |                             ^
+     40|       expect(d.requiresChoice).toBe(t.choice);
+     41|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 18 passed (19)
+   Start at  04:04:06
+   Duration  752ms (transform 102ms, setup 0ms, import 447ms, tests 14ms, environment 0ms)
+

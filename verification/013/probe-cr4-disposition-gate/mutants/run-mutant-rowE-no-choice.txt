@@ -1,0 +1,12 @@
+       |                                             ^
+     89|   });
+     90|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  5 failed | 14 passed (19)
+   Start at  04:04:05
+   Duration  760ms (transform 103ms, setup 0ms, import 453ms, tests 18ms, environment 0ms)
+

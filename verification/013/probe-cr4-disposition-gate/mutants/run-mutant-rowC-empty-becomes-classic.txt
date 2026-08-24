@@ -1,0 +1,12 @@
+       |                      ^
+     39|       expect(d.noticeClass).toBe(t.notice);
+     40|       expect(d.requiresChoice).toBe(t.choice);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 17 passed (19)
+   Start at  04:04:28
+   Duration  753ms (transform 106ms, setup 0ms, import 444ms, tests 16ms, environment 0ms)
+

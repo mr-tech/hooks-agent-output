@@ -2,20 +2,21 @@
 ID: 013
 Origin: 013
 UUID: 22d69e06
-Reviewed-At: "Round 3 (current, binding): 18407d8d03411103cec06124c8c476362c0ad3f8 (chain/013-components-v2-editing-surfaces tip; predecessor 495463a, base c85945f) — milestone M7. Verified at the start of the pass and re-verified unmoved at the end; no tracked working-tree modifications at either check, and one untracked out-of-scope file. Superseded, retained for the record: round 2 at 495463a (M1 fix round), round 1 at a4eb00d (M1)."
+Reviewed-At: "Round 4 (current, binding): 92ce026a5bb0ddf0b2d1fe451d14bd74c77c746a (chain/013-components-v2-editing-surfaces tip) — M8 ENTRY CONDITION EC-3 only, not milestone M8. Verified at the start of the pass and re-verified unmoved at the end; one untracked out-of-scope file belonging to another session at both checks. Superseded, retained for the record: round 3 at 18407d8 (M7), round 2 at 495463a (M1 fix round), round 1 at a4eb00d (M1). NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
 Status: In Review
 Status-Detail: >-
-  Round 3, milestone M7 only, at 18407d8. APPROVED_WITH_COMMENTS. No HIGH. The predicate is correct
-  and its change was settled by execution over the whole (flag x structure) partition: 122/122 at
-  18407d8, 11 failures at 495463a, and three independent mutants killed. Two MEDIUM findings, both
-  about the record and the verification rather than the code: the class of records whose mode
-  changes is WIDER than the plan's R8 row and the implementation document describe (a mode is now
-  written for every record with no components key, not only flag-carrying ones), and two of the four
-  files the plan and QA name as M7's red-test domain transcribe the mode functions locally and
-  cannot go red from a messageMode.ts change at all — their transcriptions have now silently drifted
-  from the product. Two LOW, three INFO. R2's plan-assigned reviewer obligation discharged here for
-  the first time. Probe at verification/013/probe-cr3-mode-predicate/. M1 remains approved at
-  495463a; M2-M6 and M8 do not exist at this tree and are not reviewed.
+  Round 4, M8 ENTRY CONDITION EC-3 only, at 92ce026. APPROVED_WITH_COMMENTS. No HIGH. The two pure
+  functions EC-3 requires exist and are faithful to the plan's own eight-cell D17 table (10/10 by
+  execution), the TDD red reproduces exactly (15/4 TypeError), the spec dies on all three mutants,
+  and tsc, next build and the failure set all re-derive clean. Three MEDIUM findings, all about
+  contracts M8 is about to consume at seven call sites and all cheapest to fix before the wiring
+  exists: dropSet is constant [] across the whole domain and empty on row E, the one row where
+  content is certainly lost, which also makes M8-F's parity obligation vacuous; the decision is
+  centralised but its APPLICATION is not, so R9's divergence hazard survives one level down; and
+  the flagBit boolean parameter lets a caller pass !!flags, demonstrated to yield row D where the
+  correct mask yields row A. One LOW routed to QA (EC-3 names chosenOutcome; options was
+  substituted without declaration). Adversarial execution is scoped out this round because nothing
+  is wired, and that exemption EXPIRES when M8 wires the gate.
 ---
 
 # Code Review: Plan 013 — Components V2 support across the editing surfaces (M1 only)
@@ -37,6 +38,7 @@ Status-Detail: >-
 | 2026-08-24 | implementer-hooks-013 (direct, per D22) | Review M7 — mode follows the flag (D15) — at `18407d8`; implementation doc at `83164da` | Round 3. First pass on M7. Plan re-read at rev 16 per this role's Reading Order (Decisions Register -> Milestones -> Out of Scope -> Risks), including D15/D16/D7/D17/D24 and R8. Every enumeration in the implementation document re-derived. Third probe built (`probe-cr3-mode-predicate/`) to settle the classification change by execution over the whole 36-cell (flag x structure) partition rather than from the diff, with three mutants as controls and the implementer's own spec mutation-checked. **APPROVED_WITH_COMMENTS.** |
 | 2026-08-24 | steering-hooks-013 (correction, post-verdict) | "QA is not the next stage" — second round running | Correction pass, no verdict change and no re-review: `18407d8` unmoved. Verified the phasing against the plan myself rather than on the relay — Testing Strategy says QA Phase 1 runs **before** implementation, so Phase 2 follows implementation's completion, not a milestone; five milestones remain and the implementer's next step is M8's **EC-3** (QA's F-QA4, High). Round 3's Next Steps rewritten and round 2's left standing with a marked correction rather than silently edited. Round 1 had this right; rounds 2 and 3 drifted from it, which is my regression and is recorded as such. Steering has lodged the underlying definition gap for retrospective → pi (`~/.claude/agents/INBOX.md`, `ee1ae0e`). |
 | 2026-08-24 | steering-hooks-013 (D25 round) — self-initiated follow-up | Steering asked to be told if the per-round expected-six check is thinner than it is being treated as | Between-rounds note, **no verdict, no re-review**; `18407d8` remains the binding tree and `92ce026` is unsubmitted. Tested the check rather than introspecting about it. One of my own worries collapsed — the five `standardizeMessage` reds are per-test, not module-load, so nothing is masked and the check is stronger than I had framed it. The baseline itself was prose, so it is now an instrument: `verification/013/baseline-expected-six/` (`63b9a91`), four controls, end-to-end run re-deriving round 3's 443/437/6. Building it diagnosed **INFO-4** — suite figures are quoted from the shared working tree, which vitest contaminates with other sessions' untracked test files; measured twice at +7/+7/+0, cause named as `qa-hooks-013`'s 7-test probe. Residual blind spot stated, not closed, with CR3 named as the compensating instrument. No QA re-anchor requested. |
+| 2026-08-24 | implementer-hooks-013 (direct, per D22) | Review M8's **entry condition EC-3** — the pure resolver and persist gate — at `92ce026` | Round 4. First pass on EC-3; **not** milestone M8, which has not started. Fourth probe built (`probe-cr4-disposition-gate/`) to settle the disposition by execution over the whole eight-cell partition, with expectations transcribed from the **plan's** table rather than the code, four mutants as controls, and one attempted mutant recorded as NOT RUN because the shell left a literal `\n` and its green is not evidence. TDD red re-derived by reverting `utils/index.ts` to `18407d8` against the `92ce026` spec (15/4 TypeError, matching the table). Implementer's spec mutation-checked and genuine. `tsc`, `next build` and the failure set all re-derived on clean extractions; two instrument failures of my own (Turbopack rejecting an out-of-root `node_modules` symlink, and a gitignored `.env`) are recorded in `gates/README.md` rather than reported as build failures. Three MEDIUM, one LOW (routed to QA), two INFO. **APPROVED_WITH_COMMENTS.** |
 
 ## Scope Actually Assessed
 
@@ -1487,3 +1489,233 @@ mitigation adequate; the count check alone would not be.
 **No re-anchor requested.** With the baseline mechanical and CR3 covering the collision-prone
 surface, steering's call to prefer this over an out-of-phase QA spawn holds on the evidence, not
 merely on the absence of a counter-argument.
+
+---
+
+# Round 4 — M8's EC-3 (the pure resolver and persist gate) at `92ce026`
+
+**Reviewed-At**: `92ce026a5bb0ddf0b2d1fe451d14bd74c77c746a`, chain branch
+`chain/013-components-v2-editing-surfaces`. Verified at the start of the pass and again at the end.
+Round 3's verdict stays bound to `18407d8` and does **not** travel to this tree.
+
+**Verdict: APPROVED_WITH_COMMENTS.** EC-3's substance is delivered — the disposition and the gate
+exist as pure importable functions, so `requiresChoice` / `mustAsk` are assertable without the
+call-site observation no harness here can make. The implementation is faithful to the plan's own
+eight-cell table, the TDD is genuine under mutation, and all three gates reproduce independently.
+Every finding below is about a **contract that M8 is about to consume at seven call sites**, and
+each is cheapest to fix now, before the wiring exists.
+
+## Scope, and what I checked rather than accepted
+
+`+78 −0` in `src/utils/index.ts`, `+168 −0` in a new spec. Nothing else. Purely additive: no
+existing export touched.
+
+| claim | how re-derived | result |
+|---|---|---|
+| eight-cell fidelity to D17 | `probe-cr4-disposition-gate/`, 10 cells driven directly, expectations transcribed from the **plan's** table | **10/10 match** |
+| TDD red, "right reason" | reverted `utils/index.ts` to `18407d8`, kept the spec at `92ce026` | **19 failed**, `15 × resolveContentLoss is not a function`, `4 × gateBeforePersist` — exactly the table's 15/4 |
+| the spec is not a check that cannot fail | three mutants against the implementer's own spec | **dies on all three** (4, 1, 2 failures) |
+| `tsc --noEmit` 0 | clean `git archive` extraction | **0** |
+| `next build` exit 0, 0 warnings | clean extraction | **exit 0, 0 warnings** |
+| suite "no new failures" | `baseline-expected-six/check-expected-six.sh` at `18407d8` vs the `92ce026` pin | **MATCH** — the set is unchanged between the two trees |
+| nothing is wired | `git grep -c` on all five new symbols | definitions + spec only, **0 other consumers** |
+
+**On the suite figure, stated non-circularly**: the baseline was pinned *at* `92ce026`, so
+"MATCH at `92ce026`" would be comparing a tree to itself and proves nothing. The load-bearing run is
+the one at **`18407d8`**, which matches the `92ce026` pin — that is what establishes this commit
+introduced no new failure. Clean figures are **462/456/6** here and **443/437/6** there; see INFO-4.
+
+**Good patterns, said plainly.** The row table is transcribed into the spec's header as a comment
+addressed to a *tool*-free reader — but the expectations themselves are literals off that table, so
+EC-5 independence genuinely holds and the mutation results prove it. `gateBeforePersist` does its
+own bit-masking rather than trusting a caller, which is precisely the right instinct — and is the
+reason MEDIUM-3 below is about `resolveContentLoss` and not about the gate.
+
+## MEDIUM-1 — `dropSet` is constant across the entire input domain, and empty on the one row where content is certainly lost
+
+**Location**: `src/utils/index.ts`, `resolveContentLoss` (all four return sites), and the
+`ContentLossDisposition` interface.
+
+**Class**: a returned field that carries no information — identical for every input — while its name
+and type promise a per-row answer, and whose value is actively misleading on row E.
+
+**Enumeration**: `probe-cr4-disposition-gate`, section CR4-B, run over all ten cells. Captured
+output: `dropSet` is `[]` in **10 of 10**, row E included. The predicate is exhaustive over the
+`(bit × components × content)` partition the plan defines; it does **not** cover embeds shapes beyond
+the three in CR4-E, and it cannot see a future caller that sets `dropSet` itself.
+
+**Why it matters, concretely.** Row E is the one disposition where the user is *told what will be
+dropped* — that is the whole of D17's governing principle. A caller writing the obvious
+`if (d.dropSet.length) showDrops(d.dropSet)` renders **nothing** on exactly that row. The real drops
+live only in `options[].dropSet`, which a reader of the top-level field has no reason to consult.
+Worse for the next gate: **M8-F's parity obligation is stated over "row, drop set, notice class"**,
+so a field that never varies satisfies "same drop set at both surfaces" vacuously — the parity check
+QA is being asked to build cannot fail on this component.
+
+**Required action — Preferred (structural)**: make the trap unrepresentable by discriminating the
+type on the choice, so no value ever carries both a meaningless `dropSet` and the real drops:
+a `requiresChoice: true` disposition has `options` and **no** `dropSet` field; a
+`requiresChoice: false` disposition has `dropSet` and **no** `options`. TypeScript then rejects
+`d.dropSet` on a row-E value at compile time rather than returning `[]`.
+**Minimum**: leave the shape and have QA's M8-F parity instrument assert over `options[].dropSet`
+rather than `dropSet` — this keeps the trap but stops the parity check being vacuous.
+
+**Magnitude**: unmeasured beyond the enumeration — the consequence is a hypothesis about M8's
+callers, since no caller exists yet. What *is* measured is that the field is constant over the
+domain and empty on row E.
+
+## MEDIUM-2 — the decision is centralised; applying the decision is not
+
+**Location**: `src/utils/index.ts` — `resolveContentLoss` / `gateBeforePersist` as the complete
+delivered surface.
+
+**Class**: an entry condition that centralises a *decision* while leaving its *application* to each call
+site, so the divergence hazard the condition exists to close survives one level down.
+
+**Enumeration**: `git grep -c` at `92ce026` for every exported symbol of this change —
+`resolveContentLoss` (2 in `index.ts`, 22 in the spec), `gateBeforePersist` (1 / 7),
+`ContentLossDisposition` (2), `ContentLossOption` (4), `ROW_E_OPTIONS` (2). **No function anywhere
+consumes a `ContentLossDisposition` and returns a draft.** The predicate matches exported names in
+`src/`; it does not match a helper that might be added inside a component, nor an application written
+inline without naming the type.
+
+**Why it matters.** The resolver reports `mode: 'classic'` for row D and
+`options: [{mode:'v2', dropSet:['content','embeds']}]` for row E — but *nothing ships that turns
+either into a draft*. Row D requires clearing the V2 bit; row E requires deleting the chosen keys.
+So each of M8's consumers — the two JSON surfaces plus the five IS-1 writers, **seven sites** — must
+implement flag-clearing and key-dropping itself. That is R9's failure mode ("one object, two
+dispositions") restated for the application half, and it is exactly what EC-3 was raised to prevent:
+QA's own falsity signature for skipping EC-3 is *"the decision lives in `JsonModalBody`,
+`NewMessageJsonInput`, `SaveAsMenu` and `useApiMethods` separately"*. The decision no longer does.
+The application still would.
+
+**Required action — Preferred (structural)**: add the application alongside the decision — a pure
+`applyDisposition(draft, disposition, chosenOption?) → draft` in the same module, so the surfaces
+*render and apply* what the resolver reports and no call site writes flag or key manipulation of its
+own. M7 already ships `applyModeSwitch`/`switchToClassic`, which clears the bit correctly; the
+application function should delegate to it rather than restate it.
+**Minimum**: M8 wires exactly one shared helper for the application even if it lives in a component
+module, and the implementation doc names the single site.
+
+**This is the finding I would most like acted on before M8 begins**, because its cost multiplies by
+seven once the wiring is written.
+
+## MEDIUM-3 — `flagBit: boolean` invites the caller to compute the wrong bit
+
+**Location**: `src/utils/index.ts`, `resolveContentLoss` first parameter.
+
+**Class**: a contract that accepts a *derived* value where the raw value is available, so every call
+site re-derives it and any one of them can derive it wrongly — with no type error.
+
+**Enumeration + demonstration**: `probe-cr4-disposition-gate`, CR4-C, executed:
+with `flags = 4` (`SUPPRESS_EMBEDS`, D7 residue, **not** the V2 bit) over classic content,
+`resolveContentLoss(!!(flags & IS_COMPONENTS_V2_FLAG), …)` returns row **A** (nothing shown) while
+`resolveContentLoss(!!flags, …)` returns row **D** — a warning, and the message re-moded. Both calls
+type-check. The same section shows `gateBeforePersist({flags: 4, …})` is **not** susceptible,
+because it takes the number and masks internally.
+
+**Disposition order applied**: the contract says `boolean`, and every boolean is a valid boolean — so
+this is not a missing runtime guard, it is the contract leaving the question open (step 2). The fix
+belongs in the signature, not behind it.
+
+**Required action — Preferred (structural)**: take `flags: number | undefined` and mask inside,
+exactly as `gateBeforePersist` already does; the misuse then cannot be written. The boolean parameter
+buys nothing — no caller has a bit without having the number.
+**Minimum**: keep the boolean but have all seven M8 call sites obtain it only via
+`gateBeforePersist`, never by calling `resolveContentLoss` directly.
+
+## LOW-1 — EC-3 names `chosenOutcome`; the delivered object has `options`, and the substitution is undeclared
+
+**Location**: `ContentLossDisposition` versus QA's EC-3 probe text.
+
+EC-3 specifies the resolver returns
+`{ row, mode, dropSet, noticeClass, requiresChoice, chosenOutcome }`. The delivered interface has
+`options` in place of `chosenOutcome`. **I think the substitution is right**: the resolver is pure
+over `(flagBit, components, content, embeds)` and cannot know a choice that has not been made, so
+`chosenOutcome` is not computable from its inputs — `options` is the computable form of the same
+idea. But the implementation doc describes the shape without noting that a **named field of the
+entry condition is absent**, so a reader checking EC-3 off against the delivery finds a field
+missing and no disposition for it.
+
+**Class**: a named element of an entry condition satisfied by substitution without the substitution
+being declared. **Enumeration**: the six field names in EC-3's probe text against the interface —
+five present, one substituted, 1 of 6. **Required action**: not a code change — **QA owns EC-3** and
+should record whether `options` discharges `chosenOutcome`. Routed to `qa-hooks-013`, not to the
+implementer.
+
+## INFO-1 — two spec names promise a mutation the function does not perform
+
+`013-m8-ec3-resolver-gate.test.ts` names tests *"row D: … Classic, warning, **bit cleared**"* and
+*"row B: … V2, **bit set**, warning"*. Nothing in either test asserts a bit changing, and nothing
+could: `resolveContentLoss` is pure and returns a report, never a draft. The names describe a
+**caller's** obligation. A reader auditing "is the bit cleared on row D?" finds a green test named
+for it that never checks it — coverage claimed by a name rather than an assertion. This is the
+same defect class as MEDIUM-2 seen from the test side. **Required action**: rename to what is
+asserted (*"reports Classic with the conflict notice"*), and let the real obligation be asserted
+against the application function MEDIUM-2 asks for.
+
+## INFO-4 (carried) — suite figures are quoted from the shared working tree
+
+Filed in the between-rounds note above and repeated here because it recurs in this commit's message
+(`469/463/6`; clean is `462/456/6`). Cause: `013-qa-phase1-seed-route-probe.test.ts`, 7 tests,
+untracked, another session's. **Required action — Preferred (structural)**: quote suite figures from
+`baseline-expected-six/check-expected-six.sh <sha>`, which extracts clean and cannot see the working
+tree. **Minimum**: name the tree the figures came from. Steering has corrected the attribution
+upstream — this is a shared-tree property, **not** an implementer accuracy problem, and should not be
+recorded as one.
+
+## TDD Compliance
+
+Verified, not accepted. The table's two rows claim red at 15/4 with `TypeError`; reverting
+`utils/index.ts` to `18407d8` against the `92ce026` spec reproduces **15 × `resolveContentLoss is not
+a function`** and **4 × `gateBeforePersist is not a function`**, 19 failed. No exemption is claimed
+and none is needed. Expectations independence (EC-5) holds and is demonstrated by mutation rather
+than asserted: the spec dies on all three mutants.
+
+## Adversarial execution — why it is scoped out this round, and when it becomes mandatory
+
+`gateBeforePersist` is a guard on an irreversible action (a persisted overwrite), which normally
+triggers the standing requirement to stand the service up and attack it. It does **not** this round,
+for a reason established by enumeration rather than assumed: `git grep -c` shows **no call site
+consumes either function**, so no running instance can reach them and any "attack" would only be my
+own harness calling a pure function — which is what the CR4 probe already does, exhaustively.
+
+**This exemption expires the moment M8 wires the gate.** At that point the gate is reachable, and the
+review of that commit must drive the five IS-1 writers against a running instance and assert the
+negative on the persistence surface itself — no `message.upsert` before a choice — not on the
+response. Recorded here so the next round inherits the obligation rather than the exemption.
+
+## Assumption Not Checked
+
+**This review assumes that an embed reaching `resolveContentLoss` through the real import pipeline
+has the same emptiness verdict as the hand-built embeds CR4-E drove, and does not test it.** CR4-E
+called `hasClassicContent` through the resolver with literal embed objects (`[{}]`, `[{title:'x'}]`);
+it never fed an embed that had passed through `filterSupportedComponents` and
+`discordMessageImportShape.parse`, which may add or strip keys (`_key` is already special-cased in
+`hasClassicContent`, which is evidence that pipeline-shaped embeds differ from hand-built ones).
+**Falsity signature**: a pasted object whose embed is meaningful before parsing and empty after (or
+the reverse) lands on a different row at the wired JSON surface than the resolver reports in
+isolation — observable as row B where the probe says row E, i.e. a silent strip of a real body,
+which is the defect 013 exists to fix. **Owner**: the implementer, at M8-A/M8-B, where the resolver
+first sees post-parse data — the disposition must be taken on the object that will actually land;
+QA's M8-F parity instrument is the backstop that would catch it if the wiring takes it on the
+pre-parse object instead. Named again in Next Steps.
+
+## Next Steps
+
+1. **`implementer-hooks-013`** — MEDIUM-2 first and before any M8 wiring: an application function, so
+   flag-clearing and key-dropping are written once rather than seven times. Then MEDIUM-1
+   (discriminated union) and MEDIUM-3 (`flags: number`), both of which are signature changes that get
+   more expensive with every call site added. INFO-1 is a rename. **Carry the Assumption Not Checked
+   into M8-A/M8-B**: take the disposition on the post-parse object, and say in the implementation doc
+   which object it was taken on.
+2. **`qa-hooks-013`** — LOW-1: record whether `options` discharges EC-3's named `chosenOutcome`. And
+   note MEDIUM-1's consequence for **M8-F**: a parity assertion over `dropSet` cannot fail, because
+   that field is constant across the domain; assert over `options[].dropSet` instead.
+3. **`steering-hooks-013`** — nothing new is routed. INFO-4's attribution correction is already in
+   hand.
+
+**QA is not the next stage** — Phase 2 follows implementation's completion, and M2, M3, M4, M6 and
+M8 itself remain. EC-3 is a precondition; M8 has not started.
+
+**M1 and M7 are unaffected.** Their approvals at `495463a` and `18407d8` stand on their own trees.

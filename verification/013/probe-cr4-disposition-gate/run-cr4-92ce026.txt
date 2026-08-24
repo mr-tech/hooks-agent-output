@@ -1,0 +1,37 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/agent-output/verification/013/probe-cr4-disposition-gate
+
+stdout | disposition-enumeration.test.ts > CR4-B — dropSet across the whole domain > top-level dropSet is EMPTY in every one of the ten cells, row E included
+CR4-B dropSet by cell: [{"id":"c1","row":"A","drop":"[]"},{"id":"c2","row":"A","drop":"[]"},{"id":"c3","row":"B","drop":"[]"},{"id":"c4","row":"E","drop":"[]"},{"id":"c5","row":"C","drop":"[]"},{"id":"c6","row":"D","drop":"[]"},{"id":"c7","row":"C","drop":"[]"},{"id":"c8","row":"E","drop":"[]"},{"id":"c5b","row":"C","drop":"[]"},{"id":"c1b","row":"A","drop":"[]"}]
+
+stdout | disposition-enumeration.test.ts > CR4-C — the flagBit parameter invites a wrong bit at the call site > a caller passing !!flags instead of !!(flags & BIT) misroutes a non-V2 flag
+CR4-C correct row A misuse row D
+
+stdout | disposition-enumeration.test.ts > CR4-D — gateBeforePersist over the domain > mustAsk is true on exactly the two row-E cells and false on the other eight
+CR4-D gate: [{"id":"c1","expectedRow":"A","mustAsk":false},{"id":"c2","expectedRow":"A","mustAsk":false},{"id":"c3","expectedRow":"B","mustAsk":false},{"id":"c4","expectedRow":"E","mustAsk":true},{"id":"c5","expectedRow":"C","mustAsk":false},{"id":"c6","expectedRow":"D","mustAsk":false},{"id":"c7","expectedRow":"C","mustAsk":false},{"id":"c8","expectedRow":"E","mustAsk":true},{"id":"c5b","expectedRow":"C","mustAsk":false},{"id":"c1b","expectedRow":"A","mustAsk":false}]
+
+ ✓ disposition-enumeration.test.ts > CR4-A — the eight cells against the plan table > c1: bit=false comps=none content=false -> A 2ms
+ ✓ disposition-enumeration.test.ts > CR4-A — the eight cells against the plan table > c2: bit=false comps=none content=true -> A 0ms
+ ✓ disposition-enumeration.test.ts > CR4-A — the eight cells against the plan table > c3: bit=false comps=V2 content=false -> B 0ms
+ ✓ disposition-enumeration.test.ts > CR4-A — the eight cells against the plan table > c4: bit=false comps=V2 content=true -> E 0ms
+ ✓ disposition-enumeration.test.ts > CR4-A — the eight cells against the plan table > c5: bit=true comps=none content=false -> C 0ms
+ ✓ disposition-enumeration.test.ts > CR4-A — the eight cells against the plan table > c6: bit=true comps=none content=true -> D 0ms
+ ✓ disposition-enumeration.test.ts > CR4-A — the eight cells against the plan table > c7: bit=true comps=V2 content=false -> C 0ms
+ ✓ disposition-enumeration.test.ts > CR4-A — the eight cells against the plan table > c8: bit=true comps=V2 content=true -> E 0ms
+ ✓ disposition-enumeration.test.ts > CR4-A — the eight cells against the plan table > c5b: bit=true comps=AR content=false -> C 0ms
+ ✓ disposition-enumeration.test.ts > CR4-A — the eight cells against the plan table > c1b: bit=false comps=AR content=false -> A 0ms
+ ✓ disposition-enumeration.test.ts > CR4-B — dropSet across the whole domain > top-level dropSet is EMPTY in every one of the ten cells, row E included 1ms
+ ✓ disposition-enumeration.test.ts > CR4-B — dropSet across the whole domain > row E reports dropSet [] on the ONE row where content is definitely lost 0ms
+ ✓ disposition-enumeration.test.ts > CR4-C — the flagBit parameter invites a wrong bit at the call site > a caller passing !!flags instead of !!(flags & BIT) misroutes a non-V2 flag 0ms
+ ✓ disposition-enumeration.test.ts > CR4-C — the flagBit parameter invites a wrong bit at the call site > gateBeforePersist masks correctly and is NOT susceptible — the number contract is safe 0ms
+ ✓ disposition-enumeration.test.ts > CR4-D — gateBeforePersist over the domain > mustAsk is true on exactly the two row-E cells and false on the other eight 0ms
+ ✓ disposition-enumeration.test.ts > CR4-D — gateBeforePersist over the domain > an empty draft does not ask 0ms
+ ✓ disposition-enumeration.test.ts > CR4-E — content emptiness boundary (D13 reading (i)) > whitespace-only content is NOT content, so V2 components stay row B not row E 0ms
+ ✓ disposition-enumeration.test.ts > CR4-E — content emptiness boundary (D13 reading (i)) > an embed with a meaningful field IS content, so it reaches row E 0ms
+ ✓ disposition-enumeration.test.ts > CR4-E — content emptiness boundary (D13 reading (i)) > an empty embed object is NOT content 0ms
+
+ Test Files  1 passed (1)
+      Tests  19 passed (19)
+   Start at  04:03:52
+   Duration  574ms (transform 104ms, setup 0ms, import 438ms, tests 8ms, environment 0ms)
+

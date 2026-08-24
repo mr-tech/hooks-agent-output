@@ -1,0 +1,44 @@
+▲ Next.js 16.1.6 (Turbopack)
+
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+  Creating an optimized production build ...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+✓ Compiled successfully in 7.9s
+  Running TypeScript ...
+  Collecting page data using 11 workers ...
+  Generating static pages using 11 workers (0/9) ...
+  Generating static pages using 11 workers (2/9) 
+  Generating static pages using 11 workers (4/9) 
+  Generating static pages using 11 workers (6/9) 
+✓ Generating static pages using 11 workers (9/9) in 598.0ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /legal/privacy
+├ ○ /legal/terms
+├ ƒ /message
+├ ƒ /message/f/[id]
+├ ƒ /message/m/[id]/edit
+├ ƒ /message/m/[id]/send
+├ ƒ /message/m/new
+└ ○ /preview
+
+Route (pages)
+┌ ƒ /api/auth/[...nextauth]
+├ ƒ /api/cron
+├ ƒ /api/interactions-edge
+├ ƒ /api/interactions-server
+├ ƒ /api/messages/codes/[code]
+├ ƒ /api/trpc/[trpc]
+├ ƒ /api/v1/guilds/[guildId]/messages
+└ ƒ /api/v1/guilds/[guildId]/messages/[id]
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
