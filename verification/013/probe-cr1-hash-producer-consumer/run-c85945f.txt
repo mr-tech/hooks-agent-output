@@ -1,0 +1,27 @@
+=== CR1 matrix (c85945f) ===
+SEQ-A | A1 classic content only | equal
+SEQ-A | A2 classic + username + avatar | equal
+SEQ-A | A3 classic + embed | equal
+SEQ-A | A4 V2 container + text display, flag set | equal
+SEQ-A | A5 V2 section + link-button accessory | equal
+SEQ-A | A6 V2 media gallery | equal
+SEQ-A | A7 V2 separator + file | equal
+SEQ-A | A8 action row only, NO flag (classic-with-buttons) | equal
+SEQ-A | A9 V2 components, flag ABSENT (NewMessageModal-created) | equal
+SEQ-A | A10 V2 components + classic content retained (5712-shaped-with-components) | equal
+SEQ-A | A11 non-V2 flag bits (SUPPRESS_EMBEDS | SUPPRESS_NOTIFICATIONS) | equal
+SEQ-A | B1 draft: trailing space in classic content | equal
+SEQ-A | B2 draft: trailing space in a BUTTON LABEL (new hashed surface under M1) | equal
+SEQ-A | B3 draft: leading space in a V2 accessory URL (new hashed surface under M1) | equal
+SEQ-B | B1 draft: trailing space in classic content | MISMATCH -38c25c79 vs 20748f7d
+SEQ-B | B2 draft: trailing space in a BUTTON LABEL (new hashed surface under M1) | equal
+SEQ-B | B3 draft: leading space in a V2 accessory URL (new hashed surface under M1) | equal
+CTRL  | C1 control: draft genuinely edits the content | mismatch (as required)
+CTRL  | C2 control: draft genuinely edits a V2 component body | EQUAL (control failed)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  differential.test.ts > CR1 — producer vs consumer, SEQ-B (the saving tab still holds its own draft) > B1 draft: trailing space in classic content
+AssertionError: SEQ-B B1 draft: trailing space in classic content: expected '20748f7d' to be '-38c25c79' // Object.is equality
+    112|       rows.push(`SEQ-B | ${c.id} | ${equal ? 'equal' : `MISMATCH ${bro…
+    113|       expect(seen, `SEQ-B ${c.id}`).toBe(broadcast);
+    125|       rows.push(`CTRL  | ${c.id} | ${broadcast === seen ? 'EQUAL (cont…
+      Tests  2 failed | 17 passed (19)

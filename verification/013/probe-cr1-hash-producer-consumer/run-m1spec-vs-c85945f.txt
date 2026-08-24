@@ -1,0 +1,19 @@
+# `013-m1-transport-form.test.ts` (the implementer's own spec, byte-identical, copied out of
+# a4eb00d) executed against the PRE-M1 tree c85945f. Verifies the TDD table's
+# "Failure Verified? Yes" row independently, and identifies which cases were NOT red.
+#
+#   npx vitest run --config /tmp/tddcheck/vitest.config.ts   with PROBE_SRC=/tmp/013-base/src
+#   (/tmp/013-base = `git archive c85945f | tar -x`, node_modules symlinked from website)
+
+× differs when a message gains V2 components a classic-only fixture never had
+× differs when the V2 flag bit changes with everything else equal
+× differs when a component field changes (content inside a V2 container)
+  AssertionError: expected '1c94efab' not to be '1c94efab'   (all three)
+
+Tests  3 failed | 4 passed (7)
+
+GREEN AT c85945f (i.e. these four cannot fail under the defect M1 fixes):
+  - is equal for the same data with keys in a different order            (canonicalize's key sort)
+  - is equal for data differing only in embed/component `_key` values    (canonicalize's _key strip)
+  - stripKeys(makeEditable({data})).data carries components and flags    (M1-b instrument)
+  - stripKeys(makeEditable({data})).data carries classic content + username (M1-c instrument)

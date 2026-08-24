@@ -1,0 +1,34 @@
+=== CR1 matrix (a4eb00d) ===
+SEQ-A | A1 classic content only | equal
+SEQ-A | A2 classic + username + avatar | equal
+SEQ-A | A3 classic + embed | equal
+SEQ-A | A4 V2 container + text display, flag set | equal
+SEQ-A | A5 V2 section + link-button accessory | equal
+SEQ-A | A6 V2 media gallery | equal
+SEQ-A | A7 V2 separator + file | equal
+SEQ-A | A8 action row only, NO flag (classic-with-buttons) | equal
+SEQ-A | A9 V2 components, flag ABSENT (NewMessageModal-created) | equal
+SEQ-A | A10 V2 components + classic content retained (5712-shaped-with-components) | equal
+SEQ-A | A11 non-V2 flag bits (SUPPRESS_EMBEDS | SUPPRESS_NOTIFICATIONS) | equal
+SEQ-A | B1 draft: trailing space in classic content | equal
+SEQ-A | B2 draft: trailing space in a BUTTON LABEL (new hashed surface under M1) | equal
+SEQ-A | B3 draft: leading space in a V2 accessory URL (new hashed surface under M1) | equal
+SEQ-B | B1 draft: trailing space in classic content | MISMATCH -38c25c79 vs 20748f7d
+SEQ-B | B2 draft: trailing space in a BUTTON LABEL (new hashed surface under M1) | MISMATCH -18586f58 vs -68e56e9e
+SEQ-B | B3 draft: leading space in a V2 accessory URL (new hashed surface under M1) | MISMATCH 54d30b39 vs 569d3ec3
+CTRL  | C1 control: draft genuinely edits the content | mismatch (as required)
+CTRL  | C2 control: draft genuinely edits a V2 component body | mismatch (as required)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  differential.test.ts > CR1 — producer vs consumer, SEQ-B (the saving tab still holds its own draft) > B1 draft: trailing space in classic content
+AssertionError: SEQ-B B1 draft: trailing space in classic content: expected '20748f7d' to be '-38c25c79' // Object.is equality
+    112|       rows.push(`SEQ-B | ${c.id} | ${equal ? 'equal' : `MISMATCH ${bro…
+    113|       expect(seen, `SEQ-B ${c.id}`).toBe(broadcast);
+ FAIL  differential.test.ts > CR1 — producer vs consumer, SEQ-B (the saving tab still holds its own draft) > B2 draft: trailing space in a BUTTON LABEL (new hashed surface under M1)
+AssertionError: SEQ-B B2 draft: trailing space in a BUTTON LABEL (new hashed surface under M1): expected '-68e56e9e' to be '-18586f58' // Object.is equality
+    112|       rows.push(`SEQ-B | ${c.id} | ${equal ? 'equal' : `MISMATCH ${bro…
+    113|       expect(seen, `SEQ-B ${c.id}`).toBe(broadcast);
+ FAIL  differential.test.ts > CR1 — producer vs consumer, SEQ-B (the saving tab still holds its own draft) > B3 draft: leading space in a V2 accessory URL (new hashed surface under M1)
+AssertionError: SEQ-B B3 draft: leading space in a V2 accessory URL (new hashed surface under M1): expected '569d3ec3' to be '54d30b39' // Object.is equality
+    112|       rows.push(`SEQ-B | ${c.id} | ${equal ? 'equal' : `MISMATCH ${bro…
+    113|       expect(seen, `SEQ-B ${c.id}`).toBe(broadcast);
+      Tests  3 failed | 16 passed (19)
