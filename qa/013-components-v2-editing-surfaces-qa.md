@@ -4,7 +4,7 @@ Origin: 013
 UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: QA Complete
-Verified-At: 164d7209f3efde494000f97cd212470b671904d6
+Verified-At: 821330d  # re-anchored 2026-08-24; supersedes 164d720 (see Re-anchor note)
 Verified-At-Detail: >-
   **REFRESH PASS, 2026-08-24 — supersedes the Phase 2 anchor below for verdict purposes.**
   `website` @ `chain/013-components-v2-editing-surfaces`, HEAD = `164d720` (re-derived by
@@ -1472,3 +1472,51 @@ when the implementer landed F-QA21 into the same shared tree. Nothing was wrong 
 but a `Verified-At` that describes a tree which no longer exists is not an anchor. The manifest is
 **re-derived and restated** above rather than left standing. On a shared tree, a content-identity
 anchor has to be re-derived at the moment of hand-off, not at the moment it is first written.
+
+---
+
+## Re-anchor — `164d720` → `821330d`
+
+`implementer-hooks-013-3` committed the F-QA21 fix as `821330d` while this verdict was being
+handed off. Under Verdict Freshness a superseded SHA is not an anchor, so this is a re-anchor, not
+a carried-forward verdict.
+
+**The differential scopes the refresh; it does not replace it.** What moved:
+
+    git diff --numstat 164d720..HEAD
+    19  2  src/utils/__tests__/013-fqa15-rowd-load-gate.test.ts
+
+One path, test-only, **no production code**. And the committed content is byte-identical to the
+working-tree content this pass already verified — `sha256 39e62dcd6d96…`, the same digest recorded
+in the four-path manifest above. So the *composite* tree (anchor + uncommitted files) is unchanged
+across the move: what was `164d720` + 4 uncommitted is now `821330d` + 3 uncommitted, with
+identical bytes on every path.
+
+That equivalence is established by digest and by `--numstat` — both computed before any output
+filter — **and then by execution anyway**, because zero movement licenses a scoped pass, never a
+skipped one:
+
+| At `821330d` + the 3 remaining uncommitted paths | **550 tests / 37 files / exit 0** |
+
+Content identity of what remains uncommitted (QA's three; the implementer's fourth is now in-tree):
+
+    012-json-editor-repair-path.test.ts         33af76e25e0bd5f6350c9fd398c2a135fb9db53f8be6c352eee1af4768021714
+    012-message-mode.test.ts                    94cd8738162139121c421056737edf7d1b9da53ca91dac2209288bcf2f5fe411
+    013-fqa19-ingress-gate-reachability.test.ts 82e92af1ab7c4c6bf718f28d10c4977479b00644d538f7798ce82253de9c3fcd
+
+**Verdict unchanged: QA Complete, now anchored at `821330d`.**
+
+Two notes for whoever assembles the release, neither of them a QA gate:
+
+- This anchor expires the moment QA's three paths are committed. That is expected, not a defect —
+  it is the same re-anchor performed once more, and the suite is already green on those exact
+  bytes.
+- A plan-level verdict does not authorise a release. The assembled release tip carries its own
+  verdict (Phase 3), commissioned by devops, and it is not inferable from this record.
+
+### Method note against this pass
+
+The first re-run here was issued as `vitest run --reporter=basic` and died with a startup error.
+That was **my bad flag** — `basic` was removed as a reporter name in vitest 4 — not a broken tree
+and not a failing suite. Recording it because a startup error reads exactly like an infrastructure
+fault, and a pass that reported it as one would have handed the next stage a phantom to chase.
