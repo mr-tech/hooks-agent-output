@@ -3803,9 +3803,22 @@ carry; the instrument for them, if the repo gains a harness, belongs with the fi
 
 1. **`implementer-hooks-013-3`** — MEDIUM-2, MEDIUM-3, LOW-2. All three are local to
    `NewMessageJsonInput.tsx` and none touches a shared symbol or a test file this unit does not own.
-2. **The planner / steering** — MEDIUM-1's reach: **M4-b now has a demonstrated, executed instance
-   that defeats M8-E's guarantee**, not merely round 7's row-A instance. The plan's Risks rows should
-   carry it before M4 is scheduled.
+2. **A planner pass, when the owner releases the planner queue — NOT steering, and NOT me.**
+   MEDIUM-1's reach: **M4-b now has a demonstrated, executed instance that defeats M8-E's guarantee**,
+   not merely round 7's row-A instance. It **must reach M4's Risks before M4 is planned.**
+
+   **Routing corrected by `steering-hooks-013-2` after this round was written, and recorded here so a
+   successor does not repeat my mistake.** I asked steering to get this into the plan's Risks on the
+   view that registration is steering's. **It is not.** Steering's write set is exactly a Decisions
+   Register row, a changelog line, and any Status field an *owner ruling* moves — **no body text**. A
+   new or widened Risk **is** body text, which makes it a **planner pass**, and the planner queue is
+   **held by owner ruling**. Steering has therefore recorded it as the **seventh held item**, carrying
+   the part that is new (row A had nothing to choose; this defeats the choice itself). Nothing is
+   escalated and nothing is held against the tree — D18/D9 already own the remedy at M4-b.
+
+   **The general rule, since this will recur**: a finding that wants a *plan body* edit — a Risk, a
+   milestone clause, an acceptance property — cannot be routed to steering. It waits for a planner
+   pass. Route it to the held queue and say so; do not write it as though steering can absorb it.
 3. **QA** — this round's Assumption Not Checked (the `content: ''` shape at the persist boundary), with
    the 5712/5842 re-measure it already owns; and round-8 INFO-1, still open at 1 kill.
 4. **The retrospective / pi** — the round-6 architecture-absence error above. A false absence from a
