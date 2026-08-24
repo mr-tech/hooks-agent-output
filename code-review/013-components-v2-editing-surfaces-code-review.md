@@ -1996,6 +1996,13 @@ persistence surface itself* — no `message.upsert` before a choice — not on a
 five writers are enumerated in QA's IS-1 row: `useApiMethods.saveMessage`, `SaveAsMenu.onSubmit`,
 `NewMessageModal.onSubmit`, `m/new/page.tsx`, `f/[id]/page.tsx`.
 
+**The command above was run, and controlled.** At `0c8fad5` it returns **empty**, which is
+correct — nothing is wired. Control against a symbol that *does* have consumers
+(`hasV2Components`) returns `src/utils/messageMode.ts:2` through the identical pipeline, so the
+empty result is a real absence and not a broken predicate. **Blind spot**: it matches these three
+names only — it cannot see a consumer that reaches the gate through a re-export under another name,
+nor an inline reimplementation that never calls them.
+
 The next unit of work is the shared M2+M8 wiring in `JsonModalBody.tsx`'s Load (plan order corrected
 at `d598b54`: **M2 before M8**), so the expiry is expected at that commit.
 
