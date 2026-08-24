@@ -1,0 +1,113 @@
+
+ RUN  v4.1.2 /tmp/qa013-tip
+
+ ❯ src/utils/__tests__/zz-qa-p3-fixverify.test.ts (40 tests | 5 failed) 16ms
+     × the empty object is STILL refused — applyDisposition must not manufacture a body 5ms
+     × an all-empty draft with explicit empty collections is STILL refused 1ms
+     × whitespace-only content with nothing else is STILL refused 1ms
+     × a flag-only draft with no body at all is STILL refused 0ms
+     × a flag-only draft with empty collections is STILL refused 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/utils/__tests__/zz-qa-p3-fixverify.test.ts > C — THE FIX MUST NOT OVER-PERMIT (the risk a resolved-draft floor introduces) > the empty object is STILL refused — applyDisposition must not manufacture a body
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/zz-qa-p3-fixverify.test.ts:79:30
+     77| describe('C — THE FIX MUST NOT OVER-PERMIT (the risk a resolved-draft …
+     78|   it('the empty object is STILL refused — applyDisposition must not ma…
+     79|     expect(loadDisabled({})).toBe(true);
+       |                              ^
+     80|     expect(validateContentRequirements(applyDisposition({} as never) a…
+     81|       .toBe('Message must have content, embeds, or components.');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  src/utils/__tests__/zz-qa-p3-fixverify.test.ts > C — THE FIX MUST NOT OVER-PERMIT (the risk a resolved-draft floor introduces) > an all-empty draft with explicit empty collections is STILL refused
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/zz-qa-p3-fixverify.test.ts:85:71
+     83|
+     84|   it('an all-empty draft with explicit empty collections is STILL refu…
+     85|     expect(loadDisabled({ content: '', embeds: [], components: [] })).…
+       |                                                                       ^
+     86|   });
+     87|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  src/utils/__tests__/zz-qa-p3-fixverify.test.ts > C — THE FIX MUST NOT OVER-PERMIT (the risk a resolved-draft floor introduces) > whitespace-only content with nothing else is STILL refused
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/zz-qa-p3-fixverify.test.ts:89:46
+     87|
+     88|   it('whitespace-only content with nothing else is STILL refused', () …
+     89|     expect(loadDisabled({ content: '   ' })).toBe(true);
+       |                                              ^
+     90|   });
+     91|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  src/utils/__tests__/zz-qa-p3-fixverify.test.ts > C — THE FIX MUST NOT OVER-PERMIT (the risk a resolved-draft floor introduces) > a flag-only draft with no body at all is STILL refused
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/zz-qa-p3-fixverify.test.ts:93:43
+     91|
+     92|   it('a flag-only draft with no body at all is STILL refused', () => {
+     93|     expect(loadDisabled({ flags: FLAG })).toBe(true);
+       |                                           ^
+     94|   });
+     95|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  src/utils/__tests__/zz-qa-p3-fixverify.test.ts > C — THE FIX MUST NOT OVER-PERMIT (the risk a resolved-draft floor introduces) > a flag-only draft with empty collections is STILL refused
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/zz-qa-p3-fixverify.test.ts:97:84
+     95|
+     96|   it('a flag-only draft with empty collections is STILL refused', () =…
+     97|     expect(loadDisabled({ flags: FLAG, content: '', embeds: [], compon…
+       |                                                                                    ^
+     98|   });
+     99| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  5 failed | 35 passed (40)
+   Start at  22:44:50
+   Duration  727ms (transform 101ms, setup 0ms, import 433ms, tests 16ms, environment 0ms)
+

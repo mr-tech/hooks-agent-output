@@ -1,0 +1,25 @@
+
+ RUN  v4.1.2 /tmp/qa013-tip
+
+ ❯ src/utils/__tests__/zz-qa-p3-fixverify.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/utils/__tests__/zz-qa-p3-fixverify.test.ts [ src/utils/__tests__/zz-qa-p3-fixverify.test.ts ]
+Error: JsonModalBody.tsx no longer carries the gate this file models. Re-derive the model against the component before trusting any assertion here.
+ ❯ src/utils/__tests__/zz-qa-p3-fixverify.test.ts:41:9
+     39| const GATE_EXPR = 'isDisabled={!validatedDraft || !!contentFloorError}…
+     40| if (!SRC.includes(FLOOR_EXPR) || !SRC.includes(GATE_EXPR)) {
+     41|   throw new Error(
+       |         ^
+     42|     'JsonModalBody.tsx no longer carries the gate this file models. '
+     43|     + 'Re-derive the model against the component before trusting any a…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  22:45:23
+   Duration  693ms (transform 98ms, setup 0ms, import 0ms, tests 0ms, environment 0ms)
+

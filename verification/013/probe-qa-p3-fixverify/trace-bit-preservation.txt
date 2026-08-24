@@ -1,0 +1,3 @@
+flag only: in=32768 out=0 bitCleared=true equalsZero=true
+flag|SUPPRESS_EMBEDS(4): in=32772 out=4 bitCleared=true equalsZero=false
+flag|EPHEMERAL(64): in=32832 out=64 bitCleared=true equalsZero=false
