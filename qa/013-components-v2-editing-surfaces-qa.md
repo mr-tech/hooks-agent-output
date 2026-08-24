@@ -1,0 +1,755 @@
+---
+ID: 013
+Origin: 013
+UUID: 22d69e06
+Parent: components-v2-editing-support-2026-08-23.md
+Verified-At: >-
+  Phase 1 issues NO verdict, so nothing here is anchored as a PASS. The enumerations, counts and
+  probe below were derived at `website` `chain/013-components-v2-editing-surfaces` @ `c85945f`
+  (clean tree at read; `git status --porcelain` empty before this pass wrote its probe spec).
+  Suite state at that anchor, re-executed by this pass and not inherited from any document:
+  `pnpm test` → 22 files / 411 tests, 411 passed, exit 0, 2026-08-24. A `Verified-At` SHA is
+  owed at Phase 2 and is not owed now.
+Status: Awaiting Implementation
+Status-Detail: >-
+  Phase 1 rev 1, written against plan rev 12 (`4906fbc`, Status `Approved`) and critique
+  `d38f057` (cycle 1 pass 5, APPROVE), both read directly. Scoped per the plan's Reading Order
+  row for qa, plus the Decisions Register (D1–D19) and Surfaces Without Automated Coverage.
+  Ten findings (F-QA1–F-QA10); five are entry conditions the implementer needs BEFORE writing
+  M7 and M8 specs, because three of the plan's stated instruments are not executable against
+  `c85945f` as written. Two of the critic's four inherited Assumption-Not-Checked lines are
+  CLOSED here (passes 3 and 5); pass 2's premise is CONFIRMED by execution; pass 4's stays live
+  with the implementer and gains a post-deploy detector row. One decision is routed to steering
+  for the owner: Validation item 8's observation window (BQ-1). Awaiting implementation.
+---
+
+# QA Report: Plan 013 — Components V2 support across the editing surfaces
+
+**Plan Reference**: `agent-output/planning/013-components-v2-editing-surfaces.md` (rev 12, `4906fbc`, Status `Approved`)
+**Critique Reference**: `agent-output/critiques/013-components-v2-editing-surfaces-critique.md` (`d38f057`, cycle 1 pass 5, APPROVE)
+**QA Status**: Awaiting Implementation
+**QA Specialist**: qa
+
+## Changelog
+
+| Date | Agent Handoff | Request | Summary |
+|------|---------------|---------|---------|
+| 2026-08-24 | steering-hooks-013 (cross-session brief) | QA Phase 1: test strategy against plan rev 12 before any code exists; re-derive the critic's four transferred assumptions and M-10 from source; read Validation item 8 with M8-G's coverage entry | Phase 1 written. M-10's domain enumerated by `grep -rc` at the chain base: **7 files**, one more than plan and critique name between them. Irreversible Side-Effect Register produced. Three plan instruments found not executable at `c85945f` (F-QA2/3/4) and issued as entry conditions. Probe captured at `verification/013/probe-preexisting-seed-route/` establishing UAT can mint its own M8-G seed pre-deploy. Blocking-condition register minted (13 rows). BQ-1 routed to steering. |
+
+## Timeline
+
+- **Test Strategy Started**: 2026-08-24
+- **Test Strategy Completed**: 2026-08-24
+- **Implementation Received**: —
+- **Testing Started**: —
+- **Testing Completed**: —
+- **Final Status**: —
+
+---
+
+## BLOCKING QUESTION — routed to steering, for the owner
+
+**BQ-1 — Validation item 8's observation window closes the moment the D19 repair runs, and nothing currently asks anyone to hold it.**
+
+Plan Validation item 8 says M8-G's production-reachable observation (open 5712 → add one container
+→ Save → the ask) exists *only while 5712 and 5842 are unrepaired*, that the repair is the
+owner's action outside the plan, and that "whether the repair waits for the observation is the
+owner's call". Nothing in the plan asks for that call. If he runs the SQL before 013 deploys — at
+any moment, for reasons unrelated to 013 — the central new behaviour D18 introduces ships on suite
+evidence alone and can never be observed in production, because after 013 **no surface can write the
+shape again** (M8-D clears the bit, M4-a sets it from structure, the toggle clears content).
+
+**I do not conclude the ordering cannot be met** — item 8 is satisfiable either way, since it only
+forbids the two being ordered by accident. What I am reporting is that it can be met **cheaply and
+without asking him to hold anything**, and that the cheap route expires at deploy:
+
+> **This pass established by execution that the shape can be minted through the product's own UI
+> at `c85945f`, with no SQL and no database access.** `enforceImportMutualExclusivity` passes
+> `{"content":"hi","flags":32768}` through untouched, and both `discordMessageImportShape` (client)
+> and `discordMessageShape` (the server's `message.upsert` input) accept it. So **pasting that JSON
+> into New Message today mints a 5712-shaped record**, and `{"content":"hi","flags":32768,"components":[]}`
+> mints a 5842-shaped one. Instrument, control and two killed mutants:
+> `agent-output/verification/013/probe-preexisting-seed-route/`.
+
+**The decision, in the owner's terms** — he does not need to change D19 or delay anything:
+
+| Option | What it costs | What it buys |
+|---|---|---|
+| **(a) UAT mints two seed messages before the deploy** (recommended) | one JSON paste each, in the live app, by whoever runs UAT; two junk messages left in the account | D18's central behaviour is observed in production regardless of when he repairs 5712/5842. The repair stops being a one-way door. Costs him nothing and asks him to hold nothing. |
+| (b) He holds the repair until UAT has observed | he waits on an agent pipeline for a data fix he has already ruled on | same observation, at his cost |
+| (c) Do neither — M8-G ships on suite evidence | nothing now | the one behaviour D18 exists for is never seen working in production; UAT records *"the D19 repair preceded the deploy"* as the reason, which item 8 explicitly permits |
+
+I have written the register row (**BC-11**) for **(a)** and marked it `BLOCKED — awaiting BQ-1`. If
+no answer comes, I follow the last explicit ruling's direction — item 8's own words, which permit
+(c) — and the row is recorded as held, not dropped.
+
+---
+
+## Method, and what this pass did not take on trust
+
+- Plan and critique **read directly** at the SHAs named above. No criterion, count or finding in
+  this document is taken from the steering brief.
+- The plan's Reading Order row for `qa` was followed (Objective → Milestones → Testing Strategy →
+  Validation and Release Conditions), extended by the Decisions Register D1–D19 (read in full,
+  never a summary), Assumptions, Surfaces Without Automated Coverage, Serialised Shared Files,
+  Risks, Out of Scope and Handoff Notes — each reached because a named section cites it.
+- **Every count below was computed inside `grep -c`/`grep -rc` or by `find`, never taken through a
+  piped count over filtered output** (RTK.md; document-lifecycle "Identifying the Tree Under
+  Verification"). Where a count is quoted, the predicate that produced it is in the same sentence.
+- The suite was **re-executed** at the chain base rather than cited from plan 012's QA record:
+  22 files / 411 tests, all passed, `pnpm test`, exit 0, 2026-08-24. It agrees with 012's figure;
+  agreement is recorded, not relied on — the instrument is shared, so this is reproducibility, not
+  independent confirmation.
+- `node tools/check-repo.js` was run from the `agent-output` root at session start. **It exits 1**
+  with 9 problems, all in chain 012's artifacts (duplicate basenames under `verification/012/`,
+  two repo-rooted link targets, two stage-suffix violations in `code-review/` and `deployment/`).
+  None is 013's and none is in QA's domain; recorded here rather than fixed, since they are other
+  stages' documents. Re-checked after this pass wrote its files: the 9 are unchanged and this pass
+  adds none.
+
+### Self-check on start
+
+`agent-output/qa/` outside `closed/` holds one other document, `012-message-valid-field-qa.md`,
+Status **`QA Complete`** — not a terminal status under document-lifecycle (the terminal set is
+Committed, Released, Abandoned, Deferred, Superseded, Resolved). **Nothing moved.** DevOps closes it.
+
+---
+
+## Phase 1 is the two-phase record, not a post-hoc audit
+
+Implementation has **not** begun (the owner is holding the implementer until this lands), so this
+is a genuine Phase 1. The plan's own Testing Strategy asks for it in these words: *"QA Phase 1 runs
+before implementation … because the properties' enumerations are the thing most likely to be
+under-specified and cheaper to correct before code exists."* That is exactly what F-QA2, F-QA3 and
+F-QA4 below are: three criteria whose stated instruments cannot execute against `c85945f`, found
+before a line was written rather than after a red suite.
+
+**Scoping note.** Critique cycle 1 ran five passes and reasoned over the design's properties, so
+this pass is **scoped — not skipped — to the coverage-obligation half**: the input-space
+enumerations, the both-directions obligations, the conjunct-isolation obligations and the
+instrument-existence checks, none of which a critique can produce. The Irreversible Side-Effect
+Register is produced in full regardless of any narrowing.
+
+---
+
+## Testing Infrastructure Requirements
+
+### TESTING INFRASTRUCTURE NEEDED
+
+1. **A `typecheck` script. It does not exist.** `grep -c typecheck package.json` → **0**, at
+   `c85945f`. Plan Validation item 1 requires *"`pnpm typecheck` … green on the chain branch tip"*
+   and names a command the repository does not have. `tsconfig.json` sets `noEmit: true`, so the
+   command the item means is `npx tsc --noEmit`. **Remedy** (implementer, at M1): add
+   `"typecheck": "tsc --noEmit"` to `package.json` `scripts`. Until then Validation item 1 is
+   unexecutable as written and QA runs `npx tsc --noEmit` and records that substitution. — **F-QA1**
+2. **A coverage provider.** No `@vitest/coverage-v8` (or `-istanbul`) in `package.json`.
+   `check-coverage.sh` cannot produce a percentage; Phase 2's "Coverage Percentage" field will
+   read *not instrumented* unless one is added. **Remedy**: `pnpm add -D @vitest/coverage-v8`, or
+   QA reports coverage as the per-criterion mapping table only. Recommend the latter — the plan's
+   criteria are property-shaped and a line-coverage number would not answer them. — **F-QA10**
+3. **`bot/**` is outside the test include.** `vitest.config.ts` has
+   `include: ['src/**/*.test.ts']`. M3 opens `bot/serverCommands.ts` (`get_message`'s `Pick`, which
+   must request `components` and `flags`). Any spec for it is **silently not collected** today.
+   **Remedy**: either widen `include` to `['src/**/*.test.ts', 'bot/**/*.test.ts']`, or assert the
+   `Pick`'s shape from a spec under `src/` that imports the bot module (the `bot` alias already
+   resolves in `vitest.config.ts`). QA prefers widening the include, because a spec that is never
+   collected is indistinguishable from a passing one. — **F-QA5**
+4. **No component/browser harness — and this pass does not ask for one.** `environment: 'node'`,
+   no `jsdom`/`happy-dom`, no `@testing-library/*`, and `include` admits no `.test.tsx`. Assumption 5
+   and the plan's Surfaces-Without-Automated-Coverage section make this a deliberate cost/benefit
+   call and QA concurs. **Its consequence is not neutral and is issued as EC-3 below**: three of
+   the plan's criteria state instruments that require observing a call inside a React component or
+   hook, and cannot be satisfied without either a harness or a design change. The design change is
+   the cheaper answer and is what the plan's own R9 mitigation already implies.
+
+### Frameworks, libraries and config — no changes needed
+
+Vitest `^4.1.2` is present and is the repo's only test framework; `src/utils/__tests__/` and
+`src/server/api/utils/__tests__/` are the existing homes the plan names. Zod is already the shape
+library. **No new test framework or assertion library is needed for 013.**
+
+### Module-scope hazard every new spec must handle — **F-QA9**
+
+Importing `~/utils` reaches `src/constants/index.ts` → `src/env.mjs`, which **validates
+environment variables at module scope and throws** (`Error: Invalid environment variables`) in this
+box's environment. This was found by executing, not by reading: this pass's first probe run failed
+with `0 test` collected. Every existing spec in the repo already mocks it. Every new 013 spec that
+imports `~/utils` (which is all of M1, M2, M4, M7-b and M8) must carry:
+
+```ts
+vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
+vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
+```
+
+A spec that omits it fails at collection with **zero tests run**, which in a large suite reads as a
+missing file rather than a failure.
+
+---
+
+## The red-test domain — M-10, re-derived, not taken from the plan
+
+The critic's **M-10** (STATED LIMIT, stop authority) transfers to QA the obligation to enumerate the
+existing tests a milestone turns red **by `grep -rc` at the chain base, never from the plan's list**,
+because the plan's coordination list has been wrong twice in this chain by omission. Done.
+
+**The predicate, derived from the class definition and not from the phrasing of the known instances**:
+
+> every file under `src/**/__tests__/` whose text references a **symbol whose behaviour a milestone
+> of plan 013 changes** — enumerated by `grep -rc <symbol> src --include=*.test.ts --include=*.test.tsx`
+> at `c85945f`, one grep per symbol, union of the matching files.
+
+The symbol list is derived per milestone from the plan's criteria, not from the critic's citation:
+`standardizeMessage`, `hashMessage` (M1); `enforceImportMutualExclusivity` (M2/M8);
+`stripKeys` (M8-G); `detectMode` (M7-a); `switchToV2`, `applyModeSwitch` (M7-b);
+`messageHasV2`, `showV2PatchWarning` (M7-c); `filterSupportedComponents`,
+`discordMessageImportShape`, `SUPPORTED_TOP_LEVEL_TYPES`, `topLevelComponentShape` (M4-b);
+`discordResponseToMessage` (M3); `saveMessage` (M8-G's composer writer).
+
+**Result — 7 files matching that predicate in `src/**/__tests__/` at `c85945f`; excludes `bot/**` (outside the vitest include, F-QA5) and excludes helper-mediated reachers, which the predicate cannot see.**
+
+| # | File | Matching symbols (`grep -c` per symbol) | Named by |
+|---|---|---|---|
+| 1 | `src/utils/__tests__/012-json-editor-repair-path.test.ts` | `standardizeMessage` 3, `enforceImportMutualExclusivity` 3, `stripKeys` 2, `switchToV2` 3, `discordMessageImportShape` 2, `saveMessage` 4 | plan |
+| 2 | `src/utils/__tests__/m7-m10-coverage-gaps.test.ts` | `enforceImportMutualExclusivity` 17 | plan |
+| 3 | `src/utils/__tests__/012-message-mode.test.ts` | `switchToV2` 5, `applyModeSwitch` 4 | plan |
+| 4 | `src/utils/__tests__/012-send-gate-partition.test.ts` | `switchToV2` 3, `stripKeys` 1, `detectMode` 2 | plan |
+| 5 | `src/utils/__tests__/mutual-exclusivity.test.ts` | `stripKeys` 9 | critique M-10 |
+| 6 | `src/utils/__tests__/components-v2-data-layer.test.ts` | `stripKeys` 15 | critique M-10 |
+| 7 | `src/server/api/utils/__tests__/shapes-v2.test.ts` | `discordMessageImportShape` 16, `filterSupportedComponents` 2, `SUPPORTED_TOP_LEVEL_TYPES` 1, `topLevelComponentShape` 1 | **NEITHER — found here** |
+
+**Predicate reconciliation.** Every known instance appears among the predicate's matches: the plan's
+four (rows 1–4) and M-10's two (rows 5–6) are all present. A known instance outside the matches
+would have falsified the predicate; none is. **Row 7 is a third instance of the L-7 / M-10 shape**
+(*existing tests a milestone's behaviour change turns red, absent from the coordination fact*) — the
+shape has now recurred three times in one chain, which is a process observation for the retrospective,
+not a plan finding. — **F-QA6**
+
+**Checked and excluded, with the reason** (an exclusion is a judgement and is recorded as one):
+
+| File | Matched via | Why excluded |
+|---|---|---|
+| `src/utils/__tests__/sub-component-actions.test.ts` | `makeEditable` 22 | `makeEditable`'s **behaviour** is unchanged by every milestone. M1 changes what *calls* it (`stripKeys` over the editable message replaces `standardizeMessage`); the function itself is untouched. Not a member of the predicate. |
+| `src/utils/__tests__/008-qa-validation.test.ts` | `makeEditable` 29 | as above |
+
+Symbols deliberately **not** in the list, each with its reason: `switchToClassic` (I-D11, explicitly
+untouched by M7-b), `hasV2Components` / `hasClassicContent` (read by new code, behaviour unchanged),
+`IS_COMPONENTS_V2_FLAG` (a constant), `validateContentRequirements` (M8 reads it; assumption 3 keeps
+`messageValidity.ts` shut), `optionalIdMessageShape` (unchanged), `makeEditable` (above).
+
+**Two symbols have ZERO existing test coverage** — `grep -rc` over all 22 test files returns no
+matching file for either:
+
+- **`hashMessage`** — M1-d's entire subject. Change detection has never been tested. M1-d starts
+  from nothing, on both directions of its property.
+- **`discordResponseToMessage`** — M3's entire subject, all three ingress entry points. Likewise nothing.
+
+That is not a red-test problem; it is the opposite, and it means M1-d and M3 carry the largest
+*new* test burden in the plan while appearing in no coordination list at all. — **F-QA7**
+
+**Residue the predicate cannot see**, named rather than left implicit: a test that reaches a changed
+symbol only through an un-named helper. Bounded by the repo's 22-file test tree and found when it
+goes red. The implementer records **every file that went red** in the implementation doc's
+files-touched reconciliation (M6 already requires the reconciliation); re-anchoring them is QA's at
+Phase 2, and none is the implementer's to delete or edit (plan, Serialised Shared Files).
+
+---
+
+## Irreversible Side-Effect Register (MANDATORY)
+
+Design-time artifact, handed to the implementer as **input**. Every irreversible side effect 013's
+blast radius can cause; what must be true before it fires; and whether that ordering is enforced
+**identically on every route that can trigger it**. A route that is right by accident is a finding.
+
+| # | Irreversible act | Routes that can trigger it (enumerated) | What must be true first | Enforced identically on every route? |
+|---|---|---|---|---|
+| **IS-1** | **A record is persisted** (`message.upsert`) — overwrites stored `data` | **5 writers**, enumerated by following the injected mutation, not by grepping the string (see the method note below): `useApiMethods.saveMessage` (composer Save + hotkey), `SaveAsMenu.onSubmit`, `NewMessageModal.onSubmit`, `m/new/page.tsx`, `f/[id]/page.tsx` | After M8-G: for a **row-E draft** (V2 components *and* a classic body), the user has chosen Classic-or-V2 and been told what the other drops. Nothing written before the choice. | **NO — this is the register's principal hazard.** M8-G names one property over five writers but leaves *"which of the writers' surfaces renders it … to the implementer"*. Three of the five are independent `.tsx` call sites. A gate written three times will diverge (this is R9's failure mode moved from two JSON surfaces to three writers). **Required**: one shared, importable, pure gate consulted by all five; the two canned-intro writers consult it and it returns *no ask* vacuously, rather than being exempted by argument. See EC-3. |
+| **IS-2** | **A message is published to Discord** (`sendWebhook`) — cannot be recalled | `src/app/message/m/[id]/send/page.tsx` (2 references) | The draft passes the send gate (`allowSave` ⇐ `validateMessage` empty), and the wire form is one Discord accepts under `IS_COMPONENTS_V2_FLAG` | **NO, and knowingly so.** R10 records that the only guard is a client-side `isDisabled={!allowSave}`; `sendWebhook` posts from the browser with no server-side check. 013 does not change that (correctly — it needs a ruling). **But M8-G changes the wire form**, which is the critic's still-live pass-4 assumption. This is the one irreversible act whose new behaviour has **no pre-deploy instrument**. Register row **BC-12**. |
+| **IS-3** | **A classic body is destroyed on the way to a record** (`stripKeys`' `delete casted.data.content` / `delete casted.data.embeds` inside `if (hasV2)`, `src/utils/index.ts`) | Every caller of `stripKeys` on a persist, seed or hash path | **After M8-G: never.** The deletion is retired at those paths; the serialiser's output is its input modulo `_key`s plus the V2 bit ORed in from structure | Today: **NO** — it fires identically at every path, which is precisely D18's defect. After M8-G it must fire **nowhere** on persist/seed/hash. The bit-setting line (`flags \|= IS_COMPONENTS_V2_FLAG`) is explicitly **untouched** — see the conjunct-isolation obligation for M8-G. |
+| **IS-4** | **A user's chosen drop** (M8-E / M8-G) — the option not taken is gone | The row-E choice at: JSON modal Load, New Message paste, and each of IS-1's five writers | The user has been shown **both** options, each naming what it drops, and has taken one. Dismissal leaves the draft *and* the pasted text as they were | Must be — M8-F states parity as a property over all eight cells × two surfaces, and M8-G extends it to the writers. **QA runs the same fixture set through every entry point**; that is R9's own mitigation and is a Phase 2 obligation, not an aspiration. |
+| **IS-5** | **A Redis `StoredMessage` write** (`messageStore.store`), 1h TTL | `src/server/api/routers/message.ts` (3 refs), `src/pages/api/messages/codes/[code].ts` (2), `bot/serverCommands.ts` (2) | After M3-b: the dropped-set report is written **alongside** `data`, so the notice can render at the code path's receiving end | Partially: the plan names the bounded residue itself — codes stored **before** the deploy carry no dropped set, so the notice cannot render for them, bounded by the 1h TTL after go-live. Register row **BC-13** records the window. |
+| **IS-6** | **The mode toggle clears `content`/`embeds`** (`switchToV2`) | The composer toggle | The existing confirmation ("Your embeds and content will be removed. This cannot be undone.") | Out of scope by design (plan 001 M8). **But M7-b adds an irreversible flag write to the same act**: after M7-b the toggle also sets `IS_COMPONENTS_V2_FLAG`. The confirmation's wording is not re-examined by any criterion. Not a defect; recorded so the retrospective can see the act grew a limb without its notice growing one. |
+
+**Method note on IS-1's enumeration — F-QA8.** `grep -rc "message\.upsert" src bot` returns **5
+files**, and they are **not the 5 writers**. It returns `MessageProvider/index.tsx` (which merely
+*constructs* the mutation at line 218 and passes it into `useApiMethods` at line 264) and **misses**
+`useApiMethods.ts` (which *calls* it at line 63, inside `saveMessage`). The plan's reference-following
+count of five writers is correct; a grep re-derivation of it is **unsound**, because the mutation
+reaches its true call site by injection. **Plan Validation item 2's grep-reconciliation discipline is
+right for M1-a's `standardizeMessage` class and must not be carried over to the upsert class.** Stated
+here because the implementer is told to re-derive the inventory before touching it, and the obvious
+re-derivation gives a wrong answer that looks right.
+
+---
+
+## Entry Conditions for the implementer — probe shapes, not test lists
+
+Phase 1's output to the implementer is a set of **probe shapes**: *prove the comparand exists on the
+live path before building the comparison that consumes it.* Three of the plan's criteria state
+instruments that **cannot execute** against `c85945f` as written. Each is issued as a condition to be
+met before that criterion's spec is written, and each is falsifiable in one line.
+
+### EC-1 — M7-a has no importable comparand — **F-QA2**
+
+M7-a's instrument is *"the mode state after load, asserted over the class in the suite."*
+`detectMode` is a **non-exported function declared inside the `MessageProvider` component body**
+(`src/providers/MessageProvider/index.tsx`, `function detectMode(msg: ActiveMessage | null)` at line
+112; four internal call sites, no export, no other reference anywhere in `src/`). The two existing
+tests that mention it only **comment about** it and re-implement the predicate by hand
+(`012-send-gate-partition.test.ts`). There is no importable path to the value M7-a asserts over.
+
+> **Probe**: before writing M7-a's spec, extract the mode predicate as an **exported pure function** —
+> natural home `src/utils/messageMode.ts`, which M7-b already opens — and prove
+> `import { <predicate> } from '~/utils/messageMode'` resolves and returns a mode for a fixture
+> **with no `components` key at all** (the case research G4 and M7-a's own text single out).
+>
+> **Falsity signature if skipped**: M7-a ships with its assertions written against a hand-copied
+> predicate rather than the product's, so the criterion passes while `detectMode` says something
+> else — and the whole point of M7-a is that the composer and `validateContentRequirements` never
+> disagree on one record.
+
+### EC-2 — M7-c has no importable comparand — **F-QA3**
+
+Same shape. `messageHasV2` (line 160) and `showV2PatchWarning` (line 163) are inline `const`s inside
+`send/page.tsx`. `grep -rc` over all test files returns **no match** for either symbol. M7-c's
+instrument is *"the warning's condition asserted over the class in the suite"* — that condition is
+not addressable.
+
+> **Probe**: extract the warning's condition as an importable predicate taking
+> `(message, oldMessage, showEdit)` and prove it imports and returns. **Falsity signature if
+> skipped**: M7-c becomes a manual checklist item that nobody added to the checklist, and the
+> flag-only re-send case (a D12 import, a repaired 5712, a D16 toggle over Action Rows) silently
+> keeps shipping without its warning.
+
+### EC-3 — three negative instruments name observations no harness can make — **F-QA4**
+
+**M3-c**: *"the suite asserts … that the create writer issues no upsert call (the mutation observed
+at its call site)"*. **M8-E**: *"on the modal, no `updateMessage`/`setMessageMode` call before the
+choice; on the paste, no object forwarded to `onSubmit` and no `message.upsert` call before it —
+each observed at its call site in the suite"*. **M8-G**: *"the negative at each writer (no
+`message.upsert` call before a choice) observed at its call site"*.
+
+Every one of those call sites is inside a React component or hook. Vitest runs `environment: 'node'`,
+`include: ['src/**/*.test.ts']`, with no `jsdom`, no `@testing-library/react` and no `.test.tsx`
+collected. **None of these three instruments can be built as stated**, and the plan does not add a
+harness (assumption 5 — a call QA concurs with).
+
+> **Probe — and it is a design constraint, not a test technique**: the comparand must exist **as a
+> value** before the comparison can consume it. Prove, before writing any M8 spec, that
+>
+> - the five-row disposition is a **pure, importable resolver** returning a decision object —
+>   `{ row: 'A'|…|'E', mode, dropSet, noticeClass, requiresChoice, chosenOutcome }` — from
+>   `(flagBit, components, content, embeds)`; and
+> - the persist gate is a **pure, importable function** — `gateBeforePersist(draft) → { mustAsk, options }` —
+>   consulted by all five IS-1 writers.
+>
+> Then "nothing lands before the choice" is asserted as `requiresChoice === true` / `mustAsk === true`
+> over the row-E cell, and the surfaces are left to render what the resolver reports. **This is the
+> plan's own R9 mitigation** — *"the disposition lives in the shared reconciler, the surfaces render
+> what it reports"* — restated as an executable precondition and extended from two JSON surfaces to
+> the five writers of IS-1.
+>
+> **Falsity signature if skipped**: the decision lives inside `JsonModalBody`, `NewMessageJsonInput`,
+> `SaveAsMenu` and `useApiMethods` separately; M3-c, M8-E's negative and M8-G's negative all become
+> manual checklist items; the blocking checklist UAT must execute grows by roughly a dozen rows the
+> plan never budgeted for; and R9's divergence (one object, two dispositions) becomes undetectable
+> by any suite.
+
+### EC-4 — env validation at module scope
+
+Every new spec importing `~/utils` carries the three `vi.mock` lines in F-QA9. **Falsity signature if
+skipped**: the spec fails at collection with `0 test`, which in a 22-file suite reads as a missing
+file rather than a failure.
+
+### EC-5 — expectation independence, made mechanical
+
+The plan already forbids producing a verifying expectation by running the code's own serialiser
+(M1-b, M7-a, M8-F). QA's Phase 2 audit applies the sharper rule: **a fixture that supplies the
+quantity under test measures the arithmetic, not the wiring.** Concretely, for 013 that means:
+
+- M1-b/M1-c expected values are **literal stored forms authored by hand**, never
+  `stripKeys(makeEditable(x))` of the fixture.
+- M8-F's expected row, drop set and notice class are **stated from the cell** in the fixture table,
+  never computed by calling the resolver.
+- M7-a's expected mode is **stated from the fixture's own `flags`/`components`**, never by calling
+  the predicate under test — and the flag literal is `32768`, not the imported constant.
+
+**Falsity signature**: a spec that cannot fail under the defect it exists to detect. Phase 2 checks
+this by mutation, per the guard-observation obligation below, not by reading.
+
+---
+
+## Coverage obligations — the half a critique cannot produce
+
+For every acceptance criterion that names an example, the property audit asks: *what class is this an
+example of, and does the test enumerate the class?* And for every named risk sub-class, two questions
+the plan does not answer and the critique did not: **which fixture makes each conjunct carry the
+decision alone**, and **does the class have a member in both directions?**
+
+### Both-directions obligation, per named risk sub-class
+
+A test asserting members of a class are refused must be paired with a control asserting an
+authorised equivalent still succeeds — otherwise a blanket refusal passes, and so does a service
+that is simply down. Owed **per sub-class**, not once per control.
+
+| Sub-class the plan names | Negative member (refused / warned / blocked) | **Positive control the suite must also carry** |
+|---|---|---|
+| M8-D — flag over a classic body | `{content:"hi", flags:32768}` → warning, lands Classic, bit cleared | **M8-C** — `{flags:32768, components:[<container>]}` → V2, bit **kept**, **nothing shown**. Without it, "always warn and clear the bit" passes M8-D. |
+| M8-B — V2 components, bit absent | `{components:[<container>]}` → V2, bit **set**, warning shown | **M8-A** — `{content:"hi"}` → Classic, bit stays clear, **nothing shown**. Without it, "always set the bit and warn" passes M8-B. |
+| M8-E — both present, choice required | `{content:"hi", components:[<container>]}` → nothing lands until a choice | **M8-A and M8-C together** — cells where `requiresChoice` is **false** and something *does* land immediately. Without them, "always ask" passes M8-E. |
+| M8-C, Action-Rows-only under the bit (D13's *"not a conflict"*) | — | `{flags:32768, components:[<action row>]}` → V2, **nothing shown**. This is the cell D13 was ruled to protect; a suite without it re-admits the predicate the owner rejected outright. |
+| M8-G — the ask at the persist gate | a row-E draft at each of the five writers → `mustAsk` true, nothing written | the **two canned-intro writers** with their fixed classic message → `mustAsk` **false**, and the record **is** written. The plan calls them "never members"; a suite that never runs them cannot tell a vacuous gate from a working one. |
+| M4-b — the lenient filter names its drops | a top-level Thumbnail-11 → filtered **and named** | a fully supported set → filtered set equals input, **and the notice is empty**. |
+| M3-b — ingress residue is loud | a message carrying a select menu → import succeeds, notice names the select | a message whose components are all supported → import succeeds, **notice empty**. Without it, "always show a notice" passes. |
+| M7-a — flag-only records open V2 | `{content:"hi", flags:32768}` → **V2** | `{content:"hi"}` → **Classic**, and `{components:[<container>]}` (no bit) → **V2**. Both directions of `hasFlagV2 \|\| hasStructuralV2`. |
+| M1-d — change detection sees V2 | a component-only edit → `hashMessage` **differs** | a `_key`/key-order-only difference → `hashMessage` **equal**. The plan states both; the suite must carry both, or "hash everything differently" passes. |
+| M3-c — no empty success | an import failing the floor → **no** upsert issued | a valid import → the upsert **is** issued. A gate that refuses everything passes the negative alone. |
+
+### Conjunct-isolation obligation
+
+Every conjunct of a compound predicate must be the **sole carrier of the decision in at least one
+fixture**. A conjunct correct only because a sibling covers for it satisfies the criterion by
+accident, and the accident ends at the next *"simplify the redundant check"* refactor. This is not
+answerable by reading — mutually masking conjuncts are invisible to review and to a green suite.
+
+| Compound predicate | Conjuncts | Fixture in which each is sole carrier |
+|---|---|---|
+| M7-a's mode predicate — `hasFlagV2 \|\| hasStructuralV2` | `hasFlagV2`; `hasStructuralV2` | flag set, **no** V2 components (5712's shape) isolates the first; V2 components, **bit clear** (M2-a's second bounded exception) isolates the second. Both must be present or the disjunction is untested as a disjunction. |
+| M8's cell selection — `(bit, hasV2Components, hasClassicContent)` | three inputs, eight cells | **all eight cells**, each as its own fixture. The plan's table has eight rows; the suite must have eight fixtures, not five (one per row) — five fixtures leave three cells whose row assignment is never observed. |
+| `stripKeys` after M8-G | the `flags \|= IS_COMPONENTS_V2_FLAG` line (**kept**); the two `delete` lines (**retired**) | a V2 draft **with** a classic body: the bit must still be ORed in **and** `content`/`embeds` must survive. One fixture isolates both, in opposite directions. A retirement that also drops the OR passes any fixture with no body. |
+| `showComponentButton` — `isEditing && isV2Mode && showComponentsEditable && canAddComponent` | four conjuncts | see the closure of the critic's pass-5 assumption below; this one is **the checklist's**, not the suite's. |
+| M8-F parity — same disposition at both surfaces | modal Load; New Message paste | the **same eight fixtures driven through both entry points**. Two fixture sets that happen to agree is not parity; one set through two doors is. |
+
+### Guard-observation obligation (mutation), and the bounded sweep IS-1..IS-6 each owe
+
+**Every guard and branch must be observed failing at least once** — by mutating the source or the
+fixture — before its test counts as evidence. A test never seen red is not evidence that the thing
+it guards is guarded. Each entry in the Irreversible Side-Effect Register carries a **bounded
+mutation sweep** at Phase 2, seeded at that guard's branch conditions and decision constants:
+
+| Register entry | Mutation seeds |
+|---|---|
+| IS-1 / IS-4 | `requiresChoice` forced `false`; `mustAsk` forced `false`; the row-E cell reassigned to row C; the gate omitted at each of the five writers in turn |
+| IS-2 | the send gate's `allowSave` forced `true` |
+| IS-3 | the `delete` lines reinstated; the `flags \|=` line removed; `hasV2` inverted |
+| IS-5 | the dropped-set field dropped between converter → `store` → `getFromCode` |
+| IS-6 | `switchToV2` returning without setting the bit |
+
+Every **survivor** is recorded with a disposition; **equivalent mutants are recorded, not dropped**.
+A spec written to close a survivor counts as evidence only once it has been seen **red under the
+mutant it targets** and green against the shipped code.
+
+**Instrument-score discipline.** No mutation or sweep number is reported at Phase 2 without its
+enumeration predicate and exclusions **in the same sentence**. The quotable unit is *"N sites
+matching `<predicate>` in `<scope>` — excludes `<forms>`"*, never *"N/N"*.
+
+### Telemetry Validation
+
+013 is not incident work and adds no logging. What it adds is **user-facing notices** — which are
+not telemetry and must not be tested as strings. The rule that carries over: assert **structured
+fields**, never message text. For 013 that means the resolver's `noticeClass` and `dropSet` are the
+assertion targets (a stable, enumerable shape), and the rendered wording is the checklist's. The
+plan's own M8-A/M8-C *"nothing shown"* criteria depend on this: *"the reconciler reports no notice
+for the cell"* is assertable; *"no string appears"* is not.
+
+---
+
+## The critic's four transferred assumptions — re-derived, and their state now
+
+All four were located in the critique at `d38f057` and re-derived here rather than taken from the
+brief. **Two are closed by this pass.**
+
+### Pass 5 — `canAddComponent` over an empty `components` array — **CLOSED, and the seed count is TWO**
+
+The critic assumed `canAddComponent` is true over `components: []` so that **5842 is an F-1 seed as
+well as 5712**, and did not read its definition. Falsity signature named: *5842 opened in V2 mode
+shows no add-component control, so M8-G's production-reachable form has one seed, not two.*
+
+**Read at `c85945f`** (`src/components/DiscordMessageEditor/index.tsx` — note the file is under
+`src/components/`, not the `src/app/message/m/[id]/_components/` path the plan's inventory implies):
+
+- `canAddComponent = totalComponentCount < MAX_TOTAL_COMPONENTS` (line 192)
+- `countTotalComponents` (line 61) iterates the array; over `[]` it returns **0**
+- `MAX_TOTAL_COMPONENTS = 40` (`src/constants/index.ts`)
+- `const [components = [], setComponents] = useStateSetter(message, 'components', …)` (line 113) —
+  a **missing** `components` key defaults to `[]` too
+
+**0 < 40 → true.** The assumption holds. **5842 is an F-1 seed, and so is 5712** (whose absent
+`components` key takes the same default). M8-G's production-reachable form has **two** seeds. The
+checklist states which it exercises (BC-11) and now can name both.
+
+**But the read turned up a conjunct neither the plan nor the critique examined.** The critique quoted
+`showComponentButton = isEditing && isV2Mode && …`; the elided tail is **two** conjuncts, not one:
+
+```
+showComponentButton = isEditing && isV2Mode
+  && !!editableState?.showComponentsEditable      // ← neither document names this
+  && canAddComponent;
+```
+
+`showComponentsEditable` is `useToggleState(true)` in `useEditableState.ts` — **default true, and
+user-toggleable**. So it does not falsify the seed, but it *is* a control the observer can switch
+off. **BC-11 therefore states the precondition explicitly** ("with the components section shown"),
+because an observer who has collapsed that section will report the ask as absent and file a defect
+against working code. — **F-QA2 companion; recorded in BC-11, not as a plan finding.**
+
+### Pass 3 — V2 mode has no route to `content`/`embeds` — **CLOSED**
+
+The critic left live the assumption that *V2 mode has no route to `content`/`embeds` other than the
+two `isClassicMode`-gated editors*, owner QA's M7-a checklist. **Read at `c85945f`**
+(`src/components/DiscordMessageEditor/index.tsx`):
+
+- content editor: `<NullableComponent show={isClassicMode || !isEditing}>` (line 283) wrapping
+  `<ContentBody … showEdit={isEditing && isClassicMode && !!editableState?.showContentEditable} />`
+- embeds: `<NullableComponent show={(isClassicMode || !isEditing) && embeds.length}>` (line 313)
+- the V2-mode block, `<NullableComponent show={isV2Mode && isEditing}>` (line 297), renders
+  **`<Author>` only** — `username` and `avatarUrl`, not `content` and not `embeds`
+
+While editing in V2 mode (`isEditing && isV2Mode`), both `isClassicMode || !isEditing` guards are
+false, so **neither editor renders at all**. The assumption holds, with one precision the plan does
+not state: **`username` and `avatarUrl` *are* editable in V2 mode**, correctly — they are neither
+`content` nor `embeds` and are not part of row E's cell. **CLOSED.** M8-G's *"the composer cannot
+compose a row-E draft [except by retaining one]"* rests on solid ground.
+
+### Pass 2 — a direct `message.upsert` can mint a row-D or row-E record — **CONFIRMED by execution, and it is mine**
+
+The critic assumed the server's upsert input runs `discordMessageShape`, not the import shape, so a
+direct `message.upsert` call can mint a shape M8 never saw; QA's tRPC-boundary test owns it.
+
+**Confirmed by execution, not assumed**: this pass's probe asserts
+`discordMessageShape.safeParse({content:'hi', flags:32768}).success === true` — the server's write
+boundary admits the row-D shape, and `flags` is accepted at `src/server/api/utils/shapes.ts:199` in
+the **base** shape both `discordMessageShape` and `discordMessageImportShape` extend. The residue is
+real. **QA owns it**, and it is written into the Phase 2 obligation set as the **tRPC-boundary
+test**: over the eight cells, `discordMessageShape` accepts what it accepts *unchanged* (013 does not
+narrow the server contract), and M8-G's gate is what meets such a record at its **next** save — which
+is, in the plan's words, the ruling's point.
+
+### Pass 4 — Discord accepting `content:""` / `embeds:[]` under the V2 flag — **STILL LIVE, and correctly not mine**
+
+The critic assumed Discord accepts, on a webhook send with `IS_COMPONENTS_V2_FLAG` set, a wire
+payload carrying `content: ""` and `embeds: []` rather than omitting the keys — the form the send
+path emits if the implementer retires `stripKeys`' deletion and leaves `send/page.tsx` alone. Not
+tested against Discord. Falsity signature: *a V2 send from `send/page.tsx` returning a Discord 4xx
+after deploy for a draft that sent at `c85945f`*.
+
+**Owner of closing it: the implementer, at M8-G's send-path decision.** QA does not take it —
+closing it requires a live Discord call, which no gate here makes, and the decision that creates or
+avoids it is a design decision the plan explicitly assigns to the implementer. What QA adds is the
+**detector**, as a post-deploy-observable register row (**BC-12**), so the assumption is routed to an
+observation rather than shelved. IS-2 records why it matters: publishing to Discord is the one
+irreversible act in 013's radius whose new behaviour has no pre-deploy instrument.
+
+---
+
+## Blocking Release Condition Register — chain 013
+
+> **BLOCKING RELEASE CONDITION** — each item must be executed and recorded in the UAT document
+> before merge/deploy, except the rows classified **post-deploy-observable**, which gate the
+> **chain's closure** and never the release act.
+
+This is chain 013's **single** register. Chain 012 has its own; nothing here appends to it. Any
+later gate-scoped QA pass on 013 **appends** to this register rather than minting a parallel ID
+space, and names this document as the register it appended to.
+
+> **Standing note — this list is point-in-time.** Later stage documents are **authoritative** on
+> each item's execution state: first the UAT document, then the deployment record. A reader landing
+> here must not take a `State` column as current. A stage that discharges a row adds one dated line
+> here naming the discharging document.
+
+**Class**: `PRE` = observable pre-release, must reach a terminal state before the release act.
+`POST` = post-deploy-observable, gates chain closure only.
+
+| ID | Class | Condition | Primary instrument | Subject / fallback | Earliest-decidable condition | Predicted value | Failure mode (operator terms) | Owner | State |
+|---|---|---|---|---|---|---|---|---|---|
+| **BC-1** | PRE | M2-c: the Load confirmation names what changes — which top-level types are added/removed, and whether the message type changes | operator observation (no harness, F-QA4/assumption 5) | UAT agent; fallback owner | chain tip deployed to any environment with a stored V2 message | the confirmation names both differences before anything is committed | *A user confirms a Load believing nothing is lost, and loses every component. The dialog is the only thing standing between them and it.* | uat | Not started |
+| **BC-2** | PRE | M3-b (URL + webhook): the import dialog names which component types were **not** carried | operator observation | UAT agent | a Discord message carrying a select menu is reachable by URL | dialog shows supported components **and** a notice naming the select | *An import silently returns a message missing half its controls, and the user ships it that way.* | uat | Not started |
+| **BC-3** | PRE | M3-b (bot code path): the **editor** shows the same notice on load | operator observation | UAT agent | bot `Get Message` run on the same message, within the 1h store TTL | editor opens with supported components and the same notice | *The code path has no dialog, so a silent drop here is invisible until the message is sent wrong.* | uat | Not started |
+| **BC-4** | PRE | M3-c: an import failing the floor keeps the dialog open with the error and **does not navigate** | operator observation **paired with** the suite's no-upsert assertion (EC-3) | UAT agent | chain tip deployed | dialog stays, error shown, no new message created | *The user lands on a blank message that looks saved. This is flow 6/11/12/13 — the defect 013 exists for.* | uat | Not started |
+| **BC-5** | PRE | M4-c: pasting a folder-page export shows the composer's floor error, not a green state | operator observation | UAT agent | chain tip deployed | *"Message must have content, embeds, or components."* | *Green means safe. A green state over an empty object teaches the user to trust it.* | uat | Not started |
+| **BC-6** | PRE | M4-b: the lenient filter **names** the dropped types at both JSON surfaces | operator observation | UAT agent | a paste carrying a top-level Thumbnail-11 | the notice names the type | *Today it is silent; a component vanishes with no trace, at the surface users reach for when the UI cannot express something.* | uat | Not started |
+| **BC-7** | PRE | M8-B: paste `{"components":[<container>]}` → V2, bit set, **visible warning** | operator observation | UAT agent | chain tip deployed | editor in V2 with the container **and** a warning | *Silent acceptance means the user never learns their JSON was incomplete; D17 row B says warn.* | uat | Not started |
+| **BC-8** | PRE | M8-D: paste `{"content":"hi","flags":32768}` → **Classic**, content intact, bit cleared, **visible warning**, no V2 error | operator observation | UAT agent | chain tip deployed | Classic, `hi` present, warning shown | *This is 5712's own repair route. If the warning is missing the user cannot tell a repair from a corruption.* | uat | Not started |
+| **BC-9** | PRE | M8-E: paste `{"content":"hi","components":[<container>]}` → **two options**, each naming its drop; **nothing created** until one is taken; dismissal leaves message and pasted text unchanged | operator observation **paired with** the suite's `requiresChoice` assertion (EC-3) | UAT agent | chain tip deployed | two options; nothing created before a choice; both outcomes verified by repeating with the other option | *Today this silently strips the content. If the choice does not appear, D17's governing principle is not shipped — content is still lost without asking.* | uat | Not started |
+| **BC-10** | PRE | M8-F parity: **the same eight-cell fixture set** produces the same row, drop set and notice class at the modal Load **and** the New Message paste | the suite (R9's own mitigation), **plus** spot observation of two cells at both surfaces | suite is primary; UAT agent for the spot check | M8 implemented | identical dispositions, cell by cell | *One object treated two ways is exactly the hazard R9 names; a user who learns the modal's behaviour is then surprised by the paste.* | qa (suite) | Not started |
+| **BC-11** | PRE | **M8-G, production-reachable form**: open a **5712-shaped** record (V2 mode, V2 error visible, components section shown), add one container, press **Save** → the ask appears naming both drops and **nothing is written** until one is taken. Same at **Save As**. Repeat on a **5842-shaped** record (`components: []`) | operator observation | UAT agent | **a seed record exists.** Per BQ-1 option (a) this is satisfiable **before deploy** by pasting `{"content":"hi","flags":32768}` (and the `components:[]` variant) into New Message — no SQL, no DB access; instrument: `verification/013/probe-preexisting-seed-route/`. Otherwise: only while rows 5712/5842 are unrepaired | the ask appears; nothing written before a choice | *This is the whole of D18. If the ask does not appear, the save path is still silently destroying the user's classic body — the defect the owner folded into 013 — and the suite alone cannot show it working for a real user.* **Precondition, from this pass's read**: `showComponentButton` requires `isEditing && isV2Mode && showComponentsEditable && canAddComponent`; an observer who has collapsed the components section will see no add-component control and wrongly report the ask as unreachable. | uat | **BLOCKED — awaiting BQ-1** |
+| **BC-12** | POST | M8-G's send-path form is accepted by Discord: a V2 message that sent at `c85945f` still sends after deploy | the existing post-deploy observable *"Save As on a V2 message yields a V2 copy that sends"* (Validation item 6), and M3-a's send form | UAT agent, then owner in normal use | the deploy is live | **the send succeeds. A single 4xx refutes by construction** — this is not a rate to accumulate; one failure closes the critic's pass-4 assumption negatively and is a hotfix trigger | *Every V2 send starts failing at Discord because the wire form gained `content:""`. Users cannot send, and the cause is invisible in the app.* | implementer owns the decision (M8-G send path); uat owns the observation | Not started |
+| **BC-13** | POST | M3-b's pre-deploy-code residue: bot codes stored **before** go-live carry no dropped set, so the notice cannot render for them | elapsed time against the store's 1h TTL | no human subject — decided by the clock | one hour after the deploy SHA is live | the residue is empty | *For one hour after deploy, a code import can drop components silently — the exact behaviour M3-b fixes. Nobody will connect the two.* | devops (records the window in the deployment record) | Not started |
+| **BC-14** | POST | **The user-reported defect is fixed in production** (handoff `8f3fa8c3`, observations 1/2/5/6/7): Save As on a V2 message yields a V2 copy with every component; Message JSON shows the components; a component-only edit in one tab raises *"Message Update Detected"* in another and a no-op save raises nothing | operator observation in production | owner, in normal use; fallback UAT agent | the deploy is live | all four observed | *A deploy having happened says nothing about the fix having worked. The failure's signature here is **absence** — a copy that is empty, a prompt that never fires — and absence is what nobody reports.* | uat | Not started |
+
+**Why BC-14 exists**: a chain fixing a user-reported defect registers at least one post-deploy
+observable that distinguishes *fixed* from *unfixed* in production. 013 is such a chain
+(handoff `8f3fa8c3`, seven owner observations), and Validation item 6 lists the observations without
+binding them to a row that gates closure. This is that row.
+
+---
+
+## Required tests, by milestone
+
+Executable assertions the Phase 2 audit will look for. **Test cases are QA's; the TDD sequence is the
+implementer's** — every one of these is a test that must be **written first and seen red at the chain
+base** before its code exists, and the implementation doc's TDD Compliance table must carry a row for
+each new function or class with a valid failure reason.
+
+### Unit (Vitest, `src/utils/__tests__/`, `src/server/api/utils/__tests__/`)
+
+**M1** — `standardizeMessage` reference list is empty at the three confined site classes (the
+instrument is the reference list, captured in the implementation doc, reconciled with
+`grep -rc standardizeMessage src bot`); `stripKeys(makeEditable({data: d})).data ≡ d` modulo `_key`s
+and key order over the **generated** M1-b partition (classic-only; V2-only across each supported
+top-level type; containers across each supported child type; classic + Action Rows; with/without
+`username`/`avatar_url`/`allowed_mentions`; with/without `flags`) — expectations authored as literal
+stored forms (EC-5); the JSON modal seed and Copy output parse through `discordMessageImportShape` to
+`≡` the stored `data`; **`hashMessage` in both directions** (differs on any component/field/bit
+change, bounded by genuine 32-bit collisions; equal modulo `_key`s and key order) — **from zero
+existing coverage** (F-QA7); producer and consumer compute the same function over the same form.
+
+**M2** — round-trip closure over the M1-b class **plus** the two production shapes, outside rows B, D
+and E; the two bounded exceptions asserted **as their own expected values**, not as failures
+(row-D outcome for a bit-over-classic-content record; row-B outcome for V2-components-bit-clear);
+row-C records (bit over Action Rows, no classic content) round-trip losslessly with the bit kept and
+nothing shown.
+
+**M3** — `discordResponseToMessage` carries components **and** copies the flag bit **exactly when
+Discord's message carried it**, over both partition halves (at least one V2 top-level type; all
+Action Rows under the bit) — **from zero existing coverage** (F-QA7); the dropped set is reported
+alongside `data`, and `store` → `getFromCode` carry it unchanged; the bot `Pick` requests
+`components` and `flags` (see F-QA5 — this spec is not collected today).
+
+**M4** — `SUPPORTED_TOP_LEVEL_TYPES` ≡ the discriminator values `topLevelComponentShape` accepts,
+**asserted over the sets themselves** (Thumbnail-11 is the instance, the equality is the class); the
+same for the container child sets; the create writer's at-rest property (V2 components ⇒ the bit is
+carried) with its one-directional bound explicit; the floor's agreement over the pasted class.
+
+**M7** — the extracted mode predicate over both disjuncts in isolation (EC-1), including the
+**no-`components`-key** case; `applyModeSwitch` over the enumerated prior-draft class, with **every
+non-V2 bit preserved in both directions** (D7's residue — a fixture carrying `4` and `4096` alongside
+the V2 bit); the extracted V2-patch-warning condition over its class (EC-2).
+
+**M8** — the resolver over **all eight cells** (not five), each fixture's expected row / drop set /
+notice class stated from the cell; the **same eight fixtures driven through both entry points**
+(BC-10); `stripKeys`' post-M8-G identity (input modulo `_key`s **plus** the bit ORed from structure,
+with `content`/`embeds` **surviving** — the conjunct-isolation fixture); `gateBeforePersist` over the
+five IS-1 writers including the two vacuous ones as positive controls.
+
+### Integration (tRPC input boundary)
+
+`optionalIdMessageShape` / `discordMessageShape` accept the eight cells unchanged (013 does not narrow
+the server contract) — the pass-2 boundary residue, confirmed by this pass's probe; a record minted
+directly through that boundary meets M8-G's ask at its **next** save rather than being silently
+rewritten.
+
+### No e2e
+
+Per the plan and assumption 5. The consequence is the 14-row blocking register above, not a gap.
+
+---
+
+## Assumption Not Checked
+
+**This pass assumes the extracted predicates EC-1 and EC-2 ask for can be lifted out of
+`MessageProvider/index.tsx` and `send/page.tsx` without changing what those components do — and it
+does not read either component's surrounding closure to check what `detectMode` and `messageHasV2`
+capture from scope.** `detectMode` is declared inside the provider's body and its four call sites
+pass a local `tmp`; if it closes over provider state beyond its argument, an extracted pure predicate
+is a *different function* and M7-a's suite would be asserting over something the product does not run.
+**Falsity signature**: the extracted predicate and the inline one disagree for some fixture — visible
+as M7-a green in the suite while a record still opens in the wrong mode in the app, or as the
+implementer reporting that extraction requires threading provider state through the call. **Stage that
+owns closing it**: the **implementer**, at M7 — before writing M7-a's spec, by reading `detectMode`'s
+closure and reporting in the implementation doc either that the extraction is faithful or that EC-1
+needs a different shape. Named again in the handoff below so it is routed, not shelved.
+
+---
+
+## Findings
+
+| ID | Severity | Finding | Routes to |
+|---|---|---|---|
+| **F-QA1** | Medium | **`pnpm typecheck` does not exist.** `grep -c typecheck package.json` → 0 at `c85945f`. Plan Validation item 1 requires it. Remedy: add `"typecheck": "tsc --noEmit"`; QA substitutes `npx tsc --noEmit` meanwhile and records the substitution. | implementer (M1) |
+| **F-QA2** | **High** | **M7-a's instrument is not executable.** `detectMode` is a non-exported function inside the `MessageProvider` component body (`src/providers/MessageProvider/index.tsx:112`); no importable path to the value M7-a asserts over. Entry condition **EC-1**. | implementer (M7, before writing the spec) |
+| **F-QA3** | **High** | **M7-c's instrument is not executable.** `messageHasV2` / `showV2PatchWarning` are inline consts in `send/page.tsx` (lines 160, 163); `grep -rc` over all test files → no match for either. Entry condition **EC-2**. | implementer (M7) |
+| **F-QA4** | **High** | **M3-c, M8-E's negative and M8-G's negative all name call-site observation inside React components/hooks**, which `environment: 'node'` + `include: src/**/*.test.ts` + no `@testing-library` cannot make. Entry condition **EC-3**: the disposition and the persist gate must be pure importable functions returning a decision, which is the plan's own R9 mitigation made executable. Skipping it moves ~12 criteria onto the blocking manual checklist the plan never budgeted for. | implementer (M8, before writing any M8 spec) |
+| **F-QA5** | Medium | **`bot/**` is outside the vitest `include`.** M3 opens `bot/serverCommands.ts`; a spec for it is silently not collected. Remedy: widen `include`, or assert the `Pick` from a `src/` spec using the existing `bot` alias. | implementer (M3) |
+| **F-QA6** | Medium | **The red-test domain is 7 files, not 4 or 6.** `src/server/api/utils/__tests__/shapes-v2.test.ts` (`discordMessageImportShape` 16, `filterSupportedComponents` 2, `SUPPORTED_TOP_LEVEL_TYPES` 1, `topLevelComponentShape` 1) is in neither the plan's list nor M-10's instances. Third recurrence of the L-7/M-10 shape in one chain. | QA (re-anchoring is mine); retrospective (the recurrence) |
+| **F-QA7** | Medium | **`hashMessage` and `discordResponseToMessage` have zero existing test coverage** (`grep -rc` over all 22 test files → no matching file for either). M1-d and M3 carry the plan's largest *new* test burden while appearing in no coordination list. | implementer (TDD load); QA (Phase 2 scrutiny) |
+| **F-QA8** | Medium | **`grep -rc "message\.upsert"` is unsound for IS-1's writer class** — it returns `MessageProvider/index.tsx` (constructs the mutation) and misses `useApiMethods.ts` (calls it). The plan's reference-following count of five writers is correct; Validation item 2's grep discipline must not be carried over to this class. | implementer (M8-G re-derivation) |
+| **F-QA9** | Low | **`src/env.mjs` validates env at module scope and throws**, reached via `src/constants/index.ts` from `~/utils`. Every new spec needs the three `vi.mock` lines. Found by executing (first probe run: `0 test` collected). | implementer (all new specs) |
+| **F-QA10** | Low | **No coverage provider** (`@vitest/coverage-v8` absent). QA will report coverage as the per-criterion mapping table rather than a percentage; the plan's criteria are property-shaped and a line number would not answer them. | QA (Phase 2 reporting form) |
+
+**Nothing above changes a criterion.** The plan is `Approved`; a criterion change now needs an owner
+ruling. F-QA2/3/4 are conditions on *how* three stated instruments are built, not on what they assert —
+each criterion's property is unchanged. Every finding routes through steering, never to the planner.
+
+---
+
+## Instruments captured by this pass
+
+| Instrument | Path | Settles |
+|---|---|---|
+| Pre-existing seed-route probe | `agent-output/verification/013/probe-preexisting-seed-route/` (README, spec copy, green run, `sha256sum` manifest) | whether UAT can mint its own M8-G seed pre-deploy — **yes**. 7 assertions green at `c85945f`; one discriminating control in the opposite direction; **two mutants run and killed**, tree restored green. |
+
+**Live path of the probe spec in the `website` tree**:
+`src/utils/__tests__/013-qa-phase1-seed-route-probe.test.ts` — collected by the existing vitest
+`include`, runs with `pnpm test`. It is **uncommitted**. QA does not hold the chain-branch source
+grant (that grant is the implementer's), so committing it is a gated act and is reported to steering
+rather than performed. Its bytes are preserved in the capture directory, so nothing is lost if the
+tree moves.
+
+---
+
+## Test Coverage Analysis
+
+Not applicable at Phase 1 — no implementation exists. The mapping table (file → symbol → test file →
+test case → COVERED/MISSING) is produced at Phase 2 against the implementation doc's files-touched
+reconciliation.
+
+## Test Execution Results
+
+Not applicable at Phase 1. **Baseline recorded**, re-executed by this pass and not inherited:
+
+- **Command**: `pnpm test` (`vitest run`) at `c85945f`
+- **Status**: PASS — 22 test files, 411 tests, 411 passed, exit 0, 2026-08-24
+- **Coverage percentage**: not instrumented (F-QA10)
+- **`npx tsc --noEmit`**: not run at Phase 1; Validation item 1's command does not exist (F-QA1)
+
+---
+
+## Handoff
+
+**QA Phase 1 is complete. Status: Awaiting Implementation.**
+
+Routed, in order:
+
+1. **To steering, for the owner — BQ-1, and it is time-sensitive.** Validation item 8's production
+   observation window closes the moment the D19 repair runs, and this pass established a cheap way to
+   keep it open that itself expires at deploy (paste two JSON objects into New Message before go-live;
+   no SQL, no DB access; instrument captured). Options (a)/(b)/(c) are enumerated above, (a)
+   recommended, (c) — do nothing — is a real option the plan already permits. **BC-11 is held
+   `BLOCKED` pending the answer**, not dropped.
+2. **To the implementer — five entry conditions, EC-1 to EC-5, before M7 and M8 specs are written.**
+   Three of the plan's stated instruments (M7-a, M7-c, and the negatives of M3-c/M8-E/M8-G) cannot
+   execute against `c85945f` as written. EC-3 is the load-bearing one and is a **design** condition:
+   the five-row disposition and the persist gate must be pure importable functions returning a
+   decision object, which is the plan's own R9 mitigation restated as a precondition.
+3. **To the implementer — the routed Assumption Not Checked**: read `detectMode`'s closure in
+   `MessageProvider/index.tsx` before extracting it, and report in the implementation doc either that
+   the extraction is faithful or that EC-1 needs a different shape.
+4. **To the implementer — the still-live pass-4 assumption** (Discord accepting `content:""` /
+   `embeds:[]` under the V2 flag) is closed by **your** send-path decision at M8-G, with **BC-12** as
+   its detector. Say in the implementation doc which form you chose and why.
+5. **To the implementer — the red-test domain is seven files** (table above), enumerated by
+   `grep -rc` at the chain base per M-10. **None is yours to delete or edit**; record every file that
+   goes red in the files-touched reconciliation M6 requires, and QA re-anchors them at Phase 2.
+6. **A commit approval is owed**: the probe spec at
+   `src/utils/__tests__/013-qa-phase1-seed-route-probe.test.ts` is source in the `website` tree and is
+   uncommitted. QA has not committed it.
+
+**Recommended next subagent**: the **implementer**, to execute the plan under TDD with EC-1..EC-5 as
+entry conditions. QA returns for Phase 2 once implementation is handed off, and the Phase 2 pass will
+**re-derive** the tree identity rather than inherit it. **This is not a handoff to the uat agent** —
+that line is owed at the end of Phase 2, and Phase 2 has not run.
+
+**Roadmap**: `agent-output/roadmap/` holds only `.gitkeep` (read 2026-08-24, agreeing with the plan's
+own note), so **no roadmap epic acceptance criterion changes state on this record**. Recorded here
+rather than omitted, per the obligation to note where a document would have been cited.
