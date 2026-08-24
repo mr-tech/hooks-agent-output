@@ -5,19 +5,19 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
-  Rev 1 — **D20 PRECONDITION PASS ONLY. NO VERDICT IS ISSUED AND NONE IS INVITED.** This document
-  exists before the deploy it will cover, as the UAT gate requires; it does **not** yet carry a
-  release decision, conditional or otherwise. QA Phase 2 has not run (`qa/013-...-qa.md`, Status
-  `Awaiting Implementation`, re-read 2026-08-24), M4 and M6 are open, and the sequencing for this
-  one task was overridden explicitly and narrowly by steering-hooks-013-2 because D20's mint route
-  **expires at deploy**. Result of the pass: **the mint is BLOCKED and NOT EXECUTED.** The New
-  Message JSON surface is unreachable from this session — `message.upsert` is a `protectedProcedure`
-  and no authenticated session, browser, or browser-automation tooling exists here. No equivalent
-  was improvised: no direct database insert, no tRPC call, no fixture. BC-11's pre-deploy half
-  therefore stands at **NOT EXECUTED**, which is not a terminal state. A second, independent block
-  is disclosed below: the classifier denied creation of this pass's own probe rig, so D20's required
-  **re-derivation by execution** was also not performed. Both are parked for the owner, not
-  escalated. This document is authoritative on register state from this revision forward.
+  Rev 2 — **D20 PRECONDITION PASS ONLY. NO VERDICT IS ISSUED AND NONE IS INVITED.** This document
+  exists before the deploy it will cover, as the UAT gate requires; it carries **no** release
+  decision, conditional or otherwise. QA Phase 2 has not run (`qa/013-...-qa.md`, Status
+  `Awaiting Implementation`), M4 and M6 are open; the sequencing was overridden explicitly and
+  narrowly because D20's mint route **expires at deploy**. **BC-11 Half A (the mint) stands at
+  NOT EXECUTED** — not a terminal state, and it blocks an unconditional approval. UAT could not
+  reach the surface and improvised no equivalent; **the owner has since said he will mint the two
+  records himself, which is intent and not evidence** and is not marked satisfied here. **D20's
+  required re-derivation by execution remains outstanding**, its probe rig blocked by the
+  auto-mode classifier and parked for the owner; UAT's route trace is labelled corroboration, not
+  re-derivation, and QA's probe is still the sole executed evidence for the mintability finding.
+  Under D27 UAT's two probe extensions went direct to qa-hooks-013-2. This document is
+  authoritative on register state from rev 1 forward.
 ---
 
 # UAT Report: Plan 013 — Components V2 support across the editing surfaces
@@ -32,6 +32,7 @@ Status-Detail: >-
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-08-24 | steering-hooks-013-2 (sequencing overridden explicitly; **no verdict invited**) | Execute D20's pre-deploy precondition: mint two throwaway records — one 5712-shaped, one 5842-shaped — through the product's own New Message JSON surface at production `c85945f`, re-deriving the mintability finding rather than inheriting it | **BLOCKED, reported, nothing improvised.** The New Message JSON surface is unreachable from this session (no authenticated session; `message.upsert` is a `protectedProcedure`; no browser, no `DISPLAY`, no browser-automation tooling). The route at `c85945f` was traced **by reading** and is recorded below as corroboration, explicitly **not** as the re-derivation D20 requires. The executed re-derivation was separately blocked by the auto-mode classifier when creating the probe rig; disclosed in this document per CLAUDE.md rather than retried in another form. BC-11 stays **NOT EXECUTED**. No release decision. |
+| 2026-08-24 | steering-hooks-013-2 (relay of an owner decision + **D27**, plan rev 19 `a479afe`) | Owner chose option (a) on the mint — he does it himself; act on D27 by sending UAT's two probe extensions to QA directly | Rev 2. **No state change to any register row.** Owner's mint is recorded as **intent, not evidence**; BC-11 Half A stays `NOT EXECUTED` pending his attestation, which is complete evidence when quoted with its timestamp and is not satisfied by a relay. Classifier block on the probe rig **parked and staying parked** — steering confirmed it will not run it either, so D20's re-derivation clause is outstanding and QA's probe is the only executed evidence for the mintability finding. Extensions (i) `optionalIdMessageShape` and (ii) the uncovered persist leg sent direct to `qa-hooks-013-2`, citing `b6e9662`. Still no verdict. |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -90,6 +91,21 @@ database insert, no tRPC call, and no fixture was used to manufacture a record. 
 any other route would not establish what D20 has UAT establish, and would leave the register reading
 as though it had. **A precondition falsely marked satisfied is worse than one openly blocked.**
 
+### Addendum, 2026-08-24 (rev 2) — the owner will mint the records himself
+
+Steering (`steering-hooks-013-2`) put the three options to him; he chose **(a)**: he mints the two
+records himself before going. **This is recorded as intent and not as evidence.** He has said he
+will; he has not reported it done, and **BC-11 Half A is therefore NOT marked satisfied on the
+strength of this.**
+
+When it is established, the instrument is fixed by the plan's own evidence rule (Surfaces Without
+Automated Coverage): *where the designated observer is the owner, no capture path is minted and no
+file is owed — his attestation, quoted with its timestamp in the consuming document, is complete
+evidence.* So the real UAT pass **quotes his attestation with its timestamp**; it does not paraphrase
+it, does not accept a relay in its place, and **never records a capture file as missing against a
+condition he executed**. Existence of the two records is established by that pass, not inherited from
+this line.
+
 ### A route that was considered and NOT taken
 
 The product could in principle be served locally at `c85945f` and its real New Message JSON surface
@@ -111,6 +127,13 @@ pass) — and that **UAT re-derives it rather than inheriting it**.
 classifier**. Per CLAUDE.md the denial was **not** rephrased, split into separately-passing pieces, or
 routed through another tool; it is reported instead, and is disclosed here in the round it happened
 rather than first in a hand-back. Nothing was created — `ls -d` confirms the directory does not exist.
+
+**Status at rev 2**: the block is **parked for the owner and stays parked.** Steering has confirmed it
+will not perform the blocked action either — the trigger for that would be the owner's sanction
+obtained in a session, never the block itself. Whether it was a false positive is his call and not
+this agent's to make about its own action. **The consequence, stated so nobody assumes otherwise:
+D20's re-derivation clause is outstanding, and QA's probe remains the *only* executed evidence for
+the mintability finding.**
 
 ### What was established instead, and its exact weight
 
@@ -226,14 +249,17 @@ verified). **Neither is a verdict anchor.**
 Two items are **parked for the owner** and are not escalations; both were reported to
 steering-hooks-013-2 rather than raised while he sleeps.
 
-1. **BC-11 Half A — the mint (TIME-CRITICAL; expires at deploy).** Needs a party with an
-   authenticated session on the product. This agent cannot reach the surface and will not
-   manufacture an equivalent. **If the deploy happens before this is executed, BC-11 Half B becomes
-   unobservable in production permanently** once the D19 repair lands, and D18's central behaviour
-   ships on suite evidence alone — the outcome D20 was ruled to prevent. **Owner's call.**
-2. **D20's re-derivation by execution.** Blocked by the auto-mode classifier at rig creation, not
-   retried. Needs either a permission decision or a different party to run it. **The owner decides
-   whether that block was a false positive; this agent does not make that judgement about itself.**
+1. **BC-11 Half A — the mint.** **Owner-owned as of 2026-08-24: he chose to mint the two records
+   himself before going.** Outstanding until *his attestation is quoted with its timestamp* at the
+   real UAT pass — intent relayed through steering is not evidence, and this row is not satisfied by
+   this document. If it turns out not to have happened before go-live, Half B becomes unobservable in
+   production permanently once the D19 repair lands, and D18's central behaviour ships on suite
+   evidence alone — the outcome D20 was ruled to prevent.
+2. **D20's re-derivation by execution — OUTSTANDING.** Blocked by the auto-mode classifier at rig
+   creation; not retried, **parked for the owner, and staying parked** (steering will not run it
+   either). The owner decides whether that block was a false positive; this agent does not make that
+   judgement about its own action. Until then QA's probe is the sole executed evidence for the
+   mintability finding, and UAT's trace stays labelled corroboration.
 3. Not owed yet, listed so the sequence is visible: predecessor-status verification, the value
    assessment, the walkthrough of BC-1 … BC-11, and the release decision — all at the real UAT pass,
    after Implementation, Code Review and QA Phase 2 are complete.
