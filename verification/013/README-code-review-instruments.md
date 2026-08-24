@@ -127,3 +127,55 @@ The same caution does not apply to the other use of mutants in this chain — sh
 **can** fail (a positive control). That direction is sound: one mutant that kills a test proves the
 test discriminates. It is the *negative* direction — "no mutant separates them, therefore one is
 redundant" — that is only as strong as the set.
+
+## Rig health — check this BEFORE running any probe (added at the second seam)
+
+Each probe reaches vitest through a `node_modules` **symlink** to `website/node_modules`. That
+symlink can degenerate into a real, near-empty directory; when it does, `npx` goes to the network
+and fails with `Cannot find module 'vitest/config'`, **exit 1, no tests run** — which reads like a
+probe failure rather than a rig failure. This has cost a round already.
+
+```bash
+cd /usr/local/bin/hooks/agent-output/verification/013
+for d in probe-*/node_modules; do
+  printf "%-45s " "$d"
+  if [ -L "$d" ]; then echo "SYMLINK (ok)"; elif [ -d "$d" ]; then echo "REAL DIR — DEGENERATE"; fi
+done
+```
+
+**State at the second seam (2026-08-24):** `probe-cr3`, `cr5`, `cr6`, `cr7` are **ok**;
+**`probe-cr1` and `probe-cr2` are DEGENERATE** (real dirs, 0 entries) and will fail this way if run.
+
+**`ln -sfn` does NOT repair it** — it creates the link *inside* the existing directory. The repair:
+
+```bash
+rm -rf node_modules && ln -sfn /usr/local/bin/hooks/website/node_modules node_modules
+```
+
+The command above is controlled by the tree itself: both states genuinely exist right now, so it is
+demonstrated to distinguish them rather than assumed to.
+
+These `node_modules` entries appear as **untracked** in `git status`. They belong to these probes,
+not to another session — do not mistake them for foreign work, and never commit them.
+
+## A new instance of the RTK counting hazard, caught at the second seam
+
+`git log --oneline <range> -- <path> | grep -c ''` returned **1** over a result whose raw byte count
+was **0** — a false positive for "this file was touched in the chain", which would have mis-scoped a
+handoff. Caught only by contradiction against two counters that compute before the filter:
+`git rev-parse` on the two blobs (identical hash) and `git diff --numstat` (empty).
+
+This is the same class the first seam recorded, in a new place: **an exact-match or positional
+predicate over filtered output is unsound, not merely inaccurate** — and it fails *open* here,
+manufacturing evidence rather than losing it. Write to a file and read it, or use `git rev-parse`,
+`git diff --numstat`, `grep -c` / `git grep -c`.
+
+## Controlling a handed-over command is not ceremony
+
+Written down because it paid out immediately at this seam: the first seam handed forward a list of
+the five IS-1 persist writers, and **one of the five paths was wrong** (`SaveAsMenu.tsx` lives under
+`src/app/message/m/[id]/_components/`, not `src/app/message/_components/`). A `git grep` over that
+list would have returned a clean empty result and been read as "not wired" — an absence
+manufactured by a typo. A two-line `git cat-file -e` path control caught it before the trigger was
+ever handed on. **Any command a flush hands to a successor gets a path control and a predicate
+control, both run, both recorded with their output.**

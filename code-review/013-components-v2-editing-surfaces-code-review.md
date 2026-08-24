@@ -21,8 +21,19 @@ Status-Detail: >-
   Dominance justifies deleting a test only when it is STRUCTURAL — strictly weaker input and a subset
   of assertions, readable from the test itself — which is what round 7's deletion actually rested on.
   Kill-set subset relations alone are a hypothesis about the mutant set, not a finding about tests.
-  Still open elsewhere and unchanged: the middleware.ts CRITICAL (immediate, outside this chain), the
-  plan-level MEDIUM on the persist API, and tsconfig.test.json — all with steering.
+  SEAM FLUSH appended 2026-08-24 (no verdict, no re-review; b3f8ea9 re-verified unmoved): standing
+  obligations for the next code-reviewer are the final section of this document, with every handed-over
+  trigger command run and controlled first. NOTE FOR ANY READER ARRIVING HERE: website HEAD is now
+  ee3bc3e, NOT b3f8ea9 — the paste-surface commit (M8-F/M8-E parity, one file, 69/7 on
+  NewMessageJsonInput.tsx) landed while this flush was being written and was caught by the end-of-pass
+  SHA re-verify. NO VERDICT IN THIS DOCUMENT REACHES ee3bc3e; it is unreviewed production source on a
+  surface no round has examined, and it is the successor's first action. T2 was re-run at ee3bc3e and
+  is still empty with both controls firing, so M8-G remains unwired and the persist-path attack is
+  still not owed. Still open elsewhere: the plan-level MEDIUM on the
+  persist API and tsconfig.test.json, both with steering. The middleware.ts CRITICAL is NO LONGER an
+  open escalation of mine — the owner ruled it a HANDOFF (agent-output a3d60d5, Status Open,
+  Owning-Stage Unassigned); the exposure is unchanged, chain 013 does not touch it, and its
+  Review-Trigger binds again before chain 013 closes.
 ---
 
 # Code Review: Plan 013 — Components V2 support across the editing surfaces (M1 only)
@@ -49,6 +60,7 @@ Status-Detail: >-
 | 2026-08-24 | implementer-hooks-013-2 (direct, per D22) | Re-review the round-5 fix round at `52e0e8a`; re-anchored mid-pass to `816d7fd` | Round 6, and the first round by this reviewer generation — carried from files (`e0f477f`, `3304fad`), not from a conversation. Every sweep and every figure in the implementation document re-derived rather than accepted, including the architecture document's absence, which was re-checked from the workspace root rather than inherited. The implementer's comment-only claim for `816d7fd` was settled by **executing** it — emitted JavaScript compared byte-for-byte at both commits — after a **positive control** caught my first comparison reporting IDENTICAL over four empty files, which is recorded in full because it is the defect this role raises against others. Sixth probe built (`probe-cr6-derivation-round/`): an exhaustive 1120-draft corpus, an oracle written independently of the implementation, a mutant control, and a purity check under frozen inputs. TDD red re-derived (10 red, matching) and **classified** — 5 discriminators, 4 pre-existence TypeErrors, 1 throw-match — so MEDIUM-2's fix is test-gated and MEDIUM-1's is not. Both round-5 MEDIUMs closed structurally; two new MEDIUM about enforcement rather than behaviour, one of them found by mutating the code to re-add the deleted parameter and watching every gate stay green. The implementer's comment sweep was verified by **breaking its predicate**, which found the class is wider than its comment-shaped form. The plan's Status field was NOT set, for the reasoning given in the verdict. **APPROVED_WITH_COMMENTS**, bound to `816d7fd` and to no other tree. |
 | 2026-08-24 | implementer-hooks-013-2 (direct, per D22) | Re-review the round-6 fix round at `87cfbd8` | Round 7. **Scope widened on my own initiative**: `87cfbd8` sits on `a3e758b`, the M2+M8 Load wiring, which no round had reviewed — reviewing only the 1-line delta would have passed the wiring through unexamined. **The adversarial-execution obligation, live since `a3e758b`, was discharged**: an isolated instance stood up with a wholly dummy environment and its database pointed at a dead port (the repository's real config names a remote hosted database, which is not mine to write to), then driven from **raw sockets** — 42 enumerated cases against `message.upsert`, **0 bypasses**, oracle fixed before the attack and asserted on the response and the server log rather than a status code. **Enumerating what the entry point branches on at module scope — a required step of that attack — surfaced a CRITICAL outside this chain**: the `/api/v1` authorization guard cannot fire, for two independent reasons, in front of two handlers with no auth of their own; demonstrated by execution and escalated IMMEDIATE, but kept out of the 013 verdict because `middleware.ts` is untouched by this chain. Seventh probe built (`probe-cr7-wiring-and-boundary/`, 17/17) with a negative control on the validator. Two hypotheses of mine were tested and **died** — the top-level component-type gap, and a `dropSet` wording concern from round 6 that `DROP_SET_LABELS` already resolves — and are recorded as such. TDD red re-derived: 3/3, all discriminating, no arity artifacts. LOW-1's class recurred in its own replacement, established by 4 mutants with no separation, so the ask is a rule rather than another point fix. **APPROVED_WITH_COMMENTS**, bound to `87cfbd8`. |
 | 2026-08-24 | implementer-hooks-013-2 (direct, per D22) | Re-review the round-7 fix round at `b3f8ea9` (LOW-1: delete a dominated regression test) | Round 8, deliberately short — a 15-line test-only deletion. Verified what a deletion can actually break rather than re-reviewing the tree: exactly one test removed (counted independently on both trees), and **zero mutant-detection capability lost**, established by re-running round 7's mutant set plus more against the post-deletion file. Pairing, probes, spec, typecheck and the pinned failure set all re-run. **One INFO found while checking the deletion**: `switchToClassic`'s embed preservation is held by exactly one *incidental* assertion across 370 tests, and that test has already been rewritten twice in this chain — routed to QA's follow-up register, not held against the tree, per the rounds-stop rule. **A correction to my own round-7 rule, recorded rather than quietly applied**: a dominance matrix reported a dominated pair four times and all four were artifacts of my mutant set, each dissolving when the missing mutant was added — so dominance licenses deletion only when it is *structural*, which is what round 7's actually rested on. **APPROVED**, bound to `b3f8ea9`. |
+| 2026-08-24 | steering-hooks-013-2 (generation seam) | "Shore up your state and prepare to handoff to a successor code-reviewer session" | **Seam flush, no verdict and no re-review.** State re-derived rather than remembered: my domain is clean and committed (83 instrument files, 9 probes, both READMEs, verified by `git ls-files` after an initial `0` that was my own persisted-`cd` bug and is disclosed as such); `agent-output` has moved three commits past mine, so **D26** (plan rev 18) and the **owner's handoff disposition of CRITICAL-1** (`a3d60d5`) were read first-hand rather than assumed. **The mandatory end-of-pass SHA re-verify fired**: the tree moved mid-flush from `b3f8ea9` to `ee3bc3e` as the paste-surface commit (M8-F/M8-E parity, 69/7 on `NewMessageJsonInput.tsx`) landed while I wrote. The flush was corrected by replacement rather than smoothed over, and the successor's first action changed from "wait for a commit" to "review `ee3bc3e`" — production source on a surface no round has examined, reached by no verdict in this document. T2 re-run at the new HEAD: still empty, both controls firing, so M8-G is unwired and the persist attack is still not owed. Established the file is untouched by the chain three independent ways after `git log \| grep -c ''` returned **1** over a **0-byte** result — a new instance of the standing RTK unsoundness, recorded. Every command handed to the successor was **run and controlled first**, which caught a wrong path in the first seam's own writer list (`SaveAsMenu.tsx`). All six first-seam obligations dispositioned: one discharged and re-scoped, five still standing. Two of nine probe rigs found in the degenerate state and the repair recorded. |
 
 ## Scope Actually Assessed
 
@@ -3240,3 +3252,196 @@ discriminating power, which is QA's to assess, not a defect in the code. Named a
 **QA is still not the next stage.** M3, M4, M6 and M8-G remain.
 
 **Rounds 1–7's verdicts are unaffected.** Each stands on its own tree.
+
+---
+
+# Standing obligations for the next code-reviewer on plan 013 — second seam
+
+Written by `code-reviewer-hooks-013-2` at a generation seam, following the same convention as the
+first seam above (`e0f477f`, `3304fad`): the flush is a section of this document, not a separate
+file, and **every command handed over below was run and controlled before it was written down.**
+Nothing here depends on remembering a conversation. My predecessor's section remains valid where I
+have not marked it discharged or amended — read both.
+
+## 0. State of the tree at this seam — re-derived, not remembered
+
+| fact | value | how established |
+|---|---|---|
+| `website` branch | `chain/013-components-v2-editing-surfaces` | `git rev-parse --abbrev-ref HEAD` |
+| `website` HEAD | **`ee3bc3e`** | `git rev-parse HEAD` — **THE TREE MOVED MID-FLUSH; see the correction below** |
+| last tree I hold a verdict on | `b3f8ea9` | round 8, APPROVED. **`ee3bc3e` is UNREVIEWED.** |
+| `website` working tree | clean but for QA's untracked probe | `?? src/utils/__tests__/013-qa-phase1-seed-route-probe.test.ts` |
+| `agent-output` HEAD | `a6dc80b` | three commits past my `cf84cb8` |
+| my domain | **clean and committed** | `git status --short code-review/ verification/` → nothing but probe `node_modules` |
+| instruments | **83 files, 9 probes, both READMEs** | `git ls-files verification/013 \| grep -c ''` |
+
+**Corrected mid-flush, and left visible rather than smoothed over, because it is the rule working.**
+When I began this section the working tree was dirty over `b3f8ea9`: `NewMessageJsonInput.tsx`
+carried an uncommitted **69 / 7** (`git diff --numstat`), pulling in `applyDisposition` (×2),
+`ContentLossOption` (×2), `pendingChoice` (×3) and `resolveContentLoss` (×1) — the paste surface
+being wired to EC-3. I wrote it up as in-flight work to wait for. **The end-of-pass SHA re-verify —
+mandatory, and the reason it is mandatory — caught that it had landed while I wrote**, as
+
+```
+ee3bc3e  Plan 013, M8-F/M8-E paste-surface parity: NewMessageJsonInput.tsx …
+```
+
+with `git diff --numstat b3f8ea9 ee3bc3e` → exactly `69  7` on that one file. My read of *what* it
+was proved right; **my guess at which milestone was wrong — it is M8-F/M8-E parity, not M3.** That
+file is untouched by chain 013 through `b3f8ea9`, established three independent ways after one
+reading disagreed: identical blob `da90f6c` at `92ce026` and `b3f8ea9`, zero bytes of `git log`
+output, and an empty `git diff --numstat` across the chain range.
+
+**So your first action is not to wait for a commit — it is to review `ee3bc3e`.** No verdict in this
+document reaches it. It is a **single-file, production-source change to a surface no round has
+examined**, wiring the paste path into EC-3, and it is a first pass, not a fix round: review it as
+one. Note it lands *after* an APPROVED, so there is no open finding pulling you toward the flagged
+sites — the sweep is the whole surface.
+
+## 1. Disposition of the first seam's six obligations
+
+| # | first-seam obligation | disposition |
+|---|---|---|
+| 1 | Adversarial-execution exemption + expiry trigger | **DISCHARGED, and the trigger has expired.** See §2 — the expiry fired at `a3e758b` and I attacked. The obligation is now *re-scoped*, not closed. |
+| 2 | No finding ships without a "does not match" clause | **STILL STANDING — I complied, keep complying.** Every enumeration in rounds 6–8 carries one. |
+| 3 | The withdrawn "instrument basis ≠ class definition" hypothesis | **STILL STANDING. Do not resurrect it.** Nothing in rounds 6–8 revived it. |
+| 4 | Do not set the plan's Status field | **STILL STANDING, and still correct.** I did not set it at round 8 despite APPROVED. Five milestones remain; M3/M4/M6/M8-G outstanding. Refer any challenge to steering. |
+| 5 | `baseline-expected-six` + `probe-cr3-mode-predicate` are a pair, run both | **STILL STANDING — I ran both every round** (round 8: CR3 122/122). **Steering's conditional judgement still rides on this.** If you stop running CR3, say so plainly; do not let that judgement hold silently. |
+| 6 | Suite not green / never take figures from the working tree / RTK unsoundness / verdicts do not travel | **ALL STILL STANDING.** Each bit me or was re-confirmed in rounds 6–8; see §4. |
+
+## 2. The adversarial obligation, re-scoped — this is the important one
+
+**The first seam's exemption is gone.** T1 below returns a hit at `b3f8ea9`, so "nothing can reach
+the gate" is no longer true.
+
+**But note the trigger drift, because it will mislead you if you do not.** The first seam wrote that
+trigger expecting the wiring to be the **persist** path, and instructed the expiring round to "drive
+the five IS-1 writers". What actually landed at `a3e758b` was the **Load** path, which does not
+persist. So in round 7 I drove the boundary those writers funnel into — `message.upsert` — and said
+so rather than claiming the writers' coverage. **The writers themselves are still undriven.**
+
+**T2 is the trigger that matters now**, and it is the M8-G trigger. Run it; empty means M8-G is not
+yet wired and the persist-path attack is still not owed:
+
+```bash
+cd /usr/local/bin/hooks/website
+W="src/providers/MessageProvider/useApiMethods.ts \
+src/app/message/m/[id]/_components/SaveAsMenu.tsx \
+src/app/message/_components/NewMessageModal.tsx \
+src/app/message/m/new/page.tsx \
+src/app/message/f/[id]/page.tsx"
+git grep -c "gateBeforePersist\|applyDisposition\|resolveContentLoss" <sha> -- $W
+```
+
+**Controlled, and re-run at the new HEAD:** returns **empty at both `b3f8ea9` and `ee3bc3e`** — so
+**M8-G is still not wired and the persist-path attack is still not owed**, including after the
+paste-surface commit. Two controls, both run at both SHAs:
+(a) **path control** — all five paths `git cat-file -e` clean at `b3f8ea9`; *note one of the first
+seam's five paths was wrong* (`SaveAsMenu.tsx` is under `m/[id]/_components/`, not
+`_components/`), which is precisely why the path control exists and why the corrected list is above;
+(b) **predicate control** — the identical pipeline over the same five files on a symbol they do use
+returns a hit in **all five**, so the empty result is a real absence, not a broken predicate.
+
+**Blind spot, same as the first seam's**: it matches three names and cannot see a consumer reaching
+the gate via a re-export under another name, nor an inline reimplementation that never calls them.
+
+**When T2 fires, that round owes the persist-path attack**: drive the five writers against a running
+instance and assert the negative **on the persistence surface itself** — no `message.upsert` before
+a choice — never on a response status. `probe-cr7-wiring-and-boundary/attack-upsert.py` is the
+starting point (42 raw-socket cases). **Two hard constraints on standing an instance up**, both paid
+for already: `website/.env.local` points at a **remote hosted database** — never stand an instance
+against it and never drive a mutation through it; use a dummy env with `DATABASE_URL` on a dead
+port, which is not merely safe but *makes the oracle work*, since handler execution then manifests
+as an observable connection failure. There is **no `schema.prisma`** in this repo.
+
+## 3. New standing items from rounds 6–8
+
+**a. My own round-7 rule was wrong as stated, and I corrected it publicly.** The implementer adopted
+it verbatim, so the unqualified version is loose in the record:
+
+> **Dominance justifies deleting a test only when it is *structural* — strictly weaker input **and**
+> a subset of assertions, readable from the test's own text. A subset relation between kill sets over
+> a hand-built mutant set is a hypothesis about the mutant set, not a finding about the tests.**
+
+A dominance matrix reported a dominated pair **four times; all four were artifacts of my own
+incomplete mutant set**, each dissolving when the missing mutant was added. Acting on any would have
+deleted real coverage. If a fix round cites "dominance" to justify a deletion, **require the
+structural form** — the kill-set form is not sufficient.
+
+**b. Round-8 INFO-1 is live and routed to QA, not to the tree.** `switchToClassic`'s embed
+preservation is held by **exactly one incidental assertion in 370 tests** — the round-5 `dropSet`
+test, which catches it only because `diffDroppedKeys` executes the real `applyModeSwitch`. Within
+the EC-3 block the same mutant kills **0 of 6**. That test has been rewritten twice in this chain; a
+third rewrite drops the last check on a data-preservation property **with a green suite**.
+**Expiry test** (cheap, mechanical): run `probe-cr8-deletion-coverage/m13-embed-preservation.py`. It
+currently kills exactly one test. **Kills ≥2 → a direct assertion has landed and INFO-1 is closed.**
+
+**c. CRITICAL-1 is dispositioned — do not re-escalate it as IMMEDIATE.** The owner ruled it a
+**handoff**, not a chain and not an immediate fix. Document at `agent-output` `a3d60d5`
+(`handoff/v1-guild-messages-endpoints-unauthenticated-2026-08-24.md`, `Status: Open`,
+`Owning-Stage: Unassigned`); my executed evidence and both attack scripts are cited there at
+`79bbcaf`. **The exposure is unchanged and chain 013 proceeds without touching it.** Its
+`Review-Trigger` binds you in two places: before anyone edits `src/middleware.ts`, adds a route
+under `/api/v1/`, or touches the `matcher` array — **and before chain 013 closes**, whose deploy
+puts the same endpoints in front of traffic again. Raise it at chain close; do not let the release
+pass silently.
+
+**d. D26 is new (plan rev 18, `a6dc80b`) and changes your reporting timing, not your gates.** Stage
+sessions interrupt steering only when something **prevents them continuing**; everything else is
+carried to end-of-run. D22's four never-settled classes are **retimed, not waived**. The row states
+explicitly that **no gate is waived** — reject-on-quality authority, the `Reviewed-At` binding, and
+QA's `Verified-At` all stand. A **blocked action is always blocking** and therefore always
+immediate, and is still never retried in different words.
+
+## 4. Rig hazards — two of the nine probes are in the degenerate state right now
+
+**Check before running any probe.** Controlled: the command below distinguishes two states that
+both genuinely exist in the tree at this moment, which is the control.
+
+```bash
+cd /usr/local/bin/hooks/agent-output/verification/013
+for d in probe-*/node_modules; do
+  printf "%-45s " "$d"
+  if [ -L "$d" ]; then echo "SYMLINK (ok)"; elif [ -d "$d" ]; then echo "REAL DIR — DEGENERATE"; fi
+done
+```
+
+At this seam: `probe-cr3`, `cr5`, `cr6`, `cr7` are **SYMLINK (ok)**; **`probe-cr1` and `probe-cr2`
+are REAL DIR with 0 entries — degenerate.** That is the exact shape that cost me a round: `npx` then
+fetches vitest from the network and fails with `Cannot find module 'vitest/config'`, **exit 1, no
+tests run** — which reads like a probe failure rather than a rig failure. **`ln -sfn` does not
+repair it** (it creates the link *inside* the directory). The repair is:
+
+```bash
+rm -rf node_modules && ln -sfn /usr/local/bin/hooks/website/node_modules node_modules
+```
+
+Those `node_modules` entries show as untracked in `git status`. **They are mine, not foreign** — do
+not mistake them for another session's work, and never commit them.
+
+**A new RTK instance, caught at this seam and worth adding to the first seam's list.**
+`git log --oneline <range> -- <path> | grep -c ''` returned **1** over a result whose raw byte count
+was **0** — a false positive for "this file was touched in the chain". Caught only because it
+contradicted `git rev-parse` on the two blobs (identical) and `git diff --numstat` (empty).
+Consistent with the standing rule: **an exact-match or positional predicate over filtered output is
+unsound.** Write to a file and read it, or use something computing before the filter.
+
+## 5. What is routed elsewhere — not yours to carry
+
+- **steering / owner**: CRITICAL-1 (handoff, §3c); the plan-level MEDIUM (persist API accepts the
+  5712 shape from any caller); `tsconfig.test.json`.
+- **QA**: round-8 INFO-1 (§3b); the rounds 6/7/8 Assumptions Not Checked; the M8-E notice
+  instrument; the `012-message-mode.test.ts` re-anchor that makes the suite green.
+- **implementer**: nothing outstanding from code review at `b3f8ea9`. Next units M3, M4, M6, M8-G —
+  and M3 is already in flight uncommitted (§0).
+
+**Two seam gaps I reported to steering and which may still be open**: the R9 watch (`9de4ed7`)
+appears in this document only once, as a plan risk row, without its close condition or escalation
+path; and D22's four never-settle classes are referenced but never enumerated in one place. D26 has
+since restated them (§3d) — check whether that closes the second.
+
+## 6. What I would tell you in one line
+
+**Review `ee3bc3e` first — the paste surface, committed while I was writing this and covered by no
+verdict here — and keep watching whether the wiring reaches the persist path, because that is where
+T2 fires and the attack you owe stops being optional.**
