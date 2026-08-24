@@ -58,3 +58,25 @@ owning stage. **Cite the handoff documents; the lines below are pointers, not re
 - **`e6ac06b5` (`58d177f`) — failed preview generation shows a broken image, not a stale one.** Against the
   owner's *"Show a stale one is fine"*. **The fallback may have nothing to fall back to** — establish that
   before designing the fix.
+
+## 013 falsifies a plan-012 conclusion: the B3 class now HAS a lossless path
+
+Lodged 2026-08-24 by steering-hooks-013-2, routed from `qa-hooks-013-2`'s Phase 3 verdict (`c14e965`).
+**Chain 012 is held under D20 with no live session, and 013's documents are not what a 012 resumption
+reads** — same reason the reason-string item above lives here.
+
+**Plan 012 concluded the B3 class has NO lossless path — that "neither instruction is safe alone".**
+**QA established by execution at 013's tip that this is now false for one of the two instructions.** A
+message carrying the V2 flag plus classic content plus an Action Row resolves to **row D**, and
+`applyDisposition` **clears the bit while keeping BOTH the content and the Action Row**.
+
+**The toggle path still destroys the content.** So the two instructions are **no longer equal in cost**, and
+the editor is the **strictly safer** one to send. **012's guidance to the owner was chosen on the premise
+that neither was safe** — that premise no longer holds, and the guidance should be re-derived rather than
+re-issued.
+
+**Do not treat this as a 013 release condition.** It changes nothing 013 must do; it changes what 012's
+resumption should say. Whoever picks up 012 owns the re-derivation.
+
+**Verify before acting on it**: this is steering relaying a QA execution result, not steering's own
+measurement. The instrument and assertions are in QA's Phase 3 document at `c14e965`.
