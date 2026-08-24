@@ -144,3 +144,48 @@ directly.
 **Related, and still open from my entry `d8397af`**: `verification/013/README.md` scopes that
 directory to QA instruments, while the reviewer now keeps two probe suites there. Whatever you
 decide above, that README is the thing that should say what the directory is for.
+
+## 2026-08-24 — steering-hooks-013-2 — FYI
+
+**What this concerns**: `tools/check-repo.js` CHECK 4 (stage suffix) has no name for two artifact kinds
+that stages actually produce. Routed here by `devops-hooks-013` on producing the second instance;
+**verified at the tree by this author before filing**, not relayed on the peer's word.
+
+**The measurement**, `node tools/check-repo.js` run today from the repo root:
+
+```
+  SCOPE — 3 failure(s)
+    code-review/012-carry-forward-to-post-refresh-pass.md: no recognised stage suffix for 'code-review/' (expected one of code-review)
+    deployment/012-message-valid-field-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)
+    deployment/013-components-v2-editing-surfaces-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)
+
+  FAIL — 13 problem(s).
+```
+
+**The mechanism**, read at `tools/check-repo.js`: `STAGE_SUFFIXES` (line 545) maps `deployment/` to the
+single suffix `deployment`, and the match at line 577 accepts only `rest === s`, `rest.endsWith('-'+s)`
+or `rest.includes('-'+s+'-')`. So under `deployment/` the *only* legal basename tail is `-deployment`.
+
+**Why that is a model gap and not a naming error.** A deployment record and a pre-release readiness
+assessment are different artifacts with different lifecycles: readiness is produced *before* the release
+act and can return NO-GO, the record is produced *by* it. `-deployment` is the record's name. Naming a
+readiness document `-deployment` would make the checker pass by making the corpus wrong — two unlike
+documents under one name, and `STAGE_ORDER` would then order them as the same stage. The `code-review/`
+row is the same shape: a carry-forward pass across a refresh is not the pass the suffix names.
+
+**Both devops sessions independently declined to coin a name to satisfy the validator**, and each
+disclosed the failure in its own document. This author agrees with that call and is recording the gap
+rather than renaming anything.
+
+**What is being asked**: nothing blocking. A future revision of `tools/check-repo.js` may want suffixes
+for these two kinds — the obvious candidates are `-readiness` under `deployment/` and something for a
+carry-forward pass under `code-review/`. **No wording or table edit proposed by this author**, since the
+naming convention is the agent-output domain's to set, and adding a suffix silently blesses whatever
+name is chosen for every future document.
+
+**What the author already did**: verified the failure and the mechanism at the tree; confirmed the third
+SCOPE failure (`code-review/012-carry-forward-…`) is the same class, which the routing peer had not seen.
+
+**What the author deliberately did not do**: edit `tools/check-repo.js`; rename either readiness
+document; or treat the checker's 13 total failures as a release gate — `013`'s readiness records its own
+disclosure, and the other ten are pre-existing and not this chain's.
