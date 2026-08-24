@@ -27,7 +27,9 @@ Status-Detail: >-
   as either a read-path defect or the ask failing. **Rev 7**: QA executed both items this pass handed
   over (`32737d3`) — R7's first limb is **confirmed not tripped** by the seeds, narrowing U-1, with the
   correction that `valid = false` **does not discriminate** (the seeds are invalid for two independent
-  reasons; key on the reason string, never the boolean).
+  reasons; key on the reason string, never the boolean). **Rev 8** records the F-QA14 method
+  concurrence and a resumption table; this session ended near its run-length ceiling with its work
+  complete, not truncated.
 ---
 
 # UAT Report: Plan 013 — Components V2 support across the editing surfaces
@@ -48,6 +50,7 @@ Status-Detail: >-
 | 2026-08-24 | *(none — raised by this pass)* | — | Rev 5. **Finding U-1 raised**: D20's seed records (5855, 5856) are permanent members of `flagStructureDisagreement`, so after the owner's D19 repair the plan's assumption-7 detector reads **2** where he expects **0** — a working repair looks like a failed one — and the V2-error limb fires too, since that is Half B's precondition. Verified verbatim against the plan's Assumptions item 7 and its "29 empty, 2 disagreeing" count. Routed to steering as plan-touching; no remedy adopted. One inference left deliberately unexecuted and flagged. Still no verdict. |
 | 2026-08-24 | qa-hooks-013-2, direct under D27 (`9946eb9`) | Both UAT digests actioned: extensions executed, BC-11 split, one assumption routed back that lands on Appendix A | Rev 6. Both extensions **CONFIRMED by QA's execution** (24 assertions, 5 mutants killed), including the conflict-UPDATE leg Half B actually exercises. BC-11 **split into BC-11a (`EXECUTED`, terminal) / BC-11b (`NOT EXECUTED`)**, both defect reports adopted; register restated here from QA's document re-read at write time. **Appendix A amended**: QA's unexamined read path makes a Classic-mode open ambiguous between a read-path defect and the ask not firing — the script now stops the observer there rather than letting either conclusion be drawn. **F-QA11 ruled out for this script by this pass**: `SaveAsMenu` uses `?? ''` → `null` (accepted), not `NewMessageModal`'s `?? '0'` (refused), so Save As is not exposed. Still no verdict. |
 | 2026-08-24 | qa-hooks-013-2, direct under D27 (`32737d3`) | Both items this pass handed over were **executed** rather than recorded at read level | Rev 7. **R7's first limb CONFIRMED not tripped** by the seeds — U-1 is narrower than raised. **Correction carried**: `valid = false` does not discriminate; the seeds are invalid for **two** independent reasons (no username, plus the V2/classic conflict), so anything keying on the boolean must key on the **reason string**. **F-QA11 class-closed by QA over a predicate** (4 sites; two guard `'0'` explicitly), making it a single-site oversight and this pass's Save As read mutant-checked rather than read-level. Appendix A's F-QA11 note strengthened to *positively distinguishable*. Still no verdict. |
+| 2026-08-24 | qa-hooks-013-2 (`30f419f`) — receipt both ways, nothing owed | — | Rev 8. **F-QA14 concurrence recorded here**, because QA recorded it as concurred by both stages and a concurrence present in only one document is not one: an inference with a **sound conclusion** is the dangerous case, since the trap travels attached to a correct answer and nothing downstream contradicts it — **a stated gap survives being right**. **Run Record and Resumption** table added: BC-11a and the D20 clause terminal; **BC-11b owed and blocking**; U-1 with steering; the UAT gate itself entirely unstarted. Session ended near its run-length ceiling with work **complete, not truncated**. Still no verdict. |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -447,6 +450,39 @@ steering-hooks-013-2 rather than raised while he sleeps.
 5. Not owed yet, listed so the sequence is visible: predecessor-status verification, the value
    assessment, the walkthrough of BC-1 … BC-11, and the release decision — all at the real UAT pass,
    after Implementation, Code Review and QA Phase 2 are complete.
+
+## Concurrence — F-QA14 (method, routed to the retrospective)
+
+Recorded here because QA has recorded it in `qa/013-...-qa.md` (`30f419f`) as **concurred by both
+stages**, and a concurrence asserted in one document and absent from the other is not one. **This pass
+concurs**, in the terms it originated:
+
+> An inference whose **conclusion is sound** is the dangerous case, not the safe one. Had the
+> `valid = false` inference been handed over as a comfortable result rather than a stated gap, it would
+> have been adopted **with the trap attached to a correct answer** — and nothing downstream would ever
+> have contradicted it, because the answer was right. **A stated gap survives being right.**
+
+QA adds the generalisation, which this pass also concurs with: every instrument defect found in this
+cwd so far was caught by a **contradiction against a second instrument**, never by re-running the
+first. This one was caught instead by the originator declining to let the first instrument stand
+alone — **cheaper than either**, because it costs one sentence at handover rather than a second
+instrument later.
+
+## Run Record and Resumption
+
+**This session stopped near its run-length ceiling, with its work for the night complete rather than
+truncated.** Nothing was left mid-flight. A successor UAT session resumes **from this document alone**
+and needs no briefing:
+
+| | |
+|---|---|
+| **Done and terminal** | BC-11a (the mint) — `EXECUTED` 2026-08-24 on the owner's attestation, quoted verbatim above. D20's re-derivation clause — RESOLVED on the substance |
+| **Owed, non-terminal** | **BC-11b (the ask)** — blocks an unconditional approval. **Appendix A is its one-shot script, current.** Needs a browser and a chain-tip environment carrying the shape |
+| **Raised, awaiting disposition** | **U-1** (with steering) — the seeds disarm both limbs of assumption 7's falsifier; narrowed at rev 7 (R7's limb confirmed clean); carries the `valid`-boolean trap |
+| **Not started** | The UAT gate itself. Predecessor-status checks, value assessment, the BC-1…BC-10 walkthrough, and the release decision are **all** still owed, and gated on Implementation, Code Review and QA Phase 2 (itself gated on M4 + M6) |
+| **Registers** | QA's (`qa/013-...-qa.md`) is chain 013's single register and the authority on row *definitions*; **this document is authoritative on row state**, and QA's maintenance log names rev 7 (`92e3dbf`) as the successor entry point for BC-11a/BC-11b |
+| **Left in place deliberately** | Detached worktree `/tmp/uat013-c85945f` at `c85945f`, this session's, not foreign debris. The shared tree's branch was never switched |
+| **Standing** | Seed records **5855 and 5856 must not be deleted** — BC-11b runs against them. That instruction is steering's, not an owner ruling; D20 left their disposition expressly unruled |
 
 ---
 
