@@ -1,0 +1,13 @@
+CR16-A — persist gate vs send floor, at 66e1974
+
+  gate        = hasClassicContent (resolveContentLoss -> gateBeforePersist)
+  sendBlocked = validateContentRequirements returned an error
+
+  empty embed {} — exactly what "Add Embed" appends gate:false mustAsk:false sendBlocked:true
+  embed with only an empty title                 gate:false mustAsk:false sendBlocked:true
+  embed carrying only a _key                     gate:false mustAsk:false sendBlocked:true
+  embed with an empty fields array               gate:false mustAsk:false sendBlocked:true
+  two empty embeds                               gate:false mustAsk:false sendBlocked:true
+  whitespace-only content                        gate:false mustAsk:false sendBlocked:false
+  real content — a genuine row E                 gate:true  mustAsk:true  sendBlocked:true
+  real embed — a genuine row E                   gate:true  mustAsk:true  sendBlocked:true

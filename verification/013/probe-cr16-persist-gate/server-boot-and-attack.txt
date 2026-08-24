@@ -1,0 +1,40 @@
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+[ioredis] Unhandled error event: Error: connect ECONNREFUSED 127.0.0.1:59998
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+[ioredis] Unhandled error event: Error: connect ECONNREFUSED 127.0.0.1:59998
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+[ioredis] Unhandled error event: Error: connect ECONNREFUSED 127.0.0.1:59998
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+[ioredis] Unhandled error event: Error: connect ECONNREFUSED 127.0.0.1:59998
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+[ioredis] Unhandled error event: Error: connect ECONNREFUSED 127.0.0.1:59998
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+[ioredis] Unhandled error event: Error: connect ECONNREFUSED 127.0.0.1:59998
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+[ioredis] Unhandled error event: Error: connect ECONNREFUSED 127.0.0.1:59998
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+[ioredis] Unhandled error event: Error: connect ECONNREFUSED 127.0.0.1:59998
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+[ioredis] Unhandled error event: Error: connect ECONNREFUSED 127.0.0.1:59998
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+[ioredis] Unhandled error event: Error: connect ECONNREFUSED 127.0.0.1:59998
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+[ioredis] Unhandled error event: Error: connect ECONNREFUSED 127.0.0.1:59998
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+[ioredis] Unhandled error event: Error: connect ECONNREFUSED 127.0.0.1:59998
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+[ioredis] Unhandled error event: Error: connect ECONNREFUSED 127.0.0.1:59998
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+[ioredis] Unhandled error event: Error: connect ECONNREFUSED 127.0.0.1:59998
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+[ioredis] Unhandled error event: Error: connect ECONNREFUSED 127.0.0.1:59998
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+[ioredis] Unhandled error event: Error: connect ECONNREFUSED 127.0.0.1:59998
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+[ioredis] Unhandled error event: Error: connect ECONNREFUSED 127.0.0.1:59998
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+[ioredis] Unhandled error event: Error: connect ECONNREFUSED 127.0.0.1:59998
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+[ioredis] Unhandled error event: Error: connect ECONNREFUSED 127.0.0.1:59998
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+[?25h

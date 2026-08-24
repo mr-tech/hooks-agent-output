@@ -1,0 +1,20 @@
+A. unauth upsert, row-E body (batch)
+  HTTP/1.1 401 Unauthorized
+  held=True reached=[] => AUTH-HELD
+  head: 'HTTP/1.1 401 Unauthorized\r\nSet-Cookie: next-auth.csrf-token=78b7f64f30c13894791a2b4a26f477f7997ca8d0c1fd09e0b2c17746d5493beb%7Cdd6b1f2b0ba80c5f64f8c530480c9b9f4094fecdd5617007eaf9717f091965ee; Path=/; HttpOnly; SameSite=Lax\r\nSet-Cookie: next-auth.callback-url=http%3A%2F%2F127.0.0.1%3A3118; Path=/; HttpOnly; SameSite=Lax\r\ncontent-type: application/json\r\nVary: trpc-accept, Accept-Encoding\r\nDate: Mon'
+
+B. unauth upsert, row-E body (non-batch)
+  HTTP/1.1 401 Unauthorized
+  held=True reached=[] => AUTH-HELD
+  head: 'HTTP/1.1 401 Unauthorized\r\nSet-Cookie: next-auth.csrf-token=6b518c606a042051abf798429c27bf189d4490fce1b0ba008549f89b73d3055d%7C8e9cf630ae3bdb6aaac715f54efada4cfdc57cfe37f3b6a5b2bf55f3bf90e133; Path=/; HttpOnly; SameSite=Lax\r\nSet-Cookie: next-auth.callback-url=http%3A%2F%2F127.0.0.1%3A3118; Path=/; HttpOnly; SameSite=Lax\r\ncontent-type: application/json\r\nVary: trpc-accept, Accept-Encoding\r\nDate: Mon'
+
+C. unauth upsert, empty-embed divergence body
+  HTTP/1.1 401 Unauthorized
+  held=True reached=[] => AUTH-HELD
+  head: 'HTTP/1.1 401 Unauthorized\r\nSet-Cookie: next-auth.csrf-token=3341694b757e8e904da9c4cea8511e0fec0fa15f82b754d2f78dd7f9c94096d6%7C8244bd5fbba1816f2e347312671e03d4129fb4480ab1e733f2332cb0a10b7fa9; Path=/; HttpOnly; SameSite=Lax\r\nSet-Cookie: next-auth.callback-url=http%3A%2F%2F127.0.0.1%3A3118; Path=/; HttpOnly; SameSite=Lax\r\ncontent-type: application/json\r\nVary: trpc-accept, Accept-Encoding\r\nDate: Mon'
+
+D. control: unauth GET on the v1 read endpoint
+  HTTP/1.1 500 Internal Server Error
+  held=False reached=[] => OTHER
+  head: 'HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 24 Aug 2026 09:46:10 GMT\r\nConnection: close\r\nTransfer-Encoding: chunked\r\n\r\n0\r\n\r\n'
+

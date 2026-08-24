@@ -2,24 +2,29 @@
 ID: 013
 Origin: 013
 UUID: 22d69e06
-Reviewed-At: "Round 13 (current, binding): 7890fc90600fd53ffe810a5cf78d0a9a5698aafd (chain/013-components-v2-editing-surfaces) — the round-12 fix round, two files, utils 3/2 and the spec 10/1. Verified at the start of the pass and again at the end; the tree did not move. Superseded, retained for the record: round 12 at 299b842, round 11 at 54fed63, round 10 at 82af843, round 9 at ee3bc3e, round 8 at b3f8ea9, round 7 at 87cfbd8, round 6 at 816d7fd, round 5 at 0c8fad5, round 4 at 92ce026, round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
+Reviewed-At: "Round 14 (current, binding): 66e1974519df1497423b154c17f22618459f7fe0 (chain/013-components-v2-editing-surfaces) — M8-G, the five-writer persist gate (D18), eight files. Verified at the start of the pass and again at the end; the tree did not move. Superseded, retained for the record: round 13 at 7890fc9, round 12 at 299b842, round 11 at 54fed63, round 10 at 82af843, round 9 at ee3bc3e, round 8 at b3f8ea9, round 7 at 87cfbd8, round 6 at 816d7fd, round 5 at 0c8fad5, round 4 at 92ce026, round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
 Status: In Review
 Status-Detail: >-
-  Round 13, the round-12 fix round, at 7890fc9. APPROVED — nothing holds the tree and M2-c is COMPLETE.
-  HIGH-1 closed STRUCTURALLY, the Preferred fix exactly as specified: the overwrite sentence is built
-  unconditionally and the diff appended, so no branch can omit it. Established by execution (probe-cr13,
-  16/16) over all eight round-12 paths, with a 299b842 control that FAILS the same assertion, plus an
-  exhaustive 18-cell sweep of the diff space. INFO-1 closed with it, and this round's TDD red is
-  BEHAVIOURAL rather than existence-only — "expected 'No component or mode changes.' to match
-  /overwrite/i" — reproduced independently at 7890fc9~1. probe-cr12 now fails 6/13, which IS the fix
-  working, and the contrast validates round 11: CR12 IMPORTS its subject so it expires correctly, while
-  CR10 TRANSCRIBES and so never expires. THE CLASS SWEEP WAS INCOMPLETE and I broke the predicate rather
-  than accepting it: withConfirmation( in *.tsx cannot see showConfirmation( nor .ts files, so the real
-  count is FIVE sites, not three. Two were missed; one, usePusher.ts:43, is a genuine MEMBER, and its
-  root cause — hasChanged is gated on status === "authenticated", so it is false for an unauthenticated
-  user however much they edited — also makes Navigation's Reload SKIP its confirmation entirely and run
-  the destructive action immediately. PRE-EXISTING, untouched by 013, routed to steering as a handoff
-  candidate, NOT held against this commit. Pairing run; T2 empty for the sixth consecutive round.
+  Round 14, M8-G — the five-writer persist gate (D18), at 66e1974. APPROVED_WITH_COMMENTS — the
+  milestone criterion is MET and verified, nothing holds the tree. T2 FIRED for the first time in
+  seven rounds (three of five writers hit; the two misses are the canned-intro pages, confirmed
+  non-members), and the persist-path attack it owed was RUN: an isolated instance stood up from a git
+  archive with a wholly dummy env and DATABASE_URL on a dead port, driven with raw sockets — every
+  message.upsert body returned 401, so an unauthenticated attacker cannot persist, and the server
+  input shape carries no mutual-exclusivity refinement, so once authenticated the ONLY gate is
+  client-side. The TDD red was reproduced independently and is BEHAVIOURAL: 5 fails against real
+  deleting code, including the exact "expected undefined to be 'Hello world'". stripKeys' deletion is
+  retired correctly (not bolted onto the serialiser). TWO findings, both routed, neither holding the
+  tree. MEDIUM-4: the persist gate's hasClassicContent is NARROWER than the send floor's
+  validateContentRequirements — they disagree on empty-ish embeds — so retiring stripKeys' deletion
+  turns a paste of a V2 component + an empty embed from silently-cleaned-and-sendable into
+  retained-but-unsendable with NO choice shown; reachable via malformed paste only, fail-safe, no data
+  lost, structural root pre-existing. Fix aligns the two predicates — do NOT restore the deletion,
+  which reintroduces D18's class. LOW-3: the row-E choice UI is triplicated and SaveAsMenu's copy
+  strands its choice state on dismissal — the round-9 MEDIUM-3 class recurring in a new copy;
+  SaveChoiceModal was extracted but only one of three sites uses it. Two non-test stripKeys consumers
+  (send wire form, usePusher hash) examined and cleared. CRITICAL-1 reconfirmed live on the v1 control,
+  NOT re-escalated. Plan Status field NOT set, per both seams and steering.
 ---
 
 # Code Review: Plan 013 — Components V2 support across the editing surfaces (M1 only)
@@ -35,6 +40,7 @@ Status-Detail: >-
 
 | Date | Agent Handoff | Request | Summary |
 |---|---|---|---|
+| 2026-08-24 | implementer-hooks-013-3 (direct, per D22/D26) | Review M8-G at `66e1974` (eight files), doc `e1305c9` | **Round 14. APPROVED_WITH_COMMENTS — M8-G complete.** **T2 fired for the first time in seven rounds** and the persist-path attack it owed was run: an isolated instance (git archive, dummy env, `DATABASE_URL` on dead port `59999` set explicitly per probe-cr14) driven with raw sockets — **every `message.upsert` body returned 401**, so unauth cannot persist; the server shape has no mutual-exclusivity refinement, so once authed the **only** gate is client-side. **TDD red reproduced independently and behavioural**: 5 fails against real deleting code at `7890fc9`+new tests, incl. the exact `expected undefined to be 'Hello world'`. Writer sweep re-run and broadened to the v1 write surface (GET-only, no server writer); all three real writers gated, both canned-intro writers confirmed non-members. **MEDIUM-4**: the persist gate's `hasClassicContent` is narrower than the send floor's `validateContentRequirements` — they disagree on empty-ish embeds — so retiring `stripKeys`' deletion turns a pasted V2+empty-embed from cleaned-and-sendable into retained-but-**unsendable with no choice** (`probe-cr16` 21/21, with a `7890fc9` control); malformed-paste-only, fail-safe, root pre-existing; fix **aligns the predicates**, not restore the deletion. **LOW-3**: the choice UI is triplicated and `SaveAsMenu` strands its choice on dismissal — round-9 MEDIUM-3 recurring in a new copy; `SaveChoiceModal` extracted but used by one of three sites. Two non-test `stripKeys` consumers (send wire form fail-closed, `usePusher` hash parity) cleared. CRITICAL-1 reconfirmed live on the v1 control, **not re-escalated**. Pairing run; **T2 fired**. |
 | 2026-08-24 | implementer-hooks-013-3 (direct, per D22/D26) | Re-verify the round-12 HIGH-1/INFO-1 fix at `7890fc9` (two files), doc `4d00fa1` | **Round 13. APPROVED — M2-c complete.** HIGH-1 closed **structurally**: the overwrite sentence is unconditional and the diff additive, so the class is unrepresentable. `probe-cr13` (16/16) with a `299b842` control that fails the same assertion, plus an exhaustive 18-cell sweep. Red reproduced at `7890fc9~1` and it is **behavioural**, not existence-only. `probe-cr12` correctly expired 6/13 — and the contrast with `probe-cr10` (which never expires) validates round 11: **import your subject, do not transcribe it.** **The class sweep was incomplete** — their predicate could not see `showConfirmation(` or `.ts` files, so there are **five** sites, not three. `usePusher.ts:43` is a genuine member; root cause is `hasChanged` being gated on `status === "authenticated"`, which also makes `Navigation`'s Reload **skip its dialog entirely**. Pre-existing and out of chain scope — **routed to steering as a handoff candidate, not held**. Pairing run; T2 empty for the sixth round. |
 | 2026-08-24 | implementer-hooks-013-3 (direct, per D22/D26) | Review M2-c at `299b842` (three files), doc `b7a7801` | **Round 12. REJECTED — one HIGH.** M2-c's criterion is met and the new functions are correct; the defect is what the wiring **removed**. `describeLoadDiff`'s no-diff branch returns "No component or mode changes.", and that replaced "This will overwrite the current message." as the entire confirmation body. Executed (`probe-cr12`, 13/13): on the **dominant** path — the modal is seeded with the current message — a user overwriting their own edited message is told there are no changes; same for content replaced, embeds replaced, and 3 containers collapsing to 1. The repo's other two confirmations both state their consequence. **TDD verified, not accepted**: red reproduced at `299b842~1` (12 failed), and since an existence-red proves only absence, **three mutants run, all killed (7/1/3)**. `joinWithAnd`'s behaviour-preservation **settled by execution** — 2000-case randomised differential with a positive control. `import/no-cycle` confirmed pre-existing from the line-17 import. Pairing run; T2 empty for the fifth round. |
 | 2026-08-24 | implementer-hooks-013-3 (direct, per D22/D26) | Re-verify the round-10 fix at `54fed63` (`0/1`, pure deletion), doc `ee1b3a3` | **Round 11. APPROVED.** MEDIUM-2 residual CLOSED — `probe-cr11` (17/17), two arms differing only by the deleted line, so the closure is a measurement not an assertion. Attacked the deletion for suppression holes rather than only confirming it: genuine class changes still warn across an invalid state, row E does not swallow a following warning, the first warning is not suppressed. The row-A re-fire is deliberately preserved and now **asserted**, so a later tidy cannot remove a warning the review chose to keep. **Instrument defect found**: `probe-cr10` is **stale by construction** — it hardcodes the pre-fix body and reported 12/12 at `54fed63` too, where the defect is fixed. Superseded by CR11; the `probe-cr1` hazard reproduced in a new instrument, caught only by re-running the old probe against the new tree. CR11 not exempted from the same critique: it establishes what the line does, the diff establishes it is gone, neither alone suffices. All round-9 findings now closed or routed; pairing run, T2 empty for the fourth round. |
@@ -4617,3 +4623,271 @@ guards an irreversible action. Named again in Next Steps.
 3. **QA** — this round's Assumption Not Checked (`WarningDialog` is outside the confirmation sweep),
    plus the carried ones from rounds 9, 11 and 12, and round-8 INFO-1.
 4. **A planner pass, when that queue reopens** — MEDIUM-1's reach into M4's Risks, unchanged.
+
+---
+
+# ROUND 14 — M8-G, the five-writer persist gate (D18), at `66e1974`
+
+**Reviewed-At**: `66e1974519df1497423b154c17f22618459f7fe0` (chain branch
+`chain/013-components-v2-editing-surfaces`). Verified at the start of the pass and again at the end;
+the tree did not move. `agent-output` at `975bfa6` on entry, `e1305c9` after the implementer's doc
+landed.
+
+**Verdict: APPROVED_WITH_COMMENTS.** M8-G's stated criterion is **met and verified** — every real
+persisting writer is gated on row E, both canned-intro writers are confirmed non-members, the
+`stripKeys` deletion is retired with an independently-reproduced TDD red, and the persist surface
+holds auth under raw-socket attack. **This is the round T2 finally fired, and the persist-path attack
+it owed was run.** Two findings, neither holding the tree: **one MEDIUM regression** that M8-G's own
+retirement of `stripKeys` exposes (a predicate divergence, structural root pre-existing), and **one
+LOW** (the choice UI triplicated, its copies already diverging on dismissal). Both routed.
+
+## Scope actually assessed
+
+`git diff --numstat 7890fc9 66e1974` → eight files: `NewMessageModal.tsx` (251/197),
+`SaveAsMenu.tsx` (61/3), `SaveChoiceModal.tsx` (44/0, new), `MessageProvider/index.tsx` (27/3),
+`useApiMethods.ts` (32/5), `utils/index.ts` (0/4, the deletion retired), and two test files
+(`components-v2-data-layer.test.ts` 5/3, `mutual-exclusivity.test.ts` 22/15). Read via `git show`,
+not the working tree.
+
+## T2 FIRED — for the first time in seven rounds
+
+```
+git grep -c "gateBeforePersist\|applyDisposition\|resolveContentLoss" 66e1974 -- <the five writer paths>
+```
+
+returns three hits — `NewMessageModal.tsx:3`, `SaveAsMenu.tsx:3`, `useApiMethods.ts:3` — where every
+round 7–13 returned empty. **Path control**: all five paths `git cat-file -e` clean at `66e1974`.
+**Predicate control**: `import` over the same five returns a hit in all five, so the three-of-five
+result is a real partition (two writers are the canned-intro pages, which are not members — see the
+sweep), not a broken predicate.
+
+## Verification re-run — nothing inherited
+
+| claim | instrument | result |
+|---|---|---|
+| typecheck | `npx tsc --noEmit` | **exit 0** |
+| lint (changed files) | `npx eslint <6 changed src files>` | **1 error**, the same pre-existing `import/no-cycle` in `utils/index.ts` — and the M8-G diff changed **no** import line, confirmed by `git diff 7890fc9 66e1974 -- src/utils/index.ts | grep '^[-+]import'` → empty |
+| failure **set** unchanged | `baseline-expected-six/check-expected-six.sh 66e1974` | **MATCH**, clean **494/488/6**, the six pinned failures by identity and reason |
+| the pairing's other half | `probe-cr3-mode-predicate/` | **122/122** |
+| this round | `probe-cr16-persist-gate/` | **21/21** |
+
+**Never taken from the working tree.** The comparator runs its own clean `git archive` extraction, so
+the implementer's shared-tree raw figure (501/495/6) was not used; the clean figure is 494/488/6.
+
+## The milestone criterion IS met — verified three ways
+
+**1. The writer sweep, re-run and the predicate broken.** The implementer enumerated
+`api.message.upsert.useMutation|upsertMessage(` → 15 lines and dispositioned each. I re-ran it
+independently and broke it two further ways: (a) the server-side `upsertMessage` and the tRPC router
+sites are not client writers (confirmed); (b) I enumerated the **v1 API write surface** the client
+sweep cannot see — `src/pages/api/v1/guilds/.../messages{,/[id]}.ts` — and both are `GET`-only
+(`if (req.method !== 'GET') return res.status(405)`), so there is no server-side persisting writer
+outside the tRPC path. The client persisting-writer set is exactly five, and:
+
+| writer | disposition | verified |
+|---|---|---|
+| `useApiMethods.saveMessage` (Save item/hotkey + edit-page Save) | **gated** — `gateBeforePersist(draft.data)` before `upsertMessage`; the gate lives inside `saveMessage`, so both call sites inherit it | read |
+| `SaveAsMenu.onSubmit` | **gated** — `gateBeforePersist` before `submitData` | read |
+| `NewMessageModal.onSubmit` | **gated** — covers all four `loadedMessage` sources | read |
+| `m/new/page.tsx` (two buttons) | **not a member** — `copyIntroMessage()` has no `components` key, so `resolveContentLoss` can never return row E | `copyIntroMessage.ts` read: fixed classic content, `components` absent |
+| `f/[id]/page.tsx` | **not a member** — same `copyIntroMessage()` payload | read |
+
+**2. The TDD red reproduced independently, and it is behavioural.** I built an old-source + new-test
+tree — `git archive 7890fc9` overlaid with the two M8-G test files from `66e1974` — and ran them:
+**5 failed**, including the exact `AssertionError: expected undefined to be 'Hello world'` the
+implementer reported, plus `expected undefined to be 'Kept'` and `…to be 'keep'`. One roundtrip test
++ four mutual-exclusivity tests = the claimed 1 + 4. These fail against **real deleting code**, the
+strong form, not `is not a function`.
+
+**3. The `stripKeys` retired-deletion sweep, re-run and broadened.** The implementer searched
+`src/utils/__tests__/*.test.ts`; I broadened to every `*.test.ts`/`*.test.tsx` in `src` and to every
+non-test consumer of `stripKeys`/`saveAsPayload`/`jsonModalSeed`. No test outside `src/utils/__tests__`
+references the retired behaviour; the two non-test consumers I had not seen are dispositioned below.
+
+## The adversarial obligation — discharged
+
+M8-G's gate is entirely client-side, so the question the attack answers is: **what does the
+persistence surface do with a row-E payload the client gate never saw?** An isolated instance was
+built at `66e1974` (`git archive` + `cp -al node_modules` — Turbopack rejects an out-of-root symlink,
+per round 7), a **wholly dummy** `.env.local` with `DATABASE_URL` on dead port `59999` set **also
+explicitly in the process env** (per probe-cr14, `override:true` would defeat it but Next's loader
+does not use it), `next dev -p 3118`. **Before attacking**, the entry point's module-scope branch —
+`middleware`'s `startsWith('/api/v1/*')` — was enumerated and its live value checked.
+
+**Oracle, fixed before the attack** (`probe-cr16-persist-gate/attack-persist.py`): `UNAUTHORIZED` with
+no persistence reach = auth holds; any `ECONNREFUSED`/`59999`/kysely/postgres/`"result"` = the
+resolver reached the persistence surface.
+
+**Input class enumerated**: `message.upsert` with a row-E body (V2 component + classic content), the
+empty-embed divergence body, batch and non-batch tRPC envelopes, and a v1-read control.
+
+**Result** (`attack-persist-out.txt`):
+- Every upsert body: **401 Unauthorized, no DB reach.** `upsert` is a `protectedProcedure`; an
+  unauthenticated attacker **cannot** persist. No new CRITICAL on the persist path.
+- The server input shape `optionalIdMessageShape` carries **no** mutual-exclusivity refinement and
+  **no** `filterSupportedComponents` (read from `shapes.ts`). So once authenticated, the **only** gate
+  between a row-E payload and the DB is client-side — which is what makes the MEDIUM below reach
+  persistence for the ordinary authenticated user.
+- **Control D reconfirmed CRITICAL-1 live**: an unauthenticated `GET /api/v1/guilds/…/messages`
+  reached the backend (ioredis on the dead port), so the guard did **not** fire. Pre-existing, already
+  handoff-dispositioned — **not re-escalated**, recorded only.
+
+## MEDIUM-4 — the persist gate's "has content" is narrower than the send floor's; M8-G exposes it as a save-but-unsendable regression
+
+**Location**: `resolveContentLoss` via `hasClassicContent` (`src/utils/index.ts`, symbol
+`hasClassicContent`) vs `validateContentRequirements` (`src/utils/limits.tsx`, symbol
+`validateContentRequirements`), the two predicates on either side of the persist decision.
+
+**Class**: a persisted draft is gated on one definition of "has classic content" and validated for
+sending on a **different** one; wherever they disagree, the gate stays silent and the message
+persists in a state the send floor rejects. `hasClassicContent` `.trim()`s content and, for embeds,
+counts only those with a non-empty non-`_key` field; `validateContentRequirements` counts
+`embeds.length > 0` bare. The class is every empty-ish embed (and any content the two trim
+differently) carried alongside a V2 component.
+
+**Enumeration**: `git grep -n "content\.trim()\|embeds\.length > 0\|embeds && .*length" 66e1974 --
+'src/**/*.ts' 'src/**/*.tsx' | grep -v __tests__` → **3** definitions of "has classic content":
+`utils/index.ts:37-38` (the gate), `limits.tsx:115` (the send floor), and `backfillValid.ts:94` (a
+migration script, reads content only — not on this path). Does **not** match: a fourth definition
+built inline inside a component, or one phrased over a renamed local. Executed divergence table
+(`probe-cr16` CR16-A, `divergence.txt`): for `{}`, empty-title, `_key`-only, empty-`fields`, and
+two-empty-embeds — **gate silent, floor blocks**; whitespace content and genuine content/embeds —
+**agree**. So the class is exactly the empty-ish embeds.
+
+**Reachability, disposition order applied**. Through the editor's own buttons: **not reachable** —
+`showEmbedButton` requires `isClassicMode`, `showComponentButton` requires `isV2Mode`
+(`DiscordMessageEditor/index.tsx:201-204`), mode-exclusive. Through **paste/import**: **reachable and
+a regression** — every `embedShape` field is `.optional()` so `{}` survives
+`discordMessageImportShape.parse`, and `filterSupportedComponents` keeps the V2 component (CR16-E,
+end-to-end through the real shape). Post-M8-G the empty embed is **retained** → content-invalid →
+unsendable; pre-M8-G `stripKeys` **deleted** it → valid → sendable (CR16-E control). The `valid`
+column feeds `buildMessageValues` (`server/api/utils/shared.ts:209`) and is **exposed by the v1 API**,
+so the degraded state is externally visible.
+
+**Magnitude** (stated, not measured against traffic): the input is **malformed paste only** — real
+Discord JSON with `flags=32768` never carries content/embeds, and the editor cannot build the
+combination — so the class is narrow. The failure is **fail-safe** (marked invalid, will not send bad
+data to Discord) and **loses no data** (retained). What it does is convert a previously working
+save-and-send into a silent save-but-unsendable **with no choice offered** — which is precisely the
+failure mode D18 exists to prevent, for this one input class.
+
+**This instantiates the plan's D18 risk** that a gate keyed on a different predicate than the
+validator leaves an unguarded gap; name that row when the planner writes the prediction record.
+
+**Required Action — eliminate the class, do NOT restore the deletion.** Re-adding
+`delete embeds/content` to `stripKeys` would reintroduce exactly the class D18 removed — that tidy is
+not acceptable. **Preferred (structural)**: make the persist gate and the send floor read **one**
+"has classic content" predicate, so a draft the floor will reject cannot pass the gate unasked.
+**Minimum**: clean truly-empty embeds at the import/editor boundary (not the serialiser) so the
+divergent input never forms. Captured check: `probe-cr16-persist-gate/gate.cr16.test.ts` blocks
+CR16-A/B/E — **this is the check that fails if the class returns** (it imports the real predicates).
+
+## LOW-3 — the row-E choice UI is triplicated and its copies already diverge on dismissal
+
+**Location**: `SaveAsMenu.tsx` (symbol `SaveAsMenu`, the inline `pendingChoice` branch),
+`NewMessageModal.tsx` (its inline branch), and `SaveChoiceModal.tsx` (the extracted component,
+consumed only by `MessageProvider/index.tsx`).
+
+**Class**: the same "Are you sure? / choose which to keep / nothing is saved until you choose" dialog
+is reimplemented per call site, and dismissing it (Escape / backdrop → `PresetDialog`'s `onClose`)
+does not uniformly clear the pending choice. `SaveChoiceModal` passes `onClose={onCancel}` (clears);
+`NewMessageModal` passes `onClose={pendingChoice ? cancelChoice : onClose}` (clears); **`SaveAsMenu`
+passes `onClose={onClose}` (does not clear)**. `SaveAsMenu` is mounted whenever `message` is truthy
+(`Navigation.tsx:415`), so its `useState` survives the close, and reopening shows the stale choice
+rather than the form (CR16-D, a state-machine model with the correct wiring as control).
+
+**Enumeration**: `git grep -c "cannot show both" 66e1974 -- 'src/**/*.tsx'` → **5** copies of the
+shared paragraph (`NewMessageJsonInput`, `NewMessageModal`, `JsonModalBody`, `SaveAsMenu`,
+`SaveChoiceModal`); of the three that own a `PresetDialog` for the **save** choice, one uses the
+extracted component and two are inline. Does not match: a dialog whose text is composed elsewhere and
+passed by prop.
+
+**This is the round-9 MEDIUM-3 class recurring in a new copy** — dismissal stranding choice state —
+which was closed for the paste surface and has reappeared because the UI was copied rather than
+reused. **Severity LOW** because the stranded state is not stale-*data*-dangerous (the message data is
+unchanged, so the re-shown choice is still correct) and the user can clear it via the dialog's own
+Cancel; it is a UX oddity, not a wrong write.
+
+**Required Action. Preferred (structural)**: consume `SaveChoiceModal` at all three save sites, so the
+dismissal contract exists once. **Minimum**: change `SaveAsMenu`'s branch to
+`onClose={pendingChoice ? cancelChoice : onClose}`, matching `NewMessageModal`.
+
+## Two non-test consumers of the changed `stripKeys`, examined and cleared
+
+`stripKeys`' output changed for V2+content inputs, so every consumer of its result was checked, not
+just the writers:
+
+- **`send/page.tsx:93`** (`stripKeys({ data: message.data }).data`, the wire form) — **fail-closed.**
+  `allowSave` requires `isMessageValid`, and `validateContentRequirements` blocks V2+content
+  (including the empty embed — I verified the floor catches it), so no row-E or divergence draft
+  reaches the send. The implementer's "left untouched, nothing reachable changed" claim holds.
+- **`usePusher.ts:17`** (`normalizeForHash` → `stripKeys` → `discordMessageShape.safeParse`) — **hash
+  parity preserved.** `stripKeys` is one shared function versioned on both sides of the hash, so its
+  change moves client and server together; existing persisted messages already carry no residual
+  content (they were stripped at save), so their hash is unaffected. The only exposure is a message
+  edited **across the deploy boundary** seeing a transient, self-correcting reload prompt — routed to
+  QA as this round's Assumption Not Checked.
+
+## Positive observations
+
+- **The Preferred shape was taken for the retirement**: the deletion is gone and the gate is wired at
+  the writer, not bolted back onto the serialiser — exactly D18's placement.
+- **The gate lives inside `saveMessage`**, so the Save item, the Save hotkey, and the edit-page Save
+  button all inherit it from one site rather than three parallel guards.
+- **The class sweep was reported with its enumeration commands and every hit's disposition**, in a
+  form I could break — which is why the v1 write surface and the two extra consumers were checkable at
+  all.
+- **The TDD red is behavioural**, and the implementer named the exact assertion, which reproduced
+  verbatim.
+
+## Assumption Not Checked
+
+**This review assumes the authenticated persist of a row-E / empty-embed draft behaves as the server
+shape implies — reaching the DB and being stored with `valid = false` — and does not test it.** The
+isolated instance cannot mint a real session, so the reach past auth is argued from
+`optionalIdMessageShape` carrying no mutual-exclusivity refinement (read), not executed against an
+authed session.
+
+**Falsity signature**: a hidden server-side refinement rejecting row E would make the authenticated
+save fail with a 4xx rather than persist `valid=false`; `shapes.ts` shows none, but only an
+authenticated save proves it.
+
+**Owner: QA**, Phase 2 — one authenticated save of a pasted V2 + empty-embed message, asserting the
+stored row's `valid` and the send button's disabled state. Named again in Next Steps. (The
+cross-deploy hash-parity question above rides the same QA pass.)
+
+## Captured instruments
+
+| path | what it is |
+|---|---|
+| `verification/013/probe-cr16-persist-gate/gate.cr16.test.ts` | 21 assertions: CR16-A the gate-vs-floor divergence table (imports both real predicates), CR16-B the empty-embed persisted-then-unsendable path with a 7890fc9 `stripKeys` control, CR16-D the SaveAsMenu strand as a state machine with the correct wiring as control, CR16-E the end-to-end reachability + regression through the real import shape |
+| `…/probe-cr16-persist-gate/divergence.txt` | the CR16-A table |
+| `…/probe-cr16-persist-gate/attack-persist.py` | the raw-socket persist-surface attack, oracle fixed before the run |
+| `…/probe-cr16-persist-gate/attack-persist-out.txt` | its result — auth held on every upsert body, CRITICAL-1 reconfirmed on the v1 control |
+| `…/probe-cr16-persist-gate/server-boot-and-attack.txt` | the isolated instance's boot + the ioredis-on-dead-port reach that reconfirmed CRITICAL-1 |
+| `…/probe-cr16-persist-gate/README.md` | claims, imported-vs-transcribed, reachability disposition order, blind spots |
+
+## Required Actions
+
+**None hold the tree.** M8-G is complete: the milestone criterion is met and verified. MEDIUM-4 and
+LOW-3 are regressions/quality findings routed for a follow-up fix, neither a data-loss nor a security
+issue, both fail-safe.
+
+## Next Steps
+
+1. **`implementer-hooks-013-3`** — M8-G approved. **MEDIUM-4**: align the persist gate and send floor
+   on one "has classic content" predicate (Preferred) or clean empty embeds at the import boundary
+   (Minimum) — **do not restore `stripKeys`' deletion**, which reintroduces D18's class. **LOW-3**:
+   consume `SaveChoiceModal` at all three save sites (Preferred) or fix `SaveAsMenu`'s `onClose`
+   (Minimum). `probe-cr16` is the captured check for both. Remaining milestones after this: M3, M4, M6.
+2. **`steering-hooks-013-2`** — MEDIUM-4 instantiates the D18 predicate-divergence risk; it is a
+   regression this commit introduced (root pre-existing in `hasClassicContent`), narrow (malformed
+   paste), fail-safe. Flagged for the prediction record, not held.
+3. **QA** — this round's Assumption Not Checked (authenticated persist of a row-E/empty-embed draft →
+   `valid=false`; and the cross-deploy hash-parity transient), plus the carried ones from rounds 9,
+   11, 12, 13, and round-8 INFO-1.
+4. **A planner pass, when that queue reopens** — MEDIUM-1's reach into M4's Risks, unchanged.
+
+**CRITICAL-1's `Review-Trigger` binds again before chain 013 closes** (the deploy puts the v1
+guild-messages endpoints back in front of traffic); raise at chain close, do not re-escalate as
+IMMEDIATE. Confirmed live again this round on control D, unchanged.
