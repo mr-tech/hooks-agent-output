@@ -2,22 +2,28 @@
 ID: 013
 Origin: 013
 UUID: 22d69e06
-Reviewed-At: "Round 5 (current, binding): 0c8fad5173613d2163bd9d1ecb62123ab2e928cb (chain/013-components-v2-editing-surfaces tip; the EC-3 fix round 2f49182 + 0c8fad5) — M8 ENTRY CONDITION EC-3 only, not milestone M8. Verified at the start of the pass and re-verified unmoved at the end. Superseded, retained for the record: round 4 at 92ce026 (EC-3), round 3 at 18407d8 (M7), round 2 at 495463a (M1 fix round), round 1 at a4eb00d (M1). NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
+Reviewed-At: "Round 6 (current, binding): 816d7fd5804fee5d51e526d7d01622624bde108b (chain/013-components-v2-editing-surfaces; the round-5 fix round 52e0e8a plus its comment correction 816d7fd) — M8 ENTRY CONDITION EC-3 only, not milestone M8. Verified at the start of the pass and re-verified at the end. The tree moved TWICE during the pass: 52e0e8a -> 816d7fd (re-anchored mid-pass; emitted-code identity between the two established by execution with a positive control, so the attack results carry and were re-run anyway), then -> a3e758b (the M2+M8 wiring, a DIFFERENT UNIT OF WORK that this verdict does not reach). Superseded, retained for the record: round 5 at 0c8fad5 (EC-3 fix), round 4 at 92ce026 (EC-3), round 3 at 18407d8 (M7), round 2 at 495463a (M1 fix round), round 1 at a4eb00d (M1). NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
 Status: In Review
 Status-Detail: >-
-  Round 5, the EC-3 fix round, at 0c8fad5. APPROVED_WITH_COMMENTS. No HIGH. All three round-4
-  MEDIUMs are closed STRUCTURALLY (the Preferred fix each time, not the Minimum) and each closure is
-  verified by execution: the dead dropSet field is removed rather than emptied, the flag is masked
-  internally, and an applyDisposition now exists. The implementer's own catch of a vacuous
-  .toThrow() is confirmed by reintroducing the loose form and watching it pass against a tree where
-  the function does not exist. Two new MEDIUM findings from the re-attack, both in the new
-  applyDisposition: draft and disposition are untied, and a mismatched pair was DEMONSTRATED to
-  destroy a body with no choice presented while gateBeforePersist on the same draft says mustAsk —
-  which is round-4 MEDIUM-3's own class reopened at a new function; and the advertised dropSet
-  disagrees with what is actually enacted (the classic option promises dropping components while
-  Action Rows survive), with nothing asserting the label matches the enactment. A new import cycle
-  through the utils barrel was probed in both orders and is benign today, recorded as fragility.
-  Neither new finding blocks EC-3; both should land before M8 wires its first consumer.
+  Round 6, the round-5 fix round, at 816d7fd. APPROVED_WITH_COMMENTS. No HIGH. Both round-5 MEDIUMs
+  are closed STRUCTURALLY (the Preferred fix each time) and both closures are established by
+  execution over an EXHAUSTIVE 1120-draft corpus with an independent oracle and a mutant control,
+  not by reading the diff: D18's core invariant (gate.mustAsk <=> applyDisposition throws) holds
+  1120/1120, no settled draft loses content it was carrying (795/795), and every row-E option's
+  advertised dropSet equals the keys the real serialiser changes (325/325). Purity survives a change
+  that put it at risk. Two new MEDIUM, both about ENFORCEMENT rather than behaviour. First: the EC-3
+  contract is checked by NO instrument in the repository — tsconfig excludes **/__tests__ and vitest
+  does not typecheck, so re-adding the very parameter round-5 MEDIUM-1 deleted leaves tsc at 0
+  errors and the suite 32/32 green; the round-5 disposition record counts a control that is dead.
+  Narrows but does not close at a3e758b (4 of 7 EC-3 symbols still have zero typechecked consumers,
+  gateBeforePersist among them). Second: chosenOption still carries a draft-derived label the
+  applier never reads, so the class closed at one parameter is residual at the one beside it — and
+  this residual UNDERSTATES the loss where its predecessor overstated it, so the safe-direction
+  argument does not carry over. Two LOW: the test named as MEDIUM-1's regression check is separated
+  from its sibling by none of four mutants, and review-round numbers survive in test-name strings
+  where a comment-shaped sweep cannot see them. Adversarial execution correctly exempt at 816d7fd
+  (trigger tested mechanically, empty, with a control) and EXPIRED at a3e758b — round 7 is under the
+  mandatory obligation.
 ---
 
 # Code Review: Plan 013 — Components V2 support across the editing surfaces (M1 only)
@@ -41,6 +47,7 @@ Status-Detail: >-
 | 2026-08-24 | steering-hooks-013 (D25 round) — self-initiated follow-up | Steering asked to be told if the per-round expected-six check is thinner than it is being treated as | Between-rounds note, **no verdict, no re-review**; `18407d8` remains the binding tree and `92ce026` is unsubmitted. Tested the check rather than introspecting about it. One of my own worries collapsed — the five `standardizeMessage` reds are per-test, not module-load, so nothing is masked and the check is stronger than I had framed it. The baseline itself was prose, so it is now an instrument: `verification/013/baseline-expected-six/` (`63b9a91`), four controls, end-to-end run re-deriving round 3's 443/437/6. Building it diagnosed **INFO-4** — suite figures are quoted from the shared working tree, which vitest contaminates with other sessions' untracked test files; measured twice at +7/+7/+0, cause named as `qa-hooks-013`'s 7-test probe. Residual blind spot stated, not closed, with CR3 named as the compensating instrument. No QA re-anchor requested. |
 | 2026-08-24 | implementer-hooks-013 (direct, per D22) | Review M8's **entry condition EC-3** — the pure resolver and persist gate — at `92ce026` | Round 4. First pass on EC-3; **not** milestone M8, which has not started. Fourth probe built (`probe-cr4-disposition-gate/`) to settle the disposition by execution over the whole eight-cell partition, with expectations transcribed from the **plan's** table rather than the code, four mutants as controls, and one attempted mutant recorded as NOT RUN because the shell left a literal `\n` and its green is not evidence. TDD red re-derived by reverting `utils/index.ts` to `18407d8` against the `92ce026` spec (15/4 TypeError, matching the table). Implementer's spec mutation-checked and genuine. `tsc`, `next build` and the failure set all re-derived on clean extractions; two instrument failures of my own (Turbopack rejecting an out-of-root `node_modules` symlink, and a gitignored `.env`) are recorded in `gates/README.md` rather than reported as build failures. Three MEDIUM, one LOW (routed to QA), two INFO. **APPROVED_WITH_COMMENTS.** |
 | 2026-08-24 | implementer-hooks-013 (direct, per D22) | Re-review the EC-3 fix round at `0c8fad5` (`2f49182` + `0c8fad5`) | Round 5. Sweep re-run rather than the flagged sites checked; the round fixed a **guard** and an **instrument**, so both were re-attacked from first principles rather than read. Fifth probe built (`probe-cr5-application-half/`): all three round-4 MEDIUMs verified closed by execution, the implementer's vacuous-`.toThrow()` self-catch confirmed by reintroducing the loose form (it passes against a tree with no `applyDisposition`), and the new import cycle probed in **both** module orders. Two new MEDIUM found by re-attack, both in `applyDisposition` — an untied draft/disposition pair demonstrated to destroy a body silently, and an advertised `dropSet` that disagrees with what is enacted. One INFO records my own round-4 inconsistency (the spec's header row table). **APPROVED_WITH_COMMENTS.** |
+| 2026-08-24 | implementer-hooks-013-2 (direct, per D22) | Re-review the round-5 fix round at `52e0e8a`; re-anchored mid-pass to `816d7fd` | Round 6, and the first round by this reviewer generation — carried from files (`e0f477f`, `3304fad`), not from a conversation. Every sweep and every figure in the implementation document re-derived rather than accepted, including the architecture document's absence, which was re-checked from the workspace root rather than inherited. The implementer's comment-only claim for `816d7fd` was settled by **executing** it — emitted JavaScript compared byte-for-byte at both commits — after a **positive control** caught my first comparison reporting IDENTICAL over four empty files, which is recorded in full because it is the defect this role raises against others. Sixth probe built (`probe-cr6-derivation-round/`): an exhaustive 1120-draft corpus, an oracle written independently of the implementation, a mutant control, and a purity check under frozen inputs. TDD red re-derived (10 red, matching) and **classified** — 5 discriminators, 4 pre-existence TypeErrors, 1 throw-match — so MEDIUM-2's fix is test-gated and MEDIUM-1's is not. Both round-5 MEDIUMs closed structurally; two new MEDIUM about enforcement rather than behaviour, one of them found by mutating the code to re-add the deleted parameter and watching every gate stay green. The implementer's comment sweep was verified by **breaking its predicate**, which found the class is wider than its comment-shaped form. The plan's Status field was NOT set, for the reasoning given in the verdict. **APPROVED_WITH_COMMENTS**, bound to `816d7fd` and to no other tree. |
 
 ## Scope Actually Assessed
 
@@ -2083,3 +2090,604 @@ Also note **`probe-cr4-disposition-gate/` is superseded in part**: the signature
   reading of the tip disagreed with `git rev-parse` in this very chain, and `rev-parse` was right.
 - **Verdicts do not travel between trees.** Re-verify the SHA at the start *and* end of every pass;
   the tree moved under this reviewer mid-session once already.
+
+---
+
+# Round 6 — the round-5 fix round, at `816d7fd`
+
+**Reviewed-At**: `816d7fd5804fee5d51e526d7d01622624bde108b` (chain branch
+`chain/013-components-v2-editing-surfaces`). Verified at the start of the pass and again at the end.
+
+**The tree moved twice during this pass, and the verdict is bound to one commit only.** The round
+opened on `52e0e8a` at the implementer's request. Mid-pass the implementer committed `816d7fd`
+(a self-caught source-comment correction) and I re-anchored — I did not carry the `52e0e8a` work
+across on the strength of a "comment-only" claim; I established emitted-code identity by execution
+first (below). Then, while this document was being written, the implementer committed `a3e758b`
+(the M2+M8 Load wiring). **`a3e758b` is a different unit of work and this verdict does not reach
+it.** What `a3e758b` changes about one of my findings is stated in the finding itself, so the fix
+is not misdirected; everything else about it is round 7's, under a materially different obligation —
+see "Adversarial execution" below.
+
+**Verdict: APPROVED_WITH_COMMENTS.** Both round-5 MEDIUMs are closed **structurally**, the Preferred
+fix in each case, and both closures are established by execution over an exhaustive corpus rather
+than by reading the diff. Two new MEDIUMs, both about *enforcement* rather than about behaviour:
+the EC-3 contract is checked by no instrument in the repository, and the class round-5 MEDIUM-1
+closed is residual at the sibling parameter — where it now fails in the **unsafe** direction, which
+its predecessor did not.
+
+## Scope actually assessed
+
+`git diff --numstat 0c8fad5 816d7fd` → two files: `src/utils/index.ts` (+63/−24) and
+`src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts` (+56/−64). Both read at `816d7fd` via
+`git show`, not from the working tree. The working tree carries one foreign untracked file
+(`src/utils/__tests__/013-qa-phase1-seed-route-probe.test.ts`, `qa-hooks-013`'s); it is excluded
+from scope and is not mine to touch.
+
+**Sources of truth read.** `agent-output/planning/013-components-v2-editing-surfaces.md` (body);
+`agent-output/implementation/013-components-v2-editing-surfaces-implementation.md`; this document's
+rounds 4 and 5 and its "Standing obligations" section. **`agent-output/architecture/system-architecture.md`
+was checked for and does not exist** — established by `ls agent-output/architecture/` run from
+`/usr/local/bin/hooks`, the workspace root, not from inside `website/`. I did not carry a
+predecessor's absence claim; I re-ran it. **Consequently this verdict is scoped to what I could
+assess**: implementation quality, contract design, and conformance to the plan's D17/D18 rulings.
+It makes no claim of architectural grounding, because there is no architecture document to ground it
+against.
+
+## Verification re-run — nothing inherited
+
+Every figure below is one I produced at `816d7fd`. None is taken from the implementer's message or
+from the implementation document.
+
+| claim | instrument | result |
+|---|---|---|
+| the project's own spec passes | `npx vitest run src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts` | **32/32** |
+| typecheck clean | `npx tsc --noEmit` | **exit 0, 0 errors** |
+| failure **set** unchanged | `baseline-expected-six/check-expected-six.sh 816d7fd` | **MATCH** — the expected six by identity and reason; clean totals **475/469/6** |
+| the paired behavioural probe (see "the pairing") | `probe-cr3-mode-predicate/` | **122/122** |
+| compilation | `next build` in a `cp -al` extraction | **✓ Compiled successfully in 8.9s** (prerender not reached — rig, see Method notes) |
+| lint on the changed file | `npx eslint src/utils/index.ts --max-warnings=0` | **1 error, `import/no-cycle`** — round 5's INFO-1, introduced at `2f49182`, not by this round (`git show 2f49182 -- src/utils/index.ts` shows the `~/utils/messageMode` import added there) |
+
+**On the suite figure, the implementer is right and had already corrected themselves.** Their
+round-5 message said `482/476/6`; they then self-corrected to `475/469/6`. I reproduce **475/469/6**
+at both `52e0e8a` and `816d7fd` from a clean `git archive` extraction. The `+7/+7/+0` delta is the
+foreign untracked QA probe that vitest collects in the shared tree — a shared-tree property, **not
+an implementer accuracy problem**, and the fourth occurrence of it in this chain. Nothing is asked
+of the implementer here; its disposition is QA's, lodged DECISION NEEDED at `2e33fd3`.
+
+**The pairing was run.** `check-expected-six.sh` and `probe-cr3-mode-predicate/` are a pair because
+the comparator keys on `file :: test :: first reason line` and therefore cannot see a new defect that
+reproduces an existing red exactly — a case that is live in this chain, since anything leaving the V2
+flag set yields `012-message-mode.test.ts`'s identical `expected 32768 to be +0`. Both ran; the
+judgement `steering-hooks-013` is carrying conditional on that pairing **has not lapsed**.
+
+## Was `816d7fd` decision-neutral? Established by execution, not by the diff's file list
+
+The implementer described `816d7fd` as comment-only. That is a decision-neutrality claim, and
+neither their word nor a diff read settles it. I transpiled both files at both commits with the
+repository's own `esbuild` and compared the emitted JavaScript byte-for-byte:
+
+```
+emit(52e0e8a:src/utils/index.ts)  ==  emit(816d7fd:src/utils/index.ts)             IDENTICAL (13138 B)
+emit(52e0e8a:…013-m8-ec3-resolver-gate.test.ts) == emit(816d7fd:…)                 IDENTICAL (11326 B)
+POSITIVE CONTROL: emit(816d7fd index.ts) vs emit(index.ts with `dropped` → `dropped.slice()`)
+                                                                                   DIFFER at byte 2188
+```
+
+The positive control matters and is not decoration — **my first run of this comparison was vacuous
+and reported IDENTICAL for all four files because esbuild had rejected the arguments and written
+zero bytes**; four empty files compare equal. The control is what caught it. Recorded in full under
+Method notes, because it is exactly the failure this role exists to catch and I nearly shipped it.
+
+Emitted-code identity is a stronger basis than a diff read, so the attack results below — produced
+against `52e0e8a` — carry to `816d7fd`, and I re-ran every one of them at `816d7fd` anyway.
+
+## Enumerations re-run — the sweep, and the predicate broken
+
+**I re-ran every sweep myself rather than accepting the implementer's counts.** All at `816d7fd`,
+with `git grep -c` (which computes before the output filter; see Method notes).
+
+| predicate | implementer reported | I reproduce | what the predicate does **not** match |
+|---|---|---|---|
+| `applyDisposition(` outside `__tests__` | 0 | **0** | a call reaching it through a re-export under another name; an inline reimplementation naming nothing |
+| `dropSet` in `src/` outside `__tests__` | 3, all in `index.ts` | **3** — the interface field, the doc-comment mention *(now removed at `816d7fd`, so 2)*, the one construction site | a hand-built option literal that never uses the key name |
+| `ROW_E_OPTIONS` | 0 | **0** | — (symbol deleted; a re-added constant under a different name is invisible) |
+| rationale comments in the two changed files | 6 removed | **0 remain** in the changed regions | **see below — this is the predicate I broke** |
+
+**Breaking the comment predicate is what found something.** The shape predicate
+(`^\s*//`, `^\s*/\*`, `^\s*\*`) confirms the sweep: zero comment-shaped rationale survives. I then
+ran two predicates it cannot see past — trailing same-line comments (**0**) and JSX comments
+(**0**) — and one keyed on *keyword rather than shape*:
+`git grep -in "round-5\|round 5\|MEDIUM-\|round-4" 816d7fd -- <the two files>` → **0 in `index.ts`,
+6 in the spec**, every one of them inside a `describe`/`it` **string**, where a comment-shaped
+predicate cannot reach. That is LOW-2 below. The implementer's sweep was correct against the class
+as they scoped it; the class is slightly wider than its comment-shaped form.
+
+## Re-attack — the fix to a guard is attacked, not read
+
+`applyDisposition` is a guard and `diffDroppedKeys` is a newly authored instrument, so both trigger
+re-attack from first principles. I did not read the fix and agree with it.
+
+**The instrument, named before it was built.** The process whose output is my evidence is the
+repository's own `applyModeSwitch`/`switchToClassic`/`switchToV2` — the code under review, executed —
+not a model of it. `diffDroppedKeys`' oracle in my probe is written independently of `index.ts`'s
+own `diffDroppedKeys`, so CR6-B is a check and not a restatement of the implementation.
+
+**The corpus is exhaustive, not sampled.** The full cross product of
+5 flag values × 8 component shapes × 4 content values × 7 embed shapes = **1120 drafts**, including
+`[]`, `[{}]`, `[{_key:'a'}]`, whitespace-only content, non-V2 residue flags, Action-Row-only
+component lists, and mixed `[container, actionRow]` orderings. 325 land in row E, 795 settled.
+
+`probe-cr6-derivation-round/derivation.cr6.test.ts`, **10/10 at both `52e0e8a` and `816d7fd`**:
+
+| check | result |
+|---|---|
+| **CR6-A** — D18's core invariant: `gateBeforePersist(d).mustAsk === true` ⟺ `applyDisposition(d)` throws | **1120/1120**. The gate and the applier can no longer disagree about any object in the domain |
+| **CR6-A** — no settled draft loses classic content it was carrying | **795/795** |
+| **CR6-A** — arity: `applyDisposition.length === 2` (the old signature was 3) | closed |
+| **CR6-B** — every row-E option's advertised `dropSet` equals the keys the real serialiser changes, computed by an independent oracle | **325/325 drafts, both options each** |
+| **CR6-B mutant control** — the pre-`52e0e8a` hardcoded `['content','embeds']` literal fails that same check | **fails**, as it must; the check discriminates |
+| **CR6-D** — purity: the resolver, the gate and the applier mutate none of their inputs (deep-frozen across the corpus) | **1120/1120 unmutated** |
+| **CR6-C** — the residual (MEDIUM-2 below) | demonstrated |
+| **CR6-E** — key-level granularity bound (INFO-2 below) | demonstrated |
+
+Purity was worth attacking specifically and is worth calling out as clean: `resolveContentLoss` is
+declared a **pure** resolver in D17/D18, and this round made it call the serialiser. Had
+`switchToClassic` mutated rather than copied, `resolveContentLoss` — and therefore
+`gateBeforePersist`, the guard — would have begun mutating its caller's draft as a side effect of
+being asked a question. Both switches build new objects (`{...prev}`, `.filter`), so it holds; I
+checked it rather than assumed it, over the whole corpus with frozen inputs.
+
+## Dispositions of the round-5 findings
+
+Each records two things: that the class is gone, and the captured check that fails if it returns.
+
+| finding | class gone? | check that fails if it returns |
+|---|---|---|
+| **MEDIUM-1 (r5)** `draft`/`disposition` untied | **Yes, structurally** — the parameter is removed, not documented around; the disposition is derived internally exactly as `gateBeforePersist` does. Verified by execution over 1120 drafts (CR6-A) | **`no test` — and this is a finding.** See MEDIUM-1 (round 6): re-adding the parameter leaves the suite **32/32 green** and `tsc --noEmit` at **0 errors**. Nothing in the repository fails |
+| **MEDIUM-2 (r5)** advertised vs enacted drop | **Yes, structurally** — the label is computed by running the real `applyModeSwitch` and diffing, per the Preferred action verbatim. Verified over all 325 row-E drafts against an independent oracle (CR6-B) | `probe-cr6-derivation-round/derivation.cr6.test.ts` CR6-B, plus the project's own three new spec rows. Mutant control included |
+| **INFO-1 (r5)** import cycle | unchanged; still benign, still fragile for the same reason | carried, no action |
+| **INFO-2 (r5)** spec header duplicates the plan's row table | **No — still present**, `013-m8-ec3-resolver-gate.test.ts` header docblock. The comment sweep did not reach it (it predates this round) | carried; see INFO-1 (round 6) |
+| **INFO-3 (r5)** working-tree suite figure | **Yes** — corrected to `475/469/6`, which I reproduce exactly | `check-expected-six.sh <sha>` |
+
+Both MEDIUMs took the **Preferred (structural)** fix rather than the Minimum. In MEDIUM-1's case
+that meant deleting a parameter rather than writing down an invariant about it, which is the
+difference between a class that is unrepresentable and a class that is merely discouraged.
+
+## Findings
+
+### MEDIUM-1 (round 6) — the EC-3 contract is enforced by no instrument in this repository, so "unrepresentable" is a claim about callers that do not exist yet
+
+- **Location**: `website/tsconfig.json`, the `exclude` array, against `applyDisposition` /
+  `resolveContentLoss` / `gateBeforePersist` in `src/utils/index.ts`.
+- **Class**: a type-level contract whose only consumers live under `__tests__` is checked by
+  nothing — `tsconfig.json` carries `"exclude": ["node_modules", "**/__tests__"]`, so `tsc` never
+  sees those call sites, and vitest transpiles without typechecking. A structural claim about such
+  a contract is true of production callers that do not exist and false of every caller that does.
+- **Enumeration**: the seven EC-3 exports —
+  `resolveContentLoss`, `gateBeforePersist`, `applyDisposition`, `ContentLossOption`,
+  `ContentLossDisposition`, `ContentLossRow`, `ContentLossNoticeClass` — via
+  `git grep -c <sym> 816d7fd -- src ':!src/utils/__tests__' ':!src/utils/index.ts'`:
+  **0 non-test consumers, 7 of 7.** *What the predicate does not match*: a consumer reaching a
+  symbol through a re-export under a different name; and a consumer outside `src/` — note that
+  `bot/`, `scripts/` and `lang/` **are** in tsconfig's `include`, so a consumer there would be
+  typechecked and the predicate would miss that mitigation.
+- **Demonstrated, not theorised.** Mutant: re-add `callerDisposition: ContentLossDisposition` as a
+  **required** second parameter to `applyDisposition` — precisely the class round-5 MEDIUM-1 closed.
+  Result: `npx tsc --noEmit` **exit 0, 0 errors**; `013-m8-ec3-resolver-gate.test.ts` **32/32 green**.
+  The regression is invisible to every gate the project runs.
+- **Why it matters here specifically**: this is a **dead control being counted**. Round 5's
+  disposition table records MEDIUM-1 as closed structurally; a reader takes that to mean something
+  would fail if it came back. Nothing would. A dead control is worse than an absent one.
+- **Magnitude**: measured on the instruments (0 type errors, 32/32 green under the mutant).
+  Production consequence at `816d7fd` is **unmeasured**, because nothing is wired.
+- **What `a3e758b` changes, so the fix is not misdirected.** The M8 wiring adds consumers in
+  `src/app/message/m/[id]/_components/JsonModalBody.tsx`, which **is** typechecked. Re-running the
+  same enumeration at `a3e758b`: `resolveContentLoss`, `applyDisposition` and `ContentLossOption`
+  now have typechecked consumers; **`gateBeforePersist`, `ContentLossDisposition`, `ContentLossRow`
+  and `ContentLossNoticeClass` still have zero — 4 of 7 remain open.** The class narrows at
+  `a3e758b`; it does not close. `gateBeforePersist` in particular — the D18 persist gate itself —
+  is still reachable from no production code.
+- **Required Action**:
+  - **Preferred (structural)**: typecheck the specs — a `tsconfig.test.json` extending the base
+    config with `"include": ["src/**/__tests__/**/*.ts"]`, run beside `tsc --noEmit` in the same
+    gate. **This is scope growth beyond plan 013 and is not the implementer's to take on their own
+    initiative** — routed to `steering-hooks-013-2` per D22, not asked of the implementer here.
+  - **A tidy fix here reintroduces the defect the exclusion exists to prevent.** The exclusion was
+    added deliberately by `8f28066 exclude __tests__ from tsconfig to fix Vercel build`. Do **not**
+    remove `"**/__tests__"` from the base `tsconfig.json`; add a second config. I am naming this
+    because deleting the exclusion is the obvious-looking fix and it would break the deploy.
+  - **Minimum** (inside this chain, the implementer's): correct the round-5 MEDIUM-1 disposition
+    record in the implementation document to `no test`, and name `a3e758b` as the commit where
+    enforcement begins for the three wired symbols.
+
+### MEDIUM-2 (round 6) — `chosenOption` still carries a draft-derived label into the applier, and this residual fails in the unsafe direction
+
+- **Location**: `applyDisposition`'s `chosenOption?: ContentLossOption` parameter, `src/utils/index.ts`.
+- **Class**: the same class round-5 MEDIUM-1 closed — a parameter carrying a value derived from a
+  draft, untied to the draft actually passed — residual at the sibling parameter. `chosenOption.mode`
+  is read; `chosenOption.dropSet` is read by nothing, so the label the user was shown and the loss
+  actually enacted can differ.
+- **Enumeration**: parameters of the three exported EC-3 functions that carry a draft-derived value.
+  `resolveContentLoss` — none (raw scalars; closed at round 4). `gateBeforePersist` — none (derives
+  internally). `applyDisposition` — `chosenOption`. **1 of 3, open.** *What the predicate does not
+  match*: a function M8 adds after `816d7fd`; and a derived value smuggled in as a property of
+  `draft` itself rather than as its own parameter.
+- **Demonstrated, executed** (CR6-C): draft A `{flags:0, content:'hi', embeds:[], components:[container]}`
+  yields a v2 option advertising `dropSet: ['content']`. The user then adds an embed; draft B's own
+  v2 option would advertise `['content','embeds']`. `applyDisposition(draftB, optionFromA)` is
+  **accepted**, and returns `content: ''`, `embeds: []` — the embed destroyed under a label that
+  never named it. Also executed: a deliberately bogus `dropSet: ['nothing','at','all']` produces a
+  **byte-identical** result to the honest option, confirming `dropSet` is read by nothing.
+- **The direction reversed, and that is why this is not simply a repeat.** Round-5 MEDIUM-2's
+  constant label *overstated* the loss — more promised dropped than actually was — so no user was
+  under-warned, and that is expressly why it was MEDIUM and not HIGH. This residual path
+  **understates** it: the user is warned about `content` and loses an embed. The safe-direction
+  argument that held for the predecessor does not hold here.
+- **Magnitude**: production consequence **unmeasured** — a hypothesis about M8's callers, since
+  nothing was wired at `816d7fd`. What is measured is that the mismatched pair is accepted and
+  destroys an embed the label did not name.
+- **Required Action**:
+  - **Preferred (structural)**: `applyDisposition(draft, chosenMode?: MessageMode)`. A bare mode
+    carries no draft-derived label, so nothing stale can travel — the same move that closed
+    round-5 MEDIUM-1, applied to the parameter beside it. Callers rendering the notice keep calling
+    `resolveContentLoss`/`gateBeforePersist`; nobody hands a derived object back in.
+  - **Minimum**: every call site obtains the option and applies it in one expression, never storing
+    an option across a state change — the invariant recorded in the implementation document, not in
+    a source comment.
+- **The invariant the new code inherits** (stated because the enumeration cannot cover code that
+  does not exist yet, per this document's own adopted check): *any draft-derived value is valid only
+  for the exact draft object it was derived from.* The M8 wiring must satisfy that, and its
+  implementation document should say how.
+
+### LOW-1 (round 6) — the test named as MEDIUM-1's regression check discriminates nothing its siblings do not
+
+- **Location**: `013-m8-ec3-resolver-gate.test.ts`,
+  `it("MEDIUM-1 (round 5) regression: applyDisposition cannot be handed a mismatched disposition …")`.
+- **Class**: a test whose name asserts a property its body does not exercise. Its draft literal is
+  byte-identical to the existing `row B/C settled` test's, and nothing mismatched appears anywhere
+  in it.
+- **Enumeration**: four mutants applied to `applyDisposition`'s two return sites —
+  (M1) return `draft` unchanged; (M2) `chosenOption?.mode ?? disposition.mode` on settled rows;
+  (M3) always `'classic'`; (M4) drop the row-E guard and default to `'v2'`. For each, the effect on
+  the named test and on `row B/C settled` was recorded: **identical in 4 of 4** — both red under M1
+  and M3, both green under M2 and M4. **No mutant separates them.** *What this does not match*: four
+  hand-chosen mutants at one function's return sites; a mutant elsewhere in the module could in
+  principle separate them and I did not search exhaustively.
+- Additionally, against the pre-fix tree it goes red as
+  `TypeError: Cannot read properties of undefined (reading 'requiresChoice')` — the *pre-existence*
+  reason, shared with three sibling tests. That is the same vacuity shape the implementer themselves
+  caught and fixed in round 5's bare `.toThrow()`; it has reappeared one test over.
+- **Required Action**:
+  - **Preferred (structural)**: delete it. The property it names is not runtime-testable at all
+    (MEDIUM-1 round 6), and the honest disposition record is `no test` — a duplicate test wearing
+    the claim in its name is what makes a dead control look live.
+  - **Minimum**: rename it to what it actually checks — *a row-B draft resolves to V2 and preserves
+    its components* — and record the disposition's real check as `tsc`, conditional on specs being
+    typechecked.
+
+### LOW-2 (round 6) — review-round references survive in test-name strings, where a comment-shaped sweep cannot see them
+
+- **Location**: `013-m8-ec3-resolver-gate.test.ts`, six `describe`/`it` name strings.
+- **Class**: a reference to a review document's item **number** carried in a source file without the
+  item's **name**. Review numbering is per-round and restarts, so `MEDIUM-2` resolves to a different
+  finding in round 4 than in round 5, and neither is recoverable from the source once the round
+  closes.
+- **Enumeration**: `git grep -in "round-5\|round 5\|MEDIUM-\|round-4" 816d7fd -- src/utils/index.ts
+  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts` → **0 in `index.ts`, 6 in the spec**, all
+  inside name strings. *What the predicate does not match*: a reference phrased in prose
+  ("the reviewer's second finding"), and — deliberately — stable ruling ids such as `D17`/`D18`,
+  which are **not** in this class and should stay.
+- **Why LOW and not MEDIUM**: test names are consumed by the runner, so they pass the tool test as
+  code, not as comments. And **four of the six already pair the number with the property** — e.g.
+  *"(MEDIUM-2, round 5) — an empty embeds array is not a real loss"* — which is self-detecting on
+  read and fine as it stands. Only two carry bare numbers:
+  `describe('EC-3 — applyDisposition, the application half (MEDIUM-2 round 4 / MEDIUM-1 round 5, D18)')`
+  and LOW-1's own test name.
+- **Required Action**: **Minimum** — in those two, keep the property description and drop the
+  round-numbered reference; keep `D18`. No structural change is warranted, and I am explicitly not
+  asking for a sweep of the other four.
+
+### INFO-1 (round 6) — round-5 INFO-2 carried, unchanged
+
+The spec's header docblock still reproduces the plan's D17 row table as prose
+(`013-m8-ec3-resolver-gate.test.ts`, the module docblock). It predates this round and the comment
+sweep did not reach it. Round 5's recommendation is unchanged and I endorse it: do not delete the
+table, make it executable — transcribe it into a `const` the assertions iterate, so drift from the
+plan surfaces as a failing test rather than as a stale comment.
+
+### INFO-2 (round 6) — the key-level label cannot describe a partial components loss, and that bound is worth writing down
+
+CR6-E, executed: for `components: [container, actionRow]`, the classic option's `dropSet` is
+`['components']`, and `switchToClassic` returns `[actionRow]` — the Action Row **survives**. The
+`dropSet` fix makes the label track *which keys* change; it cannot express *which elements within a
+key* change, because `dropSet` is a set of key names.
+
+This is **not** a reopening of round-5 MEDIUM-2 and I am not raising it as one: the enacted-versus-
+advertised agreement the Preferred action asked for holds exactly, at the granularity `dropSet` has.
+It is recorded because the notice M8-E renders from that string will read "components" while some
+components survive, and **the notice's wording — not `dropSet` — is where that is solved.** Also
+bounded, and executed: a draft whose only components are Action Rows never reaches row E at all
+(`resolveContentLoss(0, [actionRow], 'hi', [])` → row **A**, `requiresChoice: false`), so the case
+is confined to mixed component lists. QA's M8-E instrument is the right owner.
+
+### INFO-3 (round 6) — an input-robustness question, disposed of at step 1, and why the disposal is conditional
+
+CR5's now-expired assertions surface a tempting finding: `applyDisposition(draft, {mode: null})`
+silently applies **classic** rather than throwing, because `applyModeSwitch` treats any non-`'v2'`
+value as classic. Applying the disposition order: *can the caller send it?* `ContentLossOption.mode`
+is `MessageMode`, a closed union excluding `null`, so the contract says no — **stop, no finding**.
+There is no exploit path, so step 3 does not override.
+
+Recorded rather than dropped for one reason: that disposal rests entirely on the type system, and
+per MEDIUM-1 (round 6) the type system did not see any caller of this function at `816d7fd`. The
+step-1 answer is therefore **conditional on MEDIUM-1 (round 6)**, and becomes unconditional for each
+call site as it lands in typechecked `src/`. Worth stating so a later reader does not take the
+disposal as unconditional and skip the guard when a caller arrives from parsed JSON.
+
+## TDD Compliance
+
+**Table present**: yes. **All rows complete**: yes. **No exemption claimed** — correctly, since this
+round changed behaviour.
+
+**Verified by re-derivation, not accepted.** I reverted `src/utils/index.ts` to `0c8fad5` in an
+isolated `git archive` extraction — the shared working tree was not touched — and ran the
+`816d7fd` spec against it: **10 failed, 22 passed**. That matches the implementer's claim of 10
+exactly. Reasons, which are the load-bearing part:
+
+- **5 × `AssertionError` on `dropSet` values** — the genuinely discriminating half. These are red
+  because the old hardcoded label differs from the derived one, which is MEDIUM-2's actual subject.
+- **4 × `TypeError: Cannot read properties of undefined (reading 'requiresChoice')`** — the
+  pre-existence reason, from the arity change.
+- **1 × the throw-match assertion.**
+
+The five `dropSet` assertions are real discriminators. The four `TypeError`s are not — they would go
+red for any signature change whatever — and one of them is LOW-1's, which is why LOW-1 is a finding
+rather than a note. **The honest summary is that MEDIUM-2's fix is test-gated and MEDIUM-1's is not**,
+and the implementation document should say so rather than presenting ten reds as ten discriminators.
+
+## Adversarial execution
+
+**At `816d7fd` the exemption held, and I tested the trigger mechanically rather than interpreting it**,
+using the command this document's Standing obligations section pins:
+
+```
+git grep -c "gateBeforePersist\|applyDisposition\|resolveContentLoss" 816d7fd -- src \
+  | grep -v "src/utils/index.ts" | grep -v "__tests__"
+```
+
+→ **empty**. Control through the identical pipeline on a symbol that does have consumers
+(`hasV2Components`) → `src/utils/messageMode.ts:2`, so the empty result is a real absence and not a
+broken predicate. Nothing can be driven against a running instance that CR6 does not already drive
+directly.
+
+**The exemption has now expired.** The same command at `a3e758b` returns
+`src/app/message/m/[id]/_components/JsonModalBody.tsx:4`. **Round 7 — the review of `a3e758b` — is
+under the mandatory obligation**: stand the service up, drive the five IS-1 writers
+(`useApiMethods.saveMessage`, `SaveAsMenu.onSubmit`, `NewMessageModal.onSubmit`, `m/new/page.tsx`,
+`f/[id]/page.tsx`) from a raw socket rather than a client library, and assert the negative **on the
+persistence surface itself** — no `message.upsert` before a choice — never on a response status. Note
+for that round: at `a3e758b`, `gateBeforePersist` still has **zero** production consumers, so
+"every application site routes through `applyDisposition`" and "the persist gate is wired" are two
+different claims and only the first has been made.
+
+## Positive observations
+
+- **Both fixes took the Preferred structural option, not the Minimum.** MEDIUM-1 was closed by
+  *deleting a parameter* rather than by documenting an invariant about it. That is the difference
+  between a class that cannot be expressed and one that is merely discouraged, and it is the harder
+  of the two to choose when the Minimum is sitting right there.
+- **`diffDroppedKeys` derives the label by running the real serialiser.** The tempting fix for
+  round-5 MEDIUM-2 was to correct the string. Deriving it from execution means the label cannot drift
+  from `switchToClassic`/`switchToV2` again, including through future changes to either — and the
+  two new spec rows (the partial-components case and the empty-embeds case) are exactly the two cases
+  that distinguish a derived label from a corrected one.
+- **`ROW_E_OPTIONS` was deleted, not emptied.** The module-scope constant is gone rather than left
+  behind holding a better value — which also removes a module-evaluation-time object from a module
+  that participates in an import cycle, making the cycle strictly less fragile than round 5 found it.
+- **Two self-catches, both unprompted and both correct.** The source-comment reintroduction and the
+  working-tree suite figure were caught and corrected by the implementer before I raised either. I
+  had the comment finding written when their correction arrived; it is theirs, not mine, and the
+  record should show that. The comment sweep they ran was also correct against its own predicate —
+  what I found by breaking it (LOW-2) is a wider class, not a missed member of theirs.
+- **Purity was preserved through a change that easily could have broken it.** Making a resolver
+  declared pure call the serialiser is exactly where a mutating switch would have leaked side effects
+  into a guard. It holds across 1120 frozen drafts.
+
+## Assumption Not Checked
+
+**This review assumes that the object M8's wiring hands `applyDisposition` is a single coherent
+draft — one object whose `flags`, `components`, `content` and `embeds` are all current with respect
+to each other — and does not test it.** Every CR6 assertion builds that object as one literal. The
+composer does not hold it that way: `DiscordMessageEditor/index.tsx` keeps `content`, `embeds` and
+`components` as three separate `useStateSetter` slices over `message`, and **`flags` is not among
+them** — `git grep -c flags 816d7fd -- src/components/DiscordMessageEditor/index.tsx` returns
+**nothing**, so wherever the flag comes from at the call site, it is not that component's state.
+
+**Falsity signature**: a call site reassembles the four fields from separate sources and reads a
+`flags` value stale with respect to the components slice — so `resolveContentLoss` sees flag-clear
+plus V2 components (**row B**, settled) where the live editor state is **row E**. `applyDisposition`
+then applies V2 and clears the body **with no choice presented**: precisely the behaviour D18
+forbids, and the 5712 shape D19 exists to abolish, reintroduced by the reassembly at the call site
+rather than by any defect in the function. Note this is *not* reachable through `applyDisposition`'s
+own contract — it is reachable only by constructing its argument from more than one snapshot, which
+is why no amount of testing the function closes it.
+
+**Owner**: the **implementer**, at the M2+M8 Load wiring — which is `a3e758b`, already committed, so
+this is live rather than prospective. The wiring's implementation document must name the actual
+object handed to `applyDisposition` and where its `flags` value comes from. QA's IS-1
+no-upsert-before-choice instrument is the backstop. Routed again in Next Steps.
+
+*(One assumption I did **not** need to carry: whether `hasClassicContent` classifies the composer's
+real default embed as I assumed. I checked instead of assuming — the add-embed handler is
+`setEmbeds([...embeds, {} as EditableEmbed])`, a bare `{}`, and `[{}]` is in the corpus and correctly
+reports no classic content. Closed, not declared.)*
+
+## Verdict
+
+**Status: APPROVED_WITH_COMMENTS**, bound to **`816d7fd`** and to no other tree.
+
+**Rationale.** Both round-5 MEDIUMs are closed structurally and both closures are established by
+execution over an exhaustive 1120-draft corpus with an independent oracle and a mutant control — not
+by reading the diff, and not by accepting the implementer's counts, every one of which I reproduced
+myself. The behaviour delivered is correct across the whole input domain I could construct, the
+resolver's declared purity survives a change that put it at risk, and the round took the harder
+structural fix in both cases.
+
+The two new MEDIUMs are about **enforcement, not behaviour**, which is why they do not reject.
+Neither describes a defect a user can reach at `816d7fd`: nothing was wired. MEDIUM-1 says the
+record overstates what protects the fix; MEDIUM-2 says the class closed at one parameter is residual
+at the one beside it. Both are cheaper to fix before the wiring hardens than after — and the wiring
+has now landed, which raises their priority without changing their severity.
+
+**Neither reaches HIGH.** MEDIUM-2's failure mode requires a caller to hold an option across a
+state change, and no such caller existed on the reviewed tree; its magnitude as a production
+consequence is explicitly unmeasured. MEDIUM-1 is a documentation-integrity defect about a control,
+not a control failure.
+
+**Three MEDIUMs across rounds 5 and 6 in one file is close to the "pattern of MEDIUM findings"
+rejection threshold, and I considered it.** I am not rejecting, for a reason I want on the record:
+each round's MEDIUMs have been *found by the previous round's fix being correct enough to expose the
+next layer*, and each has been fixed structurally on first ask. That is a converging process, not an
+accumulating one. If a fix round were to introduce a MEDIUM in a layer already reviewed, that
+reasoning would not hold and I would reject.
+
+**I am not setting the plan's `Status` field.** My definition instructs it on a passing review; I am
+declining for the same reason my predecessor did, and having read their reasoning I independently
+agree with it rather than deferring to it: this plan is being reviewed milestone by milestone, five
+of its eight milestones are undelivered, and writing "Code Review Approved" at the plan level would
+publish a false claim about work that does not exist. A milestone-level verdict cannot carry a
+plan-level status. The definition gap is already lodged for retrospective → pi at `ee1ae0e`; if the
+field's absence is raised at me I will refer it to steering rather than move it.
+
+## Required Actions
+
+**To `implementer-hooks-013-2`** (none of these block; all are cheaper before the wiring hardens):
+
+1. **MEDIUM-2 (round 6)** — `applyDisposition(draft, chosenMode?: MessageMode)`. Preferred/structural.
+   The same move that closed round-5 MEDIUM-1, applied to the parameter beside it. **Do this before
+   more call sites accumulate**, since `a3e758b` has already added two.
+2. **MEDIUM-1 (round 6), Minimum only** — correct the round-5 MEDIUM-1 disposition record to
+   `no test`, and name `a3e758b` as where enforcement begins for the three now-wired symbols. The
+   structural half is not yours (see below).
+3. **LOW-1** — delete or rename the MEDIUM-1 regression test. Preferred: delete.
+4. **LOW-2** — drop the bare round-numbers from the two `describe`/`it` names that carry no property
+   with them. Keep `D18`. Leave the other four alone.
+5. **Carry the Assumption Not Checked into the `a3e758b` implementation document**: name the actual
+   object handed to `applyDisposition` and where its `flags` comes from.
+
+**To `steering-hooks-013-2`** (routed per D22 as scope growth, not asked of the implementer):
+
+6. **MEDIUM-1 (round 6), Preferred/structural** — a `tsconfig.test.json` so spec files are
+   typechecked. This is outside plan 013's milestones and needs the owner's word. **Carry the
+   warning with it**: the base `tsconfig.json` exclusion exists because of
+   `8f28066 exclude __tests__ from tsconfig to fix Vercel build`, so the fix adds a second config
+   and must not delete the exclusion from the first.
+
+**To `qa-hooks-013`**:
+
+7. Round-5's item stands: M8-E's notice instrument asserts against the **applied result**, not
+   against the option constants. Add: per INFO-2 (round 6), the notice **wording** is where partial
+   components loss is solved — `dropSet` cannot express it, and asserting the notice says
+   "components" is not the same as asserting it is true.
+
+## Captured Instruments (round 6)
+
+New, at `agent-output/verification/013/probe-cr6-derivation-round/`:
+
+| file | what it establishes |
+|---|---|
+| `derivation.cr6.test.ts` | CR6-A/B/C/D/E — the 1120-draft exhaustive corpus, the D18 gate/applier invariant, the advertised-vs-enacted agreement against an independent oracle, the mutant control, the purity check, the residual demonstration, and the granularity bound |
+| `vitest.cr6.config.ts` | its config |
+| `run-cr6-52e0e8a.txt`, `run-cr6-816d7fd.txt` | captured runs at both trees, 10/10 each |
+
+**Superseded**: `probe-cr5-application-half/`'s CR5-B, CR5-C and CR5-D now fail (3 of 19) — **all
+three by instrument expiry, none by defect.** They were built for the three-parameter signature and
+the constant `dropSet`, both of which this round removed; their failure *is* the fix working. CR5-A
+and the two cycle probes remain valid and pass. Recorded in the instruments README. An instrument's
+validity is indexed to the claim it was built for, and these two claims are gone.
+
+**Neither of the two round-6 MEDIUMs gets a captured check from me, deliberately.** MEDIUM-1's
+subject is that no runtime check *can* exist for it — writing one would be the dead control the
+finding is about. MEDIUM-2's fix belongs in the project's own suite, where a framework already
+reaches this code: authoring it is not mine. Both are `no test` from me, explicitly, and the
+instrument's location is handed to the implementer with the finding.
+
+## Next Steps
+
+1. **`implementer-hooks-013-2`** — Required Actions 1–5. MEDIUM-2 (round 6) first and before further
+   wiring.
+2. **`steering-hooks-013-2`** — Required Action 6 (scope growth, owner's word needed). Also: your
+   pairing condition **has not lapsed** — both `check-expected-six.sh` and `probe-cr3-mode-predicate/`
+   were run this round, 122/122 on the latter.
+3. **`qa-hooks-013`** — Required Action 7.
+4. **Round 7 = `a3e758b`, under the adversarial-execution obligation.** The exemption expired at
+   that commit, tested mechanically, not interpreted. That round stands the service up and asserts
+   the negative on the persistence surface. It also re-reads this round's declined and deferred
+   findings first, per the standing rule.
+
+**QA is not the next stage.** M3, M4 and M6 remain, and M8-G is not delivered.
+
+**Rounds 1–5's verdicts are unaffected.** Each stands on its own tree.
+
+## Method notes (round 6)
+
+### A vacuous comparison I nearly shipped, and the control that caught it
+
+Establishing that `816d7fd` was decision-neutral meant comparing emitted JavaScript at two commits.
+My first run reported:
+
+```
+IDENTICAL   (index.ts)
+IDENTICAL   (013-m8-ec3-resolver-gate.test.ts)
+```
+
+Both were false. `esbuild` had rejected its arguments (`"loader" without extension only applies when
+reading from stdin`), written **zero bytes** to all four output files, and `cmp` had dutifully
+reported four empty files as pairwise identical. The sha256 of every output was
+`e3b0c44298fc…` — the hash of the empty string, which is what made it visible.
+
+**The comparison could not have failed.** Any pair of inputs would have produced IDENTICAL, including
+two files that differ completely. It is precisely the "Checks That Cannot Fail" defect this role
+raises against others, arising in my own instrument, in the same pass in which I raised LOW-1 for a
+version of it.
+
+What caught it was adding a **positive control**: emit a copy of the file with one token changed
+(`return dropped;` → `return dropped.slice();`) and require the comparator to report DIFFER. It did,
+at byte 2188 — and only then does IDENTICAL on the real pair mean anything. The general form, which
+is worth more than this instance: **an equality check between two derived artifacts must be shown to
+be capable of reporting inequality, on that run, on those artifacts.** A control is not the same as
+a mutant test of the code; it is a test of the comparator.
+
+### Three rig failures, recorded so they are not rediscovered
+
+These join the two already recorded in `probe-cr4-disposition-gate/gates/README.md`. All three
+produce a red or absent result that has nothing to do with the code under review.
+
+1. **A probe directory's `node_modules` can silently degenerate from a symlink into a real
+   directory.** `probe-cr3-mode-predicate/node_modules` had become a real directory containing only a
+   `.vite` cache, so `npx` could not resolve the workspace vitest, fetched **vitest 4.1.11 from the
+   network**, and failed at config load with `Error: Cannot find module 'vitest/config'` and exit 1.
+   That reads exactly like "the CR3 probe fails at this tree" — which, given the pairing this probe
+   is half of, would have been a consequential misreading. **A further trap**: `ln -sfn <target>
+   node_modules` does **not** repair it — when `node_modules` is an existing directory, `ln` creates
+   the link *inside* it. The fix is `rm -rf node_modules && ln -sfn <target> node_modules`. Verify
+   with `ls node_modules/vitest` before trusting a run.
+2. **`eslint` cannot run from a `git archive` extraction with a symlinked `node_modules`.** It exits
+   2 with `ESLint couldn't determine the plugin "react" uniquely`, seeing two `eslint-plugin-react`
+   versions through the pnpm store. Lint provenance questions are better answered from the real tree
+   plus `git show`, not from an extraction.
+3. **`next build` in an extraction needs more dummy env than the CR4 README lists.** Beyond that
+   list: `PREVIEW_IMAGE_API_KEY`, `PREVIEW_IMAGE_URL`, `NEXT_PUBLIC_PUSHER_KEY`,
+   `NEXT_PUBLIC_PUSHER_CLUSTER`, `PUSHER_APP_ID`, `PUSHER_SECRET`, `ENCRYPTION_IV`,
+   `HOOKS_API_TOKEN`. Compilation completes before env validation runs, so
+   `✓ Compiled successfully` is obtainable — and is the part that carries typecheck and bundling —
+   even when prerendering then fails on `Invalid environment variables`. **This round reached
+   compilation and not prerender**, and says so rather than claiming a clean build.
+
+### On `git grep -c` versus the output filter
+
+Every count in this round used `git grep -c`, `grep -c` or `git diff --numstat`, all of which compute
+before the output filter. This is not caution for its own sake: an exact-match or positional
+predicate over filtered output is unsound rather than merely inaccurate, and reproduces stably, so
+re-running it looks like confirmation. Where a claim rested on a count, a contradicting counter was
+what would have caught it — never a second run of the same filtered form.

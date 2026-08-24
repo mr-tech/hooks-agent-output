@@ -1,0 +1,25 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/agent-output/verification/013/probe-cr6-derivation-round
+
+stdout | derivation.cr6.test.ts > CR6-A — MEDIUM-1 (round 5) closure: the gate and the applier cannot disagree > D18 invariant over 1120 drafts: gate.mustAsk === true <=> applyDisposition(draft) throws
+CR6-A corpus: 1120 drafts, mustAsk=325, settled=795
+
+stdout | derivation.cr6.test.ts > CR6-B — MEDIUM-2 (round 5) closure: advertised drop === enacted drop, at key granularity > every row-E option's dropSet equals the keys the real serialiser changes, over the corpus
+CR6-B: 325 row-E drafts, every option's dropSet matched the enacted diff
+
+ ✓ derivation.cr6.test.ts > CR6-A — MEDIUM-1 (round 5) closure: the gate and the applier cannot disagree > applyDisposition takes exactly two declared parameters (draft, chosenOption?) 2ms
+ ✓ derivation.cr6.test.ts > CR6-A — MEDIUM-1 (round 5) closure: the gate and the applier cannot disagree > D18 invariant over 1120 drafts: gate.mustAsk === true <=> applyDisposition(draft) throws 23ms
+ ✓ derivation.cr6.test.ts > CR6-A — MEDIUM-1 (round 5) closure: the gate and the applier cannot disagree > no settled draft loses classic content it was carrying (D18 subject) 13ms
+ ✓ derivation.cr6.test.ts > CR6-B — MEDIUM-2 (round 5) closure: advertised drop === enacted drop, at key granularity > every row-E option's dropSet equals the keys the real serialiser changes, over the corpus 19ms
+ ✓ derivation.cr6.test.ts > CR6-B — MEDIUM-2 (round 5) closure: advertised drop === enacted drop, at key granularity > MUTANT CONTROL: a hand-labelled dropSet fails this same check 1ms
+ ✓ derivation.cr6.test.ts > CR6-C — the residual: chosenOption still carries a derived label nothing ties to the draft > applyDisposition reads chosenOption.mode and ignores chosenOption.dropSet entirely 0ms
+ ✓ derivation.cr6.test.ts > CR6-C — the residual: chosenOption still carries a derived label nothing ties to the draft > a stale option from ANOTHER draft is accepted, and the label the user saw understates the loss 1ms
+ ✓ derivation.cr6.test.ts > CR6-D — purity: the resolver, the gate and the applier do not mutate their inputs > no corpus draft (or its nested arrays) is mutated by any of the three 24ms
+ ✓ derivation.cr6.test.ts > CR6-E — granularity: the key-level label still cannot describe a PARTIAL components loss > [container, actionRow] -> classic keeps the Action Row, but the label is still the bare key "components" 1ms
+ ✓ derivation.cr6.test.ts > CR6-E — granularity: the key-level label still cannot describe a PARTIAL components loss > a draft whose ONLY components are Action Rows never reaches row E, so the case is bounded 0ms
+
+ Test Files  1 passed (1)
+      Tests  10 passed (10)
+   Start at  04:52:33
+   Duration  729ms (transform 123ms, setup 0ms, import 483ms, tests 85ms, environment 0ms)
+
