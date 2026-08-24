@@ -2,29 +2,29 @@
 ID: 013
 Origin: 013
 UUID: 22d69e06
-Reviewed-At: "Round 14 (current, binding): 66e1974519df1497423b154c17f22618459f7fe0 (chain/013-components-v2-editing-surfaces) — M8-G, the five-writer persist gate (D18), eight files. Verified at the start of the pass and again at the end; the tree did not move. Superseded, retained for the record: round 13 at 7890fc9, round 12 at 299b842, round 11 at 54fed63, round 10 at 82af843, round 9 at ee3bc3e, round 8 at b3f8ea9, round 7 at 87cfbd8, round 6 at 816d7fd, round 5 at 0c8fad5, round 4 at 92ce026, round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
+Reviewed-At: "Round 15 (current, binding): 12f4ce672edc914be3e7998f8488a39dc3204393 (chain/013-components-v2-editing-surfaces) — M3, Discord ingress carries V2 (M3-a/b/c), ten files. Verified at the start of the pass and again at the end; the tree did not move. Superseded, retained for the record: round 14 at 66e1974, round 13 at 7890fc9, round 12 at 299b842, round 11 at 54fed63, round 10 at 82af843, round 9 at ee3bc3e, round 8 at b3f8ea9, round 7 at 87cfbd8, round 6 at 816d7fd, round 5 at 0c8fad5, round 4 at 92ce026, round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
 Status: In Review
 Status-Detail: >-
-  Round 14, M8-G — the five-writer persist gate (D18), at 66e1974. APPROVED_WITH_COMMENTS — the
-  milestone criterion is MET and verified, nothing holds the tree. T2 FIRED for the first time in
-  seven rounds (three of five writers hit; the two misses are the canned-intro pages, confirmed
-  non-members), and the persist-path attack it owed was RUN: an isolated instance stood up from a git
-  archive with a wholly dummy env and DATABASE_URL on a dead port, driven with raw sockets — every
-  message.upsert body returned 401, so an unauthenticated attacker cannot persist, and the server
-  input shape carries no mutual-exclusivity refinement, so once authenticated the ONLY gate is
-  client-side. The TDD red was reproduced independently and is BEHAVIOURAL: 5 fails against real
-  deleting code, including the exact "expected undefined to be 'Hello world'". stripKeys' deletion is
-  retired correctly (not bolted onto the serialiser). TWO findings, both routed, neither holding the
-  tree. MEDIUM-4: the persist gate's hasClassicContent is NARROWER than the send floor's
-  validateContentRequirements — they disagree on empty-ish embeds — so retiring stripKeys' deletion
-  turns a paste of a V2 component + an empty embed from silently-cleaned-and-sendable into
-  retained-but-unsendable with NO choice shown; reachable via malformed paste only, fail-safe, no data
-  lost, structural root pre-existing. Fix aligns the two predicates — do NOT restore the deletion,
-  which reintroduces D18's class. LOW-3: the row-E choice UI is triplicated and SaveAsMenu's copy
-  strands its choice state on dismissal — the round-9 MEDIUM-3 class recurring in a new copy;
-  SaveChoiceModal was extracted but only one of three sites uses it. Two non-test stripKeys consumers
-  (send wire form, usePusher hash) examined and cleared. CRITICAL-1 reconfirmed live on the v1 control,
-  NOT re-escalated. Plan Status field NOT set, per both seams and steering.
+  Round 15, M3 — Discord ingress carries V2 (M3-a/b/c), at 12f4ce6. APPROVED_WITH_COMMENTS — the three
+  sub-criteria are MET and verified, nothing holds the tree. M3-a carries components and the flag; the
+  WHOLE flags field is copied and that is the RULED-CORRECT pass-through, settled by the architecture
+  doc's own owner ruling (system-architecture.md:91: non-V2 bits are user data that passes through
+  unexamined and unchanged) — I checked the ruling before raising it, and it dissolved my first
+  finding. M3-b's core is right: the converter's kept-set EXACTLY matches the strict persist shape's
+  discriminants, unsupported top-level/container-child types and non-link ActionRow buttons are dropped
+  and labelled, and the label reaches all three entry points (the code-path toast is a stable one-shot,
+  not the round-9 re-fire). M3-c refuses empty success fail-safe. TDD red reproduced independently (9
+  fails, TypeError on the new return shape); the implementer disclosed a TDD ordering lapse, handled
+  correctly. Baseline MATCH at clean 504/498/6, CR3 122/122, tsc 0. Architectural grounding EXISTS
+  (re-checked, not inherited). Two findings routed, neither holding the tree. MEDIUM-5: a Section
+  ACCESSORY is never filtered, so a non-link (interactive) button accessory from ingress is carried
+  UNNAMED and fails opaquely at persist -- the D9-avoided mode; ingress-specific (paste rejects it
+  loud), outside M3-b's DECLARED class, narrow, fail-safe. Fix filters accessories in the converter;
+  do not special-case. LOW-5: the committed tree FAILS eslint --max-warnings=0 (member-delimiter-style
+  error on the new RawComponent type at discordResponseToMessage.ts:44), contradicting the ESLint-clean
+  claim -- likely a --fixed working state not committed. INFO-2 (a round-14 miss of mine): M8-G's
+  NewMessageModal choice branch is dead code because loadedMessage is never row E. Plan Status field
+  NOT set, per both seams and steering.
 ---
 
 # Code Review: Plan 013 — Components V2 support across the editing surfaces (M1 only)
@@ -40,6 +40,7 @@ Status-Detail: >-
 
 | Date | Agent Handoff | Request | Summary |
 |---|---|---|---|
+| 2026-08-24 | implementer-hooks-013-3 (direct, per D22/D26) | Review M3 at `12f4ce6` (ten files), doc `f8dd433` | **Round 15. APPROVED_WITH_COMMENTS — M3 complete.** First pass; the sweep is the whole surface. **M3-a**: components + the flag carried; the WHOLE `flags` field is copied and that is the **ruled-correct** pass-through (`system-architecture.md:91`, owner ruling: non-V2 bits pass through unexamined) — **I checked the ruling before raising it, and it dissolved my first finding.** **M3-b core correct**: the converter's kept-set **exactly matches** the strict persist shape's discriminants; unsupported top-level/container-child types + non-link ActionRow buttons dropped and labelled; residue reaches all three entry points (code-path toast is a stable one-shot, not the round-9 re-fire). **M3-c** refuses empty success fail-safe. **TDD red reproduced independently** (9 fails, `TypeError` on the new `{data,droppedComponentTypes}` return); implementer **disclosed** a TDD ordering lapse — handled right. `probe-cr17` 15/15, tsc 0, baseline MATCH clean **504/498/6**, CR3 122/122. Architectural grounding **exists**, re-checked. **MEDIUM-5**: a Section **accessory** is never filtered — a non-link button accessory from ingress is carried **unnamed** and fails opaquely at persist (the D9-avoided mode); ingress-specific (paste rejects it loud), outside M3-b's **declared** class, narrow, fail-safe. **LOW-5**: committed tree **fails** `eslint --max-warnings=0` (`member-delimiter-style` on the new `RawComponent` type), contradicting the ESLint-clean claim. **INFO-2** (my round-14 miss): M8-G's `NewMessageModal` choice branch is **dead code** — `loadedMessage` is never row E. Pairing run. |
 | 2026-08-24 | implementer-hooks-013-3 (direct, per D22/D26) | Review M8-G at `66e1974` (eight files), doc `e1305c9` | **Round 14. APPROVED_WITH_COMMENTS — M8-G complete.** **T2 fired for the first time in seven rounds** and the persist-path attack it owed was run: an isolated instance (git archive, dummy env, `DATABASE_URL` on dead port `59999` set explicitly per probe-cr14) driven with raw sockets — **every `message.upsert` body returned 401**, so unauth cannot persist; the server shape has no mutual-exclusivity refinement, so once authed the **only** gate is client-side. **TDD red reproduced independently and behavioural**: 5 fails against real deleting code at `7890fc9`+new tests, incl. the exact `expected undefined to be 'Hello world'`. Writer sweep re-run and broadened to the v1 write surface (GET-only, no server writer); all three real writers gated, both canned-intro writers confirmed non-members. **MEDIUM-4**: the persist gate's `hasClassicContent` is narrower than the send floor's `validateContentRequirements` — they disagree on empty-ish embeds — so retiring `stripKeys`' deletion turns a pasted V2+empty-embed from cleaned-and-sendable into retained-but-**unsendable with no choice** (`probe-cr16` 21/21, with a `7890fc9` control); malformed-paste-only, fail-safe, root pre-existing; fix **aligns the predicates**, not restore the deletion. **LOW-3**: the choice UI is triplicated and `SaveAsMenu` strands its choice on dismissal — round-9 MEDIUM-3 recurring in a new copy; `SaveChoiceModal` extracted but used by one of three sites. Two non-test `stripKeys` consumers (send wire form fail-closed, `usePusher` hash parity) cleared. CRITICAL-1 reconfirmed live on the v1 control, **not re-escalated**. Pairing run; **T2 fired**. |
 | 2026-08-24 | implementer-hooks-013-3 (direct, per D22/D26) | Re-verify the round-12 HIGH-1/INFO-1 fix at `7890fc9` (two files), doc `4d00fa1` | **Round 13. APPROVED — M2-c complete.** HIGH-1 closed **structurally**: the overwrite sentence is unconditional and the diff additive, so the class is unrepresentable. `probe-cr13` (16/16) with a `299b842` control that fails the same assertion, plus an exhaustive 18-cell sweep. Red reproduced at `7890fc9~1` and it is **behavioural**, not existence-only. `probe-cr12` correctly expired 6/13 — and the contrast with `probe-cr10` (which never expires) validates round 11: **import your subject, do not transcribe it.** **The class sweep was incomplete** — their predicate could not see `showConfirmation(` or `.ts` files, so there are **five** sites, not three. `usePusher.ts:43` is a genuine member; root cause is `hasChanged` being gated on `status === "authenticated"`, which also makes `Navigation`'s Reload **skip its dialog entirely**. Pre-existing and out of chain scope — **routed to steering as a handoff candidate, not held**. Pairing run; T2 empty for the sixth round. |
 | 2026-08-24 | implementer-hooks-013-3 (direct, per D22/D26) | Review M2-c at `299b842` (three files), doc `b7a7801` | **Round 12. REJECTED — one HIGH.** M2-c's criterion is met and the new functions are correct; the defect is what the wiring **removed**. `describeLoadDiff`'s no-diff branch returns "No component or mode changes.", and that replaced "This will overwrite the current message." as the entire confirmation body. Executed (`probe-cr12`, 13/13): on the **dominant** path — the modal is seeded with the current message — a user overwriting their own edited message is told there are no changes; same for content replaced, embeds replaced, and 3 containers collapsing to 1. The repo's other two confirmations both state their consequence. **TDD verified, not accepted**: red reproduced at `299b842~1` (12 failed), and since an existence-red proves only absence, **three mutants run, all killed (7/1/3)**. `joinWithAnd`'s behaviour-preservation **settled by execution** — 2000-case randomised differential with a positive control. `import/no-cycle` confirmed pre-existing from the line-17 import. Pairing run; T2 empty for the fifth round. |
@@ -4891,3 +4892,238 @@ issue, both fail-safe.
 **CRITICAL-1's `Review-Trigger` binds again before chain 013 closes** (the deploy puts the v1
 guild-messages endpoints back in front of traffic); raise at chain close, do not re-escalate as
 IMMEDIATE. Confirmed live again this round on control D, unchanged.
+
+---
+
+# ROUND 15 — M3, Discord ingress carries V2 (M3-a/b/c), at `12f4ce6`
+
+**Reviewed-At**: `12f4ce672edc914be3e7998f8488a39dc3204393` (chain branch
+`chain/013-components-v2-editing-surfaces`). Verified at the start of the pass and again at the end;
+the tree did not move. `agent-output` at `f8dd433`. **First pass, not a fix round** — the sweep is
+the whole surface.
+
+**Verdict: APPROVED_WITH_COMMENTS.** M3's three sub-criteria are **met and verified**: M3-a carries
+components and the flag (whole-field flags copy is the ruled-correct pass-through), M3-b's residue is
+bounded and loud over its **declared class** with the converter's kept-set exactly matching the strict
+persist shape, and M3-c refuses empty success fail-safe. TDD red reproduced independently (9 fails,
+`TypeError` on the new return shape). Two findings, neither holding the tree: **one MEDIUM** (a
+Section-accessory gap outside M3-b's declared class that reintroduces the D9-avoided opaque failure on
+ingress) and **one LOW** (the committed tree does not pass the lint gate). Plus **one INFO** that
+corrects a round-14 miss of my own.
+
+## Architectural grounding EXISTS — re-checked, not inherited
+
+`agent-output/architecture/system-architecture.md` (first heading `# System Architecture — Hooks.gg`)
+and `agent-output/architecture/013-components-v2-editing-surfaces-architecture-findings.md` (verdict
+rev 10 APPROVED) **both exist**, established by directory listing and first-line reads, not carried
+from a predecessor. The paths are workspace-absolute under `/usr/local/bin/hooks/agent-output/`. This
+matters because a **round-6 claim of architectural absence was false**, and this milestone's sharpest
+question is settled **by the architecture doc's own owner ruling** (below).
+
+## Scope actually assessed
+
+`git diff --numstat 66e1974 12f4ce6` → ten files: the converter `discordResponseToMessage.ts`
+(98/2), three ingress entry points (`message.ts` 4/2, `useValidateWebhook.ts` 8/1,
+`redis/messageStore.ts` 5/3), two notice-rendering sites (`NewMessageModal.tsx` 14/1,
+`MessageProvider/index.tsx` 6/0), one type (`global.d.ts` 1/0), and three new test files. Read via
+`git show`, not the working tree.
+
+## Verification re-run — nothing inherited
+
+| claim | instrument | result |
+|---|---|---|
+| typecheck | `npx tsc --noEmit` | **exit 0** |
+| lint gate | `npx eslint <touched> --max-warnings=0` (JSON, filter-immune) | **FAILS** — see LOW-5; the M3-new error is real, `global.d.ts` + one 136-char line are pre-existing |
+| failure **set** unchanged | `baseline-expected-six/check-expected-six.sh 12f4ce6` | **MATCH**, clean **504/498/6** |
+| the pairing's other half | `probe-cr3-mode-predicate/` | **122/122** |
+| this round | `probe-cr17-ingress/` | **15/15** |
+
+**Never taken from the working tree.** The comparator runs its own clean `git archive` extraction, so
+the implementer's shared-tree raw figure (511/505) was not used; the clean figure is 504/498/6, same
+six pinned failures by identity and reason.
+
+## The sharpest question — the `flags` copy — is settled by the owner's ruling, in favour of the code
+
+The converter copies the **whole** Discord `flags` bitfield (`if (discordMessage.flags) message.flags
+= discordMessage.flags`), not only the V2 bit, and the old converter carried **no** flags at all — so
+this is new. `sendWebhook.ts:67` serialises the whole `message` (including `flags`) into
+`payload_json`, and Discord honours `SUPPRESS_EMBEDS`/`SUPPRESS_NOTIFICATIONS` on webhook execute — so
+I first read this as an over-copy that would re-apply inherited suppress bits on send.
+
+**It is not a defect.** `system-architecture.md:91` carries an explicit owner ruling: *"V2 is the only
+one the product has an opinion about … Every other Discord bit (4 `SUPPRESS_EMBEDS`, 4096
+`SUPPRESS_NOTIFICATIONS`, and any future one) is user data that passes through every surface unexamined
+and unchanged."* Whole-field pass-through is the **ruled-correct** behaviour; carrying only the V2 bit
+would violate it. I checked the ruling before raising the finding, and it dissolves it. (`probe-cr17`
+CR17-A records the round-trip as conformant.)
+
+## M3-a — MET
+
+Components carried; the V2 bit copied from Discord's `flags`, never derived from structure. Both D12
+partition halves hold: (i) a V2-typed message keeps the bit and `hasV2Components` is true; (ii) a
+V2-marked Action-Rows-only message keeps the bit with `hasV2Components` false and passes
+`validateContentRequirements`. Whole-flags pass-through as above.
+
+## M3-b — MET over its declared class; the accessory gap is MEDIUM-5
+
+**The core is correct, established by execution** (`probe-cr17` CR17-B): the converter's kept sets are
+`{1,9,10,12,13,14,17}` top-level and `{1,9,10,12,13,14}` container-child — an **exact match** with the
+strict persist shape's discriminated-union discriminants, so nothing carried fails persist on type and
+nothing supported is over-dropped. Unsupported top-level types (e.g. Select), unsupported
+container-children, and non-link buttons **inside Action Rows** are dropped and **labelled**, and the
+label travels to each entry point's own receiving end: the import dialog for URL/webhook
+(`NewMessageModal`, `discordMessage?.droppedComponentTypes ?? webhookDroppedComponentTypes`) and a
+`toast.warn` on the code path (`MessageProvider` `codeMessage` effect). The code-path toast is keyed on
+`codeMessage`, which is stable react-query data (`staleTime: Infinity`), so it fires once — **not** the
+round-9 re-fire pattern. The full converter-caller sweep (`git grep discordResponseToMessage`) is three
+sites, all three surfacing the residue; there is no fourth ingress path.
+
+### MEDIUM-5 — a Section accessory is never filtered, so a non-link accessory fails opaquely on ingress
+
+**Location**: `src/utils/discordResponseToMessage.ts`, symbol `filterTopLevelComponent` (and
+`filterContainerChild`) — a `type === Section` is returned whole without inspecting its `accessory`.
+
+**Class**: an unsupported component reaching persist via **ingress** without being named in
+`droppedComponentTypes`, producing the opaque Zod failure D9 exists to eliminate. The converter filters
+top-level types, container-child types, and Action-Row buttons — but a **Section accessory** is none of
+those, so it is never inspected. The strict `sectionShape.accessory` is
+`z.union([thumbnailShape, linkButtonShape])`; a Section whose accessory is a **non-link (interactive)
+button** (a valid Discord shape from another bot) is carried unnamed and rejected only at
+`message.upsert` with an opaque error.
+
+**Enumeration**: `git grep -n 'accessory' 12f4ce6 -- src/utils/discordResponseToMessage.ts` → **0**
+hits (the converter never touches accessories); `… src/server/api/utils/shapes.ts` → the
+`sectionShape.accessory` union (line 76). Does **not** match: an accessory whose shape happens to
+satisfy the union (a Thumbnail, or a link button) — those persist fine, so the class is exactly
+non-link-button accessories (and any future non-union accessory type). Established by execution
+(`probe-cr17` CR17-C, CR17-E): the converter carries it with `droppedComponentTypes === []`, then
+`discordMessageShape.safeParse` fails; the **paste** path rejects the same shape loudly at paste via
+`discordMessageImportShape`, so this is **ingress-specific** — ingress defers to an opaque save-fail
+where paste fails loud.
+
+**Magnitude** (unmeasured, stated as such): reachability is **narrow** — it needs another bot's V2
+Section carrying an interactive-button accessory, imported by URL/webhook/code — and the outcome is
+**fail-safe** (the save fails; nothing corrupt is stored). Impact is a confusing unexplained save error
+rather than data loss.
+
+**Required Action — eliminate the class, don't special-case the site. Preferred (structural)**: filter
+Section accessories in the converter as ActionRow buttons already are — drop a non-link-button
+accessory and add its label to `droppedComponentTypes` — and mirror it on the paste path's
+`filterSupportedComponents` so the two agree. **Minimum**: drop the accessory and name it on the
+converter alone. Captured check: `probe-cr17-ingress/ingress.cr17.test.ts` CR17-C/CR17-E — **the check
+that fails if the class returns**. This is **outside M3-b's formally declared class** (top-level and
+container-child types), so it does not fail the milestone criterion; it misses D9's intent for this
+shape.
+
+## M3-c — MET, fail-safe; and its interaction with M8-G is safe (INFO-2)
+
+`disableSave` now includes `!!contentFloorError` where `contentFloorError =
+validateContentRequirements(loadedMessage)`, closing research F5's empty-`valid=false` flows
+(6/11/12/13). I chased one interaction hard: `validateContentRequirements` errors on **row E**
+(V2+content), not only on empty, so `disableSave` would block a row-E message — and `onSubmit` is
+exactly where M8-G's row-E choice fires. **But it is not reachable** (`probe-cr17` CR17-D):
+`loadedMessage` can never be row E — the three ingress sources never carry V2+content, and `jsonMessage`
+is set only by `NewMessageJsonInput`, which resolves row E in its own choice UI and emits
+`applyDisposition(...)`, a resolved message (`applyDisposition` with no mode **throws** on row E and the
+code guards it). So M3-c blocks **empty** (correct) and, incidentally, the round-14 MEDIUM-4 empty-embed
+divergence (fail-safe at this surface) — and blocks **no reachable choice**. I retracted the finding by
+chasing reachability rather than asserting it.
+
+### INFO-2 — M8-G's NewMessageModal choice branch is unreachable (a round-14 miss of mine)
+
+The same reachability means M8-G's `pendingChoice`/`gateBeforePersist` branch in `NewMessageModal` is
+**dead code** given the current `loadedMessage` sources plus Discord's exclusivity invariant —
+`mustAsk` is always false there. **Round 14 approved M8-G without noticing this**; I record it now.
+It is harmless defensive depth (it becomes live if a future source can produce row E), not a defect,
+and it rests on Discord's own invariant, which I did not execute.
+
+## LOW-5 — the committed tree does not pass the lint gate
+
+**Location**: `src/utils/discordResponseToMessage.ts:44` (the `RawComponent` inline type), committed
+object `12f4ce6` (working tree confirmed identical to the committed object).
+
+**Class**: a committed source line the project lint gate (`eslint --max-warnings=0`) rejects.
+`member-delimiter-style` (configured **error**, single-line delimiter `comma`) fires **twice** on
+`type RawComponent = { type: number; components?: RawComponent[]; style?: number };` — semicolons where
+the config requires commas. New in M3, and `--fix`-able, so the most likely cause is that `pnpm lint
+--fix` cleaned a working state that was **not** the committed one (a shared-tree / commit-hygiene gap).
+This contradicts the doc's "ESLint clean on all seven touched production files" claim.
+
+**Enumeration** (filter-immune, `eslint --format json`): `discordResponseToMessage.ts` — 2 errors
+(member-delimiter-style L44) + 2 warnings (max-len L66 new, L135 **pre-existing** — 136 chars at parent
+`66e1974` too). `global.d.ts` — 13 `no-unused-vars` + 1 max-len, **all pre-existing** (lines 4–28
+identical at parent). Does **not** match: rules the gate has `--fix`ed away in a working tree I cannot
+see. **Required Action. Minimum**: run `pnpm lint --fix` and commit the result. **Preferred**: the same,
+plus confirm the max-len on the new L66 is resolved (it is a warning that `--max-warnings=0` still
+fails on).
+
+## TDD — red reproduced independently, and one disclosed ordering lapse
+
+I built an old-source (`66e1974`) + new-test tree and ran the M3 specs: **9 failures**, including the
+implementer's disclosed `TypeError: Cannot read properties of undefined (reading 'flags')` — the tests
+destructure the new `{ data, droppedComponentTypes }` return shape against the old bare-`MessageData`
+converter. Genuine reds for the right reason. The implementer **disclosed** a TDD ordering lapse
+(`messageStore.store`'s change made before `013-m3-code-path.test.ts` was written) with `git stash`
+compensating evidence, and recorded it in the TDD Compliance table rather than smoothing it over —
+the correct handling of a process slip; noted, not held.
+
+## The adversarial trigger is not crossed by M3
+
+M3 is an import/read path. `getMessage` remains a `protectedProcedure` with its auth branches
+unchanged (the diff touches only the `case 200` return); `messageStore.store` is bot-command-triggered,
+not a website auth surface; no irreversible action is added. So the mandatory stand-up-and-attack does
+not trigger for M3 (last round's persist-surface attack covered the write boundary). The one server
+change was read and confirmed auth-neutral.
+
+## Positive observations
+
+- **The converter's kept-set exactly matches the strict persist shape** — the M3-b core is right, and
+  the Thumbnail-11 exclusion the implementer flagged is correct (Thumbnail is a Section accessory, not
+  a top-level type; carrying it top-level would fail persist).
+- **The residue travels correctly to all three entry points**, and the code-path toast is a stable
+  one-shot, not a re-fire.
+- **The flags determination was reasoned openly** and matches the owner's pass-through ruling.
+- **The TDD ordering lapse was disclosed**, not hidden — the right behaviour.
+
+## Assumption Not Checked
+
+**This review assumes a Discord API message never carries `IS_COMPONENTS_V2` together with content or
+embeds, and does not test it.** INFO-2's "the NewMessageModal choice branch is dead code" and M3-a(ii)'s
+partition both rest on Discord enforcing that exclusivity server-side; I verified the code paths but
+not Discord's behaviour.
+
+**Falsity signature**: a fetched message carrying both would make `gateBeforePersist(loadedMessage)`
+return `mustAsk` true in `NewMessageModal`, turning the "dead" M8-G branch live — and would make M3-c's
+`disableSave` block that live choice, promoting INFO-2 into a reachable HIGH.
+
+**Owner: QA**, Phase 2 — one URL import of a hand-constructed (or bot-sent) message with the V2 flag
+and content, asserting whether the choice appears or the Save is blocked. Named again in Next Steps.
+
+## Captured instruments
+
+| path | what it is |
+|---|---|
+| `verification/013/probe-cr17-ingress/ingress.cr17.test.ts` | 15 assertions: CR17-A flags pass-through (ruled-acceptable), CR17-B the kept-set == strict-shape match + labelled drops, CR17-C the Section-accessory opaque-failure gap, CR17-D the M3-c/M8-G reachability retraction, CR17-E the ingress-vs-paste asymmetry |
+| `…/probe-cr17-ingress/ingress-findings.txt` | the findings summary the probe writes |
+| `…/probe-cr17-ingress/README.md` | claims, the flags ruling, reachability, blind spots |
+
+## Required Actions
+
+**None hold the tree.** M3's three sub-criteria are met and verified. MEDIUM-5 (Section-accessory
+opaque failure, outside M3-b's declared class) and LOW-5 (lint gate) are routed for a follow-up fix.
+
+## Next Steps
+
+1. **`implementer-hooks-013-3`** — M3 approved. **MEDIUM-5**: filter Section accessories in the
+   converter (Preferred: mirror on `filterSupportedComponents` too) so a non-link accessory is named in
+   `droppedComponentTypes` instead of failing opaquely at persist — natural to fold into **M4** (the
+   JSON-import ground). **LOW-5**: `pnpm lint --fix` and commit the result; the committed tree currently
+   fails `--max-warnings=0` on `discordResponseToMessage.ts:44`. Next unit is **M4** (its Dependencies
+   line: "M3 holds `NewMessageModal.tsx` first"), then M6. MEDIUM-4 from round 14 still owes its
+   **minimum** fix per steering when M4/M6 start.
+2. **QA** — this round's Assumption Not Checked (does Discord ever send V2 + content — the falsifier
+   that would promote INFO-2 to a reachable HIGH), plus the MEDIUM-5 UX check (what a non-link Section
+   accessory import shows the user), and the carried assumptions from rounds 9, 11, 12, 13, 14, and
+   round-8 INFO-1.
+3. **A planner pass, when that queue reopens** — MEDIUM-1's reach into M4's Risks, unchanged; and the
+   M4-b Thumbnail-11 finding the implementer named (out of M3 scope).

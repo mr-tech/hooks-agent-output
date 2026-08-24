@@ -1,0 +1,9 @@
+CR17 — M3 Discord ingress at 12f4ce6.
+
+A. whole flags field carried -> RULED-ACCEPTABLE (arch:91 pass-through). Not a finding.
+B. converter kept-set == strict persist shape discriminants {1,9,10,12,13,14,17}. Clean.
+   unsupported top-level + non-link ActionRow buttons dropped and labelled. Clean.
+C. GAP: a Section accessory is never filtered. A non-link (interactive) button
+   accessory is carried unchanged, then FAILS discordMessageShape at persist with
+   an opaque Zod error -- the exact D9-avoided mode. Thumbnail accessory is fine.
+   Outside M3-b's declared class (accessories are neither top-level nor container-child).
