@@ -1,0 +1,163 @@
+
+ RUN  v4.1.2 /tmp/cr5-red
+
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row A: bit clear, no components, no content — lands unchanged, Classic, no notice 2ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row A: bit clear, no components, WITH content — still A, Classic, no notice 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row B: bit clear, V2 components, no content — V2 with a warning 0ms
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row E: bit clear, V2 components AND content — the user chooses 7ms
+   → expected { row: 'E', mode: null, …(4) } to not have property "dropSet"
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row C: bit set, no V2 components, no content (Action Rows only) — V2 silently, D13 1ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row C: bit set, no components at all, no content — V2 silently 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row D: bit set, no V2 components, WITH content — Classic, warning 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row C: bit set, V2 components, no content — V2 silently kept 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row E: bit set, V2 components AND content — the user chooses 0ms
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — MEDIUM-3 regression: the bit is masked, not truthy-tested > a residue bit (SUPPRESS_EMBEDS) alongside classic content is row A, not D 2ms
+   → expected 'D' to be 'A' // Object.is equality
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — MEDIUM-3 regression: the bit is masked, not truthy-tested > the V2 bit combined with a residue bit is still row C (mask, not equality) 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — MEDIUM-3 regression: the bit is masked, not truthy-tested > an undefined flags value behaves as 0 (row A, not D) 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — conjunct isolation: the bit alone selects the row within each (components, content) combo > no components, no content: bit is the sole carrier between A and C 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — conjunct isolation: the bit alone selects the row within each (components, content) combo > no components, with content: bit is the sole carrier between A and D 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — conjunct isolation: the bit alone selects the row within each (components, content) combo > V2 components, no content: bit is the sole carrier between B and C 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — conjunct isolation: the bit alone selects the row within each (components, content) combo > V2 components, with content: row is E regardless of the bit (both directions) 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — both-directions obligation (QA) > M8-C is not re-admitted by an Action-Rows-only fixture (D13, "not a conflict") 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — both-directions obligation (QA) > M8-A and M8-C together isolate M8-E: cells exist where requiresChoice is false and something lands immediately 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — gateBeforePersist, the persist gate (D18, M8-G) > mustAsk is true for a row-E draft (5712-shaped: V2 components retained alongside classic content) 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — gateBeforePersist, the persist gate (D18, M8-G) > mustAsk is false for an ordinary classic draft (a canned-intro writer: never a member) 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — gateBeforePersist, the persist gate (D18, M8-G) > mustAsk is false for a pure V2 draft with no classic body 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — gateBeforePersist, the persist gate (D18, M8-G) > mustAsk is true regardless of whether the flag bit happens to be set (both row-E members) 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — gateBeforePersist, the persist gate (D18, M8-G) > mustAsk is false for a residue-bit-only draft (MEDIUM-3 regression at the gate) 0ms
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — applyDisposition, the application half (MEDIUM-2, D18) > row A/settled: applying a classic disposition delegates to switchToClassic (no bit, no content change) 1ms
+   → applyDisposition is not a function
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — applyDisposition, the application half (MEDIUM-2, D18) > row B/C settled: applying a v2 disposition sets the flag bit and clears content/embeds 0ms
+   → applyDisposition is not a function
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — applyDisposition, the application half (MEDIUM-2, D18) > row D settled: applying a classic disposition clears the bit 0ms
+   → applyDisposition is not a function
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — applyDisposition, the application half (MEDIUM-2, D18) > row E with the classic option chosen: drops components, clears the bit 0ms
+   → applyDisposition is not a function
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — applyDisposition, the application half (MEDIUM-2, D18) > row E with the v2 option chosen: drops content/embeds, sets the bit 0ms
+   → applyDisposition is not a function
+ × src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — applyDisposition, the application half (MEDIUM-2, D18) > row E with no chosen option throws — a choice cannot be applied without being made 2ms
+   → expected [Function] to throw error matching /chosenOption/ but got '__vi_import_1__.applyDisposition is n…'
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row E: bit clear, V2 components AND content — the user chooses
+AssertionError: expected { row: 'E', mode: null, …(4) } to not have property "dropSet"
+
+- Expected:
+undefined
+
++ Received:
+[]
+
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:67:19
+     65|       { mode: 'v2', dropSet: ['content', 'embeds'] },
+     66|     ]);
+     67|     expect(d).not.toHaveProperty('dropSet');
+       |                   ^
+     68|   });
+     69|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — MEDIUM-3 regression: the bit is masked, not truthy-tested > a residue bit (SUPPRESS_EMBEDS) alongside classic content is row A, not D
+AssertionError: expected 'D' to be 'A' // Object.is equality
+
+Expected: "A"
+Received: "D"
+
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:116:19
+    114|     const SUPPRESS_EMBEDS = 4;
+    115|     const d = resolveContentLoss(SUPPRESS_EMBEDS, undefined, 'hi', und…
+    116|     expect(d.row).toBe('A');
+       |                   ^
+    117|     expect(d.mode).toBe('classic');
+    118|     expect(d.noticeClass).toBe('none');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — applyDisposition, the application half (MEDIUM-2, D18) > row A/settled: applying a classic disposition delegates to switchToClassic (no bit, no content change)
+TypeError: applyDisposition is not a function
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:206:18
+    204|       row: 'A' as const, mode: 'classic' as const, requiresChoice: fal…
+    205|     };
+    206|     const next = applyDisposition({ flags: 0, content: 'hi', embeds: […
+       |                  ^
+    207|     expect(next.flags).toBe(0);
+    208|     expect(next.content).toBe('hi');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — applyDisposition, the application half (MEDIUM-2, D18) > row B/C settled: applying a v2 disposition sets the flag bit and clears content/embeds
+TypeError: applyDisposition is not a function
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:215:18
+    213|       row: 'C' as const, mode: 'v2' as const, requiresChoice: false as…
+    214|     };
+    215|     const next = applyDisposition({ flags: 0, content: '', embeds: [],…
+       |                  ^
+    216|     expect(!!(next.flags! & BIT)).toBe(true);
+    217|     expect(next.content).toBe('');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/8]⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — applyDisposition, the application half (MEDIUM-2, D18) > row D settled: applying a classic disposition clears the bit
+TypeError: applyDisposition is not a function
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:225:18
+    223|       row: 'D' as const, mode: 'classic' as const, requiresChoice: fal…
+    224|     };
+    225|     const next = applyDisposition({ flags: BIT, content: 'hi', embeds:…
+       |                  ^
+    226|     expect(!!(next.flags! & BIT)).toBe(false);
+    227|     expect(next.content).toBe('hi');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/8]⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — applyDisposition, the application half (MEDIUM-2, D18) > row E with the classic option chosen: drops components, clears the bit
+TypeError: applyDisposition is not a function
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:241:18
+    239|       ],
+    240|     };
+    241|     const next = applyDisposition(
+       |                  ^
+    242|       { flags: 0, content: 'hi', embeds: [], components: V2_CONTAINER …
+    243|       disposition,
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/8]⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — applyDisposition, the application half (MEDIUM-2, D18) > row E with the v2 option chosen: drops content/embeds, sets the bit
+TypeError: applyDisposition is not a function
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:262:18
+    260|       ],
+    261|     };
+    262|     const next = applyDisposition(
+       |                  ^
+    263|       { flags: 0, content: 'hi', embeds: [{ title: 'x' }], components:…
+    264|       disposition,
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/8]⎯
+
+ FAIL  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — applyDisposition, the application half (MEDIUM-2, D18) > row E with no chosen option throws — a choice cannot be applied without being made
+AssertionError: expected [Function] to throw error matching /chosenOption/ but got '__vi_import_1__.applyDisposition is n…'
+
+- Expected:
+/chosenOption/
+
++ Received:
+"__vi_import_1__.applyDisposition is not a function"
+
+ ❯ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts:284:8
+    282|     };
+    283|     expect(() => applyDisposition({ flags: 0, content: 'hi', embeds: […
+    284|       .toThrow(/chosenOption/);
+       |        ^
+    285|   });
+    286| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/8]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  8 failed | 21 passed (29)
+   Start at  04:27:00
+   Duration  831ms (transform 117ms, setup 0ms, import 495ms, tests 21ms, environment 0ms)
+

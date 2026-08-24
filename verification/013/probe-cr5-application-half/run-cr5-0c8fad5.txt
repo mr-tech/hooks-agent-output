@@ -1,0 +1,34 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/agent-output/verification/013/probe-cr5-application-half
+
+ ✓ cycle-mode-first.cr5.test.ts > CR5-cycle — messageMode imported first > both modules initialise; hasV2Components is reachable from the leaf side 2ms
+ ✓ cycle-index-first.cr5.test.ts > CR5-cycle — barrel imported first > both modules initialise and their cross-referenced functions work 2ms
+stdout | application-half.cr5.test.ts > CR5-B — the advertised dropSet versus what is actually enacted > the CLASSIC option advertises dropping "components" but Action Rows SURVIVE
+CR5-B classic-option result components: [{"type":1,"components":[]}]
+
+stdout | application-half.cr5.test.ts > CR5-D — draft and disposition are not tied to each other > a disposition computed from one draft, applied to another, silently destroys a body
+CR5-D content after mismatched apply: "" embeds: []
+
+ ✓ application-half.cr5.test.ts > CR5-A — the eight cells survive the signature change (flags: number) > c1 -> row A 2ms
+ ✓ application-half.cr5.test.ts > CR5-A — the eight cells survive the signature change (flags: number) > c2 -> row A 0ms
+ ✓ application-half.cr5.test.ts > CR5-A — the eight cells survive the signature change (flags: number) > c3 -> row B 0ms
+ ✓ application-half.cr5.test.ts > CR5-A — the eight cells survive the signature change (flags: number) > c4 -> row E 0ms
+ ✓ application-half.cr5.test.ts > CR5-A — the eight cells survive the signature change (flags: number) > c5 -> row C 0ms
+ ✓ application-half.cr5.test.ts > CR5-A — the eight cells survive the signature change (flags: number) > c6 -> row D 0ms
+ ✓ application-half.cr5.test.ts > CR5-A — the eight cells survive the signature change (flags: number) > c7 -> row C 0ms
+ ✓ application-half.cr5.test.ts > CR5-A — the eight cells survive the signature change (flags: number) > c8 -> row E 0ms
+ ✓ application-half.cr5.test.ts > CR5-A — the eight cells survive the signature change (flags: number) > MEDIUM-3 is closed: a non-V2 flag no longer misroutes 0ms
+ ✓ application-half.cr5.test.ts > CR5-A — the eight cells survive the signature change (flags: number) > the OLD boolean call shape now silently under-reads rather than type-erroring at runtime 0ms
+ ✓ application-half.cr5.test.ts > CR5-B — the advertised dropSet versus what is actually enacted > the CLASSIC option advertises dropping "components" but Action Rows SURVIVE 2ms
+ ✓ application-half.cr5.test.ts > CR5-B — the advertised dropSet versus what is actually enacted > the V2 option advertises content+embeds and enacts exactly that 0ms
+ ✓ application-half.cr5.test.ts > CR5-B — the advertised dropSet versus what is actually enacted > applyDisposition never reads dropSet at all — an arbitrary dropSet changes nothing 0ms
+ ✓ application-half.cr5.test.ts > CR5-C — the guard, re-attacked > row E with no chosenOption throws, and names the parameter 1ms
+ ✓ application-half.cr5.test.ts > CR5-C — the guard, re-attacked > row E accepts an option that is NOT one of the two offered 0ms
+ ✓ application-half.cr5.test.ts > CR5-C — the guard, re-attacked > a settled row IGNORES a stray chosenOption rather than rejecting it 0ms
+ ✓ application-half.cr5.test.ts > CR5-D — draft and disposition are not tied to each other > a disposition computed from one draft, applied to another, silently destroys a body 0ms
+
+ Test Files  3 passed (3)
+      Tests  19 passed (19)
+   Start at  04:26:23
+   Duration  633ms (transform 296ms, setup 0ms, import 1.41s, tests 15ms, environment 0ms)
+
