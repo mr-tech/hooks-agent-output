@@ -4,8 +4,8 @@ Origin: 013
 UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: QA Complete
-Verified-At: "821330d"
-Verified-At-Note: "re-anchored 2026-08-24; supersedes 164d720 — see the Re-anchor section"
+Verified-At: "a151fb47a84d7de95124b412194873f7e84edf27"
+Verified-At-Note: "re-anchored 2026-08-24; supersedes 821330d and 164d720 — FULLY COMMITTED tree, no content-identity fallback in force"
 Verified-At-Detail: >-
   **REFRESH PASS, 2026-08-24 — supersedes the Phase 2 anchor below for verdict purposes.**
   `website` @ `chain/013-components-v2-editing-surfaces`, HEAD = `164d720` (re-derived by
@@ -1555,3 +1555,46 @@ The first re-run here was issued as `vitest run --reporter=basic` and died with 
 That was **my bad flag** — `basic` was removed as a reporter name in vitest 4 — not a broken tree
 and not a failing suite. Recording it because a startup error reads exactly like an infrastructure
 fault, and a pass that reported it as one would have handed the next stage a phantom to chase.
+
+---
+
+## Final re-anchor — `821330d` → `a151fb4` (fully committed)
+
+QA's three test paths were committed as `a151fb4` on the owner's approval, given directly in this
+session. **This anchor differs in kind from the two before it**: `164d720` and `821330d` both
+depended on a content-identity manifest because the files backing the verdict existed only in the
+working tree. They no longer do.
+
+**`Verified-At: a151fb4` is a plain SHA and the manifest fallback is out of force.** Per the
+precedence rule — a committed tree takes the SHA, the manifest covers only what is uncommitted —
+there is now nothing for it to cover. Anyone re-deriving this verdict checks out one commit and
+runs one command; no digests to reproduce, no working-tree state to reconstruct.
+
+| At `a151fb4`, nothing uncommitted | **550 tests / 37 files / exit 0** |
+
+What landed, all test-only, no production code:
+
+    012-json-editor-repair-path.test.ts          +104   F-QA16 re-anchors
+    012-message-mode.test.ts                      +13   F-QA16, D16
+    013-fqa19-ingress-gate-reachability.test.ts  +130   F-QA19 coverage (new)
+
+**Verdict unchanged throughout: QA Complete.** The three re-anchors moved the SHA, never the
+verdict — each was verified by execution at its own anchor rather than carried forward.
+
+### Approval provenance, recorded because it was contested
+
+`steering-hooks-013-2` relayed the owner's approval, given by selection prompt in the steering
+session. QA did **not** commit on that relay. A peer's report of the owner's consent is not the
+owner's consent arriving here, and this pass had already declined the implementer's offer to land
+these same three files on the adjacent principle. Confirmation was sought and given **directly in
+QA's own session** before anything was committed. The relay was accurate — that is not the point;
+it was not verifiable from here, and a gate honoured only when the relay might be wrong is not a
+gate.
+
+### Note for the release path — this does NOT discharge U-C1
+
+`code-reviewer-hooks-013-3`'s round 19 verdict is δ-cleared to `164d720`. It is now **two commits
+behind**: `821330d` (the implementer's F-QA21 fix) and `a151fb4` (these three). QA re-deriving the
+delta is **evidence for the reviewer's ruling, not the ruling** — UAT declined to take that
+argument itself and was right to. The reviewer re-verifies against `a151fb4`, or U-C1 stays open.
+QA does not clear another gate's condition by arriving at a green suite.
