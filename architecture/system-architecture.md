@@ -9,6 +9,7 @@ Last Updated: 2026-08-24
 
 | Date       | Change                                                                 | Rationale                                                                                          | Plan |
 | ---------- | ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ---- |
+| 2026-08-24 | Created `architecture/website.md` from six owner-sourced answers; graded D-001 a confirmed inference and D-003 a route he knew rather than a trade-off | The first per-repo record in this workspace. D-003's "zero rendering drift" framing would have had a reader weigh alternatives against a rationale nobody held; his own words reopen it on evidence | 013 |
 | 2026-08-24 | Recorded Pusher: cross-tab staleness notice added as Runtime Flow 1b, and to Dependencies | A real-time service the doc did not mention at all. Owner-sourced intent (it flags divergence, does not coordinate) confirmed against `usePusher.ts` and `shared.ts` | 013 |
 | 2026-08-24 | Recorded the owner's rule that only the V2 bit carries product meaning | Every other `flags` bit is user data passing through unexamined — makes the D7 residue a stated invariant rather than a plan-local decision | 013 |
 | 2026-08-24 | Recorded D-005 "the back end reflects what the front end allows" (owner ruling) | Answers this architect's own question about enforcing serialisation at `message.upsert`: the owner rules bad-state saves are allowed and the back end never silently morphs a front-end-permitted shape. The Problem Area registered the day before pointed the debt the wrong way (a missing boundary gate) and is reworded to front-end cohesion, severity Medium → Low | 013 |
@@ -152,7 +153,7 @@ A companion Mermaid diagram lives at `architecture-diagram.mmd`.
 | Persisting writers do not share one path | Low | Three of five `message.upsert` call sites bypass `stripKeys` (see Data flow); of those, only `NewMessageModal.onSubmit` stores imports, and the two canned-intro writers persist a fixed classic message. Consistency depends on each writer remembering, so a sixth writer inherits nothing. This is **front-end cohesion, not a missing back-end gate** — see D-005, which rules the boundary must not enforce. Plan 013 takes the writer that matters (M4-a) and binds every writer to one criterion (M8-G) without unifying the path; a criterion unifying the paths would need its own owner ruling. |
 | ESLint health unverified               | Medium   | Doc previously recorded ESLint as broken (circular structure error). devDependencies show an in-progress flat-config migration (`eslint` ~8.57 pinned alongside `typescript-eslint` v8 and `@eslint/js` v10). Not re-verified 2026-08-23.  |
 | No CLAUDE.md / workspace self-description | Medium | Nothing in the tree states what the workspace is or which members are active; only `hooks.code-workspace` encodes it implicitly.                                    |
-| Per-repo architecture records absent   | Low      | `agent-output/architecture/<repo>.md` owner-sourced records do not exist; invariants live only in code and in this reconciled doc.                                   |
+| Per-repo architecture records: `website` exists, the others do not | Low | `architecture/website.md` was created 2026-08-24 from six owner-sourced answers. `project-utils` and `preview-image-generator` still have none; their invariants live only in code and in this doc. |
 | 2023-era toolchain in preview-image-generator | Medium | 2023 deps (puppeteer 21) far behind the website's stack — and it is the live production preview service, not shelfware.              |
 
 Resolved since the 2026-04-06 revision (recorded here as history, not declared above): the three Plan-001-era "High" items — stale V2 component constants, `rekey()` key duplication, and `sendWebhook` missing the V2 flag — no longer reproduce against the tree: the old constant names are gone from `src/constants`, and the V2 flag now reaches Discord. That last resolution was recorded with the wrong mechanism until 2026-08-24 — it read `sendWebhook.ts` *applies* `IS_COMPONENTS_V2_FLAG`, a claim taken from the constant appearing in the file rather than from what the file does with it. `sendWebhook` reads the bit to set `with_components=true`; `stripKeys` applies it, on both write paths. The item is still resolved; only the mechanism was wrong. "No test framework" was superseded by Vitest adoption.
@@ -171,6 +172,7 @@ Resolved 2026-08-23, closing the cdn thread (owner ruling, verbatim): *"I think 
 - **Context**: WYSIWYG fidelity requires the preview to be pixel-true to the editor.
 - **Choice**: One `DiscordMessageEditor` tree, mode-switched by `editableState.showEdit`.
 - **Consequences**: No drift between edit and preview rendering; every sub-component must implement both modes. Reused by the screenshot pipeline (the `/preview` route renders the same tree).
+- **Standing**: **confirmed inference**, not owner-authored — put to the owner 2026-08-24, who answered *"Agent's inference is correct."* It is only as strong as the inference he was shown; re-verify the mechanism, not the agreement. See `website.md` W-3.
 - **Related**: Plans 001, 004.
 
 ### D-002 — Shared data layer as a git-dependency package with committed dist
@@ -182,7 +184,8 @@ Resolved 2026-08-23, closing the cdn thread (owner ruling, verbatim): *"I think 
 
 ### D-003 — Preview images by screenshotting the app's own preview route
 - **Context**: Preview images must match what the editor shows (see D-001).
-- **Choice** (inferred from code): a separate puppeteer service renders the website's `/preview` page and uploads JPEGs to public S3 rather than re-implementing rendering server-side.
+- **Choice** (owner-sourced 2026-08-24, verbatim): *"That's the only way I figured how to do it: to render an exact representation of the message in the browser, one had to load and snapshot it in the browser. If there are other ways, I just did not know of them."* A separate puppeteer service renders the website's `/preview` page and uploads JPEGs to public S3 rather than re-implementing rendering server-side.
+- **Standing**: this is a **route he knew**, not a trade-off he weighed — unlike D-002, whose rationale he authored. The durable requirement is *an exact representation of the message*; puppeteer is the implementation that requirement could reach. A better route is what this decision was waiting for, not a violation of it. See `website.md` W-4.
 - **Consequences**: Zero rendering drift; adds a headless-browser service and an S3/CDN dependency; the service is coupled to the website's `/preview` URL contract (message JSON in a query param).
 
 ### D-005 — The back end reflects what the front end allows
@@ -210,5 +213,5 @@ Plans 001–010 (all website-scoped) are closed. Plan 012 (`message.valid` for s
 ## Recommendations
 
 1. Re-verify ESLint health in the website and either close or re-scope that Problem Area.
-2. Start owner-sourced per-repo architecture records (`agent-output/architecture/<repo>.md`), beginning with `website` and `preview-image-generator` — D-002's rationale is now owner-sourced, but D-001 and D-003 rationales remain inference from code.
+2. Continue the per-repo records: `website.md` exists as of 2026-08-24; `preview-image-generator` is the next most valuable, since D-003 is now known to rest on a route the owner knew rather than one he weighed, and the service is 2023-era and live in production.
 3. When refreshing website's project-utils pin after a project-utils push, treat the lockfile update as a deliberate step (see Dependencies) — the declaration alone never says what a fresh install builds against.
