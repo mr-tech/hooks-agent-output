@@ -63,7 +63,11 @@ Registered as **D18** in plan 013's Decisions Register, enacted as criterion **M
 
 **What he ratified** (recorded so a future reader can check the inference rather than the agreement) is D-001 as it stands in `system-architecture.md`: *WYSIWYG fidelity requires the preview to be pixel-true to the editor; therefore one `DiscordMessageEditor` tree, mode-switched by `editableState.showEdit`, with the consequence that no drift is possible between edit and preview rendering and every sub-component must implement both modes.*
 
-**Open gap in this entry**: the question was restated to him in plain language by steering, and this architect does not hold that restatement verbatim. What he was shown is therefore known in substance but not in wording. If the restatement text is recoverable it should be added here, because under the "confirmed inference" grade the exact framing *is* the evidence.
+**What he was shown, verbatim** (supplied by steering-hooks-013 2026-08-24; this is the message he replied to, and under this grade the framing *is* the evidence):
+
+> **3 — one component tree for edit and preview.** The editor and the preview aren't two renderers. There's a single `DiscordMessageEditor` tree that gets switched between editable and read-only by a flag, so the preview *is* the editor with editing turned off. The screenshot pipeline reuses the same tree through the `/preview` route. The cost is that every sub-component has to implement both modes. The record has the reasoning as "WYSIWYG fidelity requires the preview to be pixel-true" — which is an agent's inference, not your words. **Why one tree?**
+
+**This ratification is stronger than a bare agreement, and the record says so deliberately.** He was shown the mechanism, the cost, **and an explicit flag that the stated rationale was an agent's inference rather than his** — then answered *"Agent's inference is correct."* He was not agreeing with something presented to him as fact; he was told what was inference and confirmed it as inference. That is the best a confirmed-inference entry can be. The grade still holds — re-verify the mechanism, not the agreement — but the evidence behind it is complete, and the gap this entry previously carried is closed.
 
 ---
 
@@ -105,7 +109,5 @@ Recorded in `system-architecture.md` as Runtime Flow 1b — the service was abse
 
 ## Open questions for the owner
 
-None outstanding at 2026-08-24, except:
-
-- **W-3's restatement wording** (above) — a completeness gap in the evidence, not a new question for him.
-- **What the front end allows when a V2-flagged record already carries a body**: put to him 2026-08-24 via steering, arising from finding F-1 of the plan-013 architecture review — a stored record with content under the V2 flag opens in V2 mode with that content kept but hidden, and V2 mode permits adding components, so a draft can hold both. Plan 013 blocks the *save* and asks. The question is whether the *editor* should prevent the state, as it already prevents composing content in V2 mode. His answer belongs here as a new entry when it lands.
+None outstanding at 2026-08-24.
+**Closed 2026-08-24** — *what the front end allows when a V2-flagged record already carries a body*. His answer, verbatim: *"We'll fix the two outliers and the question becomes moot because that shape will be disallowed. Whatever default consequence there then is does not need to be decided or reasoned around."* No editor change; the two production rows are to be repaired so the shape ceases to exist. **The shape is intended not to exist, rather than to be handled** — he has explicitly ruled out reasoning about the default consequence, so no decision, trade-off or alternative is recorded for it, and the absence of one is not a gap in this record.
