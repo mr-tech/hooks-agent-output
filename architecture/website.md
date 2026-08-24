@@ -15,6 +15,8 @@ The **why** behind `website`'s architecture, in the owner's own words. It is the
 
 **Growth rule**: the record grows by use. A chain that changes or discovers an invariant named here proposes the entry update as part of that chain, and the owner confirms the wording. Propose, never land alone.
 
+**Known limitation of the method — verbatim transcription defeats paraphrase, not the author's own slips.** Quoting exactly protects against an agent softening, sharpening or summarising what the owner said. It offers no protection at all when the owner mistypes, because **a quoted sentence looks identical whether or not it says what its author meant**, and the grading scheme will mark the slip *owner-authored* — the strongest grade, decaying only by his withdrawal. The instance that established this: `preview-image-generator.md` P-5 was first answered *"There's purpose for retention"* and corrected the same day to *"There's **no** purpose for retention"*. The two readings point opposite ways — one protects an invariant a future chain must not touch, the other makes retention a new requirement to justify — and nothing in the artifact could have caught it. What follows for anyone maintaining these records: an answer that reads as an invariant is worth a sanity check against the mechanism and against his other answers before it is relied on, and a confirmed correction **replaces the original in place** with the correction noted, rather than being appended as a second version.
+
 ## How to read a provenance grade
 
 Every entry carries one. They decay differently, and that is the point.
