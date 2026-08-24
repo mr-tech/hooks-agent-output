@@ -1,0 +1,22 @@
+CR11 — round-10 MEDIUM-2 residual, at 54fed63 (one line deleted from the catch branch).
+The two columns differ ONLY by that line, so any difference is attributable to it.
+
+sequence                                  82af843   54fed63
+  delete one char, retype it               2         1
+  add a second key                         2         1
+  8 invalid->valid round trips             9         1
+  truncated paste-over                     2         1
+  10x identical row-D                      1         1
+  row D -> broken -> row B (must warn)     2         2
+  row D -> row A -> row D (defensible)     2         2
+
+CLASS CLOSED. The four sequences CR10 raised now give exactly one toast each,
+and the control column shows the pre-fix guard still firing more — so this is a
+measurement, not a vacuous pass.
+
+Deliberately UNCHANGED: row D -> row A -> row D still warns twice. Round 10 judged
+that defensible and did not ask for it. CR11-C asserts it so a later tidy cannot
+silently remove it.
+
+NOT claimed: a different message on the same notice class is not re-warned
+(CR11-D). That is what de-duplication by class means and predates the fix.

@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/agent-output/verification/013/probe-cr11-guard-closure
+
+
+ Test Files  1 passed (1)
+      Tests  17 passed (17)
+   Start at  08:39:24
+   Duration  604ms (transform 120ms, setup 0ms, import 466ms, tests 13ms, environment 0ms)
+

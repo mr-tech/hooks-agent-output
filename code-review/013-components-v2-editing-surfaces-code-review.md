@@ -2,24 +2,25 @@
 ID: 013
 Origin: 013
 UUID: 22d69e06
-Reviewed-At: "Round 10 (current, binding): 82af843ae842697383d899f53aedc76e1f561966 (chain/013-components-v2-editing-surfaces) — the round-9 fix round, one file 33/4. Verified at the start of the pass and again at the end; the tree did not move. Superseded, retained for the record: round 9 at ee3bc3e, round 8 at b3f8ea9, round 7 at 87cfbd8, round 6 at 816d7fd, round 5 at 0c8fad5, round 4 at 92ce026, round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
+Reviewed-At: "Round 11 (current, binding): 54fed635686b3dcd813c95bb464056ff97a00a6a (chain/013-components-v2-editing-surfaces) — the round-10 fix round, one file 0/1, a pure deletion. Verified at the start of the pass and again at the end; the tree did not move. Superseded, retained for the record: round 10 at 82af843, round 9 at ee3bc3e, round 8 at b3f8ea9, round 7 at 87cfbd8, round 6 at 816d7fd, round 5 at 0c8fad5, round 4 at 92ce026, round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
 Status: In Review
 Status-Detail: >-
-  Round 10, the round-9 fix round, at 82af843. APPROVED_WITH_COMMENTS. MEDIUM-3 CLOSED structurally
-  (the Preferred fix, not the Minimum on offer): cancelChoice now parks the choice in dismissedChoice
-  and a Resolve button re-enters the SAME object, cleared on any text change — with a captured check
-  (probe-cr10 CR10-D) carrying a pre-fix control, so it fails if the class returns. LOW-2 CLOSED, and
-  I broke the implementer's sweep predicate rather than accepting it: theirs saw only line-leading
-  //, so trailing, block, JSDoc and JSX comments were invisible to it; re-swept all four, zero of any
-  form. MEDIUM-2 NOT CLOSED — the transition guard reduces frequency but does NOT remove the class,
-  and the claim that it does is falsified by execution (probe-cr10, 12/12): the catch branch clears
-  lastNoticeClassRef, so any unparseable intermediate re-arms the notice and the same warning fires
-  again — deleting a closing brace and retyping it is enough, and 8 invalid->valid round trips give 9
-  identical toasts, a measured lower bound. The row-A excursion also re-fires but is DEFENSIBLE and is
-  deliberately not raised; only the catch reset is. Residual is one line and does not hold the tree.
-  MEDIUM-1 untouched as routed (probe-cr9 re-run 24/24). Verification re-run, nothing inherited: tsc 0,
-  eslint 0, expected-six MATCH at clean 481/475/6, CR3 pairing 122/122, T2 EMPTY at 82af843 with both
-  controls so M8-G is still unwired. JsonModalBody unchanged this round.
+  Round 11, the round-10 fix round, at 54fed63. APPROVED — no findings hold the tree, and EVERY
+  finding this reviewer raised against the paste surface is now closed or routed. MEDIUM-2's residual
+  is CLOSED: a one-line pure deletion of the catch-branch reset, established by probe-cr11 (17/17)
+  whose two arms are one transcription parameterised by a single boolean, so the difference is
+  attributable to that line alone. Attacked for holes the deletion could open rather than only
+  confirming it: a genuine class change still warns across an invalid state, row E does not swallow a
+  following settled warning, and a first-ever warning is not suppressed. The row-A excursion is
+  deliberately preserved and now ASSERTED, so a later tidy cannot silently remove a warning the review
+  chose to keep. INSTRUMENT DEFECT FOUND AND RECORDED: probe-cr10 is stale by construction — it
+  hardcodes the pre-fix effect body and so reported 12/12 at 54fed63 too, on a tree where the defect
+  is fixed; it is superseded by CR11 and its passing is not evidence about any later tree. This is the
+  probe-cr1 hazard reproduced in a new instrument, caught only by re-running the old probe against the
+  new tree. CR11 shares the architecture and is not exempted: it establishes what the line DOES, while
+  the diff establishes the line is GONE — neither closes the finding alone. Verification re-run:
+  tsc 0, eslint 0, expected-six MATCH at clean 481/475/6, CR3 122/122, CR9 24/24, T2 EMPTY with both
+  controls for the fourth consecutive round. Plan Status field NOT set, per both seams and steering.
 ---
 
 # Code Review: Plan 013 — Components V2 support across the editing surfaces (M1 only)
@@ -35,6 +36,7 @@ Status-Detail: >-
 
 | Date | Agent Handoff | Request | Summary |
 |---|---|---|---|
+| 2026-08-24 | implementer-hooks-013-3 (direct, per D22/D26) | Re-verify the round-10 fix at `54fed63` (`0/1`, pure deletion), doc `ee1b3a3` | **Round 11. APPROVED.** MEDIUM-2 residual CLOSED — `probe-cr11` (17/17), two arms differing only by the deleted line, so the closure is a measurement not an assertion. Attacked the deletion for suppression holes rather than only confirming it: genuine class changes still warn across an invalid state, row E does not swallow a following warning, the first warning is not suppressed. The row-A re-fire is deliberately preserved and now **asserted**, so a later tidy cannot remove a warning the review chose to keep. **Instrument defect found**: `probe-cr10` is **stale by construction** — it hardcodes the pre-fix body and reported 12/12 at `54fed63` too, where the defect is fixed. Superseded by CR11; the `probe-cr1` hazard reproduced in a new instrument, caught only by re-running the old probe against the new tree. CR11 not exempted from the same critique: it establishes what the line does, the diff establishes it is gone, neither alone suffices. All round-9 findings now closed or routed; pairing run, T2 empty for the fourth round. |
 | 2026-08-24 | implementer-hooks-013-3 (direct, per D22/D26) | Re-review the round-9 fix round at `82af843` (`33/4`), doc `46d84aa` | **Round 10. APPROVED_WITH_COMMENTS.** Fix round, so the guard was **attacked, not read**. **MEDIUM-3 CLOSED structurally** — the Preferred fix taken when the Minimum was on offer; `dismissedChoice` + a Resolve button re-entering the same object, cleared on text change. Captured check `probe-cr10` CR10-D **with a pre-fix control**, so it fails if the class returns. **LOW-2 CLOSED** — and the implementer's sweep predicate was **broken and re-run**: theirs matched line-leading `//` only, blind to trailing, block, JSDoc and JSX comments; all four re-swept, zero of any form. **MEDIUM-2 NOT CLOSED** — `probe-cr10` (12/12) falsifies the claim that the transition guard removes the class: the `catch` branch clears `lastNoticeClassRef`, so any unparseable intermediate re-arms the notice and the same warning re-fires, including on text that ends byte-identical; 8 round trips → 9 identical toasts, a measured **lower bound**. The row-A excursion also re-fires but is **defensible and deliberately not raised** — lumping them would have demanded a worse guard. Residual is one line, does not hold the tree, and a reasoned disagreement goes to steering. MEDIUM-1 untouched as routed (`probe-cr9` 24/24). Pairing run both halves; T2 empty at `82af843` with both controls. |
 | 2026-08-24 | implementer-hooks-013-3 (direct, per D22/D26) + code-reviewer-hooks-013-2 seam flush (`7e764f2`) | First pass on `ee3bc3e` — the paste surface, M8-F/M8-E parity, one file 69/7 | **Round 9. APPROVED_WITH_COMMENTS.** Third generation on this plan; this is the review the second seam names as the successor's first action. Reviewed as a FIRST PASS, not a fix round — the sweep is the whole surface. Verification re-run and nothing inherited: tsc 0, eslint 0, expected-six MATCH at clean 481/475/6, CR3 122/122, the R9 sweeps, and T2 EMPTY at `ee3bc3e` with path and predicate controls (M8-G still unwired; persist attack still not owed). Built `probe-cr9-paste-surface` (24/24) and with it established by EXECUTION that the disposition is taken on the post-`z.preprocess` object, so `filterSupportedComponents` deletes V2 components before `resolveContentLoss` sees them and row E flips to a settled row — M8-E's "nothing lands until you choose" is bypassed for an enumerated input class, and the notice names only the flag. An old-vs-new differential shows the commit changed WHICH half is silently lost rather than closing the silence. Routed to **M4-b** (D9) rather than held against the tree. Two cheap unit-own MEDIUMs: `toast.warn` fired from a keystroke-keyed effect, and Cancel stranding the surface with no stated cause. **Record correction**: `system-architecture.md` and the 013 architecture findings BOTH EXIST and existed at rounds 6/7/8 — round 6's absence claim is false and three verdicts were scoped by it; re-checked here, not inherited. Plan Status field NOT set, per both seams and steering. |
 | 2026-08-24 | steering-hooks-013 (cross-session brief) | Review `a4eb00d` — milestone M1 only, mid-implementation | Round 1. Read plan rev 13 per the Reading Order for this role (Decisions Register in full → Milestones → Out of Scope → Risks), QA Phase 1 (EC-5 and the M1 unit obligations), the critique, both architecture documents, and the implementation document. Every count in the implementation document re-derived rather than accepted. Built and ran a two-tree differential probe (`verification/013/probe-cr1-hash-producer-consumer/`) to settle M1-d's final clause by execution. **REJECTED** on one HIGH. |
@@ -4048,3 +4050,149 @@ Nothing else. MEDIUM-3 and LOW-2 are closed.
    (`content: ''` at the persist boundary) and round-8 INFO-1, still open at 1 kill.
 3. **A planner pass, when the owner releases that queue** — MEDIUM-1's reach into M4's Risks, per the
    routing correction at the end of round 9. Steering carries it as the seventh held item.
+
+---
+
+# ROUND 11 — the round-10 fix round, at `54fed63`
+
+**Reviewed-At**: `54fed635686b3dcd813c95bb464056ff97a00a6a` (chain branch
+`chain/013-components-v2-editing-surfaces`). Verified at the start of the pass and again at the end;
+the tree did not move. `agent-output` at `ee1b3a3` on entry.
+
+**Verdict: APPROVED.** MEDIUM-2's residual is closed, established by a differential whose two arms
+differ only by the deleted line. **Every finding this reviewer raised against the paste surface is now
+closed or routed.** No finding holds the tree.
+
+## Scope actually assessed
+
+`git diff --numstat 82af843 54fed63` → one file, **0/1** — a pure deletion of
+`lastNoticeClassRef.current = null;` from the `catch` branch. Read at `54fed63` via `git show`. The
+change matches the Required Action's stated scope exactly; nothing else moved.
+
+## Verification re-run — nothing inherited
+
+| claim | instrument | result |
+|---|---|---|
+| typecheck | `npx tsc --noEmit` | **exit 0** |
+| lint on the changed file | `npx eslint … --max-warnings=0` | **exit 0** |
+| failure **set** unchanged | `check-expected-six.sh 54fed63` | **MATCH**, clean **481/475/6** |
+| the pairing's other half | `probe-cr3-mode-predicate/` | **122/122** |
+| round-9 MEDIUM-1 still stands where routed | `probe-cr9-paste-surface/` | **24/24** |
+| the closure | `probe-cr11-guard-closure/` | **17/17** |
+
+**Pairing run, both halves.** Steering's conditional judgement has not lapsed.
+**T2 at `54fed63`: empty**, path control clean on all five, predicate control firing in all five.
+**M8-G still unwired; the persist-path attack is still not owed.**
+
+## MEDIUM-2 residual — CLOSED
+
+`probe-cr11-guard-closure/` (17/17) drives the guard over the sequences CR10 raised. Its two arms are
+the **same transcription parameterised by one boolean**, so any difference between the columns is
+attributable to the deleted line and to nothing else:
+
+```
+sequence                                  82af843   54fed63
+  delete one char, retype it               2         1
+  add a second key                         2         1
+  8 invalid->valid round trips             9         1
+  truncated paste-over                     2         1
+  10x identical row-D                      1         1
+  row D -> broken -> row B (must warn)     2         2
+  row D -> row A -> row D (defensible)     2         2
+```
+
+**The class is gone**, and the control column is what makes that a measurement rather than a vacuous
+pass. **Captured check**: `verification/013/probe-cr11-guard-closure/closure.cr11.test.ts` — CR11-A
+holds the closure with its pre-fix control; **this is the check that fails if the class returns.**
+
+**I attacked the deletion for holes it might have opened, rather than only confirming the fix.**
+A guard whose memory is never cleared can suppress a warning that ought to fire. CR11-C:
+
+- **row D → broken → row B**: a genuine change of notice class still warns, across the invalid state. **2 toasts, different text.**
+- **row E → row D**: `requiresChoice` sets the ref to `'choice'`, and a following settled warning is **not** swallowed. **1 toast.**
+- **broken from the very first keystroke → row D**: the first real warning is **not** suppressed. **1 toast.**
+- **row D → row A → row D**: still warns twice. Round 10 judged this **defensible** and did not ask for
+  it to change; CR11-C now **asserts** it, so a later tidy cannot silently remove it.
+
+**What the fix does NOT give, stated rather than implied** (CR11-D): a *different* message on the same
+notice class is not re-warned. That is what de-duplication by class means, it was true before the fix
+on valid paths, and it is **not** a finding — recorded so CR11-A is not read as a stronger claim than it is.
+
+**The implementer declined the escape hatch I offered**, on the ground that the executed evidence
+showed ordinary character-level editing rather than a rare path. That is the right reading of the
+evidence, and declining to route a question they could answer themselves is the right instinct.
+
+## INSTRUMENT DEFECT — `probe-cr10` is stale by construction and must not be trusted about any later tree
+
+**Found by re-running it at `54fed63`, where it reported 12/12 — the same result as at `82af843`,
+against a tree where the defect it demonstrates has been fixed.**
+
+`probe-cr10`'s transcription **hardcodes** the effect body including the `catch`-branch reset. It does
+not read the tree under test. So it will keep reporting the defect for as long as it exists, on every
+future tree, and **a reader running it after `54fed63` would conclude the defect is still present.**
+
+This is **exactly the hazard already on this project's instrument list** — `probe-cr1`'s round-1 form
+"hardcoded the old consumer and was rewired to read the tree under test". I reproduced it in a new
+instrument three rounds later, and only caught it because I re-ran the old probe against the new tree
+rather than assuming a fix round supersedes it.
+
+**Disposition**: `probe-cr10` is **superseded by CR11 for the guard claim** and is retained only as the
+record of what `82af843` did. Marked in the instruments README. **Its passing is not evidence about any
+tree after `82af843`.**
+
+**CR11 shares the architecture and I am not exempting it.** CR11 is a *differential between two
+transcribed variants*; it establishes **what the deleted line does**, which is tree-independent and
+stays true. It does **not** establish that the line is actually gone from the tree. That link is the
+`git diff 82af843 54fed63` above, read directly — `0/1`, the single line. **Neither closes MEDIUM-2
+alone; together they do**, and a successor should not treat CR11 as self-sufficient.
+
+## Positive observations
+
+- **A one-line pure deletion, matching the Required Action's scope exactly.** No opportunistic tidying
+  rode along — `--numstat` `0/1`. That is the right shape for a fix round.
+- **The declined escape hatch.** I offered steering as a route for a reasoned disagreement; they judged
+  the evidence settled it and did not spend the round trip.
+- **Three rounds, three shapes of fix, each proportionate**: structural where structure was available
+  (MEDIUM-3), minimum where the structural option was a scope overreach and said so (MEDIUM-2's first
+  pass), and a one-line deletion when the residual was precisely located.
+
+## Assumption Not Checked
+
+**This review assumes the React `useRef` holding the guard's memory is not reset by anything above this
+component, and does not test it** — carried unchanged from round 10, because this round's deletion does
+not touch it and nothing new bears on it. A `useRef` survives re-render but not remount; every toast
+count in CR10 and CR11 is therefore a **lower bound**, not an exact figure.
+
+**Falsity signature**: a user who enters the row-E choice view, cancels back out, and returns to a
+settled row sees the warning fire again with no change of `noticeClass` — toast counts above CR11's.
+
+**Owner: QA**, at Phase 2, on the first surface that gains a component harness; unreachable here, which
+is why it is routed rather than closed. The discriminating check is to mount the component and drive
+row D → row E → Cancel → row D, counting toasts. Named again in Next Steps.
+
+## Captured instruments
+
+| path | what it is |
+|---|---|
+| `verification/013/probe-cr11-guard-closure/closure.cr11.test.ts` | 17 assertions: the closure with a pre-fix control on every sequence, four suppression attacks, and the non-claim |
+| `…/probe-cr11-guard-closure/vitest.cr11.config.ts` | its config |
+| `…/probe-cr11-guard-closure/run-cr11-54fed63.txt` | the run — 17/17 |
+| `…/probe-cr11-guard-closure/closure-summary.txt` | the two-column differential |
+| `…/probe-cr11-guard-closure/README.md` | the claim, the transcription limit, and what CR11 cannot establish alone |
+
+## Required Actions
+
+**None.** All three round-9 findings are closed: MEDIUM-2 (this round), MEDIUM-3 and LOW-2 (round 10).
+
+## Next Steps
+
+1. **`implementer-hooks-013-3`** — nothing outstanding from code review on this surface. Next units are
+   **M2-c's diff text, then M8-G**, per steering.
+2. **QA** — the Assumption Not Checked above (does anything remount this component); round 9's
+   (`content: ''` at the persist boundary); round-8 INFO-1, still open at 1 kill.
+3. **A planner pass, when the owner releases that queue** — MEDIUM-1's reach into M4's Risks. Steering
+   carries it as the seventh held item; the routing rule is at the end of round 9.
+4. **Whoever reviews M8-G** — T2 has now been empty for four consecutive rounds. When it fires, that
+   round owes the persist-path attack against a running instance, asserting the negative **on the
+   persistence surface**, never on a response status; and `.env.local` points at a **remote hosted
+   database** — a dummy env with `DATABASE_URL` on a dead port is what makes the oracle work.
