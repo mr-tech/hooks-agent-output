@@ -13,10 +13,62 @@ Status: Active
 | ---------- | ----- | ------- |
 | 2026-08-24 | Data-flow correction (standing constraint, independent of the plan's revision) | The `system-architecture.md` "Data flow" defect re-derived against `website` `c85945f` and corrected; D-004 "the flag is the mode" recorded from D15; two Problem Areas registered. Committed `35906ab`. Handed to steering-hooks-013 with six owner-sourced questions for a `website.md` per-repo record. |
 | 2026-08-24 | Plan review, rev 9 (`b57639c`) | One required change (RC-1) on the interaction between the owner's `stripKeys` ruling and M7-a; three observations. D-004 extended for D17, which withdrew a clause the ADR carried. **APPROVED_WITH_CHANGES.** |
+| 2026-08-24 | Re-review, rev 10 (`9140ffe`) | **RC-1 discharged by D18/M8-G and withdrawn** — the planner re-derived the finding from `c85945f` before writing the criterion. One new finding (F-1) on M8-G's population and observability argument, which contradicts the mechanism the criterion itself confirms. Out-of-Scope routing of the Medium judged correct. **APPROVED.** |
 
 ---
 
-## Verdict: APPROVED_WITH_CHANGES
+## Verdict (rev 10): APPROVED
+
+RC-1 is discharged and withdrawn. One finding (F-1) remains, which strengthens an existing criterion rather than blocking it; it does not gate implementation.
+
+**Verdict at rev 9, retained below as the record: APPROVED_WITH_CHANGES.**
+
+---
+
+## Rev 10 re-review (`9140ffe`)
+
+### RC-1 — DISCHARGED, withdrawn
+
+D18/M8-G resolves it, and resolves it as option (a): every `message.upsert` caller enumerated, nothing persisted until the user chooses, and the serialiser's deletion retired outright — `stripKeys`' output is its input modulo `_key`s plus the bit. The planner re-derived the mechanism from `c85945f` before writing the criterion rather than taking it from my finding, which is the right way to have used it. The "Reach of the principle" paragraph, enumerating all five content-loss doors and disposing of each, answers more than I asked.
+
+I withdraw RC-1. Nothing in it survives as a required change.
+
+### F-1 (finding, not a blocker) — M8-G's population argument contradicts the mechanism M8-G confirms
+
+M8-G's property is correct and explicitly holds "regardless of its present size". The **population and observability argument attached to it is not**, and it is the part UAT will act on.
+
+It states the population is *"bounded and possibly empty"* because *"the composer cannot compose one (V2 mode hides the content and embed editors, Classic mode hides the component button)"*, and that a member *"only the owner's SQL can seed"* — concluding that UAT records *"no member to observe, which is not a gap."*
+
+That rules out **composing** a body in V2 mode. It does not rule out **retaining** one. Re-derived at `c85945f`:
+
+- A stored 5712-shaped record (`{content:"hi", flags:32768}`, no components — or 5842's `components: []`) opens in **V2 mode** under M7-a, which says so explicitly for the no-`components` case.
+- Its `content` stays in the draft: hidden from editing (`isClassicMode || !isEditing` guards the content editor) but retained, and still rendered in the read-only view.
+- In V2 mode the component button **is** available: `showComponentButton = isEditing && isV2Mode && …` (`DiscordMessageEditor/index.tsx`). Only Classic mode hides it.
+- Add one container. The draft now carries V2 components **and** a classic body — a row-E draft, composed entirely through the UI.
+
+So the population is not possibly-empty: **rows 5712 and 5842 are its seeds, and they exist in production today** — the same two rows 012's backfill measured, cited in this criterion as evidence the population is empty. M7-a is what makes them reachable, and M7-a is in this plan.
+
+**What follows, and it is a gain, not a loss**: M8-G *does* have a production-reachable human-observable form, needing no owner SQL — open 5712 in the composer, add one container, press Save; the ask must appear, naming both drops. Left as written, the plan tells UAT to record "no member to observe" for the single most important new behaviour D18 introduces. That would ship the criterion unobserved, which is avoidable in one paragraph.
+
+**Required of no one; recommended to the planner**: replace the population sentence and the human-observable form with the above. The property, the instruments and the class need no change.
+
+### The Out-of-Scope routing of the Medium — I judge it correct
+
+Steering asked whether Out of Scope is the right disposition for a structural weakness. It is, and I would not have it absorbed:
+
+- **No live defect survives 013.** M4-a takes `NewMessageModal.onSubmit`; the two canned-intro writers persist a fixed classic message, which I re-derived independently before registering the row.
+- **M8-G narrows the debt further than the routing note claims.** It enumerates every `message.upsert` caller and binds each to the same ask. After 013 the writers share a *criterion* even though they do not share a *path* — so the residue is not "writers are ungoverned", it is "the governing is per-writer and enumerated, so a sixth writer inherits nothing". That is a smaller and more precise debt, and I have narrowed the Problem Area row to say so.
+- **A criterion unifying every writer's path would need an owner ruling**, and the planner is right that it is not 013's to take unasked. The registry is where it belongs until the owner wants it.
+
+### O-2 restated once, because M8-G now depends on it
+
+M8-G excludes the send path on the ground that *"the send gate (`allowSave` requires `validateMessage` empty) admits no draft carrying both"*. That is sound, and it is the same reasoning I used. Note only that the gate is a client-side disabled button — `isDisabled={!allowSave}` — with no server-side check behind it and `sendWebhook` posting to Discord from the browser. It held before as a residue; it is now load-bearing for M8-G's own scoping. Worth one line in Risks so that a later chain adding a programmatic send path knows what it would be stepping around.
+
+### O-1, O-3, O-4 stand unchanged.
+
+---
+
+## Verdict (rev 9, superseded): APPROVED_WITH_CHANGES
 
 Rev 9 is the strongest plan I have reviewed in this workspace. M8's eight-cell partition over (V2 bit, `hasV2Components`, `hasClassicContent`) makes the JSON disposition a **total function over a named class** — every cell assigned, no cell derived, parity asserted across both surfaces (M8-F). That is the correct architectural shape, and it is what was missing when the same seam was planned in 001.
 
