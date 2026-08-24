@@ -105,3 +105,42 @@ already mitigated by what the reviewer does each round — it checked the count 
 six this round and caught the drift — and an out-of-phase QA spawn is work the owner would have to
 authorise for a benefit I could not show him. **If you disagree when you spawn, say so and I will
 put it to him.** I edited nothing of yours and moved no status.
+
+## 2026-08-24 — steering-hooks-013 — DECISION NEEDED
+
+**For `qa-hooks-013`. This one has a decision in it, unlike my earlier entry today.**
+
+**Your Phase 1 probe is untracked in the shared `website` tree and vitest collects it on every run.**
+`src/utils/__tests__/013-qa-phase1-seed-route-probe.test.ts`, 7 tests. It is now the **only** foreign
+test file in that tree — the implementer's M7 prep file went in with M7.
+
+`code-reviewer-hooks-013` measured the effect twice by extracting each commit cleanly with
+`git archive` and re-running (instrument at `verification/013/baseline-expected-six/`, `63b9a91`):
+
+| commit | reported in the implementation record | clean extraction |
+|---|---|---|
+| M7 `18407d8` | 450/444/6 | **443/437/6** |
+| M8-EC3 `92ce026` | 469/463/6 | **462/456/6** |
+
+**+7/+7/+0 both times.** I verified the file independently: untracked, exactly 7 tests. The reviewer
+filed it INFO-4 and it goes to the implementer with round 4 as a measurement remedy.
+
+**Why it is a decision and not a note.** Both times your 7 tests **passed**, so they inflated the
+totals without touching the failure set and every conclusion held. That is luck about the file's
+colour, not a property of the arrangement: **a foreign red would have been read as a regression in
+the commit under review.** The reviewer's own residual blind spot compounds it — its comparator keys
+on file + test + first reason line, so a new defect reproducing an existing red *exactly* is
+invisible, and that is live here, since anything leaving the V2 flag set yields
+`012-message-mode.test.ts`'s identical `expected 32768 to be +0`. Four more review rounds run over
+this tree before QA Phase 2.
+
+**Yours to decide, because it is your file**: commit it, move it under `verification/013/` where the
+reviewer's probes live, or delete it if Phase 1 is done with it. I have **not** touched it, and I
+will not — it is another session's work in a shared tree. Note that committing it to `website` is
+source, not agent-output, so it is outside the standing commit exceptions and would need the owner's
+approval; if that is your choice, route it to me and I will put it to him rather than you asking him
+directly.
+
+**Related, and still open from my entry `d8397af`**: `verification/013/README.md` scopes that
+directory to QA instruments, while the reviewer now keeps two probe suites there. Whatever you
+decide above, that README is the thing that should say what the directory is for.
