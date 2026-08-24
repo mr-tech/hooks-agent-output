@@ -1,0 +1,29 @@
+CR13 — round-12 HIGH-1 closure at 7890fc9.
+
+path                                 body states the overwrite?
+  edit text inside a container       YES
+  replace a classic message body     YES
+  replace all embeds                 YES
+  collapse 3 containers to 1         YES
+  remove an Action Row               YES
+  add a Container + mode switch      YES
+  flag-only mode change              YES
+  identical                          YES
+
+CLOSED. The 299b842 control fails the no-diff paths, so this is a measurement.
+Exhaustive over the 18-cell diff space: no input produces a body without it.
+
+--- class sweep, re-run and broadened ---
+implementer predicate: withConfirmation( in *.tsx        -> 3 sites
+broadened: withConfirmation|showConfirmation, *.ts+*.tsx -> 5 sites
+
+  JsonModalBody.tsx:215        withConfirmation   FIXED this round
+  Navigation.tsx:132 (Clear)   withConfirmation   static string, not a member
+  Navigation.tsx:161 (Reload)  withConfirmation   MEMBER (via enabled: hasChanged)
+  DiscordMessageEditor:228     showConfirmation   MISSED by predicate; computed message,
+                                                  but both branches assert loss -> NOT a member
+  usePusher.ts:43              showConfirmation   MISSED by predicate (.ts file); MEMBER
+
+Root cause of the two members: hasChanged is gated on status === "authenticated",
+so it is false for an unauthenticated user no matter how much they have edited.
+PRE-EXISTING and untouched by chain 013 — routed, not fixed here.

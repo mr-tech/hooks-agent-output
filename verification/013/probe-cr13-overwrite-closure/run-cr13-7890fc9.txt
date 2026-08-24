@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/agent-output/verification/013/probe-cr13-overwrite-closure
+
+
+ Test Files  1 passed (1)
+      Tests  16 passed (16)
+   Start at  09:08:28
+   Duration  591ms (transform 119ms, setup 0ms, import 460ms, tests 9ms, environment 0ms)
+
