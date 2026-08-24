@@ -2,38 +2,30 @@
 ID: 013
 Origin: 013
 UUID: 22d69e06
-Reviewed-At: "Round 8 (current, binding): b3f8ea901b2b747252fd1e5b0b83f85bfcf6d53e (chain/013-components-v2-editing-surfaces) — the round-7 fix round, a test-only deletion (0 additions, 15 deletions, no production source touched). Verified at the start of the pass and again at the end; the tree did not move. Superseded, retained for the record: round 7 at 87cfbd8 (which covered 816d7fd..87cfbd8 in full, wiring included), round 6 at 816d7fd, round 5 at 0c8fad5, round 4 at 92ce026, round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
+Reviewed-At: "Round 9 (current, binding): ee3bc3e3b2b68fd723fd04e0650cc26238e95688 (chain/013-components-v2-editing-surfaces) — a FIRST PASS on the paste surface, one file (NewMessageJsonInput.tsx, 69/7), NOT a fix round. Verified at the start of the pass and again at the end; the tree did not move. Superseded, retained for the record: round 8 at b3f8ea9, round 7 at 87cfbd8, round 6 at 816d7fd, round 5 at 0c8fad5, round 4 at 92ce026, round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
 Status: In Review
 Status-Detail: >-
-  Round 8, the round-7 fix round, at b3f8ea9. APPROVED — no findings hold the tree. A test-only
-  deletion: no production source touched, so behaviour is unchanged by construction. What a deletion
-  can do is remove coverage silently, and that is what was checked: exactly one test removed (32->31,
-  counted independently), and ZERO mutant-detection capability lost — five mutants including the one
-  built for the deleted test's own unique draft are all still caught post-deletion. Spec 31/31, tsc 0,
-  expected-six MATCH at clean 481/475/6 (the implementer's stated true figure, right for the fourth
-  consecutive round), CR3 pairing 122/122, CR7 17/17, CR6 8/10 unchanged instrument expiry. One INFO
-  to the follow-up register: switchToClassic's embed preservation is caught by exactly ONE incidental
-  assertion across 370 tests — the round-5 dropSet test, which catches it only because diffDroppedKeys
-  executes the real switch; that test has been rewritten twice in this chain, and a third rewrite
-  would drop the property's last check with a green suite. Owner QA. Also recorded, against my own
-  round-7 rule: a mutant x test dominance matrix reported a dominated pair FOUR times and all four
-  were artifacts of an incomplete mutant set, each dissolving when the missing mutant was added.
-  Dominance justifies deleting a test only when it is STRUCTURAL — strictly weaker input and a subset
-  of assertions, readable from the test itself — which is what round 7's deletion actually rested on.
-  Kill-set subset relations alone are a hypothesis about the mutant set, not a finding about tests.
-  SEAM FLUSH appended 2026-08-24 (no verdict, no re-review; b3f8ea9 re-verified unmoved): standing
-  obligations for the next code-reviewer are the final section of this document, with every handed-over
-  trigger command run and controlled first. NOTE FOR ANY READER ARRIVING HERE: website HEAD is now
-  ee3bc3e, NOT b3f8ea9 — the paste-surface commit (M8-F/M8-E parity, one file, 69/7 on
-  NewMessageJsonInput.tsx) landed while this flush was being written and was caught by the end-of-pass
-  SHA re-verify. NO VERDICT IN THIS DOCUMENT REACHES ee3bc3e; it is unreviewed production source on a
-  surface no round has examined, and it is the successor's first action. T2 was re-run at ee3bc3e and
-  is still empty with both controls firing, so M8-G remains unwired and the persist-path attack is
-  still not owed. Still open elsewhere: the plan-level MEDIUM on the
-  persist API and tsconfig.test.json, both with steering. The middleware.ts CRITICAL is NO LONGER an
-  open escalation of mine — the owner ruled it a HANDOFF (agent-output a3d60d5, Status Open,
-  Owning-Stage Unassigned); the exposure is unchanged, chain 013 does not touch it, and its
-  Review-Trigger binds again before chain 013 closes.
+  Round 9, a first pass on the paste surface (NewMessageJsonInput.tsx) at ee3bc3e, retiring the last
+  production enforceImportMutualExclusivity call site. APPROVED_WITH_COMMENTS. The wiring is faithful
+  to JsonModalBody and the four pure functions are reused verbatim and correctly; row E genuinely
+  blocks. Three MEDIUMs. MEDIUM-1, established by execution (probe-cr9, 24/24) and not by reading:
+  the disposition is computed on the POST-preprocess object, so filterSupportedComponents deletes V2
+  components before resolveContentLoss sees them and row E flips to a settled row — the choice M8-E
+  guarantees is never offered, and the notice names only the flag. An old-vs-new differential shows
+  the commit did not close the silence but changed WHICH half is lost (before: content deleted,
+  container kept; after: container deleted, content kept). This is round-4's Assumption Not Checked
+  firing at the surface it named, and round-7 INFO-1's class; the remedy is M4-b (D9, owner ruling),
+  so it is routed and does NOT hold the tree. MEDIUM-2 and MEDIUM-3 are this unit's own and cheap:
+  toast.warn fires from a keystroke-keyed effect (one toast per keystroke while editing a valid row
+  B/D message), and Cancel strands the surface with valid JSON, no error and a disabled button, with
+  no way back to the choice. Verification re-run, nothing inherited: tsc 0, eslint 0, expected-six
+  MATCH at clean 481/475/6 (corroborating the implementer's derived figure, which they had not
+  re-run), CR3 pairing 122/122, R9 sweeps re-run (4 production applyDisposition, 0 enforce), T2
+  re-run EMPTY at ee3bc3e with both controls so M8-G is still unwired and the persist attack still
+  not owed. Round-8 INFO-1 still open at 1 kill (CR8 rig rebuilt to run it). RECORD CORRECTION:
+  system-architecture.md and the 013 architecture findings BOTH EXIST and existed at rounds 6, 7 and
+  8 — round 6's absence claim is false and three verdicts were scoped by it; re-checked here with
+  ls -d and git cat-file, not inherited. Plan Status field NOT set, per both seams and steering.
 ---
 
 # Code Review: Plan 013 — Components V2 support across the editing surfaces (M1 only)
@@ -49,6 +41,7 @@ Status-Detail: >-
 
 | Date | Agent Handoff | Request | Summary |
 |---|---|---|---|
+| 2026-08-24 | implementer-hooks-013-3 (direct, per D22/D26) + code-reviewer-hooks-013-2 seam flush (`7e764f2`) | First pass on `ee3bc3e` — the paste surface, M8-F/M8-E parity, one file 69/7 | **Round 9. APPROVED_WITH_COMMENTS.** Third generation on this plan; this is the review the second seam names as the successor's first action. Reviewed as a FIRST PASS, not a fix round — the sweep is the whole surface. Verification re-run and nothing inherited: tsc 0, eslint 0, expected-six MATCH at clean 481/475/6, CR3 122/122, the R9 sweeps, and T2 EMPTY at `ee3bc3e` with path and predicate controls (M8-G still unwired; persist attack still not owed). Built `probe-cr9-paste-surface` (24/24) and with it established by EXECUTION that the disposition is taken on the post-`z.preprocess` object, so `filterSupportedComponents` deletes V2 components before `resolveContentLoss` sees them and row E flips to a settled row — M8-E's "nothing lands until you choose" is bypassed for an enumerated input class, and the notice names only the flag. An old-vs-new differential shows the commit changed WHICH half is silently lost rather than closing the silence. Routed to **M4-b** (D9) rather than held against the tree. Two cheap unit-own MEDIUMs: `toast.warn` fired from a keystroke-keyed effect, and Cancel stranding the surface with no stated cause. **Record correction**: `system-architecture.md` and the 013 architecture findings BOTH EXIST and existed at rounds 6/7/8 — round 6's absence claim is false and three verdicts were scoped by it; re-checked here, not inherited. Plan Status field NOT set, per both seams and steering. |
 | 2026-08-24 | steering-hooks-013 (cross-session brief) | Review `a4eb00d` — milestone M1 only, mid-implementation | Round 1. Read plan rev 13 per the Reading Order for this role (Decisions Register in full → Milestones → Out of Scope → Risks), QA Phase 1 (EC-5 and the M1 unit obligations), the critique, both architecture documents, and the implementation document. Every count in the implementation document re-derived rather than accepted. Built and ran a two-tree differential probe (`verification/013/probe-cr1-hash-producer-consumer/`) to settle M1-d's final clause by execution. **REJECTED** on one HIGH. |
 | 2026-08-24 | steering-hooks-013 (D22 amendment, mid-pass) | Fix rounds run direct with the implementer from the first finding set onward | Read D22 at plan rev 14 (`ae13df0`) directly, not from the relay. This verdict still goes to steering, as the amendment says. Findings from here go to `implementer-hooks-013`; the four never-settled classes are marked inline where they arise (HIGH-1 carries one). |
 | 2026-08-24 | implementer-hooks-013 (direct, per D22) | Re-review M1 fix round 1 at `495463a`; implementation doc at `acbbe58` | Round 2. Every enumeration in round 1 re-run rather than inherited, and the differential re-derived from first principles: the round-1 instrument hardcoded the old consumer form, so it was rewired to read the tree under test and then validated by reproducing the round-1 captures case-for-case before it was trusted. Sixteen new cases added, including two false-negative controls the round-1 corpus had no way to express. Second probe built to settle MEDIUM-1's extraction by execution. Implementer's own specs mutation-tested. Two of my own slips are disclosed rather than left silent: I introduced a `check-repo.js` basename collision mid-pass and cleared it by renaming the three probe configs, and one append landed a stray copy of a review-document fragment in the `website` working tree, which I removed within the same minute — `git status` in `website` is back to the same two untracked out-of-scope files it started with, and no tracked file was touched. **APPROVED_WITH_COMMENTS.** |
@@ -3445,3 +3438,404 @@ since restated them (§3d) — check whether that closes the second.
 **Review `ee3bc3e` first — the paste surface, committed while I was writing this and covered by no
 verdict here — and keep watching whether the wiring reaches the persist path, because that is where
 T2 fires and the attack you owe stops being optional.**
+
+---
+
+# ROUND 9 — first pass on the paste surface at `ee3bc3e`
+
+**Reviewed-At**: `ee3bc3e3b2b68fd723fd04e0650cc26238e95688` (chain branch
+`chain/013-components-v2-editing-surfaces`). Verified at the start of the pass and again at the end;
+the tree did not move. `agent-output` at `7e764f2` throughout.
+
+Written by `code-reviewer-hooks-013-3`, the third generation on this plan. This is the review the
+second seam's flush names as the successor's first action: `ee3bc3e` landed while that flush was
+being written, is production source on a surface no round has examined, and **is a first pass, not a
+fix round** — the sweep is the whole surface, not a set of flagged sites.
+
+**Verdict: APPROVED_WITH_COMMENTS.** The wiring is faithful to `JsonModalBody.tsx` and the four pure
+functions are reused unchanged and correctly. Three MEDIUMs: one that this commit newly introduces at
+this surface and that defeats M8-E's own guarantee for a reachable input class (established by
+execution, not by reading the diff), and two that are this unit's own and cheap.
+
+## Scope actually assessed
+
+`git diff --numstat b3f8ea9 ee3bc3e` → **one file**, `src/app/message/_components/NewMessageJsonInput.tsx`,
+**69/7**. Read at `ee3bc3e` via `git show`, not from the working tree. The working tree carries one
+foreign untracked file (`src/utils/__tests__/013-qa-phase1-seed-route-probe.test.ts`, `qa-hooks-013`'s);
+excluded from scope and not mine to touch.
+
+### Sources of truth read — and a correction to this document's own record
+
+**`agent-output/architecture/system-architecture.md` EXISTS, and has existed since the repository's
+init commit.** Round 6 states it *"was checked for and does not exist"* and scoped its verdict
+accordingly — *"It makes no claim of architectural grounding, because there is no architecture
+document to ground it against."* That claim is false, and I did not inherit it: I re-ran the check
+myself, as this role requires.
+
+| check | instrument | result |
+|---|---|---|
+| does it exist now | `ls -d agent-output/architecture/system-architecture.md` from `/usr/local/bin/hooks` | **present** |
+| when created | `git -C agent-output log --diff-filter=A -- architecture/system-architecture.md` | **`fb99edd`, 2026-08-23 03:48 — the init commit** |
+| ever deleted | `git -C agent-output log --diff-filter=D -- architecture/system-architecture.md` | **0 bytes of output — never** |
+| present at round 6 | `git -C agent-output cat-file -e d692206:architecture/system-architecture.md` | **present** |
+| present at rounds 7, 8 | same, at `79bbcaf` / `cf84cb8` | **present at both** |
+
+There is also a **plan-specific** architecture document that no round has read:
+`architecture/013-components-v2-editing-surfaces-architecture-findings.md`, created at `bff15eb`
+(2026-08-24 01:29), **3h38m before round 6** — verdict **APPROVED at rev 10**, carrying F-1, O-1..O-4
+and RC-1's discharge.
+
+**This is a record defect, not a tree defect.** No round-6/7/8 finding changes, and no verdict is
+withdrawn — those rounds under-claimed rather than over-claimed, which is the safe direction. But
+three verdicts declared themselves architecturally ungrounded when the grounding was on disk, and a
+successor reading only the flush would have inherited it a fourth time. The likely mechanism is the
+one already on this project's hazard list: an existence predicate over RTK-filtered `ls` output
+returns a **false absence**, non-deterministically. That is a reason to use `ls -d <path>` or
+`git cat-file -e`, both of which I did.
+
+**This round is grounded architecturally.** Plan (Reading Order row for code-reviewer: Decisions
+Register → Milestones → Out of Scope → Risks), implementation doc at `08a440d`, the architecture
+findings above, and rounds 4–8 of this document.
+
+## Verification re-run — nothing inherited
+
+Every figure is one I produced at `ee3bc3e`.
+
+| claim | instrument | result |
+|---|---|---|
+| typecheck clean | `npx tsc --noEmit` | **exit 0, 0 errors** |
+| lint on the changed file | `npx eslint …/NewMessageJsonInput.tsx --max-warnings=0` | **exit 0, 0 issues** |
+| failure **set** unchanged | `baseline-expected-six/check-expected-six.sh ee3bc3e` | **MATCH — the expected six by identity and reason**, clean totals **481/475/6** |
+| the paired behavioural probe | `probe-cr3-mode-predicate/` | **122/122** |
+| round-8 INFO-1 expiry | `probe-cr8-deletion-coverage/m13-embed-preservation.py` | **kills 1 of 370** — still exactly one incidental assertion. **INFO-1 remains OPEN.** |
+| this round's own probe | `probe-cr9-paste-surface/` | **24/24** |
+
+**The pairing was run**, both halves. The judgement steering carries conditional on it **has not
+lapsed**.
+
+**The implementer's suite figure is right, and I checked rather than accepted it.** They reported a
+working-tree 488/482/6 and a true figure of 481/475/6 derived from the established `+7/+7/+0` offset,
+noting they did **not** re-run `check-expected-six.sh` this round. I ran it: **481/475/6, MATCH**.
+Their derived figure is correct. This is exactly the case for the gate re-running counts rather than
+accepting them — the derivation was sound, and it is now established rather than inferred.
+
+**Their R9 sweeps are also right**, re-run by me with `git grep -c` (which computes before the output
+filter): `applyDisposition(` → **2 in `NewMessageJsonInput.tsx`, 2 in `JsonModalBody.tsx`, 4
+production total**; `enforceImportMutualExclusivity(` → **0 production** (2 test files only).
+
+**Rig health checked before any probe ran**, per the second seam's standing item. `probe-cr1` and
+`probe-cr2` are still **REAL DIR — DEGENERATE**; I did not need them and did not repair them.
+`probe-cr8`'s rig had to be **rebuilt from scratch** — its `/tmp/cr8-mut` extraction had been cleared,
+and the script fails immediately without it. Rebuilt at `ee3bc3e` (`git archive` + symlinked
+`node_modules` + `mm.pristine.ts`) before running. **Successors: `/tmp` does not survive; the CR8
+scripts need that extraction rebuilt, and the rebuild recipe is now in the CR9 README's neighbours.**
+
+## Adversarial execution — the trigger, re-run and controlled
+
+The change touches neither a security boundary nor an auth gate. It touches an **irreversible action**
+only through `NewMessageModal.onSubmit` → `message.upsert`, so the T2 trigger handed over at the
+second seam governs. **I re-ran it rather than trusting it.**
+
+```bash
+W="src/providers/MessageProvider/useApiMethods.ts \
+src/app/message/m/[id]/_components/SaveAsMenu.tsx \
+src/app/message/_components/NewMessageModal.tsx \
+src/app/message/m/new/page.tsx \
+src/app/message/f/[id]/page.tsx"
+git grep -c "gateBeforePersist\|applyDisposition\|resolveContentLoss" ee3bc3e -- $W
+```
+
+**Result at `ee3bc3e`: empty — 0 bytes, exit 1.** Both controls run at `ee3bc3e`:
+
+- **path control** — all five paths `git cat-file -e` clean. (The second seam's corrected list is
+  right; `SaveAsMenu.tsx` is under `m/[id]/_components/`.)
+- **predicate control** — the identical pipeline on a symbol those files do use returns a hit in
+  **all five** (33/36/15/16/7). The empty result is a real absence, not a broken predicate.
+
+**So M8-G is still unwired and the persist-path attack is still not owed.** Blind spot, unchanged: it
+matches three names and cannot see a consumer reaching the gate via a re-export under another name,
+nor an inline reimplementation.
+
+**One thing the trigger does not say, and a successor should not misread.** `NewMessageModal.tsx` is
+one of the five writers, and this commit gates **one of its four payload sources**. `loadedMessage` is
+
+```js
+const tmp = discordMessage?.message ?? webhookMessage ?? commandMessage?.data ?? jsonMessage;
+```
+
+Only `jsonMessage` — the paste route — now carries a disposition. The Discord-URL, webhook-URL and
+bot-code routes still reach `upsert` ungated. That is M8-G's and D9's work and **not a defect in this
+commit**; it is recorded because the trigger's empty result could otherwise be read as "this writer is
+untouched", when in fact it is now **partially** gated, which is a state no round has recorded before.
+
+## Findings
+
+### MEDIUM-1 — the disposition is taken on the post-preprocess object, so the gate cannot see what the schema already deleted; row E flips to a settled row and M8-E's guarantee is bypassed
+
+**Location**: `src/app/message/_components/NewMessageJsonInput.tsx`, the `useUpdateEffect` body —
+`discordMessageImportShape.parse(parsed)` then `resolveContentLoss(validated.…)`. Same shape at
+`JsonModalBody.tsx`'s `commitSettled`.
+
+**Class**: *any content-loss decision taken on a value a schema preprocess has already mutated.* The
+gate exists to stop silent removal; computing it downstream of a silent remover makes the removal
+structurally invisible to it.
+
+**Enumeration**: `git grep -c "resolveContentLoss(" ee3bc3e -- 'src/**/*.ts' 'src/**/*.tsx'` → 4 hits:
+`NewMessageJsonInput.tsx:1`, `JsonModalBody.tsx:1`, `src/utils/index.ts:3` (the definition plus
+`gateBeforePersist`/`applyDisposition`), `013-m8-ec3-resolver-gate.test.ts:26`. **Both production
+sites are members** — each is fed a `discordMessageImportShape.parse` result. **Does not match**: a
+consumer reaching the resolver through a re-export under another name; an inline reimplementation; and
+it cannot see preprocesses on any *other* shape, so it under-reads if a second import shape is added.
+
+**Established by execution**, `probe-cr9-paste-surface/` (24/24, `run-cr9-ee3bc3e.txt`), not by reading:
+
+- `{flags: 32768, content: 'hello', components: [{type:17, components:[{type:2,…}]}]}` is **row E as
+  pasted** and **row D at the surface**. The container is destroyed; no choice is offered.
+- The notice the user then reads — *"…it has been saved as Classic and the flag cleared."* — contains
+  **no drop/remove/lose/delete verb at all**. It reports the flag, and says nothing about the
+  container. Asserted directly (CR9-A).
+- Without the flag the same input lands on **row A, `noticeClass: 'none'`** — no notice whatsoever.
+- The most ordinary member: an **empty container** `{type:17, components:[]}` (CR9-F).
+- Sweep (`sweep-child-types.txt`): container child types **[2,3,4,11,17] flip silently**,
+  **[9,14] reject visibly**, **[1,10,12,13] hold at row E**. Type 11 is itself a V2 type.
+
+**This commit newly introduced it at this surface** — established by differential (CR9-G), because
+"pre-existing" would otherwise be assumed:
+
+| | `content` | `components` |
+|---|---|---|
+| before `ee3bc3e` | deleted silently | preserved (raw) |
+| at `ee3bc3e` | preserved | **deleted silently** |
+
+The commit did not close the silence; it **changed which half is lost**. So this is neither a clean
+regression nor untouched pre-existing behaviour, and calling it either would be wrong.
+
+**This is round-4's Assumption Not Checked coming due, exactly where it was routed** — *"the
+disposition must be taken on the object that will actually land"*, owner **the implementer at
+M8-A/M8-B**, falsity signature *"lands on a different row at the wired JSON surface than the resolver
+reports in isolation"*. That signature has now fired, at the surface the assumption named. It is also
+round-7 INFO-1's class, which round 7 routed to **the plan** — and the plan agrees: D18's enactment row
+records *"the lenient filter names what it dropped, D9's form"* as **M4-b**, undelivered. **D9 is an
+owner ruling** (*"Drop them, say what was dropped"*).
+
+**Required Action — eliminate the class, do not patch the site.**
+- **Preferred (structural)**: make the preprocess's removals part of the value the surface receives, so
+  the disposition is computed on a value that carries its own drop record — i.e. deliver **M4-b**. Then
+  no call site can take a disposition on a silently-shortened object, because there is no longer such
+  an object.
+- **Minimum**: at both production sites, compare components before and after `parse` and surface a
+  named drop when they differ.
+
+**Routing**: the remedy is a milestone this plan already owns (**M4-b**), not this unit's work.
+**MEDIUM-1 does not hold the tree** — it is recorded, executed, and routed. What is new and belongs to
+this unit's record is the *reach*: the flip defeats M8-E's "nothing lands until you choose" for the
+enumerated input class, which round 7's row-A instance did not.
+
+**Magnitude**: reachability is bounded by the fixtures being hand-built rather than drawn from real
+Discord payloads. The empty-container case (CR9-F) needs no exotic input. **Unmeasured**: how often
+real pasted payloads fall in the class.
+
+### MEDIUM-2 — `toast.warn` is fired from an effect that re-runs on every keystroke
+
+**Location**: `NewMessageJsonInput.tsx`, `useUpdateEffect` body — `if (notice) toast.warn(notice);`.
+
+**Class**: *a user-visible, non-idempotent side effect invoked from an effect keyed on a value that
+changes on every keystroke.* The sibling surface fires the identical call from an **event handler**;
+this one fires it from a **subscription**.
+
+**Enumeration**: `git grep -c "toast\." ee3bc3e --` over both JSON surfaces → 1 each. `JsonModalBody.tsx`'s
+call sits in `commitSettled`, reached only from the **Load button's** `onPress`. `NewMessageJsonInput.tsx`'s
+sits directly in the effect body. **1 of the 2 sites is a member. Does not match**: any other toast in
+the repo (not swept — the class here is specifically toast-from-a-keystroke-keyed-effect), nor a
+side effect reached indirectly from the effect body through a helper.
+
+**Mechanism, by reading — labelled a reading, not an execution.** The chain is:
+`useCodeMirror`'s `dispatch(tr) { view.update([tr]); onChange(view.state.doc.sliceString(0)); }` fires
+`onChange` on **every transaction**; `onChange` is `setJsonMessageString`; `useUpdateEffect` is a plain
+`useEffect` minus the first mount (`react-use/lib/useUpdateEffect.js`, read directly) keyed on
+`[jsonMessageString]`. So each keystroke that changes the document re-runs the effect body.
+
+**Narrowed honestly**: most intermediate keystrokes leave the JSON unparseable and take the `catch`
+branch, so no toast. The live case is **editing a message that is already valid JSON and already lands
+on row B or D** — e.g. typing inside a `content` string of a V2-flagged message — which yields **one
+toast per keystroke**. Before `ee3bc3e` this surface raised no toast at all.
+
+**Not executed.** The repository has **no DOM or component test harness** — no jsdom, no
+testing-library, and **zero `.tsx` tests among 28 test files** — so nothing in the repo or in my
+instruments renders this component. Recorded as a reading with its links named.
+
+**Required Action**:
+- **Preferred (structural)**: move the notice out of the subscription — fire it from the same kind of
+  edge the sibling uses (a commit/confirm action), so a notice cannot be a function of keystroke count.
+- **Minimum**: fire only on a *transition* into the notice-bearing disposition — hold the last emitted
+  `noticeClass` and emit only when it changes.
+
+### MEDIUM-3 — Cancel leaves a blocked state with no visible cause and no way back to the choice
+
+**Location**: `NewMessageJsonInput.tsx`, `cancelChoice`.
+
+**Class**: *an edge-triggered gate whose only trigger is a value change, paired with a dismiss action
+that does not change that value* — so dismissal is not re-enterable.
+
+**Enumeration**: the two `pendingChoice` dismiss paths across the two surfaces. `JsonModalBody.tsx`'s
+`cancelChoice` returns the user to a view that still has its **Load button**, so the choice is
+re-reachable by the same action that raised it. `NewMessageJsonInput.tsx` has no such affordance: the
+only trigger is `useUpdateEffect` on `[jsonMessageString]`. **1 of 2 sites is a member. Does not match**:
+dismissal paths that unmount the whole surface (none here).
+
+**By reading**, the state after Cancel is: `pendingChoice` null → the editor remounts carrying the same
+text (`useCodeMirror` recreates the view with `doc: value`, so the implementer's "pasted text is
+untouched" is correct); `error` is null, set before the row-E branch; `setMessage(null)` has run, so
+the parent's `loadedMessage` is undefined and its continue button is `isDisabled={!loadedMessage || …}`.
+The user sees **valid-looking JSON, no error, and a disabled button, with nothing on screen explaining
+why**. The effect will not re-fire until the text changes.
+
+**Required Action**:
+- **Preferred (structural)**: make the choice a function of current state rather than of a change
+  event — derive `pendingChoice` from `jsonMessageString` so dismissal cannot strand the surface.
+- **Minimum**: on cancel, set `error` to a sentence naming the unresolved conflict, so the disabled
+  button has a stated cause.
+
+### LOW-1 — the schema-safety argument checked refinements and missed the preprocess
+
+**Location**: implementation doc `08a440d`, this pass's changelog row.
+
+The unit's stated justification for inverting strip and validate is that the shapes *"place no
+cross-field refinement between `content`/`embeds` and `components`, so validate-then-resolve is … the
+only order either surface could safely use."* The refinement claim is **true** —
+`refineDisplayableText` only bounds total displayable text, which I checked. But the hazard at this
+seam is not a refinement; it is the **`z.preprocess` on `components`** in the same shape declaration,
+three lines above the `superRefine`. The argument examined the right file and the wrong feature, and
+MEDIUM-1 is its consequence.
+
+**Required Action**: none against the tree. Recorded because the *reasoning shape* — "I checked for
+cross-field constraints, therefore field-local rewriting is safe" — will recur wherever a Zod shape is
+read for safety. When an order-of-operations claim is made about a schema, the check is
+**`preprocess`/`transform`/`default`/`catch` as well as refinements**.
+
+### LOW-2 — a source comment addressed to the reader, not to a tool
+
+**Location**: `NewMessageJsonInput.tsx`, in the row-E branch —
+`// Row E (D17): nothing lands until the user chooses. Mirrors JsonModalBody's commitSettled/pendingChoice split (M8-F parity).`
+
+Prose addressed to a human reader; no tool consumes it. There is **no pre-commit comment gate in this
+repo** (checked: no `.husky`, no active `pre-commit`, no `lint-staged`), so this is the standing rule
+rather than a gate rejection. The commit **removed** a three-line prose comment and **added** a
+two-line one, so it perpetuates the class rather than introducing it.
+
+**Required Action**: remove it. Its content is already in the implementation doc's changelog row and in
+this document. **Minimum**: delete the two lines. Do not replace it with a shorter comment.
+
+### INFO-1 — `enforceImportMutualExclusivity` is dead in production and its doc comment now states the opposite of what the code does
+
+Zero production callers (verified above). It remains exported, and its JSDoc reads *"Mode detection
+runs on the raw data BEFORE any schema filtering."* After this commit **neither** JSON surface does
+that — both resolve after filtering, which is precisely MEDIUM-1. A future reader taking that sentence
+as current will be misled about the live behaviour.
+
+The implementer **disclosed** the retention and its reason (deleting it would touch test files this
+unit does not own and risk the pinned six-failure baseline). That reasoning is sound and I endorse
+leaving the function. **The stale doc comment is the part worth acting on**, and it is a comment on a
+now-dead function — the cheap disposition is to delete the function and its dedicated coverage in a
+unit that owns those test files, not to edit the comment in place.
+
+### INFO-2 — round-8 INFO-1 has not expired
+
+`m13-embed-preservation.py` at `ee3bc3e`: **1 newly-failing test of 370**, unchanged from `b3f8ea9`.
+`switchToClassic`'s embed preservation is still held by exactly one incidental assertion. Expected —
+no test file changed in this commit — but **run rather than inferred**, and the rig rebuilt to run it.
+Still QA's, still open. Kills ≥ 2 closes it.
+
+## Positive observations
+
+- **Row E genuinely blocks.** `setPendingChoice` + `setMessage(null)` + `return` — nothing reaches the
+  parent's `loadedMessage`, so nothing can reach `upsert` before a choice. For the input class that
+  actually reaches row E, M8-E's guarantee holds, and I checked the early return rather than assuming it.
+- **The four pure functions are reused verbatim, in the right order, with the right arguments.** No
+  reimplementation, no new pure function, no drift from the sibling surface. The argument order matches
+  `resolveContentLoss`'s signature exactly at both sites.
+- **`setError(null)` precedes the row-E branch**, so a stale parse error cannot survive into the choice
+  view. Easy to get wrong; it is right.
+- **The implementer's disclosure discipline is high.** The retained dead function, the absent parity
+  test and the un-re-run baseline are all stated plainly as decisions with reasons, not smoothed over.
+  The un-re-run baseline is the one I checked hardest, and their derived figure was correct.
+
+## Assumption Not Checked
+
+**This review assumes that `applyModeSwitch`'s output shape is what the persist boundary accepts, and
+does not test it.** CR9-G surfaced, incidentally, that the new path leaves `content: ''` where the old
+path **deleted** the key (asserted in CR9-G's second case). I did not drive that shape at
+`message.upsert`, and no round has: round 7 attacked the boundary at `87cfbd8`, before this surface
+produced payloads.
+
+**Falsity signature**: a message dispositioned to `v2` from the paste surface is rejected at the
+persist boundary, or is accepted and stored carrying an empty-string `content` alongside the V2 flag —
+i.e. the 5712-shaped record that 012's QA has an outstanding re-measure for — where the pre-`ee3bc3e`
+paste surface would have produced no `content` key at all.
+
+**Owner: QA, at Phase 2**, alongside the 5712/5842 re-measure it already owns; the discriminating check
+is to compare the persisted record's key set for a V2 paste against the same paste at `b3f8ea9`. Named
+again in Next Steps.
+
+## Captured instruments
+
+| path | what it is |
+|---|---|
+| `agent-output/verification/013/probe-cr9-paste-surface/paste.cr9.test.ts` | 24 assertions: the post-preprocess flip, its notice, the child-type sweep, the empty-container case, the old-vs-new differential, and two comparator controls |
+| `…/probe-cr9-paste-surface/vitest.cr9.config.ts` | its config |
+| `…/probe-cr9-paste-surface/run-cr9-ee3bc3e.txt` | the run at `ee3bc3e` — 24/24 |
+| `…/probe-cr9-paste-surface/sweep-child-types.txt` | the child-type enumeration, silent-flip vs visible-rejection vs held |
+| `…/probe-cr9-paste-surface/README.md` | what it answers, how to run it, and its blind spots stated at authoring time |
+
+**`no test` for MEDIUM-2 and MEDIUM-3.** Both are component-level behaviours and the repository has no
+harness that can render a component. Authoring one is not mine and is not a spec change this unit can
+carry; the instrument for them, if the repo gains a harness, belongs with the fix.
+
+## Required Actions
+
+1. **MEDIUM-2** — take the notice off the keystroke-keyed effect. This unit's own defect, cheap.
+2. **MEDIUM-3** — give Cancel a stated cause or make the choice state-derived. This unit's own defect, cheap.
+3. **LOW-2** — delete the two-line comment.
+4. **MEDIUM-1** — **not this unit's fix.** Routed to **M4-b** (the plan's own answer, D9's form). Its
+   reach at this surface is recorded above and should be cited when M4-b is planned.
+
+## Next Steps
+
+1. **`implementer-hooks-013-3`** — MEDIUM-2, MEDIUM-3, LOW-2. All three are local to
+   `NewMessageJsonInput.tsx` and none touches a shared symbol or a test file this unit does not own.
+2. **The planner / steering** — MEDIUM-1's reach: **M4-b now has a demonstrated, executed instance
+   that defeats M8-E's guarantee**, not merely round 7's row-A instance. The plan's Risks rows should
+   carry it before M4 is scheduled.
+3. **QA** — this round's Assumption Not Checked (the `content: ''` shape at the persist boundary), with
+   the 5712/5842 re-measure it already owns; and round-8 INFO-1, still open at 1 kill.
+4. **The retrospective / pi** — the round-6 architecture-absence error above. A false absence from a
+   filtered existence check propagated through three verdicts. The remedy is already this project's
+   standing rule; what is new is that it reached a *sources-of-truth* check, not just a count.
+
+## Status field — NOT set, deliberately
+
+This role's definition instructs me to set the plan's Status to "Code Review Approved" on a passing
+review. **I have not**, on both seams' standing instruction and steering's two rulings: plan 013 is
+reviewed milestone by milestone, and a plan-level approval asserted from a milestone verdict would be
+false at the plan level. M2-c, M3, M4, M6 and M8-G remain. **If this is raised at me, it goes to
+steering, not to my judgement.** Third generation to decline it on its own reasoning; the definition
+gap is lodged at `~/.claude/agents/INBOX.md` (`ee1ae0e`).
+
+## Standing obligations carried forward — third seam is NOT open
+
+I am not flushing. The second seam's section stands **unamended except as follows**:
+
+- **§0's "your first action is to review `ee3bc3e`" is DISCHARGED** — this round is it.
+- **§1's obligations 2, 3, 4, 5, 6 all STILL STAND.** I complied with each: every enumeration above
+  carries a "does not match" clause; the withdrawn hypothesis was not revived; Status not set; the
+  pairing run (CR3 122/122, expected-six MATCH); suite figures taken from a clean extraction, never
+  from the working tree.
+- **§2's T2 is re-run and still empty at `ee3bc3e`, with both controls.** The persist-path attack
+  remains not owed. **Retarget note added**: `NewMessageModal.tsx` is now *partially* gated (1 of 4
+  payload sources) — an empty T2 no longer means that writer is wholly untouched.
+- **§3a (structural dominance only), §3c (CRITICAL-1 is a handoff; raise at chain close, do not
+  re-escalate), §3d (D26 retimes, waives nothing) — unchanged.**
+- **§4's rig list needs one addition**: `probe-cr8`'s `/tmp/cr8-mut` extraction **does not survive**
+  and must be rebuilt before its scripts run. `probe-cr1`/`probe-cr2` remain degenerate.
+- **New**: do not inherit round 6's architecture-absence claim. Both architecture documents exist;
+  the corrected record is at the top of this round.

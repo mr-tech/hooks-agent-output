@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/agent-output/verification/013/probe-cr9-paste-surface
+
+
+ Test Files  1 passed (1)
+      Tests  24 passed (24)
+   Start at  08:13:14
+   Duration  633ms (transform 120ms, setup 0ms, import 476ms, tests 15ms, environment 0ms)
+

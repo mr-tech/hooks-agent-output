@@ -1,0 +1,21 @@
+CR9-C sweep — container (type 17) with ONE well-formed child of each type.
+Every input is row E as pasted (V2 container + content). What does the surface see?
+
+  child type  1 -> surface row E
+  child type  2 -> surface row D
+  child type  3 -> surface row D
+  child type  4 -> surface row D
+  child type  9 -> surface row THROW(visible error)
+  child type 10 -> surface row E
+  child type 11 -> surface row D
+  child type 12 -> surface row E
+  child type 13 -> surface row E
+  child type 14 -> surface row THROW(visible error)
+  child type 17 -> surface row D
+
+SILENT FLIP away from E (content lost, no choice): [2,3,4,11,17]
+VISIBLE rejection (user sees a Zod error):         [9,14]
+HELD at row E (correct):                          [1,10,12,13]
+
+SUPPORTED_CONTAINER_CHILD_TYPES = {1,9,10,12,13,14} (shapes.ts)
+V2_COMPONENT_TYPE_VALUES        = [9,10,11,12,13,14,17] (messageLimits.ts)
