@@ -31,6 +31,14 @@ import {
  * cr18's loadDisabled_M4c models the REMOVED wiring (gate reads the raw draft);
  * at ad9f331 it still passes because the PREDICATE superset is unchanged, but it
  * no longer describes the live control flow. cr19 supersedes it for the wiring.
+ *
+ * ROUND 18 (4e9da96): the MED-6 fix changed the Load gate from
+ *   !!error || !isValid || !!contentFloorError   (loadDisabled_old, the round-17 defect)
+ * to
+ *   !validatedDraft || !!contentFloorError        (loadDisabled_new, the fix)
+ * and removed the isValid state entirely. CR19-B carries BOTH gates: old as the
+ * control that left the dismissed state ENABLED, new as the fix that DISABLES it
+ * at parity with the sibling. All other blocks assert against the live (new) gate.
  */
 
 const CONTAINER = (t: string) => ({ type: 17, components: [{ type: 10, content: t }] });
@@ -64,12 +72,21 @@ function effect_e61e602(raw: any): EffectState {
     return { error: 'parse error', isValid: false, validatedDraft: null, pendingChoice: null };
   }
 }
-// ---- MODEL of the render (line 165 + Load isDisabled line 276) ------------
+// ---- MODEL of the render (line 165 + Load isDisabled) --------------------
 function choiceViewReached(s: EffectState): boolean { return !!s.pendingChoice; } // `if (pendingChoice) return <choice/>`
-function loadDisabled(s: EffectState): boolean {
+// round-17 gate at ad9f331 (the MED-6 defect): reads error/isValid, NOT validatedDraft presence.
+function loadDisabled_old(s: EffectState): boolean {
   if (s.pendingChoice) return false;                 // Load button not even rendered; N/A
   const contentFloorError = s.validatedDraft ? validateContentRequirements(s.validatedDraft) : undefined;
-  return !!s.error || !s.isValid || !!contentFloorError; // line 276 (the ported gate)
+  return !!s.error || !s.isValid || !!contentFloorError;
+}
+// round-18 gate at 4e9da96 (the MED-6 fix): `!validatedDraft || !!contentFloorError`.
+// isValid state was removed; validatedDraft===null subsumes the error, parse-fail, row-E-pending
+// AND dismissed states in one term.
+function loadDisabled_new(s: EffectState): boolean {
+  if (s.pendingChoice) return false;                 // Load button not even rendered; N/A
+  const contentFloorError = s.validatedDraft ? validateContentRequirements(s.validatedDraft) : undefined;
+  return !s.validatedDraft || !!contentFloorError;
 }
 // ---- MODEL of the sibling NewMessageModal submit gate (line 191) ----------
 // disableSave = !loadedMessage || !!contentFloorError ; loadedMessage is the
@@ -105,22 +122,26 @@ describe('CR19-A — HIGH-1 CLOSED: a genuine row-E paste now REACHES the choice
     it(`row-E[${i}] CONTROL: the removed e61e602 wiring left the choice UNreachable (gate disabled, no pendingChoice)`, () => {
       const c = effect_e61e602(raw);
       expect(choiceViewReached(c)).toBe(false);      // choice was gated behind the Load button
-      expect(loadDisabled(c)).toBe(true);            // ...which the floor gate disabled -> dead code
+      expect(loadDisabled_old(c)).toBe(true);        // ...which the floor gate disabled -> dead code
     });
   });
 });
 
-describe('CR19-B — MEDIUM (new this round): incomplete port. Dismissed-choice state leaves Load ENABLED where the sibling disables submit', () => {
+describe('CR19-B — MED-6 FIXED at 4e9da96: dismissed-choice Load is now DISABLED, at parity with the sibling', () => {
   // After cancelChoice (no effect re-run), validatedDraft stays null, pendingChoice null,
   // dismissedChoice set. Model that residual state directly.
   const dismissed: EffectState = { error: null, isValid: true, validatedDraft: null, pendingChoice: null };
-  it('JsonModalBody Load is ENABLED in the dismissed state (the defect)', () => {
-    expect(loadDisabled(dismissed)).toBe(false);
+  it('CONTROL (round-17 gate): the OLD gate left Load ENABLED in the dismissed state — the MED-6 defect', () => {
+    expect(loadDisabled_old(dismissed)).toBe(false);
   });
-  it('the approved sibling DISABLES submit in the equivalent (message===null) state', () => {
+  it('FIX (round-18 gate): the NEW `!validatedDraft || !!floor` gate DISABLES Load in the dismissed state', () => {
+    expect(loadDisabled_new(dismissed)).toBe(true);
+  });
+  it('PARITY: the approved sibling disables submit in the equivalent (message===null) state — now matched', () => {
     expect(siblingSubmitDisabled(null)).toBe(true);
+    expect(loadDisabled_new(dismissed)).toBe(siblingSubmitDisabled(null));
   });
-  it('INVARIANT still holds: commitLoad no-ops in the dismissed state (no bad load, integrity intact)', () => {
+  it('INVARIANT (defence in depth): commitLoad still no-ops in the dismissed state regardless of the button', () => {
     expect(commitLoadLoads(dismissed)).toBe(false);
   });
 });
@@ -131,7 +152,7 @@ describe('CR19-C — MEDIUM-4 unchanged: flag-only-V2 + content stays blocked, n
     expect(s.pendingChoice).toBeNull();
     expect(s.validatedDraft).not.toBeNull();
     expect(validateContentRequirements(s.validatedDraft)).toBeDefined();
-    expect(loadDisabled(s)).toBe(true);
+    expect(loadDisabled_new(s)).toBe(true);
   });
 });
 
@@ -149,19 +170,19 @@ describe('CR19-E — non-members: legitimately loadable drafts load; empty floor
   it('row B (structural V2, no content) -> no choice, Load enabled, commitLoad loads', () => {
     const s = effect_ad9f331(ROW_B);
     expect(s.pendingChoice).toBeNull();
-    expect(loadDisabled(s)).toBe(false);
+    expect(loadDisabled_new(s)).toBe(false);
     expect(commitLoadLoads(s)).toBe(true);
   });
   it('row A (classic only) -> no choice, Load enabled, commitLoad loads', () => {
     const s = effect_ad9f331(ROW_A);
     expect(s.pendingChoice).toBeNull();
-    expect(loadDisabled(s)).toBe(false);
+    expect(loadDisabled_new(s)).toBe(false);
     expect(commitLoadLoads(s)).toBe(true);
   });
   it('empty floor -> no choice, blocked at the BUTTON (isDisabled), which is where the empty-floor guard lives', () => {
     const s = effect_ad9f331(EMPTY);
     expect(s.pendingChoice).toBeNull();
-    expect(loadDisabled(s)).toBe(true);              // button disabled -> commitLoad unreachable
+    expect(loadDisabled_new(s)).toBe(true);          // button disabled -> commitLoad unreachable
     // NB: commitLoad itself has NO content-floor guard (only !validatedDraft / requiresChoice);
     // the empty-floor protection is button-only. That is sound *because* the button is disabled.
     expect(commitLoadLoads(s)).toBe(true);           // would load IF reached; it is not reached
