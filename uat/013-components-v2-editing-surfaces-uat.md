@@ -17,8 +17,11 @@ Status-Detail: >-
   its one-shot script, ready.** **D20's re-derivation clause is RESOLVED on the substance**,
   discharged by production execution rather than by UAT's instrument; the classifier-blocked probe
   is retired for that purpose and needs no ruling. Two defects in BC-11 as written (Subject cell;
-  earliest-decidable cell) are routed to QA, whose row it is. This document is authoritative on
-  register state from rev 1 forward.
+  earliest-decidable cell) are routed to QA, whose row it is. **Rev 5 raises finding U-1**: the seeds
+  are permanent members of the category 012's classifier counts, so both limbs of the plan's own
+  falsifier for assumption 7 now fire by construction — a working D19 repair will read as a failed
+  one. Routed to steering; no remedy adopted here. This document is authoritative on register state
+  from rev 1 forward.
 ---
 
 # UAT Report: Plan 013 — Components V2 support across the editing surfaces
@@ -36,6 +39,7 @@ Status-Detail: >-
 | 2026-08-24 | steering-hooks-013-2 (relay of an owner decision + **D27**, plan rev 19 `a479afe`) | Owner chose option (a) on the mint — he does it himself; act on D27 by sending UAT's two probe extensions to QA directly | Rev 2. **No state change to any register row.** Owner's mint is recorded as **intent, not evidence**; BC-11 Half A stays `NOT EXECUTED` pending his attestation, which is complete evidence when quoted with its timestamp and is not satisfied by a relay. Classifier block on the probe rig **parked and staying parked** — steering confirmed it will not run it either, so D20's re-derivation clause is outstanding and QA's probe is the only executed evidence for the mintability finding. Extensions (i) `optionalIdMessageShape` and (ii) the uncovered persist leg sent direct to `qa-hooks-013-2`, citing `b6e9662`. Still no verdict. |
 | 2026-08-24 | steering-hooks-013-2 (an inference offered **explicitly as unestablished**, to re-derive not adopt) | Test whether Half B is blocked for the same reasons as Half A, and if so prepare a one-shot observation script | Rev 3. **Inference SURVIVES in part and is corrected in part.** Survives: Half B is not executable by this session — all 8 message-router procedures are `protectedProcedure` (0 `publicProcedure`) and the oracle is a UI event, so the browser constraint decides it independently of timing. Corrected: **it does not follow that Half B is the owner's** — the plan's M8-G clause admits the form *"in any environment seeded with the shape"*, and the planner already wrote a fallback disposition for the no-seeded-environment case. Two register defects found and sent to QA: BC-11's **Subject** cell names `UAT agent` with no fallback, which is wrong for both halves; its **earliest-decidable** cell states Half A's precondition only and omits Half B's. Observation script for the designated observer added as Appendix A, **not executed**. Still no verdict. |
 | 2026-08-24 | **owner**, attested in the steering session; **route: relayed out-of-band by steering-hooks-013-2 — not a stage handoff** | Deliver the owner's attestation that the two seed records exist, for UAT to judge under its own gate | Rev 4. **BC-11 Half A → `EXECUTED`, terminal.** His words, verbatim: *"Re: UAT's JSON message - both are created. 5855 and 5856"* (2026-08-24). Terminalised on the attestation per the plan's evidence rule and this agent's own — never record a capture as missing against a condition he executed. **Not recorded as fact**: the shape-to-ID mapping (steering expressly did not assert it; Half B exercises both records by its own terms, so nothing is blocked). **D20's re-derivation clause RESOLVED on the substance** — discharged by production execution rather than by UAT's instrument, delta and route-residual recorded; classifier block retired for that purpose. Half B unchanged and still owed. Still no verdict. |
+| 2026-08-24 | *(none — raised by this pass)* | — | Rev 5. **Finding U-1 raised**: D20's seed records (5855, 5856) are permanent members of `flagStructureDisagreement`, so after the owner's D19 repair the plan's assumption-7 detector reads **2** where he expects **0** — a working repair looks like a failed one — and the V2-error limb fires too, since that is Half B's precondition. Verified verbatim against the plan's Assumptions item 7 and its "29 empty, 2 disagreeing" count. Routed to steering as plan-touching; no remedy adopted. One inference left deliberately unexecuted and flagged. Still no verdict. |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -328,6 +332,49 @@ line, **which came first**: M8-G's production observation, or the owner's D19 re
 Half B unreachable); no D19 repair declaration by the owner has been received by this pass. This line
 is point-in-time and is re-derived at the real UAT pass, not carried from here.
 
+## Finding U-1 — D20's seeds disarm the plan's own falsifier for assumption 7
+
+**Raised by this pass, 2026-08-24 (rev 5). Not previously priced by anyone, as far as this pass can
+see. Routed to steering as a plan-touching finding, not settled here.**
+
+Records 5855 and 5856 now exist in production carrying the flag-over-content shape. They are, by
+construction, permanent members of the category 012's classifier counts — `flagStructureDisagreement`
+(`flagV2 && !structurallyV2`) — and steering has instructed the owner **not to delete them**, because
+Half B runs against them.
+
+The plan's detector for assumption 7 failing (Assumptions, item 7) reads, verbatim:
+
+> **Where a silent failure is caught**: … the classifier he runs under D20 (`flagStructureDisagreement`,
+> his instrument) reading **> 0** after he has declared the repair done, or a record opening in V2 with
+> the composer's V2 error after that declaration (R8's falsifier), is the signature.
+
+**Both limbs are now tripped by the seeds, by construction and permanently:**
+
+1. The count limb. The plan records the pre-existing population as **"29 empty, 2 disagreeing"**. After
+   the owner's D19 repair of 5712 and 5842, the count he expects is **0**; what he will actually read is
+   **2** — UAT's own seeds. **A working repair will look like a failed one.**
+2. The V2-error limb. A seed *opening in V2 with the composer's V2 error* is not a signature of failure
+   here — **it is the precondition Half B needs** and the reason the seeds were minted.
+
+**This is a false-positive trap that fires at exactly the wrong moment**: when the owner checks whether
+his own repair worked. It is a direct and, on this pass's reading, unnoticed consequence of D20, which
+was registered as changing *"no criterion, milestone or release condition"* — and strictly that is
+still true, since it changes no criterion's text. What it changes is what one of them *measures*.
+
+**Not this pass's to settle**, and no option is adopted here. The cheap remedy is documentary: R-5's
+deployment record already exists to tell the owner the **source class** of what he is looking at, so
+the residual can be named there — the falsifier read as *"> 0 excluding 5855 and 5856"*, or the
+expected residual stated as **2**. That line is **devops's** to write and the falsifier's wording is
+the **planner's**; whether the seeds are deleted after Half B is the **owner's**, and D20 expressly
+left their disposition unruled. This pass records the interaction and routes it.
+
+**Not established, and deliberately not assumed**: that the seeds carry `valid = false` and therefore
+stay out of `flagStructureDisagreementValidTrue` (R7's first limb). The inference is available — the
+plan records that category as reading **0** at 012's backfill run while 5712/5842 were its
+`flagStructureDisagreement` members, so those shapes evaluate invalid, and the seeds share the shape —
+but it rests on shape identity and this pass did not execute it. **If R7's falsifier is read after the
+deploy, that inference should be executed first, not relied on.**
+
 ## Weighing of Production Evidence
 
 None is offered and none is claimed. No operator attestation, no production run-time, and no
@@ -366,11 +413,14 @@ steering-hooks-013-2 rather than raised while he sleeps.
 2. **D20's re-derivation — CLOSED on the substance.** Discharged by the owner's production mint rather
    than by UAT's instrument; delta and route-residual recorded above. **The classifier block needs no
    ruling from him and is withdrawn from his queue.**
-3. **BC-11 Half B — the ask.** Needs a party with a browser **and** a chain-tip environment carrying
+3. **Finding U-1 — routed to steering, not settled.** The R-5 deployment-record line is devops's, the
+   falsifier's wording is the planner's, the seeds' disposition is the owner's. **Whoever reads
+   `flagStructureDisagreement` after the D19 repair needs to know 5855 and 5856 are in it deliberately.**
+4. **BC-11 Half B — the ask.** Needs a party with a browser **and** a chain-tip environment carrying
    the shape; per the plan that environment need not be production. Not this session, and not
    automatically the owner. **Appendix A is the one-shot script, ready now.** Subject assignment is
    QA's to fix on the register.
-4. Not owed yet, listed so the sequence is visible: predecessor-status verification, the value
+5. Not owed yet, listed so the sequence is visible: predecessor-status verification, the value
    assessment, the walkthrough of BC-1 … BC-11, and the release decision — all at the real UAT pass,
    after Implementation, Code Review and QA Phase 2 are complete.
 
