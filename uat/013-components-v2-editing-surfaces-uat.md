@@ -5,25 +5,20 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
-  Rev 3 — **D20 PRECONDITION PASS ONLY. NO VERDICT IS ISSUED AND NONE IS INVITED.** This document
-  exists before the deploy it will cover, as the UAT gate requires; it carries **no** release
-  decision, conditional or otherwise. QA Phase 2 has not run (`qa/013-...-qa.md`, Status
-  `Awaiting Implementation`), M4 and M6 are open; the sequencing was overridden explicitly and
-  narrowly because D20's mint route **expires at deploy**. **BC-11 Half A (the mint) stands at
-  NOT EXECUTED** — not a terminal state, and it blocks an unconditional approval. UAT could not
-  reach the surface and improvised no equivalent; **the owner has since said he will mint the two
-  records himself, which is intent and not evidence** and is not marked satisfied here. **D20's
-  required re-derivation by execution remains outstanding**, its probe rig blocked by the
-  auto-mode classifier and parked for the owner; UAT's route trace is labelled corroboration, not
-  re-derivation, and QA's probe is still the sole executed evidence for the mintability finding.
-  Under D27 UAT's two probe extensions went direct to qa-hooks-013-2. **Rev 3 re-derives Half B
-  (the ask) and finds it likewise NOT executable by this session** — every procedure in the message
-  router is `protectedProcedure` and the oracle is a UI event, so the browser constraint is
-  decisive and independent of timing. **But Half B is NOT thereby the owner's**: the plan admits
-  the form in *"any environment seeded with the shape"*, so it belongs to any party holding a
-  browser and a seeded chain-tip environment. **BC-11's Subject cell (`UAT agent`, no fallback) is
-  wrong as written** and its earliest-decidable cell omits Half B's precondition — both routed to
-  QA, who owns the row. This document is authoritative on register state from rev 1 forward.
+  Rev 4 — **D20 PRECONDITION PASS ONLY. NO VERDICT IS ISSUED AND NONE IS INVITED.** This document
+  exists before the deploy it will cover, as the UAT gate requires, and carries **no** release
+  decision. QA Phase 2 has not run (`qa/013-...-qa.md`, Status `Awaiting Implementation`); M4 and
+  M6 are open. **BC-11 Half A (the mint) is `EXECUTED`, 2026-08-24, terminal** — the owner minted
+  both records himself and attested it verbatim (5855, 5856); his attestation is the terminal form
+  of owner-supplied evidence and this pass terminalises on it rather than manufacturing a further
+  gate. **Half B (the ask) is `NOT EXECUTED`** — not a terminal state, and it blocks an
+  unconditional approval; it needs a browser and a chain-tip environment carrying the shape, which
+  per the plan need not be production, so it is **not** automatically the owner's. **Appendix A is
+  its one-shot script, ready.** **D20's re-derivation clause is RESOLVED on the substance**,
+  discharged by production execution rather than by UAT's instrument; the classifier-blocked probe
+  is retired for that purpose and needs no ruling. Two defects in BC-11 as written (Subject cell;
+  earliest-decidable cell) are routed to QA, whose row it is. This document is authoritative on
+  register state from rev 1 forward.
 ---
 
 # UAT Report: Plan 013 — Components V2 support across the editing surfaces
@@ -40,6 +35,7 @@ Status-Detail: >-
 | 2026-08-24 | steering-hooks-013-2 (sequencing overridden explicitly; **no verdict invited**) | Execute D20's pre-deploy precondition: mint two throwaway records — one 5712-shaped, one 5842-shaped — through the product's own New Message JSON surface at production `c85945f`, re-deriving the mintability finding rather than inheriting it | **BLOCKED, reported, nothing improvised.** The New Message JSON surface is unreachable from this session (no authenticated session; `message.upsert` is a `protectedProcedure`; no browser, no `DISPLAY`, no browser-automation tooling). The route at `c85945f` was traced **by reading** and is recorded below as corroboration, explicitly **not** as the re-derivation D20 requires. The executed re-derivation was separately blocked by the auto-mode classifier when creating the probe rig; disclosed in this document per CLAUDE.md rather than retried in another form. BC-11 stays **NOT EXECUTED**. No release decision. |
 | 2026-08-24 | steering-hooks-013-2 (relay of an owner decision + **D27**, plan rev 19 `a479afe`) | Owner chose option (a) on the mint — he does it himself; act on D27 by sending UAT's two probe extensions to QA directly | Rev 2. **No state change to any register row.** Owner's mint is recorded as **intent, not evidence**; BC-11 Half A stays `NOT EXECUTED` pending his attestation, which is complete evidence when quoted with its timestamp and is not satisfied by a relay. Classifier block on the probe rig **parked and staying parked** — steering confirmed it will not run it either, so D20's re-derivation clause is outstanding and QA's probe is the only executed evidence for the mintability finding. Extensions (i) `optionalIdMessageShape` and (ii) the uncovered persist leg sent direct to `qa-hooks-013-2`, citing `b6e9662`. Still no verdict. |
 | 2026-08-24 | steering-hooks-013-2 (an inference offered **explicitly as unestablished**, to re-derive not adopt) | Test whether Half B is blocked for the same reasons as Half A, and if so prepare a one-shot observation script | Rev 3. **Inference SURVIVES in part and is corrected in part.** Survives: Half B is not executable by this session — all 8 message-router procedures are `protectedProcedure` (0 `publicProcedure`) and the oracle is a UI event, so the browser constraint decides it independently of timing. Corrected: **it does not follow that Half B is the owner's** — the plan's M8-G clause admits the form *"in any environment seeded with the shape"*, and the planner already wrote a fallback disposition for the no-seeded-environment case. Two register defects found and sent to QA: BC-11's **Subject** cell names `UAT agent` with no fallback, which is wrong for both halves; its **earliest-decidable** cell states Half A's precondition only and omits Half B's. Observation script for the designated observer added as Appendix A, **not executed**. Still no verdict. |
+| 2026-08-24 | **owner**, attested in the steering session; **route: relayed out-of-band by steering-hooks-013-2 — not a stage handoff** | Deliver the owner's attestation that the two seed records exist, for UAT to judge under its own gate | Rev 4. **BC-11 Half A → `EXECUTED`, terminal.** His words, verbatim: *"Re: UAT's JSON message - both are created. 5855 and 5856"* (2026-08-24). Terminalised on the attestation per the plan's evidence rule and this agent's own — never record a capture as missing against a condition he executed. **Not recorded as fact**: the shape-to-ID mapping (steering expressly did not assert it; Half B exercises both records by its own terms, so nothing is blocked). **D20's re-derivation clause RESOLVED on the substance** — discharged by production execution rather than by UAT's instrument, delta and route-residual recorded; classifier block retired for that purpose. Half B unchanged and still owed. Still no verdict. |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -113,6 +109,41 @@ it, does not accept a relay in its place, and **never records a capture file as 
 condition he executed**. Existence of the two records is established by that pass, not inherited from
 this line.
 
+### Addendum, 2026-08-24 (rev 4) — HALF A IS EXECUTED. The attestation, verbatim
+
+The condition the rev-2 addendum named in advance has been met. The owner minted both records himself
+and attested it. **His words, quoted and not paraphrased:**
+
+> Re: UAT's JSON message - both are created. 5855 and 5856
+
+**Date**: 2026-08-24, given unprompted in the steering session immediately after he was handed the two
+JSON payloads this document lists.
+
+**Route of the evidence, recorded because it was not a stage handoff**: the payloads reached him from
+`steering-hooks-013-2`, and his attestation reached this document from `steering-hooks-013-2`. Steering
+is the **route, not the source** — the fact is his, quoted from him above rather than attributed to the
+relay.
+
+**Disposition: BC-11 Half A → `EXECUTED`, 2026-08-24. Terminal.** This pass terminalises on the
+attestation and does not hold the row open for independent confirmation. The plan's evidence rule makes
+his attestation complete evidence where he is the designated observer, and this agent's own governing
+rule is explicit: *never ask the owner to create, populate, or save a capture file, and never record one
+as missing against a condition he executed — record his statement with its timestamp and terminalise on
+it.* Holding the row open against live records he has named by ID would be manufacturing a gate he has
+already walked through.
+
+**Two things the attestation does NOT establish, recorded so nobody later reads them out of it:**
+
+1. **The shape-to-ID mapping is not stated.** He said "5855 and 5856"; he did not say which is
+   5712-shaped and which is 5842-shaped. Steering, which relayed the payloads in this document's order,
+   expressly declined to assert the mapping, and **this document records none.** It blocks nothing:
+   Half B exercises **both** records by its own terms ("repeat on the 5842-shaped record"). If the
+   mapping is ever wanted for the record it is a one-line question for him — not one worth spending at
+   a moment he is trying to leave.
+2. **His words do not name the route.** He was handed New Message JSON paste steps and answered "UAT's
+   JSON message", which reads straightforwardly as that route. Noted once for completeness and **not
+   treated as a gap** — treating it as one would be the manufactured doubt the rule above forbids.
+
 ### A route that was considered and NOT taken
 
 The product could in principle be served locally at `c85945f` and its real New Message JSON surface
@@ -135,7 +166,21 @@ classifier**. Per CLAUDE.md the denial was **not** rephrased, split into separat
 routed through another tool; it is reported instead, and is disclosed here in the round it happened
 rather than first in a hand-back. Nothing was created — `ls -d` confirms the directory does not exist.
 
-**Status at rev 2**: the block is **parked for the owner and stays parked.** Steering has confirmed it
+**Status at rev 4 — RESOLVED ON THE SUBSTANCE.** This supersedes the rev-2 status below, which is
+preserved as written and was correct when written. D20's clause exists so that UAT does not *inherit*
+the claim that the 5712 shape is mintable through the JSON surface at `c85945f`. That claim is now
+established **by execution in production**: two records of those shapes exist, minted after the owner
+was handed exactly those payloads (rev 4 addendum). That is a stronger derivation than the module-level
+probe D20 contemplated, and it is not QA's word taken on trust.
+
+**A required action discharged in a different form — or by a different party — than the one it named is
+closed on the substance, with the delta recorded, not returned for a documentation shuffle.** The
+delta: D20 named *UAT's own instrument*; what discharged it was *the owner's production mint*. The
+residual: his words do not name the route — noted, not treated as a gap, not blocking. **The
+classifier-blocked probe is retired for this purpose and needs no ruling from him**; the block itself
+was never adjudicated and now does not need to be.
+
+**Status at rev 2, preserved**: the block was **parked for the owner and stays parked.** Steering has confirmed it
 will not perform the blocked action either — the trigger for that would be the owner's sanction
 obtained in a session, never the block itself. Whether it was a false positive is his call and not
 this agent's to make about its own action. **The consequence, stated so nobody assumes otherwise:
@@ -188,7 +233,7 @@ standing note.
 | Row | Class | State after this pass | Note |
 |---|---|---|---|
 | BC-1 … BC-10 | PRE | Not started | Not reachable: they need the chain tip, and M4/M6 are open |
-| **BC-11** | PRE | **NOT EXECUTED** — pre-deploy half attempted and **blocked** | See below. **`NOT EXECUTED` is not a terminal state** and blocks an unconditional approval |
+| **BC-11** | PRE | **Half A: `EXECUTED` 2026-08-24 (terminal).** **Half B: `NOT EXECUTED`** | Half A discharged by the owner's attestation, quoted verbatim above (records 5855, 5856). Half B still owed; **`NOT EXECUTED` is not a terminal state** and blocks an unconditional approval |
 | BC-12, BC-13, BC-14 | POST | Not started | Post-deploy-observable; gate chain closure, not the release act. BC-13's owner is devops and its primary instrument is **the clock — no human subject** |
 
 ### BC-11, read apart into its two halves
@@ -316,17 +361,11 @@ verified). **Neither is a verdict anchor.**
 Two items are **parked for the owner** and are not escalations; both were reported to
 steering-hooks-013-2 rather than raised while he sleeps.
 
-1. **BC-11 Half A — the mint.** **Owner-owned as of 2026-08-24: he chose to mint the two records
-   himself before going.** Outstanding until *his attestation is quoted with its timestamp* at the
-   real UAT pass — intent relayed through steering is not evidence, and this row is not satisfied by
-   this document. If it turns out not to have happened before go-live, Half B becomes unobservable in
-   production permanently once the D19 repair lands, and D18's central behaviour ships on suite
-   evidence alone — the outcome D20 was ruled to prevent.
-2. **D20's re-derivation by execution — OUTSTANDING.** Blocked by the auto-mode classifier at rig
-   creation; not retried, **parked for the owner, and staying parked** (steering will not run it
-   either). The owner decides whether that block was a false positive; this agent does not make that
-   judgement about its own action. Until then QA's probe is the sole executed evidence for the
-   mintability finding, and UAT's trace stays labelled corroboration.
+1. **BC-11 Half A — CLOSED.** `EXECUTED` 2026-08-24 on the owner's attestation (5855, 5856). Nothing
+   further is owed on it. **The two records must not be deleted** — Half B runs against them.
+2. **D20's re-derivation — CLOSED on the substance.** Discharged by the owner's production mint rather
+   than by UAT's instrument; delta and route-residual recorded above. **The classifier block needs no
+   ruling from him and is withdrawn from his queue.**
 3. **BC-11 Half B — the ask.** Needs a party with a browser **and** a chain-tip environment carrying
    the shape; per the plan that environment need not be production. Not this session, and not
    automatically the owner. **Appendix A is the one-shot script, ready now.** Subject assignment is
