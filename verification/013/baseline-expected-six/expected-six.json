@@ -1,0 +1,36 @@
+{
+  "pinnedAt": "92ce026a5bb0ddf0b2d1fe451d14bd74c77c746a",
+  "note": "Failure SET identity. Totals deliberately not pinned - they grow every milestone.",
+  "failures": [
+    {
+      "file": "src/utils/__tests__/012-json-editor-repair-path.test.ts",
+      "fullName": "EXT-3 — JSON-editor Load->save, executed end to end and the repair is genuinely LOSSLESS for 5712 — the content survives",
+      "reason": "TypeError: standardizeMessage is not a function"
+    },
+    {
+      "file": "src/utils/__tests__/012-json-editor-repair-path.test.ts",
+      "fullName": "EXT-3 — JSON-editor Load->save, executed end to end B3 class: the editor path clears the flag but DESTROYS the Action Row",
+      "reason": "TypeError: standardizeMessage is not a function"
+    },
+    {
+      "file": "src/utils/__tests__/012-json-editor-repair-path.test.ts",
+      "fullName": "EXT-3 — JSON-editor Load->save, executed end to end CONSEQUENCE FOR R19: B3 class has NO lossless path — neither instruction is safe alone",
+      "reason": "TypeError: standardizeMessage is not a function"
+    },
+    {
+      "file": "src/utils/__tests__/012-json-editor-repair-path.test.ts",
+      "fullName": "EXT-3 — JSON-editor Load->save, executed end to end THE FALSITY SIGNATURE ITSELF — 5712 does NOT still carry flags 32768 after Load and save",
+      "reason": "TypeError: standardizeMessage is not a function"
+    },
+    {
+      "file": "src/utils/__tests__/012-json-editor-repair-path.test.ts",
+      "fullName": "EXT-3 — JSON-editor Load->save, executed end to end the flag never reaches the textarea in the first place — so an unedited Load cannot carry it back",
+      "reason": "TypeError: standardizeMessage is not a function"
+    },
+    {
+      "file": "src/utils/__tests__/012-message-mode.test.ts",
+      "fullName": "switchToV2 — classic -> v2 branch clears content and embeds, preserves components and flags",
+      "reason": "AssertionError: expected 32768 to be +0 // Object.is equality"
+    }
+  ]
+}
