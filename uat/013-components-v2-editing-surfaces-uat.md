@@ -5,7 +5,7 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
-  Rev 2 — **D20 PRECONDITION PASS ONLY. NO VERDICT IS ISSUED AND NONE IS INVITED.** This document
+  Rev 3 — **D20 PRECONDITION PASS ONLY. NO VERDICT IS ISSUED AND NONE IS INVITED.** This document
   exists before the deploy it will cover, as the UAT gate requires; it carries **no** release
   decision, conditional or otherwise. QA Phase 2 has not run (`qa/013-...-qa.md`, Status
   `Awaiting Implementation`), M4 and M6 are open; the sequencing was overridden explicitly and
@@ -16,8 +16,14 @@ Status-Detail: >-
   required re-derivation by execution remains outstanding**, its probe rig blocked by the
   auto-mode classifier and parked for the owner; UAT's route trace is labelled corroboration, not
   re-derivation, and QA's probe is still the sole executed evidence for the mintability finding.
-  Under D27 UAT's two probe extensions went direct to qa-hooks-013-2. This document is
-  authoritative on register state from rev 1 forward.
+  Under D27 UAT's two probe extensions went direct to qa-hooks-013-2. **Rev 3 re-derives Half B
+  (the ask) and finds it likewise NOT executable by this session** — every procedure in the message
+  router is `protectedProcedure` and the oracle is a UI event, so the browser constraint is
+  decisive and independent of timing. **But Half B is NOT thereby the owner's**: the plan admits
+  the form in *"any environment seeded with the shape"*, so it belongs to any party holding a
+  browser and a seeded chain-tip environment. **BC-11's Subject cell (`UAT agent`, no fallback) is
+  wrong as written** and its earliest-decidable cell omits Half B's precondition — both routed to
+  QA, who owns the row. This document is authoritative on register state from rev 1 forward.
 ---
 
 # UAT Report: Plan 013 — Components V2 support across the editing surfaces
@@ -33,6 +39,7 @@ Status-Detail: >-
 |------|---------------|---------|---------|
 | 2026-08-24 | steering-hooks-013-2 (sequencing overridden explicitly; **no verdict invited**) | Execute D20's pre-deploy precondition: mint two throwaway records — one 5712-shaped, one 5842-shaped — through the product's own New Message JSON surface at production `c85945f`, re-deriving the mintability finding rather than inheriting it | **BLOCKED, reported, nothing improvised.** The New Message JSON surface is unreachable from this session (no authenticated session; `message.upsert` is a `protectedProcedure`; no browser, no `DISPLAY`, no browser-automation tooling). The route at `c85945f` was traced **by reading** and is recorded below as corroboration, explicitly **not** as the re-derivation D20 requires. The executed re-derivation was separately blocked by the auto-mode classifier when creating the probe rig; disclosed in this document per CLAUDE.md rather than retried in another form. BC-11 stays **NOT EXECUTED**. No release decision. |
 | 2026-08-24 | steering-hooks-013-2 (relay of an owner decision + **D27**, plan rev 19 `a479afe`) | Owner chose option (a) on the mint — he does it himself; act on D27 by sending UAT's two probe extensions to QA directly | Rev 2. **No state change to any register row.** Owner's mint is recorded as **intent, not evidence**; BC-11 Half A stays `NOT EXECUTED` pending his attestation, which is complete evidence when quoted with its timestamp and is not satisfied by a relay. Classifier block on the probe rig **parked and staying parked** — steering confirmed it will not run it either, so D20's re-derivation clause is outstanding and QA's probe is the only executed evidence for the mintability finding. Extensions (i) `optionalIdMessageShape` and (ii) the uncovered persist leg sent direct to `qa-hooks-013-2`, citing `b6e9662`. Still no verdict. |
+| 2026-08-24 | steering-hooks-013-2 (an inference offered **explicitly as unestablished**, to re-derive not adopt) | Test whether Half B is blocked for the same reasons as Half A, and if so prepare a one-shot observation script | Rev 3. **Inference SURVIVES in part and is corrected in part.** Survives: Half B is not executable by this session — all 8 message-router procedures are `protectedProcedure` (0 `publicProcedure`) and the oracle is a UI event, so the browser constraint decides it independently of timing. Corrected: **it does not follow that Half B is the owner's** — the plan's M8-G clause admits the form *"in any environment seeded with the shape"*, and the planner already wrote a fallback disposition for the no-seeded-environment case. Two register defects found and sent to QA: BC-11's **Subject** cell names `UAT agent` with no fallback, which is wrong for both halves; its **earliest-decidable** cell states Half A's precondition only and omits Half B's. Observation script for the designated observer added as Appendix A, **not executed**. Still no verdict. |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -208,6 +215,66 @@ as unreachable**.
 once the owner's D19 repair lands, and the central new behaviour D18 introduces ships on suite
 evidence alone. That is precisely the one-way door D20 was ruled to prevent, and it closes at deploy.
 
+### Half B re-derived, 2026-08-24 (rev 3) — and where the re-derivation corrects the inference
+
+Steering offered, expressly as an unestablished inference to be re-derived rather than adopted, that
+Half B may be blocked for the same reasons as Half A. **Re-derived here from the tree and the plan,
+not adopted.**
+
+**It survives, on two independent constraints:**
+
+| Constraint | Instrument | Result |
+|---|---|---|
+| Authentication | enumeration of every procedure in `src/server/api/routers/message.ts` at `c85945f` | **8 of 8 are `protectedProcedure`; `publicProcedure` count is 0.** `get`, `getOne`, `getAll`, `getFromUrl`, `getFromCode`, `upsert`, `delete`, `updateRecentMessageData`. There is no anonymous path to *open* a saved record, let alone re-save one |
+| A browser | this session's tooling | **Decisive on its own.** Half B's oracle is *"the ask appears"* — a UI event. No browser, empty `DISPLAY`, no automation tooling. This holds at **any** SHA and in **any** environment, so it is independent of Half B's timing dependency |
+
+**But the inference's conclusion does not follow, and this is the correction.** Half B being outside
+*this session* does not make it the **owner's**. The plan's own M8-G clause admits the form more
+widely than "production" — verbatim:
+
+> **Human-observable form (F-1's, production-reachable, no SQL)**: while a member exists — before the
+> D19 repair, **or in any environment seeded with the shape** — open 5712 in the composer (V2 mode,
+> the V2 error visible), add one container, press Save: the ask appears naming both drops, and
+> nothing is written until one is taken; the same at Save As.
+
+So Half B belongs to **any party holding a browser and a chain-tip environment carrying the shape** —
+which may be a stage agent, and is the owner only because no session in this chain appears to hold
+browser tooling. That is a fact about tooling, not a requirement of the plan, and it should not be
+written into the register as though it were the latter.
+
+**The planner also already wrote the fallback**, which this pass did not have to invent — verbatim:
+*"Where the repair has already run and no seeded environment is available, the suite is the evidence
+and UAT records the reason — the D19 repair preceded the deploy — not 'no member to observe'."* Note
+its condition is conjunctive: it applies only where the repair **has** run **and** no seeded
+environment is available. If the owner mints the seeds and does not repair, the fallback is not
+available and the row is still owed.
+
+### Two defects in BC-11 as written — routed to QA, whose row it is
+
+1. **The Subject cell is wrong.** It reads `UAT agent`, with no fallback. UAT can execute **neither**
+   half. Per this agent's own rule the owner is taken from the **primary** instrument and never the
+   fallback — and BC-11's primary is *operator observation*, which needs a human with a browser. The
+   cell needs re-assignment; **this document does not edit QA's register.**
+2. **The earliest-decidable cell states Half A's precondition only.** It names the seed's existence
+   and says nothing about Half B needing a chain-tip environment. Compare **BC-1**, whose cell reads
+   *"chain tip deployed to any environment with a stored V2 message"* — the convention already exists
+   in this register; BC-11 simply does not use it.
+
+Neither defect changes what BC-11 requires. Both make it harder to schedule correctly, which is what
+an earliest-decidable cell is for.
+
+### The retention instruction, recorded for what it is
+
+Steering told the owner **not to delete the two seed records** after minting them. Recorded here
+because it bears on this condition's integrity and because its status matters: **it is steering's
+instruction, not the owner's ruling.** D20 expressly left the seeds' disposition unruled and called
+that "not a gap"; this instruction partially fills that space from a source that cannot rule on it.
+
+It is sound insurance and this pass does not object to it. It is, however, **less load-bearing than
+its framing suggests** — because the plan admits a seeded environment, a party that can stand up a
+chain-tip environment could seed one by running `c85945f` there first. Retention makes Half B cheap;
+it is not the only thing standing between the chain and an unobservable condition.
+
 ### Validation item 8 — the ordering line this pass can already give
 
 Validation item 8 requires the deployment record **and** UAT's release decision each to state, in one
@@ -260,6 +327,49 @@ steering-hooks-013-2 rather than raised while he sleeps.
    either). The owner decides whether that block was a false positive; this agent does not make that
    judgement about its own action. Until then QA's probe is the sole executed evidence for the
    mintability finding, and UAT's trace stays labelled corroboration.
-3. Not owed yet, listed so the sequence is visible: predecessor-status verification, the value
+3. **BC-11 Half B — the ask.** Needs a party with a browser **and** a chain-tip environment carrying
+   the shape; per the plan that environment need not be production. Not this session, and not
+   automatically the owner. **Appendix A is the one-shot script, ready now.** Subject assignment is
+   QA's to fix on the register.
+4. Not owed yet, listed so the sequence is visible: predecessor-status verification, the value
    assessment, the walkthrough of BC-1 … BC-11, and the release decision — all at the real UAT pass,
    after Implementation, Code Review and QA Phase 2 are complete.
+
+---
+
+## Appendix A — Observation script for BC-11 Half B (NOT EXECUTED)
+
+Prepared at rev 3 for whoever is designated the observer, so it can be run **once, without a re-run**,
+at the release moment rather than composed at it. **Nothing here has been executed and nothing here
+is evidence.** It is derived from the plan's M8-G criterion and QA's BC-11 row, both cited above; the
+**exact wording** of the ask is confirmed against the implementation and code-review documents at the
+real UAT pass, not assumed from this script.
+
+**Preconditions**
+
+- A chain-tip environment (production after deploy, *or* any environment seeded with the shape).
+- A seed record present: 5712-shaped `{"content":"hi","flags":32768}` and, for step 5,
+  5842-shaped `{"content":"hi","flags":32768,"components":[]}`.
+- **Do not collapse the components section.** QA's precondition: `showComponentButton` requires
+  `isEditing && isV2Mode && showComponentsEditable && canAddComponent`. An observer with the section
+  collapsed sees no add-component control and would **wrongly report the ask as unreachable.**
+
+**Steps, and what to record at each**
+
+| # | Action | Record |
+|---|---|---|
+| 1 | Open the 5712-shaped record in the composer | Does it open in **V2 mode**? Is the **V2 error** visible? Is the body text `hi` still shown? |
+| 2 | Add **one container** | Did the add-component control appear at all? (If not, check the section is expanded before concluding anything) |
+| 3 | Press **Save** | **The ask appears**, and it **names both drops**. Record the wording verbatim |
+| 4 | Dismiss without choosing, then re-open the record | **Nothing was written** — the record is as it was. This is the negative half and is the easiest to skip |
+| 5 | Repeat 1–4 at **Save As**, then repeat on the **5842-shaped** record | Same result at both |
+
+**Recording rule.** The observed result is written **beside** the prediction, never over it. The
+prediction is: *the ask appears; nothing is written before a choice.* If the observer is the owner,
+his attestation **quoted with its timestamp** is complete evidence — no capture file is minted, none
+is owed, and none is recorded as missing.
+
+**If it cannot be run**, the disposition is already written by the planner and is not improvised: where
+the D19 repair has run **and** no seeded environment is available, the suite is the evidence and the
+reason recorded is *"the D19 repair preceded the deploy"* — **not** "no member to observe". If either
+limb of that condition is unmet, the row is still owed and `NOT EXECUTED` is not a terminal state.
