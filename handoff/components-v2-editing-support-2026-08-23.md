@@ -1,16 +1,20 @@
 ---
 UUID: 8f3fa8c3
-Status: Open
+Status: Active
 Status-Detail: >-
-  Owner-directed research handoff. The question is whether Components V2 is supported anywhere
-  outside the create-and-send flow, or whether the editing paths around it — JSON import, "Save
-  as...", message-type toggling — were never implemented for it. Raised from first-hand observation
-  of several editing flows behaving in ways that lose content or misreport message type. Nothing is
-  built, nothing is investigated, no effort is committed to, and the scope is deliberately open.
+  Re-statused 2026-08-24 by steering-hooks-013-2 under plan 013's M6 (Record closure). No longer
+  unassigned and no longer awaiting research: research 8311155a answered it, and plan 013
+  (013-components-v2-editing-surfaces.md) absorbed the result and has implemented against it.
+  Per that plan, 013 addresses observations 1, 2, 5, 6 and 7 directly. Observation 3 (toggle to V2
+  clears content, with a prompt) is by design and untouched. Observation 4 is addressed on its
+  stranded-flag half only (D15 + M7: a record whose bit is set without V2 components now opens in
+  V2, and one toggle to Classic clears the bit losslessly); its other half - the indicator is the
+  mode, and the toggle to V2 removes classic data by design - is unchanged, and a dedicated control
+  is explicitly not in scope. Deliberately NOT terminal: chain 013 has not released, and this
+  document moves to a terminal status and into closed/ at release, not before.
 Owning-Stage: >-
-  Unassigned. The next step is research, not planning. The shape of the problem is not yet known —
-  whether it is one defect, a family of them, or an unfinished feature — and committing to a plan
-  before that is settled would fix the wrong shape.
+  Chain 013 (plan 013-components-v2-editing-surfaces.md). The record is steering's; the remaining
+  act on this document is its terminal re-status at 013's release.
 Review-Trigger: >-
   Re-read this if users report losing message content while editing, if records appear whose stored
   type disagrees with their contents, or if anyone proposes work on the JSON editor, the
@@ -106,3 +110,9 @@ would refuse (`handoff/json-editor-bad-configurations-2026-08-23.md`, UUID `cb83
 this question and was raised in a different context with its own framing. Read it for the symptoms if
 useful, but **treat this question as independent** — inheriting its scope would re-narrow exactly
 what the owner asked to keep open.
+
+## Changelog
+
+| Date | Who | What |
+|---|---|---|
+| 2026-08-24 | **steering** (steering-hooks-013-2) | **Re-statused under plan 013's M6.** `Status: Open` -> `Active`; `Status-Detail` and `Owning-Stage` rewritten to record that research `8311155a` answered the question and plan 013 absorbed and implemented it, with observation 3 and half of observation 4 recorded as deliberately out of scope. **Not terminalised** - 013 has not released. **Three judgements are steering's own, not the plan's**: (1) M6's Objective says *"this plan proposes the wording"* and the plan contains no proposed wording, so the wording above is steering's composition from the plan's observation mapping; (2) no fleet precedent exists for re-statusing a handoff a chain has absorbed - all six handoffs in this repo, including chain 012's own after 012 released, stand at `Open` - so the status value is steering's choice from the lifecycle vocabulary; (3) this document had no changelog section and this table was added to carry the dated line M6's acceptance requires. The gap at (1) is recorded as a held planner item against plan 013. |

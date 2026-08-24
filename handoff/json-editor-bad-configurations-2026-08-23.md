@@ -1,16 +1,19 @@
 ---
 UUID: cb83fd7b
-Status: Open
+Status: Active
 Status-Detail: >-
-  Owner-directed follow-up, raised while ruling on chain 012's OQ-1 and deliberately kept out of that
-  chain. The composer's mode-switch modal already treats message mode as a real property, so the
-  question is whether the JSON editing path can still store configurations the composer itself would
-  refuse. Nothing is built, nothing is investigated, and no effort is committed to — the owner's
-  instruction was that this is worth a handoff and researching later.
+  Re-statused 2026-08-24 by steering-hooks-013-2 under plan 013's M6 (Record closure). No longer
+  unassigned and no longer awaiting research: research 5c1e9d27 answered it and bounded it (F4) to
+  one clause - what the JSON reconciler does with a flags bit that disagrees with structure - and
+  plan 013 carried it as a rider from its first pass under D2. Plan 013 records that this handoff is
+  closed by M8-B and M8-D, which are D17's own rows, delivered and code-reviewed. The rider
+  structure itself was retired at plan rev 11 (critique M-9): D17 rules rows B and D directly, so
+  there is no yield clause and no priced drop, and what remained of the attachment is traceability -
+  which this line is. Deliberately NOT terminal: chain 013 has not released, and this document moves
+  to a terminal status and into closed/ at release, not before.
 Owning-Stage: >-
-  Unassigned. The next step is research, not planning: whether the JSON editor can produce records
-  the corrected send gate would reject is an open question about the product, and chain 012 proceeds
-  without its answer either way.
+  Chain 013 (plan 013-components-v2-editing-surfaces.md), as a rider under D2. The record is
+  steering's; the remaining act on this document is its terminal re-status at 013's release.
 Review-Trigger: >-
   Re-read this if 5712-shaped records keep appearing after chain 012's composer fix ships, if the
   backfill distribution report shows more invalid records than the composer alone explains, or if
@@ -124,3 +127,9 @@ Components V2 elements sit nested beneath a top-level Action Row is not represen
 including this one — an Action Row's children are typed as link buttons only, and every other
 top-level member is itself a V2 type. So the JSON path cannot mint a nested-only record, and this
 research need not look for one.
+
+## Changelog
+
+| Date | Who | What |
+|---|---|---|
+| 2026-08-24 | **steering** (steering-hooks-013-2) | **Re-statused under plan 013's M6.** `Status: Open` -> `Active`; `Status-Detail` and `Owning-Stage` rewritten to record that research `5c1e9d27` (F4) answered and bounded it, that plan 013 carried it as a rider under D2, and that plan 013 records it as closed by **M8-B/M8-D** - delivered and code-reviewed. **Not terminalised** - 013 has not released. **The same three judgements recorded on handoff `8f3fa8c3` apply here**: the wording is steering's composition because M6's promised proposed wording is absent from the plan; the status value is steering's choice because no fleet precedent exists (all six handoffs in this repo stand at `Open`, chain 012's included, after 012 released); and this changelog table was added because the document had none. The first is recorded as a held planner item against plan 013. |
