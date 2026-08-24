@@ -1,0 +1,37 @@
+=== CR1 matrix (a4eb00d) ===
+consumer form: stripKeys (no normalizeForHash on this tree)
+SEQ-A | A1 classic content only | equal
+SEQ-A | A2 classic + username + avatar | equal
+SEQ-A | A3 classic + embed | equal
+SEQ-A | A4 V2 container + text display, flag set | equal
+SEQ-A | A5 V2 section + link-button accessory | equal
+SEQ-A | A6 V2 media gallery | equal
+SEQ-A | A7 V2 separator + file | equal
+SEQ-A | A8 action row only, NO flag (classic-with-buttons) | equal
+SEQ-A | A9 V2 components, flag ABSENT (NewMessageModal-created) | equal
+SEQ-A | A10 V2 components + classic content retained (5712-shaped-with-components) | equal
+SEQ-A | A11 non-V2 flag bits (SUPPRESS_EMBEDS | SUPPRESS_NOTIFICATIONS) | equal
+SEQ-A | B1 draft: trailing space in classic content | equal
+SEQ-A | B2 draft: trailing space in a BUTTON LABEL (new hashed surface under M1) | equal
+SEQ-A | B3 draft: leading space in a V2 accessory URL (new hashed surface under M1) | equal
+SEQ-A | D1 draft: unknown key inside a V2 component (zod strips it, stripKeys does not) | equal
+SEQ-A | D2 draft: unknown key at the top level of data | equal
+SEQ-A | D3 draft: trailing space in an EMBED TITLE | equal
+SEQ-A | D4 draft: trailing space in an EMBED FIELD name/value | equal
+SEQ-A | D5 draft: leading space in USERNAME and AVATAR_URL | equal
+SEQ-A | D6 draft: trailing space in a TEXT DISPLAY content (NOT trimmed by the shape) | equal
+SEQ-B | B1 draft: trailing space in classic content | MISMATCH -38c25c79 vs 20748f7d
+SEQ-B | B2 draft: trailing space in a BUTTON LABEL (new hashed surface under M1) | MISMATCH -18586f58 vs -68e56e9e
+SEQ-B | B3 draft: leading space in a V2 accessory URL (new hashed surface under M1) | MISMATCH 54d30b39 vs 569d3ec3
+SEQ-B | D1 draft: unknown key inside a V2 component (zod strips it, stripKeys does not) | MISMATCH 49d48c0c vs -3f2be546
+SEQ-B | D2 draft: unknown key at the top level of data | MISMATCH -38c25c79 vs -6fd74a84
+SEQ-B | D3 draft: trailing space in an EMBED TITLE | MISMATCH -8a3733d vs -1428ec3f
+SEQ-B | D4 draft: trailing space in an EMBED FIELD name/value | MISMATCH 3ba9233e vs -74c32644
+SEQ-B | D5 draft: leading space in USERNAME and AVATAR_URL | MISMATCH 1b1a7394 vs -84de56e
+SEQ-B | D6 draft: trailing space in a TEXT DISPLAY content (NOT trimmed by the shape) | equal
+CTRL  | C1 control: draft genuinely edits the content | mismatch (as required)
+CTRL  | C3 control: draft edits a TRIMMED leaf non-whitespace (button label B -> B2) | mismatch (as required)
+CTRL  | C4 control: draft edits an EMBED TITLE non-whitespace | mismatch (as required)
+CTRL  | C2 control: draft genuinely edits a V2 component body | mismatch (as required)
+GUARD | N1 name whitespace parity | equal
+GUARD | F1 unparsable draft falls back to stripKeys | equal

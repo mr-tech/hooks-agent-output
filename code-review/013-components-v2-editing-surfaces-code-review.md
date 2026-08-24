@@ -2,20 +2,25 @@
 ID: 013
 Origin: 013
 UUID: 22d69e06
-Reviewed-At: "a4eb00d2c4869844bca4cbfa974749cbacc962fa (chain/013-components-v2-editing-surfaces tip; base c85945f). Re-verified unmoved at the end of the pass. Working tree carried no tracked modifications at either check — only two untracked files, both declared out of scope by the launch brief."
+Reviewed-At: "Round 2 (current, binding): 495463ac3198a2c810198bdb6199bb5944ec6505 (chain/013-components-v2-editing-surfaces tip; predecessor a4eb00d, base c85945f). Verified at the start of the pass and re-verified unmoved at the end; no tracked working-tree modifications at either check — the same two untracked out-of-scope files as round 1. Round 1 (superseded, retained for the record): a4eb00d2c4869844bca4cbfa974749cbacc962fa."
 Status: In Review
 Status-Detail: >-
-  Round 1, M1 only. REJECTED on one HIGH: M1-d's producer/consumer clause is false at this tree and
-  M1 widens the class of false "Message Update Detected" prompts. Two of M1's five plan-assigned
-  inventory files were never opened. Established by execution over both trees, not by reading —
-  probe at verification/013/probe-cr1-hash-producer-consumer/. M2-M8 not reviewed and not scored;
-  they do not exist at this tree.
+  Round 2, M1 only, at 495463a. APPROVED_WITH_COMMENTS. HIGH-1 and MEDIUM-1 both closed — verified
+  by re-attacking from first principles, not by reading the fix. HIGH-1's class is gone across a
+  35-case differential spanning four trees, and the re-attack found the class was WIDER than round 1
+  measured (three false-prompt sources predating the chain, now also closed) while confirming the
+  normaliser does not blind the detector. MEDIUM-1's extraction is byte-equivalent by execution over
+  26 rows, and the implementer's own specs are shown to discriminate under mutation. LOW-1/LOW-2
+  closed in the document; LOW-3 carried unchanged to M2; four new INFO items routed to a follow-up
+  register per "Rounds stop" rather than held against the tree. Probes at
+  verification/013/probe-cr1-hash-producer-consumer/ and probe-cr2-m1bc-extraction-equivalence/.
+  M2-M8 not reviewed and not scored; they do not exist at this tree.
 ---
 
 # Code Review: Plan 013 — Components V2 support across the editing surfaces (M1 only)
 
 **Plan Reference**: `agent-output/planning/013-components-v2-editing-surfaces.md` (read at rev 13; D22 re-read at rev 14, `ae13df0`)
-**Implementation Reference**: `agent-output/implementation/013-components-v2-editing-surfaces-implementation.md` (`599856d`)
+**Implementation Reference**: `agent-output/implementation/013-components-v2-editing-surfaces-implementation.md` (round 1 read at `599856d`; round 2 at `acbbe58`)
 **QA Reference**: `agent-output/qa/013-components-v2-editing-surfaces-qa.md` (`98f978e`, Phase 1)
 **Critique Reference**: `agent-output/critiques/013-components-v2-editing-surfaces-critique.md` (`d38f057`, cycle 1 pass 5, APPROVE)
 **Date**: 2026-08-24
@@ -27,6 +32,7 @@ Status-Detail: >-
 |---|---|---|---|
 | 2026-08-24 | steering-hooks-013 (cross-session brief) | Review `a4eb00d` — milestone M1 only, mid-implementation | Round 1. Read plan rev 13 per the Reading Order for this role (Decisions Register in full → Milestones → Out of Scope → Risks), QA Phase 1 (EC-5 and the M1 unit obligations), the critique, both architecture documents, and the implementation document. Every count in the implementation document re-derived rather than accepted. Built and ran a two-tree differential probe (`verification/013/probe-cr1-hash-producer-consumer/`) to settle M1-d's final clause by execution. **REJECTED** on one HIGH. |
 | 2026-08-24 | steering-hooks-013 (D22 amendment, mid-pass) | Fix rounds run direct with the implementer from the first finding set onward | Read D22 at plan rev 14 (`ae13df0`) directly, not from the relay. This verdict still goes to steering, as the amendment says. Findings from here go to `implementer-hooks-013`; the four never-settled classes are marked inline where they arise (HIGH-1 carries one). |
+| 2026-08-24 | implementer-hooks-013 (direct, per D22) | Re-review M1 fix round 1 at `495463a`; implementation doc at `acbbe58` | Round 2. Every enumeration in round 1 re-run rather than inherited, and the differential re-derived from first principles: the round-1 instrument hardcoded the old consumer form, so it was rewired to read the tree under test and then validated by reproducing the round-1 captures case-for-case before it was trusted. Sixteen new cases added, including two false-negative controls the round-1 corpus had no way to express. Second probe built to settle MEDIUM-1's extraction by execution. Implementer's own specs mutation-tested. Two of my own slips are disclosed rather than left silent: I introduced a `check-repo.js` basename collision mid-pass and cleared it by renaming the three probe configs, and one append landed a stray copy of a review-document fragment in the `website` working tree, which I removed within the same minute — `git status` in `website` is back to the same two untracked out-of-scope files it started with, and no tracked file was touched. **APPROVED_WITH_COMMENTS.** |
 
 ## Scope Actually Assessed
 
@@ -451,3 +457,402 @@ planner's; and the mis-suffixed `code-review/012-carry-forward-to-post-refresh-p
 left in place rather than rename mid-chain.
 
 **QA is not yet due.** This gate is not passed, and QA Phase 2 is scoped to the whole plan, not to M1.
+
+---
+
+# ROUND 2 — re-review of M1 fix round 1 at `495463a`
+
+Everything above this line is round 1 against `a4eb00d` and is retained unedited as the record of
+that tree. **The binding verdict is the one below.**
+
+## Scope Actually Assessed (round 2)
+
+```
+git -C website diff --numstat a4eb00d 495463a
+2    2   src/app/message/m/[id]/_components/JsonModalBody.tsx
+2    2   src/app/message/m/[id]/_components/SaveAsMenu.tsx
+10   1   src/providers/MessageProvider/usePusher.ts
+54   0   src/utils/__tests__/013-m1-fix-round-1-extraction.test.ts
+114  0   src/utils/__tests__/013-m1-fix-round-1-hash-parity.test.ts
+8    0   src/utils/index.ts
+```
+
+One commit, six files, `+190 / -5`. It matches the implementation document's Files Modified / Files
+Created tables — re-derived from the tree, not read off the tables. All six were read in full via
+`git show 495463a:<path>`, not from the working tree.
+
+`src/server/api/utils/shared.ts` and `src/server/api/utils/shapes.ts` are **unchanged** this round.
+Both were nevertheless re-read in full at `495463a`, because the fix's correctness is a claim about
+what the shape does and that claim cannot be checked from the side that changed. `shapes.ts` at 259
+lines is the load-bearing artifact here; the decisive facts it settles are in HIGH-1's disposition.
+
+**M2–M8 remain unreviewed and unscored.** They do not exist at this tree.
+
+## Verification Re-Run (round 2 — nothing inherited)
+
+| Check | Method | Result |
+|---|---|---|
+| Typecheck | `npx tsc --noEmit` **in the real repo** | **0 errors**. Run in `website` itself, not in the `/tmp` archive: `git archive` omits gitignored assets, so a `/tmp` tree fails on `TS2307: Cannot find module '~/assets/img/product_image.png'` — an artifact of the extraction, not of the commit. Worth recording because the naive run exits 2 and looks like a regression. |
+| Build | `npx next build` | `BUILD_EXIT=0`. |
+| Full suite, **committed tree** | `git stash`-free: run against a `/tmp` materialisation of `495463a` | **427 total / 422 pass / 5 fail**, 136 suites. All five failures are in `012-json-editor-repair-path.test.ts` — the known pre-existing set, unchanged in identity and count from round 1. |
+| Full suite, **working tree** | `npx vitest run` in `website` | **434 / 429 / 5**. This is the number the implementation document reports. |
+| Provenance of the delta | diff of the two runs | The 7-test delta is entirely the two **untracked, out-of-scope** files. Not a defect; recorded because *the implementer's reported 434/429/5 is a working-tree number and the committed tree's is 427/422/5*. A count that includes files the commit does not contain cannot be reproduced by anyone checking out that sha. Raised as INFO-4. |
+| Repo self-check | `node tools/check-repo.js`, run **from `agent-output/tools/`** | **9 problems, all pre-existing 012 artifacts** (4 links, 3 basenames, 2 scope). Same 9 as round 1. I introduced a 10th mid-pass by naming three probe configs `vitest.config.ts`; renaming them to `vitest.cr1.config.ts`, `vitest.cr1-mutation.config.ts` and `vitest.cr2.config.ts` cleared it. Disclosed here rather than left silent: it was my regression in my own domain, caught by the gate and fixed by satisfying it. |
+
+## Enumerations Re-Run — the sweep, not the flagged sites
+
+Per the standing rule, the implementer's Class Sweep Table (present at `acbbe58`, four rows) is
+**re-derived, not accepted**, and each predicate is checked against the class's definition rather
+than against the phrasing of the sites it was written from.
+
+| Class | Predicate I ran | Hits | Disposition |
+|---|---|---|---|
+| `hashMessage` consumers | `git grep -c "hashMessage(" -- src bot` plus serena `find_referencing_symbols` on the definition | source: `usePusher.ts` ×1, `shared.ts` ×2, definition in `utils/index.ts` | Complete. Both producer sites are inside the tRPC mutation, downstream of `optionalIdMessageShape.parse` — so they were never the divergent side, which is why leaving `shared.ts` untouched is right rather than merely convenient. |
+| `.trim()` in the shape | `git grep -c "\.trim()" -- src/server/api/utils/shapes.ts` | **21 total, 10 in the component/embed region**; identical at `a4eb00d` and `495463a` | The fix did not add or remove a trim leaf. It inherits all 21 by construction. **This is the point**: no leaf list is embedded anywhere, so the count changing does not break the fix. |
+| Inline `stripKeys(...).data` payload expressions | `git grep -c "stripKeys(" -- src` + serena `find_referencing_symbols` | 4 source sites | Three are the extraction's; the fourth is `src/app/message/m/[id]/send/page.tsx` `sendWebhook({ message: stripKeys({ data: message.data }).data, … })` — **surfaced by serena, not by my grep pattern**. Transport-form family, not a hash consumer, so outside HIGH-1 and owned by a later milestone. Recorded so it is not rediscovered as a surprise at M5. |
+| `saveAsPayload` / `jsonModalSeed` consumers | serena `find_referencing_symbols` on both, union'd with `git grep -c` | exactly the two components, plus the new spec | No stragglers; the extraction left no inline copy behind. |
+| `standardizeMessage` (round 1's deleted symbol) | `git grep -c "standardizeMessage" -- src bot` | **4 hits in 2 test files, 0 in source** | Unchanged. Round 1's LOW-2 concern was that a name-grep would be reused where it is not sound; see LOW-2's disposition. |
+
+**Blind spot in my own enumeration, stated at authoring time**: serena's
+`find_referencing_symbols` results omitted references living in test files that `git grep` found. I
+used the **union** of the two, not either alone. A reader reproducing this with only one instrument
+will get a shorter list than mine, and neither instrument sees a reference constructed dynamically
+(a string key, a re-export under another name); none exists here, but the predicate could not tell
+me so.
+
+## Re-Attack — the fix to a guard is attacked, not read
+
+HIGH-1's fix is a **normalisation guard**, and MEDIUM-1's is a **change to what an instrument can
+see**. Both fall squarely under the standing rule that a fix to a guard or an instrument is
+re-attacked from first principles. Reading `normalizeForHash` and agreeing with it would not have
+been review.
+
+**The round-1 instrument was stale and would have answered the wrong question.** It hardcoded
+`hashMessage(stripKeys(...))` as the consumer form — which was the live call site at `a4eb00d` and
+is not the live call site at `495463a`. An instrument's validity is indexed to the claim it was
+built for; the claim moved. The consumer side was rewired to read the tree under test through a
+**namespace import**, deliberately not a named one:
+
+```ts
+import * as usePusherModule from '~/providers/MessageProvider/usePusher';
+const CONSUMER_FORM = typeof usePusherModule.normalizeForHash === 'function'
+  ? usePusherModule.normalizeForHash
+  : (m) => stripKeys(m);
+```
+
+A missing *named* export is a link-time error; a missing *namespace member* is `undefined`. That
+one choice keeps a single instrument runnable against all four trees, so the comparison across them
+is a comparison and not four different experiments.
+
+**The instrument edit was itself validated before it was trusted.** Re-running the amended probe
+against `a4eb00d` and `c85945f` reproduced the round-1 captures case-for-case. Had the edit changed
+the old trees' answers, I would have had a neutered instrument agreeing with the fix — which is
+precisely the failure mode that makes "the tests are green" worthless.
+
+## The Differential — four trees, 35 cases
+
+`SEQ-A` models the steady state (composer holds exactly what the server stored). `SEQ-B` models the
+saving tab holding its own pre-save draft when its own broadcast arrives — a persistent state, not a
+race window, because `MessageProvider`'s `upsert.onSuccess` calls `setSavedMessage(message)` with
+the **local draft** and never replaces it with the server's parsed form. `CTRL` rows must mismatch.
+
+| Tree | Result |
+|---|---|
+| **`495463a`** (fix round 1) | **35 passed** — every `SEQ-B` case equal, all four controls mismatch, both guards green |
+| `a4eb00d` (M1, round 1's tree) | 8 failed — `B1 B2 B3 D1 D2 D3 D4 D5` |
+| `c85945f` (pre-M1 base) | 6 failed — `B1 D3 D4 D5`; **controls `C2` and `C3` came out EQUAL** |
+| `/tmp/013-mutant` (`495463a` with the `safeParse` normalisation deleted) | 8 failed — **identical to `a4eb00d`** |
+
+Three things follow that reading the diff could not have produced.
+
+**1. The class was wider than round 1 measured, and the fix closes the extra width too.** `D3`
+(embed title), `D4` (embed field name/value) and `D5` (`username`/`avatar_url`) mismatch **at
+`c85945f` as well** — false-prompt sources that predate this chain entirely. Round 1 reported the
+class as "3 cases at `a4eb00d` against 1 at `c85945f`". That was correct for the corpus I had and
+**understated the defect**: the true pre-existing count is 4, not 1, and the true `a4eb00d` count is
+8, not 3. My round-1 corpus was drawn from the *component* string leaves because M1 was what
+widened the hashed form, and it structurally could not see leaves that were already hashed before
+M1. I declared that blind spot when I authored the corpus; this is what it was hiding. The
+correction is against my own round-1 number, not against the implementer.
+
+**2. The fix does not blind the detector.** This is the failure mode a normalising fix invites and
+the one no round-1 control could express: a normaliser that over-collapses stops false prompts by
+making the detector stop detecting. `C3` (button label `B` → `B2`) and `C4` (embed title `T` → `T2`)
+are genuine, non-whitespace edits to *trimmed* leaves — exactly the leaves the fix now normalises —
+and both still mismatch at `495463a`. The guard removes the whitespace distinction and nothing else.
+
+**3. The pre-M1 tree was worse in the more dangerous direction, which round 1 only half-saw.** At
+`c85945f`, `C2` (a genuine V2 component-body edit) **and** `C3` (a genuine button-label edit) both
+come out **EQUAL** — the tab is never told a real change landed, so it can silently overwrite it.
+That is a **false negative**, strictly worse than the false prompt M1 introduced. Round 1 recorded
+`C2`; `C3` is new this round and confirms the same hole was wider. M1 closed both, and this fix
+closes M1's cost without reopening them. That is the clearest single statement of what the milestone
+bought.
+
+**Why it holds, structurally.** `normalizeForHash` applies `discordMessageShape` — the server's own
+shape — rather than replicating any leaf list. It can therefore only collapse distinctions the
+server itself collapses, so nothing that could persist is lost, and the 21-trim-leaf count can move
+without breaking it. **That is the argument for accepting the fix. The green matrix is only its
+evidence.** The mutant run is what makes the evidence load-bearing: delete the `safeParse` and the
+matrix reverts exactly to `a4eb00d`'s 8 failures, so the fix is doing the work and the probe can
+detect its absence.
+
+## Finding Dispositions
+
+Each records **two** things: that the class is gone, and the path of the captured check that fails
+if it returns — or `no test`, explicitly.
+
+### HIGH-1 — two normalisations across the `hashMessage` seam — **CLOSED**
+
+**Class eliminated, not point-fixed.** The Minimum fix was taken (`normalizeForHash` at the consumer,
+`shared.ts` untouched) but it was implemented in the structural spirit: the whole shape is applied,
+so the fix has no leaf list to fall out of date. The two things I asked *not* to happen did not
+happen — the five trim leaves are not special-cased anywhere, and no product behaviour changed, so
+D22 exception 1 never fired.
+
+I confirmed the decision to leave `shared.ts` alone rather than accepting it: both producer call
+sites sit downstream of the tRPC mutation's `optionalIdMessageShape.parse` (`routers/message.ts`,
+`upsert`), so the producer was already emitting the parsed form and was never the divergent side.
+
+**Check that fails if the class returns**:
+`agent-output/verification/013/probe-cr1-hash-producer-consumer/differential.test.ts` —
+`SEQ-B` `B1`–`B3` and `D1`–`D5`, with controls `C1`–`C4` and guards `N1`/`F1`. Captured runs
+`run-r2-495463a.txt`, `run-r2-a4eb00d.txt`, `run-r2-c85945f.txt`, `run-r2-mutant.txt`. Mutant-killed,
+so the check is known to be able to fail.
+
+**Also `no test` from me, deliberately, for the in-suite half**: the implementer's
+`013-m1-fix-round-1-hash-parity.test.ts` is the right home for the in-repo regression, Vitest already
+reaches it, and QA owns the acceptance cases. I mutation-tested it rather than authoring a rival —
+see MEDIUM-1.
+
+### MEDIUM-1 — payload/seed expressions unreachable by a module-level test — **CLOSED**
+
+The **Preferred** structural fix was taken: `saveAsPayload` and `jsonModalSeed` extracted to
+`src/utils/index.ts`, both components rewired, imports narrowed, no inline copy left behind
+(enumeration above, 4 `stripKeys` sites, 3 accounted for and the 4th out of scope).
+
+**Behaviour preservation was settled by execution, not by argument.** A "pure extraction" claim is a
+claim, and the diff's file list does not settle it. `probe-cr2-m1bc-extraction-equivalence/` holds
+the literal `a4eb00d` inline expressions — rebuilt from the tree's own `stripKeys`, its only
+ingredient — beside the tree's exported functions and compares `JSON.stringify` byte-identity plus
+`toStrictEqual` over 26 rows. **27/27 at `495463a`, every row identical; 7 failed against a mutant
+that drops `components`.**
+
+**Check**: `agent-output/verification/013/probe-cr2-m1bc-extraction-equivalence/equivalence.test.ts`,
+runs `run-cr2-495463a.txt` and `run-cr2-mutant.txt`.
+
+**Second check, on the instrument rather than the code** — the question round 1 actually raised was
+whether the expressions were *reachable by a test*, so a green test is not by itself the answer;
+a test that cannot fail would also be green. `mutation-check/` runs **the implementer's own three
+specs** against an arbitrary tree via `PROBE_SRC`: 16/16 on the clean tree, **4 failed on the
+mutants** — the three hash-parity cases die on the `normalizeForHash` mutation and the extraction
+case dies on the `saveAsPayload` mutation. Their specs discriminate. Round 1's diagnosis is also
+confirmed from the other side: `013-m1-transport-form.test.ts` **survived both mutants**, which is
+exactly why it could not stand as M1-b/M1-c's instrument.
+
+### LOW-1 — TDD table named one red case where there were three — **CLOSED**
+
+Verified in `acbbe58` against my own re-derived red set (`run-m1spec-vs-c85945f.txt`, 3 of 7 red),
+not against the document's own account. Three rows added for `normalizeForHash`, `saveAsPayload`
+and `jsonModalSeed`. **`no test`** — a documentation defect has no runtime signature.
+
+### LOW-2 — grep-for-a-deleted-symbol substitution, unqualified — **CLOSED**
+
+The added line is better than what I asked for. It states the *reason* the substitution was sound —
+"a name-string grep is a strict superset of any reference list for a symbol that no longer exists" —
+and then draws the boundary itself: **not** reusable at a milestone where the symbol under scrutiny
+survives. That is the general form, and it is the form that stops the substitution being reused at
+M3 or M8 where it would be unsound. **`no test`** — a reasoning record, not behaviour.
+
+### LOW-3 — `jsonModalSeed`'s declared return type is unsound — **CARRIED, unchanged, M2's**
+
+`JSON.stringify`'s lib signature returns `string` unconditionally, so a `data`-less input yields the
+*value* `undefined` from a function typed `string`. The extraction neither worsened nor closed this:
+the inline expression carried the identical unsoundness. Now measured rather than asserted — CR2
+rows `E9` (no `data` key), `E13` (`null`) and `E14` (`undefined`) show both old and new returning
+`undefined`. Not raised against this round; M2 reopens `JsonModalBody` and owns it.
+
+**Check**: the three CR2 rows above, which will change behaviour the day the type is fixed.
+
+### INFO-1 — dead `message && hashMessage(message);` in `shared.ts` — **unchanged, correctly left**
+
+The implementer left it and said so. Right call: `shared.ts` is untouched this round by design, and
+touching it to tidy one dead expression would have put the producer side into a fix round that had
+no business there.
+
+## New This Round — follow-up register, not held against the tree
+
+Per **"Rounds stop"**: this round's differentials establish that none of the four items below changes
+a decision — CR1 is 35/35 and CR2 is 27/27 at `495463a`, so there is no behavioural quantity left
+for them to move. They are recorded and routed, not made into another fix round. None is CRITICAL or
+HIGH; reject authority is not engaged.
+
+### INFO-2 — `normalizeForHash` normalises `data` only, while `hashMessage` hashes `{name, data}`
+
+**Location**: `src/providers/MessageProvider/usePusher.ts`, `normalizeForHash`.
+**Class**: a normaliser whose scope is narrower than the hashed form's scope — any field the shape
+normalises that the normaliser does not reach reopens HIGH-1 for that field.
+**Enumeration**: `messageShape`'s fields, read at `495463a`:
+`name: z.string().min(1).max(MAX_MESSAGE_NAME_LENGTH)` — **no `.trim()` and no transform of any
+kind**; `guildId: discordIdShape.nullable().optional()`; `data: discordMessageShape`. So the gap is
+**empirically empty today** and the fix is correct as written. It does not match a transform added
+via `z.preprocess` at the `messageShape` level rather than on the leaf, which would not appear in a
+`.trim()` grep.
+**Magnitude**: zero today — measured, not assumed: `SEQ-B` guard `N1` (name whitespace parity) is
+**green at `495463a`**, which it can only be while `name` carries no transform.
+**Required Action**: none now. `N1` is the standing guard: it goes red the day someone adds a
+transform to `messageShape.name` without widening `normalizeForHash`, which is exactly when a person
+needs to be told. **Check**: `probe-cr1-hash-producer-consumer/differential.test.ts`, `GUARD | N1`.
+
+### INFO-3 — a near-vacuous case in the implementer's spec
+
+**Location**: `src/utils/__tests__/013-m1-fix-round-1-hash-parity.test.ts`, the
+`falls back to the stripKeys form (not a throw)` case, which asserts
+`expect(() => normalizeForHash(...)).not.toThrow()`.
+**Class**: a test whose assertion cannot fail under the defect it names. `safeParse` never throws by
+contract, so this case passes on the pre-fix tree, on the mutant, and on a `return stripped`
+stub — it constrains nothing.
+**Enumeration**: one occurrence; `git grep -c "not.toThrow" -- src` = 1. Confirmed by execution
+rather than by reading: this case is among the 12 that **survived** both mutants in
+`mutation-check/run-implementer-specs-mutant.txt`, while its three siblings died.
+**Required Action** (eliminate the class, not the line): assert the *value* — that the fallback
+returns the `stripKeys` form — rather than the absence of a throw. My own `F1` row does this and can
+be copied. Not worth a round on its own; fold it into whichever round next touches this file.
+
+### INFO-4 — the two new specs carry review-thread prose in the source file
+
+**Location**: file-level docblocks in `013-m1-fix-round-1-hash-parity.test.ts` and
+`013-m1-fix-round-1-extraction.test.ts`.
+**Class**: explanation addressed to a human reader — and specifically to *the review process*,
+naming finding IDs and citing this review's probe path — living in a source file. No tool consumes
+it; it fails the tool test, and rationale's two homes are the test's own assertions or the
+agent-output record.
+**Enumeration**: `git grep -c "code review HIGH-1\|code review MEDIUM-1" -- src` = 2 files. The
+predicate matches this round's phrasing only; it would not see a docblock that explains itself
+without naming a finding.
+**No comment gate is installed in this repo** (`ls -d .husky` → absent), so there is no allowlist to
+be authoritative here.
+**I am recording this as INFO and not as a defect of this round, because I passed the identical
+pattern at round 1**: `013-m1-transport-form.test.ts` carries the same file-level docblock and I
+raised nothing. Raising it now would be a moving standard. The under-application was mine; the
+standard applies from the next round of this plan onward, uniformly, and the existing three
+docblocks are grandfathered rather than singled out.
+
+### INFO-5 — the reported suite count is a working-tree number
+
+**Location**: implementation document (`acbbe58`), the `434 / 429 / 5` line.
+**Class**: a verification figure that cannot be reproduced from the sha it is attached to.
+**Enumeration**: one figure; the committed tree at `495463a` gives **427 / 422 / 5** over 136 suites,
+and the 7-test delta is entirely the two untracked out-of-scope files.
+**Magnitude**: no correctness impact — the five failures are the known `012-json-editor-repair-path`
+set at both counts, and no in-scope test is affected. It matters only as provenance: a reader
+checking out `495463a` will not see 434.
+**Required Action**: when a suite figure is recorded against a sha, take it from a clean
+materialisation of that sha. Applies to my round-1 count too, which had the same provenance.
+
+## Assumption Not Checked
+
+**This review assumes that every row already in `Messages.data` parses cleanly under the current
+`discordMessageShape`, and it does not test that.** The fix's guarantee is conditional:
+`normalizeForHash` returns the shape-normalised form **only when `safeParse` succeeds**, and falls
+back to the bare `stripKeys` form — that is, to the exact pre-fix behaviour, with HIGH-1's class
+fully live — when it does not. Every one of my 35 cases feeds it a payload the current shape
+accepts, so the entire green matrix is a statement about the success branch. I verified the fallback
+does not throw (`F1`); I did not verify that the fallback is unreachable in the steady state.
+
+**Falsity signature**: a stored row that the *current* shape rejects — a row written before a shape
+tightening, an import path with looser rules, a leaf whose constraint was narrowed after the row
+landed. Its observable signature is HIGH-1 recurring on exactly those messages and no others: a tab
+editing one legacy message gets the false *"any changes you have made will be lost"* prompt on
+whitespace, while every other message in the same session behaves correctly. That per-row split is
+the discriminator — a defect that follows the row rather than the user or the surface.
+
+**Owning stage: QA, Phase 2.** This needs the stored corpus, which I have no access to from a review
+pass and will not acquire by reading source. The discharging check is mechanical: run
+`discordMessageShape.safeParse` over the `data` column and report the reject count and the shape of
+the rejects. If it is zero, the fallback is unreachable and HIGH-1 is closed unconditionally; if it
+is not, the fallback branch needs its own decision and the finding reopens at that scope. Named
+again in Next Steps so it is routed rather than shelved.
+
+## Verdict
+
+**Status**: **APPROVED_WITH_COMMENTS**
+
+**Rationale**: Both blocking findings are closed, and closed by re-derivation rather than by reading
+the fix. HIGH-1's class is gone across a 35-case differential spanning four trees, and the fix is
+shown to be load-bearing by a mutant that reverts the matrix exactly to `a4eb00d`'s eight failures.
+The structural reason is the one that matters: `normalizeForHash` applies the server's own shape
+rather than replicating any leaf list, so it can only collapse distinctions the server itself
+collapses, and the 21-trim-leaf count can move without breaking it. MEDIUM-1's extraction is
+byte-equivalent over 26 rows by execution, and the implementer's own specs are shown to discriminate
+under mutation — which is what MEDIUM-1 actually asked for, since a green test that cannot fail
+would not have closed it.
+
+The re-attack also **corrected my own round-1 numbers against myself**: the class was wider than I
+measured — 8 mismatching cases at `a4eb00d` and 4 at `c85945f`, not 3 and 1 — because three
+false-prompt sources predate the chain entirely and my component-scoped corpus could not see them.
+The fix closes those too. And two new false-negative controls establish the direction round 1 could
+not: at `c85945f` a genuine V2 component-body edit **and** a genuine button-label edit both hashed
+identically, so the pre-M1 tree silently failed to warn on real changes. M1 closed that; this round
+closes M1's cost without reopening it.
+
+**Comments, not conditions.** LOW-3 is carried unchanged to M2, which reopens `JsonModalBody` and
+owns it. INFO-2 through INFO-5 are routed to the follow-up register: this round's differentials
+establish that none of them changes a decision, and per "Rounds stop" they do not hold the tree. The
+Assumption Not Checked above is QA Phase 2's and is the one thing that could reopen HIGH-1 — it is
+routed, not waived.
+
+**This verdict binds `495463ac3198a2c810198bdb6199bb5944ec6505` and no other tree.** Verified at the
+start of the pass and re-verified unmoved at the end. Any change to any covered blob expires it and
+the review re-runs.
+
+## Required Actions
+
+**None blocking.** The gate is passed.
+
+Carried forward, owned elsewhere:
+
+1. **LOW-3** → **M2**, with `JsonModalBody`. CR2 rows `E9`/`E13`/`E14` are the standing measurement.
+2. **Assumption Not Checked** → **QA Phase 2**. `safeParse` over the stored `data` corpus.
+3. **INFO-2** → no action; guard `N1` is the standing tripwire.
+4. **INFO-3** → fold into whichever round next touches the hash-parity spec.
+5. **INFO-4** → applies uniformly from the next round of this plan onward; the three existing
+   docblocks are grandfathered, and the under-application at round 1 was mine.
+6. **INFO-5** → take suite figures from a clean materialisation of the sha they are attached to.
+   Applies to my round-1 count as much as to the implementation document's.
+
+## Captured Instruments (round 2)
+
+| Path | What it settles |
+|---|---|
+| `agent-output/verification/013/probe-cr1-hash-producer-consumer/` | HIGH-1's disposition, by execution across four trees. `differential.test.ts` (35 cases: `SEQ-A` ×20, `SEQ-B` ×9, 4 positive controls incl. two false-negative controls, 2 guards), `vitest.cr1.config.ts` (tree-selectable via `PROBE_SRC`, output via `PROBE_OUT`), round-2 captures `run-r2-495463a.txt` / `run-r2-a4eb00d.txt` / `run-r2-c85945f.txt` / `run-r2-mutant.txt`, round-1 captures retained, README extended with a round-2 section stating what was added, what the instrument edit was validated against, and what it still cannot see. |
+| `agent-output/verification/013/probe-cr1-hash-producer-consumer/mutation-check/` | Whether the **implementer's own** specs discriminate. `vitest.cr1-mutation.config.ts` runs them against an arbitrary tree via `PROBE_SRC`; `run-implementer-specs-clean-495463a.txt` (16/16) and `run-implementer-specs-mutant.txt` (4 failed). |
+| `agent-output/verification/013/probe-cr2-m1bc-extraction-equivalence/` | MEDIUM-1's behaviour-preservation claim, by execution rather than by argument. `equivalence.test.ts` (26 corpus rows + 1 positive control), `vitest.cr2.config.ts`, `run-cr2-495463a.txt` (27/27), `run-cr2-mutant.txt` (7 failed), README. |
+
+All three carry a positive control and all three are shown to kill a mutant, so a green run from any
+of them is distinguishable from an instrument that imported nothing.
+
+**Still `no test` from me, explicitly**: the in-suite regression for HIGH-1 and the M1-b/M1-c
+partition cases. Vitest already reaches `src/**/__tests__/`, the plan puts those enumerations in the
+project's own suite, and QA owns the acceptance cases. Authoring them here would give them a second
+home. What I owed instead was evidence that the in-suite versions can fail, and `mutation-check/`
+is that evidence.
+
+## Next Steps
+
+**Handing off to the qa subagent for test execution.**
+
+**Routed, not shelved** — the Assumption Not Checked above belongs to **QA Phase 2**: run
+`discordMessageShape.safeParse` over the stored `Messages.data` corpus and report the reject count.
+A non-zero count reopens HIGH-1 at the scope of the fallback branch; zero closes it unconditionally.
+QA's existing **F-QA8** re-derivation of the `message.upsert` writer set — round 1's assumption,
+still open — remains due in the same phase.
+
+**To steering**, unchanged and still not the implementer's: R2's unresolvable file citation and R4's
+prediction record, both the planner's and both **HELD** as one pass under owner ruling D23 (plan rev
+15, `b9e35c8`) — until that pass runs, the authoritative statement of both is this document at
+`ba0f6e3`, per steering's own instruction. The mis-suffixed
+`code-review/012-carry-forward-to-post-refresh-pass.md` stays in place under the standing 012 hold.
+
+**Where a finding instantiates a plan Risks row**: HIGH-1 was R4's falsifier and it is now closed;
+that outcome is the planner's to write into the prediction record when D23's held pass runs.

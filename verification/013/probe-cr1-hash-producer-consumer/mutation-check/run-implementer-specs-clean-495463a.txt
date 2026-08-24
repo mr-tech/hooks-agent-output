@@ -1,0 +1,17 @@
+../agent-output/verification/013/probe-cr1-hash-producer-consumer/mutation-check/vitest.cr1-mutation.config.ts (2:29) [33m[UNRESOLVED_IMPORT] Warning:[0m Could not resolve 'vitest/config' in ../agent-output/verification/013/probe-cr1-hash-producer-consumer/mutation-check/vitest.cr1-mutation.config.ts
+   [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m ../agent-output/verification/013/probe-cr1-hash-producer-consumer/mutation-check/vitest.cr1-mutation.config.ts:2:30 [38;5;246m][0m
+   [38;5;246m│[0m
+ [38;5;246m2 │[0m [38;5;249mi[0m[38;5;249mm[0m[38;5;249mp[0m[38;5;249mo[0m[38;5;249mr[0m[38;5;249mt[0m[38;5;249m [0m[38;5;249m{[0m[38;5;249m [0m[38;5;249md[0m[38;5;249me[0m[38;5;249mf[0m[38;5;249mi[0m[38;5;249mn[0m[38;5;249me[0m[38;5;249mC[0m[38;5;249mo[0m[38;5;249mn[0m[38;5;249mf[0m[38;5;249mi[0m[38;5;249mg[0m[38;5;249m [0m[38;5;249m}[0m[38;5;249m [0m[38;5;249mf[0m[38;5;249mr[0m[38;5;249mo[0m[38;5;249mm[0m[38;5;249m [0m'vitest/config'[38;5;249m;[0m
+ [38;5;240m  │[0m                              ───────┬───────  
+ [38;5;240m  │[0m                                     ╰───────── Module not found, treating it as an external dependency
+[38;5;246m───╯[0m
+
+
+ RUN  v4.1.2 /tmp/013-495463a/src
+
+
+ Test Files  3 passed (3)
+      Tests  16 passed (16)
+   Start at  03:07:53
+   Duration  827ms (transform 317ms, setup 0ms, import 1.44s, tests 17ms, environment 0ms)
+

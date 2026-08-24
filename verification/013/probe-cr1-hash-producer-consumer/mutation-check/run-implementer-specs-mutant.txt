@@ -1,0 +1,103 @@
+../agent-output/verification/013/probe-cr1-hash-producer-consumer/mutation-check/vitest.cr1-mutation.config.ts (2:29) [33m[UNRESOLVED_IMPORT] Warning:[0m Could not resolve 'vitest/config' in ../agent-output/verification/013/probe-cr1-hash-producer-consumer/mutation-check/vitest.cr1-mutation.config.ts
+   [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m ../agent-output/verification/013/probe-cr1-hash-producer-consumer/mutation-check/vitest.cr1-mutation.config.ts:2:30 [38;5;246m][0m
+   [38;5;246m│[0m
+ [38;5;246m2 │[0m [38;5;249mi[0m[38;5;249mm[0m[38;5;249mp[0m[38;5;249mo[0m[38;5;249mr[0m[38;5;249mt[0m[38;5;249m [0m[38;5;249m{[0m[38;5;249m [0m[38;5;249md[0m[38;5;249me[0m[38;5;249mf[0m[38;5;249mi[0m[38;5;249mn[0m[38;5;249me[0m[38;5;249mC[0m[38;5;249mo[0m[38;5;249mn[0m[38;5;249mf[0m[38;5;249mi[0m[38;5;249mg[0m[38;5;249m [0m[38;5;249m}[0m[38;5;249m [0m[38;5;249mf[0m[38;5;249mr[0m[38;5;249mo[0m[38;5;249mm[0m[38;5;249m [0m'vitest/config'[38;5;249m;[0m
+ [38;5;240m  │[0m                              ───────┬───────  
+ [38;5;240m  │[0m                                     ╰───────── Module not found, treating it as an external dependency
+[38;5;246m───╯[0m
+
+
+ RUN  v4.1.2 /tmp/013-mutant/src
+
+ ❯ utils/__tests__/013-m1-fix-round-1-extraction.test.ts (3 tests | 1 failed) 9ms
+     × carries V2 components and the flag faithfully (M1-b) 7ms
+ ❯ utils/__tests__/013-m1-fix-round-1-hash-parity.test.ts (6 tests | 3 failed) 14ms
+     × B1: a trailing space in classic content does not create a false mismatch 8ms
+     × B2: a trailing space in a V2 button label does not create a false mismatch 2ms
+     × B3: a leading space in a V2 accessory (thumbnail) URL does not create a false mismatch 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  utils/__tests__/013-m1-fix-round-1-extraction.test.ts > MEDIUM-1 — saveAsPayload (SaveAsMenu.onSubmit) > carries V2 components and the flag faithfully (M1-b)
+AssertionError: expected undefined to deeply equal [ { type: 17, …(1) } ]
+
+- Expected:
+[
+  {
+    "components": [
+      {
+        "content": "hi",
+        "type": 10,
+      },
+    ],
+    "type": 17,
+  },
+]
+
++ Received:
+undefined
+
+ ❯ utils/__tests__/013-m1-fix-round-1-extraction.test.ts:29:32
+     27|     const payload = saveAsPayload(message as never);
+     28|     expect(payload.flags).toBe(32768);
+     29|     expect(payload.components).toEqual([{ type: 17, components: [{ typ…
+       |                                ^
+     30|   });
+     31|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  utils/__tests__/013-m1-fix-round-1-hash-parity.test.ts > HIGH-1 — hashMessage producer/consumer parity after normalizeForHash > B1: a trailing space in classic content does not create a false mismatch
+AssertionError: expected '-167c96c2' to be '-2a03f25a' // Object.is equality
+
+Expected: "-2a03f25a"
+Received: "-167c96c2"
+
+ ❯ utils/__tests__/013-m1-fix-round-1-hash-parity.test.ts:49:50
+     47|     const saved = { content: 'hello world' };
+     48|     const draftWithSpace = { content: 'hello world ' };
+     49|     expect(consumerHash('Test', draftWithSpace)).toBe(producerHash('Te…
+       |                                                  ^
+     50|   });
+     51|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  utils/__tests__/013-m1-fix-round-1-hash-parity.test.ts > HIGH-1 — hashMessage producer/consumer parity after normalizeForHash > B2: a trailing space in a V2 button label does not create a false mismatch
+AssertionError: expected 'e88488c' to be '29f5f152' // Object.is equality
+
+Expected: "29f5f152"
+Received: "e88488c"
+
+ ❯ utils/__tests__/013-m1-fix-round-1-hash-parity.test.ts:65:50
+     63|       }] }],
+     64|     };
+     65|     expect(consumerHash('Test', draftWithSpace)).toBe(producerHash('Te…
+       |                                                  ^
+     66|   });
+     67|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  utils/__tests__/013-m1-fix-round-1-hash-parity.test.ts > HIGH-1 — hashMessage producer/consumer parity after normalizeForHash > B3: a leading space in a V2 accessory (thumbnail) URL does not create a false mismatch
+AssertionError: expected '-1ff6c40c' to be '6d31de40' // Object.is equality
+
+Expected: "6d31de40"
+Received: "-1ff6c40c"
+
+ ❯ utils/__tests__/013-m1-fix-round-1-hash-parity.test.ts:85:50
+     83|       }],
+     84|     };
+     85|     expect(consumerHash('Test', draftWithSpace)).toBe(producerHash('Te…
+       |                                                  ^
+     86|   });
+     87|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  2 failed | 1 passed (3)
+      Tests  4 failed | 12 passed (16)
+   Start at  03:07:54
+   Duration  825ms (transform 332ms, setup 0ms, import 1.41s, tests 28ms, environment 0ms)
+

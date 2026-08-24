@@ -28,6 +28,8 @@
  * Run:  npx vitest run --config <this dir>/vitest.config.ts
  *       PROBE_SRC=/path/to/tree/src selects the tree under test.
  */
+import { writeFileSync } from 'node:fs';
+
 import { describe, it, expect, vi } from 'vitest';
 
 vi.mock('~/env.mjs', () => ({
@@ -38,6 +40,10 @@ vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
 
 import { hashMessage, stripKeys, makeEditable } from '~/utils';
 import { optionalIdMessageShape } from '~/server/api/utils/shapes';
+// Namespace import, not a named one: `normalizeForHash` does not exist on the pre-fix
+// trees, and a missing NAMED export is a link-time error while a missing namespace
+// member is just `undefined`.  This keeps one instrument runnable against every tree.
+import * as usePusherModule from '~/providers/MessageProvider/usePusher';
 
 const V2 = 32768;
 
@@ -65,8 +71,26 @@ const CASES: Case[] = [
   { id: 'B2 draft: trailing space in a BUTTON LABEL (new hashed surface under M1)', stored: { content: 'c', components: [{ type: 1, components: [{ type: 2, style: 5, label: 'B', url: 'https://example.com/' }] }] }, draft: { content: 'c', components: [{ type: 1, components: [{ type: 2, style: 5, label: 'B ', url: 'https://example.com/' }] }] } },
   { id: 'B3 draft: leading space in a V2 accessory URL (new hashed surface under M1)', stored: { flags: V2, components: [{ type: 9, components: [{ type: 10, content: 'x' }], accessory: { type: 2, style: 5, label: 'Go', url: 'https://example.com/' } }] }, draft: { flags: V2, components: [{ type: 9, components: [{ type: 10, content: 'x' }], accessory: { type: 2, style: 5, label: 'Go', url: ' https://example.com/' } }] } },
 
+  // --- Round 2 (fix review at 495463a).  The round-1 corpus was built from the shape's
+  // `.trim()` leaves, so it can only see the class in the phrasing that produced it.  These
+  // cases probe the SAME class -- "the consumer hashes a form the producer's normalisation has
+  // not been applied to" -- through normalisation forms the round-1 predicate could not see:
+  // unknown-key stripping, and `.trim()` leaves on surfaces outside `components`.
+  { id: 'D1 draft: unknown key inside a V2 component (zod strips it, stripKeys does not)', stored: { flags: V2, components: [{ type: 17, components: [{ type: 10, content: 'body' }] }] }, draft: { flags: V2, components: [{ type: 17, components: [{ type: 10, content: 'body', bogus: 'x' }] }] } },
+  { id: 'D2 draft: unknown key at the top level of data', stored: { content: 'hi' }, draft: { content: 'hi', tts: true } },
+  { id: 'D3 draft: trailing space in an EMBED TITLE', stored: { content: 'c', embeds: [{ title: 'T', description: 'D' }] }, draft: { content: 'c', embeds: [{ title: 'T ', description: 'D' }] } },
+  { id: 'D4 draft: trailing space in an EMBED FIELD name/value', stored: { content: 'c', embeds: [{ fields: [{ name: 'n', value: 'v' }] }] }, draft: { content: 'c', embeds: [{ fields: [{ name: 'n ', value: ' v' }] }] } },
+  { id: 'D5 draft: leading space in USERNAME and AVATAR_URL', stored: { content: 'c', username: 'Bot', avatar_url: 'https://example.com/a.png' }, draft: { content: 'c', username: ' Bot', avatar_url: ' https://example.com/a.png' } },
+  { id: 'D6 draft: trailing space in a TEXT DISPLAY content (NOT trimmed by the shape)', stored: { flags: V2, components: [{ type: 17, components: [{ type: 10, content: 'body ' }] }] }, draft: { flags: V2, components: [{ type: 17, components: [{ type: 10, content: 'body ' }] }] } },
+
   // Positive controls: these MUST mismatch, or the probe is not measuring anything.
   { id: 'C1 control: draft genuinely edits the content', control: true, stored: { content: 'hi' }, draft: { content: 'goodbye' } },
+  // Round 2: the FALSE-NEGATIVE direction.  `normalizeForHash` collapses distinctions, so
+  // it must be shown not to collapse a real edit that happens to live on a TRIMMED leaf --
+  // if it did, a genuine change would stop prompting and the fix would have blinded the
+  // detector rather than corrected it.
+  { id: 'C3 control: draft edits a TRIMMED leaf non-whitespace (button label B -> B2)', control: true, stored: { content: 'c', components: [{ type: 1, components: [{ type: 2, style: 5, label: 'B', url: 'https://example.com/' }] }] }, draft: { content: 'c', components: [{ type: 1, components: [{ type: 2, style: 5, label: 'B2', url: 'https://example.com/' }] }] } },
+  { id: 'C4 control: draft edits an EMBED TITLE non-whitespace', control: true, stored: { content: 'c', embeds: [{ title: 'T' }] }, draft: { content: 'c', embeds: [{ title: 'T2' }] } },
   { id: 'C2 control: draft genuinely edits a V2 component body', control: true, stored: { flags: V2, components: [{ type: 17, components: [{ type: 10, content: 'body' }] }] }, draft: { flags: V2, components: [{ type: 17, components: [{ type: 10, content: 'DIFFERENT' }] }] } },
 ];
 
@@ -78,9 +102,21 @@ function producerHash(payloadData: Record<string, unknown>) {
   return { hash: hashMessage(parsed as never), storedData: (parsed as { data: unknown }).data };
 }
 
-/** The consumer: what `usePusher` computes for a composer holding `local`. */
+/**
+ * The consumer: what `usePusher`'s `message-update` handler computes for a composer holding
+ * `local`.  Tracks the LIVE call site rather than a copy of it -- at `495463a` the handler is
+ * `hashMessage(normalizeForHash(x))`, at `a4eb00d` and `c85945f` it was `hashMessage(stripKeys(x))`.
+ * The probe therefore reads the shipped `normalizeForHash` when the tree exports one and the
+ * shipped `stripKeys` when it does not; it never reimplements either.
+ */
+const normalizeForHash = (usePusherModule as { normalizeForHash?: (m: unknown) => unknown })
+  .normalizeForHash;
+const CONSUMER_FORM: (m: unknown) => unknown = typeof normalizeForHash === 'function'
+  ? normalizeForHash
+  : (m: unknown) => stripKeys(m as never);
+
 function consumerHash(local: Record<string, unknown>) {
-  return hashMessage(stripKeys({ name: NAME, data: local } as never) as never);
+  return hashMessage(CONSUMER_FORM({ name: NAME, data: local }) as never);
 }
 
 const rows: string[] = [];
@@ -128,5 +164,47 @@ describe('CR1 — positive controls must mismatch', () => {
   }
 });
 
-afterAll(() => { console.log(`\n=== CR1 matrix (${process.env.PROBE_LABEL ?? 'tree'}) ===\n${rows.join('\n')}`); });
+describe('CR1 round 2 -- residue checks on the fix (these are GUARDS, not defects today)', () => {
+  /**
+   * `hashMessage` hashes the tuple `{ name, data }`.  `normalizeForHash` parses `data` only, so
+   * `name` reaches the hash raw on the consumer side and shape-parsed on the producer side.
+   * `messageShape.name` carries no transform today (`z.string().min(1).max(...)`), so the two
+   * agree -- this case asserts that they still do.  It fails the day `name` gains a `.trim()`
+   * or any other transform, which is the day the HIGH-1 class returns through a field the fix
+   * does not cover.
+   */
+  it('N1 guard: a name carrying whitespace hashes identically on both sides', () => {
+    const data = { content: 'hi' };
+    const rawName = '  spaced name  ';
+    const parsed = optionalIdMessageShape.parse({ name: rawName, data });
+    const broadcast = hashMessage(parsed as never);
+    const seen = hashMessage(CONSUMER_FORM({ name: rawName, data }) as never);
+    rows.push(`GUARD | N1 name whitespace parity | ${broadcast === seen ? 'equal' : `MISMATCH ${broadcast} vs ${seen}`}`);
+    expect(seen, 'N1 name parity -- messageShape.name has gained a transform').toBe(broadcast);
+  });
+
+  /**
+   * The fallback branch: when the live draft does not satisfy the shape, `normalizeForHash`
+   * returns the unparsed `stripKeys` form rather than throwing.  No producer hash can
+   * correspond to such a draft (the save that would broadcast it is rejected by the same
+   * shape), so this is a defined-behaviour check, not a parity check.
+   */
+  it('F1: an unparsable draft yields the stripKeys form, not a throw and not a crash', () => {
+    const invalid = { content: 'hi', components: [{ type: 3, custom_id: 'x' }] };
+    const viaFallback = CONSUMER_FORM({ name: NAME, data: invalid });
+    const viaStripKeys = stripKeys({ name: NAME, data: invalid } as never);
+    expect(hashMessage(viaFallback as never)).toBe(hashMessage(viaStripKeys as never));
+    rows.push('GUARD | F1 unparsable draft falls back to stripKeys | equal');
+  });
+});
+
+afterAll(() => {
+  const matrix = `=== CR1 matrix (${process.env.PROBE_LABEL ?? 'tree'}) ===\n`
+    + `consumer form: ${typeof normalizeForHash === 'function' ? 'normalizeForHash (live export)' : 'stripKeys (no normalizeForHash on this tree)'}\n`
+    + rows.join('\n');
+  // Written to a file, not only logged: vitest's reporter does not surface afterAll
+  // console output, and a matrix that only exists on a terminal is not a captured run.
+  if (process.env.PROBE_OUT) writeFileSync(process.env.PROBE_OUT, `${matrix}\n`);
+  console.log(`\n=== CR1 matrix (${process.env.PROBE_LABEL ?? 'tree'}) ===\nconsumer form: ${typeof normalizeForHash === 'function' ? 'normalizeForHash (live export)' : 'stripKeys (no normalizeForHash on this tree)'}\n${rows.join('\n')}`);
+});
 import { afterAll } from 'vitest';

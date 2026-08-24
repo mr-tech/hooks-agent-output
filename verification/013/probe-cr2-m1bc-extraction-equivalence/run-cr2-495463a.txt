@@ -1,0 +1,28 @@
+=== CR2 matrix (495463a) ===
+SAVE-AS | E1 classic content | identical
+SAVE-AS | E2 classic + username + avatar | identical
+SAVE-AS | E3 embeds with _keys | identical
+SAVE-AS | E4 V2 container, flag present | identical
+SAVE-AS | E5 V2 components, flag ABSENT (stripKeys ORs it in) | identical
+SAVE-AS | E6 V2 + classic content (stripKeys deletes content) | identical
+SAVE-AS | E7 action row only, no V2 type | identical
+SAVE-AS | E8 empty data object | identical
+SAVE-AS | E9 message with no data key | identical
+SAVE-AS | E10 non-V2 flag bits | identical
+SAVE-AS | E11 media gallery + file + separator | identical
+SAVE-AS | E12 section with link-button accessory | identical
+SEED    | E1 classic content | identical
+SEED    | E2 classic + username + avatar | identical
+SEED    | E3 embeds with _keys | identical
+SEED    | E4 V2 container, flag present | identical
+SEED    | E5 V2 components, flag ABSENT (stripKeys ORs it in) | identical
+SEED    | E6 V2 + classic content (stripKeys deletes content) | identical
+SEED    | E7 action row only, no V2 type | identical
+SEED    | E8 empty data object | identical
+SEED    | E9 message with no data key | identical  [both are the VALUE undefined, typed `string` -- LOW-3, unchanged]
+SEED    | E10 non-V2 flag bits | identical
+SEED    | E11 media gallery + file + separator | identical
+SEED    | E12 section with link-button accessory | identical
+SEED    | E13 message is null | identical  [both are the VALUE undefined, typed `string` -- LOW-3, unchanged]
+SEED    | E14 message is undefined | identical  [both are the VALUE undefined, typed `string` -- LOW-3, unchanged]
+CTRL    | mutant drops components | diverged (as required)
