@@ -24,7 +24,10 @@ Status-Detail: >-
   from rev 1 forward. **Rev 6**: QA split BC-11 into **BC-11a (`EXECUTED`, terminal)** and **BC-11b
   (`NOT EXECUTED`)** at `9946eb9`, adopting both defect reports; Appendix A amended for QA's
   unexamined-read-path assumption, which makes a Classic-mode open **ambiguous** and not reportable
-  as either a read-path defect or the ask failing.
+  as either a read-path defect or the ask failing. **Rev 7**: QA executed both items this pass handed
+  over (`32737d3`) — R7's first limb is **confirmed not tripped** by the seeds, narrowing U-1, with the
+  correction that `valid = false` **does not discriminate** (the seeds are invalid for two independent
+  reasons; key on the reason string, never the boolean).
 ---
 
 # UAT Report: Plan 013 — Components V2 support across the editing surfaces
@@ -44,6 +47,7 @@ Status-Detail: >-
 | 2026-08-24 | **owner**, attested in the steering session; **route: relayed out-of-band by steering-hooks-013-2 — not a stage handoff** | Deliver the owner's attestation that the two seed records exist, for UAT to judge under its own gate | Rev 4. **BC-11 Half A → `EXECUTED`, terminal.** His words, verbatim: *"Re: UAT's JSON message - both are created. 5855 and 5856"* (2026-08-24). Terminalised on the attestation per the plan's evidence rule and this agent's own — never record a capture as missing against a condition he executed. **Not recorded as fact**: the shape-to-ID mapping (steering expressly did not assert it; Half B exercises both records by its own terms, so nothing is blocked). **D20's re-derivation clause RESOLVED on the substance** — discharged by production execution rather than by UAT's instrument, delta and route-residual recorded; classifier block retired for that purpose. Half B unchanged and still owed. Still no verdict. |
 | 2026-08-24 | *(none — raised by this pass)* | — | Rev 5. **Finding U-1 raised**: D20's seed records (5855, 5856) are permanent members of `flagStructureDisagreement`, so after the owner's D19 repair the plan's assumption-7 detector reads **2** where he expects **0** — a working repair looks like a failed one — and the V2-error limb fires too, since that is Half B's precondition. Verified verbatim against the plan's Assumptions item 7 and its "29 empty, 2 disagreeing" count. Routed to steering as plan-touching; no remedy adopted. One inference left deliberately unexecuted and flagged. Still no verdict. |
 | 2026-08-24 | qa-hooks-013-2, direct under D27 (`9946eb9`) | Both UAT digests actioned: extensions executed, BC-11 split, one assumption routed back that lands on Appendix A | Rev 6. Both extensions **CONFIRMED by QA's execution** (24 assertions, 5 mutants killed), including the conflict-UPDATE leg Half B actually exercises. BC-11 **split into BC-11a (`EXECUTED`, terminal) / BC-11b (`NOT EXECUTED`)**, both defect reports adopted; register restated here from QA's document re-read at write time. **Appendix A amended**: QA's unexamined read path makes a Classic-mode open ambiguous between a read-path defect and the ask not firing — the script now stops the observer there rather than letting either conclusion be drawn. **F-QA11 ruled out for this script by this pass**: `SaveAsMenu` uses `?? ''` → `null` (accepted), not `NewMessageModal`'s `?? '0'` (refused), so Save As is not exposed. Still no verdict. |
+| 2026-08-24 | qa-hooks-013-2, direct under D27 (`32737d3`) | Both items this pass handed over were **executed** rather than recorded at read level | Rev 7. **R7's first limb CONFIRMED not tripped** by the seeds — U-1 is narrower than raised. **Correction carried**: `valid = false` does not discriminate; the seeds are invalid for **two** independent reasons (no username, plus the V2/classic conflict), so anything keying on the boolean must key on the **reason string**. **F-QA11 class-closed by QA over a predicate** (4 sites; two guard `'0'` explicitly), making it a single-site oversight and this pass's Save As read mutant-checked rather than read-level. Appendix A's F-QA11 note strengthened to *positively distinguishable*. Still no verdict. |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -381,6 +385,20 @@ plan records that category as reading **0** at 012's backfill run while 5712/584
 but it rests on shape identity and this pass did not execute it. **If R7's falsifier is read after the
 deploy, that inference should be executed first, not relied on.**
 
+**Update, 2026-08-24 (rev 7) — the inference above was EXECUTED by QA and is CONFIRMED, with a
+correction it did not carry.** The text above is preserved as written; it was correct to withhold it.
+QA executed it at `c85945f` (`32737d3`): the seeds carry `valid = false` and **do stay out of
+`flagStructureDisagreementValidTrue`, so R7's first limb is not tripped by them.** U-1's blast radius
+is that much smaller.
+
+**The correction, which matters more than the confirmation.** An unqualified *"the seeds are
+`valid = false`"* **does not discriminate**: a username-less message is refused for an entirely
+unrelated reason, and the seed JSON carried no username, so 5855/5856 are almost certainly `false` for
+**two independent reasons**. Only with a username supplied is the V2/classic conflict the sole carrier
+of the refusal. **Anything downstream keying on `valid = false` must key on the reason string, not the
+boolean.** That trap sat inside the reasoning, not the conclusion — which is why the inference was
+worth handing over as a stated gap rather than a comfortable result.
+
 ## Weighing of Production Evidence
 
 None is offered and none is claimed. No operator attestation, no production run-time, and no
@@ -482,7 +500,12 @@ instead of the ask**: record it; do not read it as the ask having failed.
 is refused by `discordIdShape` — **does not apply to this script.** Step 5's Save As uses
 `useState(message.guildId ?? '')` and sends `selectedGuildId || null`, reaching the boundary as `null`,
 which QA executed and found accepted. **F-QA11 is a New Message defect, not a Save As one**; an observer
-hitting a guild validation error at Save As has found something new, not F-QA11.
+hitting a guild validation error at Save As has found something new, not F-QA11. **Strengthened at
+rev 7**: QA closed this class by execution (`32737d3`) over the predicate *a site building
+`message.upsert`'s `guildId` from a value picked this session* — 4 matching sites, of which **two guard
+the `'0'` sentinel explicitly**, so F-QA11 is a **single-site oversight, not a design choice**, and the
+Save As clear is mutant-checked rather than merely read. A guild error at Save As is therefore
+**positively distinguishable**, not just "not F-QA11 as far as anyone read".
 
 **If it cannot be run**, the disposition is already written by the planner and is not improvised: where
 the D19 repair has run **and** no seeded environment is available, the suite is the evidence and the
