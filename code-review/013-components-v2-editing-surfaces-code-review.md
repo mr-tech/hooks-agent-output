@@ -35,6 +35,7 @@ Status-Detail: >-
 | 2026-08-24 | steering-hooks-013 (D22 amendment, mid-pass) | Fix rounds run direct with the implementer from the first finding set onward | Read D22 at plan rev 14 (`ae13df0`) directly, not from the relay. This verdict still goes to steering, as the amendment says. Findings from here go to `implementer-hooks-013`; the four never-settled classes are marked inline where they arise (HIGH-1 carries one). |
 | 2026-08-24 | implementer-hooks-013 (direct, per D22) | Re-review M1 fix round 1 at `495463a`; implementation doc at `acbbe58` | Round 2. Every enumeration in round 1 re-run rather than inherited, and the differential re-derived from first principles: the round-1 instrument hardcoded the old consumer form, so it was rewired to read the tree under test and then validated by reproducing the round-1 captures case-for-case before it was trusted. Sixteen new cases added, including two false-negative controls the round-1 corpus had no way to express. Second probe built to settle MEDIUM-1's extraction by execution. Implementer's own specs mutation-tested. Two of my own slips are disclosed rather than left silent: I introduced a `check-repo.js` basename collision mid-pass and cleared it by renaming the three probe configs, and one append landed a stray copy of a review-document fragment in the `website` working tree, which I removed within the same minute — `git status` in `website` is back to the same two untracked out-of-scope files it started with, and no tracked file was touched. **APPROVED_WITH_COMMENTS.** |
 | 2026-08-24 | implementer-hooks-013 (direct, per D22) | Review M7 — mode follows the flag (D15) — at `18407d8`; implementation doc at `83164da` | Round 3. First pass on M7. Plan re-read at rev 16 per this role's Reading Order (Decisions Register -> Milestones -> Out of Scope -> Risks), including D15/D16/D7/D17/D24 and R8. Every enumeration in the implementation document re-derived. Third probe built (`probe-cr3-mode-predicate/`) to settle the classification change by execution over the whole 36-cell (flag x structure) partition rather than from the diff, with three mutants as controls and the implementer's own spec mutation-checked. **APPROVED_WITH_COMMENTS.** |
+| 2026-08-24 | steering-hooks-013 (correction, post-verdict) | "QA is not the next stage" — second round running | Correction pass, no verdict change and no re-review: `18407d8` unmoved. Verified the phasing against the plan myself rather than on the relay — Testing Strategy says QA Phase 1 runs **before** implementation, so Phase 2 follows implementation's completion, not a milestone; five milestones remain and the implementer's next step is M8's **EC-3** (QA's F-QA4, High). Round 3's Next Steps rewritten and round 2's left standing with a marked correction rather than silently edited. Round 1 had this right; rounds 2 and 3 drifted from it, which is my regression and is recorded as such. Steering has lodged the underlying definition gap for retrospective → pi (`~/.claude/agents/INBOX.md`, `ee1ae0e`). |
 
 ## Scope Actually Assessed
 
@@ -844,6 +845,15 @@ is that evidence.
 
 **Handing off to the qa subagent for test execution.**
 
+> **CORRECTION, 2026-08-24, added after round 3** — *this line was wrong when written and is left
+> standing with its correction rather than rewritten.* **QA was not the next stage at `495463a`.**
+> The plan runs **QA Phase 1 before implementation** (Testing Strategy), so Phase 2 runs after
+> implementation *completes*, not after a milestone; seven milestones remained at this tip. The
+> correct next stage was the implementer's next milestone. Round 1 stated this correctly ("QA is not
+> yet due … QA Phase 2 is scoped to the whole plan, not to M1") and rounds 2 and 3 both drifted from
+> it; `steering-hooks-013` corrected it after round 3. The routing below — that these items are
+> **owned by** QA Phase 2 — is unaffected and stands; only the claim about what runs next was wrong.
+
 **Routed, not shelved** — the Assumption Not Checked above belongs to **QA Phase 2**: run
 `discordMessageShape.safeParse` over the stored `Messages.data` corpus and report the reject count.
 A non-zero count reopens HIGH-1 at the scope of the fallback branch; zero closes it unconditionally.
@@ -1358,7 +1368,26 @@ lives in a file scheduled for rework by another stage.
 
 ## Next Steps
 
-**Handing off to the qa subagent for test execution.**
+**Handing off to the implementer subagent** — `implementer-hooks-013`, directly, per D22 — to
+continue with the remaining milestones. Its next step is **M8's EC-3**, QA's Phase-1 entry condition
+(**F-QA4**, High): one shared, importable, pure persist gate consulted by all five `message.upsert`
+writers, rather than a gate written three times across independent `.tsx` call sites. EC-3 gates M8
+and M2 both, and QA assigns it to the implementer *before any M8 spec is written*.
+
+**QA is not the next stage, and this document said otherwise in an earlier draft.** The plan runs
+**QA Phase 1 before implementation** (Testing Strategy), so **Phase 2 runs after implementation
+completes**, not after a milestone — five milestones remain (M2, M3, M4, M6, M8). Round 1 stated this
+correctly and rounds 2 and 3 both drifted from it; `steering-hooks-013` corrected it, I verified the
+phasing against the plan rather than taking it on the relay, and round 2's line above now carries the
+same correction. The items below are **owned by** QA Phase 2 — that routing is unchanged and does not
+imply QA runs next.
+
+**A sequencing consequence worth stating once, since it now spans five milestones**: the suite stays
+non-green until QA Phase 2 re-anchors `012-message-mode.test.ts`, so every subsequent milestone review
+— mine included — must re-establish that the six failures are the *expected* six rather than reading a
+green suite. MEDIUM-2's two drifted transcriptions sit unfixed for the same span, and a transcription
+that has already drifted once can drift further as M2, M4 and M8 change the same functions. Recorded
+for steering as a sequencing fact, not reassigned: the files are QA's by the plan's own allocation.
 
 **Routed, not shelved** — the Assumption Not Checked above belongs to **QA Phase 2**: enumerate the
 composer's load paths by reference-following and confirm each reaches `detectMode`. Its falsity
