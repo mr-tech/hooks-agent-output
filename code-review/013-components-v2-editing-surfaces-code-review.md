@@ -1921,3 +1921,48 @@ writer, with QA's IS-1 no-upsert-before-choice instrument as the backstop. Named
 in `JsonModalBody.tsx`'s Load.
 
 **M1, M7 and EC-3-at-`92ce026` are unaffected.** Their verdicts stand on their own trees.
+
+## Method note (round 5, added after steering's D25-round query) — I tested the "same shape" hypothesis and it does not hold
+
+Steering proposed that round 3's red-domain error and round 5's enumeration limitation are the same
+shape — *"the instrument's basis and the class's definition were not the same thing, and the gap was
+invisible from inside the instrument"* — and asked me to test it rather than accept it. Tested
+against this document; **it does not hold**, and the test found something more specific.
+
+**Round 3's red-domain error**: a class defined by *behaviour* (files that go red when `messageMode`
+changes) enumerated by a *symbol-name* predicate. Wrong **kind** of predicate. Note who made it:
+that was the plan's and QA's instrument, and I caught it **because** I ran two independent predicates
+of my own and wrote down what neither could see — *"neither can see a transcription written as
+`const switchToV2 = …` … so the true class may be larger and these two predicates cannot tell me by
+how much."* The gap was **visible from inside**, and stating it is what made the finding checkable.
+
+**Round 4 MEDIUM-3's limitation** (the one that reopened at `applyDisposition`): the enumeration was
+**complete and correct over the tree it ran against**. There was no third function at `92ce026`. So
+it is not a wrong-kind-of-predicate error at all.
+
+**What it actually was, and it is measurable.** MEDIUM-3's section is headed
+**"Enumeration + demonstration"** and delivers only the demonstration — `flags = 4` yielding row D.
+A demonstration establishes that the defect exists *at a site*; an enumeration establishes the
+class's *extent*. Merging the headings let the vivid half stand in for the other. With no predicate
+stated, there was nothing to write a blind-spot clause against — and had I written one, the natural
+sentence was *"this covers functions existing at `92ce026`; it cannot see a function the fix will
+add"*, which is exactly the gap that materialised.
+
+**Measured across this document**: 16 findings carry an explicit "what this predicate does not
+match" clause. **MEDIUM-3 is the sole finding that carries none.** One skip in seventeen, with a
+recognisable signature.
+
+**Consequence for the retrospective, stated so it is not merged into a vaguer item.** These two need
+different remedies and combining them would deliver neither:
+
+- Round 3's remedy is **instrument choice** — a behaviour-defined class needs reference-following,
+  not name-matching. That item is stronger standing alone, and QA reproducing it independently is
+  what makes it about the instrument rather than about a person.
+- Round 5's remedy is **not a new rule**. The blind-spot clause is already mandatory in this role's
+  definition (*"the blind spot is a property of the predicate and is knowable at authoring time"*).
+  This is a **compliance** miss, not a design gap, and the check is mechanical: no finding ships
+  whose Enumeration lacks a "does not match" clause, and "Enumeration + demonstration" is a heading
+  to distrust, because it invites exactly this substitution.
+
+I am adopting that check for the remaining rounds of this plan. Steering offered to drop the
+hypothesis if it failed; it failed, but the test was worth running and this note is its output.
