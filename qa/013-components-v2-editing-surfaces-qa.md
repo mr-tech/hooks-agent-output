@@ -4,7 +4,8 @@ Origin: 013
 UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: QA Complete
-Verified-At: 821330d  # re-anchored 2026-08-24; supersedes 164d720 (see Re-anchor note)
+Verified-At: "821330d"
+Verified-At-Note: "re-anchored 2026-08-24; supersedes 164d720 — see the Re-anchor section"
 Verified-At-Detail: >-
   **REFRESH PASS, 2026-08-24 — supersedes the Phase 2 anchor below for verdict purposes.**
   `website` @ `chain/013-components-v2-editing-surfaces`, HEAD = `164d720` (re-derived by
@@ -73,7 +74,7 @@ Status-Detail: >-
   one, stated and classed. **INFO-2 falsified**: `NewMessageModal`'s gate branch is live, not dead,
   though exercised by no spec (F-QA19). Suite re-run and re-counted: 517 tracked tests, 6 failed,
   both failing files in Phase 1's declared red-test domain. Four new findings, F-QA15–F-QA19;
-  register appended at BC-13/BC-14. Not handed to UAT — the chain returns to the implementer.
+  register appended at BC-16/BC-17. Not handed to UAT — the chain returns to the implementer.
 ---
 
 # QA Report: Plan 013 — Components V2 support across the editing surfaces
@@ -602,6 +603,38 @@ space, and names this document as the register it appended to.
 **Class**: `PRE` = observable pre-release, must reach a terminal state before the release act.
 `POST` = post-deploy-observable, gates chain closure only.
 
+> ### ID COLLISION — corrected 2026-08-24, raised by `uat-hooks-013` (U-2)
+>
+> **This append originally restarted at BC-13, while Phase 1's register had already run to BC-14.**
+> The register therefore carried two distinct `BC-13`s and two distinct `BC-14`s. The sentence
+> immediately above once read *"No parallel ID space minted; continuing at BC-13"* — which minted
+> exactly the parallel ID space it denied minting. The defect is mine; it is the failure the
+> one-register rule exists to prevent, and I wrote the denial into the same sentence as the breach.
+>
+> **Phase 1 keeps the original numbers** (older, and more widely cited). **Phase 2's two rows are
+> renumbered** to the register's true high-water mark:
+>
+> | Was | Now | Row | Class | Owner |
+> |---|---|---|---|---|
+> | BC-13 *(P1)* | **BC-13** — unchanged | `bot-code-ttl-residue` | POST | devops |
+> | BC-14 *(P1)* | **BC-14** — unchanged | `user-defect-fixed-in-prod` | POST | uat |
+> | BC-13 *(P2)* | **BC-16** | `p2-rowd-load-gate` | PRE | discharged |
+> | BC-14 *(P2)* | **BC-17** | `discord-returns-row-e` | POST | uat |
+>
+> **Every row now carries a stable name as well as a number**, and citations should prefer the
+> name: a name survives renumbering, a number does not. UAT already keeps its ledger this way, and
+> that is the only reason this collision was caught rather than silently propagated.
+>
+> **The consequential one is BC-14.** Both `BC-14`s are POST/uat, so a reader resolving the
+> collision by class or owner gets no signal that anything is wrong — and the row at risk of being
+> displaced is *"the user-reported defect is fixed in production"*, the observation this entire
+> chain was commissioned to make possible. A collision that is invisible to every disambiguator
+> except the text itself is worse than one that throws.
+>
+> **Four documents cite these numbers.** This table is the mapping; QA does not edit other stages'
+> documents. Any citation of `BC-13`/`BC-14` written before 2026-08-24 must be resolved against
+> **which phase raised it**, not against the number alone.
+
 | ID | Class | Condition | Primary instrument | Subject / fallback | Earliest-decidable condition | Predicted value | Failure mode (operator terms) | Owner | State |
 |---|---|---|---|---|---|---|---|---|---|
 | **BC-1** | PRE | M2-c: the Load confirmation names what changes — which top-level types are added/removed, and whether the message type changes | operator observation (no harness, F-QA4/assumption 5) | UAT agent; fallback owner | chain tip deployed to any environment with a stored V2 message | the confirmation names both differences before anything is committed | *A user confirms a Load believing nothing is lost, and loses every component. The dialog is the only thing standing between them and it.* | uat | Not started |
@@ -618,8 +651,8 @@ space, and names this document as the register it appended to.
 | **BC-11a** | PRE | **The two M8-G seed records exist** (supersedes the mint half of BC-11). Before the release act, paste `{"content":"hi","flags":32768}` and `{"content":"hi","flags":32768,"components":[]}` into **New Message** on production `c85945f`, creating one 5712-shaped and one 5842-shaped record. **The route expires at deploy** — after 013 no surface writes the shape (M8-D, M4-a, the toggle) — so this was decidable *only* in the window that closes at go-live | an authenticated human pressing Save in New Message; there is no non-human primary — every procedure in `message.ts` is `protectedProcedure` (re-derived here at `c85945f`: **8 procedure definitions, 8 protected, `publicProcedure` count 0**), so there is no anonymous mint route | **subject**: the owner, who performed it. `uat-hooks-013` reported it could not be the subject — no session, no browser, empty `DISPLAY`, no automation — and improvised nothing | was: now, the route being open on production; **latest-decidable was the deploy**, and it was met inside that window | both records appear in the messages list. **A single successful save refutes 'the route is closed' by construction** — this is not a rate | *If the seeds had never been minted, M8-G's production-reachable form would have become permanently unobservable the moment the owner's D19 repair landed — the one-way door D20 was ruled to prevent.* | uat (records the attestation; the observation was the owner's) | **EXECUTED 2026-08-24 — TERMINAL.** Per `uat-hooks-013`, `uat/013-...-uat.md` rev 4 (`838b180`), which is authoritative on this row's state. Owner's attestation, **quoted verbatim**: *"Re: UAT's JSON message - both are created. 5855 and 5856"* — given unprompted in the steering session, 2026-08-24, after he was handed the two JSON payloads. **Two residues, recorded not asserted**: (a) the shape-to-ID mapping is **not** established — he named two IDs, not which is which, and BC-11b exercises both by its own terms, so nothing turns on it; (b) the words reached this register by citation of UAT's document, the owner having spoken in the steering session rather than written into a stage document — the plan's evidence rule makes his attestation complete evidence where he is the designated observer, and I note the route without reopening it |
 | **BC-11b** | PRE | **The ask fires on save over a seed** (supersedes the observation half of BC-11): open a **5712-shaped** record (V2 mode, V2 error visible, components section shown), add one container, press **Save** → the ask appears naming both drops and **nothing is written** until one is taken. Same at **Save As**. Repeat on the **5842-shaped** record. Whether the seeds are removed afterwards is not ruled and is not a gap (D20) | operator observation of a **UI event**, **paired with** the suite's `requiresChoice` assertion (EC-3). The oracle is *"the ask appears"*, so the primary needs a browser — which decides the subject on its own, at any SHA and in any environment | **subject**: any party holding a **browser** and a **chain-tip environment carrying the shape**. Today that is the owner *because no session on this box holds browser tooling* — **a fact about tooling, not a plan requirement**, and it must not harden into the latter. `uat-hooks-013` re-derived (not adopted) that it cannot be the subject: empty `DISPLAY`, no browser, no automation. **Fallback**, written by the planner and **conjunctive**: *"Where the repair has already run **and** no seeded environment is available, the suite is the evidence and UAT records the reason — the D19 repair preceded the deploy — not 'no member to observe'."* Seeds exist and the repair has not run, so the fallback is **not currently available** and this row is still owed | **the chain tip deployed to any environment carrying a 5712-/5842-shaped record** (BC-1's convention; records 5855/5856 qualify). Not decidable before both | the ask appears; nothing written before a choice; both outcomes verified by repeating with the other option. The save leg is a **conflict-update**, and `data` is written verbatim there as well as on insert (executed, EXT-B) | *This is the whole of D18. If the ask does not appear, the save path is still silently destroying the user's classic body — the defect the owner folded into 013 — and the suite alone cannot show it working for a real user.* | uat (records and drives; the observation needs a browser-holder) | **NOT EXECUTED** — non-terminal, blocks an unconditional approval (`uat-hooks-013`, `838b180`, whose Appendix A holds a one-shot observation script, not executed and not evidence). **Precondition, re-stated from Phase 1's read and carried in that script**: `showComponentButton` requires `isEditing && isV2Mode && showComponentsEditable && canAddComponent`; an observer who has collapsed the components section will see no add-component control and wrongly report the ask as unreachable |
 | **BC-12** | POST | M8-G's send-path form is accepted by Discord: a V2 message that sent at `c85945f` still sends after deploy | the existing post-deploy observable *"Save As on a V2 message yields a V2 copy that sends"* (Validation item 6), and M3-a's send form | UAT agent, then owner in normal use | the deploy is live | **the send succeeds. A single 4xx refutes by construction** — this is not a rate to accumulate; one failure closes the critic's pass-4 assumption negatively and is a hotfix trigger | *Every V2 send starts failing at Discord because the wire form gained `content:""`. Users cannot send, and the cause is invisible in the app.* | implementer owns the decision (M8-G send path); uat owns the observation | Not started |
-| **BC-13** | POST | M3-b's pre-deploy-code residue: bot codes stored **before** go-live carry no dropped set, so the notice cannot render for them | elapsed time against the store's 1h TTL | no human subject — decided by the clock | one hour after the deploy SHA is live | the residue is empty | *For one hour after deploy, a code import can drop components silently — the exact behaviour M3-b fixes. Nobody will connect the two.* | devops (records the window in the deployment record) | Not started |
-| **BC-14** | POST | **The user-reported defect is fixed in production** (handoff `8f3fa8c3`, observations 1/2/5/6/7): Save As on a V2 message yields a V2 copy with every component; Message JSON shows the components; a component-only edit in one tab raises *"Message Update Detected"* in another and a no-op save raises nothing | operator observation in production | owner, in normal use; fallback UAT agent | the deploy is live | all four observed | *A deploy having happened says nothing about the fix having worked. The failure's signature here is **absence** — a copy that is empty, a prompt that never fires — and absence is what nobody reports.* | uat | Not started |
+| **BC-13** *(name: `bot-code-ttl-residue`)* | POST | M3-b's pre-deploy-code residue: bot codes stored **before** go-live carry no dropped set, so the notice cannot render for them | elapsed time against the store's 1h TTL | no human subject — decided by the clock | one hour after the deploy SHA is live | the residue is empty | *For one hour after deploy, a code import can drop components silently — the exact behaviour M3-b fixes. Nobody will connect the two.* | devops (records the window in the deployment record) | Not started |
+| **BC-14** *(name: `user-defect-fixed-in-prod`)* | POST | **The user-reported defect is fixed in production** (handoff `8f3fa8c3`, observations 1/2/5/6/7): Save As on a V2 message yields a V2 copy with every component; Message JSON shows the components; a component-only edit in one tab raises *"Message Update Detected"* in another and a no-op save raises nothing | operator observation in production | owner, in normal use; fallback UAT agent | the deploy is live | all four observed | *A deploy having happened says nothing about the fix having worked. The failure's signature here is **absence** — a copy that is empty, a prompt that never fires — and absence is what nobody reports.* | uat | Not started |
 
 ### Register maintenance log
 
@@ -1109,7 +1142,7 @@ which is the more concerning of the two.
 **Residue not settled here**: whether Discord's API can itself *return* a message carrying both.
 Discord refuses to *send* V2-with-content, but the import path reads pre-existing messages and
 nothing in this code prevents it. That is an external-behaviour question, routed to the register as
-**BC-14**, not answered by reading.
+**BC-17**, not answered by reading.
 
 ## 7. Findings raised by this pass
 
@@ -1156,12 +1189,14 @@ recorded in the probe README so the next reader does not repeat it.
 ## 9. Blocking Release Condition Register — appends
 
 Appended to **chain 013's single register** (above, this document). No parallel ID space minted;
-continuing at BC-13.
+continuing after the register's true high-water mark. **Corrected 2026-08-24 — see the
+collision note below: this pass originally wrote "continuing at BC-13", which was false and
+minted exactly the parallel ID space the sentence denied minting.**
 
 | ID | Class | Condition | Primary instrument | Subject / fallback | Earliest-decidable condition | Predicted value | Failure mode (operator terms) | Owner | State |
 |---|---|---|---|---|---|---|---|---|---|
-| **BC-13** | PRE | **F-QA15**: open record 5712's Message JSON modal and confirm the **Load button is enabled**, and that pressing it with zero edits clears the flag and preserves the content | `verification/013/probe-qa-p2-rowd-load-gate/` re-run green after the fix (**settles it without a human**) | fallback only: operator observation, since no mounted render exists here | the F-QA15 fix is committed | probe green; then 5712 loads and saves with content intact and the bit cleared | *The user sees a correct diagnosis of their broken record and a dead button. The repair 013 exists to deliver is computed and then withheld.* | **implementer** (primary needs no human) | **Not started — BLOCKING** |
-| **BC-14** | POST | Can Discord's API **return** a message carrying both classic content and V2 components? (§6's residue — it refuses to *send* one, but the import path reads pre-existing messages) | production observation of the URL-import path | UAT agent | chain tip deployed **and** an import attempted against a message known to predate V2 enforcement | if such a message exists, the row-E choice appears rather than silent loss | *If Discord can return one and the branch is wrong, the user loses half their message on import with no prompt — and the branch is exercised by no spec (F-QA19), so nothing else would catch it.* | uat | Not started |
+| **BC-16** *(name: `p2-rowd-load-gate`)* | PRE | **F-QA15**: open record 5712's Message JSON modal and confirm the **Load button is enabled**, and that pressing it with zero edits clears the flag and preserves the content | `verification/013/probe-qa-p2-rowd-load-gate/` re-run green after the fix (**settles it without a human**) | fallback only: operator observation, since no mounted render exists here | the F-QA15 fix is committed | probe green; then 5712 loads and saves with content intact and the bit cleared | *The user sees a correct diagnosis of their broken record and a dead button. The repair 013 exists to deliver is computed and then withheld.* | **implementer** (primary needs no human) | **Not started — BLOCKING** |
+| **BC-17** *(name: `discord-returns-row-e`)* | POST | Can Discord's API **return** a message carrying both classic content and V2 components? (§6's residue — it refuses to *send* one, but the import path reads pre-existing messages) | production observation of the URL-import path | UAT agent | chain tip deployed **and** an import attempted against a message known to predate V2 enforcement | if such a message exists, the row-E choice appears rather than silent loss | *If Discord can return one and the branch is wrong, the user loses half their message on import with no prompt — and the branch is exercised by no spec (F-QA19), so nothing else would catch it.* | uat | Not started |
 
 **Standing note applies**: this list is point-in-time; the UAT document, then the deployment record,
 are authoritative on each row's state.
@@ -1406,7 +1441,7 @@ Appended to chain 013's single register.
 
 | ID | Class | Condition | Primary instrument | Subject / fallback | Earliest-decidable condition | Predicted value | Failure mode (operator terms) | Owner | State |
 |---|---|---|---|---|---|---|---|---|---|
-| **BC-13** | PRE | *(from Phase 2)* F-QA15: 5712's Load button is enabled and the repair completes | `verification/013/probe-qa-p3-fixverify/` | — | fix committed | probe green | — | implementer | **DISCHARGED 2026-08-24** at `164d720` — probe green, 25 assertions, F1/F2 killed. The mounted-render half moved to BC-15 under D28. |
+| **BC-16** *(name: `p2-rowd-load-gate`)* | PRE | *(from Phase 2; renumbered from BC-13)* F-QA15: 5712's Load button is enabled and the repair completes | `verification/013/probe-qa-p3-fixverify/` | — | fix committed | probe green | — | implementer | **DISCHARGED 2026-08-24** at `164d720` — probe green, 25 assertions, F1/F2 killed. The mounted-render half moved to BC-15 under D28. |
 | **BC-15** | PRE | **D28**: the owner observes, in his BC-11b browser sitting, that 5712's Load button is genuinely **enabled** and that pressing it unedited clears the flag while keeping the content | operator observation (D28 — no DOM harness in this chain, by ruling) | the owner, in the BC-11b sitting | chain tip deployed; the sitting already scheduled | button enabled; content intact; bit cleared | *Every gate assertion in this chain is source-text plus pure functions. If React does not apply `isDisabled` as read, 5712 still shows a dead button and the whole repair is invisible to the user.* | uat (to record the owner's attestation) | Not started |
 
 **Standing note applies**: this list is point-in-time; the UAT document, then the deployment record,
