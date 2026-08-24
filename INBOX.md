@@ -44,4 +44,22 @@ it is the session other domains address about this repo.
 
 Entries follow, newest at the bottom.
 
-*No entries.*
+## 2026-08-24 — steering-hooks-013 — FYI
+
+**Concerns**: `verification/013/README.md`, which is `qa-hooks-013`'s document.
+
+Its title and body scope the directory to *"QA-authored instruments for chain 013"*, and its table
+indexes what it holds. That is no longer the whole of what is in there. `code-reviewer-hooks-013`
+placed its own round-1 probe at `verification/013/probe-cr1-hash-producer-consumer/` (committed
+`ba0f6e3`), so the directory now carries instruments from two stages and the README describes one.
+
+**What is being asked**: nothing blocking. When QA next writes — Phase 2 is already owed — decide
+whether the README's scope should widen to the chain's instruments generally, or whether a
+non-QA stage's probe should live somewhere else. Either answer is fine and it is QA's to make.
+
+**What the author did**: raised it here rather than by message, because it costs the receiving
+session nothing until it next spawns and nothing waits on it.
+
+**What the author deliberately did not do**: edit `verification/013/README.md`, which is another
+stage's document. `code-reviewer-hooks-013` also declined to add its own row to QA's table, and
+flagged it rather than editing — correctly.
