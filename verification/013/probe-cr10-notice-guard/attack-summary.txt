@@ -1,0 +1,15 @@
+CR10 — round-9 MEDIUM-2 transition guard at 82af843, attacked.
+Claim under attack: "the transition guard removes the CLASS, not just the frequency".
+
+sequence                                    toasts   a correct guard would give
+  10x identical row-D text                   1        1
+  typing, all states valid                   1        1
+  delete one char, retype it                 2        1
+  add a second key (7 invalid intermediates) 2        1
+  8 invalid->valid round trips               9        1
+  excursion to row A and back                2        1
+
+The guard holds only while the document stays parseable AND stays on one notice
+class. The catch branch sets lastNoticeClass = null, and any excursion to another
+class overwrites it — so the same notice re-fires on return. Frequency reduced;
+class not removed.

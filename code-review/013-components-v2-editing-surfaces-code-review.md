@@ -2,30 +2,24 @@
 ID: 013
 Origin: 013
 UUID: 22d69e06
-Reviewed-At: "Round 9 (current, binding): ee3bc3e3b2b68fd723fd04e0650cc26238e95688 (chain/013-components-v2-editing-surfaces) — a FIRST PASS on the paste surface, one file (NewMessageJsonInput.tsx, 69/7), NOT a fix round. Verified at the start of the pass and again at the end; the tree did not move. Superseded, retained for the record: round 8 at b3f8ea9, round 7 at 87cfbd8, round 6 at 816d7fd, round 5 at 0c8fad5, round 4 at 92ce026, round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
+Reviewed-At: "Round 10 (current, binding): 82af843ae842697383d899f53aedc76e1f561966 (chain/013-components-v2-editing-surfaces) — the round-9 fix round, one file 33/4. Verified at the start of the pass and again at the end; the tree did not move. Superseded, retained for the record: round 9 at ee3bc3e, round 8 at b3f8ea9, round 7 at 87cfbd8, round 6 at 816d7fd, round 5 at 0c8fad5, round 4 at 92ce026, round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
 Status: In Review
 Status-Detail: >-
-  Round 9, a first pass on the paste surface (NewMessageJsonInput.tsx) at ee3bc3e, retiring the last
-  production enforceImportMutualExclusivity call site. APPROVED_WITH_COMMENTS. The wiring is faithful
-  to JsonModalBody and the four pure functions are reused verbatim and correctly; row E genuinely
-  blocks. Three MEDIUMs. MEDIUM-1, established by execution (probe-cr9, 24/24) and not by reading:
-  the disposition is computed on the POST-preprocess object, so filterSupportedComponents deletes V2
-  components before resolveContentLoss sees them and row E flips to a settled row — the choice M8-E
-  guarantees is never offered, and the notice names only the flag. An old-vs-new differential shows
-  the commit did not close the silence but changed WHICH half is lost (before: content deleted,
-  container kept; after: container deleted, content kept). This is round-4's Assumption Not Checked
-  firing at the surface it named, and round-7 INFO-1's class; the remedy is M4-b (D9, owner ruling),
-  so it is routed and does NOT hold the tree. MEDIUM-2 and MEDIUM-3 are this unit's own and cheap:
-  toast.warn fires from a keystroke-keyed effect (one toast per keystroke while editing a valid row
-  B/D message), and Cancel strands the surface with valid JSON, no error and a disabled button, with
-  no way back to the choice. Verification re-run, nothing inherited: tsc 0, eslint 0, expected-six
-  MATCH at clean 481/475/6 (corroborating the implementer's derived figure, which they had not
-  re-run), CR3 pairing 122/122, R9 sweeps re-run (4 production applyDisposition, 0 enforce), T2
-  re-run EMPTY at ee3bc3e with both controls so M8-G is still unwired and the persist attack still
-  not owed. Round-8 INFO-1 still open at 1 kill (CR8 rig rebuilt to run it). RECORD CORRECTION:
-  system-architecture.md and the 013 architecture findings BOTH EXIST and existed at rounds 6, 7 and
-  8 — round 6's absence claim is false and three verdicts were scoped by it; re-checked here with
-  ls -d and git cat-file, not inherited. Plan Status field NOT set, per both seams and steering.
+  Round 10, the round-9 fix round, at 82af843. APPROVED_WITH_COMMENTS. MEDIUM-3 CLOSED structurally
+  (the Preferred fix, not the Minimum on offer): cancelChoice now parks the choice in dismissedChoice
+  and a Resolve button re-enters the SAME object, cleared on any text change — with a captured check
+  (probe-cr10 CR10-D) carrying a pre-fix control, so it fails if the class returns. LOW-2 CLOSED, and
+  I broke the implementer's sweep predicate rather than accepting it: theirs saw only line-leading
+  //, so trailing, block, JSDoc and JSX comments were invisible to it; re-swept all four, zero of any
+  form. MEDIUM-2 NOT CLOSED — the transition guard reduces frequency but does NOT remove the class,
+  and the claim that it does is falsified by execution (probe-cr10, 12/12): the catch branch clears
+  lastNoticeClassRef, so any unparseable intermediate re-arms the notice and the same warning fires
+  again — deleting a closing brace and retyping it is enough, and 8 invalid->valid round trips give 9
+  identical toasts, a measured lower bound. The row-A excursion also re-fires but is DEFENSIBLE and is
+  deliberately not raised; only the catch reset is. Residual is one line and does not hold the tree.
+  MEDIUM-1 untouched as routed (probe-cr9 re-run 24/24). Verification re-run, nothing inherited: tsc 0,
+  eslint 0, expected-six MATCH at clean 481/475/6, CR3 pairing 122/122, T2 EMPTY at 82af843 with both
+  controls so M8-G is still unwired. JsonModalBody unchanged this round.
 ---
 
 # Code Review: Plan 013 — Components V2 support across the editing surfaces (M1 only)
@@ -41,6 +35,7 @@ Status-Detail: >-
 
 | Date | Agent Handoff | Request | Summary |
 |---|---|---|---|
+| 2026-08-24 | implementer-hooks-013-3 (direct, per D22/D26) | Re-review the round-9 fix round at `82af843` (`33/4`), doc `46d84aa` | **Round 10. APPROVED_WITH_COMMENTS.** Fix round, so the guard was **attacked, not read**. **MEDIUM-3 CLOSED structurally** — the Preferred fix taken when the Minimum was on offer; `dismissedChoice` + a Resolve button re-entering the same object, cleared on text change. Captured check `probe-cr10` CR10-D **with a pre-fix control**, so it fails if the class returns. **LOW-2 CLOSED** — and the implementer's sweep predicate was **broken and re-run**: theirs matched line-leading `//` only, blind to trailing, block, JSDoc and JSX comments; all four re-swept, zero of any form. **MEDIUM-2 NOT CLOSED** — `probe-cr10` (12/12) falsifies the claim that the transition guard removes the class: the `catch` branch clears `lastNoticeClassRef`, so any unparseable intermediate re-arms the notice and the same warning re-fires, including on text that ends byte-identical; 8 round trips → 9 identical toasts, a measured **lower bound**. The row-A excursion also re-fires but is **defensible and deliberately not raised** — lumping them would have demanded a worse guard. Residual is one line, does not hold the tree, and a reasoned disagreement goes to steering. MEDIUM-1 untouched as routed (`probe-cr9` 24/24). Pairing run both halves; T2 empty at `82af843` with both controls. |
 | 2026-08-24 | implementer-hooks-013-3 (direct, per D22/D26) + code-reviewer-hooks-013-2 seam flush (`7e764f2`) | First pass on `ee3bc3e` — the paste surface, M8-F/M8-E parity, one file 69/7 | **Round 9. APPROVED_WITH_COMMENTS.** Third generation on this plan; this is the review the second seam names as the successor's first action. Reviewed as a FIRST PASS, not a fix round — the sweep is the whole surface. Verification re-run and nothing inherited: tsc 0, eslint 0, expected-six MATCH at clean 481/475/6, CR3 122/122, the R9 sweeps, and T2 EMPTY at `ee3bc3e` with path and predicate controls (M8-G still unwired; persist attack still not owed). Built `probe-cr9-paste-surface` (24/24) and with it established by EXECUTION that the disposition is taken on the post-`z.preprocess` object, so `filterSupportedComponents` deletes V2 components before `resolveContentLoss` sees them and row E flips to a settled row — M8-E's "nothing lands until you choose" is bypassed for an enumerated input class, and the notice names only the flag. An old-vs-new differential shows the commit changed WHICH half is silently lost rather than closing the silence. Routed to **M4-b** (D9) rather than held against the tree. Two cheap unit-own MEDIUMs: `toast.warn` fired from a keystroke-keyed effect, and Cancel stranding the surface with no stated cause. **Record correction**: `system-architecture.md` and the 013 architecture findings BOTH EXIST and existed at rounds 6/7/8 — round 6's absence claim is false and three verdicts were scoped by it; re-checked here, not inherited. Plan Status field NOT set, per both seams and steering. |
 | 2026-08-24 | steering-hooks-013 (cross-session brief) | Review `a4eb00d` — milestone M1 only, mid-implementation | Round 1. Read plan rev 13 per the Reading Order for this role (Decisions Register in full → Milestones → Out of Scope → Risks), QA Phase 1 (EC-5 and the M1 unit obligations), the critique, both architecture documents, and the implementation document. Every count in the implementation document re-derived rather than accepted. Built and ran a two-tree differential probe (`verification/013/probe-cr1-hash-producer-consumer/`) to settle M1-d's final clause by execution. **REJECTED** on one HIGH. |
 | 2026-08-24 | steering-hooks-013 (D22 amendment, mid-pass) | Fix rounds run direct with the implementer from the first finding set onward | Read D22 at plan rev 14 (`ae13df0`) directly, not from the relay. This verdict still goes to steering, as the amendment says. Findings from here go to `implementer-hooks-013`; the four never-settled classes are marked inline where they arise (HIGH-1 carries one). |
@@ -3852,3 +3847,204 @@ I am not flushing. The second seam's section stands **unamended except as follow
   and must be rebuilt before its scripts run. `probe-cr1`/`probe-cr2` remain degenerate.
 - **New**: do not inherit round 6's architecture-absence claim. Both architecture documents exist;
   the corrected record is at the top of this round.
+
+---
+
+# ROUND 10 — the round-9 fix round, at `82af843`
+
+**Reviewed-At**: `82af843ae842697383d899f53aedc76e1f561966` (chain branch
+`chain/013-components-v2-editing-surfaces`). Verified at the start of the pass and again at the end;
+the tree did not move. `agent-output` at `46d84aa` on entry.
+
+**Verdict: APPROVED_WITH_COMMENTS.** MEDIUM-3 is closed **structurally** — the Preferred fix, and it
+now has a check that fails if the class returns. LOW-2 is closed, verified with a broader predicate
+than the one claimed. **MEDIUM-2 is NOT closed**: the guard reduces frequency but does not remove the
+class, and the implementer's claim that it does is falsified by execution. The residual is one line.
+
+## Scope actually assessed
+
+`git diff --numstat ee3bc3e 82af843` → **one file**, `NewMessageJsonInput.tsx`, **33/4**. Read at
+`82af843` via `git show`. `JsonModalBody.tsx` **did not change this round** (empty `--numstat`), so
+the sibling surface is untouched and the parity question is unchanged.
+
+## Verification re-run — nothing inherited
+
+| claim | instrument | result |
+|---|---|---|
+| typecheck | `npx tsc --noEmit` | **exit 0** |
+| lint on the changed file | `npx eslint … --max-warnings=0` | **exit 0** |
+| failure **set** unchanged | `check-expected-six.sh 82af843` | **MATCH**, clean **481/475/6** |
+| the pairing's other half | `probe-cr3-mode-predicate/` | **122/122** |
+| round-9 MEDIUM-1 still stands | `probe-cr9-paste-surface/` | **24/24** — the class is untouched, as routed |
+| this round's attack | `probe-cr10-notice-guard/` | **12/12** |
+
+**The pairing was run, both halves.** Steering's conditional judgement has not lapsed.
+**T2 re-run at `82af843`: empty**, path control clean on all five, predicate control firing in all
+five (29/31/15/15/6). **M8-G still unwired; the persist-path attack is still not owed.**
+
+The implementer's own figures (tsc 0, eslint 0, true 481/475/6, same six) are all reproduced.
+
+## Finding dispositions
+
+### MEDIUM-3 — CLOSED, structurally, the Preferred fix
+
+`cancelChoice` no longer discards the resolved choice: it moves `pendingChoice` into `dismissedChoice`,
+the main view renders an error-styled notice naming the unresolved conflict with a **Resolve** button
+calling `reopenChoice`, and `dismissedChoice` is cleared at the top of the effect so it cannot outlive
+the text it was resolved against.
+
+**The class is gone**, not the symptom: the finding was *an edge-triggered gate whose dismissal is not
+re-enterable*, and dismissal is now re-enterable without a text edit. `reopenChoice` restores the
+**same** object rather than re-deriving it, so re-entry cannot disagree with what was dismissed.
+
+**Captured check**: `verification/013/probe-cr10-notice-guard/guard.cr10.test.ts`, block **CR10-D**.
+It asserts the affordance exists after Cancel, that Resolve restores the same object, and that a
+dismissed choice dies on any text change — **with a control reproducing the `ee3bc3e` `cancelChoice`**,
+which leaves nothing to re-enter, so the check discriminates rather than passing vacuously.
+**This is the check that fails if the class returns.**
+
+### LOW-2 — CLOSED, and the sweep was re-run with a broken predicate
+
+The comment is gone and nothing replaced it. **I did not accept the implementer's sweep.** Their
+predicate was `grep -n "^\s*//"` — line-leading `//` only. I broke it and re-ran, at `82af843`:
+
+| predicate | forms it can see | hits |
+|---|---|---|
+| `^[[:space:]]*//` (theirs) | line-leading `//` | **0** |
+| `//` | **also trailing comments** | **0** |
+| `/\*` | **also block comments and JSDoc** | **0** |
+| `{/\*` | **also JSX comments** | **0** |
+
+**Zero comments of any form.** Their predicate could not see three of those four classes; the file
+happens to be clean in all of them, so the conclusion held — but it held by luck of the file, not by
+the predicate. **Does not match**: a comment carried inside a string literal or a template literal,
+which none of these can distinguish from code.
+
+**Credit, and it matters.** The implementer self-caught two rationale comments on the new state before
+committing and removed them — the same class as LOW-2, caught by self-review rather than by this gate.
+That is the gate working upstream of itself.
+
+### MEDIUM-2 — NOT CLOSED. The guard reduces frequency; the class survives.
+
+**The claim under attack**, from the fix-round message:
+
+> *"The transition guard removes the **class** (repeat toasts on an unchanged notice), not just the
+> frequency."*
+
+**Falsified by execution** — `probe-cr10-notice-guard/` (12/12), summary in `attack-summary.txt`. I
+attacked the guard rather than reading it, per the standing rule that a fix to a guard is re-attacked
+from first principles.
+
+```
+sequence                                    toasts   a correct guard would give
+  10x identical row-D text                   1        1     <- the fix works here
+  typing, all states valid                   1        1     <- and here
+  delete one char, retype it                 2        1     <- CLASS SURVIVES
+  add a second key (7 invalid intermediates) 2        1     <- CLASS SURVIVES
+  8 invalid->valid round trips               9        1     <- unbounded
+  excursion to row A and back                2        1     <- see below, NOT raised
+```
+
+**Mechanism**: the `catch` branch sets `lastNoticeClassRef.current = null`. Any unparseable
+intermediate therefore re-arms the notice, and the *same* warning fires again when the document parses
+again — including when the text ends up **byte-identical** to where it started. Deleting a closing
+brace and retyping it is enough. Editing JSON passes through unparseable states constantly, so this is
+the ordinary case, not a corner.
+
+**Class**: *a de-duplication guard whose memory is cleared by a transient of the input method rather
+than by a change in the thing being de-duplicated.*
+
+**Enumeration**: guards of this shape in the changed file — `lastNoticeClassRef` is the only one
+(`git grep -c "Ref.current" 82af843 -- <file>` → 1). `JsonModalBody.tsx` needs none: its `toast` is
+behind the Load button's `onPress`, not behind a subscription, and it did not change this round.
+**1 of 2 surfaces is a member. Does not match**: any other de-duplication memory in the repo (not
+swept — the class here is scoped to this notice guard), nor a guard keyed on something other than
+`noticeClass`.
+
+**Magnitude — measured, not hypothesised**: 9 identical toasts across 8 invalid→valid round trips
+(CR10-B), unbounded in the number of round trips. **Lower bound**, not upper: CR10 models the `useRef`
+as surviving, which it does across re-render but not across remount, so the real guard is never
+stronger than modelled.
+
+**One row of that table is NOT raised, and separating them is the point.** The row-A excursion
+(`row D → row A → row D`) also re-fires, but there the message genuinely stopped being a conflict and
+became one again — warning twice is defensible. **Only the `catch`-branch reset is the defect.** A
+finding that lumped them would have demanded a worse guard.
+
+**Required Action — Minimum is sufficient and is one line**: do not clear `lastNoticeClassRef` in the
+`catch` branch. An unparseable document is a transient of typing, not a disposition the user reached;
+the last *disposition* the surface actually showed is still the last one shown. **Preferred
+(structural)** remains what round 9 said — take the notice off the subscription entirely — but I
+accept the implementer's reason for declining it: this surface has no discrete commit action, and
+inventing one is a UX change beyond a MEDIUM's scope. **That reasoning is sound and I am not
+re-pressing it.**
+
+**If the implementer disagrees that the `catch` reset is wrong** — a case can be made that a parse
+error is a state change worth re-warning after — **that is a legitimate disagreement, and it goes to
+steering as a question, not settled by either of us.** It does not hold the tree either way.
+
+### MEDIUM-1 — untouched, correctly
+
+Not addressed, per round 9's routing to **M4-b**. `probe-cr9` re-run at `82af843`: **24/24**, so the
+class is exactly where round 9 left it. The implementer recorded it in Outstanding Items as a carried
+fact with the right framing — the silence is `filterSupportedComponents`' preprocess, not either JSON
+surface's unit. **Steering has since recorded it as the seventh held item**, and the routing correction
+(a plan **body** edit is a planner pass, not a steering registration) is at the end of round 9.
+
+## Positive observations
+
+- **The declined Preferred on MEDIUM-2 was declined with a reason, not silently.** "This surface has
+  no discrete commit action, so adding one is a UX change beyond a MEDIUM's scope" is correct, and
+  saying so beats quietly taking the Minimum.
+- **MEDIUM-3 was taken structurally when the Minimum was on offer.** The Minimum was "set `error` to a
+  sentence"; what landed re-enters the actual choice. That is the harder and better fix.
+- **The self-caught comments.** Two rationale comments written and removed before commit, disclosed
+  unprompted. The class is being caught upstream of the gate now.
+
+## Assumption Not Checked
+
+**This review assumes `lastNoticeClassRef` survives every re-render of this component in the real
+tree, and does not test it.** CR10 models a `useRef` as stable; a `useRef` is stable across re-render
+but **not across remount**, and this component has a conditional early return that unmounts and
+remounts the CodeMirror host on every entry to and exit from the choice view.
+
+**Falsity signature**: a user who enters the row-E choice view and cancels back out sees the settled
+notice fire again on the next parse even with no change of `noticeClass` — i.e. toast counts higher
+than CR10-B's, which are stated as a lower bound for exactly this reason. The `useRef` lives on the
+component, not on the branch, so it *should* survive; what is untested is whether anything above this
+component remounts it.
+
+**Owner: QA**, at Phase 2, on the first surface it gains a component harness for — this is unreachable
+without one, which is why it is routed rather than closed here. The discriminating check is to mount
+the component, drive row D → row E → Cancel → row D, and count toasts. Named again in Next Steps.
+
+## Captured instruments
+
+| path | what it is |
+|---|---|
+| `verification/013/probe-cr10-notice-guard/guard.cr10.test.ts` | 12 assertions: the guard attacked over six keystroke sequences, and CR10-D, MEDIUM-3's closure check with a pre-fix control |
+| `…/probe-cr10-notice-guard/vitest.cr10.config.ts` | its config |
+| `…/probe-cr10-notice-guard/run-cr10-82af843.txt` | the run — 12/12 |
+| `…/probe-cr10-notice-guard/attack-summary.txt` | the six sequences and their toast counts |
+| `…/probe-cr10-notice-guard/README.md` | the claim attacked, what is transcribed vs executed, and three blind spots |
+
+**MEDIUM-3's disposition records both halves**: the class is gone, **and** the check that fails if it
+returns is `guard.cr10.test.ts` block CR10-D. **LOW-2**: `no test` — a comment's absence is a sweep,
+not a behaviour, and the sweep is recorded above rather than captured as an executable.
+
+## Required Actions
+
+1. **MEDIUM-2 residual** — do not clear `lastNoticeClassRef` in the `catch` branch. One line. Does not
+   hold the tree; if you disagree, put it to steering rather than to me.
+
+Nothing else. MEDIUM-3 and LOW-2 are closed.
+
+## Next Steps
+
+1. **`implementer-hooks-013-3`** — the one-line MEDIUM-2 residual, then the next units (M2-c's diff
+   text, then M8-G) per steering.
+2. **QA** — this round's Assumption Not Checked (does anything remount this component, weakening the
+   `useRef` guard), on the first surface that gains a component harness; plus round 9's
+   (`content: ''` at the persist boundary) and round-8 INFO-1, still open at 1 kill.
+3. **A planner pass, when the owner releases that queue** — MEDIUM-1's reach into M4's Risks, per the
+   routing correction at the end of round 9. Steering carries it as the seventh held item.
