@@ -1966,3 +1966,113 @@ different remedies and combining them would deliver neither:
 
 I am adopting that check for the remaining rounds of this plan. Steering offered to drop the
 hypothesis if it failed; it failed, but the test was worth running and this note is its output.
+
+---
+
+# Standing obligations for the next code-reviewer on plan 013
+
+Written at a generation seam, on the owner's ruling *"Respawn at the next seam, same with
+code-reviewer"* (relayed by `steering-hooks-013`, 2026-08-24). **Everything a successor needs is
+below or cited from here; nothing in this section depends on remembering a conversation.** Both this
+thread and the steering thread respawned at this point, so a successor cannot ask either of us.
+
+## 1. Adversarial execution — the exemption, and a trigger a successor can test
+
+Rounds 4 and 5 scoped out the mandatory "stand the service up and attack it" step for
+`gateBeforePersist`, which guards an irreversible action (a persisted overwrite). **The exemption
+rests on one fact only: nothing can reach the gate.** It is not a judgement about the code.
+
+**Test the trigger mechanically — do not interpret "M8 wires the gate":**
+
+```
+git -C /usr/local/bin/hooks/website grep -c \
+  "gateBeforePersist\|applyDisposition\|resolveContentLoss" <sha> -- src \
+  | grep -v "src/utils/index.ts" | grep -v "__tests__"
+```
+
+**Empty output → the exemption still holds.** **Any hit → the exemption has expired**, and that
+round MUST drive the five IS-1 writers against a running instance and assert the negative *on the
+persistence surface itself* — no `message.upsert` before a choice — not on a response status. The
+five writers are enumerated in QA's IS-1 row: `useApiMethods.saveMessage`, `SaveAsMenu.onSubmit`,
+`NewMessageModal.onSubmit`, `m/new/page.tsx`, `f/[id]/page.tsx`.
+
+The next unit of work is the shared M2+M8 wiring in `JsonModalBody.tsx`'s Load (plan order corrected
+at `d598b54`: **M2 before M8**), so the expiry is expected at that commit.
+
+## 2. My enumeration limitation, recorded as mine
+
+Round 4's MEDIUM-3 named a class — *"a contract that accepts a derived value where the raw value is
+available"* — and the fix closed it at `resolveContentLoss`. **The same class reopened in the same
+fix round** at the newly added `applyDisposition` (round 5, MEDIUM-1). My enumeration covered
+functions that existed at `92ce026`; it could not reach a function the fix would add.
+
+The diagnosis is in the **Method note (round 5)** above: that finding is the **only one of 17** in
+this document whose Enumeration carries no "what this predicate does not match" clause, and its
+heading — *"Enumeration + demonstration"* — is what let the demonstration stand in for the
+enumeration.
+
+**Adopted check, carry it forward**: no finding ships whose Enumeration lacks an explicit
+"does not match" clause, and treat *"Enumeration + demonstration"* as a heading to distrust. When a
+finding's Required Action will cause **new code to be written in the same module**, state the class
+as an invariant the new code inherits — the enumeration cannot cover code that does not exist yet.
+
+## 3. A hypothesis that was tested and withdrawn — do not resurrect it
+
+`steering-hooks-013` proposed that round 3's red-domain error and round 5's enumeration limitation
+were the same shape (*"the instrument's basis and the class's definition were not the same thing"*).
+**Tested against this document; it failed** — see the Method note. **Steering then withdrew it
+explicitly** rather than softening it, and asked that the withdrawal be recorded so neither
+successor revives it:
+
+> round 3's was a wrong *kind* of predicate over a behaviour-defined class, and the gap **was**
+> visible from inside the instrument … Round 4's MEDIUM-3 enumeration was complete and correct over
+> the tree it ran against. "Instrument basis ≠ class definition" does not describe the second one.
+
+The two remain **separate** retrospective items with different remedies: round 3 needs an
+instrument-choice fix (reference-following, not name-matching, for a behaviour-defined class) and is
+stronger standing alone — QA reproduced it independently, which makes it about the instrument rather
+than a person. Round 5 needs **no new rule**; it is a compliance miss against one this role already
+states.
+
+## 4. The plan's Status field — do not set it
+
+**This role's definition instructs the reviewer to set the plan's Status to "Code Review Approved"
+on a passing review. Do not do that on plan 013.** Steering ruled twice — rounds 2 and 3 — that the
+field stays as it is, *for the reviewer's own reasoning*: this plan is being reviewed
+**milestone by milestone**, and a plan-level "approved" status asserted from a milestone-level
+verdict would be false at the plan level. Five milestones (M2, M3, M4, M6, M8) remain undelivered.
+
+**If the field's absence is raised at you, do not move it — refer it to steering.** Steering lodged
+the underlying definition gap in `~/.claude/agents/INBOX.md` (`ee1ae0e`) for retrospective → pi.
+This paragraph exists because that ruling lived only in cross-session messages until now.
+
+## 5. Instruments — which are current, and which are paired
+
+Index: **`agent-output/verification/013/README-code-review-instruments.md`** (mine;
+`verification/013/README.md` is QA's document and is not mine to edit).
+
+The one thing not to get wrong: **`baseline-expected-six/` and `probe-cr3-mode-predicate/` are a
+pair and both are run every round.** The failure-set comparator cannot see a new defect that
+reproduces an existing red exactly — live here, since anything leaving the V2 flag set yields
+`012-message-mode.test.ts`'s identical `expected 32768 to be +0`. CR3 covers that surface
+behaviourally and keys on nothing in the suite output. **Steering is carrying a judgement conditional
+on both being run** (that an out-of-phase QA re-anchor was not worth putting to the owner). If the
+mode-predicate probe stops being run, that judgement lapses — say so rather than letting it hold.
+
+Also note **`probe-cr4-disposition-gate/` is superseded in part**: the signature changed at
+`2f49182`, so its boolean call shape now under-reads (`true & 32768 === 0`). Use CR5.
+
+## 6. Standing procedural facts a successor would otherwise re-derive
+
+- **The suite is not green and will not be** until QA re-anchors `012-message-mode.test.ts` at
+  Phase 2. Six failures are expected; establish it is *the same six* with the pinned baseline, never
+  by reading a total.
+- **Never take suite figures from the working tree.** It is shared and carries other sessions'
+  untracked test files, which vitest collects. Measured three times at exactly `+7/+7/+0`
+  (`013-qa-phase1-seed-route-probe.test.ts`, `qa-hooks-013`'s). This is a shared-tree property, **not
+  an implementer accuracy problem** — steering corrected that attribution to the owner.
+- **RTK filtering makes exact-match and positional predicates unsound.** Use `git grep -c`,
+  `grep -c`, `git diff --numstat`, `git rev-parse`, or write to a file and read it. A `git log`
+  reading of the tip disagreed with `git rev-parse` in this very chain, and `rev-parse` was right.
+- **Verdicts do not travel between trees.** Re-verify the SHA at the start *and* end of every pass;
+  the tree moved under this reviewer mid-session once already.
