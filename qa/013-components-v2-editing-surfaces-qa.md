@@ -12,14 +12,19 @@ Verified-At-Detail: >-
   assembled release tip is byte-identical to the chain tip.
   **The production-code verdict is anchored to `164d720` clean** — the F-QA15 fix was verified
   against the pristine tip with no QA changes present.
-  **The suite-green claim additionally requires three UNCOMMITTED test-file changes** (F-QA16's
-  re-anchors and F-QA19's coverage), so that half carries a content identity alongside the SHA:
+  **The suite-green claim additionally requires four UNCOMMITTED test-file changes** (F-QA16's
+  re-anchors, F-QA19's coverage, and the implementer's F-QA21 fix), so that half carries a content
+  identity alongside the SHA. **Re-derived 2026-08-24 after the implementer landed F-QA21 into the
+  same shared tree** — a fourth path appeared under this verdict after it was first written, and the
+  manifest is restated rather than left describing a tree that no longer exists:
     `012-json-editor-repair-path.test.ts`  33af76e25e0bd5f6350c9fd398c2a135fb9db53f8be6c352eee1af4768021714
     `012-message-mode.test.ts`             94cd8738162139121c421056737edf7d1b9da53ca91dac2209288bcf2f5fe411
     `013-fqa19-ingress-gate-reachability.test.ts` 82e92af1ab7c4c6bf718f28d10c4977479b00644d538f7798ce82253de9c3fcd
+    `013-fqa15-rowd-load-gate.test.ts`     39e62dcd6d969788434c4ea301404d0840ff2387f404af82b5c0782f2702c58d  (implementer's, F-QA21)
   plus one deletion: `013-qa-phase1-seed-route-probe.test.ts` (untracked; byte-identical copy
   retained under `verification/013/probe-preexisting-seed-route/`).
-  **A commit approval for those three paths is OWED and has been requested** — they are website
+  Suite at this content identity: **550 tests / 37 files / exit 0**.
+  **A commit approval for QA's three paths is OWED and has been requested** — they are website
   source, not agent-output, so QA's standing commit grant does not reach them.
   Phase 2 anchor, re-derived by this pass and not inherited. `website` @
   `chain/013-components-v2-editing-surfaces`, HEAD = `4e9da96` (`git rev-parse HEAD`, exact match
@@ -89,6 +94,7 @@ Status-Detail: >-
 | 2026-08-24 | uat-hooks-013 (direct, under D27, third digest) | UAT reports F-QA11 does not generalise to Save As (read-level, asked to be recorded as such), and hands over **finding U-1** plus one inference it deliberately left unexecuted about `valid` and R7 | **Executed rather than recorded at read level.** **F-QA11 is bounded by execution to 1 of 4** sites matching the sweep predicate — *builds `message.upsert`'s `guildId` from a value the user picked this session* — and the load-bearing result is that **two siblings guard the exact `'0'` sentinel**, so it is a single-site oversight, not a design. **UAT's unexecuted inference CONFIRMED**: both seeds carry `valid = false`, so they stay out of R7's `flagStructureDisagreementValidTrue` — with one correction UAT's reasoning did not carry, that a username-less message is *also* refused for an unrelated reason, so **anything keying on `valid = false` must key on the reason, not the boolean**. **U-1 recorded as a Phase 2 constraint** on detector selection. Four more mutants; **nine across the pass, nine killed**. Instrument now 36 assertions. |
 | 2026-08-24 | steering-hooks-013-2 | Run QA Phase 2 at chain tip `4e9da96` | **Phase 2 executed. Verdict: QA FAILED on F-QA15** — the Message JSON modal's Load button is gated on a content floor computed over the *unresolved* draft, so **every** member of disposition row D is refused, closing M2-a's stated repair path for records 5712/5842/5855/5856. Confirmed end to end on record 5712 through the shipped pipeline, captured at `verification/013/probe-qa-p2-rowd-load-gate/` (29 assertions, mutants R1-R3 killed). Regression vs base `c85945f`, where Load was gated only on "does it parse". **TDD gate: PASS** — re-derived against the current implementation document; this pass **withdraws** its own earlier working claim that `SaveChoiceModal.tsx` lacked an exemption. **INFO-2 falsified** by execution. Suite re-run and re-counted. |
 | 2026-08-24 | steering-hooks-013-2 | Refresh pass at `164d720` after the F-QA15 fix | **QA COMPLETE.** F-QA15 **closed** — verified against the pristine tip by QA's own instrument (`verification/013/probe-qa-p3-fixverify/`, 25 assertions, mutants F1/F2 killed), including five **over-permission** controls the fix could plausibly have broken. **F-QA16 discharged** — both 012 specs re-anchored; the *"flag never reaches the textarea"* assertion **replaced, not restored**, per the relayed round-19 constraint. **013 makes the B3 class lossless**, superseding 012's R19 *"no lossless path"* conclusion. **F-QA19 discharged** with permanent coverage. Probe-file **dispositioned** (deleted; captured copy retained). Suite **green: 37 files / 549 tests / exit 0** — Validation item 1 met. New: **F-QA21** (a type-assertion masquerading as a bitmask in the implementer's spec), **F-QA22** (`enforceImportMutualExclusivity` has zero production callers). **D28 honoured — no DOM harness added.** |
+| 2026-08-24 | implementer-hooks-013-3 (direct, under D27) | F-QA21 fixed in the shared tree; asks when QA's files are clear to land | **F-QA21 CLOSED, and its severity corrected UPWARD on execution.** The fix is verified, not accepted: 16/16 green, and mutant **Q1** (`switchToClassic` wiping *all* flag bits) is **killed**. Decisively, Q1 **SURVIVED the pre-fix spec** (15/15 green) — so the old type-assertion was blind to a live regression class that would drop `SUPPRESS_EMBEDS`/`EPHEMERAL` on every classic repair. Not cosmetic. Verdict's content identity **re-derived to four paths**; suite 550/37/exit 0. **QA declined the offer to have the implementer commit QA's three files** — an approval is pending with the owner, and routing it through a peer's standing grant would settle it without him. |
 
 ## Timeline
 
@@ -1358,7 +1364,7 @@ No test file in this repo is linted or typechecked; recorded, not worked around.
 
 | ID | Finding | Severity | Routed to |
 |---|---|---|---|
-| **F-QA21** | `expect(x.flags as number & 32768).toBe(0)` in `013-fqa15-rowd-load-gate.test.ts` is a type assertion, not a bitmask; it means `flags === 0` and contradicts the correct bit-preserving behaviour. Passes only by fixture choice. | Low | **implementer** — one-line fix, not release-blocking |
+| **F-QA21** | `expect(x.flags as number & 32768).toBe(0)` in `013-fqa15-rowd-load-gate.test.ts` is a type assertion, not a bitmask; it means `flags === 0` and contradicts the correct bit-preserving behaviour. Passes only by fixture choice. **CLOSED 2026-08-24** by `implementer-hooks-013-3` — see the severity correction below. | Low → **real** | **CLOSED**, verified by QA |
 | **F-QA22** | `enforceImportMutualExclusivity` has zero production callers; exercised only by tests. | Low | later cleanup, not this chain |
 | **INFO** | The implementer's F-QA15 spec is coupled to source by 2 assertions rather than structurally; reverting the fix leaves 13/15 green. | Info | noted, no action |
 
@@ -1426,3 +1432,43 @@ the frontmatter is what pins it.
 
 **Roadmap**: `agent-output/roadmap/` still holds only `.gitkeep` (re-checked), so **no roadmap epic
 acceptance criterion changes state on this record.**
+
+---
+
+## Addendum — F-QA21 closed, and its severity corrected upward
+
+Recorded beside the finding above, not over it. F-QA21 was filed **Low, "not release-blocking"**, on
+the reasoning that the behaviour was correct and only the assertion was wrong. **Execution says that
+under-rated it**, and the correction is the point of this addendum.
+
+The implementer replaced both type assertions with parenthesised bit-tests and added a dedicated
+preservation test. QA verified rather than accepted:
+
+| Check | Result |
+|---|---|
+| The fixed spec | **16/16 green** |
+| Mutant **Q1** — `switchToClassic` wipes *all* flag bits (`next.flags = 0`) — against the **fixed** spec | **KILLED**, `AssertionError: expected +0 to be 4` |
+| The same mutant Q1 against the **pre-fix** spec at `164d720` | **SURVIVED — 15/15 green** |
+
+**That last row is the finding.** The old assertion `flags as number & 32768` means `flags === 0`,
+which a wipe-everything mutant satisfies *perfectly*. So the suite was blind to a regression class
+that would silently drop `SUPPRESS_EMBEDS` and `EPHEMERAL` from **every** classic repair — on
+records that carry them, including two members of the file's own `rowDMembers` list. This was not a
+cosmetic defect in a test; it was a **hole in the guard**, and it is exactly the failure mode the
+mutation obligation exists to expose: a test that has never been seen to fail is not evidence that
+the thing it guards is guarded.
+
+**QA's own instrument asserted the property correctly throughout** (`(out.flags ?? 0) & FLAG`), which
+is how the discrepancy surfaced at all — the two instruments disagreed about what they were
+measuring, and the disagreement was the signal.
+
+**Verdict impact**: none adverse. The production behaviour was always correct; what changed is that
+it is now guarded. Suite at the four-path content identity: **550 tests / 37 files / exit 0**.
+
+### A process note this pass owns
+
+QA's verdict was written against a three-path content identity, and a fourth path appeared under it
+when the implementer landed F-QA21 into the same shared tree. Nothing was wrong with either action —
+but a `Verified-At` that describes a tree which no longer exists is not an anchor. The manifest is
+**re-derived and restated** above rather than left standing. On a shared tree, a content-identity
+anchor has to be re-derived at the moment of hand-off, not at the moment it is first written.
