@@ -39,3 +39,22 @@ resumption reads. Anything else touching `valid` — the R-5 deployment-record l
 assumption 7's falsifier — is bitten by the same thing.
 
 Raised by `steering-hooks-013-2`, 2026-08-24.
+
+## Three open handoffs, unassigned — moved here from steering's docket 2026-08-24
+
+Unstarted work, so it belongs here rather than in a docket. Each is `Status: Open` in `handoff/` with no
+owning stage. **Cite the handoff documents; the lines below are pointers, not restatements.**
+
+- **`8818bd89` (`a3d60d5`) — v1 guild-messages endpoints have no authorization.** `middleware.ts`'s guard
+  **cannot fire**: the `matcher` prefix is wrong **and** the check is `startsWith('/api/v1/*')` with a
+  literal asterisk. **Each defect masks the other, so either fix alone reads correct and changes nothing** —
+  whoever takes this must fix both or verify neither. Owner answered **`handoff`** when asked how to route
+  it. **Cheapest thing to settle first: whether the deployed edge already blocks `/api/v1/*`** — not
+  established, and it decides the severity. Related: CRITICAL-1, reconfirmed live at `66e1974` against a
+  local instance, **not** established for the deployed environment.
+- **`35274074` (`aa430c8`) — four unsaved-change guards are inert for unauthenticated users.** `hasChanged`
+  is `status === 'authenticated' && …`. **Run item 4's falsity signature BEFORE fixing `hasChanged`**:
+  fixing it closes items 1–3 and leaves item 4 broken while the document reads fully discharged.
+- **`e6ac06b5` (`58d177f`) — failed preview generation shows a broken image, not a stale one.** Against the
+  owner's *"Show a stale one is fine"*. **The fallback may have nothing to fall back to** — establish that
+  before designing the fix.
