@@ -28,155 +28,18 @@ lines about items nobody is waiting on.** If it does not need the owner to act, 
 
 ## CHAIN 013 — LIVE. NOTHING IN THIS SECTION IS ON HOLD.
 
-**Where things stand — RELEASED.** `origin/master` = **`a74b9e2`**, which is your own
+**Where things stand — RELEASED.** `origin/master` = **`a74b9e2`**, your own
 "remove unnecessary diff" commit sitting on top of the release. 013 was released at **20:30:01 UTC**,
 `master` moving `2d90e8a` → `b56570d`; your commit landed eleven minutes later. Everything the chain
 shipped is in production.
 
-**All eight `PRE` checks below are done and terminal** — you walked them, and `uat` closed the last one
-on your answer. **Items 9–12 further down are the remaining post-deploy checks**, and they are the only
-outstanding work in this chain.
+**The eight pre-merge checks are DONE and have been deleted from this page.** You walked all eight and
+`uat` terminalised every one. They are not summarised here either — the register holds them, and a
+finished item's place is the record of what it changed, not this queue.
 
-*This block read **"unpushed — nothing has been released"** until 2026-08-25 21:0x, hours after the
-release. It was steering's to keep current and steering did not; the retrospective found it, not
-steering. Corrected here rather than silently overwritten.*
+**Four checks remain. They are the only outstanding work in this chain, and nothing else waits on you.**
 
-**The release decision was not yours to make and is not listed here as an item** — it is `uat`'s, written
-against the condition ledger. What *is* yours is the eight checks, because no instrument in this chain
-can reach them.
-
-### Chain 013 — eight things to check before the merge
-
-**Why before the merge:** pushing to `master` deploys. There is no window between merging and shipping, so
-these happen first. **If any of them fails, it goes back to the implementer rather than out.**
-
-**How to report each one:** *pass*, or *what you actually saw*. **If you cannot reach a step, say so —
-that is a result, not a gap.** Nothing here needs you to fetch anything from Discord.
-
----
-
-**1. The Load confirmation tells the truth. (BC-1) — do this one first.**
-
-*Why first: every automated test in this chain stops at the text the dialog is handed. **Nothing proves the
-dialog puts it on screen.** You are the only instrument that reaches this.*
-
-- Paste this into **New Message** and save it — that is your V2 test message, no hunting required:
-  `{"components":[{"type":17,"components":[{"type":10,"content":"hi"}]}]}`
-- Open it, change the JSON so the message would come out **Classic** instead, and press **Load**.
-- **Read the confirmation dialog before you confirm anything.**
-
-**Passes if the dialog names *both*:** which top-level components are being added or removed, **and**
-whether the message type changes (V2 ↔ Classic). **Both must be right — either one wrong is a fail.**
-
-**Fails if** it says the type changes when it does not, **or** says nothing about the type when it does
-change — and also if it is **empty, truncated, or showing text from a previous message.** That last one
-matters most: **the text can be correct and the screen still wrong**, and no test in this chain can see it.
-
----
-
-**2. Pasting a V2 container gives you V2, with the flag actually set. (BC-7)**
-
-- Paste into **New Message**: `{"components":[{"type":17,"components":[{"type":10,"content":"hi"}]}]}`
-
-**Passes if all three:** the editor is in **V2** · the container is there · **a warning is shown**
-· **and the V2 flag bit is set.**
-
-> **The flag bit is checked by opening the Message JSON. Not by the screen looking right.** Everything can
-> look correct on screen while the message is wrong on the wire — the JSON is the only place it shows.
-> **"It looked fine" is not an answer for this one.**
-
----
-
-**3. Pasting a flag over plain content gives you Classic, and keeps your text. (BC-8)**
-
-- Paste into **New Message**: `{"content":"hi","flags":32768}`
-
-**Passes if all five:** the editor is **Classic** · the text `hi` is still there · **a warning is shown**
-· **no V2 error appears** · **and the V2 flag bit is cleared.**
-
-> **Same rule as above: the bit is checked in the Message JSON, not on screen.**
-
----
-
-**4. Pasting both content and components asks you which to keep. (BC-9)**
-
-- Paste into **New Message**: `{"content":"hi","components":[{"type":17,"components":[{"type":10,"content":"hi"}]}]}`
-
-**Passes if all of:** you are offered **two options** · **each one says what it will drop** · **nothing is
-created before you choose** · **backing out leaves your message and the pasted text exactly as they were**
-· **and both options work** — take one, then repeat and take the other.
-
-> **NOT a failure:** the two options **do not appear on their own**. A notice appears first with a
-> **Resolve** link, and the options are behind it. **That is the intended behaviour.**
-
----
-
-**5. An unsupported component is named, not silently dropped. (BC-6)**
-
-- Paste into **New Message**:
-  `{"components":[{"type":17,"components":[{"type":10,"content":"hi"}]},{"type":11,"media":{"url":"https://picsum.photos/200"}}]}`
-
-**Passes if:** the container survives **and the notice names the dropped type** — it must say what was
-removed, not just that something was.
-
-> **NOT a failure:** a *container that ends up empty* being removed without being named. That is by design
-> and is a different case from this one.
-
----
-
-**6. The paste warning stays put, and goes away when you fix the JSON. (BC-18)**
-
-- Paste either item 3's or item 4's payload into **New Message** and leave the modal open.
-
-**Passes if all three:** a warning **appears** · it **stays** — it does not vanish on the next keystroke ·
-**and it clears once you correct the JSON.**
-
-> **NOT a failure:** if you correct it *through* a state that has both V2 components and ordinary content,
-> the warning is **replaced** by a different notice with a **Resolve** link rather than disappearing.
-> **A notice that changes is not a notice that failed to clear.**
-
----
-
-**7. The same paste behaves the same way in both places. (BC-10)**
-
-- Take **any one** of the payloads above. Paste it into **New Message**. Then paste **the same one** at the
-  **Load** surface on an existing message.
-
-**Passes if:** both surfaces do the same thing — same outcome, same thing dropped, same kind of notice.
-
-*(The automated half of this is already done. This is one spot-check by eye that the two surfaces agree.)*
-
----
-
-**8. A bad import keeps the dialog open instead of navigating away. (BC-4) — THIS ONE IS NOW YOURS. The fixture exists.**
-
-*This replaces the "BLOCKED, NOT ON YOU" version. Nothing was owed by you before and nothing was missed. It is now the last of the eight.*
-
-- Open **New Message** and click the **JSON** tab.
-- Paste exactly this, replacing whatever is in the box:
-
-  `{"content": ""}`
-
-- **Stop there. Read the area directly below the JSON box before you press anything.**
-
-**It passes if all three hold:**
-
-1. **The dialog stays open.**
-2. **The message below the box reads exactly:** `Message must have content, embeds, or components.`
-3. **Then** press **Continue**. **Save is greyed out and does nothing**, and **you are not taken anywhere** — no new message is created.
-
-**Three ways to get a wrong answer. If you hit one, write what is in bold instead of *pass* or *fail*:**
-
-- **You pressed `Continue` before reading below the box.** Page 2 does not show that error. You get a greyed-out **Save** with nothing on that page saying why. **This is not a failure — go back to the first page and read there.** (The missing explanation on page 2 is a real defect; it is already written down, and it is not what this check is about.)
-- **You used `{}` instead.** Don't — it looks like an equally good test and isn't. It breaks the same rule, but the check that produces the error never runs on it, so you get **no error and a greyed-out `Continue`**. That is neither pass nor fail. **If that is what you saw, write "not executed".**
-- **You pasted `{"content": ""}`, the text is visibly sitting in the box, and still no error appears and `Continue` stays greyed out.** **That one is a finding, not a mistake on your part — write down exactly that.** It would mean the editor never handed your text to the app, which nothing in this chain has ever tested.
-
-**One thing that is not the answer:** the JSON tab shows its own complaints while you are still typing — malformed JSON and schema errors, inside the accordion. Those don't settle anything. **Only the exact sentence in point 2 does.**
-
-*Lifted verbatim from `uat` register **rev 45, §R45.3** (`d60174d`). If that register is past rev 45,
-this copy may have drifted — the register is authoritative, not this page.*
-
----
+### Chain 013 — four post-deploy checks
 
 **Four checks. All four are about the site as it is running right now. Three are clicks; one is a question that may have no answer, and "no answer" is a fine reply.**
 
