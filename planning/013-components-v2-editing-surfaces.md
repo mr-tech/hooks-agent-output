@@ -3,16 +3,18 @@ ID: 013
 Origin: 013
 UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
-Status: Active
+Status: Released
 Status-Detail: >-
-  Rev 49, planner pass 16. Released at `a151fb4`; production serves `2d90e8a`. Rider 2 complete at
-  `e1d9b2b` (review APPROVED, QA COMPLETE, uat gate rev 36 `68e6159`). D52 orders **M10, test-only**:
-  arm the CR24-2 guard, no production code. M10 expires the gate; scoped re-review/re-verify sized
-  by those stages; uat re-issues at the new anchor. Retrospective last (D45).
+  Rev 51. **RELEASED 2026-08-25 20:30:01 UTC — `website` `master` `2d90e8a` → `b56570d`**,
+  fast-forward, Mode A, devops-executed; deployment record devops §16 (`c19235e`). Production now
+  serves `b56570d`. Gates that held: uat rev 47 (`e7cdc6c`) **UNCONDITIONAL**, all eight `PRE` rows
+  `EXECUTED`; QA release-tip verdict `d408477` (`Release Verified` at `b56570d`); the owner's release
+  approval, given first-hand. **THE CHAIN IS NOT CLOSED** — `POST` rows BC-12/BC-14/BC-17/BC-20 are
+  outstanding and the `closed/` move is devops'. Retrospective last (D45).
 Target-Release: website serving ref `master` moving from `c85945f`; release ordered by 012 D12/D20 (see Validation and Release Conditions)
 Lane: standard
 Architectural-Surface: none added — consolidation of an existing serialisation seam inside `website`; no new layer, contract or core path
-Rev: 50
+Rev: 51
 ---
 
 # Plan 013 — Components V2 support across the editing surfaces
@@ -73,6 +75,7 @@ Rev: 50
 | 2026-08-25 | 48 | planner (planner-hooks-013-2, pass 15) | **M9-a's instrument corrected (QA INFO-1, `33908af`)** — the rev-47 `grep -c generateErrorMessage → 0` reported the passing tree as failing; restated as `split(' | ')` count 0 plus the single one-element-array call site, both re-derived at `e1d9b2b`. M9-b's CR24-2 note corrected: the branch is live for `current`, dead for `incoming`. Status-Detail current to QA complete. Scope: none. |
 | 2026-08-25 | 49 | planner (planner-hooks-013-2, pass 16) | **D52 registered and enacted as M10 (test-only)**: adopt QA's independent mode oracle and correct the row-E constant in M9-b's spec; **CR24-2 is not fixed, no production code is touched** (M10-a makes the boundary a measured criterion). Both answers recorded, the second superseding. `uat`'s two-wrong-fixes warning carried verbatim (M10-d). No other milestone or release condition changes; the gate's expiry is by its own clause. |
 | 2026-08-25 | 50 | **steering** (steering-hooks-013-3 [b04529], registration pass) | **D53 registered — the deployment-records reversal, and the fact that what it reverses was never on the record.** The four records are written and U-C6 is discharged; this row exists because **the ruling they were deferred under had no registration at all** and would have been unfindable by anyone reading the spine. **Registered late and the lateness is disclosed**: the row was held while `code-reviewer`, `qa` and `uat` were live readers of this document — one writer or many readers — and parked in two places meanwhile, since a docket dies with its session. **Registration write set only**; no register state is set here, and the blocking-condition ledger remains `uat`'s. |
+| 2026-08-25 | 51 | **steering** (steering-hooks-013-3 [b04529], release-status write) | **`Status` → `Released`. The release was MADE: `website` `master` `2d90e8a` → `b56570d`, 2026-08-25 20:30:01 UTC**, fast-forward, Mode A, executed by `devops-hooks-013-3`; deployment record at devops §16 (`c19235e`). **Verified at the remote by this thread independently** — `git ls-remote origin refs/heads/master` → `b56570d` — rather than taken from devops' report. **Why steering wrote this and not devops or the planner**: devops' Phase 2D calls for the field, but committing another stage's document is outside its standing grant, so it declined the edit, declined to leave it uncommitted in the shared tree, and put it to the owner. **The owner ruled in the steering session, 2026-08-25, that steering makes the write.** The judgement was devops'; only the execution is here. **Write set**: the `Status` field, `Status-Detail`, the `Rev` bump and this row. **No body text, no register row, no criterion, no milestone.** `Status-Detail` was rewritten rather than merely bumped because it asserted *"production serves `2d90e8a`"*, which **this release made false**; leaving it would have been a falsehood created by the act being recorded. Its stale *"Rev 49, planner pass 16"* opening — flagged by devops §14.1 as prose lagging the `Rev:` field — is corrected by the same rewrite. **This write deliberately WAITED until after the push**: the plan file is the criteria axis, and a revision landing before the merge would have expired uat rev 47, QA's plan-level verdict and the release-tip verdict at once, to set a field the closing stage overwrites anyway. **Steering caused exactly that expiry by accident at 19:31 (D53, rev 50); doing it knowingly before a push would have been strictly worse.** It also moots uat's R47.5 routing of a rev 51 `UAT Approved` pass. **THE CHAIN IS NOT CLOSED** — `POST` rows BC-12/BC-14/BC-17/BC-20 stand outstanding and the `closed/` move remains devops'. |
 
 ## Reading Order
 
