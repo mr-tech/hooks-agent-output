@@ -1,0 +1,37 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > B — coupling guard (the instrument is pinned to the shipped source) > modal: json tab exists 1ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > B — coupling guard (the instrument is pinned to the shipped source) > modal: json tab feeds setJsonMessage 0ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > B — coupling guard (the instrument is pinned to the shipped source) > modal: floor computed over loadedMessage 0ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > B — coupling guard (the instrument is pinned to the shipped source) > modal: floor error render guard 0ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > B — coupling guard (the instrument is pinned to the shipped source) > modal: Continue gate excludes the floor 0ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > B — coupling guard (the instrument is pinned to the shipped source) > modal: Save gate includes the floor 0ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > B — coupling guard (the instrument is pinned to the shipped source) > jsonInput: editor seeded with {} 0ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > B — coupling guard (the instrument is pinned to the shipped source) > jsonInput: parse runs in useUpdateEffect 0ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > A — the candidate fixture {"content": ""} reaches the content floor > A1 the shape accepts it — no Zod error branch, so the tab shows no parse error 2ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > A — the candidate fixture {"content": ""} reaches the content floor > A2 no V2 choice is required — no choice dialog intercepts the paste 1ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > A — the candidate fixture {"content": ""} reaches the content floor > A3 a message IS handed to the modal (loadedMessage becomes truthy) 0ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > A — the candidate fixture {"content": ""} reaches the content floor > A4 the modal floor refuses it with the operator-visible message 0ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > A(control) — the positive direction: a floor-passing paste is NOT refused > {"content": "hi"} loads and is accepted 0ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > A(control) — the positive direction: a floor-passing paste is NOT refused > {"embeds": [{"title": "t"}]} loads and is accepted 1ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > A(control) — the positive direction: a floor-passing paste is NOT refused > {"components": [{"type": 10, "content": "x"}]} loads and is accepted 1ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > A(control) — the positive direction: a floor-passing paste is NOT refused > whitespace-only content is refused (the floor trims, so "   " is not a body) 0ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > C — the editor's initial `{}` is NOT an executable fixture > C1 `{}` fails the same floor, so it looks equally valid by outcome-reasoning 0ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > C — the editor's initial `{}` is NOT an executable fixture > C2 but useUpdateEffect skips the first render — executed against the shipped file 1ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > C — the editor's initial `{}` is NOT an executable fixture > C3 therefore a run that pastes nothing leaves loadedMessage undefined — a DIFFERENT screen 3ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > D — BC-4's three limbs, with the fixture loaded into the JSON tab > D1 ERROR SHOWN — page 1 of the dialog renders the floor message 1ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > D — BC-4's three limbs, with the fixture loaded into the JSON tab > D1b and the error is on the FIRST page, below the JSON box — it does not follow Continue 1ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > D — BC-4's three limbs, with the fixture loaded into the JSON tab > D2 NOTHING CREATED — Save is disabled, and the floor is its SOLE carrier here 1ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > D — BC-4's three limbs, with the fixture loaded into the JSON tab > D2b the Enter-key path is gated by the same value (Form isDisabled) 2ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > D — BC-4's three limbs, with the fixture loaded into the JSON tab > D3 DIALOG STAYS / NO NAVIGATION — rendering the refusal calls neither push nor upsert 1ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > D(observed) — what the un-gated Continue actually produces > Continue is ENABLED on a floor-failing document, and page 2 shows no reason 2ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > D4 — control: the no-upsert instrument is observed FIRING > the spy is live — Form.onSubmit on a floor-passing document DOES call upsert 1ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > D4 — control: the no-upsert instrument is observed FIRING > OBSERVED: onSubmit carries no floor check of its own — the refusal rests wholly on disableSave 1ms
+ ✓ src/utils/__tests__/zz-qa-bc4-json-tab-fixture.test.ts > MUTANT REPORT > records which mutant this run executed 1ms
+
+ Test Files  1 passed (1)
+      Tests  28 passed (28)
+   Start at  19:46:42
+   Duration  1.04s (transform 298ms, setup 0ms, import 727ms, tests 25ms, environment 0ms)
+

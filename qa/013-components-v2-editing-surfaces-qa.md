@@ -98,6 +98,7 @@ Status-Detail: >-
 | 2026-08-24 | steering-hooks-013-2 | Refresh pass at `164d720` after the F-QA15 fix | **QA COMPLETE.** F-QA15 **closed** — verified against the pristine tip by QA's own instrument (`verification/013/probe-qa-p3-fixverify/`, 25 assertions, mutants F1/F2 killed), including five **over-permission** controls the fix could plausibly have broken. **F-QA16 discharged** — both 012 specs re-anchored; the *"flag never reaches the textarea"* assertion **replaced, not restored**, per the relayed round-19 constraint. **013 makes the B3 class lossless**, superseding 012's R19 *"no lossless path"* conclusion. **F-QA19 discharged** with permanent coverage. Probe-file **dispositioned** (deleted; captured copy retained). Suite **green: 37 files / 549 tests / exit 0** — Validation item 1 met. New: **F-QA21** (a type-assertion masquerading as a bitmask in the implementer's spec), **F-QA22** (`enforceImportMutualExclusivity` has zero production callers). **D28 honoured — no DOM harness added.** |
 | 2026-08-24 | implementer-hooks-013-3 (direct, under D27) | F-QA21 fixed in the shared tree; asks when QA's files are clear to land | **F-QA21 CLOSED, and its severity corrected UPWARD on execution.** The fix is verified, not accepted: 16/16 green, and mutant **Q1** (`switchToClassic` wiping *all* flag bits) is **killed**. Decisively, Q1 **SURVIVED the pre-fix spec** (15/15 green) — so the old type-assertion was blind to a live regression class that would drop `SUPPRESS_EMBEDS`/`EPHEMERAL` on every classic repair. Not cosmetic. Verdict's content identity **re-derived to four paths**; suite 550/37/exit 0. **QA declined the offer to have the implementer commit QA's three files** — an approval is pending with the owner, and routing it through a peer's standing grant would settle it without him. |
 | 2026-08-25 | steering-hooks-013-2 [019315] (owner-directed edit; **not** the QA session) | Owner ruling **D44** — strike the ruled subject from this document and drop its dependents | **STRIKE PASS — rev 5.** Performed under **owner ruling D44**, registered in the plan's Decisions Register at **rev 39** (`13a6e66`), and written by `steering-hooks-013-2` [019315] acting on the owner's direction rather than by the QA session. Every mention of the ruled subject is removed, and every dependent item — one register row, one finding, one falsifier limb, one handoff bullet, and their carry-forwards — is **marked DROPPED under D44**: not re-argued, not re-based onto a substitute, not preserved for the record. **No verdict, status or gate state is changed by this pass** — the QA verdicts, the register's other rows and the Final QA state table stand exactly as they were. |
+| 2026-08-25 | steering-hooks-013-3 [b04529] (successor to `qa-hooks-013-3`, which exited) | Confirm or refute a candidate fixture for **BC-4**, reported by a peer subagent, with QA's own instrument rather than a re-reading; and rule whether the un-gated `Continue` is a defect | **BC-4 PASS — the fixture HOLDS, and the row is no longer blocked.** `{"content": ""}` pasted into the New Message dialog's **JSON** tab reaches the content floor; all three of BC-4's limbs closed mechanically against the real `NewMessageModal` function (V.27). **`{}` refuted as a fixture** — it fails the same floor but the parse effect never runs on it. **The un-gated `Continue` is NOT a defect against 013's criteria** and does not move the verdict; it is a low-severity product finding (**F-QA33**) routed to `uat` by name, non-blocking. **No production code touched — `Verified-At: b56570d` unchanged.** Instrument: `verification/013/probe-qa-bc4-json-tab-fixture/` |
 
 ## Timeline
 
@@ -642,7 +643,7 @@ space, and names this document as the register it appended to.
 | **BC-1** | PRE | M2-c: the Load confirmation names what changes — which top-level types are added/removed, and whether the message type changes | operator observation (no harness, F-QA4/assumption 5) | UAT agent; fallback owner | chain tip deployed to any environment with a stored V2 message | the confirmation names both differences before anything is committed | *The dialog is the only thing standing between the user and an irreversible overwrite, so if it misnames the change they confirm believing something else will happen. **Both clauses of the condition, because both can fail on their own**: they lose top-level components the dialog never said would go; **or** they are told the message type changes when it does not, or not told when it does — which is the 5712/5842 repair sitting, and is `load-confirmation-names-wrong-mode` (F-QA31). **Reconciled to this row's condition 2026-08-25 (P3.22): the previous wording spoke only to component loss and could not express a wrong mode statement, which loses nothing.*** | uat | Not started |
 | **BC-2** | PRE | M3-b (URL + webhook): the import dialog names which component types were **not** carried | operator observation | UAT agent | a Discord message carrying a select menu is reachable by URL | dialog shows supported components **and** a notice naming the select | *An import silently returns a message missing half its controls, and the user ships it that way.* | uat | Not started |
 | **BC-3** | PRE | M3-b (bot code path): the **editor** shows the same notice on load | operator observation | UAT agent | bot `Get Message` run on the same message, within the 1h store TTL | editor opens with supported components and the same notice | *The code path has no dialog, so a silent drop here is invisible until the message is sent wrong.* | uat | Not started |
-| **BC-4** | PRE | M3-c: an import failing the floor keeps the dialog open with the error and **does not navigate** | operator observation **paired with** the suite's no-upsert assertion (EC-3) | UAT agent | chain tip deployed | dialog stays, error shown, no new message created | *Three separate failures and only one of them looks like one. **A new message is created** — he lands on a blank message that looks saved; this is flow 6/11/12/13, the defect 013 exists for. **The dialog closes** without creating anything, so the import silently evaporated. **No error is shown** — the dialog sits there having done nothing and said nothing, which reads as the app hanging rather than as a refusal. **Reconciled to this row's Predicted value 2026-08-25 (P3.26): every limb named, because for a human-subject row this cell IS the checklist (`uat` rev 30).** | uat | Not started |
+| **BC-4** | PRE | M3-c: an import failing the floor keeps the dialog open with the error and **does not navigate** | operator observation **paired with** the suite's no-upsert assertion (EC-3) **Re-instrumented 2026-08-25 (successor pass, V.27)**: the primary no longer needs a Discord message link. The dialog's **JSON tab** reaches the same floor — `verification/013/probe-qa-bc4-json-tab-fixture/` executes the fixture `{"content": ""}` through the shipped pipeline and renders `NewMessageModal` itself, closing all three limbs mechanically (D1/D2/D2b/D3, both mutants killed). What remains human is CodeMirror: the act of typing the fixture into the editor is not exercised | UAT agent. **The Discord-link belief that blocked this row all chain is withdrawn 2026-08-25** — it was defensible while "import" was read as the message-link tab only, and it is false: the floor is computed over the merged `loadedMessage` (`NewMessageModal.tsx`, `contentFloorError`) regardless of which of the four tabs produced it | chain tip deployed | dialog stays, error shown, no new message created. **Recorded beside, not over, 2026-08-25 (V.27)**: the fixture is `{"content": ""}` pasted into the **JSON** tab, and **`{}` must not be used** — it fails the same floor but the editor is *seeded* with it and the parse runs in a `useUpdateEffect` that skips the first render, so the check never executes and the screen shown is *no error + disabled `Continue`*, which is neither pass nor fail but **not executed** | *Three separate failures and only one of them looks like one. **A new message is created** — he lands on a blank message that looks saved; this is flow 6/11/12/13, the defect 013 exists for. **The dialog closes** without creating anything, so the import silently evaporated. **No error is shown** — the dialog sits there having done nothing and said nothing, which reads as the app hanging rather than as a refusal. **Reconciled to this row's Predicted value 2026-08-25 (P3.26): every limb named, because for a human-subject row this cell IS the checklist (`uat` rev 30).** **Added 2026-08-25 (V.27), an execution hazard not a failure mode**: the floor error lives on the dialog's **first** page and `Continue` is not gated by it, so an operator who advances first sees a greyed `Save` with nothing on that page saying why and will report this row FAILED. The error is read below the JSON box, before `Continue`. **The operator text is `uat`'s to rewrite, not QA's** — QA states the fixture and the hazard only | uat | **Not started — but no longer blocked.** *State was `Not started` on the ground that no agent could execute the import; that ground is withdrawn (see the Subject cell).* `uat` rev 44 is authoritative on this row's execution state; QA records only that the fixture now exists and is instrument-backed at `b56570d` |
 | **BC-5** | PRE | M4-c: pasting a folder-page export shows the composer's floor error, not a green state | operator observation | UAT agent | chain tip deployed | *"Message must have content, embeds, or components."* | *Green means safe. A green state over an empty object teaches the user to trust it.* | uat | Not started |
 | **BC-6** | PRE | M4-b: the lenient filter **names** the dropped types at both JSON surfaces | operator observation | UAT agent | a paste carrying a top-level Thumbnail-11 | the notice names the type | *A user pastes a message carrying a component **type** Hooks.gg cannot support — a Thumbnail, a Select Menu — and it is removed without the notice **naming that type**. They ship a message missing a control they believe is still there, at the surface they reached for precisely because the UI could not express it. **Reconciled to this row's condition 2026-08-25 (P3.22): a composite the filter empties is NOT a member — no type was unsupported there, and that case is ruled outside this row.*** | uat | Not started |
 | **BC-7** | PRE | M8-B: paste `{"components":[<container>]}` → V2, bit set, **visible warning** | operator observation | UAT agent | chain tip deployed | editor in V2 with the container, **a warning**, and the V2 flag bit **set**. **This limb is settled by opening the Message JSON and never by the screen looking right — *"everything looked correct"* is not an observation of it and must not be filed as one (`uat` rev 31).** | *Three things, and one of them is invisible without opening the JSON. **The warning is missing** — silent acceptance means he never learns his JSON was incomplete, and D17 row B says warn. **The editor is not in V2**, or the container is not there. **The flag bit is not set** — everything looks right on screen and the message is wrong on the wire. **Open the Message JSON; *"everything looked correct"* is not an observation of this limb.** **Reconciled to this row's Predicted value 2026-08-25 (P3.26): every limb named, because for a human-subject row this cell IS the checklist (`uat` rev 30).** | uat | Not started |
@@ -4359,3 +4360,168 @@ The sentence *"a copy that lags looks wrong on inspection; a copy that leads loo
 3. **The cheapest form: keep a pointer, not a copy.** A README line naming the tree path and the SHA is unfalsifiable in the way a copy is not.
 
 **None of this is done and none of it is this chain's to do** — it is a convention for `verification/`, and the directory's scope is already a thing I ruled on at P3.16. **Carried to the retrospective as a proposal with its reason, not enacted here.**
+
+---
+
+# BC-4 PASS — 2026-08-25, successor session (`qa-hooks-013-3` having exited)
+
+**Scope of this pass**: one register row and one product question. **Nothing else was reopened.**
+
+## V.27 — Identity, and what this pass did NOT take on trust
+
+**Tree**: `website` @ `chain/013-rider-2`, HEAD `b56570d`, `git status --short` **empty** at run
+time — re-derived here, not inherited. `origin/master` is `2d90e8a` and is an ancestor; nothing is
+pushed.
+
+**The verdict does not move and does not expire.** No production code and no shipped spec was
+touched by this pass. `Verified-At: b56570d` / `Criteria-At: plan 013 rev 49` stand exactly as
+`qa-hooks-013-3` left them. The only repository changes are this document, the QA index in
+`verification/013/README.md`, and one new probe directory.
+
+**What was relayed, and what I re-derived.** A peer session relayed its subagent's claims about the
+JSON tab. **None of them is carried here on that authority.** Every structural claim was re-read
+from source at `b56570d` and every behavioural claim was **executed** by an instrument this pass
+built:
+`agent-output/verification/013/probe-qa-bc4-json-tab-fixture/` (28 assertions green; two mutants,
+both killed; `manifest-sha256.txt` hashes **the shipped files**, not only the probe's own copies —
+the remedy V.26 proposed, applied at its first opportunity).
+
+## V.28 — BC-4's fixture: **CONFIRMED**
+
+**The blocking belief is withdrawn.** BC-4 sat `NOT EXECUTED` all chain because "an import" was read
+as *an import by Discord message link*, which no agent here may fetch. That reading was defensible —
+the criterion says "import" and M3-c's siblings are link and webhook paths — and it is **false**.
+`NewMessageModal` merges all four load tabs into one `loadedMessage` and computes the floor over
+**that**, so the tab that produced it is immaterial:
+
+- four tabs — `bot`, `webhook`, `code`, and **`json`**, a raw paste (`NewMessageModal.tsx`,
+  `LoadOption`; the `json` accordion item renders `NewMessageJsonInput` with `setMessage={setJsonMessage}`);
+- one merge (`loadedMessage`, the `useMemo` over `discordMessage?.message ?? webhookMessage ?? commandMessage?.data ?? jsonMessage`);
+- one floor (`contentFloorError`, `validateContentRequirements(loadedMessage)`).
+
+**The fixture is `{"content": ""}`, pasted into the JSON tab.** Executed end to end through the
+shipped pipeline — `JSON.parse` → `discordMessageImportShape.parse` → `resolveContentLoss` →
+`applyDisposition` → `makeEditable` → `validateContentRequirements`:
+
+| BC-4 limb | Established by | Assertion |
+|---|---|---|
+| the paste is *accepted as a load* at all | shape parses; `resolveContentLoss` returns **row A, `requiresChoice: false`**, so no V2 choice dialog intercepts; a message reaches the modal | A1–A3 |
+| **error shown** | the **real `NewMessageModal` function**, rendered with that message, emits `Message must have content, embeds, or components.` | **D1** |
+| **no new message created** | `Save` renders `isDisabled: true` **and** `Form` renders `isDisabled: true` (the Enter-key path); the same state with a floor-**passing** document flips both to `false`, so `contentFloorError` is the **sole carrier** of the decision | **D2, D2b** |
+| **dialog stays / does not navigate** | `router.push` and `message.upsert.mutate` spies register **zero** calls; navigation exists only inside the mutation's `onSuccess` | **D3** — and **D4** observes those same spies *fire*, so their silence is evidence rather than a dead wire |
+
+**Non-vacuity is executed, not asserted.** Mutant `floor-off` (the floor always returns `undefined`)
+turns **D1, D2 and D2b red** — the render harness is reading the floor's real output, not a
+constant. Mutant `choice-on` (`resolveContentLoss` always `requiresChoice`) turns **14 red**,
+confirming A2 is load-bearing: were a choice dialog to intercept the paste, nothing would reach the
+modal and no floor error would appear.
+
+**Positive controls in the other direction** are carried per class, not once: `{"content":"hi"}`,
+`{"embeds":[…]}` and `{"components":[{"type":10,…}]}` all load and are **not** refused, so a blanket
+refusal — or a pipeline that is simply broken — cannot pass block A. Whitespace-only content **is**
+refused, pinning the floor's `.trim()`.
+
+## V.29 — `{}` is **REFUTED** as a fixture, and this is the more important half
+
+`{}` fails the same floor (**C1**), which is exactly what makes it dangerous: it looks like an
+equally good fixture and is not one.
+
+`NewMessageJsonInput` seeds its editor with `JSON.stringify({}, null, 2)` and parses inside a
+`useUpdateEffect`, **which skips the first render**. That is established by **executing react-use's
+shipped `useUpdateEffect.js` and `useFirstMountState.js`** as CommonJS against a stub `react` — zero
+calls after the mount pass, one after the next (**C2**) — rather than by citing its documentation.
+Consequence, in the shipped component: `setMessage` is never called, `jsonMessage` stays `null`,
+`loadedMessage` is `undefined`, and the modal's floor line short-circuits on its `loadedMessage ?`
+ternary. **`contentFloorError` is `undefined` because the check did not run, not because the
+document passed.**
+
+**C3 names the screen that results**: no error text, and `Continue` **disabled**. That is neither
+BC-4's predicted value nor its failure mode. **An operator who sees it must record the row as *not
+executed*** — recording it as failed would be wrong, and recording it as passed would be a green row
+over a check that never executed, which is the precise failure shape this pass was asked to avoid.
+
+## V.30 — Ruling: the un-gated `Continue` is **NOT a defect against 013**, and IS a product finding (**F-QA33**)
+
+Both halves of this were asked for, and they are different questions with different answers.
+
+**Facts, executed and dated from history rather than argued:**
+
+- `Continue` is gated by `isDisabled={!loadedMessage || isDisabled}` — **not** by the floor. On a
+  floor-failing document it is **enabled** (D(observed)).
+- The floor error node lives inside the **page-0** `Transition`. Rendering page 2 finds **no floor
+  message there** (**D1b**).
+- On page 2 the primary action is inert with nothing on that page saying why: `Save`
+  `isDisabled: true`, no explanatory text.
+- `git log -S` dates the `Continue` gate to **`4fe53b6`, 2023-08-22** — nearly three years before
+  this chain. `contentFloorError` is 013's, introduced at **`12f4ce6` (M3)**. **013 did not create
+  the un-gated `Continue`; it created a page-1 error that page 2 does not show.** The gate is
+  pre-existing; the *asymmetry* is 013's delta.
+
+**Ruling 1 — no criterion is breached, and the verdict does not move.** M3-c requires the dialog to
+stay open, show the error, and not navigate. All three hold under execution. `Continue` moves
+between pages of the **same open dialog**; navigation is `router.push`, reachable only from
+`upsert.onSuccess`, and nothing is created. **QA COMPLETE at `b56570d` is unaffected.**
+
+**Ruling 2 — it is nonetheless a real, low-severity usability defect, and it is named rather than
+absorbed.** It is the same class of complaint 013 exists to fix, expressed one page later: a refusal
+the user cannot distinguish from a malfunction. BC-4's own failure-mode cell already names that
+shape — *"reads as the app hanging rather than as a refusal"*. **Issued as F-QA33.**
+
+**Recommended repair, and the one I recommend against.** Render `contentFloorError` in the page-2
+error area beside `messageError`, rather than gating `Continue` on the floor. Gating `Continue`
+would newly withhold a page the user may legitimately want while fixing the JSON (name, guild), and
+would change a three-year-old control's behaviour on **every** load path to fix an asymmetry created
+on one.
+
+**Disposition — non-blocking, and deliberately so.** 013 stands at a conditional-approval gate with
+seven of eight `PRE` rows terminal. F-QA33 breaches no criterion, so it must not reopen
+implementation here; and it must not be silently absorbed, because it **changes how BC-4 is
+executed**. Routed to **`uat`** by name. Should `uat` judge it worth fixing, QA's position is that it
+is a new plan, not a 013 rider.
+
+**Not carried**: whether Discord accepts an empty component. Ruling **D36** is absolute; the
+question arose adjacent to this floor and was **dropped**, not tracked, not routed, and not handed to
+012.
+
+## V.31 — What is owed to `uat`, and what QA is not authoring
+
+**BC-4's operator text needs rewriting and QA is not writing it.** `uat` authored the walkthrough;
+QA states only the facts that text must carry, and the register row (V.27's edit) records them
+beside its prediction rather than over it:
+
+1. the fixture is **`{"content": ""}`**, pasted into the **JSON** tab — not a Discord link;
+2. **`{}` must not be used**, and the *no error + disabled `Continue`* screen means **not executed**;
+3. the floor error is read **on the first page, below the JSON box, before pressing `Continue`** —
+   it does not follow `Continue`, and an operator who advances first will see a greyed `Save` with
+   no explanation and is likely to report BC-4 FAILED;
+4. the "nothing created" limb is best demonstrated **after** `Continue`, by `Save` being inert, and
+   by no navigation occurring;
+5. the distinguishing text is the exact string **`Message must have content, embeds, or
+   components.`** — the JSON tab renders its *own* errors (malformed JSON, Zod issues) inside the
+   accordion while a document is half-typed, and "an error is shown" alone does not discriminate.
+
+**Standing note on this document's Outstanding lists** (unchanged, restated because a reader may
+land here first): the Blocking Release Condition Register above is point-in-time. **`uat` rev 44 is
+authoritative on every row's current execution state**, and the deployment record after it.
+
+## V.32 — Assumption Not Checked
+
+**This pass assumes that CodeMirror delivers the pasted document to `setJsonMessageString`
+unchanged, and it does not test it.** `useCodeMirror` is stubbed here (`next/dynamic` returns an
+inert component), so the editor's own `onChange` — the single link between the operator's keystrokes
+and every behaviour established above — is never executed. **Observable signature of its falsity**:
+the operator pastes `{"content": ""}`, the JSON box visibly contains that text, and yet **no error
+appears below the box and `Continue` stays disabled** — indistinguishable, on the screen, from the
+`{}` trap of V.29, and distinguishable from it only by the fact that text *was* pasted.
+**Owned by `uat`**, and closable inside BC-4's own operator observation: the run that closes BC-4
+closes this, at no extra cost, provided the observer is told that a pasted-but-inert editor is a
+finding and not a mis-execution.
+
+## V.33 — Instruments captured by this pass
+
+| Path | Settles |
+|---|---|
+| `agent-output/verification/013/probe-qa-bc4-json-tab-fixture/` | BC-4's fixture (**confirmed**), the `{}` trap (**refuted as a fixture**), and the executed basis for F-QA33. 28 green; mutants `floor-off` (7 red) and `choice-on` (14 red); `manifest-sha256.txt` hashes the six shipped files it is coupled to |
+
+**Handing off to the `uat` agent** — for BC-4's operator text (V.31), for **F-QA33** (V.30), and for
+the assumption routed in **V.32**.

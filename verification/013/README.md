@@ -43,6 +43,7 @@ its timestamp in the consuming document (the UAT record), is complete evidence.
 
 | `probe-qa-p3-delimiter-class-sweep/` | Phase 3 (`2d90e8a`) | whether code review's MEDIUM-1 is one instance or a class — **three sites**, and why the two JSON surfaces are unreachable **by coincidence rather than by design**. Carries the rider's pre-registered staleness condition |
 | `probe-qa-p3-render-instrument-reduction/` | Phase 3 (`4a7126b` vs `2d90e8a`) | devops **F-1** — whether the trim of QA's adopted render instrument was correct (**yes**), and its true magnitude (**4 of 13**, not 4 of 8, measured by running the file rather than counting its text) |
+| `probe-qa-bc4-json-tab-fixture/` | BC-4 pass (`b56570d`) | **whether BC-4 has an executable fixture at all.** Confirms `{"content": ""}` pasted into the New Message dialog's **JSON** tab reaches the content floor and closes all three limbs against the real `NewMessageModal` function; **refutes `{}`** as a fixture by executing react-use's shipped `useUpdateEffect` (it skips the first render, so the check never runs). Also the executed basis for **F-QA33**. Its `manifest-sha256.txt` hashes **the shipped files**, per V.26's remedy |
 
 **Not QA's, and indexed by the reviewer**: `baseline-expected-six/` and the `probe-cr*/` series.
 QA's suite counts depend on `baseline-expected-six/`; the dependency is recorded here, the row is
