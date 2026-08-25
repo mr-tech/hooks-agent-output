@@ -172,6 +172,87 @@ this copy may have drifted — the register is authoritative, not this page.*
 
 ---
 
+**Four checks. All four are about the site as it is running right now. Three are clicks; one is a question that may have no answer, and "no answer" is a fine reply.**
+
+**One thing you will notice, and it is not a fault.** The message the app shows when a load changes your message is **shorter than our notes describe** — it no longer lists which component types were added or removed. **That is your own "remove unnecessary diff" change and it belongs there.** The separate *dropped-components* warning is untouched, and check 12 depends on that one. Nothing in these four checks depends on the wording you removed.
+
+---
+
+**9. Does a V2 message still send after the deploy? (BC-12)**
+
+- Open a **V2 message you already have** — ideally one that sent fine before today.
+- **Save As** to make a copy.
+- **Send the copy to Discord.**
+
+**It passes if both hold:**
+1. **The copy actually appears in Discord.**
+2. **No error appears in the app.**
+
+- **If the send fails with any error at all, that is a fail and it is a hotfix trigger — not a try-again.** **Do not send it a second time to see whether it works.** One failure decides this row. **Write down the error text exactly as it appears.**
+- If you have no pre-existing V2 message and build a fresh one instead, **say so** — it still counts, I just need to know which it was.
+
+---
+
+**10. Is the original defect actually fixed in production? (BC-14) — four things, and two of them are invisible unless you open the Message JSON.**
+
+**All four are owed. Three passing is not this check passing.**
+
+- **(a)** Take a **V2 message with components on it**. Press **Save As**. → **The copy has every component the original had. Count them.**
+- **(b)** On that copy, open **Message JSON**. → **The components are there in the JSON. Count them there too.**
+- **(c)** Open **the same message in two browser tabs**. In tab 1, change **only a component** — touch nothing else — and **Save**. Switch to tab 2. → **Tab 2 shows "Message Update Detected".**
+- **(d)** Now press **Save** without changing anything at all. → **Nothing is raised. No "Message Update Detected".**
+
+- **(b) is the one that fails silently.** The screen can look completely correct while the JSON is missing the components. **"It looked right" is not an observation of (b).** **Give me both numbers.**
+- **(c) fails by something NOT appearing; (d) fails by something appearing.** They are opposites on purpose. If (c) shows nothing, switch tabs once more before calling it — but if it still shows nothing, that is a fail.
+- **If the two counts differ from each other, or from what the original had, that is the defect.** Write down all three numbers.
+
+---
+
+**11. Can Discord hand us a message with both text and components? (BC-17) — a question first. Do not build anything for this one.**
+
+**The question: do you know of a Discord message that is old enough to predate Discord's V2 rules AND has both ordinary text content and components on it?**
+
+- **If yes:** import it by link. **It passes if you are shown a choice naming what would be dropped**, rather than the app silently keeping one and losing the other. **Tell me which of the two you saw.**
+- **If no, or you cannot find one:** reply exactly **`BC-17: no such message known`**. **That is a real answer and it is the one I expect. It does not fail the check.**
+
+**If your answer is "no such message", then this check cannot be executed by anyone — tonight or later.** What it needs to run is the very thing it is asking whether exists, and neither QA nor I will manufacture one. **So I am recommending you withdraw it, and here is what withdrawing costs, plainly:**
+
+> **The import path's mixed-message branch ships untested and unobserved. No automated test in this chain covers it. If Discord ever does return such a message, the user importing it loses half of it with no prompt — and nothing in this system would tell you it happened.**
+
+**That risk is what you would be accepting. Only you can withdraw it.** Reply **`withdraw BC-17`** if you accept that, or **`BC-17 stands`** to leave it open past this chain.
+
+---
+
+**12. Does the dropped-components warning actually stop an unaware send? (BC-20)**
+
+- **Do an import that drops components** — **the same import you used for BC-6 earlier tonight is exactly right**, since that check's whole point was that something got removed.
+- **Then head toward sending it.**
+
+**It passes if all three hold:**
+1. **A warning appears saying components were dropped, and it names what was dropped.**
+2. **The warning is still in front of you when you go to send** — you cannot reach a send without having seen it.
+3. **You cannot publish it without that warning having been shown first.**
+
+- **A warning that appears but names nothing is a finding, not a pass.** **Write down exactly what it says**, word for word.
+- **What this can and cannot settle, so you are not misled by a pass:** it shows the guard **fires**. It cannot show that no message has ever gone out unaware — that one is an absence, and no amount of nothing-going-wrong is evidence for it. **I will record it as exactly what you saw and nothing wider.**
+
+---
+
+**Reply in one go — this format finishes it:**
+
+```
+BC-12:  sent / failed  (+ exact error text if failed)
+BC-14:  copy=N   json=N   other-tab-prompt=yes/no   no-op-save=quiet/prompted
+BC-17:  no such message known    — or —   choice shown / silently lost
+        (+ withdraw BC-17  /  BC-17 stands)
+BC-20:  warning=yes/no,  it said: "…"
+```
+
+*Lifted verbatim from `uat-hooks-013-6`'s authored block (its rev 50 carries the same text). The register
+is authoritative, not this page.*
+
+---
+
 *End of the section for `OWNER-QUEUE.md`.*
 
 ### Decisions, no browser needed
