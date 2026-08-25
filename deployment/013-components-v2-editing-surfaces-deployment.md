@@ -1142,3 +1142,100 @@ sticky, no database state involved. The nearest tree with a QA verdict is **`4a7
 **`agent-output` is not pushed.** Measured at this write, not carried from arithmetic:
 `git rev-list --count origin/master..master` — the value is recorded in the commit for this section.
 **No push approval has been given or requested for these documents.**
+
+---
+
+# §13 — Reconcile pass, 2026-08-25 19:2x UTC, by `devops-hooks-013-3`
+
+**Three dated reconcile notes. Nothing above is overwritten** — each note preserves what the record
+previously said and why it was defensible when written, per the document-lifecycle rule on restating
+and correcting. **Every condition state below was re-read from the UAT document at this write**, which
+now stands at **rev 37** (it was at rev 25 when §12 was written).
+
+## §13.1 — BC-21: `NOT EXECUTED` → `EXECUTED`
+
+**What the record says**: §11's second-act table (L552) carries **BC-21** as `NOT EXECUTED`.
+
+**Why that was defensible when written**: it was true at the time. §11 predates UAT rev 25.
+
+**What is true now**: **BC-21 is `EXECUTED`** (UAT rev 25, 2026-08-25). The owner answered the one word
+rev 23 asked for, selecting *"Deliberate paste"* — which adopts the sentence *"and the warning
+appeared"* — and QA's sufficiency for that row closes it **on one observation by construction**,
+because its predicate is presence and its failure signature is absence. Provenance was disclosed as a
+selection prompt with agent-authored options and no verbatim sentence.
+
+**This is not a conflict**, and UAT says so explicitly: register state is UAT's document's, and this
+record simply predates the move. **L552 is not edited; this note supersedes it.**
+
+**Why UAT raised something this small, carried because it is the durable part**: it is the BC-11b
+divergence one level down. **Neither document named the other as its authority for these rows**, which
+is how a superseded state sat in four committed places with nothing anywhere contradicting it. **Two
+records can be internally consistent and mutually stale, and nothing in either says which to believe.**
+§12 states its authority explicitly for exactly this reason; §11 did not, and this note is the cost.
+
+## §13.2 — F-1: the magnitude is wrong. **4 of 13, not 4 of 8**
+
+**What the record says**: §12.6 F-1 states QA's adopted render instrument went from **8** `it(`/`test(`
+blocks at `4a7126b` to **4** at `2d90e8a`, and calls that "half".
+
+**Why that was defensible when written**: the count was taken with `grep -c`, which computes inside
+`grep` before any output filter — the workspace's own prescribed instrument for counting. **The counter
+was sound and returned the right answer to the question it was asked.**
+
+**What is true now**: **the predicate was wrong, not the instrument.** QA ruled F-1 at `93ecaf0`,
+measuring by **running the file at both trees** rather than counting its source
+(`verification/013/probe-qa-p3-render-instrument-reduction/`):
+
+| Tree | `it(` matches | **tests actually run** |
+|---|---|---|
+| `4a7126b` | 8 | **13 passed** |
+| `2d90e8a` | 4 | **9 passed** |
+
+**The `NullableComponent` block is an `it.each` with five rows, which a predicate matching `it(`
+cannot see.** The instrument lost **4 of 13 — about 31%**, not half. **QA's rule, which is the reusable
+part: run the file; do not count its source.** QA records this as the third instance of that shape in
+one pass, and it is the same class as the false *"instrument deleted"* reading disclosed inside F-1
+itself.
+
+**Both limbs of F-1 are ruled, and the finding stands:**
+
+1. **Are the removals correct? YES.** All four removed cases were the whole of the `CodeMessageNotice`
+   describe block, and `2d90e8a` deletes that component outright along with its provider state and
+   layout mount. **Tests of a deleted component are correctly deleted with it**, and nothing surviving
+   lost coverage. §12.6's own caveat — that F-1 was never an assertion the removals were wrong —
+   stands as written.
+2. **Is a verdict owed? YES, and NOT at `2d90e8a`.** Nothing is uncovered; what is true is that the
+   **surviving** instrument has never run under a QA verdict, because QA Complete was reached at
+   `4a7126b`. **It is owed at the post-rider tip**, which is where QA will take it. §12.9's action row
+   1 is therefore answered and closed, with the verdict rescheduled rather than owed at the serving
+   commit.
+
+## §13.3 — A release decision now exists, and it does **not** cover the serving tree
+
+**What the record says**: §12.0, §12.9 and the frontmatter state that the live tree is **ungated** and
+that the standing release decision is **`EXPIRED IN FULL`**.
+
+**Why that was defensible when written**: it was exactly true at UAT rev 25.
+
+**What is true now** — re-derived at this write, not relayed:
+
+- **A NEW release decision exists.** UAT **rev 36** is the release gate:
+  **`APPROVED FOR RELEASE, conditional on the human click-through of eight `PRE` rows`**. Because merge
+  to `master` **is** the deploy here, that click-through happens **before** the merge, not after.
+- **Its anchor is two-axis and is not this record's tree.** **TREE `e1d9b2b7090b46709861a9c4b2a57f340617777b`
+  on `chain/013-rider-2`**; **CRITERIA plan 013 rev 48 (`f5b7cac`)**. The decision **expires when either
+  moves**, and UAT notes that neither expiry announces itself.
+- **`e1d9b2b` is NOT merged.** `git merge-base --is-ancestor e1d9b2b master` → **NO**.
+  `git ls-remote origin refs/heads/master` → **`2d90e8a`**, unchanged, re-derived at this write.
+
+**So the correction is narrower than it first looks, and the original statement survives where it
+matters**: **`2d90e8a` — the commit that is actually serving — remains ungated.** The new approval
+covers a *different, unmerged* tree. What is stale is only the clause *"the standing release decision
+remains `EXPIRED IN FULL`"*: that decision is superseded by rev 36's new one rather than still
+standing. **Nothing in §12's four records changes**, because all four record deploy acts that are
+historical facts.
+
+**No release act follows from this note.** The eight `PRE` rows are the owner's human click-through and
+are not this stage's to execute or to waive; the merge that would deploy `e1d9b2b` is Stage 2 work
+requiring his approval of the release, which has not been given to this session. **This session remains
+Stage 1 only: no push, no merge, no tag, no tree switch.**
