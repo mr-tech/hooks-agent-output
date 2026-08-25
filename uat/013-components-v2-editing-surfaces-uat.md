@@ -64,6 +64,7 @@ Verified-At: >-
 | 2026-08-24 | steering-hooks-013-2 — **QA COMPLETE handed in, verdict invited** | Run the UAT gate and issue the release decision | Rev 9. **VERDICT DECLINED ON RUN-LENGTH GROUNDS, flagged early as instructed.** ~58 requests, 226k prefix; a sound verdict needs the identity re-derived as a content manifest (three uncommitted `website` source files in scope), four predecessor documents read directly, and **15** register rows driven terminal — far beyond the ceiling's ~10-request exception. **No predecessor document read, no status restated, no release decision issued.** Successor re-reads everything. Remaining budget spent only on what lowers their cost: **C-1…C-4** recorded as conditions rather than prose, and **BC-15/D28 re-derived from QA's register and the plan directly** (not from steering's restatement) and folded into Appendix A — including an ordering hazard nobody had stated: **BC-11b must precede BC-15 on any record**, and no Save may follow BC-15's Load, or the seed is consumed and cannot be re-minted. |
 | 2026-08-24 | steering-hooks-013-2 — successor spawned by the owner after rev 9's ceiling handback | Run the UAT gate and issue the release decision | **Rev 10. THE GATE RAN. Release decision: `APPROVED FOR RELEASE, CONDITIONAL` over an 18-row ledger.** Resumed from rev 9's Run Record; **C-1…C-4 all discharged and each re-derived rather than adopted** — C-1's tip had already moved (`164d720` → **`821330d`**) and the three-path manifest reproduces digest-for-digest; C-2's BC-15 and D28 read from QA's register and plan rev 20 directly; C-3 stands unchanged; C-4 adopted no remedy. All four predecessor documents read directly: **QA `QA Complete` @ `821330d`** (green), **code review round 19 `APPROVED` but its document Status is `In Review` and no verdict covers `821330d`** (U-C1), **implementation Status `Active`, M6 unchecked, `821330d`/F-QA21 absent from it entirely** (U-C2). **Finding U-2 raised — the register carries two distinct `BC-13`s and two distinct `BC-14`s**; the Phase-1 `BC-14` (*the user-reported defect is fixed in production*) is the row a by-number reference silently drops, and it is the chain's own reason for existing. Routed to QA; every row here is named as well as numbered. **Twelve `PRE` rows stand outstanding** (eleven `NOT EXECUTED` outright; `BC-10` met on its suite limb with its spot observation owed) — Validation item 3 is owed before this verdict and is not met, which is why the approval is conditional and not unconditional. |
 | 2026-08-24 | steering-hooks-013-2 — three follow-ups after the verdict | Reconcile the ledger to QA's renumbering; disposition the U-C2 conflict; package the `PRE` ledger as one operator script | **Rev 11. The verdict is UNCHANGED and is not reopened.** (1) **QA renumbered** on finding U-2 — Phase 2's rows become **BC-16** `p2-rowd-load-gate` and **BC-17** `discord-returns-row-e`; Phase 1 keeps BC-13/BC-14. Mapping re-derived from QA's own table, not the relay. **All four affected rows resolved unambiguously because each was carried by name** — the property that made the collision recoverable. (2) **U-C2 was defective as I wrote it**: it asked the implementer to set a terminal `Status`, which the document-lifecycle table reserves to devops. The implementer declined with that reason and is right. **U-C2 narrows to the recording half — now `EXECUTED` (`7f3111f`), verified from the document** (`F-QA21` × 6, `821330d` × 5, against 0/0 at rev 10) — and the Status half becomes **U-C6, devops's, not a `PRE` row**. **U-C3 also `EXECUTED`**: M6 checked, all seven milestones now complete. (3) **Appendix B added** — one consolidated script for the whole `PRE` ledger, with **three new ordering hazards** beyond rev 9's pair (seed containment; BC-2→BC-3's one-hour TTL clock; and the correction that **the mint route is still OPEN pre-deploy**, so spare seeds can and should be minted now — without them **BC-11b is not runnable to its own prediction**, whose *"both outcomes"* clause Appendix A had dropped). |
+| 2026-08-25 | steering-hooks-013-2 — owner ruling relayed verbatim | What do the affected `PRE` rows become, and does anything he *can* do satisfy them? | **Rev 12. Verdict unchanged; nothing reopened. Appendix C added.** Applied **his own operative test** — *can it be generated for him to input into the editor?* — rather than the Discord/not-Discord split. **Most affected rows were never unfulfillable: they were under-specified by my own script**, which handed over `<container>` placeholders instead of paste-ready JSON. **Literal payloads authored for BC-1, BC-6, BC-7, BC-8, BC-9**, derived from the import schema at `821330d` (container = type 17 with ≥1 child; type 11 is in neither supported set, which is what makes it BC-6's dropped-type case). **BC-5 fulfillable in principle but its payload is NOT authored** — the folder-page export's shape is in no document I hold, and an invented fixture would make BC-5 read as executed while testing nothing; one-line question routed. **BC-2 and BC-3 marked RECOMMEND WITHDRAWAL and routed to the owner with the cost stated — not withdrawn.** Their oracle is the Discord ingress path itself, so no payload can reach it. **BC-6 does NOT substitute for them, and BC-10 is exactly why** — steering's flagged tension resolved by refusing the substitution, not by taking it. |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -1234,3 +1235,102 @@ owed, and none will be recorded as missing.**
   **re-opens QA's verdict**.
 - **Any row failing returns to the implementer before release**, per the release decision as issued.
 
+---
+
+## Appendix C — The owner's 2026-08-25 ruling against the `PRE` ledger
+
+**His words, quoted and not paraphrased, relayed by `steering-hooks-013-2`:**
+
+> *Also, and I'm stating this clearly, I will not be going around fetching messages. You give me the
+> JSON or the item is unfulfillable by me. I'm not going to go hunting for random messages in Discord.
+> If it cannot be generated for me to input into the editor, it will not be done.*
+
+**The operative test, taken from his sentence and not from anyone's gloss**: *can it be generated for
+him to input into the editor?* Not *is it Discord-adjacent*. Applied row by row below. **This appendix
+withdraws nothing** — `WITHDRAWN` is his ruling alone.
+
+### C.1 — Rows the ruling does NOT reach: fulfillable, and the payloads are owed by me
+
+**These were never unfulfillable. They were under-specified by my own script**, which handed over
+placeholders like `<container>` instead of paste-ready JSON. Under this ruling a placeholder is not a
+lesser inconvenience — **it is the item being unfulfillable, in exactly the way he describes.** That is
+my defect, and the fix is to author the literals, which I do here.
+
+Derived from the import schema at the chain tip (`821330d`,
+`website/src/server/api/utils/shapes.ts`): a container is `type: 17` requiring `components` with at
+least one child; a text display is `type: 10` with `content`; `SUPPORTED_TOP_LEVEL_TYPES` is
+`{1,9,10,12,13,14,17}` and `SUPPORTED_CONTAINER_CHILD_TYPES` is `{1,9,10,12,13,14}` — **type 11
+(Thumbnail) is in neither**, which is what makes it the dropped-type case.
+
+| Row | **Paste-ready JSON — hand him exactly this** |
+|---|---|
+| **BC-7** *(row B: → V2, bit set, warning)* | `{"components":[{"type":17,"components":[{"type":10,"content":"hi"}]}]}` |
+| **BC-8** *(row D: → Classic, content kept, bit cleared, warning)* | `{"content":"hi","flags":32768}` |
+| **BC-9** *(row E: → two options, nothing written until one is taken)* | `{"content":"hi","components":[{"type":17,"components":[{"type":10,"content":"hi"}]}]}` |
+| **BC-6** *(the lenient filter NAMES the dropped type)* | `{"components":[{"type":17,"components":[{"type":10,"content":"hi"}]},{"type":11,"media":{"url":"https://picsum.photos/200"}}]}` — the container survives, **the type-11 thumbnail is dropped and must be named** |
+| **BC-1**'s scratch V2 message | **No hunting required**: paste BC-7's payload and save it. That *is* the scratch V2 message |
+| **BC-11b / BC-15** seeds and spares | Already literal: `{"content":"hi","flags":32768}` and `{"content":"hi","flags":32768,"components":[]}` |
+
+**BC-5 — fulfillable in principle, payload NOT authored, and I will not invent one.** BC-5 pastes a
+**folder-page export**. That is our own product's artifact, so his test is met in principle — but **no
+document I hold establishes the export's shape**, and a fixture that is not what the folder page
+actually emits would make BC-5 test nothing while reading as executed. That is the precise failure this
+ledger exists to refuse. **One-line question routed to the implementer or QA: what does a folder-page
+export literally look like?** Once answered, BC-5 joins the table above.
+
+### C.2 — Rows the ruling DOES reach: BC-2 and BC-3 — **RECOMMEND WITHDRAWAL**, routed to the owner
+
+**BC-2** (`M3-b`: import a Discord message carrying a **select menu** by URL/webhook → the dialog names
+the types it could not carry) and **BC-3** (the same message via the bot's **Get Message**, inside the
+1h TTL). Their oracle is the **Discord ingress path itself** — `discordResponseToMessage`, which is
+M3's entire subject. **No payload can satisfy them**, because the thing under test is the fetch, not
+the JSON. They need a real Discord message containing a select menu (type 3, unsupported by design),
+and finding one is exactly *"hunting for random messages in Discord"*.
+
+**No agent here can generate one.** Creating one would mean an agent posting to Discord, which is
+barred outright and for which no approval path exists. I did not look for a way around that.
+
+**Per this stage's rule I mark them RECOMMEND WITHDRAWAL, state the cost, and route it up. I do not
+withdraw them.** His options, with a real *don't do it*:
+
+1. **Withdraw BC-2 and BC-3** — his ruling, recorded with the cost below.
+2. **Supply one URL** if a qualifying message already happens to be in front of him. **This is one
+   message, not a hunt** — and it satisfies both rows, since BC-3 reuses BC-2's message.
+3. **Leave them open** — they stay `NOT EXECUTED`, non-terminal, and continue to block an
+   unconditional approval. Legitimate, and the honest default if he does not want to decide now.
+
+**What withdrawing costs, stated so the decision is made on a stated basis.** M3's data layer is
+covered — M3-a/b/c delivered, reviewed `APPROVED_WITH_COMMENTS` at round 15, with `013-m3-bot-get-message.test.ts`
+exercising the bot path. **What ships unobserved is the operator-visible notice actually rendering on
+the ingress surfaces.** That is a **silent** failure mode: a notice that does not render is
+indistinguishable, to the user, from nothing having been dropped — the component vanishes without trace,
+which is the class 013 exists to close.
+
+**The residual is narrower than "M3-b is unverified", and stating it precisely is the point.** If
+**BC-6 passes**, the drop-notice renders at the JSON paste surface, so what remains unverified is
+specifically that **the import dialog (URL/webhook) and the editor-on-bot-code-load wire that same
+notice**.
+
+### C.3 — Why BC-6 does NOT substitute for BC-2/BC-3
+
+Steering raised this as a tension in my own document and was right to. **The answer is that no
+substitution is being made, and BC-10 is exactly why.** BC-10 exists to refuse *"the same notice
+reached through a different surface"* as equivalence — one object treated two ways is the hazard R9
+names. BC-6 and BC-2 reach a superficially similar notice through **different code paths**: BC-6 through
+the paste/lenient-filter route, BC-2 through `discordResponseToMessage`. **Accepting BC-6 for BC-2 would
+record M3-b as observed on evidence that never touched M3's code.** So BC-6 **narrows the residual** and
+**does not discharge the rows**. If they are closed, they are closed by his withdrawal — openly — and
+never by a substitution that reads as execution.
+
+### C.4 — Disposition summary
+
+| Row | State after this appendix |
+|---|---|
+| BC-1, BC-6, BC-7, BC-8, BC-9 | **Fulfillable. Literal payloads authored above.** State unchanged: `NOT EXECUTED`, awaiting the sitting |
+| BC-5 | **Fulfillable in principle; payload owed.** One-line question routed to the implementer/QA |
+| **BC-2, BC-3** | **`NOT EXECUTED`, non-terminal, RECOMMEND WITHDRAWAL — routed to the owner.** Not withdrawn here |
+| BC-4, BC-10, BC-11b, BC-15 | Unaffected by the ruling |
+
+**Nothing in this appendix changes the release decision**, which stands as issued at rev 10.
+`OWNER-QUEUE.md` is steering's document: the payloads above are offered for transcription **verbatim**,
+and I have not edited that file.
