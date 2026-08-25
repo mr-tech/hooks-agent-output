@@ -14,7 +14,13 @@ Status-Detail: >-
   it is a force-push, which is nobody's to run on their own initiative), **BC-13's timestamp** (a
   devops-owned register row whose instrument is a number the release act must capture and currently
   nothing schedules), and **three release conditions hostage to owner actions nothing sequences
-  against the chain**.
+  against the chain**. **Reconciled 2026-08-25 at the settled tip `a151fb4` (§10, appended — nothing
+  above it rewritten): every artifact-side gate now passes *measured at the shipped tree*, and the
+  build was re-earned because the delta from the assessed point was **not** test-only as briefed.
+  Verdict still **NO-GO**, now solely on the twelve non-terminal `PRE` rows and U-C5. Two new
+  findings: **F-7**, the release act permanently closes the seed-mint route BC-11b depends on, making
+  wrong ordering irreversible rather than inconvenient; **F-8**, Appendix B names a superseded tip.
+  **U-C6 is devops's and discharges at Stage 1 step 8.**
 ---
 
 # Deployment Readiness — Plan 013: Components V2 across the editing surfaces
@@ -364,3 +370,154 @@ QA Phase 2 → code review of the final tip → UAT verdict → Stage 1 → **R-
 deployment record → his release approval → the single push in §2.
 
 **Nothing here authorises anything.** Recorded so the release act is a decision and not a discovery.
+
+---
+
+## 10. Reconcile — re-run at the settled tip `a151fb4`, 2026-08-25
+
+**Nothing above is overwritten.** §§0–9 were written on 2026-08-24 against tip `4e9da96`, while the
+chain was still moving; they were defensible at that tip and are preserved as written. This section
+records what a re-measurement at the settled tip changes and what it leaves standing. **Still not the
+deployment record; still nothing assembled, no tree switched, nothing pushed.**
+
+Re-run requested by `steering-hooks-013-2` with the explicit instruction to *say so from measurement
+rather than assume*. Taken literally, and it mattered — see 10.1.
+
+### 10.1 The premise I was given is false, and this is the reason the re-run was worth running
+
+The brief said the delta from my assessed point was **three commits** and **test-only**. Measured:
+
+| Claim | Measurement | Result |
+|---|---|---|
+| "three commits" | `git log --oneline 4e9da96..a151fb4` → **4** (`53beb37`, `164d720`, `821330d`, `a151fb4`) | **wrong by one** |
+| "test-only" | `git diff --numstat 4e9da96 a151fb4 -- ':(exclude)*__tests__*'` → **2 source files** | **false** |
+
+The two source files are `JsonModalBody.tsx` (F-QA15's fix — `validateContentRequirements(applyDisposition(validatedDraft))`)
+and `discordResponseToMessage.ts` (two `const` → `export const`). **So my green build at `4e9da96` did
+not cover the shipped tree**, and §3's build row could not have been carried forward. That is precisely
+the failure a re-run exists to catch, and it would have been invisible had I accepted the premise.
+
+**The reviewer's narrower claim is exact and I verify it**: `53beb37..a151fb4` is non-test **empty**.
+Production-code identity has been frozen since `53beb37`; only tests moved after it. Both statements
+are true of different ranges, which is how the looser one came to be believed.
+
+### 10.2 Re-measured at `a151fb4` — every artifact-side gate
+
+| Gate | Measurement at `a151fb4` | Result |
+|---|---|---|
+| Build | `pnpm build` → **exit 0** | **PASS — newly earned, not carried** |
+| `master` = `origin/master` = `c85945f` | `git rev-parse` | unchanged |
+| Integration is fast-forward | `git merge-base --is-ancestor master a151fb4` → true | **release tip ≡ chain tip by identity** |
+| Tags | `git tag --list \| grep -c .` → **0** | none to collide |
+| `website` porcelain | **0** — QA's probe file gone, the three test paths committed | **clean** |
+| Deploy-config drift `c85945f..a151fb4` | `vercel.json`, `.gitignore`, `tsconfig.json`, `pnpm-lock.yaml` → **no delta**; `package.json` → **1 insertion** (the `typecheck` script) | unchanged from §3 |
+| Version field | `grep -c '"version"' package.json` → **0**; no CHANGELOG | cross-repo check applies, not a version check |
+
+**Cross-repo dependency reference — four legs, all agreeing**, which is what §3 could only assert three
+ways:
+
+| Leg | Value |
+|---|---|
+| `package.json` specifier | `github:hooks-gg/project-utils#master` |
+| `pnpm-lock.yaml` resolved | `749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f` |
+| local `origin/master` | `749606d0…` |
+| **fresh `git ls-remote` of the real remote** | `749606d0…` |
+
+No consumer is left pinned to a stale branch. **The specifier floats (`#master`) and the lockfile pins;
+today they coincide, so the float is latent rather than live** — it becomes live only if a build ever
+runs without a frozen lockfile. Recorded, not raised: it is not a defect at this tip.
+
+`project-utils`' own local `master` (`eb38a15`) is **behind** `origin/master`, not split
+(`merge-base --is-ancestor` → true). It is not a serving ref and 013 touches nothing in that repo.
+
+### 10.3 Predecessor gates — re-derived from the documents, not from the relay
+
+| Document | Status | Anchor |
+|---|---|---|
+| QA | `QA Complete` | `Verified-At: a151fb4…` — plain SHA, no content-identity fallback |
+| Code review | `Code Review Approved` | Round 19-δ2, settled final tip `a151fb4` |
+| UAT | `Active` | **`APPROVED FOR RELEASE, CONDITIONAL`** (rev 11) |
+| Plan | `UAT Approved` | — |
+
+**The release-tip verdict gate is satisfied by identity** and now on a plain SHA at the settled tip —
+strictly stronger than §4's position, which rested on a content-identity fallback.
+
+### 10.4 The blocking gate, derived from UAT §9.1 rather than from the count I was handed
+
+**Twelve `PRE` rows stand non-terminal**: BC-1…BC-9 and BC-11b, BC-15 `NOT EXECUTED` outright (eleven),
+plus **BC-10** met on its suite limb with its spot observation owed. Two are terminal — BC-11a (the
+owner's attested mint) and BC-16 (`p2-rowd-load-gate`, discharged at `164d720`). The relay's "twelve"
+is **corroborated**, now from the ledger itself.
+
+Per Stage 1 step 2b this is decisive: **any observable-pre-release row without a terminal state blocks
+the commit.** Stage 1 does not open. The four `POST` rows (BC-12, BC-13, BC-14, BC-17) correctly do not
+block the release act and ride into the deployment record's Post-Release Status.
+
+### 10.5 F-7 — NEW: the release act permanently forecloses BC-11b's evidentiary route
+
+UAT Appendix B §B.0, read this pass, establishes something no predecessor document said and which lands
+squarely on **my** step: **the seed mint route is open only until the deploy.** Seeds 5855/5856 were
+minted through production at `c85945f`; BC-11b's own *Predicted value* requires *"both outcomes verified
+by repeating with the other option"*, and every leg that takes an option **consumes** the record. Two
+seeds against four destructive legs means **BC-11b is not runnable to its own prediction without
+spares**, and spares can only be minted **before the release act**.
+
+**Consequence for sequencing, which is the finding**: the release act is not merely gated by the `PRE`
+ledger being terminal — it is the event that *closes the only route by which one of those rows can be
+made terminal*. If the release ran first, BC-11b would become unsatisfiable rather than merely
+outstanding. F-2 does not rescue this: the rollback that would reopen the route is a non-fast-forward
+push, which is nobody's to run on their own initiative.
+
+**Recorded as an ordering constraint on my own step, and it needs no new mechanism** — the existing
+gate already holds the release behind the ledger. What it changes is the cost of getting the order
+wrong: **irreversible, not merely inconvenient.** I adopt no remedy and schedule nothing; the sitting
+is UAT's to drive and the owner's to attend.
+
+### 10.6 F-8 — Appendix B names a tip that has since moved (UAT's to correct; reported, not edited)
+
+Appendix B §B.1 and §B.2 direct the operator to serve **`821330d`**. The tip is now `a151fb4`.
+**Materially the instruction is still correct** — production-code identity is unchanged across
+`53beb37..a151fb4` (10.1), so serving either SHA puts the same application in front of the observer —
+but the label is stale by one commit and the sitting should be run at `a151fb4` so its record names the
+tree that ships. **UAT owns that document; I do not edit it.** Routed to steering.
+
+### 10.7 U-C6 is mine, and it is already in my workflow
+
+UAT rev 11 split U-C2 and assigned **U-C6 — terminal `Status` on the implementation document** to
+devops, correctly citing the document-lifecycle table (`Implementer | Inherit | DevOps closes after
+commit`). **This needs no new mechanism**: Stage 1 step 8 already sets `Committed` on the plan,
+implementation, QA and UAT documents and moves them to `closed/`. U-C6 discharges there. It is **not** a
+`PRE` row and does not gate the release act — it gates the chain's closure, and I record it as owed.
+
+I also note UAT §9.2 has **adopted F-1's resolution into the ledger itself**: BC-13's instrument is
+recorded as *"the owner's attestation timestamp, a conservative upper bound (readiness F-1)"*. F-1's
+remedy therefore stands as accepted, not merely proposed, and the runbook must capture the attestation
+**before** the row that closes BC-13.
+
+### 10.8 What of §§5–9 still stands
+
+| Finding | At `a151fb4` |
+|---|---|
+| **F-1** BC-13's timestamp | **stands, and is now adopted** into UAT §9.2 (10.7) |
+| **F-2** rollback is a force-push | **stands unchanged** — and 10.5 raises its stakes |
+| **F-3** three conditions hostage to unsequenced owner actions | **stands**; U-C5 (R-5's widening) is UAT's own name for the same blocking edge |
+| **F-4** `agent-output` porcelain non-empty is correct | **stands**; `website` porcelain is now **0**, which §3 could not say |
+| **F-5** deploy mechanism not establishable from the repo | **stands** — re-checked, no `.github/workflows`, `vercel.json` still cron-only. Q2 remains the owner's |
+| **F-6** minors | **stands** |
+| §2 the release act — one repo, one ref, one fast-forward | **stands, re-measured** |
+| §3's build row | **superseded** — re-earned at `a151fb4` (10.1, 10.2) |
+| §4 verdict by identity | **stands, strengthened** — plain SHA, no fallback (10.3) |
+| §6 D12 | **stands**; unchanged, 013 touches nothing cross-repo |
+| §7 owner questions Q1–Q5 | **still parked**; Q3 (rollback) gains weight from 10.5 |
+
+### 10.9 Verdict
+
+**NO-GO, unchanged — but for a different reason than on 2026-08-24.** Then, the chain itself was open.
+Now **every artifact-side gate passes at the settled tip and is measured, not inherited**: build green,
+fast-forward, verdict by identity on a plain SHA, clean tree, no config drift, cross-repo references
+agreeing four ways.
+
+**What blocks is the `PRE` ledger — twelve non-terminal rows — and U-C5, R-5's widening, which is the
+owner's.** Neither is mine to discharge and neither is an artifact defect.
+
+**Nothing here authorises anything.**
