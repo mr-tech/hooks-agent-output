@@ -2,51 +2,54 @@
 ID: 11
 Origin: 11
 UUID: 22d69e06
-Reviewed-At: 'Round 24 (current, binding): e1d9b2b on chain/013-rider-2 — the RE-REVIEW of Rider 2 (D47-D50).
-  Range 2d90e8a..e1d9b2b re-derived (2d90e8a confirmed ANCESTOR via merge-base --is-ancestor): 2 commits,
-  20 files, 10 non-test. Anchor is the COMMIT OBJECT, not the ref; branch is UNPUSHED (ls-remote empty)
-  and origin/master is still 2d90e8a. Identity verified at pass start AND end; tree blob-identical on
-  every file gated. ALL FIVE round-23 findings DISPOSED, FOUR STRUCTURALLY. MEDIUM-1 ELIMINATED not merely
-  unhit: formatZodIssues formats each issue as a one-element array and joins itself, so no inter-issue
-  delimiter exists; all three sites consume it; re-attacked from first principles (probe-cr26, REBUILT
-  not re-pointed) — the payload that gave SIX lines at 2d90e8a now gives ONE, D32 path-with-indices not
-  regressed, three controls pass. MEDIUM-2 ELIMINATED: tsconfig.test.json defines the set once, both tsc
-  projects exit 0 AT THE SHA, ESLint Parsing errors 45 -> 0. LOW-1 and LOW-2 ELIMINATED (one notice definition
-  + a test pinning shipped wording, which also closes LOW-1s residue). CR23-5 REPAIRED beside-not-over.
-  MY OWN ROUND-23 ENUMERATION WAS WRONG AND IS RECORDED AS SUCH: my Class named "sites that split" but
-  my predicate enumerated "schemas that emit the delimiter" — the trigger set, not the defect set. True
-  count at 2d90e8a is THREE (formatMutationError.ts, NewMessageJsonInput.tsx, JsonModalBody.tsx); I reported
-  one. QA caught it. Rule: an enumeration must run the predicate its own Class sentence names. NEW, all
-  LOW, none holding the tree: (1) three review-addressed comment blocks added to source, zero precedent
-  in the tree; (2) settledMode s requiresChoice branch is DEAD and the M9-b spec s own oracle encodes
-  a DIFFERENT rule for it — the second disagreeing computation M9-b exists to remove, unreachable so undetectable
-  (reachability checked: setValidatedDraft(null) on that path); (3) an undisclosed member-delimiter autofix
-  rode into shapes.ts, doc numstat 4/0 vs tree 8/1 — a scoped revert structurally cannot reach in-scope
-  files; (4) M9-e and M9-g carry neither TDD row nor exemption. INFO residual, NOT raised as a defect
-  per the input-robustness order step 1: the joiner moved from " | " to newline and is still breakable
-  by a newline in a message, but zero schemas in this tree emit one. Two brief corrections re-derived:
-  M9-c is NOT removed from the plan (16 lines; WITHDRAWN IN PLACE), and the owner s ESLint-residue acceptance
-  is NOT in the register (grep 429 -> 0) though I have honoured it and recorded no round failure for it.
-  686 findings from my --no-fix run and the round s 429 are DIFFERENT INSTRUMENTS and neither refutes
-  the other. Suite NOT run — QA s step. APPROVED. Not a release decision. NO VERDICT TRAVELS BETWEEN TREES.
-  Round 23 (superseded, was binding at 2d90e8a): Round 23 (current, binding): 2d90e8a on master — the
-  TRAILING REVIEW DEBT (D39 for the D30-D34 round; D37 for 2d90e8a/D40). Delta reviewed = 4a7126b..2d90e8a:
-  4 commits, 17 files, 10 non-test. HEAD == origin/master == 2d90e8a verified by git ls-remote (computed
-  AT THE REMOTE) at pass start 08:24:00Z AND pass end 08:33:42Z; working tree proven blob-identical to
-  the SHA path-by-path, which is what licenses gating in place. D35 re-derived as bounded to D30-D34,
-  so 2d90e8a is INSIDE the debt and NOT waived - agrees with uat R22.4.3, independently, not inherited.
-  ARCHITECTURALLY GROUNDED: system-architecture.md EXISTS (221 lines, ls -d + git cat-file -e); rounds
-  6/7/8 wrongly declared it absent and this round does not inherit that. Adversarial trigger MET (D34
-  relaxes server validation; Discord post is irreversible) and discharged IN PART: I drove the REAL discordMessageShape
-  with caller-sendable payloads into the REAL formatMutationError (probe-cr25, imports from the tree,
-  no embedded copy); the send-to-Discord half is STRUCTURALLY CLOSED to every agent here because it would
-  require an outbound Discord message, which is prohibited absolutely. Findings: MEDIUM-1 D32 readable
-  errors defeated on a REACHABLE path - formatMutationError splits on '' | '', which Zod itself emits
-  inside a single discriminatedUnion message, so ONE real issue renders as SIX lines, five bare numbers
-  (measured, not read). MEDIUM-2 no gate reaches any test file (tsconfig excludes **/__tests__, .eslintignore
-  does not; 45 parsing errors, all test files, PRE-EXISTING). LOW-1 orphaned ID_LAYOUT and NOTICE consts.
-  LOW-2 the dropped-types notice is triplicated and DRIFTED at this very reword (trailing period on JsonModalBody
-  only). INFO: D34 leaves NO emptiness floor at any layer - refineDisplayableText is max-only and validateContentRequirements
+Reviewed-At: 'Round 24 (current, binding): TREE e1d9b2b on chain/013-rider-2, CRITERIA plan rev 46 (d588790),
+  standing under rev 47 (06fad81). A VERDICT RESTS ON TWO THINGS - THE CODE AND THE CRITERIA IT WAS MEASURED
+  AGAINST - AND EXPIRES WHEN EITHER MOVES; naming only the SHA lets a criteria change invalidate a verdict
+  silently (uat''s finding, adopted here). — the RE-REVIEW of Rider 2 (D47-D50). Range 2d90e8a..e1d9b2b
+  re-derived (2d90e8a confirmed ANCESTOR via merge-base --is-ancestor): 2 commits, 20 files, 10 non-test.
+  Anchor is the COMMIT OBJECT, not the ref; branch is UNPUSHED (ls-remote empty) and origin/master is
+  still 2d90e8a. Identity verified at pass start AND end; tree blob-identical on every file gated. ALL
+  FIVE round-23 findings DISPOSED, FOUR STRUCTURALLY. MEDIUM-1 ELIMINATED not merely unhit: formatZodIssues
+  formats each issue as a one-element array and joins itself, so no inter-issue delimiter exists; all
+  three sites consume it; re-attacked from first principles (probe-cr26, REBUILT not re-pointed) — the
+  payload that gave SIX lines at 2d90e8a now gives ONE, D32 path-with-indices not regressed, three controls
+  pass. MEDIUM-2 ELIMINATED: tsconfig.test.json defines the set once, both tsc projects exit 0 AT THE
+  SHA, ESLint Parsing errors 45 -> 0. LOW-1 and LOW-2 ELIMINATED (one notice definition + a test pinning
+  shipped wording, which also closes LOW-1s residue). CR23-5 REPAIRED beside-not-over. MY OWN ROUND-23
+  ENUMERATION WAS WRONG AND IS RECORDED AS SUCH: my Class named "sites that split" but my predicate enumerated
+  "schemas that emit the delimiter" — the trigger set, not the defect set. True count at 2d90e8a is THREE
+  (formatMutationError.ts, NewMessageJsonInput.tsx, JsonModalBody.tsx); I reported one. QA caught it.
+  Rule: an enumeration must run the predicate its own Class sentence names. NEW, all LOW, none holding
+  the tree: (1) three review-addressed comment blocks added to source, zero precedent in the tree; (2)
+  settledMode s requiresChoice branch is DEAD and the M9-b spec s own oracle encodes a DIFFERENT rule
+  for it — the second disagreeing computation M9-b exists to remove, unreachable so undetectable (reachability
+  checked: setValidatedDraft(null) on that path); (3) an undisclosed member-delimiter autofix rode into
+  shapes.ts, doc numstat 4/0 vs tree 8/1 — a scoped revert structurally cannot reach in-scope files; (4)
+  M9-e and M9-g carry neither TDD row nor exemption. INFO residual, NOT raised as a defect per the input-robustness
+  order step 1: the joiner moved from " | " to newline and is still breakable by a newline in a message,
+  but zero schemas in this tree emit one. Two brief corrections re-derived: M9-c is NOT removed from the
+  plan (16 lines; WITHDRAWN IN PLACE), and the owner s ESLint-residue acceptance is NOT in the register
+  (grep 429 -> 0) though I have honoured it and recorded no round failure for it. 686 findings from my
+  --no-fix run and the round s 429 are DIFFERENT INSTRUMENTS and neither refutes the other. Suite NOT
+  run — QA s step. APPROVED. Not a release decision. NO VERDICT TRAVELS BETWEEN TREES. Round 23 (superseded,
+  was binding at 2d90e8a): Round 23 (current, binding): 2d90e8a on master — the TRAILING REVIEW DEBT (D39
+  for the D30-D34 round; D37 for 2d90e8a/D40). Delta reviewed = 4a7126b..2d90e8a: 4 commits, 17 files,
+  10 non-test. HEAD == origin/master == 2d90e8a verified by git ls-remote (computed AT THE REMOTE) at
+  pass start 08:24:00Z AND pass end 08:33:42Z; working tree proven blob-identical to the SHA path-by-path,
+  which is what licenses gating in place. D35 re-derived as bounded to D30-D34, so 2d90e8a is INSIDE the
+  debt and NOT waived - agrees with uat R22.4.3, independently, not inherited. ARCHITECTURALLY GROUNDED:
+  system-architecture.md EXISTS (221 lines, ls -d + git cat-file -e); rounds 6/7/8 wrongly declared it
+  absent and this round does not inherit that. Adversarial trigger MET (D34 relaxes server validation;
+  Discord post is irreversible) and discharged IN PART: I drove the REAL discordMessageShape with caller-sendable
+  payloads into the REAL formatMutationError (probe-cr25, imports from the tree, no embedded copy); the
+  send-to-Discord half is STRUCTURALLY CLOSED to every agent here because it would require an outbound
+  Discord message, which is prohibited absolutely. Findings: MEDIUM-1 D32 readable errors defeated on
+  a REACHABLE path - formatMutationError splits on '' | '', which Zod itself emits inside a single discriminatedUnion
+  message, so ONE real issue renders as SIX lines, five bare numbers (measured, not read). MEDIUM-2 no
+  gate reaches any test file (tsconfig excludes **/__tests__, .eslintignore does not; 45 parsing errors,
+  all test files, PRE-EXISTING). LOW-1 orphaned ID_LAYOUT and NOTICE consts. LOW-2 the dropped-types notice
+  is triplicated and DRIFTED at this very reword (trailing period on JsonModalBody only). INFO: D34 leaves
+  NO emptiness floor at any layer - refineDisplayableText is max-only and validateContentRequirements
   floors only TOP-LEVEL length - but the editor tolerates it (SectionEditor uses map/length/filter, no
   unguarded [0]). D40 removal verified CLEAN AND COMPLETE (grep CodeMessageNotice|codeMessageDroppedNotice
   at 2d90e8a = ZERO) and the three paste/dialog surfaces D40 preserves still render. CORRECTION carried:
@@ -141,7 +144,12 @@ Status-Detail: 'Round 24 (binding) at e1d9b2b on chain/013-rider-2: APPROVED, SC
   exemptions) — none changes a decision, all route to a follow-up register, and the tree they would hold
   is an unpushed chain branch. My own round-23 enumeration is corrected against myself in the round text.
   Assumption Not Checked routes to QA: both sides of M9-b s verification read resolveContentLoss, so a
-  defect inside it would be invisible. qa proceeds at e1d9b2b. VERDICT BASIS, added after the fact and recorded in the round text: this APPROVED was issued against plan rev 46, whose M9-d property required `pnpm lint` to exit zero on the tip; the gate reported exit 1, and the verdict did not reconcile against that clause. D51 (rev 47, 06fad81) withdrew and restated it afterwards, so the tree conforms to the criterion AS IT NOW READS - had the clause been kept, this verdict would have needed revisiting. Steering found that, not this review. The tree did not move.'
+  defect inside it would be invisible. qa proceeds at e1d9b2b. VERDICT BASIS, added after the fact and
+  recorded in the round text: this APPROVED was issued against plan rev 46, whose M9-d property required
+  `pnpm lint` to exit zero on the tip; the gate reported exit 1, and the verdict did not reconcile against
+  that clause. D51 (rev 47, 06fad81) withdrew and restated it afterwards, so the tree conforms to the
+  criterion AS IT NOW READS - had the clause been kept, this verdict would have needed revisiting. Steering
+  found that, not this review. The tree did not move.'
 ---
 
 # Code Review: Plan 013 — Components V2 support across the editing surfaces (M1 only)
@@ -6438,6 +6446,12 @@ Its disposition is mine to keep scoped, and I keep it OPEN — narrowed, not clo
 
 # Round 23 — the trailing review debt (D39 / D37), at `2d90e8a`
 
+> **EXPIRED — DO NOT CITE.** This round's `APPROVED_WITH_COMMENTS` was taken at `2d90e8a`
+> against plan rev 46. Both anchors have moved: the tree is now `e1d9b2b` and the criteria rev 47.
+> **Superseded in full by Round 24.** Retained as record only. Marked 2026-08-25 after `uat` observed
+> that nothing in this section announced its own expiry — a verdict that expires silently reads as
+> live, which is this document's own R24.2 defect turned on itself.
+
 **Reviewed-At:** `2d90e8a60270740b59b4768a68cf3f67641e4345`
 **Identity re-verified at pass start (08:24:00Z) and pass end (08:33:42Z).** `git ls-remote origin
 refs/heads/master` returned `2d90e8a` at both — computed **at the remote**, not from a tracking ref.
@@ -7017,6 +7031,15 @@ message rather than in the document.
 - **CR24-5 was narrower than the thing it turned up.** I raised a *registration* gap — a ruling
   binding stages that was not readable from the register. The unmet criterion is a **gap in this
   verdict**, not a credit to that finding, and is recorded here as the former.
+- **Rev 47 amended TWO criteria, not one.** M9-d's clause (above) **and Validation item 1**, whose
+  lint limb is now the parsing-error count and both `tsc` projects rather than a green `lint`.
+  I named only the first; `uat` read rev 47's whole write set and found the second. Both changes
+  are confined to the lint-residue subject and both **remove** an objection, so the verdict at
+  `e1d9b2b` is sound under rev 47 — but that was established by reading rev 47, not by my account
+  of one clause.
+- **A verdict rests on the code AND the criteria, and expires when EITHER moves** (`uat`'s finding,
+  adopted here and carried into `Reviewed-At`). This document previously named only the tree, so a
+  criteria change could have invalidated it silently while it still read as complete.
 - **D51 (plan rev 47, `06fad81`) withdrew and restated the clause afterwards.** The tree now
   conforms to the criterion **as it now reads**. **Had the clause been kept, this verdict would have
   needed revisiting** — that dependency arrived after the verdict and from another party, and a
