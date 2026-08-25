@@ -3,7 +3,7 @@ ID: 013
 Origin: 013
 UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
-Status: Active
+Status: Superseded by 013-components-v2-editing-surfaces-deployment.md — release executed 2026-08-25
 Status-Detail: >-
   Readiness assessment only, prepared 2026-08-24 while the chain is still open (M4 in its MED-6 fix
   round, M6 unstarted, QA Phase 2 owed, code review `In Review`, no UAT verdict). **This is not the

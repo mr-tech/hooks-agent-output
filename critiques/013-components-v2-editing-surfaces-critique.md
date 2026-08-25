@@ -2,7 +2,7 @@
 ID: 013
 Origin: 013
 UUID: 22d69e06
-Status: OPEN
+Status: Resolved
 Status-Detail: >-
   Cycle 1, pass 5 (rung 1–5), scoped to pass 4's two M2 clauses plus rev 11's foreign material
   (architect F-1, D19/assumption 7, Validation item 8, R10). Verdict APPROVE. M-8, M-9 and
@@ -28,6 +28,7 @@ Status-Detail: >-
 | 2026-08-24 | steering-hooks-013 brief (cross-session, 2026-08-24) | Critique rev 8 | Pass 3: M-5, M-6, L-4, L-5 RESOLVED (revs 7–8; D15, D16). New: M-7 (stated limit, stop authority), L-6, L-7. Q2 answered by D15; Q3 routed. Verdict APPROVE with stated limits. |
 | 2026-08-24 | steering-hooks-013 brief for a scoped pass 4 against rev 9 `b57639c`, then steering's correction to rev 10 `9140ffe` (both cross-session, 2026-08-24) | Critique rev 10, scoped: M8 (incl. M8-G), M7-c, mark-and-supersede of D2/D5/D11/D13/D15, M2-d reduction, PREMISE-STALE clearances on M2/M4, entry conditions M-7/L-6/L-7 | Pass 4: M-7, L-6, L-7 RESOLVED (verified). New: M-8, M-9 (Medium, one clause each), M-10 (stated limit, stop authority), L-8–L-15. Q3 closed by D17. Verdict REQUEST REVISION scoped to M2; M1/M7/M3 may begin. |
 | 2026-08-24 | steering-hooks-013 brief for pass 5 against rev 11 `2fd63c2` (cross-session, 2026-08-24) | Critique rev 11, scoped: M-8/M-9 clauses; L-8–L-15 at discretion; architect F-1 and D19/item 8 flagged as foreign to pass 4 | Pass 5: M-8, M-9, L-8–L-15 RESOLVED (verified). F-1 stated correctly alongside my pass-4 read; item 8 not a criterion in disguise. New: L-16–L-18 (next-touch). Verdict APPROVE. |
+| 2026-08-25 | owner ruling, steering session | Chain closure | **`Status: OPEN` → `Resolved`, written by steering (steering-hooks-013-3 [b04529]), NOT by the critic.** Chain 013 released 2026-08-25 20:30:01 UTC; the owner ruled in the steering session that steering set the terminal statuses on 013's remaining documents itself rather than spawning the owning stages. **The caveat, recorded because it is the reason this would normally not be steering's to write:** pass 5's verdict was APPROVE and M-8/M-9/L-8–L-15 were verified landed **by the critic**, but the three Lows opened at that same pass — **L-16, L-17, L-18** — were never verified by the critic. What records them landed is **the planner's own changelog** (plan rev 12), which is the party that wrote them, not an independent check. **So this document closes on a planner's self-report for its last three findings, and on the owner's ruling for the act of closing.** No critic re-verified anything at this write, and nothing here should be read as though one had. |
 
 **Target moved under this pass.** Steering released me against rev 9 and, in the same breath, relayed D18 to the planner; rev 10 was committed while I was reading the rev 8→9 diff, and steering corrected the target by message. Recorded here per steering's own instruction: the cost was one further diff read (rev 9→10, +32/−25); nothing done against rev 9 was invalidated, because rev 10 is additive to M8 (M8-G, the "Reach" paragraph, one M4-b clause, one inventory row) and changes no rev-9 criterion.
 

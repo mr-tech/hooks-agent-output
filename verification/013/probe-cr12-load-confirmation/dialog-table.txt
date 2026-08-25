@@ -2,13 +2,13 @@ CR12 — the M2-c overwrite confirmation body at 299b842.
 Dialog is: title "Are you sure?" / this message / button "Load".
 Prior text on every path was: "This will overwrite the current message."
 
-  edit text inside a container     -> "No component or mode changes."
-  replace a classic message body   -> "No component or mode changes."
-  replace all embeds               -> "No component or mode changes."
-  collapse 3 containers to 1       -> "No component or mode changes."
-  remove an Action Row             -> "This will remove Action Row."
-  add a Container + mode switch    -> "This will add Container; switch from Classic to Components V2."
-  flag-only mode change            -> "This will switch from Classic to Components V2."
+  edit text inside a container     -> "This will overwrite the current message."
+  replace a classic message body   -> "This will overwrite the current message."
+  replace all embeds               -> "This will overwrite the current message."
+  collapse 3 containers to 1       -> "This will overwrite the current message."
+  remove an Action Row             -> "This will overwrite the current message. It will remove Action Row."
+  add a Container + mode switch    -> "This will overwrite the current message. It will add Container; switch from Classic to Components V2."
+  flag-only mode change            -> "This will overwrite the current message. It will switch from Classic to Components V2."
 
 The last three are correct and are a real improvement.
 The first four are Loads that overwrite the user's message and tell them
