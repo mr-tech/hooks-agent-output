@@ -1,0 +1,165 @@
+src/utils/__tests__/012-message-mode.test.ts(34,29): error TS2345: Argument of type '{ content: string; embeds: { title: string; }[]; components: { type: number; }[]; flags: number; }' is not assignable to parameter of type 'ModeSwitchDraft'.
+  Types of property 'components' are incompatible.
+    Type '{ type: number; }[]' is not assignable to type 'SupportedTopLevelComponent[]'.
+      Type '{ type: number; }' is not assignable to type 'SupportedTopLevelComponent'.
+        Property 'components' is missing in type '{ type: number; }' but required in type 'SupportedContainer'.
+src/utils/__tests__/012-message-mode.test.ts(45,34): error TS2345: Argument of type '{ components: { type: number; }[]; flags: 32768; }' is not assignable to parameter of type 'ModeSwitchDraft'.
+  Types of property 'components' are incompatible.
+    Type '{ type: number; }[]' is not assignable to type 'SupportedTopLevelComponent[]'.
+      Type '{ type: number; }' is not assignable to type 'SupportedTopLevelComponent'.
+        Property 'components' is missing in type '{ type: number; }' but required in type 'SupportedContainer'.
+src/utils/__tests__/012-message-mode.test.ts(58,36): error TS2345: Argument of type '{ flags: number; components: { type: number; }[]; } | { components: { type: number; }[]; flags?: undefined; }' is not assignable to parameter of type 'ModeSwitchDraft'.
+  Type '{ flags: number; components: { type: number; }[]; }' is not assignable to type 'ModeSwitchDraft'.
+    Types of property 'components' are incompatible.
+      Type '{ type: number; }[]' is not assignable to type 'SupportedTopLevelComponent[]'.
+        Type '{ type: number; }' is not assignable to type 'SupportedTopLevelComponent'.
+          Property 'components' is missing in type '{ type: number; }' but required in type 'SupportedContainer'.
+src/utils/__tests__/012-message-mode.test.ts(77,39): error TS2345: Argument of type '{ components: { type: number; }[]; flags: 32768; }' is not assignable to parameter of type 'ModeSwitchDraft'.
+  Types of property 'components' are incompatible.
+    Type '{ type: number; }[]' is not assignable to type 'SupportedTopLevelComponent[]'.
+      Type '{ type: number; }' is not assignable to type 'SupportedTopLevelComponent'.
+        Property 'components' is missing in type '{ type: number; }' but required in type 'SupportedContainer'.
+src/utils/__tests__/012-message-mode.test.ts(77,70): error TS2345: Argument of type '{ components: { type: number; }[]; flags: 32768; }' is not assignable to parameter of type 'ModeSwitchDraft'.
+  Types of property 'components' are incompatible.
+    Type '{ type: number; }[]' is not assignable to type 'SupportedTopLevelComponent[]'.
+      Type '{ type: number; }' is not assignable to type 'SupportedTopLevelComponent'.
+        Property 'components' is missing in type '{ type: number; }' but required in type 'SupportedContainer'.
+src/utils/__tests__/013-m2c-load-diff.test.ts(17,34): error TS2345: Argument of type '{ flags: undefined; components: { type: number; }[]; }' is not assignable to parameter of type 'Pick<Partial<MessageData>, "flags" | "components">'.
+  Types of property 'components' are incompatible.
+    Type '{ type: number; }[]' is not assignable to type 'SupportedTopLevelComponent[]'.
+      Type '{ type: number; }' is not assignable to type 'SupportedTopLevelComponent'.
+        Property 'components' is missing in type '{ type: number; }' but required in type 'SupportedContainer'.
+src/utils/__tests__/013-m2c-load-diff.test.ts(26,34): error TS2345: Argument of type '{ flags: undefined; components: { type: number; }[]; }' is not assignable to parameter of type 'Pick<Partial<MessageData>, "flags" | "components">'.
+  Types of property 'components' are incompatible.
+    Type '{ type: number; }[]' is not assignable to type 'SupportedTopLevelComponent[]'.
+      Type '{ type: number; }' is not assignable to type 'SupportedTopLevelComponent'.
+        Property 'components' is missing in type '{ type: number; }' but required in type 'SupportedContainer'.
+src/utils/__tests__/013-m2c-load-diff.test.ts(42,34): error TS2345: Argument of type '{ flags: undefined; components: { type: number; }[]; }' is not assignable to parameter of type 'Pick<Partial<MessageData>, "flags" | "components">'.
+  Types of property 'components' are incompatible.
+    Type '{ type: number; }[]' is not assignable to type 'SupportedTopLevelComponent[]'.
+      Type '{ type: number; }' is not assignable to type 'SupportedTopLevelComponent'.
+        Property 'components' is missing in type '{ type: number; }' but required in type 'SupportedContainer'.
+src/utils/__tests__/013-m2c-load-diff.test.ts(49,34): error TS2345: Argument of type '{ flags: undefined; components: { type: number; }[]; }' is not assignable to parameter of type 'Pick<Partial<MessageData>, "flags" | "components">'.
+  Types of property 'components' are incompatible.
+    Type '{ type: number; }[]' is not assignable to type 'SupportedTopLevelComponent[]'.
+      Type '{ type: number; }' is not assignable to type 'SupportedTopLevelComponent'.
+        Property 'components' is missing in type '{ type: number; }' but required in type 'SupportedContainer'.
+src/utils/__tests__/013-m2c-load-diff.test.ts(58,34): error TS2345: Argument of type '{ flags: undefined; components: { type: number; }[]; }' is not assignable to parameter of type 'Pick<Partial<MessageData>, "flags" | "components">'.
+  Types of property 'components' are incompatible.
+    Type '{ type: number; }[]' is not assignable to type 'SupportedTopLevelComponent[]'.
+      Type '{ type: number; }' is not assignable to type 'SupportedTopLevelComponent'.
+        Property 'components' is missing in type '{ type: number; }' but required in type 'SupportedContainer'.
+src/utils/__tests__/components-v2-data-layer.test.ts(254,12): error TS18048: 'result.data.embeds' is possibly 'undefined'.
+src/utils/__tests__/components-v2-data-layer.test.ts(255,25): error TS18048: 'result.data.embeds' is possibly 'undefined'.
+src/utils/__tests__/components-v2-data-layer.test.ts(255,25): error TS2532: Object is possibly 'undefined'.
+src/utils/__tests__/components-v2-data-layer.test.ts(287,12): error TS18048: 'result.data.flags' is possibly 'undefined'.
+src/utils/__tests__/components-v2-data-layer.test.ts(300,12): error TS18048: 'result.data.flags' is possibly 'undefined'.
+src/utils/__tests__/components-v2-data-layer.test.ts(301,12): error TS18048: 'result.data.flags' is possibly 'undefined'.
+src/utils/__tests__/components-v2-data-layer.test.ts(321,12): error TS18048: 'result.data.flags' is possibly 'undefined'.
+src/utils/__tests__/components-v2-data-layer.test.ts(333,30): error TS2345: Argument of type '{ data: { components: unknown[]; }; }' is not assignable to parameter of type '{ data?: EditableMessageData | undefined; }'.
+  Types of property 'data' are incompatible.
+    Type '{ components: unknown[]; }' is not assignable to type 'EditableMessageData'.
+      Type '{ components: unknown[]; }' is not assignable to type '{ embeds?: EditableEmbed[] | undefined; components?: EditableTopLevelComponent[] | undefined; }'.
+        Types of property 'components' are incompatible.
+          Type 'unknown[]' is not assignable to type 'EditableTopLevelComponent[]'.
+            Type 'unknown' is not assignable to type 'EditableTopLevelComponent'.
+src/utils/__tests__/components-v2-data-layer.test.ts(378,33): error TS2345: Argument of type '{ name: string; updatedAt: number; data: { components: ({ type: number; content: string; } | { type: number; components: Record<string, unknown>[]; })[]; }; }' is not assignable to parameter of type 'Partial<ActiveMessage> | Partial<ApiMessage>'.
+  Type '{ name: string; updatedAt: number; data: { components: ({ type: number; content: string; } | { type: number; components: Record<string, unknown>[]; })[]; }; }' is not assignable to type 'Partial<ApiMessage>'.
+    Types of property 'data' are incompatible.
+      Type '{ components: ({ type: number; content: string; } | { type: number; components: Record<string, unknown>[]; })[]; }' is not assignable to type 'MessageData'.
+        Type '{ components: ({ type: number; content: string; } | { type: number; components: Record<string, unknown>[]; })[]; }' is not assignable to type '{ username?: string | undefined; avatar_url?: string | undefined; embeds?: Embed[] | undefined; components?: SupportedTopLevelComponent[] | undefined; flags?: number | undefined; allowed_mentions?: { ...; } | undefined; thread_name?: string | undefined; }'.
+          Types of property 'components' are incompatible.
+            Type '({ type: number; content: string; } | { type: number; components: Record<string, unknown>[]; })[]' is not assignable to type 'SupportedTopLevelComponent[]'.
+              Type '{ type: number; content: string; } | { type: number; components: Record<string, unknown>[]; }' is not assignable to type 'SupportedTopLevelComponent'.
+                Type '{ type: number; components: Record<string, unknown>[]; }' is not assignable to type 'SupportedTopLevelComponent'.
+                  Type '{ type: number; components: Record<string, unknown>[]; }' is not assignable to type 'SupportedContainer'.
+                    Types of property 'components' are incompatible.
+                      Type 'Record<string, unknown>[]' is not assignable to type 'SupportedContainerChild[]'.
+                        Type 'Record<string, unknown>' is not assignable to type 'SupportedContainerChild'.
+                          Type 'Record<string, unknown>' is missing the following properties from type 'SupportedSeparator': type, divider, spacing
+src/utils/__tests__/components-v2-data-layer.test.ts(427,35): error TS2345: Argument of type '{ data: { content: string; embeds: { title: string; }[]; components: ({ type: number; components: Record<string, unknown>[]; } | { type: number; content: string; } | { type: number; components: { type: number; content: string; }[]; accessory: { ...; } | { ...; }; } | { ...; } | { ...; } | { ...; })[]; }; name: strin...' is not assignable to parameter of type 'Partial<ActiveMessage> | Partial<ApiMessage>'.
+  Type '{ data: { content: string; embeds: { title: string; }[]; components: ({ type: number; components: Record<string, unknown>[]; } | { type: number; content: string; } | { type: number; components: { type: number; content: string; }[]; accessory: { ...; } | { ...; }; } | { ...; } | { ...; } | { ...; })[]; }; name: strin...' is not assignable to type 'Partial<ApiMessage>'.
+    Types of property 'data' are incompatible.
+      Type '{ content: string; embeds: { title: string; }[]; components: ({ type: number; components: Record<string, unknown>[]; } | { type: number; content: string; } | { type: number; components: { type: number; content: string; }[]; accessory: { ...; } | { ...; }; } | { ...; } | { ...; } | { ...; })[]; }' is not assignable to type 'MessageData'.
+        Type '{ content: string; embeds: { title: string; }[]; components: ({ type: number; components: Record<string, unknown>[]; } | { type: number; content: string; } | { type: number; components: { type: number; content: string; }[]; accessory: { ...; } | { ...; }; } | { ...; } | { ...; } | { ...; })[]; }' is not assignable to type '{ username?: string | undefined; avatar_url?: string | undefined; embeds?: Embed[] | undefined; components?: SupportedTopLevelComponent[] | undefined; flags?: number | undefined; allowed_mentions?: { ...; } | undefined; thread_name?: string | undefined; }'.
+          Types of property 'components' are incompatible.
+            Type '({ type: number; components: Record<string, unknown>[]; } | { type: number; content: string; } | { type: number; components: { type: number; content: string; }[]; accessory: { type: number; style: number; url: string; label: string; } | { ...; }; } | { ...; } | { ...; } | { ...; })[]' is not assignable to type 'SupportedTopLevelComponent[]'.
+              Type '{ type: number; components: Record<string, unknown>[]; } | { type: number; content: string; } | { type: number; components: { type: number; content: string; }[]; accessory: { type: number; style: number; url: string; label: string; } | { ...; }; } | { ...; } | { ...; } | { ...; }' is not assignable to type 'SupportedTopLevelComponent'.
+                Type '{ type: number; components: Record<string, unknown>[]; }' is not assignable to type 'SupportedTopLevelComponent'.
+                  Type '{ type: number; components: Record<string, unknown>[]; }' is not assignable to type 'SupportedContainer'.
+                    Types of property 'components' are incompatible.
+                      Type 'Record<string, unknown>[]' is not assignable to type 'SupportedContainerChild[]'.
+                        Type 'Record<string, unknown>' is not assignable to type 'SupportedContainerChild'.
+                          Type 'Record<string, unknown>' is missing the following properties from type 'SupportedSeparator': type, divider, spacing
+src/utils/__tests__/m7-m10-coverage-gaps.test.ts(259,22): error TS2322: Type '{ type: number; components: Record<string, unknown>[]; }' is not assignable to type 'SupportedTopLevelComponent'.
+  Type '{ type: number; components: Record<string, unknown>[]; }' is not assignable to type 'SupportedContainer'.
+    Types of property 'components' are incompatible.
+      Type 'Record<string, unknown>[]' is not assignable to type 'SupportedContainerChild[]'.
+        Type 'Record<string, unknown>' is not assignable to type 'SupportedContainerChild'.
+          Type 'Record<string, unknown>' is missing the following properties from type 'SupportedSeparator': type, divider, spacing
+src/utils/__tests__/m7-m10-coverage-gaps.test.ts(277,22): error TS2322: Type '{ type: number; components: Record<string, unknown>[]; }' is not assignable to type 'SupportedTopLevelComponent'.
+  Type '{ type: number; components: Record<string, unknown>[]; }' is not assignable to type 'SupportedContainer'.
+    Types of property 'components' are incompatible.
+      Type 'Record<string, unknown>[]' is not assignable to type 'SupportedContainerChild[]'.
+        Type 'Record<string, unknown>' is not assignable to type 'SupportedContainerChild'.
+          Type 'Record<string, unknown>' is missing the following properties from type 'SupportedSeparator': type, divider, spacing
+src/utils/__tests__/m7-m10-coverage-gaps.test.ts(308,22): error TS2322: Type '{ type: number; components: Record<string, unknown>[]; }' is not assignable to type 'SupportedTopLevelComponent'.
+  Type '{ type: number; components: Record<string, unknown>[]; }' is not assignable to type 'SupportedContainer'.
+    Types of property 'components' are incompatible.
+      Type 'Record<string, unknown>[]' is not assignable to type 'SupportedContainerChild[]'.
+        Type 'Record<string, unknown>' is not assignable to type 'SupportedContainerChild'.
+          Type 'Record<string, unknown>' is missing the following properties from type 'SupportedSeparator': type, divider, spacing
+src/utils/__tests__/m7-m10-coverage-gaps.test.ts(346,22): error TS2322: Type '{ type: number; components: Record<string, unknown>[]; }' is not assignable to type 'SupportedTopLevelComponent'.
+  Type '{ type: number; components: Record<string, unknown>[]; }' is not assignable to type 'SupportedContainer'.
+    Types of property 'components' are incompatible.
+      Type 'Record<string, unknown>[]' is not assignable to type 'SupportedContainerChild[]'.
+        Type 'Record<string, unknown>' is not assignable to type 'SupportedContainerChild'.
+          Type 'Record<string, unknown>' is missing the following properties from type 'SupportedSeparator': type, divider, spacing
+src/utils/__tests__/m7-m10-coverage-gaps.test.ts(355,22): error TS2322: Type '{ type: number; components: Record<string, unknown>[]; }' is not assignable to type 'SupportedTopLevelComponent'.
+  Type '{ type: number; components: Record<string, unknown>[]; }' is not assignable to type 'SupportedContainer'.
+    Types of property 'components' are incompatible.
+      Type 'Record<string, unknown>[]' is not assignable to type 'SupportedContainerChild[]'.
+        Type 'Record<string, unknown>' is not assignable to type 'SupportedContainerChild'.
+          Type 'Record<string, unknown>' is missing the following properties from type 'SupportedSeparator': type, divider, spacing
+src/utils/__tests__/mutual-exclusivity.test.ts(172,30): error TS2345: Argument of type '{ data: { embeds: { title: string; }[]; components: EditableTopLevelComponent[]; }; }' is not assignable to parameter of type '{ data?: EditableMessageData | undefined; }'.
+  Types of property 'data' are incompatible.
+    Type '{ embeds: { title: string; }[]; components: EditableTopLevelComponent[]; }' is not assignable to type 'EditableMessageData'.
+      Type '{ embeds: { title: string; }[]; components: EditableTopLevelComponent[]; }' is not assignable to type '{ embeds?: EditableEmbed[] | undefined; components?: EditableTopLevelComponent[] | undefined; }'.
+        Types of property 'embeds' are incompatible.
+          Type '{ title: string; }[]' is not assignable to type 'EditableEmbed[]'.
+            Type '{ title: string; }' is not assignable to type 'EditableEmbed'.
+              Property '_key' is missing in type '{ title: string; }' but required in type '{ _key: string; fields?: EditableField[] | undefined; }'.
+src/utils/__tests__/mutual-exclusivity.test.ts(195,30): error TS2345: Argument of type '{ data: { content: string; embeds: { title: string; }[]; components: EditableTopLevelComponent[]; }; }' is not assignable to parameter of type '{ data?: EditableMessageData | undefined; }'.
+  Types of property 'data' are incompatible.
+    Type '{ content: string; embeds: { title: string; }[]; components: EditableTopLevelComponent[]; }' is not assignable to type 'EditableMessageData'.
+      Type '{ content: string; embeds: { title: string; }[]; components: EditableTopLevelComponent[]; }' is not assignable to type '{ embeds?: EditableEmbed[] | undefined; components?: EditableTopLevelComponent[] | undefined; }'.
+        Types of property 'embeds' are incompatible.
+          Type '{ title: string; }[]' is not assignable to type 'EditableEmbed[]'.
+            Type '{ title: string; }' is not assignable to type 'EditableEmbed'.
+              Property '_key' is missing in type '{ title: string; }' but required in type '{ _key: string; fields?: EditableField[] | undefined; }'.
+src/utils/__tests__/mutual-exclusivity.test.ts(209,30): error TS2345: Argument of type '{ data: { content: string; embeds: { title: string; }[]; components: EditableTopLevelComponent[]; }; }' is not assignable to parameter of type '{ data?: EditableMessageData | undefined; }'.
+  Types of property 'data' are incompatible.
+    Type '{ content: string; embeds: { title: string; }[]; components: EditableTopLevelComponent[]; }' is not assignable to type 'EditableMessageData'.
+      Type '{ content: string; embeds: { title: string; }[]; components: EditableTopLevelComponent[]; }' is not assignable to type '{ embeds?: EditableEmbed[] | undefined; components?: EditableTopLevelComponent[] | undefined; }'.
+        Types of property 'embeds' are incompatible.
+          Type '{ title: string; }[]' is not assignable to type 'EditableEmbed[]'.
+            Type '{ title: string; }' is not assignable to type 'EditableEmbed'.
+              Property '_key' is missing in type '{ title: string; }' but required in type '{ _key: string; fields?: EditableField[] | undefined; }'.
+src/utils/__tests__/mutual-exclusivity.test.ts(211,12): error TS18048: 'result.data.embeds' is possibly 'undefined'.
+src/utils/__tests__/mutual-exclusivity.test.ts(221,30): error TS2345: Argument of type '{ data: { content: string; embeds: { title: string; }[]; }; }' is not assignable to parameter of type '{ data?: EditableMessageData | undefined; }'.
+  Types of property 'data' are incompatible.
+    Type '{ content: string; embeds: { title: string; }[]; }' is not assignable to type 'EditableMessageData'.
+      Type '{ content: string; embeds: { title: string; }[]; }' is not assignable to type '{ embeds?: EditableEmbed[] | undefined; components?: EditableTopLevelComponent[] | undefined; }'.
+        Types of property 'embeds' are incompatible.
+          Type '{ title: string; }[]' is not assignable to type 'EditableEmbed[]'.
+            Type '{ title: string; }' is not assignable to type 'EditableEmbed'.
+              Property '_key' is missing in type '{ title: string; }' but required in type '{ _key: string; fields?: EditableField[] | undefined; }'.
+src/utils/__tests__/mutual-exclusivity.test.ts(223,12): error TS18048: 'result.data.embeds' is possibly 'undefined'.
+src/utils/__tests__/mutual-exclusivity.test.ts(234,30): error TS2345: Argument of type '{ data: { content: string; embeds: { title: string; }[]; components: EditableTopLevelComponent[]; }; }' is not assignable to parameter of type '{ data?: EditableMessageData | undefined; }'.
+  Types of property 'data' are incompatible.
+    Type '{ content: string; embeds: { title: string; }[]; components: EditableTopLevelComponent[]; }' is not assignable to type 'EditableMessageData'.
+      Type '{ content: string; embeds: { title: string; }[]; components: EditableTopLevelComponent[]; }' is not assignable to type '{ embeds?: EditableEmbed[] | undefined; components?: EditableTopLevelComponent[] | undefined; }'.
+        Types of property 'embeds' are incompatible.
+          Type '{ title: string; }[]' is not assignable to type 'EditableEmbed[]'.
+            Type '{ title: string; }' is not assignable to type 'EditableEmbed'.
+              Property '_key' is missing in type '{ title: string; }' but required in type '{ _key: string; fields?: EditableField[] | undefined; }'.
