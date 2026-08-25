@@ -248,8 +248,12 @@ BC-17:  no such message known    — or —   choice shown / silently lost
 BC-20:  warning=yes/no,  it said: "…"
 ```
 
-*Lifted verbatim from `uat-hooks-013-6`'s authored block (its rev 50 carries the same text). The register
-is authoritative, not this page.*
+*Authored by `uat-hooks-013-6` and lifted verbatim from its report to steering, 2026-08-25. **Steering
+checked afterwards: `uat` rev 50 (`61b4b48`) records these checks' derivation — each traced to its own
+register cell — but does NOT carry this operator text verbatim. So this page is currently the only copy
+of the text as delivered, and an earlier version of this stamp wrongly claimed rev 50 carried it.**
+`uat` has been told. The register remains authoritative for what the checks MEAN; this page is the
+authority for what was actually put in front of the owner.*
 
 ---
 
