@@ -184,3 +184,35 @@ wrong on inspection; a copy that leads looks like progress."* The reviewer place
 stage indexes its own instruments — so a convention over it is the agent-output domain's to set, and it
 binds every future chain's probes. It should be settled deliberately rather than as a fix round.
 
+
+## Seven of the owner's eight 013 checks were never traced back to a milestone criterion
+
+Raised by `qa-hooks-013-4` as its §V.38 Assumption Not Checked, 2026-08-25, and routed to steering as the
+party that lifts operator text into `OWNER-QUEUE.md`. **Owned by the planner** — a check that must bind
+enters by plan revision, not by queue text alone.
+
+**The gap.** `Criteria-At` names one artifact; the owner executed **eight** checks. QA's Blocking Release
+Condition register is the mapping from those checks back to milestone criteria. **QA traced item 8 by
+hand** (BC-4 → M3-c, `Milestones` byte-identical rev 49→50). **Items 1–7 it did not trace.**
+
+**QA's stated falsity signature:** the owner executes an item, it fails, and no plan criterion and no QA
+assertion corresponds to what he ran — *"the failure has nowhere to land and gets settled by argument over
+whether it was really a criterion."*
+
+**Why this is parked rather than commissioned.** Two reasons, and the second is the load-bearing one:
+
+1. **All seven passed.** The signature QA names requires a failure, so for these seven it can no longer
+   fire. What remains is record integrity — the chain would claim criteria were validated by checks whose
+   binding to them was never established — which is a retrospective concern, not a release blocker.
+2. **Commissioning a planner pass would expire both freshly re-issued verdicts.** QA re-anchored to plan
+   rev 50 at `4600880` and `uat` at rev 45; a plan write moves the criteria axis and expires them again.
+   **Steering did exactly this tonight by accident** — a D53 registration pass one minute after a gate was
+   issued — and the cost was a full re-issue round on both stages. Doing it deliberately, to bind checks
+   that have already passed, would be a worse version of the same mistake.
+
+**The analysis does not require a plan write; only binding the result does.** The seven traces can be
+derived against the existing register at any time and registered later, so this does not have to wait for
+a quiet moment in the plan.
+
+**Do it before the next chain's click-through, not after.** QA's point stands in general even though it is
+mooted for these seven: tracing is cheap in advance and unsettleable in arrears.
