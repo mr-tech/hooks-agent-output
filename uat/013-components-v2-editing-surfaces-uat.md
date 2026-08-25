@@ -5,6 +5,29 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
+  **Rev 42 — the walkthrough, written for the owner to execute (R42.1), liftable verbatim into
+  `OWNER-QUEUE.md`.** Steering asked for the eight `PRE` rows in a form actionable **without opening another
+  document**, and **declined to assemble them itself because paraphrasing verdict-bearing text is where this
+  fleet has failed all day** — correct, and why this is written here. **Appendix B is `(rev 11)` and is
+  STALE**: it predates the failure-mode reconciliation of six rows (revs 29–31), the predicted-value
+  corrections of three (rev 33), and the D31 exclusion clauses. **It is superseded, not repaired and not
+  lifted; the superseded text stands where it was written.** **Every condition, predicted value and
+  exclusion is taken from QA's register at its own document** — row definitions are QA's — **and every
+  payload from Appendix C**, authored under his ruling that *"if it cannot be generated for me to input into
+  the editor, it will not be done."* **No placeholder appears: under that ruling a placeholder is not a
+  lesser inconvenience, it is the item being unfulfillable.** **BC-1 is item 1 and the text says why — every
+  automated test in the chain stops at the string the dialog is handed, and nothing proves the dialog puts
+  it on screen; he is the only instrument that reaches it.** **Exclusions are stated beside the item they
+  qualify rather than collected at the end**, so a reader who skips straight to their item still gets them —
+  which is the entire point of the reconciliation work. **The two recording constraints are given in his
+  terms** — *"'it looked fine' is not an answer for this one"* — **and remain in the rows themselves, so
+  they survive this list.** **BC-4 is written as BLOCKED AND NOT HIS**, its fixture owed by steering, stated
+  plainly so he does not sit waiting on it. **BC-2 and BC-3 are deliberately absent and flagged not to be
+  added**: terminal since rev 19/20 and re-derived at R32.1, and their subject is the Discord ingress path
+  his own ruling puts out of reach. **He is asked for what he SAW, not for a verdict against a row — this
+  register terminalises, he observes**, which is R25.1's residual declined rather than repeated. **No row
+  moves and no verdict moves; the rev-41 gate stands unchanged at TREE `b56570d` / CRITERIA plan rev 49.**
+  **Open set 12, all fresh on two named bases, NONE OBSERVED.**
   **Rev 41 — WITHDRAWAL, then THE RE-ISSUED GATE: `APPROVED FOR RELEASE, conditional on the human
   click-through of BC-1, BC-4, BC-6, BC-7, BC-8, BC-9, BC-10 and BC-18`, at TREE `b56570d` / CRITERIA plan
   rev 49.** **First, the withdrawal, because it is owed: rev 40's contradiction of steering's evidence was
@@ -651,6 +674,7 @@ Verified-At: >-
 | 2026-08-25 | `code-reviewer-013-4` via `steering-hooks-013-3` [b04529] — **CR25-3 routed to this stage by name**, on the ground that QA authored the transcription and an author checking its own paraphrase is the weaker arrangement | Check the oracle's five-row paraphrase of D17 against the plan's Objective **as written** | **Rev 39. CR25-3 DISCHARGED — the paraphrase is faithful and the round is NOT invalidated.** All eight cells checked against the Objective; **six are actually asserted** (row-E cells are filtered out by the oracle itself) and **all six agree**. **Source of truth established before use**: plan rev 48→49 is five hunks and **none touches `## Objective` or D17's row text** — measured. **The oracle file changed between this stage's two reads**, so everything is derived against the current file; **reporting against a stale read of an already-fixed file would have been this chain's own defect committed in the act of checking for it.** **Cell 5 derived independently from the plan side** — `{flags}` alone has no components, so row C's *"the flag over components within the schema"* does not govern it except vacuously — **and found already fixed at CR25-2, citing D13, verified verbatim at plan L110. Two independent routes, header-side and plan-side, reached the same cell: corroboration, not agreement.** **THREE PROVENANCE FINDINGS, none holding the tree, none a value error, all QA's file**: row E truncated in the quotation without ellipsis; **D13 quoted correctly but `SUPERSEDED IN PART` and not marked so**; and — **the one worth the routing** — **D13's quoted clause says *not a conflict, not refused* and states NO mode. What yields `v2` is D13's superseding header (*"the 'not a conflict' clauses survive as row C"*), which the oracle does NOT quote** — so **"row C" is an unsupported assertion inside the citation.** **This is CR25-2's own defect recurring one level inside its fix: the citation is now correct and the stated provenance is still thinner than the derivation** — and an oracle corrected once tends to be treated as corrected. **Remedy is QA's to write; this stage does not author instrument text.** **No verdict issued; gate remains EXPIRED; open set 12, none observed.** |
 | 2026-08-25 | `code-reviewer-013-4` (`288c0b4`) via `steering-hooks-013-3` [b04529] — **two copies of the oracle exist and the corrections are in the one that does not run**; steering asked this stage to **place the error itself** rather than take its account | Whether rev 39's CR25-3 discharge was performed against the shipped file | **Rev 40. CORRECTION — REV 39 CHECKED THE PROBE COPY, NOT THE SHIPPED FILE.** Measured here: shipped **186 lines**, probe **215**; `grep -c "D13"` **shipped 0, probe 5**; `CITATION CORRECTED` shipped **0**. **CR25-2 is LIVE against the tree** — the shipped cell 5 (`{flags}`, no components) still cites *"the flag over components within the schema"*. **All eight `expected` values identical across copies, so no verdict moves and code review's APPROVED stands — a provenance divergence, not a behavioural one.** **REV 39'S OWN DEFENCE CONVICTS IT**: it applied freshness discipline, correctly, **to the wrong file** — **being current about the wrong artifact is not a partial defence, it manufactures confidence; a stale read of the right file announces itself, a fresh read of the wrong file reads exactly like a fresh read of the right one.** It noticed the file changed and asked *did it change* rather than **which file am I holding**. **STEERING CONTRADICTED ON ONE POINT, as it asked**: its *decisive* evidence — that *"and is told what the other drops"* is in the probe and not the shipped file — **does not establish which copy was read; both quotations end identically**, and the probe's lone occurrence is not in its quotation. **The error is real; that proof of it is not** — a correct correction resting on a wrong instrument is how this chain gets bitten twice. **CR25-3 RE-DERIVED against the shipped file: verdict UNCHANGED, paraphrase faithful, round not invalidated.** Finding 1 **holds**; findings 2 and 3 **do not apply** to shipped (it never cites D13) and are **re-scoped to the probe copy, not retracted**. **Class adopted: the fossil defect running in reverse — a copy that *leads* the tree looks like progress, which is why it is more dangerous than one that lags.** **Gate NOT issued and it is not a withholding**: R36.5 requires every condition carry a terminal state, and the shipped-file CR25 status is **residual or fix-round depending on an owner answer in flight.** **All other R38.6 items discharged (R40.7). Open set 12, none observed.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — **the owner's answer, and a correction to this register's correction of steering** | Owner ruled **"Record it, leave it"** — no tree move, shipped file not corrected; and steering's row-E evidence was sound after all | **Rev 41. WITHDRAWAL + THE RE-ISSUED GATE.** **Rev 40's contradiction of steering is WITHDRAWN IN FULL and the error was this register's** — measured with `grep -n`: **probe line 23 IS the row-E line of the D17 quotation** and carries *"and is told what the other drops"*; shipped line 23 does not. **The quotations do NOT end identically; steering's instrument was sound.** Rev 40 called that proof unsound; **that sentence is retracted — a withdrawn-but-correct proof is the same defect wearing the other coat.** **How it was produced: rev 40 inferred a location from a stale read instead of measuring it — the third consecutive instance of one class, each committed inside the correction of the last.** One factual note, **explicitly not offered as a defence**: the probe's quotation *was* truncated when rev 39 read it and has since been fixed, so both copies then read alike — **this register did not know that, did not measure it, and the reason it gave was false.** **OWNER RULED "Record it, leave it"** → CR25-1/CR25-2 are **`RESIDUAL — owner ruled, recorded not fixed`**, owner = the record, which satisfies R36.5. **GATE RE-ISSUED: `APPROVED FOR RELEASE, conditional on the human click-through of BC-1, BC-4, BC-6, BC-7, BC-8, BC-9, BC-10, BC-18` — before the MERGE, since `master` serves production.** **TREE `b56570d` / CRITERIA plan rev 49**, both derived immediately before commit, either moving expiring it; covered set **21 paths / 9 production**; **`e1d9b2b..b56570d` holds ZERO non-test paths.** **All TWELVE rows fresh — derived here, not escalated: byte-identical production ENTAILS no prediction moved**, which reaches the twelfth row QA's un-enumerated eleven does not. **Six residuals**: 5 **reclassified silent → GUARDED** (R38.4's predicted condition fired; both wrong CR24-2 fixes now fail, oracle sole detector; M9-b's blindness NOT closed — guarded, not fixed), and **6 NEW — the shipped oracle's provenance is wrong where it runs, the correction existing only where nothing executes it.** **Value: PARTIAL, re-established on byte-identity rather than carried.** **Does not authorise the merge, does not close the chain. Twelve rows, fresh, NONE OBSERVED.** |
+| 2026-08-25 | `steering-hooks-013-3` [b04529] — **the eight `PRE` rows, written for the owner to execute**, for `OWNER-QUEUE.md`; steering declined to assemble them itself because **paraphrasing verdict-bearing text is where this fleet has failed all day** | Actionable without opening another document; all limbs; the exclusions; BC-1 first; the two recording constraints; BC-4's fixture named as steering's | **Rev 42. WALKTHROUGH DELIVERED (R42.1), liftable verbatim.** **Appendix B is `(rev 11)` and STALE** — it predates the failure-mode reconciliation of six rows, the predicted-value corrections of three, and the D31 exclusions — **so it is superseded rather than repaired, and not lifted.** **Every condition, predicted value and exclusion taken from QA's register** (row definitions are QA's) and **every payload from Appendix C**, authored under his ruling that *"if it cannot be generated for me to input into the editor, it will not be done"* — **so no placeholder appears, a placeholder being the item unfulfillable rather than a lesser inconvenience.** **BC-1 is item 1 and says why: every automated test stops at the text the dialog is handed, and nothing proves the dialog puts it on screen.** **Exclusions are stated beside the item they qualify, not collected at the end** — a reader who skips to their item still gets them, which is what the reconciliation was for. **The two recording constraints appear in his terms** — *"'it looked fine' is not an answer for this one"* — **and remain in the rows themselves.** **BC-4 written as BLOCKED AND NOT HIS**, its fixture owed by steering, so he does not sit waiting. **BC-2/BC-3 deliberately excluded and flagged not to be added** — terminal since rev 19/20, and their subject is the ingress path his ruling puts out of reach. **He is asked for what he SAW, not for a verdict against a row: this register terminalises, he observes** — which is R25.1's residual not repeated. **No row moves; the rev-41 gate stands. Open set 12, NONE OBSERVED.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -7062,3 +7086,178 @@ half of the mode-follows-marking change by owner ruling.
 5. **Steering** — the U-C5 Decisions Register row, **still unwritten**.
 6. **Nobody** — merges before the eight are terminal; cites the `2d90e8a` or `e1d9b2b` code-review
    verdicts; reads M10 as having fixed CR24-2; or reads the probe copy of the oracle as the oracle.
+
+---
+
+# Rev 42 — **The walkthrough, written for the owner to execute.** Appendix B is stale and is not lifted; this section replaces it.
+
+**Date**: 2026-08-25. **Session**: `uat-hooks-013-5`. **Trigger**: `steering-hooks-013-3` [b04529] asked
+for the eight `PRE` rows in a form actionable without opening another document, **and declined to assemble
+them itself on the ground that paraphrasing verdict-bearing text is where this fleet has failed all day.**
+**That reasoning is correct and is why this is written here rather than there.** **No verdict moves. The
+gate at rev 41 is unchanged.**
+
+**Appendix B is `(rev 11)` and is STALE.** It predates the failure-mode reconciliation of six rows
+(revs 29–31), the predicted-value corrections of three (rev 33), and the D31 exclusion clauses. **It is not
+repaired and it is not lifted. §R42.1 below is the current operator text and supersedes it for this
+walkthrough.** *(Appendix B is not deleted; superseded text stands where it was written.)*
+
+**Sources, read at their own documents at this rev's write time:** every condition, predicted value and
+exclusion below is taken from **QA's register** (row definitions are QA's); the paste-ready payloads are
+from **Appendix C**, authored under the owner's ruling that *"if it cannot be generated for me to input
+into the editor, it will not be done."* **Nothing here is paraphrased from this document's own
+restatements.**
+
+## R42.1 — **FOR `OWNER-QUEUE.md` — lift verbatim from here down to the end of this section**
+
+---
+
+### Chain 013 — eight things to check before the merge
+
+**Why before the merge:** pushing to `master` deploys. There is no window between merging and shipping, so
+these happen first. **If any of them fails, it goes back to the implementer rather than out.**
+
+**How to report each one:** *pass*, or *what you actually saw*. **If you cannot reach a step, say so —
+that is a result, not a gap.** Nothing here needs you to fetch anything from Discord.
+
+---
+
+**1. The Load confirmation tells the truth. (BC-1) — do this one first.**
+
+*Why first: every automated test in this chain stops at the text the dialog is handed. **Nothing proves the
+dialog puts it on screen.** You are the only instrument that reaches this.*
+
+- Paste this into **New Message** and save it — that is your V2 test message, no hunting required:
+  `{"components":[{"type":17,"components":[{"type":10,"content":"hi"}]}]}`
+- Open it, change the JSON so the message would come out **Classic** instead, and press **Load**.
+- **Read the confirmation dialog before you confirm anything.**
+
+**Passes if the dialog names *both*:** which top-level components are being added or removed, **and**
+whether the message type changes (V2 ↔ Classic). **Both must be right — either one wrong is a fail.**
+
+**Fails if** it says the type changes when it does not, **or** says nothing about the type when it does
+change — and also if it is **empty, truncated, or showing text from a previous message.** That last one
+matters most: **the text can be correct and the screen still wrong**, and no test in this chain can see it.
+
+---
+
+**2. Pasting a V2 container gives you V2, with the flag actually set. (BC-7)**
+
+- Paste into **New Message**: `{"components":[{"type":17,"components":[{"type":10,"content":"hi"}]}]}`
+
+**Passes if all three:** the editor is in **V2** · the container is there · **a warning is shown**
+· **and the V2 flag bit is set.**
+
+> **The flag bit is checked by opening the Message JSON. Not by the screen looking right.** Everything can
+> look correct on screen while the message is wrong on the wire — the JSON is the only place it shows.
+> **"It looked fine" is not an answer for this one.**
+
+---
+
+**3. Pasting a flag over plain content gives you Classic, and keeps your text. (BC-8)**
+
+- Paste into **New Message**: `{"content":"hi","flags":32768}`
+
+**Passes if all five:** the editor is **Classic** · the text `hi` is still there · **a warning is shown**
+· **no V2 error appears** · **and the V2 flag bit is cleared.**
+
+> **Same rule as above: the bit is checked in the Message JSON, not on screen.**
+
+---
+
+**4. Pasting both content and components asks you which to keep. (BC-9)**
+
+- Paste into **New Message**: `{"content":"hi","components":[{"type":17,"components":[{"type":10,"content":"hi"}]}]}`
+
+**Passes if all of:** you are offered **two options** · **each one says what it will drop** · **nothing is
+created before you choose** · **backing out leaves your message and the pasted text exactly as they were**
+· **and both options work** — take one, then repeat and take the other.
+
+> **NOT a failure:** the two options **do not appear on their own**. A notice appears first with a
+> **Resolve** link, and the options are behind it. **That is the intended behaviour.**
+
+---
+
+**5. An unsupported component is named, not silently dropped. (BC-6)**
+
+- Paste into **New Message**:
+  `{"components":[{"type":17,"components":[{"type":10,"content":"hi"}]},{"type":11,"media":{"url":"https://picsum.photos/200"}}]}`
+
+**Passes if:** the container survives **and the notice names the dropped type** — it must say what was
+removed, not just that something was.
+
+> **NOT a failure:** a *container that ends up empty* being removed without being named. That is by design
+> and is a different case from this one.
+
+---
+
+**6. The paste warning stays put, and goes away when you fix the JSON. (BC-18)**
+
+- Paste either item 3's or item 4's payload into **New Message** and leave the modal open.
+
+**Passes if all three:** a warning **appears** · it **stays** — it does not vanish on the next keystroke ·
+**and it clears once you correct the JSON.**
+
+> **NOT a failure:** if you correct it *through* a state that has both V2 components and ordinary content,
+> the warning is **replaced** by a different notice with a **Resolve** link rather than disappearing.
+> **A notice that changes is not a notice that failed to clear.**
+
+---
+
+**7. The same paste behaves the same way in both places. (BC-10)**
+
+- Take **any one** of the payloads above. Paste it into **New Message**. Then paste **the same one** at the
+  **Load** surface on an existing message.
+
+**Passes if:** both surfaces do the same thing — same outcome, same thing dropped, same kind of notice.
+
+*(The automated half of this is already done. This is one spot-check by eye that the two surfaces agree.)*
+
+---
+
+**8. A bad import keeps the dialog open instead of navigating away. (BC-4) — BLOCKED, NOT ON YOU**
+
+**Do not wait on this one.** It needs a fixture that fails the content floor, **and that fixture is owed by
+steering, not by you.** When it arrives the check is: attempt the import, and it **passes if** the dialog
+**stays open** · **the error is shown** · **and no new message is created.**
+
+---
+
+*End of the section for `OWNER-QUEUE.md`.*
+
+## R42.2 — Notes for steering, not for the queue
+
+- **Items 1–7 need nothing from anyone before he starts.** **Item 8 is yours** — the BC-4 fixture. It is
+  written as blocked-and-not-his so he does not sit waiting on it.
+- **BC-2 and BC-3 are not in this list and must not be added to it.** They stand `EXECUTED` (rev 19/20,
+  re-derived at R32.1) and their subject is the Discord ingress path, which his own ruling puts out of
+  reach: *"I will not be going around fetching messages."*
+- **The two recording constraints are in items 2 and 3 in his terms rather than as a rule** — *"'it looked
+  fine' is not an answer for this one."* **They are also in the rows themselves** (R33.3), so the
+  constraint survives this list.
+- **The exclusions are stated as *NOT a failure* beside the item they qualify**, not collected at the end.
+  **A reader who skips to their item still gets them** — which is the whole reason the reconciliation work
+  was done.
+- **Every payload is paste-ready.** Under his ruling **a placeholder is the item being unfulfillable**, so
+  none appears here.
+- **He is asked for *what he saw*, not for a verdict against a row.** This register terminalises; he
+  observes. **That division is what R25.1's residual is about, and writing the ask this way is how it is
+  not repeated.**
+
+## R42.3 — Ledger delta at rev 42
+
+**No row moves. No verdict moves. The gate at rev 41 stands, unchanged, at TREE `b56570d` / CRITERIA plan
+rev 49.**
+
+| Item | State |
+|---|---|
+| **Appendix B (rev 11)** | **STALE — superseded by R42.1 for this walkthrough.** Not repaired, not deleted |
+| **Walkthrough text** | **DELIVERED** for items 1–7; **item 8 blocked on steering's BC-4 fixture** |
+| **Open set** | **12 register rows. All fresh on two named bases. NONE OBSERVED.** |
+
+**Next Actions** — *point-in-time; later stage documents are authoritative on these items' current state.*
+
+1. **The owner** — items 1–7. **Item 1 first.**
+2. **Steering** — lift R42.1 verbatim into `OWNER-QUEUE.md`; supply the **BC-4 fixture**.
+3. **This stage** — terminalise each row against its prediction as results arrive. **Nothing until then.**
+4. **Devops** — the merge, **only on all eight terminal.**
