@@ -1,0 +1,18 @@
+--- (1)+(3) one line per issue, incl. the payload that broke at 2d90e8a ---
+  [PASS] 1 owner issue -> 1 line  got=1 want=1
+  [PASS] 1 enum issue (message HAS " | ") -> 1 line  got=1 want=1
+  [PASS] 2 issues -> 2 lines  got=2 want=2
+  [PASS] 3 issues -> 3 lines  got=3 want=3
+--- (2) D32 no-hiding: path with indices survives the rewrite ---
+  rendered: "Code: too_small ~ Path: message.data.components[0].components[0].content ~ Message: String must contain at least 1 character(s)"
+  [PASS] path leaf "content" present  got=true want=true
+  [PASS] numeric indices present  got=true want=true
+--- (4) controls ---
+  [PASS] non-JSON passthrough  got="UNAUTHORIZED" want="UNAUTHORIZED"
+  [PASS] JSON-not-issues passthrough  got="{\"foo\":1}" want="{\"foo\":1}"
+  [PASS] null -> undefined  got=undefined want=undefined
+--- (5) ADVERSARIAL: did the fix ELIMINATE the class or RELOCATE it to "\n"? ---
+  1 issue whose message contains a newline -> 2 line(s)
+  rendered: "Code: custom ~ Path: message.data.content ~ Message: Line one.\nLine two."
+  RELOCATED: invariant still breakable, now via \n
+EXIT=0

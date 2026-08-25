@@ -1,173 +1,147 @@
 ---
-ID: 013
-Origin: 013
+ID: 11
+Origin: 11
 UUID: 22d69e06
-Reviewed-At: >-
-  Round 23 (current, binding): 2d90e8a on master — the TRAILING REVIEW DEBT (D39 for the D30-D34 round; D37
-  for 2d90e8a/D40). Delta reviewed = 4a7126b..2d90e8a: 4 commits, 17 files, 10 non-test. HEAD == origin/master
-  == 2d90e8a verified by git ls-remote (computed AT THE REMOTE) at pass start 08:24:00Z AND pass end
-  08:33:42Z; working tree proven blob-identical to the SHA path-by-path, which is what licenses gating in
-  place. D35 re-derived as bounded to D30-D34, so 2d90e8a is INSIDE the debt and NOT waived - agrees with uat
-  R22.4.3, independently, not inherited. ARCHITECTURALLY GROUNDED: system-architecture.md EXISTS (221 lines,
-  ls -d + git cat-file -e); rounds 6/7/8 wrongly declared it absent and this round does not inherit that.
-  Adversarial trigger MET (D34 relaxes server validation; Discord post is irreversible) and discharged IN
-  PART: I drove the REAL discordMessageShape with caller-sendable payloads into the REAL formatMutationError
-  (probe-cr25, imports from the tree, no embedded copy); the send-to-Discord half is STRUCTURALLY CLOSED to
-  every agent here because it would require an outbound Discord message, which is prohibited absolutely.
-  Findings: MEDIUM-1 D32 readable errors defeated on a REACHABLE path - formatMutationError splits on ' | ',
-  which Zod itself emits inside a single discriminatedUnion message, so ONE real issue renders as SIX lines,
-  five bare numbers (measured, not read). MEDIUM-2 no gate reaches any test file (tsconfig excludes
-  **/__tests__, .eslintignore does not; 45 parsing errors, all test files, PRE-EXISTING). LOW-1 orphaned
-  ID_LAYOUT and NOTICE consts. LOW-2 the dropped-types notice is triplicated and DRIFTED at this very reword
-  (trailing period on JsonModalBody only). INFO: D34 leaves NO emptiness floor at any layer -
-  refineDisplayableText is max-only and validateContentRequirements floors only TOP-LEVEL length - but the
-  editor tolerates it (SectionEditor uses map/length/filter, no unguarded [0]). D40 removal verified CLEAN AND
-  COMPLETE (grep CodeMessageNotice|codeMessageDroppedNotice at 2d90e8a = ZERO) and the three paste/dialog
-  surfaces D40 preserves still render. CORRECTION carried: both test files were TRIMMED (M), NOT deleted - '0
-  51' in --numstat means no lines ADDED, not a deletion. Implementation doc has ZERO record of 2d90e8a while
-  still asserting CodeMessageNotice as created and its layout.tsx TDD exemption as live - both false at the
-  tree; recorded, not charged, since 2d90e8a is the owner's own commit. APPROVED_WITH_COMMENTS; NOT a release
-  decision - 2d90e8a stays UNGATED. Nothing here holds the tree (rounds-stop; the tree is live). NO VERDICT
-  TRAVELS BETWEEN TREES. Round 22 (superseded by the above, retained): 4a7126b on chain/013-toast-vessel —
-  TEST-ONLY round adopting QA's F-QA28 PASTE-SURFACE render instrument (one file,
-  src/utils/__tests__/013-qa-paste-surface-render.test.ts, +82/-0). One commit atop 664e0c0; non-test delta
-  664e0c0..4a7126b EMPTY; the four source files are byte-identical to abcf585 and have not moved across TWO
-  subsequent commits; origin/master unmoved at a151fb4 (git ls-remote). Re-derived git-side, verified at pass
-  start AND end. SO THE ROUND-20 SOURCE VERDICT STILL CARRIES. Substance: this instrument reaches the PASTE
-  SURFACE (NewMessageJsonInput.settledNotice) — the site the owner ruling actually named and the one I scoped
-  OPEN at rounds 20/21. QA withdrew its earlier "unreachable without a harness" claim by execution (mocking
-  the three custom hooks makes the useState order deterministic and the component callable). I re-attacked
-  from first principles: [CORRECTED post-verdict — see ROUND 22 CORRECTION] the three custom hooks in fact
-  consume 3 useState slots (useCopyToClipboard 1, useCodeMirror 2), and useCopyToClipboard runs BETWEEN json
-  and error so a REAL render puts settledNotice at index 6; the positional injection
-  [json,error,dropped,pending,dismissed,settled]=0..5 is aligned ONLY because the mocks remove those slots —
-  the MOCKS ARE LOAD-BEARING for correctness. Verified: every drift path fails LOUDLY (A1 drop-copy-mock
-  throws; A3 extra-state caught), probe-cr24, my own execution. probe-cr23 ran the instrument oracle against
-  the REAL component (control) and two REAL-SOURCE mutant copies (shared tree untouched): 3/3 — control
-  PASSES, never-render (show={false}) KILLED, drop-!error-conjunct (show={settledNotice}) KILLED by the
-  suppress-on-error check (conjunct isolation against the real wiring). So the paste surface is now
-  instrument-guarded for whether the notice RENDERS, SUPPRESSES under error, CLEARS, and is STYLED. RESIDUE
-  STILL OPEN, owner-observation ONLY (D28) for BOTH surfaces: VISIBILITY (CSS/contrast/overflow), PLACEMENT,
-  and the real Next.js server/client MOUNT. That residue is mine to keep scoped; steering did not assert this
-  closes it. APPROVED (test-only; source verdict carries). Round 21 (binding, carries): 664e0c0 on
-  chain/013-toast-vessel — TEST-ONLY round adopting QA's F-QA23 render instrument (one file,
+Reviewed-At: 'Round 24 (current, binding): e1d9b2b on chain/013-rider-2 — the RE-REVIEW of Rider 2 (D47-D50).
+  Range 2d90e8a..e1d9b2b re-derived (2d90e8a confirmed ANCESTOR via merge-base --is-ancestor): 2 commits,
+  20 files, 10 non-test. Anchor is the COMMIT OBJECT, not the ref; branch is UNPUSHED (ls-remote empty)
+  and origin/master is still 2d90e8a. Identity verified at pass start AND end; tree blob-identical on
+  every file gated. ALL FIVE round-23 findings DISPOSED, FOUR STRUCTURALLY. MEDIUM-1 ELIMINATED not merely
+  unhit: formatZodIssues formats each issue as a one-element array and joins itself, so no inter-issue
+  delimiter exists; all three sites consume it; re-attacked from first principles (probe-cr26, REBUILT
+  not re-pointed) — the payload that gave SIX lines at 2d90e8a now gives ONE, D32 path-with-indices not
+  regressed, three controls pass. MEDIUM-2 ELIMINATED: tsconfig.test.json defines the set once, both tsc
+  projects exit 0 AT THE SHA, ESLint Parsing errors 45 -> 0. LOW-1 and LOW-2 ELIMINATED (one notice definition
+  + a test pinning shipped wording, which also closes LOW-1s residue). CR23-5 REPAIRED beside-not-over.
+  MY OWN ROUND-23 ENUMERATION WAS WRONG AND IS RECORDED AS SUCH: my Class named "sites that split" but
+  my predicate enumerated "schemas that emit the delimiter" — the trigger set, not the defect set. True
+  count at 2d90e8a is THREE (formatMutationError.ts, NewMessageJsonInput.tsx, JsonModalBody.tsx); I reported
+  one. QA caught it. Rule: an enumeration must run the predicate its own Class sentence names. NEW, all
+  LOW, none holding the tree: (1) three review-addressed comment blocks added to source, zero precedent
+  in the tree; (2) settledMode s requiresChoice branch is DEAD and the M9-b spec s own oracle encodes
+  a DIFFERENT rule for it — the second disagreeing computation M9-b exists to remove, unreachable so undetectable
+  (reachability checked: setValidatedDraft(null) on that path); (3) an undisclosed member-delimiter autofix
+  rode into shapes.ts, doc numstat 4/0 vs tree 8/1 — a scoped revert structurally cannot reach in-scope
+  files; (4) M9-e and M9-g carry neither TDD row nor exemption. INFO residual, NOT raised as a defect
+  per the input-robustness order step 1: the joiner moved from " | " to newline and is still breakable
+  by a newline in a message, but zero schemas in this tree emit one. Two brief corrections re-derived:
+  M9-c is NOT removed from the plan (16 lines; WITHDRAWN IN PLACE), and the owner s ESLint-residue acceptance
+  is NOT in the register (grep 429 -> 0) though I have honoured it and recorded no round failure for it.
+  686 findings from my --no-fix run and the round s 429 are DIFFERENT INSTRUMENTS and neither refutes
+  the other. Suite NOT run — QA s step. APPROVED. Not a release decision. NO VERDICT TRAVELS BETWEEN TREES.
+  Round 23 (superseded, was binding at 2d90e8a): Round 23 (current, binding): 2d90e8a on master — the
+  TRAILING REVIEW DEBT (D39 for the D30-D34 round; D37 for 2d90e8a/D40). Delta reviewed = 4a7126b..2d90e8a:
+  4 commits, 17 files, 10 non-test. HEAD == origin/master == 2d90e8a verified by git ls-remote (computed
+  AT THE REMOTE) at pass start 08:24:00Z AND pass end 08:33:42Z; working tree proven blob-identical to
+  the SHA path-by-path, which is what licenses gating in place. D35 re-derived as bounded to D30-D34,
+  so 2d90e8a is INSIDE the debt and NOT waived - agrees with uat R22.4.3, independently, not inherited.
+  ARCHITECTURALLY GROUNDED: system-architecture.md EXISTS (221 lines, ls -d + git cat-file -e); rounds
+  6/7/8 wrongly declared it absent and this round does not inherit that. Adversarial trigger MET (D34
+  relaxes server validation; Discord post is irreversible) and discharged IN PART: I drove the REAL discordMessageShape
+  with caller-sendable payloads into the REAL formatMutationError (probe-cr25, imports from the tree,
+  no embedded copy); the send-to-Discord half is STRUCTURALLY CLOSED to every agent here because it would
+  require an outbound Discord message, which is prohibited absolutely. Findings: MEDIUM-1 D32 readable
+  errors defeated on a REACHABLE path - formatMutationError splits on '' | '', which Zod itself emits
+  inside a single discriminatedUnion message, so ONE real issue renders as SIX lines, five bare numbers
+  (measured, not read). MEDIUM-2 no gate reaches any test file (tsconfig excludes **/__tests__, .eslintignore
+  does not; 45 parsing errors, all test files, PRE-EXISTING). LOW-1 orphaned ID_LAYOUT and NOTICE consts.
+  LOW-2 the dropped-types notice is triplicated and DRIFTED at this very reword (trailing period on JsonModalBody
+  only). INFO: D34 leaves NO emptiness floor at any layer - refineDisplayableText is max-only and validateContentRequirements
+  floors only TOP-LEVEL length - but the editor tolerates it (SectionEditor uses map/length/filter, no
+  unguarded [0]). D40 removal verified CLEAN AND COMPLETE (grep CodeMessageNotice|codeMessageDroppedNotice
+  at 2d90e8a = ZERO) and the three paste/dialog surfaces D40 preserves still render. CORRECTION carried:
+  both test files were TRIMMED (M), NOT deleted - ''0 51'' in --numstat means no lines ADDED, not a deletion.
+  Implementation doc has ZERO record of 2d90e8a while still asserting CodeMessageNotice as created and
+  its layout.tsx TDD exemption as live - both false at the tree; recorded, not charged, since 2d90e8a
+  is the owner''s own commit. APPROVED_WITH_COMMENTS; NOT a release decision - 2d90e8a stays UNGATED.
+  Nothing here holds the tree (rounds-stop; the tree is live). NO VERDICT TRAVELS BETWEEN TREES. Round
+  22 (superseded by the above, retained): 4a7126b on chain/013-toast-vessel — TEST-ONLY round adopting
+  QA''s F-QA28 PASTE-SURFACE render instrument (one file, src/utils/__tests__/013-qa-paste-surface-render.test.ts,
+  +82/-0). One commit atop 664e0c0; non-test delta 664e0c0..4a7126b EMPTY; the four source files are byte-identical
+  to abcf585 and have not moved across TWO subsequent commits; origin/master unmoved at a151fb4 (git ls-remote).
+  Re-derived git-side, verified at pass start AND end. SO THE ROUND-20 SOURCE VERDICT STILL CARRIES. Substance:
+  this instrument reaches the PASTE SURFACE (NewMessageJsonInput.settledNotice) — the site the owner ruling
+  actually named and the one I scoped OPEN at rounds 20/21. QA withdrew its earlier "unreachable without
+  a harness" claim by execution (mocking the three custom hooks makes the useState order deterministic
+  and the component callable). I re-attacked from first principles: [CORRECTED post-verdict — see ROUND
+  22 CORRECTION] the three custom hooks in fact consume 3 useState slots (useCopyToClipboard 1, useCodeMirror
+  2), and useCopyToClipboard runs BETWEEN json and error so a REAL render puts settledNotice at index
+  6; the positional injection [json,error,dropped,pending,dismissed,settled]=0..5 is aligned ONLY because
+  the mocks remove those slots — the MOCKS ARE LOAD-BEARING for correctness. Verified: every drift path
+  fails LOUDLY (A1 drop-copy-mock throws; A3 extra-state caught), probe-cr24, my own execution. probe-cr23
+  ran the instrument oracle against the REAL component (control) and two REAL-SOURCE mutant copies (shared
+  tree untouched): 3/3 — control PASSES, never-render (show={false}) KILLED, drop-!error-conjunct (show={settledNotice})
+  KILLED by the suppress-on-error check (conjunct isolation against the real wiring). So the paste surface
+  is now instrument-guarded for whether the notice RENDERS, SUPPRESSES under error, CLEARS, and is STYLED.
+  RESIDUE STILL OPEN, owner-observation ONLY (D28) for BOTH surfaces: VISIBILITY (CSS/contrast/overflow),
+  PLACEMENT, and the real Next.js server/client MOUNT. That residue is mine to keep scoped; steering did
+  not assert this closes it. APPROVED (test-only; source verdict carries). Round 21 (binding, carries):
+  664e0c0 on chain/013-toast-vessel — TEST-ONLY round adopting QA''s F-QA23 render instrument (one file,
   src/utils/__tests__/013-qa-toast-vessel-render.test.ts, +132/-0). Base=abcf585 (one commit atop); non-test
-  delta abcf585..664e0c0 is EMPTY and all FOUR production blobs (NewMessageJsonInput.tsx,
-  MessageProvider/index.tsx, CodeMessageNotice.tsx, layout.tsx) byte-identical, re-derived git-side and
-  re-verified at pass start AND end. SO THE ROUND-20 SOURCE VERDICT CARRIES UNCHANGED to 664e0c0 (delta-round
-  identity rule). Substance of this round: the adopted instrument converts my routed Assumption-Not-Checked
-  from suspicion to PARTIAL MEASUREMENT for CodeMessageNotice, and I re-established its non-vacuity by my OWN
-  execution (re-attack of an adopted instrument from first principles) —
-  probe-cr22-render-instrument-nonvacuity, 4/4: the real CodeMessageNotice passes the render-by-function-call
-  oracle, and the never-render, empty-box, and unstyled mutants are all KILLED. That discharges steering
-  provenance flag #1 (implementer only READ QA's mutation logs, did not re-execute). The instrument is
-  D28-compliant (no jsdom/RTL/harness; no vitest.config change; function-call rendering) and honestly foots
-  the 4 things it cannot establish. layout.tsx exemption AFFIRMED CORRECT (steering flag #2): pure JSX wiring,
-  <CodeMessageNotice/> mounted inside <MessageProvider> between <Navigation/> and {children}, no logic to
-  test. Doc-correction breadth (steering flag #3) is an agent-output records item, not source, and is
-  consistent with my record — the retained Load site rests on MY interaction-model argument, and the shipped
-  text-pinning spec being non-behavioural is exactly what this round partially closes. RESIDUE STILL OPEN,
-  owner-observation ONLY (D28), routed unchanged: the PASTE SURFACE (NewMessageJsonInput settledNotice — the
-  site the owner ruling actually named) is asserted only as source text; plus visibility, placement, and the
-  real Next.js server/client mount. APPROVED (test-only; source verdict carries). Round 20 (binding source
-  verdict, carries): abcf585 on branch chain/013-toast-vessel — the owner-ruling 2026-08-25
-  toast→persistent-vessel round (five paths: NewMessageJsonInput.tsx, MessageProvider/index.tsx,
-  CodeMessageNotice.tsx [new], layout.tsx, 013-owner-toast-vessel-2026-08-25.test.ts [new]). Base =
-  merge-base(abcf585,a151fb4) = a151fb4, one commit atop it. HEAD and all five blobs verified byte-identical
-  at pass start and end. APPROVED_WITH_COMMENTS, SCOPED — no plan revision, no planner; verdict scoped to code
-  quality + conformance to the relayed owner ruling. This is a POST-RELEASE fix: a151fb4 is live on
-  origin/master (re-derived via git ls-remote, not a tracking ref), so all a151fb4-stamped verdicts are
-  expired and devops must re-run readiness + cut a new release. Superseded/expired: the round-19 verdict at
-  a151fb4 (was live, now the base of this fix). NO VERDICT TRAVELS BETWEEN TREES. Round 19-δ2 (superseded, was
-  the settled tip): a151fb4 — the chain tip has stopped moving. Re-derived with git-side predicates (not piped
-  counts — grep -vc over piped diff is unsound here): `git diff --name-only 53beb37..a151fb4 --
-  ':(exclude)*__tests__*'` is EMPTY, so the ENTIRE non-test tree is byte-identical to my binding round-19
-  verdict tree; both reviewed source blobs unchanged (JsonModalBody.tsx cfbec5b, discordResponseToMessage.ts
+  delta abcf585..664e0c0 is EMPTY and all FOUR production blobs (NewMessageJsonInput.tsx, MessageProvider/index.tsx,
+  CodeMessageNotice.tsx, layout.tsx) byte-identical, re-derived git-side and re-verified at pass start
+  AND end. SO THE ROUND-20 SOURCE VERDICT CARRIES UNCHANGED to 664e0c0 (delta-round identity rule). Substance
+  of this round: the adopted instrument converts my routed Assumption-Not-Checked from suspicion to PARTIAL
+  MEASUREMENT for CodeMessageNotice, and I re-established its non-vacuity by my OWN execution (re-attack
+  of an adopted instrument from first principles) — probe-cr22-render-instrument-nonvacuity, 4/4: the
+  real CodeMessageNotice passes the render-by-function-call oracle, and the never-render, empty-box, and
+  unstyled mutants are all KILLED. That discharges steering provenance flag #1 (implementer only READ
+  QA''s mutation logs, did not re-execute). The instrument is D28-compliant (no jsdom/RTL/harness; no
+  vitest.config change; function-call rendering) and honestly foots the 4 things it cannot establish.
+  layout.tsx exemption AFFIRMED CORRECT (steering flag #2): pure JSX wiring, <CodeMessageNotice/> mounted
+  inside <MessageProvider> between <Navigation/> and {children}, no logic to test. Doc-correction breadth
+  (steering flag #3) is an agent-output records item, not source, and is consistent with my record — the
+  retained Load site rests on MY interaction-model argument, and the shipped text-pinning spec being non-behavioural
+  is exactly what this round partially closes. RESIDUE STILL OPEN, owner-observation ONLY (D28), routed
+  unchanged: the PASTE SURFACE (NewMessageJsonInput settledNotice — the site the owner ruling actually
+  named) is asserted only as source text; plus visibility, placement, and the real Next.js server/client
+  mount. APPROVED (test-only; source verdict carries). Round 20 (binding source verdict, carries): abcf585
+  on branch chain/013-toast-vessel — the owner-ruling 2026-08-25 toast→persistent-vessel round (five paths:
+  NewMessageJsonInput.tsx, MessageProvider/index.tsx, CodeMessageNotice.tsx [new], layout.tsx, 013-owner-toast-vessel-2026-08-25.test.ts
+  [new]). Base = merge-base(abcf585,a151fb4) = a151fb4, one commit atop it. HEAD and all five blobs verified
+  byte-identical at pass start and end. APPROVED_WITH_COMMENTS, SCOPED — no plan revision, no planner;
+  verdict scoped to code quality + conformance to the relayed owner ruling. This is a POST-RELEASE fix:
+  a151fb4 is live on origin/master (re-derived via git ls-remote, not a tracking ref), so all a151fb4-stamped
+  verdicts are expired and devops must re-run readiness + cut a new release. Superseded/expired: the round-19
+  verdict at a151fb4 (was live, now the base of this fix). NO VERDICT TRAVELS BETWEEN TREES. Round 19-δ2
+  (superseded, was the settled tip): a151fb4 — the chain tip has stopped moving. Re-derived with git-side
+  predicates (not piped counts — grep -vc over piped diff is unsound here): `git diff --name-only 53beb37..a151fb4
+  -- '':(exclude)*__tests__*''` is EMPTY, so the ENTIRE non-test tree is byte-identical to my binding
+  round-19 verdict tree; both reviewed source blobs unchanged (JsonModalBody.tsx cfbec5b, discordResponseToMessage.ts
   81f4562). The delta 164d720..a151fb4 is FOUR test files (M/M/M/A — I independently re-derived 4, correcting
-  QA's 3, which counted its own commit), all QA-domain: F-QA21 (a test assertion `flags as number & 32768`
-  that parsed as a TS type assertion, not a bitwise AND, silently asserting flags===0 — a vacuous-green defect
-  in the TEST; the source's switchToClassic correctly clears only the V2 bit, as reviewed round 19), F-QA16
-  re-anchors (Block-E 'flag never reaches the textarea' REPLACED not restored, per my constraint), F-QA19 new
-  coverage. My CR21-C hole-check block is intact at a151fb4. Zero source delta ⟹ the round-19 APPROVED verdict
-  CARRIES to a151fb4 in full (delta-round identity rule, strongest form). The code-review gate is MET at
-  a151fb4. Round 19-δ (prior tip): 164d720 — a TEST-ONLY micro-round landing INFO-3 (the CR21-C hole-check
-  negatives ported into 013-fqa15-rowd-load-gate.test.ts, +27, one file). The two reviewed SOURCE blobs are
-  byte-identical to 53beb37 (JsonModalBody.tsx cfbec5b, discordResponseToMessage.ts 81f4562), so the round-19
-  APPROVED verdict carries unchanged; a byte-identical source tree requires identity re-verification, not a
-  fresh attack. Confirmed: diff confined to the one test file; the three ported assertions are byte-for-byte
-  my CR21-C with the same loadDisabled helper; all referenced symbols imported
-  (applyDisposition/resolveContentLoss/validateContentRequirements/FLAG). One non-blocking comment-hygiene
-  note (the added prose block narrates the review exchange; the describe() string already carries the
-  machine-read label). QA cleared to anchor Verified-At at 164d720. Round 19 (binding verdict): 53beb37
-  (chain/013-components-v2-editing-surfaces) — the QA Phase 2 fix round: JsonModalBody Load gate floors the
-  RESOLVED draft `validateContentRequirements(applyDisposition(validatedDraft))` (F-QA15), and
-  discordResponseToMessage.ts exports its two SUPPORTED_*_TYPES sets (F-QA17, export-only); two files. HEAD
-  and both reviewed blobs (JsonModalBody.tsx cfbec5b, discordResponseToMessage.ts 81f4562) verified
-  byte-identical to the commit at pass start AND end; the tree did not move. Superseded, retained for the
-  record: round 18 at 4e9da96, round 17 at ad9f331, round 16 at e61e602, round 15 at 12f4ce6, round 14 at
-  66e1974, round 13 at 7890fc9, round 12 at 299b842, round 11 at 54fed63, round 10 at 82af843, round 9 at
-  ee3bc3e, round 8 at b3f8ea9, round 7 at 87cfbd8, round 6 at 816d7fd, round 5 at 0c8fad5, round 4 at 92ce026,
-  round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN
-  THESE TREES.
+  QA''s 3, which counted its own commit), all QA-domain: F-QA21 (a test assertion `flags as number & 32768`
+  that parsed as a TS type assertion, not a bitwise AND, silently asserting flags===0 — a vacuous-green
+  defect in the TEST; the source''s switchToClassic correctly clears only the V2 bit, as reviewed round
+  19), F-QA16 re-anchors (Block-E ''flag never reaches the textarea'' REPLACED not restored, per my constraint),
+  F-QA19 new coverage. My CR21-C hole-check block is intact at a151fb4. Zero source delta ⟹ the round-19
+  APPROVED verdict CARRIES to a151fb4 in full (delta-round identity rule, strongest form). The code-review
+  gate is MET at a151fb4. Round 19-δ (prior tip): 164d720 — a TEST-ONLY micro-round landing INFO-3 (the
+  CR21-C hole-check negatives ported into 013-fqa15-rowd-load-gate.test.ts, +27, one file). The two reviewed
+  SOURCE blobs are byte-identical to 53beb37 (JsonModalBody.tsx cfbec5b, discordResponseToMessage.ts 81f4562),
+  so the round-19 APPROVED verdict carries unchanged; a byte-identical source tree requires identity re-verification,
+  not a fresh attack. Confirmed: diff confined to the one test file; the three ported assertions are byte-for-byte
+  my CR21-C with the same loadDisabled helper; all referenced symbols imported (applyDisposition/resolveContentLoss/validateContentRequirements/FLAG).
+  One non-blocking comment-hygiene note (the added prose block narrates the review exchange; the describe()
+  string already carries the machine-read label). QA cleared to anchor Verified-At at 164d720. Round 19
+  (binding verdict): 53beb37 (chain/013-components-v2-editing-surfaces) — the QA Phase 2 fix round: JsonModalBody
+  Load gate floors the RESOLVED draft `validateContentRequirements(applyDisposition(validatedDraft))`
+  (F-QA15), and discordResponseToMessage.ts exports its two SUPPORTED_*_TYPES sets (F-QA17, export-only);
+  two files. HEAD and both reviewed blobs (JsonModalBody.tsx cfbec5b, discordResponseToMessage.ts 81f4562)
+  verified byte-identical to the commit at pass start AND end; the tree did not move. Superseded, retained
+  for the record: round 18 at 4e9da96, round 17 at ad9f331, round 16 at e61e602, round 15 at 12f4ce6,
+  round 14 at 66e1974, round 13 at 7890fc9, round 12 at 299b842, round 11 at 54fed63, round 10 at 82af843,
+  round 9 at ee3bc3e, round 8 at b3f8ea9, round 7 at 87cfbd8, round 6 at 816d7fd, round 5 at 0c8fad5,
+  round 4 at 92ce026, round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT
+  TRAVELS BETWEEN THESE TREES.'
 Status: Code Review Approved
-Status-Detail: >-
-  Round 23 (binding) at 2d90e8a on master: APPROVED_WITH_COMMENTS, SCOPED. This is the trailing review
-  debt D39 and D37 record as blocking chain closure, paid at the live tip. Two MEDIUMs (D32 delimiter
-  collision, proven reachable by execution; test files unreachable by any gate, pre-existing), two LOWs,
-  one INFO, one implementer-owned record defect. Nothing holds the tree - it is live, and the
-  rounds-stop rule routes non-decision-changing findings to a follow-up register. D34's Discord
-  question CANNOT be closed by any agent here (it needs an outbound Discord message, prohibited) and is
-  the routed Assumption Not Checked, owned by the owner. qa is cleared to proceed at 2d90e8a.
-  Round 20 (superseded) at abcf585 (branch chain/013-toast-vessel): APPROVED_WITH_COMMENTS, SCOPED. The
-  owner-ruling 2026-08-25 toast→persistent-vessel round. AUTHORITY IS THIN: no plan revision, no planner
-  ("toast" appears 0 times in the plan); verdict scoped to code quality + conformance to the relayed
-  ruling, NOT ratification of the ruling (owner's) nor the product call on the retained site (owner's).
-  Enumeration (git-side, c85945f..a151fb4): 013 introduced exactly THREE toast.warn, all stateful; the
-  change disposes all three — TWO CONVERTED (NewMessageJsonInput settled notice → persistent settledNotice
-  state, which also closes my rounds-9/10/11 re-fire class at the root; MessageProvider dropped-types →
-  persistent CodeMessageNotice banner), ONE RETAINED with argument (JsonModalBody Load toast). The retained
-  site is the substance: I attacked it (sibling asymmetry — same noticeMessageForSettled the sibling now
-  renders persistently, and JsonModalBody has a during-edit vessel), but it does not hold the tree — a real
-  interaction-model difference (sibling live-applies each parse; Load applies discretely then onClose()s)
-  makes "transient action-report" defensible, and the owner himself named "the Load one" as his conditional
-  exception. FINAL CALL ON THE RETAINED SITE = OWNER'S (product judgment), routed not shelved. TDD ordering
-  lapse disclosed with a valid stash-revert compensation (7/9 red on reverted tree). Test is source-text
-  pinning (non-vacuous) not behavioural — DOM residue → Assumption Not Checked, routed to QA/UAT. tsc 0;
-  eslint 0 on the four source files. POST-RELEASE: a151fb4 is live on origin/master (git ls-remote), so the
-  a151fb4 verdicts are expired and devops must re-run readiness + cut a new release. This Status names the
-  non-terminal "review passed" state for the abcf585 tree; DevOps still owns the terminal Committed close,
-  and the plan Status stays steering's/owner's. Handing off to the qa subagent for execution. Prior
-  (superseded, was live): round-19 verdict at a151fb4.
-  CODE-REVIEW GATE MET at the settled final tip a151fb4 (round-19 APPROVED verdict, re-anchored). The
-  entire non-test tree is byte-identical from my binding verdict tree 53beb37 through 164d720 to a151fb4
-  (git-side test-excluded diff EMPTY); the delta is four QA-domain test files (F-QA21/F-QA16/F-QA19), zero
-  source. This status is the non-terminal "review passed" state — it is NOT a terminal status: DevOps still
-  owns the terminal close to Committed after the chain commits, and the PLAN document's own Status remains
-  steering's to advance (M6 etc. are not mine mid-plan). U-C1 is answerable from here: the verdict is APPROVED
-  and now anchored to the tip UAT/QA read. Full round-19 verdict basis follows.
-  Round 19, the QA Phase 2 fix round, at 53beb37 (two files: JsonModalBody.tsx, discordResponseToMessage.ts).
-  APPROVED. F-QA15: the Load gate now floors the RESOLVED draft — `validateContentRequirements(applyDisposition(
-  validatedDraft))` — which is exactly what commitLoad loads (line 73), the structural fix recommended at
-  round 16 (CR18-D). Re-attacked from first principles (gate fix, established by execution, probe-cr21 30/30):
-  CLOSURE — all 8 row-D members now load (switchToClassic clears the flag + filters to type-1, so the floor's
-  hasV2&&hasContent branch cannot fire post-resolution); NO HOLE — empty, flag-only-empty (row C → switchToV2
-  keeps empty), and whitespace-only all stay blocked (my CR21-C, the negative the implementer's test lacks →
-  non-blocking INFO-3); NO CRASH — the unguarded applyDisposition at the gate is safe only because the parse
-  effect stores validatedDraft=null for row E, asserted invariant (CR21-E). Mutation evidence: OLD gate (raw
-  floor) blocks the 5712 shape, FIXED gate enables it — CR21-B flips on revert. Steering's four checks each
-  re-derived: (1) closure+no-hole CONFIRMED; (2) QA's own probe reproduced independently → 28/29, the sole
-  failure being Block A's now-obsolete pre-fix source anchor (QA owns re-anchoring, F-QA16), Blocks B/C/E green
-  = no real regression; (3) F-QA18 sweep COMPLETE — all 5 production V2-classification predicates derive from
-  V2_COMPONENT_TYPE_VALUES=[9,10,11,12,13,14,17] (incl. Thumbnail 11), no hand-rolled classifier bypasses it,
-  gateBeforePersist routes through hasV2Components; (4) F-QA17 export-only, both SUPPORTED_*_TYPES copies
-  execute to equal sets {1,9,10,12,13,14,17}/{1,9,10,12,13,14} at runtime (CR21-G). Verification: tsc 0
-  project-wide; eslint 0 errors on both changed files (1 warning at discordResponseToMessage.ts:159 is
-  PRE-EXISTING, byte-identical at parent, not on a changed line). No CRITICAL/HIGH/MEDIUM findings this round;
-  one non-blocking INFO-3 (fix test asserts closure but not no-hole) routed to the implementer. Carried,
-  unchanged: MEDIUM-4 predicates still diverge in code (owner-pending); F-QA15's floor gate remains its
-  incidental mitigation, preserved by keeping the !!contentFloorError term. Assumption Not Checked (DOM: the
-  computed isDisabled actually renders an enabled Load button for row D — no DOM harness at this tree) routed
-  to QA Phase 2's refresh pass. Plan Status left to steering. Handing off to the qa subagent for test execution.
+Status-Detail: 'Round 24 (binding) at e1d9b2b on chain/013-rider-2: APPROVED, SCOPED. Rider 2 re-review.
+  All five round-23 findings disposed, four structurally, each established by an instrument run rather
+  than by reading the fix; MEDIUM-1 took the Preferred (structural) remedy I flagged as decisive. Four
+  new LOW findings (source comments, a dead divergent branch, an undisclosed autofix, two missing TDD
+  exemptions) — none changes a decision, all route to a follow-up register, and the tree they would hold
+  is an unpushed chain branch. My own round-23 enumeration is corrected against myself in the round text.
+  Assumption Not Checked routes to QA: both sides of M9-b s verification read resolveContentLoss, so a
+  defect inside it would be invisible. qa proceeds at e1d9b2b.'
 ---
 
 # Code Review: Plan 013 — Components V2 support across the editing surfaces (M1 only)
@@ -6783,3 +6757,288 @@ further round for it belongs to whoever owns the deploy, not to this gate.
    moved at `e343927` and `2d90e8a`; re-deriving those predictions is QA's, and an observation taken
    against a stale prediction produces a false failure. **My verdict binds to `2d90e8a` and expires
    the moment the tree moves.**
+
+---
+
+# Round 24 — re-review of Rider 2, at `e1d9b2b`
+
+**Reviewed-At:** `e1d9b2b7090b46709861a9c4b2a57f340617777b` (branch `chain/013-rider-2`; the **commit
+object** is the anchor, not the ref).
+Identity established at pass start and re-verified at pass end. `2d90e8a` confirmed an **ancestor**
+(`git merge-base --is-ancestor`), so the range is exactly `2d90e8a..e1d9b2b` — **2 commits, 20
+files, 10 non-test**. `origin/master` computed **at the remote** = `2d90e8a`; `chain/013-rider-2` is
+**not pushed** (`git ls-remote` returns nothing for it). Working tree clean and blob-identical to
+the SHA on every file I gated.
+
+**The round-23 verdict at `2d90e8a` is EXPIRED** and is superseded by this one. No verdict travels
+between trees.
+
+## Instrument note — my first command this round was wrong
+
+I ran a bare `git status` and read the result as the website repo's. It was **`agent-output`'s** —
+the shell's cwd had persisted. This cwd's standing rule is `git -C <repo>` on **every** invocation
+precisely because a bare `git` resolves silently against whatever directory it lands in. Caught
+within one command by a contradiction (`2d90e8a` reported "not a valid object name", which is true
+in `agent-output` and false in `website`). Every git fact in this round was re-derived with explicit
+`-C`. Recorded because a wrong-repo status that happens *not* to error is the dangerous form.
+
+## Disposition of round 23's findings — the sweep, re-run, not the flagged sites
+
+| # | Finding | Disposition | Established by |
+|---|---|---|---|
+| CR23-1 | MEDIUM-1 delimiter collision | **ELIMINATED (structural)** | execution — probe-cr26 |
+| CR23-2 | MEDIUM-2 no gate reaches test files | **ELIMINATED (structural)** | gates run at the SHA |
+| CR23-3 | LOW-1 orphaned constants | **ELIMINATED** | `grep -c` at the SHA |
+| CR23-4 | LOW-2 notice triplication/drift | **ELIMINATED (structural)** | `grep -n` + new pin test |
+| CR23-5 | implementation-doc record gap | **REPAIRED** | correction paragraph, beside-not-over |
+| CR23-6 | D34 Discord question | **STILL OPEN — owner's**, unchanged and uncloseable here |
+
+**CR23-1.** Both remedies were on the table and the round took the **Preferred (structural)** one, as
+I asked to be told. `formatZodIssues` formats each issue as a one-element array and joins with
+`'\n'` itself, so **no inter-issue delimiter exists to collide with**. All three sites consume it;
+`git grep "split(' | ')" e1d9b2b -- src` survives only inside a test file's header comment.
+Re-attacked from first principles rather than read: the payload that produced **six lines** at
+`2d90e8a` now produces **one**, and D32's path-with-indices is not regressed. **Recordable as
+eliminated, not merely unhit** — the delimiter is gone as a parsing input, not avoided.
+
+**CR23-2.** `tsconfig.test.json` defines the member set once; `.eslintrc.json`'s
+`parserOptions.project` consumes both projects; `typecheck` runs both. Verified **against the SHA**:
+`tsc --noEmit` exit **0**, `tsc --noEmit -p tsconfig.test.json` exit **0**, and ESLint `Parsing
+error` occurrences **0** (was 45). The specific signature I raised is gone.
+
+**CR23-4.** One exported definition (`describeDroppedComponentTypesNotice`), three consumers, the
+trailing-period drift gone by construction — and a test now pins the shipped wording, which also
+closes the second clause of LOW-1 that I had left as a residue.
+
+## My own round-23 enumeration was wrong, and QA is right
+
+QA's correction stands and I am recording it against myself rather than absorbing it.
+
+My Class sentence named *"sites that reconstruct structure by splitting on a delimiter the payload
+may contain."* My **Enumeration then ran a different predicate** — `discriminatedUnion|z.union|
+z.enum|nativeEnum` — which enumerates the **schemas capable of emitting** the delimiter (the trigger
+set), not the **sites that split on it** (the defect set). Re-derived here at the old tree:
+`git grep -n "split(' | ')" 2d90e8a -- src` returns **3** — `formatMutationError.ts:25`,
+`NewMessageJsonInput.tsx:112`, `JsonModalBody.tsx:149`. **I reported one.** Two of the three missed
+sites were in files that round had already opened.
+
+The rule this instance illustrates, stated so it survives the instance: **an enumeration must run
+the predicate its own Class sentence names.** Mine was internally inconsistent, and nothing about it
+looked wrong — it returned real hits from a real command, so re-running it confirmed it. It was
+caught by a second party running a different predicate, which is the only way this class has ever
+been caught here.
+
+## New findings
+
+**[LOW] Documentation & Comments** — the round left a review thread in three source files
+
+- **Location**: `src/utils/formatMutationError.ts` (`formatZodIssues` header), `src/utils/index.ts`
+  (`settledMode` header), `src/server/api/utils/shapes.ts` (`describeDroppedComponentTypesNotice`
+  header).
+- **Class**: Explanatory prose in source addressed to a **human reader**, and specifically to the
+  **review process** — comments naming review and QA findings rather than serving any tool.
+- **Enumeration**: `git grep -n "code review round\|QA P3\|F-QA[0-9]" e1d9b2b -- src ':(exclude)*__tests__*'`
+  → **3 hits, all added by this round; zero at `2d90e8a`.** Added `//` lines in non-test source this
+  round: **17**. For proportion, `git grep -c "^\s*//"` over non-test `src` at `2d90e8a` matches
+  **119 files**, so the repo has heavy prose-comment precedent — **this finding is scoped to the
+  review-addressed subset, which has no precedent at all.** *What the predicate does not match*:
+  review-addressed prose phrased without those tokens (e.g. "as the reviewer noted"), and block
+  comments in files this round did not touch.
+- **Issue**: My definition's standing rule — *if a tool consumes it, it may stay; if only a human
+  reads it, it does not go in the source file* — and, specifically, *a comment addressed to the
+  review process is itself a finding*. Rationale has two homes and neither is the source file: a
+  test, where the reasoning is enforced, or the round's own record. The reasoning in all three
+  blocks is genuinely good and belongs in the implementation document, where it largely already is.
+  **No repo gate governs this** — I checked: no husky, no lint-staged, `.git/hooks` holds only
+  samples — so the repo's allowlist is not authoritative here and the definition's rule applies.
+- **Required Action**: *Eliminate the class — move the reasoning, do not reword it.* **Preferred
+  (structural)**: delete the three blocks; the M9-a and M9-f reasoning is already carried by their
+  tests, which is the enforced home. **Minimum**: strip only the review-process citations
+  ("code review round 23 MEDIUM-1", "QA P3.15", "QA F-QA31"), leaving the domain prose — weaker,
+  because the prose is still human-only.
+- **Not held against the tree.**
+
+---
+
+**[LOW] Checks That Cannot Fail** — M9-b introduces the second disagreeing computation it exists to remove
+
+- **Location**: `src/utils/index.ts`, `settledMode` (the `requiresChoice` ternary);
+  `src/utils/__tests__/013-fqa31-load-confirmation-names-actual-mode.test.ts`, helper `modeAfterLoad`.
+- **Class**: One domain rule — *the mode a Load settles to* — **encoded twice, in two places that
+  disagree**, with the disagreeing branch unreachable so nothing can detect the divergence.
+- **Enumeration**: the two encodings above; both read `resolveContentLoss`, and they differ **only**
+  on the `requiresChoice` branch — production returns `isMessageV2(draft) ? 'v2' : 'classic'`, the
+  spec's oracle returns `'classic'` unconditionally. Reachability checked rather than assumed:
+  `computeLoadDiff`'s sole production caller is `JsonModalBody.tsx:270`, guarded on
+  `validatedDraft`, and the parsing effect executes `setValidatedDraft(null)` on the
+  `requiresChoice` path before returning. **So the branch is dead on both sides** — which is why the
+  divergence is invisible.
+- **Issue**: M9-b's own stated property is *"the dialog and the commit read **one** disposition
+  result, never two computations that can disagree."* The fix satisfies that for the live path and
+  then adds a second computation, in its own verifying spec, that disagrees on the dead one. Not a
+  live defect — nothing reaches it — but a dead control is worse than an absent one because it is
+  counted, and if row E ever becomes reachable the two encodings resolve it differently.
+- **Required Action**: *Eliminate the class — one encoding.* **Preferred (structural)**: have
+  `settledMode` return `disposition.mode` unconditionally and delete the dead ternary, or export the
+  single settled-mode helper and have the spec's oracle import it only if the oracle is
+  deliberately re-derived from the row table instead. **Minimum**: make the two branches agree and
+  say in the round's record which one is correct. See also the Assumption below — this is the same
+  seam.
+
+---
+
+**[LOW] Record accuracy** — an undisclosed cosmetic autofix rode into an in-scope file
+
+- **Location**: `src/server/api/utils/shapes.ts`, `sumDisplayableText` signature — the inline type's
+  member delimiter changed `;` → `,`.
+- **Class**: An `eslint --fix` artifact inside a file the round legitimately edited, therefore
+  **outside the reach of the scoped revert** (which addressed out-of-scope files only) and not
+  itemised in the round's own record.
+- **Enumeration**: `git diff --numstat 2d90e8a e1d9b2b -- src/server/api/utils/shapes.ts` → **8/1**,
+  against the implementation doc's Files Modified row for that file, which reads **4/0**. The gap is
+  the 3-line comment block plus this 1/1 delimiter change. `@typescript-eslint/member-delimiter-style`
+  is configured at `.eslintrc.json:89` and is auto-fixable, which identifies the mechanism.
+  `vitest.config.ts`'s `quote-props` change **is** disclosed, so the practice is established and this
+  one is an omission, not a policy.
+- **Issue**: Harmless in itself. It matters because I was handed *"the autofix noise never entered
+  either commit"* as established. That is true for out-of-scope files and **false for in-scope
+  ones** — a scoped revert structurally cannot reach them. A later reader relying on the claim would
+  skip checking exactly where the residue can survive.
+- **Required Action**: correct the `shapes.ts` numstat in the implementation record and note the
+  delimiter hunk as gate satisfaction, as `vitest.config.ts` already is. **No code change wanted** —
+  reverting it would fight the linter.
+
+---
+
+**[LOW] TDD Compliance** — two milestones carry neither a row nor an exemption
+
+- **Location**: implementation doc, TDD Compliance section — **M9-e** and **M9-g**.
+- **Class**: A delivered milestone with **no TDD row and no stated exemption**, where the document's
+  own convention is that an exemption is written out rather than left silent.
+- **Enumeration**: M9-a (row present), M9-b (row, exemption stated and justified), M9-d (exemption
+  note stated), M9-f (row present) — **M9-e and M9-g: neither.** Their evidence exists, as before/
+  after `grep -c` counts in the round narrative and Class Sweep table; it is simply not in the table
+  that carries the claim.
+- **Issue**: Both are deletions/restorations where an exemption is defensible — that is precisely
+  why it should be *claimed*, as this document did for `layout.tsx`. A silent exemption and an
+  overlooked obligation are indistinguishable to the next reader.
+- **Required Action**: add two exemption rows with their justification. **No code change.**
+
+---
+
+**[INFO] Residual, deliberately not raised as a defect** — the invariant now rests on a schema property
+
+The fix replaced a `' | '` joiner with a `'\n'` joiner, so *one line per issue* is still breakable by
+an issue message containing a newline (**measured**: 1 issue → 2 lines, probe-cr26 §5). I applied
+the input-robustness order rather than raising it: **step 1 — can the caller send it?**
+`git grep "message:.*\\n"` over non-test `src` at `e1d9b2b` returns **zero**, and the single custom
+Zod issue message in the tree contains no newline. The caller cannot send it, so **there is no
+finding and I stop.** Recorded only because the invariant now rests on a property of the current
+schema set rather than on a guarantee, and a future custom message is where it would change.
+
+## Two corrections owed to the brief I was given
+
+Both re-derived from the tree and the plan, and neither changes what I was asked to do.
+
+1. **M9-c was not removed from the plan.** `grep -c "M9-c"` on the plan returns **16**. It survives
+   as an explicit **withdrawal row** with a stated disposition. The *operational* instruction —
+   expect no code for it, and do not read the emptied composite's silent removal as a missed fix —
+   is correct and I followed it. But "removed" and "withdrawn in place" are different states, and a
+   reader told the first would read the second as drift.
+2. **The owner's acceptance of the ESLint residue is not registered.** I was told it is a ruling and
+   I have treated it as one — **the residue is not recorded as a round failure anywhere in this
+   verdict.** But `grep -c "429"` on the plan returns **0**, and the plan's own risk row for this
+   still reads *"opened; no baseline yet."* The implementation doc records the stop-and-report and
+   says sizing is the owner's call via steering. **So the ruling exists in the pipeline but not in
+   the register.** Registration is steering's, not mine; flagged, not actioned.
+
+## Gate results at the SHA
+
+| Gate | Result | Command |
+|---|---|---|
+| Type-check, main project | **exit 0** | `npx tsc --noEmit` |
+| Type-check, test project | **exit 0** | `npx tsc --noEmit -p tsconfig.test.json` |
+| ESLint parsing errors | **0** (was 45) | `npx eslint --no-fix . -f unix`, `grep -c "Parsing error"` |
+| ESLint overall | exit 1, 686 findings | same run |
+
+**On the 686.** I ran `--no-fix`; the repo's own script is `eslint --fix .`, which repairs the
+auto-fixable share before reporting. **686 and the round's disclosed 429 are different instruments
+over different states and neither refutes the other** — I am not treating my number as contradicting
+theirs, and I am not restating theirs as mine. The parsing-error count is the one my finding was
+about, it is computed the same way in both runs, and it is 0.
+
+**I did not run the project's test suite** — that is QA's step, and the 605/605 claim is QA's to
+verify, not mine to repeat.
+
+## Assumption Not Checked
+
+**This review assumes `resolveContentLoss` classifies disposition row D correctly — that the `.mode`
+it returns is the mode `commitLoad` actually produces — and it does not test it.**
+
+- **Why this round could not close it**: both sides of M9-b's verification read
+  `resolveContentLoss` and take `.mode`. The fix (`settledMode`) and the spec's own "independent
+  fact" oracle (`modeAfterLoad`) therefore **share the quantity under test**. The spec is genuinely
+  non-vacuous against the defect it names — the old code read `isMessageV2`, the oracle does not, and
+  it failed red before the fix — but a defect **inside `resolveContentLoss`** would make both wrong
+  together and the suite would stay green. The spec's header claims its expectations are "not
+  derived from `computeLoadDiff`", which is literally true and narrower than the independence it
+  asserts.
+- **Falsity signature**: a row-D payload (V2 flag set, classic content present, no V2 components) is
+  loaded, and the confirmation names a mode that differs from the mode the editor is in immediately
+  afterwards — in either direction.
+- **Owner**: **QA**, at this tip. Closing it needs an oracle that does **not** read
+  `resolveContentLoss` — expected mode stated literally per D17 row, from the row table, so the
+  fixture can contradict the disposition engine rather than inherit it. That is a test-design
+  question and sits squarely in QA's domain, not mine and not the owner's.
+
+## Verdict
+
+**APPROVED**
+
+Scoped to code quality and to conformance with D47–D50 as registered. **Not a release decision** —
+`origin/master` is still `2d90e8a` and `chain/013-rider-2` is unpushed; nothing here grants or
+refuses a deploy.
+
+**Rationale.** All five actionable round-23 findings are disposed, **four of them structurally** —
+the class is unrepresentable, not merely unhit — and each disposition is established by an
+instrument I ran, not by reading the fix. The one finding whose remedy I flagged as decisive (take
+the Preferred, not the Minimum) took the Preferred. No CRITICAL, no HIGH. The four new findings are
+LOW: three are record/comment hygiene and one is a dead branch that nothing reaches. None changes a
+decision, so per the rounds-stop rule they route to a follow-up register rather than holding the
+tree — and the tree they would hold is an unpushed chain branch, not production.
+
+The M9-a instrument deserves saying plainly: it drives the **real** discriminated union to obtain
+its payload and asserts the delimiter is present **before** asserting the line count. That is a test
+that can fail for the right reason, and it would have failed under the defect it names.
+
+## Required Actions
+
+| # | Severity | Action | Owner |
+|---|---|---|---|
+| CR24-1 | LOW | Remove the three review-addressed comment blocks from source | implementer |
+| CR24-2 | LOW | Collapse the two disagreeing settled-mode encodings to one; delete the dead branch | implementer |
+| CR24-3 | LOW | Correct the `shapes.ts` numstat; disclose the delimiter autofix as gate satisfaction | implementer |
+| CR24-4 | LOW | Add TDD exemption rows for M9-e and M9-g | implementer |
+| CR24-5 | — | Register the owner's ESLint-residue acceptance in the Decisions Register | steering |
+| CR24-6 | — | Row-D oracle independence (Assumption Not Checked) | qa |
+| CR23-6 | INFO | D34's Discord question — **owner only, by observation**, still open | owner |
+
+## Captured Instruments
+
+- `agent-output/verification/013/probe-cr26-delimiter-class-eliminated/` — `probe.ts`, `output.txt`,
+  `RUN.md`. **Rebuilt, not re-pointed**: probe-cr25's validity is indexed to the claim it was built
+  for, and the claim changed. Imports from the tree; three controls; the residual is measured rather
+  than asserted.
+- Gate results are reproducible in the four commands tabled above; **`no test` authored** for them —
+  they are repo gates, and the round put the gate itself in place, which is the right home.
+- CR24-1, CR24-3 and CR24-4: **`no test`** — record and comment hygiene, not executable properties.
+- CR24-2: **`no test`** from me; the instrument belongs with QA's row-D oracle (CR24-6), which is the
+  same seam.
+
+## Next Steps
+
+1. **`qa` proceeds at `e1d9b2b`.** CR24-6 is the one item I would put first: it is the seam my own
+   Assumption sits on, and it is a test-design question in QA's domain.
+2. **CR24-1 → CR24-4 → the implementer**, as a follow-up register. None holds the tree.
+3. **CR24-5 → steering.** A ruling that binds stages should be readable from the register.
+4. **My verdict binds to `e1d9b2b` and expires the moment the tree moves.**
