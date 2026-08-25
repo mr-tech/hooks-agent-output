@@ -32,6 +32,25 @@ Status-Detail: >-
   material D44 strikes is removed throughout and every item that depended on it is **dropped**, not
   re-argued and not re-based. **No verdict, gate, approval or release state is changed by that edit**;
   one statement of fact is corrected under **D43** (plan rev 37/38).
+  **§12 appended 2026-08-25 by `devops-hooks-013-3` — FOUR FURTHER DEPLOY ACTS recorded, and nothing
+  in §§1-11 is rewritten.** Records for **`8584b1e`** (05:08:03), **`d7c4836`** (06:19:34),
+  **`e343927`** (06:32:06) and **`2d90e8a`** (07:04:49), none of which appeared in any deployment-stage
+  document before. **All four are deploys, not releases**, all **externally executed by the owner**,
+  all under his **D35 waiver** — no QA, no code review, no UAT ran on any of them, and **no
+  release-tip verdict exists at any of the four trees** (QA's latest `Verified-At` is `4a7126b`).
+  **Deployed never equals verified**, so each record carries a diff of the plan's surface rather than
+  an ancestry argument. **F-1**: the serving tree carries **4 of the 8** test blocks of QA's formally
+  adopted render instrument (`013-qa-toast-vessel-render.test.ts`, adopted at `664e0c0` as F-QA23) —
+  routed to QA and UAT, not decided here. **U-C6 DISCHARGED** (§12.5): the implementation document's
+  terminal `Status` is set; the `closed/` move is deliberately NOT made while the chain is open.
+  **BC-13 stays TERMINAL** — the delta touches no bot code, tested. **U-C5 SETTLED** by owner ruling
+  *"record is enough"* (§12.7), which confirms D25's second route already taken at `e34df07`; the
+  plan's R-5 sentence stays knowingly incomplete **by decision**, and no stage may "fix" it. §12.7 is
+  also the **record area** for the unregistered *"leave it - records stay owed"* ruling and its
+  reversal. Serving state is **verified on the owner's attestation** throughout; **nothing is marked
+  NOT VERIFIED and no host-side probe was performed or owed**. **This section is Stage 1 only: no
+  push, no merge, no tag, no tree switch. The live tree remains UNGATED and the standing release
+  decision remains `EXPIRED IN FULL`.**
 ---
 
 # Deployment Record — Plan 013: Components V2 across the editing surfaces
@@ -634,3 +653,492 @@ push and nothing else.**
 > after reasoning about it. **Recorded rather than silently fixed**, because a number corrected without
 > a note is indistinguishable from a number that was always right.
 
+
+---
+
+# §12 — Four further deploy acts, recorded 2026-08-25 by `devops-hooks-013-3`
+
+**Written by `devops-hooks-013-3`. §§1–11 are preserved exactly and nothing above this line is
+rewritten.** This section adds **four deployment records**, one per deploy act, for
+`8584b1e`, `d7c4836`, `e343927` and `2d90e8a`. None of the four appeared anywhere in this document or
+in the readiness document before this section; each is written from the repository, not from a relay.
+
+**Authority for restated status, re-read at this write.** The UAT document
+(`uat/013-…-uat.md`, read at rev 25 at the time of writing) is the authority for every
+blocking-condition state restated here; the QA document is the authority for every row definition.
+Nothing here re-litigates either, and no register state is set by this document.
+
+## §12.0 — What is true of all four, stated once
+
+**These are deploys, not releases, and this record does not make them releases.** Each moved the
+serving ref; none closed a plan chain with its gates recorded. They are recorded here rather than
+omitted because they carry plan-013 code, which is this plan's record to hold.
+
+| Fact | Value | Basis |
+|---|---|---|
+| Repository | `website` — **one repo, one ref, one commit per act** | `git` |
+| Serving ref | `master` (Vercel serves from it) | §1, §11, unchanged |
+| Execution mode | **Externally executed.** This stage ran **no** merge, tag, push or cutover command for any of the four | reflog + this session performed none |
+| Operator | **the owner** (`2d90e8a` is his own commit; the three merges were run under his selection approvals) | implementation doc; §12.6 F-3 |
+| Phase 2B approval by this stage | **NONE for any of the four.** No release summary was presented and no Stage 2 gate ran | this stage presented none |
+| Release-tip verdict | **NONE at any of the four trees.** QA's latest `Verified-At` is **`4a7126b`** | `qa/013-…-qa.md` L2008, re-read |
+| Code review verdict | **NONE at any of the four trees** — the D39 review debt | `code-review/013-…`; D35 waiver |
+| UAT release decision | **NONE.** The standing decision is **`EXPIRED IN FULL`** and expiry is not suspension | UAT rev 19, rev 24, rev 25 |
+| Gate authority | **the owner's D35 waiver** — no QA, no code review and no UAT ran on any of this round | plan D35; OWNER-QUEUE |
+| History | **One linear line.** All four are ancestors of `2d90e8a`; `master` is the only serving ref | `git merge-base --is-ancestor`, all four YES |
+| Stranded work | **None.** All three chain branches are merged into `master` | `merge-base --is-ancestor`, all three YES |
+
+**Deploy evidence, and it is terminal.** For each act the push to `origin/master` is recorded from the
+remote-tracking reflog, and the owner has stated the result live — `OWNER-QUEUE.md`'s chain-013
+section, rebuilt 2026-08-25, reads *"`origin/master` = **`2d90e8a`**, your own commit, live."*
+**Serving state is recorded VERIFIED on that attestation. It is not marked NOT VERIFIED, no
+host-side confirmation was performed, none was requested, and no capture file was owed** — so nothing
+is waived. `origin/master` was re-derived at this write: `git ls-remote origin refs/heads/master` →
+`2d90e8a60270740b59b4768a68cf3f67641e4345`.
+
+**Deployed vs verified — why every one of the four needs a diff.** The verified tree for this chain is
+`4a7126b`. **None of the four deployed commits is that commit**, so ancestry is not sufficient and
+§§12.1–12.4 each carry a diff of the plan's surface rather than an ancestry argument. This is the
+check that catches a green suite testing code nobody runs; here it catches the inverse as well
+(§12.6 F-1).
+
+**Release identifier.** These acts carry **no tag**. The identifier for each is the serving ref move,
+stated as `website master <from> -> <to>`. Nothing was published to a registry; there is no registry
+in this project, and no publish step is invented to satisfy a checklist.
+
+**BC-13 does not reopen at any of the four.** Its test is whether the delta touches bot code:
+`git diff --name-only 4a7126b 2d90e8a -- bot/` is **empty** (0 bytes, redirected to a file and read,
+not counted through an output filter) while `bot/` still exists at `2d90e8a` (`git cat-file -e`, exit
+0). **BC-13 stays TERMINAL** on the window already closed at §11; this section does not reopen it and
+claims no new window.
+
+---
+
+## §12.1 — Deployment record: `8584b1e`
+
+| Field | Value |
+|---|---|
+| **Plan reference** | `agent-output/planning/013-components-v2-editing-surfaces.md` |
+| **Release identifier** | `website` `master` **`4a7126b` → `8584b1e`** (no tag) |
+| **Deploy date** | **2026-08-25, 05:08:03 UTC** (push to `origin/master`) |
+| **Local ref moved** | 04:57:00 UTC, `merge chain/013-load-notice-vessel: Fast-forward` |
+| **Environment** | production |
+| **Serving ref at cutover** | `master` |
+| **Execution mode** | **Externally executed.** Operator: **the owner**. This stage executed nothing |
+| **Authorizer** | the owner, by selection (recorded in the implementation document) |
+| **Subject** | owner ruling 2026-08-25 (reversal) — the Load site is no longer a toast |
+
+**Repositories and SHAs shipped**: `website` only, at `8584b1e`. `project-utils` did not move.
+
+**Deployed vs verified reconciliation** — verdict SHA `4a7126b`, deployed `8584b1e`: **NOT THE SAME
+COMMIT.** Diffed, per repository:
+
+| Path | +/− | Class |
+|---|---|---|
+| `src/app/message/m/[id]/_components/JsonModalBody.tsx` | 6 / 3 | **production** |
+| `src/utils/__tests__/013-owner-load-notice-reversal-2026-08-25.test.ts` | 38 / 0 | test (new) |
+| `src/utils/__tests__/013-owner-toast-vessel-2026-08-25.test.ts` | 10 / 3 | test |
+
+**Result: one production file changed beyond the verified tree, carrying a new test with it. The
+deployed tree is NOT the verified tree, and the difference is real, not notational.** No QA verdict
+covers `8584b1e`.
+
+**Post-release status**: deployed and live on the owner's attestation. Gates: none ran.
+
+---
+
+## §12.2 — Deployment record: `d7c4836`
+
+| Field | Value |
+|---|---|
+| **Plan reference** | `agent-output/planning/013-components-v2-editing-surfaces.md` |
+| **Release identifier** | `website` `master` **`8584b1e` → `d7c4836`** (no tag) |
+| **Deploy date** | **2026-08-25, 06:19:34 UTC** (push to `origin/master`) |
+| **Local ref moved** | **never held this commit** — see below |
+| **Environment** | production |
+| **Serving ref at cutover** | `master` |
+| **Execution mode** | **Externally executed.** Operator: **the owner**. This stage executed nothing |
+| **Authorizer** | the owner, by selection (recorded in the implementation document) |
+| **Subject** | owner ruling 2026-08-25 (D31/D32/D33) — conflict UI default state, readable mutation errors, choice rewrites |
+
+**This commit was pushed from outside this working tree, and the record says so rather than implying
+otherwise.** `master`'s local reflog goes `8584b1e` (04:57:00) → `e343927` (07:04:39,
+`pull: Fast-forward`). **`d7c4836` is never a local `master` position here.** It reached this tree only
+as part of that pull. The push is evidenced at the remote-tracking ref
+(`origin/master@{06:19:34}: update by push`), not from this tree's own action.
+
+**Repositories and SHAs shipped**: `website` only, at `d7c4836`. `project-utils` did not move.
+
+**Deployed vs verified reconciliation** — verdict SHA `4a7126b`, deployed `d7c4836`: **NOT THE SAME
+COMMIT.** Diffed (cumulative against the verified tree):
+
+| Path | +/− | Class |
+|---|---|---|
+| `src/app/message/_components/NewMessageJsonInput.tsx` | 1 / 1 | **production** |
+| `src/app/message/_components/NewMessageModal.tsx` | 3 / 3 | **production** |
+| `src/app/message/m/[id]/_components/JsonModalBody.tsx` | 15 / 13 | **production** |
+| `src/app/message/m/[id]/_components/SaveAsMenu.tsx` | 2 / 2 | **production** |
+| `src/utils/formatMutationError.ts` | 28 / 0 | **production (new file)** |
+| `src/utils/index.ts` | 1 / 0 | **production** |
+| five `013-owner-*` test files | 216 / 3 | test |
+
+**Result: six production files, including a new one, changed beyond the verified tree.** No QA verdict
+covers `d7c4836`.
+
+**Post-release status**: deployed and live on the owner's attestation. Gates: none ran.
+
+---
+
+## §12.3 — Deployment record: `e343927`
+
+| Field | Value |
+|---|---|
+| **Plan reference** | `agent-output/planning/013-components-v2-editing-surfaces.md` |
+| **Release identifier** | `website` `master` **`d7c4836` → `e343927`** (no tag) |
+| **Deploy date** | **2026-08-25, 06:32:06 UTC** (push to `origin/master`) |
+| **Local ref moved** | 07:04:39 UTC, `pull: Fast-forward` (after the push, not before it) |
+| **Environment** | production |
+| **Serving ref at cutover** | `master` |
+| **Execution mode** | **Externally executed.** Operator: **the owner**. This stage executed nothing |
+| **Authorizer** | the owner, by selection; the remote was verified independently by the implementer session via `git ls-remote` |
+| **Subject** | owner ruling 2026-08-25 (D34) — relax five emptiness floors in `shapes.ts` |
+
+**Repositories and SHAs shipped**: `website` only, at `e343927`. `project-utils` did not move.
+
+**Deployed vs verified reconciliation** — verdict SHA `4a7126b`, deployed `e343927`: **NOT THE SAME
+COMMIT.** Its own increment over `d7c4836` is:
+
+| Path | +/− | Class |
+|---|---|---|
+| `src/server/api/utils/shapes.ts` | 5 / 5 | **production — server-side validation floors** |
+| `src/server/api/utils/__tests__/shapes-v2.test.ts` | 40 / 6 | test |
+
+Cumulatively against the verified tree it carries §12.2's six production files **plus** `shapes.ts`.
+
+**This one deserves naming.** `shapes.ts` is server-side shape validation, and D34 **relaxes five
+emptiness floors** in it. That is a change to what the server will accept at rest, shipped with **no
+QA verdict, no code review and no UAT** at its tree. The relaxation is the owner's ruling and is not
+questioned here; **its unreviewed status is recorded, not softened.**
+
+**Post-release status**: deployed and live on the owner's attestation. Gates: none ran.
+
+---
+
+## §12.4 — Deployment record: `2d90e8a` — the currently serving commit
+
+| Field | Value |
+|---|---|
+| **Plan reference** | `agent-output/planning/013-components-v2-editing-surfaces.md` |
+| **Release identifier** | `website` `master` **`e343927` → `2d90e8a`** (no tag) |
+| **Deploy date** | **2026-08-25, 07:04:49 UTC** (push to `origin/master`) |
+| **Commit created** | 07:04:47 UTC, **directly on `master` in this working tree** |
+| **Environment** | production |
+| **Serving ref at cutover** | `master` — **still serving at this write** |
+| **Execution mode** | **Externally executed.** Operator: **the owner**. This stage executed nothing |
+| **Authorizer** | the owner — it is his own commit |
+| **Subject** | *"remove useless message"* — removal of the code-path notice |
+
+**Repositories and SHAs shipped**: `website` only, at `2d90e8a`. `project-utils` did not move.
+
+**Governance note, recorded because the record is where it belongs and not as a criticism of the
+owner**: this commit was authored **directly onto the checked-out serving branch in the main working
+tree**, two seconds before the push. This stage's own constraint forbids *it* from doing that; the
+owner is not bound by this stage's constraints, and D35 covers the round. Recorded so the history is
+legible to a later reader who finds a commit on `master` with no chain branch behind it.
+
+**Deployed vs verified reconciliation** — verdict SHA `4a7126b`, deployed `2d90e8a`: **NOT THE SAME
+COMMIT.** Its own increment over `e343927`:
+
+| Path | +/− | Class |
+|---|---|---|
+| `src/app/message/m/[id]/_layout/CodeMessageNotice.tsx` | 0 / 18 | **production — file DELETED** (`git cat-file -e` at `2d90e8a`: absent) |
+| `src/providers/MessageProvider/index.tsx` | 0 / 11 | **production** |
+| `src/app/message/m/[id]/layout.tsx` | 0 / 2 | **production** |
+| `src/app/message/_components/NewMessageJsonInput.tsx` | 1 / 1 | **production** |
+| `src/app/message/_components/NewMessageModal.tsx` | 1 / 1 | **production** |
+| `src/app/message/m/[id]/_components/JsonModalBody.tsx` | 1 / 1 | **production** |
+| `src/utils/__tests__/013-owner-toast-vessel-2026-08-25.test.ts` | 0 / 27 | **test — assertions removed** |
+| `src/utils/__tests__/013-qa-toast-vessel-render.test.ts` | 0 / 51 | **test — QA's adopted instrument, assertions removed** |
+
+**Cumulative production surface against the verified tree**: ten production files, one of them deleted.
+
+**Post-release status**: deployed and live on the owner's attestation; **`origin/master` re-derived at
+this write and still `2d90e8a`.** Gates: none ran. **The tree is ungated — neither approved nor
+refused.** See §12.6 F-1, which is the finding this reconciliation exists to produce.
+
+---
+
+## §12.5 — U-C6 discharged
+
+**U-C6 is `EXECUTED` as of this section.** The implementation document
+(`implementation/013-components-v2-editing-surfaces-implementation.md`) carried `Status: Active`; it
+now carries **`Status: Released — chain closure pending`**, set by this session, with a
+`Status-Detail` stating the basis. The document was re-read immediately before the edit and was
+unmodified in the working tree at that moment; **only the frontmatter changed — the body was verified
+byte-identical after the write** (`diff` over the body, exit 0).
+
+**What was deliberately NOT done, and why it is not a gap.** The document was **not** moved to
+`closed/`. U-C6's text asks for the terminal `Status` at the document's closure step; it does not ask
+for the move. `devops-hooks-013-2` deferred this whole item on the grounds that moving live documents
+before the chain closes would strand them (§11.8 row 7), and **that reasoning still holds**: 16
+conditions are non-terminal at UAT rev 25, and `qa` and `code-reviewer` sessions are live in this
+chain right now. **Setting the status is not stranding; moving the file would be.** The move remains
+devops's at chain closure.
+
+**This does not assert that the chain has closed, and the status wording says so on its face.**
+
+## §12.6 — Findings from the reconciliation
+
+### F-1 — The deployed tree carries HALF of QA's adopted render instrument, and no verdict covers it
+
+**This is the finding the deployed-vs-verified diff exists to produce, and it is the inverse of the
+usual one.** The usual hazard is an older deployed tree — a green suite testing code nobody runs.
+Here the deployed tree is *newer* than the verified one, and **assertions that covered the shipped
+behaviour were removed along the way.**
+
+`src/utils/__tests__/013-qa-toast-vessel-render.test.ts` is **QA's own instrument, formally adopted**
+— introduced at `664e0c0`, *"test(013): adopt QA's toast-vessel render instrument (F-QA23)"*
+(`git log --diff-filter=A`, single result). Measured with a counter that computes inside `grep`, never
+through an output filter:
+
+| Tree | `it(` / `test(` blocks | Bytes |
+|---|---|---|
+| `664e0c0` (adoption) | **8** | — |
+| `4a7126b` (**the verified tree**) | **8** | 7100 |
+| `2d90e8a` (**the deployed tree**) | **4** | 4175 |
+
+**Half of the adopted instrument's cases are absent from the commit that is serving.** A further 27
+lines were removed from `013-owner-toast-vessel-2026-08-25.test.ts` in the same commit. **QA's `QA
+Complete` was reached at `4a7126b` and covers the 8-block instrument; nothing covers the 4-block one.**
+
+**What this finding is not.** It is not an assertion that the removals were wrong — `2d90e8a` deletes
+`CodeMessageNotice.tsx` outright, and tests of a deleted component are correctly deleted with it. **It
+is an assertion that nobody has checked**, and that the difference is invisible to any reader who
+reasons from ancestry. **Routed to QA and to UAT; not decided here.** Row definitions are QA's.
+
+> **Instrument disclosure, in the round it happened.** I first read this file as *deleted* at
+> `2d90e8a`, from `git ls-tree` output and a `0 51` numstat line. **That was wrong**, and it was the
+> workspace's documented unsound-predicate class: an existence check read off filtered output.
+> `git cat-file -e` (exit code, computed before any filter) and `git cat-file -s` (blob size) both say
+> the file **exists** at `2d90e8a` at 4175 bytes. **A false "QA's instrument was deleted" finding was
+> two minutes from being written into this record.** Caught by a contradiction between two
+> instruments, not by re-running the first one — which reproduces stably and looks like confirmation.
+
+### F-2 — `d7c4836` was pushed from outside this working tree
+
+`master`'s local reflog never holds `d7c4836`; it goes `8584b1e` → `e343927` by
+`pull: Fast-forward`. The push is evidenced only at the remote-tracking ref. **Recorded because a
+later reader reconstructing this sequence from the local reflog alone would conclude `d7c4836` was
+never deployed, and it was.** No `.solo` marker exists in either repository, so shared-tree
+attribution rules apply and this is not read as anomalous.
+
+### F-3 — Execution mode and operator rest on documents, not on this stage's observation
+
+This stage executed **none** of the four acts and observed none of them happen. Operator and approval
+for `8584b1e`, `d7c4836` and `e343927` are taken from the implementation document's own account
+(*"owner-approved by selection, verified at the remote"*); `2d90e8a` is the owner's own commit and
+needs no attribution. **Stated as second-hand where it is second-hand.**
+
+### F-4 — This document's sibling still fails `tools/check-repo.js`, and is still not renamed
+
+`deployment/013-…-readiness.md` fails the checker's stage-suffix rule: `deployment/` registers only
+the suffix `deployment`, so `-readiness` reads as a coined scope word (CHECK 4, `tools/check-repo.js`
+L517–547). **`devops-hooks-013` and `devops-hooks-013-2` both declined to coin a name and this session
+declines too.** `-deployment` is the deployment record's own name and must not be taken by an artifact
+that is not it; `deployment/012-message-valid-field-readiness.md` carries the identical failure and
+stands. **This is a gap in the tooling's model — it has no readiness artifact — not a naming defect.**
+Disclosed here rather than worked around.
+
+## §12.7 — R-5's widening: the owner has ruled, and the ruling is recorded here
+
+**Status: SETTLED 2026-08-25 by owner ruling. This section is the record area for both the original
+ruling and its reversal, neither of which has a Decisions Register row yet.**
+
+**Why the record area is here.** The register row is owed and is `steering`'s to write; it could not
+be written at the time because `code-reviewer` and `qa` sessions were live readers of the plan
+document and this repository runs one writer or many readers. **Both rulings are recorded here so
+neither depends on a docket surviving** — a predecessor docket carrying a ruling invisibly is
+precisely how the earlier one went unregistered.
+
+**Ruling one — "Leave it — records stay owed" (superseded).** An owner ruling that the four
+deployment records should not be written. **It was never registered anywhere.** A search of the plan's
+Decisions Register returns eight `Leave it` / `stay owed` matches, every one a different row (D8, D16,
+D21, D29, D34, D38, D42, I-D10) — **none of them this**. It lived only in a predecessor steering
+session's docket, invisible by construction to any document-based reader.
+
+**Ruling two — reversal: "Write all of them."** Given 2026-08-25 in the steering session, with ruling
+one stated back to him. Described as: *"Devops writes the four records and its two documentary
+conditions. Reverses 'leave it'. This is what closure needs if the chain is to close clean."* Two
+alternatives stood and were not taken: *"Records stay owed"* (the unchanged earlier ruling) and
+*"Conditions only"*. **Provenance, disclosed and weighed rather than adopted: a selection prompt,
+options agent-authored by `steering-hooks-013-3`, no verbatim sentence.** §12 exists because of this
+ruling.
+
+**Ruling three — R-5's widening: "Record is enough."** Given 2026-08-25, on a statement of the
+decision this session wrote at steering's request and which reached him unedited. Described to him as:
+*"Nothing more happens. The plan keeps a sentence describing half the change; anyone reading the plan
+later rather than the deployment record gets the narrow version and could act on it."* **Not taken**:
+*"Fix the plan"*, and *"Leave it open"* — the latter explicitly described to him as blocking chain
+closure, and declined. Same provenance class: selection prompt, agent-authored options, no verbatim.
+Removed from `OWNER-QUEUE.md` at `ab728ff`, where resolution is deletion.
+
+**Consequences, stated plainly:**
+
+1. **U-C5's substance was already discharged before the ruling** — by *this record*, at `e34df07`,
+   taking D25's second route (§§L154–161 above). The owner's ruling confirms that route as sufficient
+   rather than creating it.
+2. **The plan's R-5 sentence stays knowingly incomplete, by decision.** It describes only the flag
+   half of what the mode change did. **No stage may "fix" it** to satisfy a reader; that would
+   overturn a ruling. It is the same shape as D40.
+3. **U-1 folds in nothing** — it was struck under D44 (UAT rev 21). The half of U-C5 that referenced
+   it is void, not outstanding.
+4. **Register state is UAT's.** This document restates; it does not terminalise U-C5.
+
+**The wider class, restated here so these four records carry it too.** Beyond the flag half R-5
+states: before the mode change, a message with **no `components` key at all** was skipped regardless
+of its marking and the editor left whatever mode was already on screen; it is now **actively set to
+Classic**. A user composing in the new mode who loads an ordinary classic message is therefore
+switched, where previously they were not. The authoritative statement of what changed is code review
+`ecbbe43` (an `agent-output` commit, *"Plan 013 M7 code review round 3: APPROVED_WITH_COMMENTS at
+18407d8"*), reviewing `website` tree `18407d8` — **both resolved at this write, not inherited.**
+
+**Validation items 4 and 7, carried onto these records** (item 5 is above):
+
+- **R-4 (I-D12, not relaxed)**: none of these four acts makes any live declaration of the `valid`
+  field, and none triggers anything in the statbot workspace. The sequence *backfill review → live
+  declaration → statbot gate deploy* is chain 012's, is held under D20, and resumes only on the owner
+  lifting that hold.
+- **Rollback (item 7)**: unchanged and as §11 states it — a Vercel promote of a prior deployment. It
+  **does not move `master`**, is not sticky, and rolls back no database state. There is no schema
+  change and no data migration in any of the four; `project-utils` is untouched throughout.
+
+## §12.8 — Deployment history entries
+
+**Four entries, one per act.** `release_tip_verdict` is `null` in all four and that is the finding,
+not an omission: no QA verification exists against any of these trees.
+
+```json
+[
+  {
+    "plan_id": "013",
+    "release_identifier": "website master 4a7126b -> 8584b1e",
+    "tag": null,
+    "release_date": "2026-08-25T05:08:03Z",
+    "environment": "production",
+    "serving_ref": "master",
+    "repositories": [{"repo": "website", "sha": "8584b1ef0331fd7bffa703d41932b178d306f768"}],
+    "execution_mode": "externally-executed",
+    "operator": "owner",
+    "executor": null,
+    "authorizer": "owner (by selection; recorded in the implementation document)",
+    "phase_2b_approval": false,
+    "release_tip_verdict": null,
+    "verified_tree": "4a7126bf8578b653ac7ae1cfe7cabdd609cdc21f",
+    "deployed_equals_verified": false,
+    "reconciliation": "diffed: 1 production file (JsonModalBody.tsx 6/3), 2 test files",
+    "serving_state": "verified on owner attestation; no host-side probe performed or owed",
+    "gates_run": "none (owner D35 waiver)",
+    "record_written_by": "devops-hooks-013-3",
+    "record_written_at": "2026-08-25"
+  },
+  {
+    "plan_id": "013",
+    "release_identifier": "website master 8584b1e -> d7c4836",
+    "tag": null,
+    "release_date": "2026-08-25T06:19:34Z",
+    "environment": "production",
+    "serving_ref": "master",
+    "repositories": [{"repo": "website", "sha": "d7c483608f6247602e3682c3945cc00d7ee15fd2"}],
+    "execution_mode": "externally-executed",
+    "operator": "owner",
+    "executor": null,
+    "authorizer": "owner (by selection; recorded in the implementation document)",
+    "phase_2b_approval": false,
+    "release_tip_verdict": null,
+    "verified_tree": "4a7126bf8578b653ac7ae1cfe7cabdd609cdc21f",
+    "deployed_equals_verified": false,
+    "reconciliation": "diffed: 6 production files incl. new formatMutationError.ts, 5 test files",
+    "serving_state": "verified on owner attestation; no host-side probe performed or owed",
+    "gates_run": "none (owner D35 waiver)",
+    "note": "never a local master position in this tree; pushed from elsewhere, arrived by pull (F-2)",
+    "record_written_by": "devops-hooks-013-3",
+    "record_written_at": "2026-08-25"
+  },
+  {
+    "plan_id": "013",
+    "release_identifier": "website master d7c4836 -> e343927",
+    "tag": null,
+    "release_date": "2026-08-25T06:32:06Z",
+    "environment": "production",
+    "serving_ref": "master",
+    "repositories": [{"repo": "website", "sha": "e343927e9fdd4eae321bc16e7dbf7104a264c613"}],
+    "execution_mode": "externally-executed",
+    "operator": "owner",
+    "executor": null,
+    "authorizer": "owner (by selection; remote independently verified by the implementer session)",
+    "phase_2b_approval": false,
+    "release_tip_verdict": null,
+    "verified_tree": "4a7126bf8578b653ac7ae1cfe7cabdd609cdc21f",
+    "deployed_equals_verified": false,
+    "reconciliation": "diffed: adds server-side shapes.ts (5/5) relaxing five emptiness floors, unreviewed",
+    "serving_state": "verified on owner attestation; no host-side probe performed or owed",
+    "gates_run": "none (owner D35 waiver)",
+    "record_written_by": "devops-hooks-013-3",
+    "record_written_at": "2026-08-25"
+  },
+  {
+    "plan_id": "013",
+    "release_identifier": "website master e343927 -> 2d90e8a",
+    "tag": null,
+    "release_date": "2026-08-25T07:04:49Z",
+    "environment": "production",
+    "serving_ref": "master",
+    "repositories": [{"repo": "website", "sha": "2d90e8a60270740b59b4768a68cf3f67641e4345"}],
+    "execution_mode": "externally-executed",
+    "operator": "owner",
+    "executor": null,
+    "authorizer": "owner (his own commit)",
+    "phase_2b_approval": false,
+    "release_tip_verdict": null,
+    "verified_tree": "4a7126bf8578b653ac7ae1cfe7cabdd609cdc21f",
+    "deployed_equals_verified": false,
+    "reconciliation": "diffed: 10 production files cumulative, CodeMessageNotice.tsx deleted; QA's adopted instrument reduced 8 -> 4 test blocks (F-1)",
+    "serving_state": "verified on owner attestation; still serving at this write; no host-side probe performed or owed",
+    "gates_run": "none (owner D35 waiver); tree is UNGATED - neither approved nor refused",
+    "record_written_by": "devops-hooks-013-3",
+    "record_written_at": "2026-08-25"
+  }
+]
+```
+
+## §12.9 — Post-release status and next actions
+
+**Release state of this section: NOT A RELEASE ACT.** No push, no merge, no tag, no tree switch was
+performed by this session. **Stage 1 only.** The serving ref stood at `2d90e8a` before this section
+was written and stands at `2d90e8a` after it.
+
+**There is no release decision for the live tree.** The standing decision is **`EXPIRED IN FULL`**;
+expiry is not suspension and there is nothing to revive. `UAT Complete` is a status reached at
+`4a7126b`, not a gate on `2d90e8a`. **Code review approved + QA Complete + UAT Complete ≠ approved for
+release**, and writing these records does not change that by one step.
+
+| # | Action | Owner |
+|---|---|---|
+| 1 | **F-1** — half of QA's adopted render instrument is absent from the serving tree, and nothing covers the remainder. Decide whether the removals are correct and whether a verdict is owed at `2d90e8a` | **qa**, then **uat** |
+| 2 | **BC-18** — prediction re-derivation, the live item at UAT rev 25 | **qa** |
+| 3 | **Register rows** for the three rulings recorded at §12.7, including the unregistered *"leave it"* and its reversal | **steering** |
+| 4 | **A release decision for `2d90e8a`, or an explicit decision not to make one** — the tree is ungated and has been serving since 07:04:49 UTC | **the owner** |
+| 5 | **U-C5** — terminalise on the owner's *"record is enough"* ruling (§12.7). Register state is UAT's; this document only restates | **uat** |
+| 6 | **U-C6** — **DISCHARGED** at §12.5. The `closed/` move remains owed at chain closure | devops (done) |
+| 7 | **Roadmap tracker** — four further deploy acts recorded; update | roadmap subagent |
+| 8 | **Retrospective** — fires last, when no other work is in flight (D45) | retrospective subagent |
+
+**Known issues carried**: the serving tree is ungated (§12.0); `shapes.ts`'s relaxed validation floors
+shipped unreviewed (§12.3); F-1's instrument gap (§12.6).
+
+**Rollback plan**: unchanged — Vercel promote of a prior deployment; does not move `master`, not
+sticky, no database state involved. The nearest tree with a QA verdict is **`4a7126b`**.
+
+**`agent-output` is not pushed.** Measured at this write, not carried from arithmetic:
+`git rev-list --count origin/master..master` — the value is recorded in the commit for this section.
+**No push approval has been given or requested for these documents.**
