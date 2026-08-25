@@ -5,6 +5,30 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
+  **Rev 32 — R31.4's bounded question is WITHDRAWN, answered by derivation. Nothing goes to the owner and
+  nothing to QA.** Steering declined to answer and pointed at plan 013's **D41**, on this register's own rule
+  that a question answerable by derivation is not escalated — and the derivation settles all three rows.
+  **BC-2** is directly attested in his per-row verbatim, *"The notice showed. I've removed it."* **BC-3 was
+  already ruled here at rev 20** — *"re-based on D40's attestation on the identical code path rather than on
+  D41's inferred limb"* — so the inference D41 explicitly disclaimed and routed to this stage **is not what
+  BC-3 rests on, and has not been since rev 20.** **BC-19a** is expressly outside D41's reach, and its
+  by-number form (*"BC-19a - Done"*) is the residual class R31.4 itself named. **THE DEFECT IS THIS
+  REGISTER'S, AND IT IS THE THIRD IN THIS RUN'S SERIES: rev 31 routed to a peer a question this document had
+  already answered.** Rev 28 did not take a count where the diffstat looked right; rev 30 tested a superseded
+  classification in one direction only; rev 31 did not read rev 20. **One shape: acting on the artifact in
+  hand without interrogating the artifact already held** — and none of the three was caught by care. **The
+  generalisable half is a gap in this register's own rule**: *derive before escalating* was applied rigorously
+  **upward**, twice declining to put the anchor-scope question to the owner, and **never applied laterally**.
+  **Escalating upward feels expensive, so it gets a test; routing sideways feels free, so it does not — and it
+  is not free, since it spends a peer's pass and can commission a sweep the record could have settled. One
+  rule: derive before routing, in any direction.** **R31.3's attribution refined by dated note, the superseded
+  text standing**: the overstating phrase was **QA's own verbatim prose**, faithfully relayed — so the lesson
+  is stronger than R31.3 stated it. **Verifying at the document protects against the author's own summary, not
+  only against an intermediary's; a stage's prose about its own artifact is not evidence of what the artifact
+  says.** **This is plan D42's prose-versus-artifact class gaining a second member one day after D42 ruled it
+  generalises beyond steering — and this document's own Status-Detail blocks are prose alongside a structured
+  artifact and are not exempt.** **No row moves; nothing is routed.** **Open set 12 register rows + F-1;
+  eleven executable, none observed.** **Decision UNMOVED at `EXPIRED IN FULL`.**
   **Rev 31 — six reconciled, not four; executability lifted on five rows; and a defect in rev 30 that is this
   register's own.** QA **re-derived** the enumeration under rev 30's standard rather than reusing the list it
   was handed, and found **BC-4 and BC-7** — rows it had classified *aligned* under the weaker test. **Rev 30
@@ -323,6 +347,7 @@ Verified-At: >-
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — **a BLOCKING RELEASE CONDITION that travelled here by name is withdrawn**; relayed QA's `f5f3264`, plus an ID correction and a tree switch | QA withdrew *"BC-6 cannot pass while `emptied-composite-drop-unnamed` stands"* **on its own ruling, not the owner's**; BC-1's condition stands | **Rev 29. Both P3.11 blocking conditions recorded with results, per this stage's first responsibility.** **BC-6's constraint → `LIFTED — QA RULING (NEVER APPLIED)`, 2026-08-25**; **BC-1's STANDS**. **`LIFTED` is deliberately not `WITHDRAWN`** — this register's `WITHDRAWN` is owner-only, and filing QA's act under it would corrupt the one terminal state whose content is *who ruled it*. **Two further collapses refused: BC-6 the row is NOT withdrawn — it stands open; and it was never *fixed*, it *never applied*** — QA's first two grounds are definitional, and a fixed blocker would imply a commit that does not exist. **Rests on ground 2 as the mechanical one: a register row cannot require a surface to make a false statement.** Ground 3 noted, not relied on. **AND A RULING AGAINST QA'S OWN FRAMING: BC-6 is NOT EXECUTABLE.** QA disclosed that BC-6's failure-mode cell over-reaches its condition cell and called it retrospective; **it is live** — the wider cell is still in the row the operator will read, so an operator executing against it can record a **FAIL on a row QA has just ruled the code satisfies.** **A row with two predicates is executable to either answer**, which is worse than a missing cell. **Routed to QA, not improvised.** **Absence-is-expected carried to the gate** (R29.5) — and recorded as an inversion of this chain's own silent-mode doctrine. **Renumbering checked, not assumed: none of this document's seven `F-QA` citations falls in the collided range.** **Tree on `chain/013-rider-2` at `2d90e8a`, `master` and `origin/master` unmoved; nothing anchored moves.** **Open set unchanged — 12 + F-1. Decision unmoved at `EXPIRED IN FULL`.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — relayed QA's `0b648e5`: **BC-6 reconciled, a mirror defect found in BC-1, and a ruling requested on six more rows** | QA asks whether the operator's checklist is the **Predicted-value** column or the **failure-mode** column, and will reconcile six rows on the word | **Rev 30. THE RULING: neither column — the checklist is decided by the row's SUBJECT.** Where the primary instrument needs a human, the failure-mode cell **is** the checklist; where it needs none, that cell is documentation. **The decisive argument is internal to QA's own two rulings in one pass: it corrected BC-1 *because* an operator reading that cell would have recorded PASS — which is only necessary if that cell is what the operator reads.** The two rulings cannot both stand; **the subject test reconciles them**, upholding QA's assumption exactly where the subject is not human. **QA's *under-illustrate* / *misdirect* distinction is real but not operative — both let an operator watch the wrong thing, see nothing and pass; they differ in probability, not kind, and which omitted limb matters is knowable only after the failure.** **THE SET IS NOT SIX.** **BC-11b is not a row** (`DROPPED — D44`, rev 28) and **BC-16 needs nothing** — subject *implementer*, *primary needs no human*, settled by probe at `164d720`. **The alarm this stage checked first — that BC-16's terminal `EXECUTED` might rest on an under-illustrated cell, a false pass already filed — CLEARED on the evidence**, recorded because *checked and cleared* and *not checked* are indistinguishable in a record that omits it. **Four to reconcile: BC-8, BC-9, BC-18, and BC-14 pending its subject test — BC-18 first.** **BC-6's rev-29 constraint DISCHARGED**; **BC-1's cell reconciled, its blocking condition unchanged.** **BC-8/9/18 marked NOT EXECUTABLE — including BC-18, the urgent one, because a standard applied to every row but the urgent one is not a standard.** **Open set unchanged — 12 + F-1. Decision unmoved at `EXPIRED IN FULL`.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — relayed QA's `bef6968`: **six rows reconciled, not the four this register ruled on**; executability returned as this stage's to lift | QA re-derived the enumeration under rev 30's standard instead of reusing the list it was handed, and found **BC-4 and BC-7** | **Rev 31. A DEFECT IN REV 30, AND IT IS THIS REGISTER'S.** Rev 30 changed the standard and then **tested the old classification in one direction only** — it asked whether the six were too many and removed two correctly; **it never asked whether they were too few.** **BC-4 and BC-7 stood here marked EXECUTABLE through revs 29–30 with cells naming 1 limb of 3.** General form: **when a ruling changes the standard, every classification made under the old standard is void, not narrowed** — auditing the set you were handed finds only false members, and **the missing members are the ones left certified safe.** **BC-7: the relay and the document said different things.** On the relay's framing (*"the flag can be wrong with nothing to show it"*) this register would have blocked it; **the cell at L647 names the instrument — *only the Message JSON shows it*** — so the limb is observable and **BC-7 is EXECUTABLE, with a recording constraint: the JSON is opened, and *"everything looked correct"* is not an observation of that limb.** **The clearest instance yet of why this stage verifies at the document rather than ruling from a relay.** **Executability LIFTED on BC-8, BC-9, BC-14, BC-18** (BC-14's subject tested by QA: human). **Eleven of twelve now executable; BC-1 alone still blocked.** **QA's backward sweep accepted** — no false pass already filed — **with one bounded question routed back** (did any terminal row take an invisible-on-screen limb from appearance?) and **the third residual promoted from an instance to a class: attestation by reference rather than characterisation, members BC-21 and BC-19a.** **Open set unchanged — 12 + F-1; eleven executable, none observed. Decision unmoved at `EXPIRED IN FULL`.** |
+| 2026-08-25 | `steering-hooks-013-3` [b04529] — **declined to answer and pointed at plan 013's D41 instead**, on this register's own rule that a question answerable by derivation is not escalated; also disclosed unprompted that the BC-7 phrase was **QA's own verbatim prose**, not its paraphrase | R31.4's bounded backward question on BC-2, BC-3, BC-19a | **Rev 32. THE QUESTION IS WITHDRAWN — answered by derivation. Nothing to the owner, nothing to QA.** **BC-2** is directly attested (*"The notice showed. I've removed it."*); **BC-3 was already ruled by this register at rev 20** — *re-based on D40's attestation on the identical code path rather than on D41's inferred limb* — so the inference D41 disclaimed **is not what BC-3 rests on**; **BC-19a** is expressly outside D41 and its by-number form is already carried as a residual. **THE DEFECT IS THIS REGISTER'S AND IT IS THE THIRD IN A SERIES: rev 31 routed a question its own document had already answered.** Rev 28 did not take a count, rev 30 did not test the standard's change downward, rev 31 did not read rev 20 — **one shape: acting on the artifact in hand without interrogating the artifact already held.** **And a gap in this register's own rule**: *derive before escalating* was applied rigorously **upward** (the anchor-scope question, declined twice) and **not laterally** — **escalating up feels expensive so it gets a test; routing sideways feels free, so it does not. It is not free.** **R31.3's attribution refined by dated note, superseded text preserved**: the overstating phrase was QA's own, so **verifying at the document protects against the author's summary, not only an intermediary's** — a **second member of plan D42's prose-versus-artifact class**, one day after D42 said it generalises beyond steering. **No row moves. Open set 12 + F-1; eleven executable, none observed. Decision unmoved at `EXPIRED IN FULL`.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -4825,3 +4850,144 @@ the **instructions for observing** — not one has been in the observing, becaus
 4. **Steering** — the Decisions Register row owed for the U-C5 ruling, **still unwritten**.
 5. **Nobody** — records BC-7 as passing on the strength of the screen looking right (R31.3), or reads
    "eleven executable" as eleven advanced.
+
+---
+
+# Rev 32 — R31.4's bounded question is **WITHDRAWN, answered by derivation**. Nothing goes to the owner and nothing to QA. **And the third defect in this run's series, which is again this register's.**
+
+**Date**: 2026-08-25. **Session**: `uat-hooks-013-5`. **Trigger**: `steering-hooks-013-3` [b04529] pointed
+at plan 013's **D41** rather than answering, on this register's own rule that *a question answerable by
+derivation is not escalated.* **Derivation performed at the plan (D40, D41) and at this document's own
+revs 19 and 20.** **No gate is opened here. No row moves.**
+
+## R32.1 — The question is withdrawn. All three rows are answered on the record
+
+R31.4 asked, of **BC-2, BC-3 and BC-19a**: *did the recorded observation cover every limb that is
+invisible on screen, or was any limb taken from appearance?*
+
+| Row | Answer, derived | Escalation |
+|---|---|---|
+| **BC-2** | **Directly attested, in his own words.** D41 records his per-row verbatim: ***"The notice showed. I've removed it."*** — an explicit observation of the notice, not an inference from an action. The ingress was separately established by a second prompt whose text D41 quotes verbatim (*"For the notice you saw — where did the message come from?"*). **Rev 19.4.1's revert trigger was checked at rev 20 and not met** | **None** |
+| **BC-3** | **Already ruled by this register, at rev 20**: ***"BC-3 re-based on D40's attestation on the identical code path rather than on D41's inferred limb."*** The inference D41 explicitly disclaimed and routed here — *"attested for BC-2 and inferred for BC-3"* — **is not what BC-3 rests on, and has not been since rev 20** | **None** |
+| **BC-19a** | **D41 states in terms that it does not reach BC-19a**, whose disposition is separately routed under **D40**. D40 carries his verbatim ***"BC-19a - Done."*** — a by-number attestation, which is exactly the residual class R31.4 named and R31.7 carries | **None.** The class is already recorded; there is no new question |
+
+**So: nothing to the owner, and nothing to QA.** **Steering's judgement not to ask him was correct**, and its
+reason was this register's own: a question about what an old observation covered is close enough to asking
+him to produce something that it is worth one derivation first.
+
+## R32.2 — **The defect: this register routed a question its own document had already answered**
+
+**Rev 20 decided BC-3's basis. Rev 31 asked the question anyway, without checking rev 20.**
+
+**That is the third defect in this run's series and all three share one shape:**
+
+| Rev | Defect | What was not checked |
+|---|---|---|
+| **28** | Dropped rev 27's Status-Detail marker | The diffstat *looked* right; the count was not taken |
+| **30** | Tested a superseded classification in one direction only | Whether the standard's change made the set too **small** |
+| **31** | Routed to QA a question this document had already answered | **This document** |
+
+**The shape is: acting on the artifact in hand without interrogating the artifact already held.** Each was
+caught, and none by care — by a count, by a peer's re-derivation, and here by a pointer from steering.
+
+**And the generalisable half is a gap in this register's own rule.** *A question answerable by derivation
+is not escalated* — this stage applied that rigorously **upward**, declining twice to put the anchor-scope
+question to the owner. **It did not apply it laterally.** R31.4 routed a sweep to QA without deriving
+first.
+
+> **The asymmetry has a cause worth naming: escalating upward feels expensive, so it gets a test.
+> Routing sideways feels free, so it does not.** It is not free — it spends a peer's pass and can
+> commission a sweep the record could have settled. **The rule is one rule: derive before routing,
+> in any direction.**
+
+**Recorded, and this register's share of it is not reduced by the fact that steering caught it kindly.**
+
+## R32.3 — R31.3's attribution, refined by a dated note. **The superseded text stands.**
+
+**R31.3 recorded that "the relay and the document said different things" and drew the lesson that this
+stage verifies at the document rather than ruling from a relay. That finding stands and is unchanged.**
+**Its attribution needs one correction, and steering disclosed it unprompted.**
+
+**The phrase — *"the flag can be wrong with nothing to show it"* — is QA's own, verbatim, from QA's message
+to steering.** Steering relayed it faithfully and without checking it against QA's document. **So the
+overstatement originated with the author of the document it overstated.**
+
+**That makes the lesson stronger than R31.3 stated it, not weaker:**
+
+> **Verifying at the document protects against the author's own summary, not only against an
+> intermediary's.** A stage's prose about its own artifact is not evidence of what the artifact says.
+> **R31.3 read the failure as a relay-chain hazard; it is a prose-versus-artifact hazard, and the relay
+> chain merely transmitted it.**
+
+**This is plan 013's D42 instantiated, one day after it was written, by a second stage.** D42 ruled that
+steering's *"disciplines hold rigorously where it writes register rows and fail where it writes prose"*,
+and stated **explicitly that this generalises to every stage that writes prose alongside a structured
+artifact** — carried to the retrospective as a finding in its own right rather than as an anecdote about
+one coordinator. **QA's message overstating QA's document is a second member of that class, and this
+register's own Status-Detail blocks are prose alongside a structured artifact and are not exempt.**
+
+**Apportioned plainly, because a diffuse finding teaches nothing:** QA's document was **correct**; QA's
+prose overstated it; steering passed the prose as a finding, which its own standing rule forbids, and has
+said so and is correcting it with the owner. **This stage caught it at the last point at which it could
+be caught.** **That the system worked at the last step is not evidence the earlier steps are sound — it is
+the reason the last step exists.**
+
+## R32.4 — Steering's observation on rev 31's rule, recorded because a second instance is what makes a rule
+
+Steering reports that *"when a ruling changes the standard, every classification made under the old
+standard is void — not narrowed"* reached **the rider's scope** on the same day: **MEDIUM-1 was accepted
+under one cost, QA changed the standard by finding three sites, and steering re-put the whole scope rather
+than asking whether the approved item had grown** — which it describes as having worked *"by luck of
+framing, not by rule."*
+
+**Recorded, and the recording is the point.** The rule was derived here from a defect in this register's
+own classification. **A second, independent instance in a different stage on a different object within
+hours is what distinguishes a rule from a post-hoc description of one mistake.** It goes to the
+retrospective as a rule with two members, not as this stage's apology.
+
+## R32.5 — Ledger delta at rev 32
+
+**None. No row moves and none is added.**
+
+| Item | State | Note |
+|---|---|---|
+| **BC-2, BC-3, BC-19a** | **unchanged — all terminal `EXECUTED`** | R32.1. **Their bases are now stated in this document rather than derivable from it**, which is the whole product of this pass |
+| **R31.4's bounded question** | **WITHDRAWN — answered by derivation, 2026-08-25** | Nothing routed to QA; nothing routed to the owner |
+| **BC-7's recording constraint** | **unchanged and reaffirmed** | The JSON is opened; *"everything looked correct"* is not an observation of that limb |
+| **Standing release decision** | `EXPIRED IN FULL` | Nothing in this pass reaches it |
+| **Open set** | **12 register rows + F-1** | Derived per class at R31.6; unchanged |
+
+**Open set, per class (the sum is presentation, the per-class derivation is the check — R31.5):**
+`PRE` operator **6** (BC-1, BC-4, BC-6, BC-7, BC-8, BC-9) · `PRE` split limb **1** (BC-10) · `PRE`
+operator **1** (BC-18) · `POST` **4** (BC-12, BC-14, BC-17, BC-20) · documentary **0** · **plus F-1**.
+
+**Eleven of twelve executable. BC-1 alone blocked. None observed.**
+
+## R32.6 — State
+
+**UAT Complete** stands — **a status on this document reached at `4a7126b`, not a gate on any live tree.**
+**No verdict moved. The release decision stays `EXPIRED IN FULL`.**
+
+**Tree at this rev's write time, re-derived:** `chain/013-rider-2` at `2d90e8a`; `master` and
+`origin/master` both `2d90e8a`; tracked-clean; **ungated.** **This rev reaches no verdict and anchors none.**
+
+**Residuals: three, all silent** — BC-5's uncharacterised subject; the plan's half-sentence; and
+**attestation by reference rather than characterisation (BC-21, BC-19a)**. **BC-19a's membership is
+confirmed by this pass rather than added by it** — D40's *"BC-19a - Done"* is the by-number form.
+
+**Outstanding — three.** *(R31.4's question is withdrawn and is no longer among them.)*
+
+1. **The operator walkthrough.** **Eleven rows executable, none observed.**
+2. **BC-1's blocking condition** — clears in the rider round. **F-1** — QA rules, then this stage.
+3. **The final gate at the post-rider tip**, naming that commit and stating that the merge to `master` is a
+   separate act.
+
+**Nothing is asked of the coordinator.** This stage does not self-start and is holding.
+
+**Next Actions** — *point-in-time; later stage documents are authoritative on these items' current state.*
+
+1. **QA** — **R31.4's sweep is withdrawn; do not run it.** Rule on F-1; re-verify at the post-rider tip.
+2. **Implementer** — the MEDIUM-1 rider, `load-confirmation-names-wrong-mode`, `disclosure-pointer-dangles`.
+3. **Code review** — re-run at the post-rider tip. **Its `2d90e8a` verdict is inherited by nobody.**
+4. **Steering** — the Decisions Register row owed for the U-C5 ruling, **still unwritten**.
+5. **Nobody** — re-asks the owner about BC-2, BC-3 or BC-19a; their bases are on the record at R32.1.
