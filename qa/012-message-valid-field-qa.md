@@ -42,7 +42,14 @@ Status-Detail: >-
   (implementer committed the two QA instruments; delta re-derived, suite re-executed at the
   committed clean tree — 22 files / 411 tests green; differential captured at
   verification/012/qa-phase2-reanchor-c85945f/; code review round 7's Assumption Not Checked
-  closed; the 402/408/411 figures reconciled each to its tree).
+  closed; the 402/408/411 figures reconciled each to its tree). **Rev 8 (2026-08-25, D23)**:
+  QA-R4 and QA-R15 re-specified onto SCR-1, a purpose-made scratch record, after the owner's
+  SQL repair of 5712/5842 removed their subject in both directions; superseded wordings kept,
+  State cells routed. Subject discrimination executed and captured at
+  verification/012/scratch-subject-SCR1/ (8/8 green at website a74b9e2; all 8 assertions seen
+  red under 7 mutants). No row added (D18), no other row's requirements changed, D26 not
+  reopened — both rows gate closure, not the send. Verdict unchanged and NOT re-anchored:
+  Verified-At stays c85945f; a74b9e2 anchors the re-specification's readings only.
 ---
 
 # QA Report: Plan 012 — `valid` field on stored messages
@@ -59,6 +66,7 @@ originals kept for the Phase 1 record — Phase 2 executed against plan rev 23, 
 
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
+| 2026-08-25 | steering-hooks-012-2 | **D23** — re-specify QA-R4 and QA-R15 against a subject that still exists, so something verifies D11 end to end before closure | **Rev 8.** Both rows re-specified onto **SCR-1**, a purpose-made scratch record (row-D/cell-B5 shape). Old wordings kept unedited, State cells routed. Reachability established rather than assumed: the 2026-08-23 **table-wide** backfill run found the stranded class had exactly 2 members (5712, 5842), both since repaired by the owner's SQL, and at `a74b9e2` **no supported UI route can mint another** — `switchToClassic` clears the bit, `switchToV2` empties content, and every import route disposes row D to Classic. So no *found* subject exists and D23's scratch-record option is the only live one. **Instrument captured, not narrated**: `verification/012/scratch-subject-SCR1/` executes the shipped predicate and mode-switch over the exact SCR-1 payload — 8/8 green at `a74b9e2`, and **all 8 assertions observed red** under 5 source and 2 fixture mutants. Its **sole-carrier control** is the load-bearing one: without it a mis-built SCR-1 (e.g. a bad username) is refused for the wrong reason and R4 passes vacuously — F-QA13's boolean trap one level up, since an unqualified *"Send is disabled"* does not discriminate either. SCR-1's creation prescribed so that **QA-R9/QA-R20 are untouched** (`valid = false` set in the same statement, so no backfill run is needed) and so that R4/R15 **drop out of the 5712 ordering constraint** — a reduction in the owner's queue; no other row's requirements changed. **D26 not reopened**: both rows are post-deploy-observable, gate closure and not the send, and the section says so flatly — the overlap (R15's act *is* the guidance's Route A) is disclosed as a consequence, never as a condition. `Verified-At` deliberately **not** re-anchored: this is a specification, not a verdict. New Assumption Not Checked booked and routed to devops (deployed SHA vs `a74b9e2`). |
 | 2026-08-23 | steering-hooks-012 (carrying code review round 7, `06b204d`) | Differential re-anchor at `c85945f`; close round 7's Assumption Not Checked; derive the suite count, inherit no figure | **Rev 7.** Re-anchored: `Verified-At: c85945f`. Delta re-derived at the commit (parent = `17cada0`; two QA instrument files, zero production source); both md5s match this header's rev-6 identities. Suite **re-executed at the committed clean `c85945f`: 22 files / 411 tests green** — round 7's falsity signature did not fire; closed here. The three circulating figures reconciled to their trees (20/402 = `17cada0` committed alone; 21/408 = +repair-path untracked; 22/411 = +both instruments ≡ `c85945f`; 402+6+3=411 — ambiguity was citation, not measurement). Differential captured at `verification/012/qa-phase2-reanchor-c85945f/`. Rev-6 routing note (implementer to commit the instruments) struck as done, kept beside. Held until round 7's transfer ruling so both gates moved on one basis. |
 | 2026-08-23 | planner, **routed via steering-hooks-012** (not the normal handoff — route recorded per steering's request) | Rev-27 registration write repaired by the planner (`63460d0`); R-numbering collision resolved at plan rev 28 | **Rev 6a.** Verified at the diff, not the relay: my rev-27 plan write carried two defects outside its declared scope, both mine — my Edit's anchor consumed the frontmatter's closing `---` without reproducing it (silent; would have broken machine-readable Status for every downstream reader), and I left the Revision/Status-Detail pairing at 26 while adding row 27 (a rule the plan has carried since rev 20; first violation by a non-planner stage). Prose byte-preserved; repairs verified in the committed tree. **Disposition answer: repair-in-place was right** — bouncing would have left a structurally broken header live in a shared tree for the length of a round, for two fixes with one unambiguous correct form each. **Method failure named**: my write procedure had no post-write structural check on documents I do not own. Control adopted: after any write to a frontmatter document, verify `grep -n '^---$'` still terminates the header, and diff my own hunk for consumed structural tokens before reporting the write. **Reciprocal naming clause adopted** (mirroring plan rev 28): this register's rows are cited **QA-R#** in cross-document text from this rev on; bare R# inside this document refers to this register, plan Risks rows are the plan's R1–R7. Retrospective material: the silent-defect class (structural damage outside the edited prose) is invisible to the author's own green checks by construction. |
 | 2026-08-23 | steering-hooks-012 | **Phase 2** — post-implementation execution against `website` `17cada0`, carry-forward items named (round-6 assumption, round-1 red assumption, L5, typecheck blindness, Phase 1 data-conformance assumption) | **Rev 6, Phase 2 complete, verdict PASS.** All numbers re-derived by this session's own runs, none inherited. TDD gate: table complete; red re-verified at base `72dc7de` via throwaway worktree (5/36 partition red on the exact five named cells; all six implementer spec files failing in the TDD table's recorded classes). Full suite 20 files / 402 tests green on the committed tree (22/411 with the two QA instruments). `npm run build` and `tsc --noEmit` green by own run. Mutation sweep: 10 mutants, 8 killed by named fixtures; **MS-4 survivor** (backfill UPDATE's NULL guard — pre-declared unkillable here, routed); **MS-8 survivor found** (evaluationFailures category population deletable with suite green) and **closed** by QA-authored spec, red-under-mutant observed. Round-6 assumption closed with babel framing bounded (no `.babelrc`; SWC build, esbuild tests; babel reachable only via eslint tooling and styled-jsx peer). L5 closed by execution: delegate cases discriminate dispatch inversion (killed L5-A), literal cases carry branch coverage (killed L5-B) — no rewrite needed. Two findings opened (F-QA13 spec type-unsoundness LOW, F-QA14 record overstatement MEDIUM→routed). Handing off to the uat agent. |
@@ -1120,7 +1128,7 @@ UAT document, and then the deployment record, are authoritative on each row's ex
 | R1 | pre-release | The 14-cell M2 partition is green, with B3/B5/B7 flipped and A1–A7/B1/B2/B4/B6 unmoved | `npx vitest run src/utils/__tests__/012-send-gate-partition.test.ts` | QA (automated; no human) | M2 implemented | 20/20 pass | If a cell outside the residue moved, M2 changed sendability for messages nobody asked it to touch — users lose the ability to send messages that work today | qa | **EXECUTED, PASS — Phase 2, `17cada0`**: 36/36 green (the spec grew from the 20 cells this row's prediction was sized against to 36 — rev-1 prediction superseded by spec growth, recorded beside, not over); the five previously-red cells (B3/B5/B7 + both 5712 rows) flipped green and every A-cell unmoved, with the partition file byte-identical to its pre-implementation commit `a7ebe4d` |
 | R2 | post-deploy-observable | GET v1 guild-messages for `966088462803537960` shows message 5712 with top-level `valid: false` | HTTP GET against production | Owner (the read is owner-executed; a hooks-side agent read was blocked by the classifier in the statbot workspace — if that block fires here, **stop and report, never reword**) | After backfill completes | `valid: false` — a **single** observation refutes by construction | If it shows `true` or omits the key, the field is not communicating what it was built to communicate, and Statbot gates on nothing | devops (owner observes) | Open |
 | R3 | post-deploy-observable | The same request for a guild holding a bare-Text-Display V2 record shows `valid: true` | HTTP GET against production | Owner | After backfill completes | `valid: true` — single observation suffices | **This is R2's paired positive control.** If it shows `false`, the field marks well-formed messages invalid and Statbot silently stops delivering messages that work — the mass-invalidation failure, arriving as silence rather than as an error | devops (owner observes) | Open |
-| R4 | post-deploy-observable | 5712 loaded in the composer shows the mutual-exclusivity notification with Send disabled (M2-c) | Composer UI | Owner (only he can load that guild's message) | After website deploy | Notification shown, Send disabled | If Send is still enabled, the composer keeps telling users a message is fine that Discord rejects with `50035` — the original defect, unfixed | uat (owner observes) | Open |
+| R4 | post-deploy-observable | 5712 loaded in the composer shows the mutual-exclusivity notification with Send disabled (M2-c) | Composer UI | Owner (only he can load that guild's message) | After website deploy | Notification shown, Send disabled | If Send is still enabled, the composer keeps telling users a message is fine that Discord rejects with `50035` — the original defect, unfixed | uat (owner observes) | **SUPERSEDED AS SPECIFICATION 2026-08-25 (D23)** — still Open, still owed. Its subject (record 5712 in the composer) ceased to exist in either direction when the owner repaired 5712 by SQL as part of chain 013, so this wording can no longer reach a terminal state. Row text kept as written; the executable specification is the re-specified R4 below. |
 | R5 | post-deploy-observable | Mode toggle classic→V2 still shows "Switch message mode?" and still warns (M2-d) | Composer UI | Owner | After website deploy | Modal shown | If the modal is gone, the fix silently destroyed users' content on a toggle | uat (owner observes) | Open |
 | R6 | post-deploy-observable | Mode toggle V2→classic still shows the modal (M2-d, other direction) | Composer UI | Owner | After website deploy | Modal shown | As R5. **Both directions are registered deliberately** — M2-d names one behaviour with two members | uat (owner observes) | Open |
 | R7 | post-deploy-observable | Saving a deliberately unsendable draft **succeeds**, and its API representation then shows `valid: false` (M4-c's human-observable half) | Composer save, then v1 GET | Owner | After website deploy | Save succeeds; next fetch shows `valid: false` | **If the save is rejected, the change has silently turned a communication field into a gate** — users can no longer save work in progress, which the owner explicitly ruled they must be able to do (D1) | uat (owner observes) | Open |
@@ -1131,7 +1139,7 @@ UAT document, and then the deployment record, are authoritative on each row's ex
 | R12 | pre-release | **F-QA7**: the owner has stated whether statbot chain 023's deploy is ordered after the live declaration, or the window is knowingly accepted | Owner's ruling, recorded | Owner | Now — decidable today, before anything ships | A stated disposition either way | If nobody decides, Statbot may gate on an unreviewed distribution and stop deliveries before the owner has seen a single number — routing around the plan's own central risk control | owner (put by steering) | **CLOSED 2026-08-23** — *"Order Statbot's deploy last"*; plan register D12, release condition 5 extended to five ordered components. **Superseded by R17**, which is the executable half |
 | R13 | pre-release | **F-QA1**: the owner has ruled on whether the V2 flag is cleared on mode switch, or the composer-recovery consequence is accepted with a stated plan for telling affected guild owners | Owner's ruling, recorded | Owner | Now — decidable today, before M2 is written | A stated disposition either way | If unaddressed, affected guild owners are told to fix their message in the composer and find no control that does it. The chain ships a clearer error and no way to act on it | owner (put by steering) | **CLOSED 2026-08-23** — *"Clear the flag on switch back"*; plan register D11, enacted in M2 (M2-d revised, M2-e/M2-f added). **Succeeded by R14, R15, R16** |
 | R14 | pre-release | **M2-e**: every V2→classic switch leaves no `IS_COMPONENTS_V2_FLAG`, over the whole class of departing contents — and clears **only** that bit | The pre-registered spec's M2-e block (5 departing states + a bit-masking control) | QA (automated; no human) | M2 implemented | All green | A `flags = 0` assignment instead of a mask passes every class member and silently destroys unrelated flag bits on every mode switch — for every user, not just affected ones | qa | **EXECUTED, PASS — Phase 2, `17cada0`**: the partition spec's M2-e block green **and** the real extracted function proven — `012-message-mode.test.ts`'s five departing states + masking control green, with the `flags = 0` mutant (L5-B) and the dropped-disjunct mutant (MS-2) both observed killed. Residue: the `handleModeSwitch`→`applyModeSwitch` wiring is unexecutable here — carried by R5/R6/R15, per the Phase 2 Assumption Not Checked |
-| R15 | post-deploy-observable | **M2-f**: stored record 5712 brought to a Send-enabled state through supported composer controls alone, no JSON modal, **and the persisted record then carries no `IS_COMPONENTS_V2_FLAG`** (plan Validation 4(e); critique F6/F11) — **run LAST of the 5712 rows; see the ordering note below** | Composer UI, then the persisted record | Owner (only he can load that guild's message) | After website deploy, and **after R2, R4 and M6-c have been read** | Reachable, and flag-free afterwards — via the round trip in F-QA8 | If unreachable, D11's one line did not deliver what the owner chose it for, and the fix bought the affected guild owner nothing. **Without the flag-free clause this row does not discriminate at all** — a user reaches Send-enabled on *pre-D11* code by rebuilding the record as a genuine V2 message (delete the content, add a Text Display), flag still set. As I first wrote it, this row would have confirmed a fix that was not there. Corrected 2026-08-23 against plan rev 7's M2-f | uat (owner observes) | Open |
+| R15 | post-deploy-observable | **M2-f**: stored record 5712 brought to a Send-enabled state through supported composer controls alone, no JSON modal, **and the persisted record then carries no `IS_COMPONENTS_V2_FLAG`** (plan Validation 4(e); critique F6/F11) — **run LAST of the 5712 rows; see the ordering note below** | Composer UI, then the persisted record | Owner (only he can load that guild's message) | After website deploy, and **after R2, R4 and M6-c have been read** | Reachable, and flag-free afterwards — via the round trip in F-QA8 | If unreachable, D11's one line did not deliver what the owner chose it for, and the fix bought the affected guild owner nothing. **Without the flag-free clause this row does not discriminate at all** — a user reaches Send-enabled on *pre-D11* code by rebuilding the record as a genuine V2 message (delete the content, add a Text Display), flag still set. As I first wrote it, this row would have confirmed a fix that was not there. Corrected 2026-08-23 against plan rev 7's M2-f | uat (owner observes) | **SUPERSEDED AS SPECIFICATION 2026-08-25 (D23)** — still Open, still owed; same reason as R4. The flag-free clause this row was corrected to carry is preserved verbatim in the re-specified R15 below, because it remains the only thing that discriminates. |
 | R16 | pre-release | **F-QA8**: the owner has ruled on whether M2-f's content-destroying recovery is accepted as-is, or M2-f gains a preservation clause | Owner's ruling, recorded | Owner | Now — decidable before M2 is written | A stated disposition either way | If accepted silently, guild owners are sent to a repair that retypes their message, and nobody tells them to copy the text first. M2-f passes cleanly either way, so nothing downstream will catch it | owner (put by steering) | **CLOSED 2026-08-23** — *"Stands, but point the guidance at the JSON editor"*. D11 stands; preservation build declined a second time, on the rev-3 corrected facts. **Succeeded by R19** |
 | R18 | pre-release | **F-QA9**: the whitespace-content class is decided — either statbot's corpus/the owner's live POST settles whether Discord accepts flag-set-plus-whitespace content, or M6-b carries the class as its own category so the population is measured before it gates | Owner's live POST, or statbot's corpus, or the M6-b count | Owner (live POST is his instrument, as for both existing sentinels) | Now for the ruling; the count at backfill | Either a Discord verdict, or a category count — plausibly zero, which closes it | If undecided and Discord in fact rejects the shape, hooks.gg marks **sendable** a message that is not, and Statbot attempts a send that fails on a record hooks.gg vouched for — the exact failure the chain exists to prevent | owner (put by steering) | **CLOSED 2026-08-23** — *"Measure the population first"*. M6-b category taken; owner's live POST **withdrawn, not deferred**. **Succeeded by R20** |
 | R17 | pre-release | **D12 enactment**: the devops agent records that the statbot-side ordering instruction was **relayed**, and does not claim statbot's compliance (which is that workspace's to verify) | The deployment record | devops (documentary; no human) | At release | Relay recorded | D12 has no planning-document mirror on the statbot side — plan rev 6 makes this row the only executable trace that the constraint travelled at all. An unrecorded relay is indistinguishable from no relay | devops | Open |
@@ -1155,6 +1163,207 @@ UAT document, and then the deployment record, are authoritative on each row's ex
 R2 satisfies the standing requirement that a chain fixing a user-reported defect register at least
 one post-deploy observable distinguishing **fixed from unfixed in production** — the fix's signature
 here is a value appearing where none was, which a deploy having happened says nothing about.
+
+---
+
+## Re-specification of QA-R4 and QA-R15 (D23) — 2026-08-25
+
+**Authority**: plan register **D23**, which supersedes D19 and routes both rows back to QA to be
+re-specified against a subject that still exists, *"so that something still verifies D11 end to end
+before closure"*. The wording below is QA's. This section adds **no row** — D18's scope closure
+stands; R4 and R15 keep their IDs and their obligations, and only their subject and instruments
+change.
+
+**Tree these readings were made against**: `website` `a74b9e2` — `master`, clean, the released
+chain-013 tree, which is what the deployed composer runs. This is **not** a re-anchoring of this
+document's `Verified-At: c85945f`; chain 012's Phase 2 PASS stands for its own tree and is not
+re-issued here. What follows is a specification, not a verdict.
+
+### Why the old subject is gone, and why no *found* subject replaces it
+
+Both rows named **record 5712 loaded in the composer**. The owner repaired 5712 and 5842 by direct
+SQL as part of chain 013 — his words, relayed 2026-08-25: *"They were fixed as a part of 013. sql
+statements"*. So the subject is absent in **both** directions: there is no stranded 5712 to observe
+failing, and its repaired state was produced by SQL rather than by either supported route, so it
+attests to nothing about the composer.
+
+D23 offers *a fresh reproduction* or *a purpose-made scratch record*. **A fresh reproduction is not
+available**, and the evidence says so twice over:
+
+1. **The corpus holds no other member.** The 2026-08-23 backfill run
+   (`verification/012/backfill-report-1787522866564-i3s31k.md`) is the one run that covered the
+   table — `rowsClassifiedThisRun` 4825 = `tableWideRowCount` 4825 — and it found
+   `flagStructureDisagreement` = **2 rows, ids 5712 and 5842**, with
+   `"Components V2 messages cannot contain embeds or content."` counted **2**. Both are now
+   repaired. *(The 2026-08-25 07:47 runs do **not** bear on this: `rowsClassifiedThisRun` is 0 and 2
+   against a `tableWideRowCount` of 4839, so their zero counters describe only the rows classified
+   in that run — never the table. Stated because the shape of those files invites the opposite
+   reading.)*
+2. **No supported UI route can mint another one.** At `a74b9e2`, read directly:
+   `switchToClassic` (`src/utils/messageMode.ts`) clears the bit — that is D11 — and `switchToV2`
+   empties `content`/`embeds`, so the mode toggle cannot leave the bit set over content in either
+   direction. Every import route disposes the shape: `resolveContentLoss` (`src/utils/index.ts`)
+   classifies bit-over-content-with-no-V2-component as **row D** with `mode: 'classic'`, and
+   `applyDisposition` runs `applyModeSwitch('classic', …)`, clearing the bit;
+   `NewMessageJsonInput` applies that before the record reaches `NewMessageModal`. **This is the
+   good outcome**, not an obstacle: M2 and D11 closed the generator. It is precisely why the
+   subject must now be purpose-made.
+
+   *Bounded residue, recorded and dispositioned, not raised as a finding.* `NewMessageModal.onSubmit`
+   gates on `gateBeforePersist`, which asks only for **row E**; a row-D payload arriving from the
+   Discord-link, webhook or command loaders would therefore persist unmodified, unlike the JSON
+   loader which disposes first. Applying the input-robustness disposition order: the callers of
+   those loaders are Discord's own API and webhook responses, and Discord rejects
+   V2-flag-with-content with `50035` — the premise of this whole chain — so the input cannot arrive.
+   **No finding.** Recorded here only so a later reader who notices the asymmetry does not have to
+   re-derive its disposition.
+
+### SCR-1 — the subject
+
+A **purpose-made scratch record** in a guild the owner controls. Its `data` payload, exactly:
+
+| Field | Value |
+|---|---|
+| `username` | `QA Scratch` |
+| `content` | `QA-R4/QA-R15 scratch subject - safe to delete.` |
+| `embeds` | `[]` |
+| `components` | `[]` |
+| `flags` | `32768` (`IS_COMPONENTS_V2_FLAG`) |
+
+This is row D / cell B5 — 5712's shape.
+
+**A purpose-made subject can be built wrong, and that is its one real hazard.** `validateMessage`
+short-circuits on the first failing check, so a scratch record that is *also* username-invalid is
+refused for the **username** reason and never reaches the mutual-exclusivity clause. R4 would then
+be observed "passing" — Send disabled — on a record that says nothing about M2-c. This is the same
+trap `TODO.md` records for the boolean (an unqualified `valid = false` does not discriminate between
+independent refusal reasons; F-QA13, `32737d3`), arriving one level up: **an unqualified "Send is
+disabled" does not discriminate either.**
+
+That property is therefore not asserted in prose. It is **executed**:
+`verification/012/scratch-subject-SCR1/` runs the shipped `validateMessage`, `isMessageV2` and
+`applyModeSwitch` over the exact payload above — 8 assertions, 8 green at `a74b9e2`, this session's
+own run. Its **sole-carrier control** asserts that clearing *only* the V2 bit makes SCR-1 fully
+sendable, which is what fails if the payload is mis-built. Every one of the 8 assertions was
+observed red under a targeted mutant (5 source mutants, 2 fixture mutants; table in that README),
+including the sole-carrier control under a fixture given an empty username. No assertion there is
+carried as evidence without having been seen to fail.
+
+**Creating SCR-1 without disturbing any other row.** Two steps, and deliberately not one:
+
+1. In the composer, in a guild you control, create a normal Classic message with the `username` and
+   `content` above, no embeds, no components. Save it. It is valid at this point; note its id.
+2. One SQL statement sets the bit **and** the column together, so the record arrives in the state
+   the predicate would have computed for it:
+
+   ```sql
+   UPDATE "Messages"
+      SET data = (data::jsonb || '{"flags": 32768}'::jsonb), valid = false
+    WHERE id = <the id from step 1>;
+   ```
+
+   *(Illustrative: `data`'s declared type is `unknown` in the generated schema, so if the column is
+   `json` rather than `jsonb` the cast back may need adjusting. The intent — add `flags: 32768`,
+   set `valid = false` — is what matters.)*
+
+**Why `valid = false` is set explicitly in the same statement.** The backfill is NULL-only and
+idempotent. Leaving `valid` NULL would require a backfill run to classify SCR-1, and that run's
+report would then carry SCR-1 in `flagStructureDisagreement` and in the `false` count — landing a
+self-inflicted row in the distribution the owner reviews at **QA-R9**, whose whole purpose is to
+show him a *real* distribution before the live declaration. Setting the column in the same statement
+means **no backfill run is needed and QA-R9 and QA-R20 are untouched by this re-specification.** The
+value written is not a guess: the SCR-1 instrument executes the shipped predicate over this exact
+payload and it returns the mutual-exclusivity string, so `valid` is `false`.
+
+That the flip to `true` at R15 is then a genuine recompute and not a leftover is guaranteed by the
+write path: `src/server/api/utils/shared.ts` writes `valid: isMessageValid(message.data)` on **every**
+upsert (M4).
+
+### The re-specified rows
+
+These replace the same-numbered rows in the register above **as the executable specification**. The
+superseded wordings are kept in place, unedited, with their State cells routing here.
+
+| ID | Class | Condition | Primary instrument | Subject / fallback | Earliest-decidable condition | Predicted value | Failure mode (operator terms) | Owner | State |
+|---|---|---|---|---|---|---|---|---|---|
+| **R4** *(re-specified)* | post-deploy-observable | **SCR-1 loaded in the composer opens in Components V2 mode and displays the error text _"Components V2 messages cannot contain embeds or content."_ verbatim; and the Send action for that message is not available.** The reason string is part of the condition, not decoration — see the discrimination note below | The deployed composer, **two screens**: the editor renders the string (`DiscordMessageEditor/index.tsx`, `noContentError`) and the message's Send screen gates the action (`app/message/m/[id]/send/page.tsx`, `allowSave` via `isMessageValid`). Subject construction pre-verified by `verification/012/scratch-subject-SCR1/` | **SCR-1**. No fallback instrument exists: `website` has no DOM harness (chain 013, D28), so this wiring is unexecutable by any suite — which is exactly why the row is an observation | Once SCR-1 exists. **Depends on no other register row** | Error text shown verbatim, Send unavailable. **A single observation refutes by construction** | If Send is available, the composer still tells users a message is fine that Discord rejects with `50035` — the original defect, unfixed, and the affected guild owner gets no warning before he sends. **If the error names a different reason, the observation is void rather than passing** — SCR-1 was built wrong and must be rebuilt before either row means anything | uat (owner observes) | **Open — re-specified 2026-08-25 (D23)** |
+| **R15** *(re-specified)* | post-deploy-observable | **From R4's end state: one press of "Classic" on the mode switch, then Save — no JSON modal.** Afterwards the v1 read for that message shows `data.flags` with `IS_COMPONENTS_V2_FLAG` (32768) **cleared**, `content` unchanged, and top-level **`valid: true`** | The deployed composer for the act; **`GET /api/v1/guilds/<guildId>/messages` for the persisted state** — that handler returns `data` verbatim alongside `valid`, so `flags` is readable without database access | **SCR-1**, the same record R4 was observed on. Owner performs the composer act (no agent may act in production). The read half needs no human in principle, but agent reads of production have been classifier-blocked before — **if that block fires, stop and report, never reword** (as R2 already records) | After R4 has been observed **on this same record**. **No dependency on R2, R3 or M6-c** — that is the change; see the ordering note below | Bit cleared, `content` byte-identical, `valid: true`. **A single observation refutes by construction** | If the bit survives, D11's one line did not deliver what the owner chose it for, and the repair guidance now in his hands (D25) leaves the affected guild owner exactly where he started — having followed our instructions. If `content` changed, the guidance's *"Your text, embeds and link buttons are kept"* is false, and a guild owner loses his message while doing what he was told. **Send becoming available is NOT sufficient on its own** — see the flag-free clause below | uat (owner observes) | **Open — re-specified 2026-08-25 (D23)** |
+
+### Three things about these rows that are load-bearing
+
+**1. The flag-free clause is preserved because it is still the only discriminator.** The original
+R15 was corrected on 2026-08-23 to carry it, and the reason survives the change of subject intact: a
+user reaches Send-available on *pre-D11* code by rebuilding the record as a genuine V2 message —
+delete the content, add a Text Display — with the flag still set. The SCR-1 instrument executes that
+confounder and shows it: sendable, bit retained. So "Send became available" confirms nothing on its
+own; only the **persisted, cleared bit** distinguishes D11 working from D11 absent.
+
+**2. No confirmation modal will appear at R15, and that is correct.** `handleModeSwitch`
+(`DiscordMessageEditor/index.tsx`) asks for confirmation only when data would depart — for
+V2→classic that is `hasV2Content(components)`, and SCR-1 has no components at all. So the press goes
+straight through. **This is not QA-R5 or QA-R6 failing.** Those rows assert the modal on toggles
+*with* departing content and are untouched by this re-specification; a reader must not take a
+missing modal here as bearing on them.
+
+**3. The 5712 execution-order note above no longer governs these two rows.** It exists because R15
+is a persisting act that would flip 5712 to `valid: true` and destroy the preconditions of R2, R4
+and M6-c. SCR-1 is not 5712, so the interference is gone: **R4 and R15 can now be executed at any
+time, in either order relative to R2, R3, M6-c and the live declaration.** The note stands unedited
+for the rows it still governs (R2, R3, M6-c). This is a **reduction** in what the owner's queue
+requires — no row's requirements are increased, and no row outside R4/R15 is changed.
+
+### This does not gate, condition, or reopen the send (D26)
+
+**D26 waived the pre-send precondition on the repair guidance.** The guidance goes out on the code
+reading alone, and the accepted consequence — *the first person to actually run this path is an
+affected guild owner following our instructions* — is the owner's, already ruled.
+
+R4 and R15 are **post-deploy-observable** rows: by this register's own classification they gate the
+chain's **closure**, never a release act, and the send is not a release act they touch. Stated
+flatly so nothing downstream can read otherwise:
+
+- **The guidance may be sent at any time, before or after these rows are executed, in any order.**
+- **Neither row is a precondition on the send, and neither may be cited as one.**
+- **Nothing here proposes an observation as a condition on the send, and D26 is not reopened.**
+
+The overlap is nonetheless real and is disclosed rather than left for someone to discover: the act
+R15 specifies — open in V2 mode, press Classic, save — **is** the mechanism the guidance names,
+because D11 and the guidance's Route A are the same code path, and D23 asked precisely that
+something verify D11 end to end. So if the owner executes R15 before he sends, he will incidentally
+have become the first person to run the route. That is a **consequence to be aware of, not a
+condition to be met**; it is his to sequence as he pleases, and either order satisfies both D26 and
+these rows.
+
+### Disposal
+
+If both rows are executed, SCR-1 ends clean by construction — bit cleared, `valid: true`, a
+perfectly ordinary Classic message — and may simply be deleted. **If R4 is observed and R15 is
+not**, a stranded record is left in the table: it will appear in any future table-wide backfill as a
+`flagStructureDisagreement` row and read as a live defect. Whoever stops between the two rows
+deletes SCR-1 or records its id here.
+
+### Assumption Not Checked — this pass
+
+**This pass assumes the deployed hooks.gg composer is serving `a74b9e2`'s code — the tree I read —
+and it does not test that.** Every claim above about what the composer will do at R4 and R15 comes
+from reading `src/utils/messageMode.ts`, `src/utils/index.ts`, `src/utils/limits.tsx` and
+`DiscordMessageEditor/index.tsx` at that SHA and from executing the pure functions there. **I made
+no request to the deployed application**, and no agent here may. Nothing I ran touched a database or
+a network host: the SCR-1 instrument ran in a throwaway worktree with `DATABASE_URL` pinned to a
+dead port.
+
+**Falsity signature** — it does not look like a deployment problem, it looks like D11 failing. If
+the deploy lags the tree (a pending or failed build), R4 and R15 go red in a specific pattern: the
+error text appears but the bit **survives** the Classic save (pre-D11 code), or no error text
+appears at all and Send is available (pre-M2 code). Both read as *"the fix does not work"* while the
+actual fault is that the fix was never served — and on that misreading the repair guidance in the
+owner's hands would be withdrawn as broken when it is correct.
+
+**Owner of closure: devops**, at the deployment record, which is where the deployed SHA is named.
+This chain's own deployment record (`deployment/012-message-valid-field-deployment.md`) **cannot**
+answer it — it predates chain 013's release and names no `a74b9e2`. Concretely: whoever executes R4
+or R15 confirms the deployed `website` SHA is `a74b9e2` or later **before** treating a red as a
+defect in D11. Named again in the return to steering, so this is routed rather than shelved.
 
 ---
 
