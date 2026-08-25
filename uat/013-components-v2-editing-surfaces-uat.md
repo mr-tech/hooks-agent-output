@@ -5,6 +5,40 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
+  **Rev 40 — CORRECTION: rev 39's CR25-3 check was performed against the PROBE COPY, not the shipped file.**
+  Two copies of the oracle exist; the corrections are in the one that does not run. **Measured here rather
+  than taken from the relay**: shipped **186 lines** vs probe **215**; `grep -c "D13"` **shipped 0, probe
+  5**; `CITATION CORRECTED` shipped **0**. **CR25-2 is LIVE against the tree** — the shipped cell 5, draft
+  `{flags}` with **no components at all**, still cites *"the flag over components within the schema and no
+  content."* **All eight `expected` values are identical across both copies, so no oracle verdict changes,
+  no Round-25 measurement is disturbed and code review's APPROVED stands: a provenance and record
+  divergence, not a behavioural one.** **REV 39'S OWN DEFENCE IS WHAT CONVICTS IT.** It wrote that reporting
+  against a stale read *"would have been this chain's own defect committed in the act of checking for it"* —
+  **and applied that discipline, correctly, to the wrong file.** **Being current about the wrong artifact is
+  not a partial defence; it manufactures confidence. A stale read of the right file announces itself as
+  stale; a fresh read of the wrong file reads exactly like a fresh read of the right one.** Rev 39 saw the
+  file change and asked *did it change* when the question was **which file am I holding** — and M10-b had
+  already named the shipped path. **STEERING CONTRADICTED ON ONE POINT, at its own request**: its *decisive*
+  evidence — that the four words *"and is told what the other drops"* sit in the probe and not the shipped
+  file — **establishes nothing about which copy was read. Both quotations end identically at *"the user
+  chooses Classic or V2"***, and the probe's single occurrence is elsewhere. **The error is real; that
+  particular proof of it is not** — recorded because **a correct correction resting on a wrong instrument is
+  how this chain gets bitten twice.** **CR25-3 RE-DERIVED against the shipped file, cell by cell: the verdict
+  is UNCHANGED — the paraphrase is faithful as to every expected mode and the round is NOT invalidated.**
+  **Finding 1 (row E truncated) HOLDS; findings 2 and 3 DO NOT APPLY** — the shipped file never cites D13 —
+  **and are re-scoped to the probe copy rather than retracted**, since they become live if that text is
+  adopted. **Rev 39's *"found already fixed at CR25-2"* is RETRACTED as to the shipped file.** **Class
+  adopted from the reviewer: this is the fossil defect running in REVERSE** — a copy that **leads** the tree
+  rather than lags it — **and this register adds the half it just paid for: a second copy is most dangerous
+  when it is BETTER than the shipped one, because a copy that lags looks wrong on inspection while a copy
+  that leads looks like progress.** **The gate is NOT issued in this revision and that is not a
+  withholding**: R36.5 requires every outstanding condition carry an owner and a terminal state, and whether
+  the shipped-file CR25 status is a **residual** or a **fix-round item** is a tree move now with the owner.
+  **Every other R38.6 item is discharged (R40.7)** — both anchors derived, all three predecessor verdicts
+  re-read at their own documents, the rev 48→49 delta read from a file and found **purely additive**, the
+  covered set derived at **21 paths / 9 production**, and QA's revert-completeness claim **independently
+  confirmed stronger than the reviewer's**: `e1d9b2b..b56570d` holds **zero non-test paths.** **Open set 12,
+  fresh, NONE OBSERVED.**
   **Rev 39 — CR25-3 DISCHARGED: the paraphrase is faithful and the round is NOT invalidated.** The reviewer
   routed its Assumption Not Checked here by name, on the ground that **QA authored the transcription and an
   author checking its own paraphrase against the source is the weaker arrangement** — correct routing, and
@@ -576,6 +610,7 @@ Verified-At: >-
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — **QA has re-anchored to rev 48**, and a request to **HOLD before publishing** because an owner decision in flight may move the tree | Whether the gate should wait; and whether QA's newly-disclosed oracle defect belongs in the residual section | **Rev 37. THE GATE WAS ALREADY COMMITTED (`68e6159`) when the hold arrived — recorded plainly, since a gate that quietly absorbed a hold it had overtaken would falsify its own timing.** **And it does not need unpublishing: R36.1 states the decision expires when either axis moves, so a fix round expires it cleanly and visibly.** **A published decision with a named anchor that expires is strictly better than an unpublished one, which leaves the chain with no recorded position at all** — **the dual anchor doing the job it was written for, one revision after it was written.** **QA's re-anchor verified at its document** (`Criteria-At: plan 013 rev 48, f5b7cac`, captured diff 45 lines — the same figure derived at R36.1.1): **two stages reached the same anchor independently**, and QA additionally confirmed no hunk touches Validation, Testing Strategy or Objective, **which this register had not checked by name — adopted.** **The rule's COST recorded now rather than discovered later: the dual anchor makes a stage expire its own verdict by raising a good finding, and it is payable only because the tree did not move** — an unrecorded cost is how a good rule is abandoned without anyone deciding to. **QA's oracle defect: NOT a release condition, concurred.** But it **strengthens** what rev 36 carries — **CR24-2 has a SECOND wrong fix** (keep the spec's encoding: 4 failed, all QA's; **49 of 50 files green**), and **without QA's oracle the suite is blind to it.** **The sharpest consequence lands on rev 36 itself: its CR24-2 warning is prose — a banner is not an instrument.** R33.3's rule at this register's own door: **a hazard that lives only in prose is not a guard, because the implementer runs the suite.** **Residual 5 AMENDED by dated addition, rev-36 text preserved.** **No verdict moves; open set 12; none observed.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — the owner ordered a round; **"your gate will expire when the tree moves"** | Owner ruled **"Option 1, arm"** — adopt QA's oracle and fix its constant, **no production code, CR24-2 NOT fixed** | **Rev 38. THE GATE HAD ALREADY EXPIRED — on the CRITERIA axis, with the tree UNMOVED.** Plan is at **rev 49 (`9637735`)**; the tree is still `e1d9b2b`, tracked-clean, branch unpushed. **`e1d9b2b` is UNGATED again; the expiry is not a refusal.** **Two stages and a coordinator all expected the tree axis; the criteria axis moved first, within the hour — a tree-only anchor would read as LIVE right now.** **REFINEMENT THIS REGISTER GOT WRONG BY OMISSION: a named anchor makes expiry CHECKABLE, not SELF-ANNOUNCING.** Rev 37's *"without anyone needing to notice"* is **superseded** — somebody has to look, and the anchor's contribution is saying where. **This register came within one sentence of proving it against itself**: restating rev 37's *"the gate stands"* would have been false at write time — **caught by running the check before writing, on its third consecutive outing.** **R37.2.1's predicted expensive case arrived by the predicted route**, and its own instruction is honoured: **the paragraph is re-read and the rule stands unamended; the cost is acknowledged, not renegotiated.** **Owner's ruling recorded with both answers, the second governing. Arming a guard is not fixing the defect it guards** — residual 5's move from *silent* to *guarded* is **predicted with its condition, not made.** **The prose-is-not-a-guard point was acted on on both surfaces within the hour**: this register's two-wrong-fixes warning is now plan **M10-d** and QA's oracle is the test — **the fix for a banner is not a louder banner.** **Re-issue scope fixed in advance (R38.6) so it cannot be trimmed under pressure later.** **Open set 12, all fresh, NONE OBSERVED.** |
 | 2026-08-25 | `code-reviewer-013-4` via `steering-hooks-013-3` [b04529] — **CR25-3 routed to this stage by name**, on the ground that QA authored the transcription and an author checking its own paraphrase is the weaker arrangement | Check the oracle's five-row paraphrase of D17 against the plan's Objective **as written** | **Rev 39. CR25-3 DISCHARGED — the paraphrase is faithful and the round is NOT invalidated.** All eight cells checked against the Objective; **six are actually asserted** (row-E cells are filtered out by the oracle itself) and **all six agree**. **Source of truth established before use**: plan rev 48→49 is five hunks and **none touches `## Objective` or D17's row text** — measured. **The oracle file changed between this stage's two reads**, so everything is derived against the current file; **reporting against a stale read of an already-fixed file would have been this chain's own defect committed in the act of checking for it.** **Cell 5 derived independently from the plan side** — `{flags}` alone has no components, so row C's *"the flag over components within the schema"* does not govern it except vacuously — **and found already fixed at CR25-2, citing D13, verified verbatim at plan L110. Two independent routes, header-side and plan-side, reached the same cell: corroboration, not agreement.** **THREE PROVENANCE FINDINGS, none holding the tree, none a value error, all QA's file**: row E truncated in the quotation without ellipsis; **D13 quoted correctly but `SUPERSEDED IN PART` and not marked so**; and — **the one worth the routing** — **D13's quoted clause says *not a conflict, not refused* and states NO mode. What yields `v2` is D13's superseding header (*"the 'not a conflict' clauses survive as row C"*), which the oracle does NOT quote** — so **"row C" is an unsupported assertion inside the citation.** **This is CR25-2's own defect recurring one level inside its fix: the citation is now correct and the stated provenance is still thinner than the derivation** — and an oracle corrected once tends to be treated as corrected. **Remedy is QA's to write; this stage does not author instrument text.** **No verdict issued; gate remains EXPIRED; open set 12, none observed.** |
+| 2026-08-25 | `code-reviewer-013-4` (`288c0b4`) via `steering-hooks-013-3` [b04529] — **two copies of the oracle exist and the corrections are in the one that does not run**; steering asked this stage to **place the error itself** rather than take its account | Whether rev 39's CR25-3 discharge was performed against the shipped file | **Rev 40. CORRECTION — REV 39 CHECKED THE PROBE COPY, NOT THE SHIPPED FILE.** Measured here: shipped **186 lines**, probe **215**; `grep -c "D13"` **shipped 0, probe 5**; `CITATION CORRECTED` shipped **0**. **CR25-2 is LIVE against the tree** — the shipped cell 5 (`{flags}`, no components) still cites *"the flag over components within the schema"*. **All eight `expected` values identical across copies, so no verdict moves and code review's APPROVED stands — a provenance divergence, not a behavioural one.** **REV 39'S OWN DEFENCE CONVICTS IT**: it applied freshness discipline, correctly, **to the wrong file** — **being current about the wrong artifact is not a partial defence, it manufactures confidence; a stale read of the right file announces itself, a fresh read of the wrong file reads exactly like a fresh read of the right one.** It noticed the file changed and asked *did it change* rather than **which file am I holding**. **STEERING CONTRADICTED ON ONE POINT, as it asked**: its *decisive* evidence — that *"and is told what the other drops"* is in the probe and not the shipped file — **does not establish which copy was read; both quotations end identically**, and the probe's lone occurrence is not in its quotation. **The error is real; that proof of it is not** — a correct correction resting on a wrong instrument is how this chain gets bitten twice. **CR25-3 RE-DERIVED against the shipped file: verdict UNCHANGED, paraphrase faithful, round not invalidated.** Finding 1 **holds**; findings 2 and 3 **do not apply** to shipped (it never cites D13) and are **re-scoped to the probe copy, not retracted**. **Class adopted: the fossil defect running in reverse — a copy that *leads* the tree looks like progress, which is why it is more dangerous than one that lags.** **Gate NOT issued and it is not a withholding**: R36.5 requires every condition carry a terminal state, and the shipped-file CR25 status is **residual or fix-round depending on an owner answer in flight.** **All other R38.6 items discharged (R40.7). Open set 12, none observed.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -6549,3 +6584,170 @@ clause, and mark D13 as superseded in part.**
 3. **The owner** — the walkthrough of the eight, unchanged.
 4. **Nobody** — reads CR25-3's discharge as covering the oracle's *reasoning*, only its **transcription**;
    or reads M10 as having fixed CR24-2.
+
+---
+
+# Rev 40 — **CORRECTION: rev 39 was performed against the probe copy, not the shipped file.** The discharge's conclusion survives; one of its findings is retracted, two are re-scoped, and CR25-2 is **LIVE** against the tree.
+
+**Date**: 2026-08-25. **Session**: `uat-hooks-013-5`. **Trigger**: `code-reviewer-013-4` (`288c0b4`) found
+two copies of the oracle; `steering-hooks-013-3` [b04529] relayed it **and asked this stage to place the
+error itself rather than take its account.** **Done, and the account is right in substance and wrong in
+one detail (R40.3).** **No gate is issued in this revision.**
+
+## R40.1 — Measured here, on both files, with instruments that compute before any filter
+
+| Instrument | **shipped** — `website/src/utils/__tests__/013-qa-cr24-6-…test.ts` | probe — `agent-output/verification/013/probe-qa-verify-rider2/…` |
+|---|---|---|
+| `wc -l < file` | **186** | 215 |
+| `grep -c "D13"` | **0** | **5** |
+| `grep -c "CITATION CORRECTED"` | **0** | 1 |
+| `grep -c "flag over components within the schema"` | **2** | 3 |
+
+**Read directly, not inferred from counts** — the shipped `CELLS` block and header quotation in full.
+
+> **CONFIRMED: CR25-2 is NOT fixed in the shipped file.** Its cell 5 — draft `{ flags: V2_FLAG }`, **no
+> components at all** — still cites *"the flag over components within the schema and no content."*
+> **The defect this register independently derived at R39.3 is live in the artifact that runs.**
+
+**And confirmed independently: all eight `expected` values are identical across both copies** — `classic,
+classic, v2, choice, v2, classic, v2, choice`. **No oracle verdict changes, no Round-25 measurement is
+disturbed, and code review's `APPROVED` stands.** **This is a provenance and record divergence, not a
+behavioural one.**
+
+## R40.2 — **The error is this register's, and rev 39's own words convict it**
+
+**Rev 39 read `agent-output/verification/013/probe-qa-verify-rider2/…` — it names that path in its own
+text.** **That file is evidence about the oracle. It is not the oracle.** **The artifact under review is
+the one the tree executes**, and **M10-b names it**: *"adopted into `src/utils/__tests__/`."* The pointer
+was in the criteria this register had already read.
+
+**The part that stings is rev 39's own defence.** It wrote: *"the oracle file changed between this stage's
+first and second read… everything below is derived against the file as it stands now… reporting a finding
+against a stale read of a file that had already been fixed would have been this chain's own defect
+committed in the act of checking for it."*
+
+> **That freshness discipline was applied, correctly, to the wrong file.** **Being current about the wrong
+> artifact is not a partial defence — it manufactures confidence.** A stale read of the right file
+> announces itself as stale; **a fresh read of the wrong file reads exactly like a fresh read of the right
+> one.** **Rev 39 congratulated itself on the discipline that made the error harder to see.**
+
+**And the symptom was noticed and mis-resolved.** Rev 39 saw the file change between reads and concluded
+*"the fix landed."* **The correct question was not *did it change* but *which file am I holding*, and
+nothing in rev 39 asks it.**
+
+## R40.3 — **Placing the error, as asked — and contradicting steering on one point, as it asked**
+
+**Steering's substance is right and this register confirms it independently: rev 39 checked the probe copy;
+CR25-1 and CR25-2 are open against the shipped file.**
+
+**Its decisive-evidence claim is not right, and it is better contradicted than inherited.** Steering
+reasoned that *"the four words your row-E check turned on — 'and is told what the other drops' — are in the
+probe copy and NOT in the shipped file… That is decisive about which copy you read."*
+
+**Measured here: `grep -c "is told what the other drops"` gives shipped 0, probe 1 — but the probe's single
+occurrence is NOT in its D17 quotation.** **Both files' quotations end identically at *"the user chooses
+Classic or V2."*** **So that phrase's distribution establishes nothing about which copy was read, and
+rev 39's row-E finding holds against the shipped file exactly as written.**
+
+**What actually establishes it is rev 39's own citation of the probe path, plus `D13`: shipped 0.** **The
+error is real; that particular proof of it is not.** **Recorded because a correct correction resting on a
+wrong instrument is how this chain gets bitten twice** — and because steering said it would rather be
+contradicted than have this inherited.
+
+**Where the error entered is not this register's to allocate away.** Steering states it relayed QA's
+characterisation — *"the tree's copy keeps a citation that is correct, merely thinner"* — without opening
+the shipped file, and names that as its own BC-7 defect repeated. **That is steering's to record and it has
+recorded it.** **This register's share is not reduced by it: rev 39 chose the file it read, and no relay
+told it to read the probe path.**
+
+## R40.4 — **CR25-3 RE-DERIVED against the shipped file. The conclusion stands; the findings do not all survive**
+
+**Re-checked cell by cell against the plan's Objective (rev 49, verified unmoved by rev 48→49 at R39.1):**
+
+| Cell | Draft | Shipped citation | Expected | Plan |
+|---|---|---|---|---|
+| 1, 2 | `{}`, `{content}` | row A | `classic` | **✓** |
+| 3 | `{components}` | row B | `v2` | **✓** |
+| 4, 8 | with content **and** components | row E | `choice` | **✓** (filtered out of `COMMITTING`) |
+| **5** | **`{flags}` — no components** | **row C — WRONG** | `v2` | **value ✓, citation ✗** |
+| 6 | `{flags, content}` | row D | `classic` | **✓** |
+| 7 | `{flags, components}` | row C | `v2` | **✓** |
+
+> ## **CR25-3's verdict is UNCHANGED and now rests on the right artifact: the paraphrase is faithful as to every expected mode, and the round is NOT invalidated.**
+
+**Disposition of rev 39's three findings, against the shipped file:**
+
+| # | Rev 39 finding | Against shipped |
+|---|---|---|
+| **1** | Row E truncated without ellipsis | **HOLDS, unchanged** — both quotations end at *"chooses Classic or V2"* |
+| **2** | D13 quoted but `SUPERSEDED IN PART`, unmarked | **DOES NOT APPLY — the shipped file does not cite D13 at all** |
+| **3** | *"row C"* is an unsupported assertion inside the D13 citation | **DOES NOT APPLY, same reason** |
+
+**Findings 2 and 3 were findings about a correction that has not shipped.** They are **re-scoped to the
+probe copy** and are **not retracted** — they remain valid criticism of the text QA wrote, and they become
+live against the tree **if and when that text is adopted.** **Rev 39's claim *"found already fixed at
+CR25-2"* is RETRACTED as to the shipped file; the rev-39 text stands where it was written.**
+
+**CR25-2 is therefore LIVE against the tree, and this register's R39.3 derivation of it — reached from the
+plan side, independently — is the standing description of the defect.**
+
+## R40.5 — The class, adopted from the reviewer, because it names the direction that hid it
+
+> **This is `probe-cr1`/`probe-cr10`'s fossil defect running in reverse.** There, an embedded copy fell
+> **behind** the tree and silently stopped measuring it. **Here a copy ran *ahead* of the tree and caused a
+> gate stage to report a fix that has not shipped.** **Same defect — a second copy of the code under test
+> treated as the code under test — and the direction of drift is what disguised it.**
+>
+> **The artifact under review is the one the tree executes; any other copy is evidence about it, never it.**
+
+**Adopted, and this register adds the operational half it just paid for:** **a second copy is most
+dangerous when it is *better* than the shipped one.** A copy that lags looks wrong on inspection. **A copy
+that leads looks like progress**, and every reader who opens it comes away more confident than the tree
+warrants.
+
+## R40.6 — Why the gate is not issued in this revision, and it is not a withholding
+
+**This register's own position stands: a published decision with a named anchor that expires beats an
+unpublished one.** **That argument is about uncertainty, and this is not uncertainty.**
+
+**R36.5 requires that a conditional approval name, for every outstanding condition, an owner and one of
+three terminal states.** **The shipped-file CR25 status cannot be named yet**: whether it is a **residual**
+(the record diverges, nothing behavioural, no fix) or a **fix-round item** (the shipped file is corrected)
+**is a tree move that steering is putting to the owner now.** **Those two answers produce different
+condition lists, and this register does not write a condition list it knows is about to be replaced by a
+different one rather than by a re-anchored one.**
+
+**Everything else is derived and ready** (R40.7). **The gate issues on his answer, either way, without
+further derivation of the axes.**
+
+## R40.7 — Re-issue readiness: every R38.6 item discharged except the one waiting on him
+
+| R38.6 item | State |
+|---|---|
+| **Both anchor axes** | **DERIVED.** TREE **`b56570d`** on `chain/013-rider-2`, tracked-clean; `master` and `origin/master` **`2d90e8a`**, branch unpushed. CRITERIA **plan rev 49 (`9637735`)**. Both ancestries confirmed by `merge-base --is-ancestor` |
+| **Three predecessor verdicts, re-read at their own documents** | **DONE.** Code review **`Code Review Approved`**, round 25, TREE `b56570d` / CRITERIA rev 49, scope bounded and stated. QA **`QA Complete`**, `Verified-At: b56570d`, `Criteria-At: plan 013 rev 49`. Plan **rev 49** |
+| **Rev 48 → 49 delta read in full** | **DONE, and "text-only" checked rather than assumed.** Five hunks, **purely additive**: D52, **M10 with four new criteria**, header, changelog, a reading-order note. **No existing milestone, acceptance property or Validation item moved.** *(Read from a file, not through a pipe — `^[+-]` over a piped diff is unsound in this environment and returned zero here before the file-mediated form returned the real hunks.)* |
+| **Covered set** | **DERIVED: `2d90e8a..b56570d`, 21 paths, 9 production.** Identical production surface to rev 36, as byte-identity requires |
+| **Revert completeness** | **VERIFIED INDEPENDENTLY, and QA's stronger claim confirmed: `e1d9b2b..b56570d` contains exactly 2 paths, both under `__tests__`, ZERO non-test.** All production byte-identical to `e1d9b2b` — stronger than the reviewer's four-blob check |
+| **Row freshness at the new tip** | **QA RULED at §V.18** — differential re-run, **0 changed lines**, *"an inference is not a measurement"*. **Count noted rather than adopted: QA says eleven rows; this register's open set is twelve. Production being byte-identical settles all twelve by construction, and the difference is recorded rather than reconciled by assumption** |
+| **Suite** | QA re-derived **48 files / 627 / exit 0** — *"the reviewer declining to repeat a number it had not run is why this is a confirmation and not an echo"* |
+
+## R40.8 — Ledger delta at rev 40
+
+| Item | State |
+|---|---|
+| **CR25-3** | **DISCHARGED, re-derived against the shipped file.** Paraphrase faithful; round not invalidated |
+| **Rev 39's *"found already fixed at CR25-2"*** | **RETRACTED as to the shipped file**; rev-39 text preserved |
+| **Rev 39 findings 2 and 3** | **RE-SCOPED to the probe copy. Not retracted.** Live against the tree if that text is adopted |
+| **Rev 39 finding 1** | **HOLDS against the shipped file, unchanged** |
+| **CR25-1, CR25-2** | **OPEN against the shipped tree.** No expected value affected; **no verdict moves** |
+| **Release decision** | **still EXPIRED** (rev 38). `b56570d` **ungated** |
+| **Open set** | **12 register rows. Fresh. NONE OBSERVED.** |
+
+**Next Actions** — *point-in-time; later stage documents are authoritative on these items' current state.*
+
+1. **Steering / the owner** — whether the shipped oracle is corrected. **A tree move; it expires both
+   predecessor verdicts.** **This register issues the gate on his answer either way** (R40.6).
+2. **Nobody** — records CR25-1 or CR25-2 as discharged against the tree, or cites rev 39's *"already
+   fixed"* without R40.4.
+3. **The owner** — the walkthrough of the eight, unchanged, still the whole of what remains.
