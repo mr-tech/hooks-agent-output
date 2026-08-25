@@ -44,13 +44,6 @@ not, and that was my error.
   nowhere, creates nothing.* **I still have not written you a payload.** It stays visibly owed rather
   than me authoring a fixture for a row I do not own.
 
-- **U-C5 — R-5's widening.** This has been recorded as waiting on you, in a ledger that names *this
-  file* as the place you would read it — **and it has never been in this file.** You caught that today.
-  It is the blocking edge before `devops` can write the deployment record. **I am not writing the
-  question here from my own paraphrase**: it is `devops`'s finding, I have asked `devops` to state the
-  decision, the options and what each costs, and it goes here in its own words the moment it lands.
-  Nothing is asked of you until then.
-
 - **The operator sitting — the `PRE` rows you run at a browser.** Several of these carry predictions
   that went stale when the surfaces beneath them moved. **No row is put in front of you until `qa`
   re-derives its wording**, because a row run against stale wording produces a false pass, and a false
@@ -58,6 +51,38 @@ not, and that was my error.
   wording and one pass criterion each, lands here when it reports.
 
 ### Decisions, no browser needed
+
+**The plan document describes half of a change that shipped. Do you want it corrected?**
+
+*Written by `devops`, in its words, because the finding is its own. It reframed this after checking:
+the question you were previously going to be asked no longer matched the facts.*
+
+When you load a message into the editor, the editor picks a mode — the new component-based one, or the
+old classic one. The change that shipped made mode follow the message's own marking. The plan says this
+affects messages that carry the new-style marking but have no new-style content: those now open in the
+new mode where they used to open in classic. **That part is written down correctly.**
+
+**What the plan does not say is that ordinary messages changed too.** Before, a message with no
+components at all was simply skipped — the editor left whatever mode was already on screen. Now it is
+actively set to classic. So if you are composing in the new mode and you load a plain old message, the
+editor switches you to classic, where before it would have left you alone. That is a real behaviour
+change and nothing in the plan mentions it.
+
+**The deployment record already states both halves**, and that was one of the two ways this was allowed
+to be settled. So the thing that mattered — you having the full picture in front of you when you judge
+whether the fixes are in — is done. **What is left is only whether the plan document gets corrected
+too.**
+
+- **Say the record is enough.** Nothing more happens. The plan keeps a sentence that describes half the
+  change; anyone reading the plan later — rather than the deployment record — gets the narrow version
+  and could act on it.
+- **Say you want the plan fixed.** It joins the other held planning items and gets corrected in one
+  pass whenever that runs. Costs you that round; the plan then matches what actually shipped.
+- **Say neither, for now.** It stays open. It is currently one of the items counted against closing
+  chain 013, so the chain does not close while it sits there.
+
+**There is no browser step and nothing to check.** This is a question about a document, not about the
+software.
 
 ## EVERYTHING BELOW IS ON HOLD — 2026-08-23
 
