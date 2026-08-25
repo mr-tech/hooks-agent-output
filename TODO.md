@@ -80,3 +80,36 @@ resumption should say. Whoever picks up 012 owns the re-derivation.
 
 **Verify before acting on it**: this is steering relaying a QA execution result, not steering's own
 measurement. The instrument and assertions are in QA's Phase 3 document at `c14e965`.
+
+## The held 013 planner queue — five items with no register row
+
+Added 2026-08-25 by `steering-hooks-013-2`, moved out of the steering docket because **unstarted work
+is not docket material** and the docket was at twice its ceiling carrying them. Four sibling items
+**are** registered — read **D23/D24/D25** in `planning/013-components-v2-editing-surfaces.md` rather
+than restating them. These five have no row anywhere, so their evidence is written out once here.
+
+**Status: still held.** Owner, 2026-08-24: *"Hold everything, as before."* **D24 killed the automatic
+trigger — only an owner ruling starts the pass.** As of 2026-08-25 the planner session he elected to
+spawn (`planner-hooks-013-2`) has never appeared across five polls, and three stages have since run
+work with no plan revision behind it.
+
+1. **The persist API accepts the 5712 shape from any caller.** D18/D19 is a **client convention, not a
+   server-enforced invariant**. `79bbcaf`.
+2. **Specs are not typechecked.** `tsconfig.json` excludes `**/__tests__` and vitest does not
+   typecheck. `d692206`. **The exclusion must NOT be deleted — it is what fixes the Vercel build
+   (`8f28066`), so the obvious tidy breaks the deploy.** The fix is a second `tsconfig.test.json`.
+3. **M4-b's disclosure residual, and it is the owner's call.** The disclosure pass shares
+   `filterSupportedComponents`' exact recursion, so disclosure cannot drift from the drop (`5913892`,
+   `probe-cr20` 10/10). **Residual: an empty-as-pasted `{type:17,components:[]}` is dropped whole with
+   no named type and still flips row E silently.** Nothing renderable is lost. **Hold it as its own
+   line or close it as degenerate — never close it by silence.**
+4. **MEDIUM-4 — a confirmed hit on a D18 Risks row the plan cannot record.** The persist gate's
+   `hasClassicContent` is narrower than `validateContentRequirements`; they disagree on empty-ish
+   embeds, so a pasted V2 component plus an empty embed persists unsendable with no choice shown.
+   `probe-cr16-persist-gate/` 21/21. **Whether M4-c's predicate-agreement subsumes it is an UNVERIFIED
+   candidate — a held item assumed discharged is worse than one still held.**
+5. **F-QA11 — pre-existing at `c85945f`, OUTSIDE 013's scope, and it must not become a 013 fix round.**
+   `NewMessageModal.tsx:143` sends `guildId: '0'`, refused by `discordIdShape`, while `disableSave`
+   does not check the guild. **Two of the four sibling sites guard that exact `'0'` sentinel**
+   (`SaveAsMenu.tsx:41`, `f/[id]/page.tsx:354`), which is what makes it an oversight rather than a
+   design, and a cheap fix.
