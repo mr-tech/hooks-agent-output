@@ -1,0 +1,61 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ src/utils/__tests__/013-qa-toast-vessel-render.test.ts (9 tests | 2 failed) 11ms
+     × renders NOTHING when there is no dropped-components fact 6ms
+     × CLEARS when the fact goes away — a persistent notice that cannot clear is its own defect 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/utils/__tests__/013-qa-toast-vessel-render.test.ts > CodeMessageNotice — does the converted code-import notice actually render? > renders NOTHING when there is no dropped-components fact
+AssertionError: expected { tag: 'div', …(2) } to be null // Object.is equality
+
+- Expected:
+null
+
++ Received:
+{
+  "children": null,
+  "className": "border-b border-b-black bg-quaternary px-4 py-2 text-sm text-warning",
+  "tag": "div",
+}
+
+ ❯ src/utils/__tests__/013-qa-toast-vessel-render.test.ts:63:50
+     61|   it('renders NOTHING when there is no dropped-components fact', () =>…
+     62|     mockUseMessage.mockReturnValue({ codeMessageDroppedNotice: null });
+     63|     expect(render(CodeMessageNotice({} as any))).toBe(null);
+       |                                                  ^
+     64|   });
+     65|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/utils/__tests__/013-qa-toast-vessel-render.test.ts > CodeMessageNotice — does the converted code-import notice actually render? > CLEARS when the fact goes away — a persistent notice that cannot clear is its own defect
+AssertionError: expected { tag: 'div', …(2) } to be null // Object.is equality
+
+- Expected:
+null
+
++ Received:
+{
+  "children": null,
+  "className": "border-b border-b-black bg-quaternary px-4 py-2 text-sm text-warning",
+  "tag": "div",
+}
+
+ ❯ src/utils/__tests__/013-qa-toast-vessel-render.test.ts:84:50
+     82|     expect(render(CodeMessageNotice({} as any))).not.toBe(null);
+     83|     mockUseMessage.mockReturnValue({ codeMessageDroppedNotice: null });
+     84|     expect(render(CodeMessageNotice({} as any))).toBe(null);
+       |                                                  ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 7 passed (9)
+   Start at  02:34:04
+   Duration  367ms (transform 42ms, setup 0ms, import 63ms, tests 11ms, environment 0ms)
+

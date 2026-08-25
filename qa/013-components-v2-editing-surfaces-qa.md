@@ -3,9 +3,9 @@ ID: 013
 Origin: 013
 UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
-Status: QA Complete
-Verified-At: "a151fb47a84d7de95124b412194873f7e84edf27"
-Verified-At-Note: "re-anchored 2026-08-24; supersedes 821330d and 164d720 — FULLY COMMITTED tree, no content-identity fallback in force"
+Status: QA Failed
+Verified-At: "abcf585707b11e331d3c5fa0ad575dfee760e516"
+Verified-At-Note: "toast-vessel gate pass 2026-08-25 at abcf585 — QA FAILED on F-QA23. The earlier QA Complete at a151fb4 stands for its own tree and is recorded in the Final re-anchor section; it is not withdrawn, it is superseded by a later tree."
 Verified-At-Detail: >-
   **REFRESH PASS, 2026-08-24 — supersedes the Phase 2 anchor below for verdict purposes.**
   `website` @ `chain/013-components-v2-editing-surfaces`, HEAD = `164d720` (re-derived by
@@ -1598,3 +1598,240 @@ behind**: `821330d` (the implementer's F-QA21 fix) and `a151fb4` (these three). 
 delta is **evidence for the reviewer's ruling, not the ruling** — UAT declined to take that
 argument itself and was right to. The reviewer re-verifies against `a151fb4`, or U-C1 stays open.
 QA does not clear another gate's condition by arriving at a green suite.
+
+---
+
+# Gate-scoped QA pass — owner ruling 2026-08-25 (toast vessel)
+
+**Tree**: `chain/013-toast-vessel`, tip **`abcf585`**, one commit atop `a151fb4`.
+**Verified-At (this section)**: `abcf585707b11e331d3c5fa0ad575dfee760e516`
+**Suite at the shipped tree**: **559 tests / 38 files / exit 0** (550 at `a151fb4` + the 9 new).
+**Verdict**: **QA FAILED** — see "Verdict" for what that does and does not mean, and read the
+release note there before treating it as a reason to hold a live fix.
+
+## 0. This is a post-implementation audit, not the two-phase record
+
+QA was first invoked after implementation and commit. There was **no Phase 1**, so the entry
+conditions Phase 1 exists to hand the implementer were never handed over. Stated explicitly rather
+than collapsed into a single audit that reads like the prescribed process. The
+Irreversible Side-Effect Register is produced anyway (§2), and §2 records what it would have
+changed had it existed.
+
+## 1. Authority — thin, and scoped accordingly
+
+Re-derived, not taken from the relay: **`grep -ic toast` over `planning/013-…md` returns 0**, and
+over the critique returns **0**; **`planner-hooks-013-2` appears 0 times** in the plan. There is no
+plan revision and no planner run. The authority for this work is an **owner ruling given in
+conversation**, quoted verbatim in the implementation document, in two parts where the second
+refines the first.
+
+**I do not judge that insufficient, and I did not stop.** The owner directs the product; what is
+missing is a *plan revision*, which is a traceability defect, not an authority defect. I adopt
+`code-reviewer-hooks-013-3`'s scoping: this pass tests **conformance to his words**, and does
+**not** ratify the product decision. One consequence is load-bearing and stated plainly: with no
+plan there are **no acceptance criteria**, so the property audit below enumerates against his
+sentences and nothing else. A criterion nobody wrote is a criterion nobody can be measured against.
+
+## 2. Irreversible Side-Effect Register
+
+A notice-vessel change looks side-effect-free. It is not, and this is what a Phase 1 would have
+handed the implementer as its entry condition:
+
+| ID | Irreversible act | Route | Ordering that must hold | Enforced identically on every route? |
+|---|---|---|---|---|
+| **IS-T1** | **A message is published to Discord** (`sendWebhook`) missing components the import silently dropped | `send/page.tsx` | The user must **see** the dropped-components fact *before* sending. 013 moved that fact from a toast to a persistent surface — so the notice **rendering** is now the only thing standing between a silent drop and an irreversible publish | **NO — and this is the finding.** The code-import route now renders via `CodeMessageNotice`; the URL and webhook routes already rendered it persistently; the **paste** route renders `settledNotice`, whose render path is verified **only as source text** (§5). Three routes, three different mechanisms, one of them unverified |
+
+**What this register would have changed had it existed before implementation**: it makes the render
+property a *gate*, not a nice-to-have — because the notice is an upstream guard on an irreversible
+publish. The shipped spec would then never have been accepted as text-pinning, since a text
+assertion cannot guard an irreversible act. The reviewer reached the same place from a different
+direction (its routed Assumption Not Checked); the register would have reached it *before* the code
+was written.
+
+## 3. Class sweep — the ruling names a class, so it closes on a predicate
+
+The owner's words: *"changed **everywhere** that 013 decided to use a toast for a stateful
+message."* That is a class. Per "A Class Correction Closes on Its Predicate, Not Its Instances",
+the predicate is derived from the class definition and the enumeration re-run — **not taken from
+the implementer's list**.
+
+**Predicate**: `toast.*` call sites in `src/` (excluding `__tests__`) **added by chain 013**,
+measured as additions in `git diff c85945f..a151fb4` — `c85945f` confirmed the 013 base by
+`git merge-base --is-ancestor`, `a151fb4` being the tree as it stood when the owner ruled.
+
+**The class has exactly three members**, and all three are dispositioned:
+
+| # | Site | Disposition | Status |
+|---|---|---|---|
+| 1 | `NewMessageJsonInput.tsx` — settled-disposition notice | **converted** to `settledNotice` state | ✅ |
+| 2 | `MessageProvider/index.tsx` — code-import dropped-components fact | **converted** to `codeMessageDroppedNotice` + new `CodeMessageNotice` | ✅ |
+| 3 | `JsonModalBody.tsx` — Load notice | **deliberately retained** as a toast; owner has ratified | ✅ (settled, not reopened here) |
+
+**The sweep is COMPLETE and correctly scoped.** The 22 other `toast.*` sites in `src/` are
+pre-existing and outside the ruling's own predicate ("that **013** decided"). This is the hardest
+obligation in the pass and the implementer met it — recorded as a pass, not passed over in silence
+because the rest of this section is critical.
+
+## 4. TDD Compliance gate — FAILED on the stated criterion
+
+The table exists with the required columns and **two rows** for this round. Both answer
+**`Test Written First?` = No** — a self-diagnosed ordering lapse, disclosed in full, twice, with a
+compensating-evidence procedure (`git stash` the three tracked files + `mv` the untracked new
+component to `/tmp`, re-run against the genuinely reverted tree: 7/9 red, 2/9 green; restore, 9/9
+green). The 2 green assertions target *retained* toasts — unchanged behaviour that can never go red
+for this change — and **the document says so itself** rather than hiding it.
+
+**The disclosure is exemplary and is not what fails this gate.** Three things do:
+
+1. **The stated criterion is "all Yes".** Two rows answer No. That is a straightforward fail, and
+   softening it because the disclosure was honest would make the gate mean nothing.
+2. **`CodeMessageNotice.tsx` is a NEW component with no row of its own and no stated exemption** —
+   it survives in the table only as a trailing clause inside another row's subject. New feature code
+   needs a row or a classed exemption; a clause is neither.
+3. **`layout.tsx` has neither a row nor an exemption** — it is two lines of wiring, the least of the
+   three, but it is the mount point on which the whole render property depends.
+
+### The compensating evidence proves less than it claims
+
+Its stated conclusion is that the run *"confirms the tests are coupled to the actual code paths they
+name, not vacuously true."* **That claim does not survive execution.** Every assertion in the
+shipped spec is `readFileSync` + `toContain`/`not.toContain`. A source-text assertion is
+**tautologically red on a reverted tree** — of course `not.toContain('toast.warn')` fails while the
+toast is still there. Reverting the source and observing red establishes coupling to the *text*, and
+nothing whatever about coupling to *behaviour*. §5 measures the difference.
+
+## 5. The reviewer's routed assumption — converted from suspicion to measured fact
+
+Instrument captured at **`verification/013/probe-qa-toast-vessel-render/`** (13 assertions, README,
+manifest, every run log). It calls React components as plain functions and inspects the returned
+element objects — **no jsdom, no happy-dom, no testing-library, no `vitest.config.ts` change**, so
+D28 holds.
+
+| Mutant | What the user gets | Shipped spec | QA instrument |
+|---|---|---|---|
+| **R1** — `show={codeMessageDroppedNotice}` → `show={false}` | the notice **never renders, ever** | **9/9 GREEN, survives** | **3 failed — killed** |
+| **R4** — notice body → `{''}` | an **empty warning box** | **9/9 GREEN, survives** | **1 failed — killed** |
+| **R2** — `show={true}` | notice shows with nothing to say | — | **2 failed — killed** |
+| **R3** — drop `text-warning` | renders unstyled | — | **1 failed — killed** |
+
+**The shipped spec is vacuous for the entire substance of the change.** Under R1 the converted
+notice never appears and the suite reports success. That is the reviewer's assumption, measured.
+
+**Instrument score with its predicate**: 4 mutants seeded at `CodeMessageNotice.tsx`'s render
+expression, `show` prop and styling hook — 4/4 killed by the QA instrument; of the 2 also run
+against the shipped spec, 2/2 survived. **Excludes** the paste surface entirely and the provider's
+effect body.
+
+**One mutant did not apply and is recorded, not dropped.** R4's first anchor never matched; the run
+reported `9 passed, exit 0` — indistinguishable from a survivor. The harness asserts anchor presence
+before mutating and raised `MUTANT DID NOT APPLY`. Without that guard this pass would have recorded
+a false survivor.
+
+### What the instrument establishes, and what it cannot
+
+**Established by execution**: `CodeMessageNotice` returns `null` with no fact and the notice text
+with one; it **clears** when the fact goes away; it carries a real styling hook; `NullableComponent`'s
+truthiness contract holds across all five input classes including `''` and `false`. Separately,
+`bg-quaternary` and `text-warning` **do resolve** in `tailwind.config.js` (lines 40 and 53), so the
+notice cannot render invisibly for a missing-theme-token reason, and the claimed `send/page.tsx`
+styling precedent is real.
+
+**Not established, and unreachable from here — the paste surface.** `NewMessageJsonInput`'s
+`settledNotice` render path is asserted **only as source text**. I tried to reach it and failed for a
+specific, nameable reason, captured in `trace-paste-surface-unreachable.txt`: `useCopyToClipboard`
+calls `useRef` before `settledNotice` is reached and React's dispatcher is null outside a renderer,
+so the component function throws at its second hook. Reaching it needs the harness D28 forbids.
+**This is the larger of the two gaps and it is the site the owner's ruling actually named** — *"when
+inserting the conflicting payload into the new message JSON modal"*.
+
+The four `paste surface guard` cases close that guard's *logic* — `!error && settledNotice`, each
+conjunct the sole carrier of the decision in some fixture — through the real `NullableComponent`.
+But that fixture **supplies the expression** instead of reading it from source, so it measures the
+semantics and not the wiring. Stated rather than smoothed over.
+
+## 6. Property audit — each criterion's class, enumerated
+
+No plan means no acceptance criteria, so the audit runs against the ruling's sentences.
+
+| The owner's words | Class it names | Does the suite enumerate the class? |
+|---|---|---|
+| *"a permanent state warning… needs to be a message in the modal itself"* | every 013 toast carrying durable state | **Membership: YES** (§3, 3/3). **Behaviour: NO** — the "is a message in the modal" half is text-pinned at both converted sites and render-verified at only one (§5) |
+| *"Toasts are for transient states, like a request firing and/or failing"* | the retained transient toasts | **YES** — asserted positively (`toast.error`, `toast.loading` retained), a real both-directions control rather than a blanket removal |
+| *"changed everywhere that 013 decided…"* | the class predicate | **YES** — re-derived here from the diff, 3 members, all dispositioned |
+| *"if the action is not transient then the message should be persistent"* (refinement) | the per-site test | **YES for site 3's retention**, which is argued against the test rather than asserted, and the owner has ratified it |
+
+## 7. Findings
+
+| ID | Finding | Severity | Owner |
+|---|---|---|---|
+| **F-QA23** | **The shipped spec is vacuous for the change's substance.** Mutants R1/R4 break the user-visible behaviour entirely and leave it 9/9 green. Its assertions pin source text, so no behavioural defect can fail them | **HIGH** — blocking | implementer |
+| **F-QA24** | **TDD gate fails as stated**: two rows answer `Test Written First? = No`; `CodeMessageNotice.tsx` (new component) has no row and no exemption; `layout.tsx` has neither | **Medium** | implementer |
+| **F-QA25** | **The compensating-evidence claim overstates.** Red-on-reverted-tree is tautological for text assertions and establishes text coupling only, not the behavioural coupling it claims to close | **Medium** — method, not code | implementer |
+| **F-QA26** | **The paste surface's render path is unverified and unreachable** without a harness D28 forbids — and it is the site the ruling named. Upstream guard on IS-T1 | **Medium** — routed, not closable here | owner (observation) |
+| **F-QA27** | **The implementation document contradicts the committed tree in five places**: it states the round's files are *"uncommitted, pending steering's go-ahead"*, names tip `821330d`, names branch `chain/013-components-v2-editing-surfaces`, repeats a "four files" count its own line 67 corrects to five, and its Next Steps still asserts QA Complete at `164d720`. Only one changelog line records the commit | **Low** | implementer |
+
+**Not a finding, recorded as a pass**: the class sweep (§3), the both-directions transient-toast
+control, the theme-token resolution, and the disclosure quality of the ordering lapse.
+
+## 8. Blocking Release Condition Register — appends
+
+Appended to **chain 013's single register**, continuing after its true high-water mark of **BC-17**
+(see the ID Collision note earlier in this document — that is the mistake this append avoids
+repeating). Every row carries a stable **name**.
+
+| ID | Class | Condition | Primary instrument | Subject / fallback | Earliest-decidable | Predicted value | Failure mode (operator terms) | Owner | State |
+|---|---|---|---|---|---|---|---|---|---|
+| **BC-18** *(`paste-notice-renders`)* | PRE | Pasting a rows-B/D payload into **New Message** shows a **persistent** warning in the modal that stays put, and **clears** when the JSON is corrected | none available — the render path is unreachable without a harness D28 forbids (`trace-paste-surface-unreachable.txt`) | **subject**: the owner, at a browser. No non-human primary exists | now — the code is committed | a warning appears and persists; correcting the JSON removes it | *This is the exact site the ruling named. If it does not render, the round changed nothing where he asked, and the suite says it did.* | owner | **Not started** |
+| **BC-19** *(`code-import-notice-visible`)* | PRE | A code-import that drops components shows the persistent notice **in the layout**, visible and legibly placed | `verification/013/probe-qa-toast-vessel-render/` closes returns-an-element, clears, and styling; **visibility and placement are not instrument-closable** | primary settles the logic; **subject** for the eye: the owner | now | notice visible above the fold, not hidden behind nav | *A notice that renders into a hidden or overlapped box is indistinguishable from the toast bug it replaced.* | qa (logic) + owner (eye) | **Logic PASSED; visual not started** |
+| **BC-20** *(`dropped-notice-guards-send`)* | POST | A user who imports a message with dropped components **does not publish it to Discord unaware** — IS-T1's upstream guard actually guards | production observation | uat | chain tip deployed | no report of a sent message missing components the importer dropped | *The publish is irreversible. If the notice fails, the loss is silent and permanent.* | uat | **Not started** |
+
+**Standing note, as on every list here**: this register is point-in-time. Later stage documents —
+the UAT document, then the deployment record — are authoritative on each row's execution state.
+
+## 9. Verdict
+
+**QA FAILED**, at `abcf585`, on **F-QA23** (blocking) with F-QA24–F-QA27 attached.
+
+**What this failure is NOT.** It is not a claim that the fix is broken. Everywhere my instruments
+reach, the code behaves correctly: the class sweep is complete and right, the converted component
+renders and clears, the retained site is argued against the owner's own test and ratified, the theme
+tokens resolve, and the suite is green at 559/38. It is not a penalty for the ordering lapse, which
+was disclosed better than most passes disclose anything.
+
+**What it is.** The suite does not test the change. Two mutants that destroy the entire user-visible
+substance leave it fully green, so its green carries no information about the property the owner
+actually asked for. Accepting that would ratify a spec I have measured to be vacuous, and would put
+a text assertion in front of an irreversible publish (IS-T1).
+
+**Release note, and I want this read before the failure is used to hold anything.** This is a
+**post-release fix to code already live** — `git ls-remote origin master` → `a151fb4`, established
+at the remote. **A QA failure over test coverage must never be the reason a live UX fix waits.** The
+code evidence above supports the change being sound; the gap is in what guards it. If the owner
+wants this shipped now and the coverage closed behind it, that is a defensible call and this document
+supports it — the decision is his, not mine, and I would rather say so than let a procedural FAIL
+quietly become a release block.
+
+**Cheapest path to PASS** — the instrument already exists and is captured:
+1. Adopt `verification/013/probe-qa-toast-vessel-render/013-qa-toast-vessel-render.test.ts` into
+   `src/utils/__tests__/` (13 assertions, D28-clean, green at this tree; +13 → 572/39).
+2. Add a TDD row for `CodeMessageNotice.tsx` and a row or classed exemption for `layout.tsx`.
+3. Correct the five document/tree contradictions in F-QA27.
+4. BC-18 remains the owner's regardless — no test closes it.
+
+**Assumption Not Checked (mandatory).** *This pass assumes `CodeMessageNotice` is handed a live
+`MessageProvider` context at runtime, and does not test it.* It is a `'use client'` component
+mounted inside an **async server layout**; my instrument mocks `useMessage`, so a null context —
+the classic server/client boundary failure — would **throw in production and pass here**. Falsity
+signature: the `/message/m/[id]` route renders a client-side error boundary or a blank region where
+the notice should sit, on **every** load rather than only when a notice exists. **Owner: the owner's
+own browser sitting (BC-19)**, since no instrument in this chain mounts a Next.js route — named
+again in the handoff so it is routed rather than shelved.
+
+## 10. Handoff
+
+**To the implementer** — F-QA23 (blocking), F-QA24, F-QA25, F-QA27; the remedy for F-QA23 is
+capture-and-adopt, not new authorship.
+**To the owner** — BC-18 and the Assumption Not Checked above; neither is closable by any instrument
+this chain permits.
+**Not to UAT yet** — a UAT pass over a suite measured vacuous for its own subject would inherit the
+vacuity.

@@ -1,0 +1,52 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ src/utils/__tests__/013-qa-toast-vessel-render.test.ts (9 tests | 3 failed) 10ms
+     × renders the notice TEXT when the fact is present — the behaviour the text-pinning spec cannot see 5ms
+     × carries a visible styling hook rather than rendering bare/unstyled 1ms
+     × CLEARS when the fact goes away — a persistent notice that cannot clear is its own defect 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/utils/__tests__/013-qa-toast-vessel-render.test.ts > CodeMessageNotice — does the converted code-import notice actually render? > renders the notice TEXT when the fact is present — the behaviour the text-pinning spec cannot see
+AssertionError: expected null not to be null // Object.is equality
+ ❯ src/utils/__tests__/013-qa-toast-vessel-render.test.ts:69:21
+     67|     mockUseMessage.mockReturnValue({ codeMessageDroppedNotice: NOTICE …
+     68|     const out = render(CodeMessageNotice({} as any));
+     69|     expect(out).not.toBe(null);
+       |                     ^
+     70|     expect(text(out)).toBe(NOTICE);
+     71|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  src/utils/__tests__/013-qa-toast-vessel-render.test.ts > CodeMessageNotice — does the converted code-import notice actually render? > carries a visible styling hook rather than rendering bare/unstyled
+TypeError: Cannot read properties of null (reading 'tag')
+ ❯ src/utils/__tests__/013-qa-toast-vessel-render.test.ts:76:16
+     74|     mockUseMessage.mockReturnValue({ codeMessageDroppedNotice: NOTICE …
+     75|     const out = render(CodeMessageNotice({} as any));
+     76|     expect(out.tag).toBe('div');
+       |                ^
+     77|     expect(out.className).toContain('text-warning');
+     78|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  src/utils/__tests__/013-qa-toast-vessel-render.test.ts > CodeMessageNotice — does the converted code-import notice actually render? > CLEARS when the fact goes away — a persistent notice that cannot clear is its own defect
+AssertionError: expected null not to be null // Object.is equality
+ ❯ src/utils/__tests__/013-qa-toast-vessel-render.test.ts:82:54
+     80|   it('CLEARS when the fact goes away — a persistent notice that cannot…
+     81|     mockUseMessage.mockReturnValue({ codeMessageDroppedNotice: NOTICE …
+     82|     expect(render(CodeMessageNotice({} as any))).not.toBe(null);
+       |                                                      ^
+     83|     mockUseMessage.mockReturnValue({ codeMessageDroppedNotice: null });
+     84|     expect(render(CodeMessageNotice({} as any))).toBe(null);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 6 passed (9)
+   Start at  02:33:44
+   Duration  366ms (transform 46ms, setup 0ms, import 67ms, tests 10ms, environment 0ms)
+

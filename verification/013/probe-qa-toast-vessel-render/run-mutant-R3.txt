@@ -1,0 +1,30 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ src/utils/__tests__/013-qa-toast-vessel-render.test.ts (9 tests | 1 failed) 11ms
+     × carries a visible styling hook rather than rendering bare/unstyled 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/utils/__tests__/013-qa-toast-vessel-render.test.ts > CodeMessageNotice — does the converted code-import notice actually render? > carries a visible styling hook rather than rendering bare/unstyled
+AssertionError: expected 'border-b border-b-black bg-quaternary…' to contain 'text-warning'
+
+Expected: "text-warning"
+Received: "border-b border-b-black bg-quaternary px-4 py-2 text-sm"
+
+ ❯ src/utils/__tests__/013-qa-toast-vessel-render.test.ts:77:27
+     75|     const out = render(CodeMessageNotice({} as any));
+     76|     expect(out.tag).toBe('div');
+     77|     expect(out.className).toContain('text-warning');
+       |                           ^
+     78|   });
+     79|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 8 passed (9)
+   Start at  02:34:05
+   Duration  363ms (transform 42ms, setup 0ms, import 63ms, tests 11ms, environment 0ms)
+
