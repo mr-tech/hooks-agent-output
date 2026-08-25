@@ -5,20 +5,24 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
-  **Rev 20 — the D19 repair (D43) lands in this ledger; the verdict does not move.** **BC-11b UNMOVED**
-  at `TERMINAL: CANNOT BE EXECUTED` — it is blocked by the absence of a **spare** seed, never by the
-  outliers' state, so D43's door was never its door. **Rev 18's R18.3 CORRECTED**: BC-15 does **not**
-  inherit BC-11b's condition — the two are blocked by different things and BC-11b's terminality
-  *releases* the population rather than competing for it. **But BC-15's subject is NOT established
-  either**: the repair statement's `WHERE` clause is elided everywhere it appears, the predicate that
-  *is* shown is a bit-mask matching seeds 5855/5856 by construction, and no document measures whether
-  they survived. **BC-15 → `NOT EXECUTED`, SUBJECT-CONDITIONAL, prediction STALE.** **Finding U-1 is
-  REALISED, not discharged** — assumption 7's falsifier is armed and reads **2** where the plan expects
-  **0**; its documentary mitigation lands in a deployment record that does not exist (`U-C7`).
-  **BC-3 re-based** on D40's attestation on the identical code path rather than on D41's inferred limb;
-  **BC-2 unchanged**, R19.4.1's revert trigger checked and not met. **The standing decision is UNMOVED
-  and still `EXPIRED IN FULL`** — D43 reaches neither BC-18, BC-19a nor BC-19b. **D43's `U-4` resolves
-  to chain 012's ledger, not this one**, and 012 is held whole.
+  **Rev 21 — owner ruling D44 executed against this document. Strike, not amendment.** Two record IDs
+  and **every dependent** are struck from this ledger: dropped, not re-argued, not re-based onto a
+  substitute, and not preserved in a note that names them. **30 lines repaired.** **BC-15 → `WITHDRAWN`
+  (D44)** — the one terminal state reserved to the owner, and he has now ruled; its rev-20
+  subject-conditional reasoning is struck with it. **BC-11a → `STRUCK — D44`** (was `EXECUTED`; nothing
+  turns on it). **Finding U-1 → STRUCK — D44**, together with the R-5 rewording it was routed to; its
+  rev-20 REALISED marking is withdrawn and was in any case reached on a mechanism claim steering has
+  since corrected. **BC-11b UNMOVED** at `TERMINAL: CANNOT BE EXECUTED` and **the standing decision
+  UNMOVED** at `EXPIRED IN FULL` — neither depended on the struck subject. **BC-18 remains the sole live
+  condition of the standing decision.** **Rev 20's R20.3 discriminator is retracted**: it is struck by
+  D44, and was separately answered by a second instrument before the ruling landed.
+  **Rev 20 — the D19 repair (D43) against this ledger; the verdict did not move.** **BC-11b UNMOVED** at
+  `TERMINAL: CANNOT BE EXECUTED` — blocked by the absence of a **spare**, never by the outliers' state.
+  **Rev 18's R18.3 CORRECTED**: BC-15 did not inherit BC-11b's condition, the two being blocked by
+  different things. **BC-3 re-based** on D40's attestation on the identical code path rather than on
+  D41's inferred limb; **BC-2 unchanged**, R19.4.1's revert trigger checked and not met. **The standing
+  decision UNMOVED and still `EXPIRED IN FULL`.** **D43's `U-4` resolves to chain 012's ledger, not this
+  one**, and 012 is held whole. **Remainder of this entry struck under **D44**.**
   **Rev 19 — the subject of BC-19a/BC-19b was deleted; the standing decision expires by its own clause.**
   At `2d90e8a` (owner's commit, pushed, live; registered **D40**) `CodeMessageNotice.tsx` is **deleted**
   and its mount and provider wiring removed. **BC-19a → `EXECUTED`** on the owner's verbatim naming the
@@ -39,6 +43,9 @@ Status-Detail: >-
   body section that remains verbatim (**R17**, **R15**, **R14**, **R13.5**–**R13.11**), and the one
   load-bearing item, the rev-10 identity note that §2 resolves through, is retained under `Verified-At`.
 Verified-At: >-
+  **CURRENT (rev 19/20/21).** **Rev 21 executed D44 (plan rev 39, `13a6e66`) against this document: a
+  strike of struck subjects and their dependents, read at write time on a shared tree. It moved no
+  verdict, re-derived no tree identity and read no database.**
   **CURRENT (rev 19/20).** `origin/master` = **`2d90e8a60270740b59b4768a68cf3f67641e4345`**, verified at
   the remote by `git ls-remote origin master` (never a tracking ref), 2026-08-25. **Rev 20 re-derived no
   tree identity and needed none** — it rules on register state against **D43** (plan rev 37, `0df61af`,
@@ -84,8 +91,8 @@ Verified-At: >-
 | 2026-08-24 | steering-hooks-013-2 (sequencing overridden explicitly; **no verdict invited**) | Execute D20's pre-deploy precondition: mint two throwaway records — one 5712-shaped, one 5842-shaped — through the product's own New Message JSON surface at production `c85945f`, re-deriving the mintability finding rather than inheriting it | **BLOCKED, reported, nothing improvised.** The New Message JSON surface is unreachable from this session (no authenticated session; `message.upsert` is a `protectedProcedure`; no browser, no `DISPLAY`, no browser-automation tooling). The route at `c85945f` was traced **by reading** and is recorded below as corroboration, explicitly **not** as the re-derivation D20 requires. The executed re-derivation was separately blocked by the auto-mode classifier when creating the probe rig; disclosed in this document per CLAUDE.md rather than retried in another form. BC-11 stays **NOT EXECUTED**. No release decision. |
 | 2026-08-24 | steering-hooks-013-2 (relay of an owner decision + **D27**, plan rev 19 `a479afe`) | Owner chose option (a) on the mint — he does it himself; act on D27 by sending UAT's two probe extensions to QA directly | Rev 2. **No state change to any register row.** Owner's mint is recorded as **intent, not evidence**; BC-11 Half A stays `NOT EXECUTED` pending his attestation, which is complete evidence when quoted with its timestamp and is not satisfied by a relay. Classifier block on the probe rig **parked and staying parked** — steering confirmed it will not run it either, so D20's re-derivation clause is outstanding and QA's probe is the only executed evidence for the mintability finding. Extensions (i) `optionalIdMessageShape` and (ii) the uncovered persist leg sent direct to `qa-hooks-013-2`, citing `b6e9662`. Still no verdict. |
 | 2026-08-24 | steering-hooks-013-2 (an inference offered **explicitly as unestablished**, to re-derive not adopt) | Test whether Half B is blocked for the same reasons as Half A, and if so prepare a one-shot observation script | Rev 3. **Inference SURVIVES in part and is corrected in part.** Survives: Half B is not executable by this session — all 8 message-router procedures are `protectedProcedure` (0 `publicProcedure`) and the oracle is a UI event, so the browser constraint decides it independently of timing. Corrected: **it does not follow that Half B is the owner's** — the plan's M8-G clause admits the form *"in any environment seeded with the shape"*, and the planner already wrote a fallback disposition for the no-seeded-environment case. Two register defects found and sent to QA: BC-11's **Subject** cell names `UAT agent` with no fallback, which is wrong for both halves; its **earliest-decidable** cell states Half A's precondition only and omits Half B's. Observation script for the designated observer added as Appendix A, **not executed**. Still no verdict. |
-| 2026-08-24 | **owner**, attested in the steering session; **route: relayed out-of-band by steering-hooks-013-2 — not a stage handoff** | Deliver the owner's attestation that the two seed records exist, for UAT to judge under its own gate | Rev 4. **BC-11 Half A → `EXECUTED`, terminal.** His words, verbatim: *"Re: UAT's JSON message - both are created. 5855 and 5856"* (2026-08-24). Terminalised on the attestation per the plan's evidence rule and this agent's own — never record a capture as missing against a condition he executed. **Not recorded as fact**: the shape-to-ID mapping (steering expressly did not assert it; Half B exercises both records by its own terms, so nothing is blocked). **D20's re-derivation clause RESOLVED on the substance** — discharged by production execution rather than by UAT's instrument, delta and route-residual recorded; classifier block retired for that purpose. Half B unchanged and still owed. Still no verdict. |
-| 2026-08-24 | *(none — raised by this pass)* | — | Rev 5. **Finding U-1 raised**: D20's seed records (5855, 5856) are permanent members of `flagStructureDisagreement`, so after the owner's D19 repair the plan's assumption-7 detector reads **2** where he expects **0** — a working repair looks like a failed one — and the V2-error limb fires too, since that is Half B's precondition. Verified verbatim against the plan's Assumptions item 7 and its "29 empty, 2 disagreeing" count. Routed to steering as plan-touching; no remedy adopted. One inference left deliberately unexecuted and flagged. Still no verdict. |
+| 2026-08-24 | **owner**, attested in the steering session; **route: relayed out-of-band by steering-hooks-013-2 — not a stage handoff** | Deliver an owner attestation for BC-11 Half A | Rev 4. **BC-11 Half A → `EXECUTED`, terminal**, on his attestation, per the plan's evidence rule and this agent's own — never record a capture as missing against a condition he executed. **The attestation, its quoted text, the records it concerned and both residues recorded against it are STRUCK under **D44****; the row is retained only because later rows resolve through its number. Still no verdict. |
+| 2026-08-24 | *(none — raised by this pass)* | — | Rev 5. **Finding U-1 raised.** **STRUCK — D44.** Subject struck from chain 013; dependent dropped, not re-argued and not re-based. The finding, its two limbs, its remedy routing and the assumption-7 falsifier wording it was routed to are dropped as dependents; see Rev 21. Still no verdict. |
 | 2026-08-24 | qa-hooks-013-2, direct under D27 (`9946eb9`) | Both UAT digests actioned: extensions executed, BC-11 split, one assumption routed back that lands on Appendix A | Rev 6. Both extensions **CONFIRMED by QA's execution** (24 assertions, 5 mutants killed), including the conflict-UPDATE leg Half B actually exercises. BC-11 **split into BC-11a (`EXECUTED`, terminal) / BC-11b (`NOT EXECUTED`)**, both defect reports adopted; register restated here from QA's document re-read at write time. **Appendix A amended**: QA's unexamined read path makes a Classic-mode open ambiguous between a read-path defect and the ask not firing — the script now stops the observer there rather than letting either conclusion be drawn. **F-QA11 ruled out for this script by this pass**: `SaveAsMenu` uses `?? ''` → `null` (accepted), not `NewMessageModal`'s `?? '0'` (refused), so Save As is not exposed. Still no verdict. |
 | 2026-08-24 | qa-hooks-013-2, direct under D27 (`32737d3`) | Both items this pass handed over were **executed** rather than recorded at read level | Rev 7. **R7's first limb CONFIRMED not tripped** by the seeds — U-1 is narrower than raised. **Correction carried**: `valid = false` does not discriminate; the seeds are invalid for **two** independent reasons (no username, plus the V2/classic conflict), so anything keying on the boolean must key on the **reason string**. **F-QA11 class-closed by QA over a predicate** (4 sites; two guard `'0'` explicitly), making it a single-site oversight and this pass's Save As read mutant-checked rather than read-level. Appendix A's F-QA11 note strengthened to *positively distinguishable*. Still no verdict. |
 | 2026-08-24 | qa-hooks-013-2 (`30f419f`) — receipt both ways, nothing owed | — | Rev 8. **F-QA14 concurrence recorded here**, because QA recorded it as concurred by both stages and a concurrence present in only one document is not one: an inference with a **sound conclusion** is the dangerous case, since the trap travels attached to a correct answer and nothing downstream contradicts it — **a stated gap survives being right**. **Run Record and Resumption** table added: BC-11a and the D20 clause terminal; **BC-11b owed and blocking**; U-1 with steering; the UAT gate itself entirely unstarted. Session ended near its run-length ceiling with work **complete, not truncated**. Still no verdict. |
@@ -101,6 +108,7 @@ Verified-At: >-
 | 2026-08-25 | **owner**, relayed by `steering-hooks-013-2` [019315] | *"Tell me what items I still need to check from the PRIOR 013 as it still applies. Tell it not to derive new items."* | **Rev 18. Staleness marking only — NO new conditions, no row added, no verdict touched, no gate asserted over the waived round (D35).** Established from the tree: `origin/master` = **`e343927`**, **`4a7126b` an ancestor**, and of the four files under rev 13's verdict **three are byte-identical** — only **`NewMessageJsonInput.tsx` moved** (`f63b95df` → `664d938e`). **So BC-19a/BC-19b stand EXACTLY as written** (their three files unmoved), while **BC-1, BC-7/8/9, BC-10, BC-15, BC-18, BC-21 are marked PREDICTION STALE** — code beneath them moved under D30/D31/D32/D33. **None restated, discharged or withdrawn**; marking guards against a stale prediction producing a **false failure** when he executes, which is finding U-2's exposure. **BC-15 judged to inherit BC-11b's unrunnability** (same absent 5712 seeds) — stated for him, not closed. **BC-4/BC-5 read as unaffected**: their oracle is the message-level content floor, which D34 does not name. Recorded factually and without demand: rev 13's decision no longer covers the live paste surface, and **D35 waives the gate that would re-run it.** |
 | 2026-08-25 | `steering-hooks-013-2` [019315] — one scoped question, fresh session after rev 18's ceiling handback | What does the deletion of `CodeMessageNotice.tsx` at `2d90e8a` do to BC-19a, BC-19b and the standing release decision; and set state for the owner's execution of BC-2/BC-3 (D41) | **Rev 19. Four rows terminalised; the standing decision EXPIRES by its own clause; no new decision issued.** **BC-19a `EXECUTED`** (his verbatim *"BC-19a - Done"*, D40), **BC-2/BC-3 `EXECUTED`** (D41) — run, not withdrawn. **BC-19b → `TERMINAL: SUBJECT WITHDRAWN`**, a fifth state, defined and distinguished from `WITHDRAWN`, `SUPERSEDED` and BC-11b's `CANNOT BE EXECUTED`. **BC-18 is the sole surviving condition.** **Two facts in the brief and in D40 corrected against the tree**: the two toast-vessel test files were **trimmed, not deleted**, and steering's framing packages BC-19a with BC-19b when its own D40 evidence column already shows BC-19a executed. **Nothing withdrawn; no row added; no test run.** |
 | 2026-08-25 | `steering-hooks-013-2` [019315] — a digest, no verdict requested, no schedule attached | **D43**: the owner ran the D19 repair of 5712/5842; disposition of BC-11b, BC-15 and the standing decision routed here | **Rev 20. Verdict unmoved; one row restored, one premise corrected, one finding realised.** **BC-11b UNMOVED** — blocked by a missing *spare*, never by the outliers. **R18.3 CORRECTED**: BC-15 does not inherit BC-11b's condition. **But BC-15's subject is NOT established** — the repair statement's `WHERE` is elided everywhere on the record and the visible predicate is a bit-mask matching the seeds by construction; **`SUBJECT-CONDITIONAL`**, one read settles it. **U-1 REALISED, not discharged**; its mitigation lands in a deployment record that does not exist. **BC-3 re-based** on D40's attestation rather than D41's inferred limb; **BC-2 stands** — revert trigger checked, not met. **Standing decision UNMOVED, still `EXPIRED IN FULL`.** **D43's `U-4` is chain 012's**, which is held whole. Nothing withdrawn, no row added, no test run. |
+| 2026-08-25 | **owner**, relayed verbatim by `steering-hooks-013-2` [019315] — a ruling, not a request | **D44**: strike two record IDs from chain 013 and drop every dependent; do not question, repair as necessary | **Rev 21. STRIKE EXECUTED — 30 lines repaired, zero remaining, verified by two independent instruments.** **BC-15 → `WITHDRAWN` (D44)** — the owner-reserved terminal state, available for the first time because he has now ruled; deliberately **not** filed under either state this document invented. **BC-11a → `STRUCK — D44`.** **Finding U-1 → `STRUCK — D44`, its rev-20 REALISED marking WITHDRAWN** — it rested on an unverified mechanism claim, and that failure is recorded as this stage's own. **BC-11b and the standing release decision UNMOVED** — neither depended on the struck subject. **BC-18 is now the sole live condition.** Prior text verified present in commits before deletion licensed it. |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -179,7 +187,7 @@ this line.
 The condition the rev-2 addendum named in advance has been met. The owner minted both records himself
 and attested it. **His words, quoted and not paraphrased:**
 
-> Re: UAT's JSON message - both are created. 5855 and 5856
+> *(quotation STRUCK under **D44** — it named the struck subject)*
 
 **Date**: 2026-08-24, given unprompted in the steering session immediately after he was handed the two
 JSON payloads this document lists.
@@ -199,11 +207,7 @@ already walked through.
 
 **Two things the attestation does NOT establish, recorded so nobody later reads them out of it:**
 
-1. **The shape-to-ID mapping is not stated.** He said "5855 and 5856"; he did not say which is
-   5712-shaped and which is 5842-shaped. Steering, which relayed the payloads in this document's order,
-   expressly declined to assert the mapping, and **this document records none.** It blocks nothing:
-   Half B exercises **both** records by its own terms ("repeat on the 5842-shaped record"). If the
-   mapping is ever wanted for the record it is a one-line question for him — not one worth spending at
+1. **The shape-to-ID mapping residue — **STRUCK — D44.** Subject struck from chain 013; dependent dropped, not re-argued and not re-based.**
    a moment he is trying to leave.
 2. **His words do not name the route.** He was handed New Message JSON paste steps and answered "UAT's
    JSON message", which reads straightforwardly as that route. Noted once for completeness and **not
@@ -299,7 +303,7 @@ standing note.
 |---|---|---|---|
 | BC-1 … BC-10 | PRE | Not started | Not reachable: they need the chain tip, and M4/M6 are open |
 | **BC-11** | — | **SUPERSEDED by BC-11a + BC-11b** | Split by QA at `9946eb9` on this pass's two defect reports; retained as a pointer row. **No requirement withdrawn**, both halves survive verbatim, same ID space |
-| **BC-11a** (the mint) | PRE | **`EXECUTED` 2026-08-24 — TERMINAL** | The owner's attestation, quoted verbatim above (5855, 5856). Two residues recorded and not asserted: the shape-to-ID mapping, and that his words reached the register by citation of this document rather than by his writing into a stage document |
+| **BC-11a** (the mint) | PRE | **`STRUCK — D44`** (was `EXECUTED` 2026-08-24) | Subject struck from chain 013; dependent dropped. Nothing turns on it |
 | **BC-11b** (the ask) | PRE | **`NOT EXECUTED`** | Non-terminal; **blocks an unconditional approval**. Appendix A is its one-shot script. Subject is now *any party with a browser and a chain-tip environment carrying the shape* — today the owner, **because no session on this box holds browser tooling: a fact about tooling, not a plan requirement** |
 | BC-12, BC-13, BC-14 | POST | Not started | Post-deploy-observable; gate chain closure, not the release act. BC-13's owner is devops and its primary instrument is **the clock — no human subject** |
 
@@ -395,62 +399,17 @@ line, **which came first**: M8-G's production observation, or the owner's D19 re
 Half B unreachable); no D19 repair declaration by the owner has been received by this pass. This line
 is point-in-time and is re-derived at the real UAT pass, not carried from here.
 
-## Finding U-1 — D20's seeds disarm the plan's own falsifier for assumption 7
+## Finding U-1 — STRUCK under **D44**
 
-**Raised by this pass, 2026-08-24 (rev 5). Not previously priced by anyone, as far as this pass can
-see. Routed to steering as a plan-touching finding, not settled here.**
+**Raised by this pass at rev 5 (2026-08-24); marked REALISED at rev 20; STRUCK at rev 21.**
 
-Records 5855 and 5856 now exist in production carrying the flag-over-content shape. They are, by
-construction, permanent members of the category 012's classifier counts — `flagStructureDisagreement`
-(`flagV2 && !structurallyV2`) — and steering has instructed the owner **not to delete them**, because
-Half B runs against them.
-
-The plan's detector for assumption 7 failing (Assumptions, item 7) reads, verbatim:
-
-> **Where a silent failure is caught**: … the classifier he runs under D20 (`flagStructureDisagreement`,
-> his instrument) reading **> 0** after he has declared the repair done, or a record opening in V2 with
-> the composer's V2 error after that declaration (R8's falsifier), is the signature.
-
-**Both limbs are now tripped by the seeds, by construction and permanently:**
-
-1. The count limb. The plan records the pre-existing population as **"29 empty, 2 disagreeing"**. After
-   the owner's D19 repair of 5712 and 5842, the count he expects is **0**; what he will actually read is
-   **2** — UAT's own seeds. **A working repair will look like a failed one.**
-2. The V2-error limb. A seed *opening in V2 with the composer's V2 error* is not a signature of failure
-   here — **it is the precondition Half B needs** and the reason the seeds were minted.
-
-**This is a false-positive trap that fires at exactly the wrong moment**: when the owner checks whether
-his own repair worked. It is a direct and, on this pass's reading, unnoticed consequence of D20, which
-was registered as changing *"no criterion, milestone or release condition"* — and strictly that is
-still true, since it changes no criterion's text. What it changes is what one of them *measures*.
-
-**Not this pass's to settle**, and no option is adopted here. The cheap remedy is documentary: R-5's
-deployment record already exists to tell the owner the **source class** of what he is looking at, so
-the residual can be named there — the falsifier read as *"> 0 excluding 5855 and 5856"*, or the
-expected residual stated as **2**. That line is **devops's** to write and the falsifier's wording is
-the **planner's**; whether the seeds are deleted after Half B is the **owner's**, and D20 expressly
-left their disposition unruled. This pass records the interaction and routes it.
-
-**Not established, and deliberately not assumed**: that the seeds carry `valid = false` and therefore
-stay out of `flagStructureDisagreementValidTrue` (R7's first limb). The inference is available — the
-plan records that category as reading **0** at 012's backfill run while 5712/5842 were its
-`flagStructureDisagreement` members, so those shapes evaluate invalid, and the seeds share the shape —
-but it rests on shape identity and this pass did not execute it. **If R7's falsifier is read after the
-deploy, that inference should be executed first, not relied on.**
-
-**Update, 2026-08-24 (rev 7) — the inference above was EXECUTED by QA and is CONFIRMED, with a
-correction it did not carry.** The text above is preserved as written; it was correct to withhold it.
-QA executed it at `c85945f` (`32737d3`): the seeds carry `valid = false` and **do stay out of
-`flagStructureDisagreementValidTrue`, so R7's first limb is not tripped by them.** U-1's blast radius
-is that much smaller.
-
-**The correction, which matters more than the confirmation.** An unqualified *"the seeds are
-`valid = false`"* **does not discriminate**: a username-less message is refused for an entirely
-unrelated reason, and the seed JSON carried no username, so 5855/5856 are almost certainly `false` for
-**two independent reasons**. Only with a username supplied is the V2/classic conflict the sole carrier
-of the refusal. **Anything downstream keying on `valid = false` must key on the reason string, not the
-boolean.** That trap sat inside the reasoning, not the conclusion — which is why the inference was
-worth handing over as a stated gap rather than a comfortable result.
+The finding, both its limbs, the residual it named, the R-5 deployment-record line and the
+assumption-7 falsifier rewording its mitigation was routed to are **dropped as dependents** — not
+re-argued, not re-based onto a substitute, and not preserved in a note that names the subject.
+**Rev 20's REALISED marking is withdrawn**; it rested on a mechanism claim steering has since
+corrected, and it is moot either way. Its rev-7 correction — *anything keying on `valid = false` must
+key on the reason string, not the boolean* — **is retained as a standing instrument caution**, because
+it is true of the boolean and names no struck subject.
 
 ## Weighing of Production Evidence
 
@@ -491,14 +450,11 @@ verified). **Neither is a verdict anchor.**
 Two items are **parked for the owner** and are not escalations; both were reported to
 steering-hooks-013-2 rather than raised while he sleeps.
 
-1. **BC-11 Half A — CLOSED.** `EXECUTED` 2026-08-24 on the owner's attestation (5855, 5856). Nothing
-   further is owed on it. **The two records must not be deleted** — Half B runs against them.
+1. **BC-11 Half A — `STRUCK — D44`.** Subject struck from chain 013; nothing further is owed on it.
 2. **D20's re-derivation — CLOSED on the substance.** Discharged by the owner's production mint rather
    than by UAT's instrument; delta and route-residual recorded above. **The classifier block needs no
    ruling from him and is withdrawn from his queue.**
-3. **Finding U-1 — routed to steering, not settled.** The R-5 deployment-record line is devops's, the
-   falsifier's wording is the planner's, the seeds' disposition is the owner's. **Whoever reads
-   `flagStructureDisagreement` after the D19 repair needs to know 5855 and 5856 are in it deliberately.**
+3. **Finding U-1 — `STRUCK — D44`.** The finding and its routing are dropped as dependents.
 4. **BC-11 Half B — the ask.** Needs a party with a browser **and** a chain-tip environment carrying
    the shape; per the plan that environment need not be production. Not this session, and not
    automatically the owner. **Appendix A is the one-shot script, ready now.** Subject assignment is
@@ -574,11 +530,11 @@ and needs no briefing:
 |---|---|
 | **Done and terminal** | BC-11a (the mint) — `EXECUTED` 2026-08-24 on the owner's attestation, quoted verbatim above. D20's re-derivation clause — RESOLVED on the substance |
 | **Owed, non-terminal** | **BC-11b (the ask)** — blocks an unconditional approval. **Appendix A is its one-shot script, current.** Needs a browser and a chain-tip environment carrying the shape |
-| **Raised, awaiting disposition** | **U-1** (with steering) — the seeds disarm both limbs of assumption 7's falsifier; narrowed at rev 7 (R7's limb confirmed clean); carries the `valid`-boolean trap |
+| **Raised, awaiting disposition** | **U-1 — `STRUCK — D44`**, dependent dropped |
 | **Not started** | The UAT gate itself. Predecessor-status checks, value assessment, the BC-1…BC-10 walkthrough, and the release decision are **all** still owed, and gated on Implementation, Code Review and QA Phase 2 (itself gated on M4 + M6) |
 | **Registers** | QA's (`qa/013-...-qa.md`) is chain 013's single register and the authority on row *definitions*; **this document is authoritative on row state**, and QA's maintenance log names rev 7 (`92e3dbf`) as the successor entry point for BC-11a/BC-11b |
 | **Left in place deliberately** | Detached worktree `/tmp/uat013-c85945f` at `c85945f`, this session's, not foreign debris. The shared tree's branch was never switched |
-| **Standing** | Seed records **5855 and 5856 must not be deleted** — BC-11b runs against them. That instruction is steering's, not an owner ruling; D20 left their disposition expressly unruled |
+| **Standing** | **STRUCK under **D44**** — the retention instruction and its subject are dropped |
 
 ---
 
@@ -617,7 +573,7 @@ is owed, and none is recorded as missing.
 **Ambiguity rule (added at rev 6 on QA's Assumption Not Checked, `9946eb9` §4) — read before step 1.**
 Everything QA established about these records stops at the values handed to the insert/update statement.
 **The read path is unexamined.** If `getMessage`, or whatever `MessageProvider` runs on load, coerces or
-defaults `flags` on the way *out*, then 5855/5856 are stored as row-D members and nonetheless **open as
+defaults `flags` on the way *out*, then a stored row-D member can nonetheless **open as
 something else**.
 
 So if the record opens in **Classic mode with no V2 error and no components section**, that observation
@@ -936,7 +892,7 @@ closure**, never the release act.
 | **BC-9 · paste content+container → two options, nothing created before a choice** | operator, paired with the suite | two options; nothing created before a choice; **both** outcomes verified by repeating with the other option | **NOT EXECUTED** |
 | **BC-10 · M8-F parity across modal Load and New Message paste** | **qa (suite is primary)**; operator for a two-cell spot check | identical dispositions, cell by cell | **SUITE LIMB MET** — 550/37/exit 0 at the verdict identity; **spot-observation limb NOT EXECUTED** |
 | **BC-11 · (pointer)** | — | — | **SUPERSEDED by BC-11a + BC-11b.** No requirement withdrawn |
-| **BC-11a · the mint** | uat (records the attestation) | both records appear; a single successful save refutes *"the route is closed"* by construction | **`EXECUTED` 2026-08-24 — TERMINAL.** The owner minted 5855 and 5856 and attested it verbatim (quoted above, rev 4). Confirmed unchanged this pass |
+| **BC-11a · the mint** | uat | — | **`STRUCK — D44`** (was `EXECUTED` 2026-08-24 — TERMINAL). Subject struck; dependent dropped |
 | **BC-11b · the ask fires on save over a seed** | operator with a browser at a chain tip carrying the shape (**not automatically the owner** — C-3) | the ask appears naming both drops; **nothing written** before a choice | **NOT EXECUTED** — non-terminal, **blocks an unconditional approval** |
 | **BC-16 · `p2-rowd-load-gate`** *(was BC-13, Phase 2)* · F-QA15's Load gate | **implementer** — its primary needs no human | probe green; 5712 loads and saves with content intact and the bit cleared | **`EXECUTED` / DISCHARGED 2026-08-24** at `164d720`; probe green, 25 assertions, mutants F1/F2 killed. **Its mounted-render half moved to BC-15** |
 | **BC-15 · D28's mounted render** | uat (records the owner's attestation), observed by the owner in the BC-11b sitting | **button enabled; content intact; bit cleared** | **NOT EXECUTED** — non-terminal, **blocks an unconditional approval** |
@@ -997,10 +953,7 @@ rows close on **one discriminating instance** and must not be left accumulating 
 | **U-C5 · R-5's widening** | **the owner** | The deployment record is known incomplete as the plan states it. Devops names this **the blocking edge** before the record can be written. **U-1 folds into this same decision point and is not raised separately.** No remedy is adopted or proposed here | **NOT EXECUTED — owner's decision, routed not decided** |
 | **U-C6 · terminal `Status` on the implementation document** *(split out of U-C2)* | **devops** | Set the terminal status (`Committed` / `Released`) on the implementation document at its closure step, per the document-lifecycle Agent Responsibilities table. **Not a `PRE` condition** — it is a post-commit act and gates the chain's closure, not the release act | **NOT EXECUTED** — terminalises at devops's own stage |
 
-**On U-1, once, so it is not mistaken for silence**: records 5855 and 5856 are permanent members of
-`flagStructureDisagreement`, so a working D19 repair will read as a failed one unless the residual is
-named. **The wording is the planner's, the deployment-record line is devops's, the seeds' disposition is
-the owner's (D20 left it expressly unruled). This pass adopts none of them.** It folds into U-C5.
+**On U-1: `STRUCK — D44`** — the finding and the residual it named are dropped as dependents.
 
 ---
 
@@ -1028,13 +981,7 @@ Required in one line, and re-derived at write time rather than carried from rev 
 > D19 repair of 5712/5842 has run appears in the plan, the QA document, the deployment readiness
 > assessment, or `agent-output/OWNER-QUEUE.md`, each read at write time.
 
-**Consequence, stated because it is a one-way door and it closes on its own**: M8-G's production-reachable
-observation exists **only while a member of the population is unrepaired**. Seeds 5855 and 5856 are that
-population now, and **they cannot be re-minted — the mint route closes at deploy**. If the D19 repair runs
-before BC-11b and BC-15 are observed, and no seeded environment is stood up, the planner's own fallback
-applies verbatim — *the suite is the evidence, and the reason recorded is "the D19 repair preceded the
-deploy", not "no member to observe"*. That fallback is **conjunctive** and is not available today: the
-repair has **not** run. **Until it does, the row is owed and `NOT EXECUTED` remains non-terminal.**
+**Consequence — **STRUCK — D44.** Subject struck from chain 013; dependent dropped, not re-argued and not re-based.** The one-way-door reasoning, its population and the conjunctive fallback it turned on are dropped.
 
 **The ordering hazard rev 9 established stands and is carried, not re-derived live at the sitting**:
 on any given record, **BC-11b runs FIRST, then BC-15**; **after BC-15's Load, do NOT press Save** — Load
@@ -1162,12 +1109,12 @@ remains the detailed script for BC-11b; this appendix supersedes it **only** on 
 Rev 9 recorded, correctly for the moment it was written, that *"the seeds cannot be re-minted — the mint
 route closes at deploy"*, and built a no-Save rule around that scarcity. **Re-derived this pass: the
 deploy has not run.** `master` is `c85945f` locally and on `origin`, which is the tree D20's mint route
-belongs to and the tree the owner minted 5855 and 5856 through earlier today. D20's expiry is at the
+belongs to. D20's expiry is at the
 **deploy**, not at the sitting.
 
 **Consequence, and it is the single most useful thing in this appendix**: *before* the sitting, spare
-seeds can still be minted through production's New Message JSON at `c85945f`, exactly as 5855/5856
-were. **After the deploy they cannot** — BC-8 is the observation that the route is closed at the tip.
+spare records of the needed shape can still be minted through production's New Message JSON at `c85945f`
+**After the deploy they cannot** — BC-8 is the observation that the route is closed at the tip.
 
 **Therefore: mint spares first.** Four of each shape is cheap insurance and costs two minutes:
 
@@ -1208,7 +1155,7 @@ satisfy them — that would invert the gate.
 | Fact | Source | Consequence |
 |---|---|---|
 | The chain tip is `821330d` on `chain/013-components-v2-editing-surfaces` | re-derived from the tree | this is what must be served |
-| Building on this machine loads `.env.local`, **whose only selectable `DATABASE_URL` is the remote hosted database** | devops readiness assessment | **a locally-served chain tip already sees seeds 5855/5856. No seeding step is needed** |
+| Building on this machine loads `.env.local`, **whose only selectable `DATABASE_URL` is the remote hosted database** | devops readiness assessment | **a locally-served chain tip already sees production data. No seeding step is needed** |
 | Vercel is the platform; **whether branch pushes produce preview deployments is not visible from the repo** | `.vercel/project.json`; readiness Q2, explicitly unresolvable here | a preview URL is a legitimate alternative **if** one exists — the owner can see the dashboard; no agent here can |
 
 **So the recommended environment is the chain tip served locally at `821330d`, authenticated as
@@ -1221,7 +1168,7 @@ it changes where the code runs, not what the writes touch.
 ### B.2 — What must be standing before he starts
 
 - [ ] Chain tip `821330d` served and reachable; logged in as himself.
-- [ ] **Seeds 5855 and 5856 present, plus the spares from B.0.** Confirm in the messages list first.
+- [ ] **Records of the needed shape present (the spares from B.0).** Confirm in the messages list first. *(The named seeds are STRUCK under **D44**.)*
 - [ ] **The components section EXPANDED in the composer.** `showComponentButton` requires
       `isEditing && isV2Mode && showComponentsEditable && canAddComponent`. **With it collapsed there is
       no add-component control and BC-11b reads as unreachable when it is not.** This is the single
@@ -1243,7 +1190,7 @@ only one, and it was not.**
 2. **After BC-15's Load, do NOT press Save.** *(carried.)* Load changes the draft, not the stored
    record. Saving persists the cleared bit. **With B.0's spares this is now recoverable before the
    deploy and unrecoverable after — the rule stands either way.**
-3. **Seed containment — NEW.** **Only BC-11b and BC-15 touch 5855/5856 or the spares.** Every other row
+3. **Seed containment — NEW.** **Only BC-11b and BC-15 touch the spares.** Every other row
    runs on scratch input. BC-1, BC-7, BC-8 and BC-9 all drive Load or paste flows that clear the flag or
    write a record; run on a seed, they consume it exactly as a stray Save would. Same class as hazard 1,
    one surface over.
@@ -1447,7 +1394,7 @@ anything:
 2. **The seed-mint route may have closed with no spares minted.** Rev 11 established that the route
    writing the 5712/5842 shape expires at deploy, and that **BC-11b is not runnable to its own
    prediction without spares** — its prediction requires *both* outcomes, and verifying the second
-   consumes a seed. Seeds 5855 and 5856 are the entire population. **Whether the deploy fired is
+consumes a seed, and no spares were minted. **Whether the deploy fired is
    unanswered**, so whether this cost was actually incurred is unanswered with it. **No re-running
    recovers it.** Routed to the owner as a fact, not a task.
 
@@ -1924,7 +1871,7 @@ document at write time.**
 
 **BC-11b — `TERMINAL: CANNOT BE EXECUTED`.** The owner confirmed by selection that the push was his
 and the site is live, so `a151fb4` has been serving since ~00:56:37. BC-11b's *both outcomes* clause
-needed a spare seed beyond 5855/5856; **the mint route closed at deploy and no spares were minted**.
+needed **a spare seed beyond the population then available**; **the mint route closed at deploy and no spares were minted**.
 R13.7.2 escalated this as a fact rather than a task and R13.1(2) named it irrecoverable; **it is now
 realised.** Adopted.
 
@@ -2301,7 +2248,7 @@ Non-test delta `a151fb4..e343927` also moves **`JsonModalBody.tsx`** (the Load s
 
 ## R18.3 — Rows this pass judges UNRUNNABLE, for a reason already on the record
 
-**BC-15** requires a **5712-shaped record**. That is the population **BC-11a** minted (5855, 5856) and
+**BC-15** requires a **5712-shaped record**. The population it drew on is **STRUCK under **D44****, and
 that **BC-11b** was already marked `TERMINAL: CANNOT BE EXECUTED` over — the mint route closed at
 deploy and no spares exist. **BC-15 appears to inherit that condition.** **This pass does not close
 it** — it is stated as a judgement for the owner, exactly as BC-11b's was, and it opens nothing.
@@ -2695,7 +2642,7 @@ none is possible from here.**
 
 Re-derived from this document's own terminalisation at **R14.2**, not from the digest:
 
-> *"BC-11b's **both outcomes** clause needed **a spare seed beyond 5855/5856**; the mint route closed at
+> *"BC-11b's **both outcomes** clause needed **a spare seed beyond the population then available**; the mint route closed at
 > deploy and no spares were minted."*
 
 **The door D43 reports did not close was never BC-11b's door.** BC-11b is blocked by the absence of a
@@ -2706,7 +2653,7 @@ means.** It is still **not** to be read as *closed*: it records a permanent abse
 ## R20.2 — §R18.3 corrected *(reconcile note; its text stands)*
 
 > **What R18.3 said, preserved verbatim in place**: *"BC-15 requires a 5712-shaped record. That is the
-> population BC-11a minted (5855, 5856) and that BC-11b was already marked `TERMINAL: CANNOT BE EXECUTED`
+> population BC-11a drew on — **now STRUCK under **D44**** — and that BC-11b was already marked `TERMINAL: CANNOT BE EXECUTED`
 > over — the mint route closed at deploy and no spares exist. **BC-15 appears to inherit that
 > condition.**"*
 >
@@ -2724,76 +2671,17 @@ means.** It is still **not** to be read as *closed*: it records a permanent abse
 > **Superseded by R20.3.** R18.3 was stated as a judgement and explicitly did not close the row, so
 > nothing terminal is being undone — but the judgement was wrong and is withdrawn as a judgement.
 
-## R20.3 — BC-15's subject is NOT established. Not by D43, and not by this pass either.
+## R20.3 / R20.4 — STRUCK under **D44**
 
-**This is where the digest's framing must not be adopted, and the reason is the record's own history on
-this exact question.**
+Both sections are dropped as dependents: rev 20's subject-conditional reasoning for **BC-15**, the
+discriminator it named, and **Finding U-1** together with the R-5 falsifier rewording its mitigation was
+routed to. **Dropped, not re-argued and not re-based onto a substitute record.** Their consequences for
+register state are recorded in **Rev 21**.
 
-D43 states *"D19 reaches the two outliers only, so the seeds are untouched and the door did not close."*
-**That is true of D19's *text*, which names 5712 and 5842. D19's text is not the statement that ran.**
-The statement that ran appears in the record exactly once, in D43's own rendering, and it is elided:
-
-> a guarded `jsonb_set` clearing bit 15 via `& ~32768`, **`WHERE ... AND ((data->>'flags')::int & 32768) = 32768`**, idempotent
-
-**The predicate that is shown is a bit-mask over the whole table, and it matches 5855 and 5856 by
-construction** — they were minted with `flags: 32768` precisely so that it would. Whether they survived
-depends entirely on what the `...` restricts, **and that text is on the record nowhere**: `jsonb_set`
-occurs once in all of `agent-output/`, inside D43. `OWNER-QUEUE.md` names the seeds only in an unrelated
-open question. The owner's verbatim — *"queries ran, both show valid true"*, *"flags reads 0"* — speaks
-to **both rows**, meaning 5712 and 5842, and says nothing about the seeds.
-
-**So the seeds' survival is assumed by D43, not measured by it.** No agent here has ever read this
-database and `psql` is not installed, so this pass cannot settle it and does not pretend to.
-
-**Why this is worth stating rather than waving through.** The scarcity claim about this population has
-now travelled as prose **three times**: steering told the owner repairing would close the door (false,
-corrected in D43); D43 now tells this stage the door did not close (unestablished); and R18.3 inherited
-a version of it too (corrected in R20.2). **Every one of those was a claim about the same two records,
-and not one was measured.** D43 names the mechanism of its own predecessor error exactly right — *a fact
-stated in prose that would never have survived being written as a register row* — and then restates the
-converse in prose.
-
-**Disposition — BC-15 moves state, and it does not move to runnable:**
-
-> **BC-15 · D28's mounted render — `NOT EXECUTED`, non-terminal. SUBJECT-CONDITIONAL.** It is **not**
-> unrunnable by inheritance (R20.2), and it is **not** established as runnable either. It is runnable
-> **if and only if** a record with bit 15 set and content still exists. **Its prediction is also STALE**
-> (rev 18 §R18.2: `JsonModalBody` moved and D33 speaks to exactly this control), so even with a subject
-> it is not executable against its current wording.
-
-**The single read that settles it**, stated as the discriminator and **not as a task assigned to anyone**:
-does `5855` (or `5856`) still read `flags` with bit 15 set? **One value, from a query of the shape he has
-already run.** If set, BC-15 has a subject and needs only QA's re-derivation of its prediction. If clear,
-the seeds went with the outliers, BC-15 joins BC-11b's terminal population **on evidence rather than on
-inference**, and D43's *"the door did not close"* needs a reconcile note of its own.
-
-**Nothing is asked of the owner by this document**, and no capture, file or artifact is requested of him
-under any circumstances. This records what would decide an existing row, for whoever is next in front of
-that database.
-
-## R20.4 — Finding U-1: **REALISED.** Raised rev 5 (2026-08-24), fired 2026-08-25.
-
-U-1 predicted that the D19 repair would arm assumption 7's falsifier against a population it could no
-longer read cleanly: the plan expects **0**, the classifier will read **2**, because 5855/5856 are
-permanent members of `flagStructureDisagreement`. **A working repair reads as a failed one.**
-
-**The repair has run. The trap is live.** D43 confirms it independently and QA carries it as **F-QA13**,
-which is now live rather than anticipatory. U-1's status moves from *raised and routed* to **REALISED**;
-it is **not** discharged, because nothing has been done about it.
-
-**Its remedy was documentary and it has nowhere to land.** U-1 routed the residual to R-5's deployment
-record — *"the falsifier read as `> 0 excluding 5855 and 5856`, or the expected residual stated as 2"* —
-with the wording the **planner's** and the line **devops's**. **That deployment record still does not
-exist** (`U-C7`, `NOT EXECUTED`, and `U-C5` is still the blocking edge before it). So the one mitigation
-U-1 named depends on an artifact that has never been written, and the trap is now armed without it.
-
-**Recorded, routed, and not adopted.** No wording is drafted here; the falsifier is the planner's text and
-the record is devops's. **This pass raises no new item for it** — U-1 already exists and this is its
-status changing.
-
-**One thing U-1's rev-7 update keeps live and D43 does not reach**: anything reading `valid = false` on
-these records **must key on the reason string, not the boolean**, since the seeds are invalid for two
-independent reasons. D43 reports the outliers now read `valid = true`; that says nothing about the seeds.
+*Recorded without restating the subject, and for completeness only*: before D44 landed, the R20.3
+discriminator was separately answered by a second instrument capable of contradicting the first, so it
+would not have needed running either way. **Rev 20's REALISED marking on U-1 is withdrawn** — it rested
+on a mechanism claim steering has since corrected.
 
 ## R20.5 — BC-3 re-based on attestation, and steering's residual discharged
 
@@ -2847,13 +2735,13 @@ until the fixes are implemented"* — and 012's U-4 is one of two grounds holdin
 | Row / finding | Before | **At rev 20** | Basis |
 |---|---|---|---|
 | **BC-11b** | `TERMINAL: CANNOT BE EXECUTED` | **unchanged** — D43 does not reach it | R20.1, re-derived from R14.2 |
-| **BC-15 · D28's mounted render** | judged unrunnable by inheritance (R18.3) | **`NOT EXECUTED`, non-terminal — SUBJECT-CONDITIONAL, prediction STALE** | R20.2 corrects the inheritance; R20.3 declines to assume the subject |
+| **BC-15 · D28's mounted render** | judged unrunnable by inheritance (R18.3) | **`WITHDRAWN` — D44** | R20.2 corrected the inheritance; **D44 struck the subject and dropped the row** (Rev 21) |
 | **BC-18** | `NOT EXECUTED`, stale | **unchanged** — sole surviving condition of the standing decision | R20.6 |
 | **BC-2** | `EXECUTED` (R19.4) | **unchanged** — R19.4.1's revert trigger checked and not met | R20.5 |
 | **BC-3** | `EXECUTED` on D41's registration | **`EXECUTED` — re-based on D40's attestation on the identical path** | R20.5 |
 | **BC-19a / BC-19b** | `EXECUTED` / `TERMINAL: SUBJECT WITHDRAWN` | **unchanged** | — |
 | **Standing release decision** | `EXPIRED IN FULL` | **unchanged** | R20.6 |
-| **Finding U-1** | raised and routed (rev 5), narrowed (rev 7) | **REALISED — not discharged** | R20.4 |
+| **Finding U-1** | raised and routed (rev 5), narrowed (rev 7) | **`STRUCK — D44`** | Rev 21 |
 
 **Register hygiene**: still **one** blocking-condition register, in this document. D43 states it sets no
 state here, and it sets none. **Recorded as a pass.**
@@ -2879,3 +2767,134 @@ for `2d90e8a`; the `4a7126b` decision remains expired.**
    travelled as prose three times and been measured zero times**, in both directions, burning an owner
    decision once. The transferable form is D43's own sentence — *a fact stated in prose that would never
    have survived being written as a register row.*
+
+---
+
+# Rev 21 — Owner ruling D44 executed against this document. A strike, not an amendment.
+
+**Date**: 2026-08-25. **Session**: `uat-hooks-013-4`. **Authority**: **D44**, plan rev 39 (`13a6e66`),
+read directly at write time — not from the relay. **The ruling forbids reopening it as a question and
+this pass does not.**
+
+**What D44 requires, in its own terms**: two record IDs are struck from chain 013 entirely, and **every
+dependent is dropped with them** — any finding, criterion, condition, detector, falsifier limb, residual
+or open decision whose subject or evidence is those records **ceases to exist as a live obligation**.
+**Dropped, not re-argued, not re-based onto a substitute, and not preserved 'for the record' in a note
+that names them.** Scope narrowed by him to 013 `agent-output` files.
+
+## R21.1 — What was done to this file
+
+**30 lines carried the struck subject; all 30 are repaired. Verified zero remaining by two independent
+instruments** — `grep -c` and a byte scan of the file read in full — because a filtered existence
+predicate is exactly the instrument this chain has been bitten by six times.
+
+**Form of the strike, and it follows the ruling rather than this stage's default.** This document's
+normal correction form for a **record** is a dated reconcile note that preserves the superseded text.
+**D44 overrides that here**: preserving the text in a note that names the subject is the one thing it
+forbids. So each dependent is struck in place, **naming what was dropped and under which ruling, without
+restating its subject**. Where a whole section's subject was struck, the section is replaced by that
+line rather than edited around.
+
+**"History preserves it" was verified before it licensed a deletion, not assumed.** The full prior text
+is in commits `b5f2277` (rev 18), `6bfc063` (rev 19) and `0792c3b` (rev 20) — checked with `git log`
+against this path at write time. **Nothing struck here existed only in the working tree.**
+
+## R21.2 — Register consequences. These are this document's alone, and D44 does not set them.
+
+| Row / finding | Before | **At rev 21** | Reason |
+|---|---|---|---|
+| **BC-15 · D28's mounted render** | `NOT EXECUTED`, subject-conditional (rev 20) | **`WITHDRAWN` — D44** | Its observation vehicle is struck and it **may not be re-based onto a substitute**. See R21.3 |
+| **BC-11a · the mint** | `EXECUTED` 2026-08-24 — TERMINAL | **`STRUCK — D44`** | Its entire subject was the struck records. Nothing turns on it; the row number is retained only because later rows resolve through it |
+| **Finding U-1** | REALISED (rev 20) | **`STRUCK — D44`** | Dependent dropped, with the R-5 falsifier rewording it was routed to. **Its REALISED marking is withdrawn** — see R21.4 |
+| **BC-11b · the ask fires on save over a seed** | `TERMINAL: CANNOT BE EXECUTED` | **UNMOVED** | R21.5 |
+| **Standing release decision** | `EXPIRED IN FULL` | **UNMOVED** | R21.5 |
+| **BC-18 · `paste-notice-renders`** | `NOT EXECUTED`, prediction stale | **UNMOVED — and now the sole live condition of the standing decision** | Its subject is a paste surface, untouched by D44 |
+| **BC-2, BC-3, BC-19a, BC-19b** | terminal at revs 19–20 | **unchanged** | No struck subject |
+
+## R21.3 — Why BC-15 is `WITHDRAWN` and not a fifth or sixth state
+
+**`WITHDRAWN` is the one terminal state this definition reserves to the owner, and he has now ruled.**
+That is the whole reason it was never available to me before: at rev 20 I recorded BC-15 as
+subject-conditional precisely because I could not withdraw it and would not close it by convenience.
+**D44 is the ruling that was missing.** It does not merely make the row unobservable — it declares the
+obligation ceased. That is withdrawal in the exact sense the register means it.
+
+**It is deliberately *not* filed under either state this document invented.** Not
+`TERMINAL: CANNOT BE EXECUTED` (BC-11b's), which records an obligation that **still stands** and is
+merely unreachable — reading BC-15 that way would leave a phantom requirement live. Not
+`TERMINAL: SUBJECT WITHDRAWN` (BC-19b's), which was invented for a row whose *requirement* the owner
+removed while **the row itself was left standing and routed to me**. **D44 does not leave the row
+standing; it drops it by name-class.** Reaching for either invented state here — when the register's own
+owner-reserved state fits exactly — would be the error this document warned against when it created
+them.
+
+**Recorded plainly: this is a withdrawal, so the coverage BC-15 stood for ships unobserved.** That cost
+is the owner's to accept and he has accepted it. It is not softened here and it is not re-argued.
+
+## R21.4 — Rev 20's REALISED marking on U-1 is withdrawn, and I record why rather than letting it lapse
+
+At rev 20, minutes before D44, I marked U-1 **REALISED** on the strength of a relayed claim that
+assumption 7's falsifier was armed. **Steering has since corrected that claim** (plan rev 38,
+`fd4d490`): the classifier's work queue is scoped, so post-repair it classifies nothing and reports
+zeroes over an empty set — an empty measurement that reads as a pass in the report's own JSON.
+
+**I marked a finding realised on a mechanism I did not verify.** That is the defect, and it is mine, not
+the relay's: this document's own rule is that a mechanism claim is checked at source before it is acted
+on, and I had already refused two prose claims in the same exchange before accepting a third. **The
+marking is withdrawn.** U-1 is struck under D44 in any case, so nothing downstream turns on it — which
+is luck, not method.
+
+**Standing caution carried forward, because it names no struck subject and is true on its own terms**:
+*do not treat any zero from that instrument as evidence of anything*, and **anything keying on
+`valid = false` must key on the reason string, not the boolean** (U-1's rev-7 correction, retained).
+
+## R21.5 — Two things D44 does not reach, stated so nobody infers otherwise
+
+**BC-11b — UNMOVED**, `TERMINAL: CANNOT BE EXECUTED`. Its blocker was the absence of a **spare** record
+beyond the population then available; that is a fact about a route that closed at deploy, and no ruling
+about the population's members changes it. It remains terminal, and it remains **not** to be read as
+*closed*: it records a permanent absence of evidence.
+
+**The standing release decision — UNMOVED**, `EXPIRED IN FULL`. Its three conditions were **BC-18**,
+**BC-19a** and **BC-19b**; none had the struck records as subject or evidence. D44 reaches neither the
+decision nor its expiry. **Expiry is not undone by a later ruling any more than it was by later good
+news.**
+
+**Concurrence recorded**: steering read both the same way and offered the reading for rejection. It is
+adopted **after re-derivation from this document's own rows**, not on the offer.
+
+## R21.6 — Two matters returned to steering, neither of them mine to fix
+
+1. **D44 as registered will read false.** Its reversal column states *"STEERING DID NOT REWRITE OTHER
+   STAGES' DOCUMENTS"*; steering's own message to this session says it is editing the qa, deployment,
+   readiness, code-review, implementation and verification-probe documents directly under the ruling.
+   Both may be true in sequence — registered first, acted after — but **the row does not say so**, and a
+   later reader takes it as a standing fact about who touched what. **A reconcile note on D44 is owed by
+   its author.** This document does not amend the plan.
+2. **R20.3's discriminator is retracted and needs no answer.** Steering's second-instrument argument is
+   accepted on its merits — a count that would have been higher had the predicate reached further is a
+   real falsifier, not a restatement — and it is moot under D44 regardless. **No database read is owed by
+   anyone.** Recorded because I asked the question in writing and should be seen to withdraw it in the
+   same place.
+
+## R21.7 — State
+
+**UAT Complete** stands. **No verdict moved in this pass and none was requested.** **No release decision
+exists for `2d90e8a`; the `4a7126b` decision remains `EXPIRED IN FULL`.**
+
+**Live and non-terminal in this ledger after the strike**: **BC-18** (owner; prediction stale — QA owes
+the re-derivation, and it must not be executed against its current wording), and the `U-C` series rows
+already recorded open — **U-C5** (owner), **U-C6** and **U-C7** (devops). **Nothing else.**
+
+**Next Actions** — *point-in-time; later stage documents are authoritative.*
+
+1. **Nobody executes BC-18 against its current wording** — its surface has moved twice and an
+   observation taken now yields a false failure. QA owns the re-derivation.
+2. **Steering — a reconcile note on D44** (R21.6.1).
+3. **The retrospective (HELD — D38)**, two additions. First: **a scarcity claim about a two-record
+   population travelled as prose three times and was measured zero times** — including inside the
+   sentence correcting the previous one — and the owner's fix was to remove the subject rather than the
+   claim. **That is a harsher remedy than any stage proposed, and it is the correct reading of what the
+   record cost him.** Second: **this stage marked a finding REALISED on an unverified mechanism claim
+   after refusing two others in the same exchange** (R21.4) — refusing prose is not a habit that holds
+   itself; it held twice and failed on the third.
