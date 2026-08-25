@@ -142,11 +142,33 @@ removed, not just that something was.
 
 ---
 
-**8. A bad import keeps the dialog open instead of navigating away. (BC-4) — BLOCKED, NOT ON YOU**
+**8. A bad import keeps the dialog open instead of navigating away. (BC-4) — THIS ONE IS NOW YOURS. The fixture exists.**
 
-**Do not wait on this one.** It needs a fixture that fails the content floor, **and that fixture is owed by
-steering, not by you.** When it arrives the check is: attempt the import, and it **passes if** the dialog
-**stays open** · **the error is shown** · **and no new message is created.**
+*This replaces the "BLOCKED, NOT ON YOU" version. Nothing was owed by you before and nothing was missed. It is now the last of the eight.*
+
+- Open **New Message** and click the **JSON** tab.
+- Paste exactly this, replacing whatever is in the box:
+
+  `{"content": ""}`
+
+- **Stop there. Read the area directly below the JSON box before you press anything.**
+
+**It passes if all three hold:**
+
+1. **The dialog stays open.**
+2. **The message below the box reads exactly:** `Message must have content, embeds, or components.`
+3. **Then** press **Continue**. **Save is greyed out and does nothing**, and **you are not taken anywhere** — no new message is created.
+
+**Three ways to get a wrong answer. If you hit one, write what is in bold instead of *pass* or *fail*:**
+
+- **You pressed `Continue` before reading below the box.** Page 2 does not show that error. You get a greyed-out **Save** with nothing on that page saying why. **This is not a failure — go back to the first page and read there.** (The missing explanation on page 2 is a real defect; it is already written down, and it is not what this check is about.)
+- **You used `{}` instead.** Don't — it looks like an equally good test and isn't. It breaks the same rule, but the check that produces the error never runs on it, so you get **no error and a greyed-out `Continue`**. That is neither pass nor fail. **If that is what you saw, write "not executed".**
+- **You pasted `{"content": ""}`, the text is visibly sitting in the box, and still no error appears and `Continue` stays greyed out.** **That one is a finding, not a mistake on your part — write down exactly that.** It would mean the editor never handed your text to the app, which nothing in this chain has ever tested.
+
+**One thing that is not the answer:** the JSON tab shows its own complaints while you are still typing — malformed JSON and schema errors, inside the accordion. Those don't settle anything. **Only the exact sentence in point 2 does.**
+
+*Lifted verbatim from `uat` register **rev 45, §R45.3** (`d60174d`). If that register is past rev 45,
+this copy may have drifted — the register is authoritative, not this page.*
 
 ---
 
