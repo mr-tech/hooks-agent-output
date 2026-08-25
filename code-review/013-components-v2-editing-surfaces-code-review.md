@@ -2,66 +2,86 @@
 ID: 11
 Origin: 11
 UUID: 22d69e06
-Reviewed-At: 'Round 24 (current, binding): TREE e1d9b2b on chain/013-rider-2, CRITERIA plan rev 46 (d588790),
-  standing under rev 47 (06fad81). A VERDICT RESTS ON TWO THINGS - THE CODE AND THE CRITERIA IT WAS MEASURED
-  AGAINST - AND EXPIRES WHEN EITHER MOVES; naming only the SHA lets a criteria change invalidate a verdict
-  silently (uat''s finding, adopted here). — the RE-REVIEW of Rider 2 (D47-D50). Range 2d90e8a..e1d9b2b
-  re-derived (2d90e8a confirmed ANCESTOR via merge-base --is-ancestor): 2 commits, 20 files, 10 non-test.
-  Anchor is the COMMIT OBJECT, not the ref; branch is UNPUSHED (ls-remote empty) and origin/master is
-  still 2d90e8a. Identity verified at pass start AND end; tree blob-identical on every file gated. ALL
-  FIVE round-23 findings DISPOSED, FOUR STRUCTURALLY. MEDIUM-1 ELIMINATED not merely unhit: formatZodIssues
-  formats each issue as a one-element array and joins itself, so no inter-issue delimiter exists; all
-  three sites consume it; re-attacked from first principles (probe-cr26, REBUILT not re-pointed) — the
-  payload that gave SIX lines at 2d90e8a now gives ONE, D32 path-with-indices not regressed, three controls
-  pass. MEDIUM-2 ELIMINATED: tsconfig.test.json defines the set once, both tsc projects exit 0 AT THE
-  SHA, ESLint Parsing errors 45 -> 0. LOW-1 and LOW-2 ELIMINATED (one notice definition + a test pinning
-  shipped wording, which also closes LOW-1s residue). CR23-5 REPAIRED beside-not-over. MY OWN ROUND-23
-  ENUMERATION WAS WRONG AND IS RECORDED AS SUCH: my Class named "sites that split" but my predicate enumerated
-  "schemas that emit the delimiter" — the trigger set, not the defect set. True count at 2d90e8a is THREE
-  (formatMutationError.ts, NewMessageJsonInput.tsx, JsonModalBody.tsx); I reported one. QA caught it.
-  Rule: an enumeration must run the predicate its own Class sentence names. NEW, all LOW, none holding
-  the tree: (1) three review-addressed comment blocks added to source, zero precedent in the tree; (2)
-  settledMode s requiresChoice branch is DEAD and the M9-b spec s own oracle encodes a DIFFERENT rule
-  for it — the second disagreeing computation M9-b exists to remove, unreachable so undetectable (reachability
-  checked: setValidatedDraft(null) on that path); (3) an undisclosed member-delimiter autofix rode into
-  shapes.ts, doc numstat 4/0 vs tree 8/1 — a scoped revert structurally cannot reach in-scope files; (4)
-  M9-e and M9-g carry neither TDD row nor exemption. INFO residual, NOT raised as a defect per the input-robustness
-  order step 1: the joiner moved from " | " to newline and is still breakable by a newline in a message,
-  but zero schemas in this tree emit one. Two brief corrections re-derived: M9-c is NOT removed from the
-  plan (16 lines; WITHDRAWN IN PLACE), and the owner s ESLint-residue acceptance is NOT in the register
-  (grep 429 -> 0) though I have honoured it and recorded no round failure for it. 686 findings from my
-  --no-fix run and the round s 429 are DIFFERENT INSTRUMENTS and neither refutes the other. Suite NOT
-  run — QA s step. APPROVED. Not a release decision. NO VERDICT TRAVELS BETWEEN TREES. Round 23 (superseded,
-  was binding at 2d90e8a): Round 23 (current, binding): 2d90e8a on master — the TRAILING REVIEW DEBT (D39
-  for the D30-D34 round; D37 for 2d90e8a/D40). Delta reviewed = 4a7126b..2d90e8a: 4 commits, 17 files,
-  10 non-test. HEAD == origin/master == 2d90e8a verified by git ls-remote (computed AT THE REMOTE) at
-  pass start 08:24:00Z AND pass end 08:33:42Z; working tree proven blob-identical to the SHA path-by-path,
-  which is what licenses gating in place. D35 re-derived as bounded to D30-D34, so 2d90e8a is INSIDE the
-  debt and NOT waived - agrees with uat R22.4.3, independently, not inherited. ARCHITECTURALLY GROUNDED:
-  system-architecture.md EXISTS (221 lines, ls -d + git cat-file -e); rounds 6/7/8 wrongly declared it
-  absent and this round does not inherit that. Adversarial trigger MET (D34 relaxes server validation;
-  Discord post is irreversible) and discharged IN PART: I drove the REAL discordMessageShape with caller-sendable
-  payloads into the REAL formatMutationError (probe-cr25, imports from the tree, no embedded copy); the
-  send-to-Discord half is STRUCTURALLY CLOSED to every agent here because it would require an outbound
-  Discord message, which is prohibited absolutely. Findings: MEDIUM-1 D32 readable errors defeated on
-  a REACHABLE path - formatMutationError splits on '' | '', which Zod itself emits inside a single discriminatedUnion
-  message, so ONE real issue renders as SIX lines, five bare numbers (measured, not read). MEDIUM-2 no
-  gate reaches any test file (tsconfig excludes **/__tests__, .eslintignore does not; 45 parsing errors,
-  all test files, PRE-EXISTING). LOW-1 orphaned ID_LAYOUT and NOTICE consts. LOW-2 the dropped-types notice
-  is triplicated and DRIFTED at this very reword (trailing period on JsonModalBody only). INFO: D34 leaves
-  NO emptiness floor at any layer - refineDisplayableText is max-only and validateContentRequirements
-  floors only TOP-LEVEL length - but the editor tolerates it (SectionEditor uses map/length/filter, no
-  unguarded [0]). D40 removal verified CLEAN AND COMPLETE (grep CodeMessageNotice|codeMessageDroppedNotice
-  at 2d90e8a = ZERO) and the three paste/dialog surfaces D40 preserves still render. CORRECTION carried:
-  both test files were TRIMMED (M), NOT deleted - ''0 51'' in --numstat means no lines ADDED, not a deletion.
-  Implementation doc has ZERO record of 2d90e8a while still asserting CodeMessageNotice as created and
-  its layout.tsx TDD exemption as live - both false at the tree; recorded, not charged, since 2d90e8a
-  is the owner''s own commit. APPROVED_WITH_COMMENTS; NOT a release decision - 2d90e8a stays UNGATED.
-  Nothing here holds the tree (rounds-stop; the tree is live). NO VERDICT TRAVELS BETWEEN TREES. Round
-  22 (superseded by the above, retained): 4a7126b on chain/013-toast-vessel — TEST-ONLY round adopting
-  QA''s F-QA28 PASTE-SURFACE render instrument (one file, src/utils/__tests__/013-qa-paste-surface-render.test.ts,
-  +82/-0). One commit atop 664e0c0; non-test delta 664e0c0..4a7126b EMPTY; the four source files are byte-identical
-  to abcf585 and have not moved across TWO subsequent commits; origin/master unmoved at a151fb4 (git ls-remote).
+Reviewed-At: 'Round 25 (current, binding): TREE b56570d on chain/013-rider-2, CRITERIA plan rev 49 (9637735).
+  EXPIRES WHEN EITHER ANCHOR MOVES. M10 (D52) — test-only by owner ruling; CR24-2 is ARMED, NOT FIXED,
+  and both disagreeing encodings remain. SCOPE BOUNDED AND STATED: two changed test files, all four M10
+  criteria, revert completeness, oracle arming by execution, tsc both projects. Production tree NOT reassessed
+  because it DID NOT MOVE — all four implicated production blobs byte-identical to e1d9b2b, so round 24
+  s source verdict carries by delta-round identity. Full suite NOT run (QA s step; 627/627 is QA s claim).
+  ALL FOUR CRITERIA MET. M10-a (the criterion the ruling turns on): non-test src delta ZERO rows, corroborated
+  by a second instrument (--name-status = exactly two test files) AND by blob identity proving the implementer
+  s reverted mutation was complete. M10-b VERIFIED BY MY OWN EXECUTION, not by accepting QA s report:
+  rig from git archive, blob identity asserted, FOUR mutants run IN THE RIG ONLY (shared tree never mutated)
+  — control 22/22; QA s M4 reproduced EXACTLY (oracle 4 fail, M9-b spec green); row C (oracle 3 fail,
+  spec green) proving the oracle s marginal value. NEW, both LOW and both about the accuracy of claims
+  ABOUT evidence rather than the evidence: (1) the oracle s header cites the ONE mutant that does not
+  demonstrate its claim — it says a row-D mutation leaves M9-b s spec green, and MEASURED both go red
+  (4 and 4); the claim is true and the cited evidence does not establish it; (2) one of eight literals,
+  bit=1 v2=0 classic=0, is attributed to a D17 row about components being PRESENT while its draft has
+  none — value right, citation wrong, and it is the exact cell doing the most discriminating work. INFO:
+  M10-c closes CR24-2 s DIVERGENCE (probe-cr27 s measured disagreement no longer reproduces) while the
+  DUPLICATION remains — arming a guard is not fixing the defect it guards. APPROVED. Not a release decision.
+  NO VERDICT TRAVELS BETWEEN TREES. Round 24 (superseded, was binding at e1d9b2b/rev 46-47): Round 24
+  (current, binding): TREE e1d9b2b on chain/013-rider-2, CRITERIA plan rev 46 (d588790), standing under
+  rev 47 (06fad81). A VERDICT RESTS ON TWO THINGS - THE CODE AND THE CRITERIA IT WAS MEASURED AGAINST
+  - AND EXPIRES WHEN EITHER MOVES; naming only the SHA lets a criteria change invalidate a verdict silently
+  (uat''s finding, adopted here). — the RE-REVIEW of Rider 2 (D47-D50). Range 2d90e8a..e1d9b2b re-derived
+  (2d90e8a confirmed ANCESTOR via merge-base --is-ancestor): 2 commits, 20 files, 10 non-test. Anchor
+  is the COMMIT OBJECT, not the ref; branch is UNPUSHED (ls-remote empty) and origin/master is still 2d90e8a.
+  Identity verified at pass start AND end; tree blob-identical on every file gated. ALL FIVE round-23
+  findings DISPOSED, FOUR STRUCTURALLY. MEDIUM-1 ELIMINATED not merely unhit: formatZodIssues formats
+  each issue as a one-element array and joins itself, so no inter-issue delimiter exists; all three sites
+  consume it; re-attacked from first principles (probe-cr26, REBUILT not re-pointed) — the payload that
+  gave SIX lines at 2d90e8a now gives ONE, D32 path-with-indices not regressed, three controls pass. MEDIUM-2
+  ELIMINATED: tsconfig.test.json defines the set once, both tsc projects exit 0 AT THE SHA, ESLint Parsing
+  errors 45 -> 0. LOW-1 and LOW-2 ELIMINATED (one notice definition + a test pinning shipped wording,
+  which also closes LOW-1s residue). CR23-5 REPAIRED beside-not-over. MY OWN ROUND-23 ENUMERATION WAS
+  WRONG AND IS RECORDED AS SUCH: my Class named "sites that split" but my predicate enumerated "schemas
+  that emit the delimiter" — the trigger set, not the defect set. True count at 2d90e8a is THREE (formatMutationError.ts,
+  NewMessageJsonInput.tsx, JsonModalBody.tsx); I reported one. QA caught it. Rule: an enumeration must
+  run the predicate its own Class sentence names. NEW, all LOW, none holding the tree: (1) three review-addressed
+  comment blocks added to source, zero precedent in the tree; (2) settledMode s requiresChoice branch
+  is DEAD and the M9-b spec s own oracle encodes a DIFFERENT rule for it — the second disagreeing computation
+  M9-b exists to remove, unreachable so undetectable (reachability checked: setValidatedDraft(null) on
+  that path); (3) an undisclosed member-delimiter autofix rode into shapes.ts, doc numstat 4/0 vs tree
+  8/1 — a scoped revert structurally cannot reach in-scope files; (4) M9-e and M9-g carry neither TDD
+  row nor exemption. INFO residual, NOT raised as a defect per the input-robustness order step 1: the
+  joiner moved from " | " to newline and is still breakable by a newline in a message, but zero schemas
+  in this tree emit one. Two brief corrections re-derived: M9-c is NOT removed from the plan (16 lines;
+  WITHDRAWN IN PLACE), and the owner s ESLint-residue acceptance is NOT in the register (grep 429 -> 0)
+  though I have honoured it and recorded no round failure for it. 686 findings from my --no-fix run and
+  the round s 429 are DIFFERENT INSTRUMENTS and neither refutes the other. Suite NOT run — QA s step.
+  APPROVED. Not a release decision. NO VERDICT TRAVELS BETWEEN TREES. Round 23 (superseded, was binding
+  at 2d90e8a): Round 23 (current, binding): 2d90e8a on master — the TRAILING REVIEW DEBT (D39 for the
+  D30-D34 round; D37 for 2d90e8a/D40). Delta reviewed = 4a7126b..2d90e8a: 4 commits, 17 files, 10 non-test.
+  HEAD == origin/master == 2d90e8a verified by git ls-remote (computed AT THE REMOTE) at pass start 08:24:00Z
+  AND pass end 08:33:42Z; working tree proven blob-identical to the SHA path-by-path, which is what licenses
+  gating in place. D35 re-derived as bounded to D30-D34, so 2d90e8a is INSIDE the debt and NOT waived
+  - agrees with uat R22.4.3, independently, not inherited. ARCHITECTURALLY GROUNDED: system-architecture.md
+  EXISTS (221 lines, ls -d + git cat-file -e); rounds 6/7/8 wrongly declared it absent and this round
+  does not inherit that. Adversarial trigger MET (D34 relaxes server validation; Discord post is irreversible)
+  and discharged IN PART: I drove the REAL discordMessageShape with caller-sendable payloads into the
+  REAL formatMutationError (probe-cr25, imports from the tree, no embedded copy); the send-to-Discord
+  half is STRUCTURALLY CLOSED to every agent here because it would require an outbound Discord message,
+  which is prohibited absolutely. Findings: MEDIUM-1 D32 readable errors defeated on a REACHABLE path
+  - formatMutationError splits on '' | '', which Zod itself emits inside a single discriminatedUnion message,
+  so ONE real issue renders as SIX lines, five bare numbers (measured, not read). MEDIUM-2 no gate reaches
+  any test file (tsconfig excludes **/__tests__, .eslintignore does not; 45 parsing errors, all test files,
+  PRE-EXISTING). LOW-1 orphaned ID_LAYOUT and NOTICE consts. LOW-2 the dropped-types notice is triplicated
+  and DRIFTED at this very reword (trailing period on JsonModalBody only). INFO: D34 leaves NO emptiness
+  floor at any layer - refineDisplayableText is max-only and validateContentRequirements floors only TOP-LEVEL
+  length - but the editor tolerates it (SectionEditor uses map/length/filter, no unguarded [0]). D40 removal
+  verified CLEAN AND COMPLETE (grep CodeMessageNotice|codeMessageDroppedNotice at 2d90e8a = ZERO) and
+  the three paste/dialog surfaces D40 preserves still render. CORRECTION carried: both test files were
+  TRIMMED (M), NOT deleted - ''0 51'' in --numstat means no lines ADDED, not a deletion. Implementation
+  doc has ZERO record of 2d90e8a while still asserting CodeMessageNotice as created and its layout.tsx
+  TDD exemption as live - both false at the tree; recorded, not charged, since 2d90e8a is the owner''s
+  own commit. APPROVED_WITH_COMMENTS; NOT a release decision - 2d90e8a stays UNGATED. Nothing here holds
+  the tree (rounds-stop; the tree is live). NO VERDICT TRAVELS BETWEEN TREES. Round 22 (superseded by
+  the above, retained): 4a7126b on chain/013-toast-vessel — TEST-ONLY round adopting QA''s F-QA28 PASTE-SURFACE
+  render instrument (one file, src/utils/__tests__/013-qa-paste-surface-render.test.ts, +82/-0). One commit
+  atop 664e0c0; non-test delta 664e0c0..4a7126b EMPTY; the four source files are byte-identical to abcf585
+  and have not moved across TWO subsequent commits; origin/master unmoved at a151fb4 (git ls-remote).
   Re-derived git-side, verified at pass start AND end. SO THE ROUND-20 SOURCE VERDICT STILL CARRIES. Substance:
   this instrument reaches the PASTE SURFACE (NewMessageJsonInput.settledNotice) — the site the owner ruling
   actually named and the one I scoped OPEN at rounds 20/21. QA withdrew its earlier "unreachable without
@@ -137,19 +157,15 @@ Reviewed-At: 'Round 24 (current, binding): TREE e1d9b2b on chain/013-rider-2, CR
   round 4 at 92ce026, round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT
   TRAVELS BETWEEN THESE TREES.'
 Status: Code Review Approved
-Status-Detail: 'Round 24 (binding) at e1d9b2b on chain/013-rider-2: APPROVED, SCOPED. Rider 2 re-review.
-  All five round-23 findings disposed, four structurally, each established by an instrument run rather
-  than by reading the fix; MEDIUM-1 took the Preferred (structural) remedy I flagged as decisive. Four
-  new LOW findings (source comments, a dead divergent branch, an undisclosed autofix, two missing TDD
-  exemptions) — none changes a decision, all route to a follow-up register, and the tree they would hold
-  is an unpushed chain branch. My own round-23 enumeration is corrected against myself in the round text.
-  Assumption Not Checked routes to QA: both sides of M9-b s verification read resolveContentLoss, so a
-  defect inside it would be invisible. qa proceeds at e1d9b2b. VERDICT BASIS, added after the fact and
-  recorded in the round text: this APPROVED was issued against plan rev 46, whose M9-d property required
-  `pnpm lint` to exit zero on the tip; the gate reported exit 1, and the verdict did not reconcile against
-  that clause. D51 (rev 47, 06fad81) withdrew and restated it afterwards, so the tree conforms to the
-  criterion AS IT NOW READS - had the clause been kept, this verdict would have needed revisiting. Steering
-  found that, not this review. The tree did not move.'
+Status-Detail: 'Round 25 (binding) at TREE b56570d / CRITERIA rev 49: APPROVED, SCOPED, test-only. All
+  four M10 criteria met, each established by an instrument rather than a report — including four mutants
+  I ran myself in an isolated rig to confirm the adopted oracle is ARMED and not merely present. The production
+  tree did not move, so round 24 s source verdict carries by delta-round identity; the full suite is QA
+  s. Two LOW findings, both about the accuracy of claims about evidence (a mis-cited mutant, a mis-attributed
+  literal); neither holds the tree. CR24-2 REMAINS OPEN BY RULING — armed, not fixed; do not fix it by
+  deleting the branch as dead. Assumption Not Checked routes to uat: the header s five-row paraphrase
+  of D17 was not checked against the plan, and because every expectation is a literal, nothing in the
+  suite could contradict it.'
 ---
 
 # Code Review: Plan 013 — Components V2 support across the editing surfaces (M1 only)
@@ -7117,3 +7133,198 @@ that can fail for the right reason, and it would have failed under the defect it
 2. **CR24-1 → CR24-4 → the implementer**, as a follow-up register. None holds the tree.
 3. **CR24-5 → steering.** A ruling that binds stages should be readable from the register.
 4. **My verdict binds to `e1d9b2b` and expires the moment the tree moves.**
+
+---
+
+# Round 25 — M10 (D52), scoped re-review at `b56570d`
+
+**Reviewed-At — BOTH ANCHORS.**
+**TREE** `b56570dfa916368e9942e671d594112750567923` (`chain/013-rider-2`; `e1d9b2b` confirmed an
+ancestor). **CRITERIA** plan **rev 49** (`9637735`).
+**This verdict expires when EITHER anchor moves.** Re-verified at pass start and end: `origin/master`
+computed at the remote = `2d90e8a`, the branch unpushed, working tree clean and at `b56570d`.
+
+**Round 24's verdict is EXPIRED on both axes** and is superseded by this one.
+
+## Scope Actually Assessed — bounded deliberately, and here is the bound
+
+The owner's ruling (D52) makes this **test-only**, and a test-only change licenses a **scoped**
+re-review. I bounded it and state the bound rather than implying a full pass:
+
+**Assessed** — the two changed test files; all four M10 criteria; the completeness of the reverted
+mutation; the arming of the adopted oracle, by execution; `tsc` on both projects at the SHA.
+
+**Not assessed, and why** — the production tree, because it **did not move**: every production blob
+is byte-identical to `e1d9b2b` (`src/utils/index.ts`, `messageMode.ts`, `formatMutationError.ts`,
+`shapes.ts` all verified by `git rev-parse`). **Round 24's source verdict therefore carries forward
+by the delta-round identity rule**, which requires re-verification of identity, not a fresh attack.
+**Not assessed** — the full suite (627/627 is QA's claim and QA's step; I ran only the two spec
+files, as adversarial probing of a guard).
+
+## The four M10 criteria, reconciled
+
+*Applying my own round-24 rule: a verdict is reconciled against the milestone's acceptance
+properties, not only against the reviewer's findings.*
+
+| Criterion | Result | How established |
+|---|---|---|
+| **M10-a** production diff empty | **MET** | two instruments |
+| **M10-b** oracle adopted **and armed** | **MET** | four mutant runs, mine, in isolation |
+| **M10-c** row-E constant corrected, nothing else moved | **MET** | diff read in full |
+| **M10-d** the CR24-2 warning lives in the plan | **MET** | plan rev 49, carried as `uat`'s line |
+
+**M10-a — the criterion the owner's ruling turns on.** `git diff --numstat e1d9b2b b56570d -- src
+':(exclude)*__tests__*'` returns **no rows**. Corroborated by a second instrument rather than
+trusted: the full `--name-status` for the range is exactly **two test files** (one `M`, one `A`).
+And because the implementer applied a mutation to production code and reverted it, I checked the
+**revert was complete** rather than assuming M10-a would catch it — all four implicated production
+blobs are byte-identical to `e1d9b2b`. **The round did not exceed its ruling.**
+
+**M10-b — verified by execution, from first principles.** I did not accept QA's mutant report or the
+implementer's reproduction. I built a rig from `git archive b56570d`, asserted blob identity, and ran
+four mutants **in the rig only** — the shared tree was never mutated, which is the point of the
+arrangement. Results in `probe-cr28`:
+
+| Run | Mutation | CR24-6 oracle | M9-b's spec |
+|---|---|---|---|
+| Control | none | **22/22 pass** | pass |
+| Row D | `resolveContentLoss` row D → V2 when flagged | 4 fail | **4 FAIL** |
+| Row C | `resolveContentLoss` row C → always classic | 3 fail | pass |
+| **M4** | `settledMode` collapsed to the spec's encoding | **4 fail** | **pass** |
+
+**M4 reproduces QA's differential exactly** — oracle 4 failed, M9-b's spec green. **The oracle is
+armed.** The **row C** run is the one I would keep: it shows the oracle catching a seam defect
+M9-b's spec cannot see *at all*, which is the marginal value the adoption was for.
+
+**M10-c.** `modeAfterLoad`'s `requiresChoice` fallback now returns `isMessageV2(draft) ? 'v2' :
+'classic'`, matching production's `settledMode` expression. The diff is that expression plus a
+comment; **no fixture and no expected value moved** — read in full, not sampled.
+
+## Findings
+
+**[LOW] Evidence accuracy** — the oracle's own header cites the one mutant that does not demonstrate its claim
+
+- **Location**: `src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts`, header block.
+- **Class**: A **non-vacuity claim whose cited instance does not establish it** — the contrast
+  asserted between two instruments is drawn at the one case where both instruments behave the same.
+- **Enumeration**: the header makes exactly **one** such claim: *"Mutating `resolveContentLoss`'s
+  row-D branch turns this spec red while M9-b's own spec stays green, which is the whole claim."*
+  **Measured (probe-cr28): under a row-D mutation BOTH go red** — 4 and 4. `fqa31` catches it through
+  its own literal `expect(modeAfterLoad(incoming)).toBe('classic')` assertions, which do not move
+  with the seam. *What this does not cover*: mutants I did not author; I ran three.
+- **Issue**: **The claim is true and the evidence for it is wrong.** Row C and M4 both demonstrate
+  it cleanly; row D does not. This matters because the header is the *only* stated justification for
+  adopting a second oracle, and a reader checking that justification by running the cited mutant
+  would find it fails and could wrongly conclude the oracle is redundant. It is not — row C proves
+  otherwise.
+- **Required Action**: *Eliminate the class — cite the mutant that discriminates.* **Preferred**:
+  replace the row-D sentence with row C or M4, both already captured beside the file. **Minimum**:
+  strike *"while M9-b's own spec stays green"* from the row-D sentence.
+
+---
+
+**[LOW] Provenance** — one of the eight literals is attributed to a D17 row that describes a different case
+
+- **Location**: same file, `CELLS`, entry `bit=1 v2=0 classic=0`.
+- **Class**: An expectation whose **stated provenance does not cover it** — in an oracle whose entire
+  authority rests on every literal being transcribed from the plan and from nothing else.
+- **Enumeration**: all **8** cells checked against their own `d17Row` string. **Seven are correct.**
+  One is not: `bit=1 v2=0 classic=0` has `draft: { flags: V2_FLAG }` — **no components** — and is
+  attributed to *"the flag over components within the schema and no content"*, a row about
+  components being **present**. The same string is carried by `bit=1 v2=1 classic=0`, where it *is*
+  correct. The header's quoted D17 prose has **five** rows for **eight** cells, so at least some
+  cells are necessarily derived rather than transcribed; this is the one where the derivation is
+  mislabelled as a transcription.
+- **Issue**: The **value is right** — `'v2'` follows from the Objective invariant (*a message is V2
+  iff the flag is set or its components include a V2 type*), and production agrees. **The citation
+  is wrong**, and the citation is the oracle's only claim to independence. Sharper still: **this is
+  the exact cell my row-C mutant exercises** — the cell doing the most discriminating work in the
+  whole file has the weakest stated provenance. Because every expectation is a literal, **no
+  mutation of the code can ever contradict it**; that is the design's strength and its blind spot.
+- **Required Action**: attribute the cell to the Objective invariant it actually follows from, or
+  quote the D17 row that covers *flag set, no components, no content*. **No value changes.**
+
+---
+
+**[INFO] CR24-2's divergence is closed; its duplication is not** — recorded so nobody reads either half wrong
+
+M10-c makes `modeAfterLoad` and `settledMode` compute the **same** expression on the `requiresChoice`
+branch. **So the live disagreement I measured in `probe-cr27` — production `'v2'` versus the spec's
+`'classic'` for a stored row-E record — no longer reproduces at this tip.** That is established by
+reading both expressions, not by re-executing probe-cr27, and I mark it as a reading.
+
+**CR24-2 itself remains open and must stay open.** Two encodings of one rule still exist; only their
+disagreement is gone. **Arming a guard is not fixing the defect it guards**, and D52 is explicit that
+no production code was touched. The warning against a wrong fix now lives in the plan at M10-d.
+
+## Assumption Not Checked
+
+**This review assumes the header's five-row paraphrase of D17 faithfully represents the plan's
+Objective section, and does not verify it against the plan.**
+
+- **Why it matters**: I checked all eight cells against **the header's quotation** of D17 — that is
+  how I found the misattributed cell. I did **not** check that quotation against the plan's Objective
+  text itself. If the paraphrase is inaccurate, **all eight literals inherit the error**, and because
+  they are literals **nothing in the suite can contradict them**: the oracle would be authoritative
+  for the wrong rule, permanently green, and more convincing than the code it judges.
+- **Falsity signature**: any cell's `expected` mode, or the paraphrase's wording, disagrees with the
+  plan's Objective section as written.
+- **Owner**: **`uat`**, which reads the plan's Objective as its own source of truth and is the stage
+  positioned to compare the two. Not QA — QA authored the transcription, and an author checking its
+  own paraphrase against the source is the weaker arrangement. Routed in Next Steps.
+
+## Gate Results at the SHA
+
+| Gate | Result |
+|---|---|
+| `tsc --noEmit` | **exit 0** |
+| `tsc --noEmit -p tsconfig.test.json` | **exit 0** |
+| CR24-6 oracle, unmutated, in the rig | **22/22 pass** |
+| `pnpm lint` | **not run as a pass/fail gate** — D51 accepts the residue by ruling |
+
+**The full suite was not run** — QA's step; 627/627 is QA's claim to verify, not mine to repeat.
+
+## Verdict
+
+**APPROVED**
+
+**Not a release decision.** `origin/master` is `2d90e8a`; this branch is unpushed.
+
+**Rationale.** All four M10 criteria are met, each established by an instrument rather than by
+reading a report — including the criterion the owner's ruling turns on, checked with two instruments
+plus a blob-identity check on the reverted mutation. The oracle is genuinely armed, and I know that
+because I mutated the seam myself in an isolated rig and watched it fire. The round stayed inside its
+ruling exactly.
+
+The two findings are **LOW and both concern the accuracy of claims about evidence, not the evidence
+itself** — a mis-cited mutant and a mis-attributed literal. Neither changes a decision; both route to
+a follow-up register. Worth saying plainly: **the implementer reproducing QA's mutant rather than
+taking it on faith, and reverting and verifying the revert, is the behaviour that made this round
+cheap to review** — I could check its work because it had done the check in a form I could repeat.
+
+## Required Actions
+
+| # | Severity | Action | Owner |
+|---|---|---|---|
+| CR25-1 | LOW | Cite row C or M4, not row D, for the oracle's non-vacuity claim | implementer |
+| CR25-2 | LOW | Fix the `bit=1 v2=0 classic=0` cell's D17 attribution (no value change) | implementer |
+| CR25-3 | — | Check the header's D17 paraphrase against the plan's Objective section | uat |
+| CR24-2 | LOW | **Still open. Do not fix by deleting the branch as dead.** | deferred by D52 |
+| CR23-6 | INFO | D34's Discord question — owner only, by observation | owner |
+
+## Captured Instruments
+
+- `agent-output/verification/013/probe-cr28-oracle-arming/` — `RUN.md` and four run logs
+  (`run-control.txt`, `run-mutant-rowD.txt`, `run-mutant-rowC.txt`, `run-mutant-M4-collapse.txt`).
+  Rig-isolated; blob identity asserted before each run; the shared tree never mutated.
+- CR25-1 and CR25-2: **`no test`** — both are claims *about* evidence in a comment, not executable
+  properties. The instrument that would catch CR25-2's class is CR25-3, and that is a document
+  comparison, not a test.
+
+## Next Steps
+
+1. **`qa` verifies at `b56570d` / rev 49.**
+2. **CR25-3 → `uat`** when it re-issues the gate; it is the one item that could invalidate the
+   oracle wholesale, and it is a plan-reading task, which is `uat`'s.
+3. **CR25-1, CR25-2 → the implementer** as a follow-up register. Neither holds the tree.
+4. **This verdict binds to TREE `b56570d` AND CRITERIA rev 49, and expires when either moves.**

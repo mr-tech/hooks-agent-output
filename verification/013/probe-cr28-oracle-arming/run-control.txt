@@ -1,0 +1,10 @@
+
+ RUN  v4.1.2 /tmp/cr-rig-b56570d
+
+
+ Test Files  1 passed (1)
+      Tests  22 passed (22)
+   Start at  17:27:23
+   Duration  799ms (transform 110ms, setup 0ms, import 437ms, tests 8ms, environment 0ms)
+
+CONTROL_EXIT=0
