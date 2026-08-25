@@ -2503,3 +2503,81 @@ read as one observation when it is two, the second conditional on the first.
 shipped and these rows do not expire.
 
 **Standing note:** the UAT document, then the deployment record, are authoritative on execution state.
+
+---
+
+# Stage close — UAT Complete, and the instrument-class register at six
+
+`uat-hooks-013-3` rev 17 (`e4c37af`) records **UAT Complete**: *APPROVED FOR RELEASE, conditional on
+the human click-through of BC-18, BC-19a and BC-19b*, anchored at `4a7126b`. It has reached its
+run-length ceiling; further UAT work needs a fresh session.
+
+**F-9 did not propagate, and the reason is evidence rather than luck.** UAT measured its own document
+rather than recalling: zero lines pair `a151fb4` with `test-only`; the sole occurrence is anchored at
+`abcf585`. **It had read the document carrying the false note and did not inherit it, because at rev
+13 it derived the delta from the tree — `git diff --numstat` plus per-path blob identity at both
+tips — instead of restating my `Verified-At-Note`.** That is a concrete instance of the
+re-derive-don't-adopt predicate producing a measurable outcome, and it belongs in the retrospective
+as evidence, not as another assertion of the principle.
+
+**The (b) retirement is settled by both stages.** UAT re-derived rather than accepted — confirming
+`Navigation.tsx` at blob `339ed840` across all three tips, `git diff --name-only` empty over it, and
+the `_layout` directory holding exactly two files, so *"the sibling slot"* is literal. Its own
+statement of the lesson is better than mine and is adopted: **a widened falsity signature is not
+automatically a better one.** Nothing was withdrawn — a row's owner retired a proposed failure mode
+on evidence, which is the register working as designed.
+
+## Instrument class — six members, predicate unchanged
+
+**Predicate: an existence or count predicate that cannot fail loudly.** Stated on its own terms so it
+outlives its instances; the members are how it was found, not what it is.
+
+| # | Instrument | Failure |
+|---|---|---|
+| 1 | piped `grep -c` over filtered output | undercount (46 vs 51) |
+| 2 | `ls -a \| grep -x ".github"` | false absence, non-deterministic |
+| 3 | `git diff --name-only \| grep -c .` | 8 against a true 7 — **this chain, today** |
+| 4 | `git rev-parse <tree>:<path>` on an **absent** path | echoes its argument to stdout **and exits 0** — an `\|\| echo MISSING` fallback never fires |
+| 5 | `git cat-file -e` on a **mis-typed** path | ABSENT is indistinguishable from absent-because-not-there |
+| 6 | `git rev-parse "<tree>:$P"` with **`$P` empty** | returns the **root tree SHA**, exit 0 |
+
+**#6 is the sharpest member and is verified here.** It does not fail, does not return null, and does
+not repeat — it returns **three differing plausible 8-char hashes**, which is exactly what a real
+per-file difference looks like:
+
+    a151fb4:  -> f819aca2      root tree a151fb4 = f819aca2
+    abcf585:  -> c24375ff      root tree abcf585 = c24375ff
+    4a7126b:  -> 189d9d60      root tree 4a7126b = 189d9d60
+    exit = 0
+
+**And it is worse than a bare false positive in this chain specifically**: `189d9d60` is the root tree
+SHA **recorded in `release-4a7126b-tip-verification.md` §1**. A reader comparing per-file blobs could
+match an empty-path result against a genuinely recorded value and conclude the comparison was sound.
+**The wrong question returns a right-looking answer that cross-checks against the record.**
+
+**Remedy for #5 and #6, and the general form:** name the path from `git ls-tree` rather than typing
+it, assert existence with `git cat-file -e` **before** comparing, and never interpolate a path
+variable into `rev-parse` without checking it is non-empty. Verified: `git ls-tree -r --name-only
+4a7126b -- 'src/app/message/m/[id]/_layout/'` returns exactly the two files.
+
+**All six were caught by contradiction against a second instrument, never by re-running the first** —
+each reproduces stably, so repetition reads as confirmation. That is the transferable finding and it
+is the one the retrospective should carry.
+
+## Final QA state
+
+| Item | State |
+|---|---|
+| **Phase 2** — plan-level | **QA Complete** at `4a7126b` |
+| **Phase 3** — release tip | **Release Verified** at `4a7126b` (`release-4a7126b-tip-verification.md`, no ID) |
+| **BC-18** | OPEN — PRE, owner, executable now |
+| **BC-19a** *(appears-at-all)* | OPEN — PRE, owner, executable now |
+| **BC-19b** *(legible-and-placed)* | OPEN — PRE, owner, decidable only after 19a |
+| **BC-21** | OPEN — POST, owner, decidable on deploy |
+| **BC-11b** | TERMINAL: **CANNOT BE EXECUTED** — a permanent absence of evidence, never "closed" |
+
+**Nothing has shipped.** `4a7126b` is not at the remote; releasing requires a push, and the push
+requires the owner's approval, which no verdict in this document grants.
+
+**Standing note:** this table is point-in-time. The UAT document, then the deployment record, are
+authoritative on each row's execution state.
