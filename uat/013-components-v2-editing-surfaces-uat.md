@@ -5,6 +5,33 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
+  **Rev 44 — BC-7 and BC-8 → `EXECUTED` (2026-08-25). Seven of the eight release conditions are terminal;
+  BC-4 is the last, and it is not his.** He chose *"Yes, opened the JSON"* against R43.4's question, put to
+  him **verbatim as the whole of the question**. **Framing tested against R25.1 and it is the cleanest prompt
+  of this chain**: two ways of leaving the rows open stood in front of him — *"No, screen only"* and a
+  **costless** *"Not from memory"* that required **no claim about memory at all** and would have been
+  recorded as **unstated rather than as a negative observation** — **and he took neither.** No option carried
+  a penalty, which makes this **more neutral than BC-5's**, where neither alternative was costless. **The
+  recording constraint is satisfied on its own terms: the limb was settled by opening the Message JSON, which
+  is exactly what it asked.** **RESIDUAL 3 GROWS TO NINE — and the pattern in it is worth more than the
+  count: every operator row closed through a structured prompt is in this class, and the only two closed on
+  his own characterisation, BC-2 and BC-3, are the two he described spontaneously in his own words without
+  being offered options.** **A structured prompt produces a selection, and a selection is an adoption.** This
+  chain got its answers quickly and precisely **because** the prompts were well made; the price is that
+  **almost every closure in the register is an adopted description rather than an account** — **a property of
+  the method, not a failing of any prompt in it, and none of the nine would have been better served by a
+  worse prompt.** Recorded because it becomes invisible once a register is discharged, and **the gate must
+  not read as though nine rows were independently characterised when two were.** **BC-4 IS NOW THE ONLY
+  OUTSTANDING RELEASE CONDITION**, blocked on a fixture that is **steering's to author and was never his to
+  wait on** — and **its terminal states are named here in advance rather than improvised later**:
+  **`EXECUTED`** with result and date; **`TERMINAL: CANNOT BE EXECUTED`** if no honest fixture exists, the
+  obligation **standing**, permanently unreachable, **real residual risk the gate names and never read as
+  closed**; or **`WITHDRAWN`** on the owner's ruling alone. **NOT available: a quiet drop, a *satisfied
+  incidentally*, or a decision that the row stopped mattering because it was last — a row that is the last
+  obstacle is the row under the most pressure to be waved through, and that paragraph exists to be quoted at
+  whoever is tempted.** **The release decision does NOT move and remains conditional: seven-of-eight is not
+  eight, and `NOT EXECUTED` is not a terminal state.** **Open set 7 → 5** — `PRE` **1** (BC-4), `POST` **4**.
+  **Both anchor axes re-derived and unmoved; branch unpushed; nothing released.**
   **Rev 43 — the owner reported against the walkthrough: FIVE rows → `EXECUTED`, two do not close, one
   consolidated ask.** His message was seven lines, ***"-as expected-"*** against items 1–7, nothing else.
   **Rev 23's ruling was re-read at this document and applied, not softened**: the phrase is compatible with a
@@ -705,6 +732,7 @@ Verified-At: >-
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — **the owner's answer, and a correction to this register's correction of steering** | Owner ruled **"Record it, leave it"** — no tree move, shipped file not corrected; and steering's row-E evidence was sound after all | **Rev 41. WITHDRAWAL + THE RE-ISSUED GATE.** **Rev 40's contradiction of steering is WITHDRAWN IN FULL and the error was this register's** — measured with `grep -n`: **probe line 23 IS the row-E line of the D17 quotation** and carries *"and is told what the other drops"*; shipped line 23 does not. **The quotations do NOT end identically; steering's instrument was sound.** Rev 40 called that proof unsound; **that sentence is retracted — a withdrawn-but-correct proof is the same defect wearing the other coat.** **How it was produced: rev 40 inferred a location from a stale read instead of measuring it — the third consecutive instance of one class, each committed inside the correction of the last.** One factual note, **explicitly not offered as a defence**: the probe's quotation *was* truncated when rev 39 read it and has since been fixed, so both copies then read alike — **this register did not know that, did not measure it, and the reason it gave was false.** **OWNER RULED "Record it, leave it"** → CR25-1/CR25-2 are **`RESIDUAL — owner ruled, recorded not fixed`**, owner = the record, which satisfies R36.5. **GATE RE-ISSUED: `APPROVED FOR RELEASE, conditional on the human click-through of BC-1, BC-4, BC-6, BC-7, BC-8, BC-9, BC-10, BC-18` — before the MERGE, since `master` serves production.** **TREE `b56570d` / CRITERIA plan rev 49**, both derived immediately before commit, either moving expiring it; covered set **21 paths / 9 production**; **`e1d9b2b..b56570d` holds ZERO non-test paths.** **All TWELVE rows fresh — derived here, not escalated: byte-identical production ENTAILS no prediction moved**, which reaches the twelfth row QA's un-enumerated eleven does not. **Six residuals**: 5 **reclassified silent → GUARDED** (R38.4's predicted condition fired; both wrong CR24-2 fixes now fail, oracle sole detector; M9-b's blindness NOT closed — guarded, not fixed), and **6 NEW — the shipped oracle's provenance is wrong where it runs, the correction existing only where nothing executes it.** **Value: PARTIAL, re-established on byte-identity rather than carried.** **Does not authorise the merge, does not close the chain. Twelve rows, fresh, NONE OBSERVED.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — **the eight `PRE` rows, written for the owner to execute**, for `OWNER-QUEUE.md`; steering declined to assemble them itself because **paraphrasing verdict-bearing text is where this fleet has failed all day** | Actionable without opening another document; all limbs; the exclusions; BC-1 first; the two recording constraints; BC-4's fixture named as steering's | **Rev 42. WALKTHROUGH DELIVERED (R42.1), liftable verbatim.** **Appendix B is `(rev 11)` and STALE** — it predates the failure-mode reconciliation of six rows, the predicted-value corrections of three, and the D31 exclusions — **so it is superseded rather than repaired, and not lifted.** **Every condition, predicted value and exclusion taken from QA's register** (row definitions are QA's) and **every payload from Appendix C**, authored under his ruling that *"if it cannot be generated for me to input into the editor, it will not be done"* — **so no placeholder appears, a placeholder being the item unfulfillable rather than a lesser inconvenience.** **BC-1 is item 1 and says why: every automated test stops at the text the dialog is handed, and nothing proves the dialog puts it on screen.** **Exclusions are stated beside the item they qualify, not collected at the end** — a reader who skips to their item still gets them, which is what the reconciliation was for. **The two recording constraints appear in his terms** — *"'it looked fine' is not an answer for this one"* — **and remain in the rows themselves.** **BC-4 written as BLOCKED AND NOT HIS**, its fixture owed by steering, so he does not sit waiting. **BC-2/BC-3 deliberately excluded and flagged not to be added** — terminal since rev 19/20, and their subject is the ingress path his ruling puts out of reach. **He is asked for what he SAW, not for a verdict against a row: this register terminalises, he observes** — which is R25.1's residual not repeated. **No row moves; the rev-41 gate stands. Open set 12, NONE OBSERVED.** |
 | 2026-08-25 | **owner**, relayed verbatim and complete by `steering-hooks-013-3` [b04529]; **steering set nothing** | Seven lines, ***"-as expected-"*** against items 1–7 of the walkthrough, nothing else in the message | **Rev 43. FIVE ROWS → `EXECUTED`; TWO DO NOT CLOSE; ONE CONSOLIDATED ASK.** **Rev 23's ruling re-read at source and applied, not softened.** **Two facts extend what the phrase reaches**: he answered **exactly the runnable set**, omitting only the item marked *BLOCKED, NOT ON YOU* — a general impression does not precisely omit that — and **R42.1 enumerated every limb before he looked**, so *"as expected"* has a determinate referent where at rev 23 the row's own cell named one limb of several. **That is the first moment the revs 29–33 reconciliations pay.** **THE LINE IS THIS REGISTER'S SILENT-LIMB TEST, not an ad hoc split**: the report is **uniform**, and uniformity is compatible with per-item work *and* a global impression — **for items whose limbs are all visible both readings converge and the row closes; for an item with a limb SILENT on screen the readings diverge, which is exactly what the recording constraint was written to catch.** **The two items carrying a silent limb are the two carrying the constraint — the constraint IS the marker.** **`EXECUTED`: BC-1, BC-6, BC-9, BC-10, BC-18.** **BC-1 discharges QA's Assumption Not Checked — a human read the dialog, which is the only instrument that could reach it.** **BC-9 closes though its last limb needs a second act, because that limb is not silent — if he took one option he knows it.** **NOT DECIDABLE: BC-7, BC-8** — the screen looks identical whether the bit is right or wrong. **ONE question closes both.** **COST STATED: residual 3 (attestation by reference) grows from two members to seven** — now the majority of executed operator rows — **sufficient because the descriptions were enumerated per limb before he looked; the difference from rev 23 is in the artifact, not the tolerance.** **Release decision UNCHANGED and still conditional: three of eight conditions non-terminal. Open set 12 → 7.** |
+| 2026-08-25 | **owner** via `steering-hooks-013-3` [b04529], which put R43.4's question **verbatim as the whole of the question**; **steering set nothing** | He chose **"Yes, opened the JSON"** over *"No, screen only"* and a **costless** *"Not from memory"* | **Rev 44. BC-7 and BC-8 → `EXECUTED` 2026-08-25.** **Framing tested against R25.1 and it is the cleanest prompt of the chain**: two ways of leaving the rows open stood in front of him, **one entirely costless and demanding no assertion at all**, and he took neither — **more neutral than BC-5's, where no alternative was costless.** **The recording constraint is satisfied on its own terms**: the limb was settled by opening the Message JSON, which is what it asked. **RESIDUAL 3 GROWS TO NINE, and the pattern is worth more than the count: every operator row closed through a structured prompt is in this class, and the only two closed on his own characterisation — BC-2 and BC-3 — are the two he described spontaneously, unprompted.** **A structured prompt produces a selection, and a selection is an adoption**; the chain got its answers quickly *because* the prompts were well made, and the price is that almost every closure is an adopted description rather than an account. **A property of the method, not a failing of any prompt in it.** **BC-4 IS NOW THE LAST RELEASE CONDITION and it is steering's, never his** — and **its terminal states are named in advance rather than improvised**: `EXECUTED`, or **`TERMINAL: CANNOT BE EXECUTED`** (obligation stands, real residual risk, never read as closed), or **`WITHDRAWN`** by the owner alone. **Not available: a quiet drop or a *satisfied incidentally*** — **a row that is the last obstacle is the row under the most pressure to be waved through.** **Release decision UNCHANGED and still conditional: seven-of-eight is not eight. Open set 7 → 5.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -7432,3 +7460,110 @@ this rev's write time: tracked-clean, `origin/master` still `2d90e8a`, branch un
 4. **Devops** — the merge, **only on that.** **It is the deploy.**
 5. **Nobody** — re-raises items 1, 4, 5, 6 or 7; asks him for a capture; or reads five terminal rows as the
    walkthrough being complete.
+
+---
+
+# Rev 44 — **BC-7 and BC-8 → `EXECUTED`. Seven of the eight release conditions are terminal. BC-4 is the last one, and it is not his.**
+
+**Date**: 2026-08-25. **Session**: `uat-hooks-013-5`. **Trigger**: `steering-hooks-013-3` [b04529] put
+R43.4's question **verbatim, as the whole of the question**, and relayed the owner's selection. **Both
+anchor axes re-derived at this rev's write time and unmoved: TREE `b56570d`, CRITERIA plan rev 49.**
+
+## R44.1 — The answer, weighed rather than adopted
+
+**He chose *"Yes, opened the JSON."*** **Provenance, disclosed as always: agent-authored options, steering's
+wording; the question itself is this register's verbatim; no verbatim sentence from him beyond the
+selection.**
+
+**Framing tested against R25.1, and this is the cleanest prompt of the chain:**
+
+| Option | Described cost |
+|---|---|
+| **"Yes, opened the JSON"** — taken | both close, nothing further owed, no capture, no re-run |
+| *"No, screen only"* — declined | both stay open; **one more look at the JSON, not a capture** |
+| *"Not from memory"* — declined | **costless, and requires no claim about memory** — recorded as **unstated**, not as a negative observation |
+
+**Two ways of leaving the rows open stood in front of him, one of them entirely costless and demanding no
+assertion at all, and he took neither.** **None of the three options carried a penalty**, which makes this
+framing **more neutral than BC-5's**, where no alternative was costless (R26.3). **The selection is
+weighable and it closes.**
+
+**BC-7 → `EXECUTED` — 2026-08-25. BC-8 → `EXECUTED` — 2026-08-25.** **The observed result is recorded
+beside each prediction, not over it.** **The recording constraint is satisfied on its own terms: the limb
+was settled by opening the Message JSON, which is what the constraint asked and what he states he did.**
+
+## R44.2 — Residual 3 grows to nine, and the pattern in it is worth more than the count
+
+**Members: BC-21, BC-19a, BC-1, BC-6, BC-9, BC-10, BC-18, and now BC-7, BC-8.**
+
+**The pattern, which this register did not see until the ninth member:**
+
+> **Every operator row closed through a structured prompt is in this class. The only two closed on his own
+> characterisation — BC-2 and BC-3 — are the two he described spontaneously, in his own words** (*"The
+> notice showed. I've removed it."*), **without being offered options.**
+>
+> **A structured prompt produces a selection, and a selection is an adoption.** This chain got its answers
+> quickly and precisely because the prompts were well made; **the price is that almost every closure in the
+> register is an adopted description rather than an account.** **That is a property of the method, not a
+> failing of any prompt in it** — and none of the nine would have been better served by a worse prompt.
+
+**Recorded because it is the kind of thing that becomes invisible once a register is discharged**, and
+because **the gate must not read as though nine rows were independently characterised when two were.**
+
+## R44.3 — **BC-4 is the last release condition, and its terminal states are named now rather than improvised later**
+
+**Seven of the eight `PRE` conditions are terminal. BC-4 alone stands `NOT EXECUTED`, blocked on a fixture
+that is steering's to author and was never his to wait on.**
+
+**Steering states it is writing the fixture and will say so if it cannot author one honestly rather than
+inventing one — the BC-5 precedent, applied by the party that would benefit from ignoring it.** **This
+register names the paths in advance so that no one improvises under pressure when a single row is all that
+stands between a chain and its release:**
+
+| If | BC-4's terminal state |
+|---|---|
+| **The fixture is authored and he observes it** | **`EXECUTED`** with result and date |
+| **The fixture cannot be authored honestly** | **`TERMINAL: CANNOT BE EXECUTED`** — the obligation **stands**, permanently unreachable, and it is **real residual risk** that the gate names. **Never read as closed** |
+| **The owner ends the obligation** | **`WITHDRAWN`** — his ruling alone, recorded with its cost |
+
+**What is NOT available: a quiet drop, a "satisfied incidentally", or a decision that the row no longer
+matters because it is the only one left.** **A row that is the last obstacle is the row under the most
+pressure to be waved through, and this paragraph exists to be quoted at whoever is tempted.**
+
+## R44.4 — Ledger delta at rev 44
+
+| Row | Before | **At rev 44** | Basis |
+|---|---|---|---|
+| **BC-7** | `NOT EXECUTED` — report on record, not yet decidable | **`EXECUTED` — 2026-08-25** | R44.1. Bit **set**, settled by opening the Message JSON |
+| **BC-8** | `NOT EXECUTED` — report on record, not yet decidable | **`EXECUTED` — 2026-08-25** | R44.1. Bit **cleared**, same instrument |
+| **BC-4** | `NOT EXECUTED` | **unchanged — the last release condition**; blocked on steering's fixture, **not on him** | R44.3 |
+| **BC-12, BC-14, BC-17, BC-20** | `NOT EXECUTED`, `POST` | **unchanged** | **Gate chain closure, never the release act** |
+| **Residual 3** | 7 members | **9 members**, with the method pattern recorded | R44.2 |
+| **Release decision** | `APPROVED FOR RELEASE, CONDITIONAL` at TREE `b56570d` / CRITERIA plan rev 49 | **UNCHANGED and still conditional — now on ONE outstanding release condition** | **`NOT EXECUTED` is not a terminal state** |
+| **Open set** | **7** | **5** | BC-7, BC-8 terminal |
+
+**Open set, per class:** `PRE` **1** — **BC-4** · `POST` **4** — BC-12, BC-14, BC-17, BC-20. **Documentary 0.**
+
+> **The release decision does NOT move. Seven of eight conditions are terminal and the eighth is not, and an
+> unconditional approval requires all eight.** **Seven-of-eight is not eight.**
+
+## R44.5 — State
+
+**UAT Complete** for the rev-41 gate at **TREE `b56570d` / CRITERIA plan rev 49** — **both axes re-derived
+at this rev's write time and unmoved.** `origin/master` still `2d90e8a`; **branch unpushed; nothing
+released.**
+
+**Residuals: six**, with **residual 3 at nine members** (R44.2).
+
+**Next Actions** — *point-in-time; later stage documents are authoritative on these items' current state.*
+
+1. **Steering — the BC-4 fixture.** **It is now the only thing between this chain and a complete `PRE` set.**
+   **If it cannot be authored honestly, say so** — R44.3 names what happens then, and every path there is
+   terminal and recorded.
+2. **The owner** — **nothing.** Seven rows are closed on his reports and **nothing further is owed by him
+   for any of them.** BC-4 reaches him only if and when a fixture exists.
+3. **This stage** — terminalise BC-4 when it resolves; **issue an unconditional approval only when all
+   eight are terminal.**
+4. **Devops** — the merge, **only on that. It is the deploy.**
+5. **Nobody** — re-raises a closed row, asks him for a capture, waves BC-4 through because it is last, or
+   reads seven-of-eight as the walkthrough being complete.
