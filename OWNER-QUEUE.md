@@ -28,26 +28,34 @@ lines about items nobody is waiting on.** If it does not need the owner to act, 
 
 ## CHAIN 013 — LIVE. NOTHING IN THIS SECTION IS ON HOLD.
 
-**Rebuilt 2026-08-25, because this file had gone stale and you caught it.** It held the pre-release
-walkthrough you have already run, and was **missing six items outright** — BC-18, BC-19a, BC-19b,
-BC-21, U-C5, U-C6. Your words: *"idk what this is. Not in OWNER-QUEUE"*. **That was a defect in this
-file, and this file is the coordinator's.** You work from here; an item that is not here does not
-exist to you, and relaying lists at you in chat instead is not a substitute.
+**Where things stand.** `origin/master` = **`2d90e8a`**, your own commit, live. Your ruling today
+(**D45**) released the trailing review to run: `code-reviewer`, `qa` and `devops` are all working now,
+and the retrospective fires last, when nothing else is in flight.
 
-**Where things stand.** `origin/master` = **`2d90e8a`**, your own commit, live. 013 released at
-`a151fb4`; four post-release fixes and your removal of the code-path notice since. Registered as
-**D30–D40**. **No QA, no code review and no UAT ran on any of it** — your waiver (D35) — and that
-round now carries a **review debt that blocks chain closure** (D39), parked on your word.
+**The release decision for `2d90e8a` is NOT yours and is deliberately not listed here.** The standing
+decision expired when its covered code moved, and a decision at this tree would be a new one, written
+by `uat` at the final gate against the condition ledger. If that gate returns anything conditional on
+you, it lands in this file as its own item. I named it at you in chat as though it were yours; it is
+not, and that was my error.
 
 ### Still owed to you by me — do not wait on these
 
 - **BC-4** — *an import with no content at all; the dialog stays open showing the error, navigates
   nowhere, creates nothing.* **I still have not written you a payload.** It stays visibly owed rather
   than me authoring a fixture for a row I do not own.
-- **BC-5** — *paste a folder-page export; expect* **"Message must have content, embeds, or
-  components."** **Nobody has established what a folder-page export literally looks like.** UAT
-  refused to invent one, correctly — a made-up fixture makes the step read as executed while testing
-  nothing.
+
+- **U-C5 — R-5's widening.** This has been recorded as waiting on you, in a ledger that names *this
+  file* as the place you would read it — **and it has never been in this file.** You caught that today.
+  It is the blocking edge before `devops` can write the deployment record. **I am not writing the
+  question here from my own paraphrase**: it is `devops`'s finding, I have asked `devops` to state the
+  decision, the options and what each costs, and it goes here in its own words the moment it lands.
+  Nothing is asked of you until then.
+
+- **The operator sitting — the `PRE` rows you run at a browser.** Several of these carry predictions
+  that went stale when the surfaces beneath them moved. **No row is put in front of you until `qa`
+  re-derives its wording**, because a row run against stale wording produces a false pass, and a false
+  pass gets filed rather than investigated. `qa` is doing that now. The runnable list, with re-derived
+  wording and one pass criterion each, lands here when it reports.
 
 ### Decisions, no browser needed
 
