@@ -61,7 +61,13 @@ Status-Detail: >-
   git show), so a Classic-mode open is the deploy-lag signature and not a D11 defect. Rev 9b:
   the creation-SQL type caveat resolved from prisma/schema.prisma (data Json, no @db.Json,
   postgresql => jsonb), residual named; steering's verification SELECT recorded as a precondition;
-  OWNER-QUEUE.md checked against these rows and consistent.
+  OWNER-QUEUE.md checked against these rows and consistent. **Rev 10 (D28)**: QA-R19
+  re-specified against D25 — its three-shape premise re-derived by execution and found dead (chain
+  013 gave cell B3 a lossless path); instrument at verification/012/guidance-class-route-a/ (17/17
+  green at a74b9e2, 6 class members enumerated by the shipped classifier, 3 mutants red). R19 now
+  EXECUTED/PASS, owner re-assigned to qa, and kept falsifiable on the out-of-schema-component edge.
+  Systematic sweep of all 20 rows added on a derived predicate; R5/R6 checked and cleared as
+  underspecified rather than overtaken. Verified-At still c85945f.
 ---
 
 # QA Report: Plan 012 — `valid` field on stored messages
@@ -78,6 +84,7 @@ originals kept for the Phase 1 record — Phase 2 executed against plan rev 23, 
 
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
+| 2026-08-25 | steering-hooks-012-2 | **D28** — re-specify QA-R19 against D25's one-instruction guidance; and say whether any other Open row is in the same position | **Rev 10.** R19's three-shape premise **re-derived and found dead**, by execution rather than on the relay — R19's own history (F-QA11: my first wording wrong in two ways) is exactly why a second relayed premise was not taken on trust. New instrument `verification/012/guidance-class-route-a/` enumerates the class by the **shipped classifier** (`resolveContentLoss(...).row === 'D'`) rather than from prose — **6 members**, and Route A is lossless and bit-clearing for every one, **cell B3 included**. 17/17 green at `a74b9e2`; 3 mutants red, N-B reddening exactly the 3 members carrying an action row, so losslessness is per-member and not a blanket pass. R19 re-specified to **EXECUTED, PASS**, owner re-assigned `owner` → **qa** because the primary instrument needs no human. **Kept falsifiable** per steering's ask: the live edge is a class member with a top-level component outside `topLevelComponentShape`, which the switch silently drops — executed, and R19's original failure clause redirected onto that surviving risk rather than deleted with the premise. **Systematic sweep added** rather than an ad-hoc answer: predicate derived, both known instances checked to fall inside it, all 20 rows dispositioned and reconciled (6 not Open + 4 re-specified + 10 cleared). **R5/R6 checked and cleared by diff** — the conditional modal gating is byte-identical at `c85945f` and `a74b9e2`, so they are underspecified, not overtaken. D26's accepted risk recorded as **not materialised** (owner ran the route at R15; SCR-1 is a class member, so the guidance now has one real end-to-end confirmation) — an event, not a changed requirement. No row added; D24 not reopened; `Verified-At` unchanged. |
 | 2026-08-25 | steering-hooks-012-2 | Closure on the SCR-1 creation-SQL caveat, resolved from the source schema | **Rev 9b.** Caveat **resolved, not carried**. Re-derived rather than accepted on relay: `prisma/schema.prisma` declares `data Json` on a `postgresql` datasource with **no `@db.Json`** anywhere in the file, and Prisma maps `Json` → `jsonb` on PostgreSQL, so `data::jsonb` is a no-op and the assignment is clean; `data` is non-nullable, so `||` cannot blank the record. No `migrations/` directory, so the schema file is the authority. **Residual stated rather than erased**: the live column type is not observable from this repository. Also recorded steering's **verification `SELECT`** (`valid`, `data->'flags'`, `content`) as a precondition on these rows — a silently unapplied UPDATE is one of the two states R2's `valid: true` branch cannot separate on its own, so catching it at creation is cheaper than disambiguating after R2. Steering's `OWNER-QUEUE.md` (`a1ec1e7`) read and checked against these rows: **consistent in every particular** — order, three-way reading, void-not-failing, rebuild-rather-than-interpret, the Classic-mode deploy-lag stop, and the no-modal/R5-R6 disambiguation. No contradiction to route. No row added; `Verified-At` unchanged. |
 | 2026-08-25 | steering-hooks-012-2 | **D27** — owner's ruling on QA's rev-8 report: re-specify QA-R2 onto SCR-1 too, the same way as R4/R15 | **Rev 9.** R2 re-specified onto SCR-1 and folded into the existing section rather than a second one, since all three rows now share one subject and one lifecycle. R2's superseded wording kept, State cell routed, with the reason named: against a repaired 5712 its failure clause had become a **booby trap** — a `true` reading there is now the *correct* reading. **Self-correction, dated and in place**: rev 8's claim that *"R4 and R15 can now be executed at any time, in either order relative to R2"* was true when written (R2 still keyed on 5712) and is **false under D27** — three rows on one record, one of which persists, brings the interference back in the same shape. New authoritative subsection **SCR-1's lifecycle** states the constraint as a runnable order (create → R4 → R2 → R15 → dispose) because the owner runs these from steering's queue file, not from this document. R2's failure clause given a **three-way reading** rather than the original binary: a `true` on SCR-1 is a stale column (creation SQL did not set `valid`) if R4 showed the error, and a real field defect only if R4 did not — so **R4 disambiguates R2**, which is why it runs first. Recorded that SCR-1 is **rebuildable** where 5712 never was, so a voided observation costs a re-run, not a verdict. R3 untouched and still the paired positive control; SCR-1 additionally supplies both directions on a **single** record (`false` at R2, `true` at R15). D18, D24, D26 all unchanged; `Verified-At` again not re-anchored. |
 | 2026-08-25 | steering-hooks-012-2 | **D23** — re-specify QA-R4 and QA-R15 against a subject that still exists, so something verifies D11 end to end before closure | **Rev 8.** Both rows re-specified onto **SCR-1**, a purpose-made scratch record (row-D/cell-B5 shape). Old wordings kept unedited, State cells routed. Reachability established rather than assumed: the 2026-08-23 **table-wide** backfill run found the stranded class had exactly 2 members (5712, 5842), both since repaired by the owner's SQL, and at `a74b9e2` **no supported UI route can mint another** — `switchToClassic` clears the bit, `switchToV2` empties content, and every import route disposes row D to Classic. So no *found* subject exists and D23's scratch-record option is the only live one. **Instrument captured, not narrated**: `verification/012/scratch-subject-SCR1/` executes the shipped predicate and mode-switch over the exact SCR-1 payload — 8/8 green at `a74b9e2`, and **all 8 assertions observed red** under 5 source and 2 fixture mutants. Its **sole-carrier control** is the load-bearing one: without it a mis-built SCR-1 (e.g. a bad username) is refused for the wrong reason and R4 passes vacuously — F-QA13's boolean trap one level up, since an unqualified *"Send is disabled"* does not discriminate either. SCR-1's creation prescribed so that **QA-R9/QA-R20 are untouched** (`valid = false` set in the same statement, so no backfill run is needed) and so that R4/R15 **drop out of the 5712 ordering constraint** — a reduction in the owner's queue; no other row's requirements changed. **D26 not reopened**: both rows are post-deploy-observable, gate closure and not the send, and the section says so flatly — the overlap (R15's act *is* the guidance's Route A) is disclosed as a consequence, never as a condition. `Verified-At` deliberately **not** re-anchored: this is a specification, not a verdict. New Assumption Not Checked booked and routed to devops (deployed SHA vs `a74b9e2`). |
@@ -1157,7 +1164,7 @@ UAT document, and then the deployment record, are authoritative on each row's ex
 | R16 | pre-release | **F-QA8**: the owner has ruled on whether M2-f's content-destroying recovery is accepted as-is, or M2-f gains a preservation clause | Owner's ruling, recorded | Owner | Now — decidable before M2 is written | A stated disposition either way | If accepted silently, guild owners are sent to a repair that retypes their message, and nobody tells them to copy the text first. M2-f passes cleanly either way, so nothing downstream will catch it | owner (put by steering) | **CLOSED 2026-08-23** — *"Stands, but point the guidance at the JSON editor"*. D11 stands; preservation build declined a second time, on the rev-3 corrected facts. **Succeeded by R19** |
 | R18 | pre-release | **F-QA9**: the whitespace-content class is decided — either statbot's corpus/the owner's live POST settles whether Discord accepts flag-set-plus-whitespace content, or M6-b carries the class as its own category so the population is measured before it gates | Owner's live POST, or statbot's corpus, or the M6-b count | Owner (live POST is his instrument, as for both existing sentinels) | Now for the ruling; the count at backfill | Either a Discord verdict, or a category count — plausibly zero, which closes it | If undecided and Discord in fact rejects the shape, hooks.gg marks **sendable** a message that is not, and Statbot attempts a send that fails on a record hooks.gg vouched for — the exact failure the chain exists to prevent | owner (put by steering) | **CLOSED 2026-08-23** — *"Measure the population first"*. M6-b category taken; owner's live POST **withdrawn, not deferred**. **Succeeded by R20** |
 | R17 | pre-release | **D12 enactment**: the devops agent records that the statbot-side ordering instruction was **relayed**, and does not claim statbot's compliance (which is that workspace's to verify) | The deployment record | devops (documentary; no human) | At release | Relay recorded | D12 has no planning-document mirror on the statbot side — plan rev 6 makes this row the only executable trace that the constraint travelled at all. An unrecorded relay is indistinguishable from no relay | devops | Open |
-| R19 | pre-release | **R16/D13 enactment**: the guidance is **shape-dependent over THREE shapes**, not two (plan Validation item 7) — (i) flag-stranded with **no components** (5712; cell B5) → JSON editor *Load*, lossless; (ii) flag-stranded with **type-1 legacy components and no content** (cell B4) → mode toggle, lossless; (iii) flag-stranded with **both content and type-1 components** (cell B3) → **no lossless path exists**; each route destroys what the other preserves, so the guidance must state which side is lost rather than name a winner | The recorded guidance text | Owner (he communicates; no agent may) | Now — decidable before M2 ships | Three shapes named — two with a lossless path, one with none. Executed as **EXT-3** in the pre-registered spec | Guidance written as one line is **wrong for at least one shape whichever line it is**, and a guild owner who follows it loses data while doing exactly what he was told — a loss that reads as a hooks.gg bug rather than as following instructions. **My first wording of this row was itself wrong in two ways** (F-QA11), which is this same defect at one remove | owner (drafted by whoever writes the release note; **he sends it — no agent does**) | Open |
+| R19 | pre-release | **R16/D13 enactment**: the guidance is **shape-dependent over THREE shapes**, not two (plan Validation item 7) — (i) flag-stranded with **no components** (5712; cell B5) → JSON editor *Load*, lossless; (ii) flag-stranded with **type-1 legacy components and no content** (cell B4) → mode toggle, lossless; (iii) flag-stranded with **both content and type-1 components** (cell B3) → **no lossless path exists**; each route destroys what the other preserves, so the guidance must state which side is lost rather than name a winner | The recorded guidance text | Owner (he communicates; no agent may) | Now — decidable before M2 ships | Three shapes named — two with a lossless path, one with none. Executed as **EXT-3** in the pre-registered spec | Guidance written as one line is **wrong for at least one shape whichever line it is**, and a guild owner who follows it loses data while doing exactly what he was told — a loss that reads as a hooks.gg bug rather than as following instructions. **My first wording of this row was itself wrong in two ways** (F-QA11), which is this same defect at one remove | owner (drafted by whoever writes the release note; **he sends it — no agent does**) | **SUPERSEDED AS SPECIFICATION 2026-08-25 (D28)** — its three-shape premise is **dead at the released tree**: chain 013 gave cell B3 a lossless path, so D25 ships one instruction. Left standing, this row would have the register warning that the guidance destroys data with nothing explaining why it was sent. Row text kept as written — it was correct for the tree it was written against (`c85945f`); the executable specification is the re-specified R19 below. |
 | R20 | pre-release **(gate, not a check)** | **R18 enactment**: M6-b's distribution report carries the whitespace-content class as its **own named category** — `data.components` structurally V2 and `content` non-empty but whitespace-only — with a count **and** row ids, reviewed by the owner at the R9 review he is already doing | The backfill's own report | **Owner — his decision, not a QA verdict**; the count itself is automated | After backfill completes, before declaration | Plausibly **0**. A zero closes the question *for this corpus, at this time* — it is **not** a Discord determination and must not be recorded as one | A non-zero count means live records are being marked **sendable** on a shape nobody has tested Discord against; Statbot then attempts sends hooks.gg vouched for and they fail — the exact failure this chain exists to prevent, arriving as delivery failures rather than as an alert | owner (recorded by devops) | Open |
 
 > **EXECUTION ORDER — the 5712-keyed rows interfere, and this register did not say so.**
@@ -1180,7 +1187,7 @@ here is a value appearing where none was, which a deploy having happened says no
 
 ---
 
-## Re-specification of QA-R2, QA-R4 and QA-R15 (D23, D27) — 2026-08-25
+## Re-specification of QA-R2, QA-R4, QA-R15 and QA-R19 (D23, D27, D28) — 2026-08-25
 
 **Authority**: plan register **D23**, which supersedes D19 and routes QA-R4 and QA-R15 back to QA
 to be re-specified against a subject that still exists, *"so that something still verifies D11 end
@@ -1425,6 +1432,95 @@ R15 is never run**, a stranded record is left in the table: it will appear in an
 backfill as a `flagStructureDisagreement` row with a `false` verdict, and read to a later reader as
 a live defect of exactly the kind this chain existed to find. Whoever stops part-way through the
 sequence deletes SCR-1 or records its id here.
+
+### QA-R19 re-specified against D25 (D28) — a different subject, so kept separate
+
+R19 is not an SCR-1 row. Its subject is **the guidance text**, and everything above about SCR-1's
+lifecycle is irrelevant to it.
+
+**Why it could not stand.** R19 asserts the guidance must be shape-dependent over three shapes, that
+cell B3 has **no lossless path**, and that one line is *"wrong for at least one shape whichever line
+it is"*. **D25 ships one instruction.** Left as written, the register carried a standing warning
+that the guidance about to be sent destroys data, with nothing in it saying why it was sent anyway.
+
+**The premise is dead, and I re-derived that rather than accepting it.** The planner's rev-38
+re-derivation was relayed to me; R19's own history is the reason not to take it on trust — my first
+wording of this row was wrong in two independent ways (F-QA11), so this is precisely the row where a
+second relayed premise deserves execution. Captured at
+**`verification/012/guidance-class-route-a/`**: the class is enumerated by the **shipped classifier**
+(`resolveContentLoss(...).row === 'D'`) over a cross product rather than taken from prose, which
+yields **6 members**, and Route A is run over every one of them as the composer runs it
+(`applyModeSwitch('classic', draft)`). **17 assertions, 17 green at `a74b9e2`.** For all 6 members —
+including `content+noembed+actionrow`, **which is cell B3** — one switch to Classic clears only the
+bit, leaves `content`, `embeds` and `components` identical, leaves the record sendable, and triggers
+no modal. Three mutants confirm the assertions can fail, and N-B is the informative one: inverting
+the type-1 filter reddens **exactly the 3 members carrying an action row**, so losslessness is
+established per member and not as a blanket pass.
+
+**Why the re-specified row can still fail.** A row asserting only "the one instruction is lossless"
+would be unfalsifiable, because class members are lossless *by the class's own definition* — no
+V2-typed component means the type-1 filter drops nothing. The live edge is therefore explicit and
+executed: **a class member carrying a top-level component that is neither type 1 nor V2-typed is
+silently dropped by the switch.** The instrument demonstrates it with a top-level type-3 select
+menu — the shipped classifier calls it row **D**, a genuine member, and Route A discards its
+component while keeping `content`. Such records are outside `topLevelComponentShape` and so are
+unauthorable through the editor. **That is the distinction the row now carries**: the instruction is
+lossless for every member *the product can produce*, not for every member the class admits.
+
+| ID | Class | Condition | Primary instrument | Subject / fallback | Earliest-decidable condition | Predicted value | Failure mode (operator terms) | Owner | State |
+|---|---|---|---|---|---|---|---|---|---|
+| **R19** *(re-specified)* | pre-release **(correctness record on the approved text)** | **D25's one instruction — *switch the message to Classic and save* — is lossless and bit-clearing for every member of the class the guidance addresses**, where the class is row D as the shipped `resolveContentLoss` defines it, not as prose describes it. **Bounded**: over members the product can author, i.e. whose top-level components pass `topLevelComponentShape` | `verification/012/guidance-class-route-a/route-a-class.test.ts` — enumerates the class by the shipped classifier and executes Route A over every member | **QA (automated; no human).** Re-assigned from `owner`: the primary instrument needs no human, and this register assigns owner from the primary, never the fallback. Corroborated once end-to-end by the owner's QA-R15 run — SCR-1 is itself a class member (shape (i)) | Now — it is a property of the approved text and the released tree, and depends on no observation | All 6 members lossless, bit cleared, sendable, no modal | **If a guild owner follows the one instruction and loses data**, the cause is this row's bound having a real member — a record written outside the editor carrying an unsupported top-level component. He would lose it **silently, while doing exactly what he was told**, and it would read to him as a hooks.gg bug rather than as following instructions. *(This is R19's original failure clause redirected onto the risk that actually survives, rather than deleted with the premise.)* | qa | **EXECUTED, PASS — 2026-08-25, `a74b9e2`, this session's own run.** 17/17 green; 3 mutants observed red. Bound recorded, not closed |
+
+**Two things recorded rather than inferred.**
+
+*The bound is not closed and is not claimed to be.* Whether any real record sits in it is not
+established here; the 2026-08-23 table-wide run measured the refusal class at **2** rows, and D24
+disposes of the shape question for one of them — which I do not reopen and do not audit against.
+
+*D26's accepted risk did not materialise, and this is recorded as an event, not a requirement.*
+D26 accepted that the first person to run the repair route would be an affected guild owner
+following our instructions. In fact the owner ran it himself at QA-R15 and reported it behaved as
+expected — and because SCR-1 is a class member of shape (i), **the guidance now has one real
+end-to-end confirmation in the deployed app**, which it did not have when D25 and D26 were decided.
+This changes no requirement, waives nothing, and reopens nothing; it is simply better evidence than
+the row was designed to need.
+
+### Systematic sweep: is any other Open row overtaken? (2026-08-25)
+
+R2 was found by QA reporting an observation; R19 was found by steering rebuilding the owner's queue.
+**Both were found incidentally, and two instances found by accident are a coordinate list, not a
+closed class.** So the class is closed on a predicate here rather than on those two.
+
+**Predicate.** *An `Open` register row whose specification — subject, predicted value, or failure
+clause — rests on a premise since changed by a later ruling (D22–D28) or a later event (the SQL
+repair of 5712/5842, chain 013's release, D25's collapse of the guidance), such that executing the
+row as written would produce a misleading reading.*
+
+**Both known instances match it**, which is the check that the predicate was not fitted to their
+phrasing: R2 by a changed **subject**, R19 by a changed **premise**. A known instance falling outside
+the predicate would have falsified the predicate, not the instance.
+
+**Sweep over all 20 rows**, reconciled: 20 = 6 not `Open` + 4 re-specified + 10 checked and cleared.
+
+| Rows | Disposition |
+|---|---|
+| R1, R14 (executed), R12, R13, R16, R18 (closed) | **Not `Open`** — outside the predicate. R1 cites 5712 only as *synthetic partition fixtures*, which no repair can stale |
+| R2, R4, R15, R19 | **Matched and re-specified** (D23, D27, D28) |
+| R3, R7 | Generic subjects, unaffected by any later ruling or event |
+| **R5, R6** | **Checked specifically and they do NOT match — a distinct, lesser defect.** Both predict *"modal shown"* unconditionally, while `handleModeSwitch` gates it on `enabled: hasDepartingData`. But that gating is **byte-identical at `c85945f` and `a74b9e2`** — verified by `git show c85945f:src/components/DiscordMessageEditor/index.tsx` in this session — so it predates the rows and nothing overtook them. They are **underspecified** (neither says the message must carry departing data) rather than stale. Recorded, not re-specified: D28 routes R19, and widening to these would be the scope expansion D18 forbids |
+| R8 | Unaffected. **One interaction, already handled**: SCR-1's creation sets `valid` explicitly, so QA's own scratch record cannot leave a NULL that would make R8 fail against it |
+| R9, R20 | Owner review gates before the live declaration, which has not happened. Unaffected — and R9's distribution is protected from SCR-1 by design |
+| R10, R11, R17 | Release-time documentary rows. They record occurrence and order, so they have no subject that can go stale |
+
+**Everything that ever keyed on 5712 or 5842 is now accounted for** — R1 (synthetic fixtures), R2,
+R4, R15, R19 (all re-specified) — which closes the sweep on the predicate rather than on the fix
+list.
+
+**One residual, reported rather than acted on**: R10, R11 and R17 are still `Open` in this register
+although the chain is Released, so their real state lives in the deployment record. That is
+**records-lag, not a stale specification** — the standing note at the head of this register already
+tells a reader the later stage documents are authoritative — and those rows are devops-owned, not
+mine to write.
 
 ### Assumption Not Checked — this pass
 
