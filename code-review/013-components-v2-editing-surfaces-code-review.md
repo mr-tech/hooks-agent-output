@@ -7312,6 +7312,45 @@ cheap to review** — I could check its work because it had done the check in a 
 | CR24-2 | LOW | **Still open. Do not fix by deleting the branch as dead.** | deferred by D52 |
 | CR23-6 | INFO | D34's Discord question — owner only, by observation | owner |
 
+### Disposition note — added 2026-08-25, after the verdict. CR25-1 and CR25-2 are NOT fixed in the shipped tree.
+
+**The verdict is unaffected and has NOT expired: TREE `b56570d` is still the tip, working tree clean,
+and the oracle's blob is byte-identical to the commit.** Re-verified when this was written.
+
+**But the fixes for CR25-1 and CR25-2 exist only in a copy that does not run.** There are two files:
+
+| Path | Lines | CR25-1 | CR25-2 | `D13` |
+|---|---|---|---|---|
+| `agent-output/verification/013/probe-qa-verify-rider2/013-qa-cr24-6-...test.ts` | 215 | **fixed** | **fixed** | 5 hits |
+| `website/src/utils/__tests__/013-qa-cr24-6-...test.ts` — **the one the suite executes** | 186 | **still wrong** | **still wrong** | **0 hits** |
+
+At `b56570d` the shipped cell still reads `d17Row: 'the flag over components within the schema and no
+content'` for a draft with **no components**, and the shipped header still cites the row-D mutant as
+its discriminator. **Both defects are live in the file that runs.**
+
+**Consequence, and it is the reason this is recorded rather than left to a message.** `uat`'s CR25-3
+discharge — *the paraphrase is faithful* — was performed against the **probe copy**, whose D17
+paraphrase is not the shipped one: its row E reads *"...Classic or V2 **and is told what the other
+drops**"*, four words the shipped file does not contain. The conclusion may well hold for the shipped
+text too; **it is not the text that was checked.** If the gate records CR25-2 as discharged and
+CR25-3 as verified, **the shipped oracle keeps both defects while every record says otherwise.**
+
+**The expected VALUES are identical across both copies** — verified — so nothing about the oracle's
+verdicts changes and no measurement in Round 25 is disturbed. This is a provenance and record
+divergence, not a behavioural one.
+
+**The class.** This is the **fossil class this chain has already paid for twice** (`probe-cr1`,
+`probe-cr10`) **running in reverse**: there, an embedded copy fell *behind* the tree and silently
+stopped measuring it; here a copy has run *ahead* of the tree and caused a stage to report a fix that
+has not shipped. **Same defect — a second copy of the code under test treated as the code under
+test — and the direction of drift is what disguised it.** The general rule holds unchanged: *the
+artifact under review is the one the tree executes; any other copy is evidence about it, never it.*
+
+**Required Action**: apply CR25-1 and CR25-2 to `website/src/utils/__tests__/`, not only to the probe
+copy. **Owner: the implementer** — QA authored the corrected text and it is good; it simply has not
+landed where it runs. Note the cost steering already flagged: that file is `website` source, so the
+edit **moves the tree and expires this verdict** — which is correct behaviour, not an objection.
+
 ## Captured Instruments
 
 - `agent-output/verification/013/probe-cr28-oracle-arming/` — `RUN.md` and four run logs
