@@ -113,3 +113,18 @@ work with no plan revision behind it.
    does not check the guild. **Two of the four sibling sites guard that exact `'0'` sentinel**
    (`SaveAsMenu.tsx:41`, `f/[id]/page.tsx:354`), which is what makes it an oversight rather than a
    design, and a cheap fix.
+
+6. **Plan 013 assumption 7's falsifier is UNREADABLE, and no instrument on this machine can read it.**
+   Its signature is *the classifier reading `> 0` after the owner declares the D19 repair done*. The
+   repair ran on 2026-08-25 (**D43**, plan rev 37/38/40). But `backfillValid.ts:192-198` selects
+   `.where('valid','is',null)` and accumulates diagnostics **only over rows in that batch**, so every
+   category in a report covers `rowsClassifiedThisRun`, not the table. Every row now carries a non-null
+   `valid`, so the next run classifies nothing and reports zeroes over an empty set — **and an empty
+   measurement is byte-indistinguishable from a pass in the report's own JSON.** The owner's post-repair
+   run reads `count: 0` over `rowsClassifiedThisRun: 2` against `tableWideRowCount: 4839`.
+   **Reading it would take a read-only table-wide classifier, or setting `valid = NULL` across 4839 rows
+   — which is a write, not a measurement, and is not obviously safe. Neither exists and neither is
+   authorised.** **This is not a 013 fix round and must not become one**; it is recorded so a future
+   stage does not quote a zero from that report as evidence of anything. The detector-selection
+   disposition is QA's and `uat`'s. **Not reached by D44** — D44 struck two record IDs and their
+   dependents; this is a defect in the instrument, which has no struck subject.
