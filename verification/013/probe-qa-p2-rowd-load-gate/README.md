@@ -23,7 +23,7 @@ rule fires on `hasFlagV2 && hasContent`. **Row D is a subset of the floor's refu
 refusal is total over the row — not an edge case within it.
 
 **Operator consequence.** M2-a names the Load as the repair path for the flag-conflict records
-(5712 / 5842 / 5855 / 5856): open JSON, press Load with zero edits, save. That path is closed. The
+(5712 / 5842): open JSON, press Load with zero edits, save. That path is closed. The
 `warn-v2-flag-conflict` notice is unreachable from this surface.
 
 ## Why this is a 013 regression, not a pre-existing condition

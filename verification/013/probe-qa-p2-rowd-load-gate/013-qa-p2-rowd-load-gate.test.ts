@@ -4,7 +4,7 @@
  * CLAIM UNDER TEST: at tip 4e9da96 the Message JSON modal's Load button is gated on a content
  * floor computed over the UNRESOLVED parsed draft, so every member of disposition row D
  * (V2 flag set + classic content + NO V2 components) leaves Load permanently disabled — blocking
- * the very repair path M2-a names for records 5712/5842/5855/5856.
+ * the very repair path M2-a names for records 5712/5842.
  *
  * WHY THIS IS EXECUTABLE WITHOUT A DOM: the gate is `!validatedDraft || !!contentFloorError`, and
  * `contentFloorError` is a pure function of the parsed draft. This probe executes the floor over
