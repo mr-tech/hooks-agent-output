@@ -51,22 +51,6 @@ round now carries a **review debt that blocks chain closure** (D39), parked on y
 
 ### Decisions, no browser needed
 
-- **U-C5 — and my old entry for this was unusable, which you caught.** It said *"R-5's widening"* and
-  R-5 appeared exactly once in this file: in that sentence. Here is the actual decision, in full, with
-  nothing to look up.
-
-  **The situation.** After you repair 5712 and 5842, anyone checking the fix will count how many
-  records still have flags and structure disagreeing. **That count will not be zero.** Two records —
-  **5855 and 5856** — are seeds deliberately created in exactly that broken shape, and they are
-  permanent members of the class. So a **successful** repair reads as a **failed** one to anyone who
-  just counts.
-
-  **The decision, and it is only yours because it changes what a release record asserts.** The
-  deployment record is required to state that the surface no longer writes these bad records. **Do you
-  want it to also name 5855 and 5856 as a known, permanent, deliberate residual?** Say yes and devops
-  writes that line; say no and the record stays as the plan words it, and the next person to count
-  gets a false alarm. **No agent has adopted or proposed a remedy here — this pass is genuinely open.**
-
 ## EVERYTHING BELOW IS ON HOLD — 2026-08-23
 
 **Your words:** *"This effort is on hold until the fixes are implemented."* Registered as **D20**
