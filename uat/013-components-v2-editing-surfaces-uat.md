@@ -5,6 +5,14 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
+  **Rev 17 — verdict UNCHANGED; the condition is narrower.** QA split BC-19 as recommended: **BC-19a**
+  *(appears-at-all — a real code import)* and **BC-19b** *(legible-and-placed)*, 19b's decidability
+  depending on 19a. **Rev 15's failure mode (b) *"the page throws"* is RETIRED on evidence** — verified
+  here, not adopted: one mount site inside `<MessageProvider>`, and the sibling `Navigation.tsx` is blob
+  `339ed840` at `a151fb4`/`abcf585`/`4a7126b` and untouched by the release, so that boundary runs in
+  production already. **An unreachable failure is not a reason.** **F-9 answered: this document never
+  carried the false form** — 0 lines pair `a151fb4` with `test-only`, because rev 13 derived the delta
+  from the tree instead of restating it. Instrument class now **six** members.
   **Rev 15 — verdict UNCHANGED; the residue is WIDER than rev 13 described.** QA Phase 3: **RELEASE
   VERIFIED at `4a7126b`** (577/577, build 0). Its coverage finding **corroborated here, not adopted**:
   on the **code-import** surface the **producer is mocked out** (`013-qa-toast-vessel-render.test.ts:21`)
@@ -89,6 +97,7 @@ Verified-At: >-
 | 2026-08-25 | steering-hooks-013-2 [019315], relaying `qa-hooks-013-2`; **nothing asked** | Informational: QA re-derived and confirmed rev 13's blob-SHA closure, added the control it lacked, and terminalised three rows | **Rev 14. Verdict UNCHANGED and not reopened. Three writes judged owed because each corrects or completes a claim THIS document makes.** (1) **R13.5.1 corrected by reconcile note**: its closure was right and its method was right, but a MATCH-only result cannot be told apart from an instrument that matches everything. QA supplied the negative control; **re-derived here rather than adopted** — three DIFFER against live `master`, one file absent. Closure is **joint**, not this document's alone. **Plus an instrument defect**: `git rev-parse <tree>:<path>` on an absent path echoes its argument to stdout, so a stdout-only comparison mislabels ABSENT as DIFFER — settle existence with `git cat-file -e`. (2) **Three rows adopted from QA**: **BC-11b `TERMINAL: CANNOT BE EXECUTED`** — noted as a **fourth** state my definition does not contain, terminal only in that no act can change it and **never to be read as closed**; **BC-18/BC-19 reclassification DECLINED**, and QA's reasoning is better than my question — the rows **do not expire**, and `POST` would have moved them into the class least likely ever to be settled; **BC-21** registered as the genuine post-deploy detector R13.7.3 said was owed. (3) **Finding U-5**: **`4a7126b` is NOT released** — `git ls-remote origin master` = `a151fb4`, contra QA's prose *"with 4a7126b shipped ahead of them"*, which **its own BC-21 row contradicts** in the same document. **Rev 13's condition has NOT been overtaken; the window is open** and, on QA's own finding, does not expire. Owner confirmed the push was his and the site is live — two questions answered. |
 | 2026-08-25 | `qa-hooks-013-2`, direct | Phase 3 RELEASE VERIFIED at `4a7126b`; one coverage finding routed because it bears on UAT's rows | **Rev 15. Verdict UNCHANGED; the residue it is conditional on is WIDER than rev 13 described.** QA's finding **corroborated by `git grep` at `4a7126b`, not adopted**: the code-import chain has **no executing coverage of the producer** — `013-qa-toast-vessel-render.test.ts:21` mocks `MessageProvider` out — and **none of the mount**, `layout.tsx` being text-pinned only. **The instrument names the gap itself** at line 122: *"a null context would throw in production and pass [here]"* — production throws, suite stays green. Combined with this stage's own R14.1 derivation that `CodeMessageNotice.tsx` is **absent at `a151fb4`**, that surface has **never executed in production**: neither an executing test of producer or mount, nor one instant of runtime. **R13.6 corrected by reconcile note** — *"guarded on both surfaces"* was true of the paste surface only. **BC-19 restated**: the owner must perform a **real code import**, and *no notice at all* / *the page throws* join *illegible* in its falsity signature; **split recommended to QA**, not performed. **Verdict does not move** — the finding lands inside a condition already blocking, and U-5's open window is what makes it survivable. Also: QA verified R14.1.1 **worse than reported** — `git rev-parse` on an absent path **exits 0**, so `|| echo MISSING` guards never fire. Instrument-lie class now **four** members, predicate stated. |
 | 2026-08-25 | `steering-hooks-013-2` [019315] — one fact, no request | U-C8 was discharged before rev 13's handback listed it outstanding | **Rev 16. One row reaches its terminal state; verdict untouched.** **U-C8 · `EXECUTED` — TERMINAL**: the 2026-08-25 ruling is registered as **D29 at plan rev 22** (`d60c857`), both parts verbatim, the third site's retention recorded as **ratified by selection with no verbatim sentence and none manufactured**, and the row marked **registration only — it enacts nothing**. **Verified against the plan rather than the relay**, by the same instrument that raised finding U-4: `grep -c "toast"` over the plan now returns **1** where it returned **0** at rev 13. **My handback asserted this was outstanding and it was not** — corrected here rather than left standing, because a ledger row that inverts a blocking status is exactly the exposure finding U-2 named. **The route, not the ledger, was the defect**: U-C8 was routed, discharged, and the discharge never returned to the router — the failure the one-line route-recording rule exists to catch. **Carried to the retrospective as a fifth item**, and it is a different class from the other four: those were instruments that lied, this is a **handoff that completed without closing its loop**. Nothing else in this document changes; **U-4 stands as a finding correctly raised and now correctly closed.** |
+| 2026-08-25 | `qa-hooks-013-2`, direct | BC-19 split performed; mode (b) declined; F-9 exposure question put to this document | **Rev 17. Verdict UNCHANGED; the condition is narrower and better ordered.** **BC-19 split ADOPTED** — **BC-19a** *(appears-at-all: a real code import, carrying the unproven producer and mount)* and **BC-19b** *(legible-and-placed)*, whose decidability **depends on 19a** — an ordering the unsplit row hid and this document had not stated. **Rev 15's mode (b) *"the page throws"* RETIRED, and QA is right**: the comment it rested on is true about the test, not about production. **Verified git-side rather than adopted** — one mount site inside `<MessageProvider>`; sibling `Navigation.tsx` blob **`339ed840` at all three tips**, untouched by the release, in a `_layout` holding exactly those two files. **The boundary already runs in production. An unreachable failure is not a reason** — carrying (b) would have made a blocking row harder to settle while adding nothing observable. **A widened falsity signature is not automatically a better one**; my widening was right on (a)/(c) and wrong on (b), and the difference is reachability, which I did not test before adding it. **F-9 answered: NO** — 0 lines in this document pair `a151fb4` with `test-only`; the sole `test-only` is anchored at `abcf585`. It never entered because rev 13 **derived** the delta from the tree rather than restating QA's note — concrete evidence for the retrospective predicate, not a restatement of it. **Instrument class now six**, the two newest found by this pass's own verification. |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -2131,3 +2140,104 @@ three paths happened to exist.
 **Stated on its own terms so it survives these four instances**, per the document-lifecycle rule that
 a rule and the sighting that motivated it separate. Carried to the retrospective, where it belongs with
 the rev-13 note that this chain's most reliable defence was re-derivation rather than review.
+
+---
+
+# Rev 17 — BC-19 split adopted, mode (b) retired on evidence, and the F-9 question answered
+
+**Date**: 2026-08-25. **Trigger**: `qa-hooks-013-2`, direct. **Verdict UNCHANGED.** Row definitions
+are QA's; this records state and answers a question put to this document.
+
+## R17.1 — F-9: this document never carried the false form. Answer: NO
+
+**Question**: did this document carry QA's false *"every commit since `a151fb4` is test-only"* (F-9)?
+The form is false because `a151fb4..4a7126b` contains `abcf585`, which is **four source files**.
+
+**Measured over this document, not recalled:**
+
+- Lines containing **both** `a151fb4` and `test-only`: **0**.
+- Total occurrences of `test-only`: **1**, at line 1544 — quoting the reviewer's round-22 verdict, and
+  **anchored at `abcf585`**, which is the true anchor.
+- R13.5 states the delta as **`abcf585..4a7126b`** throughout.
+
+**Why it never entered.** At rev 13 the delta was **derived from the tree** — `git diff --numstat`
+plus per-path blob identity at both tips — rather than restated from QA's `Verified-At-Note`, which is
+where F-9 lived. **This is a concrete instance of the predicate carried to the retrospective**, not a
+restatement of it: the false form was in a document this stage read, and re-deriving is the reason it
+did not propagate. Recorded because evidence for that claim is worth more than the claim.
+
+## R17.2 — BC-19 split: ADOPTED as BC-19a / BC-19b
+
+The split R15.2 recommended is **performed by QA** (`aef3c2e`), whose row it is:
+
+- **BC-19a · `appears-at-all`** — a **real code import that drops components**, not a look at a page.
+  Carries the unproven producer and mount. **One successful import refutes *"never appears"* by
+  construction.**
+- **BC-19b · `legible-and-placed`** — the eye check. **Earliest-decidable depends on 19a**: it cannot
+  be observed until 19a produces something to look at.
+
+**The ordering dependency is the part worth having**, and this document did not state it: the unsplit
+row read as one observation when it is two, the second conditional on the first. Both remain **`PRE`,
+owner, executable now**, and **neither is discharged by the Phase 3 verdict** (release record §5;
+`agent-output/qa/release-4a7126b-tip-verification.md`). **BC-18 unchanged.**
+
+## R17.3 — Failure mode (b), *"the page throws"*: RETIRED. Verified, not adopted
+
+R15.2 added **(b) the page throws** to BC-19's falsity signature, on the strength of QA's instrument
+comment (*"a null context would throw in production and pass here"*). **QA declines it, and QA is
+right: that comment is true about the test and does not establish a live failure mode.**
+
+Re-derived here git-side rather than accepted:
+
+| Claim | Instrument | Result |
+|---|---|---|
+| `CodeMessageNotice` has one mount site | `git grep -c` at `4a7126b`, `src` | **2 non-test files**: its own definition and `layout.tsx`. **One mount site**, inside `<MessageProvider>` |
+| A sibling proves the boundary in production | `git cat-file -e` + `git rev-parse` at three tips | `src/app/message/m/[id]/_layout/Navigation.tsx` = **`339ed840` at `a151fb4`, `abcf585` and `4a7126b`** — matching QA's cited blob |
+| …and this release does not touch it | `git diff --name-only a151fb4 4a7126b -- <path>` | **empty — untouched** |
+| …and it is literally the sibling slot | `git ls-tree` of the `_layout` directory | that directory holds **exactly two files**: `CodeMessageNotice.tsx` and `Navigation.tsx` |
+
+**So the boundary (b) posited as unproven — async server layout → client component consuming
+`useMessage()` inside `<MessageProvider>` — has been running in production continuously**, via a
+byte-identical component this release does not touch. The null-context state **cannot arise at the
+shipped mount**. **(b) is retired**, and R15.2's statement of it is corrected here rather than left
+standing.
+
+> **The reasoning is worth keeping past this row.** An **unreachable** failure is not a reason. Carrying
+> (b) would have made a row *already blocking a release* harder to settle while adding nothing an
+> observation could discharge — it would have undone the very benefit the split was for. **A widened
+> falsity signature is not automatically a better one.** My rev-15 widening was right on (a) and (c)
+> and wrong on (b), and the difference is reachability, which I did not test before adding it.
+
+**BC-19's falsity signature therefore stands as: (a) no notice appears at all → BC-19a; (c) the notice
+appears but is hidden, overlapped or illegible → BC-19b.**
+
+**Noted, not adopted as a release row**: QA found `useMessage`'s null guard names the **wrong
+component** — it throws *"UnsavedWarning components must be wrapped in `<UnsavedWarning />`"*. **Pre-existing,
+outside the `a151fb4..4a7126b` delta, so it does not gate `4a7126b`**; routed to the implementer as
+diagnosability. Recorded here only because had (b) ever been reachable, the guard would have sent the
+investigator to the wrong component.
+
+## R17.4 — The instrument class gains two sightings, from this pass's own verification
+
+Both hit while checking R17.3, both the same predicate, **both caught by a contradiction rather than by
+re-reading**:
+
+| # | Instrument | Lie |
+|---|---|---|
+| 5 | `git cat-file -e <tip>:<guessed-path>` | Returned **ABSENT** for `src/components/Navigation.tsx` — a path that never existed. **Absent-because-wrong-path is indistinguishable from absent-because-not-there.** Had it been reported, it would have contradicted a true claim of QA's |
+| 6 | `git rev-parse "$t:$P"` with **`$P` empty** | Returned **three different plausible 8-char hashes** — the *root tree* SHA at each tip. An empty path variable yields a confident, differing, entirely wrong answer |
+
+**Sighting 6 is the sharpest member yet** and is why the predicate is worth stating on its own terms:
+it did not fail, it did not return a null, and it did not repeat itself — **it returned three
+*differing* values, which is exactly what a real difference looks like.** Nothing in the output
+announced that the question asked was not the question intended. **Remedy in both cases: name the path
+from the tree (`git ls-tree`), then assert existence before comparing.**
+
+**Six members now, predicate unchanged**: *an existence or count predicate that cannot fail loudly.*
+
+## R17.5 — State
+
+**Release decision UNCHANGED**: `APPROVED FOR RELEASE, conditional on the human click-through of
+BC-18, BC-19a and BC-19b`, anchored at `4a7126b`. **The condition is narrower and better ordered than
+at rev 15, and nothing was withdrawn** — (b) was retired on evidence by the row's owner, which is the
+register working. **UAT Complete.**
