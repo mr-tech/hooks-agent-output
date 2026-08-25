@@ -5,6 +5,19 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
+  **Rev 24 — D45 received; it moves nothing here, and one inference is refused in advance.** The owner's
+  standing ruling releases the trailing review to run and sequences the retrospective last. **Its own row
+  disclaims four inferences**, including *no operator sitting against a row whose prediction is still STALE* —
+  the rev-23 BC-18 guard, honoured at registration unasked. **The refusal (R24.2): a clean trailing review does
+  not revive an expired decision.** Within a day this chain will hold code review approved, QA Complete and
+  `UAT Complete` over a tree, which reads as release and is not. **Expiry is not suspension** — the decision
+  ceased to bind when its covered blobs moved, so there is nothing to revive; **`UAT Complete` was reached at
+  `4a7126b`** and a stage status carried across a tree change is the same error as a verdict carried across one;
+  **arriving verdicts inherit no anchor** and must name the tree they were reached at; and **18 conditions stand
+  open (R22.2)**. `code-reviewer` approved + `qa` Complete + `UAT Complete` **≠** approved for release. **Same
+  false-pass shape as rev 23, one level up** — the wrong answer closes a question the reader wanted closed and
+  arrives looking like arithmetic. **Nothing moved: open set 18, decision `EXPIRED IN FULL`, BC-18 and BC-21 as
+  rev 23 left them.**
   **Rev 23 — an owner report reached two absence-signature rows, and neither closes on it.** The owner
   reported **BC-21** and **BC-18** as *"-as expected-"*. **BC-21 → `NOT EXECUTED` — OWNER REPORT ON
   RECORD, NOT YET DECIDABLE**: QA's row names its instrument as *a single **deliberate** observation — not
@@ -132,6 +145,7 @@ Verified-At: >-
 | 2026-08-25 | **owner**, relayed verbatim by `steering-hooks-013-2` [019315] — a ruling, not a request | **D44**: strike two record IDs from chain 013 and drop every dependent; do not question, repair as necessary | **Rev 21. STRIKE EXECUTED — 30 lines repaired, zero remaining, verified by two independent instruments.** **BC-15 → `WITHDRAWN` (D44)** — the owner-reserved terminal state, available for the first time because he has now ruled; deliberately **not** filed under either state this document invented. **BC-11a → `STRUCK — D44`.** **Finding U-1 → `STRUCK — D44`, its rev-20 REALISED marking WITHDRAWN** — it rested on an unverified mechanism claim, and that failure is recorded as this stage's own. **BC-11b and the standing release decision UNMOVED** — neither depended on the struck subject. **BC-18 is now the sole live condition.** Prior text verified present in commits before deletion licensed it. |
 | 2026-08-25 | `steering-hooks-013-2` [019315] — notice of a coordinator handover; **nothing asked** | — | **Rev 22. Two defects in rev 21, both this stage's own.** **The D44 strike was digit-complete and dependent-incomplete** — the instruments searched for the token, and the ruling drops claims; nine passages struck here, Appendix A as a whole. **Rev 21's open set was wrong**: *"Nothing else"* dropped **fourteen** non-terminal rows; corrected to **18 open items** at R22.2 by re-derivation from the ledger. Four point-in-time items marked **DISCHARGED** where they were listed (plan revs 35, 40, 41), each verified at the plan. **Handover block added** for the incoming coordinator. **No verdict moved; nothing withdrawn; no row added.** |
 | 2026-08-25 | `steering-hooks-013-2` [019315] — **a conflict routed here as the authority on register state**; steering recorded it as a conflict and set nothing | The owner reported **BC-21** and **BC-18** as *"-as expected-"*; this register carries both non-terminal with **absence** signatures | **Rev 23. Neither row terminalises, and not because the report is doubted.** **BC-21 → `NOT EXECUTED` — OWNER REPORT ON RECORD, NOT YET DECIDABLE**: QA's own instrument cell rules out the passive reading of the phrase in advance, so *"-as expected-"* is compatible with an act that closes the row **by construction** and with one the row expressly excludes. **What settles it is one word — deliberate paste, or general impression — and no capture is owed or requested.** **BC-18 unchanged**: its **clearing limb** is derived-stale (D31/D32), and *"as expected"* cannot speak to a behaviour whose expected form the register no longer states correctly — **a false pass, the mirror of the false failure rev 18 was written to prevent.** **BC-21's rev-18 "stale by inheritance" marking queried to QA**, not removed here. **Standing decision unmoved at `EXPIRED IN FULL`; BC-18 still its sole live condition. Open set stays at 18.** |
+| 2026-08-25 | `steering-hooks-013-3` [b04529] — relay of a standing owner ruling; **nothing asked** | **D45**: *"Bring 013 pipeline to completion. Retro is the last to fire."* Lifts D39's "NEITHER RUNS NOW" | **Rev 24. Received, read at the plan rather than from the relay, and it moves nothing here.** D45's own row disclaims four inferences, including **no operator sitting against a row whose prediction is still STALE** — the rev-23 BC-18 guard honoured at registration without being asked for. **One inference refused in advance (R24.2)**: a clean trailing review does **not** revive the expired decision. `code-reviewer` approved + `qa` Complete + `UAT Complete` **≠** approved for release — expiry is not suspension, `UAT Complete` was reached at `4a7126b`, arriving verdicts inherit no tree identity, and **18 conditions stand open**. Same false-pass shape as rev 23, one level up. **Open set 18; decision `EXPIRED IN FULL`; BC-18/BC-21 as rev 23 left them.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -3173,3 +3187,69 @@ count restated from a docket is exactly what this chain has been bitten by.
    R23.3, which may make that row decidable today.
 3. **Nobody records BC-18 or BC-21 as executed on the report as it stands.** A false pass gets filed; a
    false failure gets investigated. **The first is the worse outcome and the easier one to reach here.**
+
+---
+
+# Rev 24 — D45 received. It moves nothing here, and one inference it invites must be refused in advance.
+
+**Date**: 2026-08-25. **Session**: `uat-hooks-013-4`. **Trigger**: `steering-hooks-013-3` [b04529]
+relayed a standing owner ruling. **Read at the plan (rev 42, `491a540`), not taken from the relay** —
+the summary matches the row.
+
+## R24.1 — What D45 does, and what it correctly disclaims
+
+*"Bring 013 pipeline to completion. Retro is the last to fire (only when no other work is in flight,
+i.e. all prior agents are complete)."*
+
+It lifts D39's **"NEITHER RUNS NOW"** — `code-reviewer` and `qa` run — and converts D38's open-ended
+retrospective hold into a sequencing condition with a trigger. **The row states four things it does not
+reach**, and states them so nobody infers them: no release decision for `2d90e8a`, no lift of chain
+012's D20, **no operator sitting against a row whose prediction is still STALE**, and no register state.
+
+**That third disclaimer is the BC-18 guard from rev 23, honoured at registration without being asked
+for.** Recorded because a disclaimer written before anyone leans on it is the cheapest form this
+register has, and worth naming when it happens.
+
+**Nothing in this ledger moves. Open set stays at 18 (R22.2). The standing decision stays `EXPIRED IN
+FULL`. BC-18 and BC-21 stay exactly as rev 23 left them.**
+
+## R24.2 — The inference to refuse: a clean trailing review does not revive an expired decision
+
+The trailing review is now running. Within a day or so this chain will hold **code review approved** and
+**QA Complete** at a tree, over a document already marked **UAT Complete**. That combination reads, to
+any reasonable person arriving fresh, as *release*.
+
+**It is not, and the reason is structural rather than a matter of caution.**
+
+- **The standing decision is `EXPIRED IN FULL`, and expiry is not a suspension.** It did not pause
+  pending better evidence; it ceased to bind when all four covered blobs moved or were deleted. **There
+  is nothing there to revive.** A decision at `2d90e8a` would be a **new** decision, reached by someone
+  who states the tree they reached it at.
+- **`UAT Complete` is a status on this document, not a gate on `2d90e8a`.** It was reached at `4a7126b`.
+  A stage status carried forward across a tree change is the same error as a verdict carried forward,
+  and this chain has already paid for that once.
+- **The arriving verdicts inherit no anchor.** Whoever writes the final gate reproduces the tree identity
+  from the tree — SHA if committed, per-path `sha256sum` manifest if not — rather than inheriting one
+  from a predecessor's document or a docket. **A verdict without a named identity cannot expire, which
+  is precisely what makes it dangerous rather than merely incomplete.**
+- **Eighteen conditions stand open, and a release decision cannot be recorded complete while any of them
+  is non-terminal.** "Pipeline to completion" is a ruling about which stages run. **It is not a ruling
+  that the ledger is discharged, and D45 does not claim to be.**
+
+**So: `code-reviewer` approved + `qa` Complete + `UAT Complete` ≠ approved for release.** Whoever assembles
+the final gate opens R22.2, terminalises or conditionally states each of the 18, and names the tree.
+
+**This is the same false-pass shape as rev 23, one level up.** There, an owner's *"as expected"* met a row
+whose instrument ruled that reading out. Here, three green stage statuses meet a decision that no longer
+exists. In both, the wrong answer is the one that closes a question the reader wanted closed, and it
+arrives looking like arithmetic.
+
+## R24.3 — Ceiling
+
+This session is near its run-length ceiling and **will not be present when code review and QA report**.
+**That is expected and is not a handback mid-gate** — no gate is open here. Rev 23's ruling and this
+entry are complete and committed; a successor picks up the final gate **from this file**, and the three
+outstanding items are unchanged: the owner's one word on BC-21, and QA's two (BC-18's re-derivation, the
+R23.3 staleness query).
+
+**Nothing is asked of the coordinator, and this stage does not self-start.**
