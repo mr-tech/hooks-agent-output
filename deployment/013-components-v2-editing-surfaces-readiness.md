@@ -521,3 +521,26 @@ agreeing four ways.
 owner's.** Neither is mine to discharge and neither is an artifact defect.
 
 **Nothing here authorises anything.**
+
+### 10.10 Dispositions recorded 2026-08-25, after §10 was filed
+
+Appended so a later reader is not sent to an artifact that no longer carries the operative instruction.
+**Each was verified against the tree here, not adopted from the report of it.**
+
+| Finding | Disposition | Verified |
+|---|---|---|
+| **F-8** (Appendix B names `821330d`) | **Actioned, but not in Appendix B.** UAT is at its run-length ceiling and was not woken; the owner's walkthrough now lives in **`agent-output/OWNER-QUEUE.md`** (`91c3cc3`, 2026-08-25 00:04 UTC), which serves the sitting at **`a151fb4`** and names the divergence explicitly, with Appendix B authoritative on everything else. A UAT successor reconciles its own document | `git show 91c3cc3`; `OWNER-QUEUE.md:30–31` carries the divergence note, `:52` the operative tip |
+| **F-7** (mint route closes at the release act) | **Independently reached by UAT from D20's text**, and scheduled as **`013-A`, the first item in the owner's queue** — four spares of each shape before anything else. **I still adopt no remedy and schedule nothing**; this records that someone whose step it is has | `OWNER-QUEUE.md:33` |
+| **U-C6** | Acknowledged as devops's; discharges at Stage 1 step 8. No new mechanism | UAT §9.1/rev-11 reconcile note |
+| **U-C5 / R-5** | The owner chose a **planner pass** to widen R-5 alongside the eight other held items, rather than D25's alternative of this record stating the wider class. **R-5's requirement is therefore expected to change before the deployment record is written, and the record stays unwritten** | steering, 2026-08-25 |
+
+**One correction to `OWNER-QUEUE.md`, reported not edited** (it is steering's document): line 31 states
+the `821330d → a151fb4` delta is *"four test files and zero production files"*. Measured:
+`git diff --numstat 821330d a151fb4` returns **three** test files — `012-json-editor-repair-path.test.ts`,
+`012-message-mode.test.ts`, `013-fqa19-ingress-gate-reachability.test.ts` — over **one** commit.
+**The load-bearing half is exact**: the non-test delta is empty, so behaviour at the two tips is
+identical and the walkthrough's instruction to serve `a151fb4` is correct either way. The count is
+cosmetic — recorded because it is the same class of off-by-one that made the brief for §10 wrong, and
+this one sits in the artifact the owner will actually read.
+
+**None of this moves the verdict.** NO-GO stands, on the twelve non-terminal `PRE` rows and U-C5.
