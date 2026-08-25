@@ -1,13 +1,15 @@
-# SCR-1 — the scratch subject for re-specified register rows QA-R4 and QA-R15
+# SCR-1 — the scratch subject for re-specified register rows QA-R2, QA-R4 and QA-R15
 
 **Built by**: qa (chain 012), 2026-08-25, under **D23** (QA-R4/QA-R15 routed back to QA for
-re-specification).
+re-specification) and **D27** (QA-R2 likewise, 2026-08-25 — SCR-1 is built with `valid = false`,
+so R2 does on SCR-1 exactly what it was written to do on 5712).
 **Anchor**: `website` `a74b9e2` — the released chain-013 tree, which is the tree the deployed
 composer runs. Not `c85945f`; that SHA anchors chain 012's Phase 2 PASS and is not re-issued here.
 
 ## What this instrument is for
 
-Rows QA-R4 and QA-R15 named **record 5712 loaded in the composer** as their subject. 5712 and 5842
+Rows QA-R2, QA-R4 and QA-R15 named **record 5712** as their subject — R4 and R15 as loaded in
+the composer, R2 as read from the v1 endpoint. 5712 and 5842
 were repaired by direct SQL as part of chain 013 (owner, 2026-08-25: *"They were fixed as a part of
 013. sql statements"*), so the subject no longer exists in either direction. D23 routes both rows
 back to QA to be re-specified against **a subject that still exists** — and the re-specification

@@ -49,7 +49,13 @@ Status-Detail: >-
   verification/012/scratch-subject-SCR1/ (8/8 green at website a74b9e2; all 8 assertions seen
   red under 7 mutants). No row added (D18), no other row's requirements changed, D26 not
   reopened — both rows gate closure, not the send. Verdict unchanged and NOT re-anchored:
-  Verified-At stays c85945f; a74b9e2 anchors the re-specification's readings only.
+  Verified-At stays c85945f; a74b9e2 anchors the re-specification's readings only. **Rev 9
+  (2026-08-25, D27)**: QA-R2 re-specified onto SCR-1 as well, folded into the same section. All
+  three rows now share one subject, so an ordering constraint applies and is stated as a runnable
+  sequence — create → R4 → R2 → R15 → dispose — R15 being a persisting act that ends the state the
+  other two observe. Rev 8's contrary ordering sentence corrected in place, dated, with why it was
+  defensible when written. R2's binary failure clause replaced by a three-way reading so a stale
+  column cannot be misread as a field defect. Still no row added; Verified-At still c85945f.
 ---
 
 # QA Report: Plan 012 — `valid` field on stored messages
@@ -66,6 +72,7 @@ originals kept for the Phase 1 record — Phase 2 executed against plan rev 23, 
 
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
+| 2026-08-25 | steering-hooks-012-2 | **D27** — owner's ruling on QA's rev-8 report: re-specify QA-R2 onto SCR-1 too, the same way as R4/R15 | **Rev 9.** R2 re-specified onto SCR-1 and folded into the existing section rather than a second one, since all three rows now share one subject and one lifecycle. R2's superseded wording kept, State cell routed, with the reason named: against a repaired 5712 its failure clause had become a **booby trap** — a `true` reading there is now the *correct* reading. **Self-correction, dated and in place**: rev 8's claim that *"R4 and R15 can now be executed at any time, in either order relative to R2"* was true when written (R2 still keyed on 5712) and is **false under D27** — three rows on one record, one of which persists, brings the interference back in the same shape. New authoritative subsection **SCR-1's lifecycle** states the constraint as a runnable order (create → R4 → R2 → R15 → dispose) because the owner runs these from steering's queue file, not from this document. R2's failure clause given a **three-way reading** rather than the original binary: a `true` on SCR-1 is a stale column (creation SQL did not set `valid`) if R4 showed the error, and a real field defect only if R4 did not — so **R4 disambiguates R2**, which is why it runs first. Recorded that SCR-1 is **rebuildable** where 5712 never was, so a voided observation costs a re-run, not a verdict. R3 untouched and still the paired positive control; SCR-1 additionally supplies both directions on a **single** record (`false` at R2, `true` at R15). D18, D24, D26 all unchanged; `Verified-At` again not re-anchored. |
 | 2026-08-25 | steering-hooks-012-2 | **D23** — re-specify QA-R4 and QA-R15 against a subject that still exists, so something verifies D11 end to end before closure | **Rev 8.** Both rows re-specified onto **SCR-1**, a purpose-made scratch record (row-D/cell-B5 shape). Old wordings kept unedited, State cells routed. Reachability established rather than assumed: the 2026-08-23 **table-wide** backfill run found the stranded class had exactly 2 members (5712, 5842), both since repaired by the owner's SQL, and at `a74b9e2` **no supported UI route can mint another** — `switchToClassic` clears the bit, `switchToV2` empties content, and every import route disposes row D to Classic. So no *found* subject exists and D23's scratch-record option is the only live one. **Instrument captured, not narrated**: `verification/012/scratch-subject-SCR1/` executes the shipped predicate and mode-switch over the exact SCR-1 payload — 8/8 green at `a74b9e2`, and **all 8 assertions observed red** under 5 source and 2 fixture mutants. Its **sole-carrier control** is the load-bearing one: without it a mis-built SCR-1 (e.g. a bad username) is refused for the wrong reason and R4 passes vacuously — F-QA13's boolean trap one level up, since an unqualified *"Send is disabled"* does not discriminate either. SCR-1's creation prescribed so that **QA-R9/QA-R20 are untouched** (`valid = false` set in the same statement, so no backfill run is needed) and so that R4/R15 **drop out of the 5712 ordering constraint** — a reduction in the owner's queue; no other row's requirements changed. **D26 not reopened**: both rows are post-deploy-observable, gate closure and not the send, and the section says so flatly — the overlap (R15's act *is* the guidance's Route A) is disclosed as a consequence, never as a condition. `Verified-At` deliberately **not** re-anchored: this is a specification, not a verdict. New Assumption Not Checked booked and routed to devops (deployed SHA vs `a74b9e2`). |
 | 2026-08-23 | steering-hooks-012 (carrying code review round 7, `06b204d`) | Differential re-anchor at `c85945f`; close round 7's Assumption Not Checked; derive the suite count, inherit no figure | **Rev 7.** Re-anchored: `Verified-At: c85945f`. Delta re-derived at the commit (parent = `17cada0`; two QA instrument files, zero production source); both md5s match this header's rev-6 identities. Suite **re-executed at the committed clean `c85945f`: 22 files / 411 tests green** — round 7's falsity signature did not fire; closed here. The three circulating figures reconciled to their trees (20/402 = `17cada0` committed alone; 21/408 = +repair-path untracked; 22/411 = +both instruments ≡ `c85945f`; 402+6+3=411 — ambiguity was citation, not measurement). Differential captured at `verification/012/qa-phase2-reanchor-c85945f/`. Rev-6 routing note (implementer to commit the instruments) struck as done, kept beside. Held until round 7's transfer ruling so both gates moved on one basis. |
 | 2026-08-23 | planner, **routed via steering-hooks-012** (not the normal handoff — route recorded per steering's request) | Rev-27 registration write repaired by the planner (`63460d0`); R-numbering collision resolved at plan rev 28 | **Rev 6a.** Verified at the diff, not the relay: my rev-27 plan write carried two defects outside its declared scope, both mine — my Edit's anchor consumed the frontmatter's closing `---` without reproducing it (silent; would have broken machine-readable Status for every downstream reader), and I left the Revision/Status-Detail pairing at 26 while adding row 27 (a rule the plan has carried since rev 20; first violation by a non-planner stage). Prose byte-preserved; repairs verified in the committed tree. **Disposition answer: repair-in-place was right** — bouncing would have left a structurally broken header live in a shared tree for the length of a round, for two fixes with one unambiguous correct form each. **Method failure named**: my write procedure had no post-write structural check on documents I do not own. Control adopted: after any write to a frontmatter document, verify `grep -n '^---$'` still terminates the header, and diff my own hunk for consumed structural tokens before reporting the write. **Reciprocal naming clause adopted** (mirroring plan rev 28): this register's rows are cited **QA-R#** in cross-document text from this rev on; bare R# inside this document refers to this register, plan Risks rows are the plan's R1–R7. Retrospective material: the silent-defect class (structural damage outside the edited prose) is invisible to the author's own green checks by construction. |
@@ -1126,7 +1133,7 @@ UAT document, and then the deployment record, are authoritative on each row's ex
 | ID | Class | Condition | Primary instrument | Subject / fallback | Earliest-decidable condition | Predicted value | Failure mode (operator terms) | Owner | State |
 |---|---|---|---|---|---|---|---|---|---|
 | R1 | pre-release | The 14-cell M2 partition is green, with B3/B5/B7 flipped and A1–A7/B1/B2/B4/B6 unmoved | `npx vitest run src/utils/__tests__/012-send-gate-partition.test.ts` | QA (automated; no human) | M2 implemented | 20/20 pass | If a cell outside the residue moved, M2 changed sendability for messages nobody asked it to touch — users lose the ability to send messages that work today | qa | **EXECUTED, PASS — Phase 2, `17cada0`**: 36/36 green (the spec grew from the 20 cells this row's prediction was sized against to 36 — rev-1 prediction superseded by spec growth, recorded beside, not over); the five previously-red cells (B3/B5/B7 + both 5712 rows) flipped green and every A-cell unmoved, with the partition file byte-identical to its pre-implementation commit `a7ebe4d` |
-| R2 | post-deploy-observable | GET v1 guild-messages for `966088462803537960` shows message 5712 with top-level `valid: false` | HTTP GET against production | Owner (the read is owner-executed; a hooks-side agent read was blocked by the classifier in the statbot workspace — if that block fires here, **stop and report, never reword**) | After backfill completes | `valid: false` — a **single** observation refutes by construction | If it shows `true` or omits the key, the field is not communicating what it was built to communicate, and Statbot gates on nothing | devops (owner observes) | Open |
+| R2 | post-deploy-observable | GET v1 guild-messages for `966088462803537960` shows message 5712 with top-level `valid: false` | HTTP GET against production | Owner (the read is owner-executed; a hooks-side agent read was blocked by the classifier in the statbot workspace — if that block fires here, **stop and report, never reword**) | After backfill completes | `valid: false` — a **single** observation refutes by construction | If it shows `true` or omits the key, the field is not communicating what it was built to communicate, and Statbot gates on nothing | devops (owner observes) | **SUPERSEDED AS SPECIFICATION 2026-08-25 (D27)** — still Open, still owed. Its subject (record 5712) was repaired by the owner's SQL, which makes this row's failure clause a booby trap against it: a `true` reading on 5712 is now the **correct** reading, not the failure this clause describes. Row text kept as written; the executable specification is the re-specified R2 below, on SCR-1. |
 | R3 | post-deploy-observable | The same request for a guild holding a bare-Text-Display V2 record shows `valid: true` | HTTP GET against production | Owner | After backfill completes | `valid: true` — single observation suffices | **This is R2's paired positive control.** If it shows `false`, the field marks well-formed messages invalid and Statbot silently stops delivering messages that work — the mass-invalidation failure, arriving as silence rather than as an error | devops (owner observes) | Open |
 | R4 | post-deploy-observable | 5712 loaded in the composer shows the mutual-exclusivity notification with Send disabled (M2-c) | Composer UI | Owner (only he can load that guild's message) | After website deploy | Notification shown, Send disabled | If Send is still enabled, the composer keeps telling users a message is fine that Discord rejects with `50035` — the original defect, unfixed | uat (owner observes) | **SUPERSEDED AS SPECIFICATION 2026-08-25 (D23)** — still Open, still owed. Its subject (record 5712 in the composer) ceased to exist in either direction when the owner repaired 5712 by SQL as part of chain 013, so this wording can no longer reach a terminal state. Row text kept as written; the executable specification is the re-specified R4 below. |
 | R5 | post-deploy-observable | Mode toggle classic→V2 still shows "Switch message mode?" and still warns (M2-d) | Composer UI | Owner | After website deploy | Modal shown | If the modal is gone, the fix silently destroyed users' content on a toggle | uat (owner observes) | Open |
@@ -1166,13 +1173,18 @@ here is a value appearing where none was, which a deploy having happened says no
 
 ---
 
-## Re-specification of QA-R4 and QA-R15 (D23) — 2026-08-25
+## Re-specification of QA-R2, QA-R4 and QA-R15 (D23, D27) — 2026-08-25
 
-**Authority**: plan register **D23**, which supersedes D19 and routes both rows back to QA to be
-re-specified against a subject that still exists, *"so that something still verifies D11 end to end
-before closure"*. The wording below is QA's. This section adds **no row** — D18's scope closure
-stands; R4 and R15 keep their IDs and their obligations, and only their subject and instruments
-change.
+**Authority**: plan register **D23**, which supersedes D19 and routes QA-R4 and QA-R15 back to QA
+to be re-specified against a subject that still exists, *"so that something still verifies D11 end
+to end before closure"*; and **D27** (registered 2026-08-25), which does the same for **QA-R2** on
+the owner's ruling, after QA reported that 5712's repair had spent that row's discriminating power.
+The wording below is QA's in both cases. This section adds **no row** — D18's scope closure stands;
+R2, R4 and R15 keep their IDs and their obligations, and only their subject and instruments change.
+
+**Rev 9 (D27) folded R2 into this section rather than starting a second one**, because all three
+rows now share one subject and one lifecycle, and splitting them across two places is exactly how a
+queue-runner ends up executing them out of order.
 
 **Tree these readings were made against**: `website` `a74b9e2` — `master`, clean, the released
 chain-013 tree, which is what the deployed composer runs. This is **not** a re-anchoring of this
@@ -1181,7 +1193,7 @@ re-issued here. What follows is a specification, not a verdict.
 
 ### Why the old subject is gone, and why no *found* subject replaces it
 
-Both rows named **record 5712 loaded in the composer**. The owner repaired 5712 and 5842 by direct
+All three rows named **record 5712** — R4 and R15 as loaded in the composer, R2 as read from the v1 endpoint. The owner repaired 5712 and 5842 by direct
 SQL as part of chain 013 — his words, relayed 2026-08-25: *"They were fixed as a part of 013. sql
 statements"*. So the subject is absent in **both** directions: there is no stranded 5712 to observe
 failing, and its repaired state was produced by SQL rather than by either supported route, so it
@@ -1282,10 +1294,13 @@ upsert (M4).
 ### The re-specified rows
 
 These replace the same-numbered rows in the register above **as the executable specification**. The
-superseded wordings are kept in place, unedited, with their State cells routing here.
+superseded wordings are kept in place, unedited, with their State cells routing here. **Read
+*SCR-1's lifecycle* below before running any of them** — they share one record and one of them
+changes it.
 
 | ID | Class | Condition | Primary instrument | Subject / fallback | Earliest-decidable condition | Predicted value | Failure mode (operator terms) | Owner | State |
 |---|---|---|---|---|---|---|---|---|---|
+| **R2** *(re-specified)* | post-deploy-observable | **The v1 read for SCR-1's guild shows SCR-1 carrying top-level `valid: false`, while SCR-1 is still in its stranded state — i.e. before R15.** **This row is not about record 5712 and must never be run against it**: 5712 was repaired by the owner's SQL, so a `true` reading there is now the *correct* reading and the superseded row's failure clause would misfire on it | `GET /api/v1/guilds/<guildId>/messages` against production — the same handler R15 uses, which returns `data` verbatim alongside `valid` | **SCR-1**, in its stranded state. Owner executes the read; **a hooks-side agent read was blocked by the classifier in the statbot workspace — if that block fires here, stop and report, never reword** | Once SCR-1 exists (creation step 2 complete), **and before R15**. Needs no backfill run | `valid: false`, key present. **A single observation refutes by construction** | **Three-way reading — do not collapse it.** (a) `valid: true`: **read R4's result before concluding.** If R4 showed the error text with Send unavailable, the predicate is refusing SCR-1 correctly and the stored column is merely stale — the creation statement did not set `valid` — so the observation is **void and SCR-1 must be rebuilt**, not a failure of the field. If R4 showed no error, the field genuinely marks a stranded record valid, **Statbot gates on nothing**, and that is the failure this row exists to catch. (b) Key **omitted**: `valid` is NULL, which is again creation and not the field — void, rebuild. (c) `valid: false`: predicted | devops (owner observes) | **Open — re-specified 2026-08-25 (D27)** |
 | **R4** *(re-specified)* | post-deploy-observable | **SCR-1 loaded in the composer opens in Components V2 mode and displays the error text _"Components V2 messages cannot contain embeds or content."_ verbatim; and the Send action for that message is not available.** The reason string is part of the condition, not decoration — see the discrimination note below | The deployed composer, **two screens**: the editor renders the string (`DiscordMessageEditor/index.tsx`, `noContentError`) and the message's Send screen gates the action (`app/message/m/[id]/send/page.tsx`, `allowSave` via `isMessageValid`). Subject construction pre-verified by `verification/012/scratch-subject-SCR1/` | **SCR-1**. No fallback instrument exists: `website` has no DOM harness (chain 013, D28), so this wiring is unexecutable by any suite — which is exactly why the row is an observation | Once SCR-1 exists. **Depends on no other register row** | Error text shown verbatim, Send unavailable. **A single observation refutes by construction** | If Send is available, the composer still tells users a message is fine that Discord rejects with `50035` — the original defect, unfixed, and the affected guild owner gets no warning before he sends. **If the error names a different reason, the observation is void rather than passing** — SCR-1 was built wrong and must be rebuilt before either row means anything | uat (owner observes) | **Open — re-specified 2026-08-25 (D23)** |
 | **R15** *(re-specified)* | post-deploy-observable | **From R4's end state: one press of "Classic" on the mode switch, then Save — no JSON modal.** Afterwards the v1 read for that message shows `data.flags` with `IS_COMPONENTS_V2_FLAG` (32768) **cleared**, `content` unchanged, and top-level **`valid: true`** | The deployed composer for the act; **`GET /api/v1/guilds/<guildId>/messages` for the persisted state** — that handler returns `data` verbatim alongside `valid`, so `flags` is readable without database access | **SCR-1**, the same record R4 was observed on. Owner performs the composer act (no agent may act in production). The read half needs no human in principle, but agent reads of production have been classifier-blocked before — **if that block fires, stop and report, never reword** (as R2 already records) | After R4 has been observed **on this same record**. **No dependency on R2, R3 or M6-c** — that is the change; see the ordering note below | Bit cleared, `content` byte-identical, `valid: true`. **A single observation refutes by construction** | If the bit survives, D11's one line did not deliver what the owner chose it for, and the repair guidance now in his hands (D25) leaves the affected guild owner exactly where he started — having followed our instructions. If `content` changed, the guidance's *"Your text, embeds and link buttons are kept"* is false, and a guild owner loses his message while doing what he was told. **Send becoming available is NOT sufficient on its own** — see the flag-free clause below | uat (owner observes) | **Open — re-specified 2026-08-25 (D23)** |
 
@@ -1305,12 +1320,57 @@ straight through. **This is not QA-R5 or QA-R6 failing.** Those rows assert the 
 *with* departing content and are untouched by this re-specification; a reader must not take a
 missing modal here as bearing on them.
 
-**3. The 5712 execution-order note above no longer governs these two rows.** It exists because R15
-is a persisting act that would flip 5712 to `valid: true` and destroy the preconditions of R2, R4
-and M6-c. SCR-1 is not 5712, so the interference is gone: **R4 and R15 can now be executed at any
-time, in either order relative to R2, R3, M6-c and the live declaration.** The note stands unedited
-for the rows it still governs (R2, R3, M6-c). This is a **reduction** in what the owner's queue
-requires — no row's requirements are increased, and no row outside R4/R15 is changed.
+**3. The 5712 execution-order note above no longer governs these rows — but a new ordering
+constraint replaces it on SCR-1.**
+
+> **CORRECTED 2026-08-25 (rev 9, D27).** As written at rev 8 this point said: *"SCR-1 is not 5712,
+> so the interference is gone: R4 and R15 can now be executed at any time, in either order relative
+> to R2, R3, M6-c and the live declaration."* **That was true when written and is now false.** It
+> was defensible at rev 8 because R2 still keyed on 5712, so nothing R15 touched was another row's
+> subject. D27 moved R2 onto SCR-1, and with three rows now keyed to one record the interference
+> returns — in the same shape as the original, because the cause is the same: **R15 is a persisting
+> act.** Corrected here rather than silently, because the superseded sentence is exactly the kind a
+> queue-runner would rely on. The current constraint is in *SCR-1's lifecycle* below and that
+> subsection, not this one, is authoritative on order.
+
+The 5712 note itself stands unedited. After these three re-specifications it governs no row
+specified here; what remains under it is **M6-c's 5712 sentinel**, which is not routed to me and
+about which I make no claim beyond the fact — established above — that 5712 is no longer stranded.
+No row's requirements are increased by any of this, and no row outside R2, R4 and R15 is changed.
+
+### SCR-1's lifecycle — the ordering constraint, and it is real
+
+Three rows now key on one record, and one of them changes it. **This subsection is authoritative on
+order** — including over anything the rev-8 text above said.
+
+| Stage | SCR-1's state | What it is |
+|---|---|---|
+| after creation steps 1–2 | **α — stranded**: V2 bit set, `content` present, `valid = false` | the state R2 and R4 are written against |
+| R4 observes | α, unchanged | an observation; changes nothing |
+| R2 observes | α, unchanged | an observation; changes nothing |
+| **R15 acts** | **α → β**: bit cleared, `content` unchanged, `valid = true` | **a persisting act; it ends α** |
+
+**So R4 and R2 must both be observed before R15.** This is not a preference. Any save recomputes
+`valid` (M4 — `src/server/api/utils/shared.ts` writes `valid: isMessageValid(message.data)` on every
+upsert), so R15's save is precisely what removes the state the other two rows exist to observe. Run
+out of order, **R2 and R4 return `valid: true` and a Send-available composer, and read as *the fix
+never worked* — when in fact it worked and was then overwritten.** That is the identical failure the
+original 5712 ordering note warned about; the subject changed, the mechanism did not.
+
+**Order to run, and it is the whole constraint:**
+
+> **create SCR-1 → R4 → R2 → R15 → dispose**
+
+R4 sits before R2 because **R4's result is what disambiguates a `valid: true` at R2** — see R2's
+three-way reading. R2 and R4 are otherwise order-free with respect to each other; both must precede
+R15.
+
+**One thing SCR-1 has that 5712 never had: it is rebuildable.** If the order is broken — R15 run
+early, or SCR-1 built wrong and an observation voided — re-running creation step 2 against the same
+record returns it to state α at no cost, and the rows can be observed again. The original rows were
+unrecoverable on a misstep because their subject was a real guild owner's message. **A voided
+observation here is an inconvenience, not a lost verdict**, and nobody should feel pressure to read
+an ambiguous result as a pass.
 
 ### This does not gate, condition, or reopen the send (D26)
 
@@ -1336,11 +1396,12 @@ these rows.
 
 ### Disposal
 
-If both rows are executed, SCR-1 ends clean by construction — bit cleared, `valid: true`, a
-perfectly ordinary Classic message — and may simply be deleted. **If R4 is observed and R15 is
-not**, a stranded record is left in the table: it will appear in any future table-wide backfill as a
-`flagStructureDisagreement` row and read as a live defect. Whoever stops between the two rows
-deletes SCR-1 or records its id here.
+If the sequence completes, SCR-1 ends clean by construction — bit cleared, `valid: true`, a
+perfectly ordinary Classic message — and may simply be deleted. **If any observation is taken and
+R15 is never run**, a stranded record is left in the table: it will appear in any future table-wide
+backfill as a `flagStructureDisagreement` row with a `false` verdict, and read to a later reader as
+a live defect of exactly the kind this chain existed to find. Whoever stops part-way through the
+sequence deletes SCR-1 or records its id here.
 
 ### Assumption Not Checked — this pass
 
