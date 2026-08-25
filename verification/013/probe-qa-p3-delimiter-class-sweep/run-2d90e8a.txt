@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/qa013-verify
+
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  08:45:48
+   Duration  416ms (transform 72ms, setup 0ms, import 122ms, tests 9ms, environment 0ms)
+

@@ -2896,3 +2896,217 @@ standing obligations rather than as new IDs:
 
 **Standing note, as on every list in this document**: point-in-time. The UAT document, then the
 deployment record, are authoritative on each row's execution state.
+
+---
+
+# Phase 3, second sitting, 2026-08-25 — routed items ruled. Still no verdict
+
+**Session**: `qa-hooks-013-3` [ab2af3]. Written after `code-reviewer-013-4` reported
+`APPROVED_WITH_COMMENTS` at `2d90e8a` (`5f6fda8`) and after `steering-hooks-013-3` **stopped the
+verify pass**: the owner accepted code review's MEDIUM-1 as a **rider on chain 013**, so the tree is
+about to move and any `Verified-At: 2d90e8a` would expire on the rider's own commit.
+
+**Tree identity established, verdict deliberately not taken.** Local `HEAD` = `2d90e8a`,
+`git status --porcelain` **empty**, `git diff --numstat 2d90e8a` **empty** (written to a file and
+read whole). **`git ls-remote origin refs/heads/master` FAILED — DNS could not resolve `github.com`.**
+So the *remote* limb of the identity is **not established**, and this pass does not substitute a
+tracking ref for it. Recorded rather than glossed; it costs nothing here because no verdict is taken,
+and the verify pass at the post-rider tip must establish it properly.
+
+## P3.12 — devops **F-1** ruled. Both limbs, and a correction to its magnitude
+
+`devops-hooks-013-2` (deployment record `14bc31c`, §12.6) routed here: *"the serving tree carries 4 of
+the 8 test blocks of QA's formally adopted render instrument, and no verdict covers the remainder."*
+The instrument is QA's, so the ruling is QA's. Evidence:
+`verification/013/probe-qa-p3-render-instrument-reduction/`.
+
+**Limb 1 — are the removals correct? YES.** Every one of the four removed cases is a member of the
+`CodeMessageNotice — does the converted code-import notice actually render?` describe block, and
+`2d90e8a` deletes `CodeMessageNotice.tsx` outright along with its provider state and its layout
+mount. **Tests of a deleted component are correctly deleted with it.** No surviving behaviour lost
+coverage: the `paste surface guard '!error && settledNotice' — conjunct isolation` block survives
+**whole** (four cases), as does the `NullableComponent` block (five).
+
+**Limb 2 — is a verdict owed? YES, and not at `2d90e8a`.** Nothing is *uncovered* by the removal.
+What is true is that the **surviving** instrument has never run under a QA verdict at `2d90e8a` —
+`QA Complete` was reached at `4a7126b`. That verdict is owed at the **post-rider tip**.
+
+**Correction to F-1's magnitude — it is 4 of 13, not 4 of 8:**
+
+| Tree | `it(` / `test(` matches | **tests actually run** |
+|---|---|---|
+| `4a7126b` | 8 | **13 passed** |
+| `2d90e8a` | 4 | **9 passed** |
+
+The `NullableComponent` block is an **`it.each` with five rows**, which a predicate matching `it(` /
+`test(` cannot see. The instrument lost **4 of 13 cases (~31%)**, not half.
+
+**The delta is right and F-1's substance stands** — four cases went and nobody had checked them.
+What is wrong is the word *"half"*, and that is the word that makes the finding alarming. Devops's
+counter was **sound** (`grep -c`, computing before any output filter); the **predicate** was the wrong
+one. **Run the file; do not count its source.** This is the third instance of that exact shape in
+this pass alone, which is why it is stated as a rule rather than as a correction to one peer.
+
+**Devops was right to route it and right not to decide it**, and its own instrument disclosure in the
+same section — catching itself about to write *"QA's instrument was deleted"* off a `0 51` numstat —
+is the reason this arrived as a checkable claim instead of a false one.
+
+## P3.13 — **F-QA31**: the trim left a pointer to a disclosure it deleted, and the disclosure was BC-18's
+
+Found while ruling F-1; **F-1 did not report it.**
+
+`013-qa-toast-vessel-render.test.ts:14` at `2d90e8a` still reads *"(see `WHAT THIS CANNOT ESTABLISH`
+at the foot of this file)"*. **There is no such section** — `2d90e8a` removed it. `git grep -c` for
+that phrase returns **1** at `2d90e8a`: **the pointer, not the section.** An existence check on the
+phrase therefore reports the disclosure as present when it is gone — the same lying-predicate shape
+again, this time built into the file.
+
+**What was deleted matters more than the dangling pointer.** Items 1–3 of that block were about
+`CodeMessageNotice` and died correctly with it. **Item 4 did not.** It recorded that the paste
+surface's render path is asserted only as source text, called it *"THE LARGER OF THE TWO GAPS and it
+is the site the owner's ruling actually named"*, and stated the falsity signature routed to the owner:
+
+> *"he pastes a rows-B/D payload into New Message and sees NO persistent warning in the modal (or
+> sees one that never clears when he fixes the JSON)."*
+
+**That is BC-18's predicate, verbatim.** The trim deleted the in-repo statement of BC-18's own falsity
+signature and left a pointer to it. BC-18 itself is unaffected — the register carries the row and this
+document carries the re-derivation — but the instrument no longer says what it cannot do, which is
+the one thing that block existed to say.
+
+**Class**: identical to code review's LOW-1 (`ID_LAYOUT`, `NOTICE`) — a deletion pass that removed
+consumers and left what referred to them. **Three orphans, one commit, and no gate could see any of
+them**, which is MEDIUM-2's point made a third time. **Remedy**: restore item 4 and the falsity
+signature (not items 1–3), or delete the pointer. Belongs with **CR23-3** in the rider round.
+
+## P3.14 — MEDIUM-2 weighed. It is worse for QA than it is for the tree
+
+**Re-derived, not repeated.** `npx eslint --no-fix . --max-warnings=0 -f unix` at `2d90e8a`:
+**45 distinct paths carrying a `Parsing error` — 44 under `__tests__`, 1 `vitest.config.ts`, 0
+elsewhere.** Matches code review's count exactly. **Predicate**: paths on a `Parsing error` line in
+that gate's `unix` output; **excludes** files excluded by other means and any gate other than
+ESLint/`tsc`. (408 problems in total at that tree; pre-existing, and the repo's own script is
+`eslint --fix`, which would repair the auto-fixable ones and mask the honest state.)
+
+**The consequence that is QA's, and it is not the one the finding leads with.** Every `tsc` **0** this
+chain recorded — including the ones this document relied on — is true and **never covered a test
+file**. So every TDD-compliance audit in this document rested on test files that no type-checker has
+ever seen.
+
+**F-QA21 is the realised instance.** A type assertion masquerading as a bitmask survived into a
+commit and was caught by QA *reading* it, not by any gate — and its mutant **Q1** established it was
+blind to a live regression class (`switchToClassic` wiping every flag bit, dropping
+`SUPPRESS_EMBEDS`/`EPHEMERAL` on every classic repair). **MEDIUM-2 is the mechanism that let it
+through, and it is still open.**
+
+**Agreed with code review**: repo tooling, not this round's code, and **not held against the tree**.
+**Recommended**, and it is the planner's call not QA's: fold **CR23-2** into the rider round, since an
+implementer round is already being paid for and this is the gate that would have caught three of the
+findings now sitting open.
+
+## P3.15 — The MEDIUM-1 rider: swept on the class's predicate, and it has **three** members
+
+Asked by steering, since the rider touches error-rendering surfaces and a row might quote error text.
+Evidence: `verification/013/probe-qa-p3-delimiter-class-sweep/`.
+
+**Answer to the row question first: no row this pass re-derived predicts a Zod error string**, so on
+its face the rider stales nothing. **Pre-registered condition so nobody re-derives twice**: if the
+rider's diff at `NewMessageJsonInput.tsx` / `JsonModalBody.tsx` stays inside the `catch (err)` block,
+**no row is staled and no re-derivation is owed**; if it touches anything outside that block at those
+two files, the differential must be re-run. That is a one-command check against the rider's diff.
+
+**But the sweep found the class is wider than the finding.** Code review defines the class correctly
+— *"any formatter that recovers structure by string-splitting output it could have configured"* — but
+its Location names one file and its enumeration counts the **schemas that can emit** `' | '` (6
+union/enum sites), not the **sites that split on it**. Different predicates, different sets.
+
+**Sweep predicate**: `git grep -n "split(' | ')" 2d90e8a -- src` → **3 sites**, all three also calling
+`generateErrorMessage`: `formatMutationError.ts:25`, **`NewMessageJsonInput.tsx:112`**,
+**`JsonModalBody.tsx:149`**. The known instance **is** among the matches — the check that the
+predicate is derived from the class and not fitted to the two new members. **Excludes**: a
+differently-spelled delimiter (`'|'`, a variable), a round-trip through `join`/`match`/a regex rather
+than `split`, anything outside `src`, and anything added after `2d90e8a`.
+
+**At `2d90e8a` the collision is not reachable through the two client sites — and the reason is a
+coincidence nothing enforces.** The lenient filter's accepted type sets **equal** the discriminated
+unions' member sets at both levels — `{1,9,10,12,13,14,17}` and `{1,9,10,12,13,14}` — so
+`invalid_discriminator`, the one reachable message containing `' | '`, cannot be produced through
+`discordMessageImportShape`. **Control**: the same payload against `containerChildShape` directly
+renders **one issue as six lines**. **Corroboration**: 13 hand-built payloads through the real import
+shape, **0 over-rendering** — offered as corroboration only, since 13 payloads cannot prove
+unreachability. The set equality is what carries the claim.
+
+**Consequence, and it is the recommendation**: add a supported component type without adding a union
+member and the six-lines-from-one-issue defect appears at **both JSON surfaces** with no gate to catch
+it — MEDIUM-2 guarantees that. **The rider should close the class at all three sites, not at the
+instance.** Code review's own preferred remedy applies unchanged at all three. This is the planner's
+and the implementer's call; QA's contribution is the enumeration and the reason the other two are not
+safe by design.
+
+## P3.16 — INBOX dispositions. Three entries in, three out
+
+`agent-output/INBOX.md`, all three addressed to `qa-hooks-013` and predating this session.
+**Ruled here; not deleted here.** `INBOX.md` is the steering session's document by that file's own
+record, and this document's commit grant reaches QA's own artifacts, not another stage's. The
+substantive disposition below is the durable one; **the deletion is steering's to make**, and it was
+told so with the three rulings. An edit was made and **reverted** rather than left uncommitted in a
+shared tree, where another session's pathspec commit would have swept it.
+
+| Entry | Disposition |
+|---|---|
+| **`verification/013/README.md` scope** (2026-08-24, FYI) | **RULED and executed.** The directory is **the chain's**, not QA's; any stage may place an instrument, **each stage indexes its own**. The reviewer's `README-code-review-instruments.md` is now the convention rather than an accident. Moving its twenty-odd probes was considered and rejected — every one is cited by directory path in a 489 KB document, so the move breaks citations to buy a tidier sentence. Written at `f3cbb66` |
+| **The untracked Phase-1 probe** (2026-08-24, DECISION NEEDED) | **ALREADY RESOLVED, and the decision it asked for never had to be taken.** `src/utils/__tests__/013-qa-phase1-seed-route-probe.test.ts` is **gone from the `website` tree** (`ls -d` refuses it; `git cat-file -e HEAD:<path>` → not in HEAD) and a copy is retained under `verification/013/probe-preexisting-seed-route/`. The +7/+7/+0 inflation is gone with it. **The third option was taken — move it, not commit it — so no `website` source commit and no owner approval was ever needed.** Recorded because the entry asked for a routing that turned out to be unnecessary |
+| **The pre-registered 012 spec green over a falsified narrative** (2026-08-24, FYI) | **RULED: the disagreement is a real finding, and the file must NOT be edited. See below** |
+
+### The 012 send-gate spec — finding confirmed, edit refused, and the refusal is the point
+
+`012-send-gate-partition.test.ts`'s **M2-f** block carries a narrative about the product that 013 has
+falsified. Verified at `2d90e8a`, not taken from the relay:
+
+- the comment says *"an affected stored record (5712) loads in CLASSIC mode — `detectMode` derives
+  mode from `hasV2Components`, structure only, never `flags`"*. **False**: `isMessageV2` is
+  `hasV2Components(...) || (flags & IS_COMPONENTS_V2_FLAG)`, and `detectMessageMode` returns `'v2'`
+  on it. The record opens in **V2**.
+- the case title says *"RECOVERY IS REACHABLE — but only via a round trip, and the outbound leg
+  destroys the content"*. **False for the product**: one toggle to Classic now suffices and preserves
+  the content. This document already recorded that substance at the refresh pass — *013 makes the B3
+  class lossless, superseding 012's R19 "no lossless path" conclusion*.
+- **it stays green anyway** because M2-f exercises its **own locally transcribed** `switchToV2` /
+  `switchToClassic`, not the product's. The file's own header says a disagreement is a finding, and
+  this is one.
+
+**Severity, measured rather than assumed.** The transcriptions are **redundant, not load-bearing**:
+`git grep -ln "from '~/utils/messageMode'" 2d90e8a -- src` shows the **real** functions covered by
+`012-message-mode.test.ts` and `013-m7-mode-follows-flag.test.ts`. So this is **not** a coverage hole.
+The live risk is a **reader** believing the narrative — which is exactly what a pre-registered spec's
+comments are read for.
+
+**Why QA does not fix it: 012 is HELD WHOLE under D20.** Editing a 012 spec is 012 work, and a stage
+correcting a held chain's artifact under cover of a 013 cleanup is the same defect as a stage removing
+another stage's marking. **The finding is recorded here and routed to whenever 012 unfreezes.** It is
+not urgent: green, redundant, and misleading only to a reader — but it should not lapse, because the
+file is the kind of artifact later readers trust precisely because it was pre-registered.
+
+## P3.17 — State after this sitting
+
+**No verdict moved. `QA Complete` at `4a7126b` stands for that tree and reaches no other, and
+`2d90e8a` carries no QA verdict.** The verify pass is **queued behind the rider**, by steering's hold
+and with QA's agreement: planner registers the rider → implementer implements → `code-reviewer-013-4`
+re-reviews at the new tip → **QA verifies at the new tip** → UAT writes the gate.
+
+**Carried into that pass, so none of it is lost between sittings:**
+
+1. **F-QA29** and **F-QA30** — fix verification, against the pre-registered specs already captured.
+2. **F-QA31** — the dangling pointer and BC-18's deleted falsity signature.
+3. **F-1's limb 2** — the surviving render instrument executed under a verdict.
+4. The **rider staleness condition** at P3.15 — a one-command check against the rider's diff.
+5. **MEDIUM-2's status**, whether or not CR23-2 rides.
+6. The **remote limb** of tree identity, which DNS denied this sitting.
+
+**Not QA's and not to be routed here**: code review's D34 Discord question. Establishing what Discord
+does with the payloads D34 admits requires sending a real outbound message, which is prohibited
+outright with no approval path. **QA is as barred as the reviewer.** It is the owner's, by
+observation, and this document does not carry it as a coverage gap.
+
+**Standing note**: point-in-time, as every list here. The UAT document, then the deployment record,
+are authoritative on row state.

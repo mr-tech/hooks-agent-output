@@ -1,0 +1,71 @@
+--- /usr/local/bin/hooks/agent-output/verification/013/probe-qa-p3-render-instrument-reduction/instrument-at-4a7126b.ts	2026-08-25 08:51:09.146661404 +0000
++++ /usr/local/bin/hooks/agent-output/verification/013/probe-qa-p3-render-instrument-reduction/instrument-at-2d90e8a.ts	2026-08-25 08:51:09.146661404 +0000
+@@ -22,7 +22,6 @@
+ 
+ // The REAL NullableComponent — its truthiness contract is under test, not stubbed.
+ import NullableComponent from '~/components/NullableComponent';
+-import CodeMessageNotice from '~/app/message/m/[id]/_layout/CodeMessageNotice';
+ 
+ /** Evaluate function components until only host elements remain. ~10 lines, no library. */
+ function render(el: any): any {
+@@ -57,35 +56,6 @@
+   });
+ });
+ 
+-describe('CodeMessageNotice — does the converted code-import notice actually render?', () => {
+-  it('renders NOTHING when there is no dropped-components fact', () => {
+-    mockUseMessage.mockReturnValue({ codeMessageDroppedNotice: null });
+-    expect(render(CodeMessageNotice({} as any))).toBe(null);
+-  });
+-
+-  it('renders the notice TEXT when the fact is present — the behaviour the text-pinning spec cannot see', () => {
+-    mockUseMessage.mockReturnValue({ codeMessageDroppedNotice: NOTICE });
+-    const out = render(CodeMessageNotice({} as any));
+-    expect(out).not.toBe(null);
+-    expect(text(out)).toBe(NOTICE);
+-  });
+-
+-  it('carries a visible styling hook rather than rendering bare/unstyled', () => {
+-    mockUseMessage.mockReturnValue({ codeMessageDroppedNotice: NOTICE });
+-    const out = render(CodeMessageNotice({} as any));
+-    expect(out.tag).toBe('div');
+-    expect(out.className).toContain('text-warning');
+-  });
+-
+-  it('CLEARS when the fact goes away — a persistent notice that cannot clear is its own defect', () => {
+-    mockUseMessage.mockReturnValue({ codeMessageDroppedNotice: NOTICE });
+-    expect(render(CodeMessageNotice({} as any))).not.toBe(null);
+-    mockUseMessage.mockReturnValue({ codeMessageDroppedNotice: null });
+-    expect(render(CodeMessageNotice({} as any))).toBe(null);
+-  });
+-});
+-
+-
+ describe('paste surface guard `!error && settledNotice` — conjunct isolation', () => {
+   // The paste surface's component function is NOT reachable here (see trace-paste-surface-unreachable.txt:
+   // useCopyToClipboard calls useRef before settledNotice is reached, and React's dispatcher is null
+@@ -109,24 +79,3 @@
+   });
+ });
+ 
+-/**
+- * WHAT THIS CANNOT ESTABLISH — stated so a green run is not mistaken for the whole property.
+- *
+- *  1. VISIBILITY. This proves an element with `text-warning` is returned. It does not prove the
+- *     user sees it: CSS cascade, z-index, `overflow:hidden`, a parent with `display:none`, or
+- *     colour-on-colour contrast are all invisible here.
+- *  2. PLACEMENT. `layout.tsx` mounts <CodeMessageNotice /> between <Navigation/> and {children}.
+- *     That it lands somewhere the eye goes — above the fold, not under a sticky nav — is untested.
+- *  3. THE REAL MOUNT. CodeMessageNotice is a 'use client' component inside an async server layout.
+- *     This calls the function directly; it does not prove Next.js's server/client boundary hands it
+- *     a live MessageProvider context at runtime. A null context would throw in production and pass
+- *     here.
+- *  4. THE PASTE SURFACE. NewMessageJsonInput's `settledNotice` is NOT covered here: it is local
+- *     component state driven by useUpdateEffect, so reaching it needs a hook driver, which needs
+- *     the harness D28 rules out. Its render path is asserted only as source text. THIS IS THE
+- *     LARGER OF THE TWO GAPS and it is the site the owner's ruling actually named.
+- *
+- * Items 1-3 and especially 4 are the owner's to close by observation. Falsity signature for the
+- * part that reaches him: he pastes a rows-B/D payload into New Message and sees NO persistent
+- * warning in the modal (or sees one that never clears when he fixes the JSON).
+- */

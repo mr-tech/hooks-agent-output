@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/tvcount-4a7126b
+
+
+ Test Files  1 passed (1)
+      Tests  13 passed (13)
+   Start at  08:50:28
+   Duration  814ms (transform 49ms, setup 0ms, import 75ms, tests 7ms, environment 0ms)
+

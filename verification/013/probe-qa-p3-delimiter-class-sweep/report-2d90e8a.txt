@@ -1,0 +1,35 @@
+## A — sites matching "splits on ' | ' to rebuild line structure", in src at 2d90e8a
+  NewMessageJsonInput.tsx: splitsOnDelimiter=true usesGenerateErrorMessage=true
+  JsonModalBody.tsx: splitsOnDelimiter=true usesGenerateErrorMessage=true
+  formatMutationError.ts: splitsOnDelimiter=true usesGenerateErrorMessage=true
+  MEMBERS=3 -> NewMessageJsonInput.tsx, JsonModalBody.tsx, formatMutationError.ts
+
+## B — is the collision reachable through the CLIENT (lenient) import shape?
+  SUPPORTED_TOP_LEVEL_TYPES      = {1,9,10,12,13,14,17}
+  topLevelComponentShape members = {1,9,10,12,13,14,17}
+  SUPPORTED_CONTAINER_CHILD_TYPES= {1,9,10,12,13,14}
+  containerChildShape members    = {1,9,10,12,13,14}
+  => the filter set EQUALS the union set at both levels, so invalid_discriminator is
+     unreachable through discordMessageImportShape. NOTHING ENFORCES THIS EQUALITY.
+
+  CONTROL containerChildShape.parse({type:99}) -> "Code: invalid_union_discriminator ~ Path: type ~ Message: Invalid discriminator value. Expected 1 | 10 | 9 | 12 | 13 | 14"
+  CONTROL one issue renders as 6 lines after the split
+
+## C — payload sweep (corroboration only; section B is the argument)
+  ACCEPTED  section with a bad accessory, inside a container
+  ACCEPTED  top-level section, bad accessory
+  ACCEPTED  action row with a non-link button
+  ACCEPTED  unsupported child type 99 in a container
+  ACCEPTED  unsupported top-level type 99
+  faithful      file child malformed  issues=1 linesShown=1
+  faithful      media gallery item malformed  issues=1 linesShown=1
+  faithful      text display content wrong type  issues=1 linesShown=1
+  faithful      separator malformed (two genuine issues)  issues=2 linesShown=2
+  faithful      components is a string  issues=1 linesShown=1
+  faithful      embeds malformed  issues=1 linesShown=1
+  faithful      content wrong type  issues=1 linesShown=1
+  faithful      allowed_mentions.parse bad enum  issues=1 linesShown=1
+  OVER-RENDERING CASES: 0/13
+  PREDICATE: "a single Zod issue rendered as more than one visible line". EXCLUDES any
+  payload shape not in this list; 13 hand-built cases are corroboration, not a proof of
+  unreachability. Section B is what carries that claim.
