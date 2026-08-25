@@ -28,12 +28,18 @@ lines about items nobody is waiting on.** If it does not need the owner to act, 
 
 ## CHAIN 013 — LIVE. NOTHING IN THIS SECTION IS ON HOLD.
 
-**Where things stand.** `origin/master` = **`2d90e8a`**, your own commit, live. The chain's work sits on
-branch `chain/013-rider-2` at `b56570d`, **unpushed — nothing has been released.**
+**Where things stand — RELEASED.** `origin/master` = **`a74b9e2`**, which is your own
+"remove unnecessary diff" commit sitting on top of the release. 013 was released at **20:30:01 UTC**,
+`master` moving `2d90e8a` → `b56570d`; your commit landed eleven minutes later. Everything the chain
+shipped is in production.
 
-**`uat` has issued the release decision: APPROVED FOR RELEASE, conditional on the eight checks below.**
-Code review and QA are both complete at that commit. **If any of the eight fails it goes back to the
-implementer rather than out.**
+**All eight `PRE` checks below are done and terminal** — you walked them, and `uat` closed the last one
+on your answer. **Items 9–12 further down are the remaining post-deploy checks**, and they are the only
+outstanding work in this chain.
+
+*This block read **"unpushed — nothing has been released"** until 2026-08-25 21:0x, hours after the
+release. It was steering's to keep current and steering did not; the retrospective found it, not
+steering. Corrected here rather than silently overwritten.*
 
 **The release decision was not yours to make and is not listed here as an item** — it is `uat`'s, written
 against the condition ledger. What *is* yours is the eight checks, because no instrument in this chain
