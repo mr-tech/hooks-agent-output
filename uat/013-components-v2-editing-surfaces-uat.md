@@ -5,6 +5,13 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
+  **Rev 14 — verdict UNCHANGED; three reconciling writes.** R13.5.1's ANC closure **corrected**: right
+  method, but one control short — QA supplied the negative control, re-derived here (three DIFFER vs live
+  `master`, one file absent), so the closure is **joint**. **BC-11b `TERMINAL: CANNOT BE EXECUTED`** (a
+  fourth state this definition does not contain — never read as closed); **BC-18/BC-19 reclassification
+  DECLINED by QA and its reasoning adopted over mine** — the rows do not expire and stay `PRE`, OPEN;
+  **BC-21** registered. **Finding U-5: `4a7126b` is NOT released** (`git ls-remote origin master` =
+  `a151fb4`), contra QA's prose — **so rev 13's condition has NOT been overtaken and the window is open.**
   **Rev 13 — a SECOND release decision, on a SEPARATE tree: `chain/013-toast-vessel` @ `4a7126b`,
   the owner's 2026-08-25 toast-vessel fix. `APPROVED FOR RELEASE, conditional on the human
   click-through of BC-18 and BC-19.`** Identity re-derived from the tree (R13.5), predecessors read
@@ -71,6 +78,7 @@ Verified-At: >-
 | 2026-08-24 | steering-hooks-013-2 — three follow-ups after the verdict | Reconcile the ledger to QA's renumbering; disposition the U-C2 conflict; package the `PRE` ledger as one operator script | **Rev 11. The verdict is UNCHANGED and is not reopened.** (1) **QA renumbered** on finding U-2 — Phase 2's rows become **BC-16** `p2-rowd-load-gate` and **BC-17** `discord-returns-row-e`; Phase 1 keeps BC-13/BC-14. Mapping re-derived from QA's own table, not the relay. **All four affected rows resolved unambiguously because each was carried by name** — the property that made the collision recoverable. (2) **U-C2 was defective as I wrote it**: it asked the implementer to set a terminal `Status`, which the document-lifecycle table reserves to devops. The implementer declined with that reason and is right. **U-C2 narrows to the recording half — now `EXECUTED` (`7f3111f`), verified from the document** (`F-QA21` × 6, `821330d` × 5, against 0/0 at rev 10) — and the Status half becomes **U-C6, devops's, not a `PRE` row**. **U-C3 also `EXECUTED`**: M6 checked, all seven milestones now complete. (3) **Appendix B added** — one consolidated script for the whole `PRE` ledger, with **three new ordering hazards** beyond rev 9's pair (seed containment; BC-2→BC-3's one-hour TTL clock; and the correction that **the mint route is still OPEN pre-deploy**, so spare seeds can and should be minted now — without them **BC-11b is not runnable to its own prediction**, whose *"both outcomes"* clause Appendix A had dropped). |
 | 2026-08-25 | steering-hooks-013-2 — owner ruling relayed verbatim | What do the affected `PRE` rows become, and does anything he *can* do satisfy them? | **Rev 12. Verdict unchanged; nothing reopened. Appendix C added.** Applied **his own operative test** — *can it be generated for him to input into the editor?* — rather than the Discord/not-Discord split. **Most affected rows were never unfulfillable: they were under-specified by my own script**, which handed over `<container>` placeholders instead of paste-ready JSON. **Literal payloads authored for BC-1, BC-6, BC-7, BC-8, BC-9**, derived from the import schema at `821330d` (container = type 17 with ≥1 child; type 11 is in neither supported set, which is what makes it BC-6's dropped-type case). **BC-5 fulfillable in principle but its payload is NOT authored** — the folder-page export's shape is in no document I hold, and an invented fixture would make BC-5 read as executed while testing nothing; one-line question routed. **BC-2 and BC-3 marked RECOMMEND WITHDRAWAL and routed to the owner with the cost stated — not withdrawn.** Their oracle is the Discord ingress path itself, so no payload can reach it. **BC-6 does NOT substitute for them, and BC-10 is exactly why** — steering's flagged tension resolved by refusing the substitution, not by taking it. |
 | 2026-08-25 | steering-hooks-013-2 [019315] — third UAT session, spawned by the owner after `uat-hooks-013-2` retired at its run-length ceiling | Assess `chain/013-toast-vessel` @ `4a7126b`, the owner's 2026-08-25 toast-vessel fix, and issue a release decision | **Rev 13. A SECOND release decision, on a separate tree: `APPROVED FOR RELEASE, conditional on the human click-through of BC-18 and BC-19`.** **013 was released while rev 10's conditional approval stood undischarged** — `origin/master` = `a151fb4` (`git ls-remote`), pushed 00:56:37; its twelve `PRE` rows went out unexecuted, and the approval was **overtaken, not met**. Recorded as a recovery state, not a sanctioned ordering. **The ordering did not cost code integrity**: `git diff --numstat 821330d a151fb4` is exactly the three test paths rev 10 named as the one move it survives — re-derived, and it inverts the obvious reading. It cost **the conditions**, plus a possible irrecoverable loss of BC-11b's spare seeds (R13.1). **No deployment record exists for a release that ran** — new condition U-C7, devops. **Authority ruled rather than deferred**: the ruling stands because the change sits inside the plan's own D4 Value Statement; its absence from the Decisions Register is **finding U-4**, routed to steering (U-C8). **Value re-measured on a wider predicate** than the reviewer used — `git grep -c` across the whole `toast.*` surface: 013 added exactly three sites, `toast.error`/`toast.success` did not move, two converted, one retained, and the retained one is the site his second ruling carves out. **U-C1 and U-C4 driven terminal** by direct re-derivation. Residue carried as **one agreed boundary** at QA's narrower scoping. **Nothing withdrawn.** |
+| 2026-08-25 | steering-hooks-013-2 [019315], relaying `qa-hooks-013-2`; **nothing asked** | Informational: QA re-derived and confirmed rev 13's blob-SHA closure, added the control it lacked, and terminalised three rows | **Rev 14. Verdict UNCHANGED and not reopened. Three writes judged owed because each corrects or completes a claim THIS document makes.** (1) **R13.5.1 corrected by reconcile note**: its closure was right and its method was right, but a MATCH-only result cannot be told apart from an instrument that matches everything. QA supplied the negative control; **re-derived here rather than adopted** — three DIFFER against live `master`, one file absent. Closure is **joint**, not this document's alone. **Plus an instrument defect**: `git rev-parse <tree>:<path>` on an absent path echoes its argument to stdout, so a stdout-only comparison mislabels ABSENT as DIFFER — settle existence with `git cat-file -e`. (2) **Three rows adopted from QA**: **BC-11b `TERMINAL: CANNOT BE EXECUTED`** — noted as a **fourth** state my definition does not contain, terminal only in that no act can change it and **never to be read as closed**; **BC-18/BC-19 reclassification DECLINED**, and QA's reasoning is better than my question — the rows **do not expire**, and `POST` would have moved them into the class least likely ever to be settled; **BC-21** registered as the genuine post-deploy detector R13.7.3 said was owed. (3) **Finding U-5**: **`4a7126b` is NOT released** — `git ls-remote origin master` = `a151fb4`, contra QA's prose *"with 4a7126b shipped ahead of them"*, which **its own BC-21 row contradicts** in the same document. **Rev 13's condition has NOT been overtaken; the window is open** and, on QA's own finding, does not expire. Owner confirmed the push was his and the site is live — two questions answered. |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -1568,6 +1576,11 @@ predecessor verdicts and this decision with them** — do not rely on another ag
 
 ### R13.5.1 — QA's mandatory Assumption Not Checked is CLOSED by this derivation
 
+> **Corrected at rev 14 (2026-08-25) — see R14.1. The closure holds; this statement of it was one
+> control short.** A MATCH-only result cannot be distinguished from an instrument that returns MATCH for
+> everything. QA supplied the negative control and it is re-derived in R14.1. The closure is **joint**,
+> not this document's alone. The text below stands as written.
+
 QA recorded: *"This pass assumes the four production files are byte-for-byte what `abcf585`
 introduced, and verifies that only by `git diff --numstat` over the range — a path-and-count
 instrument, not a content hash of each file at each tip. A rebase, an amend, or a force-push that
@@ -1817,3 +1830,160 @@ filenames — two `deployment/*-readiness.md` and one `code-review/012-carry-for
 pre-existing and none belongs to this pass or to the change under assessment.** The tool **exits 0
 while printing FAIL**, so its exit code is not a usable gate — recorded as an observation for the
 tooling owner, not adopted as a finding here.
+
+---
+
+# Rev 14 — Reconciliation: QA's control, three rows terminalised elsewhere, and one premise that does not hold
+
+**Date**: 2026-08-25. **Session**: `uat-hooks-013-3`. **Trigger**: `qa-hooks-013-2`, relayed by
+`steering-hooks-013-2 [019315]`. **Nothing was asked of this stage**; the writes below are judged
+owed because each corrects or completes a claim **this document makes**.
+
+**Authority**: `agent-output/qa/013-components-v2-editing-surfaces-qa.md`, **re-read directly at
+write time** — not taken from the relay. **The verdict of rev 13 is unchanged and is not reopened.**
+
+---
+
+## R14.1 — R13.5.1 was one control short. Corrected, and the correction is QA's
+
+> **Reconcile note, 2026-08-25 (rev 14) — this corrects R13.5.1 of this document. The superseded text
+> stands as written and is not overwritten.**
+
+R13.5.1 recorded QA's mandatory Assumption Not Checked as **closed** on the ground that
+`git rev-parse <tip>:<path>` returns a per-file content hash, and that all four production blobs match
+across `abcf585` and `4a7126b`.
+
+**The closure was right and the method was right. The *report of it* was incomplete.** A **MATCH-only**
+result is indistinguishable from an instrument that returns MATCH for everything. R13.5.1 stated no
+negative control, so as written it could not tell those two apart. **QA supplied the control** — the
+same command against live `master` — and got **DIFFER**. In QA's framing, the closure was *"one control
+away from being unarguable."*
+
+**Re-derived here rather than adopted**, because a control taken on a peer's word is not a control:
+
+| Path | blob @ `a151fb4` (live) | blob @ `4a7126b` | Result |
+|---|---|---|---|
+| `NewMessageJsonInput.tsx` | `c3293497` | `f63b95df` | **DIFFER** |
+| `layout.tsx` | `aef786f7` | `d50a1992` | **DIFFER** |
+| `MessageProvider/index.tsx` | `c6c08f5a` | `955fc0ea` | **DIFFER** |
+| `CodeMessageNotice.tsx` | **absent** | `75dafce9` | **absent at `master`** — new at `abcf585` |
+
+**The instrument discriminates.** Three files that exist at both tips return DIFFER against live
+`master` and MATCH across `abcf585..4a7126b`. **The ANC is closed on that basis**, and the closure is
+**jointly** QA's and this stage's — not this document's alone, as R13.5.1 implied. QA's routing to
+**devops at release assembly** stands unchanged as the independent second check.
+
+### R14.1.1 — A defect in the control instrument, recorded because it is the class this chain keeps catching
+
+`git rev-parse <tree>:<path>` on a path **absent** from that tree writes `fatal: path … does not exist`
+to stderr **and echoes the argument string to stdout**. A naive MATCH/DIFFER comparison capturing
+stdout only therefore compares a blob SHA against the literal text `a151fb4:src/…`, and silently
+reports **DIFFER** where the truth is **ABSENT**.
+
+Here that mislabelling was benign — absence *is* a legitimate difference, and it is why row 4 above is
+stated as absent rather than as a blob mismatch. **The general form is not benign**: an existence
+predicate that cannot fail loudly is the same defect class as the piped-count and `ls -a | grep -x`
+failures in `RTK.md`. **Settle existence with `git cat-file -e <tree>:<path>`**, which exits non-zero
+and prints nothing to stdout. Verified both ways at write time. Recorded for the retrospective.
+
+---
+
+## R14.2 — Three rows terminalised or amended in QA's register, adopted here
+
+**QA owns row definitions; this document is authoritative on state. All three were re-read from QA's
+document at write time.**
+
+**BC-11b — `TERMINAL: CANNOT BE EXECUTED`.** The owner confirmed by selection that the push was his
+and the site is live, so `a151fb4` has been serving since ~00:56:37. BC-11b's *both outcomes* clause
+needed a spare seed beyond 5855/5856; **the mint route closed at deploy and no spares were minted**.
+R13.7.2 escalated this as a fact rather than a task and R13.1(2) named it irrecoverable; **it is now
+realised.** Adopted.
+
+> **Stated because this stage's definition does not contain this state.** My definition fixes three
+> terminal states — `EXECUTED`, `WITHDRAWN`, `SUPERSEDED`. **`CANNOT BE EXECUTED` is a fourth**, and
+> it is not a synonym for any of them: it is not `WITHDRAWN` (nobody ruled the condition unnecessary,
+> and only the owner could), and not `SUPERSEDED` (nothing replaced it). **It is terminal in the only
+> sense that matters — no future act can change it — and it must never be read as "closed."** What it
+> records is a **permanent absence of evidence**: confirmation that the second disposition path
+> behaves on a real production record is now unobtainable and will stay so. **Marking it is the
+> register working**; the coverage it stood for is gone either way, and this is the form in which that
+> loss stays visible instead of lapsing quietly. Carried to the retrospective as a realised risk —
+> `devops-hooks-013`'s F-7.
+
+**BC-18 / BC-19 — reclassification DECLINED by QA, and QA is right.** R13.10 routed the class question
+to QA as the only stage that could decide it. **Its answer is better than the question**: `PRE`/`POST`
+in that register states what can **observe** a condition, never what anyone intends to do — and unlike
+BC-11a, **these rows do not expire at deploy**. Both remain observable from a local dev server exactly
+as they always were. **Nothing was lost by shipping first except the ordering.** So they are
+**re-dated, not reclassified**: still `PRE`, earliest-decidable amended to *decidable now, and equally
+decidable after deploy — this condition does not expire*, and recorded **NOT MET AT THE RELEASE ACT**.
+State: **OPEN, owner, executable at any time.**
+
+> QA also carried R13.6's silent-mode argument into the register and sharpened it: **a
+> post-deploy-observable row whose failure signature is absence is the weakest kind of row**, because
+> nobody reports a warning they never saw — so reclassifying to `POST` would have moved these rows
+> into the class where they are *least likely ever to be settled*. **Declining the reclassification
+> protects the rows.** This document adopts that reasoning over its own framing in R13.10.
+
+**BC-21 · `notice-silence-detector` — new `POST` row, registered by QA.** One **deliberate** paste of
+a rows-B/D payload on the live site, **not** a wait for user reports — which cannot detect an absence.
+One successful observation refutes *"the notice is silently absent"* by construction. Owner; subject
+the owner, no non-human primary under D28. **It does not substitute for BC-18.** This is the genuine
+post-deploy detector R13.7.3 identified as owed against BC-20's absence-signature; registering it was
+QA's, correctly.
+
+---
+
+## R14.3 — Finding U-5: `4a7126b` is NOT released, and QA's prose says it is
+
+**Re-derived at write time, at the remote and not from a tracking ref:**
+
+    git ls-remote origin master  →  a151fb47a84d7de95124b412194873f7e84edf27
+
+**`origin/master` has not moved. The toast-vessel fix is not deployed.**
+
+QA's reconciliation prose states the rows are *"recorded as NOT MET AT THE RELEASE ACT, by the owner's
+informed choice, **with `4a7126b` shipped ahead of them**"*, and heads its BC-21 section *"since the
+owner has shipped."* **QA's own BC-21 row contradicts that prose in the same document** — its
+earliest-decidable cell reads *"now — `a151fb4` is live; re-decidable **whenever `4a7126b` deploys**"*,
+which is future tense and correct.
+
+**What is established**: the owner confirmed the `a151fb4` push was his and that the site is live. **What
+is not established**: that `4a7126b` has been released. A *decision* to ship ahead of the observation is
+not a *shipment*, and no deployment record exists for either.
+
+**Why this matters to this document specifically, and it is not a quibble.** Rev 13's release decision
+is **conditional on BC-18 and BC-19 preceding the release act**. If `4a7126b` were already out, that
+condition would have been overtaken — for the **second time in this chain**. It has not been. **The
+window is open**, and QA's own finding is what makes it worth saying: **these rows do not expire.**
+Both are observable from a local dev server, today, before devops cuts anything.
+
+**So rev 13's condition stands as issued and remains meetable in the order it was written.** This
+document does not record it as overtaken, and no reader should.
+
+**Routed**: to steering and QA as a records correction — **QA's row is right and its prose is wrong**,
+and it is the prose that travels in relays. Nothing about QA's re-dating reasoning is affected; only
+the premise that the ship already happened. **No wording is drafted here.**
+
+---
+
+## R14.4 — Ledger deltas at rev 14
+
+| Row / condition | State at rev 13 | **State at rev 14** | Authority |
+|---|---|---|---|
+| **BC-11b · the ask fires on save over a seed** | NOT EXECUTED — *at risk* | **`TERMINAL: CANNOT BE EXECUTED`** — permanent absence of evidence, never "closed" | QA §3, re-read |
+| **BC-18 · `paste-notice-renders`** | NOT EXECUTED — residue only | **`PRE`, OPEN, owner — NOT MET AT THE RELEASE ACT; does not expire, executable at any time** | QA §1, re-read |
+| **BC-19 · `code-import-notice-visible`** | Logic EXECUTED; visual NOT EXECUTED | **unchanged in substance; re-dated as BC-18** | QA §1, re-read |
+| **BC-21 · `notice-silence-detector`** | — | **NEW `POST` row, Not started, owner** | QA §2, re-read |
+| *Was the 00:56:37 push the owner's?* | unanswered | **ANSWERED — yes, confirmed by selection** | QA §3, re-read |
+| *Did the deploy fire?* | unanswered | **ANSWERED — yes; `a151fb4` serving since ~00:56:37** | QA §3, re-read |
+| *Is `4a7126b` released?* | not asked | **NO — `origin/master` = `a151fb4`. Finding U-5** | `git ls-remote`, this pass |
+| **U-C7 · deployment record** | NOT EXECUTED | **NOT EXECUTED — unchanged, and now covers a confirmed-live deploy** | `deployment/`, re-read |
+
+**Release decision: UNCHANGED.** `APPROVED FOR RELEASE, conditional on the human click-through of
+BC-18 and BC-19`, anchored at `4a7126b`. Its production-code identity is unmoved — the four blobs are
+byte-identical to R13.5, re-verified by the control in R14.1. **Nothing is withdrawn.**
+
+**Next actions unchanged from R13.11**, with one addition and one subtraction: **add** BC-21 to the
+owner's list, and **remove** the two push/deploy questions, now answered. **BC-11b leaves the actionable
+list** — not because it closed, but because nothing can act on it.
