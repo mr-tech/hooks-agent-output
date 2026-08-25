@@ -26,9 +26,21 @@
  * `applyDisposition`, `isMessageV2` or `detectMessageMode`. It drives the REAL shipped
  * `computeLoadDiff` / `describeLoadDiff` and compares against the plan's own prose.
  *
- * NON-VACUITY IS DEMONSTRATED, NOT ASSERTED: see run-mutant-*.txt beside this file. Mutating
- * `resolveContentLoss`'s row-D branch turns this spec red while M9-b's own spec stays green,
- * which is the whole claim.
+ * NON-VACUITY IS DEMONSTRATED, NOT ASSERTED — and CORRECTED at code review round 25 (CR25-1),
+ * because the first version of this paragraph cited the one mutant that does NOT demonstrate the
+ * claim. Measured, in run-mutant-*.txt beside this file in verification/013/probe-qa-verify-rider2/:
+ *
+ *   M1  row D misclassified   this spec 4 failed   M9-b's spec 4 failed   <- does NOT discriminate
+ *   M3  row C misclassified   this spec 3 failed   M9-b's spec 8 PASSED   <- discriminates
+ *   M4  settledMode collapsed to M9-b's own encoding
+ *                             this spec 4 failed   M9-b's spec 8 PASSED
+ *                             full suite: 4 failed, ALL FOUR HERE, 49 of 50 files green
+ *
+ * M1 fails to discriminate because M9-b's spec pins `modeAfterLoad`'s output to the literal
+ * 'classic', so a row-D defect breaks its assertion too. THE CLAIM IS TRUE AND M1 IS NOT ITS
+ * EVIDENCE — M3 and M4 are. The original sentence was contradicted by a captured run sitting in
+ * the same directory as the sentence, which is why the correction is recorded rather than made
+ * silently.
  */
 import { describe, expect, it, vi } from 'vitest';
 
@@ -57,8 +69,16 @@ const CELLS: { id: string; draft: Record<string, unknown>; d17Row: string; expec
     d17Row: 'V2 components without the flag and without content', expected: 'v2' },
   { id: 'bit=0 v2=1 classic=1', draft: { content: 'hi', components: [CONTAINER] },
     d17Row: 'V2 components together with content or embeds', expected: 'choice' },
+  // CITATION CORRECTED at code review round 25 (CR25-2). This cell has NO components, so the
+  // Objective's "the flag over components within the schema" clause does not govern it; D13 does,
+  // and it is quoted here verbatim from the plan. The expected VALUE was right; the citation was
+  // wrong — and the citation is this oracle's only claim to independence, so a wrong one is a
+  // real defect even when the value it labels is correct. This is also the cell M3 exercises,
+  // i.e. the cell doing the most discriminating work had the weakest stated provenance.
   { id: 'bit=1 v2=0 classic=0', draft: { flags: V2_FLAG },
-    d17Row: 'the flag over components within the schema and no content', expected: 'v2' },
+    d17Row: 'D13: "The bit standing over Action Rows only, over `components: []`, or over no '
+      + 'components is NOT a conflict and is NOT refused." — row C, so V2',
+    expected: 'v2' },
   { id: 'bit=1 v2=0 classic=1', draft: { flags: V2_FLAG, content: 'hi' },
     d17Row: 'the flag over content or embeds without V2 components', expected: 'classic' },
   { id: 'bit=1 v2=1 classic=0', draft: { flags: V2_FLAG, components: [CONTAINER] },

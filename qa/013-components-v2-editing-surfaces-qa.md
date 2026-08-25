@@ -4,8 +4,8 @@ Origin: 013
 UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: QA Complete
-Verified-At: "e1d9b2b7090b46709861a9c4b2a57f340617777b"
-Criteria-At: "plan 013 rev 48, f5b7cac — RE-ANCHORED 2026-08-25 from rev 47 (06fad81); the tree is unmoved at e1d9b2b and no acceptance property changed. This verdict expires when EITHER the tree or the criteria move — see VERIFY PASS §V.13"
+Verified-At: "b56570dfa916368e9942e671d594112750567923"
+Criteria-At: "plan 013 rev 49, 9637735 — this verdict expires when EITHER the tree or the criteria move. See VERIFY PASS §V.15 for the M10 pass at b56570d; §V.13 records the rev-47→48 re-anchor of the superseded e1d9b2b verdict, which stands for its own tree."
 Verified-At-Note: "VERIFY PASS 2026-08-25 at e1d9b2b (chain/013-rider-2), criteria plan rev 47 — QA COMPLETE. Supersedes the 4a7126b verdict, which stands for its own tree. See the VERIFY PASS section at the foot of this document. Prior note retained: re-issued 2026-08-25 at 4a7126b after F-QA28 adoption — QA COMPLETE. Supersedes the 664e0c0 verdict, which stands for its own tree. CORRECTED 2026-08-25 (F-9, devops): this field previously read 'Every commit since live master a151fb4 is test-only' — FALSE for a151fb4..4a7126b, which carries abcf585 and its 4 production files (NewMessageJsonInput.tsx, MessageProvider/index.tsx, layout.tsx, CodeMessageNotice.tsx). TRUE only of abcf585..4a7126b. The release delta a151fb4..4a7126b IS production-bearing and needs production-side scrutiny; abcf585 is the commit BC-18/BC-19/BC-21 examine. Plain SHA."
 Verified-At-Detail: >-
   **REFRESH PASS, 2026-08-24 — supersedes the Phase 2 anchor below for verdict purposes.**
@@ -4115,3 +4115,106 @@ The reviewer's banner tells a fixer *"do not fix this by deleting the branch as 
 It committed CR24-2's own defect inside CR24-2 — *"a predicate that does not match the claim it supports"* — and it says the third time today its instrument answered a narrower question than its sentence. **That is the same failure I recorded against myself at P3.30** (prose about my own artifact, narrower than the artifact), and against the register at P3.23 (a predicate that could not see its own members). **Three stages, one shape, one day.** Its own framing is the one to keep: *nothing about it looked wrong — the call site was the right call site, the guard was really there.*
 
 And on its concession about CR24-6 — *"I was wrong about the consequence, not just the scope… the independence exists, one layer down, where I had not looked"* — the method note it draws is the transferable part and I endorse it: **it took building the oracle and then trying to make the seam transmit.** Reading would not have produced M3, and **M3 is the only reason the answer is trustworthy in either direction.**
+
+---
+
+# VERIFY PASS — M10, at `b56570d`. **Verdict: QA COMPLETE**
+
+**Verified-At**: `b56570dfa916368e9942e671d594112750567923`
+**Criteria-At**: plan 013 **rev 49**, `9637735`. **Expires when either moves.**
+
+**Supersedes the `e1d9b2b` verdict for verdict purposes; that one stands for its own tree.**
+
+## V.15 — Identity and scope, re-derived
+
+`chain/013-rider-2` @ `b56570d`; **`e1d9b2b` an ancestor**; `origin/master` = `2d90e8a` **computed at the remote** (branch still unpushed); porcelain **0**; `git diff --numstat b56570d` **0**.
+
+**Range `e1d9b2b..b56570d`: 1 commit, 2 files, both under `__tests__` — 0 non-test.** Both files are mine: my oracle, and the `modeAfterLoad` correction I specified.
+
+**The revert-completeness question answers itself here, and more strongly than by blob comparison.** The reviewer checked four implicated blobs byte-identical to `e1d9b2b`. **The enumeration is stronger: the entire range contains no non-test path at all**, so *all* production is byte-identical to `e1d9b2b`, not just the four.
+
+## V.16 — Suite. **Explicitly mine, and the reviewer said so rather than repeating a number it had not run**
+
+`npx vitest run` at `b56570d`: **48 files / 627 tests / 627 passed / exit 0.** Re-derived. It agrees with the implementer's claim; **the reviewer's declining to repeat an unrun number is the correct behaviour and is why this is a confirmation rather than an echo.**
+
+## V.17 — M10's four criteria
+
+| | Property | Result |
+|---|---|---|
+| **M10-a** | the production diff is empty | **MET, by two instruments.** The plan's own — `git diff --numstat e1d9b2b..b56570d -- src ':!src/**/__tests__/**'` → **0 rows** — and my independent enumeration → **0 non-test files** |
+| **M10-b** | the oracle is in the tree and **armed** | **MET, executed against the PRISTINE tree** (a `git archive` extraction, not my corrected copy): re-applying **M4** fails the suite — **4 failed / 1 file**, and the file is the oracle |
+| **M10-c** | the row-E constant corrected | **MET.** Diff read: `d.requiresChoice ? 'classic'` → `isMessageV2(draft) ? 'v2' : 'classic'`, and **nothing else in the file moves** — D50's type-only rule honoured |
+| **M10-d** | the warning lives in the tree, and **QA states whether the other wrong fix is caught** | **MET, and the open half is now ANSWERED — see below** |
+
+### M10-d's QA-owed statement, answered by execution rather than by reasoning
+
+`uat`'s line names **two** wrong fixes. M10-b's own instrument covers one. **The other was left open for QA to state.** I ran it — **M5**, the branch deleted as dead, `settledMode` reduced to `disposition.mode`:
+
+| Mutant, on the pristine `b56570d` tree | Suite |
+|---|---|
+| **M4** — keep the spec's encoding | **4 failed / 1 file** — the oracle |
+| **M5** — delete the branch as dead | **4 failed / 1 file** — the oracle |
+
+**Both wrong fixes are caught, and in both cases the oracle is the sole detector** (`grep -oE` over the failure output returns exactly one test file for each). **The row-E-as-current cases added after round 25 are what catch M5**, which is precisely the gap the reviewer found and I did not.
+
+**So M10-d is fully met: the warning is in the tree, and the suite now stops both wrong fixes rather than one.**
+
+### One measured correction to a reading the reviewer marked as a reading
+
+It recorded — **explicitly as a reading, not a re-execution** — that M10-c makes the two encodings compute the same expression so probe-cr27's live disagreement no longer reproduces. **True, and it does not follow that M9-b's spec now covers the path.** Executed at `b56570d`: under **M3**, my oracle **3 failed**, **M9-b's spec 8 passed**. **The arming did not close M9-b's row-C blindness, and nothing in M10 claimed it would.** Recorded so nobody later reads M10-c as having made the oracle redundant.
+
+## V.18 — Freshness at `b56570d`: **byte-identical, and measured rather than inferred**
+
+The differential re-ran unchanged at the tip and diffed against the `e1d9b2b` report: **0 changed lines.** This *follows* from production being byte-identical, but **an inference is not a measurement** and this register has been bitten by exactly that substitution. **All eleven rows are fresh at `b56570d`. No prediction moved.**
+
+## V.19 — CR25-1 and CR25-2. **Both confirmed, both mine, both corrected**
+
+### CR25-1 — my header cited the one mutant that does not demonstrate its claim
+
+My spec's header read: *"Mutating `resolveContentLoss`'s row-D branch turns this spec red **while M9-b's own spec stays green**, which is the whole claim."*
+
+**My own captured run, in the same directory as the sentence, says M9-b's spec went 4 failed.** M1 does not discriminate — `fqa31` catches a row-D defect through its own literal `toBe('classic')` assertions. **The claim is true; M1 is not its evidence. M3 and M4 are.**
+
+**This is the prose-versus-artifact class for the third time from me**, and it is the worst of the three: at P3.30 my prose contradicted a row in the same document; here **it contradicted a captured run sitting in the same folder.** The reviewer's concern is the operative one — a reader checking the justification by running the cited mutant finds it fails and could conclude the oracle is redundant, **which is the opposite of true.**
+
+**Corrected**: the header now carries the measured three-mutant table (M1 non-discriminating, M3 and M4 discriminating) and states plainly that M1 is not the evidence.
+
+### CR25-2 — a misattributed literal, on the cell doing the most work
+
+Cell `bit=1 v2=0 classic=0` carries `draft: { flags: V2_FLAG }` — **no components** — while citing the Objective's *"the flag over components within the schema and no content"*. **Seven of eight citations are right; this one is not.** The value `v2` is correct.
+
+**Why a wrong citation is a real defect even with a right value**: **the citation is this oracle's only claim to independence.** An expectation whose stated provenance does not govern it is a literal with no source — indistinguishable, to a checker, from one I made up.
+
+**And the reviewer's sharper point stands**: this is **the cell M3 exercises**. *The cell doing the most discriminating work had the weakest stated provenance.*
+
+**Corrected** to the clause that does govern it, quoted verbatim from the plan: **D13** — *"The bit standing over Action Rows only, over `components: []`, or over no components is NOT a conflict and is NOT refused."*
+
+### Verified after correcting
+
+**22/22 green** at `b56570d`, and **still discriminating**: under M3 the corrected oracle is **3 failed** against M9-b's **8 passed**. The corrections are to comments and one citation string; **no expectation or fixture moved.**
+
+**Routing**: the corrected file is in `verification/013/probe-qa-verify-rider2/`. **The tree's copy is `website` source — mine to author, not mine to commit there.** The correction is **routed for the owner's approval with the next round**, exactly as the adoption was. **Neither finding holds the tree**: both are defects in claims *about* evidence, and the evidence itself is unaffected.
+
+## V.20 — CR25-3 is `uat`'s, and the routing is right
+
+The reviewer's Assumption Not Checked — *does the header's five-row paraphrase of D17 faithfully represent the plan's Objective?* — went to `uat` and **expressly not to me**, on the ground that I authored the transcription and **an author checking their own paraphrase against the source is the weaker arrangement.**
+
+**I agree and I am not touching it.** It is also the sharpest assumption anyone has stated about my work: if the paraphrase is wrong, **all eight literals inherit the error, and because they are literals nothing in the suite can contradict them** — the oracle would be permanently green, authoritative for the wrong rule, **and more convincing than the code it judges.** That is a better statement of the failure mode than I would have written about my own instrument, which is the argument for the routing.
+
+## V.21 — Assumption Not Checked
+
+**Unchanged from §V.11 and restated so it travels**: this pass assumes `describeLoadDiff`'s rendered sentence is what the confirmation dialog **displays**, and does not test it. Every instrument here stops at the string `withConfirmation`'s `message` field receives; **nothing proves `ConfirmationProvider` renders it, or renders it where the eye goes.** D28 rules out the mounted render that would.
+
+**Falsity signature**: the owner opens a V2-flagged record carrying content, presses Load, and the dialog is empty, truncated, or shows the previous message's text.
+
+**Owner**: **BC-1's operator observation.** Still the only thing that closes it, and still unobserved.
+
+## V.22 — Verdict
+
+**QA COMPLETE** at `b56570d` against plan rev 49.
+
+Production byte-identical to `e1d9b2b`; suite 627/627 re-derived; all four M10 criteria met, two of them executed against a pristine extraction; **both wrong CR24-2 fixes now fail the suite**; freshness measured byte-identical, **eleven rows fresh**; CR25-1 and CR25-2 confirmed, corrected and routed. **No blocking release condition is raised by this pass, and the fix-round condition at §V.14 is discharged** — the oracle is in the tree and armed.
+
+**Not a release decision. Not chain closure.** Eleven rows executable, **none observed**.
+
+**Handing off to the uat agent for value delivery validation.**
