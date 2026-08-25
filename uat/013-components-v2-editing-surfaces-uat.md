@@ -5,40 +5,44 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
-  **Rev 10 — THE UAT GATE HAS RUN. A RELEASE DECISION IS ISSUED: `APPROVED FOR RELEASE, CONDITIONAL`.**
-  Predecessor documents read directly this pass and the tree identity re-derived from the tree, not
-  inherited. **QA: `QA Complete` at `821330d` + a three-path content manifest, reproduced digest-for-digest
-  by this pass.** **Code review: binding verdict round 19 `APPROVED`, δ-cleared at `164d720`; its document
-  Status is `In Review` and NO code-review verdict covers the release tip `821330d`** — condition **U-C1**.
-  **Implementation: Status `Active`, M6 unchecked, and the document does not record `821330d`/F-QA21 at
-  all** (`grep -c` = 0) — condition **U-C2**. Value is judged **delivered at the data layer and
-  unobserved at the surface layer**: every milestone but M6 is delivered and reviewed, the suite is
-  green on QA's instrument, and **not one of the twelve `PRE` operator-observable register rows has been
-  executed** — which is the plan's own Validation item 3, owed *before* this verdict and not met. The
-  approval is therefore conditional in the form this agent's definition fixes, over a ledger in which
-  **every row carries an owner and a terminal state**. **Finding U-2 raised: the register carries
-  duplicate IDs** — two distinct `BC-13`s and two distinct `BC-14`s — so any reference by number alone
-  can invert a blocking status; every row in this document is named as well as numbered, and the
-  renumbering is routed to QA. **Nothing here withdraws a condition; `WITHDRAWN` is the owner's ruling
-  alone.** Rev 9 and earlier are preserved as written; no superseded text was overwritten.
-  **Rev 11 — verdict unchanged, three follow-ups**: the ledger is reconciled to QA's renumbering (**BC-16**, **BC-17**; Phase 1 keeps BC-13/BC-14); **U-C2 is corrected — its Status half was never the implementer's to do and moves to devops as U-C6** — with U-C2 and U-C3 now `EXECUTED` and verified from the implementation document; and **Appendix B** adds one consolidated operator script for the whole `PRE` ledger, carrying **three ordering hazards beyond rev 9's pair** and the correction that **the seed mint route is still open until the deploy**.
+  **Rev 13 — a SECOND release decision, on a SEPARATE tree: `chain/013-toast-vessel` @ `4a7126b`,
+  the owner's 2026-08-25 toast-vessel fix. `APPROVED FOR RELEASE, conditional on the human
+  click-through of BC-18 and BC-19.`** Identity re-derived from the tree (R13.5), predecessors read
+  directly: **code review `Code Review Approved`, round 22 binding at `4a7126b`**; **QA `QA Complete`
+  at `4a7126b`**. **013 HAS ALREADY BEEN RELEASED** — `origin/master` = `a151fb4`, pushed 00:56:37
+  on 2026-08-25 by a party none of steering, devops or the implementer claims. **Rev 10's decision is
+  EXPIRED by its own terms** (four production files changed at `abcf585`) and was **overtaken, not
+  discharged**: its twelve `PRE` rows went out unexecuted. The released tree nonetheless carried rev
+  10's production-code identity exactly — the only delta `821330d..a151fb4` is the three test paths
+  rev 10 named as the one move it survives — so the cost of the ordering is the **conditions**, not
+  the code. Value re-measured on a wider predicate than any predecessor used: 013 added exactly
+  **three** `toast.*` sites across all of `src`; two converted, one retained, and the retained one is
+  the site the owner's second ruling carves out. **Authority ruled, not deferred**: the ruling is
+  sufficient because the change sits inside the plan's own D4-approved Value Statement — but it has
+  **no Decisions-Register entry** (finding **U-4**, routed to steering). Open residue is **one agreed
+  boundary**, adopted at QA's narrower scoping: **visibility, placement, and the real Next.js
+  server/client mount** — owner-observation only under D28. Ledger terminalised row by row in R13.7;
+  **nothing withdrawn — `WITHDRAWN` is the owner's ruling alone.** Rev 12 and earlier stand as
+  written; no superseded text was overwritten.
 Verified-At: >-
-  Production-code identity, re-derived from the tree by this pass and not inherited. `website` @
-  `chain/013-components-v2-editing-surfaces`, HEAD = `821330d` (`git rev-parse HEAD`); `c85945f`
-  confirmed an ancestor (`git merge-base --is-ancestor` → true), so integration is a fast-forward.
-  Uncommitted, in scope, hashed as file bytes (`sha256sum`), reproducing QA's manifest exactly:
+  **CURRENT (rev 13).** `website` @ `chain/013-toast-vessel`, HEAD = `4a7126bf8578b653ac7ae1cfe7cabdd609cdc21f`
+  (`git rev-parse HEAD`), base `a151fb4` confirmed an ancestor. Production population = the four files
+  introduced at `abcf585`, blob-identical at `abcf585` and `4a7126b` (`git rev-parse <tip>:<path>`) and
+  hashed as file bytes: `NewMessageJsonInput.tsx` d2ffdb00…; `CodeMessageNotice.tsx` fbe23995…;
+  `layout.tsx` 14d3d74a…; `MessageProvider/index.tsx` 238f2a16… — **full digests in R13.5**. Delta
+  `abcf585..4a7126b` is two files, both under `src/utils/__tests__/`. **Exclusion list**: four untracked
+  paths under `.cr24-probe/` (another session's probe rig, foreign to this verdict). Uncovered
+  population: none in `website`. **Any change to a production-code blob expires the predecessor verdicts
+  and this decision with them.**
+  **SUPERSEDED (rev 10), retained because §2 of the rev-10 block resolves through it.** `website` @
+  `chain/013-components-v2-editing-surfaces`, HEAD = `821330d`, `c85945f` an ancestor. Three uncommitted
+  test paths, hashed as file bytes, reproducing QA's manifest exactly:
   `src/utils/__tests__/012-json-editor-repair-path.test.ts` 33af76e25e0bd5f6350c9fd398c2a135fb9db53f8be6c352eee1af4768021714;
   `src/utils/__tests__/012-message-mode.test.ts` 94cd8738162139121c421056737edf7d1b9da53ca91dac2209288bcf2f5fe411;
   `src/utils/__tests__/013-fqa19-ingress-gate-reachability.test.ts` 82e92af1ab7c4c6bf718f28d10c4977479b00644d538f7798ce82253de9c3fcd.
-  Base SHA for the uncommitted population: `821330d`. **Exclusion list: empty** — `git status --porcelain
-  --untracked-files=all` over `website` returns exactly those three paths and nothing foreign.
-  Uncovered population: none in `website`; `project-utils` and `preview-image-generator` are untouched by
-  this chain (plan Validation item 7) and are not covered here. **Any change to a production-code blob
-  expires the predecessor verdicts and this decision with them.** Committing QA's three test paths moves
-  the SHA but **not** the production-code identity — established by `git diff --numstat`, which confines
-  every delta from `53beb37` (the round-19 anchor) to `821330d` to one file under
-  `src/utils/__tests__/`, and by the two reviewed source blobs being byte-identical at `53beb37`,
-  `164d720` and `821330d` (`JsonModalBody.tsx` cfbec5b, `discordResponseToMessage.ts` 81f4562).
+  Base SHA `821330d`; exclusion list empty. **All three landed as commits and are part of `a151fb4`**
+  (`git diff --numstat 821330d a151fb4`), which discharges U-C4. The rev-10 anchor is superseded for
+  verdict purposes and is NOT the identity of the decision above.
 ---
 
 # UAT Report: Plan 013 — Components V2 support across the editing surfaces
@@ -48,6 +52,7 @@ Verified-At: >-
 **Date**: 2026-08-24
 **UAT Agent**: Product Owner (UAT) — session `uat-hooks-013` (rev 1–9); `uat-hooks-013-2` (rev 10, the gate pass)
 **Plan Reference re-read at rev 10**: `agent-output/planning/013-components-v2-editing-surfaces.md` — **rev 20**, `Status: Approved`, frontmatter and D28 read directly 2026-08-24
+**Re-read at rev 13 (2026-08-25)**: plan frontmatter `Status: UAT Approved` (already set; **not advanced by this pass**); `grep -c "toast"` over the plan = **0** — see finding U-4. Session `uat-hooks-013-3` (rev 13, the toast-vessel gate pass).
 
 ## Changelog
 
@@ -65,6 +70,7 @@ Verified-At: >-
 | 2026-08-24 | steering-hooks-013-2 — successor spawned by the owner after rev 9's ceiling handback | Run the UAT gate and issue the release decision | **Rev 10. THE GATE RAN. Release decision: `APPROVED FOR RELEASE, CONDITIONAL` over an 18-row ledger.** Resumed from rev 9's Run Record; **C-1…C-4 all discharged and each re-derived rather than adopted** — C-1's tip had already moved (`164d720` → **`821330d`**) and the three-path manifest reproduces digest-for-digest; C-2's BC-15 and D28 read from QA's register and plan rev 20 directly; C-3 stands unchanged; C-4 adopted no remedy. All four predecessor documents read directly: **QA `QA Complete` @ `821330d`** (green), **code review round 19 `APPROVED` but its document Status is `In Review` and no verdict covers `821330d`** (U-C1), **implementation Status `Active`, M6 unchecked, `821330d`/F-QA21 absent from it entirely** (U-C2). **Finding U-2 raised — the register carries two distinct `BC-13`s and two distinct `BC-14`s**; the Phase-1 `BC-14` (*the user-reported defect is fixed in production*) is the row a by-number reference silently drops, and it is the chain's own reason for existing. Routed to QA; every row here is named as well as numbered. **Twelve `PRE` rows stand outstanding** (eleven `NOT EXECUTED` outright; `BC-10` met on its suite limb with its spot observation owed) — Validation item 3 is owed before this verdict and is not met, which is why the approval is conditional and not unconditional. |
 | 2026-08-24 | steering-hooks-013-2 — three follow-ups after the verdict | Reconcile the ledger to QA's renumbering; disposition the U-C2 conflict; package the `PRE` ledger as one operator script | **Rev 11. The verdict is UNCHANGED and is not reopened.** (1) **QA renumbered** on finding U-2 — Phase 2's rows become **BC-16** `p2-rowd-load-gate` and **BC-17** `discord-returns-row-e`; Phase 1 keeps BC-13/BC-14. Mapping re-derived from QA's own table, not the relay. **All four affected rows resolved unambiguously because each was carried by name** — the property that made the collision recoverable. (2) **U-C2 was defective as I wrote it**: it asked the implementer to set a terminal `Status`, which the document-lifecycle table reserves to devops. The implementer declined with that reason and is right. **U-C2 narrows to the recording half — now `EXECUTED` (`7f3111f`), verified from the document** (`F-QA21` × 6, `821330d` × 5, against 0/0 at rev 10) — and the Status half becomes **U-C6, devops's, not a `PRE` row**. **U-C3 also `EXECUTED`**: M6 checked, all seven milestones now complete. (3) **Appendix B added** — one consolidated script for the whole `PRE` ledger, with **three new ordering hazards** beyond rev 9's pair (seed containment; BC-2→BC-3's one-hour TTL clock; and the correction that **the mint route is still OPEN pre-deploy**, so spare seeds can and should be minted now — without them **BC-11b is not runnable to its own prediction**, whose *"both outcomes"* clause Appendix A had dropped). |
 | 2026-08-25 | steering-hooks-013-2 — owner ruling relayed verbatim | What do the affected `PRE` rows become, and does anything he *can* do satisfy them? | **Rev 12. Verdict unchanged; nothing reopened. Appendix C added.** Applied **his own operative test** — *can it be generated for him to input into the editor?* — rather than the Discord/not-Discord split. **Most affected rows were never unfulfillable: they were under-specified by my own script**, which handed over `<container>` placeholders instead of paste-ready JSON. **Literal payloads authored for BC-1, BC-6, BC-7, BC-8, BC-9**, derived from the import schema at `821330d` (container = type 17 with ≥1 child; type 11 is in neither supported set, which is what makes it BC-6's dropped-type case). **BC-5 fulfillable in principle but its payload is NOT authored** — the folder-page export's shape is in no document I hold, and an invented fixture would make BC-5 read as executed while testing nothing; one-line question routed. **BC-2 and BC-3 marked RECOMMEND WITHDRAWAL and routed to the owner with the cost stated — not withdrawn.** Their oracle is the Discord ingress path itself, so no payload can reach it. **BC-6 does NOT substitute for them, and BC-10 is exactly why** — steering's flagged tension resolved by refusing the substitution, not by taking it. |
+| 2026-08-25 | steering-hooks-013-2 [019315] — third UAT session, spawned by the owner after `uat-hooks-013-2` retired at its run-length ceiling | Assess `chain/013-toast-vessel` @ `4a7126b`, the owner's 2026-08-25 toast-vessel fix, and issue a release decision | **Rev 13. A SECOND release decision, on a separate tree: `APPROVED FOR RELEASE, conditional on the human click-through of BC-18 and BC-19`.** **013 was released while rev 10's conditional approval stood undischarged** — `origin/master` = `a151fb4` (`git ls-remote`), pushed 00:56:37; its twelve `PRE` rows went out unexecuted, and the approval was **overtaken, not met**. Recorded as a recovery state, not a sanctioned ordering. **The ordering did not cost code integrity**: `git diff --numstat 821330d a151fb4` is exactly the three test paths rev 10 named as the one move it survives — re-derived, and it inverts the obvious reading. It cost **the conditions**, plus a possible irrecoverable loss of BC-11b's spare seeds (R13.1). **No deployment record exists for a release that ran** — new condition U-C7, devops. **Authority ruled rather than deferred**: the ruling stands because the change sits inside the plan's own D4 Value Statement; its absence from the Decisions Register is **finding U-4**, routed to steering (U-C8). **Value re-measured on a wider predicate** than the reviewer used — `git grep -c` across the whole `toast.*` surface: 013 added exactly three sites, `toast.error`/`toast.success` did not move, two converted, one retained, and the retained one is the site his second ruling carves out. **U-C1 and U-C4 driven terminal** by direct re-derivation. Residue carried as **one agreed boundary** at QA's narrower scoping. **Nothing withdrawn.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -851,6 +857,13 @@ BC-14 and BC-15 are what covers the silent class. Nothing else does.**
 
 ## 9. The Blocking Release Condition Ledger
 
+> **Dated line, 2026-08-25 (rev 13) — this ledger's STATE has moved on; its row definitions have not.**
+> **R13.7 below is authoritative on every row's current state.** Since this table was written, 013 was
+> released (`origin/master` = `a151fb4`), so the twelve `PRE` rows went out unexecuted and now gate the
+> **chain's closure** rather than a release act that is past; **U-C1 and U-C4 have reached `EXECUTED`**;
+> and QA has appended **BC-18, BC-19, BC-20** to this same single register. **No row was withdrawn and no
+> definition changed here.**
+
 **This is the chain's one register, restated by state.** QA's document
 (`agent-output/qa/013-components-v2-editing-surfaces-qa.md`, re-read at write time 2026-08-24) is the
 authority on row **definitions**; **this document is authoritative on row state**, per the register's own
@@ -1013,6 +1026,14 @@ been observed** — it has not, and §4 and §9 say so at length.
 
 ## 13. Release Decision
 
+> **Reconcile note, 2026-08-25 (rev 13) — the decision below is EXPIRED, by its own terms, and the text
+> is preserved rather than overwritten.** It stated that *any change to a production-code blob expires the
+> predecessor verdicts and this decision with them*. Four production files changed at `abcf585`. It was
+> also **overtaken before it expired**: 013 was released at `a151fb4` on 2026-08-25 00:56:37 with its
+> twelve `PRE` conditions unexecuted, so the approval was never discharged. **What it said was defensible
+> when written** — and the tree that shipped did carry its production-code identity exactly (R13.1).
+> **The current decision is R13.10, anchored at `4a7126b`.**
+
 **Final Status**: **APPROVED FOR RELEASE, conditional on the human click-through of BC-1 … BC-10,
 BC-11b and BC-15. If any of these fail, return to the implementer before release.**
 
@@ -1060,6 +1081,12 @@ would mint an artifact the plan expressly declines.
 ---
 
 ## 14. Next Actions
+
+> **Dated line, 2026-08-25 (rev 13).** **R13.11 supersedes this list.** Discharged since it was written,
+> each verified by re-derivation in R13.7.5: **item 2 (U-C1) — `EXECUTED`**, the code-review gate is met at
+> `a151fb4` and round 22 binds `4a7126b`; **item 5 (U-C4) — `EXECUTED`**, QA's three test paths landed and
+> are part of `a151fb4`; **items 3 and 4 (U-C2, U-C3) — `EXECUTED`** at rev 11. **Item 1's sitting did not
+> happen before the release** and its rows are now non-terminal against the chain's closure.
 
 *Point-in-time list — later stage documents are authoritative on these items' current state.*
 
@@ -1334,3 +1361,459 @@ never by a substitution that reads as execution.
 **Nothing in this appendix changes the release decision**, which stands as issued at rev 10.
 `OWNER-QUEUE.md` is steering's document: the payloads above are offered for transcription **verbatim**,
 and I have not edited that file.
+
+---
+
+# Rev 13 — The Toast-Vessel Change, Assessed After the Release Already Ran
+
+**Session**: `uat-hooks-013-3`, spawned by the owner, briefed by `steering-hooks-013-2 [019315]`.
+**Date**: 2026-08-25.
+**What this revision does**: issues a release decision on `chain/013-toast-vessel` @ **`4a7126b`**, a
+**post-release fix to code already live**; records the ordering fact that 013 shipped while rev 12's
+conditional approval stood undischarged; and terminalises the inherited ledger item by item against
+the new evidence. **Rev 10's verdict is not reopened — it is expired, by its own terms, and the reason
+is recorded below rather than assumed.**
+
+Every predecessor status in this revision was read directly from the predecessor document at write
+time. Nothing in the briefing that reaches this verdict was adopted on the briefing's word; each
+figure below names the instrument that produced it.
+
+---
+
+## R13.1 — The ordering, stated plainly, and what it did and did not cost
+
+**013 has been released.** `git ls-remote origin master` → **`a151fb47a84d7de95124b412194873f7e84edf27`**
+(established at the remote, not from a tracking ref). The merge was a fast-forward; `origin/master`'s
+reflog records `update by push` at **00:56:37 on 2026-08-25**. Neither steering, nor devops, nor the
+implementer performed it, and **the owner has not confirmed it was his**.
+
+This is a **recovery state, not a sanctioned ordering**, and this document declines both available
+evasions: it does not pretend the ordering was normal, and it does not treat a shipped system as if
+it were still a proposal.
+
+**What the ordering did NOT cost — re-derived here, because it inverts the obvious reading.** The
+tree that shipped carries rev 10's production-code identity **exactly**:
+
+| Derivation | Instrument | Result |
+|---|---|---|
+| `821330d` an ancestor of `a151fb4` | `git merge-base --is-ancestor` | **true** |
+| non-test delta `821330d..a151fb4` | `git diff --name-only … ':(exclude)*__tests__*'` | **empty** |
+| full delta `821330d..a151fb4` | `git diff --numstat` | **exactly three files**, all under `src/utils/__tests__/` — the same three paths rev 10's frontmatter named as uncommitted and hashed |
+
+Rev 10 wrote: *"Committing QA's three test paths is the one move this decision survives."* **That is
+the only move that happened.** So the release did not ship unreviewed or unverified code. It shipped
+code this document had approved.
+
+**What the ordering DID cost, which is the whole of it.** Rev 10's approval was conditional on a
+twelve-row `PRE` walkthrough. **The release act consumed the condition without discharging it.** The
+approval was *overtaken*, not met. Two consequences follow, and neither is recoverable by re-running
+anything:
+
+1. **A release ran with no deployment record.** `agent-output/deployment/` holds a *readiness
+   assessment* for 013 (`013-…-readiness.md`, Status `Active`) and **no deployment record**. Plan
+   Validation items 4, 5 and 7 are each discharged *at* the deployment record; with no record they
+   are not merely owed, they have no surface to be written on. **Routed to devops.** This document
+   does not write that record and does not schedule it.
+2. **The seed-mint route may have closed with no spares minted.** Rev 11 established that the route
+   writing the 5712/5842 shape expires at deploy, and that **BC-11b is not runnable to its own
+   prediction without spares** — its prediction requires *both* outcomes, and verifying the second
+   consumes a seed. Seeds 5855 and 5856 are the entire population. **Whether the deploy fired is
+   unanswered**, so whether this cost was actually incurred is unanswered with it. **No re-running
+   recovers it.** Routed to the owner as a fact, not a task.
+
+**Weighing the production evidence, per this stage's rule.** There is none to weigh. An operator
+attestation is evidence against **loud** failure modes and none at all against **silent** ones — and
+here not even the loud half is available: no attestation of production behaviour since the push
+exists, in this document, in `OWNER-QUEUE.md`, or in any deployment record, each read at write time.
+**Nothing below is terminalised on "it seems to be working."**
+
+---
+
+## R13.2 — The authority question, ruled rather than inherited
+
+The change under assessment exists on an **owner ruling given in conversation**. There is no plan
+revision and no planner pass: `grep -c "toast"` over
+`agent-output/planning/013-components-v2-editing-surfaces.md` returns **0**. The code reviewer and QA
+each judged this a traceability defect rather than an authority one and **scoped** their verdicts
+rather than stopping. **This stage is not bound by that call and reaches it independently, by a
+different route.**
+
+**Ruling: the basis is sufficient, and the reason is the Value Statement I already hold under test.**
+
+The plan's D4-approved Value Statement — reproduced at the head of this document, not a word amended
+— requires that *"no editing action silently discards what I built."* A warning that a component was
+dropped, delivered in a vessel that erases itself after a few seconds, is a **near-miss of that exact
+clause**: the discard is announced in a container designed to disappear. The toast-vessel change is
+therefore not new scope arriving without a plan. **It is 013's own value clause being delivered
+properly at the presentation layer**, and it is squarely inside the statement this gate exists to test.
+
+That is why the owner needed no plan revision to authorise it, and why a plan revision is nonetheless
+owed — for the record, not for the authority.
+
+**Finding U-4 — the ruling has no register entry.** The ruling survives only as relayed quotation
+across three stage documents (code review round 20, QA's toast-vessel pass, this document's Appendix C
+and R13.3). The plan's Decisions Register — the surface built for exactly this — carries no row.
+**Consequence**: a reader arriving at the plan cannot discover why four source files changed after
+release, and the "scoped, not ratified" qualification every stage attached lives nowhere that outranks
+a stage document. **Severity: non-blocking for the release act; blocking for the chain's record.**
+**Routed to steering** (registration is steering's write, as D28's was). No wording is drafted here.
+
+**What is NOT ruled here, and is not this stage's to rule.** The product decision itself — that
+stateful notices belong in the surface and transient ones in a toast — is the owner's, and it is
+ratified by his own instruction. This document conforms to it; it does not endorse it. Likewise the
+**retained** Load site (`JsonModalBody`): he ratified the retention **by selection**, with the
+reviewer's counter-argument in front of him. **There is no verbatim sentence to that effect and none
+is manufactured here.**
+
+---
+
+## R13.3 — Value delivery, re-derived on a wider predicate than any predecessor used
+
+**The owner's scope, both parts, quoted and not paraphrased** (relayed by `steering-hooks-013-2`; the
+second amends the first):
+
+> Some idiot decided to put a permanent state warning into a toast. When inserting the conflicting
+> payload into the new message JSON modal, the warning is a toast. This is horrible UX. It needs to be
+> a message in the modal itself. Toasts are for transient states, like a request firing and/or
+> failing, not for permanent state. This needs to be reevaluated and changed everywhere that 013
+> decided to use a toast for a stateful message.
+
+> On the Load one, if the error is not stateful but transient, then a toast might be correct. It's
+> reporting on an action where the state cannot be represented persistently. I'm not saying all toasts
+> are bad, but that if the action is not transient then the message should be persistent.
+
+**"Everywhere that 013 decided to use a toast" is a completeness claim, so it is measured, not
+accepted.** The reviewer enumerated on `toast.warn`. This pass widened the predicate to the **entire
+`toast.*` surface**, so that a stateful notice hiding in `toast.error` could not pass. Counts computed
+**inside git's own grep** (`git grep -c <pattern> <tree> -- src`), never through a pipe:
+
+| Call site class | `c85945f` (pre-013) | `a151fb4` (013 as released) | Moved by 013? |
+|---|---|---|---|
+| `toast.warn` | **0** | **3** | **+3** |
+| `toast.error` | 7 | 7 | no |
+| `toast.success` | 1 | 1 | no |
+| `toast.info` / bare `toast(` | 0 | 0 | no |
+
+Per file, the whole `toast.` surface moves in exactly three places: `NewMessageJsonInput.tsx` 0→1,
+`JsonModalBody.tsx` 0→1, `MessageProvider/index.tsx` 4→5. **Every other toast-bearing file in `src` is
+byte-for-byte unmoved in its count.** So the population the owner's instruction reaches is **exactly
+three**, the reviewer's enumeration is confirmed by a strictly wider instrument, and **nothing outside
+`toast.warn` was hiding in the scope.**
+
+**Disposition, at the tip under assessment.** `git grep -c "toast\.warn" 4a7126b -- src` returns **one
+production site**: `JsonModalBody.tsx`. So:
+
+- **Two converted** — `NewMessageJsonInput` (the paste surface, *the site his first sentence names*) to
+  a persistent `settledNotice` in the modal; `MessageProvider`'s dropped-types notice to a persistent
+  `CodeMessageNotice` banner in the layout.
+- **One retained** — `JsonModalBody`'s Load toast: **exactly the site his second ruling carves out.**
+
+**The delivered disposition matches the instruction he actually gave, site for site, with no site
+unaccounted for.** That is the value finding, and it is the strongest one available at this gate.
+
+**A second-order gain, worth recording because it improves rows already owed.** Rows **BC-6, BC-7,
+BC-8 and BC-9** predict *a notice naming what was dropped*. Their predictions were written
+vessel-neutral, so the conversion does not stale them — and it makes them **easier to observe**: a
+persistent in-modal notice can be looked at, where a toast had to be caught. The walkthrough these
+rows belong to is **cheaper** at `4a7126b` than it was at `821330d`.
+
+---
+
+## R13.4 — Predecessor status, verified directly
+
+| Document | Status field, read at write time | Coverage of the tip under assessment |
+|---|---|---|
+| **Code review** `code-review/013-…-code-review.md` | **`Code Review Approved`** | **Round 22 binding at `4a7126b` — APPROVED** (test-only; the round-20 source verdict at `abcf585` carries). Round 20 is `APPROVED_WITH_COMMENTS`, **SCOPED** — code quality and conformance to the relayed ruling, explicitly **not** ratification of the ruling or of the retained site |
+| **QA** `qa/013-…-qa.md` | **`QA Complete`**, `Verified-At: 4a7126b` | **QA COMPLETE at `4a7126b`.** *"No open finding of mine blocks a release."* Every captured instrument adopted; suite 577/40 |
+| **Implementation** `implementation/013-…-implementation.md` | **`Active`** | Records the toast round: `abcf585` × 11, `4a7126b` × 2, `toast` × 44 (`grep -c`). **Terminal `Status` is devops's** — condition **U-C6**, unchanged |
+| **Plan** `planning/013-…-editing-surfaces.md` | **`UAT Approved`** | Already set. **Not advanced by this pass** and not re-set: the field is correct as it stands, and the plan is steering's/the owner's document. See finding U-4 for what the plan *does* lack |
+
+**No predecessor returned a failure verdict at `4a7126b`.** QA's earlier `QA FAILED` at `abcf585`
+(F-QA23) is **superseded by its own document** at `664e0c0` and again at `4a7126b`, and is recorded
+here as history, not as a live state.
+
+---
+
+## R13.5 — Verdict identity, re-derived from the tree
+
+Re-derived by this pass at pass start; **not inherited from the briefing or from any predecessor.**
+
+- **Repository**: `website` @ `chain/013-toast-vessel`, **HEAD = `4a7126bf8578b653ac7ae1cfe7cabdd609cdc21f`**
+  (`git rev-parse HEAD`).
+- **Base**: `a151fb4` (live `master`) confirmed an ancestor of HEAD (`git merge-base --is-ancestor` →
+  true); `a151fb4` confirmed an ancestor of `abcf585` likewise. Integration is a fast-forward.
+- **Production-code population — four files, introduced at `abcf585`.** Blob identity re-derived at
+  **both** tips (`git rev-parse <tip>:<path>`), and file bytes hashed with `sha256sum`:
+
+| Path | blob @ `abcf585` | blob @ `4a7126b` | `sha256sum` of file bytes |
+|---|---|---|---|
+| `src/app/message/_components/NewMessageJsonInput.tsx` | `f63b95df` | `f63b95df` | `d2ffdb003f737b2f0badc1419201723a1fc9b8252ca8d10e9e35858a80e4f3e8` |
+| `src/app/message/m/[id]/_layout/CodeMessageNotice.tsx` | `75dafce9` | `75dafce9` | `fbe23995a71ae510923d663c6191264f7f27011a642f2ac88d656d027e02ce4a` |
+| `src/app/message/m/[id]/layout.tsx` | `d50a1992` | `d50a1992` | `14d3d74a92059f9bb3af064383e6ec84ca68956a6ea7ea7ad90174efeecd3fdb` |
+| `src/providers/MessageProvider/index.tsx` | `955fc0ea` | `955fc0ea` | `238f2a169b1bf7459db1bf81979c002171e21c89a38aa61331c7629691109d98` |
+
+- **Delta `abcf585..4a7126b`** (`git diff --numstat`): **two files, both under `src/utils/__tests__/`**
+  — `013-qa-paste-surface-render.test.ts` (+82) and `013-qa-toast-vessel-render.test.ts` (+132).
+  **Test-only, confirmed.**
+- **Exclusion list** (`git status --porcelain --untracked-files=all`, whole repo): four untracked
+  paths under `.cr24-probe/` — `DriftExtraState.tsx`, `a1-drift.test.ts`, `a3-drift.test.ts`,
+  `vitest.config.ts`. **Foreign to this verdict, another session's probe rig, left in place.** No
+  in-scope path is uncommitted; the SHA therefore stands alone and no content-manifest fallback is
+  owed for the production population.
+- **Uncovered population**: none in `website`. `project-utils` and `preview-image-generator` are
+  untouched by this chain (plan Validation item 7) and are not covered here.
+
+**This decision is anchored at `4a7126b`. Any change to a production-code blob expires the
+predecessor verdicts and this decision with them** — do not rely on another agent noticing.
+
+### R13.5.1 — QA's mandatory Assumption Not Checked is CLOSED by this derivation
+
+QA recorded: *"This pass assumes the four production files are byte-for-byte what `abcf585`
+introduced, and verifies that only by `git diff --numstat` over the range — a path-and-count
+instrument, not a content hash of each file at each tip. A rebase, an amend, or a force-push that
+reconstructed the range with altered content while preserving the same per-path add/delete counts
+would be invisible to it."*
+
+**That is the instrument this pass ran.** `git rev-parse <tip>:<path>` returns the **blob SHA**, which
+is a content hash of the file at that tip; all four match across `abcf585` and `4a7126b`, and a
+reconstructed `abcf585` would not still be `abcf585`, a commit SHA being itself content-addressed.
+**The assumption is closed on the substance, not narrowed** — and it is closed in a document other
+than the one that raised it, which is recorded as the delta rather than returned for a shuffle. QA
+routed it to **devops at release assembly**; that routing stands as a second, independent check and is
+not cancelled by this closure.
+
+---
+
+## R13.6 — The one genuine open item: BC-18 / BC-19, carried as ONE agreed boundary
+
+The crux all evening was whether the converted notices actually render. **They are now
+instrument-guarded on both surfaces, by mutation, against the real components** — render,
+suppress-on-error, clear, and styled — and the guard was reproduced independently by three stages
+(QA's probe; the implementer's adoption; the reviewer's own first-principles re-attack, 3/3 with the
+never-render and drop-the-`!error`-conjunct mutants both killed). QA **withdrew its own F-QA26
+"unreachable" finding by execution**, and the reviewer independently confirmed the withdrawal — a
+retraction that ended better-evidenced than the claim it replaced.
+
+**What remains is exactly three properties, and it is one boundary, not two positions.** The reviewer
+and QA reached it independently from opposite directions and each asked that it be carried as one;
+this document carries it that way, and adopts **QA's narrower scoping** — *"BC-18 shrank when QA
+withdrew its own finding"* — never its earlier, wider form:
+
+> **VISIBILITY** (CSS cascade, `z-index`, `overflow`, contrast) · **PLACEMENT** · **the real Next.js
+> server/client MOUNT.** Owner-observation only, under **D28**.
+
+**Falsity signature, in operator terms** (the reviewer's, recorded so the observation is decidable
+rather than impressionistic): *he pastes a conflicting payload into New Message and sees **no
+persistent in-modal warning**, or one that **never clears** when the JSON is fixed.*
+
+**Why this residue is not cosmetic, stated because the conditional below rests on it.** Before the
+fix, the user got a warning that vanished. If the residue fails — the notice renders into a hidden,
+overlapped or unmounted box — the user gets **nothing**, which is strictly worse than the state being
+fixed. And its signature is **absence**, so it is a **silent** failure mode: no attestation, however
+long and however quiet, is evidence against it. That is precisely the class 013 exists to close, and
+it is the reason the approval below is conditional rather than unconditional.
+
+**Counterweight, recorded with equal weight.** Holding the fix keeps the defect he reported live in
+production. QA's release note is carried verbatim in substance — *a coverage failure must not be why a
+live UX fix waits* — with QA's own qualification that it has **softened, not lapsed**: the coverage
+now exists rather than being promised.
+
+**Register hygiene check, run because this stage's rule requires it.** QA appended BC-18, BC-19 and
+BC-20 to **chain 013's single register**, explicitly continuing after its true high-water mark of
+BC-17 and naming the ID-collision note as the mistake it was avoiding. **There is no second travelling
+list.** Verified against QA's §8 directly. Recorded as a pass.
+
+---
+
+## R13.7 — The Ledger, terminalised item by item
+
+**The register does not collapse into "superseded" because production moved.** Each condition reaches
+its own terminal state or stands openly at a non-terminal one. **`WITHDRAWN` remains the owner's
+ruling alone; this pass withdraws nothing.**
+
+### R13.7.1 — Class change forced by the ordering, recorded not laundered
+
+The twelve `PRE` rows rev 12 handed forward were defined as *terminal before the release act*. **The
+release act has occurred.** They cannot now be `PRE` in the sense their class names. This pass
+therefore records, once and explicitly:
+
+> **The twelve rows went out unexecuted. Their state stays `NOT EXECUTED` and non-terminal; what
+> changes is what they now gate — the chain's closure, not a release act that is already past.**
+> This is a consequence of the ordering, **not** a discharge, **not** a withdrawal, and **not** a
+> reclassification of any row's definition. **Row definitions are QA's.** Where a row's class should
+> formally move, that is a request routed to QA, not a change performed here.
+
+### R13.7.2 — Inherited `PRE` rows (rev 12's ledger)
+
+| Row (number · name) | Owner | State at rev 13 |
+|---|---|---|
+| **BC-1 · Load confirmation names what changes** | operator | **NOT EXECUTED** — payload authored (App. C); gates chain closure |
+| **BC-2 · URL/webhook import names uncarried types** | operator | **NOT EXECUTED — RECOMMEND WITHDRAWAL stands, routed to the owner, not withdrawn.** Three options in `OWNER-QUEUE.md`; unanswered |
+| **BC-3 · bot `Get Message` shows the same notice** | operator | **NOT EXECUTED — RECOMMEND WITHDRAWAL stands**, as BC-2 |
+| **BC-4 · import failing the floor keeps the dialog open** | operator + suite (EC-3) | **NOT EXECUTED** (suite limb met). **Its fixture is visibly owed** and is not invented here |
+| **BC-5 · folder-page export paste shows the floor error** | operator | **NOT EXECUTED — payload still NOT authored.** The folder-page export's real shape appears in no document held; the one-line question to the implementer/QA is **unanswered**. An invented fixture would make BC-5 read as executed while testing nothing |
+| **BC-6 · the lenient filter names the dropped types** | operator | **NOT EXECUTED** — payload authored; **observability improved** by the conversion (R13.3) |
+| **BC-7 · paste a container → V2, bit set, visible warning** | operator | **NOT EXECUTED** — payload authored; now overlaps **BC-18**'s surface |
+| **BC-8 · paste the 5712 shape → Classic, content intact, warning** | operator | **NOT EXECUTED** — payload authored; now overlaps **BC-18**'s surface |
+| **BC-9 · paste content+container → two options, nothing created** | operator + suite | **NOT EXECUTED** — payload authored |
+| **BC-10 · M8-F parity across modal Load and New Message paste** | qa (primary) + operator (spot) | **SUITE LIMB MET; spot-observation limb NOT EXECUTED** |
+| **BC-11 · (pointer)** | — | **SUPERSEDED by BC-11a + BC-11b** — unchanged |
+| **BC-11a · the mint** | uat | **`EXECUTED` 2026-08-24 — TERMINAL.** Confirmed unchanged this pass |
+| **BC-11b · the ask fires on save over a seed** | operator with a browser | **NOT EXECUTED — and now AT RISK of being unrunnable to its own prediction.** See R13.1(2): its *both outcomes* clause needs a spare seed, the mint route closes at deploy, and whether the deploy fired is unanswered. **Escalated to the owner as a fact.** No re-running recovers it |
+| **BC-15 · D28's mounted render** | uat (records the attestation), observed by the owner | **NOT EXECUTED.** Order rule stands: **BC-11b before BC-15 on any record; no Save after BC-15's Load** |
+| **BC-16 · `p2-rowd-load-gate`** | implementer | **`EXECUTED` / DISCHARGED 2026-08-24 — TERMINAL** |
+
+### R13.7.3 — `POST` rows
+
+| Row · name | Owner | Earliest decidable | State at rev 13 |
+|---|---|---|---|
+| **BC-12 · a V2 message that sent at `c85945f` still sends after deploy** | implementer (decision) / **uat** (observation) | **the deploy is live — possibly NOW** | **NOT EXECUTED.** Single-observation sufficiency: **one 4xx refutes by construction.** Decidability is unknown because the deploy question is unanswered — **watch for decidability, do not wait for someone to look** |
+| **BC-13 · `bot-code-ttl-residue`** | devops | one hour after the deploy SHA is live | **NOT EXECUTED** — and **the deployment record that would carry it does not exist** (R13.1). Routed to devops with the record |
+| **BC-14 · `user-defect-fixed-in-prod`** | **uat** | the deploy is live | **NOT EXECUTED.** *The row a by-number reference drops (U-2) — and it is the chain's own reason for existing* |
+| **BC-17 · `discord-returns-row-e`** | uat | tip deployed **and** an import attempted against a pre-enforcement message | **NOT EXECUTED** |
+| **BC-20 · `dropped-notice-guards-send`** *(new, QA §8)* | **uat** | chain tip deployed | **NOT EXECUTED.** Prediction: no report of a message sent missing components the importer dropped. **A silent mode — absence of reports is not evidence for it** |
+
+### R13.7.4 — `PRE` rows for the change under assessment
+
+| Row · name | Primary instrument | Subject | Prediction | State |
+|---|---|---|---|---|
+| **BC-18 · `paste-notice-renders`** | **shrank at QA's withdrawal**: `verification/013/probe-qa-paste-surface-render/` now closes renders / suppresses-under-error / clears / styled, 4 mutants 4/4 killed, reproduced by the reviewer 3/3 | **the owner, at a browser** — for the remainder only | a persistent warning appears in the modal and **clears** when the JSON is corrected | **NOT EXECUTED — residue only** (visibility, placement, real mount). **Do not carry its earlier, wider scoping** |
+| **BC-19 · `code-import-notice-visible`** | `verification/013/probe-qa-toast-vessel-render/` — logic **PASSED** | the owner's eye | notice visible above the fold, not hidden behind nav | **Logic `EXECUTED`; visual limb NOT EXECUTED** |
+
+### R13.7.5 — Documentary conditions (rev 10/11's `U-C` series), re-derived
+
+| ID · name | Owner | State at rev 13 | Evidence, re-derived this pass |
+|---|---|---|---|
+| **U-C1 · code-review coverage of the release tip** | code-reviewer | **`EXECUTED` — TERMINAL** | The code-review document states *"CODE-REVIEW GATE MET at the settled final tip `a151fb4`"*, and round 22 binds **`4a7126b`** as APPROVED. Read from the document's own frontmatter at write time |
+| **U-C2 · implementation records the release tip** | implementer | **`EXECUTED` 2026-08-24 — TERMINAL** (unchanged) | — |
+| **U-C3 · M6 record closure** | implementer / steering / architect | **`EXECUTED` 2026-08-24 — TERMINAL** (unchanged) | — |
+| **U-C4 · commit approval for QA's three test paths** | owner (approval) / devops (integration) | **`EXECUTED` — TERMINAL** | The three paths **landed**: `git diff --numstat 821330d a151fb4` is exactly those three files. The suite-green half of QA's verdict no longer rests on a working tree. *Recorded as `EXECUTED` with the evidence — "satisfied incidentally" is not a terminal state* |
+| **U-C5 · R-5's widening** | **the owner** | **NOT EXECUTED — owner's decision, routed not decided.** Now compounded: it is the blocking edge before a deployment record that also does not exist | `OWNER-QUEUE.md`, read at write time — unanswered |
+| **U-C6 · terminal `Status` on the implementation document** | **devops** | **NOT EXECUTED** | Implementation `Status: Active`, read directly. Gates chain closure, not the release act |
+
+### R13.7.6 — New conditions this pass adds
+
+| ID · name | Owner | What is owed | State |
+|---|---|---|---|
+| **U-C7 · a deployment record for the release that ran** | **devops** | A deployment record for `a151fb4` exists nowhere. Plan Validation items 4, 5 and 7 discharge *at* that record, and BC-13's window is written into it | **NOT EXECUTED** |
+| **U-C8 · the plan's Decisions Register carries the 2026-08-25 ruling** | **steering** (registration write) | Finding **U-4**. No wording drafted here | **NOT EXECUTED** |
+
+**Three questions sit with the owner and are recorded as unanswered, not assumed resolved**: whether
+the 00:56:37 push was his; **whether the deploy fired** (which decides R13.1(2), and no re-running
+recovers it); and his ruling on BC-2/BC-3.
+
+---
+
+## R13.8 — Objective Alignment
+
+**Does the change meet the plan's objective?** **YES**, on the Value Statement clause it serves — and
+the reasoning is in R13.2, not asserted here.
+
+**Drift detected**: **none in behaviour.** The delivered disposition matches the owner's instruction
+site for site, on a population this pass measured independently and wider than the reviewer did
+(R13.3). **Drift in the record: yes, and it is finding U-4** — the ruling that authorised four source
+files has no entry in the document built to hold it.
+
+**Value judged delivered in mechanism and unobserved at the surface layer.** That sentence is the same
+one rev 10 wrote, and it is still the honest one: every instrument that can reach the notices says
+they render, suppress, clear and are styled; **nobody has looked at them.**
+
+---
+
+## R13.9 — UAT Status
+
+**Status**: **UAT Complete**
+
+**Rationale**: the gate ran against the tip under assessment. Predecessor statuses were read directly
+and all pass at `4a7126b`; the verdict identity was re-derived from the tree and not inherited; the
+value claim was re-measured on a wider predicate than any predecessor used and holds site for site;
+the authority question was ruled rather than deferred; and the inherited ledger reached a stated
+terminal or openly non-terminal state **row by row**. **UAT Complete is a statement about this stage's
+work being finished. It is not a claim that the surface layer has been observed** — it has not, and
+R13.6 says so precisely.
+
+---
+
+## R13.10 — Release Decision
+
+**Final Status**: **APPROVED FOR RELEASE, conditional on the human click-through of BC-18 and BC-19.
+If any of these fail, return to the implementer before release.**
+
+**This is a ledger, not an exception.** Every outstanding condition in R13.7 names an owner and one of
+three terminal states — `EXECUTED` (with result and date), `WITHDRAWN` (the owner's ruling alone), or
+`SUPERSEDED` (with what replaced it). **`NOT EXECUTED` is not a terminal state**: it blocks an
+unconditional approval, and **no release is recorded complete while any condition stands at it.**
+
+**The identity this decision is anchored at**: `website` **`4a7126b`**, with the four-path blob and
+`sha256sum` manifest, the base `a151fb4`, and the `.cr24-probe/` exclusion list, all set out in R13.5
+and **re-derived from the tree by this pass**. **Any change to a production-code blob expires the
+predecessor verdicts and this decision with them.**
+
+**Why conditional and not `NOT APPROVED`.** Nothing in the delivered behaviour is known to be wrong.
+The change is inside the plan's own Value Statement (R13.2), it disposes of the complete measured
+population site for site (R13.3), both predecessor gates pass at this exact tip, and the render
+question that was the crux is now instrument-guarded on **both** surfaces and independently
+reproduced. The live system currently carries the defect this fix removes.
+
+**Why not unconditional.** The residue is **silent** and it is not cosmetic: if the notice fails to
+become visible, the user gets nothing where they previously got something, and no amount of quiet
+production is evidence against that (R13.6). It is one browser look, and it is the same sitting that
+already owes twelve rows.
+
+**Which environment discharges BC-18/BC-19 is the owner's call, and it is routed, not decided here.**
+QA classes both `PRE` and dates them *decidable now — the code is committed*, which presumes a
+chain-tip environment. The owner has ruled he will not go hunting; standing up a chain-tip environment
+is a different ask, and it is his time. If he will only observe in production, then in practice these
+rows are post-deploy-observable, **and that is a reclassification request for QA — not a change this
+document performs.**
+
+**Recommended version**: **none, and none is to be synthesised.** `website/package.json` carries no
+`version` field and the repo has no CHANGELOG (plan, *Release Artifacts*). The release **is the
+serving ref moving** — from `a151fb4` to the tip devops assembles — which devops names in the
+deployment record. **Devops must re-run readiness and cut a new release**: every `a151fb4`-stamped
+readiness finding is expired by the four-file production change at `abcf585`, exactly as the code
+reviewer recorded.
+
+**A release-tip verdict (QA Phase 3) is still owed and is NOT this document's.** Devops commissions
+it. A plan-level verdict does not authorise a release act, and its absence is not a gap in this
+document.
+
+**Key changes for the release record** (devops's to place; content, not wording):
+
+- Notices about content the editor could not carry are now **persistent messages in the surface**
+  rather than toasts that disappear: in the New Message JSON modal, and as a banner in the message
+  layout after a code import.
+- The Load confirmation in the message JSON modal **remains a toast**, deliberately — it reports a
+  discrete action, not a standing state.
+- Carried forward, unchanged from the released `a151fb4` record: everything in rev 10's "Key changes"
+  list, which devops has not yet written down anywhere.
+
+---
+
+## R13.11 — Next Actions
+
+*Point-in-time list — later stage documents are authoritative on these items' current state.*
+
+1. **The owner — two questions and one look.** Was the 00:56:37 push yours? Did the deploy fire? And
+   the BC-18/BC-19 look, whose falsity signature is in R13.6.
+2. **The owner — BC-2/BC-3.** Three options stand in `OWNER-QUEUE.md`, including a real *leave them
+   open*. Unanswered; not withdrawn.
+3. **The owner — U-C5**, R-5's widening; still the blocking edge before any deployment record.
+4. **Devops — U-C7.** A deployment record for the release that already ran, plus a re-run readiness
+   and a new release cut from `4a7126b`. Also **U-C6**, and QA's Assumption-Not-Checked re-verification
+   at assembly (R13.5.1 closes it once; devops's check is the independent second).
+5. **Steering — U-C8 / finding U-4.** Register the 2026-08-25 ruling in the plan's Decisions Register.
+6. **QA — BC-5's payload** (what does a folder-page export literally look like?) and **BC-4's fixture**,
+   both visibly owed; plus the class question in R13.10 if the owner will only observe in production.
+7. **The retrospective — its precondition is satisfied.** UAT Complete does not wait on release. Note
+   for it, since it is the transferable part: **three separate stages this chain caught an error by
+   re-measuring rather than by re-reading a report** — QA's own F-QA26 withdrawal, the reviewer's
+   re-attack of an adopted instrument, and this pass's wider `toast.*` enumeration. The chain's most
+   reliable defence was never review; it was re-derivation.
+
+**Repository check, recorded because this stage runs it**: `node tools/check-repo.js` reports **16
+problems** (duplicate probe-capture basenames under `verification/013/`; three SCOPE failures on
+filenames — two `deployment/*-readiness.md` and one `code-review/012-carry-forward-*.md`). **All are
+pre-existing and none belongs to this pass or to the change under assessment.** The tool **exits 0
+while printing FAIL**, so its exit code is not a usable gate — recorded as an observation for the
+tooling owner, not adopted as a finding here.
