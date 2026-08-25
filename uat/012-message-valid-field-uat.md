@@ -19,8 +19,10 @@ Status: Active
 Status-Detail: >-
   UAT Complete. **APPROVED FOR RELEASE — UNCONDITIONAL** (2026-08-25). The 2026-08-23 conditional
   approval is **DISCHARGED**: all **20** blocking-condition rows are terminal — **16 EXECUTED, 4
-  SUPERSEDED, 0 NOT EXECUTED** — with ten terminalised on the owner's own directed observations and
-  QA-R19 on QA's instrument. Verdict identity reproduced from the tree this pass: `website`
+  SUPERSEDED**, and none left standing in the un-executed state that blocks an unconditional
+  approval — with ten terminalised on the owner's own directed observations and QA-R19 on QA's
+  instrument. (Phrased to state the absence rather than name the state: `check-repo.js` pattern-matches
+  this field, and the literal term inverts there. See U-12.) Verdict identity reproduced from the tree this pass: `website`
   `c85945f` (ancestor of `master` `a74b9e2`) and `project-utils` `749606d` (ancestor of
   `origin/master`); both committed, no manifest owed. **Any change to production code expires the
   code-review verdict, the QA verdict, and this release decision with them.** Value Statement
@@ -59,6 +61,7 @@ verdict below (see the changelog), so the rev-29 citation is the reviewed revisi
 | 2026-08-23 | steering-hooks-012 (relaying the owner's walkthrough round 1) | Record M6-c, QA-R2, QA-R4, QA-R15 results against their predictions | **M6-c EXECUTED PASS** (both sentinels). **QA-R2 EXECUTED PASS** — `valid: false` at top level; payload also establishes 5712 as cell B5 / guidance shape (i) from production. **QA-R4 and QA-R15 NOT EXECUTED** — the owner cannot load 5712 in the composer, so both were attempted against an imported copy whose state is unverifiable by his own account; neither a pass nor a fail is available, and the rows stand open. Two findings raised: **U-5** (HIGH — the two 5712-keyed rows may be unexecutable by anyone: a specification defect, not a pending task; RECOMMEND re-specification via QA, with owner WITHDRAWN as the alternative and its cost stated) and **U-6** (HIGH — the owner's report that the JSON view may not support V2 and may strip content is a candidate falsifier for plan Risks R6, and bears on QA-R19 guidance shape (i), which is 5712's own shape). Release decision unchanged and correctly discharged; **chain closure blocked**. |
 | 2026-08-23 | uat (self-recorded) | Registration write into the plan, per this stage's Status-tracking remit | Plan `Status` → **UAT Approved**, Revision → 30, one registration changelog row, and the stale Status-Detail clause `Next gate: UAT (clear to start)` replaced (a declarative surface, corrected by replacement). **A registration write only** — no body text, criterion, milestone, register row or Risks row touched, and no prediction record written (those are the planner's). **Not committed by this stage**: CLAUDE.md's commit exception covers only the document a stage itself produced, and the plan is the planner's. Routed as a blocking question; **owner ruled 2026-08-23, verbatim: "The planner commits it."** — relayed by steering-hooks-012. The ruling settles *who* commits, not whether the content is sound; that judgement remains the planner's. |
 | 2026-08-25 | steering-hooks-012-2 (carrying the owner's ten observations, given directly to it 2026-08-25, plus rulings D22–D28) | Record the owner's observations into the ledger and take chain 012 to a release decision | **UAT Complete. APPROVED FOR RELEASE — UNCONDITIONAL.** The 2026-08-23 conditional approval is **DISCHARGED**: all **20** register rows terminal (**16 EXECUTED, 4 SUPERSEDED, 0 NOT EXECUTED**). Ten terminalised on the owner's own directed observations against pre-registered predictions — QA-R2/R4/R15 on SCR-1 in the prescribed order R4 → R2 → R15, plus R3, R5, R6, R7, R8, R9, R20; QA-R19 terminalised on QA's instrument (17/17 green, `a74b9e2`). Value Statement delivered on every clause, both directions of the field observed in production through the v1 API. Prior findings terminalised: **U-4 WITHDRAWN** (D24), **U-5 CLOSED** (D23 took UAT's own Preferred recommendation; discharged by execution), **U-6 DISCHARGED for the send** (D25 removed the JSON route from the guidance) with the underlying hypothesis routed to plan Risks R6. **UAT's hold on the QA-R19 send is LIFTED** — both its grounds are gone; this records the dissolution of this stage's own hold and is **not** a new condition, D26 unreopened. Five new findings, none holding the tree: **U-7** (QA-R11's tail precedences not yet decidable — devops, trigger: the live declaration), **U-8** (QA-R5/R6 underspecified; owner's pass terminal, rows not reopened), **U-9** (QA-R19's bound recorded not closed), **U-10** (QA-R9/R20 pinned to the only backfill run with a denominator — 4825 of 4825, read from file bytes), **U-11** (SCR-1 undisposed; no gate). Chain closure no longer blocked by the register; two owner acts remain — the live declaration (which by D12 also releases statbot chain 023) and the guidance send — **neither a register condition and neither one this decision depends on**. Recommended version: **minor** (additive API contract growth). Deltas from the brief resolved against the register, not the brief: R19, R10/R11/R17 all already terminal. |
+| 2026-08-25 | steering-hooks-012-2 (asking UAT to set a terminal `Status`) | Set the frontmatter `Status` to a terminal value for a completed unconditional approval | **`Status` DECLINED, and the reason checked against the mechanism rather than argued from prose.** UAT has no terminal status of its own: the lifecycle vocabulary offers only `Committed`/`Released`/`Abandoned`/`Deferred`/`Superseded`/`Resolved`, the skill's own table assigns UAT closure to **DevOps**, and **every one of the ten closed UAT documents in this repo carries `Released` or `Committed`** — chain 013's was set in the single devops closure commit `229d63c` alongside seven sibling documents. Setting one here would claim a devops act that has not happened, and would trigger the close procedure on a chain still awaiting two owner acts. **`Status` stays `Active`; the verdict lives in `Status-Detail`, where it already reads UAT Complete / APPROVED UNCONDITIONAL.** The stated ground for the request was also checked and does not hold: `check-repo.js` does **not** flag `Active` — its `FAILING` regex has no such alternative. **But checking it found a real defect, self-inflicted, now fixed: U-12.** This document's own `Status-Detail` said *"0 NOT EXECUTED"*, which the regex matched on `NOT[ _-]EXECUTED`, so **the clause reporting that nothing is blocked rendered the chain's UAT line as `FAILING/BLOCKING`.** Field reworded to state the absence rather than name the state; flag verified gone from file bytes. Same class reported not fixed: the **planning** document flags for the same reason (`REJECTED`, from closed review rounds 1–2) — the planner's document, and D18 forecloses touching it. No row state, finding or verdict changed by this round. |
 
 ---
 
@@ -1281,6 +1284,32 @@ recorded nowhere in `agent-output`, and it is almost certainly one of the 14 new
 benign — it will read as a valid Classic message in any future table-wide run, **not** as the
 `flagStructureDisagreement` row a part-way stop would have left. Recorded for the owner's
 convenience if he wants it deleted; **not asked of him, and nothing waits on it.**
+
+### U-12 (LOW, records; **self-inflicted, found and fixed in this round**) — this document's own `Status-Detail` read as blocked to the instrument that parses it
+
+`tools/check-repo.js --status` matches each document's `Status` + `Status-Detail` against a
+`FAILING` regex (line 663) whose alternatives include `NOT[ _-]EXECUTED`. **Addendum 5's first
+`Status-Detail` reported the register as "16 EXECUTED, 4 SUPERSEDED, 0 NOT EXECUTED"** — and the
+matcher has no notion of negation, so **the clause announcing that no row is blocked was itself read
+as a blocked row.** Chain 012's UAT line rendered `⚠ FAILING/BLOCKING` on the strength of a verdict
+that says the opposite.
+
+**Fixed in the same round it was found**: the field now states the absence rather than naming the
+state, and the flag is gone (re-run and read from file bytes, not through a filtered pipe). The
+substance of the verdict is unchanged — 16 `EXECUTED`, 4 `SUPERSEDED`, nothing outstanding.
+
+**Recorded rather than quietly corrected, because it is this chain's own recurring class at one more
+remove.** It is the same shape as QA-R2's booby trap (D27): *text that was correct as written, which
+inverts when its next reader is not the one it was written for.* R2's next reader was a queue-runner;
+this field's is a regex. The chain has now produced this defect in a register row, in a steering
+queue file (plan revs 42, 45, 46) and in a UAT frontmatter field — **three different surfaces, one
+mechanism**, which is worth the retrospective's attention more than any single instance.
+
+**Same class, not mine, reported not fixed**: chain 012's **planning** document also renders
+`⚠ FAILING/BLOCKING`, because its `Status-Detail` narrates the historical review rounds and contains
+the word `REJECTED` from rounds 1 and 2 — both long since closed. The plan is the planner's document
+and D18 forecloses touching it; recorded here so a reader who sees the flag knows it is a false
+positive with a known cause, and does not take chain 012's plan for a blocked plan.
 
 ---
 
