@@ -21,161 +21,75 @@ in its commit message what the deleted text carried and where it now lives.
 
 ## CHAIN 013 — LIVE. NOTHING IN THIS SECTION IS ON HOLD.
 
-Rewritten in plain English 2026-08-25 by steering-hooks-013-2, at your request. Nothing below is new
-work — it is the same walkthrough, said properly.
+**Rebuilt 2026-08-25, because this file had gone stale and you caught it.** It held the pre-release
+walkthrough you have already run, and was **missing six items outright** — BC-18, BC-19a, BC-19b,
+BC-21, U-C5, U-C6. Your words: *"idk what this is. Not in OWNER-QUEUE"*. **That was a defect in this
+file, and this file is the coordinator's.** You work from here; an item that is not here does not
+exist to you, and relaying lists at you in chat instead is not a substitute.
 
-**Where things stand.** Every check an agent can run had passed — tests, code review, and UAT's
-approval conditional on you clicking through the list below.
+**Where things stand.** `origin/master` = **`2d90e8a`**, your own commit, live. 013 released at
+`a151fb4`; four post-release fixes and your removal of the code-path notice since. Registered as
+**D30–D40**. **No QA, no code review and no UAT ran on any of it** — your waiver (D35) — and that
+round now carries a **review debt that blocks chain closure** (D39), parked on your word.
 
-> **STOP — CORRECTED 2026-08-25 01:35. THE PREVIOUS VERSION OF THIS BANNER WAS WRONG.**
->
-> **013 has already been merged to master and pushed.** Measured at the remote, not from a local
-> tracking ref: `git ls-remote origin master` returns `a151fb4`, and `origin/master`'s reflog records
-> `update by push` at **00:56:37 today**. The merge was a fast-forward three seconds earlier.
->
-> **This means 013-A below may be impossible, and if it is, it is my fault.** Its whole premise was
-> that the mint route stays open until the deploy. I told you repeatedly that the window was open,
-> and I wrote it into this file at 01:03 — **seven minutes after the push had already happened.** I
-> was restating the tree state from memory instead of re-reading it. **Check whether the deploy has
-> actually gone live before you spend any time on 013-A**; if it has, that route is closed and the
-> row it existed to protect cannot be run.
->
-> **Your "fix before release" answer was given roughly half an hour after the release.** Nobody
-> disobeyed it — it was already unsatisfiable when you gave it, and I did not know that, because I
-> had not looked. The toast fix is built and verified but uncommitted; where it lands is now an open
-> question rather than a settled one.
->
-> **Everything below this banner was written on the assumption that the release had not happened.**
-> Treat the whole walkthrough as suspect until it is re-cut against what is actually live.
+### 013-A. Run these — nothing blocks them
 
-**Two names you will see in the steps.** They are just labels so you can tell me which step you
-mean when you report back:
+| Do this | You should see | Tag |
+|---|---|---|
+| New Message → paste `{"components":[{"type":17,"components":[{"type":10,"content":"hi"}]}]}`. Then add `"flags":32768`. | A **persistent in-modal** warning that the flag was set to match — **not a toast**. Adding the flag clears it. | **BC-18** |
+| The same deliberate paste **on the live site**, once. | The notice renders. **This one exists because a notice that fails to render looks exactly like nothing having been dropped** — waiting for user reports cannot detect an absence. | **BC-21** |
 
-- **BC-1, BC-11b, BC-15…** — the numbered checks UAT is waiting on. Quote the tag when you tell me
-  what happened and it lands in the right row.
-- **Seed A** and **Seed B** — the two deliberately-broken test messages you created yesterday
-  (5855 and 5856). Seed A is the one with text and the V2 flag; Seed B is the same plus an empty
-  components list. You did not record which ID is which, and **it does not matter** — the run
-  covers both.
+**Both predictions are stale and I am not going to pretend otherwise.** Under D31/D32 the resting
+state of a conflict is now the error line with the **`Resolve`** control, not the two choice buttons.
+**Write down what you actually see; do not try to match the old wording.**
 
-**Where this came from.** UAT wrote the full version (its Appendix B, revision 11). This is the
-short executable version of it, so you need open nothing else. **If the two ever disagree, UAT's is
-right and this file is the one at fault — tell me.** One difference is deliberate: Appendix B says
-to serve commit `821330d`; use **`a151fb4`** instead. The only difference between those two is
-three test files, so the app behaves identically.
+### 013-B. Still owed to you by me — do not wait on these
 
-### 013-A. First: make eight spare test messages. This takes two minutes and the chance disappears at release.
+- **BC-4** — *an import with no content at all; the dialog stays open showing the error, navigates
+  nowhere, creates nothing.* **I still have not written you a payload.** It stays visibly owed rather
+  than me authoring a fixture for a row I do not own.
+- **BC-5** — *paste a folder-page export; expect* **"Message must have content, embeds, or
+  components."** **Nobody has established what a folder-page export literally looks like.** UAT
+  refused to invent one, correctly — a made-up fixture makes the step read as executed while testing
+  nothing.
 
-**This is not the thing you did yesterday.** Yesterday you made the two originals. This asks for
-spares of the same two shapes, because the run below **destroys a test message every time it takes
-a choice**, and there are four such moments per shape. With only the two you have, you run out
-halfway.
+### 013-C. Decisions, no browser needed
 
-**This step's premise may no longer hold — read the banner at the top of this section first.** It was
-written believing nothing had been deployed. A push to `master` landed at 00:56:37 today. If the
-deploy has gone live, the route below is closed and this step cannot be done at all. If it somehow
-has not, do this immediately, the same way you made the originals — paste into New Message JSON and
-save:
+- **BC-2 / BC-3 — and there is now a discrepancy in your own report I will not resolve for you.**
+  You said BC-2's notice showed and you removed it. **BC-2's notice is on the import dialog
+  (`NewMessageModal`) and still exists**, reworded by you to `Not supported on Hooks.gg:`.
+  **BC-3's is the editor-side one you deleted.** If what you saw was the dialog notice, that is BC-2
+  observed and BC-3's subject gone — two different outcomes. **Tell me which and I record it.**
+  Your three standing options are unchanged: **withdraw both** (what ships unobserved is whether the
+  notice *renders* on the Discord-ingress surfaces); **give me one URL**, if a Discord message with a
+  select menu is already in front of you — one message, not a hunt, and it covers both; or **leave
+  them open**, non-terminal, still blocking an unconditional approval. **They are a timed pair** —
+  BC-3 must run inside a 1h TTL of the Get Message call on the *same* message.
+- **U-C5** — R-5's widening. It is the blocking edge before any deployment record.
+- **When to repair 5712 and 5842.** *"Haven't done it yet."* **This one closes a door if you act, not
+  if you wait** — they are the only live proof of the problem. 013 made the JSON-editor route
+  non-destructive for this shape while the mode toggle still destroys content, so the two repair
+  routes are no longer equivalent. **They are also the only records that can still reach
+  `SaveAsMenu`'s conflict gate**; once repaired, removing that gate becomes a fair question.
 
-    {"content":"hi","flags":32768}                      ← four of these = Seed A spares
-    {"content":"hi","flags":32768,"components":[]}      ← four of these = Seed B spares
+### 013-D. Do NOT run these — their subject is gone or they were never runnable
 
-**Why the timing is fixed:** once 013 is live, nothing in the app can create this shape any more —
-that is the whole point of the change. So this is the last chance, and it ends at the moment you
-release, not at the end of the sitting.
+**None of these is closed. I am telling you not to spend time on them, not recording a result.**
 
-**If the site refuses the paste**, write down what it said and stop. Do not assume the route has
-already closed.
+- **BC-19a / BC-19b** — you ran 19a and then deleted `CodeMessageNotice.tsx`. **Their subject no
+  longer exists.** Whether that discharges them, voids them, or leaves the release verdict short is
+  **`uat`'s ruling and nobody else's** — the standing verdict is *approved conditional on BC-18,
+  BC-19a and BC-19b*, so two of its three conditions now have no object. **Routed, not decided.**
+- **BC-15** — needs a 5712-shaped record; it inherits the population **BC-11b** is already
+  `TERMINAL: CANNOT BE EXECUTED` over. UAT states that as judgement and did **not** close it.
+- **BC-11b** — `TERMINAL: CANNOT BE EXECUTED`. **A fourth terminal state. Never read it as "closed."**
 
-### 013-B. What you need before you start
+### 013-D2. Prediction stale — do not execute against the old wording
 
-- [ ] The new build (`a151fb4`) running and reachable, and you logged in.
-- [ ] The two original test messages **and the eight spares** visible in your messages list.
-- [ ] **The components section expanded in the editor.** If it is collapsed there is no "add
-      component" button, and step 1 will look impossible when it is not. **This is the single most
-      likely way to get a wrong answer today.**
-- [ ] An ordinary V2 message that is **not** a test message, for step 7. **You do not need to go
-      find one** — paste step 8's payload into New Message and save it. That is your scratch message.
-- [ ] Nothing else to gather. **Every payload you need is written out in the steps below**, ready to
-      paste. Two steps that used to send you hunting are dealt with under "Steps you cannot run" at
-      the end of this section.
-
-**One thing to be aware of, because it is your call and not mine:** the app only has one database
-configured, and it is the live one. So a build running on your own machine still reads and writes
-your real messages. That is convenient — the test messages are already there, nothing to set up —
-but everything you save today is real. A Vercel preview would not change this; it points at the
-same database.
-
-### 013-C. Four ways to accidentally ruin the run
-
-1. **Do step 1 before step 6 on any given message.** Step 6 converts a test message to Classic and
-   clears its flag — which is exactly the state step 1 needs it *not* to be in.
-2. **After step 6's Load, do not press Save.** Load only changes what is on screen. Saving writes
-   the cleared flag and burns the test message.
-3. **Only steps 1–6 touch test messages.** Steps 7 onward use scratch input. If you run one of them
-   on a test message it will consume it just as a stray Save would.
-4. **Steps 15 and 16 are a timed pair, one hour.** Step 16 starts a clock and must finish inside it,
-   on the same Discord message. Don't start 15 until you have time for both.
-
-### 013-D. The run
-
-**How to record it:** write what you actually saw next to what was expected — never over it. Your
-word with a timestamp is enough on its own. **No screenshots are owed and none will be recorded as
-missing.** Everything in the "should see" column is a prediction, not a result.
-
-| # | Do this | You should see | Tag |
-|---|---|---|---|
-| 1 | Open a **Seed A**. Confirm it is in V2 mode, shows the V2 error, and the word `hi` is still there. Add **one container**. Press **Save**. | A dialog headed **"Are you sure?"**, explaining that Discord cannot show both, with two buttons in this order: *Save as Classic — This will drop your Components V2 components* and *Save as Components V2 — This will drop your message content*. **Nothing is saved yet.** | BC-11b |
-| 2 | Do step 1 again but **press Cancel**. Re-open the message. | It is unchanged. **This is the easiest step to skip and one of the more important.** | BC-11b |
-| 3 | Do step 1 and take **Save as Components V2**. On a spare, do it again and take **Save as Classic**. | Each choice keeps what it says and drops what it says. Both messages are used up — that is expected. | BC-11b |
-| 4 | Repeat 1–3 using **Save As** instead of Save, on spares. | Identical behaviour at both buttons. | BC-11b |
-| 5 | Repeat 1–4 on **Seed B** spares. | Same as Seed A throughout. | BC-11b |
-| 6 | Open a fresh **Seed A**, open Message JSON. **Is the Load button clickable, or greyed out?** Press **Load** with no edits. **Then stop — do not save.** | Load is **clickable**. A warning appears saying the flag conflicted and it has been made Classic. `hi` is still there. | BC-15 |
-| 7 | On the scratch message you made from step 8's payload: open Message JSON, change something, press Load. | A confirmation that says *"This will overwrite the current message"* and then names what it will add or remove, and whether the mode changes. | BC-1 |
-| 8 | New Message → paste `{"components":[{"type":17,"components":[{"type":10,"content":"hi"}]}]}` | Editor is in V2, flag set, and a warning explains the flag was set to match. | BC-7 |
-| 9 | New Message → paste `{"content":"hi","flags":32768}` | Classic, `hi` intact, flag cleared, warning shown, **no V2 error**. This step is also the proof that the old broken shape can no longer be created. | BC-8 |
-| 10 | New Message → paste `{"content":"hi","components":[{"type":17,"components":[{"type":10,"content":"hi"}]}]}`. Cancel once, then do it twice more taking each choice. | The same two-button dialog, each naming its loss. Nothing is created until you choose. | BC-9 |
-| 11 | **Deliberately** repeat steps 8 and 9 at the Message JSON **Load** button too, not just at paste. | Identical behaviour at both places. *"It probably works there too" is not an answer.* | BC-10 |
-| 12 | Paste `{"components":[{"type":17,"components":[{"type":10,"content":"hi"}]},{"type":11,"media":{"url":"https://picsum.photos/200"}}]}` | Red text naming it: **"Not carried: Thumbnail. Discord does not support these on hooks.gg."** **If the thumbnail just vanishes silently, that is the failure.** | BC-6 |
-| 13 | **Blocked — see "Steps you cannot run" below.** Paste a **folder-page export**. | The error **"Message must have content, embeds, or components."** **If this one succeeds, that is the failure.** | BC-5 |
-| 14 | Try an import that has no content at all. | The dialog **stays open** showing the error. It does not navigate away, and no message is created. | BC-4 |
-| 15 | **Blocked — see "Steps you cannot run" below.** Import by **URL** a Discord message containing a **select menu**. | The dialog shows the components it can support **and** a notice naming the select menu as not carried. | BC-2 |
-| 16 | **Blocked — see "Steps you cannot run" below.** Within the hour, run the bot's **Get Message** on that **same** message, then load the code it gives you. | The editor shows the same notice about the select menu. | BC-3 |
-
-### 013-D2. Steps you cannot run, and what to do about them
-
-**These are UAT's determinations, not mine.** It re-read your ruling and took your operative test
-from your own sentence — *can it be generated for me to input into the editor?* — rather than
-splitting on Discord-versus-not. That reframing moved most of the list.
-
-**Steps 15 and 16 cannot be made into JSON, and UAT recommends withdrawing them.** What they test is
-the Discord fetch path itself, so no payload can reach it — the thing under test *is* the fetching.
-No agent here can create a qualifying message for you either; that would be an agent posting to
-Discord, which is barred outright, and UAT says it did not go looking for a way around it. **It has
-not withdrawn them — that is yours alone.** Your options, and it gave you a real do-nothing:
-
-- **Withdraw both.** What ships unobserved is whether the "not carried" notice actually *renders* on
-  the two Discord-ingress surfaces. The data layer underneath is covered by tests. The reason UAT
-  flags it rather than shrugging: a notice that fails to render looks exactly like nothing having
-  been dropped, so this particular gap is a silent one.
-- **Give me one URL** — *if* a Discord message with a select menu is already in front of you. **One
-  message, not a hunt**, and it covers both steps, since 16 reuses 15's message.
-- **Leave them open.** They stay non-terminal and keep blocking an unconditional approval.
-
-**Step 13 is fulfillable but nobody knows the fixture yet.** A folder-page export is your own
-product's artifact, so it passes your test — but no document establishes what one literally looks
-like, and UAT refused to invent one, on the grounds that a made-up fixture would make the step read
-as executed while testing nothing. I have asked the implementer for the real shape.
-
-**Step 14 needs a payload too** and I have not written one. UAT authored fixtures for the other
-steps and not this one, and I would rather it stayed visibly owed than have me author a fixture for
-a row I do not own.
-
-**One thing UAT ruled against itself, worth knowing.** I asked whether step 12 could stand in for
-steps 15 and 16, since they produce a similar-looking notice. **It said no, and cited its own rule
-against exactly that** — the two reach a similar notice through different code, so accepting one for
-the other would record the Discord path as observed on evidence that never touched it. **If 15 and
-16 close, they close by your withdrawal, in the open — never by a substitution that reads as a pass.**
+**BC-1, BC-6, BC-7, BC-8, BC-9, BC-10** (and BC-18/BC-21 above). The code beneath them moved under
+D30–D33. **BC-9's "two options" is specifically no longer the default.** Executing a row against
+wording the code no longer produces yields a **false failure** — UAT marked these rather than
+rewriting them, and I did not object.
 
 ### 013-E. Rules for the whole sitting
 
@@ -189,37 +103,22 @@ the other would record the Discord path as observed on evidence that never touch
   quirk to be explained away.
 - **Any step that fails goes back to the implementer before release.**
 
-### 013-F. Decisions that are yours. None of them blocks the walkthrough.
+### 013-F. Standing decisions of yours, still open
 
-- **When to repair 5712 and 5842 — this one closes a door if you act, not if you wait.** Those two
-  broken records are the only live proof of the problem. Repair them and one of the plan's
-  validation items can never be checked again. Either observe it first, or tell me you are letting
-  it go. **What is new:** 013 makes the JSON-editor route non-destructive for this shape, while the
-  mode toggle still destroys content — so the two ways of repairing them are no longer equivalent.
-- **What happens to the test messages afterwards.** Genuinely unruled. My instruction to keep them
-  is currently filling that gap by default, which is not the same as you having decided. The spares
-  make either answer cheaper.
-- **How you would roll back.** The plan says the serving ref goes back to the pre-013 commit, but
-  since the release is a fast-forward, that means a force-push. Rolling back in the Vercel dashboard
-  instead leaves git pointing at 013, so the next ordinary push quietly re-deploys it. A revert
-  commit moves forward, so "rolled back" becomes true of behaviour but not of the commit. **The plan
-  picks none of these, and picking one at the console during a bad release is how this goes wrong.**
-- **Does pushing still auto-deploy?** You said yes on 2026-08-23. That is on record as something you
-  said two days ago, not as a fact today, and it cannot be checked from the repo. It almost
-  certainly doesn't matter for 013, but devops needs you to confirm it before it pushes anything.
-- **`SaveChoiceModal.tsx`** — a new file that the plan never named. Precedent in this chain says
-  adding a file to the inventory is yours to approve.
-- **Server-side validation on save** — the thorough fix for one of the medium findings. It is more
-  scope than 013 has, so it stays out; what shipped is the documented limitation instead.
-- **One notice behaviour you have never actually seen.** An earlier steering session decided not to
-  route it to you. It is now built and shipping. Flagging it so it does not slip past as something
-  you approved, because you didn't.
-- **When the retrospective runs.** My instructions fire it as soon as QA and UAT are both done, even
-  if the release happens outside the pipeline. You said *"Retro doesn't happen until after devops
-  and release."* **I am doing it your way.** I mention it only because it is a claim about how your
-  own system works, which is worth settling rather than me quietly recording a decision for you.
+- **What happens to the test messages afterwards.** Genuinely unruled. My instruction to keep them is
+  filling that gap by default, which is not the same as you having decided.
+- **`SaveChoiceModal.tsx`** — a file the plan never named. Precedent in this chain says adding a file
+  to the inventory is yours to approve.
+- **Server-side validation on save** — the thorough fix for a medium finding. More scope than 013 has,
+  so it stays out; what shipped is the documented limitation.
 
----
+**Settled since this file was last accurate, and deleted from the list rather than ticked:**
+rollback (**BC-11b** terminal; Vercel promote is your choice and does **not** move `master`);
+when the retrospective runs (**D38** — held on your judgement that findings are still accruing, with
+your reason now on the record so no stage fires the trigger on elapsed time); and **the notice you
+had never seen** — that vague flag is what you just hit. It was `CodeMessageNotice`, an earlier
+steering thread declined to route it to you, and **D40 records that you never approved it and that
+the record confirms you didn't**.
 
 ## EVERYTHING BELOW IS ON HOLD — 2026-08-23
 
