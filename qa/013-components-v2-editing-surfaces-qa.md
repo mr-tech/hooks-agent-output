@@ -4258,3 +4258,66 @@ Steering asked whether a three-line provenance correction is worth a tree move, 
 **Its scope limit is noted and honoured**: the discharge covers **the transcription only** and does not bless the oracle's reasoning, its mutant selection, or CR25-1/CR25-2 — which remain mine and the reviewer's, and are dispositioned at §V.19.
 
 **No verdict moves.** **QA COMPLETE at `b56570d` / plan rev 49 stands**, and **freshness at `b56570d` is ruled at §V.18 — 0 changed lines, all eleven rows fresh.**
+
+## V.24 — **A false claim of mine about the shipped file, corrected. CR25-1 and CR25-2 stand OPEN**
+
+**Raised by `code-reviewer-013-4` (`288c0b4`). Measured here independently before accepting it — which is the step whose absence caused the defect in the first place.**
+
+### The measurement
+
+| | **shipped — the file vitest runs** | my probe copy |
+|---|---|---|
+| lines | **186** | 215 |
+| `grep -c "D13"` | **0** | 5 |
+| `grep -c "flag over components within the schema"` | **2** | — |
+
+**Shipped line 61, verbatim**: cell `bit=1 v2=0 classic=0`, draft `{ flags: V2_FLAG }` — **no components** — still reads `d17Row: 'the flag over components within the schema and no content'`. **That is CR25-2's original defect, uncorrected, live against the tree.**
+
+### The claim that was wrong
+
+At **§V.19** I wrote that my corrections were routed and the tree's copy untouched — **which was true**. Then at **§V.23**, four paragraphs later, I wrote:
+
+> *"The tree's copy keeps a citation that is **correct, merely thinner**."*
+
+**It does not. It keeps the wrong citation.** I described the shipped file from memory of what I had *authored* rather than from the file, in the same section where I was ruling on the value of that file's provenance.
+
+**This is the fourth prose-versus-artifact instance from me today**, and it is the one I had already named the shape of: at §V.19 I wrote that CR25-1 was *"the worst of the three"* because my claim was contradicted by a captured run in the same folder. **This one is contradicted by the file itself, one directory over, in a section arguing about that file's authority.**
+
+**The cost was not hypothetical.** Steering relayed the sentence without opening the file, and **`uat` performed its CR25-3 discharge against my probe copy** — coming within one message of the gate recording CR25-2 discharged and CR25-3 verified **while the shipped oracle carried both defects and every record said otherwise.**
+
+**My share is the prose.** The reasoning in §V.23's fourth option was sound and I still hold it; **the premise it rested on about the shipped file was false, and I did not check it.**
+
+### What is not affected, verified rather than assumed
+
+**All sixteen `id`/`expected` pairs are byte-identical across the two copies** — `diff` over the extracted pairs returns **0 differing lines**, my own instrument, not the reviewer's. **No oracle verdict changes; both wrong-fix mutants are still caught; QA COMPLETE at `b56570d` stands and code review's APPROVED stands.** **Provenance divergence, not behavioural.**
+
+### Owner ruling: **"Record it, leave it"**
+
+He was told the guard works, that this is provenance rather than behaviour, and that the correct version *"lives only in a document nobody running the test will open."* He declined both *"Fix it now"* and *"Ride the next round."*
+
+**So CR25-1 and CR25-2 are OPEN residual against the shipped file, and §V.23's disposition is corrected accordingly**: my published derivation keeps its value **for a reader who opens this document**, and **it is not what runs.** Recorded beside §V.23 rather than over it.
+
+### The class, and `uat`'s half of it is the part I did not have
+
+**The reviewer**: *"This is `probe-cr1`/`probe-cr10`'s fossil defect running in reverse. There, an embedded copy fell behind the tree and silently stopped measuring it. Here a copy ran ahead of the tree and caused a gate stage to report a fix that has not shipped. **The artifact under review is the one the tree executes; any other copy is evidence about it, never it.**"*
+
+**`uat`**: ***a second copy is most dangerous when it is BETTER than the shipped one. A copy that lags looks wrong on inspection; a copy that leads looks like progress.***
+
+**That second sentence is the generalisation and I could not have written it.** Every safeguard I applied to this directory all day assumed a stale copy would look stale. **A copy that is ahead passes every inspection I know how to run, and reads as diligence.**
+
+## V.25 — Freshness reconciled: **eight by execution, the rest by construction — and my "eleven" was a relayed count**
+
+`uat` records **eleven rows fresh from me against its open set of twelve**, and declined to close the difference by assumption. **It was right to decline, and the difference is mine to correct — twice over.**
+
+**First, the number was not derived.** *"All eleven rows fresh"* at §V.5 and §V.18 took its count from steering's phrasing (*"eleven of twelve executable"*) rather than from my own enumeration. **I restated a count from a relay**, which is the practice this document has spent a chain warning against. **The count is withdrawn as stated.**
+
+**What my differential actually establishes, enumerated:**
+
+| Basis | Rows | Evidence |
+|---|---|---|
+| **By execution** — the differential computes their predicted value | **8**: BC-1, BC-6, BC-7, BC-8, BC-9, BC-10, BC-18, BC-21 | report at `b56570d` vs `e1d9b2b`: **0 changed lines** |
+| **By construction** — nothing they predict over exists in the range | **all remaining open rows** | `e1d9b2b..b56570d` contains **no non-test path**, so production is byte-identical and no surface any row predicts over moved |
+
+**The second basis is a measurement, not an assumption**, and that distinction is why I am offering it rather than asking `uat` to infer it: **byte-identical production is derived from the range enumeration, not from the absence of a reason to doubt.** Rows my differential has no column for — **BC-12** and **BC-17** (Discord's API), **BC-13** (a clock), **BC-14**, **BC-19b**, **BC-20** (production observation) — are fresh at `b56570d` **for that reason and no other.**
+
+**So: no row is stale at `b56570d`, on two bases, with the rows each basis covers named.** `uat` may close its difference on that or leave it recorded; **the count it should not adopt is my earlier "eleven."**
