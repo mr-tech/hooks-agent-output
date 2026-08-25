@@ -273,3 +273,43 @@ that does not exist. That will recur every chain until it is settled.
 **Owner-only.** The roadmap pass could not establish whether a roadmap has been deliberately withheld
 here or simply never started — nothing in the repo distinguishes those, and it correctly declined to
 create one either way.
+
+## `check-repo.js --status`'s FAILING/BLOCKING flag is 0-for-5 — every flag on this repo is a false positive
+
+Measured 2026-08-25 by `steering-hooks-012-2`, prompted by `uat-hooks-012-2`'s U-12. Command:
+`node tools/check-repo.js --status`. The flag renders only in `--status`; the default run never
+shows it, which is why it goes unnoticed.
+
+**Five flags, all on chains that are released or closed, none indicating anything actionable:**
+
+| Flagged | Why it fires | Real state |
+|---|---|---|
+| chain 012 `planning` | `REJECTED`, narrating review rounds 1 and 2 | Released, UAT-approved unconditional |
+| chain 013 `qa` / `uat` / `deployment` | historical verdict text | chain CLOSED and released |
+| chain 5 `qa` | `Status: QA Failed` | fully closed chain; superseded by a second `qa` doc |
+
+**Three independent causes, all in `tools/check-repo.js`:**
+
+1. **No notion of negation.** `FAILING` (line 663) is a bare alternation including `NOT[ _-]EXECUTED`,
+   tested against `status + " " + detail`. UAT's `Status-Detail` said **"16 EXECUTED, 4 SUPERSEDED,
+   0 NOT EXECUTED"** — *the clause announcing that nothing is blocked rendered the chain as
+   `⚠ FAILING/BLOCKING`.* UAT fixed its own field in the round it was found (`4bd552e`); the matcher
+   is unfixed and the next such field will do it again.
+2. **No notion of tense.** `Status-Detail` legitimately narrates closed review rounds, so a chain
+   that was rejected at round 1 and approved at round 6 reads as failing forever.
+3. **Inconsistent closed-handling.** Line 702 pushes the flag regardless of `d.closed`; line 720
+   filters `!d.closed`. Same predicate, two behaviours in one function.
+
+**Why it is worth closing.** A gate that is wrong every time it fires trains readers to ignore it,
+and this repo already has one recorded instance of that disease — `OPEN_QUESTIONS.md` item 1, where
+`build-index.js --check` can never pass on the committed form. Two red-by-default instruments is a
+pattern, not a coincidence. The failure mode is not noise: it is that a *real* blocked chain would
+be indistinguishable from the four standing false positives.
+
+**Requires the owner's approval before landing** — `tools/check-repo.js` is source code off a chain
+branch, so it falls under the standing gate rather than the agent-output-document exception.
+
+**Explicitly NOT the fix**: rewording chain 012's planning `Status-Detail` to avoid the word
+`REJECTED`. That record is accurate; editing an accurate record to satisfy a naive matcher is
+corrupting the record to please the instrument. If the owner nevertheless wants the field reworded,
+it is the planner's body text and needs a planner pass, not a steering registration.
