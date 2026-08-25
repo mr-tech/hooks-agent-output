@@ -152,26 +152,6 @@ steering, not by you.** When it arrives the check is: attempt the import, and it
 
 *End of the section for `OWNER-QUEUE.md`.*
 
-### Only you can do this — no agent may
-
-**Find out what Discord does with an empty component.** The server-side shape checks were relaxed, so
-hooks.gg now accepts message structures it used to reject: an empty container, an empty section, an
-empty media gallery, an empty action row, or a text display with no text. **Nobody has established what
-Discord itself does with those.** Code review assumed Discord rejects them and says so plainly rather
-than pretending otherwise — it could not test it, because **no agent on this machine may send a Discord
-message, and there is no approval path for one.**
-
-**What to do:** compose a message containing one of those empty structures and send it.
-
-**Three outcomes, and two of them are bad:**
-- **It is rejected with a readable error** — the assumption holds and nothing follows.
-- **It posts successfully** — the message goes out blank or malformed in a real channel, and users can
-  produce that today.
-- **It is rejected with a blank or raw validator error** — it is caught, but the work that made these
-  errors readable does not cover this case.
-
-**Tell me which happened and I will route it.**
-
 ### Decisions, no browser needed
 
 Nothing.
