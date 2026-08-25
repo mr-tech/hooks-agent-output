@@ -30,7 +30,8 @@ lines about items nobody is waiting on.** If it does not need the owner to act, 
 
 You withdrew D20 today (*"013 closed out fixing the JSON importer which was blocking 012. You are
 picking up 012."*), so every check below is live again. **No release is recorded complete while any
-of them is unrun.** None depends on another — run them in any order.
+of them is unrun.** Most are independent, but **the three that use the scratch record have a strict order** — see below;
+running them out of order makes a working fix look broken.
 
 **Use a scratch message you create for QA-R5, QA-R6 and QA-R7.** Each one saves, and a save
 recomputes `valid`. QA is re-specifying two rows (below) and will nominate a subject; don't disturb
@@ -55,38 +56,57 @@ and save it. **Pass, two halves:** (a) the save **succeeds**, and (b) that recor
 then shows `valid: false`. **(a) is the one that matters** — if the save is rejected, the field has
 become a gate, which the plan forbids, and it goes back to the implementer.
 
-### QA-R4 and QA-R15 — rewritten onto a scratch record, because you fixed 5712
+### QA-R2, QA-R4 and QA-R15 — rewritten onto a scratch record, because you fixed 5712
 
-These are the two checks that were stuck. QA rewrote them onto a purpose-made record, **SCR-1**,
-because nothing in the app can produce another stuck message any more (that is the fix working) and
-5712 is repaired. **These two are the last things blocking chain closure.**
+These three are the last things blocking chain closure. All three use one purpose-made record,
+**SCR-1**, because 5712 is repaired and nothing in the app can produce another stuck message any
+more — that is the fix working, which is exactly why the subject has to be made by hand.
 
-**First, make SCR-1** — two steps:
-1. In a guild you control, create a normal Classic message in the composer: username `QA Scratch`,
-   content `QA-R4/QA-R15 scratch subject - safe to delete.`, no embeds, no components.
-2. One SQL UPDATE on that row setting `flags` to `32768` **and** `valid` to `false` **in the same
-   statement**. Both in one statement matters — it keeps this off the backfill and out of the
-   distribution you review for QA-R9.
+**Run them in this order. It matters:**
 
-**Before you read a red result as a defect, confirm the live site is serving the current code**
-(`a74b9e2` or later). If the deploy is behind, both checks fail in a pattern that looks exactly like
-the fix being broken — and the wrong conclusion is to withdraw guidance that is actually correct.
+> **make SCR-1 → QA-R4 → QA-R2 → QA-R15**
+
+**QA-R15 destroys the state the other two exist to observe** — every save recomputes `valid`, so once
+you have pressed Classic and saved, R4 and R2 can no longer be observed on that record. Out of order
+they report a Send-available composer and `valid: true`, which reads as *the fix never worked*, when
+in fact it worked and was then overwritten.
+
+**Step 1 — make SCR-1.** In a guild you control, create a normal Classic message in the composer:
+username `QA Scratch`, content `QA-R4/QA-R15 scratch subject - safe to delete.`, no embeds, no
+components. Then one SQL UPDATE on that row setting `flags` to `32768` **and** `valid` to `false`
+**in the same statement**. Both in one statement matters: it keeps this off the backfill and out of
+the distribution you review for QA-R9.
+
+**If anything goes wrong, rebuild rather than interpret.** Re-running the creation SQL returns SCR-1
+to the stuck state at no cost. A spoiled observation costs you a re-run, not a verdict — so if a
+result is ambiguous, rebuild and repeat rather than deciding what it probably meant.
 
 **QA-R4 — open SCR-1 in the composer.** **Pass:** it opens in Components V2 mode, shows the error
 text *"Components V2 messages cannot contain embeds or content."* **verbatim**, and Send is not
-available. **If the error names a different reason, the result is void rather than passing** — SCR-1
-was built wrong and needs rebuilding before either check means anything.
+available.
+- **If it opens in Classic instead of Components V2, stop — that is the signature of the live site
+  running old code**, not a broken fix. Nothing else in this group means anything until that is
+  sorted.
+- **If the error names a different reason, the result is void rather than failing** — SCR-1 was built
+  wrong. Rebuild it.
 
-**QA-R15 — from there, press "Classic" on the mode switch, then Save.** No JSON modal is involved,
-and **no "Switch message mode?" modal will appear** — that is expected here and is not QA-R5/R6
-failing. **Pass, three parts:** the stuck flag is cleared, the content is unchanged, and the record
-then reads `valid: true`. Send becoming available is *not* sufficient on its own.
+**QA-R2 — read SCR-1 back through the API.** GET the v1 guild-messages endpoint for SCR-1's guild.
+**Pass:** SCR-1 shows top-level `valid: false`. **If it shows `true`, or the key is missing, what
+that means depends on what QA-R4 just did:**
+- QA-R4 *did* show the error with Send unavailable → the check is working and the column was simply
+  never set by your creation SQL. **Void — rebuild SCR-1 and redo R4 and R2.**
+- QA-R4 showed *no* error → this is the real defect the row exists to catch. **Report it.**
+
+**QA-R15 — last, because it ends SCR-1's stuck state.** Press "Classic" on the mode switch, then
+Save. No JSON editor is involved, and **no "Switch message mode?" modal will appear** — that is
+expected here and is not QA-R5/QA-R6 failing. **Pass, three parts:** the stuck flag is cleared, the
+content is unchanged, and the record then reads `valid: true`. Send becoming available is **not**
+sufficient on its own.
 
 **One thing worth knowing about the order.** QA-R15's act — open, press Classic, Save — **is the
 same thing the repair guidance tells guild owners to do.** So if you run QA-R15 before you send the
 guidance, you will have seen the route work first-hand. You waived that as a requirement and it
-stays waived; both orders are fine and nothing depends on which you pick. Flagging it only because
-it is free if you happen to go in that order.
+stays waived; both orders are fine. Flagging it only because it is free if you happen to go that way.
 
 ## 2. Only you can do these — no agent may
 
