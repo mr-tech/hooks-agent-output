@@ -1,5 +1,26 @@
 /**
- * PRE-REGISTERED FAILING SPEC — F-QA30. Written by QA before any fix exists.
+ * ============================================================================================
+ * WITHDRAWN 2026-08-25 BY OWNER RULING. DO NOT IMPLEMENT AGAINST THIS SPEC.
+ *
+ * This spec asserts that a composite the lenient filter empties must be NAMED to the user. The
+ * owner has ruled the opposite, in his own wording and unprompted: offered an option labelled
+ * "Remove it, and say so", he rewrote the label to **"Remove it, don't say so"** and submitted
+ * that. The silence is INTENDED. An implementer who makes these assertions pass builds the
+ * behaviour he declined.
+ *
+ * QA does not merely defer to the ruling — it agrees with it. An emptied Container is an EMPTY
+ * BOX: nothing was in it, so nothing is lost by removing it, and naming the removal is noise on
+ * a path where nothing happened. The case where content IS lost — a composite emptied BY an
+ * unsupported child — is named already, and the control below ("a Container emptied BY an
+ * unsupported child names that child" -> ["Select Menu"]) is what proves it.
+ *
+ * The file is retained struck rather than deleted: it is the record of what was measured, and
+ * its four CONTROLS remain true statements about the shipped filter.
+ *
+ * See the QA document, "P3.18 — BC-6 reaches unsupported TYPES, not emptied instances".
+ * ============================================================================================
+ *
+ * PRE-REGISTERED FAILING SPEC — F-QA32. Written by QA before any fix exists.
  *
  * DO NOT UPDATE THE EXPECTATIONS TO MATCH THE CODE. A disagreement here is a finding.
  *
@@ -53,7 +74,7 @@ function isSilentDrop(components: unknown[]): boolean {
     && describeUnsupportedComponentTypes(components).length === 0;
 }
 
-describe('F-QA30 — every component the lenient filter removes is named to the user', () => {
+describe('F-QA32 — every component the lenient filter removes is named to the user', () => {
   it('a Container emptied of children is not dropped silently', () => {
     expect(isSilentDrop([{ type: 17, components: [] }])).toBe(false);
   });

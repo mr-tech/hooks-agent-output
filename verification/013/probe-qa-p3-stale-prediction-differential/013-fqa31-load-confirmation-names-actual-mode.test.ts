@@ -1,5 +1,5 @@
 /**
- * PRE-REGISTERED FAILING SPEC — F-QA29. Written by QA before any fix exists.
+ * PRE-REGISTERED FAILING SPEC — F-QA31. Written by QA before any fix exists.
  *
  * DO NOT UPDATE THE EXPECTATIONS TO MATCH THE CODE. A disagreement here is a finding, not a
  * stale fixture. These expectations are stated as independent facts of the domain — "the
@@ -52,7 +52,7 @@ function confirmationFor(current: Record<string, unknown>, incoming: Record<stri
   return describeLoadDiff(computeLoadDiff(current as never, incoming as never));
 }
 
-describe('F-QA29 — the Load confirmation must name the mode the Load actually produces', () => {
+describe('F-QA31 — the Load confirmation must name the mode the Load actually produces', () => {
   const CURRENT_CLASSIC = { content: 'existing text' };
   const CURRENT_V2 = { flags: V2_FLAG, components: [CONTAINER] };
 

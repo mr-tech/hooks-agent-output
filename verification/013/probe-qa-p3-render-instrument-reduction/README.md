@@ -67,7 +67,7 @@ site the owner's ruling actually named"*, and stated the falsity signature route
 one that never clears when he fixes the JSON)."*
 
 **That sentence is BC-18's predicate verbatim.** The trim deleted the in-repo statement of BC-18's own
-falsity signature and left a pointer to it. Raised as **F-QA31**; same class as code review's LOW-1
+falsity signature and left a pointer to it. Raised as **F-QA33**; same class as code review's LOW-1
 (`ID_LAYOUT`, `NOTICE`), and it belongs in the same repair.
 
 ## Files

@@ -2654,8 +2654,8 @@ and none should be read as re-derived.
 
 | Row | Marking | **Disposition** | Basis |
 |---|---|---|---|
-| **BC-1** *(load-confirmation-names-changes)* | STALE | **LIFTED — prediction unmoved.** But see F-QA29: **the row now FAILS as the code stands, and must not be put in front of an operator until it is fixed** | Section C byte-identical at all three trees. Predicted value restated literally below |
-| **BC-6** *(lenient-filter-names-drops)* | possibly STALE | **RE-DERIVED — the notice text changed, the predicate did not.** Row stays executable | `describeUnsupportedComponentTypes([Thumbnail-11]) = ["Thumbnail"]` unchanged; only the surrounding sentence moved. See F-QA30 for a member of this row's class the row does not reach |
+| **BC-1** *(load-confirmation-names-changes)* | STALE | **LIFTED — prediction unmoved.** But see F-QA31: **the row now FAILS as the code stands, and must not be put in front of an operator until it is fixed** | Section C byte-identical at all three trees. Predicted value restated literally below |
+| **BC-6** *(lenient-filter-names-drops)* | possibly STALE | **RE-DERIVED — the notice text changed, the predicate did not.** Row stays executable | `describeUnsupportedComponentTypes([Thumbnail-11]) = ["Thumbnail"]` unchanged; only the surrounding sentence moved. See F-QA32 for a member of this row's class the row does not reach |
 | **BC-7** *(M8-B: components, no flag)* | STALE | **LIFTED — prediction unmoved** | Section A cell `bit=0 v2comp=1 classic=0` identical at all three trees |
 | **BC-8** *(M8-D: content + flag)* | STALE | **LIFTED — prediction unmoved** | Section A cell `bit=1 v2comp=0 classic=1` identical at all three trees |
 | **BC-9** *(M8-E: content + components)* | STALE | **STALE CONFIRMED, on a different commit than the one cited — RE-DERIVED below** | The disposition is unmoved, but **D31 at `d7c4836`** changed what the user sees *first*. The row predicts "two options"; today the paste rests on a notice and a **Resolve** link, and the options appear only after clicking it |
@@ -2674,7 +2674,7 @@ button `'Load'`, and the body is the whole of it:
 | no structural or mode change | `This will overwrite the current message.` |
 | adds a Container over a Classic message | `This will overwrite the current message. It will add Container; switch from Classic to Components V2.` |
 | swaps Container for Action Row inside V2 | `This will overwrite the current message. It will remove Container; add Action Row.` |
-| a **row D** draft over a V2 message | must name the **switch to Classic**. **It does not. See F-QA29** |
+| a **row D** draft over a V2 message | must name the **switch to Classic**. **It does not. See F-QA31** |
 
 ### BC-9 / BC-10 — predicted value, re-derived for row E
 
@@ -2729,7 +2729,7 @@ specs are captured at `verification/013/probe-qa-p3-stale-prediction-differentia
 its defect assertions and **green on every positive control**, so a fix that over-reaches breaks the
 controls rather than passing quietly.
 
-### F-QA29 — the Load confirmation names a mode change that does not happen, and omits one that does
+### F-QA31 — the Load confirmation names a mode change that does not happen, and omits one that does
 
 **BLOCKING for BC-1. This is BC-1's own clause 2 failing.**
 
@@ -2764,7 +2764,7 @@ add/remove pair, and an identical draft) pass.
 whole chain exists because real stored records are that shape — so it does not stop at step 1, and
 the defect is in the **surface's own contract with the user**, not a missing runtime guard.
 
-### F-QA30 — a component emptied by the lenient filter is removed with nothing said
+### F-QA32 — a component emptied by the lenient filter is removed with nothing said
 
 **A member of BC-6's class that BC-6's stated example does not reach.**
 
@@ -2839,10 +2839,10 @@ second where the instrument was sound and the **predicate** was the wrong one.
 - **2026-08-25 — BC-6, BC-9, BC-10, BC-18: predictions RE-DERIVED** (qa, this pass), each to the
   literal value the surface produces at `2d90e8a`. **BC-9's staleness is real but was attributed to
   the wrong commit** — its cause is D31 at `d7c4836`, which rev 18 did not cite.
-- **2026-08-25 — BC-1 is NOT executable until F-QA29 is fixed** (qa, this pass). The prediction is
+- **2026-08-25 — BC-1 is NOT executable until F-QA31 is fixed** (qa, this pass). The prediction is
   sound; the surface fails it. Executing the row now would produce a true failure, not a false one —
   which is why it is recorded here rather than left for the sitting to discover.
-- **2026-08-25 — BC-6's class has an uncovered member, F-QA30** (qa, this pass). **No new row is
+- **2026-08-25 — BC-6's class has an uncovered member, F-QA32** (qa, this pass). **No new row is
   minted**: BC-6's condition already covers it and the code fails that condition. Adding an ID would
   inflate the register to describe a defect the register already names.
 
@@ -2857,7 +2857,7 @@ The **Final QA state** section closes with *"Nothing has shipped. `4a7126b` is n
 statement it was; this line is the correction, recorded beside it rather than over it.
 
 **`2d90e8a` carries no QA verdict.** The refresh at `4a7126b` stands for its own tree and for nothing
-past it, and **F-QA29 and F-QA30 were both present at `4a7126b` and were not caught there** — stated
+past it, and **F-QA31 and F-QA32 were both present at `4a7126b` and were not caught there** — stated
 plainly because a reader comparing the two would otherwise have to work it out.
 
 ## P3.10 — Assumption Not Checked
@@ -2870,7 +2870,7 @@ form, a database write — would diff clean here while having moved underneath. 
 API, which this instrument never contacts, and **BC-13** predicts over a clock.
 
 **Observable signature of its falsity**: an operator executes a row this pass declared unmoved and
-gets a mismatch that is neither of the two faces of F-QA29 nor a rendering absence — i.e. a failure
+gets a mismatch that is neither of the two faces of F-QA31 nor a rendering absence — i.e. a failure
 in a dimension the report has no column for.
 
 **Owner of closing it**: the **QA limb of the D37/D39 review debt** — the pass that runs at
@@ -2885,12 +2885,12 @@ the assumption is routed rather than shelved.
 **BLOCKING RELEASE CONDITION — carried to UAT by name**, as additions to chain 013's single register's
 standing obligations rather than as new IDs:
 
-> **BC-1 must not be executed until F-QA29 is fixed.** *If an operator is sat in front of the Load
+> **BC-1 must not be executed until F-QA31 is fixed.** *If an operator is sat in front of the Load
 > confirmation as the code stands, the dialog will tell him the message type changes when it does
 > not, or stay silent when it does — on the 5712/5842 repair path, immediately before an irreversible
 > overwrite.*
 >
-> **BC-6 cannot pass while F-QA30 stands.** *A Container emptied by the filter is deleted from the
+> **BC-6 cannot pass while F-QA32 stands.** *A Container emptied by the filter is deleted from the
 > user's message with nothing shown anywhere, beside a green state — which is the defect this
 > milestone exists to close, in the surface it exists to close it in.*
 
@@ -2951,7 +2951,7 @@ this pass alone, which is why it is stated as a rule rather than as a correction
 same section — catching itself about to write *"QA's instrument was deleted"* off a `0 51` numstat —
 is the reason this arrived as a checkable claim instead of a false one.
 
-## P3.13 — **F-QA31**: the trim left a pointer to a disclosure it deleted, and the disclosure was BC-18's
+## P3.13 — **F-QA33**: the trim left a pointer to a disclosure it deleted, and the disclosure was BC-18's
 
 Found while ruling F-1; **F-1 did not report it.**
 
@@ -3096,8 +3096,8 @@ re-reviews at the new tip → **QA verifies at the new tip** → UAT writes the 
 
 **Carried into that pass, so none of it is lost between sittings:**
 
-1. **F-QA29** and **F-QA30** — fix verification, against the pre-registered specs already captured.
-2. **F-QA31** — the dangling pointer and BC-18's deleted falsity signature.
+1. **F-QA31** and **F-QA32** — fix verification, against the pre-registered specs already captured.
+2. **F-QA33** — the dangling pointer and BC-18's deleted falsity signature.
 3. **F-1's limb 2** — the surviving render instrument executed under a verdict.
 4. The **rider staleness condition** at P3.15 — a one-command check against the rider's diff.
 5. **MEDIUM-2's status**, whether or not CR23-2 rides.
@@ -3110,3 +3110,149 @@ observation, and this document does not carry it as a coverage gap.
 
 **Standing note**: point-in-time, as every list here. The UAT document, then the deployment record,
 are authoritative on row state.
+
+---
+
+# Phase 3, third sitting, 2026-08-25 — an ID collision of my own, and BC-6 ruled
+
+**Session**: `qa-hooks-013-3` [ab2af3]. **Trigger**: `steering-hooks-013-3` relayed an owner ruling on
+the lenient filter's treatment of an emptied composite, and asked which of two readings of BC-6
+governs. **Row definitions are QA's, so the reading is QA's.** No verdict moves.
+
+## P3.18 — FIRST: an ID collision I minted, in the document that carries the note against it
+
+**My three Phase 3 findings were numbered F-QA29, F-QA30 and F-QA31. F-QA29 and F-QA30 already
+existed in this document and are both `CLOSED`.** F-QA29 was *"a TDD row asserts `Yes` while its own
+prose says otherwise"*; F-QA30 was *"F-QA25's correction overwrote the original claim rather than
+restating beside it"*.
+
+**This is the BC-13/BC-14 defect, committed by me, in the same document whose register carries the
+ID-collision note warning against it.** I numbered from the last finding I could see rather than from
+the document's true high-water mark — the identical mistake, one ID space over. Caught only because
+this sitting grepped `F-QA30` for an unrelated reason; **no disambiguator would have caught it**, since
+both pairs are QA findings addressed to the implementer.
+
+**Resolved on the register's own precedent — the older keeps the number, the newer renumbers, and
+every row gains a stable NAME so citations survive:**
+
+| Was | **Now** | Name | State |
+|---|---|---|---|
+| F-QA29 *(earlier round)* | **F-QA29** — unchanged | `tdd-row-false-yes` | CLOSED |
+| F-QA30 *(earlier round)* | **F-QA30** — unchanged | `correction-overwrote-claim` | CLOSED |
+| F-QA29 *(Phase 3)* | **F-QA31** | `load-confirmation-names-wrong-mode` | **OPEN — in the rider round** |
+| F-QA30 *(Phase 3)* | **F-QA32** | `emptied-composite-drop-unnamed` | **WITHDRAWN — see P3.19** |
+| F-QA31 *(Phase 3)* | **F-QA33** | `disclosure-pointer-dangles` | **OPEN — in the rider round** |
+
+**Prefer the name to the number.** The pre-registered specs and their run captures are renamed to
+match, **except the captured run outputs**, which are left byte-identical: they record what was
+executed, under the filenames that existed when it ran, and editing captured evidence to match a
+later rename would be falsifying it. `run-red-fqa31-*.txt` and `run-red-fqa32-*.txt` therefore name
+`013-fqa29-…` and `013-fqa30-…` inside. That is correct and is not drift.
+
+**Steering has already propagated `F-QA29`/`F-QA30`/`F-QA31` to the planner and the owner.** The
+names above are what should be carried; the numbers are told to it directly so the rider round does
+not inherit a collision.
+
+## P3.19 — BC-6 ruled: it reaches unsupported **TYPES**, not emptied instances. Reading 2
+
+**The owner's ruling, with its provenance as relayed**: offered an option labelled *"Remove it, and
+say so"*, he **rewrote the label to "Remove it, don't say so"** and submitted that. The removal half
+is agent-authored and adopted; **"don't say so" is his own wording, unprompted**, and is the operative
+change. The alternative — keep the emptied composite and let it through — was in front of him and not
+taken.
+
+**BC-6, quoted from its own row rather than from memory:**
+
+> **Condition**: *M4-b: the lenient filter **names** the dropped **types** at both JSON surfaces*
+> **Earliest-decidable**: *a paste carrying a top-level Thumbnail-11*
+> **Predicted value**: *the notice names the **type***
+
+**The ruling: BC-6 reaches unsupported types only. The emptied composite falls outside it. There is
+no conflict, nothing is unpassable, and nothing goes back to the owner.** Three grounds, and none of
+them is deference:
+
+1. **The row's condition and its predicted value are both about *types*.** An emptied Container is
+   not a dropped type — **Container is a supported type**. An *instance* was removed; no type was
+   dropped.
+2. **The notice is literally a statement about type support**, and reading 1 would require it to lie.
+   It renders `Not supported on Hooks.gg: ${types}`. Naming an emptied Container there asserts
+   *"Container is not supported on Hooks.gg"*, which is **false**. **A register row cannot require a
+   surface to make a false statement**, so a reading that demands it is the wrong reading.
+3. **The filter already satisfies BC-6 across its whole class, proved by this pass's own control.**
+   `verification/013/probe-qa-p3-stale-prediction-differential/` §E2: a Container emptied **by** an
+   unsupported child names `["Select Menu"]`; a top-level Thumbnail-11 names `["Thumbnail"]`; a
+   Container that keeps a child is correctly not a drop. **The filter names exactly the unsupported
+   types and nothing else.** That is coherent and complete on reading 2.
+
+**And the ruling is right on the merits, which is worth saying because I raised the finding against
+it.** An emptied Container is an **empty box** — nothing was in it. The case where a user actually
+loses something is a composite emptied *by* an unsupported child, and **that case is already named**.
+Naming the empty-box case would put a notice on a path where nothing happened.
+
+### The defect this exposes is in how I wrote BC-6, not in the code
+
+**BC-6's failure-mode cell over-reaches its own condition cell.** The condition says *"the dropped
+types"*; the failure mode says *"a component vanishes with no trace"* — which is strictly broader and
+does describe the emptied composite. **That over-reach is what made F-QA32 feel supported**, and it is
+a defect in the row as I authored it.
+
+The operator-terms cell exists so a condition cannot be deprioritised as polish. It is a **rendering
+of the condition, not an extension of it** — and when it drifts wider, it becomes a second, unwritten
+condition that no one ratified. **Carried to the retrospective**: an operator-terms cell must be
+checkable against its own condition cell, or it silently widens the row.
+
+**BC-6 is not restated.** Its condition is correct as written and the code satisfies it. What is
+recorded is that its failure-mode cell is wider than its condition, and that **the condition governs**.
+
+### On the prop that went out from under it
+
+Steering is right that my F-QA32 framing leaned on BC-5's operator-terms cell — *"Green means safe"* —
+and **BC-5 is now WITHDRAWN**. That prop is gone. **It does not change the ruling**, because none of
+the three grounds above uses BC-5: they rest on BC-6's own condition text, on the notice's wording,
+and on this pass's own measurement. Recorded so the withdrawal is not mistaken for the reason.
+
+## P3.20 — **F-QA32 `emptied-composite-drop-unnamed` — WITHDRAWN**, and it must leave the rider round
+
+**Recorded beside the finding, not over it.** F-QA32 as raised was that the removal happens silently.
+**The owner has ruled the silence intended, and QA agrees with the ruling on the merits** (P3.19). The
+finding is withdrawn as a defect.
+
+> **URGENT, and the reason this section exists.** Steering reported the owner approving the rider
+> round as *"the `|` split at all three sites, F-QA29, F-QA30, and CR23-2"* — where that `F-QA30` is
+> this finding under its pre-collision number. **It must come OUT of the rider round.** An
+> implementer who makes its assertions pass builds the behaviour the owner declined, in the same
+> round he declined it. The pre-registered spec is marked **WITHDRAWN — DO NOT IMPLEMENT AGAINST
+> THIS SPEC** in its own header so it cannot be picked up by a reader who has not read this section.
+
+**The spec is retained struck rather than deleted.** It records what was measured, and its **four
+controls remain true statements about the shipped filter** — including the one that carries P3.19's
+third ground.
+
+### Correction to a BLOCKING RELEASE CONDITION I wrote
+
+Section **P3.11** carries, under a `BLOCKING RELEASE CONDITION` heading and addressed to UAT by name:
+
+> *"**BC-6 cannot pass while F-QA30 stands.** A Container emptied by the filter is deleted from the
+> user's message with nothing shown anywhere, beside a green state…"*
+
+**That condition is WITHDRAWN.** It was written before the owner's ruling and on the reading this
+sitting has now rejected. **BC-6 stands as written and the code satisfies it**; nothing about BC-6
+blocks anything. Recorded here rather than edited out of P3.11, so the withdrawal is visible to a
+reader who lands on either section — and stated explicitly because a blocking condition that quietly
+disappears is worse than one that was never raised.
+
+**P3.11's other blocking condition — BC-1 and F-QA31 `load-confirmation-names-wrong-mode` — is
+unaffected and stands.**
+
+## P3.21 — State after this sitting
+
+**No verdict moved.** `QA Complete` at `4a7126b` stands for that tree; `2d90e8a` carries no QA verdict;
+the verify pass is still queued behind the rider.
+
+**Rider round, as QA understands it after this ruling** — the delimiter class at all three sites,
+**F-QA31**, **F-QA33**, CR23-2, CR23-3, CR23-4, **and NOT F-QA32**.
+
+**Carried into the verify pass**, replacing the list at P3.17 item 1: fix verification for **F-QA31**
+and **F-QA33**; **F-1 limb 2**; the rider staleness condition at P3.15; MEDIUM-2's status; the remote
+limb of tree identity. **F-QA32 is withdrawn and is not verified** — its absence from the fixed tree
+is the expected state, and a future reader must not read that absence as a missed fix.

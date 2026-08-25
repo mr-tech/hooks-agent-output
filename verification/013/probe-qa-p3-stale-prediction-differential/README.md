@@ -66,10 +66,10 @@ Both are **pre-existing and identical at all three trees** — they are not regr
 post-release round. They were found because re-deriving a prediction means computing what the
 surface actually does, which nobody had done for these two paths.
 
-- **F-QA29** — the Load confirmation is computed over the **raw** validated draft while `commitLoad`
+- **F-QA31** — the Load confirmation is computed over the **raw** validated draft while `commitLoad`
   applies `applyDisposition`. For disposition row D they disagree. See section C's
   `CONFIRMATION vs WHAT LOAD ACTUALLY DOES` block, and the pre-registered spec.
-- **F-QA30** — `filterTopLevelComponent` drops a Container left with no surviving children (and an
+- **F-QA32** — `filterTopLevelComponent` drops a Container left with no surviving children (and an
   Action Row left with no buttons) **without recording a label**, so nothing is shown to the user.
   See section E2, whose table carries its own positive controls.
 
@@ -82,10 +82,10 @@ surface actually does, which nobody had done for these two paths.
 | `diff-d7c4836-to-2d90e8a.txt` | **the differential the staleness marking is settled on** |
 | `diff-4a7126b-to-2d90e8a.txt` | the wider differential since QA's own anchor |
 | `run-*.txt` | the vitest runs that produced them |
-| `013-fqa29-load-confirmation-names-actual-mode.test.ts` | pre-registered failing spec for F-QA29 |
-| `013-fqa30-emptied-container-drop-is-named.test.ts` | pre-registered failing spec for F-QA30 |
-| `run-red-fqa29-at-2d90e8a.txt` | 3 failed / 5 passed — the three defect assertions red, all controls green |
-| `run-red-fqa30-at-2d90e8a.txt` | 3 failed / 4 passed — same shape |
+| `013-fqa31-load-confirmation-names-actual-mode.test.ts` | pre-registered failing spec for F-QA31 |
+| `013-fqa32-emptied-container-drop-is-named.test.ts` | pre-registered failing spec for F-QA32 |
+| `run-red-fqa31-at-2d90e8a.txt` | 3 failed / 5 passed — the three defect assertions red, all controls green |
+| `run-red-fqa32-at-2d90e8a.txt` | 3 failed / 4 passed — same shape |
 
 ## Reproduce
 
