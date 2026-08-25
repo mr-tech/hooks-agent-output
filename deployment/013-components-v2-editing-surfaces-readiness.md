@@ -752,3 +752,67 @@ the remote, not from a tracking ref:**
 **A decision to ship is not a shipment.** Nothing past `a151fb4` is serving, and rev 13's condition
 that BC-18/BC-19 precede the release act **remains meetable in the order it was written**, because
 those rows do not expire. No summary written by this stage will inherit the shipped framing.
+
+## 10.15 Phase 2A release-tip verdict for a `4a7126b` release — SATISFIED
+
+`qa-hooks-013-2` returned **RELEASE VERIFIED** at `4a7126bf8578b653ac7ae1cfe7cabdd609cdc21f`, plain
+40-char SHA, no content-identity fallback. Record: `qa/release-4a7126b-tip-verification.md`, committed
+`78e0a13`. It takes **no plan ID** and is named by release identifier — correct, since a release-tip
+verdict certifies a tree, not a plan.
+
+| Gate evidence at the tip | Result |
+|---|---|
+| Suite (`npx vitest run`) | **577 tests / 40 files / exit 0** |
+| Build (`pnpm build`) | **exit 0**, compiled in 8.4s, `grep -ci error` → 0 |
+| Divergence / assembly | none — one production commit, `abcf585`; `664e0c0` and `4a7126b` test-only, verified per commit |
+
+**The ruling I asked for and refused to infer, recorded because it settles a gate question for every
+future chain**: *the plan-level QA verdict does **not** constitute the release-tip verdict, even at an
+identical SHA.* QA's reasoning, which is better than mine was: **a matching SHA makes the *subject*
+identical, not the *act*.** The plan-level pass was gate-scoped — it ran no full suite and no build —
+so it could not contain the three facts above. Had I read the SHA coincidence as satisfying Phase 2A,
+**the release would have gone out with no full-suite run behind it.** The deployment record cites the
+release document, not the plan document.
+
+### The coverage gap and BC-18/BC-19 are the same gap
+
+QA reports the four production files in `abcf585` as **two covered, two text-pinned only**:
+
+- `CodeMessageNotice.tsx` — **covered**, executed.
+- `NewMessageJsonInput.tsx` — **covered**, executed.
+- `m/[id]/layout.tsx` — **text-pinned**. One `toContain('<CodeMessageNotice />')`. **The mount is never
+  executed.** The component renders in isolation; the layout contains the tag. Neither proves it
+  appears on the page — *wired is not installed*.
+- `MessageProvider/index.tsx` — **text-pinned**, three `toContain`. **The producer is never executed** —
+  the effect that computes the notice string and, **new in 013, clears it to `null`**. The one render
+  test naming the provider `vi.mock`s it out, correctly, to isolate the vessel, so the real effect runs
+  in none of the 40 files.
+
+**This does not fail the tip and is not recorded as though it does.** But it is the load-bearing
+observation for sequencing, and it is mine to make rather than QA's: **the two uncovered behaviours are
+exactly what BC-18 and BC-19 settle.** They are not ceremony left over from an earlier plan revision —
+they are **the only instrument covering half the production surface of this release.** The
+clear-to-null path in particular is new in 013 and user-visible if wrong: a warning that never clears
+is a stale notice sitting on the page, which is the failure the toast vessel was built to prevent.
+
+**Consequence for ordering.** Nothing has shipped (§10.14), so **rev 13's condition that BC-18/BC-19
+precede the release act has not been overtaken and remains meetable in the order it was written.**
+Unlike BC-11b, whose window the release act closed for good (F-7), **these rows are still open, still
+executable, and now demonstrably load-bearing.** This stage's recommendation is that they run **before**
+the cut, not after — not to satisfy a register, but because releasing first would ship two production
+files whose behaviour nothing has executed.
+
+**QA's verdict certifies the tip. It does not discharge BC-18/BC-19 and is not cited as having done so.**
+
+### Fourth member of the unsound-instrument class
+
+Recorded with §10.11's family, because it is the same shape and the failure is silent:
+
+    git rev-parse <tree>:<path>       # absent path → echoes its ARGUMENT to stdout, exits 0
+
+So an `|| echo MISSING` fallback **never fires** and the caller reads the path string back as though it
+were a blob hash. **Use `git cat-file -e <tree>:<path>` for existence.** Found by `qa-hooks-013-2`,
+which also hit the family's known form directly — `git diff --name-only | grep -c .` returned **8**
+against a true **7**, settled with `--shortstat`. **Two independent sessions were bitten by this class
+tonight after it was written down**, which is the same lesson as §10.12: a hazard recorded beside the
+decision is not a control.
