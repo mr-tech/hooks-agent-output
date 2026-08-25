@@ -98,6 +98,7 @@ Verified-At: >-
 | 2026-08-25 | `qa-hooks-013-2`, direct | Phase 3 RELEASE VERIFIED at `4a7126b`; one coverage finding routed because it bears on UAT's rows | **Rev 15. Verdict UNCHANGED; the residue it is conditional on is WIDER than rev 13 described.** QA's finding **corroborated by `git grep` at `4a7126b`, not adopted**: the code-import chain has **no executing coverage of the producer** — `013-qa-toast-vessel-render.test.ts:21` mocks `MessageProvider` out — and **none of the mount**, `layout.tsx` being text-pinned only. **The instrument names the gap itself** at line 122: *"a null context would throw in production and pass [here]"* — production throws, suite stays green. Combined with this stage's own R14.1 derivation that `CodeMessageNotice.tsx` is **absent at `a151fb4`**, that surface has **never executed in production**: neither an executing test of producer or mount, nor one instant of runtime. **R13.6 corrected by reconcile note** — *"guarded on both surfaces"* was true of the paste surface only. **BC-19 restated**: the owner must perform a **real code import**, and *no notice at all* / *the page throws* join *illegible* in its falsity signature; **split recommended to QA**, not performed. **Verdict does not move** — the finding lands inside a condition already blocking, and U-5's open window is what makes it survivable. Also: QA verified R14.1.1 **worse than reported** — `git rev-parse` on an absent path **exits 0**, so `|| echo MISSING` guards never fire. Instrument-lie class now **four** members, predicate stated. |
 | 2026-08-25 | `steering-hooks-013-2` [019315] — one fact, no request | U-C8 was discharged before rev 13's handback listed it outstanding | **Rev 16. One row reaches its terminal state; verdict untouched.** **U-C8 · `EXECUTED` — TERMINAL**: the 2026-08-25 ruling is registered as **D29 at plan rev 22** (`d60c857`), both parts verbatim, the third site's retention recorded as **ratified by selection with no verbatim sentence and none manufactured**, and the row marked **registration only — it enacts nothing**. **Verified against the plan rather than the relay**, by the same instrument that raised finding U-4: `grep -c "toast"` over the plan now returns **1** where it returned **0** at rev 13. **My handback asserted this was outstanding and it was not** — corrected here rather than left standing, because a ledger row that inverts a blocking status is exactly the exposure finding U-2 named. **The route, not the ledger, was the defect**: U-C8 was routed, discharged, and the discharge never returned to the router — the failure the one-line route-recording rule exists to catch. **Carried to the retrospective as a fifth item**, and it is a different class from the other four: those were instruments that lied, this is a **handoff that completed without closing its loop**. Nothing else in this document changes; **U-4 stands as a finding correctly raised and now correctly closed.** |
 | 2026-08-25 | `qa-hooks-013-2`, direct | BC-19 split performed; mode (b) declined; F-9 exposure question put to this document | **Rev 17. Verdict UNCHANGED; the condition is narrower and better ordered.** **BC-19 split ADOPTED** — **BC-19a** *(appears-at-all: a real code import, carrying the unproven producer and mount)* and **BC-19b** *(legible-and-placed)*, whose decidability **depends on 19a** — an ordering the unsplit row hid and this document had not stated. **Rev 15's mode (b) *"the page throws"* RETIRED, and QA is right**: the comment it rested on is true about the test, not about production. **Verified git-side rather than adopted** — one mount site inside `<MessageProvider>`; sibling `Navigation.tsx` blob **`339ed840` at all three tips**, untouched by the release, in a `_layout` holding exactly those two files. **The boundary already runs in production. An unreachable failure is not a reason** — carrying (b) would have made a blocking row harder to settle while adding nothing observable. **A widened falsity signature is not automatically a better one**; my widening was right on (a)/(c) and wrong on (b), and the difference is reachability, which I did not test before adding it. **F-9 answered: NO** — 0 lines in this document pair `a151fb4` with `test-only`; the sole `test-only` is anchored at `abcf585`. It never entered because rev 13 **derived** the delta from the tree rather than restating QA's note — concrete evidence for the retrospective predicate, not a restatement of it. **Instrument class now six**, the two newest found by this pass's own verification. |
+| 2026-08-25 | **owner**, relayed by `steering-hooks-013-2` [019315] | *"Tell me what items I still need to check from the PRIOR 013 as it still applies. Tell it not to derive new items."* | **Rev 18. Staleness marking only — NO new conditions, no row added, no verdict touched, no gate asserted over the waived round (D35).** Established from the tree: `origin/master` = **`e343927`**, **`4a7126b` an ancestor**, and of the four files under rev 13's verdict **three are byte-identical** — only **`NewMessageJsonInput.tsx` moved** (`f63b95df` → `664d938e`). **So BC-19a/BC-19b stand EXACTLY as written** (their three files unmoved), while **BC-1, BC-7/8/9, BC-10, BC-15, BC-18, BC-21 are marked PREDICTION STALE** — code beneath them moved under D30/D31/D32/D33. **None restated, discharged or withdrawn**; marking guards against a stale prediction producing a **false failure** when he executes, which is finding U-2's exposure. **BC-15 judged to inherit BC-11b's unrunnability** (same absent 5712 seeds) — stated for him, not closed. **BC-4/BC-5 read as unaffected**: their oracle is the message-level content floor, which D34 does not name. Recorded factually and without demand: rev 13's decision no longer covers the live paste surface, and **D35 waives the gate that would re-run it.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -2241,3 +2242,81 @@ from the tree (`git ls-tree`), then assert existence before comparing.**
 BC-18, BC-19a and BC-19b`, anchored at `4a7126b`. **The condition is narrower and better ordered than
 at rev 15, and nothing was withdrawn** — (b) was retired on evidence by the row's owner, which is the
 register working. **UAT Complete.**
+
+---
+
+# Rev 18 — Staleness marking after the D30–D34 round. NO new conditions.
+
+**Date**: 2026-08-25. **Trigger**: owner instruction relayed by `steering-hooks-013-2 [019315]` —
+*"tell me what items I still need to check from the PRIOR 013 as it still applies. Tell it not to
+derive new items. I have validated those fixes already."*
+
+**That instruction binds this revision.** **No condition is opened, no row is added, no register is
+expanded, no test is run, and no observation is converted into a row.** Nothing below changes a
+verdict. **D35 waives QA, code review and UAT across D30–D34; this stage asserts no gate over that
+round and does not ask for one.**
+
+**Why a revision was written at all** (judged required, and stated as such): several rows in this
+register carry **predictions the code no longer produces**. The owner is about to execute against that
+list. A prediction that is stale reads as current, and an observation taken against it produces a
+**false failure** — which is the same exposure finding **U-2** named. Marking is not a new item.
+**Rows are marked stale where their code moved; none is restated, rewritten, discharged or withdrawn.**
+
+## R18.1 — Which rows moved, established from the tree
+
+`origin/master` = **`e343927`** (`git ls-remote`, at the remote). **`4a7126b` is an ancestor of it**
+(`git merge-base --is-ancestor` → true), so the tree this document approved did ship. Of the four
+production files under that verdict, at `e343927`:
+
+| File | `4a7126b` | `e343927` | |
+|---|---|---|---|
+| `CodeMessageNotice.tsx` | `75dafce9` | `75dafce9` | **unmoved** |
+| `layout.tsx` | `d50a1992` | `d50a1992` | **unmoved** |
+| `MessageProvider/index.tsx` | `955fc0ea` | `955fc0ea` | **unmoved** |
+| `NewMessageJsonInput.tsx` | `f63b95df` | **`664d938e`** | **MOVED** |
+
+Non-test delta `a151fb4..e343927` also moves **`JsonModalBody.tsx`** (the Load site), `NewMessageModal`,
+`SaveAsMenu`, **`shapes.ts` (5 lines — matching D34's five named component-tree floors)**, and adds
+**`formatMutationError.ts`** (D32).
+
+> **Stated once, factually, and not as a demand.** This document's expiry clause says a change to a
+> production-code blob expires the verdict with it. `NewMessageJsonInput.tsx` moved, so **rev 13's
+> decision no longer covers the live paste surface.** **D35 waives the gate that would otherwise
+> re-run**, and this stage records that as the owner's ruling and asks for nothing. The three unmoved
+> files remain exactly as verified.
+
+## R18.2 — Rows marked STALE (code beneath them moved). None discharged, none rewritten
+
+| Row | Why it moved | Marking |
+|---|---|---|
+| **BC-1 · Load confirmation names what changes** | `JsonModalBody` moved; **D30** (persistent message, no toast) and **D33** (selection edits the JSON and *enables* Load rather than performing it) | **PREDICTION STALE** — the vessel and the flow both changed |
+| **BC-7 / BC-8 / BC-9 · paste-surface dispositions** | `NewMessageJsonInput` moved; **D31** — the choice UI is no longer the default resting state | **PREDICTION STALE.** BC-9's *"two options"* is specifically **no longer the default**; the error with `Resolve` is |
+| **BC-6 · lenient filter names dropped types** | same file moved | **POSSIBLY STALE** — flagged, not asserted |
+| **BC-10 · parity across modal Load and New Message paste** | **both** sides moved | **PREDICTION STALE on both limbs** |
+| **BC-15 · Load button enables on the 5712 shape** | `JsonModalBody` moved; **D33** speaks to exactly this control | **PREDICTION STALE** — and see R18.3 |
+| **BC-18 · `paste-notice-renders`** | `NewMessageJsonInput` moved; **D31** and **D32** | **PREDICTION STALE** — its persistent-warning expectation is not what that surface now does |
+| **BC-21 · `notice-silence-detector`** | same surface as BC-18 | **PREDICTION STALE by inheritance** |
+
+## R18.3 — Rows this pass judges UNRUNNABLE, for a reason already on the record
+
+**BC-15** requires a **5712-shaped record**. That is the population **BC-11a** minted (5855, 5856) and
+that **BC-11b** was already marked `TERMINAL: CANNOT BE EXECUTED` over — the mint route closed at
+deploy and no spares exist. **BC-15 appears to inherit that condition.** **This pass does not close
+it** — it is stated as a judgement for the owner, exactly as BC-11b's was, and it opens nothing.
+
+## R18.4 — Rows UNCHANGED by this round, established not assumed
+
+**BC-19a / BC-19b** stand **exactly as written**. Their three files — `CodeMessageNotice.tsx`,
+`layout.tsx`, `MessageProvider/index.tsx` — are **byte-identical at `e343927`**. The round did not
+touch that surface. **What they still lack is an input, not a verdict**: nobody has produced a
+`/message/m/0?code=<code>` resolving to a message carrying an unsupported component type. **That is an
+input the row is owed, not a reason the row is met.**
+
+**BC-2 / BC-3** — Discord ingress, untouched; his withdrawal decision still open, not withdrawn.
+**BC-4 / BC-5** — their oracle is the **message-level content floor** (*"Message must have content,
+embeds, or components"*), which **D34 does not name**; D34's five relaxations are **component-tree
+emptiness floors**. **Read as unaffected — this pass's reading, offered for him to disregard if he
+knows otherwise.** BC-5's payload remains unauthored. **BC-12 / BC-14 / BC-17 / BC-20** — `POST`,
+definitions unaffected. **U-C5** — his decision, open.
+
+**Nothing above is withdrawn, discharged or closed. The verdict is untouched. No item is derived.**
