@@ -40,14 +40,6 @@ is **your call, not mine**, and I have not told it.
 ordering instruction ever travelled, and D12 has no mirror on the statbot side, so an unrecorded
 relay is indistinguishable from no relay.
 
-## 2. Send the repair guidance
-
-Only you can send it. Independent of everything above — it does not wait on the declaration.
-
-> Open the message in the hooks.gg composer. It opens in Components V2 mode with an error saying
-> V2 messages cannot contain content or embeds. Press "Classic" on the mode switch at the top of
-> the message, then Save. Your text, embeds and link buttons are kept.
-
 **Standing rule, for context:** no agent on this machine ever posts a message anywhere — not Discord,
 modmail, support threads, email or ticket replies. Work that ends in "tell someone X" stops at
 stating what should be said and to whom.
