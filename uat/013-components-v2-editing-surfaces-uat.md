@@ -5,50 +5,31 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
-  **Rev 17 — verdict UNCHANGED; the condition is narrower.** QA split BC-19 as recommended: **BC-19a**
-  *(appears-at-all — a real code import)* and **BC-19b** *(legible-and-placed)*, 19b's decidability
-  depending on 19a. **Rev 15's failure mode (b) *"the page throws"* is RETIRED on evidence** — verified
-  here, not adopted: one mount site inside `<MessageProvider>`, and the sibling `Navigation.tsx` is blob
-  `339ed840` at `a151fb4`/`abcf585`/`4a7126b` and untouched by the release, so that boundary runs in
-  production already. **An unreachable failure is not a reason.** **F-9 answered: this document never
-  carried the false form** — 0 lines pair `a151fb4` with `test-only`, because rev 13 derived the delta
-  from the tree instead of restating it. Instrument class now **six** members.
-  **Rev 15 — verdict UNCHANGED; the residue is WIDER than rev 13 described.** QA Phase 3: **RELEASE
-  VERIFIED at `4a7126b`** (577/577, build 0). Its coverage finding **corroborated here, not adopted**:
-  on the **code-import** surface the **producer is mocked out** (`013-qa-toast-vessel-render.test.ts:21`)
-  and the **mount is text-pinned only** — and `CodeMessageNotice.tsx` is **absent at `a151fb4`**, so that
-  surface has **never executed in production**. R13.6's *"instrument-guarded on both surfaces"* was true
-  of the paste surface and **overstated** for this one; corrected by reconcile note. **BC-19's falsity
-  signature restated and widened** — *no notice at all* and *the page throws* are new; a **split is
-  recommended to QA**. Verdict does not move: the finding lands **inside** a condition already blocking.
-  **Rev 14 — verdict UNCHANGED; three reconciling writes.** R13.5.1's ANC closure **corrected**: right
-  method, but one control short — QA supplied the negative control, re-derived here (three DIFFER vs live
-  `master`, one file absent), so the closure is **joint**. **BC-11b `TERMINAL: CANNOT BE EXECUTED`** (a
-  fourth state this definition does not contain — never read as closed); **BC-18/BC-19 reclassification
-  DECLINED by QA and its reasoning adopted over mine** — the rows do not expire and stay `PRE`, OPEN;
-  **BC-21** registered. **Finding U-5: `4a7126b` is NOT released** (`git ls-remote origin master` =
-  `a151fb4`), contra QA's prose — **so rev 13's condition has NOT been overtaken and the window is open.**
-  **Rev 13 — a SECOND release decision, on a SEPARATE tree: `chain/013-toast-vessel` @ `4a7126b`,
-  the owner's 2026-08-25 toast-vessel fix. `APPROVED FOR RELEASE, conditional on the human
-  click-through of BC-18 and BC-19.`** Identity re-derived from the tree (R13.5), predecessors read
-  directly: **code review `Code Review Approved`, round 22 binding at `4a7126b`**; **QA `QA Complete`
-  at `4a7126b`**. **013 HAS ALREADY BEEN RELEASED** — `origin/master` = `a151fb4`, pushed 00:56:37
-  on 2026-08-25 by a party none of steering, devops or the implementer claims. **Rev 10's decision is
-  EXPIRED by its own terms** (four production files changed at `abcf585`) and was **overtaken, not
-  discharged**: its twelve `PRE` rows went out unexecuted. The released tree nonetheless carried rev
-  10's production-code identity exactly — the only delta `821330d..a151fb4` is the three test paths
-  rev 10 named as the one move it survives — so the cost of the ordering is the **conditions**, not
-  the code. Value re-measured on a wider predicate than any predecessor used: 013 added exactly
-  **three** `toast.*` sites across all of `src`; two converted, one retained, and the retained one is
-  the site the owner's second ruling carves out. **Authority ruled, not deferred**: the ruling is
-  sufficient because the change sits inside the plan's own D4-approved Value Statement — but it has
-  **no Decisions-Register entry** (finding **U-4**, routed to steering). Open residue is **one agreed
-  boundary**, adopted at QA's narrower scoping: **visibility, placement, and the real Next.js
-  server/client mount** — owner-observation only under D28. Ledger terminalised row by row in R13.7;
-  **nothing withdrawn — `WITHDRAWN` is the owner's ruling alone.** Rev 12 and earlier stand as
-  written; no superseded text was overwritten.
+  **Rev 19 — the subject of BC-19a/BC-19b was deleted; the standing decision expires by its own clause.**
+  At `2d90e8a` (owner's commit, pushed, live; registered **D40**) `CodeMessageNotice.tsx` is **deleted**
+  and its mount and provider wiring removed. **BC-19a → `EXECUTED`** on the owner's verbatim naming the
+  row, corroborated by D41's BC-3 run on the identical `?code=` path. **BC-19b → `TERMINAL: SUBJECT
+  WITHDRAWN`** — a **fifth** state this definition does not contain: not `WITHDRAWN` (his alone; he
+  withdrew the *requirement*, not the row), not `SUPERSEDED` (nothing replaced it), and **not** BC-11b's
+  `TERMINAL: CANNOT BE EXECUTED` (which leaves residual risk; this leaves none). **BC-2 / BC-3 →
+  `EXECUTED`** (D41) — run, never withdrawn. **The rev-13 decision anchored at `4a7126b` is EXPIRED IN
+  FULL**: all four covered production blobs have moved or gone. **Expired is not discharged, met or
+  withdrawn.** **BC-18 is the only one of its three conditions still live**, `NOT EXECUTED`, prediction
+  stale, gating chain closure. **No release decision is issued at `2d90e8a`** — that tree carries no
+  predecessor gate, D35's waiver reaches D30–D34 and not it, and approving a tree because it is already
+  live is the laundering this stage's own rules forbid. **Corrections carried:** D40's "deleted two
+  toast-vessel test files" is **false at the tree** — both were **trimmed** (132→81, 75→48 lines) and
+  survive; and rev 15's *"never executed in production"* is superseded by events. **Rev 18's R18.4 is
+  corrected by dated reconcile note; its text stands.** **Trim accounting for this field**: the rev
+  17/15/14/13 blocks removed from here carried no obligation of their own — each is the abstract of a
+  body section that remains verbatim (**R17**, **R15**, **R14**, **R13.5**–**R13.11**), and the one
+  load-bearing item, the rev-10 identity note that §2 resolves through, is retained under `Verified-At`.
 Verified-At: >-
-  **CURRENT (rev 13).** `website` @ `chain/013-toast-vessel`, HEAD = `4a7126bf8578b653ac7ae1cfe7cabdd609cdc21f`
+  **CURRENT (rev 19).** `origin/master` = **`2d90e8a60270740b59b4768a68cf3f67641e4345`**, verified at the
+  remote by `git ls-remote origin master` (never a tracking ref), 2026-08-25. **No verdict is issued at
+  this tree** — it is recorded as the tree the rulings below are *about*, not one they approve.
+  **EXPIRED (rev 13), retained because every ruling below resolves through it.** `website` @
+  `chain/013-toast-vessel`, HEAD = `4a7126bf8578b653ac7ae1cfe7cabdd609cdc21f`
   (`git rev-parse HEAD`), base `a151fb4` confirmed an ancestor. Production population = the four files
   introduced at `abcf585`, blob-identical at `abcf585` and `4a7126b` (`git rev-parse <tip>:<path>`) and
   hashed as file bytes: `NewMessageJsonInput.tsx` d2ffdb00…; `CodeMessageNotice.tsx` fbe23995…;
@@ -57,6 +38,9 @@ Verified-At: >-
   paths under `.cr24-probe/` (another session's probe rig, foreign to this verdict). Uncovered
   population: none in `website`. **Any change to a production-code blob expires the predecessor verdicts
   and this decision with them.**
+  **THAT CLAUSE HAS NOW FIRED, ON ALL FOUR PATHS** (R19.1): `NewMessageJsonInput.tsx` moved at `e343927`
+  and again at `2d90e8a`; `CodeMessageNotice.tsx` **deleted**; `layout.tsx` `d50a1992`→`aef786f7`;
+  `MessageProvider/index.tsx` `955fc0ea`→`1bab189c`. **The rev-13 decision is expired in full.**
   **SUPERSEDED (rev 10), retained because §2 of the rev-10 block resolves through it.** `website` @
   `chain/013-components-v2-editing-surfaces`, HEAD = `821330d`, `c85945f` an ancestor. Three uncommitted
   test paths, hashed as file bytes, reproducing QA's manifest exactly:
@@ -99,6 +83,7 @@ Verified-At: >-
 | 2026-08-25 | `steering-hooks-013-2` [019315] — one fact, no request | U-C8 was discharged before rev 13's handback listed it outstanding | **Rev 16. One row reaches its terminal state; verdict untouched.** **U-C8 · `EXECUTED` — TERMINAL**: the 2026-08-25 ruling is registered as **D29 at plan rev 22** (`d60c857`), both parts verbatim, the third site's retention recorded as **ratified by selection with no verbatim sentence and none manufactured**, and the row marked **registration only — it enacts nothing**. **Verified against the plan rather than the relay**, by the same instrument that raised finding U-4: `grep -c "toast"` over the plan now returns **1** where it returned **0** at rev 13. **My handback asserted this was outstanding and it was not** — corrected here rather than left standing, because a ledger row that inverts a blocking status is exactly the exposure finding U-2 named. **The route, not the ledger, was the defect**: U-C8 was routed, discharged, and the discharge never returned to the router — the failure the one-line route-recording rule exists to catch. **Carried to the retrospective as a fifth item**, and it is a different class from the other four: those were instruments that lied, this is a **handoff that completed without closing its loop**. Nothing else in this document changes; **U-4 stands as a finding correctly raised and now correctly closed.** |
 | 2026-08-25 | `qa-hooks-013-2`, direct | BC-19 split performed; mode (b) declined; F-9 exposure question put to this document | **Rev 17. Verdict UNCHANGED; the condition is narrower and better ordered.** **BC-19 split ADOPTED** — **BC-19a** *(appears-at-all: a real code import, carrying the unproven producer and mount)* and **BC-19b** *(legible-and-placed)*, whose decidability **depends on 19a** — an ordering the unsplit row hid and this document had not stated. **Rev 15's mode (b) *"the page throws"* RETIRED, and QA is right**: the comment it rested on is true about the test, not about production. **Verified git-side rather than adopted** — one mount site inside `<MessageProvider>`; sibling `Navigation.tsx` blob **`339ed840` at all three tips**, untouched by the release, in a `_layout` holding exactly those two files. **The boundary already runs in production. An unreachable failure is not a reason** — carrying (b) would have made a blocking row harder to settle while adding nothing observable. **A widened falsity signature is not automatically a better one**; my widening was right on (a)/(c) and wrong on (b), and the difference is reachability, which I did not test before adding it. **F-9 answered: NO** — 0 lines in this document pair `a151fb4` with `test-only`; the sole `test-only` is anchored at `abcf585`. It never entered because rev 13 **derived** the delta from the tree rather than restating QA's note — concrete evidence for the retrospective predicate, not a restatement of it. **Instrument class now six**, the two newest found by this pass's own verification. |
 | 2026-08-25 | **owner**, relayed by `steering-hooks-013-2` [019315] | *"Tell me what items I still need to check from the PRIOR 013 as it still applies. Tell it not to derive new items."* | **Rev 18. Staleness marking only — NO new conditions, no row added, no verdict touched, no gate asserted over the waived round (D35).** Established from the tree: `origin/master` = **`e343927`**, **`4a7126b` an ancestor**, and of the four files under rev 13's verdict **three are byte-identical** — only **`NewMessageJsonInput.tsx` moved** (`f63b95df` → `664d938e`). **So BC-19a/BC-19b stand EXACTLY as written** (their three files unmoved), while **BC-1, BC-7/8/9, BC-10, BC-15, BC-18, BC-21 are marked PREDICTION STALE** — code beneath them moved under D30/D31/D32/D33. **None restated, discharged or withdrawn**; marking guards against a stale prediction producing a **false failure** when he executes, which is finding U-2's exposure. **BC-15 judged to inherit BC-11b's unrunnability** (same absent 5712 seeds) — stated for him, not closed. **BC-4/BC-5 read as unaffected**: their oracle is the message-level content floor, which D34 does not name. Recorded factually and without demand: rev 13's decision no longer covers the live paste surface, and **D35 waives the gate that would re-run it.** |
+| 2026-08-25 | `steering-hooks-013-2` [019315] — one scoped question, fresh session after rev 18's ceiling handback | What does the deletion of `CodeMessageNotice.tsx` at `2d90e8a` do to BC-19a, BC-19b and the standing release decision; and set state for the owner's execution of BC-2/BC-3 (D41) | **Rev 19. Four rows terminalised; the standing decision EXPIRES by its own clause; no new decision issued.** **BC-19a `EXECUTED`** (his verbatim *"BC-19a - Done"*, D40), **BC-2/BC-3 `EXECUTED`** (D41) — run, not withdrawn. **BC-19b → `TERMINAL: SUBJECT WITHDRAWN`**, a fifth state, defined and distinguished from `WITHDRAWN`, `SUPERSEDED` and BC-11b's `CANNOT BE EXECUTED`. **BC-18 is the sole surviving condition.** **Two facts in the brief and in D40 corrected against the tree**: the two toast-vessel test files were **trimmed, not deleted**, and steering's framing packages BC-19a with BC-19b when its own D40 evidence column already shows BC-19a executed. **Nothing withdrawn; no row added; no test run.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -2320,3 +2305,352 @@ knows otherwise.** BC-5's payload remains unauthored. **BC-12 / BC-14 / BC-17 / 
 definitions unaffected. **U-C5** — his decision, open.
 
 **Nothing above is withdrawn, discharged or closed. The verdict is untouched. No item is derived.**
+
+---
+
+# Rev 19 — The subject of BC-19a/BC-19b was deleted at `2d90e8a`. Four rows terminalised, the standing decision expired, no new decision issued.
+
+**Date**: 2026-08-25. **Session**: `uat-hooks-013-4`, spawned fresh by the owner after `uat-hooks-013-3`
+reported past its run-length ceiling. **That predecessor's document is the record; none of its context
+was inherited** — every claim restated below was re-read or re-derived at write time.
+
+**Trigger**: `steering-hooks-013-2` [019315], two scoped questions. **Scope as briefed**: rule on
+existing rows; open no conditions; expand no register; run no tests. **That scoping is steering's own
+and was expressly flagged as not relayed from the owner** — recorded here so a later reader does not
+take it for an owner ruling. **This pass judged that answering required no new row, and added none.**
+
+## R19.0 — Why a revision was judged required, stated before it was written
+
+Three reasons, each independent:
+
+1. **Rev 18 §R18.4 is now false and it is load-bearing.** It states BC-19a/BC-19b *"stand exactly as
+   written"* on the ground that their three files are *"byte-identical at `e343927`"*. One of those three
+   files no longer exists. A reader landing on R18.4 would execute a row against a subject that is gone.
+2. **Four rows have reached terminal states** and a register whose rows reach terminal states silently is
+   not a register.
+3. **The standing release decision names an anchor whose every covered blob has moved.** Its own expiry
+   clause has fired and nothing else in this document says so.
+
+Correction form follows the surface: **§R18.4 is a record and is corrected by a dated reconcile note
+that preserves its text (R19.9); `Status-Detail` and `Verified-At` are declarative and were replaced.**
+
+## R19.1 — What `2d90e8a` did, established from the tree — and two claims it falsifies
+
+`origin/master` = **`2d90e8a60270740b59b4768a68cf3f67641e4345`**, verified at the remote with
+`git ls-remote origin master`, not from a tracking ref. One commit ahead of `e343927`, subject
+*"remove useless message"*. `git diff --name-status e343927 2d90e8a` — read from a file, not a filtered
+count:
+
+| Path | Change | Blob `4a7126b` → `e343927` → `2d90e8a` |
+|---|---|---|
+| `src/app/message/m/[id]/_layout/CodeMessageNotice.tsx` | **`D` — deleted** | `75dafce9` → `75dafce9` → **absent** |
+| `src/app/message/m/[id]/layout.tsx` | `M` — mount removed | `d50a1992` → `d50a1992` → **`aef786f7`** |
+| `src/providers/MessageProvider/index.tsx` | `M` — `codeMessageDroppedNotice` state, effect and context field removed | `955fc0ea` → `955fc0ea` → **`1bab189c`** |
+| `src/app/message/_components/NewMessageJsonInput.tsx` | `M` — reworded | `f63b95df` → `664d938e` → **`a30edd0`** |
+| `src/app/message/_components/NewMessageModal.tsx` | `M` — reworded | — |
+| `src/app/message/m/[id]/_components/JsonModalBody.tsx` | `M` — reworded | — |
+| `src/utils/__tests__/013-owner-toast-vessel-2026-08-25.test.ts` | **`M` — trimmed, NOT deleted** | 75 → **48** lines |
+| `src/utils/__tests__/013-qa-toast-vessel-render.test.ts` | **`M` — trimmed, NOT deleted** | 132 → **81** lines |
+
+**The mechanism, so the rows below are ruled on the code path and not on a resemblance.** At `e343927`,
+`MessageProvider` read `searchParams.get('code')` → `api.message.getFromCode` → set
+`codeMessageDroppedNotice` from `codeMessage.droppedComponentTypes` → the sole consumer
+`<CodeMessageNotice />`, mounted once in `layout.tsx` inside `<MessageProvider>`. **At `2d90e8a` that
+entire chain is gone.** `getFromCode` and `droppedComponentTypes` survive — the drop still *happens*;
+only the *telling* was removed. The three reworded surfaces are the **paste/dialog** surfaces
+(`Not supported on Hooks.gg: <types>`); none of them is the code ingress.
+
+### R19.1.1 — Correction owed: *"plus two toast-vessel test files"* is false at the tree
+
+**D40 registers, and the brief repeats, that the owner deleted *"two toast-vessel test files"*. He did
+not.** Both are `M`, and both survive with content. The error is a misreading of `git diff --numstat`,
+which reported `0 51` and `0 27` for them: **`0 <n>` means no lines added, not a deleted file.** Verified
+by `git cat-file -e` at both tips, by `git diff --name-status` status letters, and by line counts of the
+blobs themselves — 132−51 = 81 and 75−27 = 48, which reconcile exactly.
+
+**The instrument did not lie here; the inference did.** Recorded as such rather than as a seventh member
+of the instrument class, because the class's predicate is *an existence or count predicate that cannot
+fail loudly* and `--numstat` failed loudly the moment a second instrument was asked. **What caught it was
+a contradiction** — `git grep` finding the notice string inside a file believed deleted — which is the
+same detector every prior member was caught by.
+
+**What survives, and what it does and does not cover.** The trimmed `013-qa-toast-vessel-render.test.ts`
+retains the `NullableComponent` primitive tests and the paste-surface `!error && settledNotice` conjunct
+isolation. Its `NOTICE` constant still reads `'Not carried: Thumbnail. …'` — the pre-`2d90e8a` wording,
+now present **nowhere in `src` outside that file**. It is used as an opaque sentinel, so **nothing is
+red**; but it means **no surviving instrument pins the shipped wording**, and a wording regression on the
+three paste surfaces would not be caught. Recorded as an observation, **not raised as a row**.
+
+**This correction is owed to the plan's D40, whose write is steering's.** It is not performed here.
+
+## R19.2 — BC-19a → `EXECUTED` 2026-08-25. TERMINAL.
+
+**The brief asks whether the owner's pre-deletion observation survives the deletion of its subject. It
+does, and the evidence is stronger than the brief's framing of it.** This is not an inference from BC-3.
+It is the owner naming the row, in D40's own evidence column:
+
+> *"**BC-19a - Done.** And I've also removed the notice and all test code for it. It was unnecessary and
+> I don't recall approving it anyway."*
+
+**Corroborated independently, and by construction rather than by resemblance.** D41 records him reaching
+the same message through the bot's **Get Message** code path. Per R19.1 that path *is* BC-19a's subject —
+`?code=` → `getFromCode` → `droppedComponentTypes` → the notice. **This is not the substitution C.3
+refused.** C.3 refused BC-6 standing in for BC-2 because those are genuinely different code paths
+(lenient paste filter vs `discordResponseToMessage`). Here there is no substitution to refuse: **BC-3 and
+BC-19a are one observation on one code path with one input**, and the identity was established from the
+tree, not from the brief's prose.
+
+**Why the deletion does not un-execute it.** An observation is a dated fact about a tree; a verdict is a
+forward-looking judgement that a tree is fit. **This document's expiry clause expires verdicts, not
+observations.** `2d90e8a` therefore changes what the observation is *evidence for* — it no longer
+describes live code — and not whether it happened. **BC-19a is terminal at `EXECUTED` and stays there.**
+
+**The whole row is terminalised, not one limb.** BC-19a as QA wrote it carries an *appears* limb and a
+*clears* limb; he attested against the row by number. **This stage's rule is explicit — record his
+statement with its timestamp and terminalise on it; never record a capture as missing against a condition
+he executed.** Asking after the *clears* limb would be exactly that, and it is not asked.
+
+**One reconcile, because rev 15 said the opposite.** Rev 15 recorded that this surface *"has never
+executed in production"*, true when written (`CodeMessageNotice.tsx` was absent at `a151fb4`). **It is
+superseded by events**: the component shipped at `abcf585`/`e343927` and the owner observed it render.
+**Not overclaimed** — QA's row names *"the owner, local dev server"* as its subject, so what is
+established is that it executed **in the environment the row designates**, which is all the row asks.
+
+## R19.3 — BC-19b → `TERMINAL: SUBJECT WITHDRAWN`. A fifth state, named precisely rather than fitted to an existing one.
+
+BC-19b is *legible-and-placed*: **given a notice that appeared under BC-19a**, it is legible and not
+obscured. Its precondition is now satisfied (R19.2). Its own predicate is **not** attested — he named
+19a and did not name 19b — and its subject was deleted before it could be. **No future observation can
+decide it.**
+
+**The brief offers three readings and asks for a fourth if none fits. None fits.**
+
+- **Not *condition met*.** Nothing was observed against its predicate and nothing can be.
+- **Not *condition failed*.** Failure means the delivered behaviour is wrong against the requirement. The
+  requirement was **removed by its owner**. A row cannot fail against a requirement that no longer exists,
+  and reading it as a failure would smuggle in a judgement on his product decision that is not mine.
+- **Not *subject deleted* as a bare fact either** — that describes the cause, not the state.
+
+**The state:**
+
+> **`TERMINAL: SUBJECT WITHDRAWN`** — the behaviour this row observes was removed from the product by an
+> owner ruling (**D40**, `2d90e8a`). No observation can decide the row and **none is owed**.
+
+**Distinguished from every state that nearly fits, because being nearly right here is the whole danger:**
+
+| Not this | Why not |
+|---|---|
+| **`WITHDRAWN`** | Withdrawal is the owner's ruling **on the row**, and he made none. He withdrew the **requirement the row gated**; the row died as a consequence. **D40 says so in its own reversal column** — *"nothing here discharges, closes or withdraws either row"* — and routes the disposition here. **This pass withdraws nothing.** |
+| **`SUPERSEDED`** | `SUPERSEDED` names **what replaced it**. Nothing did. The three surviving paste/dialog notices are different surfaces on different inputs; offering them here is the substitution **C.3** already refused in writing. |
+| **`EXECUTED`** | No observation exists against its predicate. |
+| **BC-11b's `TERMINAL: CANNOT BE EXECUTED`** | **The sharpest distinction and the one that matters.** BC-11b is unrunnable **while its requirement still stands**, so it leaves a real, unverified requirement live in production — which is exactly why this document forbids reading it as *closed*. **BC-19b leaves no residual risk at all**: there is no notice left that could be illegible. **The two must not be collapsed.** |
+
+**And it is genuinely closed out, which BC-11b is not.** Recorded plainly so no later reader inherits a
+phantom obligation — and equally so no later reader treats BC-11b as having been settled the same way.
+
+**Why this is a state and not a `RECOMMEND WITHDRAWAL`.** `RECOMMEND WITHDRAWAL` routes a **live choice**
+to the owner. There is no live choice here: he already ruled, and D40 forbids restoring the element to
+satisfy M3-b. Marking it `RECOMMEND WITHDRAWAL` would ask him to rule twice on one thing.
+
+**No new row is created by naming a new state.** The register's row set is unchanged at 21 `BC` rows plus
+the `U-C` series.
+
+## R19.4 — BC-2 → `EXECUTED`. BC-3 → `EXECUTED`. 2026-08-25. TERMINAL. Run, never withdrawn.
+
+Their standing **RECOMMEND WITHDRAWAL** (Appendix C.2) is **moot, and moot is not withdrawn**: the rows
+were executed, by the only party who could execute them, each through its own method. **This is the
+third of the three options C.2 put to him resolving itself by the second** — he supplied the message.
+
+- **BC-2** — a real Discord message carrying an unsupported component type, imported **by URL**.
+- **BC-3** — the same message reached through the bot's **`Get Message`** code path.
+
+**Basis**: the owner's attestation as registered at **D41**, which is the terminal form of owner-supplied
+evidence under this stage's own rule. **BC-3 is additionally corroborated by D40's `"BC-19a - Done"`**,
+which is the same path (R19.2).
+
+**Steering's TTL reasoning: ACCEPTED, and the reason is given rather than the conclusion adopted.**
+BC-3's one-hour store-TTL clause is a **precondition of the code resolving at all** — an expired code
+does not load a message, so a code that loaded was within its TTL. The clause is not an independent
+oracle and no separate timing attestation is owed. **Accepted on that ground, not on steering's say-so.**
+
+### R19.4.1 — One delta between the verbatim and the registration, recorded because it is load-bearing
+
+The verbatim available to me is *"When I said both, I meant both. **I have seen the message** in both
+places, through both of their respective methods."* D41's registered sentence is *"observing **the
+notice** on both surfaces."* **Those are different claims, and the notice is the rows' entire oracle.**
+
+**I terminalise on the registration**, for three reasons: it was written after a second, deliberately
+corrected prompt that established the **input**; BC-3's limb is independently corroborated by D40; and
+this stage may not ask the owner to produce further evidence for a condition he executed.
+
+**But the assumption is named so it is falsifiable by the one party holding the prompt text.** If
+steering's second prompt did **not** in fact ask about the notice, then D41's sentence overstates it, D41
+is owed a reconcile note, and **BC-2 reverts to open**. That is steering's to check against its own
+transcript. **Nothing is asked of the owner.**
+
+## R19.5 — The standing release decision: `EXPIRED IN FULL` by its own clause
+
+**The decision**: *"APPROVED FOR RELEASE, conditional on the human click-through of BC-18, BC-19a and
+BC-19b"*, anchored at `website` **`4a7126b`** with a four-path production population (R13.5).
+
+**Its expiry clause** — *"Any change to a production-code blob expires the predecessor verdicts and this
+decision with them"* — **has now fired on all four paths** (R19.1): one deleted, three moved. Rev 18
+recorded the first firing (`NewMessageJsonInput.tsx` at `e343927`) and scoped it to the paste surface.
+**It is now total.**
+
+**What `EXPIRED` is and is not.** It is **not** *discharged*, **not** *met*, **not** *withdrawn*, and
+**not** a finding that the decision was wrong — it was correct at the tree it named. **It is the expiry
+clause working as designed**, and this stage records it rather than waiting for another agent to notice,
+exactly as the clause requires.
+
+**The register does not collapse with it.** Per R13.7, conditions reach their own terminal states
+individually — which is the entire reason they are written down one by one:
+
+| Condition of the standing decision | State at rev 19 |
+|---|---|
+| **BC-18 · `paste-notice-renders`** | **`NOT EXECUTED` — non-terminal, OPEN.** Its prediction was marked **STALE** at rev 18 (`NewMessageJsonInput` moved; D31/D32), and `2d90e8a` moved the same surface again. **The sole surviving condition of the three.** |
+| **BC-19a · `appears-at-all`** | **`EXECUTED` — TERMINAL** (R19.2) |
+| **BC-19b · `legible-and-placed`** | **`TERMINAL: SUBJECT WITHDRAWN`** (R19.3) |
+
+**What BC-18 now gates.** Not a release act — three have already run past this document (`a151fb4`,
+`e343927`, `2d90e8a`). Per R13.7.1 it gates **the chain's closure**. It is still owner-observation-only
+and its prediction still needs QA's re-derivation before it can be executed without producing a **false
+failure** — the exposure rev 18 was written to prevent. **That routing is unchanged and no new item is
+raised for it.**
+
+## R19.6 — No release decision is issued at `2d90e8a`, and the reason is stated rather than left as a gap
+
+**This is a recovery state, not a sanctioned ordering.** `2d90e8a` is the owner's own commit, pushed and
+live, and there is no UAT document covering it. This stage's rule is *no UAT doc, no release*; the deploy
+nonetheless ran, so the live question is the narrower one: **given what production has shown, should this
+state stand, and what must still be established?**
+
+**Both available evasions are declined.** It is not treated as a normal ordering, and it is not treated as
+a proposal — the system is live and working.
+
+**Production evidence, classified before it is weighed.** `2d90e8a` **removes** a notice and **rewords**
+three others. The deleted notice's failure modes are moot — there is nothing left to render invisibly.
+The rewording is a string swap inside an unchanged `NullableComponent show={droppedComponentTypes.length > 0}`
+wrapper on three surfaces that were already rendering. **The one silent mode that survives is not a
+regression but a design consequence, and it is R19.7's subject.**
+
+**Why no approval is issued anyway.** A release decision requires predecessor gates **at the tree it
+names**. At `2d90e8a` there are none:
+
+- **No code review and no QA at that tree.** Both are owed under **D37** and, for the D30–D34 round,
+  **D39** — which states in its own words that *"rounds after D37 carry their debt under D37 itself"*.
+  `2d90e8a` is such a round. **This is a debt that already exists; this pass neither creates nor schedules
+  it, and D39 is explicit that its timing is the owner's.**
+- **D35's waiver does not reach it.** D35 covers **D30–D34** and, in its own terms, **reaches no fifth
+  item**. `2d90e8a` is not within it. **That is not a criticism of D35** — D35 was given for a round that
+  shipped lawfully under it.
+
+**Approving `2d90e8a` because it is live is precisely the laundering this stage's rules forbid**, and a
+working system is the most persuasive available argument for doing it. So: **the tree at `2d90e8a` is
+UNGATED — it carries no release decision, neither granted nor refused.** That is a statement about the
+record, not a verdict on the code, and **no rollback is recommended: nothing in the delivered behaviour is
+known to be wrong.**
+
+## R19.7 — Value delivery: what D40 costs, stated as an assessment and not raised as a row
+
+The Value Statement's core is that a user is **told** when the editor cannot carry something. At
+`2d90e8a`:
+
+- **Paste / dialog surfaces** (`NewMessageJsonInput`, `NewMessageModal`, `JsonModalBody`) — **still tell
+  the user**, reworded to `Not supported on Hooks.gg: <types>`. **D9 and D29 are expressly not
+  withdrawn.**
+- **Bot-code ingress** (`?code=` → `getFromCode`) — **no longer tells the user anything.**
+  `droppedComponentTypes` is still computed and still dropped; only the display is gone. On that one path
+  the component vanishes without trace.
+
+**That is a silent mode, and it is now the product's intended behaviour rather than a defect** — the
+owner's decision, registered at D40, which also forbids any stage restoring the element. **It is recorded
+as a value delta for the retrospective's benefit, is not a finding against the implementation, and is not
+a condition.** M3-b's text is knowingly divergent and D40 is what makes that deliberate.
+
+**Objective alignment: PARTIAL by owner ruling, not by drift.** The narrowing is his, made with the
+mechanism in front of him. Drift is when delivery diverges from the objective **unnoticed**; this is the
+opposite.
+
+## R19.8 — The brief's framing, checked as asked
+
+Steering asked whether its framing elsewhere shares the defect of its own near-miss. Three answers:
+
+1. **Yes, once, and it is the brief's central premise.** *"…now that two of its three conditions have no
+   subject"* packages BC-19a and BC-19b as one stranded pair. **They are in materially different states,
+   and steering's own D40 evidence column already contains `"BC-19a - Done"`** — the row was executed
+   before the deletion, not stranded by it. The defect is **packaging**, not substitution: two rows in
+   different states presented as one question. Steering half-caught it (*"the owner ran BC-19a before
+   deleting the notice"*) but left it as an open question when its own register already answered it.
+2. **Yes, once more, factually**: *"and two toast-vessel test files"* — false at the tree (R19.1.1),
+   inherited from D40.
+3. **No, on the part that mattered most.** The near-miss steering reports catching — surface vs input —
+   was caught correctly, and **the anti-substitution rule it re-read is the reason BC-3 and BC-19a could
+   be ruled identical here on the code path rather than merely similar.** Its instruction to read primary
+   instrument and subject apart is what made R19.2 decidable.
+
+## R19.9 — Reconcile note against Rev 18 §R18.4 *(corrects R18.4; its text stands)*
+
+> **What R18.4 said, preserved verbatim in place**: *"BC-19a / BC-19b stand exactly as written. Their
+> three files — `CodeMessageNotice.tsx`, `layout.tsx`, `MessageProvider/index.tsx` — are byte-identical
+> at `e343927`. … What they still lack is an input, not a verdict."*
+>
+> **Why it was defensible when written (2026-08-25, at `e343927`)**: every claim in it was true and was
+> established from the tree, not assumed. The three blobs were byte-identical, and no input had been
+> produced.
+>
+> **What is now the case**: the owner produced the input and executed BC-19a **and then deleted the
+> subject**, in `2d90e8a`, after R18.4 was written. `CodeMessageNotice.tsx` is deleted; the other two
+> moved. **R18.4's "stand exactly as written" no longer holds for either row**, and its "what they lack
+> is an input" is discharged by the input arriving. **Superseded by R19.2 and R19.3.**
+
+Also superseded, and recorded here rather than rewritten in place: **rev 15's *"never executed in
+production"*** (R19.2), and **rev 18's R18.4 note that BC-2/BC-3's *"withdrawal decision [is] still
+open"*** — superseded by R19.4.
+
+## R19.10 — Ledger delta at rev 19
+
+**Nothing below is withdrawn. No row is added. No test was run. No source was inspected for quality —
+what was read from the tree was read to establish verdict identity and row subjects, which is this
+stage's own obligation.**
+
+| Row | State at rev 18 | **State at rev 19** | Basis |
+|---|---|---|---|
+| **BC-2 · URL/webhook import names uncarried types** | `NOT EXECUTED`, RECOMMEND WITHDRAWAL | **`EXECUTED` 2026-08-25 — TERMINAL** | Owner attestation, D41. Delta at R19.4.1 |
+| **BC-3 · bot `Get Message` shows the same notice** | `NOT EXECUTED`, RECOMMEND WITHDRAWAL | **`EXECUTED` 2026-08-25 — TERMINAL** | Owner attestation, D41; corroborated by D40 on the identical path |
+| **BC-19a · `appears-at-all`** | `NOT EXECUTED` (awaiting an input) | **`EXECUTED` 2026-08-25 — TERMINAL** | Owner verbatim naming the row, D40 |
+| **BC-19b · `legible-and-placed`** | `NOT EXECUTED` | **`TERMINAL: SUBJECT WITHDRAWN`** | D40 + `2d90e8a`. Fifth state, defined R19.3 |
+| **BC-18 · `paste-notice-renders`** | `NOT EXECUTED`, PREDICTION STALE | **unchanged** — `NOT EXECUTED`, stale, OPEN | Surface moved again at `2d90e8a` |
+| **BC-11b · the ask fires on save over a seed** | `TERMINAL: CANNOT BE EXECUTED` | **unchanged** — and expressly **not** the same state as BC-19b | R19.3 |
+| all other `BC` and `U-C` rows | — | **untouched** | Not reached by `2d90e8a` |
+
+**Register hygiene, re-run because this stage's rule requires it.** Chain 013 still carries **one**
+blocking-condition register, in this document, continuous through BC-21. **No second travelling list was
+found** — D40 and D41 both state in their own reversal columns that they set no state here, and neither
+does. **Recorded as a pass.**
+
+## R19.11 — State
+
+**UAT Complete** for the questions asked. **The release decision anchored at `4a7126b` is EXPIRED,
+not discharged.** **No release decision exists for `2d90e8a`.** **One blocking condition survives the
+whole chain: BC-18**, `NOT EXECUTED`, non-terminal, prediction stale, gating **chain closure**.
+
+**Next Actions** — *point-in-time; later stage documents are authoritative on current state.*
+
+1. **Steering — two corrections to the plan's Decisions Register, which is steering's write, not mine.**
+   D40's *"plus two toast-vessel test files"* is false at the tree (R19.1.1). And D41's *"observing the
+   notice"* against a verbatim that says *"seen the message"* needs checking against the second prompt's
+   own text (R19.4.1) — **nothing is asked of the owner**.
+2. **The owner — BC-18 only.** It is the single item left from the `PRE` ledger that is both live and
+   his. **It should not be executed against its current wording**: its surface has moved twice and its
+   prediction is stale, so an observation taken now yields a false failure.
+3. **QA — BC-18's prediction, re-derived against the live surface.** Row definitions are QA's. This is
+   the routing rev 18 already established, restated, not newly raised.
+4. **Whoever runs the D37/D39 review debt — `2d90e8a` is inside it**, not covered by D35. **Its timing is
+   the owner's and no stage starts it on its own initiative.**
+5. **The retrospective (HELD — D38).** Three items, carried not acted on: the **packaging** defect in
+   R19.8 (two rows in different states presented as one question) as a distinct sibling of the
+   substitution and option-set defects already collected; **R19.1.1** as the case where the instrument was
+   sound and the *inference* was not, caught by the same contradiction detector as every instrument-class
+   member; and the **fifth terminal state** in R19.3, which exists because a requirement can be withdrawn
+   out from under a condition without the condition itself being withdrawn.
