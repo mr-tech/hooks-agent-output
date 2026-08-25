@@ -280,7 +280,11 @@ Measured 2026-08-25 by `steering-hooks-012-2`, prompted by `uat-hooks-012-2`'s U
 `node tools/check-repo.js --status`. The flag renders only in `--status`; the default run never
 shows it, which is why it goes unnoticed.
 
-**Five flags, all on chains that are released or closed, none indicating anything actionable:**
+**Five flags, none indicating anything actionable.** Precision owed to `uat-hooks-012-2`, which
+corrected an earlier overreaching form of this line: **four of the five sit on chains that are
+closed; chain 012 is an OPEN chain with seven open documents**, and it is the flagged *document*
+that carries `Status: Released`. The conclusion is unchanged — every flagged document is at a
+released or terminal state — but "all on closed chains" would be false.
 
 | Flagged | Why it fires | Real state |
 |---|---|---|
