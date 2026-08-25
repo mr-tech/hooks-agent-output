@@ -3663,3 +3663,105 @@ on F-QA31 `load-confirmation-names-wrong-mode` in the rider round.
 - **2026-08-25 — BC-19a's incomplete Predicted value FOUND AND NOT CORRECTED** (qa, this sitting).
   Terminal `EXECUTED`; editing a terminal row's prediction would change what the record says was
   predicted when it was observed. Recorded so the omission is a decision.
+
+---
+
+# Phase 3, seventh sitting, 2026-08-25 — two rules received, one of which I had already broken
+
+**Session**: `qa-hooks-013-3` [ab2af3]. **Trigger**: `uat` rev 32 (`25f036f`) via `steering-hooks-013-3`.
+**No verdict moves, no row changes, and this sitting deliberately adds no sweep** — see P3.37.
+
+## P3.35 — R31.4's sweep: withdrawn before it reached me, and **no pass was spent on it**
+
+`uat` withdrew the terminal-observation sweep (BC-2, BC-3, BC-19a) after deriving it from plan 013's
+D41 row. **Recorded because "no work was done" is itself a fact the record should carry**: steering
+routed it to the plan rather than to me, I noted it as not mine, and **I did not begin it.** The
+withdrawal cost this stage nothing, which is the outcome the routing was designed for and did not
+happen by luck.
+
+## P3.36 — **`uat`'s "derive before routing" rule, applied to myself. I broke it, and the instance is worse than its own**
+
+`uat`'s rule: *a question answerable by derivation is not escalated* — which it applies rigorously
+**upward** and had never applied **laterally**. Its formulation:
+
+> *Escalating upward feels expensive, so it gets a test. Routing sideways feels free, so it does not.
+> It is not free — it spends a peer's pass and can commission a sweep the record could have settled.*
+
+**I agreed with that and then checked whether I had done it, which is the only form of agreement worth
+sending. I had.**
+
+**The instance is my own question to `uat` about which column is the checklist.** I routed it sideways
+as a binary — Predicted value or failure mode — and it cost `uat` a pass to answer.
+
+**It was derivable, and not from `uat`'s document. From mine, and from my own instructions.**
+
+- **My own definition states the rule**: *the primary instrument — what would settle the row — and the
+  subject — who observes — are separate fields, never a disjunction in one; owner is assigned from the
+  primary, never the fallback; where the primary needs no human, the row is owned by a stage from the
+  moment it is written.*
+- **I authored those columns into this register myself.** The header at L639 reads
+  `… | Primary instrument | Subject / fallback | …` **because I put them there, on that rule.**
+- **The subject test is that rule read forward one step.** If primary and subject are separate fields
+  precisely so that a row with no human primary belongs to a stage, then **which cell an operator reads
+  is settled by whether there is an operator** — which is what `uat` ruled.
+
+**So I had the premise, I had built the artifact that encodes it, and I asked a peer for the
+conclusion.** That is not a missing input; it is not deriving from inputs already in hand — which is
+exactly the shape `uat` names in its own three instances.
+
+**And the binary was itself the symptom.** Had I derived, I would not have offered two columns and asked
+which; I would have found that **the question has a subject-shaped variable in it** and answered it.
+**A false dichotomy offered to a peer is evidence that the deriving step was skipped**, because
+derivation is what would have exposed the third option.
+
+**Adopted, and stated as binding on this stage in any direction**: *derive before routing.* A question
+put to a peer carries, in the same message, what I derived and where the derivation stopped — so the
+peer can see whether it is being asked for a ruling or for a lookup.
+
+## P3.37 — Stop condition, honoured. **This sitting adds no sweep**
+
+Last sitting I wrote: *the two cell pairs are now consistent with each other and with the conditions, so
+the next defect found in this register will be a different kind, and if it is not, the rows are being
+edited rather than improved. I am not looking for a third cell pair.*
+
+**That condition binds here.** P3.36 is a method finding about how I route, **not** a register defect,
+and it produces **no row change**. Nothing in `uat` rev 32 identifies a defect in a row. **So no rows are
+touched in this sitting**, and that is the stop condition working rather than an absence of diligence.
+
+**The one thing that would reopen it**: a defect of a *different kind* in a row — not a third pair of
+cells disagreeing.
+
+## P3.38 — `uat`'s sharpening of the BC-7 lesson, which upgrades my own entry at P3.30
+
+I recorded BC-7 as a prose failure and drew the practitioner's rule: *quote the row, do not paraphrase
+it.* **`uat`'s conclusion is the principle underneath it and is stronger**, because the phrase was my own
+verbatim prose about my own document:
+
+> **A stage's prose about its own artifact is not evidence of what the artifact says.**
+
+**That is not a relay hazard.** The relay merely transmitted it; the defect was complete before the
+message was sent, and would have been complete had I never sent one. **My P3.30 entry is amended by
+this**: the rule is not "check a relay", it is "a stage's own summary of its own row is a fresh claim,
+including when the stage is me and the row is mine".
+
+**And `uat` places it as plan D42 instantiated one day after D42 was written, by a second stage.** D42
+ruled that the prose-fails / rows-hold split generalises past steering **to every stage that writes prose
+beside a structured artifact.** I am that generalisation's first confirmed instance outside the stage it
+was written about, and this document's Status-Detail and Changelog prose are inside the class too — they
+are prose beside a structured register, written by me, and nothing has ever checked them against it.
+
+**Recorded as retrospective material in `uat`'s framing rather than mine**, since its formulation is the
+one that generalises.
+
+**On the apportionment it sent unedited** — *QA's document was correct; QA's prose overstated it;
+steering passed prose as a finding and said so unprompted; `uat` caught it at the last point it could be
+caught* — I accept it, and the sentence after it is the one worth keeping: **that the system worked at
+the last step is not evidence the earlier steps are sound; it is the reason the last step exists.**
+
+## P3.39 — State
+
+**No verdict moved. No row changed. Eleven executable; BC-1 alone blocked** on F-QA31
+`load-confirmation-names-wrong-mode`, in the rider round. **No verdict before the post-rider tip.**
+
+**Register maintenance log — nothing appended this sitting.** Recorded explicitly, because a maintenance
+log that is silent for a sitting is indistinguishable from a sitting that was not logged.
