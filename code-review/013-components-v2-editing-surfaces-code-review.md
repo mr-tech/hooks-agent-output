@@ -2,10 +2,123 @@
 ID: 013
 Origin: 013
 UUID: 22d69e06
-Reviewed-At: "Round 22 (current, binding): 4a7126b on chain/013-toast-vessel — TEST-ONLY round adopting QA's F-QA28 PASTE-SURFACE render instrument (one file, src/utils/__tests__/013-qa-paste-surface-render.test.ts, +82/-0). One commit atop 664e0c0; non-test delta 664e0c0..4a7126b EMPTY; the four source files are byte-identical to abcf585 and have not moved across TWO subsequent commits; origin/master unmoved at a151fb4 (git ls-remote). Re-derived git-side, verified at pass start AND end. SO THE ROUND-20 SOURCE VERDICT STILL CARRIES. Substance: this instrument reaches the PASTE SURFACE (NewMessageJsonInput.settledNotice) — the site the owner ruling actually named and the one I scoped OPEN at rounds 20/21. QA withdrew its earlier "unreachable without a harness" claim by execution (mocking the three custom hooks makes the useState order deterministic and the component callable). I re-attacked from first principles: [CORRECTED post-verdict — see ROUND 22 CORRECTION] the three custom hooks in fact consume 3 useState slots (useCopyToClipboard 1, useCodeMirror 2), and useCopyToClipboard runs BETWEEN json and error so a REAL render puts settledNotice at index 6; the positional injection [json,error,dropped,pending,dismissed,settled]=0..5 is aligned ONLY because the mocks remove those slots — the MOCKS ARE LOAD-BEARING for correctness. Verified: every drift path fails LOUDLY (A1 drop-copy-mock throws; A3 extra-state caught), probe-cr24, my own execution. probe-cr23 ran the instrument oracle against the REAL component (control) and two REAL-SOURCE mutant copies (shared tree untouched): 3/3 — control PASSES, never-render (show={false}) KILLED, drop-!error-conjunct (show={settledNotice}) KILLED by the suppress-on-error check (conjunct isolation against the real wiring). So the paste surface is now instrument-guarded for whether the notice RENDERS, SUPPRESSES under error, CLEARS, and is STYLED. RESIDUE STILL OPEN, owner-observation ONLY (D28) for BOTH surfaces: VISIBILITY (CSS/contrast/overflow), PLACEMENT, and the real Next.js server/client MOUNT. That residue is mine to keep scoped; steering did not assert this closes it. APPROVED (test-only; source verdict carries). Round 21 (binding, carries): 664e0c0 on chain/013-toast-vessel — TEST-ONLY round adopting QA's F-QA23 render instrument (one file, src/utils/__tests__/013-qa-toast-vessel-render.test.ts, +132/-0). Base=abcf585 (one commit atop); non-test delta abcf585..664e0c0 is EMPTY and all FOUR production blobs (NewMessageJsonInput.tsx, MessageProvider/index.tsx, CodeMessageNotice.tsx, layout.tsx) byte-identical, re-derived git-side and re-verified at pass start AND end. SO THE ROUND-20 SOURCE VERDICT CARRIES UNCHANGED to 664e0c0 (delta-round identity rule). Substance of this round: the adopted instrument converts my routed Assumption-Not-Checked from suspicion to PARTIAL MEASUREMENT for CodeMessageNotice, and I re-established its non-vacuity by my OWN execution (re-attack of an adopted instrument from first principles) — probe-cr22-render-instrument-nonvacuity, 4/4: the real CodeMessageNotice passes the render-by-function-call oracle, and the never-render, empty-box, and unstyled mutants are all KILLED. That discharges steering provenance flag #1 (implementer only READ QA's mutation logs, did not re-execute). The instrument is D28-compliant (no jsdom/RTL/harness; no vitest.config change; function-call rendering) and honestly foots the 4 things it cannot establish. layout.tsx exemption AFFIRMED CORRECT (steering flag #2): pure JSX wiring, <CodeMessageNotice/> mounted inside <MessageProvider> between <Navigation/> and {children}, no logic to test. Doc-correction breadth (steering flag #3) is an agent-output records item, not source, and is consistent with my record — the retained Load site rests on MY interaction-model argument, and the shipped text-pinning spec being non-behavioural is exactly what this round partially closes. RESIDUE STILL OPEN, owner-observation ONLY (D28), routed unchanged: the PASTE SURFACE (NewMessageJsonInput settledNotice — the site the owner ruling actually named) is asserted only as source text; plus visibility, placement, and the real Next.js server/client mount. APPROVED (test-only; source verdict carries). Round 20 (binding source verdict, carries): abcf585 on branch chain/013-toast-vessel — the owner-ruling 2026-08-25 toast→persistent-vessel round (five paths: NewMessageJsonInput.tsx, MessageProvider/index.tsx, CodeMessageNotice.tsx [new], layout.tsx, 013-owner-toast-vessel-2026-08-25.test.ts [new]). Base = merge-base(abcf585,a151fb4) = a151fb4, one commit atop it. HEAD and all five blobs verified byte-identical at pass start and end. APPROVED_WITH_COMMENTS, SCOPED — no plan revision, no planner; verdict scoped to code quality + conformance to the relayed owner ruling. This is a POST-RELEASE fix: a151fb4 is live on origin/master (re-derived via git ls-remote, not a tracking ref), so all a151fb4-stamped verdicts are expired and devops must re-run readiness + cut a new release. Superseded/expired: the round-19 verdict at a151fb4 (was live, now the base of this fix). NO VERDICT TRAVELS BETWEEN TREES. Round 19-δ2 (superseded, was the settled tip): a151fb4 — the chain tip has stopped moving. Re-derived with git-side predicates (not piped counts — grep -vc over piped diff is unsound here): `git diff --name-only 53beb37..a151fb4 -- ':(exclude)*__tests__*'` is EMPTY, so the ENTIRE non-test tree is byte-identical to my binding round-19 verdict tree; both reviewed source blobs unchanged (JsonModalBody.tsx cfbec5b, discordResponseToMessage.ts 81f4562). The delta 164d720..a151fb4 is FOUR test files (M/M/M/A — I independently re-derived 4, correcting QA's 3, which counted its own commit), all QA-domain: F-QA21 (a test assertion `flags as number & 32768` that parsed as a TS type assertion, not a bitwise AND, silently asserting flags===0 — a vacuous-green defect in the TEST; the source's switchToClassic correctly clears only the V2 bit, as reviewed round 19), F-QA16 re-anchors (Block-E 'flag never reaches the textarea' REPLACED not restored, per my constraint), F-QA19 new coverage. My CR21-C hole-check block is intact at a151fb4. Zero source delta ⟹ the round-19 APPROVED verdict CARRIES to a151fb4 in full (delta-round identity rule, strongest form). The code-review gate is MET at a151fb4. Round 19-δ (prior tip): 164d720 — a TEST-ONLY micro-round landing INFO-3 (the CR21-C hole-check negatives ported into 013-fqa15-rowd-load-gate.test.ts, +27, one file). The two reviewed SOURCE blobs are byte-identical to 53beb37 (JsonModalBody.tsx cfbec5b, discordResponseToMessage.ts 81f4562), so the round-19 APPROVED verdict carries unchanged; a byte-identical source tree requires identity re-verification, not a fresh attack. Confirmed: diff confined to the one test file; the three ported assertions are byte-for-byte my CR21-C with the same loadDisabled helper; all referenced symbols imported (applyDisposition/resolveContentLoss/validateContentRequirements/FLAG). One non-blocking comment-hygiene note (the added prose block narrates the review exchange; the describe() string already carries the machine-read label). QA cleared to anchor Verified-At at 164d720. Round 19 (binding verdict): 53beb37 (chain/013-components-v2-editing-surfaces) — the QA Phase 2 fix round: JsonModalBody Load gate floors the RESOLVED draft `validateContentRequirements(applyDisposition(validatedDraft))` (F-QA15), and discordResponseToMessage.ts exports its two SUPPORTED_*_TYPES sets (F-QA17, export-only); two files. HEAD and both reviewed blobs (JsonModalBody.tsx cfbec5b, discordResponseToMessage.ts 81f4562) verified byte-identical to the commit at pass start AND end; the tree did not move. Superseded, retained for the record: round 18 at 4e9da96, round 17 at ad9f331, round 16 at e61e602, round 15 at 12f4ce6, round 14 at 66e1974, round 13 at 7890fc9, round 12 at 299b842, round 11 at 54fed63, round 10 at 82af843, round 9 at ee3bc3e, round 8 at b3f8ea9, round 7 at 87cfbd8, round 6 at 816d7fd, round 5 at 0c8fad5, round 4 at 92ce026, round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
+Reviewed-At: >-
+  Round 23 (current, binding): 2d90e8a on master — the TRAILING REVIEW DEBT (D39 for the D30-D34 round; D37
+  for 2d90e8a/D40). Delta reviewed = 4a7126b..2d90e8a: 4 commits, 17 files, 10 non-test. HEAD == origin/master
+  == 2d90e8a verified by git ls-remote (computed AT THE REMOTE) at pass start 08:24:00Z AND pass end
+  08:33:42Z; working tree proven blob-identical to the SHA path-by-path, which is what licenses gating in
+  place. D35 re-derived as bounded to D30-D34, so 2d90e8a is INSIDE the debt and NOT waived - agrees with uat
+  R22.4.3, independently, not inherited. ARCHITECTURALLY GROUNDED: system-architecture.md EXISTS (221 lines,
+  ls -d + git cat-file -e); rounds 6/7/8 wrongly declared it absent and this round does not inherit that.
+  Adversarial trigger MET (D34 relaxes server validation; Discord post is irreversible) and discharged IN
+  PART: I drove the REAL discordMessageShape with caller-sendable payloads into the REAL formatMutationError
+  (probe-cr25, imports from the tree, no embedded copy); the send-to-Discord half is STRUCTURALLY CLOSED to
+  every agent here because it would require an outbound Discord message, which is prohibited absolutely.
+  Findings: MEDIUM-1 D32 readable errors defeated on a REACHABLE path - formatMutationError splits on ' | ',
+  which Zod itself emits inside a single discriminatedUnion message, so ONE real issue renders as SIX lines,
+  five bare numbers (measured, not read). MEDIUM-2 no gate reaches any test file (tsconfig excludes
+  **/__tests__, .eslintignore does not; 45 parsing errors, all test files, PRE-EXISTING). LOW-1 orphaned
+  ID_LAYOUT and NOTICE consts. LOW-2 the dropped-types notice is triplicated and DRIFTED at this very reword
+  (trailing period on JsonModalBody only). INFO: D34 leaves NO emptiness floor at any layer -
+  refineDisplayableText is max-only and validateContentRequirements floors only TOP-LEVEL length - but the
+  editor tolerates it (SectionEditor uses map/length/filter, no unguarded [0]). D40 removal verified CLEAN AND
+  COMPLETE (grep CodeMessageNotice|codeMessageDroppedNotice at 2d90e8a = ZERO) and the three paste/dialog
+  surfaces D40 preserves still render. CORRECTION carried: both test files were TRIMMED (M), NOT deleted - '0
+  51' in --numstat means no lines ADDED, not a deletion. Implementation doc has ZERO record of 2d90e8a while
+  still asserting CodeMessageNotice as created and its layout.tsx TDD exemption as live - both false at the
+  tree; recorded, not charged, since 2d90e8a is the owner's own commit. APPROVED_WITH_COMMENTS; NOT a release
+  decision - 2d90e8a stays UNGATED. Nothing here holds the tree (rounds-stop; the tree is live). NO VERDICT
+  TRAVELS BETWEEN TREES. Round 22 (superseded by the above, retained): 4a7126b on chain/013-toast-vessel —
+  TEST-ONLY round adopting QA's F-QA28 PASTE-SURFACE render instrument (one file,
+  src/utils/__tests__/013-qa-paste-surface-render.test.ts, +82/-0). One commit atop 664e0c0; non-test delta
+  664e0c0..4a7126b EMPTY; the four source files are byte-identical to abcf585 and have not moved across TWO
+  subsequent commits; origin/master unmoved at a151fb4 (git ls-remote). Re-derived git-side, verified at pass
+  start AND end. SO THE ROUND-20 SOURCE VERDICT STILL CARRIES. Substance: this instrument reaches the PASTE
+  SURFACE (NewMessageJsonInput.settledNotice) — the site the owner ruling actually named and the one I scoped
+  OPEN at rounds 20/21. QA withdrew its earlier "unreachable without a harness" claim by execution (mocking
+  the three custom hooks makes the useState order deterministic and the component callable). I re-attacked
+  from first principles: [CORRECTED post-verdict — see ROUND 22 CORRECTION] the three custom hooks in fact
+  consume 3 useState slots (useCopyToClipboard 1, useCodeMirror 2), and useCopyToClipboard runs BETWEEN json
+  and error so a REAL render puts settledNotice at index 6; the positional injection
+  [json,error,dropped,pending,dismissed,settled]=0..5 is aligned ONLY because the mocks remove those slots —
+  the MOCKS ARE LOAD-BEARING for correctness. Verified: every drift path fails LOUDLY (A1 drop-copy-mock
+  throws; A3 extra-state caught), probe-cr24, my own execution. probe-cr23 ran the instrument oracle against
+  the REAL component (control) and two REAL-SOURCE mutant copies (shared tree untouched): 3/3 — control
+  PASSES, never-render (show={false}) KILLED, drop-!error-conjunct (show={settledNotice}) KILLED by the
+  suppress-on-error check (conjunct isolation against the real wiring). So the paste surface is now
+  instrument-guarded for whether the notice RENDERS, SUPPRESSES under error, CLEARS, and is STYLED. RESIDUE
+  STILL OPEN, owner-observation ONLY (D28) for BOTH surfaces: VISIBILITY (CSS/contrast/overflow), PLACEMENT,
+  and the real Next.js server/client MOUNT. That residue is mine to keep scoped; steering did not assert this
+  closes it. APPROVED (test-only; source verdict carries). Round 21 (binding, carries): 664e0c0 on
+  chain/013-toast-vessel — TEST-ONLY round adopting QA's F-QA23 render instrument (one file,
+  src/utils/__tests__/013-qa-toast-vessel-render.test.ts, +132/-0). Base=abcf585 (one commit atop); non-test
+  delta abcf585..664e0c0 is EMPTY and all FOUR production blobs (NewMessageJsonInput.tsx,
+  MessageProvider/index.tsx, CodeMessageNotice.tsx, layout.tsx) byte-identical, re-derived git-side and
+  re-verified at pass start AND end. SO THE ROUND-20 SOURCE VERDICT CARRIES UNCHANGED to 664e0c0 (delta-round
+  identity rule). Substance of this round: the adopted instrument converts my routed Assumption-Not-Checked
+  from suspicion to PARTIAL MEASUREMENT for CodeMessageNotice, and I re-established its non-vacuity by my OWN
+  execution (re-attack of an adopted instrument from first principles) —
+  probe-cr22-render-instrument-nonvacuity, 4/4: the real CodeMessageNotice passes the render-by-function-call
+  oracle, and the never-render, empty-box, and unstyled mutants are all KILLED. That discharges steering
+  provenance flag #1 (implementer only READ QA's mutation logs, did not re-execute). The instrument is
+  D28-compliant (no jsdom/RTL/harness; no vitest.config change; function-call rendering) and honestly foots
+  the 4 things it cannot establish. layout.tsx exemption AFFIRMED CORRECT (steering flag #2): pure JSX wiring,
+  <CodeMessageNotice/> mounted inside <MessageProvider> between <Navigation/> and {children}, no logic to
+  test. Doc-correction breadth (steering flag #3) is an agent-output records item, not source, and is
+  consistent with my record — the retained Load site rests on MY interaction-model argument, and the shipped
+  text-pinning spec being non-behavioural is exactly what this round partially closes. RESIDUE STILL OPEN,
+  owner-observation ONLY (D28), routed unchanged: the PASTE SURFACE (NewMessageJsonInput settledNotice — the
+  site the owner ruling actually named) is asserted only as source text; plus visibility, placement, and the
+  real Next.js server/client mount. APPROVED (test-only; source verdict carries). Round 20 (binding source
+  verdict, carries): abcf585 on branch chain/013-toast-vessel — the owner-ruling 2026-08-25
+  toast→persistent-vessel round (five paths: NewMessageJsonInput.tsx, MessageProvider/index.tsx,
+  CodeMessageNotice.tsx [new], layout.tsx, 013-owner-toast-vessel-2026-08-25.test.ts [new]). Base =
+  merge-base(abcf585,a151fb4) = a151fb4, one commit atop it. HEAD and all five blobs verified byte-identical
+  at pass start and end. APPROVED_WITH_COMMENTS, SCOPED — no plan revision, no planner; verdict scoped to code
+  quality + conformance to the relayed owner ruling. This is a POST-RELEASE fix: a151fb4 is live on
+  origin/master (re-derived via git ls-remote, not a tracking ref), so all a151fb4-stamped verdicts are
+  expired and devops must re-run readiness + cut a new release. Superseded/expired: the round-19 verdict at
+  a151fb4 (was live, now the base of this fix). NO VERDICT TRAVELS BETWEEN TREES. Round 19-δ2 (superseded, was
+  the settled tip): a151fb4 — the chain tip has stopped moving. Re-derived with git-side predicates (not piped
+  counts — grep -vc over piped diff is unsound here): `git diff --name-only 53beb37..a151fb4 --
+  ':(exclude)*__tests__*'` is EMPTY, so the ENTIRE non-test tree is byte-identical to my binding round-19
+  verdict tree; both reviewed source blobs unchanged (JsonModalBody.tsx cfbec5b, discordResponseToMessage.ts
+  81f4562). The delta 164d720..a151fb4 is FOUR test files (M/M/M/A — I independently re-derived 4, correcting
+  QA's 3, which counted its own commit), all QA-domain: F-QA21 (a test assertion `flags as number & 32768`
+  that parsed as a TS type assertion, not a bitwise AND, silently asserting flags===0 — a vacuous-green defect
+  in the TEST; the source's switchToClassic correctly clears only the V2 bit, as reviewed round 19), F-QA16
+  re-anchors (Block-E 'flag never reaches the textarea' REPLACED not restored, per my constraint), F-QA19 new
+  coverage. My CR21-C hole-check block is intact at a151fb4. Zero source delta ⟹ the round-19 APPROVED verdict
+  CARRIES to a151fb4 in full (delta-round identity rule, strongest form). The code-review gate is MET at
+  a151fb4. Round 19-δ (prior tip): 164d720 — a TEST-ONLY micro-round landing INFO-3 (the CR21-C hole-check
+  negatives ported into 013-fqa15-rowd-load-gate.test.ts, +27, one file). The two reviewed SOURCE blobs are
+  byte-identical to 53beb37 (JsonModalBody.tsx cfbec5b, discordResponseToMessage.ts 81f4562), so the round-19
+  APPROVED verdict carries unchanged; a byte-identical source tree requires identity re-verification, not a
+  fresh attack. Confirmed: diff confined to the one test file; the three ported assertions are byte-for-byte
+  my CR21-C with the same loadDisabled helper; all referenced symbols imported
+  (applyDisposition/resolveContentLoss/validateContentRequirements/FLAG). One non-blocking comment-hygiene
+  note (the added prose block narrates the review exchange; the describe() string already carries the
+  machine-read label). QA cleared to anchor Verified-At at 164d720. Round 19 (binding verdict): 53beb37
+  (chain/013-components-v2-editing-surfaces) — the QA Phase 2 fix round: JsonModalBody Load gate floors the
+  RESOLVED draft `validateContentRequirements(applyDisposition(validatedDraft))` (F-QA15), and
+  discordResponseToMessage.ts exports its two SUPPORTED_*_TYPES sets (F-QA17, export-only); two files. HEAD
+  and both reviewed blobs (JsonModalBody.tsx cfbec5b, discordResponseToMessage.ts 81f4562) verified
+  byte-identical to the commit at pass start AND end; the tree did not move. Superseded, retained for the
+  record: round 18 at 4e9da96, round 17 at ad9f331, round 16 at e61e602, round 15 at 12f4ce6, round 14 at
+  66e1974, round 13 at 7890fc9, round 12 at 299b842, round 11 at 54fed63, round 10 at 82af843, round 9 at
+  ee3bc3e, round 8 at b3f8ea9, round 7 at 87cfbd8, round 6 at 816d7fd, round 5 at 0c8fad5, round 4 at 92ce026,
+  round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN
+  THESE TREES.
 Status: Code Review Approved
 Status-Detail: >-
-  Round 20 (binding) at abcf585 (branch chain/013-toast-vessel): APPROVED_WITH_COMMENTS, SCOPED. The
+  Round 23 (binding) at 2d90e8a on master: APPROVED_WITH_COMMENTS, SCOPED. This is the trailing review
+  debt D39 and D37 record as blocking chain closure, paid at the live tip. Two MEDIUMs (D32 delimiter
+  collision, proven reachable by execution; test files unreachable by any gate, pre-existing), two LOWs,
+  one INFO, one implementer-owned record defect. Nothing holds the tree - it is live, and the
+  rounds-stop rule routes non-decision-changing findings to a follow-up register. D34's Discord
+  question CANNOT be closed by any agent here (it needs an outbound Discord message, prohibited) and is
+  the routed Assumption Not Checked, owned by the owner. qa is cleared to proceed at 2d90e8a.
+  Round 20 (superseded) at abcf585 (branch chain/013-toast-vessel): APPROVED_WITH_COMMENTS, SCOPED. The
   owner-ruling 2026-08-25 toast→persistent-vessel round. AUTHORITY IS THIN: no plan revision, no planner
   ("toast" appears 0 times in the plan); verdict scoped to code quality + conformance to the relayed
   ruling, NOT ratification of the ruling (owner's) nor the product call on the retained site (owner's).
@@ -6346,3 +6459,327 @@ Its disposition is mine to keep scoped, and I keep it OPEN — narrowed, not clo
 2. **DevOps** — source under this verdict (`abcf585`) remains a POST-RELEASE fix atop live `a151fb4`;
    re-run readiness and cut a new release. Two test-only rounds since do not change that.
 3. Anything committed past `4a7126b` re-opens re-verification; report the SHA.
+
+---
+
+# Round 23 — the trailing review debt (D39 / D37), at `2d90e8a`
+
+**Reviewed-At:** `2d90e8a60270740b59b4768a68cf3f67641e4345`
+**Identity re-verified at pass start (08:24:00Z) and pass end (08:33:42Z).** `git ls-remote origin
+refs/heads/master` returned `2d90e8a` at both — computed **at the remote**, not from a tracking ref.
+Local `HEAD` == `origin/master` == `2d90e8a`; `git status --porcelain` empty; `git diff --numstat
+2d90e8a` empty (read from a file, not a piped count — see "Instrument note" below). The ten non-test
+source blobs and the two touched test blobs were additionally verified **blob-by-blob** against
+`git rev-parse 2d90e8a:<path>` — all MATCH — which is what licenses running the gates in place
+rather than in a copy.
+
+## Scope Actually Assessed
+
+**Derived from the register and the tree, not adopted from the brief.**
+
+- **D39** places the review debt on the **D30–D34 round**. **D37** places rounds after it under
+  itself. **D35's waiver is bounded to D30–D34** and reaches nothing after — so `2d90e8a` (D40) is
+  inside the debt, not covered by the waiver. *Independently re-derived here and found to agree with
+  `uat` §R22.4.3 and with the implementation doc's own §L203. I did not inherit that reading; I
+  checked it and it holds.*
+- The last binding source verdict in this document is **Round 22 at `4a7126b`**. The unreviewed
+  delta is therefore exactly **`4a7126b..2d90e8a`** — `git rev-list --count 4a7126b..2d90e8a` = **4**
+  commits; `git diff --numstat 4a7126b 2d90e8a` = **17 files**, of which **10 are non-test**
+  (`git diff --name-only 4a7126b 2d90e8a -- ':(exclude)*__tests__*'`).
+
+| Commit | Ruling | Substance |
+|---|---|---|
+| `8584b1e` | D30 | Load site: toast → persistent `settledNotice` |
+| `d7c4836` | D31/D32/D33 | conflict UI default state; readable mutation errors; choice rewrites editor |
+| `e343927` | D34 | five emptiness floors removed from `shapes.ts` |
+| `2d90e8a` | D40 | bot-code-path notice removed; three paste/dialog notices reworded |
+
+**Architecturally grounded — and this corrects a standing under-claim.**
+`agent-output/architecture/system-architecture.md` **EXISTS** (221 lines), verified by `ls -d` and
+`git cat-file -e 491a540:architecture/system-architecture.md`. Rounds 6, 7 and 8 of this document
+each declared it absent and scoped their verdicts as architecturally ungrounded; that claim was
+false and rested on an existence predicate over filtered `ls` output. **This round does not repeat
+it and does not inherit it.**
+
+## Adversarial Execution — trigger MET, and discharged only in part
+
+D34 relaxes **server-side input validation**, and the downstream action (posting to Discord) is
+irreversible. The trigger in my definition is met.
+
+**What I executed.** I drove the **real shipped `discordMessageShape`** with caller-sendable
+payloads and handed its **real** issues to the **real** `formatMutationError` — no reimplementation,
+no embedded copy (`probe-cr25`; the `probe-cr1`/`probe-cr10` fossil class is the reason this is
+stated). Oracle declared before running: the rendered string must retain a locator identifying the
+failing component, and one issue must render as one line.
+
+**What I structurally cannot execute, stated rather than glossed.** Establishing what Discord's API
+does with the payloads D34 now admits requires **sending a real outbound Discord message**. That is
+prohibited outright by standing instruction, with no approval path. **No agent on this machine can
+close D34's open question.** It is the owner's, by observation. I have not left it as a silent gap —
+it is the Assumption Not Checked below, with a falsity signature and a named owner.
+
+## Findings
+
+**[MEDIUM] Correctness** — D32's readable-error fix is defeated on a reachable path by its own delimiter reconstruction
+
+- **Location**: `website/src/utils/formatMutationError.ts`, function `formatMutationError` (the
+  `generateErrorMessage(parsed).split(' | ').join('\n')` expression).
+- **Class**: The rendered error's **line structure is reconstructed by splitting on a delimiter that
+  the message payload itself is allowed to contain** — `' | '` is both `zod-error`'s inter-issue
+  separator *and* a substring Zod emits **inside a single issue's message**. Any formatter that
+  recovers structure by string-splitting output it could have configured has this defect class.
+- **Enumeration**: `git grep -n "discriminatedUnion\|z\.union\|z\.enum\|nativeEnum" 2d90e8a -- src`
+  → **6 hits**, of which **5 are in the caller-reachable `src/server/api/utils/shapes.ts`**
+  (`:76`, `:99`, `:102`, `:119`, `:192`) and 1 is `src/env.mjs:9` (not caller-reachable). The two
+  `discriminatedUnion`s (`containerChildShape` `:102`, `topLevelComponentShape` `:119`) are **proven
+  reachable by execution**, not by reading.
+  **What this predicate does NOT match**, written when the predicate was authored: custom
+  `.refine()` / `.superRefine()` messages containing `' | '` authored anywhere in the tree; messages
+  originating in schemas imported from other modules; any `' | '` introduced later by a custom Zod
+  error map; and non-Zod error strings that happen to be issue-shaped. The class is defined by
+  *"the message may contain the delimiter"*, which is strictly wider than *"the schema is a
+  union/enum"*.
+- **Issue**: Executed against `2d90e8a` — payload `{components:[{type:17,components:[{type:99}]}]}`,
+  a container holding an unsupported child type, trivially sendable through the JSON paste surfaces.
+  The real shape returns **one** issue: `Invalid discriminator value. Expected 1 | 10 | 9 | 12 | 13 | 14`.
+  The user is shown **six lines**, five of which are bare numbers with no code and no path:
+
+  ```
+  Code: invalid_union_discriminator ~ Path: components[0].components[0].type ~ Message: Invalid discriminator value. Expected 1
+  10
+  9
+  12
+  13
+  14
+  ```
+
+  These render under `whitespace-pre-line`, so each is a visible line. **One error reads as six.**
+  D32 exists to stop the user being shown incoherent validator output; on this path the round
+  substitutes a different incoherence for the one it removed. It is not a regression against
+  `4a7126b` (that tree showed the raw array) — it is the new mechanism failing at its own stated job.
+- **Required Action**: *Eliminate the class — stop round-tripping structure through a joined string.*
+  - **Preferred (structural)**: do not call `generateErrorMessage` on the array and re-split it.
+    Map over the `ZodIssue[]` and format **each issue individually**, joining with `'\n'` yourself.
+    There is then no delimiter for a message to collide with, and the class becomes unrepresentable
+    rather than merely unhit.
+  - **Minimum**: pass an explicit `delimiter` to `generateErrorMessage` (`{ delimiter: { error: '\n' } }`)
+    and delete the `.split(' | ').join('\n')` entirely. This fixes every enumerated site at once
+    because the collision is in the joiner, not in any call site.
+- **Magnitude**: reachability is **measured** (probe-cr25, executed against the shipped shape at
+  `2d90e8a`). Frequency in production is **not** measured and is not claimed.
+
+---
+
+**[MEDIUM] Test-Coverage / Tooling** — no automated gate reaches any test file in this repository
+
+- **Location**: `website/tsconfig.json` `"exclude": ["node_modules", "**/__tests__"]` (L54–57), read
+  against `website/.eslintignore`, which does not exclude them.
+- **Class**: A file set is **excluded from the type-checker's project but included in the linter's
+  target**, so it is simultaneously never type-checked and unlintable — the linter's TS parser
+  requires project membership and errors out on every one. No gate observes these files at all.
+- **Enumeration**: `npx eslint --no-fix . --max-warnings=0 -f unix` at `2d90e8a` → **45 `Parsing
+  error` lines**, and every one is a `**/__tests__/*.test.ts` file or `vitest.config.ts`
+  (`grep "Parsing error" | sed 's/:[0-9]*:[0-9]*:.*//' | sort -u` → 45 paths, all in that set).
+  **Pre-existing, not introduced by this round** — the list includes test files from chains 008,
+  010, 011 and 012, which this round did not touch. I ran the gate **without** `--fix` deliberately:
+  the repo's own `lint` script is `eslint --fix .`, which would silently repair auto-fixable findings
+  and mask the honest state. Parsing errors are not auto-fixable either way.
+  **What this predicate does not match**: files excluded by other means, and any gate other than
+  ESLint/`tsc` (a CI job I cannot see from the tree).
+- **Issue**: The implementation record's `tsc` **0 errors** result is true but **narrower than it
+  reads** — it never covered a test file. This is the mechanism by which LOW-1 below survived into a
+  shipped commit: there is no gate that could have caught it. A repository whose entire test corpus
+  is invisible to both gates is one where test-file defects are found only by a human reading them.
+- **Required Action**: *Eliminate the class — make the two tools agree on one file set.*
+  - **Preferred (structural)**: add a `tsconfig.test.json` that includes `**/__tests__` and point
+    `parserOptions.project` at both, so membership is defined once and the two tools cannot diverge.
+  - **Minimum**: add `**/__tests__` to `.eslintignore` so the sets at least agree. This is strictly
+    worse — it makes the invisibility explicit instead of accidental — and is offered only as the
+    cheap option.
+- **Owner of the fix**: this is repo tooling, not this round's code. **Recorded here, routed, and
+  explicitly NOT held against this tree.**
+
+---
+
+**[LOW] Dead Code** — the `2d90e8a` trim left two orphaned constants
+
+- **Location**: `website/src/utils/__tests__/013-owner-toast-vessel-2026-08-25.test.ts`, const
+  `ID_LAYOUT`; `website/src/utils/__tests__/013-qa-toast-vessel-render.test.ts`, const `NOTICE`.
+- **Class**: A deletion pass removed the assertions that consumed two constants **without removing
+  the constants**, leaving declarations no code reads.
+- **Enumeration**: at `2d90e8a`, `git show 2d90e8a:<file> | grep -c "ID_LAYOUT"` → **1** (the
+  declaration alone, L7); `grep -n "NOTICE"` → **1** (the declaration alone, L43). Both are the sole
+  occurrence in their file, which is what makes them dead rather than merely unused-in-one-place.
+  **What this does not match**: orphans in files `2d90e8a` did not touch.
+- **Issue**: Minor on its own. It is reported because of what it *demonstrates* — MEDIUM-2 above.
+  These are exactly the findings `no-unused-vars` exists to catch, and no gate in this repository can
+  see them. Additionally, `NOTICE` still holds the string `'Not carried: Thumbnail. Discord does not
+  support these on hooks.gg.'` — the **pre-`2d90e8a` wording**, which `git grep -c "Not carried"
+  2d90e8a -- src` confirms exists **nowhere else in `src`**. It functions as an opaque sentinel, so
+  nothing is red; but no surviving instrument pins the **shipped** wording.
+- **Required Action**: *Eliminate the class — delete both declarations in the same pass that deleted
+  their consumers.* Preferred (structural) is MEDIUM-2's fix, which makes the class machine-caught
+  rather than review-caught. Minimum: delete the two lines.
+- **Note**: `uat` recorded the `NOTICE` residue as an observation and expressly not as a row. I have
+  re-derived it independently and am raising it as a row, at LOW, on the wording-pin ground.
+
+---
+
+**[LOW] DRY** — the dropped-types notice string is triplicated and has now drifted
+
+- **Location**: `NewMessageJsonInput.tsx:163`, `NewMessageModal.tsx:349`,
+  `JsonModalBody.tsx:225` (all at `2d90e8a`).
+- **Class**: One user-facing string, governed as **one class** by D9/D29 (and expressly preserved by
+  D40), is **authored inline at three sites with no shared constant**, so a reword must be applied
+  three times by hand and nothing detects it when one differs.
+- **Enumeration**: `git grep -n "Not supported on Hooks.gg" 2d90e8a -- src` → **3 hits**. Two render
+  `…join(', ')}\`` with **no trailing period**; `JsonModalBody.tsx:225` renders `…join(', ')}.\`` **with**
+  one. **What this does not match**: any site that builds the same notice by concatenation rather
+  than one template literal, any differently-worded rendering of `droppedComponentTypes`, and
+  non-source surfaces. To cover that blind spot I also ran `git grep -n "droppedComponentTypes"
+  2d90e8a -- src | grep -v __tests__` → **21 hits** across 8 files; the three above are the only
+  *rendering* sites, the rest are plumbing.
+- **Issue**: The drift is live, not hypothetical — it was introduced **by this very reword**, which
+  is the evidence that the duplication is harmful rather than merely inelegant. The three surfaces
+  are the ones D40 explicitly kept; they should read identically.
+- **Required Action**: *Eliminate the class — give the notice one definition.* Preferred
+  (structural): a single exported helper beside `describeUnsupportedComponentTypes` (which already
+  exists and is TDD-gated) that returns the full sentence, consumed by all three sites; the strings
+  then cannot diverge. Minimum: reconcile the trailing period across the three sites — which leaves
+  the class intact and the next reword free to re-break it.
+
+---
+
+**[INFO] Validation** — D34 leaves no emptiness floor at any layer, and the compensating control does not compensate
+
+- **Location**: `website/src/server/api/utils/shapes.ts` — `actionRowShape`, `textDisplayShape`,
+  `sectionShape`, `mediaGalleryShape`, `containerShape`; and `website/src/utils/limits.tsx`,
+  `validateContentRequirements`.
+- **Issue** (not raised as a defect — D34 is the owner's ruling and the relaxation is authorised):
+  I checked whether anything still floors these payloads, and **nothing does.**
+  `discordMessageShape` is `discordMessageBaseShape.superRefine(refineDisplayableText)`, and
+  `refineDisplayableText` enforces **only a maximum** (`total > MAX_COMPONENTS_DISPLAYABLE_TEXT`) —
+  it has no floor branch. Client-side, `validateContentRequirements` tests only
+  `components.length > 0` at the **top level**; it does not descend. So
+  `{components:[{type:17,components:[]}]}` — an empty container — satisfies the client check
+  (`hasComponents` true) **and** the server shape, and reaches Discord.
+- **What I verified positively**: the editor tolerates the relaxed shapes. `SectionEditor.tsx` uses
+  only `.map`/`.length`/`.filter` over `section.components` — no unguarded `components[0]` — so an
+  empty section does not crash the surface. That was the crash hypothesis worth testing and it is
+  **negative**.
+- **Disposition**: per the input-robustness order, the caller *can* send this, and it is not an
+  exploit class (no code execution, privilege escalation or exfiltration), so no guard is *required*
+  on security grounds. What remains is a product question about the downstream 400 — **D34's own
+  open question, still open**, and see the Assumption below. D32's readable-error surface is
+  therefore **not dead** — it is precisely the surface this relaxation routes more traffic to, which
+  disposes of the "if a stage concludes the surface is dead" clause in D32's constraint column
+  favourably.
+
+## Record Defect (implementer-owned, not held against the tree)
+
+`agent-output/implementation/013-components-v2-editing-surfaces-implementation.md` contains **no
+record of `2d90e8a`** — `grep -c '2d90e8a'` → **0**, `grep -c 'D40'` → **0**. No changelog row, no
+Files Modified row, no TDD Compliance row, no class sweep. Meanwhile the doc still asserts
+`CodeMessageNotice.tsx` as a live created file, and still carries a live TDD **exemption** for its
+`layout.tsx` mount. **Both statements are false at `2d90e8a`** — the component is deleted and the
+mount is gone. Only the plan (D40) and the `uat` document record the change.
+
+This is a documentation gap, not a code gap, and `2d90e8a` is the owner's own commit — so no stage
+was in a position to write a TDD row for it. **It is recorded, not charged.** The correct repair is a
+round entry in the implementation doc noting the commit, its author, and the now-void exemption.
+
+## Instrument notes — two rig failures and one lying predicate, disclosed
+
+1. **A copy-of-the-tree rig could not run ESLint at all.** `git archive 2d90e8a | tar -x` plus a
+   symlinked `node_modules` produced *"ESLint couldn't determine the plugin 'react' uniquely"* —
+   `node_modules/.pnpm/` holds **both** `eslint-plugin-react@7.33.2` and `@7.37.5`, and pnpm's
+   resolution is path-sensitive. **Exit 2 is a config failure, not a lint result, and is not
+   reported as one.** I repaired by proving the working tree blob-identical to the SHA and gating in
+   place, which is a gate about the commit precisely *because* identity was established first.
+2. **The probe's first two runs failed on the rig, not the code** — a type-check failure on path
+   aliases, then `Error: Invalid environment variables`. Repaired with `-r tsconfig-paths/register`,
+   transpile-only, and **`DATABASE_URL` set explicitly to a dead port** with `SKIP_ENV_VALIDATION`,
+   per this cwd's standing rule that a probe must never inherit the ambient env or `.env.local`.
+3. **`grep -c ""` over a filtered empty stream returned `1` where the truth was `0`**, which briefly
+   read as "the tree moved under the review". Contradicted by writing `git diff --numstat` to a file
+   and by `git status --porcelain`, both empty. The documented unsound-predicate class, caught the
+   documented way — **by a second instrument, never by re-running the first.**
+
+## Assumption Not Checked
+
+**This review assumes that Discord's API REJECTS the empty V2 component payloads D34 now admits —
+an empty Container, Section, Media Gallery or Action Row, or a Text Display with empty `content` —
+and it does not test it.**
+
+- **Falsity signature**: the owner composes a message containing one of those empty structures and
+  it **posts successfully** to Discord (rather than erroring), producing a silently malformed or
+  blank message in a real channel; or it fails but surfaces a blank/raw error instead of the D32
+  readable form. Either observation falsifies the assumption.
+- **Why this round could not close it**: establishing it requires sending a real outbound Discord
+  message. That is prohibited absolutely, with no approval path, so **no agent on this machine can
+  discharge it** — this is not a scheduling deferral.
+- **Owner**: the **owner**, by observation — he is the only party who runs this product against real
+  Discord. Routed to him through steering in Next Steps below, **not** to `qa`, which is equally
+  barred from sending. `qa` cannot close this and should not be handed it.
+
+## Verdict
+
+**APPROVED_WITH_COMMENTS**
+
+Scoped to code quality and conformance to the relayed rulings D30–D34 and D40. **It is not
+ratification of those rulings** (the owner's), and **not a release decision for `2d90e8a`**, which
+stays ungated — no release decision is granted or refused here, and this verdict must not be read as
+either.
+
+**Rationale.** No CRITICAL and no HIGH finding. D40's removal is clean and complete — the component,
+its provider state, its effect, its context field and its layout mount all go together, `git grep
+"CodeMessageNotice\|codeMessageDroppedNotice" 2d90e8a -- src` returns **zero**, and the three
+paste/dialog surfaces D40 expressly preserves still render their notice. The two test files were
+**trimmed (`M`), not deleted** — verified from the diff hunks, not from `--numstat`, where `0 51`
+means *no lines added*, not *file deleted* — and the removals are precisely the assertions whose
+subject no longer exists. D34's test change carries an explicit **max-limits-untouched regression
+control**, which is the right instrument: it keeps the relaxation from silently widening past what
+was ruled.
+
+The two MEDIUMs are in different files and neither is in this round's changed code in the case of
+MEDIUM-2. Under the standards' "3+ MEDIUM in the same file / pattern across files" guidance, neither
+threshold is met. **MEDIUM-1 is the one that should be fixed before this class of error reaches a
+user again**, and it is a four-line change.
+
+**Rounds-stop note.** Per my definition, findings that do not change a decision route to a follow-up
+register rather than holding the tree. `2d90e8a` is **live in production**. Accordingly **nothing
+here holds the tree**, MEDIUM-1 included; it is routed as a follow-up fix, and whether to cut a
+further round for it belongs to whoever owns the deploy, not to this gate.
+
+## Required Actions
+
+| # | Severity | Action | Owner |
+|---|---|---|---|
+| CR23-1 | MEDIUM | Eliminate the delimiter-collision class in `formatMutationError` (format issues individually, or pass an explicit `delimiter`) | implementer |
+| CR23-2 | MEDIUM | Reconcile `tsconfig.json` / `.eslintignore` so test files are covered by a gate | implementer (repo tooling) |
+| CR23-3 | LOW | Delete orphaned `ID_LAYOUT` and `NOTICE`; consider an instrument pinning the shipped notice wording | implementer |
+| CR23-4 | LOW | Give the dropped-types notice one definition; reconcile the trailing period | implementer |
+| CR23-5 | — | Record `2d90e8a` in the implementation doc; void the now-false `CodeMessageNotice` rows | implementer |
+| CR23-6 | INFO | D34's Discord question — **owner only, by observation** | owner, via steering |
+
+## Captured Instruments
+
+- `agent-output/verification/013/probe-cr25-mutation-error-readability/` — `probe.ts`, `output.txt`,
+  `RUN.md`. Imports the modules **from the tree**; embeds no copy of the code under test. Carries
+  two passthrough controls and a stated oracle. This is the instrument MEDIUM-1's verdict rests on.
+- The ESLint gate result for MEDIUM-2 is reproducible in one command against `2d90e8a`, stated in
+  the finding; **no test authored** — the fix belongs in repo tooling, not in a probe.
+- LOW-1, LOW-2 and the INFO item: **`no test`.** LOW-1 and LOW-2 should be caught by the repo's own
+  gates once CR23-2 lands; authoring a bespoke probe for them would build an instrument where a
+  standard gate belongs.
+
+## Next Steps
+
+1. **CR23-1 → the implementer.** The one finding with a user-visible consequence on a reachable path.
+2. **CR23-2/3/4/5 → the implementer**, as a follow-up register; none holds the tree.
+3. **CR23-6 → the owner, through steering.** He is the only party who can execute it.
+4. **`qa` may proceed.** This gate is met at `2d90e8a`. Note for `qa`: `uat` §R22.4.2 records BC-1,
+   BC-7, BC-8, BC-9, BC-10, BC-18 and BC-21 as **PREDICTION STALE** because the surfaces beneath them
+   moved at `e343927` and `2d90e8a`; re-deriving those predictions is QA's, and an observation taken
+   against a stale prediction produces a false failure. **My verdict binds to `2d90e8a` and expires
+   the moment the tree moves.**

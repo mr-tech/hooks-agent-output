@@ -1,0 +1,37 @@
+
+--- OWNER PAYLOAD (single nested too_small) ---
+"Code: too_small ~ Path: message.data.components[0].components[0].content ~ Message: String must contain at least 1 character(s)"
+  contains leaf key "content": true
+  contains any numeric index : true
+  contains "components"      : true
+
+--- TWO ISSUES (join + both locators) ---
+"Code: too_small ~ Path: message.data.components[0].components[0].content ~ Message: String must contain at least 1 character(s)\nCode: too_small ~ Path: message.data.components[1].components ~ Message: Array must contain at least 1 element(s)"
+  contains leaf key "content": true
+  contains any numeric index : true
+  contains "components"      : true
+
+--- CONTROL: non-JSON passthrough ---
+"UNAUTHORIZED"  identical: true
+--- CONTROL: JSON-but-not-issues passthrough ---
+"{\"foo\":1}"  identical: true
+
+--- ADVERSARIAL: single enum issue, message contains ' | ' ---
+"Code: invalid_enum_value ~ Path: message.data.mode ~ Message: Invalid enum value. Expected 'classic'\n'visual', received 'nope'"
+  ONE issue in  -> 2 line(s) out  SPLIT CORRUPTION
+    line 0: "Code: invalid_enum_value ~ Path: message.data.mode ~ Message: Invalid enum value. Expected 'classic'"
+    line 1: "'visual', received 'nope'"
+
+--- REACHABILITY: real shape, caller-sendable payload ---
+  parse success: false
+  real issue count: 1
+  raw messages: ["Invalid discriminator value. Expected 1 | 10 | 9 | 12 | 13 | 14"]
+  RENDERED TO USER (6 line(s) for 1 issue(s)):
+    line 0: "Code: invalid_union_discriminator ~ Path: components[0].components[0].type ~ Message: Invalid discriminator value. Expected 1"
+    line 1: "10"
+    line 2: "9"
+    line 3: "12"
+    line 4: "13"
+    line 5: "14"
+  VERDICT: SPLIT CORRUPTION REACHABLE
+EXIT=0
