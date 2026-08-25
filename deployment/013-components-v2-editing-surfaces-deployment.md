@@ -1860,3 +1860,69 @@ for an unverified one; a forward fix is preferable unless BC-12 refutes.
 
 **Nothing in this section is marked `NOT VERIFIED`.** Every artifact-side check was performed, and
 serving state rests on the owner's attested mechanism, which is its terminal evidence.
+
+---
+
+# §17 — Post-release notes, 2026-08-25 20:4x UTC, by `devops-hooks-013-3` (pid 3414852)
+
+**§16 is NOT amended.** These are separate notes, dated, and the reason §16 stands unchanged is itself
+recorded below.
+
+## §17.1 — **A request to amend §16, DECLINED on the owner's ruling**
+
+**The fact, verified at the mechanism rather than taken from the message reporting it:**
+`git ls-remote origin refs/heads/master` → **`a74b9e2`**, pushed **20:41:37 UTC**, eleven minutes after
+this release. **`merge-base --is-ancestor b56570d origin/master` → exit 0**, and `b56570d..origin/master`
+is **one commit**, *"remove unnecessary diff"* — 3 test files and **one production file**,
+`src/utils/index.ts` (1/22). **Everything this release shipped is in production; nothing was lost.**
+
+**`uat` asked, through steering, that §16 record the later commit beside `b56570d`**, on the ground that
+naming `b56570d` as the live tip is *"true only of 20:30:01–20:41:37"*.
+
+**DECLINED, and the authority is the owner's, not this stage's judgement.** He ruled, verbatim:
+
+> **"No. The records don't mention what happens after release. Release was self-contained and a
+> snapshot at the time of release."**
+
+**§16 already is that snapshot** — every serving-state claim in it is bound to the cutover and carries
+its timestamp. **Adding the later commit would be precisely "mentioning what happens after release".**
+`uat`'s request predates the ruling reaching it and is not a disagreement with it; **steering passed the
+request explicitly without endorsing it, and left the call here.** Recorded rather than silently not
+done, so a later reader finds a decision instead of an omission.
+
+**What is NOT claimed:** that `b56570d` is serving *now*. §16 does not say so, and this note does not
+make it say so.
+
+## §17.2 — **A CLASSIFIER BLOCKED A SWEEP IN THIS DOMAIN. Disclosed, not worked around**
+
+**This stage's own start-of-run self-check was missed and should have run at the start**: *scan
+`agent-output/deployment/` for documents with terminal `Status` outside `closed/` and move them first.*
+It was found instead by the roadmap pass. **The miss is this stage's.**
+
+**Seven records carry a plain terminal `Status: Released` outside `closed/`**, their plans already in
+`planning/closed/`: `2026-04-07-plans-001-003-004.md`, `2026-04-07-plan-005/006/007.md`,
+`2026-04-09-plan-008.md`, `2026-04-12-plan-009/010.md`.
+
+**`git mv` of those seven into `deployment/closed/` was BLOCKED by the Claude Code auto mode
+classifier.** Per the workspace rule, **the action was not rephrased, not split into smaller pieces,
+not routed through another tool or another session, and not asked of a peer.** It is reported here in
+the round it happened and left for the owner to rule on. **The seven remain where they were; nothing
+was moved and nothing was deleted.**
+
+**Not swept, deliberately, and separately from the block:** `012-…-deployment.md` and this document both
+read `Released — chain closure pending`, which is **not** terminal; and both `-readiness.md` companions
+read `Superseded by …`, which is terminal in form but **belongs with its open deployment record for
+rollback reference**. **Those four move at chain closure, with their records — not now.**
+
+## §17.3 — **The `POST` rows: the ground moved under them, and this stage owns what waits on them**
+
+Three of BC-12, BC-14 and BC-20 became decidable at **20:30:01 against `b56570d`** — **which is no
+longer what production serves.** `uat` has flagged that a `POST` observation must not be taken without
+naming which tip it was taken against.
+
+**That row-level judgement is `uat`'s and is not taken here.** It is recorded because **the `closed/`
+move waits on those rows and is this stage's**, so the condition it waits on has changed shape: an
+observation against `b56570d` and an observation against `a74b9e2` are not interchangeable, and
+**`a74b9e2` carries a production file this chain's verdicts never examined.**
+
+**No row state is set here.** **The chain remains OPEN and nothing is recorded closed.**
