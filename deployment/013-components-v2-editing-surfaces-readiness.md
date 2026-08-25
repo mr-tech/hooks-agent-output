@@ -17,9 +17,8 @@ Status-Detail: >-
   against the chain**. **Reconciled 2026-08-25 at the settled tip `a151fb4` (§10, appended — nothing
   above it rewritten): every artifact-side gate now passes *measured at the shipped tree*, and the
   build was re-earned because the delta from the assessed point was **not** test-only as briefed.
-  Verdict still **NO-GO**, now solely on the twelve non-terminal `PRE` rows and U-C5. Two new
-  findings: **F-7**, the release act permanently closes the seed-mint route BC-11b depends on, making
-  wrong ordering irreversible rather than inconvenient; **F-8**, Appendix B names a superseded tip.
+  Verdict still **NO-GO**, now solely on the twelve non-terminal `PRE` rows and U-C5. One new
+  finding: **F-8**, Appendix B names a superseded tip.
   **U-C6 is devops's and discharges at Stage 1 step 8.**
   **§12 appended 2026-08-25 by `devops-hooks-013-2` — nothing above it rewritten.** Phase 2A is
   **complete for a `4a7126b` cut**: every artifact-side gate re-measured in-session at that exact
@@ -27,11 +26,15 @@ Status-Detail: >-
   the **cross-repo reference check the re-run was left owing is re-run and PASSES four ways** at
   `749606d0`. Execution mode **A** on the mechanism; **B** if he pushes it. Verdict still **NO-GO on
   the register** — **fourteen `PRE` rows non-terminal**, three of which (BC-18, BC-19a, BC-19b) are the
-  only instrument covering half the production surface. **BC-11b `TERMINAL: CANNOT BE EXECUTED` —
-  F-7 realised, a fourth state, never read as closed.** **U-C7 discharged** by the record at
+  only instrument covering half the production surface. **U-C7 discharged** by the record at
   `e34df07`. **The Phase 2B release summary is written and presented; no approval is given, requested
   or recorded, and no push approval exists anywhere in this chain.** Nothing was moved, switched or
   pushed.
+  **Struck 2026-08-25 under D44** (plan rev 39, commit `13a6e66`) by `steering-hooks-013-2 [019315]`
+  acting on the owner's direct ruling rather than by the devops session that owns this document:
+  the material D44 strikes is removed throughout and every item that depended on it is **dropped**,
+  not re-argued and not re-based. **No verdict, gate, approval or release state is changed by that
+  edit.**
 ---
 
 # Deployment Readiness — Plan 013: Components V2 across the editing surfaces
@@ -214,30 +217,24 @@ The reassuring half is real and worth keeping next to it: the plan's rollback *c
 out — single repo, no schema, no data migration, nothing in `project-utils`, and records written by
 the fixed surfaces between deploy and rollback are ordinary valid records that survive it unharmed.
 
-### F-3 — Three release conditions are hostage to owner actions that nothing sequences against the chain
+### F-3 — A release condition is hostage to an owner action that nothing sequences against the chain
 
-Same shape in all three: an action outside the chain that leaves every criterion's *wording* intact
-and moves what it *measures*.
+The shape: an action outside the chain that leaves the criterion's *wording* intact and moves what it
+*measures*.
 
-1. **Validation item 8 — the D19 repair.** M8-G's production-reachable observation exists **only
-   while 5712 and 5842 are unrepaired.** The repair is the owner's, outside the plan; the observation
-   is 013's UAT, inside it. He has minted and not repaired, so the observation is still available
-   **today**. If the repair runs first, the population is empty and the central new behaviour D18
-   introduces ships on suite evidence alone — permanently, and the deployment record must then say
-   M8-G was not observed in production **for that reason**. What the plan forbids is the two being
-   ordered by accident, which is exactly what an unscheduled repair produces.
-2. **BC-11b — the seeds.** The last non-terminal pre-release row runs against records **5855 and
-   5856**. Their retention is *steering's instruction, not an owner ruling*, and **D20 left their
-   disposition expressly unruled.** A deletion forecloses the only blocking condition left standing.
-3. **U-1 — the seeds again, on the other side.** Those records are permanent members of the category
-   012's classifier counts, so after his D19 repair the classifier reads **2** where he expects
-   **0**: **a working repair will look like a failed one**, at the moment he is checking whether it
-   worked. One of the three candidate remedies is a line in the deployment record naming the source
-   class — **that line is devops's to write and I have adopted no remedy**, because the choice is
-   unresolved and plan-touching. It folds into the R-5 decision, not into this document.
+**Validation item 8 — the D19 repair.** M8-G's production-reachable observation exists **only while
+5712 and 5842 are unrepaired.** The repair is the owner's, outside the plan; the observation is 013's
+UAT, inside it. He has not repaired, so the observation is still available **today**. If
+the repair runs first, the population is empty and the central new behaviour D18 introduces ships on
+suite evidence alone — permanently, and the deployment record must then say M8-G was not observed in
+production **for that reason**. What the plan forbids is the two being ordered by accident, which is
+exactly what an unscheduled repair produces.
 
-None of the three is mine to resolve. All three are cheaper to sequence now than to discover at the
-release act.
+**Two further items stood in this finding and are DROPPED under D44** (plan rev 39, commit
+`13a6e66`). They are not live obligations on this chain, and they are neither re-argued nor re-based
+here.
+
+It is not mine to resolve, and it is cheaper to sequence now than to discover at the release act.
 
 ### F-4 — `agent-output`'s porcelain will not be empty at release, and that is correct
 
@@ -343,7 +340,7 @@ raised as a separate interruption.
 | Q1 | **R-5's widening.** The deployment record is known incomplete as rev 17 states it. | It is his decision; writing the record now spends it. | The deployment record cannot be written. **This is the blocking edge.** |
 | Q2 | **Does pushing `website` `master` still auto-deploy production?** | Lives in the Vercel dashboard; no agent here can see it, and the repo cannot settle it. | Conservative posture (treat push as deploying) holds; costs nothing for 013. |
 | Q3 | **Which rollback mechanism** (F-2)? | A force-push is single-owner and never on initiative; the dashboard route is his console. | Deferred to the console, which is the failure this finding exists to prevent. |
-| Q4 | **Disposition of seeds 5855/5856**, which D20 expressly left unruled (F-3.2). | His records; retention today rests on a steering instruction. | Retention holds by default; a deletion would foreclose BC-11b. |
+| Q4 | **DROPPED under D44** (plan rev 39, commit `13a6e66`). No longer a live question and not restated. | — | — |
 | Q5 | **Ordering of the D19 repair against M8-G's observation** (F-3.1). | The repair is his action outside the plan. | The two get ordered by accident, which plan item 8 exists to forbid. |
 
 Silence holds each of these where it stands; nothing proceeds on an unanswered one.
@@ -356,8 +353,6 @@ Recorded so the obligations are not rediscovered at the release act. **None of t
   statbot workspace (§6 — confirmed today).
 - **R-5**, its widened form once he rules — the flows 6/8/11–14 statement, the D12 ingress source
   class, the R8 mode-change class, and the M8 no-new-members statement.
-- **U-1's candidate remedy** — a line naming the source class so the classifier's expected residual
-  reads as **2**, not **0**. Folds into the R-5 decision; **not adopted here**.
 - **Validation item 8**, one line: **which came first**, M8-G's observation or the D19 repair — and
   if the repair, that M8-G was not observed in production for that reason and the suite is its
   evidence.
@@ -368,6 +363,9 @@ Recorded so the obligations are not rediscovered at the release act. **None of t
 - **Deployed-vs-verified reconciliation**: expected to be **EXACT** by the identity argument in §4 —
   and if it is not exact, §4's two conditions were violated and the difference must be diffed, not
   argued from ancestry.
+
+**One item that stood in this list is DROPPED under D44** (plan rev 39, commit `13a6e66`) and is no
+longer owed by the deployment record.
 
 ## 9. Go / no-go
 
@@ -456,33 +454,20 @@ strictly stronger than §4's position, which rested on a content-identity fallba
 ### 10.4 The blocking gate, derived from UAT §9.1 rather than from the count I was handed
 
 **Twelve `PRE` rows stand non-terminal**: BC-1…BC-9 and BC-11b, BC-15 `NOT EXECUTED` outright (eleven),
-plus **BC-10** met on its suite limb with its spot observation owed. Two are terminal — BC-11a (the
-owner's attested mint) and BC-16 (`p2-rowd-load-gate`, discharged at `164d720`). The relay's "twelve"
+plus **BC-10** met on its suite limb with its spot observation owed. Two are terminal — BC-11a and
+BC-16 (`p2-rowd-load-gate`, discharged at `164d720`). The relay's "twelve"
 is **corroborated**, now from the ledger itself.
 
 Per Stage 1 step 2b this is decisive: **any observable-pre-release row without a terminal state blocks
 the commit.** Stage 1 does not open. The four `POST` rows (BC-12, BC-13, BC-14, BC-17) correctly do not
 block the release act and ride into the deployment record's Post-Release Status.
 
-### 10.5 F-7 — NEW: the release act permanently forecloses BC-11b's evidentiary route
+### 10.5 — DROPPED under D44
 
-UAT Appendix B §B.0, read this pass, establishes something no predecessor document said and which lands
-squarely on **my** step: **the seed mint route is open only until the deploy.** Seeds 5855/5856 were
-minted through production at `c85945f`; BC-11b's own *Predicted value* requires *"both outcomes verified
-by repeating with the other option"*, and every leg that takes an option **consumes** the record. Two
-seeds against four destructive legs means **BC-11b is not runnable to its own prediction without
-spares**, and spares can only be minted **before the release act**.
-
-**Consequence for sequencing, which is the finding**: the release act is not merely gated by the `PRE`
-ledger being terminal — it is the event that *closes the only route by which one of those rows can be
-made terminal*. If the release ran first, BC-11b would become unsatisfiable rather than merely
-outstanding. F-2 does not rescue this: the rollback that would reopen the route is a non-fast-forward
-push, which is nobody's to run on their own initiative.
-
-**Recorded as an ordering constraint on my own step, and it needs no new mechanism** — the existing
-gate already holds the release behind the ledger. What it changes is the cost of getting the order
-wrong: **irreversible, not merely inconvenient.** I adopt no remedy and schedule nothing; the sitting
-is UAT's to drive and the owner's to attend.
+This subsection carried finding **F-7**. Its subject is struck from chain 013 under **D44** (plan rev
+39, commit `13a6e66`), so F-7 and everything that rested on it are **dropped** — not re-argued, not
+re-based onto anything else, and not restated. The heading number is kept so that later
+cross-references do not dangle. **Nothing here changes any verdict, gate, approval or release state.**
 
 ### 10.6 F-8 — Appendix B names a tip that has since moved (UAT's to correct; reported, not edited)
 
@@ -510,8 +495,8 @@ remedy therefore stands as accepted, not merely proposed, and the runbook must c
 | Finding | At `a151fb4` |
 |---|---|
 | **F-1** BC-13's timestamp | **stands, and is now adopted** into UAT §9.2 (10.7) |
-| **F-2** rollback is a force-push | **stands unchanged** — and 10.5 raises its stakes |
-| **F-3** three conditions hostage to unsequenced owner actions | **stands**; U-C5 (R-5's widening) is UAT's own name for the same blocking edge |
+| **F-2** rollback is a force-push | **stands unchanged** |
+| **F-3** a condition hostage to an unsequenced owner action | **stands**; U-C5 (R-5's widening) is UAT's own name for the same blocking edge |
 | **F-4** `agent-output` porcelain non-empty is correct | **stands**; `website` porcelain is now **0**, which §3 could not say |
 | **F-5** deploy mechanism not establishable from the repo | **stands** — re-checked, no `.github/workflows`, `vercel.json` still cron-only. Q2 remains the owner's |
 | **F-6** minors | **stands** |
@@ -519,7 +504,7 @@ remedy therefore stands as accepted, not merely proposed, and the runbook must c
 | §3's build row | **superseded** — re-earned at `a151fb4` (10.1, 10.2) |
 | §4 verdict by identity | **stands, strengthened** — plain SHA, no fallback (10.3) |
 | §6 D12 | **stands**; unchanged, 013 touches nothing cross-repo |
-| §7 owner questions Q1–Q5 | **still parked**; Q3 (rollback) gains weight from 10.5 |
+| §7 owner questions Q1–Q5 | **still parked**, less Q4, dropped under D44 |
 
 ### 10.9 Verdict
 
@@ -541,7 +526,7 @@ Appended so a later reader is not sent to an artifact that no longer carries the
 | Finding | Disposition | Verified |
 |---|---|---|
 | **F-8** (Appendix B names `821330d`) | **Actioned, but not in Appendix B.** UAT is at its run-length ceiling and was not woken; the owner's walkthrough now lives in **`agent-output/OWNER-QUEUE.md`** (`91c3cc3`, 2026-08-25 00:04 UTC), which serves the sitting at **`a151fb4`** and names the divergence explicitly, with Appendix B authoritative on everything else. A UAT successor reconciles its own document | `git show 91c3cc3`; `OWNER-QUEUE.md:30–31` carries the divergence note, `:52` the operative tip |
-| **F-7** (mint route closes at the release act) | **Independently reached by UAT from D20's text**, and scheduled as **`013-A`, the first item in the owner's queue** — four spares of each shape before anything else. **I still adopt no remedy and schedule nothing**; this records that someone whose step it is has | `OWNER-QUEUE.md:33` |
+| **F-7** | **DROPPED under D44** (plan rev 39, commit `13a6e66`). No disposition is owed, none is recorded, and nothing is re-based | — |
 | **U-C6** | Acknowledged as devops's; discharges at Stage 1 step 8. No new mechanism | UAT §9.1/rev-11 reconcile note |
 | **U-C5 / R-5** | The owner chose a **planner pass** to widen R-5 alongside the eight other held items, rather than D25's alternative of this record stating the wider class. **R-5's requirement is therefore expected to change before the deployment record is written, and the record stays unwritten** | steering, 2026-08-25 |
 
@@ -591,8 +576,8 @@ command, by anyone. Instance 2 was caught precisely because the range was writte
 
 **Why instance 2 was worth raising despite being cosmetic**, since the reasoning generalises: a wrong
 number sitting beside a correct instruction **reads as corroboration for the instruction**. In a sitting
-where the owner is counting seeds and checking a tip SHA against a document, a number he can trivially
-falsify is what makes him distrust the numbers he cannot.
+where the owner is checking a tip SHA against a document, a number he can trivially falsify is what
+makes him distrust the numbers he cannot.
 
 ---
 
@@ -639,17 +624,11 @@ my say-so.
 - **No unilateral remediation.** Reverting, re-pointing or re-branching a pushed serving ref is a
   non-fast-forward act and nobody's to run on their own initiative (F-2).
 
-### 11.4 F-7's status: unresolved, and only the owner can resolve it
+### 11.4 — DROPPED under D44
 
-F-7 held that the release act permanently forecloses the seed-mint route BC-11b depends on, and that
-**wrong ordering here is irreversible rather than inconvenient**. The push has happened; `013-A` — mint
-four spares of each shape — was still outstanding.
-
-**Whether the window is actually shut turns on whether the deploy fired, which I must not establish by
-probing.** Vercel's git integration makes firing the presumption, but **a presumption is not an
-attestation** and this record will not treat it as one. If it fired, BC-11b is no longer runnable to its
-own prediction on the remaining two seeds, and that is a gap in the evidence base that cannot be closed
-by re-running anything.
+This subsection tracked **F-7**'s status. Its subject is struck from chain 013 under **D44** (plan rev
+39, commit `13a6e66`), so nothing here remains open and nothing is restated. **No verdict, gate,
+approval or release state is changed by the strike.**
 
 ### 11.5 A hazard neither party has named: uncommitted source on the checked-out serving branch
 
@@ -808,8 +787,8 @@ is a stale notice sitting on the page, which is the failure the toast vessel was
 
 **Consequence for ordering.** Nothing has shipped (§10.14), so **rev 13's condition that BC-18/BC-19
 precede the release act has not been overtaken and remains meetable in the order it was written.**
-Unlike BC-11b, whose window the release act closed for good (F-7), **these rows are still open, still
-executable, and now demonstrably load-bearing.** This stage's recommendation is that they run **before**
+**These rows are still open, still executable, and now demonstrably load-bearing.** This stage's
+recommendation is that they run **before**
 the cut, not after — not to satisfy a register, but because releasing first would ship two production
 files whose behaviour nothing has executed.
 
@@ -976,7 +955,7 @@ ways, serving refs unsplit.
 |---|---|---|
 | `PRE`, **non-terminal** | **BC-1 … BC-9** (BC-2/BC-3 carry a standing withdrawal *recommendation* the owner has not ruled on), **BC-10** (suite limb met, spot observation owed), **BC-15**, **BC-18**, **BC-19a**, **BC-19b** | **NOT EXECUTED / Not started** |
 | `PRE`, terminal | **BC-11a** `EXECUTED`; **BC-16** `EXECUTED`; **BC-11** `SUPERSEDED` by 11a/11b; **BC-19** `SUPERSEDED` by 19a/19b | terminal |
-| `PRE`, **fourth state** | **BC-11b** — **`TERMINAL: CANNOT BE EXECUTED`** | see 12.3 |
+| `PRE` | **BC-11b** | **DROPPED under D44** (plan rev 39, commit `13a6e66`) — not a live obligation on this chain. It blocked nothing before the strike and blocks nothing after it, so **no verdict, gate, approval or release state moves** |
 | `POST` — never blocks the release act | **BC-12, BC-13, BC-14, BC-17, BC-20, BC-21** | ride into the deployment record's Post-Release Status |
 | Documentary `U-C` | U-C1–U-C4 terminal; **U-C5** the owner's, open; **U-C6** mine, discharges at Stage 1 step 8; **U-C7 DISCHARGED** by the record at `e34df07`; **U-C8** `EXECUTED` — D29, plan rev 22, `d60c857` |  |
 
@@ -991,19 +970,9 @@ ruling on order, and it is why this section proceeds to a summary rather than st
 
 ## 12.3 — What must be in front of him, and none of it is new tonight
 
-**(a) F-7 is realised and cannot be un-realised by anything in this cut.** BC-11b is
-**`TERMINAL: CANNOT BE EXECUTED`** — the mint route closed at the `a151fb4` deploy, 5855/5856 are the
-whole population, there are no spares, and **no re-running recovers it.** This is a **fourth** terminal
-state: it is not `WITHDRAWN` (nobody ruled it unnecessary) and not `SUPERSEDED` (nothing replaced it).
-**It records a permanent absence of evidence and must never be read as "closed."**
-
-**The reversibility claim, in the honest form my predecessor left after withdrawing its own overclaim
-— reinstated here verbatim in substance, not hardened**: *a rollback is **a** lever, it is code-side
-and would probably work, it is expensive, and it may be unnecessary if D12's ingress reaches the
-shape — which nobody has yet checked.* The open half is that §7(b)'s URL/webhook/code ingress produces
-**bit set with Action Rows**, where BC-11b needs **the bit carried over content or embeds** — **different
-shapes**, and the question of whether the import path can still produce the second is **logged open,
-not resolved by assertion.**
+**(a) DROPPED under D44** (plan rev 39, commit `13a6e66`). The item that stood here is struck from
+chain 013 with its subject, is not re-argued and is not re-based. The letter is kept so (b)–(g) do not
+renumber. **No verdict, gate, approval or release state changes.**
 
 **(b) The `a151fb4` release ran outside this gate, and that history is now recorded, not erased.** No
 release summary was presented and **no Phase 2B approval was given or recorded**; twelve `PRE` rows
@@ -1103,8 +1072,8 @@ summary has been in front of him.
 >   provider's effect, including the new clear-to-nothing path. **BC-18, BC-19a and BC-19b are the only
 >   thing that covers them, they are your eyes, and they still take ten minutes locally.** You already
 >   said proceed rather than run them; this restates the cost, it does not re-ask the order.
-> - **BC-11b is permanently gone** — the seed-mint route closed at the last deploy, and nothing in this
->   cut brings it back.
+> - *[one bullet struck under **D44**, plan rev 39, commit `13a6e66`; elision marked so the quote stays
+>   verifiable]*
 > - **5712/5842 are still bad in production**, since the repair is not done.
 > - **Rollback is the Vercel promote you chose. It does not move `master`, so the next push you make
 >   re-deploys this.**
