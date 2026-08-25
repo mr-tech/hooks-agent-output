@@ -4,8 +4,8 @@ Origin: 013
 UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: QA Complete
-Verified-At: "664e0c0f515ea553aa82a1697016d36507ded7d0"
-Verified-At-Note: "fix-round verdict 2026-08-25 at 664e0c0 — QA COMPLETE, F-QA23 discharged by execution. The QA FAILED at abcf585 stands for its own tree and is not withdrawn; it is superseded. Plain SHA: nothing uncommitted backs this verdict."
+Verified-At: "4a7126bf8578b653ac7ae1cfe7cabdd609cdc21f"
+Verified-At-Note: "re-issued 2026-08-25 at 4a7126b after F-QA28 adoption — QA COMPLETE. Supersedes the 664e0c0 verdict, which stands for its own tree. Every commit since live master a151fb4 is test-only. Plain SHA."
 Verified-At-Detail: >-
   **REFRESH PASS, 2026-08-24 — supersedes the Phase 2 anchor below for verdict purposes.**
   `website` @ `chain/013-components-v2-editing-surfaces`, HEAD = `164d720` (re-derived by
@@ -1998,3 +1998,110 @@ the F-QA27 residue at line 66, and the Assumption Not Checked above.
 unanswered release note.
 **To UAT** — clear to proceed. The suite is no longer vacuous for its own subject, and that is
 established by mutation reproduced independently by two other stages.
+
+---
+
+# Re-issued verdict at `4a7126b`
+
+The `664e0c0` verdict expired with the tree; this replaces it rather than extending it. The earlier
+record stands for its own tree and is not withdrawn.
+
+**Tree**: `chain/013-toast-vessel`, tip **`4a7126b`**, working tree clean.
+**Verified-At**: `4a7126bf8578b653ac7ae1cfe7cabdd609cdc21f` — plain SHA, nothing uncommitted.
+**Suite**: **577 tests / 40 files / exit 0**.
+**Verdict**: **QA COMPLETE.**
+
+## 1. Delta, re-derived
+
+`git diff --numstat 664e0c0..4a7126b` — one path, test-only. The same range excluding `__tests__` is
+**empty**. Against **live master**, `git diff --numstat a151fb4..4a7126b -- ':(exclude)*__tests__*'`
+returns exactly the four source files unchanged since `abcf585` — so **every commit since the
+release is test-only**, and the production surface under this verdict is the same one `abcf585`
+introduced. My paste instrument was adopted **byte-identical** (`sha256 bf74ce77…`, `diff -q` clean).
+
+**F-QA28 closed.** The suite reached **577/40** — the figure this document predicted before adoption,
+which is a small but real cross-check that the adopted file is the one that was measured.
+
+## 2. My own Assumption Not Checked — CLOSED, and the reasoning under it corrected
+
+The `664e0c0` verdict raised an assumption against my own instrument: it mocks `useState` and feeds
+values **positionally**, an order derived by *reading* source. Drift would let it address the wrong
+slot and stay green while the notice broke.
+
+**The relayed justification for why it is aligned is wrong, and the correction matters more than the
+conclusion.** It is not the case that the mocked hooks consume no `useState` slot. Read from real
+source: `useCopyToClipboard` calls `useState` **once**, `useCodeMirror` **twice**, and
+`useCopyToClipboard` is invoked *between* `jsonMessageString` and `error`. In a genuine render the
+order is `[json, copyState, error, …]` and my injection would be **misaligned by one**. Alignment
+holds **because those hooks are mocked** — the mocks are **load-bearing for correctness**, not just
+for callability. The conclusion (aligned) is right; the stated reason is not, and a future reader
+who inherits the reason rather than the mechanism would mis-maintain this file.
+
+**So I tested the assumption instead of arguing it.** Every drift path executed:
+
+| Drift | Simulates | Result |
+|---|---|---|
+| **A1** remove `useCopyToClipboard` mock | someone prunes a "redundant" mock | **5/5 FAIL**, hard module error |
+| **A2** remove `useCodeMirror` mock | same | **5/5 FAIL**, `TypeError … 'useCallback'` |
+| **A3** insert a `useState` before `settledNotice` | ordinary edit to the hook block | **3/5 FAIL** |
+
+**Every drift path fails loudly; none fails silently.** The mocks pass `useCallback`/`useEffect`
+through to real React, which throws outside a renderer, so a removed mock is a hard error rather
+than a quiet slot shift; and a shifted slot feeds `settledNotice` its initial `null`, which the
+render assertions catch. **The assumption is closed, not narrowed.** Captured at
+`verification/013/probe-qa-paste-surface-render/`.
+
+## 3. Independent confirmation of a withdrawal, recorded because of its direction
+
+`code-reviewer-hooks-013-3` did not merely run my adopted instrument — it attacked the novel part,
+the positional mock, and re-ran my oracle against the real component plus real-source mutants: 3/3,
+control passing, never-render and drop-the-`!error`-conjunct both killed. That independently
+confirms **the withdrawal of my own F-QA26** — a finding I had raised, and then had to retract. The
+retraction is now the better-evidenced of the two positions, which is the right outcome and worth
+recording as such rather than quietly leaving the withdrawal to stand on my word.
+
+## 4. Prior findings
+
+| ID | State |
+|---|---|
+| **F-QA28** | **CLOSED** — instrument adopted byte-identical, 577/40 |
+| **F-QA29** | **CLOSED** — reported fixed, and the implementer swept the whole TDD table for the same contradiction rather than trusting mine was the only instance. Sweeping on the predicate instead of the reported instance is the correct method and is noted as a pass |
+| **F-QA30** | **CLOSED** — original claim restored with the correction beside it |
+| **F-QA27 residue** | **CLOSED** — line 66 marked in place with a pointer to where it is corrected |
+| **BC-18 / BC-19 residue** | **OPEN, owner** — visibility, placement, real Next.js server/client mount |
+
+## 5. Residue scoping — I align with the reviewer
+
+Steering offered to carry a differing disposition. There is none to carry: the reviewer's residue —
+**visibility, placement, and the real server/client mount, owner-observation only under D28** — is
+exactly the residue this document reached independently after withdrawing F-QA26. Two stages
+arriving at the same boundary from different directions is worth more than either statement alone.
+
+## 6. Verdict
+
+**QA COMPLETE** at `4a7126b`. No open finding of mine blocks a release.
+
+**On whether this is the last round** — steering's reading is correct as far as QA is concerned.
+Every captured instrument is now adopted, so the adopt-a-test/move-the-SHA/re-verify loop has no
+remaining input from this stage. This pass turned up new *evidence* (§2) but required **no code
+change**, which is precisely why it does not start another round. Should QA be woken again on this
+chain, it should be for something other than its own backlog.
+
+**Assumption Not Checked (mandatory).** *This pass assumes the four production files are byte-for-byte
+what `abcf585` introduced, and verifies that only by `git diff --numstat` over the range* —
+a path-and-count instrument, not a content hash of each file at each tip. A rebase, an amend, or a
+force-push that reconstructed the range with altered content while preserving the same per-path
+add/delete counts would be invisible to it. Falsity signature: the production surface behaves
+differently in the owner's browser from what this suite asserts, while every SHA and every count in
+this document still reconciles. **Owner: devops**, at release assembly, where the tip is verified
+independently under Phase 3 — named again in the handoff so it is routed rather than shelved.
+
+## 7. Handoff
+
+**To devops** — a release-tip verdict (Phase 3) is still owed and is not inferable from this record;
+plus the Assumption Not Checked above.
+**To the owner** — BC-18/BC-19's residue; the unanswered questions about the 00:56 push and the
+deploy; and the release note, which has **softened but not lapsed**: the coverage now exists rather
+than being promised, so shipping is no longer a trade against absent verification.
+**To UAT** — clear. The prior UAT session retired at its ceiling; a fresh one is the owner's to
+authorise, not a stage's to spawn.

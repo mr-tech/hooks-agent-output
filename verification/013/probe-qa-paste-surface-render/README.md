@@ -54,3 +54,37 @@ cp 013-qa-paste-surface-render.test.ts <tree>/src/utils/__tests__/
 npx vitest run src/utils/__tests__/013-qa-paste-surface-render.test.ts   # 5/5
 ```
 Full suite with this adopted: **577 tests / 40 files / exit 0**.
+
+---
+
+## The instrument's own Assumption Not Checked — now CLOSED by execution
+
+The QA verdict at `664e0c0` raised an assumption against **this instrument**: it mocks `useState`
+and feeds values **positionally** (`[json, error, dropped, pending, dismissed, settled]` = slots
+0–5), an order derived by *reading* the source. If that order ever stopped matching reality, the
+fixture would address the wrong state slot and could stay green while the real notice broke.
+
+**First, a correction to how the alignment is justified.** It is **not** true that the mocked hooks
+consume no `useState` slot — read from the real source, `useCopyToClipboard` calls `useState`
+**once** (line 7) and `useCodeMirror` calls it **twice** (lines 23–24), and `useCopyToClipboard` is
+invoked *between* `jsonMessageString` and `error`. In a genuine render the slot order would be
+`[json, copyState, error, …]` and this injection would be **misaligned by one**. The alignment holds
+**because those hooks are mocked**, which removes their slots — the mocks are **load-bearing for
+correctness**, not merely for making the component callable. That distinction is the whole risk.
+
+**So the assumption was tested rather than argued.** Every drift path was executed:
+
+| Drift | What it simulates | Result |
+|---|---|---|
+| **A1** remove the `useCopyToClipboard` mock | someone decides a mock is unnecessary | **5/5 FAIL** — `No "useCopyToClipboard" export is defined` |
+| **A2** remove the `useCodeMirror` mock | same | **5/5 FAIL** — `TypeError: Cannot read properties of null (reading 'useCallback')` |
+| **A3** insert a `useState` before `settledNotice` in the real component | ordinary future edit reordering the hook block | **3/5 FAIL** |
+
+**Every drift path fails loudly. None fails silently.** The mocks pass `useCallback`/`useEffect`
+through to real React, which throws outside a renderer, so a removed mock is a hard error rather
+than a quiet slot shift; and a shifted slot feeds `settledNotice` its initial `null`, which the
+render assertions catch directly.
+
+**The assumption is therefore closed, not narrowed.** The positional mock is self-protecting against
+the drift that would otherwise make it dangerous. The component file was restored and verified
+byte-identical (`sha256 d2ffdb00…`) after the A3 mutation.

@@ -1,0 +1,143 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ src/utils/__tests__/013-qa-paste-surface-render.test.ts (5 tests | 5 failed) 8ms
+     × RENDERS the settled notice text when there is one and no error 5ms
+     × does NOT render it when there is no notice (no stale/blank warning box) 1ms
+     × SUPPRESSES it when an error is showing — the `!error` conjunct is the sole carrier here 0ms
+     × the notice is styled as a warning, not rendered bare 0ms
+     × CLEARS: notice present then absent leaves nothing behind 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > RENDERS the settled notice text when there is one and no error
+Error: [vitest] No "useCopyToClipboard" export is defined on the "react-use" mock. Did you forget to return it from "vi.mock"?
+If you need to partially mock a module, you can use "importOriginal" helper inside:
+
+vi.mock(import("react-use"), async (importOriginal) => {
+  const actual = await importOriginal()
+  return {
+    ...actual,
+    // your mocked methods
+  }
+})
+
+ ❯ src/utils/hooks/useCopyToClipboard.ts:6:40
+      4|
+      5| export default () => {
+      6|   const [{ error }, copyToClipboard] = useCopyToClipboard();
+       |                                        ^
+      7|   const [copyState, setCopyState] = useState<null | 'copying' | 'copie…
+      8|
+ ❯ Module.NewMessageJsonInput src/app/message/_components/NewMessageJsonInput.tsx:36:40
+ ❯ renderPaste src/utils/__tests__/013-qa-paste-surface-render.test.ts:56:18
+ ❯ src/utils/__tests__/013-qa-paste-surface-render.test.ts:61:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > does NOT render it when there is no notice (no stale/blank warning box)
+Error: [vitest] No "useCopyToClipboard" export is defined on the "react-use" mock. Did you forget to return it from "vi.mock"?
+If you need to partially mock a module, you can use "importOriginal" helper inside:
+
+vi.mock(import("react-use"), async (importOriginal) => {
+  const actual = await importOriginal()
+  return {
+    ...actual,
+    // your mocked methods
+  }
+})
+
+ ❯ src/utils/hooks/useCopyToClipboard.ts:6:40
+      4|
+      5| export default () => {
+      6|   const [{ error }, copyToClipboard] = useCopyToClipboard();
+       |                                        ^
+      7|   const [copyState, setCopyState] = useState<null | 'copying' | 'copie…
+      8|
+ ❯ Module.NewMessageJsonInput src/app/message/_components/NewMessageJsonInput.tsx:36:40
+ ❯ renderPaste src/utils/__tests__/013-qa-paste-surface-render.test.ts:56:18
+ ❯ src/utils/__tests__/013-qa-paste-surface-render.test.ts:65:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > SUPPRESSES it when an error is showing — the `!error` conjunct is the sole carrier here
+Error: [vitest] No "useCopyToClipboard" export is defined on the "react-use" mock. Did you forget to return it from "vi.mock"?
+If you need to partially mock a module, you can use "importOriginal" helper inside:
+
+vi.mock(import("react-use"), async (importOriginal) => {
+  const actual = await importOriginal()
+  return {
+    ...actual,
+    // your mocked methods
+  }
+})
+
+ ❯ src/utils/hooks/useCopyToClipboard.ts:6:40
+      4|
+      5| export default () => {
+      6|   const [{ error }, copyToClipboard] = useCopyToClipboard();
+       |                                        ^
+      7|   const [copyState, setCopyState] = useState<null | 'copying' | 'copie…
+      8|
+ ❯ Module.NewMessageJsonInput src/app/message/_components/NewMessageJsonInput.tsx:36:40
+ ❯ renderPaste src/utils/__tests__/013-qa-paste-surface-render.test.ts:56:18
+ ❯ src/utils/__tests__/013-qa-paste-surface-render.test.ts:69:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > the notice is styled as a warning, not rendered bare
+Error: [vitest] No "useCopyToClipboard" export is defined on the "react-use" mock. Did you forget to return it from "vi.mock"?
+If you need to partially mock a module, you can use "importOriginal" helper inside:
+
+vi.mock(import("react-use"), async (importOriginal) => {
+  const actual = await importOriginal()
+  return {
+    ...actual,
+    // your mocked methods
+  }
+})
+
+ ❯ src/utils/hooks/useCopyToClipboard.ts:6:40
+      4|
+      5| export default () => {
+      6|   const [{ error }, copyToClipboard] = useCopyToClipboard();
+       |                                        ^
+      7|   const [copyState, setCopyState] = useState<null | 'copying' | 'copie…
+      8|
+ ❯ Module.NewMessageJsonInput src/app/message/_components/NewMessageJsonInput.tsx:36:40
+ ❯ renderPaste src/utils/__tests__/013-qa-paste-surface-render.test.ts:56:18
+ ❯ src/utils/__tests__/013-qa-paste-surface-render.test.ts:73:33
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > CLEARS: notice present then absent leaves nothing behind
+Error: [vitest] No "useCopyToClipboard" export is defined on the "react-use" mock. Did you forget to return it from "vi.mock"?
+If you need to partially mock a module, you can use "importOriginal" helper inside:
+
+vi.mock(import("react-use"), async (importOriginal) => {
+  const actual = await importOriginal()
+  return {
+    ...actual,
+    // your mocked methods
+  }
+})
+
+ ❯ src/utils/hooks/useCopyToClipboard.ts:6:40
+      4|
+      5| export default () => {
+      6|   const [{ error }, copyToClipboard] = useCopyToClipboard();
+       |                                        ^
+      7|   const [copyState, setCopyState] = useState<null | 'copying' | 'copie…
+      8|
+ ❯ Module.NewMessageJsonInput src/app/message/_components/NewMessageJsonInput.tsx:36:40
+ ❯ renderPaste src/utils/__tests__/013-qa-paste-surface-render.test.ts:56:18
+ ❯ src/utils/__tests__/013-qa-paste-surface-render.test.ts:78:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  5 failed (5)
+   Start at  03:21:50
+   Duration  936ms (transform 183ms, setup 0ms, import 638ms, tests 8ms, environment 0ms)
+

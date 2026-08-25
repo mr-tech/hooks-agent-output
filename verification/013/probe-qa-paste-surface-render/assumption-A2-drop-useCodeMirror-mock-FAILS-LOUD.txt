@@ -1,0 +1,133 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+stderr | src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > RENDERS the settled notice text when there is one and no error
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+
+stderr | src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > does NOT render it when there is no notice (no stale/blank warning box)
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+
+stderr | src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > SUPPRESSES it when an error is showing — the `!error` conjunct is the sole carrier here
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+
+stderr | src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > the notice is styled as a warning, not rendered bare
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+
+stderr | src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > CLEARS: notice present then absent leaves nothing behind
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+
+ ❯ src/utils/__tests__/013-qa-paste-surface-render.test.ts (5 tests | 5 failed) 10ms
+     × RENDERS the settled notice text when there is one and no error 6ms
+     × does NOT render it when there is no notice (no stale/blank warning box) 1ms
+     × SUPPRESSES it when an error is showing — the `!error` conjunct is the sole carrier here 1ms
+     × the notice is styled as a warning, not rendered bare 1ms
+     × CLEARS: notice present then absent leaves nothing behind 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > RENDERS the settled notice text when there is one and no error
+TypeError: Cannot read properties of null (reading 'useCallback')
+ ❯ process.env.NODE_ENV.exports.useCallback node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:1204:33
+ ❯ src/utils/hooks/useCodeMirror.ts:26:15
+     24|   const [updateDoc, setUpdateDoc] = useState<(val: string) => void>(()…
+     25|
+     26|   const ref = useCallback((node: HTMLElement | null) => {
+       |               ^
+     27|     if (!node) return;
+     28|
+ ❯ Module.NewMessageJsonInput src/app/message/_components/NewMessageJsonInput.tsx:121:30
+ ❯ renderPaste src/utils/__tests__/013-qa-paste-surface-render.test.ts:56:18
+ ❯ src/utils/__tests__/013-qa-paste-surface-render.test.ts:61:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > does NOT render it when there is no notice (no stale/blank warning box)
+TypeError: Cannot read properties of null (reading 'useCallback')
+ ❯ process.env.NODE_ENV.exports.useCallback node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:1204:33
+ ❯ src/utils/hooks/useCodeMirror.ts:26:15
+     24|   const [updateDoc, setUpdateDoc] = useState<(val: string) => void>(()…
+     25|
+     26|   const ref = useCallback((node: HTMLElement | null) => {
+       |               ^
+     27|     if (!node) return;
+     28|
+ ❯ Module.NewMessageJsonInput src/app/message/_components/NewMessageJsonInput.tsx:121:30
+ ❯ renderPaste src/utils/__tests__/013-qa-paste-surface-render.test.ts:56:18
+ ❯ src/utils/__tests__/013-qa-paste-surface-render.test.ts:65:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > SUPPRESSES it when an error is showing — the `!error` conjunct is the sole carrier here
+TypeError: Cannot read properties of null (reading 'useCallback')
+ ❯ process.env.NODE_ENV.exports.useCallback node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:1204:33
+ ❯ src/utils/hooks/useCodeMirror.ts:26:15
+     24|   const [updateDoc, setUpdateDoc] = useState<(val: string) => void>(()…
+     25|
+     26|   const ref = useCallback((node: HTMLElement | null) => {
+       |               ^
+     27|     if (!node) return;
+     28|
+ ❯ Module.NewMessageJsonInput src/app/message/_components/NewMessageJsonInput.tsx:121:30
+ ❯ renderPaste src/utils/__tests__/013-qa-paste-surface-render.test.ts:56:18
+ ❯ src/utils/__tests__/013-qa-paste-surface-render.test.ts:69:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > the notice is styled as a warning, not rendered bare
+TypeError: Cannot read properties of null (reading 'useCallback')
+ ❯ process.env.NODE_ENV.exports.useCallback node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:1204:33
+ ❯ src/utils/hooks/useCodeMirror.ts:26:15
+     24|   const [updateDoc, setUpdateDoc] = useState<(val: string) => void>(()…
+     25|
+     26|   const ref = useCallback((node: HTMLElement | null) => {
+       |               ^
+     27|     if (!node) return;
+     28|
+ ❯ Module.NewMessageJsonInput src/app/message/_components/NewMessageJsonInput.tsx:121:30
+ ❯ renderPaste src/utils/__tests__/013-qa-paste-surface-render.test.ts:56:18
+ ❯ src/utils/__tests__/013-qa-paste-surface-render.test.ts:73:33
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > CLEARS: notice present then absent leaves nothing behind
+TypeError: Cannot read properties of null (reading 'useCallback')
+ ❯ process.env.NODE_ENV.exports.useCallback node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:1204:33
+ ❯ src/utils/hooks/useCodeMirror.ts:26:15
+     24|   const [updateDoc, setUpdateDoc] = useState<(val: string) => void>(()…
+     25|
+     26|   const ref = useCallback((node: HTMLElement | null) => {
+       |               ^
+     27|     if (!node) return;
+     28|
+ ❯ Module.NewMessageJsonInput src/app/message/_components/NewMessageJsonInput.tsx:121:30
+ ❯ renderPaste src/utils/__tests__/013-qa-paste-surface-render.test.ts:56:18
+ ❯ src/utils/__tests__/013-qa-paste-surface-render.test.ts:78:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  5 failed (5)
+   Start at  03:21:51
+   Duration  1.10s (transform 199ms, setup 0ms, import 693ms, tests 10ms, environment 0ms)
+
