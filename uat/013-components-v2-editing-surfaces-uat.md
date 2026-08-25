@@ -5,6 +5,37 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
+  **Rev 46 — HE REPORTED `BC-4 pass`, AND THE ROW DOES NOT CLOSE ON IT YET. ONE QUESTION CLOSES IT AND QA
+  §V.32 WITH IT.** Two words, relayed unpadded by steering, which **declined to expand them into three limbs
+  because that would author an observation he did not make** — correct handling, credited. **The case for
+  closing is real and is stated before it is set aside**: `pass` is not freehand, since R45.3 defines it
+  three lines above the word; **three specific non-`pass` outputs stood in front of him and he used none**;
+  and **BC-4 carries no silent limb**, so this register's own rev-43 test points at closing it. **What holds
+  it open is ONE screen, not a pile — hazard A**: advance to page 2 first, see a greyed `Save` with no
+  explanation, never read limb 2's sentence. **That screen contains R45.3's own limb 3**, so a reader who
+  skipped point 2 sees something that resembles a pass. **AND THE DECIDING ARGUMENT IS NOT ABOUT HIM: this
+  register declined F-QA33 on the express ground that its cost would be paid in the operator text's first
+  hazard bullet, and closing BC-4 without checking the one limb F-QA33 endangers would retroactively empty
+  that reasoning. A stage does not cite a mitigation as its reason for declining a fix and then decline to
+  verify the mitigation.** **R44.3's test applied out loud rather than asserted, with the pressure named**:
+  `devops now` sits queued behind this row, and the ask survives *"would I ask if nothing were queued"*
+  **because it can name the screen it excludes** — a question that cannot name that is rigour-theatre and
+  is the vice this register is likelier to commit. **ONE question, ONE limb, not a re-execution and not
+  seven times — the rev-43 → rev-44 move exactly.** **Framed against R25.1**: it asks for the presence of
+  **one exact string**, a sighting rather than a ratification, with **two options requiring no claim at
+  all**, **`No` de-penalised in the option text itself**, and **`WITHDRAWN` genuinely available as his
+  ruling. `devops now` is a direction, not a terminal state.** **BC-4 → `NOT EXECUTED — OWNER REPORT ON
+  RECORD, NOT YET DECIDABLE ON LIMB 2`**, the identical state BC-7/BC-8 held at rev 43 and closed at rev 44.
+  **His report is recorded beside the prediction, never over it; the row is NOT `FAILED` and must not be
+  relayed as though it were.** **Residual 3 → ten, and the entry is precise about the kind: he adopted this
+  register's definition rather than describing a screen, so his word ENTAILS the string without STATING it,
+  and an entailment from an adopted definition is not an observation.** **R45.1.1 DISCHARGED — QA
+  re-anchored to plan rev 50 independently (§V.34) with two instruments and controls that kill the rev47→48
+  and rev48→49 deltas, a stronger derivation than R45.1's hunk read; the convergence counts because the
+  instruments were independent and steering declined to steer it.** Suite **48 files / 627 tests / 627
+  passed** at `b56570d`. **RELEASE DECISION UNCHANGED AND STILL CONDITIONAL: one `PRE` row stands
+  non-terminal and an unconditional approval requires all eight.** **Open set 5** — `PRE` **1** (BC-4) ·
+  `POST` **4**. **Branch unpushed; `origin/master` `2d90e8a`; nothing released.**
   **Rev 45 — THE GATE EXPIRED ON THE CRITERIA AXIS AND IS RE-ISSUED AT PLAN REV 50; BC-4's FIXTURE EXISTS
   AND THE ROW IS NOW THE OWNER'S LAST CHECK.** Written by **`uat-hooks-013-6`, a fresh session with no brief
   and no inherited context** — not a resumption of `uat-hooks-013-5`; every claim restated here was re-read
@@ -770,6 +801,7 @@ Verified-At: >-
 | 2026-08-25 | **owner** via `steering-hooks-013-3` [b04529], which put R43.4's question **verbatim as the whole of the question**; **steering set nothing** | He chose **"Yes, opened the JSON"** over *"No, screen only"* and a **costless** *"Not from memory"* | **Rev 44. BC-7 and BC-8 → `EXECUTED` 2026-08-25.** **Framing tested against R25.1 and it is the cleanest prompt of the chain**: two ways of leaving the rows open stood in front of him, **one entirely costless and demanding no assertion at all**, and he took neither — **more neutral than BC-5's, where no alternative was costless.** **The recording constraint is satisfied on its own terms**: the limb was settled by opening the Message JSON, which is what it asked. **RESIDUAL 3 GROWS TO NINE, and the pattern is worth more than the count: every operator row closed through a structured prompt is in this class, and the only two closed on his own characterisation — BC-2 and BC-3 — are the two he described spontaneously, unprompted.** **A structured prompt produces a selection, and a selection is an adoption**; the chain got its answers quickly *because* the prompts were well made, and the price is that almost every closure is an adopted description rather than an account. **A property of the method, not a failing of any prompt in it.** **BC-4 IS NOW THE LAST RELEASE CONDITION and it is steering's, never his** — and **its terminal states are named in advance rather than improvised**: `EXECUTED`, or **`TERMINAL: CANNOT BE EXECUTED`** (obligation stands, real residual risk, never read as closed), or **`WITHDRAWN`** by the owner alone. **Not available: a quiet drop or a *satisfied incidentally*** — **a row that is the last obstacle is the row under the most pressure to be waved through.** **Release decision UNCHANGED and still conditional: seven-of-eight is not eight. Open set 7 → 5.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] → **`uat-hooks-013-6`, a FRESH session with no brief and no inherited context** (not a resumption of `uat-hooks-013-5`); asked for the criteria ruling, BC-4's replacement operator text, and dispositions on F-QA33 and QA §V.32 | **Rev 45. THE GATE EXPIRED ON THE CRITERIA AXIS AND IS RE-ISSUED AT REV 50 — it did not "fail to bite".** Steering disclosed that its D53 pass (`eb0e291`, 19:31) took the plan to rev 50 one minute after rev 44's gate (`ff0c82c`, 19:30) anchored at rev 49. **Delta re-derived from the file, never from the message** (R36.1.2's defect does not recur inside the ruling about it): `numstat 3/1`, hunk read — header bump, one changelog row, one D53 row, **purely additive registration, no criterion**. **The rule is NOT amended**: rev 38 already paid this cost once and recorded that it "stands unamended"; a carve-out for trivial deltas is most attractive and most corrosive exactly here. **R36.1.1 is the re-issue procedure, not a competing rule.** **RE-ISSUED: TREE `b56570d` / CRITERIA plan rev 50 (`eb0e291`)**, both re-derived from the tree. The expired interval is recorded, not smoothed; nothing released in it (`origin/master` still `2d90e8a`, verified). **QA's `Criteria-At: rev 49` expires by its own clause — routed to QA, not decided here; this gate does not depend on it because no property QA verified moved.** **BC-4 UNBLOCKED: the fixture exists and is instrument-backed**, so R44.3's `CANNOT BE EXECUTED` path is **dead** and the row becomes the owner's last check — narrower than it started, because QA closed all three limbs mechanically and the human residue is the one link no instrument reached. **Replacement operator text authored (R45.3), final and verbatim-liftable**, carrying all five of QA §V.31's facts, the §V.32 falsity signature, and **no breach of D36**. **F-QA33 DECLINED as a 013 rider, routed as a new-plan candidate, non-blocking and OPEN** — its cost paid where it lands, in BC-4's first hazard bullet. **QA §V.32 ACCEPTED and bound to BC-4's own execution**, terminal states named in advance. **`OWNER-QUEUE.md` item 8 found DRIFTED** — a delivery copy, not a parallel ledger; the finding is the drift, and the rule is that a delivery copy carries the rev it was lifted from. **Release decision UNCHANGED in substance and still conditional, now on ONE row. Open set 5. Residuals 6 → 7.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — **a finding against rev 45's own certification prose**, flagged while this session was still warm rather than left for a cold successor or for `pi`; steering declined to fix another stage's document | **CORRECTION PASS to rev 45. No rev number, no verdict, no row, no anchor moves.** R45.3's certification sentence read ***"and **breaches D36**"*** where the ruling — and the clause after its own dash — say the opposite. **Corrected in place with the superseded text preserved in a dated reconcile note, per the skill's correction form for a record: never a silent overwrite.** **Blast radius re-derived at the file, not assumed**: `Status-Detail` and the rev 45 changelog row both already read *"no breach of D36"* and are untouched; R45.4's ruling is unchanged; **`grep -c D36 OWNER-QUEUE.md` returns 0**, so the defect never reached the delivery copy and the lifted 24 lines are byte-unchanged. **The operator text was always clean — the defect was in the sentence vouching for it.** **Recorded at weight rather than as a typo**: a certification sentence asserting its own falsification would show a retrospective or `pi` auditing D36 compliance a bolded admission of breach *inside the section written to demonstrate compliance*, and **a wrong entry in a compliance record is worse than a missing one, because it is believed.** **The method failure is named and is checkable**: this register read the block it was certifying and never read the sentence doing the certifying — **certification prose is not covered by verifying the thing certified.** **Second time today steering's read caught a defect in this gate's text before it hardened (R36.1.2 was the first); twice is a pattern about where the checking is happening, not luck.** Also recorded: steering lifted R45.3 verbatim (`e5327f1`, verified byte-identical programmatically before commit), **adopted the rev-stamp rule from R45.6** in the copy's own words, and routed the `Criteria-At` question to `qa-hooks-013-4` framed as QA's call with the axis move owned as steering's. |
+| 2026-08-25 | **owner** via `steering-hooks-013-3` [b04529], relayed **unpadded and deliberately not expanded into three limbs** — steering declining to author an observation he did not make | **Rev 46. He wrote `BC-4 pass` — two words — and THE ROW DOES NOT CLOSE ON IT YET. ONE question closes it.** **The case for closing is real and is stated first rather than caricatured**: `pass` is not freehand — R45.3 defines it three lines above the word; **three specific non-`pass` outputs stood in front of him** (`{}` → *"not executed"*, inert editor → *"write down exactly that"*, advanced-first → *"go back"*) **and he used none**; and **BC-4 carries no silent limb**, so this register's own rev-43 test points at closing it. **What holds it open is ONE screen, not a pile: hazard A** — advance first, see a greyed `Save` with no explanation, never read limb 2's sentence. That screen **contains R45.3's own limb 3**, so a reader who skipped point 2 sees something resembling a pass. **AND THE ARGUMENT THAT DECIDES IT IS NOT ABOUT HIM: this register declined F-QA33 four hours ago on the express ground that its cost is paid in the operator text's first hazard bullet. Closing BC-4 without checking the one limb F-QA33 endangers would retroactively empty that reasoning — a stage does not cite a mitigation as its reason for declining a fix and then decline to verify the mitigation.** QA pre-committed the standard at §V.29: a green row over a check that never executed is *"the precise failure shape this pass was asked to avoid."* **R44.3's test applied out loud with the pressure named**: `devops now` is queued behind this row; the ask survives the *"would I ask if nothing were queued"* test **because it can name the screen it excludes**, and a question that cannot name that is rigour-theatre. **ONE question about ONE limb, not a re-execution and not seven times — the rev-43 → rev-44 move exactly.** **Framing tested against R25.1**: it asks for the presence of ONE EXACT STRING — a sighting, not a ratification — with **two options requiring no claim at all**, `No` **de-penalised in the option text**, and **`WITHDRAWN` genuinely available as his ruling.** **Limb 2 observed ⟹ the editor delivered ⟹ QA §V.32 `HELD` by construction (QA §V.29's execution, not inferred here): one string, two rows.** **BC-4 → `NOT EXECUTED — OWNER REPORT ON RECORD, NOT YET DECIDABLE ON LIMB 2`**, the identical state BC-7/BC-8 held at rev 43. **His report is recorded BESIDE the prediction, never over it; the row is not `FAILED` and must not be relayed as though it were.** **RESIDUAL 3 → TEN, and the entry is precise: he adopted this register's definition rather than describing a screen, so his word ENTAILS the string but does not STATE it — an entailment from an adopted definition is not an observation, and that distinction is the whole reason the row is held.** **R45.1.1 DISCHARGED — QA re-anchored to rev 50 independently (§V.34), with two instruments and controls killing rev47→48 and rev48→49; stronger than R45.1's hunk read, and the convergence counts because steering declined to steer it.** Suite 48 files / 627 tests / 627 passed at `b56570d`. **`devops now` recorded as a direction, NOT a terminal state; steering holding devops was right on both counts.** **Release decision UNCHANGED and still conditional. Open set 5. Residuals 7.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -7953,3 +7985,213 @@ changelog and in the numbered rev sections, both of which already carry it here,
 genuinely lossless and the accounting lines are cheap to write. **The observation generalises past this
 document**: any stage that appends its rev summary to `Status-Detail` reaches the same state, and nothing
 in the current definitions stops it at rev 3 rather than rev 45.
+
+---
+
+# Rev 46 — **THE OWNER REPORTED `BC-4 pass`. THE ROW DOES NOT CLOSE ON IT YET, AND ONE QUESTION CLOSES IT.**
+
+## R46.1 — His report, verbatim and complete, recorded before it is weighed
+
+> **BC-4 pass**
+
+**That is the entirety of what he wrote about the row**, relayed by `steering-hooks-013-3` unpadded and
+explicitly *not* expanded into three limbs — **steering declining to author an observation he did not make
+is the correct handling and is credited as such.** His full message was **`BC-4 pass. devops now`**; the
+second sentence is recorded at R46.6 and **is not evidence about the row.**
+
+## R46.2 — The weighing, and the one thing that decides it
+
+**What is genuinely strong here, stated first, because the case for closing is real and this register is not
+going to caricature it:**
+
+1. **`pass` is not a freehand verdict — R45.3 defines it three lines above the word**: *"It passes if all
+   three hold."* He used the vocabulary this register handed him.
+2. **The text was built so that every hazard has its own non-`pass` output**: `{}` → *"write 'not
+   executed'"*; pasted-but-inert → *"write down exactly that"*; advanced-first → *"go back to the first page
+   and read there."* **Three specific alternatives stood in front of him and he used none of them.** That is
+   the R44.1 property — a report is worth more when the ways of not-passing were enumerated *before* he
+   looked.
+3. **BC-4 carries NO SILENT LIMB, and this register's own rev-43 test therefore points at closing it.** All
+   three limbs are visible on screen, and V.32's falsity signature is **the absence of limb 2**, not a
+   fourth hidden thing. **This is not BC-7/BC-8**, where the screen looked identical whether the bit was
+   right or wrong.
+
+**And what nevertheless holds it open — one thing, not a pile:**
+
+**`pass` is a CONCLUSION against a definition, not an account of a screen; and there is exactly one screen
+that produces a wrong `pass`.** It is **hazard A**: he advances to page 2 first, sees a greyed-out `Save`
+with no explanation, and never reads limb 2's sentence at all. **Note what that screen contains — a greyed
+`Save` and no navigation, which is R45.3's own limb 3.** A reader who skipped point 2 would be looking at
+something that resembles a pass.
+
+**The argument that decides it is not about him at all — it is about R45.4.** **This register declined
+F-QA33 four hours ago on the explicit ground that its cost would be paid in the operator text's first
+hazard bullet.** That decline is defensible **only if the register then checks that the bullet worked.**
+**Closing BC-4 without confirming the one limb F-QA33 endangers would retroactively empty the reasoning
+that declined F-QA33** — the hazard would have been absorbed in prose and never tested. **A stage does not
+get to cite a mitigation as its reason for declining a fix and then decline to verify the mitigation.**
+
+**QA pre-committed this register to the standard, in its own words at §V.29**: recording a row passed on a
+screen that did not execute the check is *"a green row over a check that never executed, which is the
+precise failure shape this pass was asked to avoid."*
+
+**The asymmetry, stated plainly because it is the whole calculation:** asking costs **one exchange**, which
+steering has offered and whose delay it has already taken as its own to explain. Being wrong the other way
+ships M3-c's user-facing behaviour unverified and records QA §V.32 as `HELD` on an entailment nobody
+observed. **Those are not comparable, and this register does not need a close reading of two words to see
+which side to err on.**
+
+### R46.2.1 — **The test that removes the pressure from the ruling, applied out loud**
+
+**`devops now` is queued behind this row, and R44.3 predicted exactly this**: *"a row that is the last
+obstacle is the row under the most pressure to be waved through, and this paragraph exists to be quoted at
+whoever is tempted."* **This register is the party tempted, so it applies the test rather than asserting it
+is immune:**
+
+**Would it ask if nothing were queued behind it?** **Yes** — and the reason is checkable rather than a
+feeling: **it can name the screen the answer rules out.** Hazard A. A question that cannot name what it
+would exclude is rigour-theatre and should not be asked; this one can, so it is not.
+
+**And the opposite vice is named too, because it is the one this register is more likely to commit:**
+**manufacturing a second ask to look thorough burns the owner's time on a row he already answered in the
+vocabulary he was given.** That is why this is **ONE question about ONE limb**, not a re-execution, not a
+per-limb interrogation, and **not seven times** — the rev-43 → rev-44 move exactly.
+
+## R46.3 — The question, and its framing tested against R25.1 before it is sent
+
+**Asked once. It settles BC-4 and QA §V.32 together, at no extra cost, exactly as R45.5 provided.**
+
+> **Did the sentence `Message must have content, embeds, or components.` appear below the JSON box?**
+>
+> - **Yes — I read that line**
+> - **No — I never saw that line** *(a finding about the app, not a mistake by him, and not a failure of
+>   the row)*
+> - **Not from memory** *(costless; recorded as unstated, no claim about memory required)*
+> - **"My `pass` stands — stop asking"** *(his ruling, and it is available; recorded with its cost)*
+
+**Framing tested against R25.1, whose residual is that a structured prompt produces a selection and a
+selection is an adoption.** **The residual is NOT avoided here and is not pretended away** — but it is at
+its minimum this chain has managed, for a reason that is structural rather than rhetorical: **the question
+asks for the presence of ONE EXACT STRING on a screen, which is as close to *what did you see* as a closed
+question can get.** It asks him to report a **sighting**, not to ratify a verdict. **Two of the four
+options require no claim at all** — *"Not from memory"* is costless and demands nothing about his memory,
+and the fourth ends the matter on his authority. **`No` is explicitly de-penalised in the option text
+itself**, because the answer this register most needs to be able to hear is the one that reopens work.
+
+**Why the presence of that one string settles both rows.** Established by QA's execution at §V.29, not
+inferred here: the error can only render if `loadedMessage` exists, which requires `setMessage`, which
+requires the parse to have run **on text the editor actually delivered**. **So limb 2 observed ⟹ CodeMirror
+delivered ⟹ QA §V.32's assumption `HELD` by construction.** One string, two rows.
+
+## R46.4 — **BC-4 and QA §V.32: state, and why `pass` is recorded rather than discarded**
+
+**BC-4 → `NOT EXECUTED — OWNER REPORT ON RECORD, NOT YET DECIDABLE ON LIMB 2`.** The identical state
+BC-7 and BC-8 held at rev 43 and closed at rev 44 on one question. **His report is recorded, not
+discarded, and it is recorded BESIDE the prediction rather than over it** — nothing here says he was
+careless, and **the row is not `FAILED` and must never be relayed as though it were.**
+
+**QA §V.32 → held with it**, per R45.5's own table. It does not terminalise on an entailment from an
+adopted definition when the observation that would settle it is one question away.
+
+**RESIDUAL 3 GROWS TO TEN, and the entry is precise about what kind of member this is.** He adopted this
+register's three-limb definition rather than describing a screen. **The register must not read as though he
+independently characterised the error string: he did not state it, and under R45.3's definition his word
+ENTAILS it.** **An entailment from an adopted definition is not an observation**, and the distinction is
+the entire reason this row is being held rather than closed.
+
+## R46.5 — **The rev 45.1.1 routing is DISCHARGED, and QA reached the ruling independently**
+
+Re-read at QA's document at this revision's write time, not carried: `Criteria-At: "plan 013 rev 50,
+eb0e291 — RE-ANCHORED 2026-08-25 (§V.34)"`, `Status: QA Complete`, `Verified-At: b56570d`.
+
+**QA ruled the clause BITES and the substance STANDS — the same shape as R45.1, reached separately.** And
+**QA's derivation is stronger than this register's and that is stated rather than glossed**: it used **two
+independent instruments with controls that kill the rev47→48 and rev48→49 deltas**
+(`verification/013/probe-qa-criteria-rev49-rev50/`), where R45.1 read a hunk. **Agreement here is worth
+something precisely because the instruments were independent** — the skill's warning is that reproducibility
+is not validity *when both parties share an instrument*, and steering explicitly declined to steer QA toward
+re-issuing or to hand it this register's `numstat`. **The convergence is evidence; it was not manufactured.**
+
+QA also re-derived the suite at `b56570d`: **48 files / 627 tests / 627 passed.**
+
+## R46.6 — **`devops now` is a direction, not a terminal state — and steering holding it was right**
+
+His message ended **`devops now`**. **Steering has not invoked devops and disclosed the pressure to this
+gate rather than acting on it or hiding it.** **That is correct on both counts**, and it is the second time
+today steering has brought this register something it would rather not have found (the D36 certification
+defect, and the criteria-axis move before that).
+
+**The direction is recorded and it changes nothing here.** *"The owner is ready"* is not one of BC-4's
+terminal states; **`EXECUTED` and `WITHDRAWN` are.** **`WITHDRAWN` is genuinely available to him and is the
+fourth option in R46.3** — if he rules the question ended, the row terminalises on his authority with its
+cost recorded. **What is not available is the row closing because a release is queued behind it**, which is
+the sentence R44.3 exists to have quoted at exactly this moment.
+
+## R46.7 — Ledger delta at rev 46
+
+| Row | Before | **At rev 46** | Basis |
+|---|---|---|---|
+| **BC-4** | `NOT EXECUTED` — unblocked, executable, owner-subject | **`NOT EXECUTED — OWNER REPORT ON RECORD, NOT YET DECIDABLE ON LIMB 2`** | R46.2. `pass` is a conclusion against an adopted definition; hazard A is the one screen producing a wrong `pass`, and it is the limb F-QA33's decline was justified by carrying |
+| **QA §V.32** | `ACCEPTED`, bound to BC-4 | **held with BC-4** — closes on the same string | R46.3. Limb 2 observed ⟹ editor delivered ⟹ assumption `HELD` |
+| **QA `Criteria-At`** | routed at R45.1.1, undischarged | **DISCHARGED** — QA re-anchored to rev 50 independently, with controls | R46.5 |
+| **BC-12, BC-14, BC-17, BC-20** | `NOT EXECUTED`, `POST` | **unchanged** | **Post-deploy-observable; they gate chain CLOSURE, never the release act** |
+| **F-QA33** | `DECLINED as a 013 rider`, open | **unchanged — and its decline is now load-bearing on BC-4's limb 2** | R46.2 |
+| **Residual 3** | 9 members | **10** — the entry names it as an entailment, not an observation | R46.4 |
+| **Release decision** | conditional on BC-4 | **UNCHANGED and still conditional on BC-4** | `NOT EXECUTED` is not a terminal state |
+| **Open set** | **5** | **5** | `PRE` **1** · `POST` **4** · Documentary **0** |
+
+## R46.8 — State, and the answer to *"is the approval unconditional yet"*
+
+**No. It is not.** **One `PRE` row stands non-terminal, and an unconditional approval requires all eight.**
+
+> ## **APPROVED FOR RELEASE, conditional on the human click-through of BC-4 — which is now conditional on ONE QUESTION (R46.3).**
+> **If it fails, return to the implementer before release.**
+>
+> **ANCHOR: TREE `b56570dfa916368e9942e671d594112750567923` on `chain/013-rider-2` · CRITERIA plan 013
+> rev 50 (`eb0e291`)** — **both re-derived from the tree at this revision's write time**, neither inherited:
+> `git status --porcelain src/ bot/` → **0 lines**, so the SHA stands alone and no manifest fallback is
+> owed; plan header `Rev: 50`, last plan-touching commit `eb0e291`. **Either axis moving expires this
+> decision, and any change to production code expires it and every predecessor verdict with it.**
+>
+> **Predecessors, re-read at this write time, each its own authority**: code review `Code Review Approved`;
+> **QA `QA Complete`, `Verified-At: b56570d`, `Criteria-At: plan 013 rev 50 (§V.34)` — now anchored on
+> BOTH axes to the same pair as this gate.** Suite 48 files / 627 tests / 627 passed.
+>
+> **Outstanding: BC-4** — owner **the repository owner**; terminal states **`EXECUTED`** (result and date)
+> or **`WITHDRAWN`** (his ruling alone, cost recorded). **`NOT EXECUTED` is not a terminal state**, and
+> **no release is recorded complete while it stands at one.**
+>
+> **Recommended version: MINOR** — recommendation only; the release act is the owner's and devops'.
+>
+> **Nothing released. `origin/master` `2d90e8a`, branch unpushed, 3 ahead.**
+
+**Residuals: seven**, residual 3 at **ten** members.
+
+**Next Actions** — *point-in-time; later stage documents are authoritative on these items' current state.*
+
+1. **The owner — ONE question** (R46.3). **Nothing else, and not three times.** **He owes no capture, no
+   screenshot and no re-run** — his statement with its timestamp is the terminal form of his evidence.
+2. **This stage — terminalise BC-4 and QA §V.32 together on his answer**, whichever it is. **`No` closes
+   the row as a finding routed to the implementer, not as a failure of his.**
+3. **Devops — DOES NOT MOVE**, and R46.9 states precisely what it must carry when it does.
+4. **QA — nothing.** The criteria routing is discharged (R46.5).
+5. **Nobody** — re-raises a closed row, expands two words into three limbs, or reads `devops now` as a
+   terminal state.
+
+## R46.9 — **What devops must carry, written to be briefed from directly**
+
+1. **The `PRE`/`POST` distinction is not bookkeeping.** **BC-12, BC-14, BC-17 and BC-20 are
+   post-deploy-observable: they gate the CHAIN'S CLOSURE, never the release act.** They must not be
+   presented as blocking the merge, and they must not be quietly dropped once the merge happens — each
+   reaches its own terminal state, **acted on at its earliest-decidable condition rather than when someone
+   happens to look.**
+2. **For this repo, *before merge* and *before deploy* are the same instant** — pushing to `master`
+   deploys. **There is no window between them in which a missed check can be caught.**
+3. **The gate is anchored on two axes and expires on either.** Devops re-derives **TREE `b56570d`** and
+   **plan rev 50** at its own start, from the tree — **it does not inherit them from this document.** If
+   either has moved, this decision and both predecessor verdicts are expired and devops stops.
+4. **The release act itself is the owner's approval, which has NOT been given** — `devops now` is a
+   direction to the pipeline, not a release approval, and **pushing requires his explicit approval
+   regardless.**
+5. **One outstanding condition, and it is not devops' to close or to judge**: BC-4. **No release is
+   recorded complete while it stands at `NOT EXECUTED`.**
