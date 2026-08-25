@@ -2,9 +2,29 @@
 ID: 013
 Origin: 013
 UUID: 22d69e06
-Reviewed-At: "Round 19-δ2 (settled final tip): a151fb4 — the chain tip has stopped moving. Re-derived with git-side predicates (not piped counts — grep -vc over piped diff is unsound here): `git diff --name-only 53beb37..a151fb4 -- ':(exclude)*__tests__*'` is EMPTY, so the ENTIRE non-test tree is byte-identical to my binding round-19 verdict tree; both reviewed source blobs unchanged (JsonModalBody.tsx cfbec5b, discordResponseToMessage.ts 81f4562). The delta 164d720..a151fb4 is FOUR test files (M/M/M/A — I independently re-derived 4, correcting QA's 3, which counted its own commit), all QA-domain: F-QA21 (a test assertion `flags as number & 32768` that parsed as a TS type assertion, not a bitwise AND, silently asserting flags===0 — a vacuous-green defect in the TEST; the source's switchToClassic correctly clears only the V2 bit, as reviewed round 19), F-QA16 re-anchors (Block-E 'flag never reaches the textarea' REPLACED not restored, per my constraint), F-QA19 new coverage. My CR21-C hole-check block is intact at a151fb4. Zero source delta ⟹ the round-19 APPROVED verdict CARRIES to a151fb4 in full (delta-round identity rule, strongest form). The code-review gate is MET at a151fb4. Round 19-δ (prior tip): 164d720 — a TEST-ONLY micro-round landing INFO-3 (the CR21-C hole-check negatives ported into 013-fqa15-rowd-load-gate.test.ts, +27, one file). The two reviewed SOURCE blobs are byte-identical to 53beb37 (JsonModalBody.tsx cfbec5b, discordResponseToMessage.ts 81f4562), so the round-19 APPROVED verdict carries unchanged; a byte-identical source tree requires identity re-verification, not a fresh attack. Confirmed: diff confined to the one test file; the three ported assertions are byte-for-byte my CR21-C with the same loadDisabled helper; all referenced symbols imported (applyDisposition/resolveContentLoss/validateContentRequirements/FLAG). One non-blocking comment-hygiene note (the added prose block narrates the review exchange; the describe() string already carries the machine-read label). QA cleared to anchor Verified-At at 164d720. Round 19 (binding verdict): 53beb37 (chain/013-components-v2-editing-surfaces) — the QA Phase 2 fix round: JsonModalBody Load gate floors the RESOLVED draft `validateContentRequirements(applyDisposition(validatedDraft))` (F-QA15), and discordResponseToMessage.ts exports its two SUPPORTED_*_TYPES sets (F-QA17, export-only); two files. HEAD and both reviewed blobs (JsonModalBody.tsx cfbec5b, discordResponseToMessage.ts 81f4562) verified byte-identical to the commit at pass start AND end; the tree did not move. Superseded, retained for the record: round 18 at 4e9da96, round 17 at ad9f331, round 16 at e61e602, round 15 at 12f4ce6, round 14 at 66e1974, round 13 at 7890fc9, round 12 at 299b842, round 11 at 54fed63, round 10 at 82af843, round 9 at ee3bc3e, round 8 at b3f8ea9, round 7 at 87cfbd8, round 6 at 816d7fd, round 5 at 0c8fad5, round 4 at 92ce026, round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
+Reviewed-At: "Round 20 (current, binding): abcf585 on branch chain/013-toast-vessel — the owner-ruling 2026-08-25 toast→persistent-vessel round (five paths: NewMessageJsonInput.tsx, MessageProvider/index.tsx, CodeMessageNotice.tsx [new], layout.tsx, 013-owner-toast-vessel-2026-08-25.test.ts [new]). Base = merge-base(abcf585,a151fb4) = a151fb4, one commit atop it. HEAD and all five blobs verified byte-identical at pass start and end. APPROVED_WITH_COMMENTS, SCOPED — no plan revision, no planner; verdict scoped to code quality + conformance to the relayed owner ruling. This is a POST-RELEASE fix: a151fb4 is live on origin/master (re-derived via git ls-remote, not a tracking ref), so all a151fb4-stamped verdicts are expired and devops must re-run readiness + cut a new release. Superseded/expired: the round-19 verdict at a151fb4 (was live, now the base of this fix). NO VERDICT TRAVELS BETWEEN TREES. Round 19-δ2 (superseded, was the settled tip): a151fb4 — the chain tip has stopped moving. Re-derived with git-side predicates (not piped counts — grep -vc over piped diff is unsound here): `git diff --name-only 53beb37..a151fb4 -- ':(exclude)*__tests__*'` is EMPTY, so the ENTIRE non-test tree is byte-identical to my binding round-19 verdict tree; both reviewed source blobs unchanged (JsonModalBody.tsx cfbec5b, discordResponseToMessage.ts 81f4562). The delta 164d720..a151fb4 is FOUR test files (M/M/M/A — I independently re-derived 4, correcting QA's 3, which counted its own commit), all QA-domain: F-QA21 (a test assertion `flags as number & 32768` that parsed as a TS type assertion, not a bitwise AND, silently asserting flags===0 — a vacuous-green defect in the TEST; the source's switchToClassic correctly clears only the V2 bit, as reviewed round 19), F-QA16 re-anchors (Block-E 'flag never reaches the textarea' REPLACED not restored, per my constraint), F-QA19 new coverage. My CR21-C hole-check block is intact at a151fb4. Zero source delta ⟹ the round-19 APPROVED verdict CARRIES to a151fb4 in full (delta-round identity rule, strongest form). The code-review gate is MET at a151fb4. Round 19-δ (prior tip): 164d720 — a TEST-ONLY micro-round landing INFO-3 (the CR21-C hole-check negatives ported into 013-fqa15-rowd-load-gate.test.ts, +27, one file). The two reviewed SOURCE blobs are byte-identical to 53beb37 (JsonModalBody.tsx cfbec5b, discordResponseToMessage.ts 81f4562), so the round-19 APPROVED verdict carries unchanged; a byte-identical source tree requires identity re-verification, not a fresh attack. Confirmed: diff confined to the one test file; the three ported assertions are byte-for-byte my CR21-C with the same loadDisabled helper; all referenced symbols imported (applyDisposition/resolveContentLoss/validateContentRequirements/FLAG). One non-blocking comment-hygiene note (the added prose block narrates the review exchange; the describe() string already carries the machine-read label). QA cleared to anchor Verified-At at 164d720. Round 19 (binding verdict): 53beb37 (chain/013-components-v2-editing-surfaces) — the QA Phase 2 fix round: JsonModalBody Load gate floors the RESOLVED draft `validateContentRequirements(applyDisposition(validatedDraft))` (F-QA15), and discordResponseToMessage.ts exports its two SUPPORTED_*_TYPES sets (F-QA17, export-only); two files. HEAD and both reviewed blobs (JsonModalBody.tsx cfbec5b, discordResponseToMessage.ts 81f4562) verified byte-identical to the commit at pass start AND end; the tree did not move. Superseded, retained for the record: round 18 at 4e9da96, round 17 at ad9f331, round 16 at e61e602, round 15 at 12f4ce6, round 14 at 66e1974, round 13 at 7890fc9, round 12 at 299b842, round 11 at 54fed63, round 10 at 82af843, round 9 at ee3bc3e, round 8 at b3f8ea9, round 7 at 87cfbd8, round 6 at 816d7fd, round 5 at 0c8fad5, round 4 at 92ce026, round 3 at 18407d8, round 2 at 495463a, round 1 at a4eb00d. NO VERDICT IN THIS DOCUMENT TRAVELS BETWEEN THESE TREES."
 Status: Code Review Approved
 Status-Detail: >-
+  Round 20 (binding) at abcf585 (branch chain/013-toast-vessel): APPROVED_WITH_COMMENTS, SCOPED. The
+  owner-ruling 2026-08-25 toast→persistent-vessel round. AUTHORITY IS THIN: no plan revision, no planner
+  ("toast" appears 0 times in the plan); verdict scoped to code quality + conformance to the relayed
+  ruling, NOT ratification of the ruling (owner's) nor the product call on the retained site (owner's).
+  Enumeration (git-side, c85945f..a151fb4): 013 introduced exactly THREE toast.warn, all stateful; the
+  change disposes all three — TWO CONVERTED (NewMessageJsonInput settled notice → persistent settledNotice
+  state, which also closes my rounds-9/10/11 re-fire class at the root; MessageProvider dropped-types →
+  persistent CodeMessageNotice banner), ONE RETAINED with argument (JsonModalBody Load toast). The retained
+  site is the substance: I attacked it (sibling asymmetry — same noticeMessageForSettled the sibling now
+  renders persistently, and JsonModalBody has a during-edit vessel), but it does not hold the tree — a real
+  interaction-model difference (sibling live-applies each parse; Load applies discretely then onClose()s)
+  makes "transient action-report" defensible, and the owner himself named "the Load one" as his conditional
+  exception. FINAL CALL ON THE RETAINED SITE = OWNER'S (product judgment), routed not shelved. TDD ordering
+  lapse disclosed with a valid stash-revert compensation (7/9 red on reverted tree). Test is source-text
+  pinning (non-vacuous) not behavioural — DOM residue → Assumption Not Checked, routed to QA/UAT. tsc 0;
+  eslint 0 on the four source files. POST-RELEASE: a151fb4 is live on origin/master (git ls-remote), so the
+  a151fb4 verdicts are expired and devops must re-run readiness + cut a new release. This Status names the
+  non-terminal "review passed" state for the abcf585 tree; DevOps still owns the terminal Committed close,
+  and the plan Status stays steering's/owner's. Handing off to the qa subagent for execution. Prior
+  (superseded, was live): round-19 verdict at a151fb4.
   CODE-REVIEW GATE MET at the settled final tip a151fb4 (round-19 APPROVED verdict, re-anchored). The
   entire non-test tree is byte-identical from my binding verdict tree 53beb37 through 164d720 to a151fb4
   (git-side test-excluded diff EMPTY); the delta is four QA-domain test files (F-QA21/F-QA16/F-QA19), zero
@@ -50,6 +70,7 @@ Status-Detail: >-
 
 | Date | Agent Handoff | Request | Summary |
 |---|---|---|---|
+| 2026-08-25 | steering-hooks-013-2 (return channel) | Review new work on `chain/013-toast-vessel` tip `abcf585` (base `a151fb4`): the owner-ruling 2026-08-25 toast→persistent-vessel change; authority flagged thin (verbal ruling, no plan/planner); attack the deliberately-retained third site | **Round 20. APPROVED_WITH_COMMENTS — SCOPED.** Authority re-checked and stated: no plan revision, no planner ("toast" = 0 in the plan body); verdict **scoped** to code quality + conformance to the relayed ruling, not ratification of it. **This is a POST-RELEASE fix** — re-derived `git ls-remote origin master` → a151fb4, so my round-19 tree is live; a151fb4 verdicts expired, devops must re-run readiness + new release. **Enumeration (git-side, c85945f..a151fb4)**: 013 introduced **exactly three toast.warn**, all stateful, zero toast.error/loading — the change disposes all three. **Two CONVERTED, clean, no regression**: NewMessageJsonInput settled notice → persistent `settledNotice` state (removes `lastNoticeClassRef`; **structurally closes my own rounds 9/10/11 re-fire MEDIUM-2 at the root**), and MessageProvider dropped-types → persistent `CodeMessageNotice` banner (internal-consistency with the other M3-b entry points). **One RETAINED with argument — the substance, attacked**: JsonModalBody's Load toast. Sharp attack = the **sibling asymmetry** (same `noticeMessageForSettled` the sibling renders persistently; JsonModalBody has a during-edit vessel). It **does not hold the tree** because a genuine **interaction-model difference** (sibling live-applies each parse → continuous state; Load applies discretely then `onClose()`s → action-report) makes "transient" defensible, and the **owner himself named "the Load one"** as his conditional exception. **FINAL CALL = OWNER'S** (product judgment), routed not shelved: if persistent is wanted, render the notice in JsonModalBody's existing during-edit region and drop the line-72 toast (small, contained). **TDD**: ordering lapse disclosed + valid stash-revert compensation (7/9 red on reverted tree, 2/9 green assert unchanged code — correctly). **Test is source-text pinning, non-vacuous, not behavioural** → DOM residue = Assumption Not Checked (the notices actually rendering/visible), routed to QA/UAT. tsc 0; eslint 0 on the four source files; suite not run (QA's; implementer reports 559/559/0). SHA byte-identical at pass start and end. Status → non-terminal "review passed" for abcf585 (DevOps owns Committed; plan Status steering's/owner's). Handing off to qa. |
 | 2026-08-24 | steering-hooks-013-2 (return channel) | Re-verify/transfer my verdict to the settled final tip `a151fb4` (U-C1: no one else will transfer it); rule on the doc `Status` UAT flagged | **Round 19-δ2. CODE-REVIEW GATE MET at `a151fb4`; verdict transferred; Status → Code Review Approved.** Re-derived with **git-side predicates** (steering warned, correctly, that `grep -vc "__tests__"` over piped diff returns a false 3 — RTK positional-predicate hazard): `git diff --name-only 53beb37..a151fb4 -- ':(exclude)*__tests__*'` is **EMPTY** — the **entire non-test tree is byte-identical** from my binding verdict tree through to the final tip; both reviewed source blobs unchanged (JsonModalBody cfbec5b, discordResponseToMessage 81f4562). Delta 164d720..a151fb4 = **FOUR test files** (M/M/M/A via `git diff --name-status`; I independently re-derived **4, correcting QA's 3** — QA counted its own commit), all **QA-domain**: **F-QA21** (a test assertion `flags as number & 32768` that parsed as a TS **type assertion**, not a bitwise AND — erased at runtime, silently asserting `flags===0`, vacuously green; QA mutation-caught it when a flag-wiping mutant survived 15/15, then upgraded severity — a defect in the **test**, not the source: `switchToClassic` correctly clears only the V2 bit `& ~IS_COMPONENTS_V2_FLAG`, as I reviewed round 19); **F-QA16** re-anchors (Block-E "flag never reaches the textarea" **REPLACED not restored**, per my round-9/17 constraint — verified); **F-QA19** new coverage (QA closed a vacuous assertion of its own). **My CR21-C hole-check block is intact** at a151fb4 (lines 106-122). **Zero source delta ⟹ the round-19 APPROVED verdict CARRIES in full** (delta-round identity rule, strongest form: whole tree, not two files). **Status**: moved `In Review → Code Review Approved` — the non-terminal "review passed" state; document-lifecycle defines no "approved" terminal status, so DevOps still owns the terminal close to **Committed**, and the **plan** document's Status stays steering's to advance. Not written to clear a condition — it is the accurate state, and it answers U-C1: verdict APPROVED, anchored to the tip UAT/QA read. Standing condition persists: anything past a151fb4 re-opens re-verification. |
 | 2026-08-24 | steering-hooks-013-2 (return channel) | Re-verify the INFO-3 micro-round at `164d720` (test-only, one file) per my standing "any commit after 53beb37 re-opens re-verification" condition | **Round 19-δ. CLEARED — no change to the verdict; QA released to `164d720`.** Test-only round: `git diff 53beb37..164d720` is **one file, +27, pure additions** — `013-fqa15-rowd-load-gate.test.ts`. Both reviewed **source blobs byte-identical** to 53beb37 (JsonModalBody cfbec5b, discordResponseToMessage 81f4562), so the round-19 APPROVED verdict carries unchanged and a byte-identical source tree needs **identity re-verification, not a fresh attack** (delta-round rule). **Port fidelity (the check only I could make, since I wrote the negatives)**: the three ported assertions are **byte-for-byte my CR21-C** — empty draft, flag-only-empty (row C via switchToV2), whitespace-only — with the identical `loadDisabled` helper `!!validateContentRequirements(applyDisposition(draft))`; all referenced symbols are imported (applyDisposition/resolveContentLoss from ~/utils, validateContentRequirements from ~/utils/limits, FLAG), so the block binds to the real functions and passes by identity against the byte-identical source. No source touched; no restoration of the Block-E "flag never reaches the textarea" assertion. **One non-blocking note** (comment hygiene, not held): the added `// Code review round 19 (INFO-3…) — ported from the reviewer's own probe` prose block narrates the review exchange to a human reader — trimmable, since the `describe()` string already carries the machine-read label and the record lives in this document; route to the implementer for any future touch, does not change the decision. Implementer's own numbers (tsc 0, suite 544/538/6 same six pre-existing) are its claims; my clearance rests on the identity + port-fidelity checks above. QA anchors Verified-At at 164d720. |
 | 2026-08-24 | steering-hooks-013-2 (return channel) | Review chain 013's QA Phase 2 fix round at `53beb37` (two files: `JsonModalBody.tsx`, `discordResponseToMessage.ts`), doc `5456527`; re-derive four checks | **Round 19. APPROVED.** F-QA15: the Load gate now floors the **RESOLVED** draft — `validateContentRequirements(applyDisposition(validatedDraft))` — exactly what `commitLoad` loads (`:73`), the structural fix recommended at round 16 (CR18-D). Re-attacked from first principles (gate fix, established by execution — `probe-cr21` **30/30** + mutation evidence): **CLOSURE** all 8 row-D members now load (`switchToClassic` clears the flag + filters to type-1, so the floor's `hasV2&&hasContent` can't fire post-resolution); **NO HOLE** empty / flag-only-empty (row C → `switchToV2` keeps empty) / whitespace-only stay blocked (my **CR21-C**, the negative the implementer's own test lacks → non-blocking **INFO-3**); **NO CRASH** the unguarded `applyDisposition` at the gate is safe **only** because the parse effect stores `validatedDraft=null` for row E (asserted invariant, CR21-E). Mutation: OLD gate (raw floor) blocks the 5712 shape, FIXED gate enables it — CR21-B flips on revert. **Steering's four checks each re-derived, not trusted**: (1) closure+no-hole CONFIRMED; (2) reproduced QA's own probe independently → **28/29**, sole failure = Block A's now-obsolete pre-fix source anchor (QA owns re-anchoring, F-QA16), Blocks B/C/E green = no real regression; (3) **F-QA18 sweep COMPLETE** — all 5 production V2-classification predicates (`index.ts:31,71,655`, `limits.tsx:117`, `backfillValid.ts:79`) derive from `V2_COMPONENT_TYPE_VALUES=[9,10,11,12,13,14,17]` (incl. Thumbnail 11); no hand-rolled classifier bypasses it (the only hardcoded `type===N` are structural tree-walks); `gateBeforePersist`→`resolveContentLoss`→`hasV2Components`; (4) **F-QA17 export-only**, both `SUPPORTED_*_TYPES` copies execute to equal sets `{1,9,10,12,13,14,17}`/`{1,9,10,12,13,14}` at runtime (CR21-G, my instrument, not QA's suite). Verification: **tsc 0** project-wide; **eslint 0 errors** on both changed files (1 warning at `discordResponseToMessage.ts:159` is **PRE-EXISTING**, byte-identical at parent, not on a changed line). No CRITICAL/HIGH/MEDIUM this round; one non-blocking **INFO-3** (fix test asserts closure, not no-hole) routed to the implementer. **Carried, unchanged**: MEDIUM-4 (owner-pending; F-QA15's floor gate remains its incidental mitigation, `!!contentFloorError` term preserved). **Assumption Not Checked** (DOM: the computed `isDisabled` actually renders an enabled Load button for row D — no DOM harness at this tree) routed to QA Phase 2's refresh pass. SHA verified byte-identical at pass start AND end. Plan Status left to steering. Handing off to the qa subagent for test execution. |
@@ -5889,3 +5910,176 @@ gap) routed to the implementer.
    pre-existing item (predicates diverge in `limits.tsx`/`index.ts`, owner-pending); F-QA15's floor
    gate is still its incidental mitigation and the fix preserved the `!!contentFloorError` term, so it
    survives. Any commit after `53beb37` re-opens full re-verification — tell me the new SHA.
+
+# ROUND 20 — owner ruling 2026-08-25, toast→persistent-vessel, at `abcf585` (branch `chain/013-toast-vessel`)
+
+**Verdict: APPROVED_WITH_COMMENTS — scoped (see Authority). The code is sound and conforms to the
+relayed ruling; the one substantive judgment (the retained Load toast) is a UX product decision
+routed to the owner, and it does not hold the tree.** `Reviewed-At: abcf585` — HEAD and all five
+blobs verified byte-identical to the commit at pass start and end; branch `chain/013-toast-vessel`,
+base = merge-base(abcf585, a151fb4) = a151fb4 (my last-approved tree), exactly one commit atop it.
+
+## Authority — stated because it is thin, and it bounds this verdict
+
+This work exists on an **owner ruling given in conversation on 2026-08-25**, relayed by
+steering-hooks-013-2. **013's plan has NOT been revised and no planner ran** — I re-checked: the word
+"toast" appears in the plan body zero times, and `planner-hooks-013-2` has not produced a document.
+There is therefore **no plan acceptance criteria, no milestone, and no architectural grounding** for
+this change; the review's source of truth is the owner's ruling as relayed and as I re-derived it
+from his own words. **I scope my verdict accordingly** (role definition, item 4): I assess (a) code
+quality, (b) conformance to the stated principle, (c) completeness of the enumeration — and I do
+**not** ratify the relayed ruling itself (owner's to confirm) nor make the product call on the
+retained site (owner's). If the relayed ruling is incomplete or mis-transcribed, my conformance
+finding inherits that. This is a legitimate scoped verdict, not a claim of grounding I did not have.
+
+**Risk posture — this is a POST-RELEASE fix to live code.** I re-derived it, not from a tracking
+ref: `git ls-remote origin master` → `a151fb47a84d…` = a151fb4. So the tree I approved at round 19 is
+live on master. The owner's "fix before release" was unsatisfiable from issuance (the push preceded
+it). Consequence for the pipeline: devops must re-run readiness and cut a NEW release; this is not a
+pre-release gate. Neither steering nor devops authored the push; the owner has not confirmed it. Not
+mine to resolve — recorded for whoever owns the deploy.
+
+## The ruling, and the class it defines
+
+Owner (two parts, the second amends the first): permanent/stateful warnings put into toasts are
+wrong UX and must become persistent in-surface messages; transient action-reports (a request firing
+or failing, or "an action where the state cannot be represented persistently") may stay toasts.
+Scope: **the notices 013 itself introduced**, not older ones; app-wide sweep declined.
+
+**Enumeration (class-scoped, re-run by me, git-side).** The class is "toast calls 013 introduced."
+`git diff c85945f..a151fb4 -- 'src/**/*.tsx' 'src/**/*.ts' ':(exclude)*__tests__*'`, added lines
+matching `toast.`, returns **exactly three, all `toast.warn`**:
+- `NewMessageJsonInput.tsx` — the paste/new-message JSON surface settled notice
+- `MessageProvider/index.tsx` — the code-import `droppedComponentTypes` "Not carried" notice
+- `JsonModalBody.tsx:72` — the edit-modal Load-action settled notice
+
+013 added **zero** `toast.error/loading/success/info`. So the class is fully bounded by these three,
+and the change disposes all three (2 converted, 1 retained). **What the predicate cannot see**: a
+stateful notice delivered through a non-`toast.` channel (e.g. a bespoke portal) — none exists in the
+013 diff. Enumeration complete; the disposition covers 100% of the class.
+
+## The two conversions — APPROVED, clean, and they close my own rounds 9–11 finding
+
+- **NewMessageJsonInput.tsx** — the `react-toastify` import and the `useRef` `lastNoticeClassRef`
+  debounce are removed; the settled notice becomes `useState` `settledNotice`, reset to `null` at the
+  effect top and set on the settled branch, rendered `<NullableComponent show={!error &&
+  settledNotice}>` in the same pattern as the file's existing `droppedComponentTypes` block. This
+  **structurally dissolves the re-fire class I raised across rounds 9/10/11** (MEDIUM-2: the toast
+  re-fired because the catch branch cleared the ref — 9 identical toasts over 8 round-trips). There is
+  no toast to re-fire now; the rendered `<p>` reflects current state, reset each parse. The owner's
+  principle vindicates that finding at the root. Correct here because this surface **live-applies** on
+  every parse (`setMessage(applyDisposition(validated))` in the effect, line 108), so the notice is a
+  continuous property of the applied state.
+- **MessageProvider/index.tsx** + **CodeMessageNotice.tsx** (new) + **layout.tsx** — the dropped-types
+  toast becomes `codeMessageDroppedNotice` provider state (null when no drops), exposed on the context
+  `State`, rendered by the new `CodeMessageNotice` persistent banner mounted in `[id]/layout.tsx`
+  (covers edit and send). Internal-consistency argument holds: the other M3-b entry points already
+  render this identical fact persistently, so the code path was the sole toast outlier. No stale-stuck
+  risk: the effect resets to `null` on any `codeMessage` without drops (`?.length ? msg : null`); the
+  four other `toast.*` sites in the provider are request lifecycle (transient) and correctly untouched
+  — the test even pins that they remain, so this is not a blanket removal.
+
+No regression in either conversion — the notices are strictly more visible (persistent vs transient),
+which is the owner's intent.
+
+## The retained site (JsonModalBody Load toast) — the substance; attacked, then routed to the owner
+
+Steering asked me to attack this, not confirm it. I did. **My adversarial finding, and why it does
+not become a rejection:**
+
+The sharp attack is the **sibling asymmetry**: the retained notice is `noticeMessageForSettled(...)`,
+the *same function* NewMessageJsonInput now renders persistently, and JsonModalBody *already has a
+live render phase* with four persistent vessels (error, droppedComponentTypes, contentFloorError,
+dismissedChoice, lines 221–242). So a persistent vessel for the settled notice is demonstrably
+*possible* here — the implementer's "no durable place exists" claim is about the *post-`onClose()`*
+state, and it overlooks the *during-edit* vessel the sibling uses.
+
+**Why it nonetheless does not hold the tree:**
+1. **A genuine interaction-model difference blunts the asymmetry.** NewMessageJsonInput **live-applies**
+   on every parse, so its notice is continuous state. JsonModalBody applies **discretely on a Load
+   click** and then `onClose()`s — the notice fires once, reporting what the Load action did, and no
+   "after" surface stays mounted. Under the owner's own words — "reporting on an action" — that is a
+   defensible reading of transient.
+2. **The owner himself named "the Load one"** as the site his refinement said cuts the other way. The
+   determination he set is conditional ("*if* the error is not stateful but transient"), and the
+   implementer reached the owner's own conclusion independently, disclosing it as a deliberate finding
+   with a repo-wide vessel search — not an oversight.
+3. **The residue is a UX product judgment**, hinging on whether the *explanation* (why the mode
+   changed) is state the owner wants retained after Load, or action-feedback. That is his call, and a
+   peer relay cannot settle it for me.
+
+**Disposition — OWNER-DECISION (routed, not held).** I record the asymmetry as the evidence the owner
+needs, and the interaction-model distinction as the case for the retention. If the owner wants the
+Load notice persistent, the shipped-here path is to render `noticeMessageForSettled` in
+JsonModalBody's existing during-edit notice region (mirroring the sibling) and drop the line-72 toast
+— a small, contained change, not new UI machinery. If he ratifies the retention, nothing changes.
+**Named in Next Steps so it is routed, not shelved.** CRITICAL/HIGH authority is not on this ladder;
+this is not a code defect.
+
+## TDD — ordering lapse disclosed with compensating evidence (accepted, verified not accepted)
+
+The implementer discloses implementation-before-test and compensates by the same stash-revert
+procedure used earlier in this chain: `git stash` the three tracked files, `mv` the two untracked
+files out, run the new spec against the genuinely-reverted tree — **7/9 fail** for correct reasons
+(old toast/import present, new state/exports/file absent), **2/9 pass** because they assert *unchanged*
+code (JsonModalBody still toasts; MessageProvider's transient toasts remain) — restore, re-run 9/9.
+That is a valid red-demonstration for a source-text spec and the disclosure is complete. **The 2
+green-on-reverted assertions are correct, not vacuous**: they pin the deliberate non-member and the
+not-a-blanket-removal, which are true before and after by design.
+
+**On the test's nature (LOW, noted):** `013-owner-toast-vessel-2026-08-25.test.ts` is **source-text
+pinning** (`readFileSync` + `toContain`), not behavioural — it locks the code shape (toast removed,
+state added, rendered) but cannot observe the notice actually rendering, being visible, or being
+styled. That is the same DOM-harness residue every round of this chain carries (no jsdom/RTL at this
+tree). Acceptable as a shape-lock; it is not evidence the UX works. Routed as Assumption Not Checked.
+
+## Verification — nothing inherited
+
+- **tsc**: 0 errors project-wide at abcf585 (`DATABASE_URL` dead port).
+- **eslint** on the four changed source files: 0 errors (the new test file shows only the chain's
+  standing per-file `parserOptions.project` `__tests__`-exclusion parse error, not a content finding).
+- **Enumeration** (013's introduced toasts): git-side, three `toast.warn`, all dispositioned.
+- **SHA**: HEAD abcf585, all five blobs byte-identical at pass start and end.
+
+I did not run the project suite (QA's role); the implementer reports 559/559/0. My clearance rests on
+the code read, the git-side enumeration, and tsc/eslint — not on that number.
+
+## Assumption Not Checked
+
+**This review assumes the persistent notices actually render — visible and correctly styled — in a
+mounted browser, and does not test it.** The premise: `settledNotice`/`codeMessageDroppedNotice` set
+to a string produces a visible in-surface message via `NullableComponent`. Falsity signature: a user
+pastes a row-D JSON (new-message modal) or imports a code message with dropped types and sees *no*
+message where the toast used to be — the notice silently lost rather than made persistent. No DOM
+harness exists at this tree, so the shipped test (source-text) cannot see it. **Owner: QA's execution
+pass and UAT's business-value check** — the whole point of this change is runtime-visible UX, which
+only a mounted render or manual check confirms. Routed in Next Steps.
+
+## Captured instruments
+
+No new probe: the review's load-bearing evidence is git-side and reproducible from commands in-line
+(the `c85945f..a151fb4` toast enumeration; the `abcf585` blob-identity table; the source reads of the
+five diffs). Nothing here rests on a computed artifact that needs to live under `verification/`.
+
+## Required Actions
+
+**None blocking.** The code passes code review, scoped to what the authority permits. Two routed,
+non-blocking items below.
+
+## Next Steps
+
+1. **Owner (the one decision that is his)** — ratify or reverse the retained `JsonModalBody` Load
+   toast. My analysis: the notice is the same `noticeMessageForSettled` the sibling now renders
+   persistently, and JsonModalBody has a during-edit vessel that could hold it; the case *for* the
+   toast is the live-apply-vs-apply-on-click interaction difference and your own "the Load one" carve-
+   out. If persistent is wanted: render the notice in JsonModalBody's existing during-edit region and
+   drop the line-72 toast — small and contained. **This is a product call; I do not decide it and do
+   not hold the tree on it.**
+2. **QA + UAT** — the Assumption Not Checked: a mounted/manual check that the two converted notices
+   actually render (visible, styled) where the toasts used to be. The shipped test is source-text
+   only and cannot see it. **Handing off to the qa subagent for execution.**
+3. **Whoever owns the deploy (via steering)** — this is a post-release fix (a151fb4 is live on
+   origin/master, re-derived via `git ls-remote`). All a151fb4-stamped QA/code-review/UAT verdicts are
+   expired; devops must re-run readiness and cut a new release once this branch clears the pipeline.
+4. **Planner/owner** — the process gap: substantive live-code change on a verbal ruling with no plan
+   revision and no planner. Not mine to fix; recorded so it is visible.
