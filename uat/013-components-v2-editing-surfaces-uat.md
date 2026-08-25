@@ -5,6 +5,36 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
+  **Rev 35 — two corrections to rev 34, and they are NOT the same kind.** Deliberately not collapsed, because
+  filing them together would lose the distinction this register insists on for terminal states and would let
+  the worse one shelter under the better. **(1) *"Nothing in that document announces it"* — TRUE when written,
+  superseded by the reviewer acting.** Round 23 now opens **`EXPIRED — DO NOT CITE`**. **The instruction — no
+  stage may cite the `2d90e8a` verdict — STANDS, on the expiry, which nothing the reviewer did touches. What
+  is discharged is the URGENCY.** Rev 34 stated ground and urgency in one breath and thereby made a durable
+  instruction look contingent on another party's inaction: **a rationale that depends on another party's
+  inaction is not a durable rationale.** **(2) *"Nothing names plan rev 46"* — FALSE WHEN WRITTEN, and
+  materially the worse of the two.** The Verdict Basis named rev 46 in **prose**; what named only the tree was
+  **the field a reader keys on** — the reviewer's formulation is better than either of ours: *"the constraint
+  was in the document but not in the field that carries the identity."* **This register asserted a negative
+  existential — *nothing names X* — about another stage's document, from a read six revisions old, without
+  re-opening it.** That is this chain's purest instrument-lie shape, **made over memory rather than a filtered
+  stream, which is worse: memory produces no contradicting counter-instrument at all.** **Its own written rule
+  was applied at half strength** — it named the document as the authority and did not re-read it at write
+  time. **The irony is recorded rather than smoothed: a prose claim overstating an artifact, inside the very
+  revision arguing that a field must carry what prose cannot be trusted to carry** — plan D42's class, third
+  membership, and the first that is a concrete instance rather than an acknowledgement. **The reviewer checked
+  before agreeing rather than adopting, and found the hole larger than either framing: `Reviewed-At` contained
+  no plan revision at all.** It now reads **TREE `e1d9b2b`, CRITERIA plan rev 46 (`d588790`), standing under
+  rev 47 (`06fad81`)**, the rule in the field it governs. **Fourth instrument member, found while verifying**:
+  its round-23 enumeration ran *"schemas that emit the delimiter"* where its Class said *"sites that split"* —
+  the trigger set, not the defect set. **That is R22.1's lesson reached independently from an unrelated
+  defect, and a rule reached twice is a different object from a rule stated once.** **Its generalisation
+  adopted without amendment: the common factor is not that counts are unreliable but that each instrument was
+  sound and each predicate was wrong for its question — and a record that preserves what it supersedes will
+  defeat any naive occurrence count, the more reliably the better the record's discipline.** **The discipline
+  is right and must not be relaxed; the instruments are what must change.** **No row moves; open set 12
+  register rows + F-1; executability pending QA's freshness check at `e1d9b2b`; none observed.** **Decision
+  UNMOVED at `EXPIRED IN FULL`.**
   **Rev 34 — a verdict's identity has TWO axes, and this chain has been watching one.** Code review
   `APPROVED` at **`e1d9b2b`** — and disclosed unprompted, after publishing, that **an M9-d acceptance
   criterion was unmet at the tree it approved**, its APPROVED now resting on **D51 having restated that
@@ -415,6 +445,7 @@ Verified-At: >-
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — **declined to answer and pointed at plan 013's D41 instead**, on this register's own rule that a question answerable by derivation is not escalated; also disclosed unprompted that the BC-7 phrase was **QA's own verbatim prose**, not its paraphrase | R31.4's bounded backward question on BC-2, BC-3, BC-19a | **Rev 32. THE QUESTION IS WITHDRAWN — answered by derivation. Nothing to the owner, nothing to QA.** **BC-2** is directly attested (*"The notice showed. I've removed it."*); **BC-3 was already ruled by this register at rev 20** — *re-based on D40's attestation on the identical code path rather than on D41's inferred limb* — so the inference D41 disclaimed **is not what BC-3 rests on**; **BC-19a** is expressly outside D41 and its by-number form is already carried as a residual. **THE DEFECT IS THIS REGISTER'S AND IT IS THE THIRD IN A SERIES: rev 31 routed a question its own document had already answered.** Rev 28 did not take a count, rev 30 did not test the standard's change downward, rev 31 did not read rev 20 — **one shape: acting on the artifact in hand without interrogating the artifact already held.** **And a gap in this register's own rule**: *derive before escalating* was applied rigorously **upward** (the anchor-scope question, declined twice) and **not laterally** — **escalating up feels expensive so it gets a test; routing sideways feels free, so it does not. It is not free.** **R31.3's attribution refined by dated note, superseded text preserved**: the overstating phrase was QA's own, so **verifying at the document protects against the author's summary, not only an intermediary's** — a **second member of plan D42's prose-versus-artifact class**, one day after D42 said it generalises beyond steering. **No row moves. Open set 12 + F-1; eleven executable, none observed. Decision unmoved at `EXPIRED IN FULL`.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — relayed QA's `85634d3`, **leading with the fact that this pass changes Predicted-value cells** rather than burying it | Three Predicted values corrected (BC-7, BC-8, BC-9); BC-19a found-and-not-corrected; **QA declares a stop condition on cell sweeps and asks for explicit agreement or disagreement** | **Rev 33. CORRECTIONS ACCEPTED — and the third pair was the worst of the three.** The Condition cell is authoritative and already required every limb, so **nothing new is asked of the product**; correcting a Predicted value to its Condition **closes a gap between what a row requires and what it can record.** **The condition↔failure-mode gap misdirects the operator; the condition↔predicted-value gap lets a row be recorded satisfied while a required limb was never observed** — one step closer to the record, and it **produces a clean, well-formed PASS that is silent about the omission.** Found by applying rev 31's generalisation to rev 30's ruling: **the rule found what its authors did not.** **BC-19a's disposition ENDORSED on this register's own doctrine** (R25.3 — *the observed result is recorded beside the prediction, not over it*): a terminal row's prediction is **evidence, not documentation**. **But it compounds** — both human-facing cells named one limb of two, so R31.4's *no cell was in the path* reasoning is weakened, and **BC-19a's *clears* limb now has no positive evidence from any route and none obtainable, its subject having been deleted at `2d90e8a`.** **Revert REFUSED on a specific ground: reopening it would manufacture a permanently unreachable obligation — the phantom rev 28 cleared.** **Residuals now four**, the new one listed separately because it is **the only one closed to future evidence.** **STOP CONDITION AGREED**, on a stronger ground than QA's own — **row quality is not what blocks this chain; eleven rows are executable and none observed** — with **three conditions**: the gate records the sweep **stopped by agreement, not completed** (no silent cap); the stop binds **deliberate search, not incidental reporting**, QA's statement being a prediction treated as one; and **it expires at the post-rider tip**, where the question reopens **by the artifact moving, not by search.** **Open set unchanged — 12 + F-1. Decision unmoved at `EXPIRED IN FULL`.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — relayed code review's verdict at `e1d9b2b` **together with a dependency the reviewer disclosed unprompted after publishing**, in the reviewer's own words | `APPROVED`, `Reviewed-At: e1d9b2b`; **an M9-d acceptance criterion was unmet at the tree it approved, and the APPROVED now rests on D51 having restated that clause at plan rev 47** | **Rev 34. THE FINDING: a verdict's identity has TWO axes and this chain has watched one.** A verdict rests on **the code and the criteria it was measured against, and expires when either moves.** `Reviewed-At: e1d9b2b` names the tree; **nothing names plan rev 46** — so a reader cannot tell the verdict was measured against a superseded criteria set, and **had the planner gone the other way it would have become wrong silently, its document still reading as complete.** **This answers the anchor gap R24.2/R26.7 parked, and the answer is larger than the question: the path-set question is now the smaller half.** **The gate will name the commit AND the plan revision, and state that either moving expires it.** **Verdict stands — but re-derived, not accepted**: rev 31's rule does not exempt a favourable change, so this register read **rev 47's whole write set** rather than the one clause the reviewer checked. **Criterion changes are confined to the lint-residue subject (M9-d's clause and — unnamed by the reviewer — Validation item 1), both removing an objection.** Nothing to the reviewer, nothing to the owner. **THE RIDER LANDED, AND THREE THINGS RECORDED IN ADVANCE FIRED AT ONCE**: R28.5's predicted expiry (the `2d90e8a` verdict is **EXPIRED**, and nothing in its document says so — **no stage may cite it**); R33.4's stop condition expired by its own condition 3; and **prediction freshness is owed at the new tip**, so the eleven rows' **executability is annotated PENDING QA's check, not asserted across the tree change** — carrying executability across a tree change being the error this register names in verdicts. **Third instrument variant recorded** — the reviewer's `grep -c` going **1 → 2** on quotations of a withdrawn clause: *a count over text is not a reading of it*, and **the plan's correct superseded-text discipline is exactly what made the count lie.** **Open set unchanged — 12 + F-1, none observed. `e1d9b2b` is UNGATED; branch unpushed, `origin/master` still `2d90e8a`. Decision unmoved at `EXPIRED IN FULL`.** |
+| 2026-08-25 | `steering-hooks-013-3` [b04529] — **reported that a rev-34 statement no longer holds**; code review acted on all three points at `47e233b` | Round 23 now opens `EXPIRED — DO NOT CITE`; the dual anchor is adopted into the **field**; the Validation item 1 omission is confirmed and fixed | **Rev 35. TWO CORRECTIONS TO REV 34, AND THEY ARE NOT THE SAME KIND — deliberately not collapsed, so the worse one cannot shelter under the better.** **(1) *"Nothing in that document announces it"* — TRUE when written, superseded by the reviewer acting.** The **instruction stands on the expiry**; what is discharged is the **urgency**. Rev 34 stated ground and urgency in one breath and made a durable instruction look contingent on another party's inaction — **a rationale that depends on another party's inaction is not a durable rationale.** **(2) *"Nothing names plan rev 46"* — FALSE WHEN WRITTEN.** The Verdict Basis named rev 46 in prose; **the field a reader keys on named only the tree.** **This register asserted a negative existential about another stage's document from a read six revisions old, without re-opening it** — this chain's purest instrument-lie shape, made over **memory** rather than a filtered stream, which is worse because memory yields no contradicting counter-instrument. **Its own written rule applied at half strength**: it named the document as authority and did not re-read it. **The irony recorded rather than smoothed — a prose claim overstating an artifact, inside the revision arguing that a field must carry what prose cannot be trusted to carry.** **Reviewer checked before agreeing and found the hole larger: `Reviewed-At` contained no plan revision at all.** **Fourth instrument member** — its round-23 enumeration ran the trigger set, not the defect set — **which is R22.1's lesson reached independently from a different defect; a rule reached twice is a different object from a rule stated once.** **Its generalisation adopted unamended: each instrument was sound and each predicate was wrong for its question — and a record that preserves what it supersedes will defeat any naive occurrence count, the more reliably the better its discipline.** **No row moves. Open set 12 + F-1, none observed. Decision unmoved at `EXPIRED IN FULL`.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -5452,3 +5483,167 @@ anchors none.**
 3. **Steering** — the Decisions Register row owed for the U-C5 ruling, **still unwritten.**
 4. **Nobody** — cites the `2d90e8a` code-review verdict (R34.2), or reads the eleven rows as executable at
    `e1d9b2b` before QA's freshness check.
+
+---
+
+# Rev 35 — Two corrections to rev 34, **and they are not the same kind.** One claim was superseded by action; **the other was false when written.**
+
+**Date**: 2026-08-25. **Session**: `uat-hooks-013-5`. **Trigger**: `steering-hooks-013-3` [b04529] reported
+that a statement in rev 34 no longer holds. **Verified at the code-review document (`47e233b`) at this rev's
+write time — which is the discipline that would have prevented the second correction below. No gate is
+opened. No row moves.**
+
+## R35.1 — Verified at the document
+
+| Claim | Verified |
+|---|---|
+| Round 23 now opens **`EXPIRED — DO NOT CITE`** | **Confirmed, L6449.** Both anchors named as moved; superseded in full by round 24 |
+| `Reviewed-At` carries both axes | **Confirmed.** Field reads **`TREE e1d9b2b on chain/013-rider-2, CRITERIA plan rev 46 (d588790), standing under rev 47 (06fad81)`**, with the rule stated in the field itself |
+| Basis names **both** criteria changes | **Confirmed**, re-derived by the reviewer via `git diff d588790 06fad81` rather than from the relay |
+
+## R35.2 — **Correction one: *"nothing in that document announces it"* — TRUE when written, superseded by action.** The instruction stands; its urgency is discharged
+
+**Superseded text, preserved:** rev 34 stated at **R34.2** and again at **R34.7** that the expired
+`2d90e8a` verdict was expired **"and nothing in that document announces it."**
+
+**That was accurate at rev 34's write time. It is now false, because the reviewer acted.**
+
+**And separating what survives from what does not is the whole of this note:**
+
+- **The instruction — *no stage may cite the `2d90e8a` verdict* — STANDS, unchanged.** Its ground is the
+  **expiry**: the tree moved. **That ground is untouched by anything the reviewer did.**
+- **The urgency is DISCHARGED.** *"Nothing announces it"* was never the ground; it was the reason the
+  expiry was dangerous. **Rev 34 stated ground and urgency in one breath and thereby made a durable
+  instruction look contingent on another party's inaction.**
+
+> **A rationale that depends on another party's inaction is not a durable rationale.** The reviewer was
+> always free to act, and did. **Rev 34 should have written the instruction on the expiry and the urgency
+> beside it, not through it.**
+
+## R35.3 — **Correction two, and it is materially worse: *"Nothing names plan rev 46"* was FALSE WHEN WRITTEN**
+
+**Superseded text, preserved:** rev 34 stated at **R34.3**: **"`Reviewed-At: e1d9b2b` names the tree.
+Nothing names plan rev 46."**
+
+**The document's Verdict Basis named rev 46 in prose.** The claim was **false at the moment it was
+written**, and it is not rescued by the finding it supported being correct.
+
+**What is true, and is what rev 34 should have said:** *the field a reader keys on named only the tree,
+while the criteria revision lived in prose beside it.* **The reviewer's own formulation is better than
+either of ours** — *"the constraint was in the document but not in the field that carries the identity"* —
+and it establishes the hole was **larger** than this register framed it: **`Reviewed-At` contained no plan
+revision at all.**
+
+**The defect in how the false claim was produced, which is the part worth keeping:**
+
+> **This register asserted a negative existential — *nothing names X* — about another stage's document,
+> from a read six revisions old, without re-opening it.**
+
+**That is this chain's purest instrument-lie shape, and this register has spent nine sightings naming it in
+other people's work.** An existence or absence predicate is the hardest claim to make soundly; **rev 34's
+was not made over a filtered stream but over *memory*, which is worse, because memory produces no
+contradicting counter-instrument at all.**
+
+**And the remedy was already this stage's own written rule, applied at half strength:** *a status restated
+from a predecessor document names that document as the authority and is re-read at write time, not carried
+from an earlier read in the same session.* **Rev 34 named the document as the authority and did not
+re-read it.**
+
+**The irony is exact and is recorded rather than smoothed: this happened inside the finding about anchors —
+a prose claim overstating an artifact, in the revision arguing that a field must carry what prose cannot be
+trusted to carry.** **Plan D42's class, third membership for this register**, and the first that is a
+concrete instance rather than an acknowledgement (R32.3).
+
+**The two corrections are deliberately not collapsed.** One is a true statement overtaken by events; the
+other is an untrue statement. **Filing them together would lose exactly the distinction this register
+insists on for terminal states** — and would let the worse one shelter under the better.
+
+## R35.4 — What the reviewer did, and the two things it asked be recorded
+
+**All three points acted on**, and on the dual anchor it **checked before agreeing** rather than adopting —
+finding the hole larger than either framing. **The rule now stands in the field it governs, not only in
+prose about the field.** On Validation item 1 it **re-derived by `git diff d588790 06fad81` rather than
+taking the relay**, confirmed its basis line had been wrong by omission, and stated explicitly that
+soundness under rev 47 was established **by this register reading rev 47's whole write set, not by its own
+account of one clause** — *"that distinction is the whole point and I have not softened it."*
+
+**The reviewer asked two things be recorded as this register's.** The first is a rule and is recorded as
+one: **a classification made under a superseded standard is void, not narrowed — and the answer being
+convenient is not a reason to skip the step.** It notes it would most easily have failed that one, the
+conclusion being in its favour and already relayed to it.
+
+**The second is an observation about this register's checking, and it is recorded with its counterweight
+attached, because publishing it alone would be self-flattery at the exact moment it stops being true.**
+Both times this register checked the reviewer's work today it found something larger than the thing being
+checked. **And this revision is the third check — of this register's own rev 34 — and it found two defects,
+both this register's, one of them false at the moment of writing.** **The practice is what has value, not
+the practitioner, and it cuts the way it is pointed.**
+
+## R35.5 — The instrument class: a fourth member, and the reviewer's generalisation completes it
+
+**A fourth member, found in the `Reviewed-At` field while verifying the above** — the reviewer's own
+round-23 defect, recorded against itself: *"my Class named **sites that split** but my predicate enumerated
+**schemas that emit the delimiter** — the trigger set, not the defect set. True count at `2d90e8a` is
+THREE; I reported one. QA caught it."* Its rule: **an enumeration must run the predicate its own Class
+sentence names.**
+
+**That is R22.1's lesson, reached independently from a different defect.** This register wrote, correcting
+rev 21's D44 strike: *"an instrument that searches for the token searches for the token — a strike is
+verified against the claim class it was ordered against."* **Two stages, two unrelated defects, the same
+rule.** **A rule reached twice independently is a different object from a rule stated once**, and it goes
+to the retrospective as such.
+
+**And the reviewer's generalisation is better than this register's and is adopted without amendment:**
+
+> **The common factor across all four is not that counts are unreliable. It is that each instrument was
+> sound and each predicate was wrong for its question.**
+>
+> **A record that preserves what it supersedes will defeat any naive occurrence count — and the better the
+> record's discipline, the more reliably it will.**
+
+**The second sentence is the one this register would not have reached.** It says the hazard **scales with
+the quality of the record**: a chain that quotes superseded text rather than deleting it — which this one
+does, by rule, in this very revision — **guarantees that occurrence counts over its documents lie.** **The
+discipline is right and must not be relaxed; the instruments are what must change.**
+
+## R35.6 — Ledger delta at rev 35
+
+**No row moves. Nothing is terminalised, added, reopened, or routed.**
+
+| Item | State |
+|---|---|
+| **R34.2 / R34.7's *"announces nothing"*** | **SUPERSEDED 2026-08-25** — true when written; **the instruction stands on the expiry, the urgency is discharged** |
+| **R34.3's *"nothing names plan rev 46"*** | **CORRECTED — false when written** (R35.3). Superseded text preserved |
+| **Code review @ `e1d9b2b`** | `APPROVED`; **dual anchor now in the field**; dependency carried in **both** documents |
+| **Code review @ `2d90e8a`** | **`EXPIRED`, and now marked so at its own head.** **Still not citable** |
+| **Standing release decision** | **`EXPIRED IN FULL`** — unchanged |
+| **Open set** | **12 register rows + F-1** — unchanged |
+
+**Open set, per class:** `PRE` operator **6** (BC-1, BC-4, BC-6, BC-7, BC-8, BC-9) · `PRE` split limb **1**
+(BC-10) · `PRE` operator **1** (BC-18) · `POST` **4** (BC-12, BC-14, BC-17, BC-20) · documentary **0** ·
+**plus F-1**. **Executability pending QA's freshness check at `e1d9b2b`. Observed: none.**
+
+## R35.7 — State
+
+**UAT Complete** stands — **a status on this document reached at `4a7126b`, not a gate on any live tree.**
+**No verdict moved. The release decision stays `EXPIRED IN FULL`.**
+
+**Tree at this rev's write time, re-derived:** `chain/013-rider-2` at `e1d9b2b`; **`origin/master` still
+`2d90e8a`; branch unpushed; tracked-clean.** **`e1d9b2b` is ungated. Nothing has been released.** **This rev
+reaches no verdict and anchors none.**
+
+**Residuals: four**, all silent, unchanged.
+
+**Outstanding — three:** the operator walkthrough (eleven rows, none observed); **QA at `e1d9b2b`**
+(freshness, CR24-6, F-1); and **the final gate**, which will name **the commit and the plan revision**, state
+that either moving expires it, and state that **the merge to `master` is a separate act.**
+
+**Nothing is asked of the coordinator.** This stage does not self-start and is holding for QA.
+
+**Next Actions** — *point-in-time; later stage documents are authoritative on these items' current state.*
+
+1. **QA** — verify at `e1d9b2b`; freshness for the eleven rows; CR24-6; rule on F-1.
+2. **Steering** — the Decisions Register row owed for the U-C5 ruling, **still unwritten.**
+3. **This stage** — **before the gate, re-open every document whose contents the gate asserts a fact about.**
+   R35.3 is the reason this is written as an action and not as a resolution.
+4. **Nobody** — cites the `2d90e8a` verdict, or reads rev 34's two superseded sentences as current.
