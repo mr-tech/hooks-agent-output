@@ -6876,6 +6876,25 @@ been caught here.
 
 **[LOW] Checks That Cannot Fail** — M9-b introduces the second disagreeing computation it exists to remove
 
+> **CORRECTED 2026-08-25, AFTER PUBLICATION — READ BEFORE ACTING ON THIS FINDING.**
+> **The DRY substance stands. The reachability claim below is WRONG.** QA (INFO-2, `33908af`)
+> found the branch is **live**, and I re-derived it by execution rather than accepting the report
+> — `probe-cr27`, which I built to try to prove my own claim and which disproved it.
+> **Where I went wrong:** `computeLoadDiff(current, incoming)` takes **two** arguments and
+> `settledMode` is applied to **both**. `incoming` (`validatedDraft`) is guarded exactly as I said.
+> **`current` is `message?.data` — the stored record — and is guarded by nothing.** I checked one
+> argument's guard and generalised to both, so my predicate answered a narrower question than the
+> claim it supported. **That is this finding's own defect class, committed inside the finding.**
+> **Measured at `e1d9b2b`:** a stored row-E record gives `fromMode="v2"`, `toMode="classic"`,
+> `removedTypes=["Container"]` — the branch executes and **its answer is correct**. The M9-b
+> spec's oracle returns `"classic"` for that same record, so **production and the spec disagree on
+> a path that runs.**
+> **The finding is STRENGTHENED, not withdrawn.** Two disagreeing encodings on a dead path are
+> untidy; on a live path they are precisely what M9-b existed to remove, still present. No
+> user-visible defect today — production holds the correct value — but the spec is blind here.
+> **DO NOT fix this by deleting the branch as dead: that premise is false and the branch is
+> correct.** Collapse the two encodings to one, keeping production's. Warning is QA's.
+
 - **Location**: `src/utils/index.ts`, `settledMode` (the `requiresChoice` ternary);
   `src/utils/__tests__/013-fqa31-load-confirmation-names-actual-mode.test.ts`, helper `modeAfterLoad`.
 - **Class**: One domain rule — *the mode a Load settles to* — **encoded twice, in two places that
@@ -6885,7 +6904,7 @@ been caught here.
   spec's oracle returns `'classic'` unconditionally. Reachability checked rather than assumed:
   `computeLoadDiff`'s sole production caller is `JsonModalBody.tsx:270`, guarded on
   `validatedDraft`, and the parsing effect executes `setValidatedDraft(null)` on the
-  `requiresChoice` path before returning. **So the branch is dead on both sides** — which is why the
+  `requiresChoice` path before returning. **So the branch is dead on both sides** [**FALSE — see the correction above; dead for `incoming` only, live via `current`**] — which is why the
   divergence is invisible.
 - **Issue**: M9-b's own stated property is *"the dialog and the commit read **one** disposition
   result, never two computations that can disagree."* The fix satisfies that for the live path and

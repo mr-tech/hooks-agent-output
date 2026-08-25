@@ -1,0 +1,17 @@
+stored record row=E requiresChoice=true mode=null
+  => settledMode(current) MUST take the requiresChoice branch: true
+
+computeLoadDiff(rowE_stored, classic_incoming):
+  fromMode = "v2"
+  toMode   = "classic"
+  modeChanges = true
+  removedTypes = ["Container"]
+
+M9-b spec oracle (modeAfterLoad) for the same record: "classic"
+production settledMode says: "v2"
+  AGREE? false
+
+VERDICT ON CR24-2's REACHABILITY CLAIM:
+  branch executed for 'current': true
+  => CR24-2's "dead on both sides" is FALSE
+EXIT=0
