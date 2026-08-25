@@ -3,9 +3,9 @@ ID: 013
 Origin: 013
 UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
-Status: QA Failed
-Verified-At: "abcf585707b11e331d3c5fa0ad575dfee760e516"
-Verified-At-Note: "toast-vessel gate pass 2026-08-25 at abcf585 — QA FAILED on F-QA23. The earlier QA Complete at a151fb4 stands for its own tree and is recorded in the Final re-anchor section; it is not withdrawn, it is superseded by a later tree."
+Status: QA Complete
+Verified-At: "664e0c0f515ea553aa82a1697016d36507ded7d0"
+Verified-At-Note: "fix-round verdict 2026-08-25 at 664e0c0 — QA COMPLETE, F-QA23 discharged by execution. The QA FAILED at abcf585 stands for its own tree and is not withdrawn; it is superseded. Plain SHA: nothing uncommitted backs this verdict."
 Verified-At-Detail: >-
   **REFRESH PASS, 2026-08-24 — supersedes the Phase 2 anchor below for verdict purposes.**
   `website` @ `chain/013-components-v2-editing-surfaces`, HEAD = `164d720` (re-derived by
@@ -1835,3 +1835,166 @@ capture-and-adopt, not new authorship.
 this chain permits.
 **Not to UAT yet** — a UAT pass over a suite measured vacuous for its own subject would inherit the
 vacuity.
+
+---
+
+# Fix-round verdict — toast vessel, at `664e0c0`
+
+**Tree**: `chain/013-toast-vessel`, tip **`664e0c0`**, two commits past live `master`, working tree clean.
+**Verified-At (this section)**: `664e0c0f515ea553aa82a1697016d36507ded7d0` — a plain SHA; nothing
+uncommitted backs this verdict.
+**Suite**: **572 tests / 39 files / exit 0**. `tsc --noEmit`: **0 errors**.
+**Verdict**: **QA COMPLETE — the blocking finding is discharged.**
+
+## 1. F-QA23 — CLOSED by execution, not by inspection
+
+The delta was measured, not read from the handoff: `git diff --numstat abcf585..664e0c0` is one path,
+test-only; the same command with `':(exclude)*__tests__*'` is **empty**, so **no production code
+moved**. My instrument was adopted **byte-identical** — `sha256 ca85911d…` on both the repository
+copy and the capture, `diff -q` clean.
+
+Byte-identity plus zero production movement would let the earlier mutation results be inferred. They
+were **re-executed instead**, because zero movement licenses a scoped pass and never a
+carried-forward verdict:
+
+| Mutant | At `abcf585` (shipped spec alone) | At `664e0c0` (full suite) |
+|---|---|---|
+| **R1** — the notice never renders | **9/9 GREEN, survived** | **3 failed / 569 — KILLED** |
+| **R4** — the notice renders empty | **9/9 GREEN, survived** | **1 failed / 571 — KILLED** |
+
+The defect class that previously passed unseen now fails the shipped suite. **F-QA23 is closed.**
+
+**Chain of custody, stated because it is the interesting part.** The implementer disclosed — in
+three separate places — that it **read my captured mutation logs rather than re-executing the
+mutants**. Read-as-evidence would normally be weak. It is not weak here, and the reason is not that
+reading logs is acceptable: it is that **two other parties executed independently**.
+`code-reviewer-hooks-013-3` built `probe-cr22-render-instrument-nonvacuity/` specifically without
+trusting my capture — importing the real component, replaying a byte-copy of the helpers, running
+its own inline mutants — and **I re-ran that probe myself rather than citing its reported figure:
+4/4, exit 0**. Its directory contains zero references to jsdom, happy-dom or testing-library,
+corroborating D28 compliance from a second hand. The disclosure was the right call and the
+underlying claim is backed by execution twice over.
+
+## 2. F-QA26 / BC-18 — QA WITHDRAWS ITS OWN "UNREACHABLE" FINDING
+
+**This is a correction against the previous section of this document, and it is mine.**
+
+That section recorded the paste surface — `NewMessageJsonInput`'s `settledNotice`, **the site the
+owner's ruling actually named** — as unreachable without a harness D28 forbids, and routed the whole
+of BC-18 to the owner's eyes. **That was wrong.**
+
+The evidence behind it was real: the component throws at its second hook, because
+`useCopyToClipboard` calls `useRef` and React's dispatcher is null outside a renderer. The **inference
+was too strong.** "Throws at hook 2" is not "unreachable" — mocking the three custom hooks makes the
+`useState` order deterministic and the component plainly callable. Withdrawn by execution, not by
+argument: `trace-reachability-PROVEN.txt` is the rendered text of the real component carrying an
+injected notice.
+
+New instrument at **`verification/013/probe-qa-paste-surface-render/`** — 5 assertions against the
+real component, 4 mutants seeded at the notice's render site, **4/4 killed**:
+
+| Mutant | What the user gets | Result |
+|---|---|---|
+| **P1** `show={!error && settledNotice}` → `show={false}` | notice never renders | **3 failed — killed** |
+| **P2** → `show={settledNotice}` (drops the `!error` conjunct) | notice shows *over* an error | **1 failed — killed** |
+| **P3** notice body → `{null}` | empty warning box | **2 failed — killed** |
+| **P4** drop `text-warning` | renders unstyled | **1 failed — killed** |
+
+**P2 is the one that matters.** It removes exactly one conjunct and leaves the sibling to cover for
+it — and it fails. That establishes the `!error` conjunct as the **sole carrier of the decision** in
+at least one fixture, against the **real wiring**. The earlier probe's guard cases could only
+replicate the expression and said so; this supersedes them.
+
+**BC-18 shrinks rather than closes.** Still the owner's: **visibility** (CSS cascade, `z-index`,
+`overflow`, contrast), **placement**, and the **real Next.js mount**. No longer his: whether the
+notice renders at all, suppresses under an error, clears, and is styled.
+
+**The method failure, named because it is the transferable part.** I stopped at the first mechanism
+that resisted, generalised from a single attempt, wrote the boundary into a verdict, and routed a
+closable property to a human. **A boundary claimed after one attempt is a hypothesis.** This one
+held less than a day. Had nobody re-tried it, the owner would have been asked to eyeball a property
+an instrument could have guarded permanently.
+
+## 3. F-QA24 — CLOSED
+
+Two rows added. `CodeMessageNotice` now has its own row, gated **behaviourally by mutation** rather
+than by a stash-revert — the right instrument for a component with real conditional logic.
+`layout.tsx` has a **stated exemption** in a named class (wiring-only: one line of JSX, no branch,
+no prop-derived behaviour), with its visibility/placement half explicitly routed to BC-19 rather
+than claimed as verified. An exemption stated and classed is what the gate asks for; this is one.
+
+**Three rows still answer `Test Written First? = No`, and I am not pretending otherwise.** The
+ordering lapse is a historical fact about work already done and cannot be retroactively made Yes.
+I pass the gate on the substantive ground that its **purpose — coupling — is now met by stronger
+evidence than Red→Green ordering would ever have produced**: mutation kills, independently
+reproduced. Passing on that basis is a judgement, and it is recorded as one rather than smuggled in
+by reading the table charitably.
+
+The lapse is now **twice recorded in this document** (here and `messageStore.store`) with the
+implementer naming it as a pattern rather than a one-off. That belongs to the retrospective, not to
+this gate.
+
+## 4. F-QA25 — CLOSED on substance; one method note against the correction itself
+
+The overstated claim is corrected **in place, where it was made**, and correctly **narrowed rather
+than abandoned**: the stash-revert procedure remains right for source-text specs, and stops being
+sufficient the moment the property is behavioural. That is exactly the distinction, in the terms
+raised.
+
+**Method note, minor and slightly ironic.** The original sentence was **overwritten, not restated
+beside** — its trailing clause (*"closing the gap the ordering lapse opened"*) survives nowhere in
+the document, not even inside the correction's own quotation. Restating beside rather than over is
+the rule that keeps a correction auditable. Recorded, not escalated.
+
+## 5. F-QA27 — SUBSTANTIALLY closed, one of my five still standing
+
+Six locations corrected in place, each stating what changed and why, and the audit was run against
+the class rather than patched at the instances — the right method.
+
+**Not closed: line 66**, the toast-vessel changelog row, still reads *"Not committed to `website`…
+remain uncommitted in the working tree pending steering's go-ahead"* and still carries the "four
+files" count. It is unmarked at that location. Two later locations mark the claim stale and the
+adjacent row corrects the count, so a reader who continues is not misled — but a reader who stops
+there is. **Low severity, not blocking**, carried as F-QA27-residue.
+
+**Two further stale fields the sweep did not reach**, offered rather than charged: line 12 still
+cites this QA document at `98f978e` with Status `Awaiting Implementation`, and line 14 still names
+`implementer-hooks-013` where recent rows are `implementer-hooks-013-3`.
+
+## 6. New findings
+
+| ID | Finding | Severity | Owner |
+|---|---|---|---|
+| **F-QA28** | **The paste-surface instrument is not in the repository.** The property is *verified* at this tree (§2) but not *guarded* against future change — the same argument that made F-QA23 blocking applies to its future, not its present. Captured at `verification/013/probe-qa-paste-surface-render/`; adoption is a copy, +5 → **577/40** | **Medium** — not blocking | implementer (adopt); the commit itself needs the owner |
+| **F-QA29** | **A TDD row asserts `Yes` while its own prose says otherwise.** The `messageStore.store` row answers `Test Written First? = Yes` / `Failure Verified? = Yes`, but its Failure Reason column opens *"Implemented before the test was authored (ordering lapse…)"*. **This is the one row-shape that defeats the gate silently** — the disclosed `No`s are honest and auditable; a false `Yes` is neither. Earlier round, untouched by this one | **Medium** | implementer |
+| **F-QA30** | F-QA25's correction overwrote the original claim rather than restating beside it (§4) | **Low** | implementer |
+
+## 7. Verdict
+
+**QA COMPLETE** at `664e0c0`. The blocking finding is discharged by execution; F-QA24, F-QA25 and
+the bulk of F-QA27 are closed; F-QA28/F-QA29/F-QA30 and the F-QA27 residue are open and
+**none of them blocks a release**.
+
+**The release note from the previous section still stands and has not been answered.** 013 is live
+at `a151fb4`; this chain branch is two commits ahead and unpushed. Nothing in this verdict depends
+on how the owner answers it.
+
+**Assumption Not Checked (mandatory).** *This pass assumes the `useState` call order I inject into
+`NewMessageJsonInput` matches the order React actually assigns at runtime, and does not test it.*
+The instrument mocks `useState` and feeds values positionally — json, error, dropped, pending,
+dismissed, settled — derived by reading the source. If a future edit reorders those declarations or
+inserts one, the fixture will silently address the **wrong** state slot: the notice assertions would
+then be exercising, say, `dismissedChoice`, and could stay green while the real notice broke.
+Falsity signature: the paste-surface spec passes while the owner sees no in-modal warning — the
+exact symptom BC-18 exists to catch, which is why that row is **not** closed by this instrument.
+**Owner: implementer**, at the next edit to that component's hook block — named again in the handoff
+so it is routed rather than shelved.
+
+## 8. Handoff
+
+**To the implementer** — F-QA28 (adopt the paste instrument), F-QA29 (the false `Yes` row), F-QA30,
+the F-QA27 residue at line 66, and the Assumption Not Checked above.
+**To the owner** — BC-18's remaining half (visibility, placement, real mount) and BC-19; plus the
+unanswered release note.
+**To UAT** — clear to proceed. The suite is no longer vacuous for its own subject, and that is
+established by mutation reproduced independently by two other stages.
