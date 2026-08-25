@@ -2131,13 +2131,14 @@ code-import observations are available before release *and* after it, unchanged.
 the owner shipping first except the ordering. So the rows need **re-dating, not reclassifying**:
 
 - **BC-18**, **BC-19** — remain **`PRE` by decidability**. Recorded as **NOT MET AT THE RELEASE ACT**,
-  by the owner's informed choice, with `4a7126b` shipped ahead of them. **Earliest-decidable
+  by the owner's informed choice to release ahead of them. **Earliest-decidable
   amended**: *decidable now, and equally decidable after deploy — this condition does not expire.*
   State: **OPEN, owner, executable at any time.**
 
 This keeps the record truthful in both directions: it does not pretend a skipped pre-release check
 was never available, and it does not treat the owner's decision as an error. **A `PRE` row that
-outlived the release act is exactly what happened, and that is what the register should say.**
+the owner has decided to carry past the release act is exactly what happened, and that is what the
+register should say.**
 
 **Amplifying steering's argument, because it is the strongest thing said about these rows and it
 belongs in the register rather than in a message.** The new failure mode is **silent**. Before 013,
@@ -2150,7 +2151,7 @@ register**, because nobody reports a warning they never saw. Reclassifying BC-18
 would therefore not merely mislabel them — it would move them into the class where they are *least
 likely ever to be settled*. Declining the reclassification protects the rows.
 
-## 2. BC-18-SILENCE — a new `POST` row, since the owner has shipped
+## 2. BC-18-SILENCE — a new `POST` row, since the owner has decided to release ahead
 
 The register should now carry a genuine post-deploy detector, because one is owed and because the
 existing rows are ill-suited to the job. This does **not** substitute for BC-18.
@@ -2210,3 +2211,157 @@ independent second check, unchanged.
 alters the verdict. **The Phase 3 release-tip verdict remains owed**: devops commissions it, QA
 performs it at the assembled tip, and per-plan verdicts do not substitute for it. It has not been
 discharged and cannot be discharged by default.
+
+---
+
+# Phase 3 — NOT PERFORMED, and a collision recorded
+
+`devops-hooks-013` reports it has already commissioned Phase 3 against the assembled tip, while this
+session was holding the same verdict. **Two QA instances believed they owned one release-scoped
+record.** Commissioning is devops's, so this session **stands off** rather than resolving it — but
+restraint here is the action, not the absence of one, and the reason is specific.
+
+## Why running it unilaterally would have been the wrong move
+
+A Phase 3 record **takes no ID**; it is named by release identifier (see this stage's Phase 3
+definition). ID'd documents survive duplication because the ID distinguishes them. **A record with
+no ID does not** — two Phase 3 documents for one release compete for the same name, and nothing in
+the naming scheme separates them.
+
+**This is the second collision of exactly this shape in this chain.** The first was the
+BC-13/BC-14 duplication recorded earlier in this document, which survived long enough to be
+propagated into four documents and was caught only because UAT checked every numbered reference
+against the register rather than following the numbers. The lesson from that one applies directly
+here: **a namespace that cannot express a duplicate does not prevent duplicates, it hides them.**
+So the right response to a suspected collision is to stop and have it resolved deliberately, which
+is what steering has asked devops to do.
+
+## What this session re-derived, held ready rather than acted on
+
+Devops's measurements confirmed independently here:
+
+    git merge-base --is-ancestor a151fb4 4a7126b   -> TRUE
+    merge-base(a151fb4, 4a7126b)                   -> a151fb4  (== master; no divergence)
+    tree(4a7126b)                                  -> 189d9d60a595057027bee08ccf2731280e7ac04d
+    git ls-remote origin                           -> chain/013-toast-vessel ABSENT; master = a151fb4
+
+**So there is no assembly step.** Integration is a fast-forward and the assembled tip is `4a7126b`
+byte-for-byte — the exact tree this document already carries a QA COMPLETE for. No SHA is coming
+that differs from the one already held.
+
+Three commits would ship, and the split matters: **`abcf585` is the only one carrying a production
+change**; `664e0c0` and `4a7126b` are test-only adoptions of QA's own instruments.
+
+## A Phase 3 observation offered to whoever performs it
+
+Phase 3's substance is the clause that *"a plan that passed alone can fail beside another"*. **That
+clause has no work to do in this release, and the reason should be stated rather than assumed**: only
+one lineage is being released. `master` is a strict ancestor, nothing else merges in, and the other
+remote branches (`backup`, `external-message-api`, `redesign`, `regex-refactor`) are unrelated and
+not part of it. There is no second plan to combine with.
+
+**That is a finding, not a formality** — it means a Phase 3 pass here reduces to verifying the tip
+itself, and should say so explicitly rather than implying a combination check was performed on a
+bundle of one. Whoever runs it should reach that conclusion by their own measurement; it is recorded
+here so it can be *checked*, not inherited.
+
+## Even-handed note on who should perform it
+
+Stated as information for devops's decision, not as a bid to keep the work.
+
+- **A fresh agent brings independence**, which Phase 3 genuinely wants — a release-tip verdict issued
+  by the same session that issued every plan-level verdict inherits that session's assumptions, and
+  this session has already had to withdraw one finding of its own (F-QA26) on this chain.
+- **A fresh agent will not know** what this chain established: BC-11b is terminal and unrecoverable,
+  F-QA26 was withdrawn and its replacement independently confirmed, BC-18/BC-19 are `PRE`-and-not-met
+  by the owner's informed choice, and BC-21 exists because absence is this change's failure
+  signature. None of that is inferable from the tree.
+
+Both are real. The decision is devops's and this session does not contest it either way.
+
+**State: Phase 3 NOT PERFORMED by this session.** No release-tip verdict has been issued here, and
+the plan-level `QA COMPLETE at 4a7126b` **does not substitute for one**.
+
+---
+
+# SUPERSEDED ABOVE: Phase 3 collision resolved, and Phase 3 performed
+
+**The section above headed "Phase 3 — NOT PERFORMED" is point-in-time and is now superseded.** It
+stands as the record of the standoff and of why restraint was correct while ownership was contested;
+it is **no longer current** on whether Phase 3 happened.
+
+`devops-hooks-013` resolved the collision and **stood its fresh agent down** — it wrote nothing to
+`agent-output/qa/` and reached only a build — then commissioned Phase 3 here directly. Devops
+disclosed the duplicate spawn unprompted rather than letting two verdicts appear; that disclosure is
+what made the collision cheap, and it is recorded as such.
+
+**Phase 3 was performed and is written to `agent-output/qa/release-4a7126b-tip-verification.md`** —
+**RELEASE VERIFIED** at `4a7126bf8578b653ac7ae1cfe7cabdd609cdc21f`. That record takes **no ID**, per
+this stage's definition, and does not amend this document. Full suite **577/577, exit 0**; build
+**exit 0**; no assembly step; combination risk nil because the bundle is of one.
+
+**Ruled, because devops asked rather than assumed:** the plan-level `4a7126b` verdict in *this*
+document does **not** constitute the release-tip verdict, despite the matching SHA. A matching SHA
+makes the subject identical, not the act — the plan-level pass was gate-scoped, ran no full suite and
+no build. Cite the release document, not this one, as the release-tip verdict.
+
+## U-5 — accepted, and my error corrected in place
+
+`uat-hooks-013-3` found that this document's **prose** asserted `4a7126b` was released. **It is not,
+and UAT is right.** Re-derived here at the remote before accepting: `git ls-remote origin master` →
+`a151fb4`, and `refs/heads/chain/013-toast-vessel` returns **0 lines** — the branch does not exist at
+the remote. Nothing from the toast round has reached production.
+
+**A decision to ship is not a shipment.** Three passages corrected in place — "with `4a7126b`
+shipped ahead of them" → "to release ahead of them"; the BC-18-SILENCE heading; and "a `PRE` row that
+outlived the release act". **The reasoning is untouched; only the false premise is gone.**
+
+**My own BC-21 row was right where the prose was wrong** — its earliest-decidable already read
+*"re-decidable whenever `4a7126b` deploys"*, future tense. That is worth naming as a method fact: the
+**structured row survived an error the surrounding prose did not**, because the row has a field that
+forced the tense to be stated. Prose is what travels in relays; the register is what held.
+
+**Consequence, which is the part that matters:** rev 13's approval is conditional on BC-18/BC-19
+preceding the release act, and because nothing shipped that condition **has not been overtaken**.
+Both remain executable today, before devops cuts anything, in rev 13's order. My finding that these
+rows do not expire is what keeps that window open.
+
+## A control instrument defect, verified here and worse than reported
+
+UAT reports that `git rev-parse <tree>:<path>` on an **absent** path echoes its argument to stdout
+while writing `fatal:` to stderr, so a stdout-only compare reports **DIFFER** where the truth is
+**ABSENT**. **Verified here, and it is worse than that: it also exits 0.**
+
+    $ out=$(git rev-parse a151fb4:…/CodeMessageNotice.tsx 2>/dev/null); echo "[$out]"; echo $?
+    [a151fb4:src/app/message/m/[id]/_layout/CodeMessageNotice.tsx]
+    0
+
+**Exit 0 means an `|| echo MISSING` fallback never fires** — the guard silently does nothing. This
+pass used that unsound form earlier when comparing blobs; it was safe only because all three paths
+happened to exist. **Sound instrument: `git cat-file -e <tree>:<path>`**, which exits non-zero and
+prints nothing. Confirmed both ways: `CodeMessageNotice.tsx` ABSENT at `a151fb4`, PRESENT at
+`4a7126b`.
+
+This is the **fourth** member of one class in this chain — piped `grep -c`, `ls -a | grep -x`,
+`git diff --name-only | grep -c .`, and now `rev-parse` on an absent path. The class predicate is
+**an existence or count predicate that cannot fail loudly**, and the standing remedy is to use an
+instrument that computes before any output filter and signals failure through its exit code.
+
+## BC-11b — UAT's caveat adopted
+
+UAT adopts `CANNOT BE EXECUTED` as terminal with one correction: its definition fixes three terminal
+states (`EXECUTED`, `WITHDRAWN`, `SUPERSEDED`) and this is a **fourth**, synonymous with none of
+them. Nobody ruled BC-11b unnecessary — **only the owner could** — and nothing replaced it. It is
+terminal **only** in the sense that no future act can change it. **It must never be read as
+"closed": what it records is a permanent absence of evidence.** Adopted as stated.
+
+## Register state at this verdict
+
+| Row | State |
+|---|---|
+| **BC-18**, **BC-19** | **OPEN**, owner, `PRE`, executable **now** — not overtaken, since nothing shipped |
+| **BC-21** | **OPEN**, owner, `POST` — earliest-decidable on deploy of `4a7126b` |
+| **BC-11b** | **TERMINAL: CANNOT BE EXECUTED** — a permanent absence of evidence, not a closure |
+
+**Standing note:** this list is point-in-time. The UAT document, and then the deployment record, are
+authoritative on each row's execution state.
