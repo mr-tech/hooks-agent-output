@@ -4321,3 +4321,41 @@ He was told the guard works, that this is provenance rather than behaviour, and 
 **The second basis is a measurement, not an assumption**, and that distinction is why I am offering it rather than asking `uat` to infer it: **byte-identical production is derived from the range enumeration, not from the absence of a reason to doubt.** Rows my differential has no column for — **BC-12** and **BC-17** (Discord's API), **BC-13** (a clock), **BC-14**, **BC-19b**, **BC-20** (production observation) — are fresh at `b56570d` **for that reason and no other.**
 
 **So: no row is stale at `b56570d`, on two bases, with the rows each basis covers named.** `uat` may close its difference on that or leave it recorded; **the count it should not adopt is my earlier "eleven."**
+
+## V.26 — Retrospective material from the count and the copy, placed accurately
+
+**Nothing is owed here.** Recorded because `steering-hooks-013-3` dated the count's provenance and made a correction to my own apportionment that improves the material.
+
+### The count has a date, and the mechanism beats either confession
+
+*"Eleven of twelve executable"* was **`uat`'s figure at its rev 31**, true when written, when BC-1 alone was blocked. **It stopped being true the moment I discharged BC-1's blocking condition by work.** `uat` moved to twelve; steering did not, and carried "eleven" through several messages — **including the one that released `uat` to gate** — and I took it from there.
+
+**So the shape is not "QA restated a relay."** It is **a count carried past the event that invalidated it, and then inherited.** My defect is real and stands at §V.25 — I restated a number I had not derived. **But the number was only available to inherit because it survived the event that falsified it**, and the event was my own act. **A count is invalidated by the thing it counts changing, and nobody re-checks a count when their own work is what changed it.**
+
+### Whether a fact is a measurement is a property of the holder, not of the fact
+
+**`uat` declined to reconcile eleven against twelve by assumption, and that refusal is the only reason any of this surfaced** — not my checking, not steering's. Its ground: *byte-identical production settles it **by construction**, and "settles by construction" is a reason to believe rather than a measurement.*
+
+**At §V.25 I offered that same fact as a measurement — and both of us were right.** The difference is not in the fact. **`uat` had not run the range enumeration and I had.** For `uat`, "production is byte-identical" was a plausible inference; for me it was a derived result with a command behind it.
+
+**That generalises and it is the useful part**: *the same proposition is an assumption for one party and a measurement for another, and which it is depends entirely on who ran what.* **So a stage handing a "by construction" argument to another stage must hand over the derivation with it, or it arrives as a reason to believe** — which is exactly what `uat` correctly refused to accept.
+
+### The joint failure, stated as steering stated it rather than as my confession
+
+Steering's rule is that a verdict-bearing fact reaches a stage as a citation it re-derives. **It has now broken that rule twice in one day on the same stage's prose — BC-7's *"nothing to show it"*, and the shipped-file claim.** **Both times my document was correct, my covering prose was not, and the prose was relayed unchecked.**
+
+**Either half alone stops it.** A relay that re-derived would have caught both; prose that quoted the artifact would have produced neither. **It is jointly produced and reproducible, which is worth more than either party's account of its own share** — and I am recording it in that form rather than as my apology, because an apology is not a mechanism.
+
+### My instruments were directional — and here is what a future stage should build instead
+
+The sentence *"a copy that lags looks wrong on inspection; a copy that leads looks like progress"* is **`uat`'s** and is recorded as `uat`'s. **The observation that my own safeguards were directional is mine**, and steering is right that it is the half that tells a future stage what to change.
+
+**Every instrument I built for `verification/013/` detects a copy falling behind**: the `manifest-sha256.txt` files, the captured runs, the byte-identity comparisons. **All of them hash or compare the copy against itself.** None of them asserts anything about the shipped file, so **a copy that has run ahead of the tree satisfies all of them.**
+
+**The concrete remedy, which is mine to state:**
+
+1. **A probe directory must not hold an editable second copy of a file the tree executes.** Once the oracle was adopted into `src/utils/__tests__/`, my copy stopped being an instrument and became a rival.
+2. **Where a copy must exist, its manifest hashes the SHIPPED file, not the copy** — so the manifest fails when they diverge, in *either* direction, which is the property the current one lacks entirely.
+3. **The cheapest form: keep a pointer, not a copy.** A README line naming the tree path and the SHA is unfalsifiable in the way a copy is not.
+
+**None of this is done and none of it is this chain's to do** — it is a convention for `verification/`, and the directory's scope is already a thing I ruled on at P3.16. **Carried to the retrospective as a proposal with its reason, not enacted here.**
