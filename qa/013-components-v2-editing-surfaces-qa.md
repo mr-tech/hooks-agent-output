@@ -3842,7 +3842,12 @@ places across four sittings is a list a successor reads wrong.
 5. **The cell-consistency question, re-opened by the rider** (P3.41 condition 3) — **inside the normal
    re-verification, not as a new sweep.**
 6. **MEDIUM-2's status**, whether or not CR23-2 landed.
-7. **The remote limb of tree identity**, which DNS denied on 2026-08-25.
+7. **The remote limb of tree identity.** DNS denied it earlier on 2026-08-25; **re-probed while idle
+   and the instrument now works** — `git ls-remote origin refs/heads/master` returned exit 0 and
+   `2d90e8a`, computed **at the remote**. **This discharges the instrument's availability, NOT the
+   identity**: the verify pass runs against the post-rider tip, so it re-runs this against *that*
+   commit and never inherits this reading. Recorded only so the pass knows the route is open and does
+   not have to plan around it being closed.
 8. **Do not re-raise BC-19a's `clears` residual** (P3.42). It is recorded, it is closed to evidence, and
    raising it again would manufacture a phantom obligation.
 
@@ -3859,6 +3864,13 @@ round. **No verdict before the post-rider tip.**
 
 **Register maintenance log — nothing appended this sitting**, stated explicitly for the same reason as
 last: a log silent for a sitting is indistinguishable from a sitting that was not logged.
+
+**Two facts measured while idle, recorded because neither is mine to act on.** (1) The remote-identity
+instrument is working again — carry-forward item 7 above. (2) **`agent-output` carries 50 commits not
+at the remote** (`git log --oneline origin/master..HEAD`, counted with `grep -c`). That is the whole
+chain's agent-output work across every stage, not this stage's alone; **pushing requires the owner's
+approval and no verdict in this document grants it.** Recorded rather than raised, because an
+unpushed record is a record that exists on one machine.
 
 **One line for the retrospective, `uat`'s and not mine, because it is the sentence that should govern the
 next chain**: *refining instructions while the observation count stands at zero is displacement, however
