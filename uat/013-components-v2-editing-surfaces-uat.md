@@ -28,7 +28,8 @@ Status-Detail: >-
   converse demonstrated: a verdict anchored this well lets its expiry be seen coming rather than discovered
   after.** **Open set 13 → 12 register rows + F-1**, every one an operator or `POST` observation and **none now
   blocked on wording.** **Residuals: three, all certain, all silent.** **Decision UNMOVED at `EXPIRED IN FULL`** —
-  the pass in which every excuse fell away and the count barely moved. U-C5 → `EXECUTED`; BC-13 and U-C7 confirmed terminal at their own documents. Open set 16 → 13.**
+  the pass in which every excuse fell away and the count barely moved.
+  **Rev 27 — U-C5 → `EXECUTED`; BC-13 and U-C7 confirmed terminal at their own documents. Open set 16 → 13.**
   **Every citation was read at the cited document, not taken from the relay.** **U-C5's row was obsolete in two
   of its three limbs before he was asked**: D25's second route was taken by the deployment record at `e34df07`
   (L12, L152–162), and its U-1 limb was struck at rev 21 — so the live question was only whether the **plan** is
