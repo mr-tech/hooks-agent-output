@@ -5,6 +5,45 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
+  **Rev 41 — WITHDRAWAL, then THE RE-ISSUED GATE: `APPROVED FOR RELEASE, conditional on the human
+  click-through of BC-1, BC-4, BC-6, BC-7, BC-8, BC-9, BC-10 and BC-18`, at TREE `b56570d` / CRITERIA plan
+  rev 49.** **First, the withdrawal, because it is owed: rev 40's contradiction of steering's evidence was
+  WRONG and the error was this register's.** Measured with `grep -n`: **probe line 23 IS the row-E line of
+  the D17 quotation**, carrying *"and is told what the other drops"*, where shipped line 23 stops short.
+  **The quotations do not end identically and steering's instrument was sound.** Rev 40 recorded that proof
+  as unsound *"because a correct correction resting on a wrong instrument is how this chain gets bitten
+  twice"* — **that sentence is retracted; a withdrawn-but-correct proof is the same defect wearing the other
+  coat.** **How it was produced: rev 40 inferred a location from a stale read instead of running `grep -n` —
+  the third consecutive instance of one class, each committed inside the correction of the last.** A factual
+  note is recorded and **explicitly not offered as a defence**: the probe's quotation *was* truncated when
+  rev 39 read it and has since been corrected, so at the moment of the finding both copies read alike —
+  **but this register did not know that, did not measure it, and the reason it gave was false; the gap
+  between *my claim was wrong* and *wrong for a reason I could not have known* is where a withdrawal goes
+  soft, and this one does not.** **THE OWNER RULED *"Record it, leave it"* — no tree move** — so CR25-1 and
+  CR25-2 are **`RESIDUAL — owner ruled, recorded not fixed`** with the record as owner, which is what makes
+  R36.5 satisfiable and releases the gate. **ANCHOR: TREE `b56570d` on `chain/013-rider-2`, CRITERIA plan
+  rev 49 (`9637735`), both derived immediately before commit; either moving expires this decision — rev 36
+  expired on the criteria axis while the tree stood still, so a tree-only anchor would have read as live.**
+  Covered set **21 paths, 9 production**; **`e1d9b2b..b56570d` holds exactly 2 paths, both `__tests__`, ZERO
+  non-test** — stronger than the four-blob check. Criteria delta rev 48→49 read **from a file** and found
+  **purely additive**. **ALL TWELVE ROWS FRESH, on two bases with the rows each covers
+  named — 7 by execution, 5 by construction, partitioned per row rather than counted.** This register
+  derived it from byte-identity before asking anyone; **QA then WITHDREW its own "eleven" and enumerated
+  (`abdbe7f`), and the two agree.** **AND THE BAD COUNT WAS THIS REGISTER'S**: *"eleven of twelve
+  executable"* was **rev 31's own figure**, true when written and **false from rev 36**, when BC-1's
+  blocking condition was discharged by work. **This register updated its count and never marked the old one
+  superseded — it simply stopped repeating it** — so the figure kept travelling, through steering into QA,
+  and came back **as a measurement**. **R35.2's rule was written about a claim and applies identically to a
+  number: a correction that only quietly stops repeating the claim leaves the claim standing. A count is a
+  claim, and retiring one takes the same dated supersession as retiring a sentence.** **VALUE: PARTIAL, re-established on measured byte-identity rather than carried
+  across** — the shortfall is not a defect anyone found but a step nobody has taken, and **QA's Assumption
+  Not Checked still routes to BC-1: nothing proves the dialog renders the string at all.** **SIX
+  RESIDUALS**: 5 **reclassified silent → GUARDED**, R38.4's predicted condition having fired (both wrong
+  CR24-2 fixes now fail the suite, the oracle sole detector; **M9-b's blindness is NOT closed — guarded, not
+  fixed**), and **6 NEW: the shipped oracle's provenance is wrong where it runs, the correction living only
+  in a copy nothing executes** — the sharpest member yet of the prose-versus-artifact class. **The decision
+  does NOT authorise the merge (a separate act, and it is the deploy), does NOT close the chain, and revives
+  neither the `4a7126b` nor the rev-36 decision.** **Twelve rows, all fresh, NONE OBSERVED.**
   **Rev 40 — CORRECTION: rev 39's CR25-3 check was performed against the PROBE COPY, not the shipped file.**
   Two copies of the oracle exist; the corrections are in the one that does not run. **Measured here rather
   than taken from the relay**: shipped **186 lines** vs probe **215**; `grep -c "D13"` **shipped 0, probe
@@ -611,6 +650,7 @@ Verified-At: >-
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — the owner ordered a round; **"your gate will expire when the tree moves"** | Owner ruled **"Option 1, arm"** — adopt QA's oracle and fix its constant, **no production code, CR24-2 NOT fixed** | **Rev 38. THE GATE HAD ALREADY EXPIRED — on the CRITERIA axis, with the tree UNMOVED.** Plan is at **rev 49 (`9637735`)**; the tree is still `e1d9b2b`, tracked-clean, branch unpushed. **`e1d9b2b` is UNGATED again; the expiry is not a refusal.** **Two stages and a coordinator all expected the tree axis; the criteria axis moved first, within the hour — a tree-only anchor would read as LIVE right now.** **REFINEMENT THIS REGISTER GOT WRONG BY OMISSION: a named anchor makes expiry CHECKABLE, not SELF-ANNOUNCING.** Rev 37's *"without anyone needing to notice"* is **superseded** — somebody has to look, and the anchor's contribution is saying where. **This register came within one sentence of proving it against itself**: restating rev 37's *"the gate stands"* would have been false at write time — **caught by running the check before writing, on its third consecutive outing.** **R37.2.1's predicted expensive case arrived by the predicted route**, and its own instruction is honoured: **the paragraph is re-read and the rule stands unamended; the cost is acknowledged, not renegotiated.** **Owner's ruling recorded with both answers, the second governing. Arming a guard is not fixing the defect it guards** — residual 5's move from *silent* to *guarded* is **predicted with its condition, not made.** **The prose-is-not-a-guard point was acted on on both surfaces within the hour**: this register's two-wrong-fixes warning is now plan **M10-d** and QA's oracle is the test — **the fix for a banner is not a louder banner.** **Re-issue scope fixed in advance (R38.6) so it cannot be trimmed under pressure later.** **Open set 12, all fresh, NONE OBSERVED.** |
 | 2026-08-25 | `code-reviewer-013-4` via `steering-hooks-013-3` [b04529] — **CR25-3 routed to this stage by name**, on the ground that QA authored the transcription and an author checking its own paraphrase is the weaker arrangement | Check the oracle's five-row paraphrase of D17 against the plan's Objective **as written** | **Rev 39. CR25-3 DISCHARGED — the paraphrase is faithful and the round is NOT invalidated.** All eight cells checked against the Objective; **six are actually asserted** (row-E cells are filtered out by the oracle itself) and **all six agree**. **Source of truth established before use**: plan rev 48→49 is five hunks and **none touches `## Objective` or D17's row text** — measured. **The oracle file changed between this stage's two reads**, so everything is derived against the current file; **reporting against a stale read of an already-fixed file would have been this chain's own defect committed in the act of checking for it.** **Cell 5 derived independently from the plan side** — `{flags}` alone has no components, so row C's *"the flag over components within the schema"* does not govern it except vacuously — **and found already fixed at CR25-2, citing D13, verified verbatim at plan L110. Two independent routes, header-side and plan-side, reached the same cell: corroboration, not agreement.** **THREE PROVENANCE FINDINGS, none holding the tree, none a value error, all QA's file**: row E truncated in the quotation without ellipsis; **D13 quoted correctly but `SUPERSEDED IN PART` and not marked so**; and — **the one worth the routing** — **D13's quoted clause says *not a conflict, not refused* and states NO mode. What yields `v2` is D13's superseding header (*"the 'not a conflict' clauses survive as row C"*), which the oracle does NOT quote** — so **"row C" is an unsupported assertion inside the citation.** **This is CR25-2's own defect recurring one level inside its fix: the citation is now correct and the stated provenance is still thinner than the derivation** — and an oracle corrected once tends to be treated as corrected. **Remedy is QA's to write; this stage does not author instrument text.** **No verdict issued; gate remains EXPIRED; open set 12, none observed.** |
 | 2026-08-25 | `code-reviewer-013-4` (`288c0b4`) via `steering-hooks-013-3` [b04529] — **two copies of the oracle exist and the corrections are in the one that does not run**; steering asked this stage to **place the error itself** rather than take its account | Whether rev 39's CR25-3 discharge was performed against the shipped file | **Rev 40. CORRECTION — REV 39 CHECKED THE PROBE COPY, NOT THE SHIPPED FILE.** Measured here: shipped **186 lines**, probe **215**; `grep -c "D13"` **shipped 0, probe 5**; `CITATION CORRECTED` shipped **0**. **CR25-2 is LIVE against the tree** — the shipped cell 5 (`{flags}`, no components) still cites *"the flag over components within the schema"*. **All eight `expected` values identical across copies, so no verdict moves and code review's APPROVED stands — a provenance divergence, not a behavioural one.** **REV 39'S OWN DEFENCE CONVICTS IT**: it applied freshness discipline, correctly, **to the wrong file** — **being current about the wrong artifact is not a partial defence, it manufactures confidence; a stale read of the right file announces itself, a fresh read of the wrong file reads exactly like a fresh read of the right one.** It noticed the file changed and asked *did it change* rather than **which file am I holding**. **STEERING CONTRADICTED ON ONE POINT, as it asked**: its *decisive* evidence — that *"and is told what the other drops"* is in the probe and not the shipped file — **does not establish which copy was read; both quotations end identically**, and the probe's lone occurrence is not in its quotation. **The error is real; that proof of it is not** — a correct correction resting on a wrong instrument is how this chain gets bitten twice. **CR25-3 RE-DERIVED against the shipped file: verdict UNCHANGED, paraphrase faithful, round not invalidated.** Finding 1 **holds**; findings 2 and 3 **do not apply** to shipped (it never cites D13) and are **re-scoped to the probe copy, not retracted**. **Class adopted: the fossil defect running in reverse — a copy that *leads* the tree looks like progress, which is why it is more dangerous than one that lags.** **Gate NOT issued and it is not a withholding**: R36.5 requires every condition carry a terminal state, and the shipped-file CR25 status is **residual or fix-round depending on an owner answer in flight.** **All other R38.6 items discharged (R40.7). Open set 12, none observed.** |
+| 2026-08-25 | `steering-hooks-013-3` [b04529] — **the owner's answer, and a correction to this register's correction of steering** | Owner ruled **"Record it, leave it"** — no tree move, shipped file not corrected; and steering's row-E evidence was sound after all | **Rev 41. WITHDRAWAL + THE RE-ISSUED GATE.** **Rev 40's contradiction of steering is WITHDRAWN IN FULL and the error was this register's** — measured with `grep -n`: **probe line 23 IS the row-E line of the D17 quotation** and carries *"and is told what the other drops"*; shipped line 23 does not. **The quotations do NOT end identically; steering's instrument was sound.** Rev 40 called that proof unsound; **that sentence is retracted — a withdrawn-but-correct proof is the same defect wearing the other coat.** **How it was produced: rev 40 inferred a location from a stale read instead of measuring it — the third consecutive instance of one class, each committed inside the correction of the last.** One factual note, **explicitly not offered as a defence**: the probe's quotation *was* truncated when rev 39 read it and has since been fixed, so both copies then read alike — **this register did not know that, did not measure it, and the reason it gave was false.** **OWNER RULED "Record it, leave it"** → CR25-1/CR25-2 are **`RESIDUAL — owner ruled, recorded not fixed`**, owner = the record, which satisfies R36.5. **GATE RE-ISSUED: `APPROVED FOR RELEASE, conditional on the human click-through of BC-1, BC-4, BC-6, BC-7, BC-8, BC-9, BC-10, BC-18` — before the MERGE, since `master` serves production.** **TREE `b56570d` / CRITERIA plan rev 49**, both derived immediately before commit, either moving expiring it; covered set **21 paths / 9 production**; **`e1d9b2b..b56570d` holds ZERO non-test paths.** **All TWELVE rows fresh — derived here, not escalated: byte-identical production ENTAILS no prediction moved**, which reaches the twelfth row QA's un-enumerated eleven does not. **Six residuals**: 5 **reclassified silent → GUARDED** (R38.4's predicted condition fired; both wrong CR24-2 fixes now fail, oracle sole detector; M9-b's blindness NOT closed — guarded, not fixed), and **6 NEW — the shipped oracle's provenance is wrong where it runs, the correction existing only where nothing executes it.** **Value: PARTIAL, re-established on byte-identity rather than carried.** **Does not authorise the merge, does not close the chain. Twelve rows, fresh, NONE OBSERVED.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -6751,3 +6791,274 @@ further derivation of the axes.**
 2. **Nobody** — records CR25-1 or CR25-2 as discharged against the tree, or cites rev 39's *"already
    fixed"* without R40.4.
 3. **The owner** — the walkthrough of the eight, unchanged, still the whole of what remains.
+
+---
+
+# Rev 41 — **WITHDRAWAL of rev 40's contradiction, and THE RE-ISSUED RELEASE GATE.** `APPROVED FOR RELEASE, conditional on the human click-through of eight `PRE` rows`, at TREE `b56570d` / CRITERIA plan rev 49.
+
+**Date**: 2026-08-25. **Session**: `uat-hooks-013-5`. **Trigger**: the owner ruled *"Record it, leave it"* —
+**no tree move** — which makes the shipped-file CR25 status a **residual** and satisfies R36.5's
+requirement that every outstanding condition carry an owner and a terminal state. **Both anchors re-derived
+immediately before this commit. This is a NEW decision inheriting nothing from rev 36.**
+
+## R41.1 — **WITHDRAWAL: rev 40's contradiction of steering's evidence was WRONG. The error was this register's**
+
+**Rev 40 stated:** *"the probe's single occurrence is NOT in its D17 quotation"* and *"both files'
+quotations end identically at 'the user chooses Classic or V2.'"*
+
+**Measured here, at this rev's write time, with `grep -n` on both files:**
+
+```
+shipped  23: *    ... whatever the flag -> the user chooses Classic or V2"
+probe    23: *    ... whatever the flag -> the user chooses Classic or V2 and is told what the other drops"
+```
+
+**The probe's single occurrence IS at line 23, inside the D17 quotation. The quotations do NOT end
+identically. Steering's instrument was sound and its inference was available.**
+
+> **The contradiction is WITHDRAWN in full. The error was this register's.** Rev 40 recorded steering's
+> proof as unsound *"because a correct correction resting on a wrong instrument is how this chain gets
+> bitten twice."* **The instrument was not wrong. That sentence was, and it is retracted** — a
+> withdrawn-but-correct proof is the same defect wearing the other coat, and steering is right to say so.
+
+**How the false claim was produced, because it is the third consecutive instance of one class:**
+**rev 40 inferred a location from a stale read instead of measuring it.** At rev 39 the probe's quotation
+*was* truncated — this register saw that with its own `sed` — and rev 40 reasoned from that memory that the
+count-of-1 must sit elsewhere. **It never ran `grep -n`.**
+
+| Rev | Defect | Committed |
+|---|---|---|
+| 39 | Checked the probe copy, not the shipped file | in the check |
+| 40 | Asserted a location from a stale read rather than measuring it | **inside rev 39's correction** |
+| 41 | — | **this withdrawal** |
+
+**One factual note, stated because the record should be accurate about sequence and NOT offered as a
+defence: the probe's quotation was truncated when rev 39 read it, and has since been corrected** — QA
+acting on rev 39's finding 1, published *"in the two artifacts it owns."* **So at the moment of the
+finding, both copies read identically on that line.** **That does not rescue rev 40's claim**: this
+register did not know it, did not measure it, and the reason it gave was false. **The gap between "my
+claim was wrong" and "my claim was wrong for a reason I could not have known" is exactly where a
+withdrawal goes soft, and this one does not.**
+
+**What is unchanged: the ownership of the original error.** Rev 39 chose the file it read. **No relay told
+it to read the probe path**, and steering's own share — relaying QA's *"correct, merely thinner"* without
+opening the file — reduces nothing here.
+
+## R41.2 — The owner's ruling, and the residual it creates
+
+**Ruling: *"Record it, leave it."*** **No tree move; the shipped file is not corrected.** Not taken:
+*"Fix it now"* (an implementer round, costing another full re-pass cycle before the walkthrough, for text
+that changes no behaviour) and *"Ride the next round"* — **put to him with the honest caveat that the only
+likely trigger for such a round is the open finding he had already declined to fix, so it may never come.**
+**Agent-authored options, steering's wording, no verbatim sentence.**
+
+**He was told what it costs, in the option's own text:** *"The guard still works. But the file in the tree
+cannot justify itself to a future reader — it cites the wrong rule for the one case doing the most work —
+and the correct version lives only in a document nobody running the test will open."*
+
+**So: CR25-1 and CR25-2 are OPEN against the shipped tree, by ruling, and their terminal state is
+`RESIDUAL — owner ruled, recorded not fixed`.** **Owner: the record.**
+
+## R41.3 — **ANCHOR.** Both axes, derived immediately before commit
+
+> ### **TREE: `b56570dfa916368e9942e671d594112750567923`** on **`chain/013-rider-2`**
+> ### **CRITERIA: plan 013 rev 49 (`9637735`)**
+>
+> **THIS DECISION EXPIRES WHEN EITHER MOVES.** **Rev 36 expired on the criteria axis while the tree stood
+> still (R38.1) — a tree-only anchor would have read as live. Neither expiry announces itself; both are
+> checkable, and that is the whole of what the anchor buys** (R38.2).
+
+**Derived at this rev's write time:** `rev-parse` → `b56570d…`; `status --porcelain` → **0**; **`master` =
+`origin/master` = `2d90e8a`, computed at the remote — the branch is UNPUSHED and nothing has been
+released.** Ancestry: **`2d90e8a` and `e1d9b2b` are both ancestors of `b56570d`** (`merge-base
+--is-ancestor`).
+
+**COVERED SET — the 21 paths in `2d90e8a..b56570d`; production surface (9), unchanged from rev 36 because
+production did not move a byte:** `.eslintrc.json` · `package.json` ·
+`src/app/message/_components/NewMessageJsonInput.tsx` · `src/app/message/_components/NewMessageModal.tsx` ·
+`src/app/message/m/[id]/_components/JsonModalBody.tsx` · `src/server/api/utils/shapes.ts` ·
+`src/utils/formatMutationError.ts` · `src/utils/index.ts` · `vitest.config.ts`. **Test/config surface: 12.**
+
+**Revert completeness, measured here and stronger than the reviewer's four-blob check:**
+**`e1d9b2b..b56570d` contains exactly 2 paths, both under `__tests__`, ZERO non-test.** **All production is
+byte-identical to `e1d9b2b`.**
+
+## R41.4 — Predecessor verdicts, each re-read at its own document
+
+| Stage | Status as its document reads now | Anchor |
+|---|---|---|
+| **Code review** | **`Code Review Approved`** — round 25, scope **bounded and stated** | **TREE `b56570d` / CRITERIA rev 49**, expiring on either |
+| **QA** | **`QA Complete`** | **`Verified-At: b56570d`, `Criteria-At: plan 013 rev 49`**, expiring on either |
+| **Plan** | `Rev: 49` | — |
+
+**Criteria delta rev 48 → 49, read from a file and checked rather than assumed: PURELY ADDITIVE** — D52 and
+**M10 with four new criteria**; header, changelog and a reading-order note. **No existing milestone,
+acceptance property or Validation item moved.** *(`^[+-]` over a piped diff returned zero here; the
+file-mediated form returned the real hunks. The documented filter hazard, avoided by instrument choice.)*
+
+**Suite: 48 files / 627 / exit 0**, re-derived by QA — *"the reviewer declining to repeat a number it had
+not run is why this is a confirmation and not an echo."*
+
+## R41.5 — **Freshness: all TWELVE rows, and the twelfth is derived here rather than escalated**
+
+**QA rules eleven rows fresh at §V.18** — differential re-run, **0 changed lines** — and states its reason
+in terms this register supplied and now receives back: *"this follows from production being byte-identical,
+but an inference is not a measurement."*
+
+**QA has since WITHDRAWN that count and re-stated freshness on two bases with the rows each covers named
+(`abdbe7f`), which supersedes this section's original need to derive the twelfth alone.** Both are recorded:
+this register's derivation, and QA's enumeration, **which agree.**
+
+**QA's enumeration, verified against this register's open set:**
+
+| Basis | QA's rows | Of this register's twelve |
+|---|---|---|
+| **By execution** — differential at `b56570d` vs `e1d9b2b`, **0 changed lines** | BC-1, BC-6, BC-7, BC-8, BC-9, BC-10, BC-18, **BC-21** | **7** (BC-21 is terminal here since rev 25, so QA's sweep is the broader set) |
+| **By construction** — `e1d9b2b..b56570d` contains **no non-test path** | *all remaining open rows*; named without differential columns: BC-12, BC-17 (Discord's API), BC-13 (a clock), BC-14, BC-19b, BC-20 | **5** — BC-4, BC-12, BC-14, BC-17, BC-20. **BC-4 is covered by the general clause and named individually in neither list; it is derived here** |
+
+**7 + 5 = 12. ✓ Partition derived per row, not counted** — R31.5's rule, applied to the thing that just
+failed under it.
+
+**This register's own derivation, which stands and agrees:**
+
+> **`e1d9b2b..b56570d` contains zero non-test paths — measured here (R41.3). Every register row's
+> prediction is about production behaviour. Byte-identical production therefore ENTAILS that no row's
+> prediction moved.** **This is entailment from a measured fact, not an inference from a plausible one:
+> the premise is a count computed by `git`, and the conclusion follows for all twelve rows including any
+> row outside QA's set.**
+>
+> **ALL TWELVE ROWS ARE FRESH AT `b56570d`.**
+
+### R41.5.1 — **The bad count was this register's, and the way it survived is this register's own doctrine unapplied**
+
+**QA's disclosure:** *"My 'all eleven rows fresh' took its count from steering's phrasing rather than from
+my own enumeration. I restated a count from a relay, which is the single practice this document has spent a
+chain warning against."* **Steering's:** the figure originated at **rev 31 of this document** — *"eleven of
+twelve executable"* — **and it kept relaying it after the event that falsified it.**
+
+**So the count is traceable to this register, and the mechanism that kept it alive is the one R35.2 named:**
+
+> **Rev 31's "eleven of twelve executable" was TRUE when written and became FALSE at rev 36, when BC-1's
+> blocking condition was discharged by work.** **This register updated its own count and never marked the
+> old one superseded — it simply stopped repeating it.** **R35.2's rule was written about a claim and
+> applies identically to a number: *a correction that only quietly stops repeating the claim leaves the
+> claim standing.*** **A superseded figure with nothing marking it superseded has nothing to contradict it,
+> so it kept travelling — through steering, into QA, and back to this register as a measurement.**
+
+**A count is a claim. Retiring one requires the same dated supersession as retiring a sentence, and this
+register gave it none.** **Recorded as this register's, not as QA's error and not as steering's.**
+
+## R41.6 — **VALUE DELIVERY ASSESSMENT: PARTIAL, and unchanged, because no production code moved**
+
+**Value Statement, copied from plan rev 49 (APPROVED AS WRITTEN, D4, not a word amended):**
+
+> As a **guild owner editing a Components V2 message in hooks.gg**, I want **every editing surface around
+> the composer … to carry my message's components and its V2 flag faithfully**, so that **no editing action
+> silently discards what I built or misreports what kind of message it is, and I never land on an empty
+> copy of a message that was whole a moment ago**.
+
+**Re-established, not inherited: production at `b56570d` is byte-identical to `e1d9b2b`, so the value
+position cannot have changed, and rev 36's assessment is re-affirmed on that measured ground rather than
+carried across.**
+
+**The shortfall is not a defect anyone found. It is a step nobody has taken.** Every instrument is green
+and **this value statement's entire content is that the user is not *silently* misled — so its failure mode
+leaves no trace in a test run by construction.** **QA's Assumption Not Checked is unchanged and states it
+exactly: every instrument stops at the string the `message` field receives, and nothing proves the dialog
+renders it, or renders it where the eye goes.** **D28 rules out the mounted render that would.** Its line
+stands: ***"BC-1 is not a formality now that F-QA31 is fixed; it is the only thing that closes this."***
+
+**No drift from the plan's objective. The gap is evidentiary, not directional.**
+
+## R41.7 — **RELEASE DECISION**
+
+> # **APPROVED FOR RELEASE, conditional on the human click-through of BC-1, BC-4, BC-6, BC-7, BC-8, BC-9, BC-10 and BC-18.**
+> # **If any of these fail, return to the implementer before release.**
+
+**This is NOT an unconditional approval. `NOT EXECUTED` is not a terminal state, and no release is recorded
+complete while any of the eight stands at it.**
+
+**The eight precede the MERGE, and the reason is mechanical:** **`master` serves production, so pushing to
+it deploys.** **For a repo that deploys on push, "before merge" and "before deploy" are the same instant.**
+A `PRE` row observed after the merge was not observed before the deploy.
+
+| # | Row | Owner | Terminal states available | Gates |
+|---|---|---|---|---|
+| 1 | **BC-1** · Load confirmation names the actual mode — **carries QA's Assumption Not Checked** | the owner, at a browser | `EXECUTED` (result + date) · `WITHDRAWN` (owner only) · `SUPERSEDED` | **release** |
+| 2–6 | **BC-4, BC-6, BC-7, BC-8, BC-9** | the owner | same | **release** |
+| 7 | **BC-10** · spot-observation limb (suite limb **MET**) | the owner | same | **release** |
+| 8 | **BC-18** · appears · persists · clears | the owner | same | **release** |
+| 9–12 | **BC-12, BC-14, BC-17, BC-20** | the owner, in normal use after deploy | same | **chain closure only** |
+
+**Rows 9–12 gate the chain's closure, never the release act. BC-20 has an absence signature — no volume of
+quiet is evidence for it. BC-12 refutes by construction: one 4xx is a hotfix trigger.**
+
+**Two recording constraints, now in the rows themselves:** **BC-7's bit-set and BC-8's bit-cleared limbs are
+settled by opening the Message JSON, never by the screen looking right.** *"Everything looked correct"* is
+not an observation of those limbs.
+
+## R41.8 — **RESIDUAL RISKS: six.** Five silent, one now guarded
+
+| # | Residual | Status |
+|---|---|---|
+| 1 | **BC-5's subject** — a behaviour in the product **never characterised**; obligation ended by owner ruling, nothing claimed either way | silent |
+| 2 | **The plan states half of one shipped change, by owner ruling (U-C5)** — mode-follows-marking is stated for flagged-but-empty messages, **not for ordinary component-less messages**, which also changed. **No stage may "correct" it. The deployment record carries the full statement; the plan does not.** | silent |
+| 3 | **Attestation by reference rather than characterisation** — class; members **BC-21**, **BC-19a** | silent |
+| 4 | **BC-19a's *clears* limb has no positive evidence from any route and none obtainable** — its subject was deleted at `2d90e8a` | silent, **closed to future evidence** |
+| 5 | **M9-b's spec is blind to the live `current` path** — production correct, spec disagrees | **RECLASSIFIED: silent → GUARDED.** R38.4's predicted condition has fired: M10-b landed and QA verified **both** wrong CR24-2 fixes now fail the suite (M4 and M5, 4 failed each), **with the oracle the sole detector.** **M10-c did NOT close M9-b's blindness** — at `b56570d` under M3 the oracle fails 3 and M9-b's spec passes 8. **Guarded, not fixed** |
+| 6 | **NEW — the shipped oracle's provenance is wrong where it runs.** CR25-1 and CR25-2 open against the tree by ruling *"Record it, leave it."* The shipped cell 5 (`{flags}`, **no components**) cites *"the flag over components within the schema"*; the corrected text exists **only in the probe copy**. **No `expected` value is affected and the guard works** | **`RESIDUAL — owner ruled, recorded not fixed`.** Owner: the record |
+
+**Residual 6 is the newest member of the prose-versus-artifact class and the sharpest: the correction
+exists, and not where it executes.** **QA measured the shipped file itself before accepting the finding** —
+186 lines, `grep -c "D13"` = 0, line 61 still carrying the wrong `d17Row` — **and verified all sixteen
+`id`/`expected` pairs byte-identical across the two copies by `diff`, 0 differing lines**, which is what
+establishes that no verdict moves. **Its own account is recorded because it is the fourth instance from one
+stage in a day: at §V.19 it correctly recorded the tree untouched, and four paragraphs later described the
+shipped file from memory of what it had authored — in the section arguing about that file's authority,
+having named the shape in that same section before committing it again.** **A future reader checking the guard's provenance finds the wrong
+citation for the one cell doing the most discriminating work.**
+
+**An absence that is the CORRECT state:** **`emptied-composite-drop-unnamed` (F-QA32) is absent from the
+fixed tree and that is expected.** This **inverts** the chain's silent-mode doctrine — a reader primed by
+*"quiet is no evidence"* finds nothing where a defect was described and reads an **omission**. **Only the
+record settles which reading was expected.**
+
+**Bounded audits, reported as bounded:** the cell-consistency sweep covered two cell pairs and **was
+STOPPED BY AGREEMENT between QA and this stage at a defined point — it did not complete** (R33.4).
+**CR24-2 remains open and unfixed by owner ruling; the reviewer's *"the live disagreement no longer
+reproduces"* is carried as a READING, not a re-execution.**
+
+## R41.9 — What this decision does NOT do
+
+- **It does not authorise the merge to `master`** — a separate act with a separate owner (devops), **and it
+  is the deploy.**
+- **It does not close chain 013.** Four `POST` rows stand non-terminal.
+- **It does not revive the `4a7126b` decision** (`EXPIRED IN FULL`) **or rev 36's** (expired at R38.1).
+  **Expiry is not suspension; this is a new decision.**
+- **It does not rest on `UAT Complete`**, a status reached at `4a7126b`.
+- **It grants nothing to any tree but `b56570d` or any criteria but plan rev 49.**
+
+## R41.10 — Version, changelog, state
+
+**Recommended: MINOR.** New and corrected behaviour across the editing surfaces; no breaking API change.
+**Mode-follows-marking changes observable behaviour for ordinary component-less messages**, which argues
+against `patch`; it is a correctness fix, which argues against `major`.
+
+**The changelog is written from the DEPLOYMENT RECORD, not the plan** — per residual 2, the plan states
+half of the mode-follows-marking change by owner ruling.
+
+**Release decision: `APPROVED FOR RELEASE, CONDITIONAL`** at **TREE `b56570d` / CRITERIA plan rev 49**.
+**UAT Status: UAT Complete** for this gate, at this anchor. **Open: 12 rows, all fresh, none observed.**
+
+**Next Actions** — *point-in-time; later stage documents are authoritative on these items' current state.*
+
+1. **The owner** — the walkthrough: **BC-1, BC-4, BC-6, BC-7, BC-8, BC-9, BC-10, BC-18, before the merge.**
+   **BC-1 first**; it carries the assumption no instrument reaches.
+2. **This stage** — record each result beside its prediction and terminalise. **An unconditional approval
+   follows only when all eight are terminal.**
+3. **Devops** — the merge to `master`, **after** step 1 and **only** on step 2. **It is the deploy.**
+4. **QA** — **nothing owed. Its freshness enumeration (`abdbe7f`) is received, verified against this
+   register's open set, and adopted** (R41.5).
+5. **Steering** — the U-C5 Decisions Register row, **still unwritten**.
+6. **Nobody** — merges before the eight are terminal; cites the `2d90e8a` or `e1d9b2b` code-review
+   verdicts; reads M10 as having fixed CR24-2; or reads the probe copy of the oracle as the oracle.
