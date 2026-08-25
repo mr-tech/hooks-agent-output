@@ -26,55 +26,46 @@ lines about items nobody is waiting on.** If it does not need the owner to act, 
 
 ---
 
-## 1. Post-deploy checks still open
+## 1. Your decisions — no agent may make these
 
-Derived from the register in `qa/012-message-valid-field-qa.md`, not from this file's previous
-state. **No release is recorded complete while any of them is unrun.** These five are independent of
-each other — run them in any order.
+**QA-R9 — does the backfill distribution stop the live declaration?** That is the whole question.
+You are not confirming the script's arithmetic; you are making the judgement no agent may make.
+The run is `verification/012/backfill-report-1787522866564-i3s31k.md` — the one table-wide run
+(4825 classified of 4825 rows). **4750 valid, 75 invalid**, and the 75 are:
 
-**Use a scratch message you create for QA-R5, QA-R6 and QA-R7** — each one saves, and a save
-recomputes `valid`. SCR-1 is now an ordinary Classic message and is free to reuse or delete.
+| Reason | Count |
+|---|---|
+| Username too short or too long | 36 |
+| Must have content, embeds, or components | 29 |
+| Username has invalid characters | 3 |
+| Components text over 4000 | 3 |
+| V2 message with embeds or content | 2 |
+| Embeds over 6000 | 1 |
+| Message too long | 1 |
 
-**QA-R3 — positive control.** GET the v1 guild-messages endpoint for a guild holding a
-bare-Text-Display V2 record. **Pass:** `valid: true` at top level, beside `id`/`name`. A `false` here
-is the mass-invalidation failure, and it arrives as silence rather than as an error.
+**`evaluationFailures` is 0** — the number that would be alarming if it were not, since it means no
+row failed to evaluate at all. **Say whether that looks like a normal residue or like something
+broke.** If it looks normal, this is done. The risk it guards: an unexpected mass-invalidation
+reaching Statbot's gate as stopped deliveries across many guilds, found by guild owners not by us.
 
-**QA-R8 — NULL sweep.** `SELECT count(*) FROM "Messages" WHERE valid IS NULL;` **Pass:** 0. **Must be
-before the live declaration.** Run it as SQL — the backfill report corroborates this and is *not* the
-instrument: its counters cover only the rows a given run classified, never the table.
+**Not established by that report:** the **per-field embed limits were never evaluated** — only the
+6,000-character aggregate — so records violating them sit inside the 4750, uncounted.
 
-**QA-R5 / QA-R6 — mode toggle, both directions, on a scratch message.** Toggle classic→V2, then
-V2→classic. **Pass:** the "Switch message mode?" modal appears and warns you about losing content.
-Cancel it; you do not need to confirm.
+**QA-R20 — record the whitespace class as empty.** The class is records whose `data.components` is
+structurally Components V2 **and** whose `content` is non-empty but **whitespace only**. It is
+present in that same report as its own named category with a count and row ids, and reads
+`"whitespaceContent": { "count": 0, "rowIds": [] }`. **All that is asked of you is to record it as:
+empty for this corpus, at this time.** It is **not** a determination about what Discord accepts and
+must not become one — the class is now empty *and* unguarded, and what lands in it next is decided
+by gate behaviour nobody has tested.
 
-**QA-R7 — save an unsendable draft, on a scratch message.** Compose something deliberately unsendable
-and save it. **Pass, two halves:** (a) the save **succeeds**, and (b) that record's v1 representation
-then shows `valid: false`. **(a) is the one that matters** — if the save is rejected, the field has
-become a gate, which the plan forbids.
+## 2. Then, in this order
 
-## 2. Your decisions — no agent may make these
-
-**QA-R9 — review the backfill's outcome distribution.** Read the report in `verification/012/`.
-**This row is your decision, not a QA verdict, and no agent may mark it passed.** What the register
-asks you to weigh: the `false` count including the evaluation-failure category's **count and row
-ids**. A surprising distribution stops the live declaration. The risk it exists to catch: an
-unexpected mass-invalidation reaching Statbot's gate as stopped deliveries across many guilds,
-discovered by guild owners rather than by us.
-
-**Not established by that report, in the same sitting:** the **per-field embed limits were never
-evaluated** — only the 6,000-character aggregate — so records violating them sit inside the valid
-count, uncounted.
-
-**QA-R20 — the whitespace category, same sitting.** Confirm the class is present in the report as its
-own named category, with a count **and** row ids. **Record a zero as: empty for this corpus, at this
-time.** It is **not** a determination about Discord's behaviour and must not become one. A non-zero
-count means records are being marked sendable on a shape nobody has tested Discord against.
-
-**The live declaration to statbot.** Only after QA-R9 and QA-R20 are both reviewed and accepted.
-**Telling statbot's steering thread is your call, not mine** — by D12 that chain has been held since
+**The live declaration to statbot.** Only after QA-R9 and QA-R20 are both settled. **Telling
+statbot's steering thread is your call, not mine** — by D12 that chain has been held since
 2026-08-23 and no session has been told. Record your words and the time.
 
-**Send the repair guidance.** Ready, and only you can send it. Send exactly this:
+**Send the repair guidance.** Only you can send it. Send exactly this:
 
 > Open the message in the hooks.gg composer. It opens in Components V2 mode with an error saying
 > V2 messages cannot contain content or embeds. Press "Classic" on the mode switch at the top of
