@@ -13,9 +13,16 @@ short enough to act on. Findings go to the agent that can act, or to the record.
 listing a settled decision here "so it is not lost" is the same defect wearing a different hat —
 a closed decision belongs in the document it settled, and this file keeps nothing for reference.
 
-**Who maintains it.** The steering session, as items land and close. Completed items are deleted,
-not ticked — the record of what was done lives in the chain documents, and a deletion here states
-in its commit message what the deleted text carried and where it now lives.
+**Who maintains it.** The steering session, as items land and close.
+
+**A DONE ITEM IS DELETED. NOT TICKED, NOT ANNOTATED, NOT MOVED TO A "done" HEADING, AND NOT LEFT
+AS A LINE SAYING IT IS DONE.** There is no form of words that lets a finished item stay on this
+list. A sentence reporting that something is done is *reading* the owner has to do to discover he
+has nothing to do — which is the exact cost this file exists to avoid, and the owner has now
+corrected it twice. **The record of what was done lives in the chain documents**; the deletion's
+commit message states what the deleted text carried and where it went. **The same rule kills
+"do not run these" sections, settled-decision notes kept "so they are not lost", and status
+lines about items nobody is waiting on.** If it does not need the owner to act, it is not here.
 
 ---
 
@@ -32,12 +39,7 @@ exist to you, and relaying lists at you in chat instead is not a substitute.
 **D30–D40**. **No QA, no code review and no UAT ran on any of it** — your waiver (D35) — and that
 round now carries a **review debt that blocks chain closure** (D39), parked on your word.
 
-### 013-A. Nothing here needs you right now
-
-**BC-18 and BC-21 are done** — you ran both 2026-08-25 and reported *"-as expected-"* on each.
-Deleted rather than ticked, per this file's own rule.
-
-### 013-B. Still owed to you by me — do not wait on these
+### Still owed to you by me — do not wait on these
 
 - **BC-4** — *an import with no content at all; the dialog stays open showing the error, navigates
   nowhere, creates nothing.* **I still have not written you a payload.** It stays visibly owed rather
@@ -47,14 +49,8 @@ Deleted rather than ticked, per this file's own rule.
   refused to invent one, correctly — a made-up fixture makes the step read as executed while testing
   nothing.
 
-### 013-C. Decisions, no browser needed
+### Decisions, no browser needed
 
-- **BC-2 / BC-3 — DONE BY YOU, nothing further owed.** You imported a real Discord message carrying
-  an unsupported type **by URL** and reached the same message through the bot's **Get Message**, and
-  saw the notice on both surfaces: *"When I said both, I meant both. I have seen the message in both
-  places, through both of their respective methods."* **Their standing `RECOMMEND WITHDRAWAL` is moot
-  — they were run, not withdrawn.** Registered as **D41**; the register state itself is `uat`'s to
-  write and is routed to it. **The three withdrawal options are gone from this list.**
 - **U-C5 — and my old entry for this was unusable, which you caught.** It said *"R-5's widening"* and
   R-5 appeared exactly once in this file: in that sentence. Here is the actual decision, in full, with
   nothing to look up.
@@ -76,13 +72,6 @@ Deleted rather than ticked, per this file's own rule.
   non-destructive for this shape while the mode toggle still destroys content, so the two repair
   routes are no longer equivalent. **They are also the only records that can still reach
   `SaveAsMenu`'s conflict gate**; once repaired, removing that gate becomes a fair question.
-
-### 013-D. Everything else in 013 is with someone who is not you
-
-`uat-hooks-013-4` holds BC-19a, BC-19b, BC-15 and BC-11b. **One line, not a list — you asked why this
-file was telling you what NOT to do, and you were right: a do-not-do list is reading overhead in a file
-whose whole purpose is being short enough to act on.** If any of them comes back needing you, it will
-appear above as a thing to do.
 
 ## EVERYTHING BELOW IS ON HOLD — 2026-08-23
 
