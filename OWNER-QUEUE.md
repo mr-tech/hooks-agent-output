@@ -27,12 +27,26 @@ work — it is the same walkthrough, said properly.
 **Where things stand.** Every check an agent can run had passed — tests, code review, and UAT's
 approval conditional on you clicking through the list below.
 
-> **CHANGED 2026-08-25, after your toast ruling.** You chose to fix the stateful toasts before
-> release. That sends 013 back to the implementer, which expires the QA, code-review and UAT
-> verdicts and moves the tip. **So the walkthrough below is not runnable today** — several steps
-> predict a toast that is about to stop being a toast. **013-A is the exception: it still stands,
-> still needs doing, and its window still closes at the deploy** — which is now further away, not
-> nearer. Do 013-A whenever you like. Wait for a new tip before the rest.
+> **STOP — CORRECTED 2026-08-25 01:35. THE PREVIOUS VERSION OF THIS BANNER WAS WRONG.**
+>
+> **013 has already been merged to master and pushed.** Measured at the remote, not from a local
+> tracking ref: `git ls-remote origin master` returns `a151fb4`, and `origin/master`'s reflog records
+> `update by push` at **00:56:37 today**. The merge was a fast-forward three seconds earlier.
+>
+> **This means 013-A below may be impossible, and if it is, it is my fault.** Its whole premise was
+> that the mint route stays open until the deploy. I told you repeatedly that the window was open,
+> and I wrote it into this file at 01:03 — **seven minutes after the push had already happened.** I
+> was restating the tree state from memory instead of re-reading it. **Check whether the deploy has
+> actually gone live before you spend any time on 013-A**; if it has, that route is closed and the
+> row it existed to protect cannot be run.
+>
+> **Your "fix before release" answer was given roughly half an hour after the release.** Nobody
+> disobeyed it — it was already unsatisfiable when you gave it, and I did not know that, because I
+> had not looked. The toast fix is built and verified but uncommitted; where it lands is now an open
+> question rather than a settled one.
+>
+> **Everything below this banner was written on the assumption that the release had not happened.**
+> Treat the whole walkthrough as suspect until it is re-cut against what is actually live.
 
 **Two names you will see in the steps.** They are just labels so you can tell me which step you
 mean when you report back:
@@ -57,8 +71,11 @@ spares of the same two shapes, because the run below **destroys a test message e
 a choice**, and there are four such moments per shape. With only the two you have, you run out
 halfway.
 
-**Do it on the live site as it is right now** (nothing has been deployed yet), the same way you made
-the originals — paste into New Message JSON and save:
+**This step's premise may no longer hold — read the banner at the top of this section first.** It was
+written believing nothing had been deployed. A push to `master` landed at 00:56:37 today. If the
+deploy has gone live, the route below is closed and this step cannot be done at all. If it somehow
+has not, do this immediately, the same way you made the originals — paste into New Message JSON and
+save:
 
     {"content":"hi","flags":32768}                      ← four of these = Seed A spares
     {"content":"hi","flags":32768,"components":[]}      ← four of these = Seed B spares
