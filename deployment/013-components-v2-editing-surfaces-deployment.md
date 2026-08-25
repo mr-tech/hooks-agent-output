@@ -1452,3 +1452,131 @@ approval**, and this stage does not treat it as one.
 
 **State: `origin/master` `2d90e8a`, `chain/013-rider-2` `b56570d` unpushed and 3 ahead, `website`
 porcelain 0. NOTHING RELEASED. No push, no merge, no tag, no tree switch.**
+
+---
+
+# §15 — Pre-push derivations, 2026-08-25 20:3x UTC, by `devops-hooks-013-3` (pid 3414852)
+
+**Still Stage 1. Nothing pushed, merged, tagged or switched.** This section records four derivations
+taken **before** any release act, because two of them stop being takeable once the push happens and one
+of them decides an ordering question that would otherwise be discovered at commit time.
+
+## §15.1 — **BC-13 does not reopen at this delta.** Re-derived, not inherited
+
+**Why this needs re-deriving every time**: `BC-13 · bot-code-ttl-residue` is **devops-owned** and its
+earliest-decidable condition is *one hour after the deploy SHA is live*. It stands **`TERMINAL — WINDOW
+ELAPSED`** (R36.4) and is **not** among the four live `POST` rows — but it is a row about **bot code
+reaching production**, so **every new deploy is a fresh opportunity for it to reopen.** §11 and §12 each
+had to argue it does not. **That argument is per-delta and is not inheritable.**
+
+**Derivation for `2d90e8a..b56570d`:**
+
+| Step | Instrument | Result |
+|---|---|---|
+| Does the delta touch bot code? | `git diff --numstat 2d90e8a..b56570d -- bot/` | **empty — 0 rows** |
+| Is that "no changes" or "no such path"? | `git ls-tree --name-only b56570d` | **`bot/` EXISTS at the tip** — so the empty numstat means *unchanged*, not *absent* |
+
+**`numstat` computes inside git, before any output filter**, so this is a sound counter under the
+workspace's own rule. **BC-13 does not reopen. It stays `TERMINAL — WINDOW ELAPSED`.**
+
+## §15.2 — **The bot ships INSIDE the Next app. There is no second service and no stale-consumer gap**
+
+A reader looking at this delta has a reasonable fear: `src/utils/index.ts` moves **23/4**,
+`src/utils/formatMutationError.ts` **10/1** and `src/server/api/utils/shapes.ts` **8/1**, and `bot/`
+consumes `src/`. **If the bot were a separately-rolled service, a push to `master` would leave it
+running stale code against changed shared utilities** — the exact defect Core Responsibility 3 exists to
+catch, one level in from a cross-repo pin.
+
+**It is not.** Derived from the repo:
+
+- **`bot/` has no `package.json` and no `tsconfig.json`** (`ls -d` → *No such file or directory* for
+  both) — it is not a separately built or separately deployed unit.
+- **Its sources are imported by the app**: 5 files under `bot/` import from `~/utils` / `~/server`
+  (`edgeCommands.ts`, `serverCommands.ts`, `scripts/app_commands/{common,messageCommands,slash/index}.ts`).
+- **The build emits them as app routes**: `pnpm build` at `b56570d` produced **`/api/interactions-edge`**
+  and **`/api/interactions-server`** in the route table.
+
+**So the changed utilities reach the bot handlers through the same artifact and the same deploy. No
+separate rollout is owed, and none is proposed.** This is also what keeps the release **Mode A** — one
+artifact, one ref, no multi-service sequencing.
+
+## §15.3 — **`ecosystem.config.json` — recorded, not established, not probed**
+
+The repo carries `ecosystem.config.json`, which defines **one** PM2 app: `hooks.gg-website`, running
+`node_modules/next/dist/bin/next start`. **That is an alternative serving path for the same
+application, not a second service** — there is no bot entry in it.
+
+**Whether any PM2 instance is live is NOT established from the repo, and this stage did not probe for
+it.** Serving state is the owner's to attest and is never inferred from the working machine. **It is
+also not an open question**: the mechanism is already established by his attestation across the four
+deploy acts recorded at §12, all of which are pushes to `master`. **Recorded so a later reader does not
+mistake this file for an unexamined second deploy path, and does not go looking host-side for one.**
+
+## §15.4 — **In-flight gate scan: NO pre-deploy capture is owed by any `POST` row**
+
+**Why this was run.** This stage's Phase 2C rule is that where a gate document names checks interleaved
+with the release's own steps, **every capture step must precede, in the same runbook, the row that
+consumes its number** — and *"a row consuming a number no earlier row captures is unexecutable, not
+strict."* **For this repo the merge IS the deploy, so there is no window after the push in which a
+missed capture can be taken.** A baseline not captured before the push is lost permanently.
+
+**The four live `POST` rows, each read at its definition for a consumed baseline:**
+
+| Row | What it consumes | Capture owed before the push? |
+|---|---|---|
+| **BC-12 · a V2 message that sent at `c85945f` still sends after deploy** | a message **already known to have sent** at `c85945f` — a historical fact about existing data | **NO.** The subject predates this release and is unaffected by it. One 4xx refutes by construction; it is not a rate needing a before-figure |
+| **BC-14 · `user-defect-fixed-in-prod`** | four post-deploy observations | **NO.** All four are taken after the deploy is live; there is no before-figure in the row |
+| **BC-17 · `discord-returns-row-e`** | an import attempted against **a message known to predate V2 enforcement** | **NO.** Also historical data, still identifiable after the deploy |
+| **BC-20 · `dropped-notice-guards-send`** | *no report of a message sent missing components the importer dropped* | **NO** — and the row itself says why: **it is a silent mode, and absence of reports is not evidence for it.** There is no number to capture on either side |
+
+**Result: the runbook needs no capture step before the push, and §7's sequence is complete as
+proposed.** **Recorded because "no baseline owed" is only worth anything if someone actually looked** —
+an unrun check and a clean check read identically in a document that does not say which it was.
+
+## §15.5 — **The plan's `Status` field: the closing act does NOT need it changed first, and changing it first would be harmful**
+
+**The question, put by steering**: `uat`'s definition tells it to set the plan's `Status` to `UAT
+Approved`; the plan reads `Status: Active`. `uat` refused both evasions and routed a rev 51
+registration pass to the planner. **Does this stage's closing act need that field to read something
+other than `Active` before the push?**
+
+**NO — and the planner must not be commissioned before the push.** Two independent reasons:
+
+1. **This stage writes that field itself, and writes it later.** Phase 2D step 1 sets every included
+   plan's `Status` to **`Released`**, and Stage 1 step 8 moves the plan, implementation, QA and UAT
+   documents to `closed/`. **Whatever `Status` reads at the moment of the push is overwritten by this
+   stage's own closure**, so a rev 51 pass to set an intermediate value buys nothing that survives.
+2. **A plan write before the push would expire the gate in the act of preparing to satisfy it.** The
+   plan file **is** the criteria axis. Rev 47's decision is anchored at **CRITERIA plan 013 rev 50
+   (`eb0e291`)** and **expires when either axis moves.** A rev 51 registration pass moves it. **This
+   already happened once tonight** — `eb0e291` at 19:31 expired rev 44's gate one minute after it
+   committed, and `uat` ruled the clause bites and re-issued rather than carve out a trivial delta.
+   **Doing it again, knowingly, immediately before a push, would be strictly worse than the accident**:
+   it would expire rev 47, expire QA's verdict on the same axis, and expire the release-tip verdict
+   commissioned against that pair — three verdicts, to set a field this stage is about to overwrite.
+
+**So the ordering is: push first, then close.** `uat`'s own note reaches the same place — *if the
+owner's release lands first, devops closes these documents on commit and the point is moot.* **This
+section confirms it from the closing stage's side rather than leaving it as `uat`'s guess about what
+devops needs.**
+
+**What this stage does NOT claim**: that `uat`'s obligation is discharged, or that the planner's rev 51
+is unnecessary in general. **It is a sequencing statement only** — the pass must not land *between the
+gate and the push*. Where it lands afterwards is the planner's and steering's call, not this stage's.
+
+## §15.6 — Standing at the close of this section
+
+**Precondition (i) — UAT unconditional**: reported met at **rev 47** (`e7cdc6c`) by steering. **Not yet
+re-read at the document by this stage**; it will be, at the moment of push, along with both axes.
+**(ii) release-tip verdict at `b56570d`**: **OUTSTANDING** — commissioned to QA, not returned.
+**(iii) the owner's explicit approval of the release act**: **NOT GIVEN.** `devops now` is a direction
+to the pipeline and this stage does not read it as release approval.
+
+**The four `POST` rows are carried forward verbatim as `uat` worded them**: *they gate the chain's
+CLOSURE, never the release act; they must not be presented as blocking the merge, and they must not be
+quietly dropped once the merge happens; each is acted on at its earliest-decidable condition rather
+than when someone happens to look.* **No release is recorded complete while any stands at `NOT
+EXECUTED`.** They land in this record's Post-Release Status, not in its release gate.
+
+**Nothing is marked NOT VERIFIED in this section.** **`origin/master` `2d90e8a`; `chain/013-rider-2`
+`b56570d` unpushed, 3 ahead; `website` porcelain 0. NOTHING RELEASED.**
