@@ -9,9 +9,11 @@ Status-Detail: >-
   verdict**; `UAT Complete` is not a value this field takes, and **devops closes this document, not this
   stage** (skill responsibilities table; this stage's own definition). **What `Active` is scoped to, so no
   reader has to reconstruct it**: **four `POST` rows (BC-12/14/17/20) stand open and this register owns
-  them**, and one question stands with the owner (**R49.4**). **What it blocks on**: R49.4 — whether his
-  snapshot ruling withdraws the four `POST` rows — then those rows, then devops' close. **R48.4 is
-  DECIDED (owner ruling, R49.1) and no longer blocks.**
+  them**. **R49.4 is RULED (owner, 2026-08-25, option 2): the four rows STAND — they are about the fix
+  working, not about the release record.** **What it blocks on**: the owner's execution of the four checks
+  authored at **R50.2**, then their terminalisation in this register, then devops' close. **R48.4 and R49.4
+  are both DECIDED and neither blocks.** **BC-13 is TERMINAL and is not a fifth row — re-derived rev 50
+  after this register asserted otherwise to steering and corrected it in the same channel (R50.4).**
   **Rev 49 — HIS RULING ACCEPTED: `a74b9e2` LEAVES 013's RECORDS ENTIRELY.** ***"No. The records don't
   mention what happens after release. Release was self-contained and a snapshot at the time of release."***
   — his own words, correcting an option description he had just selected, given **before rev 48 existed and
@@ -898,6 +900,7 @@ Verified-At: >-
 | 2026-08-25 | **owner** via `steering-hooks-013-3` [b04529], which put R46.3's question as a **blocking selection prompt with all four options unaltered and nothing set** | **Rev 47. BC-4 → `EXECUTED` 2026-08-25. QA §V.32 → `EXECUTED — ASSUMPTION HELD`. ALL EIGHT `PRE` ROWS TERMINAL. THE APPROVAL IS NOW UNCONDITIONAL.** He chose ***"Yes — I read that line"***, taking neither the costless *"Not from memory"* nor the row-ending *"My `pass` stands"*. **What it does that his first report could not: rev 46 held the row because `pass` ENTAILED limb 2 under an adopted definition without STATING it; this states it — a sighting of the exact string rather than a conclusion about a row.** **And it kills hazard A by observation, not inference: hazard A IS the screen on which that line was never read (QA D1b finds no floor message on page 2), so a man who read it was on page 1 below the box.** **THE §V.29 CHAIN WAS RE-DERIVED AT QA's CAPTURED INSTRUMENT RATHER THAN ASSERTED** — steering offered the step and it cost one read. §V.29 alone gives only the forward direction; **the contrapositive needed one link that R46.3 had CITED rather than shown — that the exact string is produced BY the floor — and the `floor-off` mutant already supplied it: KILLED, 7 failures including D1 (error shown), so the harness reads the floor's real output and not a constant.** **§V.32 is therefore held by a mutant, not by a syllogism this register wrote.** **The one residual in the chain is named rather than buried**: *"the exact string is the floor's"* rests on QA §V.31.5, is QA's to own, and is why the question quoted the string in full instead of asking whether he saw an error. **All eight `PRE` rows ENUMERATED at their terminal states rather than counted** — BC-1/6/9/10/18 (rev 43), BC-7/8 (rev 44), BC-4 (rev 47) — **because "eleven of twelve" is this register's own worst measurement error and a count is what travels when nobody looks. No row withdrawn, none dropped, none *satisfied incidentally*.** **Residual 3 → ELEVEN, and the entry states the kind: an option label is an adoption, but this is the class's NARROWEST member — what was adopted is one exact string quoted in full in the question, a perceptual fact rather than a characterisation. The register must not read as though he described the screen; he confirmed a line he was shown.** **UNCONDITIONAL DOES NOT MEAN CLOSED**: BC-12/14/17/20 stand `NOT EXECUTED` and gate the chain's CLOSURE, never the release act; **the release is unblocked, the ledger is not discharged.** **It is also NOT the owner's release approval — `devops now` is a direction to the pipeline and pushing needs his explicit word.** F-QA33 stays open, and **its decline is now paid for: the hazard bullet it justified WORKED.** **R47.7 surfaces a bootstrap conflict in this stage's own definition** — updating the plan's `Status` field writes to this gate's criteria axis and would expire the decision in the act of issuing it; **neither evasion taken**, routed to the planner as a rev 51 registration pass with re-anchor, and to `pi` as a finding. **Open set 5 → 4, `PRE` 0.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — reported the release complete at `master` = `b56570d`, flagged this document's `Status: Active` as contradicting its own record, and asked whether the rev 51 criteria move needs recording | **Rev 48. PRODUCTION MOVED PAST THE GATE ELEVEN MINUTES AFTER THE RELEASE, AND THIS REVISION EXISTS BECAUSE THE CLAIM WAS VERIFIED AT THE MECHANISM INSTEAD OF ACCEPTED.** **`git ls-remote origin refs/heads/master` → `a74b9e2`, NOT `b56570d`.** **Steering's read was CORRECT when made** — the release did land at `b56570d` at 20:30:01 — **and the tree moved at 20:41:37, which steering has not seen; this is not a peer being wrong.** **The release is sound**: ancestry exit 0, fast-forward, exactly as gated. **On top of it sits exactly one commit, `a74b9e2 "remove unnecessary diff"`, the owner's own — 4 files, 3 under `__tests__`, ONE production path `src/utils/index.ts` at 1 insertion / 22 deletions.** **Rev 47's clause therefore fires on all three verdicts: this gate EXPIRED on both axes, QA's `Verified-At: b56570d` EXPIRED on both, code review's EXPIRED on the tree axis.** **The expiry of THIS gate is harmless and is stated so rather than dramatised — the merge executed while it was live, and a gate expiring after the act it authorised is the clause working. What is NOT harmless: no verdict in this chain covers what is running in production now.** **CLASSIFIED, NOT REVIEWED** — a 23-line diff was read for the one purpose the gate obliges (did the tree move, does it touch a terminalised row), **and the assessment is ROUTED to code review and QA rather than made here**: the change removes the component-type enumeration from the **Load confirmation**; `describeDropSet` survives so the lossy-conversion warning stands. **AND IT IS THE SURFACE BC-1 WAS CLOSED ON** — the row QA said only a human could reach. **BC-1 is NOT withdrawn and NOT reopened: it was correctly `EXECUTED` against the tree it was executed against, but its evidence no longer describes production — a fact about the record, not a criticism of the commit.** ***"Remove unnecessary diff"* reads as a deliberate product judgement that is his alone; this register requests no feature, asks for no revert, and takes no position on whether the change is right.** **ONE BLOCKING DECISION PUT TO HIM (R48.4), with a real accept-as-is option that is explicitly not a failure**; recommendation is a **scoped** re-review the stages size, and a full re-gate is named **disproportionate** rather than offered neutrally. **ON THE `Status` FIELD: steering misread the vocabulary and the field is RIGHT — `Status` is LIFECYCLE, never the verdict; `UAT Complete` is not a value it takes; and the skill's table and this stage's own definition both say DEVOPS closes this document.** **`Active` is also substantively true — four `POST` rows stand open and this register owns them.** **BUT STEERING WAS RIGHT THAT SOMETHING WAS WRONG AND IT IS MINE**: `Status-Detail` opened on rev 47's completion narrative with **nothing stating the lifecycle position**, which is precisely the qualifier the skill says that field exists to carry — **a survey script or `pi` would have made the identical misread without steering's care to ask first.** **Fixed by a standing lead; the field itself did not change.** **The rev 51 criteria move IS recorded and is NOT a re-issue**: no gate is re-issued for an act already complete; what is recorded is that the gate was **live at the instant it was acted on** and **must not be leaned on for any future act.** R47.7's routing correctly **moot**; its `pi` finding survives, never having been about today's instance. **Residuals: eight.** **UAT Complete stands as a verdict about `b56570d` and is NOT a verdict about `a74b9e2`.** |
 | 2026-08-25 | **owner** via `steering-hooks-013-3` [b04529], as a blocking selection prompt put **before rev 48 existed**; steering explicitly did not claim he ruled on this register's reasoning | **Rev 49. HIS RULING ACCEPTED — `a74b9e2` LEAVES 013's RECORDS ENTIRELY.** He chose *"Mine — I removed it deliberately"*, declining *"but I want it gated"*, *"find out who"* and *"revert to the released tip"*, then **corrected the option's own description unprompted, in his own words**: ***"No. The records don't mention what happens after release. Release was self-contained and a snapshot at the time of release."*** **Stronger than R48.4's option A**, which would still have had the records note the move. **No re-review, no re-gate, no revert, no residual entry about `a74b9e2` inside 013.** **BC-1 — steering's offer to carry the point back is DECLINED, and not out of deference: R48.3's observation that BC-1's evidence no longer describes production IS a statement about what happens after release, the exact class he ruled out.** BC-1 was `EXECUTED` against the tree it was executed against, which is the snapshot he describes; **asking would be asking him to re-rule what he just ruled in different words.** **REV 48's FINDING STANDS AND IS NOT WALKED BACK** — production was not serving the released tree, and verifying at the mechanism stopped a false-premise finalisation and a rev 52 plan write mid-pass. **Its proposed DISPOSITION is superseded, and both halves are said: a ruling arriving ahead of the gate's request is not the gate being ignored.** **Residual 8 retired to a disposition line per Retire Dispositioned Content; residuals 8 → 7.** **ONE DISTINCT QUESTION PUT BACK, and it is NOT BC-1: the four `POST` rows are BY CONSTRUCTION records of what happens after release — BC-14 is literally *"the user-reported defect is fixed in production"*, BC-12 *"still sends after deploy"*.** **Read one way his sentence withdraws all four and the chain closes now; read the other they stand and must be observed against `a74b9e2`. Applying it maximally would withdraw four release conditions on a ruling given about a dialog — expanding a ruling past the question it answered, the error this chain has spent all day not committing. Applying it minimally keeps alive four rows he may have just ended. `WITHDRAWN` is a terminal state only he may rule.** The ask passes BC-4's test — **it names what the answer changes** — and **if he withdraws them the cost is recorded in plain words: the chain closes with the user-reported defect never confirmed fixed in production.** **Steering's `Status` withdrawal accepted in the terms made — same channel, error's class named correctly as asserting from an unestablished fact — and two things kept past the instance: it did not repeat the error on the other two documents, and it LEFT THE ARCHITECTURE DOCUMENTS ALONE because `Active` is that type's normal state; one of its three "stragglers" was never one.** **For the retrospective**: the repo has **no roadmap and no release tracker across twelve chains**, found by the roadmap pass, **which also found `a74b9e2` unprompted and refused to act on it as outside its stage — two stages finding the same fact independently within the hour, neither of them the one whose report said otherwise.** |
+| 2026-08-25 | **owner** via `steering-hooks-013-3` [b04529] — **R49.4 ruled, option 2**, put with the withdrawal cost stated in the plain words this register asked for; steering relayed his answer verbatim and complete | **Rev 50. THE FOUR `POST` ROWS STAND, AND THEIR OPERATOR TEXT IS AUTHORED AND DELIVERED.** ***"2, use the current uat. Speed run this to completion. no back-and-forth, you give me what to check, I do it and we're done"*** — **the minimal reading governs**: BC-12, BC-14, BC-17 and BC-20 are **not** withdrawn, and **every observation names `a74b9e2`**, re-derived at the mechanism (`git ls-remote origin master`) before a word of the text was written. **Four checks authored in one delivery (R50.2), verbatim-liftable, nothing cut.** **The silent-limb problem is solved by the REPLY FORMAT, not by asking him for more** — each limb that fails by absence is written to return **a number or a quoted string**, so a one-line answer carries the observation rather than his verdict about it; that is what makes *"no back-and-forth"* compatible with the rows instead of fatal to them. **BC-17's fixture IS its own question and none was invented** — written as a question with two branches, both terminalisable tonight, one carrying a **RECOMMEND WITHDRAWAL with the cost stated to him in plain words**. **BC-20's absence limb has no closing instrument by construction, and the check is written to say so to his face** rather than let a pass read wider than it is. **`a74b9e2`'s visible delta is disclosed to the operator in his own terms** — the Load confirmation says less than the records describe, it is his own change, and none of the four rows depend on the removed wording. **SELF-INFLICTED ERROR, CAUGHT AND CORRECTED IN THE SAME CHANNEL (R50.4)**: this register told steering BC-13 was an open fifth `POST` row. It is `TERMINAL — WINDOW ELAPSED` since rev 27, and the later revisions say `POST` **(4)** for exactly that reason — **a status asserted from memory of an early revision instead of re-read at write time, which is this document's own rule applied to every stage but itself.** Withdrawn plainly, with devops credited for having closed it correctly and unprompted. **Non-reopening re-derived rather than assumed**: `bot` present at `a74b9e2` and `git diff --name-only 2d90e8a a74b9e2 -- bot/` **empty**, so BC-13 stays terminal across both of tonight's commits. **Devops's written decline of the §16 amendment ACCEPTED, not escalated** — §16 already is the snapshot and never claimed `b56570d` serves now; a refusal in writing with its authority named is the correct way to refuse another stage. **Residuals: seven, unchanged.** **UAT Complete still stands as a verdict about `b56570d` and is still NOT a verdict about `a74b9e2`.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -8774,3 +8777,167 @@ owner's ruling, 013's records make no claim about `a74b9e2` at all.**
 
 **RUN-LENGTH NOTE**: this register is at roughly 52 requests against a ~60 ceiling. **The document is
 current and a successor resumes from R49.4 with no re-briefing.**
+
+---
+
+# Revision 50 — 2026-08-25 — **R49.4 RULED: THE FOUR `POST` ROWS STAND. THEIR OPERATOR TEXT IS AUTHORED.**
+
+**Trigger**: `steering-hooks-013-3` [b04529], relaying the owner's answer to R49.4 verbatim and complete.
+**Tree at write time**: `origin/master` = **`a74b9e2`**, re-derived at the mechanism
+(`git ls-remote origin master`) before any of this revision's text was written — not carried from rev 48's
+read and not accepted from the relay.
+
+## R50.1 — The ruling, and the reading it selects
+
+> **"2, use the current uat. Speed run this to completion. no back-and-forth, you give me what to check, I do
+> it and we're done"**
+
+**That is the entirety of what he wrote about R49.4.** He was shown this register's three options unaltered,
+with the withdrawal cost stated in the plain words R49.4 demanded, and he took option 2 — ***"They stand —
+they're about the fix working, not about the release record."***
+
+**So the minimal reading governs, and it is the register's own**: his snapshot ruling (R49.1) disposes of
+`a74b9e2` as a *record* question and does **not** reach the four `POST` rows, which are about whether the
+delivered fix works for a user. **BC-12, BC-14, BC-17 and BC-20 are NOT withdrawn.**
+
+**Every observation taken against them names `a74b9e2`, never `b56570d`.** This is not pedantry about SHAs:
+the rows are being observed against a tree **no verdict in this chain covers** (rev 48), and a record that
+named the released tip would assert coverage that does not exist.
+
+**What "speed run" and "no back-and-forth" bind, and what they do not.** They bind **exchanges with him** —
+he will sit down once, run the checks, and expect that to finish it. **They do not bind this register's
+rigour**, and reading them that way would be the cheapest possible misreading of an owner who has twice now
+volunteered the load-bearing half of an answer unprompted. **The correct response to "no back-and-forth" is
+not to ask for less; it is to author checks whose single reply carries the evidence.** That is R50.3.
+
+## R50.2 — The four checks, as delivered
+
+**Authored in one delivery, verbatim-liftable, in the R45.3 form that worked for BC-4. Nothing was cut, and
+no clarifying question was sent back that this register could resolve from its own ledger.**
+
+Each row's text was built from **its own register cell re-read at write time** — prediction, primary
+instrument, subject, and earliest-decidable condition read apart rather than blurred — and from QA's
+originating rows, not from this document's summaries of them.
+
+| Row | Prediction the text carries | Subject | Form of the check |
+|---|---|---|---|
+| **BC-12** · a V2 message that sent at `c85945f` still sends after deploy | **the send succeeds; a single 4xx refutes by construction** | the owner, in normal use | Save As on an existing V2 message → send the copy. **Explicitly instructed NOT to retry a failure** — one failure decides the row and is a hotfix trigger, and a second attempt would convert a decided row into a rate |
+| **BC-14** · the user-reported defect is fixed in production | **all four observations confirmed**; three passing is not this row passing | the owner, in normal use | four limbs — copy carries every component · **the Message JSON shows them** · a component-only edit raises *"Message Update Detected"* in another tab · **a no-op save raises nothing** |
+| **BC-17** · can Discord *return* a message carrying both classic content and V2 components | **if such a message exists, the row-E choice appears rather than silent loss** | the owner (the primary is a production observation of the URL-import path; no session on this box may fetch a Discord link) | **a question, not a click** — two branches, both terminalisable tonight |
+| **BC-20** · the dropped-components notice guards the send | **no report of a sent message missing components the importer dropped** — an **absence** signature | the owner | reproduce a dropping import, then head toward sending: does the guard **fire**, and does it **name the drop** |
+
+### The `a74b9e2` delta is disclosed to the operator, in his terms
+
+The text opens by telling him that **the Load confirmation now says less than the records describe** — it no
+longer lists which component types were added or removed — that **this is his own "remove unnecessary diff"
+change and belongs there**, and that **the separate dropped-components warning is untouched and check 12
+depends on it**. **None of the four rows depend on the removed wording.**
+
+**This is the "where the tip matters to what he'll see, say so in his terms" instruction discharged in the
+only form that helps**: an operator who meets an unexpectedly short message with no warning reports a
+failure, and an operator told in advance reports what he saw. **No SHA appears in anything he reads.**
+
+**No source was read for this.** The delta is quoted from rev 48's own record of it, which was made for the
+one purpose the gate obliges. **This stage still does not inspect code.**
+
+## R50.3 — The design move: the reply format carries the silent limbs
+
+**The rev-43 silent-limb test is the whole problem here.** A row whose limbs are all visible on screen closes
+on a brief report; **a row carrying a limb that is silent on screen does not** — and BC-14 has two:
+the Message JSON limb (the screen can look perfect while the JSON is wrong) and the no-op-save limb (which
+fails by something *appearing*, the inverse of its neighbour).
+
+**A "speed run" and the silent-limb test look irreconcilable, and they are not.** The resolution is that
+**the limb is made to return a token he must copy** — a count, a quoted string — rather than a verdict:
+
+```
+BC-12:  sent / failed  (+ exact error text if failed)
+BC-14:  copy=N   json=N   other-tab-prompt=yes/no   no-op-save=quiet/prompted
+BC-17:  no such message known    — or —   choice shown / silently lost
+        (+ withdraw BC-17  /  BC-17 stands)
+BC-20:  warning=yes/no,  it said: "…"
+```
+
+**A one-line answer in this shape IS the observation**, so R25.1 is satisfied — he is asked for what he
+*saw*, not for a verdict against a row — **while costing him one reply.** **This is the general answer to a
+speed run and it is worth more than tonight**: where an owner's time is the scarce resource, spend the
+rigour in the authoring, not in the asking.
+
+## R50.4 — **A defect this register committed tonight, corrected in the same channel**
+
+**This register told steering that BC-13 was an open fifth `POST` row and that "the chain does not close with
+it open." That is false.**
+
+**BC-13 is `TERMINAL — WINDOW ELAPSED` and has been since rev 27**, discharged at devops's own deployment
+record (**L229, L244–250**: deploy 00:56:37 UTC, +1h window closed 01:56:37, recorded 03:45) and re-affirmed
+for the second deploy act at **L549, L555–563**. **This document says so in its own text**, and the later
+revisions all read `POST` **(4)** rather than (5) for exactly that reason.
+
+**The method failure, named rather than softened**: *a status was asserted from memory of an early revision
+instead of re-read at write time.* **That is this stage's own standing rule — "a status restated from a
+predecessor document names that document as the authority and is re-read at write time" — and it was applied
+to every other stage's documents tonight and not to its own.** The failure mode is specific and recurring:
+**an early revision's snapshot of a live set stays memorable long after the set has moved.**
+
+**Corrected in the same channel it was made, plainly, with the error owned** — not by quietly ceasing to
+repeat it, which would have left devops carrying an implication that it had left a row open.
+
+**Non-reopening re-derived rather than assumed, since the correction was cheap to make load-bearing:**
+
+- `git ls-tree --name-only a74b9e2 -- bot` → **`bot`** — the path is present, so an empty diff is a genuine
+  negative and not a path typo. **That is devops's own instrument-lie guard, borrowed and re-run.**
+- `git diff --name-only 2d90e8a a74b9e2 -- bot/` → **empty**, across tonight's whole move — the release
+  commit *and* the owner's follow-up together.
+
+**BC-13 therefore stays terminal across `b56570d` and `a74b9e2`. It is not reopened, and it is not a fifth
+row.** **Devops closed it correctly and unprompted, on a clock, having tested non-reopening rather than
+assuming it, and that credit is recorded here because this register briefly implied the opposite.**
+
+## R50.5 — Devops's decline of the §16 amendment: accepted, not escalated
+
+Devops **declined in writing** this register's request to amend §16 of the deployment record, on the owner's
+ruling, reasoning that **§16 already *is* the snapshot of the release act and never claimed `b56570d` is
+serving now.**
+
+**Its reasoning is right and this register adopts it.** The clarity requested was one §16's own form already
+carries. **A refusal delivered in writing with its authority named is the correct way for one stage to refuse
+another**, and is preferable to a silent compliance that would have left no record of the disagreement.
+**Nothing here for a successor.**
+
+**Devops's classifier block on the older-records sweep**: correctly handled — it stopped, did not rephrase,
+did not route it through steering. **Parked for the owner; not part of 013's completion**, and not this
+register's to adjudicate.
+
+## R50.6 — State at rev 50
+
+| | |
+|---|---|
+| **Gate** | **UAT Complete · APPROVED FOR RELEASE — UNCONDITIONAL**, reached at **TREE `b56570d`** / **CRITERIA plan 013 rev 50**. **EXPIRED on both axes since rev 48** — the merge executed while it was live, and a gate expiring after the act it authorised is the clause working. **It is not re-issued and must not be leaned on for any future act.** |
+| **Coverage of production** | **NONE.** No verdict in this chain — this gate's, QA's, or code review's — covers `a74b9e2`. Under the owner's R49.1 ruling that is a stated fact, not a defect and not a re-gate trigger. |
+| **`PRE` rows** | **8 of 8 `EXECUTED`.** Terminal. |
+| **`POST` rows** | **4 open: BC-12, BC-14, BC-17, BC-20.** Checks authored and delivered (R50.2); awaiting the owner's execution. **BC-13 terminal (R50.4). There is no fifth.** |
+| **Residuals** | **Seven**, unchanged this revision. |
+| **Lifecycle** | **`Active`** — scoped to the four rows' terminalisation, then devops's `closed/` move. |
+
+**Where each row can land, and nowhere else.** `EXECUTED` with the observed result and the date; `WITHDRAWN`,
+**which only the owner may rule**; or `SUPERSEDED`. **`NOT EXECUTED` remains a non-terminal state**, and
+**"satisfied incidentally" is not a terminal state either** — a row closed on an observation taken for a
+different purpose is recorded `EXECUTED` **with that evidence named**, or it was never a gate.
+
+**If an observation FAILS, it is a finding against production as it stands — not a re-gate of the release
+act, and not a reopening of the owner's R49.1 ruling.** The release happened at a tree that was gated; a
+`POST` row failing at `a74b9e2` says something about the product now, and this register will say exactly
+that and route it, rather than reaching backwards for a verdict it already spent.
+
+**Next Actions** — *point-in-time; later stage documents are authoritative.*
+
+1. **The owner — the four checks (R50.2), in one sitting, one reply.** The reply format is the record.
+2. **This stage — terminalise all four on what he reports**, each to its own terminal state, item by item.
+   **BC-17's "no such message known" branch routes a `RECOMMEND WITHDRAWAL` to him with its cost stated; the
+   withdrawal itself is his ruling and not this register's.**
+3. **Devops — `closed/` once the four resolve.** `origin/master` is `a74b9e2`.
+4. **QA and code review — told, not commissioned.** Under his ruling neither re-issues.
+5. **Retrospective — R45.9, R47.7, R49.5's two, and now R50.4** (a stage's own restatement rule not applied
+   to its own document; the failure mode is an early revision's snapshot of a live set outliving the set).
+6. **Nobody** — expands the R49.4 ruling past the four rows it names, takes a `POST` observation without
+   naming `a74b9e2`, or records a row as passed on "it looked right" where its cell says the limb is silent.
