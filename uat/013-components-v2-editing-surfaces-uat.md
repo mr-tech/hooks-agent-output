@@ -5,6 +5,41 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
+  **Rev 33 — Predicted-value corrections ACCEPTED; BC-19a's disposition ENDORSED; the stop condition AGREED
+  with three conditions.** QA changed three Predicted values (BC-7, BC-8, BC-9) and **led with that fact
+  rather than burying it in a summary**, which is how it should arrive. **Accepted in full**: the **Condition**
+  cell is authoritative and already required every limb added, so **nothing new is asked of the product** —
+  correcting a Predicted value to its Condition is **not widening a row, it is closing the gap between what
+  the row requires and what the row can record.** **And this third pair was the most dangerous of the three:**
+  a condition↔failure-mode gap **misdirects the operator**, who may still notice the right thing; a
+  condition↔predicted-value gap lets a row be **recorded satisfied while a required limb was never
+  observed** — one step closer to the record, and it produces **a clean, well-formed PASS that is silent
+  about the omission.** BC-7 named 2 of 3, BC-8 3 of 5, BC-9 2 of 4, and **every pass in this chain, this
+  register's included, read past them because nobody asked that question of that pair.** **Found by applying
+  rev 31's generalisation to rev 30's ruling — the rule found what its authors did not.** **BC-19a
+  dispositioned not corrected, and ENDORSED on this register's own doctrine** — R25.3, *the observed result is
+  recorded beside the prediction, not over it*: **a terminal row's prediction is evidence, not documentation**,
+  and editing it retroactively changes what was predicted. **QA reached that independently and applied it
+  against its own sweep's momentum, which is the harder direction.** **But it compounds**: both human-facing
+  cells named one limb of two, so R31.4's *no cell was in the path* reasoning is weakened — **BC-19a's
+  *clears* limb has no positive evidence from any route, and none can now be obtained, its subject having
+  been deleted at `2d90e8a`.** **Revert REFUSED on a specific ground, not reluctance: reopening it would
+  convert a terminal row into a permanently unreachable obligation — manufacturing exactly the phantom rev 28
+  spent a revision clearing.** **Nothing goes to the owner**: observing a deleted notice is impossible and
+  re-characterising an old attestation is what the BC-21 doctrine forbids. **Residuals now four**, the new one
+  listed apart from the class it belongs to because **it is the only one closed to future evidence.**
+  **The R31.3 recording constraint is discharged into the rows** — QA put it in both cells of **BC-7 and
+  BC-8**, having swept the flag/bit class rather than the instance it was handed, and its reason is better
+  than the constraint's original form: **a constraint that lives only in a message is not a constraint,
+  because the operator reads the row.** **STOP CONDITION AGREED**, on a ground stronger than QA's own:
+  **row quality is not what blocks this chain — eleven rows are executable and none has been observed, and
+  refining instructions while the observation count stands at zero is displacement.** **Three conditions:**
+  the gate records the sweep **stopped by agreement at a defined point, not completed** — a bounded audit
+  reported as exhaustive is a silent cap; **the stop binds deliberate search, not incidental reporting**, QA
+  having stated a **prediction**, and a falsified prediction is data rather than a breach; and **it expires at
+  the post-rider tip**, where the question reopens **because the artifact moved, not because anyone looked** —
+  prediction staleness applied to cells rather than values. **Open set unchanged — 12 register rows + F-1;
+  eleven executable, none observed.** **Decision UNMOVED at `EXPIRED IN FULL`.**
   **Rev 32 — R31.4's bounded question is WITHDRAWN, answered by derivation. Nothing goes to the owner and
   nothing to QA.** Steering declined to answer and pointed at plan 013's **D41**, on this register's own rule
   that a question answerable by derivation is not escalated — and the derivation settles all three rows.
@@ -348,6 +383,7 @@ Verified-At: >-
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — relayed QA's `0b648e5`: **BC-6 reconciled, a mirror defect found in BC-1, and a ruling requested on six more rows** | QA asks whether the operator's checklist is the **Predicted-value** column or the **failure-mode** column, and will reconcile six rows on the word | **Rev 30. THE RULING: neither column — the checklist is decided by the row's SUBJECT.** Where the primary instrument needs a human, the failure-mode cell **is** the checklist; where it needs none, that cell is documentation. **The decisive argument is internal to QA's own two rulings in one pass: it corrected BC-1 *because* an operator reading that cell would have recorded PASS — which is only necessary if that cell is what the operator reads.** The two rulings cannot both stand; **the subject test reconciles them**, upholding QA's assumption exactly where the subject is not human. **QA's *under-illustrate* / *misdirect* distinction is real but not operative — both let an operator watch the wrong thing, see nothing and pass; they differ in probability, not kind, and which omitted limb matters is knowable only after the failure.** **THE SET IS NOT SIX.** **BC-11b is not a row** (`DROPPED — D44`, rev 28) and **BC-16 needs nothing** — subject *implementer*, *primary needs no human*, settled by probe at `164d720`. **The alarm this stage checked first — that BC-16's terminal `EXECUTED` might rest on an under-illustrated cell, a false pass already filed — CLEARED on the evidence**, recorded because *checked and cleared* and *not checked* are indistinguishable in a record that omits it. **Four to reconcile: BC-8, BC-9, BC-18, and BC-14 pending its subject test — BC-18 first.** **BC-6's rev-29 constraint DISCHARGED**; **BC-1's cell reconciled, its blocking condition unchanged.** **BC-8/9/18 marked NOT EXECUTABLE — including BC-18, the urgent one, because a standard applied to every row but the urgent one is not a standard.** **Open set unchanged — 12 + F-1. Decision unmoved at `EXPIRED IN FULL`.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — relayed QA's `bef6968`: **six rows reconciled, not the four this register ruled on**; executability returned as this stage's to lift | QA re-derived the enumeration under rev 30's standard instead of reusing the list it was handed, and found **BC-4 and BC-7** | **Rev 31. A DEFECT IN REV 30, AND IT IS THIS REGISTER'S.** Rev 30 changed the standard and then **tested the old classification in one direction only** — it asked whether the six were too many and removed two correctly; **it never asked whether they were too few.** **BC-4 and BC-7 stood here marked EXECUTABLE through revs 29–30 with cells naming 1 limb of 3.** General form: **when a ruling changes the standard, every classification made under the old standard is void, not narrowed** — auditing the set you were handed finds only false members, and **the missing members are the ones left certified safe.** **BC-7: the relay and the document said different things.** On the relay's framing (*"the flag can be wrong with nothing to show it"*) this register would have blocked it; **the cell at L647 names the instrument — *only the Message JSON shows it*** — so the limb is observable and **BC-7 is EXECUTABLE, with a recording constraint: the JSON is opened, and *"everything looked correct"* is not an observation of that limb.** **The clearest instance yet of why this stage verifies at the document rather than ruling from a relay.** **Executability LIFTED on BC-8, BC-9, BC-14, BC-18** (BC-14's subject tested by QA: human). **Eleven of twelve now executable; BC-1 alone still blocked.** **QA's backward sweep accepted** — no false pass already filed — **with one bounded question routed back** (did any terminal row take an invisible-on-screen limb from appearance?) and **the third residual promoted from an instance to a class: attestation by reference rather than characterisation, members BC-21 and BC-19a.** **Open set unchanged — 12 + F-1; eleven executable, none observed. Decision unmoved at `EXPIRED IN FULL`.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — **declined to answer and pointed at plan 013's D41 instead**, on this register's own rule that a question answerable by derivation is not escalated; also disclosed unprompted that the BC-7 phrase was **QA's own verbatim prose**, not its paraphrase | R31.4's bounded backward question on BC-2, BC-3, BC-19a | **Rev 32. THE QUESTION IS WITHDRAWN — answered by derivation. Nothing to the owner, nothing to QA.** **BC-2** is directly attested (*"The notice showed. I've removed it."*); **BC-3 was already ruled by this register at rev 20** — *re-based on D40's attestation on the identical code path rather than on D41's inferred limb* — so the inference D41 disclaimed **is not what BC-3 rests on**; **BC-19a** is expressly outside D41 and its by-number form is already carried as a residual. **THE DEFECT IS THIS REGISTER'S AND IT IS THE THIRD IN A SERIES: rev 31 routed a question its own document had already answered.** Rev 28 did not take a count, rev 30 did not test the standard's change downward, rev 31 did not read rev 20 — **one shape: acting on the artifact in hand without interrogating the artifact already held.** **And a gap in this register's own rule**: *derive before escalating* was applied rigorously **upward** (the anchor-scope question, declined twice) and **not laterally** — **escalating up feels expensive so it gets a test; routing sideways feels free, so it does not. It is not free.** **R31.3's attribution refined by dated note, superseded text preserved**: the overstating phrase was QA's own, so **verifying at the document protects against the author's summary, not only an intermediary's** — a **second member of plan D42's prose-versus-artifact class**, one day after D42 said it generalises beyond steering. **No row moves. Open set 12 + F-1; eleven executable, none observed. Decision unmoved at `EXPIRED IN FULL`.** |
+| 2026-08-25 | `steering-hooks-013-3` [b04529] — relayed QA's `85634d3`, **leading with the fact that this pass changes Predicted-value cells** rather than burying it | Three Predicted values corrected (BC-7, BC-8, BC-9); BC-19a found-and-not-corrected; **QA declares a stop condition on cell sweeps and asks for explicit agreement or disagreement** | **Rev 33. CORRECTIONS ACCEPTED — and the third pair was the worst of the three.** The Condition cell is authoritative and already required every limb, so **nothing new is asked of the product**; correcting a Predicted value to its Condition **closes a gap between what a row requires and what it can record.** **The condition↔failure-mode gap misdirects the operator; the condition↔predicted-value gap lets a row be recorded satisfied while a required limb was never observed** — one step closer to the record, and it **produces a clean, well-formed PASS that is silent about the omission.** Found by applying rev 31's generalisation to rev 30's ruling: **the rule found what its authors did not.** **BC-19a's disposition ENDORSED on this register's own doctrine** (R25.3 — *the observed result is recorded beside the prediction, not over it*): a terminal row's prediction is **evidence, not documentation**. **But it compounds** — both human-facing cells named one limb of two, so R31.4's *no cell was in the path* reasoning is weakened, and **BC-19a's *clears* limb now has no positive evidence from any route and none obtainable, its subject having been deleted at `2d90e8a`.** **Revert REFUSED on a specific ground: reopening it would manufacture a permanently unreachable obligation — the phantom rev 28 cleared.** **Residuals now four**, the new one listed separately because it is **the only one closed to future evidence.** **STOP CONDITION AGREED**, on a stronger ground than QA's own — **row quality is not what blocks this chain; eleven rows are executable and none observed** — with **three conditions**: the gate records the sweep **stopped by agreement, not completed** (no silent cap); the stop binds **deliberate search, not incidental reporting**, QA's statement being a prediction treated as one; and **it expires at the post-rider tip**, where the question reopens **by the artifact moving, not by search.** **Open set unchanged — 12 + F-1. Decision unmoved at `EXPIRED IN FULL`.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -4991,3 +5027,206 @@ confirmed by this pass rather than added by it** — D40's *"BC-19a - Done"* is 
 3. **Code review** — re-run at the post-rider tip. **Its `2d90e8a` verdict is inherited by nobody.**
 4. **Steering** — the Decisions Register row owed for the U-C5 ruling, **still unwritten**.
 5. **Nobody** — re-asks the owner about BC-2, BC-3 or BC-19a; their bases are on the record at R32.1.
+
+---
+
+# Rev 33 — Predicted-value corrections **ACCEPTED**. BC-19a's disposition **ENDORSED**, and its residual is now specific and permanently unresolvable. **The stop condition is AGREED, with three conditions.**
+
+**Date**: 2026-08-25. **Session**: `uat-hooks-013-5`. **Trigger**: `steering-hooks-013-3` [b04529] relayed
+QA's `85634d3`, **leading with the fact that this pass changes Predicted-value cells** — which QA asked be
+surfaced rather than buried, and which is the right way to bring it. **Read at QA's document (L3608–3632,
+L3480), not taken from the relay. No gate is opened here.**
+
+## R33.1 — The Predicted-value corrections are ACCEPTED, and the third pair was the worst of the three
+
+**QA's argument is right and this register accepts it in full:** the **Condition** cell is authoritative
+and already required every limb added, so **nothing new is asked of the product**. Correcting a Predicted
+value to match its Condition is not widening a row — **it is closing a gap between what the row requires
+and what the row can record.**
+
+**And this pair was more dangerous than the two before it, which is worth stating because the sequence
+reads as diminishing returns and is not.**
+
+| Pair | Gap between | Consequence of the gap |
+|---|---|---|
+| condition ↔ failure mode | what is required · **what the operator is told to watch** | the operator watches the wrong thing |
+| **condition ↔ predicted value** | what is required · **what the observation is recorded beside** | **the row is recorded satisfied while a required limb was never observed** |
+
+**The second is the worse failure and it is one step closer to the record.** A misdirected operator may
+still notice the right thing; **a row whose prediction omits a limb produces a clean, well-formed PASS
+that is silent about it.** **BC-7 named 2 of 3, BC-8 3 of 5, BC-9 2 of 4** — and every pass in this chain,
+this register's included, read past them because **nobody asked that question of that pair.**
+
+**The widening rule is satisfied.** QA applied it to itself unprompted: each addition is a limb the
+condition already names, so no new observation is created, **and the BC-7 and BC-8 additions carry their
+instrument with them** — which is the exclusion that stops *"the screen looked fine"* being filed against
+a limb the screen cannot show.
+
+**And the origin is worth recording plainly: this pair was found by applying rev 31's generalisation to
+rev 30's ruling.** Rev 30 ruled the standard; rev 31 generalised *when a ruling changes the standard, every
+classification made under it is void*. **Neither pass applied either to the pair that mattered most.** The
+rule found what its authors did not.
+
+## R33.2 — BC-19a: QA's disposition is ENDORSED on this register's own doctrine, **and the residual it leaves is now specific and permanently unresolvable**
+
+**QA found BC-19a's Predicted value naming 1 limb of 2 (*appears*, not *clears*), recorded it
+found-and-not-corrected with the reason, and did not edit it.** Its ground: *"editing a terminal row's
+prediction after the fact would change what the record says was predicted at the time it was observed."*
+
+**That is exactly this register's own rule and the endorsement is unqualified.** R25.3: *"the observed
+result is recorded beside the prediction, not over it."* **A terminal row's prediction is evidence, not
+documentation** — it is the thing the observation was recorded against, and editing it retroactively
+changes what was predicted. **QA reached this independently and applied it against its own sweep's
+momentum, which is the harder direction.** Recording it in the table rather than omitting it is what makes
+the omission a decision.
+
+**But the finding compounds with R32.1, and this register must say so rather than let two clearings sit
+adjacent and look like one.**
+
+R31.4 cleared BC-19a's **failure-mode** gap on rev 19.2's reasoning — *he attested against the row by
+number, so no cell was in the path.* **That reasoning assumed the attestation bypassed cells. It is now
+established that BOTH human-facing cells named one limb of two.** So if he formed *"BC-19a - Done"* by
+reading the row — and there is nothing else he could have read — **what was available to read displayed
+*appears* and was silent on *clears*, in both columns.**
+
+**R32.1 did not positively clear BC-19a; it recorded that the by-number attestation was already carried as
+a residual and that no new question arose. That remains true. What changes is the residual's content:**
+
+> **BC-19a's *clears* limb has no positive evidence from any route.** The by-number attestation does not
+> name it; both human-facing cells were silent on it; **and its subject was deleted by the owner at
+> `2d90e8a`, so no observation can now be obtained.**
+
+**BC-19a stays TERMINAL `EXECUTED`, and reverting it is refused on a specific ground rather than on
+reluctance:** **its subject is gone.** Reopening it would convert a terminal row into an obligation that
+is permanently unreachable — **manufacturing exactly the state this register spent rev 28 clearing as a
+phantom.** BC-19b already stands `TERMINAL: SUBJECT WITHDRAWN` for the same subject's removal.
+
+**Nothing goes to the owner.** Asking him to observe a deleted notice is impossible, and asking him to
+re-characterise an old attestation is what this register's BC-21 doctrine forbids outright. **This is a
+residual to name in the gate, not a question to ask.**
+
+**Residual inventory, now four — three general and one specific, all silent:**
+
+| # | Residual | Silent because |
+|---|---|---|
+| 1 | **BC-5's subject** — in the product, never characterised; obligation ended by owner ruling | `WITHDRAWN` is a closed shape |
+| 2 | **The plan's half-sentence** — describes half the shipped change by owner ruling | The sentence reads complete |
+| 3 | **Attestation by reference rather than characterisation** — class; members **BC-21**, **BC-19a** | The row reads `EXECUTED`, which is what it is |
+| 4 | **BC-19a's *clears* limb — no positive evidence from any route, and none now obtainable** | Terminal, and its subject no longer exists to re-observe |
+
+**4 is a consequence of 3 and is listed separately because it is the only one that is closed to future
+evidence.** Collapsing it into the class would lose the property that matters.
+
+## R33.3 — The recording constraint is in the rows now, and QA swept the class rather than the instance
+
+**Endorsed, and QA's reason is better than the constraint's original form:** *a constraint that lives only
+in a message is not a constraint, because the operator reads the row.* **This register imposed the BC-7
+constraint at R31.3 in its own document, where no operator will ever see it.** It is now in **both** the
+Predicted-value and failure-mode cells of **BC-7 and BC-8**.
+
+**And the sweep is the right shape** — rows naming the flag or bit: BC-7, BC-8, BC-15, BC-16; BC-16's
+primary is a probe so the constraint is meaningless there, BC-15 is `WITHDRAWN`, **leaving BC-7 and BC-8.**
+**BC-8's bit-*cleared* limb is the same defect as BC-7's bit-*set* limb, on 5712's own repair route** —
+which this register would not have found, having been handed one instance and having reasoned about that
+instance.
+
+**This register's R31.3 constraint is therefore discharged into the rows and is no longer this stage's to
+enforce by memory.** It is enforced where it is read.
+
+## R33.4 — **The stop condition: AGREED**, with three conditions that are what make the agreement load-bearing
+
+QA's declaration: *"the two cell pairs are now consistent with each other and with the conditions, so the
+next defect found in this register will be a different kind, and if it is not, the rows are being edited
+rather than improved. I am not looking for a third cell pair."*
+
+**Agreed — and this register's reason is stronger than QA's own, so it is given rather than the courtesy
+version.**
+
+QA's ground is diminishing returns and edit risk, both real: **the rows have been rewritten three times in
+a day, and every rewrite is a fresh opportunity to introduce the defect it is correcting.** But the
+decisive ground is elsewhere:
+
+> **Row quality is not what is blocking this chain. Eleven rows are executable and none has been
+> observed.** Every defect found across five revisions has been in the **instructions for observing**, and
+> not one in the observing, **because no observing has occurred.** Continuing to refine instructions while
+> the observation count stands at zero is displacement, however good each individual finding is. **Stopping
+> is not a concession on rigour; it is redirecting effort to the thing that is actually absent.**
+
+**Three conditions, without which the agreement would be a pleasantry:**
+
+1. **The gate records this sweep as *stopped by agreement at a defined point*, not as *completed*.** A
+   bounded audit reported as exhaustive is a silent cap, and this register does not publish those. **The
+   gate will state that a third cell pair was not searched for, by agreement between QA and UAT, and why.**
+2. **The stop binds deliberate search, not incidental reporting.** **QA has stated a prediction — *the next
+   defect will be of a different kind*. It is treated as one.** If a third-pair defect surfaces while a row
+   is being executed, it is recorded, not suppressed by the stop; **a falsified prediction is data about
+   whether the stop was premature, and is not a breach of it by whoever finds it.**
+3. **The stop expires at the post-rider tip.** The rider changes production code at three sites. **When
+   the surfaces beneath these rows move, the cell-consistency question is fresh because the artifact
+   changed, not because anyone went looking** — and it is answered inside QA's normal re-verification, not
+   as a new sweep. **This is the same principle as prediction staleness, applied to cells rather than to
+   values.**
+
+**Both stages hold it, and this register will not keep finding members.**
+
+## R33.5 — QA's prose rule, adopted here without amendment
+
+QA set its two texts side by side — the register cell's *"only the Message JSON shows it"* against its own
+prose one turn later, *"with nothing to show it"* — and its verdict is the correct one: **"Different
+claims, and the difference is the entire ruling."** One names an instrument and makes the limb observable;
+the other says the limb has no witness.
+
+**Its adopted rule is adopted here too:** **when prose summarises a row it has just written, the row is
+quoted, not paraphrased. A paraphrase of one's own cell is a fresh claim and gets checked like one.**
+
+**This register is squarely inside that rule and has said so** (R32.3): its Status-Detail blocks are prose
+alongside a structured artifact and are not exempt. **Third member of plan D42's class in two days —
+steering, QA, and this register — which is what D42 predicted when it refused to scope itself to one
+coordinator.**
+
+## R33.6 — Ledger delta at rev 33
+
+| Item | Before | **At rev 33** | Basis |
+|---|---|---|---|
+| **BC-7, BC-8, BC-9** | executable; **Predicted values naming 2/3, 3/5, 2/4** | **executable — Predicted values CORRECTED to their conditions** | R33.1. **Nothing new asked of the product**; instrument carried with the BC-7/BC-8 additions |
+| **BC-7, BC-8** | recording constraint held in **this document only** | **constraint IN BOTH CELLS of both rows** | R33.3. **Discharged into the rows**; no longer enforced by this stage's memory |
+| **BC-19a** | `EXECUTED`, terminal; residual carried as class member | **`EXECUTED`, terminal — UNCHANGED.** Residual **made specific and listed separately** | R33.2. **Revert refused: its subject no longer exists**, and reopening would manufacture a permanently unreachable obligation |
+| **Cell-consistency sweep** | running | **STOPPED BY AGREEMENT**, three conditions (R33.4) | Expires at the post-rider tip |
+| **Standing release decision** | `EXPIRED IN FULL` | **unchanged** | Nothing in this pass reaches it |
+| **Open set** | **12 register rows + F-1** | **unchanged — 12 + F-1** | **No row terminalised, none added, none reopened** |
+
+**Open set, per class (the sum is presentation; the per-class derivation is the check):** `PRE` operator
+**6** (BC-1, BC-4, BC-6, BC-7, BC-8, BC-9) · `PRE` split limb **1** (BC-10) · `PRE` operator **1** (BC-18)
+· `POST` **4** (BC-12, BC-14, BC-17, BC-20) · documentary **0** · **plus F-1**.
+
+**Eleven of twelve executable. BC-1 alone blocked. Observed: none.**
+
+## R33.7 — State
+
+**UAT Complete** stands — **a status on this document reached at `4a7126b`, not a gate on any live tree.**
+**No verdict moved. The release decision stays `EXPIRED IN FULL`.**
+
+**Tree at this rev's write time, re-derived:** `chain/013-rider-2` at `2d90e8a`; `master` and
+`origin/master` both `2d90e8a`; tracked-clean; **ungated.** **This rev reaches no verdict and anchors none.**
+
+**Residuals: four** (R33.2), all silent.
+
+**Outstanding — three:**
+
+1. **The operator walkthrough.** **Eleven rows executable, none observed.** **The rows are now as good as
+   two stages can make them without observing one, and that is the agreed stopping point.**
+2. **BC-1's blocking condition** — clears in the rider round. **F-1** — QA rules, then this stage.
+3. **The final gate at the post-rider tip**, naming that commit and stating that the merge to `master` is a
+   separate act.
+
+**Nothing is asked of the coordinator.** This stage does not self-start and is holding.
+
+**Next Actions** — *point-in-time; later stage documents are authoritative on these items' current state.*
+
+1. **QA** — **no further cell sweep** (R33.4); rule on F-1; re-verify at the post-rider tip, where the
+   cell-consistency question reopens **by the artifact moving, not by search**.
+2. **Implementer** — the MEDIUM-1 rider, `load-confirmation-names-wrong-mode`, `disclosure-pointer-dangles`.
+3. **Code review** — re-run at the post-rider tip. **Its `2d90e8a` verdict is inherited by nobody.**
+4. **Steering** — the Decisions Register row owed for the U-C5 ruling, **still unwritten**.
+5. **Nobody** — edits BC-19a's Predicted value, re-asks the owner about it, or reports the cell sweep as
+   completed rather than stopped.
