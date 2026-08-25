@@ -5,6 +5,26 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
+  **Rev 26 — BC-5 → `WITHDRAWN` (2026-08-25) on the owner's ruling. Open set 17 → 16.** His unprompted words
+  were *"I'm not doing BC-5."* — **ambiguous between ending the obligation and declining to be its subject**,
+  so steering put the distinction to him in this register's vocabulary and he chose **"Withdraw it"**.
+  **The load-bearing fact is which option he declined**: *"Establish the fixture"* would have preserved the
+  test with a researcher and **someone who is not him** as subject — the option that answers his sentence on
+  its literal reading — and he passed it over, resolving the ambiguity toward ending the obligation on his own
+  choice rather than anyone's construction. **Provenance disclosed unprompted; framing weighed and found
+  weaker than BC-21's** (no alternative was costless) — **and ruled not to matter, because R25.1's framing
+  test governs elicited *facts*, not elicited *rulings*: a withdrawal is true because he ruled it, so there is
+  no fact behind it for a framing to distort.** **Residual named (R26.4), and it is a fourth shape**: the
+  obligation ends while the subject stays in the product **and stays uncharacterised** — so the uncertainty
+  outlives the row **and is silent**, where BC-11b's is self-advertising. Naming it sits inside his chosen
+  words (*"nothing is claimed, either way"*); **omitting it would let a reader infer coverage never claimed.**
+  It creates **no task, owner, gate or prediction.** **Also recorded: steering's relay gap** — the ruling
+  reached devops and not this stage, disclosed unprompted (R26.1). **Two reconcile notes landed** (R26.5):
+  R22.4/R24.2 still say *"18"* and are superseded not overwritten, and **R25.4's "16" is now right by
+  coincidence and is not thereby vindicated.** **Decision UNMOVED at `EXPIRED IN FULL`**; a withdrawal revives
+  it no more than rev 25's execution did. **Outstanding: two** — QA's BC-18 re-derivation, and the final gate
+  under R24.2. **The anchor-scope question is NOT escalated**: it is derivable, and a question answerable by
+  derivation is not put to the owner.
   **Rev 25 — BC-21 → `EXECUTED` (2026-08-25). Open set 18 → 17.** The owner answered rev 23's one word and chose
   **"Deliberate paste"**. **Provenance disclosed unprompted by steering and weighed rather than adopted**: no
   verbatim sentence, options agent-authored — but the option he took asserts *"and the warning appeared"*, and he
@@ -159,6 +179,7 @@ Verified-At: >-
 | 2026-08-25 | `steering-hooks-013-2` [019315] — **a conflict routed here as the authority on register state**; steering recorded it as a conflict and set nothing | The owner reported **BC-21** and **BC-18** as *"-as expected-"*; this register carries both non-terminal with **absence** signatures | **Rev 23. Neither row terminalises, and not because the report is doubted.** **BC-21 → `NOT EXECUTED` — OWNER REPORT ON RECORD, NOT YET DECIDABLE**: QA's own instrument cell rules out the passive reading of the phrase in advance, so *"-as expected-"* is compatible with an act that closes the row **by construction** and with one the row expressly excludes. **What settles it is one word — deliberate paste, or general impression — and no capture is owed or requested.** **BC-18 unchanged**: its **clearing limb** is derived-stale (D31/D32), and *"as expected"* cannot speak to a behaviour whose expected form the register no longer states correctly — **a false pass, the mirror of the false failure rev 18 was written to prevent.** **BC-21's rev-18 "stale by inheritance" marking queried to QA**, not removed here. **Standing decision unmoved at `EXPIRED IN FULL`; BC-18 still its sole live condition. Open set stays at 18.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — relay of a standing owner ruling; **nothing asked** | **D45**: *"Bring 013 pipeline to completion. Retro is the last to fire."* Lifts D39's "NEITHER RUNS NOW" | **Rev 24. Received, read at the plan rather than from the relay, and it moves nothing here.** D45's own row disclaims four inferences, including **no operator sitting against a row whose prediction is still STALE** — the rev-23 BC-18 guard honoured at registration without being asked for. **One inference refused in advance (R24.2)**: a clean trailing review does **not** revive the expired decision. `code-reviewer` approved + `qa` Complete + `UAT Complete` **≠** approved for release — expiry is not suspension, `UAT Complete` was reached at `4a7126b`, arriving verdicts inherit no tree identity, and **18 conditions stand open**. Same false-pass shape as rev 23, one level up. **Open set 18; decision `EXPIRED IN FULL`; BC-18/BC-21 as rev 23 left them.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — **the missing input**: the owner answered rev 23's one word | Owner selected **"Deliberate paste"** for BC-21; register state left to this document, nothing set by steering | **Rev 25. BC-21 → `EXECUTED`, 2026-08-25. Open set 18 → 17.** **Provenance disclosed unprompted and weighed, not adopted**: no verbatim, agent-authored options — but the taken option asserts *"and the warning appeared"*, and he passed over **"Leave it open"**, a costless exit. **Residual named**: he adopted a described act rather than characterising the payload himself. **The R23.3 staleness query does NOT gate it** — staleness bites only where observation can diverge from prediction, and **a presence predicate observed as present cannot diverge from itself**; BC-18's stale limb *can*, which is why the two rows separate for the same reason they separated at rev 23. **Decision unmoved at `EXPIRED IN FULL`** — a condition going terminal is the register working, not a verdict change. |
+| 2026-08-25 | `steering-hooks-013-3` [b04529] — **a relay gap disclosed unprompted**: the owner's BC-5 ruling reached `devops-hooks-013-2` today and **not this stage**, so this session's read-in enumerated BC-5 as live | Owner's unprompted words *"I'm not doing BC-5."*, disambiguated by selection prompt in this register's vocabulary; he chose **"Withdraw it"**. Register state left to this document, nothing set by steering | **Rev 26. BC-5 → `WITHDRAWN`, 2026-08-25, ruled by the owner. Open set 17 → 16.** **The verbatim sentence did not settle it** — it is ambiguous between ending the obligation and declining to be its subject. **The load-bearing fact is the declined option**: *"Establish the fixture"* would have preserved the test with a researcher and **someone who is not him** as subject, answering his sentence on its literal reading; he passed it over. **Framing weighed and found weaker than BC-21's** — no alternative was costless — **and ruled not to matter: R25.1's framing test governs elicited *facts*, not elicited *rulings*.** A withdrawal is true because he ruled it; there is no fact behind it for a framing to distort. **Residual named (R26.4) as a fourth shape**: obligation ends, subject stays in the product **and stays uncharacterised** — the uncertainty outlives the row **and is silent**, where BC-11b's self-advertises. Naming it sits inside his chosen words (*"nothing is claimed, either way"*); it creates **no task, owner, gate or prediction.** **Two reconcile notes landed** (R26.5), superseded text preserved not overwritten. **Decision unmoved at `EXPIRED IN FULL`.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -3352,3 +3373,228 @@ condition reaching a terminal state is the register working, not a change of ver
    are not a release decision, and **16 further conditions remain non-terminal.**
 
 **Nothing is asked of the coordinator.**
+
+---
+
+# Rev 26 — BC-5 → `WITHDRAWN` on the owner's ruling. Open set 17 → 16. Two reconcile notes land with it.
+
+**Date**: 2026-08-25. **Session**: `uat-hooks-013-5` (successor to `uat-hooks-013-4`, which reached its
+request ceiling). **Trigger**: `steering-hooks-013-3` [b04529] relayed an owner ruling **and disclosed that
+it had failed to relay it to this stage earlier**. **No gate is opened here.** Code review, QA and devops
+are all still in flight; R24.2 governs whatever gate follows, and this pass does not pre-empt it.
+
+## R26.1 — The relay gap, recorded as the process fact it is
+
+Steering relayed the BC-5 withdrawal to `devops-hooks-013-2` today and **did not relay it to this stage**.
+This session's read-in therefore enumerated BC-5 as live and reported it to steering twice — once in the
+open set, once under *"standing, not mine to discharge"*. **Steering disclosed the omission unprompted,
+named it as its own error, and named both places it had propagated to.**
+
+**Recorded, not scored.** It is worth one line in the register for a reason that is not blame: **this
+document's open set is only as current as the relays that reach it**, and a row can go terminal without
+this stage learning of it. The defence is not vigilance — it is that a ledger delta is re-derived at write
+time from the file plus every ruling *known* at that moment, and that a stage which cannot rule out
+unrelayed rulings says so. **This entry is this stage saying so.** The gate under R24.2 will restate the
+same caveat rather than assert the open set is complete as a property of the world.
+
+## R26.2 — The ruling, and why the verbatim sentence did not settle it
+
+**The owner's own unprompted words were:** *"I'm not doing BC-5."*
+
+**That sentence does not decide the row, and steering was right not to act on it.** It is ambiguous
+between two register outcomes with different consequences: *the obligation ends*, and *the obligation
+stands but someone else executes it*. **BC-5 is an operator `PRE` row; "I am not the one who runs it" is
+a statement about the subject, not about the obligation.** Under this register's own vocabulary those are
+`WITHDRAWN` and a re-subjected row respectively, and nothing in the sentence chooses.
+
+Steering put the distinction to him **in this register's vocabulary**, and he chose **"Withdraw it"** —
+described as *"BC-5 is WITHDRAWN, same as BC-15 — an obligation you ended. It stops blocking closure and
+nothing is claimed, either way, about the behaviour it would have tested."*
+
+**Two alternatives stood, and which one he declined is the load-bearing fact:**
+
+| Option, as described to him | Taken? | What declining it establishes |
+|---|---|---|
+| **"Establish the fixture"** — *nobody knows what a folder-page export literally looks like; a researcher is commissioned, and BC-5 becomes runnable **by someone who is not you*** | **declined** | **This is the option that answers *"I'm not doing BC-5"* on its literal reading** — it removes him as subject and preserves the test. Declining it resolves the ambiguity **toward ending the obligation**, and it does so on his own choice rather than on anyone's construction of his sentence |
+| **"Stands, unexecutable"** — *the obligation stands and goes on the record as permanently undischarged, like BC-11b; the residual risk is named and stays visible* | **declined** | He declined to keep the row on the books |
+| **"Withdraw it"** | **taken** | The obligation ends; nothing is claimed about the behaviour |
+
+**The row closes to `WITHDRAWN` — 2026-08-25, ruled by the owner, who is the only party who may rule a
+withdrawal and is BC-5's own subject.**
+
+## R26.3 — Framing risk: weaker than BC-21's, and it does not matter here. The reason it does not matter is the point
+
+**Provenance, disclosed by steering unprompted and to the same standard as R25.1**: agent-authored
+options, steering's wording, **no verbatim sentence beyond *"I'm not doing BC-5."*** That disclosure is
+again what makes the ruling weighable rather than adoptable.
+
+**Applying R25.1's own test honestly, this framing is less neutral than BC-21's was.** There, the untaken
+exit (*"Leave it open"*) was described as **equally costless**, so the taken option's attractiveness was
+not a squeeze. Here neither alternative was costless: *"Establish the fixture"* spends a researcher, and
+*"Stands, unexecutable"* costs a permanent entry on the record. **The chosen option was the only one with
+no cost attached to it.** By R25.1's standard that is a real asymmetry, and it is recorded rather than
+waved through.
+
+**It does not block the close, and the reason is a distinction this register has not yet had to draw:**
+
+> **R25.1's framing test governs elicited *facts*. It does not govern elicited *rulings*.**
+>
+> BC-21 asked the owner to report something that either happened or did not; a badly framed prompt can
+> make a person assert a fact they do not hold, and the framing analysis is the guard against that.
+> **BC-5 asked the owner to decide whether an obligation continues.** He is not reporting — he is
+> exercising an authority that is constitutive: **the withdrawal is true because he ruled it, not
+> true if he ruled accurately.** There is no fact behind it for a framing to distort. An attractive
+> option can mis-elicit a report; it cannot mis-elicit a prerogative.
+
+**So the asymmetry is noted and is not a defect in this close.** It is recorded because the next row this
+register terminalises on a selection prompt may be a factual one, and **the test to apply then is R25.1's,
+not this one.**
+
+## R26.4 — The residual. Steering flagged it, declined to argue it, and left it to this stage. It is real, and it is a *fourth* shape
+
+BC-5's subject is a behaviour **nobody has ever characterised** — that is precisely why no fixture exists
+and why its payload stood unauthored through eighteen revisions. **The withdrawal ends the obligation; it
+does not characterise the behaviour, and by its own terms claims nothing about it either way.**
+
+**This register already insists that terminal states not be collapsed (R22.4 §4). BC-5 forces the same
+distinction one step further:**
+
+| Row | Terminal state | Obligation | Subject | Residual |
+|---|---|---|---|---|
+| **BC-11b** | `CANNOT BE EXECUTED` | **stands** | in product, uncharacterised | **Real, and self-advertising** — the row stays open-shaped, so the gap points at itself |
+| **BC-19b** | `SUBJECT WITHDRAWN` | ends | **removed from product** | **None.** Nothing left to be uncertain about |
+| **BC-15** | `WITHDRAWN` | ends (owner) | — | obligation ended by ruling |
+| **BC-5** | **`WITHDRAWN`** | **ends (owner)** | **in product, uncharacterised** | **Real, and *silent*** |
+
+**BC-5 is the combination none of the others is: the obligation ends while the subject stays in the
+product and stays unknown.** BC-19b's withdrawal removed the thing; BC-5's removes only the duty to look
+at it. **So the uncertainty survives the row that would have resolved it — and survives with nothing on
+the books pointing at it**, because `WITHDRAWN` is a closed shape and a reader scanning terminal rows sees
+a discharged register. **BC-11b's residual is louder than BC-5's precisely because BC-11b is still open.**
+
+**That is the argument for naming it, and naming it is the ruling.**
+
+**The obvious objection, answered rather than skipped:** *he declined "Stands, unexecutable", which was
+described as keeping the residual "named and stays visible" — does naming it now defy his ruling?* **No,
+and the chosen option's own words are why.** That option bundled two things: **the obligation stands** and
+**the residual is visible**. What he declined was the bundle, and the ledger consequence is that the
+obligation ends. Meanwhile *"Withdraw it"* was described to him as **claiming nothing, either way, about
+the behaviour** — that is a statement that the withdrawal is **silent** on the behaviour, **not that the
+behaviour is asserted fine**. A residual note reading *"this behaviour is uncharacterised and no row now
+covers it"* claims nothing either way about it, so it sits **inside** the description he adopted rather
+than against it. **Omitting it is what would exceed his ruling**, by letting a reader infer a coverage
+that was never claimed.
+
+**What the residual note is not, stated so it cannot be read back as the obligation returning:** it
+creates **no task, no owner, no gate, and no prediction**. It discharges nothing and blocks nothing. It is
+one line under residual risk in the gate recording that a behaviour in the product is uncharacterised and
+that no row covers it. **If any later stage treats it as an obligation, that stage has misread it, and
+this sentence is here to be quoted at that stage.**
+
+## R26.5 — Two reconcile notes, landed here because a rev was opening anyway
+
+Both were reported to steering at read-in as items to land with the gate. **A rev is open, so they land
+now rather than accumulate.** Neither is a verdict change; **the superseded text stands where it was
+written and is not overwritten.**
+
+**Note 1 — the successor-facing sections still say "18", and that is the shape they exist to warn about.**
+R22.4 §1 reads *"18 items are open"*; R24.2 says it twice — *"terminalises or conditionally states each of
+the 18"* and *"Eighteen conditions stand open"*. **All three were true when written and were superseded by
+rev 25 (18 → 17) and again by this rev (17 → 16).** They are **not corrected in place**: R22.2 remains the
+authoritative derivation and R22.4/R24.2 remain the point-in-time prose they were. **This note is the
+pointer.** It is recorded because R22.2's own recorded defect was a stale open-set sentence in a
+handover section being read as current, and the mitigation cannot be *"the reader will scroll"*.
+
+**Note 2 — R25.4's *"16 further conditions remain non-terminal"* reconciles only under a subtraction the
+reader has to guess, and its number is now right by coincidence.** At rev 25 the open set was **17**; the
+sentence reconciles only if BC-18 is read as consumed by item 1 of the same list. Read plainly it stated a
+total of 16, which was wrong. **After this rev the open set genuinely is 16 — for an entirely unrelated
+reason, BC-5's withdrawal.** **That coincidence is not a vindication and must not be read as one**: a
+number that requires the reader to perform the right subtraction is a trap whether or not it later comes
+out even, and this one came out even by accident. **The authoritative statement of the open set is R26.6
+and R22.2 as amended, never a sentence in a state block.**
+
+## R26.6 — Ledger delta at rev 26
+
+| Row | Before | **At rev 26** | Basis |
+|---|---|---|---|
+| **BC-5 · operator `PRE`, payload unauthored** | `NOT EXECUTED`, owner-only, blocking closure | **`WITHDRAWN` — 2026-08-25, ruled by the owner** | R26.2. He declined the option that preserved the test with a different subject, and declined the option that kept it on the record. Provenance and framing weighed at R26.3; residual at R26.4 |
+| **BC-18 · `paste-notice-renders`** | `NOT EXECUTED`, prediction STALE | **unchanged** | QA's re-derivation is still the live outstanding item |
+| **Standing release decision** | `EXPIRED IN FULL` | **unchanged** | Expiry is not suspension (R24.2). **A withdrawal does not revive it any more than an execution did at rev 25** |
+| **Open set** | **17** (R25.3) | **16** | BC-5 terminal |
+
+**The open set, enumerated rather than counted — 16 rows:**
+
+- **`PRE`, operator (6):** BC-1, BC-4, BC-6, BC-7, BC-8, BC-9 — BC-4's suite limb is **MET** with its fixture
+  owed; **BC-1, BC-7, BC-8, BC-9 predictions STALE (rev 18), BC-6 possibly stale**
+- **`PRE`, split limb (1):** BC-10 — suite limb **MET**, spot-observation limb `NOT EXECUTED`, **both limbs stale**
+- **`PRE`, operator (1):** BC-18 — prediction STALE; **the last live condition of the standing, expired decision**
+- **`POST` (5):** BC-12, BC-13, BC-14, BC-17, BC-20 — **gate chain closure, never the release act**. BC-13 is
+  devops's and its instrument is the clock. **BC-20 has an absence signature — no volume of quiet is evidence for it**
+- **Documentary (3):** **U-C5** (owner — R-5's widening, the blocking edge), **U-C6**, **U-C7** (both devops,
+  in flight at `devops-hooks-013-2` at this rev's write time)
+
+**6 + 1 + 1 + 5 + 3 = 16.** ✓ **BC-5 is struck from the operator `PRE` class and BC-21 remains terminal from
+rev 25.** **BC-5's removal takes with it the only row in this register whose payload was never authored.**
+
+**Independent check of the partition, run at this rev rather than inherited:** every `BC-*` identifier
+appearing anywhere in this document is **25 tokens**, of which `BC-19` is the pre-split ancestor superseded
+by `BC-19a`/`BC-19b` — **24 live IDs**. R22.2's classification as amended by revs 25 and 26 covers **all
+24**, with **16 open and 8 terminal on the `BC` side** and **8 `U-C` IDs** classified as 5 `EXECUTED` and 3
+open. **No unaccounted identifier.** *Method: enumeration written to a file and counted on the file, never
+as a predicate over filtered stream output — an exact-match or positional predicate over this environment's
+filtered output is unsound rather than merely inaccurate, and a row-counting instrument is exactly that shape.*
+
+## R26.7 — Tree identity at this rev, and the anchor scope question is NOT being put to the owner yet
+
+**Re-derived at this rev's write time, not inherited from steering, from a docket, or from rev 25:**
+`origin/master` = **`2d90e8a60270740b59b4768a68cf3f67641e4345`**, local `master` at the same commit,
+tracked-clean (`git status --porcelain` → 0 lines). **`2d90e8a` remains ungated** — neither approved nor
+refused. **The expiry is not a refusal and production's health is not an approval.**
+
+**This rev is not a verdict and therefore is not anchored as one.** The identity above is recorded as the
+state this ledger delta was written against; **no release decision is reached here, so there is nothing to
+expire.**
+
+**On the covered path set (this stage's own R24.2 gap, reported at read-in):** steering has offered to put
+the scope question to the owner as a blocking prompt and has **correctly not pre-empted it**. **This stage
+declines the offer for now**, and the reason is a rule worth holding: **a question that can be answered by
+derivation is not escalated.** R24.2 requires the gate to name a tree identity but never defines which
+paths the manifest covers, and the covered set is what makes an anchor falsifiable. **That set is derivable
+from this chain's own documents** — the four blobs the expired decision covered are recorded, and the
+plan's touched surface is recorded. **The gate will derive it, state it as an explicit set of paths rather
+than as a hash alone, and escalate only if derivation leaves a genuine choice the owner must make.**
+**Asking the owner a question this stage can answer itself is the failure mode, not the diligence.**
+
+## R26.8 — State
+
+**UAT Complete** stands — **a status on this document reached at `4a7126b`, not a gate on `2d90e8a`.**
+**No verdict moved.** **The release decision stays `EXPIRED IN FULL`** — a condition reaching a terminal
+state is the register working, not a change of verdict, and that is as true of a withdrawal as it was of
+rev 25's execution.
+
+**Open set: 16** (R26.6, enumerated).
+
+**Outstanding — two, unchanged in kind:**
+
+1. **QA — BC-18's prediction re-derivation.** The live one. (The R23.3 BC-21 staleness query survives,
+   gates nothing, and is not a priority.)
+2. **The final gate at whatever tree it is written against.** **R24.2 governs and is not softened by this
+   rev**: code review approved + QA Complete + UAT Complete **≠** approved for release. Sixteen conditions
+   stand non-terminal, and a release decision cannot be recorded complete while any of them is.
+
+**Owner-only and not this stage's to discharge, as amended:** **U-C5**, and the operator `PRE` rows — the
+latter still blocked behind QA's stale-prediction re-derivation, because a row run against stale wording
+yields a false pass and **a false pass gets filed rather than investigated**. **BC-5 is no longer on this
+list.**
+
+**Nothing is asked of the coordinator.** This stage does not self-start and is holding for word that code
+review and QA have reported.
+
+**Next Actions** — *point-in-time; later stage documents are authoritative on these items' current state.*
+
+1. **QA** — BC-18's prediction re-derivation (already owed).
+2. **This stage** — on word from steering, open R22.2 as amended, terminalise or conditionally state each
+   of the 16, derive and state the covered path set, and name the tree identity the gate is reached at.
+3. **Nobody** — records BC-5 as executed, or reads its withdrawal as evidence about the behaviour it would
+   have tested. **It claims nothing either way, by the owner's own chosen words.**
