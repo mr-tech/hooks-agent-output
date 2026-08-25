@@ -5,6 +5,37 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
+  **Rev 37 — the gate was already committed when the hold arrived, and it does not need unpublishing.**
+  Steering sent the word, rev 36 was written and committed at `68e6159`, and a request to hold followed.
+  **Recorded plainly, because a gate that quietly absorbed a hold it had already overtaken would be a false
+  record of its own timing.** **R36.1 anchors the decision on two axes and states it expires when either
+  moves — so if a fix round moves the tree, the gate expires cleanly, visibly, and without anyone needing to
+  notice.** **A published decision carrying a named anchor that expires is strictly better than an
+  unpublished one, which leaves the chain with no recorded position at all while the tree is in doubt.**
+  The cost of the tree moving is **one re-issue at a new anchor — not a wrong decision left standing, which
+  is the cost the anchor exists to prevent.** **QA has RE-ANCHORED to plan rev 48 (`f5b7cac`)**, verified at
+  its document, with a captured 45-line diff artifact matching this register's own derivation at R36.1.1 —
+  **two stages reaching the same anchor independently from the same evidence.** QA refused the same
+  convenience this register refused (*"that the reading is convenient … is exactly the reading the rule
+  exists to refuse"*) and **additionally confirmed no hunk touches Validation and Release Conditions,
+  Testing Strategy or Objective — which this register had not checked by name, and which is adopted.**
+  **THE RULE'S COST IS RECORDED NOW RATHER THAN DISCOVERED LATER**: the dual anchor **makes a stage expire
+  its own verdict by raising a good finding**, and it stays payable **only because the tree did not move** —
+  an unrecorded cost is how a good rule stops being applied without anyone deciding to abandon it.
+  **QA's newly disclosed defect in its own pre-registered oracle is a FIX-ROUND condition and NOT a release
+  condition — concurred; no row added, no verdict moved.** But it **strengthens** what rev 36 already
+  carries: **CR24-2 has a SECOND wrong fix, not one.** Measured — keeping the spec's encoding gives **4
+  failed, all four QA's, 49 of 50 files green**, and **without QA's extended oracle the whole suite is blind
+  to it.** **The sharpest consequence lands on rev 36 itself: its CR24-2 warning is prose in a document, and
+  a banner is not an instrument.** This is R33.3's rule arriving at this register's own door on a different
+  surface — **a constraint that lives only in a message is not a constraint because the operator reads the
+  row; a hazard that lives only in prose is not a guard because the implementer runs the suite.**
+  **Residual 5 AMENDED by dated addition — the rev-36 text stands** — to record that the only non-blind
+  instrument itself carries a wrong constant in the same area. **The gate stands unchanged at TREE
+  `e1d9b2b` / CRITERIA rev 48; `origin/master` still `2d90e8a`, branch unpushed, nothing released.**
+  **If the tree moves, this gate and QA's verdict expire on the same clause and neither expiry needs anyone
+  to remember it.** **Either way the eight `PRE` rows remain unobserved: a fix round changes what must be
+  re-verified, not what must be looked at.**
   **Rev 36 — THE RELEASE GATE.** **`APPROVED FOR RELEASE, conditional on the human click-through of BC-1,
   BC-4, BC-6, BC-7, BC-8, BC-9, BC-10 and BC-18. If any fails, return to the implementer before release.`**
   **Because `master` serves production, pushing to it deploys — so "before merge" and "before deploy" are
@@ -483,6 +514,7 @@ Verified-At: >-
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — relayed code review's verdict at `e1d9b2b` **together with a dependency the reviewer disclosed unprompted after publishing**, in the reviewer's own words | `APPROVED`, `Reviewed-At: e1d9b2b`; **an M9-d acceptance criterion was unmet at the tree it approved, and the APPROVED now rests on D51 having restated that clause at plan rev 47** | **Rev 34. THE FINDING: a verdict's identity has TWO axes and this chain has watched one.** A verdict rests on **the code and the criteria it was measured against, and expires when either moves.** `Reviewed-At: e1d9b2b` names the tree; **nothing names plan rev 46** — so a reader cannot tell the verdict was measured against a superseded criteria set, and **had the planner gone the other way it would have become wrong silently, its document still reading as complete.** **This answers the anchor gap R24.2/R26.7 parked, and the answer is larger than the question: the path-set question is now the smaller half.** **The gate will name the commit AND the plan revision, and state that either moving expires it.** **Verdict stands — but re-derived, not accepted**: rev 31's rule does not exempt a favourable change, so this register read **rev 47's whole write set** rather than the one clause the reviewer checked. **Criterion changes are confined to the lint-residue subject (M9-d's clause and — unnamed by the reviewer — Validation item 1), both removing an objection.** Nothing to the reviewer, nothing to the owner. **THE RIDER LANDED, AND THREE THINGS RECORDED IN ADVANCE FIRED AT ONCE**: R28.5's predicted expiry (the `2d90e8a` verdict is **EXPIRED**, and nothing in its document says so — **no stage may cite it**); R33.4's stop condition expired by its own condition 3; and **prediction freshness is owed at the new tip**, so the eleven rows' **executability is annotated PENDING QA's check, not asserted across the tree change** — carrying executability across a tree change being the error this register names in verdicts. **Third instrument variant recorded** — the reviewer's `grep -c` going **1 → 2** on quotations of a withdrawn clause: *a count over text is not a reading of it*, and **the plan's correct superseded-text discipline is exactly what made the count lie.** **Open set unchanged — 12 + F-1, none observed. `e1d9b2b` is UNGATED; branch unpushed, `origin/master` still `2d90e8a`. Decision unmoved at `EXPIRED IN FULL`.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — **reported that a rev-34 statement no longer holds**; code review acted on all three points at `47e233b` | Round 23 now opens `EXPIRED — DO NOT CITE`; the dual anchor is adopted into the **field**; the Validation item 1 omission is confirmed and fixed | **Rev 35. TWO CORRECTIONS TO REV 34, AND THEY ARE NOT THE SAME KIND — deliberately not collapsed, so the worse one cannot shelter under the better.** **(1) *"Nothing in that document announces it"* — TRUE when written, superseded by the reviewer acting.** The **instruction stands on the expiry**; what is discharged is the **urgency**. Rev 34 stated ground and urgency in one breath and made a durable instruction look contingent on another party's inaction — **a rationale that depends on another party's inaction is not a durable rationale.** **(2) *"Nothing names plan rev 46"* — FALSE WHEN WRITTEN.** The Verdict Basis named rev 46 in prose; **the field a reader keys on named only the tree.** **This register asserted a negative existential about another stage's document from a read six revisions old, without re-opening it** — this chain's purest instrument-lie shape, made over **memory** rather than a filtered stream, which is worse because memory yields no contradicting counter-instrument. **Its own written rule applied at half strength**: it named the document as authority and did not re-read it. **The irony recorded rather than smoothed — a prose claim overstating an artifact, inside the revision arguing that a field must carry what prose cannot be trusted to carry.** **Reviewer checked before agreeing and found the hole larger: `Reviewed-At` contained no plan revision at all.** **Fourth instrument member** — its round-23 enumeration ran the trigger set, not the defect set — **which is R22.1's lesson reached independently from a different defect; a rule reached twice is a different object from a rule stated once.** **Its generalisation adopted unamended: each instrument was sound and each predicate was wrong for its question — and a record that preserves what it supersedes will defeat any naive occurrence count, the more reliably the better its discipline.** **No row moves. Open set 12 + F-1, none observed. Decision unmoved at `EXPIRED IN FULL`.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — **THE WORD: QA Complete at `33908af`, write the gate** — then, mid-draft, that **the plan had moved to rev 48** and that a fifth residual had arrived | Issue the release decision at the post-rider tip, naming the tree and the criteria and saying what the merge to `master` is | **Rev 36. THE RELEASE GATE. `APPROVED FOR RELEASE, CONDITIONAL on the human click-through of BC-1, BC-4, BC-6, BC-7, BC-8, BC-9, BC-10 and BC-18` — and because `master` serves production, those precede the MERGE, not the deploy after it.** Anchored on **both axes**: **TREE `e1d9b2b`** on `chain/013-rider-2`, **CRITERIA plan rev 48 (`f5b7cac`)**, **covered set stated as 20 explicit paths**, either axis moving expiring it. **Value delivery: PARTIAL — and the shortfall is not a defect anyone found, it is a step nobody has taken.** Every instrument is green; **this value statement's entire content is that the user is not *silently* misled, so its failure mode leaves no trace in a test run** — and **CR24-6's unchecked assumption is that nothing proves `ConfirmationProvider` renders the string at all.** **F-1 terminalised** (limb 1 by D40, limb 2 by QA V.7); **BC-1's blocking condition DISCHARGED by work**; twelve rows FRESH and **none observed**. **A DEFECT IN THIS GATE'S OWN DRAFT, caught by steering's unsolicited warning before commit — luck in the timing, not diligence in the method**: the draft asserted *"rev 47 … no criterion changed since"* **without running the diff**. Rev 47→48 then **derived here in full** and established **property-preserving** on the plan's own Class/Property/Instrument structure — **and rev 48 is the sounder anchor, since under rev 47's literal instrument M9-a's negative was UNMET at the approved tree.** **The refinement: re-opening a document is not verifying a claim about a delta — verify the claim in the form the claim is made.** **Five residuals**, the fifth (M9-b's spec blind to a live `current` path) **a different kind: 1–4 are about what is not known, 5 about what is not guarded.** **CR24-2's attached hazard recorded as NOT residual-shaped** — it is an open LOW on the implementer and **a fix acting on the withdrawn "dead path" premise would delete a correct, live branch.** **Merge to `master` NOT authorised; chain NOT closed; the `4a7126b` decision stays `EXPIRED IN FULL`.** |
+| 2026-08-25 | `steering-hooks-013-3` [b04529] — **QA has re-anchored to rev 48**, and a request to **HOLD before publishing** because an owner decision in flight may move the tree | Whether the gate should wait; and whether QA's newly-disclosed oracle defect belongs in the residual section | **Rev 37. THE GATE WAS ALREADY COMMITTED (`68e6159`) when the hold arrived — recorded plainly, since a gate that quietly absorbed a hold it had overtaken would falsify its own timing.** **And it does not need unpublishing: R36.1 states the decision expires when either axis moves, so a fix round expires it cleanly and visibly.** **A published decision with a named anchor that expires is strictly better than an unpublished one, which leaves the chain with no recorded position at all** — **the dual anchor doing the job it was written for, one revision after it was written.** **QA's re-anchor verified at its document** (`Criteria-At: plan 013 rev 48, f5b7cac`, captured diff 45 lines — the same figure derived at R36.1.1): **two stages reached the same anchor independently**, and QA additionally confirmed no hunk touches Validation, Testing Strategy or Objective, **which this register had not checked by name — adopted.** **The rule's COST recorded now rather than discovered later: the dual anchor makes a stage expire its own verdict by raising a good finding, and it is payable only because the tree did not move** — an unrecorded cost is how a good rule is abandoned without anyone deciding to. **QA's oracle defect: NOT a release condition, concurred.** But it **strengthens** what rev 36 carries — **CR24-2 has a SECOND wrong fix** (keep the spec's encoding: 4 failed, all QA's; **49 of 50 files green**), and **without QA's oracle the suite is blind to it.** **The sharpest consequence lands on rev 36 itself: its CR24-2 warning is prose — a banner is not an instrument.** R33.3's rule at this register's own door: **a hazard that lives only in prose is not a guard, because the implementer runs the suite.** **Residual 5 AMENDED by dated addition, rev-36 text preserved.** **No verdict moves; open set 12; none observed.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -6054,3 +6086,139 @@ none observed.**
    as dead — that premise is withdrawn and the branch is correct and live** (R36.7). **Planner** — **INFO-1 is discharged at rev 48** (R36.1.1) and needs nothing further. **Code review / implementer** — INFO-2, whose plan-side note is corrected at rev 48 while the code fix stands owed under D22. **Steering** — the U-C5 Decisions Register row, **still unwritten**.
 5. **Nobody** — merges before the eight are terminal, cites the `2d90e8a` code-review verdict, or reads
    this decision as covering any other tree or criteria revision.
+
+---
+
+# Rev 37 — **The gate is already published.** QA's re-anchor verified; the hold arrived after the commit; and QA's oracle finding strengthens a hazard rather than moving a verdict.
+
+**Date**: 2026-08-25. **Session**: `uat-hooks-013-5`. **Trigger**: `steering-hooks-013-3` [b04529] answered
+the rev-48 question and **asked this stage to hold before publishing.** **Verified at QA's document and at
+the tree. No verdict moves. No row moves.**
+
+## R37.1 — **The hold arrived after the gate was committed, and that is a process fact, not a fault**
+
+**Rev 36 was committed at `68e6159` before this message arrived.** Steering sent *"THE WORD… write the
+gate"*, this stage wrote and committed it, and the hold followed. **Recorded plainly because a gate that
+quietly absorbed a hold it had already overtaken would be a false record of its own timing.**
+
+**And the gate does not need to be unpublished, for the reason it was anchored the way it was.**
+
+> **R36.1 states: *THIS DECISION EXPIRES WHEN EITHER MOVES.*** If the owner orders a fix round and the tree
+> moves, **the gate expires by its own terms** — cleanly, visibly, and without anyone needing to notice.
+> **A published decision carrying a named anchor that expires is strictly better than an unpublished one**,
+> because the unpublished one leaves the chain with no recorded position at all while the tree is in doubt.
+
+**Steering's concern is real and its bound is what the anchor buys.** The cost of the tree moving is one
+re-issue at a new anchor — **not a wrong decision left standing, which is the cost the anchor exists to
+prevent.** **This is the dual anchor doing the job it was written for, one revision after it was written.**
+
+## R37.2 — QA re-anchored to rev 48, derived independently. **Two stages reached the same anchor from the same evidence without coordinating**
+
+**Verified at QA's document at this rev's write time:** `Criteria-At: "plan 013 rev 48, f5b7cac —
+RE-ANCHORED 2026-08-25 from rev 47 (06fad81); the tree is unmoved at e1d9b2b and no acceptance property
+changed. This verdict expires when EITHER the tree or the criteria move"`. **The captured artifact exists:
+`verification/013/probe-qa-verify-rider2/plan-rev47-to-rev48.diff`, 45 lines** — the same figure this
+register derived at R36.1.1.
+
+**Rev 36 stated that whether QA's field stands under rev 48 was QA's call and that this gate did not depend
+on the answer. QA ruled the same way, and derived rather than accepted** — three hunks, no unnamed fourth,
+**and it additionally confirmed that no hunk touches Validation and Release Conditions, Testing Strategy or
+Objective**, which this register did not check by name. **That is a real addition to R36.1.1's derivation
+and is adopted.**
+
+**QA's own framing is the part to keep**, and it refused the same convenience this register refused:
+*"I am not arguing my way out of my own field… That the reading is convenient — text-only, my own finding,
+moves toward what I verified — is exactly the reading the rule exists to refuse."* And its caveat:
+**"zero movement licenses a scoped pass; it never licenses carrying a verdict forward silently"** — which
+is why it recorded a **RE-ANCHOR section** rather than editing a field quietly.
+
+### R37.2.1 — The cost of the dual-anchor rule, recorded now rather than discovered later
+
+**QA carried the structural point further than this register did: the dual anchor makes a stage expire its
+own verdict by raising a good finding.** QA's INFO-1 corrected M9-a's instrument; the correction moved the
+plan; the moved plan expired QA's own `Criteria-At`. **A rule that penalises a stage for finding something
+is a rule that will quietly stop being applied.**
+
+**What keeps it payable is that the re-anchor is cheap — and it is cheap only because the tree did not
+move.** **Recorded as a known cost with a named precondition, because an unrecorded cost is how a good rule
+is abandoned without anyone deciding to abandon it.** **If a finding ever moves the criteria while the tree
+is also moving, this becomes expensive and someone will be tempted to skip it. That is the moment to
+re-read this paragraph, not to re-derive the rule.**
+
+## R37.3 — QA's oracle defect: **not a release condition, and this register agrees.** It strengthens a hazard already recorded
+
+**QA disclosed a defect in its own pre-registered oracle**: `modeAfterLoad` returns `'classic'` for a stored
+row-E record where production correctly returns `'v2'`. **No assertion is wrong today — no fixture is a
+row-E draft.** **QA is explicit it is a fix-round condition and not a release condition, and this register
+concurs: nothing is wrong in production at `e1d9b2b`, the gate's decision does not move, and no row is
+added.**
+
+**What it changes is the strength of two things rev 36 already carries, and the change is material.**
+
+**Measured by QA under the wrong collapse — a CR24-2 fix keeping the spec's encoding instead of
+production's:** QA's extended oracle **4 failed**; **M9-b's own spec 8 passed**; full suite **635 tests /
+50 files → 4 failed, all four QA's. 49 of 50 files green.**
+
+> **So the CR24-2 hazard has a SECOND wrong fix, not one.** Rev 36 recorded that deleting the branch as
+> dead would remove a correct, live branch. **QA has now measured that keeping the spec's encoding is
+> equally wrong and passes 49 of 50 files.** **Without QA's extended oracle in the tree, the whole suite is
+> blind to it.**
+
+**And the sharpest consequence lands on rev 36 itself.** R36.7's CR24-2 note is **prose in this document** —
+*"DO NOT fix this by deleting the branch as dead."* **QA's word for that is the right one: a banner is not
+an instrument.**
+
+**This is R33.3's rule, arriving at this register's own door on a different surface.** That rule read: *a
+constraint that lives only in a message is not a constraint, because the operator reads the row.* **Its
+counterpart here: a hazard that lives only in prose is not a guard, because the implementer runs the
+suite.** **Rev 36's warning is a banner. The guard is a test, and the only candidate test currently carries
+a wrong constant.**
+
+**Residual 5 is therefore amended by dated addition — the rev-36 text stands as written:**
+
+> **AMENDED 2026-08-25 (rev 37).** Residual 5 recorded that M9-b's spec is blind to the live `current`
+> path. **Add: the only instrument that is *not* blind is QA's extended oracle, and that oracle carries a
+> wrong `modeAfterLoad` constant in the same area** — harmless against today's fixtures, and **the reason
+> the suite's protection against a wrong CR24-2 fix rests on one instrument with a known defect in it.**
+
+**Nothing in this amendment gates the release act**, and residual 5 remains what it was: **about what is not
+*guarded*, not about what is not known.** **It is now better measured, which is the whole difference between
+a residual named and a residual understood.**
+
+## R37.4 — Standing position
+
+**The gate stands, unchanged, at TREE `e1d9b2b` / CRITERIA plan rev 48 (`f5b7cac`).** Re-derived at this
+rev's write time: `e1d9b2b`, tracked-clean, **`origin/master` still `2d90e8a`, branch unpushed — nothing
+released.**
+
+**If the owner orders a fix round and the tree moves, this gate EXPIRES BY ITS OWN TERMS and is re-issued
+at the new anchor.** **No verdict is carried across, and no part of rev 36 is inherited** — the re-issue
+re-derives, as every anchor in this chain now must. **QA's verdict expires with it, on the same clause, and
+neither expiry needs anyone to remember it.**
+
+**Either way, the eight `PRE` rows remain unobserved.** **A fix round changes what must be re-verified; it
+does not change what must be looked at.**
+
+## R37.5 — Ledger delta at rev 37
+
+**No row moves. No verdict moves. The release decision is unchanged.**
+
+| Item | State |
+|---|---|
+| **Release decision** | **`APPROVED FOR RELEASE, CONDITIONAL`** at TREE `e1d9b2b` / CRITERIA rev 48 — **unchanged**, published at `68e6159` |
+| **QA `Criteria-At`** | **RE-ANCHORED to rev 48**, verified. **The R36.1.1 dependency is resolved and this gate never depended on it** |
+| **Residual 5** | **AMENDED by dated addition** (R37.3); rev-36 text preserved |
+| **CR24-2 hazard** | **STRENGTHENED — two wrong fixes, not one**; still an open `LOW` on the implementer; **still not a release condition** |
+| **QA's oracle defect** | **Fix-round condition, NOT a release condition.** No row added |
+| **Open set** | **12 register rows** — BC-1, BC-4, BC-6, BC-7, BC-8, BC-9, BC-10, BC-18 (`PRE`, gate the release act) · BC-12, BC-14, BC-17, BC-20 (`POST`, gate chain closure). **All fresh. None observed.** |
+
+**Next Actions** — *point-in-time; later stage documents are authoritative on these items' current state.*
+
+1. **Steering / the owner** — the fix-round decision. **This stage is holding and will not re-issue
+   speculatively.**
+2. **The owner** — the walkthrough of the eight, **BC-1 first**, whenever the tree settles.
+3. **Implementer** — **CR24-2 now has two wrong fixes to avoid**: do not delete the branch as dead, **and
+   do not keep the spec's encoding** — collapse to one, keeping **production's**. **The suite will not stop
+   you** (R37.3).
+4. **QA** — its own oracle constant, in the fix round if there is one.
+5. **Nobody** — treats rev 36 as expired before the tree moves, or as surviving after it does.
