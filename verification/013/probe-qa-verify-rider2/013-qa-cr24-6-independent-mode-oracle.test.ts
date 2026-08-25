@@ -20,7 +20,7 @@
  *    without content -> V2 with the flag set and a warning; the flag over components within the
  *    schema and no content -> V2, nothing shown; the flag over content or embeds without V2
  *    components -> a warning and Classic (the bit cleared, the body kept); V2 components together
- *    with content or embeds, whatever the flag -> the user chooses Classic or V2"
+ *    with content or embeds, whatever the flag -> the user chooses Classic or V2 and is told what the other drops"
  *
  * No expectation here is computed. Nothing in this file calls `resolveContentLoss`, `settledMode`,
  * `applyDisposition`, `isMessageV2` or `detectMessageMode`. It drives the REAL shipped
@@ -76,8 +76,17 @@ const CELLS: { id: string; draft: Record<string, unknown>; d17Row: string; expec
   // real defect even when the value it labels is correct. This is also the cell M3 exercises,
   // i.e. the cell doing the most discriminating work had the weakest stated provenance.
   { id: 'bit=1 v2=0 classic=0', draft: { flags: V2_FLAG },
-    d17Row: 'D13: "The bit standing over Action Rows only, over `components: []`, or over no '
-      + 'components is NOT a conflict and is NOT refused." — row C, so V2',
+    // PROVENANCE COMPLETED at uat rev 39 (Finding 3). The previous citation said "— row C, so V2"
+    // and the quoted D13 clause states NO MODE: nothing in it yields 'v2'. What yields it is D17's
+    // superseding header on D13, quoted below, plus row C's outcome from the Objective. Both are
+    // now quoted, and D13 is marked superseded-in-part, which the previous citation did not say.
+    // This is CR25-2's own defect recurring one level inside its fix: the citation was correct and
+    // its stated provenance was still thinner than the actual derivation.
+    d17Row: 'D13 (plan line 110, SUPERSEDED IN PART by D17): "The bit standing over Action Rows '
+      + 'only, over `components: []`, or over no components is NOT a conflict and is NOT refused." '
+      + 'D17\'s superseding header on that row: "the \'not a conflict\' clauses survive as row C." '
+      + 'Objective, row C: "the flag over components within the schema and no content -> V2, '
+      + 'nothing shown." Therefore V2.',
     expected: 'v2' },
   { id: 'bit=1 v2=0 classic=1', draft: { flags: V2_FLAG, content: 'hi' },
     d17Row: 'the flag over content or embeds without V2 components', expected: 'classic' },

@@ -4218,3 +4218,43 @@ Production byte-identical to `e1d9b2b`; suite 627/627 re-derived; all four M10 c
 **Not a release decision. Not chain closure.** Eleven rows executable, **none observed**.
 
 **Handing off to the uat agent for value delivery validation.**
+
+## V.23 — `uat`'s three provenance findings, and my ruling on the cost question
+
+**Trigger**: `uat` rev 39 (`4184f0d`), discharging CR25-3 and raising three findings against my oracle's header. **CR25-3 discharged: the transcription is faithful** — all eight cells checked, six actually asserted, all six agreeing with the plan's Objective. **All three findings confirmed at the plan and all three are mine.**
+
+| | Finding | Confirmed at |
+|---|---|---|
+| 1 | row E's quotation is **truncated without an ellipsis** — the plan says *"chooses Classic or V2 **and is told what the other drops**"* | plan Objective |
+| 2 | **D13 is `SUPERSEDED IN PART by D17` and the oracle does not say so** — the clause survives, so the citation is sound; an oracle whose authority is literal transcription should mark it | plan **line 110** |
+| 3 | **the label doing the work rests on a sentence the oracle does not quote** — D13's clause states *no mode*; what yields `v2` is D17's superseding header (*"the 'not a conflict' clauses survive as row C"*) plus row C's outcome | plan line 110 |
+
+**Finding 3 is the one that matters, and `uat`'s framing of it is correct and uncomfortable: this is CR25-2's own defect recurring one level inside its fix.** The citation is now *right* where before it was *wrong*, and **its stated provenance is still thinner than the actual derivation.** Its sentence is the keeper — ***"an oracle that is corrected once tends to be treated as corrected."***
+
+**All three are applied to my `verification/` copy** — 22/22 green, comments and one citation string only, no expectation or fixture moved.
+
+### The cost question, ruled: **do not move the tree for this — and do not merely record it either**
+
+Steering asked whether a three-line provenance correction is worth a tree move, given the file is now `website` source, a header edit **expires the reviewer's fresh APPROVED at `b56570d`**, and it needs an implementer round to commit.
+
+**My judgement: no — and the question offered three options where there are four.**
+
+**Why not a tree move**: no expectation is wrong, no test outcome changes, and **the authority the header claims has now been established from outside by a party that is not me.** `uat` checked all eight cells against the plan independently, and **that is strictly stronger evidence than a better-worded header of mine could ever be** — a header is my assertion about my own transcription; `uat`'s check is not. Weighed against three stage-passes (implementer, re-review, re-verify) for three lines of comment, at a point where **the only thing left after the gate is the owner's walkthrough**, it does not earn the move.
+
+**Why not merely record it open**: `uat`'s *"corrected once tends to be treated as corrected"* is exactly right, and an open note is the weakest possible answer to it.
+
+**The fourth option, which is what I have done**: **publish the full derivation now in the two artifacts I own** — this document and `verification/013/probe-qa-verify-rider2/` — where committing costs nothing and needs nobody's approval. **A reader checking the oracle's provenance gets everything the header edit would give them, today.** The tree's copy keeps a citation that is *correct*, merely thinner, and **the header edit rides the next round that happens anyway** — and one is likely, since **CR24-2 is still open**.
+
+**So it is neither deferred-and-forgotten nor paid for at full price: the information is published now, and only the file that costs a tree move waits.** If a round happens, this is a three-line rider on it; if none does, the derivation is still on the record where a checker will look.
+
+**Recorded as raised, confirmed, corrected-where-free, and deferred-where-costly, with the reason** — which is what steering asked for in place of a silent disposition.
+
+### Two things about `uat`'s method worth carrying
+
+**It re-read my file before reporting**, having noticed it changed between its first and second read, *"because reporting a finding against a stale read of a file that had already been fixed would have been this chain's own defect committed in the act of checking for it."* **That is the freshness discipline applied to a peer's artifact mid-check**, and I had not seen anyone do it at that granularity.
+
+**And it reached CR25-2's correction independently, from the opposite direction** — finding `{ flags: V2_FLAG }` ungoverned by row C *"except on a vacuous reading over the empty set, and a cell whose coverage depends on a vacuous reading is an inference, not a literal"* — **before** discovering the cell had already been re-cited. **Two routes, opposite directions, same cell, neither able to see the other's work.** That is the strongest form of corroboration this chain has produced, and it happened by accident of timing rather than by design, which is worth the retrospective knowing.
+
+**Its scope limit is noted and honoured**: the discharge covers **the transcription only** and does not bless the oracle's reasoning, its mutant selection, or CR25-1/CR25-2 — which remain mine and the reviewer's, and are dispositioned at §V.19.
+
+**No verdict moves.** **QA COMPLETE at `b56570d` / plan rev 49 stands**, and **freshness at `b56570d` is ruled at §V.18 — 0 changed lines, all eleven rows fresh.**
