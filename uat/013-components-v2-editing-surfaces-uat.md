@@ -5,7 +5,30 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
-  **Rev 27 — U-C5 → `EXECUTED`; BC-13 and U-C7 confirmed terminal at their own documents. Open set 16 → 13.**
+  **Rev 28 — BC-11b → `DROPPED — D44` (2026-08-25). This register was the stale document.** The owner answered
+  R27.3's bare yes/no: **D44 dropped BC-11b, devops's four places were right.** Dated reconcile note, **superseded
+  text preserved**, and **R22.4 §4's instruction to carry BC-11b into the gate as residual risk is WITHDRAWN** —
+  **no BC-11b residual is named.** **All three grounds this stage recorded against its own document held**, the
+  third being that **§4's instruction was itself the propagation**: a handover carrying a superseded state into a
+  successor's hands, the exact shape this session arrived warning about. **The doctrine survives and is
+  strengthened** — filing a row under the wrong terminal state propagated a residual that did not exist, so the
+  distinction is what surfaced it, not what hid it. **`TERMINAL: CANNOT BE EXECUTED` now has no members.**
+  **THREE STATE CHANGES LANDED THAT NO MESSAGE CARRIED, all caught by re-deriving at write time** — rev 26's
+  caveat paying one rev later. **QA Phase 3 (`f3cbb66`) settled all eight `PREDICTION STALE` markings by
+  executing both trees rather than reading file lists**: BC-1/7/8/21 **LIFTED**, BC-6/9/10/18 **RE-DERIVED**,
+  BC-18 **decidable today**, BC-9's cause misattributed by rev 18. **This stage's #1 outstanding item is
+  discharged and not one row terminalises** — seven rows move from *not runnable* to *runnable and awaiting their
+  subject*, which is **the removal of this stage's own excuse for their standing open, not progress toward
+  approval.** **U-C6 → `EXECUTED`** (deployment §12.5) — **the last documentary row; nothing documentary stands
+  open.** **F-1 folded into this register** rather than left travelling, per the one-register rule: half of QA's
+  adopted render instrument is absent from the serving tree, routed **qa → uat**. **Not made a `BC` row** — it
+  has no prediction, instrument or subject, and authoring those is QA's. **Code review landed:
+  `APPROVED_WITH_COMMENTS` at `2d90e8a`, anchored at the remote twice and blob-identical path-by-path — and
+  RECORDED IN ADVANCE AS EXPIRING**, because the owner took its MEDIUM-1 as a production-code rider. **R24.2's
+  converse demonstrated: a verdict anchored this well lets its expiry be seen coming rather than discovered
+  after.** **Open set 13 → 12 register rows + F-1**, every one an operator or `POST` observation and **none now
+  blocked on wording.** **Residuals: three, all certain, all silent.** **Decision UNMOVED at `EXPIRED IN FULL`** —
+  the pass in which every excuse fell away and the count barely moved. U-C5 → `EXECUTED`; BC-13 and U-C7 confirmed terminal at their own documents. Open set 16 → 13.**
   **Every citation was read at the cited document, not taken from the relay.** **U-C5's row was obsolete in two
   of its three limbs before he was asked**: D25's second route was taken by the deployment record at `e34df07`
   (L12, L152–162), and its U-1 limb was struck at rev 21 — so the live question was only whether the **plan** is
@@ -205,6 +228,7 @@ Verified-At: >-
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — **the missing input**: the owner answered rev 23's one word | Owner selected **"Deliberate paste"** for BC-21; register state left to this document, nothing set by steering | **Rev 25. BC-21 → `EXECUTED`, 2026-08-25. Open set 18 → 17.** **Provenance disclosed unprompted and weighed, not adopted**: no verbatim, agent-authored options — but the taken option asserts *"and the warning appeared"*, and he passed over **"Leave it open"**, a costless exit. **Residual named**: he adopted a described act rather than characterising the payload himself. **The R23.3 staleness query does NOT gate it** — staleness bites only where observation can diverge from prediction, and **a presence predicate observed as present cannot diverge from itself**; BC-18's stale limb *can*, which is why the two rows separate for the same reason they separated at rev 23. **Decision unmoved at `EXPIRED IN FULL`** — a condition going terminal is the register working, not a verdict change. |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — **a relay gap disclosed unprompted**: the owner's BC-5 ruling reached `devops-hooks-013-2` today and **not this stage**, so this session's read-in enumerated BC-5 as live | Owner's unprompted words *"I'm not doing BC-5."*, disambiguated by selection prompt in this register's vocabulary; he chose **"Withdraw it"**. Register state left to this document, nothing set by steering | **Rev 26. BC-5 → `WITHDRAWN`, 2026-08-25, ruled by the owner. Open set 17 → 16.** **The verbatim sentence did not settle it** — it is ambiguous between ending the obligation and declining to be its subject. **The load-bearing fact is the declined option**: *"Establish the fixture"* would have preserved the test with a researcher and **someone who is not him** as subject, answering his sentence on its literal reading; he passed it over. **Framing weighed and found weaker than BC-21's** — no alternative was costless — **and ruled not to matter: R25.1's framing test governs elicited *facts*, not elicited *rulings*.** A withdrawal is true because he ruled it; there is no fact behind it for a framing to distort. **Residual named (R26.4) as a fourth shape**: obligation ends, subject stays in the product **and stays uncharacterised** — the uncertainty outlives the row **and is silent**, where BC-11b's self-advertises. Naming it sits inside his chosen words (*"nothing is claimed, either way"*); it creates **no task, owner, gate or prediction.** **Two reconcile notes landed** (R26.5), superseded text preserved not overwritten. **Decision unmoved at `EXPIRED IN FULL`.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — owner ruling on **U-C5** plus three row corrections from `devops-hooks-013-2`, **relayed as citations to check, not as facts established**; steering set nothing | Owner ruled **"Record is enough"** on the plan's description of the shipped change; devops reported **BC-13 already terminal**, **U-C7 already discharged**, **U-C6 genuinely still owed** | **Rev 27. Open set 16 → 13.** **Every citation read at the cited document.** **U-C5 → `EXECUTED`** — two of its three limbs were already obsolete (D25's second route taken by the record at `e34df07`; U-1 struck at rev 21), so what he ruled on was narrower than the row as written; **closed on the substance with the delta recorded.** **BC-13 → `TERMINAL — WINDOW ELAPSED`** (clock instrument; non-reopening *tested* via an empty `bot/` diff proven against a present path). **U-C7 → `EXECUTED`**, three independent corroborations. **U-C6 correctly still open** — deliberately not discharged early. **AND A CONFLICT ROUTED (R27.3): this register says BC-11b is `TERMINAL: CANNOT BE EXECUTED` with a real residual; four places across both devops documents say `DROPPED under D44`.** Terminal either way, so **the open set does not move** — but it decides whether the gate names a residual or a phantom. **Evidence leans against this register**, and it matches rev 22's own confessed *dependent-incomplete* defect. **Not resolved here: D44 forbids re-deriving the struck subject.** **Nobody writes the gate's residual section until it is answered.** **Decision unmoved at `EXPIRED IN FULL`.** |
+| 2026-08-25 | `steering-hooks-013-3` [b04529] — **the R27.3 answer**, put as the bare yes/no this stage scoped it to; nothing reopened | **YES — D44 dropped BC-11b.** Plus notice that code review has landed and that the owner accepted its MEDIUM-1 as a rider | **Rev 28. BC-11b → `DROPPED — D44`, 2026-08-25 — this register was the stale document and devops's four places were right.** Dated reconcile note; **superseded text preserved**; **R22.4 §4's instruction to carry BC-11b as residual is WITHDRAWN** and no such residual is named. **All three grounds this stage recorded against its own document held**, including that **§4's instruction was itself the propagation** — the handover-carrying-superseded-state shape this session arrived warning about. **Resolved without touching what D44 forbids.** **THREE STATE CHANGES NO RELAY CARRIED, caught by re-deriving at write time** — rev 26's caveat paying one rev later: **QA Phase 3 (`f3cbb66`) settles all eight STALE markings by execution** (BC-1/7/8/21 LIFTED; BC-6/9/10/18 RE-DERIVED; BC-18 decidable today), so **the block on seven operator rows is lifted and none of them terminalises**; **U-C6 → `EXECUTED`** (deployment §12.5, `14bc31c`), the last documentary row; **F-1 raised and folded into this register** rather than left travelling — half of QA's adopted render instrument absent from the serving tree, routed qa → uat. **Code review `APPROVED_WITH_COMMENTS` at `2d90e8a`, anchoring exemplary — and RECORDED IN ADVANCE AS EXPIRING**, because the MEDIUM-1 rider is production code. **Open set 13 → 12 register rows + F-1. Residuals: three, all silent.** **Decision unmoved at `EXPIRED IN FULL`.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -3825,3 +3849,245 @@ no longer on this list; nor is BC-5.**
 4. **Steering** — the Decisions Register row owed for the U-C5 ruling (R27.5), parked in its docket while
    the plan has live readers. **Recorded here so the delay cannot lose it.**
 5. **Nobody** — writes the gate's residual section before R27.3 is answered.
+
+---
+
+# Rev 28 — BC-11b corrected against this register: `DROPPED — D44`. **And three state changes that no relay carried, caught by re-deriving at write time.**
+
+**Date**: 2026-08-25. **Session**: `uat-hooks-013-5`. **Trigger**: `steering-hooks-013-3` [b04529]
+returned the R27.3 answer. **No gate is opened here**, and R28.5 explains why the code review's arrival
+does not change that.
+
+## R28.1 — Reconcile note, dated: **D44 dropped BC-11b. This register was the stale document.**
+
+**The answer to R27.3's question is YES.** Put as the bare yes/no this stage scoped it to; nothing was
+reopened and nobody was asked why. **Devops's four places were right and this register was wrong.**
+
+**BC-11b · `TERMINAL: CANNOT BE EXECUTED` → `DROPPED — D44`** (plan rev 39, `13a6e66`), **2026-08-25.**
+
+**The superseded text is preserved where it was written and is not overwritten.** It read, at R22.2:
+
+> *"BC-11b — `TERMINAL: CANNOT BE EXECUTED` **(never read as closed: it records a permanent absence of
+> evidence)**"*
+
+and at R22.4 §4:
+
+> *"**BC-11b `TERMINAL: CANNOT BE EXECUTED`** (obligation stands, permanently unreachable — real residual
+> risk)"*
+
+**Both are superseded as of this note. R22.4 §4's instruction to the successor — to carry BC-11b into the
+gate as residual risk — is WITHDRAWN.** **No BC-11b residual is named in the gate**, because there is no
+obligation left to be unreachable: its subject was struck and the row fell with it.
+
+**The three grounds this stage recorded against its own document at R27.3 all held**, and the third is the
+one worth keeping: **R22.4 §4's instruction was itself the propagation** — a handover section carrying a
+superseded state into a successor's hands, which is **the exact shape this session arrived warning about
+at read-in and flagged again at R26.5.** **This register caught its own handover doing the thing it was
+warning about.** That is not a comfortable sentence and it is the accurate one.
+
+**What made the question answerable at all was not touching what was forbidden.** This stage did not
+investigate D44, did not identify the struck subject, and asked nobody why. **A conflict between two
+documents' recorded states can be named without reopening the ruling that produced them**, and that
+distinction is what let the question be put.
+
+## R28.2 — What this correction does *not* cost, stated because the doctrine is easy to over-correct
+
+**R22.4 §4's underlying doctrine survives intact and is strengthened, not weakened.** The instruction was
+wrong about **which rows** it applied to; it was right that **terminal states must not be collapsed**.
+BC-11b is the proof rather than the counterexample: **filing a row under the wrong terminal state
+propagated a residual that did not exist**, into a handover, into a successor's read-in, and to the edge
+of a gate's published residual section. **A collapse would have hidden it; the distinction is what
+eventually surfaced it.**
+
+**The live taxonomy after this correction**, which the gate will use:
+
+| State | Obligation | Subject | Residual |
+|---|---|---|---|
+| **`DROPPED — D44`** — BC-11a, BC-11b, Finding U-1 | gone with its subject | struck from the chain | **None** |
+| **`TERMINAL: SUBJECT WITHDRAWN`** — BC-19b | ends | removed from the product | **None** |
+| **`WITHDRAWN`**, subject uncharacterised — **BC-5** | ends (owner) | **in the product, never characterised** | **Real, and silent** (R26.4) |
+| **`WITHDRAWN`**, plain — BC-15 | ends (owner) | — | — |
+| **`EXECUTED`** / **`SUPERSEDED`** | discharged | — | per row |
+
+**`TERMINAL: CANNOT BE EXECUTED` now has no members in this register.** It is not deleted from the
+vocabulary — it remains the correct filing for an obligation that stands and is permanently unreachable —
+but **no row currently sits in it, and none may be moved there without a ruling.**
+
+## R28.3 — **Three state changes landed that no message carried. Re-derivation at write time caught all three.**
+
+**Rev 26 wrote that this register's open set is only as current as the relays that reach it, and that the
+defence is re-derivation at write time from the file plus every ruling known at that moment. One rev
+later that caveat paid.** Verified at the documents, not relayed:
+
+| Landed | Commit | Effect here |
+|---|---|---|
+| **QA Phase 3 — the STALE predictions re-derived by execution, not by file list** | **`f3cbb66`** | **This stage's #1 outstanding item is discharged.** See R28.3.1 |
+| **Devops §12 — four deploy records, U-C6 discharged, F-1 raised** | **`14bc31c`** | **U-C6 → `EXECUTED`**; **F-1 routed to qa then uat** |
+| **Two owner items from code review round 23** | **`0134e63`** | Noted; steering's queue, not this register's |
+
+**No blame attaches to steering** — it was holding and these are direct commits by their own stages. **The
+point is structural and it is the one rev 26 made**: a stage that waits to be told its ledger has moved
+will be wrong, and the only defence that works is re-deriving at the moment of writing. **This section is
+that defence producing three results in one pass.**
+
+### R28.3.1 — QA Phase 3 discharges the blocker on seven rows. It terminalises none of them.
+
+QA re-derived rev 18's eight `PREDICTION STALE` markings **by executing both trees over the surface**
+rather than by reading the commits' file lists — which is what produced the marking in the first place.
+Instrument: `verification/013/probe-qa-p3-stale-prediction-differential/`, run unchanged at `2d90e8a`,
+`d7c4836` and `4a7126b`, then diffed.
+
+- **BC-1, BC-7, BC-8, BC-21 — staleness LIFTED**; the predictions did not move.
+- **BC-6, BC-9, BC-10, BC-18 — RE-DERIVED** to the literal value the surface now produces.
+- **BC-9's staleness was real but attributed to the wrong commit** — its cause is D31 at `d7c4836`, not
+  the two rev 18 named.
+- **BC-18 is decidable today.**
+- **The R23.3 query is answered**: BC-21's *"stale by inheritance"* marking was **over-broad and is
+  LIFTED**, on two independent grounds, one measured. **It gates nothing** — rev 25 terminalised that row
+  on other grounds, exactly as R25.2 said it would.
+
+**What this changes here, precisely:** since rev 18 this register has recorded the operator `PRE` rows as
+**blocked behind QA's re-derivation**, because *a row run against stale wording yields a false pass, and a
+false pass gets filed rather than investigated.* **That block is lifted.** **BC-1, BC-6, BC-7, BC-8, BC-9,
+BC-10 and BC-18 are now executable against sound predictions.**
+
+**What this does not change: not one of them terminalises.** They still require the human walkthrough,
+and **row definitions being QA's does not make row state QA's.** The rows move from *"not runnable — the
+wording is wrong"* to *"runnable, and awaiting their subject."* **That is a real advance and it is not
+progress toward approval; it is the removal of this stage's own stated excuse for their standing open.**
+
+## R28.4 — F-1 is folded into this register rather than left travelling
+
+**This stage's standing rule: UAT consumes the chain's *one* blocking-condition register, and discovering
+a second travelling list is a finding — fold it in, record the discovery, never carry a parallel ledger.**
+
+**F-1** (deployment §12.6, routed **qa → uat**): **the serving tree carries 4 of the 8 test blocks of QA's
+formally adopted render instrument** (`013-qa-toast-vessel-render.test.ts`, adopted at `664e0c0` as
+F-QA23). The routing asks whether the removals are correct **and whether a verdict is owed at `2d90e8a`.**
+
+**Folded in as an open item**, because it is a coverage question that reaches a release decision and it is
+routed to this stage. **It is not made a `BC` row**: it has no prediction, no primary instrument and no
+subject, and **an item missing those is not executable — writing one for it here would be improvising a
+row definition, which is QA's to author, not this stage's.** It stands as an open finding awaiting QA's
+ruling and then this stage's.
+
+**Recorded with it, and deliberately not folded in:** **F-2** (`d7c4836` was never a local master
+position; pushed from elsewhere), **F-3** (operator/approval for three acts are second-hand, stated as
+such), **F-4** (the readiness sibling still fails `check-repo.js` CHECK 4; a name declined rather than
+coined, disclosed rather than worked around). **These are devops's own disclosures on devops's own
+document, not a parallel blocking register, and this stage does not adopt them.** They are named here so
+that the boundary is a recorded judgement rather than an omission.
+
+**Devops's in-round disclosure is noted with approval**: it caught a false *"instrument deleted"* reading
+via `git cat-file` **before it reached the record**. That is the instrument-lie class caught by its own
+author at the right moment, which is the second time in two passes (BC-13's proven-present `bot/` path was
+the first).
+
+## R28.5 — Code review has landed, its anchoring is exemplary, and **it is born expiring. Recorded in advance so nobody assembles a gate from it.**
+
+**Verified at the document, not taken from the relay** (`code-review/013-…-code-review.md`, `5f6fda8`):
+
+- **`APPROVED_WITH_COMMENTS`**, **`Reviewed-At: 2d90e8a` on master**, delta reviewed **`4a7126b..2d90e8a`** — 4 commits, 17 files, 10 non-test.
+- **`HEAD == origin/master == 2d90e8a` verified by `git ls-remote` — computed AT THE REMOTE — at pass start `08:24:00Z` AND pass end `08:33:42Z`**, with the working tree **proven blob-identical to the SHA path-by-path.**
+- **D35 re-derived as bounded to D30–D34**, so `2d90e8a` is **inside** the review debt and **not waived** — reached independently and agreeing with this register.
+
+**That anchoring is the standard R24.2 asked for, and it is worth naming because it demonstrates R24.2's
+converse.** R24.2's warning was that *a verdict without a named identity cannot expire, which is what makes
+it dangerous rather than merely incomplete.* **Here is the other half: a verdict that names its identity
+this rigorously lets its expiry be seen coming — before it happens, rather than discovered afterwards.**
+
+**And it is coming.** The owner accepted the review's **MEDIUM-1** (*D32 readable errors defeated on a
+reachable path*) as a **rider on 013**. **That is production code.** So:
+
+> **The code review verdict at `2d90e8a` will cease to bind the moment the rider lands, and it is recorded
+> here as expiring before anyone can act on it.** QA's verify pass is stopped for the same reason.
+> **The gate is written against the post-rider tip, and its predecessor checks are re-run there — not
+> inherited from this round.**
+
+**This is R24.2 with a concrete instance, and the instance is sharper than the rule.** R24.2 warned that
+`code-reviewer` approved + `qa` Complete + `UAT Complete` would arrive looking like release. **It is now
+arriving, and the first of the three is already known to be expiring.** A reader who finds
+`APPROVED_WITH_COMMENTS` in that document and stops reading will have found a verdict about a tree that no
+longer exists. **Recording it in advance is the only defence that works, because after the rider lands
+nothing in that document will announce that it went stale.**
+
+## R28.6 — Residual inventory: **three, all certain, all silent**
+
+**BC-11b is struck from the inventory it was the pending fourth member of (R27.5).** It resolves to
+nothing. The remaining three are unchanged by anything in this pass:
+
+| Residual | Why it is silent |
+|---|---|
+| **BC-5's subject** (R26.4) — a behaviour in the product, **never characterised**; obligation ended by owner ruling | `WITHDRAWN` is a closed shape; a reader scanning terminal rows sees a discharged register |
+| **The plan's half-sentence** (R27.1) — by owner ruling the plan describes half the shipped change, and **no stage may "correct" it** | The sentence **reads complete**; nothing marks it partial. Owed a Decisions Register row, **still unwritten**, parked in steering's docket |
+| **BC-21's provenance** (R25.1) — the owner adopted a described act; he did not independently characterise the payload | The row reads `EXECUTED`, which is what it is; the distinction survives it |
+
+**F-1 is not listed here.** It is an **open item**, not a residual — it is undecided, and a residual is
+what remains *after* a decision. **If QA rules the removals correct and no verdict owed, it becomes a
+residual; if not, it becomes work.** Filing it here now would be terminalising it by presentation.
+
+## R28.7 — Ledger delta at rev 28
+
+| Row | Before | **At rev 28** | Basis |
+|---|---|---|---|
+| **BC-11b** | `TERMINAL: CANNOT BE EXECUTED` | **`DROPPED — D44`** (plan rev 39, `13a6e66`), **2026-08-25** | R28.1. Dated reconcile note; superseded text preserved; **R22.4 §4's instruction WITHDRAWN.** **Terminal before and after — the open set does not move** |
+| **U-C6** | `NOT EXECUTED`, documentary, devops | **`EXECUTED`** — deployment **§12.5**, `14bc31c` | Implementation document's terminal `Status` set. **The `closed/` move is deliberately NOT made while the chain is open** — correctly, and it is not owed by U-C6's text |
+| **BC-1, BC-7, BC-8** | `NOT EXECUTED`, **prediction STALE** | **`NOT EXECUTED` — STALENESS LIFTED, executable** | QA Phase 3, `f3cbb66`. Predictions did not move |
+| **BC-6, BC-9, BC-10, BC-18** | `NOT EXECUTED`, **prediction STALE** | **`NOT EXECUTED` — RE-DERIVED, executable** | QA Phase 3. **BC-18 decidable today.** BC-9's cause was D31 at `d7c4836`, not the commits rev 18 named |
+| **BC-21** | `EXECUTED` (rev 25) | **unchanged** | Its stale-by-inheritance marking is LIFTED as over-broad; **gates nothing**, as R25.2 predicted |
+| **F-1** | — | **OPEN — folded into this register** (R28.4), routed **qa → uat** | Deployment §12.6 |
+| **Code review** | in flight | **`APPROVED_WITH_COMMENTS` at `2d90e8a`** — **and recorded as EXPIRING** (R28.5) | `5f6fda8`, verified at the document |
+| **Standing release decision** | `EXPIRED IN FULL` | **unchanged** | Nothing in this pass reaches it |
+| **Open set** | **13** | **12 register rows + F-1** | U-C6 terminal; F-1 folded in |
+
+**The open set, enumerated rather than counted — 12 register rows, all `BC`, plus F-1:**
+
+- **`PRE`, operator (6):** BC-1, BC-4, BC-6, BC-7, BC-8, BC-9 — **all executable; no staleness stands
+  against any of them.** BC-4's suite limb **MET**, fixture owed
+- **`PRE`, split limb (1):** BC-10 — suite limb **MET**, spot-observation limb `NOT EXECUTED`, **executable**
+- **`PRE`, operator (1):** BC-18 — **decidable today**; the last live condition of the standing, expired decision
+- **`POST` (4):** BC-12, BC-14, BC-17, BC-20 — gate chain closure, never the release act. **BC-20 has an absence signature: no volume of quiet is evidence for it**
+- **Documentary (0):** **none. U-C6 was the last.**
+- **Plus F-1** — open, undecided, awaiting QA then this stage
+
+**6 + 1 + 1 + 4 + 0 = 12, plus F-1.** ✓ **Every remaining register row is an operator or `POST` observation.
+Nothing documentary stands open, and nothing is now blocked on wording.**
+
+## R28.8 — State
+
+**UAT Complete** stands — **a status on this document reached at `4a7126b`, not a gate on any live tree.**
+**No verdict moved. The release decision stays `EXPIRED IN FULL`.**
+
+**Tree at this rev's write time, re-derived and not inherited:** `origin/master` = `2d90e8a`,
+tracked-clean, **ungated**. **This rev reaches no verdict and anchors none.** **The tree is expected to
+move on the MEDIUM-1 rider, and the gate is written at the post-rider tip.**
+
+**This is the pass in which every excuse for the open rows fell away, and the count barely moved. That is
+worth stating plainly:** the staleness block is lifted, the documentary rows are exhausted, code review
+has approved, and **twelve conditions still stand `NOT EXECUTED` because nobody has yet observed them.**
+**R24.2 is not softened by any of it.** A register that has run out of reasons why a row cannot be
+executed has not thereby executed it.
+
+**Outstanding — three:**
+
+1. **The operator walkthrough.** **Twelve rows, now all executable, none observed.** **This is the gate's
+   real content and it has no substitute.** Under this stage's standing rule, where it cannot precede the
+   decision the approval is **conditional and says so**, naming an owner and a terminal state for every
+   outstanding row.
+2. **F-1** — QA rules first, then this stage.
+3. **The final gate at the post-rider tip.** **R24.2 governs and R28.5 sharpens it**: the one green verdict
+   now in hand is already known to be expiring.
+
+**Nothing is asked of the coordinator.** This stage does not self-start and is holding for the post-rider
+word.
+
+**Next Actions** — *point-in-time; later stage documents are authoritative on these items' current state.*
+
+1. **Implementer** — the MEDIUM-1 rider.
+2. **Code review, QA** — re-run at the post-rider tip. **Neither verdict is inherited from this round.**
+3. **QA** — rule on F-1, then route to this stage.
+4. **Steering** — the Decisions Register row owed for the U-C5 ruling (R27.5), **still unwritten**.
+5. **Devops** — the BC-21 restatement lag (R27.4); **the `closed/` move at chain closure**, correctly not
+   made now.
+6. **Nobody** — reads the code review's `APPROVED_WITH_COMMENTS` at `2d90e8a` as a live verdict once the
+   rider lands (R28.5), or names a BC-11b residual (R28.1).
