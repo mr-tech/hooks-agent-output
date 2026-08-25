@@ -41,6 +41,9 @@ its timestamp in the consuming document (the UAT record), is complete evidence.
 | `probe-qa-p3-fixverify/` | refresh pass (`164d720`) | independent verification of the F-QA15 fix at `53beb37`, refreshing the QA FAILED verdict at `4e9da96` |
 | `probe-qa-p3-stale-prediction-differential/` | Phase 3 (`2d90e8a` vs `d7c4836` vs `4a7126b`) | **which of the eight PREDICTION STALE register rows actually moved**, executed rather than read off the two commits' file lists. Also carries the pre-registered failing specs for **F-QA29** (the Load confirmation names a mode the Load does not produce) and **F-QA30** (an emptied Container is dropped with nothing said) |
 
+| `probe-qa-p3-delimiter-class-sweep/` | Phase 3 (`2d90e8a`) | whether code review's MEDIUM-1 is one instance or a class — **three sites**, and why the two JSON surfaces are unreachable **by coincidence rather than by design**. Carries the rider's pre-registered staleness condition |
+| `probe-qa-p3-render-instrument-reduction/` | Phase 3 (`4a7126b` vs `2d90e8a`) | devops **F-1** — whether the trim of QA's adopted render instrument was correct (**yes**), and its true magnitude (**4 of 13**, not 4 of 8, measured by running the file rather than counting its text) |
+
 **Not QA's, and indexed by the reviewer**: `baseline-expected-six/` and the `probe-cr*/` series.
 QA's suite counts depend on `baseline-expected-six/`; the dependency is recorded here, the row is
 not. See `README-code-review-instruments.md`.
