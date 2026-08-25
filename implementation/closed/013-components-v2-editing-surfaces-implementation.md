@@ -3,7 +3,7 @@ ID: 013
 Origin: 013
 UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
-Status: Released — chain closure pending
+Status: Released
 Status-Detail: >-
   Terminal `Status` set 2026-08-25 by `devops-hooks-013-3`, discharging **U-C6** (split out of U-C2 at
   UAT rev 11, which correctly returned the terminal-status act to devops under the document-lifecycle

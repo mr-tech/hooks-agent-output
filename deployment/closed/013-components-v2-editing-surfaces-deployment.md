@@ -3,7 +3,7 @@ ID: 013
 Origin: 013
 UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
-Status: Released — chain closure pending
+Status: Released
 Status-Detail: >-
   Deployment record for the release that ran on 2026-08-25 at 00:56:37 UTC: `website` serving ref
   `master` moved `c85945f` → `a151fb4`. **Externally executed by the owner, outside this stage's
