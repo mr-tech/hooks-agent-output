@@ -582,3 +582,89 @@ command, by anyone. Instance 2 was caught precisely because the range was writte
 number sitting beside a correct instruction **reads as corroboration for the instruction**. In a sitting
 where the owner is counting seeds and checking a tip SHA against a document, a number he can trivially
 falsify is what makes him distrust the numbers he cannot.
+
+---
+
+## 11. The release act occurred outside the gate — 2026-08-25, recorded not adjudicated
+
+**§§0–10 are preserved exactly as written and none of them was false at write time.** They now read as
+a forecast of an event that has since occurred. This section records that, from measurement, at
+2026-08-25. **It is not the deployment record and does not become one.**
+
+### 11.1 What the tree says
+
+| Measurement | Result |
+|---|---|
+| `git rev-parse master origin/master` | both **`a151fb4`** |
+| `git ls-remote origin master` *(the remote itself, not a tracking ref)* | **`a151fb4`** |
+| `HEAD` reflog | `00:56:27` checkout `master`; `00:56:34` **merge `chain/013…`: Fast-forward** |
+| `origin/master` reflog | `00:56:37` **update by push** |
+| `.solo` in `website` | **absent** → shared repo; an unplaceable act may be another session's |
+
+**The fast-forward §2 predicted has happened, and been pushed.** Elapsed from checkout to push: **ten
+seconds.**
+
+### 11.2 It was not this agent, and the evidence is structural rather than assertive
+
+**No release step in this chain was executed by me.** My last action in `website` was a read; my last
+write of any kind was `bad6e50` at **00:13:16**, in `agent-output`, **43 minutes before the push**.
+
+The stronger evidence is that **the gate leaves a trace when it runs, and there is none**: Phase 2B
+requires a release summary presented to the owner and his explicit approval recorded with a timestamp
+before any ref moves. **No summary was ever presented and no approval was ever given or recorded.**
+Stage 1 never opened. Had I executed this, the artifacts of the gate would exist; their absence is not
+my say-so.
+
+### 11.3 What I will not do, and why
+
+- **No deployment record.** R-5's requirement is still moving under a planner pass (§10.10), no Phase 2B
+  confirmation exists, and the twelve `PRE` rows and U-C5 were never discharged. A record written now
+  would document a release this stage did not gate and cannot attest. **When one is eventually owed it
+  must say plainly that the release act occurred outside the gate** — that is a fact about the chain, not
+  a reconstruction to be smoothed over.
+- **No probing for serving state.** Whether the deploy fired is exactly the class my definition reserves
+  to the owner's word. I do not read it from a host, a process list or a port. **It is asked, not
+  inferred.**
+- **No unilateral remediation.** Reverting, re-pointing or re-branching a pushed serving ref is a
+  non-fast-forward act and nobody's to run on their own initiative (F-2).
+
+### 11.4 F-7's status: unresolved, and only the owner can resolve it
+
+F-7 held that the release act permanently forecloses the seed-mint route BC-11b depends on, and that
+**wrong ordering here is irreversible rather than inconvenient**. The push has happened; `013-A` — mint
+four spares of each shape — was still outstanding.
+
+**Whether the window is actually shut turns on whether the deploy fired, which I must not establish by
+probing.** Vercel's git integration makes firing the presumption, but **a presumption is not an
+attestation** and this record will not treat it as one. If it fired, BC-11b is no longer runnable to its
+own prediction on the remaining two seeds, and that is a gap in the evidence base that cannot be closed
+by re-running anything.
+
+### 11.5 A hazard neither party has named: uncommitted source on the checked-out serving branch
+
+`master` is checked out and its working tree is **not** clean:
+
+    M  src/app/message/_components/NewMessageJsonInput.tsx      (+7 −9)
+    M  src/app/message/m/[id]/layout.tsx                        (+2 −0)
+    M  src/providers/MessageProvider/index.tsx                  (+8 −3)
+    ?? src/app/message/m/[id]/_layout/CodeMessageNotice.tsx
+    ?? src/utils/__tests__/013-owner-toast-vessel-2026-08-25.test.ts
+
+**None of it is deployed** — the push carried `a151fb4` only, and **nothing is staged** (`git diff
+--cached --numstat` empty), so no unqualified commit sweeps it up. **The exposure is forward-looking**:
+three *tracked production source files* now carry uncommitted edits on the branch that serves
+production, so any session that commits and pushes from here puts unreviewed work live without
+passing a gate. It belongs on a chain branch. **It is the implementer's to move and not mine, and the
+tree must not be switched over a dirty tree in any case.**
+
+### 11.6 The one question, and who owns it
+
+Steering reports it did not push; the implementer reports it did not; **I did not**. The remaining party
+with both the authority and the access is **the owner**, and the shape of the act — checkout,
+fast-forward, push, ten seconds, no gate artifacts — reads as someone who knew exactly what he wanted
+rather than as a process that went wrong. **That is a hypothesis, testable by one question, and it is
+the likely reading rather than the alarming one.** It is not mine to assert on his behalf.
+
+**Held, not escalated** — he is away, and silence is not consent. Per this stage's rule, on no answer the
+direction of the last explicit ruling governs, and for a safety gate that means **hold**. Recorded here
+so it stays visible and re-openable rather than quietly dropped.
