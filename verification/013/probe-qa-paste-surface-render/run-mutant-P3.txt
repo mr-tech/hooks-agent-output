@@ -1,0 +1,47 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ src/utils/__tests__/013-qa-paste-surface-render.test.ts (5 tests | 2 failed) 13ms
+     × RENDERS the settled notice text when there is one and no error 9ms
+     × CLEARS: notice present then absent leaves nothing behind 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > RENDERS the settled notice text when there is one and no error
+AssertionError: expected 'Copy to ClipboardPretty print' to contain 'QA-ROW-D-SETTLED-NOTICE'
+
+Expected: "QA-ROW-D-SETTLED-NOTICE"
+Received: "Copy to ClipboardPretty print"
+
+ ❯ src/utils/__tests__/013-qa-paste-surface-render.test.ts:62:52
+     60| describe('paste surface — the site the owner ruling actually named — r…
+     61|   it('RENDERS the settled notice text when there is one and no error',…
+     62|     expect(text(renderPaste({ settled: NOTICE }))).toContain(NOTICE);
+       |                                                    ^
+     63|   });
+     64|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > CLEARS: notice present then absent leaves nothing behind
+AssertionError: expected 'Copy to ClipboardPretty print' to contain 'QA-ROW-D-SETTLED-NOTICE'
+
+Expected: "QA-ROW-D-SETTLED-NOTICE"
+Received: "Copy to ClipboardPretty print"
+
+ ❯ src/utils/__tests__/013-qa-paste-surface-render.test.ts:79:52
+     77|
+     78|   it('CLEARS: notice present then absent leaves nothing behind', () =>…
+     79|     expect(text(renderPaste({ settled: NOTICE }))).toContain(NOTICE);
+       |                                                    ^
+     80|     expect(text(renderPaste({ settled: null }))).not.toContain(NOTICE);
+     81|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 3 passed (5)
+   Start at  03:01:54
+   Duration  943ms (transform 182ms, setup 0ms, import 636ms, tests 13ms, environment 0ms)
+

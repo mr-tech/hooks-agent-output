@@ -1,0 +1,64 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ src/utils/__tests__/013-qa-paste-surface-render.test.ts (5 tests | 3 failed) 13ms
+     × RENDERS the settled notice text when there is one and no error 8ms
+     × the notice is styled as a warning, not rendered bare 2ms
+     × CLEARS: notice present then absent leaves nothing behind 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > RENDERS the settled notice text when there is one and no error
+AssertionError: expected 'Copy to ClipboardPretty print' to contain 'QA-ROW-D-SETTLED-NOTICE'
+
+Expected: "QA-ROW-D-SETTLED-NOTICE"
+Received: "Copy to ClipboardPretty print"
+
+ ❯ src/utils/__tests__/013-qa-paste-surface-render.test.ts:62:52
+     60| describe('paste surface — the site the owner ruling actually named — r…
+     61|   it('RENDERS the settled notice text when there is one and no error',…
+     62|     expect(text(renderPaste({ settled: NOTICE }))).toContain(NOTICE);
+       |                                                    ^
+     63|   });
+     64|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > the notice is styled as a warning, not rendered bare
+AssertionError: expected '{"children":[{"tag":"div","className"…' to contain 'text-warning'
+
+Expected: "text-warning"
+Received: "{"children":[{"tag":"div","className":"max-h-full w-full resize-none rounded bg-quaternary p-2 text-sm","children":null},{"tag":"div","className":"flex justify-between m-2","children":[{"tag":{"compare":null},"children":{"children":[{"tag":{},"className":"h-5 w-5","children":null},"Copy to Clipboard"]}},{"tag":{"compare":null},"className":"font-bold text-blue-400 enabled:hover:underline enabled:focus:underline decoration-1 enabled:cursor-pointer py-2 px-4 text-sm","children":"Pretty print"}]}]}"
+
+ ❯ src/utils/__tests__/013-qa-paste-surface-render.test.ts:75:18
+     73|   it('the notice is styled as a warning, not rendered bare', () => {
+     74|     const json = JSON.stringify(renderPaste({ settled: NOTICE }));
+     75|     expect(json).toContain('text-warning');
+       |                  ^
+     76|   });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > CLEARS: notice present then absent leaves nothing behind
+AssertionError: expected 'Copy to ClipboardPretty print' to contain 'QA-ROW-D-SETTLED-NOTICE'
+
+Expected: "QA-ROW-D-SETTLED-NOTICE"
+Received: "Copy to ClipboardPretty print"
+
+ ❯ src/utils/__tests__/013-qa-paste-surface-render.test.ts:79:52
+     77|
+     78|   it('CLEARS: notice present then absent leaves nothing behind', () =>…
+     79|     expect(text(renderPaste({ settled: NOTICE }))).toContain(NOTICE);
+       |                                                    ^
+     80|     expect(text(renderPaste({ settled: null }))).not.toContain(NOTICE);
+     81|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 2 passed (5)
+   Start at  03:01:51
+   Duration  939ms (transform 180ms, setup 0ms, import 622ms, tests 13ms, environment 0ms)
+

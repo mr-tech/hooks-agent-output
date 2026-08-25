@@ -1,0 +1,32 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ src/utils/__tests__/013-qa-toast-vessel-render.test.ts (13 tests | 1 failed) 13ms
+     × renders the notice TEXT when the fact is present — the behaviour the text-pinning spec cannot see 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/utils/__tests__/013-qa-toast-vessel-render.test.ts > CodeMessageNotice — does the converted code-import notice actually render? > renders the notice TEXT when the fact is present — the behaviour the text-pinning spec cannot see
+AssertionError: expected '' to be 'Not carried: Thumbnail. Discord does …' // Object.is equality
+
+- Expected
++ Received
+
+- Not carried: Thumbnail. Discord does not support these on hooks.gg.
+
+ ❯ src/utils/__tests__/013-qa-toast-vessel-render.test.ts:70:23
+     68|     const out = render(CodeMessageNotice({} as any));
+     69|     expect(out).not.toBe(null);
+     70|     expect(text(out)).toBe(NOTICE);
+       |                       ^
+     71|   });
+     72|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 38 passed (39)
+      Tests  1 failed | 571 passed (572)
+   Start at  02:59:05
+   Duration  2.30s (transform 3.17s, setup 0ms, import 13.01s, tests 992ms, environment 4ms)
+

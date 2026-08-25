@@ -1,0 +1,30 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ src/utils/__tests__/013-qa-paste-surface-render.test.ts (5 tests | 1 failed) 11ms
+     × SUPPRESSES it when an error is showing — the `!error` conjunct is the sole carrier here 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > SUPPRESSES it when an error is showing — the `!error` conjunct is the sole carrier here
+AssertionError: expected 'bad jsonQA-ROW-D-SETTLED-NOTICECopy t…' not to contain 'QA-ROW-D-SETTLED-NOTICE'
+
+Expected: "QA-ROW-D-SETTLED-NOTICE"
+Received: "bad jsonQA-ROW-D-SETTLED-NOTICECopy to ClipboardPretty print"
+
+ ❯ src/utils/__tests__/013-qa-paste-surface-render.test.ts:70:75
+     68|
+     69|   it('SUPPRESSES it when an error is showing — the `!error` conjunct i…
+     70|     expect(text(renderPaste({ error: 'bad json', settled: NOTICE }))).…
+       |                                                                           ^
+     71|   });
+     72|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 4 passed (5)
+   Start at  03:01:52
+   Duration  931ms (transform 182ms, setup 0ms, import 624ms, tests 11ms, environment 0ms)
+

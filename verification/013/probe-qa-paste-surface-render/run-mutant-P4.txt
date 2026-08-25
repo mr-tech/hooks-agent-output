@@ -1,0 +1,30 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ src/utils/__tests__/013-qa-paste-surface-render.test.ts (5 tests | 1 failed) 13ms
+     × the notice is styled as a warning, not rendered bare 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > the notice is styled as a warning, not rendered bare
+AssertionError: expected '{"children":[{"tag":"div","className"…' to contain 'text-warning'
+
+Expected: "text-warning"
+Received: "{"children":[{"tag":"div","className":"max-h-full w-full resize-none rounded bg-quaternary p-2 text-sm","children":null},{"tag":"p","className":"mx-3 my-2 text-sm","children":"QA-ROW-D-SETTLED-NOTICE"},{"tag":"div","className":"flex justify-between m-2","children":[{"tag":{"compare":null},"children":{"children":[{"tag":{},"className":"h-5 w-5","children":null},"Copy to Clipboard"]}},{"tag":{"compare":null},"className":"font-bold text-blue-400 enabled:hover:underline enabled:focus:underline decoration-1 enabled:cursor-pointer py-2 px-4 text-sm","children":"Pretty print"}]}]}"
+
+ ❯ src/utils/__tests__/013-qa-paste-surface-render.test.ts:75:18
+     73|   it('the notice is styled as a warning, not rendered bare', () => {
+     74|     const json = JSON.stringify(renderPaste({ settled: NOTICE }));
+     75|     expect(json).toContain('text-warning');
+       |                  ^
+     76|   });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 4 passed (5)
+   Start at  03:01:56
+   Duration  939ms (transform 184ms, setup 0ms, import 635ms, tests 13ms, environment 0ms)
+

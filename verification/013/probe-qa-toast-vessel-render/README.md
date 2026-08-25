@@ -74,3 +74,58 @@ npx vitest run src/utils/__tests__/013-qa-toast-vessel-render.test.ts   # 13/13
 Mutants: apply the table's edit to `src/app/message/m/[id]/_layout/CodeMessageNotice.tsx`,
 re-run, `git checkout --` to restore. Every mutation in this capture was restored and the file
 verified byte-identical (`sha256 fbe23995…`) afterwards.
+
+---
+
+## Closure at `664e0c0` — F-QA23 discharged by execution
+
+The instrument in this directory was **adopted into the repository unmodified** —
+`src/utils/__tests__/013-qa-toast-vessel-render.test.ts`, sha256 `ca85911d…`, byte-identical to the
+copy here (`diff -q` clean). The fix round moved **no production code**:
+`git diff --numstat abcf585..664e0c0 -- ':(exclude)*__tests__*'` is empty.
+
+**The same two mutants were re-run against the full shipped suite at `664e0c0`** — not carried
+forward from the runs above, because zero movement licenses a scoped pass and never a
+carried-forward verdict:
+
+| Mutant | At `abcf585` (shipped spec alone) | At `664e0c0` (full suite, instrument adopted) |
+|---|---|---|
+| **R1** notice never renders | **9/9 GREEN — survived** | **3 failed / 569 passed — KILLED** |
+| **R4** notice renders empty | **9/9 GREEN — survived** | **1 failed / 571 passed — KILLED** |
+
+Control: unmutated suite **572/572, 39 files, exit 0**; this instrument alone **13/13**. The
+component file was restored and verified byte-identical after each mutation.
+
+**Independent validation, re-executed here rather than cited.** `code-reviewer-hooks-013-3` built
+`probe-cr22-render-instrument-nonvacuity/` deliberately without trusting this capture — it imports
+the real `CodeMessageNotice`, replays a byte-copy of the `render()`/`text()` helpers, and runs its
+own inline mutants. QA re-ran it from this tree rather than taking the reported figure:
+**4/4 passed, exit 0** (`closure-664e0c0-reviewer-probe-cr22-reexecuted-by-qa.txt`). Its directory
+contains **zero** references to jsdom, happy-dom or testing-library, corroborating D28 compliance
+from a second hand.
+
+---
+
+## CORRECTION — this capture's "paste surface is unreachable" claim is WITHDRAWN
+
+Recorded beside the claim above, not over it, so the error stays legible.
+
+Section "What it CANNOT establish", item 4, states the paste surface is **unreachable** by this
+technique and routes it wholly to the owner as BC-18. **That is wrong.** The evidence behind it was
+sound — `useCopyToClipboard` calls `useRef` before `settledNotice` is reached, and React's
+dispatcher is null outside a renderer, so the component throws at its second hook, exactly as
+`trace-paste-surface-unreachable.txt` shows. The **inference** was too strong: "throws at hook 2"
+was read as "unreachable", when mocking the three custom hooks makes the `useState` order
+deterministic and the component callable.
+
+Withdrawn by execution, not by argument. See **`../probe-qa-paste-surface-render/`**: 5 assertions
+against the real `NewMessageJsonInput`, 4 mutants seeded at the notice's render site, **4/4 killed**
+— including one that removes only the `!error` conjunct, establishing conjunct isolation against the
+**real wiring** rather than against a replicated expression.
+
+**Method note worth more than the correction.** The failure mode here was stopping at the first
+mechanism that resisted and generalising from it. One hook threw; I concluded the surface was
+closed, wrote that boundary into a verdict, and routed a closable property to a human. A boundary
+claimed after one attempt is a hypothesis, and this one held for less than a day. The `paste surface
+guard` cases in this file — which replicate the guard expression instead of reading it from source,
+and say so — exist only because of that premature stop; the sibling probe supersedes them.
