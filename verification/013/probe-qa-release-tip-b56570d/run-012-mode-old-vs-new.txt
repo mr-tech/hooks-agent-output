@@ -1,0 +1,21 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ✓ src/utils/__tests__/zz-012-mode-at-2d90e8a.test.ts > switchToV2 — classic -> v2 branch > clears content and embeds, preserves components, and SETS the V2 bit (D16) 2ms
+ ✓ src/utils/__tests__/zz-012-mode-at-2d90e8a.test.ts > switchToClassic — v2 -> classic branch (D11) > filters to ActionRow-only components (unchanged pre-D11 behaviour) 0ms
+ ✓ src/utils/__tests__/zz-012-mode-at-2d90e8a.test.ts > switchToClassic — v2 -> classic branch (D11) > D11: clears IS_COMPONENTS_V2_FLAG over the whole class of departing content 0ms
+ ✓ src/utils/__tests__/zz-012-mode-at-2d90e8a.test.ts > switchToClassic — v2 -> classic branch (D11) > clears ONLY the V2 bit — a `flags = 0` mutant is killed here 0ms
+ ✓ src/utils/__tests__/zz-012-mode-at-2d90e8a.test.ts > applyModeSwitch — the mode-switch dispatch function (does not cover handleModeSwitch's wiring to it) > targetMode "v2" delegates to switchToV2 0ms
+ ✓ src/utils/__tests__/zz-012-mode-at-2d90e8a.test.ts > applyModeSwitch — the mode-switch dispatch function (does not cover handleModeSwitch's wiring to it) > targetMode "classic" delegates to switchToClassic 0ms
+ ✓ src/utils/__tests__/012-message-mode.test.ts > switchToV2 — classic -> v2 branch > clears content and embeds, preserves components, and SETS the V2 bit (D16) 2ms
+ ✓ src/utils/__tests__/012-message-mode.test.ts > switchToClassic — v2 -> classic branch (D11) > filters to ActionRow-only components (unchanged pre-D11 behaviour) 0ms
+ ✓ src/utils/__tests__/012-message-mode.test.ts > switchToClassic — v2 -> classic branch (D11) > D11: clears IS_COMPONENTS_V2_FLAG over the whole class of departing content 0ms
+ ✓ src/utils/__tests__/012-message-mode.test.ts > switchToClassic — v2 -> classic branch (D11) > clears ONLY the V2 bit — a `flags = 0` mutant is killed here 0ms
+ ✓ src/utils/__tests__/012-message-mode.test.ts > applyModeSwitch — the mode-switch dispatch function (does not cover handleModeSwitch's wiring to it) > targetMode "v2" delegates to switchToV2 0ms
+ ✓ src/utils/__tests__/012-message-mode.test.ts > applyModeSwitch — the mode-switch dispatch function (does not cover handleModeSwitch's wiring to it) > targetMode "classic" delegates to switchToClassic 0ms
+
+ Test Files  2 passed (2)
+      Tests  12 passed (12)
+   Start at  20:23:29
+   Duration  741ms (transform 227ms, setup 0ms, import 921ms, tests 9ms, environment 0ms)
+
