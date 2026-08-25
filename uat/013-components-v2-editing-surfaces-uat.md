@@ -5,6 +5,18 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
+  **Rev 25 — BC-21 → `EXECUTED` (2026-08-25). Open set 18 → 17.** The owner answered rev 23's one word and chose
+  **"Deliberate paste"**. **Provenance disclosed unprompted by steering and weighed rather than adopted**: no
+  verbatim sentence, options agent-authored — but the option he took asserts *"and the warning appeared"*, and he
+  passed over **"Leave it open"**, a costless exit a person uncertain from memory would have taken. **No evidence
+  was requested and none is recorded as missing against him.** **Residual named, not papered over**: he adopted a
+  described act rather than characterising the payload himself. **The R23.3 staleness query does not gate this, and
+  the reason is not expedience** — staleness bites only where an observation can diverge from its prediction, and **a
+  presence predicate observed as present cannot diverge from itself**; no re-derivation converts an observed visible
+  warning into a silent absence. **BC-18 stays open** because its stale limb (*clears when corrected*) **can**
+  diverge — the two rows separate for the same reason they separated at rev 23, so this is that reasoning applied,
+  not reversed. **Decision UNMOVED at `EXPIRED IN FULL`**; a condition reaching a terminal state is the register
+  working. **Outstanding: two** — QA's BC-18 re-derivation, and the final gate under R24.2.
   **Rev 24 — D45 received; it moves nothing here, and one inference is refused in advance.** The owner's
   standing ruling releases the trailing review to run and sequences the retrospective last. **Its own row
   disclaims four inferences**, including *no operator sitting against a row whose prediction is still STALE* —
@@ -146,6 +158,7 @@ Verified-At: >-
 | 2026-08-25 | `steering-hooks-013-2` [019315] — notice of a coordinator handover; **nothing asked** | — | **Rev 22. Two defects in rev 21, both this stage's own.** **The D44 strike was digit-complete and dependent-incomplete** — the instruments searched for the token, and the ruling drops claims; nine passages struck here, Appendix A as a whole. **Rev 21's open set was wrong**: *"Nothing else"* dropped **fourteen** non-terminal rows; corrected to **18 open items** at R22.2 by re-derivation from the ledger. Four point-in-time items marked **DISCHARGED** where they were listed (plan revs 35, 40, 41), each verified at the plan. **Handover block added** for the incoming coordinator. **No verdict moved; nothing withdrawn; no row added.** |
 | 2026-08-25 | `steering-hooks-013-2` [019315] — **a conflict routed here as the authority on register state**; steering recorded it as a conflict and set nothing | The owner reported **BC-21** and **BC-18** as *"-as expected-"*; this register carries both non-terminal with **absence** signatures | **Rev 23. Neither row terminalises, and not because the report is doubted.** **BC-21 → `NOT EXECUTED` — OWNER REPORT ON RECORD, NOT YET DECIDABLE**: QA's own instrument cell rules out the passive reading of the phrase in advance, so *"-as expected-"* is compatible with an act that closes the row **by construction** and with one the row expressly excludes. **What settles it is one word — deliberate paste, or general impression — and no capture is owed or requested.** **BC-18 unchanged**: its **clearing limb** is derived-stale (D31/D32), and *"as expected"* cannot speak to a behaviour whose expected form the register no longer states correctly — **a false pass, the mirror of the false failure rev 18 was written to prevent.** **BC-21's rev-18 "stale by inheritance" marking queried to QA**, not removed here. **Standing decision unmoved at `EXPIRED IN FULL`; BC-18 still its sole live condition. Open set stays at 18.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — relay of a standing owner ruling; **nothing asked** | **D45**: *"Bring 013 pipeline to completion. Retro is the last to fire."* Lifts D39's "NEITHER RUNS NOW" | **Rev 24. Received, read at the plan rather than from the relay, and it moves nothing here.** D45's own row disclaims four inferences, including **no operator sitting against a row whose prediction is still STALE** — the rev-23 BC-18 guard honoured at registration without being asked for. **One inference refused in advance (R24.2)**: a clean trailing review does **not** revive the expired decision. `code-reviewer` approved + `qa` Complete + `UAT Complete` **≠** approved for release — expiry is not suspension, `UAT Complete` was reached at `4a7126b`, arriving verdicts inherit no tree identity, and **18 conditions stand open**. Same false-pass shape as rev 23, one level up. **Open set 18; decision `EXPIRED IN FULL`; BC-18/BC-21 as rev 23 left them.** |
+| 2026-08-25 | `steering-hooks-013-3` [b04529] — **the missing input**: the owner answered rev 23's one word | Owner selected **"Deliberate paste"** for BC-21; register state left to this document, nothing set by steering | **Rev 25. BC-21 → `EXECUTED`, 2026-08-25. Open set 18 → 17.** **Provenance disclosed unprompted and weighed, not adopted**: no verbatim, agent-authored options — but the taken option asserts *"and the warning appeared"*, and he passed over **"Leave it open"**, a costless exit. **Residual named**: he adopted a described act rather than characterising the payload himself. **The R23.3 staleness query does NOT gate it** — staleness bites only where observation can diverge from prediction, and **a presence predicate observed as present cannot diverge from itself**; BC-18's stale limb *can*, which is why the two rows separate for the same reason they separated at rev 23. **Decision unmoved at `EXPIRED IN FULL`** — a condition going terminal is the register working, not a verdict change. |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -3253,3 +3266,89 @@ outstanding items are unchanged: the owner's one word on BC-21, and QA's two (BC
 R23.3 staleness query).
 
 **Nothing is asked of the coordinator, and this stage does not self-start.**
+
+---
+
+# Rev 25 — BC-21 → `EXECUTED`. The owner answered, and the staleness query does not gate it.
+
+**Date**: 2026-08-25. **Session**: `uat-hooks-013-4`. **Trigger**: `steering-hooks-013-3` [b04529]
+relayed the owner's answer to the one word rev 23 asked for. **He chose "Deliberate paste".**
+
+## R25.1 — Provenance, weighed rather than adopted
+
+Steering disclosed the provenance unprompted and precisely, which is what made it weighable:
+**no verbatim sentence** — a selection prompt, **options agent-authored** by steering from rev 23's
+scoping, not the owner's words. **That disclosure is the reason this closes; an undisclosed selection
+presented as an attestation would not have.**
+
+**What he selected asserts the observation, not merely the intent.** The option was described to him as
+*"You pasted a rows-B/D payload on purpose **and the warning appeared**."* Selecting it adopts that
+sentence.
+
+**Two alternatives stood and were passed over**, including a free one: *"General impression"* (described
+as unable to reach an absence-signature row) and *"Leave it open"* (*"You would rather not answer this
+from memory"*). **A person uncertain from memory had a costless exit and declined it.** That the framing
+did not corner him matters, because agent-authored options carry a framing risk: the taken option was
+described attractively. **The untaken one was described as equally costless, so the attraction was not
+a squeeze.**
+
+**No evidence was requested and none is recorded as missing against him** — the standing rule, honoured.
+
+**One residual, named rather than papered over**: he selected a **label**; he did not independently
+describe the payload. *"rows-B/D payload"* is a QA construct, and its identification here rests on the
+option text he **adopted**, not on his own characterisation. **This does not block the row** — adopting
+a described act is asserting it — but it is the difference between a selection and a verbatim account,
+and the register should carry it.
+
+## R25.2 — Why the R23.3 staleness query does not have to land first
+
+Rev 23 left BC-21's rev-18 *"PREDICTION STALE by inheritance"* marking **queried to QA and not removed**,
+because definitions are QA's. Steering correctly declined to decide whether that query gates the row.
+**It does not, and the reason is not expedience.**
+
+**Staleness can only bite where the observation could diverge from the prediction. A presence predicate
+observed as present cannot diverge from itself.**
+
+- BC-21's predicate is **presence**: *produces a visible persistent warning*. Its failure signature is
+  **absence**. QA's sufficiency cell is explicit: *one successful observation refutes "the notice is
+  silently absent" **by construction*** — not a rate, no sample.
+- Whatever QA rules on re-derivation, **no re-derivation can convert an observed visible warning into a
+  silent absence.** Sharpened wording, a changed string, a different phrasing — none of it reaches the
+  thing this row exists to detect.
+- **Contrast BC-18, and note the contrast is what keeps this consistent.** Its stale limb is *clears when
+  the JSON is corrected* — a limb where observation and prediction **can** diverge, because D31/D32
+  changed the behaviour the prediction describes. There, "as expected" risks a **false pass**. Here there
+  is no divergence available.
+
+**So this is not rev 23's reasoning reversed to reach a convenient answer; it is rev 23's reasoning
+applied, and the two rows separate for the same reason they separated then.**
+
+**The query to QA is not withdrawn and nothing now turns on it.** QA may still correct the marking for
+the record; **it gates nothing and should not be prioritised over BC-18's owed re-derivation**, which
+remains the live item.
+
+## R25.3 — Ledger delta at rev 25
+
+| Row | Before | **At rev 25** | Basis |
+|---|---|---|---|
+| **BC-21 · `notice-silence-detector`** | `NOT EXECUTED` — owner report on record, not yet decidable | **`EXECUTED` — 2026-08-25** | Owner selected *"Deliberate paste"*, adopting *"and the warning appeared"*; QA's sufficiency closes it on one observation **by construction**. Provenance and residual at R25.1 |
+| **BC-18 · `paste-notice-renders`** | `NOT EXECUTED`, prediction STALE | **unchanged** | R23.4; its stale limb admits divergence, this row's did not |
+| **Standing release decision** | `EXPIRED IN FULL` | **unchanged** | Expiry is not suspension (R24.2); a terminalised condition does not revive it |
+| **Open set** | **18** (R22.2) | **17** | BC-21 terminal |
+
+**The observed result is recorded beside the prediction, not over it.** BC-21's row keeps its written
+predicate; the observation is a dated fact attached to it.
+
+## R25.4 — State
+
+**UAT Complete** stands. **No verdict moved, and the release decision stays `EXPIRED IN FULL`** — a
+condition reaching a terminal state is the register working, not a change of verdict.
+
+**Outstanding, now two:**
+
+1. **QA — BC-18's prediction re-derivation.** The live one. (The R23.3 BC-21 query survives, gates
+   nothing, and is not a priority.)
+2. **The final gate at whatever tree it is written against** — R24.2 governs: three green stage statuses
+   are not a release decision, and **16 further conditions remain non-terminal.**
+
+**Nothing is asked of the coordinator.**
