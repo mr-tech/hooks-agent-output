@@ -28,27 +28,129 @@ lines about items nobody is waiting on.** If it does not need the owner to act, 
 
 ## CHAIN 013 — LIVE. NOTHING IN THIS SECTION IS ON HOLD.
 
-**Where things stand.** `origin/master` = **`2d90e8a`**, your own commit, live. Your ruling today
-(**D45**) released the trailing review to run: `code-reviewer`, `qa` and `devops` are all working now,
-and the retrospective fires last, when nothing else is in flight.
+**Where things stand.** `origin/master` = **`2d90e8a`**, your own commit, live. The chain's work sits on
+branch `chain/013-rider-2` at `b56570d`, **unpushed — nothing has been released.**
 
-**The release decision for `2d90e8a` is NOT yours and is deliberately not listed here.** The standing
-decision expired when its covered code moved, and a decision at this tree would be a new one, written
-by `uat` at the final gate against the condition ledger. If that gate returns anything conditional on
-you, it lands in this file as its own item. I named it at you in chat as though it were yours; it is
-not, and that was my error.
+**`uat` has issued the release decision: APPROVED FOR RELEASE, conditional on the eight checks below.**
+Code review and QA are both complete at that commit. **If any of the eight fails it goes back to the
+implementer rather than out.**
 
-### Still owed to you by me — do not wait on these
+**The release decision was not yours to make and is not listed here as an item** — it is `uat`'s, written
+against the condition ledger. What *is* yours is the eight checks, because no instrument in this chain
+can reach them.
 
-- **BC-4** — *an import with no content at all; the dialog stays open showing the error, navigates
-  nowhere, creates nothing.* **I still have not written you a payload.** It stays visibly owed rather
-  than me authoring a fixture for a row I do not own.
+### Chain 013 — eight things to check before the merge
 
-- **The operator sitting — the `PRE` rows you run at a browser.** Several of these carry predictions
-  that went stale when the surfaces beneath them moved. **No row is put in front of you until `qa`
-  re-derives its wording**, because a row run against stale wording produces a false pass, and a false
-  pass gets filed rather than investigated. `qa` is doing that now. The runnable list, with re-derived
-  wording and one pass criterion each, lands here when it reports.
+**Why before the merge:** pushing to `master` deploys. There is no window between merging and shipping, so
+these happen first. **If any of them fails, it goes back to the implementer rather than out.**
+
+**How to report each one:** *pass*, or *what you actually saw*. **If you cannot reach a step, say so —
+that is a result, not a gap.** Nothing here needs you to fetch anything from Discord.
+
+---
+
+**1. The Load confirmation tells the truth. (BC-1) — do this one first.**
+
+*Why first: every automated test in this chain stops at the text the dialog is handed. **Nothing proves the
+dialog puts it on screen.** You are the only instrument that reaches this.*
+
+- Paste this into **New Message** and save it — that is your V2 test message, no hunting required:
+  `{"components":[{"type":17,"components":[{"type":10,"content":"hi"}]}]}`
+- Open it, change the JSON so the message would come out **Classic** instead, and press **Load**.
+- **Read the confirmation dialog before you confirm anything.**
+
+**Passes if the dialog names *both*:** which top-level components are being added or removed, **and**
+whether the message type changes (V2 ↔ Classic). **Both must be right — either one wrong is a fail.**
+
+**Fails if** it says the type changes when it does not, **or** says nothing about the type when it does
+change — and also if it is **empty, truncated, or showing text from a previous message.** That last one
+matters most: **the text can be correct and the screen still wrong**, and no test in this chain can see it.
+
+---
+
+**2. Pasting a V2 container gives you V2, with the flag actually set. (BC-7)**
+
+- Paste into **New Message**: `{"components":[{"type":17,"components":[{"type":10,"content":"hi"}]}]}`
+
+**Passes if all three:** the editor is in **V2** · the container is there · **a warning is shown**
+· **and the V2 flag bit is set.**
+
+> **The flag bit is checked by opening the Message JSON. Not by the screen looking right.** Everything can
+> look correct on screen while the message is wrong on the wire — the JSON is the only place it shows.
+> **"It looked fine" is not an answer for this one.**
+
+---
+
+**3. Pasting a flag over plain content gives you Classic, and keeps your text. (BC-8)**
+
+- Paste into **New Message**: `{"content":"hi","flags":32768}`
+
+**Passes if all five:** the editor is **Classic** · the text `hi` is still there · **a warning is shown**
+· **no V2 error appears** · **and the V2 flag bit is cleared.**
+
+> **Same rule as above: the bit is checked in the Message JSON, not on screen.**
+
+---
+
+**4. Pasting both content and components asks you which to keep. (BC-9)**
+
+- Paste into **New Message**: `{"content":"hi","components":[{"type":17,"components":[{"type":10,"content":"hi"}]}]}`
+
+**Passes if all of:** you are offered **two options** · **each one says what it will drop** · **nothing is
+created before you choose** · **backing out leaves your message and the pasted text exactly as they were**
+· **and both options work** — take one, then repeat and take the other.
+
+> **NOT a failure:** the two options **do not appear on their own**. A notice appears first with a
+> **Resolve** link, and the options are behind it. **That is the intended behaviour.**
+
+---
+
+**5. An unsupported component is named, not silently dropped. (BC-6)**
+
+- Paste into **New Message**:
+  `{"components":[{"type":17,"components":[{"type":10,"content":"hi"}]},{"type":11,"media":{"url":"https://picsum.photos/200"}}]}`
+
+**Passes if:** the container survives **and the notice names the dropped type** — it must say what was
+removed, not just that something was.
+
+> **NOT a failure:** a *container that ends up empty* being removed without being named. That is by design
+> and is a different case from this one.
+
+---
+
+**6. The paste warning stays put, and goes away when you fix the JSON. (BC-18)**
+
+- Paste either item 3's or item 4's payload into **New Message** and leave the modal open.
+
+**Passes if all three:** a warning **appears** · it **stays** — it does not vanish on the next keystroke ·
+**and it clears once you correct the JSON.**
+
+> **NOT a failure:** if you correct it *through* a state that has both V2 components and ordinary content,
+> the warning is **replaced** by a different notice with a **Resolve** link rather than disappearing.
+> **A notice that changes is not a notice that failed to clear.**
+
+---
+
+**7. The same paste behaves the same way in both places. (BC-10)**
+
+- Take **any one** of the payloads above. Paste it into **New Message**. Then paste **the same one** at the
+  **Load** surface on an existing message.
+
+**Passes if:** both surfaces do the same thing — same outcome, same thing dropped, same kind of notice.
+
+*(The automated half of this is already done. This is one spot-check by eye that the two surfaces agree.)*
+
+---
+
+**8. A bad import keeps the dialog open instead of navigating away. (BC-4) — BLOCKED, NOT ON YOU**
+
+**Do not wait on this one.** It needs a fixture that fails the content floor, **and that fixture is owed by
+steering, not by you.** When it arrives the check is: attempt the import, and it **passes if** the dialog
+**stays open** · **the error is shown** · **and no new message is created.**
+
+---
+
+*End of the section for `OWNER-QUEUE.md`.*
 
 ### Only you can do this — no agent may
 
@@ -72,19 +174,7 @@ message, and there is no approval path for one.**
 
 ### Decisions, no browser needed
 
-**A broken error message is live right now. Do you want it fixed as part of 013, or later?**
-
-When someone pastes JSON containing a component type that is not allowed, the error they are shown is
-split into **six lines, five of which are bare numbers**. Cause: the code that turns validator output
-into readable text splits the text wherever it finds ` | `, and one validator message contains ` | `
-inside itself. Measured on the live tree, not inferred. **Code review calls it a four-line fix** and
-did not hold the release for it.
-
-- **Fix it as part of 013.** It is the same work finishing, so the chain closes with it done. Costs an
-  implementer round, a re-review and a re-verify, and everything waiting on closure waits for that.
-- **Leave it for a follow-up.** 013 closes without it and it becomes its own piece of work later. The
-  broken message stays live in the meantime.
-- **Leave it alone.** It is ugly but it is an error message, and nobody has reported it.
+Nothing.
 
 ## EVERYTHING BELOW IS ON HOLD — 2026-08-23
 
