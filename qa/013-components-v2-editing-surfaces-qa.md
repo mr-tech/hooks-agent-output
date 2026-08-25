@@ -2105,3 +2105,108 @@ deploy; and the release note, which has **softened but not lapsed**: the coverag
 than being promised, so shipping is no longer a trade against absent verification.
 **To UAT** — clear. The prior UAT session retired at its ceiling; a fresh one is the owner's to
 authorise, not a stage's to spawn.
+
+---
+
+# Register dispositions — owner's release decision, 2026-08-25
+
+Three items reached this register via `steering-hooks-013-2`. All three are QA's to judge because
+the row definitions are QA's. Recorded beside the rows, not over them.
+
+## 1. BC-18 / BC-19 — reclassification request DECLINED, and the rows re-dated instead
+
+`uat-hooks-013-3` was right that it could not perform this itself, and right to route it. The
+request is declined, but **not** on the ground that the owner's choice is illegitimate — it is his
+to make, and a shipped-first decision is a normal one.
+
+**Why declined.** The `PRE`/`POST` split in this register is a statement about **what can observe a
+condition**, never about what anyone intends to do. BC-18 asks whether a persistent notice renders
+in the New Message modal. That is observable from a local dev server and always was. Marking it
+`POST` would assert *"nothing pre-release could observe this"*, which is **false**. A row does not
+become post-deploy-observable because the pre-deploy observation was skipped.
+
+**Why the reclassification is also unnecessary — the point that dissolves the conflict.** BC-18 and
+BC-19 **do not expire at deploy**. Unlike BC-11a, whose mint route closed at go-live, the paste and
+code-import observations are available before release *and* after it, unchanged. Nothing is lost by
+the owner shipping first except the ordering. So the rows need **re-dating, not reclassifying**:
+
+- **BC-18**, **BC-19** — remain **`PRE` by decidability**. Recorded as **NOT MET AT THE RELEASE ACT**,
+  by the owner's informed choice, with `4a7126b` shipped ahead of them. **Earliest-decidable
+  amended**: *decidable now, and equally decidable after deploy — this condition does not expire.*
+  State: **OPEN, owner, executable at any time.**
+
+This keeps the record truthful in both directions: it does not pretend a skipped pre-release check
+was never available, and it does not treat the owner's decision as an error. **A `PRE` row that
+outlived the release act is exactly what happened, and that is what the register should say.**
+
+**Amplifying steering's argument, because it is the strongest thing said about these rows and it
+belongs in the register rather than in a message.** The new failure mode is **silent**. Before 013,
+a badly-vesseled notice still *appeared* — a toast flashed past. If the converted notice fails to
+render, the user sees **nothing at all**. Absence is the failure signature.
+
+That has a consequence for classification which cuts against the requested change: **a
+post-deploy-observable row whose failure signature is absence is the weakest kind of row in this
+register**, because nobody reports a warning they never saw. Reclassifying BC-18/BC-19 to `POST`
+would therefore not merely mislabel them — it would move them into the class where they are *least
+likely ever to be settled*. Declining the reclassification protects the rows.
+
+## 2. BC-18-SILENCE — a new `POST` row, since the owner has shipped
+
+The register should now carry a genuine post-deploy detector, because one is owed and because the
+existing rows are ill-suited to the job. This does **not** substitute for BC-18.
+
+| ID | Class | Condition | Primary instrument | Subject / fallback | Earliest-decidable | Predicted value | Failure mode (operator terms) | Owner | State |
+|---|---|---|---|---|---|---|---|---|---|
+| **BC-21** *(`notice-silence-detector`)* | POST | The converted notices are **not silently absent** in production: one deliberate paste of a rows-B/D payload into New Message on the live site produces a visible persistent warning | a single deliberate observation — **not** a wait for user reports, which cannot detect an absence | **subject**: the owner, on the live site. No non-human primary exists under D28 | now — `a151fb4` is live; re-decidable whenever `4a7126b` deploys | **one successful observation refutes "the notice is silently absent" by construction** — this is not a rate and needs no sample | *If the notice does not render, the user sees nothing where they previously at least saw a toast flash past — strictly worse than the defect 013 set out to fix, and nobody will report it, because absence generates no complaint.* | owner | **Not started** |
+
+## 3. BC-11b — marked TERMINAL: CANNOT BE EXECUTED
+
+The owner confirmed in his own words, by selection, that the push was his and the site is live —
+so `a151fb4` has been serving since ~00:56 on 2026-08-25.
+
+BC-11b's condition required **both outcomes** to be exercised, which needed a spare seed beyond
+5855/5856. The mint route closed at deploy: after 013, no surface writes the row-D shape — the JSON
+modal now repairs it on Load, and the paste surface disposes it before write. **5855 and 5856 are
+the entire population, no spares were minted, and no re-run recovers this.**
+
+- **BC-11b** — **TERMINAL: CANNOT BE EXECUTED.** Not "failed", not "deferred", and explicitly not
+  left open to lapse quietly. Evidence for its both-outcomes clause is **permanently unavailable**;
+  the shape is unreachable through any surviving surface, so no substitute seed can be minted.
+  **This is `devops-hooks-013`'s F-7 realised**, and it is recorded as a realised risk rather than
+  as a new discovery.
+- **What is actually lost**: only the both-outcomes half. The mint half (BC-11a) executed and is
+  terminal on the owner's quoted attestation. What BC-11b would have added is confirmation that the
+  *second* disposition path behaves on a real production record. That is now unevidenced and will
+  stay so.
+- **Blocks nothing**, and is not a reason to hold anything.
+
+**One-way-door note, recorded because it is the transferable lesson.** BC-11a was minted precisely
+because D20 identified a closing window. The window closed on schedule and the *second* row that
+depended on the same population was not given its own spare. The lesson is not "mint more seeds" —
+it is that when a register row's evidence has an expiry, **every row drawing on that evidence
+expires with it**, and the dependency should be recorded on each row rather than inferred once.
+
+## 4. QA's own Assumption Not Checked — CLOSED, re-derived here
+
+The `4a7126b` verdict recorded that its "unchanged since `abcf585`" claim rested on
+`git diff --numstat`, a path-and-count instrument blind to a range reconstructed with identical
+counts. `uat-hooks-013-3` closed it on the substance with per-file blob SHAs. **Re-derived here
+rather than accepted** — `git rev-parse <tip>:<path>`, all four files:
+
+    f63b95df…  NewMessageJsonInput.tsx      MATCH at abcf585 and 4a7126b
+    75dafce9…  CodeMessageNotice.tsx        MATCH
+    d50a1992…  [id]/layout.tsx              MATCH
+    955fc0ea…  MessageProvider/index.tsx    MATCH
+
+**With the positive control UAT's report did not state**: the same instrument run against live
+`master` (`a151fb4`) returns **DIFFER** for the two changed files. That matters — an instrument that
+returned MATCH for everything would be indistinguishable from one that works, and the control shows
+it discriminates. **Assumption closed.** The routing to devops at release assembly stands as the
+independent second check, unchanged.
+
+## 5. Verdict — unchanged
+
+**QA COMPLETE at `4a7126b`** stands. Nothing in these dispositions moves the tree, and none of them
+alters the verdict. **The Phase 3 release-tip verdict remains owed**: devops commissions it, QA
+performs it at the assembled tip, and per-plan verdicts do not substitute for it. It has not been
+discharged and cannot be discharged by default.
