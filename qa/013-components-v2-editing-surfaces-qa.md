@@ -641,19 +641,19 @@ space, and names this document as the register it appended to.
 | **BC-1** | PRE | M2-c: the Load confirmation names what changes — which top-level types are added/removed, and whether the message type changes | operator observation (no harness, F-QA4/assumption 5) | UAT agent; fallback owner | chain tip deployed to any environment with a stored V2 message | the confirmation names both differences before anything is committed | *The dialog is the only thing standing between the user and an irreversible overwrite, so if it misnames the change they confirm believing something else will happen. **Both clauses of the condition, because both can fail on their own**: they lose top-level components the dialog never said would go; **or** they are told the message type changes when it does not, or not told when it does — which is the 5712/5842 repair sitting, and is `load-confirmation-names-wrong-mode` (F-QA31). **Reconciled to this row's condition 2026-08-25 (P3.22): the previous wording spoke only to component loss and could not express a wrong mode statement, which loses nothing.*** | uat | Not started |
 | **BC-2** | PRE | M3-b (URL + webhook): the import dialog names which component types were **not** carried | operator observation | UAT agent | a Discord message carrying a select menu is reachable by URL | dialog shows supported components **and** a notice naming the select | *An import silently returns a message missing half its controls, and the user ships it that way.* | uat | Not started |
 | **BC-3** | PRE | M3-b (bot code path): the **editor** shows the same notice on load | operator observation | UAT agent | bot `Get Message` run on the same message, within the 1h store TTL | editor opens with supported components and the same notice | *The code path has no dialog, so a silent drop here is invisible until the message is sent wrong.* | uat | Not started |
-| **BC-4** | PRE | M3-c: an import failing the floor keeps the dialog open with the error and **does not navigate** | operator observation **paired with** the suite's no-upsert assertion (EC-3) | UAT agent | chain tip deployed | dialog stays, error shown, no new message created | *The user lands on a blank message that looks saved. This is flow 6/11/12/13 — the defect 013 exists for.* | uat | Not started |
+| **BC-4** | PRE | M3-c: an import failing the floor keeps the dialog open with the error and **does not navigate** | operator observation **paired with** the suite's no-upsert assertion (EC-3) | UAT agent | chain tip deployed | dialog stays, error shown, no new message created | *Three separate failures and only one of them looks like one. **A new message is created** — he lands on a blank message that looks saved; this is flow 6/11/12/13, the defect 013 exists for. **The dialog closes** without creating anything, so the import silently evaporated. **No error is shown** — the dialog sits there having done nothing and said nothing, which reads as the app hanging rather than as a refusal. **Reconciled to this row's Predicted value 2026-08-25 (P3.26): every limb named, because for a human-subject row this cell IS the checklist (`uat` rev 30).** | uat | Not started |
 | **BC-5** | PRE | M4-c: pasting a folder-page export shows the composer's floor error, not a green state | operator observation | UAT agent | chain tip deployed | *"Message must have content, embeds, or components."* | *Green means safe. A green state over an empty object teaches the user to trust it.* | uat | Not started |
 | **BC-6** | PRE | M4-b: the lenient filter **names** the dropped types at both JSON surfaces | operator observation | UAT agent | a paste carrying a top-level Thumbnail-11 | the notice names the type | *A user pastes a message carrying a component **type** Hooks.gg cannot support — a Thumbnail, a Select Menu — and it is removed without the notice **naming that type**. They ship a message missing a control they believe is still there, at the surface they reached for precisely because the UI could not express it. **Reconciled to this row's condition 2026-08-25 (P3.22): a composite the filter empties is NOT a member — no type was unsupported there, and that case is ruled outside this row.*** | uat | Not started |
-| **BC-7** | PRE | M8-B: paste `{"components":[<container>]}` → V2, bit set, **visible warning** | operator observation | UAT agent | chain tip deployed | editor in V2 with the container **and** a warning | *Silent acceptance means the user never learns their JSON was incomplete; D17 row B says warn.* | uat | Not started |
-| **BC-8** | PRE | M8-D: paste `{"content":"hi","flags":32768}` → **Classic**, content intact, bit cleared, **visible warning**, no V2 error | operator observation | UAT agent | chain tip deployed | Classic, `hi` present, warning shown | *This is 5712's own repair route. If the warning is missing the user cannot tell a repair from a corruption.* | uat | Not started |
-| **BC-9** | PRE | M8-E: paste `{"content":"hi","components":[<container>]}` → **two options**, each naming its drop; **nothing created** until one is taken; dismissal leaves message and pasted text unchanged | operator observation **paired with** the suite's `requiresChoice` assertion (EC-3) | UAT agent | chain tip deployed | two options; nothing created before a choice; both outcomes verified by repeating with the other option | *Today this silently strips the content. If the choice does not appear, D17's governing principle is not shipped — content is still lost without asking.* | uat | Not started |
+| **BC-7** | PRE | M8-B: paste `{"components":[<container>]}` → V2, bit set, **visible warning** | operator observation | UAT agent | chain tip deployed | editor in V2 with the container **and** a warning | *Three things, and one of them is invisible without opening the JSON. **The warning is missing** — silent acceptance means he never learns his JSON was incomplete, and D17 row B says warn. **The editor is not in V2**, or the container is not there. **The flag bit is not set** — everything looks right on screen and the message is wrong on the wire, and only the Message JSON shows it. **Reconciled to this row's Predicted value 2026-08-25 (P3.26): every limb named, because for a human-subject row this cell IS the checklist (`uat` rev 30).** | uat | Not started |
+| **BC-8** | PRE | M8-D: paste `{"content":"hi","flags":32768}` → **Classic**, content intact, bit cleared, **visible warning**, no V2 error | operator observation | UAT agent | chain tip deployed | Classic, `hi` present, warning shown | *This is 5712's own repair route and four things fail separately. **The content is gone** — the repair destroyed what it existed to save, and that one cannot be undone. **The editor is still in V2**, or **the flag bit is still set** — nothing was repaired, and only the Message JSON shows it, so it will look fixed. **The warning is missing** — he cannot tell a repair from a corruption. **A V2 error still shows** over a message that is now Classic. **Reconciled to this row's Predicted value 2026-08-25 (P3.26): every limb named, because for a human-subject row this cell IS the checklist (`uat` rev 30).** | uat | Not started |
+| **BC-9** | PRE | M8-E: paste `{"content":"hi","components":[<container>]}` → **two options**, each naming its drop; **nothing created** until one is taken; dismissal leaves message and pasted text unchanged | operator observation **paired with** the suite's `requiresChoice` assertion (EC-3) | UAT agent | chain tip deployed | two options; nothing created before a choice; both outcomes verified by repeating with the other option | *Today this silently strips the content. **The choice never appears** — D17's governing principle is not shipped and content is still lost without asking. **An option does not name what it drops**, so he picks blind, which is the same loss with a click in front of it. **Something is created before he chooses** — the ask was decoration. **Dismissing changes his message or his pasted text**, so backing out costs him work. **Only one outcome is exercised**: both options must be taken, on separate runs, or half the row is unobserved. **Not a failure**: after D31 the options do not appear on their own — a persistent notice with a **Resolve** link appears first, and the options are behind it (P3.4). **Reconciled to this row's Predicted value 2026-08-25 (P3.26): every limb named, because for a human-subject row this cell IS the checklist (`uat` rev 30).** | uat | Not started |
 | **BC-10** | PRE | M8-F parity: **the same eight-cell fixture set** produces the same row, drop set and notice class at the modal Load **and** the New Message paste | the suite (R9's own mitigation), **plus** spot observation of two cells at both surfaces | suite is primary; UAT agent for the spot check | M8 implemented | identical dispositions, cell by cell | *One object treated two ways is exactly the hazard R9 names; a user who learns the modal's behaviour is then surprised by the paste.* | qa (suite) | Not started |
 | **BC-11** | — | **SPLIT 2026-08-24 into BC-11a (DROPPED under D44) and BC-11b (the ask). This row is not executable as written — read BC-11b.** The condition spanned two instants with opposite timing: one half was decidable *only before deploy* and the ask *only after the chain tip is up*, so one row made the first look reschedulable when it is not. Raised by `uat-hooks-013` (`b6e9662`); the split is QA's, the register being QA's. Nothing about the condition was withdrawn at the split; **BC-11a has since been dropped under D44** and BC-11b survives verbatim below | — | — | — | — | — | qa | **SUPERSEDED by BC-11a + BC-11b** |
 | **BC-11a** | — | **DROPPED under D44** (owner ruling, registered at plan rev 39, `13a6e66`). This row's subject is struck from chain 013. The row is not re-argued, not re-based onto a substitute, and its content is not restated here. | — | — | — | — | — | — | **DROPPED — D44** |
 | **BC-11b** | PRE | **The ask fires on save over a seed** (supersedes the observation half of BC-11): open a **5712-shaped** record (V2 mode, V2 error visible, components section shown), add one container, press **Save** → the ask appears naming both drops and **nothing is written** until one is taken. Same at **Save As**. Repeat on the **5842-shaped** record | operator observation of a **UI event**, **paired with** the suite's `requiresChoice` assertion (EC-3). The oracle is *"the ask appears"*, so the primary needs a browser — which decides the subject on its own, at any SHA and in any environment | **subject**: any party holding a **browser** and a **chain-tip environment carrying the shape**. Today that is the owner *because no session on this box holds browser tooling* — **a fact about tooling, not a plan requirement**, and it must not harden into the latter. `uat-hooks-013` re-derived (not adopted) that it cannot be the subject: empty `DISPLAY`, no browser, no automation. **Fallback**, written by the planner and **conjunctive**: *"Where the repair has already run **and** no seeded environment is available, the suite is the evidence and UAT records the reason — the D19 repair preceded the deploy — not 'no member to observe'."* The repair has not run, so the fallback's conjunction is unmet, it is **not currently available**, and this row is still owed | **the chain tip deployed to any environment carrying a 5712-/5842-shaped record** (BC-1's convention). Not decidable before both | the ask appears; nothing written before a choice; both outcomes verified by repeating with the other option. The save leg is a **conflict-update**, and `data` is written verbatim there as well as on insert (executed, EXT-B) | *This is the whole of D18. If the ask does not appear, the save path is still silently destroying the user's classic body — the defect the owner folded into 013 — and the suite alone cannot show it working for a real user.* | uat (records and drives; the observation needs a browser-holder) | **NOT EXECUTED** — non-terminal, blocks an unconditional approval (`uat-hooks-013`, `838b180`, whose Appendix A holds a one-shot observation script, not executed and not evidence). **Precondition, re-stated from Phase 1's read and carried in that script**: `showComponentButton` requires `isEditing && isV2Mode && showComponentsEditable && canAddComponent`; an observer who has collapsed the components section will see no add-component control and wrongly report the ask as unreachable |
 | **BC-12** | POST | M8-G's send-path form is accepted by Discord: a V2 message that sent at `c85945f` still sends after deploy | the existing post-deploy observable *"Save As on a V2 message yields a V2 copy that sends"* (Validation item 6), and M3-a's send form | UAT agent, then owner in normal use | the deploy is live | **the send succeeds. A single 4xx refutes by construction** — this is not a rate to accumulate; one failure closes the critic's pass-4 assumption negatively and is a hotfix trigger | *Every V2 send starts failing at Discord because the wire form gained `content:""`. Users cannot send, and the cause is invisible in the app.* | implementer owns the decision (M8-G send path); uat owns the observation | Not started |
 | **BC-13** *(name: `bot-code-ttl-residue`)* | POST | M3-b's pre-deploy-code residue: bot codes stored **before** go-live carry no dropped set, so the notice cannot render for them | elapsed time against the store's 1h TTL | no human subject — decided by the clock | one hour after the deploy SHA is live | the residue is empty | *For one hour after deploy, a code import can drop components silently — the exact behaviour M3-b fixes. Nobody will connect the two.* | devops (records the window in the deployment record) | Not started |
-| **BC-14** *(name: `user-defect-fixed-in-prod`)* | POST | **The user-reported defect is fixed in production** (handoff `8f3fa8c3`, observations 1/2/5/6/7): Save As on a V2 message yields a V2 copy with every component; Message JSON shows the components; a component-only edit in one tab raises *"Message Update Detected"* in another and a no-op save raises nothing | operator observation in production | owner, in normal use; fallback UAT agent | the deploy is live | all four observed | *A deploy having happened says nothing about the fix having worked. The failure's signature here is **absence** — a copy that is empty, a prompt that never fires — and absence is what nobody reports.* | uat | Not started |
+| **BC-14** *(name: `user-defect-fixed-in-prod`)* | POST | **The user-reported defect is fixed in production** (handoff `8f3fa8c3`, observations 1/2/5/6/7): Save As on a V2 message yields a V2 copy with every component; Message JSON shows the components; a component-only edit in one tab raises *"Message Update Detected"* in another and a no-op save raises nothing | operator observation in production | owner, in normal use; fallback UAT agent | the deploy is live | all four observed | *A deploy having happened says nothing about the fix having worked, and every limb here fails by **absence**, which is what nobody reports. **Save As on a V2 message yields a copy that is empty or missing components.** **Message JSON does not show the components.** **A component-only edit in one tab raises no "Message Update Detected" in another** — the prompt that never fires. **A no-op save raises one anyway**, which trains him to dismiss the real ones. **All four are owed; three passing is not this row passing.** **Reconciled to this row's Predicted value 2026-08-25 (P3.26): every limb named, because for a human-subject row this cell IS the checklist (`uat` rev 30).** | uat | Not started |
 
 ### Register maintenance log
 
@@ -1779,7 +1779,7 @@ repeating). Every row carries a stable **name**.
 
 | ID | Class | Condition | Primary instrument | Subject / fallback | Earliest-decidable | Predicted value | Failure mode (operator terms) | Owner | State |
 |---|---|---|---|---|---|---|---|---|---|
-| **BC-18** *(`paste-notice-renders`)* | PRE | Pasting a rows-B/D payload into **New Message** shows a **persistent** warning in the modal that stays put, and **clears** when the JSON is corrected | none available — the render path is unreachable without a harness D28 forbids (`trace-paste-surface-unreachable.txt`) | **subject**: the owner, at a browser. No non-human primary exists | now — the code is committed | a warning appears and persists; correcting the JSON removes it | *This is the exact site the ruling named. If it does not render, the round changed nothing where he asked, and the suite says it did.* | owner | **Not started** |
+| **BC-18** *(`paste-notice-renders`)* | PRE | Pasting a rows-B/D payload into **New Message** shows a **persistent** warning in the modal that stays put, and **clears** when the JSON is corrected | none available — the render path is unreachable without a harness D28 forbids (`trace-paste-surface-unreachable.txt`) | **subject**: the owner, at a browser. No non-human primary exists | now — the code is committed | a warning appears and persists; correcting the JSON removes it | *Three things can each fail alone, and each leaves him with nothing. **The warning never appears** — the round changed nothing where he asked, and the suite says it did. **It appears and then vanishes** on the next keystroke, which is the toast bug wearing a different coat. **It appears and never clears** once the JSON is fixed, so he stares at a warning about a problem he already solved and learns to ignore the next one. **Not a failure**: correcting a rows-B/D paste *through* a state carrying both V2 components and classic content replaces the warning with the conflict notice and its **Resolve** link — that is the expected behaviour, re-derived at P3.4. **Reconciled to this row's Predicted value 2026-08-25 (P3.26): every limb named, because for a human-subject row this cell IS the checklist (`uat` rev 30).** | owner | **Not started** |
 | **BC-19** *(`code-import-notice-visible`)* | PRE | A code-import that drops components shows the persistent notice **in the layout**, visible and legibly placed | `verification/013/probe-qa-toast-vessel-render/` closes returns-an-element, clears, and styling; **visibility and placement are not instrument-closable** | primary settles the logic; **subject** for the eye: the owner | now | notice visible above the fold, not hidden behind nav | *A notice that renders into a hidden or overlapped box is indistinguishable from the toast bug it replaced.* | qa (logic) + owner (eye) | **Logic PASSED; visual not started** |
 | **BC-20** *(`dropped-notice-guards-send`)* | POST | A user who imports a message with dropped components **does not publish it to Discord unaware** — IS-T1's upstream guard actually guards | production observation | uat | chain tip deployed | no report of a sent message missing components the importer dropped | *The publish is irreversible. If the notice fails, the loss is silent and permanent.* | uat | **Not started** |
 
@@ -3398,3 +3398,144 @@ with a failure-mode cell that can actually express it.
   the raised instance; BC-1 was found by sweeping the class and is the more serious of the two** — its
   cell could not express the defect the row is blocked on. **No condition, predicted value, subject,
   instrument or state changed on either row.** What changed is what the operator is told to watch for.
+
+---
+
+# Phase 3, fifth sitting, 2026-08-25 — the subject test applied. **Six rows, not four**
+
+**Session**: `qa-hooks-013-3` [ab2af3]. **Trigger**: `uat` rev 30 (`4b10499`), **read at that document**.
+No verdict moves.
+
+## P3.26 — The ruling, and why I concede it rather than accept it
+
+I offered `uat` a binary — Predicted-value column or failure-mode column — and it refused both: **the
+row's *subject* decides.** Human primary → the failure-mode cell **is** the checklist. Machine primary →
+that cell is documentation and governs nothing.
+
+**I concede, and the argument that settles it is one I supplied without noticing.** `uat`:
+
+> *QA corrected BC-1 **because** an operator reading its failure-mode cell would have recorded PASS. That
+> correction is only necessary if that cell is what the operator reads. If the Predicted-value column
+> were the checklist, BC-1's narrow cell would have been harmless — by exactly the argument QA makes for
+> the six.*
+
+**My two rulings in one pass were mutually inconsistent and I did not see it.** I fixed BC-1 on the
+premise that the failure-mode cell is what the operator reads, and in the next paragraph dispositioned
+six rows on the premise that it is not. The subject test reconciles them, and it upholds my assumption
+**precisely where the subject is not human** — which is the half I was right about and the half that was
+doing no work.
+
+**And its correction of my *under-illustrate* / *misdirect* distinction is right on the mechanism**: both
+let an operator watch the wrong thing, see nothing, and pass. **They differ in probability, not in kind.**
+The part I should have caught myself: *"which omitted limb turns out to matter is knowable only after the
+failure."* I knew BC-1's omitted clause mattered **because a finding named it** — and I then treated the
+absence of a finding against the other six as evidence they were safe. **That is this chain's own
+silent-mode doctrine, and I applied it to everything except my own disposition.**
+
+## P3.27 — Re-run under the ruled standard. **The set is six**
+
+**The four I was handed came out of my own earlier classification, which used the weaker test.** Re-using
+that list would have been a sweep on the instances rather than on the predicate — the exact error whose
+correction produced BC-1 two sittings ago. **So the enumeration was re-run from scratch under the ruled
+standard**, and it is wider.
+
+**Standard applied**: for every **live** row whose **primary instrument requires a human subject**, is
+**every limb of the Predicted value findable in the failure-mode cell?**
+
+| Row | Subject test | Limbs in `Predicted value` | Named in the old cell | Ruling |
+|---|---|---|---|---|
+| **BC-4** | human (UAT agent) | dialog stays · error shown · nothing created | **1 of 3** | **RECONCILED — not in `uat`'s four** |
+| **BC-7** | human (UAT agent) | V2 · bit set · warning | **1 of 3** | **RECONCILED — not in `uat`'s four** |
+| **BC-8** | human (UAT agent) | Classic · content intact · bit cleared · warning · no V2 error | 1 of 5 | **RECONCILED** |
+| **BC-9** | human (UAT agent) | two options · each names its drop · nothing created first · dismissal non-destructive · both outcomes | 1 of 5 | **RECONCILED** |
+| **BC-14** | **human — `operator observation in production`, subject *the owner, in normal use*** | four observations | 2 of 4 | **RECONCILED.** This is the subject test `uat` declined to guess |
+| **BC-18** | human (owner, at a browser; **no non-human primary exists**) | appears · persists · clears | 1 of 3 | **RECONCILED — done first, per `uat`** |
+
+**BC-4 and BC-7 are the two `uat` could not have named**, because they were never in the six I handed it
+— I had classified them *aligned* under the weaker test. **Found only by re-deriving the enumeration
+instead of reusing my own list.**
+
+**Not reconciled, each with the reason:**
+
+- **BC-11b — not a row.** `DROPPED — D44` at `uat` rev 28. No line spent.
+- **BC-16 — machine primary** (`probe-qa-p2-rowd-load-gate/` re-run green; operator observation is
+  *fallback only*). Cell is documentation. **Confirms `uat`'s clearing independently.**
+- **BC-15 — `WITHDRAWN` (D44).** Its cell names 1 of 3 limbs, so it *would* have qualified. **A withdrawn
+  row is not reconciled**, and recording that is the point: the omission is a decision, not an oversight.
+- **BC-13 — no human subject** (*"decided by the clock"*). Documentation.
+- **BC-10, BC-12, BC-17, BC-19, BC-20, BC-21, BC-19b** — human subjects, and **every limb already
+  findable**. Re-checked under the ruled standard, not carried forward from the earlier pass.
+
+### Backward risk: checked on every terminal human-subject row, and it clears
+
+**`uat` checked BC-16 for this before ruling, and it was right that the implication is worse than the
+ruling**: if a terminal row's cell was its checklist and under-illustrated, the terminal state rests on
+an incomplete observation — **a false pass already filed, not a future one to prevent.**
+
+**I extended that check to every terminal row with a *human* subject**, which BC-16 is not:
+
+| Terminal row | Limbs named | Clears? |
+|---|---|---|
+| **BC-2**, **BC-3** | all | **Yes** — no divergence to inherit |
+| **BC-19a** | **appears** named, **clears** not | **Yes, but not on the cell.** `uat` rev 19.2: *"the whole row is terminalised, not one limb — he attested against the row **by number**."* The attestation route never passed through a cell, so no cell could have narrowed it |
+
+**No backward risk anywhere.** Recorded although the answer is "nothing wrong", on `uat`'s own ground:
+**checked-and-cleared and not-checked are indistinguishable in a record that omits the check.**
+
+### Two expected-behaviour notes written *into* the cells
+
+BC-18's and BC-9's reconciled cells state what is **not** a failure — the row-E resting state after D31,
+where a correction that traverses "both V2 components and classic content" replaces the warning with the
+conflict notice and its **Resolve** link. **Without it, the wider cell I have just written would
+manufacture the exact false failure P3.4's re-derivation exists to prevent**: an operator now told to
+watch for *"it appears and never clears"* would see the notice change rather than disappear and record a
+FAIL. Same technique as BC-6's exclusion clause — the ruling written into the cell so a later reader
+cannot re-widen it by inference.
+
+## P3.28 — Partition, re-derived with BC-11b out
+
+`uat` noted the arithmetic is mine and did not do it. **26 ten-cell rows** → less **2 pointers**
+(BC-11, BC-11a) and **1 restatement** (BC-16 at L1442, failure cell `—`) → **23 carrying both cells** →
+less **BC-11b, no longer a row** → **22 in scope.**
+
+| Disposition | Count | Rows |
+|---|---|---|
+| **Reconciled — earlier sittings** | **2** | BC-1, BC-6 |
+| **Reconciled — this sitting** | **6** | BC-4, BC-7, BC-8, BC-9, BC-14, BC-18 |
+| **Machine primary — cell is documentation** | **2** | BC-13, BC-16 |
+| **Human subject, already complete** | **10** | BC-2, BC-3, BC-10, BC-12, BC-17, BC-19, BC-19a, BC-19b, BC-20, BC-21 |
+| **Terminal by owner ruling — not reconciled** | **2** | BC-5 (`WITHDRAWN`), BC-15 (`WITHDRAWN`, D44) |
+
+2 + 6 + 2 + 10 + 2 = **22**. **Verified by computation, not by adding the column**: the buckets were
+checked against the enumerated scope for duplicates (none), rows in scope but unbucketed (none), and
+rows bucketed but out of scope (none). **No residual undispositioned.**
+
+**Instrument note, second sitting running.** The fourth bucket was first written `9` against a list of
+ten names, and 2 + 6 + 2 + 9 + 2 = 21 against 22 in scope. **The discrepancy is what located the
+miscount** — I did not spot it by re-reading the row of names. Last sitting I recorded that I had
+*read* a listing instead of computing it; this sitting I *counted a list I had written myself* instead
+of computing it. **Same defect, one step further in.** The rule I am adopting for the rest of this
+chain: **a partition is published only after its buckets have been checked against the enumeration by
+a program** — the sum matching is not the check, because a sum can match with two errors in it.
+
+## P3.29 — State
+
+**No verdict moved.** **BC-4, BC-7, BC-8, BC-9, BC-14 and BC-18 are reconciled and, so far as this
+document is concerned, executable** — `uat` holds row state and marks executability.
+
+**BC-1's blocking condition stands** — F-QA31 `load-confirmation-names-wrong-mode`, in the rider round.
+**BC-18 is decidable today**, and its cell now names all three limbs plus the one thing that would look
+like a failure and is not.
+
+**Register maintenance log — appended:**
+
+- **2026-08-25 — six failure-mode cells RECONCILED to their Predicted values** (qa, this sitting), on
+  `uat` rev 30's subject test: BC-4, BC-7, BC-8, BC-9, BC-14, BC-18. **BC-4 and BC-7 were not in the set
+  handed to me**; they were found by re-running the enumeration under the ruled standard rather than
+  reusing my own earlier classification. **BC-14's subject test applied here** — its primary is operator
+  observation in production, so the cell is its checklist. **No condition, predicted value, subject,
+  instrument or state changed on any row.**
+- **2026-08-25 — backward risk checked on every terminal human-subject row and cleared** (qa, this
+  sitting). BC-2, BC-3 name every limb; **BC-19a's *clears* limb is unnamed in its cell but its
+  terminalisation ran through an attestation against the row by number**, not through a cell. Recorded
+  though nothing was wrong.
