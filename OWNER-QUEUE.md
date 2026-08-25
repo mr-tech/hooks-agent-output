@@ -24,9 +24,15 @@ in its commit message what the deleted text carried and where it now lives.
 Rewritten in plain English 2026-08-25 by steering-hooks-013-2, at your request. Nothing below is new
 work — it is the same walkthrough, said properly.
 
-**Where things stand.** Every check an agent can run has passed: the tests pass, the code review
-passed, and UAT has approved the release **on condition that you click through the list below**.
-The release does not go out until you do. **Nothing here needs you to open another document.**
+**Where things stand.** Every check an agent can run had passed — tests, code review, and UAT's
+approval conditional on you clicking through the list below.
+
+> **CHANGED 2026-08-25, after your toast ruling.** You chose to fix the stateful toasts before
+> release. That sends 013 back to the implementer, which expires the QA, code-review and UAT
+> verdicts and moves the tip. **So the walkthrough below is not runnable today** — several steps
+> predict a toast that is about to stop being a toast. **013-A is the exception: it still stands,
+> still needs doing, and its window still closes at the deploy** — which is now further away, not
+> nearer. Do 013-A whenever you like. Wait for a new tip before the rest.
 
 **Two names you will see in the steps.** They are just labels so you can tell me which step you
 mean when you report back:
@@ -71,11 +77,11 @@ already closed.
 - [ ] **The components section expanded in the editor.** If it is collapsed there is no "add
       component" button, and step 1 will look impossible when it is not. **This is the single most
       likely way to get a wrong answer today.**
-- [ ] An ordinary V2 message that is **not** a test message — anything with components. For step 7.
-- [ ] A Discord message containing a **select menu**, that you have the URL for. Steps 15 and 16 use
-      the **same** message.
-- [ ] A folder-page export you can paste. For step 13.
-- [ ] A JSON payload with a **Thumbnail at the top level** (`"type": 11`). For step 12.
+- [ ] An ordinary V2 message that is **not** a test message, for step 7. **You do not need to go
+      find one** — paste step 8's payload into New Message and save it. That is your scratch message.
+- [ ] Nothing else to gather. **Every payload you need is written out in the steps below**, ready to
+      paste. Two steps that used to send you hunting are dealt with under "Steps you cannot run" at
+      the end of this section.
 
 **One thing to be aware of, because it is your call and not mine:** the app only has one database
 configured, and it is the live one. So a build running on your own machine still reads and writes
@@ -108,16 +114,51 @@ missing.** Everything in the "should see" column is a prediction, not a result.
 | 4 | Repeat 1–3 using **Save As** instead of Save, on spares. | Identical behaviour at both buttons. | BC-11b |
 | 5 | Repeat 1–4 on **Seed B** spares. | Same as Seed A throughout. | BC-11b |
 | 6 | Open a fresh **Seed A**, open Message JSON. **Is the Load button clickable, or greyed out?** Press **Load** with no edits. **Then stop — do not save.** | Load is **clickable**. A warning appears saying the flag conflicted and it has been made Classic. `hi` is still there. | BC-15 |
-| 7 | On your ordinary (non-test) V2 message: open Message JSON, change something, press Load. | A confirmation that says *"This will overwrite the current message"* and then names what it will add or remove, and whether the mode changes. | BC-1 |
-| 8 | New Message → paste `{"components":[<a container>]}` | Editor is in V2, flag set, and a warning explains the flag was set to match. | BC-7 |
+| 7 | On the scratch message you made from step 8's payload: open Message JSON, change something, press Load. | A confirmation that says *"This will overwrite the current message"* and then names what it will add or remove, and whether the mode changes. | BC-1 |
+| 8 | New Message → paste `{"components":[{"type":17,"components":[{"type":10,"content":"hi"}]}]}` | Editor is in V2, flag set, and a warning explains the flag was set to match. | BC-7 |
 | 9 | New Message → paste `{"content":"hi","flags":32768}` | Classic, `hi` intact, flag cleared, warning shown, **no V2 error**. This step is also the proof that the old broken shape can no longer be created. | BC-8 |
-| 10 | New Message → paste `{"content":"hi","components":[<a container>]}`. Cancel once, then do it twice more taking each choice. | The same two-button dialog, each naming its loss. Nothing is created until you choose. | BC-9 |
+| 10 | New Message → paste `{"content":"hi","components":[{"type":17,"components":[{"type":10,"content":"hi"}]}]}`. Cancel once, then do it twice more taking each choice. | The same two-button dialog, each naming its loss. Nothing is created until you choose. | BC-9 |
 | 11 | **Deliberately** repeat steps 8 and 9 at the Message JSON **Load** button too, not just at paste. | Identical behaviour at both places. *"It probably works there too" is not an answer.* | BC-10 |
-| 12 | Paste JSON containing a top-level **Thumbnail** (`"type": 11`). | Red text naming it: **"Not carried: Thumbnail. Discord does not support these on hooks.gg."** **If the thumbnail just vanishes silently, that is the failure.** | BC-6 |
-| 13 | Paste a **folder-page export**. | The error **"Message must have content, embeds, or components."** **If this one succeeds, that is the failure.** | BC-5 |
+| 12 | Paste `{"components":[{"type":17,"components":[{"type":10,"content":"hi"}]},{"type":11,"media":{"url":"https://picsum.photos/200"}}]}` | Red text naming it: **"Not carried: Thumbnail. Discord does not support these on hooks.gg."** **If the thumbnail just vanishes silently, that is the failure.** | BC-6 |
+| 13 | **Blocked — see "Steps you cannot run" below.** Paste a **folder-page export**. | The error **"Message must have content, embeds, or components."** **If this one succeeds, that is the failure.** | BC-5 |
 | 14 | Try an import that has no content at all. | The dialog **stays open** showing the error. It does not navigate away, and no message is created. | BC-4 |
-| 15 | Import by **URL** a Discord message containing a **select menu**. | The dialog shows the components it can support **and** a notice naming the select menu as not carried. | BC-2 |
-| 16 | Within the hour, run the bot's **Get Message** on that **same** message, then load the code it gives you. | The editor shows the same notice about the select menu. | BC-3 |
+| 15 | **Blocked — see "Steps you cannot run" below.** Import by **URL** a Discord message containing a **select menu**. | The dialog shows the components it can support **and** a notice naming the select menu as not carried. | BC-2 |
+| 16 | **Blocked — see "Steps you cannot run" below.** Within the hour, run the bot's **Get Message** on that **same** message, then load the code it gives you. | The editor shows the same notice about the select menu. | BC-3 |
+
+### 013-D2. Steps you cannot run, and what to do about them
+
+**These are UAT's determinations, not mine.** It re-read your ruling and took your operative test
+from your own sentence — *can it be generated for me to input into the editor?* — rather than
+splitting on Discord-versus-not. That reframing moved most of the list.
+
+**Steps 15 and 16 cannot be made into JSON, and UAT recommends withdrawing them.** What they test is
+the Discord fetch path itself, so no payload can reach it — the thing under test *is* the fetching.
+No agent here can create a qualifying message for you either; that would be an agent posting to
+Discord, which is barred outright, and UAT says it did not go looking for a way around it. **It has
+not withdrawn them — that is yours alone.** Your options, and it gave you a real do-nothing:
+
+- **Withdraw both.** What ships unobserved is whether the "not carried" notice actually *renders* on
+  the two Discord-ingress surfaces. The data layer underneath is covered by tests. The reason UAT
+  flags it rather than shrugging: a notice that fails to render looks exactly like nothing having
+  been dropped, so this particular gap is a silent one.
+- **Give me one URL** — *if* a Discord message with a select menu is already in front of you. **One
+  message, not a hunt**, and it covers both steps, since 16 reuses 15's message.
+- **Leave them open.** They stay non-terminal and keep blocking an unconditional approval.
+
+**Step 13 is fulfillable but nobody knows the fixture yet.** A folder-page export is your own
+product's artifact, so it passes your test — but no document establishes what one literally looks
+like, and UAT refused to invent one, on the grounds that a made-up fixture would make the step read
+as executed while testing nothing. I have asked the implementer for the real shape.
+
+**Step 14 needs a payload too** and I have not written one. UAT authored fixtures for the other
+steps and not this one, and I would rather it stayed visibly owed than have me author a fixture for
+a row I do not own.
+
+**One thing UAT ruled against itself, worth knowing.** I asked whether step 12 could stand in for
+steps 15 and 16, since they produce a similar-looking notice. **It said no, and cited its own rule
+against exactly that** — the two reach a similar notice through different code, so accepting one for
+the other would record the Discord path as observed on evidence that never touched it. **If 15 and
+16 close, they close by your withdrawal, in the open — never by a substitution that reads as a pass.**
 
 ### 013-E. Rules for the whole sitting
 
