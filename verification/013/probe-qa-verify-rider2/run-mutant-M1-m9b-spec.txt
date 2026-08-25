@@ -1,0 +1,84 @@
+
+ RUN  v4.1.2 /tmp/qa-v
+
+ ❯ src/utils/__tests__/013-fqa31-load-confirmation-names-actual-mode.test.ts (8 tests | 4 failed) 11ms
+     × row D over a Classic message: does NOT announce a switch to Components V2 6ms
+     × row D over a Classic message: announces no mode change at all, because there is none 1ms
+     × row D over a V2 message: announces the switch to Classic that actually happens 0ms
+     × the flag alone never decides what the dialog says — applyDisposition does 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/utils/__tests__/013-fqa31-load-confirmation-names-actual-mode.test.ts > F-QA31 — the Load confirmation must name the mode the Load actually produces > row D over a Classic message: does NOT announce a switch to Components V2
+AssertionError: expected 'v2' to be 'classic' // Object.is equality
+
+Expected: "classic"
+Received: "v2"
+
+ ❯ src/utils/__tests__/013-fqa31-load-confirmation-names-actual-mode.test.ts:65:37
+     63|   it('row D over a Classic message: does NOT announce a switch to Comp…
+     64|     const incoming = { content: 'hi', flags: V2_FLAG };
+     65|     expect(modeAfterLoad(incoming)).toBe('classic'); // the domain fac…
+       |                                     ^
+     66|     expect(confirmationFor(CURRENT_CLASSIC, incoming)).not.toMatch(/to…
+     67|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  src/utils/__tests__/013-fqa31-load-confirmation-names-actual-mode.test.ts > F-QA31 — the Load confirmation must name the mode the Load actually produces > row D over a Classic message: announces no mode change at all, because there is none
+AssertionError: expected 'This will overwrite the current messa…' not to match /switch from/
+
+- Expected:
+/switch from/
+
++ Received:
+"This will overwrite the current message. It will switch from Classic to Components V2."
+
+ ❯ src/utils/__tests__/013-fqa31-load-confirmation-names-actual-mode.test.ts:71:60
+     69|   it('row D over a Classic message: announces no mode change at all, b…
+     70|     const incoming = { content: 'hi', flags: V2_FLAG };
+     71|     expect(confirmationFor(CURRENT_CLASSIC, incoming)).not.toMatch(/sw…
+       |                                                            ^
+     72|   });
+     73|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  src/utils/__tests__/013-fqa31-load-confirmation-names-actual-mode.test.ts > F-QA31 — the Load confirmation must name the mode the Load actually produces > row D over a V2 message: announces the switch to Classic that actually happens
+AssertionError: expected 'v2' to be 'classic' // Object.is equality
+
+Expected: "classic"
+Received: "v2"
+
+ ❯ src/utils/__tests__/013-fqa31-load-confirmation-names-actual-mode.test.ts:76:37
+     74|   it('row D over a V2 message: announces the switch to Classic that ac…
+     75|     const incoming = { content: 'hi', flags: V2_FLAG };
+     76|     expect(modeAfterLoad(incoming)).toBe('classic');
+       |                                     ^
+     77|     expect(confirmationFor(CURRENT_V2, incoming)).toMatch(/switch from…
+     78|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  src/utils/__tests__/013-fqa31-load-confirmation-names-actual-mode.test.ts > F-QA31 — the Load confirmation must name the mode the Load actually produces > the flag alone never decides what the dialog says — applyDisposition does
+AssertionError: expected 'v2' to be 'classic' // Object.is equality
+
+Expected: "classic"
+Received: "v2"
+
+ ❯ src/utils/__tests__/013-fqa31-load-confirmation-names-actual-mode.test.ts:84:37
+     82|     // The raw draft reads as V2 by flag. That is exactly the trap.
+     83|     expect(isMessageV2(incoming as never)).toBe(true);
+     84|     expect(modeAfterLoad(incoming)).toBe('classic');
+       |                                     ^
+     85|     const applied = applyDisposition(incoming as never) as Record<stri…
+     86|     expect(applied.flags).toBe(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 4 passed (8)
+   Start at  16:23:35
+   Duration  746ms (transform 102ms, setup 0ms, import 430ms, tests 11ms, environment 0ms)
+

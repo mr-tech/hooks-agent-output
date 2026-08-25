@@ -1,0 +1,19 @@
+28,30c28,34
+< import { describe, expect, it, vi } from 'vitest';
+< 
+< import { applyDisposition, computeLoadDiff, describeLoadDiff, resolveContentLoss } from '~/utils';
+---
+> import {
+>   describe, expect, it, vi,
+> } from 'vitest';
+> 
+> import {
+>   applyDisposition, computeLoadDiff, describeLoadDiff, resolveContentLoss,
+> } from '~/utils';
+100c104,107
+<     const text = confirmationFor({ flags: V2_FLAG, components: [{ type: 1, components: [] }] }, incoming);
+---
+>     const text = confirmationFor(
+>       { flags: V2_FLAG, components: [{ type: 1, components: [] }] },
+>       incoming,
+>     );

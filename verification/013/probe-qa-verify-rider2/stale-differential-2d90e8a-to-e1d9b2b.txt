@@ -1,0 +1,30 @@
+--- /usr/local/bin/hooks/agent-output/verification/013/probe-qa-p3-stale-prediction-differential/report-2d90e8a.txt	2026-08-25 08:35:32.860041033 +0000
++++ /tmp/report-e1d9b2b.txt	2026-08-25 16:26:25.887957874 +0000
+@@ -44,9 +44,9 @@
+ describeUnsupportedComponentTypes([Thumbnail-11]) = ["Thumbnail"]
+ describeUnsupportedComponentTypes([container, Thumbnail-11]) = ["Thumbnail"]
+ describeUnsupportedComponentTypes(undefined) = []
+-TEMPLATE PASTE = "`Not supported on Hooks.gg: ${droppedComponentTypes.join(', ')}`"
+-TEMPLATE NEW_MESSAGE_MODAL = "`Not supported on Hooks.gg: ${droppedComponentTypes.join(', ')}`"
+-TEMPLATE JSON_MODAL_BODY = "`Not supported on Hooks.gg: ${droppedComponentTypes.join(', ')}.`"
++TEMPLATE PASTE = <<NO TEMPLATE FOUND>>
++TEMPLATE NEW_MESSAGE_MODAL = <<NO TEMPLATE FOUND>>
++TEMPLATE JSON_MODAL_BODY = <<NO TEMPLATE FOUND>>
+ CODE_PATH provider exposes codeMessageDroppedNotice = false
+ CODE_PATH layout mounts <CodeMessageNotice /> = false
+ 
+@@ -71,11 +71,11 @@
+ JMB commitLoad sets mode from disposition = true
+ CONFIRMATION vs WHAT LOAD ACTUALLY DOES (BC-1 clause 2)
+   row D incoming (flag + content, no components), current Classic
+-    confirmation says : "This will overwrite the current message. It will switch from Classic to Components V2."
++    confirmation says : "This will overwrite the current message."
+     Load actually sets: mode=classic flags=0 components=[] content="hi"
+-    agrees=false
++    agrees=true
+   row D incoming, current V2
+-    confirmation says : "This will overwrite the current message. It will remove Container."
++    confirmation says : "This will overwrite the current message. It will remove Container; switch from Components V2 to Classic."
+     Load actually sets: mode=classic flags=0 components=[] content="hi"
+     agrees=true
+   row B incoming (components, no flag), current Classic

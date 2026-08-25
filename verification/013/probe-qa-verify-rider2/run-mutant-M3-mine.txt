@@ -1,0 +1,67 @@
+
+ RUN  v4.1.2 /tmp/qa-v
+
+ ❯ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts (18 tests | 3 failed) 16ms
+     × bit=1 v2=0 classic=0 — toMode equals the mode D17 states, not the mode the code computes 5ms
+     × bit=1 v2=0 classic=0 — the dialog announces a mode change IFF D17 says the mode changes 2ms
+     × CONTROL — a flag-only draft over a Classic message is still a switch TO V2 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > bit=1 v2=0 classic=0 — toMode equals the mode D17 states, not the mode the code computes
+AssertionError: expected 'classic' to be 'v2' // Object.is equality
+
+Expected: "v2"
+Received: "classic"
+
+ ❯ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts:82:27
+     80|       const from = cell.expected === 'v2' ? CURRENT_CLASSIC : CURRENT_…
+     81|       const diff = computeLoadDiff(from as never, cell.draft as never);
+     82|       expect(diff.toMode).toBe(cell.expected);
+       |                           ^
+     83|     },
+     84|   );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > bit=1 v2=0 classic=0 — the dialog announces a mode change IFF D17 says the mode changes
+AssertionError: over a Classic message: "This will overwrite the current message.": expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts:96:64
+     94|         const announces = /switch from .* to /.test(text);
+     95|         const shouldAnnounce = currentMode !== cell.expected;
+     96|         expect(announces, `${label}: ${JSON.stringify(text)}`).toBe(sh…
+       |                                                                ^
+     97|       }
+     98|     },
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > CONTROL — a flag-only draft over a Classic message is still a switch TO V2
+AssertionError: expected 'This will overwrite the current messa…' to contain 'switch from Classic to Components V2'
+
+Expected: "switch from Classic to Components V2"
+Received: "This will overwrite the current message."
+
+ ❯ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts:117:8
+    115|   it('CONTROL — a flag-only draft over a Classic message is still a sw…
+    116|     expect(describeLoadDiff(computeLoadDiff(CURRENT_CLASSIC as never, …
+    117|       .toContain('switch from Classic to Components V2');
+       |        ^
+    118|   });
+    119|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 15 passed (18)
+   Start at  16:24:04
+   Duration  708ms (transform 101ms, setup 0ms, import 426ms, tests 16ms, environment 0ms)
+

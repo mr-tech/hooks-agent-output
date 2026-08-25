@@ -4,8 +4,9 @@ Origin: 013
 UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: QA Complete
-Verified-At: "4a7126bf8578b653ac7ae1cfe7cabdd609cdc21f"
-Verified-At-Note: "re-issued 2026-08-25 at 4a7126b after F-QA28 adoption — QA COMPLETE. Supersedes the 664e0c0 verdict, which stands for its own tree. CORRECTED 2026-08-25 (F-9, devops): this field previously read 'Every commit since live master a151fb4 is test-only' — FALSE for a151fb4..4a7126b, which carries abcf585 and its 4 production files (NewMessageJsonInput.tsx, MessageProvider/index.tsx, layout.tsx, CodeMessageNotice.tsx). TRUE only of abcf585..4a7126b. The release delta a151fb4..4a7126b IS production-bearing and needs production-side scrutiny; abcf585 is the commit BC-18/BC-19/BC-21 examine. Plain SHA."
+Verified-At: "e1d9b2b7090b46709861a9c4b2a57f340617777b"
+Criteria-At: "plan 013 rev 47, 06fad81 — this verdict expires when EITHER the tree or the criteria move"
+Verified-At-Note: "VERIFY PASS 2026-08-25 at e1d9b2b (chain/013-rider-2), criteria plan rev 47 — QA COMPLETE. Supersedes the 4a7126b verdict, which stands for its own tree. See the VERIFY PASS section at the foot of this document. Prior note retained: re-issued 2026-08-25 at 4a7126b after F-QA28 adoption — QA COMPLETE. Supersedes the 664e0c0 verdict, which stands for its own tree. CORRECTED 2026-08-25 (F-9, devops): this field previously read 'Every commit since live master a151fb4 is test-only' — FALSE for a151fb4..4a7126b, which carries abcf585 and its 4 production files (NewMessageJsonInput.tsx, MessageProvider/index.tsx, layout.tsx, CodeMessageNotice.tsx). TRUE only of abcf585..4a7126b. The release delta a151fb4..4a7126b IS production-bearing and needs production-side scrutiny; abcf585 is the commit BC-18/BC-19/BC-21 examine. Plain SHA."
 Verified-At-Detail: >-
   **REFRESH PASS, 2026-08-24 — supersedes the Phase 2 anchor below for verdict purposes.**
   `website` @ `chain/013-components-v2-editing-surfaces`, HEAD = `164d720` (re-derived by
@@ -3876,3 +3877,138 @@ unpushed record is a record that exists on one machine.
 next chain**: *refining instructions while the observation count stands at zero is displacement, however
 good each finding is.* **Eleven rows executable, none observed. Every defect across five revisions was in
 the instructions for observing, and not one in the observing — because no observing has occurred.**
+
+---
+
+# VERIFY PASS — Rider 2, at `e1d9b2b`. **Verdict: QA COMPLETE**
+
+**Session**: `qa-hooks-013-3` [ab2af3]. **Date**: 2026-08-25.
+**Verified-At**: `e1d9b2b7090b46709861a9c4b2a57f340617777b`
+**Criteria-At**: plan 013 **rev 47**, `06fad81`.
+
+> **This verdict expires when EITHER moves** — the tree or the criteria it was measured against.
+> Adopted from `uat` rev 34's finding: `Reviewed-At` names a tree and nothing named the plan
+> revision, so a reader could not tell a verdict had been measured against a superseded criteria
+> set. **Naming only the SHA would have made this document wrong silently while still reading as
+> complete.**
+
+## V.1 — Identity, re-derived and not inherited
+
+| | |
+|---|---|
+| branch | `chain/013-rider-2` |
+| `git rev-parse HEAD` | `e1d9b2b7090b46709861a9c4b2a57f340617777b` |
+| `git merge-base --is-ancestor 2d90e8a e1d9b2b` | **exit 0** — `2d90e8a` is an ancestor |
+| `git ls-remote origin refs/heads/master` | `2d90e8a` — **the branch is unpushed**, computed at the remote (the limb DNS denied this morning; it answered here) |
+| `git status --porcelain` | **0 lines** |
+| range | 2 commits, **20 files**, **10 non-test** |
+
+**Instrument note.** My first non-test count read **13**, from `git diff --name-only … -- ':(exclude)*__tests__*'`. **The pathspec exclude did not match**, and the count was wrong. Recounted with `grep -vc '__tests__'`, computing before any filter: **10 test / 10 non-test / 20 total**, agreeing with the reviewer. **A pathspec magic word is not a predicate I have verified**; the contradiction against the file list is what caught it.
+
+## V.2 — Suite
+
+`npx vitest run` at `e1d9b2b`: **47 files / 605 tests / 605 passed / exit 0.** Re-derived here; agrees with the implementer's report, which this pass did not take on trust and the reviewer explicitly did not run.
+
+## V.3 — M9 properties, each against its own named instrument
+
+| Item | Property | Result |
+|---|---|---|
+| **M9-a** | no site reconstructs line structure by splitting on the delimiter | **MET.** `git grep -c "split(' \| ')" -- src` → the only hit is a *comment* in a test file describing what was removed. `formatZodIssues` maps each issue to its own `generateErrorMessage([issue])` and joins itself. All three surfaces consume it |
+| **M9-b** | the confirmation is computed over the object `commitLoad` applies | **MET** — verified by differential, V.5 |
+| **M9-d** | one file set for both tools; both projects exit 0; parsing errors 0 | **MET.** `tsc --noEmit` **exit 0**; `tsc --noEmit -p tsconfig.test.json` **exit 0**; ESLint `Parsing error` count **0** (I measured **45** at `2d90e8a` myself, so **45 → 0** is mine at both ends). `lint` exits 1 on **686** problems — the **D51 accepted residue**, and per the rev-47 amendment **not a failure of Validation item 1** |
+| **M9-e** | no orphaned declaration remains | **MET.** `ID_LAYOUT` and `NOTICE` → **0 occurrences** in both files |
+| **M9-f** | one exported definition, rendered by all three sites | **MET.** `describeDroppedComponentTypesNotice` in `shapes.ts`; **1** inline literal in `src` (the definition); all three surfaces call it; the trailing-period drift is gone by construction |
+| **M9-g** | the dangling pointer resolves | **MET.** The phrase now occurs **twice** — pointer *and* section. Item 4 restored **verbatim**, items 1–3 correctly not restored, and **BC-18's falsity signature is back** (1 occurrence, matched literally) |
+
+**On the two-instrument lint numbers**: I ran `--no-fix` and got **686**, matching the reviewer. **I did not re-run the round's `--fix` instrument and I do not restate 429 as refuted** — two instruments over two states, exactly as rev 47 records.
+
+## V.4 — **CR24-6, ruled.** The seam is real in form and does not transmit
+
+**Routed here by the reviewer as its own Assumption Not Checked**: *"this review assumes `resolveContentLoss` classifies row D correctly and does not test it."* The seam: M9-b's fix (`settledMode`) and M9-b's own oracle (`modeAfterLoad`) both call `resolveContentLoss` and take `.mode`, so a defect there moves code and oracle together.
+
+**I built the oracle the reviewer specified** — every expectation a **literal transcribed from D17's five rows**, calling none of `resolveContentLoss`, `settledMode`, `applyDisposition`, `isMessageV2`, `detectMessageMode`, with a self-check asserting no executable line calls them. `verification/013/probe-qa-verify-rider2/`. **18/18 green at the tip.**
+
+**Then I tried to make the seam transmit, which is the only way to answer the question:**
+
+| Mutant | My oracle | M9-b's own spec |
+|---|---|---|
+| **M1** — row D misclassified as V2 | **4 failed** | **4 failed** |
+| **M3** — row C misclassified as Classic | **3 failed** | **8 passed — BLIND** |
+
+**Ruling: the seam does not transmit, and the reason is not luck.** `013-m8-ec3-resolver-gate.test.ts` pins `resolveContentLoss` over **all eight cells against literal expectations**, transcribed from D17's row table which its own header reproduces from the plan — `expect(d.row).toBe('D')`, `expect(d.mode).toBe('classic')`. A defect inside `resolveContentLoss` **breaks those literals rather than sliding past them.** M1 shows M9-b's spec catching the row-D mutant for the same reason: it pins `modeAfterLoad`'s output to the literal `'classic'` rather than comparing two computed values. **The reviewer's header critique is right — *"not derived from `computeLoadDiff`"* is narrower than the independence it asserts — but the independence exists anyway, one layer down.**
+
+**What the concern does catch, and it is real**: **M9-b's spec is blind at row C.** No fixture in it expresses the flag-only cell, so M3 passes it 8/8. **The chain is not blind** — EC-3's gate and `013-m2c-load-diff.test.ts` both catch M3 — **but M9-b's criterion alone was**, and the oracle here closes it at the composition where EC-3 closes it at the resolver.
+
+**CR24-6 is DISCHARGED**, with its instrument captured rather than narrated.
+
+## V.5 — Prediction freshness at `e1d9b2b`. **Owed as a fact, and paid**
+
+Validation item 9: M9-b edits the confirmation site, **outside** the `catch (err)` block my pre-registered condition names — so the differential was owed unconditionally, not as a judgement call. Re-run unchanged at the tip and diffed against `2d90e8a`: **12 changed lines, in exactly two places.**
+
+**1 — F-QA31 `load-confirmation-names-wrong-mode` is FIXED**, shown by my own instrument, written before the fix existed and not edited since:
+
+| | at `2d90e8a` | at `e1d9b2b` |
+|---|---|---|
+| row D over a **Classic** message | *"It will switch from Classic to Components V2."* — **false** | *"This will overwrite the current message."* — **no mode change claimed** |
+| row D over a **V2** message | *"It will remove Container."* — **the switch omitted** | *"It will remove Container; switch from Components V2 to Classic."* |
+| `agrees` | **false** | **true** |
+
+**Both faces closed.** This is the strongest form of fix verification available: an instrument authored against the defect, unchanged, that flipped.
+
+**2 — three `TEMPLATE … = <<NO TEMPLATE FOUND>>` lines, and they are NOT a regression.** My probe extracts the notice by a regex for an **inline template literal** interpolating `droppedComponentTypes.join`. **M9-f removed all three inline templates by design.** So the probe's extraction predicate went stale; the product did what the plan required. **Ruled here rather than left, because three `NO TEMPLATE FOUND` lines in a captured report read exactly like an absence a later reader would call a defect** — this chain's own "both readings of an absence are available" hazard, this time in my own instrument.
+
+**Everything else is byte-identical**: sections A (all eight cells), D (row-E resting state), E (the D34 floor payloads) and F (BC-18's six edit sequences). **So no register row's prediction is staled by the rider.** BC-1's predicted value, as re-derived at P3.4, now **matches** the shipped behaviour rather than diverging from it.
+
+**Executability at `e1d9b2b`, for `uat`, whose the state is**: **all eleven rows fresh.** Nothing carried across the tree change — this is a fresh execution of the differential at the new tip.
+
+## V.6 — **BC-1's blocking condition is DISCHARGED**
+
+At P3.11 I wrote, addressed to `uat` by name:
+
+> *"**BC-1 must not be executed until F-QA31 `load-confirmation-names-wrong-mode` is fixed.**"*
+
+**F-QA31 is fixed and verified at `e1d9b2b` (V.5).** **The condition is discharged** — not lifted, not withdrawn: it was met. **BC-1 is executable so far as this document is concerned; its state is `uat`'s.**
+
+**Vocabulary, per `uat` rev 29**: `WITHDRAWN` is owner-only; `LIFTED` is a constraint removed on a ruling; **this is neither — the condition was satisfied by work.** Recorded in that vocabulary so the register keeps the distinction.
+
+**Chain 013's blocking-condition register now carries no QA-raised blocking condition.**
+
+## V.7 — F-1 limb 2, discharged
+
+`devops-hooks-013-2`'s F-1 limb 2 asked that the surviving render instrument be executed **under a verdict**. `013-qa-toast-vessel-render.test.ts` at `e1d9b2b`: **9 passed / exit 0**, inside this verdict. **Discharged.**
+
+## V.8 — Findings. **None blocking**
+
+**INFO-1 — M9-a's plan-stated instrument is mis-specified.** Rev 47 states the negative as *"`git grep -c generateErrorMessage -- src` returns 0 outside `__tests__` at the tip."* **It returns 1** (`formatMutationError.ts`, two lines). **The property is met by a different route than the plan anticipated**: the joiner is still called, but only ever with a **one-element array**, so there is no inter-issue delimiter for a message to collide with. **The code is right and the instrument is wrong** — and an instrument that fails on a correct implementation would have produced a false failure for whoever ran it literally. Plan text, the planner's; **not held against the tree**.
+
+**INFO-2 — CR24-2's "dead path" characterisation is wrong, and the live path is correct.** The reviewer describes `settledMode`'s `requiresChoice` ternary as a second encoding *"on a path both sides leave dead"*. **Dead for the `incoming` argument** — a row-E object never becomes `validatedDraft`. **Live for the `current` argument**: a stored row-E record reaches `settledMode(current)`. Executed: a row-E current yields `fromMode=v2`, and loading a Classic draft over it announces *"remove Container; switch from Components V2 to Classic"* — **correct**. So the DRY concern stands; **the reachability claim under it does not**, and a fix round acting on "it's dead" would be acting on a false premise. Captured at `cr24-2-current-argument-is-live.txt`.
+
+**NOTE — "adopted verbatim" is slightly overstated.** The implementation record says QA's pre-registered spec was *"adopted verbatim … per its own no-edit instruction"*. Diffed against my captured copy: **3 hunks, all formatting** — two import statements and one call reflowed for line length under the new lint gate. **No expectation, fixture literal or assertion moved**, which is what the no-edit instruction protected. **The claim should read "adopted with formatting reflow required by the new gate; no expectation changed."** Disclosed, not held against anyone — it is gate satisfaction of exactly the class D50 defines.
+
+## V.9 — TDD Compliance gate: **PASS**
+
+The rider's three new/changed units each carry a row with `Test Written First?`, `Failure Verified?`, a valid failure reason and `Pass After Impl?`: `formatZodIssues` (`TypeError: … is not a function`, 4/4), `describeDroppedComponentTypesNotice` (same shape, 3/3), and M9-b's `settledMode` fix — whose row correctly answers **N/A** to *written first* because **the spec is QA's, pre-registered before the fix**, with `Failure Verified? = Yes` against the pre-fix tree. **I hold my own red run at `2d90e8a` (3 failed / 5 passed) and it corroborates.**
+
+M9-d's five foreign-chain test-file edits carry a **note rather than rows**, correctly: they are type-only under D50's disposition rule, not new behaviour.
+
+## V.10 — Cell consistency, re-opened by the artifact moving
+
+`uat` rev 30's condition 3 fired as written. **Answered inside this re-verification, not as a new sweep.** The rider touches no register row's Condition, Predicted value or Failure mode — it changes production code those cells describe. The differential (V.5) is the check: **every cell's predicted value still matches what the surface produces**, and the one row whose cells described a divergence (BC-1) now matches because the divergence was fixed. **No cell edit is owed.**
+
+## V.11 — Assumption Not Checked
+
+**This pass assumes `describeLoadDiff`'s rendered sentence is what the confirmation dialog actually displays, and it does not test that.** Every instrument here — mine and the round's — stops at the string `withConfirmation`'s `message` field receives. **Nothing executed here proves `ConfirmationProvider` renders that string, renders it where the eye goes, or renders it at all**; the dialog is a React component reached only through a mounted render, which **D28 rules out**.
+
+**Observable signature of its falsity**: the owner opens a V2-flagged record carrying content, presses Load, and the dialog is **empty, truncated, or shows the previous message's text** — the confirmation being right in the string and wrong on the screen.
+
+**Owner of closing it**: **BC-1's own operator observation**, whose subject is the UAT agent with the owner as fallback — the row this verdict has just unblocked. **Named again here so it is routed rather than shelved**: BC-1 is not a formality now that F-QA31 is fixed; it is the only thing that closes this assumption.
+
+## V.12 — Verdict
+
+**QA COMPLETE** at `e1d9b2b` against plan rev 47.
+
+Suite green and re-derived; both `tsc` projects clean; ESLint parsing errors 45 → 0; all six M9 properties met against their own instruments; TDD gate passes; CR24-6 discharged with a captured oracle and two mutants; F-QA31 verified fixed by a pre-fix instrument; F-1 limb 2 discharged; **BC-1's blocking condition discharged**. Two INFO findings and one wording note, **none blocking**.
+
+**What this verdict does NOT do.** It is **not a release decision** — none is granted or refused here, and the standing decision remains `EXPIRED IN FULL`. **It does not close the chain**: `uat`'s register carries the open conditions, and eleven rows are executable **and none has been observed**. **A green verdict at a tip is not an observation**, and this document has spent five revisions establishing that the two are different things.
+
+**Handing off to the uat agent for value delivery validation.**

@@ -1,0 +1,3 @@
+rowE current -> fromMode=v2 toMode=classic modeChanges=true
+text="This will overwrite the current message. It will remove Container; switch from Components V2 to Classic."
+rowE(no flag) current -> fromMode=v2 toMode=classic

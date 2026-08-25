@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/qa-v
+
+
+ Test Files  1 passed (1)
+      Tests  8 passed (8)
+   Start at  16:24:05
+   Duration  701ms (transform 104ms, setup 0ms, import 429ms, tests 5ms, environment 0ms)
+

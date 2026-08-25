@@ -1,0 +1,87 @@
+
+ RUN  v4.1.2 /tmp/qa-v
+
+ ❯ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts (18 tests | 4 failed) 16ms
+     × bit=1 v2=0 classic=1 — toMode equals the mode D17 states, not the mode the code computes 5ms
+     × bit=1 v2=0 classic=1 — the dialog announces a mode change IFF D17 says the mode changes 2ms
+     × row D over a V2 message announces the switch to Classic, in those words 1ms
+     × row D over a Classic message announces NO mode change 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > bit=1 v2=0 classic=1 — toMode equals the mode D17 states, not the mode the code computes
+AssertionError: expected 'v2' to be 'classic' // Object.is equality
+
+Expected: "classic"
+Received: "v2"
+
+ ❯ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts:82:27
+     80|       const from = cell.expected === 'v2' ? CURRENT_CLASSIC : CURRENT_…
+     81|       const diff = computeLoadDiff(from as never, cell.draft as never);
+     82|       expect(diff.toMode).toBe(cell.expected);
+       |                           ^
+     83|     },
+     84|   );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > bit=1 v2=0 classic=1 — the dialog announces a mode change IFF D17 says the mode changes
+AssertionError: over a Classic message: "This will overwrite the current message. It will switch from Classic to Components V2.": expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts:96:64
+     94|         const announces = /switch from .* to /.test(text);
+     95|         const shouldAnnounce = currentMode !== cell.expected;
+     96|         expect(announces, `${label}: ${JSON.stringify(text)}`).toBe(sh…
+       |                                                                ^
+     97|       }
+     98|     },
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > row D over a V2 message announces the switch to Classic, in those words
+AssertionError: expected 'This will overwrite the current messa…' to contain 'switch from Components V2 to Classic'
+
+Expected: "switch from Components V2 to Classic"
+Received: "This will overwrite the current message. It will remove Container."
+
+ ❯ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts:105:8
+    103|     const rowD = { flags: V2_FLAG, content: 'hi' };
+    104|     expect(describeLoadDiff(computeLoadDiff(CURRENT_V2 as never, rowD …
+    105|       .toContain('switch from Components V2 to Classic');
+       |        ^
+    106|   });
+    107|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > row D over a Classic message announces NO mode change
+AssertionError: expected 'This will overwrite the current messa…' not to match /switch from/
+
+- Expected:
+/switch from/
+
++ Received:
+"This will overwrite the current message. It will switch from Classic to Components V2."
+
+ ❯ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts:111:12
+    109|     const rowD = { flags: V2_FLAG, content: 'hi' };
+    110|     expect(describeLoadDiff(computeLoadDiff(CURRENT_CLASSIC as never, …
+    111|       .not.toMatch(/switch from/);
+       |            ^
+    112|   });
+    113|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 14 passed (18)
+   Start at  16:23:34
+   Duration  735ms (transform 105ms, setup 0ms, import 446ms, tests 16ms, environment 0ms)
+
