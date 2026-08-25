@@ -5,6 +5,37 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
+  **Rev 39 — CR25-3 DISCHARGED: the paraphrase is faithful and the round is NOT invalidated.** The reviewer
+  routed its Assumption Not Checked here by name, on the ground that **QA authored the transcription and an
+  author checking its own paraphrase against the source is the weaker arrangement** — correct routing, and
+  the plan's Objective is this register's own source of truth. **All eight cells checked against the
+  Objective as written; six are actually asserted** (the oracle filters row-E cells out of `COMMITTING`)
+  **and all six agree. CR25-3's falsity signature is not met.** **Source of truth established before use**:
+  plan rev 48→49 is five hunks and **none contains `## Objective` or any of D17's row text** — measured, not
+  assumed. **The oracle file changed between this stage's first and second read**, so every finding is
+  derived against the file as it now stands: **reporting a finding against a stale read of a file that had
+  already been fixed would have been this chain's own defect committed in the act of checking for it.**
+  **Cell 5 was derived independently from the plan side** — its draft is `{flags}` with no components at
+  all, so the Objective's *"the flag over components within the schema"* does not govern it except on a
+  vacuous reading over the empty set, **and a cell whose coverage depends on a vacuous reading is an
+  inference, not a literal.** **Found already fixed at CR25-2**, now citing **D13**, verified **verbatim at
+  plan line 110**. **Two independent routes — the reviewer from the header side, this register from the plan
+  side — reached the same cell, neither able to see the other's work: corroboration rather than agreement.**
+  **THREE PROVENANCE FINDINGS, none holding the tree, none a value error, all in QA's file:** row E is
+  **truncated in the header quotation without an ellipsis** (immaterial to modes, but a quotation that
+  silently drops a clause is not one); **D13 is quoted correctly and is `SUPERSEDED IN PART by D17`, which
+  the oracle does not say** (the clause survives, so the citation is sound, but an oracle whose authority is
+  literal transcription should mark it); **and the one worth the routing — D13's quoted clause says the bit
+  over no components is *"NOT a conflict and is NOT refused"* and states NO MODE.** Nothing in the quoted
+  text yields `v2`. **What yields it is D13's superseding header — *"the 'not a conflict' clauses survive as
+  row C"* — plus row C's outcome, and the oracle does not quote that sentence**, so **"row C" is an
+  unsupported assertion inside the citation: true and checkable, but not shown.** **That is CR25-2's own
+  defect recurring one level inside its fix — the citation is now correct rather than wrong, and the stated
+  provenance is still thinner than the actual derivation** — recorded because **an oracle that is corrected
+  once tends to be treated as corrected.** **Remedy is one clause and it is QA's to write; this register
+  does not author instrument text.** **No verdict issued. The gate remains EXPIRED (rev 38); `e1d9b2b` is
+  ungated and the new tree `b56570d` is ungated and unread by this stage. CR24-2 still open and still not
+  fixed. Open set 12, all fresh at `e1d9b2b`, NONE OBSERVED.**
   **Rev 38 — THE GATE HAS EXPIRED, on the CRITERIA axis, with the tree UNMOVED. Everyone was watching the
   wrong one.** Plan 013 is at **rev 49 (`9637735`, D52/M10)**; rev 36 anchored its criteria at **rev 48**.
   The tree is **still `e1d9b2b`**, tracked-clean, `origin/master` `2d90e8a`, branch unpushed. **So
@@ -544,6 +575,7 @@ Verified-At: >-
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — **THE WORD: QA Complete at `33908af`, write the gate** — then, mid-draft, that **the plan had moved to rev 48** and that a fifth residual had arrived | Issue the release decision at the post-rider tip, naming the tree and the criteria and saying what the merge to `master` is | **Rev 36. THE RELEASE GATE. `APPROVED FOR RELEASE, CONDITIONAL on the human click-through of BC-1, BC-4, BC-6, BC-7, BC-8, BC-9, BC-10 and BC-18` — and because `master` serves production, those precede the MERGE, not the deploy after it.** Anchored on **both axes**: **TREE `e1d9b2b`** on `chain/013-rider-2`, **CRITERIA plan rev 48 (`f5b7cac`)**, **covered set stated as 20 explicit paths**, either axis moving expiring it. **Value delivery: PARTIAL — and the shortfall is not a defect anyone found, it is a step nobody has taken.** Every instrument is green; **this value statement's entire content is that the user is not *silently* misled, so its failure mode leaves no trace in a test run** — and **CR24-6's unchecked assumption is that nothing proves `ConfirmationProvider` renders the string at all.** **F-1 terminalised** (limb 1 by D40, limb 2 by QA V.7); **BC-1's blocking condition DISCHARGED by work**; twelve rows FRESH and **none observed**. **A DEFECT IN THIS GATE'S OWN DRAFT, caught by steering's unsolicited warning before commit — luck in the timing, not diligence in the method**: the draft asserted *"rev 47 … no criterion changed since"* **without running the diff**. Rev 47→48 then **derived here in full** and established **property-preserving** on the plan's own Class/Property/Instrument structure — **and rev 48 is the sounder anchor, since under rev 47's literal instrument M9-a's negative was UNMET at the approved tree.** **The refinement: re-opening a document is not verifying a claim about a delta — verify the claim in the form the claim is made.** **Five residuals**, the fifth (M9-b's spec blind to a live `current` path) **a different kind: 1–4 are about what is not known, 5 about what is not guarded.** **CR24-2's attached hazard recorded as NOT residual-shaped** — it is an open LOW on the implementer and **a fix acting on the withdrawn "dead path" premise would delete a correct, live branch.** **Merge to `master` NOT authorised; chain NOT closed; the `4a7126b` decision stays `EXPIRED IN FULL`.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — **QA has re-anchored to rev 48**, and a request to **HOLD before publishing** because an owner decision in flight may move the tree | Whether the gate should wait; and whether QA's newly-disclosed oracle defect belongs in the residual section | **Rev 37. THE GATE WAS ALREADY COMMITTED (`68e6159`) when the hold arrived — recorded plainly, since a gate that quietly absorbed a hold it had overtaken would falsify its own timing.** **And it does not need unpublishing: R36.1 states the decision expires when either axis moves, so a fix round expires it cleanly and visibly.** **A published decision with a named anchor that expires is strictly better than an unpublished one, which leaves the chain with no recorded position at all** — **the dual anchor doing the job it was written for, one revision after it was written.** **QA's re-anchor verified at its document** (`Criteria-At: plan 013 rev 48, f5b7cac`, captured diff 45 lines — the same figure derived at R36.1.1): **two stages reached the same anchor independently**, and QA additionally confirmed no hunk touches Validation, Testing Strategy or Objective, **which this register had not checked by name — adopted.** **The rule's COST recorded now rather than discovered later: the dual anchor makes a stage expire its own verdict by raising a good finding, and it is payable only because the tree did not move** — an unrecorded cost is how a good rule is abandoned without anyone deciding to. **QA's oracle defect: NOT a release condition, concurred.** But it **strengthens** what rev 36 carries — **CR24-2 has a SECOND wrong fix** (keep the spec's encoding: 4 failed, all QA's; **49 of 50 files green**), and **without QA's oracle the suite is blind to it.** **The sharpest consequence lands on rev 36 itself: its CR24-2 warning is prose — a banner is not an instrument.** R33.3's rule at this register's own door: **a hazard that lives only in prose is not a guard, because the implementer runs the suite.** **Residual 5 AMENDED by dated addition, rev-36 text preserved.** **No verdict moves; open set 12; none observed.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — the owner ordered a round; **"your gate will expire when the tree moves"** | Owner ruled **"Option 1, arm"** — adopt QA's oracle and fix its constant, **no production code, CR24-2 NOT fixed** | **Rev 38. THE GATE HAD ALREADY EXPIRED — on the CRITERIA axis, with the tree UNMOVED.** Plan is at **rev 49 (`9637735`)**; the tree is still `e1d9b2b`, tracked-clean, branch unpushed. **`e1d9b2b` is UNGATED again; the expiry is not a refusal.** **Two stages and a coordinator all expected the tree axis; the criteria axis moved first, within the hour — a tree-only anchor would read as LIVE right now.** **REFINEMENT THIS REGISTER GOT WRONG BY OMISSION: a named anchor makes expiry CHECKABLE, not SELF-ANNOUNCING.** Rev 37's *"without anyone needing to notice"* is **superseded** — somebody has to look, and the anchor's contribution is saying where. **This register came within one sentence of proving it against itself**: restating rev 37's *"the gate stands"* would have been false at write time — **caught by running the check before writing, on its third consecutive outing.** **R37.2.1's predicted expensive case arrived by the predicted route**, and its own instruction is honoured: **the paragraph is re-read and the rule stands unamended; the cost is acknowledged, not renegotiated.** **Owner's ruling recorded with both answers, the second governing. Arming a guard is not fixing the defect it guards** — residual 5's move from *silent* to *guarded* is **predicted with its condition, not made.** **The prose-is-not-a-guard point was acted on on both surfaces within the hour**: this register's two-wrong-fixes warning is now plan **M10-d** and QA's oracle is the test — **the fix for a banner is not a louder banner.** **Re-issue scope fixed in advance (R38.6) so it cannot be trimmed under pressure later.** **Open set 12, all fresh, NONE OBSERVED.** |
+| 2026-08-25 | `code-reviewer-013-4` via `steering-hooks-013-3` [b04529] — **CR25-3 routed to this stage by name**, on the ground that QA authored the transcription and an author checking its own paraphrase is the weaker arrangement | Check the oracle's five-row paraphrase of D17 against the plan's Objective **as written** | **Rev 39. CR25-3 DISCHARGED — the paraphrase is faithful and the round is NOT invalidated.** All eight cells checked against the Objective; **six are actually asserted** (row-E cells are filtered out by the oracle itself) and **all six agree**. **Source of truth established before use**: plan rev 48→49 is five hunks and **none touches `## Objective` or D17's row text** — measured. **The oracle file changed between this stage's two reads**, so everything is derived against the current file; **reporting against a stale read of an already-fixed file would have been this chain's own defect committed in the act of checking for it.** **Cell 5 derived independently from the plan side** — `{flags}` alone has no components, so row C's *"the flag over components within the schema"* does not govern it except vacuously — **and found already fixed at CR25-2, citing D13, verified verbatim at plan L110. Two independent routes, header-side and plan-side, reached the same cell: corroboration, not agreement.** **THREE PROVENANCE FINDINGS, none holding the tree, none a value error, all QA's file**: row E truncated in the quotation without ellipsis; **D13 quoted correctly but `SUPERSEDED IN PART` and not marked so**; and — **the one worth the routing** — **D13's quoted clause says *not a conflict, not refused* and states NO mode. What yields `v2` is D13's superseding header (*"the 'not a conflict' clauses survive as row C"*), which the oracle does NOT quote** — so **"row C" is an unsupported assertion inside the citation.** **This is CR25-2's own defect recurring one level inside its fix: the citation is now correct and the stated provenance is still thinner than the derivation** — and an oracle corrected once tends to be treated as corrected. **Remedy is QA's to write; this stage does not author instrument text.** **No verdict issued; gate remains EXPIRED; open set 12, none observed.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -6395,3 +6427,125 @@ must be looked at.**
 3. **This stage** — re-issue per R38.6 when the word comes.
 4. **The owner** — the walkthrough of the eight, unchanged and still the whole of what remains.
 5. **Nobody** — reads rev 36 as live, reads its expiry as a refusal, or reads M10 as having fixed CR24-2.
+
+---
+
+# Rev 39 — **CR25-3 DISCHARGED: the paraphrase is faithful and the round is not invalidated.** Three provenance findings, none holding the tree — and the third is CR25-2's own defect recurring inside its fix.
+
+**Date**: 2026-08-25. **Session**: `uat-hooks-013-5`. **Trigger**: `code-reviewer-013-4`'s **CR25-3**,
+routed here by name via `steering-hooks-013-3` [b04529] on the ground that **QA authored the transcription
+and an author checking its own paraphrase against the source is the weaker arrangement.** **Correct
+routing, and this stage accepts it: the plan's Objective is this register's own source of truth.**
+**No gate is issued. No row moves. The gate remains EXPIRED (rev 38).**
+
+## R39.1 — Source of truth established before it was used
+
+**The plan's Objective is only a source of truth if it is the current one.** Verified before relying on
+it: **plan rev 48 → 49 (`f5b7cac` → `9637735`) is five hunks, and none of them contains `## Objective` or
+any of D17's row text** — measured, not assumed. **The Objective this check reads is unmoved by the round
+that expired the gate.**
+
+**And the oracle file changed between this stage's first and second read of it** — the shared tree working
+as it does. **Everything below is derived against the file as it stands now, not against the earlier read.**
+**Reporting a finding against a stale read of a file that had already been fixed would have been this
+chain's own defect committed in the act of checking for it.**
+
+## R39.2 — **The check: all eight cells against the plan's Objective as written**
+
+**Plan, `## Objective`, D17's five rows verbatim:** *"no flag and no V2 components → Classic, nothing
+shown; V2 components without the flag and without content → V2 with the flag set and a warning; the flag
+over components within the schema and no content → V2, nothing shown; the flag over content or embeds
+without V2 components → a warning and **Classic** (the bit cleared, the body kept); V2 components together
+with content or embeds, whatever the flag → the user **chooses** Classic or V2 and is told what the other
+drops."*
+
+| # | Cell | Draft | Governing row **in the plan** | Oracle expects | Agrees? |
+|---|---|---|---|---|---|
+| 1 | `bit=0 v2=0 classic=0` | `{}` | A — no flag, no V2 components | `classic` | **✓** |
+| 2 | `bit=0 v2=0 classic=1` | `{content}` | A | `classic` | **✓** |
+| 3 | `bit=0 v2=1 classic=0` | `{components}` | B — V2 components, no flag, no content | `v2` | **✓** |
+| 4 | `bit=0 v2=1 classic=1` | `{content, components}` | E — V2 components with content | `choice` | **✓** |
+| 5 | `bit=1 v2=0 classic=0` | `{flags}` | **D13 → row C** (see R39.3) | `v2` | **✓** |
+| 6 | `bit=1 v2=0 classic=1` | `{flags, content}` | D — flag over content without V2 components | `classic` | **✓** |
+| 7 | `bit=1 v2=1 classic=0` | `{flags, components}` | C — flag over components in schema, no content | `v2` | **✓** |
+| 8 | `bit=1 v2=1 classic=1` | `{flags, content, components}` | E | `choice` | **✓** |
+
+> ## **VERDICT: the paraphrase is faithful. No cell's expected mode disagrees with the plan's Objective as written. CR25-3's falsity signature is not met and the round is NOT invalidated.**
+
+**Cells 4 and 8 are filtered out of `COMMITTING` by the oracle itself** (`expected !== 'choice'`), so the
+literals actually asserted are six. **All six agree.**
+
+## R39.3 — Cell 5: this stage derived the defect independently from the plan side, and found it already fixed
+
+**Reached before reading the correction**: cell 5's draft is `{ flags: V2_FLAG }` — **the flag with no
+components at all.** The Objective's row C reads *"the flag over **components within the schema** and no
+content"*, which describes a draft that **has** components. **On the plan's text, row C does not govern
+cell 5** except on a vacuous reading of *"components within the schema"* over the empty set — **and a cell
+whose coverage depends on a vacuous reading is not a literal transcription, it is an inference.**
+
+**The file already carries the fix.** At **CR25-2** the citation was corrected to **D13**, quoted verbatim,
+with a comment stating the same reasoning this stage derived: *"This cell has NO components, so the
+Objective's 'the flag over components within the schema' clause does not govern it; D13 does."*
+
+**Two independent routes reached the same cell** — the reviewer from the header side, this register from
+the plan side. **That is corroboration rather than agreement**, and it is worth more than either finding
+alone, because **the cell was reachable from both directions and neither checker could see the other's
+work.** **The reviewer's line is confirmed from the plan side: the cell doing the most discriminating work
+had the weakest stated provenance.**
+
+**D13's quotation verified against the plan at line 110: verbatim, word for word.** ✓
+
+## R39.4 — **Three provenance findings. None holds the tree; none is a value error; all three are QA's file**
+
+**1 — Row E is truncated in the header quotation, without an ellipsis.** The plan reads *"the user chooses
+Classic or V2 **and is told what the other drops**."* The oracle's quotation stops at *"the user chooses
+Classic or V2."* **Immaterial to every expected mode** — row-E cells are filtered out of `COMMITTING` and
+the dropped clause governs what is *displayed*, not the mode. **But the header presents the text as a
+quotation of the plan, and a quotation that silently drops a clause is not one.**
+
+**2 — D13 is quoted correctly and is `SUPERSEDED IN PART by D17`, which the oracle does not say.** The
+quoted clause **survives** — the plan's own superseding header states *"the 'not a conflict' clauses
+survive as row C"* — so **the citation is sound and this is not a falsity.** But **an oracle whose entire
+authority is literal transcription should say when it is quoting a partly-superseded row**, or the next
+reader who opens D13, sees `SUPERSEDED IN PART`, and has to work out for themselves which half survives.
+
+**3 — and this is the one worth the routing: the label doing the work is supported by a sentence the
+oracle does not quote.**
+
+> **D13's quoted clause says the bit over no components is *"NOT a conflict and is NOT refused."* It does
+> not state a mode.** Nothing in the quoted text yields `v2`.
+>
+> **What yields `v2` is D13's superseding header — *"the 'not a conflict' clauses survive as row C"* —
+> plus row C's outcome.** **That sentence is the load-bearing one and the oracle does not quote it.** The
+> cell's stated provenance is *"D13: [clause] — row C, so V2"*, in which **"row C" is an unsupported
+> assertion within the citation**, true and checkable but not shown.
+
+**This is CR25-2's own defect recurring one level inside its fix**: the value is right, the citation is now
+*correct* rather than wrong — **and the stated provenance is still thinner than the actual derivation.**
+**Recorded because it is the third member of the class in this file's short history, and because an oracle
+that is corrected once tends to be treated as corrected.**
+
+**Remedy is one clause, and it is QA's to write, not this stage's** — this register does not author
+instrument text (R29.4's rule, applied to itself): **quote D13's *"survive as row C"* sentence beside the
+clause, and mark D13 as superseded in part.**
+
+## R39.5 — Ledger delta at rev 39
+
+**No row moves. No verdict issued. The gate remains EXPIRED at rev 38.**
+
+| Item | State |
+|---|---|
+| **CR25-3** | **DISCHARGED — the paraphrase is faithful; the round is not invalidated** |
+| **Cell 5 citation** | **Already fixed at CR25-2**; this stage's independent plan-side derivation **converged** |
+| **Three provenance findings** | **ROUTED TO QA.** None holds the tree, none is a value error, none blocks the re-issue |
+| **Release decision** | **EXPIRED** (rev 38). `e1d9b2b` ungated; **the new tree `b56570d` is ungated and unread by this stage** |
+| **CR24-2** | **still open, still not fixed.** The reviewer's *"the live disagreement no longer reproduces"* is **marked as a reading, not a re-execution**, and is carried that way |
+| **Open set** | **12 register rows. All fresh at `e1d9b2b`. NONE OBSERVED.** Freshness at `b56570d` is QA's to rule |
+
+**Next Actions** — *point-in-time; later stage documents are authoritative on these items' current state.*
+
+1. **QA** — the three provenance findings at R39.4, **finding 3 first**; and its verify pass at `b56570d`.
+2. **This stage** — the gate re-issue per **R38.6**, unchanged, when the word comes. **Not started.**
+3. **The owner** — the walkthrough of the eight, unchanged.
+4. **Nobody** — reads CR25-3's discharge as covering the oracle's *reasoning*, only its **transcription**;
+   or reads M10 as having fixed CR24-2.
