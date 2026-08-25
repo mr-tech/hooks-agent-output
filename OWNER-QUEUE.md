@@ -73,9 +73,29 @@ in fact it worked and was then overwritten.
 
 **Step 1 — make SCR-1.** In a guild you control, create a normal Classic message in the composer:
 username `QA Scratch`, content `QA-R4/QA-R15 scratch subject - safe to delete.`, no embeds, no
-components. Then one SQL UPDATE on that row setting `flags` to `32768` **and** `valid` to `false`
-**in the same statement**. Both in one statement matters: it keeps this off the backfill and out of
-the distribution you review for QA-R9.
+components. **Save it, and take the message id out of the composer URL** (`/message/m/<id>/`).
+
+Then run this one statement. Both changes are in it deliberately — that keeps SCR-1 off the backfill
+and out of the distribution you review for QA-R9:
+
+```sql
+UPDATE "Messages"
+   SET data  = data || '{"flags": 32768}'::jsonb,
+       valid = false
+ WHERE id = <the id from the URL>;
+```
+
+Expect `UPDATE 1`. If it reports any other number, stop — the `WHERE` did not match what you meant.
+
+**Check it landed before you open the composer:**
+
+```sql
+SELECT id, valid, data->'flags' AS flags, data->'content' AS content
+  FROM "Messages" WHERE id = <the id>;
+```
+
+Want `valid = f`, `flags = 32768`, and your content unchanged. `flags` coming back `null` means the
+update did not apply and QA-R2 would read as a defect when it is not.
 
 **If anything goes wrong, rebuild rather than interpret.** Re-running the creation SQL returns SCR-1
 to the stuck state at no cost. A spoiled observation costs you a re-run, not a verdict — so if a
