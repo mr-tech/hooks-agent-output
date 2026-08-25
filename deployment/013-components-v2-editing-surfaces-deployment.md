@@ -76,6 +76,30 @@ Status-Detail: >-
   synthesised); no deploy-config drift; `tools/check-repo.js` **FAIL, 26 problems — non-blocking, recorded,
   not repaired**. **Nothing is marked NOT VERIFIED.** **This section is Stage 1 only: no push, no merge, no
   tag, no tree switch. `origin/master` `2d90e8a`; branch unpushed, 3 ahead; NOTHING RELEASED.**
+  **§16 appended 2026-08-25 — THE RELEASE. `website` serving ref `master` moved **`2d90e8a` -> `b56570d`**,
+  pushed **20:30:01 UTC** by `devops-hooks-013-3` (pid 3414852), **Mode A, agent-executed**, fast-forward.
+  **PUSH MADE** — exit 0 AND the remote independently re-read afterwards, never assumed. **All three
+  preconditions were verified at their own sources before the push**: (i) UAT rev 47 (`e7cdc6c`) read at the
+  UAT document — **APPROVED FOR RELEASE, UNCONDITIONAL**, all eight `PRE` rows `EXECUTED`, the rev-36
+  conditional clause **discharged, not waived**; (ii) **the release-tip verdict at `b56570d`** — a gate that
+  **did not exist when this session started**, found missing at §14.5, commissioned, and satisfied at
+  `d408477` (`Status: Release Verified`); (iii) **the owner's approval, given first-hand into this session**,
+  *"You are approved to release after QA returns"* — read as *a verdict that satisfies the gate*, not merely
+  any QA message, and this stage would have stopped had QA refused. **`devops now` was never read as
+  approval.** **QA's routed Assumption Not Checked was discharged at the console seconds before the push** —
+  `ls-remote` `2d90e8a`, ancestry exit 0, so **no assembly step existed and QA's verdict covers the merge**.
+  **Deployed == verified == UAT anchor: one object, `b56570d`** — the reconciliation's clean case, which
+  rules out a green suite testing code nobody runs. **The ref moved before the tree switched**, so the
+  switch-back changed **zero files on disk** under two live sessions in that shared tree; porcelain 0 either
+  side. **No tag** (this repo has no tag convention) and **no publish** (no registry) — neither invented to
+  satisfy a checklist. **`pnpm lint` deliberately NOT run**: it is `eslint --fix .`, it modifies the tree, and
+  it would have invalidated the very anchor. **BC-13 re-derived for THIS delta and does not reopen.** **The
+  four `POST` rows BC-12/BC-14/BC-17/BC-20 are carried into Post-Release Status, NOT dropped because the
+  merge happened** — three became decidable at the push; none owed a pre-deploy capture, checked while it was
+  still checkable. **This act replaces an UNGATED serving tip with a verified one** — a reason it was safe to
+  make, never a reason to hurry it. Serving state rests on the owner's attested mechanism; **no host-side
+  probe was performed, requested or owed**, and **nothing is marked NOT VERIFIED**. **Chain closure PENDING**:
+  the `closed/` move waits on the four `POST` rows.**
 ---
 
 # Deployment Record — Plan 013: Components V2 across the editing surfaces
@@ -1580,3 +1604,259 @@ EXECUTED`.** They land in this record's Post-Release Status, not in its release 
 
 **Nothing is marked NOT VERIFIED in this section.** **`origin/master` `2d90e8a`; `chain/013-rider-2`
 `b56570d` unpushed, 3 ahead; `website` porcelain 0. NOTHING RELEASED.**
+
+---
+
+# §16 — **THE RELEASE. `master` `2d90e8a` → `b56570d`, pushed 2026-08-25 20:30:01 UTC**
+
+**Deployment record for plan 013.** One plan is included in this release, so this is the only record it
+produces. **Nothing in §§1–15 is rewritten.**
+
+## §16.0 — Authority for restated status
+
+**The UAT document is the authority for every blocking-condition state in this section; the QA
+documents for every verdict.** Nothing here re-litigates either. **Both were re-read at their own
+documents immediately before the push** — not carried from earlier in this session, and not adopted
+from steering's relay of them.
+
+## §16.1 — Plan reference and release identifier
+
+| | |
+|---|---|
+| **Plan** | 013 — Components V2 across the editing surfaces |
+| **Release identifier** | **`website` serving ref `master` moving `2d90e8a` → `b56570d`** |
+| **Release date** | **2026-08-25, push at 20:30:01 UTC** |
+| **Execution mode** | **Mode A — agent-executed** by `devops-hooks-013-3` (pid 3414852) |
+| **Environment** | production |
+| **Epic** | Components V2 editing support |
+| **Recommended version** | **MINOR** (UAT R47.5) — *recommendation only*. **No tag was created: this repo has no tag convention** (`git tag` and `ls-remote --tags` both empty, local and remote). **No publish step: there is no registry.** Neither was invented to satisfy a checklist |
+
+## §16.2 — Repositories and SHAs shipped
+
+| Repository | Ref moved | From | To |
+|---|---|---|---|
+| **`website`** | **`master`** — the sole serving ref | `2d90e8a60270740b59b4768a68cf3f67641e4345` | **`b56570dfa916368e9942e671d594112750567923`** |
+| `project-utils` | **none moved** | — | pin unchanged at `749606d0…`; not a serving ref for this release |
+
+**Serving ref at cutover: `website` `master`.** The three commits shipped are `368f932`, `e1d9b2b`,
+`b56570d` — all plan 013 rider 2.
+
+## §16.3 — Pre-release verification, taken at the moment of push and inherited from nothing
+
+**Every expectation was stated in advance in §7 and checked against that statement.** The instruction I
+held myself to was *stop and report on any mismatch, do not adapt.* **There were none.**
+
+| Check | Expected | Observed | Result |
+|---|---|---|---|
+| branch | `chain/013-rider-2` | `chain/013-rider-2` | ✅ |
+| `rev-parse HEAD` | `b56570d…` | `b56570dfa916368e9942e671d594112750567923` | ✅ |
+| `status --porcelain` | 0 | **0 bytes** | ✅ |
+| `ls-remote origin refs/heads/master` | `2d90e8a…` | `2d90e8a60270740b59b4768a68cf3f67641e4345` | ✅ |
+| `merge-base --is-ancestor master HEAD` | exit 0 | **exit 0** | ✅ |
+| plan `Rev:` **field** | 50 | `Rev: 50` | ✅ |
+| last plan-touching commit | `eb0e291` | `eb0e291` | ✅ |
+
+### The three preconditions, each verified at its own source
+
+| # | Precondition | Verified how |
+|---|---|---|
+| **(i)** | **UAT unconditional** | **Read at the UAT document, not accepted from relay.** Rev 47, commit **`e7cdc6c`**, no uncommitted delta. R47.5: **"APPROVED FOR RELEASE — UNCONDITIONAL"**, all eight `PRE` rows `EXECUTED`, the rev-36 conditional clause **discharged, not waived**. Anchor **TREE `b56570d` · CRITERIA plan rev 50 (`eb0e291`)** — the same pair independently re-derived here |
+| **(ii)** | **Release-tip verdict at `b56570d`** | **Read at its own document.** `qa/release-b56570d-tip-verification.md`, commit **`d408477`** — `Status: Release Verified`, `Verified-At: b56570d`, `Criteria-At: plan 013 rev 50, eb0e291`. **This gate did not exist when this session started; §14.5 found it missing and it was commissioned and satisfied before the push** |
+| **(iii)** | **The owner's explicit approval of the release act** | **Given first-hand, in his own words, into this session: "You are approved to release after QA returns."** Not relayed, not inferred from *"devops now"*, which this stage consistently refused to read as approval |
+
+### QA's routed Assumption Not Checked — **discharged at the console, which is the only place it could be**
+
+QA's *"no assembly step"* finding rested on `origin/master` still being `2d90e8a` **when the merge
+actually happened**, which QA could only establish as of its own write time. Its falsity signature:
+*`merge-base --is-ancestor` non-zero, or `ls-remote` other than `2d90e8a`* — **at which point an
+assembly step exists that its verdict never examined.**
+
+**Both were run in the pre-flight above, seconds before the push: `ls-remote` → `2d90e8a`, ancestry →
+exit 0. No assembly step existed. The push was a pure fast-forward and QA's verdict covers it.**
+
+### Other gates
+
+| Gate | Result |
+|---|---|
+| **Verdict freshness** | **The assembled tip IS `b56570d` by identity** — `2d90e8a` an ancestor, 0 commits the other way. **No scratch merge was needed and no ref was moved to establish it** |
+| **Release consistency (cross-repo)** | **No `version` field in `package.json`, no CHANGELOG — so per Core Responsibility 3 this is the cross-repo reference check and no version was synthesised.** Re-checked **after** the push: specifier `github:hooks-gg/project-utils#master`; lockfile pins `749606d0…` at **4 sites**; **fresh SSH `ls-remote`** of the real remote → `749606d0…`. **No consumer left pinned to a stale branch** |
+| **Packaging integrity** | build green at the shipped SHA on a clean tree; **nothing to package** — no assets, no package script, no filename |
+| **Gitignore review** | `website` porcelain 0. In `agent-output`, 19 probe `node_modules` symlinks show as `??`, **the healthy state** — recorded, not tidied |
+| **Workspace cleanliness** | `website` porcelain **0 before the push, 0 after the switch** |
+| **Verified SHA reachable** | `git branch --contains b56570d` → **`chain/013-rider-2`, `master`.** No history rewritten; the verified tree remains auditable |
+| **Serving-ref ordering** | `master` is the **sole** serving ref; the move was a fast-forward and **could not split any pair** |
+| **`pnpm lint`** | **DELIBERATELY NOT RUN.** It is `eslint --fix .` and **modifies the tree** — destructive at a verified tip on a shared tree, and it would have invalidated the very anchor. **D51 accepts the residue anyway, so it decides nothing.** Recorded as a prohibition honoured, not an omission |
+
+## §16.4 — User confirmation — **GIVEN, first-hand**
+
+| | |
+|---|---|
+| **Response** | **"You are approved to release after QA returns."** — verbatim and complete |
+| **Given by** | **the repository owner**, directly into this session |
+| **Timestamp** | 2026-08-25, before the push at 20:30:01 UTC |
+| **Condition** | **satisfied before the push** — QA returned `Release Verified` at `d408477`, read at its own document |
+| **How the condition was read** | *"after QA returns"* was read as **after QA returns a verdict that satisfies the tip gate**, not merely after QA sends any message. **Had QA refused or been unable to verify, this stage would have stopped and returned the waiver decision to him as a separate question.** The reading was stated to steering in advance of the push, not constructed afterwards |
+| **A gap in the approval's provenance, recorded rather than smoothed** | Steering disclosed that the summary he first approved against **did not contain the four literal commands**, and said it would rather this stage refuse than stretch it. **That scruple was correct and is recorded.** It was resolved not by argument but by his approving **directly into this session**, where the command sequence was then put in front of him in full. **This record does not claim he pre-read the commands in the earlier summary; it claims he approved first-hand and had them.** |
+
+## §16.5 — Release execution — the commands this stage ran
+
+```
+1.  git -C website branch -f master chain/013-rider-2      exit 0
+      local master -> b56570d ; tree untouched, still on chain/013-rider-2 ; porcelain 0
+2.  git -C website push origin master                      exit 0     ← THE DEPLOY, 20:30:01 UTC
+      To github.com:hooks-gg/website.git
+         2d90e8a..b56570d  master -> master
+3.  git -C website ls-remote origin refs/heads/master      -> b56570d
+    git -C website rev-parse master                        -> b56570d
+4.  git -C website switch master                           exit 0
+      porcelain 0 before AND after ; HEAD b56570d ; ZERO files changed on disk
+```
+
+**PUSH: MADE.** Reported as made because it returned exit 0 **and** the remote was independently
+re-read afterwards — never assumed. No `index.lock` contention occurred.
+
+**Why the ref moved before the switch, since a later reader will find this unconventional.** The
+conventional order — `switch master` → `merge --ff-only` → `push` — would have checked out `master` at
+`2d90e8a` and **rewritten ~20 files under two sessions live in that shared tree** (`qa-hooks-013-4`,
+`uat-hooks-013-6`). Moving the ref first made the switch-back **content-neutral: zero files changed on
+disk**, which the porcelain readings either side confirm. **Approved by steering on that reasoning.**
+
+### Deploy evidence
+
+**`website` deploys on push to `master` via Vercel's git integration** — established from the repo's
+own configuration (`vercel.json` present; **`.github/workflows` does not exist**; no deploy script,
+Dockerfile or `netlify.toml`), and by the owner's attestation across the four deploy acts at §12, every
+one a push to `master`. **There is no CI step between the push and the deploy: the merge IS the
+deploy.**
+
+**The pushed commit `b56570d`, read from local git and confirmed at the remote, stands as the serving
+commit on the owner's attestation of that mechanism together with his approval of this act.** **This is
+sufficient and terminal evidence of serving state — it is not a weaker substitute for a host-side
+check.** **No host-side probe was performed, requested, or is owed**, and **no confirmation step was
+handed to the owner to run on his own host.** Nothing about serving state is marked `NOT VERIFIED`.
+
+## §16.6 — Reconcile: deployed against verified, per repository
+
+| Repository | Deployed ref | Commit at it | Verdict SHA | Reconciliation |
+|---|---|---|---|---|
+| **`website`** | **`master`** | **`b56570d`** — the pushed commit, read from local git and re-read at the remote, standing as the serving commit on the owner's attestation | **`b56570d`** (QA release-tip `d408477`; QA plan-level; UAT rev 47 anchor — **all three the same object**) | **IDENTICAL — the same object, not merely an ancestor. No surface diff is owed, because there is no difference to diff** |
+| `project-utils` | none moved | `749606d0…` | — | pin unchanged; not a serving ref for this release |
+
+**This is the reconciliation's clean case, and it is worth naming what it rules out:** the failure this
+check exists to catch — **a green suite testing code nobody runs** — **cannot arise here**, because the
+verified commit and the serving commit are one object.
+
+**And what the release changed about the chain's standing risk**: the previously serving `2d90e8a` was
+**ungated** — four commits reached `master` after the last release verdict and none carried one (§12,
+and QA repeated it independently). **This act replaces an ungated serving tip with a verified one.**
+**That is a reason the release was safe to make; it was never a reason to hurry it**, and it did not
+shorten a single gate.
+
+## §16.7 — Post-release status
+
+**Status: RELEASED. Chain closure PENDING.**
+
+### The four `POST` rows — carried, not discharged, and not dropped because the merge happened
+
+**Carried verbatim as `uat` worded it:**
+
+> **BC-12, BC-14, BC-17 and BC-20 are post-deploy-observable: they gate the chain's CLOSURE, never the
+> release act.** They must not be presented as blocking the merge — **and they must not be quietly
+> dropped once the merge happens.** Each reaches its own terminal state, **acted on at its
+> earliest-decidable condition rather than when someone happens to look.** No release is recorded
+> complete while any of them stands at `NOT EXECUTED`.
+
+| Row | Owner | Earliest decidable | State |
+|---|---|---|---|
+| **BC-12 · a V2 message that sent at `c85945f` still sends after deploy** | implementer (decision) / **uat** (observation) | **the deploy is live — i.e. NOW** | **`NOT EXECUTED`.** One 4xx refutes **by construction** — not a rate to accumulate; one failure is a hotfix trigger |
+| **BC-14 · `user-defect-fixed-in-prod`** | **uat** | **the deploy is live — i.e. NOW** | **`NOT EXECUTED`.** All four observations owed. **This is the row a by-number reference drops (U-2), and it is the chain's own reason for existing** |
+| **BC-17 · `discord-returns-row-e`** | **uat** | tip deployed **and** an import attempted against a message predating V2 enforcement | **`NOT EXECUTED`** |
+| **BC-20 · `dropped-notice-guards-send`** | **uat** | chain tip deployed | **`NOT EXECUTED`.** **A silent mode — absence of reports is not evidence for it** |
+
+**Three of the four became decidable at 20:30:01 UTC.** Per §15.4, **none of them owed a pre-deploy
+capture**, so nothing was lost by the merge being the deploy — that was checked before the push, when
+it was still checkable.
+
+### BC-13 — does not reopen, re-derived for this delta
+
+**`TERMINAL — WINDOW ELAPSED`, and it stays there.** BC-13 is devops-owned and its condition is *one
+hour after the deploy SHA is live*, so **every deploy is a fresh chance for it to reopen**. Derived for
+**this** delta rather than inherited: `git diff --numstat 2d90e8a..b56570d -- bot/` → **empty**, and
+`bot/` **exists** at the tip, so the empty result means *unchanged*, not *absent*. **No new window
+opens.**
+
+### Known issues — carried openly, none a release blocker
+
+- **F-QA33 — OPEN.** Declined as a 013 rider, routed as a new-plan candidate. **Releasing does not
+  close it** (UAT R47.5).
+- **CR25-1 / CR25-2 — OPEN residual** against the shipped oracle, on the owner's *"record it, leave
+  it"*.
+- **D51 — the ESLint residue is accepted as-is**; `pnpm lint` not exiting 0 is **not** a defect.
+- **D52 — the CR24-2 guard is armed, not fixed**; both disagreeing encodings remain.
+- **Delta coverage (QA, this release)**: three extracted definitions are behaviourally covered but **no
+  spec pins any of the seven call sites** — the *"wired is not installed"* shape, **weaker here** than
+  at the prior release. **Reported by QA, not fixed, and not a blocker on QA's own reading.**
+- **`368f932` edits a 012 test file while 012 is held whole.** QA **executed both blobs side by side**
+  rather than reading the diff and calling it safe: 6 green either side, identical test names, no
+  assertion moved. **Not a breach, not a blocker.** QA flagged a documentation tension in D51's
+  unqualified first half and deliberately did not escalate it.
+- **`tools/check-repo.js` FAILs — 26 problems** (012 link failures, vendored `node_modules` basename
+  collisions, 3 frontmatter, 3 scope-suffix — two of the last being this domain's own readiness docs).
+  **Non-blocking for release; recorded so it is not a surprise at closure; not repaired.**
+- **`ecosystem.config.json`** defines one PM2 app — the website itself under `next start`, **not a
+  second service.** Whether any instance is live is **the owner's to attest** and was **not probed**.
+
+### Rollback plan
+
+**A revert is a ref move back**: `git -C website push origin b56570d~3:master` restores `2d90e8a`, or
+`git revert` for a forward-only fix. **Vercel also retains the prior deployment** and can be rolled
+back from its own dashboard — **the owner's instrument, not this stage's**, and named here rather than
+exercised. **The prior serving tree `2d90e8a` was itself ungated**, so a rollback trades a verified tip
+for an unverified one; a forward fix is preferable unless BC-12 refutes.
+
+## §16.8 — Deployment history entry
+
+```json
+{
+  "release_identifier": "website master 2d90e8a -> b56570d",
+  "plan_ids": ["013"],
+  "date": "2026-08-25",
+  "push_utc": "2026-08-25T20:30:01Z",
+  "execution_mode": "Mode A - agent-executed",
+  "executed_by": "devops-hooks-013-3 (pid 3414852)",
+  "authorized_by": "the repository owner, first-hand, in this session",
+  "environment": "production",
+  "repositories": [
+    { "repo": "website", "serving_ref": "master", "from": "2d90e8a60270740b59b4768a68cf3f67641e4345", "to": "b56570dfa916368e9942e671d594112750567923" },
+    { "repo": "project-utils", "serving_ref": null, "pin": "749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f", "moved": false }
+  ],
+  "gates": {
+    "uat": "rev 47 (e7cdc6c) - APPROVED FOR RELEASE, UNCONDITIONAL",
+    "qa_plan_level": "QA Complete, Verified-At b56570d, Criteria-At plan rev 50",
+    "qa_release_tip": "Release Verified (d408477)",
+    "code_review": "Code Review Approved"
+  },
+  "deployed_equals_verified": true,
+  "tag": null,
+  "publish": null,
+  "post_rows_open": ["BC-12", "BC-14", "BC-17", "BC-20"],
+  "not_verified": []
+}
+```
+
+## §16.9 — Next actions
+
+1. **`uat` — BC-12, BC-14 and BC-20 are decidable NOW**; BC-17 when an import is attempted against a
+   pre-enforcement message. **Acted on at earliest decidability, not when someone happens to look.**
+2. **The roadmap subagent** — release complete; the release tracker needs updating.
+3. **This stage — the `closed/` move**, after the four `POST` rows terminalise. **Deliberately not made
+   now**, per §12.5 and because the chain is not closed.
+4. **The plan's `Status` field** — this stage's Phase 2D sets it to `Released`. **The edit is this
+   stage's to make by its own definition; committing another stage's document is not covered by its
+   standing grant, so it is put to the owner rather than taken.** §15.5's ordering held: the write
+   comes **after** the push, where it can no longer expire a gate.
+5. **The retrospective fires last** — the owner's standing rule (D45). **This stage does not spawn or
+   route to it** and reports done instead.
+
+**Nothing in this section is marked `NOT VERIFIED`.** Every artifact-side check was performed, and
+serving state rests on the owner's attested mechanism, which is its terminal evidence.
