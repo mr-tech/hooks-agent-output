@@ -1,0 +1,99 @@
+--- report-4a7126b.txt	2026-08-25 08:35:32.860041033 +0000
++++ report-2d90e8a.txt	2026-08-25 08:35:32.860041033 +0000
+@@ -44,11 +44,11 @@
+ describeUnsupportedComponentTypes([Thumbnail-11]) = ["Thumbnail"]
+ describeUnsupportedComponentTypes([container, Thumbnail-11]) = ["Thumbnail"]
+ describeUnsupportedComponentTypes(undefined) = []
+-TEMPLATE PASTE = "`Not carried: ${droppedComponentTypes.join(', ')}. Discord does not support these on hooks.gg.`"
+-TEMPLATE NEW_MESSAGE_MODAL = "`Not carried: ${droppedComponentTypes.join(', ')}. Discord does not support these on hooks.gg.`"
+-TEMPLATE JSON_MODAL_BODY = "`Not carried: ${droppedComponentTypes.join(', ')}. Discord does not support these on hooks.gg.`"
+-CODE_PATH provider exposes codeMessageDroppedNotice = true
+-CODE_PATH layout mounts <CodeMessageNotice /> = true
++TEMPLATE PASTE = "`Not supported on Hooks.gg: ${droppedComponentTypes.join(', ')}`"
++TEMPLATE NEW_MESSAGE_MODAL = "`Not supported on Hooks.gg: ${droppedComponentTypes.join(', ')}`"
++TEMPLATE JSON_MODAL_BODY = "`Not supported on Hooks.gg: ${droppedComponentTypes.join(', ')}.`"
++CODE_PATH provider exposes codeMessageDroppedNotice = false
++CODE_PATH layout mounts <CodeMessageNotice /> = false
+ 
+ ## C — Load confirmation (BC-1): describeLoadDiff(computeLoadDiff(current, incoming))
+ CASE classic -> V2 container
+@@ -88,16 +88,16 @@
+     agrees=true
+ 
+ ## D — row-E resting state (D31): does the effect populate pendingChoice or dismissedChoice?
+-PASTE effect sets dismissedChoice on requiresChoice = false
+-PASTE contains "setDismissedChoice({ validated" = false
+-PASTE contains "setPendingChoice({ validated" = true
++PASTE effect sets dismissedChoice on requiresChoice = true
++PASTE contains "setDismissedChoice({ validated" = true
++PASTE contains "setPendingChoice({ validated" = false
+ PASTE resting notice = "This message has both Components V2 and classic content — nothing was created."
+ PASTE settledNotice render guard present = true
+-JSON_MODAL_BODY effect sets dismissedChoice on requiresChoice = false
+-JSON_MODAL_BODY contains "setDismissedChoice({ validated" = false
+-JSON_MODAL_BODY contains "setPendingChoice({ validated" = true
++JSON_MODAL_BODY effect sets dismissedChoice on requiresChoice = true
++JSON_MODAL_BODY contains "setDismissedChoice({ validated" = true
++JSON_MODAL_BODY contains "setPendingChoice({ validated" = false
+ JSON_MODAL_BODY resting notice = "This message has both Components V2 and classic content — nothing was loaded."
+-JSON_MODAL_BODY settledNotice render guard present = false
++JSON_MODAL_BODY settledNotice render guard present = true
+ 
+ ## E — empty-child payloads across the five shapes relaxed at e343927 (D34)
+ EMPTY empty Container
+@@ -106,19 +106,25 @@
+   settledNotice=null
+   contentFloorError="Message must have content, embeds, or components."
+ EMPTY empty Text Display in Container
+-  importShapeAccepts=false
+-  rejectReason=["components.0.components.0.content: String must contain at least 1 character(s)"]
++  importShapeAccepts=true
++  row=B mode=v2 noticeClass=warn-v2-flag-added requiresChoice=false
++  settledNotice="This message has Components V2 content but the Components V2 flag was not set — it has been set to match."
++  contentFloorError=null
+ EMPTY empty Action Row (top level)
+   importShapeAccepts=true
+   row=A mode=classic noticeClass=none requiresChoice=false
+   settledNotice=null
+   contentFloorError="Message must have content, embeds, or components."
+ EMPTY empty Section components
+-  importShapeAccepts=false
+-  rejectReason=["components.0.components.0.components: Array must contain at least 1 element(s)"]
++  importShapeAccepts=true
++  row=B mode=v2 noticeClass=warn-v2-flag-added requiresChoice=false
++  settledNotice="This message has Components V2 content but the Components V2 flag was not set — it has been set to match."
++  contentFloorError=null
+ EMPTY empty Media Gallery items
+-  importShapeAccepts=false
+-  rejectReason=["components.0.components.0.items: Array must contain at least 1 element(s)"]
++  importShapeAccepts=true
++  row=B mode=v2 noticeClass=warn-v2-flag-added requiresChoice=false
++  settledNotice="This message has Components V2 content but the Components V2 flag was not set — it has been set to match."
++  contentFloorError=null
+ EMPTY empty Container + classic content
+   importShapeAccepts=true
+   row=A mode=classic noticeClass=none requiresChoice=false
+@@ -148,7 +154,7 @@
+     with content:"hi" -> row=E settledNotice="CHOICE" floorError=null droppedNotice=[]
+ 
+ ## F — BC-18 edit sequences at the New Message paste surface
+-REDUCER row-E branch writes: pendingChoice
++REDUCER row-E branch writes: dismissedChoice
+ SEQ BC-18 row B: warn, retype (stays), then correct by setting the flag
+   step1 json={"components":[{"type":17,"components":[{"type":10,"content":"hello"}]}]}
+     sees: PERSISTENT WARNING: This message has Components V2 content but the Components V2 flag was not set — it has been set to match.
+@@ -172,12 +178,12 @@
+   step1 json={"components":[{"type":17,"components":[{"type":10,"content":"hello"}]}]}
+     sees: PERSISTENT WARNING: This message has Components V2 content but the Components V2 flag was not set — it has been set to match.
+   step2 json={"content":"hi","components":[{"type":17,"components":[{"type":10,"content":"hello"}]}]}
+-    sees: CHOICE UI ONLY — editor and all notices replaced
++    sees: resting conflict notice + Resolve link
+ SEQ BC-18 row D: correction path that TRAVERSES row E (add components)
+   step1 json={"content":"hi","flags":32768}
+     sees: PERSISTENT WARNING: This message has the Components V2 flag but also has content or embeds, which cannot be combined — it has been saved as Classic and the flag cleared.
+   step2 json={"content":"hi","flags":32768,"components":[{"type":17,"components":[{"type":10,"content":"hello"}]}]}
+-    sees: CHOICE UI ONLY — editor and all notices replaced
++    sees: resting conflict notice + Resolve link
+ SEQ BC-18 row D: mid-edit broken JSON, then corrected
+   step1 json={"content":"hi","flags":32768}
+     sees: PERSISTENT WARNING: This message has the Components V2 flag but also has content or embeds, which cannot be combined — it has been saved as Classic and the flag cleared.

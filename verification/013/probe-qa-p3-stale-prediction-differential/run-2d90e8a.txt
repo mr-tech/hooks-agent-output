@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/qa013-p3-tip
+
+
+ Test Files  1 passed (1)
+      Tests  7 passed (7)
+   Start at  08:35:29
+   Duration  814ms (transform 137ms, setup 0ms, import 513ms, tests 11ms, environment 0ms)
+

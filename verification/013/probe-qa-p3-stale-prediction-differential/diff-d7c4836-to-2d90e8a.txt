@@ -1,0 +1,51 @@
+--- report-d7c4836.txt	2026-08-25 08:35:32.864040592 +0000
++++ report-2d90e8a.txt	2026-08-25 08:35:32.860041033 +0000
+@@ -44,11 +44,11 @@
+ describeUnsupportedComponentTypes([Thumbnail-11]) = ["Thumbnail"]
+ describeUnsupportedComponentTypes([container, Thumbnail-11]) = ["Thumbnail"]
+ describeUnsupportedComponentTypes(undefined) = []
+-TEMPLATE PASTE = "`Not carried: ${droppedComponentTypes.join(', ')}. Discord does not support these on hooks.gg.`"
+-TEMPLATE NEW_MESSAGE_MODAL = "`Not carried: ${droppedComponentTypes.join(', ')}. Discord does not support these on hooks.gg.`"
+-TEMPLATE JSON_MODAL_BODY = "`Not carried: ${droppedComponentTypes.join(', ')}. Discord does not support these on hooks.gg.`"
+-CODE_PATH provider exposes codeMessageDroppedNotice = true
+-CODE_PATH layout mounts <CodeMessageNotice /> = true
++TEMPLATE PASTE = "`Not supported on Hooks.gg: ${droppedComponentTypes.join(', ')}`"
++TEMPLATE NEW_MESSAGE_MODAL = "`Not supported on Hooks.gg: ${droppedComponentTypes.join(', ')}`"
++TEMPLATE JSON_MODAL_BODY = "`Not supported on Hooks.gg: ${droppedComponentTypes.join(', ')}.`"
++CODE_PATH provider exposes codeMessageDroppedNotice = false
++CODE_PATH layout mounts <CodeMessageNotice /> = false
+ 
+ ## C — Load confirmation (BC-1): describeLoadDiff(computeLoadDiff(current, incoming))
+ CASE classic -> V2 container
+@@ -106,19 +106,25 @@
+   settledNotice=null
+   contentFloorError="Message must have content, embeds, or components."
+ EMPTY empty Text Display in Container
+-  importShapeAccepts=false
+-  rejectReason=["components.0.components.0.content: String must contain at least 1 character(s)"]
++  importShapeAccepts=true
++  row=B mode=v2 noticeClass=warn-v2-flag-added requiresChoice=false
++  settledNotice="This message has Components V2 content but the Components V2 flag was not set — it has been set to match."
++  contentFloorError=null
+ EMPTY empty Action Row (top level)
+   importShapeAccepts=true
+   row=A mode=classic noticeClass=none requiresChoice=false
+   settledNotice=null
+   contentFloorError="Message must have content, embeds, or components."
+ EMPTY empty Section components
+-  importShapeAccepts=false
+-  rejectReason=["components.0.components.0.components: Array must contain at least 1 element(s)"]
++  importShapeAccepts=true
++  row=B mode=v2 noticeClass=warn-v2-flag-added requiresChoice=false
++  settledNotice="This message has Components V2 content but the Components V2 flag was not set — it has been set to match."
++  contentFloorError=null
+ EMPTY empty Media Gallery items
+-  importShapeAccepts=false
+-  rejectReason=["components.0.components.0.items: Array must contain at least 1 element(s)"]
++  importShapeAccepts=true
++  row=B mode=v2 noticeClass=warn-v2-flag-added requiresChoice=false
++  settledNotice="This message has Components V2 content but the Components V2 flag was not set — it has been set to match."
++  contentFloorError=null
+ EMPTY empty Container + classic content
+   importShapeAccepts=true
+   row=A mode=classic noticeClass=none requiresChoice=false

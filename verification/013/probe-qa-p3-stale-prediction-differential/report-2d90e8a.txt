@@ -1,0 +1,197 @@
+## A — resolveContentLoss over all eight cells (BC-7, BC-8, BC-9, BC-10, BC-18, BC-21)
+CELL bit=0 v2comp=0 classic=0
+  row=A mode=classic noticeClass=none requiresChoice=false
+  settledNotice=null
+  applied.flags=0 applied.content=undefined applied.components=[]
+  contentFloorError="Message must have content, embeds, or components."
+CELL bit=0 v2comp=0 classic=1
+  row=A mode=classic noticeClass=none requiresChoice=false
+  settledNotice=null
+  applied.flags=0 applied.content="hi" applied.components=[]
+  contentFloorError=null
+CELL bit=0 v2comp=1 classic=0
+  row=B mode=v2 noticeClass=warn-v2-flag-added requiresChoice=false
+  settledNotice="This message has Components V2 content but the Components V2 flag was not set — it has been set to match."
+  applied.flags=32768 applied.content="" applied.components=[{"type":17,"components":[{"type":10,"content":"hello"}]}]
+  contentFloorError=null
+CELL bit=0 v2comp=1 classic=1
+  row=E mode=null noticeClass=choice requiresChoice=true
+  option mode=classic dropSet=[components] label="This will drop your Components V2 components."
+  option mode=v2 dropSet=[content] label="This will drop your message content."
+  settledNotice=<n/a: choice>
+CELL bit=1 v2comp=0 classic=0
+  row=C mode=v2 noticeClass=none requiresChoice=false
+  settledNotice=null
+  applied.flags=32768 applied.content="" applied.components=undefined
+  contentFloorError="Message must have content, embeds, or components."
+CELL bit=1 v2comp=0 classic=1
+  row=D mode=classic noticeClass=warn-v2-flag-conflict requiresChoice=false
+  settledNotice="This message has the Components V2 flag but also has content or embeds, which cannot be combined — it has been saved as Classic and the flag cleared."
+  applied.flags=0 applied.content="hi" applied.components=[]
+  contentFloorError=null
+CELL bit=1 v2comp=1 classic=0
+  row=C mode=v2 noticeClass=none requiresChoice=false
+  settledNotice=null
+  applied.flags=32768 applied.content="" applied.components=[{"type":17,"components":[{"type":10,"content":"hello"}]}]
+  contentFloorError=null
+CELL bit=1 v2comp=1 classic=1
+  row=E mode=null noticeClass=choice requiresChoice=true
+  option mode=classic dropSet=[components] label="This will drop your Components V2 components."
+  option mode=v2 dropSet=[content] label="This will drop your message content."
+  settledNotice=<n/a: choice>
+
+## B — dropped types notice (BC-6, and the wording every surface renders)
+describeUnsupportedComponentTypes([Thumbnail-11]) = ["Thumbnail"]
+describeUnsupportedComponentTypes([container, Thumbnail-11]) = ["Thumbnail"]
+describeUnsupportedComponentTypes(undefined) = []
+TEMPLATE PASTE = "`Not supported on Hooks.gg: ${droppedComponentTypes.join(', ')}`"
+TEMPLATE NEW_MESSAGE_MODAL = "`Not supported on Hooks.gg: ${droppedComponentTypes.join(', ')}`"
+TEMPLATE JSON_MODAL_BODY = "`Not supported on Hooks.gg: ${droppedComponentTypes.join(', ')}.`"
+CODE_PATH provider exposes codeMessageDroppedNotice = false
+CODE_PATH layout mounts <CodeMessageNotice /> = false
+
+## C — Load confirmation (BC-1): describeLoadDiff(computeLoadDiff(current, incoming))
+CASE classic -> V2 container
+  added=[Container] removed=[] modeChanges=true classic->v2
+  text="This will overwrite the current message. It will add Container; switch from Classic to Components V2."
+CASE V2 container -> classic
+  added=[] removed=[Container] modeChanges=true v2->classic
+  text="This will overwrite the current message. It will remove Container; switch from Components V2 to Classic."
+CASE V2 container -> V2 action row
+  added=[Action Row] removed=[Container] modeChanges=false v2->v2
+  text="This will overwrite the current message. It will remove Container; add Action Row."
+CASE V2 container -> V2 container (no change)
+  added=[] removed=[] modeChanges=false v2->v2
+  text="This will overwrite the current message."
+CASE classic -> classic
+  added=[] removed=[] modeChanges=false classic->classic
+  text="This will overwrite the current message."
+JMB confirmation arg is raw validatedDraft = true
+JMB commitLoad applies applyDisposition = true
+JMB commitLoad sets mode from disposition = true
+CONFIRMATION vs WHAT LOAD ACTUALLY DOES (BC-1 clause 2)
+  row D incoming (flag + content, no components), current Classic
+    confirmation says : "This will overwrite the current message. It will switch from Classic to Components V2."
+    Load actually sets: mode=classic flags=0 components=[] content="hi"
+    agrees=false
+  row D incoming, current V2
+    confirmation says : "This will overwrite the current message. It will remove Container."
+    Load actually sets: mode=classic flags=0 components=[] content="hi"
+    agrees=true
+  row B incoming (components, no flag), current Classic
+    confirmation says : "This will overwrite the current message. It will add Container; switch from Classic to Components V2."
+    Load actually sets: mode=v2 flags=32768 components=[{"type":17,"components":[{"type":10,"content":"hello"}]}] content=""
+    agrees=true
+  row C incoming (flag + components), current Classic
+    confirmation says : "This will overwrite the current message. It will add Container; switch from Classic to Components V2."
+    Load actually sets: mode=v2 flags=32768 components=[{"type":17,"components":[{"type":10,"content":"hello"}]}] content=""
+    agrees=true
+
+## D — row-E resting state (D31): does the effect populate pendingChoice or dismissedChoice?
+PASTE effect sets dismissedChoice on requiresChoice = true
+PASTE contains "setDismissedChoice({ validated" = true
+PASTE contains "setPendingChoice({ validated" = false
+PASTE resting notice = "This message has both Components V2 and classic content — nothing was created."
+PASTE settledNotice render guard present = true
+JSON_MODAL_BODY effect sets dismissedChoice on requiresChoice = true
+JSON_MODAL_BODY contains "setDismissedChoice({ validated" = true
+JSON_MODAL_BODY contains "setPendingChoice({ validated" = false
+JSON_MODAL_BODY resting notice = "This message has both Components V2 and classic content — nothing was loaded."
+JSON_MODAL_BODY settledNotice render guard present = true
+
+## E — empty-child payloads across the five shapes relaxed at e343927 (D34)
+EMPTY empty Container
+  importShapeAccepts=true
+  row=A mode=classic noticeClass=none requiresChoice=false
+  settledNotice=null
+  contentFloorError="Message must have content, embeds, or components."
+EMPTY empty Text Display in Container
+  importShapeAccepts=true
+  row=B mode=v2 noticeClass=warn-v2-flag-added requiresChoice=false
+  settledNotice="This message has Components V2 content but the Components V2 flag was not set — it has been set to match."
+  contentFloorError=null
+EMPTY empty Action Row (top level)
+  importShapeAccepts=true
+  row=A mode=classic noticeClass=none requiresChoice=false
+  settledNotice=null
+  contentFloorError="Message must have content, embeds, or components."
+EMPTY empty Section components
+  importShapeAccepts=true
+  row=B mode=v2 noticeClass=warn-v2-flag-added requiresChoice=false
+  settledNotice="This message has Components V2 content but the Components V2 flag was not set — it has been set to match."
+  contentFloorError=null
+EMPTY empty Media Gallery items
+  importShapeAccepts=true
+  row=B mode=v2 noticeClass=warn-v2-flag-added requiresChoice=false
+  settledNotice="This message has Components V2 content but the Components V2 flag was not set — it has been set to match."
+  contentFloorError=null
+EMPTY empty Container + classic content
+  importShapeAccepts=true
+  row=A mode=classic noticeClass=none requiresChoice=false
+  settledNotice=null
+  contentFloorError=null
+
+## E2 — is a component that the lenient filter removes ALWAYS named? (BC-6 class)
+  top-level Thumbnail-11 (unsupported type)
+    topLevelIn=1 topLevelKept=0 removed=1 namedToUser=["Thumbnail"]
+    SILENT_DROP=false
+    with content:"hi" -> row=A settledNotice=null floorError=null droppedNotice=["Thumbnail"]
+  Container with zero children
+    topLevelIn=1 topLevelKept=0 removed=1 namedToUser=[]
+    SILENT_DROP=true
+    with content:"hi" -> row=A settledNotice=null floorError=null droppedNotice=[]
+  Action Row with zero buttons
+    topLevelIn=1 topLevelKept=0 removed=1 namedToUser=[]
+    SILENT_DROP=true
+    with content:"hi" -> row=A settledNotice=null floorError=null droppedNotice=[]
+  Container whose only child is an unsupported type
+    topLevelIn=1 topLevelKept=0 removed=1 namedToUser=["Select Menu"]
+    SILENT_DROP=false
+    with content:"hi" -> row=A settledNotice=null floorError=null droppedNotice=["Select Menu"]
+  Container with one Text Display (control: survives)
+    topLevelIn=1 topLevelKept=1 removed=0 namedToUser=[]
+    SILENT_DROP=false
+    with content:"hi" -> row=E settledNotice="CHOICE" floorError=null droppedNotice=[]
+
+## F — BC-18 edit sequences at the New Message paste surface
+REDUCER row-E branch writes: dismissedChoice
+SEQ BC-18 row B: warn, retype (stays), then correct by setting the flag
+  step1 json={"components":[{"type":17,"components":[{"type":10,"content":"hello"}]}]}
+    sees: PERSISTENT WARNING: This message has Components V2 content but the Components V2 flag was not set — it has been set to match.
+  step2 json={"components":[{"type":17,"components":[{"type":10,"content":"hello"}]}]}
+    sees: PERSISTENT WARNING: This message has Components V2 content but the Components V2 flag was not set — it has been set to match.
+  step3 json={"flags":32768,"components":[{"type":17,"components":[{"type":10,"content":"hello"}]}]}
+    sees: (nothing)
+SEQ BC-18 row D: warn, retype (stays), then correct by dropping the flag
+  step1 json={"content":"hi","flags":32768}
+    sees: PERSISTENT WARNING: This message has the Components V2 flag but also has content or embeds, which cannot be combined — it has been saved as Classic and the flag cleared.
+  step2 json={"content":"hi","flags":32768}
+    sees: PERSISTENT WARNING: This message has the Components V2 flag but also has content or embeds, which cannot be combined — it has been saved as Classic and the flag cleared.
+  step3 json={"content":"hi"}
+    sees: (nothing)
+SEQ BC-18 row D: correct by deleting the content instead
+  step1 json={"content":"hi","flags":32768}
+    sees: PERSISTENT WARNING: This message has the Components V2 flag but also has content or embeds, which cannot be combined — it has been saved as Classic and the flag cleared.
+  step2 json={"flags":32768,"components":[{"type":17,"components":[{"type":10,"content":"hello"}]}]}
+    sees: (nothing)
+SEQ BC-18 row B: correction path that TRAVERSES row E (add content)
+  step1 json={"components":[{"type":17,"components":[{"type":10,"content":"hello"}]}]}
+    sees: PERSISTENT WARNING: This message has Components V2 content but the Components V2 flag was not set — it has been set to match.
+  step2 json={"content":"hi","components":[{"type":17,"components":[{"type":10,"content":"hello"}]}]}
+    sees: resting conflict notice + Resolve link
+SEQ BC-18 row D: correction path that TRAVERSES row E (add components)
+  step1 json={"content":"hi","flags":32768}
+    sees: PERSISTENT WARNING: This message has the Components V2 flag but also has content or embeds, which cannot be combined — it has been saved as Classic and the flag cleared.
+  step2 json={"content":"hi","flags":32768,"components":[{"type":17,"components":[{"type":10,"content":"hello"}]}]}
+    sees: resting conflict notice + Resolve link
+SEQ BC-18 row D: mid-edit broken JSON, then corrected
+  step1 json={"content":"hi","flags":32768}
+    sees: PERSISTENT WARNING: This message has the Components V2 flag but also has content or embeds, which cannot be combined — it has been saved as Classic and the flag cleared.
+  step2 json={"content":"hi","flags":327
+    sees: error: JSON parse: Expected ',' or '}' after property value in JSON at position 27 (line 1 column 28)
+  step3 json={"content":"hi"}
+    sees: (nothing)
+RENDER GUARD settled  = true
+RENDER GUARD dismissed= true
+EFFECT clears settledNotice at top of every run = true
+BC-18 residue: React actually rendering these is NOT established here — owner observation.

@@ -2578,3 +2578,321 @@ requires the owner's approval, which no verdict in this document grants.
 
 **Standing note:** this table is point-in-time. The UAT document, then the deployment record, are
 authoritative on each row's execution state.
+
+---
+
+# Phase 3 pass, 2026-08-25 — the STALE predictions re-derived by execution
+
+**Session**: `qa-hooks-013-3` [ab2af3]. **Trigger**: `steering-hooks-013-3` [b04529], carrying owner
+ruling **D45** (plan rev 42, `491a540`, read at the plan). **Register maintenance only — no verdict
+moves in this pass**, and none was asked for. The QA limb of the D37/D39 review debt is a separate
+pass and waits on `code-reviewer-013-4`'s verdict, which had not landed when this was written.
+
+**Read at the file, not from the relay**: `uat/013-components-v2-editing-surfaces-uat.md` at
+**`0128763`** (rev 25) for the open set, after being told twice that it had moved. §R22.2 as amended
+by rev 25 is the authoritative open set: **17 items**, BC-21 having terminalised.
+
+## P3.1 — What was owed, and why nobody could execute a row until it was done
+
+`uat` rev 18 marked eight rows **PREDICTION STALE** — BC-1, BC-7, BC-8, BC-9, BC-10, BC-18, BC-21,
+and BC-6 as *possibly* — because the surfaces beneath them were touched at `e343927` and `2d90e8a`.
+**That marking was derived from those two commits' file lists.** A file list establishes that a
+surface *was edited*; it does not establish that anything a row *predicts* changed. Row definitions
+are QA's, so settling it is QA's, and the standing rule in this document's own Verdict Freshness
+section says how: **execute both trees over the surface; never read the diff's file list.**
+
+## P3.2 — The instrument
+
+`verification/013/probe-qa-p3-stale-prediction-differential/`. It **dumps, it does not judge**: for
+every register row that predicts a user-visible string or a disposition, it computes that value from
+the real product functions and the real surface source and writes a deterministic report. The same
+spec, unchanged, is run at three trees and the reports diffed.
+
+| Tree | Why it is in the differential |
+|---|---|
+| **`2d90e8a`** | the live tip — `origin/master` |
+| **`d7c4836`** | the commit immediately **before** the two the marking cited. `d7c4836..2d90e8a` is therefore *exactly* the marking's own basis |
+| **`4a7126b`** | the tree this document's verdict is anchored to. `4a7126b..2d90e8a` is the wider question — what moved since QA last looked |
+
+Non-vacuity is asserted inside the instrument (section Z): every stale row id must appear in the
+report, exactly eight disposition cells must be dumped, and the report must exceed a length floor.
+A dump that silently produced nothing would otherwise diff clean against another empty dump and read
+as *"no movement"* — which is the failure mode this whole pass exists to avoid.
+
+**The instrument was observed moving.** Sections B, D, E and F each show differences in at least one
+of the two diffs, so a clean section is a measured absence of movement rather than an inert probe.
+
+## P3.3 — Result
+
+**`d7c4836..2d90e8a` — the marking's own basis — moves 28 report lines** (`grep -c '^[+-][^+-]'` over
+`diff-d7c4836-to-2d90e8a.txt`; the diff was written to a file and read whole, see P3.7). All 28 fall
+in three places:
+
+1. the dropped-types notice **wording**, at all three surfaces:
+   `Not carried: ${types}. Discord does not support these on hooks.gg.`
+   → `Not supported on Hooks.gg: ${types}` (and `…: ${types}.` at `JsonModalBody`);
+2. the **code-path notice removed from the product** — `CodeMessageNotice.tsx` deleted,
+   `codeMessageDroppedNotice` gone from `MessageProvider` and from `layout.tsx`;
+3. three empty-child payloads moving from **rejected** to **accepted as row B with the flag-added
+   warning** — the D34 floor relaxation at `e343927`.
+
+**Sections A, C, D and F are byte-identical across `d7c4836..2d90e8a`.** The dispositions over all
+eight cells, every settled-notice string, the Load confirmation, and the row-E resting state **did
+not move at all** at the two commits the staleness marking named.
+
+**`4a7126b..2d90e8a` moves 48 lines**: the above, plus the row-E **resting state** at both JSON
+surfaces — `pendingChoice` → `dismissedChoice`, which is **D31 at `d7c4836`**. That commit is *not*
+one of the two the marking cited, and it is the only change in the whole delta that reaches a row's
+predicted value.
+
+## P3.4 — Per-row disposition. Eight rows in, eight rows dispositioned
+
+**Predicate for this enumeration**: every row carrying a `PREDICTION STALE` marking in `uat` rev 18
+as listed at R22.4.2, plus BC-6 which that section marked *possibly*. **Excludes** every row never so
+marked (BC-2, BC-3, BC-4, BC-5, BC-11*, BC-12–BC-17, BC-19, BC-20) — none of them is re-derived here
+and none should be read as re-derived.
+
+| Row | Marking | **Disposition** | Basis |
+|---|---|---|---|
+| **BC-1** *(load-confirmation-names-changes)* | STALE | **LIFTED — prediction unmoved.** But see F-QA29: **the row now FAILS as the code stands, and must not be put in front of an operator until it is fixed** | Section C byte-identical at all three trees. Predicted value restated literally below |
+| **BC-6** *(lenient-filter-names-drops)* | possibly STALE | **RE-DERIVED — the notice text changed, the predicate did not.** Row stays executable | `describeUnsupportedComponentTypes([Thumbnail-11]) = ["Thumbnail"]` unchanged; only the surrounding sentence moved. See F-QA30 for a member of this row's class the row does not reach |
+| **BC-7** *(M8-B: components, no flag)* | STALE | **LIFTED — prediction unmoved** | Section A cell `bit=0 v2comp=1 classic=0` identical at all three trees |
+| **BC-8** *(M8-D: content + flag)* | STALE | **LIFTED — prediction unmoved** | Section A cell `bit=1 v2comp=0 classic=1` identical at all three trees |
+| **BC-9** *(M8-E: content + components)* | STALE | **STALE CONFIRMED, on a different commit than the one cited — RE-DERIVED below** | The disposition is unmoved, but **D31 at `d7c4836`** changed what the user sees *first*. The row predicts "two options"; today the paste rests on a notice and a **Resolve** link, and the options appear only after clicking it |
+| **BC-10** *(M8-F parity)* | STALE (both limbs) | **suite limb LIFTED** (parity holds — both surfaces changed identically). **spot-observation limb RE-DERIVED** for the two row-E cells, per BC-9 | Section D shows the same change at both surfaces; sections A/F show no divergence between them |
+| **BC-18** *(paste-notice-renders)* | STALE (derived, R23.4) | **PARTIALLY LIFTED — and now decidable.** Limb 1 unmoved. Limb 2 unmoved along **every direct correction**; moved **only** where the correction traverses row E. Re-derived below | Section F, six executed edit sequences |
+| **BC-21** *(notice-silence-detector)* | STALE by inheritance | **MARKING LIFTED for the record.** `uat` rev 25 already terminalised the row on other grounds; this changes nothing about that | R23.3 ruling, P3.6 |
+
+### BC-1 — predicted value, re-derived and stated literally
+
+Replaces *"the confirmation names both differences before anything is committed"*, which was a
+paraphrase nobody could fail an observation against. The dialog is `title: 'Are you sure?'` / body /
+button `'Load'`, and the body is the whole of it:
+
+| Load | The body must read |
+|---|---|
+| no structural or mode change | `This will overwrite the current message.` |
+| adds a Container over a Classic message | `This will overwrite the current message. It will add Container; switch from Classic to Components V2.` |
+| swaps Container for Action Row inside V2 | `This will overwrite the current message. It will remove Container; add Action Row.` |
+| a **row D** draft over a V2 message | must name the **switch to Classic**. **It does not. See F-QA29** |
+
+### BC-9 / BC-10 — predicted value, re-derived for row E
+
+**Was**: *paste `{"content":"hi","components":[<container>]}` → two options, each naming its drop;
+nothing created until one is taken; dismissal leaves message and pasted text unchanged.*
+
+**Is, at `2d90e8a`** — the *resting* state after D31, at **both** JSON surfaces:
+
+1. the editor stays put; the options do **not** appear on their own;
+2. a persistent notice appears —
+   *"This message has both Components V2 and classic content — nothing was created."* at New Message,
+   *"…nothing was loaded."* at the Message JSON modal — carrying a **Resolve** link;
+3. **Resolve** opens the two options, each labelled
+   `Save as Components V2 — This will drop your message content.` and
+   `Save as Classic — This will drop your Components V2 components.`;
+4. nothing is created or loaded until one is taken; **Cancel** returns to the resting notice.
+
+**Why the re-derivation is load-bearing rather than cosmetic**: an operator handed the old wording
+pastes the payload, sees no options, and correctly reports the row FAILED. That is precisely the
+**false failure** rev 18 warned about, and it was one sitting away.
+
+### BC-18 — predicted value, re-derived. **The row is decidable today**
+
+Executed as six edit sequences over the paste surface's effect (section F). The reducer reads the
+row-E branch target **from the source**, so the one transcription models the baseline and the tip
+correctly and cannot silently mis-model whichever tree it was not written against.
+
+| Limb | Disposition |
+|---|---|
+| **appears and stays put** | **unmoved** at all three trees. Row B → *"This message has Components V2 content but the Components V2 flag was not set — it has been set to match."*; row D → *"This message has the Components V2 flag but also has content or embeds, which cannot be combined — it has been saved as Classic and the flag cleared."* Re-editing the same JSON re-renders it; it is state, not a toast |
+| **clears when the JSON is corrected** | **unmoved along every direct correction** — remove the flag, add the flag, delete the content, or pass through broken JSON and back. In all six sequences the warning is gone once the JSON is corrected |
+| **the one moved case** | a correction that **traverses row E** (adding content to a row-B draft, or components to a row-D draft). At `4a7126b` the entire editor was replaced by the choice UI; at `2d90e8a` the editor stays and the resting conflict notice + **Resolve** appears. **The warning still clears; what replaces it changed** |
+
+**So BC-18's prediction is restated as**: *a rows-B/D paste shows the matching persistent warning in
+the modal; it survives further edits that leave the row unchanged; and it clears when the JSON is
+corrected — with the note that if the correction passes through "both V2 components and classic
+content", the warning is replaced by the conflict notice and its Resolve link rather than by nothing.*
+
+**Nothing else about BC-18 changes.** Its residue is unchanged and remains the owner's: this
+instrument executes the **state machine** and pins the render guards as source text; it does not
+establish that React renders them. The paste surface's component function is not reachable without
+the hook driver **D28** rules out (`probe-qa-paste-surface-render/trace-paste-surface-unreachable.txt`).
+
+## P3.5 — Two findings the re-derivation turned up. **Both pre-existing at `4a7126b`**
+
+Neither is a movement, and neither is a regression from the post-release round: both are **identical
+at all three trees**. They were found because re-deriving a prediction means computing what the
+surface actually does, and nobody had done that for these two paths.
+
+Both are **inputs to the owed verdict at `2d90e8a`**, not verdicts themselves. Pre-registered failing
+specs are captured at `verification/013/probe-qa-p3-stale-prediction-differential/`; each is red on
+its defect assertions and **green on every positive control**, so a fix that over-reaches breaks the
+controls rather than passing quietly.
+
+### F-QA29 — the Load confirmation names a mode change that does not happen, and omits one that does
+
+**BLOCKING for BC-1. This is BC-1's own clause 2 failing.**
+
+`JsonModalBody` computes the confirmation as
+`describeLoadDiff(computeLoadDiff(message?.data ?? {}, validatedDraft))` — over the **raw** validated
+draft — while `commitLoad` applies `applyDisposition(validatedDraft)` and sets the editor mode from
+`disposition.mode`. For **disposition row D** (V2 flag set, classic content present, no V2
+components) those disagree, and it has two faces:
+
+| Current message | Dialog says | Load actually does |
+|---|---|---|
+| **Classic** | `It will switch from Classic to Components V2.` | stays **Classic**, flag cleared — a **false statement** |
+| **Components V2** | `It will remove Container.` — and nothing about the mode | switches **V2 → Classic**, flag cleared — an **omission**, of exactly the thing BC-1 clause 2 asks for |
+
+**Who this reaches.** Row D is the shape of records **5712/5842** — the repair path this chain exists
+to make safe (F-QA15 was about reaching it at all). The second face is the repair sitting itself: the
+record *is* V2-flagged, the operator is repairing it to Classic, and the dialog standing between them
+and an irreversible overwrite does not say the message type changes.
+
+**Why the suite is green over it.** `013-m2c-load-diff.test.ts` (13 tests) asserts `computeLoadDiff`
+**in isolation**, over fixtures that never carry `content` — so **no fixture in it can express row
+D**, and the disagreement is not merely unasserted but *unobservable*. Its flag-only case
+(`{flags: 32768, components: [ACTION_ROW]}`) is row **C**, which agrees. This is the property-audit
+failure named in this document's own method: the criterion named an example, the test discriminated
+for that example perfectly, and the rest of the class went unexamined.
+
+**Spec**: `013-fqa29-load-confirmation-names-actual-mode.test.ts` — **3 failed / 5 passed** at
+`2d90e8a`; the three failures are the three row-D assertions and all four controls (rows B, C, an
+add/remove pair, and an identical draft) pass.
+
+**Disposition order** (this document's Input Robustness rule): the caller *can* send row D — the
+whole chain exists because real stored records are that shape — so it does not stop at step 1, and
+the defect is in the **surface's own contract with the user**, not a missing runtime guard.
+
+### F-QA30 — a component emptied by the lenient filter is removed with nothing said
+
+**A member of BC-6's class that BC-6's stated example does not reach.**
+
+`filterTopLevelComponent` (`src/server/api/utils/shapes.ts`) drops a **Container left with no
+surviving children** by returning `null` **without calling `dropped?.add(...)`** — and the same for an
+**Action Row left with no buttons**. `describeUnsupportedComponentTypes` therefore returns `[]` and no
+surface renders a notice.
+
+Executed outcome (section E2), pasting `{"content":"hi","components":[{"type":17,"components":[]}]}`:
+
+> disposition **row A**, `settledNotice = null`, `contentFloorError = null`, dropped-types notice `[]`
+> — a **green state** over a component that was silently deleted.
+
+That is verbatim the failure BC-5's operator-terms cell names: *"Green means safe. A green state over
+an empty object teaches the user to trust it."*
+
+**Both directions are in the instrument's own table**, which is why this is a finding and not a
+guess: a top-level Thumbnail-11 **is** named (`["Thumbnail"]`), a Container emptied *by* an
+unsupported child **is** named (`["Select Menu"]`), and a Container that keeps a child is correctly
+not a drop at all. Only the emptied-by-emptiness member is silent.
+
+**D34's relation to it, stated precisely because it is easy to overstate**: `e343927` did **not**
+create this — the filter runs as a `z.preprocess` *before* the shapes, so the `.min(1)` floors never
+saw an emptied container. What D34 changed is the **reachability of the surrounding class**: three
+empty-child payloads that previously failed the import shape loudly now parse. More payloads reach
+this path than before; the silence at the end of it is older.
+
+**Spec**: `013-fqa30-emptied-container-drop-is-named.test.ts` — **3 failed / 4 passed** at `2d90e8a`;
+all four controls green.
+
+## P3.6 — Ruling on `uat`'s R23.3 query: **the inheritance marking was over-broad. Lifted**
+
+`uat` rev 18 marked BC-21 *"PREDICTION STALE by inheritance"* from BC-18 because the two share a
+surface. Rev 23 judged the inheritance does not hold and **correctly declined to remove the marking
+itself** — a marking removed by the wrong stage is the same defect as one applied by the wrong stage.
+It is QA's, and QA agrees, on two independent grounds:
+
+1. **`uat`'s ground, which is sufficient on its own.** BC-21's predicate is **presence** and its
+   failure signature is **absence**. Staleness can only bite where an observation could *diverge*
+   from its prediction, and a presence predicate observed as present cannot diverge from itself.
+   Sharing a surface is not sharing a predicate.
+2. **The measured ground, which QA owed and `uat` could not produce.** Even taking the inheritance at
+   face value, **there was nothing to inherit**: section A shows every settled-notice string
+   byte-identical across `d7c4836..2d90e8a`. BC-18's own staleness was **derived** (R23.4), not a
+   property of those two commits — and this pass finds even that limb unmoved except along a
+   row-E-traversing correction, which BC-21's predicate does not touch.
+
+**BC-21's `PREDICTION STALE by inheritance` marking is LIFTED.** This is recorded for the register's
+correctness and **gates nothing**: `uat` rev 25 terminalised BC-21 as `EXECUTED` on the owner's
+answer, on grounds that never depended on this query. **Nothing about that row's state moves here,
+and this must not be read as reopening it.**
+
+`uat` was right to route it rather than perform it, and right again that it should not have been
+prioritised over BC-18. It was not.
+
+## P3.7 — Instrument note, paid for during this pass
+
+`diff … | sed -n '/## E —/,$p'` returned an **empty region** for a diff that did contain hunks there,
+and read as *"no movement in section E"*. It is the class `RTK.md` names — a **positional predicate
+over filtered output** — and it very nearly cost this pass the D34 result, which is one of the three
+things that actually moved. Every differential above was taken by writing the diff to a file and
+reading the whole file, and every count by `grep -c`, which computes before the filter.
+
+Recorded because it is the seventh sighting of this chain's recurring instrument-lie class, and the
+second where the instrument was sound and the **predicate** was the wrong one.
+
+## P3.8 — Register maintenance log — appended, not restated
+
+- **2026-08-25 — BC-1, BC-7, BC-8, BC-21: `PREDICTION STALE` LIFTED** (qa, this pass). Settled by
+  execution across `d7c4836..2d90e8a`, not by reading the two commits' file lists.
+  Evidence: `verification/013/probe-qa-p3-stale-prediction-differential/`.
+- **2026-08-25 — BC-6, BC-9, BC-10, BC-18: predictions RE-DERIVED** (qa, this pass), each to the
+  literal value the surface produces at `2d90e8a`. **BC-9's staleness is real but was attributed to
+  the wrong commit** — its cause is D31 at `d7c4836`, which rev 18 did not cite.
+- **2026-08-25 — BC-1 is NOT executable until F-QA29 is fixed** (qa, this pass). The prediction is
+  sound; the surface fails it. Executing the row now would produce a true failure, not a false one —
+  which is why it is recorded here rather than left for the sitting to discover.
+- **2026-08-25 — BC-6's class has an uncovered member, F-QA30** (qa, this pass). **No new row is
+  minted**: BC-6's condition already covers it and the code fails that condition. Adding an ID would
+  inflate the register to describe a defect the register already names.
+
+**No row's `State` column is changed by this pass**, and none is QA's to change: state is the UAT
+document's. What changed is what the rows **say**, which is QA's.
+
+## P3.9 — Correction to this document's own tail
+
+The **Final QA state** section closes with *"Nothing has shipped. `4a7126b` is not at the remote."*
+**That was true when written and is now false.** `a151fb4` was released, and `origin/master` is
+`2d90e8a` with four owner commits past the release. The sentence is left in place as the dated
+statement it was; this line is the correction, recorded beside it rather than over it.
+
+**`2d90e8a` carries no QA verdict.** The refresh at `4a7126b` stands for its own tree and for nothing
+past it, and **F-QA29 and F-QA30 were both present at `4a7126b` and were not caught there** — stated
+plainly because a reader comparing the two would otherwise have to work it out.
+
+## P3.10 — Assumption Not Checked
+
+**This pass assumes the eight rows it re-derived are the whole of what moved, and it does not test
+that.** The differential enumerates *rows that predict a user-visible string or a disposition*; a
+register row whose prediction turns on something the report does not compute — a timing, a network
+form, a database write — would diff clean here while having moved underneath. Concretely: **BC-12**
+(the send-path wire form) and **BC-17** (whether Discord returns row E) both predict over Discord's
+API, which this instrument never contacts, and **BC-13** predicts over a clock.
+
+**Observable signature of its falsity**: an operator executes a row this pass declared unmoved and
+gets a mismatch that is neither of the two faces of F-QA29 nor a rendering absence — i.e. a failure
+in a dimension the report has no column for.
+
+**Owner of closing it**: the **QA limb of the D37/D39 review debt** — the pass that runs at
+`2d90e8a` after `code-reviewer-013-4` reports — which executes the suite rather than a dump and is
+where a wire-form or persistence movement would surface. It is named again in the handoff below so
+the assumption is routed rather than shelved.
+
+## P3.11 — State
+
+**No verdict moved. `QA Complete` at `4a7126b` stands for that tree, and reaches no other.**
+
+**BLOCKING RELEASE CONDITION — carried to UAT by name**, as additions to chain 013's single register's
+standing obligations rather than as new IDs:
+
+> **BC-1 must not be executed until F-QA29 is fixed.** *If an operator is sat in front of the Load
+> confirmation as the code stands, the dialog will tell him the message type changes when it does
+> not, or stay silent when it does — on the 5712/5842 repair path, immediately before an irreversible
+> overwrite.*
+>
+> **BC-6 cannot pass while F-QA30 stands.** *A Container emptied by the filter is deleted from the
+> user's message with nothing shown anywhere, beside a green state — which is the defect this
+> milestone exists to close, in the surface it exists to close it in.*
+
+**Standing note, as on every list in this document**: point-in-time. The UAT document, then the
+deployment record, are authoritative on each row's execution state.

@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/qa013-p3-d7c4836
+
+
+ Test Files  1 passed (1)
+      Tests  7 passed (7)
+   Start at  08:35:31
+   Duration  816ms (transform 148ms, setup 0ms, import 516ms, tests 12ms, environment 0ms)
+
