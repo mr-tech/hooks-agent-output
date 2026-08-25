@@ -5,6 +5,36 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
+  **Rev 29 — a BLOCKING RELEASE CONDITION that travelled here by name is lifted, and BC-6 is still not
+  executable.** **Both P3.11 conditions are recorded with results, because that is this stage's first
+  responsibility and a blocking item is never silently omitted.** **BC-6's constraint → `LIFTED — QA RULING
+  (NEVER APPLIED)`; BC-1's STANDS**, awaiting `load-confirmation-names-wrong-mode` in the rider round.
+  **`LIFTED` is deliberately a different word from `WITHDRAWN`** — this register's `WITHDRAWN` is owner-only,
+  and reusing it for QA's act would corrupt the one terminal state whose whole content is *who ruled it*;
+  R28.2's doctrine applied **prospectively** this time. **Two further collapses refused: BC-6 the row is not
+  withdrawn — it stands open and `NOT EXECUTED`; and the constraint was never *fixed*, it *never applied***,
+  QA's first two grounds being definitional — a fixed blocker would imply a commit that does not exist.
+  **This stage rests on ground 2**, the mechanical one: the surface renders `Not supported on Hooks.gg:
+  ${types}`, so naming an emptied Container would assert something false — **a register row cannot require a
+  surface to make a false statement**, and a row that did would be defective rather than the product failing.
+  **AND A RULING AGAINST QA'S OWN FRAMING: BC-6 is NOT EXECUTABLE.** QA disclosed unprompted that BC-6's
+  failure-mode cell over-reaches its condition cell and filed that as retrospective material; **it is live.**
+  The wider cell is still in the row the operator will read, so **an operator executing against it can record
+  a FAIL on a row QA has just ruled the code satisfies** — a false failure manufactured by the row's own
+  internal disagreement. **A row with two predicates is executable to either answer, which is worse than a
+  missing cell, not better.** **Routed to QA; reconciling cells is authoring a row definition and that is
+  QA's.** **Rev 28's "nothing is now blocked on wording" is thereby false for BC-6, and the superseded
+  sentence stands where it was written.** **Absence-is-expected carried into the gate** (R29.5):
+  `emptied-composite-drop-unnamed`'s absence from the fixed tree is the **correct** state, and this **inverts**
+  the chain's silent-mode doctrine — a reader primed by it finds nothing and reads an omission. **Both readings
+  of an absence are available and neither is safe by default; only the record settles which was expected.**
+  **Renumbering: carry the stable names. This document's seven `F-QA` citations were enumerated and none falls
+  in the collided range** — recorded although the answer was *nothing to do*, since *"I checked and none
+  applied"* and *"I did not check"* are indistinguishable in a record that omits the check. **Tree now
+  `chain/013-rider-2` at `2d90e8a`, `master` and `origin/master` unmoved, tracked-clean — re-derived, and
+  nothing anchored moves.** **The gate will name the post-rider commit and state that the merge to `master` is
+  a separate act.** **Open set unchanged — 12 register rows + F-1; two of the twelve now carry named blockers
+  on their execution.** **Decision UNMOVED at `EXPIRED IN FULL`.**
   **Rev 28 — BC-11b → `DROPPED — D44` (2026-08-25). This register was the stale document.** The owner answered
   R27.3's bare yes/no: **D44 dropped BC-11b, devops's four places were right.** Dated reconcile note, **superseded
   text preserved**, and **R22.4 §4's instruction to carry BC-11b into the gate as residual risk is WITHDRAWN** —
@@ -230,6 +260,7 @@ Verified-At: >-
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — **a relay gap disclosed unprompted**: the owner's BC-5 ruling reached `devops-hooks-013-2` today and **not this stage**, so this session's read-in enumerated BC-5 as live | Owner's unprompted words *"I'm not doing BC-5."*, disambiguated by selection prompt in this register's vocabulary; he chose **"Withdraw it"**. Register state left to this document, nothing set by steering | **Rev 26. BC-5 → `WITHDRAWN`, 2026-08-25, ruled by the owner. Open set 17 → 16.** **The verbatim sentence did not settle it** — it is ambiguous between ending the obligation and declining to be its subject. **The load-bearing fact is the declined option**: *"Establish the fixture"* would have preserved the test with a researcher and **someone who is not him** as subject, answering his sentence on its literal reading; he passed it over. **Framing weighed and found weaker than BC-21's** — no alternative was costless — **and ruled not to matter: R25.1's framing test governs elicited *facts*, not elicited *rulings*.** A withdrawal is true because he ruled it; there is no fact behind it for a framing to distort. **Residual named (R26.4) as a fourth shape**: obligation ends, subject stays in the product **and stays uncharacterised** — the uncertainty outlives the row **and is silent**, where BC-11b's self-advertises. Naming it sits inside his chosen words (*"nothing is claimed, either way"*); it creates **no task, owner, gate or prediction.** **Two reconcile notes landed** (R26.5), superseded text preserved not overwritten. **Decision unmoved at `EXPIRED IN FULL`.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — owner ruling on **U-C5** plus three row corrections from `devops-hooks-013-2`, **relayed as citations to check, not as facts established**; steering set nothing | Owner ruled **"Record is enough"** on the plan's description of the shipped change; devops reported **BC-13 already terminal**, **U-C7 already discharged**, **U-C6 genuinely still owed** | **Rev 27. Open set 16 → 13.** **Every citation read at the cited document.** **U-C5 → `EXECUTED`** — two of its three limbs were already obsolete (D25's second route taken by the record at `e34df07`; U-1 struck at rev 21), so what he ruled on was narrower than the row as written; **closed on the substance with the delta recorded.** **BC-13 → `TERMINAL — WINDOW ELAPSED`** (clock instrument; non-reopening *tested* via an empty `bot/` diff proven against a present path). **U-C7 → `EXECUTED`**, three independent corroborations. **U-C6 correctly still open** — deliberately not discharged early. **AND A CONFLICT ROUTED (R27.3): this register says BC-11b is `TERMINAL: CANNOT BE EXECUTED` with a real residual; four places across both devops documents say `DROPPED under D44`.** Terminal either way, so **the open set does not move** — but it decides whether the gate names a residual or a phantom. **Evidence leans against this register**, and it matches rev 22's own confessed *dependent-incomplete* defect. **Not resolved here: D44 forbids re-deriving the struck subject.** **Nobody writes the gate's residual section until it is answered.** **Decision unmoved at `EXPIRED IN FULL`.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — **the R27.3 answer**, put as the bare yes/no this stage scoped it to; nothing reopened | **YES — D44 dropped BC-11b.** Plus notice that code review has landed and that the owner accepted its MEDIUM-1 as a rider | **Rev 28. BC-11b → `DROPPED — D44`, 2026-08-25 — this register was the stale document and devops's four places were right.** Dated reconcile note; **superseded text preserved**; **R22.4 §4's instruction to carry BC-11b as residual is WITHDRAWN** and no such residual is named. **All three grounds this stage recorded against its own document held**, including that **§4's instruction was itself the propagation** — the handover-carrying-superseded-state shape this session arrived warning about. **Resolved without touching what D44 forbids.** **THREE STATE CHANGES NO RELAY CARRIED, caught by re-deriving at write time** — rev 26's caveat paying one rev later: **QA Phase 3 (`f3cbb66`) settles all eight STALE markings by execution** (BC-1/7/8/21 LIFTED; BC-6/9/10/18 RE-DERIVED; BC-18 decidable today), so **the block on seven operator rows is lifted and none of them terminalises**; **U-C6 → `EXECUTED`** (deployment §12.5, `14bc31c`), the last documentary row; **F-1 raised and folded into this register** rather than left travelling — half of QA's adopted render instrument absent from the serving tree, routed qa → uat. **Code review `APPROVED_WITH_COMMENTS` at `2d90e8a`, anchoring exemplary — and RECORDED IN ADVANCE AS EXPIRING**, because the MEDIUM-1 rider is production code. **Open set 13 → 12 register rows + F-1. Residuals: three, all silent.** **Decision unmoved at `EXPIRED IN FULL`.** |
+| 2026-08-25 | `steering-hooks-013-3` [b04529] — **a BLOCKING RELEASE CONDITION that travelled here by name is withdrawn**; relayed QA's `f5f3264`, plus an ID correction and a tree switch | QA withdrew *"BC-6 cannot pass while `emptied-composite-drop-unnamed` stands"* **on its own ruling, not the owner's**; BC-1's condition stands | **Rev 29. Both P3.11 blocking conditions recorded with results, per this stage's first responsibility.** **BC-6's constraint → `LIFTED — QA RULING (NEVER APPLIED)`, 2026-08-25**; **BC-1's STANDS**. **`LIFTED` is deliberately not `WITHDRAWN`** — this register's `WITHDRAWN` is owner-only, and filing QA's act under it would corrupt the one terminal state whose content is *who ruled it*. **Two further collapses refused: BC-6 the row is NOT withdrawn — it stands open; and it was never *fixed*, it *never applied*** — QA's first two grounds are definitional, and a fixed blocker would imply a commit that does not exist. **Rests on ground 2 as the mechanical one: a register row cannot require a surface to make a false statement.** Ground 3 noted, not relied on. **AND A RULING AGAINST QA'S OWN FRAMING: BC-6 is NOT EXECUTABLE.** QA disclosed that BC-6's failure-mode cell over-reaches its condition cell and called it retrospective; **it is live** — the wider cell is still in the row the operator will read, so an operator executing against it can record a **FAIL on a row QA has just ruled the code satisfies.** **A row with two predicates is executable to either answer**, which is worse than a missing cell. **Routed to QA, not improvised.** **Absence-is-expected carried to the gate** (R29.5) — and recorded as an inversion of this chain's own silent-mode doctrine. **Renumbering checked, not assumed: none of this document's seven `F-QA` citations falls in the collided range.** **Tree on `chain/013-rider-2` at `2d90e8a`, `master` and `origin/master` unmoved; nothing anchored moves.** **Open set unchanged — 12 + F-1. Decision unmoved at `EXPIRED IN FULL`.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -4092,3 +4123,216 @@ word.
    made now.
 6. **Nobody** — reads the code review's `APPROVED_WITH_COMMENTS` at `2d90e8a` as a live verdict once the
    rider lands (R28.5), or names a BC-11b residual (R28.1).
+
+---
+
+# Rev 29 — A blocking release condition that travelled here by name is lifted. **Recorded with its result, because that is this stage's first responsibility.** And BC-6 is not executable yet, for a reason QA disclosed and framed as retrospective.
+
+**Date**: 2026-08-25. **Session**: `uat-hooks-013-5`. **Trigger**: `steering-hooks-013-3` [b04529]
+relayed QA's `f5f3264`. **Read at QA's document, not taken from the relay.** **No gate is opened here.**
+
+## R29.1 — The blocking-condition register: both P3.11 items, with results
+
+**This stage's first responsibility is that every item QA marked `BLOCKING RELEASE CONDITION` is
+recorded here with its result, and that none is silently omitted.** P3.11 carried two, **addressed to
+this document by name**. Both are recorded below whether or not they still bind.
+
+**QA framed them correctly and it is worth naming:** they were written *"as additions to chain 013's
+single register's standing obligations rather than as new IDs."* **That is the one-register rule
+honoured by the stage that had the most convenient reason to break it** — a new ID would have been
+easier to write and would have created the parallel ledger this stage is required to refuse.
+
+| Blocking condition, as QA wrote it | State | Date |
+|---|---|---|
+| **BC-1 must not be executed until `load-confirmation-names-wrong-mode` (F-QA31) is fixed** — *the dialog will tell him the message type changes when it does not, or stay silent when it does, immediately before an irreversible overwrite* | **STANDS — unaffected.** In the rider round | — |
+| **BC-6 cannot pass while `emptied-composite-drop-unnamed` (F-QA32) stands** — *a Container emptied by the filter is deleted from the user's message with nothing shown anywhere, beside a green state* | **`LIFTED — QA RULING (NEVER APPLIED)`** | **2026-08-25** |
+
+**Verified at QA's document at this rev's write time**: the original stands at **P3.11 (L2885)** and the
+withdrawal at **L3231–3244**, **side by side, neither edited out of the other.** QA's stated ground for
+that arrangement is one this register endorses without reservation: **a blocking condition that quietly
+disappears is worse than one that was never raised.**
+
+## R29.2 — `LIFTED` is a deliberately different word from `WITHDRAWN`, and two collapses are refused here
+
+**This register's `WITHDRAWN` is owner-only — an obligation the owner ended.** QA's act is not that, and
+filing it under the same word would corrupt the one terminal state whose whole content is *who ruled it*.
+**So the constraint is filed `LIFTED — QA RULING (NEVER APPLIED)`, and the vocabulary now separates them.**
+This is R28.2's doctrine applied **prospectively** rather than after a propagation: the cheapest error
+available here was to write "withdrawn" twice and mean two different things.
+
+**Two further collapses, refused:**
+
+- **BC-6 is not withdrawn. BC-6 stands as written, open and `NOT EXECUTED`.** What lifted is a
+  **constraint on its executability**, not the row. A reader who takes "the BC-6 blocking condition was
+  withdrawn" as "BC-6 is closed" has lost the entire content of the sentence.
+- **It was not *fixed*. It *never applied*.** QA's first two grounds are **definitional** — they establish
+  the finding was never within BC-6's scope, not that a defect was repaired. **The distinction is load-
+  bearing for this register**: a fixed blocker implies a code change happened and would put a commit in
+  the chain; a never-applied blocker implies the row's scope was misread and puts nothing there. **Only
+  the second is true, and the gate must not imply the first.**
+
+## R29.3 — Weighing QA's three grounds, and which one this stage rests on
+
+**This stage does not read source and does not re-run tests.** It can therefore weigh a ground only
+insofar as the ground is mechanical — which is exactly the property QA identified in the one it said it
+would defend hardest.
+
+1. **BC-6's condition and predicted-value cells are both about *types*; an emptied Container is an
+   instance removal, and Container is a supported type.** **Mechanical, and this stage accepts it.** No
+   type was dropped, so the row's own predicate is not engaged.
+2. **The other reading would require the notice to lie.** The surface renders `Not supported on
+   Hooks.gg: ${types}`; naming an emptied Container asserts *"Container is not supported on Hooks.gg"*,
+   **which is false**. **This is the ground this stage rests on**, and QA was right about why: **it is
+   mechanical, and it is independent of what the owner ruled.** **A register row cannot require a
+   surface to make a false statement** — a row that did would be unsatisfiable by any correct
+   implementation, which makes it a defective row rather than a failing product.
+3. **The filter already satisfies BC-6 across its class, by QA's own control.** **Noted and not relied
+   on.** It is a test result from the ruling party's own instrument; it corroborates and does not
+   establish. **Grounds 1 and 2 carry this alone, and would carry it if ground 3 were withdrawn tomorrow.**
+
+**Accepted. The constraint is lifted, and nothing about it returns to the owner** — he ruled on the
+filter's behaviour; QA then ruled on its own row's scope, which is QA's to rule because **row definitions
+are QA's and this register has said so since R22.4 §2.**
+
+## R29.4 — **BC-6 is still not executable, and the reason is the defect QA disclosed against itself**
+
+**QA disclosed, unprompted, that BC-6's failure-mode cell over-reaches its condition cell:** condition
+*"the dropped types"*; failure mode *"a component vanishes with no trace"* — **strictly wider** — and it
+named that over-reach as what made the withdrawn finding feel supported.
+
+**QA framed this as retrospective material. This stage's ruling is that it is live, and it blocks BC-6's
+execution until it is reconciled.** Stated as a disagreement rather than an amendment, because QA owns
+the row:
+
+> **The over-reach is not a historical explanation of a past error. It is still in the row the operator
+> will read at the walkthrough.** QA ruled on the **condition** cell. **The failure-mode cell was not
+> reconciled to it and still says something wider.** An operator sat in front of BC-6 who executes
+> against the failure-mode cell can observe an emptied Container vanishing with no trace, and record a
+> **FAIL** — **on a row QA has just ruled the code satisfies.**
+
+**That is a false failure, manufactured by the row's own internal disagreement**, and this register has
+spent four revisions on the principle that produced it: *a row run against wording that does not match
+its predicate yields a result that gets filed rather than investigated.* **Rev 18 marked eight rows stale
+to prevent exactly this; QA Phase 3 cleared all eight by execution. This is the same hazard arriving by a
+different door — not staleness, but two cells of one row specifying two different predicates.**
+
+**And it is worse than a missing cell, not better.** This stage's standing rule is that **an item missing
+its prediction or subject is not yet executable and is routed back to QA rather than improvised.** A row
+with **two predicates** is executable — **to either answer** — which is the failure mode that does not
+announce itself.
+
+**Routed to QA. Not improvised here**, because reconciling the cells is authoring a row definition and
+that is QA's, not this stage's. **The ask is one line: make BC-6's failure-mode cell say what its
+condition cell says.** **BC-6 stays open and is marked NOT EXECUTABLE pending that reconciliation** — a
+constraint of this register's own raising, and the first one in this chain that did not come from QA.
+
+## R29.5 — For the gate, and for whoever reads it first: **an absence that is the correct state**
+
+QA states — and this register carries it forward, because **the gate is what a later reader opens
+first** — that **`emptied-composite-drop-unnamed`'s absence from the fixed tree is the EXPECTED state.**
+**A reader must not read that absence as a missed fix.** It is in QA's carry-forward and the planner is
+being told to put it in the plan; it is recorded here for the same reason.
+
+**This is worth more than a pass-through note, because it inverts this chain's own doctrine and the
+inversion is easy to miss.** This register's standing rule on silent failure modes is that **absence is
+what an attestation is made of, so quiet is no evidence** — the guard against reading nothing-happened as
+nothing-wrong. **Here the absence is correct, and the risk runs the other way**: a later reader, primed by
+that very doctrine, finds nothing where a defect was described and reads the nothing as an **omission**.
+
+**Both readings of an absence are available, and neither is safe by default.** What settles it is never
+the absence — it is the record saying which one was expected. **That is what this section is, and it is
+why it belongs in the gate rather than only in QA's carry-forward.**
+
+## R29.6 — The renumbering: this register's own citations checked rather than assumed
+
+QA disclosed, unprompted, that it numbered its Phase 3 findings from the last ID it could see rather than
+from the true high-water mark, and **collided with two of its own closed findings** — the defect its
+register carries a note warning against. Resolved on that register's precedent: **older keeps the number,
+newer renumbers, and every row now carries a stable name.**
+
+| Superseded ID | **Correct ID** | **Stable name — cite this** | State |
+|---|---|---|---|
+| F-QA29 | **F-QA31** | **`load-confirmation-names-wrong-mode`** | OPEN, in the rider round; **blocks BC-1** |
+| F-QA30 | **F-QA32** | **`emptied-composite-drop-unnamed`** | **WITHDRAWN, pulled from the round** |
+| F-QA31 | **F-QA33** | **`disclosure-pointer-dangles`** | OPEN, in the rider round |
+
+**This register's own exposure, measured rather than assumed:** every `F-QA` identifier appearing anywhere
+in this document is **F-QA11, F-QA14, F-QA15, F-QA21, F-QA22, F-QA23, F-QA26**. **None falls in the
+collided range. No citation in this document needs correcting.** *Method: enumeration written to a file
+and counted on the file, not as a predicate over filtered stream output.*
+
+**Recorded even though the answer was "nothing to do", because "I checked and none applied" and "I did not
+check" are indistinguishable in a record that omits the check** — which is this chain's most-repeated
+lesson and the one rev 21 was corrected for.
+
+**Carry the names, not the numbers, from here on.**
+
+## R29.7 — The tree moved to a chain branch. Re-derived, and it changes nothing anchored
+
+**Verified at this rev's write time, not inherited:** the working tree is on **`chain/013-rider-2` at
+`2d90e8a`**; **`master` = `2d90e8a`**; **`origin/master` = `2d90e8a`** (computed at the remote);
+**tracked-clean**. **Steering's account holds in every particular.**
+
+**Its reason is sound and this stage records agreement:** the release had collapsed `master` and the chain
+branch, **which silently converts the implementer's standing commit grant into permission to commit onto
+the branch serving production.** A grant whose scope changes because two refs happen to coincide is a
+grant nobody authored. **Checking out the chain branch is the steering thread's own step**, so this is
+ownership exercised, not a tree switched from under anyone.
+
+**Nothing anchored moves.** Every verdict in this chain is anchored to a **commit**, and `2d90e8a` is the
+same object under either ref. **The code review verdict is unaffected by the switch — it remains affected
+by the rider, which is a different thing and is recorded at R28.5.**
+
+**One consequence carried forward to the gate:** the gate will be written at the **post-rider tip on the
+chain branch**, and it names **that commit**. **The release act — the merge to `master` — is a separate
+step with a separate owner**, and an approval at a chain-branch commit is not an approval of a merge that
+has not happened. **The gate will say so in terms.**
+
+## R29.8 — Ledger delta at rev 29
+
+| Item | Before | **At rev 29** | Basis |
+|---|---|---|---|
+| **BC-6 blocking constraint** (QA, P3.11) | **BLOCKING**, travelled here by name | **`LIFTED — QA RULING (NEVER APPLIED)`**, 2026-08-25 | R29.1–29.3. Grounds 1 and 2 are mechanical and carry it alone |
+| **BC-6** (the row) | `NOT EXECUTED`, executable | **`NOT EXECUTED` — NOT EXECUTABLE, cells unreconciled (R29.4)** | **This register's own constraint**, routed to QA. **A row with two predicates is executable to either answer** |
+| **BC-1 blocking constraint** (QA, P3.11) | **BLOCKING** | **STANDS — unchanged** | `load-confirmation-names-wrong-mode` is in the rider round |
+| **BC-1** (the row) | `NOT EXECUTED`, executable | **`NOT EXECUTED` — must not be executed until F-QA31 is fixed** | QA's condition, unaffected by this ruling |
+| **F-QA numbering** | three IDs as relayed | **corrected; stable names adopted** | R29.6. **No citation in this document was affected** |
+| **Working tree** | `master` at `2d90e8a` | **`chain/013-rider-2` at `2d90e8a`**; `master` and `origin/master` unmoved | R29.7. **Nothing anchored moves** |
+| **Standing release decision** | `EXPIRED IN FULL` | **unchanged** | Nothing in this pass reaches it |
+| **Open set** | **12 register rows + F-1** | **unchanged — 12 + F-1** | **No row terminalised and none was added.** A lifted constraint is not a discharged row |
+
+**The open set is unchanged at 12 register rows plus F-1**: BC-1, BC-4, BC-6, BC-7, BC-8, BC-9 (`PRE`
+operator), BC-10 (split limb), BC-18, and BC-12, BC-14, BC-17, BC-20 (`POST`). **Nothing documentary.**
+
+**Two of the twelve now carry named blockers on their execution** — **BC-1** (QA's, awaiting the rider) and
+**BC-6** (this register's, awaiting a one-line reconciliation). **Rev 28 recorded that nothing was any
+longer blocked on wording. That sentence is now false for BC-6, and this is the correction** — not a
+reversal of Phase 3, which stands, but a second wording defect of a different kind found in a different
+place. **The superseded sentence stands where it was written.**
+
+## R29.9 — State
+
+**UAT Complete** stands — **a status on this document reached at `4a7126b`, not a gate on any live tree.**
+**No verdict moved. The release decision stays `EXPIRED IN FULL`.**
+
+**Open set: 12 register rows + F-1.** **Residuals: three, all silent** (R28.6), unchanged by this pass.
+
+**Outstanding — four:**
+
+1. **The operator walkthrough.** Twelve rows, **ten executable**, none observed. **BC-1 and BC-6 are not
+   yet executable** and must not be sat in front of an operator until they are.
+2. **QA — reconcile BC-6's failure-mode cell to its condition cell** (R29.4). One line.
+3. **F-1** — QA rules, then this stage.
+4. **The final gate at the post-rider tip**, naming that commit and stating that the merge to `master` is
+   a separate act. **R24.2 governs; R28.5 sharpens it.**
+
+**Nothing is asked of the coordinator.** This stage does not self-start and is holding.
+
+**Next Actions** — *point-in-time; later stage documents are authoritative on these items' current state.*
+
+1. **QA** — BC-6's failure-mode cell (R29.4); rule on F-1; re-verify at the post-rider tip.
+2. **Implementer** — the MEDIUM-1 rider, `load-confirmation-names-wrong-mode`, `disclosure-pointer-dangles`.
+3. **Code review** — re-run at the post-rider tip. **Its `2d90e8a` verdict is inherited by nobody.**
+4. **Steering** — the Decisions Register row owed for the U-C5 ruling, **still unwritten**.
+5. **Nobody** — reads BC-6's lifted constraint as BC-6 being closed, reads the lift as a fix rather than a
+   scope ruling, or reads `emptied-composite-drop-unnamed`'s absence from the fixed tree as a missed fix.
