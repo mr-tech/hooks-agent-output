@@ -67,12 +67,6 @@ round now carries a **review debt that blocks chain closure** (D39), parked on y
   writes that line; say no and the record stays as the plan words it, and the next person to count
   gets a false alarm. **No agent has adopted or proposed a remedy here — this pass is genuinely open.**
 
-- **When to repair 5712 and 5842.** *"Haven't done it yet."* **This one closes a door if you act, not
-  if you wait** — they are the only live proof of the problem. 013 made the JSON-editor route
-  non-destructive for this shape while the mode toggle still destroys content, so the two repair
-  routes are no longer equivalent. **They are also the only records that can still reach
-  `SaveAsMenu`'s conflict gate**; once repaired, removing that gate becomes a fair question.
-
 ## EVERYTHING BELOW IS ON HOLD — 2026-08-23
 
 **Your words:** *"This effort is on hold until the fixes are implemented."* Registered as **D20**
