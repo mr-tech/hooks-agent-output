@@ -15,7 +15,7 @@ Verified-At: >-
   populations committed, so the content-identity fallback is NOT constructed and no manifest is
   owed — that fallback exists only for uncommitted content. **Any change to production code after
   this expires the code-review verdict, the QA verdict, and this release decision with them.**
-Status: Active
+Status: Released
 Status-Detail: >-
   UAT Complete. **APPROVED FOR RELEASE — UNCONDITIONAL** (2026-08-25). The 2026-08-23 conditional
   approval is **DISCHARGED**: all **20** blocking-condition rows are terminal — **16 EXECUTED, 4

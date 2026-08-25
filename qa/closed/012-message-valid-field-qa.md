@@ -12,7 +12,7 @@ Verified-At: >-
   QA instruments, now committed — no content-identity fallback remains. project-utils master @
   749606d (M1-b re-read at the committed rollup). Any production-code change after this expires
   the verdict.
-Status: QA Complete
+Status: Released
 Status-Detail: >-
   Phase 1 rev 3. Strategy complete and re-derived against plan rev 6 (`7af8936`), which enacted
   all three QA findings (D11, D12, F-QA2). R12/R13 closed by owner ruling. One new finding —

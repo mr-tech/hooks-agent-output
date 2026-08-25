@@ -3,7 +3,7 @@ ID: 012
 Origin: 012
 UUID: 12a4fe3c
 Parent: message-valid-field-for-statbot-2026-08-23.md
-Status: Active
+Status: Released
 ---
 
 # Implementation: Plan 012 — `valid` field on stored messages
