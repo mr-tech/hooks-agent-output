@@ -5,6 +5,30 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
+  **Rev 27 — U-C5 → `EXECUTED`; BC-13 and U-C7 confirmed terminal at their own documents. Open set 16 → 13.**
+  **Every citation was read at the cited document, not taken from the relay.** **U-C5's row was obsolete in two
+  of its three limbs before he was asked**: D25's second route was taken by the deployment record at `e34df07`
+  (L12, L152–162), and its U-1 limb was struck at rev 21 — so the live question was only whether the **plan** is
+  corrected to describe the whole shipped change. **He ruled "Record is enough"**, declining the option described
+  as blocking closure. **Closed on the substance with the delta recorded**, per this stage's rule that an action
+  discharged in a different document than the one it named is not returned for a documentation shuffle.
+  **Devops earned a specific credit**: it refused to put U-C5's stale wording to the owner, because **an answer
+  to a stale question gets filed as though it answered the live one** — this chain's false-pass shape, caught
+  before the owner rather than after. **BC-13 `TERMINAL — WINDOW ELAPSED`** (the clock is the row's own
+  instrument; non-reopening **tested**, an empty `bot/` diff proven against a path shown present, which is the
+  instrument-lie guard applied correctly by its own author). **U-C7 `EXECUTED`**, three corroborations.
+  **U-C6 correctly still open** — deliberately not discharged early. **THE FINDING (R27.3): this register and
+  both devops documents state incompatible terminal states for BC-11b** — `TERMINAL: CANNOT BE EXECUTED` with a
+  real residual here, **`DROPPED under D44` in four mutually consistent places there.** **Terminal either way,
+  so the open set does not move**; it decides only whether the gate names a residual or **a phantom**.
+  **The evidence leans against this register** — BC-11a is already `STRUCK — D44` and the two are the mint and
+  the ask of one subject, and it is precisely rev 22's own confessed **dependent-incomplete** defect, which
+  would make **R22.4 §4's instruction to the successor the propagation itself.** **Not resolved here: D44
+  forbids re-deriving the struck subject, and this stage did not try.** **Routed as one yes/no question, and
+  nobody writes the gate's residual section until it is answered** — a residual section that is confidently
+  wrong is worse than one that is late. **Residual inventory assembled early (R27.5): four candidates, all
+  silent, none findable by reading the terminal column.** **Decision UNMOVED at `EXPIRED IN FULL`** — three rows
+  going terminal in one pass is the register working at speed, not a verdict trending toward approval.
   **Rev 26 — BC-5 → `WITHDRAWN` (2026-08-25) on the owner's ruling. Open set 17 → 16.** His unprompted words
   were *"I'm not doing BC-5."* — **ambiguous between ending the obligation and declining to be its subject**,
   so steering put the distinction to him in this register's vocabulary and he chose **"Withdraw it"**.
@@ -180,6 +204,7 @@ Verified-At: >-
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — relay of a standing owner ruling; **nothing asked** | **D45**: *"Bring 013 pipeline to completion. Retro is the last to fire."* Lifts D39's "NEITHER RUNS NOW" | **Rev 24. Received, read at the plan rather than from the relay, and it moves nothing here.** D45's own row disclaims four inferences, including **no operator sitting against a row whose prediction is still STALE** — the rev-23 BC-18 guard honoured at registration without being asked for. **One inference refused in advance (R24.2)**: a clean trailing review does **not** revive the expired decision. `code-reviewer` approved + `qa` Complete + `UAT Complete` **≠** approved for release — expiry is not suspension, `UAT Complete` was reached at `4a7126b`, arriving verdicts inherit no tree identity, and **18 conditions stand open**. Same false-pass shape as rev 23, one level up. **Open set 18; decision `EXPIRED IN FULL`; BC-18/BC-21 as rev 23 left them.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — **the missing input**: the owner answered rev 23's one word | Owner selected **"Deliberate paste"** for BC-21; register state left to this document, nothing set by steering | **Rev 25. BC-21 → `EXECUTED`, 2026-08-25. Open set 18 → 17.** **Provenance disclosed unprompted and weighed, not adopted**: no verbatim, agent-authored options — but the taken option asserts *"and the warning appeared"*, and he passed over **"Leave it open"**, a costless exit. **Residual named**: he adopted a described act rather than characterising the payload himself. **The R23.3 staleness query does NOT gate it** — staleness bites only where observation can diverge from prediction, and **a presence predicate observed as present cannot diverge from itself**; BC-18's stale limb *can*, which is why the two rows separate for the same reason they separated at rev 23. **Decision unmoved at `EXPIRED IN FULL`** — a condition going terminal is the register working, not a verdict change. |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — **a relay gap disclosed unprompted**: the owner's BC-5 ruling reached `devops-hooks-013-2` today and **not this stage**, so this session's read-in enumerated BC-5 as live | Owner's unprompted words *"I'm not doing BC-5."*, disambiguated by selection prompt in this register's vocabulary; he chose **"Withdraw it"**. Register state left to this document, nothing set by steering | **Rev 26. BC-5 → `WITHDRAWN`, 2026-08-25, ruled by the owner. Open set 17 → 16.** **The verbatim sentence did not settle it** — it is ambiguous between ending the obligation and declining to be its subject. **The load-bearing fact is the declined option**: *"Establish the fixture"* would have preserved the test with a researcher and **someone who is not him** as subject, answering his sentence on its literal reading; he passed it over. **Framing weighed and found weaker than BC-21's** — no alternative was costless — **and ruled not to matter: R25.1's framing test governs elicited *facts*, not elicited *rulings*.** A withdrawal is true because he ruled it; there is no fact behind it for a framing to distort. **Residual named (R26.4) as a fourth shape**: obligation ends, subject stays in the product **and stays uncharacterised** — the uncertainty outlives the row **and is silent**, where BC-11b's self-advertises. Naming it sits inside his chosen words (*"nothing is claimed, either way"*); it creates **no task, owner, gate or prediction.** **Two reconcile notes landed** (R26.5), superseded text preserved not overwritten. **Decision unmoved at `EXPIRED IN FULL`.** |
+| 2026-08-25 | `steering-hooks-013-3` [b04529] — owner ruling on **U-C5** plus three row corrections from `devops-hooks-013-2`, **relayed as citations to check, not as facts established**; steering set nothing | Owner ruled **"Record is enough"** on the plan's description of the shipped change; devops reported **BC-13 already terminal**, **U-C7 already discharged**, **U-C6 genuinely still owed** | **Rev 27. Open set 16 → 13.** **Every citation read at the cited document.** **U-C5 → `EXECUTED`** — two of its three limbs were already obsolete (D25's second route taken by the record at `e34df07`; U-1 struck at rev 21), so what he ruled on was narrower than the row as written; **closed on the substance with the delta recorded.** **BC-13 → `TERMINAL — WINDOW ELAPSED`** (clock instrument; non-reopening *tested* via an empty `bot/` diff proven against a present path). **U-C7 → `EXECUTED`**, three independent corroborations. **U-C6 correctly still open** — deliberately not discharged early. **AND A CONFLICT ROUTED (R27.3): this register says BC-11b is `TERMINAL: CANNOT BE EXECUTED` with a real residual; four places across both devops documents say `DROPPED under D44`.** Terminal either way, so **the open set does not move** — but it decides whether the gate names a residual or a phantom. **Evidence leans against this register**, and it matches rev 22's own confessed *dependent-incomplete* defect. **Not resolved here: D44 forbids re-deriving the struck subject.** **Nobody writes the gate's residual section until it is answered.** **Decision unmoved at `EXPIRED IN FULL`.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -3598,3 +3623,205 @@ review and QA have reported.
    of the 16, derive and state the covered path set, and name the tree identity the gate is reached at.
 3. **Nobody** — records BC-5 as executed, or reads its withdrawal as evidence about the behaviour it would
    have tested. **It claims nothing either way, by the owner's own chosen words.**
+
+---
+
+# Rev 27 — U-C5 → `EXECUTED`, BC-13 and U-C7 confirmed terminal at their own documents. Open set 16 → 13. **And a conflict on BC-11b that must be settled before any gate.**
+
+**Date**: 2026-08-25. **Session**: `uat-hooks-013-5`. **Trigger**: `steering-hooks-013-3` [b04529]
+relayed an owner ruling on U-C5 plus three row corrections from `devops-hooks-013-2`, **explicitly as
+citations to check rather than as facts it had established, and set nothing itself.** **Every citation
+below was read at the cited document at this rev's write time.** **No gate is opened here** — code
+review and QA have still not reported.
+
+## R27.1 — U-C5 → `EXECUTED`. What he ruled on was narrower than the row as written, and that delta is the record
+
+**The row as written is obsolete in two of its three limbs, and neither this stage nor the owner made it
+so.** Verified at the documents, not taken from the relay:
+
+| Limb of U-C5 as written | Status | Verified at |
+|---|---|---|
+| *R-5's widening gates an unwritten deployment record* | **Obsolete.** D25 offered two discharge routes; readiness **L531** records the owner choosing the planner pass with *"the record stays unwritten"* — **and the record was then written anyway and took route two.** Deployment **L158–160**: *"This record therefore takes D25's second route"*; **L12** discharges **D25 item (iii)** that way, since `e34df07` | readiness L531; deployment L12, L152–162 |
+| *U-1 folds into this same decision point* | **Folds in nothing.** **U-1 was struck under D44 at rev 21** by this document | R22.2, this file |
+| *the plan's own description of the shipped change* | **Live, and the only thing left** | — |
+
+**So the question actually put to him was the narrow one**: is the **plan document** corrected to describe
+the whole of the shipped behaviour change, or left describing half of it. The plan states that
+mode-follows-marking changed how **flagged-but-empty** messages open. It does not state that **ordinary
+component-less messages changed too** — previously skipped, leaving whatever mode was on screen; now
+actively set to classic.
+
+**HIS RULING: "Record is enough."** Described to him as *"Nothing more happens. The plan keeps a sentence
+describing half the change; anyone reading the plan later rather than the deployment record gets the
+narrow version and could act on it."* **Not taken:** *"Fix the plan"* (one planner round, after which the
+plan matches what shipped) and *"Leave it open"* (*"the chain does not close while it sits there"*).
+
+**He declined the option that was described to him as blocking closure.** He therefore unblocked closure
+**knowing** the plan stays incomplete, with that consequence stated in the option he took.
+
+**Terminal state — `EXECUTED`, 2026-08-25, and the reason it is not `SUPERSEDED`:** two limbs were
+discharged elsewhere and one was ruled. This stage's standing rule is that **a required action discharged
+in a different document than the one it named is closed on the substance, with the delta recorded — not
+returned for a documentation shuffle.** U-C5's substance is discharged: partly by the deployment record
+at `e34df07` taking D25's second route, partly by rev 21's strike, and the remainder by the owner's
+ruling today. **The delta is the table above. The row closes on the substance.**
+
+**Provenance** — agent-authored options, enumerated by `devops` from routes already existing in the
+record, **no verbatim sentence**; disclosed unprompted, the same discipline as BC-21 and BC-5.
+
+**Framing, tested against R26.3 and passing more cleanly than BC-5 did:** this is again an elicited
+**ruling**, not an elicited fact, so R25.1's framing test is not the governing one. But it is worth
+recording that **the taken option carried its own cost in its own description** — *"anyone reading the
+plan later … could act on it."* **An option that states the price of taking it is the form these prompts
+should take**, and this one did.
+
+## R27.2 — The narrower point devops got right, and it is worth naming
+
+Devops declined to ask the owner U-C5's question **as written**, on the ground that the question no longer
+matched the facts — two limbs having been discharged or struck. **That judgement is correct and is the
+harder call.** Putting a stale question to the owner would have produced an answer to a question nobody
+had, and **an answer to a stale question gets filed as though it answered the live one.** That is this
+chain's recurring false-pass shape, caught here **before** it reached the owner rather than after.
+
+## R27.3 — **BC-11b: this register and both devops documents state incompatible terminal states, and the gate cannot be written until it is settled**
+
+**This is the finding of this pass and it is not a documentation tidy-up.**
+
+| Document | BC-11b's state | Consequence for the gate |
+|---|---|---|
+| **This register** (R22.2, R22.4 §4) | **`TERMINAL: CANNOT BE EXECUTED`** — *"never read as closed: it records a permanent absence of evidence"*; **R22.4 §4 instructs the successor to carry it into the gate as real residual risk** | **A residual is named** |
+| **Readiness** L958, **deployment** L141–143, L254, L535–537, L567 — **four places, mutually consistent** | **`DROPPED under D44`** (plan rev 39, `13a6e66`) — *"Its subject is struck from chain 013"*; *"not a live obligation on this chain… blocked nothing before the strike and blocks nothing after it"* | **There is nothing to name.** Carrying a residual would be carrying a **phantom** |
+
+**Both cannot be current.** `CANNOT BE EXECUTED` says *we are obliged to know and permanently cannot* —
+R22.4 §4's whole point is that this must not be collapsed into "closed". `DROPPED under D44` says the
+obligation is **gone with its subject**. **One of these two documents will mislead a reader on residual
+risk, and it is the gate that publishes the answer.**
+
+**What this stage can and cannot do here, stated exactly:**
+
+- **It cannot resolve it.** Deciding which row D44 dropped means identifying the struck subject. **D44 is
+  absolute: no stage may cite, rely on, reason from or re-derive the struck IDs.** This stage has not
+  attempted to and will not. **This section names a conflict between two documents' recorded states; it
+  does not investigate D44 and asks nobody why.**
+- **It is bounded, and the bound matters.** **Both documents agree BC-11b is terminal and blocks
+  nothing.** So the conflict **does not move the open set** — 13 either way — and does not touch the
+  release decision. **It is confined entirely to the gate's residual section**, which is also the one
+  place a reader looks to learn what is *not* known.
+
+**And this stage must record which way the evidence leans, against its own document.** **It leans against
+this register.** Three grounds:
+
+1. **Four consistent statements across two devops documents, each naming the same ruling and commit
+   (`13a6e66`, plan rev 39), against one statement here.**
+2. **BC-11a and BC-11b are the mint and the ask of the same subject.** This register already carries
+   **BC-11a as `STRUCK — D44`**. **If the subject is struck, both legs fall** — and a register that struck
+   one leg while leaving the other on a pre-strike terminal state is describing an outcome that has no
+   coherent reading.
+3. **It is exactly the defect rev 22 diagnosed and evidently did not fully clear.** R22.1's own words:
+   the rev-21 strike was *"digit-complete and dependent-incomplete"* — the instruments searched for the
+   token, **and D44 drops dependents.** Rev 22 struck nine dependent passages. **BC-11b's own row state
+   appears to be a tenth it did not reach.** *An instrument that searches for the token searches for the
+   token* — and BC-11b's row carries no token.
+
+**So the likely fact is that this register is the stale document and R22.4 §4's instruction to the
+successor is itself the propagation.** **That is not asserted, because this stage cannot verify it without
+doing the one thing D44 forbids.** **It is routed.**
+
+**Routed to steering, for the owner or for whoever holds D44's execution** — one question, requiring no
+explanation and no reopening: **did D44 drop BC-11b?** **Yes** → this register corrects to `DROPPED —
+D44` by dated reconcile note, the superseded text preserved, and **no BC-11b residual is named in the
+gate.** **No** → the devops documents carry the correction, and the residual stands as R22.4 §4 has it.
+
+**Nobody writes the gate's residual section until this is answered**, because both available answers are
+currently supported by a committed document, and **a residual section that is confidently wrong is worse
+than one that is late.**
+
+## R27.4 — A restatement lag, recorded so it is reconciled rather than argued
+
+The deployment record's second-act table (**L552**) carries **BC-21 as `NOT EXECUTED`**. **This register
+has BC-21 `EXECUTED` — 2026-08-25 (rev 25).** **This is not a conflict**: the record predates rev 25, and
+the standing division is that **row definitions are QA's and row state is this document's**. Devops's
+table is a restatement that has fallen behind its authority, and the fix is devops's at its next pass.
+
+**It is recorded because the same shape, one level up, is R27.3.** A restated status is only as current as
+the moment it was restated, and **neither document above names the other as its authority for these rows**
+— which is why the BC-11b divergence could sit in four committed places without anything contradicting it.
+
+## R27.5 — The residual inventory the gate will publish, assembled here so it is not assembled under time pressure
+
+**Four candidates, three certain and one pending R27.3.** **All four are *silent* — none announces itself
+to a reader, and that is the property they share:**
+
+| Residual | Status | Why it is silent |
+|---|---|---|
+| **BC-5's subject** (R26.4) — a behaviour in the product, **never characterised**, obligation ended by owner ruling | **Certain** | `WITHDRAWN` is a closed shape; a reader scanning terminal rows sees a discharged register |
+| **The plan's half-sentence** (R27.1) — by owner ruling, the plan describes half the shipped change and **no stage may "correct" it** | **Certain** | The sentence **reads complete**. Nothing marks it as partial. Steering reports this is the **same shape as D40** and is owed a Decisions Register row, **not yet written** and parked in its docket |
+| **BC-21's provenance** (R25.1) — the owner adopted a described act; he did not independently characterise the payload | **Certain** | The row reads `EXECUTED`, which is what it is; the distinction between a selection and a verbatim account survives it |
+| **BC-11b** — obliged and permanently unreachable | **PENDING R27.3.** Named only if D44 did not drop it | Either a real silent residual or a phantom. **Currently unknown which** |
+
+**BC-11b apart, this chain's residuals are not failures — they are rulings and limits, correctly taken.
+What they have in common is that none of them can be found by reading the register's terminal column.**
+**That is the argument for the residual section existing, and it is why it is assembled before the gate is
+under time pressure rather than during it.**
+
+## R27.6 — Ledger delta at rev 27
+
+| Row | Before | **At rev 27** | Basis, verified at the cited document |
+|---|---|---|---|
+| **U-C5** · R-5's widening | `NOT EXECUTED`, owner-only, **the blocking edge** | **`EXECUTED` — 2026-08-25** | R27.1. Two limbs discharged elsewhere (deployment L12/L152–162, `e34df07`; rev 21's strike), the remainder ruled *"Record is enough"*. **Closed on the substance, delta recorded** |
+| **BC-13** · `bot-code-ttl-residue` | `NOT EXECUTED`, `POST`, devops-owned | **`TERMINAL — WINDOW ELAPSED`** | Deployment **L229**, **L244–250**: deploy 00:56:37 UTC, +1h window closed 01:56:37, written 03:45 — **the row's own instrument is the clock**. Re-affirmed for the second act at **L549, L555–563**, where non-reopening was **tested, not assumed**: `git diff --name-only a151fb4 4a7126b -- bot/` empty **while `bot/` is present in the tree**, so the emptiness is a genuine negative and not a path typo. **That is the instrument-lie guard this chain has paid for seven times, applied correctly by its own author** |
+| **U-C7** | `NOT EXECUTED`, documentary, devops | **`EXECUTED`** — discharged by the deployment record at **`e34df07`** | **Three independent corroborations**: readiness **L29**, **L960**, **L981**; deployment **L12** |
+| **U-C6** | `NOT EXECUTED`, documentary, devops | **unchanged — open, and correctly so** | Deployment **L622**: terminal `Status` on the implementation document, **at chain closure, not now** — *"closing and moving live documents before the chain closes would strand them."* **Readiness L480–485, L530 agree.** **This is a row deliberately not discharged early, which is the opposite of an oversight** |
+| **BC-11b** | `TERMINAL: CANNOT BE EXECUTED` | **unchanged here — CONFLICT ROUTED (R27.3)** | Not this stage's to resolve. **Terminal either way; the open set does not move** |
+| **Standing release decision** | `EXPIRED IN FULL` | **unchanged** | Expiry is not suspension (R24.2). **Three rows going terminal in one pass revive nothing** |
+| **Open set** | **16** (R26.6) | **13** | U-C5, BC-13, U-C7 terminal |
+
+**The open set, enumerated rather than counted — 13 rows:**
+
+- **`PRE`, operator (6):** BC-1, BC-4, BC-6, BC-7, BC-8, BC-9 — BC-4's suite limb **MET**, fixture owed;
+  **BC-1, BC-7, BC-8, BC-9 predictions STALE (rev 18), BC-6 possibly stale**
+- **`PRE`, split limb (1):** BC-10 — suite limb **MET**, spot-observation limb `NOT EXECUTED`, **both stale**
+- **`PRE`, operator (1):** BC-18 — prediction STALE; **the last live condition of the standing, expired decision**
+- **`POST` (4):** BC-12, BC-14, BC-17, BC-20 — **gate chain closure, never the release act**. **BC-20 has an
+  absence signature: no volume of quiet is evidence for it.** *(BC-13 removed this rev.)*
+- **Documentary (1):** **U-C6** — devops's, discharges at chain closure
+
+**6 + 1 + 1 + 4 + 1 = 13.** ✓ **No owner-only row now stands open except the operator `PRE` rows** — U-C5
+was the last documentary one, and **BC-5 was withdrawn at rev 26.** **The operator rows remain blocked
+behind QA's stale-prediction re-derivation and are not made runnable by this pass.**
+
+## R27.7 — State
+
+**UAT Complete** stands — **a status on this document reached at `4a7126b`, not a gate on the live tree.**
+**No verdict moved. The release decision stays `EXPIRED IN FULL`.** Three rows reaching terminal states in
+one pass is the register working at speed, **not a verdict trending toward approval**; R24.2 is not
+softened by a shrinking open set, and a small open set is not a discharged one.
+
+**Tree identity at this rev, re-derived and not inherited:** `origin/master` = `2d90e8a`, tracked-clean,
+**ungated** — neither approved nor refused. **This rev reaches no verdict, so it anchors none.**
+
+**Open set: 13** (R27.6, enumerated).
+
+**Outstanding — three:**
+
+1. **QA — BC-18's prediction re-derivation.** Still the live one, and it gates the six operator `PRE` rows.
+2. **Steering/owner — the BC-11b question (R27.3).** One word. **It blocks the gate's residual section, not
+   the gate's arithmetic.**
+3. **The final gate.** **R24.2 governs and is not softened**: code review approved + QA Complete + UAT
+   Complete **≠** approved for release.
+
+**Owner-only and not this stage's to discharge, as amended:** **the operator `PRE` rows only.** **U-C5 is
+no longer on this list; nor is BC-5.**
+
+**Nothing is asked of the coordinator beyond item 2.** This stage does not self-start and is holding.
+
+**Next Actions** — *point-in-time; later stage documents are authoritative on these items' current state.*
+
+1. **QA** — BC-18's prediction re-derivation (already owed).
+2. **Steering** — put the R27.3 BC-11b question. **Do not reopen D44 and do not explain it**; the answer is
+   yes or no, and either answer is actionable here.
+3. **Devops** — its own two restatement lags: BC-21 (R27.4), and BC-11b if R27.3 resolves against its
+   documents. **U-C6 stays open by its own correct reasoning and needs no action.**
+4. **Steering** — the Decisions Register row owed for the U-C5 ruling (R27.5), parked in its docket while
+   the plan has live readers. **Recorded here so the delay cannot lose it.**
+5. **Nobody** — writes the gate's residual section before R27.3 is answered.
