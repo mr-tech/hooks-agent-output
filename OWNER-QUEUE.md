@@ -28,7 +28,7 @@ below**; plan rev 21, `Status: UAT Approved`. **The release cannot proceed until
 **Authority for depth**: UAT's Appendix B, rev 11 (`86c9afb`). The steps below are the executable
 extract so you need open nothing else. **If the two ever disagree, Appendix B wins and this file is
 the defect.** One deliberate difference: Appendix B names the tip as `821330d`; it is now
-**`a151fb4`** — the delta is four test files and zero production files, so behaviour is identical.
+**`a151fb4`** — the delta is one commit, three test files, zero production files, so behaviour is identical.
 
 ### 013-A. MINT SPARE SEEDS FIRST. Two minutes, and it expires at the deploy.
 
