@@ -55,6 +55,39 @@ and save it. **Pass, two halves:** (a) the save **succeeds**, and (b) that recor
 then shows `valid: false`. **(a) is the one that matters** — if the save is rejected, the field has
 become a gate, which the plan forbids, and it goes back to the implementer.
 
+### QA-R4 and QA-R15 — rewritten onto a scratch record, because you fixed 5712
+
+These are the two checks that were stuck. QA rewrote them onto a purpose-made record, **SCR-1**,
+because nothing in the app can produce another stuck message any more (that is the fix working) and
+5712 is repaired. **These two are the last things blocking chain closure.**
+
+**First, make SCR-1** — two steps:
+1. In a guild you control, create a normal Classic message in the composer: username `QA Scratch`,
+   content `QA-R4/QA-R15 scratch subject - safe to delete.`, no embeds, no components.
+2. One SQL UPDATE on that row setting `flags` to `32768` **and** `valid` to `false` **in the same
+   statement**. Both in one statement matters — it keeps this off the backfill and out of the
+   distribution you review for QA-R9.
+
+**Before you read a red result as a defect, confirm the live site is serving the current code**
+(`a74b9e2` or later). If the deploy is behind, both checks fail in a pattern that looks exactly like
+the fix being broken — and the wrong conclusion is to withdraw guidance that is actually correct.
+
+**QA-R4 — open SCR-1 in the composer.** **Pass:** it opens in Components V2 mode, shows the error
+text *"Components V2 messages cannot contain embeds or content."* **verbatim**, and Send is not
+available. **If the error names a different reason, the result is void rather than passing** — SCR-1
+was built wrong and needs rebuilding before either check means anything.
+
+**QA-R15 — from there, press "Classic" on the mode switch, then Save.** No JSON modal is involved,
+and **no "Switch message mode?" modal will appear** — that is expected here and is not QA-R5/R6
+failing. **Pass, three parts:** the stuck flag is cleared, the content is unchanged, and the record
+then reads `valid: true`. Send becoming available is *not* sufficient on its own.
+
+**One thing worth knowing about the order.** QA-R15's act — open, press Classic, Save — **is the
+same thing the repair guidance tells guild owners to do.** So if you run QA-R15 before you send the
+guidance, you will have seen the route work first-hand. You waived that as a requirement and it
+stays waived; both orders are fine and nothing depends on which you pick. Flagging it only because
+it is free if you happen to go in that order.
+
 ## 2. Only you can do these — no agent may
 
 **Review the distribution (QA-R9). No agent may mark it passed.** Read
