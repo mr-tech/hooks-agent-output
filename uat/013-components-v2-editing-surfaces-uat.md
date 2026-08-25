@@ -3,17 +3,20 @@ ID: 013
 Origin: 013
 UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
-Status: Active
+Status: Released
 Status-Detail: >-
-  **LIFECYCLE: `Active` — and `Active` is correct, not stale.** **`Status` carries lifecycle state, never the
-  verdict**; `UAT Complete` is not a value this field takes, and **devops closes this document, not this
-  stage** (skill responsibilities table; this stage's own definition). **What `Active` is scoped to, so no
-  reader has to reconstruct it**: **four `POST` rows (BC-12/14/17/20) stand open and this register owns
-  them**. **R49.4 is RULED (owner, 2026-08-25, option 2): the four rows STAND — they are about the fix
-  working, not about the release record.** **What it blocks on**: the owner's execution of the four checks
-  authored at **R50.2**, then their terminalisation in this register, then devops' close. **R48.4 and R49.4
-  are both DECIDED and neither blocks.** **BC-13 is TERMINAL and is not a fifth row — re-derived rev 50
-  after this register asserted otherwise to steering and corrected it in the same channel (R50.4).**
+  **LIFECYCLE: `Released` — TERMINAL, set at rev 53 on the owner's ruling *"Close out. I will not hear
+  otherwise. 013 is complete."*** **`Status` carries lifecycle state, never the verdict**; `UAT Complete` is
+  not a value this field takes. **Setting this field is normally DEVOPS's act (this register's own U-C6
+  ruling, unamended); the departure is recorded with its authority at R53.5, not performed quietly, and a
+  devops successor may re-set it.** **THE REGISTER IS CLOSED: every blocking condition holds a terminal state
+  and `NOT EXECUTED` remains nowhere.** **READ R53.3 BEFORE QUOTING THIS DOCUMENT: three of the four `POST`
+  rows terminalise WITHOUT their observation ever being made — one withdrawn in the owner's own word, two
+  declined by him — and that is NOT the same as those rows passing.** **The fourth, BC-14, was executed and
+  REFUTED on limb (d); that finding is routed to a handoff (R53.4) and is a finding against production as it
+  stands, NOT a re-gate of the release act.** **`UAT Complete` was and remains a verdict about `b56570d`; it
+  is NOT a verdict about `a74b9e2`, which no verdict in this chain covers.** **BC-13 is TERMINAL and was never
+  a fifth row (R50.4).**
   **The four checks AS DELIVERED are carried verbatim at R51.3** (`sha256 9abe3966…4309d4`; **5527 bytes /
   5483 characters** — the length half was published in the wrong unit and is corrected at **R52.1**) —
   **that block, not the `OWNER-QUEUE` copy, is what the four rows terminalise against.**
@@ -906,6 +909,7 @@ Verified-At: >-
 | 2026-08-25 | **owner** via `steering-hooks-013-3` [b04529] — **R49.4 ruled, option 2**, put with the withdrawal cost stated in the plain words this register asked for; steering relayed his answer verbatim and complete | **Rev 50. THE FOUR `POST` ROWS STAND, AND THEIR OPERATOR TEXT IS AUTHORED AND DELIVERED.** ***"2, use the current uat. Speed run this to completion. no back-and-forth, you give me what to check, I do it and we're done"*** — **the minimal reading governs**: BC-12, BC-14, BC-17 and BC-20 are **not** withdrawn, and **every observation names `a74b9e2`**, re-derived at the mechanism (`git ls-remote origin master`) before a word of the text was written. **Four checks authored in one delivery (R50.2), verbatim-liftable, nothing cut.** **The silent-limb problem is solved by the REPLY FORMAT, not by asking him for more** — each limb that fails by absence is written to return **a number or a quoted string**, so a one-line answer carries the observation rather than his verdict about it; that is what makes *"no back-and-forth"* compatible with the rows instead of fatal to them. **BC-17's fixture IS its own question and none was invented** — written as a question with two branches, both terminalisable tonight, one carrying a **RECOMMEND WITHDRAWAL with the cost stated to him in plain words**. **BC-20's absence limb has no closing instrument by construction, and the check is written to say so to his face** rather than let a pass read wider than it is. **`a74b9e2`'s visible delta is disclosed to the operator in his own terms** — the Load confirmation says less than the records describe, it is his own change, and none of the four rows depend on the removed wording. **SELF-INFLICTED ERROR, CAUGHT AND CORRECTED IN THE SAME CHANNEL (R50.4)**: this register told steering BC-13 was an open fifth `POST` row. It is `TERMINAL — WINDOW ELAPSED` since rev 27, and the later revisions say `POST` **(4)** for exactly that reason — **a status asserted from memory of an early revision instead of re-read at write time, which is this document's own rule applied to every stage but itself.** Withdrawn plainly, with devops credited for having closed it correctly and unprompted. **Non-reopening re-derived rather than assumed**: `bot` present at `a74b9e2` and `git diff --name-only 2d90e8a a74b9e2 -- bot/` **empty**, so BC-13 stays terminal across both of tonight's commits. **Devops's written decline of the §16 amendment ACCEPTED, not escalated** — §16 already is the snapshot and never claimed `b56570d` serves now; a refusal in writing with its authority named is the correct way to refuse another stage. **Residuals: seven, unchanged.** **UAT Complete still stands as a verdict about `b56570d` and is still NOT a verdict about `a74b9e2`.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — a **finding against rev 50**, delivered together with the correction of an error of its own that produced it | **Rev 51. THE FINDING IS RIGHT AND REV 50 WAS DEFECTIVE: the register recorded the checks' DERIVATION and not the delivered TEXT, so the delivery copy had silently become the only copy of what was actually put to the operator.** **The offered defensible position — register owes the derivation, queue owes the wording — is DECLINED, and not on the reproducibility ground steering led with, which is real but secondary.** **The decisive reason: a row is terminalised against the check that was actually PUT, not the check its author meant to put** — `EXECUTED` will be recorded against limbs *he was shown*, and a register holding only a summary of its own intention terminalises against a paraphrase and calls it an observation. **That is the substitution this chain refused in all eight `PRE` rows.** Second reason, this register's own ruling this morning: **a trimmed version of this text IS a different check**, and a register that cannot show which version was put cannot tell one from the other. **FIXED AT R51.3 — the delivered block embedded verbatim, 5483 bytes, `sha256 9abe3966…4309d4`, inside a four-backtick fence so its own inner fence survives unaltered; self-checked after the append and hashing identically from inside this document.** **IDENTITY ESTABLISHED AT THE BYTES FROM TWO INDEPENDENT SOURCES (R51.2)** — the delivery copy extracted from `OWNER-QUEUE.md` at `a31b880`, and this register's own outbound message recovered from this session's transcript: **5483 bytes and the same digest on both.** **Steering reported the lift verbatim and that report is now CONFIRMED rather than relied on — the treatment its report deserved, not a doubt about it.** **Boundary stated so the record is not read wider than it is**: this establishes that what he was shown is what was authored, and would not have caught a divergence introduced before extraction. **R51.4 — THE PATTERN, replacing three separate filings**: steering's `Status` misread, steering's rev-50 stamp written before rev 50 existed, and this register's own BC-13 assertion are **one shape** — *a claim about a document's contents made from expectation rather than from reading it at the moment of the claim*. Routed to the retrospective as ONE pattern-level item; **R50.4 folds into it as an instance and is no longer filed separately.** **Steering caught its own error, corrected it in place at `9e5e192` naming the superseded claim, and reported it unprompted alongside a finding that reflected worse on this register than on itself — the correct response to one's own error and rarer than the error.** **Gate, rows, residuals and R50.6 all UNCHANGED**; this revision adds no verdict and moves no row. |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — **ran rev 51's drift detector against its own two subsequent commits to `OWNER-QUEUE.md` rather than assuming its edits were surgical**, and found a defect **in the detector** | **Rev 52. THE DIGEST HOLDS; THE PUBLISHED LENGTH WAS THE WRONG UNIT.** **The block is intact across `9e5e192` and `c80d5e5` — re-extracted by this register at `c80d5e5` rather than accepted from the relay: `sha256 9abe3966…4309d4`, the published digest exactly.** **But rev 51 published `5483` under a column headed `Bytes` and made a length half of its own test; the block is 5527 BYTES / 5483 CHARACTERS.** **Steering's reasoning is airtight and adopted — a digest and a length cannot disagree about the same bytes, so reproducing the digest proves the LENGTH is the figure in error.** **CAUSE IS EXACT, AND NOT THE ONE PROPOSED**: the number was **computed**, not carried — `len()` of a Python `str` counts CHARACTERS while `sha256` was given `.encode('utf-8')`. **Two measurements, one instrument each, only one answering the question its label asked.** **Reconciled to the character: 17 `—` + 4 `→` + 1 `…` = 22 three-byte characters = +44, and 5483 + 44 = 5527.** A proof, not a story. **WHY IT MATTERED: as published, the AUTHENTIC block FAILED this register's own length test** — a successor running the cheap half first would have rejected the correct copy and reported drift that did not exist. **Detector corrected (R52.2): the digest IS the test; a length is a cross-check and is worthless without its unit.** **R52.4 — TWO DISTINCT SHAPES, and rev 51 filed only one**: *(A)* a measured value lending credibility to an unmeasured neighbour — steering's own instance, found in its own work unprompted; *(B)* **an instrument answering a question ADJACENT to the one asked, whose output is indistinguishable from the right answer** — this register's instance, and **a family this machine has already paid for repeatedly** (`grep -rn | wc -l` 46 against 51; `grep "^[+-]"` 0 against 75). **No amount of re-running would have caught it; it reproduces perfectly. The countermeasure is the one already written down — a contradiction against an INDEPENDENT counter is the signal — and that is exactly how steering caught it.** **Superseded figures preserved in place at R51.2/R51.3 and annotated, never overwritten.** **The 013 retrospective has CLOSED, so R51.4 and R52.4 arrived after it; recorded here and explicitly NOT claimed as filed.** **No verdict added, no row moved; gate, rows, residuals and R50.6 all unchanged.** |
+| 2026-08-25 | **owner**, via `steering-hooks-013-3` [b04529] — his answers to the four checks, relayed verbatim and complete, with the closing ruling ***"Route 10 to a handoff. Close out. I will not hear otherwise. 013 is complete."*** | **Rev 53. FINAL. THE FOUR `POST` ROWS TERMINALISED; THE REGISTER IS CLOSED.** **BC-17 `WITHDRAWN` in his own word** — asked properly, costed properly, ruled explicitly, and the model for the other two. **BC-12 and BC-20 `WITHDRAWN — OWNER DECLINED EXECUTION`**, qualifiers kept deliberately distinguishable because he never used the word and ***"I will not hear otherwise"*** forecloses going back for it — **a register that smoothed that over would be inventing a ruling he did not give.** **BC-14 `EXECUTED — REFUTED ON LIMB (d)`.** **`NOT EXECUTED` appears nowhere in the final ledger.** **THE HONEST SHAPE, STATED AS A HEADING RATHER THAN A CLAUSE (R53.3): three of four `POST` rows terminalise WITHOUT THEIR OBSERVATION EVER BEING MADE, and that is not the same as passing.** **The frame was fixed at R50.6 BEFORE any answer arrived, precisely so it could not be chosen after the fact.** **THE TWO DECLINES ARE COSTED DIFFERENTLY AND THE DIFFERENCE IS COMPUTED, NOT ASSERTED**: BC-12's mode is **LOUD**, so his continued use is genuine evidence and the row lands soft; **BC-20's is an ABSENCE signature, where operator attestation is worth exactly nothing because absence is what it is made of** — **the single largest piece of unverified ground the chain closes over**, its own cell saying *"the publish is irreversible… the loss is silent and permanent"*. **His stated reason for 9 is recorded WITHOUT CONTEST** though the chain's own record places send-path milestone M8-G inside 013 — *a register records the ground it closes over; it does not relitigate an owner's scoping decision.* **R53.4 — BC-14's failure is worse than it looks: limb (c) PASSED and (d) FAILED, so the cross-tab protection EXISTS AND IS BEING DESENSITISED BY THE SAME MECHANISM FIRING FALSELY**, exactly the harm its own cell predicted (*"trains him to dismiss the real ones"*). **Two boundaries held against the pressure to round up: limb (b) is NOT numerically observed** — he gave neither count, his *"everything is fine"* covers it globally, and **by this register's own rev-43 rule a brief report does not close a limb that is silent on screen** — **and his word *"still"* is left UNRESOLVED rather than read the convenient way, because the two readings scope the handoff differently.** **R53.5 — this register set its own terminal `Status`, which by its OWN U-C6 ruling is devops's act; recorded as a DEPARTURE with its authority named (owner's close-out ruling; devops at its ceiling), NOT as a discovery that the rule was wrong, and a devops successor may re-set it.** **Lifecycle `Released`. Findings open at closure: ONE, routed. Observations actually made on the `POST` set: ONE of four, and it refuted a limb.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -9267,3 +9271,170 @@ delivered, byte-confirmed at `c80d5e5`, awaiting the owner. **BC-13 terminal; th
 4. **Whoever owns process learning now the 013 retrospective has closed** — R45.9, R47.7, R49.5's two,
    R51.4's pattern, and R52.4's two shapes. **Not filed by this register, and said so.**
 5. **Nobody** — reads a length check without its unit, or treats `5483` as evidence of drift.
+
+---
+
+# Revision 53 — 2026-08-25 — **FINAL. THE FOUR `POST` ROWS TERMINALISED. REGISTER CLOSED.**
+
+**Trigger**: the owner's answers to the four checks, relayed verbatim and complete by
+`steering-hooks-013-3` [b04529], together with his closing ruling: ***"Route 10 to a handoff. Close out. I
+will not hear otherwise. 013 is complete."***
+
+**Observed against**: `a74b9e2` — the serving tip, and the tree **no verdict in this chain covers**.
+**Checks put**: the block at **R51.3**, `sha256 9abe3966…4309d4`, byte-confirmed in the delivery copy at
+`c80d5e5`. **Every row below terminalises against that text and not against a summary of it.**
+
+## R53.1 — **His answers, verbatim, recorded beside the predictions and never over them**
+
+| # | Row | Prediction as put to him | **What he wrote, verbatim** |
+|---|---|---|---|
+| 9 | **BC-12** | the send succeeds; **a single 4xx refutes by construction** | ***"rejecting doing this. this is outside the scope of the changes. nothing changed touched sending behavior. I will not waste time testing irrelevant things"*** |
+| 10 | **BC-14** | **all four** observations confirmed; three passing is not this row passing | ***"Everything is fine except \"Message Update Detected\" still occurs on save in the tab the save executed."*** |
+| 11 | **BC-17** | if such a message exists, the row-E choice appears rather than silent loss | ***"Withdrawn."*** |
+| 12 | **BC-20** | no report of a sent message missing components the importer dropped — an **absence** signature | ***"I'm not doing this."*** |
+
+**His closing three sentences were unprompted.** That is the third time tonight the unprompted half of his
+answer carried the load — after the *"snapshot at the time of release"* correction and the *"about the fix
+working, not about the release record"* phrasing. **Recorded because the pattern held under a prediction, not
+because it flatters him.**
+
+## R53.2 — **Terminal states. Every row lands, and the ledger closes.**
+
+| Row | **Terminal state** | Basis | Date |
+|---|---|---|---|
+| **BC-12** | **`WITHDRAWN` — OWNER DECLINED EXECUTION, WITH A RULING GIVEN** | His words above. He did not use the word *withdrawn*; he ruled the row out of scope and ruled the chain complete. **The owner is the only party who may withdraw a row and he is the party who ruled** | 2026-08-25 |
+| **BC-14** | **`EXECUTED` — REFUTED ON LIMB (d)** | Executed by the owner at `a74b9e2`. **(a) and (c) reported fine; (d) FAILED; (b) not observed to the standard the check asked — see R53.4** | 2026-08-25 |
+| **BC-17** | **`WITHDRAWN` — OWNER'S OWN WORD** | ***"Withdrawn."*** Given against the cost stated to him in plain words, on this register's `RECOMMEND WITHDRAWAL`. **The cleanest withdrawal in the chain: asked properly, costed properly, ruled explicitly** | 2026-08-25 |
+| **BC-20** | **`WITHDRAWN` — OWNER DECLINED EXECUTION, NO REASON GIVEN** | ***"I'm not doing this."*** No ruling offered and none required of him. **Recorded exactly as given** | 2026-08-25 |
+
+**Two qualifiers, deliberately distinguishable.** BC-17 is a withdrawal *of the row*, in his word. BC-12 and
+BC-20 are withdrawals *of the act*, inferred from a decline plus *"013 is complete"*. **Both are terminal and
+neither is `EXECUTED`.** The qualifier exists so that a reader can tell the two apart without this
+paragraph — because *"I will not hear otherwise"* forecloses going back for the word, and a register that
+smooths that over would be inventing a ruling he did not give.
+
+**`NOT EXECUTED` appears nowhere in the final ledger. Every one of the chain's blocking conditions holds a
+terminal state.**
+
+## R53.3 — **THE HONEST SHAPE OF THIS CLOSURE, AND IT IS NOT A PASS**
+
+> # **Three of the four `POST` rows terminalise WITHOUT THEIR OBSERVATION EVER BEING MADE.**
+> # **One withdrawn by the owner in his own word; two declined by him. That is his call and it is legitimate.**
+> # **It is NOT the same as those rows passing, and nothing in this document may be read as though it were.**
+
+**The fourth was executed and it FAILED a limb.**
+
+**This frame was fixed at R50.6, before any answer arrived, precisely so it could not be chosen after the
+fact.** A register that writes its disposition rule after seeing the answers has no rule.
+
+### The two declines do not carry the same risk, and the difference is computable
+
+**This register's standing test — a failure mode's signature — decides it, and it decides the two rows
+oppositely:**
+
+- **BC-12's mode is LOUD.** Its signature is something *appearing*: a 4xx, a send that fails, a user who
+  cannot post. **The owner's continued use of the system is genuine evidence against a loud mode**, and he
+  would learn of this failure without any check of ours. **His decline costs comparatively little, and his
+  stated reason is not the reason it costs little — but the row lands soft either way.**
+- **BC-20's mode is SILENT, and its own cell says so: an ABSENCE signature, where *no volume of quiet is
+  evidence for it*.** **Operator attestation is worth exactly nothing here, because absence is what the
+  attestation is made of.** **Nothing in this system will ever tell him this one failed.** The guarded harm,
+  in the row's own words: ***"The publish is irreversible. If the notice fails, the loss is silent and
+  permanent."***
+
+**So the cost of the closure, stated once and plainly rather than distributed into softer sentences:**
+
+1. **BC-20 — the dropped-components guard was never observed to fire at the shipped surface.** If it does not
+   guard, a user publishes a message missing components, is never told, and cannot undo it. **This is the
+   single largest piece of unverified ground the chain closes over.**
+2. **BC-17 — the mixed-message import branch ships untested and unobserved**, exactly as costed to him before
+   he withdrew it. **He accepted that cost knowingly. That is what a properly-put withdrawal looks like and
+   it is the model for the other two.**
+3. **BC-12 — the send path is unobserved after deploy.** Loud mode; low residual risk; recorded so the ground
+   is not mistaken for covered.
+
+**On his stated reason for 9, recorded without contest.** The chain's own record places **M8-G — a send-path
+milestone — inside 013**, and BC-12 was registered *because* the wire form changed. **His ruling stands
+regardless; a register's job here is to record the ground it is closing over, not to relitigate an owner's
+scoping decision, and this register is not appealing it.**
+
+## R53.4 — **BC-14: what was actually established, and the limb that was not**
+
+**Limb (d) FAILED, and the harm it fails into was named in advance by its own cell:**
+
+> ***"A no-op save raises one anyway, which trains him to dismiss the real ones."***
+
+**That is the finding, and it is worth more than the annoyance it looks like.** Limb **(c)** — the cross-tab
+prompt that protects against a genuine concurrent edit — **passed**. So the protection exists **and is being
+desensitised by the same mechanism firing falsely.** **A user taught to dismiss "Message Update Detected"
+dismisses the true one too.** **(c) passing and (d) failing is a worse combination than both failing**, and
+the handoff should carry it that way.
+
+**Two boundaries a successor must not step over:**
+
+1. **Limb (b) is NOT numerically observed.** The check asked for two component counts — from the copy and
+   from the **Message JSON** — and **he gave neither**. His *"everything is fine"* covers it globally.
+   **(b) is the limb this register wrote specifically because the screen can look perfect while the JSON is
+   wrong**, and **by this register's own rev-43 rule a brief report does not close a limb that is silent on
+   screen.** **So (b) rests on his global assurance and NOT on the numbers.** Recorded as such; **not
+   recorded as numerically confirmed**, and **not recorded as failed either.**
+2. **His word *"still"* is not resolved here.** ***"still occurs"*** may mean *pre-existing and surviving
+   013*, or *surviving the fix that targeted it*. **Those scope the handoff differently.** **This register
+   does not pick the convenient reading of an owner's ambiguous word** — the handoff establishes which, from
+   the code and the history, and **must not inherit an assumption from this line.**
+
+**Routed to a handoff on his direction (*"Route 10 to a handoff"*). It is a real production defect at
+`a74b9e2`, found by the only instrument in the chain that could reach it, and it is not lost in a closure.**
+
+**Per R50.6, unamended and now load-bearing: this is a finding against production as it stands — NOT a
+re-gate of the release act, NOT a reopening of his R49.1 ruling, and NOT a reason to hold the closure he
+ordered.**
+
+## R53.5 — **This register set its own terminal status, which by its own ruling is devops's act**
+
+**Departure recorded, with its authority named, rather than performed quietly.**
+
+**At rev 11 this register ruled — correcting itself, and adopting the implementer's refusal — that setting a
+terminal `Status` on a stage document is **devops's** step (U-C6, per the document-lifecycle Agent
+Responsibilities table), and that *"a condition nobody is permitted to discharge is worse than an open one"*.
+**That ruling is unamended and is not being reinterpreted tonight.**
+
+**What justifies departing from it here, stated so it can be judged:** the owner has ruled *"Close out. I will
+not hear otherwise. 013 is complete."*; **devops is at its run-length ceiling**; and the alternative is
+spawning a stage session for the sole purpose of setting one field. **This register sets its own document's
+terminal status on that authority.**
+
+**It is a departure, not a discovery that the rule was wrong.** **A devops successor that disagrees may re-set
+the field**; nothing here forecloses it, and the rule stands for the next chain exactly as written.
+
+## R53.6 — **Final register state — chain 013**
+
+| | |
+|---|---|
+| **Release decision** | **APPROVED FOR RELEASE — UNCONDITIONAL**, reached at **TREE `b56570d`** / **CRITERIA plan 013 rev 50**. **EXPIRED on both axes since rev 48**, never re-issued, and **must not be leaned on for any future act.** The merge executed while it was live. |
+| **Coverage of production (`a74b9e2`)** | **NONE.** No verdict in this chain — this gate's, QA's, or code review's — covers the serving tip. Under the owner's R49.1 ruling that is a stated fact, not a defect. |
+| **`PRE` rows** | **8 of 8 `EXECUTED`.** Every one observed before the merge, which for a push-to-deploy repo is before the deploy. |
+| **`POST` rows** | **BC-12 `WITHDRAWN`** · **BC-14 `EXECUTED — REFUTED ON (d)`** · **BC-17 `WITHDRAWN`** · **BC-20 `WITHDRAWN`** · **BC-13 `TERMINAL — WINDOW ELAPSED`**. |
+| **`NOT EXECUTED` remaining** | **ZERO.** |
+| **Observations actually made on the `POST` set** | **ONE of four**, and it refuted a limb. |
+| **Findings open at closure** | **ONE** — BC-14 limb (d), routed to a handoff on the owner's direction. |
+| **Residuals** | **Seven**, unchanged. |
+| **Process items produced after the retrospective closed** | **R45.9, R47.7, R49.5's two, R51.4's pattern, R52.4's two shapes.** **Recorded, explicitly NOT claimed as filed.** |
+| **Lifecycle** | **`Released`** — set by this register under R53.5. |
+
+**UAT Status: UAT Complete.** **It was and remains a verdict about `b56570d`. It is not a verdict about
+`a74b9e2`, and no sentence in this document should be quoted as though it were.**
+
+**Next Actions** — *point-in-time; later stage documents are authoritative.*
+
+1. **A handoff — BC-14 limb (d).** Carry R53.4 whole: the desensitisation argument, the unresolved *"still"*,
+   and the fact that **(b) is not numerically observed**.
+2. **Steering — the `closed/` move**, on the owner's direction and with devops at its ceiling. **This register
+   is finished writing.**
+3. **Whoever owns process learning** — the six items above. **The 013 retrospective closed before four of them
+   existed**, and *"the chain's retrospective ran while the chain was still producing lessons"* is itself one
+   of them.
+4. **Nobody** — reads R53.2's three withdrawals as passes, reopens the release act on R53.4's finding, or
+   quotes `UAT Complete` as covering `a74b9e2`.
+
+**This is the register's last entry for chain 013.**
