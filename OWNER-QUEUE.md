@@ -28,13 +28,17 @@ lines about items nobody is waiting on.** If it does not need the owner to act, 
 
 ## 1. Your decision — no agent may make this
 
-**QA-R20 — record the whitespace class as empty.** The class is records whose `data.components` is
-structurally Components V2 **and** whose `content` is non-empty but **whitespace only**. It is
-present in that same report as its own named category with a count and row ids, and reads
-`"whitespaceContent": { "count": 0, "rowIds": [] }`. **All that is asked of you is to record it as:
-empty for this corpus, at this time.** It is **not** a determination about what Discord accepts and
-must not become one — the class is now empty *and* unguarded, and what lands in it next is decided
-by gate behaviour nobody has tested.
+**QA-R20 — is a whitespace count of 0 what you expect?** That is the only question, and answering
+it finishes this row.
+
+In `verification/012/backfill-report-1787522866564-i3s31k.md`, the category
+`"whitespaceContent"` reads `{ "count": 0, "rowIds": [] }`. It means no record in the table has
+Components-V2-structured components together with content that is only whitespace. **Say whether
+that is expected.**
+
+Nothing else is asked of you. The row also requires that the result is written down as *empty for
+this corpus at this time*, rather than as a claim about what Discord accepts — but **devops is the
+recorder for that**, not you, and that constraint was mistakenly put on your list.
 
 ## 2. Then, in this order
 
