@@ -668,3 +668,87 @@ the likely reading rather than the alarming one.** It is not mine to assert on h
 **Held, not escalated** — he is away, and silence is not consent. Per this stage's rule, on no answer the
 direction of the last explicit ruling governs, and for a safety gate that means **hold**. Recorded here
 so it stays visible and re-openable rather than quietly dropped.
+
+---
+
+## 10.12 Second defect class — reading a cell for the answer you came for
+
+**The class**: *reading a document cell for the question you arrived with, and not seeing the
+condition attached to it.* Distinct from range restatement (§10.11): there the measurement is right
+and the range is wrong; here the reading is right and the **scope of what was read** is wrong. The
+text is fully present and fully correct. Nothing is stale, nothing is filtered, no instrument lies.
+The reader simply stops at the answer.
+
+**It cashed twice in one night, on the same cell, in two different directions.** D25's route column
+in the planning document reads *"Keep holding; I catch it before the record is written."*
+
+- **The coordinator's half, recorded as it was given and not softened.** `steering-hooks-013-2` read
+  the cell for *whether the planner pass was held*, got its answer, and did not see *what the hold
+  was attached to* — carrying the right hold under the wrong citation (D24 rather than D25) in its
+  docket. It then stated to this stage that no owner ruling to hold existed, and withdrew that
+  explicitly and in the same channel once it verified the cell at source. **The withdrawal is not
+  the defect and is not recorded as one**; verifying at source rather than accepting a subordinate's
+  account is the behaviour that caught it.
+- **This stage's half.** I read the same cell earlier in the same session for its **discharge
+  routes**, found the second route, took it, and did not see the **trigger** in the adjacent clause.
+  The trigger was the act I was about to perform. I began writing the deployment record without
+  recognising that writing it was the named event the owner had reserved a review before.
+
+**The option's own stated weakness named this failure mode in advance and still did not prevent
+it.** The route he chose was recorded as depending on *"steering's docket surviving into whatever
+session is present at release time."* That is precisely how it failed. **A risk being written down
+next to the decision is not a control.** Nothing read the sentence at the moment it came true.
+
+**What a future reader should take from it**: the two instances are worth more together than either
+alone, because they rule out the obvious remedies. It was not carelessness — both readings were
+purposeful and both were correct as far as they went. It was not staleness — the cell never changed.
+It was not a bad instrument. **A cell that answers a question and also imposes a condition will be
+read for the answer**, and the only defence that would have worked is structural: conditions belong
+in a register that is read on its own terms, not as a column beside the answer they qualify.
+
+## 10.13 F-9 — QA's `Verified-At-Note` restates a true range over a false one
+
+**Third instance of §10.11's class tonight, in a third session — and this one is in the field a
+release gate reads.**
+
+`qa/013-components-v2-editing-surfaces-qa.md` frontmatter, `Verified-At-Note`, states: *"Every commit
+since live master `a151fb4` is test-only."*
+
+| Range | Production files changed | Verdict on the claim |
+|---|---|---|
+| `abcf585..4a7126b` | **0** — measured `--numstat` with `':(exclude)*__tests__*'` | **TRUE** |
+| `a151fb4..4a7126b` | **4**, all in the first commit `abcf585` | **FALSE** |
+
+`a151fb4..4a7126b` is three commits: **`abcf585` changes four production files** —
+`NewMessageJsonInput.tsx`, `MessageProvider/index.tsx`, `layout.tsx`, and a new
+`CodeMessageNotice.tsx` — and `664e0c0` and `4a7126b` change none. The claim is exactly true of the
+range starting one commit later than the range it names.
+
+**This does not invalidate the verdict and is not reported as though it does.** QA's *body* is
+correct and knows better than its own note: §"Fix-round verdict — toast vessel" anchors at `abcf585`
+with **559 tests / 38 files / exit 0** against 550/37 at `a151fb4`, and measures the later delta as
+test-only *from `abcf585`*, which is the right range. **The production change was verified.** What is
+wrong is the one-line summary in the field a devops gate reads first.
+
+**Why it matters here specifically.** A gate reading `Verified-At: 4a7126b` beside *"every commit
+since live master is test-only"* would conclude the release delta needs no production-side scrutiny.
+The change is not cosmetic: `abcf585` converts permanent-state notices from transient `toast.warn`
+calls to persistent inline DOM across the paste surface and the message layout. That is **the exact
+surface BC-18, BC-19 and BC-21 examine** — BC-21 is a notice-silence detector. Inheriting "test-only"
+would have skipped the delta most relevant to the outstanding rows.
+
+**Reported to QA, not edited.** The QA document is QA's; two writers to one file is a clobber.
+
+## 10.14 U-5 corroborated — `4a7126b` is not shipped
+
+`uat-hooks-013-3` raises that QA's prose frames `4a7126b` as shipped. **Independently measured here at
+the remote, not from a tracking ref:**
+
+    git ls-remote --heads origin
+      a151fb4…  refs/heads/master
+      (backup, external-message-api, redesign, regex-refactor)
+
+**`chain/013-toast-vessel` returns no line at all** — it exists only locally. `master` is `a151fb4`.
+**A decision to ship is not a shipment.** Nothing past `a151fb4` is serving, and rev 13's condition
+that BC-18/BC-19 precede the release act **remains meetable in the order it was written**, because
+those rows do not expire. No summary written by this stage will inherit the shipped framing.
