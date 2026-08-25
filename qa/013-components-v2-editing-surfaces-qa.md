@@ -5,7 +5,7 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: QA Complete
 Verified-At: "4a7126bf8578b653ac7ae1cfe7cabdd609cdc21f"
-Verified-At-Note: "re-issued 2026-08-25 at 4a7126b after F-QA28 adoption — QA COMPLETE. Supersedes the 664e0c0 verdict, which stands for its own tree. Every commit since live master a151fb4 is test-only. Plain SHA."
+Verified-At-Note: "re-issued 2026-08-25 at 4a7126b after F-QA28 adoption — QA COMPLETE. Supersedes the 664e0c0 verdict, which stands for its own tree. CORRECTED 2026-08-25 (F-9, devops): this field previously read 'Every commit since live master a151fb4 is test-only' — FALSE for a151fb4..4a7126b, which carries abcf585 and its 4 production files (NewMessageJsonInput.tsx, MessageProvider/index.tsx, layout.tsx, CodeMessageNotice.tsx). TRUE only of abcf585..4a7126b. The release delta a151fb4..4a7126b IS production-bearing and needs production-side scrutiny; abcf585 is the commit BC-18/BC-19/BC-21 examine. Plain SHA."
 Verified-At-Detail: >-
   **REFRESH PASS, 2026-08-24 — supersedes the Phase 2 anchor below for verdict purposes.**
   `website` @ `chain/013-components-v2-editing-surfaces`, HEAD = `164d720` (re-derived by
@@ -2365,3 +2365,52 @@ terminal **only** in the sense that no future act can change it. **It must never
 
 **Standing note:** this list is point-in-time. The UAT document, and then the deployment record, are
 authoritative on each row's execution state.
+
+---
+
+## F-9 — frontmatter reconcile, 2026-08-25 (raised by `devops-hooks-013`)
+
+**Accepted. The claim was false as written, and the field it sat in is the worst place for it.**
+
+`Verified-At-Note` read: *"Every commit since live master `a151fb4` is test-only."*
+
+| Range | Production files changed | The claim |
+|---|---|---|
+| `abcf585..4a7126b` | **0** | **TRUE** |
+| `a151fb4..4a7126b` | **4** | **FALSE** |
+
+Re-measured independently here during Phase 3, per-commit and before the correction was requested —
+`abcf585` changes **4** non-test files (`NewMessageJsonInput.tsx`, `MessageProvider/index.tsx`,
+`layout.tsx`, and the new `CodeMessageNotice.tsx`); `664e0c0` and `4a7126b` change **0**. Devops's
+figures confirmed exactly.
+
+**What it said and why it was defensible** — preserved, not overwritten. The range in hand when the
+note was written was the **fix-round delta**, and the note is precisely true of that range. Both
+adoption commits genuinely are test-only, and the body of this document anchors the production change
+correctly at `abcf585` (559 tests / 38 files / exit 0, against 550 / 37 at `a151fb4`). **The
+production change was verified; nothing needed re-running.** The defect is one of *scope naming*: a
+claim true of `abcf585..` was written under the label `a151fb4..`.
+
+**Why it mattered more than a mislabel.** `Verified-At` and `Verified-At-Note` are the first pair a
+release gate reads. A gate reading `4a7126b` beside *"every commit since live master is test-only"*
+concludes the release delta needs no production-side scrutiny — and that delta is `abcf585`, which
+converts permanent-state notices from transient `toast.warn` to persistent inline DOM across the
+paste surface and the message layout. **That is the exact surface BC-18, BC-19 and BC-21 examine.**
+Inheriting the claim would have skipped the one commit most relevant to every outstanding row.
+
+**This claim also travelled.** It was stated to `steering-hooks-013-2` in this form during the Phase 3
+hand-off discussion. Correcting the field is therefore not sufficient on its own; the correction has
+been sent to the peers that received it.
+
+**Transferable lesson, which is the reason this is written up rather than just fixed.** *A range
+claim is only as good as its stated endpoints, and a summary field is where endpoints go missing* —
+the body had the right range throughout, and only the compressed one-liner lost it. This is the same
+failure the chain has now seen four times in its **instruments** (piped `grep -c`, `ls -a | grep -x`,
+`git diff --name-only | grep -c .`, `rev-parse` on an absent path) and once in its **prose** (U-5,
+tense). Devops's standing rule — *state both endpoints whenever asserting a count or identity,
+`A..B`, never a bare count* — is the correct generalisation, and it now applies to **summary fields,
+not only to commands**. Adopted here.
+
+**Not a verdict defect.** The Phase 3 record `release-4a7126b-tip-verification.md` was written from
+per-commit measurement and states the split correctly (*"`abcf585` is the only commit carrying
+production change"*). **RELEASE VERIFIED at `4a7126b` stands.**
