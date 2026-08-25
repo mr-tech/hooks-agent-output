@@ -128,3 +128,27 @@ work with no plan revision behind it.
    stage does not quote a zero from that report as evidence of anything. The detector-selection
    disposition is QA's and `uat`'s. **Not reached by D44** — D44 struck two record IDs and their
    dependents; this is a defect in the instrument, which has no struck subject.
+
+## `check-repo.js` CHECK 4 has no stage suffix for two artifact kinds stages actually produce
+
+Demoted here from `INBOX.md` 2026-08-25 by steering-hooks-013-3, its author's ask having been
+*"nothing blocking"*. **Verified at the tree by that author before filing**, not relayed.
+
+`STAGE_SUFFIXES` (`tools/check-repo.js:545`) maps `deployment/` to the single suffix `deployment`, and
+the match at line 577 accepts only `rest === s`, `rest.endsWith('-'+s)` or `rest.includes('-'+s+'-')`.
+So under `deployment/` the only legal basename tail is `-deployment`. Three SCOPE failures follow, two
+readiness documents and one carry-forward code-review pass.
+
+**It is a model gap, not a naming error.** A readiness assessment is produced *before* the release act
+and can return NO-GO; the record is produced *by* it. Naming a readiness document `-deployment` would
+make the checker pass by making the corpus wrong, and `STAGE_ORDER` would then order two unlike
+documents as the same stage. **Both devops sessions independently declined to coin a name to satisfy
+the validator, and each disclosed the failure in its own document.** That call was right and is not
+being revisited.
+
+**Not fixed, and here is what fixing it needs.** The obvious candidates are `-readiness` under
+`deployment/` and something for a carry-forward pass under `code-review/`. **Adding a suffix silently
+blesses whatever name is chosen for every future document**, so it is a convention decision, not a
+patch. `tools/` is source: **the change needs the owner's approval, and the convention should be
+settled before it is asked for.**
+
