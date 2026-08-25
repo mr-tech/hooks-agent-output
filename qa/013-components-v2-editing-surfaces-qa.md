@@ -5,7 +5,7 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: QA Complete
 Verified-At: "e1d9b2b7090b46709861a9c4b2a57f340617777b"
-Criteria-At: "plan 013 rev 47, 06fad81 — this verdict expires when EITHER the tree or the criteria move"
+Criteria-At: "plan 013 rev 48, f5b7cac — RE-ANCHORED 2026-08-25 from rev 47 (06fad81); the tree is unmoved at e1d9b2b and no acceptance property changed. This verdict expires when EITHER the tree or the criteria move — see VERIFY PASS §V.13"
 Verified-At-Note: "VERIFY PASS 2026-08-25 at e1d9b2b (chain/013-rider-2), criteria plan rev 47 — QA COMPLETE. Supersedes the 4a7126b verdict, which stands for its own tree. See the VERIFY PASS section at the foot of this document. Prior note retained: re-issued 2026-08-25 at 4a7126b after F-QA28 adoption — QA COMPLETE. Supersedes the 664e0c0 verdict, which stands for its own tree. CORRECTED 2026-08-25 (F-9, devops): this field previously read 'Every commit since live master a151fb4 is test-only' — FALSE for a151fb4..4a7126b, which carries abcf585 and its 4 production files (NewMessageJsonInput.tsx, MessageProvider/index.tsx, layout.tsx, CodeMessageNotice.tsx). TRUE only of abcf585..4a7126b. The release delta a151fb4..4a7126b IS production-bearing and needs production-side scrutiny; abcf585 is the commit BC-18/BC-19/BC-21 examine. Plain SHA."
 Verified-At-Detail: >-
   **REFRESH PASS, 2026-08-24 — supersedes the Phase 2 anchor below for verdict purposes.**
@@ -4012,3 +4012,52 @@ Suite green and re-derived; both `tsc` projects clean; ESLint parsing errors 45 
 **What this verdict does NOT do.** It is **not a release decision** — none is granted or refused here, and the standing decision remains `EXPIRED IN FULL`. **It does not close the chain**: `uat`'s register carries the open conditions, and eleven rows are executable **and none has been observed**. **A green verdict at a tip is not an observation**, and this document has spent five revisions establishing that the two are different things.
 
 **Handing off to the uat agent for value delivery validation.**
+
+## V.13 — Re-anchor to plan rev 48. **The rule fired; the verdict stands; the anchor moves**
+
+**Trigger**: the plan moved to **rev 48** (`f5b7cac`) after this verdict published, **on this pass's own INFO-1**. `steering-hooks-013-3` relayed three changes and **stated plainly that it had verified none of them**.
+
+### The rule fires, and I am not going to argue my way out of it
+
+My own field says *"this verdict expires when **either** the tree or the criteria move."* **The criteria moved.** The convenient reading — text-only, my own finding, moves toward what I verified — is available and is **exactly the reading the rule exists to refuse**. `uat`'s formulation, which I have quoted approvingly twice: *a classification made under a superseded standard is void, not narrowed, and the answer being convenient is not a reason to skip the step.*
+
+**So the step was taken rather than reasoned past.**
+
+### Derived, not accepted — the whole write set, not the three clauses I was told about
+
+`uat`'s precedent is the reason: when the reviewer's verdict sat in this position, it read the **whole** write set and found a **second amendment the reviewer had not named**.
+
+`git diff 06fad81 f5b7cac -- planning/013-…md` → **45 lines, three hunks**, read in full and captured at `verification/013/probe-qa-verify-rider2/plan-rev47-to-rev48.diff`:
+
+| Hunk | Content | Reaches a criterion? |
+|---|---|---|
+| frontmatter | `Status-Detail` rewritten; `Rev: 47 → 48` | **No** — bookkeeping |
+| changelog | one row for rev 48 | **No** |
+| M9 acceptance criteria | **M9-a's instrument** restated; **M9-b's CR24-2 note** corrected | **Instrument and note only — see below** |
+
+**Result of my own derivation: the three changes steering relayed are the three changes present. There is no unnamed fourth.** Verified additionally that **no hunk touches Validation and Release Conditions, Testing Strategy, or Objective** — the rest of this stage's Reading Order row.
+
+### Neither change moves a property this verdict was measured against
+
+- **M9-a — the Property sentence is unchanged word for word.** Only the **instrument** moved: the mis-specified `grep -c generateErrorMessage → 0` is replaced by `split(' | ')` count 0 plus the one-element-array call site, **which is what §V.3 actually executed.** Rev 48 moves the plan **toward** this verdict, not away.
+- **M9-b — the Property sentence is unchanged.** Only the CR24-2 **note** moved, to this pass's own executed finding (§V.8 INFO-2): live for `current`, dead for `incoming`.
+
+**Tree unmoved, re-derived here**: `HEAD` = `e1d9b2b`, `git status --porcelain` **0 lines**, `git diff --numstat e1d9b2b` **0 lines**.
+
+### Ruling
+
+**The verdict's substance stands and its anchor is re-issued.** `Criteria-At` now reads **rev 48, `f5b7cac`**.
+
+**This is a RE-ANCHOR, not a re-earned verdict, and the distinction is stated so nobody reads it as either more or less than it is:**
+
+- **No instrument was re-run.** The tree has zero movement, so every result in §V.1–V.9 still describes `e1d9b2b` exactly; re-running would produce identical bytes. **Zero movement licenses a scoped pass — it never licenses carrying a verdict forward silently**, which is why this section exists rather than the field simply being edited.
+- **What was re-derived** is the thing that moved: the plan's whole write set, read at the document.
+- **What is unchanged**: every finding, both INFO items, the CR24-6 ruling, the freshness result, F-1 limb 2, the TDD gate, **BC-1's blocking condition DISCHARGED**, and the Assumption Not Checked at §V.11.
+
+### One structural note, because this is the second occurrence in an hour
+
+**Both times the criteria moved under a published verdict today, it was a stage's own finding being registered that moved them** — the reviewer's, then mine. That is not an argument against raising findings, and it must not become one.
+
+**But it names a real cost the dual anchor creates: a stage that raises a finding against the criteria will, if the finding is accepted, expire its own verdict.** Left there, the anchor quietly penalises the behaviour this chain most wants. **What keeps it honest is that the re-anchor is cheap** — a derivation over the write set and a dated line — **and that it is only cheap because the tree did not move.** Had code moved too, this would have been a full pass and correctly so.
+
+**Carried to the retrospective in that form**: the dual anchor is worth its cost, and the re-anchor form is what makes the cost payable.
