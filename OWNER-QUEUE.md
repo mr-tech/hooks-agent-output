@@ -26,19 +26,21 @@ lines about items nobody is waiting on.** If it does not need the owner to act, 
 
 ---
 
-## 1. The live declaration to statbot — nothing blocks it now
+## 1. Say the field is live, here in this session
 
-QA-R9 and QA-R20 are both settled, which were its only preconditions. **Declare the `valid` field
-live to the Statbot side.**
+**You already told `steering-statbot-023-2` on 2026-08-25** and it registered your words as its own
+D23. **That session says plainly its holding your words gives this chain no authority, and it is
+right** — a peer's report of your approval is not your approval here.
 
-**This is the one item on this list with a consequence outside this repo.** By **D12**, statbot
-chain 023's deploy of its own `valid` gate is ordered *after* this declaration — so that chain has
-been held since **2026-08-23** and **no session has been told.** Telling statbot's steering thread
-is **your call, not mine**, and I have not told it.
+**What to do:** say it in this session — that the `valid` field is live in production, and when you
+declared it. One sentence is enough; I register it and it discharges **D12** and **QA-R17**.
 
-**Record your words and the time.** Devops needs them: R17 is the only executable trace that the
-ordering instruction ever travelled, and D12 has no mirror on the statbot side, so an unrecorded
-relay is indistinguishable from no relay.
+**Why it has to be said twice.** R17 is the only executable trace that the D12 ordering instruction
+ever travelled, and D12 has no mirror in statbot's planning register — so an unrecorded relay is
+indistinguishable from no relay, on the one constraint that spans both chains.
+
+**What it unblocks:** statbot chain 023, held since 2026-08-23 and still held, deploys after it;
+and devops runs here, which is the order you chose.
 
 **Standing rule, for context:** no agent on this machine ever posts a message anywhere — not Discord,
 modmail, support threads, email or ticket replies. Work that ends in "tell someone X" stops at
