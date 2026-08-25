@@ -51,6 +51,31 @@ Status-Detail: >-
   NOT VERIFIED and no host-side probe was performed or owed**. **This section is Stage 1 only: no
   push, no merge, no tag, no tree switch. The live tree remains UNGATED and the standing release
   decision remains `EXPIRED IN FULL`.**
+  **§14 appended 2026-08-25 by `devops-hooks-013-3` (pid 3414852) — a SECOND reconcile pass, by a FRESH
+  PROCESS carrying the same launch name as §12/§13's now-exited author; nothing in §§1-13 is rewritten.**
+  **§13's gate is superseded**: it read UAT **rev 36** at TREE `e1d9b2b` / CRITERIA rev 48; the gate is now
+  **rev 45** (`d60174d` + correction `8fd5b53`) at **TREE `b56570d` / CRITERIA plan rev 50 (`eb0e291`)** —
+  it EXPIRED on the criteria axis at 19:31 and was RE-ISSUED, and **both axes were re-derived here from the
+  tree, not inherited from any message**. **Seven of eight `PRE` rows are terminal; BC-4 alone stands `NOT
+  EXECUTED`, so the approval is CONDITIONAL and has NOT gone unconditional.** UAT rev 46 is **in flight and
+  uncommitted under a live writer** — read, recorded, and NOT relied on as authority; it points the same way.
+  **The `EXPIRED IN FULL` clause above is superseded by §13.3 and again here**: a live conditional decision
+  exists, covering an unmerged tree — while **`2d90e8a`, the commit actually serving, remains UNGATED**, which
+  is the part of §13.3 that survives. **§13.2's second limb is DISCHARGED**: QA now stands `QA Complete`,
+  `Verified-At: b56570d`, `Criteria-At: rev 50`, suite **48 files / 627 / 627**, reproduced independently here
+  along with `pnpm build` **exit 0**. **§13.1 re-checked and unchanged** (BC-21 `EXECUTED`).
+  **§14's FINDING, and it is not BC-4: NO RELEASE-TIP VERDICT EXISTS AT `b56570d`.** QA's own `4a7126b`
+  ruling — *a coincidence of SHAs makes the subject identical, not the act* — governs, and the fact its
+  plan-level pass lacks is a **production build at the tip** (`grep -c "pnpm build"` over the QA document →
+  **0**). **BLOCKING under Phase 2A step 3; QA's to produce; commission it in parallel with BC-4.** This
+  stage's own green build is **reproduction, not a verdict**, and does not satisfy the gate.
+  **Deploy mechanism established from the repo**: Vercel git integration on push to `master`; **no
+  `.github/workflows` directory exists**; `master` is the **sole** serving ref and `2d90e8a` is its ancestor,
+  so a move is a fast-forward that cannot split any pair. **The merge IS the deploy — no halfway step.**
+  Cross-repo references agree **four ways** at `749606d0` (no `version` field anywhere, so none was
+  synthesised); no deploy-config drift; `tools/check-repo.js` **FAIL, 26 problems — non-blocking, recorded,
+  not repaired**. **Nothing is marked NOT VERIFIED.** **This section is Stage 1 only: no push, no merge, no
+  tag, no tree switch. `origin/master` `2d90e8a`; branch unpushed, 3 ahead; NOTHING RELEASED.**
 ---
 
 # Deployment Record — Plan 013: Components V2 across the editing surfaces
@@ -1239,3 +1264,191 @@ historical facts.
 are not this stage's to execute or to waive; the merge that would deploy `e1d9b2b` is Stage 2 work
 requiring his approval of the release, which has not been given to this session. **This session remains
 Stage 1 only: no push, no merge, no tag, no tree switch.**
+
+---
+
+# §14 — Second reconcile pass, 2026-08-25 20:1x–20:2x UTC, by `devops-hooks-013-3` (pid 3414852)
+
+**Nothing above is overwritten.** Each note preserves what the record previously said and why it was
+defensible when written, per the document-lifecycle rule on restating and correcting. **No release act
+follows from this section. Nothing was pushed, merged, tagged or switched.**
+
+## §14.0 — Provenance, and an identity collision named rather than glossed
+
+**This is a FRESH PROCESS with no inherited context**, rebuilt entirely from files. It carries the same
+launch name — `devops-hooks-013-3` — as the session that wrote **§12** (`14bc31c`) and **§13**
+(`b06adb1`), and that session has **exited** (it stopped at its request ceiling). A sweep of `/proc`
+across every socket in `/run/user/1000/cc-socks/` returns **exactly one live devops process, pid
+3414852, this one**. **Two sections of this document are therefore signed by one name and written by two
+processes**, which is the hazard already on record — *a session's registered name can differ from its
+launch name, so neither alone identifies it* — arriving from the other direction. **§14 carries a pid
+for this reason and §§12–13 should be read as a predecessor's.**
+
+Steering's brief for this session names the predecessor `deveops-hooks-013-2`. **That name matches
+neither the document's signature nor any live or launched process observed here.** Recorded as a
+naming discrepancy, not resolved; nothing in this section depends on it.
+
+**Authority for restated status, re-read at THIS write and not carried from earlier in this session:**
+**the UAT document is the authority for every blocking-condition state below; the QA document for every
+verdict and every row definition.** Nothing here re-litigates either.
+
+## §14.1 — Both gate axes re-derived from the tree. Neither inherited from any message
+
+Steering's brief handed both anchors and explicitly asked that they be treated as claims to check.
+**They were re-derived independently, and both hold:**
+
+| Axis | Claim in the brief | Re-derived here | Instrument |
+|---|---|---|---|
+| **TREE** | `b56570d` on `chain/013-rider-2` | **`b56570dfa916368e9942e671d594112750567923`** | `git -C website rev-parse HEAD`, branch `chain/013-rider-2` |
+| **CRITERIA** | plan 013 rev 50, `eb0e291` | **`Rev: 50`** in the plan's frontmatter; **`eb0e291`** is the last plan-touching commit | `git log -- planning/013-…md`; hunk read of `eb0e291` — `numstat` **3/1**, `Rev: 49 → 50`, one changelog row, one D53 row |
+| **Serving ref** | `origin/master` `2d90e8a` | **`2d90e8a60270740b59b4768a68cf3f67641e4345`** | `git ls-remote origin refs/heads/master` over **SSH**, computed at the remote |
+| **Workspace** | branch unpushed, 3 ahead | **3 ahead / 0 behind**, porcelain **0 lines** | `rev-list --left-right --count`, `status --porcelain` |
+
+**One caution attaches to the criteria axis and is recorded rather than smoothed:** the plan's
+`Status-Detail` prose still opens *"Rev 49, planner pass 16"* while the `Rev:` field reads **50**. The
+**field** is the axis; the prose is lag. Noted so a later reader does not derive rev 49 from the
+narrative and conclude the gate has expired when it has not.
+
+## §14.2 — **§13.3 is SUPERSEDED. The gate has moved twice and expired once since it was written**
+
+**What the record says**: §13.3 states the release decision is **UAT rev 36**, anchored at **TREE
+`e1d9b2b` · CRITERIA plan rev 48 (`f5b7cac`)**, conditional on **eight** `PRE` rows.
+
+**Why that was defensible when written**: it was exactly true at UAT rev 37, which is what §13's header
+names as its read point. §13 anticipated the failure mode it then suffered — *neither expiry announces
+itself* — and it is the anchor that moved, not the reading.
+
+**What is true now**, re-read at the UAT document at this write:
+
+- **The gate is UAT rev 45** (`d60174d`, with a correction pass at `8fd5b53`). Between §13 and now it
+  was **re-issued at rev 41/44** and then **EXPIRED on the criteria axis** when the D53 registration
+  pass (`eb0e291`, 19:31) took the plan to rev 50 one minute after rev 44's gate committed at rev 49.
+  **UAT ruled the clause bites and RE-ISSUED**, rather than carving out the trivial delta.
+- **Its anchor is now this record's release tip**: **TREE `b56570d` · CRITERIA plan rev 50
+  (`eb0e291`)** — the same pair §14.1 re-derived.
+- **Seven of the eight `PRE` rows are terminal.** `EXECUTED`: **BC-1, BC-6, BC-9, BC-10, BC-18**
+  (rev 43) and **BC-7, BC-8** (rev 44). **One stands: BC-4**, `NOT EXECUTED`.
+- **The decision is `APPROVED FOR RELEASE, CONDITIONAL`.** It has **not** gone unconditional.
+
+**A revision is IN FLIGHT and is read, not relied on.** `uat-hooks-013-6` (pid 3391354, live) has
+**242 uncommitted insertions** in the UAT document constituting **rev 46**. It is legible and it says
+the owner reported **`BC-4 pass`**, that the row is **`NOT EXECUTED — OWNER REPORT ON RECORD, NOT YET
+DECIDABLE ON LIMB 2`**, and that the approval **is not yet unconditional**. **An uncommitted section
+under a live writer is not an authority**, and this record does not treat it as one — it is recorded
+because it points the same way as the committed rev 45 and therefore changes nothing this section
+concludes. **When it commits, it supersedes this paragraph.**
+
+**What of §13.3 SURVIVES, and it is the part that matters**: **`2d90e8a` — the commit actually serving
+— remains UNGATED.** Every approval since has covered an unmerged tree. That sentence is as true today
+as when §13.3 wrote it.
+
+## §14.3 — **§13.2's second limb is DISCHARGED. The owed verdict has been taken**
+
+**What the record says**: §13.2 closed F-1's second limb by ruling a verdict **owed at the post-rider
+tip** — *"rescheduled rather than owed at the serving commit"* — and marked §12.9's action row 1
+answered on that basis.
+
+**Why that was defensible when written**: the post-rider tip did not yet carry a verdict.
+
+**What is true now**: **it does.** QA stands at **`Status: QA Complete`, `Verified-At: b56570d`,
+`Criteria-At: plan 013 rev 50 (§V.34)`** — anchored on **both** axes to the same pair as the gate. QA
+re-derived the suite at the tip: **48 files / 627 tests / 627 passed**, and §V.15–V.18 record the M10
+pass, both wrong-fix mutants caught, and all eleven freshness rows byte-identical at `b56570d`.
+
+**Reproduced independently in this session at `b56570d`, not adopted:** `npx vitest run` → **48 files /
+627 tests / 627 passed**, and `pnpm build` → **exit 0**, `grep -ci error` over the output → **0**, full
+route table emitted (10 app routes, 8 pages API routes, middleware). **The numbers agree exactly.**
+
+**So §12.9's action row 1 is now closed on the fact rather than on the reschedule.**
+
+## §14.4 — **§13.1 stands unchanged.** BC-21 remains `EXECUTED`
+
+Re-read at the UAT register at this write: **BC-21 is `EXECUTED`** and is a member of the terminal set
+at R36.4, carried unchanged through revs 37–45. **No note is owed.** Recorded because a reconcile pass
+that reports only what moved leaves a reader unable to tell *checked and unchanged* from *not checked*.
+
+## §14.5 — **A BLOCKING GATE IS UNMET, AND IT IS NOT BC-4: there is no release-tip verdict at `b56570d`**
+
+This is this section's finding, and it is surfaced now — while the release is held for other reasons —
+precisely so it is not discovered after the owner has approved.
+
+**The rule, and it is QA's own, not this stage's.** At the `4a7126b` release, devops asked whether a
+plan-level verdict whose `Verified-At` already equalled the release tip *was* the release-tip verdict.
+**QA ruled NO** (`qa/release-4a7126b-tip-verification.md`, `78e0a13`): *"A coincidence of SHAs makes
+the **subject** identical; it does not make the **act** identical."* It named three facts a plan-level
+pass does not contain: the **full** suite at the tip, a **production build** at the tip, and
+**combination risk across bundled work**. That document exists, and it is what §11.4 cites.
+
+**Applied to `b56570d`:**
+
+| Distinguishing fact | Present in QA's plan-level `b56570d` verdict? |
+|---|---|
+| **Full suite at the tip** | **YES** — §V.16, all **48** files, 627/627, exit 0. Not a scoped run |
+| **Production build at the tip** | **NO.** `grep -c "pnpm build"` over the QA document → **0**. QA has run **no** build at this tree |
+| **Combination risk across bundled work** | **Not addressed — and it is near-empty here.** `origin/master..chain/013-rider-2` is **3 commits, all plan 013 rider 2**. This release bundles **one** plan |
+
+**Verdict on the gate: NOT MET.** No release-tip verification document exists for `b56570d`, and by
+QA's own ruling the plan-level verdict does not become one by sharing a SHA. **Under this stage's
+Phase 2A step 3 that is BLOCKING and the instruction is to STOP and request one.**
+
+**What this stage's own build run does and does not do.** §14.3's `pnpm build` → exit 0 at `b56570d`
+is **devops-side reproduction, not a QA verdict**, and it **does not satisfy this gate** — the whole
+point of the `4a7126b` ruling is that the act, not the number, is what is missing. **What it does do
+is retire the risk**: the one fact QA's plan-level pass lacks has been measured green here, so the
+Phase 3 pass is expected to be short and is very unlikely to fail. **It should be commissioned in
+parallel with BC-4, not after it.**
+
+**A caution against the shortcut that will be tempting.** The combination-risk column is nearly empty
+and the suite column is already met, which makes *"it is basically already done"* an available
+argument. **It was available last time too, and QA's ruling exists because devops refused it then.**
+Had the two been treated as equivalent at `4a7126b`, the release would have shipped with no build
+behind it — which is exactly the fact missing again now.
+
+## §14.6 — Pre-release verification, taken at this write. **Nothing is inherited from §11.4**
+
+| Gate | Evidence | Result |
+|---|---|---|
+| **UAT** | rev 45, `d60174d` (+ correction `8fd5b53`), **UAT Complete**, anchored `b56570d` / plan rev 50 | **CONDITIONAL approval on record; the condition is NOT met** — BC-4 `NOT EXECUTED` |
+| **Blocking checklist gate** (Stage 1 step 2b) | one register, UAT's; `PRE` set = BC-1, BC-4, BC-6, BC-7, BC-8, BC-9, BC-10, BC-18 | **BLOCKED — 7 of 8 terminal, BC-4 unterminated** |
+| **`POST` rows** | BC-12, BC-14, BC-17, BC-20 — post-deploy-observable | **NOT blocking the release act.** They gate **chain closure** and carry into Post-Release Status |
+| **QA (plan-level)** | `QA Complete`, `Verified-At: b56570d`, `Criteria-At: rev 50` — both axes matching the gate | **met** |
+| **Release-tip verdict** | **NONE EXISTS at `b56570d`** — see §14.5 | **NOT MET — BLOCKING** |
+| **Verdict freshness** | `merge-base` `2d90e8a` is an ancestor of `b56570d`; **0 commits the other way**, so the assembled tip **is** `b56570d` by identity — the verified tree and the shippable tree are the **same object** | **met** |
+| **Independent reproduction** | at `b56570d`: `npx vitest run` → **48 files / 627 / 627, exit 0**; `pnpm build` → **exit 0**, 0 error lines, full route table | **met** |
+| **Release consistency (cross-repo)** | `package.json` carries **no `version` field**, no CHANGELOG — so per Core Responsibility 3 this is the **cross-repo reference check** and **no version was synthesised** | **met — four legs agreeing at `749606d0…`**: specifier `github:hooks-gg/project-utils#master`; `pnpm-lock.yaml` (3 sites); `project-utils` local HEAD; **fresh SSH `ls-remote` of the real remote** → `749606d0…` on `refs/heads/master`. **No consumer left pinned to a stale branch** |
+| **Deploy-config drift** | `git diff --numstat 2d90e8a..b56570d` over `vercel.json`, `pnpm-lock.yaml`, `tsconfig.json`, `next.config.*`, `.gitignore` → **empty**. `package.json` moves **1/1** and it is the `typecheck` script gaining `-p tsconfig.test.json` — **no dependency, no engine, no build command** | **no drift** |
+| **Packaging integrity** | build green at the tip on a clean tree; **no assets, no package script, no filename to check — nothing to package** | **met** |
+| **Gitignore review** | `website` porcelain **0**. In `agent-output`, **19 probe `node_modules` symlinks show as `??`, which is the HEALTHY state** — `.gitignore:12` is `node_modules/` with a trailing slash, matching directories only, so a rig that has degenerated into a real directory *disappears* from `git status`. **Recorded, not tidied**; "fixing" the pattern would destroy the only passive detector | **met, recorded** |
+| **Workspace cleanliness** | `website` porcelain **0** before and after the build. In `agent-output`, **three paths are NOT this stage's and were left untouched**: `verification/013/probe-cr12-load-confirmation/dialog-table.txt` (modified, an exited code-reviewer's) and two untracked `verification/012/backfill-report-*.md` | **met, with foreign paths named** |
+| **Verified SHA reachable** | `git branch --contains b56570d` → `chain/013-rider-2`. **No history was rewritten** between verification and now | **auditable** |
+| **Serving-ref ordering** | `website` remote heads: `master`, `backup`, `external-message-api`, `redesign`, `regex-refactor`. **Enumerated from the repo, not from a gate's count.** **`master` is the sole serving ref** (Vercel git integration; `vercel.json` carries only a cron entry and there is **no `.github/workflows` directory at all**). `master` `2d90e8a` is an **ancestor** of `b56570d` → a move is a fast-forward and **cannot split any pair** | **met** |
+| **`tools/check-repo.js`** | **FAIL — 26 problems**, re-run here at this write: 012 link failures, vendored `node_modules` basename collisions under `verification/013/`, 3 frontmatter failures (the code-review doc's `ID: 11`), 3 scope-suffix failures (**two of which are this domain's own readiness docs**) | **NON-BLOCKING for release; recorded so it is not a surprise at closure. Not repaired — out of scope tonight by steering's instruction** |
+
+## §14.7 — Deploy mechanism, established from the repo rather than assumed
+
+**`website` deploys on push to `master` via Vercel's git integration.** Established from the repo's own
+configuration: `vercel.json` exists (crons only), **`.github/workflows` does not exist** (`ls -d` →
+*No such file or directory*; the `.github` directory holds only `prompts/`), and no deploy script,
+Dockerfile or `netlify.toml` is present. **There is no CI step between the push and the deploy.**
+
+**Consequence, and it is UAT's R46.9 point restated from this side: for this repo the merge IS the
+deploy.** *Before merge* and *before deploy* are the **same instant**. **There is no halfway step that
+is only a merge**, and no window in which a missed check can be caught.
+
+## §14.8 — Release position at the close of this pass
+
+**TWO independent gates are unmet, and each blocks on its own grounds:**
+
+1. **BC-4** — `NOT EXECUTED`. UAT's, and **not this stage's to close, judge or wait out**. Terminal
+   states are `EXECUTED` or `WITHDRAWN` (his ruling alone). **`NOT EXECUTED` is not a terminal state,
+   and no release is recorded complete while it stands at one.**
+2. **The release-tip verdict at `b56570d`** — **does not exist** (§14.5). QA's to produce.
+
+**And a third thing that is not a gate but is required before any command runs: the owner's explicit
+approval of the release act itself.** `devops now` is a direction to the pipeline. **It is not release
+approval**, and this stage does not treat it as one.
+
+**Nothing is marked NOT VERIFIED in this section.** Every artifact-side check above was performed.
+
+**State: `origin/master` `2d90e8a`, `chain/013-rider-2` `b56570d` unpushed and 3 ahead, `website`
+porcelain 0. NOTHING RELEASED. No push, no merge, no tag, no tree switch.**
