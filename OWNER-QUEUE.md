@@ -79,14 +79,19 @@ Then statbot 023 deploys its gate. **Telling statbot's steering thread is your c
 by D12 that chain has been held this whole time and no session has been told. Record your words and
 the time.
 
-**Sending the repair guidance — NOT ready for you yet, and this is the only reason it is listed.**
-Two changes must land before it reaches you, both agent work already routed: it must be rewritten to
-the three-step form (open the JSON view, delete the `flags` line, Load), because 013's import check
-now refuses an unchanged Load; and its premise must be re-derived, since 013 gave one of the two
-instructions a lossless path and the guidance was written on the premise that neither was safe.
-**One substantive question remains open on it:** your observation that the JSON view may strip V2
-content is a candidate falsifier for the very route the guidance recommends. Candidate, not
-established. If it holds, the guidance tells people to do something that loses their data.
+**Sending the repair guidance — not ready for you yet, and that is the only reason it is listed.**
+This is the message telling a guild owner how to unstick a message that won't send. **You settled
+what it says: switch the message to Classic and save.** One instruction — since 013 shipped, that
+clears the stuck flag in one click and keeps their content, embeds and buttons.
+
+**Waiting on:** the planner finalising the wording. Nothing here is yours until that lands, and
+then sending it is yours alone — no agent may post it.
+
+**Recorded with your ruling, so it is not lost:** you chose to send this without anyone trying the
+fix in the app first. Nobody has watched it work — 5712 and 5842 were repaired with SQL, not by
+this route — so the first person to actually run it is an affected guild owner following our
+instructions. That is your accepted risk and it is not being re-raised; it is written here because
+a waiver recorded without its consequence is worse than no record.
 
 **Standing rule, for context:** no agent on this machine ever posts a message anywhere — not Discord,
 modmail, support threads, email or ticket replies. Work that ends in "tell someone X" stops at
