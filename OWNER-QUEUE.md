@@ -55,16 +55,12 @@ state of a conflict is now the error line with the **`Resolve`** control, not th
 
 ### 013-C. Decisions, no browser needed
 
-- **BC-2 / BC-3 — and there is now a discrepancy in your own report I will not resolve for you.**
-  You said BC-2's notice showed and you removed it. **BC-2's notice is on the import dialog
-  (`NewMessageModal`) and still exists**, reworded by you to `Not supported on Hooks.gg:`.
-  **BC-3's is the editor-side one you deleted.** If what you saw was the dialog notice, that is BC-2
-  observed and BC-3's subject gone — two different outcomes. **Tell me which and I record it.**
-  Your three standing options are unchanged: **withdraw both** (what ships unobserved is whether the
-  notice *renders* on the Discord-ingress surfaces); **give me one URL**, if a Discord message with a
-  select menu is already in front of you — one message, not a hunt, and it covers both; or **leave
-  them open**, non-terminal, still blocking an unconditional approval. **They are a timed pair** —
-  BC-3 must run inside a 1h TTL of the Get Message call on the *same* message.
+- **BC-2 / BC-3 — DONE BY YOU, nothing further owed.** You imported a real Discord message carrying
+  an unsupported type **by URL** and reached the same message through the bot's **Get Message**, and
+  saw the notice on both surfaces: *"When I said both, I meant both. I have seen the message in both
+  places, through both of their respective methods."* **Their standing `RECOMMEND WITHDRAWAL` is moot
+  — they were run, not withdrawn.** Registered as **D41**; the register state itself is `uat`'s to
+  write and is routed to it. **The three withdrawal options are gone from this list.**
 - **U-C5** — R-5's widening. It is the blocking edge before any deployment record.
 - **When to repair 5712 and 5842.** *"Haven't done it yet."* **This one closes a door if you act, not
   if you wait** — they are the only live proof of the problem. 013 made the JSON-editor route
