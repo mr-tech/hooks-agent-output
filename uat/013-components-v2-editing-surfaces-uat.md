@@ -14,6 +14,8 @@ Status-Detail: >-
   authored at **R50.2**, then their terminalisation in this register, then devops' close. **R48.4 and R49.4
   are both DECIDED and neither blocks.** **BC-13 is TERMINAL and is not a fifth row — re-derived rev 50
   after this register asserted otherwise to steering and corrected it in the same channel (R50.4).**
+  **The four checks AS DELIVERED are carried verbatim at R51.3** (5483 bytes, `sha256 9abe3966…4309d4`) —
+  **that block, not the `OWNER-QUEUE` copy, is what the four rows terminalise against.**
   **Rev 49 — HIS RULING ACCEPTED: `a74b9e2` LEAVES 013's RECORDS ENTIRELY.** ***"No. The records don't
   mention what happens after release. Release was self-contained and a snapshot at the time of release."***
   — his own words, correcting an option description he had just selected, given **before rev 48 existed and
@@ -901,6 +903,7 @@ Verified-At: >-
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — reported the release complete at `master` = `b56570d`, flagged this document's `Status: Active` as contradicting its own record, and asked whether the rev 51 criteria move needs recording | **Rev 48. PRODUCTION MOVED PAST THE GATE ELEVEN MINUTES AFTER THE RELEASE, AND THIS REVISION EXISTS BECAUSE THE CLAIM WAS VERIFIED AT THE MECHANISM INSTEAD OF ACCEPTED.** **`git ls-remote origin refs/heads/master` → `a74b9e2`, NOT `b56570d`.** **Steering's read was CORRECT when made** — the release did land at `b56570d` at 20:30:01 — **and the tree moved at 20:41:37, which steering has not seen; this is not a peer being wrong.** **The release is sound**: ancestry exit 0, fast-forward, exactly as gated. **On top of it sits exactly one commit, `a74b9e2 "remove unnecessary diff"`, the owner's own — 4 files, 3 under `__tests__`, ONE production path `src/utils/index.ts` at 1 insertion / 22 deletions.** **Rev 47's clause therefore fires on all three verdicts: this gate EXPIRED on both axes, QA's `Verified-At: b56570d` EXPIRED on both, code review's EXPIRED on the tree axis.** **The expiry of THIS gate is harmless and is stated so rather than dramatised — the merge executed while it was live, and a gate expiring after the act it authorised is the clause working. What is NOT harmless: no verdict in this chain covers what is running in production now.** **CLASSIFIED, NOT REVIEWED** — a 23-line diff was read for the one purpose the gate obliges (did the tree move, does it touch a terminalised row), **and the assessment is ROUTED to code review and QA rather than made here**: the change removes the component-type enumeration from the **Load confirmation**; `describeDropSet` survives so the lossy-conversion warning stands. **AND IT IS THE SURFACE BC-1 WAS CLOSED ON** — the row QA said only a human could reach. **BC-1 is NOT withdrawn and NOT reopened: it was correctly `EXECUTED` against the tree it was executed against, but its evidence no longer describes production — a fact about the record, not a criticism of the commit.** ***"Remove unnecessary diff"* reads as a deliberate product judgement that is his alone; this register requests no feature, asks for no revert, and takes no position on whether the change is right.** **ONE BLOCKING DECISION PUT TO HIM (R48.4), with a real accept-as-is option that is explicitly not a failure**; recommendation is a **scoped** re-review the stages size, and a full re-gate is named **disproportionate** rather than offered neutrally. **ON THE `Status` FIELD: steering misread the vocabulary and the field is RIGHT — `Status` is LIFECYCLE, never the verdict; `UAT Complete` is not a value it takes; and the skill's table and this stage's own definition both say DEVOPS closes this document.** **`Active` is also substantively true — four `POST` rows stand open and this register owns them.** **BUT STEERING WAS RIGHT THAT SOMETHING WAS WRONG AND IT IS MINE**: `Status-Detail` opened on rev 47's completion narrative with **nothing stating the lifecycle position**, which is precisely the qualifier the skill says that field exists to carry — **a survey script or `pi` would have made the identical misread without steering's care to ask first.** **Fixed by a standing lead; the field itself did not change.** **The rev 51 criteria move IS recorded and is NOT a re-issue**: no gate is re-issued for an act already complete; what is recorded is that the gate was **live at the instant it was acted on** and **must not be leaned on for any future act.** R47.7's routing correctly **moot**; its `pi` finding survives, never having been about today's instance. **Residuals: eight.** **UAT Complete stands as a verdict about `b56570d` and is NOT a verdict about `a74b9e2`.** |
 | 2026-08-25 | **owner** via `steering-hooks-013-3` [b04529], as a blocking selection prompt put **before rev 48 existed**; steering explicitly did not claim he ruled on this register's reasoning | **Rev 49. HIS RULING ACCEPTED — `a74b9e2` LEAVES 013's RECORDS ENTIRELY.** He chose *"Mine — I removed it deliberately"*, declining *"but I want it gated"*, *"find out who"* and *"revert to the released tip"*, then **corrected the option's own description unprompted, in his own words**: ***"No. The records don't mention what happens after release. Release was self-contained and a snapshot at the time of release."*** **Stronger than R48.4's option A**, which would still have had the records note the move. **No re-review, no re-gate, no revert, no residual entry about `a74b9e2` inside 013.** **BC-1 — steering's offer to carry the point back is DECLINED, and not out of deference: R48.3's observation that BC-1's evidence no longer describes production IS a statement about what happens after release, the exact class he ruled out.** BC-1 was `EXECUTED` against the tree it was executed against, which is the snapshot he describes; **asking would be asking him to re-rule what he just ruled in different words.** **REV 48's FINDING STANDS AND IS NOT WALKED BACK** — production was not serving the released tree, and verifying at the mechanism stopped a false-premise finalisation and a rev 52 plan write mid-pass. **Its proposed DISPOSITION is superseded, and both halves are said: a ruling arriving ahead of the gate's request is not the gate being ignored.** **Residual 8 retired to a disposition line per Retire Dispositioned Content; residuals 8 → 7.** **ONE DISTINCT QUESTION PUT BACK, and it is NOT BC-1: the four `POST` rows are BY CONSTRUCTION records of what happens after release — BC-14 is literally *"the user-reported defect is fixed in production"*, BC-12 *"still sends after deploy"*.** **Read one way his sentence withdraws all four and the chain closes now; read the other they stand and must be observed against `a74b9e2`. Applying it maximally would withdraw four release conditions on a ruling given about a dialog — expanding a ruling past the question it answered, the error this chain has spent all day not committing. Applying it minimally keeps alive four rows he may have just ended. `WITHDRAWN` is a terminal state only he may rule.** The ask passes BC-4's test — **it names what the answer changes** — and **if he withdraws them the cost is recorded in plain words: the chain closes with the user-reported defect never confirmed fixed in production.** **Steering's `Status` withdrawal accepted in the terms made — same channel, error's class named correctly as asserting from an unestablished fact — and two things kept past the instance: it did not repeat the error on the other two documents, and it LEFT THE ARCHITECTURE DOCUMENTS ALONE because `Active` is that type's normal state; one of its three "stragglers" was never one.** **For the retrospective**: the repo has **no roadmap and no release tracker across twelve chains**, found by the roadmap pass, **which also found `a74b9e2` unprompted and refused to act on it as outside its stage — two stages finding the same fact independently within the hour, neither of them the one whose report said otherwise.** |
 | 2026-08-25 | **owner** via `steering-hooks-013-3` [b04529] — **R49.4 ruled, option 2**, put with the withdrawal cost stated in the plain words this register asked for; steering relayed his answer verbatim and complete | **Rev 50. THE FOUR `POST` ROWS STAND, AND THEIR OPERATOR TEXT IS AUTHORED AND DELIVERED.** ***"2, use the current uat. Speed run this to completion. no back-and-forth, you give me what to check, I do it and we're done"*** — **the minimal reading governs**: BC-12, BC-14, BC-17 and BC-20 are **not** withdrawn, and **every observation names `a74b9e2`**, re-derived at the mechanism (`git ls-remote origin master`) before a word of the text was written. **Four checks authored in one delivery (R50.2), verbatim-liftable, nothing cut.** **The silent-limb problem is solved by the REPLY FORMAT, not by asking him for more** — each limb that fails by absence is written to return **a number or a quoted string**, so a one-line answer carries the observation rather than his verdict about it; that is what makes *"no back-and-forth"* compatible with the rows instead of fatal to them. **BC-17's fixture IS its own question and none was invented** — written as a question with two branches, both terminalisable tonight, one carrying a **RECOMMEND WITHDRAWAL with the cost stated to him in plain words**. **BC-20's absence limb has no closing instrument by construction, and the check is written to say so to his face** rather than let a pass read wider than it is. **`a74b9e2`'s visible delta is disclosed to the operator in his own terms** — the Load confirmation says less than the records describe, it is his own change, and none of the four rows depend on the removed wording. **SELF-INFLICTED ERROR, CAUGHT AND CORRECTED IN THE SAME CHANNEL (R50.4)**: this register told steering BC-13 was an open fifth `POST` row. It is `TERMINAL — WINDOW ELAPSED` since rev 27, and the later revisions say `POST` **(4)** for exactly that reason — **a status asserted from memory of an early revision instead of re-read at write time, which is this document's own rule applied to every stage but itself.** Withdrawn plainly, with devops credited for having closed it correctly and unprompted. **Non-reopening re-derived rather than assumed**: `bot` present at `a74b9e2` and `git diff --name-only 2d90e8a a74b9e2 -- bot/` **empty**, so BC-13 stays terminal across both of tonight's commits. **Devops's written decline of the §16 amendment ACCEPTED, not escalated** — §16 already is the snapshot and never claimed `b56570d` serves now; a refusal in writing with its authority named is the correct way to refuse another stage. **Residuals: seven, unchanged.** **UAT Complete still stands as a verdict about `b56570d` and is still NOT a verdict about `a74b9e2`.** |
+| 2026-08-25 | `steering-hooks-013-3` [b04529] — a **finding against rev 50**, delivered together with the correction of an error of its own that produced it | **Rev 51. THE FINDING IS RIGHT AND REV 50 WAS DEFECTIVE: the register recorded the checks' DERIVATION and not the delivered TEXT, so the delivery copy had silently become the only copy of what was actually put to the operator.** **The offered defensible position — register owes the derivation, queue owes the wording — is DECLINED, and not on the reproducibility ground steering led with, which is real but secondary.** **The decisive reason: a row is terminalised against the check that was actually PUT, not the check its author meant to put** — `EXECUTED` will be recorded against limbs *he was shown*, and a register holding only a summary of its own intention terminalises against a paraphrase and calls it an observation. **That is the substitution this chain refused in all eight `PRE` rows.** Second reason, this register's own ruling this morning: **a trimmed version of this text IS a different check**, and a register that cannot show which version was put cannot tell one from the other. **FIXED AT R51.3 — the delivered block embedded verbatim, 5483 bytes, `sha256 9abe3966…4309d4`, inside a four-backtick fence so its own inner fence survives unaltered; self-checked after the append and hashing identically from inside this document.** **IDENTITY ESTABLISHED AT THE BYTES FROM TWO INDEPENDENT SOURCES (R51.2)** — the delivery copy extracted from `OWNER-QUEUE.md` at `a31b880`, and this register's own outbound message recovered from this session's transcript: **5483 bytes and the same digest on both.** **Steering reported the lift verbatim and that report is now CONFIRMED rather than relied on — the treatment its report deserved, not a doubt about it.** **Boundary stated so the record is not read wider than it is**: this establishes that what he was shown is what was authored, and would not have caught a divergence introduced before extraction. **R51.4 — THE PATTERN, replacing three separate filings**: steering's `Status` misread, steering's rev-50 stamp written before rev 50 existed, and this register's own BC-13 assertion are **one shape** — *a claim about a document's contents made from expectation rather than from reading it at the moment of the claim*. Routed to the retrospective as ONE pattern-level item; **R50.4 folds into it as an instance and is no longer filed separately.** **Steering caught its own error, corrected it in place at `9e5e192` naming the superseded claim, and reported it unprompted alongside a finding that reflected worse on this register than on itself — the correct response to one's own error and rarer than the error.** **Gate, rows, residuals and R50.6 all UNCHANGED**; this revision adds no verdict and moves no row. |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -8941,3 +8944,190 @@ that and route it, rather than reaching backwards for a verdict it already spent
    to its own document; the failure mode is an early revision's snapshot of a live set outliving the set).
 6. **Nobody** — expands the R49.4 ruling past the four rows it names, takes a `POST` observation without
    naming `a74b9e2`, or records a row as passed on "it looked right" where its cell says the limb is silent.
+
+---
+
+# Revision 51 — 2026-08-25 — **THE DELIVERED OPERATOR TEXT, VERBATIM. A FINDING AGAINST REV 50, ACCEPTED.**
+
+**Trigger**: `steering-hooks-013-3` [b04529], raising a finding against rev 50 **and** correcting an error
+of its own that produced it.
+
+## R51.1 — The finding is right, and rev 50 was defective
+
+**Rev 50 records the four checks' *derivation* — each traced to its own register cell — and does not carry
+the delivered *text*.** Steering verified that at this file after `61b4b48` and found the phrases carrying
+the hazard framing absent: *"It looked right" is not an observation of (b)*, *no amount of nothing-going-wrong
+is evidence for it*, and **all four check headings**.
+
+**Its consequence is stated exactly right: the delivery copy became the only copy of the text as delivered.**
+That inverts the relationship this register established this morning — **a delivery copy is reproducible from
+the register, never the other way round** — and it does so silently, which is worse than doing it loudly.
+
+**Steering offered a defensible position — that the register owes the derivation and the queue owes the
+wording — and this register declines it.** The reason is not tidiness, and it is not the reproducibility
+argument steering led with, which is real but secondary:
+
+> **A row is terminalised against the check that was actually put to the operator, not against the check its
+> author meant to put.** When his answers land, `EXECUTED` will be recorded against limbs *he was shown*. If
+> this register holds only a summary of what it intended to ask, it terminalises against a paraphrase of its
+> own instruction and calls the result an observation. **That is the same substitution this chain has refused
+> eight times in eight `PRE` rows.**
+
+**The second reason is the one this register ruled on itself this morning**: a trimmed version of this kind of
+text **is a different check** (the BC-4 hazard bullets). A register that cannot show which version was put
+cannot tell a trimmed check from the authored one.
+
+**Rev 51 exists to close that, and the defect is recorded at weight rather than as an oversight of formatting.**
+
+## R51.2 — Identity established at the bytes, from two independent sources
+
+**The delivered block is byte-identical across the copy steering lifted and this register's own outbound
+message.** Established rather than accepted:
+
+| Source | Instrument | Bytes | `sha256` |
+|---|---|---|---|
+| **Delivery copy** — `OWNER-QUEUE.md` at `a31b880`, extracted from the file | direct read, extraction by string boundary, not by line index | **5483** | **`9abe39666468c5dcc23dc24786f1b68fea0992063cab538f73461d64394309d4`** |
+| **This register's outbound message** — recovered from this session's own transcript | `json.loads` over the transcript record, same boundaries | **5483** | **`9abe3966…4309d4`** |
+
+**Steering reported the lift was verbatim. That report is now confirmed at the bytes rather than relied on** —
+which is the treatment its report deserved, not a doubt about it. **Both readings are of the same authored
+text and they agree exactly.**
+
+**What this does and does not establish, stated so the record is not read wider than it is**: it establishes
+that **what he was shown is what was authored**. It would not have detected a divergence introduced *before*
+extraction — nothing available tonight could, and no claim to the contrary is made here.
+
+## R51.3 — The delivered text, verbatim and authoritative
+
+**This is the authoritative copy. `OWNER-QUEUE.md` holds a delivery instance of it.** Any future difference
+between the two is drift **in the queue**, and the register governs. Reproduced inside a fence so the inner
+fence survives and the bytes are unaltered:
+
+````text
+**Four checks. All four are about the site as it is running right now. Three are clicks; one is a question that may have no answer, and "no answer" is a fine reply.**
+
+**One thing you will notice, and it is not a fault.** The message the app shows when a load changes your message is **shorter than our notes describe** — it no longer lists which component types were added or removed. **That is your own "remove unnecessary diff" change and it belongs there.** The separate *dropped-components* warning is untouched, and check 12 depends on that one. Nothing in these four checks depends on the wording you removed.
+
+---
+
+**9. Does a V2 message still send after the deploy? (BC-12)**
+
+- Open a **V2 message you already have** — ideally one that sent fine before today.
+- **Save As** to make a copy.
+- **Send the copy to Discord.**
+
+**It passes if both hold:**
+1. **The copy actually appears in Discord.**
+2. **No error appears in the app.**
+
+- **If the send fails with any error at all, that is a fail and it is a hotfix trigger — not a try-again.** **Do not send it a second time to see whether it works.** One failure decides this row. **Write down the error text exactly as it appears.**
+- If you have no pre-existing V2 message and build a fresh one instead, **say so** — it still counts, I just need to know which it was.
+
+---
+
+**10. Is the original defect actually fixed in production? (BC-14) — four things, and two of them are invisible unless you open the Message JSON.**
+
+**All four are owed. Three passing is not this check passing.**
+
+- **(a)** Take a **V2 message with components on it**. Press **Save As**. → **The copy has every component the original had. Count them.**
+- **(b)** On that copy, open **Message JSON**. → **The components are there in the JSON. Count them there too.**
+- **(c)** Open **the same message in two browser tabs**. In tab 1, change **only a component** — touch nothing else — and **Save**. Switch to tab 2. → **Tab 2 shows "Message Update Detected".**
+- **(d)** Now press **Save** without changing anything at all. → **Nothing is raised. No "Message Update Detected".**
+
+- **(b) is the one that fails silently.** The screen can look completely correct while the JSON is missing the components. **"It looked right" is not an observation of (b).** **Give me both numbers.**
+- **(c) fails by something NOT appearing; (d) fails by something appearing.** They are opposites on purpose. If (c) shows nothing, switch tabs once more before calling it — but if it still shows nothing, that is a fail.
+- **If the two counts differ from each other, or from what the original had, that is the defect.** Write down all three numbers.
+
+---
+
+**11. Can Discord hand us a message with both text and components? (BC-17) — a question first. Do not build anything for this one.**
+
+**The question: do you know of a Discord message that is old enough to predate Discord's V2 rules AND has both ordinary text content and components on it?**
+
+- **If yes:** import it by link. **It passes if you are shown a choice naming what would be dropped**, rather than the app silently keeping one and losing the other. **Tell me which of the two you saw.**
+- **If no, or you cannot find one:** reply exactly **`BC-17: no such message known`**. **That is a real answer and it is the one I expect. It does not fail the check.**
+
+**If your answer is "no such message", then this check cannot be executed by anyone — tonight or later.** What it needs to run is the very thing it is asking whether exists, and neither QA nor I will manufacture one. **So I am recommending you withdraw it, and here is what withdrawing costs, plainly:**
+
+> **The import path's mixed-message branch ships untested and unobserved. No automated test in this chain covers it. If Discord ever does return such a message, the user importing it loses half of it with no prompt — and nothing in this system would tell you it happened.**
+
+**That risk is what you would be accepting. Only you can withdraw it.** Reply **`withdraw BC-17`** if you accept that, or **`BC-17 stands`** to leave it open past this chain.
+
+---
+
+**12. Does the dropped-components warning actually stop an unaware send? (BC-20)**
+
+- **Do an import that drops components** — **the same import you used for BC-6 earlier tonight is exactly right**, since that check's whole point was that something got removed.
+- **Then head toward sending it.**
+
+**It passes if all three hold:**
+1. **A warning appears saying components were dropped, and it names what was dropped.**
+2. **The warning is still in front of you when you go to send** — you cannot reach a send without having seen it.
+3. **You cannot publish it without that warning having been shown first.**
+
+- **A warning that appears but names nothing is a finding, not a pass.** **Write down exactly what it says**, word for word.
+- **What this can and cannot settle, so you are not misled by a pass:** it shows the guard **fires**. It cannot show that no message has ever gone out unaware — that one is an absence, and no amount of nothing-going-wrong is evidence for it. **I will record it as exactly what you saw and nothing wider.**
+
+---
+
+**Reply in one go — this format finishes it:**
+
+```
+BC-12:  sent / failed  (+ exact error text if failed)
+BC-14:  copy=N   json=N   other-tab-prompt=yes/no   no-op-save=quiet/prompted
+BC-17:  no such message known    — or —   choice shown / silently lost
+        (+ withdraw BC-17  /  BC-17 stands)
+BC-20:  warning=yes/no,  it said: "…"
+```
+````
+
+**Drift is now self-detecting on read**, which was the property rev 50 lacked: the block above hashes to
+`9abe3966…4309d4` at 5483 bytes, and any copy that does not is not the check that was put.
+
+## R51.4 — Steering's own error, and the pattern all three instances share
+
+**Steering stamped the lifted block *"its rev 50 carries the same text"* before rev 50 existed** — asserting a
+property of a document it had not read. **It caught this itself, by going back to verify after the commit,
+corrected it in place at `9e5e192` with the superseded claim named rather than quietly replaced, and reported
+it to this register unprompted alongside a finding that reflected worse on rev 50 than on itself.**
+
+**That is the second such error it has made in an hour, and it says so plainly.** This register's `Status`
+misread was the first. **And this register's own BC-13 assertion tonight (R50.4) was a third.**
+
+**Three instances, two sessions, one evening, and the same shape underneath all three:**
+
+> **A claim about a document's contents, made from expectation rather than from reading it at the moment of
+> the claim.** Steering's `Status` misread (reading a field's meaning from its neighbour's prose), steering's
+> rev-50 stamp (a property of a document not yet written), and this register's BC-13 (a live-set snapshot
+> from an early revision outliving the set). **None was a carelessness about facts; each was a document held
+> in memory being trusted at the moment it should have been re-read.**
+
+**This is routed to the retrospective as ONE pattern-level item, not three instances**, superseding R50.4's
+standalone routing — the instances are evidence for it, and filing them separately would lose the only thing
+about them that is worth carrying. **Its cheap countermeasure is already known and was what caught two of the
+three: verify at the file before writing the claim, not after.**
+
+**Nothing about steering's finding is diminished by its having also made an error.** It found a real defect in
+this register's work, and it found it by doing the verification it had skipped — **the correct response to
+one's own error, and rarer than the error.**
+
+## R51.5 — State at rev 51
+
+**Unchanged from rev 50 in every particular except this document's completeness**: gate `UAT Complete` /
+`APPROVED FOR RELEASE — UNCONDITIONAL` at **TREE `b56570d`** / **CRITERIA rev 50**, **expired on both axes**
+and not re-issued; **no verdict covers `a74b9e2`**; **eight `PRE` rows terminal**; **four `POST` rows open**
+(BC-12, BC-14, BC-17, BC-20), checks delivered and awaiting the owner; **BC-13 terminal, no fifth row**;
+**residuals seven**; lifecycle **`Active`**.
+
+**R50.6 stands unamended**: a `POST` row failing at `a74b9e2` is a finding against production as it stands —
+**not** a re-gate of the release act and **not** a reopening of the owner's R49.1 ruling.
+
+**Next Actions** — *point-in-time; later stage documents are authoritative.*
+
+1. **The owner — the four checks above, one sitting, one reply.**
+2. **This stage — terminalise all four against the text in R51.3**, which is now what he was shown.
+3. **Devops — `closed/` once the four resolve.** `origin/master` is `a74b9e2`.
+4. **Retrospective — R45.9, R47.7, R49.5's two, and R51.4** (the pattern; R50.4 folds into it as one of its
+   three instances and is not filed separately).
+5. **Nobody** — treats the `OWNER-QUEUE` copy as authoritative over R51.3, or terminalises a row against a
+   summary of a check rather than the check.
