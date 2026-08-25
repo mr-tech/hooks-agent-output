@@ -32,16 +32,10 @@ exist to you, and relaying lists at you in chat instead is not a substitute.
 **D30–D40**. **No QA, no code review and no UAT ran on any of it** — your waiver (D35) — and that
 round now carries a **review debt that blocks chain closure** (D39), parked on your word.
 
-### 013-A. Run these — nothing blocks them
+### 013-A. Nothing here needs you right now
 
-| Do this | You should see | Tag |
-|---|---|---|
-| New Message → paste `{"components":[{"type":17,"components":[{"type":10,"content":"hi"}]}]}`. Then add `"flags":32768`. | A **persistent in-modal** warning that the flag was set to match — **not a toast**. Adding the flag clears it. | **BC-18** |
-| The same deliberate paste **on the live site**, once. | The notice renders. **This one exists because a notice that fails to render looks exactly like nothing having been dropped** — waiting for user reports cannot detect an absence. | **BC-21** |
-
-**Both predictions are stale and I am not going to pretend otherwise.** Under D31/D32 the resting
-state of a conflict is now the error line with the **`Resolve`** control, not the two choice buttons.
-**Write down what you actually see; do not try to match the old wording.**
+**BC-18 and BC-21 are done** — you ran both 2026-08-25 and reported *"-as expected-"* on each.
+Deleted rather than ticked, per this file's own rule.
 
 ### 013-B. Still owed to you by me — do not wait on these
 
@@ -61,60 +55,34 @@ state of a conflict is now the error line with the **`Resolve`** control, not th
   places, through both of their respective methods."* **Their standing `RECOMMEND WITHDRAWAL` is moot
   — they were run, not withdrawn.** Registered as **D41**; the register state itself is `uat`'s to
   write and is routed to it. **The three withdrawal options are gone from this list.**
-- **U-C5** — R-5's widening. It is the blocking edge before any deployment record.
+- **U-C5 — and my old entry for this was unusable, which you caught.** It said *"R-5's widening"* and
+  R-5 appeared exactly once in this file: in that sentence. Here is the actual decision, in full, with
+  nothing to look up.
+
+  **The situation.** After you repair 5712 and 5842, anyone checking the fix will count how many
+  records still have flags and structure disagreeing. **That count will not be zero.** Two records —
+  **5855 and 5856** — are seeds deliberately created in exactly that broken shape, and they are
+  permanent members of the class. So a **successful** repair reads as a **failed** one to anyone who
+  just counts.
+
+  **The decision, and it is only yours because it changes what a release record asserts.** The
+  deployment record is required to state that the surface no longer writes these bad records. **Do you
+  want it to also name 5855 and 5856 as a known, permanent, deliberate residual?** Say yes and devops
+  writes that line; say no and the record stays as the plan words it, and the next person to count
+  gets a false alarm. **No agent has adopted or proposed a remedy here — this pass is genuinely open.**
+
 - **When to repair 5712 and 5842.** *"Haven't done it yet."* **This one closes a door if you act, not
   if you wait** — they are the only live proof of the problem. 013 made the JSON-editor route
   non-destructive for this shape while the mode toggle still destroys content, so the two repair
   routes are no longer equivalent. **They are also the only records that can still reach
   `SaveAsMenu`'s conflict gate**; once repaired, removing that gate becomes a fair question.
 
-### 013-D. Do NOT run these — their subject is gone or they were never runnable
+### 013-D. Everything else in 013 is with someone who is not you
 
-**None of these is closed. I am telling you not to spend time on them, not recording a result.**
-
-- **BC-19a / BC-19b** — you ran 19a and then deleted `CodeMessageNotice.tsx`. **Their subject no
-  longer exists.** Whether that discharges them, voids them, or leaves the release verdict short is
-  **`uat`'s ruling and nobody else's** — the standing verdict is *approved conditional on BC-18,
-  BC-19a and BC-19b*, so two of its three conditions now have no object. **Routed, not decided.**
-- **BC-15** — needs a 5712-shaped record; it inherits the population **BC-11b** is already
-  `TERMINAL: CANNOT BE EXECUTED` over. UAT states that as judgement and did **not** close it.
-- **BC-11b** — `TERMINAL: CANNOT BE EXECUTED`. **A fourth terminal state. Never read it as "closed."**
-
-### 013-D2. Prediction stale — do not execute against the old wording
-
-**BC-1, BC-6, BC-7, BC-8, BC-9, BC-10** (and BC-18/BC-21 above). The code beneath them moved under
-D30–D33. **BC-9's "two options" is specifically no longer the default.** Executing a row against
-wording the code no longer produces yields a **false failure** — UAT marked these rather than
-rewriting them, and I did not object.
-
-### 013-E. Rules for the whole sitting
-
-- **If a test message opens as Classic with no V2 error and no components section**, that is
-  genuinely ambiguous — it could be a bug in how the message is read back, or the dialog simply not
-  firing. **Write down exactly what you saw and hand it back. Don't decide which it is.** Same if
-  you get a validation error where a choice dialog was expected.
-- **If Save As gives you a guild error, that is a new problem, not one we already know about.**
-  Worth reporting rather than shrugging at — QA tested that path and it worked.
-- **If anything contradicts step 6, tell me.** That reopens QA's verdict. It is not an old known
-  quirk to be explained away.
-- **Any step that fails goes back to the implementer before release.**
-
-### 013-F. Standing decisions of yours, still open
-
-- **What happens to the test messages afterwards.** Genuinely unruled. My instruction to keep them is
-  filling that gap by default, which is not the same as you having decided.
-- **`SaveChoiceModal.tsx`** — a file the plan never named. Precedent in this chain says adding a file
-  to the inventory is yours to approve.
-- **Server-side validation on save** — the thorough fix for a medium finding. More scope than 013 has,
-  so it stays out; what shipped is the documented limitation.
-
-**Settled since this file was last accurate, and deleted from the list rather than ticked:**
-rollback (**BC-11b** terminal; Vercel promote is your choice and does **not** move `master`);
-when the retrospective runs (**D38** — held on your judgement that findings are still accruing, with
-your reason now on the record so no stage fires the trigger on elapsed time); and **the notice you
-had never seen** — that vague flag is what you just hit. It was `CodeMessageNotice`, an earlier
-steering thread declined to route it to you, and **D40 records that you never approved it and that
-the record confirms you didn't**.
+`uat-hooks-013-4` holds BC-19a, BC-19b, BC-15 and BC-11b. **One line, not a list — you asked why this
+file was telling you what NOT to do, and you were right: a do-not-do list is reading overhead in a file
+whose whole purpose is being short enough to act on.** If any of them comes back needing you, it will
+appear above as a thing to do.
 
 ## EVERYTHING BELOW IS ON HOLD — 2026-08-23
 
