@@ -54,6 +54,31 @@ BC-14's operator text (authored by `uat-hooks-013-6`, delivered verbatim) asked 
 **(b) is called out because it was designed as the limb that fails silently** — the screen can look
 correct while the JSON is wrong. It is recorded here as **uncovered**, not as passed.
 
+## Why (c) passing makes this WORSE, not better — `uat`'s point, and it reframes the defect
+
+**Limb (c) PASSED and limb (d) FAILED.** So the cross-tab protection **exists and works** — and the same
+mechanism is firing falsely against the user's own save.
+
+`uat-hooks-013-6`, whose register owns BC-14 and whose own cell for the row predicted this exact harm:
+
+> **"trains him to dismiss the real ones"**
+
+**A protection that cries wolf is being desensitised by its own false positives.** That is a different and
+worse defect from a stray popup: the failure mode is not the annoyance, it is that the **working** half of
+the feature stops being trusted. **(c) passing and (d) failing is a worse combination than both failing.**
+
+## The word "still" is UNRESOLVED and must not be inherited
+
+His sentence says the prompt **"still occurs"**. That admits two readings which scope this work
+differently:
+
+- **pre-existing**, and survived chain 013 without being touched; or
+- **surviving the fix that targeted it** — i.e. 013 addressed this surface and did not fully land it.
+
+**Neither reading is adopted here.** Whoever picks this up **establishes which, from the code and the
+history**, and does not inherit an assumption from that line. `uat` flagged it as the convenient-reading
+trap and declined it; so does this handoff.
+
 ## What this handoff deliberately does not say
 
 - **No mechanism.** Steering did not read the save path, the update-detection code, or any test. The
