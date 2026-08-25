@@ -5,7 +5,7 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: QA Complete
 Verified-At: "b56570dfa916368e9942e671d594112750567923"
-Criteria-At: "plan 013 rev 49, 9637735 — this verdict expires when EITHER the tree or the criteria move. See VERIFY PASS §V.15 for the M10 pass at b56570d; §V.13 records the rev-47→48 re-anchor of the superseded e1d9b2b verdict, which stands for its own tree."
+Criteria-At: "plan 013 rev 50, eb0e291 — RE-ANCHORED 2026-08-25 (§V.34). The D53 registration pass moved the criteria axis and this verdict expired by its own clause; the SUBSTANCE is unchanged, because no criteria-bearing section of the plan moved between rev 49 and rev 50 (two independent instruments, controls that kill rev47→48 and rev48→49 — verification/013/probe-qa-criteria-rev49-rev50/). Suite re-derived at b56570d, 48 files / 627 tests / 627 passed. This verdict expires when EITHER the tree or the criteria move. See VERIFY PASS §V.15 for the M10 pass at b56570d; §V.13 records the rev-47→48 re-anchor of the superseded e1d9b2b verdict, which stands for its own tree."
 Verified-At-Note: "VERIFY PASS 2026-08-25 at e1d9b2b (chain/013-rider-2), criteria plan rev 47 — QA COMPLETE. Supersedes the 4a7126b verdict, which stands for its own tree. See the VERIFY PASS section at the foot of this document. Prior note retained: re-issued 2026-08-25 at 4a7126b after F-QA28 adoption — QA COMPLETE. Supersedes the 664e0c0 verdict, which stands for its own tree. CORRECTED 2026-08-25 (F-9, devops): this field previously read 'Every commit since live master a151fb4 is test-only' — FALSE for a151fb4..4a7126b, which carries abcf585 and its 4 production files (NewMessageJsonInput.tsx, MessageProvider/index.tsx, layout.tsx, CodeMessageNotice.tsx). TRUE only of abcf585..4a7126b. The release delta a151fb4..4a7126b IS production-bearing and needs production-side scrutiny; abcf585 is the commit BC-18/BC-19/BC-21 examine. Plain SHA."
 Verified-At-Detail: >-
   **REFRESH PASS, 2026-08-24 — supersedes the Phase 2 anchor below for verdict purposes.**
@@ -99,6 +99,7 @@ Status-Detail: >-
 | 2026-08-24 | implementer-hooks-013-3 (direct, under D27) | F-QA21 fixed in the shared tree; asks when QA's files are clear to land | **F-QA21 CLOSED, and its severity corrected UPWARD on execution.** The fix is verified, not accepted: 16/16 green, and mutant **Q1** (`switchToClassic` wiping *all* flag bits) is **killed**. Decisively, Q1 **SURVIVED the pre-fix spec** (15/15 green) — so the old type-assertion was blind to a live regression class that would drop `SUPPRESS_EMBEDS`/`EPHEMERAL` on every classic repair. Not cosmetic. Verdict's content identity **re-derived to four paths**; suite 550/37/exit 0. **QA declined the offer to have the implementer commit QA's three files** — an approval is pending with the owner, and routing it through a peer's standing grant would settle it without him. |
 | 2026-08-25 | steering-hooks-013-2 [019315] (owner-directed edit; **not** the QA session) | Owner ruling **D44** — strike the ruled subject from this document and drop its dependents | **STRIKE PASS — rev 5.** Performed under **owner ruling D44**, registered in the plan's Decisions Register at **rev 39** (`13a6e66`), and written by `steering-hooks-013-2` [019315] acting on the owner's direction rather than by the QA session. Every mention of the ruled subject is removed, and every dependent item — one register row, one finding, one falsifier limb, one handoff bullet, and their carry-forwards — is **marked DROPPED under D44**: not re-argued, not re-based onto a substitute, not preserved for the record. **No verdict, status or gate state is changed by this pass** — the QA verdicts, the register's other rows and the Final QA state table stand exactly as they were. |
 | 2026-08-25 | steering-hooks-013-3 [b04529] (successor to `qa-hooks-013-3`, which exited) | Confirm or refute a candidate fixture for **BC-4**, reported by a peer subagent, with QA's own instrument rather than a re-reading; and rule whether the un-gated `Continue` is a defect | **BC-4 PASS — the fixture HOLDS, and the row is no longer blocked.** `{"content": ""}` pasted into the New Message dialog's **JSON** tab reaches the content floor; all three of BC-4's limbs closed mechanically against the real `NewMessageModal` function (V.27). **`{}` refuted as a fixture** — it fails the same floor but the parse effect never runs on it. **The un-gated `Continue` is NOT a defect against 013's criteria** and does not move the verdict; it is a low-severity product finding (**F-QA33**) routed to `uat` by name, non-blocking. **No production code touched — `Verified-At: b56570d` unchanged.** Instrument: `verification/013/probe-qa-bc4-json-tab-fixture/` |
+| 2026-08-25 | steering-hooks-013-3 [b04529] | Rule on QA's own `Criteria-At` after the D53 pass took plan 013 to rev 50, re-deriving the rev 49 → rev 50 delta from the file rather than accepting any relayed characterisation of it | **RE-ANCHOR PASS — the clause bites, the substance stands.** The criteria axis moved, so the anchor expired and is **re-issued to rev 50 (`eb0e291`)** rather than argued away. **No criterion moved**: two independent instruments agree (plan byte-diff = 3 hunks — `Rev`, one Changelog row, D53; and a section-hash map showing `Milestones`, `Validation and Release Conditions`, `Plan Scope`, `Reading Order` and every other criteria-bearing section **byte-identical**), with controls that correctly report **A CRITERION MOVED** for rev 47→48 and rev 48→49. Tree re-derived unmoved (`b56570d`, clean); suite re-run **48 files / 627 / 627 passed**, reconciling V.16. **No re-verification owed.** Also: devops §13.2's routed QA obligation **discharged**; `OWNER-QUEUE` item 8 audited and carries all five §V.31 facts plus the §V.32 signature. Instrument: `verification/013/probe-qa-criteria-rev49-rev50/` |
 
 ## Timeline
 
@@ -4525,3 +4526,143 @@ finding and not a mis-execution.
 
 **Handing off to the `uat` agent** — for BC-4's operator text (V.31), for **F-QA33** (V.30), and for
 the assumption routed in **V.32**.
+
+---
+
+# RE-ANCHOR PASS — 2026-08-25, criteria axis
+
+**Asked**: rule on QA's own `Criteria-At` after steering's D53 pass took plan 013 to **rev 50**
+(`eb0e291`), deriving the delta from the file rather than accepting any relayed characterisation of
+it. **Nothing in this section is taken from a relaying message** — not `numstat 3/1`, not "purely
+additive", not "no criterion". Two of those phrases were offered; neither is cited below.
+
+## V.34 — Ruling: **the clause bites, the substance stands, the anchor is re-issued**
+
+**The clause bites, and I will not argue my way out of a clause I wrote.** `Criteria-At` said *"this
+verdict expires when EITHER the tree or the criteria move."* The criteria document moved. The
+verdict was therefore **expired on the criteria axis at `eb0e291`**, exactly as `uat` ruled of its
+own gate an hour earlier on the same axis.
+
+**Expiry names a remedy proportional to what moved, and the proportionality rule is my own:** *the
+differential scopes the refresh; it never replaces it — zero movement licenses a scoped pass, never
+a carried-forward verdict.* That rule is written for the tree axis and transfers to the criteria
+axis with one substitution: **criteria are text, so the executed comparison is the artifact's own
+byte-level differential** — there is nothing to run, and the instrument that discriminates text is a
+hash of it.
+
+**Derivation — two instruments, and they agree.** Captured at
+`agent-output/verification/013/probe-qa-criteria-rev49-rev50/`.
+
+1. **The plan's own diff, read as a hunk.** `git diff 9637735 eb0e291 -- planning/013-…md` is
+   **three hunks**: frontmatter `Rev: 49 → 50`; one appended Changelog row; one appended Decisions
+   Register row, **D53**. `git log 9637735..eb0e291 -- <plan>` returns **exactly one commit**, so no
+   intermediate revision touched the plan and reverted — a two-endpoint diff can hide that, and this
+   one does not.
+2. **`section-hash.py`, independent of git's diff algorithm.** Both blobs split at `## ` headers,
+   every section hashed, maps compared. **18 sections in each; 0 added, 0 removed; 3 changed —**
+   `FRONTMATTER+PREAMBLE`, `Changelog`, `Decisions Register`. **Byte-identical**: `Milestones`,
+   `Validation and Release Conditions`, `Plan Scope`, `Reading Order`, `Release Artifacts`,
+   `Surfaces Without Automated Coverage`, `Testing Strategy`, and the eight others. The
+   criteria-bearing set is selected **by predicate**, not by listing what happened not to move;
+   seven sections match the predicate in each blob, the sets are equal, and **none moved**.
+
+**The controls are what make that non-vacuous.** An instrument that always answers *"no criterion
+moved"* would print the same thing:
+
+| Comparison | What that revision did | Verdict |
+|---|---|---|
+| rev 47 → 48 (`06fad81`→`f5b7cac`) | M9-a's instrument corrected (QA INFO-1) | **A CRITERION MOVED** — `Milestones` |
+| rev 48 → 49 (`f5b7cac`→`9637735`) | D52 enacted as **M10** | **A CRITERION MOVED** — `Milestones`, `Reading Order` |
+| **rev 49 → 50** (`9637735`→`eb0e291`) | **D53 registered** | **NO CRITERION MOVED** |
+
+Both immediately preceding revisions are killed. Rev 50 is the only one of the three that leaves
+`Milestones` untouched — structurally unlike its predecessors, not merely asserted to be.
+
+**Why a Decisions Register row is not itself a criterion — checked, not assumed.** The register sits
+outside the criteria predicate, and that exclusion is safe only because it is *observable*: a
+decision becomes a criterion by **amending** `Milestones` or `Validation and Release Conditions`,
+and the controls show that is precisely how **D51** and **D52** landed — each moved `Milestones` in
+its own registering commit. **D53 moved neither.** Read on its own terms it registers a *completed
+documentary act* (four deployment records written by `devops` at `deployment/…-deployment.md` §12,
+`14bc31c`) and states *"Registration write set only; no register state is set here."* That
+self-description is **corroborated by execution**, not accepted on its word.
+
+**Tree axis, re-derived at this write rather than carried from the previous pass**: `website` @
+`chain/013-rider-2`, HEAD **`b56570d`**, `git status --porcelain` **empty**.
+
+**Ruling.** `Criteria-At` is **re-issued to plan 013 rev 50, `eb0e291`**. The verdict's substance —
+**QA COMPLETE at `b56570d`** — is unchanged, and **no re-verification is owed**, because both of the
+verdict's inputs are unmoved and each was re-derived here rather than inherited. This is a **scoped
+re-anchor pass with its own differential and its own controls**, not a verdict carried forward
+silently; the difference between those two is the whole reason this section exists.
+
+**D52 anticipated exactly this**: *"a test-only change should license a scoped re-review and
+re-verify rather than full passes — the stages size that, not him."* This is that sizing, made on
+evidence.
+
+## V.35 — Suite, re-derived rather than restated
+
+`npx vitest run` at `b56570d`, executed at this write: **48 files / 627 tests / 627 passed / exit
+0.** **Reconciles V.16 exactly.** I re-ran it rather than cite V.16's number, because a number
+carried across a pass is not a number this pass measured.
+
+## V.36 — `devops` §13.2 routes an obligation to QA. It is **discharged**
+
+Inside the very delta I was asked to derive, `deployment/…-deployment.md` §13.2 item 2 states: *"Is
+a verdict owed? YES, and NOT at `2d90e8a`… the **surviving** instrument has never run under a QA
+verdict, because QA Complete was reached at `4a7126b`. **It is owed at the post-rider tip**, which is
+where QA will take it."*
+
+**That was true when written and is not true now.** `b56570d` **is** the post-rider tip, and QA
+Complete stands there. Verified rather than inferred: `013-qa-toast-vessel-render.test.ts` is
+**tracked at `b56570d`** (`git ls-tree`) and **9 passed** when run against it — matching §12.6's own
+`2d90e8a → 9 passed` row. The surviving instrument has now run under a QA verdict. **`devops`'
+§12.9 action row is answerable as discharged, not rescheduled.** Recorded here because an obligation
+routed to QA is QA's to close; `devops`' document is its own to amend.
+
+## V.37 — `OWNER-QUEUE` item 8 audited against §V.31 — **all five facts carried**
+
+`uat` authored the replacement operator text (rev 45 §R45.3) and steering lifted it verbatim over
+`OWNER-QUEUE.md` item 8 (`e5327f1`), reporting it byte-identical against `uat`'s source. **Byte
+identity against `uat` is not the check QA owes.** QA stated in §V.31 the five facts the text must
+carry; whether the shipped text carries them is QA's audit, and nobody else had made it. Read from
+the shipped file:
+
+| §V.31 fact | Carried? |
+|---|---|
+| fixture is `{"content": ""}` in the **JSON** tab, not a Discord link | **yes** — exact bytes, with "click the **JSON** tab" |
+| **`{}` must not be used**; its screen means *not executed* | **yes** — and it instructs him to write *"not executed"*, which is the terminal state QA named |
+| the error is read on the **first page, below the JSON box, before `Continue`** | **yes** — *"Stop there. Read the area directly below the JSON box before you press anything"*, plus a hazard bullet stating page 2 does not show it and that **this is not a failure** |
+| "nothing created" shown **after** `Continue`, by `Save` inert and no navigation | **yes** — point 3 |
+| the discriminating text is the **exact floor sentence**; the tab's own parse/Zod complaints do not settle it | **yes** — *"Only the exact sentence in point 2 does."* |
+
+**§V.32's assumption is carried with its signature and classified correctly**: the third hazard
+bullet describes a pasted-but-inert editor and says *"That one is a finding, not a mistake on your
+part"* — which was QA's attached condition for routing it to BC-4's own execution rather than
+holding it open. **F-QA33 appears where it should**: named as a real defect, excluded from the
+check, non-blocking. **The audit passes with nothing owed back.**
+
+## V.38 — Assumption Not Checked
+
+**This pass assumes that every criterion this verdict is measured against lives in
+`planning/013-…md`, and it does not check the seven walkthrough items other than item 8.**
+`Criteria-At` names one artifact; the owner will execute eight checks from `OWNER-QUEUE.md`. QA's
+own Blocking Release Condition Register is the mapping from those checks back to milestone criteria,
+and **item 8 was traced through it by hand here and is grounded** (BC-4 → M3-c, whose `Milestones`
+text is byte-identical across rev 49 → 50). **Items 1–7 were not traced item by item.**
+**Observable signature of falsity**: the owner executes a walkthrough item, it fails, and no plan
+criterion and no QA assertion corresponds to what he ran — the failure has nowhere to land, and gets
+settled by argument over whether it was "really a criterion" instead of by a register. **Owned by
+the planner** — a check that must bind enters by plan revision, not by queue text alone — **routed
+by steering**, which is the party that lifts queue text. **Decidable now, before the click-through,
+and cheaply**: seven traces against a register that already exists.
+
+## V.39 — Verdict, re-issued
+
+**QA COMPLETE.** **TREE `b56570d`** on `chain/013-rider-2`, clean, re-derived at this write.
+**CRITERIA plan 013 rev 50, `eb0e291`.** Suite 48 files / 627 / 627 passed, re-run here. **Expires
+when either axis moves.** Nothing is pushed; `origin/master` is `2d90e8a`; no release act follows
+from this section and none is implied.
+
+**Handing off to the `uat` agent** for BC-4's execution, and routing **V.38** to the **planner** via
+steering.

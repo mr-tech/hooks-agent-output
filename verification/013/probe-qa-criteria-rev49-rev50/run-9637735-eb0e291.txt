@@ -1,0 +1,31 @@
+plan blob 9637735 -> eb0e291
+sections in 9637735: 18   sections in eb0e291: 18
+SECTIONS REMOVED : 0  []
+SECTIONS ADDED   : 0  []
+SECTIONS CHANGED : 3
+    CHANGED  Changelog
+    CHANGED  Decisions Register
+    CHANGED  FRONTMATTER+PREAMBLE
+SECTIONS IDENTICAL: 15
+    same     Assumptions
+    same     Handoff Notes
+    same     Milestones
+    same     Objective
+    same     Open Questions
+    same     Out of Scope — routed, not absorbed
+    same     Plan Scope
+    same     Reading Order
+    same     Release Artifacts
+    same     Risks
+    same     Serialised Shared Files
+    same     Surfaces Without Automated Coverage
+    same     Testing Strategy
+    same     Validation and Release Conditions
+    same     Value Statement and Business Objective
+
+CRITERIA-BEARING SECTIONS matching predicate ('milestone', 'validation', 'acceptance', 'release', 'scope', 'story', 'criteri', 'surfaces without', 'reading order')
+  in 9637735: 7
+  in eb0e291: 7
+  OF THOSE, MOVED: 0  []
+
+VERDICT: NO CRITERION MOVED

@@ -1,0 +1,19 @@
+###### CONTROL f5b7cac -> 9637735
+  9637735 Plan 013 rev 49: D52 registered; M10 (test-only) arms the CR24-2 guard, no production code
+SECTIONS CHANGED : 6
+    CHANGED  Changelog
+    CHANGED  Decisions Register
+    CHANGED  FRONTMATTER+PREAMBLE
+    CHANGED  Handoff Notes
+    CHANGED  Milestones
+    CHANGED  Reading Order
+  OF THOSE, MOVED: 2  ['Milestones', 'Reading Order']
+VERDICT: A CRITERION MOVED
+###### CONTROL 06fad81 -> f5b7cac
+  f5b7cac Plan 013 rev 48: M9-a instrument corrected (QA INFO-1); CR24-2 reachability note corrected
+SECTIONS CHANGED : 3
+    CHANGED  Changelog
+    CHANGED  FRONTMATTER+PREAMBLE
+    CHANGED  Milestones
+  OF THOSE, MOVED: 1  ['Milestones']
+VERDICT: A CRITERION MOVED
