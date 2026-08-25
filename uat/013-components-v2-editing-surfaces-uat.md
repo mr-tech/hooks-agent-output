@@ -5,6 +5,42 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
+  **Rev 36 — THE RELEASE GATE.** **`APPROVED FOR RELEASE, conditional on the human click-through of BC-1,
+  BC-4, BC-6, BC-7, BC-8, BC-9, BC-10 and BC-18. If any fails, return to the implementer before release.`**
+  **Because `master` serves production, pushing to it deploys — so "before merge" and "before deploy" are
+  the same instant, and these eight `PRE` rows precede the MERGE.** The four `POST` rows (BC-12, BC-14,
+  BC-17, BC-20) are approved conditionally and **gate the chain's closure, never the release act.**
+  **ANCHORED ON BOTH AXES: TREE `e1d9b2b7090b46709861a9c4b2a57f340617777b` on `chain/013-rider-2`, CRITERIA
+  plan 013 rev 48 (`f5b7cac`), covered set stated as 20 explicit paths — either axis moving expires this
+  decision, and neither expiry announces itself.** All three predecessors re-read at their own documents at
+  write time: code review **APPROVED**, QA **Complete**, plan rev 48. **VALUE DELIVERY: PARTIAL — and the
+  shortfall is not a defect anyone found; it is a step nobody has taken.** Suite 47 files / 605 / exit 0,
+  both `tsc` clean, F-QA31 fixed by a pre-fix instrument, CR24-6 discharged, no QA-raised blocking condition
+  left — **and this value statement's entire content is that the user is not *silently* misled, so its
+  failure mode leaves no trace in a test run.** **CR24-6's unchecked assumption states it exactly: every
+  instrument stops at the string the `message` field receives, and nothing proves `ConfirmationProvider`
+  renders it at all** — the dialog empty or showing the previous message's text is *"misreports what kind
+  of message it is"*, and **every green test in this chain is compatible with it.** **A suite cannot close
+  this; silence is what instruments are worst at and a person at the surface is best at.** **F-1
+  terminalised** (limb 1 by D40, limb 2 by QA's V.7); **BC-1's blocking condition DISCHARGED by work**;
+  **twelve rows FRESH at the tip and NONE OBSERVED.** **A DEFECT IN THIS GATE'S OWN DRAFT, recorded in the
+  gate rather than a later revision**: the draft anchored to rev 47 asserting *"no criterion changed since"*
+  **without running the diff** — rev 35's defect repeating one revision after it was recorded as an action,
+  **caught by steering's unsolicited warning before commit, which is luck in the timing and not diligence
+  in the method.** Rev 47→48 was then **derived here in full** and established **property-preserving on the
+  plan's own Class/Property/Instrument structure** — the changed text sits in the `Instrument` clause and
+  the `Property` clause is byte-identical — **and rev 48 is the sounder anchor, because under rev 47's
+  literal instrument M9-a's negative was UNMET at the very tree this gate approves.** **The refinement:
+  re-opening a document is not verifying a claim about a delta. Verify the claim in the form the claim is
+  made — content needs a read, change needs a diff, quantity needs a computation, absence needs an
+  enumeration.** **FIVE RESIDUALS, all silent**, the fifth — M9-b's spec blind to the live `current` path,
+  production correct and the spec disagreeing — **a different kind, since 1–4 are about what is not *known*
+  and 5 is about what is not *guarded*.** **CR24-2's attached hazard is recorded as NOT residual-shaped**:
+  it is an open `LOW` on the implementer, the finding is **strengthened not withdrawn**, and **a fix acting
+  on the superseded "dead path" premise would delete a correct, live branch.** **This decision does NOT
+  authorise the merge, does NOT close the chain, does NOT rest on `UAT Complete` (a status at `4a7126b`),
+  and does NOT revive the `4a7126b` decision, which stays `EXPIRED IN FULL`.** **Recommended version:
+  MINOR**, changelog written from the deployment record rather than the plan, per residual 2.
   **Rev 35 — two corrections to rev 34, and they are NOT the same kind.** Deliberately not collapsed, because
   filing them together would lose the distinction this register insists on for terminal states and would let
   the worse one shelter under the better. **(1) *"Nothing in that document announces it"* — TRUE when written,
@@ -446,6 +482,7 @@ Verified-At: >-
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — relayed QA's `85634d3`, **leading with the fact that this pass changes Predicted-value cells** rather than burying it | Three Predicted values corrected (BC-7, BC-8, BC-9); BC-19a found-and-not-corrected; **QA declares a stop condition on cell sweeps and asks for explicit agreement or disagreement** | **Rev 33. CORRECTIONS ACCEPTED — and the third pair was the worst of the three.** The Condition cell is authoritative and already required every limb, so **nothing new is asked of the product**; correcting a Predicted value to its Condition **closes a gap between what a row requires and what it can record.** **The condition↔failure-mode gap misdirects the operator; the condition↔predicted-value gap lets a row be recorded satisfied while a required limb was never observed** — one step closer to the record, and it **produces a clean, well-formed PASS that is silent about the omission.** Found by applying rev 31's generalisation to rev 30's ruling: **the rule found what its authors did not.** **BC-19a's disposition ENDORSED on this register's own doctrine** (R25.3 — *the observed result is recorded beside the prediction, not over it*): a terminal row's prediction is **evidence, not documentation**. **But it compounds** — both human-facing cells named one limb of two, so R31.4's *no cell was in the path* reasoning is weakened, and **BC-19a's *clears* limb now has no positive evidence from any route and none obtainable, its subject having been deleted at `2d90e8a`.** **Revert REFUSED on a specific ground: reopening it would manufacture a permanently unreachable obligation — the phantom rev 28 cleared.** **Residuals now four**, the new one listed separately because it is **the only one closed to future evidence.** **STOP CONDITION AGREED**, on a stronger ground than QA's own — **row quality is not what blocks this chain; eleven rows are executable and none observed** — with **three conditions**: the gate records the sweep **stopped by agreement, not completed** (no silent cap); the stop binds **deliberate search, not incidental reporting**, QA's statement being a prediction treated as one; and **it expires at the post-rider tip**, where the question reopens **by the artifact moving, not by search.** **Open set unchanged — 12 + F-1. Decision unmoved at `EXPIRED IN FULL`.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — relayed code review's verdict at `e1d9b2b` **together with a dependency the reviewer disclosed unprompted after publishing**, in the reviewer's own words | `APPROVED`, `Reviewed-At: e1d9b2b`; **an M9-d acceptance criterion was unmet at the tree it approved, and the APPROVED now rests on D51 having restated that clause at plan rev 47** | **Rev 34. THE FINDING: a verdict's identity has TWO axes and this chain has watched one.** A verdict rests on **the code and the criteria it was measured against, and expires when either moves.** `Reviewed-At: e1d9b2b` names the tree; **nothing names plan rev 46** — so a reader cannot tell the verdict was measured against a superseded criteria set, and **had the planner gone the other way it would have become wrong silently, its document still reading as complete.** **This answers the anchor gap R24.2/R26.7 parked, and the answer is larger than the question: the path-set question is now the smaller half.** **The gate will name the commit AND the plan revision, and state that either moving expires it.** **Verdict stands — but re-derived, not accepted**: rev 31's rule does not exempt a favourable change, so this register read **rev 47's whole write set** rather than the one clause the reviewer checked. **Criterion changes are confined to the lint-residue subject (M9-d's clause and — unnamed by the reviewer — Validation item 1), both removing an objection.** Nothing to the reviewer, nothing to the owner. **THE RIDER LANDED, AND THREE THINGS RECORDED IN ADVANCE FIRED AT ONCE**: R28.5's predicted expiry (the `2d90e8a` verdict is **EXPIRED**, and nothing in its document says so — **no stage may cite it**); R33.4's stop condition expired by its own condition 3; and **prediction freshness is owed at the new tip**, so the eleven rows' **executability is annotated PENDING QA's check, not asserted across the tree change** — carrying executability across a tree change being the error this register names in verdicts. **Third instrument variant recorded** — the reviewer's `grep -c` going **1 → 2** on quotations of a withdrawn clause: *a count over text is not a reading of it*, and **the plan's correct superseded-text discipline is exactly what made the count lie.** **Open set unchanged — 12 + F-1, none observed. `e1d9b2b` is UNGATED; branch unpushed, `origin/master` still `2d90e8a`. Decision unmoved at `EXPIRED IN FULL`.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — **reported that a rev-34 statement no longer holds**; code review acted on all three points at `47e233b` | Round 23 now opens `EXPIRED — DO NOT CITE`; the dual anchor is adopted into the **field**; the Validation item 1 omission is confirmed and fixed | **Rev 35. TWO CORRECTIONS TO REV 34, AND THEY ARE NOT THE SAME KIND — deliberately not collapsed, so the worse one cannot shelter under the better.** **(1) *"Nothing in that document announces it"* — TRUE when written, superseded by the reviewer acting.** The **instruction stands on the expiry**; what is discharged is the **urgency**. Rev 34 stated ground and urgency in one breath and made a durable instruction look contingent on another party's inaction — **a rationale that depends on another party's inaction is not a durable rationale.** **(2) *"Nothing names plan rev 46"* — FALSE WHEN WRITTEN.** The Verdict Basis named rev 46 in prose; **the field a reader keys on named only the tree.** **This register asserted a negative existential about another stage's document from a read six revisions old, without re-opening it** — this chain's purest instrument-lie shape, made over **memory** rather than a filtered stream, which is worse because memory yields no contradicting counter-instrument. **Its own written rule applied at half strength**: it named the document as authority and did not re-read it. **The irony recorded rather than smoothed — a prose claim overstating an artifact, inside the revision arguing that a field must carry what prose cannot be trusted to carry.** **Reviewer checked before agreeing and found the hole larger: `Reviewed-At` contained no plan revision at all.** **Fourth instrument member** — its round-23 enumeration ran the trigger set, not the defect set — **which is R22.1's lesson reached independently from a different defect; a rule reached twice is a different object from a rule stated once.** **Its generalisation adopted unamended: each instrument was sound and each predicate was wrong for its question — and a record that preserves what it supersedes will defeat any naive occurrence count, the more reliably the better its discipline.** **No row moves. Open set 12 + F-1, none observed. Decision unmoved at `EXPIRED IN FULL`.** |
+| 2026-08-25 | `steering-hooks-013-3` [b04529] — **THE WORD: QA Complete at `33908af`, write the gate** — then, mid-draft, that **the plan had moved to rev 48** and that a fifth residual had arrived | Issue the release decision at the post-rider tip, naming the tree and the criteria and saying what the merge to `master` is | **Rev 36. THE RELEASE GATE. `APPROVED FOR RELEASE, CONDITIONAL on the human click-through of BC-1, BC-4, BC-6, BC-7, BC-8, BC-9, BC-10 and BC-18` — and because `master` serves production, those precede the MERGE, not the deploy after it.** Anchored on **both axes**: **TREE `e1d9b2b`** on `chain/013-rider-2`, **CRITERIA plan rev 48 (`f5b7cac`)**, **covered set stated as 20 explicit paths**, either axis moving expiring it. **Value delivery: PARTIAL — and the shortfall is not a defect anyone found, it is a step nobody has taken.** Every instrument is green; **this value statement's entire content is that the user is not *silently* misled, so its failure mode leaves no trace in a test run** — and **CR24-6's unchecked assumption is that nothing proves `ConfirmationProvider` renders the string at all.** **F-1 terminalised** (limb 1 by D40, limb 2 by QA V.7); **BC-1's blocking condition DISCHARGED by work**; twelve rows FRESH and **none observed**. **A DEFECT IN THIS GATE'S OWN DRAFT, caught by steering's unsolicited warning before commit — luck in the timing, not diligence in the method**: the draft asserted *"rev 47 … no criterion changed since"* **without running the diff**. Rev 47→48 then **derived here in full** and established **property-preserving** on the plan's own Class/Property/Instrument structure — **and rev 48 is the sounder anchor, since under rev 47's literal instrument M9-a's negative was UNMET at the approved tree.** **The refinement: re-opening a document is not verifying a claim about a delta — verify the claim in the form the claim is made.** **Five residuals**, the fifth (M9-b's spec blind to a live `current` path) **a different kind: 1–4 are about what is not known, 5 about what is not guarded.** **CR24-2's attached hazard recorded as NOT residual-shaped** — it is an open LOW on the implementer and **a fix acting on the withdrawn "dead path" premise would delete a correct, live branch.** **Merge to `master` NOT authorised; chain NOT closed; the `4a7126b` decision stays `EXPIRED IN FULL`.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -5647,3 +5684,373 @@ that either moving expires it, and state that **the merge to `master` is a separ
 3. **This stage** — **before the gate, re-open every document whose contents the gate asserts a fact about.**
    R35.3 is the reason this is written as an action and not as a resolution.
 4. **Nobody** — cites the `2d90e8a` verdict, or reads rev 34's two superseded sentences as current.
+
+---
+
+# Rev 36 — **THE RELEASE GATE.** `APPROVED FOR RELEASE, conditional on the human click-through of eight `PRE` rows` — which, because merge to `master` is the deploy, happens **before** the merge.
+
+**Date**: 2026-08-25. **Session**: `uat-hooks-013-5`. **Trigger**: `steering-hooks-013-3` [b04529] relayed
+QA Complete at `33908af`. **This is a NEW decision by this stage at the tree and criteria named below. It
+inherits no anchor from any predecessor document, from a docket, or from a relay.**
+
+**Rev 35's Next Action 3 was honoured before this was written**: every document this gate asserts a fact
+about was re-opened at this rev's write time — the plan, the code-review document, the QA document, and
+the tree. **That action existed because rev 34 asserted a negative existential from a six-revision-old
+read, and this gate is the document where that would have cost the most.**
+
+## R36.1 — **ANCHOR.** Two axes, both named, and the covered set stated as paths rather than as a hash
+
+> ### **TREE: `e1d9b2b7090b46709861a9c4b2a57f340617777b`** on **`chain/013-rider-2`**
+> ### **CRITERIA: plan 013 rev 48 (`f5b7cac`)** — the current revision, its delta from rev 47 (`06fad81`) derived here and established property-preserving (R36.1.1)
+>
+> **THIS DECISION EXPIRES WHEN EITHER MOVES.** A commit to the tree expires it; a change to plan 013's
+> milestones, acceptance properties or Validation items expires it. **Neither expiry announces itself,
+> which is why both are named here** (R34.3).
+
+**Re-derived at this rev's write time**, not inherited: `rev-parse` → `e1d9b2b…`; `git status --porcelain`
+→ **0 lines**; **`master` = `2d90e8a`**; **`origin/master` = `2d90e8a`, computed at the remote** — **the
+branch is UNPUSHED and nothing has been released.**
+
+**COVERED SET — the 20 paths in `2d90e8a..e1d9b2b`**, stated explicitly because *a verdict whose scope is a
+hash alone is unfalsifiable in the way an unnamed one is; it merely looks rigorous* (R26.7):
+
+**Production surface (9):** `.eslintrc.json` · `package.json` · `src/app/message/_components/NewMessageJsonInput.tsx` ·
+`src/app/message/_components/NewMessageModal.tsx` · `src/app/message/m/[id]/_components/JsonModalBody.tsx` ·
+`src/server/api/utils/shapes.ts` · `src/utils/formatMutationError.ts` · `src/utils/index.ts` · `vitest.config.ts`
+
+**Test and config surface (11):** `tsconfig.test.json` · `src/server/api/utils/__tests__/013-m9f-dropped-types-notice.test.ts` ·
+`src/utils/__tests__/` — `012-message-mode`, `013-fqa31-load-confirmation-names-actual-mode`, `013-m2c-load-diff`,
+`013-m9a-delimiter-collision`, `013-owner-toast-vessel-2026-08-25`, `013-qa-toast-vessel-render`,
+`components-v2-data-layer`, `m7-m10-coverage-gaps`, `mutual-exclusivity`
+
+*Reconciliation of a count difference, checked rather than asserted:* code review reports **10 non-test**;
+this enumeration yields **9** because its filter classes `tsconfig.test.json` as test-side. **9 + that file
+= 10. No discrepancy.**
+
+### R36.1.1 — The criteria moved while this gate was being written. **Derived, not taken — and it caught a defect in this gate's own draft**
+
+**The plan advanced to rev 48 (`f5b7cac`) mid-draft.** QA's verdict names `Criteria-At: plan 013 rev 47`.
+**This register's own rule — *a verdict expires when either the code or the criteria move* — fired on the
+gate that established it**, which is the correct outcome and not an irony to be enjoyed.
+
+**Rev 47 → 48 derived here by `git diff`, reading the whole write set** (8 insertions, 7 deletions, three
+hunks), **not taken from the planner's report or from the relay:**
+
+| Hunk | Change | Criterion? |
+|---|---|---|
+| 1 | `Status-Detail` and `Rev:` metadata | **No** |
+| 2 | changelog row 48 added | **No** — record only |
+| 3a | **M9-a's `Instrument for the negative` clause restated** — from *"no site calls the joiner any more"* (`grep -c generateErrorMessage → 0`) to *"no site recovers line structure from joined library output"* (`git grep -c "split(' | ')" -- src` → 0), the rev-47 form **named as mis-specified in place** | **No — and this had to be checked rather than assumed.** See below |
+| 3b | **M9-b's CR24-2 note corrected** — the reviewer called the branch unreachable; QA executed it and found it **dead for `incoming`, live for `current`**; the DRY concern stands, the reachability claim does not. The plan states in terms that this is *"not by a plan change"* | **No** — a factual note |
+
+**Why 3a is not a criterion change, established on the plan's own structure rather than on anyone's
+characterisation of it:** the plan organises each item as **Class / Property / Instrument**, and **the
+changed text sits inside the `Instrument for the negative …` clause. The `Property` clause is
+byte-identical across rev 47 and rev 48.** The property — *the number of visible lines equals the number
+of issues, and no substring of any issue's message is split* — never moved. **A mis-specified check of an
+unchanged property was corrected.**
+
+**And the direction is worth stating plainly, because it inverts the usual caution:** **under rev 47's
+literal instrument text, M9-a's negative was UNMET at `e1d9b2b`** — the joiner survives, called with a
+one-element array. **Citing rev 47 would anchor this gate to a criteria set containing a check that fails
+on the very tree it approves**, and QA is the stage that reported that check as wrong (INFO-1). **So rev 48
+is not merely permissible here; it is the sounder anchor.**
+
+**QA's `Criteria-At: rev 47` carries, because no property QA verified moved** — established by the
+derivation above. **Whether QA's own field stands under rev 48 is QA's call and not this stage's**; this
+gate does not depend on QA re-issuing, because the delta was verified here. **If QA rules otherwise, this
+gate expires with its verdict and is re-issued.**
+
+### R36.1.2 — **A defect in this gate's own draft, caught by steering rather than by diligence**
+
+**The draft of R36.1 read: *"CRITERIA: plan 013 rev 47 (`06fad81`), read at rev 48 with no criterion
+changed since."*** **That clause asserted a negative about the rev 47 → 48 delta without running the diff.**
+This register had read the plan's header, seen `Rev: 48`, and asserted what changed between them from
+nothing at all.
+
+**It is rev 35's defect repeating inside the gate, one revision after this register recorded it as a Next
+Action.** And it was caught **because steering sent an unsolicited warning before this document was
+committed** — **luck in the timing, not diligence in the method.**
+
+**The refinement, which is why rev 35's action was necessary and insufficient:**
+
+> **Rev 35's action said *re-open every document whose contents the gate asserts a fact about* — and this
+> register DID re-open the plan.** Opening a document tells you its current state. **It tells you nothing
+> about a delta.** A claim about *what changed between two revisions* is settled by a diff and by nothing
+> else.
+>
+> **Verify the claim in the form the claim is made.** A claim of *content* needs a read; a claim of *change*
+> needs a diff; a claim of *quantity* needs a computation; a claim of *absence* needs an exhaustive
+> enumeration. **Re-reading is not a universal solvent, and treating it as one is how this clause got
+> written.**
+
+**Recorded here, in the gate, rather than in a later revision** — a gate that concealed a near-miss in its
+own drafting would be exactly the *"incomplete in a way that reads as complete"* artifact this chain has
+spent two days learning to refuse.
+
+
+## R36.2 — Predecessor verdicts, each re-read at its own document at this rev's write time
+
+| Stage | Status, as its document reads now | Anchor |
+|---|---|---|
+| **Implementation** | complete — the rider landed in `2d90e8a..e1d9b2b` | — |
+| **Code review** | **`Status: Code Review Approved`** · round 24 **APPROVED** | **TREE `e1d9b2b`, CRITERIA plan rev 46 (`d588790`), standing under rev 47** |
+| **QA** | **`Status: QA Complete`** | **`Verified-At: e1d9b2b`, `Criteria-At: plan 013 rev 47 (06fad81)`** |
+| **Plan** | `Status: Active`, **rev 48 (`f5b7cac`)** | Records *"no release decision exists"* — correct until this revision. **Rev 47 → 48 delta derived at R36.1.1: property-preserving** |
+
+**All three predecessors pass. That is a precondition of this gate and is not the gate.**
+
+**EXPIRED AND NOT CITABLE:** code review's `APPROVED_WITH_COMMENTS` at **`2d90e8a`** (R28.5, R34.2), now
+marked `EXPIRED — DO NOT CITE` at its own head. **`UAT Complete` was reached at `4a7126b` and is a status
+on this document, not a gate on any tree** (R24.2). **This gate rests on none of them.**
+
+## R36.3 — **VALUE DELIVERY ASSESSMENT.** The Product Owner's question, which is not the same question the other three stages answered
+
+**Value Statement, copied from plan rev 48 §"Value Statement and Business Objective" (APPROVED AS WRITTEN, D4, not a word amended):**
+
+> As a **guild owner editing a Components V2 message in hooks.gg**, I want **every editing surface around
+> the composer — "Save As", the Message JSON view, copy and Load, import from a Discord message URL, a
+> webhook URL or the bot's "Get Message" code, and cross-tab change detection — to carry my message's
+> components and its V2 flag faithfully**, so that **no editing action silently discards what I built or
+> misreports what kind of message it is, and I never land on an empty copy of a message that was whole a
+> moment ago**.
+
+**Assessment: PARTIAL — and the shortfall is not a defect anyone found. It is a step nobody has taken.**
+
+**What is established.** Every automated instrument is green at `e1d9b2b`: suite **47 files / 605 / exit 0**,
+both `tsc` projects clean, ESLint parsing errors 45 → 0, all six M9 properties met, TDD gate passed,
+**F-QA31 verified fixed by an instrument written before the fix and unedited since**, CR24-6 discharged
+with a captured oracle and two mutants. **Chain 013 carries no QA-raised blocking condition.**
+
+**What is not established, and it is the value statement itself.** **This value statement's entire content
+is that the user is not *silently* misled** — *silently discards*, *misreports*, *an empty copy of a message
+that was whole a moment ago*. **Its failure mode is, by construction, one that leaves no trace in a test
+run.** The register's eight `PRE` rows are that statement decomposed into observations — Load naming the
+right mode, drop notices naming the right types, the flag bit matching the wire, the notice appearing and
+clearing — **and not one of them has been observed by a human.**
+
+**CR24-6's Assumption Not Checked is this stated at the code layer, and it is the sharpest thing in the
+chain:** every instrument — QA's and the round's — **stops at the string the `message` field receives.
+Nothing proves `ConfirmationProvider` renders it, renders it where the eye goes, or renders it at all.**
+Its falsity signature is **the owner presses Load and the dialog is empty, truncated, or shows the previous
+message's text — right in the string, wrong on the screen.** **That is precisely "misreports what kind of
+message it is", and every green test in this chain is compatible with it.**
+
+> **So: the value is demonstrated in the code and undemonstrated at the surface, and the gap falls exactly
+> where this value statement lives.** A suite cannot close it, because **the failure mode is silence, and
+> silence is what instruments are worst at and what a person at the surface is best at.** **QA's own line
+> is the same conclusion from the other side and is adopted here: *"BC-1 is not a formality now that
+> F-QA31 is fixed; it is the only thing that closes this."***
+
+**No drift from the plan's objective is detected.** The implementation addresses the surfaces the value
+statement names. **The gap is evidentiary, not directional.**
+
+## R36.4 — **THE BLOCKING-CONDITION REGISTER.** Every row, with its terminal state or its condition
+
+**This is the chain's ONE register.** F-1 was folded in at R28.4 rather than left travelling; no parallel
+ledger exists. **Partition derived per class — the sum is presentation, not the check** (R31.5).
+
+**TERMINAL — 12 rows and 8 documentary items, none re-raised:**
+
+| State | Members |
+|---|---|
+| `EXECUTED` | **BC-2, BC-3, BC-16, BC-19a, BC-21** · **U-C1–U-C4, U-C5, U-C6, U-C7, U-C8** · **F-1** |
+| `SUPERSEDED` | BC-11 |
+| `DROPPED — D44` | BC-11a, **BC-11b**, Finding U-1 |
+| `WITHDRAWN` (owner) | BC-15, **BC-5** |
+| `TERMINAL: SUBJECT WITHDRAWN` | BC-19b |
+| `TERMINAL — WINDOW ELAPSED` | BC-13 |
+
+**F-1 terminalised at this gate:** limb 1 — *are the removals correct* — **answered by D40**, the owner's own
+act and his ruling to record it and not re-derive; limb 2 — *the surviving instrument executed under a
+verdict* — **discharged by QA at V.7** (`013-qa-toast-vessel-render.test.ts` at `e1d9b2b`, 9 passed / exit
+0). **Both limbs accounted; F-1 is `EXECUTED`.**
+
+**LIVE — 12 rows, every one `NOT EXECUTED`, every one an observation:**
+
+| Class | Rows | Gates | Freshness at `e1d9b2b` |
+|---|---|---|---|
+| **`PRE`, operator** | **BC-1, BC-4, BC-6, BC-7, BC-8, BC-9, BC-18** | **THE RELEASE ACT** | **FRESH** — QA, `33908af` |
+| **`PRE`, split limb** | **BC-10** — suite limb **MET**, spot observation owed | **THE RELEASE ACT** | **FRESH** |
+| **`POST`** | **BC-12, BC-14, BC-17, BC-20** | **chain closure — NEVER the release act** | **FRESH** |
+
+**All eleven previously-executable rows plus BC-1 are FRESH at `e1d9b2b`**, established by QA unconditionally
+rather than by judgement: M9-b edits the confirmation site **outside** the `catch (err)` block QA's
+pre-registered condition names; **12 changed lines in two places, neither staling a row**; all eight cells,
+the row-E resting state, the D34 payloads and BC-18's six edit sequences **byte-identical**.
+
+**BC-1's blocking condition is `DISCHARGED` — met by work, not lifted or withdrawn.** QA used this
+register's vocabulary deliberately so the distinction survives.
+
+## R36.5 — **RELEASE DECISION**
+
+> # **APPROVED FOR RELEASE, conditional on the human click-through of BC-1, BC-4, BC-6, BC-7, BC-8, BC-9, BC-10 and BC-18.**
+> # **If any of these fail, return to the implementer before release.**
+
+**This is NOT an unconditional approval, and `NOT EXECUTED` is not a terminal state. No release is recorded
+complete while any of the eight stands at it.**
+
+**The eight precede the merge, and the reason is mechanical rather than cautious:** **`master` serves
+production, so pushing to `master` deploys.** **For a repo that deploys on push, "before merge" and "before
+deploy" are the same instant.** These are `PRE` conditions; **a `PRE` row observed after the merge was not
+observed before the deploy, and recording it as satisfied afterwards is the substitution this register has
+refused throughout.**
+
+**Every outstanding condition, with an owner and its permitted terminal states:**
+
+| # | Row | Owner | Terminal states available | Gates |
+|---|---|---|---|---|
+| 1 | **BC-1** · Load confirmation names the actual mode | **the owner**, at a browser | `EXECUTED` (result + date) · `WITHDRAWN` (owner only) · `SUPERSEDED` | **release** |
+| 2 | **BC-4** · dialog stays · error shown · nothing created | the owner | same | **release** |
+| 3 | **BC-6** · unsupported **type** removed, notice names that type | the owner | same | **release** |
+| 4 | **BC-7** · V2 · **bit set** · warning | the owner | same | **release** |
+| 5 | **BC-8** · Classic · content intact · **bit cleared** · warning · no V2 error | the owner | same | **release** |
+| 6 | **BC-9** · two options · each names its drop · nothing created first · dismissal non-destructive | the owner | same | **release** |
+| 7 | **BC-10** · spot-observation limb (suite limb **MET**) | the owner | same | **release** |
+| 8 | **BC-18** · notice appears · persists · **clears** | the owner | same | **release** |
+| 9–12 | **BC-12, BC-14, BC-17, BC-20** | the owner, **in normal use after deploy** | same | **chain closure only** |
+
+**Rows 9–12 are approved conditionally and gate the chain's closure, not the release act.** **BC-20 has an
+absence signature: no volume of quiet is evidence for it.** **BC-12 refutes by construction — one 4xx is a
+hotfix trigger.**
+
+**`RECOMMEND WITHDRAWAL` is not issued for any row**, and no row is recommended for withdrawal to make this
+gate cheaper.
+
+## R36.6 — **The walkthrough, written for the person doing it**
+
+**Two recording constraints, which are the difference between an observation and an impression:**
+
+1. **BC-7's bit-set and BC-8's bit-cleared limbs are settled by opening the Message JSON — never by the
+   screen looking right.** *"Everything looked correct"* is **not** an observation of those limbs and must
+   not be filed as one. **This is now in both rows' own cells** (R33.3), so it is enforced where it is read.
+2. **BC-1 carries CR24-6's unchecked assumption and is the only instrument that can settle it.** **Look at
+   the dialog, not at the code.** If it is **empty, truncated, or showing the previous message's text**,
+   that is the failure — **and every automated test in this chain passes in that state.**
+
+**Record the observed result beside each row's prediction, never over it.** A row that cannot be reached is
+recorded as such rather than passed.
+
+## R36.7 — **RESIDUAL RISKS.** Four, all silent, none of them a defect found
+
+**None announces itself. None is findable by reading the register's terminal column. That is why this
+section exists.**
+
+1. **BC-5's subject** — a behaviour in the product **never characterised by anyone**; the obligation was
+   ended by owner ruling and **nothing is claimed about the behaviour either way.** `WITHDRAWN` is a closed
+   shape, so a reader scanning terminal rows sees a discharged register.
+2. **The plan describes half of one shipped change, by owner ruling (U-C5).** Mode-follows-marking is stated
+   for flagged-but-empty messages; **it is not stated that ordinary component-less messages changed too** —
+   previously skipped, now actively set to classic. **No stage may "correct" it. The deployment record
+   carries the full statement; the plan does not.**
+3. **Attestation by reference rather than by characterisation** — class; members **BC-21** (adopted a
+   described act) and **BC-19a** (attested by row number). Both rows are correctly terminal.
+4. **BC-19a's *clears* limb has no positive evidence from any route, and none can now be obtained** — its
+   subject was deleted at `2d90e8a`. **Listed apart from (3) because it is the only residual closed to
+   future evidence.**
+
+5. **M9-b's spec is blind to a live path.** Verified at the reviewer's document (`41ca30b`, L6884–6896):
+   `settledMode` is applied to both `incoming` and `current`; **`current` is the stored record and is
+   guarded by nothing.** Measured at `e1d9b2b`, a stored row-E record gives `fromMode="v2"`,
+   `toMode="classic"` — **production's answer is correct** — while **M9-b's spec oracle returns `"classic"`
+   for that same record.** **No user-visible defect today; production holds the correct value.** The
+   residual is that **nothing catches it if that changes.**
+
+**Residual 5 is a different kind from 1–4 and is not collapsed into them.** **Residuals 1–4 are about what
+is not *known*; residual 5 is about what is not *guarded*.** Its signature is the absence of a protection
+behind a behaviour that is currently right — which is why no terminal column and no green suite can
+surface it.
+
+**An absence that is the CORRECT state, recorded so a later reader does not read it as a missed fix:**
+**`emptied-composite-drop-unnamed` (F-QA32) is absent from the fixed tree and that is expected.** This
+**inverts** the chain's own silent-mode doctrine — a reader primed by *"quiet is no evidence"* finds nothing
+where a defect was described and reads an **omission**. **Both readings of an absence are available and
+neither is safe by default; only the record settles which was expected.**
+
+**A bounded audit, reported as bounded** (R33.4 condition 1): the register's cell-consistency sweep covered
+**(condition ↔ failure mode)** and **(condition ↔ predicted value)**. **A third cell pair was not searched
+for. The sweep was STOPPED BY AGREEMENT between QA and this stage at a defined point — it did not complete** —
+because eleven rows were executable with zero observed and further refinement was displacement. **The stop
+expired when the tree moved; QA's freshness pass at `e1d9b2b` covers the artifact change.**
+
+**Two INFO findings, neither blocking, both recorded because a wrong instrument produces a false result in
+whichever direction it points:** **INFO-1** — M9-a's **plan-stated** instrument says a grep *"returns 0"*
+and **it returns 1**; the code is right and the instrument is wrong, and anyone running it literally gets a
+**false failure**. Routed to the planner. **INFO-2** — **CR24-2's "dead path" claim is wrong**: dead for
+`incoming`, **live for `current`**, and the live path executes correctly. **The DRY concern stands; the
+reachability claim under it does not.**
+
+> **A HAZARD ATTACHED TO CR24-2, WHICH IS NOT RESIDUAL-SHAPED AND MUST NOT BE FILED AS ONE.** Steering's
+> account had this creating *"no task and no owner"*. **At the document it does: CR24-2 stands as an open
+> `LOW` assigned to the implementer**, and the reviewer's correction says in terms — ***"DO NOT fix this by
+> deleting the branch as dead: that premise is false and the branch is correct. Collapse the two encodings
+> to one, keeping production's."*** **The finding is STRENGTHENED, not withdrawn.** **An implementer acting
+> on the superseded premise would delete a correct, live branch.** It does not block this release — it is a
+> `LOW`, the code review approved with it open, and no user-visible defect exists — **but it must not be
+> lost and it must not be acted on as written in round 24.**
+
+### R36.7.1 — Two notes on method, recorded because they are the positive half of this chain's instrument findings
+
+**A third independent member of the predicate-mismatch class.** The reviewer's own framing: *"CR24-2's
+subject is a predicate that does not match the claim it supports. I committed that defect inside the
+finding that raises it"* — it had checked one of `computeLoadDiff`'s two arguments' guards and generalised
+to both. **Three members now, from three stages and three unrelated defects**: this register's rev-21 D44
+strike (verified against the token, not the claim class), the reviewer's round-23 enumeration (the trigger
+set, not the defect set), and this. **And in all three nothing looked wrong** — here, *the call site it
+cited was the right call site and the guard it cited was really there.* **A rule with three independent
+members from three authors is not a lesson about any of them.**
+
+**And the method that caught it, which is the counterpart worth keeping.** On CR24-6 the reviewer concedes
+it was wrong about **the consequence and not merely the scope**, and names what saved it: it built the
+oracle **and then tried to make the seam transmit**, rather than accepting the form of its own argument.
+**Every instrument finding in this chain was caught by someone attempting to falsify a claim rather than
+to confirm it** — a mutant, a counter-count, a diff, an execution. **That is the transferable part; the
+individual defects are not.**
+
+## R36.8 — What this decision does NOT do
+
+- **It does not authorise the merge to `master`.** **The merge is a separate act with a separate owner
+  (devops), and because `master` serves production it is the deploy.** An approval at a chain-branch commit
+  is not an approval of a merge that has not happened.
+- **It does not close chain 013.** Four `POST` rows stand non-terminal.
+- **It does not revive the `4a7126b` decision**, which remains `EXPIRED IN FULL`. **Expiry is not
+  suspension; this is a new decision, not a restoration.**
+- **It does not rest on `UAT Complete`**, which is a status reached at `4a7126b`.
+- **It grants nothing to any tree but `e1d9b2b` or any criteria but plan rev 47.**
+
+## R36.9 — Version and changelog
+
+**Recommended: MINOR.** New and corrected behaviour across the editing surfaces, no breaking API change.
+**Mode-follows-marking changes observable behaviour for ordinary component-less messages** — previously
+skipped, now actively set to classic — which is user-visible and argues against `patch`, and is a
+correctness fix rather than an incompatibility, which argues against `major`.
+
+**Key changes** — *and per residual 2, the changelog is written from the **deployment record**, not from the
+plan, which by owner ruling states half of the mode-follows-marking change:*
+
+- Editing surfaces carry components and the V2 flag faithfully across Save As, Message JSON, copy/Load,
+  URL/webhook/bot-code import, and cross-tab change detection
+- Unsupported component types are named in the drop notice rather than silently discarded
+- Load confirmation reports the actual resulting message mode (F-QA31)
+- Mode follows marking: flagged-but-empty messages **and** ordinary component-less messages
+- Error formatting no longer defeats readable multi-issue errors (MEDIUM-1, eliminated structurally)
+
+## R36.10 — State
+
+**Release decision: `APPROVED FOR RELEASE, CONDITIONAL` (R36.5), at TREE `e1d9b2b` / CRITERIA plan rev 48 (`f5b7cac`).**
+**Either moving expires it.** **The `4a7126b` decision remains `EXPIRED IN FULL`.**
+
+**UAT Status: UAT Complete** — for this gate, at this anchor. **Open: 12 rows, all observations, all fresh,
+none observed.**
+
+**Next Actions** — *point-in-time; later stage documents are authoritative on these items' current state.*
+
+1. **The owner** — the walkthrough: **BC-1, BC-4, BC-6, BC-7, BC-8, BC-9, BC-10, BC-18, before the merge.**
+   **BC-1 first**; it carries CR24-6.
+2. **This stage** — record each result beside its prediction and terminalise; **an unconditional approval
+   follows only when all eight are terminal.**
+3. **Devops** — the merge to `master`, **after** step 1 and **only** on step 2. **It is the deploy.**
+4. **Implementer** — **CR24-2: collapse the two encodings, keeping production's. DO NOT delete the branch
+   as dead — that premise is withdrawn and the branch is correct and live** (R36.7). **Planner** — **INFO-1 is discharged at rev 48** (R36.1.1) and needs nothing further. **Code review / implementer** — INFO-2, whose plan-side note is corrected at rev 48 while the code fix stands owed under D22. **Steering** — the U-C5 Decisions Register row, **still unwritten**.
+5. **Nobody** — merges before the eight are terminal, cites the `2d90e8a` code-review verdict, or reads
+   this decision as covering any other tree or criteria revision.
