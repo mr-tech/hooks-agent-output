@@ -5,6 +5,14 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
+  **Rev 15 — verdict UNCHANGED; the residue is WIDER than rev 13 described.** QA Phase 3: **RELEASE
+  VERIFIED at `4a7126b`** (577/577, build 0). Its coverage finding **corroborated here, not adopted**:
+  on the **code-import** surface the **producer is mocked out** (`013-qa-toast-vessel-render.test.ts:21`)
+  and the **mount is text-pinned only** — and `CodeMessageNotice.tsx` is **absent at `a151fb4`**, so that
+  surface has **never executed in production**. R13.6's *"instrument-guarded on both surfaces"* was true
+  of the paste surface and **overstated** for this one; corrected by reconcile note. **BC-19's falsity
+  signature restated and widened** — *no notice at all* and *the page throws* are new; a **split is
+  recommended to QA**. Verdict does not move: the finding lands **inside** a condition already blocking.
   **Rev 14 — verdict UNCHANGED; three reconciling writes.** R13.5.1's ANC closure **corrected**: right
   method, but one control short — QA supplied the negative control, re-derived here (three DIFFER vs live
   `master`, one file absent), so the closure is **joint**. **BC-11b `TERMINAL: CANNOT BE EXECUTED`** (a
@@ -79,6 +87,7 @@ Verified-At: >-
 | 2026-08-25 | steering-hooks-013-2 — owner ruling relayed verbatim | What do the affected `PRE` rows become, and does anything he *can* do satisfy them? | **Rev 12. Verdict unchanged; nothing reopened. Appendix C added.** Applied **his own operative test** — *can it be generated for him to input into the editor?* — rather than the Discord/not-Discord split. **Most affected rows were never unfulfillable: they were under-specified by my own script**, which handed over `<container>` placeholders instead of paste-ready JSON. **Literal payloads authored for BC-1, BC-6, BC-7, BC-8, BC-9**, derived from the import schema at `821330d` (container = type 17 with ≥1 child; type 11 is in neither supported set, which is what makes it BC-6's dropped-type case). **BC-5 fulfillable in principle but its payload is NOT authored** — the folder-page export's shape is in no document I hold, and an invented fixture would make BC-5 read as executed while testing nothing; one-line question routed. **BC-2 and BC-3 marked RECOMMEND WITHDRAWAL and routed to the owner with the cost stated — not withdrawn.** Their oracle is the Discord ingress path itself, so no payload can reach it. **BC-6 does NOT substitute for them, and BC-10 is exactly why** — steering's flagged tension resolved by refusing the substitution, not by taking it. |
 | 2026-08-25 | steering-hooks-013-2 [019315] — third UAT session, spawned by the owner after `uat-hooks-013-2` retired at its run-length ceiling | Assess `chain/013-toast-vessel` @ `4a7126b`, the owner's 2026-08-25 toast-vessel fix, and issue a release decision | **Rev 13. A SECOND release decision, on a separate tree: `APPROVED FOR RELEASE, conditional on the human click-through of BC-18 and BC-19`.** **013 was released while rev 10's conditional approval stood undischarged** — `origin/master` = `a151fb4` (`git ls-remote`), pushed 00:56:37; its twelve `PRE` rows went out unexecuted, and the approval was **overtaken, not met**. Recorded as a recovery state, not a sanctioned ordering. **The ordering did not cost code integrity**: `git diff --numstat 821330d a151fb4` is exactly the three test paths rev 10 named as the one move it survives — re-derived, and it inverts the obvious reading. It cost **the conditions**, plus a possible irrecoverable loss of BC-11b's spare seeds (R13.1). **No deployment record exists for a release that ran** — new condition U-C7, devops. **Authority ruled rather than deferred**: the ruling stands because the change sits inside the plan's own D4 Value Statement; its absence from the Decisions Register is **finding U-4**, routed to steering (U-C8). **Value re-measured on a wider predicate** than the reviewer used — `git grep -c` across the whole `toast.*` surface: 013 added exactly three sites, `toast.error`/`toast.success` did not move, two converted, one retained, and the retained one is the site his second ruling carves out. **U-C1 and U-C4 driven terminal** by direct re-derivation. Residue carried as **one agreed boundary** at QA's narrower scoping. **Nothing withdrawn.** |
 | 2026-08-25 | steering-hooks-013-2 [019315], relaying `qa-hooks-013-2`; **nothing asked** | Informational: QA re-derived and confirmed rev 13's blob-SHA closure, added the control it lacked, and terminalised three rows | **Rev 14. Verdict UNCHANGED and not reopened. Three writes judged owed because each corrects or completes a claim THIS document makes.** (1) **R13.5.1 corrected by reconcile note**: its closure was right and its method was right, but a MATCH-only result cannot be told apart from an instrument that matches everything. QA supplied the negative control; **re-derived here rather than adopted** — three DIFFER against live `master`, one file absent. Closure is **joint**, not this document's alone. **Plus an instrument defect**: `git rev-parse <tree>:<path>` on an absent path echoes its argument to stdout, so a stdout-only comparison mislabels ABSENT as DIFFER — settle existence with `git cat-file -e`. (2) **Three rows adopted from QA**: **BC-11b `TERMINAL: CANNOT BE EXECUTED`** — noted as a **fourth** state my definition does not contain, terminal only in that no act can change it and **never to be read as closed**; **BC-18/BC-19 reclassification DECLINED**, and QA's reasoning is better than my question — the rows **do not expire**, and `POST` would have moved them into the class least likely ever to be settled; **BC-21** registered as the genuine post-deploy detector R13.7.3 said was owed. (3) **Finding U-5**: **`4a7126b` is NOT released** — `git ls-remote origin master` = `a151fb4`, contra QA's prose *"with 4a7126b shipped ahead of them"*, which **its own BC-21 row contradicts** in the same document. **Rev 13's condition has NOT been overtaken; the window is open** and, on QA's own finding, does not expire. Owner confirmed the push was his and the site is live — two questions answered. |
+| 2026-08-25 | `qa-hooks-013-2`, direct | Phase 3 RELEASE VERIFIED at `4a7126b`; one coverage finding routed because it bears on UAT's rows | **Rev 15. Verdict UNCHANGED; the residue it is conditional on is WIDER than rev 13 described.** QA's finding **corroborated by `git grep` at `4a7126b`, not adopted**: the code-import chain has **no executing coverage of the producer** — `013-qa-toast-vessel-render.test.ts:21` mocks `MessageProvider` out — and **none of the mount**, `layout.tsx` being text-pinned only. **The instrument names the gap itself** at line 122: *"a null context would throw in production and pass [here]"* — production throws, suite stays green. Combined with this stage's own R14.1 derivation that `CodeMessageNotice.tsx` is **absent at `a151fb4`**, that surface has **never executed in production**: neither an executing test of producer or mount, nor one instant of runtime. **R13.6 corrected by reconcile note** — *"guarded on both surfaces"* was true of the paste surface only. **BC-19 restated**: the owner must perform a **real code import**, and *no notice at all* / *the page throws* join *illegible* in its falsity signature; **split recommended to QA**, not performed. **Verdict does not move** — the finding lands inside a condition already blocking, and U-5's open window is what makes it survivable. Also: QA verified R14.1.1 **worse than reported** — `git rev-parse` on an absent path **exits 0**, so `|| echo MISSING` guards never fire. Instrument-lie class now **four** members, predicate stated. |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -1599,6 +1608,11 @@ not cancelled by this closure.
 
 ## R13.6 — The one genuine open item: BC-18 / BC-19, carried as ONE agreed boundary
 
+> **Corrected and widened at rev 15 (2026-08-25) — see R15.1/R15.2.** *"Instrument-guarded on both
+> surfaces"* holds for the **paste** surface and is **overstated** for the **code-import** surface, whose
+> producer and mount have no executing test and which has never run in production. **BC-19's falsity
+> signature is larger than stated below.** The text below stands as written.
+
 The crux all evening was whether the converted notices actually render. **They are now
 instrument-guarded on both surfaces, by mutation, against the real components** — render,
 suppress-on-error, clear, and styled — and the guard was reproduced independently by three stages
@@ -1987,3 +2001,130 @@ byte-identical to R13.5, re-verified by the control in R14.1. **Nothing is withd
 **Next actions unchanged from R13.11**, with one addition and one subtraction: **add** BC-21 to the
 owner's list, and **remove** the two push/deploy questions, now answered. **BC-11b leaves the actionable
 list** — not because it closed, but because nothing can act on it.
+
+---
+
+# Rev 15 — QA Phase 3's coverage finding widens the residue my approval is conditional on
+
+**Date**: 2026-08-25. **Session**: `uat-hooks-013-3`. **Trigger**: `qa-hooks-013-2`, direct.
+**Verdict UNCHANGED**: `APPROVED FOR RELEASE, conditional on the human click-through of BC-18 and
+BC-19`, anchored at `4a7126b`. **What changes is what that condition is carrying**, and R13.6
+overstated the guard on one of the two surfaces.
+
+**QA reports RELEASE VERIFIED at `4a7126b`** (Phase 3; suite 577/577 exit 0, build exit 0, no
+assembly, bundle of one) — the release-tip verdict R13.10 recorded as owed and not this stage's.
+**U-5 accepted in full by QA**, corrected in place, and stated in the Phase 3 record so devops cannot
+read BC-18/BC-19 as overtaken.
+
+---
+
+## R15.1 — Reconcile note against R13.6: *"instrument-guarded on both surfaces"* was true of one
+
+> **Reconcile note, 2026-08-25 (rev 15). R13.6's superseded text stands as written.**
+
+R13.6 recorded that the converted notices are *"instrument-guarded on both surfaces, by mutation,
+against the real components — render, suppress-on-error, clear, and styled"*, with the residue being
+**visibility, placement, and the real Next.js mount**. **That is accurate for the paste surface and
+overstated for the code-import surface.**
+
+QA's Phase 3 finding, **corroborated here rather than adopted** (`git grep` against `4a7126b`, counts
+computed inside git):
+
+| Link in the code-import chain | Executing coverage at `4a7126b` |
+|---|---|
+| **producer** — `MessageProvider` sets the dropped-types notice state | **none.** `013-qa-toast-vessel-render.test.ts:21` reads `vi.mock('~/providers/MessageProvider', …)` — **the one render test naming the provider mocks it out** |
+| **mount** — `layout.tsx` renders `<CodeMessageNotice/>` inside `<MessageProvider>` | **none executing.** `layout` appears only in the two toast tests, as source-text pinning |
+| **component** — `CodeMessageNotice` renders / clears / is styled given props | **guarded**, by mutation against the real component (QA's probe, reproduced by the reviewer) |
+
+**The instrument names the gap itself**, and this is sharper than the summary of it —
+`013-qa-toast-vessel-render.test.ts:122`, read at write time:
+
+> *"…a live `MessageProvider` context at runtime. A null context would throw in production and pass
+> [here]."*
+
+**A failure mode in which production throws and the suite stays green, written into the test that
+would stay green.** Disclosed, not hidden — but it is a disclosure this document had not carried.
+
+### R15.1.1 — And this surface has no production evidence either. None.
+
+`CodeMessageNotice.tsx` is **absent at `a151fb4`** — derived in R14.1 by this stage, and it is why the
+positive control shows absence rather than a blob mismatch. **The file is new at `abcf585`, so the
+code-import notice surface has never executed in production at all.**
+
+Combined with the table above, the honest statement of this surface's evidence is:
+
+> **The component is proven to render in isolation. The layout is proven to *contain the tag* as text.
+> Nothing proves the notice appears on the page, and nothing ever has — there is neither an executing
+> test of the producer or the mount, nor a single instant of production runtime.** Every link but one
+> is unproven.
+
+**Per this stage's rule on operator attestation, this is worth naming precisely**: the surface carries
+**both** failure classes. A **silent** one — the notice never appears, and absence generates no
+complaint (BC-19, BC-21). And a **loud** one — a null context throws and the page breaks, which would
+be caught on the first code import. **Neither has any production evidence, because there has been no
+production.**
+
+---
+
+## R15.2 — BC-19's falsity signature, restated because the ask is larger than this document described
+
+R13.6 gave BC-19 as *"is the notice visible and legibly placed."* On the finding above that is too
+small. **Recorded beside the original, never over it:**
+
+> **BC-19, restated.** The owner performs **a real code import that drops components** — not a look at
+> a page. **Falsity signature, in operator terms**: he imports such a message and either (a) **no
+> notice appears at all**, or (b) **the page throws** where it previously worked, or (c) the notice
+> appears but is hidden, overlapped or illegible. **(a) and (b) are new to this statement of the row**;
+> only (c) was carried before.
+
+**Routed to QA, not performed here — row definitions are QA's.** BC-19 now bundles two questions that
+fail in different ways and are settled by different observations: *does it appear at all* and *is it
+legible*. **Recommendation: split it.** The first is the one carrying the unproven producer and mount;
+the second is the eye check R13.6 described. A row that bundles a silent mode with a loud one is
+harder to settle than either alone. **No wording drafted.**
+
+---
+
+## R15.3 — Why the verdict does not move
+
+**The condition already gates this.** BC-19 is exactly the row covering the code-import surface, and
+rev 13's approval is conditional on it. A finding that lands **inside** a condition this document
+already made blocking does not call for a new verdict — it calls for the condition to be described
+correctly, which is R15.1 and R15.2. **Escalating to `NOT APPROVED` for something the ledger already
+holds would be theatre.**
+
+**What genuinely changed is the weight, and it is recorded rather than absorbed**: BC-19 went from an
+eye check to the only thing standing between this surface and its first production runtime. **The
+window U-5 established is what makes that survivable** — `4a7126b` is not released
+(`git ls-remote origin master` = `a151fb4`, re-derived at write time), and on QA's finding these rows
+do not expire. **The observation can still happen before anything is cut, in rev 13's order.**
+
+**Ledger delta at rev 15**: no row changes state. **BC-19's scope is corrected and widened**; a split
+is recommended to QA. Nothing withdrawn.
+
+---
+
+## R15.4 — The instrument-lie class, now four members and a stated predicate
+
+QA verified R14.1.1 and found it **worse than reported**: `git rev-parse <tree>:<absent-path>` not only
+echoes its argument to stdout, **it exits 0** — so an `|| echo MISSING` guard **never fires**. The
+guard silently does nothing. QA had used that exact form earlier in the session, safe only because all
+three paths happened to exist.
+
+**Four members in this chain, and the predicate is worth more than the list:**
+
+| # | Instrument | Lie |
+|---|---|---|
+| 1 | piped `grep -c` over filtered output | undercounts (46 against a true 51) |
+| 2 | `ls -a \| grep -x <name>` | false absence, non-deterministic across identical runs |
+| 3 | `git diff --name-only \| grep -c .` | 8 against a true 7 — **observed today** |
+| 4 | `git rev-parse <tree>:<path>` on an absent path | echoes the argument, **exits 0**; existence guards never fire |
+
+> **Predicate**: *an existence or count predicate that cannot fail loudly.* Each member returns a
+> plausible value where it should have refused. **Remedy in every case: an instrument that computes
+> before the filter and fails loudly** — `grep -c`/`grep -rc`, `git diff --numstat`, `ls -d <path>`,
+> `git cat-file -e <tree>:<path>`.
+
+**Stated on its own terms so it survives these four instances**, per the document-lifecycle rule that
+a rule and the sighting that motivated it separate. Carried to the retrospective, where it belongs with
+the rev-13 note that this chain's most reliable defence was re-derivation rather than review.
