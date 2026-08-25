@@ -50,9 +50,41 @@ not, and that was my error.
   pass gets filed rather than investigated. `qa` is doing that now. The runnable list, with re-derived
   wording and one pass criterion each, lands here when it reports.
 
+### Only you can do this — no agent may
+
+**Find out what Discord does with an empty component.** The server-side shape checks were relaxed, so
+hooks.gg now accepts message structures it used to reject: an empty container, an empty section, an
+empty media gallery, an empty action row, or a text display with no text. **Nobody has established what
+Discord itself does with those.** Code review assumed Discord rejects them and says so plainly rather
+than pretending otherwise — it could not test it, because **no agent on this machine may send a Discord
+message, and there is no approval path for one.**
+
+**What to do:** compose a message containing one of those empty structures and send it.
+
+**Three outcomes, and two of them are bad:**
+- **It is rejected with a readable error** — the assumption holds and nothing follows.
+- **It posts successfully** — the message goes out blank or malformed in a real channel, and users can
+  produce that today.
+- **It is rejected with a blank or raw validator error** — it is caught, but the work that made these
+  errors readable does not cover this case.
+
+**Tell me which happened and I will route it.**
+
 ### Decisions, no browser needed
 
-Nothing.
+**A broken error message is live right now. Do you want it fixed as part of 013, or later?**
+
+When someone pastes JSON containing a component type that is not allowed, the error they are shown is
+split into **six lines, five of which are bare numbers**. Cause: the code that turns validator output
+into readable text splits the text wherever it finds ` | `, and one validator message contains ` | `
+inside itself. Measured on the live tree, not inferred. **Code review calls it a four-line fix** and
+did not hold the release for it.
+
+- **Fix it as part of 013.** It is the same work finishing, so the chain closes with it done. Costs an
+  implementer round, a re-review and a re-verify, and everything waiting on closure waits for that.
+- **Leave it for a follow-up.** 013 closes without it and it becomes its own piece of work later. The
+  broken message stays live in the meantime.
+- **Leave it alone.** It is ugly but it is an error message, and nobody has reported it.
 
 ## EVERYTHING BELOW IS ON HOLD — 2026-08-23
 
