@@ -638,12 +638,12 @@ space, and names this document as the register it appended to.
 
 | ID | Class | Condition | Primary instrument | Subject / fallback | Earliest-decidable condition | Predicted value | Failure mode (operator terms) | Owner | State |
 |---|---|---|---|---|---|---|---|---|---|
-| **BC-1** | PRE | M2-c: the Load confirmation names what changes — which top-level types are added/removed, and whether the message type changes | operator observation (no harness, F-QA4/assumption 5) | UAT agent; fallback owner | chain tip deployed to any environment with a stored V2 message | the confirmation names both differences before anything is committed | *A user confirms a Load believing nothing is lost, and loses every component. The dialog is the only thing standing between them and it.* | uat | Not started |
+| **BC-1** | PRE | M2-c: the Load confirmation names what changes — which top-level types are added/removed, and whether the message type changes | operator observation (no harness, F-QA4/assumption 5) | UAT agent; fallback owner | chain tip deployed to any environment with a stored V2 message | the confirmation names both differences before anything is committed | *The dialog is the only thing standing between the user and an irreversible overwrite, so if it misnames the change they confirm believing something else will happen. **Both clauses of the condition, because both can fail on their own**: they lose top-level components the dialog never said would go; **or** they are told the message type changes when it does not, or not told when it does — which is the 5712/5842 repair sitting, and is `load-confirmation-names-wrong-mode` (F-QA31). **Reconciled to this row's condition 2026-08-25 (P3.22): the previous wording spoke only to component loss and could not express a wrong mode statement, which loses nothing.*** | uat | Not started |
 | **BC-2** | PRE | M3-b (URL + webhook): the import dialog names which component types were **not** carried | operator observation | UAT agent | a Discord message carrying a select menu is reachable by URL | dialog shows supported components **and** a notice naming the select | *An import silently returns a message missing half its controls, and the user ships it that way.* | uat | Not started |
 | **BC-3** | PRE | M3-b (bot code path): the **editor** shows the same notice on load | operator observation | UAT agent | bot `Get Message` run on the same message, within the 1h store TTL | editor opens with supported components and the same notice | *The code path has no dialog, so a silent drop here is invisible until the message is sent wrong.* | uat | Not started |
 | **BC-4** | PRE | M3-c: an import failing the floor keeps the dialog open with the error and **does not navigate** | operator observation **paired with** the suite's no-upsert assertion (EC-3) | UAT agent | chain tip deployed | dialog stays, error shown, no new message created | *The user lands on a blank message that looks saved. This is flow 6/11/12/13 — the defect 013 exists for.* | uat | Not started |
 | **BC-5** | PRE | M4-c: pasting a folder-page export shows the composer's floor error, not a green state | operator observation | UAT agent | chain tip deployed | *"Message must have content, embeds, or components."* | *Green means safe. A green state over an empty object teaches the user to trust it.* | uat | Not started |
-| **BC-6** | PRE | M4-b: the lenient filter **names** the dropped types at both JSON surfaces | operator observation | UAT agent | a paste carrying a top-level Thumbnail-11 | the notice names the type | *Today it is silent; a component vanishes with no trace, at the surface users reach for when the UI cannot express something.* | uat | Not started |
+| **BC-6** | PRE | M4-b: the lenient filter **names** the dropped types at both JSON surfaces | operator observation | UAT agent | a paste carrying a top-level Thumbnail-11 | the notice names the type | *A user pastes a message carrying a component **type** Hooks.gg cannot support — a Thumbnail, a Select Menu — and it is removed without the notice **naming that type**. They ship a message missing a control they believe is still there, at the surface they reached for precisely because the UI could not express it. **Reconciled to this row's condition 2026-08-25 (P3.22): a composite the filter empties is NOT a member — no type was unsupported there, and that case is ruled outside this row.*** | uat | Not started |
 | **BC-7** | PRE | M8-B: paste `{"components":[<container>]}` → V2, bit set, **visible warning** | operator observation | UAT agent | chain tip deployed | editor in V2 with the container **and** a warning | *Silent acceptance means the user never learns their JSON was incomplete; D17 row B says warn.* | uat | Not started |
 | **BC-8** | PRE | M8-D: paste `{"content":"hi","flags":32768}` → **Classic**, content intact, bit cleared, **visible warning**, no V2 error | operator observation | UAT agent | chain tip deployed | Classic, `hi` present, warning shown | *This is 5712's own repair route. If the warning is missing the user cannot tell a repair from a corruption.* | uat | Not started |
 | **BC-9** | PRE | M8-E: paste `{"content":"hi","components":[<container>]}` → **two options**, each naming its drop; **nothing created** until one is taken; dismissal leaves message and pasted text unchanged | operator observation **paired with** the suite's `requiresChoice` assertion (EC-3) | UAT agent | chain tip deployed | two options; nothing created before a choice; both outcomes verified by repeating with the other option | *Today this silently strips the content. If the choice does not appear, D17's governing principle is not shipped — content is still lost without asking.* | uat | Not started |
@@ -3256,3 +3256,145 @@ the verify pass is still queued behind the rider.
 and **F-QA33**; **F-1 limb 2**; the rider staleness condition at P3.15; MEDIUM-2's status; the remote
 limb of tree identity. **F-QA32 is withdrawn and is not verified** — its absence from the fixed tree
 is the expected state, and a future reader must not read that absence as a missed fix.
+
+---
+
+# Phase 3, fourth sitting, 2026-08-25 — cell reconciliation, swept on the class
+
+**Session**: `qa-hooks-013-3` [ab2af3]. **Trigger**: `uat` rev 29 (`8de8f3c`), **read at that document**,
+marked **BC-6 `NOT EXECUTABLE`** pending one reconciliation. No verdict moves.
+
+## P3.22 — `uat` is right, and I filed it in the wrong place
+
+I disclosed BC-6's cell over-reach myself and then **sent it to the retrospective**. That was wrong,
+and the reason it was wrong is worth stating plainly because it is a reasoning failure and not an
+oversight: **I treated the over-reach as an explanation of a past error of mine rather than as a live
+property of a row an operator is about to execute.** Having found the cause of my own withdrawn
+finding, I stopped looking at the row.
+
+**`uat`'s framing, which I adopt**: I ruled on the **condition** cell; the **failure-mode** cell was
+never reconciled to it and still said something wider. An operator executing against the failure-mode
+cell could watch an emptied Container vanish with no trace and record **FAIL** — on a row I had just
+ruled the code satisfies. **A false failure manufactured by the row's own internal disagreement.**
+
+And `uat`'s sharpening is the part I had not seen: **a row with two predicates is worse than a row
+missing a cell.** A missing prediction is not executable and gets routed back to me. **A row with two
+predicates is executable — to either answer — which is the failure mode that does not announce
+itself.** That is the same hazard rev 18 marked eight rows stale to prevent, arriving through a
+different door.
+
+## P3.23 — Swept on the class's predicate, not on the instance
+
+My own rule: *derive the sweep predicate from the class's definition, never from the phrasing of the
+instance that revealed it.* `uat` stated the class — **two cells of one row specifying two different
+predicates** — so the sweep is over that, not over "rows that mention vanishing components".
+
+**Sweep predicate**: every register row carrying a full ten-cell definition; for each, *can an
+operator executing against the **failure-mode** cell reach a different verdict than one executing
+against the **condition** cell?* **Excludes**: the three-cell state tables and disposition tables
+(BC-18/19/21/11b at L2359+, L2570+, the Phase 3 disposition table), which restate state and define
+nothing; and the pointer rows whose Class cell is `—` (BC-11, BC-11a), which carry no predicate.
+
+**Enumerated, by computing rather than by reading a listing** (see the instrument note below):
+**26 rows carry a full ten-cell definition**. Excluded from reconciliation: **2 pointer rows** whose
+Class cell is `—` and which carry no predicate (BC-11, BC-11a), and **1 restatement** whose
+failure-mode cell is `—` (BC-16 at L1442, the renumbering entry). **That leaves 23 rows carrying both
+a condition and a prose failure-mode cell**, of which **BC-5 is `WITHDRAWN` by the owner and is not
+reconciled**. **The known instance, BC-6, is among the matches** — the check that the predicate is
+derived from the class and not fitted around it.
+
+### Result: **two** members, and the second one is live and blocking
+
+| Row | Divergence | Direction | Fixed |
+|---|---|---|---|
+| **BC-6** | failure mode describes an **instance** removal; condition is about a dropped **type** — a scenario the condition does not cover at all | **wider** → **false FAILURE** | **yes** |
+| **BC-1** | condition has two clauses — *which types are added/removed* **and** *whether the message type changes*. The failure mode spoke only to component loss, so **it could not express a wrong mode statement, which loses nothing** | **narrower** → **false PASS** | **yes** |
+
+**BC-1 is the one that matters more, and I nearly missed it by fixing only what was asked.** F-QA31
+`load-confirmation-names-wrong-mode` is *entirely* about the mode clause. I declared BC-1 blocked on
+that defect — and BC-1's own failure-mode cell described a symptom the defect does not produce. **An
+operator handed BC-1 and reading that cell for what to watch would have watched for lost components,
+seen none, and recorded PASS over the exact defect the row was blocked on.** A false pass, on the row
+carrying this chain's one live blocking condition.
+
+**Both cells now read**:
+
+- **BC-6** — *a component **type** Hooks.gg cannot support is removed without the notice **naming that
+  type***, with the emptied-composite case named as **not a member** so the ruling cannot be re-widened
+  by a later reader.
+- **BC-1** — **both clauses, each stated as independently sufficient to fail the row**, with F-QA31
+  named in the cell.
+
+### Residual, dispositioned by name rather than left silent
+
+**Six rows have a failure-mode cell that names only the most vivid limb of a multi-limb condition** —
+BC-8, BC-9, BC-11b, BC-14, BC-16, BC-18. **Examined and deliberately not changed.** They
+*under-illustrate* their condition; they do not *misdirect* it, because every limb they omit is still
+carried by the row's **Predicted value** cell, which is the operator's checklist. **BC-6's defect was
+categorically different: its cell described a scenario the condition does not cover at all.**
+
+**This is a disposition, not a clean bill.** If `uat` executes rows from the failure-mode column rather
+than the Predicted-value column, these six become the same defect and I will reconcile them on request.
+**Say so and I will do it** — I would rather be told the column I assumed is the checklist is not the one
+being read.
+
+### Re-run and reconciled
+
+Enumeration re-run after correcting. **23 rows carrying both cells**, partitioned with every member
+named:
+
+| Disposition | Count | Rows |
+|---|---|---|
+| **Corrected** | **2** | BC-1, BC-6 |
+| **Under-illustrating — examined, deliberately unchanged** | **6** | BC-8, BC-9, BC-11b, BC-14, BC-16, BC-18 |
+| **Aligned — cells specify the same predicate** | **14** | BC-2, BC-3, BC-4, BC-7, BC-10, BC-12, BC-13, BC-15, BC-17, BC-19, BC-19a, BC-19b, BC-20, BC-21 |
+| **`WITHDRAWN` by the owner — not reconciled** | **1** | BC-5 |
+
+2 + 6 + 14 + 1 = **23**. **No residual undispositioned.**
+
+### Instrument note — I put an unverified count in this section and caught it before committing
+
+The paragraph above first read *"21 carry a full ten-cell definition; 19 of those are live"*. **Both
+numbers were wrong** — the truth is 26 and 23. I had **counted rows by eye off a printed listing**
+rather than computing the partition, in the same sitting in which I am writing about predicates that
+cannot see their own members.
+
+Caught by re-running the enumeration as a computation before committing, which is the only reason it
+is a note and not a correction. **Recorded because the failure mode is the interesting part: the
+listing was correct and complete — the instrument did not lie — and I still got the number wrong,
+because I read it instead of computing it.** This chain's recurring class is a predicate that cannot
+see a member; this is its cheaper cousin, a *reader* that cannot count one.
+
+## P3.24 — On the three collapses `uat` refused, all three accepted
+
+Recorded because two of them constrain how I may cite my own ruling:
+
+1. **`LIFTED`, not `WITHDRAWN`.** That register's `WITHDRAWN` is **owner-only**. Mine was not an
+   obligation the owner ended, and I will not call it withdrawn. **I used "WITHDRAWN" of the blocking
+   condition at P3.20 and that word was wrong for that register's vocabulary** — the *finding* F-QA32
+   is withdrawn (mine to withdraw); the *blocking condition* is **LIFTED**. Corrected here rather than
+   over P3.20.
+2. **BC-6 the row is not withdrawn** — it stands, open, `NOT EXECUTED`. What lifted is a constraint on
+   its executability.
+3. **It was never fixed; it never applied.** Correct, and the consequence `uat` names is the one I had
+   not thought through: **a fixed blocker implies a code change and would put a commit in the chain; a
+   never-applied blocker puts nothing there.** My grounds 1 and 2 are definitional, so nothing was
+   repaired and nothing should be looked for.
+
+**And `uat` was right to note ground 3 and not rest on it** — it is a test result from my own
+instrument, and a stage that does not read source cannot weigh it. Grounds 1 and 2 carry the ruling
+alone, which is what I intended when I said ground 2 is the one I would defend hardest.
+
+## P3.25 — State
+
+**No verdict moved.** **BC-6's `NOT EXECUTABLE` constraint is answered** — both cells reconciled, and
+the sweep that produced a second correction is recorded above. **BC-1 stands blocked on F-QA31**, now
+with a failure-mode cell that can actually express it.
+
+**Register maintenance log — appended:**
+
+- **2026-08-25 — BC-6 and BC-1 failure-mode cells RECONCILED to their condition cells** (qa, this
+  sitting), on `uat` rev 29's ruling that the divergence is live rather than retrospective. **BC-6 was
+  the raised instance; BC-1 was found by sweeping the class and is the more serious of the two** — its
+  cell could not express the defect the row is blocked on. **No condition, predicted value, subject,
+  instrument or state changed on either row.** What changed is what the operator is told to watch for.
