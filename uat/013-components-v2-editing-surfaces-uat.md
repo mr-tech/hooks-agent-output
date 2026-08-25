@@ -14,7 +14,8 @@ Status-Detail: >-
   authored at **R50.2**, then their terminalisation in this register, then devops' close. **R48.4 and R49.4
   are both DECIDED and neither blocks.** **BC-13 is TERMINAL and is not a fifth row — re-derived rev 50
   after this register asserted otherwise to steering and corrected it in the same channel (R50.4).**
-  **The four checks AS DELIVERED are carried verbatim at R51.3** (5483 bytes, `sha256 9abe3966…4309d4`) —
+  **The four checks AS DELIVERED are carried verbatim at R51.3** (`sha256 9abe3966…4309d4`; **5527 bytes /
+  5483 characters** — the length half was published in the wrong unit and is corrected at **R52.1**) —
   **that block, not the `OWNER-QUEUE` copy, is what the four rows terminalise against.**
   **Rev 49 — HIS RULING ACCEPTED: `a74b9e2` LEAVES 013's RECORDS ENTIRELY.** ***"No. The records don't
   mention what happens after release. Release was self-contained and a snapshot at the time of release."***
@@ -904,6 +905,7 @@ Verified-At: >-
 | 2026-08-25 | **owner** via `steering-hooks-013-3` [b04529], as a blocking selection prompt put **before rev 48 existed**; steering explicitly did not claim he ruled on this register's reasoning | **Rev 49. HIS RULING ACCEPTED — `a74b9e2` LEAVES 013's RECORDS ENTIRELY.** He chose *"Mine — I removed it deliberately"*, declining *"but I want it gated"*, *"find out who"* and *"revert to the released tip"*, then **corrected the option's own description unprompted, in his own words**: ***"No. The records don't mention what happens after release. Release was self-contained and a snapshot at the time of release."*** **Stronger than R48.4's option A**, which would still have had the records note the move. **No re-review, no re-gate, no revert, no residual entry about `a74b9e2` inside 013.** **BC-1 — steering's offer to carry the point back is DECLINED, and not out of deference: R48.3's observation that BC-1's evidence no longer describes production IS a statement about what happens after release, the exact class he ruled out.** BC-1 was `EXECUTED` against the tree it was executed against, which is the snapshot he describes; **asking would be asking him to re-rule what he just ruled in different words.** **REV 48's FINDING STANDS AND IS NOT WALKED BACK** — production was not serving the released tree, and verifying at the mechanism stopped a false-premise finalisation and a rev 52 plan write mid-pass. **Its proposed DISPOSITION is superseded, and both halves are said: a ruling arriving ahead of the gate's request is not the gate being ignored.** **Residual 8 retired to a disposition line per Retire Dispositioned Content; residuals 8 → 7.** **ONE DISTINCT QUESTION PUT BACK, and it is NOT BC-1: the four `POST` rows are BY CONSTRUCTION records of what happens after release — BC-14 is literally *"the user-reported defect is fixed in production"*, BC-12 *"still sends after deploy"*.** **Read one way his sentence withdraws all four and the chain closes now; read the other they stand and must be observed against `a74b9e2`. Applying it maximally would withdraw four release conditions on a ruling given about a dialog — expanding a ruling past the question it answered, the error this chain has spent all day not committing. Applying it minimally keeps alive four rows he may have just ended. `WITHDRAWN` is a terminal state only he may rule.** The ask passes BC-4's test — **it names what the answer changes** — and **if he withdraws them the cost is recorded in plain words: the chain closes with the user-reported defect never confirmed fixed in production.** **Steering's `Status` withdrawal accepted in the terms made — same channel, error's class named correctly as asserting from an unestablished fact — and two things kept past the instance: it did not repeat the error on the other two documents, and it LEFT THE ARCHITECTURE DOCUMENTS ALONE because `Active` is that type's normal state; one of its three "stragglers" was never one.** **For the retrospective**: the repo has **no roadmap and no release tracker across twelve chains**, found by the roadmap pass, **which also found `a74b9e2` unprompted and refused to act on it as outside its stage — two stages finding the same fact independently within the hour, neither of them the one whose report said otherwise.** |
 | 2026-08-25 | **owner** via `steering-hooks-013-3` [b04529] — **R49.4 ruled, option 2**, put with the withdrawal cost stated in the plain words this register asked for; steering relayed his answer verbatim and complete | **Rev 50. THE FOUR `POST` ROWS STAND, AND THEIR OPERATOR TEXT IS AUTHORED AND DELIVERED.** ***"2, use the current uat. Speed run this to completion. no back-and-forth, you give me what to check, I do it and we're done"*** — **the minimal reading governs**: BC-12, BC-14, BC-17 and BC-20 are **not** withdrawn, and **every observation names `a74b9e2`**, re-derived at the mechanism (`git ls-remote origin master`) before a word of the text was written. **Four checks authored in one delivery (R50.2), verbatim-liftable, nothing cut.** **The silent-limb problem is solved by the REPLY FORMAT, not by asking him for more** — each limb that fails by absence is written to return **a number or a quoted string**, so a one-line answer carries the observation rather than his verdict about it; that is what makes *"no back-and-forth"* compatible with the rows instead of fatal to them. **BC-17's fixture IS its own question and none was invented** — written as a question with two branches, both terminalisable tonight, one carrying a **RECOMMEND WITHDRAWAL with the cost stated to him in plain words**. **BC-20's absence limb has no closing instrument by construction, and the check is written to say so to his face** rather than let a pass read wider than it is. **`a74b9e2`'s visible delta is disclosed to the operator in his own terms** — the Load confirmation says less than the records describe, it is his own change, and none of the four rows depend on the removed wording. **SELF-INFLICTED ERROR, CAUGHT AND CORRECTED IN THE SAME CHANNEL (R50.4)**: this register told steering BC-13 was an open fifth `POST` row. It is `TERMINAL — WINDOW ELAPSED` since rev 27, and the later revisions say `POST` **(4)** for exactly that reason — **a status asserted from memory of an early revision instead of re-read at write time, which is this document's own rule applied to every stage but itself.** Withdrawn plainly, with devops credited for having closed it correctly and unprompted. **Non-reopening re-derived rather than assumed**: `bot` present at `a74b9e2` and `git diff --name-only 2d90e8a a74b9e2 -- bot/` **empty**, so BC-13 stays terminal across both of tonight's commits. **Devops's written decline of the §16 amendment ACCEPTED, not escalated** — §16 already is the snapshot and never claimed `b56570d` serves now; a refusal in writing with its authority named is the correct way to refuse another stage. **Residuals: seven, unchanged.** **UAT Complete still stands as a verdict about `b56570d` and is still NOT a verdict about `a74b9e2`.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — a **finding against rev 50**, delivered together with the correction of an error of its own that produced it | **Rev 51. THE FINDING IS RIGHT AND REV 50 WAS DEFECTIVE: the register recorded the checks' DERIVATION and not the delivered TEXT, so the delivery copy had silently become the only copy of what was actually put to the operator.** **The offered defensible position — register owes the derivation, queue owes the wording — is DECLINED, and not on the reproducibility ground steering led with, which is real but secondary.** **The decisive reason: a row is terminalised against the check that was actually PUT, not the check its author meant to put** — `EXECUTED` will be recorded against limbs *he was shown*, and a register holding only a summary of its own intention terminalises against a paraphrase and calls it an observation. **That is the substitution this chain refused in all eight `PRE` rows.** Second reason, this register's own ruling this morning: **a trimmed version of this text IS a different check**, and a register that cannot show which version was put cannot tell one from the other. **FIXED AT R51.3 — the delivered block embedded verbatim, 5483 bytes, `sha256 9abe3966…4309d4`, inside a four-backtick fence so its own inner fence survives unaltered; self-checked after the append and hashing identically from inside this document.** **IDENTITY ESTABLISHED AT THE BYTES FROM TWO INDEPENDENT SOURCES (R51.2)** — the delivery copy extracted from `OWNER-QUEUE.md` at `a31b880`, and this register's own outbound message recovered from this session's transcript: **5483 bytes and the same digest on both.** **Steering reported the lift verbatim and that report is now CONFIRMED rather than relied on — the treatment its report deserved, not a doubt about it.** **Boundary stated so the record is not read wider than it is**: this establishes that what he was shown is what was authored, and would not have caught a divergence introduced before extraction. **R51.4 — THE PATTERN, replacing three separate filings**: steering's `Status` misread, steering's rev-50 stamp written before rev 50 existed, and this register's own BC-13 assertion are **one shape** — *a claim about a document's contents made from expectation rather than from reading it at the moment of the claim*. Routed to the retrospective as ONE pattern-level item; **R50.4 folds into it as an instance and is no longer filed separately.** **Steering caught its own error, corrected it in place at `9e5e192` naming the superseded claim, and reported it unprompted alongside a finding that reflected worse on this register than on itself — the correct response to one's own error and rarer than the error.** **Gate, rows, residuals and R50.6 all UNCHANGED**; this revision adds no verdict and moves no row. |
+| 2026-08-25 | `steering-hooks-013-3` [b04529] — **ran rev 51's drift detector against its own two subsequent commits to `OWNER-QUEUE.md` rather than assuming its edits were surgical**, and found a defect **in the detector** | **Rev 52. THE DIGEST HOLDS; THE PUBLISHED LENGTH WAS THE WRONG UNIT.** **The block is intact across `9e5e192` and `c80d5e5` — re-extracted by this register at `c80d5e5` rather than accepted from the relay: `sha256 9abe3966…4309d4`, the published digest exactly.** **But rev 51 published `5483` under a column headed `Bytes` and made a length half of its own test; the block is 5527 BYTES / 5483 CHARACTERS.** **Steering's reasoning is airtight and adopted — a digest and a length cannot disagree about the same bytes, so reproducing the digest proves the LENGTH is the figure in error.** **CAUSE IS EXACT, AND NOT THE ONE PROPOSED**: the number was **computed**, not carried — `len()` of a Python `str` counts CHARACTERS while `sha256` was given `.encode('utf-8')`. **Two measurements, one instrument each, only one answering the question its label asked.** **Reconciled to the character: 17 `—` + 4 `→` + 1 `…` = 22 three-byte characters = +44, and 5483 + 44 = 5527.** A proof, not a story. **WHY IT MATTERED: as published, the AUTHENTIC block FAILED this register's own length test** — a successor running the cheap half first would have rejected the correct copy and reported drift that did not exist. **Detector corrected (R52.2): the digest IS the test; a length is a cross-check and is worthless without its unit.** **R52.4 — TWO DISTINCT SHAPES, and rev 51 filed only one**: *(A)* a measured value lending credibility to an unmeasured neighbour — steering's own instance, found in its own work unprompted; *(B)* **an instrument answering a question ADJACENT to the one asked, whose output is indistinguishable from the right answer** — this register's instance, and **a family this machine has already paid for repeatedly** (`grep -rn | wc -l` 46 against 51; `grep "^[+-]"` 0 against 75). **No amount of re-running would have caught it; it reproduces perfectly. The countermeasure is the one already written down — a contradiction against an INDEPENDENT counter is the signal — and that is exactly how steering caught it.** **Superseded figures preserved in place at R51.2/R51.3 and annotated, never overwritten.** **The 013 retrospective has CLOSED, so R51.4 and R52.4 arrived after it; recorded here and explicitly NOT claimed as filed.** **No verdict added, no row moved; gate, rows, residuals and R50.6 all unchanged.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -8984,10 +8986,10 @@ cannot tell a trimmed check from the authored one.
 **The delivered block is byte-identical across the copy steering lifted and this register's own outbound
 message.** Established rather than accepted:
 
-| Source | Instrument | Bytes | `sha256` |
+| Source | Instrument | Length — **see the reconcile note at R52.1** | `sha256` |
 |---|---|---|---|
-| **Delivery copy** — `OWNER-QUEUE.md` at `a31b880`, extracted from the file | direct read, extraction by string boundary, not by line index | **5483** | **`9abe39666468c5dcc23dc24786f1b68fea0992063cab538f73461d64394309d4`** |
-| **This register's outbound message** — recovered from this session's own transcript | `json.loads` over the transcript record, same boundaries | **5483** | **`9abe3966…4309d4`** |
+| **Delivery copy** — `OWNER-QUEUE.md` at `a31b880`, extracted from the file | direct read, extraction by string boundary, not by line index | ~~**5483** bytes~~ → **5527 bytes / 5483 characters** (R52.1) | **`9abe39666468c5dcc23dc24786f1b68fea0992063cab538f73461d64394309d4`** |
+| **This register's outbound message** — recovered from this session's own transcript | `json.loads` over the transcript record, same boundaries | ~~**5483** bytes~~ → **5527 bytes / 5483 characters** (R52.1) | **`9abe3966…4309d4`** |
 
 **Steering reported the lift was verbatim. That report is now confirmed at the bytes rather than relied on** —
 which is the treatment its report deserved, not a doubt about it. **Both readings are of the same authored
@@ -9082,7 +9084,10 @@ BC-20:  warning=yes/no,  it said: "…"
 ````
 
 **Drift is now self-detecting on read**, which was the property rev 50 lacked: the block above hashes to
-`9abe3966…4309d4` at 5483 bytes, and any copy that does not is not the check that was put.
+`9abe3966…4309d4`. ~~at 5483 bytes~~ — **the length half of this test was stated in the wrong unit and is
+corrected at R52.1: the block is 5527 BYTES / 5483 CHARACTERS. THE DIGEST IS THE TEST; a length is a
+cross-check and is worthless without its unit.** Any copy that does not hash to that digest is not the check
+that was put.
 
 ## R51.4 — Steering's own error, and the pattern all three instances share
 
@@ -9131,3 +9136,134 @@ and not re-issued; **no verdict covers `a74b9e2`**; **eight `PRE` rows terminal*
    three instances and is not filed separately).
 5. **Nobody** — treats the `OWNER-QUEUE` copy as authoritative over R51.3, or terminalises a row against a
    summary of a check rather than the check.
+
+---
+
+# Revision 52 — 2026-08-25 — **A DEFECT IN THE DRIFT DETECTOR ITSELF. THE DIGEST HOLDS; THE LENGTH WAS THE WRONG UNIT.**
+
+**Trigger**: `steering-hooks-013-3` [b04529] ran R51's drift detector against **its own two subsequent commits
+to `OWNER-QUEUE.md`** — `9e5e192` (correcting the false provenance stamp that sits directly beneath the
+block) and `c80d5e5` (correcting a stale header above it) — **rather than assuming its own edits had been
+surgical.** The detector's first real use was against the party that built the delivery copy, run by that
+party, and it found a defect **in the detector**.
+
+## R52.1 — **Dated reconcile note, 2026-08-25: the published length was wrong, and the superseded figure stands above**
+
+**Rev 51 published "5483" under a column headed `Bytes`, in two rows, and wrote that a copy failing to hash to
+the digest *"at that length"* is not the check that was put. Steering measured 5527 bytes while reproducing
+the digest exactly.**
+
+**Its reasoning that one of the two numbers must be wrong is airtight and this register adopts it**: a digest
+and a length cannot disagree about the same bytes — identical digest means identical bytes means identical
+length. Since it reproduced the digest, the bytes are the ones that were hashed, and the length is the figure
+in error.
+
+**The superseded claim, preserved rather than overwritten**: *"the block above hashes to `9abe3966…4309d4` at
+5483 bytes"*, and the two table cells reading **`Bytes` | 5483**. Both are annotated in place at R51.2 and
+R51.3 and point here.
+
+### The cause, which is not the one proposed — and it is exact rather than narrative
+
+**Steering's hypothesis was that the number was *carried* rather than computed, riding on a measured
+neighbour's authority. That is a real shape and steering has a genuine instance of it tonight, but it is not
+what happened here. The number WAS computed. It computed a different quantity than its label claimed.**
+
+```
+len(block)                    -> 5483     # Python: len() of a str counts CHARACTERS
+len(block.encode('utf-8'))    -> 5527     # what sha256 was actually given
+```
+
+**The digest was taken over `.encode('utf-8')`; the length was taken over the `str`.** Two measurements, one
+instrument each, and only one of them answered the question the label asked.
+
+**Reconciled to the character, so this is a proof and not a story.** The block holds **22 non-ASCII
+characters**, every one three bytes in UTF-8 and therefore contributing **+2** to the byte count:
+
+| Character | Count | Extra bytes |
+|---|---|---|
+| `—` em dash | **17** | +34 |
+| `→` arrow | **4** | +8 |
+| `…` ellipsis | **1** | +2 |
+| | | **+44** |
+
+**5483 + 44 = 5527, exactly the gap steering measured.** Nothing is left unexplained, and the two figures are
+now known to be two true answers to two different questions.
+
+### Why it mattered rather than being pedantry
+
+**As published, the authentic block FAILED this register's own length test.** A successor checking length
+first — the cheaper half, and therefore the half most likely to be run alone — would have rejected the
+correct copy and concluded the queue had drifted. **The detector's cheap half reported the opposite of the
+truth**, which is worse than having no cheap half at all.
+
+## R52.2 — The detector, corrected
+
+> **The block at R51.3 is the check that was put if and only if it hashes to
+> `sha256 9abe39666468c5dcc23dc24786f1b68fea0992063cab538f73461d64394309d4`.**
+>
+> **The digest is the test. A length is a cross-check and is worthless without its unit.**
+> The block is **5527 bytes** and **5483 characters**. **A tool reporting 5483 is counting characters and is
+> not showing you drift.**
+
+**Boundaries, since an extraction that differs by one newline changes both figures**: from the first byte of
+`**Four checks.` through the closing fence of the reply-format block **and its trailing newline**.
+
+## R52.3 — Independently re-verified at the current commit, and the block is intact
+
+Not accepted from the relay. Re-extracted from `OWNER-QUEUE.md` at **`c80d5e5`**, this register's own read:
+
+- **`sha256` → `9abe39666468c5dcc23dc24786f1b68fea0992063cab538f73461d64394309d4`** — the published digest.
+- **5527 bytes / 5483 characters.**
+- `git log` confirms the three commits touching the file: `a31b880` (the lift), `9e5e192`, `c80d5e5`.
+
+**The delivered text survived both of steering's subsequent edits unaltered.** The four checks are with the
+owner at `c80d5e5` — **same block, later commit** — and the rows terminalise against R51.3 exactly as ruled.
+
+## R52.4 — **Two distinct failure shapes, and rev 51 filed only one of them**
+
+Steering proposed this as a fourth member of R51.4's pattern and **declined to fold it in, on the ground that
+it is adjacent rather than identical. That judgement is right, and its reason was better than its
+hypothesis.** But the distinction it drew is not quite the one that exists, so both shapes are named here and
+**both are owed to a retrospective**:
+
+**Shape A — a measured value lending its credibility to an unmeasured neighbour.** Steering's own instance:
+*"its rev 50 carries the same text"* travelled alongside a verbatim-lift claim it **had** verified, and *the
+true half is what made the false half look checked*. **This shape is real, steering identified it in its own
+work unprompted, and it is filed on its evidence rather than this register's.**
+
+**Shape B — an instrument that answers a question adjacent to the one asked, and whose output is
+indistinguishable from the right answer.** This register's instance: `len()` returned a real measurement of a
+real quantity, and nothing about `5483` looked wrong. **This is not a failure of diligence and no amount of
+re-running it would have caught it** — it reproduces perfectly, which is exactly what makes it dangerous.
+
+**Shape B is a family this machine has already paid for repeatedly**, and the governing guidance names it
+outright: *the filter is not wrong, the instrument is.* `grep -rn | wc -l` returning 46 against a true 51;
+`grep "^[+-]"` over a filtered diff returning 0 against 75 real deletions. **Same shape, different
+instrument — and `len()` of a `str` belongs to it as surely as a regrouped stream does.**
+
+**Its countermeasure is already written down and is exactly how this was caught: a contradiction against an
+independent counter is the signal, and re-running the original instrument is not verification.** Steering
+supplied the independent counter by measuring the same bytes a different way. **Neither party could have
+found this by checking its own work more carefully.**
+
+**A note on where these go.** The 013 retrospective **has completed and committed**, so R51.4's pattern and
+both shapes above **arrived after its close**. They are recorded here and **explicitly not claimed as
+filed** — routing them is steering's or the owner's call, and *"the chain's retrospective ran while the chain
+was still producing lessons"* is itself worth carrying to whoever picks that up.
+
+## R52.5 — State at rev 52
+
+**No verdict added. No row moved.** Gate `UAT Complete` / `APPROVED FOR RELEASE — UNCONDITIONAL` at
+**TREE `b56570d`** / **CRITERIA rev 50**, **expired on both axes**, not re-issued, and **covering nothing
+about `a74b9e2`**. **Eight `PRE` rows terminal. Four `POST` rows open** — BC-12, BC-14, BC-17, BC-20 — checks
+delivered, byte-confirmed at `c80d5e5`, awaiting the owner. **BC-13 terminal; there is no fifth row.**
+**Residuals seven.** Lifecycle **`Active`**. **R50.6 unamended.**
+
+**Next Actions** — *point-in-time; later stage documents are authoritative.*
+
+1. **The owner — the four checks at R51.3, one sitting, one reply.**
+2. **This stage — terminalise all four against R51.3's text**, each to its own terminal state.
+3. **Devops — `closed/` once the four resolve.** `origin/master` is `a74b9e2`.
+4. **Whoever owns process learning now the 013 retrospective has closed** — R45.9, R47.7, R49.5's two,
+   R51.4's pattern, and R52.4's two shapes. **Not filed by this register, and said so.**
+5. **Nobody** — reads a length check without its unit, or treats `5483` as evidence of drift.
