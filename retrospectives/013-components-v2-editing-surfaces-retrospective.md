@@ -4,11 +4,11 @@ Origin: 013
 UUID: 22d69e06
 Status: Active
 Status-Detail: >-
-  Rev 1. Findings and evidence for chain 013, written 2026-08-25 while the chain was still open.
+  Rev 2. Findings and evidence for chain 013, written 2026-08-25 while the chain was still open.
   Deliberately short: R45.9 is a finding of this document and a retrospective that answered it with
   an 80 KB frontmatter field would be arguing against itself. The record is the changelog and the
   numbered sections; this field says only where the document is.
-Rev: 1
+Rev: 2
 ---
 
 # Retrospective 013 — Components V2 support across the editing surfaces
@@ -22,6 +22,7 @@ Rev: 1
 | Date | Rev | Author | Change |
 |---|---|---|---|
 | 2026-08-25 | 1 | retrospective (`retrospective-hooks-013`) | Created. Corpus declared. Findings derived from the nine 013 stage documents, 43 probe directories, the four cross-chain trackers, and the git history of `agent-output` and `website`. Steering's conduct is in scope by its own instruction and is treated as evidence. Nothing closed; no other stage's document edited. |
+| 2026-08-25 | 2 | retrospective (`retrospective-hooks-013`) | **Three corrections, all this stage's own, and one addition.** (1) The count of post-release rulings was anchored to the wrong release act and is re-derived from commit times: **25 of 53, first row D29**, not 24 from D30 — a consequence of N-17, which established that `a151fb4` and not `4a7126b` was the first act. (2) **N-14 records two further reported locations** for the struck records, in the deployment documents, **labelled second-hand and unverified** because verification is re-derivation and D44 forbids it. (3) `P` count corrected to nineteen. **Two suggestions from a commissioned reader were declined and the reasons are recorded here rather than absorbed**: that this retrospective should carry a finding about the post-release production state — **declined, the owner has ruled that outside 013's records** — and that the retrospective's own gate may not be met — **declined, the gate is QA Complete plus UAT Complete with the release executed, all three hold, and D45's sequencing is steering's to call and was called.** No finding, verdict or routing changed. |
 
 ---
 
@@ -589,8 +590,10 @@ happening.**
 
 - **Three occasions on which 013 work reached `master`**, spanning 19 h 33 m (see Timeline), of which
   the first ran outside the gate entirely (N-17).
-- **24 of 53 Decisions Register rows (45 %) were registered after the first release act** (D30 is the
-  first post-release row; D53 the last).
+- **25 of 53 Decisions Register rows (47 %) were registered after the first release act.** `a151fb4`
+  reached `master` at 00:56:37; plan rev 22 (**D29**) committed at 03:39 is the first row after it, and
+  D53 the last. (Re-derived from commit times after N-17 corrected which act was first — the earlier
+  draft of this line anchored to `4a7126b` and read 24 of 53.)
 - **Two milestones were added after the first release**: **M9** (Rider 2, D47, plan rev 44) and **M10**
   (D52, plan rev 49).
 - **A review debt was created after the fact**: D35 waived review for the D30–D34 post-release round;
@@ -652,8 +655,13 @@ Neither appears in steering's D44 enumeration of affected surfaces (`uat`, `qa`,
 document is not named there at all, and the planner made six further passes after D44 without striking
 its own body text.
 
-**I did not search for them and I do not reproduce them.** D44 forbids re-derivation, and a `grep` is
-a re-derivation. **This is a structural property worth recording in its own right: a strike ruling that
+**A reader commissioned by this stage additionally reported occurrences in the two deployment
+documents** (`deployment/…-deployment.md` and `…-readiness.md`). **That report is second-hand and this
+stage did not verify it**, for the same reason it did not verify its own: verification is
+re-derivation.
+
+**I did not search for any of them and I do not reproduce them.** D44 forbids re-derivation, and a
+`grep` is a re-derivation. **This is a structural property worth recording in its own right: a strike ruling that
 forbids re-derivation also forbids the compliance audit, so completeness can only ever be established
 by whoever holds the tokens.** `uat` reached the same wall from the other side (R22.1: *"the strike was
 digit-complete and **dependent-incomplete** — an instrument that searches for the token searches for
