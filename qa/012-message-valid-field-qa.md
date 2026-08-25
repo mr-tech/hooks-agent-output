@@ -58,7 +58,10 @@ Status-Detail: >-
   column cannot be misread as a field defect. Still no row added; Verified-At still c85945f.
   Rev 9a: the deployed-SHA assumption made partly self-checking — R4's "opens in V2 mode" clause
   discriminates it, since isMessageV2/detectMessageMode are absent at c85945f (verified by
-  git show), so a Classic-mode open is the deploy-lag signature and not a D11 defect.
+  git show), so a Classic-mode open is the deploy-lag signature and not a D11 defect. Rev 9b:
+  the creation-SQL type caveat resolved from prisma/schema.prisma (data Json, no @db.Json,
+  postgresql => jsonb), residual named; steering's verification SELECT recorded as a precondition;
+  OWNER-QUEUE.md checked against these rows and consistent.
 ---
 
 # QA Report: Plan 012 — `valid` field on stored messages
@@ -75,6 +78,7 @@ originals kept for the Phase 1 record — Phase 2 executed against plan rev 23, 
 
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
+| 2026-08-25 | steering-hooks-012-2 | Closure on the SCR-1 creation-SQL caveat, resolved from the source schema | **Rev 9b.** Caveat **resolved, not carried**. Re-derived rather than accepted on relay: `prisma/schema.prisma` declares `data Json` on a `postgresql` datasource with **no `@db.Json`** anywhere in the file, and Prisma maps `Json` → `jsonb` on PostgreSQL, so `data::jsonb` is a no-op and the assignment is clean; `data` is non-nullable, so `||` cannot blank the record. No `migrations/` directory, so the schema file is the authority. **Residual stated rather than erased**: the live column type is not observable from this repository. Also recorded steering's **verification `SELECT`** (`valid`, `data->'flags'`, `content`) as a precondition on these rows — a silently unapplied UPDATE is one of the two states R2's `valid: true` branch cannot separate on its own, so catching it at creation is cheaper than disambiguating after R2. Steering's `OWNER-QUEUE.md` (`a1ec1e7`) read and checked against these rows: **consistent in every particular** — order, three-way reading, void-not-failing, rebuild-rather-than-interpret, the Classic-mode deploy-lag stop, and the no-modal/R5-R6 disambiguation. No contradiction to route. No row added; `Verified-At` unchanged. |
 | 2026-08-25 | steering-hooks-012-2 | **D27** — owner's ruling on QA's rev-8 report: re-specify QA-R2 onto SCR-1 too, the same way as R4/R15 | **Rev 9.** R2 re-specified onto SCR-1 and folded into the existing section rather than a second one, since all three rows now share one subject and one lifecycle. R2's superseded wording kept, State cell routed, with the reason named: against a repaired 5712 its failure clause had become a **booby trap** — a `true` reading there is now the *correct* reading. **Self-correction, dated and in place**: rev 8's claim that *"R4 and R15 can now be executed at any time, in either order relative to R2"* was true when written (R2 still keyed on 5712) and is **false under D27** — three rows on one record, one of which persists, brings the interference back in the same shape. New authoritative subsection **SCR-1's lifecycle** states the constraint as a runnable order (create → R4 → R2 → R15 → dispose) because the owner runs these from steering's queue file, not from this document. R2's failure clause given a **three-way reading** rather than the original binary: a `true` on SCR-1 is a stale column (creation SQL did not set `valid`) if R4 showed the error, and a real field defect only if R4 did not — so **R4 disambiguates R2**, which is why it runs first. Recorded that SCR-1 is **rebuildable** where 5712 never was, so a voided observation costs a re-run, not a verdict. R3 untouched and still the paired positive control; SCR-1 additionally supplies both directions on a **single** record (`false` at R2, `true` at R15). D18, D24, D26 all unchanged; `Verified-At` again not re-anchored. |
 | 2026-08-25 | steering-hooks-012-2 | **D23** — re-specify QA-R4 and QA-R15 against a subject that still exists, so something verifies D11 end to end before closure | **Rev 8.** Both rows re-specified onto **SCR-1**, a purpose-made scratch record (row-D/cell-B5 shape). Old wordings kept unedited, State cells routed. Reachability established rather than assumed: the 2026-08-23 **table-wide** backfill run found the stranded class had exactly 2 members (5712, 5842), both since repaired by the owner's SQL, and at `a74b9e2` **no supported UI route can mint another** — `switchToClassic` clears the bit, `switchToV2` empties content, and every import route disposes row D to Classic. So no *found* subject exists and D23's scratch-record option is the only live one. **Instrument captured, not narrated**: `verification/012/scratch-subject-SCR1/` executes the shipped predicate and mode-switch over the exact SCR-1 payload — 8/8 green at `a74b9e2`, and **all 8 assertions observed red** under 5 source and 2 fixture mutants. Its **sole-carrier control** is the load-bearing one: without it a mis-built SCR-1 (e.g. a bad username) is refused for the wrong reason and R4 passes vacuously — F-QA13's boolean trap one level up, since an unqualified *"Send is disabled"* does not discriminate either. SCR-1's creation prescribed so that **QA-R9/QA-R20 are untouched** (`valid = false` set in the same statement, so no backfill run is needed) and so that R4/R15 **drop out of the 5712 ordering constraint** — a reduction in the owner's queue; no other row's requirements changed. **D26 not reopened**: both rows are post-deploy-observable, gate closure and not the send, and the section says so flatly — the overlap (R15's act *is* the guidance's Route A) is disclosed as a consequence, never as a condition. `Verified-At` deliberately **not** re-anchored: this is a specification, not a verdict. New Assumption Not Checked booked and routed to devops (deployed SHA vs `a74b9e2`). |
 | 2026-08-23 | steering-hooks-012 (carrying code review round 7, `06b204d`) | Differential re-anchor at `c85945f`; close round 7's Assumption Not Checked; derive the suite count, inherit no figure | **Rev 7.** Re-anchored: `Verified-At: c85945f`. Delta re-derived at the commit (parent = `17cada0`; two QA instrument files, zero production source); both md5s match this header's rev-6 identities. Suite **re-executed at the committed clean `c85945f`: 22 files / 411 tests green** — round 7's falsity signature did not fire; closed here. The three circulating figures reconciled to their trees (20/402 = `17cada0` committed alone; 21/408 = +repair-path untracked; 22/411 = +both instruments ≡ `c85945f`; 402+6+3=411 — ambiguity was citation, not measurement). Differential captured at `verification/012/qa-phase2-reanchor-c85945f/`. Rev-6 routing note (implementer to commit the instruments) struck as done, kept beside. Held until round 7's transfer ruling so both gates moved on one basis. |
@@ -1277,9 +1281,25 @@ carried as evidence without having been seen to fail.
     WHERE id = <the id from step 1>;
    ```
 
-   *(Illustrative: `data`'s declared type is `unknown` in the generated schema, so if the column is
-   `json` rather than `jsonb` the cast back may need adjusting. The intent — add `flags: 32768`,
-   set `valid = false` — is what matters.)*
+   *(**Caveat resolved 2026-08-25, rev 9b.** It previously read that `data`'s declared type is
+   `unknown` in the generated schema, so the cast back might need adjusting for a `json` column.
+   Settled from the **source** schema rather than the generated client, and re-derived here rather
+   than taken on relay: `project-utils/prisma/schema.prisma` declares `data Json` on a
+   `postgresql` datasource with **no `@db.Json`** anywhere in the file (`grep -c` returns 0), and
+   Prisma maps `Json` to **`jsonb`** on PostgreSQL unless `@db.Json` asks for `json`. There is no
+   `migrations/` directory in that package, so the schema file is the authority on the deployed
+   column. `data::jsonb` is therefore a no-op cast and the result assigns back cleanly; dropping it
+   entirely is equally correct. `data` is non-nullable, so the `||` cannot blank the record.
+   **Residual, stated rather than erased**: the live column's type is not observable from this
+   repository, so an out-of-band `ALTER` would not show up here — which the verification `SELECT`
+   below covers operationally.)*
+
+**Verify the statement applied before going near R4.** A silently unapplied UPDATE leaves `data`
+without a `flags` key, and that state is one of the two things R2's `valid: true` branch cannot
+distinguish on its own — so catching it here is cheaper than disambiguating it after R2. Read
+`valid`, `data->'flags'` and `content` back for the row before treating SCR-1 as built. (Step
+contributed by steering, in `OWNER-QUEUE.md`; recorded here because it is a precondition on this
+document's rows.)
 
 **Why `valid = false` is set explicitly in the same statement.** The backfill is NULL-only and
 idempotent. Leaving `valid` NULL would require a backfill run to classify SCR-1, and that run's
