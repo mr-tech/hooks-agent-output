@@ -26,27 +26,23 @@ lines about items nobody is waiting on.** If it does not need the owner to act, 
 
 ---
 
-## 1. Your decision — no agent may make this
+## 1. The live declaration to statbot — nothing blocks it now
 
-**QA-R20 — is a whitespace count of 0 what you expect?** That is the only question, and answering
-it finishes this row.
+QA-R9 and QA-R20 are both settled, which were its only preconditions. **Declare the `valid` field
+live to the Statbot side.**
 
-In `verification/012/backfill-report-1787522866564-i3s31k.md`, the category
-`"whitespaceContent"` reads `{ "count": 0, "rowIds": [] }`. It means no record in the table has
-Components-V2-structured components together with content that is only whitespace. **Say whether
-that is expected.**
+**This is the one item on this list with a consequence outside this repo.** By **D12**, statbot
+chain 023's deploy of its own `valid` gate is ordered *after* this declaration — so that chain has
+been held since **2026-08-23** and **no session has been told.** Telling statbot's steering thread
+is **your call, not mine**, and I have not told it.
 
-Nothing else is asked of you. The row also requires that the result is written down as *empty for
-this corpus at this time*, rather than as a claim about what Discord accepts — but **devops is the
-recorder for that**, not you, and that constraint was mistakenly put on your list.
+**Record your words and the time.** Devops needs them: R17 is the only executable trace that the
+ordering instruction ever travelled, and D12 has no mirror on the statbot side, so an unrecorded
+relay is indistinguishable from no relay.
 
-## 2. Then, in this order
+## 2. Send the repair guidance
 
-**The live declaration to statbot.** Only after QA-R20 above. **Telling
-statbot's steering thread is your call, not mine** — by D12 that chain has been held since
-2026-08-23 and no session has been told. Record your words and the time.
-
-**Send the repair guidance.** Only you can send it. Send exactly this:
+Only you can send it. Independent of everything above — it does not wait on the declaration.
 
 > Open the message in the hooks.gg composer. It opens in Components V2 mode with an error saying
 > V2 messages cannot contain content or embeds. Press "Classic" on the mode switch at the top of
