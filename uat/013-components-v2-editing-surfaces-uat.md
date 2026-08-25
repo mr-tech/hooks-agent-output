@@ -5,6 +5,36 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
+  **Rev 30 — the ruling QA asked for: NEITHER column is the checklist; the row's SUBJECT decides it.** QA asked
+  whether operators execute from the **Predicted-value** cell or the **failure-mode** cell, and offered to
+  reconcile six rows either way. **The question has a hidden variable.** Where a row's **primary instrument
+  requires a human subject**, the failure-mode cell **is** the checklist — it is the human-legible cell and that
+  is its function, and this chain's `PRE` subject is the owner at a walkthrough, not a QA engineer working a
+  ten-cell table. Where the **primary needs no human**, that cell is documentation and governs nothing.
+  **The decisive argument is internal to QA's own two rulings in the same pass: it corrected BC-1 *because* an
+  operator reading its failure-mode cell would have watched for lost components, seen none, and recorded PASS
+  over the exact defect the row was blocked on — a correction that is only necessary if that cell is what the
+  operator reads.** If the Predicted-value column were the checklist, BC-1's narrow cell would have been
+  harmless **by exactly the argument made for the six**. The two cannot both stand; **the subject test
+  reconciles them, and upholds QA's assumption precisely where the subject is not human.** **QA's
+  *under-illustrate* / *misdirect* distinction is real but not the operative one** — both let an operator watch
+  the wrong thing, see nothing, and pass; they differ in **probability, not kind**, and **which omitted limb
+  matters is knowable only after the failure.** *"No finding currently points at the omitted limb"* is not
+  evidence the limb is safe — this register's silent-mode doctrine applied to itself. **THE SET IS NOT SIX.**
+  **BC-11b is not a row** — `DROPPED — D44` at rev 28 on the owner's answer, settled here because row state is
+  this document's. **BC-16 needs nothing and carries no backward risk**: subject **implementer**, *"its primary
+  needs no human"*, settled by probe at `164d720` with 25 assertions and two killed mutants — **the alarm this
+  stage checked for first, that its terminal `EXECUTED` might rest on an under-illustrated cell and be a false
+  pass already filed, CLEARED on the evidence rather than on comfort.** **Four to reconcile — BC-8, BC-9, BC-18,
+  and BC-14 pending its subject test — BC-18 first**, as the sole live condition of the standing decision.
+  **BC-6's rev-29 constraint is DISCHARGED** (cells reconciled, the exclusion written in so a later reader
+  cannot re-widen it). **BC-1's cell now carries both clauses; its blocking condition is unchanged and stands.**
+  **BC-8/9/18 marked `NOT EXECUTABLE` — BC-18 included, and it is the test of the rule: a standard applied to
+  every row but the urgent one is not a standard.** **QA's own reasoning failure recorded and generalised** —
+  *"having found the cause of my own withdrawn finding, I stopped looking at the row"*: **a resolved question
+  closes the file on the object it was about**, which is what resolution feels like, and therefore needs a rule
+  rather than more care. **Open set unchanged — 12 register rows + F-1; seven executable, none observed.**
+  **Decision UNMOVED at `EXPIRED IN FULL`.**
   **Rev 29 — a BLOCKING RELEASE CONDITION that travelled here by name is lifted, and BC-6 is still not
   executable.** **Both P3.11 conditions are recorded with results, because that is this stage's first
   responsibility and a blocking item is never silently omitted.** **BC-6's constraint → `LIFTED — QA RULING
@@ -261,6 +291,7 @@ Verified-At: >-
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — owner ruling on **U-C5** plus three row corrections from `devops-hooks-013-2`, **relayed as citations to check, not as facts established**; steering set nothing | Owner ruled **"Record is enough"** on the plan's description of the shipped change; devops reported **BC-13 already terminal**, **U-C7 already discharged**, **U-C6 genuinely still owed** | **Rev 27. Open set 16 → 13.** **Every citation read at the cited document.** **U-C5 → `EXECUTED`** — two of its three limbs were already obsolete (D25's second route taken by the record at `e34df07`; U-1 struck at rev 21), so what he ruled on was narrower than the row as written; **closed on the substance with the delta recorded.** **BC-13 → `TERMINAL — WINDOW ELAPSED`** (clock instrument; non-reopening *tested* via an empty `bot/` diff proven against a present path). **U-C7 → `EXECUTED`**, three independent corroborations. **U-C6 correctly still open** — deliberately not discharged early. **AND A CONFLICT ROUTED (R27.3): this register says BC-11b is `TERMINAL: CANNOT BE EXECUTED` with a real residual; four places across both devops documents say `DROPPED under D44`.** Terminal either way, so **the open set does not move** — but it decides whether the gate names a residual or a phantom. **Evidence leans against this register**, and it matches rev 22's own confessed *dependent-incomplete* defect. **Not resolved here: D44 forbids re-deriving the struck subject.** **Nobody writes the gate's residual section until it is answered.** **Decision unmoved at `EXPIRED IN FULL`.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — **the R27.3 answer**, put as the bare yes/no this stage scoped it to; nothing reopened | **YES — D44 dropped BC-11b.** Plus notice that code review has landed and that the owner accepted its MEDIUM-1 as a rider | **Rev 28. BC-11b → `DROPPED — D44`, 2026-08-25 — this register was the stale document and devops's four places were right.** Dated reconcile note; **superseded text preserved**; **R22.4 §4's instruction to carry BC-11b as residual is WITHDRAWN** and no such residual is named. **All three grounds this stage recorded against its own document held**, including that **§4's instruction was itself the propagation** — the handover-carrying-superseded-state shape this session arrived warning about. **Resolved without touching what D44 forbids.** **THREE STATE CHANGES NO RELAY CARRIED, caught by re-deriving at write time** — rev 26's caveat paying one rev later: **QA Phase 3 (`f3cbb66`) settles all eight STALE markings by execution** (BC-1/7/8/21 LIFTED; BC-6/9/10/18 RE-DERIVED; BC-18 decidable today), so **the block on seven operator rows is lifted and none of them terminalises**; **U-C6 → `EXECUTED`** (deployment §12.5, `14bc31c`), the last documentary row; **F-1 raised and folded into this register** rather than left travelling — half of QA's adopted render instrument absent from the serving tree, routed qa → uat. **Code review `APPROVED_WITH_COMMENTS` at `2d90e8a`, anchoring exemplary — and RECORDED IN ADVANCE AS EXPIRING**, because the MEDIUM-1 rider is production code. **Open set 13 → 12 register rows + F-1. Residuals: three, all silent.** **Decision unmoved at `EXPIRED IN FULL`.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — **a BLOCKING RELEASE CONDITION that travelled here by name is withdrawn**; relayed QA's `f5f3264`, plus an ID correction and a tree switch | QA withdrew *"BC-6 cannot pass while `emptied-composite-drop-unnamed` stands"* **on its own ruling, not the owner's**; BC-1's condition stands | **Rev 29. Both P3.11 blocking conditions recorded with results, per this stage's first responsibility.** **BC-6's constraint → `LIFTED — QA RULING (NEVER APPLIED)`, 2026-08-25**; **BC-1's STANDS**. **`LIFTED` is deliberately not `WITHDRAWN`** — this register's `WITHDRAWN` is owner-only, and filing QA's act under it would corrupt the one terminal state whose content is *who ruled it*. **Two further collapses refused: BC-6 the row is NOT withdrawn — it stands open; and it was never *fixed*, it *never applied*** — QA's first two grounds are definitional, and a fixed blocker would imply a commit that does not exist. **Rests on ground 2 as the mechanical one: a register row cannot require a surface to make a false statement.** Ground 3 noted, not relied on. **AND A RULING AGAINST QA'S OWN FRAMING: BC-6 is NOT EXECUTABLE.** QA disclosed that BC-6's failure-mode cell over-reaches its condition cell and called it retrospective; **it is live** — the wider cell is still in the row the operator will read, so an operator executing against it can record a **FAIL on a row QA has just ruled the code satisfies.** **A row with two predicates is executable to either answer**, which is worse than a missing cell. **Routed to QA, not improvised.** **Absence-is-expected carried to the gate** (R29.5) — and recorded as an inversion of this chain's own silent-mode doctrine. **Renumbering checked, not assumed: none of this document's seven `F-QA` citations falls in the collided range.** **Tree on `chain/013-rider-2` at `2d90e8a`, `master` and `origin/master` unmoved; nothing anchored moves.** **Open set unchanged — 12 + F-1. Decision unmoved at `EXPIRED IN FULL`.** |
+| 2026-08-25 | `steering-hooks-013-3` [b04529] — relayed QA's `0b648e5`: **BC-6 reconciled, a mirror defect found in BC-1, and a ruling requested on six more rows** | QA asks whether the operator's checklist is the **Predicted-value** column or the **failure-mode** column, and will reconcile six rows on the word | **Rev 30. THE RULING: neither column — the checklist is decided by the row's SUBJECT.** Where the primary instrument needs a human, the failure-mode cell **is** the checklist; where it needs none, that cell is documentation. **The decisive argument is internal to QA's own two rulings in one pass: it corrected BC-1 *because* an operator reading that cell would have recorded PASS — which is only necessary if that cell is what the operator reads.** The two rulings cannot both stand; **the subject test reconciles them**, upholding QA's assumption exactly where the subject is not human. **QA's *under-illustrate* / *misdirect* distinction is real but not operative — both let an operator watch the wrong thing, see nothing and pass; they differ in probability, not kind, and which omitted limb matters is knowable only after the failure.** **THE SET IS NOT SIX.** **BC-11b is not a row** (`DROPPED — D44`, rev 28) and **BC-16 needs nothing** — subject *implementer*, *primary needs no human*, settled by probe at `164d720`. **The alarm this stage checked first — that BC-16's terminal `EXECUTED` might rest on an under-illustrated cell, a false pass already filed — CLEARED on the evidence**, recorded because *checked and cleared* and *not checked* are indistinguishable in a record that omits it. **Four to reconcile: BC-8, BC-9, BC-18, and BC-14 pending its subject test — BC-18 first.** **BC-6's rev-29 constraint DISCHARGED**; **BC-1's cell reconciled, its blocking condition unchanged.** **BC-8/9/18 marked NOT EXECUTABLE — including BC-18, the urgent one, because a standard applied to every row but the urgent one is not a standard.** **Open set unchanged — 12 + F-1. Decision unmoved at `EXPIRED IN FULL`.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -4336,3 +4367,211 @@ place. **The superseded sentence stands where it was written.**
 4. **Steering** — the Decisions Register row owed for the U-C5 ruling, **still unwritten**.
 5. **Nobody** — reads BC-6's lifted constraint as BC-6 being closed, reads the lift as a fix rather than a
    scope ruling, or reads `emptied-composite-drop-unnamed`'s absence from the fixed tree as a missed fix.
+
+---
+
+# Rev 30 — The ruling QA asked for. **Neither column is the answer: the checklist is decided by the row's subject.** Four rows to reconcile, one cleared, one that is not a row.
+
+**Date**: 2026-08-25. **Session**: `uat-hooks-013-5`. **Trigger**: `steering-hooks-013-3` [b04529]
+relayed QA's `0b648e5` and its request for a ruling. **Read at QA's document (L3296–3345), not taken
+from the relay.** **No gate is opened here.**
+
+## R30.1 — BC-6 discharged, and BC-1 is the mirror QA found by sweeping the class rather than the instance
+
+**BC-6's cells are reconciled.** Verified at QA's document: the failure-mode cell now speaks only of an
+unsupported **type**, **with the emptied-composite case named as not a member so a later reader cannot
+re-widen it by inference.** No condition, predicted value, subject, instrument or state changed — only
+what the operator is told to watch for, which is the whole and correct scope of the fix.
+
+**This register's rev-29 constraint is discharged: BC-6 → EXECUTABLE, 2026-08-25.**
+
+**And QA did the thing that was worth more than the fix.** It swept on **the class predicate** — *two
+cells of one row specifying two different predicates* — **rather than on the instance it had been handed**,
+and found a second member. **A sweep on the instance would have found nothing and reported the row fixed.**
+
+**BC-1 diverges in the opposite direction, and the opposite direction is the worse one:**
+
+| Row | Divergence | Direction | Manufactures |
+|---|---|---|---|
+| **BC-6** | cell described an **instance** removal; condition is about a dropped **type** — a scenario the condition does not cover at all | **wider** | a false **FAILURE** |
+| **BC-1** | condition has **two clauses** — which types change, **and whether the message type changes**; the cell spoke only to component loss | **narrower** | a false **PASS** |
+
+**A false failure gets investigated. A false pass gets filed.** This register has said so since rev 23,
+and **BC-1 is where that principle stops being a maxim.** F-QA31 `load-confirmation-names-wrong-mode` is
+*entirely* about the mode clause. **BC-1 was declared blocked on that defect while its own failure-mode
+cell described a symptom the defect does not produce.** An operator handed BC-1 and reading that cell for
+what to watch **would have watched for lost components, seen none, and recorded PASS over the exact defect
+the row was blocked on** — on the row carrying this chain's one live blocking condition.
+
+**Its cell now carries both clauses, each independently sufficient to fail the row, and names the finding.
+BC-1's blocking condition is unchanged and still stands** — what changed is that the row can now express
+the thing it is blocked on.
+
+**QA named its own reasoning failure and it generalises**: *"having found the cause of my own withdrawn
+finding, I stopped looking at the row."* **A resolved question closes the file on the object it was
+about.** That is not an oversight and it is not carelessness — it is what resolution *feels* like, which
+is why it needs a rule rather than more care. **Recorded for the retrospective as this stage's own
+material too**, because this register has done it: rev 21 verified a strike against the predicate it was
+handed and stopped.
+
+## R30.2 — **The ruling. QA asked which of two columns is the checklist. Neither answer is correct, because the question has a hidden variable.**
+
+QA's question, stated fairly: *"I am assuming the operator's checklist is the Predicted-value column, not
+the failure-mode column. If that is wrong — if rows are executed from the failure-mode cell — those six
+become the same defect and I will reconcile all six on request."*
+
+**The answer is not one column. It is: whichever column the row's *subject* can act on — and that is
+settled row by row by the subject, not once for the register.**
+
+**This stage's standing rule already contains it:** *every blocking item carries a prediction, a primary
+instrument, and a subject — read them apart; the owner comes from the primary, never the fallback, and a
+row whose primary needs no human belongs to a stage from the moment it is written.* **Applied here:**
+
+- **Where the primary instrument requires a human subject, the failure-mode cell IS the checklist.** It is
+  the human-legible cell and that is its function. **The subject of this chain's `PRE` rows is the owner
+  at a walkthrough — not a QA engineer working a ten-cell table methodically.**
+- **Where the primary needs no human, the failure-mode cell is documentation, not a checklist.** Nothing
+  an operator reads governs a row a probe settles.
+
+**The decisive argument is internal to QA's own two rulings in this same pass**, and it is why this is a
+denial rather than a preference:
+
+> **QA corrected BC-1 *because* an operator reading its failure-mode cell for what to watch would have
+> recorded PASS.** That correction is only necessary if the failure-mode cell is what the operator reads.
+> **If the Predicted-value column were the checklist, BC-1's narrow cell would have been harmless — by
+> exactly the argument QA is making for the six.** The two rulings cannot both stand as stated. **The
+> subject test is what reconciles them**, and it upholds QA's assumption precisely where the subject is
+> not human.
+
+**So the assumption is DENIED for human-subject rows and UPHELD for machine-subject rows.** QA's
+*under-illustrate* / *misdirect* distinction is real but is not the operative one: **an under-illustrating
+cell and a misdirecting cell both let an operator watch the wrong thing, see nothing, and pass.** They
+differ in probability, not in kind — and **which omitted limb turns out to matter is knowable only after
+the failure.** QA knew BC-1's omitted clause mattered because a finding named it. **For the rest, "no
+finding currently points at the omitted limb" is not evidence the limb is safe** — this register's own
+silent-mode doctrine, applied to itself.
+
+## R30.3 — Applying it to the six. **The set is not six.** Two are settled here from this register, which is authoritative on row state
+
+| Row | Subject / state — **from this register** | Ruling |
+|---|---|---|
+| **BC-11b** | **`DROPPED — D44`** (plan rev 39, `13a6e66`), on the owner's answer at rev 28 | **NOT A ROW. Do not reconcile it; do not spend a line on it.** Steering deliberately did not tell QA either way, and this is this register's to settle. **QA's partition needs re-deriving with BC-11b out; that arithmetic is QA's and is not done here** |
+| **BC-16 · `p2-rowd-load-gate`** | **`EXECUTED` / DISCHARGED 2026-08-24** at `164d720`. Subject **implementer** — **"its primary needs no human."** Probe green, 25 assertions, mutants F1/F2 killed | **NO RECONCILIATION, AND NO BACKWARD RISK.** See R30.3.1 |
+| **BC-8** | live, `PRE`, **operator** | **RECONCILE** |
+| **BC-9** | live, `PRE`, **operator** | **RECONCILE** |
+| **BC-18** | live, `PRE`, **operator**; **the sole live condition of the standing, expired decision**; decidable today | **RECONCILE — and this is the priority of the four** |
+| **BC-14** | live, `POST` — *the user-reported defect is fixed in production* | **QA APPLIES THE TEST.** If its primary needs no human it falls with BC-16; otherwise reconcile. **This stage does not author row definitions and will not guess a subject** |
+
+**So: at most four to reconcile, one cleared, one not a row. The word is said for those four.**
+
+### R30.3.1 — BC-16: the alarm this stage checked for first, and it cleared
+
+**The first thing this ruling implied was worse than the ruling**: BC-16 stands **terminal `EXECUTED`** in
+this register. If its under-illustrated cell had been its checklist, then **BC-16's terminal state would
+rest on an incomplete observation — a false pass already filed**, not a future one to prevent. This
+stage's rule is exact about that: *"satisfied incidentally" is not a terminal state — record it as
+`EXECUTED` with the evidence, or it was never a gate.*
+
+**It cleared, and on the evidence rather than on comfort.** BC-16's primary needs no human; it was settled
+by a probe with 25 assertions and two killed mutants at `164d720`. **Its evidence is instrumental, not
+observational, so no cell an operator reads could have narrowed it.** **The terminal state stands
+undisturbed.**
+
+**Recorded although the answer was "nothing wrong", for this chain's most-repeated reason: *"I checked and
+it cleared"* and *"I did not check"* are indistinguishable in a record that omits the check.**
+
+## R30.4 — Consequence for the ledger, applied consistently or not at all
+
+**This stage applied a standard to BC-6 at rev 29. It applies to the four.** **BC-8, BC-9, BC-18 — and
+BC-14 pending its subject test — are marked `NOT EXECUTABLE` pending reconciliation**, on the same ground
+and with the same one-line remedy.
+
+**Marking BC-18 is the uncomfortable one and is therefore the test of the rule.** It is the sole live
+condition of the standing decision and QA has just made it decidable today; blocking it is the opposite
+of momentum. **It is marked anyway** — a row that can least afford a false pass is the last row to
+exempt, and **a standard applied to every row but the urgent one is not a standard.**
+
+**No row terminalises and none is added. The open set is unchanged at 12 register rows + F-1.**
+
+## R30.5 — QA's counting defect, and the remedy it shares with this register's own
+
+QA disclosed, against itself, that its sweep section first read *"21 ten-cell rows, 19 live"* — **both
+wrong; 26 and 23** — because it **counted rows by eye off a printed listing instead of computing the
+partition.** Caught before commit by re-running it as a computation.
+
+**Its framing is exactly right and is recorded in its words**: *"the listing was correct and complete —
+the instrument did not lie — and I still got the number wrong, because I read it instead of computing
+it."* **The cheaper cousin of this chain's recurring class: a reader that cannot count a member, rather
+than a predicate that cannot see one.** **Eighth sighting.**
+
+**Paired with this register's own defect two revisions ago, because the pair names the remedy.** Rev 28
+dropped rev 27's Status-Detail marker; the diffstat read `267 insertions, 1 deletion`, which is exactly
+what a legitimate line-split looks like. **It was caught by counting the rev headers and getting 3 where
+4 were expected.** **Both defects were invisible to reading and both fell to computing** — one a count
+read off a listing, one a diff read off a plausible summary. **The rule is not "look harder": it is that a
+claim about a quantity is checked by computing the quantity, and a diffstat that looks right is not a
+check.**
+
+## R30.6 — Items accepted and carried
+
+- **QA accepts the three collapses of R29.2 and corrected its own wording beside its entry, not over it**:
+  the **finding** F-QA32 is *withdrawn*, which is QA's to withdraw; the **blocking condition** is
+  **LIFTED**. **This register notes only that the correction was made in the form this chain has settled
+  on**, and claims nothing further from it.
+- **On the never-applied ruling**, QA carries the consequence this stage drew: **nothing should be looked
+  for in the rider's diff on that account.** A fixed blocker would put a commit in the chain; a
+  never-applied one puts nothing there. **Confirmed.**
+- **R29.5's absence-is-expected framing goes into the gate in this register's words**, as QA asked.
+  `emptied-composite-drop-unnamed`'s absence from the fixed tree is the **correct** state; **a reader
+  primed by this chain's silent-mode doctrine will find nothing where a defect was described and read an
+  omission.** Both readings of an absence are available; only the record settles which was expected.
+- **QA's ground-2 remark is acknowledged**: it survived the relay intact because it was the mechanical one,
+  which is the only kind this stage can weigh without reading source.
+
+## R30.7 — Ledger delta at rev 30
+
+| Item | Before | **At rev 30** | Basis |
+|---|---|---|---|
+| **BC-6** | `NOT EXECUTED` — **NOT EXECUTABLE**, cells unreconciled (rev 29) | **`NOT EXECUTED` — EXECUTABLE.** Constraint **DISCHARGED 2026-08-25** | QA `0b648e5`, verified at the document. Exclusion written into the cell against later re-widening |
+| **BC-1** | `NOT EXECUTED`; cell could not express its own blocker | **`NOT EXECUTED` — cell reconciled; blocking condition UNCHANGED and STANDS** | Both clauses now independently sufficient; F-QA31 named in the cell |
+| **BC-8, BC-9, BC-18** | `NOT EXECUTED`, executable | **`NOT EXECUTED` — NOT EXECUTABLE pending cell reconciliation** | R30.2/R30.4. **Human subject → the failure-mode cell is the checklist** |
+| **BC-14** | `NOT EXECUTED`, executable | **`NOT EXECUTED` — subject test owed by QA**; reconcile or clear per R30.3 | Subject not authored by this stage |
+| **BC-16** | `EXECUTED`, terminal | **unchanged — terminal, undisturbed** | R30.3.1. Primary needs no human; probe evidence at `164d720` |
+| **BC-11b** | `DROPPED — D44` | **unchanged — not a row** | Rev 28, on the owner's answer. **Removed from QA's set of six** |
+| **Standing release decision** | `EXPIRED IN FULL` | **unchanged** | Nothing in this pass reaches it |
+| **Open set** | **12 register rows + F-1** | **unchanged — 12 + F-1** | No row terminalised; none added |
+
+**Rows carrying an execution blocker: five** — **BC-1** (QA's, awaiting the rider), **BC-8, BC-9, BC-18**
+(this register's, awaiting one line each), **BC-14** (pending its subject test). **BC-6's is discharged.**
+**Seven of the twelve are executable now; none is observed.**
+
+## R30.8 — State
+
+**UAT Complete** stands — **a status on this document reached at `4a7126b`, not a gate on any live tree.**
+**No verdict moved. The release decision stays `EXPIRED IN FULL`.**
+
+**Tree at this rev's write time, re-derived:** `chain/013-rider-2` at `2d90e8a`; `master` and
+`origin/master` both `2d90e8a`; tracked-clean. **Ungated.** **This rev reaches no verdict and anchors none.**
+
+**Open set: 12 register rows + F-1. Residuals: three, all silent** (R28.6), unchanged.
+
+**Outstanding — four:**
+
+1. **QA — four lines.** BC-8, BC-9, BC-18 reconciled; BC-14's subject tested and then reconciled or
+   cleared. **BC-18 first.** **BC-11b and BC-16 need nothing** (R30.3).
+2. **The operator walkthrough.** Twelve rows, **seven executable**, none observed.
+3. **F-1** — QA rules, then this stage.
+4. **The final gate at the post-rider tip**, naming that commit and stating that the merge to `master` is
+   a separate act.
+
+**Nothing is asked of the coordinator.** This stage does not self-start and is holding.
+
+**Next Actions** — *point-in-time; later stage documents are authoritative on these items' current state.*
+
+1. **QA** — the four cells (R30.3); rule on F-1; re-derive the partition with BC-11b out; re-verify at the
+   post-rider tip.
+2. **Implementer** — the MEDIUM-1 rider, `load-confirmation-names-wrong-mode`, `disclosure-pointer-dangles`.
+3. **Code review** — re-run at the post-rider tip. **Its `2d90e8a` verdict is inherited by nobody.**
+4. **Steering** — the Decisions Register row owed for the U-C5 ruling, **still unwritten**.
+5. **Nobody** — reconciles BC-11b or BC-16, reads BC-16's terminal state as resting on an operator
+   observation, or looks for a commit in the rider's diff on account of BC-6's lifted constraint.
