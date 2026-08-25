@@ -21,6 +21,17 @@ Status-Detail: >-
   findings: **F-7**, the release act permanently closes the seed-mint route BC-11b depends on, making
   wrong ordering irreversible rather than inconvenient; **F-8**, Appendix B names a superseded tip.
   **U-C6 is devops's and discharges at Stage 1 step 8.**
+  **§12 appended 2026-08-25 by `devops-hooks-013-2` — nothing above it rewritten.** Phase 2A is
+  **complete for a `4a7126b` cut**: every artifact-side gate re-measured in-session at that exact
+  commit (577/577 exit 0, build exit 0, porcelain 0, no config drift, fast-forward by identity), and
+  the **cross-repo reference check the re-run was left owing is re-run and PASSES four ways** at
+  `749606d0`. Execution mode **A** on the mechanism; **B** if he pushes it. Verdict still **NO-GO on
+  the register** — **fourteen `PRE` rows non-terminal**, three of which (BC-18, BC-19a, BC-19b) are the
+  only instrument covering half the production surface. **BC-11b `TERMINAL: CANNOT BE EXECUTED` —
+  F-7 realised, a fourth state, never read as closed.** **U-C7 discharged** by the record at
+  `e34df07`. **The Phase 2B release summary is written and presented; no approval is given, requested
+  or recorded, and no push approval exists anywhere in this chain.** Nothing was moved, switched or
+  pushed.
 ---
 
 # Deployment Readiness — Plan 013: Components V2 across the editing surfaces
@@ -816,3 +827,298 @@ which also hit the family's known form directly — `git diff --name-only | grep
 against a true **7**, settled with `--shortstat`. **Two independent sessions were bitten by this class
 tonight after it was written down**, which is the same lesson as §10.12: a hazard recorded beside the
 decision is not a control.
+
+---
+
+# 12. Phase 2A complete and the Phase 2B release summary for a `4a7126b` cut
+
+**Written 2026-08-25 04:08 UTC by `devops-hooks-013-2`.** §§0–11 are preserved exactly and nothing
+above this line is rewritten. **Every figure below was re-measured in this session at `4a7126b`.**
+Nothing here authorises anything, and **no push approval exists anywhere in this chain.**
+
+## 12.0 Authority for restated status
+
+**The UAT document is the authority for every blocking-condition state in this section, and the QA
+document for every row definition.** Both were re-read at the moment of writing, not carried from an
+earlier read. Where this section states a condition's state it is **restating, not deciding.**
+
+**Two things moved under the brief I was given**, which is why re-reading rather than relaying matters:
+
+| Brief said | Measured now | Where |
+|---|---|---|
+| UAT at **rev 16**, `aa1d82a` | UAT at **rev 17**, `e4c37af` — BC-19 split adopted, failure mode (b) retired on evidence, F-9 answered | `git -C agent-output log` |
+| QA's `Verified-At-Note` carries F-9's false range | **Corrected** at `1a21add` — the note now states the delta `a151fb4..4a7126b` **is** production-bearing | QA frontmatter, read directly |
+
+`agent-output` HEAD is `a195dc2` (*"qa(013): stage close — UAT Complete, instrument-class register at
+six"*). The readiness file itself is byte-unchanged across `6f6f73a..a195dc2` — only the deployment,
+qa and uat documents moved.
+
+## 12.1 Phase 2A — re-derived at `4a7126b`, not inherited
+
+### The assembled tip
+
+| Measurement | Command | Result |
+|---|---|---|
+| Local chain tip | `git rev-parse HEAD` on `chain/013-toast-vessel` | **`4a7126bf8578b653ac7ae1cfe7cabdd609cdc21f`** |
+| Live serving ref, **at the remote** | `git ls-remote origin master` | **`a151fb4`** |
+| Chain branch at the remote | `git ls-remote origin 'refs/heads/chain/*'` | **no line — the branch does not exist there** |
+| Integration is a fast-forward | `git merge-base --is-ancestor a151fb4 4a7126b` | **true**; `merge-base` = `a151fb4` |
+| Nothing on `master` is unmerged | `git rev-list --count 4a7126b..a151fb4` | **0** |
+
+**Therefore the assembled tip IS `4a7126b`, by identity.** Phase 2A step 2a's scratch-merge is
+vacuous here: there is nothing to merge that a fast-forward does not already give, so the tree the
+verdict ran against and the tree that would ship are the same object, not merely equivalent trees.
+
+### The release delta, stated as a range
+
+`a151fb4..4a7126b` — **3 commits, 7 files** (`git rev-list --count`, `git diff --numstat`):
+
+| Commit | Files |
+|---|---|
+| `abcf585` `fix(013)` toast vessel | **4 production** — `NewMessageJsonInput.tsx` (+7/−9), `CodeMessageNotice.tsx` (+18, **new**), `m/[id]/layout.tsx` (+2), `MessageProvider/index.tsx` (+8/−3) — plus 1 test file |
+| `664e0c0` `test(013)` | 1 test file |
+| `4a7126b` `test(013)` | 1 test file |
+
+**The production delta is introduced at `abcf585` and is unchanged since** — verified per path by blob
+identity, not by reading the log: all four blobs are the same object at `abcf585` and at `4a7126b`
+(`f63b95df`, `75dafce9`, `d50a1992`, `955fc0ea`). `abcf585..4a7126b` is **test-only**; `a151fb4..4a7126b`
+is **not**. That distinction is F-9's, and it is the one a gate reading the frontmatter gets wrong.
+
+### Artifact-side gates, measured in this session
+
+| Gate | Instrument | Result |
+|---|---|---|
+| **Suite** | `npx vitest run` at `4a7126b`, clean tree | **577 passed / 40 files, exit 0**, 0 `FAIL` lines |
+| **Build** | `pnpm build` at `4a7126b`, clean tree | **exit 0**, `grep -ci error` → **0**, full route table emitted (10 app routes, 8 pages routes, middleware) |
+| **Workspace** | `git status --porcelain` in `website` | **0 lines**, before the build and after it |
+| **Tags** | `git tag --list \| grep -c .` | **0** — none to collide |
+| **Deploy-config drift** `a151fb4..4a7126b` | `git diff --numstat` over `vercel.json`, `.gitignore`, `tsconfig.json`, `pnpm-lock.yaml`, `package.json`, `next.config.*` | **empty — no drift at all**, stronger than §10.2 could say over `c85945f..a151fb4` |
+| **Verified SHA reachable** | `git branch --contains 4a7126b` | **`chain/013-toast-vessel`** — auditable; no history was rewritten |
+
+These reproduce QA's release-tip figures **independently**, by a second party running the commands
+rather than reading the verdict. I record the agreement as corroboration, not as the verdict itself.
+
+> **One instrument correction, disclosed in the round it happened.** I first grepped a background
+> task's output file for build errors and read `0` from a file that contained only the line
+> `BUILD_EXIT=0` — the build's own stdout had gone to a different path. The number was right by
+> accident and the measurement was of the wrong file. Caught by checking the log's byte count against
+> what a Next build actually emits. **Same family as §10.11 and §10.15's fourth member: the instrument
+> measured something adjacent to the question and the answer looked fine.**
+
+### Cross-repo dependency reference — re-run at `4a7126b`, which is the check §12 was left owing
+
+`package.json` at `4a7126b` carries **no `version` field** (`grep -c '"version"'` → **0**) and there is
+no CHANGELOG, so per Core Responsibility 3 this is the cross-repo reference check and **no version is
+synthesised**. Four legs, measured at the new tip:
+
+| Leg | Instrument | Value |
+|---|---|---|
+| `package.json:68` specifier | `git show 4a7126b:package.json` | `github:hooks-gg/project-utils#master` |
+| `pnpm-lock.yaml:165` resolved | `git show 4a7126b:pnpm-lock.yaml` | **`749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f`** |
+| `project-utils` local `HEAD` | `git -C project-utils rev-parse HEAD` | **`749606d0…`** (on `chain/012-message-valid-field`) |
+| **Fresh `ls-remote` of the real remote** | `git -C project-utils ls-remote --heads origin` (SSH) | `refs/heads/master` = **`749606d0…`**, `refs/heads/chain/012-message-valid-field` = **`749606d0…`** |
+
+**All four agree. No consumer is left pinned to a stale branch — PASS.** The latent condition §10.2
+recorded is unchanged and is re-recorded rather than dropped: **the specifier floats (`#master`) and
+the lockfile pins.** Today they coincide, so the float is latent, not live; it becomes live only if a
+build ever runs without a frozen lockfile. **Not a defect at this tip.** 013 changes nothing
+cross-repo, and D12's cross-workspace ordering (§6) is untouched by this cut.
+
+### Serving refs stay on one line of history — Phase 2A step 10
+
+Enumerated **from the repo**, not from a count of refs this cut moves. `git ls-remote --heads origin`
+returns five: `master` (`a151fb4`), `backup` (`854bbbc`), `external-message-api` (`d21b32e`),
+`redesign` (`4fe53b6`), `regex-refactor` (`d5f2dc8`). Tested pairwise against `master` with
+`merge-base --is-ancestor`: **all four are ancestors of `master` and none is a descendant.** Every ref
+is on one line of history and **no pair is split**. `master` is the only serving ref — evidenced by
+the owner's attestation that his push of `a151fb4` to `master` made the site live, not inferred from
+config. A single serving ref admits no split; the check passes and the cut would not create one.
+
+### Deploy mechanism — F-5 stands, and the gap is narrower than it was
+
+Re-established from the repo's own configuration at `4a7126b`, not from any relayed remark:
+
+- **`.github/` exists but contains only `prompts/` — there is no `workflows/` directory.**
+- **`vercel.json` is cron-only** — one entry, `/api/cron?key=vercel`, daily. No build or git config.
+- **`package.json` `scripts` contains no deploy script** — `build` is `next build` and nothing invokes a deploy.
+
+**So no repo artifact establishes the deploy trigger.** What establishes it is **the owner's answer,
+recorded as such**: he pushed `a151fb4` to `master` at 00:56:37 and reported *"I pushed it, and it's
+live"*. That is push-to-`master` → Vercel deploy, on his word, and it is sufficient and terminal
+evidence of the mechanism as well as of the serving state. **F-5 stands as a repo-configuration
+finding** — nothing in the tree would tell a successor this — but it is no longer an open question
+about what happens if `master` moves.
+
+### Execution mode — Phase 2C
+
+**Mode A, agent-executed, on the mechanism**: one repo, one serving ref, one fast-forward, one push;
+the deploy fires from the push and needs no orchestrator driven from here. There is no registry and
+nothing to publish — **a publish step would be invented, and is not.** No tag is proposed: this repo
+carries zero tags and the release identifier is the ref move itself.
+
+**But the mode is his to change and the summary offers it**: the `a151fb4` release was pushed by him,
+and if he prefers to push this one too, the record is written **Mode B, externally executed, operator
+named**, on his completion report. **The gates are identical under both.** Either way the runbook is
+three commands and there are no in-flight gate rows to interleave — no capture step feeds a later
+row, and no stop-point with an abort criterion sits inside the sequence.
+
+## 12.2 The gate verdict — NO-GO stands, and its reason has changed again
+
+**Every artifact-side gate passes at `4a7126b`, measured here.** Build, suite, clean tree, fast-forward
+by identity, release-tip verdict on a plain SHA, no config drift, cross-repo references agreeing four
+ways, serving refs unsplit.
+
+**What blocks is the blocking-condition register, and it is not mine to discharge.** Per Stage 1 step
+2b, a row classified observable-pre-release without a terminal state blocks. Restating from UAT
+(authority), at rev 17:
+
+| Class | Rows | State |
+|---|---|---|
+| `PRE`, **non-terminal** | **BC-1 … BC-9** (BC-2/BC-3 carry a standing withdrawal *recommendation* the owner has not ruled on), **BC-10** (suite limb met, spot observation owed), **BC-15**, **BC-18**, **BC-19a**, **BC-19b** | **NOT EXECUTED / Not started** |
+| `PRE`, terminal | **BC-11a** `EXECUTED`; **BC-16** `EXECUTED`; **BC-11** `SUPERSEDED` by 11a/11b; **BC-19** `SUPERSEDED` by 19a/19b | terminal |
+| `PRE`, **fourth state** | **BC-11b** — **`TERMINAL: CANNOT BE EXECUTED`** | see 12.3 |
+| `POST` — never blocks the release act | **BC-12, BC-13, BC-14, BC-17, BC-20, BC-21** | ride into the deployment record's Post-Release Status |
+| Documentary `U-C` | U-C1–U-C4 terminal; **U-C5** the owner's, open; **U-C6** mine, discharges at Stage 1 step 8; **U-C7 DISCHARGED** by the record at `e34df07`; **U-C8** `EXECUTED` — D29, plan rev 22, `d60c857` |  |
+
+**The owner's ruling tonight did not terminate any of these rows, and I am not recording it as though
+it did.** He was asked whether to run BC-18/BC-19 before the cut and chose **"Neither — proceed to the
+cut."** That is a **sequencing** answer. `WITHDRAWN` is his ruling alone and he made no such ruling;
+the rows stay `PRE`, open, and still meetable. **He was shown the strongest form of the case first** —
+that two of the four production files have no executing test and the code-import surface has never run
+in production — alongside *"do the paste check now"* (my predecessor's recommendation) and *"both, and
+get me the code for BC-19"*, and **declined both with that in front of him.** That is an informed
+ruling on order, and it is why this section proceeds to a summary rather than stopping.
+
+## 12.3 — What must be in front of him, and none of it is new tonight
+
+**(a) F-7 is realised and cannot be un-realised by anything in this cut.** BC-11b is
+**`TERMINAL: CANNOT BE EXECUTED`** — the mint route closed at the `a151fb4` deploy, 5855/5856 are the
+whole population, there are no spares, and **no re-running recovers it.** This is a **fourth** terminal
+state: it is not `WITHDRAWN` (nobody ruled it unnecessary) and not `SUPERSEDED` (nothing replaced it).
+**It records a permanent absence of evidence and must never be read as "closed."**
+
+**The reversibility claim, in the honest form my predecessor left after withdrawing its own overclaim
+— reinstated here verbatim in substance, not hardened**: *a rollback is **a** lever, it is code-side
+and would probably work, it is expensive, and it may be unnecessary if D12's ingress reaches the
+shape — which nobody has yet checked.* The open half is that §7(b)'s URL/webhook/code ingress produces
+**bit set with Action Rows**, where BC-11b needs **the bit carried over content or embeds** — **different
+shapes**, and the question of whether the import path can still produce the second is **logged open,
+not resolved by assertion.**
+
+**(b) The `a151fb4` release ran outside this gate, and that history is now recorded, not erased.** No
+release summary was presented and **no Phase 2B approval was given or recorded**; twelve `PRE` rows
+went out unexecuted. The deployment record at `e34df07`
+(`deployment/013-components-v2-editing-surfaces-deployment.md`, Status **`Released — chain closure
+pending`**) states it as a **recovery state, not a sanctioned ordering**, and discharges **U-C7**. It
+also carries **D25 item (iii)** by its second route — stating the wider M7 class that R-5 as written
+does not — which he endorsed by proceeding on it.
+
+**(c) BC-18, BC-19a and BC-19b are knowingly not met, still meetable, and load-bearing.** This is the
+part that would cost something. QA's coverage finding, restated from QA and corroborated at the tree:
+
+| Production file | Coverage |
+|---|---|
+| `CodeMessageNotice.tsx` | **covered — executed** |
+| `NewMessageJsonInput.tsx` | **covered — executed** |
+| `m/[id]/layout.tsx` | **text-pinned only.** One `toContain('<CodeMessageNotice />')`. **The mount is never executed** — the layout is proven to *contain the tag*; nothing proves the notice appears on the page |
+| `MessageProvider/index.tsx` | **text-pinned only**, three `toContain`. **The producer effect is never executed** — including the clear-to-`null` path that is **new in 013**. The one render test naming the provider `vi.mock`s it out, correctly, to isolate the vessel, so the real effect runs in **none of the 40 test files** |
+
+**So these three rows are the only instrument covering half this release's production surface.** They
+are not ceremony left from an earlier plan revision. QA split BC-19 at `aef3c2e` on UAT's
+recommendation: **BC-19a** *appears-at-all* — a **real code import that drops components**, carrying
+the unproven producer and mount, where **one successful import refutes "it never appears" by
+construction**; **BC-19b** *legible-and-placed* — the eye check, **decidable only after 19a produces
+something to look at.** **BC-18** is the paste surface, shrunk to its residue: visibility, placement,
+real mount. All three are **his eyes, executable locally, now, before anything is cut.**
+
+**(d) One proposed failure mode was declined and must not be re-added.** *"The page throws on a null
+context"* is **true of the test and false in production.** `Navigation.tsx` sits in the identical
+position inside `<MessageProvider>`, consumes `useMessage()`, is blob `339ed840` at `a151fb4`,
+`abcf585` **and** `4a7126b`, and has been live throughout. **The boundary is proven in production.**
+QA declined the mode; UAT retired it at rev 17 having re-derived it git-side. **An unreachable failure
+is not a reason**, and carrying it would make a blocking row harder to settle while adding nothing an
+observation could discharge.
+
+**(e) BC-21 `notice-silence-detector` is the genuine `POST` row** — one deliberate paste on the live
+site after the cut. **It does not substitute for BC-18**, and its failure signature is **absence**,
+which is the weakest kind the register holds: absence generates no complaint, so it will not report
+itself.
+
+**(f) 5712/5842 are still in the bad shape under live code.** Asked directly, he answered the D19
+repair *"Haven't done it yet."* R-5's line is not an ordering statement, and this cut neither performs
+the repair nor depends on it. Recorded so the summary does not read as though it were done.
+
+**(g) The rollback, and the trap inside it.** He chose **Vercel dashboard — promote a previous
+deployment**. It reverts the served code; it **does not move `master`**, so **git and serving state
+diverge by design and the next ordinary push silently re-deploys 013**. It does not roll back the
+database. Anyone using it must know it is not sticky.
+
+## 12.4 The release summary — Phase 2B, presented, NOT approved
+
+| Field | Value |
+|---|---|
+| **Release identifier** | `website` serving ref `master`, **`a151fb4` → `4a7126b`** (no tag; this repo carries none) |
+| **Included plans** | **Plan 013 only** — Components V2 across the editing surfaces |
+| **Repository** | `website` — one repo, one ref |
+| **Environment** | production, Vercel; deploy fires on push to `master` |
+| **Act** | fast-forward `master` to `4a7126b`, push, then switch the tree back onto `master` |
+| **Delta** | `a151fb4..4a7126b` — 3 commits, 4 production files + 3 test files; production change introduced at `abcf585` and unchanged since |
+| **What it does** | converts permanent-state notices from transient `toast.warn` calls to persistent inline DOM, on the paste surface and the message layout |
+| **Release-tip verdict** | **RELEASE VERIFIED at `4a7126b`** — `qa/release-4a7126b-tip-verification.md`, `78e0a13`; reproduced independently here |
+| **Execution mode** | **Mode A** on the mechanism; **Mode B** if he pushes it himself, operator named |
+| **Rollback** | Vercel promote — **not sticky**; the next push re-deploys 013 |
+| **Gate verdict** | **NO-GO on the register.** Artifact-side: everything passes. **Fourteen `PRE` rows non-terminal**, three of them (BC-18, BC-19a, BC-19b) covering half the production surface, all executable locally today |
+
+### Runbook, if the answer is to cut it
+
+    git -C /usr/local/bin/hooks/website switch master
+    git -C /usr/local/bin/hooks/website merge --ff-only chain/013-toast-vessel   # → 4a7126b
+    git -C /usr/local/bin/hooks/website push origin master
+
+**The tree is clean (`porcelain` = 0), so the switch does not run over uncommitted work** — that
+precondition is re-checked immediately before the switch, not inherited from this line. **No tag, no
+publish step.** The tree stays on `master` afterwards; that switch is the release act's own, and this
+is the one point at which it is licensed.
+
+## 12.5 What this section does NOT do
+
+**Nothing above authorises anything.** No ref was moved, nothing was pushed, no tree was switched, and
+the working tree is on `chain/013-toast-vessel` at `4a7126b` exactly as I found it. **No push approval
+exists anywhere in this chain**: his *"Ship it, then check it live"* answered a question about **where
+to observe the fix**, and **an approval predating the gate cannot be an approval of what the gate
+finds.** His *"Neither — proceed to the cut"* set the **order**, not the authorisation. **Phase 2B is
+unsatisfied and the question in 12.6 is the one that satisfies it.**
+
+## 12.6 The question, and it is genuinely unasked
+
+Put to him verbatim by steering. **It is not a re-ask**: he ruled on whether to run the checks first,
+which is a different question from whether to push, and this document is the first time the release
+summary has been in front of him.
+
+> **013 is ready to cut. `master` goes `a151fb4` → `4a7126b` — three commits, four production files.
+> Build and the full 577-test suite pass at that exact commit, measured twice by different sessions.**
+>
+> **What you are shipping with, all of it known and none of it new:**
+> - **Two of the four production files have no test that runs them** — the layout's mount and the
+>   provider's effect, including the new clear-to-nothing path. **BC-18, BC-19a and BC-19b are the only
+>   thing that covers them, they are your eyes, and they still take ten minutes locally.** You already
+>   said proceed rather than run them; this restates the cost, it does not re-ask the order.
+> - **BC-11b is permanently gone** — the seed-mint route closed at the last deploy, and nothing in this
+>   cut brings it back.
+> - **5712/5842 are still bad in production**, since the repair is not done.
+> - **Rollback is the Vercel promote you chose. It does not move `master`, so the next push you make
+>   re-deploys this.**
+>
+> **Do you want it pushed?**
+>
+> 1. **Yes — I push it.** I fast-forward `master` to `4a7126b` and push; Vercel deploys; I write the
+>    record and BC-21 becomes checkable on the live site.
+> 2. **Yes — you push it**, as you did last time. I record it with you named as the operator.
+> 3. **Run BC-18/BC-19a/BC-19b first, then push.** Reverses tonight's order. Costs about ten minutes
+>    and is the only thing that would put evidence under half this release.
+> 4. **No — don't push it.** `4a7126b` stays on the chain branch, `a151fb4` keeps serving, nothing
+>    changes. Still available tomorrow.
+
+**If no answer comes, nothing is pushed** — a safety gate holds on silence, and this one is held
+visibly and re-openably rather than dropped.
+
