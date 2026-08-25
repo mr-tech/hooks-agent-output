@@ -644,9 +644,9 @@ space, and names this document as the register it appended to.
 | **BC-4** | PRE | M3-c: an import failing the floor keeps the dialog open with the error and **does not navigate** | operator observation **paired with** the suite's no-upsert assertion (EC-3) | UAT agent | chain tip deployed | dialog stays, error shown, no new message created | *Three separate failures and only one of them looks like one. **A new message is created** — he lands on a blank message that looks saved; this is flow 6/11/12/13, the defect 013 exists for. **The dialog closes** without creating anything, so the import silently evaporated. **No error is shown** — the dialog sits there having done nothing and said nothing, which reads as the app hanging rather than as a refusal. **Reconciled to this row's Predicted value 2026-08-25 (P3.26): every limb named, because for a human-subject row this cell IS the checklist (`uat` rev 30).** | uat | Not started |
 | **BC-5** | PRE | M4-c: pasting a folder-page export shows the composer's floor error, not a green state | operator observation | UAT agent | chain tip deployed | *"Message must have content, embeds, or components."* | *Green means safe. A green state over an empty object teaches the user to trust it.* | uat | Not started |
 | **BC-6** | PRE | M4-b: the lenient filter **names** the dropped types at both JSON surfaces | operator observation | UAT agent | a paste carrying a top-level Thumbnail-11 | the notice names the type | *A user pastes a message carrying a component **type** Hooks.gg cannot support — a Thumbnail, a Select Menu — and it is removed without the notice **naming that type**. They ship a message missing a control they believe is still there, at the surface they reached for precisely because the UI could not express it. **Reconciled to this row's condition 2026-08-25 (P3.22): a composite the filter empties is NOT a member — no type was unsupported there, and that case is ruled outside this row.*** | uat | Not started |
-| **BC-7** | PRE | M8-B: paste `{"components":[<container>]}` → V2, bit set, **visible warning** | operator observation | UAT agent | chain tip deployed | editor in V2 with the container **and** a warning | *Three things, and one of them is invisible without opening the JSON. **The warning is missing** — silent acceptance means he never learns his JSON was incomplete, and D17 row B says warn. **The editor is not in V2**, or the container is not there. **The flag bit is not set** — everything looks right on screen and the message is wrong on the wire, and only the Message JSON shows it. **Reconciled to this row's Predicted value 2026-08-25 (P3.26): every limb named, because for a human-subject row this cell IS the checklist (`uat` rev 30).** | uat | Not started |
-| **BC-8** | PRE | M8-D: paste `{"content":"hi","flags":32768}` → **Classic**, content intact, bit cleared, **visible warning**, no V2 error | operator observation | UAT agent | chain tip deployed | Classic, `hi` present, warning shown | *This is 5712's own repair route and four things fail separately. **The content is gone** — the repair destroyed what it existed to save, and that one cannot be undone. **The editor is still in V2**, or **the flag bit is still set** — nothing was repaired, and only the Message JSON shows it, so it will look fixed. **The warning is missing** — he cannot tell a repair from a corruption. **A V2 error still shows** over a message that is now Classic. **Reconciled to this row's Predicted value 2026-08-25 (P3.26): every limb named, because for a human-subject row this cell IS the checklist (`uat` rev 30).** | uat | Not started |
-| **BC-9** | PRE | M8-E: paste `{"content":"hi","components":[<container>]}` → **two options**, each naming its drop; **nothing created** until one is taken; dismissal leaves message and pasted text unchanged | operator observation **paired with** the suite's `requiresChoice` assertion (EC-3) | UAT agent | chain tip deployed | two options; nothing created before a choice; both outcomes verified by repeating with the other option | *Today this silently strips the content. **The choice never appears** — D17's governing principle is not shipped and content is still lost without asking. **An option does not name what it drops**, so he picks blind, which is the same loss with a click in front of it. **Something is created before he chooses** — the ask was decoration. **Dismissing changes his message or his pasted text**, so backing out costs him work. **Only one outcome is exercised**: both options must be taken, on separate runs, or half the row is unobserved. **Not a failure**: after D31 the options do not appear on their own — a persistent notice with a **Resolve** link appears first, and the options are behind it (P3.4). **Reconciled to this row's Predicted value 2026-08-25 (P3.26): every limb named, because for a human-subject row this cell IS the checklist (`uat` rev 30).** | uat | Not started |
+| **BC-7** | PRE | M8-B: paste `{"components":[<container>]}` → V2, bit set, **visible warning** | operator observation | UAT agent | chain tip deployed | editor in V2 with the container, **a warning**, and the V2 flag bit **set**. **This limb is settled by opening the Message JSON and never by the screen looking right — *"everything looked correct"* is not an observation of it and must not be filed as one (`uat` rev 31).** | *Three things, and one of them is invisible without opening the JSON. **The warning is missing** — silent acceptance means he never learns his JSON was incomplete, and D17 row B says warn. **The editor is not in V2**, or the container is not there. **The flag bit is not set** — everything looks right on screen and the message is wrong on the wire. **Open the Message JSON; *"everything looked correct"* is not an observation of this limb.** **Reconciled to this row's Predicted value 2026-08-25 (P3.26): every limb named, because for a human-subject row this cell IS the checklist (`uat` rev 30).** | uat | Not started |
+| **BC-8** | PRE | M8-D: paste `{"content":"hi","flags":32768}` → **Classic**, content intact, bit cleared, **visible warning**, no V2 error | operator observation | UAT agent | chain tip deployed | **Classic**, `hi` present, warning shown, **no V2 error**, and the V2 flag bit **cleared**. **This limb is settled by opening the Message JSON and never by the screen looking right — *"everything looked correct"* is not an observation of it and must not be filed as one (`uat` rev 31).** | *This is 5712's own repair route and four things fail separately. **The content is gone** — the repair destroyed what it existed to save, and that one cannot be undone. **The editor is still in V2**, or **the flag bit is still set** — nothing was repaired, and it will look fixed. **Open the Message JSON; *"everything looked correct"* is not an observation of the bit.** **The warning is missing** — he cannot tell a repair from a corruption. **A V2 error still shows** over a message that is now Classic. **Reconciled to this row's Predicted value 2026-08-25 (P3.26): every limb named, because for a human-subject row this cell IS the checklist (`uat` rev 30).** | uat | Not started |
+| **BC-9** | PRE | M8-E: paste `{"content":"hi","components":[<container>]}` → **two options**, each naming its drop; **nothing created** until one is taken; dismissal leaves message and pasted text unchanged | operator observation **paired with** the suite's `requiresChoice` assertion (EC-3) | UAT agent | chain tip deployed | two options, **each naming what it drops**; nothing created before a choice; **dismissal leaves the message and the pasted text as they were**; both outcomes verified by repeating with the other option | *Today this silently strips the content. **The choice never appears** — D17's governing principle is not shipped and content is still lost without asking. **An option does not name what it drops**, so he picks blind, which is the same loss with a click in front of it. **Something is created before he chooses** — the ask was decoration. **Dismissing changes his message or his pasted text**, so backing out costs him work. **Only one outcome is exercised**: both options must be taken, on separate runs, or half the row is unobserved. **Not a failure**: after D31 the options do not appear on their own — a persistent notice with a **Resolve** link appears first, and the options are behind it (P3.4). **Reconciled to this row's Predicted value 2026-08-25 (P3.26): every limb named, because for a human-subject row this cell IS the checklist (`uat` rev 30).** | uat | Not started |
 | **BC-10** | PRE | M8-F parity: **the same eight-cell fixture set** produces the same row, drop set and notice class at the modal Load **and** the New Message paste | the suite (R9's own mitigation), **plus** spot observation of two cells at both surfaces | suite is primary; UAT agent for the spot check | M8 implemented | identical dispositions, cell by cell | *One object treated two ways is exactly the hazard R9 names; a user who learns the modal's behaviour is then surprised by the paste.* | qa (suite) | Not started |
 | **BC-11** | — | **SPLIT 2026-08-24 into BC-11a (DROPPED under D44) and BC-11b (the ask). This row is not executable as written — read BC-11b.** The condition spanned two instants with opposite timing: one half was decidable *only before deploy* and the ask *only after the chain tip is up*, so one row made the first look reschedulable when it is not. Raised by `uat-hooks-013` (`b6e9662`); the split is QA's, the register being QA's. Nothing about the condition was withdrawn at the split; **BC-11a has since been dropped under D44** and BC-11b survives verbatim below | — | — | — | — | — | qa | **SUPERSEDED by BC-11a + BC-11b** |
 | **BC-11a** | — | **DROPPED under D44** (owner ruling, registered at plan rev 39, `13a6e66`). This row's subject is struck from chain 013. The row is not re-argued, not re-based onto a substitute, and its content is not restated here. | — | — | — | — | — | — | **DROPPED — D44** |
@@ -3539,3 +3539,127 @@ like a failure and is not.
   sitting). BC-2, BC-3 name every limb; **BC-19a's *clears* limb is unnamed in its cell but its
   terminalisation ran through an attestation against the row by number**, not through a cell. Recorded
   though nothing was wrong.
+
+---
+
+# Phase 3, sixth sitting, 2026-08-25 — my prose overstated my own row, and the class has a second cell pair
+
+**Session**: `qa-hooks-013-3` [ab2af3]. **Trigger**: `uat` rev 31 (`720c5cc`) via `steering-hooks-013-3`.
+No verdict moves.
+
+## P3.30 — The BC-7 overstatement is mine, and it is this cwd's named prose failure
+
+`steering` has owned the relay failure as its own. **The phrase was mine first and I am recording it
+here, because the document is where my claims are supposed to hold and this one did not survive contact
+with it.**
+
+| | Text |
+|---|---|
+| **My register cell (L647)** | *"…everything looks right on screen and the message is wrong on the wire, and **only the Message JSON shows it**"* |
+| **My covering prose to steering** | *"…the flag can be wrong **with nothing to show it**"* |
+
+**Those are different claims, and the difference is the whole ruling.** *"Only the Message JSON shows
+it"* names an instrument and makes the limb **observable**. *"Nothing to show it"* says the limb has
+**no witness** — and a limb whose signature is absence cannot be settled by human observation at all.
+`uat` reports it would have marked BC-7 **`NOT EXECUTABLE`** on my prose, defensibly, **and would have
+blocked a row I had already fixed correctly.** It caught it only by verifying at this document instead
+of ruling from the relay.
+
+**This is the failure this cwd has already named and paid for**: *the disciplines hold in register rows
+and fail in prose.* I wrote a correct cell and then, summarising my own correct cell one turn later,
+dropped the instrument out of it — **while writing a message whose subject was cells that omit limbs.**
+
+**No excuse is available and I am not reaching for one.** The rule I take from it: **when prose
+summarises a row I have just written, the row is quoted, not paraphrased.** A paraphrase of my own cell
+is a fresh claim and gets checked like one.
+
+## P3.31 — `uat`'s recording constraint, written into the rows rather than left in a message
+
+`uat` imposed one constraint that is mine to honour at the walkthrough: **the bit limb is settled by
+opening the Message JSON and never by the screen looking right; *"everything looked correct"* is not an
+observation of it.**
+
+**A constraint that lives only in a message is not a constraint** — the operator reads the row. It is
+now **in the cells**, in both the Predicted value and the failure mode, on **both** members of the class.
+
+**Swept for the class rather than applied to the instance handed to me.** Predicate: *a live row with a
+human subject carrying a limb whose only witness is the Message JSON.* Rows naming the flag or bit:
+**BC-7, BC-8, BC-15, BC-16.** **BC-16's primary is a probe** (machine — the constraint is meaningless
+there) and **BC-15 is `WITHDRAWN` (D44)**. **So the live class is BC-7 and BC-8, and both now carry it.**
+BC-8's bit-**cleared** limb is the same defect as BC-7's bit-**set** limb, and it is the one on 5712's
+own repair route.
+
+## P3.32 — **The class has a second cell pair, and nobody had swept it**
+
+`uat`'s generalisation from rev 31 is the one I am acting on: **when a ruling changes the standard,
+every classification made under the old standard is void — not narrowed.** The ruled standard is *two
+cells of one row must not specify different predicates.* Every pass so far — mine and `uat`'s — has
+applied it to **(condition ↔ failure mode)**. **It was never applied to (condition ↔ predicted value)**,
+and the Predicted-value cell is what an observation is recorded *beside*.
+
+**Swept.** Predicate: *does the Predicted-value cell name every limb its own Condition cell requires?*
+**Excludes** the pointer and restatement rows, and the two owner-`WITHDRAWN` rows.
+
+| Row | Limbs in Condition | Named in Predicted value | Missing |
+|---|---|---|---|
+| **BC-7** | V2 · **bit set** · warning | 2 of 3 | **bit set** |
+| **BC-8** | Classic · content intact · **bit cleared** · warning · **no V2 error** | 3 of 5 | **bit cleared**, **no V2 error** |
+| **BC-9** | two options · **each names its drop** · nothing created first · **dismissal non-destructive** | 2 of 4 | **each names its drop**, **dismissal non-destructive** |
+| **BC-19a** | appears · **clears** | 1 of 2 | **clears** — **terminal; dispositioned, see below** |
+| all other live rows | — | **complete** | — |
+
+**Partition verified by program**, per the rule adopted last sitting: **22 rows in scope** = 3 corrected + 1 found-not-corrected + 4 machine-primary-or-withdrawn + 14 complete; checked for duplicates, in-scope-unbucketed and bucketed-out-of-scope — **none of each**. The sum was not the check.
+
+**Three live members, all corrected.** **This pass therefore changes Predicted-value cells, which no
+previous pass did, and that needs saying plainly rather than being buried**: five sittings have closed
+with *"no condition, predicted value, subject, instrument or state changed."* **This one changes three
+Predicted values.**
+
+**Why that is not widening a row.** The **Condition** cell is authoritative and already requires every
+limb added. A prediction that omits a limb its own condition requires is not a narrower row — it is an
+**incomplete prediction of the same row**. Nothing is being asked of the product that BC-7, BC-8 and
+BC-9 did not already ask. **No condition, subject, instrument, owner or state changed.**
+
+**BC-19a, dispositioned not corrected.** Its Predicted value names *appears* and not *clears* — a real
+member. But the row is **terminal `EXECUTED`**, and `uat` rev 19.2 terminalised it on an attestation
+**against the row by number**, a route that never passed through a cell. **Editing a terminal row's
+prediction after the fact would change what the record says was predicted at the time it was observed.**
+Recorded as found-and-not-corrected, with the reason, rather than left out of the table.
+
+**On the risk that I am now the one over-reaching**: the widening rule I proposed and `uat` adopted —
+*a widening without its exclusions trades a false pass for a false failure* — applies to these three too.
+Each addition is a limb the condition already names, so no new observation is created; **and the BC-7 and
+BC-8 additions carry their instrument with them**, which is exactly the exclusion that keeps *"the screen
+looked fine"* from being filed against a limb the screen cannot show.
+
+## P3.33 — On `uat` correcting itself, and what I take from it
+
+`uat` records that rev 30 **changed the standard and then tested the old classification in one direction
+only** — it asked whether my six were too *large*, removed two correctly, and never asked whether the set
+was too *small*. **That is the same shape as my own *"having found the cause, I stopped looking at the
+row"***, and its formulation is better than mine: **auditing the set you were handed finds only the
+errors that produce false members; the errors that produce missing members are invisible to that audit,
+and those are the ones that leave rows certified safe.**
+
+**This sitting is that rule applied to `uat`'s own ruling.** The subject test was a change of standard;
+every classification made before it — including the cell pair nobody had thought to check — is void
+rather than narrowed. **BC-7's, BC-8's and BC-9's Predicted values had been read past by every pass in
+this chain, mine included, because no pass ever asked that question of them.**
+
+## P3.34 — State
+
+**No verdict moved.** Eleven of twelve rows executable per `uat` rev 31; **BC-1 alone remains blocked**,
+on F-QA31 `load-confirmation-names-wrong-mode` in the rider round.
+
+**Register maintenance log — appended:**
+
+- **2026-08-25 — BC-7, BC-8, BC-9 Predicted-value cells COMPLETED to their own Conditions** (qa, this
+  sitting). **This is the first pass in this chain to change a Predicted value.** Every limb added is one
+  the row's Condition already required; nothing new is asked of the product. **No condition, subject,
+  instrument, owner or state changed.**
+- **2026-08-25 — the Message-JSON recording constraint written into BC-7 and BC-8** (qa, this sitting),
+  on `uat` rev 31. **The bit limb is settled by opening the Message JSON, never by the screen looking
+  right.** Applied to both members of the class, not only to the row it was raised against.
+- **2026-08-25 — BC-19a's incomplete Predicted value FOUND AND NOT CORRECTED** (qa, this sitting).
+  Terminal `EXECUTED`; editing a terminal row's prediction would change what the record says was
+  predicted when it was observed. Recorded so the omission is a decision.
