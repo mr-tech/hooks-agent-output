@@ -2414,3 +2414,92 @@ not only to commands**. Adopted here.
 **Not a verdict defect.** The Phase 3 record `release-4a7126b-tip-verification.md` was written from
 per-commit measurement and states the split correctly (*"`abcf585` is the only commit carrying
 production change"*). **RELEASE VERIFIED at `4a7126b` stands.**
+
+---
+
+# BC-19 split — performed, with one of UAT's three failure modes retired on evidence
+
+`uat-hooks-013-3` (rev 15, `1b65e3f`) routed a recommendation to split **BC-19**, correctly noting
+the row is mine to write. **Split performed. Two of the three proposed failure modes are adopted; the
+third is retired, with the control recorded.**
+
+## UAT's composed finding — adopted, and it is the strongest statement of the gap yet
+
+Re-derived here rather than taken: `git cat-file -e a151fb4:…/CodeMessageNotice.tsx` → **ABSENT**;
+at `4a7126b` → **PRESENT**. The file is new at `abcf585`. Combined with this pass's own coverage
+finding:
+
+> **The code-import notice surface has never executed in production, and has no executing test of
+> either its producer or its mount.** The component is proven to render in isolation; the layout is
+> proven to *contain the tag* as source text. **Nothing proves the notice appears on the page, and
+> nothing ever has.**
+
+That framing is better than the one this document carried and is adopted verbatim as the rationale
+for BC-19a.
+
+## Failure mode (b) — "the page throws on a null context" — **DECLINED, with a live control**
+
+UAT drew this from a comment in **this pass's own instrument** (`013-qa-toast-vessel-render.test.ts`,
+the THE REAL MOUNT note): *"A null context would throw in production and pass here."* **That comment
+is true about the test and does not establish a live failure mode**, and the difference matters
+because BC-19 is blocking a release.
+
+Applying this stage's input-robustness disposition order — *can the caller send X?*
+
+`useMessage()` does throw on a null context. But **`CodeMessageNotice` has exactly one mount site**
+(`grep -rc` over `src/`: `layout.tsx` and its own definition, nothing else), and that site is
+**inside `<MessageProvider>`**. So the null-context state cannot arise at the shipped mount.
+
+**The positive control, which is live in production and not merely a build result:**
+
+| Property | `Navigation.tsx` | `CodeMessageNotice.tsx` |
+|---|---|---|
+| `'use client'` | yes | yes |
+| consumes `useMessage()` | yes (line 83) | yes |
+| mounted inside `<MessageProvider>` in the same async server layout | yes | yes — the sibling slot immediately below |
+| present at live master `a151fb4` | **yes**, and **byte-identical** across the delta (`339ed84`) | **no** — new at `abcf585` |
+
+**`Navigation` occupies the identical position and has been running in production continuously.** The
+server-layout → client-component → live-`MessageProvider`-context boundary that (b) posits as
+unproven is therefore **proven in production**, by a component that is unchanged across this release.
+`MessageProvider` is itself `'use client'`. The build (exit 0, all routes emitted) is corroboration;
+the live sibling is the actual control.
+
+**Per the disposition order, an unreachable failure is not a reason, and this one is unreachable at
+the shipped mount. (b) does not enter the register.** Carrying it would have made a blocking row
+harder to settle while adding nothing an observation could discharge.
+
+**What (b) leaves behind is a latent contract hazard, recorded not as a blocker:** if
+`CodeMessageNotice` is ever mounted outside `MessageProvider`, it throws — and **the error message
+names the wrong component**. Verbatim from `MessageProvider/index.tsx`:
+
+    throw new Error('UnsavedWarning components must be wrapped in <UnsavedWarning />');
+
+**This is pre-existing** — `src/providers/MessageProvider/index.tsx`'s `useMessage` guard is outside
+the `a151fb4..4a7126b` delta on this line — so it is **not** a release finding and does not gate
+`4a7126b`. It is a **diagnosability** defect: a developer who trips it is sent to the wrong component
+entirely. Routed to the implementer as a standalone fix, not attached to this release.
+
+## The split — BC-19 retired and replaced
+
+**BC-19 is SUPERSEDED** (not withdrawn — its subject survives, its wording does not). Its recorded
+condition, *"is the notice visible and legibly placed"*, **bundled a silent mode with an eye check**,
+settled by different observations, which is precisely UAT's objection and it is correct.
+
+| ID | Class | Condition | Primary instrument | Subject / fallback | Earliest-decidable | Predicted value | Failure mode (operator terms) | Owner | State |
+|---|---|---|---|---|---|---|---|---|---|
+| **BC-19a** *(appears-at-all)* | PRE | Perform a **real code import that drops components** on `m/[id]`. A persistent notice naming the dropped types **appears**, and **clears** when the fact goes away | the import itself — no automated instrument exists: the producer effect and the mount are both unexecuted by the suite | **subject**: the owner, local dev server. No non-human primary exists under D28 (no jsdom, no mounted render) | **now** — local, before anything is cut | **one successful import refutes "the notice never appears" by construction**; not a rate, no sample needed | *If nothing appears, the user is told nothing where 013 promised a persistent warning — and this surface has never run in production, so there is no prior evidence it works at all. Absence generates no complaint, so this will not be reported.* | owner | **Not started** |
+| **BC-19b** *(legible-and-placed)* | PRE | Given a notice that appeared under BC-19a, it is **legible and not obscured** — not hidden behind the sticky nav, overlapped, clipped by `overflow`, or colour-on-colour | eye check on the same import | **subject**: the owner. Untestable under D28: CSS cascade, z-index and contrast are invisible to an element-tree instrument | **after BC-19a passes** — it presupposes a notice to look at | a single look settles it | *The warning renders but the user never reads it — indistinguishable in outcome from BC-19a failing, and equally silent.* | owner | **Not started** |
+
+**BC-19b's earliest-decidable is a genuine dependency, not a formality**: it cannot be observed until
+BC-19a produces something to look at. That ordering is exactly what the unsplit row obscured — it
+read as one observation when it is two, the second conditional on the first.
+
+**BC-18 is unchanged** — it covers the paste surface, which has an executing instrument
+(`013-qa-paste-surface-render.test.ts`) and is the smaller gap.
+
+**Neither new row is discharged by the Phase 3 verdict**, and `release-4a7126b-tip-verification.md`
+§5 already says so. Both remain executable **now**, before anything is cut, because nothing has
+shipped and these rows do not expire.
+
+**Standing note:** the UAT document, then the deployment record, are authoritative on execution state.
