@@ -141,7 +141,7 @@ Status-Detail: 'Round 24 (binding) at e1d9b2b on chain/013-rider-2: APPROVED, SC
   exemptions) — none changes a decision, all route to a follow-up register, and the tree they would hold
   is an unpushed chain branch. My own round-23 enumeration is corrected against myself in the round text.
   Assumption Not Checked routes to QA: both sides of M9-b s verification read resolveContentLoss, so a
-  defect inside it would be invisible. qa proceeds at e1d9b2b.'
+  defect inside it would be invisible. qa proceeds at e1d9b2b. VERDICT BASIS, added after the fact and recorded in the round text: this APPROVED was issued against plan rev 46, whose M9-d property required `pnpm lint` to exit zero on the tip; the gate reported exit 1, and the verdict did not reconcile against that clause. D51 (rev 47, 06fad81) withdrew and restated it afterwards, so the tree conforms to the criterion AS IT NOW READS - had the clause been kept, this verdict would have needed revisiting. Steering found that, not this review. The tree did not move.'
 ---
 
 # Code Review: Plan 013 — Components V2 support across the editing surfaces (M1 only)
@@ -6998,6 +6998,39 @@ it returns is the mode `commitLoad` actually produces — and it does not test i
 Scoped to code quality and to conformance with D47–D50 as registered. **Not a release decision** —
 `origin/master` is still `2d90e8a` and `chain/013-rider-2` is unpushed; nothing here grants or
 refuses a deploy.
+
+### Verdict Basis — added 2026-08-25 after the verdict, beside it and not over it
+
+**The verdict stands and the tree has not moved** (`e1d9b2b`, re-verified clean when this was
+written). This records what the approval **rests on**, which the round as first written left in a
+message rather than in the document.
+
+- **Reviewed against plan rev 46** (`d588790`) — the revision in force at the time.
+- **Rev 46's M9-d Property required `pnpm lint` to *"exit zero on the tip."*** Verified against
+  `d588790`: the clause was present and unamended.
+- **The gate reported exit 1** — recorded in the Gate Results table above. So a **stated acceptance
+  property of the milestone under review was unmet at the tree I approved.**
+- **My verdict did not reconcile against that clause.** I disposed my own findings — MEDIUM-2 was
+  about parsing errors and type-check coverage, and both are genuinely clean — and I honoured the
+  instruction not to charge the owner-accepted residue as a round failure. Neither of those
+  addresses the criterion. **Steering found this when it went to check CR24-5; I did not.**
+- **CR24-5 was narrower than the thing it turned up.** I raised a *registration* gap — a ruling
+  binding stages that was not readable from the register. The unmet criterion is a **gap in this
+  verdict**, not a credit to that finding, and is recorded here as the former.
+- **D51 (plan rev 47, `06fad81`) withdrew and restated the clause afterwards.** The tree now
+  conforms to the criterion **as it now reads**. **Had the clause been kept, this verdict would have
+  needed revisiting** — that dependency arrived after the verdict and from another party, and a
+  reader of this document is entitled to see it here.
+
+**Why this line exists at all.** A constraint that lives only in a message is not a constraint,
+because the reader reads the document. The round's text was never false — it claims nowhere that
+M9-d's property was met, and it reports the gate honestly — but it was **incomplete in a way that
+reads as complete**, which is the failure mode this document flags in other people's work.
+
+**The rule, stated so it outlives this instance:** *a verdict must be reconciled against the
+milestone's own acceptance properties, not only against the findings the reviewer raised.* Disposing
+every finding written is not the same as establishing the round met its criteria, and **nothing
+about a clean findings-sweep looks incomplete.**
 
 **Rationale.** All five actionable round-23 findings are disposed, **four of them structurally** —
 the class is unrepresentable, not merely unhit — and each disposition is established by an
