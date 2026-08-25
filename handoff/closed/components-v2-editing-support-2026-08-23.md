@@ -1,6 +1,6 @@
 ---
 UUID: 8f3fa8c3
-Status: Active
+Status: Addressed
 Status-Detail: >-
   Re-statused 2026-08-24 by steering-hooks-013-2 under plan 013's M6 (Record closure). No longer
   unassigned and no longer awaiting research: research 8311155a answered it, and plan 013
@@ -10,11 +10,15 @@ Status-Detail: >-
   stranded-flag half only (D15 + M7: a record whose bit is set without V2 components now opens in
   V2, and one toggle to Classic clears the bit losslessly); its other half - the indicator is the
   mode, and the toggle to V2 removes classic data by design - is unchanged, and a dedicated control
-  is explicitly not in scope. Deliberately NOT terminal: chain 013 has not released, and this
-  document moves to a terminal status and into closed/ at release, not before.
+  is explicitly not in scope. TERMINAL 2026-08-25: chain 013 RELEASED - `website` serving ref
+  `master` `2d90e8a` -> `b56570d`, 20:30:01 UTC, recorded at deployment record §16 and plan 013 rev
+  51, which are the authority for the release act and are not restated here. The release was the
+  only condition this document held itself open against, so it is `Addressed` and moved to
+  `closed/`. Nothing in the mapping above is re-derived, revisited or amended by that closure.
 Owning-Stage: >-
-  Chain 013 (plan 013-components-v2-editing-surfaces.md). The record is steering's; the remaining
-  act on this document is its terminal re-status at 013's release.
+  Chain 013 (plan 013-components-v2-editing-surfaces.md), discharged. The record was steering's and
+  the one act that remained - the terminal re-status at 013's release - has been made. Nothing is
+  owed on this document by any stage.
 Review-Trigger: >-
   Re-read this if users report losing message content while editing, if records appear whose stored
   type disagrees with their contents, or if anyone proposes work on the JSON editor, the
@@ -116,3 +120,4 @@ what the owner asked to keep open.
 | Date | Who | What |
 |---|---|---|
 | 2026-08-24 | **steering** (steering-hooks-013-2) | **Re-statused under plan 013's M6.** `Status: Open` -> `Active`; `Status-Detail` and `Owning-Stage` rewritten to record that research `8311155a` answered the question and plan 013 absorbed and implemented it, with observation 3 and half of observation 4 recorded as deliberately out of scope. **Not terminalised** - 013 has not released. **Three judgements are steering's own, not the plan's**: (1) M6's Objective says *"this plan proposes the wording"* and the plan contains no proposed wording, so the wording above is steering's composition from the plan's observation mapping; (2) no fleet precedent exists for re-statusing a handoff a chain has absorbed - all six handoffs in this repo, including chain 012's own after 012 released, stand at `Open` - so the status value is steering's choice from the lifecycle vocabulary; (3) this document had no changelog section and this table was added to carry the dated line M6's acceptance requires. The gap at (1) is recorded as a held planner item against plan 013. |
+| 2026-08-25 | **steering** (steering-013-close [4190de]) | **CLOSED — `Status: Active` -> `Addressed`, and the file moved to `handoff/closed/`.** The only condition this document held itself open against was 013's release, stated in its own `Status-Detail` as *"moves to a terminal status and into closed/ at release, not before"*. That release happened: `website` `master` `2d90e8a` -> `b56570d`, 2026-08-25 20:30:01 UTC. **Verified at the sources, not from a message**: deployment record §16 (`deployment/closed/013-components-v2-editing-surfaces-deployment.md`) and plan 013 rev 51 (`Status: Released`), with `uat/closed/013-components-v2-editing-surfaces-uat.md` rev 53 showing the blocking-condition register closed and `NOT EXECUTED` nowhere. **Executed, not judged**: the criterion was recorded here in advance and is mechanical; no part of the observation mapping above is re-derived, revisited or amended, and **nothing is claimed about observations 3 and 4's out-of-scope halves, which remain out of scope and unaddressed by 013**. Closed on the owner's direction in session, 2026-08-25. |

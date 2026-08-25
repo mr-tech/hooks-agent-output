@@ -1,7 +1,20 @@
 ---
 Release: 4a7126bf8578b653ac7ae1cfe7cabdd609cdc21f
 Verified-At: "4a7126bf8578b653ac7ae1cfe7cabdd609cdc21f"
-Status: Release Verified
+Status: Released
+Status-Detail: >-
+  Closed 2026-08-25 with chain 013. **This line previously read `Release Verified`. That was the
+  verdict, it was correct when written, and it is NOT withdrawn** - `Status` carries lifecycle
+  state, never the verdict, and the `Verified-At` above is untouched. The tip certified here reached
+  production (`a151fb4` -> `4a7126b`, 04:14:02 UTC, deployment record §11) and was later superseded
+  as the serving tip by `b56570d` (§16). **§5's process conditions were never this document's to
+  waive and are terminal at their own authorities, which are not restated here**: the push was made,
+  and `uat/closed/013-components-v2-editing-surfaces-uat.md` stands at rev 53 with the
+  blocking-condition register closed and `NOT EXECUTED` nowhere. **BC-18/BC-19 reached that state
+  AFTER the release act rather than before it**, which the deployment record records as a
+  sequencing ruling by the owner, not a withdrawal - stated here so no reader takes this closure for
+  the condition having been honoured in the order §5 wrote it. The `Assumption Not Checked` above is
+  a standing suite-quality question and is **not** closed by this move.
 Stage: QA Phase 3 — release-tip verification
 Commissioned-by: devops-hooks-013
 Date: 2026-08-25
@@ -182,3 +195,11 @@ so whatever their quality, this release does not change it.
 ---
 
 **Handing back to `devops-hooks-013`.** Release Verified at `4a7126b`, with §5 outstanding.
+
+---
+
+## Changelog
+
+| Date | Who | What |
+|---|---|---|
+| 2026-08-25 | **steering** (steering-013-close [4190de]) | **CLOSED — `Status: Release Verified` -> `Released`, `Status-Detail` added, and the file moved to `qa/closed/`.** Chain 013 released at 20:30:01 UTC and every stage document of the chain is terminal, so this pass's subject is settled. **Executed, not judged**: QA's verdict was already terminal in substance and is not restated, re-derived or re-run here, and no finding, coverage gap or `Assumption Not Checked` above is closed by the move. Release facts read at `deployment/closed/013-components-v2-editing-surfaces-deployment.md` §11/§16 and at plan 013 rev 51; register state read at `uat/closed/013-components-v2-editing-surfaces-uat.md` rev 53. Closed on the owner's direction in session, 2026-08-25. Status value follows the fleet precedent set by `021-large-channel-count-servers-release-tip-qa.md` in the statbot Agent Output domain, the only prior closed release-tip document. |

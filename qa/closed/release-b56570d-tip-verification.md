@@ -2,7 +2,19 @@
 Release: b56570dfa916368e9942e671d594112750567923
 Verified-At: "b56570dfa916368e9942e671d594112750567923"
 Criteria-At: "plan 013 rev 50, eb0e291 — taken from the plan's `Rev:` FIELD, not from its Status-Detail prose"
-Status: Release Verified
+Status: Released
+Status-Detail: >-
+  Closed 2026-08-25 with chain 013. **This line previously read `Release Verified`. That was the
+  verdict, it was correct when written, and it is NOT withdrawn** - `Status` carries lifecycle
+  state, never the verdict, and the `Verified-At` and `Criteria-At` above are untouched. **The tip
+  certified here IS the released tree**: `website` serving ref `master` `2d90e8a` -> `b56570d`,
+  20:30:01 UTC (deployment record §16), where deployed, verified and the UAT anchor are one object.
+  **§6's three process conditions were never this document's to waive and are terminal at their own
+  authorities, which are not restated here**: the push was made; `uat/closed/013-components-v2-editing-surfaces-uat.md`
+  stands at rev 53 with the register closed and `NOT EXECUTED` nowhere; and **CR25-1/CR25-2 remain
+  OPEN residual** under the standing *"record it, leave it"* ruling - unchanged by this closure and
+  not closed by it. The `Assumption Not Checked` above was discharged by devops at the console
+  immediately before the push (§16), which is where it was owed.
 Stage: QA Phase 3 — release-tip verification
 Commissioned-by: devops-hooks-013-3, relayed by steering-hooks-013-3
 Date: 2026-08-25
@@ -258,3 +270,11 @@ worthless if run early. It is named here rather than assumed because this releas
 **Handing back to the `devops` agent.** **Release Verified at `b56570d`**, with §6 outstanding and
 the pre-merge re-derivation above owed at the release act. **No release act follows from this
 verdict**; the owner's explicit approval of the release is a separate gate and has not been given.
+
+---
+
+## Changelog
+
+| Date | Who | What |
+|---|---|---|
+| 2026-08-25 | **steering** (steering-013-close [4190de]) | **CLOSED — `Status: Release Verified` -> `Released`, `Status-Detail` added, and the file moved to `qa/closed/`.** This is the verdict the 013 release act was gated on, and that act is made. **Executed, not judged**: QA's verdict was already terminal in substance and is not restated, re-derived or re-run here, and no finding or coverage gap above is closed by the move — CR25-1/CR25-2 stay OPEN residual. Release facts read at `deployment/closed/013-components-v2-editing-surfaces-deployment.md` §16 and at plan 013 rev 51; register state read at `uat/closed/013-components-v2-editing-surfaces-uat.md` rev 53. Closed on the owner's direction in session, 2026-08-25. Status value follows the fleet precedent set by `021-large-channel-count-servers-release-tip-qa.md` in the statbot Agent Output domain, the only prior closed release-tip document. |
