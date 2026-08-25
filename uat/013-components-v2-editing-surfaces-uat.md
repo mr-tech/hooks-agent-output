@@ -5,6 +5,19 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
+  **Rev 23 — an owner report reached two absence-signature rows, and neither closes on it.** The owner
+  reported **BC-21** and **BC-18** as *"-as expected-"*. **BC-21 → `NOT EXECUTED` — OWNER REPORT ON
+  RECORD, NOT YET DECIDABLE**: QA's row names its instrument as *a single **deliberate** observation — not
+  a wait for user reports, which cannot detect an absence*, so the phrase is compatible with an act that
+  closes the row **by construction** and with one the row rules out in advance. **The credibility of the
+  report is not in question; which act it describes is.** **One word settles it — deliberate paste or
+  general impression — and no capture, file or re-run is owed by him or requested.** **BC-18 UNCHANGED**:
+  its second limb (*clears when the JSON is corrected*) is **derived-stale**, and executing or recording it
+  against current wording yields a **false pass** — the mirror of the false failure rev 18 exists to
+  prevent, and the worse of the two, because a false failure gets investigated and a false pass gets filed.
+  **BC-21's rev-18 "STALE by inheritance" marking is queried to QA, not removed here** — its predicate is
+  **presence**, which a reword does not stale; definitions are QA's. **Standing decision UNMOVED at
+  `EXPIRED IN FULL`, BC-18 still its sole live condition, open set still 18 (R22.2).** **No verdict moved.**
   **Rev 22 — two defects in rev 21, corrected; and a handover state.** **(1) The D44 strike was
   digit-complete and dependent-incomplete** — both rev-21 instruments searched for the struck token, and
   **D44 drops dependents, not digit-strings.** Nine further dependent passages are struck here, Appendix
@@ -118,6 +131,7 @@ Verified-At: >-
 | 2026-08-25 | `steering-hooks-013-2` [019315] — a digest, no verdict requested, no schedule attached | **D43**: the owner ran the D19 repair of 5712/5842; disposition of BC-11b, BC-15 and the standing decision routed here | **Rev 20. Verdict unmoved; one row restored, one premise corrected, one finding realised.** **BC-11b UNMOVED** — blocked by a missing *spare*, never by the outliers. **R18.3 CORRECTED**: BC-15 does not inherit BC-11b's condition. **But BC-15's subject is NOT established** — the repair statement's `WHERE` is elided everywhere on the record and the visible predicate is a bit-mask matching the seeds by construction; **`SUBJECT-CONDITIONAL`**, one read settles it. **U-1 REALISED, not discharged**; its mitigation lands in a deployment record that does not exist. **BC-3 re-based** on D40's attestation rather than D41's inferred limb; **BC-2 stands** — revert trigger checked, not met. **Standing decision UNMOVED, still `EXPIRED IN FULL`.** **D43's `U-4` is chain 012's**, which is held whole. Nothing withdrawn, no row added, no test run. |
 | 2026-08-25 | **owner**, relayed verbatim by `steering-hooks-013-2` [019315] — a ruling, not a request | **D44**: strike two record IDs from chain 013 and drop every dependent; do not question, repair as necessary | **Rev 21. STRIKE EXECUTED — 30 lines repaired, zero remaining, verified by two independent instruments.** **BC-15 → `WITHDRAWN` (D44)** — the owner-reserved terminal state, available for the first time because he has now ruled; deliberately **not** filed under either state this document invented. **BC-11a → `STRUCK — D44`.** **Finding U-1 → `STRUCK — D44`, its rev-20 REALISED marking WITHDRAWN** — it rested on an unverified mechanism claim, and that failure is recorded as this stage's own. **BC-11b and the standing release decision UNMOVED** — neither depended on the struck subject. **BC-18 is now the sole live condition.** Prior text verified present in commits before deletion licensed it. |
 | 2026-08-25 | `steering-hooks-013-2` [019315] — notice of a coordinator handover; **nothing asked** | — | **Rev 22. Two defects in rev 21, both this stage's own.** **The D44 strike was digit-complete and dependent-incomplete** — the instruments searched for the token, and the ruling drops claims; nine passages struck here, Appendix A as a whole. **Rev 21's open set was wrong**: *"Nothing else"* dropped **fourteen** non-terminal rows; corrected to **18 open items** at R22.2 by re-derivation from the ledger. Four point-in-time items marked **DISCHARGED** where they were listed (plan revs 35, 40, 41), each verified at the plan. **Handover block added** for the incoming coordinator. **No verdict moved; nothing withdrawn; no row added.** |
+| 2026-08-25 | `steering-hooks-013-2` [019315] — **a conflict routed here as the authority on register state**; steering recorded it as a conflict and set nothing | The owner reported **BC-21** and **BC-18** as *"-as expected-"*; this register carries both non-terminal with **absence** signatures | **Rev 23. Neither row terminalises, and not because the report is doubted.** **BC-21 → `NOT EXECUTED` — OWNER REPORT ON RECORD, NOT YET DECIDABLE**: QA's own instrument cell rules out the passive reading of the phrase in advance, so *"-as expected-"* is compatible with an act that closes the row **by construction** and with one the row expressly excludes. **What settles it is one word — deliberate paste, or general impression — and no capture is owed or requested.** **BC-18 unchanged**: its **clearing limb** is derived-stale (D31/D32), and *"as expected"* cannot speak to a behaviour whose expected form the register no longer states correctly — **a false pass, the mirror of the false failure rev 18 was written to prevent.** **BC-21's rev-18 "stale by inheritance" marking queried to QA**, not removed here. **Standing decision unmoved at `EXPIRED IN FULL`; BC-18 still its sole live condition. Open set stays at 18.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -3020,3 +3034,142 @@ Two entries, both this stage's own and neither an apology:
    **U-C5** remains his and remains the blocking edge before any deployment record.
 3. **Devops — U-C6 and U-C7**, plus the deployment records the chain owes.
 4. **Nobody closes this chain on rev 21's open set.** Use R22.2.
+
+---
+
+# Rev 23 — The BC-18 / BC-21 conflict, ruled. Neither row terminalises on the report, and the reason is the rows' own instrument clauses.
+
+**Date**: 2026-08-25. **Session**: `uat-hooks-013-4`. **Trigger**: `steering-hooks-013-2` [019315]
+routed a conflict here as the authority on register state, recorded it in its docket **as a conflict**,
+and **set nothing** — which was correct. **The owner reported BC-21 and BC-18 to steering as
+*"-as expected-"* on 2026-08-25.** This document carries both non-terminal. **Row definitions are QA's
+and were re-read from QA's register at write time; state is this document's.**
+
+## R23.1 — Why this is the sharpest case this register has had
+
+**An absence-signature row that an operator believes he has passed is the one place where a register and
+an owner's memory diverge silently.** Steering named that correctly. It is worth being precise about why
+it is not a matter of trusting him.
+
+This stage's standing rule is that **an owner attestation is the terminal form of owner-supplied
+evidence** — recorded with its timestamp and terminalised on, never met with a demand for a capture
+file. That rule is not suspended here and nothing below asks him for evidence.
+
+**What is in question is not the credibility of the report. It is which act the report describes** — and
+for these two rows, QA wrote the discrimination into the row itself.
+
+## R23.2 — BC-21: the row's own instrument clause forbids the reading that would close it
+
+QA's row, quoted from the register at write time:
+
+> **Predicted**: *one **deliberate paste** of a rows-B/D payload into New Message on the live site
+> produces a visible persistent warning.*
+> **Primary instrument**: *a single **deliberate observation** — **not** a wait for user reports, which
+> cannot detect an absence.*
+> **Sufficiency**: *one successful observation refutes "the notice is silently absent" **by
+> construction*** — not a rate, no sample.
+
+***"-as expected-"* is compatible with two acts, and the row separates them explicitly:**
+
+| Reading | Effect on BC-21 |
+|---|---|
+| *"I pasted a rows-B/D payload deliberately and the warning appeared"* | **Closes the row by construction.** One observation is sufficient; no capture is owed and none may be asked for |
+| *"Nothing looked wrong / nothing was reported"* | **Worth nothing against this row.** Its failure signature is **absence**, and QA's instrument cell rules out exactly this reading in advance |
+
+**So the row cannot be terminalised on the phrase — not because the report is doubted, but because the
+row was written to distinguish the two things the phrase can mean.** Recording it as `EXECUTED` on the
+ambiguous reading would be laundering an absence into a pass, which is the single failure mode 013
+exists to close and which this document has refused three times already this chain.
+
+**BC-21 → `NOT EXECUTED`, non-terminal. `OWNER REPORT ON RECORD, NOT YET DECIDABLE.`** Not a doubt, and
+not a new condition — it is the same row, with a live report attached to it and the one word that
+settles it named.
+
+**What settles it is one word, and it is not evidence.** Whether the observation was a **deliberate
+paste** or a general impression. **No capture, file, screenshot or re-run is owed by him, and none is
+requested.** If it was a deliberate paste, the row is `EXECUTED` on his statement alone, dated
+2026-08-25, and this document will record it that way without further evidence.
+
+## R23.3 — BC-21's rev-18 staleness marking was over-broad, and that is routed to QA, not performed here
+
+Rev 18 marked BC-21 **"PREDICTION STALE by inheritance"** from BC-18, on the ground that they share a
+surface. **Re-read against QA's row, that inheritance does not hold on its own terms**: BC-21's
+predicate is **presence** — *a visible persistent warning is produced* — and names neither wording nor
+clearing behaviour. A reword does not stale a presence predicate.
+
+**This document does not unstale the row.** Prediction re-derivation is QA's, exactly as this stage has
+routed it throughout; a marking removed by the wrong stage is the same defect as a marking applied by
+one. **It is recorded as a judgement for QA**, in the form rev 18 used for BC-15: stated, not closed.
+
+**Why it matters to the conflict**: if QA agrees, BC-21 is decidable **today** on one word, whereas BC-18
+is not decidable at all until its prediction is re-derived. **The two rows are not in the same position,
+and the report reaching them in one sentence is what made them look alike.**
+
+## R23.4 — BC-18: not decidable on the report, on a stronger ground
+
+QA's row requires **two limbs**: *a persistent warning appears **and stays put**, **and clears** when the
+JSON is corrected.* Its predicted value repeats it — *a warning appears and persists; correcting the JSON
+removes it.*
+
+Rev 18 marked BC-18 stale on a **derived** basis, not by inheritance: D31 and D32 changed what that
+surface does at rest, and its *persistent-warning expectation is not what the surface now does*. **The
+staleness lands on exactly the limb the report cannot speak to** — nobody reports *"as expected"* about a
+clearing behaviour whose expected form the register itself no longer states correctly.
+
+**BC-18 → `NOT EXECUTED`, non-terminal. Prediction STALE. Owner report on record and does not reach it.**
+
+**And the standing rule is unchanged and now load-bearing in the other direction**: rev 18 warned that
+executing a stale row yields a **false failure**. *The mirror is a false pass*, and it is the more
+dangerous of the two, because a false failure gets investigated and a false pass gets filed. **BC-18 must
+not be executed — or recorded as executed — against its current wording. QA owes the re-derivation.**
+
+## R23.5 — The release decision does not move
+
+**BC-18 remains the sole live condition of the standing release decision, and that decision remains
+`EXPIRED IN FULL`.** An owner report that does not terminalise the condition changes neither. Stated
+because a report of *"as expected"* against the last live condition is precisely where a reader would
+expect movement, and there is none.
+
+## R23.6 — The docket propagation, recorded because it enlarges my own finding
+
+Steering reports that rev 21's false *"nothing else"* had **already been copied into this cwd's steering
+docket as the live set** before rev 22 caught it — and that the docket is the **handoff artifact**, the
+successor's second read. A fresh coordinator would not have found the fourteen missing rows by reading
+this register, **because the docket would have told it there was nothing to look for.**
+
+**That enlarges R22.5's finding rather than repeating it.** The blast radius of a completeness claim is
+not the document that makes it: **a completeness claim is the most copyable sentence in any record,
+because it is short, it is actionable, and it closes a question the reader wanted closed.**
+Re-derivation resists propagation because it is long and visibly conditional; *"nothing else"* travels
+in one line. **Carried to the retrospective in that form.**
+
+Steering has corrected the docket as a correction rather than as a clean list, naming the false claim and
+that its thread propagated it, and instructing the successor to re-read this register at write time
+rather than restate a count. **Recorded here so the correction is visible from this side too**, since a
+count restated from a docket is exactly what this chain has been bitten by.
+
+## R23.7 — Ledger delta at rev 23
+
+| Row | Before | **At rev 23** | Basis |
+|---|---|---|---|
+| **BC-21 · `notice-silence-detector`** | `NOT EXECUTED`, POST, stale by inheritance | **`NOT EXECUTED` — OWNER REPORT ON RECORD, NOT YET DECIDABLE.** Staleness marking **queried to QA** (R23.3) | The row's own instrument clause separates the two readings of the report |
+| **BC-18 · `paste-notice-renders`** | `NOT EXECUTED`, prediction STALE | **unchanged** — report on record, does not reach it | Its clearing limb is derived-stale (R23.4) |
+| **Standing release decision** | `EXPIRED IN FULL` | **unchanged** | R23.5 |
+| everything else | — | **untouched** | — |
+
+**The open set stays at 18 items (R22.2).** Nothing is added, nothing is closed, nothing is withdrawn.
+
+## R23.8 — State
+
+**UAT Complete** stands. **No verdict moved.**
+
+**Next Actions** — *point-in-time; later stage documents are authoritative.*
+
+1. **The owner — one word, not evidence**: was the BC-21 observation a **deliberate paste**, or a general
+   impression? **If deliberate, BC-21 is `EXECUTED` on his statement alone and nothing further is owed.**
+   Nothing is asked of him beyond that word; no capture is requested and none will be recorded as
+   missing.
+2. **QA — two items.** BC-18's prediction re-derivation (already owed), and the BC-21 staleness query at
+   R23.3, which may make that row decidable today.
+3. **Nobody records BC-18 or BC-21 as executed on the report as it stands.** A false pass gets filed; a
+   false failure gets investigated. **The first is the worse outcome and the easier one to reach here.**
