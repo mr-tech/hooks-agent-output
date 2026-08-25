@@ -5,6 +5,37 @@ UUID: 22d69e06
 Parent: components-v2-editing-support-2026-08-23.md
 Status: Active
 Status-Detail: >-
+  **Rev 47 — BC-4 `EXECUTED`. QA §V.32 `EXECUTED — ASSUMPTION HELD`. ALL EIGHT `PRE` ROWS ARE TERMINAL AND
+  THE APPROVAL IS UNCONDITIONAL.** He answered R46.3's one question — put to him as a blocking selection
+  prompt with **all four options unaltered and nothing set** — choosing ***"Yes — I read that line"***, and
+  **taking neither the costless "Not from memory" nor the row-ending "My `pass` stands".** **What that does
+  which his first report could not: rev 46 held the row because `pass` ENTAILED limb 2 under an adopted
+  definition without STATING it, and this states it** — a sighting of the exact string rather than a
+  conclusion about a row. **It also kills hazard A by observation rather than inference**, since hazard A
+  *is* the screen on which that line was never read (QA **D1b** finds no floor message on page 2), so a man
+  who read it was on page 1 below the box, exactly where R45.3 sent him. **THE §V.29 CHAIN WAS RE-DERIVED AT
+  QA's CAPTURED INSTRUMENT RATHER THAN ASSERTED** — steering offered the step and it cost one read, and it
+  was needed: §V.29 alone gives only the forward direction, and the contrapositive rested on one link R46.3
+  had **cited rather than shown** — that the exact string is produced BY the floor. **The `floor-off` mutant
+  already supplied it: KILLED, 7 failures including D1, so the harness reads the floor's real output and not
+  a constant. §V.32 is held by a mutant, not by a syllogism this register wrote.** **The one residual is
+  named rather than buried** — *"the exact string is the floor's"* rests on QA §V.31.5 and is QA's to own,
+  which is why the question quoted the string in full instead of asking whether he saw an error. **All eight
+  `PRE` rows ENUMERATED at their terminal states rather than counted**, because *"eleven of twelve"* is this
+  register's own worst measurement error and a count is what travels when nobody looks: **no row withdrawn,
+  none dropped, none *satisfied incidentally*.** **Residual 3 → eleven, the class's NARROWEST member**: an
+  option label is an adoption, but what was adopted is one exact string quoted in full in the question — a
+  perceptual fact, not a characterisation — and **the register must not read as though he described the
+  screen; he confirmed a line he was shown.** **UNCONDITIONAL IS NOT CLOSED: BC-12/14/17/20 stand `NOT
+  EXECUTED` and gate the chain's CLOSURE, never the release act — the release is unblocked, the ledger is
+  not discharged.** **It is also NOT the owner's release approval**; `devops now` is a direction to the
+  pipeline and pushing needs his explicit word. **F-QA33 stays open and its decline is now PAID FOR — the
+  hazard bullet it justified worked.** **R47.7 surfaces a bootstrap conflict in this stage's own
+  definition**: writing the plan's `Status` field writes to this gate's criteria axis and would expire the
+  decision in the act of issuing it; **neither evasion taken** — routed to the planner as a rev 51
+  registration pass with re-anchor, and to `pi` as a finding true beyond today's instance. **ANCHOR: TREE
+  `b56570d` / CRITERIA plan rev 50 (`eb0e291`), both re-derived from the tree at write time.** **Open set 4**
+  — `PRE` **0** · `POST` **4**. **Branch unpushed; `origin/master` `2d90e8a`; nothing released.**
   **Rev 46 — HE REPORTED `BC-4 pass`, AND THE ROW DOES NOT CLOSE ON IT YET. ONE QUESTION CLOSES IT AND QA
   §V.32 WITH IT.** Two words, relayed unpadded by steering, which **declined to expand them into three limbs
   because that would author an observation he did not make** — correct handling, credited. **The case for
@@ -802,6 +833,7 @@ Verified-At: >-
 | 2026-08-25 | `steering-hooks-013-3` [b04529] → **`uat-hooks-013-6`, a FRESH session with no brief and no inherited context** (not a resumption of `uat-hooks-013-5`); asked for the criteria ruling, BC-4's replacement operator text, and dispositions on F-QA33 and QA §V.32 | **Rev 45. THE GATE EXPIRED ON THE CRITERIA AXIS AND IS RE-ISSUED AT REV 50 — it did not "fail to bite".** Steering disclosed that its D53 pass (`eb0e291`, 19:31) took the plan to rev 50 one minute after rev 44's gate (`ff0c82c`, 19:30) anchored at rev 49. **Delta re-derived from the file, never from the message** (R36.1.2's defect does not recur inside the ruling about it): `numstat 3/1`, hunk read — header bump, one changelog row, one D53 row, **purely additive registration, no criterion**. **The rule is NOT amended**: rev 38 already paid this cost once and recorded that it "stands unamended"; a carve-out for trivial deltas is most attractive and most corrosive exactly here. **R36.1.1 is the re-issue procedure, not a competing rule.** **RE-ISSUED: TREE `b56570d` / CRITERIA plan rev 50 (`eb0e291`)**, both re-derived from the tree. The expired interval is recorded, not smoothed; nothing released in it (`origin/master` still `2d90e8a`, verified). **QA's `Criteria-At: rev 49` expires by its own clause — routed to QA, not decided here; this gate does not depend on it because no property QA verified moved.** **BC-4 UNBLOCKED: the fixture exists and is instrument-backed**, so R44.3's `CANNOT BE EXECUTED` path is **dead** and the row becomes the owner's last check — narrower than it started, because QA closed all three limbs mechanically and the human residue is the one link no instrument reached. **Replacement operator text authored (R45.3), final and verbatim-liftable**, carrying all five of QA §V.31's facts, the §V.32 falsity signature, and **no breach of D36**. **F-QA33 DECLINED as a 013 rider, routed as a new-plan candidate, non-blocking and OPEN** — its cost paid where it lands, in BC-4's first hazard bullet. **QA §V.32 ACCEPTED and bound to BC-4's own execution**, terminal states named in advance. **`OWNER-QUEUE.md` item 8 found DRIFTED** — a delivery copy, not a parallel ledger; the finding is the drift, and the rule is that a delivery copy carries the rev it was lifted from. **Release decision UNCHANGED in substance and still conditional, now on ONE row. Open set 5. Residuals 6 → 7.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — **a finding against rev 45's own certification prose**, flagged while this session was still warm rather than left for a cold successor or for `pi`; steering declined to fix another stage's document | **CORRECTION PASS to rev 45. No rev number, no verdict, no row, no anchor moves.** R45.3's certification sentence read ***"and **breaches D36**"*** where the ruling — and the clause after its own dash — say the opposite. **Corrected in place with the superseded text preserved in a dated reconcile note, per the skill's correction form for a record: never a silent overwrite.** **Blast radius re-derived at the file, not assumed**: `Status-Detail` and the rev 45 changelog row both already read *"no breach of D36"* and are untouched; R45.4's ruling is unchanged; **`grep -c D36 OWNER-QUEUE.md` returns 0**, so the defect never reached the delivery copy and the lifted 24 lines are byte-unchanged. **The operator text was always clean — the defect was in the sentence vouching for it.** **Recorded at weight rather than as a typo**: a certification sentence asserting its own falsification would show a retrospective or `pi` auditing D36 compliance a bolded admission of breach *inside the section written to demonstrate compliance*, and **a wrong entry in a compliance record is worse than a missing one, because it is believed.** **The method failure is named and is checkable**: this register read the block it was certifying and never read the sentence doing the certifying — **certification prose is not covered by verifying the thing certified.** **Second time today steering's read caught a defect in this gate's text before it hardened (R36.1.2 was the first); twice is a pattern about where the checking is happening, not luck.** Also recorded: steering lifted R45.3 verbatim (`e5327f1`, verified byte-identical programmatically before commit), **adopted the rev-stamp rule from R45.6** in the copy's own words, and routed the `Criteria-At` question to `qa-hooks-013-4` framed as QA's call with the axis move owned as steering's. |
 | 2026-08-25 | **owner** via `steering-hooks-013-3` [b04529], relayed **unpadded and deliberately not expanded into three limbs** — steering declining to author an observation he did not make | **Rev 46. He wrote `BC-4 pass` — two words — and THE ROW DOES NOT CLOSE ON IT YET. ONE question closes it.** **The case for closing is real and is stated first rather than caricatured**: `pass` is not freehand — R45.3 defines it three lines above the word; **three specific non-`pass` outputs stood in front of him** (`{}` → *"not executed"*, inert editor → *"write down exactly that"*, advanced-first → *"go back"*) **and he used none**; and **BC-4 carries no silent limb**, so this register's own rev-43 test points at closing it. **What holds it open is ONE screen, not a pile: hazard A** — advance first, see a greyed `Save` with no explanation, never read limb 2's sentence. That screen **contains R45.3's own limb 3**, so a reader who skipped point 2 sees something resembling a pass. **AND THE ARGUMENT THAT DECIDES IT IS NOT ABOUT HIM: this register declined F-QA33 four hours ago on the express ground that its cost is paid in the operator text's first hazard bullet. Closing BC-4 without checking the one limb F-QA33 endangers would retroactively empty that reasoning — a stage does not cite a mitigation as its reason for declining a fix and then decline to verify the mitigation.** QA pre-committed the standard at §V.29: a green row over a check that never executed is *"the precise failure shape this pass was asked to avoid."* **R44.3's test applied out loud with the pressure named**: `devops now` is queued behind this row; the ask survives the *"would I ask if nothing were queued"* test **because it can name the screen it excludes**, and a question that cannot name that is rigour-theatre. **ONE question about ONE limb, not a re-execution and not seven times — the rev-43 → rev-44 move exactly.** **Framing tested against R25.1**: it asks for the presence of ONE EXACT STRING — a sighting, not a ratification — with **two options requiring no claim at all**, `No` **de-penalised in the option text**, and **`WITHDRAWN` genuinely available as his ruling.** **Limb 2 observed ⟹ the editor delivered ⟹ QA §V.32 `HELD` by construction (QA §V.29's execution, not inferred here): one string, two rows.** **BC-4 → `NOT EXECUTED — OWNER REPORT ON RECORD, NOT YET DECIDABLE ON LIMB 2`**, the identical state BC-7/BC-8 held at rev 43. **His report is recorded BESIDE the prediction, never over it; the row is not `FAILED` and must not be relayed as though it were.** **RESIDUAL 3 → TEN, and the entry is precise: he adopted this register's definition rather than describing a screen, so his word ENTAILS the string but does not STATE it — an entailment from an adopted definition is not an observation, and that distinction is the whole reason the row is held.** **R45.1.1 DISCHARGED — QA re-anchored to rev 50 independently (§V.34), with two instruments and controls killing rev47→48 and rev48→49; stronger than R45.1's hunk read, and the convergence counts because steering declined to steer it.** Suite 48 files / 627 tests / 627 passed at `b56570d`. **`devops now` recorded as a direction, NOT a terminal state; steering holding devops was right on both counts.** **Release decision UNCHANGED and still conditional. Open set 5. Residuals 7.** |
+| 2026-08-25 | **owner** via `steering-hooks-013-3` [b04529], which put R46.3's question as a **blocking selection prompt with all four options unaltered and nothing set** | **Rev 47. BC-4 → `EXECUTED` 2026-08-25. QA §V.32 → `EXECUTED — ASSUMPTION HELD`. ALL EIGHT `PRE` ROWS TERMINAL. THE APPROVAL IS NOW UNCONDITIONAL.** He chose ***"Yes — I read that line"***, taking neither the costless *"Not from memory"* nor the row-ending *"My `pass` stands"*. **What it does that his first report could not: rev 46 held the row because `pass` ENTAILED limb 2 under an adopted definition without STATING it; this states it — a sighting of the exact string rather than a conclusion about a row.** **And it kills hazard A by observation, not inference: hazard A IS the screen on which that line was never read (QA D1b finds no floor message on page 2), so a man who read it was on page 1 below the box.** **THE §V.29 CHAIN WAS RE-DERIVED AT QA's CAPTURED INSTRUMENT RATHER THAN ASSERTED** — steering offered the step and it cost one read. §V.29 alone gives only the forward direction; **the contrapositive needed one link that R46.3 had CITED rather than shown — that the exact string is produced BY the floor — and the `floor-off` mutant already supplied it: KILLED, 7 failures including D1 (error shown), so the harness reads the floor's real output and not a constant.** **§V.32 is therefore held by a mutant, not by a syllogism this register wrote.** **The one residual in the chain is named rather than buried**: *"the exact string is the floor's"* rests on QA §V.31.5, is QA's to own, and is why the question quoted the string in full instead of asking whether he saw an error. **All eight `PRE` rows ENUMERATED at their terminal states rather than counted** — BC-1/6/9/10/18 (rev 43), BC-7/8 (rev 44), BC-4 (rev 47) — **because "eleven of twelve" is this register's own worst measurement error and a count is what travels when nobody looks. No row withdrawn, none dropped, none *satisfied incidentally*.** **Residual 3 → ELEVEN, and the entry states the kind: an option label is an adoption, but this is the class's NARROWEST member — what was adopted is one exact string quoted in full in the question, a perceptual fact rather than a characterisation. The register must not read as though he described the screen; he confirmed a line he was shown.** **UNCONDITIONAL DOES NOT MEAN CLOSED**: BC-12/14/17/20 stand `NOT EXECUTED` and gate the chain's CLOSURE, never the release act; **the release is unblocked, the ledger is not discharged.** **It is also NOT the owner's release approval — `devops now` is a direction to the pipeline and pushing needs his explicit word.** F-QA33 stays open, and **its decline is now paid for: the hazard bullet it justified WORKED.** **R47.7 surfaces a bootstrap conflict in this stage's own definition** — updating the plan's `Status` field writes to this gate's criteria axis and would expire the decision in the act of issuing it; **neither evasion taken**, routed to the planner as a rev 51 registration pass with re-anchor, and to `pi` as a finding. **Open set 5 → 4, `PRE` 0.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -8195,3 +8227,185 @@ the sentence R44.3 exists to have quoted at exactly this moment.
    regardless.**
 5. **One outstanding condition, and it is not devops' to close or to judge**: BC-4. **No release is
    recorded complete while it stands at `NOT EXECUTED`.**
+
+---
+
+# Rev 47 — **BC-4 `EXECUTED`. QA §V.32 `EXECUTED — ASSUMPTION HELD`. ALL EIGHT `PRE` ROWS ARE TERMINAL AND THE APPROVAL IS NOW UNCONDITIONAL.**
+
+## R47.1 — His answer, verbatim and complete
+
+> **Yes — I read that line**
+
+**The entirety of his response.** Selected from R46.3's four options, put to him as a blocking selection
+prompt with **nothing set and nothing added** — steering confirms it carried all four unaltered, including
+the costless *"Not from memory"* and the row-ending *"My `pass` stands — stop asking"*, with the
+de-penalising parenthetical travelling on `No`. **He took neither exit.**
+
+**What the answer does that his first report could not.** Rev 46 held the row because *"pass"* **entailed**
+limb 2 under an adopted definition without **stating** it. This answer states it. **The register now has a
+sighting of the exact string rather than a conclusion about a row** — which is the distinction R46.4 was
+written to preserve, and it is now discharged on the right side.
+
+**And it kills hazard A independently, not by inference.** Hazard A *is* the screen on which that line was
+never read — QA's **D1b** renders page 2 and finds **no floor message there**. **A man who read that line
+was on page 1, below the JSON box, which is exactly where R45.3 sent him.**
+
+## R47.2 — **The §V.29 chain, RE-DERIVED at QA's captured instrument rather than asserted**
+
+Steering offered this as a legitimate extra step and said it would carry the delay. **Taken** — and it cost
+one read, because the artifact that settles it was already captured. **This is document review of an
+instrument's recorded output, not code inspection; this stage read no source.**
+
+R46.3 claimed *limb 2 observed ⟹ CodeMirror delivered ⟹ §V.32 `HELD`*, sourced to QA §V.29. **§V.29 alone
+establishes only the forward direction** — no parse ⟹ no `setMessage` ⟹ `loadedMessage` undefined ⟹ the
+floor line short-circuits on its `loadedMessage ?` ternary ⟹ `contentFloorError` undefined ⟹ no error.
+**The chain needs the CONTRAPOSITIVE, and one link in it was cited rather than shown: that the exact string
+is produced BY the floor computation and not by something else on that screen.**
+
+**The `floor-off` mutant supplies exactly that link, and it was already in the capture.**
+
+| Established | By |
+|---|---|
+| Disabling the floor (`validateContentRequirements` always `undefined`) **removes the error** | `floor-off` **KILLED — 7 failures, including D1 (error shown)**. *"The render harness is therefore reading the floor's real output, not a constant"* |
+| Nothing intercepts the paste before the modal | `choice-on` **KILLED — 14 failures**: were a choice dialog to intercept, *"nothing would reach the modal and no floor error would appear"* |
+| The `loadedMessage ?` ternary short-circuits when the parse has not run | §V.29 / **C2**, by executing react-use's shipped `useUpdateEffect.js` |
+
+**So, contrapositively and by execution rather than by this register's reasoning: the string on screen ⟹
+the floor computation ran and returned a message ⟹ the ternary did not short-circuit ⟹ `loadedMessage` was
+defined ⟹ `setMessage` ran ⟹ the parse ran ON TEXT THE EDITOR DELIVERED.** **QA §V.32's assumption is
+`HELD`, and it is held by the mutant, not by a syllogism this stage wrote.**
+
+**The one residual in the chain, named rather than buried.** The step *"the exact string is the floor's"*
+rests on **QA's finding**, not on this stage's own check: §V.31.5 records that the JSON tab renders its own
+errors — malformed JSON, Zod issues — **inside the accordion**, a different string in a different place,
+which is precisely why R45.3 demanded the exact sentence rather than *"an error is shown."* **That is
+cited, it is QA's to own, and this register does not claim to have closed it.** **It is why the question
+quoted the string in full instead of asking whether he saw an error.**
+
+## R47.3 — **BC-4 and QA §V.32: TERMINAL**
+
+| Item | Terminal state | Date | Result and basis |
+|---|---|---|---|
+| **BC-4** | **`EXECUTED`** | **2026-08-25** | **Predicted**: dialog stays · error shown · nothing created. **Observed, recorded BESIDE the prediction and never over it**: the operator reported **`BC-4 pass`** against R45.3's enumerated three-limb definition, and on one further question **stated he read the exact string `Message must have content, embeds, or components.` below the JSON box.** Hazard A excluded by that sighting (QA **D1b**); `{}` excluded — the trap's screen has no error and he reports one |
+| **QA §V.32** — *CodeMirror delivers the pasted document unchanged* | **`EXECUTED — ASSUMPTION HELD`** | **2026-08-25** | R47.2, by the `floor-off` mutant. **Closed inside BC-4's own observation at no extra cost, exactly as QA proposed and R45.5 provided.** **The single link between the operator's keystrokes and every behaviour QA established is now observed rather than stubbed** |
+
+**RESIDUAL 3 GROWS TO ELEVEN, and the entry states which kind this member is.** He selected an option label
+rather than writing his own sentence, so it is an adoption and the class takes it. **But it is the NARROWEST
+member the class has**: what was adopted is *the presence of one exact string, quoted in full in the
+question itself* — a perceptual fact, not a characterisation of behaviour and not a verdict against a row.
+**The register must not read as though he described the screen; he confirmed a line he was shown.** **That
+is the strongest form this chain's method can produce, and naming its limit is not a complaint about it.**
+
+## R47.4 — **All eight `PRE` rows, enumerated at their terminal states rather than counted**
+
+| Row | State | Date | Where |
+|---|---|---|---|
+| **BC-1** | `EXECUTED` | 2026-08-25 | rev 43 — and it discharges QA's Phase-1 Assumption Not Checked |
+| **BC-4** | **`EXECUTED`** | **2026-08-25** | **rev 47** — with QA §V.32 |
+| **BC-6** | `EXECUTED` | 2026-08-25 | rev 43 |
+| **BC-7** | `EXECUTED` | 2026-08-25 | rev 44 — one question |
+| **BC-8** | `EXECUTED` | 2026-08-25 | rev 44 — same question |
+| **BC-9** | `EXECUTED` | 2026-08-25 | rev 43 |
+| **BC-10** | `EXECUTED` | 2026-08-25 | rev 43 |
+| **BC-18** | `EXECUTED` | 2026-08-25 | rev 43 |
+
+**Eight of eight. `NOT EXECUTED` appears nowhere in the `PRE` set. No row was withdrawn, none was dropped,
+and none was recorded *satisfied incidentally*.** **Enumerated rather than counted, because "eleven of
+twelve" is this register's own worst measurement error (rev 41) and a count is what travels when nobody
+looks.**
+
+## R47.5 — **THE APPROVAL IS UNCONDITIONAL. And what that does NOT mean.**
+
+> # **APPROVED FOR RELEASE — UNCONDITIONAL.**
+>
+> **All eight `PRE` release conditions are terminal, every one at `EXECUTED`.** The conditional clause
+> carried since rev 36 is **discharged**, not waived.
+>
+> **ANCHOR: TREE `b56570dfa916368e9942e671d594112750567923` on `chain/013-rider-2` · CRITERIA plan 013
+> rev 50 (`eb0e291`)** — **both re-derived from the tree at this revision's write time**, neither
+> inherited: `git status --porcelain src/ bot/` → **0 lines**, so the SHA stands alone and no manifest
+> fallback is owed; plan header `Rev: 50`; last plan-touching commit `eb0e291`. **Either axis moving
+> expires this decision, and any change to production code expires it and every predecessor verdict —
+> code review's and QA's — with it.**
+>
+> **Predecessors, re-read at this write time, each its own authority, both now anchored to the SAME pair
+> as this gate**: code review `Code Review Approved`; **QA `QA Complete`, `Verified-At: b56570d`,
+> `Criteria-At: plan 013 rev 50 (§V.34)`.** Suite **48 files / 627 tests / 627 passed** at `b56570d`.
+>
+> **Recommended version: MINOR** — new user-facing capability across the editing surfaces, no breaking
+> change to an existing surface. **Recommendation only.**
+>
+> **THIS IS NOT A RELEASE APPROVAL FROM THE OWNER AND DOES NOT SUBSTITUTE FOR ONE.** `devops now` is a
+> direction to the pipeline. **Pushing requires his explicit approval, and nothing in this register
+> supplies it.** `origin/master` `2d90e8a`, branch unpushed, **3 ahead, nothing released.**
+
+**What unconditional does NOT mean, stated here because this is the sentence devops acts on and it is the
+one most likely to be over-read:**
+
+1. **The chain is NOT closed.** **BC-12, BC-14, BC-17 and BC-20 stand `NOT EXECUTED`.** They are
+   **post-deploy-observable: they gate the chain's CLOSURE, never the release act.** **The release is
+   unblocked; the ledger is not discharged.**
+2. **The gate is not a standing permission.** It is anchored to two axes and **expires on either**. Devops
+   re-derives both **itself**, from the tree, at its own start.
+3. **F-QA33 remains OPEN** — declined as a 013 rider, routed as a new-plan candidate. **Releasing does not
+   close it**, and its decline is now paid for: the hazard bullet it justified **worked**, which R47.1
+   records as the check that F-QA33's decline was owed.
+
+## R47.6 — Ledger delta at rev 47
+
+| Row | Before | **At rev 47** | Basis |
+|---|---|---|---|
+| **BC-4** | `NOT EXECUTED — not yet decidable on limb 2` | **`EXECUTED` — 2026-08-25** | R47.1, R47.3 |
+| **QA §V.32** | held with BC-4 | **`EXECUTED — ASSUMPTION HELD`** | R47.2, by the `floor-off` mutant |
+| **`PRE` set** | 7 of 8 terminal | **8 of 8 terminal, all `EXECUTED`** | R47.4, enumerated |
+| **Release decision** | `APPROVED FOR RELEASE, CONDITIONAL` | **`APPROVED FOR RELEASE — UNCONDITIONAL`** | R47.5 |
+| **BC-12, BC-14, BC-17, BC-20** | `NOT EXECUTED`, `POST` | **unchanged — and now the ONLY open rows** | They gate chain closure, never the release act |
+| **F-QA33** | open, declined as a rider | **unchanged, open** | Releasing does not close it |
+| **Residual 3** | 10 | **11** — narrowest member the class has | R47.3 |
+| **Open set** | **5** | **4** | `PRE` **0** · `POST` **4** · Documentary **0** |
+
+## R47.7 — **A conflict in this stage's own definition, surfaced rather than quietly resolved either way**
+
+This stage's definition says: *"When UAT passes, update the plan's Status field to 'UAT Approved' and add
+changelog entry."* The plan currently reads `Status: Active` at rev 50.
+
+**Enacted literally, that instruction expires this gate at the moment it issues it.** The plan file **is**
+this gate's criteria axis; writing to it changes the file the anchor names, and a gate that edits its own
+criteria source in the act of issuing is unsound in a way no amount of care fixes. **This is a real
+bootstrap conflict in the definition, not a pretext for skipping the step.**
+
+**Neither evasion is taken.** **Not skipped** — the Status update is owed and is routed below. **Not
+self-expired** — this register does not write to the document its own decision is anchored to.
+
+**Mechanism, so it is a routing and not a shrug**: **the planner enacts it as a rev 51 registration pass**,
+and this gate re-anchors to rev 51 by the expire-and-re-issue procedure R45.1 established — **which is now
+routine and cheap: this register and QA have each run it once today, and QA's run had controls.** **If the
+owner's release lands first, devops closes these documents on commit and the point is moot; the routing
+stands either way so it cannot evaporate on timing.**
+
+**Routed to `pi`/the retrospective as a process finding**, stated so it is true whether or not today's
+instance exists: **a stage instruction that writes to the document a stage's own verdict is anchored to
+will expire that verdict every time it is obeyed.** Today's instance is the evidence beneath it.
+
+## R47.8 — State
+
+**UAT Complete. APPROVED FOR RELEASE — UNCONDITIONAL**, at **TREE `b56570d` / CRITERIA plan rev 50**.
+
+**Residuals: seven**, residual 3 at **eleven** members.
+
+**Next Actions** — *point-in-time; later stage documents are authoritative on these items' current state.*
+
+1. **The owner — the release approval**, which is his and has not been given. **Nothing else. He owes this
+   register nothing further on any row**, and no capture, screenshot or re-run may be asked of him.
+2. **Devops — R46.9 stands unchanged**, plus the `POST` clause at R47.5.1. **It does not push without his
+   explicit approval.**
+3. **Devops, after the release act — the four `POST` rows.** They gate the chain's closure. **Each reaches
+   its own terminal state, acted on at its EARLIEST-DECIDABLE condition rather than when someone happens to
+   look.**
+4. **Planner — the plan `Status` field** (R47.7), as a rev 51 registration pass; this gate re-anchors.
+5. **Roadmap / planner — F-QA33 as a new plan**, non-blocking.
+6. **Retrospective — its precondition is met.** UAT Complete does not wait on the release act. Two process
+   findings are routed to it: R45.9 (`Status-Detail` as a 72 KB rev stack) and R47.7 (the definition's
+   bootstrap conflict).
+7. **Nobody** — reads *unconditional* as *closed*, drops the four `POST` rows because the merge happened,
+   or treats this gate as the owner's release approval.
