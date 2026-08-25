@@ -26,30 +26,7 @@ lines about items nobody is waiting on.** If it does not need the owner to act, 
 
 ---
 
-## 1. Your decisions — no agent may make these
-
-**QA-R9 — does the backfill distribution stop the live declaration?** That is the whole question.
-You are not confirming the script's arithmetic; you are making the judgement no agent may make.
-The run is `verification/012/backfill-report-1787522866564-i3s31k.md` — the one table-wide run
-(4825 classified of 4825 rows). **4750 valid, 75 invalid**, and the 75 are:
-
-| Reason | Count |
-|---|---|
-| Username too short or too long | 36 |
-| Must have content, embeds, or components | 29 |
-| Username has invalid characters | 3 |
-| Components text over 4000 | 3 |
-| V2 message with embeds or content | 2 |
-| Embeds over 6000 | 1 |
-| Message too long | 1 |
-
-**`evaluationFailures` is 0** — the number that would be alarming if it were not, since it means no
-row failed to evaluate at all. **Say whether that looks like a normal residue or like something
-broke.** If it looks normal, this is done. The risk it guards: an unexpected mass-invalidation
-reaching Statbot's gate as stopped deliveries across many guilds, found by guild owners not by us.
-
-**Not established by that report:** the **per-field embed limits were never evaluated** — only the
-6,000-character aggregate — so records violating them sit inside the 4750, uncounted.
+## 1. Your decision — no agent may make this
 
 **QA-R20 — record the whitespace class as empty.** The class is records whose `data.components` is
 structurally Components V2 **and** whose `content` is non-empty but **whitespace only**. It is
@@ -61,7 +38,7 @@ by gate behaviour nobody has tested.
 
 ## 2. Then, in this order
 
-**The live declaration to statbot.** Only after QA-R9 and QA-R20 are both settled. **Telling
+**The live declaration to statbot.** Only after QA-R20 above. **Telling
 statbot's steering thread is your call, not mine** — by D12 that chain has been held since
 2026-08-23 and no session has been told. Record your words and the time.
 
