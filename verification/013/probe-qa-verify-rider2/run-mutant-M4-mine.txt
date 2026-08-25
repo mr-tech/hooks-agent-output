@@ -1,0 +1,69 @@
+
+ RUN  v4.1.2 /tmp/qa-v
+
+ ❯ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts (22 tests | 4 failed) 16ms
+     × row-E stored record, flag set reads as V2 when it is the CURRENT message 5ms
+     × row-E stored record, no flag reads as V2 when it is the CURRENT message 1ms
+     × loading a Classic draft over a stored row-E record announces the switch to Classic 2ms
+     × loading a V2 draft over a stored row-E record announces NO mode change 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > row-E stored record, flag set reads as V2 when it is the CURRENT message
+ FAIL  src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > row-E stored record, no flag reads as V2 when it is the CURRENT message
+AssertionError: expected 'classic' to be 'v2' // Object.is equality
+
+Expected: "v2"
+Received: "classic"
+
+ ❯ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts:137:27
+    135|     // Objective invariant: V2 components present -> the message is V2.
+    136|     const diff = computeLoadDiff(stored as never, { content: 'hi' } as…
+    137|     expect(diff.fromMode).toBe('v2');
+       |                           ^
+    138|   });
+    139|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > loading a Classic draft over a stored row-E record announces the switch to Classic
+AssertionError: expected 'This will overwrite the current messa…' to contain 'switch from Components V2 to Classic'
+
+Expected: "switch from Components V2 to Classic"
+Received: "This will overwrite the current message. It will remove Container."
+
+ ❯ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts:144:18
+    142|       computeLoadDiff(ROW_E_STORED_WITH_FLAG as never, { content: 'hi'…
+    143|     );
+    144|     expect(text).toContain('switch from Components V2 to Classic');
+       |                  ^
+    145|     expect(text).toContain('remove Container');
+    146|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > loading a V2 draft over a stored row-E record announces NO mode change
+AssertionError: expected 'This will overwrite the current messa…' not to match /switch from/
+
+- Expected:
+/switch from/
+
++ Received:
+"This will overwrite the current message. It will switch from Classic to Components V2."
+
+ ❯ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts:152:22
+    150|       computeLoadDiff(ROW_E_STORED_WITH_FLAG as never, { flags: V2_FLA…
+    151|     );
+    152|     expect(text).not.toMatch(/switch from/);
+       |                      ^
+    153|   });
+    154|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 18 passed (22)
+   Start at  16:38:43
+   Duration  726ms (transform 108ms, setup 0ms, import 435ms, tests 16ms, environment 0ms)
+

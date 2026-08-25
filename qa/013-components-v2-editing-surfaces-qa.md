@@ -4061,3 +4061,57 @@ My own field says *"this verdict expires when **either** the tree or the criteri
 **But it names a real cost the dual anchor creates: a stage that raises a finding against the criteria will, if the finding is accepted, expire its own verdict.** Left there, the anchor quietly penalises the behaviour this chain most wants. **What keeps it honest is that the re-anchor is cheap** — a derivation over the write set and a dated line — **and that it is only cheap because the tree did not move.** Had code moved too, this would have been a full pass and correctly so.
 
 **Carried to the retrospective in that form**: the dual anchor is worth its cost, and the re-anchor form is what makes the cost payable.
+
+## V.14 — Row E as the **current** message: the reviewer is right, the bad line is **mine**, and the suite cannot catch the wrong fix
+
+**Trigger**: code review round 25 (`41ca30b`, `probe-cr27`), routed here because it concerns my spec. **Re-derived here by execution, not taken from the relay.**
+
+### The mechanism, confirmed
+
+`computeLoadDiff(current, incoming)` applies `settledMode` to **both** arguments. **`incoming` (`validatedDraft`) is guarded** — the parsing effect nulls it on `requiresChoice`. **`current` is `message?.data`, a stored record, and is guarded by nothing.** My §V.8 INFO-2 said the branch is live via `current`; the reviewer's correction of its own finding says the same and states the reasoning error underneath it — *"I checked one argument's guard and generalised to both."*
+
+### The part that is mine, and I am not going to soften it
+
+**The disagreement the reviewer found is between production and a helper I wrote.** In my own pre-registered spec, adopted into the tree as M9-b's instrument:
+
+```
+function modeAfterLoad(draft) { … return d.requiresChoice ? 'classic' : d.mode; }
+```
+
+**That `'classic'` fallback is wrong**, and production's is right: `settledMode` returns `isMessageV2(draft) ? 'v2' : 'classic'` for row E, and a stored row-E record **has V2 components**, so by the plan's own Objective invariant — *"a message is Components V2 iff its `flags` carry `IS_COMPONENTS_V2_FLAG` or its components include a V2 type"* — **it is V2.**
+
+**No assertion in my spec is wrong today**, because none of its fixtures is a row-E draft. **It is a wrong constant sitting in an oracle** — the exact class this document has spent the day enforcing against everyone else. I wrote it, the reviewer found it, and it went into the shipped suite under my name.
+
+### My CR24-6 oracle did **not** cover it either
+
+Asked whether my oracle already covers the path: **it did not.** It filtered row E out via `COMMITTING` — correct, because row E never becomes `validatedDraft` — and **both its `CURRENT_` fixtures were non-row-E.** The gap was real and the reviewer found it, not me. **Now closed**: four cases added, expectation stated literally from the Objective invariant. **22/22 green at `e1d9b2b`.**
+
+### **The measured fact, and it is the reason this section matters**
+
+The reviewer's banner tells a fixer *"do not fix this by deleting the branch as dead; collapse to one encoding, keeping production's."* **I executed the wrong collapse** — mutant **M4**, `settledMode` reduced to the spec's `requiresChoice ? 'classic'` encoding:
+
+| Under M4 | Result |
+|---|---|
+| my extended oracle | **4 failed** |
+| M9-b's own spec | **8 passed** |
+| **the full suite (635 tests, 50 files)** | **4 failed — and all four are mine.** 49 of 50 files green |
+
+> **Without this oracle in the tree, the entire suite is blind to a CR24-2 fix that collapses to the wrong encoding.** The reviewer's banner is currently the only thing preventing it, and a banner is not an instrument.
+
+### **FIX-ROUND CONDITION — not a release condition**
+
+**Nothing is wrong in production at `e1d9b2b`**, so this changes no verdict and gates no release. It is a condition on the **CR24-2 fix round**:
+
+> **Adopt `013-qa-cr24-6-independent-mode-oracle.test.ts` into `src/utils/__tests__/` before or with the CR24-2 fix**, and **correct `modeAfterLoad`'s row-E fallback in `013-fqa31-…test.ts` to `isMessageV2`'s answer**. *If the fix collapses to one encoding and picks the spec's, production starts telling a user editing a stored row-E record that its mode is Classic when the composer shows V2 — and 49 of 50 test files stay green.*
+
+**Both files are `website` source.** The oracle is mine to author and **not mine to commit there** — that needs the owner's approval and it is routed, not taken.
+
+### Verdict unaffected
+
+**QA COMPLETE at `e1d9b2b` / plan rev 48 stands.** Production holds the correct value on this path; this is a **coverage** finding, and its whole force is forward-looking.
+
+### On the reviewer's two self-records
+
+It committed CR24-2's own defect inside CR24-2 — *"a predicate that does not match the claim it supports"* — and it says the third time today its instrument answered a narrower question than its sentence. **That is the same failure I recorded against myself at P3.30** (prose about my own artifact, narrower than the artifact), and against the register at P3.23 (a predicate that could not see its own members). **Three stages, one shape, one day.** Its own framing is the one to keep: *nothing about it looked wrong — the call site was the right call site, the guard was really there.*
+
+And on its concession about CR24-6 — *"I was wrong about the consequence, not just the scope… the independence exists, one layer down, where I had not looked"* — the method note it draws is the transferable part and I endorse it: **it took building the oracle and then trying to make the seam transmit.** Reading would not have produced M3, and **M3 is the only reason the answer is trustworthy in either direction.**

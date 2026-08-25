@@ -111,6 +111,47 @@ describe('CR24-6 — the confirmation names the mode the Load produces, against 
       .not.toMatch(/switch from/);
   });
 
+  // -------------------------------------------------------------------------------------------
+  // ROW-E AS THE *CURRENT* MESSAGE. Added 2026-08-25 after code review round 25 (`41ca30b`)
+  // established that `settledMode` is applied to BOTH of `computeLoadDiff`'s arguments and that
+  // only `incoming` is guarded — `current` is `message?.data`, a stored record, guarded by nothing.
+  //
+  // The original version of this oracle did NOT cover this: it filtered row E out via COMMITTING
+  // (correct — row E never becomes `validatedDraft`) and both its CURRENT_ fixtures were non-row-E.
+  // That was a real gap and the reviewer found it, not me.
+  //
+  // The expected value is a literal from the plan's Objective invariant, not computed:
+  //   "a message is Components V2 iff its `flags` carry IS_COMPONENTS_V2_FLAG or its components
+  //    include a V2 type"
+  // A stored row-E record has V2 components, so it IS V2 — whatever its flag.
+  // -------------------------------------------------------------------------------------------
+  const ROW_E_STORED_WITH_FLAG = { flags: V2_FLAG, content: 'hi', components: [CONTAINER] };
+  const ROW_E_STORED_NO_FLAG = { content: 'hi', components: [CONTAINER] };
+
+  it.each([
+    ['row-E stored record, flag set', ROW_E_STORED_WITH_FLAG],
+    ['row-E stored record, no flag', ROW_E_STORED_NO_FLAG],
+  ])('%s reads as V2 when it is the CURRENT message', (_label, stored) => {
+    // Objective invariant: V2 components present -> the message is V2.
+    const diff = computeLoadDiff(stored as never, { content: 'hi' } as never);
+    expect(diff.fromMode).toBe('v2');
+  });
+
+  it('loading a Classic draft over a stored row-E record announces the switch to Classic', () => {
+    const text = describeLoadDiff(
+      computeLoadDiff(ROW_E_STORED_WITH_FLAG as never, { content: 'hi' } as never),
+    );
+    expect(text).toContain('switch from Components V2 to Classic');
+    expect(text).toContain('remove Container');
+  });
+
+  it('loading a V2 draft over a stored row-E record announces NO mode change', () => {
+    const text = describeLoadDiff(
+      computeLoadDiff(ROW_E_STORED_WITH_FLAG as never, { flags: V2_FLAG, components: [CONTAINER] } as never),
+    );
+    expect(text).not.toMatch(/switch from/);
+  });
+
   // ---- CONTROLS. These must pass before and after any fix, or the fix over-reached.
   it('CONTROL — a flag-only draft over a Classic message is still a switch TO V2', () => {
     expect(describeLoadDiff(computeLoadDiff(CURRENT_CLASSIC as never, { flags: V2_FLAG } as never)))
