@@ -152,3 +152,35 @@ blesses whatever name is chosen for every future document**, so it is a conventi
 patch. `tools/` is source: **the change needs the owner's approval, and the convention should be
 settled before it is asked for.**
 
+## `verification/` needs a convention: a probe directory must not hold an editable second copy of a file the tree executes
+
+Proposed by `qa-hooks-013-3` 2026-08-25 **with its reason and deliberately not enacted** — it judged enacting
+it mid-chain to be displacement while the observation count stands at zero, and I agree. Recorded here so
+the proposal survives the session that made it.
+
+**The incident it generalises.** QA's independent oracle was adopted into `website/src/utils/__tests__/`
+and a copy remained under `verification/013/probe-qa-verify-rider2/`. Two review findings were then
+corrected **in the copy only**. Three stages — QA, `uat`, and this thread — reported or relied on a fix
+that had not shipped; `code-reviewer-013-4` caught it by measuring the tree (`grep -c "D13"`: shipped
+**0**, probe **5**; 186 lines against 215). **No behaviour was affected** — all sixteen `id`/`expected`
+pairs were byte-identical — so the whole cost was to the record.
+
+**Why every existing safeguard missed it**, which is the part worth keeping: **every instrument in that
+directory hashes or compares the copy against itself.** None asserts anything about the shipped file, so
+all of them are tuned to detect a copy falling **behind**. `uat`'s formulation: *"a copy that lags looks
+wrong on inspection; a copy that leads looks like progress."* The reviewer placed it as `probe-cr1` /
+`probe-cr10`'s fossil defect **running in reverse**.
+
+**QA's three proposals, in its own order of preference:**
+
+1. **A probe directory must not hold an editable second copy of a file the tree executes.** Its sentence:
+   *"the moment my oracle was adopted into `src/utils/__tests__/`, my copy stopped being an instrument and
+   became a rival."*
+2. **Where a copy must exist, its manifest hashes the SHIPPED file**, so it fails on divergence in
+   **either** direction.
+3. **Cheapest and best: keep a pointer and a SHA, not a copy. A pointer cannot run ahead.**
+
+**Not decided.** `verification/`'s scope was ruled by QA at P3.16 — the directory is the chain's, and each
+stage indexes its own instruments — so a convention over it is the agent-output domain's to set, and it
+binds every future chain's probes. It should be settled deliberately rather than as a fix round.
+
