@@ -544,3 +544,41 @@ cosmetic — recorded because it is the same class of off-by-one that made the b
 this one sits in the artifact the owner will actually read.
 
 **None of this moves the verdict.** NO-GO stands, on the twelve non-terminal `PRE` rows and U-C5.
+
+### 10.11 A recurring defect class, recorded for the retrospective: **range restatement**
+
+Recorded here at steering's request and on my own judgement that it belongs in a chain document.
+**The retrospective reads this document and does not read the cross-session channel**, so a defect
+recorded only in that channel is invisible to process improvement by construction. **This is about the
+mechanism, not about any session** — I am one of the two parties exposed by it, and the instance that
+nearly did damage was one I was about to act on.
+
+**The class**: *a count or identity is measured correctly over one commit range, then restated over a
+different range where it is false.* Both endpoints are real, the measurement was really run, and the
+restated number looks corroborated because it came from a genuine command. **Nothing about the wrong
+form looks wrong** — which is why re-running the reported form confirms it and only re-measuring at the
+range you actually need catches it.
+
+| # | Stated | True over | False over | Consequence |
+|---|---|---|---|---|
+| 1 | "the delta from your assessed point is test-only" | `53beb37..a151fb4` | **`4e9da96..a151fb4`** — my assessed point | **Nearly load-bearing.** Had I carried my `4e9da96` build forward, the release would have rested on a green build that never compiled the shipped `JsonModalBody.tsx` — the one file this chain turns on (§10.1) |
+| 2 | "four test files" (`OWNER-QUEUE.md:31`) | `164d720..a151fb4` (**verified here**: 4 files, non-test empty) | **`821330d..a151fb4`** — 1 commit, 3 files | Cosmetic, beside a correct instruction, in the document the owner reads while checking a tip SHA. Corrected at `2ef9640`; line 31 now reads *"one commit, three test files, zero production files"* (**verified**) |
+
+Steering reports this as the **third** occurrence of the class in two days. I record that as its count,
+not as my measurement — I measured instances 1 and 2 myself and did not observe a third.
+
+**What caught both**: re-measuring at the range actually needed, against a counter that computes before
+any output filter (`git rev-list --count`, `git diff --numstat`). **What would not have caught either**:
+re-running the reported form, which reproduces stably and therefore reads as confirmation. This is the
+same failure shape the workspace already documents for filtered output — *a contradiction against an
+independent counter is the signal, and re-running the original is not verification*.
+
+**The cheap structural fix, offered not adopted** (process is not this stage's to change): **state both
+endpoints whenever a count or an identity is asserted** — `A..B`, never a bare count and never "since
+your point". A bare count cannot be falsified by its reader; `git diff --numstat X Y` can be, in one
+command, by anyone. Instance 2 was caught precisely because the range was written down next to it.
+
+**Why instance 2 was worth raising despite being cosmetic**, since the reasoning generalises: a wrong
+number sitting beside a correct instruction **reads as corroboration for the instruction**. In a sitting
+where the owner is counting seeds and checking a tip SHA against a document, a number he can trivially
+falsify is what makes him distrust the numbers he cannot.
