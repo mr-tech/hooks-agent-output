@@ -1311,6 +1311,38 @@ the word `REJECTED` from rounds 1 and 2 — both long since closed. The plan is 
 and D18 forecloses touching it; recorded here so a reader who sees the flag knows it is a false
 positive with a known cause, and does not take chain 012's plan for a blocked plan.
 
+**Measured across the repository — the flag's true-positive rate is currently zero.** The count came
+from `steering-hooks-012-2` after it withdrew its own challenge on this field; **re-derived here
+rather than accepted**, which is the discipline this chain has twice had to learn. `grep -c` over
+`--status` output (computed before the filter, per RTK.md's counting rule) returns **5** flags, each
+mapped to its chain:
+
+| # | Chain | Document | Trips on | State |
+|---|---|---|---|---|
+| 1 | 012 | `planning` | `REJECTED` — review rounds 1 and 2 | Open doc, but `Status: Released` |
+| 2 | 013 | `qa` | detail narrative | **Closed** |
+| 3 | 013 | `uat` | detail narrative (its own `Status` is `Released`) | **Closed** |
+| 4 | 013 | `deployment` | detail narrative | **Closed** |
+| 5 | 5 | `qa` | `QA Failed` — a genuine historical status | **Closed**; chain fully closed, superseded by a second `qa` document |
+
+**Not one is actionable.** Four sit on closed documents; the fifth is an open document whose own
+`Status` is `Released`. *(Precision on the count's framing: chain 012 is not itself a closed chain —
+7 documents open — but the flagged document carries `Released`, so the conclusion holds while the
+phrase "every one sits on a released or closed chain" does not quite.)*
+
+**A second, independent inconsistency in the same instrument**, verified at source: **line 702**
+pushes the flag with no `closed` check, while **line 720** filters on `!d.closed`. So the same
+predicate both includes and excludes closed documents depending on which code path reads it — which
+is why four of the five flags render at all.
+
+**This is U-12's fourth surface**: narrative history in a `Status-Detail`, read by a regex with **no
+notion of tense**. A record that accurately says *"round 1 REJECTED, round 3 approved"* is read as a
+live rejection. The remedy is not to reword accurate records to satisfy a naive matcher — **that
+would be corrupting the record to please an instrument** — it is to fix the instrument.
+`tools/check-repo.js` is source off a chain branch and needs the owner's approval, so it is not
+touched here and is routed by steering to `TODO.md` and to him. **Recorded, not acted on, and not
+widened into any chain document** (D18).
+
 ---
 
 ## Value Delivery Assessment — at closure
