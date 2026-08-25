@@ -3765,3 +3765,102 @@ the last step is not evidence the earlier steps are sound; it is the reason the 
 
 **Register maintenance log — nothing appended this sitting.** Recorded explicitly, because a maintenance
 log that is silent for a sitting is indistinguishable from a sitting that was not logged.
+
+---
+
+# Phase 3, eighth sitting, 2026-08-25 — the stop's conditions recorded, and one residual that must survive to the verify pass
+
+**Session**: `qa-hooks-013-3` [ab2af3]. **Trigger**: `uat` rev 33 (`f7c8349`) via `steering-hooks-013-3`.
+**Nothing is owed in either direction.** No verdict, no row change. This sitting exists to put three
+things where they will still be true after this session ends.
+
+## P3.40 — The cell sweep is **STOPPED BY AGREEMENT AT A DEFINED POINT. It is not COMPLETE**
+
+**Recorded here because my own instructions forbid the alternative**: *if a pass bounds coverage, log what
+was dropped — silent truncation reads as "covered everything" when it didn't.* `uat` attached this as the
+first condition of agreeing to the stop, and it is right that the record, not the intent, is what a later
+reader inherits.
+
+**What was swept, with its predicate**: *two cells of one row specifying different predicates*, applied to
+**(condition ↔ failure mode)** and **(condition ↔ predicted value)** over the 22 live ten-cell rows.
+**What was NOT swept**: any other cell pair — `Earliest-decidable ↔ Condition`, `Primary instrument ↔
+Subject`, `Owner ↔ Primary`, and the rest. **No claim is made that those are consistent. Nobody has
+looked.**
+
+**So the class is not closed, and this document must not be read as closing it.**
+
+## P3.41 — The three conditions attached to the stop, two of which bind my next pass
+
+1. **Recorded as stopped, not completed** — P3.40.
+2. **The stop binds deliberate search, not incidental reporting.** `uat` is treating my *"the next defect
+   will be of a different kind"* **as a prediction**. If a third-pair defect surfaces while a row is being
+   executed, **it gets recorded** — *a falsified prediction is data about whether the stop was premature,
+   not a breach by whoever finds it.* **Accepted, and I would rather it were falsified than protected:**
+   a stop condition that suppresses its own counter-evidence is not a stop condition, it is a claim
+   defended.
+3. **The stop EXPIRES at the post-rider tip**, and this is the one that would have evaporated. The rider
+   changes production code at **three sites**. When those surfaces move, **the cell-consistency question
+   is fresh because the artifact changed, not because anyone went looking** — the same principle as
+   prediction staleness, applied to cells rather than to values. **Answered inside the normal
+   re-verification, not as a new sweep.**
+
+## P3.42 — **BC-19a's `clears` limb: a residual that is closed to future evidence**
+
+This is new and it is not mine to fix — but it is mine not to re-raise, and mine to carry.
+
+**What R31.4 had cleared it on**: *"he attested by number, so no cell was in the path."* That assumed the
+attestation bypassed the cells. **My predicted-value sweep removed that assumption**: BC-19a's
+**Predicted value** names *appears* and not *clears*, and its **failure mode** does the same. **Both
+human-facing cells named one limb of two.** What was available to read displayed *appears* and was silent
+on *clears*.
+
+> **BC-19a's `clears` limb has no positive evidence from any route, and none can now be obtained — its
+> subject, `CodeMessageNotice.tsx`, was deleted at `2d90e8a`.**
+
+**`uat` refused to revert the terminalisation on a ground I endorse**: reopening a row whose subject is
+gone converts a terminal row into a **permanently unreachable obligation** — manufacturing the exact
+phantom its rev 28 spent a revision clearing. **The residual is real, it is recorded, and it is not a
+reason to reopen anything.**
+
+**I did not find this by fixing BC-19a — I found it by declining to.** The disposition at P3.32 was to
+leave a terminal row's prediction alone; the compounding fell out of the sweep that produced it. Recorded
+because the sequence matters: **the residual was created by an earlier clearing being right about the
+route and wrong about the cells**, and only a sweep of the other cell pair could show that.
+
+## P3.43 — Carry-forward for the verify pass, restated whole
+
+**Replaces the list at P3.29.** Restated rather than amended, because a list that is amended in three
+places across four sittings is a list a successor reads wrong.
+
+1. **Fix verification for F-QA31 `load-confirmation-names-wrong-mode` and F-QA33
+   `disclosure-pointer-dangles`**, against the pre-registered specs already captured.
+2. **F-QA32 `emptied-composite-drop-unnamed` is WITHDRAWN. Its absence from the fixed tree is the
+   EXPECTED state** and must not be read as a missed fix.
+3. **F-1 limb 2** — the surviving render instrument executed under a verdict.
+4. **The rider staleness condition (P3.15)** — one command against the rider's diff: if it stays inside
+   the `catch (err)` block at the two JSON surfaces, no register row is staled.
+5. **The cell-consistency question, re-opened by the rider** (P3.41 condition 3) — **inside the normal
+   re-verification, not as a new sweep.**
+6. **MEDIUM-2's status**, whether or not CR23-2 landed.
+7. **The remote limb of tree identity**, which DNS denied on 2026-08-25.
+8. **Do not re-raise BC-19a's `clears` residual** (P3.42). It is recorded, it is closed to evidence, and
+   raising it again would manufacture a phantom obligation.
+
+**Assumption Not Checked, restated so it travels with this list**: this chain's register work assumes the
+rows re-derived at P3.4 are the whole of what moved. **BC-12** and **BC-17** predict over Discord's API,
+which no instrument here contacts, and **BC-13** predicts over a clock — all three diff clean while
+having moved underneath. **Falsity signature**: an operator hits a mismatch that is neither face of
+F-QA31 nor a rendering absence. **Owner**: the verify pass at the post-rider tip.
+
+## P3.44 — State
+
+**No verdict moved. No row changed.** Eleven executable; **BC-1 alone blocked** on F-QA31, in the rider
+round. **No verdict before the post-rider tip.**
+
+**Register maintenance log — nothing appended this sitting**, stated explicitly for the same reason as
+last: a log silent for a sitting is indistinguishable from a sitting that was not logged.
+
+**One line for the retrospective, `uat`'s and not mine, because it is the sentence that should govern the
+next chain**: *refining instructions while the observation count stands at zero is displacement, however
+good each finding is.* **Eleven rows executable, none observed. Every defect across five revisions was in
+the instructions for observing, and not one in the observing — because no observing has occurred.**
