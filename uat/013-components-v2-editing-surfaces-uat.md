@@ -9,8 +9,38 @@ Status-Detail: >-
   verdict**; `UAT Complete` is not a value this field takes, and **devops closes this document, not this
   stage** (skill responsibilities table; this stage's own definition). **What `Active` is scoped to, so no
   reader has to reconstruct it**: **four `POST` rows (BC-12/14/17/20) stand open and this register owns
-  them**, and rev 48 carries **one blocking decision for the owner**. **What it blocks on**: R48.4, then the
-  `POST` ledger, then devops' close.
+  them**, and one question stands with the owner (**R49.4**). **What it blocks on**: R49.4 — whether his
+  snapshot ruling withdraws the four `POST` rows — then those rows, then devops' close. **R48.4 is
+  DECIDED (owner ruling, R49.1) and no longer blocks.**
+  **Rev 49 — HIS RULING ACCEPTED: `a74b9e2` LEAVES 013's RECORDS ENTIRELY.** ***"No. The records don't
+  mention what happens after release. Release was self-contained and a snapshot at the time of release."***
+  — his own words, correcting an option description he had just selected, given **before rev 48 existed and
+  not against this register's reasoning.** **Stronger than R48.4's option A**, which would still have had
+  the records *note* the move: **his ruling is that they do not reach past the release at all.** No
+  re-review, no re-gate, no revert, **and no residual entry about `a74b9e2` inside 013.** **BC-1: his ruling
+  DOES reach it and steering's offer to carry the point back is DECLINED — not out of deference.** R48.3's
+  observation that BC-1's evidence no longer describes production **IS a statement about what happens after
+  release**, the exact class he ruled out; BC-1 was `EXECUTED` against the tree it was executed against,
+  which is the snapshot he describes. **Asking would be asking him to re-rule what he just ruled in
+  different words.** **Rev 48's FINDING stands and is not walked back** — production was not serving the
+  released tree, the record would have gone out claiming coverage it lacked, and verifying at the mechanism
+  stopped both a false-premise finalisation and a rev 52 plan write. **Its proposed DISPOSITION is
+  superseded, and that is the register working: a ruling arriving ahead of the gate's request is not the
+  gate being ignored.** Residual 8 retired to a disposition line; **residuals seven.** **ONE DISTINCT
+  QUESTION IS PUT BACK, and it is NOT BC-1: the four `POST` rows are by construction records of what
+  happens after release — BC-14 is literally *"the user-reported defect is fixed in production"*.** **Read
+  one way his sentence withdraws all four and the chain closes now; read the other they stand and must be
+  observed against `a74b9e2`.** **Applying it maximally would withdraw four release conditions on a ruling
+  given about a dialog — expanding a ruling past the question it answered, the error this chain has spent
+  all day not committing — and applying it minimally keeps alive four rows he may have just ended.
+  `WITHDRAWN` is his alone.** The ask names what the answer changes, so it is not rigour-theatre. **If he
+  withdraws them the cost goes in the record in plain words: the chain closes with the user-reported defect
+  never confirmed fixed in production.** **Steering's `Status` withdrawal accepted in the terms made, and
+  two things kept past the instance: it did not repeat the error, and it left the architecture documents
+  alone because `Active` is that type's normal state — one of its three "stragglers" was never one.**
+  **Recorded for the retrospective**: the repo has **no roadmap and no release tracker across twelve
+  chains**, found by the roadmap pass, **which also found `a74b9e2` unprompted and refused to act on it as
+  outside its stage — two stages finding the same fact independently within the hour.**
   **Rev 48 — PRODUCTION MOVED PAST THE GATE ELEVEN MINUTES AFTER THE RELEASE, and this revision exists
   because a claim was verified at the mechanism instead of accepted.** **`git ls-remote origin
   refs/heads/master` → `a74b9e2`, NOT `b56570d`.** Steering's report of `b56570d` **was correct when made**;
@@ -867,6 +897,7 @@ Verified-At: >-
 | 2026-08-25 | **owner** via `steering-hooks-013-3` [b04529], relayed **unpadded and deliberately not expanded into three limbs** — steering declining to author an observation he did not make | **Rev 46. He wrote `BC-4 pass` — two words — and THE ROW DOES NOT CLOSE ON IT YET. ONE question closes it.** **The case for closing is real and is stated first rather than caricatured**: `pass` is not freehand — R45.3 defines it three lines above the word; **three specific non-`pass` outputs stood in front of him** (`{}` → *"not executed"*, inert editor → *"write down exactly that"*, advanced-first → *"go back"*) **and he used none**; and **BC-4 carries no silent limb**, so this register's own rev-43 test points at closing it. **What holds it open is ONE screen, not a pile: hazard A** — advance first, see a greyed `Save` with no explanation, never read limb 2's sentence. That screen **contains R45.3's own limb 3**, so a reader who skipped point 2 sees something resembling a pass. **AND THE ARGUMENT THAT DECIDES IT IS NOT ABOUT HIM: this register declined F-QA33 four hours ago on the express ground that its cost is paid in the operator text's first hazard bullet. Closing BC-4 without checking the one limb F-QA33 endangers would retroactively empty that reasoning — a stage does not cite a mitigation as its reason for declining a fix and then decline to verify the mitigation.** QA pre-committed the standard at §V.29: a green row over a check that never executed is *"the precise failure shape this pass was asked to avoid."* **R44.3's test applied out loud with the pressure named**: `devops now` is queued behind this row; the ask survives the *"would I ask if nothing were queued"* test **because it can name the screen it excludes**, and a question that cannot name that is rigour-theatre. **ONE question about ONE limb, not a re-execution and not seven times — the rev-43 → rev-44 move exactly.** **Framing tested against R25.1**: it asks for the presence of ONE EXACT STRING — a sighting, not a ratification — with **two options requiring no claim at all**, `No` **de-penalised in the option text**, and **`WITHDRAWN` genuinely available as his ruling.** **Limb 2 observed ⟹ the editor delivered ⟹ QA §V.32 `HELD` by construction (QA §V.29's execution, not inferred here): one string, two rows.** **BC-4 → `NOT EXECUTED — OWNER REPORT ON RECORD, NOT YET DECIDABLE ON LIMB 2`**, the identical state BC-7/BC-8 held at rev 43. **His report is recorded BESIDE the prediction, never over it; the row is not `FAILED` and must not be relayed as though it were.** **RESIDUAL 3 → TEN, and the entry is precise: he adopted this register's definition rather than describing a screen, so his word ENTAILS the string but does not STATE it — an entailment from an adopted definition is not an observation, and that distinction is the whole reason the row is held.** **R45.1.1 DISCHARGED — QA re-anchored to rev 50 independently (§V.34), with two instruments and controls killing rev47→48 and rev48→49; stronger than R45.1's hunk read, and the convergence counts because steering declined to steer it.** Suite 48 files / 627 tests / 627 passed at `b56570d`. **`devops now` recorded as a direction, NOT a terminal state; steering holding devops was right on both counts.** **Release decision UNCHANGED and still conditional. Open set 5. Residuals 7.** |
 | 2026-08-25 | **owner** via `steering-hooks-013-3` [b04529], which put R46.3's question as a **blocking selection prompt with all four options unaltered and nothing set** | **Rev 47. BC-4 → `EXECUTED` 2026-08-25. QA §V.32 → `EXECUTED — ASSUMPTION HELD`. ALL EIGHT `PRE` ROWS TERMINAL. THE APPROVAL IS NOW UNCONDITIONAL.** He chose ***"Yes — I read that line"***, taking neither the costless *"Not from memory"* nor the row-ending *"My `pass` stands"*. **What it does that his first report could not: rev 46 held the row because `pass` ENTAILED limb 2 under an adopted definition without STATING it; this states it — a sighting of the exact string rather than a conclusion about a row.** **And it kills hazard A by observation, not inference: hazard A IS the screen on which that line was never read (QA D1b finds no floor message on page 2), so a man who read it was on page 1 below the box.** **THE §V.29 CHAIN WAS RE-DERIVED AT QA's CAPTURED INSTRUMENT RATHER THAN ASSERTED** — steering offered the step and it cost one read. §V.29 alone gives only the forward direction; **the contrapositive needed one link that R46.3 had CITED rather than shown — that the exact string is produced BY the floor — and the `floor-off` mutant already supplied it: KILLED, 7 failures including D1 (error shown), so the harness reads the floor's real output and not a constant.** **§V.32 is therefore held by a mutant, not by a syllogism this register wrote.** **The one residual in the chain is named rather than buried**: *"the exact string is the floor's"* rests on QA §V.31.5, is QA's to own, and is why the question quoted the string in full instead of asking whether he saw an error. **All eight `PRE` rows ENUMERATED at their terminal states rather than counted** — BC-1/6/9/10/18 (rev 43), BC-7/8 (rev 44), BC-4 (rev 47) — **because "eleven of twelve" is this register's own worst measurement error and a count is what travels when nobody looks. No row withdrawn, none dropped, none *satisfied incidentally*.** **Residual 3 → ELEVEN, and the entry states the kind: an option label is an adoption, but this is the class's NARROWEST member — what was adopted is one exact string quoted in full in the question, a perceptual fact rather than a characterisation. The register must not read as though he described the screen; he confirmed a line he was shown.** **UNCONDITIONAL DOES NOT MEAN CLOSED**: BC-12/14/17/20 stand `NOT EXECUTED` and gate the chain's CLOSURE, never the release act; **the release is unblocked, the ledger is not discharged.** **It is also NOT the owner's release approval — `devops now` is a direction to the pipeline and pushing needs his explicit word.** F-QA33 stays open, and **its decline is now paid for: the hazard bullet it justified WORKED.** **R47.7 surfaces a bootstrap conflict in this stage's own definition** — updating the plan's `Status` field writes to this gate's criteria axis and would expire the decision in the act of issuing it; **neither evasion taken**, routed to the planner as a rev 51 registration pass with re-anchor, and to `pi` as a finding. **Open set 5 → 4, `PRE` 0.** |
 | 2026-08-25 | `steering-hooks-013-3` [b04529] — reported the release complete at `master` = `b56570d`, flagged this document's `Status: Active` as contradicting its own record, and asked whether the rev 51 criteria move needs recording | **Rev 48. PRODUCTION MOVED PAST THE GATE ELEVEN MINUTES AFTER THE RELEASE, AND THIS REVISION EXISTS BECAUSE THE CLAIM WAS VERIFIED AT THE MECHANISM INSTEAD OF ACCEPTED.** **`git ls-remote origin refs/heads/master` → `a74b9e2`, NOT `b56570d`.** **Steering's read was CORRECT when made** — the release did land at `b56570d` at 20:30:01 — **and the tree moved at 20:41:37, which steering has not seen; this is not a peer being wrong.** **The release is sound**: ancestry exit 0, fast-forward, exactly as gated. **On top of it sits exactly one commit, `a74b9e2 "remove unnecessary diff"`, the owner's own — 4 files, 3 under `__tests__`, ONE production path `src/utils/index.ts` at 1 insertion / 22 deletions.** **Rev 47's clause therefore fires on all three verdicts: this gate EXPIRED on both axes, QA's `Verified-At: b56570d` EXPIRED on both, code review's EXPIRED on the tree axis.** **The expiry of THIS gate is harmless and is stated so rather than dramatised — the merge executed while it was live, and a gate expiring after the act it authorised is the clause working. What is NOT harmless: no verdict in this chain covers what is running in production now.** **CLASSIFIED, NOT REVIEWED** — a 23-line diff was read for the one purpose the gate obliges (did the tree move, does it touch a terminalised row), **and the assessment is ROUTED to code review and QA rather than made here**: the change removes the component-type enumeration from the **Load confirmation**; `describeDropSet` survives so the lossy-conversion warning stands. **AND IT IS THE SURFACE BC-1 WAS CLOSED ON** — the row QA said only a human could reach. **BC-1 is NOT withdrawn and NOT reopened: it was correctly `EXECUTED` against the tree it was executed against, but its evidence no longer describes production — a fact about the record, not a criticism of the commit.** ***"Remove unnecessary diff"* reads as a deliberate product judgement that is his alone; this register requests no feature, asks for no revert, and takes no position on whether the change is right.** **ONE BLOCKING DECISION PUT TO HIM (R48.4), with a real accept-as-is option that is explicitly not a failure**; recommendation is a **scoped** re-review the stages size, and a full re-gate is named **disproportionate** rather than offered neutrally. **ON THE `Status` FIELD: steering misread the vocabulary and the field is RIGHT — `Status` is LIFECYCLE, never the verdict; `UAT Complete` is not a value it takes; and the skill's table and this stage's own definition both say DEVOPS closes this document.** **`Active` is also substantively true — four `POST` rows stand open and this register owns them.** **BUT STEERING WAS RIGHT THAT SOMETHING WAS WRONG AND IT IS MINE**: `Status-Detail` opened on rev 47's completion narrative with **nothing stating the lifecycle position**, which is precisely the qualifier the skill says that field exists to carry — **a survey script or `pi` would have made the identical misread without steering's care to ask first.** **Fixed by a standing lead; the field itself did not change.** **The rev 51 criteria move IS recorded and is NOT a re-issue**: no gate is re-issued for an act already complete; what is recorded is that the gate was **live at the instant it was acted on** and **must not be leaned on for any future act.** R47.7's routing correctly **moot**; its `pi` finding survives, never having been about today's instance. **Residuals: eight.** **UAT Complete stands as a verdict about `b56570d` and is NOT a verdict about `a74b9e2`.** |
+| 2026-08-25 | **owner** via `steering-hooks-013-3` [b04529], as a blocking selection prompt put **before rev 48 existed**; steering explicitly did not claim he ruled on this register's reasoning | **Rev 49. HIS RULING ACCEPTED — `a74b9e2` LEAVES 013's RECORDS ENTIRELY.** He chose *"Mine — I removed it deliberately"*, declining *"but I want it gated"*, *"find out who"* and *"revert to the released tip"*, then **corrected the option's own description unprompted, in his own words**: ***"No. The records don't mention what happens after release. Release was self-contained and a snapshot at the time of release."*** **Stronger than R48.4's option A**, which would still have had the records note the move. **No re-review, no re-gate, no revert, no residual entry about `a74b9e2` inside 013.** **BC-1 — steering's offer to carry the point back is DECLINED, and not out of deference: R48.3's observation that BC-1's evidence no longer describes production IS a statement about what happens after release, the exact class he ruled out.** BC-1 was `EXECUTED` against the tree it was executed against, which is the snapshot he describes; **asking would be asking him to re-rule what he just ruled in different words.** **REV 48's FINDING STANDS AND IS NOT WALKED BACK** — production was not serving the released tree, and verifying at the mechanism stopped a false-premise finalisation and a rev 52 plan write mid-pass. **Its proposed DISPOSITION is superseded, and both halves are said: a ruling arriving ahead of the gate's request is not the gate being ignored.** **Residual 8 retired to a disposition line per Retire Dispositioned Content; residuals 8 → 7.** **ONE DISTINCT QUESTION PUT BACK, and it is NOT BC-1: the four `POST` rows are BY CONSTRUCTION records of what happens after release — BC-14 is literally *"the user-reported defect is fixed in production"*, BC-12 *"still sends after deploy"*.** **Read one way his sentence withdraws all four and the chain closes now; read the other they stand and must be observed against `a74b9e2`. Applying it maximally would withdraw four release conditions on a ruling given about a dialog — expanding a ruling past the question it answered, the error this chain has spent all day not committing. Applying it minimally keeps alive four rows he may have just ended. `WITHDRAWN` is a terminal state only he may rule.** The ask passes BC-4's test — **it names what the answer changes** — and **if he withdraws them the cost is recorded in plain words: the chain closes with the user-reported defect never confirmed fixed in production.** **Steering's `Status` withdrawal accepted in the terms made — same channel, error's class named correctly as asserting from an unestablished fact — and two things kept past the instance: it did not repeat the error on the other two documents, and it LEFT THE ARCHITECTURE DOCUMENTS ALONE because `Active` is that type's normal state; one of its three "stragglers" was never one.** **For the retrospective**: the repo has **no roadmap and no release tracker across twelve chains**, found by the roadmap pass, **which also found `a74b9e2` unprompted and refused to act on it as outside its stage — two stages finding the same fact independently within the hour, neither of them the one whose report said otherwise.** |
 
 ## Scope of This Revision — and What It Deliberately Does Not Do
 
@@ -8607,3 +8638,139 @@ verdict, and the alteration is unreviewed by this chain.*
 5. **Nobody** — records 013 closed while R48.4 is undecided, takes a `POST` observation without naming
    `a74b9e2`, or reads *"the release was made"* as *"production is verified"*. **They were the same
    sentence for eleven minutes and have not been since.**
+
+---
+
+# Rev 49 — **HIS RULING ACCEPTED. `a74b9e2` LEAVES 013's RECORDS ENTIRELY, BC-1 IS UNTOUCHED, AND ONE DISTINCT QUESTION HIS WORDS DO NOT REACH IS PUT BACK.**
+
+## R49.1 — The ruling, verbatim, and what it disposes of
+
+> **No. The records don't mention what happens after release. Release was self-contained and a snapshot at
+> the time of release.**
+
+**His own words, correcting the second half of an option description he had just selected.** He was shown
+`a74b9e2` as a blocking selection prompt with the facts — one production file, the Load-dialog naming
+removed, **no gate covering it** — and chose *"Mine — I removed it deliberately"*, declining *"but I want it
+gated"*, *"find out who"* and *"revert to the released tip"*. **His ruling predates rev 48 and was not given
+against this register's reasoning.**
+
+**Accepted, and it is stronger than R48.4's option A.** A had 013's records *note* the tree move and the
+expiries. **His ruling is that 013's records do not reach past the release at all.** So: **no re-review, no
+re-gate, no BC-1 re-execution, no revert — and no residual entry inside 013 about `a74b9e2`**, because on
+his ruling that is not what these records are for.
+
+## R49.2 — **BC-1: his ruling DOES reach it. Do not take it back to him.**
+
+Steering offered to carry the BC-1 point back, on the ground that his ruling answered a differently-shaped
+question. **Declined, and the reason is not deference.**
+
+**R48.3's observation was that BC-1's evidence no longer describes production. That observation IS a
+statement about what happens after release — the exact class his ruling says these records do not make.**
+**BC-1 was `EXECUTED` at rev 43 against the tree it was executed against; that is a snapshot at the time,
+which is precisely what he has ruled the record is.** The row is **correct as written and needs no
+annotation.**
+
+**Spending an exchange here would be asking him to re-rule the thing he just ruled, in different words.**
+**The gap R48.3 named is real and his ruling closes it by declaring it out of scope — which is a disposition,
+not an oversight.**
+
+## R49.3 — **Rev 48's finding was right; rev 48's proposed disposition is superseded. Both halves are said.**
+
+**The finding stands and is not walked back**: production was not serving the released tree, and the record
+would have gone out claiming coverage it did not have. **It stopped steering finalising on a false premise
+and it stopped a rev 52 plan write mid-pass.** Verifying at the mechanism rather than accepting the report
+was the right call and this register does not disown it.
+
+**Its proposed disposition is superseded by his ruling, and that is the register working rather than a
+correction.** R48.4 offered him four options; he had already answered a better-posed version of the same
+question. **A ruling that arrives ahead of the gate's request is not the gate being ignored.**
+
+**Residual 8 — `013's own value-statement surface was altered after the last verdict` — is retired to a
+disposition line, per the skill's Retire Dispositioned Content:**
+
+    RESIDUAL-8  WITHDRAWN — owner ruling 2026-08-25: 013's records are a snapshot at the instant of
+                release and do not reach past it. Not a risk 013 carries. uat R49.1.
+
+**Residuals: seven.**
+
+## R49.4 — **THE DISTINCT QUESTION HIS WORDS DO NOT REACH — the four `POST` rows**
+
+**This is the point worth the exchange steering offered, and BC-1 was not.**
+
+**BC-12, BC-14, BC-17 and BC-20 are, by construction, records of what happens after release.** Read at QA's
+register: **BC-14 is literally *"The user-reported defect is fixed in production."*** BC-12 is *"a V2 message
+that sent at `c85945f` still sends after deploy."* **These rows are not descriptions of the release; they
+are conditions the chain owes about production.**
+
+**His sentence bears on them directly and this register cannot resolve which way.**
+
+- **Read one way** — *"the records don't mention what happens after release"* — **all four are withdrawn**,
+  and the chain closes now.
+- **Read the other** — the ruling is about **the release record being a snapshot**, not about whether
+  post-deploy verification happens — **all four stand and must be observed against `a74b9e2`.**
+
+**Applying his sentence maximally would withdraw four release conditions on a ruling given about a product
+change to a dialog.** **That is expanding a ruling past the question it answered, which is the error this
+chain has spent all day not committing.** **Applying it minimally keeps four rows alive that he may have
+just ruled out of existence.** **Neither is this register's to choose: `WITHDRAWN` is a terminal state only
+the owner may rule.**
+
+**The ask passes the same test BC-4's did — it can name what the answer changes**: whether four rows are
+observed against `a74b9e2` (BC-17 additionally needs a pre-enforcement message) or terminalised
+`WITHDRAWN`, and whether devops can move these documents to `closed/` now or must wait. **A question that
+cannot name that is rigour-theatre; this one can.**
+
+> ### **The question, for steering to put once, and nothing added:**
+>
+> **You ruled that 013's records are a snapshot at the time of release and don't mention what happens
+> after. Four release conditions in the register are about production after deploy — the biggest is
+> *"the user-reported defect is fixed in production."* Does your ruling withdraw those too?**
+>
+> - **Withdraw them — release was self-contained, the chain closes now**
+> - **They stand — they're about the fix working, not about the release record**
+> - **Not from memory / put it back to me later**
+
+**If he withdraws them**, they terminalise `WITHDRAWN` on his ruling with the cost recorded — **the chain
+closes with the user-reported defect never confirmed fixed in production**, and that sentence goes in the
+record, not a softer one. **If they stand**, the observations name `a74b9e2`, never `b56570d`.
+
+## R49.5 — Steering's withdrawal, accepted in the terms it was made
+
+**It stated plainly, in the same channel, that its `Status` diagnosis was wrong and the field was right** —
+and named the error's class correctly as *asserting from a fact it had not established*. **That is the
+withdrawal form this fleet's rules ask for and it is recorded as met, not as a courtesy.**
+
+**Two things in it are worth keeping past the instance.** It **did not repeat the error** on the critique
+and readiness documents, checking the skill's terminal list first. And it **left the architecture documents
+alone** on the ground that every architecture document in the repo is `Status: Active`, so `Active` is that
+type's normal state — **inventing a terminal value there would have been the real defect. One of its three
+"stragglers" was never one**, which is a better outcome than tidying all three.
+
+**Recorded for the retrospective**: the repository has **no roadmap and no release tracker at all across
+twelve chains** — only a `.gitkeep` — found by the roadmap pass, **which also found `a74b9e2` unprompted and
+refused to act on it as outside its stage.** **Two stages found the same fact independently within the hour,
+and neither was the stage whose report said otherwise.**
+
+## R49.6 — State
+
+**`Status: Active`** — lifecycle, not verdict; **devops closes this document.** Scoped to: **four `POST`
+rows pending R49.4**, then devops' close.
+
+**UAT Complete stands as a verdict about `b56570d`.** **It is not a verdict about `a74b9e2` and, on the
+owner's ruling, 013's records make no claim about `a74b9e2` at all.**
+
+**Residuals: seven** (residual 8 retired at R49.3).
+
+**Next Actions** — *point-in-time; later stage documents are authoritative.*
+
+1. **The owner — ONE question** (R49.4). **Nothing else. `Not from memory` is a real answer.**
+2. **This stage — terminalise the four `POST` rows on his answer**, whichever way. **A successor can resume
+   from R49.4 alone.**
+3. **Devops — `closed/` after the `POST` rows resolve.** `origin/master` is `a74b9e2`.
+4. **QA and code review — told, not commissioned.** Under his ruling neither re-issues.
+5. **Retrospective — R45.9, R47.7, and R49.5's two items.**
+6. **Nobody** — re-raises `a74b9e2` inside 013's records, expands his ruling past the question it answered,
+   or takes a `POST` observation without naming `a74b9e2`.
+
+**RUN-LENGTH NOTE**: this register is at roughly 52 requests against a ~60 ceiling. **The document is
+current and a successor resumes from R49.4 with no re-briefing.**
