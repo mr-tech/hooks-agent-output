@@ -3,8 +3,8 @@ ID: 014
 Origin: 014
 UUID: 4671e28c
 Status: Active
-Status-Detail: Revision 1 drafted; awaiting critique. M2 (DOM harness) is an owner-authorised scope delta and carries a REQUIRED analysis (analyst-014) before its implementation; every other milestone is implementable on critic approval.
-Revision: 1
+Status-Detail: Revision 2 — scope confirmed (D14), CLAUDE.md home settled (D15); with critic-hooks-014 for critique. M2 (DOM harness) is an owner-authorised scope delta and carries a REQUIRED analysis (analyst-014) before its implementation; every other milestone is implementable on critic approval.
+Revision: 2
 Target Release: website `master` moved to the chain-014 merge SHA (the package carries no version artefact); `agent-output` moves alongside
 Epic Alignment: none registered — the owner-approved coordination plan `/home/dev/.claude/plans/we-recently-changed-the-wobbly-sparrow.md` is the source of the effort's outcome
 Lane: standard (agent-output/README.md carries no small-lane section — recorded absence, not a judgement)
@@ -18,6 +18,7 @@ Owning-Stage: critic
 
 | Date | Rev | Author | Change |
 |---|---|---|---|
+| 2026-08-26 | 2 | planner-hooks-014 | D14 registered (scope confirmed). D15 amends D6: M1's canonical file becomes `agent-output/CLAUDE.md`, symlinked at `/usr/local/bin/hooks/CLAUDE.md`; M1 OPEN QUESTION closed; rollback for M1 rewritten. Scope delta: none beyond rev 1's. |
 | 2026-08-26 | 1 | planner-014 | Created. Value statement and mint approved by the owner (relayed by steering-test-cleanup). Registers rulings D1–D13. Rubric amended with classes H4–H9 for the inventory's eight unclassified files. Scope delta vs the coordination plan: **M2 adds a DOM test harness (D13)** — devDependency + vitest config — where the coordination plan had delete-or-convert on an analyst verdict. |
 
 ## Value Statement and Business Objective
@@ -46,13 +47,15 @@ Route for every row unless stated: owner selection prompt in session steering-te
 | D3 | CI wiring is out of scope. | Selection prompt (relayed). | Owner withdrawal only. |
 | D4 | Shared helper layer: the planner decides per package/family, with a cost line each way. | Selection prompt (relayed). | Owner withdrawal only. Consumed in M3. |
 | D5 | Statbot shape — not this chain. Registered so the inheritance is visible. | Selection prompt (relayed). | n/a here. |
-| D6 | The Hooks conventions doc lives in a new `/usr/local/bin/hooks/CLAUDE.md`: four-repo map + Test Conventions only. | Selection prompt (relayed). | Owner withdrawal only. |
+| D6 | The Hooks conventions doc is a new `CLAUDE.md` at the workspace root, four-repo map + Test Conventions only — **home amended by D15**. | Selection prompt (relayed). | Owner withdrawal only. |
 | D7 | The "audit existing tests" rule reaches agent definitions via this chain's retrospective → pi, not by definition edits in-chain. | Selection prompt (relayed). | Owner withdrawal only. |
 | D8 | `shapes-v2.test.ts` case `accepts text display with empty content (owner ruling 2026-08-25, D34)` is deleted. | Owner, verbatim: "Delete it — the handoff supersedes D34." (relayed). | Owner withdrawal only. Consequence: the case is removed, not converted; the open handoff `components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md` is the surviving record and this chain does not touch it. |
 | D9 | Owner observations made against in-flight branch revisions (the five `013-owner-*-2026-08-25` files) are intra-chain. Escaped provenance = a release or incident artefact only. | Owner, verbatim: "No — only releases/incidents count; treat as intra-chain." (relayed). | Owner withdrawal only. Consequence: axiom (B) below is tightened to this wording; the five files are spec-form and dispositioned under H1/H2. |
 | D10 | All other agents are spawned by the owner; this planner spawns no subagents. | Owner, verbatim: "all other agents are to be spawned by me for efficiency." (relayed). | Owner withdrawal only. |
 | D11 | Stages talk directly; steering receives gate state only. | Owner, verbatim: "instruct agents to talk directly with eachother as it makes sense to... I do not believe Steering needs to be reported to for everything." (relayed). | Owner withdrawal only. |
 | D12 | Value statement approved as written; chain 014 minted. | Selection "Yes — mint 014 and plan under that value statement" (relayed). | n/a. |
+| D14 | The six-milestone scope (M0 baseline, M1 CLAUDE.md, M2 harness, M3 helpers, M4a/b/c, M5 sweep) is confirmed. | Selection "Confirm the 6-milestone scope" (relayed by steering-test-cleanup, 2026-08-26). | Owner withdrawal only. |
+| D15 | `CLAUDE.md` is canonical at `agent-output/CLAUDE.md` and symlinked at `/usr/local/bin/hooks/CLAUDE.md`; the symlink itself is unversioned. | Selection "Canonical in hooks/agent-output/CLAUDE.md, symlinked at /usr/local/bin/hooks/CLAUDE.md"; option text as put by steering: "Versioned in the record repo; the workspace path still auto-loads via the symlink. Symlink itself is unversioned." (relayed, 2026-08-26). | Owner withdrawal only. Consequence: closes M1's OPEN QUESTION; amends D6. |
 | D13 | A DOM test harness is authorised as a declared scope delta: new devDependency + vitest environment change; source-text tests over `.tsx` are converted to behavioural tests instead of deleted; an analyst determines the harness shape. | Owner, verbatim: "Which makes more sense to do in the long-term? I'm leaning towards 2, authorize." — option 2 as put to him by steering: "Authorise a DOM harness as a declared scope delta — new devDependency + vitest environment change; the analyst then needed — you'd spawn it. Converts those files to behavioural tests instead of deleting." (relayed). | Analyst finding that no harness can mount the target components under this toolchain (Next 16 / React 19 / vitest 4) without production-code change — then M2 reverts to delete-with-Outstanding-Items and the owner is told. |
 
 Standing constraint inherited from chain 012/013, restated: **no agent sends a live Discord POST** (012 D14) — irrelevant to test work here except that no converted test may hit the network.
@@ -98,7 +101,7 @@ Both forms run; the positive form is the acceptance criterion, the negative is i
 
 ## Plan
 
-Shared-file ownership: `CLAUDE.md` — M1 only. `website/package.json`, `website/vitest.config.ts` — M2 only. `website/src/test-helpers/*` — created in M3, read-only thereafter. Each of the 48 test files is opened by exactly one milestone (table below). `agent-output/handoff/*` new files — M4b.
+Shared-file ownership: `agent-output/CLAUDE.md` and the workspace symlink — M1 only. `website/package.json`, `website/vitest.config.ts` — M2 only. `website/src/test-helpers/*` — created in M3, read-only thereafter. Each of the 48 test files is opened by exactly one milestone (table below). `agent-output/handoff/*` new files — M4b.
 
 ### M0 — Baseline run (first act of the chain; blocks everything)
 
@@ -107,11 +110,11 @@ Objective: turn the static inventory into an executed fact.
 2. `find src -name '*.test.ts' -o -name '*.test.tsx' > /tmp/f && grep -c '' /tmp/f` recorded beside `.numTotalFiles`, `.numTotalTests`, `.numPassedTests`, `.numFailedTests` from the JSON.
 Acceptance (property): for every file in the inventory, the JSON reports it collected and its pass/fail set is captured at the named path; any failing file is a finding reported to the owner before M4 opens (a red baseline is not repaired in this chain unless the owner rules it). Instrument: vitest JSON reporter; reset: none (fresh run); window: one run at the base SHA.
 
-### M1 — `/usr/local/bin/hooks/CLAUDE.md` (D6)
+### M1 — `agent-output/CLAUDE.md`, symlinked at `/usr/local/bin/hooks/CLAUDE.md` (D6 as amended by D15)
 
 Objective: the standard exists before any file is touched under it.
 Content, and only this: (i) four-repo map — one line per repo, which carries tests, that `/usr/local/bin/hooks` itself is not a repo and `git -C` is mandatory; (ii) Test Conventions — runner and commands (`npm test`, `npx vitest run --reporter=json --outputFile=<path>`), placement (`__tests__/` beside the module), naming form, axioms A–E, the class table above, the escaped-provenance standard, helper policy, V-22-for-tests, the instrument note, and the DOM-harness usage line M2 supplies.
-Acceptance (properties): every class in the disposition table below is defined in the doc (enumerated from the table's class column); every command in the doc runs as written in `website` (enumerated from the doc's fenced commands); the doc contains no chain IDs, dates or agent names outside its own changelog-free body (the negative naming predicate run over the file → 0). Note: `CLAUDE.md` sits at `/usr/local/bin/hooks/`, which is **not a git repo** — it has no commit and no revert; rollback is deletion by the owner, and the plan records that the file is unversioned. **OPEN QUESTION to the owner: is an unversioned CLAUDE.md acceptable, or should the canonical copy live in a repo (e.g. `agent-output/CLAUDE.md`) with the workspace file as a symlink?**
+Acceptance (properties): every class in the disposition table below is defined in the doc (enumerated from the table's class column); every command in the doc runs as written in `website` (enumerated from the doc's fenced commands); the doc contains no chain IDs, dates or agent names outside its own changelog-free body (the negative naming predicate run over the file → 0). Steps: write `agent-output/CLAUDE.md` (versioned, committed by the implementer); then `ln -s agent-output/CLAUDE.md /usr/local/bin/hooks/CLAUDE.md` (relative link; unversioned by D15). Acceptance adds: `readlink /usr/local/bin/hooks/CLAUDE.md` resolves to the canonical file, captured in the implementation doc. **OPEN QUESTION [RESOLVED 2026-08-26, D15]**: canonical in `agent-output`, symlink at the workspace root.
 
 ### M2 — DOM harness (D13; declared scope delta; REQUIRES ANALYSIS — REQUIRED before implementation)
 
@@ -173,7 +176,7 @@ Commands, each output captured under `agent-output/verification/014/` (executing
 - AC5 Every bug-form test kept carries `// escaped:` naming a release/incident artefact; the class is enumerated by the negative predicate's allowlist.
 - AC6 Every converted test was seen red under a recorded local mutation; the class is disposition = convert; instrument: the disposition table's evidence column, captured per file.
 - AC7 (E) holds: no expectation is derived from the formula under test — the class is every case in files 46 and any case M4c writes; instrument: code review reads the diff for arithmetic over production symbols.
-- AC8 Human-observable: the next feature chain's planner cites `/usr/local/bin/hooks/CLAUDE.md` — checked by that chain's retrospective, not this one.
+- AC8 Human-observable: the next feature chain's planner cites `agent-output/CLAUDE.md` (via `/usr/local/bin/hooks/CLAUDE.md`) — checked by that chain's retrospective, not this one.
 
 QA Phase 1 sequencing: **runs before implementation** (after critique) — this is a test-only chain and QA's adequacy sweep is the substantive gate under V-27.
 
@@ -197,7 +200,7 @@ Static: `npx tsc --noEmit` in `website` at the merge SHA (test files are type-ch
 
 ## Rollback
 
-Per change class: test-file edits/renames/deletes and `test-helpers/` — `git -C website revert <commit>`, implementer on the chain branch, devops after release. Package/config (M2) — revert of the commit including the lockfile, same parties. `CLAUDE.md` — unversioned; owner deletes (see M1 OPEN QUESTION). Handoff documents — stand regardless.
+Per change class: test-file edits/renames/deletes and `test-helpers/` — `git -C website revert <commit>`, implementer on the chain branch, devops after release. Package/config (M2) — revert of the commit including the lockfile, same parties. `agent-output/CLAUDE.md` — `git -C agent-output revert <commit>`, implementer; the symlink — `rm /usr/local/bin/hooks/CLAUDE.md`, any stage, since it is unversioned (D15). Handoff documents — stand regardless.
 
 ## Outstanding Items
 
@@ -205,7 +208,7 @@ Populated by the implementer per M4; empty at rev 1.
 
 ## Handoff Notes
 
-- Critic: whole plan. Confirm the rubric amendments and the M1 OPEN QUESTION are surfaced to the owner.
+- Critic: whole plan. No OPEN QUESTION stands at rev 2.
 - Analyst-014 (M2): the REQUIRES ANALYSIS paragraph is the brief; output path named there.
 - Implementer: M0 first, then M1, M3, M4a/M4b in any order, M2 → M4c last, M5 closes.
 - QA: owns adequacy (V-27); registers AC8 as the post-chain observable.
