@@ -83,7 +83,7 @@ research · handoff · operator-direct
                  ▼
 roadmap ──▶ planner ──▶ critic ──▶ implementer ──▶ code-reviewer ──▶ qa ──▶ uat ──▶ devops
                │                                                            │
-       analyst · architect · security                              retrospective ──▶ pi
+       analyst · architect · security                              retrospective
      (commissioned or consulted at any point,
              not queue stages)
 ```
@@ -91,9 +91,6 @@ roadmap ──▶ planner ──▶ critic ──▶ implementer ──▶ code-
 Not every chain runs the full sequence; some plans never reach release. The sequence is the order of
 gates, not a promise that all of them fire. Exploration that never becomes an effort stays in
 `research/` and never enters the numbered sequence at all.
-
-The retrospective hangs off **UAT**, not off release. It needs QA and UAT complete and nothing more,
-so a chain still gets one when the release is executed by hand outside the pipeline.
 
 Each stage is a gate with authority to send work backwards. The critic blocks a plan before anyone
 writes code; the code reviewer can reject an implementation on quality alone before QA spends time on
