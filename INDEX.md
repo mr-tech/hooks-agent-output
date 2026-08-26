@@ -53,14 +53,14 @@ closed. A document's path changes when it closes; its name does not.
 | QA | `qa/closed/001-components-v2-ui-bugs-findings.md` | Findings Documented |
 | UAT | `uat/closed/001-components-v2-state-management-uat.md` | Released |
 
-### 10 — 1 open, 7 closed
+### 10 — 0 open, 8 closed
 
 | Stage | Location | Status |
 |---|---|---|
 | analysis | `analysis/closed/010-infopanel-overlap-on-initial-load-analysis.md` | Planned |
 | code review | `code-review/closed/010-infopanel-overlap-fix-code-review.md` | Released |
 | critique | `critiques/closed/010-infopanel-overlap-fix-critique.md` | RESOLVED |
-| deployment | `deployment/2026-04-12-plan-010.md` | Released |
+| deployment | `deployment/closed/2026-04-12-plan-010.md` | Released |
 | implementation | `implementation/closed/010-infopanel-overlap-fix.md` | Released |
 | plan | `planning/closed/010-infopanel-overlap-fix.md` | Released |
 | QA | `qa/closed/010-infopanel-overlap-fix-qa.md` | Released |
@@ -125,40 +125,40 @@ closed. A document's path changes when it closes; its name does not.
 | QA | `qa/closed/006-avatar-undefined-hotfix-qa.md` | Committed |
 | UAT | `uat/closed/006-avatar-undefined-hotfix-uat.md` | Committed |
 
-### 7 — 1 open, 7 closed
+### 7 — 0 open, 8 closed
 
 | Stage | Location | Status |
 |---|---|---|
 | analysis | `analysis/closed/007-components-v2-displayable-text-limit-analysis.md` | Planned |
 | code review | `code-review/closed/007-components-v2-displayable-text-limit-code-review.md` | Released |
 | critique | `critiques/closed/007-components-v2-displayable-text-limit-critique.md` | Released |
-| deployment | `deployment/2026-04-07-plan-007.md` | Released |
+| deployment | `deployment/closed/2026-04-07-plan-007.md` | Released |
 | implementation | `implementation/closed/007-components-v2-displayable-text-limit.md` | Released |
 | plan | `planning/closed/007-components-v2-displayable-text-limit.md` | Released |
 | QA | `qa/closed/007-components-v2-displayable-text-limit-qa.md` | Released |
 | UAT | `uat/closed/007-components-v2-displayable-text-limit-uat.md` | Released |
 
-### 8 — 1 open, 7 closed
+### 8 — 0 open, 8 closed
 
 | Stage | Location | Status |
 |---|---|---|
 | analysis | `analysis/closed/008-section-text-display-delete-analysis.md` | Planned |
 | code review | `code-review/closed/008-sub-component-crud-actions.md` | Committed |
 | critique | `critiques/closed/008-sub-component-crud-actions-critique.md` | OPEN |
-| deployment | `deployment/2026-04-09-plan-008.md` | Released |
+| deployment | `deployment/closed/2026-04-09-plan-008.md` | Released |
 | implementation | `implementation/closed/008-sub-component-crud-actions.md` | Committed |
 | plan | `planning/closed/008-sub-component-crud-actions.md` | Released |
 | QA | `qa/closed/008-sub-component-crud-actions.md` | Committed |
 | UAT | `uat/closed/008-sub-component-crud-actions.md` | Committed |
 
-### 9 — 1 open, 7 closed
+### 9 — 0 open, 8 closed
 
 | Stage | Location | Status |
 |---|---|---|
 | analysis | `analysis/closed/009-send-page-hasloaded-stuck-analysis.md` | Planned |
 | code review | `code-review/closed/009-send-page-hasloaded-fix-code-review.md` | In Review |
 | critique | `critiques/closed/009-send-page-hasloaded-fix-critique.md` | OPEN |
-| deployment | `deployment/2026-04-12-plan-009.md` | Released |
+| deployment | `deployment/closed/2026-04-12-plan-009.md` | Released |
 | implementation | `implementation/closed/009-send-page-hasloaded-fix.md` | Committed |
 | plan | `planning/closed/009-send-page-hasloaded-fix.md` | Released |
 | QA | `qa/closed/009-send-page-hasloaded-fix-qa.md` | Committed |
@@ -176,9 +176,9 @@ they are the ID-less artifacts that root new efforts.
 | architecture | `architecture/website.md` | Active |
 | code review | `code-review/012-carry-forward-to-post-refresh-pass.md` | — |
 | code review | `code-review/closed/001-components-v2-state-management-code-review.md` | — |
-| deployment | `deployment/2026-04-07-plan-005.md` | Released |
-| deployment | `deployment/2026-04-07-plan-006.md` | Released |
-| deployment | `deployment/2026-04-07-plans-001-003-004.md` | Released |
+| deployment | `deployment/closed/2026-04-07-plan-005.md` | Released |
+| deployment | `deployment/closed/2026-04-07-plan-006.md` | Released |
+| deployment | `deployment/closed/2026-04-07-plans-001-003-004.md` | Released |
 | handoff | `handoff/closed/components-v2-editing-support-2026-08-23.md` | Addressed — Re-statused 2026-08-24 by steering-hooks-013-2 under plan 013's M6 (Record closure). No longer unassigned and no longer awaiting research: research 8311155a answered it, and plan 013 (013-components-v2-editing-surfaces.md) absorbed the result and has implemented against it. Per that plan, 013 addresses observations 1, 2, 5, 6 and 7 directly. Observation 3 (toggle to V2 clears content, with a prompt) is by design and untouched. Observation 4 is addressed on its stranded-flag half only (D15 + M7: a record whose bit is set without V2 components now opens in V2, and one toggle to Classic clears the bit losslessly); its other half - the indicator is the mode, and the toggle to V2 removes classic data by design - is unchanged, and a dedicated control is explicitly not in scope. TERMINAL 2026-08-25: chain 013 RELEASED - `website` serving ref `master` `2d90e8a` -> `b56570d`, 20:30:01 UTC, recorded at deployment record §16 and plan 013 rev 51, which are the authority for the release act and are not restated here. The release was the only condition this document held itself open against, so it is `Addressed` and moved to `closed/`. Nothing in the mapping above is re-derived, revisited or amended by that closure. |
 | handoff | `handoff/closed/json-editor-bad-configurations-2026-08-23.md` | Addressed — Re-statused 2026-08-24 by steering-hooks-013-2 under plan 013's M6 (Record closure). No longer unassigned and no longer awaiting research: research 5c1e9d27 answered it and bounded it (F4) to one clause - what the JSON reconciler does with a flags bit that disagrees with structure - and plan 013 carried it as a rider from its first pass under D2. Plan 013 records that this handoff is closed by M8-B and M8-D, which are D17's own rows, delivered and code-reviewed. The rider structure itself was retired at plan rev 11 (critique M-9): D17 rules rows B and D directly, so there is no yield clause and no priced drop, and what remained of the attachment is traceability - which this line is. TERMINAL 2026-08-25: chain 013 RELEASED - `website` serving ref `master` `2d90e8a` -> `b56570d`, 20:30:01 UTC, recorded at deployment record §16 and plan 013 rev 51, which are the authority for the release act and are not restated here. The release was the only condition this document held itself open against, so it is `Addressed` and moved to `closed/`. M8-B and M8-D are not re-verified by that closure and are not re-stated as verified here. |
 | handoff | `handoff/components-v2-invariant-for-system-architecture-2026-08-24.md` | Open — Issued 2026-08-24 by steering-hooks-013-2 under plan 013's M6 (Record closure). Plan 013 established an architectural invariant that system-architecture.md does not yet record, and that supersedes two statements previously believed true. The correction is deliberately NOT made by chain 013 - M6's wording is that it "is handed to the architect (not made here)" - because the record is the architect's to write. Nothing here is derived by this thread: the content is plan 013's Handoff Notes verbatim in substance, and the plan is the authority. |
@@ -289,13 +289,13 @@ they are the ID-less artifacts that root new efforts.
 | `013-components-v2-editing-surfaces-retrospective.md` | `retrospectives/013-components-v2-editing-surfaces-retrospective.md` |
 | `013-components-v2-editing-surfaces-uat.md` | `uat/closed/013-components-v2-editing-surfaces-uat.md` |
 | `013-components-v2-editing-surfaces.md` | `planning/closed/013-components-v2-editing-surfaces.md` |
-| `2026-04-07-plan-005.md` | `deployment/2026-04-07-plan-005.md` |
-| `2026-04-07-plan-006.md` | `deployment/2026-04-07-plan-006.md` |
-| `2026-04-07-plan-007.md` | `deployment/2026-04-07-plan-007.md` |
-| `2026-04-07-plans-001-003-004.md` | `deployment/2026-04-07-plans-001-003-004.md` |
-| `2026-04-09-plan-008.md` | `deployment/2026-04-09-plan-008.md` |
-| `2026-04-12-plan-009.md` | `deployment/2026-04-12-plan-009.md` |
-| `2026-04-12-plan-010.md` | `deployment/2026-04-12-plan-010.md` |
+| `2026-04-07-plan-005.md` | `deployment/closed/2026-04-07-plan-005.md` |
+| `2026-04-07-plan-006.md` | `deployment/closed/2026-04-07-plan-006.md` |
+| `2026-04-07-plan-007.md` | `deployment/closed/2026-04-07-plan-007.md` |
+| `2026-04-07-plans-001-003-004.md` | `deployment/closed/2026-04-07-plans-001-003-004.md` |
+| `2026-04-09-plan-008.md` | `deployment/closed/2026-04-09-plan-008.md` |
+| `2026-04-12-plan-009.md` | `deployment/closed/2026-04-12-plan-009.md` |
+| `2026-04-12-plan-010.md` | `deployment/closed/2026-04-12-plan-010.md` |
 | `backfill-report-1787522824426-i0womw.md` | `verification/012/backfill-report-1787522824426-i0womw.md` |
 | `backfill-report-1787522866564-i3s31k.md` | `verification/012/backfill-report-1787522866564-i3s31k.md` |
 | `components-v2-editing-flows-2026-08-23.md` | `research/closed/components-v2-editing-flows-2026-08-23.md` |

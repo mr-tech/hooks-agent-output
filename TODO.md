@@ -217,35 +217,6 @@ a quiet moment in the plan.
 **Do it before the next chain's click-through, not after.** QA's point stands in general even though it is
 mooted for these seven: tracing is cheap in advance and unsettleable in arrears.
 
-## Seven older deployment records sit outside `deployment/closed/` — the move was BLOCKED
-
-Found by the roadmap pass 2026-08-25 (not by devops' own start-of-run self-check; `devops-hooks-013-3`
-owns that miss and recorded it). Seven records for plans 001–010 read terminal `Status: Released` while
-their plans are already in `planning/closed/`; `deployment/closed/` holds only `.gitkeep`.
-
-```
-deployment/2026-04-07-plans-001-003-004.md   deployment/2026-04-09-plan-008.md
-deployment/2026-04-07-plan-005.md            deployment/2026-04-12-plan-009.md
-deployment/2026-04-07-plan-006.md            deployment/2026-04-12-plan-010.md
-deployment/2026-04-07-plan-007.md
-```
-
-**`devops-hooks-013-3` attempted the move and the Claude Code auto-mode classifier BLOCKED it.** It
-stopped and reported: not rephrased, not split into pieces that each pass, not routed through another
-tool, and **explicitly not asked of steering or any other session** — it named that last one as the
-laundering the rule exists to stop. **Nothing was moved or deleted.**
-
-**The owner decides whether the block was a false positive.** That judgement is not the blocked party's
-to make about itself, and it is not steering's either. **Not actionable by any agent until he rules.**
-
-**Note the mechanism when it is unblocked**: use plain `mv`, never `git mv` — the index is shared between
-live sessions, so a staged rename is swept into another session's commit. After the move, the new path
-needs `git add --intent-to-add` immediately before `git commit --only`.
-
-**Four documents are deliberately NOT in this sweep**, per devops: both `-deployment.md` records read
-*"Released — chain closure pending"*, which is not terminal; and both `-readiness.md` companions are
-terminal in form but belong beside their open records for rollback reference. Those move at chain closure.
-
 ## This repo has no roadmap and no release tracker, across twelve chains
 
 Established by the roadmap pass 2026-08-25 by direct listing: `agent-output/roadmap/` holds **only
