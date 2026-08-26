@@ -1,15 +1,22 @@
 ---
 UUID: 61f24e56
-Status: Open
+Status: Addressed
 Status-Detail: >-
   Owner-directed work on the hooks.gg side, agreed in shape but not yet built. A `valid` boolean is to be
   added to stored message records so Statbot can refuse messages hooks.gg already knows cannot be sent.
   The shape below was proposed by statbot chain 023's planner and accepted by the owner unaltered on
-  2026-08-23; statbot chain 023 is proceeding in parallel against it as a settled contract. Nothing here
-  is built yet. This document records what was agreed and why, so the hooks.gg implementation is not
-  re-derived from a conversation.
+  2026-08-23; statbot chain 023 is proceeding in parallel against it as a settled contract. This document
+  records what was agreed and why, so the hooks.gg implementation is not re-derived from a conversation.
+  TERMINAL 2026-08-26: chain 012 is RELEASED and closed out, and the owner declared the field live in
+  production - registered verbatim as plan 012 register row D29. The release act and its identity are
+  recorded in `deployment/closed/012-message-valid-field-deployment.md`, which is the authority for them
+  and is not restated here. Both open questions below were dispositioned in plan 012, as this document's
+  own changelog already records; the second of them - a spot-check of the backfill against the composer
+  UI before Statbot is told the field is live - was met by the owner-reviewed distribution report that
+  gated the declaration. Nothing in the agreed shape is re-derived, revisited or amended by this closure.
 Owning-Stage: >-
-  Chain 012 (`planning/012-message-valid-field.md`), opened 2026-08-23 at the owner's direction. The
+  Chain 012 (`planning/closed/012-message-valid-field.md`), opened 2026-08-23 at the owner's direction
+  and DISCHARGED 2026-08-26. Nothing is owed on this document by any stage. The
   plan inherits the contract verbatim from the Agreed shape section and must not amend it without the
   owner, because a Statbot chain has already registered it as a decision (statbot agent-output, plan
   023, register row D10). The one truth-condition question (plan 012 OQ-1) is resolved by owner
@@ -196,3 +203,4 @@ None blocking. Two worth a decision when the work is planned:
 | 2026-08-23 | planner (chain 012) | OQ-1 resolved by owner ruling (plan 012 register row D5, verbatim there): the composer failing to catch 5712's stored state is a UI bug to be fixed — no contract clause amended, so statbot chain 023's premise is untouched. Owning-Stage brought current. |
 | 2026-08-23 | planner (chain 012) | Owning-Stage routed to chain 012, opened this date at the owner's direction. Both open questions in this document now carry dispositions in plan 012 (OQ-2 resolved by enumeration — one writer persists message data; OQ-3 resolved — backfill gated on an owner-reviewed distribution report before the live declaration). One truth-condition question raised to the owner as plan 012 OQ-1: the composer's checks derive V2-ness structurally and pass record 5712's stored form, so strict UI parity misses the motivating record. No contract clause amended. |
 | 2026-08-23 | steering-023 | Two cross-repo citations (lines 26 and 75) rewritten from `statbot agent-output, <relative-path>` to absolute paths. They read correctly to a human but did not resolve mechanically, so a link checker run against either repo counted them as broken. Route recorded: raised by `steering-01` as an FYI in the statbot agent-output `INBOX.md`, and independently by `critic-023` while reviewing statbot plan 023 — neither by normal handoff. No content, finding or commitment changed. |
+| 2026-08-26 | **steering** (steering-hooks-012-2) | **CLOSED — `Status: Open` -> `Addressed`, and the file moved to `handoff/closed/`.** Closed on the owner's direct instruction in the steering session (*"close out 012-related handoffs"*), chain 012 having been released, declared live and closed out the same day. **Verified at the sources, not from a message**: plan 012 at `Status: Released` (`planning/closed/`), register row **D29** carrying the owner's live declaration verbatim, and `deployment/closed/012-message-valid-field-deployment.md` as the authority for the release act. **This document recorded no closure criterion in advance** — unlike the two chain-013 handoffs closed today, which stated their own — so **two judgements here are steering's, not this document's**: (1) that release plus live declaration discharges it, taken from the fact that every disposition it was holding is now terminal in plan 012; (2) the status value `Addressed`, which **is not in the `document-lifecycle` terminal-status table** and was chosen to match `steering-hooks-013-4`'s two closures the same day rather than invent a third convention. That gap — the table offers no terminal status for a discharged handoff, exactly as it offers none for a completed code review — is filed in the Agents-domain inbox. **Nothing in the agreed shape, the open questions or the statbot-side contract is re-derived, revisited or amended.** |
