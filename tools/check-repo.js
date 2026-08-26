@@ -230,6 +230,33 @@ function resolveCitation(rel) {
   return { ok: false };
 }
 
+/**
+ * Cross-repo citation prefixes: `<repo>:<path>` in a backticked citation names a sibling repo's own
+ * agent-output tree by absolute path and IS verified against it — unlike the sibling-repo escape in
+ * checkLinks below, which only counts such links and never checks them. Owner ruling 2026-08-26,
+ * option (a) ("prefix with the repo"). An unrecognized prefix is a failure naming the known set, not
+ * silently ignored.
+ */
+const REPO_ALIASES = new Map([
+  ['statbot', '/usr/local/bin/statbot/agent-output'],
+  ['hooks', '/usr/local/bin/hooks/agent-output'],
+]);
+
+/** Same closure-tolerant resolution as resolveCitation, against an arbitrary repo root. */
+function resolveCitationIn(root, rel) {
+  if (fs.existsSync(path.join(root, rel))) return { ok: true, via: 'literal' };
+  const m = rel.match(/^([^/]+)\/(.*)$/);
+  if (m) {
+    const [, domain, rest] = m;
+    const sub = 'closed';
+    const variant = rest.startsWith(`${sub}/`)
+      ? `${domain}/${rest.slice(sub.length + 1)}`
+      : `${domain}/${sub}/${rest}`;
+    if (fs.existsSync(path.join(root, variant))) return { ok: true, via: 'closure' };
+  }
+  return { ok: false };
+}
+
 // ── CHECK 1 — every cited path resolves ──────────────────────────────────────────────────────────
 
 /*
@@ -311,11 +338,35 @@ function checkLinks(files) {
       candidates.push({ raw: m[1], resolved: m[1], index: m.index, form: 'backticked' });
     }
 
+    // Cross-repo citations: `statbot:handoff/foo.md` or `hooks:handoff/foo.md`. The (?!\/) after the
+    // colon keeps a backticked URL (`https://…`) from being read as a repo prefix.
+    for (const m of text.matchAll(/`([a-z][a-z0-9-]*):(?!\/)([A-Za-z0-9._…*<>[\]/-]+\.(?:md|js|sh|json))`/g)) {
+      candidates.push({
+        raw: `${m[1]}:${m[2]}`, resolved: `${m[1]}:${m[2]}`, repo: m[1], rest: m[2], index: m.index, form: 'cross-repo',
+      });
+    }
+
     for (const c of candidates) {
       if (isPlaceholder(c.raw)) continue;
       const key = `${c.resolved}`;
       if (seen.has(key)) continue;
       seen.add(key);
+
+      if (c.form === 'cross-repo') {
+        if (isSuppressed(text, c.index)) { suppressed += 1; continue; }
+        checked += 1;
+        const alias = REPO_ALIASES.get(c.repo);
+        if (!alias) {
+          fail('links', `${file}:${lineOf(text, c.index)}  ->  ${c.raw}   (cross-repo, unknown repo prefix '${c.repo}'; known: ${[...REPO_ALIASES.keys()].join(', ')})`);
+          continue;
+        }
+        const r = resolveCitationIn(alias, c.rest);
+        if (r.via === 'closure') viaClosure += 1;
+        if (!r.ok) {
+          fail('links', `${file}:${lineOf(text, c.index)}  ->  ${c.raw}   (cross-repo, resolves to ${alias}/${c.rest})`);
+        }
+        continue;
+      }
 
       /*
        * A link that climbs out of this repository points into the enclosing workspace — a sibling

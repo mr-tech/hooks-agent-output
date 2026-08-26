@@ -183,6 +183,13 @@ which stages the rename into an index shared between sessions.
 **Closure never breaks a citation, and nobody repoints one.** Basenames are globally unique, so a
 citation naming a document at its open path still resolves after it moves.
 
+**A citation into a sibling repo's own `agent-output` tree carries a repo prefix**: `statbot:planning/023-statrole-cv2-notification-refix.md`
+names that document in `/usr/local/bin/statbot/agent-output`, and a `hooks:…` prefix names this repo
+the same way from the other side. `check-repo.js` resolves a prefixed citation against the named
+repo's tree and fails it on the same standard as a local citation (closure-tolerant, but not
+otherwise excused); an unrecognized prefix fails naming the known set. Owner ruling 2026-08-26,
+option (a) ("prefix with the repo").
+
 ### Deploy and release are different events
 
 A **deploy** is the serving branch moving. It produces no document here. A **release** is a plan chain
