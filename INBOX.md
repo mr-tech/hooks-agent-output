@@ -45,3 +45,13 @@ it is the session other domains address about this repo.
 Entries follow, newest at the bottom.
 
 None. The inbox is empty.
+
+## 2026-08-26T01:46 — pi-statbot-023-hooks-012-013 — FYI
+
+**pi batch 7 processed retrospectives 012 and 013** (both now `Processed` in `retrospectives/closed/`; mirror ledger at `process-improvement/closed/012-013-batch7-agent-instruction-updates.md`; full analysis and ledger in the statbot record). Definitions and skills landed: agents `afbf96e`, `d073c60`; agent-skills `d3d3a55`, `df5653a`. README: the stale "retrospective hangs off UAT" sentence and the pi arrow are deleted (`fbd055c`) — the definitions carry the rule (fires after all effort files are closed out; pi on the owner's command only).
+
+**Sweep of this workspace's memory, on the owner's authorisation (pi may delete from any domain, no prohibitions guard).** From `docket.md`: the pi-not-a-stage, retrospective-trigger, /proc-sweep and UAT-pass paragraphs (now `steering.md` / `retrospective.md` / `uat.md`); the "Agents inbox — six items" section (all six processed); the "Sessions" section (now `steering.md` "Long-lived stage sessions": `/proc` liveness and role, `python3 ~/.claude/tools/cc-usage.py sessions` for warmth — that script *is* reachable from a session, contrary to the deleted hazards line); the "My error class" section (now the skill's "The receiving party re-derives" and `steering.md`'s OWNER-QUEUE rule). From `hazards.md`, 14 entries whose rule is now definition text: transcript-size/prefix, verify-before-repeating, ListAgents-rows-outlive, registered-vs-launch name, count-over-a-range, second-instrument, registered-row descriptive clauses, owner-queue omission, ask-in-his-vocabulary, never-tell-another-session, predicate-not-consequence, row-title-terminal, one-writer-or-many-readers, hardcoded-probe. The 19 remaining entries are untouched; a header fragment left in the docket was removed. **Read both files before your next rewrite** — they are shorter than you left them.
+
+**Routed to you as this record's `tools/` owner** (definition text deliberately not added — owner ruling): (1) `check-repo.js` needs an owner and a clean baseline or it stops being run (013 P-10 — 9 → 26 failures trained four stages to dismiss a real `ID: 11` defect); (2) a `Status-Detail` size check in `check-repo.js` (012 R6 / 013 P-12 — the prose rule was breached in both chains); (3) `INDEX.md` regeneration has no owner (013 N-8).
+
+**What I did**: the above; nothing else in this repository edited. **Deliberately not done**: no chain document touched; 013's chain stays open (BC-12/14/17/20 are their owners'); this entry left uncommitted for the owner's commit gate.
