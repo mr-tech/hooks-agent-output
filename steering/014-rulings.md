@@ -21,3 +21,10 @@ ask on this chain.
   owner-spawned as `analyst-014`). Steering read this as authorisation and said so; open to his
   correction.
 - Chain branch: `chain/014-test-suite-cleanup` in `hooks/website`, created from master `a74b9e2`.
+- **Scope**: "Confirm the 6-milestone scope" (M0 baseline run, M1 CLAUDE.md, M2 harness, M3
+  helpers, M4a/b/c dispositions, M5 sweep) — by selection.
+- **CLAUDE.md home**: "Canonical in hooks/agent-output/CLAUDE.md, symlinked at
+  /usr/local/bin/hooks/CLAUDE.md" — by selection; supersedes the bare-path form of D6.
+- **Session naming**: "Spawned both, with `agent-[project]-NNN` key. This is what I've settled on,
+  and should be added to TODO for the next pi batch" → `critic-hooks-014`, `analyst-hooks-14` (as
+  spawned; join key is the exact string). Queued in agents TODO.md.
