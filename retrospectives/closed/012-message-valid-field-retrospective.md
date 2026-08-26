@@ -3,13 +3,10 @@ ID: 012
 Origin: 012
 UUID: 12a4fe3c
 Parent: message-valid-field-for-statbot-2026-08-23.md
-Status: Active
+Status: Processed
 Status-Detail: >-
-  Rev 1. Process retrospective for chain 012, written 2026-08-26 after release, live declaration and
-  full closeout. Deliberately short in this field: the plan's own oversized Status-Detail is a finding
-  of this document (P4), and answering it with another wall of narrative would be arguing against
-  itself. The record is the numbered sections; this field says only where the document is.
-Rev: 1
+  Rev 2. Processed by pi batch 7 on 2026-08-26T01:40 — R1..R9 dispositioned in the batch analysis at /usr/local/bin/statbot/agent-output/process-improvement/closed/ (mirror ledger in this repository's process-improvement/closed/); R10 kept as written; §6.1's measurement underwrote the retrospective-trigger reversal. Chain 012 stays closed.
+Rev: 2
 ---
 
 # Retrospective 012 — `valid` field on stored messages
@@ -23,6 +20,7 @@ Rev: 1
 | Date | Rev | Author | Change |
 |---|---|---|---|
 | 2026-08-26 | 1 | retrospective | Created. Corpus declared. Findings derived from the eight chain-012 stage documents, the parent handoff, the Agents-domain inbox, the repo TODO, the steering thread's docket and hazard notes, and the git history of `agent-output` and `website`. Steering's conduct is in scope by its own lodgement and is treated as evidence, not as accusation. Nothing closed; no other stage's document edited. Two duties in this stage's definition were overridden by owner ruling (trigger condition; the closure agent) and are recorded at §0 rather than followed. |
+| 2026-08-26T01:40 | 2 | pi (`pi-statbot-023-hooks-012-013`) | Processed in pi batch 7. R1/R2 → lifecycle skill "The receiving party re-derives" (B7-27/28); R3 → qa/uat predicate sweep (B7-29); R4 → steering OWNER-QUEUE authoring form (B7-11); R5 → planner Registration Passes + steering (B7-9); R6 → mechanical Status-Detail check routed to tools/ (B7-40); R7 → lifecycle skill routing disposition (B7-6); R8 → retrospective trigger encoded with lodge-in-the-round (B7-1/B7-3); R9 → code-reviewer companion-note rule (B7-4); R10 no change. Analysis and ledger: statbot process-improvement/closed/ (batch 7); mirror ledger here. Moved to closed/ on the owner's selection. |
 
 ---
 

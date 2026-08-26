@@ -2,13 +2,10 @@
 ID: 013
 Origin: 013
 UUID: 22d69e06
-Status: Active
+Status: Processed
 Status-Detail: >-
-  Rev 2. Findings and evidence for chain 013, written 2026-08-25 while the chain was still open.
-  Deliberately short: R45.9 is a finding of this document and a retrospective that answered it with
-  an 80 KB frontmatter field would be arguing against itself. The record is the changelog and the
-  numbered sections; this field says only where the document is.
-Rev: 2
+  Rev 3. Processed by pi batch 7 on 2026-08-26T01:40 — P-1..P-19 dispositioned in the batch analysis at /usr/local/bin/statbot/agent-output/process-improvement/closed/ (mirror ledger in this repository's process-improvement/closed/). Chain 013 itself is NOT closed: BC-12, BC-14, BC-17 and BC-20 stand with their owners; this closure is the retrospective's only.
+Rev: 3
 ---
 
 # Retrospective 013 — Components V2 support across the editing surfaces
@@ -23,6 +20,7 @@ Rev: 2
 |---|---|---|---|
 | 2026-08-25 | 1 | retrospective (`retrospective-hooks-013`) | Created. Corpus declared. Findings derived from the nine 013 stage documents, 43 probe directories, the four cross-chain trackers, and the git history of `agent-output` and `website`. Steering's conduct is in scope by its own instruction and is treated as evidence. Nothing closed; no other stage's document edited. |
 | 2026-08-25 | 2 | retrospective (`retrospective-hooks-013`) | **Three corrections, all this stage's own, and one addition.** (1) The count of post-release rulings was anchored to the wrong release act and is re-derived from commit times: **25 of 53, first row D29**, not 24 from D30 — a consequence of N-17, which established that `a151fb4` and not `4a7126b` was the first act. (2) **N-14 records two further reported locations** for the struck records, in the deployment documents, **labelled second-hand and unverified** because verification is re-derivation and D44 forbids it. (3) `P` count corrected to nineteen. **Two suggestions from a commissioned reader were declined and the reasons are recorded here rather than absorbed**: that this retrospective should carry a finding about the post-release production state — **declined, the owner has ruled that outside 013's records** — and that the retrospective's own gate may not be met — **declined, the gate is QA Complete plus UAT Complete with the release executed, all three hold, and D45's sequencing is steering's to call and was called.** No finding, verdict or routing changed. |
+| 2026-08-26T01:40 | 3 | pi (`pi-statbot-023-hooks-012-013`) | Processed in pi batch 7. P-1 this batch; P-2 → registration/status writes expire no verdict (B7-30); P-3 → lifecycle skill receiving-party rule (B7-27); P-4/P-5/P-6 → skill verify-in-the-form / numbers carry range (B7-28/31); P-7 → qa non-vacuity (B7-32); P-8 → skill IDs from enumerated maximum (B7-33); P-9 → qa probe copy rule (B7-34); P-10 → tools/ owner (routed); P-11 → steering OWNER-QUEUE (B7-11); P-12 → mechanical check routed (B7-40); P-13 → B7-19 + B7-27; P-14 already encoded (riders); P-15 → qa rows name their criterion (B7-35); P-16 → steering strike-audit sentence (B7-21); P-17 → planner/critic who-runs-it (B7-8); P-18 → uat recovery state + devops record (B7-12); P-19 → devops cites the tip verdict by name (B7-13). Next actions 2–6 routed by steering. Moved to closed/ on the owner's selection. |
 
 ---
 
