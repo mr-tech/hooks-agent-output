@@ -12,7 +12,7 @@ Status-Detail: >-
 # Critique — Plan 014, Hooks test-suite cleanup (pilot)
 
 **Artifact**: `agent-output/planning/014-test-suite-cleanup.md`, revision 2 (agent-output `0540f34`; `website` at `a74b9e2`, verified).
-**Analysis**: `analysis/014-test-suite-cleanup-analysis.md` — commissioned (M2), not yet written; not read. Sources re-derived directly: coordination plan `/home/dev/.claude/plans/we-recently-changed-the-wobbly-sparrow.md`; inventory `analysis/test-inventory-2026-08-26.md` (all 48 rows, per-class counts, the eight unclassified items); handoff `components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md`; qa.md "Regression-Test Authorship"; implementer.md pattern ladder; code-reviewer.md test-only-diff clause; `website/vitest.config.ts`, `package.json`, and the 48 test files' names, imports and helper definitions.
+**Analysis**: analysis/014-test-suite-cleanup-analysis.md (not backticked: does not yet exist) — commissioned (M2), not yet written; not read. Sources re-derived directly: coordination plan `/home/dev/.claude/plans/we-recently-changed-the-wobbly-sparrow.md`; inventory `analysis/test-inventory-2026-08-26.md` (all 48 rows, per-class counts, the eight unclassified items); handoff `components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md`; qa.md "Regression-Test Authorship"; implementer.md pattern ladder; code-reviewer.md test-only-diff clause; `website/vitest.config.ts`, `package.json`, and the 48 test files' names, imports and helper definitions.
 **Date**: 2026-08-26T23:55 UTC.
 **Status**: Initial — cycle 1, pass 1.
 **Roadmap / architecture**: `agent-output/roadmap/` absent; `architecture/website.md` carries nothing on tests (plan says so; confirmed by the inventory's own absence note). No Master Product Objective document exists to align against — none cited.
@@ -25,7 +25,7 @@ Status-Detail: >-
 
 ## Assumption Not Checked
 
-This pass assumes the vitest ^4.1.2 JSON reporter emits per-file `testResults[]` with per-case `assertionResults[].fullName`, which is the key M0, AC2 and M4a's "pass set identical" all silently rely on, and does not test it by running the suite. Falsity signature: `verification/014/baseline-a74b9e2.json` with no per-case entries, or with names that do not survive a title strip. Owner of closing: the implementer at M0 (the chain's first act), recorded in the implementation doc; named again in the handoff below.
+This pass assumes the vitest ^4.1.2 JSON reporter emits per-file `testResults[]` with per-case `assertionResults[].fullName`, which is the key M0, AC2 and M4a's "pass set identical" all silently rely on, and does not test it by running the suite. Falsity signature: verification/014/baseline-a74b9e2.json (not yet written) with no per-case entries, or with names that do not survive a title strip. Owner of closing: the implementer at M0 (the chain's first act), recorded in the implementation doc; named again in the handoff below.
 
 ## Value Statement Assessment
 
