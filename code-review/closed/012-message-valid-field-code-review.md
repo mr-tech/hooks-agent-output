@@ -4,7 +4,7 @@ Origin: 012
 UUID: 12a4fe3c
 Parent: message-valid-field-for-statbot-2026-08-23.md
 Reviewed-At: "Round 7 (delta): website `c85945f` on `chain/012-message-valid-field`; project-utils `749606d` on `master`; agent-output at review start per the round-7 commit. **The website working tree is now fully clean — no uncommitted or foreign file in scope, so this round needs no content-identity manifest.** `c85945f`'s parent is exactly `17cada0`; its whole delta is two added test files, zero production source, zero deletions. One of the two (`src/utils/__tests__/012-json-editor-repair-path.test.ts`) has blob sha256 `cf2066a07e9e921ba224c7cf190b2fa6ff132c4435eedd5d418815f51260c5b7` — byte-identical to round 6's manifest entry. The other (`src/scripts/__tests__/012-backfill-evaluation-failure-category-qa.test.ts`) **postdates round 6 and was reviewed for the first time this round.** Rounds 1-6 ran against `bc5ee2b`, `681c353`, `eb28ae6`, `ff753a6`, `f983508` and `17cada0`; no earlier verdict travels to this tree and none was inherited."
-Status: In Review
+Status: Released
 ---
 
 # Code Review: Plan 012 — `valid` field on stored messages
