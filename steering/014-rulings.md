@@ -32,3 +32,7 @@ ask on this chain.
   when blocked. Do not update the planner on this." → steering expects no gate-state reports from
   critic-hooks-014; its pass/rung/verdict are read from critiques/014-*.md at write time. Planner
   not told.
+- **Steering error, lodged for the retrospective** (2026-08-26): briefs from this thread used
+  "gate state" in steering.md's wide sense (pass/rung/verdict/delta); the owner's ruled sense is
+  narrow — a block, an owner-needing question, a scope delta. Definition queued with the
+  direct-talk pi item in agents TODO.md.
