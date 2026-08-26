@@ -28,3 +28,7 @@ ask on this chain.
 - **Session naming**: "Spawned both, with `agent-[project]-NNN` key. This is what I've settled on,
   and should be added to TODO for the next pi batch" → `critic-hooks-014`, `analyst-hooks-14` (as
   spawned; join key is the exact string). Queued in agents TODO.md.
+- **Critic contact** (owner, in conversation): "I stopped the critic and told it only to contact you
+  when blocked. Do not update the planner on this." → steering expects no gate-state reports from
+  critic-hooks-014; its pass/rung/verdict are read from critiques/014-*.md at write time. Planner
+  not told.
