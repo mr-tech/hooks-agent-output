@@ -7,17 +7,17 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-114 documents · 13 numbered chains · 28 unnumbered.
+116 documents · 13 numbered chains · 30 unnumbered.
 
 ---
 
 ## By chain
 
-### 012 — 1 open, 7 closed
+### 012 — 0 open, 8 closed
 
 | Stage | Location | Status |
 |---|---|---|
-| code review | `code-review/012-message-valid-field-code-review.md` | In Review |
+| code review | `code-review/closed/012-message-valid-field-code-review.md` | Released |
 | critique | `critiques/closed/012-message-valid-field-critique.md` | Resolved — Cycle 2 closed at rev 9 (commit b5d8a6e): F10/F11 verified landed in Validation item 4 — the ordering constraint with the flip's meaning stated, and 4(e) carrying M2-f's discriminating flag-free clause with its reason inline. All findings across both cycles RESOLVED. Closure does not extend to QA rows R15/R19, which remain QA's to bring current at Phase 2 (named, not closed around). Three routed assumption closures survive the critique with named owners: code-reviewer (atomic backfill write; mode-writer enumeration), qa Phase 2 (JSON-modal round-trip execution). APPROVED FOR IMPLEMENTATION stands; implementer running. |
 | deployment | `deployment/closed/012-message-valid-field-deployment.md` | Released — Released 2026-08-23; **chain closed 2026-08-25** (Addendum A). `website` `master` fast-forwarded `72dc7de` → `c85945f`; `project-utils` `master` already carried `749606d`. Deployed commit **is** the verified commit in both repos — reconciliation exact, no diff required. Owner-attested DDL preceded the deploy. **The 2026-08-23 post-push after-check (`git ls-remote`) was blocked by that session's classifier and stays recorded NOT VERIFIED** — never reworded, never substituted from a peer. All five release components are now complete: backfill → M6-b review → **live declaration (owner, D29, 2026-08-25)** → statbot gate deploy, the last being another workspace's act and deliberately not claimed here. UAT's register is terminal at 20 of 20 and its conditional approval is discharged; U-7's tail precedence is recorded below; QA-R10, QA-R11 and QA-R17 are terminal in this record, which is where QA's own residual note places their authority. Two items are reported rather than settled: the `project-utils` tree switch-back was **blocked by this session's classifier** and is unperformed, and the commit of the four sibling-stage closure moves is held for the owner's decision. |
 | deployment | `deployment/closed/012-message-valid-field-readiness.md` | Superseded by 012-message-valid-field-deployment.md — release executed 2026-08-23 — Release assembled and verified. **Nothing has been pushed.** All artifact-side gates pass at the assembled tip `c85945f`. Both open questions were answered by the owner on 2026-08-23: the production **DDL has NOT been executed**, and pushing `website` `master` **does auto-deploy production**. That combination is the plan's named failure (i) — there is no window between merge and deploy — so the release act is **HELD** and the plan's own ordering (DDL first) governs. The push remains **unapproved**; answering two factual questions was not approval of the release act. When the DDL is done, **his confirmation is required** — it may not be inferred from any database observation — and the release decision then returns to him as its own decision. |
@@ -174,8 +174,8 @@ they are the ID-less artifacts that root new efforts.
 | architecture | `architecture/preview-image-generator.md` | Active |
 | architecture | `architecture/system-architecture.md` | Active |
 | architecture | `architecture/website.md` | Active |
-| code review | `code-review/012-carry-forward-to-post-refresh-pass.md` | — |
 | code review | `code-review/closed/001-components-v2-state-management-code-review.md` | — |
+| code review | `code-review/closed/012-carry-forward-to-post-refresh-pass.md` | — |
 | deployment | `deployment/closed/2026-04-07-plan-005.md` | Released |
 | deployment | `deployment/closed/2026-04-07-plan-006.md` | Released |
 | deployment | `deployment/closed/2026-04-07-plans-001-003-004.md` | Released |
@@ -194,6 +194,8 @@ they are the ID-less artifacts that root new efforts.
 | UAT | `uat/closed/004-lazy-loading-preload-overhaul-uat.md` | — |
 | verification | `verification/012/backfill-report-1787522824426-i0womw.md` | — |
 | verification | `verification/012/backfill-report-1787522866564-i3s31k.md` | — |
+| verification | `verification/012/backfill-report-1787644022885-3k0xp8.md` | — |
+| verification | `verification/012/backfill-report-1787644055925-ekngfa.md` | — |
 | verification | `verification/013/probe-cr25-mutation-error-readability/RUN.md` | — |
 | verification | `verification/013/probe-cr26-delimiter-class-eliminated/RUN.md` | — |
 | verification | `verification/013/probe-cr27-settledmode-reachability/RUN.md` | — |
@@ -270,8 +272,8 @@ they are the ID-less artifacts that root new efforts.
 | `010-infopanel-overlap-fix.md` | `planning/closed/010-infopanel-overlap-fix.md` |
 | `010-infopanel-overlap-on-initial-load-analysis.md` | `analysis/closed/010-infopanel-overlap-on-initial-load-analysis.md` |
 | `011-transition-height-react-style-conflict-analysis.md` | `analysis/closed/011-transition-height-react-style-conflict-analysis.md` |
-| `012-carry-forward-to-post-refresh-pass.md` | `code-review/012-carry-forward-to-post-refresh-pass.md` |
-| `012-message-valid-field-code-review.md` | `code-review/012-message-valid-field-code-review.md` |
+| `012-carry-forward-to-post-refresh-pass.md` | `code-review/closed/012-carry-forward-to-post-refresh-pass.md` |
+| `012-message-valid-field-code-review.md` | `code-review/closed/012-message-valid-field-code-review.md` |
 | `012-message-valid-field-critique.md` | `critiques/closed/012-message-valid-field-critique.md` |
 | `012-message-valid-field-deployment.md` | `deployment/closed/012-message-valid-field-deployment.md` |
 | `012-message-valid-field-implementation.md` | `implementation/closed/012-message-valid-field-implementation.md` |
@@ -298,6 +300,8 @@ they are the ID-less artifacts that root new efforts.
 | `2026-04-12-plan-010.md` | `deployment/closed/2026-04-12-plan-010.md` |
 | `backfill-report-1787522824426-i0womw.md` | `verification/012/backfill-report-1787522824426-i0womw.md` |
 | `backfill-report-1787522866564-i3s31k.md` | `verification/012/backfill-report-1787522866564-i3s31k.md` |
+| `backfill-report-1787644022885-3k0xp8.md` | `verification/012/backfill-report-1787644022885-3k0xp8.md` |
+| `backfill-report-1787644055925-ekngfa.md` | `verification/012/backfill-report-1787644055925-ekngfa.md` |
 | `components-v2-editing-flows-2026-08-23.md` | `research/closed/components-v2-editing-flows-2026-08-23.md` |
 | `components-v2-editing-support-2026-08-23.md` | `handoff/closed/components-v2-editing-support-2026-08-23.md` |
 | `components-v2-invariant-for-system-architecture-2026-08-24.md` | `handoff/components-v2-invariant-for-system-architecture-2026-08-24.md` |
