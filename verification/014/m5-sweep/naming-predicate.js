@@ -1,13 +1,22 @@
 #!/usr/bin/env node
 // M5 step 2 instrument: positive naming form (per-file) + negative ID-token form (three domains).
-// Run from `website/`. Plan 014's exact regex text (rev 10, "Naming predicate implementing (C)").
+// Run from `website/`. Plan 014's "Naming predicate implementing (C)", as corrected at rev 14
+// (agent-output `56f23b6`): the module segment's leading-character anchor was widened from
+// `[a-z]` to `[A-Za-z]`. Rev 10's anchor was an instrument error, not a deliberate exclusion —
+// axiom (C) defines `<module>` as the production module's own basename verbatim, and a React
+// component's own basename is PascalCase (`JsonModalBody.tsx`), so its test's module segment must
+// be able to be too. The behaviour segment's anchor is unchanged (`[a-z]`, always lowercase-led).
+// Found live at M5 step 2's first run against this chain's own M4c output: 13 DOM-mount files
+// (JsonModalBody.*, NewMessageModal.*, SectionEditor.*, NullableComponent.*,
+// TransitionHeightElement.*, MessageProvider.*, SaveAsMenu.*, NewMessageJsonInput.*) failed the
+// rev-10 anchor despite conforming to axiom (C) itself.
 'use strict';
 
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-const POSITIVE = /^[a-z][a-zA-Z0-9-]*\.[a-z][a-zA-Z0-9-]*\.test\.tsx?$/;
+const POSITIVE = /^[A-Za-z][a-zA-Z0-9-]*\.[a-z][a-zA-Z0-9-]*\.test\.tsx?$/;
 const ID_TOKEN = /\b(m|ms|cr|qa|fqa|f-qa|ec|d|l|plan|rider)-?[0-9]+[a-z]?\b|\b0[0-9]{2}\b|20[0-9]{2}-[0-9]{2}-[0-9]{2}/i;
 
 function findFiles() {

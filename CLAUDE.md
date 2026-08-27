@@ -51,11 +51,15 @@ basename (hyphens admitted, e.g. `interactions-edge`). Test helpers live under
 excluded directory enters the production type-check program (and, with nothing in eslint config
 preventing it, could be imported by production code).
 
-**Positive form** (a conforming basename): `^[a-z][a-zA-Z0-9-]*\.[a-z][a-zA-Z0-9-]*\.test\.tsx?$`
-**and** neither the module segment nor the behaviour segment contains an ID token (below). Passing
-example: `shapes.v2-message.test.ts` — a version number in product vocabulary (`v2`) is not an ID
-token. A name whose behaviour segment instead names a review round, a milestone, or a ticket fails
-the check even where the shape otherwise matches.
+**Positive form** (a conforming basename): `^[A-Za-z][a-zA-Z0-9-]*\.[a-z][a-zA-Z0-9-]*\.test\.tsx?$`
+**and** neither the module segment nor the behaviour segment contains an ID token (below). The
+module segment's leading character admits uppercase because `<module>` is the production module's
+own basename verbatim (above) — a React component's file is PascalCase (`JsonModalBody.tsx`), so
+its test's module segment is too; the behaviour segment stays lowercase-led always. Passing
+examples: `shapes.v2-message.test.ts` (a version number in product vocabulary, `v2`, is not an ID
+token) and `JsonModalBody.load-settled-notice.test.tsx`. A name whose behaviour segment instead
+names a review round, a milestone, or a ticket fails the check even where the shape otherwise
+matches.
 
 **ID-token class** (case-insensitive): `\b(m|ms|cr|qa|fqa|f-qa|ec|d|l|plan|rider)-?[0-9]+[a-z]?\b`,
 or a bare three-digit `0NN` number, or a `YYYY-MM-DD` date. This class names a chain, milestone,
