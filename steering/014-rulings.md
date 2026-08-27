@@ -74,3 +74,5 @@ M2 APPROVED_WITH_COMMENTS at 988ca15 (code-review doc d7c5fe5). Owner, by select
 code-reviewer commits its own R-6 changelog row in the plan; verbatim addendum: "And write a TODO
 item about this, probably allowing for this narrow exception since I think it's common for this
 agent." TODO written (agents repo).
+
+Addendum 2026-08-27: owner extended the seam-notify rule to code-reviewer-hooks-014 ("it seems to fill up fast as well"); sent.
