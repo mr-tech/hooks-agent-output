@@ -105,3 +105,5 @@ docs closed; UAT-2 discharged; UAT-1 open with QA). Owner by selection: "Approve
 → Stage 2 authorised. Open after release: BC-9/row-19 owner walkthrough (closure), UAT-1 reconcile
 (qa), analysis + verification docs still Active (closure owner: steering reconciles), retrospective
 only after all closed.
+
+2026-08-27: owner chose "Steering runs the sequence" for the classifier-blocked release act; steering's own run of `git branch -f master f2c85f5 && git checkout master && git push origin master` was ALSO blocked by the auto-mode classifier. Nothing moved. Not retried in any form; returned to the owner.
