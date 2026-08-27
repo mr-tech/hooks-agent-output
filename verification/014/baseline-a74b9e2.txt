@@ -1,0 +1,628 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ✓ src/server/api/v1/__tests__/012-valid-exposure.test.ts > M5-a/M5-b — /api/v1/guilds/[guildId]/messages (list) > stored valid=true 71ms
+ ✓ src/server/api/v1/__tests__/012-valid-exposure.test.ts > M5-a/M5-b — /api/v1/guilds/[guildId]/messages (list) > stored valid=false 5ms
+ ✓ src/server/api/v1/__tests__/012-valid-exposure.test.ts > M5-a/M5-b — /api/v1/guilds/[guildId]/messages (list) > stored valid=NULL 2ms
+ ✓ src/utils/__tests__/013-m9a-delimiter-collision.test.ts > formatZodIssues — one line per issue, never split on issue content > a single issue whose own message contains the delimiter renders as ONE line 6ms
+ ✓ src/utils/__tests__/013-m9a-delimiter-collision.test.ts > formatZodIssues — one line per issue, never split on issue content > N issues render as exactly N lines, regardless of what any one issue's message contains 1ms
+ ✓ src/utils/__tests__/013-m9a-delimiter-collision.test.ts > formatZodIssues — one line per issue, never split on issue content > the rendered line for an issue still names its path — no-hiding is preserved 0ms
+ ✓ src/utils/__tests__/013-m9a-delimiter-collision.test.ts > formatZodIssues — one line per issue, never split on issue content > a single issue with no delimiter in its message still renders as one line (control) 0ms
+ ✓ src/server/api/v1/__tests__/012-valid-exposure.test.ts > M5-a/M5-b — /api/v1/guilds/[guildId]/messages/[id] (single) > stored valid=true 43ms
+ ✓ src/server/api/v1/__tests__/012-valid-exposure.test.ts > M5-a/M5-b — /api/v1/guilds/[guildId]/messages/[id] (single) > stored valid=false 4ms
+ ✓ src/server/api/v1/__tests__/012-valid-exposure.test.ts > M5-a/M5-b — /api/v1/guilds/[guildId]/messages/[id] (single) > stored valid=NULL 5ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > accepts a valid message with content only 3ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > accepts a valid message with embeds 1ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > accepts a message with V2 components 3ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > accepts a message with action row + link buttons 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > accepts a message with flags field 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > rejects action row with more than 5 buttons 1ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > accepts action row with zero buttons (owner ruling 2026-08-25, D34) 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > rejects section with more than 3 text components 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > rejects media gallery with more than 10 items 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > rejects more than 40 top-level components 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > accepts exactly 40 top-level components 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > rejects container-in-container (not in discriminatedUnion) 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > rejects link button without URL 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > rejects link button with non-URL string 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > accepts text display with empty content (owner ruling 2026-08-25, D34) 5ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > rejects text display with content exceeding 4000 chars 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > accepts text display with exactly 4000 chars 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > rejects unsupported button styles (not link button) 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > rejects separator with invalid spacing value 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > accepts separator with spacing=1 (small) and spacing=2 (large) 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > accepts container with accent_color 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > rejects container with accent_color > 0xFFFFFF 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > accepts container with empty components (owner ruling 2026-08-25, D34) 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > accepts section with zero text components (owner ruling 2026-08-25, D34) 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > accepts media gallery with zero items (owner ruling 2026-08-25, D34) 1ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > the max limits on these same five shapes are untouched by D34 — still reject over-max (regression control) 1ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageShape (strict) > accepts negative flags field 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageImportShape (lenient import) > accepts a valid message identically to strict shape 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageImportShape (lenient import) > filters out unsupported component types (e.g., select menus) silently 2ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageImportShape (lenient import) > filters unsupported children from containers 1ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageImportShape (lenient import) > removes container entirely if all children are unsupported 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageImportShape (lenient import) > accepts message with no components at all 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageImportShape (lenient import) > handles non-array components gracefully 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageImportShape (lenient import) > filters components with completely unknown type numbers 15ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > discordMessageImportShape (lenient import) > M4-b: a top-level thumbnail is filtered out by the lenient filter, not passed through to fail Zod 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > schema type satisfaction > discordMessageShape produces valid MessageData structure 1ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > aggregate displayable text limit > rejects multiple text displays whose sum exceeds 4000 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > aggregate displayable text limit > accepts multiple text displays whose sum is exactly 4000 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > aggregate displayable text limit > counts text displays nested inside sections 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > aggregate displayable text limit > counts text displays nested inside containers 9ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > aggregate displayable text limit > counts text displays inside sections within containers 1ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > aggregate displayable text limit > still rejects single text display at 4001 (per-field limit) 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > aggregate displayable text limit > discordMessageImportShape also rejects aggregate > 4000 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > aggregate displayable text limit > discordMessageImportShape accepts aggregate exactly 4000 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > QA: aggregate displayable text — edge cases > counts text spread across many small text displays 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > QA: aggregate displayable text — edge cases > accepts many small text displays under limit 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > QA: aggregate displayable text — edge cases > does not count non-TextDisplay content fields 3ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > QA: aggregate displayable text — edge cases > handles mixed V2 + ActionRow: ActionRow text does not count 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > QA: aggregate displayable text — edge cases > import shape: filtered components reduce aggregate below limit 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > QA: aggregate displayable text — edge cases > rejects aggregate via messageShape (nested data validation) 0ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > QA: aggregate displayable text — edge cases > aggregate error has correct path pointing to components 1ms
+ ✓ src/server/api/utils/__tests__/shapes-v2.test.ts > QA: aggregate displayable text — edge cases > deeply nested: section-in-container correctly sums 0ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > emptyReport / accumulate — M1: every breakout category carries row ids > starts with rowsClassifiedThisRun: 0, not `total` 2ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > emptyReport / accumulate — M1: every breakout category carries row ids > flagStructureDisagreement carries rowIds alongside count 1ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > emptyReport / accumulate — M1: every breakout category carries row ids > flagStructureDisagreementValidTrue is a distinct, id-carrying category (the invisible sub-class) 0ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > emptyReport / accumulate — M1: every breakout category carries row ids > a flag/structure disagreement on an invalid row does not populate the validTrue category 0ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > formatReport — coverage-labelled, so a partial run cannot read as whole-table > includes the table-wide count alongside the accumulated count under distinct names 0ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > formatReport — coverage-labelled, so a partial run cannot read as whole-table > marks an interrupted run explicitly 0ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > formatReport — coverage-labelled, so a partial run cannot read as whole-table > carries the run's provenance stamps in the persisted body (L7 — a regression guard, not a TDD red/green: this already passed at HEAD, since the fields already reached the body through the untyped spread; the point is to fail if a future refactor drops them) 0ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > persistReport — writes the report to disk, not only stdout (H2) > creates the destination directory and writes the content 1ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > persistReport — writes the report to disk, not only stdout (H2) > refuses to overwrite an existing report, so a rehearsal cannot silently replace the gate's evidence (M1-r2) 2ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > reportPath — one filename per run, so overwrite-refusal does not block a legitimate retry (M1-r2) > embeds the given run id in the filename 0ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > reportPath — one filename per run, so overwrite-refusal does not block a legitimate retry (M1-r2) > two different run ids produce two different paths 0ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > reportPath — one filename per run, so overwrite-refusal does not block a legitimate retry (M1-r2) > honours an explicit report directory override (L8) 0ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > resolveTargetHost — the host the backfill would actually connect to (M4) > extracts host:port from a DATABASE_URL 0ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > resolveTargetHost — the host the backfill would actually connect to (M4) > defaults the port to 5432 when the URL omits one 0ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > resolveTargetHost — the host the backfill would actually connect to (M4) > returns a sentinel for an unset DATABASE_URL 0ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > resolveTargetHost — the host the backfill would actually connect to (M4) > returns a sentinel for an unparseable DATABASE_URL 0ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > assertConfirmedTarget — refuses to run against an unacknowledged target (M4, Preferred) > throws when BACKFILL_CONFIRM is unset 0ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > assertConfirmedTarget — refuses to run against an unacknowledged target (M4, Preferred) > throws when BACKFILL_CONFIRM names a different host than DATABASE_URL resolves to 0ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > assertConfirmedTarget — refuses to run against an unacknowledged target (M4, Preferred) > does not throw when BACKFILL_CONFIRM matches the resolved host exactly 0ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > assertConfirmedTarget — refuses to run against an unacknowledged target (M4, Preferred) > refuses a sentinel value as a confirmation, even if it happened to equal the resolved host (L10) 0ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > hasConnectionOverrideParams — the guard's parser and pg's parser can disagree on a query-string override (M6) > is false for a plain DATABASE_URL with no query string 0ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > hasConnectionOverrideParams — the guard's parser and pg's parser can disagree on a query-string override (M6) > is true when the URL carries a "host" query parameter 0ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > hasConnectionOverrideParams — the guard's parser and pg's parser can disagree on a query-string override (M6) > is true when the URL carries a "port" query parameter 0ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > hasConnectionOverrideParams — the guard's parser and pg's parser can disagree on a query-string override (M6) > is false for an unset or unparseable DATABASE_URL 0ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > assertNoHostOverride — refuses outright when the guard cannot trust its own parsed host (M6, Minimum) > throws when the URL carries a host override, regardless of confirmation 0ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > assertNoHostOverride — refuses outright when the guard cannot trust its own parsed host (M6, Minimum) > throws when the URL carries a port override 0ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > assertNoHostOverride — refuses outright when the guard cannot trust its own parsed host (M6, Minimum) > does not throw for a plain DATABASE_URL 0ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > assertNoHostOverride — refuses outright when the guard cannot trust its own parsed host (M6, Minimum) > does not throw for an unset DATABASE_URL (a separate guard, assertConfirmedTarget, owns that case) 0ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > emit — H3: symmetric guard, stdout before disk, a persist failure does not swallow the run > guards a failing table-wide count the same way on every call, not only on one path 4ms
+ ✓ src/scripts/__tests__/012-backfill-report.test.ts > emit — H3: symmetric guard, stdout before disk, a persist failure does not swallow the run > writes stdout before attempting to persist, so a persist failure does not also lose stdout 2ms
+ ✓ src/scripts/__tests__/012-backfill-classify.test.ts > classifyRow — the verdict > a sendable record computes valid: true 2ms
+ ✓ src/scripts/__tests__/012-backfill-classify.test.ts > classifyRow — the verdict > an unsendable record computes valid: false, with the failing check named 0ms
+ ✓ src/scripts/__tests__/012-backfill-classify.test.ts > classifyRow — the flag/structure-disagreement class (F-QA2) > flag set, structurally non-V2 components: flagged 0ms
+ ✓ src/scripts/__tests__/012-backfill-classify.test.ts > classifyRow — the flag/structure-disagreement class (F-QA2) > flag set AND structurally V2: not flagged (agreement, not disagreement) 0ms
+ ✓ src/scripts/__tests__/012-backfill-classify.test.ts > classifyRow — the flag/structure-disagreement class (F-QA2) > flag unset: never flagged, whatever the structure 0ms
+ ✓ src/scripts/__tests__/012-backfill-classify.test.ts > classifyRow — the whitespace-content class (D14) > structurally-V2 components with non-empty whitespace-only content: flagged 0ms
+ ✓ src/scripts/__tests__/012-backfill-classify.test.ts > classifyRow — the whitespace-content class (D14) > empty string content is not whitespace content 0ms
+ ✓ src/scripts/__tests__/012-backfill-classify.test.ts > classifyRow — the whitespace-content class (D14) > non-V2 components with whitespace content: not flagged (structure gate) 0ms
+ ✓ src/scripts/__tests__/012-backfill-classify.test.ts > classifyRow — evaluation failures (Assumption Not Checked) > non-array embeds computes valid: false and evaluationFailure: true 1ms
+ ✓ src/scripts/__tests__/012-backfill-classify.test.ts > classifyRow — evaluation failures (Assumption Not Checked) > null components computes valid: false and evaluationFailure: true 0ms
+ ✓ src/scripts/__tests__/012-backfill-classify.test.ts > classifyRow — evaluation failures (Assumption Not Checked) > a normal refusal is NOT an evaluation failure 0ms
+ ✓ src/utils/__tests__/013-m3-code-path.test.ts > M3-b — the dropped-set report is written alongside data (a redis StoredMessage write) > persists components, the copied flag bit, and the dropped-type report from a bot Get Message payload 3ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row A: bit clear, no components, no content — lands unchanged, Classic, no notice 2ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row A: bit clear, no components, WITH content — still A, Classic, no notice 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row B: bit clear, V2 components, no content — V2 with a warning 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row E: bit clear, V2 components AND content — the user chooses 1ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row C: bit set, no V2 components, no content (Action Rows only) — V2 silently, D13 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row C: bit set, no components at all, no content — V2 silently 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row D: bit set, no V2 components, WITH content — Classic, warning 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row C: bit set, V2 components, no content — V2 silently kept 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row E: bit set, V2 components AND content — the user chooses 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row E: dropSet reflects a PARTIAL components drop, not "all components" (MEDIUM-2, round 5) — a container alongside an Action Row: only the container is lost on "save as Classic" 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — resolveContentLoss, all eight cells (M8-F) > row E: v2 option claims "embeds" only when the draft actually carries meaningful embeds (MEDIUM-2, round 5) — an empty embeds array is not a real loss 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — MEDIUM-3 regression: the bit is masked, not truthy-tested > a residue bit (SUPPRESS_EMBEDS) alongside classic content is row A, not D 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — MEDIUM-3 regression: the bit is masked, not truthy-tested > the V2 bit combined with a residue bit is still row C (mask, not equality) 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — MEDIUM-3 regression: the bit is masked, not truthy-tested > an undefined flags value behaves as 0 (row A, not D) 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — conjunct isolation: the bit alone selects the row within each (components, content) combo > no components, no content: bit is the sole carrier between A and C 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — conjunct isolation: the bit alone selects the row within each (components, content) combo > no components, with content: bit is the sole carrier between A and D 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — conjunct isolation: the bit alone selects the row within each (components, content) combo > V2 components, no content: bit is the sole carrier between B and C 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — conjunct isolation: the bit alone selects the row within each (components, content) combo > V2 components, with content: row is E regardless of the bit (both directions) 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — both-directions obligation (QA) > M8-C is not re-admitted by an Action-Rows-only fixture (D13, "not a conflict") 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — both-directions obligation (QA) > M8-A and M8-C together isolate M8-E: cells exist where requiresChoice is false and something lands immediately 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — gateBeforePersist, the persist gate (D18, M8-G) > mustAsk is true for a row-E draft (5712-shaped: V2 components retained alongside classic content) 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — gateBeforePersist, the persist gate (D18, M8-G) > mustAsk is false for an ordinary classic draft (a canned-intro writer: never a member) 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — gateBeforePersist, the persist gate (D18, M8-G) > mustAsk is false for a pure V2 draft with no classic body 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — gateBeforePersist, the persist gate (D18, M8-G) > mustAsk is true regardless of whether the flag bit happens to be set (both row-E members) 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — gateBeforePersist, the persist gate (D18, M8-G) > mustAsk is false for a residue-bit-only draft (MEDIUM-3 regression at the gate) 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — applyDisposition, the application half (D18) > row A/settled: derives Classic from the draft itself and delegates to switchToClassic (no bit, no content change) 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — applyDisposition, the application half (D18) > row B/C settled: derives V2 from the draft itself, sets the flag bit and clears content/embeds 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — applyDisposition, the application half (D18) > row D settled: derives Classic from the draft itself and clears the bit 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — applyDisposition, the application half (D18) > row E with the classic mode chosen: drops components, clears the bit 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — applyDisposition, the application half (D18) > row E with the v2 mode chosen: drops content/embeds, sets the bit 0ms
+ ✓ src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts > EC-3 — applyDisposition, the application half (D18) > row E with no chosen mode throws — a choice cannot be applied without being made 1ms
+ ✓ src/utils/__tests__/012-validity-predicate.test.ts > M3-a — parity by construction > agrees with the Send gate over representative payloads (B2, A3 permitting; B5 refusing) 2ms
+ ✓ src/utils/__tests__/012-validity-predicate.test.ts > M3-a — parity by construction > T2 — declares no validation logic of its own: the module text contains exactly one call into the gate 1ms
+ ✓ src/utils/__tests__/013-fqa19-ingress-gate-reachability.test.ts > F-QA19 — the ingress converter can produce a row-E draft (INFO-2 was wrong) > the converter does NOT normalise: content, components and the flag all survive together 3ms
+ ✓ src/utils/__tests__/013-fqa19-ingress-gate-reachability.test.ts > F-QA19 — the ingress converter can produce a row-E draft (INFO-2 was wrong) > THE REACHABILITY: that output trips the persist gate, so the branch is live, not dead 1ms
+ ✓ src/utils/__tests__/013-fqa19-ingress-gate-reachability.test.ts > F-QA19 — the ingress converter can produce a row-E draft (INFO-2 was wrong) > each option names what it would drop, so the branch has something truthful to render 1ms
+ ✓ src/utils/__tests__/013-fqa19-ingress-gate-reachability.test.ts > F-QA19 — controls: mustAsk is not simply always true > a classic-only Discord message does NOT trip the gate 0ms
+ ✓ src/utils/__tests__/013-fqa19-ingress-gate-reachability.test.ts > F-QA19 — controls: mustAsk is not simply always true > a V2-only Discord message (no classic body) does NOT trip the gate 0ms
+ ✓ src/utils/__tests__/013-fqa19-ingress-gate-reachability.test.ts > F-QA19 — controls: mustAsk is not simply always true > a flagged classic message (row D) does NOT trip the gate — it resolves without asking 0ms
+ ✓ src/utils/__tests__/013-fqa19-ingress-gate-reachability.test.ts > F-QA19 — the create writer is wired to the gate (source-pinned; see D28 for why) > there is exactly ONE upsert call site in the file — a single write, not several to police 0ms
+ ✓ src/utils/__tests__/013-fqa19-ingress-gate-reachability.test.ts > F-QA19 — the create writer is wired to the gate (source-pinned; see D28 for why) > that single write lives in submitData, which neither resolves nor gates on its own 0ms
+ ✓ src/utils/__tests__/013-fqa19-ingress-gate-reachability.test.ts > F-QA19 — the create writer is wired to the gate (source-pinned; see D28 for why) > ROUTE 1 — onSubmit gates first and returns before writing when the gate says ask 1ms
+ ✓ src/utils/__tests__/013-fqa19-ingress-gate-reachability.test.ts > F-QA19 — the create writer is wired to the gate (source-pinned; see D28 for why) > ROUTE 2 — commitChoice applies the chosen disposition before writing 0ms
+ ✓ src/utils/__tests__/013-fqa19-ingress-gate-reachability.test.ts > F-QA19 — the create writer is wired to the gate (source-pinned; see D28 for why) > and those are the ONLY two routes — no third caller writes past the gate 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > enforceImportMutualExclusivity > V2 data detected → strips content/embeds > strips content when V2 components present 2ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > enforceImportMutualExclusivity > V2 data detected → strips content/embeds > strips embeds when V2 components present 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > enforceImportMutualExclusivity > V2 data detected → strips content/embeds > strips both content and embeds when V2 components present 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > enforceImportMutualExclusivity > V2 data detected → strips content/embeds > preserves V2 components when stripping classic data 1ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > enforceImportMutualExclusivity > V2 data detected → strips content/embeds > detects V2 mode for all V2 component types 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > enforceImportMutualExclusivity > classic data detected → strips V2 components > strips V2 components when only classic data present (no V2) 2ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > enforceImportMutualExclusivity > classic data detected → strips V2 components > preserves legacy ActionRows in classic mode 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > enforceImportMutualExclusivity > classic data detected → strips V2 components > filters out V2 types from mixed components when V2 is not dominant 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > enforceImportMutualExclusivity > edge cases > handles empty components array 1ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > enforceImportMutualExclusivity > edge cases > handles undefined components 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > enforceImportMutualExclusivity > edge cases > handles data with no fields at all 1ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > enforceImportMutualExclusivity > edge cases > does not mutate the input object 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > enforceImportMutualExclusivity > edge cases > returns a shallow copy (not the same reference) 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > enforceImportMutualExclusivity > edge cases > V2 mode takes precedence: V2 + ActionRow mixed → V2 mode 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > validateContentRequirements > valid messages > returns undefined for classic message with content 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > validateContentRequirements > valid messages > returns undefined for classic message with embeds only 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > validateContentRequirements > valid messages > returns undefined for classic message with content + embeds + ActionRow 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > validateContentRequirements > valid messages > returns undefined for V2 message with only V2 components (no content/embeds) 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > validateContentRequirements > valid messages > returns undefined for V2 components + ActionRow + no content/embeds 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > validateContentRequirements > invalid messages — mutual exclusivity violation > returns error string when V2 components mixed with content 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > validateContentRequirements > invalid messages — mutual exclusivity violation > returns error string when V2 components mixed with embeds 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > validateContentRequirements > invalid messages — mutual exclusivity violation > returns error string when V2 components mixed with both content and embeds 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > validateContentRequirements > invalid messages — empty message > returns error string for empty message (no content, embeds, or components) 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > validateContentRequirements > invalid messages — empty message > returns error string for whitespace-only content and no embeds/components 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > validateContentRequirements > edge cases > uses default empty arrays/strings when fields are undefined 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > validateContentRequirements > edge cases > legacy ActionRow + embeds is NOT a V2 violation 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > validateContentRequirements > edge cases > legacy ActionRow + content is NOT a V2 violation 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > hasV2Components — individual V2 type coverage > returns true for MediaGallery (type 12) 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > hasV2Components — individual V2 type coverage > returns true for File (type 13) 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > hasV2Components — individual V2 type coverage > returns true for Section (type 9) 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > hasV2Components — individual V2 type coverage > returns false for unknown component type 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > hasV2Components — individual V2 type coverage > returns false for type 1 (ActionRow) alone 0ms
+ ✓ src/utils/__tests__/m7-m10-coverage-gaps.test.ts > hasV2Components — individual V2 type coverage > returns false for type 2 (Button) alone 0ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > injectComponentKeys > adds _key to a simple text display 2ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > injectComponentKeys > adds _key to action row and its child buttons 1ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > injectComponentKeys > adds _key to section, its text children, and accessory 1ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > injectComponentKeys > adds _key to section with link button accessory 0ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > injectComponentKeys > adds _key to media gallery items 0ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > injectComponentKeys > adds _key to file component 0ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > injectComponentKeys > adds _key to separator component 1ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > injectComponentKeys > recursively injects keys into container children 0ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > injectComponentKeys > does not mutate the input object 0ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > injectComponentKeys > preserves existing _key values 0ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > rekeyComponent > generates new _key for a simple component 1ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > rekeyComponent > generates all-new keys for a container with nested children 1ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > rekeyComponent > preserves data values while changing keys 0ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > rekeyComponent > does not mutate the original component 0ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > stripKeys > removes _key from embeds and embed fields 1ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > stripKeys > removes _key from all component types recursively 0ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > stripKeys > sets IS_COMPONENTS_V2_FLAG when V2 components are present 0ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > stripKeys > sets IS_COMPONENTS_V2_FLAG value to 32768 0ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > stripKeys > preserves existing flags when adding V2 flag 0ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > stripKeys > does NOT set V2 flag for action-row-only messages (type 1 is not V2) 0ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > stripKeys > sets V2 flag when mixing action rows with V2 components 0ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > stripKeys > handles message with no components 0ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > stripKeys > handles message with empty components array 3ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > stripKeys > does not mutate the input message 0ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > makeEditable > injects _key into embeds and fields 0ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > makeEditable > injects _key into components recursively 0ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > makeEditable > deep clones the input (does not share references) 0ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > roundtrip: injectComponentKeys → stripKeys > roundtrip preserves data for every V2 component type 1ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > roundtrip: injectComponentKeys → stripKeys > roundtrip works for empty message 0ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > constants > MAX_TOTAL_COMPONENTS is 40 0ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > constants > IS_COMPONENTS_V2_FLAG is 32768 (1 << 15) 0ms
+ ✓ src/utils/__tests__/components-v2-data-layer.test.ts > genUuid > produces unique values on successive calls 1ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > hasV2Components > returns true when components contain V2 type (TextDisplay) 2ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > hasV2Components > returns true for Section (type 9) 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > hasV2Components > returns true for Container (type 17) 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > hasV2Components > returns true for Separator (type 14) 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > hasV2Components > returns false for legacy ActionRow only (type 1) 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > hasV2Components > returns false for empty array 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > hasV2Components > returns false for undefined 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > hasV2Components > returns true when mixing ActionRow + V2 types 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > hasClassicContent > returns true when content is non-empty 1ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > hasClassicContent > returns true when embeds array has entries 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > hasClassicContent > returns true when both content and embeds exist 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > hasClassicContent > returns false for empty content and no embeds 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > hasClassicContent > returns false for empty content and empty embeds 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > hasClassicContent > returns false for undefined content and embeds 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > hasClassicContent > returns false for whitespace-only content 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > hasV2Content > returns true when components have V2 types 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > hasV2Content > returns false when only legacy ActionRows exist 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > hasV2Content > returns false for empty array 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > hasV2Content > returns false for undefined 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > hasV2Content > returns true for Container type (17) 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > stripKeys retains embeds/content under V2 components (M8-G, D18) > keeps embeds when V2 components are present 1ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > stripKeys retains embeds/content under V2 components (M8-G, D18) > keeps content when V2 components are present 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > stripKeys retains embeds/content under V2 components (M8-G, D18) > keeps both embeds and content when V2 components are present, and still sets the bit 1ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > stripKeys retains embeds/content under V2 components (M8-G, D18) > does NOT strip embeds/content when only legacy ActionRows present 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > stripKeys retains embeds/content under V2 components (M8-G, D18) > does NOT strip embeds/content when no components present 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > stripKeys retains embeds/content under V2 components (M8-G, D18) > preserves components, flags, content and embeds together 1ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > validateMessage mutual exclusivity > returns error string for message with V2 components AND embeds 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > validateMessage mutual exclusivity > returns error string for message with V2 components AND content 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > validateMessage mutual exclusivity > returns empty string for V2 components without content/embeds (valid) 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > validateMessage mutual exclusivity > returns empty string for classic message (embeds + content, no V2) 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > validateMessage mutual exclusivity > returns empty string for legacy ActionRow + embeds (not V2) 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > validateMessage mutual exclusivity > returns error for no content, no embeds, no components 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > validateDisplayableTextCount > returns empty string when total text is within limit 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > validateDisplayableTextCount > returns empty string for exactly 4000 characters 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > validateDisplayableTextCount > returns error when total text exceeds 4000 characters 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > validateDisplayableTextCount > counts text inside sections 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > validateDisplayableTextCount > counts text inside containers 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > validateDisplayableTextCount > counts text inside sections within containers 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > validateDisplayableTextCount > returns empty string for classic ActionRows (no text displays) 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > validateDisplayableTextCount > returns empty string for empty components array 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > validateMessage aggregate text > returns error for V2 message with aggregate text > 4000 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > validateMessage aggregate text > returns empty string for V2 message with aggregate text ≤ 4000 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > QA: validateDisplayableTextCount edge cases > counts many small text displays accurately 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > QA: validateDisplayableTextCount edge cases > accepts many small text displays exactly at limit 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > QA: validateDisplayableTextCount edge cases > does not count button labels in ActionRows 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > QA: validateDisplayableTextCount edge cases > handles undefined components in section gracefully 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > QA: validateDisplayableTextCount edge cases > handles undefined components in container gracefully 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > QA: validateDisplayableTextCount edge cases > off-by-one: 4001 total triggers error, 4000 does not 0ms
+ ✓ src/utils/__tests__/mutual-exclusivity.test.ts > QA: validateDisplayableTextCount edge cases > error message includes the limit number for user clarity 0ms
+ ✓ src/utils/__tests__/008-qa-validation.test.ts > QA: Auto-remove branch dispatch (Code Review F7) > calls onAutoRemove (not setSection) when deleting the sole text display 3ms
+ ✓ src/utils/__tests__/008-qa-validation.test.ts > QA: Auto-remove branch dispatch (Code Review F7) > calls setSection (not onAutoRemove) when deleting from a multi-text section 2ms
+ ✓ src/utils/__tests__/008-qa-validation.test.ts > QA: Auto-remove branch dispatch (Code Review F7) > calls onAutoRemove for each sequential delete until section is empty 1ms
+ ✓ src/utils/__tests__/008-qa-validation.test.ts > QA: Duplicate at last index > duplicates text display at last index — clone placed at end 2ms
+ ✓ src/utils/__tests__/008-qa-validation.test.ts > QA: Duplicate at last index > duplicates button at last index — clone placed at end 1ms
+ ✓ src/utils/__tests__/008-qa-validation.test.ts > QA: Duplicate at last index > duplicates media gallery item at last index — clone placed at end 1ms
+ ✓ src/utils/__tests__/008-qa-validation.test.ts > QA: Content field preservation on duplicate > text display clone preserves content exactly 0ms
+ ✓ src/utils/__tests__/008-qa-validation.test.ts > QA: Content field preservation on duplicate > link button clone preserves all fields (label, url, emoji, disabled, style) 1ms
+ ✓ src/utils/__tests__/008-qa-validation.test.ts > QA: Content field preservation on duplicate > media gallery item clone preserves url, description, and spoiler 0ms
+ ✓ src/utils/__tests__/008-qa-validation.test.ts > QA: Content field preservation on duplicate > media gallery item clone without optional fields preserves undefined 0ms
+ ✓ src/utils/__tests__/008-qa-validation.test.ts > QA: Container child deep clone completeness > rekeyComponent re-keys the accessory of a Section 1ms
+ ✓ src/utils/__tests__/008-qa-validation.test.ts > QA: Container child deep clone completeness > rekeyComponent produces entirely unique keys for deep Section 0ms
+ ✓ src/utils/__tests__/008-qa-validation.test.ts > QA: Container child deep clone completeness > rekeyComponent preserves text content of all children 0ms
+ ✓ src/utils/__tests__/008-qa-validation.test.ts > QA: Gating edge cases > section with 1 text display: duplicate IS offered (1 < 3) 0ms
+ ✓ src/utils/__tests__/008-qa-validation.test.ts > QA: Gating edge cases > section with 2 text displays: duplicate IS offered (2 < 3) 0ms
+ ✓ src/utils/__tests__/008-qa-validation.test.ts > QA: Gating edge cases > action row with 1 button: duplicate IS offered (1 < 5) 0ms
+ ✓ src/utils/__tests__/008-qa-validation.test.ts > QA: Gating edge cases > action row with 4 buttons: duplicate IS offered (4 < 5) 0ms
+ ✓ src/utils/__tests__/008-qa-validation.test.ts > QA: Gating edge cases > media gallery with 9 items: duplicate IS offered (9 < 10) 0ms
+ ✓ src/utils/__tests__/008-qa-validation.test.ts > QA: Move operations preserve all elements > move up preserves array length and all elements 1ms
+ ✓ src/utils/__tests__/008-qa-validation.test.ts > QA: Move operations preserve all elements > move down preserves array length and all elements 1ms
+ ✓ src/utils/__tests__/008-qa-validation.test.ts > QA: Delete preserves order of remaining elements > deleting middle text display preserves first and last in order 0ms
+ ✓ src/utils/__tests__/008-qa-validation.test.ts > QA: Delete preserves order of remaining elements > deleting first text display shifts others up 0ms
+ ✓ src/utils/__tests__/008-qa-validation.test.ts > QA: Delete preserves order of remaining elements > deleting last text display preserves first and second 0ms
+ ✓ src/utils/__tests__/012-validity-predicate.test.ts > M3-a — parity by construction > T3 — imports the gate directly from ~/utils/limits, not the ~/utils barrel (symbol identity holds either way) 683ms
+ ✓ src/utils/__tests__/012-validity-predicate.test.ts > M3-b — sentinels, expectations sourced outside this codebase > stored record 5712 computes false (owner-recorded Discord 400/50035, 2026-08-23) 1ms
+ ✓ src/utils/__tests__/012-validity-predicate.test.ts > M3-b — sentinels, expectations sourced outside this codebase > a bare top-level Text Display carrying the V2 flag computes true (owner-recorded HTTP 200, 2026-08-23) 0ms
+ ✓ src/utils/__tests__/012-validity-predicate.test.ts > M3-c — known asymmetry: absent username > a record with no username computes false, matching the gate (parity, not a defect) 0ms
+ ✓ src/utils/__tests__/012-validity-predicate.test.ts > M3-c — known asymmetry: absent username > control: the same record with a valid username computes true 0ms
+ ✓ src/utils/__tests__/012-validity-predicate.test.ts > M3-d — the predicate is pure w.r.t. its argument > does not mutate the record it evaluates 1ms
+ ✓ src/utils/__tests__/012-validity-predicate.test.ts > T5 / M6-b — non-conformant stored data is not swallowed as true > non-array embeds computes false rather than throwing out 0ms
+ ✓ src/utils/__tests__/012-validity-predicate.test.ts > T5 / M6-b — non-conformant stored data is not swallowed as true > non-string content computes false rather than throwing out 0ms
+ ✓ src/utils/__tests__/012-validity-predicate.test.ts > T5 / M6-b — non-conformant stored data is not swallowed as true > null components computes false rather than throwing out 0ms
+ ✓ src/server/api/utils/__tests__/013-m4-shapes-parity.test.ts > M4-b — SUPPORTED_TOP_LEVEL_TYPES equals the discriminant set topLevelComponentShape accepts > the top-level filter set and the schema discriminant set are the same set, asserted over the sets themselves 4ms
+ ✓ src/server/api/utils/__tests__/013-m4-shapes-parity.test.ts > M4-b — SUPPORTED_TOP_LEVEL_TYPES equals the discriminant set topLevelComponentShape accepts > the container-child filter set and the schema discriminant set are the same set 0ms
+ ✓ src/server/api/utils/__tests__/013-m4-shapes-parity.test.ts > M4-b — SUPPORTED_TOP_LEVEL_TYPES equals the discriminant set topLevelComponentShape accepts > a top-level Thumbnail is filtered out, not passed through to a failing schema parse 2ms
+ ✓ src/server/api/utils/__tests__/013-m4-shapes-parity.test.ts > MEDIUM-5 — filterSupportedComponents filters Section accessories the same way ActionRow buttons already are > drops a top-level Section whose accessory is a non-link button, keeping the rest 1ms
+ ✓ src/server/api/utils/__tests__/013-m4-shapes-parity.test.ts > MEDIUM-5 — filterSupportedComponents filters Section accessories the same way ActionRow buttons already are > keeps a top-level Section whose accessory is a link button 2ms
+ ✓ src/server/api/utils/__tests__/013-m4-shapes-parity.test.ts > MEDIUM-5 — filterSupportedComponents filters Section accessories the same way ActionRow buttons already are > drops a Section nested in a Container when its accessory is unsupported, keeping the container 1ms
+ ✓ src/server/api/utils/__tests__/013-m4-shapes-parity.test.ts > M4-b — describeUnsupportedComponentTypes names what the lenient filter silently drops (D9's form) > reports a top-level select menu by label 1ms
+ ✓ src/server/api/utils/__tests__/013-m4-shapes-parity.test.ts > M4-b — describeUnsupportedComponentTypes names what the lenient filter silently drops (D9's form) > reports the unsupported accessory of a dropped Section 0ms
+ ✓ src/server/api/utils/__tests__/013-m4-shapes-parity.test.ts > M4-b — describeUnsupportedComponentTypes names what the lenient filter silently drops (D9's form) > reports nothing for a fully-supported message 1ms
+ ✓ src/server/api/utils/__tests__/013-m4-shapes-parity.test.ts > M4-b — describeUnsupportedComponentTypes names what the lenient filter silently drops (D9's form) > reports drops from unsupported container children 1ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > edit/page.tsx — route-level preloading > does not contain PreloadComponents 2ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > edit/page.tsx — route-level preloading > does not contain hidden-div preload hack 0ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > edit/page.tsx — route-level preloading > preloads all critical-path components in useEffect 0ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > edit/page.tsx — route-level preloading > preloads all secondary components via idle callback 1ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > edit/page.tsx — route-level preloading > uses requestIdleCallback with setTimeout fallback 0ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > edit/page.tsx — route-level preloading > wraps preload calls in useEffect (client-only safety) 0ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > EmojiPicker/index.tsx — flattened lazy chain > directly re-exports Root (no dynamic wrapper) 0ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > EmojiPicker/index.tsx — flattened lazy chain > does not use next/dynamic 0ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > EmojiPicker/Root.tsx — single lazy boundary + preloading > has exactly one dynamic import for Picker 1ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > EmojiPicker/Root.tsx — single lazy boundary + preloading > provides a loading fallback to prevent Suspense bubbling 0ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > EmojiPicker/Root.tsx — single lazy boundary + preloading > uses PickerSkeleton as loading fallback 1ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > EmojiPicker/Root.tsx — single lazy boundary + preloading > does not contain the old setTimeout preload hack 0ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > EmojiPicker/Root.tsx — single lazy boundary + preloading > has hover preload callback 0ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > EmojiPicker/Root.tsx — single lazy boundary + preloading > attaches preload to desktop trigger via onPointerEnter 0ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > EmojiPicker/Root.tsx — single lazy boundary + preloading > attaches preload to desktop trigger via onTouchStart 0ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > EmojiPicker/Root.tsx — single lazy boundary + preloading > attaches preload to mobile button via onHoverStart 0ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > EmojiPicker/PickerSkeleton.tsx — loading skeleton > exists and exports a component 0ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > EmojiPicker/PickerSkeleton.tsx — loading skeleton > uses animate-pulse for skeleton animation 0ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > EmojiPicker/PickerSkeleton.tsx — loading skeleton > does not pulse the outer bg-secondary container (prevents see-through) 0ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > EmojiPicker/PickerSkeleton.tsx — loading skeleton > uses bg-secondary for the outer container (matches Picker) 0ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > EmojiPicker/PickerSkeleton.tsx — loading skeleton > is wrapped in memo for performance 0ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > dynamics/ barrel files — loading boundaries preserved > components/dynamics/DiscordMessageEditor.tsx uses next/dynamic with loading prop 1ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > dynamics/ barrel files — loading boundaries preserved > components/dynamics/SlateEditor.tsx uses next/dynamic with loading prop 0ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > dynamics/ barrel files — loading boundaries preserved > components/dynamics/Markdown.tsx uses next/dynamic with loading prop 0ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > dynamics/ barrel files — loading boundaries preserved > components/dynamics/Calendar.tsx uses next/dynamic with loading prop 0ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > dynamics/ barrel files — loading boundaries preserved > components/dynamics/ImageUploader.tsx uses next/dynamic with loading prop 0ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > dynamics/ barrel files — loading boundaries preserved > DiscordMessageEditor uses LoadingDots fallback 0ms
+ ✓ src/utils/__tests__/plan-004-lazy-loading.test.ts > Plan 004: Lazy Loading & Preload Overhaul > dynamics/ barrel files — loading boundaries preserved > other dynamics use loading: () => null 1ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2 — send gate over the (flags-bit x structure x content-source) partition > 'A1' — 'structural-V2 disjunct is the sole ca…' 2ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2 — send gate over the (flags-bit x structure x content-source) partition > 'A2' — 'embeds is the sole carrier of hasCont…' 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2 — send gate over the (flags-bit x structure x content-source) partition > 'A3' — 'well-formed V2: components only. The …' 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2 — send gate over the (flags-bit x structure x content-source) partition > 'A4' — 'classic message with a legacy ActionR…' 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2 — send gate over the (flags-bit x structure x content-source) partition > 'A5' — 'hasComponents is the sole carrier of …' 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2 — send gate over the (flags-bit x structure x content-source) partition > 'A6' — 'plain classic content, no components' 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2 — send gate over the (flags-bit x structure x content-source) partition > 'A7' — 'genuinely empty message' 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2 — send gate over the (flags-bit x structure x content-source) partition > 'B1' — 'flag and structure agree on V2; conte…' 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2 — send gate over the (flags-bit x structure x content-source) partition > 'B2' — 'POSITIVE CONTROL for the V2 class: ba…' 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2 — send gate over the (flags-bit x structure x content-source) partition > 'B3' — 'RESIDUE: flag set, non-V2 components,…' 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2 — send gate over the (flags-bit x structure x content-source) partition > 'B4' — 'flag set, non-V2 components, no conte…' 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2 — send gate over the (flags-bit x structure x content-source) partition > 'B5' — 'RESIDUE, and the shape of stored reco…' 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2 — send gate over the (flags-bit x structure x content-source) partition > 'B6' — 'flag set on an otherwise empty messag…' 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2 — send gate over the (flags-bit x structure x content-source) partition > 'B7' — 'RESIDUE: flag set, no components, emb…' 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2 — send gate over the (flags-bit x structure x content-source) partition > the partition is complete over both halves of the flags bit 1ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2 — send gate over the (flags-bit x structure x content-source) partition > M2-b — exactly three cells change verdict at M2; a fourth is a criterion failure 1ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M3-b — sentinels, expectations sourced outside this codebase > stored record 5712 is unsendable 1ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M3-b — sentinels, expectations sourced outside this codebase > a bare top-level Text Display carrying the V2 flag is sendable 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > gate copy — asserted once, so the classifier above cannot silently degrade > the mutual-exclusivity copy exists verbatim 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > gate copy — asserted once, so the classifier above cannot silently degrade > the empty-message copy exists verbatim 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2-e — the generator is closed: V2->classic clears the flag over the whole class > V2 components present -> no V2 flag afterwards 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2-e — the generator is closed: V2->classic clears the flag over the whole class > V2 components plus a legacy ActionRow -> no V2 flag afterwards 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2-e — the generator is closed: V2->classic clears the flag over the whole class > no components, flag stranded -> no V2 flag afterwards 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2-e — the generator is closed: V2->classic clears the flag over the whole class > flag combined with an unrelated flag bit -> no V2 flag afterwards 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2-e — the generator is closed: V2->classic clears the flag over the whole class > no flags key at all -> no V2 flag afterwards 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2-e — the generator is closed: V2->classic clears the flag over the whole class > clears ONLY the V2 bit — unrelated flag bits survive 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2-e — the generator is closed: V2->classic clears the flag over the whole class > M2-d — the classic->V2 branch data effect is unchanged by D11 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2-f — recovering stored record 5712 through composer controls alone > the record is unsendable as stored, and loads in CLASSIC mode 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2-f — recovering stored record 5712 through composer controls alone > RECOVERY IS REACHABLE — but only via a round trip, and the outbound leg destroys the content 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > M2-f — recovering stored record 5712 through composer controls alone > there is no shorter path: a save alone never clears the flag 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > EXT-1 (rev 2) — whitespace-only content: a class the original partition did not distinguish > W1 — whitespace content + structurally-V2 components: gate PERMITS today 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > EXT-1 (rev 2) — whitespace-only content: a class the original partition did not distinguish > W2 — tabs and newlines behave identically to spaces 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > EXT-1 (rev 2) — whitespace-only content: a class the original partition did not distinguish > W3 — whitespace content + flag set + no components: the EMPTY clause decides, not the V2 clause 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > EXT-1 (rev 2) — whitespace-only content: a class the original partition did not distinguish > W4 — M2 does not move any whitespace verdict: this class is a D1 truth-condition question, not an M2-b risk 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > EXT-2 (rev 2) — nested V2 under a non-V2 top level is NOT REPRESENTABLE > the Action Row is the only non-V2 top-level type 0ms
+ ✓ src/utils/__tests__/012-send-gate-partition.test.ts > EXT-2 (rev 2) — nested V2 under a non-V2 top level is NOT REPRESENTABLE > FALSIFIER — Action Row children are link buttons only; widening this opens a silent hole 0ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: Embed Field Clearing (M1) > rejects embed with empty-string thumbnail URL (the original bug) 3ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: Embed Field Clearing (M1) > accepts embed with undefined thumbnail (the fix) 0ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: Embed Field Clearing (M1) > rejects embed with empty-string image URL 0ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: Embed Field Clearing (M1) > accepts embed with undefined image 0ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: Embed Field Clearing (M1) > rejects author with empty-string icon_url 0ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: Embed Field Clearing (M1) > accepts author with undefined icon_url 0ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: Embed Field Clearing (M1) > rejects author with empty-string url 0ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: Embed Field Clearing (M1) > accepts author with undefined url 0ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: Embed Field Clearing (M1) > rejects footer with empty-string icon_url 1ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: Embed Field Clearing (M1) > accepts footer with undefined icon_url 0ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: Embed Field Clearing (M1) > accepts a fully-populated embed with valid URLs 0ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: Embed Field Clearing (M1) > accepts embed with all optional URL fields omitted 0ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: constructImageUrl Edge Cases (M2) > handles very small user IDs (early Discord users) 3ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: constructImageUrl Edge Cases (M2) > handles maximum realistic Discord snowflake ID 0ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: constructImageUrl Edge Cases (M2) > returns values in range [0, 5] for discriminator 0 (modulo 6) 1ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: constructImageUrl Edge Cases (M2) > returns values in range [0, 4] for non-zero discriminator (modulo 5) 1ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: constructImageUrl Edge Cases (M2) > handles discriminator as string "0000" (leading zeros) 0ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: Redis Key Format Consistency (M3) > formatKey produces expected user-access-token key 0ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: Redis Key Format Consistency (M3) > formatKey produces expected user-guilds key 0ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: Redis Key Format Consistency (M3) > formatKey matches clearUser key pattern for user-access-token 0ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: Redis Key Format Consistency (M3) > formatKey matches clearUser key pattern for user-guilds 0ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: useParsePathname Regex Correctness (M4) > extracts folderId from /message/f/123/ 1ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: useParsePathname Regex Correctness (M4) > extracts folderId from /message/f/0/ 0ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: useParsePathname Regex Correctness (M4) > extracts messageId from /message/m/456/ 0ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: useParsePathname Regex Correctness (M4) > extracts messageId from /message/m/456/edit 0ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: useParsePathname Regex Correctness (M4) > extracts messageId from /message/m/456/send 0ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: useParsePathname Regex Correctness (M4) > returns undefined for non-matching paths 0ms
+ ✓ src/utils/__tests__/plan-005-qa-validation.test.ts > QA 005: useParsePathname Regex Correctness (M4) > does not match /message/m/abc/ (non-numeric) 0ms
+ ✓ src/utils/__tests__/sub-component-actions.test.ts > Section text display actions > deleteTextComponent > removes the text display at the given index from a multi-text section 3ms
+ ✓ src/utils/__tests__/sub-component-actions.test.ts > Section text display actions > deleteTextComponent > returns empty array when deleting the sole text display (triggers auto-remove) 0ms
+ ✓ src/utils/__tests__/sub-component-actions.test.ts > Section text display actions > duplicateTextComponent > clones the text display with a new _key and inserts after original 1ms
+ ✓ src/utils/__tests__/sub-component-actions.test.ts > Section text display actions > duplicateTextComponent > is gated by MAX_SECTION_TEXT_COMPONENTS (no-op at limit) 0ms
+ ✓ src/utils/__tests__/sub-component-actions.test.ts > Section text display actions > moveTextComponentUp > swaps the text display with the one above it 0ms
+ ✓ src/utils/__tests__/sub-component-actions.test.ts > Section text display actions > moveTextComponentUp > is not available for the first item 0ms
+ ✓ src/utils/__tests__/sub-component-actions.test.ts > Section text display actions > moveTextComponentDown > swaps the text display with the one below it 0ms
+ ✓ src/utils/__tests__/sub-component-actions.test.ts > Section text display actions > moveTextComponentDown > is not available for the last item 0ms
+ ✓ src/utils/__tests__/sub-component-actions.test.ts > Container child duplicate > deep-clones a section child with fresh _key values via rekeyComponent 1ms
+ ✓ src/utils/__tests__/sub-component-actions.test.ts > Container child duplicate > splices the clone after the original in the children array 0ms
+ ✓ src/utils/__tests__/sub-component-actions.test.ts > Action row button duplicate > clones the button with a new _key and inserts after original 0ms
+ ✓ src/utils/__tests__/sub-component-actions.test.ts > Action row button duplicate > is gated by MAX_ACTION_ROW_BUTTONS 0ms
+ ✓ src/utils/__tests__/sub-component-actions.test.ts > Media gallery item duplicate > clones the item with a new _key and inserts after original 0ms
+ ✓ src/utils/__tests__/sub-component-actions.test.ts > Media gallery item duplicate > is gated by MAX_MEDIA_GALLERY_ITEMS 0ms
+ ✓ src/utils/__tests__/013-owner-toast-vessel-2026-08-25.test.ts > owner ruling 2026-08-25 — paste surface (NewMessageJsonInput.tsx) no longer toasts a settled disposition > does not call toast.warn for the settled-row notice 3ms
+ ✓ src/utils/__tests__/013-owner-toast-vessel-2026-08-25.test.ts > owner ruling 2026-08-25 — paste surface (NewMessageJsonInput.tsx) no longer toasts a settled disposition > no longer imports react-toastify at all (its one use was the removed call) 1ms
+ ✓ src/utils/__tests__/013-owner-toast-vessel-2026-08-25.test.ts > owner ruling 2026-08-25 — paste surface (NewMessageJsonInput.tsx) no longer toasts a settled disposition > the settled notice is now persistent component state 1ms
+ ✓ src/utils/__tests__/013-owner-toast-vessel-2026-08-25.test.ts > owner ruling 2026-08-25 — MessageProvider no longer toasts the code-path dropped-components fact > still uses toast for its genuinely transient notices (query error, save-request progress) — not a blanket removal 1ms
+ ✓ src/utils/__tests__/013-owner-toast-vessel-2026-08-25.test.ts > owner ruling 2026-08-25 (REVERSED same day, by direct owner ruling — see 013-owner-load-notice-reversal-2026-08-25.test.ts) — the Load site is no longer a toast > no longer fires toast.warn for a settled Load disposition 0ms
+ ✓ src/utils/__tests__/012-json-editor-repair-path.test.ts > EXT-3 — JSON-editor Load->save, executed end to end > THE FALSITY SIGNATURE ITSELF — 5712 does NOT still carry flags 32768 after Load and save 7ms
+ ✓ src/utils/__tests__/012-json-editor-repair-path.test.ts > EXT-3 — JSON-editor Load->save, executed end to end > and the repair is genuinely LOSSLESS for 5712 — the content survives 2ms
+ ✓ src/utils/__tests__/012-json-editor-repair-path.test.ts > EXT-3 — JSON-editor Load->save, executed end to end > the flag DOES now reach the textarea (D18 retired the silent strip) 1ms
+ ✓ src/utils/__tests__/012-json-editor-repair-path.test.ts > EXT-3 — JSON-editor Load->save, executed end to end > ...and the repair is what clears it: row D resolves to classic, and Load applies that 1ms
+ ✓ src/utils/__tests__/012-json-editor-repair-path.test.ts > EXT-3 — JSON-editor Load->save, executed end to end > B3 class: the editor path is now LOSSLESS — flag cleared, content AND Action Row survive 3ms
+ ✓ src/utils/__tests__/012-json-editor-repair-path.test.ts > EXT-3 — JSON-editor Load->save, executed end to end > B3 class: the toggle path preserves the Action Row but DESTROYS the content 1ms
+ ✓ src/utils/__tests__/012-json-editor-repair-path.test.ts > EXT-3 — JSON-editor Load->save, executed end to end > CONSEQUENCE FOR R19, UPDATED: the editor path is now lossless; the toggle path still is not 1ms
+ ✓ src/utils/__tests__/message-init-route0.test.ts > MessageProvider mount effect: message initialization at route 0 > when localStorage has cached local edits (no id) > BROKEN: unconditional copyIntroMessage() replaces cached edits 5ms
+ ✓ src/utils/__tests__/message-init-route0.test.ts > MessageProvider mount effect: message initialization at route 0 > when localStorage has cached local edits (no id) > FIXED: ternary preserves cached local edits 1ms
+ ✓ src/utils/__tests__/message-init-route0.test.ts > MessageProvider mount effect: message initialization at route 0 > when localStorage has a saved (DB) message with id > FIXED: ternary returns fresh intro (does not leak saved message at route 0) 1ms
+ ✓ src/utils/__tests__/message-init-route0.test.ts > MessageProvider mount effect: message initialization at route 0 > when localStorage is empty (first visit) > FIXED: ternary returns the default intro (correct for first visit) 0ms
+ ✓ src/utils/__tests__/message-init-route0.test.ts > withLocalStorage.get() behavior > returns defaultValue when localStorage item is null 0ms
+ ✓ src/utils/__tests__/message-init-route0.test.ts > withLocalStorage.get() behavior > parses JSON from localStorage when item starts with { 0ms
+ ✓ src/utils/__tests__/message-init-route0.test.ts > withLocalStorage.get() behavior > round-trips message through JSON without losing structure 0ms
+ ✓ src/utils/__tests__/message-init-route0.test.ts > withLocalStorage.get() behavior > round-trips message with id field correctly 0ms
+ ✓ src/utils/__tests__/013-m3-discord-ingress.test.ts > M3-a — discordResponseToMessage carries components and copies the flag bit exactly > carries an Action-Row-only V2 message with the flag kept, hasV2Components false (D12, partition half (ii)) 3ms
+ ✓ src/utils/__tests__/013-m3-discord-ingress.test.ts > M3-a — discordResponseToMessage carries components and copies the flag bit exactly > carries a message with at least one V2 top-level type, flag set (partition half (i)) 1ms
+ ✓ src/utils/__tests__/013-m3-discord-ingress.test.ts > M3-a — discordResponseToMessage carries components and copies the flag bit exactly > does not copy the flag bit when Discord did not carry it 0ms
+ ✓ src/utils/__tests__/013-m3-discord-ingress.test.ts > M3-a — discordResponseToMessage carries components and copies the flag bit exactly > omits components entirely for a plain classic message 0ms
+ ✓ src/utils/__tests__/013-m3-discord-ingress.test.ts > M3-b — the residue is bounded and loud: unsupported component types are dropped and reported > drops a top-level select menu and reports it, keeping the rest 1ms
+ ✓ src/utils/__tests__/013-m3-discord-ingress.test.ts > M3-b — the residue is bounded and loud: unsupported component types are dropped and reported > drops a non-link button inside a supported action row and reports it 1ms
+ ✓ src/utils/__tests__/013-m3-discord-ingress.test.ts > M3-b — the residue is bounded and loud: unsupported component types are dropped and reported > drops an unsupported container child and reports it, keeping the container 1ms
+ ✓ src/utils/__tests__/013-m3-discord-ingress.test.ts > M3-b — the residue is bounded and loud: unsupported component types are dropped and reported > reports no drops for a message whose components are all supported 0ms
+ ✓ src/utils/__tests__/013-m3-discord-ingress.test.ts > MEDIUM-5 — Section accessories are filtered the same way Action Row buttons are > drops a top-level Section whose accessory is a non-link button, and reports the accessory 1ms
+ ✓ src/utils/__tests__/013-m3-discord-ingress.test.ts > MEDIUM-5 — Section accessories are filtered the same way Action Row buttons are > keeps a top-level Section whose accessory is a Thumbnail 0ms
+ ✓ src/utils/__tests__/013-m3-discord-ingress.test.ts > MEDIUM-5 — Section accessories are filtered the same way Action Row buttons are > drops a Section nested in a Container when its accessory is unsupported, keeping the container 1ms
+ ✓ src/utils/__tests__/013-qa-toast-vessel-render.test.ts > NullableComponent — the render primitive both converted sites depend on > a non-empty string renders 2ms
+ ✓ src/utils/__tests__/013-qa-toast-vessel-render.test.ts > NullableComponent — the render primitive both converted sites depend on > null does not render 0ms
+ ✓ src/utils/__tests__/013-qa-toast-vessel-render.test.ts > NullableComponent — the render primitive both converted sites depend on > undefined does not render 0ms
+ ✓ src/utils/__tests__/013-qa-toast-vessel-render.test.ts > NullableComponent — the render primitive both converted sites depend on > EMPTY STRING does not render 0ms
+ ✓ src/utils/__tests__/013-qa-toast-vessel-render.test.ts > NullableComponent — the render primitive both converted sites depend on > false (the !error conjunct losing) does not render 0ms
+ ✓ src/utils/__tests__/013-qa-toast-vessel-render.test.ts > paste surface guard `!error && settledNotice` — conjunct isolation > notice present, no error -> RENDERS (only settledNotice carries it) 1ms
+ ✓ src/utils/__tests__/013-qa-toast-vessel-render.test.ts > paste surface guard `!error && settledNotice` — conjunct isolation > notice present, error present -> SUPPRESSED (only !error carries it) 0ms
+ ✓ src/utils/__tests__/013-qa-toast-vessel-render.test.ts > paste surface guard `!error && settledNotice` — conjunct isolation > no notice, no error -> nothing (only settledNotice carries it) 0ms
+ ✓ src/utils/__tests__/013-qa-toast-vessel-render.test.ts > paste surface guard `!error && settledNotice` — conjunct isolation > an error must not resurrect a stale notice 1ms
+ ✓ src/utils/__tests__/013-owner-readable-mutation-errors-2026-08-25.test.ts > owner ruling 2026-08-25 (item 4, D31 registration) — mutation validation errors render as readable text > formats a raw Zod-issues JSON message into readable text 3ms
+ ✓ src/utils/__tests__/013-owner-readable-mutation-errors-2026-08-25.test.ts > owner ruling 2026-08-25 (item 4, D31 registration) — mutation validation errors render as readable text > does NOT hide what failed — the field path and the actual constraint both survive 1ms
+ ✓ src/utils/__tests__/013-owner-readable-mutation-errors-2026-08-25.test.ts > owner ruling 2026-08-25 (item 4, D31 registration) — mutation validation errors render as readable text > leaves an ordinary human-text server error message unchanged 1ms
+ ✓ src/utils/__tests__/013-owner-readable-mutation-errors-2026-08-25.test.ts > owner ruling 2026-08-25 (item 4, D31 registration) — mutation validation errors render as readable text > returns undefined for a null/undefined error (no error to show) 0ms
+ ✓ src/utils/__tests__/013-owner-readable-mutation-errors-2026-08-25.test.ts > owner ruling 2026-08-25 — both message.upsert error surfaces use the readable formatter, not the raw message > SaveAsMenu.tsx no longer renders messageError?.message raw 0ms
+ ✓ src/utils/__tests__/013-owner-readable-mutation-errors-2026-08-25.test.ts > owner ruling 2026-08-25 — both message.upsert error surfaces use the readable formatter, not the raw message > NewMessageModal.tsx no longer renders messageError?.message raw 0ms
+ ✓ src/utils/__tests__/013-m3-bot-get-message.test.ts > F-QA5 — bot/serverCommands.ts get_message forwards components and flags through to the store > persists the resolved message's components and flag bit via messageStore.store 12ms
+ ✓ src/utils/__tests__/010-transition-height-style.test.ts > TransitionHeightElement — CSS class separation (Plan 010 rev) > getTransitionWrapperStyle removal (Task 1) > does NOT export getTransitionWrapperStyle 2ms
+ ✓ src/utils/__tests__/010-transition-height-style.test.ts > TransitionHeightElement — CSS class separation (Plan 010 rev) > getTransitionWrapperStyle removal (Task 1) > does NOT have a style prop on the wrapper div 0ms
+ ✓ src/utils/__tests__/010-transition-height-style.test.ts > TransitionHeightElement — CSS class separation (Plan 010 rev) > SSR hiding via className (Task 2 + Task 4) > uses hidden class in className expression for SSR hiding 0ms
+ ✓ src/utils/__tests__/010-transition-height-style.test.ts > TransitionHeightElement — CSS class separation (Plan 010 rev) > SSR hiding via className (Task 2 + Task 4) > hidden class is conditional on !isMounted to prevent re-addition after mount 0ms
+ ✓ src/utils/__tests__/010-transition-height-style.test.ts > TransitionHeightElement — CSS class separation (Plan 010 rev) > isFirstRender handoff (Task 3) > isFirstRender branch removes hidden class 0ms
+ ✓ src/utils/__tests__/010-transition-height-style.test.ts > TransitionHeightElement — CSS class separation (Plan 010 rev) > isFirstRender handoff (Task 3) > isFirstRender branch sets imperative styles for closed state 0ms
+ ✓ src/utils/__tests__/010-transition-height-style.test.ts > TransitionHeightElement — CSS class separation (Plan 010 rev) > overflow-hidden management (Task 6) > overflow-hidden is in className for unmount=false only (unmount=true manages imperatively) 0ms
+ ✓ src/utils/__tests__/010-transition-height-style.test.ts > TransitionHeightElement — CSS class separation (Plan 010 rev) > overflow-hidden management (Task 6) > adds overflow-hidden imperatively at the start of both open and close animations 0ms
+ ✓ src/utils/__tests__/010-transition-height-style.test.ts > TransitionHeightElement — CSS class separation (Plan 010 rev) > onTransitionEnd target guard (Task 7) > guards display:none with e.target check 1ms
+ ✓ src/utils/__tests__/010-transition-height-style.test.ts > TransitionHeightElement — CSS class separation (Plan 010 rev) > onTransitionEnd target guard (Task 7) > does NOT set display:none outside the target guard 1ms
+ ✓ src/utils/__tests__/010-transition-height-style.test.ts > TransitionHeightElement — CSS class separation (Plan 010 rev) > legacy patterns absent > does NOT contain the buggy condition (isMounted || isOpen) 0ms
+ ✓ src/utils/__tests__/plan-005-bug-fixes.test.ts > Plan 005 Bug Fixes > M1: constructImageUrl — default avatar for migrated users > returns ID-based default avatar for discriminator 0 (number) 3ms
+ ✓ src/utils/__tests__/plan-005-bug-fixes.test.ts > Plan 005 Bug Fixes > M1: constructImageUrl — default avatar for migrated users > returns ID-based default avatar for discriminator "0" (string) 0ms
+ ✓ src/utils/__tests__/plan-005-bug-fixes.test.ts > Plan 005 Bug Fixes > M1: constructImageUrl — default avatar for migrated users > returns discriminator-based default avatar for non-zero discriminator 0ms
+ ✓ src/utils/__tests__/plan-005-bug-fixes.test.ts > Plan 005 Bug Fixes > M1: constructImageUrl — default avatar for migrated users > returns custom avatar URL when avatar is provided 0ms
+ ✓ src/utils/__tests__/plan-005-bug-fixes.test.ts > Plan 005 Bug Fixes > M1: constructImageUrl — default avatar for migrated users > uses modulo 6 (not 5) for migrated users 0ms
+ ✓ src/utils/__tests__/plan-005-bug-fixes.test.ts > Plan 005 Bug Fixes > M2 (006): constructImageUrl — undefined avatar defense-in-depth > returns ID-based default avatar when avatar is undefined and discriminator is 0 0ms
+ ✓ src/utils/__tests__/plan-005-bug-fixes.test.ts > Plan 005 Bug Fixes > M2 (006): constructImageUrl — undefined avatar defense-in-depth > returns discriminator-based default avatar when avatar is undefined and discriminator is non-zero 0ms
+ ✓ src/utils/__tests__/013-m1-transport-form.test.ts > M1-d — hashMessage sees V2 (both directions) > differs when a message gains V2 components a classic-only fixture never had 4ms
+ ✓ src/utils/__tests__/013-m1-transport-form.test.ts > M1-d — hashMessage sees V2 (both directions) > differs when the V2 flag bit changes with everything else equal 0ms
+ ✓ src/utils/__tests__/013-m1-transport-form.test.ts > M1-d — hashMessage sees V2 (both directions) > differs when a component field changes (content inside a V2 container) 0ms
+ ✓ src/utils/__tests__/013-m1-transport-form.test.ts > M1-d — hashMessage sees V2 (both directions) > is equal for the same data with keys in a different order 0ms
+ ✓ src/utils/__tests__/013-m1-transport-form.test.ts > M1-d — hashMessage sees V2 (both directions) > is equal for data differing only in embed/component `_key` values 0ms
+ ✓ src/utils/__tests__/013-m1-transport-form.test.ts > M1-b/M1-c — the transport form round-trips the whole message > stripKeys(makeEditable({data})).data carries components and flags (V2) 1ms
+ ✓ src/utils/__tests__/013-m1-transport-form.test.ts > M1-b/M1-c — the transport form round-trips the whole message > stripKeys(makeEditable({data})).data carries classic content + username unchanged 0ms
+ ✓ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > bit=0 v2=0 classic=0 — toMode equals the mode D17 states, not the mode the code computes 2ms
+ ✓ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > bit=0 v2=0 classic=1 — toMode equals the mode D17 states, not the mode the code computes 0ms
+ ✓ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > bit=0 v2=1 classic=0 — toMode equals the mode D17 states, not the mode the code computes 0ms
+ ✓ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > bit=1 v2=0 classic=0 — toMode equals the mode D17 states, not the mode the code computes 0ms
+ ✓ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > bit=1 v2=0 classic=1 — toMode equals the mode D17 states, not the mode the code computes 0ms
+ ✓ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > bit=1 v2=1 classic=0 — toMode equals the mode D17 states, not the mode the code computes 0ms
+ ✓ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > bit=0 v2=0 classic=0 — the dialog announces a mode change IFF D17 says the mode changes 0ms
+ ✓ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > bit=0 v2=0 classic=1 — the dialog announces a mode change IFF D17 says the mode changes 0ms
+ ✓ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > bit=0 v2=1 classic=0 — the dialog announces a mode change IFF D17 says the mode changes 0ms
+ ✓ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > bit=1 v2=0 classic=0 — the dialog announces a mode change IFF D17 says the mode changes 0ms
+ ✓ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > bit=1 v2=0 classic=1 — the dialog announces a mode change IFF D17 says the mode changes 0ms
+ ✓ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > bit=1 v2=1 classic=0 — the dialog announces a mode change IFF D17 says the mode changes 0ms
+ ✓ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > row D over a V2 message announces the switch to Classic, in those words 0ms
+ ✓ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > row D over a Classic message announces NO mode change 0ms
+ ✓ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > row-E stored record, flag set reads as V2 when it is the CURRENT message 0ms
+ ✓ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > row-E stored record, no flag reads as V2 when it is the CURRENT message 0ms
+ ✓ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > loading a Classic draft over a stored row-E record announces the switch to Classic 0ms
+ ✓ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > loading a V2 draft over a stored row-E record announces NO mode change 0ms
+ ✓ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > CONTROL — a flag-only draft over a Classic message is still a switch TO V2 0ms
+ ✓ src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts > CR24-6 — the confirmation names the mode the Load produces, against a literal D17 oracle > this oracle never reaches the function under test 2ms
+ ✓ src/utils/__tests__/013-fqa15-rowd-load-gate.test.ts > F-QA15 assumption closure — applyDisposition(rowD) is accepted by the floor > row D member — content only (the plan's own M8-D member, record 5712 shape) — resolves to something the floor accepts 2ms
+ ✓ src/utils/__tests__/013-fqa15-rowd-load-gate.test.ts > F-QA15 assumption closure — applyDisposition(rowD) is accepted by the floor > row D member — embeds only — resolves to something the floor accepts 1ms
+ ✓ src/utils/__tests__/013-fqa15-rowd-load-gate.test.ts > F-QA15 assumption closure — applyDisposition(rowD) is accepted by the floor > row D member — content AND embeds — resolves to something the floor accepts 0ms
+ ✓ src/utils/__tests__/013-fqa15-rowd-load-gate.test.ts > F-QA15 assumption closure — applyDisposition(rowD) is accepted by the floor > row D member — content + a non-V2 action row — resolves to something the floor accepts 0ms
+ ✓ src/utils/__tests__/013-fqa15-rowd-load-gate.test.ts > F-QA15 assumption closure — applyDisposition(rowD) is accepted by the floor > row D member — embeds + a non-V2 action row — resolves to something the floor accepts 0ms
+ ✓ src/utils/__tests__/013-fqa15-rowd-load-gate.test.ts > F-QA15 assumption closure — applyDisposition(rowD) is accepted by the floor > row D member — whitespace-padded content — resolves to something the floor accepts 0ms
+ ✓ src/utils/__tests__/013-fqa15-rowd-load-gate.test.ts > F-QA15 assumption closure — applyDisposition(rowD) is accepted by the floor > row D member — flag OR-ed with other bits (SUPPRESS_EMBEDS) — resolves to something the floor accepts 0ms
+ ✓ src/utils/__tests__/013-fqa15-rowd-load-gate.test.ts > F-QA15 assumption closure — applyDisposition(rowD) is accepted by the floor > row D member — flag OR-ed with EPHEMERAL — resolves to something the floor accepts 0ms
+ ✓ src/utils/__tests__/013-fqa15-rowd-load-gate.test.ts > F-QA15 assumption closure — applyDisposition(rowD) is accepted by the floor > and the resolution is genuinely lossless for content (not merely floor-passing) 1ms
+ ✓ src/utils/__tests__/013-fqa15-rowd-load-gate.test.ts > F-QA15 assumption closure — applyDisposition(rowD) is accepted by the floor > the V2-bit clear preserves other flag bits (SUPPRESS_EMBEDS, EPHEMERAL) 1ms
+ ✓ src/utils/__tests__/013-fqa15-rowd-load-gate.test.ts > F-QA15 — JsonModalBody floors the RESOLVED draft, not the unresolved one > contentFloorError is computed over applyDisposition(validatedDraft) 0ms
+ ✓ src/utils/__tests__/013-fqa15-rowd-load-gate.test.ts > F-QA15 — JsonModalBody floors the RESOLVED draft, not the unresolved one > the unresolved-draft form (the defect) is gone 1ms
+ ✓ src/utils/__tests__/013-fqa15-rowd-load-gate.test.ts > F-QA15 — hole check (CR21-C, code review round 19, INFO-3): the fix opens no new hole > empty draft (no content/comps/flag) stays BLOCKED — floor Branch 2 0ms
+ ✓ src/utils/__tests__/013-fqa15-rowd-load-gate.test.ts > F-QA15 — hole check (CR21-C, code review round 19, INFO-3): the fix opens no new hole > flag-only empty draft (row C, switchToV2 keeps it empty) stays BLOCKED 1ms
+ ✓ src/utils/__tests__/013-fqa15-rowd-load-gate.test.ts > F-QA15 — hole check (CR21-C, code review round 19, INFO-3): the fix opens no new hole > whitespace-only content, no flag/comps stays BLOCKED (trim => empty) 0ms
+ ✓ src/utils/__tests__/013-fqa15-rowd-load-gate.test.ts > F-QA15 — record 5712 end to end > the repair now succeeds: resolved draft clears the floor 0ms
+ ✓ src/utils/__tests__/011-style-reconciliation-poc.test.ts > React style reconciliation analysis > useMounted is useEffect(fn, []) — fires as regular effect, not synchronous 3ms
+ ✓ src/utils/__tests__/011-style-reconciliation-poc.test.ts > React style reconciliation analysis > TransitionHeightElement animation effect depends only on [isOpen] 0ms
+ ✓ src/utils/__tests__/011-style-reconciliation-poc.test.ts > React style reconciliation analysis > getTransitionWrapperStyle is fully removed (Plan 010 rev) 1ms
+ ✓ src/utils/__tests__/011-style-reconciliation-poc.test.ts > React style reconciliation analysis > REGRESSION PROOF: React render lifecycle causes style wipe 1ms
+ ✓ src/utils/__tests__/013-m7-mode-follows-flag.test.ts > M7-a — isMessageV2, the shared mode predicate (EC-1) > is true when the V2 flag bit is set, with no components at all (research G4) 2ms
+ ✓ src/utils/__tests__/013-m7-mode-follows-flag.test.ts > M7-a — isMessageV2, the shared mode predicate (EC-1) > is true when the V2 flag bit is set over Action-Rows-only components (D12) 1ms
+ ✓ src/utils/__tests__/013-m7-mode-follows-flag.test.ts > M7-a — isMessageV2, the shared mode predicate (EC-1) > is true when V2 components are present with no flag (row B) — isolates the structural conjunct 0ms
+ ✓ src/utils/__tests__/013-m7-mode-follows-flag.test.ts > M7-a — isMessageV2, the shared mode predicate (EC-1) > is false when neither the flag nor V2 components are present 0ms
+ ✓ src/utils/__tests__/013-m7-mode-follows-flag.test.ts > M7-a — detectMessageMode reads the flag regardless of components presence > returns v2 for a flag-only record with no `components` key (5712-shaped) 0ms
+ ✓ src/utils/__tests__/013-m7-mode-follows-flag.test.ts > M7-a — detectMessageMode reads the flag regardless of components presence > returns v2 for structural V2 components with no flag 0ms
+ ✓ src/utils/__tests__/013-m7-mode-follows-flag.test.ts > M7-a — detectMessageMode reads the flag regardless of components presence > returns classic for an ordinary classic message 0ms
+ ✓ src/utils/__tests__/013-m7-mode-follows-flag.test.ts > M7-a — detectMessageMode reads the flag regardless of components presence > returns null (no mode set) when there is no message 0ms
+ ✓ src/utils/__tests__/013-m7-mode-follows-flag.test.ts > M7-b — the toggle sets what it shows (D16) > switchToV2 sets IS_COMPONENTS_V2_FLAG, mirroring switchToClassic clearing it 1ms
+ ✓ src/utils/__tests__/013-m7-mode-follows-flag.test.ts > M7-b — the toggle sets what it shows (D16) > switchToV2 preserves other bits already set in flags (D7 residue) 0ms
+ ✓ src/utils/__tests__/013-m7-mode-follows-flag.test.ts > M7-b — the toggle sets what it shows (D16) > switchToClassic still clears the bit and preserves other bits (I-D11, unchanged) 0ms
+ ✓ src/utils/__tests__/013-m7-mode-follows-flag.test.ts > M7-b — the toggle sets what it shows (D16) > a V2-mode draft with only Action Rows, saved and reloaded, opens in V2 (OQ-7 misreport cannot occur) 0ms
+ ✓ src/utils/__tests__/013-m7-mode-follows-flag.test.ts > M7-c — showV2PatchWarning, the extracted predicate (EC-2) > warns when editing (showEdit) an already-sent message (oldMessage) that is V2 by flag alone 0ms
+ ✓ src/utils/__tests__/013-m7-mode-follows-flag.test.ts > M7-c — showV2PatchWarning, the extracted predicate (EC-2) > does not warn when not editing an existing send (showEdit false) 0ms
+ ✓ src/utils/__tests__/013-m7-mode-follows-flag.test.ts > M7-c — showV2PatchWarning, the extracted predicate (EC-2) > does not warn when there is no prior sent message (oldMessage null) 0ms
+ ✓ src/utils/__tests__/013-m7-mode-follows-flag.test.ts > M7-c — showV2PatchWarning, the extracted predicate (EC-2) > does not warn for a classic message being edited 0ms
+ ✓ src/utils/__tests__/013-m1-fix-round-1-hash-parity.test.ts > HIGH-1 — hashMessage producer/consumer parity after normalizeForHash > B1: a trailing space in classic content does not create a false mismatch 4ms
+ ✓ src/utils/__tests__/013-m1-fix-round-1-hash-parity.test.ts > HIGH-1 — hashMessage producer/consumer parity after normalizeForHash > B2: a trailing space in a V2 button label does not create a false mismatch 2ms
+ ✓ src/utils/__tests__/013-m1-fix-round-1-hash-parity.test.ts > HIGH-1 — hashMessage producer/consumer parity after normalizeForHash > B3: a leading space in a V2 accessory (thumbnail) URL does not create a false mismatch 3ms
+ ✓ src/utils/__tests__/013-m1-fix-round-1-hash-parity.test.ts > HIGH-1 — hashMessage producer/consumer parity after normalizeForHash > control: a genuine V2 component-body edit still mismatches (M1s central fix is not undone) 2ms
+ ✓ src/utils/__tests__/013-m1-fix-round-1-hash-parity.test.ts > HIGH-1 — hashMessage producer/consumer parity after normalizeForHash > normalizeForHash still strips `_key`s and ORs the V2 flag from structure (stripKeys, unchanged) 1ms
+ ✓ src/utils/__tests__/013-m1-fix-round-1-hash-parity.test.ts > HIGH-1 — hashMessage producer/consumer parity after normalizeForHash > falls back to the stripKeys form (not a throw) when the live draft fails shape validation 2ms
+ ✓ src/server/api/utils/__tests__/012-upsert-valid.test.ts > M4-b — the conflict branch names `valid` explicitly, both directions > insert column list carries `valid` 7ms
+ ✓ src/server/api/utils/__tests__/012-upsert-valid.test.ts > M4-b — the conflict branch names `valid` explicitly, both directions > `on conflict … do update set` also carries `valid` — the enumerated trap 1ms
+ ✓ src/server/api/utils/__tests__/012-upsert-valid.test.ts > M4-b — the conflict branch names `valid` explicitly, both directions > an update whose verdict is unchanged still writes `valid` (no conditional omission) 1ms
+ ✓ src/server/api/utils/__tests__/012-upsert-valid.test.ts > M4-a/M4-d — buildMessageValues computes `valid` from the predicate, never from the caller > a sendable payload computes valid: true 1ms
+ ✓ src/server/api/utils/__tests__/012-upsert-valid.test.ts > M4-a/M4-d — buildMessageValues computes `valid` from the predicate, never from the caller > an unsendable payload computes valid: false 0ms
+ ✓ src/server/api/utils/__tests__/012-upsert-valid.test.ts > M4-a/M4-d — buildMessageValues computes `valid` from the predicate, never from the caller > a caller-injected `data.valid` does not reach the computed value 0ms
+ ✓ src/utils/__tests__/isValidUrl.test.ts > isValidUrl > accepts valid https URL 2ms
+ ✓ src/utils/__tests__/isValidUrl.test.ts > isValidUrl > accepts valid http URL 0ms
+ ✓ src/utils/__tests__/isValidUrl.test.ts > isValidUrl > accepts URL with path 0ms
+ ✓ src/utils/__tests__/isValidUrl.test.ts > isValidUrl > accepts URL with query params 0ms
+ ✓ src/utils/__tests__/isValidUrl.test.ts > isValidUrl > rejects URL without protocol 0ms
+ ✓ src/utils/__tests__/isValidUrl.test.ts > isValidUrl > rejects URL with ftp protocol 1ms
+ ✓ src/utils/__tests__/isValidUrl.test.ts > isValidUrl > rejects empty string 0ms
+ ✓ src/utils/__tests__/isValidUrl.test.ts > isValidUrl > rejects plain text 0ms
+ ✓ src/utils/__tests__/isValidUrl.test.ts > isValidUrl > rejects javascript: protocol 1ms
+ ✓ src/utils/__tests__/isValidUrl.test.ts > isValidUrl > rejects data: URI 0ms
+ ✓ src/utils/__tests__/013-owner-choice-rewrites-editor-2026-08-25.test.ts > owner ruling 2026-08-25 (D33) — selecting Classic/V2 rewrites the editor, it does not Load > commitChoice no longer applies the message update or closes the modal 2ms
+ ✓ src/utils/__tests__/013-owner-choice-rewrites-editor-2026-08-25.test.ts > owner ruling 2026-08-25 (D33) — selecting Classic/V2 rewrites the editor, it does not Load > commitChoice rewrites the CodeMirror doc to the resolved disposition, via updateDoc 0ms
+ ✓ src/utils/__tests__/013-owner-choice-rewrites-editor-2026-08-25.test.ts > owner ruling 2026-08-25 (D33) — selecting Classic/V2 rewrites the editor, it does not Load > commitChoice returns the user to the editor (clears both choice states) 0ms
+ ✓ src/utils/__tests__/013-owner-conflict-choice-not-default-2026-08-25.test.ts > owner ruling 2026-08-25 (D31) — conflict UI is reached deliberately, not set by parsing > JsonModalBody: the parsing effect resolves a conflict into dismissedChoice, not pendingChoice 2ms
+ ✓ src/utils/__tests__/013-owner-conflict-choice-not-default-2026-08-25.test.ts > owner ruling 2026-08-25 (D31) — conflict UI is reached deliberately, not set by parsing > JsonModalBody: the resting conflict state leaves the menu closeable, matching cancelChoice 0ms
+ ✓ src/utils/__tests__/013-owner-conflict-choice-not-default-2026-08-25.test.ts > owner ruling 2026-08-25 (D31) — conflict UI is reached deliberately, not set by parsing > JsonModalBody: pendingChoice is still reachable — reopenChoice (the Resolve link) is unchanged 1ms
+ ✓ src/utils/__tests__/013-owner-conflict-choice-not-default-2026-08-25.test.ts > owner ruling 2026-08-25 (D31) — conflict UI is reached deliberately, not set by parsing > NewMessageJsonInput: the parsing effect resolves a conflict into dismissedChoice, not pendingChoice 0ms
+ ✓ src/utils/__tests__/013-owner-conflict-choice-not-default-2026-08-25.test.ts > owner ruling 2026-08-25 (D31) — conflict UI is reached deliberately, not set by parsing > NewMessageJsonInput: pendingChoice is still reachable — reopenChoice (the Resolve link) is unchanged 0ms
+ ✓ src/scripts/__tests__/012-backfill-evaluation-failure-category-qa.test.ts > accumulate — evaluation failures reach the report as a category (MS-8 guard) > an evaluationFailure classification lands in evaluationFailures with count AND row id 4ms
+ ✓ src/scripts/__tests__/012-backfill-evaluation-failure-category-qa.test.ts > accumulate — evaluation failures reach the report as a category (MS-8 guard) > composition: a structurally non-conformant row flows classifyRow -> accumulate -> category 2ms
+ ✓ src/scripts/__tests__/012-backfill-evaluation-failure-category-qa.test.ts > accumulate — evaluation failures reach the report as a category (MS-8 guard) > control in the other direction: a normal refusal does NOT enter the category 1ms
+ ✓ src/utils/__tests__/013-owner-load-notice-reversal-2026-08-25.test.ts > owner ruling 2026-08-25 (reversal) — JsonModalBody.tsx no longer toasts the settled Load notice > does not call toast.warn for the settled-row notice 3ms
+ ✓ src/utils/__tests__/013-owner-load-notice-reversal-2026-08-25.test.ts > owner ruling 2026-08-25 (reversal) — JsonModalBody.tsx no longer toasts the settled Load notice > no longer imports react-toastify at all (its one use was the removed call) 0ms
+ ✓ src/utils/__tests__/013-owner-load-notice-reversal-2026-08-25.test.ts > owner ruling 2026-08-25 (reversal) — JsonModalBody.tsx no longer toasts the settled Load notice > the settled notice is now persistent component state, computed as the JSON is edited (not only on Load) 0ms
+ ✓ src/utils/__tests__/013-owner-load-notice-reversal-2026-08-25.test.ts > owner ruling 2026-08-25 (reversal) — JsonModalBody.tsx no longer toasts the settled Load notice > the settled notice is cleared alongside the other per-edit state at the top of the parsing effect 1ms
+ ✓ src/server/api/utils/__tests__/013-m9f-dropped-types-notice.test.ts > describeDroppedComponentTypesNotice — the one definition all three sites render > names a single dropped type 2ms
+ ✓ src/server/api/utils/__tests__/013-m9f-dropped-types-notice.test.ts > describeDroppedComponentTypesNotice — the one definition all three sites render > names multiple dropped types, comma-joined, in the given order 0ms
+ ✓ src/server/api/utils/__tests__/013-m9f-dropped-types-notice.test.ts > describeDroppedComponentTypesNotice — the one definition all three sites render > no trailing period — the drift LOW-2 found is gone by construction 0ms
+ ✓ src/utils/__tests__/012-message-mode.test.ts > switchToV2 — classic -> v2 branch > clears content and embeds, preserves components, and SETS the V2 bit (D16) 5ms
+ ✓ src/utils/__tests__/012-message-mode.test.ts > switchToClassic — v2 -> classic branch (D11) > filters to ActionRow-only components (unchanged pre-D11 behaviour) 0ms
+ ✓ src/utils/__tests__/012-message-mode.test.ts > switchToClassic — v2 -> classic branch (D11) > D11: clears IS_COMPONENTS_V2_FLAG over the whole class of departing content 1ms
+ ✓ src/utils/__tests__/012-message-mode.test.ts > switchToClassic — v2 -> classic branch (D11) > clears ONLY the V2 bit — a `flags = 0` mutant is killed here 0ms
+ ✓ src/utils/__tests__/012-message-mode.test.ts > applyModeSwitch — the mode-switch dispatch function (does not cover handleModeSwitch's wiring to it) > targetMode "v2" delegates to switchToV2 0ms
+ ✓ src/utils/__tests__/012-message-mode.test.ts > applyModeSwitch — the mode-switch dispatch function (does not cover handleModeSwitch's wiring to it) > targetMode "classic" delegates to switchToClassic 1ms
+ ✓ src/utils/__tests__/013-fqa17-supported-types-parity.test.ts > F-QA17 — the ingress converter and the JSON-shape filter agree on what is supported > SUPPORTED_TOP_LEVEL_TYPES is the same set at both copies 2ms
+ ✓ src/utils/__tests__/013-fqa17-supported-types-parity.test.ts > F-QA17 — the ingress converter and the JSON-shape filter agree on what is supported > SUPPORTED_CONTAINER_CHILD_TYPES is the same set at both copies 0ms
+ ✓ src/utils/__tests__/013-m2c-load-diff.test.ts > computeLoadDiff — M2-c: names top-level component adds/removes and a mode change > identical current/incoming: no adds, no removes, no mode change 2ms
+ ✓ src/utils/__tests__/013-m2c-load-diff.test.ts > computeLoadDiff — M2-c: names top-level component adds/removes and a mode change > a structural-only mode change (classic -> v2) is named as a mode change, isolated from any component add/remove 0ms
+ ✓ src/utils/__tests__/013-m2c-load-diff.test.ts > computeLoadDiff — M2-c: names top-level component adds/removes and a mode change > a flag-only mode change (no structural V2 components either side) is still named as a mode change 0ms
+ ✓ src/utils/__tests__/013-m2c-load-diff.test.ts > computeLoadDiff — M2-c: names top-level component adds/removes and a mode change > undefined components on either side is treated as empty, not a crash 1ms
+ ✓ src/utils/__tests__/013-m2c-load-diff.test.ts > describeLoadDiff — one-line truthful summary of a computeLoadDiff result > no changes: still states the overwrite is happening, names nothing removed/added/switched 0ms
+ ✓ src/utils/__tests__/013-m2c-load-diff.test.ts > describeLoadDiff — one-line truthful summary of a computeLoadDiff result > a mode change names both the from and the to mode 0ms
+ ✓ src/utils/__tests__/013-m2c-load-diff.test.ts > describeLoadDiff — one-line truthful summary of a computeLoadDiff result > a combined add + remove + mode change names all three in one line 0ms
+ ✓ src/utils/__tests__/013-fqa31-load-confirmation-names-actual-mode.test.ts > F-QA31 — the Load confirmation must name the mode the Load actually produces > row D over a Classic message: does NOT announce a switch to Components V2 2ms
+ ✓ src/utils/__tests__/013-fqa31-load-confirmation-names-actual-mode.test.ts > F-QA31 — the Load confirmation must name the mode the Load actually produces > row D over a Classic message: announces no mode change at all, because there is none 0ms
+ ✓ src/utils/__tests__/013-fqa31-load-confirmation-names-actual-mode.test.ts > F-QA31 — the Load confirmation must name the mode the Load actually produces > row D over a V2 message: announces the switch to Classic that actually happens 0ms
+ ✓ src/utils/__tests__/013-fqa31-load-confirmation-names-actual-mode.test.ts > F-QA31 — the Load confirmation must name the mode the Load actually produces > the flag alone never decides what the dialog says — applyDisposition does 0ms
+ ✓ src/utils/__tests__/013-fqa31-load-confirmation-names-actual-mode.test.ts > F-QA31 — the Load confirmation must name the mode the Load actually produces > CONTROL row B: a genuine Classic -> V2 switch is still announced 0ms
+ ✓ src/utils/__tests__/013-fqa31-load-confirmation-names-actual-mode.test.ts > F-QA31 — the Load confirmation must name the mode the Load actually produces > CONTROL row C: flag + components over Classic is still announced as a switch to V2 0ms
+ ✓ src/utils/__tests__/013-m1-fix-round-1-extraction.test.ts > MEDIUM-1 — saveAsPayload (SaveAsMenu.onSubmit) > carries V2 components and the flag faithfully (M1-b) 2ms
+ ✓ src/utils/__tests__/013-m1-fix-round-1-extraction.test.ts > MEDIUM-1 — saveAsPayload (SaveAsMenu.onSubmit) > carries classic content, username and embeds unchanged (M1-b) 0ms
+ ✓ src/utils/__tests__/013-m1-fix-round-1-extraction.test.ts > MEDIUM-1 — jsonModalSeed (JsonModalBody seed) > shows the whole message including components and flags (M1-c) 0ms
+ ✓ src/utils/__tests__/013-m8-json-modal-notices.test.ts > noticeMessageForSettled — M8-A/B/C/D operator-visible warning text > row A/C (noticeClass "none"): nothing is shown 1ms
+ ✓ src/utils/__tests__/013-m8-json-modal-notices.test.ts > noticeMessageForSettled — M8-A/B/C/D operator-visible warning text > row B (noticeClass "warn-v2-flag-added"): names that the flag was absent and has been set 0ms
+ ✓ src/utils/__tests__/013-m8-json-modal-notices.test.ts > noticeMessageForSettled — M8-A/B/C/D operator-visible warning text > row D (noticeClass "warn-v2-flag-conflict"): names the conflict and that it landed Classic 0ms
+ ✓ src/utils/__tests__/013-m8-json-modal-notices.test.ts > describeDropSet — M8-E option labels name what each choice drops > a components-only drop names components, not content/embeds 0ms
+ ✓ src/utils/__tests__/013-m8-json-modal-notices.test.ts > describeDropSet — M8-E option labels name what each choice drops > a content+embeds drop names both, not components 0ms
+ ✓ src/utils/__tests__/013-m8-json-modal-notices.test.ts > describeDropSet — M8-E option labels name what each choice drops > a content-only drop (empty embeds) names content only 0ms
+ ✓ src/utils/__tests__/013-m8-json-modal-notices.test.ts > describeDropSet — M8-E option labels name what each choice drops > an empty drop set names nothing lost 0ms
+ ✓ src/utils/__tests__/013-fqa18-thumbnail-persist-gate.test.ts > F-QA18 — a top-level, unfiltered Thumbnail draft is correctly classified as V2 at the gate > a Thumbnail-only draft with classic content is recognized as V2 and gates (row E), not silently permitted 2ms
+ ✓ src/utils/__tests__/013-fqa18-thumbnail-persist-gate.test.ts > F-QA18 — a top-level, unfiltered Thumbnail draft is correctly classified as V2 at the gate > control — a Thumbnail-only draft with no classic content and no flag is a pure-V2 draft (row C), not gated 0ms
+ ✓ src/utils/__tests__/013-fqa18-thumbnail-persist-gate.test.ts > F-QA18 — a top-level, unfiltered Thumbnail draft is correctly classified as V2 at the gate > control — mustAsk is not simply always true (a classic-only draft is never gated) 0ms
+ ✓ src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > RENDERS the settled notice text when there is one and no error 3ms
+ ✓ src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > does NOT render it when there is no notice (no stale/blank warning box) 0ms
+ ✓ src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > SUPPRESSES it when an error is showing — the `!error` conjunct is the sole carrier here 0ms
+ ✓ src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > the notice is styled as a warning, not rendered bare 1ms
+ ✓ src/utils/__tests__/013-qa-paste-surface-render.test.ts > paste surface — the site the owner ruling actually named — renders its settled notice > CLEARS: notice present then absent leaves nothing behind 1ms
+
+ Test Files  48 passed (48)
+      Tests  617 passed (617)
+   Start at  00:21:14
+   Duration  3.12s (transform 3.77s, setup 0ms, import 18.31s, tests 1.35s, environment 6ms)
+
+JSON report written to /usr/local/bin/hooks/agent-output/verification/014/baseline-a74b9e2.json
+EXIT CODE: 0
