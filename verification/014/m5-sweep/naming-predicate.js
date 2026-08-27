@@ -45,6 +45,10 @@ function negativeFormLines(files) {
   const hits = [];
   for (const f of files) {
     const base = path.basename(f);
+    // The `!/\/\/\s*escaped:/.test(base)` conjunct can never be false — a filename cannot
+    // contain `// escaped:` — so it is inert by construction, not a missing exemption. The real
+    // exemption for escaped lines is the `isEscapedLine` early return below, which covers the
+    // title and comment domains (the only two a `// escaped:` line can actually appear in).
     if (ID_TOKEN.test(base) && !/\/\/\s*escaped:/.test(base)) {
       hits.push({ file: f, domain: 'basename', text: base });
     }
