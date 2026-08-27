@@ -53,3 +53,6 @@ record; plan unchanged. Owner also directed a pi TODO for a clerical-registratio
 Owner, on learning planner-hooks-014 is still live: "We can include it then if the critic miss
 isn't a problem." → attach rows 9 and 12 as named riders on M4c (planner's option 1), planner
 registration pass to rev 9; the critic pass on the rider lines is waived by the owner.
+
+## 2026-08-27 — critic waived on rev 9 rider lines
+Owner, by selection: "Yes, skip the critic" (rows 9/12 rider lines, plan rev 9 / D19). Riders open when M4c does.
