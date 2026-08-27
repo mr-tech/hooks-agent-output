@@ -4,105 +4,102 @@ Origin: 014
 UUID: 4671e28c
 Status: OPEN
 Status-Detail: >-
-  Cycle 1, pass 2 (rung 1–5). Verdict APPROVE — plan rev 3 is ready for QA Phase 1 and the
-  implementer (M2 implementation still gated on the analysis). M-1–M-10 and L-1–L-6 verified
-  landed → RESOLVED. Three new Lows (L-7–L-9), non-gating, next-touch. No owner question open.
+  Cycle 1, pass 3 (rung 1–5), scoped to the rev 3→5 delta. Verdict: APPROVE STANDS — rev 5
+  consumes the M2 analysis correctly; M2 may be implemented. L-7–L-9 verified landed (rev 4) →
+  RESOLVED. Two new Mediums (M-11 exit code does not travel; M-12 Validation instrument excludes
+  tests) and two Lows, all next-touch and none blocking QA Phase 1 or M0–M4b.
 ---
 
 # Critique — Plan 014, Hooks test-suite cleanup (pilot)
 
-**Artifact**: `agent-output/planning/014-test-suite-cleanup.md`, revision 3 (agent-output `f9bb15b`; `website` at `a74b9e2`, verified unchanged).
-**Analysis**: analysis/014-test-suite-cleanup-analysis.md (not backticked: does not yet exist) — commissioned (M2), open with analyst-hooks-14; not read. Sources re-derived directly at pass 1: coordination plan `/home/dev/.claude/plans/we-recently-changed-the-wobbly-sparrow.md`; inventory `analysis/test-inventory-2026-08-26.md`; handoff `components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md`; qa.md "Regression-Test Authorship"; implementer.md pattern ladder; code-reviewer.md test-only-diff clause; `website/vitest.config.ts`, `package.json`, the 48 test files.
-**Date**: 2026-08-27T00:20 UTC (pass 1: 2026-08-26T23:55).
-**Status**: Revision 1 — cycle 1, pass 2.
-**Roadmap / architecture**: `agent-output/roadmap/` absent; `architecture/website.md` carries nothing on tests. No Master Product Objective document exists — none cited.
+**Artifact**: `agent-output/planning/014-test-suite-cleanup.md`, revision 5 (agent-output `72cde0a`; `website` at `a74b9e2`, verified unchanged).
+**Analysis**: `analysis/014-test-suite-cleanup-analysis.md` (`50f053a`) — read whole at pass 3; its S1–S5 and the pnpm correction are the delta's sources. Earlier sources per pass 1.
+**Date**: 2026-08-27 (pass 3); pass 2 2026-08-27T00:20; pass 1 2026-08-26T23:55.
+**Status**: Revision 2 — cycle 1, pass 3.
+**Roadmap / architecture**: absent / nothing on tests — unchanged.
 
 ## Changelog
 
 | Date | Handoff | Request | Summary |
 |---|---|---|---|
-| 2026-08-26T23:55 | planner-hooks-014 → critic-hooks-014 | Critique rev 2 | Initial. Whole-document pass; premises verified at `website` `a74b9e2`. 10 Medium, 6 Low. REQUEST REVISION. |
-| 2026-08-27T00:20 | planner-hooks-014 → critic-hooks-014 | Critique rev 3 | Delta-bounded pass (diff `0540f34..f9bb15b`, 88/85 lines, boundary verified — no untouched section claimed). Every rev-2 finding re-verified against the tree → RESOLVED. L-7–L-9 new, non-gating. APPROVE. |
+| 2026-08-26T23:55 | planner-hooks-014 → critic-hooks-014 | Critique rev 2 | Initial. Whole-document pass. 10 Medium, 6 Low. REQUEST REVISION. |
+| 2026-08-27T00:20 | planner-hooks-014 → critic-hooks-014 | Critique rev 3 | Delta pass. All rev-2 findings RESOLVED. L-7–L-9 new. APPROVE. |
+| 2026-08-27T01:10 | planner-hooks-014 → critic-hooks-014 | Scoped pass, rev 5 | Delta `f9bb15b..72cde0a` (rev 4, R-1, rev 5; 36/26 lines, boundary verified). L-7–L-9 RESOLVED. Analysis read; S1–S5 and pnpm correction verified against the tree. M-11, M-12, L-10, L-11 new. APPROVE stands. |
 
 ## Assumption Not Checked
 
-This pass assumes the vitest ^4.1.2 JSON reporter emits per-case `assertionResults` (name + status) — now carried in the plan as M0 step 3 — and does not test it by running the suite. Falsity signature: verification/014/baseline-a74b9e2.json (not yet written) without per-case entries. Owner of closing: the implementer at M0, recorded in the implementation doc; the planner has already routed it there.
+This pass assumes the analysis's mirror-run figures (48/617 baseline, `test.projects` node-project digest byte-identical to baseline, exit 0 with the nine prefetch stubs) transfer to `website`'s own tree, and does not re-run them. Falsity signature: M0's in-place `numTotalTests` ≠ 617 or exit ≠ 0, or the M2 node-project digest ≠ M0's. Owner of closing: the implementer at M0 and at M2 acceptance (1) — the plan already routes both.
 
 ## Value Statement Assessment
 
-Unchanged from pass 1: present, owner-approved verbatim (D12), every milestone traces to it. No drift introduced by rev 3.
+Unchanged; rev 5 moves one file (row 45) from convert to delete-with-Outstanding-Items, which is the value statement's own "per-deletion proof" clause, not a drift.
 
 ## Overview
 
-**Pricing against the ask**: sized to the ask as amended by D13/D14; rev 3's changelog states "Scope delta: none" and the diff confirms it — no milestone added or removed; M4a grew by five rename rows (the uniform rule the planner chose for Q1), which is a correction to the criterion's own class, not growth.
+**Pricing against the ask**: sized to the ask as amended. No milestone added or removed. M4c's target set widened by the two components the source-text corpus already reads (S1 — a correction to the class's enumeration, not growth); row 45 moved to H1's delete branch (S4). R-1 registers D16 (QA first) — a registration within the steering grant; its effect (implementer waits on Phase 1) is sequencing, not a criterion change.
 
-**Delta boundary**: `git diff 0540f34 f9bb15b` touches the header, changelog, rubric, Plan (M0–M5), acceptance criteria, Testing Strategy, Validation, Risks, Rollback, Outstanding Items and Handoff Notes. The Value Statement, Objective, Decisions Register and Assumptions sections are untouched — verified by the diff, not accepted from the message.
+**Delta boundary**: the diff touches header, changelog, register (D16), axiom (B), H7, the positive-form illustration, helper policy, Plan ownership line, M2 (rewritten), M3 (paths, S3), M4b (row 15 wording), M4c (row 45, target set, residue), AC7, Risks, Handoff Notes. M0, M1, M4a, M5, AC1–AC6, AC8, Rollback are untouched — verified by the diff.
 
-**Re-verification against the tree** (each is what the finding was about):
-- New M5 step 5 predicate `(from |import\()\s*'(~|bot)/`: row 8 now passes; the seven files it still flags are exactly rows 10, 11, 32, 33, 34, 36, 43 — every one deleted or converted by M4b/M4c. (Row 45 passes today only because its source-text assertions contain the string `import('~/…')`; it is M4c-converted regardless, so the end-state reads 0.)
-- New M3 acceptance grep counts exactly the three lifted families (11 files, sums as the inventory says); `makeEditable*`, `makeRes` no longer match.
-- New positive predicate: `shapes.m9f-dropped-types`, `shapes.d34-empty`, `backfill.report-012` rejected; `shapes.v2-message`, `isValidUrl.url-validation`, `limits.mutual-exclusivity`, `interactions-edge.routing` accepted. Stated limit, not a finding: `l10n`-style tokens (`l` + digits + letter) fall in the ID class and would be rejected; no such module exists in `website` today.
-- Negative form over three domains: the 9 lines outside titles and comments that still match today are all members of the named residue (four tmpdir prefixes, one fixture timestamp, four `it.each` format strings/row labels) — the residue class is real and correctly bounded.
-- File partition: M4b 8 + M4a 28 + M4c 13 = 49 with row 14 counted twice under the named exception = 48 distinct. Sequence M0→M1→M3→M4b→M4a→M2→M4c→M5 serialises every shared file.
+**Verified against the tree / the analysis**:
+- pnpm: `package.json` `"packageManager": "pnpm@10.28.2"`, `pnpm-lock.yaml` present, no npm lockfile. Rev 3's `npm install --no-save`/`npm ci` paragraph was wrong as the planner now says; withdrawing it as planner error in the changelog is the right correction form. Rollback (revert incl. `pnpm-lock.yaml`) is unchanged and correct.
+- S5: `tsconfig.json` excludes `**/__tests__`; `tsconfig.test.json` includes `src/**/__tests__/**/*.{ts,tsx}`. Helpers under `__tests__/helpers/` are therefore outside the production program and inside the test one — the re-siting is right. M3's acceptance grep (`--include='*.test.ts*'`) still counts 0 helper-file definitions, so no new member of the instrument-contradiction class.
+- D13 reopening class: the analysis mounts all six named targets plus `NewMessageModal` and `SaveAsMenu` with zero `src/` changes — the class is not met; the plan's Risks row records it. `test.projects` is a legitimate reading of D13's "vitest environment change".
+- Rev 4: `(D2)` gone from H7, `(this chain: D9)` gone from axiom (B), illustration no longer carries an ID token, row 15 corrected, AC7's QA instrument removed → L-7–L-9 RESOLVED.
 
 ## Architectural Alignment
 
-Unchanged: architectural surface none; M2 remains the only blast-radius item and carries its Risk row.
+Unchanged. The `test.projects` split keeps `window` out of the ~40 node-logic files — the analysis's argument, and the plan's Risk row ("harness changes node tests' behaviour") now has a mechanism that closes it by construction plus a measurement to confirm.
 
 ## Scope Assessment
 
-Sized to the ask (above). The evergreen/chain-application split (M-4) is now explicit in the rubric heading and M1's content line.
+Sized to the ask. Row 45's deletion sits inside H1's own else-branch as the plan has carried it since rev 1; D13's verbatim ("converted … instead of deleted") is the owner's expectation for the class, and S4 is new evidence within its spirit (no oracle exists, not "no mount"). See L-10 for how the register should show it.
 
 ## Technical Debt Risks
 
-- The symlink recreation line now lives in the doc's four-repo map (L-1 landed).
-- The residue class of the negative form is named; the next writer who adds a fixture timestamp will not be tempted to allow-list the gate.
+- The exit-code finding is the analysis's most consequential result and is now an M2 criterion — but only there (M-11).
+- The analysis's offered convention ("presence of an API in the environment is never evidence the path ran") is not in M1's content list. Planner's call; recorded as a question, not a finding.
 
 ## Findings
 
-### Medium — all RESOLVED at rev 3
+### Resolved (disposition lines)
 
-M-1  RESOLVED — all five renamed under a uniform rule (M4a, Q1 settled). Plan rev 3 `f9bb15b`.
-M-2  RESOLVED — positive form carries a case-insensitive ID-token class over both segments; verified against six candidate names. Plan rev 3.
-M-3  RESOLVED — negative form restricted to basenames/titles/comment lines; string-literal residue named and verified (9 members today, all in class). Plan rev 3.
-M-4  RESOLVED — rubric heading and M1 content line separate the evergreen standard from chain-application rows; residual token noted as L-7. Plan rev 3.
-M-5  RESOLVED — fixed sequence; M3's eleven files named, import-lines-only; the one dual-ownership exception named (with a slip, L-8). Plan rev 3.
-M-6  RESOLVED — M3 acceptance names the lifted families' symbols; "leave — no family" rows added. Verified against tree. Plan rev 3.
-M-7  RESOLVED — step 5 admits dynamic import; verified row 8 passes. Plan rev 3.
-M-8  RESOLVED — disposition table gains `old title → new title`; AC2 keys on it. Plan rev 3.
-M-9  RESOLVED — AC7 holder = QA; code review scoped to M2's non-test diff, stated with route (critic Q2). Plan rev 3.
-M-10 RESOLVED — rows 14, 20, 22 → H5 partial in M4b; (E) declared universal with a named residue. Plan rev 3.
+M-1–M-10 RESOLVED — plan rev 3 `f9bb15b` (critique pass 2).
+L-1–L-6 RESOLVED — plan rev 3 `f9bb15b` (pass 2).
+L-7 RESOLVED — ID tokens stripped from doc-bound text. Plan rev 4 `58e1eb1`, verified at pass 3.
+L-8 RESOLVED — exception names row 14 only; row 15 stated as M3 + M4c. Plan rev 4, verified.
+L-9 RESOLVED — AC7 residue names the class, not QA's instrument. Plan rev 4, verified.
 
-### Low — L-1–L-6 RESOLVED at rev 3
+### Medium — new at pass 3
 
-L-1 RESOLVED — `test -e && readlink -f`; recreation line in the doc's map. L-2 RESOLVED — `npm install --no-save` / `npm ci`, timestamped in the analysis doc. L-3 RESOLVED — hyphens admitted. L-4 RESOLVED — Risks column written rev 1–3, prediction row added. L-5 RESOLVED — H4 stated limit in the class row. L-6 RESOLVED — `*.spec.ts` in the find.
+**M-11 — The process-exit-code observable is declared at M2 only; every other suite-run criterion still reads counters that the analysis proved can be green at exit 1.** Status: OPEN.
+M2 acceptance (2) now reads the exit code because the analysis found `57 passed / 636 passed / exit 1` reproducibly. But M0 (baseline capture), M3 ("M0 per-case pass set unchanged"), M4a ("zero failures on both trees"), M4c and M5 step 1 (`numFailedTests = 0`) are unchanged and read the JSON counters only. The input that degrades the instrument — a post-teardown rejection — is a property of any run that mounts the edit page, and M4c writes such tests after M2; M5 is the run that ships. This is the "degraded input does not travel" shape: the residue was accepted at one milestone and the same input feeds four others. Impact: M5 can certify a suite that fails `pnpm test`. Recommendation: state once, at the Plan level, that every captured suite run records the exit code beside the counters and that an acceptance over a pass set is satisfied only at exit 0 — the analysis's own instrumentation row says the same; the plan then need not repeat it per milestone.
 
-### Low — new at pass 2, non-gating, next-touch (rev 4 or the implementer's M1 write, whichever first)
+**M-12 — Validation's static gate does not see test files.** Status: OPEN.
+Validation: "`npx tsc --noEmit` in `website` at the merge SHA". `tsconfig.json` excludes `**/__tests__` (verified), so that command type-checks none of the 48 files this chain edits, renames or converts; the project's own `typecheck` script runs both programs (`tsc --noEmit && tsc --noEmit -p tsconfig.test.json`, verified). Impact: a type error in a converted `.test.tsx` or a lifted helper passes the plan's only static gate; vitest transpiles without type-checking, so nothing else catches it before merge. Recommendation: name the project's own script (or both programs) as the instrument; the M1 doc's command list has the same gap if it inherits the line.
 
-**L-7 — Three ID tokens remain in text the plan routes into the evergreen doc.** Status: OPEN.
-H7's disposition cell reads "A pin inside → handoff (D2)"; axiom (B) reads "(this chain: D9)"; the positive-form paragraph's illustration `shapes.m9f-dropped-types.test.ts` is itself an ID-class hit. M1 accepts only if the negative form over the doc → 0, so the implementer must drop all three when writing the doc — the plan should say so or strip them, so the doc's content is derivable from the plan without judgement. Landing: rev 4, or recorded as an omission in the implementation doc at M1.
+### Low — new at pass 3, next-touch
 
-**L-8 — M4b's ownership exception names row 15, which M4b does not open.** Status: OPEN.
-M4b's H5-partial list is rows 14, 20, 22; row 15 (`012-validity-predicate`) is opened by M3 (import lines) and M4c only. The exception should name row 14 alone. Landing: rev 4.
+**L-10 — D13's row does not show the S4 exception.** Status: OPEN. A reader of the register alone sees "converted instead of deleted"; the one-file exception lives only in M4c. A registration-grade consequence line on D13 ("row 45: no observable oracle under any harness — H1 delete branch, analysis S4") keeps the register consumable at the row. Landing: next registration or planning pass.
 
-**L-9 — AC7's residue enumeration names QA's instrument.** Status: OPEN.
-"which QA's sweep enumerates by `grep -rn 'function ' …`" is a HOW in the qa subagent's domain; the class ("any transcription the inventory did not tag") is enough. One line; QA may keep or replace the instrument. Landing: rev 4, or QA notes it in Phase 1.
+**L-11 — M4c's named residue omits the analysis's open question 3.** Status: OPEN. `DiscordMessageEditor` mounted only transitively and only with the edit-page prefetches stubbed; whether it mounts at exit 0 in a test of its own is undetermined. It is reached by the same edit-page conversions as the named residue (`EmojiPicker`, dynamics wrappers) and should be listed beside them so a failed mount lands in Outstanding Items rather than as a surprise. Landing: rev 6 or the implementer's M4c disposition row.
 
 ## Questions
 
-None open. Q1–Q3 from pass 1 are settled in rev 3 (rename all five; CR scoped to M2; `--no-save` install site).
+1. (M-11) Does the planner want the exit-code rule as a Plan-level line or per milestone? Either satisfies; one line is cheaper for every downstream reader.
+2. Does the analysis's offered environment-fidelity convention go into M1's doc? Planner's call; if yes, it is evergreen text and must pass the doc's own negative-form check.
 
 ## Risk Assessment
 
-Low. The rev-3 prediction row ("acceptance instruments contradict the dispositions they verify") is the right register entry for pass 1's class; this pass reports against it: **no new member** — every M5 command was re-run in its rev-3 form against the tree and reads as the plan predicts on every file it leaves as-is.
+Low. Prediction row (instrument contradiction): **no new member at pass 3** — the re-sited helpers and the widened target set leave every M3/M5 instrument reading as the plan predicts. M-11 is a different shape (an instrument that cannot see a failure class, found by the analysis, not a contradiction with a disposition) and is recorded as its own finding rather than as a member.
 
 ## Recommendations
 
-APPROVE, cycle 1 pass 2 (rung 1–5). Next: the qa subagent for Phase 1 (runs before implementation per the plan's sequencing line), then the implementer from M0; M2 implementation waits on analyst-hooks-14's document. L-7–L-9 ride the next planner touch; none blocks.
+APPROVE stands (cycle 1, pass 3, rung 1–5). M2 is cleared for implementation on the analysis. M-11 and M-12 are one-line criterion corrections; they should land before M5 is run, and nothing before M5 depends on them — QA Phase 1 and M0–M4b proceed. Next: QA Phase 1 (in progress per Status-Detail), then the implementer per D16.
 
 ## Revision History
 
 | Pass | Artifact rev | Findings addressed | New findings | Status change |
 |---|---|---|---|---|
 | 1 (2026-08-26) | rev 2 `0540f34` | — | M-1–M-10, L-1–L-6 | OPEN |
-| 2 (2026-08-27) | rev 3 `f9bb15b` | M-1–M-10, L-1–L-6 → RESOLVED | L-7–L-9 (Low) | OPEN (Lows only); verdict APPROVE |
+| 2 (2026-08-27) | rev 3 `f9bb15b` | M-1–M-10, L-1–L-6 → RESOLVED | L-7–L-9 (Low) | OPEN; verdict APPROVE |
+| 3 (2026-08-27) | rev 5 `72cde0a` (scoped delta incl. rev 4, R-1) | L-7–L-9 → RESOLVED | M-11, M-12, L-10, L-11 | OPEN; APPROVE stands |
