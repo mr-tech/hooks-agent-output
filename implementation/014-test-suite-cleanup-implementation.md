@@ -18,8 +18,11 @@ rows), M4a (all 27 rows), and M2 were completed in that continuation. The sessio
 ceiling a second time partway through M4c (2 of 15 rows landed: 45, rider 1/row 12) and checkpointed
 rather than starting the DOM-mount conversions that make up the rest of M4c. Resumed again
 (post-compaction, same session) and landed row 9/rider 2 (**both named riders (D19/R-5) now
-landed**) and rows 38/39 (H9) — 5/15 M4c rows done, 10 remain (all wholly DOM-mount conversions).
-See "Outstanding Items" for exact resumption state for the milestones still remaining (M4c, M5).
+landed**), rows 38/39 (H9), row 10 (H1), and rows 32/33/34/36 (H1) — 10/15 M4c rows done, then
+checkpointed. Resumed again (post-compaction, same session) and landed the final 5 M4c rows (14,
+15, 16, 19, 35) — **M4c is now complete, 15/15 rows** — then checkpointed here rather than opening
+M5 (acceptance sweep), a substantial new milestone needing its own fresh read of QA's positive-control
+requirements. See "Outstanding Items" for exact resumption state for M5.
 
 ## Changelog
 
@@ -37,6 +40,7 @@ See "Outstanding Items" for exact resumption state for the milestones still rema
 | 2026-08-27 | Owner (direct) | "Continue" (post-compaction, same session) | R-5 (critic waived, `2d0d52a`) already had both riders open. Landed row 45 (H1 delete) and row 12/rider 1 (H5 repair), then hit the run-length ceiling and checkpointed (`050f3ab`). Resumed same session: landed row 9/rider 2 — established empirically that `SectionEditor` mounts under the M2 dom project (not in the analysis's own POC list), converted the "Auto-remove branch dispatch" block to a real mount, axiom-A mutation evidence captured (2/3 cases red), full suite 576/576 exit 0. **Both named riders are now landed — neither dropped, no handoff record owed.** website `4c4a357`. Continued in the same run: landed rows 38, 39 (H9) — replaced both files' hand-rolled `render()` walkers with real `createRoot`+`act` mounts, dropped row 39's second describe block as superseded by row 38's real drive of the same guard, axiom-A evidence for both (4/5 and 5/5 cases red), full suite 572/572 exit 0. website `4761453`. |
 | 2026-08-27 | Owner (direct) | "Continue" (post-compaction, same session) | Landed row 10 (H1) — mounted `TransitionHeightElement`, 9/11 source-text assertions converted, 5 dropped as unobservable, axiom-A evidence (4 mutations, distinct branches), full suite 570/570 exit 0. website `100b319`. Fixed all 3 findings from `code-reviewer-hooks-014`'s M2 review (`APPROVED_WITH_COMMENTS`, `988ca15`): false lockfile "purely additive" claim corrected with a dated reconcile note, `vitest.config.ts`'s dead alias key replaced with a structural `project(test)` factory, `vitest.setup.dom.ts`'s comment reworded; re-verified 570/570 exit 0. website `e6163fd`. Checkpointed and ran the seam-notify script per the new owner ruling. |
 | 2026-08-27 | Owner (direct) | "Continue" (post-compaction, same session) | Fixed a code-reviewer follow-up nit (debug-bump attribution: 5 sibling snapshots descend from `pm2`, not `@pm2/pm2-version-check`) — `agent-output` `8ca4181`. Landed rows 32, 33, 34, 36 (H1, the D29–D33 owner-ruling files) — read `planning/closed/013-components-v2-editing-surfaces.md`'s D29/D30/D31/D33 rows first, confirmed the shipped source already implements every ruling. Mounted `JsonModalBody`/`NewMessageJsonInput`/`MessageProvider` for real per the M2 analysis's POC #4/#5 bundle, now lifted to `src/providers/MessageProvider/__tests__/helpers/` (split across two files to avoid a `vi.mock`-factory module-loader deadlock, reproduced directly). Row 36's block 1/block 3 dropped as already superseded by rows 38/34; block 2 converted to a real `MessageProvider` mount. Axiom-A evidence for all four rows (9 total mutations across 3 production files, all reverted clean). Fixed a `Proxy` `get`-trap typecheck error (TS2367) the new helper introduced. Full suite 567/567 exit 0, typecheck exit 0 both programs. **M4c now 10/15 rows.** website `634518a`. |
+| 2026-08-27 | Owner (direct) | "Continue" (post-compaction, same session) | Landed the final 5 M4c rows. Row 14 (`limits.send-gate-partition.test.ts`) — converted its 2 EXT-2 source-text cases to real Zod-schema exercise via `topLevelComponentShape`'s discriminated-union introspection (`35ad5da`). Row 15 (`messageValidity.predicate.test.ts`) — converted its call-count/import-path source-text cases to a delegation-parity property test, dropped the unconvertible import-path half (`6679465`). Row 16 — split `013-fqa15-rowd-load-gate.test.ts` into a renamed logic file plus a new `JsonModalBody.load-floors-resolved-draft.test.tsx` mount (`b5ecb29`). Row 19 — split `013-fqa19-ingress-gate-reachability.test.ts`; mounting `NewMessageModal` for real showed its ROUTE 1/ROUTE 2 wiring claims are **false of the shipped component** (the Save button is disabled by an unrelated, unwrapped `contentFloorError` check before `onSubmit`'s choice-UI branch can ever fire) — per D2 and axiom D, kept only the one honestly-true case and logged the finding as a new handoff (`agent-output/handoff/newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md`) rather than fixing it or pinning either direction (`2faaf3f`). Row 35 — split `013-owner-readable-mutation-errors-2026-08-25.test.ts` into a renamed logic file plus two new mounts (`SaveAsMenu`, `NewMessageModal`) proving each renders `formatMutationError(messageError)`, not raw (`34140d3`). `messageProviderDeps.ts`'s `buildApiMock` extended three times this round (`queryData`, mutate-input forwarding, `mutationErrors`), each backward-compatible. Axiom-A evidence captured for every new/converted case; full suite re-verified after each row (568 → 564 → 566), final state 566/566 exit 0, typecheck exit 0 both programs, 51 files. **M4c is now complete — 15/15 rows.** Checkpointed per the Run-Length Ceiling rather than opening M5. |
 
 ## Implementation Summary
 
@@ -70,8 +74,14 @@ typecheck` clean. No `.test.tsx` files exist in the tree yet (M4c adds the first
 edit-page teardown-rejection finding from the analysis has nothing to trigger yet; the deterministic
 mitigation (`vi.mock` the nine prefetch targets) is M4c's responsibility when it writes that test.
 
-Not yet delivered: M4c (9 of 15 rows remain — both named riders, rows 38/39 (H9), and row 10 (H1)
-are now landed) and M5 (acceptance sweep). The value statement is not yet fully met — see "Value
+**M4c is now also complete (15/15 rows)** — every H1/H9 source-text/hand-rolled-renderer file
+converted to a real mount or dispositioned with axiom-(A) mutation evidence, recorded in the
+standalone Disposition Table. One conversion (row 19) surfaced a genuine, previously-unrecorded
+product-code finding — `NewMessageModal`'s persist-gate choice UI is unreachable via its own Save
+button — logged as a handoff per D2 rather than fixed or pinned either direction (see
+`agent-output/handoff/newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md`).
+
+Not yet delivered: M5 (acceptance sweep). The value statement is not yet fully met — see "Value
 Statement Validation".
 
 ## Milestones Completed
@@ -106,7 +116,7 @@ Statement Validation".
       pattern already used there for `vitest.config.ts`). Node project pass set byte-identical to
       pre-change baseline (604/604, exact tuple match), exit 0, typecheck exit 0. Nothing under
       `src/` touched. Committed `website` `988ca15`.
-- [ ] M4c — **In progress, 10/15 rows.** Row 45 deleted (H1 delete branch, `07af608`); row 12
+- [x] M4c — **Complete, 15/15 rows.** Row 45 deleted (H1 delete branch, `07af608`); row 12
       (rider 1) H5-repaired (`1f89b34`); row 9 (rider 2) H7-repaired — mounted the real
       `SectionEditor` for the auto-remove branch dispatch (`4c4a357`). **Both named riders
       (D19/R-5) landed — neither dropped.** Rows 38, 39 (H9) — replaced both hand-rolled
@@ -118,9 +128,13 @@ Statement Validation".
       owner-ruling files) — mounted `JsonModalBody`/`NewMessageJsonInput`/`MessageProvider` for
       real, per the M2 analysis's POC #4/#5 mock bundle (now lifted to
       `src/providers/MessageProvider/__tests__/helpers/`); row 36's block 1/block 3 dropped as
-      already superseded by rows 38/34's mounts, block 2 converted (`634518a`). 5 rows remain: 14,
-      15, 16, 19, 35 (mixed — convert source-text cases only; 16, 19, 35 also need the M4a-style
-      rename).
+      already superseded by rows 38/34's mounts, block 2 converted (`634518a`). Rows 14
+      (`35ad5da`), 15 (`6679465`), 16 (`b5ecb29`), 19 (`2faaf3f`), 35 (`34140d3`) — mixed rows,
+      source-text cases converted to real mounts or (row 15's import-path check) dropped as
+      genuinely unconvertible; 16/19/35 also renamed. Row 19's conversion surfaced a genuine
+      product-code finding (`NewMessageModal`'s persist-gate choice UI unreachable via Save),
+      logged as a handoff per D2, not fixed. Full suite after the last row: 566/566, exit 0,
+      typecheck exit 0 both programs, 51 files.
 - [ ] M5 — Not started (acceptance sweep).
 
 ## Entry Conditions
@@ -166,6 +180,15 @@ implementation) was satisfied before this session began (confirmed against
 | `src/app/message/m/[id]/_components/JsonModalBody.tsx` | website | M4c rows 32/33/34: mutated 4 times (settled-notice branch, `commitChoice`'s doc-rewrite line twice, the conflict-parsing branch) then reverted each time, for axiom-(A) evidence; tree clean at the commit | 0 net |
 | `src/app/message/_components/NewMessageJsonInput.tsx` | website | M4c row 33: mutated (conflict-parsing branch, `setDismissedChoice`→`setPendingChoice`) then reverted, for axiom-(A) evidence; tree clean at the commit | 0 net |
 | `src/providers/MessageProvider/index.tsx` | website | M4c row 36: mutated twice (`codeMessageError`'s `toast.error` call, `upsertMessage`'s `onMutate` `toast.loading` call) then reverted each time, for axiom-(A) evidence; tree clean at the commit | 0 net |
+| `src/utils/__tests__/012-send-gate-partition.test.ts` → `limits.send-gate-partition.test.ts` | website | M4c row 14: 2 EXT-2 source-text cases → real Zod-schema exercise (`topLevelComponentShape.options` introspection + a `safeParse()`), imports added (`z`, `topLevelComponentShape`, `V2_COMPONENT_TYPE_VALUES`), `readFileSync`/`resolve` imports dropped. | -22/+26 |
+| `src/server/api/utils/shapes.ts` | website | M4c row 14: mutated (`actionRowShape`'s `components` field) then reverted, for axiom-(A) evidence; tree clean at the commit | 0 net |
+| `src/constants/messageLimits.ts` | website | M4c row 14: mutated (`V2_COMPONENT_TYPE_VALUES`, dropped type 10) then reverted, for axiom-(A) evidence; tree clean at the commit | 0 net |
+| `src/utils/__tests__/012-validity-predicate.test.ts` → `messageValidity.predicate.test.ts` | website | M4c row 15: call-count source-text case → delegation-parity property test; import-path source-text case's non-behavioural half deleted, behavioural half (symbol identity) kept. | -18/+24 |
+| `src/server/api/utils/messageValidity.ts` | website | M4c row 15: mutated (spurious `embeds`-length early-return added to `isMessageValid`) then reverted, for axiom-(A) evidence; tree clean at the commit | 0 net |
+| `src/app/message/m/[id]/_components/JsonModalBody.tsx` | website | M4c row 16: mutated (`contentFloorError`, reintroduced the pre-F-QA15 unwrapped form) then reverted, for axiom-(A) evidence; tree clean at the commit | 0 net |
+| `src/app/message/_components/NewMessageModal.tsx` | website | M4c row 19: mutated (`submitData` → no-op) then reverted, for axiom-(A) evidence, then mutated again M4c row 35 (`messageError` rendering reverted to raw) and reverted again; tree clean at the commit | 0 net |
+| `src/providers/MessageProvider/__tests__/helpers/messageProviderDeps.ts` | website | M4c row 16: `buildApiMock` extended with `queryData` (lazy per-route data getter). M4c row 19: `useMutation`'s `mutate` now forwards its `input` argument to `onMutation` callbacks (backward compatible — verified against row 36's existing test, unchanged). M4c row 35: extended with `mutationErrors` (lazy per-route error getter). | +14/-3 across three edits |
+| `src/app/message/m/[id]/_components/SaveAsMenu.tsx` | website | M4c row 35: mutated (`messageError` rendering reverted to raw) then reverted, for axiom-(A) evidence; tree clean at the commit | 0 net |
 
 ## Files Created
 
@@ -202,6 +225,25 @@ Deleted (M4c rows 32/33/34/36, H1 — see disposition table for full evidence):
 `website/src/utils/__tests__/013-owner-load-notice-reversal-2026-08-25.test.ts` (row 34),
 `website/src/utils/__tests__/013-owner-toast-vessel-2026-08-25.test.ts` (row 36).
 
+New (M4c rows 14/15/16/19/35 — final round):
+
+| Path | Repo | Purpose |
+|---|---|---|
+| `website/src/utils/__tests__/discordResponseToMessage.rowE-persist-gate.test.ts` | website | Row 19 rename: the 6 unchanged ingress-reachability/control cases, split out of `013-fqa19-ingress-gate-reachability.test.ts` |
+| `website/src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx` | website | Row 19 (H1 conversion, partial): mounts real `NewMessageModal` + `QueryClientProvider`; keeps only the one case honestly true of the shipped UI (see the new handoff, below) |
+| `website/src/utils/__tests__/utils.rowd-load-disposition.test.ts` | website | Row 16 rename: the 14 unchanged disposition-logic cases, split out of `013-fqa15-rowd-load-gate.test.ts` |
+| `website/src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-floors-resolved-draft.test.tsx` | website | Row 16 (H1 conversion): mounts real `JsonModalBody` + `MessageProvider`, checks the Load button's `disabled` state and floor-error notice directly |
+| `website/src/utils/__tests__/formatMutationError.zod-issue-formatting.test.ts` | website | Row 35 rename: the 4 unchanged formatter-only cases, split out of `013-owner-readable-mutation-errors-2026-08-25.test.ts` |
+| `website/src/app/message/m/[id]/_components/__tests__/SaveAsMenu.readable-mutation-error.test.tsx` | website | Row 35 (H1 conversion): mounts real `SaveAsMenu` (message as prop, no provider needed) |
+| `website/src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx` | website | Row 35 (H1 conversion): mounts real `NewMessageModal` + `QueryClientProvider` |
+| `agent-output/handoff/newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md` | agent-output | D2 handoff for row 19's finding: `NewMessageModal`'s persist-gate choice UI is unreachable via its own Save button |
+
+Deleted (M4c rows 14/15/16/19/35 — split into the renamed/new files above):
+`website/src/utils/__tests__/013-fqa15-rowd-load-gate.test.ts` (row 16),
+`website/src/utils/__tests__/013-fqa19-ingress-gate-reachability.test.ts` (row 19),
+`website/src/utils/__tests__/013-owner-readable-mutation-errors-2026-08-25.test.ts` (row 35).
+(Rows 14 and 15 were renamed in place, not deleted — `git mv`-equivalent, no split.)
+
 ## Patterns Extended
 
 | Surface | Pattern extended |
@@ -212,6 +254,8 @@ Deleted (M4c rows 32/33/34/36, H1 — see disposition table for full evidence):
 | `tsconfig.test.json`'s `include` list | M2's `vitest.setup.dom.ts` is added as its own line, extending the exact pattern already in the file for `vitest.config.ts` (a root-level, non-`src/` test-infra file listed individually) rather than widening `exclude` or adding a glob. |
 | `vitest.config.ts`'s `test.projects` shape | New to this repo (D13's declared scope delta); not an extension of an in-repo pattern — the shape itself is the analysis's own recommendation (`analysis/014-test-suite-cleanup-analysis.md`, finding (b)), chosen over the two alternatives it measured (global environment, per-file directive) because environment-follows-extension needs no per-file convention to remember. |
 | `src/**/__tests__/helpers/*` (DOM mount helpers) | Extends `src/utils/__tests__/helpers/*.ts`'s M3 lift pattern (same directory convention, same third-duplicate trigger) into the DOM-mount domain for the first time this chain — `mountMessageProvider.tsx`/`messageProviderDeps.ts` mirror the M2 analysis's own POC #4/#5 mock bundle rather than inventing a new shape. |
+| `messageProviderDeps.ts`'s `buildApiMock` steering options | Extends the existing `queryErrors`/`onMutation` per-route steering shape (M4c rows 32-36) with `queryData`, `mutate`-argument forwarding, and `mutationErrors` (M4c rows 16/19/35) — same lazy-getter/per-route-path convention each time, not a new mocking approach. |
+| Source-text→mount conversion (H1), applied where the source text's claim turns out false of the real UI (row 19) | No prior pattern to extend — the plan's own H1 disposition ("convert... else delete and list in Outstanding Items") already anticipates this outcome via its delete branch; this is the delete branch's first exercise where the reason is "the claim is false," not "no mount exists." Handoff-record form follows D2/the row-43 handoff's established shape exactly. |
 
 No user-visible surface is touched by any milestone completed or remaining in this chain (confirmed
 against the plan's Testing Strategy: "No product-behaviour change exists in this chain"), so the
@@ -225,11 +269,12 @@ against the plan's Testing Strategy: "No product-behaviour change exists in this
       `pnpm run typecheck`; `pnpm run lint` is not a named acceptance instrument for this chain).
       Flagged here rather than silently skipped — if a later gate expects it, it is a plan
       omission, not an implementer skip.
-- [x] Tests: `npx vitest run` — 46/46 files, 605/605 passing, exit 0 at the current tree state (two
-      files deleted since M0's 48/617 baseline; see AC2 evidence below).
-- [x] Compatibility: no production code shipped in a mutated state — the one mutation made (row 3's
-      `formatReport`) was local and fully reverted; `git diff` on `backfillValid.ts` is empty at the
-      commit that includes it.
+- [x] Tests: `npx vitest run` — 51/51 files, 566/566 passing, exit 0 at the current tree state
+      (M4c complete; reproduced 3× to confirm stability after fixing a genuine timing flake in
+      row 19's dynamic-import settle). See the Disposition Table for the per-row count history.
+- [x] Compatibility: no production code shipped in a mutated state — every mutation made across
+      M4b/M4c (one per axiom-(A) evidence requirement, per row) was local and fully reverted;
+      `git diff` confirmed empty on every mutated file at the commit that includes it.
 
 ## Value Statement Validation
 
@@ -465,7 +510,7 @@ Three items, all addressed same-session (none gated M4c or QA):
 Re-verification is recorded as a sub-entry of the review's own round (not a new round, per the
 reviewer's instruction) — see "Test Execution Results".
 
-### M4c — 15 rows (13 + 2 riders); 10 landed, 5 remain — exact resumption state below
+### M4c — 15 rows (13 + 2 riders); complete
 
 **Done**: row 45 (deleted, H1 delete branch, `website` `07af608`) — see disposition table for full
 evidence. Row 12/rider 1 (H5 structural repair — dropped the local `switchToV2`/`switchToClassic`
@@ -541,19 +586,56 @@ came from, `agent-output/verification/014/poc-tests/05-jsonmodalbody.test.tsx`, 
 program's `include` and was never typechecked). Fixed by widening the parameter and special-casing
 `symbol` first; `pnpm run typecheck` exit 0 both programs after.
 
-**Remaining, in the order a resuming implementer should probably take them** (simplest/lowest-risk
-first, not a plan-mandated order):
-1. **Rows 14, 15, 16, 19, 35 (mixed)** — these already have their non-source-text cases repaired
-   (14, 15 in M4b) or intact; convert only the source-text cases named in the inventory (2, 2, 3,
-   3, 2 respectively) to mounted-behaviour assertions, keep the rest, no further rename needed (14,
-   15 already renamed in M4b; 16, 19, 35 still need the M4a-style rename — carry it out here since
-   this is the row's only remaining milestone touch). Row 35 in particular reads
-   `~/utils/formatMutationError` (already real) plus source text of `SaveAsMenu.tsx` and
-   `NewMessageModal.tsx` — both are in the M2 analysis's mount table (#7/#8), needing
-   `IsMobileProvider` + `useGuildDropdownItems` + a real `QueryClientProvider` on top of the
-   MessageProvider bundle, and both render into a portal on `document.body` (analysis finding (a));
-   `findButton` in `src/components/__tests__/helpers/press.ts` already falls back to searching
-   `document.body`, so it should work unmodified for a portal-rendered button.
+**Done (final round) — rows 14, 15, 16, 19, 35, M4c now complete**:
+- **Row 14** (`limits.send-gate-partition.test.ts`) — its 2 EXT-2 source-text cases (one hardcoded
+  literal computation, one `readFileSync` against `shapes.ts`) converted to real Zod-schema
+  exercise: `topLevelComponentShape.options` introspection plus a `safeParse()` proving a V2-typed
+  child is rejected inside an Action Row. Inventory said "3 source-text"; a direct read found only
+  2 — a pre-existing instrument miscount, not a state change, noted rather than silently
+  reconciled. `website` `35ad5da`.
+- **Row 15** (`messageValidity.predicate.test.ts`) — its call-count-regex case became a real
+  delegation-parity property test (`isMessageValid(x) === (validateMessage(x) === '')` over 7
+  payloads); its import-path (`readFileSync`) case's non-behavioural half was deleted (direct-vs-
+  barrel import has no runtime difference), the genuinely behavioural half (symbol identity) kept.
+  `website` `6679465`.
+- **Row 16** — `013-fqa15-rowd-load-gate.test.ts` split along its own logic/wiring seam:
+  `utils.rowd-load-disposition.test.ts` (14 executed cases, unchanged, renamed) +
+  `JsonModalBody.load-floors-resolved-draft.test.tsx` (new, 3 mount cases replacing 2 source-text).
+  `website` `b5ecb29`.
+- **Row 19** — `013-fqa19-ingress-gate-reachability.test.ts` split similarly:
+  `discordResponseToMessage.rowE-persist-gate.test.ts` (6 cases, unchanged, renamed) + new
+  `NewMessageModal.persist-gate-wiring.test.tsx`. **The 5 old wiring cases were not converted
+  1:1** — mounting `NewMessageModal` for real showed the ROUTE 1/ROUTE 2 claims those source-text
+  cases made are false of the shipped component (see the new handoff record, below); only the one
+  case honestly true of the UI survives. `website` `2faaf3f`.
+- **Row 35** — `013-owner-readable-mutation-errors-2026-08-25.test.ts` split into
+  `formatMutationError.zod-issue-formatting.test.ts` (4 cases, unchanged, renamed) + two new mount
+  files (`SaveAsMenu.readable-mutation-error.test.tsx`,
+  `NewMessageModal.readable-mutation-error.test.tsx`), each proving its component renders
+  `formatMutationError(messageError)` rather than the raw message. `website` `34140d3`.
+
+`messageProviderDeps.ts`'s `buildApiMock` was extended three times across this round —
+`queryData` (row 16, a lazy per-route data getter, for driving `loadedMessage` without a real
+fetch), the `mutate(input)` argument now forwarding to `onMutation` callbacks (row 19), and
+`mutationErrors` (row 35, a lazy per-route error getter) — each additive and verified
+backward-compatible against the earlier rows' own tests.
+
+**New finding, logged not fixed (row 19)**: `agent-output/handoff/newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md`
+— `NewMessageModal.tsx`'s `contentFloorError` (line ~126) floors the raw, unresolved `loadedMessage`
+(unlike `JsonModalBody.tsx`'s post-F-QA15 fix, which floors `applyDisposition(validatedDraft)`).
+Since `resolveContentLoss`'s `requiresChoice` and `validateContentRequirements`'s `hasV2 &&
+hasContent` both key off the same structural-V2-plus-content condition, every draft that trips
+`gateBeforePersist.mustAsk` also disables Save first — `onSubmit`'s `pendingChoice` branch and
+`commitChoice` are both live code (confirmed reachable by direct call, matching QA's own F-QA19
+finding) but **unreachable through the component's own rendered UI**, confirmed by mounting it and
+pressing a real Save button. This is a product-code question (fix the floor, or is blocking Save
+outright intended given there's no in-place resolver at this surface for the bot/webhook/code
+tabs?) outside a test-cleanup chain's charter (D2) — not fixed, not pinned either direction in the
+suite (axiom D), logged for a future chain.
+
+Full suite after all five rows: 566/566, exit 0 (568 → 564 → 566 across the three DOM-touching
+rows' net changes), typecheck exit 0 both programs, 51 files. Full per-row evidence in
+`agent-output/verification/014/disposition-table.md` rows 14/15/16/19/35.
 
 **Named residue** (analysis-flagged, not established to mount): `EmojiPicker` (×3 files), the
 individual `dynamics/*` wrappers, `DiscordMessageEditor` (mounted only transitively in the
@@ -588,28 +670,34 @@ predicate's positive class.
 
 ### Not yet done, any milestone
 
-- IS-6 (mutation restoration) verification across the whole chain — this session's one mutation
-  (row 3) is verified restored; every future mutation needs the same `git diff`-empty check recorded
-  per row, not just narrated.
+- IS-6 (mutation restoration) verification across the whole chain — every mutation this
+  implementer has made across M4b/M4c is individually recorded `git diff`-empty at the point it was
+  reverted (per-row in the Disposition Table), not just narrated in aggregate.
 - QA Phase 2 has not started (correctly — it starts on this document landing, per D16/QA's own
-  Phase 2 criteria).
-- Code review has not run yet — M2 landed this session; scoped review is still owed (Next Steps).
-- Rows 9/12 (M4c riders): gate cleared (R-5, `2d0d52a`) — open now inside M4c. If either cannot be
-  shown red-then-green inside M4c, it drops to D19's disposition: leave as found, a handoff record,
-  an Outstanding Items line.
+  Phase 2 criteria). It should also pick up the two new handoff records this implementer produced
+  (`message-init-cached-edits-lost-2026-08-27.md` from M4b row 43,
+  `newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md` from M4c row 19).
+- Code review has run once (M2's non-test diff, `APPROVED_WITH_COMMENTS`, addressed same-session)
+  — M4c's test-only diffs are QA's to adequacy-review under V-27, not code review's.
+- Rows 9/12 (M4c riders): **resolved** — both landed inside M4c (H7/H5 structural repairs), neither
+  dropped, no handoff record owed for either.
 
 ## Next Steps
 
-1. **Resume the implementer** at M4c, rows 32/33/34/36 (wholly source-text) or wherever
-   "Outstanding Items → M4c" above leaves off — read this document's M4c resumption block first,
-   then the M2 analysis's finding (a) table and four mechanical facts, then the Disposition
-   Table's M4c section, before writing any `.test.tsx` conversion. 9 of 15 M4c rows remain (45,
-   12, 9, 38, 39, 10 are done).
+1. **M5 — acceptance sweep.** Read the plan's seven numbered M5 steps and QA's Phase 1 "Class
+   tests need a discriminating control in both directions" section (`qa/014-test-suite-cleanup-qa.md`)
+   before running any of it — six positive controls are required before trusting a "→ 0" result.
+   Capture the final vitest JSON run at the merge SHA, the positive naming predicate over every
+   `find`-collected file, the negative-form ID-token sweep (three domains), the
+   `.skip`/`.only` sweep, the `readFileSync` allowlist check (should now be empty or near-empty —
+   confirm against the two named exceptions the plan allows), the dynamic-import sweep, the
+   `// escaped:` count, and the 48-file reconciliation (deleted + converted + renamed + kept).
 2. Code review of M2's non-test diff landed and was addressed same-session —
    `APPROVED_WITH_COMMENTS` at `website` `988ca15`, three items fixed, re-verified 570/570 exit 0.
    No further action needed here.
-3. Continue appending the Disposition Table per M4c row as each completes (already the
-   established pattern from M4b/M4a/M2) rather than reconstructing it at M5.
+3. M4c is complete — the Disposition Table now covers all 48 inventory rows. M5 writes its own
+   captures under `agent-output/verification/014/` (final JSON run, sweep outputs) rather than
+   adding further Disposition Table rows.
 4. After M5 lands: hand to QA Phase 2, per D16/the plan's Handoff Notes. The E3b two-hop
    instrument-gap finding (row 12) is now **moot** — row 12's rider repair (this session) deleted
    the local `switchToV2`/`switchToClassic` transcription the finding named, so there is nothing
