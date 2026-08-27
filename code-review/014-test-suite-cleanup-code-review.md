@@ -27,6 +27,7 @@ was reviewed and no verdict here reaches it.
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-08-27T02:29 | steering-test-cleanup → code-reviewer-hooks-014 | Review `chain/014-test-suite-cleanup` at `988ca15`, scoped to M2's harness diff | Round 1. Two MEDIUM, one LOW, two INFO. Verdict APPROVED_WITH_COMMENTS. M2's behaviour-preservation claim independently confirmed by execution; the harness itself confirmed functional by probe and five negative controls. |
+| 2026-08-27T02:40 | steering-test-cleanup → code-reviewer-hooks-014 | Owner ruling on the plan-changelog commit gate | Gate satisfied, not worked around. The R-6 row was written into `planning/014-test-suite-cleanup.md` per this agent's definition, then **held uncommitted** because committing another stage's document is gated; raised to the owner as a decision with a real drop option. Owner, by selection: Option A — "Reviewer commits its row", scoped to `git commit --only planning/014-test-suite-cleanup.md` for that single row, with `git diff` on the path re-checked immediately before. Re-checked (one hunk, mine, `+1 -0`); committed `agent-output` `1140d56`. Owner also directed a TODO for a standing narrow exception — already lodged by steering at `~/.claude/agents/TODO.md` (2026-08-27, "pi: code-reviewer commits its own changelog row in the plan"), so no duplicate entry was made. No finding changed; verdict identity untouched. |
 
 ## Tree Under Verdict
 
