@@ -13,7 +13,7 @@ Status-Detail: >-
 
 # Critique — Plan 014, Hooks test-suite cleanup (pilot) — cycle 2
 
-Cycle 1 (passes 1–4, rev 2→6) is closed at `critiques/closed/014-test-suite-cleanup-critique.md` (`4b7f15e`). This document opens cycle 2 on the planner's own trigger: rev 7 changes what M0 and M4b require.
+Cycle 1 (passes 1–4, rev 2→6) is closed at `critiques/closed/014-test-suite-cleanup-critique.md` (`4b7f15e`). This document (`014-test-suite-cleanup-cycle2-critique.md`, named apart so both stay addressable) opens cycle 2 on the planner's own trigger: rev 7 changes what M0 and M4b require.
 
 **Artifact**: `agent-output/planning/014-test-suite-cleanup.md`, revision 7 (agent-output `78616ec`; `website` at `a74b9e2`).
 **Sources for this pass**: `qa/014-test-suite-cleanup-qa.md` (`bd5ddfd`) — INST-1/INST-2, the AC7 sweep table, the reporter probe; `verification/014/qa-phase1/probe-json-reporter-isValidUrl.json` (read directly); rows 13 and 15 in the tree.
