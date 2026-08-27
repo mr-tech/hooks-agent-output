@@ -125,3 +125,10 @@ BC-7/AC8: owner — "Why would I wait (1) instead of firing it now (2)?" → ret
 without waiting for AC8; AC8 stays open post-release, closed by the next planner's citation.
 
 2026-08-27: owner, by selection, "Steering writes the note" — qa-hooks-014-2 unreachable; steering wrote the UAT-1 dated reconcile note into qa/closed/014-…-qa.md (changelog row + in-place note, no renumbering). Exception to steering writing no stage document, on his word.
+
+## 2026-08-27 — closure sweep
+Row 19 EXECUTED NOT REACHABLE (uat bed4786; handoff stands, D2). Steering closed analysis (→ Planned,
+closed/) and verification/014/disposition-table (→ Complete) mechanically (40d5d7e). Devops asked to
+close deployment + readiness on its stability judgement. Then retrospective spawn → owner prompt.
+Shared-tree state to hold: at the owner's direction UAT-2 localised website's stack (.env.local
+repointed with a backup, local Postgres/Redis); the dev server on :3000 is still his.
