@@ -82,3 +82,8 @@ Owner: the script, not the agent, decides whether to notify. At EVERY seam where
 for the owner, last act before ending the turn:
 `node ~/.claude/tools/seam-notify.js --session <name> --sha <sha>` (add `--blocked` when stopped
 on an owner decision). Output "ok (nothing to do); end the turn" is the normal case.
+
+## 2026-08-27 — UAT spawn approved
+QA Complete at website f2c85f5 (qa-hooks-014-2, agent-output 3bbab7e, plan rev 16). Owner by
+selection: "Spawn uat-hooks-014" — owner spawns; brief handed by steering. BC-7/8/9 are closure
+conditions; BC-9 (toast rendering seen by a human in a running build) is UAT's executed flow.
