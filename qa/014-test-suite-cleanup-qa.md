@@ -4,7 +4,7 @@ Origin: 014
 UUID: 4671e28c
 Status: Awaiting Implementation
 Status-Detail: >-
-  Phase 1 complete against plan rev 7. Test strategy, Irreversible Side-Effect Register and the
+  Phase 1 complete against plan rev 8. Test strategy, Irreversible Side-Effect Register and the
   AC7 axiom-(E) enumeration land here; the implementer is unblocked from M0. BLOCK-1 (npm/pnpm)
   was RESOLVED by rev 5 independently of this pass. No PASS verdict is issued or implied by this
   document — the suite has not been run in full.
@@ -13,7 +13,7 @@ Verified-At: "a74b9e268399663adfccf14816376de1b8eb41ac (website) — anchors Pha
 
 # QA Report: Plan 014 — Hooks test-suite cleanup (pilot)
 
-**Plan Reference**: `agent-output/planning/014-test-suite-cleanup.md` (revision 7, agent-output `78616ec`)
+**Plan Reference**: `agent-output/planning/014-test-suite-cleanup.md` (revision 8, agent-output `47a4138`)
 **QA Status**: Awaiting Implementation
 **QA Specialist**: qa (`qa-hooks-14`)
 
@@ -21,6 +21,7 @@ Verified-At: "a74b9e268399663adfccf14816376de1b8eb41ac (website) — anchors Pha
 
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
+| 2026-08-27T03:55 | planner-hooks-014 → qa-hooks-14 | Plan rev 8 (`47a4138`) | **QA-1 CLOSED**, verified on five limbs against the text. Row 13 dropped from M4a (M4b-only); the stale row-15 sentence removed; rows 14 and 15 named as the only M4b→M4c exceptions; partition restated and now enumerated — M4b's ten rows listed explicitly. The critic reached the same defect independently at cycle 2 (M-13/M-14, `bd49f93`) — two instruments agreeing, which is the corroboration this workspace's hazards file says to look for rather than a re-run of the first. |
 | 2026-08-27T03:30 | planner-hooks-014 → qa-hooks-14 | Plan rev 7 (`78616ec`) consuming this document | Re-anchored on rev 7. M0's instruments and AC2's key corrected in the plan; M4b's oracle list now **points** to this document's AC7 enumeration rather than restating it, with the "at Phase 1" qualifier preserving the class as open — the right citation form. **QA-1 raised** (below): consuming the enumeration put row 13 into two milestones and falsified a standing sentence about row 15. Found by re-reading the revision rather than the summary of it. |
 | 2026-08-27T03:05 | planner-hooks-014 → qa-hooks-14 | Plan rev 6 (`52ff3f9`), critic pass 3 | Re-anchored on rev 6. **Two Phase 1 findings adopted plan-wide**: INST-3 becomes the plan's exit-code observable (any pass-set acceptance in M0/M2/M3/M4a/M4c/M5 satisfied only at exit 0), and the Validation instrument becomes `pnpm run typecheck` — the planner establishing the stronger form of my point, that a bare `npx tsc --noEmit` type-checks **none** of the 48 because `tsconfig.json` excludes `**/__tests__`. BC-5 residue gains `DiscordMessageEditor`. AC7's rows 13/15 remain routed to the implementer via this document, not via a plan edit. |
 | 2026-08-27T02:40 | planner-hooks-014 → qa-hooks-14 | Plan rev 5 (`72cde0a`) consuming the M2 analysis (`50f053a`) | Phase 1 re-anchored on rev 5. **BLOCK-1 RESOLVED** — rev 5 replaced the npm install/restore paragraph independently, and records it as the planner's error never applied; this pass's measurement corroborates rather than drives that. New **INST-3** from rev 5's exit-code finding: AC2's pass-set key is not sufficient on its own, at any comparison point. BC-1/BC-2/BC-5/BC-6 restated. |
@@ -592,10 +593,27 @@ omission.
 
 ---
 
-## QA-1 — rev 7's consumption of the AC7 residue breaks the plan's one-milestone file-ownership rule
+## QA-1 — rev 7's consumption of the AC7 residue broke the plan's one-milestone file-ownership rule
 
-**Raised 2026-08-27T03:35 against plan rev 7 (`78616ec`). Not gating M0–M3; must land before M4b
-opens. Owner of the correction: the planner.** Recorded here rather than only in a message because
+**Status: CLOSED at plan rev 8 (`47a4138`), verified 2026-08-27T03:55.** Raised 03:35 against rev 7;
+never gated M0–M3, and the implementer was held off M4b/M4a before it could bite. Retained in full
+because the failure mode it names is silent by construction and worth the next reader's time.
+
+**Closure evidence — five limbs, each checked against the plan text, none inferred from the report of
+the fix**: (1) M4a's list now begins `Rows 1, 2, 4, 5, 6, 8, 9, 12, 17` — row 13 gone; (2) `grep -c`
+for the stale "Row 15 is M3 + M4c only" sentence → **0**; (3) the exception is now named — *"the only
+exceptions to one-milestone ownership, named: rows 14 and 15 are opened by M4b (oracle repair) and
+then M4c … M4b completes first"*; (4) the partition reconciles again and is now **enumerated** rather
+than asserted — M4b's ten rows listed by number, `10 + 27 + 13 = 50, rows 14 and 15 counted twice →
+48 distinct`; (5) M4b still names rows 13 and 15, so the disposition this pass asked for survived the
+ownership fix rather than being reverted with it.
+
+**Independently corroborated.** The critic reached the same defect at cycle 2 (M-13/M-14, `bd49f93`)
+without seeing QA-1. Two instruments built from different starting points agreeing is the
+corroboration this workspace's hazards file names as the reliable signal — as against re-running the
+first instrument, which reproduces stably and reads as confirmation.
+
+*The account below is as written at 03:35 against rev 7 and is not restated as though still live.* Recorded here rather than only in a message because
 the defect was introduced by consuming *this* document, which makes it mine to carry.
 
 Rev 7 added rows 13 and 15 to M4b's oracle-repair list — the correct disposition, and the one this
@@ -667,8 +685,8 @@ The single-file probe was scoped deliberately to avoid that.
 
 Point-in-time; later stage documents are authoritative.
 
-0. **QA-1 (new, against rev 7)** — row 13 double-owned by M4a and M4b; the row-15 ownership sentence
-   falsified. Planner's correction, before M4b opens. Not gating M0–M3.
+0. **QA-1 — CLOSED at rev 8**, verified on five limbs; corroborated independently by the critic at
+   cycle 2. Nothing further owed.
 1. **BLOCK-1 — CLOSED at rev 5**, independently of this pass and before any install ran. BC-1
    survives in de-escalated form: M2's `pnpm add -D jsdom` must be observed leaving the pnpm layout
    intact and touching only `package.json` + `pnpm-lock.yaml`.
