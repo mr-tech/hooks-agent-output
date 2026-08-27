@@ -91,3 +91,10 @@ conditions; BC-9 (toast rendering seen by a human in a running build) is UAT's e
 Steering error 2026-08-27: after the UAT spawn prompt, steering waited to be told the session was up instead of sweeping for it (steering.md: the sweep is the next act). Owner caught it. Same class as the remembered-state failures noted 2026-08-26.
 
 Owner 2026-08-27: "You always send the brief as well" — after the sweep finds the owner-spawned session, steering sends the brief by message itself; the owner never relays it.
+
+## 2026-08-27 — UAT Approved; devops spawn
+UAT Complete APPROVED FOR RELEASE conditional (uat doc 80efc84): BC-9 + row-19 NOT EXECUTED (no
+browser), dev server left at localhost:3000 @ f2c85f5 for the owner. Owner by selection: UAT commits
+its own plan Status/R-9 edit; spawn devops-hooks-014 (Stage 1 only). UAT-1: register has two BC-7
+rows (AC8 and row-19 persist-gate) — carry rows by name; routed to QA by UAT. UAT-2: code-review
+Status field stale ("In Review") — for devops at closure.
