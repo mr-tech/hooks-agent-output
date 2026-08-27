@@ -4,7 +4,7 @@ Origin: 014
 UUID: 4671e28c
 Status: Awaiting Implementation
 Status-Detail: >-
-  Phase 1 complete against plan rev 6. Test strategy, Irreversible Side-Effect Register and the
+  Phase 1 complete against plan rev 7. Test strategy, Irreversible Side-Effect Register and the
   AC7 axiom-(E) enumeration land here; the implementer is unblocked from M0. BLOCK-1 (npm/pnpm)
   was RESOLVED by rev 5 independently of this pass. No PASS verdict is issued or implied by this
   document — the suite has not been run in full.
@@ -13,7 +13,7 @@ Verified-At: "a74b9e268399663adfccf14816376de1b8eb41ac (website) — anchors Pha
 
 # QA Report: Plan 014 — Hooks test-suite cleanup (pilot)
 
-**Plan Reference**: `agent-output/planning/014-test-suite-cleanup.md` (revision 6, agent-output `52ff3f9`)
+**Plan Reference**: `agent-output/planning/014-test-suite-cleanup.md` (revision 7, agent-output `78616ec`)
 **QA Status**: Awaiting Implementation
 **QA Specialist**: qa (`qa-hooks-14`)
 
@@ -21,6 +21,7 @@ Verified-At: "a74b9e268399663adfccf14816376de1b8eb41ac (website) — anchors Pha
 
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
+| 2026-08-27T03:30 | planner-hooks-014 → qa-hooks-14 | Plan rev 7 (`78616ec`) consuming this document | Re-anchored on rev 7. M0's instruments and AC2's key corrected in the plan; M4b's oracle list now **points** to this document's AC7 enumeration rather than restating it, with the "at Phase 1" qualifier preserving the class as open — the right citation form. **QA-1 raised** (below): consuming the enumeration put row 13 into two milestones and falsified a standing sentence about row 15. Found by re-reading the revision rather than the summary of it. |
 | 2026-08-27T03:05 | planner-hooks-014 → qa-hooks-14 | Plan rev 6 (`52ff3f9`), critic pass 3 | Re-anchored on rev 6. **Two Phase 1 findings adopted plan-wide**: INST-3 becomes the plan's exit-code observable (any pass-set acceptance in M0/M2/M3/M4a/M4c/M5 satisfied only at exit 0), and the Validation instrument becomes `pnpm run typecheck` — the planner establishing the stronger form of my point, that a bare `npx tsc --noEmit` type-checks **none** of the 48 because `tsconfig.json` excludes `**/__tests__`. BC-5 residue gains `DiscordMessageEditor`. AC7's rows 13/15 remain routed to the implementer via this document, not via a plan edit. |
 | 2026-08-27T02:40 | planner-hooks-014 → qa-hooks-14 | Plan rev 5 (`72cde0a`) consuming the M2 analysis (`50f053a`) | Phase 1 re-anchored on rev 5. **BLOCK-1 RESOLVED** — rev 5 replaced the npm install/restore paragraph independently, and records it as the planner's error never applied; this pass's measurement corroborates rather than drives that. New **INST-3** from rev 5's exit-code finding: AC2's pass-set key is not sufficient on its own, at any comparison point. BC-1/BC-2/BC-5/BC-6 restated. |
 | 2026-08-27T02:10 | planner-hooks-014 → qa-hooks-14 | QA Phase 1 under D16 (QA first; implementer after Phase 1 lands) | Phase 1 written. Irreversible Side-Effect Register produced. AC7 enumerated by a captured instrument: named class 4 files → **27 candidate files**, of which **2 new genuine violations** (rows 13, 15). M0 step-3 assumption **closed by measurement** ahead of M0. One **blocking** finding (BLOCK-1, pnpm/npm), two instrument findings (INST-1, INST-2). AC8 registered as the chain's post-deploy observable. |
@@ -591,6 +592,51 @@ omission.
 
 ---
 
+## QA-1 — rev 7's consumption of the AC7 residue breaks the plan's one-milestone file-ownership rule
+
+**Raised 2026-08-27T03:35 against plan rev 7 (`78616ec`). Not gating M0–M3; must land before M4b
+opens. Owner of the correction: the planner.** Recorded here rather than only in a message because
+the defect was introduced by consuming *this* document, which makes it mine to carry.
+
+Rev 7 added rows 13 and 15 to M4b's oracle-repair list — the correct disposition, and the one this
+pass asked for. But the plan states a file-ownership invariant, verified verbatim in rev 7:
+
+> "Each test file is opened by M3 (helper import lines only, no case or title change) and then by
+> **exactly one** of M4a/M4b/M4c; no two of those open the same file."
+
+with **exactly one** named exception (row 14, opened by M4b then M4c). After rev 7 there are two more,
+neither named:
+
+| # | Defect | Verified against rev 7 |
+|---|---|---|
+| QA-1a | **Row 13 is now in both M4a and M4b.** M4a's rename list still reads `Rows 1, 2, 4, 5, 6, 8, 9, 12, **13**, …`, and M4b's oracle list now names `row 13 012-message-mode`. | `grep -o` over both lists in `planning/014-test-suite-cleanup.md` |
+| QA-1b | **"Row 15 is M3 + M4c only" is now false.** M4b's oracle list names row 15. | same |
+
+**Why this is not cosmetic.** The two milestones carry *incompatible evidence rules*. M4a is "pure
+renames, title strips … **no case change**", and its per-file evidence is per-file case count equal
+on both trees. M4b's oracle repair **changes the expectation inside a case**. An implementer reading
+row 13 as an M4a file will apply the no-case-change rule and skip the oracle repair — and the M4a
+evidence it then records (case count equal, zero failures) will be **true**, because an unrepaired
+self-referential oracle passes. So the failure is silent: row 13's axiom-(E) violation survives, and
+the evidence column says the file is fine.
+
+The fixed sequence (M4b before M4a) means the *ordering* is already safe; what is unsafe is that two
+sections of the plan give the same file contradictory instructions and only one of them mentions the
+other.
+
+**Correction requested** (planner's, not mine to make): drop row 13 from M4a's list and name it in
+M4b's ownership exception alongside row 14, or state explicitly that rows 13 and 15 are opened by
+M4b then M4a/M4c under the same named-exception form row 14 already uses; and restate the row-15
+sentence. Either shape is fine — what matters is that the exception is *named*, since the plan's
+whole partition argument (the critique's "M4b 8 + M4a 28 + M4c 13 = 49, row 14 twice = 48 distinct")
+is a reconciliation that now does not reconcile.
+
+**Generalisation worth one line, because it will recur**: an enumeration handed from one stage to
+another lands as *rows*, but the receiving plan's invariants are stated over *files*. Adding a row is
+not a local edit when the file it names is already spoken for.
+
+---
+
 ## Assumption Not Checked
 
 **This pass assumes that the 48 files enumerated at `a74b9e2` are the files vitest actually
@@ -621,6 +667,8 @@ The single-file probe was scoped deliberately to avoid that.
 
 Point-in-time; later stage documents are authoritative.
 
+0. **QA-1 (new, against rev 7)** — row 13 double-owned by M4a and M4b; the row-15 ownership sentence
+   falsified. Planner's correction, before M4b opens. Not gating M0–M3.
 1. **BLOCK-1 — CLOSED at rev 5**, independently of this pass and before any install ran. BC-1
    survives in de-escalated form: M2's `pnpm add -D jsdom` must be observed leaving the pnpm layout
    intact and touching only `package.json` + `pnpm-lock.yaml`.
