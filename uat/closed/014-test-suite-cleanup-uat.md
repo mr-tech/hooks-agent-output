@@ -19,6 +19,7 @@ Verified-At: "website f2c85f5c7e3ad03879845ae1116518dc71cf2077 (chain/014-test-s
 | 2026-08-27T04:46 | steering-test-cleanup → uat-hooks-014 | Execute BC-9 against a running build; carry BC-7/BC-8 as closure conditions; deliver the release decision | **UAT Complete — APPROVED FOR RELEASE, conditional on the post-deploy-observable rows.** Value delivered: standard live at the workspace root, 51/51 files conforming, banned classes gone (re-derived here). **BC-9 NOT EXECUTED** — no browser tooling in this session; degraded explicitly and handed to the owner as a walkthrough row. Register defect found: two distinct rows both numbered **BC-7** (UAT-1). |
 | 2026-08-27T04:56 | uat-hooks-014 → devops-hooks-014 | Stage 1 closure | **`Status` set to `Committed` (was `Active`) and this document moved to `uat/closed/`** by devops Stage 1 step 8. The release decision — **APPROVED FOR RELEASE, conditional on the post-deploy-observable rows** — is unchanged and is the authority relied on. All four open rows (**BC-7/AC8, BC-7/row-19, BC-8, BC-9**) are carried into `deployment/014-test-suite-cleanup-readiness.md` §3 **by name as well as number**, per this document's own instruction. UAT-2 discharged at closure; UAT-1 routed to qa. |
 | 2026-08-27T05:36 | steering → uat-hooks-014-2 | Execute BC-9 with browser tooling now available | **BC-9 → EXECUTED, both limbs PASS.** Limb 1: my drive (`?code=bc9probe` → `getFromCode` 401) + owner's direct observation of the rendered toast ("I saw a 'User is not authenticated'"). Limb 2: primary blocked at auth guard (`isApiMessage`); owner attestation "Already saw it" at this build closes it. Full record in the dated **BC-9 Execution Record** addendum at the end of this document; one-line discharge note added to deployment §7. |
+| 2026-08-27T06:16 | steering (owner ruling) → uat-hooks-014-2 | Execute BC-7/row-19 — brief correction: it is uat-owned and was never executed | **BC-7/row-19 → EXECUTED: NOT REACHABLE (expected).** Driven authenticated in the rendered UI: row-E JSON intercepted by the ingress resolver (choice at ingress, not at Save); settled draft wrote directly, no persist-gate prompt; fetch-ingress limb stands on the handoff mount evidence (no row-E artifact exists — BC-17). Full record in the dated **BC-7/row-19 Execution Record** addendum. |
 
 ## Plan revision read, against the brief
 
@@ -380,3 +381,60 @@ there — that document is devops's to commit).
   BC-7/row-19 and BC-8 **OPEN**; the brief for this pass said only BC-9 remained. No document
   terminalising the other three was found by this pass — if they were closed in another sitting,
   that recording is owed by whoever closed them, and this line is the dated flag.
+
+---
+
+## BC-7/row-19 Execution Record — 2026-08-27 (dated addendum; result recorded beside the F6 prediction above, never over it)
+
+**Executed by**: Product Owner (UAT), session `uat-hooks-014-2`, on the owner's ruling relayed by
+steering ("Not done — UAT-2 does it now"), correcting this session's own earlier claim that BC-9 was
+the last uat-owned row — a miscount by *number* that the register's duplicate BC-7 id (UAT-1) made
+available, exactly as this document predicted when it found the collision.
+
+**Build**: dev server at `127.0.0.1:3000`, **authenticated** — the owner logged in himself
+(Discord OAuth is his credential; this stage never touched it). Backing services were localised
+first at the owner's direction, recorded as process facts below.
+
+**Drive (mine, in the rendered product — the row's primary instrument):**
+1. `NewMessageModal` reached: `/message` → New Message menu → "Upload Message". Four ingresses
+   render: Message Link (requires bot), Webhook, Message Context Command, JSON.
+2. Row-E draft — structural V2 + classic content,
+   `{"content":"hi","flags":32768,"embeds":[],"components":[{"type":17,"components":[{"type":10,"content":"x"}]}]}`
+   — pasted at the JSON ingress. **Intercepted at ingress**: *"This message has both Components V2
+   and classic content — nothing was created. Choose which to keep, or edit the JSON. Resolve"*;
+   Continue stayed disabled.
+3. The ingress's own resolver choice UI rendered ("Save as Classic — This will drop your Components
+   V2 components." / "Save as Components V2 — …" / Cancel) — **a choice offered at ingress, which is
+   the JSON tab's internal resolver, not the persist-gate `SaveChoiceModal`**.
+4. Chose Save as Classic → draft settled (preview rendered classic "hi") → Continue → named
+   "row19 uat drive" → **Save wrote directly**: modal closed, message id 1 created, editor opened at
+   `/message/m/1/edit`. **No persist-gate choice prompt appeared between Save and the write.**
+
+**The fetch ingresses (Message Link / Webhook / Context Command)**: not drivable to a row-E draft —
+no Discord artifact of that shape exists to fetch (BC-17, `qa/closed/013-…-qa.md`, never
+discharged). For a row-E draft arriving there, the handoff's real-mount evidence stands: Save's DOM
+`disabled` is `true` via `contentFloorError`, no choice UI, no write
+(`handoff/newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md`).
+
+**Terminal state: BC-7/row-19 → EXECUTED, 2026-08-27. Result: NOT REACHABLE — the expected answer.**
+Every UI route to Save either resolves the conflict upstream of `loadedMessage` (JSON ingress,
+driven live) or disables Save before `onSubmit` can run (row-E via fetch ingresses, mount-evidenced).
+The `pendingChoice`/`commitChoice` branch never rendered. Product fix stays out of charter (D2); the
+handoff record stands as the routing for the product decision. Scope note: this row names
+`NewMessageModal`'s gate; the editor's own `SaveChoiceModal` surface is not this row's and was not
+probed.
+
+**Process facts, lodged in the round:**
+- At the owner's direction the backing services were localised before the drive: local Postgres
+  (docker `hooks-postgres-local`, `127.0.0.1:5432`, schema pushed from
+  `project-utils/prisma/schema.prisma` via `prisma db push` — the owner's recollection that Prisma
+  created the DB located the schema after a workspace-wide DDL search found none) and the existing
+  local Redis at `127.0.0.1:6379`; `website/.env.local` repointed (backup
+  `.env.local.bak-2026-08-27`), dev server restarted, tree re-verified `f2c85f5` clean.
+- A first attempt to clone the remote DB (`pg_dump` of Railway inside the container) was **blocked
+  by the permission classifier**; reported to the owner in the round, not retried in different
+  words. The Prisma path replaced it — no remote access was used.
+- The drive leaves one artifact: message id 1, "row19 uat drive" (classic, content "hi") in the
+  owner's **local** DB — evidence of the direct write, harmless, left in place.
+- Flow derivation for this row came from the handoff and chain documents; screenshots of each step
+  were taken live in this session.
