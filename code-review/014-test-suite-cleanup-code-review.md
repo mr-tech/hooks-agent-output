@@ -8,7 +8,17 @@ Status: In Review
 
 # Code Review: Plan 014 — Hooks test-suite cleanup, milestone M2 (DOM harness)
 
-**Plan Reference**: `agent-output/planning/014-test-suite-cleanup.md` (revision 9, read 2026-08-27)
+**Plan Reference**: `agent-output/planning/014-test-suite-cleanup.md` — **read at revision 9**,
+2026-08-27. The plan moved to revision 10 after this verdict was reached. **The verdict does not
+expire**, checked against the delta rather than assumed: rev 10 adds two Risks *prediction records*
+(one of them this review's own result) and widens the *Instrument note* from one shape to a class
+rule. Both are record areas. No M2 acceptance property, milestone boundary, scope line or release
+condition that this verdict verified was touched. Established by reading the delta, not by taking
+the planner's word for it: `git diff 1140d56..HEAD -- planning/014-test-suite-cleanup.md` is
+`+10 −8`, and every changed line falls in the frontmatter (`Revision`, `Status-Detail`), the
+changelog (one new row plus a reordering), the *Instrument note* in the Rubric section, or the Risks
+table. The `### M2 — DOM harness` section and the `## Acceptance criteria` section are byte-unchanged,
+so the seven rows of the M2 requirements table below still quote the plan verbatim.
 **Implementation Reference**: `agent-output/implementation/014-test-suite-cleanup-implementation.md`
 **Analysis Reference**: `agent-output/analysis/014-test-suite-cleanup-analysis.md` (`50f053a`)
 **Rulings**: `agent-output/steering/014-rulings.md`
@@ -28,6 +38,7 @@ was reviewed and no verdict here reaches it.
 |------|---------------|---------|---------|
 | 2026-08-27T02:29 | steering-test-cleanup → code-reviewer-hooks-014 | Review `chain/014-test-suite-cleanup` at `988ca15`, scoped to M2's harness diff | Round 1. Two MEDIUM, one LOW, two INFO. Verdict APPROVED_WITH_COMMENTS. M2's behaviour-preservation claim independently confirmed by execution; the harness itself confirmed functional by probe and five negative controls. |
 | 2026-08-27T02:40 | steering-test-cleanup → code-reviewer-hooks-014 | Owner ruling on the plan-changelog commit gate | Gate satisfied, not worked around. The R-6 row was written into `planning/014-test-suite-cleanup.md` per this agent's definition, then **held uncommitted** because committing another stage's document is gated; raised to the owner as a decision with a real drop option. Owner, by selection: Option A — "Reviewer commits its row", scoped to `git commit --only planning/014-test-suite-cleanup.md` for that single row, with `git diff` on the path re-checked immediately before. Re-checked (one hunk, mine, `+1 -0`); committed `agent-output` `1140d56`. Owner also directed a TODO for a standing narrow exception — already lodged by steering at `~/.claude/agents/TODO.md` (2026-08-27, "pi: code-reviewer commits its own changelog row in the plan"), so no duplicate entry was made. No finding changed; verdict identity untouched. |
+| 2026-08-27T02:52 | planner-hooks-014 → code-reviewer-hooks-014 | Plan rev 10 consumes the review's planner-facing items | Both re-derived at the plan itself, not accepted from the message: the harness Risks row records "not met" with rig, tuples, capture path and the node-half scoping; the *Instrument note* is now a class rule with a second Risks row tracking it per pass (I-2's disposition upgraded — see the finding). Next Steps item 4 closed; I-2's routing superseded. **My error, recorded**: this plan's changelog is newest-first and I appended R-6 at the bottom. The lifecycle skill says rows "append chronologically", which I applied without checking the table's own order — the planner restored position, content unchanged. Check the table before appending, not the convention. No finding changed; verdict identity untouched. |
 
 ## Tree Under Verdict
 
@@ -334,10 +345,20 @@ chain 012 (`implementation/closed/012-message-valid-field-implementation.md:270`
 `git diff pnpm-lock.yaml | grep -E "^[+-]" | …`) — both piped counts over a diff, both load-bearing,
 both about `pnpm-lock.yaml`. Two instances across two chains is a thin pattern and the 012 document is
 closed, so this is **not** escalated as a PATTERN; it is routed to this chain's retrospective, which
-already owns carrying instrument lessons to pi (plan D7). Note that the plan itself already carries
-an *Instrument note* forbidding `| wc -l` for counts (`planning/014-test-suite-cleanup.md:111`) — the
-rule exists and the piped-`grep` variant slipped past it, which is the part worth the retrospective's
-attention.
+already owns carrying instrument lessons to pi (plan D7). The part worth the retrospective's
+attention is that the rule already existed and the variant still slipped past it: the plan's
+*Instrument note* (`planning/014-test-suite-cleanup.md`, cited by name — the note has since moved
+line) forbade `| wc -l` for counts, naming one shape rather than the class, and a piped `grep -c`
+is not that shape.
+
+**Disposition, re-derived at the artifact 2026-08-27 (not accepted from the message reporting it):**
+planner-hooks-014 consumed this at plan rev 10. The *Instrument note* now states a class rule — no
+count, match or existence predicate over piped output; instruments compute before any pipe — with
+this lockfile check named as its observed member. A second Risks row was added, *"An instrument
+predicate over filtered output publishes a false count"*, falsifier *"any recorded count on this
+chain that a pre-pipe instrument contradicts"*, so the class is now tracked per pass rather than
+only carried to the retrospective. That is a stronger disposition than this finding asked for, and
+it supersedes the routing sentence above rather than sitting beside it.
 
 **[INFO] I-3 — Rig hazards, recorded so the next agent does not pay for them again**: a fresh
 `git worktree` of this repo lacks the gitignored `next-env.d.ts` (without it `tsc -p tsconfig.json`
@@ -451,9 +472,11 @@ the fixed SHA. A new numbered round opens only if the fix reaches beyond these p
    signature, and the JSON reporter's counters cannot see it. Record the process exit code beside the
    counters, per the workspace convention. QA also holds AC7 and adequacy for every test-only diff on
    this chain under V-27 — none of which this review assessed.
-4. **planner-hooks-014** — the Risks row *"The harness changes node tests' behaviour"* has its
-   falsifier answered this cycle (did not fire; differential cited above) and can take its prediction
-   record now rather than at a later pass.
+4. **planner-hooks-014** — ~~the Risks row *"The harness changes node tests' behaviour"* has its
+   falsifier answered this cycle and can take its prediction record now~~ — **DONE at plan rev 10**,
+   re-derived at the artifact: the row records "not met" with the rig, the tuples and the capture
+   path, scoped to the node half with the dom half named open until M4c. A second Risks row now
+   tracks the instrument-predicate class from I-2. Nothing further owed to or from the planner.
 5. **retrospective** — I-2, the recurring piped-diff-count instrument, alongside the instrument
    lessons plan D7 already routes to pi.
 
