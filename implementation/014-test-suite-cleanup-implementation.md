@@ -35,6 +35,8 @@ See "Outstanding Items" for exact resumption state for the milestones still rema
 | 2026-08-27 | planner-hooks-014 (cross-session) | Owner ruling D18, verbatim: "As for now, I guess we can just drop the rider." | Rows 9 and 12 stay unrepaired in this chain; no rider opens. A single handoff record covering both, citing D18, is owed before M5 closes (see Outstanding Items). Disposition Table entries for rows 9/12 unchanged. |
 | 2026-08-27 | planner-hooks-014 (cross-session) | Owner ruling D19 supersedes D18, verbatim: "We can include it then if the critic miss isn't a problem." Plan rev 9 (`105144a`). | Rows 9 and 12 now ride M4c as named riders (rider 1 = row 12, rider 2 = row 9), gated: the rider lines open only once planner relays the owner's plain critic waiver or a scoped critic APPROVE. M4c's own 13 rows are ungated. Riders yield (never spawn a round); drop disposition on either is leave-as-found + handoff record + Outstanding Items line — so the D18 handoff record is owed only if a rider ultimately drops, not unconditionally. |
 | 2026-08-27 | Owner (direct) | "Continue" (post-compaction, same session) | R-5 (critic waived, `2d0d52a`) already had both riders open. Landed row 45 (H1 delete) and row 12/rider 1 (H5 repair), then hit the run-length ceiling and checkpointed (`050f3ab`). Resumed same session: landed row 9/rider 2 — established empirically that `SectionEditor` mounts under the M2 dom project (not in the analysis's own POC list), converted the "Auto-remove branch dispatch" block to a real mount, axiom-A mutation evidence captured (2/3 cases red), full suite 576/576 exit 0. **Both named riders are now landed — neither dropped, no handoff record owed.** website `4c4a357`. Continued in the same run: landed rows 38, 39 (H9) — replaced both files' hand-rolled `render()` walkers with real `createRoot`+`act` mounts, dropped row 39's second describe block as superseded by row 38's real drive of the same guard, axiom-A evidence for both (4/5 and 5/5 cases red), full suite 572/572 exit 0. website `4761453`. |
+| 2026-08-27 | Owner (direct) | "Continue" (post-compaction, same session) | Landed row 10 (H1) — mounted `TransitionHeightElement`, 9/11 source-text assertions converted, 5 dropped as unobservable, axiom-A evidence (4 mutations, distinct branches), full suite 570/570 exit 0. website `100b319`. Fixed all 3 findings from `code-reviewer-hooks-014`'s M2 review (`APPROVED_WITH_COMMENTS`, `988ca15`): false lockfile "purely additive" claim corrected with a dated reconcile note, `vitest.config.ts`'s dead alias key replaced with a structural `project(test)` factory, `vitest.setup.dom.ts`'s comment reworded; re-verified 570/570 exit 0. website `e6163fd`. Checkpointed and ran the seam-notify script per the new owner ruling. |
+| 2026-08-27 | Owner (direct) | "Continue" (post-compaction, same session) | Fixed a code-reviewer follow-up nit (debug-bump attribution: 5 sibling snapshots descend from `pm2`, not `@pm2/pm2-version-check`) — `agent-output` `8ca4181`. Landed rows 32, 33, 34, 36 (H1, the D29–D33 owner-ruling files) — read `planning/closed/013-components-v2-editing-surfaces.md`'s D29/D30/D31/D33 rows first, confirmed the shipped source already implements every ruling. Mounted `JsonModalBody`/`NewMessageJsonInput`/`MessageProvider` for real per the M2 analysis's POC #4/#5 bundle, now lifted to `src/providers/MessageProvider/__tests__/helpers/` (split across two files to avoid a `vi.mock`-factory module-loader deadlock, reproduced directly). Row 36's block 1/block 3 dropped as already superseded by rows 38/34; block 2 converted to a real `MessageProvider` mount. Axiom-A evidence for all four rows (9 total mutations across 3 production files, all reverted clean). Fixed a `Proxy` `get`-trap typecheck error (TS2367) the new helper introduced. Full suite 567/567 exit 0, typecheck exit 0 both programs. **M4c now 10/15 rows.** website `634518a`. |
 
 ## Implementation Summary
 
@@ -104,7 +106,7 @@ Statement Validation".
       pattern already used there for `vitest.config.ts`). Node project pass set byte-identical to
       pre-change baseline (604/604, exact tuple match), exit 0, typecheck exit 0. Nothing under
       `src/` touched. Committed `website` `988ca15`.
-- [ ] M4c — **In progress, 6/15 rows.** Row 45 deleted (H1 delete branch, `07af608`); row 12
+- [ ] M4c — **In progress, 10/15 rows.** Row 45 deleted (H1 delete branch, `07af608`); row 12
       (rider 1) H5-repaired (`1f89b34`); row 9 (rider 2) H7-repaired — mounted the real
       `SectionEditor` for the auto-remove branch dispatch (`4c4a357`). **Both named riders
       (D19/R-5) landed — neither dropped.** Rows 38, 39 (H9) — replaced both hand-rolled
@@ -112,8 +114,13 @@ Statement Validation".
       second describe block dropped as superseded by row 38's real drive (`4761453`). Row 10 (H1)
       — mounted `TransitionHeightElement`; 5 of the original 11 source-text assertions had no
       observable equivalent under this synchronous harness (SSR-only `hidden`-class timing),
-      dropped and recorded in Outstanding Items (`100b319`). 9 rows remain: 32, 33, 34, 36
-      (wholly source-text convert), 14, 15, 16, 19, 35 (mixed — convert source-text cases only).
+      dropped and recorded in Outstanding Items (`100b319`). Rows 32, 33, 34, 36 (H1, the D29–D33
+      owner-ruling files) — mounted `JsonModalBody`/`NewMessageJsonInput`/`MessageProvider` for
+      real, per the M2 analysis's POC #4/#5 mock bundle (now lifted to
+      `src/providers/MessageProvider/__tests__/helpers/`); row 36's block 1/block 3 dropped as
+      already superseded by rows 38/34's mounts, block 2 converted (`634518a`). 5 rows remain: 14,
+      15, 16, 19, 35 (mixed — convert source-text cases only; 16, 19, 35 also need the M4a-style
+      rename).
 - [ ] M5 — Not started (acceptance sweep).
 
 ## Entry Conditions
@@ -156,6 +163,9 @@ implementation) was satisfied before this session began (confirmed against
 | `tsconfig.test.json` | website | M2: added `vitest.setup.dom.ts` to `include`, following the existing per-file listing pattern already used for `vitest.config.ts`. | -1/+2 |
 | `package.json` | website | M2: `jsdom` added under `devDependencies`. | +1 |
 | `pnpm-lock.yaml` | website | M2: jsdom's dependency tree resolved. **2026-08-27 reconcile note** (code review, `agent-output/code-review/014-test-suite-cleanup-code-review.md`): the original "purely additive, 0 removed lines" claim here was **false** — `git show 988ca15 --numstat -- pnpm-lock.yaml` gives 328/7, independently reconfirmed by the implementer against the same instrument. The 7 removed lines are vitest's peer key gaining `jsdom@30.0.1` (2 lines, expected) plus a `debug` 4.3.4→4.4.3 bump across 5 sibling snapshots descending from `pm2` (not from `@pm2/pm2-version-check`, which is one of the five siblings, not their common ancestor — correction per `code-reviewer-hooks-014`, `verification/014/code-review-m2/debug-bump-attribution.txt`), same major, unrelated to this change. Nothing under `dependencies` changed. The commit message is left as written (`988ca15`, not amended); this row is corrected in place per the record-area correction form. | 328/7 (was misrecorded as -0/+328) |
+| `src/app/message/m/[id]/_components/JsonModalBody.tsx` | website | M4c rows 32/33/34: mutated 4 times (settled-notice branch, `commitChoice`'s doc-rewrite line twice, the conflict-parsing branch) then reverted each time, for axiom-(A) evidence; tree clean at the commit | 0 net |
+| `src/app/message/_components/NewMessageJsonInput.tsx` | website | M4c row 33: mutated (conflict-parsing branch, `setDismissedChoice`→`setPendingChoice`) then reverted, for axiom-(A) evidence; tree clean at the commit | 0 net |
+| `src/providers/MessageProvider/index.tsx` | website | M4c row 36: mutated twice (`codeMessageError`'s `toast.error` call, `upsertMessage`'s `onMutate` `toast.loading` call) then reverted each time, for axiom-(A) evidence; tree clean at the commit | 0 net |
 
 ## Files Created
 
@@ -169,6 +179,15 @@ implementation) was satisfied before this session began (confirmed against
 | `agent-output/verification/014/m0-baseline.md` | agent-output | M0 record: reconciliation, exit code, AC2 key confirmation |
 | `agent-output/handoff/message-init-cached-edits-lost-2026-08-27.md` | agent-output | D2 handoff for row 43's deleted pin |
 | `website/vitest.setup.dom.ts` | website | M2: scopes `IS_REACT_ACT_ENVIRONMENT = true` to the dom vitest project only. **2026-08-27 code-review fix** (`e6163fd`, +2/−2): reworded a comment that claimed the flag "has no effect" in the node project rather than stating the file is never loaded there. |
+| `website/src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx` | website | M4c row 34 (H1 conversion): mounts real `JsonModalBody` + `MessageProvider`, drives the CodeMirror editor, spies on real `toast.warn` |
+| `website/src/app/message/m/[id]/_components/__tests__/JsonModalBody.choice-rewrites-editor.test.tsx` | website | M4c row 32 (H1 conversion): same mount, drives a Components V2/classic conflict to a real choice `Button` press |
+| `website/src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx` | website | M4c row 33 (H1 conversion), JsonModalBody half |
+| `website/src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx` | website | M4c row 33 (H1 conversion), NewMessageJsonInput half |
+| `website/src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx` | website | M4c row 36 block 2 (H1 conversion): mounts real `MessageProvider`, spies on real `toast.error`/`toast.loading` |
+| `website/src/components/__tests__/helpers/dom.ts` | website | Lifted generic `createRoot`+`act` mount/unmount pair (3rd within-session duplicate: rows 9/38/39/10 each carried their own copy) |
+| `website/src/components/__tests__/helpers/press.ts` | website | Lifted the react-aria pointerdown+pointerup+click press sequence and a `findButton` locator (3rd within-session duplicate: rows 9, 32) |
+| `website/src/providers/MessageProvider/__tests__/helpers/messageProviderDeps.ts` | website | Lifted the `MessageProvider` mock-shape bundle (env/nav/auth/provider mocks, the path-aware tRPC `Proxy` stub) used by POC #4/#5 and rows 32/33/34/36. No production import — used from inside `vi.mock` factories via dynamic `import()`. |
+| `website/src/providers/MessageProvider/__tests__/helpers/mountMessageProvider.tsx` | website | `mountInMessageProvider`, wrapping `mountDom` around the real `MessageProvider`. Kept separate from `messageProviderDeps.ts` because a `vi.mock` factory dynamically importing a module that imports the real `MessageProvider` deadlocks the loader (reproduced: a combined-file version hung past 120s). |
 
 Renamed (M4b row 3, this row owns its own rename per the plan):
 `website/src/scripts/__tests__/012-backfill-report.test.ts` →
@@ -176,6 +195,12 @@ Renamed (M4b row 3, this row owns its own rename per the plan):
 
 Deleted (M4b): `website/src/utils/__tests__/message-init-route0.test.ts` (row 43),
 `website/src/utils/__tests__/011-style-reconciliation-poc.test.ts` (row 11).
+
+Deleted (M4c rows 32/33/34/36, H1 — see disposition table for full evidence):
+`website/src/utils/__tests__/013-owner-choice-rewrites-editor-2026-08-25.test.ts` (row 32),
+`website/src/utils/__tests__/013-owner-conflict-choice-not-default-2026-08-25.test.ts` (row 33),
+`website/src/utils/__tests__/013-owner-load-notice-reversal-2026-08-25.test.ts` (row 34),
+`website/src/utils/__tests__/013-owner-toast-vessel-2026-08-25.test.ts` (row 36).
 
 ## Patterns Extended
 
@@ -186,6 +211,7 @@ Deleted (M4b): `website/src/utils/__tests__/message-init-route0.test.ts` (row 43
 | Test file renames (row 3) | Extends axiom (C)'s naming form, itself inherited verbatim from the coordination plan's rubric — first application in this chain. |
 | `tsconfig.test.json`'s `include` list | M2's `vitest.setup.dom.ts` is added as its own line, extending the exact pattern already in the file for `vitest.config.ts` (a root-level, non-`src/` test-infra file listed individually) rather than widening `exclude` or adding a glob. |
 | `vitest.config.ts`'s `test.projects` shape | New to this repo (D13's declared scope delta); not an extension of an in-repo pattern — the shape itself is the analysis's own recommendation (`analysis/014-test-suite-cleanup-analysis.md`, finding (b)), chosen over the two alternatives it measured (global environment, per-file directive) because environment-follows-extension needs no per-file convention to remember. |
+| `src/**/__tests__/helpers/*` (DOM mount helpers) | Extends `src/utils/__tests__/helpers/*.ts`'s M3 lift pattern (same directory convention, same third-duplicate trigger) into the DOM-mount domain for the first time this chain — `mountMessageProvider.tsx`/`messageProviderDeps.ts` mirror the M2 analysis's own POC #4/#5 mock bundle rather than inventing a new shape. |
 
 No user-visible surface is touched by any milestone completed or remaining in this chain (confirmed
 against the plan's Testing Strategy: "No product-behaviour change exists in this chain"), so the
@@ -237,6 +263,10 @@ extraction.
 | M4c row 38, `NewMessageJsonInput` settled notice | Axiom (A), H9 hand-rolled-renderer conversion | `noticeMessageForSettled`'s `warn-v2-flag-conflict` branch changed to return `null` | 4/5 cases failed | Yes — `git diff` on `src/utils/index.ts` empty at commit `4761453` |
 | M4c row 39, `NullableComponent` show guard | Axiom (A), H9 hand-rolled-renderer conversion | `show ? children : null` inverted to `!show ? children : null` | 5/5 cases failed | Yes — `git diff` on `NullableComponent.tsx` empty at commit `4761453` |
 | M4c row 10, `TransitionHeightElement` height/visibility (4 mutations, distinct branches) | Axiom (A), H1 convert | first-render display branch inverted; `onTransitionEnd` target guard removed; open-path and close-path `overflow-hidden` additions each removed in turn | 2/9, 1/9, 1/9, 1/9 cases failed respectively | Yes — `git diff` on `TransitionHeightElement.tsx` empty at commit `100b319` |
+| M4c row 34, `JsonModalBody` Load-site settled notice | Axiom (A), H1 convert | `setSettledNotice(noticeMessageForSettled(disposition))` → `setSettledNotice(null)` | 4/4 cases failed | Yes — `git diff` on `JsonModalBody.tsx` empty at commit `634518a` |
+| M4c row 32, `JsonModalBody.commitChoice` (2 mutations) | Axiom (A), H1 convert | (1) reverted to `updateMessage`+`setMessageMode`+`onClose()` instead of `updateDoc`; (2) `updateDoc` wrote back the unresolved `pendingChoice.validated` instead of the disposition-applied `next` | (1) 2/3 cases failed (onClose assertions; doc-content assertions passed incidentally via the message-reseed path, noted in the disposition table rather than claimed as independently red here); (2) 3/3 cases failed | Yes both times — `git diff` on `JsonModalBody.tsx` empty at commit `634518a` |
+| M4c row 33, `JsonModalBody`/`NewMessageJsonInput` conflict resting state | Axiom (A), H1 convert | Both surfaces' parsing-effect conflict branch: `setDismissedChoice(...)` → `setPendingChoice(...)` (JsonModalBody also: `setAllowMenuClose(true)` → `(false)`) | JsonModalBody 3/3 cases failed; NewMessageJsonInput 2/2 cases failed | Yes both — `git diff` on `JsonModalBody.tsx` and `NewMessageJsonInput.tsx` empty at commit `634518a` |
+| M4c row 36 block 2, `MessageProvider` transient toasts (2 mutations, distinct call sites) | Axiom (A), H1 convert | `toast.error(codeMessageError.message)` → no-op; `toast.loading('Saving message...')` → `toastIdRef.current = -1` | 1/2, 1/2 cases failed respectively (each isolated to its own case) | Yes both — `git diff` on `MessageProvider/index.tsx` empty at commit `634518a` |
 
 ## Class Sweep Table
 
@@ -301,6 +331,27 @@ TDD).
 | `npx vitest run --reporter=json` (post-code-review fixes: `vitest.config.ts` factory refactor, `vitest.setup.dom.ts` comment) | **46 files / 570 tests / 0 failed / exit 0** | unchanged — confirms the alias factory is behaviour-preserving (both projects still resolve `~`/`bot` — proven by every `~/...`-importing test in both projects still passing) |
 | `pnpm run typecheck` (post-code-review fixes) | exit 0, both `tsc` programs | |
 | `git show 988ca15 --numstat -- pnpm-lock.yaml` | **328 added / 7 removed** | independently reconfirms the code reviewer's finding — the implementation doc's original "purely additive" claim was false; corrected in place (see "Files Modified") |
+| `npx vitest run` (row 34, first pass, `JsonModalBody.load-settled-notice.test.tsx`) | **4/4 passed** | `JsonModalBody` (M2 analysis POC #5) mounts inside `MessageProvider` with no extra mocks beyond POC #4/#5's own bundle |
+| `npx vitest run` (row 34, `setSettledNotice(noticeMessageForSettled(disposition))` → `setSettledNotice(null)`) | 4/4 failed | axiom-(A) evidence |
+| `npx vitest run` (row 34, reverted) | 4/4 passed; `git diff` on `JsonModalBody.tsx` empty | |
+| `npx vitest run` (row 32, first pass, `JsonModalBody.choice-rewrites-editor.test.tsx`) | **3/3 passed** | |
+| `npx vitest run` (row 32, `commitChoice` reverted to `updateMessage`+`setMessageMode`+`onClose()`) | 2/3 failed | axiom-(A) evidence — the doc-content assertions passed incidentally (message-reseed path), noted in the disposition table |
+| `npx vitest run` (row 32, reverted; `updateDoc` writes back `pendingChoice.validated` unresolved) | 3/3 failed | second, independently-discriminating axiom-(A) mutation |
+| `npx vitest run` (row 32, reverted) | 3/3 passed; `git diff` on `JsonModalBody.tsx` empty | |
+| `npx vitest run` (row 33, first pass, both new files) | JsonModalBody 3/3, NewMessageJsonInput 2/2 passed | |
+| `npx vitest run` (row 33, JsonModalBody's conflict branch `setDismissedChoice`→`setPendingChoice`, `setAllowMenuClose(true)`→`(false)`) | 3/3 failed | axiom-(A) evidence |
+| `npx vitest run` (row 33, JsonModalBody reverted) | 3/3 passed; `git diff` on `JsonModalBody.tsx` empty | |
+| `npx vitest run` (row 33, NewMessageJsonInput's conflict branch `setDismissedChoice`→`setPendingChoice`) | 2/2 failed | axiom-(A) evidence |
+| `npx vitest run` (row 33, NewMessageJsonInput reverted) | 2/2 passed; `git diff` on `NewMessageJsonInput.tsx` empty | |
+| `npx vitest run` (row 36 block 2, first pass, `MessageProvider.transient-toast.test.tsx`) | **2/2 passed** | |
+| `npx vitest run` (row 36, `toast.error(codeMessageError.message)` → no-op) | 1/2 failed | axiom-(A) evidence |
+| `npx vitest run` (row 36, reverted; `toast.loading('Saving message...')` → `toastIdRef.current = -1`) | 1/2 failed | axiom-(A) evidence |
+| `npx vitest run` (row 36, reverted) | 2/2 passed; `git diff` on `MessageProvider/index.tsx` empty | |
+| First combined-helper attempt (`vi.mock` factory dynamically importing a module that itself imports the real `MessageProvider`) | Hung past the 120s timeout, killed | Module-loader deadlock — split into `messageProviderDeps.ts` (mock shapes, no production import) and `mountMessageProvider.tsx` (real `MessageProvider` import, used outside `vi.mock` factories) |
+| `pnpm run typecheck` (after the helper split, first attempt) | **1 error, TS2367** | `buildApiMock`'s Proxy `get` trap declared `prop: string`; a `Proxy` handler's key is `string \| symbol`. Fixed by widening the parameter and special-casing `symbol` |
+| `pnpm run typecheck` (after the TS2367 fix) | exit 0, both `tsc` programs | |
+| `npx vitest run --reporter=json` (M4c: rows 45, 12, 9, 38, 39, 10, 32, 33, 34, 36 landed, full suite) | **47 files / 567 tests / 0 failed / exit 0** | 570 − 17 (4 deleted files' cases: 3+5+4+5) + 14 (5 new files' cases: 4+3+3+2+2) = 567 ✓ |
+| `pnpm run typecheck` (after rows 32/33/34/36, full round) | exit 0, both `tsc` programs | |
 
 ## Key Decisions (M3 — record for the disposition table / retrospective)
 
@@ -414,7 +465,7 @@ Three items, all addressed same-session (none gated M4c or QA):
 Re-verification is recorded as a sub-entry of the review's own round (not a new round, per the
 reviewer's instruction) — see "Test Execution Results".
 
-### M4c — 15 rows (13 + 2 riders); 6 landed, 9 remain — exact resumption state below
+### M4c — 15 rows (13 + 2 riders); 10 landed, 5 remain — exact resumption state below
 
 **Done**: row 45 (deleted, H1 delete branch, `website` `07af608`) — see disposition table for full
 evidence. Row 12/rider 1 (H5 structural repair — dropped the local `switchToV2`/`switchToClassic`
@@ -448,22 +499,61 @@ this change's substance); `vitest.config.ts`'s dead top-level `resolve: { alias 
 without its alias; `vitest.setup.dom.ts`'s comment reworded. Re-verified: full suite 570/570 exit 0,
 typecheck exit 0 both programs — see "Test Execution Results".
 
+**Done (this round)**: rows 32, 33, 34, 36 — all four D29–D33 owner-ruling files, all H1
+(source-text). Read `planning/closed/013-components-v2-editing-surfaces.md`'s D29/D30/D31/D33 rows
+first, confirmed the production source (`JsonModalBody.tsx`, `NewMessageJsonInput.tsx`,
+`MessageProvider/index.tsx`) already implements every ruling (D30's reversal included — no toast
+call remains at the Load site), so every conversion targets present behaviour, not a gap. Row 34:
+mounted `JsonModalBody` inside a real `MessageProvider`, drove the CodeMirror editor to a
+`warn-v2-flag-conflict` payload, asserted the settled notice renders inline and pre-Load, a spied
+real `toast.warn` is never called, and edits clear it. Row 32: same mount, drove a Components
+V2/classic conflict (`hasComponents && hasContent`, e.g. `{content, flags: 32768, components:
+[{type: 10}]}`) through to the choice buttons via the real `Resolve` control, pressed a real choice
+`Button` (pointerdown+pointerup+click), asserted `onClose` not called and the CodeMirror doc
+reflects the resolved disposition. Row 33 split into two files (JsonModalBody's and
+NewMessageJsonInput's own conflict-resting-state, since D31 governs both surfaces independently):
+asserts the same conflict payload rests on the dismissed-choice/Resolve notice rather than the
+choice buttons, and that Resolve reopens them. Row 36's three describe blocks each dispositioned
+separately: block 1 (NewMessageJsonInput settled notice) and block 3 (JsonModalBody Load toast)
+were already superseded by row 38's and row 34's new mounts respectively; block 2 (MessageProvider
+still toasts genuinely transient notices) converted into a new file mounting the real
+`MessageProvider`, spying on the real `toast.error`/`toast.loading`, and driving a mocked
+code-fetch query error plus a real `saveMessage()` call. Full detail, evidence and commits in
+`agent-output/verification/014/disposition-table.md` rows 32/33/34/36.
+
+**Helper layer extended (third within-session duplicate, per CLAUDE.md's helper policy)**:
+`src/components/__tests__/helpers/{dom,press}.ts` (generic `createRoot`+`act` mount/unmount and the
+react-aria press-sequence + button finder — both patterns had already recurred 2× before this
+round, in rows 9/38/39/10 and rows 9/32) and
+`src/providers/MessageProvider/__tests__/helpers/{messageProviderDeps,mountMessageProvider}.tsx`
+(the `MessageProvider` mock bundle used by POC #4/#5 and now by rows 32/33/34/36). The bundle is
+split across two files because a `vi.mock` factory that dynamically imports a module which itself
+imports the real `MessageProvider` deadlocks Vitest's module loader (observed directly: the first
+combined-file attempt hung past its 120s timeout) — `messageProviderDeps.ts` carries only mock
+shapes and no production import, `mountMessageProvider.tsx` carries the real `MessageProvider`
+import and is used as a normal top-level import in test bodies, never inside a `vi.mock` factory.
+
+**Typecheck fix during this round**: `messageProviderDeps.ts`'s `buildApiMock` Proxy `get` trap
+declared `prop: string`, but a `Proxy` handler's key parameter is actually `string | symbol` —
+`tsc` correctly flagged the `prop === Symbol.toStringTag` comparison as an impossible-overlap error
+(TS2367) once the file entered the real `tsconfig.test.json` program (the POC file this pattern
+came from, `agent-output/verification/014/poc-tests/05-jsonmodalbody.test.tsx`, is outside that
+program's `include` and was never typechecked). Fixed by widening the parameter and special-casing
+`symbol` first; `pnpm run typecheck` exit 0 both programs after.
+
 **Remaining, in the order a resuming implementer should probably take them** (simplest/lowest-risk
 first, not a plan-mandated order):
-1. **Rows 32, 33, 34, 36 (wholly source-text → convert)** — read what each currently asserts via
-   `readFileSync`/`readSrc` (test-inventory doc has the target file per row) and rewrite as a mount
-   + behavioural assertion using the M2 analysis's finding (a) table for each target's mock
-   requirements. Target: `JsonModalBody` / `NewMessageJsonInput` / `MessageProvider` (per the
-   analysis's per-component mock list — row 36 in particular touches all three).
-   **Owner-ruling content warning**: rows 32/33/34/36 pin
-   dated owner rulings (D29, D31, D33, and D29's reversal) as their subject — read
-   `planning/closed/013-components-v2-editing-surfaces.md`'s cited revisions before converting, so
-   the converted assertion still tests the ruling's substance, not just its old source-text proxy.
-2. **Rows 14, 15, 16, 19, 35 (mixed)** — these already have their non-source-text cases repaired
+1. **Rows 14, 15, 16, 19, 35 (mixed)** — these already have their non-source-text cases repaired
    (14, 15 in M4b) or intact; convert only the source-text cases named in the inventory (2, 2, 3,
    3, 2 respectively) to mounted-behaviour assertions, keep the rest, no further rename needed (14,
    15 already renamed in M4b; 16, 19, 35 still need the M4a-style rename — carry it out here since
-   this is the row's only remaining milestone touch).
+   this is the row's only remaining milestone touch). Row 35 in particular reads
+   `~/utils/formatMutationError` (already real) plus source text of `SaveAsMenu.tsx` and
+   `NewMessageModal.tsx` — both are in the M2 analysis's mount table (#7/#8), needing
+   `IsMobileProvider` + `useGuildDropdownItems` + a real `QueryClientProvider` on top of the
+   MessageProvider bundle, and both render into a portal on `document.body` (analysis finding (a));
+   `findButton` in `src/components/__tests__/helpers/press.ts` already falls back to searching
+   `document.body`, so it should work unmodified for a portal-rendered button.
 
 **Named residue** (analysis-flagged, not established to mount): `EmojiPicker` (×3 files), the
 individual `dynamics/*` wrappers, `DiscordMessageEditor` (mounted only transitively in the
