@@ -41,3 +41,5 @@ ask on this chain.
 - **2026-08-27 "Do both"**: stages message steering only for an owner-needing item (block, OPEN
   QUESTION, milestone-level scope delta) or a spawn cue. Told the planner to propagate; encoded
   in agents TODO.md for pi.
+- **2026-08-27, by selection, implementer ceiling stop at 62b61bd (M4b 3/10)**: "Compact the
+  existing implementer and continue it instead." No successor; same session, same name.
