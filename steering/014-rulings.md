@@ -98,3 +98,10 @@ browser), dev server left at localhost:3000 @ f2c85f5 for the owner. Owner by se
 its own plan Status/R-9 edit; spawn devops-hooks-014 (Stage 1 only). UAT-1: register has two BC-7
 rows (AC8 and row-19 persist-gate) — carry rows by name; routed to QA by UAT. UAT-2: code-review
 Status field stale ("In Review") — for devops at closure.
+
+## 2026-08-27 — release approved
+Devops Stage 1 complete (readiness doc db91b46; 1/1 plans committed at website f2c85f5; five chain
+docs closed; UAT-2 discharged; UAT-1 open with QA). Owner by selection: "Approve the release now"
+→ Stage 2 authorised. Open after release: BC-9/row-19 owner walkthrough (closure), UAT-1 reconcile
+(qa), analysis + verification docs still Active (closure owner: steering reconciles), retrospective
+only after all closed.
