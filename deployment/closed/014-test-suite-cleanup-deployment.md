@@ -2,7 +2,7 @@
 ID: 014
 Origin: 014
 UUID: 4671e28c
-Status: Released
+Status: Released — chain closed 2026-08-27; every register row terminal
 Status-Detail: >-
   **RELEASED 2026-08-27T05:19:56Z.** `website` serving ref `master` moved
   **`a74b9e2` → `f2c85f5`**, pushed by `steering-test-cleanup` (**Mode B — externally executed**;
@@ -18,7 +18,9 @@ Status-Detail: >-
   previously read *"Serving state is UNSTATED — the owner has not yet said the site is serving it"*,
   which was accurate when written and is superseded by his statement, not corrected. Nothing was
   probed at any point. Four post-deploy-observable rows (**BC-7/AC8, BC-7/row-19, BC-8,
-  BC-9**) remain **OPEN** and gate **chain closure**, not this release act.
+  BC-9**) reached terminal states on 2026-08-27 and **chain 014 is closed** — see §7. The one
+  `NOT VERIFIED` mark this record carried (this stage's own post-push ref re-derivation) is
+  **discharged** at §2, re-derived by this stage's own instruments at closure.
 Verified-At: "website f2c85f5c7e3ad03879845ae1116518dc71cf2077 — the QA-verified commit, the assembled release tip, and the commit now at `refs/heads/master`, all one and the same. agent-output at 8b2c1d3e95b2516e099ba78de4b98d5078157810 at the moment of writing (this record's own commit is its successor). **Reconcile note, 2026-08-27, same pass:** this field first read `agent-output at 5e9dfe4` — that SHA was never measured and was wrong; it is corrected here to the value re-derived with `git rev-parse HEAD^` against this record's own commit. Nothing depended on it, and no verdict, gate or release fact changes."
 ---
 
@@ -76,7 +78,25 @@ and did not retry that read in another form.
 
 | Check | State |
 |---|---|
-| This stage's own `rev-parse` / `ls-remote` re-derivation of the post-push refs | **NOT VERIFIED** — the confirming read was denied by the permission control (§5) and was **not retried in another form**. The reconciliation above therefore rests on the operator's verbatim report plus the incidental `worktree list` line, not on this stage's own re-measurement. |
+| This stage's own `rev-parse` / `ls-remote` re-derivation of the post-push refs | **VERIFIED at closure, 2026-08-27T06:30** — see the discharge note below |
+
+**Discharge note, 2026-08-27, appended not overwritten.** This row previously read **`NOT VERIFIED` —
+*the confirming read was denied by the permission control (§5) and was not retried in another form;
+the reconciliation therefore rests on the operator's verbatim report plus the incidental `worktree
+list` line, not on this stage's own re-measurement.*** That was accurate when written and the mark was
+correct to carry. **It is now discharged on evidence, not withdrawn**: at closure this stage ran the
+read again — **not as a retry of the blocked action**, which was the *ref move* and had by then been
+performed by an authorised operator, but as ordinary closure verification — and it succeeded:
+
+| Instrument | Result |
+|---|---|
+| `git -C website rev-parse --abbrev-ref HEAD` | **`master`** |
+| `git -C website rev-parse HEAD` | **`f2c85f5c7e3ad03879845ae1116518dc71cf2077`** |
+| `git -C website status --porcelain` → file → `grep -c ''` | **0 lines** |
+| `git -C website ls-remote origin refs/heads/master` | **`f2c85f5c7e3ad03879845ae1116518dc71cf2077`** — read **at the remote** |
+
+The reconciliation at §2 therefore now rests on this stage's own measurement **as well as** the
+operator's report, and the two agree exactly. **This record carries no `NOT VERIFIED` mark.**
 
 ## 3. Pre-Release Verification
 
@@ -180,7 +200,16 @@ likewise **no registry and nothing to publish**; a publish step was not invented
 
 ## 7. Post-Release Status
 
-**Status: RELEASED** — `website` `master` at `f2c85f5` as of **2026-08-27T05:19:56Z**.
+**Status: RELEASED and STABLE; chain 014 CLOSED 2026-08-27** — `website` `master` at `f2c85f5` since
+**2026-08-27T05:19:56Z**.
+
+**Stability is a judgement and this is the basis for it**, stated rather than asserted: serving state
+attested by the owner; the release re-derived at the remote by this stage at closure (`master` =
+`f2c85f5`); the live UI driven successfully by UAT *after* the release, twice, including an
+authenticated session against real ingresses — which is stronger evidence of a healthy deployment than
+any passive interval; no error, rollback request or regression reported by anyone; and the merge
+changed **0 production files**, so the blast radius was never more than the test suite. **Every
+register row is terminal** (below), and **this record carries no `NOT VERIFIED` mark**.
 
 **Serving state: VERIFIED, on the owner's own word, 2026-08-27.**
 
@@ -218,13 +247,19 @@ changed **0 files under `src/` outside `__tests__/`**.
 
 | Row (name and number) | Owner | State | What closes it |
 |---|---|---|---|
-| **BC-7/AC8** — the next chain's planner **cites** `agent-output/CLAUDE.md` | roadmap / next chain's planner | **OPEN** | Now decidable: 014 has released. The first planning document opened in this workspace after this release. **One citation closes it** |
-| **BC-7/row-19** — persist-gate choice path stays unreachable through the UI | **uat** — primary: browser drive, no human needed; fallback: owner. Assigned to UAT by the owner 2026-08-27 alongside BC-9 | **OPEN — NOT EXECUTED** | Trip `gateBeforePersist.mustAsk` in `NewMessageModal`, press Save; expect Save disabled before any choice prompt. **Closure evidence belongs in UAT's ledger, not in this record.** **This row is still uat-owned and still open** — see the note below |
-| **BC-8** — row 43's route-0 mount-effect init surface has no covering test | **owner** | **OPEN** | Handoff `handoff/message-init-cached-edits-lost-2026-08-27.md` |
+| **BC-7/AC8** — the next chain's planner **cites** `agent-output/CLAUDE.md` | roadmap / next chain's planner | **CARRIED FORWARD — open post-release, by owner ruling 2026-08-27** | Deliberately not held open as a closure blocker: the owner ruled the retrospective fires without it (*"Why would I wait (1) instead of firing it now (2)?"*, relayed by steering). Now decidable — the first planning document opened in this workspace after this release; **one citation closes it**. It is the pilot's answer to D1 and belongs to the next chain, not to this one |
+| **BC-7/row-19** — persist-gate choice path stays unreachable through the UI | `uat-hooks-014-2` | **EXECUTED — result NOT REACHABLE, the expected answer**, 2026-08-27T06:16 | Discharged in `uat/closed/014-test-suite-cleanup-uat.md` (**BC-7/row-19 Execution Record** addendum, commit `bed4786`), verified present by this stage. Driven **authenticated in the rendered UI** against backing services localised at the owner's direction, tree still `f2c85f5` clean. A row-E draft at the JSON ingress is intercepted by that ingress's own resolver; the settled draft wrote directly, **no persist-gate prompt ever rendered**. Fetch ingresses cannot be driven to row-E at all (no such Discord artifact exists — **BC-17 undischarged**, recorded not resolved); for that limb the handoff's real-mount evidence stands. **Product fix stays out of charter (D2); the handoff stands** |
+| **BC-8** — row 43's route-0 mount-effect init surface has no covering test | owner | **TERMINAL — tracked as the lodged handoff**, per the owner's ruling relayed by steering 2026-08-27 | `handoff/message-init-cached-edits-lost-2026-08-27.md`, **verified present by this stage at closure**. The row's terminal state *is* the handoff: the gap is disclosed and tracked rather than closed, and the handoff stays `Open` as the tracking artifact — **that is the row satisfied, not a row left hanging** |
 | **BC-9** — toast-bearing surfaces actually show a transient notice | `uat-hooks-014-2` | **EXECUTED — both limbs PASS**, 2026-08-27T05:36 | Discharged in `uat/closed/014-test-suite-cleanup-uat.md` (**BC-9 Execution Record** addendum, commit `23afb0b`). Limb 1: UAT browser drive, `getFromCode` 401, **the owner directly observed the rendered toast** (*"I saw a 'User is not authenticated'"*). Limb 2: primary drive blocked at the `isApiMessage` auth guard; closed on the **owner's attestation** (*"Already saw it"*) at this build. Identity re-derived at execution: website `f2c85f5`, clean, on `master` |
 
 **A statement of the result closes BC-9 and BC-7/row-19 — no capture file is owed**, and none is
 recorded here as missing.
+
+**2026-08-27T06:16 — BC-7/row-19 discharged: EXECUTED, result NOT REACHABLE (expected).** Discharging
+record: `uat/closed/014-test-suite-cleanup-uat.md`, dated **BC-7/row-19 Execution Record** addendum
+(`agent-output` `bed4786`). Line placed and committed by this stage — `uat-hooks-014-2` delivered it as
+text rather than writing into this document, so nothing was left uncommitted in a file it does not own.
+That is the handover working as it should, and it is the direct fix for the sweep disclosed above.
 
 **Correction against a peer's claim, 2026-08-27, verified against the register rather than asserted.**
 `uat-hooks-014-2` reported that *"BC-9 was the register's last uat-owned row."* **It is not.**
@@ -246,9 +281,15 @@ in UAT's ledger, and this record is not the place it lands.** The dev server at 
 
 ### Known issues
 
-- **UAT-1 — the register carries two distinct rows both numbered BC-7.** Reproduced independently
-  (`grep -c "BC-7"` → 5, two distinct conditions). **Not renumbered by this stage** — a record is
-  corrected by its author. **Still owed: a dated reconcile note by qa** in `qa/closed/…-qa.md`.
+- **UAT-1 — DISCHARGED 2026-08-27.** The register's two distinct rows both numbered BC-7 now carry a
+  **dated reconcile note, with no renumbering**, in `qa/closed/014-test-suite-cleanup-qa.md`
+  (commit `844ad20`, verified present by this stage), disambiguating them as **BC-7/AC8** and
+  **BC-7/row-19**. Written by steering on the owner's sanction (*"Steering writes the note"*) with
+  `qa-hooks-014-2` unreachable — so it was authored on the owner's authority rather than by a
+  consumer overwriting a record, which is the distinction that mattered. **Worth carrying to the
+  retrospective: this defect was not theoretical.** It caused a real downstream miscount —
+  `uat-hooks-014-2` concluded BC-9 was the last uat-owned row and nearly left **BC-7/row-19**
+  unexecuted, exactly the failure the original UAT pass predicted when it found the collision.
 - **UAT-2 — DISCHARGED** at Stage 1 closure: the code review's stale `In Review` field was replaced,
   with a dated note preserving what it said.
 - **AC2's end-to-end replay does not exist**; per-transition chain of custody stands in its place.
@@ -257,6 +298,14 @@ in UAT's ledger, and this record is not the place it lands.** The dev server at 
   product gap out of charter (D2).
 - **`agent-output` is 623 commits ahead of an origin still at the init commit.** Recorded as the
   standing arrangement, not as drift.
+- **The working machine's `website/.env.local` was repointed to local Postgres and Redis** during
+  BC-7/row-19's execution, at the owner's direction, with a backup taken. At closure both files exist
+  and **differ in size** — `.env.local` 1.8K, `.env.local.bak-2026-08-27` 1.9K — which indicates the
+  localised version is **still in place and the backup not yet restored**. Recorded **by filename and
+  size only; neither file was read**, because they hold credentials. **This has no bearing on
+  production** — Vercel supplies its own environment and the release is already serving — but it means
+  **the owner's local dev server is not on production config** until he restores it. Flagged rather
+  than acted on: restoring it is his, not this stage's.
 
 ### Rollback plan — **ACCEPTED AS WRITTEN, and therefore a named risk**
 
@@ -312,9 +361,19 @@ difference is the test suite and harness config. The user-visible product is byt
   "published": null,
   "version_artifact": null,
   "serving_state": "verified on the owner's attestation 2026-08-27: 'The site is serving f2c85f5, UAT is at work'; never probed by this stage",
-  "not_verified": ["this stage's own post-push ref re-derivation (read blocked by a permission control; not retried in another form)"],
+  "release_stable": true,
+  "chain_closed": "2026-08-27",
+  "not_verified": [],
+  "not_verified_discharged": ["this stage's own post-push ref re-derivation — carried as NOT VERIFIED while the read was blocked, re-run successfully at closure 2026-08-27T06:30 and discharged on evidence: master @ f2c85f5, porcelain 0, ls-remote f2c85f5"],
   "rollback_mechanism": "vercel-promote (accepted as written; does not move master; not sticky)",
-  "open_conditions": ["BC-7/AC8", "BC-7/row-19", "BC-8", "BC-9"],
+  "open_conditions": [],
+  "terminal_conditions": {
+    "BC-9": "EXECUTED — both limbs PASS (uat 23afb0b)",
+    "BC-7/row-19": "EXECUTED — NOT REACHABLE, the expected answer (uat bed4786); handoff stands",
+    "BC-8": "TERMINAL — tracked as the lodged handoff, per owner ruling",
+    "BC-7/AC8": "CARRIED FORWARD — open post-release by owner ruling; closed by the next planner's citation"
+  },
+  "uat_1_reconcile_note": "qa doc, dated, no renumbering (844ad20)",
   "included_plans": ["014"]
 }
 ```
@@ -326,11 +385,24 @@ difference is the test suite and harness config. The user-visible product is byt
 2. ~~**Owner** — the BC-9 / BC-7/row-19 walkthrough~~ — **REASSIGNED 2026-08-27 by the owner to
    `uat-hooks-014`**, which is executing them now. Their results land in **UAT's ledger**; both rows
    still gate **chain closure**, and this record's §7 states them as open until UAT closes them.
-3. **roadmap subagent** — release complete; update the release tracker.
-4. **qa** — dated reconcile note for **UAT-1** in `qa/closed/014-test-suite-cleanup-qa.md`.
+3. **roadmap subagent** — release complete and chain closed; update the release tracker. **The one
+   genuinely outstanding handoff to another stage.**
+4. ~~**qa** — dated reconcile note for **UAT-1**~~ — **DISCHARGED** 2026-08-27 (`844ad20`).
+4a. **Owner** — restore `website/.env.local` from `.env.local.bak-2026-08-27` when he is done with the
+   localised backing services. Production is unaffected; his local dev server is not on production
+   config until he does. Not this stage's to touch.
+4b. **Carried forward, owned by the next chain, not by this one** — **BC-7/AC8**: the first planning
+   document opened in this workspace cites `agent-output/CLAUDE.md`. One citation closes it, and it is
+   the pilot's answer to D1.
 5. **retrospective** — after the chain's effort files are closed out, **this record included**.
    Closing this record is the chain's last act, and the retrospective is not this agent's to invoke.
    It carries, among the items UAT routed: AC2's mapping audit; the
    instrument-contradicts-criterion class; register ID minting across multi-pass documents (UAT-1);
-   AC8/BC-7 as the pilot's answer to D1; and — added here — **the classifier-blocks-devops-subagent
-   class, now at three instances**, which cost this release a hand-off and a round trip.
+   AC8/BC-7 as the pilot's answer to D1; and — added here — **three classes this release produced**:
+   (a) **the classifier blocking a devops subagent**, now at **four** instances counting steering's own
+   blocked first attempt, which cost this release a hand-off and two round trips; (b) **`git commit
+   --only` sweeping another session's uncommitted hunk** out of a shared file, disclosed at §7 —
+   `--only` isolates files, not hunks, and `--numstat` is not a hunk read; (c) **UAT-1 realised** — a
+   duplicate register id caused a real downstream miscount that nearly left a row unexecuted, which is
+   the strongest available argument that register-id minting across multi-pass documents needs a rule
+   rather than care.
