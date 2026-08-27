@@ -61,3 +61,10 @@ Owner, by selection: "Yes, skip the critic" (rows 9/12 rider lines, plan rev 9 /
 Owner: "code-reviewer is up, and it has to be a User selection prompt in the future." Every
 next-stage spawn cue steering relays goes to him as a blocking selection prompt (spawn / hold),
 never as prose in a report. code-reviewer-hooks-014 confirmed reachable (ListAgents).
+
+## 2026-08-27 — seam-notify script binds this effort
+Owner: "Add it to the rules for this effort, and notify implementer specifically." When a stage
+session intentionally pauses at a seam waiting for the owner (to compact, or blocked on him), its
+last act before ending the turn is
+`node ~/.claude/tools/seam-notify.js --session <name> --reason compact|blocked --sha <sha>`.
+It notifies the owner; nothing more need be known about it. Verified working 2026-08-27.
