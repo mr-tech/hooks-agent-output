@@ -16,7 +16,7 @@ Status-Detail: >-
   **Serving state is UNSTATED — the owner has not yet said the site is serving it, and this stage did
   not and will not probe for it.** Four post-deploy-observable rows (**BC-7/AC8, BC-7/row-19, BC-8,
   BC-9**) remain **OPEN** and gate **chain closure**, not this release act.
-Verified-At: "website f2c85f5c7e3ad03879845ae1116518dc71cf2077 — the QA-verified commit, the assembled release tip, and the commit now at `refs/heads/master`, all one and the same. agent-output at 5e9dfe4 (this record's own commit is its successor)."
+Verified-At: "website f2c85f5c7e3ad03879845ae1116518dc71cf2077 — the QA-verified commit, the assembled release tip, and the commit now at `refs/heads/master`, all one and the same. agent-output at 8b2c1d3e95b2516e099ba78de4b98d5078157810 at the moment of writing (this record's own commit is its successor). **Reconcile note, 2026-08-27, same pass:** this field first read `agent-output at 5e9dfe4` — that SHA was never measured and was wrong; it is corrected here to the value re-derived with `git rev-parse HEAD^` against this record's own commit. Nothing depended on it, and no verdict, gate or release fact changes."
 ---
 
 # Deployment Record — Plan 014: Hooks test-suite cleanup (pilot)
