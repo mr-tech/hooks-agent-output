@@ -1,0 +1,5 @@
+embeds: {} | delegate=RETURNED "Message must have content, embeds, or components." | isMessageValid=RETURNED false
+content: 5 | delegate=THREW TypeError: content.trim is not a function | isMessageValid=RETURNED false
+components: null | delegate=THREW TypeError: Cannot read properties of null (reading 'length') | isMessageValid=RETURNED false
+CONTROL valid: content Hi | delegate=RETURNED "" | isMessageValid=RETURNED true
+CONTROL invalid: empty | delegate=RETURNED "Message must have content, embeds, or components." | isMessageValid=RETURNED false
