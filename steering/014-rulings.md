@@ -38,3 +38,6 @@ ask on this chain.
   direct-talk pi item in agents TODO.md.
 - **2026-08-27, by selection**: "QA first only; implementer after Phase 1 lands." QA spawned as
   `qa-hooks-14`. Glossary queued for pi (agents TODO.md). Plan 014 Approved at rev 4 (`58e1eb1`).
+- **2026-08-27 "Do both"**: stages message steering only for an owner-needing item (block, OPEN
+  QUESTION, milestone-level scope delta) or a spawn cue. Told the planner to propagate; encoded
+  in agents TODO.md for pi.
