@@ -4,7 +4,7 @@ Origin: 014
 UUID: 4671e28c
 Parent: test-inventory-2026-08-26.md
 Status: Active
-Status-Detail: Complete for the commissioned brief (a)–(e). M2 is CLEARED — D13 does not reopen. Recommends a `test.projects` split over the plan's global-vs-per-file dichotomy; five scope items returned to the planner (S1–S5).
+Status-Detail: Complete for the commissioned brief (a)–(e), and CONSUMED by the planner at plan rev 5 (`72cde0a`): jsdom via `test.projects`, `.tsx` admitted, `pnpm add -D jsdom`, exit-code acceptance, S1–S5 each dispositioned. Nothing outstanding to the planner. Remains Active until the chain closes; the gaps under "Open questions" are unclosed by design, not pending work.
 ---
 
 # Analysis 014 — DOM test harness for the Hooks website suite
@@ -17,6 +17,7 @@ amendment on install mechanism received mid-run). Brief: the M2 "REQUIRES ANALYS
 | Date (UTC) | Author | Change |
 |---|---|---|
 | 2026-08-27 | analyst-hooks-014 | Created. Answers (a)–(e). Records the rig-artifact near-miss, the pnpm/npm correction to the rev-3 amendment, and five scope items for the planner. |
+| 2026-08-27 | analyst-hooks-014 | Consumption recorded. `planner-hooks-014` adopted every recommendation at plan rev 5 (`72cde0a`) and dispositioned S1–S5; S4 → row 45 deleted with the surface in Outstanding Items, S5 → helpers under `__tests__/helpers/`, S3 → the tRPC proxy mock is explicitly not a standard. The rev-3 install correction is recorded in the plan's own changelog as the planner's error. No finding altered. Adds the rig-disposition note below. |
 
 ## Value Statement and Business Objective
 
@@ -413,7 +414,31 @@ included), not `npm ci`.**
 5. **`test.projects` was verified in the rig only** (vitest 4.1.2, mirror root). Not run against
    `website`'s own tree. Recommendation 2 closes it.
 
+## Disposition of the rig
+
+The rig is **left in place on disk** at `agent-output/verification/014/analyst-rig/` (gitignored,
+~90 MB: a `cp -a` mirror of `website/src` plus an `npm` install of vitest/jsdom/happy-dom). It is
+left rather than deleted because M2 and M4c can use it directly — it is the only place a
+`.test.tsx` conversion can be tried without touching `website` — and because the eleven committed
+POC files under `verification/014/poc-tests/` drop straight into it.
+
+Two things a later reader must know before trusting it:
+
+- **It is a copy taken at `a74b9e2`.** The moment `website/src` moves, the mirror is stale and every
+  run against it is a run about the old tree. Re-derive with the `diff -rq` in `README.md`, or
+  rebuild; never assume.
+- **Check `ls -ld analyst-rig/mirror/node_modules` before believing any red run.** Per `hazards.md`,
+  a rig's `node_modules` symlink can degenerate into a real directory, and the probe then reads as
+  failing when the rig is what broke.
+
+Deleting it costs nothing but the rebuild time in `README.md`.
+
 ## Handoff
 
-Back to `planner-hooks-014`. M2 is cleared to implement; D13 does not reopen. S1–S5 and the rev-3
-mechanism correction are the planner's decisions, not mine.
+Back to `planner-hooks-014` — **delivered and consumed at plan rev 5 (`72cde0a`)**. M2 is cleared to
+implement; D13 does not reopen. S1–S5 and the rev-3 mechanism correction were the planner's
+decisions and are now taken; nothing is outstanding from this analysis.
+
+Next: the **implementer**, for M2 under the plan as revised. The gaps listed under "Open questions"
+are for the planner to commission separately if it wants them closed — they are recorded as
+unclosed, not queued.
