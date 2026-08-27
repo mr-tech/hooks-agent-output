@@ -3,13 +3,13 @@ ID: 014
 Origin: 014
 UUID: 4671e28c
 Status: Approved
-Status-Detail: Revision 6 — critic pass 3 APPROVE stands (`eff80a5`), M-11/M-12/L-10/L-11 landed; M2 cleared by analysis `50f053a` (D13 reopening class not met); QA Phase 1 in progress (qa-hooks-14); implementer spawns on Phase 1 landing (D16). M2 (DOM harness) is an owner-authorised scope delta and carries a REQUIRED analysis (analyst-014) before its implementation; every other milestone is implementable on critic approval.
+Status-Detail: Revision 6 is the approved plan (critique closed `4b7f15e`); QA Phase 1 landed; implementer-hooks-014 executing from M0. M2 cleared by analysis `50f053a` (D13 reopening class not met); QA Phase 1 in progress (qa-hooks-14); implementer spawns on Phase 1 landing (D16). M2 (DOM harness) is an owner-authorised scope delta and carries a REQUIRED analysis (analyst-014) before its implementation; every other milestone is implementable on critic approval.
 Revision: 6
 Target Release: website `master` moved to the chain-014 merge SHA (the package carries no version artefact); `agent-output` moves alongside
 Epic Alignment: none registered — the owner-approved coordination plan `/home/dev/.claude/plans/we-recently-changed-the-wobbly-sparrow.md` is the source of the effort's outcome
 Lane: standard (agent-output/README.md carries no small-lane section — recorded absence, not a judgement)
 Architectural surface: none — test infrastructure and a conventions document only; no product layer, contract or core path changes
-Owning-Stage: qa
+Owning-Stage: implementer
 ---
 
 # Plan 014 — Hooks test-suite cleanup (pilot)
@@ -18,6 +18,7 @@ Owning-Stage: qa
 
 | Date | Rev | Author | Change |
 |---|---|---|---|
+| 2026-08-27 | R-2 | planner-hooks-014 | Recorded: critique closed at pass 4, APPROVE, `critiques/closed/014-test-suite-cleanup-critique.md` (`4b7f15e`); rev 6 is the approved plan. QA Phase 1 landed (`qa/014-test-suite-cleanup-qa.md`). implementer-hooks-014 briefed; Owning-Stage → implementer. Scope delta: none — registration only. |
 | 2026-08-27 | 6 | planner-hooks-014 | Critic pass 3 (`eff80a5`, APPROVE stands): exit-code observable made plan-wide (M-11); Validation instrument is `pnpm run typecheck` (M-12); D13 row carries the S4 consequence (L-10); `DiscordMessageEditor` added to M4c residue (L-11); environment-fidelity convention added to M1's doc content. D17 registered (steering contact rule). Scope delta: none. |
 | 2026-08-27 | 5 | planner-hooks-014 | Consumes `analysis/014-test-suite-cleanup-analysis.md` (`50f053a`): M2 fixed as jsdom via `test.projects`, `.test.tsx` admitted, forward step `pnpm add -D jsdom`; M2 acceptance adds the process exit code; **rev 3's install-site paragraph was wrong (npm/`npm ci` against a pnpm tree) — planner's error, replaced by the analysis's record**; helpers re-sited to `src/**/__tests__/helpers/` (S5); M4c target set widened (S1), EmojiPicker named as residue (S2), row 45 convert→delete (S4), tRPC mock kept out of the standard (S3). Scope delta: no milestone change; one disposition moved (row 45) and M4c's target set widened. |
 | 2026-08-27 | R-1 | planner-hooks-014 | Registration: D16 (QA first; implementer after Phase 1). Scope delta: none — registration only. |
