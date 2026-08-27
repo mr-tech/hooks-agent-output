@@ -76,3 +76,9 @@ item about this, probably allowing for this narrow exception since I think it's 
 agent." TODO written (agents repo).
 
 Addendum 2026-08-27: owner extended the seam-notify rule to code-reviewer-hooks-014 ("it seems to fill up fast as well"); sent.
+
+## 2026-08-27 — seam-notify command form simplified (supersedes the two entries above)
+Owner: the script, not the agent, decides whether to notify. At EVERY seam where a stage pauses
+for the owner, last act before ending the turn:
+`node ~/.claude/tools/seam-notify.js --session <name> --sha <sha>` (add `--blocked` when stopped
+on an owner decision). Output "ok (nothing to do); end the turn" is the normal case.
