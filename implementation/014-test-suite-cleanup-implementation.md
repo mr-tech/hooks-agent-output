@@ -26,6 +26,10 @@ milestones still remaining (M4a, M2, M4c, M5).
 | 2026-08-27 | planner-hooks-014 (cross-session) | Plan rev 8 + cycle-2 critique APPROVE | Row 13 moved to M4b-only (was dual-owned, QA-1/critic M-13). M4b = 10 rows (3, 7, 11, 13, 14, 15, 20, 22, 43, 46), M4a = 27, M4c = 13. Absorbed before opening M4b/M4a. |
 | 2026-08-27 | implementer-hooks-014 | Self | M0, M1, M3 complete; M4b partial (rows 43, 11, 3). Session stopped at the run-length ceiling. Status field set to In Progress. |
 | 2026-08-27 | Owner (direct) | "Continue" (same session, not a fresh spawn) | Sent correction to `steering-test-cleanup` (was told to expect a fresh spawn). Opened the standalone Disposition Table (`verification/014/disposition-table.md`), seeded rows 43/11/3 per planner's instruction, then completed the remaining 7 M4b rows (7, 13, 14, 15, 20, 22, 46) — **M4b is now complete, 10/10 rows.** Full suite: 604/604 passing, exit 0 (605 baseline − 1 from row 7's D8 deletion, exactly as expected; no other count drift). |
+| 2026-08-27 | planner-hooks-014 (cross-session) | "M4a accepted at plan level... Proceed to M2" | Completed all 27 M4a rows (renames, ID-token strips, row 47's E3a repair). Two new findings (rows 9, 12) recorded, not fixed. Planner confirmed neither touches M2 and directed rows 9/12 to steering as riders on M4c. |
+| 2026-08-27 | planner-hooks-014 (cross-session) | Relay-QA-directly instruction (ruling 11) | No live QA session for this chain exists (`qa-hooks-14`, ended) — `SendMessage` confirmed unreachable. Routed the E3b two-hop instrument-gap writeup back to planner instead of editing the QA doc (no write authority over `agent-output/qa/`). Planner confirmed: no QA session live, carry the item into the QA Phase 2 spawn cue after M5 instead. |
+| 2026-08-27 | planner-hooks-014 (cross-session) | Owner ruling D18, verbatim: "As for now, I guess we can just drop the rider." | Rows 9 and 12 stay unrepaired in this chain; no rider opens. A single handoff record covering both, citing D18, is owed before M5 closes (see Outstanding Items). Disposition Table entries for rows 9/12 unchanged. |
+| 2026-08-27 | planner-hooks-014 (cross-session) | Owner ruling D19 supersedes D18, verbatim: "We can include it then if the critic miss isn't a problem." Plan rev 9 (`105144a`). | Rows 9 and 12 now ride M4c as named riders (rider 1 = row 12, rider 2 = row 9), gated: the rider lines open only once planner relays the owner's plain critic waiver or a scoped critic APPROVE. M4c's own 13 rows are ungated. Riders yield (never spawn a round); drop disposition on either is leave-as-found + handoff record + Outstanding Items line — so the D18 handoff record is owed only if a rider ultimately drops, not unconditionally. |
 
 ## Implementation Summary
 
@@ -49,7 +53,17 @@ with all ID tokens stripped from titles/comments, zero case-count drift, full-su
 604/604 (exit 0) after every batch. A whole-suite negative-form re-sweep confirms the only files
 still carrying ID tokens are exactly the 10 M4c-reserved rows, nothing missed.
 
-Not yet delivered: M2 (DOM harness), M4c (13 conversions, depends on M2), and M5 (acceptance
+**M2 is now also complete** — jsdom introduced as a second vitest project (`test.projects`: node
+project unchanged over `src/**/*.test.ts`, new dom project over `src/**/*.test.tsx` @ jsdom,
+`resolve.alias` factored so the two cannot drift), `jsdom` added as a devDependency, a
+project-scoped setup file (`vitest.setup.dom.ts`) sets `IS_REACT_ACT_ENVIRONMENT` only for the dom
+project. Node project's pass set proven byte-identical to the pre-change baseline by exact
+`(file, fullName, status)` tuple comparison (604/604, 0 lost/0 added), process exits 0, `pnpm run
+typecheck` clean. No `.test.tsx` files exist in the tree yet (M4c adds the first ones), so the
+edit-page teardown-rejection finding from the analysis has nothing to trigger yet; the deterministic
+mitigation (`vi.mock` the nine prefetch targets) is M4c's responsibility when it writes that test.
+
+Not yet delivered: M4c (13 conversions, depends on M2 — now unblocked) and M5 (acceptance
 sweep). The value statement is not yet fully met — see "Value Statement Validation".
 
 ## Milestones Completed
@@ -77,8 +91,13 @@ sweep). The value statement is not yet fully met — see "Value Statement Valida
       pure-rename scope): row 9's hand-rolled dispatch-logic block, row 12's 2-hop local
       mode-switch transcription (falls outside QA's E3b-indirect predicate scope). Full suite
       46 files / 604 tests / 0 failed / exit 0, unchanged from post-M4b (zero case drift).
-- [ ] M2 — Not started (DOM harness; analysis complete and cleared, `50f053a`).
-- [ ] M4c — Not started (13 rows; depends on M2).
+- [x] M2 — **Complete.** `vitest.config.ts` rewritten to `test.projects` (node + dom @ jsdom),
+      `jsdom` added (`pnpm add -D jsdom`, lockfile diff purely additive), `vitest.setup.dom.ts`
+      created and listed in `tsconfig.test.json`'s `include` (extends the existing per-file
+      pattern already used there for `vitest.config.ts`). Node project pass set byte-identical to
+      pre-change baseline (604/604, exact tuple match), exit 0, typecheck exit 0. Nothing under
+      `src/` touched. Committed `website` `988ca15`.
+- [ ] M4c — Not started (13 rows; depends on M2 — now unblocked).
 - [ ] M5 — Not started (acceptance sweep).
 
 ## Entry Conditions
@@ -117,6 +136,10 @@ implementation) was satisfied before this session began (confirmed against
 | `src/providers/MessageProvider/usePusher.ts` | website | M4b row 22: mutated (`normalizeForHash`'s shape-normalisation branch) then reverted, for axiom-(A) evidence; tree clean at the commit | 0 net |
 | `src/utils/__tests__/plan-005-bug-fixes.test.ts` → `constructImageUrl.default-avatar.test.ts` | website | M4b row 46: H5 fix (3 self-referential formulas → literals) + self-found-gap fix (non-discriminating fixture replaced) + escaped-provenance line, renamed. | -21/+14 |
 | `src/utils/constructImageUrl.ts` | website | M4b row 46: mutated (`% 6n` → `% 5n`) then reverted, for axiom-(A) evidence; tree clean at the commit | 0 net |
+| `vitest.config.ts` | website | M2: rewritten to `test.projects` (node + dom @ jsdom), `resolve.alias` factored out shared. | -8/+26 |
+| `tsconfig.test.json` | website | M2: added `vitest.setup.dom.ts` to `include`, following the existing per-file listing pattern already used for `vitest.config.ts`. | -1/+2 |
+| `package.json` | website | M2: `jsdom` added under `devDependencies`. | +1 |
+| `pnpm-lock.yaml` | website | M2: jsdom's dependency tree resolved; purely additive (0 removed lines). | -0/+328 |
 
 ## Files Created
 
@@ -129,6 +152,7 @@ implementation) was satisfied before this session began (confirmed against
 | `agent-output/verification/014/baseline-a74b9e2.json` / `.txt` | agent-output | M0 baseline capture |
 | `agent-output/verification/014/m0-baseline.md` | agent-output | M0 record: reconciliation, exit code, AC2 key confirmation |
 | `agent-output/handoff/message-init-cached-edits-lost-2026-08-27.md` | agent-output | D2 handoff for row 43's deleted pin |
+| `website/vitest.setup.dom.ts` | website | M2: scopes `IS_REACT_ACT_ENVIRONMENT = true` to the dom vitest project only |
 
 Renamed (M4b row 3, this row owns its own rename per the plan):
 `website/src/scripts/__tests__/012-backfill-report.test.ts` →
@@ -144,6 +168,8 @@ Deleted (M4b): `website/src/utils/__tests__/message-init-route0.test.ts` (row 43
 | `agent-output/CLAUDE.md` | New file; no prior pattern in this workspace (recorded absence, `find` confirmed no CLAUDE.md anywhere under `/usr/local/bin/hooks` before this chain). Content shape (four-repo map + Test Conventions, evergreen wording, no chain IDs) is D6/D15's own design, not an extension of an existing doc. |
 | `src/utils/__tests__/helpers/*.ts` | New directory; extends the coordination plan's ruling-4 helper-lift pattern (already used across five other repos in the wider effort) into Hooks for the first time, sited per the analysis's S5 finding (`__tests__/helpers/`, not a top-level `test-helpers/`, to stay outside the production tsc program). |
 | Test file renames (row 3) | Extends axiom (C)'s naming form, itself inherited verbatim from the coordination plan's rubric — first application in this chain. |
+| `tsconfig.test.json`'s `include` list | M2's `vitest.setup.dom.ts` is added as its own line, extending the exact pattern already in the file for `vitest.config.ts` (a root-level, non-`src/` test-infra file listed individually) rather than widening `exclude` or adding a glob. |
+| `vitest.config.ts`'s `test.projects` shape | New to this repo (D13's declared scope delta); not an extension of an in-repo pattern — the shape itself is the analysis's own recommendation (`analysis/014-test-suite-cleanup-analysis.md`, finding (b)), chosen over the two alternatives it measured (global environment, per-file directive) because environment-follows-extension needs no per-file convention to remember. |
 
 No user-visible surface is touched by any milestone completed or remaining in this chain (confirmed
 against the plan's Testing Strategy: "No product-behaviour change exists in this chain"), so the
@@ -189,6 +215,7 @@ extraction.
 |---|---|---|---|---|
 | M4b row 3, `formatReport`'s provenance-stamp case | Axiom (A), H4 never-red guard | `formatReport` — spread `...meta` replaced with an explicit `{tableWideRowCount, interrupted}` allowlist, dropping `runId`/`startedAt`/`endedAt` | Case failed: `AssertionError: expected undefined to be 'run-1'` | Yes — `git diff` on `backfillValid.ts` empty at commit `62b61bd` |
 | M3 helper extraction (`makeSection`, `makeMediaGallery`) | Behaviour-preservation, not TDD red/green (pure extraction claim) | N/A — extraction, not a new function | Full-suite pass-set identity check: 617/617 keys `(path, fullName, status)` identical before/after, 0 lost/0 added | N/A |
+| M2 (`vitest.config.ts` → `test.projects`) | Behaviour-preservation, not TDD red/green — config-only change, no new production function or class authored | N/A — no function/class introduced; `vitest.setup.dom.ts` sets one existing global flag, no logic | Full-suite pass-set identity check: 604/604 keys `(file, fullName, status)` identical before/after, exit 0 both runs | N/A |
 
 ## Class Sweep Table
 
@@ -220,6 +247,12 @@ TDD).
 | Per-row: 7 mutate/verify/revert/re-verify cycles (rows 7, 14, 15, 20, 22, 46 — row 13's cases needed no repair) | each mutation produced 1+ failures, each revert restored 0-diff green | full detail + exact failure counts in `verification/014/disposition-table.md` |
 | `pnpm run typecheck` (after each of the 7 M4b rows) | exit 0, both `tsc` programs, every time | |
 | `npx vitest run --reporter=json` (M4b complete, full suite) | **46 files / 604 tests / 0 failed / exit 0** | 605 − 1 (row 7's D8 case deletion) = 604 ✓; no other count drift — confirms rows 13/14/15/20/22/46's repairs changed 0 pass/fail outcomes, only oracles/names |
+| `npx vitest run --reporter=json` (M4a complete, full suite) | **46 files / 604 tests / 0 failed / exit 0** | Unchanged from post-M4b — zero case drift across all 27 renames |
+| `npx vitest run --reporter=json` (M2, pre-config-change baseline) | 46 files / 604 tests / 0 failed / exit 0 | `/tmp/m2-pre-baseline.json` |
+| `pnpm add -D jsdom` | jsdom 30.0.1 added; lockfile diff purely additive (`git diff pnpm-lock.yaml \| grep -c '^-[^-]'` = 0) | pre-existing unmet-peer warnings (react-accessible-accordion, react-slider, react-use) are unrelated, not introduced by this change |
+| `pnpm run typecheck` (post-M2 config rewrite) | exit 0, both `tsc` programs | |
+| `npx vitest run --reporter=json` (M2, post-config-change) | 46 files / 604 tests / 0 failed / **exit 0** | `/tmp/m2-post.json`; exact `(file, fullName, status)` tuple-set comparison against the pre-change baseline: **identical**, 0 only-in-pre, 0 only-in-post |
+| `git diff --stat -- src/` (M2) | empty | confirms "nothing in `src/` outside tests and `__tests__/helpers/`" per the plan's M2 scope line |
 
 ## Key Decisions (M3 — record for the disposition table / retrospective)
 
@@ -254,7 +287,9 @@ it did not actually discriminate the regression its name claimed to guard agains
 every prior run. Fixed in the same round (a new, genuinely divergent fixture ID) per the
 mutation-exposed self-found-gap duty, with before/after mutation evidence recorded in the table.
 
-**Sequence remaining (fixed by the plan): M4a (27 rows) → M2 → M4c (13 rows) → M5.**
+**Sequence remaining: M4c (13 rows, ungated) → M5.** M2 is complete. Rows 9 and 12 ride M4c as
+named riders (D19, rev 9) but are **gated** — see "M4c" below — and do not block the 13 ungated
+rows.
 
 ### M4a — complete, 27/27 rows
 
@@ -279,23 +314,40 @@ scope, and in row 9's case blocked on the DOM harness not yet existing):
 
 Both are candidates for a future M4b-style repair row, not expanded into unilaterally here.
 
+**Update**: D18 (drop the rider) was superseded same-day by D19 (owner, verbatim: "We can include
+it then if the critic miss isn't a problem.") — rows 9 and 12 now ride M4c as two named riders
+(rider 1 = row 12, H5 repair; rider 2 = row 9, H7 repair via the M2 harness), each with drop
+disposition "leave as found + handoff record + Outstanding Items" if red-then-green cannot be
+shown inside M4c. The rider gate (owner's critic waiver or a scoped critic APPROVE) **cleared same
+day** — R-5, owner verbatim "Yes, skip the critic" (agent-output `2d0d52a`) — so both riders open
+now, inside M4c, alongside its 13 ungated rows.
+
 **Evidence obtained per file**: per-file case count verified equal and zero failures on both trees
 (before/after rename) for all 27 rows; full suite re-run after the complete batch: 46 files / 604
 tests / 0 failed / exit 0 — identical to the post-M4b count, confirming zero case drift across
 every rename. Typecheck (`pnpm run typecheck`) exit 0 after every batch.
 
-### M2 — DOM harness, not started
+### M2 — DOM harness, complete
 
-Analysis complete and consumed (`analysis/014-test-suite-cleanup-analysis.md`, `50f053a`): jsdom via
-vitest `test.projects` (node project `.test.ts` / dom project `.test.tsx`), `pnpm add -D jsdom`
-forward step, no `@testing-library/react` (`createRoot` + `act`), exit-code acceptance (the analysis
-found a reproducible all-passed/exit-1 shape from the edit page's eager `void import(...)`
-prefetches — stub the nine targets, per the analysis's "deterministic" finding). Read the analysis's
-"(a)–(e)" findings section in full before touching `vitest.config.ts`. Code review is scoped to this
-milestone's non-test diff only (`package.json`, `pnpm-lock.yaml`, `vitest.config.ts`) — spawn
-code-reviewer after this milestone lands, per D17's contact rule.
+`vitest.config.ts` rewritten to `test.projects`: node project unchanged (`src/**/*.test.ts`,
+`environment: 'node'`), new dom project (`src/**/*.test.tsx`, `environment: 'jsdom'`,
+`setupFiles: ['./vitest.setup.dom.ts']`), `resolve.alias` factored to a shared `const` so the two
+projects cannot drift apart. `jsdom` 30.0.1 added as a devDependency; lockfile diff purely
+additive. `tsconfig.test.json`'s `include` gained the new setup file (extends the existing
+per-file-listing pattern already used there for `vitest.config.ts`). Nothing under `src/` changed.
+Verified: node project's pass set byte-identical to the pre-change baseline by exact
+`(file, fullName, status)` tuple comparison (604/604, 0 lost/0 added), process exits 0, `pnpm run
+typecheck` exit 0 (both programs). Committed `website` `988ca15`.
 
-### M4c — 13 rows, not started, depends on M2
+No `.test.tsx` files exist yet, so the analysis's edit-page teardown-rejection finding
+(all-passed/exit-1 from nine eager `void import(...)` prefetches) has nothing to trigger. The
+deterministic mitigation it names (`vi.mock` the nine prefetch targets) is M4c's responsibility,
+owed by whichever M4c case first mounts `edit/page.tsx`.
+
+**Code review**: scoped to this milestone's non-test diff (`package.json`, `pnpm-lock.yaml`,
+`vitest.config.ts`) per D17/the plan. Not yet spawned — see Next Steps.
+
+### M4c — 15 rows (13 + 2 riders), starting now (rider gate cleared, R-5)
 
 Rows 10, 32, 33, 34, 36 (wholly source-text, convert), 45 (H1 delete branch — no oracle exists under
 any harness, analysis S4), 14, 15, 16, 19, 35 (mixed — convert only the source-text cases), 38, 39
@@ -319,18 +371,22 @@ predicate's positive class.
   per row, not just narrated.
 - QA Phase 2 has not started (correctly — it starts on this document landing, per D16/QA's own
   Phase 2 criteria).
-- Code review has not run (correctly — scoped to M2, which has not landed).
+- Code review has not run yet — M2 landed this session; scoped review is still owed (Next Steps).
+- Rows 9/12 (M4c riders): gate cleared (R-5, `2d0d52a`) — open now inside M4c. If either cannot be
+  shown red-then-green inside M4c, it drops to D19's disposition: leave as found, a handoff record,
+  an Outstanding Items line.
 
 ## Next Steps
 
-1. **Resume the implementer** (a fresh spawn or continuation) at M2 (DOM harness). Read this
-   document, the plan (rev 8 or later — check for further cross-session revisions before
-   resuming), the M2 analysis (`analysis/014-test-suite-cleanup-analysis.md`) in full, and the
-   Disposition Table first.
-2. Continue appending the Disposition Table per M4c row as each completes (already the
+1. Spawn the code-reviewer subagent, scoped to M2's non-test diff (`package.json`,
+   `pnpm-lock.yaml`, `vitest.config.ts`, `tsconfig.test.json`, `vitest.setup.dom.ts`), per D17 —
+   owed now that M2 has landed.
+2. Proceed with all 15 M4c rows: the 13 ungated (10, 32, 33, 34, 36, 45, 14, 15, 16, 19, 35, 38,
+   39) plus the two riders (12, 9 — gate cleared R-5). Read the M2 analysis's finding (a) table
+   (mount requirements per component) and the four mechanical facts under it before writing any
+   `.test.tsx` conversion.
+3. Continue appending the Disposition Table per M4c row as each completes (already the
    established pattern from M4b/M4a) rather than reconstructing it at M5.
-3. After M2 lands: spawn the code-reviewer subagent (scoped to M2's non-test diff), per D17.
-4. Consider whether rows 9 and 12's newly-found gaps (see M4a's Outstanding Items above) should
-   become a new M4b-style repair row once M2 makes row 9's fix possible — a call for the planner,
-   not unilaterally expanded here.
-5. After M5 lands: hand to QA Phase 2, per D16/the plan's Handoff Notes.
+4. After M5 lands: hand to QA Phase 2, per D16/the plan's Handoff Notes — carry the E3b two-hop
+   instrument-gap finding (row 12) into that spawn cue, per planner's instruction, unless row 12's
+   rider repair inside M4c removes the transcription it names (confirm at M5 time).
