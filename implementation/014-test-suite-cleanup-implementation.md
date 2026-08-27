@@ -17,9 +17,9 @@ then instructed the same session to continue rather than hand off to a fresh spa
 rows), M4a (all 27 rows), and M2 were completed in that continuation. The session reached the
 ceiling a second time partway through M4c (2 of 15 rows landed: 45, rider 1/row 12) and checkpointed
 rather than starting the DOM-mount conversions that make up the rest of M4c. Resumed again
-(post-compaction, same session) and landed row 9/rider 2 — **both named riders (D19/R-5) are now
-landed**, 3/15 M4c rows done, 12 remain (all wholly DOM-mount conversions). See "Outstanding Items"
-for exact resumption state for the milestones still remaining (M4c, M5).
+(post-compaction, same session) and landed row 9/rider 2 (**both named riders (D19/R-5) now
+landed**) and rows 38/39 (H9) — 5/15 M4c rows done, 10 remain (all wholly DOM-mount conversions).
+See "Outstanding Items" for exact resumption state for the milestones still remaining (M4c, M5).
 
 ## Changelog
 
@@ -34,7 +34,7 @@ for exact resumption state for the milestones still remaining (M4c, M5).
 | 2026-08-27 | planner-hooks-014 (cross-session) | Relay-QA-directly instruction (ruling 11) | No live QA session for this chain exists (`qa-hooks-14`, ended) — `SendMessage` confirmed unreachable. Routed the E3b two-hop instrument-gap writeup back to planner instead of editing the QA doc (no write authority over `agent-output/qa/`). Planner confirmed: no QA session live, carry the item into the QA Phase 2 spawn cue after M5 instead. |
 | 2026-08-27 | planner-hooks-014 (cross-session) | Owner ruling D18, verbatim: "As for now, I guess we can just drop the rider." | Rows 9 and 12 stay unrepaired in this chain; no rider opens. A single handoff record covering both, citing D18, is owed before M5 closes (see Outstanding Items). Disposition Table entries for rows 9/12 unchanged. |
 | 2026-08-27 | planner-hooks-014 (cross-session) | Owner ruling D19 supersedes D18, verbatim: "We can include it then if the critic miss isn't a problem." Plan rev 9 (`105144a`). | Rows 9 and 12 now ride M4c as named riders (rider 1 = row 12, rider 2 = row 9), gated: the rider lines open only once planner relays the owner's plain critic waiver or a scoped critic APPROVE. M4c's own 13 rows are ungated. Riders yield (never spawn a round); drop disposition on either is leave-as-found + handoff record + Outstanding Items line — so the D18 handoff record is owed only if a rider ultimately drops, not unconditionally. |
-| 2026-08-27 | Owner (direct) | "Continue" (post-compaction, same session) | R-5 (critic waived, `2d0d52a`) already had both riders open. Landed row 45 (H1 delete) and row 12/rider 1 (H5 repair), then hit the run-length ceiling and checkpointed (`050f3ab`). Resumed same session: landed row 9/rider 2 — established empirically that `SectionEditor` mounts under the M2 dom project (not in the analysis's own POC list), converted the "Auto-remove branch dispatch" block to a real mount, axiom-A mutation evidence captured (2/3 cases red), full suite 576/576 exit 0. **Both named riders are now landed — neither dropped, no handoff record owed.** website `4c4a357`. |
+| 2026-08-27 | Owner (direct) | "Continue" (post-compaction, same session) | R-5 (critic waived, `2d0d52a`) already had both riders open. Landed row 45 (H1 delete) and row 12/rider 1 (H5 repair), then hit the run-length ceiling and checkpointed (`050f3ab`). Resumed same session: landed row 9/rider 2 — established empirically that `SectionEditor` mounts under the M2 dom project (not in the analysis's own POC list), converted the "Auto-remove branch dispatch" block to a real mount, axiom-A mutation evidence captured (2/3 cases red), full suite 576/576 exit 0. **Both named riders are now landed — neither dropped, no handoff record owed.** website `4c4a357`. Continued in the same run: landed rows 38, 39 (H9) — replaced both files' hand-rolled `render()` walkers with real `createRoot`+`act` mounts, dropped row 39's second describe block as superseded by row 38's real drive of the same guard, axiom-A evidence for both (4/5 and 5/5 cases red), full suite 572/572 exit 0. website `4761453`. |
 
 ## Implementation Summary
 
@@ -68,8 +68,9 @@ typecheck` clean. No `.test.tsx` files exist in the tree yet (M4c adds the first
 edit-page teardown-rejection finding from the analysis has nothing to trigger yet; the deterministic
 mitigation (`vi.mock` the nine prefetch targets) is M4c's responsibility when it writes that test.
 
-Not yet delivered: M4c (12 of 15 rows remain — both named riders are now landed) and M5
-(acceptance sweep). The value statement is not yet fully met — see "Value Statement Validation".
+Not yet delivered: M4c (10 of 15 rows remain — both named riders and rows 38/39 (H9) are now
+landed) and M5 (acceptance sweep). The value statement is not yet fully met — see "Value Statement
+Validation".
 
 ## Milestones Completed
 
@@ -102,12 +103,14 @@ Not yet delivered: M4c (12 of 15 rows remain — both named riders are now lande
       pattern already used there for `vitest.config.ts`). Node project pass set byte-identical to
       pre-change baseline (604/604, exact tuple match), exit 0, typecheck exit 0. Nothing under
       `src/` touched. Committed `website` `988ca15`.
-- [ ] M4c — **In progress, 3/15 rows.** Row 45 deleted (H1 delete branch, `07af608`); row 12
+- [ ] M4c — **In progress, 5/15 rows.** Row 45 deleted (H1 delete branch, `07af608`); row 12
       (rider 1) H5-repaired (`1f89b34`); row 9 (rider 2) H7-repaired — mounted the real
       `SectionEditor` for the auto-remove branch dispatch (`4c4a357`). **Both named riders
-      (D19/R-5) landed — neither dropped.** 12 rows remain: 10, 32, 33, 34, 36 (wholly
-      source-text convert), 14, 15, 16, 19, 35 (mixed — convert source-text cases only), 38, 39
-      (H9 — replace `render()` with the harness).
+      (D19/R-5) landed — neither dropped.** Rows 38, 39 (H9) — replaced both hand-rolled
+      `render()` walkers with real mounts of `NewMessageJsonInput`/`NullableComponent`; row 39's
+      second describe block dropped as superseded by row 38's real drive (`4761453`). 10 rows
+      remain: 10, 32, 33, 34, 36 (wholly source-text convert), 14, 15, 16, 19, 35 (mixed —
+      convert source-text cases only).
 - [ ] M5 — Not started (acceptance sweep).
 
 ## Entry Conditions
@@ -228,6 +231,8 @@ extraction.
 | M2 (`vitest.config.ts` → `test.projects`) | Behaviour-preservation, not TDD red/green — config-only change, no new production function or class authored | N/A — no function/class introduced; `vitest.setup.dom.ts` sets one existing global flag, no logic | Full-suite pass-set identity check: 604/604 keys `(file, fullName, status)` identical before/after, exit 0 both runs | N/A |
 | M4c row 12 (rider 1), `switchToClassic(switchToV2(draft))` cases | Axiom (A), H5 structural repair | `switchToClassic`'s type-1 component filter narrowed from `=== 1` to `=== 2` | 3/7 cases failed | Yes — `git diff` on `messageMode.ts` empty at commit `1f89b34` |
 | M4c row 9 (rider 2), `SectionEditor` auto-remove dispatch | Axiom (A), H7 structural repair (component mount, not a new production function) | `deleteTextComponent`'s branch condition narrowed from `next.length === 0` to `next.length < 0` | 2/3 new mounted cases failed | Yes — `git diff` on `SectionEditor.tsx` empty at commit `4c4a357` |
+| M4c row 38, `NewMessageJsonInput` settled notice | Axiom (A), H9 hand-rolled-renderer conversion | `noticeMessageForSettled`'s `warn-v2-flag-conflict` branch changed to return `null` | 4/5 cases failed | Yes — `git diff` on `src/utils/index.ts` empty at commit `4761453` |
+| M4c row 39, `NullableComponent` show guard | Axiom (A), H9 hand-rolled-renderer conversion | `show ? children : null` inverted to `!show ? children : null` | 5/5 cases failed | Yes — `git diff` on `NullableComponent.tsx` empty at commit `4761453` |
 
 ## Class Sweep Table
 
@@ -273,6 +278,14 @@ TDD).
 | `npx vitest run` (row 9/rider 2, reverted) | 3/3 passed; `git diff` on `SectionEditor.tsx` empty | |
 | `npx vitest run --reporter=json` (M4c: rows 45, 12, 9 landed, full suite) | **46 files / 576 tests / 0 failed / exit 0** | net 0 vs. the row-45/12 checkpoint: row 9 removed 3 inline cases, added 3 mounted cases |
 | `pnpm run typecheck` (after row 9) | exit 0, both `tsc` programs | |
+| `npx vitest run` (row 38, first pass) | **5/5 passed** | mounted cleanly on the first attempt — `NewMessageJsonInput` was already in the M2 analysis's POC list |
+| `npx vitest run` (row 38, `noticeMessageForSettled`'s warn-v2-flag-conflict branch mutated to return `null`) | 4/5 failed | axiom-(A) evidence |
+| `npx vitest run` (row 38, reverted) | 5/5 passed; `git diff` on `src/utils/index.ts` empty | |
+| `npx vitest run` (row 39, first pass) | **5/5 passed** | `NullableComponent` (M2 analysis POC #1) needs no mocks |
+| `npx vitest run` (row 39, `NullableComponent`'s `show` condition inverted) | 5/5 failed | axiom-(A) evidence |
+| `npx vitest run` (row 39, reverted) | 5/5 passed; `git diff` on `NullableComponent.tsx` empty | |
+| `npx vitest run --reporter=json` (M4c: rows 45, 12, 9, 38, 39 landed, full suite) | **46 files / 572 tests / 0 failed / exit 0** | 576 − 4 = 572; row 39's second describe block (4 cases) dropped as superseded, everything else net 0 |
+| `pnpm run typecheck` (after rows 38/39) | exit 0, both `tsc` programs | |
 
 ## Key Decisions (M3 — record for the disposition table / retrospective)
 
@@ -307,8 +320,8 @@ it did not actually discriminate the regression its name claimed to guard agains
 every prior run. Fixed in the same round (a new, genuinely divergent fixture ID) per the
 mutation-exposed self-found-gap duty, with before/after mutation evidence recorded in the table.
 
-**Sequence remaining: M4c (12 rows left) → M5.** M2 is complete. Both named riders (rows 9 and 12,
-D19/R-5, rev 9) have landed — see "M4c" below.
+**Sequence remaining: M4c (10 rows left) → M5.** M2 is complete. Both named riders (rows 9 and 12,
+D19/R-5, rev 9) and rows 38/39 (H9) have landed — see "M4c" below.
 
 ### M4a — complete, 27/27 rows
 
@@ -366,7 +379,7 @@ owed by whichever M4c case first mounts `edit/page.tsx`.
 **Code review**: scoped to this milestone's non-test diff (`package.json`, `pnpm-lock.yaml`,
 `vitest.config.ts`) per D17/the plan. Not yet spawned — see Next Steps.
 
-### M4c — 15 rows (13 + 2 riders); 3 landed, 12 remain — exact resumption state below
+### M4c — 15 rows (13 + 2 riders); 5 landed, 10 remain — exact resumption state below
 
 **Done**: row 45 (deleted, H1 delete branch, `website` `07af608`) — see disposition table for full
 evidence. Row 12/rider 1 (H5 structural repair — dropped the local `switchToV2`/`switchToClassic`
@@ -377,19 +390,18 @@ Row 9/rider 2 (H7 structural repair — replaced the "Auto-remove branch dispatc
 owed.** `SectionEditor` needed three context mocks (`IsMobileProvider`, `GuildProvider`,
 `MarkdownProvider`, each throws outside its real provider), a one-macrotask settle for its
 `next/dynamic`-loaded per-button `Tooltip`, and a full pointerdown+pointerup+click sequence to fire
-`onPress` (pointerdown+pointerup alone does not). Full suite after all three: 46 files / 576 tests /
-0 failed / exit 0 (604 − 28 row-45 cases = 576; row 12's repair changed 0 outcomes; row 9 removed 3
-inline cases and added 3 mounted cases, net 0).
+`onPress` (pointerdown+pointerup alone does not). Rows 38, 39 (H9) — both hand-rolled `render()`
+walkers replaced with real `createRoot`+`act` mounts (`NewMessageJsonInput`, driven through its
+real CodeMirror editor; `NullableComponent`, directly). Row 39's second describe block (a
+conjunct-isolated proxy for the paste-surface guard, written when no harness existed) was dropped
+as superseded — row 38's real mount now drives that exact guard through genuine behaviour. `website`
+`4761453`. Full suite after all five: 46 files / 572 tests / 0 failed / exit 0 (604 − 28 row-45
+cases = 576; rows 12/9 changed 0/net-0 outcomes; rows 38/39 net −4: row 38 unchanged 5→5, row 39
+9→5 after dropping the 4 superseded cases).
 
 **Remaining, in the order a resuming implementer should probably take them** (simplest/lowest-risk
 first, not a plan-mandated order):
-1. **Rows 38, 39 (H9)** — `013-qa-paste-surface-render.test.ts`, `013-qa-toast-vessel-render.test.ts`
-   (still ID-token-named; rename is part of this row per M4a's uniform rule extended here). Both
-   already mount something via a hand-rolled `render()` — replace that with the real harness
-   (`createRoot`+`act`) mounting the actual target (`NewMessageJsonInput`, `NullableComponent`
-   respectively, per the inventory). Likely the smallest lift of what remains: the behavioural
-   assertions probably survive, only the mount mechanism changes.
-2. **Rows 10, 32, 33, 34, 36 (wholly source-text → convert)** — read what each currently asserts via
+1. **Rows 10, 32, 33, 34, 36 (wholly source-text → convert)** — read what each currently asserts via
    `readFileSync`/`readSrc` (test-inventory doc has the target file per row) and rewrite as a mount
    + behavioural assertion using the M2 analysis's finding (a) table for each target's mock
    requirements. Row 10 → `TransitionHeightElement`; rows 32/33/34/36 → `JsonModalBody` /
@@ -398,7 +410,7 @@ first, not a plan-mandated order):
    dated owner rulings (D29, D31, D33, and D29's reversal) as their subject — read
    `planning/closed/013-components-v2-editing-surfaces.md`'s cited revisions before converting, so
    the converted assertion still tests the ruling's substance, not just its old source-text proxy.
-3. **Rows 14, 15, 16, 19, 35 (mixed)** — these already have their non-source-text cases repaired
+2. **Rows 14, 15, 16, 19, 35 (mixed)** — these already have their non-source-text cases repaired
    (14, 15 in M4b) or intact; convert only the source-text cases named in the inventory (2, 2, 3,
    3, 2 respectively) to mounted-behaviour assertions, keep the rest, no further rename needed (14,
    15 already renamed in M4b; 16, 19, 35 still need the M4a-style rename — carry it out here since
@@ -439,11 +451,11 @@ predicate's positive class.
 
 ## Next Steps
 
-1. **Resume the implementer** at M4c, rows 38/39 (H9) or wherever "Outstanding Items → M4c" above
-   leaves off — read this document's M4c resumption block first, then the M2 analysis's finding
-   (a) table and four mechanical facts, then the Disposition Table's M4c section, before writing
-   any `.test.tsx` conversion. 12 of 15 M4c rows remain (45, 12, 9 are done — both named riders
-   landed).
+1. **Resume the implementer** at M4c, rows 10/32/33/34/36 (wholly source-text) or wherever
+   "Outstanding Items → M4c" above leaves off — read this document's M4c resumption block first,
+   then the M2 analysis's finding (a) table and four mechanical facts, then the Disposition
+   Table's M4c section, before writing any `.test.tsx` conversion. 10 of 15 M4c rows remain (45,
+   12, 9, 38, 39 are done — both named riders and rows 38/39 landed).
 2. Code-reviewer for M2's non-test diff (`package.json`, `pnpm-lock.yaml`, `vitest.config.ts`,
    `tsconfig.test.json`, `vitest.setup.dom.ts`) was requested from `steering-test-cleanup` this
    session (D17) — check whether it has landed; if not, it is still owed and does not block M4c
