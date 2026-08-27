@@ -18,6 +18,7 @@ Verified-At: "website f2c85f5c7e3ad03879845ae1116518dc71cf2077 (chain/014-test-s
 |------|---------------|---------|---------|
 | 2026-08-27T04:46 | steering-test-cleanup → uat-hooks-014 | Execute BC-9 against a running build; carry BC-7/BC-8 as closure conditions; deliver the release decision | **UAT Complete — APPROVED FOR RELEASE, conditional on the post-deploy-observable rows.** Value delivered: standard live at the workspace root, 51/51 files conforming, banned classes gone (re-derived here). **BC-9 NOT EXECUTED** — no browser tooling in this session; degraded explicitly and handed to the owner as a walkthrough row. Register defect found: two distinct rows both numbered **BC-7** (UAT-1). |
 | 2026-08-27T04:56 | uat-hooks-014 → devops-hooks-014 | Stage 1 closure | **`Status` set to `Committed` (was `Active`) and this document moved to `uat/closed/`** by devops Stage 1 step 8. The release decision — **APPROVED FOR RELEASE, conditional on the post-deploy-observable rows** — is unchanged and is the authority relied on. All four open rows (**BC-7/AC8, BC-7/row-19, BC-8, BC-9**) are carried into `deployment/014-test-suite-cleanup-readiness.md` §3 **by name as well as number**, per this document's own instruction. UAT-2 discharged at closure; UAT-1 routed to qa. |
+| 2026-08-27T05:36 | steering → uat-hooks-014-2 | Execute BC-9 with browser tooling now available | **BC-9 → EXECUTED, both limbs PASS.** Limb 1: my drive (`?code=bc9probe` → `getFromCode` 401) + owner's direct observation of the rendered toast ("I saw a 'User is not authenticated'"). Limb 2: primary blocked at auth guard (`isApiMessage`); owner attestation "Already saw it" at this build closes it. Full record in the dated **BC-9 Execution Record** addendum at the end of this document; one-line discharge note added to deployment §7. |
 
 ## Plan revision read, against the brief
 
@@ -324,3 +325,58 @@ these items' current state.*
    end-to-end mapping audit (the chain's stated Assumption Not Checked); the recurring
    instrument-contradicts-criterion class; the interchangeable-siblings class; register ID minting
    across multi-pass documents (UAT-1); and AC8/BC-7 as the pilot's answer to D1.
+
+---
+
+## BC-9 Execution Record — 2026-08-27 (dated addendum; results recorded beside the F4/F5 predictions above, never over them)
+
+**Executed by**: Product Owner (UAT), session `uat-hooks-014-2`, picking up the one row this
+document left assigned to this stage. Browser tooling (Claude-in-Chrome) was available this
+session — the primary instrument, not the fallback.
+
+**Identity re-derived at execution**: `website` HEAD `f2c85f5c7e3ad03879845ae1116518dc71cf2077`,
+`git status --porcelain` empty, branch `master` (the release SHA — release act recorded in
+`deployment/014-test-suite-cleanup-deployment.md` §7). Same identity this document's verdicts were
+reached at; nothing expired. Build: the owner's dev server at `localhost:3000`, serving HTTP 200.
+
+**Limb 1 — F4, code-fetch error toast: PASS.**
+Drive (mine): navigated `http://localhost:3000/message/m/0/edit?code=bc9probe` (the code fetch is
+keyed on the `?code=` search param). Network log: `GET /api/trpc/message.getFromCode?…code=bc9probe`
+→ **401**, ×4 including react-query retries. Observation: the owner, watching the same screen,
+reported in the round: **"I saw a 'User is not authenticated'"** (2026-08-27 ~05:31 local) — the
+`toast.error(codeMessageError.message)` render of that 401. Recorded verbatim; closes the limb.
+*Instrument note, lodged in the round*: my screenshots at ~3 s/7 s/12 s after settle all missed the
+toast — a transient with autoclose is not reliably captured by round-trip screenshots, and the
+periodic screenshot is the instrument that failed here, not the toast. The drive and the 401 are
+mine; the render evidence is the owner's direct observation.
+
+**Limb 2 — F5, in-flight save toast: PASS on owner attestation.**
+Primary drive blocked, stated rather than worked around: every UI save path guards on a persisted
+message (File → Save is disabled unless `isApiMessage(message)`; the save hotkey carries the same
+guard), and reaching a persisted message requires the owner's authenticated Discord session —
+his credential, which this stage may not enter. My unauthenticated Save click was a silent no-op
+(no mutation fired; network log empty of `message.upsert`). Fallback per this document's own
+classification: the owner. Asked in-session, he answered **"Already saw it"** — he has already
+observed the `Saving message...` toast during normal use of a saved message at this build
+(2026-08-27, in-session selection, recorded verbatim). Per Weighing Operator Attestation this is a
+**loud-mode-shaped direct observation of the rendered toast, not a no-complaints inference** — it
+closes the limb; no capture file is owed.
+
+**Terminal state: BC-9 → EXECUTED, 2026-08-27.** Prediction ("a visible toast in both cases") met;
+single discriminating instance per limb suffices per the row's own prediction. Result recorded here,
+the discharging document; one dated discharge line added to the open-conditions listing in
+`deployment/014-test-suite-cleanup-deployment.md` §7 per the lifecycle skill (left uncommitted
+there — that document is devops's to commit).
+
+**Process facts, lodged in the round**:
+- Two dead-end probes before the flow was found: a malformed message id 404s server-side, and
+  `/message/f/<code>` redirects to `/message/m/0/edit` without a client fetch — neither reaches
+  `codeMessageError`.
+- **Disclosed degrade from pure product execution**: to locate the flow's entry points and the
+  limb-2 guard I read narrow slices of `MessageProvider/index.tsx`, `useApiMethods.ts` and
+  `Navigation.tsx` — as flow derivation (finding where the surface is driven), not as evidence.
+  The evidence for both limbs remains the running product and the owner's observation.
+- This record claims **BC-9 only**. At write time the deployment record still lists BC-7/AC8,
+  BC-7/row-19 and BC-8 **OPEN**; the brief for this pass said only BC-9 remained. No document
+  terminalising the other three was found by this pass — if they were closed in another sitting,
+  that recording is owed by whoever closed them, and this line is the dated flag.
