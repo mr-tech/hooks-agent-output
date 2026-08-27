@@ -2,8 +2,8 @@
 ID: 014
 Origin: 014
 UUID: 4671e28c
-Status: In Progress
-Status-Detail: Implementation complete at website `f2c85f5` (chain branch; 51 files, 566/566, exit 0; typecheck exit 0 both programs; 48 = 3 deleted + 14 converted + 6 kept + 25 renamed per the disposition table, agent-output `93c6ccf`). Awaiting QA Phase 2 verdict (qa-hooks-014-2, live), then UAT, then devops. Rev 16 is the current plan; rev 9 approved, revs 10–16 instrument corrections and prediction records only. Two out-of-charter product gaps stand as handoffs (rows 43, 19), not fixed per D2.
+Status: QA Complete
+Status-Detail: QA Phase 2 PASSED at website `f2c85f5` (qa-hooks-014-2, `Verified-At` anchored on a tree confirmed clean). Re-derived independently: 566/566, exit 0, 51 files; typecheck exit 0 both programs. TDD gate passes on a measured premise — 0 production files changed chain-wide, which also discharges IS-6. AC1/AC3/AC4/AC5/AC7 met; AC6 met for 19 of 20 rows with row 47 a record gap whose substance QA supplied by mutation; AC2 met on the plan's own instrument but not independently replayed end-to-end (QA's stated Assumption Not Checked, routed to the retrospective); AC8 registered as post-chain. Two non-blocking findings (QA-3 record gap, QA-4 residue instance). Three post-deploy-observable rows appended to the chain register (BC-7/8/9). Next: UAT, then devops.
 Revision: 16
 Target Release: website `master` moved to the chain-014 merge SHA (the package carries no version artefact); `agent-output` moves alongside
 Epic Alignment: none registered — the owner-approved coordination plan `/home/dev/.claude/plans/we-recently-changed-the-wobbly-sparrow.md` is the source of the effort's outcome
@@ -18,6 +18,7 @@ Owning-Stage: implementer
 
 | Date | Rev | Author | Change |
 |---|---|---|---|
+| 2026-08-27 | R-8 | qa-hooks-014-2 | **QA Phase 2 verdict recorded: QA Complete at website `f2c85f5`.** Counts re-derived, not cited (566/566, exit 0, 51 files; typecheck exit 0). TDD premise verified by diff: 0 production files changed chain-wide. AC6 row 47 record gap — QA supplied the missing seen-red evidence by mutation (`% 6n` → `% 7n`: 2 cases red, restored, `git diff` empty), so no re-verification is owed; implementer to fill the evidence cell. AC7 residue now has one measured instance (row 47's `'0000'` parity case, green under the same mutant) — third member of a recurring interchangeable-sibling class, for the retrospective. AC2 not independently replayable — both QA replays measured something else and are reported as failures, not evidence. BC-7/8/9 appended to the chain register. Scope delta: none — verdict registration only. |
 | 2026-08-27 | R-7 | planner-hooks-014 | Status write: implementation complete (`f2c85f5`, `93c6ccf`); awaiting QA Phase 2. Scope delta: none — status only. |
 | 2026-08-27 | 16 | planner-hooks-014 | Prediction records only: QA-2's two findings on the M5 sweep (no `// escaped:` line; exemption missing from the comment domain) withdrawn by QA-2 after independent `grep -rc` — AC5 evidence for rows 46/47 stands, sweep unchanged; logged as the self-filtered-read member of the piped-output row. New SHA-anchor prediction row (QA-2's 53 vs 51). Scope delta: none. |
 | 2026-08-27 | 15 | planner-hooks-014 | M5 step 5 instrument corrected (implementer, option (a)): the alias-only grep rejected 3 conforming colocated DOM-mount files whose only production import is relative; step restated as the property with the module-segment relative import admitted, option (b) rejected as weakening H7 detection. Second member of the instrument-contradiction prediction row. Scope delta: none. |

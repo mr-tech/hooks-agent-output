@@ -2,25 +2,26 @@
 ID: 014
 Origin: 014
 UUID: 4671e28c
-Status: Awaiting Implementation
+Status: QA Complete
 Status-Detail: >-
   Phase 1 complete against plan rev 8. Test strategy, Irreversible Side-Effect Register and the
   AC7 axiom-(E) enumeration land here; the implementer is unblocked from M0. BLOCK-1 (npm/pnpm)
   was RESOLVED by rev 5 independently of this pass. No PASS verdict is issued or implied by this
   document — the suite has not been run in full.
-Verified-At: "a74b9e268399663adfccf14816376de1b8eb41ac (website) — anchors Phase 1 PROBES ONLY; carries no PASS. agent-output at eef81f5."
+Verified-At: "f2c85f5c7e3ad03879845ae1116518dc71cf2077 (website, chain branch chain/014-test-suite-cleanup) — source tree confirmed clean for src/ bot/ package.json before every capture. agent-output at e766b8c."
 ---
 
 # QA Report: Plan 014 — Hooks test-suite cleanup (pilot)
 
 **Plan Reference**: `agent-output/planning/014-test-suite-cleanup.md` (revision 8, agent-output `47a4138`)
-**QA Status**: Awaiting Implementation
+**QA Status**: QA Complete
 **QA Specialist**: qa (`qa-hooks-14`)
 
 ## Changelog
 
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
+| 2026-08-27T05:05 | planner-hooks-014 → qa-hooks-014-2 | Phase 2 verdict at `f2c85f5` (plan rev 16) | **QA Complete.** Suite and typecheck re-derived, not cited: 566/566, exit 0, 51 files; typecheck exit 0 both programs. TDD gate passes on a verified premise — **0 production files changed chain-wide** (`git diff --numstat a74b9e2..f2c85f5 -- src bot`, 71 paths, all tests), which also discharges IS-6 across the chain in one stroke. Property audit run per criterion AC1-AC8. Two findings, neither blocking: **QA-3** row 47 carries an oracle repair but sits in the M4a section whose format has no evidence column — I supplied the missing AC6 evidence myself by mutation; **QA-4** one concrete instance of Phase 1's named split-line residue, confirmed non-discriminating by the same mutation. AC2 could not be independently replayed end-to-end — stated, not papered over. |
 | 2026-08-27T03:55 | planner-hooks-014 → qa-hooks-14 | Plan rev 8 (`47a4138`) | **QA-1 CLOSED**, verified on five limbs against the text. Row 13 dropped from M4a (M4b-only); the stale row-15 sentence removed; rows 14 and 15 named as the only M4b→M4c exceptions; partition restated and now enumerated — M4b's ten rows listed explicitly. The critic reached the same defect independently at cycle 2 (M-13/M-14, `bd49f93`) — two instruments agreeing, which is the corroboration this workspace's hazards file says to look for rather than a re-run of the first. |
 | 2026-08-27T03:30 | planner-hooks-014 → qa-hooks-14 | Plan rev 7 (`78616ec`) consuming this document | Re-anchored on rev 7. M0's instruments and AC2's key corrected in the plan; M4b's oracle list now **points** to this document's AC7 enumeration rather than restating it, with the "at Phase 1" qualifier preserving the class as open — the right citation form. **QA-1 raised** (below): consuming the enumeration put row 13 into two milestones and falsified a standing sentence about row 15. Found by re-reading the revision rather than the summary of it. |
 | 2026-08-27T03:05 | planner-hooks-014 → qa-hooks-14 | Plan rev 6 (`52ff3f9`), critic pass 3 | Re-anchored on rev 6. **Two Phase 1 findings adopted plan-wide**: INST-3 becomes the plan's exit-code observable (any pass-set acceptance in M0/M2/M3/M4a/M4c/M5 satisfied only at exit 0), and the Validation instrument becomes `pnpm run typecheck` — the planner establishing the stronger form of my point, that a bare `npx tsc --noEmit` type-checks **none** of the 48 because `tsconfig.json` excludes `**/__tests__`. BC-5 residue gains `DiscordMessageEditor`. AC7's rows 13/15 remain routed to the implementer via this document, not via a plan edit. |
@@ -31,10 +32,10 @@ Verified-At: "a74b9e268399663adfccf14816376de1b8eb41ac (website) — anchors Pha
 
 - **Test Strategy Started**: 2026-08-27T01:05 UTC
 - **Test Strategy Completed**: 2026-08-27T02:10 UTC
-- **Implementation Received**: — (not yet; D16 sequences QA first)
-- **Testing Started**: —
-- **Testing Completed**: —
-- **Final Status**: — (Phase 1 only)
+- **Implementation Received**: 2026-08-27T04:50 UTC (M5 closed, website `f2c85f5`)
+- **Testing Started**: 2026-08-27T04:50 UTC
+- **Testing Completed**: 2026-08-27T05:05 UTC
+- **Final Status**: **QA Complete** at website `f2c85f5`
 
 ## Documents read
 
@@ -726,3 +727,174 @@ Point-in-time; later stage documents are authoritative.
   them here. L-7 and L-8 remain open against rev 6 — both non-gating, both next-touch.
 - **Code reviewer** — unchanged: M2's non-test diff only.
 - **QA (me), Phase 2** — on the implementer's document landing.
+
+---
+
+# PHASE 2 — Post-Implementation Test Execution
+
+**Tree under verification**: `website` `f2c85f5c7e3ad03879845ae1116518dc71cf2077`, branch
+`chain/014-test-suite-cleanup`. `git status --porcelain -- src bot package.json` empty before every
+capture below — the SHA is a supportable identity, not an inherited one. Plan rev 16 (`56f23b6`),
+whose criteria are unchanged since rev 9 apart from the rev-14 and rev-15 instrument corrections,
+both of which this pass holds.
+
+## Re-derived, never cited
+
+Every number below is from this pass's own run. The implementation document's figures were read
+only *after* mine, and are noted where they agree.
+
+| Gate | Command | Result |
+|---|---|---|
+| Suite | `npx vitest run --reporter=json` | **566 passed / 566 total, 0 failed, 51 files** |
+| Process exit | same run | **0** — recorded beside the counters, per this workspace's rule that a green pass set is not a green run |
+| Validation | `pnpm run typecheck` | **exit 0** — both `tsc` programs (the base program excludes `**/__tests__`, so `tsconfig.test.json` is the only one covering the suite) |
+| File domain | `find` + `os.walk`, compared by **path membership** | 51, identical sets, no diff either way |
+
+Agrees with the implementer's independently captured `verification/014/final-f2c85f5.json`.
+
+## TDD Compliance gate — PASS, on a premise I verified rather than accepted
+
+The implementation document argues the standard table's rows do not apply because no new
+function or class was authored. **That premise is now measured, not asserted:**
+
+```
+git diff --numstat a74b9e2..f2c85f5 -- src bot   →  71 changed paths, of which
+                                                     NON-TEST (production): 0
+```
+
+Zero production files changed across the entire chain. So there is no new function or class for a
+red/green cycle to attach to, and the exemption is legitimate.
+
+The table it does provide carries 12 rows of real axiom-(A) evidence — each naming the mutation, the
+cases that failed, and a `git diff`-empty restoration. It does **not** invent a red phase for pure
+renames, which Phase 1 said in terms would be rejected. Gate passes.
+
+**IS-6 (mutation restoration across the whole chain) is discharged by the same evidence.** Phase 1
+asked for this chain-wide rather than per row, and the zero net production diff proves every
+mutation made during M4b/M4c/M5 was restored — a stronger result than per-row attestations, since it
+cannot miss one.
+
+## Irreversible Side-Effect Register — outcomes
+
+| # | Effect | Outcome at `f2c85f5` |
+|---|---|---|
+| IS-1 | `node_modules` rewritten from the pnpm layout | **Did not fire.** The npm route rev 5 removed was never run. Direct dependencies unchanged (79 → 79, no adds/removes/version changes); one devDependency added (`jsdom ^30.0.1`). |
+| IS-2 | Deletion of a test that is the only record of a defect | **Fired once, correctly ordered, and evidenced by commit time rather than asserted**: row 43's handoff (`agent-output` `c5e1d59`, 00:34:55) precedes its delete (`website` `62b61bd`, 00:37:31) by **156 s**. Cross-repo, so ancestry cannot show this and timestamps are the only instrument. |
+| IS-6 | A mutation left unrestored | **Did not fire** — see above, proven chain-wide. |
+
+## Property audit — per acceptance criterion
+
+Asked of each: *what class is the example an example of, and does the instrument enumerate the class?*
+
+| AC | Verdict | Basis |
+|---|---|---|
+| AC1 | **MET** | All 48 inventory rows present in the disposition table, checked by **row-number membership**, not the piped `grep \| sort \| uniq -c` the record used — 0 missing, 0 out of range. |
+| AC2 | **MET on the plan's own instrument; NOT independently replayed — see Assumption Not Checked** | The plan defines identity across a title strip as the table's `old title → new title` column. Two independent replays were attempted and **both failed to measure it**: verbatim `(file, fullName)` gives 0 survivors of 617 (every file was renamed), and ID-token-normalised titles give 261 of 617 (titles were *rewritten*, not merely stripped). The mapping *is* the identity, so consuming it would not be independent. |
+| AC3 | **MET** | 3 deletions (rows 11, 43, 45); each names a covering test or an Outstanding Items line. Row 11 owes none (third-party source). IS-2 ordering evidenced above. |
+| AC4 | **MET** | Two independently built instruments agree at `f2c85f5`: 51 files, 0 positive-form failures, 0 negative-form hits. My own controls fired **6/6 in both directions**, and the rev-14 widening admits exactly **13** files while rejecting **0** — it closes on its predicate, not on the instances that exposed it. |
+| AC5 | **MET** | `grep -rc '// escaped:'` → exactly 2 files, both citing `005-user-reported-bugs-analysis.md`. Verified myself after **my own earlier claim that none existed proved false**. The exemption is load-bearing, not vacuous: both lines carry `005`, which *is* an ID token, and both *are* comment lines. |
+| AC6 | **MET for 19 of 20; 1 record gap — QA-3** | Row 13 legitimately owes nothing (nothing was repaired; demanding a red phase there is what Phase 1 forbade). Row 47 is the gap. |
+| AC7 | **MET, with one residue instance recorded — QA-4** | Sweep at `f2c85f5`: **E2 12 → 0**, **E3a 3 → 0**, 20 of 51 files carrying candidates. Rows 13 and 15 dispositioned under rev 12's carve-out with **both limbs executed by probe**. All 12 new files read whole for the four contamination classes a line-based sweep cannot see: **clean**; no test imports a production constant (verified by reading every import, presence-based). |
+| AC8 | **REGISTERED, not checkable here** | Post-chain human observation by the next chain's retrospective. |
+
+## FINDINGS
+
+### QA-3 — row 47 carries an oracle repair but sits in a section whose format has no evidence column
+
+`bugFixCoverage.supplemental.test.ts` (row 47) is bucketed **Kept (oracle-repaired)** by the step-7
+reconciliation, and its own cell records "E3a candidate, adjudicated: fixed". But its table row lives
+in the **M4a section** — "pure renames, no case change" — whose 4-column format carries no
+`seen-to-fail evidence` column at all. AC6's designated instrument *is* that column, so AC6 had no
+evidence for a row inside its class.
+
+**I closed it by measurement rather than bouncing it.** Mutating the production formula
+`(BigInt(id) >> 22n) % 6n` → `% 7n` in `src/utils/constructImageUrl.ts`:
+
+- `handles maximum realistic Discord snowflake ID` → **RED** (`2199023255551` is `1 mod 6` but `3 mod 7`)
+- `returns values in range [0, 5] for discriminator 0` → **RED** (`expected 6 to be less than 6`)
+- restored; `git diff` empty; 28/28 green, exit 0 at head
+
+So **AC6 is substantively satisfied for row 47** — the repaired literal expectations are
+load-bearing. What is missing is only the *record*. Disposition: the implementer adds the evidence
+cell; no re-verification is owed, because this pass supplies the evidence.
+
+**The generalisable defect is the section format, not the row.** A row can be moved into a bucket
+whose criterion demands evidence while sitting in a section that has nowhere to put it. Any future
+row promoted from rename to repair inherits the same silent gap.
+
+### QA-4 — a concrete instance of Phase 1's named split-line residue, confirmed non-discriminating
+
+Phase 1 declared "expectations split across physical lines" as residue the sweep cannot see, and
+stated it so it would not be read as zero. It is no longer zero — one instance, at
+`bugFixCoverage.supplemental.test.ts::'handles discriminator as string "0000" (leading zeros)'`:
+
+```
+const url      = constructImageUrl('1000000000000000000', null, '0000');
+const expected = constructImageUrl('1000000000000000000', null, 0);
+expect(url).toBe(expected);
+```
+
+The expected value is produced by the function under test, one line above the assertion. E1 misses
+it because the matcher's argument is a bare identifier; E3b-indirect misses it because that limb
+explicitly excludes imported production symbols (`if (imported.has(callee)) return;`).
+
+**Confirmed vacuous under the very mutation its own formula fails**: in the run above, this case
+stayed **green** while its two literal-expectation siblings went red. Both sides move together.
+
+**Not blocking, and it is not a defect on its own** — it is a parity property between two inputs,
+adjudicated at Phase 1 as acceptable *as a set* where discriminating siblings exist in the same
+file. They do. The hazard is a later "simplify" pass deleting the siblings and keeping this case,
+leaving a file that asserts nothing and still reads as covered.
+
+**This is the third member of one recurring class this chain has produced** — after the `hashMessage`
+L67 caveat (Phase 1) and the `embeds: {}` mislabel (fixed at `f2c85f5`). Each is a case that looks
+interchangeable with discriminating siblings and is not. Recorded for the retrospective as a class,
+not three incidents.
+
+## Assumption Not Checked
+
+**This pass assumes the per-transition pass-set evidence composes into end-to-end AC2 preservation,
+and it does not test that.** What went unexamined is the composition itself: each milestone's
+identity check was executed and recorded at the point it happened, and one of them (M2) was
+independently re-executed on both trees by the code reviewer — but no instrument in this pass, or
+any other, replays the 617 baseline cases against the 566 final ones through the rename mapping
+end to end. Both replays I attempted measured something else and I have reported them as failures
+rather than as evidence.
+
+**Observable signature if it is false**: a baseline case that was silently dropped rather than
+deliberately dispositioned would appear as a surface with no covering test and no Outstanding Items
+line — invisible to every green run, and visible only to a row-by-row reconciliation of the
+baseline's 617 titles against the table's mapping.
+
+**Owner**: the retrospective. The mapping needed to close this is the disposition table's own
+`old title → new title` column, so closing it means auditing that column against the baseline
+capture — work that belongs to a reader who is not consuming the column as their identity function.
+Named again in the handoff below so it is routed, not shelved.
+
+## Blocking-condition register — appended rows
+
+Appended to the chain's single register minted in Phase 1. No parallel ID space.
+
+| ID | Class | Condition | Primary instrument | Subject / fallback | Earliest-decidable | Predicted value | Failure mode (operator terms) | Owner | State |
+|---|---|---|---|---|---|---|---|---|---|
+| BC-7 | post-deploy-observable | Row 19's persist-gate choice path stays unreachable through the UI, and shipping this chain does not change that | Mount `NewMessageModal`, trip `gateBeforePersist.mustAsk`, press Save | uat agent (fallback: owner) | After merge | Save disabled before the choice prompt can appear | An operator hitting a content-loss draft gets a disabled Save and no explanation, and the choice UI he is meant to see never appears | uat | **OPEN — out of charter (D2), fix not attempted** |
+| BC-8 | post-deploy-observable | Row 43's deleted pin — the route-0 mount-effect init surface has no covering test | The handoff record's own repro | owner | Post-chain | Cached edits lost on route-0 init, as recorded | A user's cached edits vanish on load with nothing in the suite that would catch a regression | owner | **OPEN — handoff `message-init-cached-edits-lost-2026-08-27.md`** |
+| BC-9 | post-deploy-observable | Toast-bearing surfaces actually show a transient notice to a user | Drive a code-fetch error and an in-flight save in a running build | uat agent | After merge | A visible toast in both cases | The suite proves `toast.error`/`toast.loading` were *called*, never that anything renders — `react-toastify` renders outside the mounted tree, so a regression that breaks rendering while preserving the call is invisible to every test in this chain | uat | **OPEN — no automated coverage by design** |
+
+> **Standing note**: this list is point-in-time. The UAT document, and then the deployment record,
+> are authoritative on each row's execution state.
+
+## Verdict
+
+**QA Complete** at `website` `f2c85f5`, plan rev 16.
+
+Nothing found in this pass is a functional defect, and the chain's stated purpose is demonstrably
+achieved on instruments built independently of the implementer's: the two classes it set out to
+eliminate are **gone** (E2 source-text 12 → 0, E3a 3 → 0), the naming standard holds over all 51
+files in both directions, and no production code was touched in the doing of it.
+
+QA-3 is a record gap whose substance this pass supplied. QA-4 is a recorded residue instance,
+non-blocking by the precedent Phase 1 set for its class. Neither warrants a fix round; both are
+routed below.
+
+Handing off to the uat agent for value delivery validation.
