@@ -2,7 +2,7 @@
 ID: 014
 Origin: 014
 UUID: 4671e28c
-Status: Committed for Release — website `master` → `f2c85f5` (chain-014 merge), `agent-output` alongside
+Status: Superseded by 014-test-suite-cleanup-deployment.md — release executed 2026-08-27T05:19:56Z
 Status-Detail: >-
   **Stage 1 only. Nothing was merged, switched, tagged or pushed.** Committed state recorded for
   plan 014 at `website` `f2c85f5` on `chain/014-test-suite-cleanup`, tree clean; `agent-output` at
