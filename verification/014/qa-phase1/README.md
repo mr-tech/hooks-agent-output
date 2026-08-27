@@ -16,6 +16,7 @@ instead: anything asserting on production behaviour. Nothing here is a test of t
 |---|---|
 | `ac7-sweep.js` | The AC7 / axiom-(E) candidate enumerator. Run **from the `website` repo root**: `node ../agent-output/verification/014/qa-phase1/ac7-sweep.js`. Its header states the enumeration predicate and every exclusion; quote them together with any count taken from it. |
 | `ac7-sweep-a74b9e2.txt` | That script's output at `website` `a74b9e2`. |
+| `ac7-sweep-34140d3.txt` | The same script's output at `website` `34140d3` (M0-M4c complete, M5 not started). Re-run by `qa-hooks-014-2`. Domain 48 -> 53 files; flagged 27 -> 20; **E2 12 -> 0**, **E3a 3 -> 0**, E1 4 -> 5, E3b 10 -> 5, E3b-indirect 17 -> 12. Candidate counts, not violations - the standing cautions below apply unchanged. Not a Phase 2 verdict: no `Verified-At` is claimed from it. |
 | `probe-json-reporter-isValidUrl.json` | The vitest 4.1.2 JSON reporter's output for a single file, capturing the reporter's actual shape. Closes plan 014's M0 step-3 assumption ahead of M0. |
 
 ## Standing cautions for anyone re-running `ac7-sweep.js`
@@ -30,3 +31,11 @@ instead: anything asserting on production behaviour. Nothing here is a test of t
 - **Line-based matching.** E1 and E3b read one physical line; E3b-indirect follows exactly one
   intermediate variable. A two-hop chain, or an expectation split across lines, is outside the
   predicate and is named residue — not absence.
+- **"Two-hop chain" means variable depth, NOT argument nesting.** Read 2026-08-27 by
+  `qa-hooks-014-2` after two peers reported row 12's `const step2 = switchToClassic(switchToV2(draft))`
+  as having escaped E3b-indirect. It did not: the limb keys on `const <alias> = <local-compute>(`
+  and is indifferent to what sits inside the parens, so the site was flagged at the correct limb
+  (`ac7-sweep-a74b9e2.txt` line 52ff, six candidate lines). The residue is `a=f(x); b=g(a);
+  expect(b)` — a chain through **two variables** — and nothing else. Recorded because a false
+  report of a gap costs the same as a real one: it would have put Phase 1's 27-of-48 under a
+  qualification it never earned, and invited a widening of the predicate for no reason.
