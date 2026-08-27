@@ -26,23 +26,4 @@ lines about items nobody is waiting on.** If it does not need the owner to act, 
 
 ---
 
-## Chain 014 — say whether the site is serving the release
-
-Released at 2026-08-27 05:19:56Z: website master a74b9e2 → f2c85f5, pushed; Vercel deploys on that
-push. No agent checks the host. **Open the live site and tell steering "serving" or "not serving"
-(and, if you can see it, the Vercel deployment's commit).** Pass: it is up on f2c85f5. Your word is
-the evidence; nothing else is captured.
-
-## Chain 014 — see the toasts render (BC-9) and the persist-gate (row 19) in the running build
-
-The dev server is already up at http://localhost:3000 on the chain branch (f2c85f5). No test can
-see react-toastify render, so this is yours.
-
-1. Open a message page (e.g. `/message/m/new`) and force a code-fetch error — e.g. stop the API
-   or use a bad message ID — **pass: a red error toast appears on screen.**
-2. Start a save and watch while it is in flight — **pass: a loading toast appears, then clears.**
-3. Row 19 (persist-gate): try the choice the UAT doc calls "the persist-gate choice path" —
-   **pass: you can reach it through the UI, or note that you cannot (that is itself the answer).**
-4. Tell steering the three results. Then `pkill -f "next dev"`.
-Fail on any limb → becomes a handoff record (product code is out of this chain's charter), not a
-fix round. These gate chain **closure**, not the release.
+**Nothing is waiting on you.**

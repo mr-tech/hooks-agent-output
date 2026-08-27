@@ -113,3 +113,7 @@ Owner, on the second block: "Go ahead and try. I approve it." Steering ran the �
 once, unchanged: master a74b9e2 → f2c85f5, pushed 2026-08-27T05:19:56Z, exit 0, ls-remote confirms.
 Tree on master. No tag; agent-output not pushed. Serving state NOT VERIFIED by steering. Devops
 writes the Mode B record with steering as operator.
+
+## 2026-08-27 — serving confirmed; walkthrough delegated
+Owner: "The site is serving f2c85f5, UAT is at work" → serving-state evidence relayed to devops;
+BC-9/row-19 walkthrough now executed by uat-hooks-014, not the owner. OWNER-QUEUE emptied.
