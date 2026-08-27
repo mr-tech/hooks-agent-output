@@ -1,0 +1,8 @@
+PRE : {"files":46,"total":604,"passed":604,"failed":0,"tuples":604}
+POST: {"files":46,"total":604,"passed":604,"failed":0,"tuples":604}
+only-in-pre : 0
+only-in-post: 0
+
+process exit codes:
+  pre  EXIT=0
+  post EXIT=0

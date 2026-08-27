@@ -1,0 +1,46 @@
+# Negative controls on website 988ca15's vitest.config.ts / tsconfig.test.json
+# Every control mutated the config in a throwaway worktree, ran, then restored (restore verified
+# with `diff -q` against a pre-mutation copy — "config restored identical" printed each time).
+# Probe file: harness-probe.test.tsx (4 cases), placed at src/utils/__tests__/ in the worktree.
+
+HEAD (unmutated, 988ca15)
+  npx vitest run src/utils/__tests__/crprobe.harness.test.tsx
+  -> "|dom| ... (4 tests)"  4 passed, exit 0
+  Establishes: the dom project collects .test.tsx; environment is a DOM; the dom setup file ran
+  (IS_REACT_ACT_ENVIRONMENT === true); the `~` alias resolves inside the dom project; createRoot
+  + act mounts a React element and the rendered text is readable.
+
+Node-project scoping probe (a .test.ts asserting the absence of the DOM globals and the flag)
+  -> 2 passed, exit 0
+  Establishes: node tests gain no `window`/`document` and never see IS_REACT_ACT_ENVIRONMENT.
+
+CONTROL 1 — delete `setupFiles: ['./vitest.setup.dom.ts']` from the dom project
+  -> exit 1; "× loaded the dom setup file"; 1 failed | 3 passed
+  The setupFiles line is load-bearing and the probe discriminates on it.
+
+CONTROL 2 — dom project `environment: 'jsdom'` -> `'node'`
+  -> exit 1; "× runs under a DOM environment", "× mounts a react component with createRoot + act";
+     2 failed | 2 passed
+  The jsdom environment is load-bearing and the probe discriminates on it.
+
+CONTROL 3 — delete `resolve: { alias }` from the DOM PROJECT ONLY (top-level `resolve` left in place)
+  -> exit 1; Error: Failed to resolve import "~/utils/pushSorted" ...; "Tests  no tests"
+  The per-project alias is load-bearing. The TOP-LEVEL `resolve: { alias }` does NOT reach a
+  project — this is what makes CONTROL 4 below a finding.
+
+CONTROL 4 — delete the TOP-LEVEL `resolve: { alias }`, keep both per-project copies
+  npx vitest run   (full suite in the worktree, probe files included)
+  -> 48 files / 610 tests passed, exit 0
+  The top-level `resolve: { alias }` at 988ca15 is read by nothing. Removing it changes no outcome.
+
+CONTROL 5 — tsconfig.test.json include line
+  a) append `const crBad: number = 'x';` to vitest.setup.dom.ts, include line PRESENT
+     npx tsc -p tsconfig.test.json --noEmit
+     -> exit 2, 1 error: vitest.setup.dom.ts(4,7): error TS2322
+  b) same type error, `"vitest.setup.dom.ts"` REMOVED from include
+     -> exit 0, 0 errors
+  The tsconfig.test.json include addition is load-bearing and discriminating.
+
+Typecheck at 988ca15, both programs, probe .tsx present
+  npx tsc -p tsconfig.json      --noEmit  -> exit 0
+  npx tsc -p tsconfig.test.json --noEmit  -> exit 0

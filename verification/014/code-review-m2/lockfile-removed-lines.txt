@@ -1,0 +1,30 @@
+# pnpm-lock.yaml removed lines at website 988ca15
+# Two independent instruments, both computed before any output filter.
+
+$ git -C website show 988ca15 --numstat -- pnpm-lock.yaml   # added<TAB>removed<TAB>path
+328	7	pnpm-lock.yaml
+
+$ git -C website show 988ca15 -- pnpm-lock.yaml > f && grep -c '^-[^-]' f
+7
+
+The 7 removed content lines, with their replacements:
+39:-        version: 4.1.2(@edge-runtime/vm@3.1.7)(@types/node@22.15.29)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.8.1)(@types/node@22.15.29)(sass@1.56.2))
+40-+        version: 4.1.2(@edge-runtime/vm@3.1.7)(@types/node@22.15.29)(jsdom@30.0.1)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.8.1)(@types/node@22.15.29)(sass@1.56.2))
+--
+451:-      debug: 4.3.4
+452-+      debug: 4.4.3
+--
+460:-      debug: 4.3.4
+461-+      debug: 4.4.3
+--
+524:-      debug: 4.3.4
+525-+      debug: 4.4.3
+--
+606:-      debug: 4.3.4
+607-+      debug: 4.4.3
+--
+646:-      debug: 4.3.4
+647-+      debug: 4.4.3
+--
+703:-  vitest@4.1.2(@edge-runtime/vm@3.1.7)(@types/node@22.15.29)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.8.1)(@types/node@22.15.29)(sass@1.56.2)):
+704-+  vitest@4.1.2(@edge-runtime/vm@3.1.7)(@types/node@22.15.29)(jsdom@30.0.1)(vite@8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.8.1)(@types/node@22.15.29)(sass@1.56.2)):

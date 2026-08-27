@@ -1,0 +1,31 @@
+# The five `debug: 4.3.4 -> 4.4.3` resolution changes in website 988ca15's pnpm-lock.yaml
+#
+# Instrument (run against file bytes, not a pipe):
+#   git -C website show 988ca15^:pnpm-lock.yaml > old-lock.yaml
+#   git -C website show 988ca15:pnpm-lock.yaml  > new-lock.yaml
+#   awk '/^  [^ ].*:$/ {key=$0} /^      debug: 4\.4\.3$/ {print NR": "key}' <file>
+#
+# Snapshots that gained `debug: 4.4.3` at 988ca15 (present in new, absent in old):
+#   @pm2/pm2-version-check@1.0.4
+#   agent-base@7.1.0
+#   get-uri@6.0.1
+#   pac-proxy-agent@7.0.0
+#   socks-proxy-agent@8.0.1
+#
+# All five sit in one devDependency subtree:
+#   website/package.json devDependencies -> paracord (github:mr-tech/paracord)
+#     -> pm2@5.3.0 -> @pm2/agent@2.0.3 -> proxy-agent@6.3.0
+#        -> {pac-proxy-agent@7.0.0, socks-proxy-agent@8.0.1, agent-base@7.1.0, get-uri@6.0.1}
+#     -> @pm2/pm2-version-check@1.0.4
+#
+# Nothing under package.json "dependencies" changed resolution.
+# Both debug@4.3.4 and debug@4.4.3 package entries exist in BOTH lockfiles, so this is a
+# resolution change, not a package add/remove.
+#
+# Pre-existing split, which the install converged:
+#   at 988ca15^, http-proxy-agent@7.0.0 and https-proxy-agent@7.0.2 already resolved debug to
+#   4.4.3 while their siblings in the same proxy-agent family resolved it to 4.3.4.
+#
+# Bound on the change: 5 snapshots, dev-only, same major (debug 4.x), patch/minor step.
+# Measured consequence on the suite: none — see passset-differential.txt (604/604 identical
+# (file, fullName, status) tuples pre vs post, exit 0 both).
