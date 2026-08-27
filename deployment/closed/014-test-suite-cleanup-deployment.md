@@ -303,9 +303,17 @@ in UAT's ledger, and this record is not the place it lands.** The dev server at 
   and **differ in size** — `.env.local` 1.8K, `.env.local.bak-2026-08-27` 1.9K — which indicates the
   localised version is **still in place and the backup not yet restored**. Recorded **by filename and
   size only; neither file was read**, because they hold credentials. **This has no bearing on
-  production** — Vercel supplies its own environment and the release is already serving — but it means
-  **the owner's local dev server is not on production config** until he restores it. Flagged rather
-  than acted on: restoring it is his, not this stage's.
+  production** — Vercel supplies its own environment and the release is already serving.
+  **CORRECTION, dated 2026-08-27, and this entry was wrong.** It originally continued: *"but it means
+  the owner's local dev server is not on production config until he restores it. Flagged rather than
+  acted on: restoring it is his, not this stage's."* **The owner has since ruled, verbatim, "stay
+  local"** — the local Postgres/Redis stack is the **INTENDED STEADY STATE**, not a condition awaiting
+  restore (`steering/014-rulings.md`, commit `b644e3d`, verified present by this stage; relayed by
+  `steering-test-cleanup`). **Do not restore `.env.local` from the backup**, and do not read this
+  entry as an outstanding item. The size difference this stage measured is real but means only that
+  the two files differ, which is expected — it never supported the inference drawn from it. The error
+  was mine: a measurement was sound and the conclusion attached to it was not. The backup is retained
+  as a backup, nothing more.
 
 ### Rollback plan — **ACCEPTED AS WRITTEN, and therefore a named risk**
 
@@ -388,9 +396,10 @@ difference is the test suite and harness config. The user-visible product is byt
 3. **roadmap subagent** — release complete and chain closed; update the release tracker. **The one
    genuinely outstanding handoff to another stage.**
 4. ~~**qa** — dated reconcile note for **UAT-1**~~ — **DISCHARGED** 2026-08-27 (`844ad20`).
-4a. **Owner** — restore `website/.env.local` from `.env.local.bak-2026-08-27` when he is done with the
-   localised backing services. Production is unaffected; his local dev server is not on production
-   config until he does. Not this stage's to touch.
+4a. ~~**Owner** — restore `website/.env.local` from `.env.local.bak-2026-08-27`~~ — **WITHDRAWN
+   2026-08-27, and it was never a real action.** The owner ruled *"stay local"*: the local
+   Postgres/Redis stack is the intended steady state (`steering/014-rulings.md`, `b644e3d`).
+   **Nobody is to restore it.** See the corrected Known Issues entry above.
 4b. **Carried forward, owned by the next chain, not by this one** — **BC-7/AC8**: the first planning
    document opened in this workspace cites `agent-output/CLAUDE.md`. One citation closes it, and it is
    the pilot's answer to D1.
