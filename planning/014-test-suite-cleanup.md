@@ -2,14 +2,14 @@
 ID: 014
 Origin: 014
 UUID: 4671e28c
-Status: Active
-Status-Detail: Revision 3 — critique cycle 1 (REQUEST REVISION, 10 Medium / 6 Low) answered; with critic-hooks-014 for cycle 2. M2 analysis open with analyst-hooks-14. M2 (DOM harness) is an owner-authorised scope delta and carries a REQUIRED analysis (analyst-014) before its implementation; every other milestone is implementable on critic approval.
-Revision: 3
+Status: Approved
+Status-Detail: Revision 4 — critique APPROVED (cycle 1 pass 2, `265b383`); ready for QA Phase 1 and the implementer from M0. M2 implementation gated on analyst-hooks-14's analysis. M2 (DOM harness) is an owner-authorised scope delta and carries a REQUIRED analysis (analyst-014) before its implementation; every other milestone is implementable on critic approval.
+Revision: 4
 Target Release: website `master` moved to the chain-014 merge SHA (the package carries no version artefact); `agent-output` moves alongside
 Epic Alignment: none registered — the owner-approved coordination plan `/home/dev/.claude/plans/we-recently-changed-the-wobbly-sparrow.md` is the source of the effort's outcome
 Lane: standard (agent-output/README.md carries no small-lane section — recorded absence, not a judgement)
 Architectural surface: none — test infrastructure and a conventions document only; no product layer, contract or core path changes
-Owning-Stage: critic
+Owning-Stage: qa
 ---
 
 # Plan 014 — Hooks test-suite cleanup (pilot)
@@ -18,6 +18,7 @@ Owning-Stage: critic
 
 | Date | Rev | Author | Change |
 |---|---|---|---|
+| 2026-08-27 | 4 | planner-hooks-014 | Critique pass 2 APPROVE (`265b383`). Lows L-7..L-9 corrected: ID tokens stripped from doc-bound text; ownership exception names row 14 only; AC7 residue names the class not QA's instrument. Status → Approved. Scope delta: none. |
 | 2026-08-26 | 3 | planner-hooks-014 | Answers critique cycle 1 (`critiques/014-test-suite-cleanup-critique.md`, `3fba6de`): M-1..M-10 and L-1..L-6 each corrected by rewriting the rubric, plan, AC and Risks sections — predicate forms, domains and residue; evergreen doc vs chain rows; fixed milestone sequence; M3/M5 instruments; AC2 identity key; AC7 holder = QA; rows 14/20/22 → H5 partial; rename all five (Q1); scoped CR on M2 only (Q2); POC install site (Q3). Scope delta: none. |
 | 2026-08-26 | 2 | planner-hooks-014 | D14 registered (scope confirmed). D15 amends D6: M1's canonical file becomes `agent-output/CLAUDE.md`, symlinked at `/usr/local/bin/hooks/CLAUDE.md`; M1 OPEN QUESTION closed; rollback for M1 rewritten. Scope delta: none beyond rev 1's. |
 | 2026-08-26 | 1 | planner-014 | Created. Value statement and mint approved by the owner (relayed by steering-test-cleanup). Registers rulings D1–D13. Rubric amended with classes H4–H9 for the inventory's eight unclassified files. Scope delta vs the coordination plan: **M2 adds a DOM test harness (D13)** — devDependency + vitest config — where the coordination plan had delete-or-convert on an analyst verdict. |
@@ -71,7 +72,7 @@ Standing constraint inherited from chain 012/013, restated: **no agent sends a l
 
 **Axioms.**
 (A) A test is evidence only if it has been seen to fail against the defect it names — recorded once, in the disposition table, from a local, restored mutation.
-(B) A bug-form test is earned only by an escaped defect: an artefact that is a **release or incident record** — an incident/handoff dated before the fix commit, a user report, or a release that shipped the defect. Owner observations against unreleased branch work, and any review/QA finding ID, are intra-chain and do not qualify (this chain: D9). Ambiguous → spec-form.
+(B) A bug-form test is earned only by an escaped defect: an artefact that is a **release or incident record** — an incident/handoff dated before the fix commit, a user report, or a release that shipped the defect. Owner observations against unreleased branch work, and any review/QA finding ID, are intra-chain and do not qualify. Ambiguous → spec-form.
 (C) Test and file names name the surface and behaviour — never a chain, milestone, ticket, agent, date or person. Hooks form: `__tests__/<module>.<behaviour>.test.ts[x]`, `<module>` = the production module's basename (hyphens admitted: `interactions-edge`). Provenance is one line `// escaped: <artefact path>`.
 (D) A test whose expected value is a known-wrong result is a pin, not a test.
 (E) A test's expected value is independent of the code under test: never computed by the formula under test, never read from a production module's text, never supplied by the test's own transcription of production code. Universal — every case in the suite is in its class.
@@ -83,14 +84,14 @@ Standing constraint inherited from chain 012/013, restated: **no agent sends a l
 | H4 never-red guard | The file states, or the record shows, it passed at HEAD when written. **Stated limit: the class is enumerable only by the file's own admission — no instrument sees "was never red".** | Keep only if it goes red under one local mutation of the guarded behaviour; else delete. Strip the "not a TDD red/green" framing either way. | Mutation recorded in the disposition table. |
 | H5 self-referential oracle | Expected value computed by the formula under test, or by a local transcription of it (violates E). | Rewrite the expectation as a literal or independently derived value, or import the production function where the transcription stood in for it; keep the file. | New expectation shown red against a one-token mutation of the production formula. |
 | H6 third-party source assertion | Reads text under `node_modules`. | Delete. No covering test owed — the surface is not the product's. | None. |
-| H7 zero-production-import transcription | No `~/` or `bot/` import; asserts on a local copy of production code. | Delete. A pin inside → handoff (D2). The surface goes to Outstanding Items unless a covering test is named. | Named covering test or an Outstanding Items line. |
+| H7 zero-production-import transcription | No `~/` or `bot/` import; asserts on a local copy of production code. | Delete. A pin inside → a handoff record, never a fix. The surface goes to Outstanding Items unless a covering test is named. | Named covering test or an Outstanding Items line. |
 | H8 oracle-contamination guard | Reads its **own** `__filename` to assert the test never calls the function under test. Not H1: H1's predicate is *production* text. | Keep; rename per (C). | None. |
 | H9 hand-rolled renderer | Defines its own `render()` over React elements. | Convert to the DOM harness. | Converted test red on a mutation of the rendered behaviour, green at head. |
 
 Chain-application rows (this plan only, never the doc): `shapes-v2.test.ts` D34 case → delete (D8); the five `013-owner-*` files → spec-form by D9 → H1 convert / H2 rename; rows 14, 20, 22 carry local transcriptions used as oracles (`switchToClassic`, `modeAfterLoad`/`confirmationFor`, `producerHash`/`consumerHash`) → H5 partial (M4b).
 
 **Naming predicate implementing (C)** — replaces the coordination plan's `^(\d{3}-|qa\d|cr-|plan-)`:
-- *Positive form, basenames* (acceptance): `^[a-z][a-zA-Z0-9-]*\.[a-z][a-zA-Z0-9-]*\.test\.tsx?$` **and** neither segment contains an ID token, where the ID-token class is, case-insensitively, `\b(m|ms|cr|qa|fqa|f-qa|ec|d|l|plan|rider)-?[0-9]+[a-z]?\b|\b0[0-9]{2}\b|20[0-9]{2}-[0-9]{2}-[0-9]{2}`. `v[0-9]+` is product vocabulary and is not in the class. (So `shapes.m9f-dropped-types.test.ts` fails; `shapes.v2-message.test.ts` passes.)
+- *Positive form, basenames* (acceptance): `^[a-z][a-zA-Z0-9-]*\.[a-z][a-zA-Z0-9-]*\.test\.tsx?$` **and** neither segment contains an ID token, where the ID-token class is, case-insensitively, `\b(m|ms|cr|qa|fqa|f-qa|ec|d|l|plan|rider)-?[0-9]+[a-z]?\b|\b0[0-9]{2}\b|20[0-9]{2}-[0-9]{2}-[0-9]{2}`. `v[0-9]+` is product vocabulary and is not in the class. (Illustration, plan only — not for the doc: a behaviour segment carrying a milestone token fails; `shapes.v2-message.test.ts` passes.)
 - *Negative form, cross-check*: the same ID-token class, case-insensitive, over **three domains only** — basenames, `describe`/`it`/`test` title strings, and comment lines (`//`, `/* */`) — → 0 lines outside `// escaped:` lines. Effort-bound comments (`// D11`, review-round notes) are removed under the implementer's comment rule in the same pass. **Bounded residue, exempt and named**: string literals inside code (fixture timestamps such as `2026-08-23T00:00:00Z`, tmpdir prefixes such as `012-backfill-`, `it.each` format strings) — the class the predicate cannot distinguish from names; M4a strips them where the string is a title, leaves them where it is data.
 
 **Instrument note**: static `it(`/`test(` site count and vitest `numTotalTests` measure different things (`it.each` expansion; at `a74b9e2`: 560 sites + 10 `it.each` = 570, executed count unknown until M0); a gap is not missing coverage. Counts via `grep -c`/`-rc` or the JSON reporter, never `| wc -l`.
@@ -145,7 +146,7 @@ Acceptance (property): in test files, definitions of the three lifted families �
 - Row 11 `011-style-reconciliation-poc.test.ts` — H6: delete.
 - Row 3 `012-backfill-report.test.ts` — H4 on the never-red case: keep if red under mutation, else delete that case; then rename (counted here, not M4a).
 - Row 46 `plan-005-bug-fixes.test.ts` — H5: literal expectations for the two self-referential cases; rename; `// escaped: analysis/closed/005-user-reported-bugs-analysis.md`.
-- Rows 14, 20, 22 — H5 partial: replace transcription-derived expectations (`switchToClassic`; `modeAfterLoad`/`confirmationFor`; `producerHash`/`consumerHash`) with literals or the production import; case counts unchanged; then rename. Row 14's and 15's two source-text cases each stay for M4c — **exception to one-milestone ownership, named**: rows 14 and 15 are opened by M4b (oracle) and M4c (source-text cases); M4b completes first.
+- Rows 14, 20, 22 — H5 partial: replace transcription-derived expectations (`switchToClassic`; `modeAfterLoad`/`confirmationFor`; `producerHash`/`consumerHash`) with literals or the production import; case counts unchanged; then rename. Row 14's and 15's two source-text cases each stay for M4c — **exception to one-milestone ownership, named**: row 14 is opened by M4b (oracle) and M4c (source-text cases); M4b completes first. Row 15 is M3 + M4c only.
 - Row 7 `shapes-v2.test.ts` — delete the D34 case (D8); title strips and rename.
 
 **M4a — pure renames, title strips, effort-bound comment removal (H2); no case change.** Every remaining file, including the three clean ones and the title-only ones, is renamed to the (C) form — uniform rule, no exemptions (critic Q1 settled: rename). Rows 1, 2, 4, 5, 6, 8, 9, 12, 13, 17, 18, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 37 (H8), 40, 41, 42, 44, 47 (`// escaped:` line added), 48. Illustrative names only: `utils.components-v2-data-layer.test.ts`, `isValidUrl.url-validation.test.ts`, `limits.mutual-exclusivity.test.ts`. Evidence per file: per-file case count equal and zero failures on both trees, with the `old title → new title` column filled for every retitled case (the identity key across a title strip).
@@ -174,7 +175,7 @@ Impossible conversion (analysis says no mount) → case deleted, surface in Outs
 - AC4 Every basename vitest collects passes the positive predicate, no exemptions; the negative form → 0 over its three domains, residue as named.
 - AC5 Every kept bug-form test carries `// escaped:` naming a release/incident artefact; class: files on the M5 step-6 list.
 - AC6 Every converted or oracle-repaired case was seen red under a recorded local mutation; class: disposition ∈ {convert, oracle-repair}; instrument: the evidence column.
-- AC7 Axiom (E) holds over every case in the suite; **holder: the qa subagent** (adequacy owner under V-27 — a test-only diff opens no review round, so code review cannot hold it; critic Q2 settled). The class of known violators is rows 46, 14, 20, 22 (M4b) plus anything M4c writes; residue: any transcription the inventory did not tag, which QA's sweep enumerates by `grep -rn 'function ' --include='*.test.ts*'` over non-helper definitions.
+- AC7 Axiom (E) holds over every case in the suite; **holder: the qa subagent** (adequacy owner under V-27 — a test-only diff opens no review round, so code review cannot hold it; critic Q2 settled). The class of known violators is rows 46, 14, 20, 22 (M4b) plus anything M4c writes; residue: any transcription the inventory did not tag — a bounded class QA enumerates by its own instrument.
 - AC8 Human-observable: the next feature chain's planner cites `agent-output/CLAUDE.md` (via the symlink) — checked by that chain's retrospective.
 
 Code review on this chain: **scoped to M2's `package.json`/`vitest.config.ts`/lockfile diff only** (non-test files); all test-only diffs go to QA under V-27.
@@ -198,7 +199,7 @@ Unit-level; no e2e. Expectation: no net loss of behavioural cases (AC2); H1 surf
 | A component does not mount without production change (D13 reopening class). | Analysis (e). | rev 1–3: analysis open. |
 | Deleting a pin loses the only record of a real bug. | Handoff exists before the delete commit. | rev 1–3: no deletion yet. |
 | The disposition table becomes narrative instead of per-row evidence. | Any row with an empty evidence column at review. | rev 1–3: no table yet. |
-| Acceptance instruments contradict the dispositions they verify (critic cycle 1: ten members). | Any M5 command reading a failure on a file the plan leaves as-is. | rev 3: ten members found by critique, all corrected in this revision; none outstanding. |
+| Acceptance instruments contradict the dispositions they verify (critic cycle 1: ten members). | Any M5 command reading a failure on a file the plan leaves as-is. | rev 3: ten members found by critique, all corrected. rev 4 (pass 2): no new member. |
 
 ## Rollback
 
@@ -210,7 +211,7 @@ Populated by the implementer per M4; empty at rev 3.
 
 ## Handoff Notes
 
-- Critic: cycle 2 on rev 3. No OPEN QUESTION stands.
+- Critic: approved at pass 2. No OPEN QUESTION stands.
 - Analyst-hooks-14 (M2): the REQUIRES ANALYSIS paragraph, now with the install site.
 - Implementer: fixed sequence M0 → M1 → M3 → M4b → M4a → M2 → M4c → M5; close the M0 step-3 assumption first.
 - QA: owns adequacy (V-27) and AC7; registers AC8 as the post-chain observable.
