@@ -3,8 +3,8 @@ ID: 014
 Origin: 014
 UUID: 4671e28c
 Status: Approved
-Status-Detail: Revision 5 — M2 cleared by analysis `50f053a` (D13 reopening class not met); QA Phase 1 in progress (qa-hooks-14); implementer spawns on Phase 1 landing (D16). M2 (DOM harness) is an owner-authorised scope delta and carries a REQUIRED analysis (analyst-014) before its implementation; every other milestone is implementable on critic approval.
-Revision: 5
+Status-Detail: Revision 6 — critic pass 3 APPROVE stands (`eff80a5`), M-11/M-12/L-10/L-11 landed; M2 cleared by analysis `50f053a` (D13 reopening class not met); QA Phase 1 in progress (qa-hooks-14); implementer spawns on Phase 1 landing (D16). M2 (DOM harness) is an owner-authorised scope delta and carries a REQUIRED analysis (analyst-014) before its implementation; every other milestone is implementable on critic approval.
+Revision: 6
 Target Release: website `master` moved to the chain-014 merge SHA (the package carries no version artefact); `agent-output` moves alongside
 Epic Alignment: none registered — the owner-approved coordination plan `/home/dev/.claude/plans/we-recently-changed-the-wobbly-sparrow.md` is the source of the effort's outcome
 Lane: standard (agent-output/README.md carries no small-lane section — recorded absence, not a judgement)
@@ -18,6 +18,7 @@ Owning-Stage: qa
 
 | Date | Rev | Author | Change |
 |---|---|---|---|
+| 2026-08-27 | 6 | planner-hooks-014 | Critic pass 3 (`eff80a5`, APPROVE stands): exit-code observable made plan-wide (M-11); Validation instrument is `pnpm run typecheck` (M-12); D13 row carries the S4 consequence (L-10); `DiscordMessageEditor` added to M4c residue (L-11); environment-fidelity convention added to M1's doc content. D17 registered (steering contact rule). Scope delta: none. |
 | 2026-08-27 | 5 | planner-hooks-014 | Consumes `analysis/014-test-suite-cleanup-analysis.md` (`50f053a`): M2 fixed as jsdom via `test.projects`, `.test.tsx` admitted, forward step `pnpm add -D jsdom`; M2 acceptance adds the process exit code; **rev 3's install-site paragraph was wrong (npm/`npm ci` against a pnpm tree) — planner's error, replaced by the analysis's record**; helpers re-sited to `src/**/__tests__/helpers/` (S5); M4c target set widened (S1), EmojiPicker named as residue (S2), row 45 convert→delete (S4), tRPC mock kept out of the standard (S3). Scope delta: no milestone change; one disposition moved (row 45) and M4c's target set widened. |
 | 2026-08-27 | R-1 | planner-hooks-014 | Registration: D16 (QA first; implementer after Phase 1). Scope delta: none — registration only. |
 | 2026-08-27 | 4 | planner-hooks-014 | Critique pass 2 APPROVE (`265b383`). Lows L-7..L-9 corrected: ID tokens stripped from doc-bound text; ownership exception names row 14 only; AC7 residue names the class not QA's instrument. Status → Approved. Scope delta: none. |
@@ -61,7 +62,8 @@ Route for every row unless stated: owner selection prompt in session steering-te
 | D14 | The six-milestone scope (M0 baseline, M1 CLAUDE.md, M2 harness, M3 helpers, M4a/b/c, M5 sweep) is confirmed. | Selection "Confirm the 6-milestone scope" (relayed by steering-test-cleanup, 2026-08-26). | Owner withdrawal only. |
 | D15 | `CLAUDE.md` is canonical at `agent-output/CLAUDE.md` and symlinked at `/usr/local/bin/hooks/CLAUDE.md`; the symlink itself is unversioned. | Selection "Canonical in hooks/agent-output/CLAUDE.md, symlinked at /usr/local/bin/hooks/CLAUDE.md"; option text as put by steering: "Versioned in the record repo; the workspace path still auto-loads via the symlink. Symlink itself is unversioned." (relayed, 2026-08-26). | Owner withdrawal only. Consequence: closes M1's OPEN QUESTION; amends D6. |
 | D16 | QA Phase 1 runs first; the implementer is spawned only after the Phase 1 document lands. | Owner, verbatim: "QA first only; implementer after Phase 1 lands." — selection prompt in steering-test-cleanup, relayed, 2026-08-27. | Owner withdrawal only. |
-| D13 | A DOM test harness is authorised as a declared scope delta: new devDependency + vitest environment change; source-text tests over `.tsx` are converted to behavioural tests instead of deleted; an analyst determines the harness shape. | Owner, verbatim: "Which makes more sense to do in the long-term? I'm leaning towards 2, authorize." — option 2 as put to him by steering: "Authorise a DOM harness as a declared scope delta — new devDependency + vitest environment change; the analyst then needed — you'd spawn it. Converts those files to behavioural tests instead of deleting." (relayed). | Analyst finding that no harness can mount the target components under this toolchain (Next 16 / React 19 / vitest 4) without production-code change — then M2 reverts to delete-with-Outstanding-Items and the owner is told. |
+| D17 | For chain 014, a stage messages steering-test-cleanup only for (a) an item that needs the owner — a block, an OPEN QUESTION, a scope delta that adds or reshapes a milestone — or (b) a cue that the next stage needs spawning. Status, revisions, pass/cycle outcomes and "nothing for the owner" stay in the documents and go to the consuming stage. | Owner: "Do both" on steering's proposal, wording steering's (agent-authored, author steering-test-cleanup); relayed 2026-08-27. | Owner withdrawal only. |
+| D13 | A DOM test harness is authorised as a declared scope delta: new devDependency + vitest environment change; source-text tests over `.tsx` are converted to behavioural tests instead of deleted; an analyst determines the harness shape. | Owner, verbatim: "Which makes more sense to do in the long-term? I'm leaning towards 2, authorize." — option 2 as put to him by steering: "Authorise a DOM harness as a declared scope delta — new devDependency + vitest environment change; the analyst then needed — you'd spawn it. Converts those files to behavioural tests instead of deleting." (relayed). | Analyst finding that no harness can mount the target components under this toolchain (Next 16 / React 19 / vitest 4) without production-code change — then M2 reverts to delete-with-Outstanding-Items and the owner is told. **Class tested 2026-08-27 (analysis `50f053a`): not met.** Consequence: row 45 (`plan-004-lazy-loading`) still takes H1's delete branch — its subject is unobservable by any mount, which is not this class. |
 
 Standing constraint inherited from chain 012/013, restated: **no agent sends a live Discord POST** (012 D14) — irrelevant to test work here except that no converted test may hit the network.
 
@@ -105,6 +107,8 @@ Chain-application rows (this plan only, never the doc): `shapes-v2.test.ts` D34 
 
 ## Plan
 
+**Plan-wide observable**: every captured suite run records the vitest **process exit code** beside its counters; any pass-set acceptance in M0, M2, M3, M4a, M4c or M5 is satisfied only at exit 0 — the analysis proved a run can report all-passed and exit 1.
+
 **Sequence is fixed (serialises every shared file, 9b):** M0 → M1 → M3 → M4b → M4a → M2 → M4c → M5. Ownership: `agent-output/CLAUDE.md` + symlink — M1. `website/package.json`, `pnpm-lock.yaml`, `website/vitest.config.ts` — M2. `src/**/__tests__/helpers/*` — created in M3, read-only after (sited inside `__tests__` because `tsconfig.json` includes `src/**/*.ts` and excludes only `**/__tests__`; a `src/test-helpers/` would enter the production tsc program — analysis S5). Each test file is opened by M3 (helper import lines only, no case or title change) and then by exactly one of M4a/M4b/M4c; no two of those open the same file. Handoffs — M4b.
 
 ### M0 — Baseline run (first act; blocks everything)
@@ -116,7 +120,7 @@ Acceptance (property): every inventory file is reported collected, with its per-
 
 ### M1 — `agent-output/CLAUDE.md`, symlinked at `/usr/local/bin/hooks/CLAUDE.md` (D6 as amended by D15)
 
-Content, only this: (i) four-repo map — one line per repo, which carries tests, that `/usr/local/bin/hooks` is not a repo and `git -C` is mandatory, **and the symlink's own recreation line** (`ln -s agent-output/CLAUDE.md /usr/local/bin/hooks/CLAUDE.md`, unversioned by D15); (ii) Test Conventions — runner and commands (`npm test`, `npx vitest run --reporter=json --outputFile=<path>`), placement, naming form and both predicate forms, axioms A–E, the class table with predicates/dispositions/evidence, escaped-provenance standard, helper policy, V-22-for-tests, instrument note, and the harness usage line M2 supplies. **No chain IDs, dates, register rows or file dispositions** — those live in this plan.
+Content, only this: (i) four-repo map — one line per repo, which carries tests, that `/usr/local/bin/hooks` is not a repo and `git -C` is mandatory, **and the symlink's own recreation line** (`ln -s agent-output/CLAUDE.md /usr/local/bin/hooks/CLAUDE.md`, unversioned by D15); (ii) Test Conventions — runner and commands (`pnpm test`, `npx vitest run --reporter=json --outputFile=<path>` with the exit code recorded, `pnpm run typecheck`), placement, naming form and both predicate forms, axioms A–E, the class table with predicates/dispositions/evidence, escaped-provenance standard, helper policy, V-22-for-tests, instrument note, the harness usage line M2 supplies, and an **environment-fidelity convention**: component tests run under jsdom; a DOM global that exists but never fires is worse than one that is absent, so a substitute environment is adopted only when a measured behaviour matches the browser; keyboard activation of react-aria controls is expressed as a `detail: 0` click. (Evergreen wording — passes the doc's negative-form check.) **No chain IDs, dates, register rows or file dispositions** — those live in this plan.
 Steps: write the file; create the relative symlink.
 Acceptance (properties): every class the disposition table uses is defined in the doc (enumerated from the table's class column); every fenced command in the doc runs as written in `website`; the negative predicate over the doc → 0 lines; `test -e /usr/local/bin/hooks/CLAUDE.md && readlink -f /usr/local/bin/hooks/CLAUDE.md` prints the canonical path, captured in the implementation doc.
 **OPEN QUESTION [RESOLVED 2026-08-26, D15]**: canonical in `agent-output`, symlink at the workspace root.
@@ -160,7 +164,7 @@ Acceptance (property): in test files, definitions of the three lifted families �
 **M4c — H1/H9 conversions (after M2).** Evidence per converted case: red on a local mutation of the behaviour, green at head; source-text cases removed only after the behavioural replacement is green.
 - Wholly source-text over components: rows 10, 32, 33, 34, 36 — convert to mounted-behaviour assertions (resting state, notice location, Load-enables-not-loads, readable errors), rename.
 - Row 45 `plan-004-lazy-loading.test.ts` — **H1 delete branch** (analysis S4): its subject is the `ssr:`/`loading:` options passed to `next/dynamic`, which no mount can observe; delete, and list the lazy-loading surface (`edit/page.tsx` and the five dynamics wrappers) in Outstanding Items.
-- M4c target set (analysis S1, widened): `TransitionHeightElement`, `JsonModalBody`, `NewMessageJsonInput`, `MessageProvider`, `NullableComponent`, `NewMessageModal`, `SaveAsMenu`, and `edit/page.tsx` as reached by the converted cases. **Named residue**: `EmojiPicker` (×3) and the individual dynamics wrappers were not mounted by the analysis; a converted case needing them that fails to mount goes to Outstanding Items, not to a silent drop.
+- M4c target set (analysis S1, widened): `TransitionHeightElement`, `JsonModalBody`, `NewMessageJsonInput`, `MessageProvider`, `NullableComponent`, `NewMessageModal`, `SaveAsMenu`, and `edit/page.tsx` as reached by the converted cases. **Named residue**: `EmojiPicker` (×3), the individual dynamics wrappers, and `DiscordMessageEditor` (mounted only transitively; exit 0 in a test of its own undetermined) were not established by the analysis; a converted case needing them that fails to mount goes to Outstanding Items, not to a silent drop.
 - Mixed: rows 14, 15, 16, 19, 35 — convert the source-text cases (2, 2, 3, 3, 2), keep the rest, rename (14/15 already retitled in M4b — rename here).
 - H9: rows 38, 39 — replace `render()` with the harness.
 Impossible conversion (analysis says no mount) → case deleted, surface in Outstanding Items, never silently dropped.
@@ -196,7 +200,7 @@ Unit-level; no e2e. Expectation: no net loss of behavioural cases (AC2); H1 surf
 
 ## Validation
 
-`npx tsc --noEmit` in `website` at the merge SHA; M5 commands. No migrations.
+`pnpm run typecheck` in `website` at the merge SHA — the project's own script, which runs both tsc programs (`tsconfig.json` excludes `**/__tests__`; `tsconfig.test.json` covers them — a bare `npx tsc --noEmit` type-checks none of the 48). M5 commands. No migrations.
 
 ## Risks
 
