@@ -87,3 +87,5 @@ on an owner decision). Output "ok (nothing to do); end the turn" is the normal c
 QA Complete at website f2c85f5 (qa-hooks-014-2, agent-output 3bbab7e, plan rev 16). Owner by
 selection: "Spawn uat-hooks-014" — owner spawns; brief handed by steering. BC-7/8/9 are closure
 conditions; BC-9 (toast rendering seen by a human in a running build) is UAT's executed flow.
+
+Steering error 2026-08-27: after the UAT spawn prompt, steering waited to be told the session was up instead of sweeping for it (steering.md: the sweep is the next act). Owner caught it. Same class as the remembered-state failures noted 2026-08-26.
