@@ -40,6 +40,7 @@ was reviewed and no verdict here reaches it.
 | 2026-08-27T02:40 | steering-test-cleanup → code-reviewer-hooks-014 | Owner ruling on the plan-changelog commit gate | Gate satisfied, not worked around. The R-6 row was written into `planning/014-test-suite-cleanup.md` per this agent's definition, then **held uncommitted** because committing another stage's document is gated; raised to the owner as a decision with a real drop option. Owner, by selection: Option A — "Reviewer commits its row", scoped to `git commit --only planning/014-test-suite-cleanup.md` for that single row, with `git diff` on the path re-checked immediately before. Re-checked (one hunk, mine, `+1 -0`); committed `agent-output` `1140d56`. Owner also directed a TODO for a standing narrow exception — already lodged by steering at `~/.claude/agents/TODO.md` (2026-08-27, "pi: code-reviewer commits its own changelog row in the plan"), so no duplicate entry was made. No finding changed; verdict identity untouched. |
 | 2026-08-27T02:52 | planner-hooks-014 → code-reviewer-hooks-014 | Plan rev 10 consumes the review's planner-facing items | Both re-derived at the plan itself, not accepted from the message: the harness Risks row records "not met" with rig, tuples, capture path and the node-half scoping; the *Instrument note* is now a class rule with a second Risks row tracking it per pass (I-2's disposition upgraded — see the finding). Next Steps item 4 closed; I-2's routing superseded. **My error, recorded**: this plan's changelog is newest-first and I appended R-6 at the bottom. The lifecycle skill says rows "append chronologically", which I applied without checking the table's own order — the planner restored position, content unchanged. Check the table before appending, not the convention. No finding changed; verdict identity untouched. |
 | 2026-08-27T03:10 | implementer-hooks-014 → code-reviewer-hooks-014 | Fix confirmation for M-1, M-2 and L-1 | **Sub-entry of round 1, not a new round** — the fix diff touches only findings scope (`website` `e6163fd`, 2 files) plus one record document. All three findings CONFIRMED CLOSED; each disposition records both the class being gone and the captured check that fails if it returns. Re-attacked from first principles because the fix touches an instrument: five controls re-derived against the new config shape, two of them adversarial (the "structurally unskippable" claim; a suspected type-safety regression). Differential across the fix: 570/570 identical tuples, exit 0 both. `Reviewed-At` moved to `e6163fd`. Two nits recorded, neither reopening anything. Verdict unchanged: APPROVED_WITH_COMMENTS. |
+| 2026-08-27T03:30 | implementer-hooks-014 → code-reviewer-hooks-014 | N-2 nit fixed in the implementation doc | **Not a round and not a sub-entry** — no reviewed blob moved. `website` HEAD is still `e6163fd` and all five reviewed blobs are byte-identical to the verdict's manifest (`git diff --numstat e6163fd..HEAD` on the five paths: empty). The change is one line of another stage's record document (`agent-output` `8ca4181`), verified against `verification/014/code-review-m2/debug-bump-attribution.txt` and against the commit's own diff; the attribution is now accurate. N-2 marked FIXED above. Verdict identity untouched. |
 
 ## Tree Under Verdict
 
@@ -329,14 +330,17 @@ construction, so the class is covered going forward.
 C4 shows it is not. Suggested wording, if it is ever touched again: *the default at the only place
 projects are constructed*. No action owed; not a finding.
 
-**N-2 (nit)** — the reconcile note in `implementation/014-test-suite-cleanup-implementation.md`
-attributes all five `debug` bumps to "the `@pm2/pm2-version-check` devDependency subtree". They are
-spread across five sibling snapshots — `@pm2/pm2-version-check@1.0.4`, `agent-base@7.1.0`,
-`get-uri@6.0.1`, `pac-proxy-agent@7.0.0`, `socks-proxy-agent@8.0.1` — which descend from `pm2`, not
-from `@pm2/pm2-version-check`. The bound the note draws (dev-only, same major, unrelated to jsdom) is
-correct and the correction stands; only the subtree's name is off by one level. Precise attribution
-is at `verification/014/code-review-m2/debug-bump-attribution.txt`. Worth a one-word fix precisely
-because a reconcile note's whole job is accuracy.
+**N-2 (nit)** — **FIXED, verified** at `agent-output` `8ca4181`. The reconcile note in
+`implementation/014-test-suite-cleanup-implementation.md` had attributed all five `debug` bumps to
+"the `@pm2/pm2-version-check` devDependency subtree". They are spread across five sibling snapshots —
+`@pm2/pm2-version-check@1.0.4`, `agent-base@7.1.0`, `get-uri@6.0.1`, `pac-proxy-agent@7.0.0`,
+`socks-proxy-agent@8.0.1` — which descend from `pm2`, not from `@pm2/pm2-version-check` (itself one
+of the five, not their common ancestor). The corrected row now reads "5 sibling snapshots descending
+from `pm2`" and cites the attribution capture; checked against
+`verification/014/code-review-m2/debug-bump-attribution.txt` and against the diff of `8ca4181`
+itself, and it is accurate. The bound the note draws (dev-only, same major, unrelated to jsdom) was
+correct before and after — only the subtree's name moved. Record-area correction form, in place, one
+line changed, no other row touched.
 
 ### Instrument fault found in my own rig, recorded
 
@@ -433,9 +437,10 @@ recorded in the plan's changelog instead.
 the fix sub-entry above, each with the two-part disposition — class gone, and the captured check that
 fails if it returns (or `no test`, stated). Nothing is owed back to the implementer.
 
-Two nits (N-1, N-2) are recorded above and asked for from nobody: N-1 is a word in a comment, N-2 is
-one level of a subtree name in a note whose substance is correct. Neither is a finding, neither holds
-anything, and neither should generate a round.
+Two nits (N-1, N-2) were recorded above and asked for from nobody. **N-2 was nonetheless fixed by
+the implementer** at `agent-output` `8ca4181` and verified here against the capture and the commit's
+own diff. **N-1** stands as recorded — a word in a comment, no action owed. Neither was a finding,
+neither held anything, and neither generated a round.
 
 ## Next Steps
 
