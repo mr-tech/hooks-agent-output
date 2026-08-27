@@ -68,3 +68,9 @@ session intentionally pauses at a seam waiting for the owner (to compact, or blo
 last act before ending the turn is
 `node ~/.claude/tools/seam-notify.js --session <name> --reason compact|blocked --sha <sha>`.
 It notifies the owner; nothing more need be known about it. Verified working 2026-08-27.
+
+## 2026-08-27 — M2 code review row commit
+M2 APPROVED_WITH_COMMENTS at 988ca15 (code-review doc d7c5fe5). Owner, by selection, Option A:
+code-reviewer commits its own R-6 changelog row in the plan; verbatim addendum: "And write a TODO
+item about this, probably allowing for this narrow exception since I think it's common for this
+agent." TODO written (agents repo).
