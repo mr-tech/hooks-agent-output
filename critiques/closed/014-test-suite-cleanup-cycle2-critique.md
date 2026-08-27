@@ -2,29 +2,29 @@
 ID: 014
 Origin: 014
 UUID: 4671e28c
-Status: OPEN
+Status: Resolved
 Status-Detail: >-
-  Cycle 2, pass 1 (rung 1–5), scoped to the rev 6→7 delta. Verdict REQUEST REVISION on two
-  partition defects the delta introduced (row 13 listed in M4a and M4b; row 15's ownership
-  sentence contradicts its new M4b entry). Instrument corrections (M0 membership, AC2 pair key,
-  probe pre-closure) verified and sound. Nothing before M4b is affected; the implementer may
-  proceed through M0, M1, M3.
+  Cycle 2, pass 2 (rung 1–5), scoped to the rev 7→8 delta. Verdict APPROVE. M-13, M-14, L-12
+  verified landed → RESOLVED; partition re-derived 10 + 27 + 13 = 50, rows 14/15 twice → 48.
+  Critique closed. Plan rev 8 `47a4138` is the approved plan.
 ---
 
 # Critique — Plan 014, Hooks test-suite cleanup (pilot) — cycle 2
 
 Cycle 1 (passes 1–4, rev 2→6) is closed at `critiques/closed/014-test-suite-cleanup-critique.md` (`4b7f15e`). This document (`014-test-suite-cleanup-cycle2-critique.md`, named apart so both stay addressable) opens cycle 2 on the planner's own trigger: rev 7 changes what M0 and M4b require.
 
-**Artifact**: `agent-output/planning/014-test-suite-cleanup.md`, revision 7 (agent-output `78616ec`; `website` at `a74b9e2`).
+**Artifact**: `agent-output/planning/014-test-suite-cleanup.md`, revision 8 (agent-output `47a4138`; `website` at `a74b9e2`).
 **Sources for this pass**: `qa/014-test-suite-cleanup-qa.md` (`bd5ddfd`) — INST-1/INST-2, the AC7 sweep table, the reporter probe; `verification/014/qa-phase1/probe-json-reporter-isValidUrl.json` (read directly); rows 13 and 15 in the tree.
 **Date**: 2026-08-27.
-**Status**: Initial — cycle 2, pass 1.
+**Status**: Revision 1 — cycle 2, pass 2. Resolved.
 
 ## Changelog
 
 | Date | Handoff | Request | Summary |
 |---|---|---|---|
 | 2026-08-27T02:05 | planner-hooks-014 → critic-hooks-014 | Scoped pass, rev 7 | Delta `52ff3f9..78616ec` (6/5 lines, boundary verified). Instruments verified against the probe and the tree. M-13, M-14 (partition), L-12. REQUEST REVISION. |
+| 2026-08-27T02:40 | planner-hooks-014 → critic-hooks-014 | Scoped pass, rev 8 | Delta `78616ec..47a4138` (6/5 lines, boundary verified). Row 13 out of M4a (27 rows recounted from the text); exception names rows 14 and 15 only; literal branch alone for 13/15; delegation-spec option stated; prediction row records rev 7's member. M-13, M-14, L-12 → RESOLVED. APPROVE. Document closed. |
+| 2026-08-27T02:40 | critic-hooks-014 | Document closed | Status: Resolved |
 
 ## Assumption Not Checked
 
@@ -45,7 +45,11 @@ Unchanged; rev 7 is instrument corrections and one enumeration. No drift.
 
 ## Findings
 
-### Medium
+M-13 RESOLVED — row 13 dropped from M4a; M4a = 27 rows, recounted from rev 8 text. Plan rev 8 `47a4138`.
+M-14 RESOLVED — exception names rows 14 and 15 as the only M4b→M4c dual-owned files, M4b first; 13/20/22 M4b-only. Plan rev 8.
+L-12 RESOLVED — literal branch alone for rows 13, 15; delegation-spec option carried in the surface cell. Plan rev 8.
+
+### As raised at pass 1 (retired; disposition lines above)
 
 **M-13 — Row 13 is now listed in two M4 sub-milestones.** Status: OPEN.
 Rev 7 adds row 13 (`012-message-mode`) to M4b's oracle-repair bullet; M4a's row list still carries 13 (verified at `78616ec`: "Rows 1, 2, 4, 5, 6, 8, 9, 12, 13, …"). The plan's own rule — "each test file is opened by … exactly one of M4a/M4b/M4c" — and the 48-way reconciliation (M5 step 7) both break. Rev 3 handled the same move correctly for rows 20 and 22 (dropped from M4a). Impact: the implementer either repairs and renames in M4b and then renames again in M4a, or picks one silently. Recommendation: drop 13 from M4a's list, as for 20 and 22.
@@ -68,10 +72,11 @@ Low; two list corrections. Standing prediction from cycle 1 (an acceptance instr
 
 ## Recommendations
 
-REQUEST REVISION — cycle 2, pass 1 (rung 1–5). Two-line fix. M0, M1 and M3 are unaffected and the implementer may continue; M4b/M4a must not open on rev 7's lists.
+APPROVE — cycle 2 closed at pass 2 (rung 1–5). Rev 8 is the approved plan; M4b/M4a may open on its lists. QA-1 found the same defect independently (`6bf43c8`) — two instruments agreeing is the evidence the partition wanted.
 
 ## Revision History
 
 | Pass | Artifact rev | Findings addressed | New findings | Status change |
 |---|---|---|---|---|
 | C2-1 (2026-08-27) | rev 7 `78616ec` (scoped delta) | — | M-13, M-14, L-12 | OPEN |
+| C2-2 (2026-08-27) | rev 8 `47a4138` (scoped delta) | M-13, M-14, L-12 → RESOLVED | — | Resolved; closed |
