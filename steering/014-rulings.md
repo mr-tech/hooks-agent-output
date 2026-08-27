@@ -36,3 +36,5 @@ ask on this chain.
   "gate state" in steering.md's wide sense (pass/rung/verdict/delta); the owner's ruled sense is
   narrow — a block, an owner-needing question, a scope delta. Definition queued with the
   direct-talk pi item in agents TODO.md.
+- **2026-08-27, by selection**: "QA first only; implementer after Phase 1 lands." QA spawned as
+  `qa-hooks-14`. Glossary queued for pi (agents TODO.md). Plan 014 Approved at rev 4 (`58e1eb1`).
