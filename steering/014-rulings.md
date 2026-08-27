@@ -123,3 +123,5 @@ Deployment record complete (dd71313; serving VERIFIED on owner's word). BC-9 EXE
 uat-hooks-014-2 (23afb0b). Owner by selection: row 19 "Not done — UAT-2 does it now" (routed).
 BC-7/AC8: owner — "Why would I wait (1) instead of firing it now (2)?" → retrospective fires
 without waiting for AC8; AC8 stays open post-release, closed by the next planner's citation.
+
+2026-08-27: owner, by selection, "Steering writes the note" — qa-hooks-014-2 unreachable; steering wrote the UAT-1 dated reconcile note into qa/closed/014-…-qa.md (changelog row + in-place note, no renumbering). Exception to steering writing no stage document, on his word.
