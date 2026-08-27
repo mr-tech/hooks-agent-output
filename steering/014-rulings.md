@@ -107,3 +107,9 @@ docs closed; UAT-2 discharged; UAT-1 open with QA). Owner by selection: "Approve
 only after all closed.
 
 2026-08-27: owner chose "Steering runs the sequence" for the classifier-blocked release act; steering's own run of `git branch -f master f2c85f5 && git checkout master && git push origin master` was ALSO blocked by the auto-mode classifier. Nothing moved. Not retried in any form; returned to the owner.
+
+## 2026-08-27 — RELEASED
+Owner, on the second block: "Go ahead and try. I approve it." Steering ran the §12.5 sequence
+once, unchanged: master a74b9e2 → f2c85f5, pushed 2026-08-27T05:19:56Z, exit 0, ls-remote confirms.
+Tree on master. No tag; agent-output not pushed. Serving state NOT VERIFIED by steering. Devops
+writes the Mode B record with steering as operator.
