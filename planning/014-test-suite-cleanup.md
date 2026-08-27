@@ -3,7 +3,7 @@ ID: 014
 Origin: 014
 UUID: 4671e28c
 Status: In Progress
-Status-Detail: Revision 8 is the approved plan (cycle-2 critique closed `c557300`; M4b/M4a may open on its lists). implementer-hooks-014 in progress: M0 (baseline captured), M1 (`agent-output/CLAUDE.md` + symlink) and M3 (helper lift) complete and committed; M4b partial (rows 43, 11, 3 done; rows 7, 13, 14, 15, 20, 22, 46 remaining) — see `agent-output/implementation/014-test-suite-cleanup-implementation.md` for full state and resumption detail. M2 (DOM harness) is an owner-authorised scope delta and carries a REQUIRED analysis (analyst-014) before its implementation — analysis complete, `50f053a` (D13 reopening class not met).
+Status-Detail: Revision 8 is the approved plan (cycle-2 critique closed `c557300`; M4b/M4a may open on its lists). implementer-hooks-014 in progress: M0, M1, M3, and **M4b (all 10 rows) complete** and committed — see `agent-output/implementation/014-test-suite-cleanup-implementation.md` and `agent-output/verification/014/disposition-table.md` for full state. M4a (27 rows), M2, M4c (13 rows), M5 remain. M2 (DOM harness) is an owner-authorised scope delta and carries a REQUIRED analysis (analyst-014) before its implementation — analysis complete, `50f053a` (D13 reopening class not met).
 Revision: 8
 Target Release: website `master` moved to the chain-014 merge SHA (the package carries no version artefact); `agent-output` moves alongside
 Epic Alignment: none registered — the owner-approved coordination plan `/home/dev/.claude/plans/we-recently-changed-the-wobbly-sparrow.md` is the source of the effort's outcome

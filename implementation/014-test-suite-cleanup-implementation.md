@@ -12,9 +12,10 @@ approved by cycle-2 critique (`critiques/014-test-suite-cleanup-cycle2-critique.
 registered `c68256b`).
 **Date**: 2026-08-27
 **Implementer**: `implementer-hooks-014`
-**Run-Length Ceiling**: this document is written at the ceiling (Core Responsibility /
-"Run-Length Ceiling" in the implementer's own definition) — work stops here for a clean handoff
-rather than continuing past it. See "Outstanding Items" for exact resumption state.
+**Run-Length Ceiling**: this document was first written at the ceiling on 2026-08-27; the owner
+then instructed the same session to continue rather than hand off to a fresh spawn. M4b (all 10
+rows) completed in that continuation. See "Outstanding Items" for exact resumption state for the
+milestones still remaining (M4a, M2, M4c, M5).
 
 ## Changelog
 
@@ -24,6 +25,7 @@ rather than continuing past it. See "Outstanding Items" for exact resumption sta
 | 2026-08-27 | planner-hooks-014 (cross-session) | Plan rev 7 | M0 file-membership reconciliation (path, not count), AC2 key = (path, `fullName`), M4b residue (rows 13, 15) — absorbed before M0. |
 | 2026-08-27 | planner-hooks-014 (cross-session) | Plan rev 8 + cycle-2 critique APPROVE | Row 13 moved to M4b-only (was dual-owned, QA-1/critic M-13). M4b = 10 rows (3, 7, 11, 13, 14, 15, 20, 22, 43, 46), M4a = 27, M4c = 13. Absorbed before opening M4b/M4a. |
 | 2026-08-27 | implementer-hooks-014 | Self | M0, M1, M3 complete; M4b partial (rows 43, 11, 3). Session stopped at the run-length ceiling. Status field set to In Progress. |
+| 2026-08-27 | Owner (direct) | "Continue" (same session, not a fresh spawn) | Sent correction to `steering-test-cleanup` (was told to expect a fresh spawn). Opened the standalone Disposition Table (`verification/014/disposition-table.md`), seeded rows 43/11/3 per planner's instruction, then completed the remaining 7 M4b rows (7, 13, 14, 15, 20, 22, 46) — **M4b is now complete, 10/10 rows.** Full suite: 604/604 passing, exit 0 (605 baseline − 1 from row 7's D8 deletion, exactly as expected; no other count drift). |
 
 ## Implementation Summary
 
@@ -37,9 +39,13 @@ with the M0 baseline pass set proven byte-identical before/after (M3); **three o
 are fully dispositioned** with axiom-(A) mutation evidence captured for the one row that needed it
 (M4b partial).
 
-Not yet delivered: the remaining seven M4b rows, all of M4a (27 renames), M2 (DOM harness), M4c (13
-conversions), and M5 (acceptance sweep). The value statement is not yet met — see "Value Statement
-Validation".
+**M4b is now complete (10/10 rows)** — every row's oracle repaired or dispositioned with
+axiom-(A) mutation evidence where owed, recorded in the standalone Disposition Table
+(`verification/014/disposition-table.md`), full-suite pass set 604/604 (exit 0), no count drift
+beyond the one intentional deletion (row 7).
+
+Not yet delivered: all of M4a (27 renames), M2 (DOM harness), M4c (13 conversions), and M5
+(acceptance sweep). The value statement is not yet fully met — see "Value Statement Validation".
 
 ## Milestones Completed
 
@@ -56,9 +62,11 @@ Validation".
       canonical form each (see "Key Decisions" below). M0 pass set proven byte-identical
       (617/617, 0 lost, 0 added) by exact-key comparison, not just count. `pnpm run typecheck`
       exit 0. Committed `website` `87e4faf`.
-- [ ] M4b — **Partial.** Rows 43, 11, 3 dispositioned and committed (`website` `62b61bd`; handoff
-      committed first, `agent-output` `c5e1d59`, per IS-2 ordering). Rows 7, 13, 14, 15, 20, 22, 46
-      remain — see Outstanding Items for the exact resumption plan for each.
+- [x] M4b — **Complete, 10/10 rows.** Rows 43, 11, 3 (`website` `62b61bd`; handoff committed
+      first, `agent-output` `c5e1d59`, per IS-2). Rows 7 (`8b6d4a8`), 13 (`9ddc457`), 14
+      (`53aa251`), 15 (`71a4ab9`), 20 (`55e7a68`), 22 (`442e5c5`), 46 (`7d70bc4`). Full
+      per-row disposition, class, evidence, and commit recorded in
+      `verification/014/disposition-table.md`. Full suite 604/604, exit 0.
 - [ ] M4a — Not started (27 rows).
 - [ ] M2 — Not started (DOM harness; analysis complete and cleared, `50f053a`).
 - [ ] M4c — Not started (13 rows; depends on M2).
@@ -88,6 +96,18 @@ implementation) was satisfied before this session began (confirmed against
 | `src/utils/__tests__/mutual-exclusivity.test.ts` | website | M3: 7 builders → shared import | -33/+4 |
 | `src/scripts/backfillValid.ts` | website | M4b row 3: mutated (`formatReport` spread → allowlist) then reverted, for axiom-(A) evidence; tree clean at the commit | 0 net |
 | `agent-output/planning/014-test-suite-cleanup.md` | agent-output | Status field: Approved → In Progress | -2/+2 |
+| `src/server/api/utils/__tests__/shapes-v2.test.ts` → `shapes.message-validation.test.ts` | website | M4b row 7: 1 case deleted (D8), 6 titles stripped, renamed. See disposition table for full detail. | -13/+6 |
+| `src/utils/__tests__/012-message-mode.test.ts` → `messageMode.switch.test.ts` | website | M4b row 13: header/comment rewrite, 4 titles stripped, renamed. | -19/+8 |
+| `src/utils/__tests__/012-send-gate-partition.test.ts` → `limits.send-gate-partition.test.ts` | website | M4b row 14: E3b-indirect structural fix (deleted local switchToV2/switchToClassic, imported production), ~29 ID-token lines stripped/rewritten, renamed. | -83/+57 |
+| `src/utils/messageMode.ts` | website | M4b row 14: mutated (`switchToClassic`'s flag mask) then reverted, for axiom-(A) evidence; tree clean at the commit | 0 net |
+| `src/utils/__tests__/012-validity-predicate.test.ts` → `messageValidity.predicate.test.ts` | website | M4b row 15: E1 fix (3 cross-checks → literals, independently derived), header + 6 titles stripped, renamed. | -25/+23 |
+| `src/server/api/utils/messageValidity.ts` | website | M4b row 15: mutated (`isMessageValid`'s delegation) then reverted, for axiom-(A) evidence; tree clean at the commit | 0 net |
+| `src/utils/__tests__/013-fqa31-load-confirmation-names-actual-mode.test.ts` → `loadDiff.mode-naming.test.ts` | website | M4b row 20: E3b structural fix (deleted local modeAfterLoad/confirmationFor, discovered + used production computeLoadDiff), renamed. | -112/+79 |
+| `src/utils/index.ts` | website | M4b row 20: mutated (`settledMode`'s disposition branch) then reverted, for axiom-(A) evidence; tree clean at the commit | 0 net |
+| `src/utils/__tests__/013-m1-fix-round-1-hash-parity.test.ts` → `usePusher.hash-parity.test.ts` | website | M4b row 22: E3a/E3b fix (deleted producerHash/consumerHash wrappers, inlined real calls at 4 sites), renamed. | -39/+23 |
+| `src/providers/MessageProvider/usePusher.ts` | website | M4b row 22: mutated (`normalizeForHash`'s shape-normalisation branch) then reverted, for axiom-(A) evidence; tree clean at the commit | 0 net |
+| `src/utils/__tests__/plan-005-bug-fixes.test.ts` → `constructImageUrl.default-avatar.test.ts` | website | M4b row 46: H5 fix (3 self-referential formulas → literals) + self-found-gap fix (non-discriminating fixture replaced) + escaped-provenance line, renamed. | -21/+14 |
+| `src/utils/constructImageUrl.ts` | website | M4b row 46: mutated (`% 6n` → `% 5n`) then reverted, for axiom-(A) evidence; tree clean at the commit | 0 net |
 
 ## Files Created
 
@@ -187,7 +207,10 @@ TDD).
 | `pnpm run typecheck` (post-M3, post-M4b-partial) | exit 0, both `tsc` programs | |
 | `npx vitest run src/scripts/__tests__/012-backfill-report.test.ts` (row 3, mutated) | 29 passed, **1 failed** (the H4 case) | axiom-(A) evidence |
 | `npx vitest run src/scripts/__tests__/012-backfill-report.test.ts` (row 3, reverted) | 30/30 | |
-| `npx vitest run` (current tree state, post-M4b-partial) | **46 files / 605 tests / 0 failed / exit 0** | 617 − 8 (row 43) − 4 (row 11) = 605 ✓ |
+| `npx vitest run` (post-M4b-partial: rows 43, 11, 3) | **46 files / 605 tests / 0 failed / exit 0** | 617 − 8 (row 43) − 4 (row 11) = 605 ✓ |
+| Per-row: 7 mutate/verify/revert/re-verify cycles (rows 7, 14, 15, 20, 22, 46 — row 13's cases needed no repair) | each mutation produced 1+ failures, each revert restored 0-diff green | full detail + exact failure counts in `verification/014/disposition-table.md` |
+| `pnpm run typecheck` (after each of the 7 M4b rows) | exit 0, both `tsc` programs, every time | |
+| `npx vitest run --reporter=json` (M4b complete, full suite) | **46 files / 604 tests / 0 failed / exit 0** | 605 − 1 (row 7's D8 case deletion) = 604 ✓; no other count drift — confirms rows 13/14/15/20/22/46's repairs changed 0 pass/fail outcomes, only oracles/names |
 
 ## Key Decisions (M3 — record for the disposition table / retrospective)
 
@@ -210,60 +233,19 @@ re-derive and re-verify, not because either changed the pass set (it did not).
 
 ## Outstanding Items — exact resumption state
 
-**Sequence remaining (fixed by the plan): M4b (7 rows) → M4a (27 rows) → M2 → M4c (13 rows) → M5.**
+**M4b is complete (10/10 rows).** Full per-row disposition — class, repair, surface, covering
+test, evidence, commit — is recorded in the standalone Disposition Table,
+`agent-output/verification/014/disposition-table.md` (opened per planner's checkpoint-reply
+instruction, seeded from rows 43/11/3, appended per row through row 46). That table, not this
+document, is now the authoritative per-row record; this document is not duplicating it further.
 
-### M4b — 7 rows remaining, in the plan's stated order
+One finding worth flagging for a reader of the table: **row 46's "uses modulo 6 (not 5)" case was
+a self-found gap** — its original shared fixture ID gave identical results under both moduli, so
+it did not actually discriminate the regression its name claimed to guard against, despite passing
+every prior run. Fixed in the same round (a new, genuinely divergent fixture ID) per the
+mutation-exposed self-found-gap duty, with before/after mutation evidence recorded in the table.
 
-- **Row 7** `shapes-v2.test.ts` — delete the D34 case (`it('accepts text display with empty content
-  (owner ruling 2026-08-25, D34)'` — search the file for `D34`), title-strip, rename to (C) form
-  (module `shapes`, e.g. `shapes.v2-message.test.ts` per the plan's own illustration — confirm
-  against the file's actual surface before committing to a name). No mutation evidence owed (this is
-  a plain deletion of a case the owner ruled out of scope, not an H4/H5 repair).
-- **Row 13** `012-message-mode.test.ts` — QA AC7 finding: `expect(applyModeSwitch('v2',
-  prev)).toEqual(switchToV2(prev))` — the expected value is a production function's own output.
-  Per rev 8: literal-branch repair only (the production import *is* the defective oracle) **unless**
-  the delegation to `switchToV2`/`switchToClassic` is itself the specified behaviour, in which case
-  say so in the disposition table's surface cell and keep the case as a delegation spec instead of
-  rewriting it to a literal. Read the case before choosing; both branches are sanctioned, the choice
-  is not free — read what `applyModeSwitch` is documented/understood to do first.
-- **Row 14** `012-send-gate-partition.test.ts` — H5 partial: replace the `switchToClassic`
-  transcription-derived expectation with a literal or the production import (case counts unchanged);
-  rename. **Keeps its two source-text cases for M4c** — do not touch those cases here, only the
-  oracle. Already M3-touched (import line only) — do not re-open that diff, add to it.
-  `covering test` / `old title → new title` columns must be filled per the mandatory disposition
-  table (start it now if not started — see below).
-  M4c is exception 1 of the "one-milestone ownership" carve-out.
-- **Row 15** `012-validity-predicate.test.ts` — QA AC7 finding: `expect(isMessageValid(x)).toBe(
-  validateMessage(x) === '')` ×3, two production functions cross-checked. Repair per rev 8's
-  wording (literal or independent derivation). **Keeps its two source-text cases for M4c** — same
-  carve-out as row 14. Already M3-touched.
-- **Row 20** `013-fqa31-load-confirmation-names-actual-mode.test.ts` — H5 partial: replace the local
-  `modeAfterLoad`/`confirmationFor` transcriptions; rename.
-- **Row 22** `013-m1-fix-round-1-hash-parity.test.ts` — H5: `producerHash`/`consumerHash` are
-  **both** test-local (QA's own finding, E3a/E3b) — this is the strongest oracle-contamination case
-  in the set; import the real `hashMessage`/`normalizeForHash` where possible, or use literals.
-  Rename.
-- **Row 46** `plan-005-bug-fixes.test.ts` — H5: the two `avatarIndex` cases compute the expected
-  value with the formula under test (`Number((BigInt(id) >> 22n) % 6n)`); replace with literal
-  expectations. Rename. Add `// escaped: analysis/closed/005-user-reported-bugs-analysis.md`
-  (H3/J6 — this file is *also* the strongest escaped-provenance case in the suite; both dispositions
-  apply to the same file, per the plan).
-
-**For every H5 repair above**: axiom (A) evidence is owed — show the *new* literal expectation red
-against a one-token mutation of the production formula it replaced, then green at head, same
-mutate/verify/revert/re-verify procedure used for row 3 (`git diff` on the mutated production file
-must be empty at the commit).
-
-### Mandatory: start the Disposition Table now if not already
-
-The plan requires one table, `path | class | disposition | surface | covering test (path::name) |
-old title → new title | seen-to-fail evidence`, covering all 48 rows (AC1). **This session did not
-yet create it as a standalone artifact** — the per-row evidence above lives in this document's Files
-Modified/Test Execution sections and commit messages instead. **The next session should either (a)
-promote this implementation doc's per-row notes into a proper disposition table before continuing
-past row 46, or (b) build the table incrementally per M4a/M4b/M4c row and reconcile at M5 step 7.**
-Either is consistent with the plan; (a) is lower-risk given the table is AC1's own evidence
-instrument and 41 rows remain.
+**Sequence remaining (fixed by the plan): M4a (27 rows) → M2 → M4c (13 rows) → M5.**
 
 ### M4a — 27 rows, not started
 
@@ -321,11 +303,10 @@ predicate's positive class.
 
 ## Next Steps
 
-1. **Resume the implementer** (a fresh spawn or continuation) at M4b row 7, following the exact
-   per-row plan above. Read this document, the plan (rev 8 or later — check for further
-   cross-session revisions before resuming), and `qa/014-test-suite-cleanup-qa.md` in full first.
-2. Build or promote the Disposition Table as a standalone artifact (see "Mandatory" note above)
-   before M4a opens in earnest — 41 rows without it is too much to reconstruct from commit messages
-   alone at M5.
+1. **Resume the implementer** (a fresh spawn or continuation) at M4a row 1, per the row list above.
+   Read this document, the plan (rev 8 or later — check for further cross-session revisions before
+   resuming), `qa/014-test-suite-cleanup-qa.md`, and the Disposition Table in full first.
+2. Continue appending the Disposition Table per M4a/M4c row as each completes (already the
+   established pattern from M4b) rather than reconstructing it at M5.
 3. After M2 lands: spawn the code-reviewer subagent (scoped to M2's non-test diff), per D17.
 4. After M5 lands: hand to QA Phase 2, per D16/the plan's Handoff Notes.
