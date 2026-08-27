@@ -81,9 +81,28 @@ failed / exit 0 (unchanged from post-M4b — confirms zero case drift across all
 Whole-suite negative-form re-sweep after M4a confirms the only remaining ID-token-carrying files
 are exactly the 10 M4c-reserved rows (10, 16, 19, 32, 33, 34, 35, 36, 39, 45) — nothing missed.
 
-## Not yet started (10 rows — all M4c, depends on M2)
+## M2 — DOM harness, complete
 
-Rows 10, 16, 19, 32, 33, 34, 35, 36, 39, 45 — see
-`agent-output/analysis/test-inventory-2026-08-26.md` for class and
+`vitest.config.ts` → `test.projects` (node unchanged + new `dom` project @ jsdom over
+`src/**/*.test.tsx`), `jsdom` 30.0.1 added, `vitest.setup.dom.ts` created and listed in
+`tsconfig.test.json`'s `include` (extends the file's existing per-file-listing pattern, used
+there for `vitest.config.ts`). Node project pass set byte-identical to pre-change baseline by
+exact `(file, fullName, status)` tuple comparison (604/604, 0 lost/0 added); exit 0; typecheck
+exit 0; nothing under `src/` touched. Committed `website` `988ca15`.
+
+## M4c — 15 rows (13 + 2 named riders, D19/R-5), in progress
+
+Riders (rows 9, 12) gated at D19 pending a critic waiver/APPROVE; gate cleared same day at R-5
+(owner: "Yes, skip the critic", `agent-output` `2d0d52a`) — both riders open alongside the 13
+ungated rows.
+
+| # | path (old → new, if renamed) | class | disposition | evidence | commit |
+|---|---|---|---|---|---|
+| 45 | `plan-004-lazy-loading.test.ts` (deleted) | H1 — no behavioural equivalent under any harness (analysis S4): every case reads a component's own source text and asserts on `next/dynamic`'s `ssr:`/`loading:` options, `useEffect`-wrapping, `requestIdleCallback` usage, or preload-callback wiring, none of which a mount can observe | Delete (H1 delete branch). Lazy-loading surface (`edit/page.tsx`'s preload effect, `EmojiPicker`'s dynamic boundary, the five `dynamics/*` wrappers) has no test coverage after this deletion — recorded in Outstanding Items. | 28/28 cases removed (23 static + 1 `it.each` × 5 files); full suite 604 → 576, 0 other drift | website `07af608` |
+| 12 (rider 1) | `useApiMethods.json-editor-repair.test.ts` | E3b-indirect (2-hop local `switchToV2`/`switchToClassic` transcription, outside QA's one-intermediate-variable predicate) — H5 rule as applied to rows 14/46 | Deleted the local transcription pair; imported the shipped `switchToV2`/`switchToClassic` from `~/utils/messageMode` (same functions rows 13/14 cover). Both call sites already asserted literal expectations; only the function identity changed, at a fixture where local and shipped implementations coincide (idempotent flag-OR). Also stripped `EXT-3`/`R19` (QA chain-012 spec-block/finding IDs the mechanical regex misses) and rewrote 3 comments that narrated the test's own prior assertions as plain behaviour description. | Mutated `switchToClassic`'s type-1 filter → type-2 in `messageMode.ts` → 3/7 cases failed; reverted, `git diff` empty. File 7/7, exit 0. Full suite 576/576, exit 0 — 0 drift. Typecheck exit 0. | website `1f89b34` |
+
+Remaining M4c rows: 10, 32, 33, 34, 36 (wholly source-text, convert), 14, 15, 16, 19, 35 (mixed —
+convert source-text cases only), 38, 39 (H9 — replace `render()` with the harness), 9 (rider 2, H7
+— mount `SectionEditor`). See `agent-output/analysis/test-inventory-2026-08-26.md` for class and
 `agent-output/implementation/014-test-suite-cleanup-implementation.md` "Outstanding Items" for the
-M4c disposition plan, pending M2 (DOM harness).
+M4c disposition plan.
