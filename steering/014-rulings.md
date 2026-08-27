@@ -132,3 +132,5 @@ closed/) and verification/014/disposition-table (→ Complete) mechanically (40d
 close deployment + readiness on its stability judgement. Then retrospective spawn → owner prompt.
 Shared-tree state to hold: at the owner's direction UAT-2 localised website's stack (.env.local
 repointed with a backup, local Postgres/Redis); the dev server on :3000 is still his.
+
+Owner 2026-08-27: "stay local" — website .env.local pointing at the local Postgres/Redis stack (set up by uat-hooks-014-2 at his direction, original backed up) is the INTENDED STEADY STATE. No session restores or "fixes" it.
