@@ -43,3 +43,8 @@ ask on this chain.
   in agents TODO.md for pi.
 - **2026-08-27, by selection, implementer ceiling stop at 62b61bd (M4b 3/10)**: "Compact the
   existing implementer and continue it instead." No successor; same session, same name.
+
+## 2026-08-27 — rider on M4c (rows 9, 12) dropped
+Owner: "As for now, I guess we can just drop the rider." Rows 9 (editableComponents.operations,
+H7) and 12 (useApiMethods.json-editor-repair, H5) stay recorded gaps → QA Phase 2 + handoff
+record; plan unchanged. Owner also directed a pi TODO for a clerical-registration path (agents TODO.md).
