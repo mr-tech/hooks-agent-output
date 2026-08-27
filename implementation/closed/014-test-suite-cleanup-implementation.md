@@ -2,7 +2,7 @@
 ID: 014
 Origin: 014
 UUID: 4671e28c
-Status: Active
+Status: Committed
 ---
 
 # Implementation 014 — Hooks test-suite cleanup (pilot)
@@ -50,6 +50,7 @@ Phase 2.
 | 2026-08-27 | planner-hooks-014 (cross-session) | Rev 14 ruling: naming-anchor fix confirmed correct | Applied: `agent-output/CLAUDE.md` and `naming-predicate.js` both widened to `^[A-Za-z]` (module segment only); re-run clean (51/0/0), positive controls re-verified under the corrected anchor. `agent-output` `cca22fd`. |
 | 2026-08-27 | qa-hooks-014-2 (cross-session) | Direct probe of row 15's three "non-conformant" cases | Found `embeds: {}` does not throw (contradicting its own title), unlike its two siblings. Retitled (`website` `f2c85f5`); row-15 reconciliation row corrected to cite only the two throwing cases for proviso (i); row-13 addendum added per planner. `agent-output` `cca22fd`. |
 | 2026-08-27 | Owner (direct) | "Continue" (post-compaction, same session) | Continued M5. Step 3 (skip/only), step 4 (readFileSync allowlist), step 6 (`// escaped:` count, both-direction controls) all closed clean with positive controls. Step 5's literal instrument surfaced a second real finding of the same class as step 2's — 3 files (rows 38/39/10) fail the alias-only grep despite genuinely importing their production component via a relative path (the established M4c colocated-test convention); escalated with a recommendation rather than deciding. Planner ruled at rev 15 (widen to admit a relative import whose resolved basename equals the file's own module segment; rejected "any relative import admits" as it would stop discriminating genuine H7). Built `step5-production-import.js` implementing exactly that; clean run 0 unadmitted, positive control (relative-imports-something-unrelated-while-transcribing) correctly caught. `agent-output` `aa3541f`. Also fielded and independently verified a since-withdrawn qa-hooks-014-2 finding against `naming-predicate.js`'s escaped-line exemption (read the actual script, traced the early return, ran the proposed both-directions control directly — confirmed no bug, nothing changed); added a one-line comment noting the basename-domain conjunct is inert, per QA's own dispositioned-not-fixed note (`agent-output` `5d7d14c`). Closed step 1 (final run) and step 7 (48-row reconciliation: 3 deleted + 14 converted + 6 kept + 25 renamed = 48) — `agent-output` `86bb731`. **M5 is now complete — all seven steps closed.** Updated Milestones Completed, Value Statement Validation, Outstanding Items, and Next Steps for chain completion. |
+| 2026-08-27T04:56 | devops-hooks-014 (Stage 1 closure) | Close the committed documents | **`Status` set to `Committed` and this document moved to `implementation/closed/`** by devops Stage 1 step 8. It previously read `Active`, which was stale against the implementation's own record of M5 complete at `f2c85f5` (`93c6ccf`); the record, not the field, was relied on. Committed state: website `f2c85f5`, tree clean, nothing pushed. Readiness record: `deployment/014-test-suite-cleanup-readiness.md`. |
 
 ## Implementation Summary
 

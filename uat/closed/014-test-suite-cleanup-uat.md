@@ -2,7 +2,7 @@
 ID: 014
 Origin: 014
 UUID: 4671e28c
-Status: Active
+Status: Committed
 Verified-At: "website f2c85f5c7e3ad03879845ae1116518dc71cf2077 (chain/014-test-suite-cleanup) — re-derived from the tree at the start of this pass, not inherited from QA: `git rev-parse HEAD` + `git status --porcelain` empty. Committed tree, SHA identity; no manifest fallback owed. Any change to a covered blob expires this verdict and every predecessor verdict it rests on."
 ---
 
@@ -17,6 +17,7 @@ Verified-At: "website f2c85f5c7e3ad03879845ae1116518dc71cf2077 (chain/014-test-s
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-08-27T04:46 | steering-test-cleanup → uat-hooks-014 | Execute BC-9 against a running build; carry BC-7/BC-8 as closure conditions; deliver the release decision | **UAT Complete — APPROVED FOR RELEASE, conditional on the post-deploy-observable rows.** Value delivered: standard live at the workspace root, 51/51 files conforming, banned classes gone (re-derived here). **BC-9 NOT EXECUTED** — no browser tooling in this session; degraded explicitly and handed to the owner as a walkthrough row. Register defect found: two distinct rows both numbered **BC-7** (UAT-1). |
+| 2026-08-27T04:56 | uat-hooks-014 → devops-hooks-014 | Stage 1 closure | **`Status` set to `Committed` (was `Active`) and this document moved to `uat/closed/`** by devops Stage 1 step 8. The release decision — **APPROVED FOR RELEASE, conditional on the post-deploy-observable rows** — is unchanged and is the authority relied on. All four open rows (**BC-7/AC8, BC-7/row-19, BC-8, BC-9**) are carried into `deployment/014-test-suite-cleanup-readiness.md` §3 **by name as well as number**, per this document's own instruction. UAT-2 discharged at closure; UAT-1 routed to qa. |
 
 ## Plan revision read, against the brief
 

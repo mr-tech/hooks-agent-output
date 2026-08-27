@@ -2,7 +2,7 @@
 ID: 014
 Origin: 014
 UUID: 4671e28c
-Status: QA Complete
+Status: Committed
 Status-Detail: >-
   Phase 1 complete against plan rev 8. Test strategy, Irreversible Side-Effect Register and the
   AC7 axiom-(E) enumeration land here; the implementer is unblocked from M0. BLOCK-1 (npm/pnpm)
@@ -21,6 +21,7 @@ Verified-At: "f2c85f5c7e3ad03879845ae1116518dc71cf2077 (website, chain branch ch
 
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
+| 2026-08-27T04:56 | uat-hooks-014 → devops-hooks-014 | Stage 1 closure | **`Status` set to `Committed` (was `QA Complete`, which stays the verdict of record in the Verdict section) and this document moved to `qa/closed/`** by devops Stage 1 step 8. The `QA Complete` verdict at website `f2c85f5` is unchanged and was carried forward, not re-litigated. **Still owed by this document's author: a dated reconcile note for UAT-1** — the register carries two distinct rows both numbered **BC-7** (`BC-7/AC8` in the Phase 1 register; `BC-7/row-19` in the Phase 2 appended table). Devops did **not** renumber it: a record is corrected by its author. A closed document is still corrected in place. |
 | 2026-08-27T05:05 | planner-hooks-014 → qa-hooks-014-2 | Phase 2 verdict at `f2c85f5` (plan rev 16) | **QA Complete.** Suite and typecheck re-derived, not cited: 566/566, exit 0, 51 files; typecheck exit 0 both programs. TDD gate passes on a verified premise — **0 production files changed chain-wide** (`git diff --numstat a74b9e2..f2c85f5 -- src bot`, 71 paths, all tests), which also discharges IS-6 across the chain in one stroke. Property audit run per criterion AC1-AC8. Two findings, neither blocking: **QA-3** row 47 carries an oracle repair but sits in the M4a section whose format has no evidence column — I supplied the missing AC6 evidence myself by mutation; **QA-4** one concrete instance of Phase 1's named split-line residue, confirmed non-discriminating by the same mutation. AC2 could not be independently replayed end-to-end — stated, not papered over. |
 | 2026-08-27T03:55 | planner-hooks-014 → qa-hooks-14 | Plan rev 8 (`47a4138`) | **QA-1 CLOSED**, verified on five limbs against the text. Row 13 dropped from M4a (M4b-only); the stale row-15 sentence removed; rows 14 and 15 named as the only M4b→M4c exceptions; partition restated and now enumerated — M4b's ten rows listed explicitly. The critic reached the same defect independently at cycle 2 (M-13/M-14, `bd49f93`) — two instruments agreeing, which is the corroboration this workspace's hazards file says to look for rather than a re-run of the first. |
 | 2026-08-27T03:30 | planner-hooks-014 → qa-hooks-14 | Plan rev 7 (`78616ec`) consuming this document | Re-anchored on rev 7. M0's instruments and AC2's key corrected in the plan; M4b's oracle list now **points** to this document's AC7 enumeration rather than restating it, with the "at Phase 1" qualifier preserving the class as open — the right citation form. **QA-1 raised** (below): consuming the enumeration put row 13 into two milestones and falsified a standing sentence about row 15. Found by re-reading the revision rather than the summary of it. |
