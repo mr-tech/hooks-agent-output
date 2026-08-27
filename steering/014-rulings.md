@@ -89,3 +89,5 @@ selection: "Spawn uat-hooks-014" — owner spawns; brief handed by steering. BC-
 conditions; BC-9 (toast rendering seen by a human in a running build) is UAT's executed flow.
 
 Steering error 2026-08-27: after the UAT spawn prompt, steering waited to be told the session was up instead of sweeping for it (steering.md: the sweep is the next act). Owner caught it. Same class as the remembered-state failures noted 2026-08-26.
+
+Owner 2026-08-27: "You always send the brief as well" — after the sweep finds the owner-spawned session, steering sends the brief by message itself; the owner never relays it.
