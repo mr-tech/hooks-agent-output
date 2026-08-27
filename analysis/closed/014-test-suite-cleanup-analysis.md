@@ -3,7 +3,7 @@ ID: 014
 Origin: 014
 UUID: 4671e28c
 Parent: test-inventory-2026-08-26.md
-Status: Active
+Status: Planned
 Status-Detail: Complete for the commissioned brief (a)–(e), and CONSUMED by the planner at plan rev 5 (`72cde0a`): jsdom via `test.projects`, `.tsx` admitted, `pnpm add -D jsdom`, exit-code acceptance, S1–S5 each dispositioned. Nothing outstanding to the planner. Remains Active until the chain closes; the gaps under "Open questions" are unclosed by design, not pending work.
 ---
 
@@ -16,6 +16,7 @@ amendment on install mechanism received mid-run). Brief: the M2 "REQUIRES ANALYS
 
 | Date (UTC) | Author | Change |
 |---|---|---|
+| 2026-08-27 | steering-test-cleanup | chain closure | Mechanical closure by steering: criteria already met and recorded (consumed at plan rev 5, nothing outstanding; chain 014 released at website f2c85f5, deployment record dd71313). Status → Planned per analysis/closed precedent; moved to analysis/closed/. "Open questions" remain unclosed by design, as this document states. |
 | 2026-08-27 | analyst-hooks-014 | Created. Answers (a)–(e). Records the rig-artifact near-miss, the pnpm/npm correction to the rev-3 amendment, and five scope items for the planner. |
 | 2026-08-27 | analyst-hooks-014 | Consumption recorded. `planner-hooks-014` adopted every recommendation at plan rev 5 (`72cde0a`) and dispositioned S1–S5; S4 → row 45 deleted with the surface in Outstanding Items, S5 → helpers under `__tests__/helpers/`, S3 → the tRPC proxy mock is explicitly not a standard. The rev-3 install correction is recorded in the plan's own changelog as the planner's error. No finding altered. Adds the rig-disposition note below. |
 

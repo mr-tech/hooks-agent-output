@@ -2,7 +2,7 @@
 ID: 014
 Origin: 014
 UUID: 4671e28c
-Status: Active
+Status: Complete
 ---
 
 # Plan 014 — Disposition Table (AC1's instrument)
@@ -195,3 +195,7 @@ is unaccounted for by this chain of per-row evidence — a full case-by-case tit
 all 617 M0 baseline assertions against the final run was not additionally performed beyond this,
 since each transition was already independently verified (a real `npx vitest run`, not arithmetic
 alone) at the point it happened, per the "Full suite after..." notes throughout this table.
+
+
+---
+2026-08-27 — steering-test-cleanup, chain closure: all rows dispositioned and verified (QA Complete at f2c85f5; released, deployment record dd71313). Status → Complete; instrument retained in place under verification/014 (no closed/ for instruments).
