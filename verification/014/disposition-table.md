@@ -42,11 +42,48 @@ being left blank, so an empty cell is never ambiguous between "not owed" and "no
 
 **M4b complete: 10/10 rows dispositioned (43, 11, 3, 7, 13, 14, 15, 20, 22, 46).**
 
-## Not yet started (38 rows)
+## M4a — 27 rows (pure renames + ID-token strips, no case change; class in every row here is H2
+unless noted; disposition is "renamed to (C) form, titles/comments stripped"; evidence owed is
+per-file case-count parity before/after, verified — not repeated per row below)
 
-Rows 1, 2, 4, 5, 6, 8, 9, 10, 12, 16, 17, 18, 19, 21, 23, 24, 25, 26, 27, 28,
-29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 44, 45, 47, 48 — see
+| # | path (old → new) | cases | commit |
+|---|---|---|---|
+| 1 | `src/scripts/__tests__/012-backfill-classify.test.ts` → `backfillValid.classify.test.ts` | 11 | website `4e0b178` |
+| 2 | `012-backfill-evaluation-failure-category-qa.test.ts` → `backfillValid.evaluation-failure-category.test.ts` | 3 | website `4e0b178` |
+| 4 | `src/server/api/utils/__tests__/012-upsert-valid.test.ts` → `shared.upsert-valid.test.ts` | 6 | website `9099190` |
+| 5 | `013-m4-shapes-parity.test.ts` → `shapes.supported-types-parity.test.ts` (M3-touched, imports not re-opened) | 10 | website `9099190`, MEDIUM-5 consistency fix `aae58af` |
+| 6 | `013-m9f-dropped-types-notice.test.ts` → `shapes.dropped-types-notice.test.ts` | 3 | website `7a0e521` |
+| 8 | `src/server/api/v1/__tests__/012-valid-exposure.test.ts` → `guildMessages.valid-exposure.test.ts` | 6 (2 it.each ×3) | website `7a0e521` |
+| 9 | `src/utils/__tests__/008-qa-validation.test.ts` → `editableComponents.operations.test.ts` | 23 | website `b079d5d` (finding: hand-rolled dispatch-logic block, not fixed — see doc) |
+| 12 | `012-json-editor-repair-path.test.ts` → `useApiMethods.json-editor-repair.test.ts` | 7 | website `c345db1` (finding: 2-hop local mode-switch transcription, not fixed — see doc) |
+| 17 | `013-fqa17-supported-types-parity.test.ts` → `supportedTypes.parity.test.ts` | 2 | website `aedcbf5` |
+| 18 | `013-fqa18-thumbnail-persist-gate.test.ts` → `gateBeforePersist.thumbnail.test.ts` | 3 | website `aedcbf5` |
+| 21 | `013-m1-fix-round-1-extraction.test.ts` → `utils.save-payload-and-seed.test.ts` | 3 | website `6c264a0` |
+| 23 | `013-m1-transport-form.test.ts` → `utils.transport-form.test.ts` | 7 | website `6c264a0` |
+| 24 | `013-m2c-load-diff.test.ts` → `loadDiff.diff-summary.test.ts` | 7 | website `aae58af` |
+| 25 | `013-m3-bot-get-message.test.ts` → `serverCommands.get-message.test.ts` | 1 | website `aae58af` |
+| 26 | `013-m3-code-path.test.ts` → `messageStore.dropped-set-report.test.ts` | 1 | website `aae58af` |
+| 27 | `013-m3-discord-ingress.test.ts` → `discordResponseToMessage.ingress.test.ts` | 11 | website `aae58af` |
+| 28 | `013-m7-mode-follows-flag.test.ts` → `messageMode.detection.test.ts` | 16 | website `df7350c` |
+| 29 | `013-m8-ec3-resolver-gate.test.ts` → `utils.disposition-resolver.test.ts` | 31 | website `df7350c` |
+| 30 | `013-m8-json-modal-notices.test.ts` → `utils.disposition-notices.test.ts` | 7 | website `460ef81` |
+| 31 | `013-m9a-delimiter-collision.test.ts` → `formatMutationError.zod-issues.test.ts` | 4 | website `460ef81` |
+| 37 | `013-qa-cr24-6-independent-mode-oracle.test.ts` → `loadDiff.independent-oracle.test.ts` (H8, keep-and-rename) | 20 executed (9+3 it.each static) | website `6125730` |
+| 40 | `components-v2-data-layer.test.ts` → `componentsV2.data-layer.test.ts` ("clean" per inventory + 1 comment token found) | 32 | website `94c7e46` |
+| 41 | `isValidUrl.test.ts` → `isValidUrl.protocol-validation.test.ts` ("clean", positive-form shape only) | 10 | website `94c7e46` |
+| 42 | `m7-m10-coverage-gaps.test.ts` → `limits.import-validation.test.ts` | 33 | website `45d3afd` |
+| 44 | `mutual-exclusivity.test.ts` → `utils.mutual-exclusivity.test.ts` | 49 | website `1654e71` |
+| 47 | `plan-005-qa-validation.test.ts` → `bugFixCoverage.supplemental.test.ts` (E3a candidate, adjudicated: fixed + escaped line added, matching row 46) | 28 | website `8f4b2bd` (2 findings not fixed — see doc) |
+| 48 | `sub-component-actions.test.ts` → `editableComponents.sub-component-actions.test.ts` ("clean", positive-form shape only) | 14 | website `8c8b5a7` |
+
+**M4a complete: 27/27 rows dispositioned.** Full-suite check after M4a: 46 files / 604 tests / 0
+failed / exit 0 (unchanged from post-M4b — confirms zero case drift across all 27 renames).
+Whole-suite negative-form re-sweep after M4a confirms the only remaining ID-token-carrying files
+are exactly the 10 M4c-reserved rows (10, 16, 19, 32, 33, 34, 35, 36, 39, 45) — nothing missed.
+
+## Not yet started (10 rows — all M4c, depends on M2)
+
+Rows 10, 16, 19, 32, 33, 34, 35, 36, 39, 45 — see
 `agent-output/analysis/test-inventory-2026-08-26.md` for class and
 `agent-output/implementation/014-test-suite-cleanup-implementation.md` "Outstanding Items" for the
-per-row disposition plan (M4b rows 7/13/14/15/20/22/46 detailed individually; M4a's 27 rows and
-M4c's 13 rows listed by number pending their milestone's opening).
+M4c disposition plan, pending M2 (DOM harness).
