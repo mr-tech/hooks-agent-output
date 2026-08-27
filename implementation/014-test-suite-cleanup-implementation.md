@@ -68,9 +68,9 @@ typecheck` clean. No `.test.tsx` files exist in the tree yet (M4c adds the first
 edit-page teardown-rejection finding from the analysis has nothing to trigger yet; the deterministic
 mitigation (`vi.mock` the nine prefetch targets) is M4c's responsibility when it writes that test.
 
-Not yet delivered: M4c (10 of 15 rows remain — both named riders and rows 38/39 (H9) are now
-landed) and M5 (acceptance sweep). The value statement is not yet fully met — see "Value Statement
-Validation".
+Not yet delivered: M4c (9 of 15 rows remain — both named riders, rows 38/39 (H9), and row 10 (H1)
+are now landed) and M5 (acceptance sweep). The value statement is not yet fully met — see "Value
+Statement Validation".
 
 ## Milestones Completed
 
@@ -98,19 +98,22 @@ Validation".
       mode-switch transcription (falls outside QA's E3b-indirect predicate scope). Full suite
       46 files / 604 tests / 0 failed / exit 0, unchanged from post-M4b (zero case drift).
 - [x] M2 — **Complete.** `vitest.config.ts` rewritten to `test.projects` (node + dom @ jsdom),
-      `jsdom` added (`pnpm add -D jsdom`, lockfile diff purely additive), `vitest.setup.dom.ts`
+      `jsdom` added (`pnpm add -D jsdom`; lockfile diff is **+328/−7**, not purely additive — see
+      the 2026-08-27 reconcile note under "Files Modified"), `vitest.setup.dom.ts`
       created and listed in `tsconfig.test.json`'s `include` (extends the existing per-file
       pattern already used there for `vitest.config.ts`). Node project pass set byte-identical to
       pre-change baseline (604/604, exact tuple match), exit 0, typecheck exit 0. Nothing under
       `src/` touched. Committed `website` `988ca15`.
-- [ ] M4c — **In progress, 5/15 rows.** Row 45 deleted (H1 delete branch, `07af608`); row 12
+- [ ] M4c — **In progress, 6/15 rows.** Row 45 deleted (H1 delete branch, `07af608`); row 12
       (rider 1) H5-repaired (`1f89b34`); row 9 (rider 2) H7-repaired — mounted the real
       `SectionEditor` for the auto-remove branch dispatch (`4c4a357`). **Both named riders
       (D19/R-5) landed — neither dropped.** Rows 38, 39 (H9) — replaced both hand-rolled
       `render()` walkers with real mounts of `NewMessageJsonInput`/`NullableComponent`; row 39's
-      second describe block dropped as superseded by row 38's real drive (`4761453`). 10 rows
-      remain: 10, 32, 33, 34, 36 (wholly source-text convert), 14, 15, 16, 19, 35 (mixed —
-      convert source-text cases only).
+      second describe block dropped as superseded by row 38's real drive (`4761453`). Row 10 (H1)
+      — mounted `TransitionHeightElement`; 5 of the original 11 source-text assertions had no
+      observable equivalent under this synchronous harness (SSR-only `hidden`-class timing),
+      dropped and recorded in Outstanding Items (`100b319`). 9 rows remain: 32, 33, 34, 36
+      (wholly source-text convert), 14, 15, 16, 19, 35 (mixed — convert source-text cases only).
 - [ ] M5 — Not started (acceptance sweep).
 
 ## Entry Conditions
@@ -149,10 +152,10 @@ implementation) was satisfied before this session began (confirmed against
 | `src/providers/MessageProvider/usePusher.ts` | website | M4b row 22: mutated (`normalizeForHash`'s shape-normalisation branch) then reverted, for axiom-(A) evidence; tree clean at the commit | 0 net |
 | `src/utils/__tests__/plan-005-bug-fixes.test.ts` → `constructImageUrl.default-avatar.test.ts` | website | M4b row 46: H5 fix (3 self-referential formulas → literals) + self-found-gap fix (non-discriminating fixture replaced) + escaped-provenance line, renamed. | -21/+14 |
 | `src/utils/constructImageUrl.ts` | website | M4b row 46: mutated (`% 6n` → `% 5n`) then reverted, for axiom-(A) evidence; tree clean at the commit | 0 net |
-| `vitest.config.ts` | website | M2: rewritten to `test.projects` (node + dom @ jsdom), `resolve.alias` factored out shared. | -8/+26 |
+| `vitest.config.ts` | website | M2: rewritten to `test.projects` (node + dom @ jsdom), `resolve.alias` factored out shared. **2026-08-27 code-review fix** (`e6163fd`): replaced the dead top-level `resolve: { alias }` (nothing read it; a future third project could omit its own copy and hit a resolver error) with a `project(test)` factory that always attaches the alias — structurally unskippable rather than a convention to remember. | -8/+26 (`988ca15`), then +18/−19 (`e6163fd`) |
 | `tsconfig.test.json` | website | M2: added `vitest.setup.dom.ts` to `include`, following the existing per-file listing pattern already used for `vitest.config.ts`. | -1/+2 |
 | `package.json` | website | M2: `jsdom` added under `devDependencies`. | +1 |
-| `pnpm-lock.yaml` | website | M2: jsdom's dependency tree resolved; purely additive (0 removed lines). | -0/+328 |
+| `pnpm-lock.yaml` | website | M2: jsdom's dependency tree resolved. **2026-08-27 reconcile note** (code review, `agent-output/code-review/014-test-suite-cleanup-code-review.md`): the original "purely additive, 0 removed lines" claim here was **false** — `git show 988ca15 --numstat -- pnpm-lock.yaml` gives 328/7, independently reconfirmed by the implementer against the same instrument. The 7 removed lines are vitest's peer key gaining `jsdom@30.0.1` (2 lines, expected) plus a `debug` 4.3.4→4.4.3 bump inside the `@pm2/pm2-version-check` devDependency subtree (5 lines, same major, unrelated to this change). Nothing under `dependencies` changed. The commit message is left as written (`988ca15`, not amended); this row is corrected in place per the record-area correction form. | 328/7 (was misrecorded as -0/+328) |
 
 ## Files Created
 
@@ -165,7 +168,7 @@ implementation) was satisfied before this session began (confirmed against
 | `agent-output/verification/014/baseline-a74b9e2.json` / `.txt` | agent-output | M0 baseline capture |
 | `agent-output/verification/014/m0-baseline.md` | agent-output | M0 record: reconciliation, exit code, AC2 key confirmation |
 | `agent-output/handoff/message-init-cached-edits-lost-2026-08-27.md` | agent-output | D2 handoff for row 43's deleted pin |
-| `website/vitest.setup.dom.ts` | website | M2: scopes `IS_REACT_ACT_ENVIRONMENT = true` to the dom vitest project only |
+| `website/vitest.setup.dom.ts` | website | M2: scopes `IS_REACT_ACT_ENVIRONMENT = true` to the dom vitest project only. **2026-08-27 code-review fix** (`e6163fd`, +2/−2): reworded a comment that claimed the flag "has no effect" in the node project rather than stating the file is never loaded there. |
 
 Renamed (M4b row 3, this row owns its own rename per the plan):
 `website/src/scripts/__tests__/012-backfill-report.test.ts` →
@@ -233,6 +236,7 @@ extraction.
 | M4c row 9 (rider 2), `SectionEditor` auto-remove dispatch | Axiom (A), H7 structural repair (component mount, not a new production function) | `deleteTextComponent`'s branch condition narrowed from `next.length === 0` to `next.length < 0` | 2/3 new mounted cases failed | Yes — `git diff` on `SectionEditor.tsx` empty at commit `4c4a357` |
 | M4c row 38, `NewMessageJsonInput` settled notice | Axiom (A), H9 hand-rolled-renderer conversion | `noticeMessageForSettled`'s `warn-v2-flag-conflict` branch changed to return `null` | 4/5 cases failed | Yes — `git diff` on `src/utils/index.ts` empty at commit `4761453` |
 | M4c row 39, `NullableComponent` show guard | Axiom (A), H9 hand-rolled-renderer conversion | `show ? children : null` inverted to `!show ? children : null` | 5/5 cases failed | Yes — `git diff` on `NullableComponent.tsx` empty at commit `4761453` |
+| M4c row 10, `TransitionHeightElement` height/visibility (4 mutations, distinct branches) | Axiom (A), H1 convert | first-render display branch inverted; `onTransitionEnd` target guard removed; open-path and close-path `overflow-hidden` additions each removed in turn | 2/9, 1/9, 1/9, 1/9 cases failed respectively | Yes — `git diff` on `TransitionHeightElement.tsx` empty at commit `100b319` |
 
 ## Class Sweep Table
 
@@ -266,7 +270,7 @@ TDD).
 | `npx vitest run --reporter=json` (M4b complete, full suite) | **46 files / 604 tests / 0 failed / exit 0** | 605 − 1 (row 7's D8 case deletion) = 604 ✓; no other count drift — confirms rows 13/14/15/20/22/46's repairs changed 0 pass/fail outcomes, only oracles/names |
 | `npx vitest run --reporter=json` (M4a complete, full suite) | **46 files / 604 tests / 0 failed / exit 0** | Unchanged from post-M4b — zero case drift across all 27 renames |
 | `npx vitest run --reporter=json` (M2, pre-config-change baseline) | 46 files / 604 tests / 0 failed / exit 0 | `/tmp/m2-pre-baseline.json` |
-| `pnpm add -D jsdom` | jsdom 30.0.1 added; lockfile diff purely additive (`git diff pnpm-lock.yaml \| grep -c '^-[^-]'` = 0) | pre-existing unmet-peer warnings (react-accessible-accordion, react-slider, react-use) are unrelated, not introduced by this change |
+| `pnpm add -D jsdom` | jsdom 30.0.1 added; lockfile diff recorded at the time as purely additive (`git diff pnpm-lock.yaml \| grep -c '^-[^-]'` = 0) | pre-existing unmet-peer warnings (react-accessible-accordion, react-slider, react-use) are unrelated, not introduced by this change. **2026-08-27 reconcile note**: that instrument does not reproduce — `git show 988ca15 --numstat -- pnpm-lock.yaml` gives 328/7 (7 removed lines: 2 from vitest's peer key, 5 from an unrelated `debug` patch bump in the `pm2` devDependency subtree). Per this codebase's own RTK caution, a piped-diff line-count is not a sound instrument for this; `--numstat` or a redirected-file `grep -c` is. See the corrected "Files Modified" row for `pnpm-lock.yaml`. |
 | `pnpm run typecheck` (post-M2 config rewrite) | exit 0, both `tsc` programs | |
 | `npx vitest run --reporter=json` (M2, post-config-change) | 46 files / 604 tests / 0 failed / **exit 0** | `/tmp/m2-post.json`; exact `(file, fullName, status)` tuple-set comparison against the pre-change baseline: **identical**, 0 only-in-pre, 0 only-in-post |
 | `git diff --stat -- src/` (M2) | empty | confirms "nothing in `src/` outside tests and `__tests__/helpers/`" per the plan's M2 scope line |
@@ -286,6 +290,17 @@ TDD).
 | `npx vitest run` (row 39, reverted) | 5/5 passed; `git diff` on `NullableComponent.tsx` empty | |
 | `npx vitest run --reporter=json` (M4c: rows 45, 12, 9, 38, 39 landed, full suite) | **46 files / 572 tests / 0 failed / exit 0** | 576 − 4 = 572; row 39's second describe block (4 cases) dropped as superseded, everything else net 0 |
 | `pnpm run typecheck` (after rows 38/39) | exit 0, both `tsc` programs | |
+| `npx vitest run` (row 10, first pass) | **9/9 passed** | `TransitionHeightElement` (M2 analysis POC #2) mounts with no extra mocks |
+| `npx vitest run` (row 10, first-render `unmount ? 'none' : 'block'` inverted) | 2/9 failed | axiom-(A) evidence |
+| `npx vitest run` (row 10, reverted; `onTransitionEnd`'s `e.target === wrapperRef.current` check removed) | 1/9 failed | axiom-(A) evidence |
+| `npx vitest run` (row 10, reverted; open-path `classList.add('overflow-hidden')` removed) | 1/9 failed | axiom-(A) evidence |
+| `npx vitest run` (row 10, reverted; close-path `classList.add('overflow-hidden')` removed) | 1/9 failed | axiom-(A) evidence |
+| `npx vitest run` (row 10, reverted) | 9/9 passed; `git diff` on `TransitionHeightElement.tsx` empty | |
+| `npx vitest run --reporter=json` (M4c: rows 45, 12, 9, 38, 39, 10 landed, full suite) | **46 files / 570 tests / 0 failed / exit 0** | 572 − 2 = 570; row 10 net −2 (11 source-text cases → 9 mounted cases, 5 dropped as unobservable + 3 combined into fewer cases) |
+| `pnpm run typecheck` (after row 10) | exit 0, both `tsc` programs | |
+| `npx vitest run --reporter=json` (post-code-review fixes: `vitest.config.ts` factory refactor, `vitest.setup.dom.ts` comment) | **46 files / 570 tests / 0 failed / exit 0** | unchanged — confirms the alias factory is behaviour-preserving (both projects still resolve `~`/`bot` — proven by every `~/...`-importing test in both projects still passing) |
+| `pnpm run typecheck` (post-code-review fixes) | exit 0, both `tsc` programs | |
+| `git show 988ca15 --numstat -- pnpm-lock.yaml` | **328 added / 7 removed** | independently reconfirms the code reviewer's finding — the implementation doc's original "purely additive" claim was false; corrected in place (see "Files Modified") |
 
 ## Key Decisions (M3 — record for the disposition table / retrospective)
 
@@ -320,8 +335,9 @@ it did not actually discriminate the regression its name claimed to guard agains
 every prior run. Fixed in the same round (a new, genuinely divergent fixture ID) per the
 mutation-exposed self-found-gap duty, with before/after mutation evidence recorded in the table.
 
-**Sequence remaining: M4c (10 rows left) → M5.** M2 is complete. Both named riders (rows 9 and 12,
-D19/R-5, rev 9) and rows 38/39 (H9) have landed — see "M4c" below.
+**Sequence remaining: M4c (9 rows left) → M5.** M2 is complete (and its code review has landed and
+been addressed). Both named riders (rows 9 and 12, D19/R-5, rev 9), rows 38/39 (H9), and row 10
+(H1) have landed — see "M4c" below.
 
 ### M4a — complete, 27/27 rows
 
@@ -376,10 +392,29 @@ No `.test.tsx` files exist yet, so the analysis's edit-page teardown-rejection f
 deterministic mitigation it names (`vi.mock` the nine prefetch targets) is M4c's responsibility,
 owed by whichever M4c case first mounts `edit/page.tsx`.
 
-**Code review**: scoped to this milestone's non-test diff (`package.json`, `pnpm-lock.yaml`,
-`vitest.config.ts`) per D17/the plan. Not yet spawned — see Next Steps.
+**Code review**: `APPROVED_WITH_COMMENTS` at `website` `988ca15` —
+`agent-output/code-review/014-test-suite-cleanup-code-review.md` (`agent-output` `d7c5fe5`). Scope
+was the 5 non-test M2 paths only; nothing under `src/` was assessed (QA's under V-27). The
+reviewer independently re-ran the behaviour-preservation claim (604/604 tuples, 0 lost/0 added,
+exit 0, different rig) and confirmed the dom project actually collects/mounts (a 0-`.test.tsx`
+tree at `988ca15` meant the implementer's own "exit 0" had only ever measured the node project).
+Three items, all addressed same-session (none gated M4c or QA):
+- **MEDIUM** — the "pnpm-lock.yaml diff is purely additive" claim was false (328/7, not 328/0);
+  corrected in place in "Files Modified"/"Test Execution Results" below with a dated reconcile
+  note, per the record-area correction form. Commit message left as written.
+- **MEDIUM** — `vitest.config.ts`'s top-level `resolve: { alias }` was dead (nothing reads it;
+  each project already carried its own copy) and, left in place, invited a future third project to
+  omit its own alias and hit a resolver error. Fixed with the reviewer's preferred structural fix:
+  a `project(test)` factory that always attaches `resolve: { alias }`, so a project cannot be
+  written without it — the dead top-level key is gone. Re-verified: full suite 570/570, exit 0;
+  typecheck exit 0 (both programs).
+- **LOW** — `vitest.setup.dom.ts`'s comment claimed the flag "has no effect in the node project's
+  environment"; it does not run there at all (`setupFiles` is dom-project-only). Reworded.
 
-### M4c — 15 rows (13 + 2 riders); 5 landed, 10 remain — exact resumption state below
+Re-verification is recorded as a sub-entry of the review's own round (not a new round, per the
+reviewer's instruction) — see "Test Execution Results".
+
+### M4c — 15 rows (13 + 2 riders); 6 landed, 9 remain — exact resumption state below
 
 **Done**: row 45 (deleted, H1 delete branch, `website` `07af608`) — see disposition table for full
 evidence. Row 12/rider 1 (H5 structural repair — dropped the local `switchToV2`/`switchToClassic`
@@ -395,18 +430,32 @@ walkers replaced with real `createRoot`+`act` mounts (`NewMessageJsonInput`, dri
 real CodeMirror editor; `NullableComponent`, directly). Row 39's second describe block (a
 conjunct-isolated proxy for the paste-surface guard, written when no harness existed) was dropped
 as superseded — row 38's real mount now drives that exact guard through genuine behaviour. `website`
-`4761453`. Full suite after all five: 46 files / 572 tests / 0 failed / exit 0 (604 − 28 row-45
-cases = 576; rows 12/9 changed 0/net-0 outcomes; rows 38/39 net −4: row 38 unchanged 5→5, row 39
-9→5 after dropping the 4 superseded cases).
+`4761453`. Row 10 (H1) — mounted `TransitionHeightElement`; 5 of 11 original source-text assertions
+(the SSR-only `hidden`-class window, its imperative removal, and the now-nonexistent legacy
+condition it replaced) have no observable equivalent under `createRoot`+`act`: React 19's
+concurrent root does not commit `root.render()` synchronously outside `act()`, and `act()` collapses
+the pre-hydration render together with `useMounted`'s effect flip into one flush, so the class never
+appears in a readable state. Dropped, recorded in Outstanding Items below (`website` `100b319`).
+Full suite after all six: 46 files / 570 tests / 0 failed / exit 0 (604 − 28 row-45 cases = 576;
+rows 12/9 changed 0/net-0; rows 38/39 net −4; row 10 net −2: 11 source-text cases → 9 mounted).
+
+**Code review of M2's non-test diff landed mid-M4c**: `APPROVED_WITH_COMMENTS` at `website` `988ca15`
+(`agent-output/code-review/014-test-suite-cleanup-code-review.md`, `agent-output` `d7c5fe5`). Three
+items, all fixed same-session, none of which gated M4c: a false "purely additive" pnpm-lock.yaml
+claim corrected in place with a dated reconcile note (actual: 328 added/7 removed, unrelated to
+this change's substance); `vitest.config.ts`'s dead top-level `resolve: { alias }` replaced with a
+`project(test)` factory (the reviewer's preferred structural fix) so a project cannot be written
+without its alias; `vitest.setup.dom.ts`'s comment reworded. Re-verified: full suite 570/570 exit 0,
+typecheck exit 0 both programs — see "Test Execution Results".
 
 **Remaining, in the order a resuming implementer should probably take them** (simplest/lowest-risk
 first, not a plan-mandated order):
-1. **Rows 10, 32, 33, 34, 36 (wholly source-text → convert)** — read what each currently asserts via
+1. **Rows 32, 33, 34, 36 (wholly source-text → convert)** — read what each currently asserts via
    `readFileSync`/`readSrc` (test-inventory doc has the target file per row) and rewrite as a mount
    + behavioural assertion using the M2 analysis's finding (a) table for each target's mock
-   requirements. Row 10 → `TransitionHeightElement`; rows 32/33/34/36 → `JsonModalBody` /
-   `NewMessageJsonInput` / `MessageProvider` (per the analysis's per-component mock list — row
-   36 in particular touches all three). **Owner-ruling content warning**: rows 32/33/34/36 pin
+   requirements. Target: `JsonModalBody` / `NewMessageJsonInput` / `MessageProvider` (per the
+   analysis's per-component mock list — row 36 in particular touches all three).
+   **Owner-ruling content warning**: rows 32/33/34/36 pin
    dated owner rulings (D29, D31, D33, and D29's reversal) as their subject — read
    `planning/closed/013-components-v2-editing-surfaces.md`'s cited revisions before converting, so
    the converted assertion still tests the ruling's substance, not just its old source-text proxy.
@@ -420,6 +469,16 @@ first, not a plan-mandated order):
 individual `dynamics/*` wrappers, `DiscordMessageEditor` (mounted only transitively in the
 analysis's POCs) — a converted case needing one of these that fails to mount goes to Outstanding
 Items, never a silent drop.
+
+**Uncovered surface from row 10's conversion**: `TransitionHeightElement`'s pre-hydration SSR
+`hidden`-class window (the class exists in the server-rendered/first-paint DOM only until
+`useMounted()`'s effect flips, at which point the JSX conditional and an imperative
+`classList.remove('hidden')` both independently clear it) has no covering test after row 10. The
+`createRoot`+`act` harness cannot observe it: `root.render()` outside `act()` does not commit
+synchronously under React 19's concurrent root, and every `act()`-wrapped mount collapses the
+pre-hydration render together with the mount-flip effect into one flush, so the class is never in
+a readable state. This is the same family of gap the M2 analysis already named for `edit/page.tsx`
+(async-effect/hydration timing not observable via this synchronous harness) — not new to this row.
 
 **Process reminder for every row above**: TDD Gate procedure applies to any new mount helper
 function; axiom-A mutation evidence (mutate the production behaviour locally, show the new
@@ -451,15 +510,14 @@ predicate's positive class.
 
 ## Next Steps
 
-1. **Resume the implementer** at M4c, rows 10/32/33/34/36 (wholly source-text) or wherever
+1. **Resume the implementer** at M4c, rows 32/33/34/36 (wholly source-text) or wherever
    "Outstanding Items → M4c" above leaves off — read this document's M4c resumption block first,
    then the M2 analysis's finding (a) table and four mechanical facts, then the Disposition
-   Table's M4c section, before writing any `.test.tsx` conversion. 10 of 15 M4c rows remain (45,
-   12, 9, 38, 39 are done — both named riders and rows 38/39 landed).
-2. Code-reviewer for M2's non-test diff (`package.json`, `pnpm-lock.yaml`, `vitest.config.ts`,
-   `tsconfig.test.json`, `vitest.setup.dom.ts`) was requested from `steering-test-cleanup` this
-   session (D17) — check whether it has landed; if not, it is still owed and does not block M4c
-   (M4c is test-only, goes to QA under V-27).
+   Table's M4c section, before writing any `.test.tsx` conversion. 9 of 15 M4c rows remain (45,
+   12, 9, 38, 39, 10 are done).
+2. Code review of M2's non-test diff landed and was addressed same-session —
+   `APPROVED_WITH_COMMENTS` at `website` `988ca15`, three items fixed, re-verified 570/570 exit 0.
+   No further action needed here.
 3. Continue appending the Disposition Table per M4c row as each completes (already the
    established pattern from M4b/M4a/M2) rather than reconstructing it at M5.
 4. After M5 lands: hand to QA Phase 2, per D16/the plan's Handoff Notes. The E3b two-hop
