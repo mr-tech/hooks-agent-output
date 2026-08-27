@@ -41,6 +41,8 @@ requirements. See "Outstanding Items" for exact resumption state for M5.
 | 2026-08-27 | Owner (direct) | "Continue" (post-compaction, same session) | Landed row 10 (H1) — mounted `TransitionHeightElement`, 9/11 source-text assertions converted, 5 dropped as unobservable, axiom-A evidence (4 mutations, distinct branches), full suite 570/570 exit 0. website `100b319`. Fixed all 3 findings from `code-reviewer-hooks-014`'s M2 review (`APPROVED_WITH_COMMENTS`, `988ca15`): false lockfile "purely additive" claim corrected with a dated reconcile note, `vitest.config.ts`'s dead alias key replaced with a structural `project(test)` factory, `vitest.setup.dom.ts`'s comment reworded; re-verified 570/570 exit 0. website `e6163fd`. Checkpointed and ran the seam-notify script per the new owner ruling. |
 | 2026-08-27 | Owner (direct) | "Continue" (post-compaction, same session) | Fixed a code-reviewer follow-up nit (debug-bump attribution: 5 sibling snapshots descend from `pm2`, not `@pm2/pm2-version-check`) — `agent-output` `8ca4181`. Landed rows 32, 33, 34, 36 (H1, the D29–D33 owner-ruling files) — read `planning/closed/013-components-v2-editing-surfaces.md`'s D29/D30/D31/D33 rows first, confirmed the shipped source already implements every ruling. Mounted `JsonModalBody`/`NewMessageJsonInput`/`MessageProvider` for real per the M2 analysis's POC #4/#5 bundle, now lifted to `src/providers/MessageProvider/__tests__/helpers/` (split across two files to avoid a `vi.mock`-factory module-loader deadlock, reproduced directly). Row 36's block 1/block 3 dropped as already superseded by rows 38/34; block 2 converted to a real `MessageProvider` mount. Axiom-A evidence for all four rows (9 total mutations across 3 production files, all reverted clean). Fixed a `Proxy` `get`-trap typecheck error (TS2367) the new helper introduced. Full suite 567/567 exit 0, typecheck exit 0 both programs. **M4c now 10/15 rows.** website `634518a`. |
 | 2026-08-27 | Owner (direct) | "Continue" (post-compaction, same session) | Landed the final 5 M4c rows. Row 14 (`limits.send-gate-partition.test.ts`) — converted its 2 EXT-2 source-text cases to real Zod-schema exercise via `topLevelComponentShape`'s discriminated-union introspection (`35ad5da`). Row 15 (`messageValidity.predicate.test.ts`) — converted its call-count/import-path source-text cases to a delegation-parity property test, dropped the unconvertible import-path half (`6679465`). Row 16 — split `013-fqa15-rowd-load-gate.test.ts` into a renamed logic file plus a new `JsonModalBody.load-floors-resolved-draft.test.tsx` mount (`b5ecb29`). Row 19 — split `013-fqa19-ingress-gate-reachability.test.ts`; mounting `NewMessageModal` for real showed its ROUTE 1/ROUTE 2 wiring claims are **false of the shipped component** (the Save button is disabled by an unrelated, unwrapped `contentFloorError` check before `onSubmit`'s choice-UI branch can ever fire) — per D2 and axiom D, kept only the one honestly-true case and logged the finding as a new handoff (`agent-output/handoff/newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md`) rather than fixing it or pinning either direction (`2faaf3f`). Row 35 — split `013-owner-readable-mutation-errors-2026-08-25.test.ts` into a renamed logic file plus two new mounts (`SaveAsMenu`, `NewMessageModal`) proving each renders `formatMutationError(messageError)`, not raw (`34140d3`). `messageProviderDeps.ts`'s `buildApiMock` extended three times this round (`queryData`, mutate-input forwarding, `mutationErrors`), each backward-compatible. Axiom-A evidence captured for every new/converted case; full suite re-verified after each row (568 → 564 → 566), final state 566/566 exit 0, typecheck exit 0 both programs, 51 files. **M4c is now complete — 15/15 rows.** Checkpointed per the Run-Length Ceiling rather than opening M5. |
+| 2026-08-27 | planner-hooks-014 (cross-session) | "M4c 15/15 accepted at plan level" | Confirmed acceptance; plan rev 11 (`f194317`) records the dom half of the harness prediction row exercised. |
+| 2026-08-27 | Owner (direct) | "Continue" (post-compaction, same session) | Opened M5. Built `verification/014/m5-sweep/naming-predicate.js` (step 2's positive/negative form instrument) and planted-then-removed positive controls per QA Phase 1's "discriminating control in both directions" requirement (a basename failing the positive form; all six ID-token sub-classes) — both fired correctly, confirmed on the clean tree, controls removed, `git diff` empty. The clean run then surfaced two real findings: (1) **11 genuine negative-form hits** — this implementer's own M4c titles/comments (rows 32/33/34/36/19) still carried "D29"/"D31"/"D33" owner-ruling citations or a dated handoff filename; fixed by rewording to pure behavioural description, re-run confirms 0 hits, full suite 566/566 exit 0, typecheck exit 0 — `website` `beba354`. (2) **13 files fail the positive-form regex's `^[a-z]` anchor** despite conforming to axiom (C)'s own stated rule (`<module>` = the production module's own basename) — every M4c DOM-mount file whose module segment is a PascalCase component name (`JsonModalBody.*`, `NewMessageModal.*`, `SectionEditor.*`, etc.) fails a literal character-class check the plan's own regex text never widened for component-derived modules. Escalated to planner rather than deciding unilaterally (affects AC4 and `agent-output/CLAUDE.md`'s published regex, not just an M5 script). Received two peer corrections mid-round: qa-hooks-014-2 verified the E3b two-hop "instrument gap" (row 12) was never real — Phase 1's own sweep had already flagged the site — withdrawn, not moot; and planner's rev 12 (`7b8d27d`) registered the "Delegation carve-out — scope" paragraph, reconciling row 15's M4b removal and M4c reinstatement as both-correct (provisos (i)/(ii) confirmed live by direct execution, not narrated). Disposition table updated for all three (row 12's correction, row 15's reconciliation row, M4c header "in progress" → "complete") — `agent-output` (pending commit). |
 
 ## Implementation Summary
 
@@ -107,8 +109,10 @@ Statement Validation".
 - [x] M4a — **Complete, 27/27 rows.** Full per-row list, commits, and case counts in
       `verification/014/disposition-table.md`. Two new findings recorded, not fixed (out of
       pure-rename scope): row 9's hand-rolled dispatch-logic block, row 12's 2-hop local
-      mode-switch transcription (falls outside QA's E3b-indirect predicate scope). Full suite
-      46 files / 604 tests / 0 failed / exit 0, unchanged from post-M4b (zero case drift).
+      mode-switch transcription (H5, later repaired as M4c rider 1 — QA later confirmed this site
+      was always inside its E3b-indirect predicate's matches; **withdrawn**, see the disposition
+      table's row 12 correction). Full suite 46 files / 604 tests / 0 failed / exit 0, unchanged
+      from post-M4b (zero case drift).
 - [x] M2 — **Complete.** `vitest.config.ts` rewritten to `test.projects` (node + dom @ jsdom),
       `jsdom` added (`pnpm add -D jsdom`; lockfile diff is **+328/−7**, not purely additive — see
       the 2026-08-27 reconcile note under "Files Modified"), `vitest.setup.dom.ts`
@@ -452,9 +456,12 @@ scope, and in row 9's case blocked on the DOM harness not yet existing):
   properly.
 - **Row 12** (`useApiMethods.json-editor-repair.test.ts`): a local `switchToV2`/`switchToClassic`
   transcription pair, structurally identical to what M4b row 14 fixed, used via a 2-hop expression
-  (`switchToClassic(switchToV2(draft))`) that falls outside QA's E3b-indirect predicate (explicitly
-  scoped to exactly one intermediate variable) — a documented instrument gap, not a false negative.
-  The file's own header already discloses this as a deliberate stand-in.
+  (`switchToClassic(switchToV2(draft))`), initially characterised here as falling outside QA's
+  E3b-indirect predicate (an instrument-gap claim). **Withdrawn** (2026-08-27, qa-hooks-014-2,
+  verified against `verification/014/qa-phase1/ac7-sweep-a74b9e2.txt`): the site was inside the
+  predicate's matches at `a74b9e2` all along (`L235`-`L237`, `L256`-`L257`) — what looked like a
+  two-hop variable chain was argument nesting, which the predicate never needed to see through.
+  There was no instrument gap at this site; see the disposition table's row 12 correction.
 
 Both are candidates for a future M4b-style repair row, not expanded into unilaterally here.
 
@@ -699,7 +706,8 @@ predicate's positive class.
    captures under `agent-output/verification/014/` (final JSON run, sweep outputs) rather than
    adding further Disposition Table rows.
 4. After M5 lands: hand to QA Phase 2, per D16/the plan's Handoff Notes. The E3b two-hop
-   instrument-gap finding (row 12) is now **moot** — row 12's rider repair (this session) deleted
-   the local `switchToV2`/`switchToClassic` transcription the finding named, so there is nothing
-   left for QA's E3b-indirect predicate to have missed at that site. Confirm this at the spawn cue
-   rather than carrying the finding forward.
+   "instrument-gap" characterisation (row 12) is **withdrawn**, not moot — qa-hooks-014-2 verified
+   against Phase 1's own captured sweep (`verification/014/qa-phase1/ac7-sweep-a74b9e2.txt`) that
+   the site was inside the E3b-indirect predicate's matches at `a74b9e2` all along; there was never
+   a gap to close. Do not carry it into the Phase 2 spawn cue in any form — it is fully resolved,
+   not deferred.
