@@ -1,0 +1,232 @@
+# AC7 sweep - axiom (E), plan 014
+# domain: 51 test files matching the find predicate in this script's header
+# production-export domain: 331 exported names over 322 non-test source files under src/ + bot/
+#
+# CANDIDATE counts. Each is a candidate count under the predicate named in the header,
+# not a violation count; every candidate is adjudicated by reading.
+# E1  oracle-by-formula          : 5 files (FLOOR - single-physical-line matching only)
+# E2  oracle-by-source-text      : 0 files
+# E3a transcription, expected side: 0 files
+# E3b transcription-as-subject    : 5 files (same line)
+# E3b-indirect, via one intermediate: 12 files (depth 1; a two-hop chain is residue)
+
+## src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx
+   E3b-indirect L40 local `el = mount(...)` (defined L19) :: expect(el.textContent).toContain('nothing was created');
+   E3b-indirect L41 local `el = mount(...)` (defined L19) :: expect(el.textContent).not.toContain('Save as Classic');
+   E3b-indirect L42 local `el = mount(...)` (defined L19) :: expect(el.textContent).not.toContain('Save as Components V2');
+   E3b-indirect L53 local `el = mount(...)` (defined L19) :: expect(el.textContent).toContain('Save as Classic');
+   E3b-indirect L54 local `el = mount(...)` (defined L19) :: expect(el.textContent).toContain('Save as Components V2');
+   E3b-indirect L55 local `el = mount(...)` (defined L19) :: expect(el.textContent).not.toContain('nothing was created');
+   E3b-indirect L53 local `el = mount(...)` (defined L19) :: expect(el.textContent).toContain('Save as Classic');
+   E3b-indirect L54 local `el = mount(...)` (defined L19) :: expect(el.textContent).toContain('Save as Components V2');
+   E3b-indirect L55 local `el = mount(...)` (defined L19) :: expect(el.textContent).not.toContain('nothing was created');
+
+## src/app/message/_components/__tests__/NewMessageJsonInput.settled-notice.test.tsx
+   E3b-indirect L49 local `el = mount(...)` (defined L26) :: expect(el.textContent).toContain('saved as Classic and the flag cleared');
+   E3b-indirect L56 local `el = mount(...)` (defined L26) :: expect(el.textContent).not.toContain('saved as Classic and the flag cleared');
+   E3b-indirect L76 local `el = mount(...)` (defined L26) :: expect(el.textContent).toContain('saved as Classic and the flag cleared');
+   E3b-indirect L79 local `el = mount(...)` (defined L26) :: expect(el.textContent).not.toContain('saved as Classic and the flag cleared');
+   E3b-indirect L88 local `el = mount(...)` (defined L26) :: expect(el.textContent).toContain('saved as Classic and the flag cleared');
+   E3b-indirect L91 local `el = mount(...)` (defined L26) :: expect(el.textContent).not.toContain('saved as Classic and the flag cleared');
+   E3b-indirect L56 local `el = mount(...)` (defined L26) :: expect(el.textContent).not.toContain('saved as Classic and the flag cleared');
+   E3b-indirect L76 local `el = mount(...)` (defined L26) :: expect(el.textContent).toContain('saved as Classic and the flag cleared');
+   E3b-indirect L79 local `el = mount(...)` (defined L26) :: expect(el.textContent).not.toContain('saved as Classic and the flag cleared');
+   E3b-indirect L88 local `el = mount(...)` (defined L26) :: expect(el.textContent).toContain('saved as Classic and the flag cleared');
+   E3b-indirect L91 local `el = mount(...)` (defined L26) :: expect(el.textContent).not.toContain('saved as Classic and the flag cleared');
+   E3b-indirect L76 local `el = mount(...)` (defined L26) :: expect(el.textContent).toContain('saved as Classic and the flag cleared');
+   E3b-indirect L79 local `el = mount(...)` (defined L26) :: expect(el.textContent).not.toContain('saved as Classic and the flag cleared');
+   E3b-indirect L88 local `el = mount(...)` (defined L26) :: expect(el.textContent).toContain('saved as Classic and the flag cleared');
+   E3b-indirect L91 local `el = mount(...)` (defined L26) :: expect(el.textContent).not.toContain('saved as Classic and the flag cleared');
+   E3b-indirect L76 local `el = mount(...)` (defined L26) :: expect(el.textContent).toContain('saved as Classic and the flag cleared');
+   E3b-indirect L79 local `el = mount(...)` (defined L26) :: expect(el.textContent).not.toContain('saved as Classic and the flag cleared');
+   E3b-indirect L88 local `el = mount(...)` (defined L26) :: expect(el.textContent).toContain('saved as Classic and the flag cleared');
+   E3b-indirect L91 local `el = mount(...)` (defined L26) :: expect(el.textContent).not.toContain('saved as Classic and the flag cleared');
+   E3b-indirect L88 local `el = mount(...)` (defined L26) :: expect(el.textContent).toContain('saved as Classic and the flag cleared');
+   E3b-indirect L91 local `el = mount(...)` (defined L26) :: expect(el.textContent).not.toContain('saved as Classic and the flag cleared');
+
+## src/app/message/m/[id]/_components/__tests__/JsonModalBody.choice-rewrites-editor.test.tsx
+   E3b-indirect L72 local `el = mount(...)` (defined L32) :: expect(el.textContent).not.toContain('Save as Classic');
+   E3b-indirect L73 local `el = mount(...)` (defined L32) :: expect(el.textContent).not.toContain('Save as Components V2');
+   E3b-indirect L74 local `el = mount(...)` (defined L32) :: expect(el.textContent).toContain('Load');
+   E3b-indirect L89 local `el = mount(...)` (defined L32) :: expect(el.textContent).not.toContain('Save as Classic');
+   E3b-indirect L90 local `el = mount(...)` (defined L32) :: expect(el.textContent).not.toContain('Save as Components V2');
+   E3b-indirect L91 local `el = mount(...)` (defined L32) :: expect(el.textContent).toContain('Load');
+   E3b-indirect L104 local `el = mount(...)` (defined L32) :: expect(el.textContent).not.toContain('nothing was loaded');
+   E3b-indirect L105 local `el = mount(...)` (defined L32) :: expect(el.textContent).not.toContain('Resolve');
+   E3b-indirect L89 local `el = mount(...)` (defined L32) :: expect(el.textContent).not.toContain('Save as Classic');
+   E3b-indirect L90 local `el = mount(...)` (defined L32) :: expect(el.textContent).not.toContain('Save as Components V2');
+   E3b-indirect L91 local `el = mount(...)` (defined L32) :: expect(el.textContent).toContain('Load');
+   E3b-indirect L104 local `el = mount(...)` (defined L32) :: expect(el.textContent).not.toContain('nothing was loaded');
+   E3b-indirect L105 local `el = mount(...)` (defined L32) :: expect(el.textContent).not.toContain('Resolve');
+   E3b-indirect L104 local `el = mount(...)` (defined L32) :: expect(el.textContent).not.toContain('nothing was loaded');
+   E3b-indirect L105 local `el = mount(...)` (defined L32) :: expect(el.textContent).not.toContain('Resolve');
+
+## src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx
+   E3b-indirect L56 local `el = mount(...)` (defined L33) :: expect(el.textContent).toContain('nothing was loaded');
+   E3b-indirect L57 local `el = mount(...)` (defined L33) :: expect(el.textContent).not.toContain('Save as Classic');
+   E3b-indirect L58 local `el = mount(...)` (defined L33) :: expect(el.textContent).not.toContain('Save as Components V2');
+   E3b-indirect L77 local `el = mount(...)` (defined L33) :: expect(el.textContent).toContain('Save as Classic');
+   E3b-indirect L78 local `el = mount(...)` (defined L33) :: expect(el.textContent).toContain('Save as Components V2');
+   E3b-indirect L79 local `el = mount(...)` (defined L33) :: expect(el.textContent).not.toContain('nothing was loaded');
+   E3b-indirect L77 local `el = mount(...)` (defined L33) :: expect(el.textContent).toContain('Save as Classic');
+   E3b-indirect L78 local `el = mount(...)` (defined L33) :: expect(el.textContent).toContain('Save as Components V2');
+   E3b-indirect L79 local `el = mount(...)` (defined L33) :: expect(el.textContent).not.toContain('nothing was loaded');
+   E3b-indirect L77 local `el = mount(...)` (defined L33) :: expect(el.textContent).toContain('Save as Classic');
+   E3b-indirect L78 local `el = mount(...)` (defined L33) :: expect(el.textContent).toContain('Save as Components V2');
+   E3b-indirect L79 local `el = mount(...)` (defined L33) :: expect(el.textContent).not.toContain('nothing was loaded');
+
+## src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-floors-resolved-draft.test.tsx
+   E3b-indirect L60 local `el = mount(...)` (defined L37) :: expect(el.textContent).not.toContain('Message must have content, embeds, or components.');
+   E3b-indirect L81 local `el = mount(...)` (defined L37) :: expect(el.textContent).toContain('Message must have content, embeds, or components.');
+   E3b-indirect L81 local `el = mount(...)` (defined L37) :: expect(el.textContent).toContain('Message must have content, embeds, or components.');
+   E3b-indirect L81 local `el = mount(...)` (defined L37) :: expect(el.textContent).toContain('Message must have content, embeds, or components.');
+
+## src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx
+   E3b-indirect L51 local `el = mount(...)` (defined L31) :: expect(el.textContent).toContain('saved as Classic and the flag cleared');
+   E3b-indirect L60 local `el = mount(...)` (defined L31) :: expect(el.textContent).toContain('saved as Classic and the flag cleared');
+   E3b-indirect L70 local `el = mount(...)` (defined L31) :: expect(el.textContent).toContain('saved as Classic and the flag cleared');
+   E3b-indirect L73 local `el = mount(...)` (defined L31) :: expect(el.textContent).not.toContain('saved as Classic and the flag cleared');
+   E3b-indirect L81 local `el = mount(...)` (defined L31) :: expect(el.textContent).toContain('saved as Classic and the flag cleared');
+   E3b-indirect L84 local `el = mount(...)` (defined L31) :: expect(el.textContent).not.toContain('saved as Classic and the flag cleared');
+   E3b-indirect L60 local `el = mount(...)` (defined L31) :: expect(el.textContent).toContain('saved as Classic and the flag cleared');
+   E3b-indirect L70 local `el = mount(...)` (defined L31) :: expect(el.textContent).toContain('saved as Classic and the flag cleared');
+   E3b-indirect L73 local `el = mount(...)` (defined L31) :: expect(el.textContent).not.toContain('saved as Classic and the flag cleared');
+   E3b-indirect L81 local `el = mount(...)` (defined L31) :: expect(el.textContent).toContain('saved as Classic and the flag cleared');
+   E3b-indirect L84 local `el = mount(...)` (defined L31) :: expect(el.textContent).not.toContain('saved as Classic and the flag cleared');
+   E3b-indirect L70 local `el = mount(...)` (defined L31) :: expect(el.textContent).toContain('saved as Classic and the flag cleared');
+   E3b-indirect L73 local `el = mount(...)` (defined L31) :: expect(el.textContent).not.toContain('saved as Classic and the flag cleared');
+   E3b-indirect L81 local `el = mount(...)` (defined L31) :: expect(el.textContent).toContain('saved as Classic and the flag cleared');
+   E3b-indirect L84 local `el = mount(...)` (defined L31) :: expect(el.textContent).not.toContain('saved as Classic and the flag cleared');
+   E3b-indirect L81 local `el = mount(...)` (defined L31) :: expect(el.textContent).toContain('saved as Classic and the flag cleared');
+   E3b-indirect L84 local `el = mount(...)` (defined L31) :: expect(el.textContent).not.toContain('saved as Classic and the flag cleared');
+
+## src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.auto-remove-dispatch.test.tsx
+   E3b-indirect L131 local `section = makeSection(...)` (defined L41) :: expect(setSection).toHaveBeenCalledWith({ ...section, components: [survivor] });
+   E3b-indirect L131 local `section = makeSection(...)` (defined L41) :: expect(setSection).toHaveBeenCalledWith({ ...section, components: [survivor] });
+
+## src/components/__tests__/NullableComponent.show-guard.test.tsx
+   E3b L32 local `mountText` (defined L11) :: expect(mountText(show) === '').toBe(!shouldRender);
+
+## src/components/__tests__/TransitionHeightElement.height-and-visibility.test.tsx
+   E3b L45 local `mount` (defined L16) :: expect(mount({ isOpen: true, unmount: false }).wrapper.className).toContain('overflow-hidden');
+   E3b L46 local `mount` (defined L16) :: expect(mount({ isOpen: false, unmount: false }).wrapper.className).toContain('overflow-hidden');
+
+## src/scripts/__tests__/backfillValid.report-and-target-guards.test.ts
+   E1  L139 calls imported `reportPath` inside the expected value :: expect(reportPath('run-a')).not.toBe(reportPath('run-b'));
+
+## src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts
+   E3b-indirect L65 local `body = serialized(...)` (defined L44) :: expect('valid' in body).toBe(false);
+   E3b-indirect L67 local `body = serialized(...)` (defined L44) :: expect('valid' in body).toBe(true);
+   E3b-indirect L68 local `body = serialized(...)` (defined L44) :: expect(body.valid).toBe(stored);
+   E3b-indirect L71 local `body = serialized(...)` (defined L44) :: expect('valid' in body.data).toBe(false);
+   E3b-indirect L92 local `body = serialized(...)` (defined L44) :: expect('valid' in body).toBe(false);
+   E3b-indirect L94 local `body = serialized(...)` (defined L44) :: expect('valid' in body).toBe(true);
+   E3b-indirect L95 local `body = serialized(...)` (defined L44) :: expect(body.valid).toBe(stored);
+   E3b-indirect L97 local `body = serialized(...)` (defined L44) :: expect('valid' in body.data).toBe(false);
+   E3b-indirect L92 local `body = serialized(...)` (defined L44) :: expect('valid' in body).toBe(false);
+   E3b-indirect L94 local `body = serialized(...)` (defined L44) :: expect('valid' in body).toBe(true);
+   E3b-indirect L95 local `body = serialized(...)` (defined L44) :: expect(body.valid).toBe(stored);
+   E3b-indirect L97 local `body = serialized(...)` (defined L44) :: expect('valid' in body.data).toBe(false);
+
+## src/utils/__tests__/componentsV2.data-layer.test.ts
+   E3b L237 local `hasAnyKey` (defined L51) :: expect(hasAnyKey(result.data.components)).toBe(false);
+   E3b L397 local `hasAnyKey` (defined L51) :: expect(hasAnyKey(stripped.data.components)).toBe(false);
+   E3b-indirect L128 local `keys = collectKeys(...)` (defined L34) :: expect(keys.length).toBe(8);
+   E3b-indirect L130 local `keys = collectKeys(...)` (defined L34) :: expect(new Set(keys).size).toBe(keys.length);
+   E3b-indirect L341 local `keys = collectKeys(...)` (defined L34) :: expect(keys.length).toBe(5);
+   E3b-indirect L342 local `keys = collectKeys(...)` (defined L34) :: expect(new Set(keys).size).toBe(keys.length);
+   E3b-indirect L391 local `keys = collectKeys(...)` (defined L34) :: expect(keys.length).toBeGreaterThan(0);
+   E3b-indirect L169 local `originalKeys = collectKeys(...)` (defined L34) :: expect(newKeys.length).toBe(originalKeys.length);
+   E3b-indirect L173 local `originalKeys = collectKeys(...)` (defined L34) :: expect(originalKeys).not.toContain(nk);
+   E3b-indirect L169 local `newKeys = collectKeys(...)` (defined L34) :: expect(newKeys.length).toBe(originalKeys.length);
+   E3b-indirect L177 local `newKeys = collectKeys(...)` (defined L34) :: expect(new Set(newKeys).size).toBe(newKeys.length);
+   E3b-indirect L341 local `keys = collectKeys(...)` (defined L34) :: expect(keys.length).toBe(5);
+   E3b-indirect L342 local `keys = collectKeys(...)` (defined L34) :: expect(new Set(keys).size).toBe(keys.length);
+   E3b-indirect L391 local `keys = collectKeys(...)` (defined L34) :: expect(keys.length).toBeGreaterThan(0);
+   E3b-indirect L391 local `keys = collectKeys(...)` (defined L34) :: expect(keys.length).toBeGreaterThan(0);
+
+## src/utils/__tests__/editableComponents.operations.test.ts
+   E3b-indirect L77 local `section = makeEditableSection(...)` (defined L40) :: expect(next[0]).toBe(section.components[0]);
+   E3b-indirect L240 local `section = makeEditableSection(...)` (defined L40) :: expect(section.components.length < MAX_SECTION_TEXT_COMPONENTS).toBe(true);
+   E3b-indirect L245 local `section = makeEditableSection(...)` (defined L40) :: expect(section.components.length < MAX_SECTION_TEXT_COMPONENTS).toBe(true);
+   E3b-indirect L161 local `original = makeEditableMediaGalleryItem(...)` (defined L49) :: expect(clone._key).not.toBe(original._key);
+   E3b-indirect L240 local `section = makeEditableSection(...)` (defined L40) :: expect(section.components.length < MAX_SECTION_TEXT_COMPONENTS).toBe(true);
+   E3b-indirect L245 local `section = makeEditableSection(...)` (defined L40) :: expect(section.components.length < MAX_SECTION_TEXT_COMPONENTS).toBe(true);
+   E3b-indirect L240 local `section = makeEditableSection(...)` (defined L40) :: expect(section.components.length < MAX_SECTION_TEXT_COMPONENTS).toBe(true);
+   E3b-indirect L245 local `section = makeEditableSection(...)` (defined L40) :: expect(section.components.length < MAX_SECTION_TEXT_COMPONENTS).toBe(true);
+   E3b-indirect L240 local `section = makeEditableSection(...)` (defined L40) :: expect(section.components.length < MAX_SECTION_TEXT_COMPONENTS).toBe(true);
+   E3b-indirect L245 local `section = makeEditableSection(...)` (defined L40) :: expect(section.components.length < MAX_SECTION_TEXT_COMPONENTS).toBe(true);
+   E3b-indirect L240 local `section = makeEditableSection(...)` (defined L40) :: expect(section.components.length < MAX_SECTION_TEXT_COMPONENTS).toBe(true);
+   E3b-indirect L245 local `section = makeEditableSection(...)` (defined L40) :: expect(section.components.length < MAX_SECTION_TEXT_COMPONENTS).toBe(true);
+   E3b-indirect L245 local `section = makeEditableSection(...)` (defined L40) :: expect(section.components.length < MAX_SECTION_TEXT_COMPONENTS).toBe(true);
+
+## src/utils/__tests__/editableComponents.sub-component-actions.test.ts
+   E3b-indirect L71 local `section = makeEditableSection(...)` (defined L40) :: expect(result[0]).toBe(section.components[0]);
+   E3b-indirect L72 local `section = makeEditableSection(...)` (defined L40) :: expect(result[1]).toBe(section.components[2]);
+   E3b-indirect L98 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[1]);
+   E3b-indirect L117 local `section = makeEditableSection(...)` (defined L40) :: expect(next[0]).toBe(section.components[1]);
+   E3b-indirect L118 local `section = makeEditableSection(...)` (defined L40) :: expect(next[1]).toBe(section.components[0]);
+   E3b-indirect L119 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[2]);
+   E3b-indirect L135 local `section = makeEditableSection(...)` (defined L40) :: expect(next[0]).toBe(section.components[0]);
+   E3b-indirect L136 local `section = makeEditableSection(...)` (defined L40) :: expect(next[1]).toBe(section.components[2]);
+   E3b-indirect L137 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[1]);
+   E3b-indirect L98 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[1]);
+   E3b-indirect L117 local `section = makeEditableSection(...)` (defined L40) :: expect(next[0]).toBe(section.components[1]);
+   E3b-indirect L118 local `section = makeEditableSection(...)` (defined L40) :: expect(next[1]).toBe(section.components[0]);
+   E3b-indirect L119 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[2]);
+   E3b-indirect L135 local `section = makeEditableSection(...)` (defined L40) :: expect(next[0]).toBe(section.components[0]);
+   E3b-indirect L136 local `section = makeEditableSection(...)` (defined L40) :: expect(next[1]).toBe(section.components[2]);
+   E3b-indirect L137 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[1]);
+   E3b-indirect L98 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[1]);
+   E3b-indirect L117 local `section = makeEditableSection(...)` (defined L40) :: expect(next[0]).toBe(section.components[1]);
+   E3b-indirect L118 local `section = makeEditableSection(...)` (defined L40) :: expect(next[1]).toBe(section.components[0]);
+   E3b-indirect L119 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[2]);
+   E3b-indirect L135 local `section = makeEditableSection(...)` (defined L40) :: expect(next[0]).toBe(section.components[0]);
+   E3b-indirect L136 local `section = makeEditableSection(...)` (defined L40) :: expect(next[1]).toBe(section.components[2]);
+   E3b-indirect L137 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[1]);
+   E3b-indirect L117 local `section = makeEditableSection(...)` (defined L40) :: expect(next[0]).toBe(section.components[1]);
+   E3b-indirect L118 local `section = makeEditableSection(...)` (defined L40) :: expect(next[1]).toBe(section.components[0]);
+   E3b-indirect L119 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[2]);
+   E3b-indirect L135 local `section = makeEditableSection(...)` (defined L40) :: expect(next[0]).toBe(section.components[0]);
+   E3b-indirect L136 local `section = makeEditableSection(...)` (defined L40) :: expect(next[1]).toBe(section.components[2]);
+   E3b-indirect L137 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[1]);
+   E3b-indirect L117 local `section = makeEditableSection(...)` (defined L40) :: expect(next[0]).toBe(section.components[1]);
+   E3b-indirect L118 local `section = makeEditableSection(...)` (defined L40) :: expect(next[1]).toBe(section.components[0]);
+   E3b-indirect L119 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[2]);
+   E3b-indirect L135 local `section = makeEditableSection(...)` (defined L40) :: expect(next[0]).toBe(section.components[0]);
+   E3b-indirect L136 local `section = makeEditableSection(...)` (defined L40) :: expect(next[1]).toBe(section.components[2]);
+   E3b-indirect L137 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[1]);
+   E3b-indirect L135 local `section = makeEditableSection(...)` (defined L40) :: expect(next[0]).toBe(section.components[0]);
+   E3b-indirect L136 local `section = makeEditableSection(...)` (defined L40) :: expect(next[1]).toBe(section.components[2]);
+   E3b-indirect L137 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[1]);
+   E3b-indirect L166 local `child = makeEditableSection(...)` (defined L40) :: expect((cloned as EditableSection).components[0].content).toBe(child.components[0].content);
+
+## src/utils/__tests__/messageMode.switch.test.ts
+   E1  L63 calls imported `switchToV2` inside the expected value :: expect(applyModeSwitch('v2', prev)).toEqual(switchToV2(prev));
+   E1  L68 calls imported `switchToClassic` inside the expected value :: expect(applyModeSwitch('classic', prev)).toEqual(switchToClassic(prev));
+
+## src/utils/__tests__/messageValidity.predicate.test.ts
+   E1  L54 calls imported `validateMessage` inside the expected value :: expect(isMessageValid(payload)).toBe(validateMessage(payload) === '');
+
+## src/utils/__tests__/useApiMethods.json-editor-repair.test.ts
+   E3b L215 local `editorLostComponents` (defined L213) :: expect([editorLostComponents, editorLostContent]).toEqual([false, false]);
+
+## src/utils/__tests__/usePusher.hash-parity.test.ts
+   E1  L30 calls imported `hashMessage` inside the expected value :: .toBe(hashMessage({ name: 'Test', data: discordMessageShape.parse(saved) }));
+   E1  L47 calls imported `hashMessage` inside the expected value :: .toBe(hashMessage({ name: 'Test', data: discordMessageShape.parse(saved) }));
+   E1  L68 calls imported `hashMessage` inside the expected value :: .toBe(hashMessage({ name: 'Test', data: discordMessageShape.parse(saved) }));
+   E1  L81 calls imported `hashMessage` inside the expected value :: .not.toBe(hashMessage({ name: 'Test', data: discordMessageShape.parse(saved) }));
+
+## src/utils/__tests__/utils.rowd-load-disposition.test.ts
+   E3b L83 local `loadDisabled` (defined L77) :: expect(loadDisabled({ flags: 0, content: '', embeds: [], components: [] })).toBe(true);
+   E3b L89 local `loadDisabled` (defined L77) :: expect(loadDisabled(d)).toBe(true);
+   E3b L93 local `loadDisabled` (defined L77) :: expect(loadDisabled({ flags: 0, content: '   ', embeds: [], components: [] })).toBe(true);
+   E3b-indirect L119 local `s = seeded(...)` (defined L112) :: expect((resolved as { content?: string }).content).toBe(s.content);
+
+## src/utils/__tests__/utils.transport-form.test.ts
+   E1  L50 calls imported `hashMessage` inside the expected value :: expect(hashMessage(classicMessage)).not.toBe(hashMessage(v2Message));
+   E1  L56 calls imported `hashMessage` inside the expected value :: expect(hashMessage(withoutFlag)).not.toBe(hashMessage(withFlag));
+   E1  L60 calls imported `hashMessage` inside the expected value :: expect(hashMessage(v2Message)).not.toBe(hashMessage(v2MessageOtherComponent));
+   E1  L66 calls imported `hashMessage` inside the expected value :: expect(hashMessage(a)).toBe(hashMessage(b));
+   E1  L86 calls imported `hashMessage` inside the expected value :: expect(hashMessage(withKeys)).toBe(hashMessage(withoutKeys));
+

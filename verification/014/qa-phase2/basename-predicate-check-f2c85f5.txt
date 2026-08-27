@@ -1,0 +1,38 @@
+# basename predicate check — 51 test files under src/
+# positive form OLD: ^[a-z][a-zA-Z0-9-]*\.[a-z][a-zA-Z0-9-]*\.test\.tsx?$
+# positive form NEW: ^[A-Za-z][a-zA-Z0-9-]*\.[a-z][a-zA-Z0-9-]*\.test\.tsx?$
+# EXCLUDES: paths (the predicate is over basenames only); the ID-token
+#           negative form is reported as a SEPARATE limb, not folded in.
+
+## Controls — both directions
+   [OK ] NEW(JsonModalBody.load-settled-notice.test.tsx) = True, expected True — PascalCase MODULE segment — the rev-14 widening; must be admitted
+   [OK ] NEW(messageValidity.predicate.test.ts) = True, expected True — camelCase module — admitted before and after the widening
+   [OK ] NEW(JsonModalBody.LoadSettledNotice.test.tsx) = False, expected False — PascalCase BEHAVIOUR segment — behaviour anchor stays ^[a-z]; must be REJECTED
+   [OK ] NEW(JsonModalBody.test.tsx) = False, expected False — no behaviour segment at all; must be REJECTED
+   [OK ] NEW(json-modal-body.load-settled-notice.test.js) = False, expected False — wrong extension; must be REJECTED
+   [OK ] NEW(012-message-mode.test.ts) = False, expected False — leading digits — not a letter anchor; must be REJECTED
+   controls: 6/6 fired as specified
+
+## Limb 1 — files the rev-14 widening newly admits (OLD rejected, NEW admits)
+   count: 13
+     + NewMessageJsonInput.conflict-resting-state.test.tsx
+     + NewMessageJsonInput.settled-notice.test.tsx
+     + NewMessageModal.persist-gate-wiring.test.tsx
+     + NewMessageModal.readable-mutation-error.test.tsx
+     + JsonModalBody.choice-rewrites-editor.test.tsx
+     + JsonModalBody.conflict-resting-state.test.tsx
+     + JsonModalBody.load-floors-resolved-draft.test.tsx
+     + JsonModalBody.load-settled-notice.test.tsx
+     + SaveAsMenu.readable-mutation-error.test.tsx
+     + SectionEditor.auto-remove-dispatch.test.tsx
+     + NullableComponent.show-guard.test.tsx
+     + TransitionHeightElement.height-and-visibility.test.tsx
+     + MessageProvider.transient-toast.test.tsx
+
+## Limb 2 — files STILL rejected by the corrected positive form
+   count: 0
+
+## Limb 3 — ID-token class over basenames (separate negative form)
+   count: 0
+
+# totals: 51 files | newly admitted 13 | still rejected 0 | id-token basenames 0
