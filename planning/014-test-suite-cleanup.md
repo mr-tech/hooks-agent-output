@@ -3,7 +3,7 @@ ID: 014
 Origin: 014
 UUID: 4671e28c
 Status: Approved
-Status-Detail: Revision 8 (QA-1 ownership fix: row 13 moved M4a→M4b, rows 14/15 exception restated); implementer-hooks-014 executing from M0. M2 cleared by analysis `50f053a` (D13 reopening class not met); QA Phase 1 in progress (qa-hooks-14); implementer spawns on Phase 1 landing (D16). M2 (DOM harness) is an owner-authorised scope delta and carries a REQUIRED analysis (analyst-014) before its implementation; every other milestone is implementable on critic approval.
+Status-Detail: Revision 8 is the approved plan (cycle-2 critique closed `c557300`; M4b/M4a may open on its lists); implementer-hooks-014 executing from M0. M2 cleared by analysis `50f053a` (D13 reopening class not met); QA Phase 1 in progress (qa-hooks-14); implementer spawns on Phase 1 landing (D16). M2 (DOM harness) is an owner-authorised scope delta and carries a REQUIRED analysis (analyst-014) before its implementation; every other milestone is implementable on critic approval.
 Revision: 8
 Target Release: website `master` moved to the chain-014 merge SHA (the package carries no version artefact); `agent-output` moves alongside
 Epic Alignment: none registered — the owner-approved coordination plan `/home/dev/.claude/plans/we-recently-changed-the-wobbly-sparrow.md` is the source of the effort's outcome
@@ -18,6 +18,7 @@ Owning-Stage: implementer
 
 | Date | Rev | Author | Change |
 |---|---|---|---|
+| 2026-08-27 | R-3 | planner-hooks-014 | Recorded: cycle-2 critique closed at pass 2, APPROVE, `critiques/closed/014-test-suite-cleanup-cycle2-critique.md` (`c557300`); rev 8 is the approved plan. Scope delta: none — registration only. |
 | 2026-08-27 | 8 | planner-hooks-014 | QA-1 (`qa/014-test-suite-cleanup-qa.md` `6bf43c8`): rev 7 left row 13 in both M4a and M4b and made "row 15 is M3 + M4c only" false. Row 13 removed from M4a (it is M4b-only: oracle repair then rename); rows 14 and 15 named as the M4b→M4c exceptions. Same defect as critique cycle 2 M-13/M-14 (`d2bc424`); L-12 applied (literal branch alone for rows 13, 15); partition restated in M4b. Scope delta: none. |
 | 2026-08-27 | 7 | planner-hooks-014 | Consumes QA Phase 1 (`qa/014-test-suite-cleanup-qa.md`, `bd5ddfd`): M0 reconciles files by `testResults[].name` membership against the `find` list (never `numTotalTestSuites`, which counts describes too); AC2's key is the pair (file path, `fullName`); M0 step 3 pre-closed by QA's one-file probe, re-confirmed on the full run; M4b's oracle-repair set is the plan's four rows plus QA's enumerated residue (rows 13, 15 at Phase 1). Scope delta: none — instruments and the residue's enumeration only. |
 | 2026-08-27 | R-2 | planner-hooks-014 | Recorded: critique closed at pass 4, APPROVE, `critiques/closed/014-test-suite-cleanup-critique.md` (`4b7f15e`); rev 6 is the approved plan. QA Phase 1 landed (`qa/014-test-suite-cleanup-qa.md`). implementer-hooks-014 briefed; Owning-Stage → implementer. Scope delta: none — registration only. |
