@@ -48,3 +48,8 @@ ask on this chain.
 Owner: "As for now, I guess we can just drop the rider." Rows 9 (editableComponents.operations,
 H7) and 12 (useApiMethods.json-editor-repair, H5) stay recorded gaps → QA Phase 2 + handoff
 record; plan unchanged. Owner also directed a pi TODO for a clerical-registration path (agents TODO.md).
+
+## 2026-08-27 — rider on M4c (rows 9, 12) REINSTATED (supersedes entry above)
+Owner, on learning planner-hooks-014 is still live: "We can include it then if the critic miss
+isn't a problem." → attach rows 9 and 12 as named riders on M4c (planner's option 1), planner
+registration pass to rev 9; the critic pass on the rider lines is waived by the owner.
