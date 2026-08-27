@@ -56,3 +56,8 @@ registration pass to rev 9; the critic pass on the rider lines is waived by the 
 
 ## 2026-08-27 — critic waived on rev 9 rider lines
 Owner, by selection: "Yes, skip the critic" (rows 9/12 rider lines, plan rev 9 / D19). Riders open when M4c does.
+
+## 2026-08-27 — spawn cues are selection prompts
+Owner: "code-reviewer is up, and it has to be a User selection prompt in the future." Every
+next-stage spawn cue steering relays goes to him as a blocking selection prompt (spawn / hold),
+never as prose in a report. code-reviewer-hooks-014 confirmed reachable (ListAgents).
