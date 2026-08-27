@@ -2,20 +2,18 @@
 ID: 014
 Origin: 014
 UUID: 4671e28c
-Status: OPEN
+Status: Resolved
 Status-Detail: >-
-  Cycle 1, pass 3 (rung 1–5), scoped to the rev 3→5 delta. Verdict: APPROVE STANDS — rev 5
-  consumes the M2 analysis correctly; M2 may be implemented. L-7–L-9 verified landed (rev 4) →
-  RESOLVED. Two new Mediums (M-11 exit code does not travel; M-12 Validation instrument excludes
-  tests) and two Lows, all next-touch and none blocking QA Phase 1 or M0–M4b.
+  Cycle 1, pass 4 (rung 1–5), scoped to the rev 5→6 delta. Verdict APPROVE. All findings
+  (M-1–M-12, L-1–L-11) RESOLVED; critique closed. Plan rev 6 `52ff3f9` is the approved plan.
 ---
 
 # Critique — Plan 014, Hooks test-suite cleanup (pilot)
 
-**Artifact**: `agent-output/planning/014-test-suite-cleanup.md`, revision 5 (agent-output `72cde0a`; `website` at `a74b9e2`, verified unchanged).
+**Artifact**: `agent-output/planning/014-test-suite-cleanup.md`, revision 6 (agent-output `52ff3f9`; `website` at `a74b9e2`, verified unchanged).
 **Analysis**: `analysis/014-test-suite-cleanup-analysis.md` (`50f053a`) — read whole at pass 3; its S1–S5 and the pnpm correction are the delta's sources. Earlier sources per pass 1.
 **Date**: 2026-08-27 (pass 3); pass 2 2026-08-27T00:20; pass 1 2026-08-26T23:55.
-**Status**: Revision 2 — cycle 1, pass 3.
+**Status**: Revision 3 — cycle 1, pass 4. Resolved.
 **Roadmap / architecture**: absent / nothing on tests — unchanged.
 
 ## Changelog
@@ -25,6 +23,8 @@ Status-Detail: >-
 | 2026-08-26T23:55 | planner-hooks-014 → critic-hooks-014 | Critique rev 2 | Initial. Whole-document pass. 10 Medium, 6 Low. REQUEST REVISION. |
 | 2026-08-27T00:20 | planner-hooks-014 → critic-hooks-014 | Critique rev 3 | Delta pass. All rev-2 findings RESOLVED. L-7–L-9 new. APPROVE. |
 | 2026-08-27T01:10 | planner-hooks-014 → critic-hooks-014 | Scoped pass, rev 5 | Delta `f9bb15b..72cde0a` (rev 4, R-1, rev 5; 36/26 lines, boundary verified). L-7–L-9 RESOLVED. Analysis read; S1–S5 and pnpm correction verified against the tree. M-11, M-12, L-10, L-11 new. APPROVE stands. |
+| 2026-08-27T01:40 | planner-hooks-014 → critic-hooks-014 | Scoped pass, rev 6 | Delta `72cde0a..52ff3f9` (10/6 lines, boundary verified). M-11, M-12, L-10, L-11 landed → RESOLVED; D17 registered (agent-authored wording marked, route and reopening class present). All findings resolved. APPROVE. Document closed. |
+| 2026-08-27T01:40 | critic-hooks-014 | Document closed | Status: Resolved |
 
 ## Assumption Not Checked
 
@@ -69,7 +69,15 @@ L-7 RESOLVED — ID tokens stripped from doc-bound text. Plan rev 4 `58e1eb1`, v
 L-8 RESOLVED — exception names row 14 only; row 15 stated as M3 + M4c. Plan rev 4, verified.
 L-9 RESOLVED — AC7 residue names the class, not QA's instrument. Plan rev 4, verified.
 
-### Medium — new at pass 3
+### Resolved at pass 4 (plan rev 6 `52ff3f9`)
+
+M-11 RESOLVED — plan-wide exit-code observable stated once above the sequence line; binds M0, M2, M3, M4a, M4c, M5.
+M-12 RESOLVED — Validation instrument is `pnpm run typecheck`; also in M1's command list.
+L-10 RESOLVED — D13 row carries the tested-class line and the row-45 S4 consequence.
+L-11 RESOLVED — `DiscordMessageEditor` in M4c's named residue.
+Question 2 answered: environment-fidelity convention enters M1's doc in evergreen wording (checked: no ID-class token).
+
+### Medium — as raised at pass 3 (retired; disposition lines above)
 
 **M-11 — The process-exit-code observable is declared at M2 only; every other suite-run criterion still reads counters that the analysis proved can be green at exit 1.** Status: OPEN.
 M2 acceptance (2) now reads the exit code because the analysis found `57 passed / 636 passed / exit 1` reproducibly. But M0 (baseline capture), M3 ("M0 per-case pass set unchanged"), M4a ("zero failures on both trees"), M4c and M5 step 1 (`numFailedTests = 0`) are unchanged and read the JSON counters only. The input that degrades the instrument — a post-teardown rejection — is a property of any run that mounts the edit page, and M4c writes such tests after M2; M5 is the run that ships. This is the "degraded input does not travel" shape: the residue was accepted at one milestone and the same input feeds four others. Impact: M5 can certify a suite that fails `pnpm test`. Recommendation: state once, at the Plan level, that every captured suite run records the exit code beside the counters and that an acceptance over a pass set is satisfied only at exit 0 — the analysis's own instrumentation row says the same; the plan then need not repeat it per milestone.
@@ -94,7 +102,7 @@ Low. Prediction row (instrument contradiction): **no new member at pass 3** — 
 
 ## Recommendations
 
-APPROVE stands (cycle 1, pass 3, rung 1–5). M2 is cleared for implementation on the analysis. M-11 and M-12 are one-line criterion corrections; they should land before M5 is run, and nothing before M5 depends on them — QA Phase 1 and M0–M4b proceed. Next: QA Phase 1 (in progress per Status-Detail), then the implementer per D16.
+APPROVE — cycle 1 closed at pass 4 (rung 1–5). Plan rev 6 is the approved plan; M2 cleared on the analysis. Next: QA Phase 1 (in progress), then the implementer per D16. Standing prediction (instrument contradiction): no member at passes 2–4; the implementer's M5 run is the next reader.
 
 ## Revision History
 
@@ -103,3 +111,4 @@ APPROVE stands (cycle 1, pass 3, rung 1–5). M2 is cleared for implementation o
 | 1 (2026-08-26) | rev 2 `0540f34` | — | M-1–M-10, L-1–L-6 | OPEN |
 | 2 (2026-08-27) | rev 3 `f9bb15b` | M-1–M-10, L-1–L-6 → RESOLVED | L-7–L-9 (Low) | OPEN; verdict APPROVE |
 | 3 (2026-08-27) | rev 5 `72cde0a` (scoped delta incl. rev 4, R-1) | L-7–L-9 → RESOLVED | M-11, M-12, L-10, L-11 | OPEN; APPROVE stands |
+| 4 (2026-08-27) | rev 6 `52ff3f9` (scoped delta) | M-11, M-12, L-10, L-11 → RESOLVED | — | Resolved; closed |
