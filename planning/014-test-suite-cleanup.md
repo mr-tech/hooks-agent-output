@@ -3,8 +3,8 @@ ID: 014
 Origin: 014
 UUID: 4671e28c
 Status: Approved
-Status-Detail: Revision 4 — critique APPROVED (cycle 1 pass 2, `265b383`); ready for QA Phase 1 and the implementer from M0. M2 implementation gated on analyst-hooks-14's analysis. M2 (DOM harness) is an owner-authorised scope delta and carries a REQUIRED analysis (analyst-014) before its implementation; every other milestone is implementable on critic approval.
-Revision: 4
+Status-Detail: Revision 5 — M2 cleared by analysis `50f053a` (D13 reopening class not met); QA Phase 1 in progress (qa-hooks-14); implementer spawns on Phase 1 landing (D16). M2 (DOM harness) is an owner-authorised scope delta and carries a REQUIRED analysis (analyst-014) before its implementation; every other milestone is implementable on critic approval.
+Revision: 5
 Target Release: website `master` moved to the chain-014 merge SHA (the package carries no version artefact); `agent-output` moves alongside
 Epic Alignment: none registered — the owner-approved coordination plan `/home/dev/.claude/plans/we-recently-changed-the-wobbly-sparrow.md` is the source of the effort's outcome
 Lane: standard (agent-output/README.md carries no small-lane section — recorded absence, not a judgement)
@@ -18,6 +18,7 @@ Owning-Stage: qa
 
 | Date | Rev | Author | Change |
 |---|---|---|---|
+| 2026-08-27 | 5 | planner-hooks-014 | Consumes `analysis/014-test-suite-cleanup-analysis.md` (`50f053a`): M2 fixed as jsdom via `test.projects`, `.test.tsx` admitted, forward step `pnpm add -D jsdom`; M2 acceptance adds the process exit code; **rev 3's install-site paragraph was wrong (npm/`npm ci` against a pnpm tree) — planner's error, replaced by the analysis's record**; helpers re-sited to `src/**/__tests__/helpers/` (S5); M4c target set widened (S1), EmojiPicker named as residue (S2), row 45 convert→delete (S4), tRPC mock kept out of the standard (S3). Scope delta: no milestone change; one disposition moved (row 45) and M4c's target set widened. |
 | 2026-08-27 | R-1 | planner-hooks-014 | Registration: D16 (QA first; implementer after Phase 1). Scope delta: none — registration only. |
 | 2026-08-27 | 4 | planner-hooks-014 | Critique pass 2 APPROVE (`265b383`). Lows L-7..L-9 corrected: ID tokens stripped from doc-bound text; ownership exception names row 14 only; AC7 residue names the class not QA's instrument. Status → Approved. Scope delta: none. |
 | 2026-08-26 | 3 | planner-hooks-014 | Answers critique cycle 1 (`critiques/014-test-suite-cleanup-critique.md`, `3fba6de`): M-1..M-10 and L-1..L-6 each corrected by rewriting the rubric, plan, AC and Risks sections — predicate forms, domains and residue; evergreen doc vs chain rows; fixed milestone sequence; M3/M5 instruments; AC2 identity key; AC7 holder = QA; rows 14/20/22 → H5 partial; rename all five (Q1); scoped CR on M2 only (Q2); POC install site (Q3). Scope delta: none. |
@@ -98,13 +99,13 @@ Chain-application rows (this plan only, never the doc): `shapes-v2.test.ts` D34 
 
 **Instrument note**: static `it(`/`test(` site count and vitest `numTotalTests` measure different things (`it.each` expansion; at `a74b9e2`: 560 sites + 10 `it.each` = 570, executed count unknown until M0); a gap is not missing coverage. Counts via `grep -c`/`-rc` or the JSON reporter, never `| wc -l`.
 
-**Helper policy** (D4): lift at the third duplicate into `src/test-helpers/`; a helper that *is* an anti-pattern (`readSrc`) is deleted with the pattern, never lifted.
+**Helper policy** (D4): lift at the third duplicate into `src/utils/__tests__/helpers/` (or the nearest `__tests__/helpers/`); a helper that *is* an anti-pattern (`readSrc`) is deleted with the pattern, never lifted.
 
 **V-22 applied to tests**: before adding a test, name the existing test covering the surface and tighten it.
 
 ## Plan
 
-**Sequence is fixed (serialises every shared file, 9b):** M0 → M1 → M3 → M4b → M4a → M2 → M4c → M5. Ownership: `agent-output/CLAUDE.md` + symlink — M1. `website/package.json`, `website/vitest.config.ts` — M2. `src/test-helpers/*` — created in M3, read-only after. Each test file is opened by M3 (helper import lines only, no case or title change) and then by exactly one of M4a/M4b/M4c; no two of those open the same file. Handoffs — M4b.
+**Sequence is fixed (serialises every shared file, 9b):** M0 → M1 → M3 → M4b → M4a → M2 → M4c → M5. Ownership: `agent-output/CLAUDE.md` + symlink — M1. `website/package.json`, `pnpm-lock.yaml`, `website/vitest.config.ts` — M2. `src/**/__tests__/helpers/*` — created in M3, read-only after (sited inside `__tests__` because `tsconfig.json` includes `src/**/*.ts` and excludes only `**/__tests__`; a `src/test-helpers/` would enter the production tsc program — analysis S5). Each test file is opened by M3 (helper import lines only, no case or title change) and then by exactly one of M4a/M4b/M4c; no two of those open the same file. Handoffs — M4b.
 
 ### M0 — Baseline run (first act; blocks everything)
 
@@ -120,25 +121,28 @@ Steps: write the file; create the relative symlink.
 Acceptance (properties): every class the disposition table uses is defined in the doc (enumerated from the table's class column); every fenced command in the doc runs as written in `website`; the negative predicate over the doc → 0 lines; `test -e /usr/local/bin/hooks/CLAUDE.md && readlink -f /usr/local/bin/hooks/CLAUDE.md` prints the canonical path, captured in the implementation doc.
 **OPEN QUESTION [RESOLVED 2026-08-26, D15]**: canonical in `agent-output`, symlink at the workspace root.
 
-### M2 — DOM harness (D13; declared scope delta; REQUIRES ANALYSIS — REQUIRED before implementation)
+### M2 — DOM harness (D13; declared scope delta; analysis COMPLETE)
 
-**REQUIRES ANALYSIS** (analyst-hooks-14 → `agent-output/analysis/014-test-suite-cleanup-analysis.md`): under vitest ^4.1.2 / React 19.2.4 / Next ^16.1.6 with `environment: 'node'`, determine (a) which environment (jsdom vs happy-dom) mounts each target component — `TransitionHeightElement.tsx`, `JsonModalBody.tsx`, `NewMessageJsonInput.tsx`, `providers/MessageProvider/index.tsx`, `NullableComponent`, `app/message/m/[id]/edit/page.tsx` and siblings — with the existing `vi.mock('~/env.mjs')`, and which additional mocks each needs; (b) per-file `// @vitest-environment` vs global, and the effect of each on the 48 node tests' pass set; (c) whether `include` must admit `.test.tsx`; (d) whether `@testing-library/react` is required or React DOM `createRoot` + `act` suffices; (e) a throwaway POC mount of at least one target component per file group. **Install site for (e)**: candidates are installed with `npm install --no-save <pkg>` in `website` — `package.json` and the lockfile are untouched; `node_modules` is changed on the shared tree and restored by `npm ci` when the analysis closes; both the install and the restore are stated in the analysis doc with their timestamps. POC test files live under `agent-output/verification/014/` and are run by pointing vitest at them (`npx vitest run --root website <path>` or an equivalent the analyst names); nothing is committed to `website`. A finding that no target component mounts without production-code change reopens D13.
-Implementation (after analysis): add the devDependency(ies) and config the analysis names; nothing in `src/` outside tests and `test-helpers/`.
-Acceptance (properties): every case in the M0 pass set still passes after the config change (subset relation on the per-case key, not a count); every target component above mounts under the harness in at least one test by the end of M4c. Rollback: `git -C website revert <M2 commit>` (lockfile included) — implementer on the chain branch, devops after release.
+Analysis: `agent-output/analysis/014-test-suite-cleanup-analysis.md` (`50f053a`; rig record under `verification/014/`). Verdict consumed: every target component mounts under jsdom with zero changes under `website/src`; **D13's reopening class is not met.** Decisions taken from it:
+- Environment: **jsdom** (happy-dom's `ResizeObserver` exists and never fires, which takes the product's "observer present" branch silently). Configured as vitest `test.projects`: a node project over `src/**/*.test.ts`, a dom project over `src/**/*.test.tsx` @ jsdom — environment follows the extension, no per-file directive to forget, no node test gains `window`. `include` must admit `.test.tsx` (collection failure is silent otherwise). `tsconfig.test.json` already covers `__tests__/**/*.tsx`.
+- No `@testing-library/react`; React DOM `createRoot` + `act`. Keyboard activation of react-aria buttons is expressed as a `detail: 0` click (measured).
+- Forward step: `pnpm add -D jsdom` (the package is pnpm@10.28.2 with `pnpm-lock.yaml`; **rev 3's `npm install --no-save` / `npm ci` paragraph was the planner's error and never applied** — the analyst kept its own rig and the tree stayed clean). Rollback: `git -C website revert <M2 commit>` incl. `pnpm-lock.yaml`, implementer on the chain branch, devops after release.
+- Nothing in `src/` outside tests and `__tests__/helpers/`.
+Acceptance (properties): (1) every case in the M0 per-case pass set still passes under the node project (subset relation on the key; the analysis measured the node project's assertion set byte-identical to baseline — the implementer re-measures on the tree); (2) **the vitest process exits 0** — the analysis found runs that report all-passed and exit 1 from post-teardown module rejections in the edit page's eager `import()`s, so the pass set alone cannot see this failure; how the rejection is prevented is the implementer's, and the analysis names a deterministic way; (3) every component in the M4c target set mounts in at least one test by the end of M4c, with exit 0.
 Product-behaviour change: **none** — no downstream milestone is PREMISE-STALE.
 
 ### M3 — Helper layer (D4), per family with cost lines
 
 | Family | Files | Decision | Cost of lifting | Cost of leaving |
 |---|---|---|---|---|
-| `make*` component builders (9: `makeLinkButton, makeActionRow, makeTextDisplay, makeThumbnail, makeSection, makeContainer, makeSeparator, makeMediaGallery, makeFile`) | 5 | **Lift** to `src/test-helpers/components.ts`, one signature per builder. | Reconcile three drifted `makeSection` signatures; 5 files touched. | Every new shape test copies one of three drifts. |
-| `data(o)` | 3 | **Lift** to `src/test-helpers/messageData.ts`. | Trivial. | Third copy is the trigger. |
-| `author()` | 3 | **Lift** to `src/test-helpers/discord.ts`. | Trivial (byte-identical). | As above. |
+| `make*` component builders (9: `makeLinkButton, makeActionRow, makeTextDisplay, makeThumbnail, makeSection, makeContainer, makeSeparator, makeMediaGallery, makeFile`) | 5 | **Lift** to `src/utils/__tests__/helpers/components.ts`, one signature per builder. | Reconcile three drifted `makeSection` signatures; 5 files touched. | Every new shape test copies one of three drifts. |
+| `data(o)` | 3 | **Lift** to `src/utils/__tests__/helpers/messageData.ts`. | Trivial. | Third copy is the trigger. |
+| `author()` | 3 | **Lift** to `src/utils/__tests__/helpers/discord.ts`. | Trivial (byte-identical). | As above. |
 | `makeEditable*` | 2 | **Leave.** | Below trigger. | Second copy only. |
 | `makeRes`, `serialized`, `fakeDatabase`, `values`, `apiMessage` | 1 each | **Leave** — no family. | n/a | n/a |
 | `readSrc` / `read` | 5 | **Delete with H1** in M4c. | Lifting entrenches H1. | n/a |
 | `render()` | 2 | **Replace** by the harness in M4c. | Depends on M2. | Dies with H9. |
-Files M3 opens (import lines only): rows 1, 5, 7, 14, 15, 25, 26, 27, 40, 42, 44.
+Files M3 opens (import lines only): rows 1, 5, 7, 14, 15, 25, 26, 27, 40, 42, 44. Not lifted, by decision: the analysis's auto-vivifying tRPC mock (S3) stays a per-test device, never a helper — a mock that answers every call is not a standard.
 Acceptance (property): in test files, definitions of the three lifted families → 0: `grep -rcE 'function (data|author)\(|function make(LinkButton|ActionRow|TextDisplay|Thumbnail|Section|Container|Separator|MediaGallery|File)\(' src --include='*.test.ts*'` summed = 0; each lifted helper has ≥3 importers; the M0 per-case pass set is unchanged.
 
 ### M4 — Dispositions, all 48 files (disposition table: `path | class | disposition | surface | covering test (path::name) | old title → new title | seen-to-fail evidence`)
@@ -154,7 +158,9 @@ Acceptance (property): in test files, definitions of the three lifted families �
 **M4a — pure renames, title strips, effort-bound comment removal (H2); no case change.** Every remaining file, including the three clean ones and the title-only ones, is renamed to the (C) form — uniform rule, no exemptions (critic Q1 settled: rename). Rows 1, 2, 4, 5, 6, 8, 9, 12, 13, 17, 18, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 37 (H8), 40, 41, 42, 44, 47 (`// escaped:` line added), 48. Illustrative names only: `utils.components-v2-data-layer.test.ts`, `isValidUrl.url-validation.test.ts`, `limits.mutual-exclusivity.test.ts`. Evidence per file: per-file case count equal and zero failures on both trees, with the `old title → new title` column filled for every retitled case (the identity key across a title strip).
 
 **M4c — H1/H9 conversions (after M2).** Evidence per converted case: red on a local mutation of the behaviour, green at head; source-text cases removed only after the behavioural replacement is green.
-- Wholly source-text over components: rows 10, 32, 33, 34, 36, 45 — convert to mounted-behaviour assertions (resting state, notice location, Load-enables-not-loads, readable errors), rename.
+- Wholly source-text over components: rows 10, 32, 33, 34, 36 — convert to mounted-behaviour assertions (resting state, notice location, Load-enables-not-loads, readable errors), rename.
+- Row 45 `plan-004-lazy-loading.test.ts` — **H1 delete branch** (analysis S4): its subject is the `ssr:`/`loading:` options passed to `next/dynamic`, which no mount can observe; delete, and list the lazy-loading surface (`edit/page.tsx` and the five dynamics wrappers) in Outstanding Items.
+- M4c target set (analysis S1, widened): `TransitionHeightElement`, `JsonModalBody`, `NewMessageJsonInput`, `MessageProvider`, `NullableComponent`, `NewMessageModal`, `SaveAsMenu`, and `edit/page.tsx` as reached by the converted cases. **Named residue**: `EmojiPicker` (×3) and the individual dynamics wrappers were not mounted by the analysis; a converted case needing them that fails to mount goes to Outstanding Items, not to a silent drop.
 - Mixed: rows 14, 15, 16, 19, 35 — convert the source-text cases (2, 2, 3, 3, 2), keep the rest, rename (14/15 already retitled in M4b — rename here).
 - H9: rows 38, 39 — replace `render()` with the harness.
 Impossible conversion (analysis says no mount) → case deleted, surface in Outstanding Items, never silently dropped.
@@ -198,7 +204,8 @@ Unit-level; no e2e. Expectation: no net loss of behavioural cases (AC2); H1 surf
 |---|---|---|
 | A source-text test has rotted to vacuous truth and is counted as coverage. | M0/M4c: a `not.toContain` case whose target no longer exists. | rev 1: suite unrun. rev 2: unchanged. rev 3: unchanged — closes at M0. |
 | The harness changes node tests' behaviour. | M2: any baseline-passing case failing after config. | rev 1–3: not yet testable. |
-| A component does not mount without production change (D13 reopening class). | Analysis (e). | rev 1–3: analysis open. |
+| A component does not mount without production change (D13 reopening class). | Analysis (e). | rev 1–3: analysis open. rev 5: not met — all named targets mount; residue EmojiPicker/dynamics named in M4c. |
+| A rig defect reads as a product finding (analysis method warning: config outside vite root failed all 48 under DOM). | A DOM-run failure not reproduced by a second instrument on the tree. | rev 5: one member found and caught by the analyst; recorded in `verification/014/README.md`. |
 | Deleting a pin loses the only record of a real bug. | Handoff exists before the delete commit. | rev 1–3: no deletion yet. |
 | The disposition table becomes narrative instead of per-row evidence. | Any row with an empty evidence column at review. | rev 1–3: no table yet. |
 | Acceptance instruments contradict the dispositions they verify (critic cycle 1: ten members). | Any M5 command reading a failure on a file the plan leaves as-is. | rev 3: ten members found by critique, all corrected. rev 4 (pass 2): no new member. |
@@ -214,7 +221,7 @@ Populated by the implementer per M4; empty at rev 3.
 ## Handoff Notes
 
 - Critic: approved at pass 2. No OPEN QUESTION stands.
-- Analyst-hooks-14 (M2): the REQUIRES ANALYSIS paragraph, now with the install site.
-- Implementer: fixed sequence M0 → M1 → M3 → M4b → M4a → M2 → M4c → M5; close the M0 step-3 assumption first.
+- Analyst-hooks-14 (M2): complete; `analysis/014-test-suite-cleanup-analysis.md` is cited, not re-derived.
+- Implementer: fixed sequence M0 → M1 → M3 → M4b → M4a → M2 → M4c → M5; close the M0 step-3 assumption first; M2 reads the analysis's mock tables and exit-code finding before configuring.
 - QA: owns adequacy (V-27) and AC7; registers AC8 as the post-chain observable.
-- Code reviewer: M2's non-test diff only.
+- Code reviewer: M2's non-test diff only (`package.json`, `pnpm-lock.yaml`, `vitest.config.ts`).
