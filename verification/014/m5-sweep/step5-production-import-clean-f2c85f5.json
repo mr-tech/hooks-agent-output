@@ -1,0 +1,25 @@
+{
+  "fileCount": 51,
+  "aliasLessCount": 3,
+  "survivors": [
+    {
+      "file": "src/app/message/_components/__tests__/NewMessageJsonInput.settled-notice.test.tsx",
+      "moduleSegment": "NewMessageJsonInput",
+      "admittingLine": "import NewMessageJsonInput from '../NewMessageJsonInput';",
+      "admitted": true
+    },
+    {
+      "file": "src/components/__tests__/NullableComponent.show-guard.test.tsx",
+      "moduleSegment": "NullableComponent",
+      "admittingLine": "import NullableComponent from '../NullableComponent';",
+      "admitted": true
+    },
+    {
+      "file": "src/components/__tests__/TransitionHeightElement.height-and-visibility.test.tsx",
+      "moduleSegment": "TransitionHeightElement",
+      "admittingLine": "import TransitionHeightElement from '../TransitionHeightElement';",
+      "admitted": true
+    }
+  ],
+  "unadmittedCount": 0
+}
