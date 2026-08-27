@@ -22,7 +22,11 @@ landed**), rows 38/39 (H9), row 10 (H1), and rows 32/33/34/36 (H1) — 10/15 M4c
 checkpointed. Resumed again (post-compaction, same session) and landed the final 5 M4c rows (14,
 15, 16, 19, 35) — **M4c is now complete, 15/15 rows** — then checkpointed here rather than opening
 M5 (acceptance sweep), a substantial new milestone needing its own fresh read of QA's positive-control
-requirements. See "Outstanding Items" for exact resumption state for M5.
+requirements. Resumed again (same session) on planner's "M4c 15/15 accepted... M5 may open" and
+completed M5 in full — all seven steps closed, two acceptance-instrument corrections found and
+ruled (rev 14, rev 15), final suite 566/566 exit 0 at website `f2c85f5`. **The chain's
+implementation work is complete.** See "Outstanding Items" and "Next Steps" for the handoff to QA
+Phase 2.
 
 ## Changelog
 
@@ -43,6 +47,9 @@ requirements. See "Outstanding Items" for exact resumption state for M5.
 | 2026-08-27 | Owner (direct) | "Continue" (post-compaction, same session) | Landed the final 5 M4c rows. Row 14 (`limits.send-gate-partition.test.ts`) — converted its 2 EXT-2 source-text cases to real Zod-schema exercise via `topLevelComponentShape`'s discriminated-union introspection (`35ad5da`). Row 15 (`messageValidity.predicate.test.ts`) — converted its call-count/import-path source-text cases to a delegation-parity property test, dropped the unconvertible import-path half (`6679465`). Row 16 — split `013-fqa15-rowd-load-gate.test.ts` into a renamed logic file plus a new `JsonModalBody.load-floors-resolved-draft.test.tsx` mount (`b5ecb29`). Row 19 — split `013-fqa19-ingress-gate-reachability.test.ts`; mounting `NewMessageModal` for real showed its ROUTE 1/ROUTE 2 wiring claims are **false of the shipped component** (the Save button is disabled by an unrelated, unwrapped `contentFloorError` check before `onSubmit`'s choice-UI branch can ever fire) — per D2 and axiom D, kept only the one honestly-true case and logged the finding as a new handoff (`agent-output/handoff/newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md`) rather than fixing it or pinning either direction (`2faaf3f`). Row 35 — split `013-owner-readable-mutation-errors-2026-08-25.test.ts` into a renamed logic file plus two new mounts (`SaveAsMenu`, `NewMessageModal`) proving each renders `formatMutationError(messageError)`, not raw (`34140d3`). `messageProviderDeps.ts`'s `buildApiMock` extended three times this round (`queryData`, mutate-input forwarding, `mutationErrors`), each backward-compatible. Axiom-A evidence captured for every new/converted case; full suite re-verified after each row (568 → 564 → 566), final state 566/566 exit 0, typecheck exit 0 both programs, 51 files. **M4c is now complete — 15/15 rows.** Checkpointed per the Run-Length Ceiling rather than opening M5. |
 | 2026-08-27 | planner-hooks-014 (cross-session) | "M4c 15/15 accepted at plan level" | Confirmed acceptance; plan rev 11 (`f194317`) records the dom half of the harness prediction row exercised. |
 | 2026-08-27 | Owner (direct) | "Continue" (post-compaction, same session) | Opened M5. Built `verification/014/m5-sweep/naming-predicate.js` (step 2's positive/negative form instrument) and planted-then-removed positive controls per QA Phase 1's "discriminating control in both directions" requirement (a basename failing the positive form; all six ID-token sub-classes) — both fired correctly, confirmed on the clean tree, controls removed, `git diff` empty. The clean run then surfaced two real findings: (1) **11 genuine negative-form hits** — this implementer's own M4c titles/comments (rows 32/33/34/36/19) still carried "D29"/"D31"/"D33" owner-ruling citations or a dated handoff filename; fixed by rewording to pure behavioural description, re-run confirms 0 hits, full suite 566/566 exit 0, typecheck exit 0 — `website` `beba354`. (2) **13 files fail the positive-form regex's `^[a-z]` anchor** despite conforming to axiom (C)'s own stated rule (`<module>` = the production module's own basename) — every M4c DOM-mount file whose module segment is a PascalCase component name (`JsonModalBody.*`, `NewMessageModal.*`, `SectionEditor.*`, etc.) fails a literal character-class check the plan's own regex text never widened for component-derived modules. Escalated to planner rather than deciding unilaterally (affects AC4 and `agent-output/CLAUDE.md`'s published regex, not just an M5 script). Received two peer corrections mid-round: qa-hooks-014-2 verified the E3b two-hop "instrument gap" (row 12) was never real — Phase 1's own sweep had already flagged the site — withdrawn, not moot; and planner's rev 12 (`7b8d27d`) registered the "Delegation carve-out — scope" paragraph, reconciling row 15's M4b removal and M4c reinstatement as both-correct (provisos (i)/(ii) confirmed live by direct execution, not narrated). Disposition table updated for all three (row 12's correction, row 15's reconciliation row, M4c header "in progress" → "complete") — `agent-output` (pending commit). |
+| 2026-08-27 | planner-hooks-014 (cross-session) | Rev 14 ruling: naming-anchor fix confirmed correct | Applied: `agent-output/CLAUDE.md` and `naming-predicate.js` both widened to `^[A-Za-z]` (module segment only); re-run clean (51/0/0), positive controls re-verified under the corrected anchor. `agent-output` `cca22fd`. |
+| 2026-08-27 | qa-hooks-014-2 (cross-session) | Direct probe of row 15's three "non-conformant" cases | Found `embeds: {}` does not throw (contradicting its own title), unlike its two siblings. Retitled (`website` `f2c85f5`); row-15 reconciliation row corrected to cite only the two throwing cases for proviso (i); row-13 addendum added per planner. `agent-output` `cca22fd`. |
+| 2026-08-27 | Owner (direct) | "Continue" (post-compaction, same session) | Continued M5. Step 3 (skip/only), step 4 (readFileSync allowlist), step 6 (`// escaped:` count, both-direction controls) all closed clean with positive controls. Step 5's literal instrument surfaced a second real finding of the same class as step 2's — 3 files (rows 38/39/10) fail the alias-only grep despite genuinely importing their production component via a relative path (the established M4c colocated-test convention); escalated with a recommendation rather than deciding. Planner ruled at rev 15 (widen to admit a relative import whose resolved basename equals the file's own module segment; rejected "any relative import admits" as it would stop discriminating genuine H7). Built `step5-production-import.js` implementing exactly that; clean run 0 unadmitted, positive control (relative-imports-something-unrelated-while-transcribing) correctly caught. `agent-output` `aa3541f`. Also fielded and independently verified a since-withdrawn qa-hooks-014-2 finding against `naming-predicate.js`'s escaped-line exemption (read the actual script, traced the early return, ran the proposed both-directions control directly — confirmed no bug, nothing changed); added a one-line comment noting the basename-domain conjunct is inert, per QA's own dispositioned-not-fixed note (`agent-output` `5d7d14c`). Closed step 1 (final run) and step 7 (48-row reconciliation: 3 deleted + 14 converted + 6 kept + 25 renamed = 48) — `agent-output` `86bb731`. **M5 is now complete — all seven steps closed.** Updated Milestones Completed, Value Statement Validation, Outstanding Items, and Next Steps for chain completion. |
 
 ## Implementation Summary
 
@@ -139,7 +146,14 @@ Statement Validation".
       product-code finding (`NewMessageModal`'s persist-gate choice UI unreachable via Save),
       logged as a handoff per D2, not fixed. Full suite after the last row: 566/566, exit 0,
       typecheck exit 0 both programs, 51 files.
-- [ ] M5 — Not started (acceptance sweep).
+- [x] M5 — **Complete.** All seven acceptance steps closed with QA Phase-1-required positive
+      controls in both directions (planted then removed, `git diff` empty each time). Two
+      acceptance-instrument corrections surfaced and ruled by planner (rev 14: naming-form
+      positive-form anchor widened `^[a-z]`→`^[A-Za-z]` for the module segment; rev 15: step 5's
+      production-import predicate widened to admit a relative import whose resolved basename
+      equals the file's own module segment). Final run at website `f2c85f5`: 566/566, exit 0, 51
+      files, typecheck exit 0 both programs. Full detail below and in the Disposition Table's new
+      "M5 step 7" section (48-row reconciliation).
 
 ## Entry Conditions
 
@@ -285,11 +299,21 @@ against the plan's Testing Strategy: "No product-behaviour change exists in this
 **Original**: "the next chain copies a clean suite and cites the standard instead of the
 memorial/source-text/ID-named patterns the suite currently teaches."
 
-**Delivered so far**: the standard exists and is citable (M1) and three ID-named/memorial files are
-gone or repaired (M4b partial: rows 43, 11, 3). **Not yet delivered**: 45 of 48 files still carry
-their pre-chain names/classes; the suite as a whole does not yet "teach" the standard. Value
-delivery is **partial and in progress**, consistent with a mid-chain handoff — not a claim of
-completion.
+**Delivered**: the standard exists, is citable, and now correctly describes the tree it governs
+(`agent-output/CLAUDE.md`, including the rev-14 naming-anchor correction M5 surfaced and fixed).
+All 48 inventory files are dispositioned — every junk class (H1 source-text, H4 never-red, H5
+self-referential oracle, H6 third-party-source, H7 zero-production-import, H9 hand-rolled-renderer)
+is either converted to real behavioural coverage, repaired in place with independent literal
+expectations, or deleted with a named covering test or Outstanding Items line — with per-deletion
+proof recorded in the Disposition Table, and M5's acceptance sweep confirms the suite as a whole
+now passes its own written standard (positive naming form, ID-token-free, no `.skip`/`.only`, a
+named `readFileSync` allowlist of exactly two files, every file importing real production code,
+`// escaped:` provenance exactly where earned). **Value delivered in full** as scoped by this
+plan: the next chain can copy this suite and cite `agent-output/CLAUDE.md` instead of the
+memorial/source-text/ID-named patterns it inherited. One incidental, out-of-charter finding
+(`NewMessageModal`'s persist-gate choice UI unreachable via Save) is logged as a handoff, not
+fixed, per D2 — the value statement does not promise product-code correctness, only a clean,
+standard-citing suite.
 
 ## TDD Compliance
 
@@ -666,48 +690,123 @@ M4b/M4c rows 45 and 12 above. Re-verify full-suite count and exit code after eac
 disposition table per row (established pattern), commit `website` per row and `agent-output`'s
 disposition-table/implementation-doc updates in batches rather than per-row to limit churn.
 
-### M5 — not started
+### M5 — complete
 
-Acceptance sweep per the plan's seven numbered steps, including the six **positive controls** QA's
-Phase 1 document requires (plant-run-remove, both directions) before trusting any "→ 0" result —
-read `qa/014-test-suite-cleanup-qa.md`'s "Class tests need a discriminating control in both
-directions" section before running this milestone. BC-3's control for M5 step 5 must be planted
-*after* row 43 is gone (it already is) since row 43 was the only pre-existing member of that
-predicate's positive class.
+All seven acceptance steps run against website `f2c85f5`, each with a planted-then-removed
+positive control (both directions where the plan's own risk table required it), per
+`qa/014-test-suite-cleanup-qa.md`'s "Class tests need a discriminating control in both directions"
+section. Every control fired correctly and was removed before the clean run; `git diff` confirmed
+empty after each.
+
+**Step 1 (final run)**: `verification/014/final-f2c85f5.json` — 566/566 passed, 0 failed, exit 0,
+51 files. Retained-case check closed against the step-7 reconciliation and the per-row evidence
+already carried throughout the Disposition Table (every kept/renamed row's case count unchanged,
+every converted row's before/after count and axiom-A evidence recorded, every deleted row's
+covering test or Outstanding Items line recorded) — not a redundant case-by-case replay of all 617
+M0 baseline assertions, since each transition was independently verified by a real `vitest run` at
+the time it happened.
+
+**Step 2 (naming form)**: `verification/014/m5-sweep/naming-predicate.js`. First run surfaced a
+real acceptance-instrument defect: the positive form's module-segment anchor (`^[a-z]`, both in the
+plan's rev-10 rubric and in `agent-output/CLAUDE.md`) rejected 13 of this chain's own M4c DOM-mount
+files, all of which conform to axiom (C) itself (`<module>` = the production module's own
+basename, which for a React component is PascalCase). Escalated rather than decided unilaterally;
+planner ruled at rev 14 (widen to `^[A-Za-z]`, module segment only) — corrected in both `CLAUDE.md`
+and the sweep script, re-run clean: 51 files, 0 positive-form failures, 0 negative-form hits. A
+second, real finding from the same first run — 11 ID-token leaks this implementer's own M4c
+titles/comments left behind (9 "D29"/"D31"/"D33" owner-ruling citations, 2 dated handoff-filename
+citations) — was fixed directly (website `beba354`), no plan question involved. A third
+misdiagnosis (qa-hooks-014-2 initially read the script's `// escaped:` exemption as absent from
+the comment domain; it is present, via an early return one peer's filtered `grep` read couldn't
+show them) was independently verified and withdrawn without any code change — confirmed by tracing
+the actual early-return in the real file and running the same both-directions control the peer
+proposed directly against it (a same-shape date-token comment line is exempted with the marker,
+caught without it).
+
+**Step 3 (skip/only)**: `grep -rcE '\.(skip|only)\(' src --include='*.test.ts*'` → 0 across 51
+files. Positive control: a planted `it.only`+`it.skip` pair read 2, not 0 (this predicate had never
+been seen to fire in this repo before, per QA Phase 1's own note); removed, confirmed clean.
+
+**Step 4 (readFileSync allowlist)**: `grep -rlE 'readFileSync' src --include='*.test.ts*'` → exactly
+the plan's named two files (`backfillValid.report-and-target-guards.test.ts`,
+`loadDiff.independent-oracle.test.ts`). Positive control: a planted third file reading
+`readFileSync` correctly widened the list to 3; removed, confirmed clean at 2.
+
+**Step 5 (production-import predicate)**: first run of the plan's literal instrument
+(`grep -rLE "(from |import\()\s*'(~|bot)/"`) returned 3 files, not 0 — all three genuinely import
+their real production component, just via a relative path (the established M4c DOM-mount
+convention for a test colocated with its target), which the alias-only regex can't see. Same
+instrument-narrowness class as step 2's finding; escalated with a recommendation. Planner ruled at
+rev 15: widen the property to admit a relative import whose resolved basename equals the file's own
+module segment, rejecting the simpler "any relative import admits" alternative because it would
+stop discriminating a genuine H7 shape (a relative fixture import alongside a local transcription).
+New `verification/014/m5-sweep/step5-production-import.js` implements exactly that two-branch
+property; clean run: 51 files, 3 alias-less, all 3 admitted with the admitting import line
+recorded, 0 unadmitted. Positive control: a planted file relatively-importing an unrelated fixture
+while transcribing logic locally correctly came back unadmitted; removed, confirmed clean.
+
+**Step 6 (`// escaped:` count)**: `grep -rc '// escaped:' src --include='*.test.ts*'` → exactly 2,
+`constructImageUrl.default-avatar.test.ts` (row 46) and `bugFixCoverage.supplemental.test.ts` (row
+47), matching the plan's named expectation. Positive controls in **both** directions: (a) a planted
+extra file carrying the marker correctly widened the count to 3; (b) row 46's own marker
+temporarily removed correctly narrowed the count to 1. Both reverted, confirmed clean at 2.
+
+**Step 7 (48-row reconciliation)**: recorded in the Disposition Table's own new section — 3
+deleted + 14 converted + 6 kept(oracle-repaired) + 25 renamed-only = 48, every row bucketed
+exactly once by its primary disposition, cross-checked against the table's own row-number coverage
+(1-48 all present).
+
+**Incidental, resolved alongside M5**: qa-hooks-014-2's direct probe of row 15's three
+"non-conformant stored data" cases found one (`embeds: {}`) doesn't actually throw, contradicting
+its own title — fixed (retitled, website `f2c85f5`) and folded into the row-15 reconciliation row
+planner's rev 12 asked for, along with a row-13 addendum. The E3b two-hop "instrument gap"
+characterisation (row 12) was withdrawn on QA's direct re-check of Phase 1's own sweep output —
+never a real gap, corrected in the Disposition Table and this document's Outstanding
+Items/Next Steps (see the Changelog entries above for the full back-and-forth).
 
 ### Not yet done, any milestone
 
 - IS-6 (mutation restoration) verification across the whole chain — every mutation this
-  implementer has made across M4b/M4c is individually recorded `git diff`-empty at the point it was
-  reverted (per-row in the Disposition Table), not just narrated in aggregate.
-- QA Phase 2 has not started (correctly — it starts on this document landing, per D16/QA's own
-  Phase 2 criteria). It should also pick up the two new handoff records this implementer produced
+  implementer has made across M4b/M4c/M5 is individually recorded `git diff`-empty at the point it
+  was reverted (per-row in the Disposition Table, and per positive control in the M5 section
+  above), not just narrated in aggregate.
+- QA Phase 2 — **already in progress**, ahead of the formal spawn cue: `qa-hooks-014-2` was live
+  throughout M5 and directly corresponded with this implementer on several findings (see Changelog).
+  It should still pick up the two handoff records this implementer produced
   (`message-init-cached-edits-lost-2026-08-27.md` from M4b row 43,
-  `newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md` from M4c row 19).
+  `newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md` from M4c row 19) if not already
+  registered on its own findings list.
 - Code review has run once (M2's non-test diff, `APPROVED_WITH_COMMENTS`, addressed same-session)
-  — M4c's test-only diffs are QA's to adequacy-review under V-27, not code review's.
+  — M4c/M5's test-only diffs are QA's to adequacy-review under V-27, not code review's.
 - Rows 9/12 (M4c riders): **resolved** — both landed inside M4c (H7/H5 structural repairs), neither
   dropped, no handoff record owed for either.
+- AC8 (the next chain's planner citing `agent-output/CLAUDE.md`) is a post-chain human observation,
+  not checkable in this chain by construction — registered, not actionable here.
 
 ## Next Steps
 
-1. **M5 — acceptance sweep.** Read the plan's seven numbered M5 steps and QA's Phase 1 "Class
-   tests need a discriminating control in both directions" section (`qa/014-test-suite-cleanup-qa.md`)
-   before running any of it — six positive controls are required before trusting a "→ 0" result.
-   Capture the final vitest JSON run at the merge SHA, the positive naming predicate over every
-   `find`-collected file, the negative-form ID-token sweep (three domains), the
-   `.skip`/`.only` sweep, the `readFileSync` allowlist check (should now be empty or near-empty —
-   confirm against the two named exceptions the plan allows), the dynamic-import sweep, the
-   `// escaped:` count, and the 48-file reconciliation (deleted + converted + renamed + kept).
-2. Code review of M2's non-test diff landed and was addressed same-session —
+1. **The chain's implementation work is complete** — M0 through M5 all closed, Disposition Table
+   covers all 48 inventory rows plus the M5 step-7 reconciliation, final suite 566/566 exit 0 at
+   website `f2c85f5`, typecheck exit 0 both programs.
+2. **Hand to QA Phase 2** for its formal verdict, per D16/the plan's Handoff Notes — Phase 2 has
+   already been reading this implementer's work in real time (`qa-hooks-014-2`); this is the
+   formal landing point for that review to close on, not its start. QA owns AC7's final sweep
+   re-run and adequacy verdict (V-27) and AC8's registration as the post-chain observable.
+3. Code review of M2's non-test diff landed and was addressed same-session —
    `APPROVED_WITH_COMMENTS` at `website` `988ca15`, three items fixed, re-verified 570/570 exit 0.
-   No further action needed here.
-3. M4c is complete — the Disposition Table now covers all 48 inventory rows. M5 writes its own
-   captures under `agent-output/verification/014/` (final JSON run, sweep outputs) rather than
-   adding further Disposition Table rows.
-4. After M5 lands: hand to QA Phase 2, per D16/the plan's Handoff Notes. The E3b two-hop
-   "instrument-gap" characterisation (row 12) is **withdrawn**, not moot — qa-hooks-014-2 verified
-   against Phase 1's own captured sweep (`verification/014/qa-phase1/ac7-sweep-a74b9e2.txt`) that
-   the site was inside the E3b-indirect predicate's matches at `a74b9e2` all along; there was never
-   a gap to close. Do not carry it into the Phase 2 spawn cue in any form — it is fully resolved,
-   not deferred.
+   No further code review is owed — every diff since has been test-only (M4c/M5), which V-27 routes
+   to QA, not code review.
+4. After QA Phase 2: UAT, per the plan's own Agent Workflow sequence (Code Review → QA → UAT).
+5. Two open items outside this chain's charter, both logged as handoffs rather than fixed (D2):
+   `message-init-cached-edits-lost-2026-08-27.md` (M4b row 43) and
+   `newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md` (M4c row 19, product-code
+   finding closely related in kind to F-QA15, which was BLOCKING in chain 013 — worth the owner's
+   attention even though it's out of this chain's scope to fix).
+6. This chain's retrospective (per D7/the agents TODO.md queue) should pick up the acceptance-
+   instrument-narrowness pattern found twice in M5 (rev 14's naming anchor, rev 15's production-
+   import predicate) — both share one root cause the plan's own risk table now records: the
+   original instruments were written before any `.test.tsx` file existed and were never exercised
+   against the shape M4c's DOM-mount conversions introduce, passing unnoticed through critique,
+   code review, and Phase 1. A future chain introducing a genuinely new file *shape* should budget
+   for re-testing its own written acceptance instruments against a real example of that shape
+   before trusting them.
