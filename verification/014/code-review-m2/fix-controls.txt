@@ -1,0 +1,50 @@
+# Fix confirmation — negative controls re-run FROM FIRST PRINCIPLES against website e6163fd
+# (the M2 code-review fix commit: alias factory + setup-file comment).
+#
+# Re-attacked rather than read: the fix touches the harness, which is an instrument, so the
+# controls were re-derived against the NEW config shape instead of the round-1 results being
+# carried forward. Every mutation restored; restoration verified with `diff -q` each time.
+# Probe file: harness-probe.test.tsx (4 cases).
+
+HEAD (unmutated, e6163fd)
+  dom probe        -> 4 passed, exit 0   (|dom| project, jsdom live, setup file loaded,
+                                          ~ alias resolves, createRoot+act mounts)
+  node-scope probe -> 2 passed, exit 0   (.test.ts sees no window/document, no ACT flag)
+
+C1 — delete `setupFiles` from the dom project
+  -> exit 1; "× loaded the dom setup file"; 1 failed | 3 passed
+
+C2 — dom `environment: 'jsdom'` -> `'node'`
+  -> exit 1; "× runs under a DOM environment", "× mounts a react component"; 2 failed | 2 passed
+
+C3 — strip the alias out of the factory body (`return { resolve: { alias }, test }` -> `return { test }`)
+  -> exit 1; Failed to resolve import "~/utils/pushSorted"; "Tests  no tests"
+  The factory body is load-bearing for BOTH projects at once, which is the point of the fix.
+
+C4 — ADVERSARIAL: is the factory actually "structurally unskippable"?
+  Added a third project to `projects` as a RAW OBJECT LITERAL, bypassing `project()`:
+      { test: { name: 'bypass', include: ['src/**/*.bypass-probe.tsx'], environment: 'jsdom' } }
+  npx tsc -p tsconfig.test.json --noEmit  -> exit 0, 0 errors   (type system does not object)
+  npx vitest run --project bypass         -> exit 1; Failed to resolve import "~/utils/pushSorted"
+  VERDICT: the claim in the config's comment is OVERSTATED. The factory is a strong default at the
+  only place projects are constructed, not an impossibility — a raw literal still type-checks and
+  still fails at collection exactly as the pre-fix hazard did. The class M-2 named is nonetheless
+  GONE: the dead top-level `resolve` that invited the mistake no longer exists, and the failure is
+  loud and immediate. Recorded as a comment-accuracy nit, not a reopened finding.
+
+C5 — ADVERSARIAL: did the factory's `Record<string, unknown>` parameter type LOSE type checking
+     on project options that the pre-fix inline literal had?
+  Misspell `environment` as `enviroment` in the dom project, then `tsc -p tsconfig.test.json`:
+    under the FIXED factory shape (e6163fd)      -> exit 0, 0 errors
+    under the PRE-FIX inline shape   (988ca15)   -> exit 0, 0 errors
+  VERDICT: NO REGRESSION. Neither shape type-checks vitest project option keys, so the factory
+  took nothing away. Note the runtime observable, which is a pre-existing hazard in both shapes:
+  the same typo silently drops the dom project to a node environment --
+    npx vitest run <dom probe> -> exit 1; "× runs under a DOM environment",
+                                          "× mounts a react component"; 2 failed | 2 passed
+  i.e. nothing but a test that actually asserts DOM presence catches it. From M4c onward the suite
+  contains such tests by construction, so the class is covered going forward.
+
+Typecheck at e6163fd, both programs, probe .tsx present
+  npx tsc -p tsconfig.json      --noEmit  -> exit 0
+  npx tsc -p tsconfig.test.json --noEmit  -> exit 0

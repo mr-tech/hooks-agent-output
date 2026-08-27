@@ -2,7 +2,7 @@
 ID: 014
 Origin: 014
 UUID: 4671e28c
-Reviewed-At: "website 988ca15 (chain/014-test-suite-cleanup). Committed tree — SHA identity, no manifest fallback needed. Branch HEAD moved 1f89b34 -> 4761453 during this pass (another session's M4c work); the five reviewed paths are byte-identical at 988ca15, at 4761453 and in the shared working tree — see Tree Under Verdict below."
+Reviewed-At: "website e6163fd (chain/014-test-suite-cleanup) — round 1 verdict reached at 988ca15, moved here by the round-1 fix sub-entry. Committed tree, SHA identity. vitest.config.ts and vitest.setup.dom.ts changed between the two; package.json, pnpm-lock.yaml and tsconfig.test.json are byte-identical at both. See Tree Under Verdict."
 Status: In Review
 ---
 
@@ -39,6 +39,7 @@ was reviewed and no verdict here reaches it.
 | 2026-08-27T02:29 | steering-test-cleanup → code-reviewer-hooks-014 | Review `chain/014-test-suite-cleanup` at `988ca15`, scoped to M2's harness diff | Round 1. Two MEDIUM, one LOW, two INFO. Verdict APPROVED_WITH_COMMENTS. M2's behaviour-preservation claim independently confirmed by execution; the harness itself confirmed functional by probe and five negative controls. |
 | 2026-08-27T02:40 | steering-test-cleanup → code-reviewer-hooks-014 | Owner ruling on the plan-changelog commit gate | Gate satisfied, not worked around. The R-6 row was written into `planning/014-test-suite-cleanup.md` per this agent's definition, then **held uncommitted** because committing another stage's document is gated; raised to the owner as a decision with a real drop option. Owner, by selection: Option A — "Reviewer commits its row", scoped to `git commit --only planning/014-test-suite-cleanup.md` for that single row, with `git diff` on the path re-checked immediately before. Re-checked (one hunk, mine, `+1 -0`); committed `agent-output` `1140d56`. Owner also directed a TODO for a standing narrow exception — already lodged by steering at `~/.claude/agents/TODO.md` (2026-08-27, "pi: code-reviewer commits its own changelog row in the plan"), so no duplicate entry was made. No finding changed; verdict identity untouched. |
 | 2026-08-27T02:52 | planner-hooks-014 → code-reviewer-hooks-014 | Plan rev 10 consumes the review's planner-facing items | Both re-derived at the plan itself, not accepted from the message: the harness Risks row records "not met" with rig, tuples, capture path and the node-half scoping; the *Instrument note* is now a class rule with a second Risks row tracking it per pass (I-2's disposition upgraded — see the finding). Next Steps item 4 closed; I-2's routing superseded. **My error, recorded**: this plan's changelog is newest-first and I appended R-6 at the bottom. The lifecycle skill says rows "append chronologically", which I applied without checking the table's own order — the planner restored position, content unchanged. Check the table before appending, not the convention. No finding changed; verdict identity untouched. |
+| 2026-08-27T03:10 | implementer-hooks-014 → code-reviewer-hooks-014 | Fix confirmation for M-1, M-2 and L-1 | **Sub-entry of round 1, not a new round** — the fix diff touches only findings scope (`website` `e6163fd`, 2 files) plus one record document. All three findings CONFIRMED CLOSED; each disposition records both the class being gone and the captured check that fails if it returns. Re-attacked from first principles because the fix touches an instrument: five controls re-derived against the new config shape, two of them adversarial (the "structurally unskippable" claim; a suspected type-safety regression). Differential across the fix: 570/570 identical tuples, exit 0 both. `Reviewed-At` moved to `e6163fd`. Two nits recorded, neither reopening anything. Verdict unchanged: APPROVED_WITH_COMMENTS. |
 
 ## Tree Under Verdict
 
@@ -46,28 +47,28 @@ A verdict binds to a tree. The reviewed content is committed, so the SHA is the 
 content manifest is owed. Files were read via `git show 988ca15:<path>` and run from throwaway
 `git worktree` checkouts, never from the shared working tree.
 
-The branch HEAD moved under this pass — `1f89b34` at start, `4761453` at end — because
-implementer-hooks-014 continued M4c in another session. That does **not** expire this verdict,
-because none of it landed on the reviewed surface. Established, not assumed:
+The verdict was **reached** at `988ca15` and **moved to `e6163fd`** by the round-1 fix sub-entry
+below. Two of the five paths changed between them — that is the fix — and each was re-verified at the
+new SHA rather than carried across. The other three are byte-identical at both, so nothing was
+re-reviewed that did not move.
 
-```
-$ git -C website diff --numstat 988ca15..4761453 -- package.json pnpm-lock.yaml \
-      tsconfig.test.json vitest.config.ts vitest.setup.dom.ts
-(no output)
-```
+| path | blob at 988ca15 | blob at e6163fd | worktree `git hash-object` | moved by the fix? |
+|---|---|---|---|---|
+| `package.json` | `0bcdaee` | `0bcdaee` | `0bcdaee` | no |
+| `pnpm-lock.yaml` | `db0249e` | `db0249e` | `db0249e` | no |
+| `tsconfig.test.json` | `bf0e7d7` | `bf0e7d7` | `bf0e7d7` | no |
+| `vitest.config.ts` | `d003a75` | `436822b` | `436822b` | **yes** |
+| `vitest.setup.dom.ts` | `409c960` | `080375f` | `080375f` | **yes** |
 
-and the blobs, which stay checkable after the branch moves again:
-
-| path | blob at 988ca15 | worktree `git hash-object` |
-|---|---|---|
-| `package.json` | `0bcdaee` | `0bcdaee` |
-| `pnpm-lock.yaml` | `db0249e` | `db0249e` |
-| `tsconfig.test.json` | `bf0e7d7` | `bf0e7d7` |
-| `vitest.config.ts` | `d003a75` | `d003a75` |
-| `vitest.setup.dom.ts` | `409c960` | `409c960` |
-
-**This verdict expires if any of those five blob hashes changes.** Do not rely on another agent
+**This verdict expires if any of the `e6163fd` blob hashes changes.** Do not rely on another agent
 noticing.
+
+During round 1 the branch HEAD moved twice under the pass (`1f89b34` → `4761453`) as
+implementer-hooks-014 continued M4c in another session. Neither move touched the reviewed surface,
+established rather than assumed with
+`git -C website diff --numstat 988ca15..4761453 -- <the five paths>` returning no output. At the fix
+sub-entry the same check was run forward: `git diff --numstat e6163fd..HEAD -- <the five paths>` is
+likewise empty, so `e6163fd` is both the fix commit and the current state of the reviewed surface.
 
 ## Architecture Alignment
 
@@ -205,129 +206,35 @@ measured effect on the suite of exactly zero.
 
 ### Medium
 
-**[MEDIUM] Evidence Quality / Documentation**: "purely additive — zero removed lines" is false, and the instrument that produced it does not reproduce
-- **Location**: `website` commit `988ca15` message, body paragraph 4; and
-  `agent-output/implementation/014-test-suite-cleanup-implementation.md`, *Test Execution Results*
-  table, the `pnpm add -D jsdom` row (cited by document + table row because the file is a record
-  area with no symbol to name).
-- **Class**: A property of a diff asserted into the durable record on the strength of a single count
-  taken through a pipe, where this environment's own conventions name that instrument unsound for
-  that exact shape and no second, independent instrument was run against it.
-- **Enumeration**:
-  `grep -rn "git diff[^|]*|[[:space:]]*grep\|git show[^|]*|[[:space:]]*grep\|diff[^|]*| *wc -l" agent-output/implementation/ agent-output/verification/014/ agent-output/planning/014-test-suite-cleanup.md`
-  → **1 hit in this chain's scope** (`implementation/014-test-suite-cleanup-implementation.md:264`).
-  Two further hits sit in closed prior-chain documents and are out of this verdict's scope
-  (`implementation/closed/012-message-valid-field-implementation.md:270`,
-  `implementation/closed/013-components-v2-editing-surfaces-implementation.md:76`) — see I-2.
-  **What this predicate does not match**: a piped count whose `git diff`/`git show` is not on the
-  same line as the `grep` (a shell variable holding the diff, a two-line sequence, `<(…)` process
-  substitution); a count taken through a pipe from some other producer; and — the largest blind spot
-  — any count whose command was never written into the record at all, which no grep over the record
-  can see. These forms are named at authoring time because they are properties of the predicate, not
-  discoveries about the hits.
-- **Issue**: The record states the lockfile change is purely additive with zero removed lines. It is
-  not. Two instruments that compute before any output filter agree the commit removes **7** lines
-  from `pnpm-lock.yaml`:
-  `git show 988ca15 --numstat -- pnpm-lock.yaml` → `328  7  pnpm-lock.yaml`, and
-  `git show 988ca15 -- pnpm-lock.yaml > f && grep -c '^-[^-]' f` → `7`.
-  Two of the seven are the mechanical rewrite of vitest's peer key to carry `(jsdom@30.0.1)` —
-  expected. The other five are resolution changes to **existing** packages that adding jsdom does not
-  require: `debug` moves `4.3.4 → 4.4.3` inside `@pm2/pm2-version-check@1.0.4`, `agent-base@7.1.0`,
-  `get-uri@6.0.1`, `pac-proxy-agent@7.0.0` and `socks-proxy-agent@8.0.1`.
-  **Magnitude, measured**: five snapshots, all inside the `paracord → pm2 → proxy-agent`
-  devDependency subtree; nothing under `package.json` `"dependencies"` changed; same major
-  (`debug` 4.x); and the effect on the suite is zero — 604/604 identical `(file, fullName, status)`
-  tuples pre and post, exit 0 both (differential above). The install appears to have *converged* a
-  pre-existing split, since `http-proxy-agent@7.0.0` and `https-proxy-agent@7.0.2` were already on
-  `4.4.3` at `988ca15^` while their siblings were on `4.3.4`. Attribution and the rebuild command at
-  `verification/014/code-review-m2/debug-bump-attribution.txt`.
-  Why it matters despite the small magnitude: the "purely additive" sentence is the argument that
-  licensed the lockfile hunk as in-scope, and it is the sentence devops reads at release. Worse, the
-  recorded instrument **contradicts itself on re-run**: executed now against the same two commits it
-  returns `7`, not the recorded `0`. So the number in the record cannot be reproduced by its own
-  stated command — it is not merely wrong, it is unverifiable, and no second instrument was ever run
-  to catch that.
-- **Required Action**:
-  - **Preferred (structural)**: stop asserting diff properties from a piped count. Where a claim about
-    a diff enters the record, take it from an instrument that computes before any output filter —
-    `git … --numstat`, or redirect the diff to a file and `grep -c` that file — and record the command
-    beside the number, so the next reader can re-run it. The record convention already requires the
-    command; what is missing is that it be a sound one.
-  - **Minimum**: correct the implementation doc's `pnpm add -D jsdom` row. Because that table is a
-    **record area**, correct it in place with a dated reconcile note stating what it previously said
-    and why that was defensible when written — not a silent overwrite. State the true figure (7
-    removed lines), enumerate the five non-jsdom resolution changes, and state the bound
-    (dev-only, same major, zero measured effect on the suite). The commit message itself is immutable
-    and must **not** be rewritten — history rewrites move the tree under other sessions and are not
-    this agent's to initiate; the implementation doc is the correcting surface.
+**M-1  RESOLVED** — Evidence Quality: the false "purely additive — zero removed lines" lockfile
+claim. Class gone: the implementation doc's `pnpm-lock.yaml` row and its `pnpm add -D jsdom` row now
+carry dated reconcile notes stating 328/7, naming the unsound instrument and why it is unsound;
+commit `988ca15`'s message correctly left unamended. Verified at the artifact, not from the report
+(`implementation/014-test-suite-cleanup-implementation.md`, "Files Modified" and "Test Execution
+Results"). Landed: `agent-output` `9240392`. **Check that fails if it returns**:
+`verification/014/code-review-m2/lockfile-removed-lines.txt` — re-running its two pre-pipe
+instruments against any future lockfile commit reproduces the true add/remove counts. The broader
+class — a predicate over piped output publishing a false count — is now tracked per pass by the
+plan's own Risks table (rev 10), which is a stronger guard than this finding asked for.
 
-**[MEDIUM] Dead Configuration / Checks That Cannot Fail**: the top-level `resolve: { alias }` is read by nothing, next to a comment claiming it prevents drift
-- **Location**: `website/vitest.config.ts` at `988ca15` — the `resolve: { alias }` property of the
-  object passed to `defineConfig`, and the `const alias` declaration's comment immediately above it.
-  (Cited by property rather than by line: the file has no symbol at that site.)
-- **Class**: A configuration key set at a scope the tool does not read, retained in the file as
-  though load-bearing, with a comment beside it asserting a guarantee that key does not provide.
-- **Enumeration**: `git -C website ls-files | grep -E "vite|vitest"` → 2 files
-  (`vitest.config.ts`, `vitest.setup.dom.ts`); across all four workspace repos,
-  `ls */vite*.config.*` → `website/vitest.config.ts` only. Inside it,
-  `git show 988ca15:vitest.config.ts | grep -n resolve` → 6 hits, of which 3 are `resolve: { alias }`
-  uses: **1 top-level (the class member) and 2 per-project (load-bearing, proven by CONTROL 3)**.
-  Class size: **1 member.**
-  **What this predicate does not match**: a dead key expressed outside a `vite*.config.*` file — a
-  `"vitest"` field in `package.json`, a JSON or YAML config — none of which exist in this workspace;
-  and a key that is dead for a reason other than scope, such as one overridden later in the same
-  object literal, which a `resolve`-name grep would not distinguish.
-- **Issue**: CONTROL 3 proves the per-project `resolve: { alias }` entries are what make `~` resolve
-  — removing the dom project's copy fails collection with
-  `Failed to resolve import "~/utils/pushSorted"` while the top-level key is still present. CONTROL 4
-  proves the converse: with the top-level `resolve: { alias }` deleted and both project copies kept,
-  the full suite passes, **48 files / 610 tests, exit 0**. The top-level key is inert.
-  That inertness is not harmless, because the comment above the shared `const` reads *"Shared once so
-  the two projects below cannot drift apart"* — an accurate claim about the two project copies, but
-  read together with a top-level `resolve` it invites the natural and **wrong** inference that
-  aliasing is configured project-wide. The concrete failure it sets up is the one CONTROL 3 already
-  demonstrated: whoever adds a third project — the likely next step, since M4c is about to add DOM
-  tests and a future chain may want a third environment — omits `resolve: { alias }` from it, and the
-  new project fails collection with a resolver error that names an import rather than the config.
-  A dead control is worse than an absent one, because it is counted.
-- **Required Action**:
-  - **Preferred (structural)**: make the class unrepresentable — define the projects through a small
-    factory that supplies `resolve: { alias }` itself, e.g.
-    `const project = (test) => ({ resolve: { alias }, test });`, then
-    `projects: [project({ name: 'node', … }), project({ name: 'dom', … })]`. A project then cannot be
-    written without its alias, the shared-`const` comment becomes true of the mechanism rather than of
-    a convention, and the top-level `resolve` has nothing left to imply.
-  - **Minimum**: delete the top-level `resolve: { alias }` (CONTROL 4 shows the suite is unaffected)
-    and reword the comment so it states what actually holds — that each project supplies the shared
-    alias and a new project must do the same.
+**M-2  RESOLVED** — Dead Configuration: the top-level `resolve: { alias }` vitest never read. Class
+gone, by the **Preferred (structural)** route: the top-level key is deleted and a `project(test)`
+factory now supplies `resolve: { alias }` at the only place projects are constructed. Landed:
+`website` `e6163fd`. **Check that fails if it returns**:
+`verification/014/code-review-m2/fix-controls.txt` control C3 — stripping the alias from the factory
+body fails collection on both projects at once. See the fix sub-entry for the two adversarial checks
+run against this fix and the one nit they turned up.
 
 ### Low/Info
 
-**[LOW] Documentation & Comments**: the setup-file comment describes a mechanism the file does not have
-- **Location**: `website/vitest.setup.dom.ts` at `988ca15`, the second comment line.
-- **Class**: A comment that describes the code beside it in terms of a mechanism that is not the one
-  in force — here, describing a file as *inert* in an environment it is in fact never loaded into.
-- **Enumeration**: `git show 988ca15:vitest.setup.dom.ts` → 3 lines, 2 of them comment, **1 in
-  scope**. The other four reviewed files were read in full for the same class:
-  `package.json`, `pnpm-lock.yaml` and `tsconfig.test.json` carry no comments (JSON);
-  `vitest.config.ts` carries exactly 1, covered by M-2 above. Reviewed-surface class size: **1**.
-  **What this predicate does not match**: a comment that is accurate about the mechanism but stale
-  about the surrounding code, and any comment outside the five reviewed paths — the whole `src/` tree
-  is out of scope for this verdict and was not swept.
-- **Issue**: The comment says the flag *"has no effect in the node project's environment"*. That
-  phrasing implies the statement executes under the node project and is simply inert there. It does
-  not execute there at all: `setupFiles` is declared only on the dom project, so this file is never
-  loaded by the node project. My node-scoping probe confirms the observable — a `.test.ts` sees
-  `IS_REACT_ACT_ENVIRONMENT` as `undefined`, not as a set-but-ignored value. The distinction is the
-  entire point of the design the plan chose (environment follows the file extension, nothing to
-  forget per file), so a comment that blurs it undercuts the one thing it is there to explain.
-  On the comment policy itself: this comment is **pure description of the code beside it** and carries
-  no effort-bound or register-like content — no chain or finding ID, no round, no date, no
-  attribution. It correctly stays in the file; only its wording is at issue.
-- **Required Action**:
-  - **Preferred (structural)**: none available — this is a wording defect, not a representable class.
-  - **Minimum**: reword to state the mechanism, e.g. that the file is loaded only by the dom project
-    (`setupFiles` in `vitest.config.ts`), so node tests never receive the flag.
+**L-1  RESOLVED** — Documentation: the setup-file comment described the file as inert in the node
+environment rather than never loaded there. Class gone: reworded to state the mechanism —
+`setupFiles` is declared only on the dom project, so the node project never loads the file. Landed:
+`website` `e6163fd`. **Check that fails if it returns**: `no test`. This is a comment-accuracy
+defect with no executable surface; the *behaviour* it describes is covered by the node-scope probe in
+`verification/014/code-review-m2/fix-controls.txt`, but nothing fails if the comment alone drifts
+again. Recorded explicitly rather than left implied.
+
 
 **[INFO] I-1 — Verification / Checks That Cannot Fail**: M2's own acceptance evidence could not have
 seen a broken harness. At `988ca15` the dom project collects zero files, so the milestone that
@@ -366,6 +273,80 @@ fails with `TS2307` on an image import — a rig artefact that reads exactly lik
 lacks the untracked `.env.local` (any test importing the `~/utils` barrel then dies at import with
 `Invalid environment variables`, reporting `(0 test)`). Both, and two more, are written up in
 `verification/014/code-review-m2/README.md`.
+
+## Round 1 — Fix Confirmation (sub-entry)
+
+**This is a sub-entry of round 1, not a new numbered round.** The fix diff (`website` `e6163fd`,
+`vitest.config.ts` + `vitest.setup.dom.ts`) touches only findings scope, plus one record document in
+`agent-output`. Scoped means the diff, not the rigor: the controls were re-run, the fix was
+re-attacked, and each disposition above records two things rather than one.
+
+**Re-attacked from first principles, not read and agreed with.** The trigger is what the fix touches,
+not the finding's subject matter — a vitest config is the instrument that decides whether any test
+runs at all, so the round-1 controls were re-derived against the *new* config shape rather than
+carried across. Captures: `verification/014/code-review-m2/fix-controls.txt`.
+
+| Check | Result |
+|---|---|
+| dom probe at `e6163fd` | 4/4, exit 0 — `\|dom\|` project, jsdom live, setup file loaded, `~` resolves, `createRoot`+`act` mounts |
+| node-scope probe | 2/2, exit 0 — `.test.ts` still sees no `window`, no `document`, no ACT flag |
+| C1 drop `setupFiles` | red on the setup case only |
+| C2 dom `jsdom` → `node` | red on the DOM and mount cases |
+| C3 strip the alias from the factory body | collection fails, `Failed to resolve import "~/utils/pushSorted"` |
+| Both `tsc` programs at `e6163fd` | exit 0, exit 0 |
+
+**Decision-neutrality of the fix, settled by execution.** Both trees run across the fix commit
+(`100b319` and `e6163fd`): **570/570 identical `(file, fullName, status)` tuples, 0 lost, 0 added,
+exit 0 both.** Captured at `verification/014/code-review-m2/fix-differential.txt`. The count differs
+from round 1's 604 because M4c deletions landed in between; the differential brackets the fix commit
+alone, so that is not drift.
+
+### Two adversarial checks, and what they found
+
+**C4 — is the factory actually "structurally unskippable", as its comment claims?** No. A third
+project written as a raw object literal, bypassing `project()`, type-checks clean (`tsc` exit 0, 0
+errors) and then fails at collection exactly as the pre-fix hazard did. The factory is a **strong
+default at the only place projects are constructed, not an impossibility**.
+**This does not reopen M-2.** The class M-2 named was a *dead key retained as if load-bearing, with a
+comment asserting a guarantee it did not provide* — the dead key is gone, and the artifact that
+invited the mistake no longer exists. What remains is a slightly overstated word in a comment, with
+a loud immediate failure behind it. Recorded as N-1 below; making the claim literally true would need
+a branded return type on `project()`, which is over-engineering for a thirty-line config and is **not
+asked for**.
+
+**C5 — did the factory's `Record<string, unknown>` parameter lose type checking the inline literal
+had?** No — **no regression**. Misspelling `environment` as `enviroment` produces `tsc` exit 0 and
+zero errors under *both* the fixed factory shape and the pre-fix `988ca15` inline shape. Vitest
+project option keys were never type-checked here, so the factory took nothing away. This was the
+strongest objection available to the fix and it does not survive contact with the instrument. Worth
+knowing separately: the same typo silently drops the dom project to a node environment at runtime,
+and only a test asserting DOM presence catches it — from M4c onward the suite contains such tests by
+construction, so the class is covered going forward.
+
+### Nits from the sub-entry — neither reopens anything
+
+**N-1 (nit)** — `vitest.config.ts`'s factory comment says the pattern is "structurally unskippable".
+C4 shows it is not. Suggested wording, if it is ever touched again: *the default at the only place
+projects are constructed*. No action owed; not a finding.
+
+**N-2 (nit)** — the reconcile note in `implementation/014-test-suite-cleanup-implementation.md`
+attributes all five `debug` bumps to "the `@pm2/pm2-version-check` devDependency subtree". They are
+spread across five sibling snapshots — `@pm2/pm2-version-check@1.0.4`, `agent-base@7.1.0`,
+`get-uri@6.0.1`, `pac-proxy-agent@7.0.0`, `socks-proxy-agent@8.0.1` — which descend from `pm2`, not
+from `@pm2/pm2-version-check`. The bound the note draws (dev-only, same major, unrelated to jsdom) is
+correct and the correction stands; only the subtree's name is off by one level. Precise attribution
+is at `verification/014/code-review-m2/debug-bump-attribution.txt`. Worth a one-word fix precisely
+because a reconcile note's whole job is accuracy.
+
+### Instrument fault found in my own rig, recorded
+
+The pass-set comparator hard-coded its worktree-prefix strip as `cr014-(pre|post)`. Run against
+worktrees named `cr014-prefix` / `cr014-fix` it stripped nothing and reported **every** tuple as
+changed — 570 only-in-pre and 570 only-in-post on two trees that were in fact identical. Caught by
+reading the paths in the output rather than the counts, which agreed. The comparator now takes any
+`/tmp/cr014-*/` prefix, the round-1 differential was re-verified against the repaired version and
+still reproduces at 604/604, and the hazard is written into the captures' README. A differential
+reporting 100% drift is an instrument fault, not a finding.
 
 ## Positive Observations
 
@@ -434,6 +415,13 @@ pass on the test-only diffs is the substantive gate for this chain under V-27.
 No CRITICAL or HIGH finding exists; no file carries three or more MEDIUM findings; the two MEDIUMs
 sit in different files and different repositories of concern.
 
+**Verdict at the fix sub-entry: unchanged, APPROVED_WITH_COMMENTS, now at `e6163fd`.** All three
+findings are confirmed closed against the fixed tree, re-attacked rather than read; the fix is
+behaviour-neutral by execution (570/570, exit 0 both). The two adversarial checks found no defect the
+fix introduced — the one they turned up, an overstated word in a comment, is recorded as a nit and
+asked for from nobody. Rounds stop here: no finding on this surface changes a decision, so anything
+further routes to a follow-up register rather than holding the tree.
+
 **Scope of this verdict**: milestone M2's five non-test paths at `website` `988ca15` and no more. It
 says nothing about any test file, about `src/`, or about the chain as a whole. Per the milestone-scope
 rule, the plan's `Status` field is **not** moved by this review; the verdict and its scope are
@@ -441,43 +429,35 @@ recorded in the plan's changelog instead.
 
 ## Required Actions
 
-None blocking. Three items for the implementer to clear, none of which gates M4c or QA:
+**All discharged at `e6163fd` / `agent-output` `9240392`.** M-1, M-2 and L-1 are confirmed closed in
+the fix sub-entry above, each with the two-part disposition — class gone, and the captured check that
+fails if it returns (or `no test`, stated). Nothing is owed back to the implementer.
 
-1. **M-1 (MEDIUM)** — correct the implementation doc's `pnpm add -D jsdom` row *in place*, with a
-   dated reconcile note (record-area correction form, not a silent overwrite): the lockfile removes 7
-   lines, not 0; five of them are `debug` 4.3.4 → 4.4.3 in the `paracord → pm2` devDependency subtree,
-   dev-only, same major, zero measured effect on the suite. Do **not** rewrite the commit message.
-   Going forward, take diff-property claims from `--numstat` or from a redirected file, and record the
-   command beside the number.
-2. **M-2 (MEDIUM)** — eliminate the dead top-level `resolve: { alias }`. Preferred: a project factory
-   that supplies the alias so a project cannot be written without one. Minimum: delete the top-level
-   key and reword the shared-`const` comment. CONTROL 4 shows the suite is unaffected either way.
-3. **L-1 (LOW)** — reword `vitest.setup.dom.ts`'s second comment line to say the file is loaded only
-   by the dom project, rather than that its flag "has no effect" in the node environment.
-
-Because all three touch only the reviewed surface plus one record document, re-verification is a
-**sub-entry of this round**, not a new numbered round: re-run the differential and the five controls
-from `verification/014/code-review-m2/README.md`, confirm each disposition, and move `Reviewed-At` to
-the fixed SHA. A new numbered round opens only if the fix reaches beyond these paths.
+Two nits (N-1, N-2) are recorded above and asked for from nobody: N-1 is a word in a comment, N-2 is
+one level of a subtree name in a note whose substance is correct. Neither is a finding, neither holds
+anything, and neither should generate a round.
 
 ## Next Steps
 
-1. **implementer-hooks-014** — clear M-1, M-2 and L-1 above. M4c is **not** blocked and should
-   proceed in parallel; none of these three changes the harness's behaviour.
+1. ~~**implementer-hooks-014** — clear M-1, M-2 and L-1~~ — **DONE**, same session, all three at
+   `website` `e6163fd` and `agent-output` `9240392`, re-verified here. M-2 took the Preferred
+   (structural) route rather than the Minimum. Nothing further owed.
 2. **implementer-hooks-014**, at the first M4c case that mounts `edit/page.tsx` — apply the
-   analysis's deterministic mitigation for the nine eager prefetches. This is the mitigation half of
-   the Assumption Not Checked above.
+   analysis's deterministic mitigation for the nine eager prefetches. Still open; this is the
+   mitigation half of the Assumption Not Checked above and the only item from this review still
+   carrying work.
 3. **qa subagent** — owns closing the Assumption Not Checked. Hold the plan's exit-code observable at
    Phase 2 and at the M5 sweep: a run that reports every case passed and exits non-zero is the falsity
    signature, and the JSON reporter's counters cannot see it. Record the process exit code beside the
    counters, per the workspace convention. QA also holds AC7 and adequacy for every test-only diff on
    this chain under V-27 — none of which this review assessed.
-4. **planner-hooks-014** — ~~the Risks row *"The harness changes node tests' behaviour"* has its
-   falsifier answered this cycle and can take its prediction record now~~ — **DONE at plan rev 10**,
-   re-derived at the artifact: the row records "not met" with the rig, the tuples and the capture
-   path, scoped to the node half with the dom half named open until M4c. A second Risks row now
-   tracks the instrument-predicate class from I-2. Nothing further owed to or from the planner.
+4. ~~**planner-hooks-014** — take the prediction record for the harness Risks row~~ — **DONE at plan
+   rev 10**, re-derived at the artifact: the row records "not met" with the rig, the tuples and the
+   capture path, scoped to the node half with the dom half named open until M4c. A second Risks row
+   now tracks the instrument-predicate class from I-2. Nothing further owed to or from the planner.
 5. **retrospective** — I-2, the recurring piped-diff-count instrument, alongside the instrument
-   lessons plan D7 already routes to pi.
+   lessons plan D7 already routes to pi. Note that the plan has since promoted this from a
+   retrospective item to a per-pass Risks row, so the retrospective inherits a live guard rather than
+   a lesson.
 
 Handing off to the qa subagent for test execution.

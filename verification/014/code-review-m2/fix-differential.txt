@@ -1,0 +1,8 @@
+PRE : {"files":46,"total":570,"passed":570,"failed":0,"tuples":570}
+POST: {"files":46,"total":570,"passed":570,"failed":0,"tuples":570}
+only-in-pre : 0
+only-in-post: 0
+
+process exit codes:
+  pre-fix (100b319) EXIT=0
+  fixed   (e6163fd) EXIT=0

@@ -1,14 +1,18 @@
 // Pre/post M2 pass-set differential.
 // Usage: node passset-differential.js <pre.json> <post.json>
 // Reads two vitest --reporter=json outputs and compares the (file, fullName, status)
-// tuple sets, with the worktree prefix stripped so the two trees' paths are comparable.
+// tuple sets, with any /tmp/cr014-*/ worktree prefix stripped so the two trees' paths are
+// comparable. The prefix pattern is deliberately wildcard: an earlier version hard-coded
+// (pre|post) and silently reported every tuple as changed when the worktrees were named
+// cr014-prefix / cr014-fix. A differential that reports 100% drift is an instrument fault,
+// not a finding - check the paths in the output before believing it.
 const fs = require('fs');
 const load = (p) => {
   const j = JSON.parse(fs.readFileSync(p, 'utf8'));
   const s = new Set();
   for (const f of j.testResults) {
     for (const a of f.assertionResults) {
-      s.add(f.name.replace(/^.*\/cr014-(pre|post)\//, '') + '::' + a.fullName + '::' + a.status);
+      s.add(f.name.replace(/^.*\/cr014-[^/]*\//, '') + '::' + a.fullName + '::' + a.status);
     }
   }
   return { s, files: j.testResults.length, total: j.numTotalTests, passed: j.numPassedTests, failed: j.numFailedTests };

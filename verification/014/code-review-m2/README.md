@@ -17,6 +17,8 @@ Built by `code-reviewer-hooks-014`, 2026-08-27, for
 | `harness-controls.txt` | the five negative controls and their results |
 | `lockfile-removed-lines.txt` | the seven removed `pnpm-lock.yaml` lines, two independent instruments |
 | `debug-bump-attribution.txt` | which snapshots moved `debug` 4.3.4 -> 4.4.3, and their root |
+| `fix-differential.txt` | round-1 fix confirmation: pre/post the fix commit `e6163fd` |
+| `fix-controls.txt` | the five controls re-run from first principles against `e6163fd`, incl. two adversarial ones |
 
 ## Rebuild
 
@@ -60,6 +62,11 @@ git -C $W worktree remove /tmp/cr014-pre; git -C $W worktree remove /tmp/cr014-p
 3. **`node_modules` is a symlink into the real checkout.** Never run an installer (`pnpm add`,
    `pnpm install`) from inside a worktree built this way — it would write through the symlink into the
    shared tree. Nothing here installs.
-4. **`pushSorted`, `getUrlCode` and several other `src/utils` modules are default exports.** A named
+4. **The comparator's worktree-prefix strip is a wildcard, and must stay one.** An earlier version
+   hard-coded `cr014-(pre|post)`; run against worktrees named `cr014-prefix` / `cr014-fix` it
+   stripped nothing and reported **every** tuple as changed — 570 only-in-pre, 570 only-in-post, on
+   two trees that were in fact identical. A differential reporting 100% drift is an instrument
+   fault, not a finding: read the paths in the output before believing it.
+5. **`pushSorted`, `getUrlCode` and several other `src/utils` modules are default exports.** A named
    import of them type-checks under `noEmit` but yields `undefined` at runtime, so an alias probe
    written as a named import fails for the wrong reason. Check the export shape first.
