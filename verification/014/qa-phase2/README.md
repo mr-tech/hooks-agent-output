@@ -47,23 +47,57 @@ Its limb-3 regex is also **deliberately broader than the spec** and is not the a
 `\b[0-9]{3}\b` where CLAUDE.md says a bare three-digit **`0NN`**. No false positive materialised
 (limb 3 = 0), but a count from it would over-flag; take ID-token counts from the M5 sweep.
 
-## Finding against the M5 sweep — the `escaped:` exemption is installed where it cannot fire
+## WITHDRAWN — a false finding I raised against the M5 sweep, and how I produced it
 
-`naming-predicate.js` applies its `// escaped:` provenance exemption in the **basename** domain
-(`!/\/\/\s*escaped:/.test(base)`), where it can never match — a filename cannot contain `// escaped:`
-— and **omits it from the comment domain**, where CLAUDE.md requires it ("must match **zero** lines
-outside a `// escaped:` provenance line").
+An earlier revision of this file claimed `verification/014/m5-sweep/naming-predicate.js` omitted its
+`// escaped:` exemption from the comment domain, and that the suite contained no `// escaped:` line.
+**Both claims were false. The finding is withdrawn.** It is recorded rather than deleted because the
+method failure is the useful part.
 
-Tested, not read. A legitimate provenance line —
-`// escaped: agent-output/handoff/components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md`
-— satisfies the comment branch's `isCommentLine`, matches `ID_TOKEN` on `2026-08-26`, and reaches
-no exemption: it would be reported as a negative-form violation.
+**The facts, verified.** The exemption is present, as an early return above *both* the title and
+comment checks (`const isEscapedLine = …; if (isEscapedLine) return;`). And the suite holds two
+provenance lines — `bugFixCoverage.supplemental.test.ts` and
+`constructImageUrl.default-avatar.test.ts`, both `// escaped: analysis/closed/005-user-reported-bugs-analysis.md`
+— found with `grep -rc '// escaped:'` at `f2c85f5`.
 
-**Why today's `0` hides it.** The suite currently contains no `// escaped:` line, so the exemption
-has never been exercised in either direction. This is a missing **positive control**: the sweep has
-never been shown to *permit* the one class the convention explicitly exempts, and axiom (B) exists
-precisely to create that class. The first escaped-provenance test added will be flagged as a
-violation by an instrument reporting `0`.
+**The exemption is load-bearing and already controlled in both directions.** Those lines carry `005`,
+which *is* an ID token under `\b0[0-9]{2}\b`, and they *are* comment lines — so the exemption is the
+only reason they go unflagged. Tested against the real strings:
+
+| Line | Flagged? |
+|---|---|
+| `// escaped: analysis/closed/005-…md` | no — exempted |
+| `  // escaped: analysis/closed/005-…md` (indented) | no — exempted |
+| `// plain comment mentioning 005` | **yes** |
+
+So the sweep's `negative-form hits: 0` **is** evidence, and AC5's evidence for disposition rows 46
+and 47 stands.
+
+**How the false finding was produced — the part worth keeping.** The sweep was read through
+`grep -n 'domain\|title\|comment\|describe\|basename\|ID_TOKEN\|idToken\|negative'`. The word
+**`escaped`** is not in that alternation, so the exemption could not have appeared in what was read,
+and "not in my filtered view" became "not in the file". The follow-up "test" then exercised a
+*reconstruction* of the sweep's logic rather than the sweep itself, so it confirmed the misreading
+instead of breaking it.
+
+Two rules already written down here were broken:
+
+1. **An absence claim requires an instrument that could have shown presence.** A grep alternation is
+   a filter, and this workspace's standing hazard about existence claims over filtered output binds
+   just as hard when the filter is your own search pattern — harder, because there is no tool to
+   blame and no second instrument disagreeing.
+2. **Run the instrument against the artefact, not against your model of it.** A probe built from a
+   reading inherits the reading's errors and returns them as confirmation.
+
+Nothing caught this from inside. It was caught by `planner-hooks-014` supplying a contradiction from
+a different direction (AC5's rows 46/47 asserted the very lines this file said did not exist) — which
+is the corroboration pattern the workspace hazards file prescribes over re-running the first
+instrument.
+
+**What survives, and it is cosmetic.** The basename branch's `&& !/\/\/\s*escaped:/.test(base)`
+conjunct is inert: a filename cannot contain `// escaped:`. Dead code, no consequence, not worth a
+change round, and it should never have been presented beside a false claim as though the two were
+one finding.
 
 ## Why the probe writes to a file instead of logging
 
