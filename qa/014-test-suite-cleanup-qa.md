@@ -789,13 +789,34 @@ Asked of each: *what class is the example an example of, and does the instrument
 | AC | Verdict | Basis |
 |---|---|---|
 | AC1 | **MET** | All 48 inventory rows present in the disposition table, checked by **row-number membership**, not the piped `grep \| sort \| uniq -c` the record used — 0 missing, 0 out of range. |
-| AC2 | **MET on the plan's own instrument; NOT independently replayed — see Assumption Not Checked** | The plan defines identity across a title strip as the table's `old title → new title` column. Two independent replays were attempted and **both failed to measure it**: verbatim `(file, fullName)` gives 0 survivors of 617 (every file was renamed), and ID-token-normalised titles give 261 of 617 (titles were *rewritten*, not merely stripped). The mapping *is* the identity, so consuming it would not be independent. |
+| AC2 | **MET on the plan's own instrument, which is not independently verifiable by construction — see Assumption Not Checked** | The plan defines identity across a title strip as the table's `old title → new title` column. Two independent replays were attempted and **both failed to measure it**: verbatim `(file, fullName)` gives 0 survivors of 617 (every file was renamed), and ID-token-normalised titles give 261 of 617 (titles were *rewritten*, not merely stripped). The mapping *is* the identity, so consuming it would not be independent. |
 | AC3 | **MET** | 3 deletions (rows 11, 43, 45); each names a covering test or an Outstanding Items line. Row 11 owes none (third-party source). IS-2 ordering evidenced above. |
 | AC4 | **MET** | Two independently built instruments agree at `f2c85f5`: 51 files, 0 positive-form failures, 0 negative-form hits. My own controls fired **6/6 in both directions**, and the rev-14 widening admits exactly **13** files while rejecting **0** — it closes on its predicate, not on the instances that exposed it. |
 | AC5 | **MET** | `grep -rc '// escaped:'` → exactly 2 files, both citing `005-user-reported-bugs-analysis.md`. Verified myself after **my own earlier claim that none existed proved false**. The exemption is load-bearing, not vacuous: both lines carry `005`, which *is* an ID token, and both *are* comment lines. |
 | AC6 | **MET for 19 of 20; 1 record gap — QA-3** | Row 13 legitimately owes nothing (nothing was repaired; demanding a red phase there is what Phase 1 forbade). Row 47 is the gap. |
 | AC7 | **MET, with one residue instance recorded — QA-4** | Sweep at `f2c85f5`: **E2 12 → 0**, **E3a 3 → 0**, 20 of 51 files carrying candidates. Rows 13 and 15 dispositioned under rev 12's carve-out with **both limbs executed by probe**. All 12 new files read whole for the four contamination classes a line-based sweep cannot see: **clean**; no test imports a production constant (verified by reading every import, presence-based). |
 | AC8 | **REGISTERED, not checkable here** | Post-chain human observation by the next chain's retrospective. |
+
+## AC2 — sharpened after this verdict, recorded beside it rather than over it
+
+This pass reported AC2 as "met on the plan's own instrument but not independently replayed", which
+reads as a QA limitation — something this pass did not get to. **The sharper characterisation,
+established by `planner-hooks-014` at plan rev 17 (`0af3338`) and recorded here because a reader of
+this document would otherwise take the weaker one:** the criterion names as its identity instrument
+the disposition table's own `old title → new title` column — **a mapping authored by the hand it
+measures.** That is a defect in the criterion itself, not in this pass's diligence, and no agent can
+close it by trying harder: any replay consuming that column inherits whatever the column got wrong.
+
+The practical consequence for anyone downstream is unchanged and is stated in Assumption Not Checked
+below — AC2 rests on the per-transition chain of custody, and the row-by-row audit against
+`verification/014/baseline-a74b9e2.json` is the **retrospective's** to own. The difference is in what
+a reader should conclude: not "QA left this", but "this criterion cannot be discharged by the stage
+that holds it".
+
+**The verdict does not expire on this.** Rev 17 records a defect in a criterion this verdict
+verified; it does not change what the criterion demands, and no production code moved — the tree at
+`f2c85f5` is untouched. Recorded per the restating-and-correcting rule: the original line stands in
+the table above, sharpened, not silently rewritten to look as though it always said this.
 
 ## FINDINGS
 
