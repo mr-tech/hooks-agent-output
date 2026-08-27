@@ -13,8 +13,11 @@ Status-Detail: >-
   pushed (623 ahead of an origin still at the init commit — standing arrangement). All artifact-side
   gates were re-measured by this stage at the shipped commit before the act: suite 566/566 exit 0,
   typecheck exit 0 both programs, `next build` exit 0, cross-repo references identical four ways.
-  **Serving state is UNSTATED — the owner has not yet said the site is serving it, and this stage did
-  not and will not probe for it.** Four post-deploy-observable rows (**BC-7/AC8, BC-7/row-19, BC-8,
+  **Serving state: VERIFIED on the owner's attestation, 2026-08-27** — *"The site is serving f2c85f5,
+  UAT is at work"* (relayed by `steering-test-cleanup`). **Reconcile note, 2026-08-27:** this field
+  previously read *"Serving state is UNSTATED — the owner has not yet said the site is serving it"*,
+  which was accurate when written and is superseded by his statement, not corrected. Nothing was
+  probed at any point. Four post-deploy-observable rows (**BC-7/AC8, BC-7/row-19, BC-8,
   BC-9**) remain **OPEN** and gate **chain closure**, not this release act.
 Verified-At: "website f2c85f5c7e3ad03879845ae1116518dc71cf2077 — the QA-verified commit, the assembled release tip, and the commit now at `refs/heads/master`, all one and the same. agent-output at 8b2c1d3e95b2516e099ba78de4b98d5078157810 at the moment of writing (this record's own commit is its successor). **Reconcile note, 2026-08-27, same pass:** this field first read `agent-output at 5e9dfe4` — that SHA was never measured and was wrong; it is corrected here to the value re-derived with `git rev-parse HEAD^` against this record's own commit. Nothing depended on it, and no verdict, gate or release fact changes."
 ---
@@ -165,7 +168,7 @@ required — 0 porcelain lines both before and after.
 | Consumers resolving | **PASS** — `project-utils` pin unchanged at `749606d0` and unmoved by this release; no consumer needed to re-resolve |
 | Assets reachable | **N/A** — nothing was published; no registry, no artifact upload |
 | This stage's own post-push ref re-derivation | **NOT VERIFIED** (§2) — read blocked, not retried |
-| **Serving state** | **UNSTATED — see §7.** Not probed, not inferred, and **not** marked NOT VERIFIED: serving state is outside the artifact-side population |
+| **Serving state** | **VERIFIED on the owner's attestation** (§7), 2026-08-27. Not probed, not inferred, never marked NOT VERIFIED — serving state is outside the artifact-side population, and his word is its evidence, not a weaker substitute for a host-side check |
 
 ## 6. On tagging and publishing — deliberately none
 
@@ -179,12 +182,22 @@ likewise **no registry and nothing to publish**; a publish step was not invented
 
 **Status: RELEASED** — `website` `master` at `f2c85f5` as of **2026-08-27T05:19:56Z**.
 
-**Serving state: UNSTATED, and this is an open question for the owner — not a gap and not a defect.**
-The push to the production ref is recorded above with its timestamp and output. What is not yet on
-record is the owner's statement that the site is serving it. This stage **did not probe** for it — no
-Vercel dashboard, no serving-ref probe, no process listing, no host-side check — and **hands the owner
-no confirmation steps to run**. When he states it, that statement **is** the evidence and closes this
-line; it is not a weaker substitute for anything.
+**Serving state: VERIFIED, on the owner's own word, 2026-08-27.**
+
+> *"The site is serving f2c85f5, UAT is at work"* — the owner, 2026-08-27, relayed verbatim by
+> `steering-test-cleanup`.
+
+**That statement is the evidence, and it is terminal.** Together with the push to the production ref
+recorded at §5 it fully establishes serving state; it is **not** a weaker substitute for a host-side
+check. Nothing was probed at any point — no Vercel dashboard, no serving-ref probe, no process
+listing — and **no confirmation step was ever handed to the owner to run**. No capture file was owed
+and none is recorded missing.
+
+**Reconcile note, 2026-08-27, appended not overwritten.** Until his statement arrived this section
+read: *"Serving state: UNSTATED, and this is an open question for the owner — not a gap and not a
+defect… When he states it, that statement is the evidence and closes this line."* That was accurate
+when written — the push had happened and he had not yet spoken — and it is **superseded by his
+attestation, not corrected by it**. The line it predicted is the line that closed it.
 
 ### Open blocking conditions — carried by **name as well as number** (UAT-1)
 
@@ -195,13 +208,18 @@ changed **0 files under `src/` outside `__tests__/`**.
 | Row (name and number) | Owner | State | What closes it |
 |---|---|---|---|
 | **BC-7/AC8** — the next chain's planner **cites** `agent-output/CLAUDE.md` | roadmap / next chain's planner | **OPEN** | Now decidable: 014 has released. The first planning document opened in this workspace after this release. **One citation closes it** |
-| **BC-7/row-19** — persist-gate choice path stays unreachable through the UI | uat (primary: browser drive) · fallback: **owner** | **OPEN — NOT EXECUTED** | Trip `gateBeforePersist.mustAsk` in `NewMessageModal`, press Save; expect Save disabled before any choice prompt |
+| **BC-7/row-19** — persist-gate choice path stays unreachable through the UI | **`uat-hooks-014`** — *in progress*, per the owner 2026-08-27 (the fallback to him was **not** taken; the row's primary instrument is a browser drive needing no human) | **OPEN — being executed** | Trip `gateBeforePersist.mustAsk` in `NewMessageModal`, press Save; expect Save disabled before any choice prompt. **Closure evidence comes from UAT's own ledger, not from this record** |
 | **BC-8** — row 43's route-0 mount-effect init surface has no covering test | **owner** | **OPEN** | Handoff `handoff/message-init-cached-edits-lost-2026-08-27.md` |
-| **BC-9** — toast-bearing surfaces actually show a transient notice | uat (primary: browser drive) · fallback: **owner** | **OPEN — NOT EXECUTED** | Drive a code-fetch error and an in-flight save in a running build; **look** for a visible toast in both |
+| **BC-9** — toast-bearing surfaces actually show a transient notice | **`uat-hooks-014`** — *in progress*, per the owner 2026-08-27 (fallback to him **not** taken) | **OPEN — being executed** | Drive a code-fetch error and an in-flight save in a running build; **look** for a visible toast in both. **Closure evidence comes from UAT's own ledger** |
 
 **A statement of the result closes BC-9 and BC-7/row-19 — no capture file is owed**, and none is
-recorded here as missing. The dev server UAT left at `localhost:3000` (at `f2c85f5`, now also
-`master`) is the owner's instrument for that sitting and was **not touched** by this stage.
+recorded here as missing. **Update, 2026-08-27**: the owner has assigned both walkthroughs to
+**`uat-hooks-014`**, so the row returns to its *primary* instrument — a browser drive, which needs no
+human — rather than resting on the owner fallback UAT had recorded. **Their closure evidence belongs
+in UAT's ledger, and this record is not the place it lands.** The dev server at `localhost:3000` (at
+`f2c85f5`, now also `master`) was **not touched** by this stage at any point.
+
+**2026-08-27T05:36 — BC-9 discharged: EXECUTED, both limbs PASS** (limb 1: uat browser drive + owner's direct observation of the rendered toast; limb 2: owner attestation at this build). Discharging record: `uat/closed/014-test-suite-cleanup-uat.md`, dated **BC-9 Execution Record** addendum. Line added by uat-hooks-014-2 per the lifecycle discharging rule; the table row above is preserved as written.
 
 ### Known issues
 
@@ -270,7 +288,7 @@ difference is the test suite and harness config. The user-visible product is byt
   "tag": null,
   "published": null,
   "version_artifact": null,
-  "serving_state": "unstated — owner has not attested; not probed by this stage",
+  "serving_state": "verified on the owner's attestation 2026-08-27: 'The site is serving f2c85f5, UAT is at work'; never probed by this stage",
   "not_verified": ["this stage's own post-push ref re-derivation (read blocked by a permission control; not retried in another form)"],
   "rollback_mechanism": "vercel-promote (accepted as written; does not move master; not sticky)",
   "open_conditions": ["BC-7/AC8", "BC-7/row-19", "BC-8", "BC-9"],
@@ -280,10 +298,11 @@ difference is the test suite and harness config. The user-visible product is byt
 
 ## 10. Next Actions
 
-1. **Owner** — state whether the site is serving `f2c85f5`. His statement is the evidence and closes
-   §7's serving-state line. **Nothing is being asked of him host-side.**
-2. **Owner** — the **BC-9** and **BC-7/row-19** walkthrough at `localhost:3000`. A statement of the
-   result closes each row; no capture file is owed. These gate **chain closure**.
+1. ~~**Owner** — state whether the site is serving `f2c85f5`~~ — **DISCHARGED 2026-08-27.** *"The site
+   is serving f2c85f5, UAT is at work"* (§7). Nothing was asked of him host-side, then or now.
+2. ~~**Owner** — the BC-9 / BC-7/row-19 walkthrough~~ — **REASSIGNED 2026-08-27 by the owner to
+   `uat-hooks-014`**, which is executing them now. Their results land in **UAT's ledger**; both rows
+   still gate **chain closure**, and this record's §7 states them as open until UAT closes them.
 3. **roadmap subagent** — release complete; update the release tracker.
 4. **qa** — dated reconcile note for **UAT-1** in `qa/closed/014-test-suite-cleanup-qa.md`.
 5. **retrospective** — after the chain's effort files are closed out, **this record included**.
