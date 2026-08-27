@@ -1,0 +1,11 @@
+baseline (environment: node, include .test.ts only)
+  file=baseline-node-48.json  assertions=617  failed=0  sha256=d56166d1f9f0f254a96a7217f8144005fe4198248bc21899179e29b43a6bd664
+A: global node + per-file // @vitest-environment jsdom
+  file=A-node-global-perfile-jsdom.json  assertions=636  failed=0  sha256=bd385849c65e36cf082ec6452f25df908d57fd1456deb30093bdea62c7e5a46f
+B: global jsdom
+  file=global-jsdom.json  assertions=636  failed=0  sha256=bd385849c65e36cf082ec6452f25df908d57fd1456deb30093bdea62c7e5a46f
+C: global happy-dom
+  file=global-happy-dom.json  assertions=636  failed=0  sha256=bd385849c65e36cf082ec6452f25df908d57fd1456deb30093bdea62c7e5a46f
+D: test.projects split (node project: src/**/*.test.ts @ node; dom project: src/**/*.test.tsx @ jsdom)
+  file=projects-split.json  assertions=638  failed=0  baseline-subset-assertions=617
+  sha256(baseline-file assertions)=d56166d1f9f0f254a96a7217f8144005fe4198248bc21899179e29b43a6bd664

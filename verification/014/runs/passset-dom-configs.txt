@@ -1,0 +1,83 @@
+# Per-file assertion counts, DOM configurations (identical across all three).
+# Every assertion status is `passed`. Full set sha256 in passset-digests.txt.
+
+   2  src/poc__tests__/01-nullable.test.tsx
+   3  src/poc__tests__/02-transition.test.tsx
+   2  src/poc__tests__/03-newmessagejson.test.tsx
+   1  src/poc__tests__/04-messageprovider.test.tsx
+   1  src/poc__tests__/05-jsonmodalbody.test.tsx
+   1  src/poc__tests__/06-editpage.test.tsx
+   3  src/poc__tests__/07-press.test.tsx
+   4  src/poc__tests__/08-click.test.tsx
+   2  src/poc__tests__/09-siblings.test.tsx
+  11  src/scripts/__tests__/012-backfill-classify.test.ts
+   3  src/scripts/__tests__/012-backfill-evaluation-failure-category-qa.test.ts
+  30  src/scripts/__tests__/012-backfill-report.test.ts
+   6  src/server/api/utils/__tests__/012-upsert-valid.test.ts
+  10  src/server/api/utils/__tests__/013-m4-shapes-parity.test.ts
+   3  src/server/api/utils/__tests__/013-m9f-dropped-types-notice.test.ts
+  52  src/server/api/utils/__tests__/shapes-v2.test.ts
+   6  src/server/api/v1/__tests__/012-valid-exposure.test.ts
+  23  src/utils/__tests__/008-qa-validation.test.ts
+  11  src/utils/__tests__/010-transition-height-style.test.ts
+   4  src/utils/__tests__/011-style-reconciliation-poc.test.ts
+   7  src/utils/__tests__/012-json-editor-repair-path.test.ts
+   6  src/utils/__tests__/012-message-mode.test.ts
+  36  src/utils/__tests__/012-send-gate-partition.test.ts
+  11  src/utils/__tests__/012-validity-predicate.test.ts
+  16  src/utils/__tests__/013-fqa15-rowd-load-gate.test.ts
+   2  src/utils/__tests__/013-fqa17-supported-types-parity.test.ts
+   3  src/utils/__tests__/013-fqa18-thumbnail-persist-gate.test.ts
+  11  src/utils/__tests__/013-fqa19-ingress-gate-reachability.test.ts
+   6  src/utils/__tests__/013-fqa31-load-confirmation-names-actual-mode.test.ts
+   3  src/utils/__tests__/013-m1-fix-round-1-extraction.test.ts
+   6  src/utils/__tests__/013-m1-fix-round-1-hash-parity.test.ts
+   7  src/utils/__tests__/013-m1-transport-form.test.ts
+   7  src/utils/__tests__/013-m2c-load-diff.test.ts
+   1  src/utils/__tests__/013-m3-bot-get-message.test.ts
+   1  src/utils/__tests__/013-m3-code-path.test.ts
+  11  src/utils/__tests__/013-m3-discord-ingress.test.ts
+  16  src/utils/__tests__/013-m7-mode-follows-flag.test.ts
+  31  src/utils/__tests__/013-m8-ec3-resolver-gate.test.ts
+   7  src/utils/__tests__/013-m8-json-modal-notices.test.ts
+   4  src/utils/__tests__/013-m9a-delimiter-collision.test.ts
+   3  src/utils/__tests__/013-owner-choice-rewrites-editor-2026-08-25.test.ts
+   5  src/utils/__tests__/013-owner-conflict-choice-not-default-2026-08-25.test.ts
+   4  src/utils/__tests__/013-owner-load-notice-reversal-2026-08-25.test.ts
+   6  src/utils/__tests__/013-owner-readable-mutation-errors-2026-08-25.test.ts
+   5  src/utils/__tests__/013-owner-toast-vessel-2026-08-25.test.ts
+  20  src/utils/__tests__/013-qa-cr24-6-independent-mode-oracle.test.ts
+   5  src/utils/__tests__/013-qa-paste-surface-render.test.ts
+   9  src/utils/__tests__/013-qa-toast-vessel-render.test.ts
+  32  src/utils/__tests__/components-v2-data-layer.test.ts
+  10  src/utils/__tests__/isValidUrl.test.ts
+  33  src/utils/__tests__/m7-m10-coverage-gaps.test.ts
+   8  src/utils/__tests__/message-init-route0.test.ts
+  49  src/utils/__tests__/mutual-exclusivity.test.ts
+  28  src/utils/__tests__/plan-004-lazy-loading.test.ts
+   7  src/utils/__tests__/plan-005-bug-fixes.test.ts
+  28  src/utils/__tests__/plan-005-qa-validation.test.ts
+  14  src/utils/__tests__/sub-component-actions.test.ts
+
+total files=57  total assertions=636
+
+# The 19 assertions the POC .test.tsx files add over the 48-file node baseline:
+  src/poc__tests__/01-nullable.test.tsx :: NullableComponent renders children when show is truthy
+  src/poc__tests__/01-nullable.test.tsx :: NullableComponent renders nothing when show is falsy
+  src/poc__tests__/02-transition.test.tsx :: TransitionHeightElement mounts closed: wrapper is display:none and height 0
+  src/poc__tests__/02-transition.test.tsx :: TransitionHeightElement mounts open: children are present and no inline display is forced
+  src/poc__tests__/02-transition.test.tsx :: TransitionHeightElement reports whether ResizeObserver exists in this environment
+  src/poc__tests__/03-newmessagejson.test.tsx :: NewMessageJsonInput mounts at rest with a CodeMirror editor and no error notice
+  src/poc__tests__/03-newmessagejson.test.tsx :: NewMessageJsonInput — driven shows the V2/classic conflict notice when the JSON has both
+  src/poc__tests__/04-messageprovider.test.tsx :: MessageProvider mounts and supplies a context to a consumer
+  src/poc__tests__/05-jsonmodalbody.test.tsx :: JsonModalBody mounts inside a real MessageProvider and seeds the editor
+  src/poc__tests__/06-editpage.test.tsx :: message edit page mounts inside a real MessageProvider
+  src/poc__tests__/07-press.test.tsx :: react-aria Button press without @testing-library fires onPress from a native pointer/mouse sequence
+  src/poc__tests__/07-press.test.tsx :: react-aria Button press without @testing-library raw Enter keydown/keyup does NOT activate a react-aria Button
+  src/poc__tests__/07-press.test.tsx :: react-aria Button press without @testing-library reports which event constructors exist
+  src/poc__tests__/08-click.test.tsx :: event delivery baseline plain React onClick fires from a dispatched click
+  src/poc__tests__/08-click.test.tsx :: event delivery baseline plain React state update through a dispatched click
+  src/poc__tests__/08-click.test.tsx :: event delivery baseline react-aria Button: click-only, detail 0 (virtual click)
+  src/poc__tests__/08-click.test.tsx :: event delivery baseline react-aria Button: click-only, detail 1 (real click)
+  src/poc__tests__/09-siblings.test.tsx :: sibling components named by the source-text corpus NewMessageModal mounts open
+  src/poc__tests__/09-siblings.test.tsx :: sibling components named by the source-text corpus SaveAsMenu mounts open
