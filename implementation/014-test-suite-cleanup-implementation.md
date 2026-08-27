@@ -44,8 +44,13 @@ axiom-(A) mutation evidence where owed, recorded in the standalone Disposition T
 (`verification/014/disposition-table.md`), full-suite pass set 604/604 (exit 0), no count drift
 beyond the one intentional deletion (row 7).
 
-Not yet delivered: all of M4a (27 renames), M2 (DOM harness), M4c (13 conversions), and M5
-(acceptance sweep). The value statement is not yet fully met — see "Value Statement Validation".
+**M4a is now also complete (27/27 rows)** — every file renamed to `module.behaviour.test.ts` form
+with all ID tokens stripped from titles/comments, zero case-count drift, full-suite re-verified at
+604/604 (exit 0) after every batch. A whole-suite negative-form re-sweep confirms the only files
+still carrying ID tokens are exactly the 10 M4c-reserved rows, nothing missed.
+
+Not yet delivered: M2 (DOM harness), M4c (13 conversions, depends on M2), and M5 (acceptance
+sweep). The value statement is not yet fully met — see "Value Statement Validation".
 
 ## Milestones Completed
 
@@ -67,7 +72,11 @@ Not yet delivered: all of M4a (27 renames), M2 (DOM harness), M4c (13 conversion
       (`53aa251`), 15 (`71a4ab9`), 20 (`55e7a68`), 22 (`442e5c5`), 46 (`7d70bc4`). Full
       per-row disposition, class, evidence, and commit recorded in
       `verification/014/disposition-table.md`. Full suite 604/604, exit 0.
-- [ ] M4a — Not started (27 rows).
+- [x] M4a — **Complete, 27/27 rows.** Full per-row list, commits, and case counts in
+      `verification/014/disposition-table.md`. Two new findings recorded, not fixed (out of
+      pure-rename scope): row 9's hand-rolled dispatch-logic block, row 12's 2-hop local
+      mode-switch transcription (falls outside QA's E3b-indirect predicate scope). Full suite
+      46 files / 604 tests / 0 failed / exit 0, unchanged from post-M4b (zero case drift).
 - [ ] M2 — Not started (DOM harness; analysis complete and cleared, `50f053a`).
 - [ ] M4c — Not started (13 rows; depends on M2).
 - [ ] M5 — Not started (acceptance sweep).
@@ -247,22 +256,33 @@ mutation-exposed self-found-gap duty, with before/after mutation evidence record
 
 **Sequence remaining (fixed by the plan): M4a (27 rows) → M2 → M4c (13 rows) → M5.**
 
-### M4a — 27 rows, not started
+### M4a — complete, 27/27 rows
 
-Rows 1, 2, 4, 5, 6, 8, 9, 12, 17, 18, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 37 (H8), 40, 41, 42, 44,
-47, 48. Pure renames + title strips + effort-bound comment removal, **no case change**. Rows 5, 25,
-26, 27, 40, 42, 44 were already opened by M3 (import lines only) — M4a reopens them for the rename
-step; do not re-touch the import lines. Row 37 is H8 (oracle-contamination guard, keep-and-rename,
-not delete). Row 47 gets the `// escaped:` line added (H3/J6 candidate, shares row 46's provenance
-per QA's AC7 sweep — read `qa/014-test-suite-cleanup-qa.md`'s row on `plan-005-qa-validation` before
-dispositioning).
+All 27 rows renamed to `module.behaviour.test.ts` form with ID tokens stripped from titles and
+comments. Full per-row list (old → new path, case count, commit) in
+`verification/014/disposition-table.md`. Row 37 (H8, oracle-contamination guard) kept and renamed,
+not deleted, per its class disposition. Row 47's E3a candidate (shares row 46's provenance) was
+read and adjudicated: fixed the same self-referential avatarIndex formula, added the `// escaped:`
+line matching row 46. Rows 5, 25, 26, 27, 40, 42, 44's M3-landed import lines were not re-touched.
 
-**Evidence owed per file**: per-file case count equal and zero failures on both trees (before/after
-rename), `old title → new title` filled for every retitled case. This is the highest-file-count,
-lowest-per-file-risk milestone — a good candidate for batching several files per commit once a
-rhythm is established, but each file's rename should still be verified individually (run that one
-file's tests before moving to the next) since a bad `git mv` or an import path left stale after a
-directory-relative reference would silently drop the file from collection (INST-1's failure mode).
+Two new findings surfaced during the read-through, recorded but **not fixed** (out of pure-rename
+scope, and in row 9's case blocked on the DOM harness not yet existing):
+- **Row 9** (`editableComponents.operations.test.ts`): the "Auto-remove branch dispatch" describe
+  block hand-rolls `SectionEditor.deleteTextComponent`'s branch logic inline instead of calling the
+  real component — no production import anywhere in that block. Needs the DOM harness (M2) to fix
+  properly.
+- **Row 12** (`useApiMethods.json-editor-repair.test.ts`): a local `switchToV2`/`switchToClassic`
+  transcription pair, structurally identical to what M4b row 14 fixed, used via a 2-hop expression
+  (`switchToClassic(switchToV2(draft))`) that falls outside QA's E3b-indirect predicate (explicitly
+  scoped to exactly one intermediate variable) — a documented instrument gap, not a false negative.
+  The file's own header already discloses this as a deliberate stand-in.
+
+Both are candidates for a future M4b-style repair row, not expanded into unilaterally here.
+
+**Evidence obtained per file**: per-file case count verified equal and zero failures on both trees
+(before/after rename) for all 27 rows; full suite re-run after the complete batch: 46 files / 604
+tests / 0 failed / exit 0 — identical to the post-M4b count, confirming zero case drift across
+every rename. Typecheck (`pnpm run typecheck`) exit 0 after every batch.
 
 ### M2 — DOM harness, not started
 
@@ -303,10 +323,14 @@ predicate's positive class.
 
 ## Next Steps
 
-1. **Resume the implementer** (a fresh spawn or continuation) at M4a row 1, per the row list above.
-   Read this document, the plan (rev 8 or later — check for further cross-session revisions before
-   resuming), `qa/014-test-suite-cleanup-qa.md`, and the Disposition Table in full first.
-2. Continue appending the Disposition Table per M4a/M4c row as each completes (already the
-   established pattern from M4b) rather than reconstructing it at M5.
+1. **Resume the implementer** (a fresh spawn or continuation) at M2 (DOM harness). Read this
+   document, the plan (rev 8 or later — check for further cross-session revisions before
+   resuming), the M2 analysis (`analysis/014-test-suite-cleanup-analysis.md`) in full, and the
+   Disposition Table first.
+2. Continue appending the Disposition Table per M4c row as each completes (already the
+   established pattern from M4b/M4a) rather than reconstructing it at M5.
 3. After M2 lands: spawn the code-reviewer subagent (scoped to M2's non-test diff), per D17.
-4. After M5 lands: hand to QA Phase 2, per D16/the plan's Handoff Notes.
+4. Consider whether rows 9 and 12's newly-found gaps (see M4a's Outstanding Items above) should
+   become a new M4b-style repair row once M2 makes row 9's fix possible — a call for the planner,
+   not unilaterally expanded here.
+5. After M5 lands: hand to QA Phase 2, per D16/the plan's Handoff Notes.
