@@ -143,3 +143,54 @@ items, all fixed in the same session as rows 9/38/39/10 above:
 | LOW | `vitest.setup.dom.ts`'s comment said the flag "has no effect" in the node project; it never runs there at all. | Reworded to state the file is loaded only by the dom project. | Same run as above. |
 
 `website` commit for these three fixes: `e6163fd`.
+
+## M5 step 7 — 48-row reconciliation
+
+Bucketing rule (mutually exclusive, applied to every row's *primary* disposition — several rows
+carry more than one milestone touch, per the plan's two named one-milestone-ownership exceptions
+(9, 12, 14, 15); each is bucketed by its most substantive touch):
+
+- **Deleted** — the row's file is removed from the tree with no successor file inheriting its
+  identity (a covering test may exist elsewhere, or the surface is recorded in Outstanding Items;
+  neither makes the row anything but deleted).
+- **Converted** — a source-text (H1) or hand-rolled-renderer (H9) case became a real behavioural
+  mount, or a zero/near-zero-production-import file was structurally repaired to import the real
+  functions it stood in for (H7). The testing *technique* changed, not just the oracle.
+- **Kept** — the file and its testing technique are unchanged; an *oracle* was repaired in place
+  (H5: a self-referential or delegate-computed expectation replaced by a literal or a delegation
+  spec meeting rev-12's carve-out), or a never-red guard was confirmed discriminating (H4).
+- **Renamed** — pure rename to the (C) form, title/comment ID-token strip, no case or oracle
+  change (H2, H8, or a file whose only M4b touch was a title/comment strip).
+
+| Bucket | Rows | Count |
+|---|---|---|
+| Deleted | 11, 43, 45 | 3 |
+| Converted | 9, 10, 12, 14, 15, 16, 19, 32, 33, 34, 35, 36, 38, 39 | 14 |
+| Kept (oracle-repaired) | 3, 13, 20, 22, 46, 47 | 6 |
+| Renamed only | 1, 2, 4, 5, 6, 7, 8, 17, 18, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 37, 40, 41, 42, 44, 48 | 25 |
+| **Total** | | **48** |
+
+**3 + 14 + 6 + 25 = 48.** Every inventory row appears in exactly one bucket. Cross-check against
+the table above: every row number 1-48 appears at least once (confirmed by direct count,
+`grep -oE '^\| [0-9]+' | sort -n | uniq -c`); rows 9, 12, 14, 15 appear twice (the two named
+one-milestone-ownership exceptions, plus row 15's own reconciliation annotation row), accounted
+for by bucketing each under its final/most-substantive disposition, not by row-count.
+
+**File-count note, so the 48-row reconciliation is not mistaken for a 48-file one:** the row-level
+partition above sums to 48 rows, not 48 files — the tree currently holds 51 files (`find`,
+confirmed at every full-suite run this chain). The delta is entirely accounted for by splits:
+rows 16, 19, 33, 35 each replace one deleted/renamed original with 2 (16, 19, 33) or 3 (35) new
+files; row 9 adds one new file alongside its renamed original; row 36's deleted file is replaced
+by exactly one new file (net 0). No row's file-count delta is unaccounted for.
+
+**Final case-count / exit-code check (M5 step 1, closed here since it depends on this
+reconciliation):** `npx vitest run --reporter=json --outputFile=verification/014/final-f2c85f5.json`
+at website `f2c85f5` — 566/566 passed, 0 failed, exit 0, 51 files
+(`verification/014/final-f2c85f5.json`). Every row bucketed "Kept" or "Renamed" above carries its
+retained cases forward with an unchanged case count (recorded per-row above); every row bucketed
+"Converted" carries an explicit before/after case count and axiom-A evidence per-row above; every
+row bucketed "Deleted" carries a named covering test or an Outstanding Items line. No baseline case
+is unaccounted for by this chain of per-row evidence — a full case-by-case title-mapping replay of
+all 617 M0 baseline assertions against the final run was not additionally performed beyond this,
+since each transition was already independently verified (a real `npx vitest run`, not arithmetic
+alone) at the point it happened, per the "Full suite after..." notes throughout this table.
