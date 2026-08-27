@@ -1,0 +1,435 @@
+# AC7 sweep - axiom (E), plan 014
+# domain: 48 test files matching the find predicate in this script's header
+# production-export domain: 308 exported names over 315 non-test source files under src/ + bot/
+#
+# CANDIDATE counts. Each is a candidate count under the predicate named in the header,
+# not a violation count; every candidate is adjudicated by reading.
+# E1  oracle-by-formula          : 4 files (FLOOR - single-physical-line matching only)
+# E2  oracle-by-source-text      : 12 files
+# E3a transcription, expected side: 3 files
+# E3b transcription-as-subject    : 10 files (same line)
+# E3b-indirect, via one intermediate: 17 files (depth 1; a two-hop chain is residue)
+
+## src/scripts/__tests__/012-backfill-report.test.ts
+   E1  L142 calls imported `reportPath` inside the expected value :: expect(reportPath('run-a')).not.toBe(reportPath('run-b'));
+
+## src/server/api/v1/__tests__/012-valid-exposure.test.ts
+   E3b-indirect L68 local `body = serialized(...)` (defined L47) :: expect('valid' in body).toBe(false);
+   E3b-indirect L70 local `body = serialized(...)` (defined L47) :: expect('valid' in body).toBe(true);
+   E3b-indirect L71 local `body = serialized(...)` (defined L47) :: expect(body.valid).toBe(stored);
+   E3b-indirect L74 local `body = serialized(...)` (defined L47) :: expect('valid' in body.data).toBe(false);
+   E3b-indirect L95 local `body = serialized(...)` (defined L47) :: expect('valid' in body).toBe(false);
+   E3b-indirect L97 local `body = serialized(...)` (defined L47) :: expect('valid' in body).toBe(true);
+   E3b-indirect L98 local `body = serialized(...)` (defined L47) :: expect(body.valid).toBe(stored);
+   E3b-indirect L100 local `body = serialized(...)` (defined L47) :: expect('valid' in body.data).toBe(false);
+   E3b-indirect L95 local `body = serialized(...)` (defined L47) :: expect('valid' in body).toBe(false);
+   E3b-indirect L97 local `body = serialized(...)` (defined L47) :: expect('valid' in body).toBe(true);
+   E3b-indirect L98 local `body = serialized(...)` (defined L47) :: expect(body.valid).toBe(stored);
+   E3b-indirect L100 local `body = serialized(...)` (defined L47) :: expect('valid' in body.data).toBe(false);
+
+## src/utils/__tests__/008-qa-validation.test.ts
+   E3b-indirect L144 local `section = makeEditableSection(...)` (defined L40) :: expect(next[0]).toBe(section.components[0]);
+   E3b-indirect L307 local `section = makeEditableSection(...)` (defined L40) :: expect(section.components.length < MAX_SECTION_TEXT_COMPONENTS).toBe(true);
+   E3b-indirect L312 local `section = makeEditableSection(...)` (defined L40) :: expect(section.components.length < MAX_SECTION_TEXT_COMPONENTS).toBe(true);
+   E3b-indirect L228 local `original = makeEditableMediaGalleryItem(...)` (defined L49) :: expect(clone._key).not.toBe(original._key);
+   E3b-indirect L307 local `section = makeEditableSection(...)` (defined L40) :: expect(section.components.length < MAX_SECTION_TEXT_COMPONENTS).toBe(true);
+   E3b-indirect L312 local `section = makeEditableSection(...)` (defined L40) :: expect(section.components.length < MAX_SECTION_TEXT_COMPONENTS).toBe(true);
+   E3b-indirect L307 local `section = makeEditableSection(...)` (defined L40) :: expect(section.components.length < MAX_SECTION_TEXT_COMPONENTS).toBe(true);
+   E3b-indirect L312 local `section = makeEditableSection(...)` (defined L40) :: expect(section.components.length < MAX_SECTION_TEXT_COMPONENTS).toBe(true);
+   E3b-indirect L307 local `section = makeEditableSection(...)` (defined L40) :: expect(section.components.length < MAX_SECTION_TEXT_COMPONENTS).toBe(true);
+   E3b-indirect L312 local `section = makeEditableSection(...)` (defined L40) :: expect(section.components.length < MAX_SECTION_TEXT_COMPONENTS).toBe(true);
+   E3b-indirect L307 local `section = makeEditableSection(...)` (defined L40) :: expect(section.components.length < MAX_SECTION_TEXT_COMPONENTS).toBe(true);
+   E3b-indirect L312 local `section = makeEditableSection(...)` (defined L40) :: expect(section.components.length < MAX_SECTION_TEXT_COMPONENTS).toBe(true);
+   E3b-indirect L312 local `section = makeEditableSection(...)` (defined L40) :: expect(section.components.length < MAX_SECTION_TEXT_COMPONENTS).toBe(true);
+
+## src/utils/__tests__/010-transition-height-style.test.ts
+   E2  L2 (indirect: readFileSync + a src-shaped path literal elsewhere in file) :: import { readFileSync } from 'fs';
+   E3b L93 local `displayNoneCount` (defined L92) :: expect(displayNoneCount).toBe(1);
+
+## src/utils/__tests__/011-style-reconciliation-poc.test.ts
+   E2  L13 (indirect: readFileSync + a src-shaped path literal elsewhere in file) :: import { readFileSync } from 'fs';
+
+## src/utils/__tests__/012-json-editor-repair-path.test.ts
+   E3b L254 local `editorLostComponents` (defined L252) :: expect([editorLostComponents, editorLostContent]).toEqual([false, false]);
+   E3b-indirect L235 local `step2 = switchToClassic(...)` (defined L99) :: expect((step2.flags ?? 0) & IS_COMPONENTS_V2_FLAG).toBe(0);
+   E3b-indirect L236 local `step2 = switchToClassic(...)` (defined L99) :: expect(step2.components).toEqual([draft.components![0]]); // Action Row survives (type-1 filter)
+   E3b-indirect L237 local `step2 = switchToClassic(...)` (defined L99) :: expect(step2.content).toBe('');                            // the message text does not
+   E3b-indirect L256 local `viaToggle = switchToClassic(...)` (defined L99) :: expect(viaToggle.content).toBe('');
+   E3b-indirect L257 local `viaToggle = switchToClassic(...)` (defined L99) :: expect(viaToggle.components).toEqual([STORED_B3.data.components[0]]);
+
+## src/utils/__tests__/012-message-mode.test.ts
+   E1  L74 calls imported `switchToV2` inside the expected value :: expect(applyModeSwitch('v2', prev)).toEqual(switchToV2(prev));
+   E1  L79 calls imported `switchToClassic` inside the expected value :: expect(applyModeSwitch('classic', prev)).toEqual(switchToClassic(prev));
+
+## src/utils/__tests__/012-send-gate-partition.test.ts
+   E2  L37 (indirect: readFileSync + a src-shaped path literal elsewhere in file) :: import { readFileSync } from 'fs';
+   E3b-indirect L294 local `after = switchToClassic(...)` (defined L265) :: expect((after.flags ?? 0) & IS_COMPONENTS_V2_FLAG).toBe(0);
+   E3b-indirect L300 local `after = switchToClassic(...)` (defined L265) :: expect(after.flags).toBe(4);
+   E3b-indirect L305 local `after = switchToClassic(...)` (defined L265) :: expect(after.content).toBe('');
+   E3b-indirect L306 local `after = switchToClassic(...)` (defined L265) :: expect(after.embeds).toEqual([]);
+   E3b-indirect L307 local `after = switchToClassic(...)` (defined L265) :: expect(after.components).toEqual([{ type: 1 }]); // untouched on this leg
+   E3b-indirect L308 local `after = switchToClassic(...)` (defined L265) :: expect(after.flags).toBe(32768); // D11 touches the OTHER branch only
+   E3b-indirect L300 local `after = switchToClassic(...)` (defined L265) :: expect(after.flags).toBe(4);
+   E3b-indirect L305 local `after = switchToClassic(...)` (defined L265) :: expect(after.content).toBe('');
+   E3b-indirect L306 local `after = switchToClassic(...)` (defined L265) :: expect(after.embeds).toEqual([]);
+   E3b-indirect L307 local `after = switchToClassic(...)` (defined L265) :: expect(after.components).toEqual([{ type: 1 }]); // untouched on this leg
+   E3b-indirect L308 local `after = switchToClassic(...)` (defined L265) :: expect(after.flags).toBe(32768); // D11 touches the OTHER branch only
+   E3b-indirect L305 local `after = switchToV2(...)` (defined L259) :: expect(after.content).toBe('');
+   E3b-indirect L306 local `after = switchToV2(...)` (defined L259) :: expect(after.embeds).toEqual([]);
+   E3b-indirect L307 local `after = switchToV2(...)` (defined L259) :: expect(after.components).toEqual([{ type: 1 }]); // untouched on this leg
+   E3b-indirect L308 local `after = switchToV2(...)` (defined L259) :: expect(after.flags).toBe(32768); // D11 touches the OTHER branch only
+   E3b-indirect L321 local `step1 = switchToV2(...)` (defined L259) :: expect(step1.content).toBe('');                 // <- the user's message text is gone here
+   E3b-indirect L322 local `step1 = switchToV2(...)` (defined L259) :: expect((step1.flags ?? 0) & IS_COMPONENTS_V2_FLAG).toBe(IS_COMPONENTS_V2_FLAG);
+   E3b-indirect L325 local `step2 = switchToClassic(...)` (defined L265) :: expect((step2.flags ?? 0) & IS_COMPONENTS_V2_FLAG).toBe(0);
+
+## src/utils/__tests__/012-validity-predicate.test.ts
+   E1  L41 calls imported `validateMessage` inside the expected value :: expect(isMessageValid(permitsBareV2)).toBe(validateMessage(permitsBareV2) === '');
+   E1  L42 calls imported `validateMessage` inside the expected value :: expect(isMessageValid(permitsUnflaggedV2)).toBe(validateMessage(permitsUnflaggedV2) === '');
+   E1  L43 calls imported `validateMessage` inside the expected value :: expect(isMessageValid(refusesFlagResidue)).toBe(validateMessage(refusesFlagResidue) === '');
+   E2  L21 (indirect: readFileSync + a src-shaped path literal elsewhere in file) :: import { readFileSync } from 'fs';
+   E3b-indirect L109 local `record = data(...)` (defined L29) :: expect(record).toEqual(before);
+
+## src/utils/__tests__/013-fqa15-rowd-load-gate.test.ts
+   E2  L10 (indirect: readFileSync + a src-shaped path literal elsewhere in file) :: import { readFileSync } from 'fs';
+   E3b L87 local `src` (defined L84) :: expect(src()).toContain(
+   E3b L113 local `loadDisabled` (defined L107) :: expect(loadDisabled({ flags: 0, content: '', embeds: [], components: [] })).toBe(true);
+   E3b L119 local `loadDisabled` (defined L107) :: expect(loadDisabled(d)).toBe(true);
+   E3b L123 local `loadDisabled` (defined L107) :: expect(loadDisabled({ flags: 0, content: '   ', embeds: [], components: [] })).toBe(true);
+   E3b-indirect L94 local `s = src(...)` (defined L84) :: expect(s).not.toContain(
+   E3b-indirect L150 local `s = src(...)` (defined L84) :: expect((resolved as { content?: string }).content).toBe(s.content);
+   E3b-indirect L150 local `s = seeded(...)` (defined L143) :: expect((resolved as { content?: string }).content).toBe(s.content);
+
+## src/utils/__tests__/013-fqa19-ingress-gate-reachability.test.ts
+   E2  L18 (indirect: readFileSync + a src-shaped path literal elsewhere in file) :: import { readFileSync } from 'fs';
+   E3b-indirect L96 local `submitData = body(...)` (defined L84) :: expect(submitData).toContain('upsertMessage({');
+   E3b-indirect L97 local `submitData = body(...)` (defined L84) :: expect(submitData).not.toContain('gateBeforePersist');
+   E3b-indirect L98 local `submitData = body(...)` (defined L84) :: expect(submitData).not.toContain('applyDisposition');
+   E3b-indirect L104 local `submitData = body(...)` (defined L84) :: expect(onSubmit.indexOf('gateBeforePersist')).toBeLessThan(onSubmit.indexOf('submitData('));
+   E3b-indirect L106 local `submitData = body(...)` (defined L84) :: expect(onSubmit.indexOf('setPendingChoice')).toBeLessThan(onSubmit.indexOf('submitData('));
+   E3b-indirect L128 local `submitData = body(...)` (defined L84) :: expect(src.split('submitData(').length - 1).toBe(2);
+   E3b-indirect L104 local `onSubmit = body(...)` (defined L84) :: expect(onSubmit.indexOf('gateBeforePersist')).toBeLessThan(onSubmit.indexOf('submitData('));
+   E3b-indirect L105 local `onSubmit = body(...)` (defined L84) :: expect(onSubmit).toContain('setPendingChoice({ options: gate.options });');
+   E3b-indirect L106 local `onSubmit = body(...)` (defined L84) :: expect(onSubmit.indexOf('setPendingChoice')).toBeLessThan(onSubmit.indexOf('submitData('));
+   E3b-indirect L121 local `commitChoice = body(...)` (defined L84) :: expect(commitChoice).toContain('applyDisposition(loadedMessage, chosenOption.mode)');
+   E3b-indirect L122 local `commitChoice = body(...)` (defined L84) :: expect(commitChoice.indexOf('applyDisposition')).toBeLessThan(commitChoice.indexOf('setPendingChoice(null)'));
+
+## src/utils/__tests__/013-fqa31-load-confirmation-names-actual-mode.test.ts
+   E3b L76 local `modeAfterLoad` (defined L55) :: expect(modeAfterLoad(incoming)).toBe('classic'); // the domain fact, stated first
+   E3b L77 local `confirmationFor` (defined L66) :: expect(confirmationFor(CURRENT_CLASSIC, incoming)).not.toMatch(/to Components V2/);
+   E3b L82 local `confirmationFor` (defined L66) :: expect(confirmationFor(CURRENT_CLASSIC, incoming)).not.toMatch(/switch from/);
+   E3b L87 local `modeAfterLoad` (defined L55) :: expect(modeAfterLoad(incoming)).toBe('classic');
+   E3b L88 local `confirmationFor` (defined L66) :: expect(confirmationFor(CURRENT_V2, incoming)).toMatch(/switch from Components V2 to Classic/);
+   E3b L95 local `modeAfterLoad` (defined L55) :: expect(modeAfterLoad(incoming)).toBe('classic');
+   E3b L103 local `modeAfterLoad` (defined L55) :: expect(modeAfterLoad(incoming)).toBe('v2');
+   E3b L104 local `confirmationFor` (defined L66) :: expect(confirmationFor(CURRENT_CLASSIC, incoming)).toMatch(/switch from Classic to Components V2/);
+   E3b L109 local `modeAfterLoad` (defined L55) :: expect(modeAfterLoad(incoming)).toBe('v2');
+   E3b L110 local `confirmationFor` (defined L66) :: expect(confirmationFor(CURRENT_CLASSIC, incoming)).toMatch(/switch from Classic to Components V2/);
+
+## src/utils/__tests__/013-m1-fix-round-1-hash-parity.test.ts
+   E3a L49 local `producerHash` (defined L33) :: expect(consumerHash('Test', draftWithSpace)).toBe(producerHash('Test', saved));
+   E3a L65 local `producerHash` (defined L33) :: expect(consumerHash('Test', draftWithSpace)).toBe(producerHash('Test', saved));
+   E3a L85 local `producerHash` (defined L33) :: expect(consumerHash('Test', draftWithSpace)).toBe(producerHash('Test', saved));
+   E3a L97 local `producerHash` (defined L33) :: expect(consumerHash('Test', changed)).not.toBe(producerHash('Test', saved));
+   E3b L49 local `consumerHash` (defined L39) :: expect(consumerHash('Test', draftWithSpace)).toBe(producerHash('Test', saved));
+   E3b L65 local `consumerHash` (defined L39) :: expect(consumerHash('Test', draftWithSpace)).toBe(producerHash('Test', saved));
+   E3b L85 local `consumerHash` (defined L39) :: expect(consumerHash('Test', draftWithSpace)).toBe(producerHash('Test', saved));
+   E3b L97 local `consumerHash` (defined L39) :: expect(consumerHash('Test', changed)).not.toBe(producerHash('Test', saved));
+
+## src/utils/__tests__/013-m1-transport-form.test.ts
+   E1  L51 calls imported `hashMessage` inside the expected value :: expect(hashMessage(classicMessage)).not.toBe(hashMessage(v2Message));
+   E1  L57 calls imported `hashMessage` inside the expected value :: expect(hashMessage(withoutFlag)).not.toBe(hashMessage(withFlag));
+   E1  L61 calls imported `hashMessage` inside the expected value :: expect(hashMessage(v2Message)).not.toBe(hashMessage(v2MessageOtherComponent));
+   E1  L67 calls imported `hashMessage` inside the expected value :: expect(hashMessage(a)).toBe(hashMessage(b));
+   E1  L87 calls imported `hashMessage` inside the expected value :: expect(hashMessage(withKeys)).toBe(hashMessage(withoutKeys));
+
+## src/utils/__tests__/013-owner-choice-rewrites-editor-2026-08-25.test.ts
+   E2  L12 (indirect: readFileSync + a src-shaped path literal elsewhere in file) :: import { readFileSync } from 'fs';
+   E3b-indirect L41 local `body = extractFunctionBody(...)` (defined L19) :: expect(body).not.toContain('updateMessage(');
+   E3b-indirect L42 local `body = extractFunctionBody(...)` (defined L19) :: expect(body).not.toContain('onClose()');
+   E3b-indirect L43 local `body = extractFunctionBody(...)` (defined L19) :: expect(body).not.toContain('editableState.setMessageMode(chosenOption.mode)');
+   E3b-indirect L51 local `body = extractFunctionBody(...)` (defined L19) :: expect(body).toContain('applyDisposition(pendingChoice.validated, chosenOption.mode)');
+   E3b-indirect L52 local `body = extractFunctionBody(...)` (defined L19) :: expect(body).toContain('updateDoc(JSON.stringify(next, null, 2))');
+   E3b-indirect L60 local `body = extractFunctionBody(...)` (defined L19) :: expect(body).toContain('setPendingChoice(null)');
+   E3b-indirect L61 local `body = extractFunctionBody(...)` (defined L19) :: expect(body).toContain('setDismissedChoice(null)');
+   E3b-indirect L51 local `body = extractFunctionBody(...)` (defined L19) :: expect(body).toContain('applyDisposition(pendingChoice.validated, chosenOption.mode)');
+   E3b-indirect L52 local `body = extractFunctionBody(...)` (defined L19) :: expect(body).toContain('updateDoc(JSON.stringify(next, null, 2))');
+   E3b-indirect L60 local `body = extractFunctionBody(...)` (defined L19) :: expect(body).toContain('setPendingChoice(null)');
+   E3b-indirect L61 local `body = extractFunctionBody(...)` (defined L19) :: expect(body).toContain('setDismissedChoice(null)');
+   E3b-indirect L60 local `body = extractFunctionBody(...)` (defined L19) :: expect(body).toContain('setPendingChoice(null)');
+   E3b-indirect L61 local `body = extractFunctionBody(...)` (defined L19) :: expect(body).toContain('setDismissedChoice(null)');
+
+## src/utils/__tests__/013-owner-conflict-choice-not-default-2026-08-25.test.ts
+   E2  L10 (indirect: readFileSync + a src-shaped path literal elsewhere in file) :: import { readFileSync } from 'fs';
+   E3b-indirect L21 local `src = readSrc(...)` (defined L16) :: expect(src).toContain('setDismissedChoice({ validated: parsed, disposition })');
+   E3b-indirect L22 local `src = readSrc(...)` (defined L16) :: expect(src).not.toContain('setPendingChoice({ validated: parsed, disposition })');
+   E3b-indirect L27 local `src = readSrc(...)` (defined L16) :: expect(src).not.toContain('setAllowMenuClose(false);\n        return;');
+   E3b-indirect L32 local `src = readSrc(...)` (defined L16) :: expect(src).toContain('setPendingChoice(dismissedChoice);');
+   E3b-indirect L37 local `src = readSrc(...)` (defined L16) :: expect(src).toContain('setDismissedChoice({ validated, disposition })');
+   E3b-indirect L38 local `src = readSrc(...)` (defined L16) :: expect(src).not.toContain('setPendingChoice({ validated, disposition })');
+   E3b-indirect L43 local `src = readSrc(...)` (defined L16) :: expect(src).toContain('setPendingChoice(dismissedChoice);');
+   E3b-indirect L27 local `src = readSrc(...)` (defined L16) :: expect(src).not.toContain('setAllowMenuClose(false);\n        return;');
+   E3b-indirect L32 local `src = readSrc(...)` (defined L16) :: expect(src).toContain('setPendingChoice(dismissedChoice);');
+   E3b-indirect L37 local `src = readSrc(...)` (defined L16) :: expect(src).toContain('setDismissedChoice({ validated, disposition })');
+   E3b-indirect L38 local `src = readSrc(...)` (defined L16) :: expect(src).not.toContain('setPendingChoice({ validated, disposition })');
+   E3b-indirect L43 local `src = readSrc(...)` (defined L16) :: expect(src).toContain('setPendingChoice(dismissedChoice);');
+   E3b-indirect L32 local `src = readSrc(...)` (defined L16) :: expect(src).toContain('setPendingChoice(dismissedChoice);');
+   E3b-indirect L37 local `src = readSrc(...)` (defined L16) :: expect(src).toContain('setDismissedChoice({ validated, disposition })');
+   E3b-indirect L38 local `src = readSrc(...)` (defined L16) :: expect(src).not.toContain('setPendingChoice({ validated, disposition })');
+   E3b-indirect L43 local `src = readSrc(...)` (defined L16) :: expect(src).toContain('setPendingChoice(dismissedChoice);');
+   E3b-indirect L37 local `src = readSrc(...)` (defined L16) :: expect(src).toContain('setDismissedChoice({ validated, disposition })');
+   E3b-indirect L38 local `src = readSrc(...)` (defined L16) :: expect(src).not.toContain('setPendingChoice({ validated, disposition })');
+   E3b-indirect L43 local `src = readSrc(...)` (defined L16) :: expect(src).toContain('setPendingChoice(dismissedChoice);');
+   E3b-indirect L43 local `src = readSrc(...)` (defined L16) :: expect(src).toContain('setPendingChoice(dismissedChoice);');
+
+## src/utils/__tests__/013-owner-load-notice-reversal-2026-08-25.test.ts
+   E2  L11 (indirect: readFileSync + a src-shaped path literal elsewhere in file) :: import { readFileSync } from 'fs';
+   E3b L20 local `readSrc` (defined L16) :: expect(readSrc(JSON_MODAL_BODY)).not.toContain('toast.warn(notice)');
+   E3b L24 local `readSrc` (defined L16) :: expect(readSrc(JSON_MODAL_BODY)).not.toContain('react-toastify');
+   E3b L36 local `readSrc` (defined L16) :: expect(readSrc(JSON_MODAL_BODY)).toContain('setSettledNotice(null)');
+   E3b-indirect L29 local `src = readSrc(...)` (defined L16) :: expect(src).toContain('setSettledNotice(noticeMessageForSettled(disposition))');
+   E3b-indirect L30 local `src = readSrc(...)` (defined L16) :: expect(src).toContain('<NullableComponent show={!error && settledNotice}>');
+
+## src/utils/__tests__/013-owner-readable-mutation-errors-2026-08-25.test.ts
+   E2  L1 (indirect: readFileSync + a src-shaped path literal elsewhere in file) :: import { readFileSync } from 'fs';
+   E3b-indirect L51 local `src = readSrc(...)` (defined L9) :: expect(src).not.toContain('{messageError?.message}');
+   E3b-indirect L52 local `src = readSrc(...)` (defined L9) :: expect(src).toContain('formatMutationError');
+   E3b-indirect L57 local `src = readSrc(...)` (defined L9) :: expect(src).not.toContain('{messageError?.message}');
+   E3b-indirect L58 local `src = readSrc(...)` (defined L9) :: expect(src).toContain('formatMutationError');
+   E3b-indirect L57 local `src = readSrc(...)` (defined L9) :: expect(src).not.toContain('{messageError?.message}');
+   E3b-indirect L58 local `src = readSrc(...)` (defined L9) :: expect(src).toContain('formatMutationError');
+
+## src/utils/__tests__/013-owner-toast-vessel-2026-08-25.test.ts
+   E2  L1 (indirect: readFileSync + a src-shaped path literal elsewhere in file) :: import { readFileSync } from 'fs';
+   E3b L13 local `readSrc` (defined L9) :: expect(readSrc(PASTE_SURFACE)).not.toContain('toast.warn(notice)');
+   E3b L17 local `readSrc` (defined L9) :: expect(readSrc(PASTE_SURFACE)).not.toContain('react-toastify');
+   E3b-indirect L22 local `src = readSrc(...)` (defined L9) :: expect(src).toContain('setSettledNotice(noticeMessageForSettled(disposition))');
+   E3b-indirect L23 local `src = readSrc(...)` (defined L9) :: expect(src).toContain('<NullableComponent show={!error && settledNotice}>');
+   E3b-indirect L30 local `src = readSrc(...)` (defined L9) :: expect(src).toContain('toast.error(codeMessageError.message)');
+   E3b-indirect L31 local `src = readSrc(...)` (defined L9) :: expect(src).toContain("toast.loading('Saving message...')");
+   E3b-indirect L45 local `src = readSrc(...)` (defined L9) :: expect(src).not.toContain('toast.warn(notice)');
+   E3b-indirect L30 local `src = readSrc(...)` (defined L9) :: expect(src).toContain('toast.error(codeMessageError.message)');
+   E3b-indirect L31 local `src = readSrc(...)` (defined L9) :: expect(src).toContain("toast.loading('Saving message...')");
+   E3b-indirect L45 local `src = readSrc(...)` (defined L9) :: expect(src).not.toContain('toast.warn(notice)');
+   E3b-indirect L45 local `src = readSrc(...)` (defined L9) :: expect(src).not.toContain('toast.warn(notice)');
+
+## src/utils/__tests__/013-qa-paste-surface-render.test.ts
+   E3b L62 local `text` (defined L44) :: expect(text(renderPaste({ settled: NOTICE }))).toContain(NOTICE);
+   E3b L62 local `renderPaste` (defined L54) :: expect(text(renderPaste({ settled: NOTICE }))).toContain(NOTICE);
+   E3b L66 local `text` (defined L44) :: expect(text(renderPaste({}))).not.toContain(NOTICE);
+   E3b L66 local `renderPaste` (defined L54) :: expect(text(renderPaste({}))).not.toContain(NOTICE);
+   E3b L70 local `text` (defined L44) :: expect(text(renderPaste({ error: 'bad json', settled: NOTICE }))).not.toContain(NOTICE);
+   E3b L70 local `renderPaste` (defined L54) :: expect(text(renderPaste({ error: 'bad json', settled: NOTICE }))).not.toContain(NOTICE);
+   E3b L75 local `text` (defined L44) :: expect(json).toContain('text-warning');
+   E3b L79 local `text` (defined L44) :: expect(text(renderPaste({ settled: NOTICE }))).toContain(NOTICE);
+   E3b L79 local `renderPaste` (defined L54) :: expect(text(renderPaste({ settled: NOTICE }))).toContain(NOTICE);
+   E3b L80 local `text` (defined L44) :: expect(text(renderPaste({ settled: null }))).not.toContain(NOTICE);
+   E3b L80 local `renderPaste` (defined L54) :: expect(text(renderPaste({ settled: null }))).not.toContain(NOTICE);
+
+## src/utils/__tests__/013-qa-toast-vessel-render.test.ts
+   E3b L61 local `guard` (defined L56) :: expect(guard(null, 'row D notice')).not.toBe(null);
+   E3b L64 local `guard` (defined L56) :: expect(guard('bad json', 'row D notice')).toBe(null);
+   E3b L67 local `guard` (defined L56) :: expect(guard(null, null)).toBe(null);
+   E3b L70 local `guard` (defined L56) :: expect(guard('bad json', null)).toBe(null);
+   E3b-indirect L47 local `out = render(...)` (defined L29) :: expect(out === null).toBe(!shouldRender);
+
+## src/utils/__tests__/components-v2-data-layer.test.ts
+   E3b L281 local `hasAnyKey` (defined L95) :: expect(hasAnyKey(result.data.components)).toBe(false);
+   E3b L441 local `hasAnyKey` (defined L95) :: expect(hasAnyKey(stripped.data.components)).toBe(false);
+   E3b-indirect L172 local `keys = collectKeys(...)` (defined L78) :: expect(keys.length).toBe(8);
+   E3b-indirect L174 local `keys = collectKeys(...)` (defined L78) :: expect(new Set(keys).size).toBe(keys.length);
+   E3b-indirect L385 local `keys = collectKeys(...)` (defined L78) :: expect(keys.length).toBe(5);
+   E3b-indirect L386 local `keys = collectKeys(...)` (defined L78) :: expect(new Set(keys).size).toBe(keys.length);
+   E3b-indirect L435 local `keys = collectKeys(...)` (defined L78) :: expect(keys.length).toBeGreaterThan(0);
+   E3b-indirect L181 local `original = makeTextDisplay(...)` (defined L39) :: expect(JSON.stringify(original)).toBe(originalStr);
+   E3b-indirect L199 local `original = makeTextDisplay(...)` (defined L39) :: expect(rekeyed._key).not.toBe(original._key);
+   E3b-indirect L235 local `original = makeTextDisplay(...)` (defined L39) :: expect(original._key).toBe(originalKey);
+   E3b-indirect L213 local `originalKeys = collectKeys(...)` (defined L78) :: expect(newKeys.length).toBe(originalKeys.length);
+   E3b-indirect L217 local `originalKeys = collectKeys(...)` (defined L78) :: expect(originalKeys).not.toContain(nk);
+   E3b-indirect L213 local `newKeys = collectKeys(...)` (defined L78) :: expect(newKeys.length).toBe(originalKeys.length);
+   E3b-indirect L221 local `newKeys = collectKeys(...)` (defined L78) :: expect(new Set(newKeys).size).toBe(newKeys.length);
+   E3b-indirect L385 local `keys = collectKeys(...)` (defined L78) :: expect(keys.length).toBe(5);
+   E3b-indirect L386 local `keys = collectKeys(...)` (defined L78) :: expect(new Set(keys).size).toBe(keys.length);
+   E3b-indirect L435 local `keys = collectKeys(...)` (defined L78) :: expect(keys.length).toBeGreaterThan(0);
+   E3b-indirect L435 local `keys = collectKeys(...)` (defined L78) :: expect(keys.length).toBeGreaterThan(0);
+
+## src/utils/__tests__/message-init-route0.test.ts
+   E3b-indirect L56 local `result = selectInitialMessage(...)` (defined L32) :: expect(result.data).toEqual({ content: 'Welcome to **Hooks.gg**' });
+   E3b-indirect L57 local `result = selectInitialMessage(...)` (defined L32) :: expect(result).not.toBe(cachedEdits);
+   E3b-indirect L63 local `result = selectInitialMessage(...)` (defined L32) :: expect(result).toBe(cachedEdits);
+   E3b-indirect L64 local `result = selectInitialMessage(...)` (defined L32) :: expect(result.data).toEqual({ content: 'User customized this' });
+   E3b-indirect L79 local `result = selectInitialMessage(...)` (defined L32) :: expect(result).not.toBe(savedMessage);
+   E3b-indirect L80 local `result = selectInitialMessage(...)` (defined L32) :: expect(result.data).toEqual({ content: 'Welcome to **Hooks.gg**' });
+   E3b-indirect L81 local `result = selectInitialMessage(...)` (defined L32) :: expect(result.name).toBe('New Message');
+   E3b-indirect L92 local `result = selectInitialMessage(...)` (defined L32) :: expect(result).toBe(defaultIntro);
+   E3b-indirect L93 local `result = selectInitialMessage(...)` (defined L32) :: expect(result.name).toBe('New Message');
+   E3b-indirect L104 local `result = selectInitialMessage(...)` (defined L32) :: expect(result).toBe(defaultValue);
+   E3b-indirect L118 local `result = selectInitialMessage(...)` (defined L32) :: expect(result).toEqual({ name: 'Edited', data: { content: 'custom' } });
+   E3b-indirect L63 local `result = selectInitialMessage(...)` (defined L32) :: expect(result).toBe(cachedEdits);
+   E3b-indirect L64 local `result = selectInitialMessage(...)` (defined L32) :: expect(result.data).toEqual({ content: 'User customized this' });
+   E3b-indirect L79 local `result = selectInitialMessage(...)` (defined L32) :: expect(result).not.toBe(savedMessage);
+   E3b-indirect L80 local `result = selectInitialMessage(...)` (defined L32) :: expect(result.data).toEqual({ content: 'Welcome to **Hooks.gg**' });
+   E3b-indirect L81 local `result = selectInitialMessage(...)` (defined L32) :: expect(result.name).toBe('New Message');
+   E3b-indirect L92 local `result = selectInitialMessage(...)` (defined L32) :: expect(result).toBe(defaultIntro);
+   E3b-indirect L93 local `result = selectInitialMessage(...)` (defined L32) :: expect(result.name).toBe('New Message');
+   E3b-indirect L104 local `result = selectInitialMessage(...)` (defined L32) :: expect(result).toBe(defaultValue);
+   E3b-indirect L118 local `result = selectInitialMessage(...)` (defined L32) :: expect(result).toEqual({ name: 'Edited', data: { content: 'custom' } });
+   E3b-indirect L79 local `result = selectInitialMessage(...)` (defined L32) :: expect(result).not.toBe(savedMessage);
+   E3b-indirect L80 local `result = selectInitialMessage(...)` (defined L32) :: expect(result.data).toEqual({ content: 'Welcome to **Hooks.gg**' });
+   E3b-indirect L81 local `result = selectInitialMessage(...)` (defined L32) :: expect(result.name).toBe('New Message');
+   E3b-indirect L92 local `result = selectInitialMessage(...)` (defined L32) :: expect(result).toBe(defaultIntro);
+   E3b-indirect L93 local `result = selectInitialMessage(...)` (defined L32) :: expect(result.name).toBe('New Message');
+   E3b-indirect L104 local `result = selectInitialMessage(...)` (defined L32) :: expect(result).toBe(defaultValue);
+   E3b-indirect L118 local `result = selectInitialMessage(...)` (defined L32) :: expect(result).toEqual({ name: 'Edited', data: { content: 'custom' } });
+   E3b-indirect L92 local `defaultIntro = copyIntroMessage(...)` (defined L15) :: expect(result).toBe(defaultIntro);
+   E3b-indirect L92 local `result = selectInitialMessage(...)` (defined L32) :: expect(result).toBe(defaultIntro);
+   E3b-indirect L93 local `result = selectInitialMessage(...)` (defined L32) :: expect(result.name).toBe('New Message');
+   E3b-indirect L104 local `result = selectInitialMessage(...)` (defined L32) :: expect(result).toBe(defaultValue);
+   E3b-indirect L118 local `result = selectInitialMessage(...)` (defined L32) :: expect(result).toEqual({ name: 'Edited', data: { content: 'custom' } });
+
+## src/utils/__tests__/plan-004-lazy-loading.test.ts
+   E2  L1 (indirect: readFileSync + a src-shaped path literal elsewhere in file) :: import { readFileSync } from 'fs';
+   E3b-indirect L21 local `source = read(...)` (defined L13) :: expect(source).not.toContain('PreloadComponents');
+   E3b-indirect L25 local `source = read(...)` (defined L13) :: expect(source).not.toMatch(/className.*hidden.*Preload/);
+   E3b-indirect L29 local `source = read(...)` (defined L13) :: expect(source).toContain("import('~/components/DiscordMessageEditor')");
+   E3b-indirect L30 local `source = read(...)` (defined L13) :: expect(source).toContain("import('~/components/SlateEditor')");
+   E3b-indirect L31 local `source = read(...)` (defined L13) :: expect(source).toContain("import('~/components/Markdown')");
+   E3b-indirect L32 local `source = read(...)` (defined L13) :: expect(source).toContain("import('~/components/Tooltip')");
+   E3b-indirect L36 local `source = read(...)` (defined L13) :: expect(source).toContain("import('~/components/EmojiPicker/Picker')");
+   E3b-indirect L37 local `source = read(...)` (defined L13) :: expect(source).toContain("import('~/components/Calendar')");
+   E3b-indirect L38 local `source = read(...)` (defined L13) :: expect(source).toContain("import('~/components/ImageUploader')");
+   E3b-indirect L39 local `source = read(...)` (defined L13) :: expect(source).toContain("import('~/components/Drawer')");
+   E3b-indirect L43 local `source = read(...)` (defined L13) :: expect(source).toContain('requestIdleCallback');
+   E3b-indirect L44 local `source = read(...)` (defined L13) :: expect(source).toContain('setTimeout');
+   E3b-indirect L48 local `source = read(...)` (defined L13) :: expect(source).toContain('useEffect');
+   E3b-indirect L62 local `source = read(...)` (defined L13) :: expect(source).toContain("export { default } from './Root'");
+   E3b-indirect L66 local `source = read(...)` (defined L13) :: expect(source).not.toContain('next/dynamic');
+   E3b-indirect L80 local `source = read(...)` (defined L13) :: expect(source).toMatch(/loading:\s*\(\)/);
+   E3b-indirect L84 local `source = read(...)` (defined L13) :: expect(source).toContain('PickerSkeleton');
+   E3b-indirect L85 local `source = read(...)` (defined L13) :: expect(source).toMatch(/loading:\s*\(\)\s*=>\s*<PickerSkeleton/);
+   E3b-indirect L89 local `source = read(...)` (defined L13) :: expect(source).not.toContain('setTimeout');
+   E3b-indirect L90 local `source = read(...)` (defined L13) :: expect(source).not.toContain('useMount');
+   E3b-indirect L94 local `source = read(...)` (defined L13) :: expect(source).toContain('preloadPicker');
+   E3b-indirect L95 local `source = read(...)` (defined L13) :: expect(source).toContain("import('./Picker')");
+   E3b-indirect L99 local `source = read(...)` (defined L13) :: expect(source).toContain('onPointerEnter={preloadPicker}');
+   E3b-indirect L103 local `source = read(...)` (defined L13) :: expect(source).toContain('onTouchStart={preloadPicker}');
+   E3b-indirect L107 local `source = read(...)` (defined L13) :: expect(source).toContain('onHoverStart={preloadPicker}');
+   E3b-indirect L115 local `source = read(...)` (defined L13) :: expect(source).toContain('export default');
+   E3b-indirect L119 local `source = read(...)` (defined L13) :: expect(source).toContain('animate-pulse');
+   E3b-indirect L125 local `source = read(...)` (defined L13) :: expect(source).not.toMatch(/grid h-full animate-pulse.*bg-secondary/);
+   E3b-indirect L126 local `source = read(...)` (defined L13) :: expect(source).not.toMatch(/bg-secondary.*animate-pulse/);
+   E3b-indirect L130 local `source = read(...)` (defined L13) :: expect(source).toContain('bg-secondary');
+   E3b-indirect L134 local `source = read(...)` (defined L13) :: expect(source).toContain('memo(');
+   E3b-indirect L149 local `source = read(...)` (defined L13) :: expect(source).toContain('next/dynamic');
+   E3b-indirect L150 local `source = read(...)` (defined L13) :: expect(source).toMatch(/loading:/);
+   E3b-indirect L155 local `source = read(...)` (defined L13) :: expect(source).toContain('LoadingDots');
+   E3b-indirect L162 local `source = read(...)` (defined L13) :: expect(source).toMatch(/loading:\s*\(\)\s*=>\s*null/);
+   E3b-indirect L62 local `source = read(...)` (defined L13) :: expect(source).toContain("export { default } from './Root'");
+   E3b-indirect L66 local `source = read(...)` (defined L13) :: expect(source).not.toContain('next/dynamic');
+   E3b-indirect L80 local `source = read(...)` (defined L13) :: expect(source).toMatch(/loading:\s*\(\)/);
+   E3b-indirect L84 local `source = read(...)` (defined L13) :: expect(source).toContain('PickerSkeleton');
+   E3b-indirect L85 local `source = read(...)` (defined L13) :: expect(source).toMatch(/loading:\s*\(\)\s*=>\s*<PickerSkeleton/);
+   E3b-indirect L89 local `source = read(...)` (defined L13) :: expect(source).not.toContain('setTimeout');
+   E3b-indirect L90 local `source = read(...)` (defined L13) :: expect(source).not.toContain('useMount');
+   E3b-indirect L94 local `source = read(...)` (defined L13) :: expect(source).toContain('preloadPicker');
+   E3b-indirect L95 local `source = read(...)` (defined L13) :: expect(source).toContain("import('./Picker')");
+   E3b-indirect L99 local `source = read(...)` (defined L13) :: expect(source).toContain('onPointerEnter={preloadPicker}');
+   E3b-indirect L103 local `source = read(...)` (defined L13) :: expect(source).toContain('onTouchStart={preloadPicker}');
+   E3b-indirect L107 local `source = read(...)` (defined L13) :: expect(source).toContain('onHoverStart={preloadPicker}');
+   E3b-indirect L115 local `source = read(...)` (defined L13) :: expect(source).toContain('export default');
+   E3b-indirect L119 local `source = read(...)` (defined L13) :: expect(source).toContain('animate-pulse');
+   E3b-indirect L125 local `source = read(...)` (defined L13) :: expect(source).not.toMatch(/grid h-full animate-pulse.*bg-secondary/);
+   E3b-indirect L126 local `source = read(...)` (defined L13) :: expect(source).not.toMatch(/bg-secondary.*animate-pulse/);
+   E3b-indirect L130 local `source = read(...)` (defined L13) :: expect(source).toContain('bg-secondary');
+   E3b-indirect L134 local `source = read(...)` (defined L13) :: expect(source).toContain('memo(');
+   E3b-indirect L149 local `source = read(...)` (defined L13) :: expect(source).toContain('next/dynamic');
+   E3b-indirect L150 local `source = read(...)` (defined L13) :: expect(source).toMatch(/loading:/);
+   E3b-indirect L155 local `source = read(...)` (defined L13) :: expect(source).toContain('LoadingDots');
+   E3b-indirect L162 local `source = read(...)` (defined L13) :: expect(source).toMatch(/loading:\s*\(\)\s*=>\s*null/);
+   E3b-indirect L80 local `source = read(...)` (defined L13) :: expect(source).toMatch(/loading:\s*\(\)/);
+   E3b-indirect L84 local `source = read(...)` (defined L13) :: expect(source).toContain('PickerSkeleton');
+   E3b-indirect L85 local `source = read(...)` (defined L13) :: expect(source).toMatch(/loading:\s*\(\)\s*=>\s*<PickerSkeleton/);
+   E3b-indirect L89 local `source = read(...)` (defined L13) :: expect(source).not.toContain('setTimeout');
+   E3b-indirect L90 local `source = read(...)` (defined L13) :: expect(source).not.toContain('useMount');
+   E3b-indirect L94 local `source = read(...)` (defined L13) :: expect(source).toContain('preloadPicker');
+   E3b-indirect L95 local `source = read(...)` (defined L13) :: expect(source).toContain("import('./Picker')");
+   E3b-indirect L99 local `source = read(...)` (defined L13) :: expect(source).toContain('onPointerEnter={preloadPicker}');
+   E3b-indirect L103 local `source = read(...)` (defined L13) :: expect(source).toContain('onTouchStart={preloadPicker}');
+   E3b-indirect L107 local `source = read(...)` (defined L13) :: expect(source).toContain('onHoverStart={preloadPicker}');
+   E3b-indirect L115 local `source = read(...)` (defined L13) :: expect(source).toContain('export default');
+   E3b-indirect L119 local `source = read(...)` (defined L13) :: expect(source).toContain('animate-pulse');
+   E3b-indirect L125 local `source = read(...)` (defined L13) :: expect(source).not.toMatch(/grid h-full animate-pulse.*bg-secondary/);
+   E3b-indirect L126 local `source = read(...)` (defined L13) :: expect(source).not.toMatch(/bg-secondary.*animate-pulse/);
+   E3b-indirect L130 local `source = read(...)` (defined L13) :: expect(source).toContain('bg-secondary');
+   E3b-indirect L134 local `source = read(...)` (defined L13) :: expect(source).toContain('memo(');
+   E3b-indirect L149 local `source = read(...)` (defined L13) :: expect(source).toContain('next/dynamic');
+   E3b-indirect L150 local `source = read(...)` (defined L13) :: expect(source).toMatch(/loading:/);
+   E3b-indirect L155 local `source = read(...)` (defined L13) :: expect(source).toContain('LoadingDots');
+   E3b-indirect L162 local `source = read(...)` (defined L13) :: expect(source).toMatch(/loading:\s*\(\)\s*=>\s*null/);
+   E3b-indirect L115 local `source = read(...)` (defined L13) :: expect(source).toContain('export default');
+   E3b-indirect L119 local `source = read(...)` (defined L13) :: expect(source).toContain('animate-pulse');
+   E3b-indirect L125 local `source = read(...)` (defined L13) :: expect(source).not.toMatch(/grid h-full animate-pulse.*bg-secondary/);
+   E3b-indirect L126 local `source = read(...)` (defined L13) :: expect(source).not.toMatch(/bg-secondary.*animate-pulse/);
+   E3b-indirect L130 local `source = read(...)` (defined L13) :: expect(source).toContain('bg-secondary');
+   E3b-indirect L134 local `source = read(...)` (defined L13) :: expect(source).toContain('memo(');
+   E3b-indirect L149 local `source = read(...)` (defined L13) :: expect(source).toContain('next/dynamic');
+   E3b-indirect L150 local `source = read(...)` (defined L13) :: expect(source).toMatch(/loading:/);
+   E3b-indirect L155 local `source = read(...)` (defined L13) :: expect(source).toContain('LoadingDots');
+   E3b-indirect L162 local `source = read(...)` (defined L13) :: expect(source).toMatch(/loading:\s*\(\)\s*=>\s*null/);
+   E3b-indirect L149 local `source = read(...)` (defined L13) :: expect(source).toContain('next/dynamic');
+   E3b-indirect L150 local `source = read(...)` (defined L13) :: expect(source).toMatch(/loading:/);
+   E3b-indirect L155 local `source = read(...)` (defined L13) :: expect(source).toContain('LoadingDots');
+   E3b-indirect L162 local `source = read(...)` (defined L13) :: expect(source).toMatch(/loading:\s*\(\)\s*=>\s*null/);
+   E3b-indirect L155 local `source = read(...)` (defined L13) :: expect(source).toContain('LoadingDots');
+   E3b-indirect L162 local `source = read(...)` (defined L13) :: expect(source).toMatch(/loading:\s*\(\)\s*=>\s*null/);
+   E3b-indirect L162 local `source = read(...)` (defined L13) :: expect(source).toMatch(/loading:\s*\(\)\s*=>\s*null/);
+
+## src/utils/__tests__/plan-005-bug-fixes.test.ts
+   E3a L12 local `avatarIndex` (defined L10) [inline computed const] :: expect(url).toBe(`https://cdn.discordapp.com/embed/avatars/${avatarIndex}.png`);
+   E3a L19 local `avatarIndex` (defined L10) [inline computed const] :: expect(url).toBe(`https://cdn.discordapp.com/embed/avatars/${avatarIndex}.png`);
+   E3a L41 local `expected` (defined L40) [inline computed const] :: expect(url).toBe(`https://cdn.discordapp.com/embed/avatars/${expected}.png`);
+   E3a L52 local `avatarIndex` (defined L10) [inline computed const] :: expect(url).toBe(`https://cdn.discordapp.com/embed/avatars/${avatarIndex}.png`);
+
+## src/utils/__tests__/plan-005-qa-validation.test.ts
+   E3a L171 local `expectedIndex` (defined L170) [inline computed const] :: expect(url).toBe(`https://cdn.discordapp.com/embed/avatars/${expectedIndex}.png`);
+
+## src/utils/__tests__/sub-component-actions.test.ts
+   E3b-indirect L71 local `section = makeEditableSection(...)` (defined L40) :: expect(result[0]).toBe(section.components[0]);
+   E3b-indirect L72 local `section = makeEditableSection(...)` (defined L40) :: expect(result[1]).toBe(section.components[2]);
+   E3b-indirect L98 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[1]);
+   E3b-indirect L117 local `section = makeEditableSection(...)` (defined L40) :: expect(next[0]).toBe(section.components[1]);
+   E3b-indirect L118 local `section = makeEditableSection(...)` (defined L40) :: expect(next[1]).toBe(section.components[0]);
+   E3b-indirect L119 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[2]);
+   E3b-indirect L135 local `section = makeEditableSection(...)` (defined L40) :: expect(next[0]).toBe(section.components[0]);
+   E3b-indirect L136 local `section = makeEditableSection(...)` (defined L40) :: expect(next[1]).toBe(section.components[2]);
+   E3b-indirect L137 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[1]);
+   E3b-indirect L98 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[1]);
+   E3b-indirect L117 local `section = makeEditableSection(...)` (defined L40) :: expect(next[0]).toBe(section.components[1]);
+   E3b-indirect L118 local `section = makeEditableSection(...)` (defined L40) :: expect(next[1]).toBe(section.components[0]);
+   E3b-indirect L119 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[2]);
+   E3b-indirect L135 local `section = makeEditableSection(...)` (defined L40) :: expect(next[0]).toBe(section.components[0]);
+   E3b-indirect L136 local `section = makeEditableSection(...)` (defined L40) :: expect(next[1]).toBe(section.components[2]);
+   E3b-indirect L137 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[1]);
+   E3b-indirect L98 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[1]);
+   E3b-indirect L117 local `section = makeEditableSection(...)` (defined L40) :: expect(next[0]).toBe(section.components[1]);
+   E3b-indirect L118 local `section = makeEditableSection(...)` (defined L40) :: expect(next[1]).toBe(section.components[0]);
+   E3b-indirect L119 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[2]);
+   E3b-indirect L135 local `section = makeEditableSection(...)` (defined L40) :: expect(next[0]).toBe(section.components[0]);
+   E3b-indirect L136 local `section = makeEditableSection(...)` (defined L40) :: expect(next[1]).toBe(section.components[2]);
+   E3b-indirect L137 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[1]);
+   E3b-indirect L117 local `section = makeEditableSection(...)` (defined L40) :: expect(next[0]).toBe(section.components[1]);
+   E3b-indirect L118 local `section = makeEditableSection(...)` (defined L40) :: expect(next[1]).toBe(section.components[0]);
+   E3b-indirect L119 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[2]);
+   E3b-indirect L135 local `section = makeEditableSection(...)` (defined L40) :: expect(next[0]).toBe(section.components[0]);
+   E3b-indirect L136 local `section = makeEditableSection(...)` (defined L40) :: expect(next[1]).toBe(section.components[2]);
+   E3b-indirect L137 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[1]);
+   E3b-indirect L117 local `section = makeEditableSection(...)` (defined L40) :: expect(next[0]).toBe(section.components[1]);
+   E3b-indirect L118 local `section = makeEditableSection(...)` (defined L40) :: expect(next[1]).toBe(section.components[0]);
+   E3b-indirect L119 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[2]);
+   E3b-indirect L135 local `section = makeEditableSection(...)` (defined L40) :: expect(next[0]).toBe(section.components[0]);
+   E3b-indirect L136 local `section = makeEditableSection(...)` (defined L40) :: expect(next[1]).toBe(section.components[2]);
+   E3b-indirect L137 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[1]);
+   E3b-indirect L135 local `section = makeEditableSection(...)` (defined L40) :: expect(next[0]).toBe(section.components[0]);
+   E3b-indirect L136 local `section = makeEditableSection(...)` (defined L40) :: expect(next[1]).toBe(section.components[2]);
+   E3b-indirect L137 local `section = makeEditableSection(...)` (defined L40) :: expect(next[2]).toBe(section.components[1]);
+   E3b-indirect L166 local `child = makeEditableSection(...)` (defined L40) :: expect((cloned as EditableSection).components[0].content).toBe(child.components[0].content);
+
