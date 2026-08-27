@@ -193,6 +193,17 @@ check. Nothing was probed at any point — no Vercel dashboard, no serving-ref p
 listing — and **no confirmation step was ever handed to the owner to run**. No capture file was owed
 and none is recorded missing.
 
+**Disclosure, 2026-08-27, and it is this stage's error.** The BC-9 discharge line immediately above
+was written into this document by **`uat-hooks-014-2`** and deliberately left **uncommitted**, because
+this document is devops-owned and the hunk was theirs to hand over rather than to commit. **This
+stage's commit `dd71313` swept it in regardless**, and its message does not mention it. Cause, stated
+plainly: before committing, this stage read `git diff --numstat` (`37 18`) but **did not read the hunk
+list of its own file** — and `git commit --only` isolates *files*, not *hunks*, so a shared file
+carries whatever another session has left in it. The line is **accurate, belongs here, and is
+deliberately not reverted** — a foreign hunk is not this stage's to revert any more than to commit,
+and undoing a correct record to tidy a provenance error would make things worse. What is repaired is
+the record of *who wrote it*, which is now stated here and in the line itself.
+
 **Reconcile note, 2026-08-27, appended not overwritten.** Until his statement arrived this section
 read: *"Serving state: UNSTATED, and this is an open question for the owner — not a gap and not a
 defect… When he states it, that statement is the evidence and closes this line."* That was accurate
@@ -208,12 +219,24 @@ changed **0 files under `src/` outside `__tests__/`**.
 | Row (name and number) | Owner | State | What closes it |
 |---|---|---|---|
 | **BC-7/AC8** — the next chain's planner **cites** `agent-output/CLAUDE.md` | roadmap / next chain's planner | **OPEN** | Now decidable: 014 has released. The first planning document opened in this workspace after this release. **One citation closes it** |
-| **BC-7/row-19** — persist-gate choice path stays unreachable through the UI | **`uat-hooks-014`** — *in progress*, per the owner 2026-08-27 (the fallback to him was **not** taken; the row's primary instrument is a browser drive needing no human) | **OPEN — being executed** | Trip `gateBeforePersist.mustAsk` in `NewMessageModal`, press Save; expect Save disabled before any choice prompt. **Closure evidence comes from UAT's own ledger, not from this record** |
+| **BC-7/row-19** — persist-gate choice path stays unreachable through the UI | **uat** — primary: browser drive, no human needed; fallback: owner. Assigned to UAT by the owner 2026-08-27 alongside BC-9 | **OPEN — NOT EXECUTED** | Trip `gateBeforePersist.mustAsk` in `NewMessageModal`, press Save; expect Save disabled before any choice prompt. **Closure evidence belongs in UAT's ledger, not in this record.** **This row is still uat-owned and still open** — see the note below |
 | **BC-8** — row 43's route-0 mount-effect init surface has no covering test | **owner** | **OPEN** | Handoff `handoff/message-init-cached-edits-lost-2026-08-27.md` |
-| **BC-9** — toast-bearing surfaces actually show a transient notice | **`uat-hooks-014`** — *in progress*, per the owner 2026-08-27 (fallback to him **not** taken) | **OPEN — being executed** | Drive a code-fetch error and an in-flight save in a running build; **look** for a visible toast in both. **Closure evidence comes from UAT's own ledger** |
+| **BC-9** — toast-bearing surfaces actually show a transient notice | `uat-hooks-014-2` | **EXECUTED — both limbs PASS**, 2026-08-27T05:36 | Discharged in `uat/closed/014-test-suite-cleanup-uat.md` (**BC-9 Execution Record** addendum, commit `23afb0b`). Limb 1: UAT browser drive, `getFromCode` 401, **the owner directly observed the rendered toast** (*"I saw a 'User is not authenticated'"*). Limb 2: primary drive blocked at the `isApiMessage` auth guard; closed on the **owner's attestation** (*"Already saw it"*) at this build. Identity re-derived at execution: website `f2c85f5`, clean, on `master` |
 
 **A statement of the result closes BC-9 and BC-7/row-19 — no capture file is owed**, and none is
-recorded here as missing. **Update, 2026-08-27**: the owner has assigned both walkthroughs to
+recorded here as missing.
+
+**Correction against a peer's claim, 2026-08-27, verified against the register rather than asserted.**
+`uat-hooks-014-2` reported that *"BC-9 was the register's last uat-owned row."* **It is not.**
+Re-read at the moment of writing from the authority for condition states,
+`uat/closed/014-test-suite-cleanup-uat.md`: the **BC-7/row-19** row names its owner as
+*"uat (primary: browser drive, no human needed) · fallback: owner"* and its state as
+**OPEN — NOT EXECUTED**. That row is uat-owned, is still open, and the owner assigned its walkthrough
+to UAT in the same breath as BC-9's. The steering brief that told `uat-hooks-014-2` only BC-9 remained
+is the thing that is wrong, and it is worth naming *why* the mistake was available: **UAT-1** — the
+register carries two distinct rows both numbered BC-7, so a reader terminalising "BC-7" or counting
+uat-owned rows by number can silently miss one. That is exactly the failure UAT-1 predicted, arriving
+on schedule. **Update, 2026-08-27**: the owner has assigned both walkthroughs to
 **`uat-hooks-014`**, so the row returns to its *primary* instrument — a browser drive, which needs no
 human — rather than resting on the owner fallback UAT had recorded. **Their closure evidence belongs
 in UAT's ledger, and this record is not the place it lands.** The dev server at `localhost:3000` (at
