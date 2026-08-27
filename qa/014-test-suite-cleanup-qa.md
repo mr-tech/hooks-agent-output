@@ -4,7 +4,7 @@ Origin: 014
 UUID: 4671e28c
 Status: Awaiting Implementation
 Status-Detail: >-
-  Phase 1 complete against plan rev 5. Test strategy, Irreversible Side-Effect Register and the
+  Phase 1 complete against plan rev 6. Test strategy, Irreversible Side-Effect Register and the
   AC7 axiom-(E) enumeration land here; the implementer is unblocked from M0. BLOCK-1 (npm/pnpm)
   was RESOLVED by rev 5 independently of this pass. No PASS verdict is issued or implied by this
   document — the suite has not been run in full.
@@ -13,7 +13,7 @@ Verified-At: "a74b9e268399663adfccf14816376de1b8eb41ac (website) — anchors Pha
 
 # QA Report: Plan 014 — Hooks test-suite cleanup (pilot)
 
-**Plan Reference**: `agent-output/planning/014-test-suite-cleanup.md` (revision 5, agent-output `72cde0a`)
+**Plan Reference**: `agent-output/planning/014-test-suite-cleanup.md` (revision 6, agent-output `52ff3f9`)
 **QA Status**: Awaiting Implementation
 **QA Specialist**: qa (`qa-hooks-14`)
 
@@ -21,6 +21,7 @@ Verified-At: "a74b9e268399663adfccf14816376de1b8eb41ac (website) — anchors Pha
 
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
+| 2026-08-27T03:05 | planner-hooks-014 → qa-hooks-14 | Plan rev 6 (`52ff3f9`), critic pass 3 | Re-anchored on rev 6. **Two Phase 1 findings adopted plan-wide**: INST-3 becomes the plan's exit-code observable (any pass-set acceptance in M0/M2/M3/M4a/M4c/M5 satisfied only at exit 0), and the Validation instrument becomes `pnpm run typecheck` — the planner establishing the stronger form of my point, that a bare `npx tsc --noEmit` type-checks **none** of the 48 because `tsconfig.json` excludes `**/__tests__`. BC-5 residue gains `DiscordMessageEditor`. AC7's rows 13/15 remain routed to the implementer via this document, not via a plan edit. |
 | 2026-08-27T02:40 | planner-hooks-014 → qa-hooks-14 | Plan rev 5 (`72cde0a`) consuming the M2 analysis (`50f053a`) | Phase 1 re-anchored on rev 5. **BLOCK-1 RESOLVED** — rev 5 replaced the npm install/restore paragraph independently, and records it as the planner's error never applied; this pass's measurement corroborates rather than drives that. New **INST-3** from rev 5's exit-code finding: AC2's pass-set key is not sufficient on its own, at any comparison point. BC-1/BC-2/BC-5/BC-6 restated. |
 | 2026-08-27T02:10 | planner-hooks-014 → qa-hooks-14 | QA Phase 1 under D16 (QA first; implementer after Phase 1 lands) | Phase 1 written. Irreversible Side-Effect Register produced. AC7 enumerated by a captured instrument: named class 4 files → **27 candidate files**, of which **2 new genuine violations** (rows 13, 15). M0 step-3 assumption **closed by measurement** ahead of M0. One **blocking** finding (BLOCK-1, pnpm/npm), two instrument findings (INST-1, INST-2). AC8 registered as the chain's post-deploy observable. |
 
@@ -405,7 +406,8 @@ cited, and this pass did not run the harness):
 
 **Still needed:**
 
-1. **Plan correction, Validation section** — still open at rev 5. It specifies `npx tsc --noEmit`
+1. ~~**Plan correction, Validation section**~~ — **closed at rev 6**; recorded as raised because the
+   register row it produced (BC-6) stands. As written at rev 5: It specifies `npx tsc --noEmit`
    only. That checks production sources. This chain edits, renames and creates **test** files plus a
    new helpers directory which rev 5 deliberately sited *inside* `__tests__/` so the base tsconfig
    **excludes** it. So after rev 5 the base invocation covers the new helpers even less than before,
@@ -567,8 +569,8 @@ This is chain 014's **single** blocking-condition register, minted here. Any lat
 | BC-2 | observable pre-release | M0 baseline exists at `a74b9e2`, committed, with per-case `assertionResults` **and the process exit code recorded beside it** | the M0 baseline JSON named in the plan's M0 step 1, under the chain's verification directory |  implementer (no human needed) | M0, before M3 opens any file | `numFailedTests` readable; `testResults.length` = 48; exit code recorded | Without it AC2 has no left-hand side and every "no coverage lost" claim in the chain is unfalsifiable. Without the **exit code**, a baseline that reported all-passed while the process failed cannot be told apart later — the process is gone (INST-3) | implementer | OPEN |
 | BC-3 | observable pre-release | Each M5 predicate observed **firing** on a planted control, then the control removed | the six controls tabulated above | implementer (no human needed) | After M4c, before M5's clean run | each predicate non-zero on its control, 0 after removal | A mis-rooted `find` or an over-anchored regex reads 0 for the wrong reason, and the sweep certifies a suite it never examined | implementer | OPEN |
 | BC-4 | observable pre-release | Every mutation used as AC6/H4/H5/H9 evidence was restored | `git -C website status --porcelain` clean at M5 **and** the case green | implementer (no human needed) | At each disposition row's close | clean tree | A mutation left applied in a test-cleanup chain is indistinguishable from an intended edit and ships as one | implementer | OPEN |
-| BC-5 | observable pre-release | AC7 re-run at the end state; rows 13 and 15 dispositioned; **every** case M4c writes read — a set widened at rev 5 to `NewMessageModal`, `SaveAsMenu` and `edit/page.tsx` beyond the original targets | `verification/014/qa-phase1/ac7-sweep.js` at the merge SHA + reading | qa (no human needed) | After M4c | candidate set re-adjudicated; no unrecorded violation | Axiom (E) is declared universal; a PASS over an unenumerated class is the exact shape by which a green suite certifies an exploitable gap | qa | OPEN |
-| BC-6 | observable pre-release | `pnpm run typecheck` (**both** invocations, incl. `-p tsconfig.test.json`) green at the merge SHA — sharpened by rev 5's S5 re-siting of helpers **into** `__tests__/`, which keeps them out of the production tsc program and therefore leaves `tsconfig.test.json` as the only thing that types them at all | `npm run typecheck` in `website` | implementer (no human needed) | At M5 | exit 0 | A rename that breaks a test-only type is green at M5 and red for the next chain that typechecks | implementer | OPEN |
+| BC-5 | observable pre-release | AC7 re-run at the end state; rows 13 and 15 dispositioned; **every** case M4c writes read — a set widened at rev 5 to `NewMessageModal`, `SaveAsMenu` and `edit/page.tsx`, with `EmojiPicker`, the dynamics wrappers and (rev 6) `DiscordMessageEditor` named as residue | `verification/014/qa-phase1/ac7-sweep.js` at the merge SHA + reading | qa (no human needed) | After M4c | candidate set re-adjudicated; no unrecorded violation | Axiom (E) is declared universal; a PASS over an unenumerated class is the exact shape by which a green suite certifies an exploitable gap | qa | OPEN |
+| BC-6 | observable pre-release | `pnpm run typecheck` green at the merge SHA — **adopted as the plan's Validation instrument at rev 6**, on the stronger ground the planner established: `tsconfig.json` excludes `**/__tests__`, so a bare `npx tsc --noEmit` type-checks *none* of the 48 files this chain edits | `npm run typecheck` in `website` | implementer (no human needed) | At M5 | exit 0 | A rename that breaks a test-only type is green at M5 and red for the next chain that typechecks | implementer | OPEN |
 | **BC-7** | **post-deploy-observable** | **AC8** — the next feature chain's planner **cites `agent-output/CLAUDE.md`** (via the symlink) instead of re-deriving the conventions | the next chain's planning document + that chain's retrospective | the next chain's planner / retrospective agent | **Not decidable in chain 014.** Earliest: the first planning document opened in this workspace after 014 releases | A single citation refutes non-adoption by construction — one observation is sufficient, and no distribution needs to accumulate | The document is written, symlinked, correct — and simply not read, so the suite drifts back to the patterns this chain removed and the pilot answers nothing about whether Statbot should follow (D1) | roadmap / the next chain's planner | **OPEN — gates chain closure, NOT the release act** |
 
 **Standing note on this list**: it is point-in-time. Later stage documents — the UAT document, then
@@ -622,13 +624,13 @@ Point-in-time; later stage documents are authoritative.
 1. **BLOCK-1 — CLOSED at rev 5**, independently of this pass and before any install ran. BC-1
    survives in de-escalated form: M2's `pnpm add -D jsdom` must be observed leaving the pnpm layout
    intact and touching only `package.json` + `pnpm-lock.yaml`.
-1b. **INST-3 (new, from rev 5)** — the exit code is a conjunct of every pass-set comparison in this
-   chain, not only M2's. A baseline captured without it cannot be repaired afterwards.
+1b. **INST-3 — ADOPTED at rev 6** as a plan-wide observable: every captured run records the exit
+   code, and any pass-set acceptance is satisfied only at exit 0. Nothing further owed.
 2. **Rows 13 and 15** join M4b's oracle-repair list (AC7 scope delta).
 3. **Row 47** (`plan-005-qa-validation`) — E3a candidate, adjudication deferred to M4b.
 4. **INST-1, INST-2** — instrument corrections for M0 step 2 and AC2's key.
-5. **Validation section** should call the repo's `typecheck` script, not bare `tsc --noEmit` —
-   sharpened, not softened, by rev 5's helper re-siting.
+5. **Validation section — ADOPTED at rev 6** (`pnpm run typecheck`), on a stronger ground than this
+   pass gave: a bare `npx tsc --noEmit` type-checks none of the 48. Nothing further owed.
 6. **IS-6** — mutation-restoration verification is owed a line in the disposition table.
 7. **Critique L-7** (three ID tokens in text routed into the evergreen doc) and **L-8** (M4b's
    ownership exception names row 15, which M4b does not open) are still OPEN against plan rev 4.
@@ -651,8 +653,10 @@ Point-in-time; later stage documents are authoritative.
   mapped old→new; (4) INST-3 — record the **process exit code** beside the baseline JSON, and treat
   it as a conjunct of every later pass-set comparison, not as M2's concern alone. The Irreversible Side-Effect Register above is input to your work, not an audit of
   it.
-- **Planner** — M2's install/restore commands are **already corrected at rev 5**; no action there.
-  Still requested: the Validation section's typecheck invocation (both invocations), AC7's class
-  gaining rows 13 and 15, and L-7/L-8, which remain open against rev 5.
+- **Planner** — nothing outstanding that needs a plan edit. M2's install/restore commands were
+  corrected at rev 5; INST-3 and the typecheck instrument were adopted at rev 6. **AC7's rows 13 and
+  15 are deliberately *not* requested as a plan edit**: the plan's AC7 residue clause already assigns
+  the class to QA's own instrument, so this document is where they belong and the implementer reads
+  them here. L-7 and L-8 remain open against rev 6 — both non-gating, both next-touch.
 - **Code reviewer** — unchanged: M2's non-test diff only.
 - **QA (me), Phase 2** — on the implementer's document landing.
