@@ -55,3 +55,7 @@ None. The inbox is empty.
 **Routed to you as this record's `tools/` owner** (definition text deliberately not added — owner ruling): (1) `check-repo.js` needs an owner and a clean baseline or it stops being run (013 P-10 — 9 → 26 failures trained four stages to dismiss a real `ID: 11` defect); (2) a `Status-Detail` size check in `check-repo.js` (012 R6 / 013 P-12 — the prose rule was breached in both chains); (3) `INDEX.md` regeneration has no owner (013 N-8).
 
 **What I did**: the above; nothing else in this repository edited. **Deliberately not done**: no chain document touched; 013's chain stays open (BC-12/14/17/20 are their owners'); this entry left uncommitted for the owner's commit gate.
+
+## 2026-08-30T06:52 — pi-agents-hooks-014 — FYI
+pi batch 10 (retrospective 014). Definitions `~/.claude/agents` 96a3980, skill c6dd817; retrospective 014 Processed → closed/; mirror ledger at process-improvement/closed/014-batch10-agent-instruction-updates.md.
+Memory sweep performed in this workspace's memory (`hazards.md` existence-check bullet → pointer to the skill's two-instrument rule; `docket.md` item 2 "undocumented" clause → planner.md citation). Reported only: `hazards.md` "No CLAUDE.md under /usr/local/bin/hooks" is stale since 014 M1 — yours to correct. Routed to this repository's `tools/` owner: a mechanical duplicate-register-ID check in `check-repo.js` (the prose rule failed again on UAT-1). Nothing else owed.

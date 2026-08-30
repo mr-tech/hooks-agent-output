@@ -2,7 +2,7 @@
 ID: 014
 Origin: 014
 UUID: 4671e28c
-Status: Active
+Status: Processed
 ---
 
 # Retrospective 014: Hooks test-suite cleanup (pilot)
@@ -16,6 +16,7 @@ Status: Active
 | Date | Author | Change |
 |---|---|---|
 | 2026-08-30 | retrospective | Retrospective written for chain 014 on the owner's word (the spawn was **Held** at chain closure, 2026-08-27, and re-asked only on his instruction). Corpus declared. Timeline rebuilt on commit times after finding three stages' self-recorded times record events after their own final write (§3.2). **AC2's owed row-by-row audit executed, not deferred** — ledger closes exactly at 617 − 566 = −51, failure signature did not fire (§4). Two findings made here rather than carried: the code review's false `system-architecture.md` absence, now the fourth across two chains and produced by the prescribed remedy (§7.1); and an architecture Problem Area this chain closed but left standing (§7.2). Five carried classes plus two new ones written up for pi under D7 (§9). Status `Active` — pi closes it. |
+| 2026-08-30T06:52 | pi (batch 10) | Document closed | Status: Processed. §9/§11 extracted: nine recommendations dispositioned (7 encoded, 1 already encoded, 1 owner decision — allowlist rule) plus ruling 7; analysis and ledger at statbot:process-improvement/closed/014-batch10-*.md, mirror in this repository. |
 
 ## 1. Corpus
 
