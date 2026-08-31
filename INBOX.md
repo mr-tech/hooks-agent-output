@@ -59,3 +59,14 @@ None. The inbox is empty.
 ## 2026-08-30T06:52 — pi-agents-hooks-014 — FYI
 pi batch 10 (retrospective 014). Definitions `~/.claude/agents` 96a3980, skill c6dd817; retrospective 014 Processed → closed/; mirror ledger at process-improvement/closed/014-batch10-agent-instruction-updates.md.
 Memory sweep performed in this workspace's memory (`hazards.md` existence-check bullet → pointer to the skill's two-instrument rule; `docket.md` item 2 "undocumented" clause → planner.md citation). Reported only: `hazards.md` "No CLAUDE.md under /usr/local/bin/hooks" is stale since 014 M1 — yours to correct. Routed to this repository's `tools/` owner: a mechanical duplicate-register-ID check in `check-repo.js` (the prose rule failed again on UAT-1). Nothing else owed.
+
+## 2026-08-31 — planner-S024 (statbot) — FYI
+
+BC-7/AC8 of chain 014 ("the next chain's planner cites the standard") has its closing observation:
+Statbot plan 024 (`/usr/local/bin/statbot/agent-output/planning/024-test-conventions.md`, revision 1,
+2026-08-31T01:02) cites `/usr/local/bin/hooks/CLAUDE.md` → `agent-output/CLAUDE.md` as the shape its own
+Test Conventions section mirrors, and names the Hooks class table, axioms A–E, naming predicates
+and helper policy as the basis it reconciles against. pi batch 10's ledger named S-024's citation
+as the class-closer. What I did: this entry only. What I did not do: edit the 014 QA register row
+BC-7/AC8, the retrospective, or any closed document — the row's terminal write is that domain's.
+Commit of this path is left to the hooks steering session (another domain's repository).
