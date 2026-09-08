@@ -198,26 +198,31 @@ this entry governs how one notice is defined.
 
 *The entry below describes code the owner wrote. It is not committed until he has read it.*
 
-### P-1 — The dropped-types notice copy is the owner's wording, and the trailing-period divergence was his
+### P-1 — The dropped-types notice wording is the owner's edit, and the trailing-period divergence entered with it
 
 **Claim put to the owner for verification.** The notice string that
-`describeDroppedComponentTypesNotice` returns — `Not supported on Hooks.gg: <types>` — is **his
-copy, not an agent's.** He wrote it at commit `2d90e8a` ("remove useless message", authored
-`lando <calrissian@opayq.com>`), when he deleted the bot-code path's notice component and reworded
-the three surviving sites in the same commit. **D40** in
-`planning/closed/013-components-v2-editing-surfaces.md` records the same fact, together with his
-stated objection to the wording that had shipped before it.
+`describeDroppedComponentTypesNotice` returns — `Not supported on Hooks.gg: <types>` — is **the
+owner's edit of agent copy.** An agent wrote the notice in an earlier effort; he rewrote its
+wording at commit `2d90e8a` ("remove useless message", authored `lando <calrissian@opayq.com>`),
+in the same commit that deleted the bot-code path's notice component. **D40** in
+`planning/closed/013-components-v2-editing-surfaces.md` records that the superseded wording was
+agent-derived and carries his stated objection to it.
 
 Two consequences a reader cannot derive from the tree:
 
-1. **The copy is not agent copy and is not a candidate for tidying.** It is the owner's own wording
-   on a user-facing surface; changing it is a product decision that goes to him, not a refactor.
-   This is the copy-side counterpart of `W-2` — the front end settles what is allowed — applied to
-   what the front end *says* rather than to what it accepts.
-2. **The trailing-period divergence that `A-3` consolidated away originated in that same commit.**
-   `2d90e8a` introduced the notice at three sites, two without a trailing period and one
-   (`JsonModalBody.tsx`) with one. The drift `A-3` records was his, made across three hand-edits in
-   one commit, and it is the concrete evidence that this string wants a single definition.
+1. **The shipped wording is his and is not a candidate for agent tidying.** He chose it, on a
+   user-facing surface, in preference to what an agent had put there; changing it is a product
+   decision that goes to him, not a refactor. This is the copy-side counterpart of `W-2` — the
+   front end settles what is allowed — applied to what the front end *says* rather than to what it
+   accepts.
+2. **The trailing-period divergence that `A-3` consolidated away entered with that edit.** What
+   `2d90e8a` shows: the three sites it replaced were **identical** to one another beforehand, each
+   reading ``Not carried: ${…}. Discord does not support these on hooks.gg.``; after it,
+   `NewMessageJsonInput.tsx` and `NewMessageModal.tsx` read ``Not supported on Hooks.gg: ${…}``
+   while `JsonModalBody.tsx` reads ``Not supported on Hooks.gg: ${…}.`` — a trailing period the
+   other two do not carry, left over from the sentence-final period of the wording being replaced.
+   The copy the edit superseded held no divergence; three hand-edits in one commit produced one.
+   That is the concrete evidence that this string wants a single definition.
 
 ---
 
@@ -226,3 +231,4 @@ Two consequences a reader cannot derive from the tree:
 | Date | Rev | Change |
 |---|---|---|
 | 2026-09-08 | 1 | Added `A-1`…`A-3` and `P-1`, recovered from design rationale this repo had carried in its source comments. Agent-derived; not owner testimony. |
+| 2026-09-08 | 2 | `P-1` corrected on the owner's own account of the code, his words: *"it's my edit of agent copy (agent's was the previous effort)"*. Superseded wording claimed the notice string was his authorship rather than his edit of an agent's. Consequence 1 stands. Consequence 2 stands and is now stated from `2d90e8a`'s diff. |
