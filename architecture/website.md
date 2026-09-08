@@ -113,3 +113,116 @@ Recorded in `system-architecture.md` as Runtime Flow 1b — the service was abse
 
 None outstanding at 2026-08-24.
 **Closed 2026-08-24** — *what the front end allows when a V2-flagged record already carries a body*. His answer, verbatim: *"We'll fix the two outliers and the question becomes moot because that shape will be disallowed. Whatever default consequence there then is does not need to be decided or reasoned around."* No editor change; the two production rows are to be repaired so the shape ceases to exist. **The shape is intended not to exist, rather than to be handled** — he has explicitly ruled out reasoning about the default consequence, so no decision, trade-off or alternative is recorded for it, and the absence of one is not a gap in this record.
+
+---
+
+## Recovered rationale — agent-derived, not owner testimony
+
+*The provenance-grade table above governs W-1…W-6 only; it does not apply to the entries below.*
+
+### A-1 — Zod issues are formatted per issue and joined here; never split out of library output
+
+**Mechanism**: `src/utils/formatMutationError.ts` (`formatZodIssues`), called by
+`src/app/message/m/[id]/_components/JsonModalBody.tsx` and
+`src/app/message/_components/NewMessageJsonInput.tsx`.
+
+`formatZodIssues` formats **each** `ZodIssue` on its own — a one-element array has no inter-issue
+joiner to collide with — and performs the join itself. The invariant is one line per issue,
+regardless of what any single issue's own message contains.
+
+**The rejected alternative is the point of this entry.** The superseded implementation asked the
+library to format the whole array and then recovered the issue boundaries by splitting its output on
+a delimiter. The message payload is user-supplied and free to contain that delimiter, so the
+boundary recovery was unsound for a class of inputs rather than merely untidy. A future change that
+formats the array in one call and splits the result re-opens that class, and will look correct in
+every test whose fixture messages happen not to contain the delimiter.
+
+**Do not** reintroduce a delimiter-split boundary recovery here, and do not "simplify" the per-issue
+map into a single whole-array call.
+
+Register: **D47** (`M9-a`) in `planning/closed/013-components-v2-editing-surfaces.md`. The class has
+three call sites, not one.
+
+### A-2 — A Load confirmation names the mode the commit will actually set, not the mode the draft reads as
+
+**Mechanism**: `src/utils/index.ts` (`settledMode`, `computeLoadDiff`, `describeLoadDiff`), consumed
+by `JsonModalBody.tsx`'s Load confirmation; disposition source `resolveContentLoss` in the same
+module; the raw predicate is `isMessageV2`.
+
+The invariant: **the mode a Load confirmation names must be the mode `commitLoad` actually sets.**
+That is `resolveContentLoss`'s `disposition.mode` over the disposed draft — never the raw
+flag/structure read `isMessageV2` gives over the undisposed one.
+
+The two disagree, and the disagreement is not hypothetical. For a draft carrying the Components V2
+flag with classic content and no V2 components, the raw draft reads as V2 **on the flag alone**,
+while the disposed result is Classic with the flag cleared. A confirmation built on `isMessageV2`
+therefore tells the user they are staying in V2 immediately before the commit moves them to Classic.
+
+**The one branch that does read raw, and why it is safe.** Where `resolveContentLoss` reports
+`requiresChoice`, there is no settled mode to report — the user has not chosen yet — and
+`settledMode` falls back to the structural/flag read, matching `isMessageV2`'s own predicate. That
+branch is unreachable from the Load button: the button is disabled unless `validatedDraft` is set,
+and `JsonModalBody`'s parse effect sets `validatedDraft` to `null` on exactly the `requiresChoice`
+path (`commitLoad` also returns early on it). A change that enables Load while a choice is pending,
+or that populates `validatedDraft` on the `requiresChoice` path, makes that fallback reachable and
+silently wrong. **This is a one-change warning: the fallback's safety is a property of
+`JsonModalBody`'s gating, not of `settledMode`.**
+
+Register: **D47** (`M9-b`) in `planning/closed/013-components-v2-editing-surfaces.md`. The
+confirmation surface was introduced earlier under that plan's `M2-c` on the raw predicate; this
+entry records why the predicate was replaced.
+
+### A-3 — The dropped-types notice has exactly one definition, and the consolidation was earned by observed drift
+
+**Mechanism**: `src/server/api/utils/shapes.ts` (`describeDroppedComponentTypesNotice`), called by
+`NewMessageJsonInput.tsx`, `NewMessageModal.tsx` and `JsonModalBody.tsx`.
+
+Three surfaces render the "dropped component types" notice, and they render it from one function.
+The consolidation is not a style preference: the three sites previously carried the string inline
+with no shared constant, and **one of them had already drifted** — a trailing period the other two
+did not have. The class the shared definition closes is copy divergence across surfaces the user is
+expected to read as one message.
+
+A future change that needs the notice on a fourth surface calls this function. A change that needs
+different wording on one surface is a product decision, not a local edit — see **P-1**, which is why.
+
+Register: **D49** (`M9-f`) in `planning/closed/013-components-v2-editing-surfaces.md`. The notice's
+continued existence on these three surfaces is governed by **D9** and **D29**; **D40** withdrew it
+from the bot-code entry point **only**, and expressly preserved it here. `W-1` above is the nearest
+neighbour and is not in tension with this entry: `W-1` governs what the persist path may delete,
+this entry governs how one notice is defined.
+
+---
+
+## Pending owner verification
+
+*The entry below describes code the owner wrote. It is not committed until he has read it.*
+
+### P-1 — The dropped-types notice copy is the owner's wording, and the trailing-period divergence was his
+
+**Claim put to the owner for verification.** The notice string that
+`describeDroppedComponentTypesNotice` returns — `Not supported on Hooks.gg: <types>` — is **his
+copy, not an agent's.** He wrote it at commit `2d90e8a` ("remove useless message", authored
+`lando <calrissian@opayq.com>`), when he deleted the bot-code path's notice component and reworded
+the three surviving sites in the same commit. **D40** in
+`planning/closed/013-components-v2-editing-surfaces.md` records the same fact, together with his
+stated objection to the wording that had shipped before it.
+
+Two consequences a reader cannot derive from the tree:
+
+1. **The copy is not agent copy and is not a candidate for tidying.** It is the owner's own wording
+   on a user-facing surface; changing it is a product decision that goes to him, not a refactor.
+   This is the copy-side counterpart of `W-2` — the front end settles what is allowed — applied to
+   what the front end *says* rather than to what it accepts.
+2. **The trailing-period divergence that `A-3` consolidated away originated in that same commit.**
+   `2d90e8a` introduced the notice at three sites, two without a trailing period and one
+   (`JsonModalBody.tsx`) with one. The drift `A-3` records was his, made across three hand-edits in
+   one commit, and it is the concrete evidence that this string wants a single definition.
+
+---
+
+## Addendum changelog
+
+| Date | Rev | Change |
+|---|---|---|
+| 2026-09-08 | 1 | Added `A-1`…`A-3` and `P-1`, recovered from design rationale this repo had carried in its source comments. Agent-derived; not owner testimony. |
