@@ -192,15 +192,9 @@ from the bot-code entry point **only**, and expressly preserved it here. `W-1` a
 neighbour and is not in tension with this entry: `W-1` governs what the persist path may delete,
 this entry governs how one notice is defined.
 
----
-
-## Pending owner verification
-
-*The entry below describes code the owner wrote. It is not committed until he has read it.*
-
 ### P-1 — The dropped-types notice wording is the owner's edit, and the trailing-period divergence entered with it
 
-**Claim put to the owner for verification.** The notice string that
+The notice string that
 `describeDroppedComponentTypesNotice` returns — `Not supported on Hooks.gg: <types>` — is **the
 owner's edit of agent copy.** An agent wrote the notice in an earlier effort; he rewrote its
 wording at commit `2d90e8a` ("remove useless message", authored `lando <calrissian@opayq.com>`),
@@ -232,3 +226,4 @@ Two consequences a reader cannot derive from the tree:
 |---|---|---|
 | 2026-09-08 | 1 | Added `A-1`…`A-3` and `P-1`, recovered from design rationale this repo had carried in its source comments. Agent-derived; not owner testimony. |
 | 2026-09-08 | 2 | `P-1` corrected on the owner's own account of the code, his words: *"it's my edit of agent copy (agent's was the previous effort)"*. Superseded wording claimed the notice string was his authorship rather than his edit of an agent's. Consequence 1 stands. Consequence 2 stands and is now stated from `2d90e8a`'s diff. |
+| 2026-09-08 | 3 | steering-S038 | P-1 folded into the recovered-rationale section under the owner's 2026-09-08 placement rule (annotated lines only); its claim framing removed, substance unchanged. |
