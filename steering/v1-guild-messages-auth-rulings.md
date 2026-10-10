@@ -97,3 +97,13 @@ Asked via OWNER-QUEUE (f7767c0): compare Vercel Production `STATBOT_API_KEY` wit
 production-blue, production-green, production-premium `.env` and statroles `/usr/local/bin/statbot-statrole-remake/.env`,
 byte for byte; answer "match" or "differ / unset". Asked 2026-10-10 after f7767c0; answered 2026-10-10T15:46Z, his words: "match".
 No values were pasted or recorded. Relayed to devops verbatim for its B-1 gate.
+
+## 2026-10-10 — release approval and B-3 waiver (by selection)
+Release: options Approve release (rec) / Merge locally, don't push / Hold. Chosen **Approve release**, by selection, not his
+words. Binding content: devops runs Stage 2: `next build` at ddbd750, fast-forward website master f2c85f5→ddbd750, push to
+origin. Premises put to him, each with the read behind it: devops Stage 1 record 783cb98 is in HEAD (merge-base); `.github` has
+no files (find); vercel.json has only a cron (cat); "push deploys" rests on 014 precedent only (assumption); rollback is Vercel
+promote (devops's statement). The chore branch is excluded.
+B-3: options Waive for B-3 too (rec) / I'll run it myself / Skip B-3. Chosen **Waive for B-3 too**, by selection. Binding
+content: the in-session waiver extends to one unauthenticated GET /api/v1/guilds/<id>/messages, sent once by the devops
+subagent after Vercel shows ddbd750 live; pass = 401.
