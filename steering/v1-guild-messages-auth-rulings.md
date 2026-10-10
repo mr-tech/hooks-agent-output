@@ -32,3 +32,12 @@ handlers a ZodError hits `return res.status(400)` with no `.end()` (steering rea
 Options: Add as a rider (recommended) / Separate handoff / Leave it. Chosen **Add as a rider**, by selection.
 Scope statement now also covers that 400 path in the same two handlers plus its test. Fixer round 2 on the same branch.
 Reviewer start: Fresh subagent (rec) / You spawn it / Hold → **Fresh subagent**, by selection; after the rider round.
+
+## 2026-10-10 — rider 2: `messages/codes/[code].ts` 400 with no `.end()` (by selection) — SCOPE DELTA
+Code review round 1: APPROVED_WITH_COMMENTS at website c8c3d70 (`code-review/fix-v1-guild-messages-auth-code-review.md`,
+3afec66). CR-2 found the same defect at `src/pages/api/messages/codes/[code].ts:23` (steering read it at c8c3d70).
+Options: Rider on this fix (recommended; "the fixer does a third round") / Leave in the handoff. Chosen **Rider**, by
+selection. This is the fixer's THIRD round; the option text named it as a fixer round, so this selection is
+recorded as the owner's "continue as fixer". The question was not put separately. Scope now also covers that one
+400 path plus its test. After round 3: code review re-runs on the new SHA, then QA.
+QA start: Fresh subagent (rec) / You spawn it / Hold → **Fresh subagent**, by selection.
