@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-v1-guild-messages-auth
 UUID: 9c90dfa0
 Status: Committed
-Status-Detail: "Round 2 (400-path rider) committed on fix/v1-guild-messages-auth; awaiting code review at Handoff-At, then QA Phase 2. No deploy or push until the owner's key check (OWNER-QUEUE) returns 'match' (rulings, fix-route block)."
-Handoff-At: c8c3d70766846b9ea635db53754ba7b1a3c7e8ac — round 2; round 1 was 1acffee
+Status-Detail: "Round 3 (rider 2, messages/codes 400) committed on fix/v1-guild-messages-auth; awaiting code review re-run at Handoff-At, then QA Phase 2. No deploy or push until the owner's key check (OWNER-QUEUE) returns 'match' (rulings, fix-route block)."
+Handoff-At: 76061494555df97cd23813b0a96b5645335ed542 — round 3; round 2 was c8c3d70, round 1 was 1acffee
 ---
 
 # Fix — v1 guild-messages endpoints require the Statbot key
@@ -24,6 +24,11 @@ may reach a real database; do not read `website/.env.local`.
 **Rider (round 2).** Rulings block "2026-10-10 — rider: 400 with no `.end()` (by selection) — SCOPE
 DELTA": the scope now also covers the ZodError → 400 path in the same two handlers, plus its test.
 Nothing else is added.
+
+**Rider 2 (round 3).** Rulings block "2026-10-10 — rider 2: `messages/codes/[code].ts` 400 with no
+`.end()` (by selection) — SCOPE DELTA" adds that one handler's ZodError → 400 path, plus its test. The
+owner chose the rider option, whose text named it a fixer round. Steering records that selection as
+his "continue as fixer" for this third round.
 
 ## Entry Conditions
 
@@ -248,6 +253,73 @@ note was added with the Edit tool.
 **User-visible flow.** A caller with the key who sends a malformed guild or message id now gets an
 immediate `400` with an empty body, where the request used to stall until the client gave up.
 
+## Round 3 — the message-code 400 completes
+
+**What this round discharges.** Code review CR-2 (`code-review/fix-v1-guild-messages-auth-code-review.md`,
+verdict APPROVED_WITH_COMMENTS at `c8c3d70`). That is the same defect as item 1 of
+`handoff/website-api-handler-hardening-2026-10-10.md` (b1fdd41a). That handoff belongs to another stage
+and this round does not edit it. CR-1 is routed to QA and is not acted on here.
+
+**Diagnosis.** In `src/pages/api/messages/codes/[code].ts` (`handler`, the `catch`), a `ZodError`
+returned `res.status(400)` without sending the response. `queryShape` is `.strict()`, so any extra
+query key takes this path. The route has no authentication, so any caller can reach it.
+
+Instruments:
+- A read at `c8c3d70`.
+- The red run below: `ended` stays false.
+- HTTP, executed: `next dev --webpack -p 3917` ran from an isolated worktree at `c8c3d70`, with no
+  `.env*`, the dead `DATABASE_URL`, and Redis fenced to `REDISHOST=127.0.0.1 REDISPORT=1`. The Redis
+  client is created lazily, by `getClient()` inside `messageStore` (`src/utils/redis/client.ts`, read).
+  Both malformed requests timed out at 15 s: status `000`, curl exit 28. Next logged `API resolved
+  without sending a response … stalled requests`. Capture: `http-codes-malformed-c8c3d70.txt`, driver
+  `probe-codes-malformed.sh <label>`.
+
+**Change.**
+- `src/pages/api/messages/codes/[code].ts`: `return res.status(400).end();`. One line, and the response
+  stays empty.
+- `src/server/api/messages/__tests__/messageCodes.malformed-query.test.ts` (new), spec-form. It mocks
+  `~/utils/redis/messageStore` and reuses the round-2 helper from `../../v1/__tests__/helpers/`. Each
+  case asserts status `400`, `ended === true`, and that `retrieve` was never called. The cases are an
+  unexpected query key, a repeated `code` parameter, and no `code`.
+- No test existed for this handler before. A `__tests__` folder under `src/pages/api` would itself be
+  served as a route, so the test lives under `src/server/api/messages/`, following the v1 tests'
+  existing placement.
+
+**Test.** `DATABASE_URL` and Redis on dead ports throughout. Counts come from the vitest JSON reporter.
+
+| Run | Tree | Result | Exit | Capture |
+|---|---|---|---|---|
+| Red | `c8c3d70` handler, new test (shared tree before the source edit) | 3 total, 0 pass, 3 fail. All fail on `expected false to be true` (`ended`) | 1 | `round3-red-c8c3d70.json` |
+| Green | fix (isolated worktree), all of `src/server/api/` | 102 total, 102 pass, 8 files | 0 | `round3-green.json` |
+
+**HTTP after the fix.** Same server; the fixed handler was copied in and hot-reloaded.
+
+| Tree | `?extra=1` | `?extra=1&more=2` | Well-formed `abc123` | Capture |
+|---|---|---|---|---|
+| `c8c3d70` | `000`, curl exit 28 at 15 s (hung) | `000`, curl exit 28 at 15 s (hung) | not run | `http-codes-malformed-c8c3d70.txt` |
+| fix | `400` in 25 ms, curl exit 0 | `400` in 5 ms, curl exit 0 | `500` after 10.6 s: past the parse, then the fenced Redis | `http-codes-malformed-fix.txt` |
+
+**Verification.**
+- Full suite in the shared tree at the fix: 592 total, 592 pass, 54 files, exit 0
+  (`round3-suite-head.json`). The extra 3 cases and 1 file over round 2 are the new test.
+- `pnpm run typecheck`, both programs, in the isolated tree with no `.next`: exit 0
+  (`round3-typecheck-isolated.txt`).
+- ESLint with `--max-warnings=0` on the handler and the new test: no issues, exit 0.
+- Comment gate `--since=f2c85f5`: clean, 3 tracked files, exit 0.
+- ID-token check on the new test: 0.
+- The worktree was removed, and the server was stopped by its listening PID.
+
+**Helper placement.** The helper is now used from two sibling test directories, `v1` and `messages`.
+Under the helper policy's "nearest to its callers", its natural home would be
+`src/server/api/__tests__/helpers/`. Moving it would touch the round-1 and round-2 tests, which rider 2
+did not cover, so I left it in place for code review to weigh.
+
+**User-visible flow.** A request to `/api/messages/codes/<code>` with stray query parameters now gets
+an immediate `400`, where it used to stall. I did not establish which product flow calls this route.
+
+**Fix rounds: 3.** This is the third round on this fix (round 1 the defect; round 2 rider 1; round 3
+rider 2). Per the rulings block, the owner's rider selection is recorded as his "continue as fixer".
+
 ## Found on the way, not absorbed
 
 - **The 400 with no `.end()`.** Reported in round 1, then taken into scope by the owner's rider and
@@ -263,8 +335,10 @@ immediate `400` with an empty body, where the request used to stall until the cl
 
 ## Handoff
 
-- **SHA:** `website` `c8c3d70` on `fix/v1-guild-messages-auth`. Round 1 is `1acffee`; round 2 is `c8c3d70`.
-- **Reviews:** code-reviewer, verdict at `c8c3d70` (it covers both rounds, `f2c85f5..c8c3d70`), then QA Phase 2. Both use `--chain fix-v1-guild-messages-auth`.
+- **SHA:** `website` `7606149` on `fix/v1-guild-messages-auth`. Round 1 is `1acffee`, round 2 is
+  `c8c3d70`, and round 3 is `7606149`.
+- **Reviews:** code-reviewer re-runs at `7606149` (the round-3 delta is `c8c3d70..7606149`; the whole
+  fix is `f2c85f5..7606149`), then QA Phase 2. Both use `--chain fix-v1-guild-messages-auth`.
 - **Merges:** devops at release, under the owner's approval. The release is held until the owner's
   key check (OWNER-QUEUE "Check that Statbot's hooks.gg key matches the website's") returns "match".
   Nothing has been pushed.
@@ -275,3 +349,4 @@ immediate `400` with an empty body, where the request used to stall until the cl
 |---|---|---|---|
 | 2026-10-10T07:36 | fixer | Fix committed at website `1acffee` (commit time 07:36:32Z); document created; handed to code review | Committed |
 | 2026-10-10T07:45 | fixer | Round 2 (owner rider, 400 with no `.end()`) committed at website `c8c3d70`; Handoff-At re-anchored | Committed |
+| 2026-10-10T08:05 | fixer | Round 3 (owner rider 2, CR-2 / hardening handoff item 1) committed at website `7606149`; Handoff-At re-anchored | Committed |
