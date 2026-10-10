@@ -34,6 +34,7 @@ moment the fix deploys.
 
 1. In Vercel → the `website` project → Environment Variables (Production), look at `STATBOT_API_KEY`.
 2. In each Statbot deployment that calls hooks.gg, look at `HOOKS_API_KEY`.
-3. **Pass:** the two values are identical, and `STATBOT_API_KEY` is set at all.
+3. **Pass:** the two values are identical character for character, and `STATBOT_API_KEY` is set.
+   A trailing space or newline in either one counts as a difference; the check doesn't trim.
 
 Do they match? Tell steering "match" or "differ / unset". Don't paste either value.
