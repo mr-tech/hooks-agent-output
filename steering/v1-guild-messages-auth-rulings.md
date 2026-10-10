@@ -107,3 +107,11 @@ promote (devops's statement). The chore branch is excluded.
 B-3: options Waive for B-3 too (rec) / I'll run it myself / Skip B-3. Chosen **Waive for B-3 too**, by selection. Binding
 content: the in-session waiver extends to one unauthenticated GET /api/v1/guilds/<id>/messages, sent once by the devops
 subagent after Vercel shows ddbd750 live; pass = 401.
+
+## 2026-10-10 — Stage 2 blocks: build and move (by selection)
+Devops stopped Stage 2 (deployment record 4663891): (1) `next build` at ddbd750 cannot run, root fs 154M free (df -h /, this
+turn); (2) its in-session rule does not cover a relayed move. Build: options I'll free disk space / Waive the local build (rec) /
+Hold. Chosen **I'll free disk space**, by selection: he frees ~1.5G, devops then reruns the build at ddbd750. Move: options
+Steering runs it (rec) / Waive for devops / I'll run it myself / Hold. Chosen **Steering runs it**, by selection: steering runs
+`node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master ddbd750c1ab4808317f3408524cf5f9b7d8d0935` unchanged,
+in this session, after the build passes. Tool existence checked (ls). Sequence: disk freed → devops build → steering move → B-3.
