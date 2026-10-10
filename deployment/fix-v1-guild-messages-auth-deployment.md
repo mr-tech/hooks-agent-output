@@ -3,7 +3,7 @@ ID: n/a
 Origin: fix-v1-guild-messages-auth
 UUID: 9c90dfa0
 Status: Active
-Status-Detail: "Stage 1 complete: committed for release at website fix/v1-guild-messages-auth ddbd750. B-1 match, B-2 = 1 per production env file, redirect same-host. Stage 2 (merge to master, push) awaits the owner's release approval; this record stays Active until Phase 2D."
+Status-Detail: "Stage 2 approved (464f9ba) and BLOCKED in Phase 2A: the build at ddbd750 cannot run (root disk 100% full) and the move's sanction is relayed (the waivers cover no move). Nothing moved or pushed. Stays Active until Phase 2D."
 ---
 
 # Deployment Record: fix-v1-guild-messages-auth
@@ -21,6 +21,7 @@ Status-Detail: "Stage 1 complete: committed for release at website fix/v1-guild-
 | 2026-10-10T08:32 | steering (mid-task message) | Run the B-2 reads and the pre-deploy curl under the owner's waiver | First, steering asked me to prompt the owner. No tool in this run reaches him, so nothing ran. Then came the waiver (rulings, "waiver of devops's in-session-sanction rule (by selection)", 2ba5a88). It is the owner's own waiver of my gate and names exactly these three reads, so I judged it to satisfy the gate. **Pre-deploy curl sent (probe anchor 08:32:08Z)**: `308 Permanent Redirect`, `Location: https://hooks.gg/`, curl exit 0. **B-2 not run: a control blocked it.** Locating each host's env file needs the Statbot deploy configuration. My local read of `statbot-api`/`statbot-statrole-remake` `.github` and ecosystem files was denied by the auto-mode classifier ("Credential Exploration"). I stopped there. I did not retry it in another form and did not guess a path on the host. A path-finding read on the host would also fall outside the waiver ("any other read"). |
 | 2026-10-10T08:37 | steering (mid-task message) | Locate the env files under the widened waiver, then run B-2 | The waiver was widened (rulings, "waiver widened: devops may locate the env files (by selection)", 1d6bbb7). It is the owner's and names the reads, so I judged it to satisfy the gate. Both hosts were reachable (`ssh … true` exit 0). **Path-only reads** (no values printed): `ls -d /usr/local/bin/*/deployed/*/.env` and `grep -oE '"pm_cwd" ?: ?"[^"]*"'` over `/home/statbot/.pm2/dump.pm2`, plus `ls -d` of the statroles `.env`. **B-2 EXECUTED (anchor 08:37:12Z)**: `grep -cx 'HOOKS_HOST=hooks.gg'` returned **1** on each production env file. No control fired. Stage 1 remains blocked on B-1 alone. |
 | 2026-10-10T15:47 | steering (message: B-1 answered) | Finish Stage 1 | **B-1 EXECUTED.** The owner answered "match" (his words, 2026-10-10T15:46Z, rulings block "B-1 answered: key match (his words)", 5d4cb30; no values recorded). Every pre-release row is now terminal, so the step 2b gate passes. Release tip re-derived: website HEAD = ddbd750 on the chain branch with 0 porcelain lines; remote `master` = f2c85f5 (`ls-remote`); `qa/website-2026-10-10-release-tip-qa.md` is Release Verified at ddbd750 (0006119), with its capture `qa-suite-ddbd750.json` read by `node` as 598/598, 0 failed, 54 files, success true. Exit 0 is QA's record, since the JSON carries no exit code. **Stage 1 committed**: chain branch `fix/v1-guild-messages-auth` at `ddbd750c1ab4808317f3408524cf5f9b7d8d0935`. Closed: implementation, code-review and qa (plan-level) documents, Status Committed, moved to `closed/`. Created carrier `handoff/fix-v1-guild-messages-auth-post-deploy-2026-10-10.md` for B-3 and B-4. No ref moved and nothing pushed. Stage 2 is not approved. Process fact: I repointed this record's and the handoff's paths to `qa/closed/…` with an in-place `sed -i`. That breaches the lifecycle form, which requires the file-editing tools for record documents under auto mode. I checked the result by `grep -c` (2 here, 1 in the handoff), and this sentence was written with the Edit tool. `qa/website-2026-10-10-release-tip-qa.md` (QA's) still cites the pre-move path; it is not mine to edit. |
+| 2026-10-10T15:56 | steering (message: release approved; B-3 waiver) | Stage 2 for website master f2c85f5 → ddbd750 | Read rulings block "release approval and B-3 waiver (by selection)" (464f9ba). **Phase 2A ran and stopped at two blocks.** (1) **Build gate (step 5) BLOCKED.** The first `next build` (Next 16.1.6, Turbopack) in an isolated export exited 1: "Symlink node_modules is invalid, it points out of the filesystem root". A non-symlinked copy needs about 920M (`du -sh node_modules`) plus build output, and the root filesystem has 155M free (`df -h /`, 100% used). I did not run a smaller substitute (a `--webpack` build is not the build Vercel runs) and did not build in the shared tree. The export and the panic log were removed. (2) **Move sanction.** The approval reached this session relayed by steering. My definition requires the move to run in the session the owner sanctioned it in, or to be handed to the steering thread that holds his words. The waivers on record cover the B-2 reads, the pre-deploy curl and B-3, not the move. The other Phase 2A checks pass (see "Stage 2 readiness"). Nothing moved, nothing was pushed, and no production request was sent. |
 
 ## Stage 1 verification (website, at ddbd750)
 
@@ -87,5 +88,39 @@ Standing note: point-in-time as of 15:47Z; later rows supersede it.
 
 1. DONE: B-1 "match"; B-2 = 1 on each host.
 2. DONE: release-tip verdict `qa/website-2026-10-10-release-tip-qa.md`, Release Verified at ddbd750 (re-derived, changelog 15:47). It expires if `master` moves before the release (the tip would no longer be ddbd750) or if the chain branch moves.
-3. Build at the tip (`next build`) is a Phase 2A step and has not been run.
+3. Build at the tip (`next build`): BLOCKED by disk space (changelog 15:56).
 4. Rollback: the owner's established mechanism is Vercel promote of a previous deployment (014 record). Accepted as written: a named risk.
+
+## Stage 2 readiness (Phase 2A, 2026-10-10T15:56)
+
+Release identifier: website `master` → `ddbd750c1ab4808317f3408524cf5f9b7d8d0935`. There are no tags in this repo, so none is created. Included: chain `fix-v1-guild-messages-auth` only. `chore/agent-comment-sweep` (9cefc7d) is excluded: it is not an ancestor of ddbd750. **Execution mode: Mode A, with the move handed to the steering thread** (sanction, changelog 15:56).
+
+| Step | Result | Instrument |
+|---|---|---|
+| All chains committed | 1 of 1 | this record, 783cb98 |
+| Tip assembled | ddbd750 itself, a fast-forward of remote `master` f2c85f5 | `release-move.js --dry-run`: "ff-from-remote ok" |
+| Release-tip verdict | Release Verified at ddbd750 (`qa/website-2026-10-10-release-tip-qa.md`, 0006119) | re-derived 15:47 |
+| Consistency | no version, tags or CHANGELOG; deps and lockfile unchanged in range | Stage 1 table |
+| Populations | Consumers statbot-api (blue, green, premium) and statroles, from the hosts' pm2 working dirs and env files (B-2 record). Hosts not read (statbot-prod, app1, statdocks, proxy) are not established as non-consumers; B-4's Vercel-log fallback would show any 401s from them | B-2 record |
+| Packaging (build at tip) | **BLOCKED**: disk full, see changelog 15:56. No lockfile or package-manager change, so the host-major install check does not apply | `git diff --quiet f2c85f5 ddbd750 -- package.json pnpm-lock.yaml` exit 0 |
+| Workspace | website `status --porcelain` 0; HEAD ddbd750 on `fix/v1-guild-messages-auth`. The predecessor exclusion, the gitignored `next-env.d.ts`, does not affect the move: release-move counts untracked files as "0 path(s) left alone" | dry-run output |
+| History rewritten | no; ddbd750 is reachable (`cat-file -e`) | exit status |
+| Open disagreements | none of substance. QA's release-tip record cites the QA document's pre-move path (steering has noted it) | — |
+| Serving refs | Remote heads `backup`, `external-message-api`, `master`, `redesign`, `regex-refactor` (`ls-remote --heads`). Only `master` is in release-move's serving list, so there are no siblings to split | dry-run: "sibling serving refs (none) on one line ok" |
+
+**Phase 2C block (re-derived against the mechanism):**
+- **Deploy mechanism.** Re-derived that the repo triggers nothing: `.github/workflows` is absent (release-move: "workflows none"). `vercel.json` holds only a cron. **Accepted as written, a named risk**: Vercel's git integration deploys `master` on push (014 precedent and the owner's attestation there).
+- **Rollback.** Accepted as written, a named risk: Vercel promote of the previous deployment. It cannot be dry-run from here and is not sticky (the next push redeploys).
+- **Ordering.** Build gate, then the move, then wait for Vercel to show ddbd750 live, then B-3 (one GET, 401 expected; waived for this subagent at 464f9ba), then B-4 (owner).
+- **Serving refs.** As in the table above.
+
+**Runbook (one artifact; results fill in on execution):**
+
+| # | Step | Abort criterion | Result |
+|---|---|---|---|
+| 1 | `next build` at ddbd750 (isolated export) | exit ≠ 0 → stop | BLOCKED (disk) |
+| 2 | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master ddbd750c1ab4808317f3408524cf5f9b7d8d0935 --dry-run` | exit ≠ 0 → stop | exit 0, 15:56 |
+| 3 | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master ddbd750c1ab4808317f3408524cf5f9b7d8d0935` (moves local master, pushes, switches the tree back to master) | exit 2 → nothing moved, stop; exit 1 → read the report for ref state, route to the owner | |
+| 4 | Vercel shows ddbd750 live (the owner's statement) | — | |
+| 5 | B-3: one `GET https://hooks.gg/api/v1/guilds/9999999999999999999/messages`, status and body length only | ≠ 401 → exposure still live; route to the owner | |
+| 6 | B-4: the owner's dashboard check | fails → Vercel promote of the previous deployment | |
