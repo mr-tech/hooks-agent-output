@@ -18,3 +18,10 @@ hooks.gg client (`statbot-utils/src/api/ApiUtils.ts`, where the hooks.gg client 
 (a) Proven live: the one sanctioned unauthenticated GET to hooks.gg returned 200 from the handler. (b) Not
 establishable by an agent → OWNER-QUEUE entry "Check that Statbot's hooks.gg key matches the website's".
 Next: the pipeline for the fix is put to the owner.
+
+## 2026-10-10 — fix route: Fixer (by selection)
+Options: Fixer (recommended) / Planner (full chain) / Hold. Chosen **Fixer**, by selection. Scope statement: one
+defect, the unauthenticated v1 guild-messages endpoints; files `src/middleware.ts`,
+`src/pages/api/v1/guilds/[guildId]/messages.ts`, `.../messages/[id].ts` plus their tests; `website` only, no
+other repo. No deploy or push until the owner's key check (OWNER-QUEUE) returns "match". Chain branch
+`fix/v1-guild-messages-auth` created by steering at f2c85f5 (tree was clean; chore/agent-comment-sweep untouched, merge still HELD).
