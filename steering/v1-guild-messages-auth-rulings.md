@@ -81,3 +81,7 @@ Devops ran the pre-deploy curl (308 → https://hooks.gg/, same host; 60578b5). 
 statbot-statrole-remake deploy scripts and ecosystem files, done to find the env file path, was denied by the auto-mode classifier ("Credential Exploration").
 Options: I'll give the paths (rec) / I'll run the greps myself / Steering does the blocked read / Hold. Chosen **Steering does the
 blocked read**, by selection: steering runs that read itself, unchanged, takes only the env file path, and devops then runs the greps.
+Steering ran the read once, unchanged in scope (path tokens only, no values printed). Found: statbot-api `.github/deploy.sh`
+copies the checkout to and runs from `/usr/local/bin/$APP_NAME/deployed/$ENV`, and its `ecosystem.config.js` loads dotenv's
+default `.env` from there. `$APP_NAME` and `$ENV` are not set in the files read. statbot-statrole-remake has no deploy script;
+its `ecosystem.config.js` loads the default `.env` with no cwd. So neither host's path is fully established.
