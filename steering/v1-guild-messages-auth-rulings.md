@@ -120,3 +120,9 @@ in this session, after the build passes. Tool existence checked (ls). Sequence: 
 He said, in his words: "I can't free that space at this moment". That reopened the build selection. Options: Waive the local build (rec)
 / Hold until you free space / Don't release. Chosen **Waive the local build**, by selection. Binding content: Vercel's build at
 ddbd750 is the only build; steering runs the release move now; B-3 tells which build is live (401 = fix, 200 = old).
+
+## 2026-10-10 — release move executed by steering; Vercel live (his words)
+Steering ran `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master ddbd750c1ab4808317f3408524cf5f9b7d8d0935`
+unchanged: exit 0, "OK moved master: f2c85f5… -> ddbd750… on origin; tree on master", no workflows. ls-remote confirms origin
+master = ddbd750. The owner, asked via OWNER-QUEUE whether Vercel's Production deployment for ddbd750 was Ready: "Yes, it's live"
+(his words). B-3 is cleared to run under the B-3 waiver.
