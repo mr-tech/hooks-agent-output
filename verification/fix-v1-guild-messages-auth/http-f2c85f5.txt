@@ -1,0 +1,10 @@
+f2c85f5 /api/v1/guilds/123456789012345678/messages none -> 500 0
+f2c85f5 /api/v1/guilds/123456789012345678/messages wrong -> 500 0
+f2c85f5 /api/v1/guilds/123456789012345678/messages empty -> 500 0
+f2c85f5 /api/v1/guilds/123456789012345678/messages post -> 405 0
+f2c85f5 /api/v1/guilds/123456789012345678/messages right -> 500 0
+f2c85f5 /api/v1/guilds/123456789012345678/messages/1 none -> 500 0
+f2c85f5 /api/v1/guilds/123456789012345678/messages/1 wrong -> 500 0
+f2c85f5 /api/v1/guilds/123456789012345678/messages/1 empty -> 500 0
+f2c85f5 /api/v1/guilds/123456789012345678/messages/1 post -> 405 0
+f2c85f5 /api/v1/guilds/123456789012345678/messages/1 right -> 500 0

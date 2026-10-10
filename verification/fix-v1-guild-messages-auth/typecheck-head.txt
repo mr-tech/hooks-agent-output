@@ -1,0 +1,7 @@
+
+> website@ typecheck /usr/local/bin/hooks/website
+> tsc --noEmit && tsc --noEmit -p tsconfig.test.json
+
+.next/dev/types/validator.ts(89,57): error TS1005: '?' expected.
+.next/dev/types/validator.ts(94,1): error TS1128: Declaration or statement expected.
+ ELIFECYCLE  Command failed with exit code 2.

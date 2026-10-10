@@ -1,0 +1,6 @@
+nokey /api/v1/guilds/123456789012345678/messages 'Bearer undefined' -> 401
+nokey /api/v1/guilds/123456789012345678/messages 'Bearer ' -> 401
+nokey /api/v1/guilds/123456789012345678/messages 'Bearer probe-key' -> 401
+nokey /api/v1/guilds/123456789012345678/messages/1 'Bearer undefined' -> 401
+nokey /api/v1/guilds/123456789012345678/messages/1 'Bearer ' -> 401
+nokey /api/v1/guilds/123456789012345678/messages/1 'Bearer probe-key' -> 401

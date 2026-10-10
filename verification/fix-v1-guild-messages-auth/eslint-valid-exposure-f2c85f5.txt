@@ -1,0 +1,18 @@
+
+/usr/local/bin/hooks/website/src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts
+  10:8    error    Expected a line break after this opening brace         object-curly-newline
+  10:35   error    Expected a line break before this closing brace        object-curly-newline
+  14:25   error    Expected a comma                                       @typescript-eslint/member-delimiter-style
+  14:39   error    Expected a comma                                       @typescript-eslint/member-delimiter-style
+  14:54   error    Expected a comma                                       @typescript-eslint/member-delimiter-style
+  14:77   error    Expected a comma                                       @typescript-eslint/member-delimiter-style
+  36:1    warning  This line has a length of 148. Maximum allowed is 100  max-len
+  36:36   error    Expected a comma                                       @typescript-eslint/member-delimiter-style
+  36:52   error    Expected a comma                                       @typescript-eslint/member-delimiter-style
+  36:87   error    Expected a comma                                       @typescript-eslint/member-delimiter-style
+  36:121  error    Expected a comma                                       @typescript-eslint/member-delimiter-style
+  45:3    error    Unsafe return of an `any` typed value                  @typescript-eslint/no-unsafe-return
+
+✖ 12 problems (11 errors, 1 warning)
+  10 errors and 0 warnings potentially fixable with the `--fix` option.
+

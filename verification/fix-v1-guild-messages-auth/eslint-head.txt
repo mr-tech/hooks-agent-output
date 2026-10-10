@@ -1,0 +1,26 @@
+
+/usr/local/bin/hooks/website/src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts
+   7:43   error    Expected a line break after this opening brace         object-curly-newline
+  21:4    error    Expected a line break before this closing brace        object-curly-newline
+  28:1    warning  This line has a length of 148. Maximum allowed is 100  max-len
+  28:36   error    Expected a comma                                       @typescript-eslint/member-delimiter-style
+  28:52   error    Expected a comma                                       @typescript-eslint/member-delimiter-style
+  28:87   error    Expected a comma                                       @typescript-eslint/member-delimiter-style
+  28:121  error    Expected a comma                                       @typescript-eslint/member-delimiter-style
+  45:9    error    Unsafe call of an `any` typed value                    @typescript-eslint/no-unsafe-call
+
+/usr/local/bin/hooks/website/src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts
+  16:25   error    Expected a comma                                       @typescript-eslint/member-delimiter-style
+  16:39   error    Expected a comma                                       @typescript-eslint/member-delimiter-style
+  16:54   error    Expected a comma                                       @typescript-eslint/member-delimiter-style
+  16:77   error    Expected a comma                                       @typescript-eslint/member-delimiter-style
+  38:1    warning  This line has a length of 148. Maximum allowed is 100  max-len
+  38:36   error    Expected a comma                                       @typescript-eslint/member-delimiter-style
+  38:52   error    Expected a comma                                       @typescript-eslint/member-delimiter-style
+  38:87   error    Expected a comma                                       @typescript-eslint/member-delimiter-style
+  38:121  error    Expected a comma                                       @typescript-eslint/member-delimiter-style
+  56:3    error    Unsafe return of an `any` typed value                  @typescript-eslint/no-unsafe-return
+
+✖ 18 problems (16 errors, 2 warnings)
+  14 errors and 0 warnings potentially fixable with the `--fix` option.
+
