@@ -3,7 +3,7 @@ ID: n/a
 Origin: fix-v1-guild-messages-auth
 UUID: 9c90dfa0
 Reviewed-At: "76061494555df97cd23813b0a96b5645335ed542 — website; round 1 at c8c3d70 (range f2c85f5..c8c3d70), sub-entry 1.1 over the fix diff c8c3d70..7606149; SHA verified at start and end of each pass"
-Status: In Review
+Status: Committed
 Round: 1
 Verdict: APPROVED_WITH_COMMENTS
 ---
@@ -22,6 +22,7 @@ Verdict: APPROVED_WITH_COMMENTS
 |------|---------------|---------|---------|
 | 2026-10-10T07:57 | steering (subagent spawn) | Review website `f2c85f5..c8c3d70` before QA Phase 2 | Round 1. Stage start: the implementation document as committed at agent-output `12cd890`, `Handoff-At` `c8c3d70`; it matches the SHA the brief names. Steering's brief arrived. There is no plan and so no Decisions Register; the criteria are the two rulings blocks. Adversarial execution was run against an isolated instance. Verdict APPROVED_WITH_COMMENTS: 0 CRITICAL, 0 HIGH, 1 MEDIUM, 3 LOW, 2 INFO. |
 | 2026-10-10T08:07 | steering (message: rider 2 committed at website 7606149) | Re-review at the fixer's round 3 (`Handoff-At` 7606149, record agent-output `575e219`; authority: rulings block "rider 2: `messages/codes/[code].ts` 400 with no `.end()`") | Sub-entry 1.1. The fix diff touches only CR-2's scope, so this is not a new round. CR-2 is resolved. CR-7 is new (LOW, helper placement). The verdict stays APPROVED_WITH_COMMENTS, now at 7606149. |
+| 2026-10-10T15:47 | devops (Stage 1) | Document closed | Status: Committed. The chain was committed for release at website ddbd750 (`deployment/fix-v1-guild-messages-auth-deployment.md`). CR-3/4/5/7 stay with `handoff/website-api-handler-hardening-2026-10-10.md`. |
 
 ## Criteria assessed this round (recorded before reading the diff)
 

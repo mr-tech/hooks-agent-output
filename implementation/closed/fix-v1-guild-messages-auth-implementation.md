@@ -3,7 +3,7 @@ ID: n/a
 Origin: fix-v1-guild-messages-auth
 UUID: 9c90dfa0
 Status: Committed
-Status-Detail: "Rounds 1-3 committed and QA's test-only QAF-1 patch landed on fix/v1-guild-messages-auth. No deploy or push until the owner's key check (OWNER-QUEUE) returns 'match' (rulings, fix-route block)."
+Status-Detail: "Committed for release on website fix/v1-guild-messages-auth at ddbd750 (devops Stage 1, 2026-10-10). The owner's key check returned 'match'. Release (merge to master, push) awaits the owner's approval."
 Handoff-At: ddbd750c1ab4808317f3408524cf5f9b7d8d0935 — QAF-1 test-only commit; production files last changed at 7606149 (round 3); round 2 c8c3d70, round 1 1acffee
 ---
 
@@ -382,3 +382,4 @@ expire.
 | 2026-10-10T07:45 | fixer | Round 2 (owner rider, 400 with no `.end()`) committed at website `c8c3d70`; Handoff-At re-anchored | Committed |
 | 2026-10-10T08:05 | fixer | Round 3 (owner rider 2, CR-2 / hardening handoff item 1) committed at website `7606149`; Handoff-At re-anchored | Committed |
 | 2026-10-10T08:23 | fixer | QAF-1 patch landed at website `ddbd750` (commit time 08:23:31Z); blob `7dcbfa69` matches the expected blob; Handoff-At re-anchored | Committed |
+| 2026-10-10T15:47 | devops (Stage 1) | Document closed. Status-Detail brought into agreement with the Stage 1 commit (`deployment/fix-v1-guild-messages-auth-deployment.md`) | Committed |

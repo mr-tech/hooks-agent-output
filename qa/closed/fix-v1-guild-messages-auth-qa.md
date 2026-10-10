@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-v1-guild-messages-auth
 UUID: 9c90dfa0
 Verified-At: "76061494555df97cd23813b0a96b5645335ed542 — website, branch fix/v1-guild-messages-auth; every execution ran in isolated exports of this commit (blob identity verified, 378/378 files under src)"
-Status: QA Complete
-Status-Detail: "Production behaviour verified at website 7606149. QAF-1 discharged at ddbd750 (test-only, blob equality); release-tip verdict at ddbd750 in qa/website-2026-10-10-release-tip-qa.md. Deploy is held on blocking release conditions B-1 (owner key check) and B-2 (HOOKS_HOST read)."
+Status: Committed
+Status-Detail: "Production behaviour verified at website 7606149. QAF-1 discharged at ddbd750; release-tip verdict in qa/website-2026-10-10-release-tip-qa.md. B-1 and B-2 EXECUTED (deployment record). B-3 and B-4 carried by handoff/fix-v1-guild-messages-auth-post-deploy-2026-10-10.md."
 Phase: 2
 ---
 
@@ -22,6 +22,7 @@ Phase: 2
 |------|---------------|---------|---------|
 | 2026-10-10T08:20 | steering (subagent spawn) | QA Phase 2 for the fixer route at website `7606149`, carrying CR-1 | **Stage start**: the code review's committed verdict, APPROVED_WITH_COMMENTS at `Reviewed-At` 7606149. I re-derived that `git -C website rev-parse HEAD` = 7606149 on `fix/v1-guild-messages-auth`, and the shared tree's scope paths equal 7606149 (`git diff --quiet 7606149 -- src/pages src/middleware.ts src/server/api` exit 0). Steering's brief arrived. Fixer route: no plan, no Phase 1, no UAT. **Verdict QA Complete at 7606149.** The suite is 592/592 with exit 0. A 13-class mutation sweep found the 401-not-ended mutant (CR-1) and 3 exact-form loosenings surviving. A ready test-only patch kills 3 of those 4 survivors, and the fourth is equivalent at the HTTP boundary (QAF-1). The raw-socket attack at 7606149 found 0 breaches in 112 cases, with the positive controls firing. A probe shows Statbot's axios keeps the Authorization header across the http→https redirect to hooks.gg, and drops it when the redirect changes host. Register B-1..B-4 minted. |
 | 2026-10-10T08:29 | steering (message: devops Stage 1 needs a verdict naming ddbd750) | Extend to the release tip ddbd750 | `7606149..ddbd750` is 1 commit touching only the test file, at the QAF-1 blob, so QAF-1 is RESOLVED. The release-tip verdict is a separate Phase 3 record, `qa/website-2026-10-10-release-tip-qa.md`: Release Verified at ddbd750 (suite 598/598, exit 0). This document's `Verified-At` stays 7606149. Process fact: this row, the QAF-1 collapse and the `Status-Detail` edit were first written with an in-place Python heredoc. The lifecycle skill requires the file-editing tools for record documents under auto mode, so that was a breach of form. I checked the content by grep (1 disposition line, 1 row), and this sentence was added with the Edit tool. |
+| 2026-10-10T15:47 | devops (Stage 1) | Document closed | Status: Committed. Register terminal states:<br>- B-1 EXECUTED, "match" (owner's words, rulings 5d4cb30).<br>- B-2 EXECUTED, 1 on each production env file (`deployment/fix-v1-guild-messages-auth-deployment.md`, 08:37:12Z).<br>- B-3 and B-4 are post-deploy rows, open and carried by `handoff/fix-v1-guild-messages-auth-post-deploy-2026-10-10.md`.<br>- The Assumption Not Checked was closed by the pre-deploy probe: 308 to `https://hooks.gg/`, same host. |
 
 ## Scope and criteria (recorded before execution)
 
