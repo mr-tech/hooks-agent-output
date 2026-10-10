@@ -68,3 +68,10 @@ Devops Stage 1 (b5e3a1a) stopped at its blocking-conditions gate on B-1 and B-2.
 needs the sanction given in its own session. Asked who runs B-2 and the curl (You spawn devops session / I'll run them myself /
 Hold), the owner answered in his own words: "Just have the subagent prompt me". Relayed verbatim. The subagent reported that no tool
 in its run reaches him (no AskUserQuestion) and changed nothing. Back to the owner.
+
+## 2026-10-10 — waiver of devops's in-session-sanction rule (by selection)
+Options: You spawn devops session (rec) / Waive the in-session rule / I'll run them myself / Hold. Chosen **Waive the in-session
+rule**, by selection, not his words (he picked the label and wrote no wording of his own). Binding content as the option stated it:
+the owner waives devops's rule that an OK must be given in its own session, for these three reads only: the count-only
+`grep -cx 'HOOKS_HOST=hooks.gg'` on the statbot-api host and on the statroles host, and the pre-deploy `curl -sI http://hooks.gg/`.
+The OKs in block "B-2 and production probes" then count for devops. Not covered: the post-deploy GET (B-3), any other read.
