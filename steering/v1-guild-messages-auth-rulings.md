@@ -75,3 +75,9 @@ rule**, by selection, not his words (he picked the label and wrote no wording of
 the owner waives devops's rule that an OK must be given in its own session, for these three reads only: the count-only
 `grep -cx 'HOOKS_HOST=hooks.gg'` on the statbot-api host and on the statroles host, and the pre-deploy `curl -sI http://hooks.gg/`.
 The OKs in block "B-2 and production probes" then count for devops. Not covered: the post-deploy GET (B-3), any other read.
+
+## 2026-10-10 — B-2 path: steering performs the classifier-blocked read (by selection)
+Devops ran the pre-deploy curl (308 → https://hooks.gg/, same host; 60578b5). Its read of the local statbot-api and
+statbot-statrole-remake deploy scripts and ecosystem files, done to find the env file path, was denied by the auto-mode classifier ("Credential Exploration").
+Options: I'll give the paths (rec) / I'll run the greps myself / Steering does the blocked read / Hold. Chosen **Steering does the
+blocked read**, by selection: steering runs that read itself, unchanged, takes only the env file path, and devops then runs the greps.
