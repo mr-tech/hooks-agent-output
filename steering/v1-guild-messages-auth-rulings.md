@@ -13,3 +13,8 @@ Premises read this turn: at website `f2c85f5` (== origin/master) `src/middleware
 (`git show` + grep); both v1 handlers 0 matches for auth|session|Bearer|STATBOT|token (`grep -c`);
 no commits to those paths b3f8ea9..f2c85f5. Statbot sends `Authorization: Bearer ${apiKey}` to the
 hooks.gg client (`statbot-utils/src/api/ApiUtils.ts`, where the hooks.gg client is built, read). Key equality: unverified.
+
+## 2026-10-10 — research returned (researcher subagent, `research/closed/v1-guild-messages-auth-exposure-2026-10-10.md`, b116210)
+(a) Proven live: the one sanctioned unauthenticated GET to hooks.gg returned 200 from the handler. (b) Not
+establishable by an agent → OWNER-QUEUE entry "Check that Statbot's hooks.gg key matches the website's".
+Next: the pipeline for the fix is put to the owner.

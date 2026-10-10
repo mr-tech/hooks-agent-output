@@ -26,4 +26,14 @@ lines about items nobody is waiting on.** If it does not need the owner to act, 
 
 ---
 
-**Nothing is waiting on you.**
+## Check that Statbot's hooks.gg key matches the website's
+
+The v1 guild-messages endpoints are open to anyone in production. The fix will start checking
+Statbot's key for the first time, so if the two keys differ, Statbot's hooks.gg reads break the
+moment the fix deploys.
+
+1. In Vercel → the `website` project → Environment Variables (Production), look at `STATBOT_API_KEY`.
+2. In each Statbot deployment that calls hooks.gg, look at `HOOKS_API_KEY`.
+3. **Pass:** the two values are identical, and `STATBOT_API_KEY` is set at all.
+
+Do they match? Tell steering "match" or "differ / unset". Don't paste either value.
