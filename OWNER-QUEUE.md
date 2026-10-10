@@ -26,15 +26,13 @@ lines about items nobody is waiting on.** If it does not need the owner to act, 
 
 ---
 
-## Confirm the hooks.gg auth fix is live, then check the statrole editor
+## Check the statrole editor still loads hooks.gg messages
 
-The fix was pushed to website `master` (commit `ddbd750`) on 2026-10-10.
+The hooks.gg auth fix is live, and a request without the key is now refused. This check confirms that
+Statbot's own calls, which carry the key, still get through.
 
-1. In Vercel → the `website` project → Deployments, find the Production deployment for commit `ddbd750`.
-   **Pass:** it says Ready and is the current Production deployment. If it says Error, tell steering "build failed";
-   the old version keeps serving.
-2. Tell steering "live". Devops then sends one keyless request and expects a 401.
-3. After that passes, open the Statbot dashboard's statrole editor for a guild that has hooks.gg messages.
-   **Pass:** the hooks.gg message list populates. Tell steering "loads" or "empty / error".
+1. Open the Statbot dashboard's statrole editor for a guild that has hooks.gg messages.
+2. **Pass:** the hooks.gg message list populates. **Fail:** it errors, or it's empty where messages exist.
+   That points to a key or host mismatch. The quick undo is to promote the previous deployment in Vercel.
 
-Is it live? Does the editor load?
+Does the list load? Tell steering "loads" or "empty / error".
