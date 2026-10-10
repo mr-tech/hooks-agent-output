@@ -115,3 +115,8 @@ Hold. Chosen **I'll free disk space**, by selection: he frees ~1.5G, devops then
 Steering runs it (rec) / Waive for devops / I'll run it myself / Hold. Chosen **Steering runs it**, by selection: steering runs
 `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master ddbd750c1ab4808317f3408524cf5f9b7d8d0935` unchanged,
 in this session, after the build passes. Tool existence checked (ls). Sequence: disk freed → devops build → steering move → B-3.
+
+## 2026-10-10 — local build waived (by selection; reopens the build selection)
+He said, in his words: "I can't free that space at this moment". That reopened the build selection. Options: Waive the local build (rec)
+/ Hold until you free space / Don't release. Chosen **Waive the local build**, by selection. Binding content: Vercel's build at
+ddbd750 is the only build; steering runs the release move now; B-3 tells which build is live (401 = fix, 200 = old).
