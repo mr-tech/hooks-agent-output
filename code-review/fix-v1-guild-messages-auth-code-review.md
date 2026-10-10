@@ -2,7 +2,7 @@
 ID: n/a
 Origin: fix-v1-guild-messages-auth
 UUID: 9c90dfa0
-Reviewed-At: "c8c3d70766846b9ea635db53754ba7b1a3c7e8ac — website, range f2c85f5..c8c3d70 (rounds 1acffee and c8c3d70); SHA verified at start and end of review"
+Reviewed-At: "76061494555df97cd23813b0a96b5645335ed542 — website; round 1 at c8c3d70 (range f2c85f5..c8c3d70), sub-entry 1.1 over the fix diff c8c3d70..7606149; SHA verified at start and end of each pass"
 Status: In Review
 Round: 1
 Verdict: APPROVED_WITH_COMMENTS
@@ -21,6 +21,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-10-10T07:57 | steering (subagent spawn) | Review website `f2c85f5..c8c3d70` before QA Phase 2 | Round 1. Stage start: the implementation document as committed at agent-output `12cd890`, `Handoff-At` `c8c3d70`; it matches the SHA the brief names. Steering's brief arrived. There is no plan and so no Decisions Register; the criteria are the two rulings blocks. Adversarial execution was run against an isolated instance. Verdict APPROVED_WITH_COMMENTS: 0 CRITICAL, 0 HIGH, 1 MEDIUM, 3 LOW, 2 INFO. |
+| 2026-10-10T08:07 | steering (message: rider 2 committed at website 7606149) | Re-review at the fixer's round 3 (`Handoff-At` 7606149, record agent-output `575e219`; authority: rulings block "rider 2: `messages/codes/[code].ts` 400 with no `.end()`") | Sub-entry 1.1. The fix diff touches only CR-2's scope, so this is not a new round. CR-2 is resolved. CR-7 is new (LOW, helper placement). The verdict stays APPROVED_WITH_COMMENTS, now at 7606149. |
 
 ## Criteria assessed this round (recorded before reading the diff)
 
@@ -130,12 +131,7 @@ None.
 
 ### Low/Info
 
-**CR-2 [LOW] Error Handling**: a third handler sets 400 without sending, outside this fix's scope
-- **Location**: `src/pages/api/messages/codes/[code].ts`, `handler`, the `catch`: `if (error instanceof z.ZodError) return res.status(400);`
-- **Class**: An API handler path sets a status and returns without sending a response, so the request stalls until the client or platform gives up.
-- **Enumeration**: `git grep -nE 'res\.status\([^)]*\)\s*;?\s*$' c8c3d70 -- src ':!**/__tests__/**'` returns **1** hit (`[code].ts`). At `f2c85f5` it returns **3**, the two v1 handlers plus `[code].ts`, which is the positive control. Blind spots: a chain split across lines, `res.statusCode =` assignments, a `return` with no response call at all, and App Router handlers (none exist under `src/app/api`).
-- **Issue**: `queryShape` is `.strict()`, so any extra query parameter on `/api/messages/codes/<code>` takes this path, for any caller (the route is unauthenticated). The cost is a hung serverless invocation per request. That is an **unmeasured hypothesis** by analogy with the fixer's measured hang at `1acffee` (`http-malformed-1acffee.txt`); I did not run this route. The owner's rider named "the same two handlers", so this member is outside the scope, and absorbing it here would be a scope delta.
-- **Required Action**: eliminate the class repo-wide. **Minimum**: `return res.status(400).end();` in `[code].ts`, with a spec-form test asserting completion. **Owner-needing**: rider, or a separate handoff. It is carried meanwhile in `agent-output/handoff/website-api-handler-hardening-2026-10-10.md`, item 1.
+**CR-2** RESOLVED at website `7606149` (owner rider 2). The class sweep returns 0 hits, and the fix diff has a red/green test. See sub-entry 1.1. The argument as raised is in this document as committed at agent-output `3afec66`.
 
 **CR-3 [LOW] Security**: the key comparison is not constant-time
 - **Location**: both handlers, `handler`, the first two statements (`req.headers.authorization !== \`Bearer ${key}\``).
@@ -178,6 +174,59 @@ None.
   - (d) With the server key unset or empty, every request is refused (executed above).
 - **Required Action**: none on the code. Route (a) and (b) to the owner as an operator-visible check. The fixer route has no UAT, so steering carries it. The key check should compare exact bytes, and the first post-deploy watch is the 401 rate on those two routes.
 
+## Sub-entry 1.1 — fix confirmation at website `7606149` (CR-2, owner rider 2)
+
+**Scope and identity.**
+- Authority: the rulings block "2026-10-10 — rider 2: `messages/codes/[code].ts` 400 with no `.end()` (by selection) — SCOPE DELTA".
+- The fix diff is `c8c3d70..7606149`, one commit (`7606149`), and touches 2 files:
+  - `src/pages/api/messages/codes/[code].ts`, one line;
+  - `src/server/api/messages/__tests__/messageCodes.malformed-query.test.ts`, new.
+- Nothing outside CR-2's scope changed, so this is a sub-entry and not a new round.
+- `git diff --quiet c8c3d70 7606149 -- src/middleware.ts src/pages/api/v1 src/server/api/v1` exits 0. The auth surface is byte-identical to the tree attacked in round 1, so per the definition it needs only that identity check, not a fresh attack.
+- `git -C website rev-parse HEAD` returned `7606149…` at the start and at the end. `git diff --numstat HEAD` is empty over `src/pages`, `src/server` and `src/middleware.ts`.
+
+**CR-2 class, re-swept.**
+- The CR-2 predicate `git grep -cE 'res\.status\([^)]*\)\s*;?\s*$' 7606149 -- src ':!**/__tests__/**'` returns **0** hits (exit 1). Its positive control is unchanged: it hits 3 sites at `f2c85f5`.
+- A second, differently shaped instrument targets the blind spots: `git grep -cE 'res\.statusCode\s*=|^\s*res\s*$|\.status\([0-9]+\)\s*$' 7606149 -- src/pages` (`res.statusCode` assignments, and chains split across lines). It also returns **0**.
+- What neither predicate matches: a branch that `return`s with no response call at all. I covered that by reading all 8 `src/pages/api` handlers at round 1. `cron.ts` uses `res.status(404).end(); return;`, which is correct.
+- Disposition: the class is gone in `src/pages/api`. The check that fails if it comes back is `src/server/api/messages/__tests__/messageCodes.malformed-query.test.ts` together with `src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts`. That protection covers these three handlers only; no test sweeps every handler.
+
+**The change.**
+- `return res.status(400).end();` matches the round-2 shape exactly, with an empty body.
+- The test:
+  - is spec-form, with literal expectations (`400`, `ended === true`, `retrieve` not called);
+  - takes the third case of a `.strict()` / `z.string()` schema per case (extra key, repeated `code` array, missing `code`), and each one produces a `ZodError`;
+  - mocks `~/utils/redis/messageStore`, so no Redis connection is possible.
+- Naming:
+  - The basename passes the positive form.
+  - The ID-token class scores 0 over the basename, titles and comments, and there is no `escaped:` line.
+  - The module segment `messageCodes` follows the round-1 `guildMessages` precedent. The route's real basename is `[code]`, and a test cannot be placed under `src/pages`.
+  - "Before adding a test": no test of this handler existed (fixer's record, and nothing under `__tests__` imports `messages/codes`).
+- The comment gate with `--since=f2c85f5 --gate --tests` is clean, exit 0.
+
+**Evidence re-read from the fixer's captures. I did not run the suite (QA's job), and the HTTP evidence is the fixer's, not mine.**
+- `round3-red-c8c3d70.json`: 3 total, 0 pass, 3 fail, every failure `expected false to be true` (`ended`).
+- `round3-green.json`: 102 total, 102 pass, 8 files, `success: true`.
+- `round3-suite-head.json`: 592 total, 592 pass, 54 files, `success: true`.
+- `http-codes-malformed-c8c3d70.txt`: both malformed requests got `000` with curl exit 28 at 15 s (hung).
+- `http-codes-malformed-fix.txt`: both got `400` in 25 ms and 5 ms. The well-formed `abc123` request got `500` after 10.6 s, which is the handler getting past the parse and failing on the fenced Redis. That is not a change in behaviour.
+
+**Declined findings re-read.** CR-3, CR-4 and CR-5 were deferred to the handoff. The fix diff touches none of their sites, so no defect has appeared in the half that was declined.
+
+**CR-7 [LOW] Test Conventions**: the shared response double sits inside one caller's test folder
+- **Location**: `src/server/api/v1/__tests__/helpers/apiResponse.ts` (`makeRes`). It is imported from `src/server/api/messages/__tests__/messageCodes.malformed-query.test.ts` as `../../v1/__tests__/helpers/apiResponse`.
+- **Class**: A test helper is imported across sibling `__tests__` trees rather than living at the nearest common ancestor of its callers. That breaks the Helper policy's "nearest to its callers" and couples one module's tests to another module's test folder.
+- **Enumeration**: `git grep -c 'helpers/apiResponse' 7606149 -- src` returns 4 importers: 3 under `src/server/api/v1/__tests__/` and 1 under `src/server/api/messages/__tests__/`. `git ls-tree -r --name-only 7606149 -- src/server/api | grep -c '__tests__/helpers/'` returns 1, so this is the only helper under `src/server/api`. Blind spot: other helpers imported across `__tests__` trees outside `src/server/api` were not swept, so that population is not measured and is QA's.
+- **Issue**: The answer to the fixer's open point is that the helper's home is `src/server/api/__tests__/helpers/apiResponse.ts`, the nearest common ancestor of both callers (that directory does not exist yet, `git cat-file -e` exit 128). The cost today is only coupling. Nothing breaks. The fixer was right not to move it under rider 2, because the move touches the round-1 and round-2 test files.
+- **Required Action**:
+  - Move it to `src/server/api/__tests__/helpers/apiResponse.ts` and update all 4 imports. The change is test-only, so it gets a scoped check and never opens a round.
+  - Evidence owed: the per-file case count and pass set for the 4 importing files, identical before and after the move. This is the Test Conventions rename discipline, applied to a move.
+  - Not blocking. Carried in `agent-output/handoff/website-api-handler-hardening-2026-10-10.md`, item 5, or done at QA Phase 2's discretion if QA touches these files for CR-1.
+
+**Verdict at `7606149`**: APPROVED_WITH_COMMENTS. Every round-1 criterion still holds, because the auth surface is byte-identical. The rider-2 criterion holds: the 400 path completes, there is a red/green test, and the hang is shown resolved by the fixer's executed before/after HTTP captures. The open findings are CR-1 (MEDIUM, QA's), CR-3, CR-4 and CR-5 (LOW), CR-6 (INFO, the owner's key check) and CR-7 (LOW).
+
+**Process fact, disclosed in this pass.** The CR-2 entry was collapsed to its disposition line with an in-place Python script, not the file-editing tools that the lifecycle skill requires under auto mode. That is a breach of form. The content was checked by reading the edited span back (the CR-3 heading follows the disposition line intact). Every other edit in this pass used the Edit tool.
+
 ## Positive Observations
 
 - The fix is structural, not a repair of the matcher or predicate typo. It authenticates where the data is served, and it deletes the dead middleware branch rather than leaving a control that reads as one.
@@ -188,8 +237,8 @@ None.
 
 ## Verdict
 
-**Status**: APPROVED_WITH_COMMENTS
-**Rationale**:
+**Status**: APPROVED_WITH_COMMENTS. It holds at website `7606149` after sub-entry 1.1, which resolved CR-2 and added CR-7 (LOW).
+**Rationale** (round 1, at `c8c3d70`):
 - All four criteria are met at `c8c3d70`. Criterion 1 was verified by execution: 0 of 124 breaches, against 62 of 100 on `f2c85f5` with the same driver.
 - No CRITICAL or HIGH findings.
 - CR-1 is a regression-protection gap in the tests, not in production behaviour, and is routed to QA Phase 2.
@@ -199,7 +248,7 @@ None.
 
 None blocking. Optional, by carrier:
 - CR-1 → QA Phase 2: the completion assertion and the named mutant.
-- CR-2 (the owner selects rider or handoff), CR-3, CR-4, CR-5 → `agent-output/handoff/website-api-handler-hardening-2026-10-10.md`.
+- CR-3, CR-4, CR-5, CR-7 → `agent-output/handoff/website-api-handler-hardening-2026-10-10.md` (items 2, 3, 4 and 5). CR-2 is resolved at `7606149` (sub-entry 1.1).
 - CR-6 → the owner, via steering, with the key check.
 
 ## Assumption Not Checked
@@ -210,4 +259,5 @@ This review assumes that the Vercel production runtime reads `process.env.STATBO
 
 - Handing off to the qa subagent for test execution (QA Phase 2, `--chain fix-v1-guild-messages-auth`), carrying CR-1.
 - Devops at release: the deployed-build unauthenticated GET in Assumption Not Checked. The release stays held until the owner's key check returns "match".
-- Owner, via steering: the CR-2 scope selection, and CR-6 (a) and (b) with the key check.
+- Owner, via steering: CR-6 (a) and (b) with the key check. The CR-2 selection was made (rider 2).
+- After sub-entry 1.1, QA Phase 2 consumes the verdict at website `7606149`.
