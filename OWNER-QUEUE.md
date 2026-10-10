@@ -28,13 +28,15 @@ lines about items nobody is waiting on.** If it does not need the owner to act, 
 
 ## Check that Statbot's hooks.gg key matches the website's
 
-The v1 guild-messages endpoints are open to anyone in production. The fix will start checking
-Statbot's key for the first time, so if the two keys differ, Statbot's hooks.gg reads break the
-moment the fix deploys.
+This is the last thing holding the hooks.gg auth fix. Once deployed, every Statbot call to hooks.gg
+must carry the right key, or Statbot's hooks.gg reads fail.
 
 1. In Vercel → the `website` project → Environment Variables (Production), look at `STATBOT_API_KEY`.
-2. In each Statbot deployment that calls hooks.gg, look at `HOOKS_API_KEY`.
-3. **Pass:** the two values are identical character for character, and `STATBOT_API_KEY` is set.
-   A trailing space or newline in either one counts as a difference; the check doesn't trim.
+2. Look at `HOOKS_API_KEY` in each of these four env files:
+   - statbot-api host: `/usr/local/bin/statbot-api/deployed/production-blue/.env`,
+     `…/production-green/.env` and `…/production-premium/.env`
+   - statroles host: `/usr/local/bin/statbot-statrole-remake/.env`
+3. **Pass:** all four are identical to the Vercel value, character for character, and the Vercel value
+   is set. A trailing space or newline counts as a difference.
 
-Do they match? Tell steering "match" or "differ / unset". Don't paste either value.
+Do they match? Tell steering "match" or "differ / unset". Don't paste any value.
