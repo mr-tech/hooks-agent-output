@@ -26,12 +26,15 @@ lines about items nobody is waiting on.** If it does not need the owner to act, 
 
 ---
 
-## Free about 1.5G on this host's root disk
+## Confirm the hooks.gg auth fix is live, then check the statrole editor
 
-The hooks.gg auth fix can't release until devops builds it here, and the root disk is full (154M free).
-The full disk also puts every other session on this host at risk.
+The fix was pushed to website `master` (commit `ddbd750`) on 2026-10-10.
 
-1. Free space on `/` until `df -h /` shows at least 1.5G available.
-2. **Pass:** `df -h /` shows 1.5G or more in the Avail column.
+1. In Vercel → the `website` project → Deployments, find the Production deployment for commit `ddbd750`.
+   **Pass:** it says Ready and is the current Production deployment. If it says Error, tell steering "build failed";
+   the old version keeps serving.
+2. Tell steering "live". Devops then sends one keyless request and expects a 401.
+3. After that passes, open the Statbot dashboard's statrole editor for a guild that has hooks.gg messages.
+   **Pass:** the hooks.gg message list populates. Tell steering "loads" or "empty / error".
 
-Is it done? Tell steering "freed". Devops then builds, and steering releases.
+Is it live? Does the editor load?
