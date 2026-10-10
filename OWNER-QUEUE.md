@@ -26,17 +26,12 @@ lines about items nobody is waiting on.** If it does not need the owner to act, 
 
 ---
 
-## Check that Statbot's hooks.gg key matches the website's
+## Free about 1.5G on this host's root disk
 
-This is the last thing holding the hooks.gg auth fix. Once deployed, every Statbot call to hooks.gg
-must carry the right key, or Statbot's hooks.gg reads fail.
+The hooks.gg auth fix can't release until devops builds it here, and the root disk is full (154M free).
+The full disk also puts every other session on this host at risk.
 
-1. In Vercel → the `website` project → Environment Variables (Production), look at `STATBOT_API_KEY`.
-2. Look at `HOOKS_API_KEY` in each of these four env files:
-   - statbot-api host: `/usr/local/bin/statbot-api/deployed/production-blue/.env`,
-     `…/production-green/.env` and `…/production-premium/.env`
-   - statroles host: `/usr/local/bin/statbot-statrole-remake/.env`
-3. **Pass:** all four are identical to the Vercel value, character for character, and the Vercel value
-   is set. A trailing space or newline counts as a difference.
+1. Free space on `/` until `df -h /` shows at least 1.5G available.
+2. **Pass:** `df -h /` shows 1.5G or more in the Avail column.
 
-Do they match? Tell steering "match" or "differ / unset". Don't paste any value.
+Is it done? Tell steering "freed". Devops then builds, and steering releases.
