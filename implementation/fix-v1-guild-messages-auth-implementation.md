@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-v1-guild-messages-auth
 UUID: 9c90dfa0
 Status: Committed
-Status-Detail: "Fix committed on fix/v1-guild-messages-auth; awaiting code review at Handoff-At, then QA Phase 2. No deploy or push until the owner's key check (OWNER-QUEUE) returns 'match' (rulings, fix-route block)."
-Handoff-At: 1acffee3e53b9580bfedd2dfb9e7094670bba1cb
+Status-Detail: "Round 2 (400-path rider) committed on fix/v1-guild-messages-auth; awaiting code review at Handoff-At, then QA Phase 2. No deploy or push until the owner's key check (OWNER-QUEUE) returns 'match' (rulings, fix-route block)."
+Handoff-At: c8c3d70766846b9ea635db53754ba7b1a3c7e8ac — round 2; round 1 was 1acffee
 ---
 
 # Fix — v1 guild-messages endpoints require the Statbot key
@@ -20,6 +20,10 @@ only, no other repo. No deploy or push until the owner's key check (OWNER-QUEUE)
 Guidance from the brief (steering's, not my definition's): fail closed when `STATBOT_API_KEY` is unset
 or empty; the accepted form stays exactly `Authorization: Bearer <key>`; no server or DB-touching path
 may reach a real database; do not read `website/.env.local`.
+
+**Rider (round 2).** Rulings block "2026-10-10 — rider: 400 with no `.end()` (by selection) — SCOPE
+DELTA": the scope now also covers the ZodError → 400 path in the same two handlers, plus its test.
+Nothing else is added.
 
 ## Entry Conditions
 
@@ -170,24 +174,97 @@ pinned-build verification for `website`.
   deploy.
 - Anyone else calling `/api/v1/guilds/<id>/messages[/<id>]`: now gets `401` and no rows.
 
+## Round 2 — the malformed-query 400 completes
+
+**Diagnosis.** In both handlers the `catch` returned `res.status(400)` for a `ZodError`. That sets the
+status but never sends the response.
+
+Instruments:
+- A read at `1acffee`.
+- The red run below: `ended` stays false.
+- HTTP, executed, keyed (the 401 guard runs first): `next dev --webpack -p 3917` ran from an isolated
+  worktree at `1acffee`, with no `.env*`, `STATBOT_API_KEY=probe-key` and the dead `DATABASE_URL`. All
+  five malformed requests hit curl's `--max-time 15` limit: status `000`, curl exit 28. Next logged
+  `API resolved without sending a response … this may result in stalled requests`. Capture:
+  `http-malformed-1acffee.txt`, driver `probe-malformed.sh <label>`.
+
+**Change.**
+- `messages.ts` and `messages/[id].ts`: `return res.status(400).end();`. One line each, and the
+  response stays empty.
+- `src/server/api/v1/__tests__/helpers/apiResponse.ts` (new): the `makeRes` response double. The new
+  test would have been its third copy, so it is lifted under the workspace's helper policy. It now
+  records `ended`, set by `end()` and by `json()`.
+- `guildMessages.statbot-key-required.test.ts` and `guildMessages.valid-exposure.test.ts`: the local
+  `makeRes` copies are replaced by the helper import. Their assertions are unchanged.
+- `src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts` (new), spec-form, keyed. Each
+  case asserts status `400`, `ended === true`, and that the database was never read. There are 5 cases:
+  - list: a non-snowflake guild id;
+  - list: an unexpected query key;
+  - single: a non-snowflake guild id;
+  - single: a non-numeric message id;
+  - single: an unexpected query key.
+
+**Test.** `DATABASE_URL` on the dead port throughout. Counts come from the vitest JSON reporter.
+
+| Run | Tree | Result | Exit | Capture |
+|---|---|---|---|---|
+| Red | `1acffee` handlers, round-2 tests (shared tree before the source edit) | 29 total, 24 pass, 5 fail. All 5 fail on `expected false to be true` (`ended`); the 24 round-1 cases pass on the lifted helper | 1 | `round2-red-1acffee.json` |
+| Green | fix (isolated worktree) | 29 total, 29 pass, 3 files | 0 | `round2-green.json` |
+
+The red run covers each handler's 400 path separately, since cases for both endpoints fail. That makes
+a separate per-handler mutant redundant.
+
+**HTTP after the fix.** These ran on the same server at `1acffee` after the two fixed handlers were
+copied in, which the dev server hot-reloaded.
+
+| Tree | Malformed keyed requests (5) | Capture |
+|---|---|---|
+| `1acffee` | all `000`, curl exit 28 at 15 s (hung) | `http-malformed-1acffee.txt` |
+| fix | all `400`, curl exit 0, in 5–74 ms | `http-malformed-fix.txt` |
+
+The round-1 auth probe, re-run on the same server after the fix, matches round 1 (`http-fix-round2.txt`):
+- no header, wrong bearer, empty bearer and POST: `401`;
+- the correct bearer: `500` from the dead database.
+
+**Verification.**
+- Full suite in the shared tree at the fix: 589 total, 589 pass, 53 files, exit 0
+  (`round2-suite-head.json`). The extra 5 cases and 1 file over round 1 are the new test.
+- `pnpm run typecheck`, both programs, in the isolated tree with no `.next`: exit 0
+  (`round2-typecheck-isolated.txt`).
+- ESLint with `--max-warnings=0` on both handlers, the helper and the two auth and malformed-query tests:
+  no issues, exit 0.
+- `guildMessages.valid-exposure.test.ts`: 5 lint problems, down from 10 in round 1. All 5 are on lines
+  this change did not touch (`round2-eslint-valid-exposure.txt`).
+- Comment gate `--since=f2c85f5`: clean.
+- ID-token check on the two new files: 0.
+- The worktree was removed, and the server was stopped by its listening PID.
+
+**Process fact.** The round-2 additions to this record were first written with an in-place Python
+script. The lifecycle skill says that under auto mode a record document is written with the
+file-editing tools only, so that was a breach of form. I checked the content: every round-2 anchor is
+present (`grep -c c8c3d70` returns 4), and `check-repo.js` reports no failure for this file. This
+note was added with the Edit tool.
+
+**User-visible flow.** A caller with the key who sends a malformed guild or message id now gets an
+immediate `400` with an empty body, where the request used to stall until the client gave up.
+
 ## Found on the way, not absorbed
 
-- **Second defect, out of scope.** Both handlers' `ZodError` branch is `return res.status(400)`, with
-  no `.end()` or `.json()`, so a malformed `guildId` or `id` never completes the response (read at
-  `f2c85f5`; also noted in the exposure research, F2). A re-scope is steering's call.
+- **The 400 with no `.end()`.** Reported in round 1, then taken into scope by the owner's rider and
+  fixed in round 2 (below).
 - **Middleware matcher, not audited** (the brief said note, don't fix): whether `/message/(.*)`,
   `/api/guilds/(.*)` and `/preview` still match real routes, and whether any route relies on the
   matcher for authorization. Removing the `/api/v1/*` branch changes nothing for those routes.
 - Next 16 warns at dev start that the `middleware` file convention is deprecated in favour of `proxy`.
 - The guard compares with `!==`, the same as the old middleware, not a constant-time comparison.
   Left to code review.
-- The `makeRes` double now exists in two test files. A third copy should lift it into
-  `src/server/api/v1/__tests__/helpers/`.
+- The `makeRes` double existed in two test files after round 1. Round 2 needed a third copy, so it
+  was lifted into the helper (round 2).
 
 ## Handoff
 
-- **SHA:** `website` `1acffee` on `fix/v1-guild-messages-auth`.
-- **Reviews:** code-reviewer, verdict at `1acffee`, then QA Phase 2. Both use `--chain fix-v1-guild-messages-auth`.
+- **SHA:** `website` `c8c3d70` on `fix/v1-guild-messages-auth`. Round 1 is `1acffee`; round 2 is `c8c3d70`.
+- **Reviews:** code-reviewer, verdict at `c8c3d70` (it covers both rounds, `f2c85f5..c8c3d70`), then QA Phase 2. Both use `--chain fix-v1-guild-messages-auth`.
 - **Merges:** devops at release, under the owner's approval. The release is held until the owner's
   key check (OWNER-QUEUE "Check that Statbot's hooks.gg key matches the website's") returns "match".
   Nothing has been pushed.
@@ -197,3 +274,4 @@ pinned-build verification for `website`.
 | Date | Agent | Change | Status |
 |---|---|---|---|
 | 2026-10-10T07:36 | fixer | Fix committed at website `1acffee` (commit time 07:36:32Z); document created; handed to code review | Committed |
+| 2026-10-10T07:45 | fixer | Round 2 (owner rider, 400 with no `.end()`) committed at website `c8c3d70`; Handoff-At re-anchored | Committed |

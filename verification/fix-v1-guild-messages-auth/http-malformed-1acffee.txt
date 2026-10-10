@@ -1,0 +1,5 @@
+1acffee /api/v1/guilds/abc/messages -> 000 15.000322s curl_exit=28
+1acffee /api/v1/guilds/123456789012345678/messages?extra=1 -> 000 14.999765s curl_exit=28
+1acffee /api/v1/guilds/abc/messages/1 -> 000 15.002227s curl_exit=28
+1acffee /api/v1/guilds/123456789012345678/messages/x -> 000 15.001734s curl_exit=28
+1acffee /api/v1/guilds/123456789012345678/messages/1?extra=1 -> 000 14.999988s curl_exit=28

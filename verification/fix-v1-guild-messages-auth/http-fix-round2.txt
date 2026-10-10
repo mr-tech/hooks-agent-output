@@ -1,0 +1,10 @@
+fix-round2 /api/v1/guilds/123456789012345678/messages none -> 401 0
+fix-round2 /api/v1/guilds/123456789012345678/messages wrong -> 401 0
+fix-round2 /api/v1/guilds/123456789012345678/messages empty -> 401 0
+fix-round2 /api/v1/guilds/123456789012345678/messages post -> 401 0
+fix-round2 /api/v1/guilds/123456789012345678/messages right -> 500 0
+fix-round2 /api/v1/guilds/123456789012345678/messages/1 none -> 401 0
+fix-round2 /api/v1/guilds/123456789012345678/messages/1 wrong -> 401 0
+fix-round2 /api/v1/guilds/123456789012345678/messages/1 empty -> 401 0
+fix-round2 /api/v1/guilds/123456789012345678/messages/1 post -> 401 0
+fix-round2 /api/v1/guilds/123456789012345678/messages/1 right -> 500 0

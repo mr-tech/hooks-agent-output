@@ -1,0 +1,11 @@
+
+/usr/local/bin/hooks/website/src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts
+  18:25  error  Expected a comma                       @typescript-eslint/member-delimiter-style
+  18:39  error  Expected a comma                       @typescript-eslint/member-delimiter-style
+  18:54  error  Expected a comma                       @typescript-eslint/member-delimiter-style
+  18:77  error  Expected a comma                       @typescript-eslint/member-delimiter-style
+  47:3   error  Unsafe return of an `any` typed value  @typescript-eslint/no-unsafe-return
+
+✖ 5 problems (5 errors, 0 warnings)
+  4 errors and 0 warnings potentially fixable with the `--fix` option.
+
