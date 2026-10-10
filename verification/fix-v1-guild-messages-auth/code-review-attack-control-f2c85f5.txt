@@ -1,0 +1,102 @@
+mode=keyed
+CONTROL-OK    500  body=5    db_err=1 CONTROL GET /api/v1/guilds/123456789012345678/messages exact Bearer key
+CONTROL-OK    500  body=5    db_err=1 CONTROL GET /api/v1/guilds/123456789012345678/messages name AUTHORIZATION, trailing OWS
+CONTROL-OK    500  body=5    db_err=1 CONTROL GET /api/v1/guilds/123456789012345678/messages/1 exact Bearer key
+CONTROL-OK    500  body=5    db_err=1 CONTROL GET /api/v1/guilds/123456789012345678/messages/1 name AUTHORIZATION, trailing OWS
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages no Authorization
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages Bearer <wrong>
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages Bearer <empty>
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages Bearer (no space)
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages lowercase scheme
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages uppercase scheme
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages double space
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages tab separator
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages key prefix
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages key + suffix
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages key uppercased
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages bare key
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages Basic key
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages Bearer undefined
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages Bearer null
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages key in Proxy-Authorization
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages key in X-Authorization
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages dup: wrong then right
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages comma list
+held          400  body=0    db_err=0 GET /api/v1/guilds/123456789012345678/messages NUL inside
+held          400  body=0    db_err=0 GET /api/v1/guilds/123456789012345678/messages obs-fold continuation
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages/1 no Authorization
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages/1 Bearer <wrong>
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages/1 Bearer <empty>
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages/1 Bearer (no space)
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages/1 lowercase scheme
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages/1 uppercase scheme
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages/1 double space
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages/1 tab separator
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages/1 key prefix
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages/1 key + suffix
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages/1 key uppercased
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages/1 bare key
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages/1 Basic key
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages/1 Bearer undefined
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages/1 Bearer null
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages/1 key in Proxy-Authorization
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages/1 key in X-Authorization
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages/1 dup: wrong then right
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages/1 comma list
+held          400  body=0    db_err=0 GET /api/v1/guilds/123456789012345678/messages/1 NUL inside
+held          400  body=0    db_err=0 GET /api/v1/guilds/123456789012345678/messages/1 obs-fold continuation
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages unauthenticated
+BREACH        405  body=5    db_err=0 POST /api/v1/guilds/123456789012345678/messages unauthenticated
+BREACH        405  body=5    db_err=0 PUT /api/v1/guilds/123456789012345678/messages unauthenticated
+BREACH        405  body=5    db_err=0 DELETE /api/v1/guilds/123456789012345678/messages unauthenticated
+BREACH        405  body=5    db_err=0 PATCH /api/v1/guilds/123456789012345678/messages unauthenticated
+BREACH        405  body=0    db_err=0 HEAD /api/v1/guilds/123456789012345678/messages unauthenticated
+BREACH        405  body=5    db_err=0 OPTIONS /api/v1/guilds/123456789012345678/messages unauthenticated
+BREACH        500  body=5    db_err=1 GET /api/v1/guilds/123456789012345678/messages/1 unauthenticated
+BREACH        405  body=5    db_err=0 POST /api/v1/guilds/123456789012345678/messages/1 unauthenticated
+BREACH        405  body=5    db_err=0 PUT /api/v1/guilds/123456789012345678/messages/1 unauthenticated
+BREACH        405  body=5    db_err=0 DELETE /api/v1/guilds/123456789012345678/messages/1 unauthenticated
+BREACH        405  body=5    db_err=0 PATCH /api/v1/guilds/123456789012345678/messages/1 unauthenticated
+BREACH        405  body=0    db_err=0 HEAD /api/v1/guilds/123456789012345678/messages/1 unauthenticated
+BREACH        405  body=5    db_err=0 OPTIONS /api/v1/guilds/123456789012345678/messages/1 unauthenticated
+BREACH        500  body=5    db_err=1 GET target '/api/v1/guilds/123456789012345678/messages' unauthenticated
+BREACH        500  body=5    db_err=1 GET target '/api/v1/guilds/123456789012345678/messages' wrong bearer
+BREACH        500  body=5    db_err=1 GET target '/api/v1/guilds/123456789012345678/messages/1' unauthenticated
+BREACH        500  body=5    db_err=1 GET target '/api/v1/guilds/123456789012345678/messages/1' wrong bearer
+held          308  body=53   db_err=0 GET target '/api/v1/guilds/123456789012345678/messages/' unauthenticated
+held          308  body=53   db_err=0 GET target '/api/v1/guilds/123456789012345678/messages/' wrong bearer
+held          308  body=55   db_err=0 GET target '/api/v1/guilds/123456789012345678/messages/1/' unauthenticated
+held          308  body=55   db_err=0 GET target '/api/v1/guilds/123456789012345678/messages/1/' wrong bearer
+held          308  body=53   db_err=0 GET target '//api/v1/guilds/123456789012345678/messages' unauthenticated
+held          308  body=53   db_err=0 GET target '//api/v1/guilds/123456789012345678/messages' wrong bearer
+held          308  body=53   db_err=0 GET target '/api/v1//guilds/123456789012345678/messages' unauthenticated
+held          308  body=53   db_err=0 GET target '/api/v1//guilds/123456789012345678/messages' wrong bearer
+held          404  body=27858 db_err=0 GET target '/api/v1/guilds/123456789012345678/./messages' unauthenticated
+held          404  body=27852 db_err=0 GET target '/api/v1/guilds/123456789012345678/./messages' wrong bearer
+held          404  body=27857 db_err=0 GET target '/api/v1/guilds/123456789012345678/x/../messages' unauthenticated
+held          404  body=27855 db_err=0 GET target '/api/v1/guilds/123456789012345678/x/../messages' wrong bearer
+held          404  body=27860 db_err=0 GET target '/api/v1/guilds/123456789012345678/%6dessages' unauthenticated
+held          404  body=27863 db_err=0 GET target '/api/v1/guilds/123456789012345678/%6dessages' wrong bearer
+held          404  body=27852 db_err=0 GET target '/api/v1/guilds/123456789012345678%2fmessages' unauthenticated
+held          404  body=27852 db_err=0 GET target '/api/v1/guilds/123456789012345678%2fmessages' wrong bearer
+BREACH        500  body=5    db_err=1 GET target '/api/v1/guilds/123456789012345678/messages/%31' unauthenticated
+BREACH        500  body=5    db_err=1 GET target '/api/v1/guilds/123456789012345678/messages/%31' wrong bearer
+BREACH        500  body=5    db_err=1 GET target '/api/v1/guilds/123456789012345678/messages?guildId=1' unauthenticated
+BREACH        500  body=5    db_err=1 GET target '/api/v1/guilds/123456789012345678/messages?guildId=1' wrong bearer
+BREACH        500  body=5    db_err=1 GET target '/api/v1/guilds/123456789012345678/messages#frag' unauthenticated
+BREACH        500  body=5    db_err=1 GET target '/api/v1/guilds/123456789012345678/messages#frag' wrong bearer
+held          404  body=27854 db_err=0 GET target '/API/v1/guilds/123456789012345678/messages' unauthenticated
+held          404  body=27855 db_err=0 GET target '/API/v1/guilds/123456789012345678/messages' wrong bearer
+held          404  body=27860 db_err=0 GET target '/api/v1/guilds/123456789012345678/messages.json' unauthenticated
+held          404  body=27858 db_err=0 GET target '/api/v1/guilds/123456789012345678/messages.json' wrong bearer
+held          308  body=73   db_err=0 GET target 'http://127.0.0.1:3931/api/v1/guilds/123456789012345678/messages' unauthenticated
+held          308  body=73   db_err=0 GET target 'http://127.0.0.1:3931/api/v1/guilds/123456789012345678/messages' wrong bearer
+held          308  body=71   db_err=0 GET target 'http://evil.example/api/v1/guilds/123456789012345678/messages' unauthenticated
+held          308  body=71   db_err=0 GET target 'http://evil.example/api/v1/guilds/123456789012345678/messages' wrong bearer
+held          none body=0    db_err=0 GET target '/api/v1/guilds/123456789012345678/messages?extra=1' unauthenticated
+held          none body=0    db_err=0 GET target '/api/v1/guilds/123456789012345678/messages?extra=1' wrong bearer
+held          none body=0    db_err=0 GET target '/api/v1/guilds/abc/messages' unauthenticated
+held          none body=0    db_err=0 GET target '/api/v1/guilds/abc/messages' wrong bearer
+held          none body=0    db_err=0 GET target '/api/v1/guilds/x23456789012345678/messages/x' unauthenticated
+held          none body=0    db_err=0 GET target '/api/v1/guilds/x23456789012345678/messages/x' wrong bearer
+SUMMARY mode=keyed cases=100 breach=62 control_blind=0

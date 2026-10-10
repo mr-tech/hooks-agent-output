@@ -1,0 +1,14 @@
+mode=emptykey
+held          401  body=5    db_err=0 GET /api/v1/guilds/123456789012345678/messages no Authorization
+held          401  body=5    db_err=0 GET /api/v1/guilds/123456789012345678/messages Bearer undefined
+held          401  body=5    db_err=0 GET /api/v1/guilds/123456789012345678/messages Bearer <empty>
+held          401  body=5    db_err=0 GET /api/v1/guilds/123456789012345678/messages Bearer (no space)
+held          401  body=5    db_err=0 GET /api/v1/guilds/123456789012345678/messages Bearer probe-key
+held          401  body=5    db_err=0 GET /api/v1/guilds/123456789012345678/messages Bearer null
+held          401  body=5    db_err=0 GET /api/v1/guilds/123456789012345678/messages/1 no Authorization
+held          401  body=5    db_err=0 GET /api/v1/guilds/123456789012345678/messages/1 Bearer undefined
+held          401  body=5    db_err=0 GET /api/v1/guilds/123456789012345678/messages/1 Bearer <empty>
+held          401  body=5    db_err=0 GET /api/v1/guilds/123456789012345678/messages/1 Bearer (no space)
+held          401  body=5    db_err=0 GET /api/v1/guilds/123456789012345678/messages/1 Bearer probe-key
+held          401  body=5    db_err=0 GET /api/v1/guilds/123456789012345678/messages/1 Bearer null
+SUMMARY mode=emptykey cases=12 breach=0 control_blind=0
