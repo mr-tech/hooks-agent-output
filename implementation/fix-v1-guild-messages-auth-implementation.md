@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-v1-guild-messages-auth
 UUID: 9c90dfa0
 Status: Committed
-Status-Detail: "Round 3 (rider 2, messages/codes 400) committed on fix/v1-guild-messages-auth; awaiting code review re-run at Handoff-At, then QA Phase 2. No deploy or push until the owner's key check (OWNER-QUEUE) returns 'match' (rulings, fix-route block)."
-Handoff-At: 76061494555df97cd23813b0a96b5645335ed542 — round 3; round 2 was c8c3d70, round 1 was 1acffee
+Status-Detail: "Rounds 1-3 committed and QA's test-only QAF-1 patch landed on fix/v1-guild-messages-auth. No deploy or push until the owner's key check (OWNER-QUEUE) returns 'match' (rulings, fix-route block)."
+Handoff-At: ddbd750c1ab4808317f3408524cf5f9b7d8d0935 — QAF-1 test-only commit; production files last changed at 7606149 (round 3); round 2 c8c3d70, round 1 1acffee
 ---
 
 # Fix — v1 guild-messages endpoints require the Statbot key
@@ -320,6 +320,37 @@ an immediate `400`, where it used to stall. I did not establish which product fl
 **Fix rounds: 3.** This is the third round on this fix (round 1 the defect; round 2 rider 1; round 3
 rider 2). Per the rulings block, the owner's rider selection is recorded as his "continue as fixer".
 
+## QAF-1 landed (QA's test-only patch)
+
+**Source.** QAF-1 in `qa/fix-v1-guild-messages-auth-qa.md`. The patch is
+`verification/fix-v1-guild-messages-auth/qa-cr1-ended-assertion.patch`, written against `7606149`. Steering
+relayed it as within the existing scope (tests of the two v1 handlers). QA's discharge condition: the
+committed file's blob equals the patched file's, and the commit touches nothing else.
+
+**The expected blob.** The QA document names no hash for the patched file; it states the equality in prose
+only. So I derived the expected blob independently:
+- `git show 7606149:<file>` written to an isolated scratch directory;
+- `patch -p1` applied there (the dry run was clean);
+- `git hash-object` of the result = `7dcbfa69ca1e49c5b690dbe43de9549438630548`.
+
+Before applying, the shared tree's file equalled the `7606149` blob (`a53ce18…`), so no foreign edit
+was present.
+
+**Applied and committed.**
+- `git apply --check`, then `git apply`, in the shared tree. The diff was 6 insertions, 0 deletions.
+- Committed with `git commit --only` on that one path: website `ddbd750`.
+
+**Checks.**
+
+| Check | Result |
+|---|---|
+| `git rev-parse ddbd750:src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts` | `7dcbfa69ca1e49c5b690dbe43de9549438630548`, equal to the expected blob |
+| `git diff-tree --name-only -r ddbd750` | exactly that one path |
+| The patched file, vitest JSON (`qaf1-landed-green.json`) | 24 total, 24 pass, exit 0. This matches QA's own 24/24 at `7606149` |
+
+No production file changed, so by the QA document's own terms the QA verdict at `7606149` does not
+expire.
+
 ## Found on the way, not absorbed
 
 - **The 400 with no `.end()`.** Reported in round 1, then taken into scope by the owner's rider and
@@ -350,3 +381,4 @@ rider 2). Per the rulings block, the owner's rider selection is recorded as his 
 | 2026-10-10T07:36 | fixer | Fix committed at website `1acffee` (commit time 07:36:32Z); document created; handed to code review | Committed |
 | 2026-10-10T07:45 | fixer | Round 2 (owner rider, 400 with no `.end()`) committed at website `c8c3d70`; Handoff-At re-anchored | Committed |
 | 2026-10-10T08:05 | fixer | Round 3 (owner rider 2, CR-2 / hardening handoff item 1) committed at website `7606149`; Handoff-At re-anchored | Committed |
+| 2026-10-10T08:23 | fixer | QAF-1 patch landed at website `ddbd750` (commit time 08:23:31Z); blob `7dcbfa69` matches the expected blob; Handoff-At re-anchored | Committed |
