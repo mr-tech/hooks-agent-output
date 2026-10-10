@@ -1,0 +1,4 @@
+keyed GET /api/v1/guilds/abc/messages -> 400 0B 0.011017s curl_exit=0
+keyed GET /api/v1/guilds/123456789012345678/messages?extra=1 -> 400 0B 0.008163s curl_exit=0
+keyed GET /api/v1/guilds/123456789012345678/messages/x -> 400 0B 0.008358s curl_exit=0
+keyed GET /api/messages/codes/abc123?extra=1 -> 400 0B 0.636025s curl_exit=0

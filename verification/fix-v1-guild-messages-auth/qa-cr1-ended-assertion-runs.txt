@@ -1,0 +1,75 @@
+QA patched test (qa-cr1-ended-assertion.patch) over the export of website 7606149; sha256 of patched test: 82648153647b31f1c8dd643357b9cfef7f8ad00f534c7ab3be1cee762ab08c92
+== green: patched test, production at 7606149
+exit 0
+{"total":24,"passed":24,"failed":0,"success":true}
+== M04-401-not-ended in src/pages/api/v1/guilds/[guildId]/messages.ts
+exit 1
+{"total":24,"passed":13,"failed":11,"success":false}
+  FAIL refuses no authorization header with 401 and never reads the database | AssertionError: expected false to be true // Object.is equality
+  FAIL refuses a wrong bearer with 401 and never reads the database | AssertionError: expected false to be true // Object.is equality
+  FAIL refuses an empty bearer with 401 and never reads the database | AssertionError: expected false to be true // Object.is equality
+  FAIL refuses the key without the Bearer scheme with 401 and never reads the database | AssertionError: expected false to be true // Object.is equality
+  FAIL refuses the key under another scheme with 401 and never reads the database | AssertionError: expected false to be true // Object.is equality
+  FAIL refuses the key with trailing characters with 401 and never reads the database | AssertionError: expected false to be true // Object.is equality
+  FAIL refuses a lowercase scheme with 401 and never reads the database | AssertionError: expected false to be true // Object.is equality
+  FAIL refuses the key in another case with 401 and never reads the database | AssertionError: expected false to be true // Object.is equality
+  FAIL refuses an unauthenticated non-GET with 401, before the method check | AssertionError: expected false to be true // Object.is equality
+  FAIL fails closed when the server key is unset | AssertionError: expected false to be true // Object.is equality
+  FAIL fails closed when the server key is empty | AssertionError: expected false to be true // Object.is equality
+restored: blob matches 7606149
+== M04-401-not-ended in src/pages/api/v1/guilds/[guildId]/messages/[id].ts
+exit 1
+{"total":24,"passed":13,"failed":11,"success":false}
+  FAIL refuses no authorization header with 401 and never reads the database | AssertionError: expected false to be true // Object.is equality
+  FAIL refuses a wrong bearer with 401 and never reads the database | AssertionError: expected false to be true // Object.is equality
+  FAIL refuses an empty bearer with 401 and never reads the database | AssertionError: expected false to be true // Object.is equality
+  FAIL refuses the key without the Bearer scheme with 401 and never reads the database | AssertionError: expected false to be true // Object.is equality
+  FAIL refuses the key under another scheme with 401 and never reads the database | AssertionError: expected false to be true // Object.is equality
+  FAIL refuses the key with trailing characters with 401 and never reads the database | AssertionError: expected false to be true // Object.is equality
+  FAIL refuses a lowercase scheme with 401 and never reads the database | AssertionError: expected false to be true // Object.is equality
+  FAIL refuses the key in another case with 401 and never reads the database | AssertionError: expected false to be true // Object.is equality
+  FAIL refuses an unauthenticated non-GET with 401, before the method check | AssertionError: expected false to be true // Object.is equality
+  FAIL fails closed when the server key is unset | AssertionError: expected false to be true // Object.is equality
+  FAIL fails closed when the server key is empty | AssertionError: expected false to be true // Object.is equality
+restored: blob matches 7606149
+== M07-prefix-accept in src/pages/api/v1/guilds/[guildId]/messages.ts
+exit 1
+{"total":24,"passed":23,"failed":1,"success":false}
+  FAIL refuses the key with trailing characters with 401 and never reads the database | AssertionError: expected 200 to be 401 // Object.is equality
+restored: blob matches 7606149
+== M07-prefix-accept in src/pages/api/v1/guilds/[guildId]/messages/[id].ts
+exit 1
+{"total":24,"passed":23,"failed":1,"success":false}
+  FAIL refuses the key with trailing characters with 401 and never reads the database | AssertionError: expected 200 to be 401 // Object.is equality
+restored: blob matches 7606149
+== M08-case-insensitive in src/pages/api/v1/guilds/[guildId]/messages.ts
+exit 1
+{"total":24,"passed":22,"failed":2,"success":false}
+  FAIL refuses a lowercase scheme with 401 and never reads the database | AssertionError: expected 200 to be 401 // Object.is equality
+  FAIL refuses the key in another case with 401 and never reads the database | AssertionError: expected 200 to be 401 // Object.is equality
+restored: blob matches 7606149
+== M08-case-insensitive in src/pages/api/v1/guilds/[guildId]/messages/[id].ts
+exit 1
+{"total":24,"passed":22,"failed":2,"success":false}
+  FAIL refuses a lowercase scheme with 401 and never reads the database | AssertionError: expected 200 to be 401 // Object.is equality
+  FAIL refuses the key in another case with 401 and never reads the database | AssertionError: expected 200 to be 401 // Object.is equality
+restored: blob matches 7606149
+== M09-trim in src/pages/api/v1/guilds/[guildId]/messages.ts
+exit 0
+{"total":24,"passed":24,"failed":0,"success":true}
+restored: blob matches 7606149
+== M09-trim in src/pages/api/v1/guilds/[guildId]/messages/[id].ts
+exit 0
+{"total":24,"passed":24,"failed":0,"success":true}
+restored: blob matches 7606149
+== typecheck (both programs), export 7606149 + patch
+exit 0
+== eslint --max-warnings=0 via stdin from the shared tree's config
+exit 0
+== ID-token class over the patched file (grep -ciE)
+0
+positive control:
+2
+== full suite, export + patch
+exit 0
+598 598 0 54 true

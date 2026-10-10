@@ -1,0 +1,464 @@
+{
+  "export": "/tmp/claude-1000/-usr-local-bin-hooks/54973e60-0dc5-4f6c-8440-a875af3ce672/scratchpad/exp",
+  "baseline": {
+    "exit": 0,
+    "total": 102,
+    "passed": 102,
+    "failedCount": 0,
+    "files": 8,
+    "failed": []
+  },
+  "mutants": [
+    {
+      "id": "M01-no-fail-closed-list",
+      "desc": "drop `!key ||`",
+      "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+      "result": {
+        "exit": 1,
+        "total": 102,
+        "passed": 100,
+        "failedCount": 2,
+        "files": 8,
+        "failed": [
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key fails closed when the server key is unset",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key fails closed when the server key is empty"
+        ]
+      },
+      "restored": true
+    },
+    {
+      "id": "M01-no-fail-closed-single",
+      "desc": "drop `!key ||`",
+      "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+      "result": {
+        "exit": 1,
+        "total": 102,
+        "passed": 100,
+        "failedCount": 2,
+        "files": 8,
+        "failed": [
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key fails closed when the server key is unset",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key fails closed when the server key is empty"
+        ]
+      },
+      "restored": true
+    },
+    {
+      "id": "M02-or-to-and-list",
+      "desc": "`||` -> `&&`",
+      "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+      "result": {
+        "exit": 1,
+        "total": 102,
+        "passed": 94,
+        "failedCount": 8,
+        "files": 8,
+        "failed": [
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses no authorization header with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses a wrong bearer with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses an empty bearer with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses the key without the Bearer scheme with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses the key under another scheme with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses an unauthenticated non-GET with 401, before the method check",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key fails closed when the server key is unset",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key fails closed when the server key is empty"
+        ]
+      },
+      "restored": true
+    },
+    {
+      "id": "M02-or-to-and-single",
+      "desc": "`||` -> `&&`",
+      "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+      "result": {
+        "exit": 1,
+        "total": 102,
+        "passed": 94,
+        "failedCount": 8,
+        "files": 8,
+        "failed": [
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses no authorization header with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses a wrong bearer with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses an empty bearer with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses the key without the Bearer scheme with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses the key under another scheme with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses an unauthenticated non-GET with 401, before the method check",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key fails closed when the server key is unset",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key fails closed when the server key is empty"
+        ]
+      },
+      "restored": true
+    },
+    {
+      "id": "M03-guard-removed-list",
+      "desc": "delete the guard line",
+      "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+      "result": {
+        "exit": 1,
+        "total": 102,
+        "passed": 94,
+        "failedCount": 8,
+        "files": 8,
+        "failed": [
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses no authorization header with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses a wrong bearer with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses an empty bearer with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses the key without the Bearer scheme with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses the key under another scheme with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses an unauthenticated non-GET with 401, before the method check",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key fails closed when the server key is unset",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key fails closed when the server key is empty"
+        ]
+      },
+      "restored": true
+    },
+    {
+      "id": "M03-guard-removed-single",
+      "desc": "delete the guard line",
+      "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+      "result": {
+        "exit": 1,
+        "total": 102,
+        "passed": 94,
+        "failedCount": 8,
+        "files": 8,
+        "failed": [
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses no authorization header with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses a wrong bearer with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses an empty bearer with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses the key without the Bearer scheme with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses the key under another scheme with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses an unauthenticated non-GET with 401, before the method check",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key fails closed when the server key is unset",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key fails closed when the server key is empty"
+        ]
+      },
+      "restored": true
+    },
+    {
+      "id": "M04-401-not-ended-list",
+      "desc": "`res.status(401).end()` -> `res.status(401)` (CR-1)",
+      "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+      "result": {
+        "exit": 0,
+        "total": 102,
+        "passed": 102,
+        "failedCount": 0,
+        "files": 8,
+        "failed": []
+      },
+      "restored": true
+    },
+    {
+      "id": "M04-401-not-ended-single",
+      "desc": "`res.status(401).end()` -> `res.status(401)` (CR-1)",
+      "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+      "result": {
+        "exit": 0,
+        "total": 102,
+        "passed": 102,
+        "failedCount": 0,
+        "files": 8,
+        "failed": []
+      },
+      "restored": true
+    },
+    {
+      "id": "M05-401-to-403-list",
+      "desc": "status 401 -> 403",
+      "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+      "result": {
+        "exit": 1,
+        "total": 102,
+        "passed": 94,
+        "failedCount": 8,
+        "files": 8,
+        "failed": [
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses no authorization header with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses a wrong bearer with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses an empty bearer with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses the key without the Bearer scheme with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses the key under another scheme with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses an unauthenticated non-GET with 401, before the method check",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key fails closed when the server key is unset",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key fails closed when the server key is empty"
+        ]
+      },
+      "restored": true
+    },
+    {
+      "id": "M05-401-to-403-single",
+      "desc": "status 401 -> 403",
+      "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+      "result": {
+        "exit": 1,
+        "total": 102,
+        "passed": 94,
+        "failedCount": 8,
+        "files": 8,
+        "failed": [
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses no authorization header with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses a wrong bearer with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses an empty bearer with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses the key without the Bearer scheme with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses the key under another scheme with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses an unauthenticated non-GET with 401, before the method check",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key fails closed when the server key is unset",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key fails closed when the server key is empty"
+        ]
+      },
+      "restored": true
+    },
+    {
+      "id": "M06-401-with-body-list",
+      "desc": "401 sends a JSON body",
+      "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+      "result": {
+        "exit": 1,
+        "total": 102,
+        "passed": 97,
+        "failedCount": 5,
+        "files": 8,
+        "failed": [
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses no authorization header with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses a wrong bearer with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses an empty bearer with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses the key without the Bearer scheme with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses the key under another scheme with 401 and never reads the database"
+        ]
+      },
+      "restored": true
+    },
+    {
+      "id": "M06-401-with-body-single",
+      "desc": "401 sends a JSON body",
+      "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+      "result": {
+        "exit": 1,
+        "total": 102,
+        "passed": 97,
+        "failedCount": 5,
+        "files": 8,
+        "failed": [
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses no authorization header with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses a wrong bearer with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses an empty bearer with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses the key without the Bearer scheme with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses the key under another scheme with 401 and never reads the database"
+        ]
+      },
+      "restored": true
+    },
+    {
+      "id": "M07-prefix-accept-list",
+      "desc": "exact match -> startsWith (accepts `Bearer <key><suffix>`)",
+      "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+      "result": {
+        "exit": 0,
+        "total": 102,
+        "passed": 102,
+        "failedCount": 0,
+        "files": 8,
+        "failed": []
+      },
+      "restored": true
+    },
+    {
+      "id": "M07-prefix-accept-single",
+      "desc": "exact match -> startsWith (accepts `Bearer <key><suffix>`)",
+      "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+      "result": {
+        "exit": 0,
+        "total": 102,
+        "passed": 102,
+        "failedCount": 0,
+        "files": 8,
+        "failed": []
+      },
+      "restored": true
+    },
+    {
+      "id": "M08-case-insensitive-list",
+      "desc": "case-insensitive compare (accepts `bearer <KEY>`)",
+      "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+      "result": {
+        "exit": 0,
+        "total": 102,
+        "passed": 102,
+        "failedCount": 0,
+        "files": 8,
+        "failed": []
+      },
+      "restored": true
+    },
+    {
+      "id": "M08-case-insensitive-single",
+      "desc": "case-insensitive compare (accepts `bearer <KEY>`)",
+      "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+      "result": {
+        "exit": 0,
+        "total": 102,
+        "passed": 102,
+        "failedCount": 0,
+        "files": 8,
+        "failed": []
+      },
+      "restored": true
+    },
+    {
+      "id": "M09-trim-list",
+      "desc": "trim the header before compare",
+      "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+      "result": {
+        "exit": 0,
+        "total": 102,
+        "passed": 102,
+        "failedCount": 0,
+        "files": 8,
+        "failed": []
+      },
+      "restored": true
+    },
+    {
+      "id": "M09-trim-single",
+      "desc": "trim the header before compare",
+      "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+      "result": {
+        "exit": 0,
+        "total": 102,
+        "passed": 102,
+        "failedCount": 0,
+        "files": 8,
+        "failed": []
+      },
+      "restored": true
+    },
+    {
+      "id": "M10-includes-key-list",
+      "desc": "header merely contains the key",
+      "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+      "result": {
+        "exit": 1,
+        "total": 102,
+        "passed": 100,
+        "failedCount": 2,
+        "files": 8,
+        "failed": [
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses the key without the Bearer scheme with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses the key under another scheme with 401 and never reads the database"
+        ]
+      },
+      "restored": true
+    },
+    {
+      "id": "M10-includes-key-single",
+      "desc": "header merely contains the key",
+      "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+      "result": {
+        "exit": 1,
+        "total": 102,
+        "passed": 100,
+        "failedCount": 2,
+        "files": 8,
+        "failed": [
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses the key without the Bearer scheme with 401 and never reads the database",
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses the key under another scheme with 401 and never reads the database"
+        ]
+      },
+      "restored": true
+    },
+    {
+      "id": "M11-method-first-list",
+      "desc": "method check before the guard",
+      "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+      "result": {
+        "exit": 1,
+        "total": 102,
+        "passed": 101,
+        "failedCount": 1,
+        "files": 8,
+        "failed": [
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (list) requires the Statbot key refuses an unauthenticated non-GET with 401, before the method check"
+        ]
+      },
+      "restored": true
+    },
+    {
+      "id": "M11-method-first-single",
+      "desc": "method check before the guard",
+      "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+      "result": {
+        "exit": 1,
+        "total": 102,
+        "passed": 101,
+        "failedCount": 1,
+        "files": 8,
+        "failed": [
+          "guildMessages.statbot-key-required.test.ts :: /api/v1 guild messages (single) requires the Statbot key refuses an unauthenticated non-GET with 401, before the method check"
+        ]
+      },
+      "restored": true
+    },
+    {
+      "id": "M12-400-not-ended-list",
+      "desc": "`res.status(400).end()` -> `res.status(400)`",
+      "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+      "result": {
+        "exit": 1,
+        "total": 102,
+        "passed": 100,
+        "failedCount": 2,
+        "files": 8,
+        "failed": [
+          "guildMessages.malformed-query.test.ts :: /api/v1 guild messages answer a malformed query with a completed 400 list, non-snowflake guild id",
+          "guildMessages.malformed-query.test.ts :: /api/v1 guild messages answer a malformed query with a completed 400 list, unexpected query key"
+        ]
+      },
+      "restored": true
+    },
+    {
+      "id": "M12-400-not-ended-single",
+      "desc": "`res.status(400).end()` -> `res.status(400)`",
+      "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+      "result": {
+        "exit": 1,
+        "total": 102,
+        "passed": 99,
+        "failedCount": 3,
+        "files": 8,
+        "failed": [
+          "guildMessages.malformed-query.test.ts :: /api/v1 guild messages answer a malformed query with a completed 400 single, non-snowflake guild id",
+          "guildMessages.malformed-query.test.ts :: /api/v1 guild messages answer a malformed query with a completed 400 single, non-numeric message id",
+          "guildMessages.malformed-query.test.ts :: /api/v1 guild messages answer a malformed query with a completed 400 single, unexpected query key"
+        ]
+      },
+      "restored": true
+    },
+    {
+      "id": "M13-codes-400-not-ended",
+      "desc": "`res.status(400).end()` -> `res.status(400)`",
+      "file": "src/pages/api/messages/codes/[code].ts",
+      "result": {
+        "exit": 1,
+        "total": 102,
+        "passed": 99,
+        "failedCount": 3,
+        "files": 8,
+        "failed": [
+          "messageCodes.malformed-query.test.ts :: /api/messages/codes/[code] answers a malformed query with a completed 400 an unexpected query key",
+          "messageCodes.malformed-query.test.ts :: /api/messages/codes/[code] answers a malformed query with a completed 400 a repeated code parameter",
+          "messageCodes.malformed-query.test.ts :: /api/messages/codes/[code] answers a malformed query with a completed 400 no code"
+        ]
+      },
+      "restored": true
+    }
+  ],
+  "after": {
+    "exit": 0,
+    "total": 102,
+    "passed": 102,
+    "failedCount": 0,
+    "files": 8,
+    "failed": []
+  }
+}

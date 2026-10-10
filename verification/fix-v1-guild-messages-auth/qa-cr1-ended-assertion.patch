@@ -1,0 +1,32 @@
+--- a/src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts
++++ b/src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts
+@@ -58,9 +58,13 @@
+     ['an empty bearer', { authorization: 'Bearer ' }],
+     ['the key without the Bearer scheme', { authorization: KEY }],
+     ['the key under another scheme', { authorization: `Basic ${KEY}` }],
++    ['the key with trailing characters', { authorization: `Bearer ${KEY}x` }],
++    ['a lowercase scheme', { authorization: `bearer ${KEY}` }],
++    ['the key in another case', { authorization: `Bearer ${KEY.toUpperCase()}` }],
+   ])('refuses %s with 401 and never reads the database', async (_case, headers) => {
+     const res = await call(path, query, headers);
+     expect(res.statusCode).toBe(401);
++    expect(res.ended).toBe(true);
+     expect(res.body).toBeUndefined();
+     expect(getPostgres).not.toHaveBeenCalled();
+   });
+@@ -68,6 +72,7 @@
+   it('refuses an unauthenticated non-GET with 401, before the method check', async () => {
+     const res = await call(path, query, {}, 'POST');
+     expect(res.statusCode).toBe(401);
++    expect(res.ended).toBe(true);
+   });
+ 
+   it('serves the rows for exactly `Bearer <key>`', async () => {
+@@ -83,6 +88,7 @@
+     vi.stubEnv('STATBOT_API_KEY', serverKey);
+     const res = await call(path, query, { authorization });
+     expect(res.statusCode).toBe(401);
++    expect(res.ended).toBe(true);
+     expect(getPostgres).not.toHaveBeenCalled();
+   });
+ });
