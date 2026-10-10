@@ -1,7 +1,7 @@
 ---
 UUID: 7be7102d
 Status: Open
-Status-Detail: "Carries the post-deploy rows B-3 (unauthenticated GET refused with 401) and B-4 (Statbot's own calls still succeed) for the website v1 guild-messages auth fix. Nothing is deployed yet; both rows wait on the release (website master f2c85f5 to ddbd750), which is not approved."
+Status-Detail: "Carries the post-deploy rows for the website v1 guild-messages auth fix, deployed at ddbd750. B-3 PASS (401, 16:52Z). B-4 (Statbot's own calls still succeed) is open, awaiting the owner's dashboard check."
 Owning-Stage: devops (Stage 2 post-release, for B-3 and B-4's fallback); the owner is B-4's observing subject
 Review-Trigger: when Vercel reports the production deployment of the website master push carrying ddbd750 as live
 ---
@@ -52,3 +52,4 @@ devops Stage 1, step 8, chain `fix-v1-guild-messages-auth`. The raising document
 | Date | Author | Change |
 |---|---|---|
 | 2026-10-10T15:47 | devops (Stage 1) | Created at the Stage 1 commit, carrying B-3 and B-4 from the chain register in full. |
+| 2026-10-10T16:52 | devops (Stage 2) | The trigger fired: master = ddbd750 on origin, and the owner said "Yes, it's live". **B-3 EXECUTED, PASS**: 401, 0 B, 16:52:28Z (`deployment/fix-v1-guild-messages-auth-deployment.md`). B-4 is open with the owner (OWNER-QUEUE). |
