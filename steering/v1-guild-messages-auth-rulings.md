@@ -25,3 +25,10 @@ defect, the unauthenticated v1 guild-messages endpoints; files `src/middleware.t
 `src/pages/api/v1/guilds/[guildId]/messages.ts`, `.../messages/[id].ts` plus their tests; `website` only, no
 other repo. No deploy or push until the owner's key check (OWNER-QUEUE) returns "match". Chain branch
 `fix/v1-guild-messages-auth` created by steering at f2c85f5 (tree was clean; chore/agent-comment-sweep untouched, merge still HELD).
+
+## 2026-10-10 — rider: 400 with no `.end()` (by selection) — SCOPE DELTA
+Fixer round 1 handed back at website `1acffee` (impl record c97dd96) and reported a second defect: in both v1
+handlers a ZodError hits `return res.status(400)` with no `.end()` (steering read it at `messages.ts` at 1acffee).
+Options: Add as a rider (recommended) / Separate handoff / Leave it. Chosen **Add as a rider**, by selection.
+Scope statement now also covers that 400 path in the same two handlers plus its test. Fixer round 2 on the same branch.
+Reviewer start: Fresh subagent (rec) / You spawn it / Hold → **Fresh subagent**, by selection; after the rider round.
