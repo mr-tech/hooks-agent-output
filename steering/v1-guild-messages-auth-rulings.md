@@ -1,5 +1,7 @@
 # Rulings — v1 guild-messages endpoints unauthenticated (handoff 8818bd89; no chain yet)
 
+Steering session alias chain: steering-new → steering-H (renamed by the owner 2026-10-10).
+
 ## 2026-10-10 — "sort the handoffs by impact / severity and address the top one"
 Owner's words, verbatim. Steering ranked the 9 Open handoffs; top = `handoff/v1-guild-messages-endpoints-unauthenticated-2026-08-24.md`.
 
@@ -41,3 +43,7 @@ selection. This is the fixer's THIRD round; the option text named it as a fixer 
 recorded as the owner's "continue as fixer". The question was not put separately. Scope now also covers that one
 400 path plus its test. After round 3: code review re-runs on the new SHA, then QA.
 QA start: Fresh subagent (rec) / You spawn it / Hold → **Fresh subagent**, by selection.
+
+## 2026-10-10 — QA Phase 2: QA Complete at website 7606149 (`qa/fix-v1-guild-messages-auth-qa.md`, 9b4de7e)
+QAF-1 (test-only patch) sent to the fixer to land; QA's blob check discharges it. Blocking release conditions
+B-1 (owner key check, on OWNER-QUEUE) and B-2 (HOOKS_HOST on both Statbot hosts). Post-deploy B-3 and B-4. The register lives in the QA document.
