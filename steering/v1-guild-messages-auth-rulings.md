@@ -85,3 +85,9 @@ Steering ran the read once, unchanged in scope (path tokens only, no values prin
 copies the checkout to and runs from `/usr/local/bin/$APP_NAME/deployed/$ENV`, and its `ecosystem.config.js` loads dotenv's
 default `.env` from there. `$APP_NAME` and `$ENV` are not set in the files read. statbot-statrole-remake has no deploy script;
 its `ecosystem.config.js` loads the default `.env` with no cwd. So neither host's path is fully established.
+
+## 2026-10-10 — waiver widened: devops may locate the env files (by selection)
+Options: I'll give the paths (rec) / I'll run the greps myself / Let devops find them / Hold. Chosen **Let devops find them**, by
+selection, not his words. Binding content as the option stated it: the waiver now also covers, on the statbot-api host and the statroles
+host, a read that prints only file paths, never values. Examples given: `ls -d /usr/local/bin/*/deployed/*/.env` and pm2's working
+directory for the two apps. After that, devops runs the two count-only greps.
