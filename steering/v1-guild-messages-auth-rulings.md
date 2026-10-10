@@ -91,3 +91,9 @@ Options: I'll give the paths (rec) / I'll run the greps myself / Let devops find
 selection, not his words. Binding content as the option stated it: the waiver now also covers, on the statbot-api host and the statroles
 host, a read that prints only file paths, never values. Examples given: `ls -d /usr/local/bin/*/deployed/*/.env` and pm2's working
 directory for the two apps. After that, devops runs the two count-only greps.
+
+## 2026-10-10 — B-1 answered: key match (his words)
+Asked via OWNER-QUEUE (f7767c0): compare Vercel Production `STATBOT_API_KEY` with `HOOKS_API_KEY` in statbot-api
+production-blue, production-green, production-premium `.env` and statroles `/usr/local/bin/statbot-statrole-remake/.env`,
+byte for byte; answer "match" or "differ / unset". Asked 2026-10-10 after f7767c0; answered 2026-10-10T15:46Z, his words: "match".
+No values were pasted or recorded. Relayed to devops verbatim for its B-1 gate.
