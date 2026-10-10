@@ -62,3 +62,9 @@ byte-identical to 7606149 — steering read all three). Steering observation on 
 (line ~330, "QAF-1 landed") says the QA document names no hash, but it does (qa doc, Discharge bullet). Its hand-back
 also gave its record commit as 314ee9c, which is steering's own commit; the real one is a39b97c. Neither changes the result.
 Devops options: Fresh subagent (rec) / You spawn it / Hold → **Fresh subagent**, by selection. Stage 1 only.
+
+## 2026-10-10 — devops Stage 1 blocked; owner: "Just have the subagent prompt me"
+Devops Stage 1 (b5e3a1a) stopped at its blocking-conditions gate on B-1 and B-2. It ran no host read or curl, because its definition
+needs the sanction given in its own session. Asked who runs B-2 and the curl (You spawn devops session / I'll run them myself /
+Hold), the owner answered in his own words: "Just have the subagent prompt me". Relayed verbatim. The subagent reported that no tool
+in its run reaches him (no AskUserQuestion) and changed nothing. Back to the owner.
