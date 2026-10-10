@@ -55,3 +55,10 @@ devops runs `grep -cx 'HOOKS_HOST=hooks.gg' <env file>` on statbot-api and statr
 Probe options: Yes, both (rec) / Only the post-deploy 401 / Neither → **Yes, both**: devops may send exactly
 `curl -sI http://hooks.gg/` before deploy and one unauthenticated GET to
 `https://hooks.gg/api/v1/guilds/9999999999999999999/messages` after deploy (expect 401); nothing else.
+
+## 2026-10-10 — QAF-1 landed; devops Stage 1 as subagent (by selection)
+Fixer landed QAF-1 at website ddbd750 (one path; blob 7dcbfa69… equals the hash the QA document names; production files
+byte-identical to 7606149 — steering read all three). Steering observation on the fixer: its implementation record
+(line ~330, "QAF-1 landed") says the QA document names no hash, but it does (qa doc, Discharge bullet). Its hand-back
+also gave its record commit as 314ee9c, which is steering's own commit; the real one is a39b97c. Neither changes the result.
+Devops options: Fresh subagent (rec) / You spawn it / Hold → **Fresh subagent**, by selection. Stage 1 only.
