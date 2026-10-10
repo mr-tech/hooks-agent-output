@@ -47,3 +47,11 @@ QA start: Fresh subagent (rec) / You spawn it / Hold → **Fresh subagent**, by 
 ## 2026-10-10 — QA Phase 2: QA Complete at website 7606149 (`qa/fix-v1-guild-messages-auth-qa.md`, 9b4de7e)
 QAF-1 (test-only patch) sent to the fixer to land; QA's blob check discharges it. Blocking release conditions
 B-1 (owner key check, on OWNER-QUEUE) and B-2 (HOOKS_HOST on both Statbot hosts). Post-deploy B-3 and B-4. The register lives in the QA document.
+
+## 2026-10-10 — B-2 and production probes (by selection)
+B-2 options: Devops reads, count only (rec) / I'll check it myself / Hold → **Devops reads, count only**: at release
+devops runs `grep -cx 'HOOKS_HOST=hooks.gg' <env file>` on statbot-api and statroles prod hosts over claude-ro
+(prod-ro-access), expects 1, never prints the value, writes nothing.
+Probe options: Yes, both (rec) / Only the post-deploy 401 / Neither → **Yes, both**: devops may send exactly
+`curl -sI http://hooks.gg/` before deploy and one unauthenticated GET to
+`https://hooks.gg/api/v1/guilds/9999999999999999999/messages` after deploy (expect 401); nothing else.
