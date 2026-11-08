@@ -1,0 +1,192 @@
+diff --git a/ecosystem.config.js b/ecosystem.config.js
+index 23fa6c7..9dce629 100644
+--- a/ecosystem.config.js
++++ b/ecosystem.config.js
+@@ -25 +25 @@ module.exports = {
+-    kill_timeout: 5000,
++    kill_timeout: 12000,
+diff --git a/src/config.ts b/src/config.ts
+index 2cb7e38..508f0da 100644
+--- a/src/config.ts
++++ b/src/config.ts
+@@ -0,0 +1,5 @@
++if (!process.env.API_KEY) {
++  console.error('API_KEY is not set. Refusing to start.');
++  process.exit(2);
++}
++
+@@ -10 +15 @@ const env = {
+-  API_KEY: `Bearer ${process.env.API_KEY ?? ''}`,
++  API_KEY: `Bearer ${process.env.API_KEY}`,
+diff --git a/src/generateImage.ts b/src/generateImage.ts
+index db7cc43..c375f39 100644
+--- a/src/generateImage.ts
++++ b/src/generateImage.ts
+@@ -22 +22,2 @@ async function generateMessagePreviewImage(browser: Browser, data: Record<string
+-  await page.setViewport({ width: 720, height: 840, deviceScaleFactor: 1 / 3.75 });
++  try {
++    await page.setViewport({ width: 720, height: 840, deviceScaleFactor: 1 / 3.75 });
+@@ -24,2 +25,2 @@ async function generateMessagePreviewImage(browser: Browser, data: Record<string
+-  const url = new URL(config.PREVIEW_ENDPOINT);
+-  url.searchParams.append('data', JSON.stringify(data));
++    const url = new URL(config.PREVIEW_ENDPOINT);
++    url.searchParams.append('data', JSON.stringify(data));
+@@ -27 +28 @@ async function generateMessagePreviewImage(browser: Browser, data: Record<string
+-  await page.goto(url.toString(), { waitUntil: 'networkidle0' });
++    await page.goto(url.toString(), { waitUntil: 'networkidle0' });
+@@ -29,8 +30,7 @@ async function generateMessagePreviewImage(browser: Browser, data: Record<string
+-  const image = await page.screenshot({
+-    type: 'jpeg',
+-    quality: 90,
+-  });
+-
+-  await page.close();
+-
+-  return image;
++    return await page.screenshot({
++      type: 'jpeg',
++      quality: 90,
++    });
++  } finally {
++    await page.close().catch((err) => { console.error(err); });
++  }
+@@ -60 +59,0 @@ export default async (
+-  const imagePromise = getPool().use((p) => generateMessagePreviewImage(p, message));
+@@ -62 +61,4 @@ export default async (
+-  await deleteMessagePreviewImages(messageId);
++  const [image] = await Promise.all([
++    getPool().use((p) => generateMessagePreviewImage(p, message)),
++    deleteMessagePreviewImages(messageId),
++  ]);
+@@ -68 +70 @@ export default async (
+-    Body: await imagePromise,
++    Body: image,
+diff --git a/src/getPool.ts b/src/getPool.ts
+index f9ffd77..8d98c24 100644
+--- a/src/getPool.ts
++++ b/src/getPool.ts
+@@ -18,0 +19,6 @@ interface Config extends GenericPoolOptions {
++type WaitingQueue = { dequeue?: () => undefined | { reject: (err: unknown) => void } };
++const waitingQueueDequeue = (pool: Pool<Browser>) => {
++  const queue = (pool as unknown as { _waitingClientsQueue?: WaitingQueue })._waitingClientsQueue;
++  return queue?.dequeue?.bind(queue);
++};
++
+@@ -46 +52 @@ const createPool = ({
+-        return null;
++        throw err;
+@@ -79,15 +85,7 @@ const createPool = ({
+-  pool.use = (fn) => {
+-    let resource: Browser;
+-    return pool.acquire()
+-      .then((r) => {
+-        resource = r;
+-        return resource;
+-      })
+-      .then(fn)
+-      .then(async (result) => {
+-        await pool.release(resource);
+-        return result;
+-      }, async (err) => {
+-        await pool.release(resource);
+-        throw err;
+-      });
++  pool.use = async (fn) => {
++    const resource = await pool.acquire();
++    try {
++      return await fn(resource);
++    } finally {
++      await pool.release(resource);
++    }
+@@ -95,0 +94,3 @@ const createPool = ({
++  const dequeueWaiting = waitingQueueDequeue(pool);
++  if (dequeueWaiting) pool.on('factoryCreateError', (err) => { dequeueWaiting()?.reject(err); });
++
+@@ -140,0 +142,10 @@ const minimal_args = [
++export const checkPoolShape = () => {
++  const probe = genericPool.createPool<Browser>({
++    create: () => Promise.reject(new Error('shape probe')),
++    destroy: () => Promise.resolve(),
++  }, { autostart: false, min: 0, max: 1 });
++  if (!waitingQueueDequeue(probe)) {
++    console.error('generic-pool no longer exposes _waitingClientsQueue.dequeue, which the browser-launch failure handler needs. A failed browser launch will not reject the waiting request.');
++  }
++};
++
+@@ -141,0 +153 @@ const globalForPool = { pool: null as unknown as Pool<Browser> };
++export const getExistingPool = () => globalForPool.pool ?? null;
+diff --git a/src/server.ts b/src/server.ts
+index b3dd64e..e52e5cd 100644
+--- a/src/server.ts
++++ b/src/server.ts
+@@ -5 +5 @@ import generateImage from './generateImage';
+-import getPool from './getPool';
++import { checkPoolShape, getExistingPool } from './getPool';
+@@ -22,5 +22,10 @@ function processImage(req: IncomingMessage, res: ServerResponse) {
+-    const parsedBody = JSON.parse(body) as {
+-      id: string;
+-      nonce: string;
+-      message: Record<string, unknown>;
+-    };
++    let parsedBody: { id: string, nonce: string, message: Record<string, unknown> };
++    try {
++      parsedBody = JSON.parse(body) as typeof parsedBody;
++      if (typeof parsedBody !== 'object' || parsedBody === null) throw new TypeError('Request body is not an object.');
++    } catch (err) {
++      res.writeHead(500);
++      res.end();
++      console.error(err);
++      return;
++    }
+@@ -49,0 +55,34 @@ const server = http.createServer((req, res) => {
++let shutdownStarted = false;
++
++async function shutdown(trigger: string) {
++  if (shutdownStarted) return;
++  shutdownStarted = true;
++  const start = Date.now();
++  console.debug(`Server received ${trigger}. Closing server.`);
++  setTimeout(() => { process.exit(0); }, 10e3);
++  const pool = getExistingPool();
++  try {
++    await Promise.all([
++      new Promise((resolve) => {
++        server.close(() => {
++          console.debug('Server closed.');
++          resolve(null);
++        });
++        server.closeIdleConnections();
++      }),
++      pool ? pool.drain().then(() => pool.clear()) : Promise.resolve(),
++    ]);
++    console.debug(`Drain complete in ${Date.now() - start}ms.`);
++  } catch (err) {
++    console.debug(`Drain failed after ${Date.now() - start}ms: ${err instanceof Error ? err.message : String(err)}`);
++    console.error(err);
++  }
++  process.exit(0);
++}
++
++process.on('message', (message) => {
++  if (message === 'shutdown') void shutdown('shutdown message');
++});
++process.on('SIGINT', () => { void shutdown('SIGINT'); });
++
++checkPoolShape();
+@@ -53 +91,0 @@ server.listen(Number(config.SERVER_PORT), config.SERVER_HOST, () => {
+-  process.on('SIGINT', () => { void shutdown(); });
+@@ -55,14 +92,0 @@ server.listen(Number(config.SERVER_PORT), config.SERVER_HOST, () => {
+-
+-async function shutdown() {
+-  console.debug(new Date(), 'Server received SIGINT. Closing server.');
+-  setTimeout(() => { process.exit(0); }, 10e3);
+-  await Promise.all([
+-    new Promise((resolve) => {
+-      server.close(() => {
+-        console.debug(new Date(), 'Server closed.');
+-        resolve(null);
+-      });
+-    }),
+-    getPool().drain(),
+-  ]);
+-}

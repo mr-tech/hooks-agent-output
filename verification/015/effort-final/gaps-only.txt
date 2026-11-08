@@ -1,0 +1,374 @@
+GAP	bot/scripts/app_commands/common.ts:10-13	
+    -function isSlashCommand(commandType: CommandType, command: SlashCommand | UserCommand | MessageCommand): comm
+    +function isSlashCommand(
+    +  commandType: CommandType,
+    +  command: SlashCommand | UserCommand | MessageCommand,
+    +): command is SlashCommand {
+GAP	src/app/_navigation/Redirects/Server.tsx:1-1	
+    +import { cookies, headers } from 'next/headers';
+GAP	src/app/_navigation/Redirects/Server.tsx:2-3	
+    -import { headers } from 'next/headers';
+    -
+    -import parseServerCookies from '~/utils/parseServerCookies';
+GAP	src/app/message/_layout/Header.tsx:29-29	
+    +import formatMessageDate from '~/utils/formatMessageDate';
+GAP	src/app/message/_layout/Header.tsx:31-32	
+    -function getDateString(timestamp: string | number) {
+    -  const messageDate = new Date(timestamp);
+    -  if (messageDate.getDate() === new Date().getDate()) {
+    -    return messageDate.toLocaleTimeString(undefined, {
+    -      hour: 'numeric', minute: 'numeric', second: undefined,
+    -    });
+    -  }
+    -  return messageDate.toLocaleDateString(undefined, {
+GAP	src/app/message/_layout/Header.tsx:154-154	
+    -                              {getDateString(msg.updatedAt)}
+    +                              {formatMessageDate(msg.updatedAt)}
+GAP	src/app/message/_layout/Header.tsx:192-192	
+    -                              {getDateString(msg.updatedAt)}
+    +                              {formatMessageDate(msg.updatedAt)}
+GAP	src/app/message/f/[id]/page.tsx:46-46	
+    +import formatMessageDate from '~/utils/formatMessageDate';
+GAP	src/app/message/f/[id]/page.tsx:54-55	
+    -function getDateString(timestamp: string | number) {
+    -  const messageDate = new Date(timestamp);
+    -  if (messageDate.getDate() === new Date().getDate()) {
+    -    return `Today at ${messageDate.toLocaleTimeString(undefined, {
+    -      hour: 'numeric', minute: 'numeric', second: undefined,
+    -    })}`;
+    -  }
+    -  return messageDate.toLocaleDateString(undefined, {
+GAP	src/app/message/f/[id]/page.tsx:179-181	
+    -  const { isFetching: isCopying, data: copyData, error: copyError } = api.message.getOne.useQuery(copyMessage
+    +  const {
+    +    isFetching: isCopying, data: copyData, error: copyError,
+    +  } = api.message.getOne.useQuery(copyMessageId, {
+GAP	src/app/message/f/[id]/page.tsx:391-391	
+    -                        {`${orderProp === 'name' ? 'Last Modified: ' : ''}${getDateString(orderProp === 'crea
+    +                        {`${orderProp === 'name' ? 'Last Modified: ' : ''}${formatMessageDate(orderProp === '
+GAP	src/app/message/f/[id]/page.tsx:499-499	
+    -                        <div className='text-xs'>{`${orderProp === 'name' ? 'Last Modified: ' : ''}${getDateS
+    +                        <div className='text-xs'>{`${orderProp === 'name' ? 'Last Modified: ' : ''}${formatMe
+GAP	src/app/message/m/[id]/_components/JsonModalBody.tsx:3-3	
+    -import { useEffect, useState } from 'react';
+    +import { useEffect, useMemo, useState } from 'react';
+GAP	src/app/message/m/[id]/_components/JsonModalBody.tsx:37-44	
+    +function toCopyText(str: string) {
+    +  try {
+    +    return JSON.stringify(discordMessageImportShape.parse(JSON.parse(str)), null, 2);
+    +  } catch (e) {
+    +    return null;
+    +  }
+    +}
+    +
+GAP	src/app/message/m/[id]/_components/JsonModalBody.tsx:58-58	
+    +  const copyText = useMemo(() => toCopyText(messageString), [messageString]);
+GAP	src/app/message/m/[id]/_components/SaveAsMenu.tsx:3-5	
+    -import { memo, useCallback, useState } from 'react';
+    +import {
+    +  memo, useCallback, useEffect, useState,
+    +} from 'react';
+GAP	src/app/message/m/[id]/_components/SaveAsMenu.tsx:32-33	
+    -  const [messageName, setMessageName] = useState(message.name === 'New Message' ? message.name : `${message.n
+    +  const proposedName = message.name === 'New Message' ? message.name : `${message.name} Copy`;
+    +  const [messageName, setMessageName] = useState(proposedName);
+GAP	src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx:33-33	
+    +import { INVALID_URL_ERROR } from '~/constants';
+GAP	src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx:272-272	
+    -          onChange={setSelectedCategory}
+    +          onChange={setPickedCategory}
+GAP	src/app/message/m/[id]/send/page.tsx:37-37	
+    -import { useToggleState } from '~/utils/hooks';
+    +import { useLoading, useToggleState } from '~/utils/hooks';
+GAP	src/app/message/m/[id]/send/page.tsx:93-93	
+    -      const res = await sendWebhook({
+    +      const res = await withSending(sendWebhook({
+GAP	src/app/message/m/[id]/send/page.tsx:302-302	
+    -          <div className="text-warning text-sm font-semibold">
+    +          <div className="text-sm font-semibold text-warning">
+GAP	src/app/message/m/[id]/send/page.tsx:305-305	
+    -          <div className="text-text-normal mt-1 text-sm">
+    +          <div className="mt-1 text-sm text-text-normal">
+GAP	src/app/preview/page.tsx:30-31	
+    +  const data = parseMessageData(query);
+    +
+GAP	src/components/BottomPortal.tsx:7-8	
+    -import { useMount } from 'react-use';
+GAP	src/components/BottomPortal.tsx:136-138	
+    -  TitleIcon?: FC<{ className?: undefined | string }> | ComponentClass<{ className?: undefined | string }>;
+    +  TitleIcon?:
+    +  | FC<{ className?: undefined | string }>
+    +  | ComponentClass<{ className?: undefined | string }>;
+GAP	src/components/BottomPortal.tsx:173-175	
+    -      setChildrenProps((prev) => (prev.some((p) => p.id === id) ? prev.filter((p) => p.id !== id) : prev));
+    +      setChildrenProps((prev) => (
+    +        prev.some((p) => p.id === id) ? prev.filter((p) => p.id !== id) : prev
+    +      ));
+GAP	src/components/Button.tsx:10-11	
+    -import { useMount } from 'react-use';
+GAP	src/components/Button.tsx:36-36	
+    -  const {
+    -    children, className, style, autoFocus,
+    -  } = props;
+    +  const { children, className, style } = props;
+GAP	src/components/Button.tsx:54-55	
+    -  useMount(() => { if (autoFocus) localRef.current?.focus(); });
+    -
+GAP	src/components/DiscordMessageEditor/components/Author.tsx:6-8	
+    -import { memo, useCallback, useState } from 'react';
+    -import { useMount } from 'react-use';
+    +import {
+    +  memo, useCallback, useEffect, useState,
+    +} from 'react';
+GAP	src/components/DiscordMessageEditor/components/Author.tsx:43-43	
+    -  useMount(() => {
+    +  useEffect(() => {
+GAP	src/components/DiscordMessageEditor/components/Author.tsx:45-45	
+    +    let interval: undefined | ReturnType<typeof setInterval>;
+GAP	src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx:6-7	
+    +import { intToHex } from '~/utils';
+    +
+GAP	src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx:5-6	
+    -import { useMount } from 'react-use';
+GAP	src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx:49-49	
+    -  const setIconUrl = useCallback((val: EmbedFooterType['icon_url']) => _setIconUrl(val || undefined), [_setIc
+    +  const setIconUrl = useCallback((val: EmbedFooterType['icon_url']) => _setIconUrl(val === '' ? undefined : v
+GAP	src/components/DiscordMessageEditor/index.tsx:9-9	
+    -  memo, use, useCallback, useMemo, useRef,
+    +  memo, use, useCallback, useEffect, useMemo, useRef,
+GAP	src/components/DiscordMessageEditor/index.tsx:10-11	
+    -import { useMount } from 'react-use';
+GAP	src/components/DiscordMessageEditor/index.tsx:40-40	
+    -  genUuid,
+    +  countTotalComponents, genUuid,
+GAP	src/components/DiscordMessageEditor/index.tsx:42-42	
+    -  rekeyComponent, validateContentRequirements,
+    +  rekeyComponent, validateComponentCount, validateContentRequirements,
+GAP	src/components/DiscordMessageEditor/index.tsx:59-60	
+    -function countTotalComponents(components: EditableTopLevelComponent[]): number {
+    -  let count = 0;
+    -  for (const c of components) {
+    -    count += 1;
+    -    if ('accessory' in c && c.accessory) count += 1;
+    -    if ('components' in c && Array.isArray(c.components)) {
+    -      count += (c.components as EditableTopLevelComponent[]).length;
+    -      // Recurse for containers (which hold children that may have sub-components)
+GAP	src/components/ImageUploader.tsx:18-18	
+    -
+    -const ANIMATED_EXTENSIONS = ['webm', 'gif', 'apng'];
+    -const VALID_EXTENSIONS = ['png', 'jpg', 'tiff', ...ANIMATED_EXTENSIONS].map((ext) => `.${ext}`);
+    -
+    -function isValidImageUrl(url: string) {
+    -  return VALID_EXTENSIONS.some((ext) => url.includes(ext));
+    -}
+    +import isValidImageUrl from '~/utils/isValidImageUrl';
+GAP	src/constants/index.ts:44-45	
+    -export const MAX_EMBED_AUTHOR_NAME_LENGTH = 256 as const;
+    -export const MAX_EMBED_FOOTER_TEXT_LENGTH = 256 as const;
+    -
+GAP	src/constants/index.ts:47-48	
+    -export const MAX_TOTAL_COMPONENTS = 40 as const;
+GAP	src/pages/api/cron.ts:26-26	
+    -    .where('ScheduledMessages.error', '=', null)
+    +    .where('ScheduledMessages.error', 'is', null)
+GAP	src/providers/MessageProvider/usePusher.ts:3-3	
+    +import { useLatest } from 'react-use';
+GAP	src/providers/WebhookProvider.tsx:11-11	
+    +import { MESSAGE_LOAD_FAILED_ERROR } from '~/constants';
+GAP	src/providers/WebhookProvider.tsx:16-16	
+    +import parseMessageId from '~/utils/parseMessageId';
+GAP	src/providers/WebhookProvider.tsx:62-63	
+    -  useUpdateEffect(voided(async () => {
+    +  useUpdateEffect(() => {
+    +    let isStale = false;
+GAP	src/providers/WebhookProvider.tsx:79-80	
+    -
+    -    return undefined;
+    -  }), [url]);
+    +    return () => { isStale = true; };
+    +  }, [url]);
+GAP	src/providers/WebhookProvider.tsx:139-140	
+    -  }), [selectedWebhook, messageIdOrUrl, threadId]);
+    +    return () => { isStale = true; };
+    +  }, [selectedWebhook, messageIdOrUrl, threadId]);
+GAP	src/server/api/utils/authorizeGuildUser.ts:13-13	
+    +  if (!messageIds.length) return [];
+GAP	src/server/api/utils/shapes.ts:37-37	
+    -export const userOrDiscordIdShape = z.string().regex(/^(0|[0-9]{17,23}$)/);
+    +export const userOrDiscordIdShape = z.string().regex(/^(0|[0-9]{17,23})$/);
+GAP	src/server/api/utils/shapes.ts:129-129	
+    -const embedShape = z.object({
+    +export const embedShape = z.object({
+GAP	src/server/api/utils/shapes.ts:160-162	
+    -function sumDisplayableText(components: { type: number, content?: string, components?: unknown[] }[]): number
+    +function sumDisplayableText(
+    +  components: { type: number, content?: string, components?: unknown[] }[],
+    +): number {
+GAP	src/server/api/utils/shapes.ts:244-247	
+    -function filterActionRowButtons(row: Record<string, unknown>, dropped?: Set<string>): Record<string, unknown>
+    +function filterActionRowButtons(
+    +  row: Record<string, unknown>,
+    +  dropped?: Set<string>,
+    +): Record<string, unknown> | null {
+GAP	src/server/api/utils/shapes.ts:258-261	
+    -function filterSection(section: Record<string, unknown>, dropped?: Set<string>): Record<string, unknown> | nu
+    +function filterSection(
+    +  section: Record<string, unknown>,
+    +  dropped?: Set<string>,
+    +): Record<string, unknown> | null {
+GAP	src/server/api/utils/shapes.ts:269-272	
+    -function filterContainerChild(child: Record<string, unknown>, dropped?: Set<string>): Record<string, unknown>
+    +function filterContainerChild(
+    +  child: Record<string, unknown>,
+    +  dropped?: Set<string>,
+    +): Record<string, unknown> | null {
+GAP	src/server/api/utils/shapes.ts:321-323	
+    -export function describeDroppedComponentTypesNotice(droppedComponentTypes: readonly string[]): string {
+    +export function describeDroppedComponentTypesNotice(
+    +  droppedComponentTypes: readonly string[],
+    +): string {
+GAP	src/server/api/utils/shared.ts:106-107	
+    +  if (!messageIds.length) return [];
+    +
+GAP	src/server/api/utils/shared.ts:157-157	
+    -  const messages = await getPostgres()
+    +  const query = getPostgres()
+GAP	src/server/api/utils/shared.ts:175-176	
+    -    .execute();
+    +    : query.where('Messages.fk_users_id', '=', userId)
+    +  ).execute();
+GAP	src/server/api/utils/user.ts:15-15	
+    +    if (!messageIds.length) return { account, oldMessageCount: 0 };
+GAP	src/server/auth.ts:60-60	
+    -async function removeUserSession(sessionToken: string, userDbId: string) {
+    +async function revokeAccessToken(accessToken: string) {
+GAP	src/server/auth.ts:67-67	
+    +  urlencoded.append('token', accessToken);
+GAP	src/server/auth.ts:138-138	
+    -    const messagePromise = preferences?.recentMessageIds
+    +    const messagePromise = Promise.resolve(preferences?.recentMessageIds
+GAP	src/server/auth.ts:220-222	
+    -    signIn: async ({ user, account, profile, isNewUser }) => {
+    +    signIn: async ({
+    +      user, account, profile, isNewUser,
+    +    }) => {
+GAP	src/utils/discordResponseToMessage.ts:159-163	
+    -    message.avatar_url = constructImageUrl(discordMessage.author.id, discordMessage.author.avatar, discordMes
+    +    message.avatar_url = constructImageUrl(
+    +      discordMessage.author.id,
+    +      discordMessage.author.avatar,
+    +      discordMessage.author.discriminator,
+    +    );
+GAP	src/utils/getCDNUrl.ts:1-1	
+    -export default () => `${process.env.NEXT_PUBLIC_CDN_HOST ?? ''}${process.env.NODE_ENV === 'development' ? '/d
+    +export default () => `${process.env.NEXT_PUBLIC_CDN_HOST ?? ''}${process.env.NEXT_PUBLIC_CDN_PORT ? `:${proce
+GAP	src/utils/hooks/index.ts:7-8	
+    -import { useMount } from 'react-use';
+GAP	src/utils/hooks/useValidateWebhook.ts:7-7	
+    +import { INVALID_URL_ERROR, MESSAGE_LOAD_FAILED_ERROR } from '~/constants';
+GAP	src/utils/hooks/useValidateWebhook.ts:11-11	
+    +import parseMessageId from '~/utils/parseMessageId';
+GAP	src/utils/hooks/useValidateWebhook.ts:24-25	
+    -  useEffect(voided(async () => {
+    +  useEffect(() => {
+    +    let isStale = false;
+GAP	src/utils/hooks/useValidateWebhook.ts:43-44	
+    -  }), [url]);
+    +    return () => { isStale = true; };
+    +  }, [url]);
+GAP	src/utils/hooks/useValidateWebhook.ts:46-47	
+    -  useEffect(voided(async () => {
+    +  useEffect(() => {
+    +    let isStale = false;
+GAP	src/utils/hooks/useValidateWebhook.ts:71-72	
+    -  }), [webhook, url, messageIdOrUrl]);
+    +    return () => { isStale = true; };
+    +  }, [webhook, url, messageIdOrUrl]);
+GAP	src/utils/limits.tsx:8-9	
+    -  MAX_EMBED_CHARACTERS, MAX_EMBED_DESCRIPTION_LENGTH, MAX_EMBED_FIELD_NAME_LENGTH,
+    +  MAX_EMBED_AUTHOR_NAME_LENGTH, MAX_EMBED_CHARACTERS, MAX_EMBED_DESCRIPTION_LENGTH,
+    +  MAX_EMBED_FIELD_NAME_LENGTH,
+GAP	src/utils/limits.tsx:11-11	
+    -  MAX_NAME_LENGTH, MIN_NAME_LENGTH, V2_COMPONENT_TYPE_VALUES,
+    +  MAX_NAME_LENGTH, MAX_TOTAL_COMPONENTS, MIN_NAME_LENGTH, V2_COMPONENT_TYPE_VALUES,
+GAP	src/utils/limits.tsx:43-48	
+    -function sumDisplayableText(components: { type: number; content?: string; components?: { type: number; conten
+    +function sumDisplayableText(
+    +  components: {
+    +    type: number; content?: string;
+    +    components?: { type: number, content?: string, components?: unknown[] }[];
+    +  }[],
+    +): number {
+GAP	src/utils/limits.tsx:61-63	
+    -  const total = sumDisplayableText(components as unknown as Parameters<typeof sumDisplayableText>[0]);
+    +  const total = sumDisplayableText(
+    +    components as unknown as Parameters<typeof sumDisplayableText>[0],
+    +  );
+GAP	src/utils/limits.tsx:137-138	
+    -function validateEmbed(embed: Embed) {
+    -  return validateEmbedAuthor(embed.author)
+    -  && validateEmbedTitle(embed.title, embed.url)
+    -  && embed.fields?.map(validateEmbedField);
+    -}
+    -
+GAP	src/utils/limits.tsx:170-172	
+    -  const displayableTextError = validateDisplayableTextCount(components as SupportedTopLevelComponent[]);
+    +  const displayableTextError = validateDisplayableTextCount(
+    +    components as SupportedTopLevelComponent[],
+    +  );
+GAP	src/utils/markdown/rules.tsx:89-89	
+    -      return SimpleMarkdown.inlineRegex(/^```(([a-z0-9-]+?)\n+)?\n*([^\n]+?)\n*```/i)(source, state, prev);
+    +      return SimpleMarkdown.inlineRegex(new RegExp(`^${FENCE}`, 'i'))(source, state, prev);
+GAP	src/utils/parseMessageId.ts:0-1	
+    -import { headers } from 'next/headers';
+    -
+    -export default async () => {
+    -  const sessionCookie = (await headers()).get('cookie');
+    -
+    -  const map = new Map<string, string>();
+    -  if (sessionCookie) {
+    -    for (const cookie of sessionCookie.split(';')) {
+GAP	src/utils/redis/index.ts:59-60	
+    -    const item = await getItem<T>(key);
+    -    if (item) resolveDeferred(key, item, WAITING_MAP.get(key) ?? []);
+    +    const cached = await getItem<T>(key);
+    +    if (cached) resolveDeferred(key, cached.item, WAITING_MAP.get(key) ?? []);
+GAP	src/utils/redis/index.ts:66-68	
+    -  const item = await getItem<T>(key);
+    -  if (item) {
+    -    resolveDeferred(key, item, WAITING_MAP.get(key) ?? []);
+    +  const cached = await getItem<T>(key);
+    +  if (cached) {
+    +    resolveDeferred(key, cached.item, WAITING_MAP.get(key) ?? []);
+GAP	src/utils/redis/index.ts:75-75	
+    -async function getItem<T>(key: string): Promise<T | null> {
+    +async function getItem<T>(key: string): Promise<{ item: T } | null> {
+GAP	src/utils/redis/index.ts:80-80	
+    -      return (typeof item === 'object' && !!item ? decompress(item) : item) as T;
+    +      return { item: (typeof item === 'object' && !!item ? decompress(item) : item) as T };
+GAP	src/utils/redis/index.ts:89-89	
+    -  return cachedItem;
+    +  return null;
+GAP	src/utils/redis/index.ts:119-119	
+    -  if (cachedItem) return cachedItem;
+    +  if (cachedItem) return cachedItem.item;
+GAP	src/utils/redis/index.ts:188-188	
+    -function fetchUserAccount(userId: DatabaseId, skipUpdate = false) {
+    +function fetchUserAccount(userId: DatabaseId) {
+GAP	src/utils/redis/index.ts:199-206	
+    -      if (!skipUpdate) {
+    -        if (!account.refresh_token) return null;
+    -        if (!account.expires_at || (account.expires_at * 1e3) < Date.now()) {
+    -          const updatedAccount = await refreshUserAccessToken(id, account.refresh_token);
+    -          if (!updatedAccount) return null;
+    -          return {
+    -            ...rest,
+    -            ...updatedAccount,
+GAP	src/utils/redis/index.ts:251-252	
+    -function clearUser(userId: DatabaseId, sessionToken: string, discordId: string) {
+    -  return getClient().pipeline()
+    +function clearUser(userId: DatabaseId, sessionToken: string, discordId?: string) {
+    +  const pipeline = getClient().pipeline()
+GAP	src/utils/redis/index.ts:336-336	
+    -      const { data: channel, status } = await getApi().request<Guild>('GET', `/channels/${channelId}`, { vali
+    +      const { data: channel, status } = await getApi().request<Channel>('GET', `/channels/${channelId}`, { va

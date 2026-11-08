@@ -1,0 +1,32 @@
+[
+  {
+    "id": "qa-m4-supplement:i3-stuck-disabled",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/send/page.tsx",
+        "old": "import { Fragment, useCallback, useEffect } from 'react';",
+        "new": "import { Fragment, useCallback, useEffect, useRef } from 'react';"
+      },
+      {
+        "file": "src/app/message/m/[id]/send/page.tsx",
+        "old": "  const [isSending, withSending] = useLoading();",
+        "new": "  const [isSendingNow, withSending] = useLoading();\n  const everSent = useRef(false);\n  if (isSendingNow) everSent.current = true;\n  const isSending = isSendingNow || everSent.current;"
+      }
+    ]
+  },
+  {
+    "id": "qa-r2-supplement:m5h-no-boundary",
+    "pairs": [
+      {
+        "file": "src/app/preview/page.tsx",
+        "old": "<ErrorBoundary fallback={invalidData}>",
+        "new": "<>"
+      },
+      {
+        "file": "src/app/preview/page.tsx",
+        "old": "</ErrorBoundary>",
+        "new": "</>"
+      }
+    ]
+  }
+]

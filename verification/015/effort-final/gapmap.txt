@@ -1,0 +1,729 @@
+hunks 168 gaps 94 mutant spans 234
+COVERED	bot/scripts/app_commands/common.ts:7-7	m7-table:m7a-and-of-two-bits,m7-table:m7a-administrator-only,m7-table:m7a-or-of-two-bits,qa-r2-supplement:m7a-admin-only
+    -export const ADMIN_PERMS = (PermissionFlagsBits.Administrator & PermissionFlagsBits.ManageGuild).toString();
+    +export const ADMIN_PERMS = PermissionFlagsBits.ManageGuild.toString();
+GAP	bot/scripts/app_commands/common.ts:10-13	
+    -function isSlashCommand(commandType: CommandType, command: SlashCommand | UserCommand | MessageCommand): comm
+    +function isSlashCommand(
+    +  commandType: CommandType,
+    +  command: SlashCommand | UserCommand | MessageCommand,
+    +): command is SlashCommand {
+COVERED	bot/scripts/app_commands/common.ts:16-20	m7-table:m7c-user-test-for-slash,m7-table:m7c-user-test-for-message,qa-r2-supplement:m7c-user-is-slash
+    -function isUserCommand(commandType: CommandType, command: SlashCommand | UserCommand | MessageCommand): comma
+    -  return commandType === 'slash';
+    +function isUserCommand(
+    +  commandType: CommandType,
+    +  command: SlashCommand | UserCommand | MessageCommand,
+    +): command is UserCommand {
+    +  return commandType === 'user';
+COVERED	bot/utils/DiscordEmbed.ts:88-88	m7-table:m7b-timestamp-compares,m7-table:m7b-timestamp-ignores-argument
+    -    this.#payload.timestamp === timestamp;
+    +    this.#payload.timestamp = timestamp;
+GAP	src/app/_navigation/Redirects/Server.tsx:1-1	
+    +import { cookies, headers } from 'next/headers';
+GAP	src/app/_navigation/Redirects/Server.tsx:2-3	
+    -import { headers } from 'next/headers';
+    -
+    -import parseServerCookies from '~/utils/parseServerCookies';
+COVERED	src/app/_navigation/Redirects/Server.tsx:7-9	qaf27-m1i-raw-header-plain-values:qaf27-m1i-raw-header-plain-values,qaf27-m1i-raw-header-regex:qaf27-m1i-raw-header-regex
+    -  const cookieMap = await parseServerCookies();
+    -  const sessionCookie = cookieMap.get('__Secure-next-auth.session-token') ?? cookieMap.get('next-auth.session
+    +  const cookieStore = await cookies();
+    +  const sessionCookie = cookieStore.get('__Secure-next-auth.session-token')
+    +    ?? cookieStore.get('next-auth.session-token');
+GAP	src/app/message/_layout/Header.tsx:29-29	
+    +import formatMessageDate from '~/utils/formatMessageDate';
+GAP	src/app/message/_layout/Header.tsx:31-32	
+    -function getDateString(timestamp: string | number) {
+    -  const messageDate = new Date(timestamp);
+    -  if (messageDate.getDate() === new Date().getDate()) {
+    -    return messageDate.toLocaleTimeString(undefined, {
+    -      hour: 'numeric', minute: 'numeric', second: undefined,
+    -    });
+    -  }
+    -  return messageDate.toLocaleDateString(undefined, {
+GAP	src/app/message/_layout/Header.tsx:154-154	
+    -                              {getDateString(msg.updatedAt)}
+    +                              {formatMessageDate(msg.updatedAt)}
+GAP	src/app/message/_layout/Header.tsx:192-192	
+    -                              {getDateString(msg.updatedAt)}
+    +                              {formatMessageDate(msg.updatedAt)}
+GAP	src/app/message/f/[id]/page.tsx:46-46	
+    +import formatMessageDate from '~/utils/formatMessageDate';
+GAP	src/app/message/f/[id]/page.tsx:54-55	
+    -function getDateString(timestamp: string | number) {
+    -  const messageDate = new Date(timestamp);
+    -  if (messageDate.getDate() === new Date().getDate()) {
+    -    return `Today at ${messageDate.toLocaleTimeString(undefined, {
+    -      hour: 'numeric', minute: 'numeric', second: undefined,
+    -    })}`;
+    -  }
+    -  return messageDate.toLocaleDateString(undefined, {
+COVERED	src/app/message/f/[id]/page.tsx:171-171	m5-table:m5g-delete-toast-says-refresh
+    -        render: 'Error. Failed to refresh message. Please try again.',
+    +        render: 'Error. Failed to delete message. Please try again.',
+GAP	src/app/message/f/[id]/page.tsx:179-181	
+    -  const { isFetching: isCopying, data: copyData, error: copyError } = api.message.getOne.useQuery(copyMessage
+    +  const {
+    +    isFetching: isCopying, data: copyData, error: copyError,
+    +  } = api.message.getOne.useQuery(copyMessageId, {
+GAP	src/app/message/f/[id]/page.tsx:391-391	
+    -                        {`${orderProp === 'name' ? 'Last Modified: ' : ''}${getDateString(orderProp === 'crea
+    +                        {`${orderProp === 'name' ? 'Last Modified: ' : ''}${formatMessageDate(orderProp === '
+GAP	src/app/message/f/[id]/page.tsx:499-499	
+    -                        <div className='text-xs'>{`${orderProp === 'name' ? 'Last Modified: ' : ''}${getDateS
+    +                        <div className='text-xs'>{`${orderProp === 'name' ? 'Last Modified: ' : ''}${formatMe
+GAP	src/app/message/m/[id]/_components/JsonModalBody.tsx:3-3	
+    -import { useEffect, useState } from 'react';
+    +import { useEffect, useMemo, useState } from 'react';
+GAP	src/app/message/m/[id]/_components/JsonModalBody.tsx:37-44	
+    +function toCopyText(str: string) {
+    +  try {
+    +    return JSON.stringify(discordMessageImportShape.parse(JSON.parse(str)), null, 2);
+    +  } catch (e) {
+    +    return null;
+    +  }
+    +}
+    +
+GAP	src/app/message/m/[id]/_components/JsonModalBody.tsx:58-58	
+    +  const copyText = useMemo(() => toCopyText(messageString), [messageString]);
+COVERED	src/app/message/m/[id]/_components/JsonModalBody.tsx:90-90	m5-table:m5a-allow-close-not-reset
+    +    setAllowMenuClose(true);
+COVERED	src/app/message/m/[id]/_components/JsonModalBody.tsx:267-268	m5-table:m5b-copy-always-enabled,m5-table:m5b-copy-disabled-only-when-unparsable,m5-table:m5b-copy-copies-raw-draft
+    -            onPress={() => copy(
+    -              JSON.stringify(discordMessageImportShape.parse(JSON.parse(messageString)), null, 2),
+    -            )}
+    -            isDisabled={!!copyState}
+    +            onPress={() => { if (copyText !== null) void copy(copyText); }}
+    +            isDisabled={!!copyState || copyText === null}
+GAP	src/app/message/m/[id]/_components/SaveAsMenu.tsx:3-5	
+    -import { memo, useCallback, useState } from 'react';
+    +import {
+    +  memo, useCallback, useEffect, useState,
+    +} from 'react';
+GAP	src/app/message/m/[id]/_components/SaveAsMenu.tsx:32-33	
+    -  const [messageName, setMessageName] = useState(message.name === 'New Message' ? message.name : `${message.n
+    +  const proposedName = message.name === 'New Message' ? message.name : `${message.name} Copy`;
+    +  const [messageName, setMessageName] = useState(proposedName);
+COVERED	src/app/message/m/[id]/_components/SaveAsMenu.tsx:36-41	m5-table:m5f-save-as-name-not-refilled,m5-table:m5f-save-as-server-not-refilled,m5-table:m5f-save-as-refills-only-at-mount,m5-table:m5f-save-as-refills-on-close-too
+    +  useEffect(() => {
+    +    if (!isOpen) return;
+    +    setMessageName(proposedName);
+    +    setSelectedGuildId(message.guildId ?? '');
+    +  }, [isOpen]);
+    +
+GAP	src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx:33-33	
+    +import { INVALID_URL_ERROR } from '~/constants';
+COVERED	src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx:109-110	m5-table:m5i-pick-ignored,m5-table:m5i-seeded-at-mount,qa-r2-supplement:m5i-pick-ignored,qa-r2-supplement:m5i-seeded-at-mount
+    -  const [selectedCategory, setSelectedCategory] = useState(hasWebhooks ? (guild?.id ?? '') : 'load');
+    +  const [pickedCategory, setPickedCategory] = useState<null | string>(null);
+    +  const selectedCategory = pickedCategory ?? (hasWebhooks ? (guild?.id ?? '') : 'load');
+COVERED	src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx:218-220	m4-table:m4b-loading-conjunct-dropped
+    -          errorMessage={url && !isWebhookLoading && selectedWebhook !== null ? 'Invalid URL' : undefined}
+    +          errorMessage={
+    +            url && !isWebhookLoading && selectedWebhook === null ? INVALID_URL_ERROR : undefined
+    +          }
+GAP	src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx:272-272	
+    -          onChange={setSelectedCategory}
+    +          onChange={setPickedCategory}
+COVERED	src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx:319-319	m4-table:m4c-clear-on-name,m4-table:m4c-clear-loading-dropped
+    -                  isDisabled={isLoading || !threadName}
+    +                  isDisabled={isLoading || !threadId}
+GAP	src/app/message/m/[id]/send/page.tsx:37-37	
+    -import { useToggleState } from '~/utils/hooks';
+    +import { useLoading, useToggleState } from '~/utils/hooks';
+COVERED	src/app/message/m/[id]/send/page.tsx:90-90	qa-m4-supplement:i3-stuck-disabled#1
+    +  const [isSending, withSending] = useLoading();
+GAP	src/app/message/m/[id]/send/page.tsx:93-93	
+    -      const res = await sendWebhook({
+    +      const res = await withSending(sendWebhook({
+COVERED	src/app/message/m/[id]/send/page.tsx:99-99	m4-table:m4a-catch-dropped,qa-m4-supplement:i3-catch-dropped
+    -      });
+    +      })).catch(() => null);
+COVERED	src/app/message/m/[id]/send/page.tsx:168-168	m4-table:m4a-disable-dropped
+    +    && !isSending
+GAP	src/app/message/m/[id]/send/page.tsx:302-302	
+    -          <div className="text-warning text-sm font-semibold">
+    +          <div className="text-sm font-semibold text-warning">
+GAP	src/app/message/m/[id]/send/page.tsx:305-305	
+    -          <div className="text-text-normal mt-1 text-sm">
+    +          <div className="mt-1 text-sm text-text-normal">
+COVERED	src/app/preview/page.tsx:6-6	m5-table:m5h-boundary-removed
+    +import { ErrorBoundary } from 'react-error-boundary';
+COVERED	src/app/preview/page.tsx:12-23	m5-table:m5h-array-passes,m5-table:m5h-primitive-passes,m5-table:m5h-parse-error-uncaught,m5-table:m5h-make-editable-skipped-in-parse…
+    +function parseMessageData(query: string) {
+    +  try {
+    +    const parsed: unknown = JSON.parse(query);
+    +    if (typeof parsed !== 'object' || Array.isArray(parsed)) return null;
+    +    return makeEditable({ data: parsed } as ApiMessage).data;
+    +  } catch {
+    +    return null;
+    +  }
+GAP	src/app/preview/page.tsx:30-31	
+    +  const data = parseMessageData(query);
+    +
+COVERED	src/app/preview/page.tsx:34-48	m5-table:m5h-boundary-fallback-empty,qa-r2-supplement:m5h-refuse-all,qa-r2-supplement:m5h-no-boundary#0,qa-r2-supplement:m5h-no-boundary#1
+    -      <Suspense fallback={null}>
+    -        <MarkdownProvider>
+    -          <DiscordMessageEditor
+    -            message={makeEditable({ data: JSON.parse(query) } as ApiMessage).data}
+    -            setMessage={() => {}}
+    -            locale={locale}
+    -            // eslint-disable-next-line react/style-prop-object
+    -            onMount={() => {}}
+GAP	src/components/BottomPortal.tsx:7-8	
+    -import { useMount } from 'react-use';
+GAP	src/components/BottomPortal.tsx:136-138	
+    -  TitleIcon?: FC<{ className?: undefined | string }> | ComponentClass<{ className?: undefined | string }>;
+    +  TitleIcon?:
+    +  | FC<{ className?: undefined | string }>
+    +  | ComponentClass<{ className?: undefined | string }>;
+GAP	src/components/BottomPortal.tsx:173-175	
+    -      setChildrenProps((prev) => (prev.some((p) => p.id === id) ? prev.filter((p) => p.id !== id) : prev));
+    +      setChildrenProps((prev) => (
+    +        prev.some((p) => p.id === id) ? prev.filter((p) => p.id !== id) : prev
+    +      ));
+COVERED	src/components/BottomPortal.tsx:179-183	m6-table:m6e-bottomportal-cleanup-dropped,qa-r2-supplement:cr24-portal-cleanup-noop
+    -  useMount(() => () => {
+    -    setChildrenProps((prev) => (prev.some((p) => p.id === id) ? prev.filter((p) => p.id !== id) : prev));
+    -  });
+    +  useEffect(() => () => {
+    +    setChildrenProps((prev) => (
+    +      prev.some((p) => p.id === id) ? prev.filter((p) => p.id !== id) : prev
+    +    ));
+    +  }, []);
+GAP	src/components/Button.tsx:10-11	
+    -import { useMount } from 'react-use';
+GAP	src/components/Button.tsx:36-36	
+    -  const {
+    -    children, className, style, autoFocus,
+    -  } = props;
+    +  const { children, className, style } = props;
+GAP	src/components/Button.tsx:54-55	
+    -  useMount(() => { if (autoFocus) localRef.current?.focus(); });
+    -
+GAP	src/components/DiscordMessageEditor/components/Author.tsx:6-8	
+    -import { memo, useCallback, useState } from 'react';
+    -import { useMount } from 'react-use';
+    +import {
+    +  memo, useCallback, useEffect, useState,
+    +} from 'react';
+GAP	src/components/DiscordMessageEditor/components/Author.tsx:43-43	
+    -  useMount(() => {
+    +  useEffect(() => {
+GAP	src/components/DiscordMessageEditor/components/Author.tsx:45-45	
+    +    let interval: undefined | ReturnType<typeof setInterval>;
+COVERED	src/components/DiscordMessageEditor/components/Author.tsx:47-47	m6-table:m6e-clock-never-ticks
+    -      setInterval(() => { setTs(new Date()); }, MINUTE_IN_MILLISECONDS);
+    +      interval = setInterval(() => { setTs(new Date()); }, MINUTE_IN_MILLISECONDS);
+COVERED	src/components/DiscordMessageEditor/components/Author.tsx:49-53	m6-table:m6e-timeout-not-cleared,m6-table:m6e-interval-not-cleared
+    -    return () => clearTimeout(timeout);
+    -  });
+    +    return () => {
+    +      clearTimeout(timeout);
+    +      clearInterval(interval);
+    +    };
+    +  }, []);
+GAP	src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx:6-7	
+    +import { intToHex } from '~/utils';
+    +
+COVERED	src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx:16-33	m6-table:m6f-truthiness-nonblack-fallback,m6-table:m6f-unpadded,m6-table:m6f-undefined-is-white
+    -const Picker: FC<Props> = ({ initColor, setColor }) => (
+    -  <ChromePicker
+    -    styles={{
+    -      picker: { fontFamily: '', boxShadow: '', borderRadius: '' },
+    -      saturation: { borderRadius: '' },
+    -    }}
+    -    defaultColor={initColor ? `#${initColor.toString(16)}` : '#000000'}
+    -    onChangeComplete={useCallback<((color: ColorResult) => void)>((color) => { setColor(hexToInt(color.hex));
+GAP	src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx:5-6	
+    -import { useMount } from 'react-use';
+COVERED	src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx:33-33	m6-table:m6e-colorpicker-cleanup-dropped
+    -  useMount(() => () => removeBlockStyle());
+    +  useEffect(() => () => removeBlockStyle(), []);
+COVERED	src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx:38-38	m6-table:m6c-no-fields-counts-valid,m6-table:m6c-name-or-value
+    -  return !fields?.length || fields.some((field) => field.name && field.value);
+    +  return !!fields?.some((field) => field.name && field.value);
+COVERED	src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx:130-130	m6-table:m6d-index-after-filter
+    +        .map((entry, idx) => ({ ...entry, idx }))
+COVERED	src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx:132-132	m6-table:m6d-index-after-filter
+    -        .map(({ gridColumn, field }, idx) => (
+    +        .map(({ gridColumn, field, idx }) => (
+COVERED	src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx:45-45	m6-table:m6j-footer-text-unguarded
+    -  const displayText = (footer?.text.trim() ?? '');
+    +  const displayText = (footer?.text?.trim() ?? '');
+GAP	src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx:49-49	
+    -  const setIconUrl = useCallback((val: EmbedFooterType['icon_url']) => _setIconUrl(val || undefined), [_setIc
+    +  const setIconUrl = useCallback((val: EmbedFooterType['icon_url']) => _setIconUrl(val === '' ? undefined : v
+COVERED	src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx:90-90	m2-embedshape-table:border-colour-truthy,qa-m2-supplement:border-colour-fixed
+    -  const borderColor = color ? intToHex(color) : undefined;
+    +  const borderColor = color != null ? intToHex(color) : undefined;
+GAP	src/components/DiscordMessageEditor/index.tsx:9-9	
+    -  memo, use, useCallback, useMemo, useRef,
+    +  memo, use, useCallback, useEffect, useMemo, useRef,
+GAP	src/components/DiscordMessageEditor/index.tsx:10-11	
+    -import { useMount } from 'react-use';
+GAP	src/components/DiscordMessageEditor/index.tsx:40-40	
+    -  genUuid,
+    +  countTotalComponents, genUuid,
+GAP	src/components/DiscordMessageEditor/index.tsx:42-42	
+    -  rekeyComponent, validateContentRequirements,
+    +  rekeyComponent, validateComponentCount, validateContentRequirements,
+GAP	src/components/DiscordMessageEditor/index.tsx:59-60	
+    -function countTotalComponents(components: EditableTopLevelComponent[]): number {
+    -  let count = 0;
+    -  for (const c of components) {
+    -    count += 1;
+    -    if ('accessory' in c && c.accessory) count += 1;
+    -    if ('components' in c && Array.isArray(c.components)) {
+    -      count += (c.components as EditableTopLevelComponent[]).length;
+    -      // Recurse for containers (which hold children that may have sub-components)
+COVERED	src/components/DiscordMessageEditor/index.tsx:84-84	qa-r4-supplement:r4-editor-onmount-empty,qa-r4-supplement:r4-editor-onmount-every-render
+    -  useMount(() => onMount?.());
+    +  useEffect(() => { onMount?.(); }, []);
+COVERED	src/components/DiscordMessageEditor/index.tsx:105-105	m6-table:m6i-embed-copy-before
+    -      newEmbeds.splice(idx, 0, newEmbed);
+    +      newEmbeds.splice(idx + 1, 0, newEmbed);
+COVERED	src/components/DiscordMessageEditor/index.tsx:144-144	m6-table:m6i-component-copy-before
+    -      next.splice(idx, 0, clone);
+    +      next.splice(idx + 1, 0, clone);
+COVERED	src/components/DiscordMessageEditor/index.tsx:181-181	m6-table:m6l-count-error-computed-once
+    +  const componentCountError = validateComponentCount(components);
+COVERED	src/components/DiscordMessageEditor/index.tsx:293-293	m6-table:m6l-editor-border-missing,qa-m6-supplement:m6l-border-dropped
+    -          <div className={classNames('discord-visualizer__accessories', (embedCharacterError || v2TextError) 
+    +          <div className={classNames('discord-visualizer__accessories', (embedCharacterError || v2TextError |
+COVERED	src/components/DiscordMessageEditor/index.tsx:339-341	m6-table:m6l-count-error-only-when-editing,m6-table:m6l-editor-line-missing,qa-m6-supplement:m6l-line-above-text-error
+    +          <NullableComponent show={componentCountError}>
+    +            <div className="mt-1 text-xs font-semibold text-error">{componentCountError}</div>
+    +          </NullableComponent>
+GAP	src/components/ImageUploader.tsx:18-18	
+    -
+    -const ANIMATED_EXTENSIONS = ['webm', 'gif', 'apng'];
+    -const VALID_EXTENSIONS = ['png', 'jpg', 'tiff', ...ANIMATED_EXTENSIONS].map((ext) => `.${ext}`);
+    -
+    -function isValidImageUrl(url: string) {
+    -  return VALID_EXTENSIONS.some((ext) => url.includes(ext));
+    -}
+    +import isValidImageUrl from '~/utils/isValidImageUrl';
+COVERED	src/constants/index.ts:30-32	m4-table:m4d-failure-text-constant,m4-table:m4d-regex-end-unanchored,m4-table:m4d-regex-narrow,m4-table:m4d-regex-prefix-dropped…
+    -export const DISCORD_MESSAGE_LINK_REGEX = /^https:\/\/(?:www\.|canary\.|ptb\.)?discord\.com\/channels\/(\d+)\
+    +export const DISCORD_MESSAGE_LINK_REGEX = /^https:\/\/(?:(?:www|canary|ptb)\.)?discord(?:app)?\.com\/channels
+    +export const INVALID_URL_ERROR = 'Invalid URL' as const;
+    +export const MESSAGE_LOAD_FAILED_ERROR = 'Could not load the message. Check your connection and try again.' a
+GAP	src/constants/index.ts:44-45	
+    -export const MAX_EMBED_AUTHOR_NAME_LENGTH = 256 as const;
+    -export const MAX_EMBED_FOOTER_TEXT_LENGTH = 256 as const;
+    -
+GAP	src/constants/index.ts:47-48	
+    -export const MAX_TOTAL_COMPONENTS = 40 as const;
+COVERED	src/constants/messageLimits.ts:6-7	m2-embedshape-table:footer-constant-256,qa-m2-supplement:footer-constant-2049
+    +export const MAX_EMBED_AUTHOR_NAME_LENGTH = 256 as const;
+    +export const MAX_EMBED_FOOTER_TEXT_LENGTH = 2048 as const;
+COVERED	src/constants/messageLimits.ts:13-13	qa-m6-supplement:i3-limit-41
+    +export const MAX_TOTAL_COMPONENTS = 40 as const;
+COVERED	src/env.mjs:123-123	m1f-env-guard-reverted:m1f-env-guard-reverted
+    -      if (!isServer && !prop.startsWith('NEXT_PUBLIC_') && !prop === 'NODE_ENV') {
+    +      if (!isServer && !prop.startsWith('NEXT_PUBLIC_') && prop !== 'NODE_ENV') {
+GAP	src/pages/api/cron.ts:26-26	
+    -    .where('ScheduledMessages.error', '=', null)
+    +    .where('ScheduledMessages.error', 'is', null)
+COVERED	src/pages/api/interactions-edge.ts:47-48	m1g-drop-body-null-conjunct:m1g-drop-body-null-conjunct,m1g-drop-isvalid-conjunct:m1g-drop-isvalid-conjunct,m1g-parse-before-verify:m1g-parse-before-verify
+    -  const interaction = JSON.parse(rawBody) as IncomingInteraction;
+    -
+COVERED	src/pages/api/interactions-edge.ts:52-53	m1g-parse-before-verify:m1g-parse-before-verify
+    +  const interaction = JSON.parse(rawBody) as IncomingInteraction;
+    +
+GAP	src/providers/MessageProvider/usePusher.ts:3-3	
+    +import { useLatest } from 'react-use';
+COVERED	src/providers/MessageProvider/usePusher.ts:29-29	m5-table:m5c-pusher-ref-never-updated
+    +  const hasChangedRef = useLatest(hasChanged);
+COVERED	src/providers/MessageProvider/usePusher.ts:50-50	m5-table:m5c-pusher-reads-render-flag
+    -          message: `The message you are viewing has been updated. Would you like to reload it?${hasChanged ? 
+    +          message: `The message you are viewing has been updated. Would you like to reload it?${hasChangedRef
+GAP	src/providers/WebhookProvider.tsx:11-11	
+    +import { MESSAGE_LOAD_FAILED_ERROR } from '~/constants';
+GAP	src/providers/WebhookProvider.tsx:16-16	
+    +import parseMessageId from '~/utils/parseMessageId';
+GAP	src/providers/WebhookProvider.tsx:62-63	
+    -  useUpdateEffect(voided(async () => {
+    +  useUpdateEffect(() => {
+    +    let isStale = false;
+COVERED	src/providers/WebhookProvider.tsx:66-77	m4-nonjson-table:nj-provider-body-failure-selects-webhook,m4-table:m4d-stale-webhook-guard-dropped,m4-table:m4d-webhook-catch-dropped,qa-r2-supplement:m4d-send-nonjson-as-object
+    -      const wh = await withLoadingWebhook(fetch(url).then<Webhook | null>((res) => (res.status === 200 ? res.
+    -      if (wh) {
+    -        wh.channel = channels?.find((c) => c.id === wh.channel_id);
+    -        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    -        wh.token = url.split('/').find((part) => part.length > 32)!;
+    -      }
+    -      return setSelectedWebhook(wh);
+    -    }
+GAP	src/providers/WebhookProvider.tsx:79-80	
+    -
+    -    return undefined;
+    -  }), [url]);
+    +    return () => { isStale = true; };
+    +  }, [url]);
+COVERED	src/providers/WebhookProvider.tsx:102-114	m4-table:m4d-stale-message-guard-dropped
+    -  useEffect(voided(async () => {
+    -    if (selectedWebhook?.token && (isValidUrl(messageIdOrUrl) || /\d+/.test(messageIdOrUrl.trim()))) {
+    -      const messageId = (isValidUrl(messageIdOrUrl) ? (messageIdOrUrl.split('/').pop() as string) : messageId
+    -      await withLoadingMessage(fetch(`${constructWebhookUrl(selectedWebhook, messageId, threadId)}`).then(asy
+    -        const data = await res.json();
+    -        if (res.ok) {
+    -          // shhhhh, just let it happen
+    -          setOldMessage(makeEditable({
+COVERED	src/providers/WebhookProvider.tsx:116-127	qa-m4-supplement:provider-404-text,qa-m4-supplement:provider-403-text,qa-m4-supplement:provider-401-text,qa-m4-supplement:provider-400-text…
+    -            setOldMessageError((data as { message: string }).message ?? res.statusText);
+    +            setOldMessage(null);
+    +            if (res.status === 404) {
+    +              setOldMessageError('Message not found. Hint: Webhooks can only edit their own messages.');
+    +            } else if (res.status === 403) {
+    +              setOldMessageError('You do not have permission to view this message.');
+    +            } else if (res.status === 401) {
+    +              setOldMessageError('Invalid webhook token.');
+COVERED	src/providers/WebhookProvider.tsx:129-134	m4-table:m4d-message-catch-dropped,m4-table:m4d-message-text-provider
+    -        }
+    -      }));
+    +        })).catch(() => {
+    +          if (isStale) return;
+    +          setOldMessage(null);
+    +          setOldMessageError(MESSAGE_LOAD_FAILED_ERROR);
+    +        });
+    +      })();
+GAP	src/providers/WebhookProvider.tsx:139-140	
+    -  }), [selectedWebhook, messageIdOrUrl, threadId]);
+    +    return () => { isStale = true; };
+    +  }, [selectedWebhook, messageIdOrUrl, threadId]);
+COVERED	src/server/api/routers/message.ts:80-80	m4-table:rider-group-swap
+    -      const [, guildId, channelId, messageId] = match;
+    +      const { guildId, channelId, messageId } = match.groups as Record<'guildId' | 'channelId' | 'messageId',
+COVERED	src/server/api/routers/message.ts:87-94	m4-table:rider-guild-check-dropped,m4-table:rider-compares-channel-id,m4-table:rider-refuses-only-when-set-and-differs,m4-table:rider-check-after-message-fetch…
+    +      const channel = await redis.fetchChannel(channelId);
+    +      if (!('guild_id' in channel) || channel.guild_id !== guildId) {
+    +        throw new TRPCError({
+    +          code: 'NOT_FOUND',
+    +          message: 'Message not found. Is the bot in this guild?',
+    +        });
+    +      }
+    +
+GAP	src/server/api/utils/authorizeGuildUser.ts:13-13	
+    +  if (!messageIds.length) return [];
+GAP	src/server/api/utils/shapes.ts:37-37	
+    -export const userOrDiscordIdShape = z.string().regex(/^(0|[0-9]{17,23}$)/);
+    +export const userOrDiscordIdShape = z.string().regex(/^(0|[0-9]{17,23})$/);
+GAP	src/server/api/utils/shapes.ts:129-129	
+    -const embedShape = z.object({
+    +export const embedShape = z.object({
+COVERED	src/server/api/utils/shapes.ts:137-137	m2-embedshape-table:colour-ceiling-lowered,m2-embedshape-table:colour-zero-refused,qa-m2-supplement:colour-floor-dropped,qa-m2-supplement:colour-ceiling-raised…
+    -  color: z.number().int().positive().max(0xffffff)
+    +  color: z.number().int().min(0).max(0xffffff)
+GAP	src/server/api/utils/shapes.ts:160-162	
+    -function sumDisplayableText(components: { type: number, content?: string, components?: unknown[] }[]): number
+    +function sumDisplayableText(
+    +  components: { type: number, content?: string, components?: unknown[] }[],
+    +): number {
+GAP	src/server/api/utils/shapes.ts:244-247	
+    -function filterActionRowButtons(row: Record<string, unknown>, dropped?: Set<string>): Record<string, unknown>
+    +function filterActionRowButtons(
+    +  row: Record<string, unknown>,
+    +  dropped?: Set<string>,
+    +): Record<string, unknown> | null {
+GAP	src/server/api/utils/shapes.ts:258-261	
+    -function filterSection(section: Record<string, unknown>, dropped?: Set<string>): Record<string, unknown> | nu
+    +function filterSection(
+    +  section: Record<string, unknown>,
+    +  dropped?: Set<string>,
+    +): Record<string, unknown> | null {
+GAP	src/server/api/utils/shapes.ts:269-272	
+    -function filterContainerChild(child: Record<string, unknown>, dropped?: Set<string>): Record<string, unknown>
+    +function filterContainerChild(
+    +  child: Record<string, unknown>,
+    +  dropped?: Set<string>,
+    +): Record<string, unknown> | null {
+GAP	src/server/api/utils/shapes.ts:321-323	
+    -export function describeDroppedComponentTypesNotice(droppedComponentTypes: readonly string[]): string {
+    +export function describeDroppedComponentTypesNotice(
+    +  droppedComponentTypes: readonly string[],
+    +): string {
+GAP	src/server/api/utils/shared.ts:106-107	
+    +  if (!messageIds.length) return [];
+    +
+GAP	src/server/api/utils/shared.ts:157-157	
+    -  const messages = await getPostgres()
+    +  const query = getPostgres()
+COVERED	src/server/api/utils/shared.ts:163-166	qa-m1-supplement:m1a-partial-empty-returns-early
+    -    ])
+    -    .where(({
+    +    ]);
+    +
+    +  const messages = await (guilds.length
+    +    ? query.where(({
+GAP	src/server/api/utils/shared.ts:175-176	
+    -    .execute();
+    +    : query.where('Messages.fk_users_id', '=', userId)
+    +  ).execute();
+COVERED	src/server/api/utils/shared.ts:253-253	m1d-cap-comparator-strict:m1d-cap-comparator-strict,m1d-cap-ignores-new-conjunct:m1d-cap-ignores-new-conjunct
+    -  if (!message.id && Number(messageCount) > MAX_MESSAGES) {
+    +  if (!message.id && Number(messageCount) >= MAX_MESSAGES) {
+GAP	src/server/api/utils/user.ts:15-15	
+    +    if (!messageIds.length) return { account, oldMessageCount: 0 };
+GAP	src/server/auth.ts:60-60	
+    -async function removeUserSession(sessionToken: string, userDbId: string) {
+    +async function revokeAccessToken(accessToken: string) {
+GAP	src/server/auth.ts:67-67	
+    +  urlencoded.append('token', accessToken);
+COVERED	src/server/auth.ts:73-92	m1-rebuild-table:m1c-lookup-error-keys-kept,m1-rebuild-table:m1c-lookup-error-clear-unswallowed,m1-rebuild-table:m1c-no-account-keys-kept,m1-rebuild-table:m1c-reads-cached-account…
+    -  });
+    +  }).catch(() => {});
+    +}
+    +
+    +async function removeUserSession(sessionToken: string, userDbId: string) {
+    +  let account;
+    +  try {
+    +    account = await getPostgres()
+COVERED	src/server/auth.ts:94-94	m1-rebuild-table:m1c-revoke-never-sent,m1c-accounts-update-before-revoke:m1c-accounts-update-before-revoke,qa-m1-supplement:i2-token-is-provider-id,qa-m1-supplement:i2-token-test-inverted
+    -  const account = await redis.fetchUserAccount(userDbId, true);
+    -  if (!account) throw new Error('Expected to find account');
+    +  if (account.access_token) await revokeAccessToken(account.access_token);
+GAP	src/server/auth.ts:138-138	
+    -    const messagePromise = preferences?.recentMessageIds
+    +    const messagePromise = Promise.resolve(preferences?.recentMessageIds
+COVERED	src/server/auth.ts:140-141	m1-rebuild-table:m1h-message-handler-dropped
+    -      : [];
+    +      : []);
+    +    messagePromise.catch(() => {});
+COVERED	src/server/auth.ts:154-154	m1-rebuild-table:m1h-guilds-fetched-without-token,m1h-guild-fetch-awaited-inside-array:m1h-guild-fetch-awaited-inside-array
+    -      access_token ? await redis.fetchUserGuilds(providerAccountId, access_token) : [],
+    +      access_token ? redis.fetchUserGuilds(providerAccountId, access_token) : ([] as UserGuild[]),
+GAP	src/server/auth.ts:220-222	
+    -    signIn: async ({ user, account, profile, isNewUser }) => {
+    +    signIn: async ({
+    +      user, account, profile, isNewUser,
+    +    }) => {
+COVERED	src/utils/discordResponseToMessage.ts:133-133	m2-embedshape-table:ingress-colour-truthy,qa-m2-supplement:ingress-colour-always
+    -      if (e.color) embed.color = e.color;
+    +      if (e.color !== undefined) embed.color = e.color;
+GAP	src/utils/discordResponseToMessage.ts:159-163	
+    -    message.avatar_url = constructImageUrl(discordMessage.author.id, discordMessage.author.avatar, discordMes
+    +    message.avatar_url = constructImageUrl(
+    +      discordMessage.author.id,
+    +      discordMessage.author.avatar,
+    +      discordMessage.author.discriminator,
+    +    );
+COVERED	src/utils/formatMessageDate.ts:1-17	m5-table:m5e-day-of-month-only,m5-table:m5e-month-dropped,m5-table:m5e-year-dropped,m5-table:m5e-prefix-ignored…
+    +function isSameLocalDay(a: Date, b: Date) {
+    +  return a.getFullYear() === b.getFullYear()
+    +    && a.getMonth() === b.getMonth()
+    +    && a.getDate() === b.getDate();
+    +}
+    +
+    +export default function formatMessageDate(timestamp: string | number, todayPrefix = '') {
+    +  const messageDate = new Date(timestamp);
+GAP	src/utils/getCDNUrl.ts:1-1	
+    -export default () => `${process.env.NEXT_PUBLIC_CDN_HOST ?? ''}${process.env.NODE_ENV === 'development' ? '/d
+    +export default () => `${process.env.NEXT_PUBLIC_CDN_HOST ?? ''}${process.env.NEXT_PUBLIC_CDN_PORT ? `:${proce
+GAP	src/utils/hooks/index.ts:7-8	
+    -import { useMount } from 'react-use';
+COVERED	src/utils/hooks/index.ts:18-18	usemounted-effect-empty:usemounted-effect-empty
+    -  useMount(() => {
+    +  useEffect(() => {
+COVERED	src/utils/hooks/index.ts:24-24	qa-r4-supplement:r4-mounted-every-render,usemounted-effect-empty:usemounted-effect-empty
+    -  });
+    +  }, []);
+COVERED	src/utils/hooks/useGuildDropdownItems.tsx:69-69	m5-table:m5d-dropdown-memo-once
+    -  }, []);
+    +  }, [session, setSelectedGuildId]);
+GAP	src/utils/hooks/useValidateWebhook.ts:7-7	
+    +import { INVALID_URL_ERROR, MESSAGE_LOAD_FAILED_ERROR } from '~/constants';
+GAP	src/utils/hooks/useValidateWebhook.ts:11-11	
+    +import parseMessageId from '~/utils/parseMessageId';
+GAP	src/utils/hooks/useValidateWebhook.ts:24-25	
+    -  useEffect(voided(async () => {
+    +  useEffect(() => {
+    +    let isStale = false;
+COVERED	src/utils/hooks/useValidateWebhook.ts:30-34	m4-nonjson-table:nj-hook-body-failure-is-refusal,m4-table:hook-stale-webhook-guard-dropped,qa-r2-supplement:m4d-dialog-nonjson-as-message
+    -      const wh = await withLoadingWebhook(fetch(url)
+    -        .then<DiscordWebhook | { message: string }>((res) => res.json()));
+    +      voided(async () => {
+    +        try {
+    +          const wh = await withLoadingWebhook(fetch(url)
+    +            .then<DiscordWebhook | { message: string }>((res) => res.json()));
+    +          if (isStale) return;
+COVERED	src/utils/hooks/useValidateWebhook.ts:36-41	m4-d29-table:d29-hook-refusal-mapped-to-invalid,m4-table:hook-stale-webhook-guard-dropped
+    -      if ('message' in wh) setWebhookError(wh.message);
+    -      else setWebhook(wh);
+    +          if ('message' in wh) setWebhookError(wh.message);
+    +          else setWebhook(wh);
+    +        } catch {
+    +          if (!isStale) setWebhookError(INVALID_URL_ERROR);
+    +        }
+    +      })();
+GAP	src/utils/hooks/useValidateWebhook.ts:43-44	
+    -  }), [url]);
+    +    return () => { isStale = true; };
+    +  }, [url]);
+GAP	src/utils/hooks/useValidateWebhook.ts:46-47	
+    -  useEffect(voided(async () => {
+    +  useEffect(() => {
+    +    let isStale = false;
+COVERED	src/utils/hooks/useValidateWebhook.ts:52-69	m4-table:hook-stale-message-guard-dropped,m4-table:hook-message-catch-dropped,m4-table:hook-uses-own-id-test
+    -    if (webhook && (isValidUrl(messageIdOrUrl) || /\d+/.test(messageIdOrUrl.trim()))) {
+    -      const messageId = (isValidUrl(messageIdOrUrl) ? (messageIdOrUrl.split('/').pop() as string) : messageId
+    -      const msg = await withLoadingMessage(fetch(`${url}/messages/${messageId}`)
+    -        .then<Message | { message: string }>((res) => res.json()));
+    -
+    -      if ('message' in msg) setMessageError(msg.message);
+    -      else {
+    -        const converted = discordResponseToMessage(msg);
+GAP	src/utils/hooks/useValidateWebhook.ts:71-72	
+    -  }), [webhook, url, messageIdOrUrl]);
+    +    return () => { isStale = true; };
+    +  }, [webhook, url, messageIdOrUrl]);
+COVERED	src/utils/isValidImageUrl.ts:1-6	m6-table:m6b-substring-match,m6-table:m6b-case-sensitive,m6-table:m6b-query-kept,m6-table:m6b-fragment-kept…
+    +const IMAGE_EXTENSIONS = ['png', 'jpg', 'jpeg', 'webp', 'gif', 'apng', 'tiff', 'webm'].map((ext) => `.${ext}`
+    +
+    +export default function isValidImageUrl(url: string): boolean {
+    +  const path = url.split(/[?#]/, 1)[0].toLowerCase();
+    +  return IMAGE_EXTENSIONS.some((ext) => path.endsWith(ext));
+    +}
+GAP	src/utils/limits.tsx:8-9	
+    -  MAX_EMBED_CHARACTERS, MAX_EMBED_DESCRIPTION_LENGTH, MAX_EMBED_FIELD_NAME_LENGTH,
+    +  MAX_EMBED_AUTHOR_NAME_LENGTH, MAX_EMBED_CHARACTERS, MAX_EMBED_DESCRIPTION_LENGTH,
+    +  MAX_EMBED_FIELD_NAME_LENGTH,
+GAP	src/utils/limits.tsx:11-11	
+    -  MAX_NAME_LENGTH, MIN_NAME_LENGTH, V2_COMPONENT_TYPE_VALUES,
+    +  MAX_NAME_LENGTH, MAX_TOTAL_COMPONENTS, MIN_NAME_LENGTH, V2_COMPONENT_TYPE_VALUES,
+GAP	src/utils/limits.tsx:43-48	
+    -function sumDisplayableText(components: { type: number; content?: string; components?: { type: number; conten
+    +function sumDisplayableText(
+    +  components: {
+    +    type: number; content?: string;
+    +    components?: { type: number, content?: string, components?: unknown[] }[];
+    +  }[],
+    +): number {
+GAP	src/utils/limits.tsx:61-63	
+    -  const total = sumDisplayableText(components as unknown as Parameters<typeof sumDisplayableText>[0]);
+    +  const total = sumDisplayableText(
+    +    components as unknown as Parameters<typeof sumDisplayableText>[0],
+    +  );
+COVERED	src/utils/limits.tsx:67-90	m6-table:m6l-comparator-at-limit,m6-table:m6l-nesting-recursion-removed,m6-table:m6l-top-accessory-uncounted,m6-table:m6l-child-accessory-uncounted…
+    +export function countTotalComponents(components: readonly object[]): number {
+    +  let count = 0;
+    +  for (const c of components) {
+    +    count += 1;
+    +    if ('accessory' in c && c.accessory) count += 1;
+    +    if ('components' in c && Array.isArray(c.components)) {
+    +      const children = c.components as object[];
+    +      count += children.length;
+COVERED	src/utils/limits.tsx:92-92	m2-embedshape-table:author-bound-80
+    -  return name && name.length > MAX_NAME_LENGTH;
+    +  return name && name.length > MAX_EMBED_AUTHOR_NAME_LENGTH;
+COVERED	src/utils/limits.tsx:131-131	m2-embedshape-table:title-text-name
+    -  if (titleErroring) error = 'Name is too long.';
+    +  if (titleErroring) error = 'Title is too long.';
+GAP	src/utils/limits.tsx:137-138	
+    -function validateEmbed(embed: Embed) {
+    -  return validateEmbedAuthor(embed.author)
+    -  && validateEmbedTitle(embed.title, embed.url)
+    -  && embed.fields?.map(validateEmbedField);
+    -}
+    -
+GAP	src/utils/limits.tsx:170-172	
+    -  const displayableTextError = validateDisplayableTextCount(components as SupportedTopLevelComponent[]);
+    +  const displayableTextError = validateDisplayableTextCount(
+    +    components as SupportedTopLevelComponent[],
+    +  );
+COVERED	src/utils/limits.tsx:175-177	m6-table:m6l-validate-message-skips-count
+    +  const componentCountError = validateComponentCount(components);
+    +  if (componentCountError) return componentCountError;
+    +
+COVERED	src/utils/maps/UpsertMapMap.ts:68-69	m6-table:m6k-delete-without-inner-key-noop,m6-table:m6k-falsy-inner-key-is-absent
+    -    if (innerKey) this.#map.get(key)?.delete(innerKey);
+    -    else this.#map.get(key);
+    +    if (innerKey === undefined) this.#map.delete(key);
+    +    else this.#map.get(key)?.delete(innerKey);
+COVERED	src/utils/markdown/components/MarkdownSpoiler.tsx:14-14	m6-table:m6h-aria-inverted
+    -      aria-expanded={!isVisible}
+    +      aria-expanded={isVisible}
+COVERED	src/utils/markdown/emoji.tsx:76-76	m6-table:m6g-sort-removed,m6-table:m6g-sort-ascending,m6-table:m6g-sort-one-argument
+    -    .sort((surrogate) => -surrogate.length)
+    +    .sort((a, b) => b.length - a.length)
+COVERED	src/utils/markdown/rules.tsx:19-19	qa-r2-supplement:m6a-content-single-line
+    +const FENCE = '```(([a-z0-9-]+?)\\n+)?\\n*([^\\n][^]*?)\\n*```';
+GAP	src/utils/markdown/rules.tsx:89-89	
+    -      return SimpleMarkdown.inlineRegex(/^```(([a-z0-9-]+?)\n+)?\n*([^\n]+?)\n*```/i)(source, state, prev);
+    +      return SimpleMarkdown.inlineRegex(new RegExp(`^${FENCE}`, 'i'))(source, state, prev);
+COVERED	src/utils/markdown/rules.tsx:419-419	m6-table:m6a-paragraph-splits-fence,qa-r2-supplement:m6a-paragraph-splits-fence
+    -    // match(source, state, prevCapture) {
+    -    //   if (state._inParagraph) return null;
+    -    //   return SimpleMarkdown.blockRegex(/^((?:[^\n]|\n(?! *\n))+(?:\n *)+\n)/)(source, state, prevCapture);
+    -    // },
+    +    match: SimpleMarkdown.blockRegex(new RegExp(`^((?:${FENCE}|[^\\n]|\\n(?! *\\n))+)(?:\\n *)+\\n`, 'i')),
+COVERED	src/utils/parseMessageId.ts:1-7	m4-table:m4d-parse-wrong-group,m4-table:m4d-parse-unanchored-id,m4-table:m4d-parse-untrimmed
+    +import { DISCORD_MESSAGE_LINK_REGEX } from '~/constants';
+    +
+    +export default function parseMessageId(input: string) {
+    +  const text = input.trim();
+    +  if (/^\d+$/.test(text)) return text;
+    +  return DISCORD_MESSAGE_LINK_REGEX.exec(text)?.groups?.messageId ?? null;
+    +}
+GAP	src/utils/parseMessageId.ts:0-1	
+    -import { headers } from 'next/headers';
+    -
+    -export default async () => {
+    -  const sessionCookie = (await headers()).get('cookie');
+    -
+    -  const map = new Map<string, string>();
+    -  if (sessionCookie) {
+    -    for (const cookie of sessionCookie.split(';')) {
+GAP	src/utils/redis/index.ts:59-60	
+    -    const item = await getItem<T>(key);
+    -    if (item) resolveDeferred(key, item, WAITING_MAP.get(key) ?? []);
+    +    const cached = await getItem<T>(key);
+    +    if (cached) resolveDeferred(key, cached.item, WAITING_MAP.get(key) ?? []);
+GAP	src/utils/redis/index.ts:66-68	
+    -  const item = await getItem<T>(key);
+    -  if (item) {
+    -    resolveDeferred(key, item, WAITING_MAP.get(key) ?? []);
+    +  const cached = await getItem<T>(key);
+    +  if (cached) {
+    +    resolveDeferred(key, cached.item, WAITING_MAP.get(key) ?? []);
+GAP	src/utils/redis/index.ts:75-75	
+    -async function getItem<T>(key: string): Promise<T | null> {
+    +async function getItem<T>(key: string): Promise<{ item: T } | null> {
+GAP	src/utils/redis/index.ts:80-80	
+    -      return (typeof item === 'object' && !!item ? decompress(item) : item) as T;
+    +      return { item: (typeof item === 'object' && !!item ? decompress(item) : item) as T };
+GAP	src/utils/redis/index.ts:89-89	
+    -  return cachedItem;
+    +  return null;
+GAP	src/utils/redis/index.ts:119-119	
+    -  if (cachedItem) return cachedItem;
+    +  if (cachedItem) return cachedItem.item;
+GAP	src/utils/redis/index.ts:188-188	
+    -function fetchUserAccount(userId: DatabaseId, skipUpdate = false) {
+    +function fetchUserAccount(userId: DatabaseId) {
+GAP	src/utils/redis/index.ts:199-206	
+    -      if (!skipUpdate) {
+    -        if (!account.refresh_token) return null;
+    -        if (!account.expires_at || (account.expires_at * 1e3) < Date.now()) {
+    -          const updatedAccount = await refreshUserAccessToken(id, account.refresh_token);
+    -          if (!updatedAccount) return null;
+    -          return {
+    -            ...rest,
+    -            ...updatedAccount,
+GAP	src/utils/redis/index.ts:251-252	
+    -function clearUser(userId: DatabaseId, sessionToken: string, discordId: string) {
+    -  return getClient().pipeline()
+    +function clearUser(userId: DatabaseId, sessionToken: string, discordId?: string) {
+    +  const pipeline = getClient().pipeline()
+COVERED	src/utils/redis/index.ts:254-256	m1c-user-guilds-delete-kept:m1c-user-guilds-delete-kept
+    -    .del(formatKey('user-session-token', sessionToken))
+    -    .del(formatKey('user-guilds', discordId))
+    -    .exec();
+    +    .del(formatKey('user-session-token', sessionToken));
+    +  if (discordId) pipeline.del(formatKey('user-guilds', discordId));
+    +  return pipeline.exec();
+GAP	src/utils/redis/index.ts:336-336	
+    -      const { data: channel, status } = await getApi().request<Guild>('GET', `/channels/${channelId}`, { vali
+    +      const { data: channel, status } = await getApi().request<Channel>('GET', `/channels/${channelId}`, { va

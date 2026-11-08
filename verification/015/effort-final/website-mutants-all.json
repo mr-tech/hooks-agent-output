@@ -1,0 +1,4523 @@
+[
+  {
+    "id": "cr37-button-autofocus-effect-and-aria-dropped:cr37-button-autofocus-effect-and-aria-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/cr37-button-autofocus-effect-and-aria-dropped.py",
+    "pairs": [
+      {
+        "file": "src/components/Button.tsx",
+        "old": "useEffect(() => { if (autoFocus) localRef.current?.focus(); }, []);",
+        "new": "useEffect(() => {}, []);"
+      },
+      {
+        "file": "src/components/Button.tsx",
+        "old": "useButton(_props as AriaButtonProps, localRef)",
+        "new": "useButton({ ..._props, autoFocus: false } as AriaButtonProps, localRef)"
+      }
+    ],
+    "status": "NOT-APPLICABLE",
+    "counts": [
+      0,
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "cr38-button-autofocus-not-passed-to-usebutton:cr38-button-autofocus-not-passed-to-usebutton",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/cr38-button-autofocus-not-passed-to-usebutton.py",
+    "pairs": [
+      {
+        "file": "src/components/Button.tsx",
+        "old": "useButton(_props as AriaButtonProps, localRef)",
+        "new": "useButton({ ..._props, autoFocus: false } as AriaButtonProps, localRef)"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m1-rebuild-table:m1c-lookup-error-keys-kept",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m1-rebuild-table.py",
+    "pairs": [
+      {
+        "file": "src/server/auth.ts",
+        "old": "    await redis.clearUser(userDbId, sessionToken).catch(() => {});\n    throw err;",
+        "new": "    throw err;"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m1-rebuild-table:m1c-lookup-error-clear-unswallowed",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m1-rebuild-table.py",
+    "pairs": [
+      {
+        "file": "src/server/auth.ts",
+        "old": "await redis.clearUser(userDbId, sessionToken).catch(() => {});",
+        "new": "await redis.clearUser(userDbId, sessionToken);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m1-rebuild-table:m1c-no-account-keys-kept",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m1-rebuild-table.py",
+    "pairs": [
+      {
+        "file": "src/server/auth.ts",
+        "old": "  if (!account) {\n    await redis.clearUser(userDbId, sessionToken);\n    return;",
+        "new": "  if (!account) {\n    return;"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m1-rebuild-table:m1c-revoke-never-sent",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m1-rebuild-table.py",
+    "pairs": [
+      {
+        "file": "src/server/auth.ts",
+        "old": "if (account.access_token) await revokeAccessToken",
+        "new": "if (false) await revokeAccessToken"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m1-rebuild-table:m1c-guilds-key-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m1-rebuild-table.py",
+    "pairs": [
+      {
+        "file": "src/server/auth.ts",
+        "old": "redis.clearUser(userDbId, sessionToken, account.providerAccountId),",
+        "new": "redis.clearUser(userDbId, sessionToken),"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m1-rebuild-table:m1c-accounts-update-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m1-rebuild-table.py",
+    "pairs": [
+      {
+        "file": "src/server/auth.ts",
+        "old": "      .set({ access_token: null, refresh_token: null })",
+        "new": "      .set({})"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m1-rebuild-table:m1c-reads-cached-account",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m1-rebuild-table.py",
+    "pairs": [
+      {
+        "file": "src/server/auth.ts",
+        "old": "account = await getPostgres()\n      .selectFrom('Accounts')\n      .select(['access_token', 'providerAccountId'])\n      .where('userId', '=', userDbId)\n      .executeTakeFirst();",
+        "new": "account = (await redis.fetchUserAccount(userDbId)) ?? undefined;"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m1-rebuild-table:m1h-message-handler-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m1-rebuild-table.py",
+    "pairs": [
+      {
+        "file": "src/server/auth.ts",
+        "old": "    messagePromise.catch(() => {});\n",
+        "new": ""
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": [
+      "m1h-message-promise-handler-removed:m1h-message-promise-handler-removed",
+      "qa-m1-supplement:m1h-message-handler-dropped"
+    ]
+  },
+  {
+    "id": "m1-rebuild-table:m1h-guilds-fetched-without-token",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m1-rebuild-table.py",
+    "pairs": [
+      {
+        "file": "src/server/auth.ts",
+        "old": "access_token ? redis.fetchUserGuilds(providerAccountId, access_token)",
+        "new": "true ? redis.fetchUserGuilds(providerAccountId, access_token as string)"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m1-rebuild-table:m1h-message-awaited-before-account",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m1-rebuild-table.py",
+    "pairs": [
+      {
+        "file": "src/server/auth.ts",
+        "old": "    const account = await redis.fetchUserAccount(userDbId);\n\n    if (!account) {\n      // @ts-expect-error",
+        "new": "    await messagePromise;\n    const account = await redis.fetchUserAccount(userDbId);\n\n    if (!account) {\n      // @ts-expect-error"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m1c-accounts-update-before-revoke:m1c-accounts-update-before-revoke",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m1c-accounts-update-before-revoke.py",
+    "pairs": [
+      {
+        "file": "src/server/auth.ts",
+        "old": "  if (account.access_token) await revokeAccessToken(account.access_token);\n\n  await Promise.all([",
+        "new": "  const nulled = getPostgres()\n    .updateTable('Accounts')\n    .set({ access_token: null, refresh_token: null })\n    .where('provider', '=', 'discord')\n    .where('providerAccountId', '=', account.providerAccountId)\n    .execute();\n  if (account.access_token) await revokeAccessToken(account.access_token);\n  await nulled;\n\n  await Promise.all(["
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m1c-refused-revoke-throws:m1c-refused-revoke-throws",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m1c-refused-revoke-throws.py",
+    "pairs": [
+      {
+        "file": "src/server/auth.ts",
+        "old": "  }).catch(() => {});\n}",
+        "new": "  }).then((res) => { if (!res.ok) throw new Error('revoke refused'); });\n}"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m1c-user-guilds-delete-kept:m1c-user-guilds-delete-kept",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m1c-user-guilds-delete-kept.py",
+    "pairs": [
+      {
+        "file": "src/utils/redis/index.ts",
+        "old": "  if (discordId) pipeline.del(formatKey('user-guilds', discordId));",
+        "new": "  pipeline.del(formatKey('user-guilds', discordId as string));"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m1d-cap-comparator-strict:m1d-cap-comparator-strict",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m1d-cap-comparator-strict.py",
+    "pairs": [
+      {
+        "file": "src/server/api/utils/shared.ts",
+        "old": "Number(messageCount) >= MAX_MESSAGES",
+        "new": "Number(messageCount) > MAX_MESSAGES"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m1d-cap-counts-user-for-guild:m1d-cap-counts-user-for-guild",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m1d-cap-counts-user-for-guild.py",
+    "pairs": [
+      {
+        "file": "src/server/api/utils/shared.ts",
+        "old": "messageCountQuery.where('fk_guilds_id', '=', guildId)",
+        "new": "messageCountQuery.where('fk_users_id', '=', guildId)"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m1d-cap-ignores-new-conjunct:m1d-cap-ignores-new-conjunct",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m1d-cap-ignores-new-conjunct.py",
+    "pairs": [
+      {
+        "file": "src/server/api/utils/shared.ts",
+        "old": "if (!message.id && Number(messageCount) >= MAX_MESSAGES)",
+        "new": "if (Number(messageCount) >= MAX_MESSAGES)"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m1f-env-guard-reverted:m1f-env-guard-reverted",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m1f-env-guard-reverted.py",
+    "pairs": [
+      {
+        "file": "src/env.mjs",
+        "old": "prop !== 'NODE_ENV'",
+        "new": "!prop === 'NODE_ENV'"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m1g-drop-body-null-conjunct:m1g-drop-body-null-conjunct",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m1g-drop-body-null-conjunct.py",
+    "pairs": [
+      {
+        "file": "src/pages/api/interactions-edge.ts",
+        "old": "if (!isValid || req.body === null)",
+        "new": "if (!isValid)"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m1g-drop-isvalid-conjunct:m1g-drop-isvalid-conjunct",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m1g-drop-isvalid-conjunct.py",
+    "pairs": [
+      {
+        "file": "src/pages/api/interactions-edge.ts",
+        "old": "if (!isValid || req.body === null)",
+        "new": "if (req.body === null)"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m1g-parse-before-verify:m1g-parse-before-verify",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m1g-parse-before-verify.py",
+    "pairs": [
+      {
+        "file": "src/pages/api/interactions-edge.ts",
+        "old": "  if (!isValid || req.body === null) {\n    return new NextResponse('invalid request signature', { status: 401 });\n  }\n\n  const interaction = JSON.parse(rawBody) as IncomingInteraction;\n",
+        "new": "  const interaction = JSON.parse(rawBody) as IncomingInteraction;\n\n  if (!isValid || req.body === null) {\n    return new NextResponse('invalid request signature', { status: 401 });\n  }\n"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m1h-guild-fetch-awaited-inside-array:m1h-guild-fetch-awaited-inside-array",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m1h-guild-fetch-awaited-inside-array.py",
+    "pairs": [
+      {
+        "file": "src/server/auth.ts",
+        "old": "access_token ? redis.fetchUserGuilds(providerAccountId, access_token) : ([] as UserGuild[]),",
+        "new": "access_token ? await redis.fetchUserGuilds(providerAccountId, access_token) : [],"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m2-embedshape-table:thumbnail-url-unchecked",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py",
+    "pairs": [
+      {
+        "file": "src/server/api/utils/shapes.ts",
+        "old": "thumbnail: z.object({\n    url: z.string().trim().url(),",
+        "new": "thumbnail: z.object({\n    url: z.string().trim(),"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m2-embedshape-table:image-url-unchecked",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py",
+    "pairs": [
+      {
+        "file": "src/server/api/utils/shapes.ts",
+        "old": "image: z.object({\n    url: z.string().trim().url(),",
+        "new": "image: z.object({\n    url: z.string().trim(),"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m2-embedshape-table:author-icon-unchecked",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py",
+    "pairs": [
+      {
+        "file": "src/server/api/utils/shapes.ts",
+        "old": "    url: z.string().trim().url().optional(),\n    icon_url: z.string().trim().url().optional(),\n  }).optional(),\n  url:",
+        "new": "    url: z.string().trim().url().optional(),\n    icon_url: z.string().trim().optional(),\n  }).optional(),\n  url:"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m2-embedshape-table:author-url-unchecked",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py",
+    "pairs": [
+      {
+        "file": "src/server/api/utils/shapes.ts",
+        "old": "    url: z.string().trim().url().optional(),\n    icon_url: z.string().trim().url().optional(),\n  }).optional(),\n  url:",
+        "new": "    url: z.string().trim().optional(),\n    icon_url: z.string().trim().url().optional(),\n  }).optional(),\n  url:"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m2-embedshape-table:footer-icon-unchecked",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py",
+    "pairs": [
+      {
+        "file": "src/server/api/utils/shapes.ts",
+        "old": "    text: z.string().trim().max(MAX_EMBED_FOOTER_TEXT_LENGTH),\n    icon_url: z.string().trim().url().optional(),",
+        "new": "    text: z.string().trim().max(MAX_EMBED_FOOTER_TEXT_LENGTH),\n    icon_url: z.string().trim().optional(),"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m2-embedshape-table:thumbnail-required",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py",
+    "pairs": [
+      {
+        "file": "src/server/api/utils/shapes.ts",
+        "old": "thumbnail: z.object({\n    url: z.string().trim().url(),\n  }).optional(),",
+        "new": "thumbnail: z.object({\n    url: z.string().trim().url(),\n  }),"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m2-embedshape-table:image-required",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py",
+    "pairs": [
+      {
+        "file": "src/server/api/utils/shapes.ts",
+        "old": "image: z.object({\n    url: z.string().trim().url(),\n  }).optional(),",
+        "new": "image: z.object({\n    url: z.string().trim().url(),\n  }),"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m2-embedshape-table:author-icon-required",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py",
+    "pairs": [
+      {
+        "file": "src/server/api/utils/shapes.ts",
+        "old": "    url: z.string().trim().url().optional(),\n    icon_url: z.string().trim().url().optional(),\n  }).optional(),\n  url:",
+        "new": "    url: z.string().trim().url().optional(),\n    icon_url: z.string().trim().url(),\n  }).optional(),\n  url:"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m2-embedshape-table:author-url-required",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py",
+    "pairs": [
+      {
+        "file": "src/server/api/utils/shapes.ts",
+        "old": "    url: z.string().trim().url().optional(),\n    icon_url: z.string().trim().url().optional(),\n  }).optional(),\n  url:",
+        "new": "    url: z.string().trim().url(),\n    icon_url: z.string().trim().url().optional(),\n  }).optional(),\n  url:"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m2-embedshape-table:footer-icon-required",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py",
+    "pairs": [
+      {
+        "file": "src/server/api/utils/shapes.ts",
+        "old": "    text: z.string().trim().max(MAX_EMBED_FOOTER_TEXT_LENGTH),\n    icon_url: z.string().trim().url().optional(),",
+        "new": "    text: z.string().trim().max(MAX_EMBED_FOOTER_TEXT_LENGTH),\n    icon_url: z.string().trim().url(),"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m2-embedshape-table:colour-ceiling-lowered",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py",
+    "pairs": [
+      {
+        "file": "src/server/api/utils/shapes.ts",
+        "old": "\n  color: z.number().int().min(0).max(0xffffff)",
+        "new": "\n  color: z.number().int().min(0).max(0xfffff)"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m2-embedshape-table:colour-zero-refused",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py",
+    "pairs": [
+      {
+        "file": "src/server/api/utils/shapes.ts",
+        "old": "\n  color: z.number().int().min(0).max(0xffffff)",
+        "new": "\n  color: z.number().int().positive().max(0xffffff)"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m2-embedshape-table:title-required",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py",
+    "pairs": [
+      {
+        "file": "src/server/api/utils/shapes.ts",
+        "old": "title: z.string().trim().max(MAX_EMBED_TITLE_LENGTH).optional(),",
+        "new": "title: z.string().trim().max(MAX_EMBED_TITLE_LENGTH),"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m2-embedshape-table:author-bound-80",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/limits.tsx",
+        "old": "name.length > MAX_EMBED_AUTHOR_NAME_LENGTH",
+        "new": "name.length > MAX_NAME_LENGTH"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m2-embedshape-table:title-text-name",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/limits.tsx",
+        "old": "error = 'Title is too long.'",
+        "new": "error = 'Name is too long.'"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m2-embedshape-table:footer-constant-256",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py",
+    "pairs": [
+      {
+        "file": "src/constants/messageLimits.ts",
+        "old": "MAX_EMBED_FOOTER_TEXT_LENGTH = 2048",
+        "new": "MAX_EMBED_FOOTER_TEXT_LENGTH = 256"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m2-embedshape-table:ingress-colour-truthy",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/discordResponseToMessage.ts",
+        "old": "if (e.color !== undefined)",
+        "new": "if (e.color)"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m2-embedshape-table:border-colour-truthy",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx",
+        "old": "color != null ? intToHex(color)",
+        "new": "color ? intToHex(color)"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-d29-table:d29-hook-webhook-text-message-load",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-d29-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/hooks/useValidateWebhook.ts",
+        "old": "if (!isStale) setWebhookError('Invalid URL');",
+        "new": "if (!isStale) setWebhookError(MESSAGE_LOAD_FAILED_ERROR);"
+      }
+    ],
+    "status": "NOT-APPLICABLE",
+    "counts": [
+      0
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": [
+      "qa-m4r-supplement:hook-webhook-load-text-reverted"
+    ]
+  },
+  {
+    "id": "m4-d29-table:d29-hook-webhook-catch-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-d29-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/hooks/useValidateWebhook.ts",
+        "old": "          if (!isStale) setWebhookError('Invalid URL');",
+        "new": "          throw new Error('x');"
+      }
+    ],
+    "status": "NOT-APPLICABLE",
+    "counts": [
+      0
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-d29-table:d29-hook-refusal-mapped-to-invalid",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-d29-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/hooks/useValidateWebhook.ts",
+        "old": "if ('message' in wh) setWebhookError(wh.message);",
+        "new": "if ('message' in wh) setWebhookError('Invalid URL');"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": [
+      "qa-m4r-supplement:hook-refusal-becomes-invalid-url"
+    ]
+  },
+  {
+    "id": "m4-d29-table:d29-dialog-error-line-drops-webhook-error",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-d29-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/_components/NewMessageModal.tsx",
+        "old": "    ?? webhookError\n",
+        "new": ""
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-d29-table:d29-menu-error-never",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-d29-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+        "old": "errorMessage={url && !isWebhookLoading && selectedWebhook === null ? 'Invalid URL' : undefined}",
+        "new": "errorMessage={undefined}"
+      }
+    ],
+    "status": "NOT-APPLICABLE",
+    "counts": [
+      0
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": [
+      "qa-m4r-supplement:menu-url-error-never"
+    ]
+  },
+  {
+    "id": "m4-d29-table:d29-menu-text-changed",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-d29-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+        "old": "selectedWebhook === null ? 'Invalid URL'",
+        "new": "selectedWebhook === null ? 'Bad URL'"
+      }
+    ],
+    "status": "NOT-APPLICABLE",
+    "counts": [
+      0
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-nonjson-table:nj-hook-body-failure-is-refusal",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-nonjson-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/hooks/useValidateWebhook.ts",
+        "old": ".then<DiscordWebhook | { message: string }>((res) => res.json()));",
+        "new": ".then<DiscordWebhook | { message: string }>((res) => res.json().catch(() => ({ message: 'bad body' }))));"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-nonjson-table:nj-provider-body-failure-selects-webhook",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-nonjson-table.py",
+    "pairs": [
+      {
+        "file": "src/providers/WebhookProvider.tsx",
+        "old": "fetch(url).then<Webhook | null>((res) => (res.status === 200 ? res.json() : null)),",
+        "new": "fetch(url).then<Webhook | null>((res) => (res.status === 200 ? res.json().catch(() => ({ id: 'x' } as Webhook)) : null)),"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:m4a-disable-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/send/page.tsx",
+        "old": "    && !isSending\n",
+        "new": ""
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": [
+      "qa-m4-supplement:i3-sending-conjunct-dropped"
+    ]
+  },
+  {
+    "id": "m4-table:m4a-catch-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/send/page.tsx",
+        "old": "})).catch(() => null);",
+        "new": "}));"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:m4b-url-error-inverted",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+        "old": "selectedWebhook === null ? 'Invalid URL'",
+        "new": "selectedWebhook !== null ? 'Invalid URL'"
+      }
+    ],
+    "status": "NOT-APPLICABLE",
+    "counts": [
+      0
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:m4b-loading-conjunct-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+        "old": "url && !isWebhookLoading && selectedWebhook === null",
+        "new": "url && selectedWebhook === null"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:m4b-url-conjunct-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+        "old": "errorMessage={url && !isWebhookLoading",
+        "new": "errorMessage={!isWebhookLoading"
+      }
+    ],
+    "status": "NOT-APPLICABLE",
+    "counts": [
+      0
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:m4c-clear-on-name",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+        "old": "isDisabled={isLoading || !threadId}",
+        "new": "isDisabled={isLoading || !threadName}"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:m4c-clear-loading-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+        "old": "isDisabled={isLoading || !threadId}",
+        "new": "isDisabled={!threadId}"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:rider-guild-check-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/server/api/routers/message.ts",
+        "old": "if (!('guild_id' in channel) || channel.guild_id !== guildId) {",
+        "new": "if (false) {"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:rider-compares-channel-id",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/server/api/routers/message.ts",
+        "old": "channel.guild_id !== guildId",
+        "new": "channel.id !== guildId"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:rider-refuses-only-when-set-and-differs",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/server/api/routers/message.ts",
+        "old": "if (!('guild_id' in channel) || channel.guild_id !== guildId) {",
+        "new": "if ('guild_id' in channel && channel.guild_id !== guildId) {"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:rider-check-after-message-fetch",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/server/api/routers/message.ts",
+        "old": "      const channel = await redis.fetchChannel(channelId);\n",
+        "new": "      const channel = { guild_id: guildId };\n"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:rider-group-swap",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/server/api/routers/message.ts",
+        "old": "const { guildId, channelId, messageId } = match.groups",
+        "new": "const { channelId: guildId, guildId: channelId, messageId } = match.groups"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:hook-stale-webhook-guard-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/hooks/useValidateWebhook.ts",
+        "old": "          if (isStale) return;\n\n          if ('message' in wh)",
+        "new": "          if ('message' in wh)"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:hook-stale-message-guard-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/hooks/useValidateWebhook.ts",
+        "old": "          if (isStale) return;\n\n          if ('message' in msg)",
+        "new": "          if ('message' in msg)"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:hook-webhook-catch-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/hooks/useValidateWebhook.ts",
+        "old": "          if (!isStale) setWebhookError(MESSAGE_LOAD_FAILED_ERROR);",
+        "new": "          throw new Error('x');"
+      }
+    ],
+    "status": "NOT-APPLICABLE",
+    "counts": [
+      0
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:hook-message-catch-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/hooks/useValidateWebhook.ts",
+        "old": "          if (!isStale) setMessageError(MESSAGE_LOAD_FAILED_ERROR);",
+        "new": "          throw new Error('x');"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:hook-uses-own-id-test",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/hooks/useValidateWebhook.ts",
+        "old": "const messageId = parseMessageId(messageIdOrUrl);",
+        "new": "const messageId = /\\d+/.test(messageIdOrUrl.trim()) ? messageIdOrUrl.trim() : null;"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:m4d-message-catch-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/providers/WebhookProvider.tsx",
+        "old": "        })).catch(() => {\n          if (isStale) return;\n          setOldMessage(null);\n          setOldMessageError(MESSAGE_LOAD_FAILED_ERROR);\n        });",
+        "new": "        }));"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:m4d-message-text-provider",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/providers/WebhookProvider.tsx",
+        "old": "setOldMessageError(MESSAGE_LOAD_FAILED_ERROR)",
+        "new": "setOldMessageError('Could not load')"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:m4d-failure-text-constant",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/constants/index.ts",
+        "old": "Check your connection and try again.",
+        "new": "Check your network and try again."
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:m4d-regex-end-unanchored",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/constants/index.ts",
+        "old": "(?<messageId>\\d+)$/;",
+        "new": "(?<messageId>\\d+)/;"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:m4d-regex-narrow",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/constants/index.ts",
+        "old": "(?:(?:www|canary|ptb)\\.)?discord(?:app)?\\.com",
+        "new": "(?:www\\.|canary\\.|ptb\\.)?discord\\.com"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:m4d-regex-prefix-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/constants/index.ts",
+        "old": "(?:(?:www|canary|ptb)\\.)?discord(?:app)?",
+        "new": "discord(?:app)?"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:m4d-regex-start-unanchored",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/constants/index.ts",
+        "old": "LINK_REGEX = /^https:",
+        "new": "LINK_REGEX = /https:"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:m4d-regex-http",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/constants/index.ts",
+        "old": "LINK_REGEX = /^https:",
+        "new": "LINK_REGEX = /^https?:"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:m4d-parse-wrong-group",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/parseMessageId.ts",
+        "old": "?.groups?.messageId",
+        "new": "?.groups?.channelId"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:m4d-parse-unanchored-id",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/parseMessageId.ts",
+        "old": "/^\\d+$/.test(text)",
+        "new": "/\\d+/.test(text)"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:m4d-parse-untrimmed",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/parseMessageId.ts",
+        "old": "input.trim()",
+        "new": "input"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:m4d-stale-webhook-guard-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/providers/WebhookProvider.tsx",
+        "old": "        if (isStale) return;\n        if (wh) {",
+        "new": "        if (wh) {"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:m4d-stale-message-guard-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/providers/WebhookProvider.tsx",
+        "old": "          const data = await res.json();\n          if (isStale) return;\n",
+        "new": "          const data = await res.json();\n"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m4-table:m4d-webhook-catch-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py",
+    "pairs": [
+      {
+        "file": "src/providers/WebhookProvider.tsx",
+        "old": ").catch(() => null);\n        if (isStale) return;",
+        "new": ");\n        if (isStale) return;"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5a-allow-close-not-reset",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/_components/JsonModalBody.tsx",
+        "old": "    setAllowMenuClose(true);\n    onClose();",
+        "new": "    onClose();"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5b-copy-always-enabled",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/_components/JsonModalBody.tsx",
+        "old": "isDisabled={!!copyState || copyText === null}",
+        "new": "isDisabled={!!copyState}"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5b-copy-disabled-only-when-unparsable",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/_components/JsonModalBody.tsx",
+        "old": "isDisabled={!!copyState || copyText === null}",
+        "new": "isDisabled={!!copyState || !isJSONParsable(messageString)}"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5b-copy-copies-raw-draft",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/_components/JsonModalBody.tsx",
+        "old": "void copy(copyText);",
+        "new": "void copy(messageString);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5c-pusher-reads-render-flag",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/providers/MessageProvider/usePusher.ts",
+        "old": "${hasChangedRef.current ?",
+        "new": "${hasChanged ?"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5c-pusher-ref-never-updated",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/providers/MessageProvider/usePusher.ts",
+        "old": "const hasChangedRef = useLatest(hasChanged);",
+        "new": "const hasChangedRef = { current: hasChanged };"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": [
+      "qa-m6-supplement:m5c-flag-frozen-at-subscribe"
+    ]
+  },
+  {
+    "id": "m5-table:m5d-dropdown-memo-once",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/hooks/useGuildDropdownItems.tsx",
+        "old": "  }, [session, setSelectedGuildId]);",
+        "new": "  }, []);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5e-day-of-month-only",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/formatMessageDate.ts",
+        "old": "  return a.getFullYear() === b.getFullYear()\n    && a.getMonth() === b.getMonth()\n    && a.getDate() === b.getDate();",
+        "new": "  return a.getDate() === b.getDate();"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5e-month-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/formatMessageDate.ts",
+        "old": "    && a.getMonth() === b.getMonth()\n",
+        "new": ""
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5e-year-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/formatMessageDate.ts",
+        "old": "  return a.getFullYear() === b.getFullYear()\n    && a.getMonth()",
+        "new": "  return a.getMonth()"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5e-prefix-ignored",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/formatMessageDate.ts",
+        "old": "return `${todayPrefix}${messageDate",
+        "new": "return `${messageDate"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5e-header-bypasses-formatter",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/_layout/Header.tsx",
+        "old": "{formatMessageDate(msg.updatedAt)}",
+        "new": "{new Date(msg.updatedAt).toLocaleDateString()}"
+      }
+    ],
+    "status": "NOT-APPLICABLE",
+    "counts": [
+      2
+    ],
+    "test_file": false,
+    "declared_count": 2,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5e-folder-bypasses-formatter",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/f/[id]/page.tsx",
+        "old": "formatMessageDate(orderProp === 'createdAt' ? msg.createdAt : msg.updatedAt, 'Today at ')",
+        "new": "new Date(orderProp === 'createdAt' ? msg.createdAt : msg.updatedAt).toLocaleDateString()"
+      }
+    ],
+    "status": "NOT-APPLICABLE",
+    "counts": [
+      2
+    ],
+    "test_file": false,
+    "declared_count": 2,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5e-folder-drops-prefix",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/f/[id]/page.tsx",
+        "old": "formatMessageDate(orderProp === 'createdAt' ? msg.createdAt : msg.updatedAt, 'Today at ')",
+        "new": "formatMessageDate(orderProp === 'createdAt' ? msg.createdAt : msg.updatedAt)"
+      }
+    ],
+    "status": "NOT-APPLICABLE",
+    "counts": [
+      2
+    ],
+    "test_file": false,
+    "declared_count": 2,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5f-save-as-name-not-refilled",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/_components/SaveAsMenu.tsx",
+        "old": "    setMessageName(proposedName);\n",
+        "new": ""
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5f-save-as-server-not-refilled",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/_components/SaveAsMenu.tsx",
+        "old": "    setSelectedGuildId(message.guildId ?? '');\n  }, [isOpen]);",
+        "new": "  }, [isOpen]);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5f-save-as-refills-only-at-mount",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/_components/SaveAsMenu.tsx",
+        "old": "  }, [isOpen]);",
+        "new": "  }, []);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5f-save-as-refills-on-close-too",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/_components/SaveAsMenu.tsx",
+        "old": "    if (!isOpen) return;\n    setMessageName",
+        "new": "    setMessageName"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5g-delete-toast-says-refresh",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/f/[id]/page.tsx",
+        "old": "Failed to delete message. Please try again.",
+        "new": "Failed to refresh message. Please try again."
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5i-pick-ignored",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+        "old": "pickedCategory ?? (hasWebhooks ? (guild?.id ?? '') : 'load')",
+        "new": "(hasWebhooks ? (guild?.id ?? '') : 'load')"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5i-seeded-at-mount",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+        "old": "const [pickedCategory, setPickedCategory] = useState<null | string>(null);\n  const selectedCategory = pickedCategory ?? (hasWebhooks ? (guild?.id ?? '') : 'load');",
+        "new": "const [selectedCategory, setPickedCategory] = useState((hasWebhooks ? (guild?.id ?? '') : 'load'));"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5i-count-only",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+        "old": "status === 'authenticated' && guildId && webhooks.length",
+        "new": "webhooks.length"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5i-status-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+        "old": "status === 'authenticated' && guildId && webhooks.length",
+        "new": "guildId && webhooks.length"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5i-guild-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+        "old": "status === 'authenticated' && guildId && webhooks.length",
+        "new": "status === 'authenticated' && webhooks.length"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5i-webhooks-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+        "old": "status === 'authenticated' && guildId && webhooks.length",
+        "new": "status === 'authenticated' && guildId"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5h-array-passes",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/preview/page.tsx",
+        "old": "typeof parsed !== 'object' || Array.isArray(parsed)",
+        "new": "typeof parsed !== 'object'"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5h-primitive-passes",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/preview/page.tsx",
+        "old": "typeof parsed !== 'object' || Array.isArray(parsed)",
+        "new": "Array.isArray(parsed)"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5h-parse-error-uncaught",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/preview/page.tsx",
+        "old": "  } catch {\n    return null;\n  }",
+        "new": "  } finally {\n    // none\n  }"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5h-boundary-fallback-empty",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/preview/page.tsx",
+        "old": "<ErrorBoundary fallback={invalidData}>",
+        "new": "<ErrorBoundary fallback={null}>"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": [
+      "qa-r2-supplement:m5h-blank-fallback"
+    ]
+  },
+  {
+    "id": "m5-table:m5h-boundary-removed",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/preview/page.tsx",
+        "old": "import { ErrorBoundary } from 'react-error-boundary';",
+        "new": "import type { PropsWithChildren } from 'react';\nconst ErrorBoundary = (p: PropsWithChildren<{ fallback: unknown }>) => <>{p.children}</>;"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5h-make-editable-skipped-in-parse",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/preview/page.tsx",
+        "old": "return makeEditable({ data: parsed } as ApiMessage).data;",
+        "new": "return parsed as ApiMessage['data'];"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5h-error-text-changed",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/preview/page.tsx",
+        "old": "Invalid message data.",
+        "new": "Bad data."
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m5-table:m5h-error-not-text-error",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py",
+    "pairs": [
+      {
+        "file": "src/app/preview/page.tsx",
+        "old": "className=\"text-sm text-error\"",
+        "new": "className=\"text-sm\""
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6l-count-error-computed-once",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/index.tsx",
+        "old": "const componentCountError = validateComponentCount(components);",
+        "new": "const componentCountError = useMemo(() => validateComponentCount(components), []);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": [
+      "qa-r2-supplement:m6l-error-frozen-at-mount"
+    ]
+  },
+  {
+    "id": "m6-table:m6l-count-error-only-when-editing",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/index.tsx",
+        "old": "<NullableComponent show={componentCountError}>",
+        "new": "<NullableComponent show={isEditing && componentCountError}>"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": [
+      "qa-r2-supplement:m6l-line-only-when-editing"
+    ]
+  },
+  {
+    "id": "m6-table:m6d-displayed-fields-or",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx",
+        "old": ".filter(({ field: { name, value } }) => showEdit || (name && value))",
+        "new": ".filter(({ field: { name, value } }) => showEdit || (name || value))"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6a-paragraph-splits-fence",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/markdown/rules.tsx",
+        "old": "((?:${FENCE}|[^\\\\n]|",
+        "new": "((?:[^\\\\n]|"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6e-bottomportal-cleanup-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/BottomPortal.tsx",
+        "old": "  useEffect(() => () => {\n    setChildrenProps((prev) => (\n",
+        "new": "  useEffect(() => () => {\n    if (id) return;\n    setChildrenProps((prev) => (\n"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6e-colorpicker-cleanup-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx",
+        "old": "useEffect(() => () => removeBlockStyle(), []);",
+        "new": "useEffect(() => () => {}, []);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": [
+      "qa-r2-supplement:cr24-colour-cleanup-noop"
+    ]
+  },
+  {
+    "id": "m6-table:m6a-content-single-line",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/markdown/rules.tsx",
+        "old": "([^\\n][^]*?)\\n*```/i)(source",
+        "new": "([^\\n]+?)\\n*```/i)(source"
+      }
+    ],
+    "status": "NOT-APPLICABLE",
+    "counts": [
+      0
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6b-substring-match",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/isValidImageUrl.ts",
+        "old": "path.endsWith(ext)",
+        "new": "path.includes(ext)"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6b-case-sensitive",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/isValidImageUrl.ts",
+        "old": ".toLowerCase()",
+        "new": ""
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6b-query-kept",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/isValidImageUrl.ts",
+        "old": "url.split(/[?#]/, 1)[0]",
+        "new": "url.split(/#/, 1)[0]"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6b-fragment-kept",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/isValidImageUrl.ts",
+        "old": "url.split(/[?#]/, 1)[0]",
+        "new": "url.split(/\\?/, 1)[0]"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6b-jpeg-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/isValidImageUrl.ts",
+        "old": "'jpg', 'jpeg', 'webp'",
+        "new": "'jpg', 'webp'"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6b-webp-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/isValidImageUrl.ts",
+        "old": "'jpeg', 'webp', 'gif'",
+        "new": "'jpeg', 'gif'"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6b-avif-added",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/isValidImageUrl.ts",
+        "old": "'tiff', 'webm']",
+        "new": "'tiff', 'webm', 'avif']"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6c-no-fields-counts-valid",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx",
+        "old": "return !!fields?.some((field) => field.name && field.value);",
+        "new": "return !fields?.length || fields.some((field) => field.name && field.value);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6c-name-or-value",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx",
+        "old": "field.name && field.value);",
+        "new": "field.name || field.value);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6d-set-field-first-slot",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx",
+        "old": "setField={actions[idx].setField}",
+        "new": "setField={actions[0].setField}"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6d-delete-first-slot",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx",
+        "old": "onDelete={actions[idx].delete}",
+        "new": "onDelete={actions[0].delete}"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6d-move-left-shifted",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx",
+        "old": "moveLeft={idx === 0 ? undefined",
+        "new": "moveLeft={idx === 1 ? undefined"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6d-move-right-shifted",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx",
+        "old": "moveRight={idx === fields.length - 1 ?",
+        "new": "moveRight={idx === fields.length ?"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6d-index-after-filter",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx",
+        "old": "        .map((entry, idx) => ({ ...entry, idx }))\n        .filter(({ field: { name, value } }) => showEdit || (name && value))\n        .map(({ gridColumn, field, idx }) => (",
+        "new": "        .filter(({ field: { name, value } }) => showEdit || (name && value))\n        .map(({ gridColumn, field }, idx) => ("
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6e-timeout-not-cleared",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/Author.tsx",
+        "old": "      clearTimeout(timeout);\n",
+        "new": ""
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6e-interval-not-cleared",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/Author.tsx",
+        "old": "      clearInterval(interval);\n",
+        "new": ""
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6e-clock-never-ticks",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/Author.tsx",
+        "old": "interval = setInterval(() => { setTs(new Date()); }, MINUTE_IN_MILLISECONDS);",
+        "new": "interval = setInterval(() => {}, MINUTE_IN_MILLISECONDS);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6f-truthiness-nonblack-fallback",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx",
+        "old": "intToHex(initColor ?? 0)",
+        "new": "(initColor ? intToHex(initColor) : '#ffffff')"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6f-unpadded",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx",
+        "old": "intToHex(initColor ?? 0)",
+        "new": "`#${(initColor ?? 0).toString(16)}`"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6f-undefined-is-white",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx",
+        "old": "intToHex(initColor ?? 0)",
+        "new": "intToHex(initColor ?? 0xffffff)"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6g-sort-removed",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/markdown/emoji.tsx",
+        "old": "    .sort((a, b) => b.length - a.length)\n",
+        "new": ""
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6g-sort-ascending",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/markdown/emoji.tsx",
+        "old": "b.length - a.length",
+        "new": "a.length - b.length"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6g-sort-one-argument",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/markdown/emoji.tsx",
+        "old": ".sort((a, b) => b.length - a.length)",
+        "new": ".sort((surrogate) => -surrogate.length)"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6h-aria-inverted",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/markdown/components/MarkdownSpoiler.tsx",
+        "old": "aria-expanded={isVisible}",
+        "new": "aria-expanded={!isVisible}"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6i-embed-copy-before",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/index.tsx",
+        "old": "newEmbeds.splice(idx + 1, 0, newEmbed);",
+        "new": "newEmbeds.splice(idx, 0, newEmbed);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6i-component-copy-before",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/index.tsx",
+        "old": "next.splice(idx + 1, 0, clone);",
+        "new": "next.splice(idx, 0, clone);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6i-actionrow-copy-last",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx",
+        "old": "next.splice(idx + 1, 0, clone);",
+        "new": "next.push(clone);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6i-gallery-copy-last",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx",
+        "old": "next.splice(idx + 1, 0, clone);",
+        "new": "next.push(clone);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6i-section-copy-last",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx",
+        "old": "next.splice(idx + 1, 0, clone);",
+        "new": "next.push(clone);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6i-container-copy-last",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx",
+        "old": "next.splice(idx + 1, 0, clone);",
+        "new": "next.push(clone);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6j-footer-text-unguarded",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx",
+        "old": "footer?.text?.trim()",
+        "new": "footer?.text.trim()"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6k-delete-without-inner-key-noop",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/maps/UpsertMapMap.ts",
+        "old": "if (innerKey === undefined) this.#map.delete(key);",
+        "new": "if (innerKey === undefined) this.#map.get(key);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6k-falsy-inner-key-is-absent",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/maps/UpsertMapMap.ts",
+        "old": "if (innerKey === undefined)",
+        "new": "if (!innerKey)"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6l-comparator-at-limit",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/limits.tsx",
+        "old": "total > MAX_TOTAL_COMPONENTS ?",
+        "new": "total >= MAX_TOTAL_COMPONENTS ?"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": [
+      "qa-m6-supplement:i3-comparator-at-limit"
+    ]
+  },
+  {
+    "id": "m6-table:m6l-nesting-recursion-removed",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/limits.tsx",
+        "old": "        if ('components' in child && Array.isArray(child.components)) {\n          count += child.components.length;\n        }\n",
+        "new": ""
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6l-top-accessory-uncounted",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/limits.tsx",
+        "old": "if ('accessory' in c && c.accessory) count += 1;\n    if ('components' in c",
+        "new": "if ('components' in c"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6l-child-accessory-uncounted",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/limits.tsx",
+        "old": "        if ('accessory' in child && child.accessory) count += 1;\n",
+        "new": ""
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6l-validate-message-skips-count",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/limits.tsx",
+        "old": "  if (componentCountError) return componentCountError;\n",
+        "new": ""
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": [
+      "qa-m6-supplement:i3-validate-skips-count"
+    ]
+  },
+  {
+    "id": "m6-table:m6l-error-names-limit-not-total",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/utils/limits.tsx",
+        "old": "`Message has ${total} components;",
+        "new": "`Message has ${MAX_TOTAL_COMPONENTS} components;"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6l-editor-line-missing",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/index.tsx",
+        "old": "{componentCountError}</div>",
+        "new": "{''}</div>"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6l-editor-border-missing",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/index.tsx",
+        "old": "(embedCharacterError || v2TextError || componentCountError) && styles.errorBorder",
+        "new": "(embedCharacterError || v2TextError) && styles.errorBorder"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6l-editor-offers-at-limit",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/index.tsx",
+        "old": "totalComponentCount < MAX_TOTAL_COMPONENTS",
+        "new": "totalComponentCount <= MAX_TOTAL_COMPONENTS"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6l-editor-counts-top-level-only",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/index.tsx",
+        "old": "const totalComponentCount = countTotalComponents(components);",
+        "new": "const totalComponentCount = components.length;"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6l-editor-add-refused-near-limit",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/index.tsx",
+        "old": "[...components, factory() as EditableTopLevelComponent],",
+        "new": "totalComponentCount + 2 > MAX_TOTAL_COMPONENTS ? components : [...components, factory() as EditableTopLevelComponent],"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6l-actionrow-add-stricter",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx",
+        "old": "if (latestRow.current.components.length >= MAX_ACTION_ROW_BUTTONS) return;\n    setRow",
+        "new": "if (latestRow.current.components.length >= MAX_ACTION_ROW_BUTTONS - 1) return;\n    setRow"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m6-table:m6l-section-add-stricter",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx",
+        "old": "    if (latest.current.components.length >= MAX_SECTION_TEXT_COMPONENTS) return;\n    setSection({\n      ...latest.current,\n      components: [...latest.current.components, createTextDisplay()],",
+        "new": "    if (latest.current.components.length >= MAX_SECTION_TEXT_COMPONENTS - 1) return;\n    setSection({\n      ...latest.current,\n      components: [...latest.current.components, createTextDisplay()],"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": 1,
+    "dups": []
+  },
+  {
+    "id": "m7-table:m7a-and-of-two-bits",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m7-table.py",
+    "pairs": [
+      {
+        "file": "bot/scripts/app_commands/common.ts",
+        "old": "PermissionFlagsBits.ManageGuild.toString()",
+        "new": "(PermissionFlagsBits.Administrator & PermissionFlagsBits.ManageGuild).toString()"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m7-table:m7a-administrator-only",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m7-table.py",
+    "pairs": [
+      {
+        "file": "bot/scripts/app_commands/common.ts",
+        "old": "PermissionFlagsBits.ManageGuild.toString()",
+        "new": "PermissionFlagsBits.Administrator.toString()"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m7-table:m7a-or-of-two-bits",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m7-table.py",
+    "pairs": [
+      {
+        "file": "bot/scripts/app_commands/common.ts",
+        "old": "PermissionFlagsBits.ManageGuild.toString()",
+        "new": "(PermissionFlagsBits.Administrator | PermissionFlagsBits.ManageGuild).toString()"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m7-table:m7b-timestamp-compares",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m7-table.py",
+    "pairs": [
+      {
+        "file": "bot/utils/DiscordEmbed.ts",
+        "old": "this.#payload.timestamp = timestamp;",
+        "new": "this.#payload.timestamp === timestamp;"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": [
+      "qa-r2-supplement:m7b-timestamp-compared"
+    ]
+  },
+  {
+    "id": "m7-table:m7b-timestamp-ignores-argument",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m7-table.py",
+    "pairs": [
+      {
+        "file": "bot/utils/DiscordEmbed.ts",
+        "old": "this.#payload.timestamp = timestamp;",
+        "new": "this.#payload.timestamp = new Date(0).toISOString();"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m7-table:m7c-user-test-for-slash",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m7-table.py",
+    "pairs": [
+      {
+        "file": "bot/scripts/app_commands/common.ts",
+        "old": "): command is UserCommand {\n  return commandType === 'user';",
+        "new": "): command is UserCommand {\n  return commandType === 'slash';"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "m7-table:m7c-user-test-for-message",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/m7-table.py",
+    "pairs": [
+      {
+        "file": "bot/scripts/app_commands/common.ts",
+        "old": "): command is UserCommand {\n  return commandType === 'user';",
+        "new": "): command is UserCommand {\n  return commandType === 'message';"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m1-supplement:i2-token-is-provider-id",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m1-supplement.py",
+    "pairs": [
+      {
+        "file": "src/server/auth.ts",
+        "old": "if (account.access_token) await revokeAccessToken(account.access_token);",
+        "new": "if (account.access_token) await revokeAccessToken(account.providerAccountId);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m1-supplement:i2-token-test-inverted",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m1-supplement.py",
+    "pairs": [
+      {
+        "file": "src/server/auth.ts",
+        "old": "if (account.access_token) await revokeAccessToken(account.access_token);",
+        "new": "if (!account.access_token) await revokeAccessToken(account.access_token as unknown as string);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m1-supplement:i2-tokenless-is-no-account",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m1-supplement.py",
+    "pairs": [
+      {
+        "file": "src/server/auth.ts",
+        "old": "  if (!account) {\n    await redis.clearUser(userDbId, sessionToken);\n    return;\n  }",
+        "new": "  if (!account || !account.access_token) {\n    await redis.clearUser(userDbId, sessionToken);\n    return;\n  }"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m1-supplement:i2-row-read-by-session-token",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m1-supplement.py",
+    "pairs": [
+      {
+        "file": "src/server/auth.ts",
+        "old": "      .where('userId', '=', userDbId)\n      .executeTakeFirst();",
+        "new": "      .where('userId', '=', sessionToken)\n      .executeTakeFirst();"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m1-supplement:i2-lookup-error-swallowed",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m1-supplement.py",
+    "pairs": [
+      {
+        "file": "src/server/auth.ts",
+        "old": "    await redis.clearUser(userDbId, sessionToken).catch(() => {});\n    throw err;",
+        "new": "    await redis.clearUser(userDbId, sessionToken).catch(() => {});\n    return;"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m1-supplement:i2-update-unscoped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m1-supplement.py",
+    "pairs": [
+      {
+        "file": "src/server/auth.ts",
+        "old": "      .where('provider', '=', 'discord')\n      .where('providerAccountId', '=', account.providerAccountId)\n      .execute(),",
+        "new": "      .where('provider', '=', 'discord')\n      .execute(),"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m1-supplement:i4-cap-constant-1001",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m1-supplement.py",
+    "pairs": [
+      {
+        "file": "src/constants/index.ts",
+        "old": "export const MAX_MESSAGES = 1000 as const;",
+        "new": "export const MAX_MESSAGES = 1001 as const;"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m1-supplement:i4-user-count-unscoped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m1-supplement.py",
+    "pairs": [
+      {
+        "file": "src/server/api/utils/shared.ts",
+        "old": "    messageCountQuery = messageCountQuery.where('fk_users_id', '=', select.dbUserId);\n",
+        "new": ""
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m1-supplement:i4-guild-count-unscoped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m1-supplement.py",
+    "pairs": [
+      {
+        "file": "src/server/api/utils/shared.ts",
+        "old": "    messageCountQuery = messageCountQuery.where('fk_guilds_id', '=', guildId);\n",
+        "new": "    void guildId;\n"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m1-supplement:m1a-partial-empty-returns-early",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m1-supplement.py",
+    "pairs": [
+      {
+        "file": "src/server/api/utils/shared.ts",
+        "old": "  const messages = await (guilds.length\n",
+        "new": "  if (!guilds.length) return [];\n  const messages = await (guilds.length\n"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m2-supplement:colour-floor-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m2-supplement.py",
+    "pairs": [
+      {
+        "file": "src/server/api/utils/shapes.ts",
+        "old": "\n  color: z.number().int().min(0).max(0xffffff)",
+        "new": "\n  color: z.number().int().max(0xffffff)"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m2-supplement:colour-ceiling-raised",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m2-supplement.py",
+    "pairs": [
+      {
+        "file": "src/server/api/utils/shapes.ts",
+        "old": "\n  color: z.number().int().min(0).max(0xffffff)",
+        "new": "\n  color: z.number().int().min(0).max(0x1000000)"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m2-supplement:colour-int-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m2-supplement.py",
+    "pairs": [
+      {
+        "file": "src/server/api/utils/shapes.ts",
+        "old": "\n  color: z.number().int().min(0).max(0xffffff)",
+        "new": "\n  color: z.number().min(0).max(0xffffff)"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m2-supplement:footer-constant-2049",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m2-supplement.py",
+    "pairs": [
+      {
+        "file": "src/constants/messageLimits.ts",
+        "old": "MAX_EMBED_FOOTER_TEXT_LENGTH = 2048",
+        "new": "MAX_EMBED_FOOTER_TEXT_LENGTH = 2049"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m2-supplement:ingress-colour-always",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m2-supplement.py",
+    "pairs": [
+      {
+        "file": "src/utils/discordResponseToMessage.ts",
+        "old": "if (e.color !== undefined) embed.color = e.color;",
+        "new": "embed.color = e.color;"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m2-supplement:border-colour-fixed",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m2-supplement.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx",
+        "old": "color != null ? intToHex(color)",
+        "new": "color != null ? intToHex(0)"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m4-supplement:i3-stuck-disabled",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m4-supplement.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/send/page.tsx",
+        "old": "import { Fragment, useCallback, useEffect } from 'react';",
+        "new": "import { Fragment, useCallback, useEffect, useRef } from 'react';"
+      },
+      {
+        "file": "src/app/message/m/[id]/send/page.tsx",
+        "old": "  const [isSending, withSending] = useLoading();",
+        "new": "  const [isSendingNow, withSending] = useLoading();\n  const everSent = useRef(false);\n  if (isSendingNow) everSent.current = true;\n  const isSending = isSendingNow || everSent.current;"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1,
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m4-supplement:i3-catch-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m4-supplement.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/send/page.tsx",
+        "old": "      })).catch(() => null);",
+        "new": "      }));"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m4-supplement:rider-null-passes",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m4-supplement.py",
+    "pairs": [
+      {
+        "file": "src/server/api/routers/message.ts",
+        "old": "if (!('guild_id' in channel) || channel.guild_id !== guildId) {",
+        "new": "if (!('guild_id' in channel) || (channel.guild_id !== null && channel.guild_id !== guildId)) {"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m4-supplement:rider-loose-inequality",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m4-supplement.py",
+    "pairs": [
+      {
+        "file": "src/server/api/routers/message.ts",
+        "old": "channel.guild_id !== guildId) {",
+        "new": "channel.guild_id != guildId) {"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m4-supplement:provider-404-text",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m4-supplement.py",
+    "pairs": [
+      {
+        "file": "src/providers/WebhookProvider.tsx",
+        "old": "'Message not found. Hint: Webhooks can only edit their own messages.'",
+        "new": "'Message not found.'"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m4-supplement:provider-403-text",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m4-supplement.py",
+    "pairs": [
+      {
+        "file": "src/providers/WebhookProvider.tsx",
+        "old": "'You do not have permission to view this message.'",
+        "new": "'Forbidden.'"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m4-supplement:provider-401-text",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m4-supplement.py",
+    "pairs": [
+      {
+        "file": "src/providers/WebhookProvider.tsx",
+        "old": "'Invalid webhook token.'",
+        "new": "'Unauthorized.'"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m4-supplement:provider-400-text",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m4-supplement.py",
+    "pairs": [
+      {
+        "file": "src/providers/WebhookProvider.tsx",
+        "old": "'Invalid webhook id.'",
+        "new": "'Bad request.'"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m4-supplement:provider-other-status-text",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m4-supplement.py",
+    "pairs": [
+      {
+        "file": "src/providers/WebhookProvider.tsx",
+        "old": "setOldMessageError((data as { message: string }).message ?? res.statusText);",
+        "new": "setOldMessageError(res.statusText);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m4-supplement:provider-refused-shows-error",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m4-supplement.py",
+    "pairs": [
+      {
+        "file": "src/providers/WebhookProvider.tsx",
+        "old": "    } else {\n      setOldMessage(null);\n      setOldMessageError('');\n    }",
+        "new": "    } else {\n      setOldMessage(null);\n      setOldMessageError('Invalid message id or link.');\n    }"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m4r-supplement:hook-webhook-load-silent",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m4r-supplement.py",
+    "pairs": [
+      {
+        "file": "src/utils/hooks/useValidateWebhook.ts",
+        "old": "if (!isStale) setWebhookError('Invalid URL');",
+        "new": ""
+      }
+    ],
+    "status": "NOT-APPLICABLE",
+    "counts": [
+      0
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m5-supplement:m5e-utc-getters",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m5-supplement.py",
+    "pairs": [
+      {
+        "file": "src/utils/formatMessageDate.ts",
+        "old": "  return a.getFullYear() === b.getFullYear()\n    && a.getMonth() === b.getMonth()\n    && a.getDate() === b.getDate();",
+        "new": "  return a.getUTCFullYear() === b.getUTCFullYear()\n    && a.getUTCMonth() === b.getUTCMonth()\n    && a.getUTCDate() === b.getUTCDate();"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m6-supplement:m6i-actionrow-copy-before",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m6-supplement.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx",
+        "old": "next.splice(idx + 1, 0, clone);",
+        "new": "next.splice(idx, 0, clone);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m6-supplement:m6i-container-copy-before",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m6-supplement.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx",
+        "old": "next.splice(idx + 1, 0, clone);",
+        "new": "next.splice(idx, 0, clone);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m6-supplement:m6i-gallery-copy-before",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m6-supplement.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx",
+        "old": "next.splice(idx + 1, 0, clone);",
+        "new": "next.splice(idx, 0, clone);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m6-supplement:m6i-section-copy-before",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m6-supplement.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx",
+        "old": "next.splice(idx + 1, 0, clone);",
+        "new": "next.splice(idx, 0, clone);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m6-supplement:m6l-add-gate-only-at-40",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m6-supplement.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/index.tsx",
+        "old": "totalComponentCount < MAX_TOTAL_COMPONENTS;",
+        "new": "totalComponentCount !== MAX_TOTAL_COMPONENTS;"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m6-supplement:m6l-line-above-text-error",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m6-supplement.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/index.tsx",
+        "old": "          <NullableComponent show={v2TextError}>\n            <div className=\"mt-1 text-xs font-semibold text-error\">{v2TextError}</div>\n          </NullableComponent>\n          <NullableComponent show={componentCountError}>\n            <div className=\"mt-1 text-xs font-semibold text-error\">{componentCountError}</div>\n          </NullableComponent>\n",
+        "new": "          <NullableComponent show={componentCountError}>\n            <div className=\"mt-1 text-xs font-semibold text-error\">{componentCountError}</div>\n          </NullableComponent>\n          <NullableComponent show={v2TextError}>\n            <div className=\"mt-1 text-xs font-semibold text-error\">{v2TextError}</div>\n          </NullableComponent>\n"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m6-supplement:m6l-border-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m6-supplement.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/index.tsx",
+        "old": "v2TextError || componentCountError) && styles.errorBorder",
+        "new": "v2TextError) && styles.errorBorder"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m6-supplement:m6l-nesting-recursion-removed",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m6-supplement.py",
+    "pairs": [
+      {
+        "file": "src/utils/limits.tsx",
+        "old": "      for (const child of children) {\n        if ('accessory' in child && child.accessory) count += 1;\n        if ('components' in child && Array.isArray(child.components)) {\n          count += child.components.length;\n        }\n      }\n",
+        "new": ""
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m6-supplement:i3-limit-41",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m6-supplement.py",
+    "pairs": [
+      {
+        "file": "src/constants/messageLimits.ts",
+        "old": "MAX_TOTAL_COMPONENTS = 40 as const",
+        "new": "MAX_TOTAL_COMPONENTS = 41 as const"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-m6-supplement:m4-invalid-url-text",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m6-supplement.py",
+    "pairs": [
+      {
+        "file": "src/constants/index.ts",
+        "old": "INVALID_URL_ERROR = 'Invalid URL' as const",
+        "new": "INVALID_URL_ERROR = 'Invalid url' as const"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-r2-supplement:m6d-filter-name-or-value",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx",
+        "old": "showEdit || (name && value))",
+        "new": "showEdit || (name || value))"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-r2-supplement:m6a-title-codeblock-static",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py",
+    "pairs": [
+      {
+        "file": "src/utils/markdown/index.tsx",
+        "old": "parseEmbedTitle: staticParserFor(omit(staticWithoutLinks, ['codeBlock', 'heading', 'list'])),",
+        "new": "parseEmbedTitle: staticParserFor(omit(staticWithoutLinks, ['heading', 'list'])),"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-r2-supplement:m6a-title-codeblock-interactive",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py",
+    "pairs": [
+      {
+        "file": "src/utils/markdown/index.tsx",
+        "old": "parseEmbedTitle: interactiveParser(omit(interactiveWithoutLinks, ['codeBlock', 'heading', 'list'])),",
+        "new": "parseEmbedTitle: interactiveParser(omit(interactiveWithoutLinks, ['heading', 'list'])),"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-r2-supplement:m6a-paragraph-splits-fence",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py",
+    "pairs": [
+      {
+        "file": "src/utils/markdown/rules.tsx",
+        "old": "(?:${FENCE}|[^\\\\n]|",
+        "new": "(?:[^\\\\n]|"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-r2-supplement:m6a-content-single-line",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py",
+    "pairs": [
+      {
+        "file": "src/utils/markdown/rules.tsx",
+        "old": "\\\\n*([^\\\\n][^]*?)\\\\n*```",
+        "new": "\\\\n*([^\\\\n]+?)\\\\n*```"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-r2-supplement:m5h-no-boundary",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py",
+    "pairs": [
+      {
+        "file": "src/app/preview/page.tsx",
+        "old": "<ErrorBoundary fallback={invalidData}>",
+        "new": "<>"
+      },
+      {
+        "file": "src/app/preview/page.tsx",
+        "old": "</ErrorBoundary>",
+        "new": "</>"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1,
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-r2-supplement:m5h-refuse-all",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py",
+    "pairs": [
+      {
+        "file": "src/app/preview/page.tsx",
+        "old": "{data === null ? invalidData : (",
+        "new": "{true ? invalidData : ("
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-r2-supplement:m5h-array-allowed",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py",
+    "pairs": [
+      {
+        "file": "src/app/preview/page.tsx",
+        "old": "if (typeof parsed !== 'object' || Array.isArray(parsed)) return null;",
+        "new": "if (typeof parsed !== 'object') return null;"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-r2-supplement:m5i-pick-ignored",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+        "old": "const selectedCategory = pickedCategory ?? (hasWebhooks",
+        "new": "const selectedCategory = (hasWebhooks"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-r2-supplement:m5i-seeded-at-mount",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+        "old": "const [pickedCategory, setPickedCategory] = useState<null | string>(null);\n  const selectedCategory = pickedCategory ?? (hasWebhooks ? (guild?.id ?? '') : 'load');",
+        "new": "const [pickedCategory, setPickedCategory] = useState<null | string>(hasWebhooks ? (guild?.id ?? '') : 'load');\n  const selectedCategory = pickedCategory as string;"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-r2-supplement:m5i-no-auth-conjunct",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+        "old": "const hasWebhooks = status === 'authenticated' && guildId && webhooks.length;",
+        "new": "const hasWebhooks = guildId && webhooks.length;"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-r2-supplement:m5i-no-guild-conjunct",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+        "old": "const hasWebhooks = status === 'authenticated' && guildId && webhooks.length;",
+        "new": "const hasWebhooks = status === 'authenticated' && webhooks.length;"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-r2-supplement:m5i-no-count-conjunct",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py",
+    "pairs": [
+      {
+        "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+        "old": "const hasWebhooks = status === 'authenticated' && guildId && webhooks.length;",
+        "new": "const hasWebhooks = status === 'authenticated' && guildId;"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-r2-supplement:cr24-portal-cleanup-noop",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py",
+    "pairs": [
+      {
+        "file": "src/components/BottomPortal.tsx",
+        "old": "      prev.some((p) => p.id === id) ? prev.filter((p) => p.id !== id) : prev\n    ));\n  }, []);",
+        "new": "      prev\n    ));\n  }, []);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-r2-supplement:m4d-dialog-nonjson-as-message",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py",
+    "pairs": [
+      {
+        "file": "src/utils/hooks/useValidateWebhook.ts",
+        "old": ".then<DiscordWebhook | { message: string }>((res) => res.json()));",
+        "new": ".then<DiscordWebhook | { message: string }>((res) => res.json().catch(() => ({ message: 'Unknown' }))));"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-r2-supplement:m4d-send-nonjson-as-object",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py",
+    "pairs": [
+      {
+        "file": "src/providers/WebhookProvider.tsx",
+        "old": "(res.status === 200 ? res.json() : null)",
+        "new": "(res.status === 200 ? res.json().catch(() => ({})) : null)"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-r2-supplement:m7a-admin-only",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py",
+    "pairs": [
+      {
+        "file": "bot/scripts/app_commands/common.ts",
+        "old": "export const ADMIN_PERMS = PermissionFlagsBits.ManageGuild.toString();",
+        "new": "export const ADMIN_PERMS = PermissionFlagsBits.Administrator.toString();"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-r2-supplement:m7c-user-is-slash",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py",
+    "pairs": [
+      {
+        "file": "bot/scripts/app_commands/common.ts",
+        "old": "  return commandType === 'user';",
+        "new": "  return commandType === 'slash';"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-r4-supplement:r4-button-effect-empty",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r4-supplement.py",
+    "pairs": [
+      {
+        "file": "src/components/Button.tsx",
+        "old": "useEffect(() => { if (autoFocus) localRef.current?.focus(); }, []);",
+        "new": "useEffect(() => {}, []);"
+      }
+    ],
+    "status": "NOT-APPLICABLE",
+    "counts": [
+      0
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": [
+      "button-autofocus-effect-empty:button-autofocus-effect-empty"
+    ]
+  },
+  {
+    "id": "qa-r4-supplement:r4-button-no-autofocus",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r4-supplement.py",
+    "pairs": [
+      {
+        "file": "src/components/Button.tsx",
+        "old": "useEffect(() => { if (autoFocus) localRef.current?.focus(); }, []);",
+        "new": "useEffect(() => {}, []);"
+      },
+      {
+        "file": "src/components/Button.tsx",
+        "old": "useButton(_props as AriaButtonProps, localRef)",
+        "new": "useButton({ ...(_props as AriaButtonProps), autoFocus: false }, localRef)"
+      }
+    ],
+    "status": "NOT-APPLICABLE",
+    "counts": [
+      0,
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-r4-supplement:r4-button-always-focus",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r4-supplement.py",
+    "pairs": [
+      {
+        "file": "src/components/Button.tsx",
+        "old": "useEffect(() => { if (autoFocus) localRef.current?.focus(); }, []);",
+        "new": "useEffect(() => { localRef.current?.focus(); }, []);"
+      }
+    ],
+    "status": "NOT-APPLICABLE",
+    "counts": [
+      0
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-r4-supplement:r4-button-aria-always",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r4-supplement.py",
+    "pairs": [
+      {
+        "file": "src/components/Button.tsx",
+        "old": "useButton(_props as AriaButtonProps, localRef)",
+        "new": "useButton({ ...(_props as AriaButtonProps), autoFocus: true }, localRef)"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-r4-supplement:r5-button-aria-off",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r4-supplement.py",
+    "pairs": [
+      {
+        "file": "src/components/Button.tsx",
+        "old": "useButton(_props as AriaButtonProps, localRef)",
+        "new": "useButton({ ...(_props as AriaButtonProps), autoFocus: false }, localRef)"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-r4-supplement:r5-preview-parse-failure-rethrows",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r4-supplement.py",
+    "pairs": [
+      {
+        "file": "src/app/preview/page.tsx",
+        "old": "  } catch {\n    return null;\n  }",
+        "new": "  } catch (err) {\n    throw err;\n  }"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-r4-supplement:r4-editor-onmount-empty",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r4-supplement.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/index.tsx",
+        "old": "useEffect(() => { onMount?.(); }, []);",
+        "new": "useEffect(() => {}, []);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": [
+      "editor-onmount-effect-empty:editor-onmount-effect-empty"
+    ]
+  },
+  {
+    "id": "qa-r4-supplement:r4-editor-onmount-every-render",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r4-supplement.py",
+    "pairs": [
+      {
+        "file": "src/components/DiscordMessageEditor/index.tsx",
+        "old": "useEffect(() => { onMount?.(); }, []);",
+        "new": "useEffect(() => { onMount?.(); });"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": [
+      "editor-onmount-deps-dropped:editor-onmount-deps-dropped"
+    ]
+  },
+  {
+    "id": "qa-r4-supplement:r4-mounted-never-without-delay",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r4-supplement.py",
+    "pairs": [
+      {
+        "file": "src/utils/hooks/index.ts",
+        "old": "    if (!delay) {\n      setMounted(true);",
+        "new": "    if (!delay) {\n      setMounted(false);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qa-r4-supplement:r4-mounted-every-render",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r4-supplement.py",
+    "pairs": [
+      {
+        "file": "src/utils/hooks/index.ts",
+        "old": "      setTimeout(() => { setMounted(true); }, delay);\n    }\n  }, []);",
+        "new": "      setTimeout(() => { setMounted(true); }, delay);\n    }\n  });"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qaf20-constructimageurl-discriminator-parse-dropped:qaf20-constructimageurl-discriminator-parse-dropped",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qaf20-constructimageurl-discriminator-parse-dropped.py",
+    "pairs": [
+      {
+        "file": "src/utils/constructImageUrl.ts",
+        "old": "typeof discriminator === 'number' ? discriminator : parseInt(discriminator, 10)",
+        "new": "discriminator as number"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qaf27-m1c-exec-errors-thrown:qaf27-m1c-exec-errors-thrown",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qaf27-m1c-exec-errors-thrown.py",
+    "pairs": [
+      {
+        "file": "src/server/auth.ts",
+        "old": "    redis.clearUser(userDbId, sessionToken, account.providerAccountId),",
+        "new": "    redis.clearUser(userDbId, sessionToken, account.providerAccountId).then((results) => {\n      for (const [err] of results as unknown as [Error | null, unknown][]) if (err) throw err;\n    }),"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qaf27-m1c-lookup-failure-clear-unawaited:qaf27-m1c-lookup-failure-clear-unawaited",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qaf27-m1c-lookup-failure-clear-unawaited.py",
+    "pairs": [
+      {
+        "file": "src/server/auth.ts",
+        "old": "    await redis.clearUser(userDbId, sessionToken).catch(() => {});\n    throw err;",
+        "new": "    void redis.clearUser(userDbId, sessionToken);\n    throw err;"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qaf27-m1c-sessions-delete-added:qaf27-m1c-sessions-delete-added",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qaf27-m1c-sessions-delete-added.py",
+    "pairs": [
+      {
+        "file": "src/server/auth.ts",
+        "old": "      .execute(),\n  ]);\n}\n\ninterface AuthCallbackParams",
+        "new": "      .execute(),\n    getPostgres().deleteFrom('Sessions').where('userId', '=', userDbId).execute(),\n  ]);\n}\n\ninterface AuthCallbackParams"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qaf27-m1i-missing-pathname-defaults-to-editor:qaf27-m1i-missing-pathname-defaults-to-editor",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qaf27-m1i-missing-pathname-defaults-to-editor.py",
+    "pairs": [
+      {
+        "file": "src/app/_navigation/Redirects/Server.tsx",
+        "old": "(await headers()).get('x-pathname') ?? ''",
+        "new": "(await headers()).get('x-pathname') ?? '/message/m/0/edit'"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qaf27-m1i-raw-header-plain-values:qaf27-m1i-raw-header-plain-values",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qaf27-m1i-raw-header-plain-values.py",
+    "pairs": [
+      {
+        "file": "src/app/_navigation/Redirects/Server.tsx",
+        "old": "  const sessionCookie = cookieStore.get('__Secure-next-auth.session-token')\n    ?? cookieStore.get('next-auth.session-token');",
+        "new": "  void cookieStore;\n  const sessionCookie = /(^|;\\s*)(__Secure-)?next-auth\\.session-token=[A-Za-z0-9._=-]*(;|$)/.test((await headers()).get('cookie') ?? '');"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qaf27-m1i-raw-header-regex:qaf27-m1i-raw-header-regex",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qaf27-m1i-raw-header-regex.py",
+    "pairs": [
+      {
+        "file": "src/app/_navigation/Redirects/Server.tsx",
+        "old": "  const sessionCookie = cookieStore.get('__Secure-next-auth.session-token')\n    ?? cookieStore.get('next-auth.session-token');",
+        "new": "  void cookieStore;\n  const sessionCookie = /(^|;\\s*)(__Secure-)?next-auth\\.session-token=/.test((await headers()).get('cookie') ?? '');"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "qaf35-preview-parse-failure-renders-empty:qaf35-preview-parse-failure-renders-empty",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/mutators/qaf35-preview-parse-failure-renders-empty.py",
+    "pairs": [
+      {
+        "file": "src/app/preview/page.tsx",
+        "old": "  } catch {\n    return null;\n  }",
+        "new": "  } catch {\n    return {};\n  }"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  },
+  {
+    "id": "usemounted-effect-empty:usemounted-effect-empty",
+    "source": "/usr/local/bin/hooks/agent-output/verification/015/cr-m6-probes/cr26-ban/mutators/usemounted-effect-empty.py",
+    "pairs": [
+      {
+        "file": "src/utils/hooks/index.ts",
+        "old": "  useEffect(() => {\n    if (!delay) {\n      setMounted(true);\n    } else {\n      setTimeout(() => { setMounted(true); }, delay);\n    }\n  }, []);",
+        "new": "  useEffect(() => {}, []);"
+      }
+    ],
+    "status": "APPLIES",
+    "counts": [
+      1
+    ],
+    "test_file": false,
+    "declared_count": null,
+    "dups": []
+  }
+]

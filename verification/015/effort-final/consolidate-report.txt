@@ -1,0 +1,106 @@
+consolidate-report: chain 015 website mutants at c5303ca
+repo: /usr/local/bin/hooks/website
+script: /usr/local/bin/hooks/agent-output/verification/015/effort-final/consolidate.py
+
+Source files parsed: 42 (of 42 .py sources read)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/cr37-button-autofocus-effect-and-aria-dropped.py | replace-sequence | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/cr38-button-autofocus-not-passed-to-usebutton.py | replace-sequence | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/m1-rebuild-table.py | table(MUTANTS) | 10 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/m1c-accounts-update-before-revoke.py | replace-sequence | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/m1c-refused-revoke-throws.py | replace-sequence | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/m1c-user-guilds-delete-kept.py | replace-sequence | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/m1d-cap-comparator-strict.py | replace-sequence | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/m1d-cap-counts-user-for-guild.py | replace-sequence | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/m1d-cap-ignores-new-conjunct.py | replace-sequence | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/m1f-env-guard-reverted.py | replace-sequence | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/m1g-drop-body-null-conjunct.py | replace-sequence | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/m1g-drop-isvalid-conjunct.py | replace-sequence | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/m1g-parse-before-verify.py | replace-sequence | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/m1h-guild-fetch-awaited-inside-array.py | replace-sequence | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/m1h-message-promise-handler-removed.py | replace-sequence | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py | table(MUTANTS) | 18 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-d29-table.py | table(MUTANTS) | 6 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-nonjson-table.py | table(MUTANTS) | 2 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py | table(MUTANTS) | 31 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py | table(MUTANTS) | 33 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py | table(MUTANTS) | 53 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/m7-table.py | table(MUTANTS) | 7 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m1-supplement.py | table(MUTANTS) | 11 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m2-supplement.py | table(MUTANTS) | 6 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m4-supplement.py | table(MUTANTS) | 11 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m4r-supplement.py | table(MUTANTS) | 4 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m5-supplement.py | table(MUTANTS) | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m6-supplement.py | table(MUTANTS) | 13 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py | table(MUTANTS) | 23 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r4-supplement.py | table(MUTANTS) | 10 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf20-constructimageurl-discriminator-parse-dropped.py | replace-sequence | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf27-m1c-exec-errors-thrown.py | replace-sequence | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf27-m1c-lookup-failure-clear-unawaited.py | replace-sequence | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf27-m1c-sessions-delete-added.py | replace-sequence | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf27-m1i-missing-pathname-defaults-to-editor.py | replace-sequence | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf27-m1i-raw-header-plain-values.py | replace-sequence | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf27-m1i-raw-header-regex.py | replace-sequence | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf35-preview-parse-failure-renders-empty.py | replace-sequence | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/cr-m6-probes/cr26-ban/mutators/button-autofocus-effect-empty.py | replace-sequence | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/cr-m6-probes/cr26-ban/mutators/editor-onmount-deps-dropped.py | replace-sequence | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/cr-m6-probes/cr26-ban/mutators/editor-onmount-effect-empty.py | replace-sequence | 1 definition(s)
+  /usr/local/bin/hooks/agent-output/verification/015/cr-m6-probes/cr26-ban/mutators/usemounted-effect-empty.py | replace-sequence | 1 definition(s)
+Source files NOT parsed (could not extract definitions):
+  none
+Skipped by instruction (not read):
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m8-supplement.py | another repo (M8 rig, pig)
+  /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m8r-mutants.json | another repo (M8 rig, pig); not .py
+
+Raw definitions: 265
+Duplicates collapsed: 17 (kept entry lists them under "dups")
+Unique mutants (website-mutants-all.json entries): 248
+
+Counts per status (len()):
+  total: 248
+  APPLIES: 232
+  NOT-APPLICABLE: 16
+  TEST-FILE: 0 (of which APPLIES: 0)
+Runner-format outputs: single-pair APPLIES 230, multi-pair APPLIES 2
+
+NOT-APPLICABLE list (16); counts are per pair, null = file missing:
+  cr37-button-autofocus-effect-and-aria-dropped:cr37-button-autofocus-effect-and-aria-dropped: src/components/Button.tsx old='useEffect(() => { if (autoFocus) localRef.current?.focus(); }, []);' count=0 ; src/components/Button.tsx old='useButton(_props as AriaButtonProps, localRef)' count=1
+  m4-d29-table:d29-hook-webhook-text-message-load: src/utils/hooks/useValidateWebhook.ts old="if (!isStale) setWebhookError('Invalid URL');" count=0
+  m4-d29-table:d29-hook-webhook-catch-dropped: src/utils/hooks/useValidateWebhook.ts old="          if (!isStale) setWebhookError('Invalid URL');" count=0
+  m4-d29-table:d29-menu-error-never: src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx old="errorMessage={url && !isWebhookLoading && selectedWebhook === null ? '" count=0
+  m4-d29-table:d29-menu-text-changed: src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx old="selectedWebhook === null ? 'Invalid URL'" count=0
+  m4-table:m4b-url-error-inverted: src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx old="selectedWebhook === null ? 'Invalid URL'" count=0
+  m4-table:m4b-url-conjunct-dropped: src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx old='errorMessage={url && !isWebhookLoading' count=0
+  m4-table:hook-webhook-catch-dropped: src/utils/hooks/useValidateWebhook.ts old='          if (!isStale) setWebhookError(MESSAGE_LOAD_FAILED_ERROR);' count=0
+  m5-table:m5e-header-bypasses-formatter declared_count=2: src/app/message/_layout/Header.tsx old='{formatMessageDate(msg.updatedAt)}' count=2
+  m5-table:m5e-folder-bypasses-formatter declared_count=2: src/app/message/f/[id]/page.tsx old="formatMessageDate(orderProp === 'createdAt' ? msg.createdAt : msg.upda" count=2
+  m5-table:m5e-folder-drops-prefix declared_count=2: src/app/message/f/[id]/page.tsx old="formatMessageDate(orderProp === 'createdAt' ? msg.createdAt : msg.upda" count=2
+  m6-table:m6a-content-single-line declared_count=1: src/utils/markdown/rules.tsx old='([^\\n][^]*?)\\n*```/i)(source' count=0
+  qa-m4r-supplement:hook-webhook-load-silent: src/utils/hooks/useValidateWebhook.ts old="if (!isStale) setWebhookError('Invalid URL');" count=0
+  qa-r4-supplement:r4-button-effect-empty: src/components/Button.tsx old='useEffect(() => { if (autoFocus) localRef.current?.focus(); }, []);' count=0
+  qa-r4-supplement:r4-button-no-autofocus: src/components/Button.tsx old='useEffect(() => { if (autoFocus) localRef.current?.focus(); }, []);' count=0 ; src/components/Button.tsx old='useButton(_props as AriaButtonProps, localRef)' count=1
+  qa-r4-supplement:r4-button-always-focus: src/components/Button.tsx old='useEffect(() => { if (autoFocus) localRef.current?.focus(); }, []);' count=0
+
+Declared count 2 (the mutator expects two matches) but NOT-APPLICABLE under the every-pair-exactly-once rule:
+  m5-table:m5e-header-bypasses-formatter: counts=[2]
+  m5-table:m5e-folder-bypasses-formatter: counts=[2]
+  m5-table:m5e-folder-drops-prefix: counts=[2]
+
+Implementer / reviewer mutant definitions found (searched verification/015/ and implementation/015-*):
+ 1. verification/015/mutators/*.py: TAKEN (source group 1; 38 files parsed).
+ 2. verification/015/cr-m6-probes/cr26-ban/mutators/*.py (button-autofocus-effect-empty,
+    editor-onmount-deps-dropped, editor-onmount-effect-empty, usemounted-effect-empty): TAKEN as
+    source group 2 (one-mutant scripts; name matches the 'mutator' search criterion). Its
+    run-mutants.sh and run-fix-check.sh are runners and were not taken.
+ 3. Sweep drivers that pick a mutant by MUT_ID from mutators/ and define none:
+    verification/015/{m4-d29-sweep.sh, m4-nonjson-sweep.sh, m5-sweep.sh, m6-sweep.sh,
+    m7-sweep.sh, qa-m4-sweep.sh, qa-sweep.sh}: NOT TAKEN (no old/new definitions).
+ 4. M8 rig, pig repo, EXCLUDED with the two skipped mutators files:
+    verification/015/m8-local-probe/{qa-m8r-sweep.py (generic runner for the pig JSON set),
+    m8-guard-mutants.sh (sed edits on a pig export), probe.cjs}, verification/015/qa-m8-sweep.sh
+    (takes a <pig repo> argument), verification/015/cr-m8-probes/* (drift/rk8 probe output).
+ 5. implementation/015-bug-evaluation-fixes-m2-implementation.md and
+    implementation/015-bug-evaluation-fixes-qaf34-qaf35-cr26-implementation.md: name MUT_ID values
+    only (e.g. m5h-array-allowed, a qa-r2-supplement.py id); define none: NOT TAKEN.
+ 6. verification/015/mutation-*.txt and mutation-control-*.txt, m5-enumerations-6c42032.txt:
+    run outputs and enumerations, not definitions: NOT TAKEN.
+ 7. verification/015/mutate-run.sh: the isolated-export runner that consumes MUT_ID: NOT TAKEN.

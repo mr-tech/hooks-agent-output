@@ -1,0 +1,1390 @@
+diff --git a/bot/scripts/app_commands/common.ts b/bot/scripts/app_commands/common.ts
+index 62ed17c..e5ddc3f 100644
+--- a/bot/scripts/app_commands/common.ts
++++ b/bot/scripts/app_commands/common.ts
+@@ -6,10 +6,16 @@ import type { LocalizationMap } from 'discord-api-types/v10';
+ 
+-export const ADMIN_PERMS = (PermissionFlagsBits.Administrator & PermissionFlagsBits.ManageGuild).toString();
++export const ADMIN_PERMS = PermissionFlagsBits.ManageGuild.toString();
+ 
+ type CommandType = 'slash' | 'user' | 'message';
+-function isSlashCommand(commandType: CommandType, command: SlashCommand | UserCommand | MessageCommand): command is SlashCommand {
++function isSlashCommand(
++  commandType: CommandType,
++  command: SlashCommand | UserCommand | MessageCommand,
++): command is SlashCommand {
+   return commandType === 'slash';
+ }
+-function isUserCommand(commandType: CommandType, command: SlashCommand | UserCommand | MessageCommand): command is UserCommand {
+-  return commandType === 'slash';
++function isUserCommand(
++  commandType: CommandType,
++  command: SlashCommand | UserCommand | MessageCommand,
++): command is UserCommand {
++  return commandType === 'user';
+ }
+diff --git a/bot/utils/DiscordEmbed.ts b/bot/utils/DiscordEmbed.ts
+index b95357d..b99409f 100644
+--- a/bot/utils/DiscordEmbed.ts
++++ b/bot/utils/DiscordEmbed.ts
+@@ -87,3 +87,3 @@ export default class DiscordEmbed {
+   public setTimestamp(timestamp: ISO8601timestamp = new Date().toISOString()) {
+-    this.#payload.timestamp === timestamp;
++    this.#payload.timestamp = timestamp;
+     return this;
+diff --git a/src/app/_navigation/Redirects/Server.tsx b/src/app/_navigation/Redirects/Server.tsx
+index 50a1525..a856026 100644
+--- a/src/app/_navigation/Redirects/Server.tsx
++++ b/src/app/_navigation/Redirects/Server.tsx
+@@ -1,5 +1,3 @@
++import { cookies, headers } from 'next/headers';
+ import { redirect, RedirectType } from 'next/navigation';
+-import { headers } from 'next/headers';
+-
+-import parseServerCookies from '~/utils/parseServerCookies';
+ 
+@@ -8,4 +6,5 @@ export default async () => {
+ 
+-  const cookieMap = await parseServerCookies();
+-  const sessionCookie = cookieMap.get('__Secure-next-auth.session-token') ?? cookieMap.get('next-auth.session-token');
++  const cookieStore = await cookies();
++  const sessionCookie = cookieStore.get('__Secure-next-auth.session-token')
++    ?? cookieStore.get('next-auth.session-token');
+ 
+diff --git a/src/app/message/_layout/Header.tsx b/src/app/message/_layout/Header.tsx
+index 0d7671f..423e06a 100644
+--- a/src/app/message/_layout/Header.tsx
++++ b/src/app/message/_layout/Header.tsx
+@@ -28,16 +28,5 @@ import styles from '~/styles';
+ import { constructGuildIcon, pushSorted } from '~/utils';
++import formatMessageDate from '~/utils/formatMessageDate';
+ import { useMounted } from '~/utils/hooks';
+ 
+-function getDateString(timestamp: string | number) {
+-  const messageDate = new Date(timestamp);
+-  if (messageDate.getDate() === new Date().getDate()) {
+-    return messageDate.toLocaleTimeString(undefined, {
+-      hour: 'numeric', minute: 'numeric', second: undefined,
+-    });
+-  }
+-  return messageDate.toLocaleDateString(undefined, {
+-    weekday: undefined, year: 'numeric', day: 'numeric', month: 'numeric',
+-  });
+-}
+-
+ interface Props {
+@@ -164,3 +153,3 @@ const Header = (props: Props) => {
+                             <div className='text-sm text-mute'>
+-                              {getDateString(msg.updatedAt)}
++                              {formatMessageDate(msg.updatedAt)}
+                             </div>
+@@ -202,3 +191,3 @@ const Header = (props: Props) => {
+                             <div className='text-sm text-mute'>
+-                              {getDateString(msg.updatedAt)}
++                              {formatMessageDate(msg.updatedAt)}
+                             </div>
+diff --git a/src/app/message/f/[id]/page.tsx b/src/app/message/f/[id]/page.tsx
+index 0fc3201..00baaeb 100644
+--- a/src/app/message/f/[id]/page.tsx
++++ b/src/app/message/f/[id]/page.tsx
+@@ -45,2 +45,3 @@ import { api } from '~/utils/api';
+ import copyIntroMessage from '~/utils/copyIntroMessage';
++import formatMessageDate from '~/utils/formatMessageDate';
+ import {
+@@ -53,14 +54,2 @@ type MessageSortProp = Extract<keyof PartialApiMessage, 'updatedAt' | 'createdAt
+ 
+-function getDateString(timestamp: string | number) {
+-  const messageDate = new Date(timestamp);
+-  if (messageDate.getDate() === new Date().getDate()) {
+-    return `Today at ${messageDate.toLocaleTimeString(undefined, {
+-      hour: 'numeric', minute: 'numeric', second: undefined,
+-    })}`;
+-  }
+-  return messageDate.toLocaleDateString(undefined, {
+-    weekday: undefined, year: 'numeric', day: 'numeric', month: 'numeric',
+-  });
+-}
+-
+ function compareGuildMessage(
+@@ -181,3 +170,3 @@ const Page = () => {
+         type: 'error',
+-        render: 'Error. Failed to refresh message. Please try again.',
++        render: 'Error. Failed to delete message. Please try again.',
+         isLoading: false,
+@@ -189,3 +178,5 @@ const Page = () => {
+   const [copyMessageId, setCopyMessageId] = useState('');
+-  const { isFetching: isCopying, data: copyData, error: copyError } = api.message.getOne.useQuery(copyMessageId, {
++  const {
++    isFetching: isCopying, data: copyData, error: copyError,
++  } = api.message.getOne.useQuery(copyMessageId, {
+     initialData: null,
+@@ -399,3 +390,3 @@ const Page = () => {
+                       <div className="text-sm text-mute">
+-                        {`${orderProp === 'name' ? 'Last Modified: ' : ''}${getDateString(orderProp === 'createdAt' ? msg.createdAt : msg.updatedAt)}`}
++                        {`${orderProp === 'name' ? 'Last Modified: ' : ''}${formatMessageDate(orderProp === 'createdAt' ? msg.createdAt : msg.updatedAt, 'Today at ')}`}
+                       </div>
+@@ -507,3 +498,3 @@ const Page = () => {
+                       <div className={styles.flex({ btw: true, cy: true })}>
+-                        <div className='text-xs'>{`${orderProp === 'name' ? 'Last Modified: ' : ''}${getDateString(orderProp === 'createdAt' ? msg.createdAt : msg.updatedAt)}`}</div>
++                        <div className='text-xs'>{`${orderProp === 'name' ? 'Last Modified: ' : ''}${formatMessageDate(orderProp === 'createdAt' ? msg.createdAt : msg.updatedAt, 'Today at ')}`}</div>
+                         <Dropdown
+diff --git a/src/app/message/m/[id]/_components/JsonModalBody.tsx b/src/app/message/m/[id]/_components/JsonModalBody.tsx
+index 466d56e..4f9fb26 100644
+--- a/src/app/message/m/[id]/_components/JsonModalBody.tsx
++++ b/src/app/message/m/[id]/_components/JsonModalBody.tsx
+@@ -2,3 +2,3 @@ import { ArrowDownTrayIcon, ClipboardDocumentIcon } from '@heroicons/react/20/so
+ import classNames from 'classnames';
+-import { useEffect, useState } from 'react';
++import { useEffect, useMemo, useState } from 'react';
+ import { z } from 'zod';
+@@ -36,2 +36,10 @@ function isJSONParsable(str: string) {
+ 
++function toCopyText(str: string) {
++  try {
++    return JSON.stringify(discordMessageImportShape.parse(JSON.parse(str)), null, 2);
++  } catch (e) {
++    return null;
++  }
++}
++
+ interface Props {
+@@ -49,2 +57,3 @@ const JsonModalBody: FC<Props> = ({ onClose, setAllowMenuClose }) => {
+   const [copyState, copy] = useCopyToClipboard();
++  const copyText = useMemo(() => toCopyText(messageString), [messageString]);
+ 
+@@ -80,2 +89,3 @@ const JsonModalBody: FC<Props> = ({ onClose, setAllowMenuClose }) => {
+     editableState.setMessageMode(disposition.mode);
++    setAllowMenuClose(true);
+     onClose();
+@@ -256,6 +266,4 @@ const JsonModalBody: FC<Props> = ({ onClose, setAllowMenuClose }) => {
+             preset='tertiary'
+-            onPress={() => copy(
+-              JSON.stringify(discordMessageImportShape.parse(JSON.parse(messageString)), null, 2),
+-            )}
+-            isDisabled={!!copyState}
++            onPress={() => { if (copyText !== null) void copy(copyText); }}
++            isDisabled={!!copyState || copyText === null}
+           >
+diff --git a/src/app/message/m/[id]/_components/SaveAsMenu.tsx b/src/app/message/m/[id]/_components/SaveAsMenu.tsx
+index 9a99dba..205faf0 100644
+--- a/src/app/message/m/[id]/_components/SaveAsMenu.tsx
++++ b/src/app/message/m/[id]/_components/SaveAsMenu.tsx
+@@ -2,3 +2,5 @@ import { CheckIcon, NoSymbolIcon } from '@heroicons/react/20/solid';
+ import { useRouter } from 'next/navigation';
+-import { memo, useCallback, useState } from 'react';
++import {
++  memo, useCallback, useEffect, useState,
++} from 'react';
+ import { useLabel } from 'react-aria';
+@@ -29,5 +31,12 @@ const SaveAsMenu: FC<Props> = ({ isOpen, message, onClose }) => {
+   const router = useRouter();
+-  const [messageName, setMessageName] = useState(message.name === 'New Message' ? message.name : `${message.name} Copy`);
++  const proposedName = message.name === 'New Message' ? message.name : `${message.name} Copy`;
++  const [messageName, setMessageName] = useState(proposedName);
+   const [selectedGuildId, setSelectedGuildId] = useState(message.guildId ?? '');
+ 
++  useEffect(() => {
++    if (!isOpen) return;
++    setMessageName(proposedName);
++    setSelectedGuildId(message.guildId ?? '');
++  }, [isOpen]);
++
+   const dropdownItems = useGuildDropdownItems({ setSelectedGuildId });
+diff --git a/src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx b/src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx
+index e8dd3d6..fa1bf5c 100644
+--- a/src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx
++++ b/src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx
+@@ -32,2 +32,3 @@ import TextField from '~/components/TextField';
+ import TransitionHeightElement from '~/components/TransitionHeightElement';
++import { INVALID_URL_ERROR } from '~/constants';
+ import { useGuild } from '~/providers/GuildProvider';
+@@ -107,3 +108,4 @@ const WebhookMenu: FC = () => {
+   const hasWebhooks = status === 'authenticated' && guildId && webhooks.length;
+-  const [selectedCategory, setSelectedCategory] = useState(hasWebhooks ? (guild?.id ?? '') : 'load');
++  const [pickedCategory, setPickedCategory] = useState<null | string>(null);
++  const selectedCategory = pickedCategory ?? (hasWebhooks ? (guild?.id ?? '') : 'load');
+ 
+@@ -215,3 +217,5 @@ const WebhookMenu: FC = () => {
+           placeholder='https://discord.com/api/webhooks/...'
+-          errorMessage={url && !isWebhookLoading && selectedWebhook !== null ? 'Invalid URL' : undefined}
++          errorMessage={
++            url && !isWebhookLoading && selectedWebhook === null ? INVALID_URL_ERROR : undefined
++          }
+           isDisabled={isLoading}
+@@ -267,3 +271,3 @@ const WebhookMenu: FC = () => {
+         <StyledAccordion
+-          onChange={setSelectedCategory}
++          onChange={setPickedCategory}
+           preExpanded={[selectedCategory]}
+@@ -314,3 +318,3 @@ const WebhookMenu: FC = () => {
+                   onPress={() => setThreadId('')}
+-                  isDisabled={isLoading || !threadName}
++                  isDisabled={isLoading || !threadId}
+                 >
+diff --git a/src/app/message/m/[id]/send/page.tsx b/src/app/message/m/[id]/send/page.tsx
+index e3f61c9..383cfbe 100644
+--- a/src/app/message/m/[id]/send/page.tsx
++++ b/src/app/message/m/[id]/send/page.tsx
+@@ -36,3 +36,3 @@ import {
+ } from '~/utils';
+-import { useToggleState } from '~/utils/hooks';
++import { useLoading, useToggleState } from '~/utils/hooks';
+ import { showV2PatchWarning as computeShowV2PatchWarning } from '~/utils/messageMode';
+@@ -89,5 +89,6 @@ const Page = () => {
+ 
++  const [isSending, withSending] = useLoading();
+   const sendMessage = useCallback(async () => {
+     if (selectedWebhook && message) {
+-      const res = await sendWebhook({
++      const res = await withSending(sendWebhook({
+         message: stripKeys({ data: message.data }).data,
+@@ -97,3 +98,3 @@ const Page = () => {
+         threadName,
+-      });
++      })).catch(() => null);
+ 
+@@ -166,2 +167,3 @@ const Page = () => {
+     && !isLoading
++    && !isSending
+     && (!showEdit || oldMessage)
+@@ -299,6 +301,6 @@ const Page = () => {
+         >
+-          <div className="text-warning text-sm font-semibold">
++          <div className="text-sm font-semibold text-warning">
+             Permanent Components V2 Flag
+           </div>
+-          <div className="text-text-normal mt-1 text-sm">
++          <div className="mt-1 text-sm text-text-normal">
+             Editing this message with Components V2 is permanent. The V2 flag
+diff --git a/src/app/preview/page.tsx b/src/app/preview/page.tsx
+index 5284b99..df48c12 100644
+--- a/src/app/preview/page.tsx
++++ b/src/app/preview/page.tsx
+@@ -5,2 +5,3 @@ import { Suspense } from 'react';
+ import { useLocale } from 'react-aria';
++import { ErrorBoundary } from 'react-error-boundary';
+ 
+@@ -10,2 +11,14 @@ import { makeEditable } from '~/utils';
+ 
++function parseMessageData(query: string) {
++  try {
++    const parsed: unknown = JSON.parse(query);
++    if (typeof parsed !== 'object' || Array.isArray(parsed)) return null;
++    return makeEditable({ data: parsed } as ApiMessage).data;
++  } catch {
++    return null;
++  }
++}
++
++const invalidData = <p className="text-sm text-error">Invalid message data.</p>;
++
+ const Page: FC = () => {
+@@ -16,15 +29,21 @@ const Page: FC = () => {
+ 
++  const data = parseMessageData(query);
++
+   return (
+     <div className="dark h-screen max-w-3xl bg-primary text-default">
+-      <Suspense fallback={null}>
+-        <MarkdownProvider>
+-          <DiscordMessageEditor
+-            message={makeEditable({ data: JSON.parse(query) } as ApiMessage).data}
+-            setMessage={() => {}}
+-            locale={locale}
+-            // eslint-disable-next-line react/style-prop-object
+-            onMount={() => {}}
+-          />
+-        </MarkdownProvider>
+-      </Suspense>
++      {data === null ? invalidData : (
++        <ErrorBoundary fallback={invalidData}>
++          <Suspense fallback={null}>
++            <MarkdownProvider>
++              <DiscordMessageEditor
++                message={data}
++                setMessage={() => {}}
++                locale={locale}
++                // eslint-disable-next-line react/style-prop-object
++                onMount={() => {}}
++              />
++            </MarkdownProvider>
++          </Suspense>
++        </ErrorBoundary>
++      )}
+     </div>
+diff --git a/src/components/BottomPortal.tsx b/src/components/BottomPortal.tsx
+index 6bd02c9..14e587d 100644
+--- a/src/components/BottomPortal.tsx
++++ b/src/components/BottomPortal.tsx
+@@ -7,3 +7,2 @@ import { FocusScope, useId } from 'react-aria';
+ import { createPortal } from 'react-dom';
+-import { useMount } from 'react-use';
+ 
+@@ -136,3 +135,5 @@ interface Props {
+   title: string;
+-  TitleIcon?: FC<{ className?: undefined | string }> | ComponentClass<{ className?: undefined | string }>;
++  TitleIcon?:
++  | FC<{ className?: undefined | string }>
++  | ComponentClass<{ className?: undefined | string }>;
+   description?: string;
+@@ -171,3 +172,5 @@ const BottomPortal: FC<PropsWithChildren<Props>> = (props) => {
+     } else {
+-      setChildrenProps((prev) => (prev.some((p) => p.id === id) ? prev.filter((p) => p.id !== id) : prev));
++      setChildrenProps((prev) => (
++        prev.some((p) => p.id === id) ? prev.filter((p) => p.id !== id) : prev
++      ));
+     }
+@@ -175,5 +178,7 @@ const BottomPortal: FC<PropsWithChildren<Props>> = (props) => {
+ 
+-  useMount(() => () => {
+-    setChildrenProps((prev) => (prev.some((p) => p.id === id) ? prev.filter((p) => p.id !== id) : prev));
+-  });
++  useEffect(() => () => {
++    setChildrenProps((prev) => (
++      prev.some((p) => p.id === id) ? prev.filter((p) => p.id !== id) : prev
++    ));
++  }, []);
+ 
+diff --git a/src/components/Button.tsx b/src/components/Button.tsx
+index 1e90274..4b155d2 100644
+--- a/src/components/Button.tsx
++++ b/src/components/Button.tsx
+@@ -10,3 +10,2 @@ import {
+ import { mergeRefs } from 'react-merge-refs';
+-import { useMount } from 'react-use';
+ 
+@@ -36,5 +35,3 @@ export interface Props extends Omit<AriaButtonProps, 'onPress'>, HoverProps {
+ const Button = ({ ref: propRef, ...props }: Props & { ref?: Ref<HTMLButtonElement> }) => {
+-  const {
+-    children, className, style, autoFocus,
+-  } = props;
++  const { children, className, style } = props;
+ 
+@@ -57,4 +54,2 @@ const Button = ({ ref: propRef, ...props }: Props & { ref?: Ref<HTMLButtonElemen
+ 
+-  useMount(() => { if (autoFocus) localRef.current?.focus(); });
+-
+   let presetClassName;
+diff --git a/src/components/DiscordMessageEditor/components/Author.tsx b/src/components/DiscordMessageEditor/components/Author.tsx
+index 6c50773..e21fda9 100644
+--- a/src/components/DiscordMessageEditor/components/Author.tsx
++++ b/src/components/DiscordMessageEditor/components/Author.tsx
+@@ -5,4 +5,5 @@ import dayjs from 'dayjs';
+ import Image from 'next/image';
+-import { memo, useCallback, useState } from 'react';
+-import { useMount } from 'react-use';
++import {
++  memo, useCallback, useEffect, useState,
++} from 'react';
+ 
+@@ -41,9 +42,13 @@ const Author: FC<Props> = ({
+ 
+-  useMount(() => {
++  useEffect(() => {
+     setTs(new Date());
++    let interval: undefined | ReturnType<typeof setInterval>;
+     const timeout = setTimeout(() => {
+-      setInterval(() => { setTs(new Date()); }, MINUTE_IN_MILLISECONDS);
++      interval = setInterval(() => { setTs(new Date()); }, MINUTE_IN_MILLISECONDS);
+     }, MINUTE_IN_MILLISECONDS - (new Date().getSeconds() * 1000) - new Date().getMilliseconds());
+-    return () => clearTimeout(timeout);
+-  });
++    return () => {
++      clearTimeout(timeout);
++      clearInterval(interval);
++    };
++  }, []);
+ 
+diff --git a/src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx b/src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx
+index 6cfcca4..2ee3d1d 100644
+--- a/src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx
++++ b/src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx
+@@ -5,2 +5,4 @@ import type { ColorResult } from '@hello-pangea/color-picker';
+ 
++import { intToHex } from '~/utils';
++
+ function hexToInt(hex: string) {
+@@ -13,14 +15,20 @@ interface Props {
+ }
+-const Picker: FC<Props> = ({ initColor, setColor }) => (
+-  <ChromePicker
+-    styles={{
+-      picker: { fontFamily: '', boxShadow: '', borderRadius: '' },
+-      saturation: { borderRadius: '' },
+-    }}
+-    defaultColor={initColor ? `#${initColor.toString(16)}` : '#000000'}
+-    onChangeComplete={useCallback<((color: ColorResult) => void)>((color) => { setColor(hexToInt(color.hex)); }, [setColor])}
+-    className="discord-visualizer__embed-color-picker select-none overflow-hidden rounded-r"
+-    disableAlpha
+-  />
+-);
++const Picker: FC<Props> = ({ initColor, setColor }) => {
++  const onChangeComplete = useCallback<((color: ColorResult) => void)>((color) => {
++    setColor(hexToInt(color.hex));
++  }, [setColor]);
++
++  return (
++    <ChromePicker
++      styles={{
++        picker: { fontFamily: '', boxShadow: '', borderRadius: '' },
++        saturation: { borderRadius: '' },
++      }}
++      defaultColor={intToHex(initColor ?? 0)}
++      onChangeComplete={onChangeComplete}
++      className="discord-visualizer__embed-color-picker select-none overflow-hidden rounded-r"
++      disableAlpha
++    />
++  );
++};
+ 
+diff --git a/src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx b/src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx
+index 61c8236..2e00781 100644
+--- a/src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx
++++ b/src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx
+@@ -5,3 +5,2 @@ import Image from 'next/image';
+ import { useEffect, useState } from 'react';
+-import { useMount } from 'react-use';
+ 
+@@ -33,3 +32,3 @@ const ColorPickerWrapper: FC<Props> = ({ initColor, setColor }) => {
+ 
+-  useMount(() => () => removeBlockStyle());
++  useEffect(() => () => removeBlockStyle(), []);
+ 
+diff --git a/src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx b/src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx
+index 0c76a57..d943bf4 100644
+--- a/src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx
++++ b/src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx
+@@ -37,3 +37,3 @@ interface Props {
+ function hasValidField(fields: undefined | EditableField[]) {
+-  return !fields?.length || fields.some((field) => field.name && field.value);
++  return !!fields?.some((field) => field.name && field.value);
+ }
+diff --git a/src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx b/src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx
+index 1444b40..64624a9 100644
+--- a/src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx
++++ b/src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx
+@@ -129,4 +129,5 @@ const EmbedFields: FC<Props> = ({ showEdit, fields = [], setFields }) => {
+       {_fields
++        .map((entry, idx) => ({ ...entry, idx }))
+         .filter(({ field: { name, value } }) => showEdit || (name && value))
+-        .map(({ gridColumn, field }, idx) => (
++        .map(({ gridColumn, field, idx }) => (
+           <EmbedField
+diff --git a/src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx b/src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx
+index da3d7c6..57b8655 100644
+--- a/src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx
++++ b/src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx
+@@ -44,3 +44,3 @@ const EmbedFooter: FC<Props> = ({
+   const [_localText, setLocalText] = usePassedProp(footer?.text ?? '');
+-  const displayText = (footer?.text.trim() ?? '');
++  const displayText = (footer?.text?.trim() ?? '');
+   const localText = _localText;
+@@ -48,3 +48,3 @@ const EmbedFooter: FC<Props> = ({
+   const [iconUrl, _setIconUrl] = useStateSetter<EmbedFooterType>(footer ?? { text: localText }, 'icon_url', setFooter);
+-  const setIconUrl = useCallback((val: EmbedFooterType['icon_url']) => _setIconUrl(val || undefined), [_setIconUrl]);
++  const setIconUrl = useCallback((val: EmbedFooterType['icon_url']) => _setIconUrl(val === '' ? undefined : val), [_setIconUrl]);
+ 
+diff --git a/src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx b/src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx
+index b2ad4fb..4c6e642 100644
+--- a/src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx
++++ b/src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx
+@@ -89,3 +89,3 @@ const EmbedEditor: FC<Props> = ({
+ 
+-  const borderColor = color ? intToHex(color) : undefined;
++  const borderColor = color != null ? intToHex(color) : undefined;
+ 
+diff --git a/src/components/DiscordMessageEditor/index.tsx b/src/components/DiscordMessageEditor/index.tsx
+index 453e4b0..811f753 100644
+--- a/src/components/DiscordMessageEditor/index.tsx
++++ b/src/components/DiscordMessageEditor/index.tsx
+@@ -8,5 +8,4 @@ import classNames from 'classnames';
+ import {
+-  memo, use, useCallback, useMemo, useRef,
++  memo, use, useCallback, useEffect, useMemo, useRef,
+ } from 'react';
+-import { useMount } from 'react-use';
+ 
+@@ -40,5 +39,5 @@ import { applyModeSwitch } from '~/utils/messageMode';
+ import {
+-  genUuid,
++  countTotalComponents, genUuid,
+   hasClassicContent, hasV2Content,
+-  rekeyComponent, validateContentRequirements,
++  rekeyComponent, validateComponentCount, validateContentRequirements,
+   validateDisplayableTextCount,
+@@ -60,21 +59,2 @@ const COMPONENT_MENU_ITEMS = [
+ 
+-function countTotalComponents(components: EditableTopLevelComponent[]): number {
+-  let count = 0;
+-  for (const c of components) {
+-    count += 1;
+-    if ('accessory' in c && c.accessory) count += 1;
+-    if ('components' in c && Array.isArray(c.components)) {
+-      count += (c.components as EditableTopLevelComponent[]).length;
+-      // Recurse for containers (which hold children that may have sub-components)
+-      for (const child of c.components as EditableTopLevelComponent[]) {
+-        if ('accessory' in child && child.accessory) count += 1;
+-        if ('components' in child && Array.isArray(child.components)) {
+-          count += (child.components as EditableTopLevelComponent[]).length;
+-        }
+-      }
+-    }
+-  }
+-  return count;
+-}
+-
+ interface EmbedActions {
+@@ -103,3 +83,3 @@ const DiscordMessageEditor: FC<VisualizerProps> = ({
+ 
+-  useMount(() => onMount?.());
++  useEffect(() => { onMount?.(); }, []);
+ 
+@@ -124,3 +104,3 @@ const DiscordMessageEditor: FC<VisualizerProps> = ({
+       }
+-      newEmbeds.splice(idx, 0, newEmbed);
++      newEmbeds.splice(idx + 1, 0, newEmbed);
+       setEmbeds(newEmbeds);
+@@ -163,3 +143,3 @@ const DiscordMessageEditor: FC<VisualizerProps> = ({
+       const next = [...components];
+-      next.splice(idx, 0, clone);
++      next.splice(idx + 1, 0, clone);
+       setComponents(next);
+@@ -200,2 +180,3 @@ const DiscordMessageEditor: FC<VisualizerProps> = ({
+   const v2TextError = validateDisplayableTextCount(components as SupportedTopLevelComponent[]);
++  const componentCountError = validateComponentCount(components);
+   const showEmbedButton = isEditing && isClassicMode
+@@ -311,3 +292,3 @@ const DiscordMessageEditor: FC<VisualizerProps> = ({
+           </NullableComponent>
+-          <div className={classNames('discord-visualizer__accessories', (embedCharacterError || v2TextError) && styles.errorBorder)}>
++          <div className={classNames('discord-visualizer__accessories', (embedCharacterError || v2TextError || componentCountError) && styles.errorBorder)}>
+             <NullableComponent show={(isClassicMode || !isEditing) && embeds.length}>
+@@ -357,2 +338,5 @@ const DiscordMessageEditor: FC<VisualizerProps> = ({
+           </NullableComponent>
++          <NullableComponent show={componentCountError}>
++            <div className="mt-1 text-xs font-semibold text-error">{componentCountError}</div>
++          </NullableComponent>
+           <NullableComponent show={showEmbedButton && editableState?.showEmbedTools}>
+diff --git a/src/components/ImageUploader.tsx b/src/components/ImageUploader.tsx
+index 4fa379b..0ce66d7 100644
+--- a/src/components/ImageUploader.tsx
++++ b/src/components/ImageUploader.tsx
+@@ -17,9 +17,3 @@ import styles from '~/styles';
+ import { voided } from '~/utils';
+-
+-const ANIMATED_EXTENSIONS = ['webm', 'gif', 'apng'];
+-const VALID_EXTENSIONS = ['png', 'jpg', 'tiff', ...ANIMATED_EXTENSIONS].map((ext) => `.${ext}`);
+-
+-function isValidImageUrl(url: string) {
+-  return VALID_EXTENSIONS.some((ext) => url.includes(ext));
+-}
++import isValidImageUrl from '~/utils/isValidImageUrl';
+ 
+diff --git a/src/constants/index.ts b/src/constants/index.ts
+index 6284bcb..7285091 100644
+--- a/src/constants/index.ts
++++ b/src/constants/index.ts
+@@ -29,3 +29,5 @@ export const THREAD_CHANNEL_TYPES: readonly ChannelType[] = [10, 11, 12] as cons
+ export const FORUM_CHANNEL_TYPE = 15 as const;
+-export const DISCORD_MESSAGE_LINK_REGEX = /^https:\/\/(?:www\.|canary\.|ptb\.)?discord\.com\/channels\/(\d+)\/(\d+)\/(\d+)$/;
++export const DISCORD_MESSAGE_LINK_REGEX = /^https:\/\/(?:(?:www|canary|ptb)\.)?discord(?:app)?\.com\/channels\/(?<guildId>\d+)\/(?<channelId>\d+)\/(?<messageId>\d+)$/;
++export const INVALID_URL_ERROR = 'Invalid URL' as const;
++export const MESSAGE_LOAD_FAILED_ERROR = 'Could not load the message. Check your connection and try again.' as const;
+ 
+@@ -42,5 +44,2 @@ export const MAX_MESSAGES = 1000 as const;
+ 
+-export const MAX_EMBED_AUTHOR_NAME_LENGTH = 256 as const;
+-export const MAX_EMBED_FOOTER_TEXT_LENGTH = 256 as const;
+-
+ export const MAX_EMBED_FIELDS = 25 as const;
+@@ -48,3 +47,2 @@ export const MAX_EMBED_FIELDS = 25 as const;
+ // Components V2 limits
+-export const MAX_TOTAL_COMPONENTS = 40 as const;
+ export const MAX_ACTION_ROW_BUTTONS = 5 as const;
+diff --git a/src/constants/messageLimits.ts b/src/constants/messageLimits.ts
+index 6562137..c1ef872 100644
+--- a/src/constants/messageLimits.ts
++++ b/src/constants/messageLimits.ts
+@@ -5,2 +5,4 @@ export const MAX_EMBED_DESCRIPTION_LENGTH = 4096 as const;
+ export const MAX_EMBED_TITLE_LENGTH = 256 as const;
++export const MAX_EMBED_AUTHOR_NAME_LENGTH = 256 as const;
++export const MAX_EMBED_FOOTER_TEXT_LENGTH = 2048 as const;
+ export const MAX_EMBED_FIELD_NAME_LENGTH = 256 as const;
+@@ -10,2 +12,3 @@ export const V2_COMPONENT_TYPE_VALUES = [9, 10, 11, 12, 13, 14, 17] as const;
+ export const MAX_COMPONENTS_DISPLAYABLE_TEXT = 4000 as const;
++export const MAX_TOTAL_COMPONENTS = 40 as const;
+ export const IS_COMPONENTS_V2_FLAG = (1 << 15) as 32768;
+diff --git a/src/env.mjs b/src/env.mjs
+index a7356b2..9b5b44d 100644
+--- a/src/env.mjs
++++ b/src/env.mjs
+@@ -122,3 +122,3 @@ if (!!process.env.SKIP_ENV_VALIDATION === false) {
+       // Otherwise it would just be returning `undefined` and be annoying to debug
+-      if (!isServer && !prop.startsWith('NEXT_PUBLIC_') && !prop === 'NODE_ENV') {
++      if (!isServer && !prop.startsWith('NEXT_PUBLIC_') && prop !== 'NODE_ENV') {
+         throw new Error(
+diff --git a/src/pages/api/cron.ts b/src/pages/api/cron.ts
+index 5ef3a98..7ed1e08 100644
+--- a/src/pages/api/cron.ts
++++ b/src/pages/api/cron.ts
+@@ -25,3 +25,3 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
+     .where('ScheduledMessages.sent', '=', false)
+-    .where('ScheduledMessages.error', '=', null)
++    .where('ScheduledMessages.error', 'is', null)
+     .execute();
+diff --git a/src/pages/api/interactions-edge.ts b/src/pages/api/interactions-edge.ts
+index 95ec5d9..c47050f 100644
+--- a/src/pages/api/interactions-edge.ts
++++ b/src/pages/api/interactions-edge.ts
+@@ -47,4 +47,2 @@ export default async function handler(req: NextRequest) {
+ 
+-  const interaction = JSON.parse(rawBody) as IncomingInteraction;
+-
+   if (!isValid || req.body === null) {
+@@ -53,2 +51,4 @@ export default async function handler(req: NextRequest) {
+ 
++  const interaction = JSON.parse(rawBody) as IncomingInteraction;
++
+   if (isPing(interaction)) {
+diff --git a/src/providers/MessageProvider/usePusher.ts b/src/providers/MessageProvider/usePusher.ts
+index 965ce1e..bac219b 100644
+--- a/src/providers/MessageProvider/usePusher.ts
++++ b/src/providers/MessageProvider/usePusher.ts
+@@ -2,2 +2,3 @@ import Pusher from 'pusher-js';
+ import { useEffect } from 'react';
++import { useLatest } from 'react-use';
+ 
+@@ -27,2 +28,3 @@ export default (
+   const { showConfirmation } = useConfirmation();
++  const hasChangedRef = useLatest(hasChanged);
+ 
+@@ -47,3 +49,3 @@ export default (
+           onConfirm: reloadMessage,
+-          message: `The message you are viewing has been updated. Would you like to reload it?${hasChanged ? ' Any changes you have made will be lost.' : ''}`,
++          message: `The message you are viewing has been updated. Would you like to reload it?${hasChangedRef.current ? ' Any changes you have made will be lost.' : ''}`,
+         });
+diff --git a/src/providers/WebhookProvider.tsx b/src/providers/WebhookProvider.tsx
+index 63e0f1d..2f4f247 100644
+--- a/src/providers/WebhookProvider.tsx
++++ b/src/providers/WebhookProvider.tsx
+@@ -10,2 +10,3 @@ import type { PropsWithChildren } from 'react';
+ 
++import { MESSAGE_LOAD_FAILED_ERROR } from '~/constants';
+ import { useGuild } from '~/providers/GuildProvider';
+@@ -14,2 +15,3 @@ import constructWebhookUrl from '~/utils/constructWebhookUrl';
+ import { useLoading } from '~/utils/hooks';
++import parseMessageId from '~/utils/parseMessageId';
+ 
+@@ -59,20 +61,21 @@ function useValue() {
+   const [isWebhookLoading, withLoadingWebhook] = useLoading();
+-  useUpdateEffect(voided(async () => {
++  useUpdateEffect(() => {
++    let isStale = false;
+     setSelectedWebhook(null);
+     if (isValidUrl(url)) {
+-      const wh = await withLoadingWebhook(fetch(url).then<Webhook | null>((res) => (res.status === 200 ? res.json() : null)));
+-      if (wh) {
+-        wh.channel = channels?.find((c) => c.id === wh.channel_id);
+-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+-        wh.token = url.split('/').find((part) => part.length > 32)!;
+-      }
+-      return setSelectedWebhook(wh);
+-    }
+-
+-    if (url) {
+-      return setSelectedWebhook(null);
++      voided(async () => {
++        const wh = await withLoadingWebhook(
++          fetch(url).then<Webhook | null>((res) => (res.status === 200 ? res.json() : null)),
++        ).catch(() => null);
++        if (isStale) return;
++        if (wh) {
++          wh.channel = channels?.find((c) => c.id === wh.channel_id);
++          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
++          wh.token = url.split('/').find((part) => part.length > 32)!;
++        }
++        setSelectedWebhook(wh);
++      })();
+     }
+-
+-    return undefined;
+-  }), [url]);
++    return () => { isStale = true; };
++  }, [url]);
+ 
+@@ -98,28 +101,35 @@ function useValue() {
+   const [isOldMessageLoading, withLoadingMessage] = useLoading();
+-  useEffect(voided(async () => {
+-    if (selectedWebhook?.token && (isValidUrl(messageIdOrUrl) || /\d+/.test(messageIdOrUrl.trim()))) {
+-      const messageId = (isValidUrl(messageIdOrUrl) ? (messageIdOrUrl.split('/').pop() as string) : messageIdOrUrl)?.trim();
+-      await withLoadingMessage(fetch(`${constructWebhookUrl(selectedWebhook, messageId, threadId)}`).then(async (res) => {
+-        const data = await res.json();
+-        if (res.ok) {
+-          // shhhhh, just let it happen
+-          setOldMessage(makeEditable({
+-            data: { ...data, username: data.author.username },
+-          } as { data: MessageData }).data as OldMessage);
+-          setOldMessageError('');
+-        } else {
+-          setOldMessage(null);
+-          if (res.status === 404) {
+-            setOldMessageError('Message not found. Hint: Webhooks can only edit their own messages.');
+-          } else if (res.status === 403) {
+-            setOldMessageError('You do not have permission to view this message.');
+-          } else if (res.status === 401) {
+-            setOldMessageError('Invalid webhook token.');
+-          } else if (res.status === 400) {
+-            setOldMessageError('Invalid webhook id.');
++  useEffect(() => {
++    let isStale = false;
++    const messageId = parseMessageId(messageIdOrUrl);
++    if (selectedWebhook?.token && messageId) {
++      voided(async () => {
++        await withLoadingMessage(fetch(`${constructWebhookUrl(selectedWebhook, messageId, threadId)}`).then(async (res) => {
++          const data = await res.json();
++          if (isStale) return;
++          if (res.ok) {
++            setOldMessage(makeEditable({
++              data: { ...data, username: data.author.username },
++            } as { data: MessageData }).data as OldMessage);
++            setOldMessageError('');
+           } else {
+-            setOldMessageError((data as { message: string }).message ?? res.statusText);
++            setOldMessage(null);
++            if (res.status === 404) {
++              setOldMessageError('Message not found. Hint: Webhooks can only edit their own messages.');
++            } else if (res.status === 403) {
++              setOldMessageError('You do not have permission to view this message.');
++            } else if (res.status === 401) {
++              setOldMessageError('Invalid webhook token.');
++            } else if (res.status === 400) {
++              setOldMessageError('Invalid webhook id.');
++            } else {
++              setOldMessageError((data as { message: string }).message ?? res.statusText);
++            }
+           }
+-        }
+-      }));
++        })).catch(() => {
++          if (isStale) return;
++          setOldMessage(null);
++          setOldMessageError(MESSAGE_LOAD_FAILED_ERROR);
++        });
++      })();
+     } else {
+@@ -128,3 +138,4 @@ function useValue() {
+     }
+-  }), [selectedWebhook, messageIdOrUrl, threadId]);
++    return () => { isStale = true; };
++  }, [selectedWebhook, messageIdOrUrl, threadId]);
+ 
+diff --git a/src/server/api/routers/message.ts b/src/server/api/routers/message.ts
+index 971008d..3e6b41b 100644
+--- a/src/server/api/routers/message.ts
++++ b/src/server/api/routers/message.ts
+@@ -79,3 +79,3 @@ export default createTRPCRouter({
+ 
+-      const [, guildId, channelId, messageId] = match;
++      const { guildId, channelId, messageId } = match.groups as Record<'guildId' | 'channelId' | 'messageId', string>;
+ 
+@@ -86,2 +86,10 @@ export default createTRPCRouter({
+ 
++      const channel = await redis.fetchChannel(channelId);
++      if (!('guild_id' in channel) || channel.guild_id !== guildId) {
++        throw new TRPCError({
++          code: 'NOT_FOUND',
++          message: 'Message not found. Is the bot in this guild?',
++        });
++      }
++
+       const { data: message, status } = await getApi().request<Message>('GET', `/channels/${channelId}/messages/${messageId}`, { validateStatus: null });
+diff --git a/src/server/api/utils/authorizeGuildUser.ts b/src/server/api/utils/authorizeGuildUser.ts
+index ad5fa67..7c80a4b 100644
+--- a/src/server/api/utils/authorizeGuildUser.ts
++++ b/src/server/api/utils/authorizeGuildUser.ts
+@@ -12,2 +12,3 @@ async function getOldMessages(
+   messageIds = typeof messageIds === 'string' ? [messageIds] : messageIds;
++  if (!messageIds.length) return [];
+ 
+diff --git a/src/server/api/utils/shapes.ts b/src/server/api/utils/shapes.ts
+index 67949c4..c698034 100644
+--- a/src/server/api/utils/shapes.ts
++++ b/src/server/api/utils/shapes.ts
+@@ -36,3 +36,3 @@ export interface UpdateMessage {
+ export const discordIdShape = z.string().regex(/^[0-9]{17,23}$/);
+-export const userOrDiscordIdShape = z.string().regex(/^(0|[0-9]{17,23}$)/);
++export const userOrDiscordIdShape = z.string().regex(/^(0|[0-9]{17,23})$/);
+ 
+@@ -128,3 +128,3 @@ export const topLevelComponentShape = z.discriminatedUnion('type', [
+ 
+-const embedShape = z.object({
++export const embedShape = z.object({
+   author: z.object({
+@@ -136,3 +136,3 @@ const embedShape = z.object({
+   description: z.string().trim().max(MAX_EMBED_DESCRIPTION_LENGTH).optional(),
+-  color: z.number().int().positive().max(0xffffff)
++  color: z.number().int().min(0).max(0xffffff)
+     .optional(),
+@@ -159,3 +159,5 @@ const embedShape = z.object({
+ 
+-function sumDisplayableText(components: { type: number, content?: string, components?: unknown[] }[]): number {
++function sumDisplayableText(
++  components: { type: number, content?: string, components?: unknown[] }[],
++): number {
+   let total = 0;
+@@ -241,3 +243,6 @@ function accessoryLabel(accessory: unknown): string {
+ 
+-function filterActionRowButtons(row: Record<string, unknown>, dropped?: Set<string>): Record<string, unknown> | null {
++function filterActionRowButtons(
++  row: Record<string, unknown>,
++  dropped?: Set<string>,
++): Record<string, unknown> | null {
+   const buttons = Array.isArray(row.components) ? row.components as Record<string, unknown>[] : [];
+@@ -252,3 +257,6 @@ function filterActionRowButtons(row: Record<string, unknown>, dropped?: Set<stri
+ 
+-function filterSection(section: Record<string, unknown>, dropped?: Set<string>): Record<string, unknown> | null {
++function filterSection(
++  section: Record<string, unknown>,
++  dropped?: Set<string>,
++): Record<string, unknown> | null {
+   if (!isSupportedAccessory(section.accessory)) {
+@@ -260,3 +268,6 @@ function filterSection(section: Record<string, unknown>, dropped?: Set<string>):
+ 
+-function filterContainerChild(child: Record<string, unknown>, dropped?: Set<string>): Record<string, unknown> | null {
++function filterContainerChild(
++  child: Record<string, unknown>,
++  dropped?: Set<string>,
++): Record<string, unknown> | null {
+   if (!SUPPORTED_CONTAINER_CHILD_TYPES.has(child.type as number)) {
+@@ -309,3 +320,5 @@ export function describeUnsupportedComponentTypes(components: unknown): string[]
+ // with no shared constant, and one had drifted a trailing period the other two never had.
+-export function describeDroppedComponentTypesNotice(droppedComponentTypes: readonly string[]): string {
++export function describeDroppedComponentTypesNotice(
++  droppedComponentTypes: readonly string[],
++): string {
+   return `Not supported on Hooks.gg: ${droppedComponentTypes.join(', ')}`;
+diff --git a/src/server/api/utils/shared.ts b/src/server/api/utils/shared.ts
+index 4de9975..57a25f0 100644
+--- a/src/server/api/utils/shared.ts
++++ b/src/server/api/utils/shared.ts
+@@ -105,2 +105,4 @@ function mapPartialApiMessage({
+ export async function getUserRecentMessages(messageIds: string[]): Promise<PartialApiMessage[]> {
++  if (!messageIds.length) return [];
++
+   const messages = getPostgres()
+@@ -154,3 +156,3 @@ export async function getPartialMessages(
+ ) {
+-  const messages = await getPostgres()
++  const query = getPostgres()
+     .selectFrom('Messages')
+@@ -160,4 +162,6 @@ export async function getPartialMessages(
+       'Messages.previewImageNonce', 'Guilds.guildId as guildId',
+-    ])
+-    .where(({
++    ]);
++
++  const messages = await (guilds.length
++    ? query.where(({
+       or, exists, eb, selectFrom,
+@@ -170,3 +174,4 @@ export async function getPartialMessages(
+     ]))
+-    .execute();
++    : query.where('Messages.fk_users_id', '=', userId)
++  ).execute();
+ 
+@@ -247,3 +252,3 @@ export async function upsertMessage(
+   const { count: messageCount } = await messageCountQuery.executeTakeFirstOrThrow();
+-  if (!message.id && Number(messageCount) > MAX_MESSAGES) {
++  if (!message.id && Number(messageCount) >= MAX_MESSAGES) {
+     throw new TRPCError({
+diff --git a/src/server/api/utils/user.ts b/src/server/api/utils/user.ts
+index 57888c2..88e7ee5 100644
+--- a/src/server/api/utils/user.ts
++++ b/src/server/api/utils/user.ts
+@@ -14,2 +14,3 @@ export async function authorizeUser(
+     messageIds = typeof messageIds === 'string' ? [messageIds] : messageIds;
++    if (!messageIds.length) return { account, oldMessageCount: 0 };
+ 
+diff --git a/src/server/auth.ts b/src/server/auth.ts
+index b1e34d3..f76903e 100644
+--- a/src/server/auth.ts
++++ b/src/server/auth.ts
+@@ -59,3 +59,3 @@ declare module 'next-auth' {
+ 
+-async function removeUserSession(sessionToken: string, userDbId: string) {
++async function revokeAccessToken(accessToken: string) {
+   const myHeaders = new Headers();
+@@ -66,2 +66,3 @@ async function removeUserSession(sessionToken: string, userDbId: string) {
+   urlencoded.append('client_secret', env.DISCORD_CLIENT_SECRET);
++  urlencoded.append('token', accessToken);
+ 
+@@ -71,6 +72,24 @@ async function removeUserSession(sessionToken: string, userDbId: string) {
+     body: urlencoded,
+-  });
++  }).catch(() => {});
++}
++
++async function removeUserSession(sessionToken: string, userDbId: string) {
++  let account;
++  try {
++    account = await getPostgres()
++      .selectFrom('Accounts')
++      .select(['access_token', 'providerAccountId'])
++      .where('userId', '=', userDbId)
++      .executeTakeFirst();
++  } catch (err) {
++    await redis.clearUser(userDbId, sessionToken).catch(() => {});
++    throw err;
++  }
++
++  if (!account) {
++    await redis.clearUser(userDbId, sessionToken);
++    return;
++  }
+ 
+-  const account = await redis.fetchUserAccount(userDbId, true);
+-  if (!account) throw new Error('Expected to find account');
++  if (account.access_token) await revokeAccessToken(account.access_token);
+ 
+@@ -118,5 +137,6 @@ async function hydratedAuthCallback(params: AuthCallbackParams): Promise<NextAut
+ 
+-    const messagePromise = preferences?.recentMessageIds
++    const messagePromise = Promise.resolve(preferences?.recentMessageIds
+       ? getUserRecentMessages(preferences.recentMessageIds)
+-      : [];
++      : []);
++    messagePromise.catch(() => {});
+ 
+@@ -133,3 +153,3 @@ async function hydratedAuthCallback(params: AuthCallbackParams): Promise<NextAut
+     const [guilds, messages] = await Promise.all([
+-      access_token ? await redis.fetchUserGuilds(providerAccountId, access_token) : [],
++      access_token ? redis.fetchUserGuilds(providerAccountId, access_token) : ([] as UserGuild[]),
+       messagePromise,
+@@ -199,3 +219,5 @@ const baseAuthOptions: NextAuthOptions = {
+   events: {
+-    signIn: async ({ user, account, profile, isNewUser }) => {
++    signIn: async ({
++      user, account, profile, isNewUser,
++    }) => {
+       if (!isNewUser && account) {
+diff --git a/src/utils/discordResponseToMessage.ts b/src/utils/discordResponseToMessage.ts
+index 81f4562..b2129f1 100644
+--- a/src/utils/discordResponseToMessage.ts
++++ b/src/utils/discordResponseToMessage.ts
+@@ -132,3 +132,3 @@ export default (
+       if (e.url) embed.url = e.url;
+-      if (e.color) embed.color = e.color;
++      if (e.color !== undefined) embed.color = e.color;
+       if (e.fields) embed.fields = e.fields;
+@@ -158,3 +158,7 @@ export default (
+   if (discordMessage.author.avatar) {
+-    message.avatar_url = constructImageUrl(discordMessage.author.id, discordMessage.author.avatar, discordMessage.author.discriminator);
++    message.avatar_url = constructImageUrl(
++      discordMessage.author.id,
++      discordMessage.author.avatar,
++      discordMessage.author.discriminator,
++    );
+   }
+diff --git a/src/utils/formatMessageDate.ts b/src/utils/formatMessageDate.ts
+new file mode 100644
+index 0000000..89e5601
+--- /dev/null
++++ b/src/utils/formatMessageDate.ts
+@@ -0,0 +1,17 @@
++function isSameLocalDay(a: Date, b: Date) {
++  return a.getFullYear() === b.getFullYear()
++    && a.getMonth() === b.getMonth()
++    && a.getDate() === b.getDate();
++}
++
++export default function formatMessageDate(timestamp: string | number, todayPrefix = '') {
++  const messageDate = new Date(timestamp);
++  if (isSameLocalDay(messageDate, new Date())) {
++    return `${todayPrefix}${messageDate.toLocaleTimeString(undefined, {
++      hour: 'numeric', minute: 'numeric', second: undefined,
++    })}`;
++  }
++  return messageDate.toLocaleDateString(undefined, {
++    weekday: undefined, year: 'numeric', day: 'numeric', month: 'numeric',
++  });
++}
+diff --git a/src/utils/getCDNUrl.ts b/src/utils/getCDNUrl.ts
+index 6f55e1d..c135d99 100644
+--- a/src/utils/getCDNUrl.ts
++++ b/src/utils/getCDNUrl.ts
+@@ -1 +1 @@
+-export default () => `${process.env.NEXT_PUBLIC_CDN_HOST ?? ''}${process.env.NODE_ENV === 'development' ? '/dev' : ''}${process.env.NEXT_PUBLIC_CDN_PORT ? `:${process.env.NEXT_PUBLIC_CDN_PORT}` : ''}`;
++export default () => `${process.env.NEXT_PUBLIC_CDN_HOST ?? ''}${process.env.NEXT_PUBLIC_CDN_PORT ? `:${process.env.NEXT_PUBLIC_CDN_PORT}` : ''}${process.env.NODE_ENV === 'development' ? '/dev' : ''}`;
+diff --git a/src/utils/hooks/index.ts b/src/utils/hooks/index.ts
+index 5627ebe..ad03e35 100644
+--- a/src/utils/hooks/index.ts
++++ b/src/utils/hooks/index.ts
+@@ -7,3 +7,2 @@ import {
+ } from 'react';
+-import { useMount } from 'react-use';
+ 
+@@ -18,3 +17,3 @@ export const useMounted = (delay?: number) => {
+   const [mounted, setMounted] = useState(false);
+-  useMount(() => {
++  useEffect(() => {
+     if (!delay) {
+@@ -24,3 +23,3 @@ export const useMounted = (delay?: number) => {
+     }
+-  });
++  }, []);
+   return mounted;
+diff --git a/src/utils/hooks/useGuildDropdownItems.tsx b/src/utils/hooks/useGuildDropdownItems.tsx
+index 8b9e0fb..1dbb7d0 100644
+--- a/src/utils/hooks/useGuildDropdownItems.tsx
++++ b/src/utils/hooks/useGuildDropdownItems.tsx
+@@ -68,3 +68,3 @@ export default ({ setSelectedGuildId }: Props) => {
+     return items;
+-  }, []);
++  }, [session, setSelectedGuildId]);
+ };
+diff --git a/src/utils/hooks/useValidateWebhook.ts b/src/utils/hooks/useValidateWebhook.ts
+index 7f24af9..63776d4 100644
+--- a/src/utils/hooks/useValidateWebhook.ts
++++ b/src/utils/hooks/useValidateWebhook.ts
+@@ -6,2 +6,3 @@ import type { APIMessage as Message, APIWebhook as DiscordWebhook } from 'discor
+ 
++import { INVALID_URL_ERROR, MESSAGE_LOAD_FAILED_ERROR } from '~/constants';
+ import { isValidUrl, voided } from '~/utils';
+@@ -9,2 +10,3 @@ import discordResponseToMessage from '~/utils/discordResponseToMessage';
+ import { useLoading } from '~/utils/hooks';
++import parseMessageId from '~/utils/parseMessageId';
+ 
+@@ -21,3 +23,4 @@ export default (url: string, messageIdOrUrl: string) => {
+ 
+-  useEffect(voided(async () => {
++  useEffect(() => {
++    let isStale = false;
+     setWebhook(null);
+@@ -26,11 +29,20 @@ export default (url: string, messageIdOrUrl: string) => {
+     if (isValidUrl(url)) {
+-      const wh = await withLoadingWebhook(fetch(url)
+-        .then<DiscordWebhook | { message: string }>((res) => res.json()));
++      voided(async () => {
++        try {
++          const wh = await withLoadingWebhook(fetch(url)
++            .then<DiscordWebhook | { message: string }>((res) => res.json()));
++          if (isStale) return;
+ 
+-      if ('message' in wh) setWebhookError(wh.message);
+-      else setWebhook(wh);
++          if ('message' in wh) setWebhookError(wh.message);
++          else setWebhook(wh);
++        } catch {
++          if (!isStale) setWebhookError(INVALID_URL_ERROR);
++        }
++      })();
+     }
+-  }), [url]);
++    return () => { isStale = true; };
++  }, [url]);
+ 
+-  useEffect(voided(async () => {
++  useEffect(() => {
++    let isStale = false;
+     setMessage(null);
+@@ -39,15 +51,23 @@ export default (url: string, messageIdOrUrl: string) => {
+ 
+-    if (webhook && (isValidUrl(messageIdOrUrl) || /\d+/.test(messageIdOrUrl.trim()))) {
+-      const messageId = (isValidUrl(messageIdOrUrl) ? (messageIdOrUrl.split('/').pop() as string) : messageIdOrUrl)?.trim();
+-      const msg = await withLoadingMessage(fetch(`${url}/messages/${messageId}`)
+-        .then<Message | { message: string }>((res) => res.json()));
+-
+-      if ('message' in msg) setMessageError(msg.message);
+-      else {
+-        const converted = discordResponseToMessage(msg);
+-        setMessage(converted.data);
+-        setDroppedComponentTypes(converted.droppedComponentTypes);
+-      }
++    const messageId = parseMessageId(messageIdOrUrl);
++    if (webhook && messageId) {
++      voided(async () => {
++        try {
++          const msg = await withLoadingMessage(fetch(`${url}/messages/${messageId}`)
++            .then<Message | { message: string }>((res) => res.json()));
++          if (isStale) return;
++
++          if ('message' in msg) setMessageError(msg.message);
++          else {
++            const converted = discordResponseToMessage(msg);
++            setMessage(converted.data);
++            setDroppedComponentTypes(converted.droppedComponentTypes);
++          }
++        } catch {
++          if (!isStale) setMessageError(MESSAGE_LOAD_FAILED_ERROR);
++        }
++      })();
+     }
+-  }), [webhook, url, messageIdOrUrl]);
++    return () => { isStale = true; };
++  }, [webhook, url, messageIdOrUrl]);
+ 
+diff --git a/src/utils/isValidImageUrl.ts b/src/utils/isValidImageUrl.ts
+new file mode 100644
+index 0000000..fe0efe2
+--- /dev/null
++++ b/src/utils/isValidImageUrl.ts
+@@ -0,0 +1,6 @@
++const IMAGE_EXTENSIONS = ['png', 'jpg', 'jpeg', 'webp', 'gif', 'apng', 'tiff', 'webm'].map((ext) => `.${ext}`);
++
++export default function isValidImageUrl(url: string): boolean {
++  const path = url.split(/[?#]/, 1)[0].toLowerCase();
++  return IMAGE_EXTENSIONS.some((ext) => path.endsWith(ext));
++}
+diff --git a/src/utils/limits.tsx b/src/utils/limits.tsx
+index 5d58045..e5420c7 100644
+--- a/src/utils/limits.tsx
++++ b/src/utils/limits.tsx
+@@ -7,5 +7,6 @@ import {
+   MAX_COMPONENTS_DISPLAYABLE_TEXT,
+-  MAX_EMBED_CHARACTERS, MAX_EMBED_DESCRIPTION_LENGTH, MAX_EMBED_FIELD_NAME_LENGTH,
++  MAX_EMBED_AUTHOR_NAME_LENGTH, MAX_EMBED_CHARACTERS, MAX_EMBED_DESCRIPTION_LENGTH,
++  MAX_EMBED_FIELD_NAME_LENGTH,
+   MAX_EMBED_FIELD_VALUE_LENGTH, MAX_EMBED_TITLE_LENGTH, MAX_MESSAGE_CONTENT_LENGTH,
+-  MAX_NAME_LENGTH, MIN_NAME_LENGTH, V2_COMPONENT_TYPE_VALUES,
++  MAX_NAME_LENGTH, MAX_TOTAL_COMPONENTS, MIN_NAME_LENGTH, V2_COMPONENT_TYPE_VALUES,
+ } from '~/constants/messageLimits';
+@@ -41,3 +42,8 @@ export function validateEmbedCharacterCount(embeds: Embed[]) {
+ 
+-function sumDisplayableText(components: { type: number; content?: string; components?: { type: number; content?: string; components?: unknown[] }[] }[]): number {
++function sumDisplayableText(
++  components: {
++    type: number; content?: string;
++    components?: { type: number, content?: string, components?: unknown[] }[];
++  }[],
++): number {
+   let total = 0;
+@@ -54,3 +60,5 @@ function sumDisplayableText(components: { type: number; content?: string; compon
+ export function validateDisplayableTextCount(components: SupportedTopLevelComponent[]) {
+-  const total = sumDisplayableText(components as unknown as Parameters<typeof sumDisplayableText>[0]);
++  const total = sumDisplayableText(
++    components as unknown as Parameters<typeof sumDisplayableText>[0],
++  );
+   return total > MAX_COMPONENTS_DISPLAYABLE_TEXT ? `Components text exceeds ${MAX_COMPONENTS_DISPLAYABLE_TEXT} characters.` : '';
+@@ -58,4 +66,28 @@ export function validateDisplayableTextCount(components: SupportedTopLevelCompon
+ 
++export function countTotalComponents(components: readonly object[]): number {
++  let count = 0;
++  for (const c of components) {
++    count += 1;
++    if ('accessory' in c && c.accessory) count += 1;
++    if ('components' in c && Array.isArray(c.components)) {
++      const children = c.components as object[];
++      count += children.length;
++      for (const child of children) {
++        if ('accessory' in child && child.accessory) count += 1;
++        if ('components' in child && Array.isArray(child.components)) {
++          count += child.components.length;
++        }
++      }
++    }
++  }
++  return count;
++}
++
++export function validateComponentCount(components: readonly object[]) {
++  const total = countTotalComponents(components);
++  return total > MAX_TOTAL_COMPONENTS ? `Message has ${total} components; the limit is ${MAX_TOTAL_COMPONENTS}.` : '';
++}
++
+ export function validateEmbedAuthorName(name: undefined | string) {
+-  return name && name.length > MAX_NAME_LENGTH;
++  return name && name.length > MAX_EMBED_AUTHOR_NAME_LENGTH;
+ }
+@@ -98,3 +130,3 @@ export function validateEmbedTitle(title: undefined | string, url: undefined | s
+   let error = '';
+-  if (titleErroring) error = 'Name is too long.';
++  if (titleErroring) error = 'Title is too long.';
+   else if (!title && url) error = 'Title is required if URL is provided.';
+@@ -105,8 +137,2 @@ export function validateEmbedTitle(title: undefined | string, url: undefined | s
+ 
+-function validateEmbed(embed: Embed) {
+-  return validateEmbedAuthor(embed.author)
+-  && validateEmbedTitle(embed.title, embed.url)
+-  && embed.fields?.map(validateEmbedField);
+-}
+-
+ export function validateContentRequirements({
+@@ -143,5 +169,10 @@ export function validateMessage({
+ 
+-  const displayableTextError = validateDisplayableTextCount(components as SupportedTopLevelComponent[]);
++  const displayableTextError = validateDisplayableTextCount(
++    components as SupportedTopLevelComponent[],
++  );
+   if (displayableTextError) return displayableTextError;
+ 
++  const componentCountError = validateComponentCount(components);
++  if (componentCountError) return componentCountError;
++
+   const lengthError = validateMessageLength(content);
+diff --git a/src/utils/maps/UpsertMapMap.ts b/src/utils/maps/UpsertMapMap.ts
+index 8c5fd27..f9c7093 100644
+--- a/src/utils/maps/UpsertMapMap.ts
++++ b/src/utils/maps/UpsertMapMap.ts
+@@ -67,4 +67,4 @@ export default class UpsertMapMap<K, V, T, M extends InnerMapType> {
+   public delete(key: K, innerKey?: V) {
+-    if (innerKey) this.#map.get(key)?.delete(innerKey);
+-    else this.#map.get(key);
++    if (innerKey === undefined) this.#map.delete(key);
++    else this.#map.get(key)?.delete(innerKey);
+   }
+diff --git a/src/utils/markdown/components/MarkdownSpoiler.tsx b/src/utils/markdown/components/MarkdownSpoiler.tsx
+index 35af581..4e25fe2 100644
+--- a/src/utils/markdown/components/MarkdownSpoiler.tsx
++++ b/src/utils/markdown/components/MarkdownSpoiler.tsx
+@@ -13,3 +13,3 @@ const MarkdownSpoiler: FC<{ children: ReactNode | ReactNode[] }> = ({ children }
+       aria-label="spoiler"
+-      aria-expanded={!isVisible}
++      aria-expanded={isVisible}
+     >
+diff --git a/src/utils/markdown/emoji.tsx b/src/utils/markdown/emoji.tsx
+index 501bddd..4a4597b 100644
+--- a/src/utils/markdown/emoji.tsx
++++ b/src/utils/markdown/emoji.tsx
+@@ -75,3 +75,3 @@ const replacer = ((() => {
+   const surrogates = Object.keys(EMOJI_TO_NAME)
+-    .sort((surrogate) => -surrogate.length)
++    .sort((a, b) => b.length - a.length)
+     .map((surrogate) => escape(surrogate))
+diff --git a/src/utils/markdown/rules.tsx b/src/utils/markdown/rules.tsx
+index 8b897b4..15870b8 100644
+--- a/src/utils/markdown/rules.tsx
++++ b/src/utils/markdown/rules.tsx
+@@ -18,2 +18,3 @@ type InlineNode<T = void> = { content: string } & T;
+ 
++const FENCE = '```(([a-z0-9-]+?)\\n+)?\\n*([^\\n][^]*?)\\n*```';
+ const LIST_BULLET = '(?:[*+-]|\\d+\\.)';
+@@ -87,3 +88,3 @@ export const staticBaseRules = {
+     match(source, state, prev) {
+-      return SimpleMarkdown.inlineRegex(/^```(([a-z0-9-]+?)\n+)?\n*([^\n]+?)\n*```/i)(source, state, prev);
++      return SimpleMarkdown.inlineRegex(new RegExp(`^${FENCE}`, 'i'))(source, state, prev);
+     },
+@@ -417,6 +418,3 @@ export const staticBaseRules = {
+     ...SimpleMarkdown.defaultRules.paragraph,
+-    // match(source, state, prevCapture) {
+-    //   if (state._inParagraph) return null;
+-    //   return SimpleMarkdown.blockRegex(/^((?:[^\n]|\n(?! *\n))+(?:\n *)+\n)/)(source, state, prevCapture);
+-    // },
++    match: SimpleMarkdown.blockRegex(new RegExp(`^((?:${FENCE}|[^\\n]|\\n(?! *\\n))+)(?:\\n *)+\\n`, 'i')),
+     parse: (capture, parse, state) => ({ content: SimpleMarkdown.parseInline(parse, capture[0], { ...state, _inParagraph: true }) }),
+diff --git a/src/utils/parseMessageId.ts b/src/utils/parseMessageId.ts
+new file mode 100644
+index 0000000..6d04d47
+--- /dev/null
++++ b/src/utils/parseMessageId.ts
+@@ -0,0 +1,7 @@
++import { DISCORD_MESSAGE_LINK_REGEX } from '~/constants';
++
++export default function parseMessageId(input: string) {
++  const text = input.trim();
++  if (/^\d+$/.test(text)) return text;
++  return DISCORD_MESSAGE_LINK_REGEX.exec(text)?.groups?.messageId ?? null;
++}
+diff --git a/src/utils/parseServerCookies.ts b/src/utils/parseServerCookies.ts
+deleted file mode 100644
+index 97bf6a9..0000000
+--- a/src/utils/parseServerCookies.ts
++++ /dev/null
+@@ -1,14 +0,0 @@
+-import { headers } from 'next/headers';
+-
+-export default async () => {
+-  const sessionCookie = (await headers()).get('cookie');
+-
+-  const map = new Map<string, string>();
+-  if (sessionCookie) {
+-    for (const cookie of sessionCookie.split(';')) {
+-      const [key, value] = cookie.split('=');
+-      map.set(decodeURIComponent(key.trim()), decodeURIComponent(value.trim()));
+-    }
+-  }
+-  return map;
+-};
+diff --git a/src/utils/redis/index.ts b/src/utils/redis/index.ts
+index 862b23a..e89f099 100644
+--- a/src/utils/redis/index.ts
++++ b/src/utils/redis/index.ts
+@@ -58,4 +58,4 @@ async function wait<T>(key: string, timeoutSeconds: number): Promise<T> {
+   const timeout = setTimeout(voided(async () => {
+-    const item = await getItem<T>(key);
+-    if (item) resolveDeferred(key, item, WAITING_MAP.get(key) ?? []);
++    const cached = await getItem<T>(key);
++    if (cached) resolveDeferred(key, cached.item, WAITING_MAP.get(key) ?? []);
+     else deferred.reject(`fetch timed out. key: ${key}`);
+@@ -65,5 +65,5 @@ async function wait<T>(key: string, timeoutSeconds: number): Promise<T> {
+ 
+-  const item = await getItem<T>(key);
+-  if (item) {
+-    resolveDeferred(key, item, WAITING_MAP.get(key) ?? []);
++  const cached = await getItem<T>(key);
++  if (cached) {
++    resolveDeferred(key, cached.item, WAITING_MAP.get(key) ?? []);
+   }
+@@ -74,3 +74,3 @@ async function wait<T>(key: string, timeoutSeconds: number): Promise<T> {
+ // eslint-disable-next-line class-methods-use-this
+-async function getItem<T>(key: string): Promise<T | null> {
++async function getItem<T>(key: string): Promise<{ item: T } | null> {
+   const cachedItem = await getClient().get(key);
+@@ -79,3 +79,3 @@ async function getItem<T>(key: string): Promise<T | null> {
+       const item = JSON.parse(cachedItem) as Compressed;
+-      return (typeof item === 'object' && !!item ? decompress(item) : item) as T;
++      return { item: (typeof item === 'object' && !!item ? decompress(item) : item) as T };
+     } catch (err) {
+@@ -88,3 +88,3 @@ async function getItem<T>(key: string): Promise<T | null> {
+   }
+-  return cachedItem;
++  return null;
+ }
+@@ -118,3 +118,3 @@ async function getFromCache<T>(
+   const cachedItem = await getItem<T>(key);
+-  if (cachedItem) return cachedItem;
++  if (cachedItem) return cachedItem.item;
+ 
+@@ -187,3 +187,3 @@ type RefreshTokenResponse = {
+ } | { error: string };
+-function fetchUserAccount(userId: DatabaseId, skipUpdate = false) {
++function fetchUserAccount(userId: DatabaseId) {
+   return getFromCache(
+@@ -198,12 +198,10 @@ function fetchUserAccount(userId: DatabaseId, skipUpdate = false) {
+       const { id, ...rest } = account;
+-      if (!skipUpdate) {
+-        if (!account.refresh_token) return null;
+-        if (!account.expires_at || (account.expires_at * 1e3) < Date.now()) {
+-          const updatedAccount = await refreshUserAccessToken(id, account.refresh_token);
+-          if (!updatedAccount) return null;
+-          return {
+-            ...rest,
+-            ...updatedAccount,
+-          };
+-        }
++      if (!account.refresh_token) return null;
++      if (!account.expires_at || (account.expires_at * 1e3) < Date.now()) {
++        const updatedAccount = await refreshUserAccessToken(id, account.refresh_token);
++        if (!updatedAccount) return null;
++        return {
++          ...rest,
++          ...updatedAccount,
++        };
+       }
+@@ -252,8 +250,8 @@ function fetchUserGuilds(userId: DiscordId, accessToken: string) {
+ 
+-function clearUser(userId: DatabaseId, sessionToken: string, discordId: string) {
+-  return getClient().pipeline()
++function clearUser(userId: DatabaseId, sessionToken: string, discordId?: string) {
++  const pipeline = getClient().pipeline()
+     .del(formatKey('user-access-token', userId.toString()))
+-    .del(formatKey('user-session-token', sessionToken))
+-    .del(formatKey('user-guilds', discordId))
+-    .exec();
++    .del(formatKey('user-session-token', sessionToken));
++  if (discordId) pipeline.del(formatKey('user-guilds', discordId));
++  return pipeline.exec();
+ }
+@@ -337,3 +335,3 @@ function fetchChannel(channelId: string) {
+     async () => {
+-      const { data: channel, status } = await getApi().request<Guild>('GET', `/channels/${channelId}`, { validateStatus: null });
++      const { data: channel, status } = await getApi().request<Channel>('GET', `/channels/${channelId}`, { validateStatus: null });
+       if (status !== 200) {

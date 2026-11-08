@@ -1,0 +1,200 @@
+[
+ {
+  "id": "ef-header-recent-bypasses-formatter",
+  "file": "src/app/message/_layout/Header.tsx",
+  "old": "{formatMessageDate(msg.updatedAt)}\n                            </div>\n                          </StyledLink>\n                        </li>\n                      );\n                    })}\n                  </NullableComponent>\n                  <NullableComponent show={otherMatches.length > 0}>",
+  "new": "{String(msg.updatedAt)}\n                            </div>\n                          </StyledLink>\n                        </li>\n                      );\n                    })}\n                  </NullableComponent>\n                  <NullableComponent show={otherMatches.length > 0}>"
+ },
+ {
+  "id": "ef-header-other-bypasses-formatter",
+  "file": "src/app/message/_layout/Header.tsx",
+  "old": "{formatMessageDate(msg.updatedAt)}\n                            </div>\n                          </StyledLink>\n                        </li>\n                      );\n                    })}\n                  </NullableComponent>\n                  <NullableComponent show={matches.length + otherMatches.length === 0}",
+  "new": "{String(msg.updatedAt)}\n                            </div>\n                          </StyledLink>\n                        </li>\n                      );\n                    })}\n                  </NullableComponent>\n                  <NullableComponent show={matches.length + otherMatches.length === 0}"
+ },
+ {
+  "id": "ef-folder-list-drops-prefix",
+  "file": "src/app/message/f/[id]/page.tsx",
+  "old": "<div className=\"text-sm text-mute\">\n                        {`${orderProp === 'name' ? 'Last Modified: ' : ''}${formatMessageDate(orderProp === 'createdAt' ? msg.createdAt : msg.updatedAt, 'Today at ')}",
+  "new": "<div className=\"text-sm text-mute\">\n                        {`${orderProp === 'name' ? 'Last Modified: ' : ''}${formatMessageDate(orderProp === 'createdAt' ? msg.createdAt : msg.updatedAt)}"
+ },
+ {
+  "id": "ef-folder-grid-drops-prefix",
+  "file": "src/app/message/f/[id]/page.tsx",
+  "old": "<div className='text-xs'>{`${orderProp === 'name' ? 'Last Modified: ' : ''}${formatMessageDate(orderProp === 'createdAt' ? msg.createdAt : msg.updatedAt, 'Today at ')}",
+  "new": "<div className='text-xs'>{`${orderProp === 'name' ? 'Last Modified: ' : ''}${formatMessageDate(orderProp === 'createdAt' ? msg.createdAt : msg.updatedAt)}"
+ },
+ {
+  "id": "ef-jsonmodal-copytext-catch-rethrows",
+  "file": "src/app/message/m/[id]/_components/JsonModalBody.tsx",
+  "old": "  } catch (e) {\n    return null;\n  }\n}\n\ninterface Props",
+  "new": "  } catch (e) {\n    throw e;\n  }\n}\n\ninterface Props"
+ },
+ {
+  "id": "ef-saveas-proposed-name-no-copy",
+  "file": "src/app/message/m/[id]/_components/SaveAsMenu.tsx",
+  "old": "`${message.name} Copy`",
+  "new": "message.name"
+ },
+ {
+  "id": "ef-webhookmenu-pick-ignored",
+  "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+  "old": "onChange={setPickedCategory}",
+  "new": "onChange={() => {}}"
+ },
+ {
+  "id": "ef-menu-url-error-inverted",
+  "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+  "old": "selectedWebhook === null ? INVALID_URL_ERROR",
+  "new": "selectedWebhook !== null ? INVALID_URL_ERROR"
+ },
+ {
+  "id": "ef-menu-url-conjunct-dropped",
+  "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+  "old": "url && !isWebhookLoading && selectedWebhook === null ? INVALID_URL_ERROR",
+  "new": "!isWebhookLoading && selectedWebhook === null ? INVALID_URL_ERROR"
+ },
+ {
+  "id": "ef-send-withsending-dropped",
+  "file": "src/app/message/m/[id]/send/page.tsx",
+  "old": "await withSending(sendWebhook({",
+  "new": "await (sendWebhook({"
+ },
+ {
+  "id": "ef-author-effect-deps-dropped",
+  "file": "src/components/DiscordMessageEditor/components/Author.tsx",
+  "old": "      clearInterval(interval);\n    };\n  }, []);",
+  "new": "      clearInterval(interval);\n    };\n  });"
+ },
+ {
+  "id": "ef-embedfooter-iconurl-falsy",
+  "file": "src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx",
+  "old": "_setIconUrl(val === '' ? undefined : val)",
+  "new": "_setIconUrl(val || undefined)"
+ },
+ {
+  "id": "ef-cron-error-eq-null",
+  "file": "src/pages/api/cron.ts",
+  "old": ".where('ScheduledMessages.error', 'is', null)",
+  "new": ".where('ScheduledMessages.error', '=', null)"
+ },
+ {
+  "id": "ef-wp-url-cleanup-dropped",
+  "file": "src/providers/WebhookProvider.tsx",
+  "old": "    return () => { isStale = true; };\n  }, [url]);",
+  "new": "  }, [url]);"
+ },
+ {
+  "id": "ef-wp-message-cleanup-dropped",
+  "file": "src/providers/WebhookProvider.tsx",
+  "old": "    return () => { isStale = true; };\n  }, [selectedWebhook, messageIdOrUrl, threadId]);",
+  "new": "  }, [selectedWebhook, messageIdOrUrl, threadId]);"
+ },
+ {
+  "id": "ef-vw-url-cleanup-dropped",
+  "file": "src/utils/hooks/useValidateWebhook.ts",
+  "old": "    return () => { isStale = true; };\n  }, [url]);",
+  "new": "  }, [url]);"
+ },
+ {
+  "id": "ef-vw-message-cleanup-dropped",
+  "file": "src/utils/hooks/useValidateWebhook.ts",
+  "old": "    return () => { isStale = true; };\n  }, [webhook, url, messageIdOrUrl]);",
+  "new": "  }, [webhook, url, messageIdOrUrl]);"
+ },
+ {
+  "id": "ef-vw-webhook-catch-text-message-load",
+  "file": "src/utils/hooks/useValidateWebhook.ts",
+  "old": "if (!isStale) setWebhookError(INVALID_URL_ERROR);",
+  "new": "if (!isStale) setWebhookError(MESSAGE_LOAD_FAILED_ERROR);"
+ },
+ {
+  "id": "ef-vw-webhook-catch-silent",
+  "file": "src/utils/hooks/useValidateWebhook.ts",
+  "old": "if (!isStale) setWebhookError(INVALID_URL_ERROR);",
+  "new": "if (!isStale) setWebhookError(null);"
+ },
+ {
+  "id": "ef-agu-empty-guard-dropped",
+  "file": "src/server/api/utils/authorizeGuildUser.ts",
+  "old": "  if (!messageIds.length) return [];\n",
+  "new": ""
+ },
+ {
+  "id": "ef-user-empty-guard-dropped",
+  "file": "src/server/api/utils/user.ts",
+  "old": "    if (!messageIds.length) return { account, oldMessageCount: 0 };\n",
+  "new": ""
+ },
+ {
+  "id": "ef-shared-recent-empty-guard-dropped",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "  if (!messageIds.length) return [];\n",
+  "new": ""
+ },
+ {
+  "id": "ef-shared-partial-guild-branch-always",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "await (guilds.length\n    ? query",
+  "new": "await (true\n    ? query"
+ },
+ {
+  "id": "ef-shared-partial-user-branch-unfiltered",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "    : query.where('Messages.fk_users_id', '=', userId)\n  ).execute();",
+  "new": "    : query\n  ).execute();"
+ },
+ {
+  "id": "ef-shapes-id-regex-reverted",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "/^(0|[0-9]{17,23})$/",
+  "new": "/^(0|[0-9]{17,23}$)/"
+ },
+ {
+  "id": "ef-auth-revoke-token-param-dropped",
+  "file": "src/server/auth.ts",
+  "old": "  urlencoded.append('token', accessToken);\n",
+  "new": ""
+ },
+ {
+  "id": "ef-cdn-port-dropped",
+  "file": "src/utils/getCDNUrl.ts",
+  "old": "${process.env.NEXT_PUBLIC_CDN_PORT ? `:${process.env.NEXT_PUBLIC_CDN_PORT}` : ''}",
+  "new": ""
+ },
+ {
+  "id": "ef-redis-getfromcache-falsy-miss",
+  "file": "src/utils/redis/index.ts",
+  "old": "if (cachedItem) return cachedItem.item;",
+  "new": "if (cachedItem?.item) return cachedItem.item;"
+ },
+ {
+  "id": "ef-redis-wait-falsy-miss",
+  "file": "src/utils/redis/index.ts",
+  "old": "  if (cached) {\n    resolveDeferred(key, cached.item",
+  "new": "  if (cached?.item) {\n    resolveDeferred(key, cached.item"
+ },
+ {
+  "id": "ef-redis-wait-timeout-falsy-miss",
+  "file": "src/utils/redis/index.ts",
+  "old": "if (cached) resolveDeferred(key, cached.item",
+  "new": "if (cached?.item) resolveDeferred(key, cached.item"
+ },
+ {
+  "id": "ef-redis-clearuser-guilds-del-skipped",
+  "file": "src/utils/redis/index.ts",
+  "old": "if (discordId) pipeline.del(formatKey('user-guilds', discordId));",
+  "new": "if (false) pipeline.del(formatKey('user-guilds', discordId));"
+ },
+ {
+  "id": "ef-imageuploader-validation-bypassed",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "  if (!isValidImageUrl(url)) {",
+  "new": "  if (false) {"
+ },
+ {
+  "id": "ef-rules-codeblock-anchor-dropped",
+  "file": "src/utils/markdown/rules.tsx",
+  "old": "inlineRegex(new RegExp(`^${FENCE}`, 'i'))",
+  "new": "inlineRegex(new RegExp(FENCE, 'i'))"
+ }
+]
