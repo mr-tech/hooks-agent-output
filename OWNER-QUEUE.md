@@ -37,18 +37,6 @@ Statbot's own calls, which carry the key, still get through.
 
 Does the list load? Tell steering "loads" or "empty / error".
 
-## Chain 015 — publish the bot's commands to Discord
-
-The fix lets members with Manage Server (not only Administrator) use *Get Message*. It takes effect
-only once the commands are republished.
-
-1. In `/usr/local/bin/hooks/website`: `pnpm run push-commands`.
-2. In a server where someone has Manage Server but not Administrator, have them right-click a message
-   → Apps. **Pass:** *Get Message* is listed. Note the time.
-3. Undo, if needed: revert the commit and run `pnpm run push-commands` again.
-
-Did *Get Message* show up for them, and at what time?
-
 ## Generator host — remove claude-ro's read on the nodejs PM2 dump
 
 You chose to remove it yourself (05:21Z). Agents never open that file in the meantime.
