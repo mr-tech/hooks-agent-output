@@ -790,6 +790,8 @@ This pass assumes the live Postgres schema matches the Kysely `DatabaseSchema` t
 
 *Reconcile 2026-11-08T09:30, owner ruling on QAF-33 (rulings 09:28Z, `c8c7649`, relayed by steering): "Agent: as built, lists pass".* Array bodies are a known limit with no code, and M8-b narrows at rev 27. The `[]` and `[{}]` 500-cells are not owed; the string and boolean cells still stand under D35. QAF-33 is dispositioned when rev 27 lands; re-key then, and read the rev 27 text for any array cell it asks for.
 
+*Progress 2026-11-08T10:10 (after /clear; steering brief 09:4x).* Phase 1 is re-keyed to rev 27 (`b21c7b5`) and delivered to the planner. M8-b's cells are now `probe-body-class.cjs`, which asserts no S3 connect for each refused member, gated on observer liveness: green 7/7 at `6c613a5` and seen red under all three m8b mutants (`13e1124`). Those three mutants are scored from these runs, not from the status-only rig. The rest of the M8 sweep (ctl, m8c ×2, m8d ×2, m8e ×2) runs through `qa-m8-sweep.sh` with the rig pinned at agent-output HEAD (probe.cjs blob `a6da6bc`), by a helper. The implementer has been told what M8-d (d)'s cells need: a startup line with no request sent, a real rename, and a non-member cell. Their uncommitted probe.cjs guard cells call `getPool()` against a stub. Still to do: (a) the cell audits, and (c) the documents.
+
 **Next after this pass:** M8-a after CR-27's fix (with D36's RK-8 guard; *reconciled 09:40: QAF-33's guard is no longer owed, D35 re-put `c8c7649`*), sweeping the round's diff only; the M8-a guards are the implementer's list in the M8 document. Then the effort-final sweep (below). Phase 1 rev 27 re-key when briefed.
 
 **How a pass runs (instruments, committed under `verification/015/`)**
