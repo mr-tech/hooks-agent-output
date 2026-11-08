@@ -17,6 +17,7 @@ item **REQUIRES ANALYSIS**, read together with § M8 (M8-a). The source finding 
 
 | Date (UTC) | Author | Change |
 |---|---|---|
+| 2026-11-08 | analyst (plan 015) | Corrected § Host observation command 3. It previously listed `pm2 show <name>` beside the filtered `jlist`, which was defensible as a harmless way to read the log path. A re-read of `lib/API/UX/pm2-describe.js` for the owner script found that `pm2 show` prints the invoking shell's divergent environment values, so the command is removed. Class swept: `grep -c "pm2 show"` gave 2 hits here before (both in command 3) and 2 after (the warning in command 3 and this row); plan 015: 0; the research document has 2, and it is the researcher's, so they are routed and not edited. Added a pointer to `verification/015/pig-host-read.sh`. No finding changed. |
 | 2026-11-08 | analyst (plan 015) | Created. Answers brief items 1–4 from the PM2 source at four versions and from a local Node probe of the app's shutdown shape. F-31's premise is corrected: the drain never starts. Before this read, the open question was whether PM2's SIGKILL cuts the drain short. |
 
 ## Value Statement and Business Objective
@@ -297,11 +298,12 @@ as another user, a `pm2` command finds no daemon, **starts a new empty one**, an
    ```sh
    pm2 -v
    ```
-3. **Stored stop configuration of the live process.** `pm2 show` does **not** print `kill_timeout`,
-   `shutdown_with_message` or `treekill` (`lib/API/UX/pm2-describe.js`), so read them from `jlist`, filtered so that no
-   environment secrets are printed. If (2) differs from (1), drop the banner lines first.
+3. **Stored stop configuration of the live process.** Read it from `jlist`, filtered so that no environment secrets
+   are printed. Do **not** use `pm2 show`. It does not print `kill_timeout`, `shutdown_with_message` or `treekill`, and
+   it prints a "Divergent env variables from local env" table of the *shell's* environment values
+   (`lib/API/UX/pm2-describe.js`, 5.3.0 and 7.1.2). If (2) differs from (1), drop the banner lines first. The owner
+   script `verification/015/pig-host-read.sh` carries the hardened form of commands 1–6.
    ```sh
-   pm2 show hooks-image-preview-generator-prod
    pm2 jlist | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{for(const p of JSON.parse(s.slice(s.indexOf("[")))){if(p.name!=="hooks-image-preview-generator-prod")continue;const e=p.pm2_env;console.log(JSON.stringify({pid:p.pid,exec_mode:e.exec_mode,kill_timeout:e.kill_timeout,shutdown_with_message:e.shutdown_with_message,treekill:e.treekill,wait_ready:e.wait_ready,out_log:e.pm_out_log_path,err_log:e.pm_err_log_path,uptime:new Date(e.pm_uptime).toISOString()},null,1))}})'
    ```
    The same two keys also appear in the saved dump, which can be read without connecting:
