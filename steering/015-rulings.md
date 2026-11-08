@@ -317,3 +317,12 @@ At the 09:53Z standing check, `plan-usage.py --json` (source live) read weekly_a
 ## 2026-11-08T09:58Z — "continue steering-hooks-015": usage gate lifted, chain resumed
 His words, verbatim, after steering reported that the gate's premise no longer reads as it did. Premise read this turn: `plan-usage.py --json` (source live), run twice at 09:57Z–09:58Z, reads weekly_all **0.0%**, resetting 2026-11-14T16:59Z. That contradicts the 09:53Z read (98.0%, resetting 2026-11-11T09:00Z), and steering has not established why. `CronList` is empty, so resume wake ab348eac no longer exists. Trees: website chain branch at 4f9ed85, generator chain branch at 8de2b53, both clean (`git status --porcelain`, 0 lines).
 Respawned now, each from its own Resumption State: code-reviewer-hooks-015 (the Round 18 drift run at generator 8de2b53; website 476c633..4f9ed85, whose handoff from the implementer failed) and implementer-hooks-015 (QAF-34, QAF-35, CR-26). QA, planner, critic, architect and security are respawned when their next act can start.
+
+## 2026-11-08T10:14Z — CR-34, the retry storm when the pool member is gone: record it, no code (selection)
+Put ~10:15Z, answered 2026-11-08T10:14Z, **by selection** (labels and descriptions steering's). This reopens the 09:49Z "not re-put" call, because code review measured the cost's size (3540028, CR-34 LOW).
+Options: Agent: record it, no code (Rec) / Agent: slow the retries / Agent: refuse to serve instead / You: discuss first. Chosen **Agent: record it, no code**. Its description, verbatim: "Agent: the planner writes the measured rate and log volume into the plan's known-risk row, in the pre-UAT fold already planned. No code change and no extra review round. The risk stays as built."
+Premises read by steering this turn:
+- verification/015/cr-m8-probes/drift-mutant-8de2b53-{1,2,3}.txt: at 3 s, 11015–14118 launches; stderr 570,000–681,000 lines per run (LINES lines); pool pending=1. The controls show 2–3 launches. These are local runs with no browser binary; the rate on the real host is unmeasured.
+- `ssh hooks-pig df -h /`: 49G free of 58G.
+- package-lock.json:3467: generic-pool resolves 3.9.0.
+"~100 bytes a line, so a few hours to fill the disk" was steering's assumption, and the option text said so. This rides the parked pre-UAT fold (block 09:40Z) as CR-34.
