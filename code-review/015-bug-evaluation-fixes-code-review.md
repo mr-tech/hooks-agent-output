@@ -2,11 +2,11 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Reviewed-At: "5201612,da24eb7 — repos=agent-output,website; Round 11 is the plan gate read of 3d193f9..5201612 (rev 22), mechanisms at website da24eb7. Round 10 (M5) and the Round 7 sub-entry (M4 D29, QAF-25) at da24eb7; the Round 2 sub-entry (CR-15) at 3031878; rulings read to agent-output c1be05e"
+Reviewed-At: "39dbc0d,da24eb7 — repos=agent-output,website; Round 12 is the plan gate read of 5201612..39dbc0d (rev 23), mechanisms at website da24eb7. Round 10 (M5) and the Round 7 sub-entry (M4 D29, QAF-25) at da24eb7; the Round 2 sub-entry (CR-15) at 3031878"
 Status: In Review
-Status-Detail: "Round 11 (plan rev 22 gate read): APPROVED_WITH_COMMENTS — CR-20 LOW (M5-h class (3): two crash members come from the editor's render, not makeEditable; four members left open; X-19 re-cite); M6-l (vi) no finding. Round 10 (M5 at da24eb7): REJECTED for M5-h only (CR-18 MEDIUM) until its code fix; M5-a to M5-g met, CR-19 LOW. M4 (Round 7 + sub-entry at da24eb7): APPROVED_WITH_COMMENTS, CR-17 LOW. CR-15 RESOLVED."
-Round: 11
-Verdict: APPROVED_WITH_COMMENTS
+Status-Detail: "Round 12 (plan rev 23 gate read): REJECTED for M5-h's residue text — CR-21 MEDIUM, X-19 records a crash member ({components:[{type:12,items:'x'}]}) as rendering blank; CR-20 RESOLVED; M6-l (ii)/(vi)/D33 no finding. Round 10 (M5 at da24eb7): REJECTED for M5-h until its code fix; M5-a to M5-g met, CR-19 LOW. M4: APPROVED_WITH_COMMENTS, CR-17 LOW. CR-15 RESOLVED."
+Round: 12
+Verdict: REJECTED
 ---
 
 # Code Review: Plan 015 — Bug-evaluation fixes
@@ -50,6 +50,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-08T07:55 | same handoff | Round 7 sub-entry: M4's D29 change and the QAF-25 cells (`579e8b2..46a9cab`, plus `6c42032`), bound to `da24eb7` | M4 stays APPROVED_WITH_COMMENTS. CR-14 RESOLVED: the dialog shows "Invalid URL" on its shared error line, no field error was added, and each site's cell asserts the literal exactly once, in place. CR-17 LOW: the two sites write the literal by hand, while D24's sibling text is a shared constant. The rider's files are unchanged, so the attack was not re-run. |
 | 2026-11-08T07:55 | implementer-hooks-015 (message) handoff at website `da24eb7`; steering-hooks-015 (brief) | Round 10: review M5 (F-19 to F-26) against plan rev 21, with the rulings `a49da66` and `c1be05e` recorded as growth | REJECTED for M5-h only. CR-18 MEDIUM: a `/preview` JSON object of the wrong shape still crashes the page. 4 of 5 probed members throw in `makeEditable`, with both controls as expected (`verification/015/cr-m5-probes/run1-da24eb7.txt`). Steering's 07:30Z call puts that class in M5-h. M5-a to M5-g are met. CR-19 LOW: a hand-rolled latest-value ref where `useLatest` is the repo's idiom. |
 | 2026-11-08T08:02 | steering-hooks-015 (brief); planner-hooks-015 (message) | Round 11: plan gate read, `3d193f9..5201612` (rev 22): M5-h classes (1)–(3) and X-19 (CR-18 fold, D31), M6-l (vi) (D32) | APPROVED_WITH_COMMENTS. CR-18's plan half is folded: every listed class (3) member crashes the page at `da24eb7`, by execution (`cr-m5-probes/edge-run3-da24eb7.txt`, `real-run4-da24eb7.txt`). CR-20 LOW: `embeds:""` and `fields:""` crash in the editor's `validateEmbedCharacterCount`, not in `makeEditable`, so "read from its source" is the wrong basis. Four members (array elements, a type-17 `null` direct child) render but are left open. X-19 cites my stubbed run. M6-l (vi): the sibling line and border reach the Send page through `MessagePreview`. No finding. |
+| 2026-11-08T08:08 | steering-hooks-015 (brief) | Round 12: plan gate read, `5201612..39dbc0d` (rev 23): M5-h (3) as the crash-set property, X-19, M6-l (ii) one literal, M6-l (vi) on `/preview` (D33) | REJECTED for M5-h's residue text only. CR-20 RESOLVED. CR-21 MEDIUM: X-19 keeps `{"components":[{"type":12,"items":"x"}]}` out of the class as "renders blank, 0 nodes, without throwing". With the real page and editor, it throws "gallery.items.map is not a function" in both orders (`cr-m5-probes/reported-run1`, `reported-run2`); a root emptied to 0 nodes is the crash signature. M6-l (ii) and (vi)/D33: no finding. |
 
 ## Round 1 (M0, website `037935d`) — dispositions
 
@@ -282,6 +283,36 @@ CR-5 LOW Round 2 DECLINED — by the implementer (§ Fix Round 1): the plan sets
   - The two literal `formatKey` cases go to a `formatKey.*` file; the tautologies are deleted.
   - The `useParsePathname` describe is converted to exercise the real hook, or deleted with the surface listed as outstanding.
   - QA decides the timing (now or with a later touch). Non-blocking for M2.
+
+## Round 12 (plan gate read, rev 23, agent-output `39dbc0d`; mechanisms at website `da24eb7`)
+
+- **Scope.** The plan delta `5201612..39dbc0d`, written to a file and read in full: M5-h (3) restated as the real page's crash set, with its members and X-19 (CR-20, M-C6-1, QAF-28, AF-23); M6-l (ii) shares (vi)'s literal (AF-24); M6-l (vi) on `/preview` (D33). I read the planner's and the critic's probe outputs that the plan cites.
+- **Evidence process.** My instrument is `verification/015/cr-m5-probes/page.reported-error-probe.test.tsx`, driver `run-reported.sh`. It runs the real page and editor, waits for Suspense, and records any `window` error event or `console.error` beside the outcome, so it can see a render error that React reports without rethrowing.
+  - Run 1 (`reported-run1-da24eb7.txt`): positive control 18 nodes; throwing control `{"embeds":""}` throws.
+  - Run 2 (`reported-run2-da24eb7.txt`): the same rows with the suspect row first, to test order dependence. Same outcomes.
+  - Run 3 (`reported-run3-da24eb7.txt`) settles the error-boundary premise. The one boundary at `da24eb7` is `components/ErrorBoundary.tsx` (`react-error-boundary`), which wraps `DiscordContentEditor` only. `git grep -c` lists 2 files, and no `error.tsx` exists under `src/app`. A crash inside it would render a "Something went wrong:" fallback and pass for a render. All 12 members the plan lists as rendering render the full editor (17 to 25 nodes) with no fallback text; the controls behave as expected. The predicate is text-based, so it would miss a fallback with other text.
+- **CR-20 LOW Round 11 RESOLVED.** Class (3) is now a property: the inputs the real page crashes on at `da24eb7`. Membership is decided by an executed read, never by reading source, so the `""` members and the editor-render members fall inside by construction. The four members I left open are stated as rendered, which matches my real run 4. X-19 is re-cited. Check that fails if it returns: the M5-h cells, one per listed member, with the literal outcome its read records.
+- **Members re-checked against the cited reads.** Every row in the planner's `m5h-class-probe/run1-da24eb7.txt` that records "rendered" shows the full editor (17 to 25 nodes; the positive control has 18), except one. Every row the plan lists as crashing records a throw in the planner's run, the critic's run, or my runs.
+- **M6-l (ii): no finding.** The one-definition claim holds at `da24eb7`. `validateMessage` (`limits.tsx`) calls `validateEmbedCharacterCount` and `validateDisplayableTextCount`, the same validators the editor's two error lines call (`DiscordMessageEditor/index.tsx`).
+- **M6-l (vi), D33: no finding.** `/preview` mounts `DiscordMessageEditor` directly, and that editor's `v2TextError` line and `errorBorder` are independent of editing mode (Round 11). So the over-40 line reaches `/preview` and its preview image the same way the text-length errors do.
+
+**CR-21 MEDIUM Round 12 Plan text, M5-h X-19**: a crash member is recorded as "renders blank without throwing" and left out of the class
+- **Location**: plan § M5-h, "Residue (X-19)", second class, and Exclusions row X-19, at rev 23 (`39dbc0d`): "`{"components":[{"type":12,"items":"x"}]}`, 0 nodes. It is neither crashing nor in the class, and is unchanged." The source read is `verification/015/m5h-class-probe/run1-da24eb7.txt`, row 46.
+- **Class**: An outcome recorded from a probe row whose observed state is the crash signature (the page root emptied to 0 nodes) but whose error did not surface as a throw. As a result, a crash member is classed as a render.
+- **Enumeration**:
+  - Rows in the cited reads with a render outcome below the positive control's node count: `m5h-class-probe/run1` has 1 (row 46, 0 nodes), and the critic's `run4` has 0. That is 1 member.
+  - My run of that member with the real page and editor throws "gallery.items.map is not a function", in both orders (`reported-run1-da24eb7.txt`, `reported-run2-da24eb7.txt`). The `Array.isArray` guard in `injectComponentKeys` lets a string `items` through `makeEditable`, and the media-gallery renderer then calls `.map` on it.
+  - Blind spot: the predicate (node count below the positive control) cannot see a crash inside a subtree that an error boundary replaces with fallback content. The page has no error boundary I know of; I did not search for one.
+- **Issue**: The plan's property says every crash member is refused. X-19 says this member is not a crash, and that it stays unchanged. These cannot both hold. Read as written, the guard need not cover the member, and any cell built from the read's literal ("unchanged") would pin a crash (Axiom D). This is the CR-18 class again: a crash member left unrefused, inside the limb that claims to remove it: MEDIUM.
+- **Required Action (planner)**:
+  - Move `{"components":[{"type":12,"items":"x"}]}` (a type-12 `items` that is not an array) into class (3)'s crashing members, citing `reported-run1-da24eb7.txt`.
+  - Delete X-19's "renders blank without throwing" class, which now has no read member. Or keep it only as unmeasured, with the 0-node signature stated as a crash, not a render.
+  - State in Verification that a read's "rendered" outcome counts only when the editor is present (at least the positive control's node count). Each cell asserts the presence of its outcome, the error line's text or the editor's own content, never only the absence of a throw. A root that silently unmounts then fails the cell.
+- **Implementer** (when building M5-h): the same presence assertion. A cell that only checks that `act` did not throw cannot fail on this member.
+
+### Round 12 verdict
+
+REJECTED for M5-h's residue text (CR-21 MEDIUM, planner). The rest of the delta is approved, including M5-h's property restatement (CR-20 RESOLVED), M6-l (ii) and M6-l (vi)/D33.
 
 ## Round 11 (plan gate read, rev 22, agent-output `5201612`; mechanisms at website `da24eb7`)
 
@@ -633,6 +664,8 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 
 ## Verdict
 
+**Round 12 (plan gate read, rev 23)**: REJECTED for M5-h's residue text (CR-21 MEDIUM, planner). CR-20 is RESOLVED. M6-l (ii) and (vi)/D33 are approved.
+
 **Round 11 (plan gate read, rev 22)**: APPROVED_WITH_COMMENTS (CR-20 LOW, for the planner). M5-h's plan text now carries CR-18's class. M5-h's code stays REJECTED under Round 10 until its fix.
 
 **Round 10 (M5, website `da24eb7`, plan rev 21)**: REJECTED for M5-h only (CR-18 MEDIUM). M5-a to M5-g are met; CR-19 is LOW.
@@ -662,10 +695,13 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 
 1. **Implementer, blocking M5-h:** CR-18. Its fix is reviewed as a Round 10 sub-entry.
 2. **Implementer, non-blocking:** CR-17 (one shared constant for the webhook-load text), CR-19 (`useLatest`), and CR-10 as QA times it.
-3. **Planner:** CR-18's registration is done at rev 22. CR-20 (non-blocking): state class (3)'s basis as the page's crash set (`makeEditable` plus `validateEmbedCharacterCount`), never "`makeEditable` throws"; state the four open members as rendered; re-cite X-19 to `real-run4-da24eb7.txt`. Settle it before the implementer writes the M5-h cells if possible.
+3. **Planner, blocking M5-h's cells:** CR-21. Move the type-12 string-`items` member into class (3), drop or restate X-19's blank-render class, and state the presence-assertion rule in Verification. CR-20 is RESOLVED at rev 23.
 
 ## Assumption Not Checked
 
+- **Round 12:** This review assumes that every stored message the generator (M8) screenshots renders today. If so, rev 23's "a stored message that renders today still renders" means no stored message's preview image changes to the error line. The review does not read the stored corpus.
+  - Falsity signature: after release, a generated preview image shows "Invalid message data." for a saved message.
+  - Owner: devops at M8/M9 (the post-release generator read); the corpus itself is the owner's data and not an agent read.
 - **Round 11:** This review assumes that jsdom's render of the real `DiscordMessageEditor` stands in for a browser's, for the members that rendered in real run 4: `{"components":[null]}`, a type-17 `null` direct child, and array elements. It does not test this in a browser.
   - Falsity signature: in Chrome, `/preview?data={"components":[null]}` shows a blank or crashed page.
   - Owner: UAT, on M5-h's walk (served chain tip, a browser run through steering). The member is X-19's.
@@ -693,7 +729,8 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 ## Next Steps
 
 - **Implementer** (implementer-hooks-015): CR-18, which blocks M5-h. Then a Round 10 sub-entry at the fix SHA. CR-17 and CR-19 are non-blocking.
-- **Planner** (planner-hooks-015): CR-20 (Required Action 3).
+- **Planner** (planner-hooks-015): CR-21 (Required Action 3).
+- **Implementer:** M5-h cells assert the presence of their outcome (CR-21).
 - **QA Phase 2** (qa-hooks-015):
   - M4 at website `da24eb7`: Round 7 plus its sub-entry, APPROVED_WITH_COMMENTS.
   - M5-a to M5-g at `da24eb7`: Round 10.
@@ -711,7 +748,9 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
   - Plan gate reads: Rounds 4, 5, 6, 8 and 9.
 - **Open.**
   - Round 10 (M5 at `da24eb7`): REJECTED for M5-h (CR-18 MEDIUM); CR-19 LOW.
-  - Round 11 (rev 22): APPROVED_WITH_COMMENTS, CR-20 LOW with the planner.
+  - Round 11 (rev 22): APPROVED_WITH_COMMENTS; CR-20 RESOLVED at rev 23.
+  - Round 12 (rev 23): REJECTED for M5-h's X-19 text (CR-21 MEDIUM, planner). Re-check at the fold as a Round 12 sub-entry.
+  - `run-reported.sh` catches errors React reports without rethrowing; use it for the M5-h fix.
   - Instruments for the M5-h fix: `cr-m5-probes/run-edge.sh` (`makeEditable` alone) and `run-real.sh` (the real page and editor; wait for Suspense). Check every class (3) member, the `""` members, and the four rendered members.
 - **Next.**
   - CR-18's fix, as a Round 10 sub-entry. Re-run `cr-m5-probes/run.sh <website> <scratch> <fix-sha> <out>`; every wrong-shape member must show the error line.

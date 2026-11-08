@@ -1,0 +1,16 @@
+sha da24eb7dd7e811a0dfc50b941ceba50aef3c6caf
+preview/page.tsx blob tree 0e3fc49d4c241d4ec58ed5d0942c7cf46f20406f export 0e3fc49d4c241d4ec58ed5d0942c7cf46f20406f
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/2387f43a-642b-48ff-b557-f5e4556d400c/scratchpad/cr-m5-reported-export-da24eb7
+
+REPORTED "{\"components\":[{\"type\":12,\"items\":\"x\"}]}" -> THREW:gallery.items.map is not a function | reported=0 []
+REPORTED "{\"content\":\"hello\"}" -> rendered:18 nodes | reported=1 ["console:An update to %s inside a test was not wrapped in act(...).\n\nWhen testing, code that causes React state updates should be"]
+REPORTED "{\"embeds\":\"\"}" -> THREW:embeds.reduce is not a function | reported=0 []
+REPORTED "{\"components\":[null]}" -> rendered:18 nodes | reported=0 []
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  08:07:39
+   Duration  3.55s (transform 734ms, setup 22ms, import 1.26s, tests 1.57s, environment 577ms)
+
+exit 0
