@@ -4,7 +4,7 @@ Origin: 015
 UUID: 861e5f61
 Verified-At: "8de2b53 — repos=preview-image-generator; M8-a to M8-e (milestone-scoped); git-archive exports under unshare -rn on node v24.14.0; M8-b to M8-e re-anchored from 6c613a5 on the differential qa-rig-run-{6c613a5,8de2b53}.txt"
 Status: QA Complete
-Status-Detail: "M8-a to M8-e (milestone-scoped) PASS at preview-image-generator 8de2b53 against plan rev 27 (18d361c). Sweep: 22 mutants over the fix round's diff and M8-a's drain guards; 19 killed and 3 survivors dispositioned (2 are equivalent on node 24 and undecided on production's Node 18, routed to M8-0 run 2; 1 is outside the criterion, QAF-36 LOW for the planner). The production limbs P1 to P3 are M8-0 run 2's (devops, M9; B-8)."
+Status-Detail: "M8-a to M8-e (milestone-scoped) PASS at preview-image-generator 8de2b53 against plan rev 27 (18d361c). Sweep: 22 mutants over the fix round's diff and M8-a's drain guards; 19 killed and 3 survivors dispositioned (2 are equivalent on node 24 and undecided on production's Node 18, routed to M8-0 run 2; 1 is outside the criterion, QAF-36 LOW, RESOLVED at plan rev 28). The production limbs P1 to P3 are M8-0 run 2's (devops, M9; B-8)."
 Phase: 2
 ---
 
@@ -21,6 +21,7 @@ Phase: 2
 |------|---------------|---------|---------|
 | 2026-11-08T09:52 | code-reviewer-hooks-015 → qa-hooks-015 (`2fa6d8b`); steering-hooks-015 (brief at rev 27) | QA Phase 2 for M8-b to M8-e at `6c613a5` | Created. PASS, milestone-scoped; the plan Status is left alone. The verdict is expired at creation by `8de2b53`, so the refresh is owed with M8-a. |
 | 2026-11-08T10:27 | code-reviewer-hooks-015 (Round 18 sub-entry, `3540028`); steering-hooks-015 (brief after the usage gate) | QA Phase 2 for the M8 round at `8de2b53`: M8-a, M8-d (d), the scoped refresh of M8-b to M8-e | Phase 2 at `8de2b53`: M8-a to M8-e PASS. M8-a's cells for P1 idempotency, P3 idle and P4 by signal are built here (`probe-m8a-qa.cjs`), because the rig's cells do not fail under their guards' mutants. QAF-36 LOW. Re-anchored from `6c613a5`. |
+| 2026-11-08T10:59 | planner-hooks-015 (rev 28, `2a4533b`) | Finding resolution | QAF-36 RESOLVED by rev 28's stated-limit branch. The verdict is unmoved, and so is `Verified-At`. |
 
 ## Scope and criteria assessed
 
@@ -119,7 +120,7 @@ The degraded mode with the member absent (pending acquire, launch retries at abo
 
 ## Findings
 
-QAF-36 LOW Phase 2 — D36's startup line has no cell that holds its stream. A mutant that moves it from stderr to stdout (`qa-d36-line-to-stdout`) passes every cell, because the rig counts both streams.
+QAF-36 LOW Phase 2 RESOLVED (2026-11-08T10:59: plan rev 28 `2a4533b` takes the stated-limit branch. M8-d (d) keeps "a log line", and every read of the line, in RK-8 and on M9's carrier line, covers both PM2 logs, the error log first. No cell is owed. The deploy-time read is register B-8's D36 limb, `qa/015-bug-evaluation-fixes-qa.md`) — D36's startup line has no cell that holds its stream. A mutant that moves it from stderr to stdout (`qa-d36-line-to-stdout`) passes every cell, because the rig counts both streams.
 - **Why it matters:** the plan's criterion names no stream, so this is no defect in the code. But code review's CR-34 asks the M9 carrier's read (the RK-8 handoff) to name PM2's error log, and R-23's stream row concurs. Once that read names a stream, a line on the other one is invisible to it, with no cell to catch the move.
 - **Required (planner, at the D37 fold with CR-34):** where the carrier's read names a stream, the criterion (d) names the same stream. QA then adds the stream to the startup cells (the probes are QA's instruments) and shows it red under `qa-d36-line-to-stdout`. If the plan keeps "a log line", the stream is a stated limit and nothing is owed.
 - **What it fails to check:** that the operator-visible log the carrier reads is the one the line is written to.

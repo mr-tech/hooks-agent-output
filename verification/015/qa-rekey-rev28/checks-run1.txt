@@ -1,0 +1,9 @@
+enumerator cells: c5303ca=44 476c633-run2=44 THREW@c5303ca=30
+c5303ca vs run2: IDENTICAL
+control (guard present) vs c5303ca: DIFFER (31 lines), control fires
+D36 count cr-m8-probes/drift-mutant-8de2b53-1.txt: 1
+D36 count cr-m8-probes/drift-mutant-8de2b53-2.txt: 1
+D36 count cr-m8-probes/drift-mutant-8de2b53-3.txt: 1
+D36 count cr-m8-probes/drift-control-8de2b53-1.txt: 0
+D36 count cr-m8-probes/drift-control-8de2b53-2.txt: 0
+D36 count cr-m8-probes/drift-control-8de2b53-3.txt: 0
