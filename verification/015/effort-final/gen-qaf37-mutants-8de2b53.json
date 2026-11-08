@@ -1,0 +1,25 @@
+{
+ "_scope": "QA effort-final: QAF-37 re-run at preview-image-generator 8de2b53 against the committed rig cell (probe.cjs blob 14f5cfc, agent-output 8fb1eee). qa-ef-fallback-timer-removed is the finding's mutant; qa-ef-close-not-awaited (the drain no longer waits for server.close) is the adequacy mutant for the cell's 'no drain lines' check, which code review reported no mutant had reddened.",
+ "mutants": [
+  {
+   "name": "qa-ef-fallback-timer-removed",
+   "file": "build/server.js",
+   "edits": [
+    [
+     "    setTimeout(() => { process.exit(0); }, 10e3);\n",
+     ""
+    ]
+   ]
+  },
+  {
+   "name": "qa-ef-close-not-awaited",
+   "file": "build/server.js",
+   "edits": [
+    [
+     "            new Promise((resolve) => {\n                server.close(() => {\n                    console.debug('Server closed.');\n                    resolve(null);\n                });\n                server.closeIdleConnections();\n            }),\n",
+     "            (server.close(() => { console.debug('Server closed.'); }), server.closeIdleConnections(), null),\n"
+    ]
+   ]
+  }
+ ]
+}
