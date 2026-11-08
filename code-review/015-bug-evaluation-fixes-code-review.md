@@ -2,11 +2,11 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Reviewed-At: "39dbc0d,da24eb7 — repos=agent-output,website; Round 12 is the plan gate read of 5201612..39dbc0d (rev 23), mechanisms at website da24eb7. Round 10 (M5) and the Round 7 sub-entry (M4 D29, QAF-25) at da24eb7; the Round 2 sub-entry (CR-15) at 3031878"
+Reviewed-At: "018f72d,da24eb7 — repos=agent-output,website; Round 13 is the plan gate read of 39dbc0d..018f72d (rev 24), mechanisms at website da24eb7. Round 10 (M5) and the Round 7 sub-entry (M4 D29, QAF-25) at da24eb7; the Round 2 sub-entry (CR-15) at 3031878"
 Status: In Review
-Status-Detail: "Round 12 (plan rev 23 gate read): REJECTED for M5-h's residue text — CR-21 MEDIUM, X-19 records a crash member ({components:[{type:12,items:'x'}]}) as rendering blank; CR-20 RESOLVED; M6-l (ii)/(vi)/D33 no finding. Round 10 (M5 at da24eb7): REJECTED for M5-h until its code fix; M5-a to M5-g met, CR-19 LOW. M4: APPROVED_WITH_COMMENTS, CR-17 LOW. CR-15 RESOLVED."
-Round: 12
-Verdict: REJECTED
+Status-Detail: "Round 13 (plan rev 24 gate read): APPROVED — CR-21 RESOLVED; M4-d's non-JSON member, M5-i, D34/X-20, X-21: no finding. Round 10 (M5 at da24eb7): REJECTED for M5-h until its code fix; M5-a to M5-g met, CR-19 LOW. M4: APPROVED_WITH_COMMENTS, CR-17 LOW; rev 24's non-JSON member owes a cell. CR-15 RESOLVED. Website tip 24ac49f (M6, CR-17/CR-19 work) not yet handed off."
+Round: 13
+Verdict: APPROVED
 ---
 
 # Code Review: Plan 015 — Bug-evaluation fixes
@@ -51,6 +51,7 @@ Verdict: REJECTED
 | 2026-11-08T07:55 | implementer-hooks-015 (message) handoff at website `da24eb7`; steering-hooks-015 (brief) | Round 10: review M5 (F-19 to F-26) against plan rev 21, with the rulings `a49da66` and `c1be05e` recorded as growth | REJECTED for M5-h only. CR-18 MEDIUM: a `/preview` JSON object of the wrong shape still crashes the page. 4 of 5 probed members throw in `makeEditable`, with both controls as expected (`verification/015/cr-m5-probes/run1-da24eb7.txt`). Steering's 07:30Z call puts that class in M5-h. M5-a to M5-g are met. CR-19 LOW: a hand-rolled latest-value ref where `useLatest` is the repo's idiom. |
 | 2026-11-08T08:02 | steering-hooks-015 (brief); planner-hooks-015 (message) | Round 11: plan gate read, `3d193f9..5201612` (rev 22): M5-h classes (1)–(3) and X-19 (CR-18 fold, D31), M6-l (vi) (D32) | APPROVED_WITH_COMMENTS. CR-18's plan half is folded: every listed class (3) member crashes the page at `da24eb7`, by execution (`cr-m5-probes/edge-run3-da24eb7.txt`, `real-run4-da24eb7.txt`). CR-20 LOW: `embeds:""` and `fields:""` crash in the editor's `validateEmbedCharacterCount`, not in `makeEditable`, so "read from its source" is the wrong basis. Four members (array elements, a type-17 `null` direct child) render but are left open. X-19 cites my stubbed run. M6-l (vi): the sibling line and border reach the Send page through `MessagePreview`. No finding. |
 | 2026-11-08T08:08 | steering-hooks-015 (brief) | Round 12: plan gate read, `5201612..39dbc0d` (rev 23): M5-h (3) as the crash-set property, X-19, M6-l (ii) one literal, M6-l (vi) on `/preview` (D33) | REJECTED for M5-h's residue text only. CR-20 RESOLVED. CR-21 MEDIUM: X-19 keeps `{"components":[{"type":12,"items":"x"}]}` out of the class as "renders blank, 0 nodes, without throwing". With the real page and editor, it throws "gallery.items.map is not a function" in both orders (`cr-m5-probes/reported-run1`, `reported-run2`); a root emptied to 0 nodes is the crash signature. M6-l (ii) and (vi)/D33: no finding. |
+| 2026-11-08T08:13 | steering-hooks-015 (brief) | Round 13: plan gate read, `39dbc0d..018f72d` (rev 24): the CR-21 fold, M4-d's non-JSON member (L-C5-1), M5-i (D28), D34/X-20, X-21 | APPROVED, no findings. CR-21 RESOLVED. The non-JSON member holds at both webhook sites at `da24eb7` (it is growth on M4, and its cell is owed). M5-i's seed and the controlled accordion (`dangerouslySetExpanded`) were both read, so the property can be built. |
 
 ## Round 1 (M0, website `037935d`) — dispositions
 
@@ -283,6 +284,35 @@ CR-5 LOW Round 2 DECLINED — by the implementer (§ Fix Round 1): the plan sets
   - The two literal `formatKey` cases go to a `formatKey.*` file; the tautologies are deleted.
   - The `useParsePathname` describe is converted to exercise the real hook, or deleted with the surface listed as outstanding.
   - QA decides the timing (now or with a later touch). Non-blocking for M2.
+
+## Round 13 (plan gate read, rev 24, agent-output `018f72d`; mechanisms at website `da24eb7`)
+
+- **Scope.** The plan delta `39dbc0d..018f72d`, written to a file and read in full. It covers:
+  - the CR-21 fold (M5-h's type-12 member, X-19 restated, the presence rule);
+  - M4-d's webhook-load limb naming the non-JSON response (L-C5-1);
+  - M5-i (new, D28);
+  - D34 with X-20 and its handoff, and X-21;
+  - the `NewMessageModal` Planner batch row.
+  The website chain tip has moved to `24ac49f` (M6, plus `a665901`, which by its subject takes CR-17 and CR-19). None of that is handed off, and none of it is reviewed here.
+- **CR-21 MEDIUM Round 12 RESOLVED.**
+  - The type-12 non-array `items` member is in class (3), citing my reads. X-19 drops the blank-render class and names a detection owner.
+  - Verification now counts a "rendered" read only with the editor present, reads an emptied root as a crash, and requires each cell to assert that its outcome is present.
+  - Check that fails if it returns: the M5-h cells, under that presence rule. `cr-m5-probes/run-reported.sh` re-runs the read.
+- **M4-d, failed webhook-URL load (L-C5-1): no finding.** The added member holds at `da24eb7` at both sites:
+  - Dialog: `useValidateWebhook`'s webhook effect awaits `res.json()`, so a non-JSON body rejects into the catch, which sets `'Invalid URL'`.
+  - Send page: `WebhookProvider`'s fetch maps a non-200 to `null`, and a 200 with a non-JSON body rejects into `.catch(() => null)`. Either way `selectedWebhook` stays `null`, and M4-b shows "Invalid URL".
+  - **Growth on M4, recorded:** the non-JSON member is new criterion text since Round 7. The cells at `da24eb7` drive a network rejection and a JSON refusal, not a non-JSON body. Its cell is the implementer's, and its adequacy is QA's at the M4 re-run.
+- **M5-i: no finding.** The mechanism holds at `da24eb7`.
+  - `WebhookMenu` seeds `selectedCategory` once: `useState(hasWebhooks ? (guild?.id ?? '') : 'load')`.
+  - The accordion is controlled: `StyledAccordion` passes `dangerouslySetExpanded={selected ? item.id === selected : undefined}`, so updating `selectedCategory` re-opens the right panel without a remount. The property can be built.
+  - A user's pick arrives through `onChange={setSelectedCategory}`, so "until the user picks" has a distinct path to key on.
+  - The cited probe commit `ef5a9cc` is on the chain branch.
+  - Residue X-21 is stated.
+- **D34 / X-20: no finding.** No code; its handoff and reopen trigger are stated. X-21 is the M5-i residue. The `NewMessageModal` row prices its disposition in advance (M5-j or an Exclusions row), with a browser read under steering-coordinator's go.
+
+### Round 13 verdict
+
+APPROVED. CR-21 is RESOLVED, and the rest of the delta raises no finding. M5-h's code stays REJECTED under Round 10 until the implementer's fix.
 
 ## Round 12 (plan gate read, rev 23, agent-output `39dbc0d`; mechanisms at website `da24eb7`)
 
@@ -664,6 +694,8 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 
 ## Verdict
 
+**Round 13 (plan gate read, rev 24)**: APPROVED. CR-21 is RESOLVED.
+
 **Round 12 (plan gate read, rev 23)**: REJECTED for M5-h's residue text (CR-21 MEDIUM, planner). CR-20 is RESOLVED. M6-l (ii) and (vi)/D33 are approved.
 
 **Round 11 (plan gate read, rev 22)**: APPROVED_WITH_COMMENTS (CR-20 LOW, for the planner). M5-h's plan text now carries CR-18's class. M5-h's code stays REJECTED under Round 10 until its fix.
@@ -695,10 +727,14 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 
 1. **Implementer, blocking M5-h:** CR-18. Its fix is reviewed as a Round 10 sub-entry.
 2. **Implementer, non-blocking:** CR-17 (one shared constant for the webhook-load text), CR-19 (`useLatest`), and CR-10 as QA times it.
-3. **Planner, blocking M5-h's cells:** CR-21. Move the type-12 string-`items` member into class (3), drop or restate X-19's blank-render class, and state the presence-assertion rule in Verification. CR-20 is RESOLVED at rev 23.
+3. **Planner:** none open. CR-20 and CR-21 are RESOLVED (revs 23 and 24).
+4. **Implementer, from rev 24:** a cell for M4-d's non-JSON webhook response at both sites, and M5-i. Each is reviewed when it is handed off.
 
 ## Assumption Not Checked
 
+- **Round 13:** This review assumes that on a first visit to a send page, the guild's webhook list arrives after `WebhookMenu` mounts, so the seed reads `hasWebhooks` false and opens "load". The implementer's probe (`verification/015/d28-seed-probes/report.md`) shows this; I did not run it.
+  - Falsity signature: M5-i's cell for the first visit is green against the unchanged code, with no red first run.
+  - Owner: the implementer's red first run at M5-i, which code review checks at handoff.
 - **Round 12:** This review assumes that every stored message the generator (M8) screenshots renders today. If so, rev 23's "a stored message that renders today still renders" means no stored message's preview image changes to the error line. The review does not read the stored corpus.
   - Falsity signature: after release, a generated preview image shows "Invalid message data." for a saved message.
   - Owner: devops at M8/M9 (the post-release generator read); the corpus itself is the owner's data and not an agent read.
@@ -729,7 +765,7 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 ## Next Steps
 
 - **Implementer** (implementer-hooks-015): CR-18, which blocks M5-h. Then a Round 10 sub-entry at the fix SHA. CR-17 and CR-19 are non-blocking.
-- **Planner** (planner-hooks-015): CR-21 (Required Action 3).
+- **Implementer:** M4-d's non-JSON cell and M5-i (rev 24). The chain tip `24ac49f` holds M6 and the CR-17/CR-19 work, which is reviewed when handed off.
 - **Implementer:** M5-h cells assert the presence of their outcome (CR-21).
 - **QA Phase 2** (qa-hooks-015):
   - M4 at website `da24eb7`: Round 7 plus its sub-entry, APPROVED_WITH_COMMENTS.
@@ -749,7 +785,8 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 - **Open.**
   - Round 10 (M5 at `da24eb7`): REJECTED for M5-h (CR-18 MEDIUM); CR-19 LOW.
   - Round 11 (rev 22): APPROVED_WITH_COMMENTS; CR-20 RESOLVED at rev 23.
-  - Round 12 (rev 23): REJECTED for M5-h's X-19 text (CR-21 MEDIUM, planner). Re-check at the fold as a Round 12 sub-entry.
+  - Round 12 (rev 23): CR-21, RESOLVED at rev 24 (Round 13, APPROVED).
+  - Next code reviews: the M5-h fix (a Round 10 sub-entry), M5-i, M6, CR-17 and CR-19 (`a665901`), and M4-d's non-JSON cell.
   - `run-reported.sh` catches errors React reports without rethrowing; use it for the M5-h fix.
   - Instruments for the M5-h fix: `cr-m5-probes/run-edge.sh` (`makeEditable` alone) and `run-real.sh` (the real page and editor; wait for Suspense). Check every class (3) member, the `""` members, and the four rendered members.
 - **Next.**
