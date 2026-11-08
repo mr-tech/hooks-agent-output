@@ -2,11 +2,11 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Reviewed-At: "3d193f9,1e12837 — repos=agent-output,website; Round 9 is the plan gate read of e118cc3..3d193f9 (rev 21: CR-16 fold, D30), mechanisms at website 1e12837. Round 2 sub-entry at 579e8b2; Round 7 (M4) at 1e12837"
+Reviewed-At: "da24eb7 — repos=website; Round 10 (M5) and the Round 7 sub-entry (M4 D29, QAF-25) at da24eb7; the Round 2 sub-entry (CR-15) at 3031878; plan rev 21 (3d193f9), rulings read to agent-output c1be05e"
 Status: In Review
-Status-Detail: "Round 9 (plan rev 21 gate read): APPROVED — CR-16 RESOLVED (dialog shared error line), D30 (M3 removed) no finding. M1 at 579e8b2: APPROVED_WITH_COMMENTS (CR-15 LOW). M4 at 1e12837: APPROVED_WITH_COMMENTS, reopened for D29; its change is a Round 7 sub-entry."
-Round: 9
-Verdict: APPROVED
+Status-Detail: "Round 10 (M5 at da24eb7): REJECTED for M5-h only — CR-18 MEDIUM, JSON objects of the wrong shape still crash /preview; M5-a to M5-g met, CR-19 LOW. M4's D29 change and QAF-25 cells (Round 7 sub-entry at da24eb7): CR-14 RESOLVED, CR-17 LOW; M4 stays APPROVED_WITH_COMMENTS. CR-15 RESOLVED at 3031878."
+Round: 10
+Verdict: REJECTED
 ---
 
 # Code Review: Plan 015 — Bug-evaluation fixes
@@ -21,7 +21,9 @@ Verdict: APPROVED
 - `implementation/015-bug-evaluation-fixes-m0-implementation.md` (`6299c9b`, `Handoff-At` 037935d).
 - `implementation/015-bug-evaluation-fixes-m1-implementation.md` (`7f45611`, `Handoff-At` be881c9; § Fix Round 1 at `3ba52f3`, `Handoff-At` 6001f7f; § Fix Round 2 at `c938573`, `Handoff-At` 579e8b2).
 - `implementation/015-bug-evaluation-fixes-m2-implementation.md` (`3ba52f3`, `Handoff-At` 6001f7f).
-- `implementation/015-bug-evaluation-fixes-m4-implementation.md` (`d30916f`, `Handoff-At` 1e12837).
+- `implementation/015-bug-evaluation-fixes-m4-implementation.md` (`d30916f`, `Handoff-At` 1e12837); reopened at `40ece24`, `Handoff-At` 6c42032, for D29 and QAF-25).
+- `implementation/015-bug-evaluation-fixes-m5-implementation.md` (`40ece24`, `Handoff-At` da24eb7).
+- The M1 document again at `40ece24` (§ CR-15, `Handoff-At` 3031878).
 
 **Date**: 2026-11-08
 **Reviewer**: Code Reviewer (code-reviewer-hooks-015)
@@ -44,6 +46,9 @@ Verdict: APPROVED
 | 2026-11-08T07:25 | implementer-hooks-015 (message) handoff at website `579e8b2` (§ Fix Round 2, `c938573`) | Round 2 sub-entry: the M1-c and M1-h rebuild (`1e12837..579e8b2`), plus CR-9 and CR-6 | Round 2 is now APPROVED_WITH_COMMENTS for M1. CR-3 RESOLVED, structurally: sign-out decides from the `Accounts` row, and `skipUpdate` is gone. My probes give 9 of 9 rows as expected at `579e8b2`, and they go red at `6001f7f` on cached `null` and on the lookup error. M1-h: every one of the eight rows has a cell. CR-15 LOW: row 2's "M rejects after the function returned" member has no cell, and by reasoning it is covered by the during-A cells. CR-9 and CR-6 RESOLVED. |
 | 2026-11-08T07:26 | steering-hooks-015 (message) | Round 8: plan gate read, `330348f..e118cc3` (rev 20, D29 for CR-14) | REJECTED for the webhook-load limb only. CR-16 MEDIUM: the limb places "Invalid URL" "at the webhook URL field" and "under the field" at both sites, but at `1e12837` the New Message dialog has no field-level error. Its webhook errors render in one shared line below the load options. The rest of the delta (the old-message clause now scoped to the message fetch, D29's registration) is approved. |
 | 2026-11-08T07:29 | steering-hooks-015 (message); planner-hooks-015 (message) | Round 9: plan gate read, `e118cc3..3d193f9` (rev 21: the CR-16 fold, D30) | APPROVED, no findings. CR-16 RESOLVED, option (a): the dialog's "Invalid URL" goes on its shared error line, and the send page keeps its field error. D30 removes M3, which carried no code-review limb. Its evidence (`m3-chrome-read/README.md`, `8996505`) exists and states what the plan cites. No M3 code is on the chain branch. |
+| 2026-11-08T07:55 | implementer-hooks-015 (message) handoff at website `6c42032` (M4 reopen) and `3031878` (M1); steering-hooks-015 (brief, after `/clear`) | Round 2 sub-entry: CR-15 at `3031878` | CR-15 RESOLVED. The row-2 after-return cell is red under `m1h-message-handler-dropped` (its title is among the 6 failures; control 30 of 30). |
+| 2026-11-08T07:55 | same handoff | Round 7 sub-entry: M4's D29 change and the QAF-25 cells (`579e8b2..46a9cab`, plus `6c42032`), bound to `da24eb7` | M4 stays APPROVED_WITH_COMMENTS. CR-14 RESOLVED: the dialog shows "Invalid URL" on its shared error line, no field error was added, and each site's cell asserts the literal exactly once, in place. CR-17 LOW: the two sites write the literal by hand, while D24's sibling text is a shared constant. The rider's files are unchanged, so the attack was not re-run. |
+| 2026-11-08T07:55 | implementer-hooks-015 (message) handoff at website `da24eb7`; steering-hooks-015 (brief) | Round 10: review M5 (F-19 to F-26) against plan rev 21, with the rulings `a49da66` and `c1be05e` recorded as growth | REJECTED for M5-h only. CR-18 MEDIUM: a `/preview` JSON object of the wrong shape still crashes the page. 4 of 5 probed members throw in `makeEditable`, with both controls as expected (`verification/015/cr-m5-probes/run1-da24eb7.txt`). Steering's 07:30Z call puts that class in M5-h. M5-a to M5-g are met. CR-19 LOW: a hand-rolled latest-value ref where `useLatest` is the repo's idiom. |
 
 ## Round 1 (M0, website `037935d`) — dispositions
 
@@ -183,6 +188,15 @@ CR-5 LOW Round 2 DECLINED — by the implementer (§ Fix Round 1): the plan sets
 - **Conventions.** eslint gives exit 0 on the 4 changed files, which are byte-identical to `579e8b2` in the shared tree. `convention-check --since=1e12837 --no-eslint` in a detached worktree gives 0 FAIL and 0 CANDIDATE (`cr-m1-convention-check-579e8b2.txt`). The ID-token check by hand gives 0 hits in both test files.
 - **Verdict.** Round 2 (M1) moves from REJECTED to APPROVED_WITH_COMMENTS at `579e8b2`. CR-15 is LOW, and CR-5 is DECLINED. QA Phase 2 may take M1-c and M1-h at `579e8b2`.
 
+## Round 2 sub-entry (CR-15, website `3031878`)
+
+- **Scope.** `579e8b2..3031878`: one test file, `auth.hydrated-session.test.ts`, +16 lines. The diff is test-only, so this is a scoped check (M1 document § CR-15, `Handoff-At` 3031878).
+- **CR-15 LOW Round 2 RESOLVED.**
+  - The new cell matches the Required Action's shape. A resolves `null`, the function returns `{}`, and then M rejects. The cell asserts `{ value: {} }`, and that `unhandled` equals `[]` after the settle.
+  - Its red: `mutation-m1r-m1h-message-handler-dropped-3031878.txt` lists it among the 6 failures. `grep -c` of its full title with the `×` mark gives 1. The control passes 30 of 30 (`mutation-m1r-control-3031878.txt`).
+  - The title is in spec form. The ID-token check (Round 10) finds nothing outside fixture ids.
+  - Check that fails if it returns: that cell.
+
 ## Round 2 sub-entry (M1 fix round 1, website `6001f7f`, plan rev 13)
 
 - **Scope.** The fix diff `be881c9..6001f7f` for M1: `Redirects/Server.tsx`, `parseServerCookies.ts` (deleted), `auth.ts` (`69b17af`) and their tests. No touch outside the findings' and the plan's reopened limbs, so it is a sub-entry, not a round.
@@ -268,6 +282,102 @@ CR-5 LOW Round 2 DECLINED — by the implementer (§ Fix Round 1): the plan sets
   - The `useParsePathname` describe is converted to exercise the real hook, or deleted with the surface listed as outstanding.
   - QA decides the timing (now or with a later touch). Non-blocking for M2.
 
+## Round 10 (M5, website `da24eb7`, plan rev 21)
+
+### Scope and identity
+
+- **Tree.** website `da24eb7`, the M5 `Handoff-At`, re-derived from `implementation/015-bug-evaluation-fixes-m5-implementation.md` at `40ece24`. The chain tip was `da24eb7` at the start and the end of the review, and the shared tree was clean (`git status --porcelain`: 0 lines). Files were read with `git show da24eb7:<path>`, and the diffs of `23a621e` and `da24eb7` were written to files and read in full.
+- **Criteria recorded at round open:** plan § M5 at rev 21 (`3d193f9`; the plan's last commit, `daa9012`, is a Planner batch row and changes no criterion): M5-a to M5-h.
+- **Growth, recorded, not absorbed.** Two rulings blocks are not in the plan yet; the planner registers them:
+  - 07:30Z "M5 flow questions" (`a49da66`): M5-h's error line; M5-f's reset on open; and steering's call that valid JSON of the wrong shape rides M5-h under D28 if a probe shows it crashes.
+  - 07:52Z (`c1be05e`, which landed during this round): every non-object value shows the error line, as built.
+- **Evidence process.**
+  - Production limbs: the diff, the sites re-read at `da24eb7`, and my probe of `/preview` (below).
+  - TDD: the implementer's first-run reds and mutant summaries (`m5-sweep-summary-6c42032.txt`, `m5-sweep-summary-da24eb7.txt`), read but not re-run (QA's sweep).
+  - Conventions: `convention-check --since=7ce866b` in the shared tree at `da24eb7` (`cr-m4r-m5-convention-check-da24eb7.txt`), plus the ID-token check by hand.
+
+### Per-limb result at `da24eb7`
+
+| Limb | Result | Basis |
+|---|---|---|
+| M5-a | Met | `commitLoad` calls `setAllowMenuClose(true)` before `onClose()`, as `onCancel` and `cancelChoice` already did. Its two earlier returns (`!validatedDraft`; `requiresChoice`) cannot be reached from the confirm: Load is disabled without a validated draft, and the validation effect never sets a draft that requires a choice. The cells assert the flag (Outstanding item 2). The Esc keypress is Round 10's Assumption Not Checked. |
+| M5-b | Met | Copy is `isDisabled` when `toCopyText` returns `null` (a parse failure or an import-shape failure), and `onPress` copies the precomputed text. Cells cover a not-JSON draft and a non-conforming one, each pressed with no throw. |
+| M5-c | Met; CR-19 | The prompt reads `hasChangedRef.current` when the event arrives. The subscription's dependencies are unchanged. |
+| M5-d | Met | The `useMemo` dependencies are `[session, setSelectedGuildId]`, which is every value the memo reads. |
+| M5-e | Met | One shared `formatMessageDate` compares year, month and day, and both copies call it. `getDate()` outside it: 0 hits. The duplicate is removed rather than fixed twice, as the mirror rule asks. |
+| M5-f | Met (the owner's "reset on open") | An effect on `isOpen` refills the name and server when the dialog opens. The survivor `m5f-save-as-refills-on-close-too` differs only during the leave transition, which jsdom does not render. Keeping the guard is right: no finding. |
+| M5-g | Met | The toast text. `Failed to refresh` has 1 hit left, in `useApiMethods.ts`, which is the real reload failure. |
+| M5-h | **Not met for the ruled class (CR-18)** | Unparsable JSON and every non-object value show "Invalid message data." (as ruled at 07:52Z). A JSON object of the wrong shape still crashes the page: see the probe below. |
+
+### Probe: `/preview` with JSON objects of the wrong shape
+
+- **Whose output is the evidence:** the real `Page` and the real `makeEditable` at `da24eb7`, run under vitest's DOM project in an export (`git archive`, `unshare -rn`). Only `DiscordMessageEditor` and `MarkdownProvider` are stubbed. The crash happens in `makeEditable`, before the editor. I did not test how the real editor handles an object that passes `makeEditable`.
+- **Instrument:** `verification/015/cr-m5-probes/page.wrong-shape-probe.test.tsx`, driver `run.sh <website> <scratch> <sha> <out>`. Run 1 is `run1-da24eb7.txt`. The export's blob of `page.tsx` equals the tree's (`0e3fc49`).
+- **Controls:** `{"content":"hello"}` renders the editor with `hello`, and `null` shows the error line. Both pass.
+- **Result: 4 of 5 crash.**
+  - `{"embeds":5}` throws "number 5 is not iterable".
+  - `{"embeds":[null]}` throws "Cannot read properties of null (reading '_key')".
+  - `{"embeds":[{"fields":5}]}` throws.
+  - `{"components":"x"}` throws "casted.data.components.map is not a function".
+  - `{"components":[null]}` passes `makeEditable` and reaches the editor stub. What the real editor does with it is unknown.
+- **Why the implementer's probe missed it:** `m5h-preview-data-probe-6c42032.txt` samples the object class with `{}` only. Its positive control also prints `rendered: ` with no text, so its "rendered" lines don't show that the editor ran.
+
+### Architecture Alignment
+
+ALIGNED. One date formatter replaces two copies (the one-definition pattern, A-3). No new dependency. One departure from the repo's idiom: CR-19.
+
+### TDD Compliance Check
+
+**TDD Table Present**: Yes. **All Rows Complete**: Yes.
+- **Ordering is disclosed.** The two date-wiring rows were written after the rewiring, and their reds are named stand-in mutants. Every limb from M5-a to M5-h has a first red against the unchanged code (`m5<letter>-red-first-run.txt`).
+- **Expectations are independent.** They are literal texts ("Error. Failed to delete message. Please try again.", "Invalid message data.", "Any changes you have made will be lost.", `'{\n  "content": "hi"\n}'`), fixed instants under fake timers, and guild keys written as literals. None is derived from the code under test.
+- **Mutants.** 25 runs at `6c42032`, 23 killed. Both survivors are dispositioned:
+  - One guard was removed in `da24eb7`. That removal preserves behaviour: `typeof null === 'object'`, so `null` still returns `null`, and the null cell stays.
+  - The other is equivalent under jsdom (M5-f, above).
+  - The 5 preview mutants are killed again at `da24eb7`.
+- **No bug-form test.** Every title states a behaviour.
+- **Conventions.**
+  - convention-check: 0 FAIL, 0 CANDIDATE. Its SKIPs are the id-token basename check (no `TEST-CONVENTIONS.md`, so I ran it by hand) and two non-source paths.
+  - ID-token check by hand over the 16 test files changed since `1e12837`: 8 hits, all the fixture id `'m1'` in `auth.hydrated-session.test.ts`, which the named data exemption covers. Basenames, titles and comments: 0. A planted `it("cr-12 rider")` fired.
+- **Sweep reconciliation (no finding).**
+  - The implementer's `JSON.parse` sweep says "10 hits" but lists 9. `git grep -c` at `da24eb7` gives 9 (3 + 4 + 1 + 1).
+  - The close-flag sweep says "6 files". `git grep -c` gives 17 lines in 5 files.
+  - Every hit I counted is dispositioned in its row.
+
+### Round 10 findings
+
+**CR-18 MEDIUM Round 10 Unhandled input class, M5-h**: a `/preview` link whose `data` is a JSON object of the wrong shape still crashes the page
+- **Location**: `src/app/preview/page.tsx` `parseMessageData` and `Page` (`makeEditable({ data } as ApiMessage)`), and `src/utils/index.ts` `makeEditable`, at `da24eb7`.
+- **Class**: Data from a URL reaches code that dereferences its fields, and only its JSON type is checked, not the shape of the fields that code reads.
+- **Enumeration**:
+  - The fields `makeEditable` dereferences: `data.embeds` (iterated), each embed (`_key`), `embed.fields` (iterated), each field (`_key`), `data.components` (`.map`), and each component (spread, then `.type`). My probe shows 4 crashing members (above).
+  - Callers of `makeEditable` (`git grep -n "makeEditable(" da24eb7 -- src ':!*__tests__*'`): 8. Only `preview/page.tsx` takes its argument from a URL. The other 7 take stored data, schema-validated data or Discord API data.
+  - Blind spots: the predicate cannot see a second URL-to-render path that does not call `makeEditable`. It also does not test what the real editor does with an object that passes `makeEditable`.
+- **Issue**:
+  - Steering ruled at 07:30Z (`a49da66`) that valid JSON of the wrong shape is the same defect on the same page, and that it rides M5-h under D28 if a probe shows a crash. The implementer's probe found only `null` because it tried a single object, `{}`.
+  - The owner's 07:52Z ruling (`c1be05e`) settles non-object values, and it rests on that probe. It does not cover objects, so this finding does not conflict with it.
+  - The crash is a blank page for a hand-made link, so user impact is low. But the ruled class is not met, and the behaviour M5-h claims ("an error state, not a crash") has no cell for any object member: MEDIUM.
+- **Required Action (implementer)**:
+  - **Minimum:** `parseMessageData` refuses an object unless every field `makeEditable` reads has the shape it reads: `embeds` absent or an array of objects; each embed's `fields` absent or an array of objects; `components` absent or an array of objects.
+  - **Preferred (structural):** validate `data` against a schema before `makeEditable`. If the full save schema (`discordMessageShape`) is chosen, first check that the links the generator (M8) builds from stored messages still pass it, because data saved under an older schema may not. A guard narrower than the full schema is acceptable if it covers exactly `makeEditable`'s read set.
+  - **Cells:** one per field `makeEditable` reads. In each cell the bad member sits beside valid fields, not as the only key. Each cell fails if the page throws or renders the editor. Falsity signature: a guard that checks only `embeds` fails the `components` and `fields` cells.
+- **Planner:** register the wrong-shape class and the 07:52Z non-object ruling in § M5-h. The plan text says only "not parsable JSON".
+- **QA and UAT:** whether `{"components":[null]}` breaks the real editor is untested here.
+
+**CR-19 LOW Round 10 Pattern departure**: `usePusher` hand-rolls a latest-value ref where the repo's idiom is `react-use`'s `useLatest`
+- **Location**: `src/providers/MessageProvider/usePusher.ts` `hasChangedRef` (`useRef(hasChanged)`, plus `hasChangedRef.current = hasChanged` in render), at `da24eb7`.
+- **Class**: A ref kept equal to the latest prop or state by hand, where `useLatest` already does that.
+- **Enumeration**:
+  - `git grep -n useLatest da24eb7 -- src ':!*__tests__*'` gives 17 production sites. One is `MessageProvider/index.tsx`'s `messageRef = useLatest(message)`, the ref passed to this same hook.
+  - Hand-written ref syncs in render (`git grep -nE "Ref\.current = [a-zA-Z]+;"`, read by hand): 3. They are `usePusher.ts` (new), `DiscordMessageEditor/index.tsx` `messageRef` and `GuildProvider.tsx` `guildIdRef`. The last two are pre-existing and not part of this change.
+  - Blind spots: the predicate cannot see a sync written in another expression form, or one inside an effect.
+- **Issue**: The implementer's flows table names no pattern for the ref. A hand-written sync is the same mechanism spelled differently, so the repo now has a second idiom for it. Behaviour is the same either way.
+- **Required Action (implementer, non-blocking)**: `const hasChangedRef = useLatest(hasChanged);`. The two pre-existing sites are outside this change and not owed here. The existing cells stay the check: `m5c-pusher-ref-never-updated` is killed by them.
+
+### Round 10 verdict
+
+REJECTED for M5-h only (CR-18 MEDIUM). M5-a to M5-g are met. CR-19 is LOW and non-blocking. QA Phase 2 may take M5-a to M5-g at `da24eb7`. M5-h waits for its fix, which will be a sub-entry of this round.
+
 ## Round 9 (plan gate read, rev 21, agent-output `3d193f9`; mechanisms at website `1e12837`)
 
 - **Scope.** The delta `e118cc3..3d193f9`, written to a file and read in full, with the ruling `f005cef`. It covers M4-d's webhook-load limb (the CR-16 fold) and D30 (M3 removed, X-18).
@@ -277,26 +387,10 @@ CR-5 LOW Round 2 DECLINED — by the implementer (§ Fix Round 1): the plan sets
   - No M3 file is on the chain branch: `git ls-tree -r` of the tip, `enter-key` → 0.
   - The dead `tagName` compare stays in the code by the owner's choice. X-18 names the residue: the uploader's Clear, a production build, and other browsers.
 
-## Round 8 (plan gate read, rev 20, agent-output `e118cc3`; mechanisms at website `1e12837`)
+## Round 8 (plan gate read, rev 20, agent-output `e118cc3`) — dispositions
 
-- **Scope.** The delta `330348f..e118cc3`, written to a file and read: D29's registration, M4-d's network clause split into the old-message fetch (D24) and the webhook-URL load (D29), and the owed table. Ruling `27f8cd7` was read too.
-- **The old-message clause** is now scoped to the message fetch, which removes CR-14's ambiguity. No finding.
-- **Send page, re-read at `1e12837`.** The webhook `.catch(() => null)` leaves `selectedWebhook` null, so `WebhookMenu`'s `errorMessage` shows "Invalid URL" once loading settles. A Discord refusal yields `null` too, so it also shows "Invalid URL" (M4-b). This matches the plan.
-- **Dialog, re-read at `1e12837`.** A Discord refusal sets `webhookError` to Discord's `message`. This matches the plan.
-
-**CR-16 MEDIUM Round 8 Plan text, M4-d webhook-load limb (rev 20)**: the dialog has no "webhook URL field" error to show "Invalid URL" in
-- **Location**: plan § M4-d, "Network failure, webhook-URL load (D29, code review CR-14)": "shows exactly "Invalid URL" … at the webhook URL field", and the walk: "both the send page and the New Message dialog show "Invalid URL" under the field". Code: `src/app/message/_components/NewMessageModal.tsx` at `1e12837`.
-- **Class**: A criterion stating where a user sees an outcome, at a site that has no such place, so that no implementation can meet it as written without UI the plan does not name.
-- **Enumeration**: field-level `errorMessage=` props at the two sites (`git grep -c "errorMessage="` per file at `1e12837`). `WebhookMenu/index.tsx` has 1 (the custom-URL input). `NewMessageModal.tsx` has 0. The dialog's Webhook URL `TextField` has no error prop. `useValidateWebhook`'s `webhookError` reaches the user only through `messageErrorString` (`discordMessageError ?? commandMessageError ?? webhookError ?? webhookMessageError`). That is one shared `text-error` line rendered below the whole load-option accordion, under the Message Link field, not the Webhook URL field. 1 member. The predicate cannot see an error rendered by a wrapper component under another prop name.
-- **Issue**: The text an implementer would naturally write, `setWebhookError('Invalid URL')` in the catch, puts the literal in the shared line, not under the field. The walk as written then fails. Adding a field-level `errorMessage` to the dialog's Webhook URL input (the literal sibling, `WebhookMenu`'s prop) meets the words. But it is new UI the plan does not name, and it raises a second question: is the same failure then also shown in the shared line? Where the contract cannot settle this, the contract is the defect. The walk is human-observable, so the criterion fails as written: MEDIUM.
-- **Required Action (planner)**: state the dialog's display place as one of these:
-  - (a) the shared error line below the load options, with the walk worded to match; or
-  - (b) a field-level `errorMessage` on the dialog's Webhook URL input, mirroring `WebhookMenu`'s custom-URL input, with the shared line no longer carrying this failure.
-  - Either way, the verifying cell asserts the literal at the stated place, and it fails if the text appears anywhere else, or nowhere. (b) is new UI. Whether it needs the owner is steering's call (D29's description says "copies the send page", which reads closer to (b)).
-
-### Round 8 verdict
-
-REJECTED for the webhook-load limb (CR-16). The rest of the rev 20 delta is approved. The M4 change for D29 should wait for the fold.
+- CR-16 MEDIUM Round 8 RESOLVED: at rev 21 (Round 9), and met in code at `da24eb7` (Round 7 sub-entry). The checks that fail if it returns are the two `*.failed-webhook-load` cells.
+- Round 8 verdict: REJECTED for the webhook-load limb, cleared by Round 9. Its argument is in the commit that carried it (`e524a96`).
 
 ## Round 7 (M4, website `1e12837`, plan rev 19)
 
@@ -377,6 +471,36 @@ ALIGNED. One link definition (D26, A-3), now with named groups, as Round 4 prefe
 ### Round 7 verdict
 
 APPROVED_WITH_COMMENTS for M4 at `1e12837`. CR-14 is LOW and changes no safety outcome. QA Phase 2 may take M4 at `1e12837`.
+
+### Round 7 sub-entry (D29 change and QAF-25 cells, website `da24eb7`; M4 content `46a9cab` and `6c42032`)
+
+- **Scope.** The fix diff `579e8b2..46a9cab` plus `6c42032`, written to files and read in full. (`3031878` in that range is M1's, recorded under Round 2.)
+  - Production: 1 line, the webhook catch in `useValidateWebhook.ts`. Tests: two new files and three tightened.
+  - It stays within D29 and QAF-25, so it is a sub-entry.
+  - `Reviewed-At` moves to `da24eb7`. The M4 files are identical at `6c42032` and `da24eb7`: `git diff --name-only 6c42032 da24eb7` lists only `src/app/preview/page.tsx`.
+- **D29 is met at both sites.**
+  - **Dialog.** The webhook effect's catch sets `'Invalid URL'`. That text reaches the user only through `messageErrorString`, which `NewMessageModal` renders below the load options as `<div className="mt-2 text-sm text-error">`. `errorMessage=` in the file is still 0, so no field error was added (CR-16 option (a)). A Discord refusal still sets Discord's `message`.
+  - **Send page.** Unchanged: `WebhookMenu`'s `errorMessage`, under M4-b.
+  - **CR-14 LOW Round 7 RESOLVED:** one answer at both sites. The checks that fail if it returns are `NewMessageModal.failed-webhook-load` and `WebhookMenu.failed-webhook-load`.
+- **The cells meet CR-16's falsity signature.**
+  - Each asserts exactly one leaf node with the literal `Invalid URL` in the whole mounted tree, so the text appearing elsewhere fails, and so does the text appearing nowhere.
+  - The dialog cell places the text on a `text-error` element whose parent holds more than one input. That is the shared line under the accordion, not a single field's container. The menu cell places it in the URL input's container.
+  - Mutant runs (`m4-d29-sweep-summary-46a9cab.txt`): each of these reddens the dialog cell: the pre-change text, the dropped catch, the refusal mapped to `Invalid URL`, and the error line dropping `webhookError`.
+  - The expected values are literals.
+- **QAF-25 cells.** The five refusal texts, the refused input's `''` and `guild_id: null` are all literals. QA's named mutants redden each one (same summary).
+- **Conventions.** `6c42032` replaces non-null assertions with optional chaining in the two new files, to satisfy the lint gate (disclosed). convention-check over the tree: 0 FAIL (Round 10's run).
+- **The rider is untouched.** `message.ts` is unchanged since `1e12837` (`git diff --quiet`: 0), and the `redis/index.ts` hunks touch only `fetchUserAccount` (M1). So I did not re-run the `getFromUrl` attack (`cr-m4-probes/`).
+
+**CR-17 LOW Round 7 (sub-entry) Duplicated literal at two mirrored sites**: the two webhook sites each write `'Invalid URL'` by hand
+- **Location**: the webhook-effect catch in `src/utils/hooks/useValidateWebhook.ts`, and `errorMessage` in `src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx`, at `da24eb7`.
+- **Class**: A user-facing text that the plan requires to be the same at two sites, written as two independent literals. The same change's sibling text (`MESSAGE_LOAD_FAILED_ERROR`, D24) is one shared constant.
+- **Enumeration**: `git grep -c "'Invalid URL'" da24eb7 -- src ':!*__tests__*'` gives 4 files.
+  - Two are the webhook sites.
+  - Two are the embed editors (`EmbedAuthor.tsx`, `EmbedTitle.tsx`). There the text refers to an embed's link field, which is a different message, so they are outside this class.
+  - Blind spots: the predicate cannot see the text built from parts or written in double quotes.
+- **Issue**: Only the two cells hold D29's "one answer for both sites"; the code does not. The impact is low because the cells catch a divergence.
+- **Required Action (implementer, non-blocking)**: Preferred: one constant beside `MESSAGE_LOAD_FAILED_ERROR` in `src/constants`, used at both webhook sites. The cells keep their literals (Axiom E). The embed editors stay as they are.
+- **Sub-entry verdict.** Round 7 stays APPROVED_WITH_COMMENTS for M4, now at `da24eb7`. QA Phase 2 may re-run M4 there.
 
 ## Round 6 (plan gate read, rev 19, agent-output `330348f`; mechanisms at website `6001f7f`)
 
@@ -467,6 +591,12 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 
 ## Verdict
 
+**Round 10 (M5, website `da24eb7`, plan rev 21)**: REJECTED for M5-h only (CR-18 MEDIUM). M5-a to M5-g are met; CR-19 is LOW.
+
+**Round 7 sub-entry (M4's D29 change and QAF-25 cells, `da24eb7`)**: Round 7 stays APPROVED_WITH_COMMENTS. CR-14 is RESOLVED; CR-17 is LOW.
+
+**Round 2 sub-entry (CR-15, `3031878`)**: CR-15 is RESOLVED. Round 2 stays APPROVED_WITH_COMMENTS.
+
 **Round 9 (plan gate read, rev 21)**: APPROVED. CR-16 is RESOLVED, and D30 has no finding. Round 8's REJECTED is cleared by it.
 
 **Round 8 (plan gate read, rev 20)**: REJECTED for M4-d's webhook-load limb only (CR-16 MEDIUM, planner).
@@ -486,13 +616,15 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 
 ## Required Actions
 
-1. **Implementer**, non-blocking: CR-9 (delete `validateEmbed`), CR-6 Minimum (correct the disposition line), and CR-10 as QA times it.
-2. **Planner**: none outstanding. CR-11 was folded at rev 17, and CR-6 to CR-8 at rev 14.
-3. **M1-c and M1-h rebuild**, after the rev 13 round: one sub-entry each at its SHA. CR-3's cache-state cells, and one cell per M1-h decision-table row.
-4. **CR-12**: ruled by the owner to ride chain 015 as an M4-d rider (`3d7af67`). The planner folds it, then the implementer builds it.
+1. **Implementer, blocking M5-h:** CR-18. Its fix is reviewed as a Round 10 sub-entry.
+2. **Implementer, non-blocking:** CR-17 (one shared constant for the webhook-load text), CR-19 (`useLatest`), and CR-10 as QA times it.
+3. **Planner:** register in § M5-h the 07:52Z non-object ruling (`c1be05e`) and the wrong-shape class from the 07:30Z ruling (`a49da66`) (CR-18).
 
 ## Assumption Not Checked
 
+- **Round 10:** This review assumes that `PresetDialog` (Headless UI) closes on Esc and on an outside click whenever `allowMenuClose` is true, so that the flag M5-a's cells assert is what the user's keypress reaches. It does not test this in a browser.
+  - Falsity signature: after a confirmed Load, the user reopens the JSON dialog, presses Esc, and the dialog stays open.
+  - Owner: UAT, on M5-a's walk against the served chain tip. A browser run goes through steering, under the 07:42Z Playwright ruling.
 - **Round 1:** This review assumes vitest's node project collects and executes a case under `bot/**/__tests__` at `037935d`, and does not test it.
   - Owner: QA Phase 2. Closed there by `qa-m0-bot-collection-probe` (`bf10a46`).
 - **Round 2:** This review assumes no client bundle reads a non-`NEXT_PUBLIC_` key, other than `NODE_ENV`, through `env.mjs` at `be881c9`, and does not test it.
@@ -513,49 +645,33 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 
 ## Next Steps
 
-- **QA Phase 2** (qa-hooks-015): M1-c and M1-h at website `579e8b2`, Round 2 sub-entry APPROVED_WITH_COMMENTS. Probes: `verification/015/cr-m1-probes/signout.row-decision.test.ts`.
-- **Implementer**: CR-15 (the row-2 cell), non-blocking.
-- **QA Phase 2** (qa-hooks-015): M4 at website `1e12837`, Round 7 APPROVED_WITH_COMMENTS. The attack probe `verification/015/cr-m4-probes/` is available as an instrument.
-- **Planner**: CR-14 (which text a failed webhook-URL fetch shows, one answer for both sites). **Implementer**: align both sites after that.
+- **Implementer** (implementer-hooks-015): CR-18, which blocks M5-h. Then a Round 10 sub-entry at the fix SHA. CR-17 and CR-19 are non-blocking.
+- **Planner** (planner-hooks-015): register M5-h's two rulings (CR-18, Required Action 3).
+- **QA Phase 2** (qa-hooks-015):
+  - M4 at website `da24eb7`: Round 7 plus its sub-entry, APPROVED_WITH_COMMENTS.
+  - M5-a to M5-g at `da24eb7`: Round 10.
+  - M1 at `3031878`: CR-15 RESOLVED.
+  - Instrument for M5-h's later re-check: `verification/015/cr-m5-probes/`.
+- **UAT:** Round 10's Assumption Not Checked, and those of the earlier rounds.
 
-- **QA Phase 2** (qa-hooks-015): M2 at `6001f7f`, and M1-i at `6001f7f`. CR-10's timing is QA's call. M1-c and M1-h wait for their rebuild.
-- **Implementer** (implementer-hooks-015): CR-9 and CR-6 Minimum. Then M1-c and M1-h once steering releases them.
-- **Implementer, at M4**: CR-11's guild-group cell, with the Round 4 falsity signature.
-- **Steering, for the owner**: CR-12 (escalated by message).
-- **UAT**: the Round 2 and Round 3 Assumptions Not Checked; CR-5's declined log line.
+## Resumption State (code-reviewer-hooks-015, 2026-11-08T07:55)
 
-## Resumption State (checkpoint, code-reviewer-hooks-015, 2026-11-08T07:44)
-
-- **Done, all committed.** Latest review commit `22e086c`; latest plan row `1d9957e`.
-  - **M0:** Round 1, APPROVED_WITH_COMMENTS.
-  - **M1:** Round 2. REJECTED at `be881c9`, then APPROVED_WITH_COMMENTS at the `579e8b2` sub-entry. CR-3 RESOLVED; CR-15 LOW open with the implementer.
-  - **M2:** Round 3, APPROVED_WITH_COMMENTS at `6001f7f`.
-  - **M4:** Round 7, APPROVED_WITH_COMMENTS at `1e12837`. CR-14 was ruled as D29 and folded through CR-16. Reopened for the D29 change.
-  - **Plan gate reads:**
-    - Round 4: revs 14–16, CR-11.
-    - Round 5: rev 18, CR-13.
-    - Round 6: rev 19, plus the sub-entry on `authorizeGuildAdmin`.
-    - Round 8: rev 20, CR-16 MEDIUM.
-    - Round 9: rev 21. APPROVED; CR-16 RESOLVED; D30 removed M3.
-  - **CR-12 HIGH**, the cross-guild read: the owner ruled it into the chain (D27), and it was attacked and fixed at `1e12837`.
-- **Next (the steering brief will point here):**
-  - **M4 D29 change, plus QAF-25:** a sub-entry of Round 7 at its handoff SHA. Check:
-    - each site's "Invalid URL" at its rev 21 place: `WebhookMenu` field error; `NewMessageModal` `messageErrorString` line;
-    - each site's cell asserts the literal at that place, and fails if the text appears elsewhere or nowhere;
-    - no field error is added to the dialog.
-    - Re-run `verification/015/cr-m4-probes/run.sh <website> <scratch> <sha> <out>` if `getFromUrl` or `redis/index.ts` changed.
-  - **CR-15:** a sub-entry of Round 2 if the implementer adds the row-2 cell.
-  - **M5:** a new Round 10. Record § M5 at the plan's current revision at round open, and re-derive `Handoff-At` from the M5 document.
-- **Tree.** website `chain/015-bug-evaluation-fixes` at `6c42032` at checkpoint (the implementer's M5 work, not reviewed). No worktree or export of mine remains, and no local mutation is outstanding.
-- **Not mine, left in place:** in agent-output, the implementer's staged `verification/015/m4-*-1e12837*`, the `mutation-m4f-*` files, and the untracked `m5-*`, `impl-suite-run.sh` and `mutators/m4-d29-table.py`/`m5-table.py`.
-- **Instruments:**
-  - `cr-m4-probes/` (getFromUrl attack; run 2 is green at `1e12837`, run 3 leaks at `6001f7f`);
-  - `cr-m1-probes/signout.row-decision.test.ts` (the old `cookies.percent.test.ts` in that folder is stale: it imports a deleted parser, so that run exits 1);
-  - `cr-m4d-link-class-sweep.sh`, `cr-m4d-admin-bit-probe.mts`, `cr-emit-compare.cjs`.
-- **Hazards:**
-  - Stamps come from `record-edit.js` `{now}`, never typed (my Round 4 error, corrected in `9fca00f`). A literal `{now}` in prose gets substituted.
-  - Re-diff the plan after editing, right before `commit --only` (my `19dbf64` swept in planner hunks).
-  - Append plan rows after the true last row, in time order.
+- **Done.**
+  - M0: Round 1.
+  - M1: Round 2, APPROVED_WITH_COMMENTS; CR-15 RESOLVED at `3031878`.
+  - M2: Round 3.
+  - M4: Round 7 plus its sub-entry, APPROVED_WITH_COMMENTS at `da24eb7`; CR-17 LOW open.
+  - Plan gate reads: Rounds 4, 5, 6, 8 and 9.
+- **Open.** Round 10 (M5 at `da24eb7`): REJECTED for M5-h (CR-18 MEDIUM); CR-19 LOW.
+- **Next.**
+  - CR-18's fix, as a Round 10 sub-entry. Re-run `cr-m5-probes/run.sh <website> <scratch> <fix-sha> <out>`; every wrong-shape member must show the error line.
+  - Re-attack from first principles, because the fix is a guard. Include members phrased outside my five: nested wrong shapes, `fields` holding `null`, and a container's child components.
+  - M6 when it is handed off: a new round.
+- **Tree.** website `chain/015-bug-evaluation-fixes` at `da24eb7`, clean. No export or worktree of mine remains to clean up in the shared tree. My export sits under the scratchpad.
+- **Instruments.** `cr-m5-probes/`, `cr-m4-probes/`, `cr-m1-probes/signout.row-decision.test.ts`, `cr-m4d-link-class-sweep.sh`, `cr-m4d-admin-bit-probe.mts`, `cr-emit-compare.cjs`.
+- **Hazards.**
+  - Stamps come from `record-edit.js` `2026-11-08T07:55`.
+  - Re-diff the plan right before `commit --only`.
   - The rtk filter breaks piped counts.
-  - The convention-check id-token check SKIPs in a worktree: run it by hand.
-- **Questions out.** None pending.
+  - convention-check's id-token check SKIPs, so run it by hand.
+- **Questions out.** None.

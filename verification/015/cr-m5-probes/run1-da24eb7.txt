@@ -1,0 +1,101 @@
+sha da24eb7dd7e811a0dfc50b941ceba50aef3c6caf
+page.tsx blob tree 0e3fc49d4c241d4ec58ed5d0942c7cf46f20406f export 0e3fc49d4c241d4ec58ed5d0942c7cf46f20406f
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/2387f43a-642b-48ff-b557-f5e4556d400c/scratchpad/cr-m5-export-da24eb7
+
+stdout | src/app/preview/__tests__/page.wrong-shape-probe.test.tsx > preview page, JSON objects of the wrong shape > embeds a number
+PROBE "{\"embeds\":5}" -> THREW:number 5 is not iterable (cannot read property Symbol(Symbol.iterator))
+
+stdout | src/app/preview/__tests__/page.wrong-shape-probe.test.tsx > preview page, JSON objects of the wrong shape > embeds holding null
+PROBE "{\"embeds\":[null]}" -> THREW:Cannot read properties of null (reading '_key')
+
+stdout | src/app/preview/__tests__/page.wrong-shape-probe.test.tsx > preview page, JSON objects of the wrong shape > embed fields a number
+PROBE "{\"embeds\":[{\"fields\":5}]}" -> THREW:number 5 is not iterable (cannot read property Symbol(Symbol.iterator))
+
+stdout | src/app/preview/__tests__/page.wrong-shape-probe.test.tsx > preview page, JSON objects of the wrong shape > components a string
+PROBE "{\"components\":\"x\"}" -> THREW:casted.data.components.map is not a function
+
+stdout | src/app/preview/__tests__/page.wrong-shape-probe.test.tsx > preview page, JSON objects of the wrong shape > components holding null
+PROBE "{\"components\":[null]}" -> editor:undefined
+
+ ❯ |dom| src/app/preview/__tests__/page.wrong-shape-probe.test.tsx (7 tests | 5 failed) 49ms
+     × embeds a number 10ms
+     × embeds holding null 2ms
+     × embed fields a number 2ms
+     × components a string 1ms
+     × components holding null 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.wrong-shape-probe.test.tsx > preview page, JSON objects of the wrong shape > embeds a number
+ FAIL  |dom| src/app/preview/__tests__/page.wrong-shape-probe.test.tsx > preview page, JSON objects of the wrong shape > embed fields a number
+AssertionError: expected 'THREW:number 5 is not iterable (canno…' to be 'text:Invalid message data.' // Object.is equality
+
+Expected: "text:Invalid message data."
+Received: "THREW:number 5 is not iterable (cannot read property Symbol(Symbol.iterator))"
+
+ ❯ src/app/preview/__tests__/page.wrong-shape-probe.test.tsx:45:17
+     43|     const got = await outcome(data);
+     44|     console.log(`PROBE ${JSON.stringify(data)} -> ${got}`);
+     45|     expect(got).toBe(expected);
+       |                 ^
+     46|   });
+     47| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.wrong-shape-probe.test.tsx > preview page, JSON objects of the wrong shape > embeds holding null
+AssertionError: expected 'THREW:Cannot read properties of null …' to be 'text:Invalid message data.' // Object.is equality
+
+Expected: "text:Invalid message data."
+Received: "THREW:Cannot read properties of null (reading '_key')"
+
+ ❯ src/app/preview/__tests__/page.wrong-shape-probe.test.tsx:45:17
+     43|     const got = await outcome(data);
+     44|     console.log(`PROBE ${JSON.stringify(data)} -> ${got}`);
+     45|     expect(got).toBe(expected);
+       |                 ^
+     46|   });
+     47| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.wrong-shape-probe.test.tsx > preview page, JSON objects of the wrong shape > components a string
+AssertionError: expected 'THREW:casted.data.components.map is n…' to be 'text:Invalid message data.' // Object.is equality
+
+Expected: "text:Invalid message data."
+Received: "THREW:casted.data.components.map is not a function"
+
+ ❯ src/app/preview/__tests__/page.wrong-shape-probe.test.tsx:45:17
+     43|     const got = await outcome(data);
+     44|     console.log(`PROBE ${JSON.stringify(data)} -> ${got}`);
+     45|     expect(got).toBe(expected);
+       |                 ^
+     46|   });
+     47| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.wrong-shape-probe.test.tsx > preview page, JSON objects of the wrong shape > components holding null
+AssertionError: expected 'editor:undefined' to be 'text:Invalid message data.' // Object.is equality
+
+Expected: "text:Invalid message data."
+Received: "editor:undefined"
+
+ ❯ src/app/preview/__tests__/page.wrong-shape-probe.test.tsx:45:17
+     43|     const got = await outcome(data);
+     44|     console.log(`PROBE ${JSON.stringify(data)} -> ${got}`);
+     45|     expect(got).toBe(expected);
+       |                 ^
+     46|   });
+     47| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  5 failed | 2 passed (7)
+   Start at  07:50:18
+   Duration  1.18s (transform 108ms, setup 18ms, import 423ms, tests 49ms, environment 568ms)
+
+exit 1
