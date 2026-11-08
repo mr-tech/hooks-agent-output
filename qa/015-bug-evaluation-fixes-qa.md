@@ -767,7 +767,7 @@ This pass assumes the live Postgres schema matches the Kysely `DatabaseSchema` t
 - **Rev 7 confirmation:** QA Phase 1 approves rev 7 (`38b12e6`) for implementation start. QAF-8 is owed before the run-2 read is scripted, and QAF-9 is LOW; neither blocks code. *(Superseded line, kept for the record:)* QA Phase 1 approves rev 6 for implementation start. The implementer is bound by E-1 to E-9, E-1's reconcile note included.
 - **Assumption Not Checked:** routed to UAT, through B-1 and B-2.
 
-## Resumption State (checkpoint, qa-hooks-015, 2026-11-08T10:32Z)
+## Resumption State (checkpoint, qa-hooks-015, 2026-11-08T10:32Z; brought current at the /clear checkpoint, 2026-11-08T10:48)
 
 **Current, read first.** This block supersedes the 09:53Z block, kept below it. The progress, sweep and pass notes after them record how this state was reached.
 - **Done and committed this session:**
@@ -780,11 +780,11 @@ This pass assumes the live Postgres schema matches the Kysely `DatabaseSchema` t
   2. **The effort-final pass** (owed list below; "QAF-20 landed" is discharged). Nothing else is owed before it.
   3. Phase 1 re-keys when briefed. The planner's pre-UAT fold (D37: CR-32, CR-33, CR-34, QAF-36) needs a delta re-key.
 - **How to run (additions this session):** M8 sweep: `python3 -I m8-local-probe/qa-m8r-sweep.py <export> mutators/qa-m8r-mutants.json <out> <agent-output> -j 4 [--probe probe-m8a-qa.cjs] [names]`, with the export built by `m8-local-probe/run.sh`. Website suite: pass `qa-m4-suite-run.sh` an **absolute** out-prefix (a relative one lands inside the export).
-- **Tree:**
-  - agent-output: all of QA's paths are committed except the INBOX entry, which is the inbox owner's to commit.
-  - The scratchpad export `pig-probe-*` is deleted at run end, and no process of QA's runs.
-  - The stage browser was not used.
-- **Questions out:** none.
+- **Tree (checkpoint for /clear):**
+  - website shared tree at `c5303ca` (chain branch); preview-image-generator at `8de2b53`. QA mutated neither, and every QA run used git-archive exports.
+  - agent-output: all of QA's paths are committed. The `INBOX.md` entry (ID-token class misses `qaf`) is left uncommitted for the inbox owner.
+  - Scratchpad exports deleted. No process of QA's runs, and no evidence is unrecorded. The stage browser was not used.
+- **Questions out:** a spawn cue to steering-hooks-015 (msg `a745f9f0`): the effort-final pass waits on the planner's D37 fold (rev 28: CR-32, CR-33, CR-34, QAF-36). On resume, re-key Phase 1 on rev 28's delta, then run the effort-final pass (owed list below).
 
 ## Resumption State (checkpoint, qa-hooks-015, 2026-11-08T09:53Z; superseded by the block above)
 
