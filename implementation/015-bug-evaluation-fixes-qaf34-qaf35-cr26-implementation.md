@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "QAF-34 (MEDIUM), QAF-35 (LOW), CR-26 (LOW) and CR-35 (LOW) delivered on website's chain branch at b195eeb. QAF-34: the title case runs over both title parsers, red under m6a-title-codeblock-interactive (1 case) and under the static mutant (1 case), control 29 of 29. QAF-35: the two rows are red under named mutants, control 57 of 57. CR-26: no-restricted-imports bans react-use useMount and the three callers use useEffect; full gate at 86f5a6c 1119 of 1119, vitest exit 0, typecheck exit 0. CR-35: the formatKey test sits beside its module. CR-36 reconciled in the QAF document."
-Handoff-At: "b195eeb — repos=website"
+Status-Detail: "QAF-34 (MEDIUM), QAF-35 (LOW), CR-26 (LOW) and CR-35 (LOW) delivered on website's chain branch at b195eeb. QAF-34: the title case runs over both title parsers, red under m6a-title-codeblock-interactive (1 case) and under the static mutant (1 case), control 29 of 29. QAF-35: the two rows are red under named mutants, control 57 of 57. CR-26: no-restricted-imports bans react-use useMount and the three callers use useEffect; full gate at 86f5a6c 1119 of 1119, vitest exit 0, typecheck exit 0. CR-35: the formatKey test sits beside its module. CR-36 reconciled in the QAF document. Round 2 (CR-37 MEDIUM, code review REJECTED b195eeb for the CR-26 callers): spec-form cells for the editor `onMount` effect (red under the reviewer's mutator) and for Button `autoFocus` (the reviewer's mutator is equivalent: react-aria focuses on mount; the cell is red under a mutant that also stops autoFocus reaching react-aria); the lint ban also covers `react-use/lib` and `react-use/esm`. Full gate at 2618926: 1122 of 1122, 115 files, vitest exit 0, typecheck exit 0."
+Handoff-At: "2618926 — repos=website"
 ---
 
 # Implementation 015 — QAF-34, QAF-35, CR-26 (website)
@@ -22,6 +22,7 @@ Handoff-At: "b195eeb — repos=website"
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-08T10:16 | steering-hooks-015 → implementer-hooks-015 | QAF-34, QAF-35, CR-26 (+ CR-35, CR-36 from code review) | Tests at `b93e897` (QAF-34), `00c9bee` (QAF-35); lint rule and callers at `86f5a6c`; test move at `b195eeb`. Mutators `verification/015/mutators/qaf35-preview-parse-failure-renders-empty.py` and the existing `qa-r2-supplement.py` (`MUT_ID`). |
+| 2026-11-08T10:30 | code-reviewer-hooks-015 → implementer-hooks-015 | CR-37 MEDIUM (REJECTED `b195eeb`), CR-26 narrowed | Cells at `87b662f`; lint paths at `2618926`. See § Round 2. |
 
 ## Implementation Summary
 
@@ -127,6 +128,27 @@ QAF-34 and QAF-35 are QA findings, CR-26 and CR-35 are review findings; each cla
 3. **A script slip, disclosed.** `impl-suite-run.sh` `cd`s into the export, so a relative `<out-prefix>` writes into the export, not the record. My first two runs did (the first also hit my outer 590 s timeout, with no output). I copied the third run's two files from the export into `verification/015/` under the `cr26-final-` names. The run is of `86f5a6c`; its content is unchanged by the copy.
 4. **Self-diagnosis (method).** I passed a relative prefix to a script that changes directory, and waited on it with `pgrep -f`, which matched my own command line, so the wait never ended and told me nothing. The check to apply first: read the script's `cd` before choosing an argument form, and wait on a PID or a file, not on a pattern that can match the waiter.
 
+## Round 2 — CR-37 (and CR-26 narrowed), website `b195eeb..2618926`
+
+**CR-37 MEDIUM** (code review, `162162d`): emptying each of the two moved mount effects left the whole suite green, so the preservation claim of CR-26's callers had no assertion. `useMounted` was already killed (26 failures).
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|----------------|-----------|---------------------|-------------------|----------------|------------------|
+| `DiscordMessageEditor` calls `onMount` once after mount, not on re-render | `DiscordMessageEditor.component-limit.test.tsx` (new describe, the file already mounts the editor with its stubs; the reviewer allowed extending it) | No, red by mutant (production behaviour is built) | Yes | `editor-onmount-effect-empty` (the reviewer's mutator, `cr-m6-probes/cr26-ban/mutators/`): 1 failed, 22 passed; control (both files) 25 of 25 exit 0 (`mutation-cr37-editor-onmount-87b662f.txt`, `mutation-cr37-control-87b662f.txt`) | Yes |
+| `Button` with `autoFocus` is the active element after mount; without it, not | `Button.auto-focus.test.tsx` (new, `helpers/dom.ts`) | No, red by mutant | Yes, under a stronger mutant | The reviewer's `button-autofocus-effect-empty` **passes 2 of 2** (`mutation-cr37-button-autofocus-87b662f.txt`). Cause, read in `node_modules/.pnpm/react-aria@3.46.0…/@react-aria/interactions/src/useFocusable.tsx` (`autoFocusRef`, focus in an effect on mount): `useButton` already receives `autoFocus` through `_props` and focuses the element itself, so the emptied effect loses nothing and the mutant is **equivalent**, shown by execution. `cr37-button-autofocus-effect-and-aria-dropped.py` (effect emptied **and** `useButton({ ..._props, autoFocus: false })`) fails the `autoFocus` case, 1 failed, 1 passed (`mutation-cr37-button-both-dropped-87b662f.txt`) | Yes |
+
+The `Button` effect is redundant with react-aria and was left in place: the plan's CR-26 fix is a behaviour-preserving substitution, and removing it is a change nobody asked for. Whether to delete it is the reviewer's or planner's call.
+
+**CR-26 narrowed** (LOW): `react-use/lib` and `react-use/esm` were added to `paths` with `importNames: ["useMount"]` (`2618926`). The reviewer's re-attack (`cr-m6-probes/cr26-ban/run.sh`, 14 plants) over the new config: `cr26/cr26-ban-reattack-2618926.txt` flags 10 of 14 plants (the 7 before, plus `lib-index`, `esm-index`, and `export-star` and `export-from`, which the output shows flagged), both controls pass. Still passing the ban: `react-use/lib/useMount.js` (the `.js` extension; `import/extensions` flags it as a different error), `require('react-use')` (`@typescript-eslint/no-var-requires` flags it), and dynamic `import()` (the stated residue).
+
+**Gate:** `impl-suite-run.sh 2618926 <scratch> <abs>/cr37-final`: 1122 of 1122, 115 files, vitest exit 0, typecheck exit 0, isolation 0 and 0 (`cr37-final-run-2618926.txt`, `cr37-final-testresults-2618926.json`). Against `86f5a6c` by name and status: 0 status changes; 5 cases only after (3 new, 2 `formatKey` under the moved path), 2 only before (`formatKey` at the old path); 1119 + 3 = 1122. ESLint over the two test files exit 0; `convention-check --since=b195eeb` 0 FAIL, 0 CANDIDATE, 2 SKIP.
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---|---|---|---|
+| CR-37 (a moved mount effect with no assertion that fails when it is emptied) | the three emptying mutants of `cr26-ban/run-mutants.sh` over the three moved sites in `git grep -n "useEffect(" b195eeb -- src/components/Button.tsx src/components/DiscordMessageEditor/index.tsx src/utils/hooks/index.ts` restricted to the lines `86f5a6c` changed | 3 members: `useMounted` killed (26, reviewer), `DiscordMessageEditor` `onMount` killed (this round), `Button` `autoFocus` equivalent (react-aria) with the stronger mutant killed | All three dispositioned. Residual after the fix: 0 members with no failing assertion |
+
+**Self-diagnosis (method).** I claimed "behaviour-preserving" on the strength of the library's source and an unchanged pass set, which cannot show that anything asserts the behaviour: an unchanged pass set is also what a loss nobody tests produces. The check to apply first: empty each moved effect and see which test fails before writing "preserved".
+
 ## Next Steps
 
-Code review of `4f9ed85..b195eeb` (website; this document), then QA's scoped re-run of M6-a's title cells (`rules-title-i`) and the QAF-35 rows. The CR-26 signature change above needs the reviewer's confirmation.
+Code review of `b195eeb..2618926` (website; this document, Round 2), then QA's scoped re-run of M6-a's title cells (`rules-title-i`) and the QAF-35 rows. The CR-26 signature change above needs the reviewer's confirmation.

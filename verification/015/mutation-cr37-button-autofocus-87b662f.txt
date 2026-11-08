@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/2e64cdda-da60-412f-b877-233044fe3158/scratchpad/website-87b662f-cr37-button-autofocus  sha: 87b662f  label: cr37-button-autofocus  test: src/components/__tests__/Button.auto-focus.test.tsx  mutator: /usr/local/bin/hooks/agent-output/verification/015/cr-m6-probes/cr26-ban/mutators/button-autofocus-effect-empty.py
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/2e64cdda-da60-412f-b877-233044fe3158/scratchpad/website-87b662f-cr37-button-autofocus
+
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  10:24:47
+   Duration  1.28s (transform 158ms, setup 21ms, import 549ms, tests 29ms, environment 561ms)
+
+vitest exit 0
