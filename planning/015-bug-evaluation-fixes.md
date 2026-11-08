@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: In Progress
-Status-Detail: "M0 and M1 delivered (M1 at website be881c9, in code review). Revision 9 answers M1's three planner asks and re-derives M2–M9 against M1's behaviour changes; M2 onward is not held. It also folds the parked run-2 rows (QAF-10, M-C3-1, L-C3-1). The critic, the architect and QA re-read the delta. OQ-H (M1-h's criterion) is with the owner through steering and holds only M1-h's verdict."
+Status-Detail: "M0 and M1 delivered (M1 at website be881c9, in code review). Revision 9 answers M1's three planner asks and re-derives M2–M9 against M1's behaviour changes; M2 onward is not held. It also folds the parked run-2 rows (QAF-10, M-C3-1, L-C3-1). The critic, the architect and QA re-read the delta. OQ-I (M1-h's criterion) is with the owner through steering and holds only M1-h's verdict."
 Revision: 9
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
@@ -37,7 +37,7 @@ Owed re-verdicts:
 | M1-c clear-out cells; M1-d limit; M2 QAF-1 note; P3 idle cell; M8 E-1 and M8-c route | rev 6 | critic (new cycle), architect, qa | M1-d approved by all three. The rest drew findings (critic `39fb6b9`; architect `1be7e72`; QA `2e4d4d5`), folded at rev 7 |
 | M1-c no-account cell; M2 QAF-1 note; P3 pool read and run-2 read; M8 E-1 (loopback, self-check, install location); M8-c browser source and fallback | rev 7 | critic (cycle 2 pass 2), architect, qa | approved (critic `1ce2ae4`; architect `592eb23`; QA `ba277d8`), with AF-16, L-C2-4, QAF-8 and QAF-9 folded at rev 8 |
 | M1-c no-account cell and ordering anchor; the session row moved outside M1-c; M8-0 run-2 span and its pool-creation read | rev 8 | critic, architect, qa (delta only) | approved (critic `f64ae27`; architect `ca8da09`; QA `c2a657a`); QAF-10, M-C3-1 and L-C3-1 folded at rev 9 |
-| M1-c "no account found" class and lookup-error residue; M1-f premise and RK-7; M1-h restated with OQ-H; re-derivation after M1; M8-a run-2 span bounds and its read list; P3 instrument liveness; Validation sign-out note | rev 9 | critic, architect, qa (delta only) | open; M1-h's limb also waits on OQ-H |
+| M1-c "no account found" class and lookup-error residue; M1-f premise and RK-7; M1-h restated with OQ-I; re-derivation after M1; M8-a run-2 span bounds and its read list; P3 instrument liveness; Validation sign-out note | rev 9 | critic, architect, qa (delta only) | open; M1-h's limb also waits on OQ-I |
 
 ## Changelog
 
@@ -58,7 +58,7 @@ Owed re-verdicts:
 | 2026-11-08T05:54 | impl | implementer (implementer-hooks-015) | Status → In Progress. Implementation starts at M0 on the chain branch, entry conditions recorded in `implementation/015-bug-evaluation-fixes-m0-implementation.md`. No criterion text touched. |
 | 2026-11-08T06:03 | cr | code-reviewer (code-reviewer-hooks-015) | Round 1, M0 only, at website `037935d`: APPROVED_WITH_COMMENTS (CR-1 LOW, CR-2 INFO), `code-review/015-bug-evaluation-fixes-code-review.md`. The review is milestone-scoped, so plan Status is unmoved. |
 | 2026-11-08T06:09 | qa | qa (qa-hooks-015) | Phase 2, M0 only, at website `037935d`: PASS (`qa/015-bug-evaluation-fixes-m0-qa.md`). The bot collection change discriminates in both directions, and path membership equals the base's 54. QAF-11 MEDIUM goes to the implementer: a wall-clock wait in `SectionEditor.auto-remove-dispatch` flaked 1 of 4 full runs. It is not caused by M0. Milestone-scoped, so plan Status is unmoved. |
-| 2026-11-08T06:23 | 9 | planner (planner-hooks-015) | Triggered by the M1 handoff (`implementation/015-bug-evaluation-fixes-m1-implementation.md`, `7f45611`; website `be881c9`), its Outstanding Items 1–3 and declared behaviour changes. It also folds the parked rows QAF-10 (`c2a657a`), M-C3-1 and L-C3-1 (`f64ae27`). This is the second revision since implementation approval, and it triggers one delta round per gate. OQ-H goes to the owner as a milestone-level scope delta on M1-h. Option (A) adds one more M1-h code-review round and one more QA Phase 2 run; option (B) adds none. Scope delta: in M1-c, the "no account found" class becomes `NoResultError` or a falsy return, with a lookup-error residue. M1-f's premise is corrected, and RK-7 is added. M1-h's criterion, which holds at the base, is restated pending OQ-H. A re-derivation paragraph covers M2–M9, and no milestone is marked stale. M8-a's run-2 span is bounded by ready lines only, with its reads listed. P3 gains instrument liveness. Against the ask: 49 of 50 findings, unchanged. |
+| 2026-11-08T06:23 | 9 | planner (planner-hooks-015) | Triggered by the M1 handoff (`implementation/015-bug-evaluation-fixes-m1-implementation.md`, `7f45611`; website `be881c9`), its Outstanding Items 1–3 and declared behaviour changes. It also folds the parked rows QAF-10 (`c2a657a`), M-C3-1 and L-C3-1 (`f64ae27`). This is the second revision since implementation approval, and it triggers one delta round per gate. OQ-I goes to the owner as a milestone-level scope delta on M1-h. Option (A) adds one more M1-h code-review round and one more QA Phase 2 run; option (B) adds none. Scope delta: in M1-c, the "no account found" class becomes `NoResultError` or a falsy return, with a lookup-error residue. M1-f's premise is corrected, and RK-7 is added. M1-h's criterion, which holds at the base, is restated pending OQ-I. A re-derivation paragraph covers M2–M9, and no milestone is marked stale. M8-a's run-2 span is bounded by ready lines only, with its reads listed. P3 gains instrument liveness. Against the ask: 49 of 50 findings, unchanged. |
 
 ## Value Statement and Business Objective
 
@@ -240,7 +240,7 @@ any walk that signs out revokes that account's Discord token and must sign in ag
   awaited", already holds at `7ce866b` (M1 Outstanding Item 2). The message fetch starts before the account
   lookup, so it overlaps the guild fetch. The defect that remains is a rejection-handler gap: while the
   inner `await` runs, `messagePromise` has no handler.
-  - **OPEN QUESTION OQ-H (to the owner through steering; holds only M1-h's verdict).** The same gap has a
+  - **OPEN QUESTION OQ-I (to the owner through steering; holds only M1-h's verdict).** The same gap has a
     second member in the same function: `await redis.fetchUserAccount(userDbId)` runs while `messagePromise`
     has no handler. The implementer calls this window one tick. The planner's probe shows it lasts the whole
     account lookup: a promise rejecting during a 20 ms await, with its handler attached afterwards, raised
@@ -703,7 +703,7 @@ is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, 
 ## Resumption State (checkpoint, planner-hooks-015)
 
 - **Done.** Plan at revision 9. Rev 8 passed all three gates (critic `f64ae27`, architect `ca8da09`, QA `c2a657a`). Rev 9 answers the M1 handoff (`7f45611`, website `be881c9`) and folds the parked run-2 rows. Registrations so far: R-1 (D14, D15), R-2 (D20), R-3 and R-4 (parked rows, now discharged). F-31 analysis: `analysis/015-bug-evaluation-fixes-analysis.md` (latest `1fc16f5`). M8-0 run 1 is captured at `verification/015/m8-0-run1-2026-11-08T0525Z.txt`, together with the script, at `fe27690`.
-- **Next.** Steering routes rev 9's delta to the critic, the architect and QA. Nothing holds M2 onward. When the owner answers OQ-H, register it and restate M1-h to the chosen option. Fold any findings at the next planning pass. After implementation approval, findings that change no code, test or pre-release verifier are parked as Planner batch rows.
-- **Open with others.** OQ-H (M1-h's criterion, options A and B) is with the owner through steering. The 69-day generator gap (X-15) went to him through steering as an FYI only.
+- **Next.** Steering routes rev 9's delta to the critic, the architect and QA. Nothing holds M2 onward. When the owner answers OQ-I, register it and restate M1-h to the chosen option. Fold any findings at the next planning pass. After implementation approval, findings that change no code, test or pre-release verifier are parked as Planner batch rows.
+- **Open with others.** OQ-I (M1-h's criterion, options A and B) is with the owner through steering. The 69-day generator gap (X-15) went to him through steering as an FYI only.
 - **Uncommitted, left in place.** `INBOX.md` holds this session's FYI entry: the research document's `pm2 show` advice. Per the inbox rule, the domain owner commits it.
 - **Branches.** website and preview-image-generator: chain branches are created by steering. The planner touches no source.
