@@ -168,7 +168,7 @@ UAT-3 INFO — A React hydration-mismatch console error shows on first load of t
 *Point-in-time list — later stage documents are authoritative on these items' current state.*
 - ~~Owner: choose the route for the signed-in rows~~ — answered: route (a), 5d29306.
 - ~~Owner (asked 20:01Z): B-1 account; B-14 guild; Upload Message on production~~ — answered 20:08Z and 20:12Z. B-14 and the live check are done.
-- Owner (via steering-hooks-015): supply the account for B-1; name the B-10 server; choose a new route for B-9, B-10 and the B-11 dialog leg, since route (a) failed (asked 20:41Z).
+- Owner (via steering-hooks-015): supply the account for B-1; name the B-10 server. *2026-11-08T20:45:* the route for B-9, B-10 and the B-11 dialog leg is answered, "find the cause first" (015-rulings.md 20:44Z, d0c8ab9). The planner commissions an analyst on the local dialog fault (UAT-4), and uat retries all three once the cause is found. The local stack stays up until B-1 closes.
 - Profile state left by the third walk: the test account's hooks.gg production session (3 cookies), from the ruled live sign-in. On Discord: the Hooks.gg bot added to the "Claude" server, and webhook "Spidey Bot" in #general. Both stay for the condition rows.
 - uat: record his results here as they come, before the website merge.
 - devops: release per M9 once the condition is met; carry B-6, B-7 and B-8 (with B-15's signal) in the Stage 1 handoff.
