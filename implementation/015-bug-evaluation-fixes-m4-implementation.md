@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "M4 (F-16, F-17, F-18, F-27, with both F-27 sites and the D27 cross-guild rider) delivered and committed on website chain/015-bug-evaluation-fixes at 1e12837; awaiting code review Round 7. M3 is held for a real-Chrome read (a helper is running it); M1-c and M1-h are released and not yet rebuilt."
+Status-Detail: "M4 passed code review Round 7 at 1e12837 and reopens for one change under D29 (a failed webhook-URL load shows 'Invalid URL' at both F-27 sites); the change is prepared uncommitted pending rev 20's gate round. M3 is dropped by the owner. See Resumption State."
 Handoff-At: "1e12837 — repos=website"
 ---
 
@@ -178,3 +178,24 @@ Raw outputs: `agent-output/verification/015/m4-testresults-paths-1e12837.txt`, `
 ## Next Steps
 
 Code review Round 7 on `1e12837` (one tree: both F-27 sites and the rider), then QA Phase 2 for M4.
+
+## Resumption State (checkpoint 2026-11-08T07:27Z, implementer-hooks-015)
+
+- **Branch and HEAD.** website `chain/015-bug-evaluation-fixes` at `3031878` (M4 `1e12837`, M1 rebuild `579e8b2`, CR-15 cell `3031878`). preview-image-generator untouched at `471578f`. agent-output committed through this checkpoint.
+- **Done and handed to review.** M0, M2; M4 at `1e12837` (code review Round 7 APPROVED_WITH_COMMENTS; QA Phase 2 may take it); M1 rebuild at `579e8b2`/`3031878` (code review Round 2 APPROVED_WITH_COMMENTS; CR-3, CR-9, CR-6 resolved; CR-15 cell added, to be confirmed as a Round 2 sub-entry by code-reviewer-hooks-015). Documents: the M0, M1 (§ Fix Round 2), M2 and M4 implementation documents.
+- **M3 is dropped by the owner** ("Agent: drop M3, not a defect", rulings `f005cef`; plan rev 21 folds it). No M3 code, ever. Evidence: `verification/015/m3-chrome-read/` (real Chrome, 8996505) and the two jsdom probes. My abandoned test is kept as `verification/015/m3-dropped-wip-dialogs.enter-key.test.tsx.txt` and deleted from the tree.
+- **UNCOMMITTED in website, mine, for D29 (plan rev 20, CR-14).** Do not commit until steering says rev 20's gate round has passed (it will say M4 reopens):
+  - `src/utils/hooks/useValidateWebhook.ts`: the webhook effect's catch sets `'Invalid URL'` (was the message-load text).
+  - `src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx`: the webhook-failure cell now expects `'Invalid URL'` (red before the change: `expected 'Could not load the message. Check you…' to be 'Invalid URL'`); a new cell for Discord's refusal text of the webhook URL.
+  - `src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx` (new, untracked): real `WebhookProvider` + `WebhookMenu`, a network failure and a Discord 404 both show "Invalid URL" (green at base: the send page already did this; a control). Typing uses `Reflect.set(HTMLInputElement.prototype, 'value', …)`.
+  - Still to do for D29: `git add --intent-to-add` the new test, run mutants (e.g. webhook-catch text back to the message-load text; catch dropped) via `mutate-run.sh` against the committed SHA with an entry added to `mutators/m4-table.py`, the full gate (typecheck, vitest JSON and exit code, path membership, convention-check, lockfiles), then update the M4 document (Handoff-At, a TDD row, Summary) and hand off to code-reviewer-hooks-015 (Round 7 sub-entry).
+- **Waiting on others.** Plan rev 20's gate round (critic cycle 5, architect, QA, code review) before D29 may be committed; rev 21 (M3 dropped); QA Phase 2 on M1 and M4; the planner's answer on nothing else open from me.
+- **Owed.** QAF-20 (before the effort-final QA pass): in `bugFixCoverage.supplemental.test.ts` delete the `useParsePathname` describe (list it as an untested surface) and the two `formatKey` self-comparison cases; rewrite the "0000" discriminator expectation as an independently derived literal URL and show it red under a one-token mutation; split the remnant into `constructImageUrl.<behaviour>.test.ts` and `formatKey.<behaviour>.test.ts`, keeping the `// escaped:` line with the constructImageUrl describe; record per-file case counts and pass sets before and after.
+- **Not started.** M5 (editor pages and providers; user-visible, so derive the flows and ask steering before code), M6 (QAF-11 already fixed), M7 (bot), M8 (preview-image-generator: E-1 from the first run, export without `.env`, install inside the export, `unshare -rn`, `ip link set lo up`, self-check).
+- **Lessons to keep.**
+  - `eslint --fix` only on named files (a directory run reformatted 23 unrelated tests; reverted).
+  - Use `git diff … > file` then read it: the rtk filter hides `+`/`-` lines in piped diffs.
+  - A date stamp typed by hand is refused by the stamp gate; use `date -u +%Y-%m-%dT%H:%M`.
+  - `mutate-run.sh` needs an absolute mutator path and a committed SHA; `EXPORT_ROOT` goes under the session scratchpad.
+- **Questions sent, unanswered.** None open to the owner from me. To steering: M4-c and the send-page webhook failure text were raised and then settled by D29.
+- **Evidence run but not recorded.** None outstanding.
