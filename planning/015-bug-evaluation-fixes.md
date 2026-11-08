@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Revision 2: the owner's answers to OQ-A–OQ-F are folded in (D7–D13). Ready for critique and the architect's conformance pass. M8's implementation also waits on the F-31 analysis (commissioned) and the owner's host read (M8-0)."
-Revision: 2
+Status-Detail: "Revision 3: the F-31 analysis is folded into M8-a. Ready for critique and the architect's conformance pass. M8's implementation also waits on the owner's first host read (M8-0)."
+Revision: 3
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml), preceded by preview (preview.yml). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
 Lane: "standard — agent-output/README.md carries no small-lane section (grep -i small, 0 hits, 2026-11-08); the blast radius spans the save schema, a bot command's permissions and a production PM2 service, none a leaf"
@@ -19,6 +19,7 @@ Architectural-Surface: "none added. Two record lines are touched — see § Arch
 |---|---|---|---|
 | 2026-11-08T04:43 | 1 | planner (planner-hooks-015) | Created. ID minted on the owner's selection (04:39Z). Source: `research/codebase-bug-evaluation-2026-11-08.md` at agent-output `aea4a05`; scoping: `steering/015-rulings.md` (committed as `bug-fixes-rulings.md`) block "2026-11-08T04:37Z — scoping determination" (`a111e80`). Scope delta: none (first revision); the plan carries 48 of the 50 rated findings in ten milestones (M0–M9), the original ask being the 50-finding pool. |
 | 2026-11-08T04:51 | 2 | planner (planner-hooks-015) | Folds the owner's answers in `steering/015-rulings.md` block "2026-11-08T04:49Z" (`e8631f8`): OQ-A–OQ-F closed, D3–D5 confirmed, D7–D13 registered, F-31 analyst commissioned, API-key handoff written (X-12). Scope delta: F-44 joins M6 as M6-l (allow the add, mark the message invalid); X-2 and X-3 removed; M8 gains M8-0, an owner-run read that replaces limb (3)'s `claude-ro` read; M0 is settled as deleting the stale directory. The plan now carries 49 of the 50 findings, the original ask being 50. |
+| 2026-11-08T04:58 | 3 | planner (planner-hooks-015) | Folds analysis `analysis/015-bug-evaluation-fixes-analysis.md` (`7e24de3`): under PM2 the drain never runs, because `shutdown_with_message` sends an IPC message, not SIGINT. Scope delta: M8-a is rewritten as P1–P4 with `kill_timeout` 12000 ms; M8-0's commands and prediction come from the analysis, which writes the script; RK-5 is added (Chromium after SIGKILL on PM2 7.x); the architecture-line entry now proposes the correction. Sized against the ask: 49 of 50 findings, unchanged. |
 
 ## Value Statement and Business Objective
 
@@ -74,14 +75,19 @@ feeding `shapes.ts` `embedShape` and `EmbedFooter.tsx`; `~/components/Button` re
   2023-08-22 (`git log -1 prod`), on a self-hosted runner. `prod.yml` keys the cached `node_modules` on the
   lockfile, runs `npm run build`, then `.github/deploy.sh` → `pm2 startOrReload ecosystem.config.js --update-env`.
 - OPEN QUESTION [RESOLVED]: OQ-F (generator host) — D12. No agent reads the host; limb (3) becomes owner step M8-0.
-- **REQUIRES ANALYSIS (REQUIRED before M8 implementation; commissioned 2026-11-08)** — F-31's premise.
-  `ecosystem.config.js` sets `shutdown_with_message: true` beside `kill_timeout: 5000`, and `server.ts` listens
-  for `SIGINT` only. Suppose PM2 stops a process with `process.send('shutdown')` instead of `SIGINT` when that
-  option is set. (That is PM2's documented meaning, recalled from documentation and not read at any version.)
-  Then the drain handler never runs, and raising `kill_timeout` alone fixes nothing. The analyst settles PM2's
-  stop path from source, at a 2023 release and the current one; whether `startOrReload --update-env` applies
-  changed options; the property M8-a needs; and the read-only commands M8-0 runs. The analysis is
-  015-bug-evaluation-fixes-analysis, in the analysis directory.
+- Analysis complete: `analysis/015-bug-evaluation-fixes-analysis.md` (`7e24de3`), F-31's premise.
+  - **Stop path.** Read from PM2 source at 5.3.0, 5.4.3, 6.0.14 and 7.1.2. With `shutdown_with_message: true`,
+    `lib/God/Methods.js` `God.killProcess` sends the IPC message `'shutdown'` and never SIGINT. SIGINT is used
+    only when the process has no IPC channel, and fork mode always has one. After `kill_timeout`, SIGKILL
+    follows. The planner re-read `God.killProcess` at 5.3.0 and found the `shutdown_with_message == true` branch
+    calling `proc.send('shutdown')`.
+  - **Consequence.** `server.ts` handles SIGINT only, so the drain has never run under PM2. F-31's framing, "cut
+    off before its own fallback", understates it.
+  - **Deploys.** `startOrReload --update-env` applies changed keys on the deploy that carries them, but a key
+    deleted from the file keeps its stored value.
+  - **Host reads.** The analysis's § Host observation lists the read-only commands M8-0 runs.
+
+  Owner step M8-0 confirms all of this on the host.
 
 ## Plan
 
@@ -247,20 +253,39 @@ exists to fix once — `grep` above).
 - **M7-b (F-29)** — `setTimestamp(t)` sets the payload's timestamp to `t`.
 - **M7-c (F-30)** — `isUserCommand` is true exactly for user commands.
 
-### M8 — preview-image-generator: F-31–F-35 (D11; implementation waits on the analysis and M8-0)
+### M8 — preview-image-generator: F-31–F-35 (D11; implementation waits on M8-0's first run)
 
 - **M8-0 (owner step; limb 3 re-derived under D12)** — the scoping placed limb (3) as a read-only `claude-ro`
-  read. The host has no read-only user, so no agent can run it, and it becomes an owner step. The script is
-  pig-host-read.sh, to be written under verification/015/. The analyst drafts its commands; the code-reviewer reviews it before he
-  runs it; it is read-only (`pm2 -v`, `pm2 show hooks-image-preview-generator-prod`, and a read of the app log
-  for the shutdown line across the last reload). He pastes the output, and steering quotes it with the time into
-  the rulings file; no file is owed by him. It runs **before M8's implementation approval**, because M8-a's value
-  is set from it. It runs again on the preview instance after the M9 preview push, for M8-a's criterion.
-- **M8-a (F-31)** — the window. PM2's kill must outlast the app's own drain fallback (10 s, `shutdown`), and the
-  stop PM2 actually sends must reach `shutdown`. What it must not slow: a deploy reload waits up to the kill
-  window once per push. The value and the signal come from the analysis plus M8-0's reading, both taken before
-  implementation approval. Criterion: on a reload of the preview instance, the app log shows the shutdown line and
-  the process exits by its own path before PM2's kill. Observed by the owner through M8-0's script.
+  read. The host has no read-only user, so no agent can run it, and it becomes an owner step.
+  - **The script.** pig-host-read.sh, to be written under verification/015/ from the analysis's § Host
+    observation commands, written by the analyst. It is read-only, run as the user that owns the PM2 daemon: under any other user, `pm2`
+    spawns an empty daemon. The code-reviewer reviews it before he runs it.
+  - **What it reads.** The daemon's version and user (from `ps`); `pm2 jlist` filtered to `kill_timeout` and
+    `shutdown_with_message`; any `PM2_KILL_*` override; the app out-log count of the shutdown line; and
+    `pm2.log`'s `still alive after … SIGKILL` lines.
+  - **How the output is recorded.** He pastes it, and steering quotes it with the time into the rulings file. He
+    owes no file.
+  - **When it runs.** First, **before M8's implementation approval.** The prediction the analysis makes: zero
+    shutdown lines, and a SIGKILL after each stop. A shutdown line at a stop refutes it and re-opens M8-a.
+    Second, after the M9 preview push, for M8-a's criterion and the first drain-time measurement.
+- **M8-a (F-31)** — the originating statement, verbatim: *"Graceful shutdown is cut off by PM2 before its own
+  fallback."* Reframed by the analysis: the shutdown never starts under PM2. Properties (analysis § 3):
+  - **P1.** Every stop PM2 can send reaches `shutdown()`. That means the `'shutdown'` IPC message, plus SIGINT,
+    which is PM2's fallback when the message cannot be sent. `shutdown()` is idempotent, because both may
+    arrive. `ecosystem.config.js` states `shutdown_with_message` explicitly, since a deleted key keeps its
+    stored value.
+  - **P2, the window.** `kill_timeout` must outlast the app's own 10 s fallback. It is set to 12000 ms: 10 s
+    plus a 2 s margin. The margin is the planner's choice, not a measurement, and the real drain time cannot be
+    measured until P1 holds.
+  - **P3, what it must not slow.** The process exits as soon as the drain completes. The 10 s fallback is an
+    upper bound, never a floor. A fork-mode reload is stop-then-start, so the reload's gap is the drain time
+    itself.
+  - **P4.** The stop handler is registered no later than the `ready` message.
+
+  Criterion: on the first reload of the preview instance after the M9 push, the out log shows one shutdown line,
+  the process exits before 12000 ms, and `pm2.log` shows no SIGKILL for it. The owner observes this through
+  M8-0's second run; the exit time is the drain measurement. Rollback: revert the commit and push `preview` (or
+  `prod`); the reverted file restates the old values, so `--update-env` applies them.
 - **M8-b (F-32)** — a `/generate` request with an unparsable body gets 500 and the process keeps serving.
 - **M8-c (F-33)** — a page is closed whether the screenshot succeeds or throws; no rejection is unhandled.
 - **M8-d (F-34)** — a Chromium launch failure rejects in the pool factory; the next request gets 500, not a
@@ -330,6 +355,13 @@ can run the M8-b/d/e probes once the generator's dependencies are installed (M8 
   skipped on a lockfile hit. Falsifier: the preview deploy failing.
 - **RK-4** — M7-a's `push-commands` republishes every command, not only `get_message`. Falsifier: a command's
   definition differing after the push.
+- **RK-5** — a stop that ends in SIGKILL may leave Chromium behind.
+  - Before PM2 7.x, PM2's SIGKILL took the whole process tree; at 7.1.2 it takes only the Node process (analysis
+    § 1). So on 7.x, every stop that reaches SIGKILL may orphan Chromium processes. The analysis gives this
+    low-to-moderate confidence and did not run it, because of D2.
+  - The host's PM2 version is unknown until M8-0. M8-a's P1–P3 remove the SIGKILL on the normal path.
+  - Falsifier: Chromium processes without a live parent on the host after a stop. This is read by M8-0's
+    `ps`-based command.
 
 ## Exclusions
 
@@ -351,8 +383,11 @@ in-flight guard, not the validity predicate), `components-v2-invariant…`, `fix
 
 ## Architecture lines this chain touches
 
-- `system-architecture.md` § Components, preview-image-generator: "graceful SIGINT drain" — M8-a may show the
-  drain never runs (analysis). `preview-image-generator.md` P-3's shown mechanism ("no build step — the checkout
+- `system-architecture.md` § Components, preview-image-generator: "graceful SIGINT drain". The analysis
+  contradicts it from PM2's source: PM2 sends an IPC `'shutdown'` message and the drain never runs. M8-0's
+  first run confirms it on the host. The chain proposes the correction to the architect, who holds the record;
+  after M8 the line reads as a drain on PM2's `'shutdown'` message, with SIGINT as the fallback.
+- `preview-image-generator.md` P-3's shown mechanism ("no build step — the checkout
   is production") disagrees with `prod.yml` (npm ci, build, copy to `deployed/<env>`, pm2 reload) — for the
   architect's conformance pass.
 
