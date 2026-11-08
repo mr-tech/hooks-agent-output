@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Delta pass on plan rev 12 + rev 13 (9cbe755): APPROVED. AF-18 is recommended for the M1-c rebuild (read the row directly; retire skipUpdate) and does not block. A later revision is read on its delta."
+Status-Detail: "Delta pass on plan revs 14–16 (565e240): APPROVED. AF-18 (M1-c rebuild) and AF-19 (M4-d takes the id from the shared constant's group) are recommended and do not block. A later revision is read on its delta."
 ---
 
 # Architecture Findings — Plan 015: Bug-evaluation fixes (conformance pass)
@@ -22,6 +22,30 @@ Status-Detail: "Delta pass on plan rev 12 + rev 13 (9cbe755): APPROVED. AF-18 is
 | 2026-11-08T06:28 | Delta pass, plan rev 9 + rev 10 (`bceb84a`, read from rev 8 `1f7715b`, one pass on steering-hooks-015's instruction) | AF-17 MEDIUM is required. M1-c's lookup-error residue leaves `user-session-token`, `fetchAccountFromSession`'s 600 s session→account cache read by `authorizeGuildAdmin`, alive with an unrevoked token after sign-out. The two session-scoped keys must be cleared for every member of the class. The cache-invalidation class is registered as a Problem Area. Every other delta limb conforms. **APPROVED_WITH_CHANGES.** |
 | 2026-11-08T06:32 | Delta pass, plan rev 11 (`14fe94f`, read from rev 10 `bceb84a`), on steering-hooks-015's request | AF-17 is discharged by D22 and M1-c's lookup-error cell: both session-scoped keys are deleted before the rejection reaches the caller, and the residue is limited to `user-guilds`, the `Accounts` update and the revoke. M1-h's eight-row decision table, with its "or returns" trigger, conforms. The run-2 span is now anchored on `pm2.log`'s stop timestamps and checked against the out log's ISO stamps. Run 1's capture shows the two clocks agree: `pm2.log` 2023-08-22T01:57:43 `online` and out log `2023-08-22T01:57:43.367Z Server running at` are the same event, so no time-zone offset separates them. RK-7's reducing predicate and the re-derivation reading conform. No findings. **APPROVED.** |
 | 2026-11-08T06:42 | Delta pass, plan rev 12 + rev 13 (`9cbe755`, read from `14fe94f`, one pass on steering-hooks-015's instruction; D23's assumption not re-read) | Every limb conforms. AF-18 LOW is recommended for the M1-c rebuild: read the `Accounts` row directly in `removeUserSession` and retire `fetchUserAccount`'s now-callerless `skipUpdate` mode, which is CR-3's root, one cache key with two meanings. Two Problem Areas registered. **APPROVED.** |
+| 2026-11-08T06:54 | Delta pass, plan revs 14–16 (`565e240`, read from `9cbe755`, one pass on steering-hooks-015's instruction; D23's assumption not re-read) | Every limb conforms. D26's single widening of `DISCORD_MESSAGE_LINK_REGEX` follows A-3's one-definition pattern, and its consumer list matches `git grep` at `6001f7f`. AF-19 LOW is recommended: M4-d takes the id from the constant's capture group, as `getFromUrl` does, not from `split('/').pop()`. **APPROVED.** |
+
+## Verdict (revs 14–16, `565e240`, one pass from rev 13 `9cbe755`): APPROVED
+
+D23's assumption is not re-read. These limbs conform:
+
+- M1-i, where "present" is what `cookies()` returns, with its two residue classes;
+- M2-a's third member, sent to M6-f;
+- M3 held for a real-Chrome read;
+- M4-c restated;
+- M6-f now covering colour 0;
+- X-17.
+
+**D26 conforms to the one-definition pattern** that `website.md` A-3 records. `git grep -n DISCORD_MESSAGE_LINK_REGEX` at `6001f7f` returns the definition (`src/constants/index.ts`) and two consumers: `NewMessageModal` and `message.ts` `getFromUrl`. These match the plan's enumeration, and no inline copy of the link pattern exists elsewhere in `src` or `bot`.
+
+AF-19 is recommended and does not block.
+
+### AF-19 LOW — M4-d should take the message id from the shared constant's capture group, not from `split('/').pop()`
+
+F-27's site is `src/providers/WebhookProvider.tsx` `useValue`. At `6001f7f` it extracts the id with `messageIdOrUrl.split('/').pop()` once `isValidUrl` passes.
+
+Once M4-d tests the input against `DISCORD_MESSAGE_LINK_REGEX`, the conforming extraction is that constant's third capture group. That is how `message.ts` `getFromUrl` already reads it: `url.match(DISCORD_MESSAGE_LINK_REGEX)`. With the anchored pattern, `split` happens to return the same value, but then two parsers define the same link. If the constant later changes, for example to admit a trailing slash, the split extraction drifts silently.
+
+**Recommended to the implementer, through the planner:** M4-d reads the id from the constant's match groups. The widening in D26 keeps the host alternation non-capturing, so the id stays the third group, which the plan's "match groups still yield channel id and message id" limb already asserts.
 
 ## Verdict (rev 12 + rev 13, `9cbe755`, one pass from rev 11 `14fe94f`): APPROVED
 
