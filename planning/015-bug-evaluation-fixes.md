@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: In Progress
-Status-Detail: "M0 and M2 delivered; M1 is rebuilding M1-c and M1-h. Revision 15 sits on rev 14. It registers D25 (M4-d also admits discordapp.com links), opens OQ-J (whether the shared link pattern widens: a scope question for the owner, holding M4-d's code only), and replaces rev 14's M3 premise note: M3 is held for a real-Chrome read. The critic (cycle 4), the architect, QA and code review read 9cbe755..rev 15 in one round."
-Revision: 15
+Status-Detail: "M0 and M2 delivered; M1 is rebuilding M1-c and M1-h. Revision 16 registers D26 (OQ-J: widen the shared link rule once; discordapp.com takes www./canary./ptb.) and restates M4-d over the shared constant and its two consumers. It sits on revs 14 and 15. M3 is held for a real-Chrome read. The critic (cycle 4), the architect, QA and code review read 9cbe755..rev 16 in one round."
+Revision: 16
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
 Lane: "standard — agent-output/README.md carries no small-lane section (grep -i small, 0 hits, 2026-11-08); the blast radius spans the save schema, a bot command's permissions and a production PM2 service, none a leaf"
@@ -41,7 +41,7 @@ Owed re-verdicts:
 | M1-c lookup-error cell (D22); M1-h trigger "or returns" and decision table; M8-a run-2 span anchored on stop (1) and stop (2) timestamps; RK-7 reducing predicate; re-derivation reading of block 05:50Z | rev 11 | critic, architect, qa (delta only) | approved (architect `8868b7d`, QA `22fef2d`, critic `d18de10`); QAF-14 to QAF-16 and L-C3-4 folded at rev 12 with CR-3 |
 | M1-c account decision from the `Accounts` row (CR-3), "falsy return" withdrawn, deletion-failure outcome (QAF-15); M1-h table row 6 timing (QAF-14); run-2 stop line (QAF-16) | rev 12, rev 13 | critic, architect, qa, code review (one round over `14fe94f`..rev 13) | approved (architect `f7e6602`; critic `6970763`, cycle 3 closed; QA `aad87b6`; code review `7976a9a`), with CR-6 to CR-8, QAF-17 and QAF-18 folded at rev 14 |
 | D23 clock assumption (no gate re-read, by D23's own terms); M1-i restated over the `cookies()` read; M2-a's colour class (third site); re-derivation after M2 | rev 13 | same round as above, except D23's assumption | approved (same round) |
-| M1-i "present" = `cookies()` and its residue; M2-a third colour member (Picker → M6-f); M3 premise unsettled and held for a Chrome read (rev 15); M4-c restated; M4-d over D24 and D25 (hosts), OQ-J open (rev 15); M6-f covers colour 0; X-17 | rev 14, rev 15 | critic (cycle 4), architect, qa, code review (one round over `9cbe755`..rev 15) | open |
+| M1-i "present" = `cookies()` and its residue; M2-a third colour member (Picker → M6-f); M3 premise unsettled and held for a Chrome read (rev 15); M4-c restated; M4-d over D24–D26: eight hosts, one widened shared constant, its two consumers (rev 16); M6-f covers colour 0; X-17 | rev 14–16 | critic (cycle 4), architect, qa, code review (one round over `9cbe755`..rev 16) | open |
 
 ## Changelog
 
@@ -72,6 +72,7 @@ Owed re-verdicts:
 | 2026-11-08T06:44 | cr | code-reviewer (code-reviewer-hooks-015) | Round 3, M2, at website `6001f7f` against rev 13: APPROVED_WITH_COMMENTS (CR-8, CR-9 and CR-10 LOW), `code-review/015-bug-evaluation-fixes-code-review.md` (`7976a9a`). Round 2 sub-entry at `6001f7f`: CR-4 RESOLVED and M1-i met under rev 13. Round 2's REJECTED stands for M1-c (CR-3) and M1-h, both held for the rev 13 round. For the planner: CR-7 LOW (M1-i's "present" is wider than what `cookies()` reports) and CR-8 LOW (M2-a's enumeration misses `Picker.tsx`, outcome-neutral, fixed at M6-f). Milestone-scoped, so plan Status is unmoved. |
 | 2026-11-08T06:48 | 14 | planner (planner-hooks-015) | Registers D24 (rulings 06:45Z, `9b94838`). It folds the rev 12+13 gate findings: code review CR-6 to CR-8 (`7976a9a`), and QA QAF-17 and QAF-18 (`aad87b6`), which duplicate CR-8 and CR-7. It folds the implementer's M4-c question and the R-5 batch row. The architect (`f7e6602`) and critic (`6970763`) had none. It is the seventh revision since implementation approval, and it opens critique cycle 4. Scope delta: M1-i defines "present" as what `cookies()` returns, with two residue classes. M2-a names `Picker.tsx` as a third member sent to M6-f. M3 gains its premise note. M4-c drops the non-existent name-view button. M4-d takes D24's inputs and text, with hosts mirroring `DISCORD_MESSAGE_LINK_REGEX`. CR-6 becomes X-17 with a handoff, not a rider. Against the ask: 49 of 50 findings, unchanged. |
 | 2026-11-08T06:51 | 15 | planner (planner-hooks-015) | Registers D25 (rulings 06:50Z, `9f97a5f`), and replaces rev 14's § M3 premise note. That note's reproduction conclusion was withdrawn at 06:52Z on the implementer's document-root probe; the error was the planner's. It is the eighth revision since implementation approval. Steering briefs one round over `9cbe755`..rev 15 in place of a rev 14 round. Scope delta: M4-d admits `discordapp.com`, and OQ-J goes to the owner. Widening the shared `DISCORD_MESSAGE_LINK_REGEX` would also change the New Message dialog and `message.getFromUrl`. M3 is held for a real-Chrome read, with QA's four cells per dialog and both outcomes routed. Against the ask: 49 of 50 findings, unchanged. |
+| 2026-11-08T06:53 | 16 | planner (planner-hooks-015) | Registers D26 (rulings 06:52Z, `7207289`) and restates M4-d. It is the ninth revision since implementation approval. Steering briefs one round over `9cbe755`..rev 16. Scope delta: M4-d's link class becomes eight hosts in the one shared constant. The New Message dialog's link load and `message.getFromUrl` join M4-d's criterion as the constant's consumers, with a human-observable walk; the owner accepted that change as stated, at no extra milestone or round. D25's bare-host reading is overridden. Against the ask: 49 of 50 findings, unchanged. |
 
 ## Value Statement and Business Objective
 
@@ -110,7 +111,8 @@ message builder that sends through webhooks.
 | D22 | M1-c is fixed in this chain: sign-out always clears both cached session entries (`user-access-token`, `user-session-token`), a database error included, and the error still reaches the caller. Residue: `user-guilds` (600 s), the revoke and the `Accounts` update on that path. | 2026-11-08 | "Agent: fix it in this chain" — selection relayed by steering-hooks-015, rulings block 06:29Z "AF-17 sign-out gap" (`904ec0d`). The option text is steering's (agent-authored), built from the planner's proposal. | Owner withdrawal only. | M1-c's lookup-error cell. M1-c reopens for one change, one code-review round and one QA Phase 2 re-run. |
 | D23 | The run-2 span's clock premise is recorded as a stated assumption beside the check — "the box runs in UTC" — with no rewrite of the requirement; the critic, the architect and QA do not re-read it again. | 2026-11-08 | "Agent: record as assumption" — selection relayed by steering-hooks-015, rulings block 06:39Z "L-C3-4" (`7faa2e0`). The option text is steering's (agent-authored): "Agent: the planner records 'the box runs in UTC' as a stated assumption beside the check, with no rewrite of the requirement. The critic, architect and QA don't re-read it again. If the box's time zone ever changes, the window could be off by the offset." Steering read the premise at 06:37Z (`Etc/UTC`). | Owner withdrawal; the host's time zone read as other than UTC. | Rev 12's added run-2 checks (`date +%z`, the `online`/ready comparison, no span on a mismatch) are withdrawn at rev 13. |
 | D24 | M4-d: an old-message fetch that fails with no response shows "Could not load the message. Check your connection and try again."; Discord refusals keep their texts; the message box accepts only an all-digits id or a Discord message link (discord.com/channels/<server>/<channel>/<message>), and anything else is refused before fetching. | 2026-11-08 | "Agent: implementer's text" and "Agent: digits or Discord link" — two selections relayed by steering-hooks-015, rulings block 06:45Z "M4-d flow questions" (`9b94838`). The option texts are steering's; the error text is the implementer's (agent-authored). | Owner withdrawal only. | M4-d. Hosts were not asked. The planner mirrors the shared `DISCORD_MESSAGE_LINK_REGEX` (§ M4-d), which D24's words do not settle; a different host set from the owner reopens that limb only. |
-| D25 | M4-d's message box also admits discordapp.com message links, beside the site's pattern (discord.com with optional www., canary. or ptb.). | 2026-11-08 | "Agent: also discordapp.com" — selection relayed by steering-hooks-015, rulings block 06:50Z "M4-d link hosts" (`9f97a5f`). The option text is steering's (agent-authored): "Agent: the site's pattern plus old discordapp.com links. The planner would then decide whether the New Message dialog gets the same change (a further scope question)." | Owner withdrawal only. | M4-d's host set. Where the pattern lives is OQ-J. Admitting `discordapp.com` without a subdomain prefix is the planner's literal reading. |
+| D25 | M4-d's message box also admits discordapp.com message links, beside the site's pattern (discord.com with optional www., canary. or ptb.). | 2026-11-08 | "Agent: also discordapp.com" — selection relayed by steering-hooks-015, rulings block 06:50Z "M4-d link hosts" (`9f97a5f`). The option text is steering's (agent-authored): "Agent: the site's pattern plus old discordapp.com links. The planner would then decide whether the New Message dialog gets the same change (a further scope question)." | Owner withdrawal only. | M4-d's host set. Where the pattern lives is OQ-J. The planner's bare-host reading was overridden by D26. |
+| D26 | OQ-J: the shared `DISCORD_MESSAGE_LINK_REGEX` widens once, so M4-d's edit box, the New Message dialog's link load and `message.getFromUrl` all accept discordapp.com links, the New Message dialog's behaviour change being accepted; and discordapp.com takes an optional www., canary. or ptb., as discord.com does. | 2026-11-08 | "Agent: widen the shared rule" and "Agent: all variants" — two selections relayed by steering-hooks-015, rulings block 06:52Z "OQ-J" (`7207289`). The option texts are steering's, drawn from the planner's relay (agent-authored). | Owner withdrawal only. | M4-d's link class and its two consumers (§ M4-d). OQ-J is closed. |
 
 ## Objective
 
@@ -439,16 +441,23 @@ exists to fix once — `grep` above).
 - **M4-d (F-27, D24)** — the message box accepts exactly two input classes, and refuses everything else before
   any fetch:
   - an all-digits id;
-  - a Discord message link (D25): `https://`, then a host, then `/channels/<digits>/<digits>/<digits>`, with
-    nothing after it. The hosts are the shared `DISCORD_MESSAGE_LINK_REGEX`'s set (`src/constants/index.ts`: an
-    optional `www.`, `canary.` or `ptb.` before `discord.com`) plus `discordapp.com`.
-  - **The planner's literal reading of D25.** `discordapp.com` is admitted without a subdomain prefix, and
-    `ptb.discordapp.com`, `canary.discordapp.com` and `www.discordapp.com` are refused.
-  - **OPEN QUESTION OQ-J (to the owner through steering; holds M4-d's code, not its criterion).** Where the
-    widened pattern lives. Under the owner's mirror-the-siblings rule, the consistent form widens the shared
-    constant once, which also changes the New Message dialog's bot load (`NewMessageModal`) and the server's
-    `message.getFromUrl`. That is a scope delta. The other form is an M4-d-only pattern, a recorded deviation
-    from the shared one.
+  - a Discord message link (D25, D26): `https://`, then a host, then `/channels/<digits>/<digits>/<digits>`,
+    with nothing after it. The host set is eight members: `discord.com` and `discordapp.com`, each bare or with
+    a `www.`, `canary.` or `ptb.` prefix.
+  - **One shared definition (D26).** The link class is the shared `DISCORD_MESSAGE_LINK_REGEX`
+    (`src/constants/index.ts`), widened once. M4-d's box uses it; it adds no copy.
+  - **Consumers of the widened constant.** The class is enumerated by `git grep -n DISCORD_MESSAGE_LINK_REGEX` at
+    `6001f7f`, excluding tests and the definition:
+    - `NewMessageModal` (the bot link load's `enabled` test);
+    - `message.getFromUrl` (its zod input and its `match`).
+    For each, every one of the eight host forms is admitted. Every input the constant refused at `6001f7f` on
+    other grounds is still refused: another host, `http://`, a trailing path, a non-digit id. `getFromUrl`'s
+    match groups still yield channel id and message id for every admitted form.
+  - **Human-observable (D26: the New Message dialog's change is accepted).** In the New Message dialog, a
+    `discordapp.com` message link is accepted for the bot load where it was refused before. Walked on the locally
+    served chain tip, without sending.
+  - OPEN QUESTION [RESOLVED]: OQ-J (where the widened pattern lives, and the `discordapp.com` subdomains) —
+    D26.
   - **Refused members:** text containing a digit; a URL on any other host; a message link with a trailing path.
   - **Network failure.** In either validation effect, a fetch that fails with no response shows exactly "Could
     not load the message. Check your connection and try again." (D24) and leaves no unhandled rejection. Discord
@@ -869,8 +878,8 @@ is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, 
 
 ## Resumption State (checkpoint, planner-hooks-015)
 
-- **Done.** Plan at revision 15 (rev 14 plus D25, OQ-J and the M3 premise hold). Revs 12 and 13 passed all four readers. Registrations: R-1 (D14, D15), R-2 (D20), R-3, R-4 and R-5. D21 to D25 were registered inside revs 10, 11, 13, 14 and 15. R-5's conclusion was withdrawn at 06:52Z. Handoff opened: `handoff/providers-query-params-header-decode-throws-2026-11-08.md` (X-17).
-- **Next.** Steering briefs the critic (cycle 4), the architect, QA and code review over `9cbe755`..rev 15. Fold the M3 Chrome read when it lands. Register OQ-J's answer. Fold any findings at the next planning pass.
-- **Open with others.** OQ-J (where the widened link pattern lives) is with the owner through steering. The M3 Chrome read is with the implementer and QA.
+- **Done.** Plan at revision 16 (rev 14, plus rev 15's D25 and M3 hold, plus rev 16's D26 for M4-d). Revs 12 and 13 passed all four readers. Registrations: R-1 (D14, D15), R-2 (D20), R-3, R-4 and R-5. D21 to D26 were registered inside revs 10, 11 and 13 to 16. R-5's conclusion was withdrawn at 06:52Z. Handoff opened: `handoff/providers-query-params-header-decode-throws-2026-11-08.md` (X-17).
+- **Next.** Steering briefs the critic (cycle 4), the architect, QA and code review over `9cbe755`..rev 16. Fold the M3 Chrome read when it lands. Fold any findings at the next planning pass.
+- **Open with others.** None of the planner's questions to the owner are pending (OQ-J answered: D26). The M3 Chrome read is with the implementer and QA.
 - **Uncommitted, left in place.** `INBOX.md` holds this session's FYI entry: the research document's `pm2 show` advice. Per the inbox rule, the domain owner commits it.
 - **Branches.** website and preview-image-generator: chain branches are created by steering. The planner touches no source.
