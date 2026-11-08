@@ -1,0 +1,7 @@
+mutant m8b-null-conjunct-dropped
+mutated build/server.js 1a024e4f0be3->d1776fb75c56
+isolation: non-lo links=0 default routes=0
+CELL FAIL control: an object body with an id attempts S3 (observer live) -- {"ready":false}
+OBSERVER NOT LIVE, no refused cell read
+SUMMARY 0/1 pass
+exit 3

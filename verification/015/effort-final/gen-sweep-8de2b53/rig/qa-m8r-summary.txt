@@ -1,0 +1,24 @@
+export /tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/gen/pig-probe-8de2b53
+mutant set verification/015/effort-final/gen-m8be-mutants-8de2b53.json blob a64d86a6ecafef4c41b525b5f353a600aad817a3
+probe probe.cjs blob 25218c6826e5241da0da78410fe6e71822d2471f
+probe probe-pages.cjs blob 9f41863e58dd2387fca1207acadb6e71319eecba
+m8c-finally-no-close	KILLED	2 red	build/generateImage.js 5f56ea7a6e14->7d90ab18f678
+    red: M8-c a page opened by a request whose navigation throws is closed
+    red: M8-c a page whose screenshot succeeded is closed
+m8c-sequential-delete	KILLED	2 red	build/generateImage.js 5f56ea7a6e14->389f8d67fd50
+    red: M8-d/M8-c server level: two failing generate requests get 500, process alive
+    red: M8-c no unhandled rejection when both the image and the S3 delete fail
+m8d-factory-returns-null	KILLED	5 red	build/getPool.js 448b9c936152->5be8b237d88a
+    red: M8-d/M8-c server level: two failing generate requests get 500, process alive
+    red: M8-d: no "Cannot read properties" in the log after those requests
+    red: M8-d pool: a launch failure rejects the request with the launch error, not a TypeError
+    red: M8-d pool: no creation retry storm and nothing left pending
+    red: M8-d (d) member absent: a failing browser launch does not crash the process
+m8d-no-create-error-handler	KILLED	2 red	build/getPool.js 448b9c936152->4b899b3ee7e6
+    red: M8-d pool: a launch failure rejects the request with the launch error, not a TypeError
+    red: M8-d pool: no creation retry storm and nothing left pending
+m8e-gate-dropped	KILLED	2 red	build/config.js cba6a6aae20d->40d4d24b0380
+    red: M8-e API_KEY unset: refuses to start, exit code 2, a line names API_KEY
+    red: M8-e API_KEY empty: refuses to start, exit code 2, a line names API_KEY
+m8e-empty-allowed	KILLED	1 red	build/config.js cba6a6aae20d->b691753ec684
+    red: M8-e API_KEY empty: refuses to start, exit code 2, a line names API_KEY

@@ -1,0 +1,16 @@
+sha 8de2b5337179623f7fbd82904221078c2930214a mutant none; .env in export: 0
+probe-body-class.cjs blob 92d0273e21b2668a5aada02a7f264e5f14c13972
+obs-preload.cjs blob aa5f036413c9475995a1f89c5ccc99d1fe7599c6
+npm ci exit 0
+tsc exit 0
+CELL PASS control: an object body with an id attempts S3 (observer live) -- {"ready":true,"st":500,"conns":3,"after":404,"exited":null}
+CELL PASS M8-b unparsable: 500, no S3 call, process keeps serving -- {"ready":true,"st":500,"conns":0,"after":404,"exited":null}
+CELL PASS M8-b null: 500, no S3 call, process keeps serving -- {"ready":true,"st":500,"conns":0,"after":404,"exited":null}
+CELL PASS M8-b a number: 500, no S3 call, process keeps serving -- {"ready":true,"st":500,"conns":0,"after":404,"exited":null}
+CELL PASS M8-b a string: 500, no S3 call, process keeps serving -- {"ready":true,"st":500,"conns":0,"after":404,"exited":null}
+CELL PASS M8-b a boolean: 500, no S3 call, process keeps serving -- {"ready":true,"st":500,"conns":0,"after":404,"exited":null}
+CELL PASS M8-b a boolean false: 500, no S3 call, process keeps serving -- {"ready":true,"st":500,"conns":0,"after":404,"exited":null}
+INFO X-23 array [] (stated limit, not asserted): {"ready":true,"st":500,"conns":3,"after":404,"exited":null}
+INFO X-23 array [{}] (stated limit, not asserted): {"ready":true,"st":500,"conns":3,"after":404,"exited":null}
+SUMMARY 7/7 pass
+probe exit 0

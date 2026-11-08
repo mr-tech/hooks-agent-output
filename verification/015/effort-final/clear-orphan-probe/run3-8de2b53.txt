@@ -1,0 +1,24 @@
+export /tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/gen/pig-probe-8de2b53 server.js control d7a6aabd18f2f8123cfd0ecec37e60bb8d8177cd mutant f05b78509d476932ad7fd28758fdf605de812a9b probe 6b163117c2e78f2568844ab049d7a1a91e1c9053
+== control shutdown
+MODE shutdown baseline=0
+REQUEST status=500 createdLines=0 afterLaunch=12
+EXIT {"code":0,"sig":null} after3s=0
+2026-11-08T11:17:48.942Z Server received shutdown message. Closing server.
+2026-11-08T11:17:49.029Z Drain complete in 87ms.
+CLEANUP remaining=0
+probe exit 0
+== control sigkill
+MODE sigkill baseline=0
+REQUEST status=500 createdLines=0 afterLaunch=12
+EXIT {"code":null,"sig":"SIGKILL"} after3s=12
+
+CLEANUP remaining=0
+probe exit 0
+== mutant shutdown
+MODE shutdown baseline=0
+REQUEST status=500 createdLines=0 afterLaunch=12
+EXIT {"code":0,"sig":null} after3s=0
+2026-11-08T11:18:28.249Z Server received shutdown message. Closing server.
+2026-11-08T11:18:28.250Z Drain complete in 1ms.
+CLEANUP remaining=0
+probe exit 0

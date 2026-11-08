@@ -1,0 +1,14 @@
+== c5303ca
+roots 80 reachable 232
+positive control constants/index.ts reachable: true
+not reachable: src/pages/api/interactions-edge.ts
+not reachable: src/pages/api/interactions-server.ts
+not reachable: src/server/api/utils/deleteMessagePreviewImages.ts
+not reachable: src/server/api/utils/shared.ts
+not reachable: src/server/auth.ts
+not reachable: src/utils/discord.ts
+not reachable: src/utils/redis/client.ts
+not reachable: src/utils/redis/index.ts
+control value import (expect 1): 1
+control braces-type import (expect 0): 0
+control mixed import (expect 1): 1
