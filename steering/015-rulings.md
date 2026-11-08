@@ -238,3 +238,9 @@ Premise: the site behaviour at website 1e12837 is the planner's code read (Webho
 ## 2026-11-08T07:26Z — M3: drop M3, not a defect (selection)
 Put ~07:29Z, answered by selection (options steering's, from the implementer's and the planner's option sets). Options: Agent: drop M3, not a defect / Agent: clean up the dead guard / You: discuss first. Chosen **Agent: drop M3, not a defect**. Its description, verbatim: "Agent: M3 is removed from the chain, and F-15/F-39 are recorded as not reproducible (dead code only). The plan's promise 'a Cancel key press never deletes' is kept as already true, with the Chrome read as evidence. Cost: a small plan revision and a review round; no code (implementer's recommendation)."
 Premise read by steering: verification/015/m3-chrome-read/README.md (8996505), at website 6001f7f in Chrome 156. In all three dialogs, cell a (Enter on Cancel) leaves the action unrun; the controls b and c run it, and d (click) does not.
+
+## 2026-11-08T07:30Z — M5 flow questions (implementer-hooks-015): one selection prompt, two questions
+Put ~07:35Z, answered by selection (labels and descriptions steering's; the options the implementer's).
+- **M5-h, /preview with non-JSON data.** Options: Agent: short error line / Agent: blank page / Agent: new error page. Chosen **Agent: short error line**: a single line of red text, "Invalid message data.", on the existing dark background, in the inline text-error idiom.
+- **M5-f, Save As defaults.** Options: Agent: reset on open / Agent: rebuild each open. Chosen **Agent: reset on open**: name and server are refilled from the message on each open, and typed-then-cancelled values are dropped. An earlier save error may still show on reopen.
+Steering's call, not his: valid JSON of the wrong shape (e.g. data=null) is the same defect on the same page. If the implementer's probe shows it crashes, it rides M5-h under D28's class, reported to the planner.
