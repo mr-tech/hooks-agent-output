@@ -71,13 +71,14 @@ const LAUNCH = /^PROBE-LAUNCH$/;
     await sleep(300);
     o.child.send('shutdown');
     await sleep(500);
-    const heldAtSecond = count(o, DRAINED) === 0 && o.exit === null;
+    const atSecond = { drained: count(o, DRAINED), exited: o.exit };
+    const heldAtSecond = atSecond.drained === 0 && atSecond.exited === null;
     o.child.kill('SIGINT');
     await sleep(500);
     const received = count(o, RECEIVED);
     sock.destroy();
     const ex = await waitExit(o, 12000);
-    cell('P1 idempotent (held drain) liveness: the drain is still held when the second trigger is sent', heldAtSecond, JSON.stringify({ drained: count(o, DRAINED), exited: o.exit }));
+    cell('P1 idempotent (held drain) liveness: the drain is still held when the second trigger is sent', heldAtSecond, JSON.stringify(atSecond));
     cell('P1 idempotent (held drain): a shutdown message then SIGINT give one "Server received" line, then exit 0', heldAtSecond && received === 1 && !!ex && ex.code === 0, JSON.stringify({ received, ex, lines: o.lines.filter((l) => /Server received/.test(l)).length }));
     await stop(o);
   }
