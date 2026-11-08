@@ -427,3 +427,7 @@ Retrospective: retrospectives/015-bug-evaluation-fixes-retrospective.md (08848b8
 
 ## 2026-11-08T22:36Z — "yes, test accounts can sign in live. they can write to the database without asking as long as it's not customer's data"
 His words, verbatim: a standing ruling. Test accounts may sign in on live hooks.gg, and agents may write to the production database through them without asking, provided it is not customers' data. Applied now: UAT is respawned for B-7 with account 2 on hooks.gg. Lodged in ~/.claude/agents/INBOX.md.
+
+## 2026-11-08T22:38Z — "you (or devops0 run pnpm run push-commands and have uat test it"
+His words, verbatim (B-6, plan M7-a's owner step, now delegated). Executed by steering at 22:37:58Z in website at master b96e364 (clean tree): `pnpm run push-commands`, exit 0. The log (steering scratchpad push-commands.log; 6 lines, 0 matching "error") ends "Request sent." / "Response received.". The script logs "Error" plus a status on a failed PUT, and none was logged. Premise read first: .env.local's NEXT_PUBLIC_DISCORD_CLIENT_ID (1034527356381044828, a public value) appears in live hooks.gg's JS chunks (1 match), so the PUT targeted the production Hooks.gg application. The token was not read.
+Test: UAT verifies M7-a limb 2. In "Claude" (test account 1 owns it; the owner said to configure the test server as needed, block 20:08Z), give account 2 a role with Manage Server and not Administrator. Then, as account 2, check that *Get Message* appears under a message's Apps menu. Coordinator go requested.
