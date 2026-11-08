@@ -1,0 +1,6 @@
+export /tmp/claude-1000/-usr-local-bin-hooks/e385280e-66c3-4330-8c4e-36c4287887aa/scratchpad/pig-rk8; getPool.js field read: _waitingClientsQueueRenamed;
+v24.14.0
+RESULT request: error:ECONNRESET; process: exited {"code":1,"sig":null,"ms":378}
+    |     pool.on('factoryCreateError', (err) => { waitingClients.dequeue()?.reject(err); });
+    | TypeError: Cannot read properties of undefined (reading 'dequeue')
+probe exit 0

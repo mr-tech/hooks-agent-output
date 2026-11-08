@@ -1,0 +1,48 @@
+sha 6c613a5 export /tmp/claude-1000/-usr-local-bin-hooks/e385280e-66c3-4330-8c4e-36c4287887aa/scratchpad/pig-probe-6c613a5; server.ts blob in export 55260e6a663d86c518a07f764eff95c4f7ea4f60
+self-check external lookup: EAI_AGAIN
+BODY control: unparsable "{not json" -> status 500; process alive (GET /x 404)
+    | SyntaxError: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+    |     at JSON.parse (<anonymous>)
+    |     at IncomingMessage.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks/e385280e-66c3-4330-8c4e-36c4287887aa
+    |     at IncomingMessage.emit (node:events:508:28)
+BODY null "null" -> status 500; process alive (GET /x 404)
+    | TypeError: Request body is not an object.
+    |     at IncomingMessage.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks/e385280e-66c3-4330-8c4e-36c4287887aa
+    |     at IncomingMessage.emit (node:events:508:28)
+    |     at endReadableNT (node:internal/streams/readable:1729:12)
+BODY number "5" -> status 500; process alive (GET /x 404)
+    | TypeError: Request body is not an object.
+    |     at IncomingMessage.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks/e385280e-66c3-4330-8c4e-36c4287887aa
+    |     at IncomingMessage.emit (node:events:508:28)
+    |     at endReadableNT (node:internal/streams/readable:1729:12)
+BODY string "\"x\"" -> status 500; process alive (GET /x 404)
+    | TypeError: Request body is not an object.
+    |     at IncomingMessage.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks/e385280e-66c3-4330-8c4e-36c4287887aa
+    |     at IncomingMessage.emit (node:events:508:28)
+    |     at endReadableNT (node:internal/streams/readable:1729:12)
+BODY boolean "true" -> status 500; process alive (GET /x 404)
+    | TypeError: Request body is not an object.
+    |     at IncomingMessage.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks/e385280e-66c3-4330-8c4e-36c4287887aa
+    |     at IncomingMessage.emit (node:events:508:28)
+    |     at endReadableNT (node:internal/streams/readable:1729:12)
+BODY empty array "[]" -> status 500; process alive (GET /x 404)
+    | Error: Could not find Chrome (ver. 116.0.5845.96). This can occur if either
+    |  1. you did not perform an installation before running the script (e.g. `npm install`) or
+    |  2. your cache path is incorrectly configured (which is: /home/dev/.cache/puppeteer).
+    | For (2), check out our guide on configuring puppeteer at https://pptr.dev/guides/configuration.
+BODY array of numbers "[1,2]" -> status 500; process alive (GET /x 404)
+    | Error: Could not find Chrome (ver. 116.0.5845.96). This can occur if either
+    |  1. you did not perform an installation before running the script (e.g. `npm install`) or
+    |  2. your cache path is incorrectly configured (which is: /home/dev/.cache/puppeteer).
+    | For (2), check out our guide on configuring puppeteer at https://pptr.dev/guides/configuration.
+BODY array of an object "[{\"id\":\"m\",\"nonce\":\"n\",\"message\":{}}]" -> status 500; process alive (GET /x 404)
+    | Error: Could not find Chrome (ver. 116.0.5845.96). This can occur if either
+    |  1. you did not perform an installation before running the script (e.g. `npm install`) or
+    |  2. your cache path is incorrectly configured (which is: /home/dev/.cache/puppeteer).
+    | For (2), check out our guide on configuring puppeteer at https://pptr.dev/guides/configuration.
+BODY control: object "{\"id\":\"m\",\"nonce\":\"n\",\"message\":{}}" -> status 500; process alive (GET /x 404)
+    | Error: Could not find Chrome (ver. 116.0.5845.96). This can occur if either
+    |  1. you did not perform an installation before running the script (e.g. `npm install`) or
+    |  2. your cache path is incorrectly configured (which is: /home/dev/.cache/puppeteer).
+    | For (2), check out our guide on configuring puppeteer at https://pptr.dev/guides/configuration.
+probe exit 0

@@ -2,10 +2,10 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Reviewed-At: "dd9e88a,476c633,6c613a5 — repos=agent-output,website,preview-image-generator; Round 18 (M8) at preview-image-generator 6c613a5; Rounds 16 (M5-i) and 17 (M7) and the Round 10 (M5-h), Round 14 (CR-22/24/25) and Round 7 (M4-d non-JSON cells) sub-entries at website 476c633; criteria plan rev 25 (dd9e88a). Earlier: Round 14 at 24ac49f, Round 10 at da24eb7, the Round 2 sub-entry (CR-15) at 3031878"
+Reviewed-At: "c375d2c,476c633,6c613a5 — repos=agent-output,website,preview-image-generator; Round 19 (plan gate read, rev 26) at agent-output c375d2c, its mechanisms executed at website 476c633 and preview-image-generator 6c613a5 (base 471578f); Round 18 (M8) at preview-image-generator 6c613a5; Rounds 16 (M5-i) and 17 (M7) and the Round 10 (M5-h), Round 14 (CR-22/24/25) and Round 7 (M4-d non-JSON cells) sub-entries at website 476c633; criteria plan rev 25 (dd9e88a). Earlier: Round 14 at 24ac49f, Round 10 at da24eb7, the Round 2 sub-entry (CR-15) at 3031878"
 Status: In Review
-Status-Detail: "Round 18 (M8 at preview-image-generator 6c613a5): REJECTED for M8-a (CR-27 MEDIUM, the drain-complete line on a failed drain); M8-b to M8-e met, CR-28 LOW. Round 17 (M7): APPROVED. Round 16 (M5-i): APPROVED. M5-h: CR-18 RESOLVED at 476c633, Round 10 APPROVED_WITH_COMMENTS (CR-29 LOW, planner). M6: CR-22, CR-24, CR-25 RESOLVED, Round 14 APPROVED_WITH_COMMENTS (CR-26 LOW). Round 15 (rev 25): APPROVED."
-Round: 18
+Status-Detail: "Round 19 (rev 26 gate read): REJECTED for M8-b's D35 limb only (CR-30 MEDIUM, duplicates QAF-33; superseded by the 09:28Z re-put, folded at rev 27). CR-29 RESOLVED; M8-d's property approved; CR-31 LOW (RK-8's falsity signature is a process exit, not a hang). Round 18 (M8 at preview-image-generator 6c613a5): REJECTED for M8-a (CR-27 MEDIUM, the drain-complete line on a failed drain); M8-b to M8-e met, CR-28 LOW. Round 17 (M7): APPROVED. Round 16 (M5-i): APPROVED. M5-h: CR-18 RESOLVED at 476c633, Round 10 APPROVED_WITH_COMMENTS (CR-29 LOW, planner). M6: CR-22, CR-24, CR-25 RESOLVED, Round 14 APPROVED_WITH_COMMENTS (CR-26 LOW). Round 15 (rev 25): APPROVED."
+Round: 19
 Verdict: REJECTED
 ---
 
@@ -62,6 +62,7 @@ Verdict: REJECTED
 | 2026-11-08T09:17 | same handoff | Round 16: M5-i (`ad54eb3`) | APPROVED. A derived open category reaches the real accordion through `dangerouslySetExpanded`; the falsy `''` path is covered. |
 | 2026-11-08T09:17 | same handoff | Round 17: M7 (`a4b4434`) | APPROVED. `ADMIN_PERMS` is `"32"` with one consumer (`get_message`); no handler-side check, so Discord's gate is the only one (D4). M7-b and M7-c change no live path today. |
 | 2026-11-08T09:17 | same handoff | Round 18: M8 (preview-image-generator `471578f..6c613a5`) | REJECTED for M8-a. Stood up under E-1: the implementer's rig reproduces 25 of 25, and code review's attack (`cr-m8-probes/attack.cjs`) finds CR-27 MEDIUM: a failed drain still logs "Drain complete", the line run 2 counts. M8-d ruled: the `factoryCreateError` rejection is accepted (no storm under 6 concurrent requests), with CR-28 LOW (unguarded private field; the "README remedy" claim is false). |
+| 2026-11-08T09:31 | steering-hooks-015 (brief, after `/clear`) | Round 19: plan gate read, `dd9e88a..c375d2c` (rev 26): M5-h (3) anchor and the CR-29 member move, D35 in M8-b, M8-d as a property, RK-8 | REJECTED for M8-b's D35 limb only. CR-29 RESOLVED: at `476c633` with the guard commit reverted, all 44 class-probe members fall exactly on rev 26's two lists (`cr-m5-probes/class-noguard-run1-476c633.txt`). CR-30 MEDIUM, duplicates QAF-33: arrays pass the generator's object check and reach `generateImage` (`cr-m8-probes/body-class-run1-6c613a5.txt`); the owner's 09:28Z re-put has already made lists a known limit, folded at rev 27. M8-d's property: no finding. CR-31 LOW (planner): RK-8 predicts a hang; the renamed-field mutant exits the process with code 1 in 378 ms on node 24 (`rk8-field-mutant-6c613a5.txt`). |
 
 ## Round 1 (M0, website `037935d`) — dispositions
 
@@ -294,6 +295,73 @@ CR-5 LOW Round 2 DECLINED — by the implementer (§ Fix Round 1): the plan sets
   - The two literal `formatKey` cases go to a `formatKey.*` file; the tautologies are deleted.
   - The `useParsePathname` describe is converted to exercise the real hook, or deleted with the surface listed as outstanding.
   - QA decides the timing (now or with a later touch). Non-blocking for M2.
+
+## Round 19 (plan gate read, rev 26, agent-output `c375d2c`; mechanisms executed at website `476c633` and preview-image-generator `6c613a5`)
+
+- **Scope.** Steering's brief (after `/clear`): M5-h (3)'s anchor and the CR-29 member move, D35 in M8-b, M8-d as a property, RK-8. The delta `dd9e88a..c375d2c` for `planning/` and `steering/015-rulings.md` was written to a file and read in full (plan 43/14). I also re-ran the L-C8-1 provenance search: `git log -G"parseEmbedTitle.*codeBlock" 7ce866b` gives `57b58d8` (2023-03-23) as the oldest hit, as rev 26 states.
+- **The record moved during this round.** Since `c375d2c` it has advanced to `7080e00`, with no plan revision. It now holds QA's QAF-33 (`9fdf439`), D36 (RK-8: accept, plus a startup guard; rulings 09:25Z, `f5ab120`), the D35 re-put (rulings 09:28Z, `c8c7649`: "as built, lists pass"), and R-12 to R-16. I read those blocks before writing the findings below, and the findings take account of them.
+- **Process whose output is the evidence.**
+  - M5-h: the real `/preview` page and editor at website `476c633`, with `src/app/preview/page.tsx` swapped for its blob at `da24eb7`. That swap reverts exactly the guard commit `09c7c45`, the only commit on that file in `da24eb7..476c633`. The export's blob hash equals the source blob (`0e3fc49`), and both are recorded in the run.
+  - M8-b and RK-8: the generator built at `6c613a5` (and at base `471578f`) under E-1. The implementer's rig built the exports; at `6c613a5` it gives 26 PASS.
+
+### M5-h (3) anchor and the CR-29 move
+
+- **The reads.** The planner's class probe, unmodified, ran at `476c633` with the guard reverted: `cr-m5-probes/run-class-guard-removed.sh` produced `class-noguard-run1-476c633.txt` and `class-noguard-summary-476c633.txt` (44 rows, `grep -c '^REAL'` = 44; vitest 44 passed, exit 0).
+  - Every member rev 26 lists as crashing crashes: it throws, or for the type-12 `items: "x"` member, it empties the root to 0 nodes.
+  - Every member rev 26 lists as rendering renders, `fields: null` included (21 nodes).
+  - Controls are as expected: the positive control renders 18 nodes, and `null` shows the line.
+- **The instrument discriminates.** The same probe with the guard present (`class-probe-run-476c633.txt`) shows the line on every crashing member, while this run shows them throwing.
+- **CR-29 RESOLVED.** No finding. The words "the tree the guard lands on" and "the chain tip" can diverge once later commits land. The parenthetical settles the reading as the tip, and that is what I measured.
+
+### Findings
+
+CR-30 MEDIUM Round 19 — D35 and rev 26's M8-b list arrays among the non-object bodies that get 500 "as the implementer built it". At `6c613a5`, an array passes the object check and reaches `generateImage`. Duplicates: QAF-33 in qa/015-bug-evaluation-fixes-qa.md
+- **Location**: plan § M8-b and D35 at `c375d2c`; `processImage` in `src/server.ts` at preview-image-generator `6c613a5`, unchanged at `7e5ca5f` by `git grep`.
+- **Class**: a "not a JSON object" refusal written as `typeof x !== 'object' || x === null`. That predicate admits arrays.
+- **Enumeration**:
+  - The predicate `git grep -nE "typeof [A-Za-z_.]+ [!=]== 'object'"` finds 1 site in the generator's `src` at `6c613a5` and 1 at `7e5ca5f`: this one.
+  - The chain's other refusal of a non-object body is `/preview`'s `parseMessageData`. It has the `Array.isArray` limb and is not a member.
+  - The predicate cannot see an `instanceof Object` or `Object.prototype.toString` form. Its 15 website hits outside tests are general type tests, not body refusals, and are not dispositioned here.
+- **Executed** (`cr-m8-probes/run-body-class.sh`, `body-class.cjs`; one fresh server per body; `body-class-run1-6c613a5.txt`):
+  - Unparsable, `null`, `5`, `"x"` and `true` are refused at parse, with `Request body is not an object.` or a `SyntaxError`.
+  - `[]`, `[1,2]` and `[{"id":"m",…}]` each attempt a browser launch, exactly as the object control does. Their 500 is E-1's missing Chrome, so it is not a refusal. The process stays alive in every case.
+  - At base (`body-class-run1-471578f.txt`), `null` exits the process with `Cannot destructure property 'id' of 'parsedBody' as it is null`, which is D35's F-32 claim, now executed. The other non-objects at base also exit, but through F-34's unhandled launch failure, not through the body.
+- **Disposition**: the owner re-put the question with the cost corrected and chose "as built, lists pass" (rulings 09:28Z). The planner folds it at rev 27 (R-15). No code is owed.
+- **Required Action (planner, at rev 27)**: state lists as passing, by name. The stated-limit row carries the consequence QA's QAF-33 names: `deleteMessagePreviewImages(undefined)` under `previews/undefined/`, then a `PutObject`. The row cites this run and QA's reasoning.
+
+CR-31 LOW Round 19 — RK-8 says a changed private field makes M8-d's (a) "fail as a hang". On node 24, the measured failure is a process exit at the first launch failure.
+- **Location**: plan § Risks RK-8 at `c375d2c`. The same premise appears in AF-30 ("what that throw then does is unread") and in critique cycle 9 M-C9-2's Impact ("a silent hang").
+- **Class**: a falsity signature stated by reading, where execution shows a different one.
+- **Enumeration**: I ran the word-bounded `grep -ciwE 'hangs?'` at agent-output `7080e00`. A bare `hang` also matches "change", and my first run made that mistake. The hits are:
+  - the plan, 2 (M8-d's own "never a hang", and RK-8);
+  - the architecture findings, 2 (AF-30);
+  - critique cycle 9, 2 (M-C9-2);
+  - the QA document, 1 (M8-d's property, not RK-8).
+
+  So 3 documents carry the hang premise for RK-8. The predicate cannot see the same premise written another way, such as "never resolves" or "pending".
+- **Executed**:
+  - `cr-m8-probes/run-rk8-field.sh`, `rk8-field.cjs`. Mutant: an isolated copy of the E-1 export, with `build/getPool.js` reading `_waitingClientsQueueRenamed`. The rename was read back from disk and is recorded in the output.
+  - Control (`rk8-field-control-6c613a5.txt`): one failing `/generate` gets 500, and the process stays alive.
+  - Mutant (`rk8-field-mutant-6c613a5.txt`): the request gets `ECONNRESET`, and the process exits with code 1 after 378 ms on `TypeError: Cannot read properties of undefined (reading 'dequeue')`.
+  - The listener throws inside generic-pool 3.9.0's `_createResource` `.catch`, so the rejection is unhandled. Node 15 and later exits on an unhandled rejection. On an older runtime it would warn and then leave the acquire pending, which would be the hang. The host's Node version is still unread (Round 18's Assumption Not Checked).
+  - Every launch failure reaches that listener, the pool's `min` 2 creations included. So the falsity signature is an exit, and under PM2 a restart at each launch failure. That is (b) failing, not (a).
+- **Required Action (planner, at rev 27 with D36's criterion)**: state RK-8's falsity signature as measured: an exit code 1 at the first launch failure on Node 15 and later, and a pending acquire before that. D36's startup line then pre-empts both. The architect and the critic own their wording. I am routing this to them through the planner's fold and do not edit their documents.
+
+**No finding on M8-d's property.**
+- `min = 2` is the pool default in `createPool` at `6c613a5`, and the plan's "(c) apart from the configured minimum" matches it.
+- In generic-pool 3.9.0, `_ensureMinimum` runs at start and after each destroy, and a failed create re-runs only `_dispense`. So no launch follows without a waiting client. That is consistent with Round 18's attack A: 0 new lines in 3 s.
+- The per-request count is honestly stated as unmeasured.
+
+### Round 19 verdict
+
+REJECTED, for M8-b's D35 limb as written at rev 26 (CR-30, a duplicate of QAF-33). The owner's 09:28Z re-put has already superseded it, and rev 27's fold discharges it. M5-h (3), with CR-29 RESOLVED, M8-d and the L-C8-1 correction are approved. CR-31 is LOW, for the planner.
+
+- **M8-b at rev 26.** Round 18's "M8-b met" was against rev 25 and does not carry over. Under rev 27's restatement (lists pass), the `6c613a5` behaviour I measured meets it.
+- **Assumption Not Checked.** This review assumes that an array body, with a browser that launches and a reachable S3, ends in 204 after deleting `previews/undefined/*` and writing `previews/undefined/undefined.jpeg`. That is read from code, not run: E-1 has neither a browser nor S3. Falsity signature: a 500 from `generateImage` for an array body with a working browser and a loopback S3 fake. Owner: QA, for the stated-limit row's consequence.
+- **Next Steps.**
+  - The planner folds CR-30 and CR-31 at rev 27.
+  - QA owns the Assumption Not Checked.
+  - The CR-27 fix (with D36's guard) arrives by its own handoff, as a Round 18 sub-entry.
 
 ## Round 18 (M8, preview-image-generator `6c613a5`, plan rev 25)
 
@@ -1077,7 +1145,10 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
   - Instrument for M5-h's later re-check: `verification/015/cr-m5-probes/`.
 - **UAT:** the Assumption Not Checked of Rounds 14 and 10, and those of the earlier rounds.
 
-## Resumption State (checkpoint, code-reviewer-hooks-015, 2026-11-08T09:18)
+## Resumption State (checkpoint, code-reviewer-hooks-015, 2026-11-08T09:18; Round 19 added 09:31)
+
+- **Round 19 (rev 26 gate read)**: REJECTED for M8-b's D35 limb only (CR-30, duplicates QAF-33, superseded by the 09:28Z re-put). CR-29 RESOLVED. CR-31 LOW (RK-8 signature). Rev 27 is owed a delta gate read: the lists-pass M8-b, D36's criterion, and the CR-31 wording.
+- **Round 19 instruments**: `cr-m5-probes/run-class-guard-removed.sh`; `cr-m8-probes/run-body-class.sh` and `run-rk8-field.sh`. The E-1 exports `pig-probe-6c613a5`, `pig-probe-471578f` and `pig-rk8` (the mutant copy) are in this session's scratchpad only.
 
 - **Done, all committed** (this commit carries Rounds 16 to 18 and the sub-entries).
   - M0: Round 1. M1: Round 2. M2: Round 3. M4: Round 7 plus sub-entries, APPROVED_WITH_COMMENTS.
