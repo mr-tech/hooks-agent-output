@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Delta pass on plan rev 22 (5201612, read from 3d193f9): APPROVED. Recommended, none blocking: AF-23 (M5-h class (3) as makeEditable's own throw), AF-24 (one validator for M6-l's text) and AF-25 (the over-40 chrome also shows on /preview; the D32 scope question is with steering). AF-18 is still recommended. A later revision is read on its delta."
+Status-Detail: "Delta pass on plan rev 22 (5201612, read from 3d193f9): APPROVED. Recommended, none blocking: AF-23 (M5-h class (3) as makeEditable's own throw), AF-24 (one validator for M6-l's text) and AF-25 (the over-40 chrome also shows on /preview; the D32 scope question is with steering). AF-18 is still recommended. A later revision is read on its delta. AF-26 MEDIUM (one Discord Accounts row per user is not guaranteed; routed from QA) is with the planner and steering. AF-18 is implemented on the chain branch at website 3031878."
 ---
 
 # Architecture Findings — Plan 015: Bug-evaluation fixes (conformance pass)
@@ -28,6 +28,34 @@ Status-Detail: "Delta pass on plan rev 22 (5201612, read from 3d193f9): APPROVED
 | 2026-11-08T07:25 | Delta pass, plan rev 20 (`e118cc3`, read from `330348f`), on steering-hooks-015's request | D29's webhook-load limb conforms. It copies the literal "Invalid URL" into the New Message dialog, which follows the current pattern: inline error literals, with no shared definition. A `git grep` at `1e12837` finds the string at 8 non-test sites in two spellings, `Invalid URL` (3) and `Invalid URL.` (4 plus the router), and an `invalidUrl` key in `src/lang/generated/*.json` that nothing outside `src/lang` consumes. Centralising it would be a preferable deviation, so under the standing default the plan follows the current pattern. AF-21 INFO is registered as a Problem Area. No plan change. **APPROVED.** |
 | 2026-11-08T07:30 | Delta pass, plan rev 21 (`3d193f9`, read from `e118cc3`), on steering-hooks-015's request | CR-16 is folded as option (a). The dialog's "Invalid URL" goes on its existing shared error line, with no new field-level error. That follows the current pattern; option (b) would have been an avoidable deviation (new UI). Read at website `1e12837`: `NewMessageModal` `messageErrorString` = `discordMessageError ?? commandMessageError ?? webhookError ?? webhookMessageError`, rendered once below the load options; `errorMessage=` 0 in the file; the send page's field error is `WebhookMenu` `errorMessage` (`'Invalid URL'` on `url && !isWebhookLoading && selectedWebhook === null`). D30's removal of M3 changes no architecture. AF-22 INFO is registered as a Problem Area: the dead `tagName` compare stays at three sites, so whatever keeps Enter-on-Cancel safe is not that guard and has not been identified. **APPROVED.** |
 | 2026-11-08T08:00 | Delta pass, plan rev 22 (`5201612`, read from `3d193f9`), on steering-hooks-015's request | Read at website `da24eb7`. M5-h's classes, X-19 and M6-l (vi) conform. AF-23 LOW: class (3)'s conforming form is `parseMessageData`'s existing `try` widened over `makeEditable`, not a transcribed shape check. Two listed members are wider than its throws: an empty-string `embeds`/`fields`, and array elements. AF-24 LOW: (ii) and (vi) share one text, so it belongs in a `limits.tsx` validator beside `validateDisplayableTextCount`, called by `validateMessage` and the editor. The border sibling is confirmed by read, and the Send page gets the line through `MessagePreview`. AF-25 LOW: the line and border are not gated on `isEditing`, so `/preview` and the generated image (D-003) show them too, which D32's option text does not name. The scope judgement went to steering. One Problem Area registered. **APPROVED.** |
+| 2026-11-08T08:06 | QA's routed assumption (qa-hooks-015, `qa/015-bug-evaluation-fixes-m1-qa.md`, `1017bdc`) | AF-26 MEDIUM. The schema (`project-utils` `749606d`, the website's lockfile pin) holds only `@@unique([provider, providerAccountId])`, so it does not guarantee at most one Discord `Accounts` row per user. next-auth 4.24.5's callback handler links a second Discord account to an already signed-in user. Sign-out at website `3031878` reads by `userId` with `executeTakeFirst()`, so with two rows it revokes an arbitrary one. Pre-existing class (sibling `fetchUserAccount`). Routed to the planner as an M1-c premise, and to steering for the owner question. Live population unread. Also read: AF-18 is implemented at `3031878`. Sign-out reads the row directly, and `skipUpdate` has 0 hits (`git grep -c`). The master document's `user-access-token` row is reconciled at chain close, not before release. One Problem Area registered. |
+
+## AF-26 MEDIUM — QA's routed assumption: one Discord `Accounts` row per user is not guaranteed
+
+**Routed by** qa-hooks-015 (`qa/015-bug-evaluation-fixes-m1-qa.md`, agent-output `1017bdc`). QA's M1 Phase 2 assumes at most one `Accounts` row per `userId` with `provider = 'discord'`.
+
+**What the schema says.** `project-utils/prisma/schema.prisma` at `749606d`, which is the commit the website lockfile pins. `model Account` (`@@map("Accounts")`) declares one uniqueness, `@@unique([provider, providerAccountId])`. There is none on `userId`, nor on `(userId, provider)`. `enum Provider` has the single member `discord`. So the schema allows any number of Discord rows per user.
+
+**What creates a second row.** In next-auth 4.24.5, `core/lib/callback-handler.js`, the OAuth branch handles a sign-in by a user who already has a session. If the incoming Discord account is not linked to anyone (`getUserByAccount` returns nothing), it calls `linkAccount({ ...account, userId: user.id })`. That adds a second Discord row to the signed-in user.
+
+`src/server/auth.ts` (website `3031878`) does not stop it: it sets no `signIn` callback, and its `events.signIn` updates only by `providerAccountId`. So a signed-in user who signs in again while Discord is on a different Discord account gets a second row.
+
+- **Unread:** whether the UI offers `signIn('discord')` to a signed-in user (`NavMenu.tsx`; the edit and send pages' `onContinue`). next-auth's client `signIn` works from any page either way.
+- **Unread:** the live population. No database instrument exists on this box.
+
+**Effect at `3031878`.** `removeUserSession` (`src/server/auth.ts`) selects `access_token, providerAccountId` from `Accounts` by `userId` alone, with `executeTakeFirst()`. It then revokes and nulls that one row, keyed by its `providerAccountId`.
+
+With two rows, Postgres returns one of them with no ordering, so sign-out revokes an arbitrary account. The other account's token stays live and stored. The `Sessions` row carries no account, so "the account this session signed in with" is not recoverable at sign-out.
+
+`fetchUserAccount` (`src/utils/redis/index.ts`) has the same by-`userId` read (`executeTakeFirstOrThrow`). That is the pattern M1-c followed, so this is a pre-existing class, not an M1 regression.
+
+**Disposition.** It is a premise of M1-c's property "any walk that signs out revokes that account's Discord token". The planner states it. The options are agent-composed:
+
+- (a) A stated limit, with the population unread, and `fetchUserAccount` named as the sibling.
+- (b) Sign-out acts on every Discord row of the user: revoke each token, then null the tokens by `userId` and `provider`. This is a code change to M1-c and does not touch the sibling.
+- (c) Prevent the second row instead: a `signIn` callback that refuses a link when the user already has a Discord account. This is a new product rule.
+
+Option (c), and any change to what sign-out means, is a product decision. Whether (a) or (b) needs the owner is steering's call. Registered as a Problem Area.
 
 ## Verdict (rev 22, `5201612`, one pass from rev 21 `3d193f9`): APPROVED
 
@@ -443,7 +471,8 @@ Each is recorded in `system-architecture.md` § Problem Areas:
     - `website.md`: A-4 and A-5 (agent-designed).
     - `preview-image-generator.md`: P-3 rewritten on the owner's selection "Agent: record intended" (05:18Z), and A-1 (the log-line interface).
 - **Next.**
-  - Rev 21 (`3d193f9`): APPROVED, AF-22 INFO registered. Rev 22 (`5201612`): APPROVED, with AF-23 to AF-25 recommended. A later revision is read on its delta from `5201612`. When it lands, check whether AF-23 to AF-25 were folded.
+  - Rev 21 (`3d193f9`): APPROVED, AF-22 INFO registered. Rev 22 (`5201612`): APPROVED, with AF-23 to AF-25 recommended. A later revision is read on its delta from `5201612`. When it lands, check whether AF-23 to AF-25 were folded, and how AF-26 was disposed.
+  - AF-18 is implemented at website `3031878` (on the chain branch, not yet released). At chain close, reconcile the master document's `user-access-token` Problem Area row.
   - **Method, per pass:**
     1. Write `git diff <from> <to> -- planning/015-bug-evaluation-fixes.md` to the scratchpad and Read it; the rtk filter mangles piped diffs.
     2. Read the code each changed limb names, at the SHA it names.
