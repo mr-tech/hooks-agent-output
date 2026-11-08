@@ -1,0 +1,127 @@
+▲ Next.js 16.1.6 (webpack)
+- Local:         http://127.0.0.1:3000
+- Network:       http://127.0.0.1:3000
+- Environments: .env.local
+
+✓ Starting...
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+✓ Ready in 980ms
+○ Compiling /preview ...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+⨯ TypeError: embeds.reduce is not a function
+    at validateEmbedCharacterCount (src/utils/limits.tsx:30:38)
+    at DiscordMessageEditor (src/components/DiscordMessageEditor/index.tsx:199:58)
+  28 |
+  29 | export function validateEmbedCharacterCount(embeds: Embed[]) {
+> 30 |   const embedCharacterCount = embeds.reduce((acc, embed) => {
+     |                                      ^
+  31 |     const title = embed.title?.length ?? 0;
+  32 |     const description = embed.description?.length ?? 0;
+  33 |     const fields = embed.fields?.reduce((a, f) => a + (f.name?.length ?? 0) + (f.value?.length ?? 0), 0) ?? 0; {
+  digest: '607441804'
+}
+ GET /preview?data=%7B%22embeds%22%3A%22%22%7D 200 in 14.9s (compile: 14.4s, proxy.ts: 88ms, render: 419ms)
+ GET /preview?data=%7B%22embeds%22%3A%5B%5B%5D%5D%7D 200 in 56ms (compile: 5ms, proxy.ts: 14ms, render: 37ms)
+⨯ SyntaxError: Unexpected token 'o', "not json" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at Page (src/app/preview/page.tsx:22:48)
+  20 |         <MarkdownProvider>
+  21 |           <DiscordMessageEditor
+> 22 |             message={makeEditable({ data: JSON.parse(query) } as ApiMessage).data}
+     |                                                ^
+  23 |             setMessage={() => {}}
+  24 |             locale={locale}
+  25 |             // eslint-disable-next-line react/style-prop-object {
+  digest: '2113680775'
+}
+ GET /preview?data=not%20json 200 in 44ms (compile: 3ms, proxy.ts: 6ms, render: 35ms)
+ GET /preview?data=5 200 in 51ms (compile: 4ms, proxy.ts: 9ms, render: 38ms)
+⨯ TypeError: Cannot read properties of null (reading 'embeds')
+    at makeEditable (src/utils/index.ts:543:35)
+    at Page (src/app/preview/page.tsx:22:34)
+  541 | ): ActiveMessage {
+  542 |   const casted = JSON.parse(JSON.stringify(message)) as ActiveMessage;
+> 543 |   for (const embed of casted.data.embeds ?? []) {
+      |                                   ^
+  544 |     if (!embed._key) embed._key = genUuid();
+  545 |     for (const field of embed.fields ?? []) {
+  546 |       if (!field._key) field._key = genUuid(); {
+  digest: '2436268997'
+}
+ GET /preview?data=null 200 in 44ms (compile: 2ms, proxy.ts: 6ms, render: 36ms)
+⨯ TypeError: embed.fields?.reduce is not a function
+    at eval (src/utils/limits.tsx:33:34)
+    at Array.reduce (<anonymous>)
+    at validateEmbedCharacterCount (src/utils/limits.tsx:30:38)
+    at DiscordMessageEditor (src/components/DiscordMessageEditor/index.tsx:199:58)
+  31 |     const title = embed.title?.length ?? 0;
+  32 |     const description = embed.description?.length ?? 0;
+> 33 |     const fields = embed.fields?.reduce((a, f) => a + (f.name?.length ?? 0) + (f.value?.length ?? 0), 0) ?? 0;
+     |                                  ^
+  34 |     const footer = embed.footer?.text?.length ?? 0;
+  35 |     const author = embed.author?.name?.length ?? 0;
+  36 |     return acc + title + description + fields + footer + author; {
+  digest: '3293176415'
+}
+ GET /preview?data=%7B%22embeds%22%3A%5B%7B%22fields%22%3A%22%22%7D%5D%7D 200 in 46ms (compile: 4ms, proxy.ts: 6ms, render: 37ms)
+○ Compiling /message/m/[id]/edit ...
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /api/auth/session?hydrate=true 200 in 3.2s (compile: 3.2s, render: 20ms)
+ GET /message/m/0/edit 200 in 8.4s (compile: 4.8s, proxy.ts: 6ms, render: 3.6s)
+ GET /api/auth/session?hydrate=true 200 in 6ms (compile: 3ms, render: 2ms)
+ GET /message/m/0/edit 200 in 240ms (compile: 127ms, proxy.ts: 7ms, render: 106ms)
+ GET /message/m/0/edit 200 in 62ms (compile: 8ms, proxy.ts: 22ms, render: 32ms)
+ GET /api/auth/session?hydrate=true 200 in 9ms (compile: 6ms, render: 3ms)
+ GET /message/m/0/edit 200 in 408ms (compile: 59ms, proxy.ts: 5ms, render: 345ms)
+ GET /api/auth/session?hydrate=true 200 in 12ms (compile: 4ms, render: 8ms)
+ GET /message/m/0/edit 200 in 252ms (compile: 82ms, proxy.ts: 8ms, render: 162ms)
+ GET /api/auth/session?hydrate=true 200 in 6ms (compile: 2ms, render: 3ms)
+ GET /message/m/0/edit 200 in 207ms (compile: 64ms, proxy.ts: 7ms, render: 136ms)
+ GET /api/auth/session?hydrate=true 200 in 6ms (compile: 4ms, render: 1982µs)
+ GET /message/m/0/edit 200 in 178ms (compile: 61ms, proxy.ts: 6ms, render: 112ms)
+ GET /api/auth/session?hydrate=true 200 in 5ms (compile: 3ms, render: 2ms)
+ GET /message/m/0/edit 200 in 175ms (compile: 67ms, proxy.ts: 5ms, render: 103ms)
+ GET /api/auth/session?hydrate=true 200 in 7ms (compile: 3ms, render: 3ms)
+ GET /message/m/0/edit 200 in 193ms (compile: 63ms, proxy.ts: 7ms, render: 123ms)
+ GET /preview?data=%7B%22flags%22%3A32768%2C%22components%22%3A%5B%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%201%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%202%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%203%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%204%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%205%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%206%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%207%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%208%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%209%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2010%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2011%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2012%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2013%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2014%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2015%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2016%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2017%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2018%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2019%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2020%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2021%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2022%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2023%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2024%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2025%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2026%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2027%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2028%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2029%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2030%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2031%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2032%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2033%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2034%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2035%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2036%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2037%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2038%22%7D%2C%7B%22type%22%3A10%2C%22content%22%3A%22uat%20line%2039%22%7D%2C%7B%22type%22%3A9%2C%22components%22%3A%5B%7B%22type%22%3A10%2C%22content%22%3A%22uat%20section%22%7D%5D%2C%22accessory%22%3A%7B%22type%22%3A11%2C%22media%22%3A%7B%22url%22%3A%22https%3A%2F%2Fexample.com%2Fimage.png%22%7D%7D%7D%5D%7D 200 in 156ms (compile: 25ms, proxy.ts: 7ms, render: 125ms)
+ GET /preview?data=%7B%22content%22%3A%22%60%60%60%5Cnline%20one%5Cnline%20two%5Cn%60%60%60%22%7D 200 in 46ms (compile: 3ms, proxy.ts: 6ms, render: 38ms)
+ GET /preview?data=%7B%22embeds%22%3A%5B%7B%22fields%22%3A%5B%7B%22name%22%3A%22f%22%2C%22value%22%3A%22%60%60%60%5Cnline%20one%5Cnline%20two%5Cn%60%60%60%22%7D%5D%7D%5D%7D 200 in 39ms (compile: 3ms, proxy.ts: 6ms, render: 30ms)
+ GET /preview?data=%7B%22embeds%22%3A%5B%7B%22author%22%3A%7B%22name%22%3A%22aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa%22%7D%2C%22description%22%3A%22x%22%7D%5D%7D 200 in 40ms (compile: 2ms, proxy.ts: 7ms, render: 31ms)
+ GET /preview?data=%7B%22embeds%22%3A%5B%7B%22author%22%3A%7B%22name%22%3A%22aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa%22%7D%2C%22description%22%3A%22x%22%7D%5D%7D 200 in 43ms (compile: 3ms, proxy.ts: 5ms, render: 36ms)
+ GET /preview?data=%7B%22embeds%22%3A%5B%7B%22title%22%3A%22aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa%22%7D%5D%7D 200 in 37ms (compile: 3ms, proxy.ts: 7ms, render: 27ms)
+ GET /preview?data=%7B%22embeds%22%3A%5B%7B%22title%22%3A%22aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa%22%7D%5D%7D 200 in 36ms (compile: 3ms, proxy.ts: 6ms, render: 28ms)
+ GET /preview?data=%7B%22embeds%22%3A%5B%7B%22footer%22%3A%7B%22text%22%3A%22aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa%22%7D%2C%22description%22%3A%22x%22%7D%5D%7D 200 in 51ms (compile: 3ms, proxy.ts: 6ms, render: 42ms)
+ GET /preview?data=%7B%22embeds%22%3A%5B%7B%22footer%22%3A%7B%22text%22%3A%22aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa%22%7D%2C%22description%22%3A%22x%22%7D%5D%7D 200 in 36ms (compile: 3ms, proxy.ts: 5ms, render: 29ms)
+ GET /preview?data=%7B%22content%22%3A%22c%22%2C%22embeds%22%3A%5B%7B%7D%5D%7D 200 in 40ms (compile: 3ms, proxy.ts: 6ms, render: 32ms)
+ GET /preview?data=%7B%22content%22%3A%22c%22%2C%22embeds%22%3A%5B%7B%22description%22%3A%22x%22%7D%5D%7D 200 in 37ms (compile: 3ms, proxy.ts: 5ms, render: 29ms)
+ GET /preview?data=%7B%22content%22%3A%22A%20%F0%9F%91%8D%F0%9F%8F%BD%20B%20%F0%9F%91%A8%E2%80%8D%F0%9F%91%A9%E2%80%8D%F0%9F%91%A7%20C%22%7D 200 in 39ms (compile: 3ms, proxy.ts: 6ms, render: 31ms)
+ GET /preview?data=%7B%22embeds%22%3A%5B%7B%22description%22%3A%22black%22%2C%22color%22%3A0%7D%5D%7D 200 in 43ms (compile: 3ms, proxy.ts: 5ms, render: 35ms)
+ GET /preview?data=%7B%22content%22%3A%22c%22%2C%22embeds%22%3A%5B%7B%7D%5D%7D 200 in 37ms (compile: 3ms, proxy.ts: 6ms, render: 29ms)
+ GET /preview?data=%7B%22content%22%3A%22c%22%2C%22embeds%22%3A%5B%7B%22fields%22%3A%5B%7B%22name%22%3A%22%22%2C%22value%22%3A%22%22%7D%5D%7D%5D%7D 200 in 40ms (compile: 2ms, proxy.ts: 6ms, render: 31ms)
+ GET /preview?data=%7B%22content%22%3A%22c%22%2C%22embeds%22%3A%5B%7B%22description%22%3A%22x%22%7D%5D%7D 200 in 34ms (compile: 3ms, proxy.ts: 4ms, render: 27ms)
+ GET /api/auth/session?hydrate=true 200 in 12ms (compile: 4ms, render: 8ms)
+ GET /message/m/0/edit 200 in 208ms (compile: 69ms, proxy.ts: 7ms, render: 132ms)
+ GET /api/auth/session?hydrate=true 200 in 4ms (compile: 1532µs, render: 3ms)
+ GET /message/m/0/edit 200 in 169ms (compile: 63ms, proxy.ts: 5ms, render: 101ms)
+ GET /api/auth/session?hydrate=true 200 in 5ms (compile: 2ms, render: 2ms)
+ GET /message/m/0/edit 200 in 158ms (compile: 62ms, proxy.ts: 5ms, render: 92ms)
+ GET /api/auth/session?hydrate=true 200 in 4ms (compile: 1322µs, render: 3ms)
+ GET /message/m/0/edit 200 in 159ms (compile: 60ms, proxy.ts: 6ms, render: 93ms)
+ GET /api/auth/session?hydrate=true 200 in 4ms (compile: 1396µs, render: 3ms)
+ GET /message/m/0/edit 200 in 162ms (compile: 65ms, proxy.ts: 4ms, render: 93ms)
+ GET /api/auth/session?hydrate=true 200 in 5ms (compile: 1913µs, render: 3ms)
+ GET /message/m/0/edit 200 in 154ms (compile: 61ms, proxy.ts: 6ms, render: 87ms)
+ GET /api/auth/session?hydrate=true 200 in 4ms (compile: 1810µs, render: 3ms)
+ GET /message/m/0/edit 200 in 159ms (compile: 62ms, proxy.ts: 4ms, render: 92ms)
+ GET /api/auth/session?hydrate=true 200 in 5ms (compile: 3ms, render: 2ms)
+ GET /message/m/0/edit 200 in 169ms (compile: 66ms, proxy.ts: 5ms, render: 97ms)
+ GET /api/auth/session?hydrate=true 200 in 4ms (compile: 1472µs, render: 3ms)
+ GET /message/m/0/edit 200 in 158ms (compile: 61ms, proxy.ts: 5ms, render: 92ms)
+ GET /api/auth/session?hydrate=true 200 in 4ms (compile: 1638µs, render: 2ms)
+ GET /message/m/0/edit 200 in 163ms (compile: 63ms, proxy.ts: 6ms, render: 94ms)
+ GET /api/auth/session?hydrate=true 200 in 39ms (compile: 36ms, render: 3ms)
+ GET /message/m/0/send 200 in 3.1s (compile: 2.6s, proxy.ts: 5ms, render: 447ms)
+ GET /preview 200 in 157ms (compile: 25ms, proxy.ts: 5ms, render: 126ms)
+[?25h
