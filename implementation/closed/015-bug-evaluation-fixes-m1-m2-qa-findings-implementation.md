@@ -2,8 +2,8 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Status: Active
-Status-Detail: "QAF-27 (M1) and QAF-20 (M2) delivered as test-only changes on website's chain branch at 4f9ed85: the owed M1-i and M1-c cells are added to the existing files, and bugFixCoverage.supplemental.test.ts is split by module and deleted. Seven named mutants are each killed by their own cells (run at 825a7d8; 4f9ed85 only drops five comments). Gate at 825a7d8: 1115 of 1115, 114 files, vitest exit 0, typecheck exit 0. QAF-34 and QAF-35 (QA, 476c633) are not started."
+Status: Committed
+Status-Detail: "Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). Earlier detail is in the body and changelog."
 Handoff-At: "4f9ed85 — repos=website"
 ---
 
@@ -23,6 +23,7 @@ Handoff-At: "4f9ed85 — repos=website"
 |------|---------------|---------|---------|
 | 2026-11-08T09:55 | steering-hooks-015 → implementer-hooks-015 | QAF-27, QAF-20 | Tests at `825a7d8`; comment gate at `4f9ed85`. Mutators `verification/015/mutators/qaf27-*.py`, `qaf20-*.py`. |
 | 2026-11-08T10:16 | code-reviewer-hooks-015 → implementer-hooks-015 (CR-36) | Reconcile note | The M1-i bullet said "three `stays` rows" and listed two. The diff `476c633..4f9ed85` has two `stays` rows, two `sends … once` rows and one new case, which is the 5 the arithmetic uses. Body corrected. CR-35 (the `formatKey` test file) is resolved in `015-bug-evaluation-fixes-qaf34-qaf35-cr26-implementation.md`; here the file now sits at `src/utils/redis/__tests__/formatKey.key-format.test.ts` (website `b195eeb`). |
+| 2026-11-08T21:31 | devops-hooks-015 | Document closed | Status: Committed (was Active). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
 
 ## Implementation Summary
 

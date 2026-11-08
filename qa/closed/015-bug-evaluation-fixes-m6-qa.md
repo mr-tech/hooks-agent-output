@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Verified-At: "476c633 — repos=website; M6-a, the M6-b to M6-l re-run (QAF-30 to QAF-32) and CR-24; git-archive exports under unshare -rn. Earlier: 24ac49f (QA Failed, M6-b to M6-l)"
-Status: QA Complete
-Status-Detail: "At website 476c633 against plan rev 27: M6-b to M6-l PASS (QAF-30 to QAF-32 RESOLVED), CR-24 PASS; M6-a QA Failed there on QAF-34. M6-a PASS at c5303ca (QAF-34 RESOLVED) in qa/015-bug-evaluation-fixes-qaf34-qaf35-cr26-qa.md, with CR-26's callers; M6-a production unchanged since 476c633. RK-1 differential: 0 of 12,486 comparisons differ."
+Status: Committed
+Status-Detail: "Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53); the verdict recorded in the body stands at its own Verified-At. Earlier detail is in the body and changelog."
 Phase: 2
 ---
 
@@ -23,6 +23,7 @@ Phase: 2
 | 2026-11-08T08:33 | code-reviewer-hooks-015 → qa-hooks-015 (message: `e0054f7`); steering-hooks-015 (resume brief) | QA Phase 2 for M6-b to M6-l at website `24ac49f` | Phase 2, milestone-scoped. Created and first committed with Status QA Failed (M6-b to M6-l scope; plan Status left alone). QAF-30 and QAF-31 MEDIUM, QAF-32 LOW go to the implementer. B-4 gains a `/preview` leg (code review's routed assumption). |
 | 2026-11-08T09:52 | code-reviewer-hooks-015 → qa-hooks-015 (`2fa6d8b`); steering-hooks-015 (brief at rev 27) | Re-run of M6-b to M6-l (QAF-30 to QAF-32), M6-a and CR-24 at `476c633` | M6-b to M6-l PASS. CR-24 PASS. M6-a QA Failed (QAF-34 MEDIUM). |
 | 2026-11-08T10:46 | code-reviewer-hooks-015 (`8367242`, `9b4d808`); steering-hooks-015 | M6-a re-run after QAF-34's fix, at website `c5303ca` | QAF-34 RESOLVED. M6-a PASS at `c5303ca`, verified in `qa/015-bug-evaluation-fixes-qaf34-qaf35-cr26-qa.md`. Status → QA Complete. `Verified-At` here is unchanged (`476c633`); the M6-a verdict's tree is the new document's. |
+| 2026-11-08T21:31 | devops-hooks-015 | Document closed | Status: Committed (was QA Complete). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
 
 ## Scope and criteria assessed
 

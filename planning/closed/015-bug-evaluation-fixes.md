@@ -2,8 +2,8 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Status: UAT Approved
-Status-Detail: "UAT Approved (uat/015-bug-evaluation-fixes-uat.md, f91b266, at website b96e364, generator 8de2b53): every pre-release register row is EXECUTED PASS, B-3 WITHDRAWN; no pre-release condition remains. B-9, B-10 and the B-11 dialog leg ran by the D39 route under next dev. B-1's base red was not reproducible (UAT-6). The Upload Message dialog defect is pre-existing and also in production; it is carried by handoff/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md. B-6 to B-8 are post-deploy, carried by devops's Stage 1 handoff."
+Status: Committed
+Status-Detail: "Committed on chain/015-bug-evaluation-fixes (website b96e364 and preview-image-generator 8de2b53), not pushed and not merged. UAT-approved (uat f91b266) and QA Complete at those SHAs; release waits on the owner's approval of the release itself (deployment/015-bug-evaluation-fixes-deployment.md). Post-deploy rows B-6, B-7 and B-8 ride handoff/bug-evaluation-fixes-post-deploy-2026-11-08.md; RK-8 rides handoff/preview-image-generator-generic-pool-private-field-2026-11-08.md."
 Revision: 29
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
@@ -165,6 +165,7 @@ Owed re-verdicts:
 | 2026-11-08T21:14 | R-29 | planner (planner-hooks-015) | Registered D40, added the owner's 21:14Z confirmation to D39's route, and re-aimed the analysis row. Their words are in rulings block 21:14Z (`a33afc3`). Scope delta: none, registration only. |
 | 2026-11-08T21:15 | R-30 | planner (planner-hooks-015) | Recorded UAT's D40 live check and minted the dialog-fault handoff. Their words are in `handoff/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md` and `verification/015/uat/hooksgg-upload-fresh-load.js`. Scope delta: none, registration only. |
 | 2026-11-08T21:26 | uat | uat (uat-hooks-015) | Sixth UAT walk (`uat/015-bug-evaluation-fixes-uat.md`, f91b266). B-9, B-10 and the B-11 dialog leg EXECUTED PASS by the D39 route. No pre-release condition remains; the decision is APPROVED FOR RELEASE. Local stack cleaned up. Plan Status unmoved (UAT Approved). |
+| 2026-11-08T21:31 | 29 | devops-hooks-015 | Document closed. Status: Committed (was UAT Approved). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
 
 ## Value Statement and Business Objective
 

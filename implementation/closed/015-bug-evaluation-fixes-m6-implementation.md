@@ -2,8 +2,8 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Status: Active
-Status-Detail: "M6 delivered at 24ac49f; code review Round 14 rejected M6-a (CR-22) and F-45's class (CR-24); QA Phase 2 failed on coverage (QAF-30 to QAF-32). Delivery 2, handed at 476c633, is the fix round for all five; M5-h and M5-i are in the M5 document."
+Status: Committed
+Status-Detail: "Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). Earlier detail is in the body and changelog."
 Handoff-At: "476c633 — repos=website"
 ---
 
@@ -23,6 +23,7 @@ Handoff-At: "476c633 — repos=website"
 |------|---------------|---------|---------|
 | 2026-11-08T08:00 | steering-hooks-015 → implementer-hooks-015 (message "Resume chain 015 at M6") | Implement M6, then M7, M8 | M6 coded in `dbaf58f`; its (i) cells and nested add cells in `4fbc920`; read-only error cell `e3d4821`. Fix-round items riding the same handoff: CR-17, CR-19 (`a665901`), QAF-26 (`13be10d`), QAF-29 (`24ac49f`), a dead-code removal and a discriminating emoji member (`ef5a9cc`). |
 | 2026-11-08T09:06 | steering-hooks-015 → implementer-hooks-015 (messages: code review Round 14 `e0054f7`; QA M6 `a7dfb4d`; planner rev 25 `dd9e88a`) | Fix round: CR-22, CR-24, CR-25, QAF-30, QAF-31, QAF-32 | Delivery 2: CR-22 `9cc06d8`; CR-24 `4aa9d3a`; QAF-30 to QAF-32 `b608555`. |
+| 2026-11-08T21:31 | devops-hooks-015 | Document closed | Status: Committed (was Active). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
 
 ## Implementation Summary
 

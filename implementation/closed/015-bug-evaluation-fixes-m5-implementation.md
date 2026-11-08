@@ -2,8 +2,8 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Status: Active
-Status-Detail: "M5-a to M5-g delivered at da24eb7 (code review approved; QA passed). Delivery 2, handed at 476c633: M5-h reopened as the crash-set property (rev 24) and M5-i (WebhookMenu's first-visit category, D28). One drift reported to the planner: the `fields: null` member of the crash set no longer crashes at the tip."
+Status: Committed
+Status-Detail: "Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). Earlier detail is in the body and changelog."
 Handoff-At: "476c633 — repos=website"
 ---
 
@@ -23,6 +23,7 @@ Handoff-At: "476c633 — repos=website"
 |------|---------------|---------|---------|
 | 2026-11-08T07:47 | steering-hooks-015 → implementer-hooks-015 (messages: "Released: M5 onward"; owner's answers, rulings block "M5 flow questions", `a49da66`) | Implement M5 | M5-a to M5-h delivered in `23a621e`; one unreachable guard removed in `da24eb7` after a mutant showed it. Gate run on `da24eb7`. |
 | 2026-11-08T09:06 | steering-hooks-015 → implementer-hooks-015 (message "Resume chain 015"; rulings a4d800d) | M5-h on plan rev 24; M5-i | Delivery 2: M5-h in `09c7c45`, M5-i in `ad54eb3`; the preview cells' waits settled in `a1456c9` and `476c633`. Delivery 1 below is unchanged. |
+| 2026-11-08T21:31 | devops-hooks-015 | Document closed | Status: Committed (was Active). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
 
 ## Implementation Summary
 

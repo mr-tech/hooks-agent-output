@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Verified-At: "24ac49f — repos=website; M1 only, run in git-archive exports of 24ac49f under unshare -rn, not the shared tree (chain branch at 09c7c45 when read). The earlier pass (QA Failed) was at 3031878"
-Status: QA Complete
-Status-Detail: "M1 (milestone-scoped) PASS at website 24ac49f against plan rev 25 (dd9e88a; M1 unchanged since rev 13). The re-run after QAF-26's test-only fix (13be10d): both survivors are killed, i2-row-read-by-session-token 8 of 12 and i4-user-count-unscoped 6 of 10. QAF-26 RESOLVED. QAF-27 LOW stays open and does not block. Suite 1029/1029, 108 files, exit 0; typecheck exit 0. Plan Status left alone."
+Status: Committed
+Status-Detail: "Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53); the verdict recorded in the body stands at its own Verified-At. Earlier detail is in the body and changelog."
 Phase: 2
 ---
 
@@ -22,6 +22,7 @@ Phase: 2
 | 2026-11-08T08:02 | code-reviewer-hooks-015 → qa-hooks-015 (messages: `befc32f`, `d7708e8`) | QA Phase 2 for M1 at website `3031878` | Phase 2, milestone-scoped (M1). Created and first committed with Status QA Failed (M1 scope; plan Status left alone). QAF-26 MEDIUM and QAF-27 LOW go to the implementer. QAF-11 (M0 document) is RESOLVED. **Process disclosure:** QAF-11's collapse in the M0 document was a `python3` in-place edit, outside the edit tools and `record-edit.js`. |
 | 2026-11-08T08:34 | code-reviewer-hooks-015, steering-hooks-015 → qa-hooks-015 (messages: `e0054f7`; resume brief) | M1 re-run after QAF-26's test-only fix (`13be10d`), at website `24ac49f` | Phase 2 re-run, scoped to the two survivors (the round has no production line). Both are killed. QAF-26 RESOLVED. Verdict PASS; Status → QA Complete (M1 scope; plan Status left alone). See § Re-run after QAF-26's fix. |
 | 2026-11-08T10:32 | code-reviewer-hooks-015 (Round 2/3 sub-entry, `3540028`); steering-hooks-015 (brief) | Re-run for QAF-27 at website `4f9ed85` | QAF-27 RESOLVED. Verified in `qa/015-bug-evaluation-fixes-m1-m2-qa-findings-qa.md`. This document's verdict and `Verified-At` are unchanged. |
+| 2026-11-08T21:31 | devops-hooks-015 | Document closed | Status: Committed (was QA Complete). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
 
 ## Scope and criteria assessed
 

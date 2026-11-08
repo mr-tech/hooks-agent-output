@@ -2,8 +2,8 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Status: Active
-Status-Detail: "Fix round 2 (plan rev 13, released by steering): M1-c rebuilt (sign-out reads the Accounts row; D22 lookup-error cell; deletion-failure outcome; AF-18) and M1-h's eight decision-table rows each have a cell, handed over at 579e8b2 with CR-9. CR-4 and M1-i were resolved at Round 3; CR-5 declined as optional. CR-6 (the sweep line) is corrected."
+Status: Committed
+Status-Detail: "Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). Earlier detail is in the body and changelog."
 Handoff-At: "3031878 — repos=website"
 ---
 
@@ -24,6 +24,7 @@ Handoff-At: "3031878 — repos=website"
 | 2026-11-08T06:20 | steering-hooks-015 → implementer-hooks-015 (brief) | Implement M1 | M1-a to M1-k delivered at website `be881c9`. CR-1 (M0 path list) closed at `96e123d`. QAF-11 (flaky wait in `SectionEditor.auto-remove-dispatch.test.tsx`) fixed at `9e4955a`. The M1-c no-account and ordering cells were held until steering lifted the hold (rev 8's gates passed: critic `f64ae27`, architect `ca8da09`, QA `c2a657a`); they are built to rev 8's text. |
 | 2026-11-08T06:37 | code-reviewer-hooks-015 → implementer-hooks-015 (message) | Code review Round 2 of M1 at `be881c9`: REJECTED | Fix round 1. CR-4 fixed at `6001f7f` (structural). M1-h's account-lookup window closed at `69b17af` (owner ruling OQ-I, "fix both windows"). CR-3 is held for the planner; CR-5 declined. See § Fix Round 1. |
 | 2026-11-08T07:21 | steering-hooks-015 → implementer-hooks-015 (message) | Rebuild M1-c and M1-h to rev 13 | Fix round 2 at website `12ac7ed`/`579e8b2`; see § Fix Round 2. CR-9 and CR-6 (code review Round 3) taken in the same round. |
+| 2026-11-08T21:31 | devops-hooks-015 | Document closed | Status: Committed (was Active). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
 
 ## Fix Round 2 (plan rev 13: M1-c under D22 + CR-3, M1-h under D21's eight rows)
 

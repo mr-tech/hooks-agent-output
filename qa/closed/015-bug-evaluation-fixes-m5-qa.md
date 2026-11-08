@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Verified-At: "476c633 — repos=website; M5-h and M5-i (the M5-a to M5-g PASS at 24ac49f stands); git-archive exports under unshare -rn"
-Status: QA Complete
-Status-Detail: "M5-h and M5-i (milestone-scoped) PASS at website 476c633 against plan rev 27 (18d361c). M5-h's crash-set cells cover every plan member except Phase 1's literals { and [{}] (QAF-35 LOW, non-blocking). Every M5-h and M5-i mutant is killed. The M5-a to M5-g PASS at 24ac49f stands."
+Status: Committed
+Status-Detail: "Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53); the verdict recorded in the body stands at its own Verified-At. Earlier detail is in the body and changelog."
 Phase: 2
 ---
 
@@ -23,6 +23,7 @@ Phase: 2
 | 2026-11-08T08:34 | code-reviewer-hooks-015, steering-hooks-015 → qa-hooks-015 (messages: `e0054f7`; resume brief) | M5-a to M5-g re-run after QAF-29's test-only fix (`24ac49f`), with CR-19's production change (`a665901`) | Phase 2 re-run. QAF-29's survivor is killed, and so is CR-19's refresh mutant. The whole suite also passes under `TZ=America/Los_Angeles`. QAF-29 RESOLVED. Verdict PASS; Status → QA Complete (M5-a to M5-g scope; plan Status left alone). See § Re-run at `24ac49f`. |
 | 2026-11-08T09:52 | code-reviewer-hooks-015 → qa-hooks-015 (`2fa6d8b`); steering-hooks-015 (brief at rev 27) | M5-h and M5-i at `476c633` | PASS. QAF-35 LOW is raised and does not block. |
 | 2026-11-08T10:46 | code-reviewer-hooks-015 (`8367242`, `9b4d808`); steering-hooks-015 | QAF-35 rows at website `c5303ca` | QAF-35 RESOLVED, verified in `qa/015-bug-evaluation-fixes-qaf34-qaf35-cr26-qa.md`. This document's verdict and `Verified-At` are unchanged. |
+| 2026-11-08T21:31 | devops-hooks-015 | Document closed | Status: Committed (was QA Complete). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
 
 ## Scope and criteria assessed
 

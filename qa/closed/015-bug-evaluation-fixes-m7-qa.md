@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Verified-At: "476c633 — repos=website; M7 only, run in git-archive exports of 476c633 under unshare -rn, not the shared tree"
-Status: QA Complete
-Status-Detail: "M7 (milestone-scoped) PASS at website 476c633 against plan rev 27 (18d361c). M7-a, M7-b and M7-c each have a literal-valued cell, and bot-admin, bot-user and bot-ts are each killed. The register gains no row; M7-a's operator step (push-commands) stays the plan's owner step."
+Status: Committed
+Status-Detail: "Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53); the verdict recorded in the body stands at its own Verified-At. Earlier detail is in the body and changelog."
 Phase: 2
 ---
 
@@ -20,6 +20,7 @@ Phase: 2
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-08T09:52 | code-reviewer-hooks-015 → qa-hooks-015 (`2fa6d8b`); steering-hooks-015 (brief at rev 27) | QA Phase 2 for M7 at `476c633` | Created. PASS, milestone-scoped. The plan Status is left alone. |
+| 2026-11-08T21:31 | devops-hooks-015 | Document closed | Status: Committed (was QA Complete). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
 
 ## Scope and criteria assessed
 

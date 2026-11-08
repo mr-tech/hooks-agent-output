@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Verified-At: "c5303ca — repos=website; QAF-34 (M6-a), QAF-35 (M5-h), CR-26 with CR-37 and CR-38 (the useMount callers, M6 Round 14), 4f9ed85..c5303ca; git-archive exports under unshare -rn; 2618926 is the differential's base"
-Status: QA Complete
-Status-Detail: "PASS at website c5303ca. M6-a PASS (QAF-34 RESOLVED: rules-title-i killed). QAF-35 RESOLVED (both rows seen red). The useMount callers PASS. Suite 1122/1122, 115 files, vitest exit 0, typecheck exit 0, identical by file and per-file count to 2618926. 13 mutants in the round's production diff: 11 killed, 2 equivalent. No new finding."
+Status: Committed
+Status-Detail: "Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53); the verdict recorded in the body stands at its own Verified-At. Earlier detail is in the body and changelog."
 Phase: 2
 ---
 
@@ -21,6 +21,7 @@ Phase: 2
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-08T10:46 | code-reviewer-hooks-015 (`8367242`, `9b4d808`); steering-hooks-015 (messages naming `2618926`, then `c5303ca`) | QA Phase 2: the M6-a title cells re-run, the QAF-35 rows, the round's production diff | Created. PASS at `c5303ca`. QAF-34 and QAF-35 RESOLVED. The pass first ran at `2618926`, the tree approved first, and was extended to `c5303ca` on a differential once code review approved CR-38. **Gate disclosed:** the stamp gate (a PostToolUse hook) refused this row's first, typed stamp (10:56 against a clock of 10:46). The stamp was replaced by the clock minute; no content changed. |
+| 2026-11-08T21:31 | devops-hooks-015 | Document closed | Status: Committed (was QA Complete). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
 
 ## Scope and criteria assessed
 

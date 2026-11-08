@@ -2,8 +2,8 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Status: UAT Complete
-Status-Detail: "Every pre-release register row is terminal. B-1, B-2, B-4, B-5, B-9, B-10, B-11 (both legs), B-12, B-13 and B-14 EXECUTED PASS at website b96e364 (B-1's base red not reproducible: UAT-6); B-3 WITHDRAWN. The decision is unconditional for the release act. B-6, B-7 and B-8 are post-deploy, conditional, carried by devops's Stage 1 handoff. UAT-4 is a pre-existing production defect, handed to the planner (D40)."
+Status: Committed
+Status-Detail: "Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). Release-Decision APPROVED FOR RELEASE stands; post-deploy rows B-6, B-7 and B-8 ride handoff/bug-evaluation-fixes-post-deploy-2026-11-08.md. Earlier detail is in the body and changelog."
 Verified-At: "b96e364,8de2b53 — repos=website,preview-image-generator; flows driven on website b96e364 (base 7ce866b as the red side); generator 8de2b53 not driven (no browser surface; B-8 post-deploy)"
 Release-Decision: APPROVED FOR RELEASE
 ---
@@ -24,6 +24,7 @@ Release-Decision: APPROVED FOR RELEASE
 | 2026-11-08T20:42 | steering-hooks-015 (owner ruling 20:38Z c68e0b7; coordinator go 20:38Z) | Route (a): B-9 and the B-11 dialog leg on a local production build | The build passes, but the dialog does not open under `next start` either, so B-9 and the B-11 dialog leg stay NOT EXECUTED. Route returned to the owner (20:41Z). Local-infra evaluation added (§ Local test infrastructure). Released 20:41Z. |
 | 2026-11-08T20:57 | steering-hooks-015 (owner rulings 20:48Z 1acf111, 20:50Z 2b35821; coordinator go 20:48Z) | B-1 with the owner's second test account, in its own Chrome profile | B-1 EXECUTED PASS on the tip limb. Base did not reproduce the predicted failure, because base lists a phantom "AAAA…" server (UAT-6). Profile kept at `/home/dev/.cache/discord-test-user-2-chrome`. The kept profile mcp-chrome-313b550 was not opened. Released 20:56Z. |
 | 2026-11-08T21:25 | steering-hooks-015 (owner ruling 21:14Z a33afc3; D39 analysis f2b0487, route R-28 60199a5; coordinator go 21:14Z) | Live fresh-load check; B-9, B-10 and the B-11 dialog leg by the via-editor route | Live hooks.gg on a fresh load: the dialog does not open, so UAT-4 is a production defect (result sent to planner-hooks-015 for D40). B-9, B-10 and the B-11 dialog leg EXECUTED PASS under `next dev`, each with base red or a control. Local stack cleaned up. Decision now unconditional for pre-release. Released 21:24Z; the kept profile is still signed in to Discord. |
+| 2026-11-08T21:31 | devops-hooks-015 | Document closed | Status: Committed (was UAT Complete). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
 
 ## Stage start and identity
 

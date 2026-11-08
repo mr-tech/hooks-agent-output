@@ -2,8 +2,8 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Status: Active
-Status-Detail: "M8-a to M8-e delivered on preview-image-generator's chain branch (not pushed). The Round 18 fix round is at 8de2b53: CR-27 (a failed drain logs a failure line, not drain-complete), and the D36 startup check (CR-28, CR-33, AF-30, AF-31): at startup, before any request, the generator writes one named line if generic-pool lacks a callable _waitingClientsQueue.dequeue, and keeps serving. The repo has no runner, so the evidence is a network-isolated probe: 32 of 32 cells pass at 8de2b53, 5 fail at 6c613a5 and 3 at 7e5ca5f; six mutants are each killed by the cells meant for them. M8-d needed more than the plan's one-line mechanism; the property is met and the extra is reported. P1 to P3 on production wait for the push and the host reads."
+Status: Committed
+Status-Detail: "Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). Earlier detail is in the body and changelog."
 Handoff-At: "8de2b53 — repos=preview-image-generator"
 ---
 
@@ -24,6 +24,7 @@ Handoff-At: "8de2b53 — repos=preview-image-generator"
 | 2026-11-08T09:05 | steering-hooks-015 → implementer-hooks-015 (message "Resume chain 015 … then M8") | Implement M8 | M8-a to M8-e in `4b68b57`; the pool fix in `6c613a5`. Probe rig `verification/015/m8-local-probe/`. |
 | 2026-11-08T09:47 | steering-hooks-015 → implementer-hooks-015 (Round 18 return; owner ruling RK-8, rulings `f5ab120`; CR-33, AF-31; QA's message on the startup property) | Fix CR-27; CR-28; D36 startup check | `7e5ca5f`: `shutdown()` logs the drain-complete line only on success and `Drain failed after Nms: <message>` on stdout otherwise; a first guard at pool creation. `8de2b53`: the guard replaced by the D36 startup check (`checkPoolShape`, below), because rev 27 (d) asks for the line at startup and the pool is created on the first request. Rig now 32 cells, fixtures are a source rename of generic-pool in a copy; `m8-guard-mutants.sh`. QAF-33 dropped by the owner (rulings `c8c7649`): no array refusal. |
 | 2026-11-08T11:23 | qa-hooks-015 → implementer-hooks-015 (QAF-37 MEDIUM, effort-final Phase 2) | A rig cell for a drain that never settles | Rig-only, no generator source change: generator stays at `8de2b53`. Cell added to `m8-local-probe/probe.cjs` (agent-output `8fb1eee`). See § QAF-37. |
+| 2026-11-08T21:31 | devops-hooks-015 | Document closed | Status: Committed (was Active). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
 
 ## Implementation Summary
 

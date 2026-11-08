@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Verified-At: "4f9ed85 — repos=website; test-only round (QAF-27 for M1, QAF-20 for M2), 476c633..4f9ed85; git-archive export under unshare -rn"
-Status: QA Complete
-Status-Detail: "QAF-27 and QAF-20 RESOLVED at website 4f9ed85. Suite 1115/1115, 114 files, vitest exit 0, typecheck exit 0. All 7 of the round's mutants re-run here and killed, each by the cells the implementation names. No new finding against the round. The website tip has since moved (2618926, QAF-34/QAF-35/CR-26 work), which this verdict does not cover."
+Status: Committed
+Status-Detail: "Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53); the verdict recorded in the body stands at its own Verified-At. Earlier detail is in the body and changelog."
 Phase: 2
 ---
 
@@ -21,6 +21,7 @@ Phase: 2
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-08T10:30 | code-reviewer-hooks-015 (Round 2/3 sub-entry, `3540028`); steering-hooks-015 (brief after the usage gate) | QA Phase 2 for the QAF-27 and QAF-20 cells at website `4f9ed85` | Created. PASS. QAF-27 and QAF-20 RESOLVED. Code review's Assumption Not Checked (the pass set at `4f9ed85`) is closed by execution. **Process disclosure:** the `INBOX.md` entry (the ID-token class missing `qaf`) was appended with a shell heredoc, not the edit tools or `record-edit.js`, which breaks the record-writing rule. It added 5 lines (a blank line, the heading "2026-11-08 — qa-hooks-015 — DECISION NEEDED" and three lines). No other line of the file was touched (`git diff --numstat INBOX.md`: 47 added, of which 42 were another session's before the append). |
+| 2026-11-08T21:31 | devops-hooks-015 | Document closed | Status: Committed (was QA Complete). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
 
 ## Scope and criteria assessed
 

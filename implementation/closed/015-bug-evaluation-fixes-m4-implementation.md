@@ -2,8 +2,8 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Status: Active
-Status-Detail: "M4 reopened under D29 (plan rev 21) and QA's QAF-25: a failed webhook-URL load shows 'Invalid URL' at each site's existing place, and the three uncovered limbs have cells. Delivered at 46a9cab, with a two-file lint cleanup in 6c42032; handed to code review as one tree. M3 is dropped by the owner (D30)."
+Status: Committed
+Status-Detail: "Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). Earlier detail is in the body and changelog."
 Handoff-At: "476c633 — repos=website"
 ---
 
@@ -25,6 +25,7 @@ Handoff-At: "476c633 — repos=website"
 | 2026-11-08T07:15 | steering-hooks-015 → implementer-hooks-015 (messages: rulings `3d7af67`, plan revs 17–19) | M4-d over both F-27 sites; D27 rider; CR-11, CR-13 | `useValidateWebhook` brought to the same class, one shared parser, named capture groups; `getFromUrl` bound to the authorized guild. Tip `1e12837`. |
 | 2026-11-08T07:43 | steering-hooks-015 → implementer-hooks-015 (messages: D29 released on plan rev 21 `3d193f9`, rulings `7e95151`; QA Phase 2 QAF-25 `c4e82b3`) | D29 change; QAF-25 cells | `useValidateWebhook`'s webhook catch shows 'Invalid URL' (the dialog's shared error line); the send page already showed it in the URL field. Cells at both sites mount the real surface; the provider's Discord refusal texts, the refused-input display and the router's `guild_id: null` member are tightened into the existing cells. Commit `46a9cab`; lint cleanup `6c42032`. |
 | 2026-11-08T09:06 | steering-hooks-015 → implementer-hooks-015 (message "Resume chain 015"; owed cells from code review Round 13 `3960833` and QA `4d091e4`) | M4-d non-JSON member, one cell per site | Delivery 4: two cells in `1968281`. No production change. |
+| 2026-11-08T21:31 | devops-hooks-015 | Document closed | Status: Committed (was Active). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
 
 ## Implementation Summary
 

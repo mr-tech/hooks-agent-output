@@ -2,8 +2,8 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Status: Active
-Status-Detail: "M0 delivered and committed on website chain/015-bug-evaluation-fixes; awaiting code review. M1 onward is not started. Plan is at rev 8; M1-c's no-account and ordering cells are held by steering until the rev-8 gates pass."
+Status: Committed
+Status-Detail: "Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). Earlier detail is in the body and changelog."
 Handoff-At: "037935d — repos=website"
 ---
 
@@ -22,6 +22,7 @@ Handoff-At: "037935d — repos=website"
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-08T05:57 | steering-hooks-015 → implementer-hooks-015 (brief) | Implement plan 015 from M0 | M0 delivered at website `037935d`: baseline recorded, `.next/dev/types` deleted (D7), typecheck gate green, bot test collection landed (QA Testing Infrastructure item 1). Plan Status → In Progress (`7c00518`). |
+| 2026-11-08T21:31 | devops-hooks-015 | Document closed | Status: Committed (was Active). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
 
 ## Implementation Summary
 

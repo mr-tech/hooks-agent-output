@@ -2,8 +2,8 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Status: Active
-Status-Detail: "M7 (bot: F-28, F-29, F-30) delivered on the chain branch at website a4b4434, test-first, every mutant killed. The Discord-visible limb of M7-a is the owner's push-commands step after release."
+Status: Committed
+Status-Detail: "Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). Earlier detail is in the body and changelog."
 Handoff-At: "476c633 — repos=website"
 ---
 
@@ -22,6 +22,7 @@ Handoff-At: "476c633 — repos=website"
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-08T09:05 | steering-hooks-015 → implementer-hooks-015 (message "Resume chain 015", then M7, then M8) | Implement M7 | M7-a, M7-b and M7-c coded in `a4b4434`. |
+| 2026-11-08T21:31 | devops-hooks-015 | Document closed | Status: Committed (was Active). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
 
 ## Implementation Summary
 

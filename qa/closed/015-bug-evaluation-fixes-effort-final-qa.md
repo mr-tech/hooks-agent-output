@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Verified-At: "b96e364,8de2b53 — repos=website,preview-image-generator; effort-final Phase 2. The production diffs 7ce866b..c5303ca (website) and 471578f..8de2b53 (generator) were swept at those tips in git-archive exports under unshare -rn. Website b96e364 is c5303ca plus three test-only rounds (620b4ee, 2b40dc5..b96e364; 0 production paths), where the survivors were re-run and the suite ran"
-Status: QA Complete
-Status-Detail: "QA Complete: PASS at website b96e364 and generator 8de2b53. QAF-41 and QAF-42 RESOLVED, with both plumbing survivors killed at b96e364. Suite 1130/1130, vitest exit 0, typecheck exit 0. QAF-37 to QAF-42 RESOLVED. UAT is next."
+Status: Committed
+Status-Detail: "Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53); the verdict recorded in the body stands at its own Verified-At. Earlier detail is in the body and changelog."
 Phase: 2
 ---
 
@@ -24,6 +24,7 @@ Phase: 2
 | 2026-11-08T12:53 | code-reviewer-hooks-015 (`8f4578c`, website `620b4ee` APPROVED, test-only) | Fix-round re-run | **PASS.** The 5 survivors are killed at `620b4ee`, and QAF-38, QAF-39 and QAF-40 are RESOLVED. Suite 1128/1128, exit 0. Verdict re-anchored to `620b4ee`. |
 | 2026-11-08T14:24 | steering-hooks-015 (owner ruling, rulings block 14:18Z, `bab96e0`) | The plumbing-class sweep | **PASS withdrawn; QA Failed.** 13 plumbing mutants at `620b4ee`: 10 killed, 3 survived. QAF-41 and QAF-42 raised (MEDIUM, test-only); 1 survivor is outside the sweep scope. The method failure is recorded under the verdict. |
 | 2026-11-08T14:42 | code-reviewer-hooks-015 (website `b96e364` APPROVED, test-only, `c878f4a`); steering-hooks-015 | Survivor re-run after the QAF-41/42 fix | **PASS; QA Complete** at website `b96e364`. 2 of 2 survivors KILLED, suite 1130/1130 with exit 0, typecheck 0. Code review's dialect premise is checked by execution and holds. QAF-41 and QAF-42 RESOLVED. |
+| 2026-11-08T21:31 | devops-hooks-015 | Document closed | Status: Committed (was QA Complete). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
 
 ## Scope and criteria assessed
 

@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Verified-At: "6001f7f — repos=website; M2 only, run in a git-archive export of 6001f7f under unshare -rn, not the shared tree (chain branch at b25f561 when read)"
-Status: QA Complete
-Status-Detail: "M2 (milestone-scoped) PASS at website 6001f7f against plan rev 16 (565e240). M2's criteria are unchanged since rev 13; rev 14 only hands the third colour-class member to M6-f, and revs 15-16 do not touch § M2. Suite 720/720, 71 files, exit 0; typecheck exit 0. 18 of 18 implementer mutants and 6 of 6 QA mutants killed their named cases at 6001f7f. Two LOW findings go to the implementer, neither blocking: QAF-19 (a TDD-table cell contradicts its own disclosure) and QAF-20 (CR-10's supplemental-file remnant, owed before the effort-final pass). No register row appended."
+Status: Committed
+Status-Detail: "Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53); the verdict recorded in the body stands at its own Verified-At. Earlier detail is in the body and changelog."
 Phase: 2
 ---
 
@@ -21,6 +21,7 @@ Phase: 2
 |------|---------------|---------|---------|
 | 2026-11-08T06:52 | code-reviewer-hooks-015 → qa-hooks-015 (message) | QA Phase 2 for M2 at website `6001f7f` | Phase 2, milestone-scoped (M2). The stage start was re-derived from `7976a9a`. Verdict PASS. QAF-19 and QAF-20 (LOW) go to the implementer. Status → QA Complete (M2 scope; plan Status left alone). The plan moved to rev 16 during the pass. The diff `c971506..565e240` has no hunk in § M2, so the verdict names rev 16. **Process disclosure:** that re-key used a `python3` in-place replace on this document (3 anchored replacements, two of them with `count == 1` asserted), not the edit tools or `record-edit.js`, which breaks the record-writing rule. |
 | 2026-11-08T10:32 | code-reviewer-hooks-015 (Round 2/3 sub-entry, `3540028`); steering-hooks-015 (brief) | Re-run for QAF-20 at website `4f9ed85` | QAF-20 RESOLVED. Verified in `qa/015-bug-evaluation-fixes-m1-m2-qa-findings-qa.md`. This document's verdict and `Verified-At` are unchanged. |
+| 2026-11-08T21:31 | devops-hooks-015 | Document closed | Status: Committed (was QA Complete). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
 
 ## Scope and criteria assessed
 

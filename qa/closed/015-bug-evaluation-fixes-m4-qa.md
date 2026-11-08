@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Verified-At: "476c633 — repos=website; M4 scoped pass for the non-JSON member (rev 24), on the M4 PASS at 24ac49f; git-archive exports under unshare -rn"
-Status: QA Complete
-Status-Detail: "M4 (milestone-scoped) PASS at website 476c633. The scoped pass for rev 24's non-JSON member is done: 1968281, test-only, one cell per site, and nm-nonjson and wf-nonjson are each killed. The CR-17 refresh at 24ac49f stands for the rest of M4."
+Status: Committed
+Status-Detail: "Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53); the verdict recorded in the body stands at its own Verified-At. Earlier detail is in the body and changelog."
 Phase: 2
 ---
 
@@ -23,6 +23,7 @@ Phase: 2
 | 2026-11-08T08:03 | code-reviewer-hooks-015 → qa-hooks-015 (message: `d7708e8`) | M4 re-run after the D29 reopen, at website `da24eb7` | Phase 2 re-run, scoped to the round's diff (`1e12837..da24eb7` over M4's production files: `useValidateWebhook.ts` only). Stage start re-derived at `d7708e8` (Round 7 sub-entry, `Reviewed-At: da24eb7`, M4 APPROVED_WITH_COMMENTS). Verdict PASS. QAF-25 RESOLVED. Status → QA Complete (M4 scope). See § Re-run after the D29 reopen. **Process disclosure:** QAF-25's collapse to a disposition line was a `python3` in-place edit, outside the edit tools and `record-edit.js`. |
 | 2026-11-08T08:34 | code-reviewer-hooks-015 → qa-hooks-015 (message: `e0054f7`) | Refresh after CR-17's production change (`a665901`), at website `24ac49f` | Refresh, scoped to CR-17. `useValidateWebhook.ts` and `WebhookMenu/index.tsx` now read one `INVALID_URL_ERROR`. The M4 cells are green in the full suite at `24ac49f`. The text mutant `m4-invalid-url-text` reddens `NewMessageModal.failed-webhook-load` (1), `WebhookMenu.failed-webhook-load` (2) and `useValidateWebhook.validation-effects` (1) (`qa-m6x-sweep-summary-24ac49f.txt`; the table is in `qa/015-bug-evaluation-fixes-m6-qa.md`). Verdict stands, re-anchored to `24ac49f`. The scoped pass for rev 24's non-JSON member is still owed. |
 | 2026-11-08T09:52 | code-reviewer-hooks-015 → qa-hooks-015 (`2fa6d8b`); steering-hooks-015 (brief at rev 27) | Scoped M4 pass for the non-JSON member at `476c633` | PASS. Both cells are present and seen red under their mutants. The suite is green. |
+| 2026-11-08T21:31 | devops-hooks-015 | Document closed | Status: Committed (was QA Complete). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
 
 ## Scope and criteria assessed
 

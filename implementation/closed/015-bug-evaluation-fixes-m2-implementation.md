@@ -2,8 +2,8 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Status: Active
-Status-Detail: "M2 (F-12, F-13, F-14, F-43) delivered and committed on website chain/015-bug-evaluation-fixes; awaiting code review. M3 onward is not started."
+Status: Committed
+Status-Detail: "Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). Earlier detail is in the body and changelog."
 Handoff-At: "6001f7f — repos=website"
 ---
 
@@ -22,6 +22,7 @@ Handoff-At: "6001f7f — repos=website"
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-08T06:37 | steering-hooks-015 → implementer-hooks-015 (brief) | Implement M2 | M2-a to M2-d delivered at website `7befedb`; the handoff tip `6001f7f` also carries M1's fix round (CR-4, M1-h reopened by the owner's OQ-I ruling). QAF-1 is closed in this milestone. |
+| 2026-11-08T21:31 | devops-hooks-015 | Document closed | Status: Committed (was Active). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
 
 ## Implementation Summary
 

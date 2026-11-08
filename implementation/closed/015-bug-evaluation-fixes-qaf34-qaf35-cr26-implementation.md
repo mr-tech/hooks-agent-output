@@ -2,8 +2,8 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Status: Active
-Status-Detail: "QAF-34 (MEDIUM), QAF-35 (LOW), CR-26 (LOW) and CR-35 (LOW) delivered on website's chain branch at b195eeb. QAF-34: the title case runs over both title parsers, red under m6a-title-codeblock-interactive (1 case) and under the static mutant (1 case), control 29 of 29. QAF-35: the two rows are red under named mutants, control 57 of 57. CR-26: no-restricted-imports bans react-use useMount and the three callers use useEffect; full gate at 86f5a6c 1119 of 1119, vitest exit 0, typecheck exit 0. CR-35: the formatKey test sits beside its module. CR-36 reconciled in the QAF document. Round 2 (CR-37 MEDIUM, code review REJECTED b195eeb for the CR-26 callers): spec-form cells for the editor `onMount` effect (red under the reviewer's mutator) and for Button `autoFocus` (the reviewer's mutator is equivalent: react-aria focuses on mount; the cell is red under a mutant that also stops autoFocus reaching react-aria); the lint ban also covers `react-use/lib` and `react-use/esm`. Full gate at 2618926: 1122 of 1122, 115 files, vitest exit 0, typecheck exit 0. Round 3 (CR-38): Button autoFocus effect deleted at c5303ca. Round 4 (QAF-38, QAF-39, QAF-40, QA effort-final Phase 2, test-only) at 620b4ee: five survivors each red in one existing or new cell and green at the tip; full gate 1128 of 1128, 116 files, vitest exit 0, typecheck exit 0. Round 5 (QAF-41, QAF-42, plumbing sweep, test-only) at 9b5e47f: both survivors red, full gate 1130 of 1130, 116 files, vitest exit 0, typecheck exit 0. Round 6 (CR-40 MEDIUM, code review REJECTED 9b5e47f; QAF-42 RESOLVED) at b96e364: the partial-message select clause is asserted whole in all three cells; 10 of 10 select-column mutants and the reviewer's three mutators red, control 4 of 4; full gate 1130 of 1130, vitest exit 0, typecheck exit 0."
+Status: Committed
+Status-Detail: "Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). Earlier detail is in the body and changelog."
 Handoff-At: "b96e364 — repos=website"
 ---
 
@@ -27,6 +27,7 @@ Handoff-At: "b96e364 — repos=website"
 | 2026-11-08T12:47 | qa-hooks-015 → implementer-hooks-015 | QAF-38, QAF-39, QAF-40 (MEDIUM, test-only; effort-final Phase 2 QA Failed) | Tests at `620b4ee`; mutator `verification/015/mutators/qaf38-40-apply-qa-mutant.py`. See § Round 4. |
 | 2026-11-08T14:29 | qa-hooks-015 → implementer-hooks-015 | QAF-41, QAF-42 (MEDIUM, test-only; plumbing sweep) | Tests at `2b40dc5`, one class-sweep assertion at `9b5e47f`. See § Round 5. |
 | 2026-11-08T14:37 | code-reviewer-hooks-015 → implementer-hooks-015 | CR-40 MEDIUM (REJECTED `9b5e47f`; QAF-42 RESOLVED) | Test at `b96e364`. See § Round 6. |
+| 2026-11-08T21:31 | devops-hooks-015 | Document closed | Status: Committed (was Active). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
 
 ## Implementation Summary
 

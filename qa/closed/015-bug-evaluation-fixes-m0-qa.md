@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Verified-At: "037935d — repos=website; M0 only, run in a git-archive export of 037935d (blob identity verified), not the shared tree, which is at 61056e7"
-Status: QA Complete
-Status-Detail: "M0 (milestone-scoped) PASS at website 037935d. The bot collection and type-check change discriminates in both directions, and code review's Assumption Not Checked is closed. One new finding, QAF-11 MEDIUM, goes to the implementer: a wall-clock wait in SectionEditor.auto-remove-dispatch flaked 1 of 4 full runs, so a red E-7 gate is not attributable until it is fixed. It is not caused by M0 and does not move the M0 verdict. The chain's register is in qa/015-bug-evaluation-fixes-qa.md and was not appended to."
+Status: Committed
+Status-Detail: "Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53); the verdict recorded in the body stands at its own Verified-At. Earlier detail is in the body and changelog."
 Phase: 2
 ---
 
@@ -20,6 +20,7 @@ Phase: 2
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-08T06:08 | code-reviewer-hooks-015 → qa-hooks-015 (message) | QA Phase 2 for M0 at website `037935d` | Phase 2, milestone-scoped (M0). Stage start re-derived: the review's header reads `Reviewed-At: 037935d`, `Verdict: APPROVED_WITH_COMMENTS`, committed at `0c3e7f9`, with the plan row at `a8dd1fa`. Steering's brief had not arrived; I read the review's Assumption Not Checked, CR-1 and CR-2, and the plan's Decisions Register (D7). Verdict PASS. QAF-11 MEDIUM goes to the implementer. Status → QA Complete (M0 scope; plan Status left alone). |
+| 2026-11-08T21:31 | devops-hooks-015 | Document closed | Status: Committed (was QA Complete). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
 
 ## Scope and criteria assessed
 
