@@ -910,9 +910,9 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
   - Plan gate reads: Rounds 4, 5, 6, 8, 9, 11, 12, 13 (rev 24 APPROVED).
 - **Next.**
   - The CR-22/CR-24 fix, as a Round 14 sub-entry. Re-run `cr-m6-probes/run-fence.sh` and `usemount-cleanup-sweep.sh` at the fix SHA, and break the new predicates.
-  - The M5-h fix (CR-18), as a Round 10 sub-entry. It is held by steering. The working tree at `24ac49f` shows uncommitted `src/app/preview/page.tsx` and its test: the implementer's draft, not handed off. Instruments: `cr-m5-probes/run-reported.sh`, `run-real.sh` and `run-edge.sh`. Re-attack from first principles, with presence assertions.
+  - The M5-h fix (CR-18), as a Round 10 sub-entry, once the implementer hands it off. M5-h and M5-i are released on rev 24 (rulings `a4d800d`). The fix is committed at website `09c7c45` (preview files only) and is not yet handed off. Instruments: `cr-m5-probes/run-reported.sh`, `run-real.sh` and `run-edge.sh`. Re-attack from first principles, with presence assertions.
   - Also owed, not in this range: M4-d's non-JSON cell (rev 24) and M5-i.
-  - CR-23's restatement, at the next plan gate read.
+  - CR-23's restatement, at the next plan gate read. CR-22's alternative remedy (narrowing M6-a) is the planner's call; steering puts it to the owner only if the planner proposes it.
 - **Instruments.** `cr-m6-probes/` (fence probe and runner, `useMount` sweep, regex timing, class sweeps, CR-17/CR-19 sweeps), `cr-m5-probes/` (real run 5 at `24ac49f`), `cr-m4-probes/`, `cr-m1-probes/`.
 - **Hazards.** As before: stamps come from `record-edit.js`; re-diff the plan right before `commit --only`; the rtk filter breaks piped counts; convention-check's id-token check SKIPs, so run it by hand; vitest probes need `~/env.mjs` mocked and write rows through `EDGE_OUT` or `PROBE_OUT`; real-editor probes wait for Suspense.
 - **Questions out.** None.
