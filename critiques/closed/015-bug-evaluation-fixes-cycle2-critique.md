@@ -2,10 +2,10 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Status: Open
-Status-Detail: "Cycle 2, pass 2, delta-bounded read of revision 7 (38b12e6; boundary verified against 5d516d9, plan 59/17). Verdict APPROVED: M-C2-1–M-C2-3 and L-C2-1–L-C2-3 verified landed → RESOLVED. One new LOW (L-C2-4: M1-c's no-account cell attributes the adapter's session-row deletion to the clear-out) routes to the planner for a fold or a Planner batch row; Open until that row is read."
-Artifact-Revision: 7 — read at agent-output 38b12e6 (643a7bc on top is a research write)
-Reviewed-At: 38b12e6 — repos=agent-output; website 7ce866b (chain/015-bug-evaluation-fixes), preview-image-generator 471578f (chain/015-bug-evaluation-fixes), unchanged since cycle 1
+Status: Resolved
+Status-Detail: "Cycle 2 closed at plan revision 8 (1f7715b): L-C2-4 verified landed in M1-c (session row attributed to next-auth's adapter; the Accounts update is the ordering anchor) → RESOLVED. Every cycle-2 finding is RESOLVED. Rev 8 changes criterion text, so cycle 3 opens in critiques/015-bug-evaluation-fixes-cycle3-critique.md."
+Artifact-Revision: 8 — read at agent-output 1f7715b (delta 38b12e6..1f7715b, --numstat 39/18)
+Reviewed-At: 1f7715b — repos=agent-output; website 7ce866b (chain/015-bug-evaluation-fixes), preview-image-generator 471578f (chain/015-bug-evaluation-fixes), unchanged since cycle 1
 Verdict: APPROVED
 ---
 
@@ -22,6 +22,7 @@ Cycle 1 (passes 1–3, rev 3→5) is closed at `critiques/closed/015-bug-evaluat
 |---|---|---|---|
 | 2026-11-08T05:46 | steering-hooks-015 → critic-hooks-015 | New cycle on rev 6 | cycle 2 pass 1. Delta-bounded: the delta is fully readable in the diff; the whole-document read is the escalation, not taken. One premise measured in-pass (loopback inside `unshare -rn`). M-C2-1–M-C2-3, L-C2-1–L-C2-3 raised. REQUEST REVISION. Process disclosure: the first write of this row carried an estimated stamp (05:50 against a clock of 05:46); the stamp gate refused it and the row was re-stamped from `date -u` — a gate satisfied, not a control worked around. |
 | 2026-11-08T05:48 | qa-hooks-015 → critic-hooks-015 | M-C2-1 accepted; E-1 amended | State change only: M-C2-1 → ADDRESSED on QA's document (`2625ef1`, verified by reading E-1's reconcile note and the probe files' presence in the commit stat); OPEN against the plan until rev 7. QA also notes the plan file moved to `8d67ce5` with a Resumption State only, and raises QAF-6/QAF-7 (LOW) to the planner — outside this critique. No verdict change. |
+| 2026-11-08T05:54 | steering-hooks-015 → critic-hooks-015 | Resume from Checkpoint 3ec55be; rev 8 delta | Closure. L-C2-4 verified landed at rev 8 (`1f7715b`; delta `38b12e6..1f7715b`, `--numstat` 39/18, read whole): M1-c's no-account cell is limited to `removeUserSession`'s two key deletions, a new paragraph places the `Sessions` row outside M1-c, and the Ordering anchor is the `Accounts` update. Re-derived at source: `website/node_modules/next-auth/core/routes/signout.js` calls `adapter.deleteSession` (line 46 at 4.24.5) before `events.signOut` (line 47); `src/server/auth.ts` `events.signOut` is `removeUserSession`'s caller. L-C2-4 → RESOLVED. Rev 8 also changes M8-a's run-2 reads (criterion text), which opens cycle 3 in a new file. Status: Resolved; document closed. |
 | 2026-11-08T05:50 | steering-hooks-015 → critic-hooks-015 | Pass 2 on rev 7 | cycle 2 pass 2. Delta-bounded, boundary verified. Re-derived: `/usr/bin/google-chrome --version` → 156.0.8078.47 and `/snap/bin/chromium --version` → 157.0.8103.38 (match the plan's read); `fetchUserGuilds` `expireSeconds: 600`; `removeUserSession`'s caller is next-auth's `signOut` event. M-C2-1–M-C2-3, L-C2-1–L-C2-3 → RESOLVED. New: L-C2-4 (LOW). Rev-7 owed re-verdicts row: all limbs approved. APPROVED. |
 
 ## Assumption Not Checked
@@ -53,9 +54,9 @@ L-C2-1 LOW cycle 2 pass 1 RESOLVED — the no-account cell names the two keys it
 L-C2-2 LOW cycle 2 pass 1 RESOLVED — run 2's read is the count of `POST /generate` lines after the last `Server running at`; the script gains it before run 2, analyst-written and code-reviewed with M8. Plan rev 7.
 L-C2-3 LOW cycle 2 pass 1 RESOLVED — M2's note is a property (no expectation over `embedShape`'s class computed from a copy) citing QA § M2 for the file. Plan rev 7.
 
-### Low (new at pass 2)
+### Resolved at closure (disposition line; the argument lives in `1ce2ae4`)
 
-**L-C2-4 LOW cycle 2 pass 2 — M1-c's no-account cell credits the clear-out with the adapter's act.** State: OPEN. The cell reads "exactly two things happen: the `user-access-token` and `user-session-token` keys are deleted, and the session's DB rows are removed." `removeUserSession` removes no session row: its only DB act is the `Accounts` update, skipped in this cell. The session row is deleted by next-auth's adapter before the `signOut` *event* fires (`src/server/auth.ts` `events.signOut` is the caller, read at `7ce866b`), so it is not observable at the unit M1-c changes and not caused by it. One clause: attribute the row deletion to the adapter, or drop it from the cell; the cell's observable content is the two key deletions, no `Accounts` update, no revoke.
+L-C2-4 LOW cycle 2 pass 2 RESOLVED — M1-c's no-account cell names only `removeUserSession`'s two key deletions; the `Sessions` row is attributed to next-auth 4.24.5's adapter (`deleteSession` before `events.signOut`) in its own paragraph; the Ordering anchor is the `Accounts` update. Plan rev 8 `1f7715b`, folded with architect AF-16 and QA QAF-9.
 
 ## Questions
 
@@ -77,12 +78,7 @@ None. No `OPEN QUESTION` was added at rev 6.
 
 **Next**: the planner subagent (planner-hooks-015) revises against these findings; QA Phase 1 amends E-1 (M-C2-1) on its own document.
 
-## Resumption State (checkpoint, critic-hooks-015, 2026-11-08T05:51)
+## Closure
 
-- **Done.** Cycle 1 closed at `critiques/closed/015-bug-evaluation-fixes-critique.md` (`dee418b`; plan rev 5 approved). Cycle 2: pass 1 on rev 6 (`39fb6b9`, REQUEST REVISION), pass 2 on rev 7 `38b12e6` (`1ce2ae4`, APPROVED). Every finding is RESOLVED except **L-C2-4 (LOW, OPEN)** — M1-c's no-account cell attributes the session-row deletion to the clear-out; it is next-auth's adapter's act (`src/server/auth.ts` `events.signOut` is the caller). Sent to planner-hooks-015 (msg `4e1cd582`) and steering-hooks-015 (`373ea071`) at 05:50Z.
-- **Next.** When the planner's L-C2-4 row lands (a fold or a Planner batch row with a landing trigger): read that delta only (`git diff <this read>..<new> -- planning/015-bug-evaluation-fixes.md`, boundary by `--numstat`), set L-C2-4 RESOLVED, Status `Resolved`, changelog row, move this file to `critiques/closed/`, commit, one message each to the planner and steering. A delta that changes criterion text, milestone scope or an instrument's form instead opens cycle 3 in a new file (`…-cycle3-critique.md`), delta-bounded by default.
-- **Approach in flight.** Delta-bounded passes; every count by `grep -c`/`--numstat`; any premise a run settles in under a minute is run and quoted (pass 1 measured loopback inside `unshare -rn`). The two source trees are unchanged at website `7ce866b`, preview-image-generator `471578f` (chain branches); re-check at resume.
-- **Branch and HEAD.** agent-output `master`; last own commit `1ce2ae4` (this Checkpoint follows it). Nothing uncommitted of mine; nothing locally mutated; no processes started by this session (reads and one `unshare -rn` probe, exited).
-- **Evidence not yet recorded.** None.
-- **Open with others.** L-C2-4 (planner). Pass-2 Assumption Not Checked (puppeteer 21.1.0 against Chrome 156 / Chromium 157) is the implementer's at M8. Process facts already lodged: the API-key display (cycle 1 pass 1), the stamp-gate re-stamp (cycle 2 pass 1).
+Closed 2026-11-08T05:54 at plan rev 8 (`1f7715b`): every cycle-2 finding RESOLVED; cycle 3 continues in `critiques/015-bug-evaluation-fixes-cycle3-critique.md`. Items carried past this document: the pass-2 Assumption Not Checked (puppeteer 21.1.0 against Chrome 156 / Chromium 157) is the implementer's at plan § M8-c "Compatibility, unread".
 
