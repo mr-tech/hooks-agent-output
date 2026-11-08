@@ -212,3 +212,8 @@ This sharpens M4-d's "message URL", so it goes to the planner to register. Which
 ## 2026-11-08T06:46Z — M1-c and M1-h released on plan rev 13 (9cbe755)
 Every pre-code gate has passed rev 13: critic cycle 3 closed APPROVED (6970763), architect APPROVED (f7e6602), QA Phase 1 re-key passes with QAF-17/18 LOW to the planner, not blocking code (aad87b6). No OPEN QUESTION is open (planner's report). M3 was released by the planner's R-5 (a07e9c3). Pending registration, not blocking M1: M4-d (9b94838), and M4-c's "name view" question.
 Steering's error, recorded: on 06:44Z I told code-reviewer-hooks-015 that 6001f7f carried neither M1-c nor M1-h. In fact it carries the M1-h change 69b17af. I withdrew that to the reviewer.
+
+## 2026-11-08T06:50Z — M4-d link hosts: also discordapp.com (selection)
+Put ~06:53Z, answered 2026-11-08T06:50Z, **by selection** (labels and descriptions steering's; the pattern facts are the planner's read of src/constants/index.ts DISCORD_MESSAGE_LINK_REGEX, which steering did not read).
+Options: Agent: reuse site's pattern / Agent: discord.com only / Agent: also discordapp.com. Chosen **Agent: also discordapp.com**. Its description, verbatim: "Agent: the site's pattern plus old discordapp.com links. The planner would then decide whether the New Message dialog gets the same change (a further scope question)."
+So the edit-message box accepts discord.com, www., canary., ptb. and discordapp.com message links. If changing the New Message dialog too (for example by widening the shared constant) is proposed, that is a scope delta and comes back to him.
