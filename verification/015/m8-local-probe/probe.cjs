@@ -14,15 +14,17 @@ const BASE_ENV = (p) => ({
   PREVIEW_ENDPOINT: 'http://127.0.0.1:1/preview', API_KEY: 'probe-key',
 });
 
-function start(overrides = {}) {
+function start(overrides = {}, execArgv = []) {
   port += 1;
   const env = { ...BASE_ENV(port), ...overrides };
   for (const k of Object.keys(env)) if (env[k] === undefined) delete env[k];
-  const child = fork('build/server.js', [], { env, silent: true });
+  const child = fork('build/server.js', [], { env, silent: true, execArgv });
   const lines = [];
+  const stdoutLines = [];
   const take = (d) => String(d).split('\n').filter(Boolean).forEach((l) => lines.push(l));
-  child.stdout.on('data', take); child.stderr.on('data', take);
-  const o = { child, lines, port, readyAt: null, exit: null };
+  child.stdout.on('data', (d) => { take(d); String(d).split('\n').filter(Boolean).forEach((l) => stdoutLines.push(l)); });
+  child.stderr.on('data', take);
+  const o = { child, lines, stdoutLines, port, readyAt: null, exit: null };
   o.ready = new Promise((resolve) => child.on('message', (m) => { if (m === 'ready') { o.readyAt = Date.now(); resolve(true); } }));
   o.exited = new Promise((resolve) => child.on('exit', (code, sig) => { o.exit = { code, sig, at: Date.now() }; resolve(o.exit); }));
   return o;
@@ -42,6 +44,7 @@ function request(p, { method = 'POST', path = '/generate', auth = 'Bearer probe-
 const count = (o, re) => o.lines.filter((l) => re.test(l)).length;
 const SERVER_RECEIVED = /Z Server received /;
 const DRAINED = /Z Drain complete in \d+ms/;
+const DRAIN_FAILED = /Z Drain failed after \d+ms: /;
 
 (async () => {
   // Self-check before any cell is read (E-1).
@@ -117,6 +120,18 @@ const DRAINED = /Z Drain complete in \d+ms/;
     await stop(o);
   }
   {
+    // A drain that fails (closeIdleConnections absent, the shape of a Node runtime before 18.2): the out log must
+    // carry a failure line and no drain-complete line, and the process still exits.
+    require('fs').writeFileSync('probe-no-close-idle.cjs', "delete require('http').Server.prototype.closeIdleConnections;\n");
+    const o = start({}, ['-r', require('path').resolve('probe-no-close-idle.cjs')]); await o.ready;
+    o.child.send('shutdown');
+    const ex = await waitExit(o, 12000);
+    cell('P1 failed drain: no drain-complete line on stdout or stderr', !!ex && count(o, DRAINED) === 0, o.lines.filter((l) => /Drain complete/.test(l)).join(' | '));
+    cell('P1 failed drain: one "Drain failed after Nms: <message>" line on stdout, naming the cause', o.stdoutLines.filter((l) => DRAIN_FAILED.test(l) && /closeIdleConnections/.test(l)).length === 1, o.stdoutLines.filter((l) => /Drain/.test(l)).join(' | '));
+    cell('P1 failed drain: the process still exits, code 0, before the 10 s fallback', !!ex && ex.code === 0 && ex.at - o.readyAt < 9000, JSON.stringify(ex));
+    await stop(o);
+  }
+  {
     process.env.DEPLOY_NAME = 'probe';
     const cfg = require('./ecosystem.config.js').apps[0];
     cell('P2: ecosystem states kill_timeout 12000 and shutdown_with_message true', cfg.kill_timeout === 12000 && cfg.shutdown_with_message === true, JSON.stringify({ kill_timeout: cfg.kill_timeout, shutdown_with_message: cfg.shutdown_with_message }));
@@ -137,6 +152,60 @@ const DRAINED = /Z Drain complete in \d+ms/;
     const creates = Number((summary.match(/creates=(\d+)/) || [0, 1e9])[1]);
     cell('M8-d pool: a launch failure rejects the request with the launch error, not a TypeError', /rejected/.test(result) && !/Cannot read properties|TypeError/.test(result), result);
     cell('M8-d pool: no creation retry storm and nothing left pending', creates <= 5 && /pending=0/.test(summary), summary);
+  }
+
+  // M8-d (d) startup line (D36, CR-33, AF-31, QA's fixture): generic-pool's own source is renamed in a copy and the generator is
+  // started against it (a preload maps 'generic-pool' to the copy). 'field': _waitingClientsQueue renamed everywhere, the shape of
+  // code review's rk8-field-mutant. 'dequeue': the queue's dequeue renamed in the library and its one caller, the field kept
+  // (CR-33). With the member absent the generator writes one named line at startup, before any request, and keeps serving.
+  const fs = require('fs');
+  const path = require('path');
+  const SHAPE_LINE = /generic-pool no longer exposes _waitingClientsQueue\.dequeue/;
+  const renamedLibrary = (tag, rename) => {
+    const dir = path.resolve(`gp-${tag}`);
+    fs.rmSync(dir, { recursive: true, force: true });
+    fs.cpSync(path.resolve('node_modules/generic-pool'), dir, { recursive: true });
+    let changed = 0;
+    for (const f of fs.readdirSync(path.join(dir, 'lib'))) {
+      const file = path.join(dir, 'lib', f);
+      const before = fs.readFileSync(file, 'utf8');
+      const after = rename(before);
+      if (after !== before) { changed += 1; fs.writeFileSync(file, after); }
+    }
+    const preload = path.resolve(`probe-gp-${tag}.cjs`);
+    fs.writeFileSync(preload, `const Module = require('module'); const resolve = Module._resolveFilename;\nModule._resolveFilename = function (request, ...rest) { return resolve.call(this, request === 'generic-pool' ? ${JSON.stringify(dir)} : request, ...rest); };\n`);
+    return { preload, changed };
+  };
+  const VARIANTS = [
+    ['field', 'the library renames _waitingClientsQueue', (t) => t.replace(/_waitingClientsQueue/g, '_waitingQueueRenamed')],
+    ['dequeue', 'the library renames the queue\'s dequeue, the field kept', (t) => t.replace(/\bdequeue\b/g, 'dequeueRenamed')],
+  ];
+  const fixtures = {};
+  for (const [tag, variant, rename] of VARIANTS) {
+    const fx = renamedLibrary(tag, rename);
+    fixtures[tag] = fx;
+    const o = start({}, ['-r', fx.preload]);
+    const ready = await Promise.race([o.ready, sleep(15000).then(() => false)]);
+    await sleep(300);
+    const before = count(o, SHAPE_LINE);
+    const served = await request(o.port, { method: 'GET', path: '/x', auth: null });
+    cell(`M8-d (d) startup: ${variant}: one named line before any request, and the server keeps serving`, fx.changed > 0 && ready === true && before === 1 && served === 404 && o.exit === null, JSON.stringify({ filesRenamed: fx.changed, ready, lines: before, served, exited: o.exit }));
+    await stop(o);
+  }
+  {
+    const o = start(); await o.ready; await sleep(300);
+    cell('M8-d (d) startup non-member: the 3.9.0 tree as resolved writes no such line and reaches ready', o.readyAt !== null && count(o, SHAPE_LINE) === 0, `${count(o, SHAPE_LINE)} lines`);
+    await stop(o);
+  }
+  // With the member absent the creation-error handler is not registered, so a failing launch must not crash the process
+  // (CR-33: with dequeue renamed and the field kept, the unguarded handler exited the process).
+  {
+    const r = spawnSync('node', ['-r', fixtures.dequeue.preload, '-e', `
+      const p = require('./build/getPool').default();
+      p.use(async () => 'used').then((v) => console.log('RESULT resolved ' + v), (e) => console.log('RESULT rejected ' + e.constructor.name));
+      setTimeout(() => { console.log('ALIVE'); process.exit(0); }, 1500);
+    `], { env: { PATH: process.env.PATH, HOME: process.env.HOME }, encoding: 'utf8', timeout: 60000, stdio: ['ignore', 'pipe', 'ignore'] });
+    cell('M8-d (d) member absent: a failing browser launch does not crash the process', /ALIVE/.test(r.stdout || '') && r.status === 0, JSON.stringify({ status: r.status, out: (r.stdout || '').trim().split('\n').slice(-2) }));
   }
 
   // M8-c with a real browser: separate process, pages counted.

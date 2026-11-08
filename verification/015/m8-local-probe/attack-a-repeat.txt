@@ -1,0 +1,12 @@
+6c613a5 run1 launch-error lines after burst=11 after 3 s idle=12 2 fail
+6c613a5 run2 launch-error lines after burst=12 after 3 s idle=12 1 fail
+6c613a5 run3 launch-error lines after burst=11 after 3 s idle=12 2 fail
+6c613a5 run4 launch-error lines after burst=12 after 3 s idle=12 1 fail
+6c613a5 run5 launch-error lines after burst=12 after 3 s idle=12 1 fail
+6c613a5 run6 launch-error lines after burst=12 after 3 s idle=12 1 fail
+7e5ca5f run1 launch-error lines after burst=11 after 3 s idle=12 1 fail
+7e5ca5f run2 launch-error lines after burst=11 after 3 s idle=12 1 fail
+7e5ca5f run3 launch-error lines after burst=12 after 3 s idle=12 0 fail
+7e5ca5f run4 launch-error lines after burst=12 after 3 s idle=12 0 fail
+7e5ca5f run5 launch-error lines after burst=12 after 3 s idle=12 0 fail
+7e5ca5f run6 launch-error lines after burst=12 after 3 s idle=12 0 fail

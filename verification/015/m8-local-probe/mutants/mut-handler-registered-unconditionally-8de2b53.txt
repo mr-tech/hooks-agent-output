@@ -1,0 +1,36 @@
+self-check: loopback GET 200; external lookup EAI_AGAIN
+CELL PASS M8-e API_KEY unset: refuses to start, exit code 2, a line names API_KEY -- {"exit":2,"lines":["API_KEY is not set. Refusing to start."]}
+CELL PASS M8-e API_KEY empty: refuses to start, exit code 2, a line names API_KEY -- {"exit":2,"lines":["API_KEY is not set. Refusing to start."]}
+CELL PASS M8-e control: API_KEY set starts and sends ready
+CELL PASS control: a request without the key gets 404
+CELL PASS control: a request with an empty Bearer gets 404 (the key is set)
+CELL PASS M8-b body unparsable: 500, process keeps serving -- {"st":500,"after":404,"exited":null}
+CELL PASS M8-b body the JSON null: 500, process keeps serving -- {"st":500,"after":404,"exited":null}
+CELL PASS M8-b body a JSON number: 500, process keeps serving -- {"st":500,"after":404,"exited":null}
+CELL PASS M8-d/M8-c server level: two failing generate requests get 500, process alive -- {"a":500,"b":500,"ms":23,"exited":null}
+CELL PASS M8-d: no "Cannot read properties" in the log after those requests -- 0 lines
+CELL PASS M8-c: no unhandled-rejection line in the log
+CELL PASS P1 shutdown message: exit code 0 -- {"code":0,"sig":null,"at":1794131222523}
+CELL PASS P1: exactly one "Server received" line, naming the trigger -- 2026-11-08T09:47:02.512Z Server received shutdown message. Closing server.
+CELL PASS P1: exactly one drain-complete line with an elapsed figure -- 2026-11-08T09:47:02.512Z Drain complete in 0ms.
+CELL PASS P1 predicate: the ready line "Server running at" is not a member
+CELL PASS P3 idle: exits well before the 10 s fallback and launches no browser -- 15 ms; Created instance lines 0
+CELL PASS P1 idempotent: shutdown message then SIGINT gives one "Server received" line and exit 0 -- 2026-11-08T09:47:02.881Z Server received shutdown message. Closing server.
+CELL PASS P1 SIGINT alone: one "Server received" line naming SIGINT, exit 0
+CELL PASS P4: a shutdown message sent in the tick the ready message arrives is handled -- {"ex":{"code":0,"sig":null,"at":1794131223651},"received":1}
+CELL PASS P1 failed drain: no drain-complete line on stdout or stderr
+CELL PASS P1 failed drain: one "Drain failed after Nms: <message>" line on stdout, naming the cause -- 2026-11-08T09:47:04.016Z Drain failed after 0ms: server.closeIdleConnections is not a function
+CELL PASS P1 failed drain: the process still exits, code 0, before the 10 s fallback -- {"code":0,"sig":null,"at":1794131224026}
+CELL PASS P2: ecosystem states kill_timeout 12000 and shutdown_with_message true -- {"kill_timeout":12000,"shutdown_with_message":true}
+CELL PASS M8-d pool: a launch failure rejects the request with the launch error, not a TypeError -- RESULT rejected Error: Could not find Chrome (ver. 116.0.5845.96). This can occur if either
+CELL PASS M8-d pool: no creation retry storm and nothing left pending -- SUMMARY creates=2 pending=0 ms=2004
+CELL PASS M8-d (d) startup: the library renames _waitingClientsQueue: one named line before any request, and the server keeps serving -- {"filesRenamed":1,"ready":true,"lines":1,"served":404,"exited":null}
+CELL PASS M8-d (d) startup: the library renames the queue's dequeue, the field kept: one named line before any request, and the server keeps serving -- {"filesRenamed":2,"ready":true,"lines":1,"served":404,"exited":null}
+CELL PASS M8-d (d) startup non-member: the 3.9.0 tree as resolved writes no such line and reaches ready -- 0 lines
+CELL FAIL M8-d (d) member absent: a failing browser launch does not crash the process -- {"status":1,"out":[""]}
+CELL PASS M8-c a page opened by a request whose navigation throws is closed -- opened=1 closed=1 (rejected connect ECONNREFUSED 127.0.0.1:1)
+CELL PASS M8-c no unhandled rejection when both the image and the S3 delete fail -- unhandled=0
+CELL PASS M8-c a page whose screenshot succeeded is closed -- opened=2 closed=2
+INFO browser: /usr/bin/google-chrome
+SUMMARY cells=32 failed=1
+exit 0
