@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/2e64cdda-da60-412f-b877-233044fe3158/scratchpad/website-b93e897-qaf34-control  sha: b93e897  label: qaf34-control  test: src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/2e64cdda-da60-412f-b877-233044fe3158/scratchpad/website-b93e897-qaf34-control
+
+
+ Test Files  1 passed (1)
+      Tests  29 passed (29)
+   Start at  10:00:11
+   Duration  1.38s (transform 456ms, setup 0ms, import 1.21s, tests 34ms, environment 0ms)
+
+vitest exit 0

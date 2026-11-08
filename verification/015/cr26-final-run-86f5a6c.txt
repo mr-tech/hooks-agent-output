@@ -1,0 +1,8 @@
+isolation: non-lo links=0 default routes=0
+vitest exit 0
+typecheck exit 0
+
+> website@ typecheck /tmp/claude-1000/-usr-local-bin-hooks/2e64cdda-da60-412f-b877-233044fe3158/scratchpad/website-86f5a6c-suite
+> tsc --noEmit && tsc --noEmit -p tsconfig.test.json
+
+stderr lines: 0

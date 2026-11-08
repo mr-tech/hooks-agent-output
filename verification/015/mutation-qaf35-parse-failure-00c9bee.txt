@@ -1,0 +1,107 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/2e64cdda-da60-412f-b877-233044fe3158/scratchpad/website-00c9bee-qaf35-parse-failure  sha: 00c9bee  label: qaf35-parse-failure  test: src/app/preview/__tests__/page.invalid-data.test.tsx  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf35-preview-parse-failure-renders-empty.py
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/2e64cdda-da60-412f-b877-233044fe3158/scratchpad/website-00c9bee-qaf35-parse-failure
+
+ ❯ |dom| src/app/preview/__tests__/page.invalid-data.test.tsx (57 tests | 26 failed) 1295ms
+     × shows one line of error text and no editor for text that is not JSON 54ms
+     × shows one line of error text and no editor for a bare opening brace 38ms
+     × shows one line of error text and no editor for the JSON null 22ms
+     × shows one line of error text and no editor when embeds a number 22ms
+     × shows one line of error text and no editor when embeds false 21ms
+     × shows one line of error text and no editor when embeds true 18ms
+     × shows one line of error text and no editor when embeds a string 16ms
+     × shows one line of error text and no editor when embeds an object 16ms
+     × shows one line of error text and no editor when an embed that is null 17ms
+     × shows one line of error text and no editor when an embed that is a number 16ms
+     × shows one line of error text and no editor when an embed that is a string 17ms
+     × shows one line of error text and no editor when fields a number 17ms
+     × shows one line of error text and no editor when fields a string 23ms
+     × shows one line of error text and no editor when fields an object 18ms
+     × shows one line of error text and no editor when a field that is null 16ms
+     × shows one line of error text and no editor when a field that is a number 15ms
+     × shows one line of error text and no editor when components a number 14ms
+     × shows one line of error text and no editor when components a string 13ms
+     × shows one line of error text and no editor when components an object 13ms
+     × shows one line of error text and no editor when an action row child that is null 15ms
+     × shows one line of error text and no editor when an action row child that is a number 16ms
+     × shows one line of error text and no editor when a section child that is null 15ms
+     × shows one line of error text and no editor when a section child that is a number 15ms
+     × shows one line of error text and no editor when a gallery item that is null 14ms
+     × shows one line of error text and no editor when a gallery item that is a number 11ms
+     × shows one line of error text and no editor when an action row nested in a container with a null child 8ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 26 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for text that is not JSON
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for a bare opening brace
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for the JSON null
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ expectOneErrorLine src/app/preview/__tests__/page.invalid-data.test.tsx:44:27
+     42|
+     43| function expectOneErrorLine(el: HTMLElement) {
+     44|   expect(editorShown(el)).toBe(false);
+       |                           ^
+     45|   const shown = Array.from(el.querySelectorAll('*'))
+     46|     .filter((e) => e.children.length === 0 && e.textContent === 'Inval…
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:80:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/26]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when embeds a number
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when embeds false
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when embeds true
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when embeds a string
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when embeds an object
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when an embed that is null
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when an embed that is a number
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when an embed that is a string
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when fields a number
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when fields a string
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when fields an object
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when a field that is null
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when a field that is a number
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when components a number
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when components a string
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when components an object
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when an action row child that is null
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when an action row child that is a number
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when a section child that is null
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when a section child that is a number
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when a gallery item that is null
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when a gallery item that is a number
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when an action row nested in a container with a null child
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ expectOneErrorLine src/app/preview/__tests__/page.invalid-data.test.tsx:44:27
+     42|
+     43| function expectOneErrorLine(el: HTMLElement) {
+     44|   expect(editorShown(el)).toBe(false);
+       |                           ^
+     45|   const shown = Array.from(el.querySelectorAll('*'))
+     46|     .filter((e) => e.children.length === 0 && e.textContent === 'Inval…
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:119:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/26]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  26 failed | 31 passed (57)
+   Start at  10:01:02
+   Duration  3.29s (transform 711ms, setup 20ms, import 1.27s, tests 1.30s, environment 585ms)
+
+vitest exit 1

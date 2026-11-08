@@ -1,0 +1,15 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/2e64cdda-da60-412f-b877-233044fe3158/scratchpad/website-00c9bee-cr26-lint sha: 00c9bee
+== usemount-lint-planted.tsx
+/tmp/claude-1000/-usr-local-bin-hooks/2e64cdda-da60-412f-b877-233044fe3158/scratchpad/website-00c9bee-cr26-lint/src/components/BottomPortal.tsx:7:32: react-use useMount discards the function its callback returns, so the cleanup never runs. Use useEffect(() => cleanup, []) instead. [Error/no-restricted-syntax]
+/tmp/claude-1000/-usr-local-bin-hooks/2e64cdda-da60-412f-b877-233044fe3158/scratchpad/website-00c9bee-cr26-lint/src/components/BottomPortal.tsx:8:40: react-use useMount discards the function its callback returns, so the cleanup never runs. Use useEffect(() => cleanup, []) instead. [Error/no-restricted-syntax]
+/tmp/claude-1000/-usr-local-bin-hooks/2e64cdda-da60-412f-b877-233044fe3158/scratchpad/website-00c9bee-cr26-lint/src/components/BottomPortal.tsx:14:51: react-use useMount discards the function its callback returns, so the cleanup never runs. Use useEffect(() => cleanup, []) instead. [Error/no-restricted-syntax]
+
+3 problems
+exit 1
+== planted-deep.tsx
+exit 0
+== planted-control.tsx
+/tmp/claude-1000/-usr-local-bin-hooks/2e64cdda-da60-412f-b877-233044fe3158/scratchpad/website-00c9bee-cr26-lint/src/components/BottomPortal.tsx:3:1: Prefer default export on a file with single export. [Error/import/prefer-default-export]
+
+1 problem
+exit 1

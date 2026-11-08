@@ -1,0 +1,19 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/2e64cdda-da60-412f-b877-233044fe3158/scratchpad/website-86f5a6c-cr26-lint sha: 86f5a6c
+== usemount-lint-planted.tsx
+/tmp/claude-1000/-usr-local-bin-hooks/2e64cdda-da60-412f-b877-233044fe3158/scratchpad/website-86f5a6c-cr26-lint/src/components/BottomPortal.tsx:1:8: * import is invalid because 'useMount' from 'react-use' is restricted. react-use useMount discards the function its callback returns, so the cleanup never runs. Use useEffect(() => cleanup, []) instead. [Error/no-restricted-imports]
+/tmp/claude-1000/-usr-local-bin-hooks/2e64cdda-da60-412f-b877-233044fe3158/scratchpad/website-86f5a6c-cr26-lint/src/components/BottomPortal.tsx:2:10: 'useMount' import from 'react-use' is restricted. react-use useMount discards the function its callback returns, so the cleanup never runs. Use useEffect(() => cleanup, []) instead. [Error/no-restricted-imports]
+/tmp/claude-1000/-usr-local-bin-hooks/2e64cdda-da60-412f-b877-233044fe3158/scratchpad/website-86f5a6c-cr26-lint/src/components/BottomPortal.tsx:2:20: 'useMount' import from 'react-use' is restricted. react-use useMount discards the function its callback returns, so the cleanup never runs. Use useEffect(() => cleanup, []) instead. [Error/no-restricted-imports]
+
+3 problems
+exit 1
+== planted-deep.tsx
+/tmp/claude-1000/-usr-local-bin-hooks/2e64cdda-da60-412f-b877-233044fe3158/scratchpad/website-86f5a6c-cr26-lint/src/components/BottomPortal.tsx:1:1: 'react-use/lib/useMount' import is restricted from being used by a pattern. react-use useMount discards the function its callback returns, so the cleanup never runs. Use useEffect(() => cleanup, []) instead. [Error/no-restricted-imports]
+/tmp/claude-1000/-usr-local-bin-hooks/2e64cdda-da60-412f-b877-233044fe3158/scratchpad/website-86f5a6c-cr26-lint/src/components/BottomPortal.tsx:2:1: 'react-use/esm/useMount' import is restricted from being used by a pattern. react-use useMount discards the function its callback returns, so the cleanup never runs. Use useEffect(() => cleanup, []) instead. [Error/no-restricted-imports]
+
+2 problems
+exit 1
+== planted-control.tsx
+/tmp/claude-1000/-usr-local-bin-hooks/2e64cdda-da60-412f-b877-233044fe3158/scratchpad/website-86f5a6c-cr26-lint/src/components/BottomPortal.tsx:3:1: Prefer default export on a file with single export. [Error/import/prefer-default-export]
+
+1 problem
+exit 1

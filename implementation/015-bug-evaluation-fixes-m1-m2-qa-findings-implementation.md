@@ -22,12 +22,13 @@ Handoff-At: "4f9ed85 — repos=website"
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-08T09:55 | steering-hooks-015 → implementer-hooks-015 | QAF-27, QAF-20 | Tests at `825a7d8`; comment gate at `4f9ed85`. Mutators `verification/015/mutators/qaf27-*.py`, `qaf20-*.py`. |
+| 2026-11-08T10:16 | code-reviewer-hooks-015 → implementer-hooks-015 (CR-36) | Reconcile note | The M1-i bullet said "three `stays` rows" and listed two. The diff `476c633..4f9ed85` has two `stays` rows, two `sends … once` rows and one new case, which is the 5 the arithmetic uses. Body corrected. CR-35 (the `formatKey` test file) is resolved in `015-bug-evaluation-fixes-qaf34-qaf35-cr26-implementation.md`; here the file now sits at `src/utils/redis/__tests__/formatKey.key-format.test.ts` (website `b195eeb`). |
 
 ## Implementation Summary
 
 Test-only; no production source changed. Each owed cell was added to the file that already covers the surface.
 
-- **QAF-27, M1-i** (`Server.session-cookie-redirect.test.ts`): three `stays` rows (a session value holding a legal `%41` octet; a bare `next-auth.session-token` with no `=`, which Next reports present) and two `sends … once` rows (`ab%`, `%zz`, which Next reports absent), now also asserting `toHaveBeenCalledTimes(1)`. A new case: no `x-pathname` header, one redirect.
+- **QAF-27, M1-i** (`Server.session-cookie-redirect.test.ts`): two `stays` rows (a session value holding a legal `%41` octet; a bare `next-auth.session-token` with no `=`, which Next reports present) and two `sends … once` rows (`ab%`, `%zz`, which Next reports absent), now also asserting `toHaveBeenCalledTimes(1)`. A new case: no `x-pathname` header, one redirect.
 - **QAF-27, M1-c** (`auth.sign-out.test.ts`): `log.clearResult` lets the pipeline resolve the ioredis `[[err, null], …]` shape (new case: sign-out still resolves and still issues the `Accounts` update); `sessionsStatements()` asserts zero `"Sessions"` statements in two cells; the deletion-failure cell yields two `setImmediate` turns, as Phase 1 named.
 - **QAF-20** (steps 1 to 5):
   1. The `useParsePathname Regex Correctness` describe (7 cases over local copies of the regexes) is deleted. `useParsePathname` has no test now (Outstanding Item 1).
@@ -61,7 +62,7 @@ QAF-27 (the owed members) and QAF-20 (steps 1 to 5). **Not started:** QAF-34 and
 
 | Path | Purpose |
 |---|---|
-| `src/utils/__tests__/formatKey.key-format.test.ts` | the two literal `formatKey` cases |
+| `src/utils/__tests__/formatKey.key-format.test.ts` (moved at `b195eeb` to `src/utils/redis/__tests__/`, CR-35) | the two literal `formatKey` cases |
 | `agent-output/verification/015/mutators/qaf27-*.py` (6), `qaf20-constructimageurl-discriminator-parse-dropped.py` | the named mutants |
 | `agent-output/verification/015/mutation-qaf*-825a7d8.txt`, `qaf27-qaf20-final-*-825a7d8`, `qaf20-before-supplemental.json`, `qaf20-after.json` | captures |
 
