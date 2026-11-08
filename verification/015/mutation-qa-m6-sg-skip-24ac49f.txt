@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6-sg-skip  sha: 24ac49f  label: qa-m6-sg-skip  test: limits.send-gate-partition  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m6-supplement.py
+ .../__tests__/rules.multi-line-code-block.test.ts  |   7 -
+ 7 files changed, 35 insertions(+), 280 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6-sg-skip
+
+
+ Test Files  1 passed (1)
+      Tests  36 passed (36)
+   Start at  08:30:06
+   Duration  699ms (transform 162ms, setup 0ms, import 545ms, tests 13ms, environment 0ms)
+
+vitest exit 0

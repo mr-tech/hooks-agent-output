@@ -1,0 +1,56 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6-lc-recursion  sha: 24ac49f  label: qa-m6-lc-recursion  test: limits.component-count  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m6-supplement.py
+ .../__tests__/rules.multi-line-code-block.test.ts  |   7 -
+ 7 files changed, 35 insertions(+), 285 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6-lc-recursion
+
+ ❯ |node| src/utils/__tests__/limits.component-count.test.ts (13 tests | 2 failed) 38ms
+     × counts a container holding a section of one text and an accessory 23ms
+     × refuses 11 containers each holding a section (44 in all) naming the total and the limit 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > countTotalComponents > counts a container holding a section of one text and an accessory
+AssertionError: expected 2 to be 4 // Object.is equality
+
+- Expected
++ Received
+
+- 4
++ 2
+
+ ❯ src/utils/__tests__/limits.component-count.test.ts:27:55
+     25|     ['a media gallery counts as one', [makeMediaGallery(3)], 1],
+     26|   ])('counts %s', (_title, components, expected) => {
+     27|     expect(countTotalComponents(components as never)).toBe(expected);
+       |                                                       ^
+     28|   });
+     29| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > validateMessage component total > refuses 11 containers each holding a section (44 in all) naming the total and the limit
+AssertionError: expected '' to be 'Message has 44 components; the limit …' // Object.is equality
+
+- Expected
++ Received
+
+- Message has 44 components; the limit is 40.
+
+ ❯ src/utils/__tests__/limits.component-count.test.ts:45:51
+     43|     ['11 containers each holding a section (44 in all)', sectionContai…
+     44|   ])('refuses %s naming the total and the limit', (_title, components,…
+     45|     expect(validateMessage(data({ components }))).toBe(`Message has ${…
+       |                                                   ^
+     46|   });
+     47| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 11 passed (13)
+   Start at  08:30:00
+   Duration  578ms (transform 202ms, setup 0ms, import 239ms, tests 38ms, environment 0ms)
+
+vitest exit 1

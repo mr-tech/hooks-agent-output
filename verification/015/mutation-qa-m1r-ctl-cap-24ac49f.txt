@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m1r-ctl-cap  sha: 24ac49f  label: qa-m1r-ctl-cap  test: shared.message-cap  mutator: none
+ .../src/utils/markdown/rules.tsx                   |   8 +-
+ 7 files changed, 40 insertions(+), 282 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m1r-ctl-cap
+
+
+ Test Files  1 passed (1)
+      Tests  10 passed (10)
+   Start at  08:30:20
+   Duration  707ms (transform 142ms, setup 0ms, import 554ms, tests 20ms, environment 0ms)
+
+vitest exit 0

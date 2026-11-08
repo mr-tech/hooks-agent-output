@@ -1,0 +1,40 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6-lc-ge  sha: 24ac49f  label: qa-m6-lc-ge  test: limits.component-count  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m6-supplement.py
+ .../__tests__/rules.multi-line-code-block.test.ts  |   7 -
+ 7 files changed, 36 insertions(+), 280 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6-lc-ge
+
+ ❯ |node| src/utils/__tests__/limits.component-count.test.ts (13 tests | 3 failed) 10ms
+     × accepts 40 flat text displays 5ms
+     × accepts a container holding 39 text displays (40 in all) 1ms
+     × accepts 10 containers each holding a section (40 in all) 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > validateMessage component total > accepts 40 flat text displays
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > validateMessage component total > accepts a container holding 39 text displays (40 in all)
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > validateMessage component total > accepts 10 containers each holding a section (40 in all)
+AssertionError: expected 'Message has 40 components; the limit …' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Message has 40 components; the limit is 40.
+
+ ❯ src/utils/__tests__/limits.component-count.test.ts:37:51
+     35|     ['10 containers each holding a section (40 in all)', sectionContai…
+     36|   ])('accepts %s', (_title, components) => {
+     37|     expect(validateMessage(data({ components }))).toBe('');
+       |                                                   ^
+     38|   });
+     39|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 10 passed (13)
+   Start at  08:30:08
+   Duration  231ms (transform 59ms, setup 0ms, import 81ms, tests 10ms, environment 0ms)
+
+vitest exit 1

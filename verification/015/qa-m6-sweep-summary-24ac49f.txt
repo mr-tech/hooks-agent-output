@@ -1,0 +1,21 @@
+ctl-ar	 Tests 1 passed (1)	0	vitest exit 0
+ctl-co	 Tests 1 passed (1)	0	vitest exit 0
+ctl-mg	 Tests 1 passed (1)	0	vitest exit 0
+ctl-se	 Tests 1 passed (1)	0	vitest exit 0
+ctl-cl	 Tests 17 passed (17)	0	vitest exit 0
+ctl-lc	 Tests 13 passed (13)	0	vitest exit 0
+ctl-sg	 Tests 36 passed (36)	0	vitest exit 0
+ar-before	 Tests 1 passed (1)	0	vitest exit 0
+co-before	 Tests 1 passed (1)	0	vitest exit 0
+mg-before	 Tests 1 passed (1)	0	vitest exit 0
+se-before	 Tests 1 passed (1)	0	vitest exit 0
+cl-gate40	 Tests 17 passed (17)	0	vitest exit 0
+cl-lineabove	 Tests 17 passed (17)	0	vitest exit 0
+cl-border	 Tests 4 failed | 13 passed (17)	0	vitest exit 1
+cl-recursion	 Tests 2 failed | 15 passed (17)	0	vitest exit 1
+lc-recursion	 Tests 2 failed | 11 passed (13)	0	vitest exit 1
+lc-skip	 Tests 3 failed | 10 passed (13)	0	vitest exit 1
+sg-skip	 Tests 36 passed (36)	0	vitest exit 0
+lc-ge	 Tests 3 failed | 10 passed (13)	0	vitest exit 1
+lc-41	 Tests 3 failed | 10 passed (13)	0	vitest exit 1
+done

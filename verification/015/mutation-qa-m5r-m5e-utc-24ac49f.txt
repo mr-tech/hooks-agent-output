@@ -1,0 +1,57 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m5r-m5e-utc  sha: 24ac49f  label: qa-m5r-m5e-utc  test: formatMessageDate.same-day  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m5-supplement.py
+ .../src/utils/markdown/rules.tsx                   |   8 +-
+ 8 files changed, 43 insertions(+), 285 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m5r-m5e-utc
+
+ ❯ |node| src/utils/__tests__/formatMessageDate.same-day.test.ts (9 tests | 2 failed) 33ms
+     × a message earlier on the local day that falls on the next UTC day is today 6ms
+     × a message just after local midnight on the UTC day of now is not today 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/formatMessageDate.same-day.test.ts > formatMessageDate — "Today" is the same calendar day, not the same day of the month > a message earlier on the local day that falls on the next UTC day is today
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/formatMessageDate.same-day.test.ts:81:42
+     79|     const text = formatMessageDate(new Date(2026, 10, 8, 9, 5).getTime…
+     80|
+     81|     expect(text.startsWith('Today at ')).toBe(true);
+       |                                          ^
+     82|   });
+     83|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/__tests__/formatMessageDate.same-day.test.ts > formatMessageDate — "Today" is the same calendar day, not the same day of the month > a message just after local midnight on the UTC day of now is not today
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/formatMessageDate.same-day.test.ts:89:38
+     87|     const text = formatMessageDate(new Date(2026, 10, 9, 0, 30).getTim…
+     88|
+     89|     expect(text.startsWith('Today')).toBe(false);
+       |                                      ^
+     90|     expect(text).toContain('2026');
+     91|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 7 passed (9)
+   Start at  08:30:32
+   Duration  215ms (transform 32ms, setup 0ms, import 45ms, tests 33ms, environment 0ms)
+
+vitest exit 1

@@ -1,0 +1,5 @@
+ctl-auth	 Tests 12 passed (12)	0	vitest exit 0
+ctl-cap	 Tests 10 passed (10)	0	vitest exit 0
+i2-token	 Tests 8 failed | 4 passed (12)	0	vitest exit 1
+i4-user	 Tests 6 failed | 4 passed (10)	0	vitest exit 1
+done

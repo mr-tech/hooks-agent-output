@@ -1,0 +1,37 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6x-nm-text  sha: 24ac49f  label: qa-m6x-nm-text  test: NewMessageModal.failed-webhook-load  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m6-supplement.py
+ .../src/utils/markdown/rules.tsx                   |   8 +-
+ 12 files changed, 47 insertions(+), 400 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6x-nm-text
+
+ ❯ |dom| src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx (2 tests | 1 failed) 1132ms
+     × shows "Invalid URL" once, on the shared error line, when the network fails 727ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx > NewMessageModal, a failed webhook load > shows "Invalid URL" once, on the shared error line, when the network fails
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx:59:19
+     57|
+     58|     const shown = leavesWithText('Invalid URL');
+     59|     expect(shown).toHaveLength(1);
+       |                   ^
+     60|     expect(shown[0]?.parentElement?.querySelectorAll('input').length).…
+     61|     expect(shown[0]?.classList.contains('text-error')).toBe(true);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  08:33:14
+   Duration  4.63s (transform 856ms, setup 35ms, import 2.08s, tests 1.13s, environment 1.15s)
+
+vitest exit 1

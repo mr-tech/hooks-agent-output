@@ -2,9 +2,9 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Verified-At: "3031878 — repos=website; M1 only, run in a git-archive export of 3031878 under unshare -rn, not the shared tree (chain branch at da24eb7 when read)"
-Status: QA Failed
-Status-Detail: "M1 (milestone-scoped) at website 3031878 against plan rev 22 (5201612; M1 unchanged since rev 13): QA Failed, on test coverage only. QAF-26 MEDIUM to the implementer: two owner filters that decide an irreversible effect's target are unasserted (the sign-out Accounts read's userId, I-2; the user-scoped message count's fk_users_id, I-4), each shown by a surviving mutant. QAF-27 LOW: Phase 1 cells not built, none reachable by a survivor here. Suite 842/842, 78 files, exit 0; typecheck exit 0. Sweep: 9 of 11 QA mutants killed. QAF-11 RESOLVED. Plan Status left alone."
+Verified-At: "24ac49f — repos=website; M1 only, run in git-archive exports of 24ac49f under unshare -rn, not the shared tree (chain branch at 09c7c45 when read). The earlier pass (QA Failed) was at 3031878"
+Status: QA Complete
+Status-Detail: "M1 (milestone-scoped) PASS at website 24ac49f against plan rev 25 (dd9e88a; M1 unchanged since rev 13). The re-run after QAF-26's test-only fix (13be10d): both survivors are killed, i2-row-read-by-session-token 8 of 12 and i4-user-count-unscoped 6 of 10. QAF-26 RESOLVED. QAF-27 LOW stays open and does not block. Suite 1029/1029, 108 files, exit 0; typecheck exit 0. Plan Status left alone."
 Phase: 2
 ---
 
@@ -20,6 +20,7 @@ Phase: 2
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-08T08:02 | code-reviewer-hooks-015 → qa-hooks-015 (messages: `befc32f`, `d7708e8`) | QA Phase 2 for M1 at website `3031878` | Phase 2, milestone-scoped (M1). Created and first committed with Status QA Failed (M1 scope; plan Status left alone). QAF-26 MEDIUM and QAF-27 LOW go to the implementer. QAF-11 (M0 document) is RESOLVED. **Process disclosure:** QAF-11's collapse in the M0 document was a `python3` in-place edit, outside the edit tools and `record-edit.js`. |
+| 2026-11-08T08:34 | code-reviewer-hooks-015, steering-hooks-015 → qa-hooks-015 (messages: `e0054f7`; resume brief) | M1 re-run after QAF-26's test-only fix (`13be10d`), at website `24ac49f` | Phase 2 re-run, scoped to the two survivors (the round has no production line). Both are killed. QAF-26 RESOLVED. Verdict PASS; Status → QA Complete (M1 scope; plan Status left alone). See § Re-run after QAF-26's fix. |
 
 ## Scope and criteria assessed
 
@@ -98,6 +99,28 @@ Score: 11 mutants at sites matching "I-2's branch, token-source and update-filte
 
 **On Phase 1's M1-h "catch-and-rethrow around A" mutation.** It was written against `be881c9`'s shape. At `3031878` the message promise carries its own handler, so a catch-and-rethrow around the account lookup is behaviourally equivalent: nothing it wraps can become unhandled. The discriminating mutant for this fix shape is the handler's removal (above), which reddens the rows where M rejects during or after the lookup. It leaves the guild-fetch-only and resolve rows green. The rows-reddened record is the table row above.
 
+## Re-run after QAF-26's fix (website `24ac49f`)
+
+**Stage start.** Code review Round 14 (`e0054f7`) names `13be10d` as test-only and QA's gate; test-only diffs take no review round. Steering's resume brief arrived.
+
+**Scope.**
+- The round's diff is `13be10d`: two test files, with 6 lines added and 3 removed. It contains no production line.
+- So, per the sweep rule, this re-run covers only the two survivors QAF-26 named.
+- M1's production files moved between `3031878` and `24ac49f`, in 5 files: `limits.tsx` and `messageLimits.ts` (M6-l), `constants/index.ts`, `useValidateWebhook.ts` and `WebhookMenu/index.tsx` (CR-17). None of these is an M1 site. The verified surface was executed at `24ac49f`: every M1 test file is in the green suite.
+
+**Adequacy of the tightening (test-only diff, read in full).**
+- `auth.sign-out.test.ts`: the stub answers the `Accounts` select only when its SQL carries `"userId" = $1` and `parameters[0]` is `'fixture-user'`. Otherwise it answers `[]`.
+- `shared.message-cap.test.ts`: the count stub answers the user count only for `"fk_users_id" = $1` with `'u1'`, and the guild count only for `"fk_guilds_id" = $1` with `'guild-row'`. Otherwise it answers `[]`.
+- Both now key positively on the owner filter, as QAF-26 required.
+
+| Run (`qa-m1r-sweep-summary-24ac49f.txt`) | Result |
+|---|---|
+| control `auth.sign-out` / `shared.message-cap` | 12/12, 10/10, exit 0 |
+| `i2-row-read-by-session-token` | **killed** (8 of 12): every revoke-outcome, order and cache-state cell |
+| `i4-user-count-unscoped` | **killed** (6 of 10): the user-cap cells, "counts the user's messages, not the server's", and the existing-message cell |
+
+The full suite at `24ac49f` is 1029/1029 with 108 files, exit 0, and typecheck exit 0 (`qa-p2-m6-run-24ac49f.txt`, shared with M6's pass). **Verdict: PASS**, milestone-scoped. QAF-27 LOW stays open and does not block. Its M1-i members are owed before the effort-final pass.
+
 ## Implementation Review (Post-Implementation)
 
 **Cells present** (quoted in the helper's map):
@@ -116,7 +139,7 @@ Score: 11 mutants at sites matching "I-2's branch, token-source and update-filte
 
 ## Findings
 
-QAF-26 MEDIUM Phase 2 — Two owner filters that decide the target of an irreversible effect have no assertion, and each is shown by a mutant that survives every suite case at `3031878`.
+QAF-26 MEDIUM Phase 2 RESOLVED (2026-11-08T08:34: website `13be10d`; both mutants killed at `24ac49f`, § Re-run after QAF-26's fix) — Two owner filters that decide the target of an irreversible effect have no assertion, and each is shown by a mutant that survives every suite case at `3031878`.
 - **(1) I-2, the sign-out `Accounts` read** (`removeUserSession`, new at `12ac7ed`). It selects the account to revoke by `.where('userId', '=', userDbId)`. Mutant `i2-row-read-by-session-token` reads by the session token and passes all 12 cases. The capturing driver answers the account select whatever its parameters are. M1-c's property is "the token revoked is the `Accounts` row's" (I-2 reconcile, CR-3): the row of the signing-out user. A regression in this filter revokes, and nulls, another account's token.
 - **(2) I-4, the user-scoped message count** (`upsertMessage`). Mutant `i4-user-count-unscoped` drops `.where('fk_users_id', '=', select.dbUserId)` and passes all 10 cases. The count stub answers the guild count when the SQL contains `"fk_guilds_id"`, and the user count otherwise. So an unscoped count still receives the user's number. M1-d's property counts the owner's messages (Phase 1 fixture (b), "isolates the owner selection"). A regression here counts the whole table and refuses every user's new message once the table holds 1000.
 - **What it fails to check:** that each read or count is bound to the owner it is about.
@@ -154,3 +177,4 @@ No row is appended. Rows inherited by M1 and not discharged: B-1 and B-7 (M1-a, 
 - **Implementer (implementer-hooks-015):** QAF-26 MEDIUM, blocking M1's verdict; QAF-27 LOW. M1's Phase 2 re-run follows code review of the fix tip. That re-run covers the round's diff and re-runs the two survivors.
 - **Architect:** this pass's Assumption Not Checked (`Accounts` rows per user).
 - **Verdict:** QA Failed for M1 at `3031878`, on suite coverage. No production defect was found, and every executed check of production behaviour passed.
+- **Verdict (24ac49f, re-run):** PASS, milestone-scoped. M1 is not the last milestone, so no stage is messaged for it on its own. QAF-27 LOW stays with the implementer, owed before the effort-final pass.

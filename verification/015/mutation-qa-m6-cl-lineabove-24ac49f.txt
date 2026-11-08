@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6-cl-lineabove  sha: 24ac49f  label: qa-m6-cl-lineabove  test: DiscordMessageEditor.component-limit  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m6-supplement.py
+ .../__tests__/rules.multi-line-code-block.test.ts  |   7 -
+ 7 files changed, 38 insertions(+), 282 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6-cl-lineabove
+
+
+ Test Files  1 passed (1)
+      Tests  17 passed (17)
+   Start at  08:29:42
+   Duration  3.20s (transform 454ms, setup 39ms, import 1.35s, tests 365ms, environment 1.11s)
+
+vitest exit 0

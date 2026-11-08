@@ -1,0 +1,39 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6x-wm-text  sha: 24ac49f  label: qa-m6x-wm-text  test: WebhookMenu.failed-webhook-load  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m6-supplement.py
+ .../src/utils/markdown/rules.tsx                   |   8 +-
+ 12 files changed, 47 insertions(+), 400 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6x-wm-text
+
+ ❯ |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx (2 tests | 2 failed) 96ms
+     × shows "Invalid URL" under the field when the network fails 69ms
+     × shows "Invalid URL" under the field when Discord refuses the webhook 26ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx > send page webhook URL field, a failed webhook load > shows "Invalid URL" under the field when the network fails
+ FAIL  |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx > send page webhook URL field, a failed webhook load > shows "Invalid URL" under the field when Discord refuses the webhook
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx:60:19
+     58|     const shown = Array.from(el.querySelectorAll('*'))
+     59|       .filter((e) => e.children.length === 0 && e.textContent === 'Inv…
+     60|     expect(shown).toHaveLength(1);
+       |                   ^
+     61|     expect(shown[0]?.parentElement?.contains(input)).toBe(true);
+     62|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed (2)
+   Start at  08:33:22
+   Duration  2.08s (transform 337ms, setup 23ms, import 1.12s, tests 96ms, environment 667ms)
+
+vitest exit 1

@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6-ctl-ar  sha: 24ac49f  label: qa-m6-ctl-ar  test: ActionRowEditor.duplicate-placement  mutator: none
+ .../results.json => dev/null}                      |   1 -
+ 5 files changed, 35 insertions(+), 272 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6-ctl-ar
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  08:28:52
+   Duration  3.39s (transform 429ms, setup 33ms, import 1.80s, tests 80ms, environment 1.15s)
+
+vitest exit 0

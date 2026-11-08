@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6-ctl-sg  sha: 24ac49f  label: qa-m6-ctl-sg  test: limits.send-gate-partition  mutator: none
+ .../results.json => dev/null}                      |   1 -
+ 5 files changed, 35 insertions(+), 272 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6-ctl-sg
+
+
+ Test Files  1 passed (1)
+      Tests  36 passed (36)
+   Start at  08:29:15
+   Duration  652ms (transform 147ms, setup 0ms, import 511ms, tests 10ms, environment 0ms)
+
+vitest exit 0

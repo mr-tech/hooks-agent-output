@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6-ctl-lc  sha: 24ac49f  label: qa-m6-ctl-lc  test: limits.component-count  mutator: none
+ .../results.json => dev/null}                      |   1 -
+ 5 files changed, 35 insertions(+), 272 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6-ctl-lc
+
+
+ Test Files  1 passed (1)
+      Tests  13 passed (13)
+   Start at  08:29:13
+   Duration  231ms (transform 63ms, setup 0ms, import 86ms, tests 5ms, environment 0ms)
+
+vitest exit 0

@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m5r-ctl-fmd  sha: 24ac49f  label: qa-m5r-ctl-fmd  test: formatMessageDate.same-day  mutator: none
+ .../src/utils/markdown/rules.tsx                   |   8 +-
+ 7 files changed, 40 insertions(+), 282 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m5r-ctl-fmd
+
+
+ Test Files  1 passed (1)
+      Tests  9 passed (9)
+   Start at  08:30:30
+   Duration  194ms (transform 31ms, setup 0ms, import 43ms, tests 23ms, environment 0ms)
+
+vitest exit 0

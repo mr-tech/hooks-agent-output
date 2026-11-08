@@ -1,0 +1,9 @@
+ctl-nm	 Tests 2 passed (2)	0	vitest exit 0
+ctl-wm	 Tests 2 passed (2)	0	vitest exit 0
+ctl-vw	 Tests 21 passed (21)	0	vitest exit 0
+ctl-up	 Tests 4 passed (4)	0	vitest exit 0
+nm-text	 Tests 1 failed | 1 passed (2)	0	vitest exit 1
+wm-text	 Tests 2 failed (2)	0	vitest exit 1
+vw-text	 Tests 1 failed | 20 passed (21)	0	vitest exit 1
+up-frozen	 Tests 2 failed | 2 passed (4)	0	vitest exit 1
+done

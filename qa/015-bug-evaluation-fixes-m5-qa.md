@@ -2,9 +2,9 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Verified-At: "da24eb7 — repos=website; M5-a to M5-g only (M5-h held by code review CR-18), run in a git-archive export of da24eb7 under unshare -rn, not the shared tree"
-Status: QA Failed
-Status-Detail: "M5-a to M5-g (milestone-scoped) at website da24eb7 against plan rev 22 (5201612; M5-a to M5-g unchanged at rev 23): QA Failed, on test coverage only. QAF-29 MEDIUM to the implementer: M5-e's 'today' is the user's local calendar day, and no cell can tell local from UTC (the suite runs in UTC); a UTC-getter mutant passes 9 of 9. The shipped code is correct in three zones (probe, with a positive control). Register row B-13 minted (M5-a's Esc and outside-click, a UAT walk). Suite 890/890, 89 files, exit 0; typecheck exit 0. Plan Status left alone."
+Verified-At: "24ac49f — repos=website; M5-a to M5-g only (M5-h and M5-i are later work), run in git-archive exports of 24ac49f under unshare -rn, not the shared tree. The earlier pass (QA Failed) was at da24eb7"
+Status: QA Complete
+Status-Detail: "M5-a to M5-g (milestone-scoped) PASS at website 24ac49f against plan rev 25 (dd9e88a; M5-a to M5-g unchanged since rev 22). QAF-29's fix (24ac49f): the cells run in America/Los_Angeles with members straddling UTC midnight, and m5e-utc-getters is killed (2 of 9). CR-19's change to M5-c (a665901, useLatest) is refreshed: a frozen-ref mutant is killed (2 of 4). The whole suite under TZ=America/Los_Angeles: 1029/1029. QAF-29 RESOLVED. B-13 stays open (UAT). Plan Status left alone."
 Phase: 2
 ---
 
@@ -20,6 +20,7 @@ Phase: 2
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-08T08:07 | code-reviewer-hooks-015 → qa-hooks-015 (message: `d7708e8`) | QA Phase 2 for M5-a to M5-g at website `da24eb7` | Phase 2, milestone-scoped. Created and first committed with Status QA Failed (M5-a to M5-g scope; plan Status left alone). QAF-29 MEDIUM goes to the implementer. B-13 is minted in the chain's register. |
+| 2026-11-08T08:34 | code-reviewer-hooks-015, steering-hooks-015 → qa-hooks-015 (messages: `e0054f7`; resume brief) | M5-a to M5-g re-run after QAF-29's test-only fix (`24ac49f`), with CR-19's production change (`a665901`) | Phase 2 re-run. QAF-29's survivor is killed, and so is CR-19's refresh mutant. The whole suite also passes under `TZ=America/Los_Angeles`. QAF-29 RESOLVED. Verdict PASS; Status → QA Complete (M5-a to M5-g scope; plan Status left alone). See § Re-run at `24ac49f`. |
 
 ## Scope and criteria assessed
 
@@ -73,6 +74,31 @@ Captures under `verification/015/`:
 | Probe, shipped `formatMessageDate.ts` (blob `89e5601`) under `TZ` = UTC, Pacific/Auckland, America/Los_Angeles. "Now" is 2026-11-08T20:00Z; messages at 10:00Z and at 23:30Z the previous day. Expected literals per zone are in `probe.mjs` | OK in all 3 zones: the shipped code compares the local day |
 | Probe positive control: the same file with every local getter replaced by its UTC getter | MISMATCH in Pacific/Auckland (`[true,false]` vs `[false,false]`), so the probe discriminates. Los Angeles does not separate the two with these fixtures; that is recorded, not hidden |
 
+## Re-run at `24ac49f`
+
+**Stage start.** Code review Round 14 (`e0054f7`) names `24ac49f`'s QAF-29 cells as test-only and QA's gate. It records CR-19 (`a665901`) as RESOLVED. Steering's resume brief arrived.
+
+**Scope.**
+- QAF-29's diff is test-only: `formatMessageDate.same-day.test.ts`, 23 lines added.
+- The production delta over M5-a to M5-g's files since `da24eb7` is `usePusher.ts` only (CR-19: `useLatest(hasChanged)` replaces a hand-updated `useRef`). It expired M5-c's verdict, so it is refreshed here.
+
+**Adequacy of QAF-29's cells (read in full).**
+- `process.env.TZ = 'America/Los_Angeles'` is set at the file's top, before any `Date` use. A cell asserts that the offset is 480 on a November date, so the zone is shown to be in force.
+- Two members straddle UTC midnight, with hand-derived expectations:
+  - now is local 23:30 on Nov 8 (07:30Z on Nov 9). A message at local 09:05 the same day is "Today" (UTC getters say not).
+  - A message at local 00:30 on Nov 9 (08:30Z on Nov 9) is not "Today" (UTC getters say it is).
+- The title "a message earlier on the local day that falls on the next UTC day" names the wrong instant. It is *now* that falls on the next UTC day. That is cosmetic; the expectation is right.
+- **Leakage**, which QAF-29 asked to confirm: the whole suite passes 1029/1029 both in the box's UTC (`qa-p2-m6-run-24ac49f.txt`) and with `TZ=America/Los_Angeles` set for the whole run (`mutation-qa-tz-la-whole-suite-24ac49f.txt`, exit 0, 0 Unhandled). No other file's expectations depend on which zone it inherits.
+
+| Run | Result |
+|---|---|
+| control `formatMessageDate.same-day` (`qa-m5r-sweep-summary-24ac49f.txt`) | 9/9, exit 0 |
+| `m5e-utc-getters` | **killed** (2 of 9): the two straddling members |
+| control `usePusher.update-prompt` (`qa-m6x-sweep-summary-24ac49f.txt`) | 4/4, exit 0 |
+| `m5c-flag-frozen-at-subscribe` (`mutators/qa-m6-supplement.py`: the ref rebuilt per render, so the effect reads the subscribing render's value) | **killed** (2 of 4): both "after the subscription was made" cells |
+
+**Verdict: PASS** for M5-a to M5-g at `24ac49f`, milestone-scoped. B-13 stays open and is UAT's.
+
 ## Implementation Review (Post-Implementation)
 
 **Per criterion:**
@@ -86,7 +112,7 @@ Captures under `verification/015/`:
 
 ## Findings
 
-QAF-29 MEDIUM Phase 2 — M5-e's "today" is the user's calendar day, and no cell can tell local time from UTC. The suite runs in UTC (`date +%Z` on this box; no `TZ` in the vitest config). Every fixture is built with the local `Date` constructor, so local and UTC coincide, and the mutant `m5e-utc-getters` passes all 9 date cases.
+QAF-29 MEDIUM Phase 2 RESOLVED (2026-11-08T08:34: website `24ac49f`; `m5e-utc-getters` killed, § Re-run at `24ac49f`) — M5-e's "today" is the user's calendar day, and no cell can tell local time from UTC. The suite runs in UTC (`date +%Z` on this box; no `TZ` in the vitest config). Every fixture is built with the local `Date` constructor, so local and UTC coincide, and the mutant `m5e-utc-getters` passes all 9 date cases.
 - **Production is correct.** `isSameLocalDay` uses local getters, as the base's `getDate()` did. The probe confirms local-day semantics in three zones, and a positive control shows the probe can fail.
 - **Why it blocks.** The change claims local-day comparison (the helper is named for it) and preserves the base's local reading, and nothing asserts it. A UTC regression would show "Today" for yesterday's evening messages to every user east of UTC, which is the F-23 class itself.
 - **Required (implementer):** tighten `formatMessageDate.same-day.test.ts`.
@@ -109,3 +135,4 @@ B-13 is appended to the chain's register (`qa/015-bug-evaluation-fixes-qa.md`). 
 
 - **Implementer (implementer-hooks-015):** QAF-29 MEDIUM. One cell tightened, then M5-a to M5-g's Phase 2 re-run on the round's diff, which also re-runs `m5e-utc-getters`.
 - **Verdict:** QA Failed for M5-a to M5-g at `da24eb7`, on suite coverage. No production defect was found.
+- **Verdict (24ac49f, re-run):** PASS for M5-a to M5-g, milestone-scoped.

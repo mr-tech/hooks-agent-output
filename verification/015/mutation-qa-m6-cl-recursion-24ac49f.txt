@@ -1,0 +1,57 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6-cl-recursion  sha: 24ac49f  label: qa-m6-cl-recursion  test: DiscordMessageEditor.component-limit  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m6-supplement.py
+ .../__tests__/rules.multi-line-code-block.test.ts  |   7 -
+ 7 files changed, 35 insertions(+), 285 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6-cl-recursion
+
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (17 tests | 2 failed) 695ms
+     × offers adds only below the limit: 10 containers of one section each (40 in all) 41ms
+     × shows the total and the limit with a red border above the limit: 11 containers of one section each 33ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > offers adds only below the limit: 10 containers of one section each (40 in all)
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:89:32
+     87|     const host = await mountV2(components);
+     88|
+     89|     expect(hasAddButton(host)).toBe(offered);
+       |                                ^
+     90|     expect((stubs.components.get('c0') as ComponentStub).canDuplicate)…
+     91|     expect((stubs.components.get('c0') as ComponentStub).canAddChild).…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows the total and the limit with a red border above the limit: 11 containers of one section each
+AssertionError: expected undefined to be 'Message has 44 components; the limit …' // Object.is equality
+
+- Expected:
+"Message has 44 components; the limit is 40."
+
++ Received:
+undefined
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:111:29
+    109|     const host = await mountV2(components);
+    110|
+    111|     expect(errorLine(host)).toBe(`Message has ${total} components; the…
+       |                             ^
+    112|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+    113|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 15 passed (17)
+   Start at  08:29:53
+   Duration  3.84s (transform 502ms, setup 38ms, import 1.62s, tests 695ms, environment 1.16s)
+
+vitest exit 1

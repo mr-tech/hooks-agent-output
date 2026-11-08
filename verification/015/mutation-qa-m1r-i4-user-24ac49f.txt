@@ -1,0 +1,83 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m1r-i4-user  sha: 24ac49f  label: qa-m1r-i4-user  test: shared.message-cap  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m1-supplement.py
+ .../src/utils/markdown/rules.tsx                   |   8 +-
+ 8 files changed, 40 insertions(+), 283 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m1r-i4-user
+
+ ❯ |node| src/server/api/utils/__tests__/shared.message-cap.test.ts (10 tests | 6 failed) 27ms
+     × saves a new message when the user holds 0 7ms
+     × saves a new message when the user holds 999 1ms
+     × refuses a new message when the user holds 1000, and inserts nothing 6ms
+     × refuses a new message when the user holds 1001, and inserts nothing 1ms
+     × counts the user's messages, not the server's 1ms
+     × never refuses a save of an existing user message at 1000 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.message-cap.test.ts > the per-owner message cap on a new user-scoped message > saves a new message when the user holds 0
+ FAIL  |node| src/server/api/utils/__tests__/shared.message-cap.test.ts > the per-owner message cap on a new user-scoped message > saves a new message when the user holds 999
+Error: no result
+ ❯ SelectQueryBuilder.executeTakeFirstOrThrow ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/kysely@0.26.1/node_modules/kysely/dist/esm/query-builder/select-query-builder.js:1157:19
+ ❯ Module.upsertMessage src/server/api/utils/shared.ts:251:35
+    249|   }
+    250|
+    251|   const { count: messageCount } = await messageCountQuery.executeTakeF…
+       |                                   ^
+    252|   if (!message.id && Number(messageCount) >= MAX_MESSAGES) {
+    253|     throw new TRPCError({
+ ❯ src/server/api/utils/__tests__/shared.message-cap.test.ts:60:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.message-cap.test.ts > the per-owner message cap on a new user-scoped message > refuses a new message when the user holds 1000, and inserts nothing
+ FAIL  |node| src/server/api/utils/__tests__/shared.message-cap.test.ts > the per-owner message cap on a new user-scoped message > refuses a new message when the user holds 1001, and inserts nothing
+AssertionError: expected [Function] to throw error including 'You have reached the limit of 1000 me…' but got 'no result'
+
+Expected: "You have reached the limit of 1000 messages per user."
+Received: "no result"
+
+ ❯ src/server/api/utils/__tests__/shared.message-cap.test.ts:68:56
+     66|     useCounts({ user, guild: 0 });
+     67|
+     68|     await expect(upsertMessage(newMessage, userSelect)).rejects.toThro…
+       |                                                        ^
+     69|
+     70|     expect(insertedMessages()).toHaveLength(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.message-cap.test.ts > the per-owner message cap on a new user-scoped message > counts the user's messages, not the server's
+Error: no result
+ ❯ SelectQueryBuilder.executeTakeFirstOrThrow ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/kysely@0.26.1/node_modules/kysely/dist/esm/query-builder/select-query-builder.js:1157:19
+ ❯ Module.upsertMessage src/server/api/utils/shared.ts:251:35
+    249|   }
+    250|
+    251|   const { count: messageCount } = await messageCountQuery.executeTakeF…
+       |                                   ^
+    252|   if (!message.id && Number(messageCount) >= MAX_MESSAGES) {
+    253|     throw new TRPCError({
+ ❯ src/server/api/utils/__tests__/shared.message-cap.test.ts:76:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.message-cap.test.ts > the per-owner message cap on an existing message > never refuses a save of an existing user message at 1000
+Error: no result
+ ❯ SelectQueryBuilder.executeTakeFirstOrThrow ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/kysely@0.26.1/node_modules/kysely/dist/esm/query-builder/select-query-builder.js:1157:19
+ ❯ Module.upsertMessage src/server/api/utils/shared.ts:251:35
+    249|   }
+    250|
+    251|   const { count: messageCount } = await messageCountQuery.executeTakeF…
+       |                                   ^
+    252|   if (!message.id && Number(messageCount) >= MAX_MESSAGES) {
+    253|     throw new TRPCError({
+ ❯ src/server/api/utils/__tests__/shared.message-cap.test.ts:115:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  6 failed | 4 passed (10)
+   Start at  08:30:24
+   Duration  746ms (transform 151ms, setup 0ms, import 573ms, tests 27ms, environment 0ms)
+
+vitest exit 1

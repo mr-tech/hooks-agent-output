@@ -1,0 +1,151 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m1r-i2-token  sha: 24ac49f  label: qa-m1r-i2-token  test: auth.sign-out  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m1-supplement.py
+ .../src/utils/markdown/rules.tsx                   |   8 +-
+ 8 files changed, 41 insertions(+), 283 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m1r-i2-token
+
+ ❯ |node| src/server/__tests__/auth.sign-out.test.ts (12 tests | 8 failed) 25ms
+     × sends one revoke request carrying the account's access token 7ms
+     × clears the user keys and nulls the stored tokens after an accepted revoke 4ms
+     × clears out all the same after a refused revoke 2ms
+     × clears out all the same after a revoke that fails on the network 2ms
+     × sends no revoke for an account without an access token, and clears out 1ms
+     × reads the account, then revokes, then nulls the stored tokens 1ms
+     × revokes the row's token and clears out in full when the cache holds null (what a refused refresh stores) 1ms
+     × revokes the row's token and clears out in full when the cache holds an account holding another token 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > sends one revoke request carrying the account's access token
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ src/server/__tests__/auth.sign-out.test.ts:106:23
+    104|     await signOut();
+    105|
+    106|     expect(log.fetch).toHaveBeenCalledTimes(1);
+       |                       ^
+    107|     expect((log.fetch.mock.calls[0] as unknown as [string])[0]).toBe(R…
+    108|     expect(revokeBody().get('token')).toBe(ACCESS_TOKEN);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > clears the user keys and nulls the stored tokens after an accepted revoke
+AssertionError: expected [ …(2) ] to deeply equal [ …(3) ]
+
+- Expected
++ Received
+
+  [
+    "user-access-token-fixture-user",
+    "user-session-token-fixture-session",
+-   "user-guilds-fixture-discord",
+  ]
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:114:29
+    112|     await signOut();
+    113|
+    114|     expect(log.clearedKeys).toEqual([
+       |                             ^
+    115|       'user-access-token-fixture-user', 'user-session-token-fixture-se…
+    116|     ]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > clears out all the same after a refused revoke
+AssertionError: expected [ …(2) ] to have a length of 3 but got 2
+
+- Expected
++ Received
+
+- 3
++ 2
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:126:29
+    124|     await signOut();
+    125|
+    126|     expect(log.clearedKeys).toHaveLength(3);
+       |                             ^
+    127|     expect(accountsUpdates()).toHaveLength(1);
+    128|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > clears out all the same after a revoke that fails on the network
+AssertionError: expected [ …(2) ] to have a length of 3 but got 2
+
+- Expected
++ Received
+
+- 3
++ 2
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:135:29
+    133|     await expect(signOut()).resolves.toBeUndefined();
+    134|
+    135|     expect(log.clearedKeys).toHaveLength(3);
+       |                             ^
+    136|     expect(accountsUpdates()).toHaveLength(1);
+    137|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/8]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > sends no revoke for an account without an access token, and clears out
+AssertionError: expected [ …(2) ] to have a length of 3 but got 2
+
+- Expected
++ Received
+
+- 3
++ 2
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:145:29
+    143|
+    144|     expect(log.fetch).not.toHaveBeenCalled();
+    145|     expect(log.clearedKeys).toHaveLength(3);
+       |                             ^
+    146|     expect(accountsUpdates()).toHaveLength(1);
+    147|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/8]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > reads the account, then revokes, then nulls the stored tokens
+AssertionError: expected [ 'account-read' ] to deeply equal [ 'account-read', 'revoke', …(1) ]
+
+- Expected
++ Received
+
+  [
+    "account-read",
+-   "revoke",
+-   "accounts-update",
+  ]
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:153:19
+    151|
+    152|     const order = log.events.filter((event) => event !== 'redis-clear'…
+    153|     expect(order).toEqual(['account-read', 'revoke', 'accounts-update'…
+       |                   ^
+    154|   });
+    155| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/8]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out an account whose cached account entry is not the row > revokes the row's token and clears out in full when the cache holds null (what a refused refresh stores)
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out an account whose cached account entry is not the row > revokes the row's token and clears out in full when the cache holds an account holding another token
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ src/server/__tests__/auth.sign-out.test.ts:185:23
+    183|     await signOut();
+    184|
+    185|     expect(log.fetch).toHaveBeenCalledTimes(1);
+       |                       ^
+    186|     expect(revokeBody().get('token')).toBe(ACCESS_TOKEN);
+    187|     expect(accountsUpdates()).toHaveLength(1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/8]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  8 failed | 4 passed (12)
+   Start at  08:30:22
+   Duration  1.05s (transform 210ms, setup 0ms, import 891ms, tests 25ms, environment 0ms)
+
+vitest exit 1

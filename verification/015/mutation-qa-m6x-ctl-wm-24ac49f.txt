@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6x-ctl-wm  sha: 24ac49f  label: qa-m6x-ctl-wm  test: WebhookMenu.failed-webhook-load  mutator: none
+ .../src/utils/markdown/rules.tsx                   |   8 +-
+ 11 files changed, 45 insertions(+), 396 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6x-ctl-wm
+
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  08:32:57
+   Duration  3.69s (transform 753ms, setup 48ms, import 2.06s, tests 205ms, environment 1.13s)
+
+vitest exit 0

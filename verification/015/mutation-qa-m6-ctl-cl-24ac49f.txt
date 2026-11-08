@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6-ctl-cl  sha: 24ac49f  label: qa-m6-ctl-cl  test: DiscordMessageEditor.component-limit  mutator: none
+ .../results.json => dev/null}                      |   1 -
+ 5 files changed, 35 insertions(+), 272 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6-ctl-cl
+
+
+ Test Files  1 passed (1)
+      Tests  17 passed (17)
+   Start at  08:29:08
+   Duration  1.92s (transform 219ms, setup 23ms, import 815ms, tests 271ms, environment 656ms)
+
+vitest exit 0

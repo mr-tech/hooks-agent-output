@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6x-ctl-vw  sha: 24ac49f  label: qa-m6x-ctl-vw  test: useValidateWebhook.validation-effects  mutator: none
+ .../src/utils/markdown/rules.tsx                   |   8 +-
+ 11 files changed, 45 insertions(+), 396 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6x-ctl-vw
+
+
+ Test Files  1 passed (1)
+      Tests  21 passed (21)
+   Start at  08:33:04
+   Duration  2.83s (transform 491ms, setup 48ms, import 1.27s, tests 125ms, environment 1.16s)
+
+vitest exit 0

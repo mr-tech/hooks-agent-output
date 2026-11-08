@@ -1,0 +1,34 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6x-vw-text  sha: 24ac49f  label: qa-m6x-vw-text  test: useValidateWebhook.validation-effects  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m6-supplement.py
+ .../src/utils/markdown/rules.tsx                   |   8 +-
+ 12 files changed, 47 insertions(+), 400 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6x-vw-text
+
+ ❯ |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx (21 tests | 1 failed) 50ms
+     × shows "Invalid URL" and no webhook when the webhook fetch rejects 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, fetch failures > shows "Invalid URL" and no webhook when the webhook fetch rejects
+AssertionError: expected 'Invalid url' to be 'Invalid URL' // Object.is equality
+
+Expected: "Invalid URL"
+Received: "Invalid url"
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:135:33
+    133|     await act(async () => {});
+    134|     expect(result.webhook).toBeNull();
+    135|     expect(result.webhookError).toBe('Invalid URL');
+       |                                 ^
+    136|     expect(result.isLoading).toBe(false);
+    137|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 20 passed (21)
+   Start at  08:33:25
+   Duration  1.54s (transform 200ms, setup 23ms, import 673ms, tests 50ms, environment 655ms)
+
+vitest exit 1

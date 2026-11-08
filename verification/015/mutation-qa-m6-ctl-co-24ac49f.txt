@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6-ctl-co  sha: 24ac49f  label: qa-m6-ctl-co  test: ContainerEditor.duplicate-placement  mutator: none
+ .../results.json => dev/null}                      |   1 -
+ 5 files changed, 35 insertions(+), 272 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-24ac49f-qa-m6-ctl-co
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  08:28:58
+   Duration  2.40s (transform 503ms, setup 33ms, import 1.34s, tests 135ms, environment 740ms)
+
+vitest exit 0
