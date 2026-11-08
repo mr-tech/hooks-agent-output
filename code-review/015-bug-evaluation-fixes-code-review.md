@@ -1077,7 +1077,7 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
   - Instrument for M5-h's later re-check: `verification/015/cr-m5-probes/`.
 - **UAT:** the Assumption Not Checked of Rounds 14 and 10, and those of the earlier rounds.
 
-## Resumption State (code-reviewer-hooks-015, 2026-11-08T09:18)
+## Resumption State (checkpoint, code-reviewer-hooks-015, 2026-11-08T09:18)
 
 - **Done, all committed** (this commit carries Rounds 16 to 18 and the sub-entries).
   - M0: Round 1. M1: Round 2. M2: Round 3. M4: Round 7 plus sub-entries, APPROVED_WITH_COMMENTS.
@@ -1089,7 +1089,9 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 - **Next.**
   - The CR-27 fix, as a Round 18 sub-entry. Re-run `cr-m8-probes/run-attack.sh`; it needs the rig's export first, from `m8-local-probe/run.sh`. Row C must PASS, with no drain-complete line on a failed drain and a failure line on stdout.
   - The analyst's `pig-host-read.sh` extension (the `Created instance` read), reviewed when it lands.
-  - CR-29 at the next plan gate read.
+  - CR-29 at the next plan gate read. That is rev 26, which the planner has queued. It folds CR-29 (class (3) anchored to the tree the guard lands on, with the guard removed; `fields: null` moved to rendering). It restates M8-d as a property, with limb (c) worded to allow the pool's configured minimum (min = 2). Per-request launch counts are stated as unmeasured. It adds the private-field Risk row. It is waiting on steering's answer about M8-b's non-object body refusal (D31 or the owner).
+  - The Node-version read (Round 18's Assumption Not Checked) is noted by steering for devops' brief.
+- **Tree at checkpoint.** website `chain/015-bug-evaluation-fixes` at `476c633`; preview-image-generator at `6c613a5`. Nothing uncommitted of mine; no local mutation outstanding. Scratch exports (`pig-probe-6c613a5`, the `cr-m5-*` and `cr-m6-*` exports) live in the session scratchpad only. The checkpoint was run on steering's request at the context threshold.
 - **Instruments.** `cr-m8-probes/` (the attack, the closeIdle-less preload, eslint, sweeps, the rig reproduction). `cr-m6-probes/` (fence and structure probes, useMount sweep and planted lint file). `cr-m5-probes/` (real, reported, unlisted and class runs at `476c633`). Earlier: `cr-m4-probes/`, `cr-m1-probes/`.
 - **Hazards.** Everything from before still holds. In addition:
   - `prod.yml` holds a plaintext key, so never quote it.
