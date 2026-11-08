@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: In Progress
-Status-Detail: "M0 and M2 delivered. Code review has approved M1 at 3031878, and M4 and M5-a to M5-g at da24eb7; QA Phase 2 may take them. M5-h is held until rev 24's round passes. M5-i (WebhookMenu first-visit tab, a D28 sibling) is added at rev 24. AF-26 is a known limit (D34, X-20, handoff). M6-l is being coded. M3 is removed (D30). The NewMessageModal seed waits on a browser read."
+Status-Detail: "M0 and M2 delivered. Code review has approved M1 at 3031878, and M4 and M5-a to M5-g at da24eb7; QA Phase 2 may take them. M5-h is held until rev 24's round passes. M5-i (WebhookMenu first-visit tab, a D28 sibling) is added at rev 24. AF-26 is a known limit (D34, X-20, handoff). M6 is reviewed at website 24ac49f (Round 14): M6-b to M6-l met; M6-a and F-45's class REJECTED (CR-22, CR-24); CR-23 is the planner's. M3 is removed (D30). The NewMessageModal seed waits on a browser read."
 Revision: 24
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
@@ -106,6 +106,7 @@ Owed re-verdicts:
 | 2026-11-08T08:14 | R-8 | planner (planner-hooks-015) | Parked architect AF-28's plan-side limbs (`1a3bc68`) as a Planner batch row; the handoff side was corrected at `116c361`. Scope delta: none, registration only. |
 | 2026-11-08T08:15 | R-9 | planner (planner-hooks-015) | Parked critique cycle 7 L-C7-1 (LOW) as a Planner batch row; its words are in `critiques/015-bug-evaluation-fixes-cycle7-critique.md` (`1b5f3e8`). Scope delta: none, registration only. |
 | 2026-11-08T08:19 | R-10 | planner (planner-hooks-015) | Recorded the outcome of the `NewMessageModal` seed read in its Planner batch row (implementer `fbe28b4`; planner source read `verification/015/m5-modal-seed-next-keying-read.txt`). Scope delta: none, registration only. |
+| 2026-11-08T08:25 | cr | code-reviewer (code-reviewer-hooks-015) | Round 14, M6 at website `24ac49f` against rev 24: REJECTED for M6-a and F-45's class, `code-review/015-bug-evaluation-fixes-code-review.md` (`e0054f7`). M6-b to M6-l are met; QA Phase 2 may take them at `24ac49f`. CR-22 MEDIUM (implementer): a fence with an empty or whitespace-only line inside still renders no code block, a member of M6-a's "every fenced block". **For the planner: CR-23 LOW**, M6-a names `parseEmbedTitle`, which omits the code-block rule by construction: restate the title member. CR-24 MEDIUM (implementer, D28): two react-use `useMount` callbacks (`BottomPortal`, `ColorPickerWrapper`) return cleanups that never run. CR-17 and CR-19 are RESOLVED. Milestone-scoped: plan Status unmoved. |
 
 ## Value Statement and Business Objective
 
