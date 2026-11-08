@@ -524,17 +524,38 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 - **Steering, for the owner**: CR-12 (escalated by message).
 - **UAT**: the Round 2 and Round 3 Assumptions Not Checked; CR-5's declined log line.
 
-## Resumption State (checkpoint, code-reviewer-hooks-015, 2026-11-08T06:57)
+## Resumption State (checkpoint, code-reviewer-hooks-015, 2026-11-08T07:44)
 
-- **Stamp correction (2026-11-08T07:02).** The Round 4 stamps (07:10, 07:12, 07:15, 07:20) were typed by hand, ahead of the clock. Each is corrected to the minute of the commit that carried it (`32efd0b` 06:57, `6125c42` 06:58, `49a25a0` 06:59), and the matching plan rows likewise (`19dbf64` 06:57, `5d4d532` 06:59). The error was mine. From now on stamps are taken by record-edit.js at write time, never typed.
-
-- **Done.**
-  - Rounds 1–3 and the Round 2 sub-entry, as in the changelog (M0 and M2 APPROVED_WITH_COMMENTS; M1 REJECTED for M1-c and M1-h only).
-  - Round 4: plan gate read of `9cbe755..565e240`. After its sub-entry at rev 17 `94e9987`, it is APPROVED_WITH_COMMENTS, with CR-11 RESOLVED. CR-12 HIGH escalated to steering. CR-6 routed (X-17); CR-7 and CR-8 RESOLVED.
-- **Open, mine to re-verify:**
-  - CR-14 (M4, owner choosing the text through steering): a sub-entry of Round 7 at its fix SHA.
-  - CR-15 (M1-h row-2 cell): a sub-entry of Round 2 at its fix SHA, if the implementer takes it.
-  - Done: M1 at `579e8b2` (Round 2 sub-entry) and M4 at `1e12837` (Round 7), both APPROVED_WITH_COMMENTS.
-- **Instruments.** `cr-m4d-link-class-sweep.sh <repo> <sha>`; `cr-emit-compare.cjs`; `cr-m1-probes/cookie-parser-reattack.cjs`.
-- **Hazards.** As before: the rtk filter breaks counts taken from piped output; eslint needs `node_modules`.
-- **Questions out.** None. CR-12 was ruled into chain 015 (`3d7af67`). Steering ruled Round 5 option (a): hold until the implementer delivers M4 with both F-27 sites and the CR-12 rider against the coming revision, then review one tree. The next gate read is over `565e240..<next plan tip>`, and covers the M-C4-1 text and the CR-12 fold.
+- **Done, all committed.** Latest review commit `22e086c`; latest plan row `1d9957e`.
+  - **M0:** Round 1, APPROVED_WITH_COMMENTS.
+  - **M1:** Round 2. REJECTED at `be881c9`, then APPROVED_WITH_COMMENTS at the `579e8b2` sub-entry. CR-3 RESOLVED; CR-15 LOW open with the implementer.
+  - **M2:** Round 3, APPROVED_WITH_COMMENTS at `6001f7f`.
+  - **M4:** Round 7, APPROVED_WITH_COMMENTS at `1e12837`. CR-14 was ruled as D29 and folded through CR-16. Reopened for the D29 change.
+  - **Plan gate reads:**
+    - Round 4: revs 14–16, CR-11.
+    - Round 5: rev 18, CR-13.
+    - Round 6: rev 19, plus the sub-entry on `authorizeGuildAdmin`.
+    - Round 8: rev 20, CR-16 MEDIUM.
+    - Round 9: rev 21. APPROVED; CR-16 RESOLVED; D30 removed M3.
+  - **CR-12 HIGH**, the cross-guild read: the owner ruled it into the chain (D27), and it was attacked and fixed at `1e12837`.
+- **Next (the steering brief will point here):**
+  - **M4 D29 change, plus QAF-25:** a sub-entry of Round 7 at its handoff SHA. Check:
+    - each site's "Invalid URL" at its rev 21 place: `WebhookMenu` field error; `NewMessageModal` `messageErrorString` line;
+    - each site's cell asserts the literal at that place, and fails if the text appears elsewhere or nowhere;
+    - no field error is added to the dialog.
+    - Re-run `verification/015/cr-m4-probes/run.sh <website> <scratch> <sha> <out>` if `getFromUrl` or `redis/index.ts` changed.
+  - **CR-15:** a sub-entry of Round 2 if the implementer adds the row-2 cell.
+  - **M5:** a new Round 10. Record § M5 at the plan's current revision at round open, and re-derive `Handoff-At` from the M5 document.
+- **Tree.** website `chain/015-bug-evaluation-fixes` at `6c42032` at checkpoint (the implementer's M5 work, not reviewed). No worktree or export of mine remains, and no local mutation is outstanding.
+- **Not mine, left in place:** in agent-output, the implementer's staged `verification/015/m4-*-1e12837*`, the `mutation-m4f-*` files, and the untracked `m5-*`, `impl-suite-run.sh` and `mutators/m4-d29-table.py`/`m5-table.py`.
+- **Instruments:**
+  - `cr-m4-probes/` (getFromUrl attack; run 2 is green at `1e12837`, run 3 leaks at `6001f7f`);
+  - `cr-m1-probes/signout.row-decision.test.ts` (the old `cookies.percent.test.ts` in that folder is stale: it imports a deleted parser, so that run exits 1);
+  - `cr-m4d-link-class-sweep.sh`, `cr-m4d-admin-bit-probe.mts`, `cr-emit-compare.cjs`.
+- **Hazards:**
+  - Stamps come from `record-edit.js` `{now}`, never typed (my Round 4 error, corrected in `9fca00f`). A literal `{now}` in prose gets substituted.
+  - Re-diff the plan after editing, right before `commit --only` (my `19dbf64` swept in planner hunks).
+  - Append plan rows after the true last row, in time order.
+  - The rtk filter breaks piped counts.
+  - The convention-check id-token check SKIPs in a worktree: run it by hand.
+- **Questions out.** None pending.
