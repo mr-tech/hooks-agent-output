@@ -182,3 +182,9 @@ both windows**, by selection. The implementer also closes the account-lookup win
 QA re-check that one item once.
 Premise read by steering this turn: verification/015/m1h-rejection-window-probe-run1.txt (planner, node v24.14.0) prints
 "UNHANDLED messages failed" and exit=0.
+
+## 2026-11-08T06:29Z — AF-17 sign-out gap: fix it in this chain (selection)
+Put 06:29Z, answered 2026-11-08T06:29Z, **by selection** (labels and descriptions steering's). Source: architect AF-17 (a34ca86), planner's verification (message 06:29Z).
+Options: Agent: fix it in this chain / Agent: keep it as a stated limit / You: discuss first. Chosen **Agent: fix it in this chain**.
+The description he chose: M1-c is changed so sign-out always clears both cached session entries (user-access-token, user-session-token), a database error included, and the error still reaches the caller. Cost: plan revision 11, with the gates re-reading that limb only, then one change, one code-review round and one QA Phase 2 re-run on M1-c. Residue that stays: user-guilds (600 s), the revoke and the Accounts update on that path.
+Premises, read by steering this turn at website be881c9 (code read, not run): removeUserSession (src/server/auth.ts:77-99) rethrows non-NoResultError before clearUser runs; clearUser (src/utils/redis/index.ts:253-259) deletes both keys; fetchAccountFromSession caches user-session-token for 600 s (:413-416); authorizeGuildAdmin.ts:24 reads it. "Not a regression at 7ce866b" is the planner's claim, which steering did not read.
