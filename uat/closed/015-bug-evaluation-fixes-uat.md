@@ -25,6 +25,7 @@ Release-Decision: APPROVED FOR RELEASE
 | 2026-11-08T20:57 | steering-hooks-015 (owner rulings 20:48Z 1acf111, 20:50Z 2b35821; coordinator go 20:48Z) | B-1 with the owner's second test account, in its own Chrome profile | B-1 EXECUTED PASS on the tip limb. Base did not reproduce the predicted failure, because base lists a phantom "AAAA…" server (UAT-6). Profile kept at `/home/dev/.cache/discord-test-user-2-chrome`. The kept profile mcp-chrome-313b550 was not opened. Released 20:56Z. |
 | 2026-11-08T21:25 | steering-hooks-015 (owner ruling 21:14Z a33afc3; D39 analysis f2b0487, route R-28 60199a5; coordinator go 21:14Z) | Live fresh-load check; B-9, B-10 and the B-11 dialog leg by the via-editor route | Live hooks.gg on a fresh load: the dialog does not open, so UAT-4 is a production defect (result sent to planner-hooks-015 for D40). B-9, B-10 and the B-11 dialog leg EXECUTED PASS under `next dev`, each with base red or a control. Local stack cleaned up. Decision now unconditional for pre-release. Released 21:24Z; the kept profile is still signed in to Discord. |
 | 2026-11-08T21:31 | devops-hooks-015 | Document closed | Status: Committed (was UAT Complete). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
+| 2026-11-08T22:40 | steering-hooks-015 (brief `uat-hooks-015-b7-brief.md`; ruling cacdd97; coordinator go 22:36Z) | B-7 post-deploy: account 2's message list on production hooks.gg | B-7 EXECUTED PASS at 22:38Z (§ Post-deploy execution record). Release decision unchanged. Result is also recorded in the carrier, `handoff/bug-evaluation-fixes-post-deploy-2026-11-08.md`. Browser released 22:38Z. |
 
 ## Stage start and identity
 
@@ -197,3 +198,15 @@ UAT-3 INFO — A React hydration-mismatch console error shows on first load of t
 - planner: UAT-1's Validation text (`INBOX.md`, uat-hooks-015 entry).
 
 Delivery note: no devops session for chain 015 existed at 15:2xZ (ListAgents), so this report is lodged here. A spawn cue naming this document went to steering-hooks-015. The `b96e364` export stays in uat-hooks-015's scratchpad (`web-b96e364/`) for the condition rows' re-run; the `7ce866b` export is deleted. *2026-11-08T20:01:* it was re-created for the second walk's base legs, and stays with the tip export until the condition rows close.
+
+## Post-deploy execution record: B-7 (2026-11-08)
+
+*Appended after closure, on steering's brief. The carrier is `handoff/bug-evaluation-fixes-post-deploy-2026-11-08.md`, where the result also sits beside the prediction. The register row above ("open, conditional") is the state as of 21:25Z and is left as written; B-7 is now terminal: EXECUTED.*
+
+**Build**: production https://hooks.gg, the Vercel deployment of website master b96e364 (per `deployment/closed/015-bug-evaluation-fixes-deployment.md`; the page does not expose its SHA). Account 2 ran in its own profile, `/home/dev/.cache/discord-test-user-2-chrome`, driven by `verification/015/uat/b07-account2-prod-driver.cjs`. `mcp-chrome-313b550` was not opened.
+
+| Flow | Action | Expected | Observed | Result |
+|------|--------|----------|----------|--------|
+| B-7 / M1-a no-admin message list, production | Account 2 signs in on hooks.gg (OAuth, no challenge); Save To read; `/message/f/0` opened, 22:37:15–22:38:08Z | The list loads with no error | Signed in (`/api/auth/session` returned a user). Save To shows "My Account" only, so no phantom "AAAA…" server appears. `message.get` 200, "No Messages", no error toast (`b07-account2-prod-2026-11-08.json`, `.png`) | PASS |
+
+Live-schema residual (QA, 6ae61a2): the list query runs on the live schema, so the read side is discharged. The save leg (`ScheduledMessages.error` nullability, owner columns on write) was not exercised because the brief says to save no messages, so it stays a stated limit. The release decision is unchanged.
