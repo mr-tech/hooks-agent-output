@@ -49,14 +49,6 @@ only once the commands are republished.
 
 Did *Get Message* show up for them, and at what time?
 
-## Chain 015 — message list for an account that administers no server, on hooks.gg
-
-1. Sign in to hooks.gg with a Discord account that administers no server (your second test account
-   works), and open the message list.
-2. **Pass:** it loads your saved messages, or "No Messages", with no error. Note the time.
-
-Did it load, and at what time?
-
 ## Generator host — remove claude-ro's read on the nodejs PM2 dump
 
 You chose to remove it yourself (05:21Z). Agents never open that file in the meantime.
