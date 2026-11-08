@@ -4,7 +4,7 @@ Origin: 015
 UUID: 861e5f61
 Status: Active
 Status-Detail: "Fix round 2 (plan rev 13, released by steering): M1-c rebuilt (sign-out reads the Accounts row; D22 lookup-error cell; deletion-failure outcome; AF-18) and M1-h's eight decision-table rows each have a cell, handed over at 579e8b2 with CR-9. CR-4 and M1-i were resolved at Round 3; CR-5 declined as optional. CR-6 (the sweep line) is corrected."
-Handoff-At: "579e8b2 — repos=website"
+Handoff-At: "3031878 — repos=website"
 ---
 
 # Implementation 015 — M1 (server and data path)
@@ -62,6 +62,8 @@ Enumerations: `verification/015/m1r-enumerations-579e8b2.txt`.
 | CR-3: a reader of the shared `user-access-token` key | `git grep -n "fetchUserAccount(" <sha> -- src bot` (non-test) | At `579e8b2`: `auth.ts:114` (`authCallback`), `auth.ts:144` (`hydratedAuthCallback`), plus the definition. At `6001f7f` the third reader was `removeUserSession` | The two remaining readers are the session callbacks, whose job is the cached usable account; they are not the sign-out path. Not applicable. The `null` producers (the loader's no-`refresh_token` and refused-refresh returns) are unchanged |
 | CR-3: `skipUpdate` modes | `git grep -n skipUpdate 579e8b2 -- src bot` | 0 hits | The parameter is removed |
 | CR-6: decode of a client-reachable header | `git grep -nE "decodeURI(Component)?\(" 579e8b2 -- src bot` (non-test) | 2 hits: `Providers.tsx:34`, `onCopy.ts:26` | Disposition corrected in Fix Round 1. Not fixed here: the header decode is outside F-1 to F-50; handoff X-17 carries it |
+
+**CR-15 (LOW, code review Round 2 sub-entry).** Row 2's after-return member (the account lookup resolves null, the function returns `{}`, then the recent messages reject) has its cell at `3031878`: it asserts the outcome `{}` and `unhandled` empty after a settle. Mutant `m1h-message-handler-dropped` reddens it with the other five handler cells (6 failed, 24 passed: `mutation-m1r-m1h-message-handler-dropped-3031878.txt`); control 30 of 30 (`mutation-m1r-control-3031878.txt`).
 
 Test results: `m1r-testresults-579e8b2.json`, `m1r-testresults-paths-579e8b2.txt`, `m1r-vitest-stdout-579e8b2.txt`, `m1r-typecheck-579e8b2.txt`, `m1r-convention-check-579e8b2.txt`. vitest at `579e8b2`: 851 tests, 851 passed, 0 failed, 79 files, exit 0; path membership identical to the M4 tip's list (`m4-testresults-paths-1e12837.txt`); `pnpm run typecheck` exit 0; lockfiles unmoved (`git diff --numstat 6001f7f -- pnpm-lock.yaml package-lock.json` empty); convention-check 0 FAIL outside the untracked M3 work-in-progress file (7 FAIL in it), 0 CANDIDATE.
 

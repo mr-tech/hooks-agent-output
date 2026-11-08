@@ -1,0 +1,196 @@
+import { act } from 'react';
+import { createRoot } from 'react-dom/client';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+
+vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+
+import ConfirmationDialog from '../ConfirmationDialog';
+import ImageUploader from '../ImageUploader';
+import WarningDialog from '../WarningDialog';
+
+import { Context } from '~/providers/ConfirmationProvider';
+
+let root: ReturnType<typeof createRoot> | null = null;
+
+afterEach(() => {
+  const mounted = root;
+  if (mounted) act(() => { mounted.unmount(); });
+  root = null;
+});
+
+function mount(ui: React.ReactNode) {
+  const mounted = createRoot(document);
+  root = mounted;
+  act(() => {
+    mounted.render(
+      <html>
+        <body>{ui}</body>
+      </html>,
+    );
+  });
+}
+
+function buttonLabelled(text: string) {
+  const found = Array.from(document.querySelectorAll('button')).find((b) => b.textContent === text);
+  if (!found) throw new Error(`no button labelled ${text}`);
+  return found;
+}
+
+function pressEnter(target: Element) {
+  const init = {
+    key: 'Enter', code: 'Enter', bubbles: true, cancelable: true,
+  };
+  act(() => { target.dispatchEvent(new KeyboardEvent('keydown', init)); });
+  act(() => { target.dispatchEvent(new KeyboardEvent('keyup', init)); });
+}
+
+function focusNothing() {
+  act(() => { (document.activeElement as HTMLElement | null)?.blur(); });
+  expect(document.activeElement?.tagName).toBe('BODY');
+}
+
+describe('ConfirmationDialog, Enter key', () => {
+  function mountDialog() {
+    const onConfirm = vi.fn();
+    const onCancel = vi.fn();
+    mount(
+      <Context.Provider value={{
+        props: {
+          title: 'Delete', message: 'Sure?', confirmText: 'Delete Embed', onConfirm, onCancel,
+        },
+        showConfirmation: () => {},
+        withConfirmation: () => () => {},
+      }}
+      >
+        <ConfirmationDialog />
+      </Context.Provider>,
+    );
+    return { onConfirm, onCancel };
+  }
+
+  it('confirms exactly once when the confirm button has focus', () => {
+    const { onConfirm, onCancel } = mountDialog();
+
+    pressEnter(buttonLabelled('Delete Embed'));
+
+    expect(onConfirm).toHaveBeenCalledTimes(1);
+    expect(onCancel).not.toHaveBeenCalled();
+  });
+
+  it('runs only Cancel when Cancel has focus', () => {
+    const { onConfirm, onCancel } = mountDialog();
+    act(() => { buttonLabelled('Cancel').focus(); });
+
+    pressEnter(buttonLabelled('Cancel'));
+
+    expect(onCancel).toHaveBeenCalledTimes(1);
+    expect(onConfirm).not.toHaveBeenCalled();
+  });
+
+  it('confirms once when no button has focus', () => {
+    const { onConfirm, onCancel } = mountDialog();
+    focusNothing();
+
+    pressEnter(document.body);
+
+    expect(onConfirm).toHaveBeenCalledTimes(1);
+    expect(onCancel).not.toHaveBeenCalled();
+  });
+});
+
+describe('WarningDialog, Enter key', () => {
+  function mountDialog() {
+    const onConfirm = vi.fn();
+    const onClose = vi.fn();
+    mount(
+      <WarningDialog
+        title="Delete"
+        message="Sure?"
+        open
+        confirmText="Delete Embed"
+        onClose={onClose}
+        onConfirm={onConfirm}
+      />,
+    );
+    return { onConfirm, onClose };
+  }
+
+  it('confirms exactly once when the confirm button has focus', () => {
+    const { onConfirm, onClose } = mountDialog();
+
+    pressEnter(buttonLabelled('Delete Embed'));
+
+    expect(onConfirm).toHaveBeenCalledTimes(1);
+    expect(onClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('runs only Cancel when Cancel has focus', () => {
+    const { onConfirm, onClose } = mountDialog();
+    act(() => { buttonLabelled('Cancel').focus(); });
+
+    pressEnter(buttonLabelled('Cancel'));
+
+    expect(onClose).toHaveBeenCalledTimes(1);
+    expect(onConfirm).not.toHaveBeenCalled();
+  });
+
+  it('confirms once, without closing, when no button has focus', () => {
+    const { onConfirm, onClose } = mountDialog();
+    focusNothing();
+
+    pressEnter(document.body);
+
+    expect(onConfirm).toHaveBeenCalledTimes(1);
+    expect(onClose).not.toHaveBeenCalled();
+  });
+});
+
+describe('ImageUploader, Enter key', () => {
+  function mountUploader() {
+    const setImage = vi.fn();
+    const onClose = vi.fn();
+    mount(<ImageUploader isOpen image="https://example.com/a.png" setImage={setImage} onClose={onClose} />);
+    return { setImage, onClose };
+  }
+
+  it('sets the image exactly once when the set button has focus', () => {
+    const { setImage, onClose } = mountUploader();
+    const setButton = Array.from(document.querySelectorAll('button')).find((b) => b.textContent === 'Save');
+    if (!setButton) throw new Error('no set button');
+
+    pressEnter(setButton);
+
+    expect(setImage).toHaveBeenCalledTimes(1);
+    expect(onClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('runs only Cancel when Cancel has focus', () => {
+    const { setImage, onClose } = mountUploader();
+    act(() => { buttonLabelled('Cancel').focus(); });
+
+    pressEnter(buttonLabelled('Cancel'));
+
+    expect(onClose).toHaveBeenCalledTimes(1);
+    expect(setImage).not.toHaveBeenCalled();
+  });
+
+  it('runs only Clear when Clear has focus', () => {
+    const { setImage, onClose } = mountUploader();
+    act(() => { buttonLabelled('Clear').focus(); });
+
+    pressEnter(buttonLabelled('Clear'));
+
+    expect(setImage).not.toHaveBeenCalled();
+    expect(onClose).not.toHaveBeenCalled();
+  });
+
+  it('sets the image once when no button has focus', () => {
+    const { setImage, onClose } = mountUploader();
+    focusNothing();
+
+    pressEnter(document.body);
+
+    expect(setImage).toHaveBeenCalledTimes(1);
+    expect(onClose).toHaveBeenCalledTimes(1);
+  });
+});

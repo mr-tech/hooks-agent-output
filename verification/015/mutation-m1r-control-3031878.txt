@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-3031878-m1r-control  sha: 3031878  label: m1r-control  test: auth.sign-out auth.hydrated-session  mutator: none
+ .../src/utils/hooks/useValidateWebhook.ts          |   2 +-
+ 5 files changed, 3 insertions(+), 267 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-3031878-m1r-control
+
+
+ Test Files  2 passed (2)
+      Tests  30 passed (30)
+   Start at  07:27:15
+   Duration  1.04s (transform 302ms, setup 0ms, import 1.17s, tests 43ms, environment 0ms)
+
+vitest exit 0
