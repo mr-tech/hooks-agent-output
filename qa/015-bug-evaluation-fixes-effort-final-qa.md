@@ -151,6 +151,8 @@ QAF-37 RESOLVED (2026-11-08T12:38: preview-image-generator `8de2b53` unchanged; 
 - The adequacy mutant `qa-ef-close-not-awaited` (the drain no longer waits for `server.close`) is KILLED, with 2 red: the window, and "no drain-complete line and no drain-failed line". So each of the cell's three checks has been seen red at least once. This answers code review's adequacy note.
 - Load during the run: load average 9.95 at the start and 8.33 at the end on 18 cores, from other sessions. The box was not idle.
 
+*Disclosed 2026-11-08T12:40, a gate satisfied:* this document's second changelog row and the plan's QA row were typed as 12:41 and 12:45 while the clock read 12:40. The stamp-gate PostToolUse hook blocked the plan edit on the future stamp. Both rows are re-stamped from `date -u` (`726f4d5`), and the plan row's first commit `c2e7f69` carried the typed stamp. Nothing else changed.
+
 ## Verdict
 
 **QA Failed** at website `c5303ca` and preview-image-generator `8de2b53`. It fails on test adequacy alone: QAF-38, QAF-39 and QAF-40 are each MEDIUM, test-only and routed to the implementer. No production defect was found in either repository. Every other criterion this pass assessed is met:
