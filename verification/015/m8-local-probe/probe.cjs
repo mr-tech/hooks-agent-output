@@ -132,6 +132,23 @@ const DRAIN_FAILED = /Z Drain failed after \d+ms: /;
     await stop(o);
   }
   {
+    // A drain that never settles: a client holding a half-sent request keeps server.close from calling back
+    // (closeIdleConnections leaves a connection with a request in progress open), so only the 10 s fallback ends the
+    // process. PM2 kills at 12000 ms (kill_timeout), so the exit must come by then with code 0.
+    const o = start(); await o.ready;
+    const held = require('net').connect(o.port, '127.0.0.1');
+    await new Promise((r) => held.on('connect', r));
+    held.write('POST /generate HTTP/1.1\r\nHost: probe\r\nContent-Length: 10\r\n');
+    await sleep(300);
+    o.child.send('shutdown'); const sent = Date.now();
+    const ex = await waitExit(o, 14000);
+    const took = ex ? ex.at - sent : null;
+    cell('P1 drain never settles: the 10 s fallback exits the process with code 0', !!ex && ex.code === 0, JSON.stringify(ex));
+    cell('P1 drain never settles: the exit comes after the drain wait and before the 12 s kill_timeout', took !== null && took >= 9500 && took < 12000, `${took} ms`);
+    cell('P1 drain never settles: no drain-complete line and no drain-failed line', count(o, DRAINED) === 0 && count(o, DRAIN_FAILED) === 0, o.lines.filter((l) => /Drain/.test(l)).join(' | '));
+    held.destroy(); await stop(o);
+  }
+  {
     process.env.DEPLOY_NAME = 'probe';
     const cfg = require('./ecosystem.config.js').apps[0];
     cell('P2: ecosystem states kill_timeout 12000 and shutdown_with_message true', cfg.kill_timeout === 12000 && cfg.shutdown_with_message === true, JSON.stringify({ kill_timeout: cfg.kill_timeout, shutdown_with_message: cfg.shutdown_with_message }));
