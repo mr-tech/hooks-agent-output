@@ -1,0 +1,5 @@
+control	 Tests 1122 passed (1122)	0	vitest exit 0
+btn-aria-off	 Tests 1 failed | 1121 passed (1122)	0	vitest exit 1
+btn-aria-always	 Tests 7 failed | 1115 passed (1122)	0	vitest exit 1
+pg-parse-rethrows	 Tests 26 failed | 1096 passed (1122)	0	vitest exit 1
+done

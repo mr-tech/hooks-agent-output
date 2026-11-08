@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/07779517-a93b-4582-8eaa-bb529d59396c/scratchpad/exports/website-c5303ca-qa-r5-control  sha: c5303ca  label: qa-r5-control  test:   mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/07779517-a93b-4582-8eaa-bb529d59396c/scratchpad/exports/website-c5303ca-qa-r5-control
+
+
+ Test Files  115 passed (115)
+      Tests  1122 passed (1122)
+   Start at  10:42:51
+   Duration  20.17s (transform 54.72s, setup 2.32s, import 172.36s, tests 36.76s, environment 80.74s)
+
+vitest exit 0
