@@ -23,6 +23,7 @@ Handoff-At: "8de2b53 — repos=preview-image-generator"
 |------|---------------|---------|---------|
 | 2026-11-08T09:05 | steering-hooks-015 → implementer-hooks-015 (message "Resume chain 015 … then M8") | Implement M8 | M8-a to M8-e in `4b68b57`; the pool fix in `6c613a5`. Probe rig `verification/015/m8-local-probe/`. |
 | 2026-11-08T09:47 | steering-hooks-015 → implementer-hooks-015 (Round 18 return; owner ruling RK-8, rulings `f5ab120`; CR-33, AF-31; QA's message on the startup property) | Fix CR-27; CR-28; D36 startup check | `7e5ca5f`: `shutdown()` logs the drain-complete line only on success and `Drain failed after Nms: <message>` on stdout otherwise; a first guard at pool creation. `8de2b53`: the guard replaced by the D36 startup check (`checkPoolShape`, below), because rev 27 (d) asks for the line at startup and the pool is created on the first request. Rig now 32 cells, fixtures are a source rename of generic-pool in a copy; `m8-guard-mutants.sh`. QAF-33 dropped by the owner (rulings `c8c7649`): no array refusal. |
+| 2026-11-08T11:23 | qa-hooks-015 → implementer-hooks-015 (QAF-37 MEDIUM, effort-final Phase 2) | A rig cell for a drain that never settles | Rig-only, no generator source change: generator stays at `8de2b53`. Cell added to `m8-local-probe/probe.cjs` (agent-output `8fb1eee`). See § QAF-37. |
 
 ## Implementation Summary
 
@@ -132,6 +133,20 @@ Not a fix round for a reviewer finding. Each plan finding's class was enumerated
 
 **Gate satisfaction, disclosed.** `eslint` was run with `--max-warnings=0` in the export, not `npm run lint`, which passes `--fix`. One lint error in my own `server.ts` line was fixed by hand. No source comment was added.
 
+## QAF-37 — the 10 s shutdown fallback (rig cell, no source change)
+
+`qa/015-bug-evaluation-fixes-effort-final-qa.md` § Findings QAF-37 (MEDIUM): removing `setTimeout(() => { process.exit(0); }, 10e3);` from `shutdown` (mutant `qa-ef-fallback-timer-removed`) passed every rig cell, so M8-a's "exit before 12000 ms, no SIGKILL" (B-8) had no assertion when the drain never settles.
+
+- **The cell** (`verification/015/m8-local-probe/probe.cjs`, three assertions in one block, after the P1 failed-drain block): the server is started; a raw TCP client sends a half-written `POST /generate` (request line, `Host`, `Content-Length: 10`, no blank line) and keeps the socket open; `shutdown` is sent. `server.closeIdleConnections()` leaves a connection with a request in progress open, so `server.close` never calls back, the drain never settles, and only the fallback ends the process. It asserts: (1) exit code 0; (2) the exit comes at least 9500 ms and under 12000 ms after the message (the lower bound shows the exit is the fallback, not an early exit); (3) neither a drain-complete nor a drain-failed line. It uses no browser.
+- **Green at `8de2b53`:** `m8-local-probe/qaf37-rig-control-8de2b53.txt` (`run.sh`, E-1 export, network-isolated): 35 cells, 0 failed (32 before, 3 added); the new cell's exit at 10019 ms.
+- **Red under the mutant:** `qa-m8r-sweep.py` over `effort-final/gen-gap-mutants-8de2b53.json`, names `control` and `qa-ef-fallback-timer-removed`, probe blobs read from agent-output `8fb1eee`, outputs `verification/015/qaf37/` (`qa-m8r-summary.txt`): control 0 red; the mutant KILLED, 2 red (the exit-code cell and the timing cell). The third cell, no drain lines, holds under the mutant, as expected since nothing prints.
+- **Not a standing-suite test.** The cell takes about 10 s of wall clock. The generator has no standing suite; the cell lives in the verification rig, run on demand by QA and the implementer.
+- **Assumption not checked:** the rig runs Node 24; production runs Node 18.17.1. That `closeIdleConnections` leaves a half-sent request open on 18.17 was not run. The fallback's own timer does not depend on it, but the cell's way of holding the drain open might differ there.
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---|---|---|---|
+| QAF-37 (a preserved timer or fallback exit in the generator source with no cell that fails when it is removed) | `git -C preview-image-generator grep -n "setTimeout\|setInterval" 8de2b53 -- src` | 1 hit: `src/server.ts:62`, `setTimeout(() => { process.exit(0); }, 10e3);` | The fallback itself: covered now, killed by the mutant above. Residual after the fix: 0 uncovered hits |
+
 ## Outstanding Items
 
 1. **Plan mechanism for M8-d is insufficient; the property is met.** The plan says the launch failure "rejects in the pool factory; the next request gets 500, not a TypeError". Measured with `generic-pool` 3.9.0 (`pool-exp`, in the scratch export): with a factory that only rethrows, the waiting `acquire` never settles (the request would hang) and the pool retries creation in a loop (11,654 attempts in 3 s). Also `pool.use`'s error path released a resource it never acquired, which is the `TypeError`. I added the README-documented `factoryCreateError` handler (reject the oldest waiting request) and rewrote `pool.use` to release only what it acquired. The handler reaches a private field (`_waitingClientsQueue`) of a pinned dependency (`generic-pool@^3.9.0`); the README names it, but a dependency upgrade can break it. For the planner and the code-reviewer: confirm this is acceptable, or state a different remedy (an `acquireTimeoutMillis` alone would leave the retry loop running until it fires).
@@ -157,7 +172,7 @@ Not a fix round for a reviewer finding. Each plan finding's class was enumerated
 
 ## Next Steps
 
-Code review of `6c613a5..8de2b53` (the CR-27 fix round with the D36 startup check) in preview-image-generator. Then QA Phase 2 (its own mutation of the probes), then M9 (devops, owner-approved pushes; the `prod.yml` re-run; M8-0 run 2).
+Code review of the QAF-37 rig cell (agent-output `8fb1eee`; no generator source changed, generator stays at `8de2b53`); the Round 18 review of `6c613a5..8de2b53` is recorded APPROVED_WITH_COMMENTS. Then QA Phase 2 (its own mutation of the probes), then M9 (devops, owner-approved pushes; the `prod.yml` re-run; M8-0 run 2).
 
 ## Resumption State (2026-11-08T09:58, implementer-hooks-015)
 
