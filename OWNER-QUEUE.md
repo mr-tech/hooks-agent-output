@@ -50,6 +50,19 @@ account administers three, so it can't show this. You said you'd provide a new u
 
 Which account, and how should UAT sign in with it?
 
+## Chain 015 — add the test account to a server of yours as a plain member
+
+UAT has to check that a message link from a server you don't administer is refused. That needs a
+server with the Hooks.gg bot where the test account is an ordinary member.
+
+1. Invite the test account to one of your servers that has the Hooks.gg bot. Give it no admin and
+   no Manage Server.
+2. Tell steering-hooks-015 the server's name.
+3. **Pass:** UAT pastes one message link from that server into New Message and it's refused. UAT
+   saves nothing. The website release waits on this.
+
+Which server did you add it to?
+
 ## Generator host — remove claude-ro's read on the nodejs PM2 dump
 
 You chose to remove it yourself (05:21Z). Agents never open that file in the meantime.
