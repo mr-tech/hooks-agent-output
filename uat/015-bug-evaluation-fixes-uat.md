@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: UAT Complete
-Status-Detail: "Conditional approval. B-4, B-5, B-11 (send-page leg), B-12 and B-13 EXECUTED PASS at website b96e364, each red at base 7ce866b. B-1, B-2, B-9, B-10, B-14 and B-11's dialog leg are NOT EXECUTED: the local Postgres the site signs in against is gone (UAT-1). They must reach EXECUTED before the website merge to master. Owner's choice of route pending (steering-hooks-015)."
+Status-Detail: "Conditional approval. B-2, B-4, B-5, B-11 (send-page leg), B-12 and B-13 EXECUTED PASS at website b96e364, each red at base 7ce866b. B-1 and B-14 need an account or guild the test account lacks (owner's walk). B-9, B-10 and the B-11 dialog leg are blocked by a pre-existing fault: the New Message dialog does not open at either tree (UAT-4). All five must reach a terminal state before the website merge to master. Owner's answers pending (steering-hooks-015, 20:01Z)."
 Verified-At: "b96e364,8de2b53 — repos=website,preview-image-generator; flows driven on website b96e364 (base 7ce866b as the red side); generator 8de2b53 not driven (no browser surface; B-8 post-deploy)"
 Release-Decision: APPROVED FOR RELEASE
 ---
@@ -19,6 +19,7 @@ Release-Decision: APPROVED FOR RELEASE
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-08T15:17 | steering-hooks-015 (brief `brief-uat-hooks-015.md`; rulings 14:44Z) | UAT on the QA effort-final PASS at website `b96e364`, generator `8de2b53` | Ran the no-sign-in rows and flows in the stage browser, tip against base. B-4, B-5, B-11 (send-page leg), B-12 and B-13 EXECUTED PASS. The signed-in rows are blocked by UAT-1 (no Postgres at 127.0.0.1:5432), escalated to steering 14:5xZ. Decision: APPROVED FOR RELEASE, conditional on those rows before the merge. |
+| 2026-11-08T20:01 | steering-hooks-015 (owner's ruling on UAT-1, route (a), steering/015-rulings.md 5d29306; coordinator goes 19:48Z, 19:49Z) | Recreate the local Postgres and run the signed-in rows | `hooks-postgres-local` is recreated (left running). B-2 EXECUTED PASS (base red). B-1 and B-14 cannot run with the test account. B-9, B-10 and the B-11 dialog leg are blocked by UAT-4, a pre-existing dialog fault. Owner questions sent at 20:01Z. Decision unchanged, now conditional on B-1, B-9, B-10, B-14 and the B-11 dialog leg. |
 
 ## Stage start and identity
 
@@ -57,19 +58,30 @@ The flows are the implementer's per-flow tables (M2, M4, M5, M6 implementation d
 | M5 Save As, Today labels, delete failure, guild dropdown, update prompt | Signed-in pages | As the M5 table | Not run (UAT-1) | UNVERIFIED |
 | M6 duplicate placement, field timestamp edit | Editor menus | As the M6 table | Not driven this pass | UNVERIFIED |
 
+**Second walk, 2026-11-08T19:49–20:01Z (route (a)).** The local Postgres is recreated: `postgres:16` container `hooks-postgres-local` on 127.0.0.1:5432, credentials from the unchanged `.env.local`, and `prisma db push --skip-generate` of `project-utils/prisma/schema.prisma` (9 tables). The test account signed in through Discord OAuth (consent page, Authorize). The walks wrote rows only to the local DB: the test account's Users and Accounts rows, and messages 1–4. Nothing was sent. `PREVIEW_IMAGE_URL` is 127.0.0.1:3002, where nothing listens, so the saves reached no preview generator and wrote nothing to the CDN. Scripts: `b01-signin-message-list.js`, `b14-first-visit-tab.js` and `newmessage-dialog-open.js`, in `verification/015/uat/`.
+
+| Flow | Action | Expected | Observed | Result |
+|------|--------|----------|----------|--------|
+| B-2 / M2-a black embed save | Editor, picker → `#000000`, File → Save as… → My Account, reload | Saves; black persists | Saved (`message.upsert` 200, message 1). After reload: bar rgb(0,0,0), picker `#000000`, and the DB stores `embeds[0].color` = 0. Base `7ce866b`: the same save is refused, 400 "Number must be greater than 0" on `embeds[0].color` | PASS |
+| B-1 / M1-a no-admin message list | Precondition read: the test account's server list | An account that administers no server | It administers three (AAAA…, Claude, statbot-065-install-test). The list loads at base and tip for this account, which says nothing for B-1 | NOT EXECUTED (precondition) |
+| B-14 / M5-i first-visit tab | Saved to Claude and to statbot-065-install-test; each send page opened fresh | A guild with the bot and webhooks | Both show "The Hooks.gg bot is not in this server". AAAA… cannot be saved to (UAT-5) | NOT EXECUTED (precondition) |
+| B-9, B-10, B-11 dialog leg | Account folder → "new message" → "Upload Message" (opens NewMessageModal) | The dialog opens | Nothing opens, by click, raw pointer press or Enter, with no console error. The same at base `7ce866b` (UAT-4) | NOT EXECUTED (blocked) |
+| M5 Save As server list | Save As → Save To dropdown | Lists the session's servers | My Account plus the three servers (tip) | PASS (tip only) |
+
 Every UNVERIFIED row above has suite coverage, by QA's effort-final PASS, which is QA's to restate, not mine. None is a register row.
 
-## Blocking-condition register (QA's register, `qa/015-bug-evaluation-fixes-qa.md` § Blocking-condition register; states as of 15:17Z)
+## Blocking-condition register (QA's register, `qa/015-bug-evaluation-fixes-qa.md` § Blocking-condition register; states as of 20:01Z)
 
 | Row | Class | State | Result / carrier |
 |---|---|---|---|
-| B-1 M1-a no-admin list | pre-release | NOT EXECUTED | UAT-1. Owner: uat, re-run on a restored local DB; or the owner's walk (Validation's own limb 1 names him) |
-| B-2 M2-a black save | pre-release | NOT EXECUTED | as B-1 (render half PASS above) |
+| B-1 M1-a no-admin list | pre-release | NOT EXECUTED | The test account administers three servers (second walk), so the primary's subject is unavailable. Fallback owner: the owner, with an account that administers no server (Validation limb 1 already names him). Asked 20:01Z |
+| B-2 M2-a black save | pre-release | EXECUTED 2026-11-08 PASS | second walk: saved, black after reload, DB `color` 0. Base refused |
 | B-3 M3 | — | WITHDRAWN | rev 21, D30; the owner's ruling 07:26Z |
 | B-4 M6-l over 40 | pre-release | EXECUTED 2026-11-08 PASS | above. The total is 42, not 41; the prediction admits "or the actual total" |
 | B-5 M6-a code block | pre-release | EXECUTED 2026-11-08 PASS | above |
-| B-9, B-10, B-14 | pre-release | NOT EXECUTED | as B-1. B-10 and B-14 also need a qualifying guild (read first) |
-| B-11 M4-d offline URL | pre-release | send-page leg EXECUTED PASS; dialog leg NOT EXECUTED | as B-1 for the dialog leg |
+| B-9, B-10 | pre-release | NOT EXECUTED | blocked by UAT-4 (the New Message dialog does not open, at tip or base). Owner asked at 20:01Z whether it opens on production. If it does, these are his walk; if it doesn't, his ruling |
+| B-14 | pre-release | NOT EXECUTED | No guild of the test account has the bot (second walk). Owner asked at 20:01Z: a qualifying guild for his walk, or withdrawal |
+| B-11 M4-d offline URL | pre-release | send-page leg EXECUTED PASS; dialog leg NOT EXECUTED | dialog leg: as B-9 (UAT-4) |
 | B-12 M5-h | pre-release | EXECUTED 2026-11-08 PASS | above |
 | B-13 M5-a | pre-release | EXECUTED 2026-11-08 PASS | above |
 | B-6 M7-a Get Message | post-deploy | open, conditional | devops Stage 1 handoff; after `push-commands` |
@@ -77,9 +89,9 @@ Every UNVERIFIED row above has suite coverage, by QA's effort-final PASS, which 
 | B-8 M8-a drain + rev-28 D36 line | post-deploy | open, conditional | devops, same read session as stop (2) |
 | B-15 CR-34 PM2 error-log check (minted here) | post-deploy | SUPERSEDED | by B-8's rev-28 limb: the same line (`generic-pool no longer exposes _waitingClientsQueue.dequeue`), the same log, the same reader (devops, `claude-ro`), predicted 0. Its operator signal is in Key Changes below |
 
-Inherited and not discharged by this pass: B-1, B-2, B-9, B-10, B-14, the B-11 dialog leg, and B-6, B-7, B-8.
+Inherited and not discharged by this pass: B-1, B-9, B-10, B-14, the B-11 dialog leg, and B-6, B-7, B-8.
 
-QA's handed observation (effort-final § Assumption Not Checked, `getCDNUrl` / `NEXT_PUBLIC_CDN_PORT`): **not observed.** No walk I ran built a CDN URL (`grep -F` of the CDN host over the browser captures: 0). It rides the B-2 walk.
+QA's handed observation (effort-final § Assumption Not Checked, `getCDNUrl` / `NEXT_PUBLIC_CDN_PORT`): the first walk did not observe it, because no page built a CDN URL. *Update 2026-11-08T20:01:* in the second walk, the message list built preview URLs of the form `https://cdn.hooks.gg/dev/previews/<id>/<nonce>.jpeg`, with no port. `NEXT_PUBLIC_CDN_PORT` is absent from `.env.local`. This shows the unset case only. QA's falsity signature ("no port when the variable is set") needs the variable set, and that case was not exercised. It stays an Assumption Not Checked for whoever sets the variable.
 
 Code review's Assumption Not Checked (CR-38 sub-entry: an `autoFocus` button under a screen reader's virtual cursor is focused after transitions): **unverified.** No screen reader is available on this machine. No criterion requires it, so it is a stated limit, owned by code review's Assumption Not Checked.
 
@@ -88,11 +100,11 @@ Code review's Assumption Not Checked (CR-38 sub-entry: an `autoFocus` button und
 The Value Statement (plan § Value Statement and Business Objective) names five user outcomes:
 - **A multi-line code block renders:** delivered (B-5, seen red at base).
 - **A Cancel key press never deletes:** already true before the chain (D30, Chrome read `8996505`), carried as such.
-- **A black embed saves:** half seen. It renders black, and the save path is unexecuted (B-2).
+- **A black embed saves:** delivered (B-2, second walk; refused at base).
 - **A user who administers no server can open the message list:** unexecuted (B-1). It is a server-side SQL fix with no browser-free surface.
 - **A moderator with Manage Server sees *Get Message*:** post-deploy by construction (B-6).
 
-The wider "what I build is what previews" promise is borne out on every surface I could drive: the over-40 line, the `/preview` crash set, the JSON dialog, image URL acceptance, the picker and empty embeds. No core value is deferred by the plan, but two of the five named outcomes are not yet shown in a running build.
+The wider "what I build is what previews" promise is borne out on every surface I could drive: the over-40 line, the `/preview` crash set, the JSON dialog, image URL acceptance, the picker and empty embeds. No core value is deferred by the plan. One named outcome (B-1) is not yet shown in a running build, and one (B-6) is post-deploy by construction.
 
 ## Objective Alignment Assessment
 
@@ -102,13 +114,15 @@ The wider "what I build is what previews" promise is borne out on every surface 
 
 ## Findings
 
-UAT-1 MEDIUM — The plan's Validation premise "`.env.local`, whose database is the live one" is false at 2026-11-08. The only selectable `DATABASE_URL` points at 127.0.0.1:5432, the local stack the owner ruled "stay local" (`steering/014-rulings.md`, 2026-08-27). Nothing listens there, and `docker ps -a` lists no containers, so `hooks-postgres-local` (`uat/closed/014-test-suite-cleanup-uat.md`:428) is gone. Every signed-in pre-release row is blocked. Routed: environment choice to the owner via steering-hooks-015 (owner-needing, sent 14:5xZ); the Validation text to the planner through `INBOX.md` (entry "2026-11-08 — uat-hooks-015 — FYI").
+UAT-1 MEDIUM — The plan's Validation premise "`.env.local`, whose database is the live one" is false at 2026-11-08. The only selectable `DATABASE_URL` points at 127.0.0.1:5432, the local stack the owner ruled "stay local" (`steering/014-rulings.md`, 2026-08-27). Nothing listens there, and `docker ps -a` lists no containers, so `hooks-postgres-local` (`uat/closed/014-test-suite-cleanup-uat.md`:428) is gone. Every signed-in pre-release row is blocked. Routed: environment choice to the owner via steering-hooks-015 (owner-needing, sent 14:5xZ); the Validation text to the planner through `INBOX.md` (entry "2026-11-08 — uat-hooks-015 — FYI"). *Environment limb resolved 2026-11-08T20:01:* the owner chose route (a) (steering/015-rulings.md, 5d29306), and `hooks-postgres-local` is recreated and running. The Validation-text limb stays with the planner.
 UAT-2 INFO — The implementation document's M6 flow line "At 39, adding a Section completes (41 in all)" understates the total, which is 42. The product text shows the actual total, as the criterion allows. No action beyond the record.
+UAT-4 MEDIUM — On the account folder page, "new message" → "Upload Message" opens nothing. That item's handler opens NewMessageModal, the surface of B-9, B-10 and the B-11 dialog leg. It fails by click, raw pointer press and Enter, with no console error, at website `b96e364` and equally at `7ce866b` (`verification/015/uat/newmessage-dialog-open.js`). So it predates the chain and is not its regression. Not established: whether it is a `next dev` artefact or a live production defect. Routed: the owner (via steering-hooks-015, 20:01Z), asked whether it opens on production. A pre-existing production defect becomes a handoff, minted once he answers.
+UAT-5 INFO — Save As to the test account's server named "AAAA…" (32 'A's) is refused with 400 `invalid_string` on `message.guildId`, at both trees. That server also has no folder link in the server list. Pre-existing, not a criterion. Recorded only.
 UAT-3 INFO — A React hydration-mismatch console error shows on first load of the editor in `next dev` at the tip (dev overlay "1 Issue"). Not compared at base and not a criterion. Recorded only.
 
 ## Release Decision
 
-**Final Status**: APPROVED FOR RELEASE, conditional on the execution of B-1, B-2, B-9, B-10, B-14 and the B-11 dialog leg. If any of these fail, return to the implementer before release. Website pushes to `master` deploy to Vercel production, so these rows precede the merge. Owner per row: uat, on a restored local database, if the owner chooses that route; otherwise the owner's own walk. Target state for each: EXECUTED. B-6, B-7 and B-8 are post-deploy, approved conditionally, and gate nothing of the release act. Their carrier is devops's Stage 1 handoff.
+**Final Status**: APPROVED FOR RELEASE, conditional on the execution of B-1, B-9, B-10, B-14 and the B-11 dialog leg. If any of these fail, return to the implementer before release. Website pushes to `master` deploy to Vercel production, so these rows precede the merge. *Reconciled 2026-11-08T20:01:* B-2 left the list (EXECUTED PASS, second walk), and the owners moved. B-1 and B-14 are the owner's walk: the test account lacks the subject. B-9, B-10 and the B-11 dialog leg are the owner's walk if the dialog opens on production; otherwise they await his ruling (UAT-4). Target state for each: EXECUTED; WITHDRAWN only on his ruling. B-6, B-7 and B-8 are post-deploy, approved conditionally, and gate nothing of the release act. Their carrier is devops's Stage 1 handoff.
 **Rationale**: QA's effort-final PASS (suite 1130/1130, exit 0) plus five register rows executed in a real browser, each seen red at base. No observed FAIL. The unexecuted rows are environment-blocked, not failing. The conditional form keeps them gating.
 **Recommended Version**: patch for website and preview-image-generator. Defect fixes only, plus behaviour the owner chose to widen (discordapp.com links) or to refuse (over-40 messages, bad preview data). Neither repository carries a version the release bumps; deploy consequence: devops's to establish.
 **Key Changes for Changelog**:
@@ -125,9 +139,10 @@ UAT-3 INFO — A React hydration-mismatch console error shows on first load of t
 
 ## Next Actions
 *Point-in-time list — later stage documents are authoritative on these items' current state.*
-- Owner (via steering-hooks-015): choose the route for the signed-in rows: restore the local Postgres for a uat re-run, his own walk, or leave the condition standing.
-- uat or owner: execute B-1, B-2, B-9, B-10, B-14 and the B-11 dialog leg before the website merge, and record them here.
+- ~~Owner: choose the route for the signed-in rows~~ — answered: route (a), 5d29306.
+- Owner (via steering-hooks-015, asked 20:01Z): walk B-1 with an account that administers no server; name a guild with the bot and webhooks for B-14, or withdraw it; say whether "Upload Message" opens on production (UAT-4).
+- uat: record his results here as they come, before the website merge.
 - devops: release per M9 once the condition is met; carry B-6, B-7 and B-8 (with B-15's signal) in the Stage 1 handoff.
 - planner: UAT-1's Validation text (`INBOX.md`, uat-hooks-015 entry).
 
-Delivery note: no devops session for chain 015 existed at 15:2xZ (ListAgents), so this report is lodged here. A spawn cue naming this document went to steering-hooks-015. The `b96e364` export stays in uat-hooks-015's scratchpad (`web-b96e364/`) for the condition rows' re-run; the `7ce866b` export is deleted.
+Delivery note: no devops session for chain 015 existed at 15:2xZ (ListAgents), so this report is lodged here. A spawn cue naming this document went to steering-hooks-015. The `b96e364` export stays in uat-hooks-015's scratchpad (`web-b96e364/`) for the condition rows' re-run; the `7ce866b` export is deleted. *2026-11-08T20:01:* it was re-created for the second walk's base legs, and stays with the tip export until the condition rows close.

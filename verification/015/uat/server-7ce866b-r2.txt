@@ -1,0 +1,58 @@
+▲ Next.js 16.1.6 (webpack)
+- Local:         http://127.0.0.1:3000
+- Network:       http://127.0.0.1:3000
+- Environments: .env.local
+
+✓ Starting...
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+✓ Ready in 983ms
+○ Compiling /message ...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+ GET /message 200 in 14.7s (compile: 14.3s, render: 409ms)
+○ Compiling /message/m/[id]/edit ...
+ GET /message/m/0/edit 200 in 837ms (compile: 392ms, proxy.ts: 21ms, render: 425ms)
+ GET /message/m/0/edit 200 in 7.2s (compile: 6.6s, proxy.ts: 87ms, render: 498ms)
+ GET /api/auth/session?hydrate=true 200 in 3.3s (compile: 3.2s, render: 21ms)
+ GET /message/m/0/edit 200 in 232ms (compile: 116ms, proxy.ts: 7ms, render: 109ms)
+ GET /message/m/0/edit 200 in 49ms (compile: 8ms, proxy.ts: 5ms, render: 36ms)
+ GET /api/auth/session?hydrate=true 200 in 4ms (compile: 1495µs, render: 2ms)
+ GET /message 200 in 293ms (compile: 19ms, render: 273ms)
+ GET /api/auth/session?hydrate=true 200 in 5ms (compile: 2ms, render: 3ms)
+ GET /message/m/0/edit 200 in 228ms (compile: 43ms, proxy.ts: 8ms, render: 177ms)
+ GET /api/auth/session 200 in 4ms (compile: 1376µs, render: 2ms)
+ GET /api/auth/providers 200 in 3ms (compile: 1096µs, render: 2ms)
+ GET /api/auth/csrf 200 in 3ms (compile: 945µs, render: 2ms)
+ POST /api/auth/signin/discord 200 in 8ms (compile: 1138µs, render: 6ms)
+kysely:query: select "Users".* from "Users" inner join "Accounts" on "Users"."id" = "Accounts"."userId" where "Accounts"."providerAccountId" = $1 and "Accounts"."provider" = $2
+kysely:query: duration: 2.7ms
+kysely:query: select "Users".* from "Users" inner join "Accounts" on "Users"."id" = "Accounts"."userId" where "Accounts"."providerAccountId" = $1 and "Accounts"."provider" = $2
+kysely:query: duration: 0.5ms
+kysely:query: insert into "Users" ("name", "image", "preferences", "emailVerified") values ($1, $2, $3, $4) returning *
+kysely:query: duration: 2.9ms
+kysely:query: insert into "Accounts" ("provider", "type", "providerAccountId", "token_type", "access_token", "expires_at", "refresh_token", "scope", "userId") values ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+kysely:query: duration: 1.2ms
+kysely:query: insert into "Sessions" ("sessionToken", "userId", "expires") values ($1, $2, $3) returning *
+kysely:query: duration: 2.1ms
+ GET /api/auth/callback/discord?code=REDACTED&state=REDACTED&iss=https%3A%2F%2Fdiscord.com 302 in 460ms (compile: 1451µs, render: 459ms)
+ GET /?callbackUrl=%2Fmessage 200 in 1670ms (compile: 1494ms, render: 176ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 0.9ms
+kysely:query: select "id", "access_token", "refresh_token", "providerAccountId", "expires_at" from "Accounts" where "userId" = $1
+kysely:query: duration: 0.7ms
+ GET /api/auth/session 200 in 337ms (compile: 29ms, render: 308ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 0.9ms
+ GET /api/auth/session?hydrate=true 200 in 25ms (compile: 18ms, render: 6ms)
+ GET /message/f/0 200 in 1930ms (compile: 1633ms, proxy.ts: 5ms, render: 292ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 1.2ms
+kysely:query: select "userId" from "Accounts" where "provider" = $1 and "providerAccountId" = $2
+kysely:query: duration: 0.7ms
+kysely:query: select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."previewImageNonce" from "Messages" where "Messages"."fk_users_id" = $1
+kysely:query: duration: 0.9ms
+ GET /api/trpc/message.get?input=%7B%22json%22%3A%220%22%7D 200 in 1190ms (compile: 1170ms, render: 21ms)
+ GET /message 200 in 89ms (compile: 64ms, render: 25ms)
+ GET /message 200 in 22ms (compile: 4ms, render: 18ms)
+[?25h
