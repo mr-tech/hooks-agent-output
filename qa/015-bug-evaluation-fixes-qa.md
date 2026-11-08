@@ -568,48 +568,50 @@ This pass assumes the live Postgres schema matches the Kysely `DatabaseSchema` t
 - **Rev 7 confirmation:** QA Phase 1 approves rev 7 (`38b12e6`) for implementation start. QAF-8 is owed before the run-2 read is scripted, and QAF-9 is LOW; neither blocks code. *(Superseded line, kept for the record:)* QA Phase 1 approves rev 6 for implementation start. The implementer is bound by E-1 to E-9, E-1's reconcile note included.
 - **Assumption Not Checked:** routed to UAT, through B-1 and B-2.
 
-## Resumption State (checkpoint, qa-hooks-015, 2026-11-08T06:34Z)
+## Resumption State (checkpoint, qa-hooks-015, 2026-11-08T07:14Z)
 
-*Update 2026-11-08T06:43:* Phase 1 is now keyed to rev 13 (`9cbe755`) and approved. QAF-14 to QAF-16 are RESOLVED. QAF-17 and QAF-18 (LOW) went to planner-hooks-015. Code review approved M2 at `6001f7f` (Round 3, `7976a9a`), with M1-i passing there, so M2 Phase 2 is the next act. CR-10 (`bugFixCoverage.supplemental.test.ts`, 9 of 16 cases) is mine to time inside M2 Phase 2. New instruments: `qa-m1i-cookie-presence-probe.cjs` and `qa-m2a-colour-truthiness-sweep.sh`, with their run 1 captures.
-*Update 2026-11-08T06:52:* M2 Phase 2 PASS at `6001f7f`, in `qa/015-bug-evaluation-fixes-m2-qa.md`. QAF-19 and QAF-20 (LOW) went to the implementer.
-- **Owed by QA at the effort-final Phase 2:**
-  - Read Discord's Embed `color` contract (does it admit `null`?), from M2's Assumption Not Checked.
-  - Confirm QAF-20's disposition landed.
-  - Re-run `qa-rk7-client-reach-run.sh`.
-  - The production-diff mutation sweep.
-- **Next:** M1 Phase 2 after code review approves the M1-c/M1-h rebuild. *Update 2026-11-08T06:55:* Phase 1 is keyed to rev 16 (`565e240`). QAF-21 and QAF-22 went to the planner, and B-9 is minted.
-
-**Done**
-- **Phase 1:** keyed to plan rev 11 (`14fe94f`), last commit `22fef2d`, approved. QAF-1 to QAF-13 are RESOLVED.
-- **M0 Phase 2:** PASS at website `037935d`, in `qa/015-bug-evaluation-fixes-m0-qa.md` (`bf10a46`), with the plan row in the same commit.
+**Done** (agent-output `HEAD` `8cefdb6` at checkpoint)
+- **Phase 1:** keyed to plan rev 19 (`330348f`) and approved. Last re-key `a47f5e9`, plus the reconcile `8cefdb6`. QAF-1 to QAF-18 and QAF-21 to QAF-23 are RESOLVED.
+- **M0 Phase 2:** PASS at website `037935d` (`qa/015-bug-evaluation-fixes-m0-qa.md`, `bf10a46`).
+- **M2 Phase 2:** PASS at website `6001f7f` against rev 16 (`qa/015-bug-evaluation-fixes-m2-qa.md`, `298912a`, plan row in the same commit). 18 of 18 implementer mutants and 6 of 6 QA mutants were killed (`verification/015/mutation-qa-m2*-6001f7f.txt`, mutator `mutators/qa-m2-supplement.py`).
+- **M3 red evidence:** QA's terms (real Chrome, four cells per dialog; jsdom does not count) went to the implementer and the planner. They are in § M3 and in plan rev 15+.
+- **Register:** B-1 to B-10. B-9 (D26 walk) and B-10 (the rider's gate on live data) were minted today.
 
 **Open findings, with owner**
-- QAF-11 MEDIUM: the implementer (sent 06:09Z). Wall-clock wait in `SectionEditor.auto-remove-dispatch.test.tsx` line 85. Owed by M6.
-- QAF-14, QAF-15, QAF-16, all LOW: planner-hooks-015 (sent at `22fef2d`). QAF-15 is wanted before M1-c's lookup-error test; QAF-16 before run 2 reads a span.
+- QAF-11 MEDIUM, the implementer: the wall-clock wait. `9e4955a` replaced the `setTimeout` (0 hits at `6001f7f`). Confirm and mark it RESOLVED at M1 Phase 2, which covers that commit.
+- QAF-19 LOW and QAF-20 LOW, the implementer (sent 06:56Z). QAF-20 (= CR-10) is owed before the effort-final pass.
 
-**Next: M1 Phase 2, after the code re-review.**
-- **Document:** a new M1 delivery document under `qa/`, named like the M0 one with `m1`; it does not exist yet.
-- **Stage start:** the code review's committed verdict at its `Reviewed-At`, re-derived.
-- **Where to run:** in a `git archive <sha>` export, never the shared tree. Symlink `website/node_modules`, and copy the git-ignored `website/next-env.d.ts` in, or typecheck gives a false TS2307.
-- **Gate first:** the TDD gate on `implementation/015-bug-evaluation-fixes-m1-implementation.md`.
-- **Checks:**
-  - Suite counters, exit code and path membership against `verification/015/base-7ce866b-testresults-paths.txt` plus M1's new files.
-  - Per-criterion cells per § M1, as reconciled to rev 11.
-  - M1-h: the decision table, row by row, with the catch-and-rethrow mutation reddening rows 1–2 only.
-  - M1-c: the D22 lookup-error cell (identity of the error, exact key set), the `NoResultError` and falsy fixtures, and generic-error propagation.
-- **Mutation sweep:** owed only effort-final, plus Irreversible Side-Effect Register guards M1 changed. I-2 (revoke) and I-4 (insert cap) are M1's: give each a bounded sweep at M1. The implementer's mutation captures are under `verification/015/mutation-*`, untracked at 06:08Z and another session's. Read them, and do not adopt them as mine.
-- **Flake rule:** a red run whose only failure is QAF-11's signature is re-run, and the re-run is recorded.
-- **Assumption Not Checked:** M0's assumption (export ≡ shared tree) closes at M1 by re-deriving membership.
+**Next, in the order the pipeline will bring them**
+1. **M1 Phase 2**, after code review approves the M1-c/M1-h rebuild. Its stage start is the review's committed verdict at its `Reviewed-At`, re-derived. The document is a new `qa/015-bug-evaluation-fixes-m1-qa.md`.
+   - **Gate:** the TDD table in `implementation/015-bug-evaluation-fixes-m1-implementation.md`.
+   - **Cells:** per § M1 as reconciled to rev 19.
+     - M1-c: the CR-3 cache-state × row fixtures; the token taken from the row; cache-account with row-absent; the deletion-failure cells in both ioredis shapes; the lookup-error identity and key set.
+     - M1-h: the decision table row by row, with the catch-and-rethrow mutation reddening rows 1 and 2 only.
+     - M1-i: through the real `RequestCookies` harness, with the decided residue cells.
+   - **Sweep:** bounded mutation sweeps for I-2 (revoke; seeded at the account decision and the token source) and I-4 (insert cap).
+   - **Run:** in an export, under `unshare -rn` with `lo` up, with the isolation counts checked. Symlink `node_modules` and copy `next-env.d.ts`. The driver is `verification/015/mutate-run.sh`, with `EXPORT_ROOT` in this session's scratchpad.
+2. **M4 Phase 2**, after code review Round 7 approves M4. § M4 holds the cells: M4-c, M4-d per site (both sites), the 8 hosts, the guild-group cell, the CR-12 rider's equality domain (other guild, absent, `null`), and the 401/403/404/500 lookup cells.
+3. **M3:** read the implementer's Chrome capture against QA's four-cell terms before any M3 verdict.
+4. **Phase 1 re-keys**, as steering briefs them.
+
+**Owed by QA at the effort-final Phase 2**
+- Discord's Embed `color` contract (`null`?), from M2's Assumption Not Checked.
+- QAF-20 landed.
+- Re-run `qa-rk7-client-reach-run.sh` (also at the Phase 3 tip).
+- The production-diff mutation sweep over `7ce866b..<tip>`, the CR-12 belonging comparison included.
 
 **Instruments (committed, `verification/015/`)**
 - `qa-phase1-premises.sh`
 - `netns-loopback-probe.sh`
 - `qa-m0-bot-collection-probe.sh`
-- `qa-rk7-client-reach-run.sh` with `qa-rk7-client-reach.js`. Re-run it at the effort-final tree and at the Phase 3 tip.
+- `qa-rk7-client-reach-run.sh` and `qa-rk7-client-reach.js`
+- `qa-m1i-cookie-presence-probe.cjs`
+- `qa-m2a-colour-truthiness-sweep.sh`
+- `mutators/qa-m2-supplement.py`
 
 **State left**
-- Uncommitted by design: my FYI entry in `INBOX.md` (check-repo's 30 failures in other documents), for the record owner.
-- Scratch files under this session's scratchpad: plan diffs, the base and M0 JSON reports, edit files. None is needed: the base path list is committed. No export directory remains, and no process of mine is running.
-- Website tree: `chain/015-bug-evaluation-fixes` at `7befedb` when checked (moved by the implementer). preview-image-generator at `471578f`.
+- **Website:** the tree is on `chain/015-bug-evaluation-fixes` at `1e12837` when checked, moved by others. preview-image-generator is at `471578f`. Nothing of mine is mutated or uncommitted in either.
+- **agent-output:** my earlier `INBOX.md` FYI (check-repo failures in other documents) is uncommitted by design, for the record owner. The future-stamp FYI was withdrawn and removed.
+- **Scratchpad:** diffs, the M2 JSON report and edit files, none needed. No export directory remains. No process of mine runs except the session's own Playwright MCP server.
 
-**Questions out:** none to the owner. Planner items as above.
+**Questions out:** none to the owner. None pending with the planner.
