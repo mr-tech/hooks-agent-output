@@ -327,6 +327,7 @@ CR-5 LOW Round 2 DECLINED — by the implementer (§ Fix Round 1): the plan sets
 - **Conventions.** `convention-check.js website --since=9b5e47f`: 0 FAIL, 0 CANDIDATE, 1 SKIP (id-token and basename), exit 0 (`cr-qaf-probes/convention-check-b96e364.txt`). By hand, the ID-token class has 5 hits, the same fixture data as at `9b5e47f`. The new line holds none.
 - **Verdict: APPROVED.** No finding. Website `b96e364` goes to QA for the QAF-41 and QAF-42 survivor re-runs and the suite. QAF-42 stands RESOLVED from the sub-entry above.
 - **Assumption Not Checked.** It is carried from the sub-entry above: the literal assumes the capturing driver's `PostgresQueryCompiler` text. QA owns closing it at its re-run, as stated there.
+- **Reconcile (2026-11-08T14:43).** QA closed the Assumption Not Checked by execution at `b96e364`, without moving the verdict. The installed `project-utils` equals the lockfile pin `749606d`, and its `getPostgres()` is a plain `PostgresDialect`. Both resolve `kysely@0.26.1`, and that dialect's compiler is an instance of the driver's `PostgresQueryCompiler` (`verification/015/effort-final/website-survivors-b96e364/dialect-premise-b96e364.txt`, agent-output `3cab676`).
 
 ## Round 2 sub-entry (QAF-41 and QAF-42, plumbing sweep, for M1-a and M1-h; website `620b4ee..9b5e47f`, test-only): REJECTED
 
