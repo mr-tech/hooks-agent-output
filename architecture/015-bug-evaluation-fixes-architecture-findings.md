@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Delta pass on plan rev 11 (14fe94f): APPROVED, no findings. AF-17 is discharged by D22, which the owner chose. Every AF finding is folded. A later revision is read on its delta."
+Status-Detail: "Delta pass on plan rev 12 + rev 13 (9cbe755): APPROVED. AF-18 is recommended for the M1-c rebuild (read the row directly; retire skipUpdate) and does not block. A later revision is read on its delta."
 ---
 
 # Architecture Findings — Plan 015: Bug-evaluation fixes (conformance pass)
@@ -21,6 +21,42 @@ Status-Detail: "Delta pass on plan rev 11 (14fe94f): APPROVED, no findings. AF-1
 | 2026-11-08T05:52 | Delta pass, plan rev 8 (`1f7715b`, read from `38b12e6`), on steering-hooks-015's request | AF-16 is folded: the session row is attributed to next-auth's adapter, and the ordering anchor is now the `Accounts` update. The run-2 reads are bounded to the stopped process's span. `Created instance` was confirmed at `471578f` `src/getPool.ts`, logged by the factory's `create`. No findings. Landed `preview-image-generator.md` A-1 (agent-designed): the four log lines the host read matches are an interface. **APPROVED.** |
 | 2026-11-08T06:28 | Delta pass, plan rev 9 + rev 10 (`bceb84a`, read from rev 8 `1f7715b`, one pass on steering-hooks-015's instruction) | AF-17 MEDIUM is required. M1-c's lookup-error residue leaves `user-session-token`, `fetchAccountFromSession`'s 600 s session→account cache read by `authorizeGuildAdmin`, alive with an unrevoked token after sign-out. The two session-scoped keys must be cleared for every member of the class. The cache-invalidation class is registered as a Problem Area. Every other delta limb conforms. **APPROVED_WITH_CHANGES.** |
 | 2026-11-08T06:32 | Delta pass, plan rev 11 (`14fe94f`, read from rev 10 `bceb84a`), on steering-hooks-015's request | AF-17 is discharged by D22 and M1-c's lookup-error cell: both session-scoped keys are deleted before the rejection reaches the caller, and the residue is limited to `user-guilds`, the `Accounts` update and the revoke. M1-h's eight-row decision table, with its "or returns" trigger, conforms. The run-2 span is now anchored on `pm2.log`'s stop timestamps and checked against the out log's ISO stamps. Run 1's capture shows the two clocks agree: `pm2.log` 2023-08-22T01:57:43 `online` and out log `2023-08-22T01:57:43.367Z Server running at` are the same event, so no time-zone offset separates them. RK-7's reducing predicate and the re-derivation reading conform. No findings. **APPROVED.** |
+| 2026-11-08T06:42 | Delta pass, plan rev 12 + rev 13 (`9cbe755`, read from `14fe94f`, one pass on steering-hooks-015's instruction; D23's assumption not re-read) | Every limb conforms. AF-18 LOW is recommended for the M1-c rebuild: read the `Accounts` row directly in `removeUserSession` and retire `fetchUserAccount`'s now-callerless `skipUpdate` mode, which is CR-3's root, one cache key with two meanings. Two Problem Areas registered. **APPROVED.** |
+
+## Verdict (rev 12 + rev 13, `9cbe755`, one pass from rev 11 `14fe94f`): APPROVED
+
+D23's clock assumption is not re-read, as D23 directs. These limbs conform:
+
+- M1-c's account decision taken from the row (CR-3) and its deletion-failure outcome (QAF-15);
+- M1-h's row 6;
+- QAF-16's stop line;
+- M1-i restated over Next's `cookies()`;
+- M2-a's colour class, whose `EmbedEditor` border mirrors `ContainerEditor`'s `accent_color != null`;
+- the re-derivation after M2.
+
+AF-18 is recommended and does not block. It shapes the M1-c rebuild.
+
+### AF-18 LOW — CR-3's root is one cache key with two meanings. Read the row directly in sign-out, then retire the second meaning.
+
+Read at website `6001f7f`.
+
+- `src/utils/redis/index.ts` `fetchUserAccount(userId, skipUpdate = false)` caches under `user-access-token:<userId>` for 600 s in both modes:
+  - with `skipUpdate = false` it stores a refreshed account, or `null` when there is no refresh token or the refresh is refused;
+  - with `skipUpdate = true` it stores the raw row.
+- Whichever caller misses first decides what every caller reads for the next 600 s. CR-3 is one instance: sign-out read the other mode's `null`.
+- `git grep -n "fetchUserAccount("` over `src` and `bot` returns three callers. `removeUserSession` is the **only** `skipUpdate = true` caller; `authCallback` and `hydratedAuthCallback` use the default.
+
+**Recommended form for the rebuild.**
+
+- `removeUserSession` reads the `Accounts` row with a direct `getPostgres()` select. That follows the current pattern in the same function, whose `Accounts` update is already a direct `getPostgres()` call.
+- `getAccount.ts` is not reusable here: it keys on `providerAccountId` and selects only `userId`.
+- After that change `skipUpdate` has no caller. Remove it, so the key has one producer with one meaning.
+- Adding a third mode, such as a cache-bypass flag, to `fetchUserAccount` is an avoidable deviation.
+
+**Registered in `system-architecture.md` § Problem Areas:**
+
+- (a) The overloaded `user-access-token` key. It closes if the recommended form is adopted.
+- (b) The session cookie's name is decided in three places by two rules. `getServerSideSessionCookie.ts` picks one name by `NODE_ENV`. `getClientSessionCookie.ts` and `Redirects/Server.tsx` accept either. This is outside 015's scope.
 
 ## Verdict (rev 9 + rev 10, `bceb84a`, one pass from rev 8): APPROVED_WITH_CHANGES
 
