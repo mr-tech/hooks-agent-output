@@ -20,7 +20,7 @@ Cycle 1 (passes 1–3, rev 3→5) is closed at `critiques/closed/015-bug-evaluat
 
 | Date | Handoff | Request | Summary |
 |---|---|---|---|
-| 2026-11-08T05:50 | steering-hooks-015 → critic-hooks-015 | New cycle on rev 6 | cycle 2 pass 1. Delta-bounded: the delta is fully readable in the diff; the whole-document read is the escalation, not taken. One premise measured in-pass (loopback inside `unshare -rn`). M-C2-1–M-C2-3, L-C2-1–L-C2-3 raised. REQUEST REVISION. |
+| 2026-11-08T05:46 | steering-hooks-015 → critic-hooks-015 | New cycle on rev 6 | cycle 2 pass 1. Delta-bounded: the delta is fully readable in the diff; the whole-document read is the escalation, not taken. One premise measured in-pass (loopback inside `unshare -rn`). M-C2-1–M-C2-3, L-C2-1–L-C2-3 raised. REQUEST REVISION. Process disclosure: the first write of this row carried an estimated stamp (05:50 against a clock of 05:46); the stamp gate refused it and the row was re-stamped from `date -u` — a gate satisfied, not a control worked around. |
 
 ## Assumption Not Checked
 
