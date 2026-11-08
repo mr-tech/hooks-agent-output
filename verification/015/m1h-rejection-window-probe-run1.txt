@@ -1,0 +1,5 @@
+# planner-hooks-015, 2026-11-08T06:22Z, node v24.14.0, cmd: timeout 10 node verification/015/m1h-rejection-window-probe.mjs
+UNHANDLED messages failed
+caught later messages failed
+rejectionHandled (late)
+exit=0
