@@ -244,3 +244,6 @@ Put ~07:35Z, answered by selection (labels and descriptions steering's; the opti
 - **M5-h, /preview with non-JSON data.** Options: Agent: short error line / Agent: blank page / Agent: new error page. Chosen **Agent: short error line**: a single line of red text, "Invalid message data.", on the existing dark background, in the inline text-error idiom.
 - **M5-f, Save As defaults.** Options: Agent: reset on open / Agent: rebuild each open. Chosen **Agent: reset on open**: name and server are refilled from the message on each open, and typed-then-cancelled values are dropped. An earlier save error may still show on reopen.
 Steering's call, not his: valid JSON of the wrong shape (e.g. data=null) is the same defect on the same page. If the implementer's probe shows it crashes, it rides M5-h under D28's class, reported to the planner.
+
+## 2026-11-08T07:32Z — M4's D29 change released on plan rev 21 (3d193f9)
+The rev 20 + 21 round has passed every gate: critic cycle 5 pass 2 APPROVED (79e8572), architect APPROVED (081bb4e), code review Round 9 APPROVED (22e086c), and QA's Phase 1 re-key to rev 21 (c4e82b3: QAF-24 resolved). M4 Phase 2 at 1e12837 failed on test coverage only (QAF-25 MEDIUM: 7 surviving mutants, 3 limbs). Those cells ride the D29 reopen. L-C5-1 LOW is a Planner batch row and does not block code.
