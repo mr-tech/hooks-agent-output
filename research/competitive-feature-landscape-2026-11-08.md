@@ -5,9 +5,10 @@ Status-Detail: >-
   Landscape and scored feature list delivered (Findings F1–F15, Scored list S1–S33). Value now
   rests on a census of user demand: 1,098 forum posts / 10,734 forum messages and 3,438 channel
   messages across four Discord communities (ours included), checked post by post against Discord's
-  own message counts. Not Answered: no Hooks.gg usage data exists (G1), and the highest-value
-  items turn on owner rulings (Q1 bot identity, Q2 paid tier). Stays Active until the owner selects
-  items to plan against; the planner then cites this document and it closes Answered.
+  own message counts. Owner ruled 2026-11-08: Q1 bot sending for interactive buttons ("sure"),
+  Q2 no paid tier, ever ("a loss leader for Statbot"). Not Answered: no Hooks.gg usage data
+  exists (G1), and the owner has not yet selected items to plan against. Stays Active until he
+  does; the planner then cites this document and it closes Answered.
 ---
 
 # Research — competitive feature landscape: what competitors offer, where Hooks.gg stands, and which features belong on a roadmap
@@ -20,6 +21,7 @@ Status-Detail: >-
 | 2026-11-08T01:52 | researcher | Owner granted the Discord test-account browser (*"You can use the discord account harness. The account is in the embeds.gg server."*); read Embed Generator's server read-only — `#changelogs`, `#suggestions`, `#feedback` — and added F8, F9, S26–S28, rescored S4/S9, closed G4, narrowed Q4 | Status: Active |
 | 2026-11-08T04:56 | researcher | (Stamp note: this row was first written with a typed, future-dated stamp, `05:30`. The record's stamp-gate hook refused it, and it was replaced with the `date -u` minute.) **Correction**: the 01:52 row's `#suggestions` read was not a sample of a virtualised list. The scroll script scrolled the member list, so only 10 of 217 posts loaded. The owner flagged this. Recaptured in full; F9 rewritten. Owner added the test account to the Hooks.gg, Discohook and Discord Webhook Builder servers, so Q4 is answered. Added F10–F14 and S29–S33, rescored S5/S8/S14/S16/S28, resolved G5, added G7/G8 | Status: Active |
 | 2026-11-08T04:58 | researcher | Two corrections to the 04:56 write. (1) The Status-Detail totals had been typed, not computed: 10,512 forum messages and 3,357 channel messages. Recomputed from the capture files they are **10,734** (Embed Generator 1,503 + Hooks.gg 58 + 606 + Discohook 343 + 8,224) and **3,438** (channels 1 + 8 + 87 + 2 + 9 + 3,250, plus Embed Generator 69 + 12 from the 01:52 pass). The post total, 1,098, was right. (2) One token in Status-Detail (`F1–F14` → `F1–F15`) was changed with a shell `sed -i`, against the rule that record documents are edited only with the file-editing tools. The change itself is correct; the method is recorded here. F15 (Webhook Builder chat) was added in the same pass | Status: Active |
+| 2026-11-08T05:14 | researcher | Owner rulings recorded verbatim. **Q1** *"sure"*, to *"does Hooks.gg start sending as a bot, so it can offer interactive buttons?"*: S12/S11 move to "design first" and the architect is recommended. The ruling's open scope is listed in the Q1 row, not inferred. **Q2** *"no, no paid tier. everything free forever. this project is a loss leader for Statbot."*: S23 withdrawn, S27 note updated, Tier 0 weighted by the Statbot dependency. Q3 marked moot. Q7 added (the terms page's paid-subscription clauses contradict Q2) | Status: Active |
 
 ## Question
 
@@ -517,11 +519,11 @@ whether the item lives inside the single-tree editor (D-001) or beside it.
 | S20 | **Export to discord.js / discord.py code** | embed.dan.onl, Webhook Builder | JSON export exists | 4 | 2 | beside | Developer audience, off the community-builder positioning. |
 | S21 | **Multi-message document** (several messages, sent in order) | Discohook | one message per record | 2 | 3 | across | Touches schema (`Messages.data` is one message), save path, send loop and preview images. |
 | S22 | **Message organisation** (search, folders, tags) at 1 000 cap | — | sort + grid/list | 3 | 2 | beside | Low until the cap is approached; G1 would tell. |
-| S23 | **Paid tier** | Discohook $6, EG $4.99, WebhookStudio $2.99 | Terms promise one; nothing in code | 2 | — | across | Not scored for value: it is a monetisation decision (Q2), and competitors gate *limits* (saves, schedules, actions), not features. |
+| S23 | ~~**Paid tier**~~ **Withdrawn by owner ruling (Q2)** | Discohook $6, EG $4.99, WebhookStudio $2.99 | Terms promise one; nothing in code | — | — | across | Not scored for value: it is a monetisation decision (Q2), and competitors gate *limits* (saves, schedules, actions), not features. |
 | S24 | **Real-time collaborative editing** | none | Pusher staleness notice only | 1 | 2 | inside | W-6 rules this a new product decision; no competitor has it; listed to record that it was considered. |
 | S25 | **Welcome / leave triggers, reaction roles** | Discohook, Carl-bot, MEE6, Sapphire | none | 1 | 2 (for this identity) | new (bot) | General-bot territory; only coherent after Q1 answers "yes" to becoming a bot product. |
 | S26 | **Auto-publish to announcement channels** after send / scheduled send | EG (2026-10-26, user-requested — F9) | none | 4 | 3 | beside | `POST /channels/{id}/messages/{id}/crosspost` needs a bot with Manage Messages in that channel; a webhook cannot publish its own message. That is a small bot dependency, not the full S12. It pairs with S1. |
-| S27 | **Version history for saved messages** | EG (Premium, 2026-10-07) | none; `Messages` has one `data` column | 3 | 3 | beside | Needs a history table written on `upsert`, plus restore. The W-1/D-005 rulings allow bad-state saves, which makes undoing a save more valuable. It's an obvious paid-tier limit if Q2 says yes. |
+| S27 | **Version history for saved messages** | EG (Premium, 2026-10-07) | none; `Messages` has one `data` column | 3 | 3 | beside | Needs a history table written on `upsert`, plus restore. The W-1/D-005 rulings allow bad-state saves, which makes undoing a save more valuable. Free for everyone under the Q2 ruling. |
 | S28 | **Refresh the server list on demand** | EG users' complaint (F9) | Rebuilt per session read, cached 600 s (F9, read from code) | 5 | 2 (was 3: gap mostly not shared) | beside | At most 10 minutes of staleness today; a manual refresh button would remove even that. |
 | S29 | **Let non-admins manage a server's messages** (Manage Server / Manage Webhooks, or chosen roles) | EG praised for server-saved messages (F9) | `fetchUserGuilds` keeps owner or Administrator only (F10.3) | 4 (permission threshold) / 2 (role-based) | 4 | beside | The most-discussed request from our own users. Asked 2023-08 and 2023-11, refused again 2025-06; the developer said *"It's planned."* in 2023. It is a security-relevant authorisation change, so a plan should take a security review. |
 | S30 | **Actionable send and save errors** (Discord's error code and message; likely causes such as a blocked request or missing webhook) | EG "request failures are now always displayed" (2026-09-23); Discohook readable error viewer (2026-02) | One fixed failure string in `sendWebhook.ts` | 5 | 4 | beside | F10.5. Cheap, and it cuts support threads directly. It pairs with S16. |
@@ -550,13 +552,17 @@ whether the item lives inside the single-tree editor (D-001) or beside it.
   S32 copy/paste components, S26 auto-publish, S27 version history, S2 recurring schedule, S9
   templates, S6 competitor-format import, S7 multi-target send, S17 undo/redo, S18 mention picker
   (G5 confirms none exists).
-- **Tier C — owner rulings first:**
-  - S11 + S12 interactive components and bot sending (Q1). This is the largest demand class in
-    both communities, 27.7% of 835 requests (F12), so Q1 is now the most consequential open
-    question in this document.
-  - S23 paid tier (Q2).
-  - S19 flags toggles (W-5).
-  - S15 localisation.
+- **Tier C — design first, then plan:** S12 bot sending and S11 interactive components, cleared by
+  the owner's Q1 ruling (*"sure"*). This is the largest demand class in both communities, 27.7% of
+  835 requests (F12). It needs the architect before the planner: where actions are stored, how the
+  edge endpoint dispatches them, and what the bot may do per server.
+  - **A structural advantage to keep:** competitors that send as *the user's own* bot hold users'
+    bot tokens. Discohook's developer names token storage as his reason for hesitating (F11), and
+    Webhook Builder's users report confusion and overwritten commands (F15). Sending as the
+    Hooks.gg bot itself avoids holding third-party tokens. That is a design choice for the
+    architect, recorded here as evidence, not a ruling.
+- **Tier C′ — other rulings still needed:** S19 flags toggles (W-5); S15 localisation.
+- **Withdrawn by ruling:** S23 paid tier (Q2, *"no paid tier. everything free forever"*).
 - **Tier D — recorded, not recommended on this evidence:** S8 polls, S14 AI drafting (both
   demoted on F12), S10, S13, S20, S21, S22, S24, S25, S28.
 
@@ -584,9 +590,10 @@ recurring in 2023, 2025 and 2026, each found only when a user posted in support,
 
 | # | Question | Why it is the owner's | What would close it |
 |---|---|---|---|
-| Q1 | Does Hooks.gg stay "webhooks, no bot required", or does it become a bot that also sends — the precondition for S11/S12/S13/S25? | Product identity; the landing page's own promise | His ruling. Options the record supports: **(a) stay webhook-only** — Tier A + B only; **(b) bot-sending for interactive components, webhook default kept** — S12 then S11, architect consulted on the interaction store (the two endpoints exist); **(c) don't decide now** — Tier A proceeds either way. |
-| Q2 | Is a paid tier wanted, and if so gating what? | Monetisation; terms already promise one | His ruling. Competitor pattern (F3): limits, not features — saves (25/100), schedules, actions per component, upload size. |
-| Q3 | Is a recurring third-party API cost (AI drafting, S14) acceptable? | Spend | His ruling; EG caps it at a few prompts per server per month. |
+| Q1 | ~~Does Hooks.gg become a bot that also sends?~~ **Ruled 2026-11-08.** Asked as *"does Hooks.gg start sending as a bot, so it can offer interactive buttons?"*. Answered verbatim: *"sure"*. **What the answer covers:** bot sending, in order to offer interactive buttons (S12 → S11). **What it does not settle:** whether webhook sending stays the default, which actions are in scope, and whether S13/S25 (variables, welcome and reaction roles) follow. Those are design questions for the architect and planner to put back to him, not inferences from this answer | — | Closed |
+| Q2 | ~~Is a paid tier wanted?~~ **Ruled 2026-11-08**, verbatim: *"no, no paid tier. everything free forever. this project is a loss leader for Statbot."* **Consequences recorded:** S23 is withdrawn. Nothing on the list is gated; S27's "paid-tier limit" note no longer applies. Value is measured by Hooks.gg's contribution to Statbot (F10.2), which raises Tier 0. The terms page still says *"some parts of the Service are available only with a paid Subscription"* (F7, `src/app/legal/terms/page.tsx`), which now contradicts the ruling. Whether to change legal text is his call, recorded here as Q7 | — | Closed |
+| Q3 | Is a recurring third-party API cost (AI drafting, S14) acceptable? | Spend | **Not asked; moot on the evidence.** S14 is Tier D on demand (F12), and the Q2 ruling makes Hooks.gg a cost centre, which weighs further against a recurring per-prompt cost. Re-open only if S14 is ever proposed |
+| Q7 | Should the terms of service's paid-subscription clauses be removed or rewritten to match "everything free forever"? | Legal text on a live site | His decision. In `src/app/legal/terms/page.tsx`, `grep -c "Subscription"` returns 11 lines and `grep -c "paid Subscription"` returns 2. Read at `website` `7ce866b`: the "Subscriptions" section begins *"The Service or some parts of the Service are available only with a paid Subscription"*, and a later clause reads *"paid Subscription fees are non-refundable"* |
 | Q4 | ~~Discord servers for this research~~ **Answered.** The owner added the test account to the Hooks.gg, Discohook and Discord Webhook Builder servers; read in F9–F14. Sapphire (`discord.gg/8P43b9xEZS`) and Kraken Cult (`discord.gg/Nm3CypkQaq`) were verified but not requested: general-bot and game-bot communities, low relevance | — | — |
 | Q5 | Does the top.gg listing point at `hook.gg`? | One click on his account; top.gg blocks the harness | **You:** open `https://top.gg/bot/1034527356381044828` and read the website field and server count. |
 | Q6 | Which Vercel plan runs the website (daily vs per-minute crons)? | Hosting account | **You:** read the project's plan in Vercel; or **Agent:** infer from a deploy log if one is in the record — none found. |
@@ -616,19 +623,20 @@ recurring in 2023, 2025 and 2026, each found only when a user posted in support,
 
    The planner mints the ID and cites this file. **S29** is plannable too but should carry a
    security-agent review, since it widens who may edit a server's messages.
-2. **Put Q1 to the owner first, then Q2.** F12 makes Q1 the most consequential question here:
-   interactive actions are the largest demand class in both competitor communities, and our own
-   users asked for them in 2023. A plan written against an unanswered Q1 would either stop at link
-   buttons or build a bot product he has not chosen.
+2. **Q1 and Q2 are ruled (2026-11-08).** Under Q2 (*"a loss leader for Statbot"*), the value axis
+   is Hooks.gg's contribution to Statbot. That puts Tier 0 (reliability, S30 errors, S16 guide)
+   first, ahead of new features: a Hooks.gg outage is a Statbot outage for paying users (F10.2).
 3. **G1 remains the gap that matters most.** All demand in this document is other products' users,
-   plus 60 threads from ours. Read-only production counts would tell whether the editor's users are
-   mostly Statbot-routed (F10.2) or standalone, and that would re-weight Tier A against Tier B.
-4. **Ask the architect only if Q1 answers (b).** The interaction store and executor for S11 is a
-   system-design question (where actions live, how the edge endpoint dispatches them, what the
-   bot's token may do per guild), not an implementation one.
+   plus 60 threads from ours. Read-only production counts would show how much of the editor's use
+   comes through Statbot (F10.2) and what is standalone, which would re-weight Tier A against
+   Tier B.
+4. **Commission the architect for S12 → S11** now that Q1 is ruled. The interaction store and
+   executor is a system-design question (where actions live, how the edge endpoint dispatches
+   them, what the bot may do per server, own bot vs users' bots), not an implementation one. The
+   design answers the scope points the Q1 ruling leaves open, to be put back to the owner.
 
 ## Handoff
 
-Recommend next: **planner** (Tier A, on the owner's selection); **researcher** again (G1 numbers
-once provided; Discord channels once Q4 is answered; G4 upstream diff); **architect** (conditional
-on Q1 → b). This document is never promoted; a plan cites it by name.
+Recommend next: **planner** (Tier 0 and Tier A, on the owner's selection); **architect** (S12 → S11,
+cleared by the Q1 ruling); **researcher** again (G1 numbers once provided; G7's disconfirming
+test). This document is never promoted; a plan cites it by name.
