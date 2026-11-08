@@ -4,7 +4,7 @@ Origin: 015
 UUID: 861e5f61
 Status: Active
 Status-Detail: "QAF-34 (MEDIUM), QAF-35 (LOW), CR-26 (LOW) and CR-35 (LOW) delivered on website's chain branch at b195eeb. QAF-34: the title case runs over both title parsers, red under m6a-title-codeblock-interactive (1 case) and under the static mutant (1 case), control 29 of 29. QAF-35: the two rows are red under named mutants, control 57 of 57. CR-26: no-restricted-imports bans react-use useMount and the three callers use useEffect; full gate at 86f5a6c 1119 of 1119, vitest exit 0, typecheck exit 0. CR-35: the formatKey test sits beside its module. CR-36 reconciled in the QAF document. Round 2 (CR-37 MEDIUM, code review REJECTED b195eeb for the CR-26 callers): spec-form cells for the editor `onMount` effect (red under the reviewer's mutator) and for Button `autoFocus` (the reviewer's mutator is equivalent: react-aria focuses on mount; the cell is red under a mutant that also stops autoFocus reaching react-aria); the lint ban also covers `react-use/lib` and `react-use/esm`. Full gate at 2618926: 1122 of 1122, 115 files, vitest exit 0, typecheck exit 0."
-Handoff-At: "2618926 — repos=website"
+Handoff-At: "c5303ca — repos=website"
 ---
 
 # Implementation 015 — QAF-34, QAF-35, CR-26 (website)
@@ -23,6 +23,7 @@ Handoff-At: "2618926 — repos=website"
 |------|---------------|---------|---------|
 | 2026-11-08T10:16 | steering-hooks-015 → implementer-hooks-015 | QAF-34, QAF-35, CR-26 (+ CR-35, CR-36 from code review) | Tests at `b93e897` (QAF-34), `00c9bee` (QAF-35); lint rule and callers at `86f5a6c`; test move at `b195eeb`. Mutators `verification/015/mutators/qaf35-preview-parse-failure-renders-empty.py` and the existing `qa-r2-supplement.py` (`MUT_ID`). |
 | 2026-11-08T10:30 | code-reviewer-hooks-015 → implementer-hooks-015 | CR-37 MEDIUM (REJECTED `b195eeb`), CR-26 narrowed | Cells at `87b662f`; lint paths at `2618926`. See § Round 2. |
+| 2026-11-08T10:36 | code-reviewer-hooks-015 → implementer-hooks-015 | CR-38 LOW (Round 14 sub-entry APPROVED_WITH_COMMENTS; CR-37, CR-26 RESOLVED) | `Button`'s redundant `autoFocus` effect deleted at `c5303ca`. See § Round 3. |
 
 ## Implementation Summary
 
@@ -149,6 +150,15 @@ The `Button` effect is redundant with react-aria and was left in place: the plan
 
 **Self-diagnosis (method).** I claimed "behaviour-preserving" on the strength of the library's source and an unchanged pass set, which cannot show that anything asserts the behaviour: an unchanged pass set is also what a loss nobody tests produces. The check to apply first: empty each moved effect and see which test fails before writing "preserved".
 
+## Round 3 — CR-38, website `2618926..c5303ca`
+
+Code review corrected its CR-37 reading of `Button`: its emptied-effect mutant was equivalent, as § Round 2 showed. CR-38 (LOW): delete the redundant effect, so `Button.auto-focus.test.tsx` guards react-aria's path directly and fails under one mutant that passes `autoFocus: false` to `useButton`.
+
+- **Change** (`src/components/Button.tsx`): the `useEffect(() => { if (autoFocus) localRef.current?.focus(); }, [])` line, the `useEffect` import and the then-unused `autoFocus` destructure are removed (+2 −8). `autoFocus` still reaches `useButton` through `_props`.
+- **Red/green:** `verification/015/mutators/cr38-button-autofocus-not-passed-to-usebutton.py` (`useButton({ ..._props, autoFocus: false } …)`), run in an export of `c5303ca`: 1 failed (`is the focused element after mounting with autoFocus`), 1 passed (`mutation-cr38-button-autofocus-dropped-c5303ca.txt`). Control 2 of 2, exit 0 (`mutation-cr38-control-c5303ca.txt`). A single mutant, as the finding asked.
+- **Gate at `c5303ca`:** 1122 of 1122, 115 files, vitest exit 0, typecheck exit 0, isolation 0 and 0 (`cr38-final-run-c5303ca.txt`, `cr38-final-testresults-c5303ca.json`). Against `2618926` by name and status: 0 added, 0 removed, 0 changed. ESLint over `Button.tsx` exit 0; `convention-check --since=2618926` 0 FAIL, 0 CANDIDATE, 1 SKIP.
+- **Class sweep.** CR-38's class is a mount effect that duplicates behaviour a library already provides. Enumeration: `git grep -n "useEffect(() => {" c5303ca -- <the three CR-26 sites>` over the lines `86f5a6c` changed. 2 members remain: `DiscordMessageEditor` `onMount` (killed by its cell, and by `editor-onmount-deps-dropped`, per code review) and `useMounted` (killed, 26 failures). Neither duplicates a library path. 0 residual members.
+
 ## Next Steps
 
-Code review of `b195eeb..2618926` (website; this document, Round 2), then QA's scoped re-run of M6-a's title cells (`rules-title-i`) and the QAF-35 rows. The CR-26 signature change above needs the reviewer's confirmation.
+Code review of `2618926..c5303ca` (website; this document, Round 3; CR-38 only), then QA's scoped re-run of M6-a's title cells (`rules-title-i`) and the QAF-35 rows. The CR-26 signature change above needs the reviewer's confirmation.

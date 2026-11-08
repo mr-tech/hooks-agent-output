@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/2e64cdda-da60-412f-b877-233044fe3158/scratchpad/website-c5303ca-cr38-control  sha: c5303ca  label: cr38-control  test: src/components/__tests__/Button.auto-focus.test.tsx  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/2e64cdda-da60-412f-b877-233044fe3158/scratchpad/website-c5303ca-cr38-control
+
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  10:35:22
+   Duration  1.47s (transform 177ms, setup 23ms, import 630ms, tests 31ms, environment 647ms)
+
+vitest exit 0

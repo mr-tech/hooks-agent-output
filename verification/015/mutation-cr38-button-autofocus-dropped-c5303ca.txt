@@ -1,0 +1,47 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/2e64cdda-da60-412f-b877-233044fe3158/scratchpad/website-c5303ca-cr38-button-autofocus-dropped  sha: c5303ca  label: cr38-button-autofocus-dropped  test: src/components/__tests__/Button.auto-focus.test.tsx  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/cr38-button-autofocus-not-passed-to-usebutton.py
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/2e64cdda-da60-412f-b877-233044fe3158/scratchpad/website-c5303ca-cr38-button-autofocus-dropped
+
+ ❯ |dom| src/components/__tests__/Button.auto-focus.test.tsx (2 tests | 1 failed) 37ms
+     × is the focused element after mounting with autoFocus 31ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/Button.auto-focus.test.tsx > Button auto focus > is the focused element after mounting with autoFocus
+AssertionError: expected <button …(4)></button> to be <body><div>…(1)</div></body> // Object.is equality
+
+- Expected
++ Received
+
+- <body>
+-   <div>
+  <button
+    class="disabled:opacity-50"
+    data-react-aria-pressable="true"
+    tabindex="0"
+    type="button"
+  >
+    Go
+  </button>
+-   </div>
+- </body>
+
+ ❯ src/components/__tests__/Button.auto-focus.test.tsx:17:42
+     15|     const host = mountDom(<Button autoFocus>Go</Button>);
+     16|
+     17|     expect(host.querySelector('button')).toBe(document.activeElement);
+       |                                          ^
+     18|   });
+     19|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  10:35:19
+   Duration  1.54s (transform 181ms, setup 22ms, import 647ms, tests 37ms, environment 690ms)
+
+vitest exit 1
