@@ -593,30 +593,45 @@ Each is recorded in `system-architecture.md` § Problem Areas:
 
 ---
 
-## Resumption State (checkpoint, architect-hooks-015, 2026-11-08T07:27)
+## Resumption State (checkpoint, architect-hooks-015, 2026-11-08T09:53)
+
+Checkpointed on steering's usage gate (weekly_all 98%; resets 2026-11-11T09:00Z). Start nothing new until steering resumes the chain.
 
 - **Done.**
-  - Conformance pass on plan rev 3, then a delta pass on every revision through rev 20 (`e118cc3`). The last verdict is APPROVED (commit `8affd6a`).
-  - Findings AF-1 to AF-21. Folded or discharged: AF-1 to AF-4, AF-11 to AF-17 (AF-17 by D22), AF-19 and AF-20 (AF-20's type limb is with the implementer as code review CR-13).
-  - **Still open as a recommendation: AF-18.** In the M1-c rebuild, read the `Accounts` row directly in `removeUserSession` and retire `fetchUserAccount`'s `skipUpdate`. Check whether it landed when M1-c's rebuild is reviewed.
-  - Records written this chain:
-    - `system-architecture.md`: the generator component line corrected, Problem Areas registered (AF-9a/b/c/d, X-16, the session cache, the `user-access-token` key, the session-cookie name, error-copy drift), and changelog rows.
-    - `website.md`: A-4 and A-5 (agent-designed).
-    - `preview-image-generator.md`: P-3 rewritten on the owner's selection "Agent: record intended" (05:18Z), and A-1 (the log-line interface).
+  - The conformance pass on plan rev 3, then a delta pass on every revision through **rev 27 (`18d361c`)**. The last verdict is APPROVED (`b2add20`).
+  - Findings AF-1 to AF-31.
+    - **Discharged or folded:** AF-1 to AF-4, AF-11 to AF-17, AF-19 to AF-21, AF-24, AF-25 and AF-28.
+    - **Implemented:** AF-18, at website `3031878`.
+    - **Withdrawn, my error:** AF-23's basis limb (CR-20).
+    - **Resolved by the owner:** AF-26 (D34; website.md W-7) and AF-30's guard (D36, `f5ab120`). RK-8's failure mode is settled as a process exit (CR-31).
+  - **Open recommendations, for code review to check against the code:**
+    - AF-27: M5-h's guard as `react-error-boundary`, with `makeEditable` inside it and the one-line fallback.
+    - AF-29: M5-i's derived default, with only the user's pick as state and the id `guild?.id ?? '0'`.
+    - AF-31: D36's guard logs and keeps serving, and does not refuse to start.
+  - **INFO, registered only:** AF-22 (the inert Enter guard).
+  - **Records written this chain:**
+    - `system-architecture.md`: Problem Areas for AF-9a–d, X-16, the session cache, `user-access-token`, the session cookie, error-copy drift (AF-21), the Enter guard (AF-22), validation chrome in previews (AF-25), several Discord accounts (AF-26, Low, owner's known limit, cites W-7), the stack-printing fallback (AF-27), the generic-pool private field (AF-30/D36), and `/generate` body trust (rev 27). Changelog rows for each.
+    - `website.md`: A-4 and A-5 (agent-designed), and **W-7** (owner-authored, `952e69f`).
+    - `preview-image-generator.md`: P-3 and A-1.
 - **Next.**
-  - Rev 21 (`3d193f9`): APPROVED, AF-22 INFO registered. Rev 22 (`5201612`): APPROVED, with AF-23 to AF-25 recommended. Rev 23 (`39dbc0d`): APPROVED. AF-24 and AF-25 are folded, AF-23's basis is withdrawn (the error mine), and AF-27 is recommended. Rev 24 (`018f72d`): APPROVED, with AF-28 and AF-29 recommended. AF-26 is resolved: D34 and website.md W-7 (`952e69f`). Rev 25 (`dd9e88a`): APPROVED, no findings, and AF-28 is fully discharged. Rev 26 (`c375d2c`): APPROVED, with AF-30 recommended. Rev 27 (`18d361c`): APPROVED, with AF-31 recommended. A later revision is read on its delta from `18d361c`. Check D36's guard and AF-31 when M8's next commit is reviewed. **Rule: a deviation rated necessary is owner-needing in the verdict itself** (steering.md Conformance; the error at rev 26). Check AF-29 (M5-i's form) when M5-i's code is reviewed. When M5-h's code is reviewed, check AF-27.
-  - AF-18 is implemented at website `3031878` (on the chain branch, not yet released). At chain close, reconcile the master document's `user-access-token` Problem Area row.
+  - When steering resumes: re-arm the cache-warm wake, read the latest plan revision, and run a delta pass from `18d361c`.
+  - Check D36's guard and AF-31 when M8's next commit is reviewed. Check AF-27 when M5-h's code is reviewed, and AF-29 when M5-i's is.
+  - **Rule: a deviation rated necessary is owner-needing in the verdict itself** (steering.md Conformance; the error at rev 26).
   - **Method, per pass:**
     1. Write `git diff <from> <to> -- planning/015-bug-evaluation-fixes.md` to the scratchpad and Read it; the rtk filter mangles piped diffs.
     2. Read the code each changed limb names, at the SHA it names.
-    3. Append a changelog row with `record-edit.js`, anchored after the last row (check the row's stamp first).
-    4. Add a "Verdict (rev N)" section above the previous one, and update Status-Detail.
-    5. Commit by pathspec, then SendMessage the verdict to planner-hooks-015. Owner-needing items go to steering-hooks-015.
+    3. Write the edits through `record-edit.js` from a JSON file built by a `python3 -I` script. Re-derive Status-Detail with an exact-match `assert`; a loose regex once dropped a sentence.
+    4. Add a "Verdict (rev N)" section above the previous one, plus a changelog row and the Status-Detail.
+    5. Commit by pathspec, then send the verdict to planner-hooks-015. Owner-needing items go to steering-hooks-015.
   - D23: never re-read the run-2 UTC assumption.
 - **Owed at chain close** (findings-document closure, by devops Stage 1):
-  - Reconcile `system-architecture.md` to the implemented state of chain 015. The generator's stop path after M8, and `getFromUrl`'s guild binding after M4, both change.
+  - Reconcile `system-architecture.md` to chain 015's implemented state: the generator's stop path (M8), `getFromUrl`'s guild binding (M4), the `user-access-token` row (AF-18 retired `skipUpdate`), and the `/preview` guard (M5-h).
   - Collapse the resolved AF entries to one line each, then close this document as `Resolved`.
   - The reconciliation of chains 012–014 into the master document is also owed. It was outside this brief.
-- **Process disclosures:** two `sed -i` writes to record files, both recorded in the changelog (rows 05:15 and 05:44).
-- **Uncommitted / mutated:** none. Website tree at `chain/015-bug-evaluation-fixes` `579e8b2`; this session touched no source.
+- **Process disclosures:** two `sed -i` writes to record files (rows 05:15 and 05:44). Two of my own errors, corrected in the changelog: AF-23's basis, and AF-26 option (b) under D28. One routing error: rev 26's "nothing for the owner" on a necessary deviation.
+- **Branches and HEADs (read 09:53Z):**
+  - website `chain/015-bug-evaluation-fixes` at `825a7d8`;
+  - preview-image-generator `chain/015-bug-evaluation-fixes` at `8de2b53`.
+  - This session touched no source.
+- **Uncommitted / mutated:** none of mine. Scratch files are only in the session scratchpad.
 - **Questions out:** none.
