@@ -1,0 +1,9 @@
+# run 2026-11-08T05:47Z: unshare -rn verification/015/netns-loopback-probe.sh
+-- before
+state DOWN
+connect fail [Errno 101] Network is unreachable
+-- after
+state UNKNOWN
+connect ok
+-- links other than lo: 0
+-- default route present: 0
