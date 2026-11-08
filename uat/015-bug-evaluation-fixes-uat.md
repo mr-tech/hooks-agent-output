@@ -28,7 +28,7 @@ Release-Decision: APPROVED FOR RELEASE
 - **Stage start.** QA effort-final `qa/015-bug-evaluation-fixes-effort-final-qa.md` at agent-output `3cab676`: `Status: QA Complete`, `Verified-At: "b96e364,8de2b53 …"` (read at write time). The plan is at `Status: QA Complete`, Revision 28 (91c714d). The brief came from steering-hooks-015.
 - **Trees, re-derived.** At 14:44Z, `git rev-parse --short HEAD` gives website `b96e364` and preview-image-generator `8de2b53`, both on `chain/015-bug-evaluation-fixes`, and `git status --porcelain` gives 0 lines in each. `git cat-file -e <sha>^{commit}` succeeds for both. The flows ran against a `git archive b96e364` export, so the tree is the commit.
 - **Expiry.** Code review's APPROVED (website `b96e364`, c878f4a), QA's PASS (b96e364, 8de2b53) and this decision all bind to those two SHAs. Any change to production code in either repository expires all three.
-- **Plan revision.** This verdict read rev 28 (2a4533b; Status write 91c714d). A later revision expires it only where the delta changes a criterion, milestone or release condition verified here.
+- **Plan revision.** This verdict read rev 28 (2a4533b; Status write 91c714d). A later revision expires it only where the delta changes a criterion, milestone or release condition verified here. *2026-11-08T20:52:* rev 29 (fba82bf, D38: `.env.local` is not the live database) moves no criterion. QA's register change 6ae61a2 (read): I-10 is re-specified; the live-schema Assumption Not Checked moves from B-1/B-2 to B-7; and B-1 and B-2 are unchanged, since their predictions hold on any Postgres. So this verdict stands. B-2's PASS on `hooks-postgres-local` shows the Prisma schema, not the live one; the live schema is B-7's, post-deploy.
 
 ## Flow Execution
 
