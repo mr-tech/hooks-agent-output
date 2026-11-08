@@ -73,6 +73,7 @@ Owed re-verdicts:
 | 2026-11-08T06:48 | 14 | planner (planner-hooks-015) | Registers D24 (rulings 06:45Z, `9b94838`). It folds the rev 12+13 gate findings: code review CR-6 to CR-8 (`7976a9a`), and QA QAF-17 and QAF-18 (`aad87b6`), which duplicate CR-8 and CR-7. It folds the implementer's M4-c question and the R-5 batch row. The architect (`f7e6602`) and critic (`6970763`) had none. It is the seventh revision since implementation approval, and it opens critique cycle 4. Scope delta: M1-i defines "present" as what `cookies()` returns, with two residue classes. M2-a names `Picker.tsx` as a third member sent to M6-f. M3 gains its premise note. M4-c drops the non-existent name-view button. M4-d takes D24's inputs and text, with hosts mirroring `DISCORD_MESSAGE_LINK_REGEX`. CR-6 becomes X-17 with a handoff, not a rider. Against the ask: 49 of 50 findings, unchanged. |
 | 2026-11-08T06:51 | 15 | planner (planner-hooks-015) | Registers D25 (rulings 06:50Z, `9f97a5f`), and replaces rev 14's § M3 premise note. That note's reproduction conclusion was withdrawn at 06:52Z on the implementer's document-root probe; the error was the planner's. It is the eighth revision since implementation approval. Steering briefs one round over `9cbe755`..rev 15 in place of a rev 14 round. Scope delta: M4-d admits `discordapp.com`, and OQ-J goes to the owner. Widening the shared `DISCORD_MESSAGE_LINK_REGEX` would also change the New Message dialog and `message.getFromUrl`. M3 is held for a real-Chrome read, with QA's four cells per dialog and both outcomes routed. Against the ask: 49 of 50 findings, unchanged. |
 | 2026-11-08T06:53 | 16 | planner (planner-hooks-015) | Registers D26 (rulings 06:52Z, `7207289`) and restates M4-d. It is the ninth revision since implementation approval. Steering briefs one round over `9cbe755`..rev 16. Scope delta: M4-d's link class becomes eight hosts in the one shared constant. The New Message dialog's link load and `message.getFromUrl` join M4-d's criterion as the constant's consumers, with a human-observable walk; the owner accepted that change as stated, at no extra milestone or round. D25's bare-host reading is overridden. Against the ask: 49 of 50 findings, unchanged. |
+| 2026-11-08T07:12 | cr | code-reviewer (code-reviewer-hooks-015) | Round 4, the gate read of `9cbe755..565e240` (revs 14–16), mechanisms at website `6001f7f`: REJECTED for M4-d only, `code-review/015-bug-evaluation-fixes-code-review.md` (`32efd0b`). For the planner: CR-11 MEDIUM. M4-d's `getFromUrl` limb names the channel and message groups but not the guild group, the only input to `authorizeGuildAdmin`. Restate it over all three, with a guild-group cell. M1-i, M2-a/M6-f, M4-c and X-17 are approved: CR-7 and CR-8 RESOLVED, CR-6 routed. CR-12 HIGH, pre-existing on `master` and outside D6, escalated to steering for the owner: `getFromUrl` authorizes the link's guild but fetches the link's channel with the bot token, unbound. Milestone-scoped, so plan Status is unmoved. |
 | 2026-11-08T06:54 | qa | qa (qa-hooks-015) | Phase 2, M2 only, at website `6001f7f` against rev 16 (§ M2 unchanged since rev 14): PASS (`qa/015-bug-evaluation-fixes-m2-qa.md`). Suite 720/720, 71 files, exit 0. 18/18 implementer mutants and 6/6 QA mutants were killed at `6001f7f`. QAF-19 and QAF-20 (LOW) go to the implementer; QAF-20 duplicates CR-10 and times it before the effort-final pass. Milestone-scoped, so plan Status is unmoved. |
 
 ## Value Statement and Business Objective
@@ -439,8 +440,17 @@ exists to fix once — `grep` above).
   selected (`threadId` non-empty) and nothing is loading. No button is added to the custom view, which has only
   "List". Restated at rev 14: rev 6's "both the list and the name views" named a button that does not exist
   (implementer's question, confirmed against `WebhookMenu` at `6001f7f`).
-- **M4-d (F-27, D24)** — the message box accepts exactly two input classes, and refuses everything else before
-  any fetch:
+- **M4-d (F-27, D24)** — the originating statement, verbatim: *"Webhook provider: unanchored id test, unhandled
+  fetch rejection, no request ordering."*
+  - **The sites (critic M-C4-1; rev 17).** The class is enumerated by the defect's own predicate, not by the
+    remedy's constant. `git grep -nE "\\d\+/\.test"` at `6001f7f` gives 2 sites, and both carry all three of
+    F-27's limbs:
+    - `WebhookProvider.tsx` `useValue`: the send page's old-message box;
+    - `useValidateWebhook.ts`: the New Message dialog's webhook load, used by `NewMessageModal`.
+    Every limb below holds at both. Fixing only one would break the owner's standing mirror rule ("Never fix or
+    work around it in one feature only").
+  - At each site, the message box accepts exactly two input classes, read after trimming surrounding whitespace
+    as both sites do at `6001f7f` (QA QAF-22 (1)). It refuses everything else before any fetch:
   - an all-digits id;
   - a Discord message link (D25, D26): `https://`, then a host, then `/channels/<digits>/<digits>/<digits>`,
     with nothing after it. The host set is eight members: `discord.com` and `discordapp.com`, each bare or with
@@ -452,18 +462,24 @@ exists to fix once — `grep` above).
     - `NewMessageModal` (the bot link load's `enabled` test);
     - `message.getFromUrl` (its zod input and its `match`).
     For each, every one of the eight host forms is admitted. Every input the constant refused at `6001f7f` on
-    other grounds is still refused: another host, `http://`, a trailing path, a non-digit id. `getFromUrl`'s
-    match groups still yield channel id and message id for every admitted form.
+    other grounds is still refused: another host, `http://`, a trailing path, a non-digit id. For every admitted
+    form, `getFromUrl`'s match groups still yield the guild id, the channel id and the message id, in that order;
+    the guild id is `authorizeGuildAdmin`'s input (QA QAF-21; critic L-C4-1).
+  - **The id fetched.** At both M4-d sites, for every admitted link, the message id fetched is the constant's
+    message-id capture group, and no second parser derives it (architect AF-19).
   - **Human-observable (D26: the New Message dialog's change is accepted).** In the New Message dialog, a
     `discordapp.com` message link is accepted for the bot load where it was refused before. Walked on the locally
     served chain tip, without sending.
   - OPEN QUESTION [RESOLVED]: OQ-J (where the widened pattern lives, and the `discordapp.com` subdomains) —
     D26.
-  - **Refused members:** text containing a digit; a URL on any other host; a message link with a trailing path.
-  - **Network failure.** In either validation effect, a fetch that fails with no response shows exactly "Could
-    not load the message. Check your connection and try again." (D24) and leaves no unhandled rejection. Discord
-    refusals keep their existing texts.
-  - **Ordering.** Of two overlapping validations, only the latest input's result is applied.
+  - **Refused members (critic L-C4-1):** non-digit text that contains a digit (`abc123`); a URL on any other host;
+    a message link with a trailing path.
+  - **What a refused input shows (QA QAF-22 (2)).** No fetch, and the same as at `6001f7f`: the message and the
+    error are both cleared, so nothing is shown. No new message text is added.
+  - **Network failure.** At both sites, a fetch that fails with no response shows exactly "Could not load the
+    message. Check your connection and try again." (D24) and leaves no unhandled rejection. Discord refusals keep
+    their existing texts.
+  - **Ordering.** At both sites, of two overlapping validations only the latest input's result is applied.
 
 ### M5 — Editor pages and providers (website): F-19–F-26
 
