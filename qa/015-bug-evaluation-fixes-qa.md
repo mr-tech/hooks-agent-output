@@ -428,7 +428,7 @@ This pass assumes the live Postgres schema matches the Kysely `DatabaseSchema` t
 - QAF-14, QAF-15, QAF-16, all LOW: planner-hooks-015 (sent at `22fef2d`). QAF-15 is wanted before M1-c's lookup-error test; QAF-16 before run 2 reads a span.
 
 **Next: M1 Phase 2, after the code re-review.**
-- **Document:** `qa/015-bug-evaluation-fixes-m1-qa.md`.
+- **Document:** a new M1 delivery document under `qa/`, named like the M0 one with `m1`; it does not exist yet.
 - **Stage start:** the code review's committed verdict at its `Reviewed-At`, re-derived.
 - **Where to run:** in a `git archive <sha>` export, never the shared tree. Symlink `website/node_modules`, and copy the git-ignored `website/next-env.d.ts` in, or typecheck gives a false TS2307.
 - **Gate first:** the TDD gate on `implementation/015-bug-evaluation-fixes-m1-implementation.md`.
