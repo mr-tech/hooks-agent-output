@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Revision 6 folds QA Phase 1's QAF-1 to QAF-5 and D20. Criterion text changed, so a new critique cycle reads it, with the architect's delta read and QA Phase 1's confirmation on this same revision. Implementation starts after all three."
-Revision: 6
+Status-Detail: "Revision 7 folds the three gate results on rev 6: critique cycle 2 pass 1, the architect's AF-13 to AF-15 and QA's QAF-6 and QAF-7. Criterion text changed, so the critic (cycle 2 pass 2), the architect (delta read) and QA (Phase 1 re-key) each read rev 7. Implementation starts after all three approve it."
+Revision: 7
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
 Lane: "standard — agent-output/README.md carries no small-lane section (grep -i small, 0 hits, 2026-11-08); the blast radius spans the save schema, a bot command's permissions and a production PM2 service, none a leaf"
@@ -34,7 +34,8 @@ Owed re-verdicts:
 | M1-a (widened to four sites) | rev 4 | critic, architect | approved (same) |
 | M6-l (iii)–(v) | rev 4 | critic, architect | approved (same) |
 | M8-a (2), M8-0 run 2, M9 (D19) | rev 5 | critic | approved (critique closed `dee418b`) |
-| M1-c clear-out cells; M1-d limit; M2 QAF-1 note; P3 idle cell; M8 E-1 and M8-c route | rev 6 | critic (new cycle), architect, qa | open |
+| M1-c clear-out cells; M1-d limit; M2 QAF-1 note; P3 idle cell; M8 E-1 and M8-c route | rev 6 | critic (new cycle), architect, qa | M1-d approved by all three. The rest drew findings (critic `39fb6b9`; architect `1be7e72`; QA `2e4d4d5`), folded at rev 7 |
+| M1-c no-account cell; M2 QAF-1 note; P3 pool read and run-2 read; M8 E-1 (loopback, self-check, install location); M8-c browser source and fallback | rev 7 | critic (cycle 2 pass 2), architect, qa | open |
 
 ## Changelog
 
@@ -48,6 +49,7 @@ Owed re-verdicts:
 | 2026-11-08T05:33 | 5 | planner (planner-hooks-015) | Folds D19 (rulings block 05:29Z, `fa693e0`: the verifying stop is devops' `prod.yml` re-run), critique cycle 1 pass 2 L-6 to L-9 (`3398fc0`), and architect AF-11 and AF-12 (`192ec29`). Scope delta: M8-a (2)'s cause moves from the owner's `pm2 reload` to a devops re-run, which is a second production deploy needing his approval. M8-0 run 2's reader is devops. Stop (1) is restated as a 12 s delay, not downtime. M1-a's route statement is corrected. D15 is brought current; X-15 carries the June–August gap. No criterion changes. Against the ask: 49 of 50 findings, unchanged. |
 | 2026-11-08T05:35 | R-2 | planner (planner-hooks-015) | Registered D20 from `steering/015-rulings.md` block "2026-11-08T05:33Z" (`d852da1`), plus a Planner batch row for the body text it releases. Scope delta: none, registration only. |
 | 2026-11-08T05:43 | 6 | planner (planner-hooks-015) | Folds QA Phase 1's batch QAF-1 to QAF-5 (`qa/015-bug-evaluation-fixes-qa.md`, `bf15750`; QA read rev 4) and the D20 Planner batch row. Scope delta: M1-c gains clear-out cells for a failed revoke and a missing account; P3 gains the idle-process cell; M8's local route carries entry condition E-1 (no credentials, no network, no CDN write); M2 names the transcribed-schema test it rewrites; M1-d and X-16 state the concurrency limit; M8-c runs locally with a browser under D20. Opens a new critique cycle (criterion text changed). Against the ask: 49 of 50 findings, unchanged. |
+| 2026-11-08T05:48 | 7 | planner (planner-hooks-015) | Folds the three gate results on rev 6: critique cycle 2 pass 1 (`39fb6b9`: M-C2-1 to M-C2-3, L-C2-1 to L-C2-3), the architect's delta (`1be7e72`: AF-13 to AF-15) and QA's re-key (`2e4d4d5`: QAF-6, QAF-7). Scope delta: E-1 brings loopback up, gains a self-check and installs inside the export; M8-c names its browser source and gets back its code-review fallback; M1-c's no-account cell names the two keys it clears and the `user-guilds` residue; P3 places the pool read in `getPool.ts` and names run 2's request read; M2's note becomes a property that cites QA. Criterion text changed, so the critic, the architect and QA each re-read. Against the ask: 49 of 50 findings, unchanged. |
 
 ## Value Statement and Business Objective
 
@@ -177,6 +179,12 @@ together, so the gate's population is empty; a milestone the owner withholds fro
     - token present, with the revoke answering 2xx, answering non-2xx, or rejecting (a network failure);
     - token absent;
     - no account found.
+  - **The no-account cell (critic L-C2-1, architect AF-15, QA QAF-7).** `clearUser` (`src/utils/redis/index.ts`)
+    deletes three keys, and the third, `user-guilds`, is keyed on the account's `providerAccountId`. The
+    `Accounts` update is keyed on it too. So with no account found, exactly two things happen: the
+    `user-access-token` and `user-session-token` keys are deleted, and the session's DB rows are removed. No
+    `Accounts` update is issued and no revoke is sent. Residue (stated limit): the `user-guilds` entry is not
+    addressable and expires on its own 600 s TTL (`fetchUserGuilds`, `expireSeconds: 600`, read at `7ce866b`).
   - **Ordering.** A failed revoke never prevents sign-out. The token is read before the session's rows are
     removed. At `7ce866b`, a rejected `fetch` aborts before the clear-out, and a missing account throws
     `Expected to find account` (QA's read).
@@ -212,10 +220,10 @@ disposition X-9.
   `color: 0` saves; `discordResponseToMessage` keeps `color` whenever the response carries the field, 0
   included. Human-observable: pick black in the colour picker, save, reload — the embed is black. Walked on the
   locally served chain tip (§ Validation).
-  - **Standing-suite defect (QA QAF-1).** The existing describe "Embed Field Clearing" in
-    `src/utils/__tests__/bugFixCoverage.supplemental.test.ts` transcribes `embedShape` (Axiom E) and already
-    diverges from it. At M2 it imports the real `embedShape` from `~/server/api/utils/shapes`, keeping its
-    cases, and each case is shown red against a one-token mutation of the real schema.
+  - **Standing-suite defect (QA QAF-1; critic L-C2-3).** The standing suite holds a transcription of
+    `embedShape` that already diverges from it (Axiom E). Property: at M2, no expectation over `embedShape`'s
+    admitted class is computed from a copy of the schema; every one runs against the real `embedShape`. The file,
+    and how each case is shown red, are QA's: `qa/015-bug-evaluation-fixes-qa.md` § M2.
 - **M2-b (F-13)** — the author-name error shows exactly when the name exceeds 256 characters (the save schema's
   bound, `MAX_EMBED_AUTHOR_NAME_LENGTH`).
 - **M2-c (F-14)** — `validateEmbedTitle`'s error names the title.
@@ -388,8 +396,15 @@ Host facts (steering's standing `hooks-pig` reads, rulings blocks 05:20Z–05:24
       drain completes without one. At `471578f`, `getPool()` creates the pool on first call, and generic-pool
       autostarts with `min = 2` (QA's read of 3.9.0). So today a drain of an idle process would first launch two
       Chromiums.
+    - **Where the read lives (architect AF-14).** The drain asks "does a pool exist?" through a read that never
+      creates one. That read is a second export of `src/getPool.ts`, beside the `globalForPool` singleton and the
+      default export that mirrors it (`preview-image-generator@471578f src/getPool.ts`). `server.ts` neither
+      reaches into `globalForPool` nor keeps its own flag.
     - **Run 2.** M8-0 run 2 records whether the stopped process had served a request, so that the
-      drain-complete figure is read for what it measures.
+      drain-complete figure is read for what it measures. The read (critic L-C2-2): in the app's out log, count
+      the `POST /generate` lines after the last `Server running at` line. `server.ts` logs `req.method, req.url`
+      for every request (`console.debug` in the request handler, `471578f`). `pig-host-read.sh` gains this read
+      before run 2; the analyst writes it and the code-reviewer reviews it with M8's code, as for run 1.
   - **P4.** The stop handlers are registered no later than the `ready` message.
   - **Growth beyond the finding (critique L-5).** P3 and P4 go beyond F-31's statement. They are the analysis's
     V-4 and V-5.
@@ -435,24 +450,43 @@ therefore an operator-visible criterion. Where each is verified:
 - **Entry condition for every local generator run (QA E-1, QAF-5).** The generator's real credentials and the
   network are out of reach of any local run, because a well-formed `/generate` request reaches
   `deleteMessagePreviewImages`, an S3 list-and-delete, even when the browser launch fails. So every local run:
-  - happens in an export without the tree's `.env`, under `unshare -rn`;
+  - happens in an export of the chain tree without the tree's `.env`;
+  - takes its dependencies from an install **inside that export**, run before the namespace is entered, because
+    the install needs the network (QA QAF-6; critic M-C2-2). The install is `npm ci --omit=optional` under
+    `PUPPETEER_SKIP_DOWNLOAD=1`. The export never links to the shared tree's `node_modules`, which another
+    session can change mid-run;
+  - runs the server inside `unshare -rn`, whose **first step brings loopback up** with `ip link set lo up`. The
+    namespace starts with `lo` DOWN: the architect (AF-13) and the critic (M-C2-1) each measured a loopback
+    connect failing with `ENETUNREACH` (Errno 101) until `lo` was up, and succeeding after it;
+  - passes a **self-check before any criterion is read**: a loopback GET to the started server answers, and an
+    external name lookup fails. A failed self-check stops the run. Its remedy is never dropping `-n`, which is the
+    limb that keeps the S3 bucket out of reach;
   - sets every `CDN_*` variable, `PREVIEW_ENDPOINT` (a loopback URL) and `API_KEY` explicitly to probe values;
   - never sources the shared tree's `.env`. `dotenv` does not override variables already set, and the export
     carries no `.env`.
   No probe of this chain may delete or write a CDN object.
 - **Locally, no browser:** M8-b, M8-d, M8-e, QAF-2's idle cell, and P1's two log lines and predicate (a
   `'shutdown'` message sent to a locally started server).
-  - **Install.** `npm ci --omit=optional` under `PUPPETEER_SKIP_DOWNLOAD=1`, into the generator tree
-    (`node_modules` is git-ignored), so no browser is downloaded. A launch then fails, which is M8-d's forcing
-    condition.
-  - **The variable.** It is puppeteer's documented skip at 21.x (the lockfile pins `puppeteer` 21.1.0). That is
-    recalled from documentation, not read at 21.1.0. QA Phase 1 reads the install script at that version before
-    any install.
+  - **Forcing condition.** No browser is downloaded at the install, so a launch fails, which is M8-d's forcing
+    condition. It holds only while `~/.cache/puppeteer` is absent after the install. QA's E-2 re-checks it at the
+    probe, which also settles whether `--omit=optional` still runs puppeteer's install script under the variable
+    (critique cycle 2, "Assumption Not Checked").
+  - **The variable.** QA read puppeteer's own `getConfiguration.js` at 21.1.0: any non-empty
+    `PUPPETEER_SKIP_DOWNLOAD` skips the download (QA E-2, `2e4d4d5`).
   - **No pool before parsing.** That M8-b's path creates no pool before parsing is an unread inference
     (`getPool()` is called inside `generateImage` and `shutdown`, per `grep -n` at `471578f`). The implementer
     confirms it at M8.
-- **M8-c needs a real browser.** It runs locally under E-1, with a browser available now that D20 has lifted the
-  Playwright constraint. Installing or upgrading Playwright is still not implied.
+- **M8-c needs a real browser (critic M-C2-3).** It runs locally under E-1. D20 allows a browser to be used; it
+  does not supply one.
+  - **Source.** Puppeteer has none on this route, and the namespace cannot fetch one. So the source is
+    `executablePath` to a binary already on this box. Read 2026-11-08 by `--version`: `/usr/bin/google-chrome`
+    156.0.8078.47 and `/snap/bin/chromium` 157.0.8103.38. Whether a snap binary launches inside `unshare -rn`
+    is unread.
+  - **Compatibility, unread.** No document has read whether puppeteer 21.1.0 drives either binary. The
+    implementer settles it at M8, before M8-c is relied on, with one launch and one screenshot under E-1 against
+    the chosen binary, recording the binary, its version and the result.
+  - **Fallback.** If no binary on the box launches and screenshots under puppeteer 21.1.0, M8-c is verified by
+    code review and stated as a limit. Installing or upgrading Playwright or a browser is not implied.
 - **On production:** P1–P3, through M8-0 run 2 on stop (2).
 
 ### M9 — Release (devops; owner steps named)
@@ -576,8 +610,8 @@ is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, 
 
 ## Resumption State (checkpoint, planner-hooks-015)
 
-- **Done.** Plan at revision 6 (agent-output `5d516d9`). The critique of rev 4 and rev 5 is closed, at `dee418b`. The architect approved rev 4 (`192ec29`). QA Phase 1 was written against rev 4 (`bf15750`); its batch QAF-1 to QAF-5 is folded in rev 6. Registrations so far: R-1 (D14, D15) and R-2 (D20). F-31 analysis: `analysis/015-bug-evaluation-fixes-analysis.md` (latest `1fc16f5`). M8-0 run 1 is captured at `verification/015/m8-0-run1-2026-11-08T0525Z.txt`, together with the script, at `fe27690`.
-- **Next.** Steering has been asked to route rev 6 to three gates: the critic (a new cycle, because criterion text changed), the architect (delta) and QA (Phase 1 confirmation re-keyed to rev 6). Fold their findings in one revision once all verdicts are in. Report "ready for implementation" only when all three have approved the same revision.
+- **Done.** Plan at revision 7, which folds the three gate results on rev 6: critique cycle 2 pass 1 (`39fb6b9`), architect `1be7e72` and QA `2e4d4d5`. The cycle 1 critique closed at `dee418b`. Registrations so far: R-1 (D14, D15) and R-2 (D20). F-31 analysis: `analysis/015-bug-evaluation-fixes-analysis.md` (latest `1fc16f5`). M8-0 run 1 is captured at `verification/015/m8-0-run1-2026-11-08T0525Z.txt`, together with the script, at `fe27690`.
+- **Next.** Steering routes rev 7 to the critic (cycle 2 pass 2), the architect (delta) and QA (Phase 1 re-key). Fold any findings in one revision once all three verdicts are in. Report "ready for implementation" only when all three have approved the same revision.
 - **Open with others.** None of the planner's questions to the owner are pending. The 69-day generator gap (X-15) went to him through steering as an FYI only.
 - **Uncommitted, left in place.** `INBOX.md` holds this session's FYI entry: the research document's `pm2 show` advice. Per the inbox rule, the domain owner commits it.
 - **Branches.** website and preview-image-generator: chain branches are created by steering. The planner touches no source.
