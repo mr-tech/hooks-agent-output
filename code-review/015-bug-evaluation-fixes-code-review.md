@@ -2,11 +2,11 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Reviewed-At: "c375d2c,476c633,6c613a5 — repos=agent-output,website,preview-image-generator; Round 19 (plan gate read, rev 26) at agent-output c375d2c, its mechanisms executed at website 476c633 and preview-image-generator 6c613a5 (base 471578f); Round 18 (M8) at preview-image-generator 6c613a5; Rounds 16 (M5-i) and 17 (M7) and the Round 10 (M5-h), Round 14 (CR-22/24/25) and Round 7 (M4-d non-JSON cells) sub-entries at website 476c633; criteria plan rev 25 (dd9e88a). Earlier: Round 14 at 24ac49f, Round 10 at da24eb7, the Round 2 sub-entry (CR-15) at 3031878"
+Reviewed-At: "18d361c,476c633,6c613a5 — repos=agent-output,website,preview-image-generator; Round 20 (plan gate read, rev 27) at agent-output 18d361c, its mechanisms executed at website 476c633 and preview-image-generator 6c613a5; Round 19 (plan gate read, rev 26) at agent-output c375d2c, its mechanisms executed at website 476c633 and preview-image-generator 6c613a5 (base 471578f); Round 18 (M8) at preview-image-generator 6c613a5; Rounds 16 (M5-i) and 17 (M7) and the Round 10 (M5-h), Round 14 (CR-22/24/25) and Round 7 (M4-d non-JSON cells) sub-entries at website 476c633; criteria plan rev 25 (dd9e88a). Earlier: Round 14 at 24ac49f, Round 10 at da24eb7, the Round 2 sub-entry (CR-15) at 3031878"
 Status: In Review
-Status-Detail: "Round 19 (rev 26 gate read): REJECTED for M8-b's D35 limb only (CR-30 MEDIUM, duplicates QAF-33; superseded by the 09:28Z re-put, folded at rev 27). CR-29 RESOLVED; M8-d's property approved; CR-31 LOW (RK-8's falsity signature is a process exit, not a hang). Round 18 (M8 at preview-image-generator 6c613a5): REJECTED for M8-a (CR-27 MEDIUM, the drain-complete line on a failed drain); M8-b to M8-e met, CR-28 LOW. Round 17 (M7): APPROVED. Round 16 (M5-i): APPROVED. M5-h: CR-18 RESOLVED at 476c633, Round 10 APPROVED_WITH_COMMENTS (CR-29 LOW, planner). M6: CR-22, CR-24, CR-25 RESOLVED, Round 14 APPROVED_WITH_COMMENTS (CR-26 LOW). Round 15 (rev 25): APPROVED."
-Round: 19
-Verdict: REJECTED
+Status-Detail: "Round 20 (rev 27 gate read): APPROVED_WITH_COMMENTS. CR-30 and CR-31 RESOLVED. CR-32 LOW (M5-h re-run trigger misses src/utils/limits.tsx; enumerator now reverses only the guard diff). CR-33 LOW (M8-d (d) must name dequeue, not only the field). Round 19 (rev 26 gate read): REJECTED for M8-b's D35 limb only (CR-30 MEDIUM, duplicates QAF-33; superseded by the 09:28Z re-put, folded at rev 27). CR-29 RESOLVED; M8-d's property approved; CR-31 LOW (RK-8's falsity signature is a process exit, not a hang). Round 18 (M8 at preview-image-generator 6c613a5): REJECTED for M8-a (CR-27 MEDIUM, the drain-complete line on a failed drain); M8-b to M8-e met, CR-28 LOW. Round 17 (M7): APPROVED. Round 16 (M5-i): APPROVED. M5-h: CR-18 RESOLVED at 476c633, Round 10 APPROVED_WITH_COMMENTS (CR-29 LOW, planner). M6: CR-22, CR-24, CR-25 RESOLVED, Round 14 APPROVED_WITH_COMMENTS (CR-26 LOW). Round 15 (rev 25): APPROVED."
+Round: 20
+Verdict: APPROVED_WITH_COMMENTS
 ---
 
 # Code Review: Plan 015 — Bug-evaluation fixes
@@ -63,6 +63,7 @@ Verdict: REJECTED
 | 2026-11-08T09:17 | same handoff | Round 17: M7 (`a4b4434`) | APPROVED. `ADMIN_PERMS` is `"32"` with one consumer (`get_message`); no handler-side check, so Discord's gate is the only one (D4). M7-b and M7-c change no live path today. |
 | 2026-11-08T09:17 | same handoff | Round 18: M8 (preview-image-generator `471578f..6c613a5`) | REJECTED for M8-a. Stood up under E-1: the implementer's rig reproduces 25 of 25, and code review's attack (`cr-m8-probes/attack.cjs`) finds CR-27 MEDIUM: a failed drain still logs "Drain complete", the line run 2 counts. M8-d ruled: the `factoryCreateError` rejection is accepted (no storm under 6 concurrent requests), with CR-28 LOW (unguarded private field; the "README remedy" claim is false). |
 | 2026-11-08T09:31 | steering-hooks-015 (brief, after `/clear`) | Round 19: plan gate read, `dd9e88a..c375d2c` (rev 26): M5-h (3) anchor and the CR-29 member move, D35 in M8-b, M8-d as a property, RK-8 | REJECTED for M8-b's D35 limb only. CR-29 RESOLVED: at `476c633` with the guard commit reverted, all 44 class-probe members fall exactly on rev 26's two lists (`cr-m5-probes/class-noguard-run1-476c633.txt`). CR-30 MEDIUM, duplicates QAF-33: arrays pass the generator's object check and reach `generateImage` (`cr-m8-probes/body-class-run1-6c613a5.txt`); the owner's 09:28Z re-put has already made lists a known limit, folded at rev 27. M8-d's property: no finding. CR-31 LOW (planner): RK-8 predicts a hang; the renamed-field mutant exits the process with code 1 in 378 ms on node 24 (`rk8-field-mutant-6c613a5.txt`). |
+| 2026-11-08T09:38 | steering-hooks-015 (brief) | Round 20: plan gate read, `c375d2c..18d361c` (rev 27): the CR-30 fold (D35 re-put, X-23), CR-31 (RK-8 exit signature), M8-d (d) under D36, X-24, and the M5-h (3) deciding-read rule | APPROVED_WITH_COMMENTS. CR-30 and CR-31 RESOLVED. CR-32 LOW (planner): the M5-h re-run trigger names `src/app/preview/`, `src/utils/index.ts` and "the editor components", which leaves out `src/utils/limits.tsx`, the site of a known class (3) crash (CR-20). I also corrected my enumerator so it reverses only the guard's diff; the new run is identical (`class-noguard-run2-476c633.txt`). CR-33 LOW (planner, and the implementer's guard): with `dequeue` renamed and the field kept, the process exits the same way (`rk8-method-mutant-6c613a5.txt`), so (d) must name `dequeue`. |
 
 ## Round 1 (M0, website `037935d`) — dispositions
 
@@ -295,6 +296,61 @@ CR-5 LOW Round 2 DECLINED — by the implementer (§ Fix Round 1): the plan sets
   - The two literal `formatKey` cases go to a `formatKey.*` file; the tautologies are deleted.
   - The `useParsePathname` describe is converted to exercise the real hook, or deleted with the surface listed as outstanding.
   - QA decides the timing (now or with a later touch). Non-blocking for M2.
+
+## Round 20 (plan gate read, rev 27, agent-output `18d361c`; mechanisms executed at website `476c633` and preview-image-generator `6c613a5`)
+
+- **Scope.** Steering's brief covers the delta `c375d2c..18d361c` (plan 85/24), written to a file and read in full. It folds CR-30 (the D35 re-put, M8-b narrowed, X-23), CR-31 (RK-8), D36's M8-d (d), X-24, the M5-h (3) deciding-read rule (M-C9-1), and the RK-8 carrier at M9. The architect's rev 27 pass (`b2add20`, AF-31) landed while I was reading. AF-31 concerns whether the guard serves or refuses to start, and it does not overlap the findings below.
+- **CR-30 RESOLVED.**
+  - D35 is rewritten with both selections.
+  - M8-b refuses exactly bad JSON, `null`, numbers, strings and booleans. Those five are the five my `body-class-run1-6c613a5.txt` shows refused.
+  - X-23 carries the array residue with QAF-33's S3 consequence, marked as read from code, and has the three L-C7-1 clauses.
+  - M8-b's `null` claim now cites the executed base run.
+  - M8-b at rev 27 is met at `6c613a5` by that run, so Round 18's M8-b verdict is restored under rev 27.
+- **CR-31 RESOLVED.** RK-8 states the measured exit, its control and the PM2 consequence. The falsifier is the startup line, or a prod exit whose log shows that TypeError. The carrier is a devops handoff minted at M9 with an event trigger. It says "on node 24"; a host before Node 15 would show the hang. That is already covered by Round 18's open Assumption Not Checked on the host's Node version, so it is no new finding.
+- **X-24.** No finding. It is a stated limit with the three clauses.
+
+### Findings
+
+CR-32 LOW Round 20 — the M5-h (3) re-run trigger names `src/app/preview/`, `src/utils/index.ts` and "the editor components the page renders". That set leaves out `src/utils/limits.tsx`, where `validateEmbedCharacterCount` throws on `embeds: ""` (CR-20).
+- **Location**: plan § M5-h (3), the deciding-read paragraph at `18d361c`.
+- **Class**: a re-run trigger stated as a hand-picked path list, over a membership decided by a whole render path.
+- **Enumeration**: the class (3) crash sites established by execution in Rounds 10 to 19:
+  - `makeEditable` (`src/utils/index.ts`);
+  - `validateEmbedCharacterCount` (`src/utils/limits.tsx`, `git grep` at `476c633`);
+  - `hasValidField` (`src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx`, the change that moved `fields: null`);
+  - the gallery's `items.map` (the editor's components).
+
+  One of the four lies outside the named set. This list cannot see a crash site not yet found. The page's import closure is not measured.
+- **Instrument correction (mine)**: `run-class-guard-removed.sh` used to swap in `page.tsx`'s whole pre-guard blob. That would discard any later change under `src/app/preview/`, which is exactly when the trigger fires.
+  - It now reverse-applies only the guard commit's diff (argument: `09c7c45`) and stops if that patch no longer applies.
+  - At `476c633` the reversed file is byte-identical to the guard parent's blob (`0e3fc49`, both recorded in the run). The 44 results are identical to run 1 (`class-noguard-run2-476c633.txt`).
+  - The plan's "restores `page.tsx` from before the guard" now describes run 1's method.
+- **Required Action (planner, rev 28 or a batch row)**:
+  - Preferred: state the trigger as any non-test change under the website's `src/` after the last run's SHA. The run takes about 10 s, so a wide trigger costs nothing.
+  - Minimum: add `src/utils/limits.tsx`, and name the editor as `src/components/DiscordMessageEditor/**`.
+  - In either case, cite run 2 and the guard commit, not a pre-guard blob.
+
+CR-33 LOW Round 20 — M8-d (d) asks for a line when the pool "lacks the private waiting-queue member the remedy reaches", and gives only the renamed field as its member. The remedy reaches `_waitingClientsQueue.dequeue`. A tree that keeps the field but drops `dequeue` fails the same way.
+- **Location**: plan § M8-d (d) at `18d361c`; `createPool`'s `factoryCreateError` listener in `src/getPool.ts` at `6c613a5`.
+- **Class**: a presence guard specified at one level of a two-level private access path.
+- **Executed**: `cr-m8-probes/run-rk8-field.sh` on a second isolated copy of the export.
+  - Mutant: `build/getPool.js` calls `dequeueRenamed()`, with the field read unchanged. It was read back from disk, and the output records the field read.
+  - Result: `ECONNRESET`, then exit 1 after 424 ms, on `TypeError: waitingClients.dequeueRenamed is not a function` (`rk8-method-mutant-6c613a5.txt`).
+  - A check for the field alone writes no line here.
+- **Enumeration**: the remedy's private path has 3 links: the `_waitingClientsQueue` field, its `dequeue` method, and the dequeued request's `reject`. Startup can check the first two. The third exists only once a client is waiting, so it cannot be checked at startup and stays under RK-8's exit signature.
+- **Required Action**:
+  - Planner: (d) names the member as `_waitingClientsQueue` with a callable `dequeue`, and adds this run as its second member. The unreachable `reject` link is stated as RK-8's residue.
+  - Implementer: the D36 guard, now being written in the CR-27 fix, checks both levels. Steering is told so that the guard does not land with one level only.
+
+### Round 20 verdict
+
+APPROVED_WITH_COMMENTS. CR-30 and CR-31 are RESOLVED. CR-32 and CR-33 are LOW.
+- **M8-b.** It is met at rev 27, at `6c613a5`, for its five refused members.
+- **Assumption Not Checked.** This review assumes the D36 guard can run before the first request, while `getPool()` creates the pool lazily. `server.ts` at `7e5ca5f` imports only `getExistingPool`, so no pool instance exists at startup to inspect. If that is false, the guard cannot be at startup without building a pool, or it inspects something other than the instance whose field the listener reads; its signature would be a guard that passes on a prototype while the instance lacks the field. The implementer owns this, and I review it in the CR-27 fix sub-entry.
+- **Next Steps.**
+  - The planner folds CR-32 and CR-33.
+  - The implementer's CR-27 handoff, carrying the D36 guard, comes as a Round 18 sub-entry.
+  - QA keeps Round 19's Assumption Not Checked.
 
 ## Round 19 (plan gate read, rev 26, agent-output `c375d2c`; mechanisms executed at website `476c633` and preview-image-generator `6c613a5`)
 
@@ -1147,6 +1203,7 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 
 ## Resumption State (checkpoint, code-reviewer-hooks-015, 2026-11-08T09:18; Round 19 added 09:31)
 
+- **Round 20 (rev 27 gate read)**: APPROVED_WITH_COMMENTS; CR-32 and CR-33 LOW (planner). The enumerator now takes the guard commit `09c7c45` as its 4th argument.
 - **Round 19 (rev 26 gate read)**: REJECTED for M8-b's D35 limb only (CR-30, duplicates QAF-33, superseded by the 09:28Z re-put). CR-29 RESOLVED. CR-31 LOW (RK-8 signature). Rev 27 is owed a delta gate read: the lists-pass M8-b, D36's criterion, and the CR-31 wording.
 - **Round 19 instruments**: `cr-m5-probes/run-class-guard-removed.sh`; `cr-m8-probes/run-body-class.sh` and `run-rk8-field.sh`. The E-1 exports `pig-probe-6c613a5`, `pig-probe-471578f` and `pig-rk8` (the mutant copy) are in this session's scratchpad only.
 
