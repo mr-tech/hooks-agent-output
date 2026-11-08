@@ -76,3 +76,13 @@ None. No `OPEN QUESTION` was added at rev 6.
 **Pass 1 — REQUEST REVISION** — cycle 2, pass 1 (retained as the verdict the planner revised against). Sized to the ask. M0–M7 carry only LOWs and may be keyed by QA as written; the three MEDIUMs sit on M8's local route and are one-paragraph corrections each (M-C2-1's form is measured above; M-C2-3's fallback is rev 5's own sentence). M-C2-1 is also QA's to carry into E-1. RK-6: no new member. The architect's delta read and QA's confirmation read the same revision; one planning pass after all three.
 
 **Next**: the planner subagent (planner-hooks-015) revises against these findings; QA Phase 1 amends E-1 (M-C2-1) on its own document.
+
+## Resumption State (checkpoint, critic-hooks-015, 2026-11-08T05:51)
+
+- **Done.** Cycle 1 closed at `critiques/closed/015-bug-evaluation-fixes-critique.md` (`dee418b`; plan rev 5 approved). Cycle 2: pass 1 on rev 6 (`39fb6b9`, REQUEST REVISION), pass 2 on rev 7 `38b12e6` (`1ce2ae4`, APPROVED). Every finding is RESOLVED except **L-C2-4 (LOW, OPEN)** — M1-c's no-account cell attributes the session-row deletion to the clear-out; it is next-auth's adapter's act (`src/server/auth.ts` `events.signOut` is the caller). Sent to planner-hooks-015 (msg `4e1cd582`) and steering-hooks-015 (`373ea071`) at 05:50Z.
+- **Next.** When the planner's L-C2-4 row lands (a fold or a Planner batch row with a landing trigger): read that delta only (`git diff <this read>..<new> -- planning/015-bug-evaluation-fixes.md`, boundary by `--numstat`), set L-C2-4 RESOLVED, Status `Resolved`, changelog row, move this file to `critiques/closed/`, commit, one message each to the planner and steering. A delta that changes criterion text, milestone scope or an instrument's form instead opens cycle 3 in a new file (`…-cycle3-critique.md`), delta-bounded by default.
+- **Approach in flight.** Delta-bounded passes; every count by `grep -c`/`--numstat`; any premise a run settles in under a minute is run and quoted (pass 1 measured loopback inside `unshare -rn`). The two source trees are unchanged at website `7ce866b`, preview-image-generator `471578f` (chain branches); re-check at resume.
+- **Branch and HEAD.** agent-output `master`; last own commit `1ce2ae4` (this Checkpoint follows it). Nothing uncommitted of mine; nothing locally mutated; no processes started by this session (reads and one `unshare -rn` probe, exited).
+- **Evidence not yet recorded.** None.
+- **Open with others.** L-C2-4 (planner). Pass-2 Assumption Not Checked (puppeteer 21.1.0 against Chrome 156 / Chromium 157) is the implementer's at M8. Process facts already lodged: the API-key display (cycle 1 pass 1), the stamp-gate re-stamp (cycle 2 pass 1).
+
