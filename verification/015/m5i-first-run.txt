@@ -1,0 +1,149 @@
+export /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/m5i-red at 09c7c45 (WebhookMenu source unchanged) + the new test file
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/m5i-red
+
+ ❯ |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx (8 tests | 7 failed) 283ms
+     × opens the guild's webhooks when the list arrives after the menu mounted 76ms
+     × opens the guild's webhooks when the guild object arrives after its webhooks 43ms
+     × follows a change of guild 34ms
+     × goes back to the custom webhook tab when the user is signed out 27ms
+     × goes back to the custom webhook tab when no guild is selected 27ms
+     × goes back to the custom webhook tab when the guild has no webhooks 20ms
+     × keeps the pick when webhooks arrive after it 18ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx > send page webhook menu, the open category before the user picks one > opens the guild's webhooks when the list arrives after the menu mounted
+AssertionError: expected [ 'Custom Webhook' ] to deeply equal [ 'Alpha' ]
+
+- Expected
++ Received
+
+  [
+-   "Alpha",
++   "Custom Webhook",
+  ]
+
+ ❯ src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx:95:28
+     93|     setWorld({ webhooks: [hook('w1', 'g1')] });
+     94|
+     95|     expect(openTitles(el)).toEqual(['Alpha']);
+       |                            ^
+     96|   });
+     97|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx > send page webhook menu, the open category before the user picks one > opens the guild's webhooks when the guild object arrives after its webhooks
+AssertionError: expected [] to deeply equal [ 'Alpha' ]
+
+- Expected
++ Received
+
+- [
+-   "Alpha",
+- ]
++ []
+
+ ❯ src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx:103:28
+    101|     setWorld({ guild: ALPHA });
+    102|
+    103|     expect(openTitles(el)).toEqual(['Alpha']);
+       |                            ^
+    104|   });
+    105|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx > send page webhook menu, the open category before the user picks one > follows a change of guild
+AssertionError: expected [] to deeply equal [ 'Beta' ]
+
+- Expected
++ Received
+
+- [
+-   "Beta",
+- ]
++ []
+
+ ❯ src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx:112:28
+    110|     setWorld({ guild: BETA, guildId: 'g2', webhooks: [hook('w2', 'g2')…
+    111|
+    112|     expect(openTitles(el)).toEqual(['Beta']);
+       |                            ^
+    113|   });
+    114|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx > send page webhook menu, the open category before the user picks one > goes back to the custom webhook tab when the user is signed out
+AssertionError: expected [ 'Alpha' ] to deeply equal [ 'Custom Webhook' ]
+
+- Expected
++ Received
+
+  [
+-   "Custom Webhook",
++   "Alpha",
+  ]
+
+ ❯ src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx:125:28
+    123|     setWorld(change);
+    124|
+    125|     expect(openTitles(el)).toEqual([CUSTOM]);
+       |                            ^
+    126|   });
+    127| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx > send page webhook menu, the open category before the user picks one > goes back to the custom webhook tab when no guild is selected
+ FAIL  |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx > send page webhook menu, the open category before the user picks one > goes back to the custom webhook tab when the guild has no webhooks
+AssertionError: expected [] to deeply equal [ 'Custom Webhook' ]
+
+- Expected
++ Received
+
+- [
+-   "Custom Webhook",
+- ]
++ []
+
+ ❯ src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx:125:28
+    123|     setWorld(change);
+    124|
+    125|     expect(openTitles(el)).toEqual([CUSTOM]);
+       |                            ^
+    126|   });
+    127| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/7]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx > send page webhook menu, after the user picks a category > keeps the pick when webhooks arrive after it
+AssertionError: expected [] to deeply equal [ 'Custom Webhook' ]
+
+- Expected
++ Received
+
+- [
+-   "Custom Webhook",
+- ]
++ []
+
+ ❯ src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx:149:28
+    147|     const el = mountWith({ guild: ALPHA, guildId: 'g1', webhooks: [hoo…
+    148|     setWorld({ webhooks: [] });
+    149|     expect(openTitles(el)).toEqual([CUSTOM]);
+       |                            ^
+    150|     setWorld({ webhooks: [hook('w1', 'g1')] });
+    151|     expect(openTitles(el)).toEqual(['Alpha']);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/7]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  7 failed | 1 passed (8)
+   Start at  08:26:22
+   Duration  2.38s (transform 344ms, setup 23ms, import 1.16s, tests 283ms, environment 745ms)
+
+exit 1

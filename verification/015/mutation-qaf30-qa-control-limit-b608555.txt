@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-b608555-qaf30-qa-control-limit  sha: b608555  label: qaf30-qa-control-limit  test: DiscordMessageEditor.component-limit  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-b608555-qaf30-qa-control-limit
+
+
+ Test Files  1 passed (1)
+      Tests  22 passed (22)
+   Start at  08:39:23
+   Duration  1.77s (transform 201ms, setup 22ms, import 741ms, tests 306ms, environment 582ms)
+
+vitest exit 0

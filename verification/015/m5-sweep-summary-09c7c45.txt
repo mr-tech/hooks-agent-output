@@ -1,0 +1,10 @@
+control-m5h	 Tests 53 passed (53)	0	vitest exit 0
+m5h-array-passes	 Tests 1 failed | 52 passed (53)	0	vitest exit 1
+m5h-primitive-passes	 Tests 4 failed | 49 passed (53)	0	vitest exit 1
+m5h-parse-error-uncaught	 Tests 25 failed | 28 passed (53)	0	vitest exit 1
+m5h-boundary-fallback-empty	 Tests 11 failed | 42 passed (53)	0	vitest exit 1
+m5h-boundary-removed	 Tests 11 failed | 42 passed (53)	0	vitest exit 1
+m5h-make-editable-skipped-in-parse	 Tests 8 failed | 45 passed (53)	0	vitest exit 1
+m5h-error-text-changed	 Tests 41 failed | 12 passed (53)	0	vitest exit 1
+m5h-error-not-text-error	 Tests 41 failed | 12 passed (53)	0	vitest exit 1
+done

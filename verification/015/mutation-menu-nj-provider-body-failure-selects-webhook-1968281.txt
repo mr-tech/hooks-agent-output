@@ -1,0 +1,38 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-1968281-menu-nj-provider-body-failure-selects-webhook  sha: 1968281  label: menu-nj-provider-body-failure-selects-webhook  test: WebhookMenu.failed-webhook-load  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-nonjson-table.py
+mutated nj-provider-body-failure-selects-webhook
+ .../src/providers/WebhookProvider.tsx                                   | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-1968281-menu-nj-provider-body-failure-selects-webhook
+
+ ❯ |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx (3 tests | 1 failed) 129ms
+     × shows "Invalid URL" under the field when the response body is not JSON 37ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx > send page webhook URL field, a failed webhook load > shows "Invalid URL" under the field when the response body is not JSON
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx:61:19
+     59|     const shown = Array.from(el.querySelectorAll('*'))
+     60|       .filter((e) => e.children.length === 0 && e.textContent === 'Inv…
+     61|     expect(shown).toHaveLength(1);
+       |                   ^
+     62|     expect(shown[0]?.parentElement?.contains(input)).toBe(true);
+     63|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  08:35:17
+   Duration  1.91s (transform 316ms, setup 22ms, import 1.04s, tests 129ms, environment 596ms)
+
+vitest exit 1

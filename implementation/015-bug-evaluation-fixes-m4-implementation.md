@@ -4,7 +4,7 @@ Origin: 015
 UUID: 861e5f61
 Status: Active
 Status-Detail: "M4 reopened under D29 (plan rev 21) and QA's QAF-25: a failed webhook-URL load shows 'Invalid URL' at each site's existing place, and the three uncovered limbs have cells. Delivered at 46a9cab, with a two-file lint cleanup in 6c42032; handed to code review as one tree. M3 is dropped by the owner (D30)."
-Handoff-At: "6c42032 — repos=website. M4 content is 46a9cab plus the two-file cleanup in 6c42032; the chain tip also holds M5 (23a621e), which is a separate handoff"
+Handoff-At: "476c633 — repos=website"
 ---
 
 # Implementation 015 — M4 (send page and webhook menu)
@@ -24,6 +24,7 @@ Handoff-At: "6c42032 — repos=website. M4 content is 46a9cab plus the two-file 
 | 2026-11-08T07:00 | steering-hooks-015 → implementer-hooks-015 (message) | Work an unheld milestone while M3 is held | M4 taken. M4-a to M4-c at `9fe3fb9`; M4-d's strict id, failure text and ordering at `9fe3fb9`/`b25f561`; the widened shared link rule (D26) at `588d11a`. |
 | 2026-11-08T07:15 | steering-hooks-015 → implementer-hooks-015 (messages: rulings `3d7af67`, plan revs 17–19) | M4-d over both F-27 sites; D27 rider; CR-11, CR-13 | `useValidateWebhook` brought to the same class, one shared parser, named capture groups; `getFromUrl` bound to the authorized guild. Tip `1e12837`. |
 | 2026-11-08T07:43 | steering-hooks-015 → implementer-hooks-015 (messages: D29 released on plan rev 21 `3d193f9`, rulings `7e95151`; QA Phase 2 QAF-25 `c4e82b3`) | D29 change; QAF-25 cells | `useValidateWebhook`'s webhook catch shows 'Invalid URL' (the dialog's shared error line); the send page already showed it in the URL field. Cells at both sites mount the real surface; the provider's Discord refusal texts, the refused-input display and the router's `guild_id: null` member are tightened into the existing cells. Commit `46a9cab`; lint cleanup `6c42032`. |
+| 2026-11-08T09:06 | steering-hooks-015 → implementer-hooks-015 (message "Resume chain 015"; owed cells from code review Round 13 `3960833` and QA `4d091e4`) | M4-d non-JSON member, one cell per site | Delivery 4: two cells in `1968281`. No production change. |
 
 ## Implementation Summary
 
@@ -196,3 +197,14 @@ Raw outputs: `agent-output/verification/015/m4-testresults-paths-1e12837.txt`, `
 ## Next Steps
 
 Code review of M4's reopen: `1e12837..46a9cab` plus the two-file cleanup in `6c42032` (D29 at both sites; QAF-25's cells), as one tree with Round 7's M4 content. Then QA Phase 2 for M4 (the re-run QA named), with `verification/015/m4-d29-sweep.sh` and `qa-m4-sweep.sh` as the mutant instruments.
+
+## Delivery 4 — M4-d's non-JSON member (plan rev 24, L-C5-1)
+
+The plan's rev 24 wording: a webhook-URL load that gets a response whose body is not JSON shows exactly "Invalid URL" at both sites, beside the no-response member. Both sites already did (the dialog's `useValidateWebhook` catch; the send page's `.catch(() => null)`), so this delivery adds the missing cells and no production code.
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|---|---|---|---|---|---|
+| dialog's webhook load, non-JSON body | `NewMessageModal.failed-webhook-load.test.tsx` (existing file, one cell added) | **No** | Yes | A control on behaviour the code already had (`m4d-non-json-green-run.txt`: 3 of 3 pass at `1968281` and at the base of the cell). Closed by a mutant that only the new cell can tell: `nj-hook-body-failure-is-refusal` (a body failure is shown as a Discord refusal) fails exactly that cell (1 of 3 red); the network-failure cell stays green under it | Yes |
+| send page's webhook load, non-JSON body | `WebhookMenu.failed-webhook-load.test.tsx` (existing file, one table row added) | **No** | Yes | Same: control. `nj-provider-body-failure-selects-webhook` (a body failure selects a webhook) fails exactly that row (1 of 3 red) | Yes |
+
+Each cell asserts the literal "Invalid URL" at that site's stated place (the dialog's shared error line, once; the send page's field error), as the existing cells beside it do. Sweep: `m4-nonjson-sweep.sh 1968281` → `m4-nonjson-sweep-summary-1968281.txt` (2 controls green; 2 mutants killed). Class: the plan names two sites; `git grep -n 'res.json()' 1968281 -- src` was not widened beyond them (the message-load paths are M4-d's other limbs and were swept in delivery 3). Gate: one run covers this SHA (see the M7 document's Test Execution Results).

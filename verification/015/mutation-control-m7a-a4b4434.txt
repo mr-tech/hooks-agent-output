@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-a4b4434-control-m7a  sha: a4b4434  label: control-m7a  test: common.admin-permissions  mutator: none
+ .../results.json => dev/null}                      |  1 -
+ 8 files changed, 14 insertions(+), 84 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-a4b4434-control-m7a
+
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  08:45:35
+   Duration  194ms (transform 43ms, setup 0ms, import 74ms, tests 3ms, environment 0ms)
+
+vitest exit 0

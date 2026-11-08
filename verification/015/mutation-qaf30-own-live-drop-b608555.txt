@@ -1,0 +1,38 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-b608555-qaf30-own-live-drop  sha: b608555  label: qaf30-own-live-drop  test: DiscordMessageEditor.component-limit  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6l-count-error-computed-once
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-b608555-qaf30-own-live-drop
+
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (22 tests | 1 failed) 284ms
+     × drops the line and the border once the total is back to 40 14ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit, the error line > drops the line and the border once the total is back to 40
+AssertionError: expected 'Message has 41 components; the limit …' to be undefined
+
+- Expected:
+undefined
+
++ Received:
+"Message has 41 components; the limit is 40."
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:152:29
+    150|     await act(async () => { handle.setCount(40); });
+    151|
+    152|     expect(errorLine(host)).toBeUndefined();
+       |                             ^
+    153|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+    154|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 21 passed (22)
+   Start at  08:39:45
+   Duration  1.74s (transform 201ms, setup 21ms, import 739ms, tests 284ms, environment 575ms)
+
+vitest exit 1

@@ -1,0 +1,138 @@
+# enumerations at website a1456c9 (CR-22, CR-24, M5-h/M5-i, M7, M8 classes)
+== CR-22: rules that match across lines in rules.tsx (match definitions)
+a1456c9:src/utils/markdown/rules.tsx:57:  //   match: SimpleMarkdown.anyScopeRegex(/^<(https?:\/\/[^ >]+)>/), // default
+a1456c9:src/utils/markdown/rules.tsx:64:      return SimpleMarkdown.anyScopeRegex(/^( *>>> +(?:[\s\S]*))|^(?: *> +[^\n]*(?:\n *> +[^\n]*)*\n?)/)(source, state, prev);
+a1456c9:src/utils/markdown/rules.tsx:89:      return SimpleMarkdown.inlineRegex(new RegExp(`^${FENCE}`, 'i'))(source, state, prev);
+a1456c9:src/utils/markdown/rules.tsx:131:    match: SimpleMarkdown.inlineRegex(/^<(a?):(\w+):(\d+)>/),
+a1456c9:src/utils/markdown/rules.tsx:168:    match: SimpleMarkdown.inlineRegex(/^<(#([0-9]+))>/),
+a1456c9:src/utils/markdown/rules.tsx:177:    match: SimpleMarkdown.inlineRegex(/^(@everyone|@here)/),
+a1456c9:src/utils/markdown/rules.tsx:186:    match: SimpleMarkdown.inlineRegex(/^<(@&([0-9]+))>/),
+a1456c9:src/utils/markdown/rules.tsx:195:    match: SimpleMarkdown.inlineRegex(/^<t:([0-9]+)(?::([tTdDfFR]))?>/),
+a1456c9:src/utils/markdown/rules.tsx:215:    match: SimpleMarkdown.inlineRegex(/^<(@!?([0-9]+))>/),
+a1456c9:src/utils/markdown/rules.tsx:226:  //   match: SimpleMarkdown.anyScopeRegex(new RegExp(
+a1456c9:src/utils/markdown/rules.tsx:282:    match: SimpleMarkdown.anyScopeRegex(/^\\([^0-9A-Za-z\s])/), // default
+a1456c9:src/utils/markdown/rules.tsx:289:      return SimpleMarkdown.anyScopeRegex(/^ *(#{1,3}) +([^\n]+?)#* *(?:\n|$)(?:\n|$(?=\s))*/)(source, state, prev);
+a1456c9:src/utils/markdown/rules.tsx:295:    // match: SimpleMarkdown.anyScopeRegex(/^(`+)([\s\S]*?[^`])\1(?!`)/),
+a1456c9:src/utils/markdown/rules.tsx:309:    match: SimpleMarkdown.inlineRegex(new RegExp(`^\\[(${LINK_INSIDE})\\]\\(${LINK_HREF_AND_TITLE}\\)`)),
+a1456c9:src/utils/markdown/rules.tsx:411:    match: SimpleMarkdown.blockRegex(/^(?:\n *)*\n/),
+a1456c9:src/utils/markdown/rules.tsx:412:    // match: SimpleMarkdown.blockRegex(/^\n *\n/),
+a1456c9:src/utils/markdown/rules.tsx:419:    match: SimpleMarkdown.blockRegex(new RegExp(`^((?:${FENCE}|[^\\n]|\\n(?! *\\n))+)(?:\\n *)+\\n`, 'i')),
+a1456c9:src/utils/markdown/rules.tsx:428:    match: SimpleMarkdown.inlineRegex(/^~~([\s\S]+?)~~(?!_)/), // default
+a1456c9:src/utils/markdown/rules.tsx:436:    match: SimpleMarkdown.inlineRegex(/^\|\|(.*?)\|\|/m),
+a1456c9:src/utils/markdown/rules.tsx:446:  //   match: SimpleMarkdown.anyScopeRegex(/^\*\*((?:\\[\s\S]|[^\\])+?)\*\*(?!\*)/), // default
+a1456c9:src/utils/markdown/rules.tsx:452:      const match = SimpleMarkdown.anyScopeRegex(/^[\s\S]+?(?=[^0-9A-Za-z\s\u00c0-\uffff]|\n\n| {2,}\n|\w+:\S|$)/)(source, state,
+a1456c9:src/utils/markdown/rules.tsx:468:  //   match: SimpleMarkdown.anyScopeRegex(/^__((?:\\[\s\S]|[^\\])+?)__(?!_)/), // default
+a1456c9:src/utils/markdown/rules.tsx:473:  //   match: SimpleMarkdown.anyScopeRegex(/^(https?:\/\/[^\s<]+[^<.,:;"')\]\s])/), // default
+a1456c9:src/utils/markdown/rules.tsx:493:      const res = SimpleMarkdown.anyScopeRegex(/^```([A-Za-z0-9-]*$)?/)(source, state, prev);
+a1456c9:src/utils/markdown/rules.tsx:504:    match: SimpleMarkdown.inlineRegex(new RegExp(`^\\[(${LINK_INSIDE})\\]\\(${LINK_HREF_AND_TITLE}\\)`)),
+== CR-24: every useMount call site and import (production)
+a1456c9:src/app/_components/CookieConsent.tsx:10:import { useMounted } from '~/utils/hooks';
+a1456c9:src/app/_components/CookieConsent.tsx:21:  const mounted = useMounted();
+a1456c9:src/app/message/_layout/Header.tsx:30:import { useMounted } from '~/utils/hooks';
+a1456c9:src/app/message/_layout/Header.tsx:67:  const mounted = useMounted();
+a1456c9:src/app/message/f/[id]/page.tsx:48:  useClientPreferences, useMounted, useParsePathname, useToggleState,
+a1456c9:src/app/message/f/[id]/page.tsx:201:  const mounted = useMounted();
+a1456c9:src/app/message/m/[id]/_layout/Navigation.tsx:40:import { useMounted, useToggleState } from '~/utils/hooks';
+a1456c9:src/app/message/m/[id]/_layout/Navigation.tsx:230:  const isMounted = useMounted();
+a1456c9:src/app/message/page.tsx:33:import { useClientPreferences, useMounted, useToggleState } from '~/utils/hooks';
+a1456c9:src/app/message/page.tsx:87:  const mounted = useMounted();
+a1456c9:src/components/AnchoredPopover/Child.tsx:20:import { useMounted } from '~/utils/hooks';
+a1456c9:src/components/AnchoredPopover/Child.tsx:76:  const isMounted = useMounted();
+a1456c9:src/components/Button.tsx:11:import { useMount } from 'react-use';
+a1456c9:src/components/Button.tsx:58:  useMount(() => { if (autoFocus) localRef.current?.focus(); });
+a1456c9:src/components/DiscordContentEditor/Desktop.tsx:20:  useMounted, usePassedProp, useStandardBlurKeys, useToggleState,
+a1456c9:src/components/DiscordContentEditor/Desktop.tsx:29:  const mounted = useMounted();
+a1456c9:src/components/DiscordContentEditor/Desktop.tsx:37:  // useMount(() => {
+a1456c9:src/components/DiscordContentEditor/Mobile.tsx:22:import { useMounted, useToggleState } from '~/utils/hooks';
+a1456c9:src/components/DiscordContentEditor/Mobile.tsx:36:  const mounted = useMounted();
+a1456c9:src/components/DiscordContentEditor/index.tsx:16:import { useMounted } from '~/utils/hooks';
+a1456c9:src/components/DiscordContentEditor/index.tsx:47:  const mounted = useMounted();
+a1456c9:src/components/DiscordMessageEditor/components/EmbedEditor/EmbedField.tsx:17:import { useMounted, useToggleState } from '~/utils/hooks';
+a1456c9:src/components/DiscordMessageEditor/components/EmbedEditor/EmbedField.tsx:36:  const mounted = useMounted();
+a1456c9:src/components/DiscordMessageEditor/components/EmbedEditor/EmbedTitle.tsx:17:  useMounted, useStandardBlurKeys, useToggleState,
+a1456c9:src/components/DiscordMessageEditor/components/EmbedEditor/EmbedTitle.tsx:38:  const mounted = useMounted();
+a1456c9:src/components/DiscordMessageEditor/index.tsx:11:import { useMount } from 'react-use';
+a1456c9:src/components/DiscordMessageEditor/index.tsx:47:import { useMounted, useStateSetter } from '~/utils/hooks';
+a1456c9:src/components/DiscordMessageEditor/index.tsx:81:  const mounted = useMounted();
+a1456c9:src/components/DiscordMessageEditor/index.tsx:85:  useMount(() => onMount?.());
+a1456c9:src/components/Drawer/index.tsx:21:import { useMounted } from '~/utils/hooks';
+a1456c9:src/components/Drawer/index.tsx:182:  const mounted = useMounted();
+a1456c9:src/components/EmojiPicker/Picker/index.tsx:19:import { useMounted } from '~/utils/hooks';
+a1456c9:src/components/EmojiPicker/Picker/index.tsx:69:  const mounted = useMounted();
+a1456c9:src/components/SlateEditor/index.tsx:32:import { useMounted } from '~/utils/hooks';
+a1456c9:src/components/SlateEditor/index.tsx:88:  const mounted = useMounted();
+a1456c9:src/components/SlateEditor/index.tsx:123:          decorate={useCallback(decorator(editor, useMounted(), isEmbed, contentParser), [])}
+a1456c9:src/components/ToastContainerWrapper.tsx:7:import { useMounted, useTheme } from '~/utils/hooks';
+a1456c9:src/components/ToastContainerWrapper.tsx:17:  const mounted = useMounted();
+a1456c9:src/components/TransitionHeightElement.tsx:7:import { useMounted } from '~/utils/hooks';
+a1456c9:src/components/TransitionHeightElement.tsx:24:  const isMounted = useMounted();
+a1456c9:src/providers/GuildProvider.tsx:14:import { useMounted, useParsePathname, useToggleState } from '~/utils/hooks';
+a1456c9:src/providers/GuildProvider.tsx:69:  const mounted = useMounted();
+a1456c9:src/providers/IsMobileProvider.tsx:11:import { useMounted } from '~/utils/hooks';
+a1456c9:src/providers/IsMobileProvider.tsx:31:  const mounted = useMounted();
+a1456c9:src/utils/hooks/index.ts:8:import { useMount } from 'react-use';
+a1456c9:src/utils/hooks/index.ts:17:export const useMounted = (delay?: number) => {
+a1456c9:src/utils/hooks/index.ts:19:  useMount(() => {
+a1456c9:src/utils/hooks/index.ts:30:  const mounted = useMounted();
+a1456c9:src/utils/hooks/useInfiniteAnimation.ts:5:import { useMounted } from '.';
+a1456c9:src/utils/hooks/useInfiniteAnimation.ts:9:  const mounted = useMounted();
+== CR-24: lint rule over the whole of src (count of messages from the new rule)
+0
+== M5-h class: JSON.parse of a user-supplied query/body, production
+a1456c9:bot/utils/DiscordEmbed.ts:107:  embed = JSON.parse(JSON.stringify(embed));
+a1456c9:src/app/message/_components/NewMessageJsonInput.tsx:25:    JSON.parse(str);
+a1456c9:src/app/message/_components/NewMessageJsonInput.tsx:93:      const parsed = JSON.parse(jsonMessageString) as { components?: unknown };
+a1456c9:src/app/message/_components/NewMessageJsonInput.tsx:194:          onPress={() => updateDoc(JSON.stringify(JSON.parse(jsonMessageString), null,
+a1456c9:src/app/message/m/[id]/_components/JsonModalBody.tsx:30:    JSON.parse(str);
+a1456c9:src/app/message/m/[id]/_components/JsonModalBody.tsx:39:    return JSON.stringify(discordMessageImportShape.parse(JSON.parse(str)), null, 2);
+a1456c9:src/app/message/m/[id]/_components/JsonModalBody.tsx:139:      const rawParsed = JSON.parse(messageString) as { components?: unknown };
+a1456c9:src/app/message/m/[id]/_components/JsonModalBody.tsx:225:            onPress={() => updateDoc(JSON.stringify(JSON.parse(messageString), null, 
+a1456c9:src/app/preview/page.tsx:14:    const parsed: unknown = JSON.parse(query);
+a1456c9:src/components/DiscordMessageEditor/index.tsx:99:      const newEmbed = JSON.parse(JSON.stringify(newEmbeds[idx])) as EditableEmbed;
+a1456c9:src/components/SlateEditor/utils/onCopy.ts:27:      const parsed = JSON.parse(decoded) as Descendant[];
+a1456c9:src/pages/api/interactions-edge.ts:52:  const interaction = JSON.parse(rawBody) as IncomingInteraction;
+a1456c9:src/utils/copyIntroMessage.ts:97:  const introMessage = JSON.parse(JSON.stringify(INTRO_MESSAGE)) as ActiveMessage;
+a1456c9:src/utils/formatMutationError.ts:28:    parsed = JSON.parse(error.message);
+a1456c9:src/utils/index.ts:542:  const casted = JSON.parse(JSON.stringify(message)) as ActiveMessage;
+a1456c9:src/utils/index.ts:602:    JSON.parse(JSON.stringify(c)) as Record<string, unknown>,
+a1456c9:src/utils/index.ts:642:  const casted = JSON.parse(JSON.stringify(message));
+a1456c9:src/utils/redis/index.ts:49:    const { key, item } = JSON.parse(message) as CacheUpdateMessage;
+a1456c9:src/utils/redis/index.ts:79:      const item = JSON.parse(cachedItem) as Compressed;
+a1456c9:src/utils/redis/messageStore.ts:49:  return decompress(JSON.parse(cached) as Compressed) as StoredMessage;
+a1456c9:src/utils/sendWebhook.ts:38:  const message = JSON.parse(JSON.stringify(_message)) as MessageData;
+a1456c9:src/utils/withLocalStorage.ts:6:      if (item?.startsWith('{') || item?.startsWith('[')) return JSON.parse(item) as LocalStorage[K];
+== M8-b class (generator): JSON.parse in the request path
+6c613a5:src/server.ts:24:      parsedBody = JSON.parse(body) as typeof parsedBody;
+== M8-c class: pages opened without a try/finally close
+6c613a5:src/generateImage.ts:20:  const page = await browser.newPage();
+6c613a5:src/generateImage.ts:35:    await page.close().catch((err) => { console.error(err); });
+== M7-c class: command-type tests
+a1456c9:bot/scripts/app_commands/common.ts:14:  return commandType === 'slash';
+a1456c9:bot/scripts/app_commands/common.ts:20:  return commandType === 'user';
+== M7-b class: statement-position comparisons (=== at line start)
+a1456c9:src/env.mjs:11:    process.env.NODE_ENV === 'production'
+a1456c9:src/env.mjs:125:          process.env.NODE_ENV === 'production'
+a1456c9:src/pages/api/trpc/[trpc].ts:12:    env.NODE_ENV === 'development'
+a1456c9:src/utils/redis/index.ts:375:          webhook.type === 1
+== M8-d class: catch blocks that return a value in place of an error, generator src @6c613a5
+(exit 1)
+== M8-e class: environment values read in src without a presence check @6c613a5
+6c613a5:src/config.ts:1:if (!process.env.API_KEY) {
+6c613a5:src/config.ts:7:  ENV: process.env.ENV,
+6c613a5:src/config.ts:8:  SERVER_PORT: process.env.SERVER_PORT,
+6c613a5:src/config.ts:9:  SERVER_HOST: process.env.SERVER_HOST,
+6c613a5:src/config.ts:10:  CDN_ENDPOINT: process.env.CDN_ENDPOINT,
+6c613a5:src/config.ts:11:  CDN_KEY: process.env.CDN_KEY,
+6c613a5:src/config.ts:12:  CDN_SECRET: process.env.CDN_SECRET,
+6c613a5:src/config.ts:13:  CDN_BUCKET: process.env.CDN_BUCKET,
+6c613a5:src/config.ts:14:  PREVIEW_ENDPOINT: process.env.PREVIEW_ENDPOINT,
+6c613a5:src/config.ts:15:  API_KEY: `Bearer ${process.env.API_KEY}`,
+== M8-c class: promises started before an await that can throw (const x = ...; await ...) in generateImage @6c613a5
+6c613a5:src/generateImage.ts:20:  const page = await browser.newPage();
+6c613a5:src/generateImage.ts:23:    await page.setViewport({ width: 720, height: 840, deviceScaleFactor: 1 / 3.75 });
+6c613a5:src/generateImage.ts:28:    await page.goto(url.toString(), { waitUntil: 'networkidle0' });
+6c613a5:src/generateImage.ts:30:    return await page.screenshot({
+6c613a5:src/generateImage.ts:35:    await page.close().catch((err) => { console.error(err); });
+6c613a5:src/generateImage.ts:41:  const { Contents } = await s3Client.send(new ListObjectsCommand({
+6c613a5:src/generateImage.ts:46:    await s3Client.send(new DeleteObjectsCommand({
+6c613a5:src/generateImage.ts:61:  const [image] = await Promise.all([

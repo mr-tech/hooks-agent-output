@@ -1,0 +1,8 @@
+control-m5i	 Tests 8 passed (8)	0	vitest exit 0
+m5i-pick-ignored	 Tests 2 failed | 6 passed (8)	0	vitest exit 1
+m5i-seeded-at-mount	 Tests 7 failed | 1 passed (8)	0	vitest exit 1
+m5i-count-only	 Tests 2 failed | 6 passed (8)	0	vitest exit 1
+m5i-status-dropped	 Tests 1 failed | 7 passed (8)	0	vitest exit 1
+m5i-guild-dropped	 Tests 1 failed | 7 passed (8)	0	vitest exit 1
+m5i-webhooks-dropped	 Tests 3 failed | 5 passed (8)	0	vitest exit 1
+done

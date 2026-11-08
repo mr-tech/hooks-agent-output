@@ -1,0 +1,6 @@
+CANDIDATE wall-clock src/app/preview/__tests__/page.invalid-data.test.tsx:32 — setTimeout outside a gated directory — a time-based cell is not in the standing suite: "await act(async () => { await new Promise((resolve) => { setTimeout(resolve, 25); }); });"
+SKIP .eslintrc.json: not examined — extension .json is outside the examined set
+SKIP src/utils/parseServerCookies.ts: not examined — missing file
+SKIP tsconfig.test.json: not examined — extension .json is outside the examined set
+SKIP id-token, basename: no agent-output/TEST-CONVENTIONS.md above this repository — conventions not in force here
+convention-check: 111 file(s) examined, 3 not examined, 64 test file(s); 0 FAIL, 1 CANDIDATE, 4 SKIP

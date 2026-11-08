@@ -1,0 +1,93 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-09c7c45-m5h-primitive-passes  sha: 09c7c45  label: m5h-primitive-passes  test: page.invalid-data  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py
+mutated m5h-primitive-passes
+ .../results.json => dev/null}                      |   1 -
+ 3 files changed, 1 insertion(+), 156 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-09c7c45-m5h-primitive-passes
+
+stderr | src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for a JSON number
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+
+stderr | src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for a JSON string
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+
+stderr | src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for a JSON boolean
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+
+ ❯ |dom| src/app/preview/__tests__/page.invalid-data.test.tsx (53 tests | 4 failed) 28380ms
+     × renders the editor with the message for a JSON object 640ms
+     × shows one line of error text and no editor for a JSON number 600ms
+     × shows one line of error text and no editor for a JSON string 567ms
+     × shows one line of error text and no editor for a JSON boolean 543ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > renders the editor with the message for a JSON object
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:51:29
+     49|     const el = await mountWith('{"content":"hello"}');
+     50|
+     51|     expect(editorShown(el)).toBe(true);
+       |                             ^
+     52|     expect(el.textContent).toContain('hello');
+     53|     expect(el.textContent).not.toContain('Invalid message data.');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for a JSON number
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for a JSON string
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for a JSON boolean
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ expectOneErrorLine src/app/preview/__tests__/page.invalid-data.test.tsx:39:27
+     37|
+     38| function expectOneErrorLine(el: HTMLElement) {
+     39|   expect(editorShown(el)).toBe(false);
+       |                           ^
+     40|   const shown = Array.from(el.querySelectorAll('*'))
+     41|     .filter((e) => e.children.length === 0 && e.textContent === 'Inval…
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:70:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 49 passed (53)
+   Start at  08:24:31
+   Duration  30.47s (transform 1.28s, setup 20ms, import 1.35s, tests 28.38s, environment 597ms)
+
+vitest exit 1

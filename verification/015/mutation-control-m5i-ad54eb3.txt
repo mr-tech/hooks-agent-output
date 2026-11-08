@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-ad54eb3-control-m5i  sha: ad54eb3  label: control-m5i  test: WebhookMenu.open-category  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-ad54eb3-control-m5i
+
+
+ Test Files  1 passed (1)
+      Tests  8 passed (8)
+   Start at  08:29:04
+   Duration  2.17s (transform 329ms, setup 40ms, import 1.06s, tests 291ms, environment 641ms)
+
+vitest exit 0

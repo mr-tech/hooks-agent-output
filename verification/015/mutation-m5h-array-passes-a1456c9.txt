@@ -1,0 +1,39 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-a1456c9-m5h-array-passes  sha: a1456c9  label: m5h-array-passes  test: page.invalid-data  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py
+mutated m5h-array-passes
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-a1456c9-m5h-array-passes
+
+ ❯ |dom| src/app/preview/__tests__/page.invalid-data.test.tsx (55 tests | 1 failed) 1023ms
+     × shows one line of error text and no editor for a JSON array 57ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for a JSON array
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ expectOneErrorLine src/app/preview/__tests__/page.invalid-data.test.tsx:44:27
+     42|
+     43| function expectOneErrorLine(el: HTMLElement) {
+     44|   expect(editorShown(el)).toBe(false);
+       |                           ^
+     45|   const shown = Array.from(el.querySelectorAll('*'))
+     46|     .filter((e) => e.children.length === 0 && e.textContent === 'Inval…
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:75:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 54 passed (55)
+   Start at  08:55:40
+   Duration  3.14s (transform 815ms, setup 22ms, import 1.38s, tests 1.02s, environment 587ms)
+
+vitest exit 1

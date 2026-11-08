@@ -1,0 +1,52 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/components/__tests__/BottomPortal.unmount-cleanup.test.tsx (2 tests | 1 failed) 44ms
+     × removes the entry when its owner unmounts while it is open 12ms
+ ❯ |dom| src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/ColorPicker.scroll-lock-release.test.tsx (2 tests | 1 failed) 169ms
+     × releases the lock when the picker is removed while open 37ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/BottomPortal.unmount-cleanup.test.tsx > bottom portal, an entry whose owner unmounts > removes the entry when its owner unmounts while it is open
+AssertionError: expected 'Pick oneportal body' not to contain 'portal body'
+
+Expected: "portal body"
+Received: "Pick oneportal body"
+
+ ❯ src/components/__tests__/BottomPortal.unmount-cleanup.test.tsx:53:42
+     51|     act(() => { handle.hide(); });
+     52|
+     53|     expect(appContainer.textContent).not.toContain('portal body');
+       |                                          ^
+     54|   });
+     55| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/ColorPicker.scroll-lock-release.test.tsx > colour picker, page scrolling while it is open > releases the lock when the picker is removed while open
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/ColorPicker.scroll-lock-release.test.tsx:50:28
+     48|     act(() => { handle.hide(); });
+     49|
+     50|     expect(scrollLocked()).toBe(false);
+       |                            ^
+     51|   });
+     52| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  2 failed | 2 passed (4)
+   Start at  08:30:54
+   Duration  1.62s (transform 366ms, setup 43ms, import 1.36s, tests 213ms, environment 1.22s)
+
+exit 1

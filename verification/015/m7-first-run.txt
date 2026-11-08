@@ -1,0 +1,119 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| bot/utils/__tests__/DiscordEmbed.set-timestamp.test.ts (3 tests | 2 failed) 10ms
+     × puts the given timestamp in the payload 6ms
+     × puts the current time in the payload when none is given 2ms
+ ❯ |node| bot/scripts/app_commands/__tests__/common.localized-strings.test.ts (3 tests | 1 failed) 10ms
+     × reads a user command's name from every language 6ms
+ ❯ |node| bot/scripts/app_commands/__tests__/common.admin-permissions.test.ts (2 tests | 2 failed) 9ms
+     × requires the Manage Server permission alone 5ms
+     × publishes the message command with that permission 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| bot/utils/__tests__/DiscordEmbed.set-timestamp.test.ts > DiscordEmbed.setTimestamp > puts the given timestamp in the payload
+AssertionError: expected undefined to be '2024-05-06T07:08:09.000Z' // Object.is equality
+
+- Expected:
+"2024-05-06T07:08:09.000Z"
+
++ Received:
+undefined
+
+ ❯ bot/utils/__tests__/DiscordEmbed.set-timestamp.test.ts:11:45
+      9|     const embed = new DiscordEmbed('body').setTimestamp('2024-05-06T07…
+     10|
+     11|     expect(embed.createPayload().timestamp).toBe('2024-05-06T07:08:09.…
+       |                                             ^
+     12|   });
+     13|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |node| bot/utils/__tests__/DiscordEmbed.set-timestamp.test.ts > DiscordEmbed.setTimestamp > puts the current time in the payload when none is given
+AssertionError: expected undefined to be '2025-01-02T03:04:05.000Z' // Object.is equality
+
+- Expected:
+"2025-01-02T03:04:05.000Z"
+
++ Received:
+undefined
+
+ ❯ bot/utils/__tests__/DiscordEmbed.set-timestamp.test.ts:20:45
+     18|     const embed = new DiscordEmbed('body').setTimestamp();
+     19|
+     20|     expect(embed.createPayload().timestamp).toBe('2025-01-02T03:04:05.…
+       |                                             ^
+     21|   });
+     22|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |node| bot/scripts/app_commands/__tests__/common.admin-permissions.test.ts > published command permissions > requires the Manage Server permission alone
+AssertionError: expected '0' to be '32' // Object.is equality
+
+Expected: "32"
+Received: "0"
+
+ ❯ bot/scripts/app_commands/__tests__/common.admin-permissions.test.ts:9:25
+      7| describe('published command permissions', () => {
+      8|   it('requires the Manage Server permission alone', () => {
+      9|     expect(ADMIN_PERMS).toBe('32');
+       |                         ^
+     10|   });
+     11|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  |node| bot/scripts/app_commands/__tests__/common.admin-permissions.test.ts > published command permissions > publishes the message command with that permission
+AssertionError: expected [ '0' ] to deeply equal [ '32' ]
+
+- Expected
++ Received
+
+  [
+-   "32",
++   "0",
+  ]
+
+ ❯ bot/scripts/app_commands/__tests__/common.admin-permissions.test.ts:13:70
+     11|
+     12|   it('publishes the message command with that permission', () => {
+     13|     expect(messageCommands.map((c) => c.default_member_permissions)).t…
+       |                                                                      ^
+     14|   });
+     15| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  |node| bot/scripts/app_commands/__tests__/common.localized-strings.test.ts > getLocalizedStrings > reads a user command's name from every language
+AssertionError: expected { 'en-US': undefined, de: undefined } to deeply equal { 'en-US': 'user name', …(1) }
+
+- Expected
++ Received
+
+  {
+-   "de": "Nutzer-Name",
+-   "en-US": "user name",
++   "de": undefined,
++   "en-US": undefined,
+  }
+
+ ❯ bot/scripts/app_commands/__tests__/common.localized-strings.test.ts:33:69
+     31|
+     32|   it('reads a user command\'s name from every language', () => {
+     33|     expect(getLocalizedStrings('user', 'u' as UserCommand, 'name')).to…
+       |                                                                     ^
+     34|       'en-US': 'user name',
+     35|       de: 'Nutzer-Name',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  3 failed (3)
+      Tests  5 failed | 3 passed (8)
+   Start at  08:35:47
+   Duration  242ms (transform 152ms, setup 0ms, import 244ms, tests 29ms, environment 0ms)
+
+exit 1

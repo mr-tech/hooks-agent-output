@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/cr-m6-fence-export-1968281
+
+
+ Test Files  1 passed (1)
+      Tests  7 passed (7)
+   Start at  08:35:10
+   Duration  1.28s (transform 435ms, setup 0ms, import 1.13s, tests 34ms, environment 0ms)
+

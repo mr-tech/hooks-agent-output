@@ -36,6 +36,10 @@ for p in "control-m6a $A" "control-m6b $B" "control-m6c $Cc" "control-m6d $D" "c
   run "${p%% *}" "${p#* }"
 done
 run m6a-content-single-line "$A" m6a-content-single-line
+run m6a-paragraph-splits-fence "$A" m6a-paragraph-splits-fence
+run control-cr24-portal BottomPortal.unmount-cleanup; run control-cr24-picker ColorPicker.scroll-lock-release
+run m6e-bottomportal-cleanup-dropped BottomPortal.unmount-cleanup m6e-bottomportal-cleanup-dropped
+run m6e-colorpicker-cleanup-dropped ColorPicker.scroll-lock-release m6e-colorpicker-cleanup-dropped
 for m in m6b-substring-match m6b-case-sensitive m6b-query-kept m6b-fragment-kept m6b-jpeg-dropped m6b-webp-dropped m6b-avif-added; do run "$m" "$B" "$m"; done
 for m in m6c-no-fields-counts-valid m6c-name-or-value; do run "$m" "$Cc" "$m"; done
 for m in m6d-set-field-first-slot m6d-delete-first-slot m6d-move-left-shifted m6d-move-right-shifted m6d-index-after-filter; do run "$m" "$D" "$m"; done

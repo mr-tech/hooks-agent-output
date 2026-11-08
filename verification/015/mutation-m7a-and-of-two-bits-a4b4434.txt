@@ -1,0 +1,57 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-a4b4434-m7a-and-of-two-bits  sha: a4b4434  label: m7a-and-of-two-bits  test: common.admin-permissions  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m7-table.py
+mutated m7a-and-of-two-bits
+ .../results.json => dev/null}                      |  1 -
+ 8 files changed, 14 insertions(+), 84 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-a4b4434-m7a-and-of-two-bits
+
+ ❯ |node| bot/scripts/app_commands/__tests__/common.admin-permissions.test.ts (2 tests | 2 failed) 10ms
+     × requires the Manage Server permission alone 6ms
+     × publishes the message command with that permission 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| bot/scripts/app_commands/__tests__/common.admin-permissions.test.ts > published command permissions > requires the Manage Server permission alone
+AssertionError: expected '0' to be '32' // Object.is equality
+
+Expected: "32"
+Received: "0"
+
+ ❯ bot/scripts/app_commands/__tests__/common.admin-permissions.test.ts:8:25
+      6| describe('published command permissions', () => {
+      7|   it('requires the Manage Server permission alone', () => {
+      8|     expect(ADMIN_PERMS).toBe('32');
+       |                         ^
+      9|   });
+     10|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| bot/scripts/app_commands/__tests__/common.admin-permissions.test.ts > published command permissions > publishes the message command with that permission
+AssertionError: expected [ '0' ] to deeply equal [ '32' ]
+
+- Expected
++ Received
+
+  [
+-   "32",
++   "0",
+  ]
+
+ ❯ bot/scripts/app_commands/__tests__/common.admin-permissions.test.ts:12:117
+     10|
+     11|   it('publishes the message command with that permission', () => {
+     12|     expect((messageCommands as { default_member_permissions?: string }…
+       |                                                                                                                     ^
+     13|   });
+     14| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed (2)
+   Start at  08:45:42
+   Duration  214ms (transform 44ms, setup 0ms, import 78ms, tests 10ms, environment 0ms)
+
+vitest exit 1

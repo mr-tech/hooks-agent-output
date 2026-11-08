@@ -1,0 +1,84 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-ad54eb3-m5i-webhooks-dropped  sha: ad54eb3  label: m5i-webhooks-dropped  test: WebhookMenu.open-category  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py
+mutated m5i-webhooks-dropped
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-ad54eb3-m5i-webhooks-dropped
+
+ ❯ |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx (8 tests | 3 failed) 967ms
+     × opens the guild's webhooks when the list arrives after the menu mounted 200ms
+     × goes back to the custom webhook tab when the guild has no webhooks 102ms
+     × keeps the pick when webhooks arrive after it 54ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx > send page webhook menu, the open category before the user picks one > opens the guild's webhooks when the list arrives after the menu mounted
+AssertionError: expected [] to deeply equal [ 'Custom Webhook' ]
+
+- Expected
++ Received
+
+- [
+-   "Custom Webhook",
+- ]
++ []
+
+ ❯ src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx:95:28
+     93|   it('opens the guild\'s webhooks when the list arrives after the menu…
+     94|     const el = mountWith({ guild: ALPHA, guildId: 'g1' });
+     95|     expect(openTitles(el)).toEqual([CUSTOM]);
+       |                            ^
+     96|
+     97|     setWorld({ webhooks: [hook('w1', 'g1')] });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx > send page webhook menu, the open category before the user picks one > goes back to the custom webhook tab when the guild has no webhooks
+AssertionError: expected [] to deeply equal [ 'Custom Webhook' ]
+
+- Expected
++ Received
+
+- [
+-   "Custom Webhook",
+- ]
++ []
+
+ ❯ src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx:129:28
+    127|     setWorld(change);
+    128|
+    129|     expect(openTitles(el)).toEqual([CUSTOM]);
+       |                            ^
+    130|   });
+    131| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx > send page webhook menu, after the user picks a category > keeps the pick when webhooks arrive after it
+AssertionError: expected [] to deeply equal [ 'Custom Webhook' ]
+
+- Expected
++ Received
+
+- [
+-   "Custom Webhook",
+- ]
++ []
+
+ ❯ src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx:153:28
+    151|     const el = mountWith({ guild: ALPHA, guildId: 'g1', webhooks: [hoo…
+    152|     setWorld({ webhooks: [] });
+    153|     expect(openTitles(el)).toEqual([CUSTOM]);
+       |                            ^
+    154|     setWorld({ webhooks: [hook('w1', 'g1')] });
+    155|     expect(openTitles(el)).toEqual(['Alpha']);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 5 passed (8)
+   Start at  08:29:32
+   Duration  4.69s (transform 727ms, setup 37ms, import 2.06s, tests 967ms, environment 1.29s)
+
+vitest exit 1

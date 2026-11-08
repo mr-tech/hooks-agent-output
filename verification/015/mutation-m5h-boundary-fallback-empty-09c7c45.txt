@@ -1,0 +1,59 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-09c7c45-m5h-boundary-fallback-empty  sha: 09c7c45  label: m5h-boundary-fallback-empty  test: page.invalid-data  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py
+mutated m5h-boundary-fallback-empty
+ .../results.json => dev/null}                      |   1 -
+ 5 files changed, 3 insertions(+), 315 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-09c7c45-m5h-boundary-fallback-empty
+
+ ❯ |dom| src/app/preview/__tests__/page.invalid-data.test.tsx (53 tests | 11 failed) 28170ms
+     × shows one line of error text and no editor when embeds null 535ms
+     × shows one line of error text and no editor when embeds an empty string 521ms
+     × shows one line of error text and no editor when fields an empty string 518ms
+     × shows one line of error text and no editor when content a number 519ms
+     × shows one line of error text and no editor when components false 522ms
+     × shows one line of error text and no editor when components zero 520ms
+     × shows one line of error text and no editor when components an empty string 516ms
+     × shows one line of error text and no editor when an action row whose components is a string 555ms
+     × shows one line of error text and no editor when a section accessory that is null 553ms
+     × shows one line of error text and no editor when a gallery whose items is a string 556ms
+     × shows one line of error text and no editor when a container whose components is a number 546ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 11 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when embeds null
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when embeds an empty string
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when fields an empty string
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when content a number
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when components false
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when components zero
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when components an empty string
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when an action row whose components is a string
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when a section accessory that is null
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when a gallery whose items is a string
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when a container whose components is a number
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ expectOneErrorLine src/app/preview/__tests__/page.invalid-data.test.tsx:42:17
+     40|   const shown = Array.from(el.querySelectorAll('*'))
+     41|     .filter((e) => e.children.length === 0 && e.textContent === 'Inval…
+     42|   expect(shown).toHaveLength(1);
+       |                 ^
+     43|   expect(shown[0]?.classList.contains('text-error')).toBe(true);
+     44|   expect(el.textContent).toBe('Invalid message data.');
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:109:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/11]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  11 failed | 42 passed (53)
+   Start at  08:25:23
+   Duration  30.27s (transform 920ms, setup 19ms, import 1.37s, tests 28.17s, environment 587ms)
+
+vitest exit 1

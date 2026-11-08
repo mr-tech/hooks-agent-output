@@ -1,0 +1,40 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-ad54eb3-m5i-guild-dropped  sha: ad54eb3  label: m5i-guild-dropped  test: WebhookMenu.open-category  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py
+mutated m5i-guild-dropped
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-ad54eb3-m5i-guild-dropped
+
+ ❯ |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx (8 tests | 1 failed) 617ms
+     × goes back to the custom webhook tab when no guild is selected 67ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx > send page webhook menu, the open category before the user picks one > goes back to the custom webhook tab when no guild is selected
+AssertionError: expected [] to deeply equal [ 'Custom Webhook' ]
+
+- Expected
++ Received
+
+- [
+-   "Custom Webhook",
+- ]
++ []
+
+ ❯ src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx:129:28
+    127|     setWorld(change);
+    128|
+    129|     expect(openTitles(el)).toEqual([CUSTOM]);
+       |                            ^
+    130|   });
+    131| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 7 passed (8)
+   Start at  08:29:25
+   Duration  3.98s (transform 806ms, setup 42ms, import 2.31s, tests 617ms, environment 867ms)
+
+vitest exit 1

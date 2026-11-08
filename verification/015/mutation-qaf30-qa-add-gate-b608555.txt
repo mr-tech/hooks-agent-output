@@ -1,0 +1,41 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-b608555-qaf30-qa-add-gate  sha: b608555  label: qaf30-qa-add-gate  test: DiscordMessageEditor.component-limit  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m6-supplement.py
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-b608555-qaf30-qa-add-gate
+
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (22 tests | 3 failed) 303ms
+     × offers adds only below the limit: 41 flat components 18ms
+     × offers adds only below the limit: 42 flat components 11ms
+     × offers adds only below the limit: a container holding 40 text displays (41 in all) 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > offers adds only below the limit: 41 flat components
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > offers adds only below the limit: 42 flat components
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > offers adds only below the limit: a container holding 40 text displays (41 in all)
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:93:32
+     91|     const host = await mountV2(components);
+     92|
+     93|     expect(hasAddButton(host)).toBe(offered);
+       |                                ^
+     94|     expect((stubs.components.get('c0') as ComponentStub).canDuplicate)…
+     95|     expect((stubs.components.get('c0') as ComponentStub).canAddChild).…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 19 passed (22)
+   Start at  08:39:26
+   Duration  1.79s (transform 198ms, setup 23ms, import 751ms, tests 303ms, environment 595ms)
+
+vitest exit 1

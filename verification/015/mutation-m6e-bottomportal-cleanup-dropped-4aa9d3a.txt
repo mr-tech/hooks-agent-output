@@ -1,0 +1,35 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-4aa9d3a-m6e-bottomportal-cleanup-dropped  sha: 4aa9d3a  label: m6e-bottomportal-cleanup-dropped  test: BottomPortal.unmount-cleanup  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6e-bottomportal-cleanup-dropped
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-4aa9d3a-m6e-bottomportal-cleanup-dropped
+
+ ❯ |dom| src/components/__tests__/BottomPortal.unmount-cleanup.test.tsx (2 tests | 1 failed) 45ms
+     × removes the entry when its owner unmounts while it is open 14ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/BottomPortal.unmount-cleanup.test.tsx > bottom portal, an entry whose owner unmounts > removes the entry when its owner unmounts while it is open
+AssertionError: expected 'Pick oneportal body' not to contain 'portal body'
+
+Expected: "portal body"
+Received: "Pick oneportal body"
+
+ ❯ src/components/__tests__/BottomPortal.unmount-cleanup.test.tsx:53:42
+     51|     act(() => { handle.hide(); });
+     52|
+     53|     expect(appContainer.textContent).not.toContain('portal body');
+       |                                          ^
+     54|   });
+     55| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  08:34:10
+   Duration  1.44s (transform 164ms, setup 20ms, import 643ms, tests 45ms, environment 611ms)
+
+vitest exit 1

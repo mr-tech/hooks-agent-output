@@ -1,0 +1,66 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-a4b4434-m7c-user-test-for-message  sha: a4b4434  label: m7c-user-test-for-message  test: common.localized-strings  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m7-table.py
+mutated m7c-user-test-for-message
+ .../results.json => dev/null}                      |  1 -
+ 8 files changed, 14 insertions(+), 84 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-a4b4434-m7c-user-test-for-message
+
+ ❯ |node| bot/scripts/app_commands/__tests__/common.localized-strings.test.ts (3 tests | 2 failed) 10ms
+     × reads a user command's name from every language 6ms
+     × reads a message command's name from every language 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| bot/scripts/app_commands/__tests__/common.localized-strings.test.ts > getLocalizedStrings > reads a user command's name from every language
+AssertionError: expected { 'en-US': undefined, de: undefined } to deeply equal { 'en-US': 'user name', …(1) }
+
+- Expected
++ Received
+
+  {
+-   "de": "Nutzer-Name",
+-   "en-US": "user name",
++   "de": undefined,
++   "en-US": undefined,
+  }
+
+ ❯ bot/scripts/app_commands/__tests__/common.localized-strings.test.ts:35:69
+     33|
+     34|   it('reads a user command\'s name from every language', () => {
+     35|     expect(getLocalizedStrings('user', 'u' as UserCommand, 'name')).to…
+       |                                                                     ^
+     36|       'en-US': 'user name',
+     37|       de: 'Nutzer-Name',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| bot/scripts/app_commands/__tests__/common.localized-strings.test.ts > getLocalizedStrings > reads a message command's name from every language
+AssertionError: expected { 'en-US': undefined, de: undefined } to deeply equal { 'en-US': 'message name', …(1) }
+
+- Expected
++ Received
+
+  {
+-   "de": "Nachrichten-Name",
+-   "en-US": "message name",
++   "de": undefined,
++   "en-US": undefined,
+  }
+
+ ❯ bot/scripts/app_commands/__tests__/common.localized-strings.test.ts:42:75
+     40|
+     41|   it('reads a message command\'s name from every language', () => {
+     42|     expect(getLocalizedStrings('message', 'm' as MessageCommand, 'name…
+       |                                                                           ^
+     43|       'en-US': 'message name',
+     44|       de: 'Nachrichten-Name',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 1 passed (3)
+   Start at  08:45:55
+   Duration  200ms (transform 29ms, setup 0ms, import 62ms, tests 10ms, environment 0ms)
+
+vitest exit 1

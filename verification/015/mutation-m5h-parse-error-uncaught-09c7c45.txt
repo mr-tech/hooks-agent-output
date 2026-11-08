@@ -1,0 +1,492 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-09c7c45-m5h-parse-error-uncaught  sha: 09c7c45  label: m5h-parse-error-uncaught  test: page.invalid-data  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py
+mutated m5h-parse-error-uncaught
+ .../results.json => dev/null}                      |   1 -
+ 4 files changed, 4 insertions(+), 160 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-09c7c45-m5h-parse-error-uncaught
+
+ ❯ |dom| src/app/preview/__tests__/page.invalid-data.test.tsx (53 tests | 25 failed) 15382ms
+     × shows one line of error text and no editor for text that is not JSON 7ms
+     × shows one line of error text and no editor for the JSON null 3ms
+     × shows one line of error text and no editor when embeds a number 2ms
+     × shows one line of error text and no editor when embeds false 1ms
+     × shows one line of error text and no editor when embeds true 1ms
+     × shows one line of error text and no editor when embeds a string 1ms
+     × shows one line of error text and no editor when embeds an object 1ms
+     × shows one line of error text and no editor when an embed that is null 1ms
+     × shows one line of error text and no editor when an embed that is a number 1ms
+     × shows one line of error text and no editor when an embed that is a string 1ms
+     × shows one line of error text and no editor when fields a number 1ms
+     × shows one line of error text and no editor when fields a string 1ms
+     × shows one line of error text and no editor when fields an object 1ms
+     × shows one line of error text and no editor when a field that is null 1ms
+     × shows one line of error text and no editor when a field that is a number 1ms
+     × shows one line of error text and no editor when components a number 1ms
+     × shows one line of error text and no editor when components a string 1ms
+     × shows one line of error text and no editor when components an object 1ms
+     × shows one line of error text and no editor when an action row child that is null 1ms
+     × shows one line of error text and no editor when an action row child that is a number 1ms
+     × shows one line of error text and no editor when a section child that is null 1ms
+     × shows one line of error text and no editor when a section child that is a number 1ms
+     × shows one line of error text and no editor when a gallery item that is null 1ms
+     × shows one line of error text and no editor when a gallery item that is a number 1ms
+     × shows one line of error text and no editor when an action row nested in a container with a null child 1ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 25 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for text that is not JSON
+SyntaxError: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+ ❯ parseMessageData src/app/preview/page.tsx:14:34
+     12| function parseMessageData(query: string) {
+     13|   try {
+     14|     const parsed: unknown = JSON.parse(query);
+       |                                  ^
+     15|     if (typeof parsed !== 'object' || Array.isArray(parsed)) return nu…
+     16|     return makeEditable({ data: parsed } as ApiMessage).data;
+ ❯ Page src/app/preview/page.tsx:30:16
+ ❯ Object.react_stack_bottom_frame ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ beginWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18
+ ❯ runWithFiberInDEV ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+ ❯ workLoopSync ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/25]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for the JSON null
+TypeError: Cannot read properties of null (reading 'embeds')
+ ❯ makeEditable src/utils/index.ts:543:35
+    541| ): ActiveMessage {
+    542|   const casted = JSON.parse(JSON.stringify(message)) as ActiveMessage;
+    543|   for (const embed of casted.data.embeds ?? []) {
+       |                                   ^
+    544|     if (!embed._key) embed._key = genUuid();
+    545|     for (const field of embed.fields ?? []) {
+ ❯ parseMessageData src/app/preview/page.tsx:16:12
+ ❯ Page src/app/preview/page.tsx:30:16
+ ❯ Object.react_stack_bottom_frame ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ beginWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18
+ ❯ runWithFiberInDEV ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+ ❯ workLoopSync ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/25]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when embeds a number
+TypeError: number 5 is not iterable (cannot read property Symbol(Symbol.iterator))
+ ❯ makeEditable src/utils/index.ts:543:35
+    541| ): ActiveMessage {
+    542|   const casted = JSON.parse(JSON.stringify(message)) as ActiveMessage;
+    543|   for (const embed of casted.data.embeds ?? []) {
+       |                                   ^
+    544|     if (!embed._key) embed._key = genUuid();
+    545|     for (const field of embed.fields ?? []) {
+ ❯ parseMessageData src/app/preview/page.tsx:16:12
+ ❯ Page src/app/preview/page.tsx:30:16
+ ❯ Object.react_stack_bottom_frame ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ beginWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18
+ ❯ runWithFiberInDEV ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+ ❯ workLoopSync ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/25]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when embeds false
+TypeError: boolean false is not iterable (cannot read property Symbol(Symbol.iterator))
+ ❯ makeEditable src/utils/index.ts:543:35
+    541| ): ActiveMessage {
+    542|   const casted = JSON.parse(JSON.stringify(message)) as ActiveMessage;
+    543|   for (const embed of casted.data.embeds ?? []) {
+       |                                   ^
+    544|     if (!embed._key) embed._key = genUuid();
+    545|     for (const field of embed.fields ?? []) {
+ ❯ parseMessageData src/app/preview/page.tsx:16:12
+ ❯ Page src/app/preview/page.tsx:30:16
+ ❯ Object.react_stack_bottom_frame ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ beginWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18
+ ❯ runWithFiberInDEV ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+ ❯ workLoopSync ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/25]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when embeds true
+TypeError: boolean true is not iterable (cannot read property Symbol(Symbol.iterator))
+ ❯ makeEditable src/utils/index.ts:543:35
+    541| ): ActiveMessage {
+    542|   const casted = JSON.parse(JSON.stringify(message)) as ActiveMessage;
+    543|   for (const embed of casted.data.embeds ?? []) {
+       |                                   ^
+    544|     if (!embed._key) embed._key = genUuid();
+    545|     for (const field of embed.fields ?? []) {
+ ❯ parseMessageData src/app/preview/page.tsx:16:12
+ ❯ Page src/app/preview/page.tsx:30:16
+ ❯ Object.react_stack_bottom_frame ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ beginWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18
+ ❯ runWithFiberInDEV ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+ ❯ workLoopSync ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/25]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when embeds a string
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when an embed that is a string
+TypeError: Cannot create property '_key' on string 'x'
+ ❯ makeEditable src/utils/index.ts:544:28
+    542|   const casted = JSON.parse(JSON.stringify(message)) as ActiveMessage;
+    543|   for (const embed of casted.data.embeds ?? []) {
+    544|     if (!embed._key) embed._key = genUuid();
+       |                            ^
+    545|     for (const field of embed.fields ?? []) {
+    546|       if (!field._key) field._key = genUuid();
+ ❯ parseMessageData src/app/preview/page.tsx:16:12
+ ❯ Page src/app/preview/page.tsx:30:16
+ ❯ Object.react_stack_bottom_frame ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ beginWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18
+ ❯ runWithFiberInDEV ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+ ❯ workLoopSync ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/25]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when embeds an object
+TypeError: object is not iterable (cannot read property Symbol(Symbol.iterator))
+ ❯ makeEditable src/utils/index.ts:543:35
+    541| ): ActiveMessage {
+    542|   const casted = JSON.parse(JSON.stringify(message)) as ActiveMessage;
+    543|   for (const embed of casted.data.embeds ?? []) {
+       |                                   ^
+    544|     if (!embed._key) embed._key = genUuid();
+    545|     for (const field of embed.fields ?? []) {
+ ❯ parseMessageData src/app/preview/page.tsx:16:12
+ ❯ Page src/app/preview/page.tsx:30:16
+ ❯ Object.react_stack_bottom_frame ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ beginWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18
+ ❯ runWithFiberInDEV ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+ ❯ workLoopSync ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/25]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when an embed that is null
+TypeError: Cannot read properties of null (reading '_key')
+ ❯ makeEditable src/utils/index.ts:544:16
+    542|   const casted = JSON.parse(JSON.stringify(message)) as ActiveMessage;
+    543|   for (const embed of casted.data.embeds ?? []) {
+    544|     if (!embed._key) embed._key = genUuid();
+       |                ^
+    545|     for (const field of embed.fields ?? []) {
+    546|       if (!field._key) field._key = genUuid();
+ ❯ parseMessageData src/app/preview/page.tsx:16:12
+ ❯ Page src/app/preview/page.tsx:30:16
+ ❯ Object.react_stack_bottom_frame ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ beginWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18
+ ❯ runWithFiberInDEV ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+ ❯ workLoopSync ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/25]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when an embed that is a number
+TypeError: Cannot create property '_key' on number '5'
+ ❯ makeEditable src/utils/index.ts:544:28
+    542|   const casted = JSON.parse(JSON.stringify(message)) as ActiveMessage;
+    543|   for (const embed of casted.data.embeds ?? []) {
+    544|     if (!embed._key) embed._key = genUuid();
+       |                            ^
+    545|     for (const field of embed.fields ?? []) {
+    546|       if (!field._key) field._key = genUuid();
+ ❯ parseMessageData src/app/preview/page.tsx:16:12
+ ❯ Page src/app/preview/page.tsx:30:16
+ ❯ Object.react_stack_bottom_frame ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ beginWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18
+ ❯ runWithFiberInDEV ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+ ❯ workLoopSync ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/25]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when fields a number
+TypeError: number 5 is not iterable (cannot read property Symbol(Symbol.iterator))
+ ❯ makeEditable src/utils/index.ts:545:31
+    543|   for (const embed of casted.data.embeds ?? []) {
+    544|     if (!embed._key) embed._key = genUuid();
+    545|     for (const field of embed.fields ?? []) {
+       |                               ^
+    546|       if (!field._key) field._key = genUuid();
+    547|     }
+ ❯ parseMessageData src/app/preview/page.tsx:16:12
+ ❯ Page src/app/preview/page.tsx:30:16
+ ❯ Object.react_stack_bottom_frame ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ beginWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18
+ ❯ runWithFiberInDEV ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+ ❯ workLoopSync ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/25]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when fields a string
+TypeError: Cannot create property '_key' on string 'x'
+ ❯ makeEditable src/utils/index.ts:546:30
+    544|     if (!embed._key) embed._key = genUuid();
+    545|     for (const field of embed.fields ?? []) {
+    546|       if (!field._key) field._key = genUuid();
+       |                              ^
+    547|     }
+    548|   }
+ ❯ parseMessageData src/app/preview/page.tsx:16:12
+ ❯ Page src/app/preview/page.tsx:30:16
+ ❯ Object.react_stack_bottom_frame ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ beginWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18
+ ❯ runWithFiberInDEV ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+ ❯ workLoopSync ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/25]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when fields an object
+TypeError: object is not iterable (cannot read property Symbol(Symbol.iterator))
+ ❯ makeEditable src/utils/index.ts:545:31
+    543|   for (const embed of casted.data.embeds ?? []) {
+    544|     if (!embed._key) embed._key = genUuid();
+    545|     for (const field of embed.fields ?? []) {
+       |                               ^
+    546|       if (!field._key) field._key = genUuid();
+    547|     }
+ ❯ parseMessageData src/app/preview/page.tsx:16:12
+ ❯ Page src/app/preview/page.tsx:30:16
+ ❯ Object.react_stack_bottom_frame ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ beginWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18
+ ❯ runWithFiberInDEV ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+ ❯ workLoopSync ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/25]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when a field that is null
+TypeError: Cannot read properties of null (reading '_key')
+ ❯ makeEditable src/utils/index.ts:546:18
+    544|     if (!embed._key) embed._key = genUuid();
+    545|     for (const field of embed.fields ?? []) {
+    546|       if (!field._key) field._key = genUuid();
+       |                  ^
+    547|     }
+    548|   }
+ ❯ parseMessageData src/app/preview/page.tsx:16:12
+ ❯ Page src/app/preview/page.tsx:30:16
+ ❯ Object.react_stack_bottom_frame ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ beginWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18
+ ❯ runWithFiberInDEV ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+ ❯ workLoopSync ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/25]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when a field that is a number
+TypeError: Cannot create property '_key' on number '5'
+ ❯ makeEditable src/utils/index.ts:546:30
+    544|     if (!embed._key) embed._key = genUuid();
+    545|     for (const field of embed.fields ?? []) {
+    546|       if (!field._key) field._key = genUuid();
+       |                              ^
+    547|     }
+    548|   }
+ ❯ parseMessageData src/app/preview/page.tsx:16:12
+ ❯ Page src/app/preview/page.tsx:30:16
+ ❯ Object.react_stack_bottom_frame ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ beginWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18
+ ❯ runWithFiberInDEV ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+ ❯ workLoopSync ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/25]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when components a number
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when components a string
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when components an object
+TypeError: casted.data.components.map is not a function
+ ❯ makeEditable src/utils/index.ts:550:53
+    548|   }
+    549|   if (casted.data.components) {
+    550|     casted.data.components = casted.data.components.map(injectComponen…
+       |                                                     ^
+    551|   }
+    552|
+ ❯ parseMessageData src/app/preview/page.tsx:16:12
+ ❯ Page src/app/preview/page.tsx:30:16
+ ❯ Object.react_stack_bottom_frame ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ beginWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18
+ ❯ runWithFiberInDEV ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+ ❯ workLoopSync ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/25]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when an action row child that is null
+TypeError: Cannot read properties of null (reading '_key')
+ ❯ src/utils/index.ts:563:18
+    561|   if (c.type === 1 && Array.isArray(c.components)) {
+    562|     c.components = (c.components as Record<string, unknown>[]).map((ch…
+    563|       if (!child._key) child._key = genUuid();
+       |                  ^
+    564|       return child;
+    565|     });
+ ❯ injectComponentKeys src/utils/index.ts:562:64
+ ❯ makeEditable src/utils/index.ts:550:53
+ ❯ parseMessageData src/app/preview/page.tsx:16:12
+ ❯ Page src/app/preview/page.tsx:30:16
+ ❯ Object.react_stack_bottom_frame ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/25]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when an action row child that is a number
+TypeError: Cannot create property '_key' on number '5'
+ ❯ src/utils/index.ts:563:30
+    561|   if (c.type === 1 && Array.isArray(c.components)) {
+    562|     c.components = (c.components as Record<string, unknown>[]).map((ch…
+    563|       if (!child._key) child._key = genUuid();
+       |                              ^
+    564|       return child;
+    565|     });
+ ❯ injectComponentKeys src/utils/index.ts:562:64
+ ❯ makeEditable src/utils/index.ts:550:53
+ ❯ parseMessageData src/app/preview/page.tsx:16:12
+ ❯ Page src/app/preview/page.tsx:30:16
+ ❯ Object.react_stack_bottom_frame ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/25]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when a section child that is null
+TypeError: Cannot read properties of null (reading '_key')
+ ❯ src/utils/index.ts:572:20
+    570|     if (Array.isArray(c.components)) {
+    571|       c.components = (c.components as Record<string, unknown>[]).map((…
+    572|         if (!child._key) child._key = genUuid();
+       |                    ^
+    573|         return child;
+    574|       });
+ ❯ injectComponentKeys src/utils/index.ts:571:66
+ ❯ makeEditable src/utils/index.ts:550:53
+ ❯ parseMessageData src/app/preview/page.tsx:16:12
+ ❯ Page src/app/preview/page.tsx:30:16
+ ❯ Object.react_stack_bottom_frame ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/25]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when a section child that is a number
+TypeError: Cannot create property '_key' on number '5'
+ ❯ src/utils/index.ts:572:32
+    570|     if (Array.isArray(c.components)) {
+    571|       c.components = (c.components as Record<string, unknown>[]).map((…
+    572|         if (!child._key) child._key = genUuid();
+       |                                ^
+    573|         return child;
+    574|       });
+ ❯ injectComponentKeys src/utils/index.ts:571:66
+ ❯ makeEditable src/utils/index.ts:550:53
+ ❯ parseMessageData src/app/preview/page.tsx:16:12
+ ❯ Page src/app/preview/page.tsx:30:16
+ ❯ Object.react_stack_bottom_frame ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/25]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when a gallery item that is null
+TypeError: Cannot read properties of null (reading '_key')
+ ❯ src/utils/index.ts:586:17
+    584|   if (c.type === 12 && Array.isArray(c.items)) {
+    585|     c.items = (c.items as Record<string, unknown>[]).map((item) => {
+    586|       if (!item._key) item._key = genUuid();
+       |                 ^
+    587|       return item;
+    588|     });
+ ❯ injectComponentKeys src/utils/index.ts:585:54
+ ❯ makeEditable src/utils/index.ts:550:53
+ ❯ parseMessageData src/app/preview/page.tsx:16:12
+ ❯ Page src/app/preview/page.tsx:30:16
+ ❯ Object.react_stack_bottom_frame ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/25]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when a gallery item that is a number
+TypeError: Cannot create property '_key' on number '5'
+ ❯ src/utils/index.ts:586:28
+    584|   if (c.type === 12 && Array.isArray(c.items)) {
+    585|     c.items = (c.items as Record<string, unknown>[]).map((item) => {
+    586|       if (!item._key) item._key = genUuid();
+       |                            ^
+    587|       return item;
+    588|     });
+ ❯ injectComponentKeys src/utils/index.ts:585:54
+ ❯ makeEditable src/utils/index.ts:550:53
+ ❯ parseMessageData src/app/preview/page.tsx:16:12
+ ❯ Page src/app/preview/page.tsx:30:16
+ ❯ Object.react_stack_bottom_frame ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/25]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when an action row nested in a container with a null child
+TypeError: Cannot read properties of null (reading '_key')
+ ❯ src/utils/index.ts:563:18
+    561|   if (c.type === 1 && Array.isArray(c.components)) {
+    562|     c.components = (c.components as Record<string, unknown>[]).map((ch…
+    563|       if (!child._key) child._key = genUuid();
+       |                  ^
+    564|       return child;
+    565|     });
+ ❯ injectComponentKeys src/utils/index.ts:562:64
+ ❯ injectComponentKeys src/utils/index.ts:593:64
+ ❯ makeEditable src/utils/index.ts:550:53
+ ❯ parseMessageData src/app/preview/page.tsx:16:12
+ ❯ Page src/app/preview/page.tsx:30:16
+ ❯ Object.react_stack_bottom_frame ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/25]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  25 failed | 28 passed (53)
+   Start at  08:25:04
+   Duration  17.39s (transform 742ms, setup 19ms, import 1.27s, tests 15.38s, environment 596ms)
+
+vitest exit 1

@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-1968281-control-menu  sha: 1968281  label: control-menu  test: WebhookMenu.failed-webhook-load  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-1968281-control-menu
+
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  08:35:09
+   Duration  1.95s (transform 313ms, setup 20ms, import 1.05s, tests 122ms, environment 633ms)
+
+vitest exit 0

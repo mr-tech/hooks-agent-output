@@ -23,7 +23,15 @@ SPLICE = 'next.splice(idx + 1, 0, clone);'
 GRAND = "        if ('components' in child && Array.isArray(child.components)) {\n          count += child.components.length;\n        }\n"
 ADD = "[...components, factory() as EditableTopLevelComponent],"
 
+PORTAL = 'src/components/BottomPortal.tsx'
+CPICK = C + 'EmbedEditor/ColorPicker/index.tsx'
 MUTANTS = {
+    'm6l-count-error-computed-once': (INDEX, "const componentCountError = validateComponentCount(components);", "const componentCountError = useMemo(() => validateComponentCount(components), []);", 1),
+    'm6l-count-error-only-when-editing': (INDEX, "<NullableComponent show={componentCountError}>", "<NullableComponent show={isEditing && componentCountError}>", 1),
+    'm6d-displayed-fields-or': (FIELDS, ".filter(({ field: { name, value } }) => showEdit || (name && value))", ".filter(({ field: { name, value } }) => showEdit || (name || value))", 1),
+    'm6a-paragraph-splits-fence': (RULES, "((?:${FENCE}|[^\\\\n]|", "((?:[^\\\\n]|", 1),
+    'm6e-bottomportal-cleanup-dropped': (PORTAL, "  useEffect(() => () => {\n    setChildrenProps((prev) => (\n", "  useEffect(() => () => {\n    if (id) return;\n    setChildrenProps((prev) => (\n", 1),
+    'm6e-colorpicker-cleanup-dropped': (CPICK, "useEffect(() => () => removeBlockStyle(), []);", "useEffect(() => () => {}, []);", 1),
     'm6a-content-single-line': (RULES, "([^\\n][^]*?)\\n*```/i)(source", "([^\\n]+?)\\n*```/i)(source", 1),
     'm6b-substring-match': (IMG, "path.endsWith(ext)", "path.includes(ext)", 1),
     'm6b-case-sensitive': (IMG, ".toLowerCase()", "", 1),

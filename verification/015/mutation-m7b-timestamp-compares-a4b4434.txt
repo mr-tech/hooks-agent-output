@@ -1,0 +1,58 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-a4b4434-m7b-timestamp-compares  sha: a4b4434  label: m7b-timestamp-compares  test: DiscordEmbed.set-timestamp  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m7-table.py
+mutated m7b-timestamp-compares
+ .../results.json => dev/null}                      |  1 -
+ 8 files changed, 14 insertions(+), 84 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-a4b4434-m7b-timestamp-compares
+
+ ❯ |node| bot/utils/__tests__/DiscordEmbed.set-timestamp.test.ts (3 tests | 2 failed) 9ms
+     × puts the given timestamp in the payload 5ms
+     × puts the current time in the payload when none is given 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| bot/utils/__tests__/DiscordEmbed.set-timestamp.test.ts > DiscordEmbed.setTimestamp > puts the given timestamp in the payload
+AssertionError: expected undefined to be '2024-05-06T07:08:09.000Z' // Object.is equality
+
+- Expected:
+"2024-05-06T07:08:09.000Z"
+
++ Received:
+undefined
+
+ ❯ bot/utils/__tests__/DiscordEmbed.set-timestamp.test.ts:13:45
+     11|     const embed = new DiscordEmbed('body').setTimestamp('2024-05-06T07…
+     12|
+     13|     expect(embed.createPayload().timestamp).toBe('2024-05-06T07:08:09.…
+       |                                             ^
+     14|   });
+     15|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| bot/utils/__tests__/DiscordEmbed.set-timestamp.test.ts > DiscordEmbed.setTimestamp > puts the current time in the payload when none is given
+AssertionError: expected undefined to be '2025-01-02T03:04:05.000Z' // Object.is equality
+
+- Expected:
+"2025-01-02T03:04:05.000Z"
+
++ Received:
+undefined
+
+ ❯ bot/utils/__tests__/DiscordEmbed.set-timestamp.test.ts:22:45
+     20|     const embed = new DiscordEmbed('body').setTimestamp();
+     21|
+     22|     expect(embed.createPayload().timestamp).toBe('2025-01-02T03:04:05.…
+       |                                             ^
+     23|   });
+     24|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 1 passed (3)
+   Start at  08:45:48
+   Duration  192ms (transform 36ms, setup 0ms, import 50ms, tests 9ms, environment 0ms)
+
+vitest exit 1

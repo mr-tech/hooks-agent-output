@@ -1,0 +1,38 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-1968281-dialog-nj-hook-body-failure-is-refusal  sha: 1968281  label: dialog-nj-hook-body-failure-is-refusal  test: NewMessageModal.failed-webhook-load  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-nonjson-table.py
+mutated nj-hook-body-failure-is-refusal
+ .../src/utils/hooks/useValidateWebhook.ts                               | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-1968281-dialog-nj-hook-body-failure-is-refusal
+
+ ❯ |dom| src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx (3 tests | 1 failed) 563ms
+     × shows "Invalid URL" once, on the shared error line, when the response body is not JSON 138ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx > NewMessageModal, a failed webhook load > shows "Invalid URL" once, on the shared error line, when the response body is not JSON
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx:68:19
+     66|
+     67|     const shown = leavesWithText('Invalid URL');
+     68|     expect(shown).toHaveLength(1);
+       |                   ^
+     69|     expect(shown[0]?.parentElement?.querySelectorAll('input').length).…
+     70|     expect(shown[0]?.classList.contains('text-error')).toBe(true);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  08:35:12
+   Duration  2.34s (transform 335ms, setup 22ms, import 1.02s, tests 563ms, environment 612ms)
+
+vitest exit 1

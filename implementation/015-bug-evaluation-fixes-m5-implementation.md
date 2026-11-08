@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "M5 (editor pages and providers, F-19 to F-26) delivered at da24eb7 on the chain branch. Awaiting code review, then QA Phase 2. The two flow decisions (M5-h's error line, M5-f's reset) were answered by the owner by selection."
-Handoff-At: "da24eb7 — repos=website"
+Status-Detail: "M5-a to M5-g delivered at da24eb7 (code review approved; QA passed). Delivery 2, handed at 476c633: M5-h reopened as the crash-set property (rev 24) and M5-i (WebhookMenu's first-visit category, D28). One drift reported to the planner: the `fields: null` member of the crash set no longer crashes at the tip."
+Handoff-At: "476c633 — repos=website"
 ---
 
 # Implementation 015 — M5 (editor pages and providers)
@@ -22,6 +22,7 @@ Handoff-At: "da24eb7 — repos=website"
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-08T07:47 | steering-hooks-015 → implementer-hooks-015 (messages: "Released: M5 onward"; owner's answers, rulings block "M5 flow questions", `a49da66`) | Implement M5 | M5-a to M5-h delivered in `23a621e`; one unreachable guard removed in `da24eb7` after a mutant showed it. Gate run on `da24eb7`. |
+| 2026-11-08T09:06 | steering-hooks-015 → implementer-hooks-015 (message "Resume chain 015"; rulings a4d800d) | M5-h on plan rev 24; M5-i | Delivery 2: M5-h in `09c7c45`, M5-i in `ad54eb3`; the preview cells' waits settled in `a1456c9` and `476c633`. Delivery 1 below is unchanged. |
 
 ## Implementation Summary
 
@@ -165,6 +166,60 @@ Raw outputs: `verification/015/m5-testresults-da24eb7.json`, `m5-testresults-pat
 ## Next Steps
 
 Code review of `23a621e` and `da24eb7` (M5, one tree), then QA Phase 2 for M5. Separately, M4's reopen is with code review (`46a9cab` plus `6c42032`).
+
+## Delivery 2 — M5-h reopened (rev 24) and M5-i
+
+Plan: rev 25 (`dd9e88a`) as read; M5-h and M5-i are as at rev 24 (`018f72d`). Stage start: rulings `a4d800d` ("M5-h and M5-i released on rev 24") and steering's message "Resume chain 015". QA Phase 1 re-key `4d091e4` covers both. Delivery 1's M5-h row above (the first guard) is superseded by this one.
+
+### Summary
+
+- **M5-h (F-26, D31, D28 class, CR-18, CR-20, CR-21).** `/preview?data=` shows exactly one line, "Invalid message data.", on the existing dark background and no editor, for every non-empty `data` that is not JSON, is not a JSON object, or is an object the real page crashes on. The mechanism is the implementer's (plan): `makeEditable` runs inside the same `try` as the parse, and the editor sits inside a `react-error-boundary` `ErrorBoundary` whose fallback is the same line. The repo's own `ErrorBoundary` wrapper was not used: its fallback prints the stack, which is the separate error page the owner declined. The 34 members the plan lists as refused and the 11 it lists as rendering are one cell each in `page.invalid-data.test.tsx`, which now mounts the real editor (only `~/env.mjs`, two icons and `next/navigation` are replaced). Each expected outcome is a literal read from the planner's, code review's and the critic's executed reads; a refused cell asserts exactly one line and no editor landmark (`.discord-visualizer`); a rendering cell asserts the landmark and no line. A missing `data` still renders nothing.
+- **M5-i (D28 sibling of F-22/F-24, AF-29).** `WebhookMenu`'s open category is a derived default (`hasWebhooks ? guild.id : 'load'`); the only state is the user's pick (`null` until they pick). The default follows `status`, `guildId`, `webhooks` and `guild` while the menu stays mounted; a pick is kept. The cells read the expanded heading in the DOM (`aria-expanded`), never the state.
+
+### Drift reported to the planner (not decided here)
+
+The plan lists `{"embeds":[{"fields":null}]}` as a crashing member (class (3), read at `da24eb7`). At the tip it renders the editor: M6-c's `hasValidField` rewrite (`!!fields?.some(...)`, `24ac49f`) removed the crash. Measured at `476c633`: `makeEditable` returns, the editor mounts, no error line. I moved that cell from "refused" to "rendering" (the outcome the read at the tip records) rather than refuse data that now renders. The plan's property text names `da24eb7` as the crash reference. **For the planner:** restate that member, or tell me to refuse it (it would be a regression for data that draws today).
+
+### Files
+
+| Path | Changes |
+|---|---|
+| `src/app/preview/page.tsx` | parse and `makeEditable` inside the `try`; `ErrorBoundary` with the same line as fallback (+19 −19) |
+| `src/app/preview/__tests__/page.invalid-data.test.tsx` | tightened: real editor; 34 refused + 11 rendering + class (1)/(2) + control cells; state-based waits (the file the delivery-1 row names) |
+| `src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx` | derived default; `pickedCategory` is the only state (+3 −2) |
+| `.../WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx` | new: 8 cells |
+| `agent-output/verification/015/` | `m5h-crash-set-first-run.txt`, `m5h-crash-set-green-run.txt`, `m5i-first-run.txt`, `m5i-green-run.txt`, `mutators/m5-table.py` and `m5-sweep.sh` extended, `m5-sweep-summary-{09c7c45,ad54eb3,a1456c9}.txt`, `mutation-*` |
+
+### Patterns Extended
+
+| Surface | Pattern extended (rung) |
+|---|---|
+| Existing tests named before adding | M5-h: `page.invalid-data.test.tsx` (tightened, not a sibling). M5-i: `WebhookMenu.failed-webhook-load` and `.url-and-thread-controls` cover other surfaces of the menu, so the category has its own file |
+| Error line | the page's own inline text-error line, now also the boundary's fallback (rung 1); the shared `ErrorBoundary` wrapper was passed over (it prints the stack) |
+| Derived default with only the pick as state | the M5-d and M5-f siblings (follow the input; never overwrite the user's value) (rung 1) |
+| Re-rendering a mocked provider in a cell | `useSyncExternalStore` inside the mock hook (rung 3: no cell in the suite re-renders a mounted component through a mocked provider; the first attempt, a parent that re-rendered, never reached the menu, cause not established) |
+
+User-visible flows (product vocabulary): **M5-h** `/preview` link whose data is wrong: one red line, same as before for non-JSON, now also for data that used to blank or crash the page (rung 1; the owner chose the line, rulings `c1be05e`). **M5-i** first visit to a server's send page: the menu opens on that server's webhooks when it has some (rung 1: M5-d/M5-f's rule). No decision flow was open.
+
+### TDD Compliance
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|---|---|---|---|---|---|
+| crash-set guard (M5-h) | `page.invalid-data.test.tsx` | Yes | Yes | Existing file, tightened. At `24ac49f`: 35 failed, 18 passed (`m5h-crash-set-first-run.txt`): the crashing members threw from `mount` (`TypeError: number 5 is not iterable`, `Cannot read properties of null (reading '_key')`, …) and the gallery member failed on `expected [] to have a length of 1 but got +0` (an emptied root with no line). The 18 passes are the class (1)/(2) cells, the positive control and the rendering controls. Mutants: `m5h-array-passes` 1 red, `m5h-primitive-passes` 3–4 red (so the primitive guard is not equivalent), `m5h-parse-error-uncaught` 25, `m5h-boundary-fallback-empty` 11, `m5h-boundary-removed` 11, `m5h-make-editable-skipped-in-parse` 7–8, `m5h-error-text-changed` (killed by the per-run timeout: every refused cell waits for the line), `m5h-error-not-text-error` 40 | Yes |
+| `WebhookMenu` open category (M5-i) | `WebhookMenu.open-category.test.tsx` | Yes | Yes | New file, first row; assertion level, run in an isolated export of `09c7c45` with the new file and the unchanged menu (`m5i-first-run.txt`): 7 red (`expected [ 'Alpha' ] to deeply equal [ 'Custom Webhook' ]`, `expected [] to deeply equal [ 'Alpha' ]`, …), 1 control green (the pick is kept when the list changes). Mutants (`m5-sweep-summary-ad54eb3.txt`): `m5i-pick-ignored` 2 red, `m5i-seeded-at-mount` 7, `m5i-count-only` 2, `m5i-status-dropped` 1, `m5i-guild-dropped` 1, `m5i-webhooks-dropped` 3 | Yes |
+
+The boundary pairs M5-i's conjuncts turn on: each of `status`, `guildId`, `webhooks.length` alone decides (cells "signed out", "no guild selected", "no webhooks", each from the open-guild state), and the pick/no-pick pair. The first red run of M5-i used a harness whose re-render never reached the menu, so 5 of the reds were harness-induced; it was replaced and the red above was re-run against the unchanged menu.
+
+### Class Sweep
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---|---|---|---|
+| CR-18/CR-20/CR-21 (user-supplied JSON that reaches a render or `makeEditable`) | `git grep -n 'JSON.parse' a1456c9 -- src bot` outside tests | 22 lines in `verification/015/m5hi-m6fix-m7-m8-enumerations-a1456c9.txt` | `preview/page.tsx` fixed. The rest are deep copies of the app's own objects, import dialogs that validate (`JsonModalBody`, `NewMessageJsonInput`, M5-b), server paths (M1-g) or storage reads; none is a `/preview` URL. I read the line context of the first group only; the rest are listed, not individually opened. X-19 is the plan's stated residue for data no read covers |
+| M5-i (a state seeded once from a prop or hook value) | seeds probe `d28-seed-probes/report.md` (6 cells) | 2 seeds | `WebhookMenu` fixed; `NewMessageModal`'s seed is not stale (planner, from Next 16.1.6's segment key: a folder switch mounts a fresh page; `m5-modal-seed-next-keying-read.txt`). My browser read could not reach the page (`d28-folder-switch/README.md`) |
+
+### Test Execution Results and Outstanding
+
+Gate: see Delivery 2's row in the M7 document (one run covers every delivery at `476c633`: 1118 of 1118, 114 files, exit 0, typecheck exit 0). Convention check: 0 FAIL; 2 CANDIDATE, both the `{ timeout: 5000 }` option of `vi.waitFor` in `page.invalid-data.test.tsx`. **Disposition:** the option bounds a state poll (the cell fails only when the page shows neither the editor nor the line); it is not a time-based test and no cell waits on a timer. The earlier `setTimeout` settle loop was removed for the same flag. M5-h's mutants were last swept at `a1456c9`; `476c633` changed only the positive control's wait.
 
 ## Resumption State (checkpoint 2026-11-08T07:47Z, implementer-hooks-015)
 

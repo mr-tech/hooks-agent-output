@@ -1,0 +1,119 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-09c7c45-m5h-make-editable-skipped-in-parse  sha: 09c7c45  label: m5h-make-editable-skipped-in-parse  test: page.invalid-data  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py
+mutated m5h-make-editable-skipped-in-parse
+ .../results.json => dev/null}                      |   1 -
+ 4 files changed, 3 insertions(+), 164 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-09c7c45-m5h-make-editable-skipped-in-parse
+
+stderr | src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when an embed that is a number
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+
+stderr | src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when an embed that is a string
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+
+stderr | src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when a field that is a number
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+
+ ❯ |dom| src/app/preview/__tests__/page.invalid-data.test.tsx (53 tests | 8 failed) 30621ms
+     × renders the editor with the message for a JSON object 637ms
+     × shows one line of error text and no editor when an embed that is a number 707ms
+     × shows one line of error text and no editor when an embed that is a string 575ms
+     × shows one line of error text and no editor when a field that is a number 607ms
+     × still renders the editor and no error line when a component that is null 537ms
+     × still renders the editor and no error line when a component that is a number 529ms
+     × still renders the editor and no error line when a container child that is null 528ms
+     × still renders the editor and no error line when a container child that is a number 524ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > renders the editor with the message for a JSON object
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:51:29
+     49|     const el = await mountWith('{"content":"hello"}');
+     50|
+     51|     expect(editorShown(el)).toBe(true);
+       |                             ^
+     52|     expect(el.textContent).toContain('hello');
+     53|     expect(el.textContent).not.toContain('Invalid message data.');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when an embed that is a number
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when an embed that is a string
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when a field that is a number
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ expectOneErrorLine src/app/preview/__tests__/page.invalid-data.test.tsx:39:27
+     37|
+     38| function expectOneErrorLine(el: HTMLElement) {
+     39|   expect(editorShown(el)).toBe(false);
+       |                           ^
+     40|   const shown = Array.from(el.querySelectorAll('*'))
+     41|     .filter((e) => e.children.length === 0 && e.textContent === 'Inval…
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:109:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > still renders the editor and no error line when a component that is null
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > still renders the editor and no error line when a component that is a number
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > still renders the editor and no error line when a container child that is null
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > still renders the editor and no error line when a container child that is a number
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:127:29
+    125|     const el = await mountWith(data);
+    126|
+    127|     expect(editorShown(el)).toBe(true);
+       |                             ^
+    128|     expect(el.textContent).not.toContain('Invalid message data.');
+    129|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  8 failed | 45 passed (53)
+   Start at  08:26:23
+   Duration  32.95s (transform 1.54s, setup 22ms, import 1.42s, tests 30.62s, environment 721ms)
+
+vitest exit 1

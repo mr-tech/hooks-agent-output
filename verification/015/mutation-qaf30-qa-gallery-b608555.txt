@@ -1,0 +1,34 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-b608555-qaf30-qa-gallery  sha: b608555  label: qaf30-qa-gallery  test: MediaGalleryEditor.duplicate-placement  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m6-supplement.py
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-b608555-qaf30-qa-gallery
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/MediaGalleryEditor.duplicate-placement.test.tsx (1 test | 1 failed) 44ms
+     × puts the copy directly after the original 43ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/MediaGalleryEditor.duplicate-placement.test.tsx > MediaGalleryEditor duplicate item > puts the copy directly after the original
+AssertionError: expected 'e4e7973a-a742-467e-8225-36663a5081f8' to be '8556b806-755b-43f2-810a-8bebd0b9020b' // Object.is equality
+
+Expected: "8556b806-755b-43f2-810a-8bebd0b9020b"
+Received: "e4e7973a-a742-467e-8225-36663a5081f8"
+
+ ❯ src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/MediaGalleryEditor.duplicate-placement.test.tsx:47:26
+     45|       'https://example.com/c.png',
+     46|     ]);
+     47|     expect(next[1]._key).toBe(gallery.items[1]._key);
+       |                          ^
+     48|     expect(next[2]._key).not.toBe(gallery.items[1]._key);
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  08:39:39
+   Duration  1.42s (transform 136ms, setup 21ms, import 639ms, tests 44ms, environment 589ms)
+
+vitest exit 1

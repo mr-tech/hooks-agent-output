@@ -9,6 +9,9 @@ DATE = 'src/utils/formatMessageDate.ts'
 HEADER = 'src/app/message/_layout/Header.tsx'
 FOLDER = 'src/app/message/f/[id]/page.tsx'
 PREVIEW = 'src/app/preview/page.tsx'
+WEBHOOK_MENU = 'src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx'
+DEFAULT_CAT = "(hasWebhooks ? (guild?.id ?? '') : 'load')"
+HAS_WH = "status === 'authenticated' && guildId && webhooks.length"
 
 FOLDER_CALL = "formatMessageDate(orderProp === 'createdAt' ? msg.createdAt : msg.updatedAt, 'Today at ')"
 MUTANTS = {
@@ -31,9 +34,18 @@ MUTANTS = {
     'm5f-save-as-refills-only-at-mount': (SAVE_AS, "  }, [isOpen]);", "  }, []);", 1),
     'm5f-save-as-refills-on-close-too': (SAVE_AS, "    if (!isOpen) return;\n    setMessageName", "    setMessageName", 1),
     'm5g-delete-toast-says-refresh': (FOLDER, "Failed to delete message. Please try again.", "Failed to refresh message. Please try again.", 1),
+    'm5i-pick-ignored': (WEBHOOK_MENU, "pickedCategory ?? " + DEFAULT_CAT, DEFAULT_CAT, 1),
+    'm5i-seeded-at-mount': (WEBHOOK_MENU, "const [pickedCategory, setPickedCategory] = useState<null | string>(null);\n  const selectedCategory = pickedCategory ?? " + DEFAULT_CAT + ";", "const [selectedCategory, setPickedCategory] = useState(" + DEFAULT_CAT + ");", 1),
+    'm5i-count-only': (WEBHOOK_MENU, HAS_WH, "webhooks.length", 1),
+    'm5i-status-dropped': (WEBHOOK_MENU, HAS_WH, "guildId && webhooks.length", 1),
+    'm5i-guild-dropped': (WEBHOOK_MENU, HAS_WH, "status === 'authenticated' && webhooks.length", 1),
+    'm5i-webhooks-dropped': (WEBHOOK_MENU, HAS_WH, "status === 'authenticated' && guildId", 1),
     'm5h-array-passes': (PREVIEW, "typeof parsed !== 'object' || Array.isArray(parsed)", "typeof parsed !== 'object'", 1),
     'm5h-primitive-passes': (PREVIEW, "typeof parsed !== 'object' || Array.isArray(parsed)", "Array.isArray(parsed)", 1),
     'm5h-parse-error-uncaught': (PREVIEW, "  } catch {\n    return null;\n  }", "  } finally {\n    // none\n  }", 1),
+    'm5h-boundary-fallback-empty': (PREVIEW, "<ErrorBoundary fallback={invalidData}>", "<ErrorBoundary fallback={null}>", 1),
+    'm5h-boundary-removed': (PREVIEW, "import { ErrorBoundary } from 'react-error-boundary';", "import type { PropsWithChildren } from 'react';\nconst ErrorBoundary = (p: PropsWithChildren<{ fallback: unknown }>) => <>{p.children}</>;", 1),
+    'm5h-make-editable-skipped-in-parse': (PREVIEW, "return makeEditable({ data: parsed } as ApiMessage).data;", "return parsed as ApiMessage['data'];", 1),
     'm5h-error-text-changed': (PREVIEW, "Invalid message data.", "Bad data.", 1),
     'm5h-error-not-text-error': (PREVIEW, "className=\"text-sm text-error\"", "className=\"text-sm\"", 1),
 }

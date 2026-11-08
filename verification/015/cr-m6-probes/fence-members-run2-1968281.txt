@@ -1,0 +1,23 @@
+sha 196828188cddf7ddfb553e270edfd8cd9df0aaf2; rules.tsx blob 15870b8a40313dbf1445bff544dee495074c9755 export 15870b8a40313dbf1445bff544dee495074c9755
+parseContent "control: two lines, no tag": code block
+parseEmbedField "control: two lines, no tag": code block
+parseEmbedDescription "control: two lines, no tag": code block
+parseContent "control: plain text": no code block
+parseEmbedField "control: plain text": no code block
+parseEmbedDescription "control: plain text": no code block
+parseContent "blank line inside, no tag": code block
+parseEmbedField "blank line inside, no tag": code block
+parseEmbedDescription "blank line inside, no tag": code block
+parseContent "blank line inside, tag": code block
+parseEmbedField "blank line inside, tag": code block
+parseEmbedDescription "blank line inside, tag": code block
+parseContent "two blank lines inside": code block
+parseEmbedField "two blank lines inside": code block
+parseEmbedDescription "two blank lines inside": code block
+parseContent "blank line inside, text before": code block
+parseEmbedField "blank line inside, text before": code block
+parseEmbedDescription "blank line inside, text before": code block
+parseContent "whitespace-only line inside": code block
+parseEmbedField "whitespace-only line inside": code block
+parseEmbedDescription "whitespace-only line inside": code block
+exit 0

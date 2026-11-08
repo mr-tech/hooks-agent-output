@@ -1,0 +1,48 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-b608555-qaf30-own-preview-line  sha: b608555  label: qaf30-own-preview-line  test: src/app/preview  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6l-count-error-only-when-editing
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-b608555-qaf30-own-preview-line
+
+stderr | src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the component limit > shows the total and the limit with a red border above 40 components
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+
+ ❯ |dom| src/app/preview/__tests__/page.invalid-data.test.tsx (55 tests | 1 failed) 30068ms
+     × shows the total and the limit with a red border above 40 components 607ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the component limit > shows the total and the limit with a red border above 40 components
+AssertionError: expected undefined to be 'Message has 41 components; the limit …' // Object.is equality
+
+- Expected:
+"Message has 41 components; the limit is 40."
+
++ Received:
+undefined
+
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:145:27
+    143|     const el = await mountWith(withComponents(41));
+    144|
+    145|     expect(countLine(el)).toBe('Message has 41 components; the limit i…
+       |                           ^
+    146|     expect(border(el)).toContain(styles.errorBorder);
+    147|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 54 passed (55)
+   Start at  08:39:49
+   Duration  32.15s (transform 778ms, setup 21ms, import 1.36s, tests 30.07s, environment 579ms)
+
+vitest exit 1

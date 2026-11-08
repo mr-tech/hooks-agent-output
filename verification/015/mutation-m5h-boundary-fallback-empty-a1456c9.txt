@@ -1,0 +1,52 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-a1456c9-m5h-boundary-fallback-empty  sha: a1456c9  label: m5h-boundary-fallback-empty  test: page.invalid-data  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py
+mutated m5h-boundary-fallback-empty
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-a1456c9-m5h-boundary-fallback-empty
+
+ ❯ |dom| src/app/preview/__tests__/page.invalid-data.test.tsx (55 tests | 11 failed) 55947ms
+     × shows one line of error text and no editor when embeds null 5004ms
+     × shows one line of error text and no editor when embeds an empty string 5003ms
+     × shows one line of error text and no editor when fields an empty string 5002ms
+     × shows one line of error text and no editor when content a number 5001ms
+     × shows one line of error text and no editor when components false 5002ms
+     × shows one line of error text and no editor when components zero 5002ms
+     × shows one line of error text and no editor when components an empty string 5002ms
+     × shows one line of error text and no editor when an action row whose components is a string 5005ms
+     × shows one line of error text and no editor when a section accessory that is null 5002ms
+     × shows one line of error text and no editor when a gallery whose items is a string 5003ms
+     × shows one line of error text and no editor when a container whose components is a number 5004ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 11 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when embeds null
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when embeds an empty string
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when fields an empty string
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when content a number
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when components false
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when components zero
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when components an empty string
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when an action row whose components is a string
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when a section accessory that is null
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when a gallery whose items is a string
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when a container whose components is a number
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:113:5
+    111|     ['a container whose components is a number', '{"components":[{"typ…
+    112|     ['an action row nested in a container with a null child', '{"compo…
+    113|   ])('shows one line of error text and no editor when %s', async (_cas…
+       |     ^
+    114|     expectOneErrorLine(await mountWith(data));
+    115|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/11]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  11 failed | 44 passed (55)
+   Start at  08:55:56
+   Duration  57.99s (transform 744ms, setup 22ms, import 1.30s, tests 55.95s, environment 584ms)
+
+vitest exit 1

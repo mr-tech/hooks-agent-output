@@ -1,0 +1,35 @@
+sha 471578fa2ee430368686b8e4a28ed61237bc3d3a
+env files in export: 0
+npm ci exit 0
+puppeteer browser cache present: no
+tsc exit 0
+nonloopback links: 0  default routes: 0
+self-check: loopback GET 200; external lookup EAI_AGAIN
+CELL FAIL M8-e API_KEY unset: refuses to start, exit code 2, a line names API_KEY -- {"exit":null,"lines":["2026-11-08T08:44:11.896Z Server running at http://127.0.0.1:3961/"]}
+CELL FAIL M8-e API_KEY empty: refuses to start, exit code 2, a line names API_KEY -- {"exit":null,"lines":["2026-11-08T08:44:19.904Z Server running at http://127.0.0.1:3962/"]}
+CELL PASS M8-e control: API_KEY set starts and sends ready
+CELL PASS control: a request without the key gets 404
+CELL PASS control: a request with an empty Bearer gets 404 (the key is set)
+CELL FAIL M8-b body unparsable: 500, process keeps serving -- {"st":"error:ECONNRESET","after":"error:ECONNREFUSED","exited":null}
+CELL FAIL M8-b body the JSON null: 500, process keeps serving -- {"st":"error:ECONNREFUSED","after":"error:ECONNREFUSED","exited":{"code":1,"sig":null,"at":1794127467934}}
+CELL FAIL M8-b body a JSON number: 500, process keeps serving -- {"st":"error:ECONNREFUSED","after":"error:ECONNREFUSED","exited":{"code":1,"sig":null,"at":1794127467934}}
+CELL FAIL M8-d/M8-c server level: two failing generate requests get 500, process alive -- {"a":"error:ECONNREFUSED","b":"error:ECONNREFUSED","ms":1,"exited":{"code":1,"sig":null,"at":1794127467934}}
+CELL PASS M8-d: no "Cannot read properties" in the log after those requests -- 0 lines
+CELL PASS M8-c: no unhandled-rejection line in the log
+CELL FAIL P1 shutdown message: exit code 0 -- null
+CELL FAIL P1: exactly one "Server received" line, naming the trigger
+CELL FAIL P1: exactly one drain-complete line with an elapsed figure
+CELL FAIL P1 predicate: the ready line "Server running at" is not a member
+CELL FAIL P3 idle: exits well before the 10 s fallback and launches no browser -- n/a ms; Created instance lines 0
+CELL PASS P1 idempotent: shutdown message then SIGINT gives one "Server received" line and exit 0 -- 2026-11-08T08:44:40.657Z 2026-11-08T08:44:40.657Z Server received SIGINT. Closing server.
+CELL PASS P1 SIGINT alone: one "Server received" line naming SIGINT, exit 0
+CELL FAIL P4: a shutdown message sent in the tick the ready message arrives is handled -- {"ex":null,"received":0}
+CELL FAIL P2: ecosystem states kill_timeout 12000 and shutdown_with_message true -- {"kill_timeout":5000,"shutdown_with_message":true}
+CELL FAIL M8-d pool: a launch failure rejects the request with the launch error, not a TypeError
+CELL FAIL M8-d pool: no creation retry storm and nothing left pending
+CELL FAIL M8-c a page opened by a request whose navigation throws is closed -- opened=1 closed=0 (rejected connect ECONNREFUSED 127.0.0.1:1)
+CELL FAIL M8-c no unhandled rejection when both the image and the S3 delete fail -- unhandled=1
+CELL FAIL M8-c a page whose screenshot succeeded is closed -- opened=2 closed=1
+INFO browser: /usr/bin/google-chrome
+SUMMARY cells=25 failed=18
+probe exit 0

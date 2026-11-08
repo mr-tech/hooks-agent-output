@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-4aa9d3a-control-cr24-picker  sha: 4aa9d3a  label: control-cr24-picker  test: ColorPicker.scroll-lock-release  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-4aa9d3a-control-cr24-picker
+
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  08:34:07
+   Duration  1.60s (transform 192ms, setup 21ms, import 689ms, tests 175ms, environment 595ms)
+
+vitest exit 0

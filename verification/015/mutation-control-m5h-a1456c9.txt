@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-a1456c9-control-m5h  sha: a1456c9  label: control-m5h  test: page.invalid-data  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/d2d8901d-0945-41a4-95f6-d7103dcebe2b/scratchpad/exports/website-a1456c9-control-m5h
+
+
+ Test Files  1 passed (1)
+      Tests  55 passed (55)
+   Start at  08:55:35
+   Duration  3.09s (transform 768ms, setup 22ms, import 1.34s, tests 1.03s, environment 582ms)
+
+vitest exit 0
