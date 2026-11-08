@@ -1,0 +1,33 @@
+# CR-17 literal sweep and CR-19 ref-sync sweep, website 24ac49f
+== Invalid URL literal (single, double, back quotes)
+24ac49f:src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx:55:  it('shows "Invalid URL" once, on the shared error line, when the network fails', async () => {
+24ac49f:src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx:58:    const shown = leavesWithText('Invalid URL');
+24ac49f:src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx:64:  it('shows Discord\'s own refusal on the shared error line, not "Invalid URL"', async () => {
+24ac49f:src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx:70:    expect(leavesWithText('Invalid URL')).toHaveLength(0);
+24ac49f:src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx:49:  ])('shows "Invalid URL" under the field when %s', async (_case, answer) => {
+24ac49f:src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx:59:      .filter((e) => e.children.length === 0 && e.textContent === 'Invalid URL');
+24ac49f:src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.url-and-thread-controls.test.tsx:87:      expect(el.textContent?.includes('Invalid URL')).toBe(shows);
+24ac49f:src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.url-and-thread-controls.test.tsx:98:    expect(el.textContent?.includes('Invalid URL')).toBe(false);
+24ac49f:src/components/DiscordMessageEditor/components/EmbedEditor/EmbedAuthor.tsx:167:              errorMessage={urlErroring ? 'Invalid URL' : undefined}
+24ac49f:src/components/DiscordMessageEditor/components/EmbedEditor/EmbedTitle.tsx:139:              errorMessage={urlErroring ? 'Invalid URL' : undefined}
+24ac49f:src/constants/index.ts:31:export const INVALID_URL_ERROR = 'Invalid URL' as const;
+24ac49f:src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:130:  it('shows "Invalid URL" and no webhook when the webhook fetch rejects', async () => {
+24ac49f:src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:135:    expect(result.webhookError).toBe('Invalid URL');
+== INVALID_URL_ERROR
+24ac49f:src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx:33:import { INVALID_URL_ERROR } from '~/constants';
+24ac49f:src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx:218:            url && !isWebhookLoading && selectedWebhook === null ? INVALID_URL_ERROR : undefined
+24ac49f:src/constants/index.ts:31:export const INVALID_URL_ERROR = 'Invalid URL' as const;
+24ac49f:src/utils/hooks/useValidateWebhook.ts:7:import { INVALID_URL_ERROR, MESSAGE_LOAD_FAILED_ERROR } from '~/constants';
+24ac49f:src/utils/hooks/useValidateWebhook.ts:39:          if (!isStale) setWebhookError(INVALID_URL_ERROR);
+== hand-written ref sync in render
+24ac49f:src/components/DiscordMessageEditor/index.tsx:88:  messageRef.current = message;
+24ac49f:src/components/Drawer/index.tsx:141:      dragInfoRef.current = null;
+24ac49f:src/components/SlateEditor/index.tsx:137:          onTouchStart={useCallback(() => { moveRef.current = false; }, [])}
+24ac49f:src/components/SlateEditor/index.tsx:138:          onTouchMove={useCallback(() => { moveRef.current = true; }, [])}
+24ac49f:src/providers/GuildProvider.tsx:73:    guildIdRef.current = guildId;
+24ac49f:src/providers/MessageProvider/index.tsx:211:      ignoreLocalRef.current = false;
+24ac49f:src/providers/MessageProvider/index.tsx:220:      ignoreLocalRef.current = false;
+24ac49f:src/providers/MessageProvider/useApiMethods.ts:28:      ignoreLocalRef.current = true;
+24ac49f:src/providers/MessageProvider/useApiMethods.ts:68:      // if (silent) toastIdRef.current = null;
+24ac49f:src/providers/PartialMessagesProvider.tsx:53:        hasFetchedRef.current = true;
+24ac49f:src/utils/hooks/useUpdatePreferences.ts:20:    mountedRef.current = true;

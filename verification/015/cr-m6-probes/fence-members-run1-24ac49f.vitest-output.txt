@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/15124f78-e1a5-4ea9-912b-40c74860dffa/scratchpad/cr-m5-real-export-24ac49f
+
+
+ Test Files  1 passed (1)
+      Tests  7 passed (7)
+   Start at  08:19:21
+   Duration  1.36s (transform 480ms, setup 0ms, import 1.18s, tests 34ms, environment 0ms)
+

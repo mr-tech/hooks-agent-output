@@ -1,0 +1,82 @@
+== F-49 splice(x, 0 (insert at idx, not idx+1)
+24ac49f:src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx:82:    elements.splice(i, 0, <ChevronRightIcon key={i} className="h-4 w-4 stroke-text-mute stroke-1" />);
+== F-49 all splice inserts
+24ac49f:src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx:82:    elements.splice(i, 0, <ChevronRightIcon key={i} className="h-4 w-4 stroke-text-mute stroke-1" />);
+24ac49f:src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx:112:    next.splice(idx + 1, 0, clone);
+24ac49f:src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx:263:      next.splice(idx + 1, 0, clone);
+24ac49f:src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx:164:      next.splice(idx + 1, 0, clone);
+24ac49f:src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx:200:      next.splice(idx + 1, 0, clone);
+24ac49f:src/components/DiscordMessageEditor/index.tsx:106:      newEmbeds.splice(idx + 1, 0, newEmbed);
+24ac49f:src/components/DiscordMessageEditor/index.tsx:145:      next.splice(idx + 1, 0, clone);
+== F-47 one-arg sort
+== F-45 useMount
+24ac49f:src/components/BottomPortal.tsx:176:  useMount(() => () => {
+24ac49f:src/components/Button.tsx:58:  useMount(() => { if (autoFocus) localRef.current?.focus(); });
+24ac49f:src/components/DiscordContentEditor/Desktop.tsx:37:  // useMount(() => {
+24ac49f:src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx:34:  useMount(() => () => removeBlockStyle());
+24ac49f:src/components/DiscordMessageEditor/index.tsx:85:  useMount(() => onMount?.());
+24ac49f:src/utils/hooks/index.ts:19:  useMount(() => {
+== F-45 setInterval
+24ac49f:src/components/DiscordMessageEditor/components/Author.tsx:47:      interval = setInterval(() => { setTs(new Date()); }, MINUTE_IN_MILLISECONDS);
+== F-50 optional then plain
+24ac49f:src/app/_components/NavMenu.tsx:41:      labelOnly={!sessionData?.user.image}
+24ac49f:src/app/_components/NavMenu.tsx:44:      label={sessionData?.user.image ? (
+24ac49f:src/app/_components/NavMenu.tsx:56:        !sessionData?.user.name ? null : {
+24ac49f:src/app/_components/NavMenu.tsx:62:              <p className="text-xs font-bold">{sessionData?.user.name}</p>
+24ac49f:src/app/message/_components/NewMessageModal.tsx:128:  const guild = session?.user.guilds.find((g) => g.id === selectedGuildId);
+24ac49f:src/app/message/_layout/Header.tsx:66:  const guilds = session?.user.guilds ?? [];
+24ac49f:src/app/message/f/[id]/page.tsx:202:  const guild = ctxGuild ?? session?.user.guilds.find((g) => g.id === guildId);
+24ac49f:src/app/message/m/[id]/_layout/Navigation.tsx:56:  const g = guild ?? (gId ? session?.user.guilds.find(({ id }) => id === gId) : null);
+24ac49f:src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx:119:  const webhookGuild = session?.user.guilds?.find(({ id }) => id === selectedWebhook?.guild_id);
+24ac49f:src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx:132:    const foundGuild = webhookGuild?.id && session?.user.guilds?.find((g) => g.id === webhookGuild.id);
+24ac49f:src/app/message/m/[id]/send/page.tsx:48:  const g = guild ?? (gId && session?.user.guilds.find(({ id }) => id === gId));
+24ac49f:src/app/message/m/[id]/send/page.tsx:262:          <Checkbox isSelected={!!message?.data.allowed_mentions} onChange={toggleSuppressPings}>
+24ac49f:src/app/message/m/new/page.tsx:28:    for (const guild of session?.user.guilds ?? []) {
+24ac49f:src/app/message/page.tsx:60:    for (const guild of session?.user.guilds ?? []) {
+24ac49f:src/app/message/page.tsx:99:  // const continueMessage = session?.user.preferences.message;
+24ac49f:src/components/DiscordContentEditor/useCustomEmojis.ts:15:  const customCategories = useMemo<CustomCategory[]>(() => (!guild?.emojis.length ? [] : [{
+24ac49f:src/components/DiscordMessageEditor/components/ComponentEditors/TextDisplayEditor.tsx:32:      staticParser={markdown?.static.parseContent}
+24ac49f:src/components/DiscordMessageEditor/components/ComponentEditors/TextDisplayEditor.tsx:33:      interactiveParser={markdown?.interactive.parseContent}
+24ac49f:src/components/DiscordMessageEditor/components/ContentBody.tsx:25:        staticParser={markdown?.static.parseContent}
+24ac49f:src/components/DiscordMessageEditor/components/ContentBody.tsx:26:        interactiveParser={markdown?.interactive.parseContent}
+24ac49f:src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx:88:            staticParser={markdown?.static.parseContent}
+24ac49f:src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx:89:            interactiveParser={markdown?.interactive.parseContent}
+24ac49f:src/components/DiscordMessageEditor/components/EmbedEditor/EmbedField.tsx:81:              staticParser={markdown?.static.parseEmbedTitle}
+24ac49f:src/components/DiscordMessageEditor/components/EmbedEditor/EmbedField.tsx:82:              interactiveParser={markdown?.interactive.parseEmbedTitle}
+24ac49f:src/components/DiscordMessageEditor/components/EmbedEditor/EmbedField.tsx:98:              staticParser={markdown?.static.parseEmbedField}
+24ac49f:src/components/DiscordMessageEditor/components/EmbedEditor/EmbedField.tsx:99:              interactiveParser={markdown?.interactive.parseEmbedField}
+24ac49f:src/components/DiscordMessageEditor/components/EmbedEditor/EmbedTitle.tsx:100:                staticParser={markdown?.static.parseEmbedTitle}
+24ac49f:src/components/DiscordMessageEditor/components/EmbedEditor/EmbedTitle.tsx:101:                interactiveParser={markdown?.interactive.parseEmbedTitle}
+24ac49f:src/components/EmojiPicker/Picker/components/EmojiList/index.tsx:68:    } else if (currentPositions[0]?.position.bottomOffset) {
+24ac49f:src/components/EmojiPicker/Picker/components/EmojiList/index.tsx:86:      currentPositions[1]?.position.category.name === defaultEmojiCategories[0].name,
+24ac49f:src/components/EmojiPicker/Picker/components/EmojiList/useScrollCalculator.ts:26:      const end = Math.min(category.emojiRows.length, start + EMOJI_LIST_LENGTH - (acc.newPositions[0]?.emojiRows.length ?? 0));
+24ac49f:src/components/EmojiPicker/Picker/components/EmojiList/useScrollCalculator.ts:48:        || oldFirst?.emojiRows.at(0)?.ariaIndex !== newFirst?.emojiRows.at(0)?.ariaIndex
+24ac49f:src/components/EmojiPicker/Picker/components/EmojiList/useScrollCalculator.ts:49:        || oldLast?.emojiRows.at(-1)?.ariaIndex !== newLast?.emojiRows.at(-1)?.ariaIndex
+24ac49f:src/components/EmojiPicker/Picker/components/EmojiList/useScrollCalculator.ts:50:        || oldFirst?.position.category.emojis?.length !== newFirst?.position.category.emojis?.length
+24ac49f:src/components/EmojiPicker/Picker/components/EmojiList/useScrollCalculator.ts:51:        || !isSameEmoji(oldFirst?.position.category.emojis.at(0), newFirst?.position.category.emojis.at(0))
+24ac49f:src/components/SlateEditor/utils/onChange.ts:16:      if (anchor?.path.length === 3) {
+24ac49f:src/providers/GuildProvider.tsx:89:    // initialData: () => session?.hydration.guild,
+== F-48 aria-expanded
+24ac49f:src/components/EmojiPicker/Picker/components/EmojiList/Section.tsx:69:      aria-expanded={!collapsed}
+24ac49f:src/components/StyledAccordion/StyledAccordionHeading.tsx:32:          'group w-full select-none bg-secondary p-2 text-sm text-mute shadow  group-first/accordion-section:rounded-t group-last/accordion-section:rounded-b aria-expanded:bg-secondary opened:text-default',
+24ac49f:src/components/StyledAccordion/StyledAccordionHeading.tsx:36:          altStyle ? 'dark:bg-quaternary' : 'dark:bg-tertiary dark:aria-expanded:bg-secondary-alt',
+24ac49f:src/utils/markdown/components/MarkdownSpoiler.tsx:14:      aria-expanded={isVisible}
+== F-46 toString(16)
+24ac49f:src/utils/index.ts:484:  return `#${int.toString(16).padStart(6, '0')}`;
+24ac49f:src/utils/index.ts:515:  return hash.toString(16);
+== F-37 innerKey truthiness in maps
+== F-40 includes(ext)
+== F-44 countTotalComponents/MAX_TOTAL_COMPONENTS
+24ac49f:src/components/DiscordMessageEditor/index.tsx:34:  MAX_EMBEDS, MAX_MESSAGE_CONTENT_LENGTH, MAX_TOTAL_COMPONENTS,
+24ac49f:src/components/DiscordMessageEditor/index.tsx:41:  countTotalComponents, genUuid,
+24ac49f:src/components/DiscordMessageEditor/index.tsx:172:  const totalComponentCount = countTotalComponents(components);
+24ac49f:src/components/DiscordMessageEditor/index.tsx:173:  const canAddComponent = totalComponentCount < MAX_TOTAL_COMPONENTS;
+24ac49f:src/components/DiscordMessageEditor/index.tsx:380:              {MAX_TOTAL_COMPONENTS}
+24ac49f:src/constants/messageLimits.ts:13:export const MAX_TOTAL_COMPONENTS = 40 as const;
+24ac49f:src/server/api/utils/shapes.ts:13:  MAX_TOTAL_COMPONENTS,
+24ac49f:src/server/api/utils/shapes.ts:200:  components: z.array(topLevelComponentShape).max(MAX_TOTAL_COMPONENTS).optional(),
+24ac49f:src/server/api/utils/shapes.ts:331:    z.array(topLevelComponentShape).max(MAX_TOTAL_COMPONENTS).optional(),
+24ac49f:src/utils/limits.tsx:11:  MAX_NAME_LENGTH, MAX_TOTAL_COMPONENTS, MIN_NAME_LENGTH, V2_COMPONENT_TYPE_VALUES,
+24ac49f:src/utils/limits.tsx:67:export function countTotalComponents(components: readonly object[]): number {
+24ac49f:src/utils/limits.tsx:87:  const total = countTotalComponents(components);
+24ac49f:src/utils/limits.tsx:88:  return total > MAX_TOTAL_COMPONENTS ? `Message has ${total} components; the limit is ${MAX_TOTAL_COMPONENTS}.` : '';
