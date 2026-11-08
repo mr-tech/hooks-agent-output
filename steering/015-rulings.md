@@ -1,6 +1,7 @@
-# Rulings — bug-evaluation fix chain (no ID yet; the planner mints it)
+# Rulings — chain 015, bug-evaluation fixes
 
-Steering session: steering-bug-fixes. This file is renamed to `<ID>-rulings.md` once the ID is minted.
+Steering session alias chain: steering-bug-fixes → steering-hooks-015 (pending; tmux-agent refuses while busy).
+Planner: planner-hooks-new → planner-hooks-015 (pending, same reason). File was `steering/bug-fixes-rulings.md` until minting.
 Source document: `research/codebase-bug-evaluation-2026-11-08.md` (agent-output `aea4a05`, Status Active).
 
 ## 2026-11-08T04:37Z — "Start the chain. Note that `researcher-competitors` is currently using playwright."
@@ -54,3 +55,7 @@ node_modules is present. Not to be wiped without asking. `pnpm run typecheck` is
 `.next/dev/types` artefact (research § Instrumentation Gaps). That is a known constraint on the implementer's gate,
 for the planner to settle.
 **Chain branches:** created by steering in each repo the plan touches, once the ID exists and before implementation.
+
+## 2026-11-08T04:39Z — ID 015 minted by the planner on the owner's word
+Reported by planner-hooks-new: selection prompt in its session, answered "Agent: open the chain". The prompt was put in the
+planner's session, so this thread did not see it. Chain branches are still to be created, in the repos the plan touches.
