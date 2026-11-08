@@ -1,0 +1,17 @@
+IDENTICAL tokens=430/430 src/__tests__/env.client-proxy.test.ts
+DIFFERS   tokens=1446/1468 src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.auto-remove-dispatch.test.tsx
+DIFFERS   tokens=1328/1332 src/server/__tests__/auth.hydrated-session.test.ts
+DIFFERS   tokens=1658/1662 src/server/__tests__/auth.sign-out.test.ts
+DIFFERS   tokens=704/704 src/server/api/__tests__/interactions-edge.signature-before-parse.test.ts
+DIFFERS   tokens=642/642 src/server/api/utils/__tests__/authorizeGuildUser.in-predicate.test.ts
+IDENTICAL tokens=298/298 src/server/api/utils/__tests__/helpers/capturingDatabase.ts
+DIFFERS   tokens=274/274 src/server/api/utils/__tests__/shapes.user-or-discord-id.test.ts
+DIFFERS   tokens=856/856 src/server/api/utils/__tests__/shared.in-predicates.test.ts
+DIFFERS   tokens=1284/1284 src/server/api/utils/__tests__/shared.message-cap.test.ts
+DIFFERS   tokens=670/670 src/server/api/utils/__tests__/user.in-predicate.test.ts
+IDENTICAL tokens=3842/3842 src/server/api/utils/shapes.ts
+IDENTICAL tokens=1872/1872 src/server/auth.ts
+IDENTICAL tokens=298/298 src/utils/__tests__/getCDNUrl.port-and-environment.test.ts
+DIFFERS   tokens=476/476 src/utils/__tests__/parseServerCookies.cookie-header.test.ts
+DIFFERS   tokens=1080/1080 src/utils/__tests__/redis.cached-null-hit.test.ts
+files=16 differing=11 controls: extra-token-detected=true asi-break-detected=true layout-only-ignored=true trailing-comma-ignored=true

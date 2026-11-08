@@ -1,0 +1,146 @@
+# website 7b10f4e, 2026-11-08T06:24Z, node v24.14.0
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c6fb34ac-0ddd-4f43-95d6-116490d10db7/scratchpad/crprobe-7b10f4e
+
+stdout | src/__crprobe__/cookies.percent.test.ts > parseServerCookies over cookie headers whose octets RFC 6265 admits > bare percent in a value still yields the session cookie
+PROBE bare percent in a value :: THREW URIError: URI malformed
+
+stdout | src/__crprobe__/cookies.percent.test.ts > parseServerCookies over cookie headers whose octets RFC 6265 admits > truncated escape in a value still yields the session cookie
+PROBE truncated escape in a value :: THREW URIError: URI malformed
+
+stdout | src/__crprobe__/cookies.percent.test.ts > parseServerCookies over cookie headers whose octets RFC 6265 admits > bare percent in a name still yields the session cookie
+PROBE bare percent in a name :: THREW URIError: URI malformed
+
+stdout | src/__crprobe__/cookies.percent.test.ts > parseServerCookies over cookie headers whose octets RFC 6265 admits > control: escaped value still yields the session cookie
+PROBE control: escaped value :: session=abc
+
+ × |node| src/__crprobe__/cookies.percent.test.ts > parseServerCookies over cookie headers whose octets RFC 6265 admits > bare percent in a value still yields the session cookie 9ms
+   → expected 'THREW URIError: URI malformed' to be 'session=abc' // Object.is equality
+ × |node| src/__crprobe__/cookies.percent.test.ts > parseServerCookies over cookie headers whose octets RFC 6265 admits > truncated escape in a value still yields the session cookie 2ms
+   → expected 'THREW URIError: URI malformed' to be 'session=abc' // Object.is equality
+ × |node| src/__crprobe__/cookies.percent.test.ts > parseServerCookies over cookie headers whose octets RFC 6265 admits > bare percent in a name still yields the session cookie 1ms
+   → expected 'THREW URIError: URI malformed' to be 'session=abc' // Object.is equality
+ ✓ |node| src/__crprobe__/cookies.percent.test.ts > parseServerCookies over cookie headers whose octets RFC 6265 admits > control: escaped value still yields the session cookie 1ms
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > GET, no headers
+PROBE GET, no headers :: status=405 parses=0 commandCalls=0 body="invalid method"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > PUT, signed ping
+PROBE PUT, signed ping :: status=405 parses=0 commandCalls=0 body="invalid method"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > lowercase post (fetch normalises), no headers, malformed
+PROBE lowercase post (fetch normalises), no headers, malformed :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, no headers, malformed
+PROBE POST, no headers, malformed :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, no headers, ping
+PROBE POST, no headers, ping :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, signature only
+PROBE POST, signature only :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, timestamp only
+PROBE POST, timestamp only :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, empty signature and timestamp
+PROBE POST, empty signature and timestamp :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, odd-length signature
+PROBE POST, odd-length signature :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, 128 non-hex chars
+PROBE POST, 128 non-hex chars :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, signature of another body, malformed body
+PROBE POST, signature of another body, malformed body :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, signature of another body, command body
+PROBE POST, signature of another body, command body :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, valid signature, timestamp header altered
+PROBE POST, valid signature, timestamp header altered :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, duplicated signature header
+PROBE POST, duplicated signature header :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, 1 MB unsigned junk
+PROBE POST, 1 MB unsigned junk :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, no body, valid signature of empty body
+PROBE POST, no body, valid signature of empty body :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > control: POST, valid signature, ping
+PROBE control: POST, valid signature, ping :: status=200 parses=1 commandCalls=0 body="{"type":1}"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > control: POST, uppercase-hex valid signature, ping
+PROBE control: POST, uppercase-hex valid signature, ping :: status=200 parses=1 commandCalls=0 body="{"type":1}"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > control: POST, valid signature, command
+PROBE control: POST, valid signature, command :: status=200 parses=1 commandCalls=1 body="command-ran"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, valid signature, malformed body (signed by the key holder only)
+PROBE POST, valid signature, malformed body (signed by the key holder only) :: status=throw parses=1 commandCalls=0 body="SyntaxError: Expected property name or '}' in JSON at positi"
+
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > GET, no headers 6ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > PUT, signed ping 3ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > lowercase post (fetch normalises), no headers, malformed 1ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, no headers, malformed 1ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, no headers, ping 1ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, signature only 1ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, timestamp only 1ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, empty signature and timestamp 2ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, odd-length signature 2ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, 128 non-hex chars 1ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, signature of another body, malformed body 3ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, signature of another body, command body 2ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, valid signature, timestamp header altered 2ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, duplicated signature header 1ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, 1 MB unsigned junk 7ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, no body, valid signature of empty body 2ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > control: POST, valid signature, ping 3ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > control: POST, uppercase-hex valid signature, ping 2ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > control: POST, valid signature, command 2ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, valid signature, malformed body (signed by the key holder only) 5ms
+stdout | src/__crprobe__/signout.cached-null.test.ts > sign-out of an account row that exists, by state of the account cache key > control: cache miss -> revoke sent with the token, Accounts update issued, three keys cleared
+PROBE control fetchCalls=1 accountsUpdates=1 cleared=["user-access-token-probe-user","user-session-token-probe-session","user-guilds-probe-discord"]
+
+stdout | src/__crprobe__/signout.cached-null.test.ts > sign-out of an account row that exists, by state of the account cache key > cached null (what fetchUserAccount stores when the refresh token is absent or Discord refuses the refresh) -> same clear-out expected
+PROBE cached-null fetchCalls=1 accountsUpdates=1 dbQueries=2 cleared=["user-access-token-probe-user","user-session-token-probe-session","user-guilds-probe-discord"]
+
+stderr | src/__crprobe__/signout.cached-null.test.ts > sign-out of an account row that exists, by state of the account cache key > producer: the session callback caches null for an account whose Discord refresh is refused
+invalid_grant
+
+stdout | src/__crprobe__/signout.cached-null.test.ts > sign-out of an account row that exists, by state of the account cache key > producer: the session callback caches null for an account whose Discord refresh is refused
+PROBE producer sessionResult={} cachedValue="null"
+
+ ✓ |node| src/__crprobe__/signout.cached-null.test.ts > sign-out of an account row that exists, by state of the account cache key > control: cache miss -> revoke sent with the token, Accounts update issued, three keys cleared 21ms
+ ✓ |node| src/__crprobe__/signout.cached-null.test.ts > sign-out of an account row that exists, by state of the account cache key > cached null (what fetchUserAccount stores when the refresh token is absent or Discord refuses the refresh) -> same clear-out expected 1ms
+ ✓ |node| src/__crprobe__/signout.cached-null.test.ts > sign-out of an account row that exists, by state of the account cache key > producer: the session callback caches null for an account whose Discord refresh is refused 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/__crprobe__/cookies.percent.test.ts > parseServerCookies over cookie headers whose octets RFC 6265 admits > bare percent in a value still yields the session cookie
+ FAIL  |node| src/__crprobe__/cookies.percent.test.ts > parseServerCookies over cookie headers whose octets RFC 6265 admits > truncated escape in a value still yields the session cookie
+ FAIL  |node| src/__crprobe__/cookies.percent.test.ts > parseServerCookies over cookie headers whose octets RFC 6265 admits > bare percent in a name still yields the session cookie
+AssertionError: expected 'THREW URIError: URI malformed' to be 'session=abc' // Object.is equality
+
+Expected: "session=abc"
+Received: "THREW URIError: URI malformed"
+
+ ❯ src/__crprobe__/cookies.percent.test.ts:29:21
+     27|     }
+     28|     console.log(`PROBE ${label} :: ${outcome}`);
+     29|     expect(outcome).toBe('session=abc');
+       |                     ^
+     30|   });
+     31| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  3 failed | 24 passed (27)
+   Start at  06:24:58
+   Duration  1.17s (transform 407ms, setup 0ms, import 1.24s, tests 92ms, environment 0ms)
+
+# vitest exit 1
