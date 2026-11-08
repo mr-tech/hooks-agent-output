@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Delta pass on plan rev 26 (c375d2c, read from dd9e88a): APPROVED. AF-30's startup guard is the owner's ruling (f5ab120), riding the M8-a fix; the exact pin was declined. Still with code review to check against the code: AF-27 (M5-h) and AF-29 (M5-i). AF-26 is resolved as the owner's known limit (D34, website.md W-7). AF-18 is implemented at website 3031878. A later revision is read on its delta."
+Status-Detail: "Delta pass on plan rev 27 (18d361c, read from c375d2c): APPROVED; nothing owner-needing (no new deviation). AF-31 LOW is recommended: D36's guard should log and keep serving. AF-30's guard is the owner's ruling (D36, f5ab120), and RK-8's failure mode is now settled as a process exit (CR-31). Still with code review against the code: AF-27 (M5-h) and AF-29 (M5-i). AF-26 is resolved (D34, website.md W-7). AF-18 is implemented at website 3031878. A later revision is read on its delta."
 ---
 
 # Architecture Findings — Plan 015: Bug-evaluation fixes (conformance pass)
@@ -38,6 +38,35 @@ Status-Detail: "Delta pass on plan rev 26 (c375d2c, read from dd9e88a): APPROVED
 | 2026-11-08T08:27 | Delta pass, plan rev 25 (`dd9e88a`, read from `018f72d`), on steering-hooks-015's request | Every limb conforms, read at the SHAs it names. M6-a's title drop: `parseEmbedTitle` omits `codeBlock`, `heading` and `list` at website `7ce866b`, since `d5f2dc8` (`git log -S`). AF-28's plan side: D34 and X-20 cite W-7. X-22: `NewMessageModal` is mounted under `f/[id]/page.tsx`, and next 16.1.6 `createRouterCacheKey` keys the dynamic segment `id|A|d`, so a folder switch remounts it (source read). The Exclusions standing constraint conforms. No findings. **APPROVED.** |
 | 2026-11-08T09:24 | Delta pass, plan rev 26 (`c375d2c`, read from `dd9e88a`), on steering-hooks-015's request | Conforming: M5-h (3) anchored to the tip (CR-29), M8-b under D35, M8-d as a property, and the M6-a provenance correction. RK-8 was read at preview-image-generator `6c613a5`. `getPool.ts` reaches the private `_waitingClientsQueue` from the public `factoryCreateError` event. That is a necessary deviation, because no public API rejects a waiting acquire, and `acquireTimeoutMillis` would delay every failure to the timeout. Exposure: the lockfile resolves exactly 3.9.0, `prod.yml` runs `npm ci`, and 3.9.0 is the newest published version (`npm view`). AF-30 LOW: a startup guard that logs or refuses when the private shape is absent turns a silent hang into a log line; an exact pin is optional. One Problem Area registered. Nothing for the owner. **APPROVED.** |
 | 2026-11-08T09:25 | RK-8 ruled (steering-hooks-015, rulings `f5ab120`) | The owner chose "Agent: accept + startup guard". The private-field reach is accepted, the AF-30 startup guard is his ruling and rides the implementer's M8-a fix, and the exact pin was declined. **Correction, the error mine:** the rev 26 verdict rated the reach a necessary deviation and also said "Nothing needs the owner". Under steering.md's Conformance rule, a necessary deviation goes to him as a selection. Steering routed it. A future pass that rates a deviation necessary marks it owner-needing. |
+| 2026-11-08T09:37 | Delta pass, plan rev 27 (`18d361c`, read from `c375d2c`), on steering-hooks-015's request | These conform: M8-d (d) under D36; RK-8's signature, now settled by CR-31's executed mutant (exit code 1, not a hang), which retires AF-30's hang limb; the M9 RK-8 carrier; M5-h (3)'s enumerator and move rule; M8-b narrowed with X-23; and X-24. X-23 was read at preview-image-generator `6c613a5`: the S3 `Prefix` and `Key` are built from the body's `id`, so an array or id-less body works under `previews/undefined/`, behind `API_KEY`. No new deviation, so nothing is owner-needing. AF-31 LOW: D36's guard should log and serve, not refuse to start. Refusing would turn a dependency drift into a full outage, while serving fails only on the Chromium-outage path. One Problem Area registered: `/generate` trusts its body beyond object-ness. **APPROVED.** |
+
+## Verdict (rev 27, `18d361c`, one pass from rev 26 `c375d2c`): APPROVED
+
+These limbs conform:
+
+- **M8-d (d) under D36.** It is AF-30's guard as the owner ruled it, with a member/non-member pair and the line required at startup.
+- **RK-8's corrected signature (CR-31).** AF-30's failure mode was hedged ("a hang, or a TypeError … whose effect is unread"). Code review's executed mutant now settles it: the process exits with code 1 after 378 ms on node 24, which under PM2 is a restart per failing launch. The hang reading is retired. The `TypeError` limb was right.
+- **The RK-8 carrier at M9.** Devops mints a handoff whose trigger is a lockfile move of generic-pool and whose read is the startup line. That puts the instrument where the risk enters, at a lockfile change.
+- **M5-h (3)'s deciding enumerator and two-way move rule (M-C9-1).** Membership stays an executed read, and code review owns the re-run trigger. AF-27's boundary form still satisfies the property, whatever the lists say.
+- **M8-b narrowed under the D35 re-put, with X-23.** This is the owner's ruling. Read at preview-image-generator `6c613a5`: `src/server.ts` refuses only `typeof parsedBody !== 'object' || parsedBody === null`, and `src/generateImage.ts` builds the S3 `Prefix` and `Key` from the destructured `id` (`previews/${messageId}/`). So an array, or an object without `id`, works under `previews/undefined/`, as X-23 states. Its reach is bounded by the `API_KEY` gate.
+- **X-24.**
+
+**Deviation rating.** Rev 27 introduces no new deviation from a current pattern. D36's guard follows M8-e's form, a named log line at startup. X-23 is an owner ruling on scope, not a pattern choice. **Nothing in this pass is owner-needing.**
+
+AF-31 is recommended and does not block. One Problem Area is registered.
+
+### AF-31 LOW — D36's guard: log and keep serving, not M8-e's refuse-to-start
+
+Rev 27 leaves "serve or refuse to start" to the implementer. The availability reading favours **serving**:
+
+- **With the private member missing and the process serving**, the generator works normally until a Chromium launch fails. Only then does the process exit (CR-31), and PM2 restarts it.
+- **If it refuses to start**, a dependency drift takes the generator down completely: a PM2 restart loop with no preview generation at all, during normal operation.
+
+M8-e refuses to start because a missing `API_KEY` makes every request wrong. A missing private member makes only the outage path wrong. So "log a named line, then serve" is the proportionate form. That is also D36's own wording ("logs a named error line"), which names no refusal.
+
+### Registered: `/generate` trusts its body beyond object-ness
+
+The handler validates the body only as a non-null object. It never checks that `id` and `nonce` are strings before composing S3 keys from them, so a list, a missing `id`, or a non-string `id` reaches `ListObjects`/`DeleteObjects` under a key built from that value. The caller is gated by `API_KEY`, and "only the website calls `/generate`" is unread (D35's note; QA sends it to devops). This is boundary hygiene, not a live exposure. It is registered in § Problem Areas, and it is within security-hooks-015's generator scope if security wants it.
 
 ## Verdict (rev 26, `c375d2c`, one pass from rev 25 `dd9e88a`): APPROVED
 
@@ -575,7 +604,7 @@ Each is recorded in `system-architecture.md` § Problem Areas:
     - `website.md`: A-4 and A-5 (agent-designed).
     - `preview-image-generator.md`: P-3 rewritten on the owner's selection "Agent: record intended" (05:18Z), and A-1 (the log-line interface).
 - **Next.**
-  - Rev 21 (`3d193f9`): APPROVED, AF-22 INFO registered. Rev 22 (`5201612`): APPROVED, with AF-23 to AF-25 recommended. Rev 23 (`39dbc0d`): APPROVED. AF-24 and AF-25 are folded, AF-23's basis is withdrawn (the error mine), and AF-27 is recommended. Rev 24 (`018f72d`): APPROVED, with AF-28 and AF-29 recommended. AF-26 is resolved: D34 and website.md W-7 (`952e69f`). Rev 25 (`dd9e88a`): APPROVED, no findings, and AF-28 is fully discharged. Rev 26 (`c375d2c`): APPROVED, with AF-30 recommended. A later revision is read on its delta from `c375d2c`. Check AF-30 when M8's next commit is reviewed. Check AF-29 (M5-i's form) when M5-i's code is reviewed. When M5-h's code is reviewed, check AF-27.
+  - Rev 21 (`3d193f9`): APPROVED, AF-22 INFO registered. Rev 22 (`5201612`): APPROVED, with AF-23 to AF-25 recommended. Rev 23 (`39dbc0d`): APPROVED. AF-24 and AF-25 are folded, AF-23's basis is withdrawn (the error mine), and AF-27 is recommended. Rev 24 (`018f72d`): APPROVED, with AF-28 and AF-29 recommended. AF-26 is resolved: D34 and website.md W-7 (`952e69f`). Rev 25 (`dd9e88a`): APPROVED, no findings, and AF-28 is fully discharged. Rev 26 (`c375d2c`): APPROVED, with AF-30 recommended. Rev 27 (`18d361c`): APPROVED, with AF-31 recommended. A later revision is read on its delta from `18d361c`. Check D36's guard and AF-31 when M8's next commit is reviewed. **Rule: a deviation rated necessary is owner-needing in the verdict itself** (steering.md Conformance; the error at rev 26). Check AF-29 (M5-i's form) when M5-i's code is reviewed. When M5-h's code is reviewed, check AF-27.
   - AF-18 is implemented at website `3031878` (on the chain branch, not yet released). At chain close, reconcile the master document's `user-access-token` Problem Area row.
   - **Method, per pass:**
     1. Write `git diff <from> <to> -- planning/015-bug-evaluation-fixes.md` to the scratchpad and Read it; the rtk filter mangles piped diffs.
