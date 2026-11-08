@@ -1,0 +1,13 @@
+# M0 captures, website chain/015-bug-evaluation-fixes. Base 7ce866b; M0 commit 037935d. Taken 2026-11-08 by implementer-hooks-015.
+## 1. vitest at base 7ce866b (npx vitest run --reporter=json): exit, numTotalTests, passed, failed, testResults entries
+exit 0 / 598 598 0 54
+## 2. typecheck at base before deleting .next/dev/types: exit 1; error TS lines:
+.next/dev/types/validator.ts(89,57): error TS1005: '?' expected.
+.next/dev/types/validator.ts(94,1): error TS1128: Declaration or statement expected.
+## 3. after rm -r .next/dev/types: pnpm run typecheck exit 0; error TS count 0; .next file count 3348 -> 3345 (the three files in the deleted directory)
+## 4. planted failing case bot/utils/__tests__/collection.planted.test.ts, config unchanged: vitest exit 0, 598 tests, 0 failed, 54 files, 0 under /bot/ (uncollected)
+## 5. same planted case after include change: vitest exit 1, 599 tests, 1 failed, 55 files:
+bot/utils/__tests__/collection.planted.test.ts failed failed: AssertionError: expected 1 to be 2 // Object.is equality
+## 6. planted type error const planted: number = 'a' in that file, tsconfig.test.json include added: pnpm run typecheck exit 2:
+bot/utils/__tests__/collection.planted.test.ts(6,7): error TS2322: Type 'string' is not assignable to type 'number'.
+## 7. planted file removed. At 037935d: vitest exit 0, 598 598 0, 54 files; testResults path membership identical to base (diff of sorted lists empty); pnpm run typecheck exit 0; lockfile numstat 7ce866b.. over pnpm-lock.yaml, package-lock.json: empty (package-lock.json is not tracked)
