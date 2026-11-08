@@ -2,8 +2,8 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Status: QA Complete
-Status-Detail: "QA Complete: the effort-final Phase 2 passed at website 620b4ee and preview-image-generator 8de2b53 (qa/015-bug-evaluation-fixes-effort-final-qa.md). M0 and M2 delivered; every milestone passed QA after code review. UAT is next. M3 is removed (D30)."
+Status: In Progress
+Status-Detail: "QA withdrew its effort-final PASS: the owner-ruled plumbing sweep found 2 test gaps (QAF-41, QAF-42, MEDIUM, test-only, implementer; qa/015-bug-evaluation-fixes-effort-final-qa.md). No production defect found. After the fix and code review, QA re-runs 2 survivors; then UAT. M0 and M2 delivered; M3 removed (D30)."
 Revision: 28
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
@@ -151,6 +151,7 @@ Owed re-verdicts:
 | 2026-11-08T11:02 | R-27 | planner (planner-hooks-015) | Discharged L-C9-3: code review's restamped rows, `ce6cdfd`, were checked against their commit times. Scope delta: none, registration only. |
 | 2026-11-08T12:40 | qa | qa (qa-hooks-015) | Effort-final Phase 2 at website `c5303ca` and preview-image-generator `8de2b53` (`qa/015-bug-evaluation-fixes-effort-final-qa.md`): **QA Failed on test adequacy alone; no production defect found.** Website sweep of 265 mutants over `7ce866b..c5303ca`: 256 killed. Of the 9 survivors, 6 are dispositioned and 3 raised for the implementer, all MEDIUM and test-only. **QAF-38**: M5-e has no cell at the Header "other matches" call site or the folder list-view call site. **QAF-39**: the redis waiter path treats a cached falsy value as a hit under no assertion (CR-3's sibling sites). **QAF-40**: M6-b's predicate has no cell at `ImageUploader`. Generator: the whole diff is swept, and **QAF-37 is RESOLVED** (rig cell `8fb1eee`). Discord's `color` contract holds (M2's assumption), and RK-7 holds. After the test-only fix round, QA re-runs only the 5 survivors. Plan Status left alone. |
 | 2026-11-08T12:53 | qa | qa (qa-hooks-015) | Effort-final Phase 2, re-run after the test-only fix round: **PASS** at website `620b4ee` and preview-image-generator `8de2b53` (`qa/015-bug-evaluation-fixes-effort-final-qa.md`). QAF-38, QAF-39 and QAF-40 are RESOLVED: the 5 survivors are killed at `620b4ee`. Suite 1128/1128, exit 0, typecheck 0. The whole production diff of each repository is swept. **Plan Status set to QA Complete** (this pass covers the whole plan). One stated limit is with steering for the owner: the plumbing-class sweep. UAT is next. |
+| 2026-11-08T14:25 | qa | qa (qa-hooks-015) | **Effort-final PASS withdrawn** (`qa/015-bug-evaluation-fixes-effort-final-qa.md`). The owner-ruled plumbing sweep (rulings 14:18Z, `bab96e0`) ran 13 mutants at website `620b4ee`: 10 killed and 2 gaps. **QAF-41**: no assertion on `getPartialMessages`'s selected `guildId`. **QAF-42**: no cell for a user with no recent messages on the session callback. Both are MEDIUM and test-only, for the implementer. No production defect. **Plan Status set back to In Progress** from QA Complete. The method failure, plumbing dispositions written by reading, is recorded in the QA document. |
 
 ## Value Statement and Business Objective
 
