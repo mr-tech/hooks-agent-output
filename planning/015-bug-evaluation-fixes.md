@@ -937,8 +937,11 @@ is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, 
 
 ## Resumption State (checkpoint, planner-hooks-015)
 
-- **Done.** Plan at revision 19 (rev 18, plus the rider's equality form and refusal list). Revs 17 and 18 passed all four readers. Registrations: R-1 (D14, D15), R-2 (D20), R-3, R-4 and R-5. D21 to D28 were registered inside revs 10, 11 and 13 to 18. R-5's conclusion was withdrawn at 06:52Z. Handoff opened: `handoff/providers-query-params-header-decode-throws-2026-11-08.md` (X-17).
-- **Next.** Steering routes rev 19's delta to the critic, the architect, QA and code review. Fold the M3 Chrome read when it lands. Under D28, fold same-defect sibling sites without an owner question and report them. Fold any findings at the next planning pass.
-- **Open with others.** None of the planner's questions to the owner are pending (OQ-J answered: D26). The M3 Chrome read is with the implementer and QA.
+- **Done (checkpoint 2026-11-08T07:14).** Plan at revision 19 (`330348f`). Every gate passed it: architect, critic (`f8d564c`; cycle 4 closed, so a later criterion change opens cycle 5 in a new file), QA (`a47f5e9`) and code review (Round 6 row `d8ca639`). Registrations: R-1 (D14, D15), R-2 (D20), R-3, R-4 and R-5. D21 to D28 were registered inside revs 10, 11 and 13 to 18. R-5's conclusion was withdrawn at 06:52Z. Handoff opened: `handoff/providers-query-params-header-decode-throws-2026-11-08.md` (X-17). Planner probes committed: `verification/015/m1h-rejection-window-probe*` and `m3-same-node-propagation-probe*`; the second's conclusion is superseded.
+- **Next.**
+  - **M3.** When the real-Chrome read lands (QA's four cells per dialog, § M3 "Premise: unsettled"): if (a) runs confirm, restate M3 to proceed and note the jsdom-fidelity requirement. If not, write the owner options (keep the guard fix as latent, or drop M3) for steering to put to him, against the value-statement sentence "a Cancel key press never deletes".
+  - **Standing rules.** Under D28, fold same-defect sibling sites without an owner question and report them. After implementation approval, park findings that change no code, test or pre-release verifier as Planner batch rows.
+  - **Open, not a finding.** QA left "refused" open between a throw and an empty return in the CR-12 rider; pin it only if a gate asks.
+- **Open with others.** None of the planner's questions to the owner are pending. The M3 Chrome read is with the implementer and QA. Nothing of the planner's is held.
 - **Uncommitted, left in place.** `INBOX.md` holds this session's FYI entry: the research document's `pm2 show` advice. Per the inbox rule, the domain owner commits it.
 - **Branches.** website and preview-image-generator: chain branches are created by steering. The planner touches no source.
