@@ -160,3 +160,7 @@ Premise read this turn: `workflow_dispatch:` is at prod.yml line 12 (grep).
 FYI relayed to him, as the planner's and analyst's claim: pm2.log in verification/015/m8-0-run1-2026-11-08T0525Z.txt
 shows "Stopping app ... id:0" with a SIGKILL at 2026-06-15T10:02:41, then the next "starting" at 2026-08-23T04:18:19
 (steering read those lines in the file). Whether the generator was down for the whole gap is not established.
+
+## 2026-11-08T05:33Z — "the researcher is done. playwright is now available"
+His words, verbatim. This lifts the 04:37Z constraint: stages of chain 015 may use Playwright and browsers. The usual
+rules on shared-tree state still apply, so installing or upgrading Playwright is not implied.
