@@ -59,3 +59,29 @@ for the planner to settle.
 ## 2026-11-08T04:39Z — ID 015 minted by the planner on the owner's word
 Reported by planner-hooks-new: selection prompt in its session, answered "Agent: open the chain". The prompt was put in the
 planner's session, so this thread did not see it. Chain branches are still to be created, in the repos the plan touches.
+
+## 2026-11-08T04:49Z — revision 1 scope relay: OQ-A–OQ-F, quote confirmation, API-key finding (two selection prompts)
+Source: planner-hooks-new's relay of `planning/015-bug-evaluation-fixes.md` rev 1 (`adc5c1a`). Prompts put 04:4xZ, answered 04:49Z.
+Premises: plan commit and the Exclusions table X-1–X-11 were read by steering at `adc5c1a`. In prod.yml and
+preview.yml, `grep -c -i key` returns 6 each; the value was not read. The typecheck error count (2) and the
+"first deploy since 2023-08-22" date are the planner's claims, unread by steering.
+- **OQ-A typecheck.** Options: Agent: delete stale dir (Rec) / Agent: scratch configs / Agent: waive the gate. Chosen
+  **Agent: delete stale dir**, by selection. The implementer deletes website/.next/dev/types at M0, and the gate is the
+  repo's own `pnpm run typecheck`.
+- **OQ-B limits.** Options: fix both (Rec) / only F-43 / only F-40 / drop both. Chosen **Agent: fix both**, by selection.
+  F-43 sets the footer to 2048 (editor and save check). F-40 accepts png, jpg, jpeg, webp, gif, apng, tiff and webm,
+  any case, query string ignored, avif excluded.
+- **OQ-C F-49.** Options: both after (Rec) / both before / drop F-49. Chosen **Agent: both after**, by selection.
+- **OQ-D F-44.** Options: handoff, out (Rec) / refuse the add / allow, mark invalid. Chosen **Agent: allow, mark
+  invalid**, by selection, against the recommendation. F-44 is IN: the multi-component add goes through and the
+  message is marked invalid until fixed. X-2 falls away.
+- **OQ-E M8.** Options: keep, preview first (Rec) / drop M8, handoff. Chosen **Agent: keep, preview first**, by
+  selection. The planner commissions the F-31 analyst.
+- **OQ-F PIG host.** Options: drop the pm2 read / hold until you say. Answered in **his own words**: "pretty sure it's a
+  digital ocean box. there is no ro user on it". So limb (3)'s read cannot run as a claude-ro read. How limb (3) is
+  carried is the planner's to re-derive.
+- **Quotes OQ-2 / OQ-3.** Options: use both as rulings / hold M7 and M1-d. Chosen **Agent: use both as rulings**, by
+  selection. OQ-2 "Manage Server is probably fine" and OQ-3 "idk" are confirmed as his, with the wording as in the
+  research document.
+- **API key in plain text in PIG workflows.** Options: handoff, out of chain / noted only / You: handle it yourself.
+  Chosen **Agent: handoff, out of chain**, by selection. The handoff records no value.
