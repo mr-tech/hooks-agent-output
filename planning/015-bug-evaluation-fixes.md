@@ -45,6 +45,7 @@ Owed re-verdicts:
 | 2026-11-08T05:12 | R-1 | planner (planner-hooks-015) | Registered D14 and D15 from `steering/015-rulings.md` block "2026-11-08T05:11Z" (`9247ddb`). Scope delta: none, registration only. |
 | 2026-11-08T05:28 | 4 | planner (planner-hooks-015) | Folds critique `critiques/015-bug-evaluation-fixes-critique.md` cycle 1 pass 1 (`68308e8`): H-1, M-1 to M-4, L-1 to L-5 (L-2 is moot under D17), Q-2. Also folds the architect's findings (`b838a01`: AF-1 to AF-4), the rulings blocks 05:21Z, 05:24Z and 05:26Z (D16 to D18; D11 and D12 superseded), and M8-0 run 1 (`fe27690`, `1fc16f5`). Scope delta: M1-a widens to four `in` sites. M6-l gains its stored-`valid` residue (X-13), the no-live-sends constraint (X-14) and a home for the shared counter. M8 loses its preview leg, M8-0 becomes an agent read with run 1 done, and M8-a is bound to a verifying stop of the new code with a fixed log-line predicate. RK-6 and a Reading Order are added. Against the ask: 49 of 50 findings, unchanged. |
 | 2026-11-08T05:33 | 5 | planner (planner-hooks-015) | Folds D19 (rulings block 05:29Z, `fa693e0`: the verifying stop is devops' `prod.yml` re-run), critique cycle 1 pass 2 L-6 to L-9 (`3398fc0`), and architect AF-11 and AF-12 (`192ec29`). Scope delta: M8-a (2)'s cause moves from the owner's `pm2 reload` to a devops re-run, which is a second production deploy needing his approval. M8-0 run 2's reader is devops. Stop (1) is restated as a 12 s delay, not downtime. M1-a's route statement is corrected. D15 is brought current; X-15 carries the June–August gap. No criterion changes. Against the ask: 49 of 50 findings, unchanged. |
+| 2026-11-08T05:35 | R-2 | planner (planner-hooks-015) | Registered D20 from `steering/015-rulings.md` block "2026-11-08T05:33Z" (`d852da1`), plus a Planner batch row for the body text it releases. Scope delta: none, registration only. |
 
 ## Value Statement and Business Objective
 
@@ -78,6 +79,7 @@ message builder that sends through webhooks.
 | D17 | `claude-ro` reads on the generator host are standing: reads only, never a pm2 command, never a write. | 2026-11-08 | "Agent: standing reads" — selection relayed by steering-hooks-015, block 05:21Z (`42354bf`); the option text is steering's (agent-authored). | Owner withdrawal; the access removed. | M8-0 is an agent read. |
 | D18 | Root `dump.pm2` is read only through a host-side filter that prints name, `kill_timeout` and `shutdown_with_message` per app; env is never printed. `/home/nodejs/.pm2/dump.pm2` is never opened. | 2026-11-08 | "Agent: filtered extract only" — selection, block 05:24Z (`8d2d82f`); "You: remove the access" for the nodejs dump — selection, block 05:21Z. The option texts are steering's (agent-authored). | Owner withdrawal only. | M8-0's dump read. |
 | D19 | M8's verifying stop is caused by devops re-running `prod.yml` through `workflow_dispatch` after the prod push; that run is a second production deploy and needs his approval like any prod push; an agent reads the result over `claude-ro`. | 2026-11-08 | "Agent: re-run prod.yml" — selection relayed by steering-hooks-015, block 05:29Z (`fa693e0`); the option text is the planner's (agent-authored, rev-4 relay). | Owner withdrawal only. | M8-a (2), M8-0 run 2, M9. |
+| D20 | The Playwright constraint of D2 is lifted: chain-015 stages may use Playwright and browsers; installing or upgrading Playwright is not implied. | 2026-11-08 | "the researcher is done. playwright is now available" — his own words, relayed by steering-hooks-015, block 05:33Z (`d852da1`). | Owner withdrawal only. | Retires D2's constraint class. It releases the steering-go gates at § M8's verification paragraph (M8-c may run locally with a browser), § Testing Strategy (agent browser use) and RK-5's untested note. The body text is folded at the next planning pass (Planner batch). |
 
 ## Objective
 
@@ -540,4 +542,4 @@ is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, 
 
 | Item | Source row | Disposition |
 |---|---|---|
-| — | — | — |
+| D2's steering-go wording at § M8 (M8-c), § Testing Strategy and RK-5 is released by D20 | D20 | Fold at the next planning pass, or before the implementer starts M8, whichever comes first |
