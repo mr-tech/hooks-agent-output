@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-1e12837-qa-m4-control-page  sha: 1e12837  label: qa-m4-control-page  test: page.send-in-flight  mutator: none
+ .../src/utils/redis/index.ts                       |  20 ++-
+ 7 files changed, 24 insertions(+), 447 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-1e12837-qa-m4-control-page
+
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  07:25:21
+   Duration  1.82s (transform 248ms, setup 22ms, import 866ms, tests 188ms, environment 621ms)
+
+vitest exit 0

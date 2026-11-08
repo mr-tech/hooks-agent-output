@@ -1,0 +1,115 @@
+# website 1e12837, 2026-11-08T07:26Z, node v24.14.0
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/crprobe-1e12837
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > positive control > admin of A reads a message in 301 (a channel of A)
+PROBE 301 {"value":{"guildId":"100000000000000001","message":{"username":"x","content":"SECRET-301","embeds":[]},"droppedComponent messageCalls 1
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > positive control > admin of A reads a message in 303 (a channel of A)
+PROBE 303 {"value":{"guildId":"100000000000000001","message":{"username":"x","content":"SECRET-303","embeds":[]},"droppedComponent messageCalls 1
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 302
+PROBE 302 {"error":{"code":"NOT_FOUND","message":"Message not found. Is the bot in this guild?"}} messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 304
+PROBE 304 {"error":{"code":"NOT_FOUND","message":"Message not found. Is the bot in this guild?"}} messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 305
+PROBE 305 {"error":{"code":"NOT_FOUND","message":"Message not found. Is the bot in this guild?"}} messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 306
+PROBE 306 {"error":{"code":"NOT_FOUND","message":"Message not found. Is the bot in this guild?"}} messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 307
+PROBE 307 {"error":{"code":"NOT_FOUND","message":"Message not found. Is the bot in this guild?"}} messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 308
+PROBE 308 {"error":{"code":"NOT_FOUND","message":"Message not found. Is the bot in this guild?"}} messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 309
+PROBE 309 {"error":{"code":"FORBIDDEN","message":"Missing permissions. Make sure the bot has access to this channel in Discord."}} messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 310
+PROBE 310 {"error":{"code":"NOT_FOUND","message":"Channel does not exist."}} messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: the gate > non-admin (Manage Server only) of A is refused before any channel lookup
+PROBE member {"error":{"code":"FORBIDDEN","message":"User does not have permission to access to this server."}} apiCalls ["/guilds/100000000000000001"]
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: the gate > a link naming B (user is not admin of B) is refused
+PROBE B-link {"error":{"code":"FORBIDDEN","message":"User does not have permission to access to this server."}} apiCalls ["/guilds/200000000000000002"]
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: the gate > no session cookie is refused
+PROBE no-cookie {"error":{"code":"UNAUTHORIZED","message":"No session token provided."}}
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/100000000000000001/302/5"
+PROBE "https://discord.com/channels/100000000000000001/302/5" {"error":{"code":"NOT_FOUND","message":"Message not found. Is the bot in this guild?"}} messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/100000000000000001/301/5\n"
+PROBE "https://discord.com/channels/100000000000000001/301/5\n" {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Inva messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/100000000000000001/301/5/"
+PROBE "https://discord.com/channels/100000000000000001/301/5/" {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Inva messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com.evil.example/channels/100000000000000001/301/5"
+PROBE "https://discord.com.evil.example/channels/100000000000000001/301/5" {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Inva messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com@evil.example/channels/100000000000000001/301/5"
+PROBE "https://discord.com@evil.example/channels/100000000000000001/301/5" {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Inva messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://evil.example/https://discord.com/channels/100000000000000001/301/5"
+PROBE "https://evil.example/https://discord.com/channels/100000000000000001/301/5" {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Inva messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://DISCORD.com/channels/100000000000000001/301/5"
+PROBE "https://DISCORD.com/channels/100000000000000001/301/5" {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Inva messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/100000000000000001/１/5"
+PROBE "https://discord.com/channels/100000000000000001/１/5" {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Inva messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/0100000000000000001/301/5"
+PROBE "https://discord.com/channels/0100000000000000001/301/5" {"error":{"code":"NOT_FOUND","message":"The bot is not in this server."}} messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/100000000000000001/301/5?x=1"
+PROBE "https://discord.com/channels/100000000000000001/301/5?x=1" {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Inva messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/100000000000000001/301/5#x"
+PROBE "https://discord.com/channels/100000000000000001/301/5#x" {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Inva messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://media.discordapp.com/channels/100000000000000001/301/5"
+PROBE "https://media.discordapp.com/channels/100000000000000001/301/5" {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Inva messageCalls 0
+
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > positive control > admin of A reads a message in 301 (a channel of A) 6ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > positive control > admin of A reads a message in 303 (a channel of A) 1ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 302 2ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 304 1ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 305 1ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 306 1ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 307 1ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 308 1ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 309 1ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 310 1ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: the gate > non-admin (Manage Server only) of A is refused before any channel lookup 1ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: the gate > a link naming B (user is not admin of B) is refused 1ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: the gate > no session cookie is refused 0ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/100000000000000001/302/5" 0ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/100000000000000001/301/5\n" 6ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/100000000000000001/301/5/" 0ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com.evil.example/channels/100000000000000001/301/5" 0ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com@evil.example/channels/100000000000000001/301/5" 0ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://evil.example/https://discord.com/channels/100000000000000001/301/5" 0ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://DISCORD.com/channels/100000000000000001/301/5" 0ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/100000000000000001/１/5" 0ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/0100000000000000001/301/5" 1ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/100000000000000001/301/5?x=1" 0ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/100000000000000001/301/5#x" 0ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://media.discordapp.com/channels/100000000000000001/301/5" 0ms
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cache lock held for the channel key > a held channel mutex times out to a refusal, never content
+PROBE mutex {"error":{"code":"INTERNAL_SERVER_ERROR","message":"fetch timed out. key: channel-302"}} keysBefore ["channel:302-mutex","channel-302-mutex"] messageCalls 0
+
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cache lock held for the channel key > a held channel mutex times out to a refusal, never content 10002ms
+
+ Test Files  1 passed (1)
+      Tests  26 passed (26)
+   Start at  07:26:41
+   Duration  11.17s (transform 257ms, setup 0ms, import 1.01s, tests 10.03s, environment 0ms)
+
+# vitest exit 0

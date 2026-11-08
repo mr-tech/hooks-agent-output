@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-1e12837-qa-m4-control-provider  sha: 1e12837  label: qa-m4-control-provider  test: WebhookProvider.validation-effects  mutator: none
+ .../src/utils/redis/index.ts                       |  20 ++-
+ 7 files changed, 24 insertions(+), 447 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-1e12837-qa-m4-control-provider
+
+
+ Test Files  1 passed (1)
+      Tests  26 passed (26)
+   Start at  07:25:28
+   Duration  1.49s (transform 187ms, setup 23ms, import 645ms, tests 65ms, environment 633ms)
+
+vitest exit 0

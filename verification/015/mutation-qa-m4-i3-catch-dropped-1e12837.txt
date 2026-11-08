@@ -1,0 +1,36 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-1e12837-qa-m4-i3-catch-dropped  sha: 1e12837  label: qa-m4-i3-catch-dropped  test: page.send-in-flight  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m4-supplement.py
+ .../src/utils/redis/index.ts                       |  20 ++-
+ 8 files changed, 25 insertions(+), 448 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-1e12837-qa-m4-i3-catch-dropped
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 1 unhandled error during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+Error: Bad Request
+ ❯ src/app/message/m/[id]/send/__tests__/page.send-in-flight.test.tsx:111:44
+ ❯ Proxy.process.env.NODE_ENV.exports.act ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ src/app/message/m/[id]/send/__tests__/page.send-in-flight.test.tsx:111:11
+ ❯ ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/@vitest+runner@4.1.2/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11
+ ❯ ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/@vitest+runner@4.1.2/node_modules/@vitest/runner/dist/chunk-artifact.js:1893:26
+ ❯ ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/@vitest+runner@4.1.2/node_modules/@vitest/runner/dist/chunk-artifact.js:2316:20
+ ❯ runWithCancel ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/@vitest+runner@4.1.2/node_modules/@vitest/runner/dist/chunk-artifact.js:2313:10
+ ❯ ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/@vitest+runner@4.1.2/node_modules/@vitest/runner/dist/chunk-artifact.js:2295:20
+
+This error originated in "src/app/message/m/[id]/send/__tests__/page.send-in-flight.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "re-enables Send after a failed send, and the failure is not left unhandled". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+     Errors  1 error
+   Start at  07:25:37
+   Duration  1.81s (transform 277ms, setup 21ms, import 884ms, tests 162ms, environment 613ms)
+
+vitest exit 1

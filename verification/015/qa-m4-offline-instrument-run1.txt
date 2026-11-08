@@ -1,0 +1,9 @@
+# QA chain 015, rev 20 pass: B-11's instrument shown at minting (stage browser, real Chrome on the kept profile), 2026-11-08T07:27Z.
+# Code run through mcp__playwright__browser_run_code_unsafe:
+#   await page.goto('https://discord.com/robots.txt');
+#   probe = page.evaluate(fetch('/robots.txt', {cache:'no-store'}) -> 'status N' | 'reject <name>: <message>')
+#   online1 = probe(); page.context().setOffline(true); offline = probe(); page.context().setOffline(false); online2 = probe()
+# Result:
+{"online1":"status 200","offline":"reject TypeError: Failed to fetch","online2":"status 200"}
+# Reading: the context-offline switch makes a page fetch reject (TypeError "Failed to fetch") and is reversible;
+# the online probes before and after are the positive controls. Only GETs of discord.com/robots.txt were made.

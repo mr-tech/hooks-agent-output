@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-1e12837-qa-m4-provider-refused-shows-error  sha: 1e12837  label: qa-m4-provider-refused-shows-error  test: WebhookProvider.validation-effects  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m4-supplement.py
+ .../src/utils/redis/index.ts                       |  20 ++-
+ 8 files changed, 25 insertions(+), 448 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-1e12837-qa-m4-provider-refused-shows-error
+
+
+ Test Files  1 passed (1)
+      Tests  26 passed (26)
+   Start at  07:26:00
+   Duration  1.33s (transform 160ms, setup 21ms, import 553ms, tests 57ms, environment 581ms)
+
+vitest exit 0

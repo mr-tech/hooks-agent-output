@@ -1,0 +1,50 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-1e12837-qa-m4-i3-sending-conjunct-dropped  sha: 1e12837  label: qa-m4-i3-sending-conjunct-dropped  test: page.send-in-flight  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m4-supplement.py
+ .../src/utils/redis/index.ts                       |  20 ++-
+ 8 files changed, 24 insertions(+), 448 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-1e12837-qa-m4-i3-sending-conjunct-dropped
+
+ ❯ |dom| src/app/message/m/[id]/send/__tests__/page.send-in-flight.test.tsx (3 tests | 2 failed) 140ms
+     × posts once for three presses during one pending send, and is disabled meanwhile 79ms
+     × re-enables Send after a failed send, and the failure is not left unhandled 25ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/m/[id]/send/__tests__/page.send-in-flight.test.tsx > send page, Send button while a send is pending > posts once for three presses during one pending send, and is disabled meanwhile
+AssertionError: expected "vi.fn()" to be called 1 times, but got 3 times
+ ❯ src/app/message/m/[id]/send/__tests__/page.send-in-flight.test.tsx:96:25
+     94|     press(sendButton(el));
+     95|
+     96|     expect(sendWebhook).toHaveBeenCalledTimes(1);
+       |                         ^
+     97|     expect(sendButton(el).disabled).toBe(true);
+     98|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/send/__tests__/page.send-in-flight.test.tsx > send page, Send button while a send is pending > re-enables Send after a failed send, and the failure is not left unhandled
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/m/[id]/send/__tests__/page.send-in-flight.test.tsx:109:37
+    107|
+    108|     press(sendButton(el));
+    109|     expect(sendButton(el).disabled).toBe(true);
+       |                                     ^
+    110|
+    111|     await act(async () => { pending.reject(new Error('Bad Request')); …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 1 passed (3)
+   Start at  07:25:31
+   Duration  1.86s (transform 253ms, setup 22ms, import 863ms, tests 140ms, environment 700ms)
+
+vitest exit 1

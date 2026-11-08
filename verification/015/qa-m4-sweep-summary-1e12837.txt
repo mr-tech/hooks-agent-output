@@ -1,0 +1,15 @@
+control-page	 Tests 3 passed (3)	0	vitest exit 0
+control-router	 Tests 19 passed (19)	0	vitest exit 0
+control-provider	 Tests 26 passed (26)	0	vitest exit 0
+i3-sending-conjunct-dropped	 Tests 2 failed | 1 passed (3)	0	vitest exit 1
+i3-stuck-disabled	 Tests 3 failed (3)	0	vitest exit 1
+i3-catch-dropped	 Tests 3 passed (3)	1	vitest exit 1
+rider-null-passes	 Tests 19 passed (19)	0	vitest exit 0
+rider-loose-inequality	 Tests 19 passed (19)	0	vitest exit 0
+provider-404-text	 Tests 26 passed (26)	0	vitest exit 0
+provider-403-text	 Tests 26 passed (26)	0	vitest exit 0
+provider-401-text	 Tests 26 passed (26)	0	vitest exit 0
+provider-400-text	 Tests 26 passed (26)	0	vitest exit 0
+provider-other-status-text	 Tests 26 passed (26)	0	vitest exit 0
+provider-refused-shows-error	 Tests 26 passed (26)	0	vitest exit 0
+done
