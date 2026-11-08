@@ -87,6 +87,11 @@ RK-6 (the M8 wrong-stop class): revs 20 and 21 touch no M8 read; no new member a
 
 None for the owner at either pass. (Pass 1:) The CR-16 choice between the shared line and a field error is the planner's design call under D29; if the planner reads a field error as new UI beyond "copies the send page", that is the planner's own stop (planner.md, "a milestone-level scope delta (owner)"), not this gate's.
 
+## Process facts (lodged in the round)
+
+- Pass 2 delivery: a report of this critique's state was sent to steering-hooks-015 (msg `c553fff5`, 07:33Z) carrying no owner-needing item and no spawn cue, which the lifecycle skill's Delivering Your Report says is a message not to send; the error is the critic's, recorded here for the retrospective. The consuming-stage delivery to planner-hooks-015 (`538b731e`) is the handoff.
+- `node tools/check-repo.js` after the pass-2 commit: exit 1 on pre-existing LINKS (INBOX.md, TODO.md) and BASENAMES (012/013 probes) failures; none names a document this run wrote.
+
 ## Unresolved Open Questions
 
 None: `grep -c 'OPEN QUESTION'` = 8, `grep -c 'OPEN QUESTION \['` = 8, bold open = 0 (rev 20; rev 21 adds none — the diff carries no `OPEN QUESTION` line).
