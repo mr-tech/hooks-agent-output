@@ -164,3 +164,14 @@ shows "Stopping app ... id:0" with a SIGKILL at 2026-06-15T10:02:41, then the ne
 ## 2026-11-08T05:33Z — "the researcher is done. playwright is now available"
 His words, verbatim. This lifts the 04:37Z constraint: stages of chain 015 may use Playwright and browsers. The usual
 rules on shared-tree state still apply, so installing or upgrading Playwright is not implied.
+
+## 2026-11-08T05:50Z — implementation start recorded (planner.md Process step 6)
+Every pre-code gate has approved **plan revision 7** (38b12e6):
+- critic cycle 2 pass 2 APPROVED (1ce2ae4);
+- architect delta APPROVED (592eb23);
+- **QA Phase 1 at ba277d8** (Awaiting Implementation, approves the start).
+No OPEN QUESTION is open: `grep -c 'OPEN QUESTION:'` = 0, all are marked RESOLVED.
+Non-blocking items go to the planner: QAF-8 (MEDIUM, owed before the M8-0 run-2 script extension), QAF-9, AF-16 and L-C2-4.
+Trees: website and preview-image-generator are on chain/015-bug-evaluation-fixes at 7ce866b and 471578f, both clean.
+implementer-hooks-015 is spawned at M0. Before code on any milestone touching a user-visible surface, its flow questions
+come to the owner.
