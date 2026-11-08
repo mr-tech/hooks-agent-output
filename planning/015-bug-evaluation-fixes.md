@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: In Progress
-Status-Detail: "M0 and M1 delivered (M1 at website be881c9, in code review). Revision 10 registers D21 (OQ-I: fix both rejection windows) and restates M1-h to that property, on top of rev 9: M1's three planner asks, the re-derivation of M2–M9 (nothing held) and the folded run-2 rows. The critic, the architect and QA re-read the rev 9 + rev 10 delta in one round. M1-h reopens for the account-lookup window; it waits on that round."
-Revision: 10
+Status-Detail: "M0 and M1 delivered (M1 at website be881c9, in code review). Revision 11 folds D22 (sign-out clears both session keys on a lookup error), M1-h's decision table (QAF-12, M-C3-2), the run-2 span anchored on pm2.log stop times (QAF-13), and L-C3-2 and L-C3-3. The gates re-read that delta. M1-c and M1-h reopen and wait on that round; nothing else is held."
+Revision: 11
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
 Lane: "standard — agent-output/README.md carries no small-lane section (grep -i small, 0 hits, 2026-11-08); the blast radius spans the save schema, a bot command's permissions and a production PM2 service, none a leaf"
@@ -37,7 +37,8 @@ Owed re-verdicts:
 | M1-c clear-out cells; M1-d limit; M2 QAF-1 note; P3 idle cell; M8 E-1 and M8-c route | rev 6 | critic (new cycle), architect, qa | M1-d approved by all three. The rest drew findings (critic `39fb6b9`; architect `1be7e72`; QA `2e4d4d5`), folded at rev 7 |
 | M1-c no-account cell; M2 QAF-1 note; P3 pool read and run-2 read; M8 E-1 (loopback, self-check, install location); M8-c browser source and fallback | rev 7 | critic (cycle 2 pass 2), architect, qa | approved (critic `1ce2ae4`; architect `592eb23`; QA `ba277d8`), with AF-16, L-C2-4, QAF-8 and QAF-9 folded at rev 8 |
 | M1-c no-account cell and ordering anchor; the session row moved outside M1-c; M8-0 run-2 span and its pool-creation read | rev 8 | critic, architect, qa (delta only) | approved (critic `f64ae27`; architect `ca8da09`; QA `c2a657a`); QAF-10, M-C3-1 and L-C3-1 folded at rev 9 |
-| M1-c "no account found" class and lookup-error residue; M1-f premise and RK-7; M1-h restated to D21's property (rev 10); re-derivation after M1; M8-a run-2 span bounds and its read list; P3 instrument liveness; Validation sign-out note | rev 9, rev 10 | critic, architect, qa (one delta round over both) | open |
+| M1-c "no account found" class and lookup-error residue; M1-f premise and RK-7; M1-h restated to D21's property (rev 10); re-derivation after M1; M8-a run-2 span bounds and its read list; P3 instrument liveness; Validation sign-out note | rev 9, rev 10 | critic, architect, qa (one delta round over both) | approved (architect `a34ca86`, QA `45d2d91`, critic `da1c87c`); AF-17 (D22), QAF-12, QAF-13, M-C3-2, L-C3-2 and L-C3-3 folded at rev 11 |
+| M1-c lookup-error cell (D22); M1-h trigger "or returns" and decision table; M8-a run-2 span anchored on stop (1) and stop (2) timestamps; RK-7 reducing predicate; re-derivation reading of block 05:50Z | rev 11 | critic, architect, qa (delta only) | open |
 
 ## Changelog
 
@@ -60,6 +61,7 @@ Owed re-verdicts:
 | 2026-11-08T06:09 | qa | qa (qa-hooks-015) | Phase 2, M0 only, at website `037935d`: PASS (`qa/015-bug-evaluation-fixes-m0-qa.md`). The bot collection change discriminates in both directions, and path membership equals the base's 54. QAF-11 MEDIUM goes to the implementer: a wall-clock wait in `SectionEditor.auto-remove-dispatch` flaked 1 of 4 full runs. It is not caused by M0. Milestone-scoped, so plan Status is unmoved. |
 | 2026-11-08T06:23 | 9 | planner (planner-hooks-015) | Triggered by the M1 handoff (`implementation/015-bug-evaluation-fixes-m1-implementation.md`, `7f45611`; website `be881c9`), its Outstanding Items 1–3 and declared behaviour changes. It also folds the parked rows QAF-10 (`c2a657a`), M-C3-1 and L-C3-1 (`f64ae27`). This is the second revision since implementation approval, and it triggers one delta round per gate. OQ-I goes to the owner as a milestone-level scope delta on M1-h. Option (A) adds one more M1-h code-review round and one more QA Phase 2 run; option (B) adds none. Scope delta: in M1-c, the "no account found" class becomes `NoResultError` or a falsy return, with a lookup-error residue. M1-f's premise is corrected, and RK-7 is added. M1-h's criterion, which holds at the base, is restated pending OQ-I. A re-derivation paragraph covers M2–M9, and no milestone is marked stale. M8-a's run-2 span is bounded by ready lines only, with its reads listed. P3 gains instrument liveness. Against the ask: 49 of 50 findings, unchanged. |
 | 2026-11-08T06:26 | 10 | planner (planner-hooks-015) | Registers D21 from rulings block 06:25Z "OQ-I" (`33928c8`) and restates M1-h to its property. The criterion text moves, so this is a revision, not a registration. It is the third revision since implementation approval. It is a milestone-level scope delta on M1-h that the owner chose himself (D21): M1-h reopens for one change, one code-review round and one QA Phase 2 re-run. The gates read rev 9 and rev 10 in one delta round, not two. Scope delta: M1-h is restated as a property over the three promises `hydratedAuthCallback` starts, with four rejection inputs; OQ-I is closed. Against the ask: 49 of 50 findings, unchanged. |
+| 2026-11-08T06:31 | 11 | planner (planner-hooks-015) | Folds the three verdicts on revs 9 and 10 (architect `a34ca86` AF-17; QA `45d2d91` QAF-12, QAF-13; critic `da1c87c` M-C3-2, L-C3-2, L-C3-3) and registers D22 (rulings 06:29Z, `904ec0d`). It is the fourth revision since implementation approval, and it triggers one delta round per gate. M1-c reopens under D22, which the owner chose with its cost stated. M1-h's additions only complete D21, so they ride it. Scope delta: M1-c gains the lookup-error cell. M1-h's trigger becomes "awaits anything else or returns", and an eight-row decision table replaces the four inputs. The run-2 span is anchored on `pm2.log`'s stop timestamps with no positional bound; this is RK-6's fourth revision of that limb. RK-7 names QA's transitive scan as its predicate, and the re-derivation paragraph reads block 05:50Z instead of hedging. Against the ask: 49 of 50 findings, unchanged. |
 
 ## Value Statement and Business Objective
 
@@ -95,6 +97,7 @@ message builder that sends through webhooks.
 | D19 | M8's verifying stop is caused by devops re-running `prod.yml` through `workflow_dispatch` after the prod push; that run is a second production deploy and needs his approval like any prod push; an agent reads the result over `claude-ro`. | 2026-11-08 | "Agent: re-run prod.yml" — selection relayed by steering-hooks-015, block 05:29Z (`fa693e0`); the option text is the planner's (agent-authored, rev-4 relay). | Owner withdrawal only. | M8-a (2), M8-0 run 2, M9. |
 | D20 | The Playwright constraint of D2 is lifted: chain-015 stages may use Playwright and browsers; installing or upgrading Playwright is not implied. | 2026-11-08 | "the researcher is done. playwright is now available" — his own words, relayed by steering-hooks-015, block 05:33Z (`d852da1`). | Owner withdrawal only. | Retires D2's constraint class. It releases the steering-go gates at § M8's verification paragraph (M8-c may run locally with a browser), § Testing Strategy (agent browser use) and RK-5's untested note. The body text is folded at the next planning pass (Planner batch). |
 | D21 | M1-h closes both rejection-handler windows in `hydratedAuthCallback`: during the guild fetch and during the account lookup. The implementer makes the further change; code review and QA re-check M1-h once. | 2026-11-08 | "Agent: fix both windows" — selection relayed by steering-hooks-015, rulings block 06:25Z "OQ-I" (`33928c8`). The option text is the planner's (agent-authored, rev 9 relay). The probe premise behind it is `verification/015/m1h-rejection-window-probe-run1.txt`, which steering read. | Owner withdrawal only. | M1-h's property (§ M1-h). OQ-I is closed. |
+| D22 | M1-c is fixed in this chain: sign-out always clears both cached session entries (`user-access-token`, `user-session-token`), a database error included, and the error still reaches the caller. Residue: `user-guilds` (600 s), the revoke and the `Accounts` update on that path. | 2026-11-08 | "Agent: fix it in this chain" — selection relayed by steering-hooks-015, rulings block 06:29Z "AF-17 sign-out gap" (`904ec0d`). The option text is steering's (agent-authored), built from the planner's proposal. | Owner withdrawal only. | M1-c's lookup-error cell. M1-c reopens for one change, one code-review round and one QA Phase 2 re-run. |
 
 ## Objective
 
@@ -156,8 +159,9 @@ together, so the gate's population is empty; a milestone the owner withholds fro
 the source: sign-out revokes the Discord token; the 1001st new message is refused; a bad signature with
 malformed JSON gets 401; a cached `null` is a hit for 600 s; the client env guard refuses server keys. Steering
 recorded implementation start for the plan as a whole (rulings block 05:50Z, `7efd8b0`), so no milestone is
-marked `PREMISE-STALE`. In case that record carries no owner approval covering M2–M9, this paragraph is their
-re-argument. M2–M7 touch the editor, the save schema, the send page and the bot. None of them reads sign-out,
+marked `PREMISE-STALE`. Read 2026-11-08 (critic L-C3-3): that block records the gates' approvals of rev 7 and
+the implementer's start at M0, and no owner approval of M2–M9. M2–M9 had not begun, so they are in the gate's
+population. This paragraph is their re-argument, reviewed with rev 9. M2–M7 touch the editor, the save schema, the send page and the bot. None of them reads sign-out,
 the cap, the signature path, the account cache or a server env key from the client. So each still does what M1
 does not, and none of its premises moves. M8 is another repository. M9 and § Validation gain one consequence:
 any walk that signs out revokes that account's Discord token and must sign in again (QA I-2).
@@ -199,7 +203,8 @@ any walk that signs out revokes that account's Discord token and must sign in ag
   - **Clear-out (QA QAF-3).** The DB and Redis clear-out runs for every session in the class:
     - token present, with the revoke answering 2xx, answering non-2xx, or rejecting (a network failure);
     - token absent;
-    - no account found.
+    - no account found;
+    - the lookup failing with any other error, for which the Redis limb only applies (D22, below).
   - **The no-account cell (critic L-C2-1, architect AF-15, QA QAF-7).** `clearUser` (`src/utils/redis/index.ts`)
     deletes three keys, and the third, `user-guilds`, is keyed on the account's `providerAccountId`. The
     `Accounts` update is keyed on it too. So with no account found, `removeUserSession` deletes exactly the
@@ -215,9 +220,20 @@ any walk that signs out revokes that account's Discord token and must sign in ag
     row never reaches `removeUserSession`'s `Expected to find account` throw. `fetchUserAccount`'s loader runs
     `executeTakeFirstOrThrow()` (`src/utils/redis/index.ts`), so it raises Kysely's `NoResultError` (read by the
     planner at `7ce866b`). The no-account cell covers both members of the class: `NoResultError` from the lookup,
-    and a falsy return. Residue (stated limit): any other lookup error, such as Postgres unreachable, still
-    propagates. `removeUserSession` then clears no Redis key, although next-auth has already deleted the session
-    row.
+    and a falsy return.
+  - **A lookup error (D22; architect AF-17).** Any other lookup error, such as Postgres unreachable, still
+    reaches the caller. Before it does, `removeUserSession` deletes both keys addressable from its own
+    arguments: `user-access-token:<userDbId>` and `user-session-token:<sessionToken>`.
+    - **Why.** `user-session-token` is `fetchAccountFromSession`'s 600 s session→account cache, holding
+      `access_token`. `authorizeGuildAdmin.ts` trusts it without re-reading `Sessions` (read at `be881c9` by the
+      planner, the architect and steering). Left in place, a signed-out cookie would pass the guild-admin check
+      for up to 600 s.
+    - **At the base.** At `7ce866b`, any lookup error also aborted before the clear-out: `fetchUserAccount` throws
+      before `clearUser` is reached in `removeUserSession` (planner's read).
+    - **Residue (stated limit).** On this path, `user-guilds` (600 s TTL), the `Accounts` update and the revoke
+      cannot be addressed without the account.
+    - **Literal outcome for the input "the lookup rejects with an error other than `NoResultError`":** both keys
+      are deleted, and then the caller receives that rejection.
   - **Ordering.** A failed revoke never prevents sign-out. The access token is read before the `Accounts`
     update sets `access_token` to null. At `7ce866b`, a rejected `fetch` aborts before the clear-out.
 - **M1-d (F-4, D5)** — the inputs are {existing message, new message} × {count < 1000, count = 1000} ×
@@ -249,15 +265,31 @@ any walk that signs out revokes that account's Discord token and must sign in ag
     handler attached afterwards, raised `unhandledRejection` on Node v24.14.0
     (`verification/015/m1h-rejection-window-probe.mjs`; capture `m1h-rejection-window-probe-run1.txt`,
     2026-11-08T06:22Z).
-  - **Property (D21: "fix both windows").** Every promise `hydratedAuthCallback` starts has a rejection handler
-    attached before the function next awaits anything else.
-    - **The class, enumerated at `be881c9`:** the message fetch (`getUserRecentMessages`), the account lookup
-      (`redis.fetchUserAccount`) and the guild fetch (`redis.fetchUserGuilds`). It is enumerated from the
-      function's own calls, not by a grep for one variable name.
-    - **Inputs:** the message fetch rejecting while the account lookup is pending; it rejecting while the guild
-      fetch is pending; the account lookup rejecting; the guild fetch rejecting.
-    - **Outcome for each input:** no `unhandledRejection` is emitted, and the rejection reaches
-      `hydratedAuthCallback`'s caller, as it does at `7ce866b`.
+  - **Property (D21: "fix both windows"; critic M-C3-2, QA QAF-12).** Every promise `hydratedAuthCallback`
+    starts has a rejection handler attached before the function next awaits anything else **or returns**. So no
+    exit path leaves a started promise unhandled, and a rejection that settles after the function has returned
+    emits no `unhandledRejection`.
+    - **The class, enumerated at `be881c9`:** the message fetch (M, `getUserRecentMessages`), the account lookup
+      (A, `redis.fetchUserAccount`) and the guild fetch (G, `redis.fetchUserGuilds`). G is started only when A
+      yields an account with an access token. The class is enumerated from the function's own calls, not by a grep
+      for one variable name.
+    - **Decision table.** Every combination of how A ends, how M ends and when, and how G ends maps to what the
+      caller receives. In every row, 0 `unhandledRejection` events are emitted over the run, including after the
+      function returns. The rows are the criterion; the prose above reads them.
+
+      | A | M | G | Caller receives |
+      |---|---|---|---|
+      | rejects | resolves, or rejects before or after A | not started | A's rejection |
+      | resolves falsy (no account) | resolves, or rejects before or after A | not started | `{}` |
+      | account, no access token | resolves | not started | the session |
+      | account, no access token | rejects, at any time | not started | M's rejection |
+      | account with token | resolves | resolves | the session |
+      | account with token | rejects during A or during G | resolves | M's rejection |
+      | account with token | resolves | rejects | G's rejection |
+      | account with token | rejects | rejects | the first of the two to settle (`Promise.all`) |
+
+      Rows 1 and 2 with M rejecting after A are the paths where the function leaves without awaiting M (QAF-12
+      (a) and (b); M-C3-2). A catch-and-rethrow around A alone passes the other rows and fails these two.
     - **Reopening and cost.** M1-h reopens to close the account-lookup window: one further change in
       `hydratedAuthCallback`, one code-review round and one QA Phase 2 re-run for M1-h.
 - **M1-i (F-9)** — the cookie parser returns a value for every well-formed segment, keeps every `=` after the
@@ -494,14 +526,19 @@ Host facts (steering's standing `hooks-pig` reads, rulings blocks 05:20Z–05:24
       - This re-run is itself a second production deploy. Its `startOrReload` stops the *new* process, which
         handles the message, so the drain runs and the gap is the drain time (P3).
       - The architect's reading of stop (1)'s deployed-directory replacement carries over (AF-9d, low bearing).
-      **Every run-2 read** (RK-6's class; QA QAF-8, QAF-10; critic M-C3-1) is bounded to the stopped process's
-      own span in the shared out log. The span is fixed only by events independent of every quantity counted
-      inside it:
-      - **Start:** the stopped process's `Server running at` line, the last ready line before the re-run's.
-      - **End:** the ready line of the process the re-run started.
-      - **Anchor:** the span must contain `pm2.log`'s timestamp for stop (2); the read reports any disagreement.
-      - **Restarts:** any extra ready line inside the span (`exp_backoff_restart_delay`, `max_restarts: 10` in
-        `ecosystem.config.js`) is reported, and the read stops there. It never picks one.
+      **Every run-2 read** (RK-6's class; QA QAF-8, QAF-10, QAF-13; critic M-C3-1) is bounded to the stopped
+      process's own span in the shared out log. The span is fixed only by `pm2.log`'s stop timestamps, which are
+      independent of every quantity counted inside it and of the order of lines in the out log. Each out-log line
+      carries an ISO timestamp, because `server.ts` overrides `console.debug` to prefix `new Date()` (`471578f`;
+      run 1's capture shows `2024-06-15T11:56:00.002Z Server running at …`).
+      - **Start:** the first `Server running at` line timestamped after `pm2.log`'s stop (1) timestamp. That is
+        the process the push started.
+      - **End:** the first `Server running at` line timestamped after `pm2.log`'s stop (2) timestamp. That is the
+        process the re-run started.
+      - **Restarts:** every ready line strictly between Start and End is a crash-restart (`exp_backoff_restart_delay`,
+        `max_restarts: 10` in `ecosystem.config.js`). Each one is reported, and the read stops there; it never
+        picks one.
+      - **No span:** a missing Start or End is reported as no span, never filled from another stop.
       The reads this span bounds are every read run 2 takes: the `Server received` count, the drain-complete line
       and its elapsed figure, the `Created instance` count, the `POST /generate` count, and the exit time against
       the stop timestamp. A span with zero `Server received` lines is a valid read and refutes P1.
@@ -644,11 +681,20 @@ can run the M8-b/d/e probes once the generator's dependencies are installed (M8 
       member again. Rev 8's span ended at the `Server received` line it counted, so the count could not fail,
       and with no drain there was no span. Remedied at rev 9 by bounding the span only by ready lines and stop
       (2)'s `pm2.log` timestamp, and enumerating the reads it bounds.
+    - QA's rev 9+10 delta (`45d2d91`, QAF-13) found the same member's last instance shape. Start was "the last
+      ready line before the re-run's", a positional bound, so a crash-restart between push and re-run would
+      silently move it. Remedied at rev 11 by bounding both ends only by `pm2.log`'s stop (1) and stop (2)
+      timestamps. This is the fourth revision of this limb. The property now uses no positional "last" bound
+      anywhere.
+    - Critique cycle 3 pass 2 (`da1c87c`) found none.
 - **RK-7** — M1-f makes the client env guard refuse server keys for the first time (M1 Outstanding Item 3). A
   client-reachable read of a non-`NEXT_PUBLIC_` key, other than `NODE_ENV`, now throws in the browser.
   - The sweep at `be881c9` found two client-reachable importers of `env.mjs`, `constants/index.ts` and
-    `usePusher.ts`, and both read `NEXT_PUBLIC_` keys only. The implementer ran
+    `usePusher.ts`, and both read `NEXT_PUBLIC_` keys only. The implementer located them with
     `grep -rl "env.mjs" src bot` and read both files.
+  - **The reducing predicate (critic L-C3-2).** The grep does not decide client reach. That predicate is QA's
+    transitive scan: value imports followed from 80 client roots reach no module that reads a server key at
+    `be881c9`, and three planted controls fire (`verification/015/qa-rk7-client-reach-run.sh`, QA `45d2d91`).
   - Falsifier: a page that throws on load with the guard's refusal. The editor walks (B-2 to B-5) load the
     client and would show it before release.
 
@@ -706,8 +752,8 @@ is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, 
 
 ## Resumption State (checkpoint, planner-hooks-015)
 
-- **Done.** Plan at revision 9. Rev 8 passed all three gates (critic `f64ae27`, architect `ca8da09`, QA `c2a657a`). Rev 9 answers the M1 handoff (`7f45611`, website `be881c9`) and folds the parked run-2 rows. Registrations so far: R-1 (D14, D15), R-2 (D20), R-3 and R-4 (parked rows, now discharged). F-31 analysis: `analysis/015-bug-evaluation-fixes-analysis.md` (latest `1fc16f5`). M8-0 run 1 is captured at `verification/015/m8-0-run1-2026-11-08T0525Z.txt`, together with the script, at `fe27690`.
-- **Next.** Steering routes the rev 9 + rev 10 delta to the critic, the architect and QA in one round. Nothing holds M2 onward. M1-h reopens under D21 once that round passes. Fold any findings at the next planning pass. After implementation approval, findings that change no code, test or pre-release verifier are parked as Planner batch rows.
+- **Done.** Plan at revision 11. Revs 9 and 10 passed all three gates with findings (architect `a34ca86`, QA `45d2d91`, critic `da1c87c`), folded at rev 11 with D22. Registrations so far: R-1 (D14, D15), R-2 (D20), R-3 and R-4. D21 and D22 were registered inside revs 10 and 11. F-31 analysis: `analysis/015-bug-evaluation-fixes-analysis.md` (latest `1fc16f5`). M8-0 run 1 is captured at `verification/015/m8-0-run1-2026-11-08T0525Z.txt`.
+- **Next.** Steering routes rev 11's delta to the critic, the architect and QA. M1-c and M1-h reopen once it passes. Nothing else is held. Fold any findings at the next planning pass. After implementation approval, findings that change no code, test or pre-release verifier are parked as Planner batch rows.
 - **Open with others.** None of the planner's questions to the owner are pending (OQ-I answered: D21). The 69-day generator gap (X-15) went to him through steering as an FYI only.
 - **Uncommitted, left in place.** `INBOX.md` holds this session's FYI entry: the research document's `pm2 show` advice. Per the inbox rule, the domain owner commits it.
 - **Branches.** website and preview-image-generator: chain branches are created by steering. The planner touches no source.
