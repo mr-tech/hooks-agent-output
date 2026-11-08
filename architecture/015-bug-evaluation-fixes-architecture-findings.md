@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Conformance pass on plan rev 3 (800ca67): APPROVED_WITH_CHANGES. AF-1 and AF-2 are required plan changes; AF-3 and AF-4 are recommended. No necessary deviation, so nothing goes to the owner from this pass. A later revision is read on its delta."
+Status-Detail: "Delta pass on plan rev 4 (f19e688): APPROVED. AF-1 to AF-4 are folded. AF-11 (a restatement of the transition-stop limit) is recommended and does not block. No necessary deviation, so nothing goes to the owner. A later revision is read on its delta."
 ---
 
 # Architecture Findings — Plan 015: Bug-evaluation fixes (conformance pass)
@@ -14,6 +14,42 @@ Status-Detail: "Conformance pass on plan rev 3 (800ca67): APPROVED_WITH_CHANGES.
 |---|---|---|
 | 2026-11-08T05:15 | Conformance pass, plan rev 3 (agent-output `800ca67`), briefed by steering-hooks-015 | Every concrete form the plan writes was read against website `7ce866b` and preview-image-generator `471578f`, which are the chain branches' current HEADs. Result: two required changes (AF-1, AF-2), two recommended (AF-3, AF-4), and four conforming forms recorded (AF-5 to AF-8). Two Problem Areas registered: AF-9, and the master-document correction in AF-10. `system-architecture.md` § preview-image-generator was corrected to the read mechanism. The P-3 wording was proposed, not landed. **APPROVED_WITH_CHANGES.** Process disclosure: this run changed the master document's `Last Updated` header with an in-place `sed -i`, not with `record-edit.js` or the edit tools, which breaks the record-writing rule. The diff was read afterwards (7 insertions, 2 deletions), and that change is the only one outside the `record-edit.js` edits. |
 | 2026-11-08T05:18 | P-3 put to the owner (role-internal selection prompt) | He selected "Agent: record intended". `preview-image-generator.md` P-3 was rewritten in place to the build-and-copy route, with his prompt quoted verbatim, which closes AF-10's second limb. |
+| 2026-11-08T05:29 | Delta pass, plan rev 4 (`f19e688`), on planner-hooks-015's request to read M8-a (1) against AF-9d | AF-1 to AF-4 are discharged as folded. AF-11 (LOW): the transition stop's stated limit gets the outage window wrong. AF-12 (INFO): the route M1-a gives for the two latent sites is wrong, though its conclusion holds. AF-9d's bearing on stop (1) was assessed as low. **APPROVED.** |
+
+## Verdict (rev 4, `f19e688`): APPROVED
+
+This pass read only the delta from rev 3. The four rev-3 findings are folded as asked:
+
+- AF-1 as M6-l (iv) and X-13;
+- AF-2 as M1-a's four-site class;
+- AF-3 as P1's log-line limb;
+- AF-4 as the `limits.tsx` and `config.ts` destinations.
+
+AF-11 is recommended and does not block. AF-12 is recorded.
+
+### AF-11 LOW — The transition stop's stated limit gets the outage window wrong
+
+M8-a (1) says *"the production generator is down for about 12 s at the push"*. The mechanism, read at `471578f` and in analysis V-1 and V-3, gives a different window:
+
+- **For up to 12 s the old process keeps serving.** PM2 sends the `'shutdown'` IPC message. The old code has no `'message'` listener, so the message does nothing. `shutdown()` never runs, and the server stays listening on its port with the old code until the SIGKILL at the new `kill_timeout` of 12000 ms. Previews requested in that span are generated normally.
+- **The broken-preview window is smaller.** It covers:
+  - requests in flight at the SIGKILL, which are killed with Chromium;
+  - the gap from the kill to the new process's `listen`. Fork-mode reload is stop-then-start (V-1), so the new process cannot bind the port earlier.
+  That window is X-11's window. The cost the deploy actually adds is the 12 s **delay** before the cut-over, not 12 s of downtime.
+
+**Recommended to the planner:** restate the limit as above. M8-a's criterion reads stop (2) only, so it does not change.
+
+**AF-9d's bearing on stop (1), which the planner asked about: low.** During those 12 s the old process runs out of a working directory that `deploy.sh` has already deleted and re-copied. Its working directory is the deleted inode, while its `require` paths are absolute and resolve into the new copy. Three facts make that harmless at this deploy:
+
+1. **No relative paths.** `grep` at `471578f` finds no relative-path filesystem use in `generateImage.ts` or `getPool.ts`.
+2. **Same dependencies.** The plan's lockfile rule means the new copy holds byte-identical dependencies, so a lazy `require` loads the same code.
+3. **Browser outside the tree.** No `.puppeteerrc` is tracked, so the browser resolves to puppeteer's default cache outside `deployed/` (**unread on the host**).
+
+The one sharp edge is the seconds between `rm -rf` and the end of `cp`. A lazy load in that span would throw, but only inside a request the old process was serving, before the stop. That leaves AF-9d as a registered Problem Area (Low), not a limit this chain must state.
+
+### AF-12 INFO — M1-a's route premise for the latent sites is wrong; its conclusion holds
+
+M1-a says the latent sites' *"only route is `message.ts` `authorizeAction`"*. That is not so: `message.ts` also calls `authorizeUser` and `authorizeGuildUser` directly, with `message.id` (a scalar) or with nothing. No caller passes an array, so no empty list reaches either site at `7ce866b`, and the latency claim stands. Recorded here, not put for a revision: the class covers all four sites, so the criterion is unaffected.
 
 ## Verdict (rev 3): APPROVED_WITH_CHANGES
 
