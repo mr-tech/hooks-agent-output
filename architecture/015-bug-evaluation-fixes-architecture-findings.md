@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Delta pass on plan revs 14–16 (565e240): APPROVED. AF-18 (M1-c rebuild) and AF-19 (M4-d takes the id from the shared constant's group) are recommended and do not block. A later revision is read on its delta."
+Status-Detail: "Delta pass on plan revs 17–18 (67cb5e7): APPROVED. AF-18 (M1-c rebuild) and AF-20 (fetchChannel's type and refusal cells) are recommended and do not block; AF-19 is folded. A later revision is read on its delta."
 ---
 
 # Architecture Findings — Plan 015: Bug-evaluation fixes (conformance pass)
@@ -23,6 +23,31 @@ Status-Detail: "Delta pass on plan revs 14–16 (565e240): APPROVED. AF-18 (M1-c
 | 2026-11-08T06:32 | Delta pass, plan rev 11 (`14fe94f`, read from rev 10 `bceb84a`), on steering-hooks-015's request | AF-17 is discharged by D22 and M1-c's lookup-error cell: both session-scoped keys are deleted before the rejection reaches the caller, and the residue is limited to `user-guilds`, the `Accounts` update and the revoke. M1-h's eight-row decision table, with its "or returns" trigger, conforms. The run-2 span is now anchored on `pm2.log`'s stop timestamps and checked against the out log's ISO stamps. Run 1's capture shows the two clocks agree: `pm2.log` 2023-08-22T01:57:43 `online` and out log `2023-08-22T01:57:43.367Z Server running at` are the same event, so no time-zone offset separates them. RK-7's reducing predicate and the re-derivation reading conform. No findings. **APPROVED.** |
 | 2026-11-08T06:42 | Delta pass, plan rev 12 + rev 13 (`9cbe755`, read from `14fe94f`, one pass on steering-hooks-015's instruction; D23's assumption not re-read) | Every limb conforms. AF-18 LOW is recommended for the M1-c rebuild: read the `Accounts` row directly in `removeUserSession` and retire `fetchUserAccount`'s now-callerless `skipUpdate` mode, which is CR-3's root, one cache key with two meanings. Two Problem Areas registered. **APPROVED.** |
 | 2026-11-08T06:54 | Delta pass, plan revs 14–16 (`565e240`, read from `9cbe755`, one pass on steering-hooks-015's instruction; D23's assumption not re-read) | Every limb conforms. D26's single widening of `DISCORD_MESSAGE_LINK_REGEX` follows A-3's one-definition pattern, and its consumer list matches `git grep` at `6001f7f`. AF-19 LOW is recommended: M4-d takes the id from the constant's capture group, as `getFromUrl` does, not from `split('/').pop()`. **APPROVED.** |
+| 2026-11-08T07:03 | Delta pass, plan revs 17–18 (`67cb5e7`, read from `565e240`, one pass on steering-hooks-015's instruction) | Every limb conforms. The CR-12 rider's `fetchChannel` is the right primitive: the guild channel list misses archived threads. No sibling exists under D28, since every other bot-token call is guild-scoped. AF-20 LOW is recommended: correct `fetchChannel`'s `request<Guild>` generic, and give each mapped refusal status a cell. Landed `website.md` A-5. **APPROVED.** |
+
+## Verdict (revs 17–18, `67cb5e7`, one pass from rev 16 `565e240`): APPROVED
+
+These limbs conform:
+
+- M4-d over F-27's two predicate sites, enumerated by the defect's own predicate (D28);
+- trimming, the refused-input display and the guild/channel/message groups;
+- the id taken from the constant's group (AF-19);
+- the CR-12 rider (D27).
+
+AF-20 is recommended and does not block.
+
+**The rider's design is the right primitive, and it has no siblings.**
+
+- **Siblings.** I read every bot-token Discord call at `6001f7f` (`git grep -n "getApi()"` over `src`). Each is guild-scoped and keyed on the authorised guild: `fetchGuild`, the guild channel and active-thread lists, and the guild webhooks. Each is bound by construction. `cron.ts` posts to stored webhook URLs. `getFromUrl` is the only channel-scoped read of a user-supplied id, so D28 adds no sibling.
+- **Why `fetchChannel` and not the guild's channel list.** The alternative is a membership test against the cached guild channel list that `fetchGuildChannels` builds. That list carries only *active* threads, so it would wrongly refuse a link into an archived thread. `GET /channels/<id>` returns `guild_id` for every channel kind, threads included, so `fetchChannel` is the right primitive for this check.
+
+### AF-20 LOW — `fetchChannel` is typed as `Guild`. Fix the type in the rider, and test its refusal mapping on first use
+
+`src/utils/redis/index.ts` `fetchChannel` is exported but has no caller at `6001f7f`. It calls `getApi().request<Guild>('GET', `/channels/${channelId}`)`. A channel object has `guild_id`, and the `Guild` type does not. So the rider must either cast or correct the type. The conforming form is to correct the generic to the channel type the module already uses (`Channel`, as in the guild-channel fetch beside it), not a cast at the call site.
+
+Because the function has never run in production, its 401, 403 and 404 mappings and its 10 s cache are untested. The rider's third input class, "the channel's lookup is refused or fails", should have one cell per mapped status, so the refusal texts the plan relies on are exercised rather than assumed.
+
+**Landed in `website.md` as A-5 (agent-designed):** bot-token reads of user-supplied Discord ids are bound to the authorised guild.
 
 ## Verdict (revs 14–16, `565e240`, one pass from rev 13 `9cbe755`): APPROVED
 

@@ -226,6 +226,18 @@ Two consequences a reader cannot derive from the tree:
 
 **Consequence a change must carry**: a change to `validateMessage`'s refusal set changes stored `valid` only for rows saved afterwards. The backfill re-derives `valid IS NULL` rows only, and the public v1 API serves the stored value. A predicate change therefore states its residue for already-stored rows (plan 015 AF-1).
 
+### A-5 — A bot-token read of a user-supplied Discord id is bound to the authorised guild
+
+**Grade**: agent-designed. This is a pattern read from code at `6001f7f` and set by plan 015 D27; it is not his intent. Re-verify it against the code.
+
+**Mechanism.** The server calls Discord with the bot token (`getApi()`). The bot can see servers the caller does not manage, so a read keyed on an id the caller supplied must be bound to the guild that passed `authorizeGuildAdmin`.
+
+- **Guild-scoped endpoints** (`/guilds/<guildId>/…`: `fetchGuild`, the guild channel and active-thread lists, the guild webhooks) are bound by construction, because the path carries the authorised id.
+- **A channel-scoped read** (`/channels/<channelId>/…`) is bound by reading the channel's `guild_id` through `redis.fetchChannel` (`src/utils/redis/index.ts`) and comparing it before anything is returned.
+- The guild channel list does not serve this purpose, because it carries only active threads.
+
+**Consequence a change must carry**: a new channel-, thread- or message-scoped bot read of user input adds this binding. Plan 015's CR-12 was the one unbound instance (`message.getFromUrl`).
+
 ---
 
 ## Addendum changelog
@@ -236,3 +248,4 @@ Two consequences a reader cannot derive from the tree:
 | 2026-09-08 | 2 | `P-1` corrected on the owner's own account of the code, his words: *"it's my edit of agent copy (agent's was the previous effort)"*. Superseded wording claimed the notice string was his authorship rather than his edit of an agent's. Consequence 1 stands. Consequence 2 stands and is now stated from `2d90e8a`'s diff. |
 | 2026-09-08 | 3 | steering-S038 | P-1 folded into the recovered-rationale section under the owner's 2026-09-08 placement rule (annotated lines only); its claim framing removed, substance unchanged. |
 | 2026-11-08T05:17 | 4 | architect-hooks-015 | Added `A-4` (agent-designed) from the plan 015 conformance pass: where message validity, its counters and its bounds live. |
+| 2026-11-08T07:03 | 5 | architect-hooks-015 | Added `A-5` (agent-designed) from the plan 015 rev 17–18 conformance pass: binding bot-token reads to the authorised guild. |
