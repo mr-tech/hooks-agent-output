@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Delta pass on plan rev 19 (330348f): APPROVED, no findings. AF-19 and AF-20 are folded; AF-20's type limb is with the implementer as CR-13. AF-18 (M1-c rebuild) is still recommended. A later revision is read on its delta."
+Status-Detail: "Delta pass on plan rev 20 (e118cc3): APPROVED, no plan change. AF-21 (the 'Invalid URL' copy drift and the unused language catalogue) is registered as a Problem Area. AF-18 (M1-c rebuild) is still recommended. A later revision is read on its delta."
 ---
 
 # Architecture Findings — Plan 015: Bug-evaluation fixes (conformance pass)
@@ -25,6 +25,7 @@ Status-Detail: "Delta pass on plan rev 19 (330348f): APPROVED, no findings. AF-1
 | 2026-11-08T06:54 | Delta pass, plan revs 14–16 (`565e240`, read from `9cbe755`, one pass on steering-hooks-015's instruction; D23's assumption not re-read) | Every limb conforms. D26's single widening of `DISCORD_MESSAGE_LINK_REGEX` follows A-3's one-definition pattern, and its consumer list matches `git grep` at `6001f7f`. AF-19 LOW is recommended: M4-d takes the id from the constant's capture group, as `getFromUrl` does, not from `split('/').pop()`. **APPROVED.** |
 | 2026-11-08T07:03 | Delta pass, plan revs 17–18 (`67cb5e7`, read from `565e240`, one pass on steering-hooks-015's instruction) | Every limb conforms. The CR-12 rider's `fetchChannel` is the right primitive: the guild channel list misses archived threads. No sibling exists under D28, since every other bot-token call is guild-scoped. AF-20 LOW is recommended: correct `fetchChannel`'s `request<Guild>` generic, and give each mapped refusal status a cell. Landed `website.md` A-5. **APPROVED.** |
 | 2026-11-08T07:06 | Delta pass, plan rev 19 (`330348f`, read from `67cb5e7`), on steering-hooks-015's request | The CR-12 rider conforms. Belonging is now `guild_id` equality over the field's whole domain, so a DM or group-DM channel without `guild_id` is refused. The listed refusal texts match `fetchChannel` at `6001f7f`: 401/403 "Missing permissions…", 404 "Channel does not exist.", and any other status "An unknown error occurred…". AF-20's refusal-cell limb is folded; its type limb went to the implementer as code review CR-13. No findings. **APPROVED.** |
+| 2026-11-08T07:25 | Delta pass, plan rev 20 (`e118cc3`, read from `330348f`), on steering-hooks-015's request | D29's webhook-load limb conforms. It copies the literal "Invalid URL" into the New Message dialog, which follows the current pattern: inline error literals, with no shared definition. A `git grep` at `1e12837` finds the string at 8 non-test sites in two spellings, `Invalid URL` (3) and `Invalid URL.` (4 plus the router), and an `invalidUrl` key in `src/lang/generated/*.json` that nothing outside `src/lang` consumes. Centralising it would be a preferable deviation, so under the standing default the plan follows the current pattern. AF-21 INFO is registered as a Problem Area. No plan change. **APPROVED.** |
 
 ## Verdict (revs 17–18, `67cb5e7`, one pass from rev 16 `565e240`): APPROVED
 
