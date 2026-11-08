@@ -1,0 +1,71 @@
+##### fx1 (H substitutions applied: 1)
+[6] per-process span reads for hooks-image-preview-generator-prod (stop pairs from <fixture>/fx1/pm2.log; lines from <fixture>/fx1/logs/hooks-image-preview-generator-prod-out.log):
+  prod stops in pm2.log (line stamp): 4
+    1 2024-01-01T00:00:00
+    4 2024-02-01T00:00:00
+    6 2024-03-01T00:00:00
+    8 2024-04-01T00:00:00
+  timestamped ready lines in out log: 4
+  untimestamped ready lines in out log (not placeable): 1
+  -- span 1: process stopped by stop B=2024-02-01T00:00:00 (pm2.log line 4); started after stop A=2024-01-01T00:00:00
+     Start: out line 2 at 2024-01-01T00:00:10.000Z   End: out line 10 at 2024-02-01T00:00:04.000Z
+     timestamped lines in span: 7   last stamp in span: 2024-02-01T00:00:01.234Z
+     Server received (message begins with): 1   [any line containing it: 1]
+     Drain complete lines: 1
+       2024-02-01T00:00:01.234Z Drain complete in 734ms.
+     Drain failed lines: 0
+     Created instance (PRIMARY pool figure): 1
+     POST /generate (SECONDARY; includes unauthenticated): 1
+     untimestamped lines between Start and End lines (not counted above): 1, of which matching a figure word: 1
+     pm2.log exit line after stop B: 5: 2024-02-01T00:00:03: PM2 log: App [hooks-image-preview-generator-prod:0] exited with code [0] via signal [SIGINT]
+     exit - stop B: 3 s (pm2.log whole-second stamps, +/-1 s)
+     'still alive' / SIGKILL lines between stop B and the exit line:
+  -- span 2: process stopped by stop B=2024-03-01T00:00:00 (pm2.log line 6); started after stop A=2024-02-01T00:00:00
+     Start: out line 10 at 2024-02-01T00:00:04.000Z   End: out line 12 at 2024-03-01T00:00:03.000Z
+     RESTARTS inside span: 1 (figures NOT read for this span):
+       line 11 at 2024-02-15T00:00:00.000Z
+  -- span 3: process stopped by stop B=2024-04-01T00:00:00 (pm2.log line 8); started after stop A=2024-03-01T00:00:00
+     NO SPAN: Start=12 2024-03-01T00:00:03.000Z End=(none)
+
+=== end
+##### fx2 (H substitutions applied: 1)
+[6] per-process span reads for hooks-image-preview-generator-prod (stop pairs from <fixture>/fx2/pm2.log; lines from <fixture>/fx2/logs/hooks-image-preview-generator-prod-out.log):
+  prod stops in pm2.log (line stamp): 3
+    2 2026-01-01T10:00:00
+    4 2026-01-01T11:00:00
+    6 2026-01-01T12:00:00
+  timestamped ready lines in out log: 3
+  untimestamped ready lines in out log (not placeable): 0
+  -- span 1: process stopped by stop B=2026-01-01T11:00:00 (pm2.log line 4); started after stop A=2026-01-01T10:00:00
+     Start: out line 4 at 2026-01-01T11:00:02.000Z   End: out line 4 at 2026-01-01T11:00:02.000Z
+     NO SPAN: Start is not stamped before stop B's second (the process started after stop A logged no ready line)
+  -- span 2: process stopped by stop B=2026-01-01T12:00:00 (pm2.log line 6); started after stop A=2026-01-01T11:00:00
+     Start: out line 4 at 2026-01-01T11:00:02.000Z   End: out line 6 at 2026-01-01T12:00:02.000Z
+     timestamped lines in span: 2   last stamp in span: 2026-01-01T11:30:00.000Z
+     Server received (message begins with): 0   [any line containing it: 0]
+     Drain complete lines: 0
+     Drain failed lines: 0
+     Created instance (PRIMARY pool figure): 1
+     POST /generate (SECONDARY; includes unauthenticated): 0
+     untimestamped lines between Start and End lines (not counted above): 0, of which matching a figure word: 0
+     pm2.log exit line after stop B: 7: 2026-01-01T12:00:01: PM2 log: App [hooks-image-preview-generator-prod:0] exited with code [0] via signal [SIGINT]
+     exit - stop B: 1 s (pm2.log whole-second stamps, +/-1 s)
+     'still alive' / SIGKILL lines between stop B and the exit line:
+
+=== end
+##### fx3 (H substitutions applied: 1)
+[6] per-process span reads for hooks-image-preview-generator-prod (stop pairs from <fixture>/fx3/pm2.log; lines from <fixture>/fx3/logs/hooks-image-preview-generator-prod-out.log):
+  prod stops in pm2.log (line stamp): 3
+    1 2026-02-01T10:00:00
+    2 2026-02-01T11:00:00
+    4 2026-02-01T12:00:00
+  timestamped ready lines in out log: 2
+  untimestamped ready lines in out log (not placeable): 0
+  -- span 1: process stopped by stop B=2026-02-01T11:00:00 (pm2.log line 2); started after stop A=2026-02-01T10:00:00
+     Start: out line 1 at 2026-02-01T10:00:02.000Z   End: out line 4 at 2026-02-01T12:00:02.000Z
+     NO SPAN: End is not stamped before the next stop's second 2026-02-01T12:00:00 (the process started after stop B logged no ready line)
+  -- span 2: process stopped by stop B=2026-02-01T12:00:00 (pm2.log line 4); started after stop A=2026-02-01T11:00:00
+     Start: out line 4 at 2026-02-01T12:00:02.000Z   End: out line 4 at 2026-02-01T12:00:02.000Z
+     NO SPAN: Start is not stamped before stop B's second (the process started after stop A logged no ready line)
+
+=== end
