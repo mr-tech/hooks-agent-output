@@ -112,3 +112,22 @@ So a failed generation yields a **broken image, not a stale one**. Achieving his
 ## Open questions for the owner
 
 None outstanding at 2026-08-24.
+
+---
+
+## Recovered rationale — agent-derived, not owner testimony
+
+*The provenance grades above govern P-1 to P-6 only. The entry below is graded agent-designed: a mechanism agents designed and wrote, landed without his confirmation. Re-verify it against the code; never read it as his intent.*
+
+### A-1 — Four log lines are an interface, read on the host by `verification/015/pig-host-read.sh`
+
+**Mechanism** (`471578f`, plus plan 015 M8-a as designed at rev 8). The host read is file-only, with no `pm2` command (D17). It classifies stops and drains by matching these out-log lines:
+
+- `Server running at`: the ready line in `server.ts`, which opens a process's span.
+- `Server received`: the shutdown line, emitted once per drain inside the idempotency guard, naming the trigger.
+- `Created instance`: one per Chromium the pool factory in `getPool.ts` launches.
+- `POST /generate`: the request line, logged before the auth check.
+
+After M8 there is also the drain-complete line, which gives the elapsed milliseconds.
+
+**Consequence a change must carry**: a change to any of these strings, or to how many times one is emitted, is a change to that instrument. It needs a matching edit to the script, or the next host read misclassifies without any error. Registered from the plan 015 conformance passes (architect AF-3, AF-14; QA QAF-8).

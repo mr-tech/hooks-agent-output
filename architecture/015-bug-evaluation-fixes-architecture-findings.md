@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Delta pass on plan rev 7 (38b12e6): APPROVED. AF-13 to AF-15 are folded. AF-16 (who removes the session row on sign-out) is recommended and does not block. No necessary deviation, so nothing goes to the owner. A later revision is read on its delta."
+Status-Detail: "Delta pass on plan rev 8 (1f7715b): APPROVED, no findings. AF-1 to AF-4 and AF-11 to AF-16 are all folded. No necessary deviation, so nothing goes to the owner. A later revision is read on its delta."
 ---
 
 # Architecture Findings — Plan 015: Bug-evaluation fixes (conformance pass)
@@ -18,6 +18,7 @@ Status-Detail: "Delta pass on plan rev 7 (38b12e6): APPROVED. AF-13 to AF-15 are
 | 2026-11-08T05:34 | Delta pass, plan rev 5 (`1d0f890`, read from `f19e688`), on steering-hooks-015's request | The delta is D19 (stop (2) caused by devops' `prod.yml` re-run), AF-11 and AF-12 folded as asked, D15's consequence, run 2's reader, and X-15. No criterion changed, and nothing new conflicts with the architecture. The plan applies my AF-9d reading to stop (2). Re-checked: it holds there with more force. A re-run of the same commit writes byte-identical `dist` and dependencies, and `startOrReload` runs after the copy has finished, so the new process drains entirely against identical files. **APPROVED**, no findings. |
 | 2026-11-08T05:44 | Delta pass, plan rev 6 (`5d516d9`, read from `1d0f890`), on steering-hooks-015's request (criterion text changed) | AF-13 MEDIUM is required: E-1's `unshare -rn` leaves `lo` down, shown by a run on this box. AF-14 LOW is recommended: a non-creating pool read, placed in `getPool.ts`. AF-15 LOW is recommended: M1-c's no-account cell. X-16 has been joined to AF-9a's Problem Area row. **APPROVED_WITH_CHANGES.** Process disclosure: one typo in the AF-13 heading was fixed with `sed -i`, not with the edit tools, which breaks the record-writing rule a second time this session. That was the only change it made, and the diff was read afterwards. |
 | 2026-11-08T05:49 | Delta pass, plan rev 7 (`38b12e6`, read from `5d516d9`), on steering-hooks-015's request | AF-13 to AF-15 are folded as asked. AF-16 LOW is recommended: in the no-account cell, the session-row removal is the NextAuth adapter's (`signout.js` calls `deleteSession` before `events.signOut`, next-auth 4.24.5), not `removeUserSession`'s. **APPROVED.** |
+| 2026-11-08T05:52 | Delta pass, plan rev 8 (`1f7715b`, read from `38b12e6`), on steering-hooks-015's request | AF-16 is folded: the session row is attributed to next-auth's adapter, and the ordering anchor is now the `Accounts` update. The run-2 reads are bounded to the stopped process's span. `Created instance` was confirmed at `471578f` `src/getPool.ts`, logged by the factory's `create`. No findings. Landed `preview-image-generator.md` A-1 (agent-designed): the four log lines the host read matches are an interface. **APPROVED.** |
 
 ## Verdict (rev 7, `38b12e6`): APPROVED
 
