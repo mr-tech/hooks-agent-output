@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: UAT Approved
-Status-Detail: "UAT Approved, conditional (uat/015-bug-evaluation-fixes-uat.md, at website b96e364, generator 8de2b53): B-1, B-9, B-10 and the B-11 dialog leg must be EXECUTED before the website merge to master. B-1 waits for the owner's account. The other three need a route from the owner: the New Message dialog opens on production but not under local next dev (UAT-4). B-2, B-4, B-5, B-12, B-13, B-14 and the B-11 send-page leg PASS. B-6 to B-8 post-deploy."
-Revision: 28
+Status-Detail: "UAT Approved, conditional (uat/015-bug-evaluation-fixes-uat.md, at website b96e364, generator 8de2b53): B-1, B-9, B-10 and the B-11 dialog leg must be EXECUTED before the website merge to master. B-1 waits for the owner's account, and B-10 also for his server name. B-9, B-10 and the B-11 dialog leg wait on an analysis (D39, rev 29): the Upload Message dialog opens on production but not locally under next dev or next start (UAT-4). UAT retries them once that analysis reports. B-2, B-4, B-5, B-12, B-13, B-14 and the B-11 send-page leg PASS. B-6 to B-8 post-deploy."
+Revision: 29
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
 Lane: "standard — agent-output/README.md carries no small-lane section (grep -i small, 0 hits, 2026-11-08); the blast radius spans the save schema, a bot command's permissions and a production PM2 service, none a leaf"
@@ -53,6 +53,7 @@ Owed re-verdicts:
 | M5-h (3) anchored to the tip, `fields: null` moved (CR-29); M8-b non-objects (D35, D28 for `null`); M8-d as a property, with (c) and its unmeasured limb; RK-8; M6-a note (L-C8-1) | rev 26 | critic (cycle 9), architect, qa, code review (delta only) | all four passed except M8-b's D35 limb: architect (`7652b59`, AF-30), QA (`9fdf439`, QAF-33), critic cycle 9 pass 1 (`e233c82`; M-C9-1, M-C9-2, L-C9-1), code review Round 19 REJECTED for that limb (`5ab0802`, CR-30, CR-31). Folded at rev 27 |
 | M8-b narrowed (D35 re-put); M8-d (d) startup line (D36), X-24; RK-8 signature and carrier (CR-31, M-C9-2), M9 carrier line; M5-h (3) deciding read and move rule (M-C9-1); X-23 | rev 27 | critic (cycle 9 pass 2), architect, qa, code review (delta only) | architect approved (`b2add20`; AF-31 LOW for the implementer and code review, no plan text owed). QA approved, no new finding (`b21c7b5`; QAF-33 resolved; one Assumption Not Checked parked in Planner batch). Code review Round 20 APPROVED_WITH_COMMENTS (`b5666ed`; CR-32, CR-33 LOW, Planner batch). critic cycle 9 pass 2 approved (`c97c25a`; M-C9-1, M-C9-2, L-C9-1 verified landed; M-C9-3 MEDIUM asks a fold at once, L-C9-2 LOW, Planner batch) |
 | M5-h (3) re-run trigger widened, run 2 and the `c5303ca` run cited (CR-32); M8-d (d) member at two levels, "at startup" grounding, stream note (CR-33, M-C9-3, QAF-36); RK-8 restated: `8de2b53` signature with CR-34's measurement, residue class (L-C9-2, CR-33, QA's assumption), instrument over both PM2 logs and the probes; M9 carrier line; X-25, X-26 | rev 28 | critic (cycle 9 or a new cycle, the critic's call), architect, qa (re-key), code review (gate read) | code review Round 21 APPROVED_WITH_COMMENTS (`d7b0c57`; CR-32 to CR-34 RESOLVED; CR-39 LOW, Planner batch). Architect approved (`ca92900`; AF-32 LOW, Planner batch). Critic cycle 9 pass 3 approved (`8b7f9b0`; L-C9-3, L-C9-4 LOW, Planner batch). QA re-key passed, no new finding (`cfbdc7d`) |
+| § Validation pre-release walk (D38, UAT-1); the REQUIRES ANALYSIS commission (D39) | rev 29 | none by the definition's rule: no criterion text, milestone scope or instrument form moves. QA's I-10 premise is QA's own row | not owed |
 
 ## Changelog
 
@@ -158,6 +159,7 @@ Owed re-verdicts:
 | 2026-11-08T15:19 | uat | uat (uat-hooks-015) | **UAT: APPROVED FOR RELEASE, conditional** (`uat/015-bug-evaluation-fixes-uat.md`, 5de25d7) at website `b96e364`, generator `8de2b53`, rev 28. B-4, B-5, B-12, B-13 and the B-11 send-page leg EXECUTED PASS, each red at base `7ce866b`. B-1, B-2, B-9, B-10, B-14 and the B-11 dialog leg are NOT EXECUTED (UAT-1: no Postgres at 127.0.0.1:5432) and gate the website merge. **Plan Status set to UAT Approved.** |
 | 2026-11-08T20:02 | uat | uat (uat-hooks-015) | Second UAT walk on the recreated local Postgres (owner's route (a), 5d29306; `uat/015-bug-evaluation-fixes-uat.md`, d1f4b07). B-2 EXECUTED PASS (refused at base). B-1 and B-14 need the owner's walk. B-9, B-10 and the B-11 dialog leg are blocked by UAT-4 (pre-existing; owner asked). Decision unchanged, conditional. Plan Status unmoved. |
 | 2026-11-08T20:34 | uat | uat (uat-hooks-015) | Third UAT walk (`uat/015-bug-evaluation-fixes-uat.md`, b91e062). B-14 EXECUTED PASS (base red) on the test server "Claude". The Upload Message dialog opens on production hooks.gg, so UAT-4 is local-only. Conditions now B-1, B-9, B-10 and the B-11 dialog leg. Plan Status unmoved. |
+| 2026-11-08T20:47 | 29 | planner (planner-hooks-015) | Folds two owner rulings: rulings 19:47Z (`5d29306`, D38) and 20:44Z (`d0c8ab9`, D39). It also folds UAT-1's Validation-text limb (`uat/015-bug-evaluation-fixes-uat.md`). The pre-release walk's database is restated as the recreated local stack, and the analyst commission for UAT-4 is written in § Validation. Scope delta: no milestone or criterion moves. A release dependency is added, the UAT-4 analysis before the website merge, as the owner ruled ("The release waits"). The plan stays inside the original 50-finding pool. |
 
 ## Value Statement and Business Objective
 
@@ -209,6 +211,8 @@ message builder that sends through webhooks.
 | D35 | M8-b: a `/generate` body that is not parsable JSON, or parses to `null`, a number, a string or a boolean, gets 500. A body that parses to a list (an array) is not refused: it goes on to image generation as an object body does. | 2026-11-08 | First, "Agent: refuse all, as built", relayed by steering-hooks-015 in rulings block 09:22Z (`f502eb5`). Its stated cost, "no code change", was the planner's error: lists passed the built guard (QAF-33). Then, superseding it for lists only, "Agent: as built, lists pass", re-put with the corrected cost in rulings block 09:28Z (`c8c7649`). Its description, verbatim: "Agent: keep exactly what's built. Lists keep getting through to the image step, recorded as a known limit. Cost: a plan revision narrowing your earlier wording, and a review round." Both selections relayed by steering. Both option texts are agent-authored: the planner's, then steering's. | Owner withdrawal only. | M8-b; X-23. "Only the website calls `/generate`" is the planner's claim, unread; QA sends it to devops at release readiness. |
 | D36 | RK-8: M8-d keeps its private-field reach, and the generator gets a startup check that logs a named error line if that private part is missing. | 2026-11-08 | "Agent: accept + startup guard". This is a selection relayed by steering-hooks-015, rulings block 09:25Z "RK-8, the M8-d private-field reach" (`f5ab120`). The description chosen, verbatim: "Agent: keep the fix, and the implementer adds a check at startup. If a library upgrade ever removes the private part, the generator logs a named error line instead of failing silently (architect's AF-30). Cost: a few lines and one test, riding the M8-a fix already under way, with the same code review and QA." The option text is steering's, drawn from AF-30 (agent-authored). | A generic-pool release that adds a public way to reject a waiting acquire. RK-8's lockfile trigger observes it. | M8-d and RK-8. The guard rides the CR-27 fix. Its criterion is written at rev 27 (Planner batch). |
 | D37 | CR-32, CR-33 and QA's RK-8-probe item stay Planner batch rows, not criteria, and are folded in one pass just before UAT, sharing that pass's single review round. No rev 28 is taken for them on the critic's rev 27 verdict alone. | 2026-11-08 | "Agent: park, fold before UAT". This is a selection relayed by steering-hooks-015, rulings block 09:40Z "rev 28 fold" (`355bcaf`). The description chosen, verbatim: "Agent: the planner keeps the three LOW items as queued rows and folds them in one pass just before user acceptance testing, sharing that pass's single review round. Until then they're tracked in the plan, not yet criteria. Saves one full four-reviewer round now." The option text is steering's (agent-authored). | A gate's verdict that asks for a revision, which folds them with it; or owner withdrawal. | Planner batch rows CR-32, CR-33 and the QA assumption. Folded at rev 28, with CR-34 (rulings 10:14Z) and the rows parked since. The implementer built CR-33's guard form under D36 (`8de2b53`). |
+| D38 | The pre-release walks run on a recreated local Postgres: a fresh `hooks-postgres-local` container on `127.0.0.1:5432`, with the schema pushed from project-utils' prisma file, starting empty. `.env.local` is not changed ("stay local"). | 2026-11-08 | "Agent: recreate local Postgres". This is a selection relayed by steering-hooks-015, rulings block 19:47Z "UAT-1" (`5d29306`). The description chosen, verbatim: "Agent: UAT pulls a postgres docker image and starts a fresh container on 127.0.0.1:5432, with the schema pushed from project-utils' prisma file as chain 014 did. It's empty, so the walks create their own test data. Nothing outside this machine is written. Needs a port go from steering-coordinator. Then UAT runs the 7 checks." The option text is steering's, from uat-hooks-015's options (agent-authored). | Owner withdrawal only. | § Validation, pre-release walk (corrects the "live database" premise, UAT-1). QA's I-10 premise is QA's to correct. |
+| D39 | The Upload Message dialog's local failure (UAT-4) is analysed before anything else is done about it: the planner commissions an analyst, then UAT retries B-9, B-10 and the B-11 dialog leg locally. The release waits for this. | 2026-11-08 | "Agent: find the cause first". This is a selection relayed by steering-hooks-015, rulings block 20:44Z (`d0c8ab9`). The description chosen, verbatim: "Agent: the planner commissions an analyst to find why the dialog won't open on this machine, then UAT retries all three locally. The release waits. Time unknown: it could be a missing local setting or something deeper." The option text is steering's (agent-authored). | The analysis's finding (a cause that needs source, or none found), which goes back to the owner; or owner withdrawal. | § Validation, REQUIRES ANALYSIS; B-9, B-10 and the B-11 dialog leg. B-10 also waits on his server name, and B-1 on his account (rulings 20:08Z, 20:38Z). |
 
 ## Objective
 
@@ -1022,11 +1026,30 @@ can run the M8-b/d/e probes once the generator's dependencies are installed (M8 
 
 - Planner's run at `7ce866b`, 2026-11-08: vitest 598/598, 54 files, exit 0; `pnpm run typecheck` exit 1, the two
   errors confined to `.next/dev/types/validator.ts` (D7 settles the gate at M0).
-- Pre-release walk (owner): the chain tip served locally against `.env.local`, whose database is the live one —
-  the precedent of `uat/closed/013-components-v2-editing-surfaces-uat.md` § B.1; writes during the walk land in
-  his real account. A Vercel preview of the chain branch is the alternative (the `preview.yml` endpoint
-  `hooks-gg-website-git-redesign-hooks-gg.vercel.app` shows branch previews have existed) and points at the same
-  database.
+- Pre-release walk: the chain tip, served locally against `.env.local`, following the precedent of
+  `uat/closed/013-components-v2-editing-surfaces-uat.md` § B.1. Its one active `DATABASE_URL` points at
+  `127.0.0.1:5432`, and the Railway line is commented out (planner's read of the host fields only, 2026-11-08T20:46Z,
+  website `b96e364`). That is the owner's local stack, "stay local" (`steering/014-rulings.md`), recreated for this
+  walk as the `hooks-postgres-local` container (D38). It starts empty, so the walks make their own test data, and
+  nothing they save reaches production. Signing in on live hooks.gg writes the account's sign-in rows to the
+  production database (rulings 20:12Z); no row of this register walks there except UAT's ruled UAT-4 check. A Vercel
+  preview of the chain branch is the alternative surface (the `preview.yml` endpoint
+  `hooks-gg-website-git-redesign-hooks-gg.vercel.app` shows branch previews have existed); it would point at
+  production data and needs the owner's word.
+- **REQUIRES ANALYSIS (REQUIRED before the website merge, D39): the Upload Message dialog does not open locally.**
+  The NewMessageModal surface of B-9, B-10 and the B-11 dialog leg opens on live hooks.gg but not locally, at
+  `b96e364` or `7ce866b`, under `next dev` or `next build --webpack` plus `next start` (UAT-4,
+  `uat/015-bug-evaluation-fixes-uat.md`). The analyst's scope:
+  1. Name the mechanism by which "new message" → "Upload Message" on the account folder page opens no dialog in the
+     local runs, by an executed read: the handler at path and symbol, the condition or state that keeps the modal
+     closed, and the local input it rests on.
+  2. Establish whether that input is local environment (configuration, data, cookies, services) or code that
+     differs between the SHA live hooks.gg serves and `7ce866b`. The served SHA is unread: `origin/master` is
+     `7ce866b`, and Vercel's deployed SHA has not been read.
+  3. Name the smallest local change, outside website source, that lets UAT open the dialog at `b96e364`. If none
+     exists without editing source, or the cause is a defect in the chain's code, stop and report to steering: that
+     is a scope question for the owner.
+  Out of scope: fixing any source; the design of NewMessageModal; B-1 and B-10's account preconditions.
 - Sign-out during any walk revokes that account's Discord token (M1-c, from `be881c9`; QA I-2). The walker
   signs in again afterwards.
 - Limb (1), F-2: the owner signs in with an account that administers no server and opens the message list — at
@@ -1209,22 +1232,24 @@ is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, 
 | AF-32 (LOW), the same member as CR-39's second half. The drift probe must read "locally, on an export of the deployed commit under the deployed Node version, never on the generator host": its mutant launches thousands of Chromium processes a second, which is not acceptable beside the root, no-sandbox production process. Also mark the drift probe as a magnitude read, not a falsifier (it is not in RK-8's Falsifier list). | architect delta pass on rev 28 (`ca92900`) | Open, with CR-39 and on the same terms. |
 | L-C9-4 (LOW), a duplicate of CR-39: the drift probe has no runnable location on the host (a write under `claude-ro`, which D17 bars). With it, the critic's Assumption Not Checked at the same pass: the host's PM2 daemon may not write stderr to a separate `prod-error.log` (`ecosystem.config.js` at `8de2b53` sets no `error_file` or `merge_logs`; `dump.pm2` is unread). Devops closes that at the M9 mint from `dump.pm2`'s `pm_err_log_path`. | critique cycle 9 pass 3 (`8b7f9b0`) | Open, with CR-39 and on the same terms. The log-path read goes to devops with the CR-39 text. |
 | L-C9-3 (LOW). Three code-review changelog rows are stamped ahead of their commit minute: 11:05 against `e4f168d` (10:34Z), 11:20 against `965e2a9` (10:38Z), and 11:40 against `c0b9b03` (10:55Z). So the table's order contradicts its stamps. The correction is in code review's own rows. The planner's pre-handoff sweep is the catch. | critique cycle 9 pass 3 (`8b7f9b0`) | Discharged. Code review restamped all six of its rows from this session at `ce6cdfd`, three more than cited. The planner read each stamp against `git show -s --format=%cI` for `c3960b3`, `16a720f`, `e4f168d`, `965e2a9` and `c0b9b03`, and every minute matches. |
+| UAT-1 (MEDIUM), the Validation-text limb. "`.env.local`, whose database is the live one" is false at 2026-11-08. The only active `DATABASE_URL` is `127.0.0.1:5432`. | `uat/015-bug-evaluation-fixes-uat.md` (`5de25d7`); `INBOX.md` entry "2026-11-08 — uat-hooks-015 — FYI"; rulings 19:47Z | Discharged at rev 29 (§ Validation; D38). |
 
 ## Resumption State (checkpoint, planner-hooks-015)
 
-- **Done (2026-11-08T10:52Z).** Revision 28, the D37 pre-UAT fold, is written. Every Planner batch row parked
-  since rev 27 is discharged. The planner's M5-h (3) enumerator run at website `c5303ca` is
-  `verification/015/m5h-class-probe/noguard-run1-c5303ca.txt`. `handoff/website-tests-not-beside-their-module-2026-11-08.md`
-  is minted (X-26).
-- **Next.** Rev 28 goes to its four gates: critic, architect conformance, QA Phase 1 re-key, and the code review gate
-  read. Steering spawns the critic and the architect. The planner folds their verdicts only if one asks for a
-  revision. Otherwise the plan is ready for UAT.
+- **Done (2026-11-08T20:47Z).** Revision 29 is written. It corrects § Validation's database premise (D38, UAT-1) and commissions the
+  UAT-4 analysis (D39, § Validation "REQUIRES ANALYSIS"). The commission brief went to steering for
+  `analyst-hooks-015`.
+- **Next.** When the analysis reports, register its finding. A cause that needs source, or no cause found, goes back
+  to the owner through steering. Otherwise UAT retries B-9, B-10 and the B-11 dialog leg. Before devops Stage 1, the
+  last planning pass reconciles the header with the owner's end state. CR-39, AF-32 and L-C9-4 go to devops as the RK-8
+  handoff's text at the M9 mint, with the PM2 error-log path read.
 - **Standing rules.**
   - Under D28, fold same-defect sibling sites without an owner question.
   - After implementation approval, park findings that change no code, test or pre-release verifier.
-  - A claim about code behaviour cites an executed read at the current tip. Check `git log` for newer commits first.
+  - A claim about code behaviour cites an executed read at the current tip.
   - Take changelog stamps from `date -u` at write.
-- **Open with others.** QA has the implementer's interactive-parser note, a coverage call (Planner batch). UAT has
-  CR-34's operator-visible check on PM2's error log, which UAT registers. No planner question to the owner is pending.
-- **Uncommitted, left in place.** `INBOX.md` (the planner's FYI on `pm2 show`, for its domain owner) and other
-  sessions' files. Heads: website `c5303ca` and preview-image-generator `8de2b53`. The planner touches no source.
+  - Check and commit in one call, then compare `--numstat` (the 4c23db0 sweep).
+  - Localized testing on this box needs no owner ask (rulings 20:38Z). Browser and port acts still need
+    steering-coordinator's go (block 07:42Z).
+- **Uncommitted, left in place.** `INBOX.md` and other sessions' files. Heads: website `b96e364`,
+  preview-image-generator `8de2b53`. The planner touches no source.
