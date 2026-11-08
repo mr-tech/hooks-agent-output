@@ -15,9 +15,11 @@ function start(execArgv = []) {
   port += 1;
   const child = fork('build/server.js', [], { env: BASE_ENV(port), silent: true, execArgv });
   const lines = [];
+  const stdoutLines = [];
   const take = (d) => String(d).split('\n').filter(Boolean).forEach((l) => lines.push(l));
-  child.stdout.on('data', take); child.stderr.on('data', take);
-  const o = { child, lines, port, exit: null };
+  child.stdout.on('data', (d) => { take(d); String(d).split('\n').filter(Boolean).forEach((l) => stdoutLines.push(l)); });
+  child.stderr.on('data', take);
+  const o = { child, lines, stdoutLines, port, exit: null };
   o.ready = new Promise((resolve) => child.on('message', (m) => { if (m === 'ready') resolve(true); }));
   o.exited = new Promise((resolve) => child.on('exit', (code, sig) => { o.exit = { code, sig, at: Date.now() }; resolve(o.exit); }));
   return o;
@@ -53,6 +55,7 @@ const BODY = JSON.stringify({ id: 'm1', nonce: 'n1', message: { content: 'hi' } 
     const t = Date.now();
     const statuses = await Promise.all(Array.from({ length: 6 }, () => request(o.port, BODY)));
     const ms = Date.now() - t;
+    await sleep(250); // the last launch-error line lands a tick after the last response
     const afterBurst = count(o, /Could not find Chrome|Failed to launch/);
     await sleep(3000);
     const afterIdle = count(o, /Could not find Chrome|Failed to launch/);
@@ -80,8 +83,11 @@ const BODY = JSON.stringify({ id: 'm1', nonce: 'n1', message: { content: 'hi' } 
     const ms = o.exit ? o.exit.at - t : null;
     const drained = o.lines.filter((l) => /Z Drain complete in \d+ms/.test(l));
     const errors = o.lines.filter((l) => /TypeError/.test(l));
+    const failedOut = o.stdoutLines.filter((l) => /Drain failed after \d+ms: /.test(l));
     console.log(`OBS C without closeIdleConnections: exit after ${ms} ms; Drain complete lines=${JSON.stringify(drained)}; TypeError lines=${JSON.stringify(errors.slice(0, 1))}`);
-    console.log(`CELL ${drained.length === 1 && errors.length > 0 ? 'FAIL' : 'PASS'} C a failed drain does not log the drain-complete line`);
+    console.log(`OBS C drain-failed lines on stdout=${JSON.stringify(failedOut)}`);
+    console.log(`CELL ${errors.length > 0 && drained.length === 0 ? 'PASS' : 'FAIL'} C the drain failed (TypeError seen) and no drain-complete line was logged`);
+    console.log(`CELL ${errors.length > 0 && failedOut.length === 1 ? 'PASS' : 'FAIL'} C a failed drain logs one failure line on stdout`);
     await kill(o);
   }
 })().catch((e) => { console.log(`ATTACK ERROR ${e && e.stack}`); process.exitCode = 1; });

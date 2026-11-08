@@ -1,0 +1,11 @@
+sha 8de2b53 export /tmp/claude-1000/-usr-local-bin-hooks/e385280e-66c3-4330-8c4e-36c4287887aa/scratchpad/pig-probe-8de2b53; server.ts blob in export e52e5cd0885b4de8e6c1dfa97a5c4a57304735eb
+self-check external lookup: EAI_AGAIN
+OBS A six concurrent failing requests: statuses=[500,500,500,500,500,500] ms=36 launch-error lines after burst=12 after 3 s idle=12
+CELL PASS A every concurrent request gets 500
+CELL PASS A no launch attempts while idle after the burst
+OBS B in-flight request at stop: exit after 10010 ms; Server received=1 Drain complete=0; error lines=0
+OBS C without closeIdleConnections: exit after 13 ms; Drain complete lines=[]; TypeError lines=["TypeError: server.closeIdleConnections is not a function"]
+OBS C drain-failed lines on stdout=["2026-11-08T09:52:42.732Z Drain failed after 0ms: server.closeIdleConnections is not a function"]
+CELL PASS C the drain failed (TypeError seen) and no drain-complete line was logged
+CELL PASS C a failed drain logs one failure line on stdout
+attack exit 0
