@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: In Progress
-Status-Detail: "M0 and M2 delivered; M1 is rebuilding M1-c and M1-h. M4 passed code review at 1e12837 and reopens for one change under D29 (CR-14): a failed webhook-URL load shows \"Invalid URL\" at both F-27 sites. The critic (cycle 5), the architect, QA and code review read the rev 20 delta. M3 is held for a real-Chrome read."
-Revision: 20
+Status-Detail: "M0 and M2 delivered; M1 is rebuilding M1-c and M1-h. M4 passed code review at 1e12837 and reopens for one change under D29: a failed webhook-URL load shows \"Invalid URL\" at each site's existing error place (rev 21, CR-16). M3 is removed under D30: F-15/F-39 do not reproduce in real Chrome (X-18). The critic (cycle 5), the architect, QA and code review read e118cc3..rev 21 in one round."
+Revision: 21
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
 Lane: "standard — agent-output/README.md carries no small-lane section (grep -i small, 0 hits, 2026-11-08); the blast radius spans the save schema, a bot command's permissions and a production PM2 service, none a leaf"
@@ -23,7 +23,7 @@ section cites them; the critic reads the whole plan.
 | implementer | Decisions Register → Plan → the milestone being implemented (M0 first) → Testing Strategy → Exclusions |
 | code-reviewer | Decisions Register → the milestone under review → Testing Strategy → Architecture lines this chain touches |
 | qa | Testing Strategy → Plan → each milestone → Validation → Risks |
-| uat | Value Statement and Business Objective → Validation → M2 → M3 → M6 |
+| uat | Value Statement and Business Objective → Validation → M2 → M6 |
 | devops | M9 — Release (devops; owner steps named) → M8 → Entry work (2026-11-08) → Risks |
 
 Owed re-verdicts:
@@ -44,7 +44,8 @@ Owed re-verdicts:
 | M1-i "present" = `cookies()` and its residue; M2-a third colour member (Picker → M6-f); M3 premise unsettled and held for a Chrome read (rev 15); M4-c restated; M4-d over D24–D26: eight hosts, one widened shared constant, its two consumers (rev 16); M6-f covers colour 0; X-17 | rev 14–16 | critic (cycle 4), architect, qa, code review (one round over `9cbe755`..rev 16) | approved by the architect (`565e240` read), the critic (`28f0f16`) and QA (`e43f305`); code review Round 4 (`19dbf64` row): CR-11, folded at rev 17; CR-12 (HIGH, pre-existing) is with the owner. M-C4-1, L-C4-1, AF-19, QAF-21 and QAF-22 are folded at rev 17 |
 | M4-d over both F-27 predicate sites (D28); the CR-12 rider (D27, rev 18) (`WebhookProvider.tsx`, `useValidateWebhook.ts`); trim; refused-input display; guild/channel/message groups; id from the constant's group | rev 17, rev 18 | critic (cycle 4), architect, qa, code review (one round over `565e240`..rev 18) | approved (architect, rev 17–18 read; critic `e05a8d4`; QA `31173a1`; code review `e343d2e` row); AF-20, QAF-23 and L-C4-2 folded at rev 19 |
 | CR-12 rider: belonging as `guild_id` equality, absent `guild_id` refused; `fetchChannel` refusals 401/403, 404 and other with their texts | rev 19 | critic, architect, qa, code review (delta only) | open |
-| M4-d webhook-URL load failure: "Invalid URL" at both sites (D29); the old-message network clause scoped to the message fetch | rev 20 | critic (cycle 5, new file), architect, qa, code review (delta only) | open |
+| M4-d webhook-URL load failure: "Invalid URL" at both sites (D29); the old-message network clause scoped to the message fetch | rev 20 | critic (cycle 5, new file), architect, qa, code review (delta only) | architect approved (`8affd6a`, AF-21 INFO, no plan change); code review REJECTED the limb's place (`e524a96`, CR-16), folded at rev 21; critic and qa read it in the rev 21 round |
+| M4-d webhook-load limb: each site's stated place, the dialog's on its shared error line (CR-16); M3 removed (D30); X-18 with its untested residue; the value-statement sentence carried as already true | rev 21 | critic (cycle 5), architect, qa, code review (one round over `e118cc3`..rev 21) | open |
 
 ## Changelog
 
@@ -88,6 +89,7 @@ Owed re-verdicts:
 | 2026-11-08T07:24 | 20 | planner (planner-hooks-015) | Folds code review Round 7 CR-14 (`a99e9ff`) and registers D29 (rulings block 07:24Z "CR-14", `27f8cd7`). Disclosure: the stamp gate refused this row's first, hand-typed stamp (07:27); it now carries `date -u`. It is the thirteenth revision since implementation approval. It is a milestone-level scope delta on open M4 that the owner chose with its cost stated: one change, one code-review round and one QA Phase 2 re-run on M4, after one delta round of the critic (cycle 5), the architect and QA. Scope delta: M4-d's network clause is scoped to the old-message fetch, and a new limb makes a failed webhook-URL load show "Invalid URL" at both F-27 sites; M4-b is unchanged. No downstream milestone rests on either site's error text (grep of the plan for `NewMessageModal`, `useValidateWebhook` and "Invalid URL": M4 only), so none is marked `PREMISE-STALE`. Against the ask: 49 of 50 findings plus one rider. |
 | 2026-11-08T07:25 | cr | code-reviewer (code-reviewer-hooks-015) | Round 2 sub-entry, the M1-c and M1-h rebuild at website `579e8b2` against rev 19: Round 2 (M1) moves from REJECTED to APPROVED_WITH_COMMENTS, `code-review/015-bug-evaluation-fixes-code-review.md` (`befc32f`). CR-3 is RESOLVED structurally: sign-out decides from the `Accounts` row. Probed across the cache states, the revoke outcomes and the lookup error, with Redis down too; the probe is red at `6001f7f`. M1-h: all eight rows have cells. CR-15 LOW goes to the implementer: row 2's after-return member has no cell. CR-9 and CR-6 are RESOLVED. QA Phase 2 may take M1-c and M1-h at `579e8b2`. Milestone-scoped, so plan Status is unmoved. |
 | 2026-11-08T07:26 | cr | code-reviewer (code-reviewer-hooks-015) | Round 8, the gate read of `330348f..e118cc3` (rev 20, D29), with mechanisms checked at website `1e12837`: REJECTED for M4-d's webhook-load limb only, `code-review/015-bug-evaluation-fixes-code-review.md` (`e524a96`). For the planner: CR-16 MEDIUM. The limb shows "Invalid URL" "at the webhook URL field" and "under the field" at both sites, but the New Message dialog has no field-level error (`errorMessage=`: 0 in `NewMessageModal.tsx`). Its webhook errors render in one shared line below the load options. State the place: (a) the shared line, with the walk reworded, or (b) a field `errorMessage` mirroring `WebhookMenu`, removed from the shared line. The rest of the delta is approved. Milestone-scoped, so plan Status is unmoved. |
+| 2026-11-08T07:28 | 21 | planner (planner-hooks-015) | Folds code review Round 8 CR-16 (`e524a96`) and registers D30 (rulings block 07:26Z "M3: drop M3, not a defect", `f005cef`), together, as steering asked. It is the fourteenth revision since implementation approval, and steering briefs one round over `e118cc3`..rev 21. CR-16 places the dialog's "Invalid URL" on its existing shared error line. That rides D29's chosen words ("copies the send page. One small change"), which is steering's reading and the planner's. A field-level error on the dialog would be new UI and was not taken. M3 is removed on the owner's selection, with no code written for it. Scope delta: M4-d's webhook-load limb states each site's place, and its cell fails on the text appearing elsewhere or nowhere. M3 is removed, and F-15/F-39 become X-18 with the untested residue named (the uploader's Clear, a production build, other browsers). The value-statement sentence is carried as already true (D30). Against the ask: 47 of 50 findings fixed, F-15/F-39 closed as not reproducible, plus one rider. |
 
 ## Value Statement and Business Objective
 
@@ -131,6 +133,7 @@ message builder that sends through webhooks.
 | D27 | CR-12 is fixed in chain 015: M4-d refuses unless the fetched message's channel belongs to the server the caller was checked against; the hole stays open until chain 015 releases. | 2026-11-08 | "Agent: fix it in chain 015" — selection relayed by steering-hooks-015, rulings block 07:01Z "CR-12" (`3d7af67`). The option text is steering's (agent-authored): "Agent: the planner adds it to M4-d: refuse unless the fetched message's channel belongs to the server you were checked against. Cost: a plan revision with one more review round on M4-d, one change, code review and QA. It reaches production only when chain 015 releases, after all its milestones (hours at least), so the hole stays open until then." | Owner withdrawal only. | M4-d's named rider, with its drop disposition priced. |
 | D28 | The same defect at a sibling site of a finding the chain already fixes is fixed at every site without coming to the owner (the class of M-C4-1). | 2026-11-08 | "I already ruled on this class of item. Yes fix." — his own words, relayed by steering-hooks-015, rulings block 07:01Z "M-C4-1" (`3d7af67`). The class wording is steering's summary ("Same-defect-in-a-sibling items no longer come to him"), agent-authored. | Owner withdrawal only. | M4-d's two sites stand (rev 17). Later members of the class are folded and reported, never asked. |
 | D29 | CR-14: a webhook-URL load that fails with no response shows "Invalid URL" at both F-27 sites; the New Message dialog copies the send page. | 2026-11-08 | "Agent: 'Invalid URL' at both" — selection relayed by steering-hooks-015, rulings block 07:24Z "CR-14" (`27f8cd7`). Description chosen: "Agent: the New Message dialog copies the send page. One small change and a test at each place. A dropped connection then tells the user the URL is wrong, as the send page already does today. Cost: a plan revision with a review round, then a code change, code review and QA re-run on M4 (planner's recommendation)." The option text is the planner's, relayed by steering (agent-authored). | Owner withdrawal only. | M4-d's webhook-load limb. The site behaviour it rests on is the planner's code read at `1e12837`, not run. |
+| D30 | M3 is removed from the chain. F-15/F-39 are recorded as not reproducible (dead code only). The value statement's "a Cancel key press never deletes" is kept as already true, with the real-Chrome read as its evidence. No code. | 2026-11-08 | "Agent: drop M3, not a defect" — selection relayed by steering-hooks-015, rulings block 07:26Z "M3: drop M3, not a defect" (`f005cef`). Description chosen: "Agent: M3 is removed from the chain, and F-15/F-39 are recorded as not reproducible (dead code only). The plan's promise 'a Cancel key press never deletes' is kept as already true, with the Chrome read as evidence. Cost: a small plan revision and a review round; no code (implementer's recommendation)." The option text is steering's (agent-authored). | A real-browser read in which Enter with focus on a dialog's non-confirm button runs the confirm action (the X-18 residue included), or a user report of it; owner withdrawal. | § M3 (removed), X-18. Evidence: `verification/015/m3-chrome-read/README.md` (`8996505`). |
 
 ## Objective
 
@@ -202,7 +205,7 @@ any walk that signs out revokes that account's Discord token and must sign in ag
 **Re-derivation after M2 (rev 13).** M2, delivered at website `6001f7f`, ships four behaviours observable outside
 the source: colour 0 saves, colour 0 is kept on ingress, colour 0 draws a black border, and footer text of 2048
 and an author name of 256 are admitted in both the editor and the save schema.
-- M3 (dialog Enter), M4 (send page), M5 (pages and providers), M7 (bot) and M8 (generator) read no stored
+- M4 (send page), M5 (pages and providers), M7 (bot) and M8 (generator) read no stored
   colour or footer bound, so their premises do not move.
 - M6-f (the picker's six-digit default) now also sees colour 0 stored. Its property already covers every
   integer colour, 0 included.
@@ -400,50 +403,19 @@ disposition X-9.
   shows. One constant drives both the editor and `embedShape`, as `MAX_EMBED_FOOTER_TEXT_LENGTH` does at
   `7ce866b`.
 
-### M3 — Enter on a dialog never confirms from another button (website): F-15, F-39
+### M3 — Removed (D30): F-15, F-39 do not reproduce
 
-Originating statement: *"Enter on a focused Cancel button runs the confirm action."* The class: every
-`useHotkeys('enter')` handler in `src/` that guards on the focused element. It is enumerated by `grep -rc
-"tagName !== '~/components/Button'" src`, which returned 3 at `7ce866b` (sites named above). The bare import path
-is not an enumerator: it matches 46 files. Decision table, for each of the three dialogs:
+The originating statement, verbatim: *"Enter on a focused Cancel button runs the confirm action."* A real-Chrome
+read of the unfixed tree does not reproduce it. The read was website `6001f7f`, Chrome 156.0.8078.47, under
+`next dev --webpack` and E-1 isolation: `verification/015/m3-chrome-read/README.md` (`8996505`, the implementer's
+read). In each of the three dialogs that carry the dead compare (`WarningDialog`, `ConfirmationDialog`,
+`ImageUploader`; § Assumptions), Enter with focus on Cancel leaves the action unrun. The controls behave as
+predicted: Enter on the confirm button runs it, Enter with the body focused runs it, and a click on Cancel does not.
 
-| Focus at Enter | Outcome |
-|---|---|
-| the dialog's confirm/submit button | its action runs exactly once |
-| any other button in the dialog (Cancel; Clear in the uploader) | that button's action only; confirm/submit runs zero times |
-| no button focused | outcome unchanged from `7ce866b` for that dialog |
-
-Human-observable: in *Delete Embed*, Tab to Cancel, press Enter — the embed remains. Walked on the locally served
-chain tip. The fix lands at every member of the class (mirrors the existing per-dialog hook; no shared helper
-exists to fix once — `grep` above).
-
-**Premise: unsettled; M3 is held for a real-browser read (rev 15).**
-- **What is not established.** Whether Enter on a focused Cancel reaches the hotkey in the app.
-- **Two jsdom probes disagree, and neither settles it.**
-  - The planner's same-node listener probe (`verification/015/m3-same-node-propagation-probe-run1.txt`) does
-    not model the real dialog. Its conclusion, that F-15 reproduces, was withdrawn at 06:52Z, and the error was
-    the planner's.
-  - The implementer's document-root mount of the real `WarningDialog`
-    (`verification/015/m3-document-root-probe-6001f7f.txt`) shows the Cancel keydown stopped in the capture phase
-    at `document`, before the hotkey. What stops it is not established.
-  - jsdom has not been checked against Chrome for this path.
-- **The instrument (QA's red-evidence terms).** Real Chrome (Playwright, D20), against the unfixed tree, under
-  E-1 isolation with probe env only. Save and Send are never pressed (QA E-9). Preferred: the real editor page at
-  `/message/m/0/edit` under `next dev`. Fallback: a bundle of the dialog, mounted on `document` and in Chrome.
-- **Four cells per dialog:**
-  - (a) Tab to Cancel, then Enter — the subject;
-  - (b) Tab to the confirm button, then Enter — the positive control;
-  - (c) no focus, then Enter — the base outcome for the table's third row;
-  - (d) pointer click on Cancel — the negative control.
-- **Scope.** `ConfirmationDialog` and `ImageUploader` each get their own four cells, or a stated reason they
-  share `WarningDialog`'s path.
-- **Capture.** Under `verification/015/`, with the tree SHA and the Chrome version, committed before it is
-  cited.
-- **Outcomes:**
-  - **If (a) runs confirm,** F-15/F-39 reproduce, and M3 proceeds as written. A jsdom cell counts as red only
-    once it gives Chrome's (a) outcome at the unfixed tree.
-  - **If it does not,** F-15/F-39 are unreproduced in a real browser. The value-statement sentence "a Cancel key
-    press never deletes" goes to the owner through steering, with the read attached, before M3 is folded again.
+The owner removed M3 (D30). The dead compare `tagName !== '~/components/Button'` stays in the code, with no fix
+and no test in this chain. The value statement's "a Cancel key press never deletes" is carried as already true at
+`6001f7f`, with that read as its evidence. No milestone delivers it. The untested residue and the reopening class
+are in X-18.
 
 ### M4 — Send page and webhook menu (website): F-16, F-17, F-18, F-27
 
@@ -496,14 +468,22 @@ exists to fix once — `grep` above).
     exactly "Could not load the message. Check your connection and try again." (D24) and leaves no unhandled
     rejection. Discord refusals keep their existing texts.
   - **Network failure, webhook-URL load (D29, code review CR-14).** At both sites, a webhook-URL fetch that fails
-    with no response shows exactly "Invalid URL" (no trailing period) at the webhook URL field, and leaves no
-    unhandled rejection. The send page's text and condition are M4-b's, unchanged; the New Message dialog copies
-    that literal (sibling: `WebhookMenu` at website `1e12837`, the `errorMessage` of the custom-URL input). A
-    Discord refusal of the webhook URL keeps each site's existing text: "Invalid URL" on the send page (M4-b),
-    Discord's own message in the dialog. At each site, the verifying cell asserts the literal, never a value read
-    from the code under test. Human-observable: with the network cut after a valid-looking webhook URL is typed,
-    both the send page and the New Message dialog show "Invalid URL" under the field; walked on the locally
-    served chain tip, without sending.
+    with no response shows exactly "Invalid URL" (no trailing period), and leaves no unhandled rejection. Each
+    site shows it where it already shows a webhook-load error; no new error place is added (D29, "one small
+    change"; code review CR-16):
+    - **Send page:** the custom-URL input's field error (`WebhookMenu` `errorMessage` at website `1e12837`). The
+      text and its condition are M4-b's, unchanged.
+    - **New Message dialog:** the dialog's shared error line, the one text-error line below the load options
+      (`NewMessageModal` `messageErrorString`, which carries `useValidateWebhook`'s `webhookError` at `1e12837`).
+      Its precedence over the other load errors is unchanged. The dialog has no field-level error at `1e12837`
+      (`grep -c "errorMessage="` over the file, 0), so none is added.
+
+    A Discord refusal of the webhook URL keeps each site's existing text: "Invalid URL" on the send page (M4-b),
+    Discord's own message in the dialog. At each site, the verifying cell asserts the literal at that site's
+    stated place, and fails if the text appears nowhere or anywhere else; its expected value is never read from
+    the code under test. Human-observable: with the network cut after a valid-looking webhook URL is typed, the
+    send page shows "Invalid URL" under its URL field, and the New Message dialog shows it on the error line
+    below the load options. Walked on the locally served chain tip, without sending.
   - **Ordering.** At both sites, of two overlapping validations only the latest input's result is applied.
   - **Named rider: the cross-server read in `getFromUrl` (code review CR-12, HIGH; D27).** This is a pre-existing
     defect on `master` (`7ce866b`), outside F-1 to F-50. It rides M4-d because M4-d already opens `getFromUrl`.
@@ -824,7 +804,7 @@ QA Phase 1 runs before implementation (stage set, D6).
 The standard is `agent-output/CLAUDE.md` § Test Conventions (`website`): vitest, tests beside the code under
 `__tests__/`, spec-form names, DOM tests (`.tsx`) mounted with `createRoot`/`act`, every new test seen red
 against a restored mutation, exit code recorded beside counters. Expected types: pure-logic tests for M1, M2,
-M6-b/f/g/k, M7; DOM component tests for M3, M4, M5, M6 components. The F-1/F-2 class (Kysely predicates over a
+M6-b/f/g/k, M7; DOM component tests for M4, M5, M6 components. The F-1/F-2 class (Kysely predicates over a
 nullable or a possibly-empty list) is covered by compiling the query, as the research's proof did — no database is
 reachable here. preview-image-generator has no runner (M8 note). Read instruments per host: website — vitest on
 this box (exists); Vercel production — the owner's browser; Discord — the owner's client; the generator host —
@@ -914,6 +894,7 @@ can run the M8-b/d/e probes once the generator's dependencies are installed (M8 
 | X-15 | The generator's 2026-06-15 → 2026-08-23 gap in `pm2.log` (analysis § M8-0 run 1) | Outside F-1–F-50 (D6); whether the generator was down for the whole gap is not established | Steering's FYI to the owner, rulings block 05:29Z (`fa693e0`) (critique L-8) |
 | X-16 | The message cap under concurrent saves | A constraint or a transaction is beyond F-4's comparator change (QA QAF-4) | Stated limit (M1-d) |
 | X-17 | `Providers.tsx` decoding a client-reachable `x-query-params` header (code review CR-6, `7976a9a`) | Outside F-1 to F-50 (D6). As a rider it would be a scope delta for the owner; the planner does not propose one | `handoff/providers-query-params-header-decode-throws-2026-11-08.md` |
+| X-18 | F-15, F-39 (Enter on a dialog's Cancel runs confirm; the dead `tagName` compare at three sites) | Not reproducible in real Chrome at `6001f7f` (`verification/015/m3-chrome-read/README.md`, `8996505`); removed by the owner (D30). Untested residue: Enter on the uploader's Clear button (the read tested Cancel only); a production build (the read ran `next dev --webpack`); browsers other than Chrome 156. | Stated limit (D30; reopened by the class D30 names) |
 
 Not triggered, re-read 2026-11-08 against every milestone including M6-l: `backfill-valid-guard…` (`backfillValid.ts`
 is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, `fix-v1-guild-messages-auth-post-deploy`,
@@ -947,17 +928,16 @@ is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, 
 |---|---|---|
 | D2's steering-go wording at § M8 (M8-c), § Testing Strategy and RK-5 is released by D20 | D20 | Discharged at rev 6 |
 | QAF-10 (MEDIUM). Rev 8's run-2 span ends at the `Server received` line it counts, so "exactly one" cannot fail, and with no drain the span is undefined. This is RK-6's third member on the run-2 bounds (after rev 3's and QAF-8). It is remedied by the property over the class, not by another instance fix: every run-2 read is bounded only by events independent of any quantity counted inside it. Those events are the stopped process's own ready line, the last before the re-run's, and the re-run process's ready line, cross-checked against `pm2.log`'s timestamp for stop (2). Any extra ready line inside the span (`exp_backoff_restart_delay`, `max_restarts: 10`) is reported, never resolved by choosing one. The fold enumerates every read the span bounds: the `Server received` count, the drain-complete line and its elapsed figure (which rev 8's span leaves outside it), the `Created instance` and `POST /generate` counts, and the exit time. It also writes RK-6's record for both passes that reported this member. | `qa/015-bug-evaluation-fixes-qa.md` QAF-10 (`c2a657a`); critique cycle 3 M-C3-1 (`f64ae27`), the same member | Discharged at rev 9 (M8-a, "Every run-2 read"; RK-6's record). |
-| M3 premise question (implementer probe `verification/015/m3-premise-probe-6001f7f.txt`, via steering). The planner read it at 06:43Z, and F-15 reproduces in the app. next 16.1.6 hydrates the App Router with the React root on `document` (`client/app-index.js`: `const appElement = document`), and the editor is an App Router page. So usePress's `stopPropagation` (`@react-aria/interactions` 3.27.0 `usePress` `onKeyDown`) runs from React's listener on `document` and cannot stop react-hotkeys-hook 5.2.4's listener on the same node (`verification/015/m3-same-node-propagation-probe-run1.txt`). The probe mounted on a `div`, which is not the production root. M3's criterion is unchanged. | steering message 06:42Z; planner read | Discharged at rev 14. **Superseded at rev 15:** this row's conclusion ("F-15 reproduces in the app") was withdrawn at 06:52Z on the implementer's document-root probe. See § M3, "Premise: unsettled". |
+| M3 premise question (implementer probe `verification/015/m3-premise-probe-6001f7f.txt`, via steering). The planner read it at 06:43Z, and F-15 reproduces in the app. next 16.1.6 hydrates the App Router with the React root on `document` (`client/app-index.js`: `const appElement = document`), and the editor is an App Router page. So usePress's `stopPropagation` (`@react-aria/interactions` 3.27.0 `usePress` `onKeyDown`) runs from React's listener on `document` and cannot stop react-hotkeys-hook 5.2.4's listener on the same node (`verification/015/m3-same-node-propagation-probe-run1.txt`). The probe mounted on a `div`, which is not the production root. M3's criterion is unchanged. | steering message 06:42Z; planner read | Discharged at rev 14. **Superseded at rev 15:** this row's conclusion ("F-15 reproduces in the app") was withdrawn at 06:52Z on the implementer's document-root probe. Closed at rev 21: the real-Chrome read does not reproduce F-15, and M3 is removed (D30, § M3, X-18). |
 | L-C3-1 (LOW). The `Created instance` primary figure cites no non-zero read from the production out log. Run 1's capture holds none (`grep -c "Created instance"`, 0 of 97 lines, 2026-11-08T05:56Z). | critique cycle 3 L-C3-1 (`f64ae27`) | Discharged at rev 9 (P3, "Instrument liveness"). |
 
 ## Resumption State (checkpoint, planner-hooks-015)
 
 - **Done (checkpoint 2026-11-08T07:14).** Plan at revision 19 (`330348f`). Every gate passed it: architect, critic (`f8d564c`; cycle 4 closed, so a later criterion change opens cycle 5 in a new file), QA (`a47f5e9`) and code review (Round 6 row `d8ca639`). Registrations: R-1 (D14, D15), R-2 (D20), R-3, R-4 and R-5. D21 to D28 were registered inside revs 10, 11 and 13 to 18. R-5's conclusion was withdrawn at 06:52Z. Handoff opened: `handoff/providers-query-params-header-decode-throws-2026-11-08.md` (X-17). Planner probes committed: `verification/015/m1h-rejection-window-probe*` and `m3-same-node-propagation-probe*`; the second's conclusion is superseded.
 - **Next.**
-  - **M3.** When the real-Chrome read lands (QA's four cells per dialog, § M3 "Premise: unsettled"): if (a) runs confirm, restate M3 to proceed and note the jsdom-fidelity requirement. If not, write the owner options (keep the guard fix as latent, or drop M3) for steering to put to him, against the value-statement sentence "a Cancel key press never deletes".
   - **Standing rules.** Under D28, fold same-defect sibling sites without an owner question and report them. After implementation approval, park findings that change no code, test or pre-release verifier as Planner batch rows.
   - **Open, not a finding.** QA left "refused" open between a throw and an empty return in the CR-12 rider; pin it only if a gate asks.
-- **Since the checkpoint.** Rev 20 folds CR-14 under D29 ("Invalid URL" at both F-27 sites for a failed webhook-URL load); its delta round is open.
-- **Open with others.** None of the planner's questions to the owner are pending. The M3 Chrome read is with the implementer and QA. Nothing of the planner's is held.
+- **Since the checkpoint.** Rev 20 folded CR-14 under D29. Rev 21 folds CR-16 (the dialog's text goes on its shared error line) and D30 (M3 removed; X-18). One gate round covers `e118cc3`..rev 21.
+- **Open with others.** None of the planner's questions to the owner are pending. Nothing of the planner's is held.
 - **Uncommitted, left in place.** `INBOX.md` holds this session's FYI entry: the research document's `pm2 show` advice. Per the inbox rule, the domain owner commits it.
 - **Branches.** website and preview-image-generator: chain branches are created by steering. The planner touches no source.
