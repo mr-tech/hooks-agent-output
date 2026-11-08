@@ -1,0 +1,10 @@
+qaf41-recent-id-unselected: readback-changed-lines=2 ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯       Tests  1 failed | 3 passed (4) vitest exit 1 
+qaf41-recent-createdAt-unselected: readback-changed-lines=2 ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯       Tests  1 failed | 3 passed (4) vitest exit 1 
+qaf41-recent-updatedAt-unselected: readback-changed-lines=2 ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯       Tests  1 failed | 3 passed (4) vitest exit 1 
+qaf41-recent-name-unselected: readback-changed-lines=2 ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯       Tests  1 failed | 3 passed (4) vitest exit 1 
+qaf41-recent-previewImageNonce-unselected: readback-changed-lines=2 ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯       Tests  1 failed | 3 passed (4) vitest exit 1 
+qaf41-partial-id-unselected: readback-changed-lines=2 ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯       Tests  2 failed | 2 passed (4) vitest exit 1 
+qaf41-partial-createdAt-unselected: readback-changed-lines=2 ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯       Tests  2 failed | 2 passed (4) vitest exit 1 
+qaf41-partial-updatedAt-unselected: readback-changed-lines=2 ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯       Tests  2 failed | 2 passed (4) vitest exit 1 
+qaf41-partial-name-unselected: readback-changed-lines=2 ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯       Tests  2 failed | 2 passed (4) vitest exit 1 
+qaf41-partial-previewImageNonce-unselected: readback-changed-lines=2 ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯       Tests  2 failed | 2 passed (4) vitest exit 1 

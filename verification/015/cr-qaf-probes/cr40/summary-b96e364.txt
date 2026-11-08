@@ -1,0 +1,6 @@
+control-partial-guildid-unselected-b96e364.txt: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯       Tests  2 failed | 2 passed (4) vitest exit 1 
+none-b96e364.txt:       Tests  4 passed (4) vitest exit 0 
+partial-column-added-b96e364.txt: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯       Tests  2 failed | 2 passed (4) vitest exit 1 
+partial-name-unselected-b96e364.txt: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯       Tests  2 failed | 2 passed (4) vitest exit 1 
+partial-nonce-unselected-b96e364.txt: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯       Tests  2 failed | 2 passed (4) vitest exit 1 
+recent-name-unselected-b96e364.txt: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯       Tests  1 failed | 3 passed (4) vitest exit 1 
