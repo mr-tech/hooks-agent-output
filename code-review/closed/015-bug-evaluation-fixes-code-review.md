@@ -78,6 +78,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-08T14:38 | implementer-hooks-015 (message): website `b96e364` (§ Round 6, `a807ea4`) | Round 2 sub-entry: the CR-40 fix, `9b5e47f..b96e364`, test-only | APPROVED. CR-40 RESOLVED: one typed select-clause literal. All 4 of my mutators and the 10 per-column mutants are red, an added column is red too, and the control is 4 of 4 (`cr-qaf-probes/cr40/summary-b96e364.txt`, `class-b96e364.txt`). |
 | 2026-11-08T21:31 | devops-hooks-015 | Document closed | Status: Committed (was In Review). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
 | 2026-11-08T21:42 | analyst-hooks-015 (message): agent-output `49e7fab` | Round 18 sub-entry: `pig-host-read.sh` [6], the M8-0 run-2 span read | APPROVED_WITH_COMMENTS. The span matches the spec on the host log, and every figure line is timestamped. CR-41 LOW: when a process has no ready line, its span reads as all zeros instead of NO SPAN (fixture `cr-m8-probes/span-read/`). CR-42 LOW: the analyst's fixture is not captured. Document Status unchanged (closed). |
+| 2026-11-08T21:46 | analyst-hooks-015 (message): agent-output `f616d83`, `f502873` | Round 18 sub-entry: CR-41 and CR-42 fixes | APPROVED. CR-41 RESOLVED: my fixture prints NO SPAN for the process with no ready line, and the End guard is exercised by the analyst's fixture 3. CR-42 RESOLVED: the analyst's fixture driver reproduces both committed outputs byte for byte. On the host the span is unchanged (227 / 11,324 / 5 s), and the zone is `+0000`. |
 
 ## Round 1 (M0, website `037935d`) — dispositions
 
@@ -310,6 +311,19 @@ CR-5 LOW Round 2 DECLINED — by the implementer (§ Fix Round 1): the plan sets
   - The two literal `formatKey` cases go to a `formatKey.*` file; the tautologies are deleted.
   - The `useParsePathname` describe is converted to exercise the real hook, or deleted with the surface listed as outstanding.
   - QA decides the timing (now or with a later touch). Non-blocking for M2.
+
+## Round 18 sub-entry (CR-41 and CR-42 fixes; `pig-host-read.sh` [6] at agent-output `f616d83`, fixture outputs `f502873`): APPROVED
+
+- **Stage start.** analyst-hooks-015 sent a message (cross-session) naming `f616d83` and `f502873`. The diff `49e7fab..f616d83 -- verification/015/pig-host-read.sh` (+15/−1) adds two guards and their comment, and I read it whole. This fixes an instrument, so I re-attacked it rather than reading the fix and agreeing.
+- **CR-41: RESOLVED.**
+  - Before reading figures, [6] now refuses a Start not stamped before stop B's second, and an End not stamped before the next stop's second. `NEXT_TS` is the stop that follows `SLINE` in `STOPS`. When there is no later stop, the End guard is skipped, which is right for run 2's last span.
+  - The comparisons are bash `[[ < ]]` over fixed-width stamps with the punctuation in the same places, so collation cannot reorder them.
+  - My fixture at `f616d83` (`cr-m8-probes/span-read/span-read-f616d83.txt`): span 1 prints `NO SPAN: Start is not stamped before stop B's second`, and span 2 reads `Created instance` 1. That is the falsity signature this sub-entry's raising entry stated.
+  - The analyst's fixture 3, for the End guard, prints NO SPAN for both spans at `f616d83`. At `49e7fab` it had merged two processes and read `Created instance` 2.
+- **CR-42: RESOLVED.** `verification/015/pig-span-read-fixture/run.sh` has three fixtures. I re-ran it at `49e7fab` and at `f616d83` over the committed outputs: `git diff --numstat -- pig-span-read-fixture/` is empty, so both outputs reproduce byte for byte. Fixture 1's branches print as the analysis states: a clean span of 1/1/1/1 with `734ms`, RESTARTS 1 with its figures withheld, and NO SPAN with End `(none)`.
+- **Host re-run, 21:44Z** (`m8-0-span-liveness-2026-11-08T2144Z.txt`): the same span (out lines 28898 to 146790), 227, 11,324, and 5 s. So the guards do not reject the real span. The capture's mtimes read `+0000` on all 9 stamped lines, and none reads another zone (D23).
+- **Verdict: APPROVED.** No finding. Devops takes `pig-host-read.sh` at `f616d83` for run 2.
+- **Assumption Not Checked.** This carries over from the sub-entry this one confirms: the M9 push writes a prod `Stopping app` line. Devops owns closing it, from run 2's `[4]` count.
 
 ## Round 18 sub-entry (`pig-host-read.sh` section [6], the M8-0 run-2 span read; agent-output `49e7fab`): APPROVED_WITH_COMMENTS
 

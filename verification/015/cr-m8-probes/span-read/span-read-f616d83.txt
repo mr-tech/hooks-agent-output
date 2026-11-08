@@ -1,0 +1,25 @@
+1
+[6] per-process span reads for hooks-image-preview-generator-prod (stop pairs from /usr/local/bin/hooks/agent-output/verification/015/cr-m8-probes/span-read/fixture/pm2.log; lines from /usr/local/bin/hooks/agent-output/verification/015/cr-m8-probes/span-read/fixture/logs/hooks-image-preview-generator-prod-out.log):
+  prod stops in pm2.log (line stamp): 3
+    2 2026-01-01T10:00:00
+    4 2026-01-01T11:00:00
+    6 2026-01-01T12:00:00
+  timestamped ready lines in out log: 3
+  untimestamped ready lines in out log (not placeable): 0
+  -- span 1: process stopped by stop B=2026-01-01T11:00:00 (pm2.log line 4); started after stop A=2026-01-01T10:00:00
+     Start: out line 4 at 2026-01-01T11:00:02.000Z   End: out line 4 at 2026-01-01T11:00:02.000Z
+     NO SPAN: Start is not stamped before stop B's second (the process started after stop A logged no ready line)
+  -- span 2: process stopped by stop B=2026-01-01T12:00:00 (pm2.log line 6); started after stop A=2026-01-01T11:00:00
+     Start: out line 4 at 2026-01-01T11:00:02.000Z   End: out line 6 at 2026-01-01T12:00:02.000Z
+     timestamped lines in span: 2   last stamp in span: 2026-01-01T11:30:00.000Z
+     Server received (message begins with): 0   [any line containing it: 0]
+     Drain complete lines: 0
+     Drain failed lines: 0
+     Created instance (PRIMARY pool figure): 1
+     POST /generate (SECONDARY; includes unauthenticated): 0
+     untimestamped lines between Start and End lines (not counted above): 0, of which matching a figure word: 0
+     pm2.log exit line after stop B: 7: 2026-01-01T12:00:01: PM2 log: App [hooks-image-preview-generator-prod:0] exited with code [0] via signal [SIGINT]
+     exit - stop B: 1 s (pm2.log whole-second stamps, +/-1 s)
+     'still alive' / SIGKILL lines between stop B and the exit line:
+
+=== end
