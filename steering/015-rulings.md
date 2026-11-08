@@ -271,3 +271,6 @@ Correction (08:12Z): the entry landed as website.md **W-7**, not A-6 (architect,
 
 ## 2026-11-08T08:15Z — M5-h and M5-i released on plan rev 24 (018f72d)
 Every gate has passed rev 24: code review Round 13 APPROVED (3960833), architect APPROVED (1a3bc68; AF-28/29 LOW), QA Phase 1 re-key approved with no new finding (4d091e4), and critic cycle 7 closed (0029245; L-C7-1 parked as R-9). M5-h (crash-set property) and M5-i (D28) are released to the implementer.
+
+## 2026-11-08T08:37Z — M6-a released on plan rev 25 (dd9e88a)
+Every gate has passed rev 25: architect delta APPROVED (5efb7ab), code review Round 15 APPROVED (1d0059a), critic cycle 8 closed APPROVED (1168da8; L-C8-1 LOW parked as R-11), and QA's Phase 1 re-key approved with no new finding (983a84d). No OPEN QUESTION is open: `grep -c 'OPEN QUESTION:'` on the plan = 0. M6-a (CR-22 blank fence lines, the title member dropped per CR-23) and CR-24 (F-45's sibling class, D28) are released to the implementer. QA Phase 2 at 24ac49f (a7dfb4d): M1, M4, M5-a..g PASS; M6-b..l QA Failed on coverage (QAF-30, QAF-31 MEDIUM; QAF-32 LOW), in the M6 QA document.
