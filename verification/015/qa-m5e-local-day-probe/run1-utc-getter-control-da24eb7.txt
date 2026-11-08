@@ -1,0 +1,5 @@
+# positive control: da24eb7 formatMessageDate.ts with every local getter replaced by its UTC getter (sed), node v24.14.0
+# UTC getter lines: 3
+UTC [true,false] [true,false] OK
+Pacific/Auckland [true,false] [false,false] MISMATCH
+America/Los_Angeles [true,false] [true,false] OK
