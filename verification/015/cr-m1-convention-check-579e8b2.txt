@@ -1,0 +1,3 @@
+SKIP src/utils/limits.tsx: not examined — no added lines
+SKIP id-token, basename: no agent-output/TEST-CONVENTIONS.md above this repository — conventions not in force here
+convention-check: 4 file(s) examined, 1 not examined, 2 test file(s); 0 FAIL, 0 CANDIDATE, 2 SKIP

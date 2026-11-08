@@ -2,9 +2,9 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Reviewed-At: "1e12837 — repos=website; Round 7 (M4) at the M4 Handoff-At against plan rev 19 (330348f). Rounds 4–6 were plan gate reads (latest 330348f,6001f7f)"
+Reviewed-At: "579e8b2 — repos=website; Round 2 sub-entry (M1-c/M1-h rebuild) at 579e8b2 against plan rev 19 (330348f). Round 7 (M4) at 1e12837. Rounds 4–6 were plan gate reads (latest 330348f,6001f7f)"
 Status: In Review
-Status-Detail: "Round 7 (M4 at website 1e12837, plan rev 19): APPROVED_WITH_COMMENTS — CR-14 LOW; the CR-12 rider attacked on the real procedure (26 cases, all refused or controls as expected; discriminates at 6001f7f). QA Phase 2 may take M4 at 1e12837. M1-c and M1-h re-verdicts wait on their rebuild handoff (tip 579e8b2 carries rebuild commits, not yet handed off). Rounds 4–6 (plan gate reads) approved."
+Status-Detail: "M1 at 579e8b2 (Round 2 sub-entry, plan rev 19): APPROVED_WITH_COMMENTS — CR-3 RESOLVED (structural), M1-h meets all eight rows, CR-15 LOW; QA Phase 2 may take M1-c and M1-h at 579e8b2. M4 Round 7 at 1e12837: APPROVED_WITH_COMMENTS (CR-14 LOW, with the owner). Rounds 4–6 (plan gate reads) approved."
 Round: 7
 Verdict: APPROVED_WITH_COMMENTS
 ---
@@ -19,7 +19,7 @@ Verdict: APPROVED_WITH_COMMENTS
 
 **Implementation References**:
 - `implementation/015-bug-evaluation-fixes-m0-implementation.md` (`6299c9b`, `Handoff-At` 037935d).
-- `implementation/015-bug-evaluation-fixes-m1-implementation.md` (`7f45611`, `Handoff-At` be881c9; § Fix Round 1 at `3ba52f3`, `Handoff-At` 6001f7f).
+- `implementation/015-bug-evaluation-fixes-m1-implementation.md` (`7f45611`, `Handoff-At` be881c9; § Fix Round 1 at `3ba52f3`, `Handoff-At` 6001f7f; § Fix Round 2 at `c938573`, `Handoff-At` 579e8b2).
 - `implementation/015-bug-evaluation-fixes-m2-implementation.md` (`3ba52f3`, `Handoff-At` 6001f7f).
 - `implementation/015-bug-evaluation-fixes-m4-implementation.md` (`d30916f`, `Handoff-At` 1e12837).
 
@@ -41,6 +41,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-08T07:06 | steering-hooks-015 (message) | Round 6: plan gate read, `67cb5e7..330348f` (rev 19), CR-12 rider only | APPROVED, no findings. Belonging as `guild_id` equality refuses an absent `guild_id`. The three refusal texts match `fetchChannel` at `6001f7f` word for word. The unmapped failures (no response; cache-lock wait timeout) throw before any content, so the safety property covers them. The M4 code review becomes Round 7. |
 | 2026-11-08T07:08 | qa-hooks-015 (message; Assumption Not Checked routed from `qa/015-bug-evaluation-fixes-qa.md` `a47f5e9`) | Round 6 sub-entry: `authorizeGuildAdmin`'s refusal path, read as the rider's premise | No finding. A signed-in non-owner, non-Administrator of server A is refused with FORBIDDEN before any message fetch. The admin-bit test was run on the real module, 6 of 6 as expected (`verification/015/cr-m4d-admin-bit-probe-run1-6001f7f.txt`). Stated residue: the 600 s `user-guilds` cache. |
 | 2026-11-08T07:21 | implementer-hooks-015 (message) handoff at website `1e12837`; steering-hooks-015 (Round 7 held for one tree, option (a)) | Round 7: review M4 (F-16, F-17, F-18, F-27 at both sites, D27 rider, CR-11, CR-13) against plan rev 19 | APPROVED_WITH_COMMENTS. Every limb is met. The rider was attacked on the real `getFromUrl` with only Redis, Postgres and Discord faked: 26 cases at `1e12837` all refused or were controls as expected, and the attack leaks at `6001f7f` (`cr-m4-getfromurl-attack-run2/3`). CR-14 LOW: the two F-27 sites answer a failed *webhook* fetch differently. CR-11 and CR-13 RESOLVED. |
+| 2026-11-08T07:25 | implementer-hooks-015 (message) handoff at website `579e8b2` (§ Fix Round 2, `c938573`) | Round 2 sub-entry: the M1-c and M1-h rebuild (`1e12837..579e8b2`), plus CR-9 and CR-6 | Round 2 is now APPROVED_WITH_COMMENTS for M1. CR-3 RESOLVED, structurally: sign-out decides from the `Accounts` row, and `skipUpdate` is gone. My probes give 9 of 9 rows as expected at `579e8b2`, and they go red at `6001f7f` on cached `null` and on the lookup error. M1-h: every one of the eight rows has a cell. CR-15 LOW: row 2's "M rejects after the function returned" member has no cell, and by reasoning it is covered by the during-A cells. CR-9 and CR-6 RESOLVED. |
 
 ## Round 1 (M0, website `037935d`) — dispositions
 
@@ -145,6 +146,40 @@ CR-5 LOW Round 2 DECLINED — by the implementer (§ Fix Round 1): the plan sets
 - **Enumeration**: re-attack run `cr-m1-cookie-reattack-run1.txt`. Of 14 headers, 1 grammar-admitted session pair is dropped: `next-auth.session-token=ab%` → `null`, because Next skips a pair whose value fails to decode. Blind spot: only the inputs listed in the probe.
 - **Issue**: For that header the component would redirect a request that carries a session cookie, which contradicts "redirects exactly when neither … is present". next-auth's own tokens never contain `%`, so the contract bars it in practice and no code change is owed. The property as written is still falsifiable by a hand-made header.
 - **Required Action (planner)**: bound "present" to "as `next/headers` `cookies()` reads it", or state the residue. Non-blocking; route with the rev 13 gate round.
+
+## Round 2 sub-entry (M1-c and M1-h rebuild, website `579e8b2`, plan rev 19)
+
+- **Scope.** The fix diff `1e12837..579e8b2` (`12ac7ed`, `579e8b2`) is in scope: `src/server/auth.ts` `removeUserSession`, `src/utils/redis/index.ts` `fetchUserAccount` (`skipUpdate` removed), `src/utils/limits.tsx` (CR-9), and the two `auth.*` test files. It stays within CR-3, M1-h and CR-9, so it is a sub-entry. M1-c's and M1-h's criteria are unchanged since rev 13. I read them at rev 19 (`330348f`).
+- **CR-3 MEDIUM Round 2 RESOLVED (structural).** `removeUserSession` reads `access_token` and `providerAccountId` from `Accounts` with `executeTakeFirst()` and never reads `user-access-token`. The class "a cache state decides the account" can no longer be represented: no reader of that key remains on the sign-out path. `fetchUserAccount` has 2 callers left (`git grep -n fetchUserAccount 579e8b2`, non-test: `authCallback` and `hydratedAuthCallback`), and neither is sign-out.
+  - **Executed** (`verification/015/cr-m1-probes/signout.row-decision.test.ts`, driver `run.sh`; real `hydratedAuthOptions.events.signOut`, Kysely through the capturing driver, Redis in memory). At `579e8b2` (`cr-m1-probes-run-579e8b2.txt`), all as expected:
+    - a row with a token, cache miss, cached `null`, or cached stale account: the revoke carries the row's token, there is one update with parameters `[null, null, "discord", <id>]`, and three keys are cleared;
+    - a row with no token, while the cache holds a token: no revoke, one update;
+    - an absent row while the cache holds an account: no revoke, no update, two keys;
+    - revoke rejected or answering 500: the clear-out still runs and sign-out resolves;
+    - a lookup error: two keys are cleared, then the lookup's error reaches the caller;
+    - a lookup error with Redis down: the lookup's error reaches the caller, with 0 `unhandledRejection` events.
+  - **Discrimination.** At `6001f7f` (`cr-m1-probes-run-6001f7f.txt`), cached `null` gives no revoke and no update, and a lookup error clears nothing: 3 red. The "cached stale account" cell passes on both trees. My plain-JSON cache value does not match the cache's `compress-json` format, so the loader treats it as a miss. That cell does not discriminate, and I make no claim from it. The implementer's cached-other-token cell is the discriminating one (red at `6001f7f`, per its record).
+  - The run exits 1 for one reason only: my Round 2 probe `cookies.percent.test.ts` imports `~/utils/parseServerCookies`, which CR-4's fix deleted. That is the instrument going stale, not the tree.
+- **M1-h: met.** `hydratedAuthCallback` is unchanged since `69b17af`: there are 0 lines in `1e12837..579e8b2` that touch it, and `messagePromise.catch(() => {})` is attached at creation, before the first await. Cells in `auth.hydrated-session.test.ts`, with `unhandledRejection` counted over each run:
+  - row 1: M resolves, M rejects before A, M rejects after the function has left;
+  - row 2: M resolves, M rejected earlier (twice);
+  - row 3; row 4 at once and later; row 5;
+  - row 6 during A, during G, and after G settled;
+  - row 7; row 8, both orders.
+  - All eight rows have a cell, which is what Round 2 asked for. The implementer's mutants are not re-run here (QA's).
+
+**CR-15 LOW Round 2 (sub-entry) Test coverage**: row 2's "M rejects after the function has returned" member has no cell
+- **Location**: `src/server/__tests__/auth.hydrated-session.test.ts` at `579e8b2`, the describe "by how the account lookup, the recent messages and the guild fetch end".
+- **Class**: A member the plan names as discriminating, with no cell of its own. Rev 13's table: "Rows 1 and 2 with M rejecting after A are the paths where the function leaves without awaiting M."
+- **Enumeration**: by reading the 17 cells against the 8 rows. Row 1's after-return member has a cell: "rejects with the lookup's error when the recent messages reject after the function has left". Row 2's has none: its cells are "M resolves" and "rejected earlier". That is 1 member. Blind spot: my row mapping is by title and body reading.
+- **Issue**: By reasoning, not by a run, every regression I could construct for this member is already caught.
+  - A handler can't be removed once it is attached. So a missing handler during A fails the "during A" cells, and a derived `.then` without a catch on the `return {}` path fails "rejected earlier".
+  - So the gap is the plan's stated cell, not a known escape: LOW.
+- **Required Action (implementer, non-blocking)**: add the row-2 cell. A resolves `null`, the function returns `{}`, then M rejects; assert `{}` and `unhandled` equal to `[]` after settle. Falsity signature: it fails under a mutant that leaves M with no handler on the `return {}` path, so it must be shown red on such a mutant.
+- **CR-9 LOW Round 3 RESOLVED.** `validateEmbed` and its suppression are deleted: `git grep -c -w validateEmbed 579e8b2 -- src bot` returns no file, and `limits.tsx` has no `eslint-disable`.
+- **CR-6 LOW Round 2 RESOLVED (Minimum).** The CR-4 sweep line is corrected in the M1 document (`3ba52f3..c938573`: 3 changed lines on `x-query-params`). The Preferred action is X-17.
+- **Conventions.** eslint gives exit 0 on the 4 changed files, which are byte-identical to `579e8b2` in the shared tree. `convention-check --since=1e12837 --no-eslint` in a detached worktree gives 0 FAIL and 0 CANDIDATE (`cr-m1-convention-check-579e8b2.txt`). The ID-token check by hand gives 0 hits in both test files.
+- **Verdict.** Round 2 (M1) moves from REJECTED to APPROVED_WITH_COMMENTS at `579e8b2`. CR-15 is LOW, and CR-5 is DECLINED. QA Phase 2 may take M1-c and M1-h at `579e8b2`.
 
 ## Round 2 sub-entry (M1 fix round 1, website `6001f7f`, plan rev 13)
 
@@ -411,7 +446,7 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 **Round 3 (M2) — Status**: APPROVED_WITH_COMMENTS
 **Rationale**: M2-a to M2-d and QAF-1 meet their rev 13 properties at `6001f7f`. CR-8, CR-9 and CR-10 are LOW and change no M2 outcome.
 
-**Round 2 (M1), after its sub-entry at `6001f7f`**: REJECTED stands, now only for M1-c (CR-3) and M1-h, both held under the rev 13 round. M1-i is met (CR-4 RESOLVED). CR-6 and CR-7 are LOW.
+**Round 2 (M1), after its sub-entry at `579e8b2`**: APPROVED_WITH_COMMENTS (CR-15 LOW). CR-3 RESOLVED; M1-h met. It was REJECTED at `be881c9` and at the `6001f7f` sub-entry, for M1-c and M1-h only. M1-i is met (CR-4 RESOLVED). CR-6 and CR-7 are LOW.
 
 ## Required Actions
 
@@ -442,6 +477,8 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 
 ## Next Steps
 
+- **QA Phase 2** (qa-hooks-015): M1-c and M1-h at website `579e8b2`, Round 2 sub-entry APPROVED_WITH_COMMENTS. Probes: `verification/015/cr-m1-probes/signout.row-decision.test.ts`.
+- **Implementer**: CR-15 (the row-2 cell), non-blocking.
 - **QA Phase 2** (qa-hooks-015): M4 at website `1e12837`, Round 7 APPROVED_WITH_COMMENTS. The attack probe `verification/015/cr-m4-probes/` is available as an instrument.
 - **Planner**: CR-14 (which text a failed webhook-URL fetch shows, one answer for both sites). **Implementer**: align both sites after that.
 
@@ -459,8 +496,9 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
   - Rounds 1–3 and the Round 2 sub-entry, as in the changelog (M0 and M2 APPROVED_WITH_COMMENTS; M1 REJECTED for M1-c and M1-h only).
   - Round 4: plan gate read of `9cbe755..565e240`. After its sub-entry at rev 17 `94e9987`, it is APPROVED_WITH_COMMENTS, with CR-11 RESOLVED. CR-12 HIGH escalated to steering. CR-6 routed (X-17); CR-7 and CR-8 RESOLVED.
 - **Open, mine to re-verify:**
-  - M1-c (CR-3) and M1-h, each as a sub-entry at its rebuild SHA. The cells needed are listed under Round 2. Probe for M1-c: `verification/015/cr-m1-probes/signout.cached-null.test.ts`, driver `cr-m1-probes/run.sh`.
-  - M4: done, Round 7 APPROVED_WITH_COMMENTS at `1e12837`. CR-14 is open (planner, then implementer). Its fix is a sub-entry of Round 7. The tip `b25f561` already carries M4 commits, which are not reviewed until the handoff. Check CR-11's guild-group cell there, and that the widened constant has no capturing host group (or uses named groups).
+  - CR-14 (M4, owner choosing the text through steering): a sub-entry of Round 7 at its fix SHA.
+  - CR-15 (M1-h row-2 cell): a sub-entry of Round 2 at its fix SHA, if the implementer takes it.
+  - Done: M1 at `579e8b2` (Round 2 sub-entry) and M4 at `1e12837` (Round 7), both APPROVED_WITH_COMMENTS.
 - **Instruments.** `cr-m4d-link-class-sweep.sh <repo> <sha>`; `cr-emit-compare.cjs`; `cr-m1-probes/cookie-parser-reattack.cjs`.
 - **Hazards.** As before: the rtk filter breaks counts taken from piped output; eslint needs `node_modules`.
 - **Questions out.** None. CR-12 was ruled into chain 015 (`3d7af67`). Steering ruled Round 5 option (a): hold until the implementer delivers M4 with both F-27 sites and the CR-12 rider against the coming revision, then review one tree. The next gate read is over `565e240..<next plan tip>`, and covers the M-C4-1 text and the CR-12 fold.

@@ -1,0 +1,159 @@
+# website 579e8b2, 2026-11-08T07:23Z, node v24.14.0
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/0781c448-5d4c-4da0-83a3-d00ab415a21a/scratchpad/crprobe-579e8b2
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > GET, no headers
+PROBE GET, no headers :: status=405 parses=0 commandCalls=0 body="invalid method"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > PUT, signed ping
+PROBE PUT, signed ping :: status=405 parses=0 commandCalls=0 body="invalid method"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > lowercase post (fetch normalises), no headers, malformed
+PROBE lowercase post (fetch normalises), no headers, malformed :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, no headers, malformed
+PROBE POST, no headers, malformed :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, no headers, ping
+PROBE POST, no headers, ping :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, signature only
+PROBE POST, signature only :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, timestamp only
+PROBE POST, timestamp only :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, empty signature and timestamp
+PROBE POST, empty signature and timestamp :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, odd-length signature
+PROBE POST, odd-length signature :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, 128 non-hex chars
+PROBE POST, 128 non-hex chars :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, signature of another body, malformed body
+PROBE POST, signature of another body, malformed body :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, signature of another body, command body
+PROBE POST, signature of another body, command body :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, valid signature, timestamp header altered
+PROBE POST, valid signature, timestamp header altered :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, duplicated signature header
+PROBE POST, duplicated signature header :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, 1 MB unsigned junk
+PROBE POST, 1 MB unsigned junk :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, no body, valid signature of empty body
+PROBE POST, no body, valid signature of empty body :: status=401 parses=0 commandCalls=0 body="invalid request signature"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > control: POST, valid signature, ping
+PROBE control: POST, valid signature, ping :: status=200 parses=1 commandCalls=0 body="{"type":1}"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > control: POST, uppercase-hex valid signature, ping
+PROBE control: POST, uppercase-hex valid signature, ping :: status=200 parses=1 commandCalls=0 body="{"type":1}"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > control: POST, valid signature, command
+PROBE control: POST, valid signature, command :: status=200 parses=1 commandCalls=1 body="command-ran"
+
+stdout | src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, valid signature, malformed body (signed by the key holder only)
+PROBE POST, valid signature, malformed body (signed by the key holder only) :: status=throw parses=1 commandCalls=0 body="SyntaxError: Expected property name or '}' in JSON at positi"
+
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > GET, no headers 8ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > PUT, signed ping 2ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > lowercase post (fetch normalises), no headers, malformed 1ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, no headers, malformed 1ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, no headers, ping 1ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, signature only 1ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, timestamp only 1ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, empty signature and timestamp 2ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, odd-length signature 1ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, 128 non-hex chars 1ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, signature of another body, malformed body 1ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, signature of another body, command body 1ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, valid signature, timestamp header altered 4ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, duplicated signature header 1ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, 1 MB unsigned junk 6ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, no body, valid signature of empty body 1ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > control: POST, valid signature, ping 2ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > control: POST, uppercase-hex valid signature, ping 2ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > control: POST, valid signature, command 1ms
+ ✓ |node| src/__crprobe__/interactions-edge.attack.test.ts > interactions-edge handler under raw Request input > POST, valid signature, malformed body (signed by the key holder only) 1ms
+stdout | src/__crprobe__/signout.cached-null.test.ts > sign-out of an account row that exists, by state of the account cache key > control: cache miss -> revoke sent with the token, Accounts update issued, three keys cleared
+PROBE control fetchCalls=1 accountsUpdates=1 cleared=["user-access-token-probe-user","user-session-token-probe-session","user-guilds-probe-discord"]
+
+stdout | src/__crprobe__/signout.cached-null.test.ts > sign-out of an account row that exists, by state of the account cache key > cached null (what fetchUserAccount stores when the refresh token is absent or Discord refuses the refresh) -> same clear-out expected
+PROBE cached-null fetchCalls=1 accountsUpdates=1 dbQueries=2 cleared=["user-access-token-probe-user","user-session-token-probe-session","user-guilds-probe-discord"]
+
+stdout | src/__crprobe__/signout.row-decision.test.ts > sign-out decides from the Accounts row, whatever the account cache key holds > row with token, cache miss: revoke carries the row token, one update, three keys
+PROBE row-token/miss outcome=resolved revokeTokens=["row-token"] accountsUpdates=1 updateParams=[[null,null,"discord","probe-discord"]] cleared=["user-access-token-probe-user","user-session-token-probe-session","user-guilds-probe-discord"] unhandled=0
+
+stderr | src/__crprobe__/signout.cached-null.test.ts > sign-out of an account row that exists, by state of the account cache key > producer: the session callback caches null for an account whose Discord refresh is refused
+invalid_grant
+
+stdout | src/__crprobe__/signout.cached-null.test.ts > sign-out of an account row that exists, by state of the account cache key > producer: the session callback caches null for an account whose Discord refresh is refused
+PROBE producer sessionResult={} cachedValue="null"
+
+stdout | src/__crprobe__/signout.row-decision.test.ts > sign-out decides from the Accounts row, whatever the account cache key holds > row with token, cache cached null: revoke carries the row token, one update, three keys
+PROBE row-token/cached null outcome=resolved revokeTokens=["row-token"] accountsUpdates=1 updateParams=[[null,null,"discord","probe-discord"]] cleared=["user-access-token-probe-user","user-session-token-probe-session","user-guilds-probe-discord"] unhandled=0
+
+ ✓ |node| src/__crprobe__/signout.cached-null.test.ts > sign-out of an account row that exists, by state of the account cache key > control: cache miss -> revoke sent with the token, Accounts update issued, three keys cleared 17ms
+ ✓ |node| src/__crprobe__/signout.cached-null.test.ts > sign-out of an account row that exists, by state of the account cache key > cached null (what fetchUserAccount stores when the refresh token is absent or Discord refuses the refresh) -> same clear-out expected 1ms
+ ✓ |node| src/__crprobe__/signout.cached-null.test.ts > sign-out of an account row that exists, by state of the account cache key > producer: the session callback caches null for an account whose Discord refresh is refused 2ms
+stdout | src/__crprobe__/signout.row-decision.test.ts > sign-out decides from the Accounts row, whatever the account cache key holds > row with token, cache cached stale account: revoke carries the row token, one update, three keys
+PROBE row-token/cached stale account outcome=resolved revokeTokens=["row-token"] accountsUpdates=1 updateParams=[[null,null,"discord","probe-discord"]] cleared=["user-access-token-probe-user","user-session-token-probe-session","user-guilds-probe-discord"] unhandled=0
+
+stdout | src/__crprobe__/signout.row-decision.test.ts > sign-out decides from the Accounts row, whatever the account cache key holds > row with no token, cache holds a token: no revoke, one update, three keys
+PROBE row-no-token outcome=resolved revokeTokens=[] accountsUpdates=1 updateParams=[[null,null,"discord","probe-discord"]] cleared=["user-access-token-probe-user","user-session-token-probe-session","user-guilds-probe-discord"] unhandled=0
+
+stdout | src/__crprobe__/signout.row-decision.test.ts > sign-out decides from the Accounts row, whatever the account cache key holds > row absent, cache holds an account: no revoke, no update, two keys
+PROBE row-absent outcome=resolved revokeTokens=[] accountsUpdates=0 updateParams=[] cleared=["user-access-token-probe-user","user-session-token-probe-session"] unhandled=0
+
+stdout | src/__crprobe__/signout.row-decision.test.ts > sign-out decides from the Accounts row, whatever the account cache key holds > revoke rejects: clear-out still runs
+PROBE revoke/revoke rejects outcome=resolved revokeTokens=["row-token"] accountsUpdates=1 updateParams=[[null,null,"discord","probe-discord"]] cleared=["user-access-token-probe-user","user-session-token-probe-session","user-guilds-probe-discord"] unhandled=0
+
+stdout | src/__crprobe__/signout.row-decision.test.ts > sign-out decides from the Accounts row, whatever the account cache key holds > revoke 500: clear-out still runs
+PROBE revoke/revoke 500 outcome=resolved revokeTokens=["row-token"] accountsUpdates=1 updateParams=[[null,null,"discord","probe-discord"]] cleared=["user-access-token-probe-user","user-session-token-probe-session","user-guilds-probe-discord"] unhandled=0
+
+stdout | src/__crprobe__/signout.row-decision.test.ts > sign-out decides from the Accounts row, whatever the account cache key holds > lookup error: two keys cleared, then the lookup error reaches the caller
+PROBE lookup-error outcome=rejected:postgres unreachable revokeTokens=[] accountsUpdates=0 updateParams=[] cleared=["user-access-token-probe-user","user-session-token-probe-session"] unhandled=0
+
+stdout | src/__crprobe__/signout.row-decision.test.ts > sign-out decides from the Accounts row, whatever the account cache key holds > lookup error and redis down: the lookup error, not redis, and nothing unhandled
+PROBE lookup-error+redis-down outcome=rejected:postgres unreachable revokeTokens=[] accountsUpdates=0 updateParams=[] cleared=[] unhandled=0
+
+ ✓ |node| src/__crprobe__/signout.row-decision.test.ts > sign-out decides from the Accounts row, whatever the account cache key holds > row with token, cache miss: revoke carries the row token, one update, three keys 18ms
+ ✓ |node| src/__crprobe__/signout.row-decision.test.ts > sign-out decides from the Accounts row, whatever the account cache key holds > row with token, cache cached null: revoke carries the row token, one update, three keys 1ms
+ ✓ |node| src/__crprobe__/signout.row-decision.test.ts > sign-out decides from the Accounts row, whatever the account cache key holds > row with token, cache cached stale account: revoke carries the row token, one update, three keys 1ms
+ ✓ |node| src/__crprobe__/signout.row-decision.test.ts > sign-out decides from the Accounts row, whatever the account cache key holds > row with no token, cache holds a token: no revoke, one update, three keys 1ms
+ ✓ |node| src/__crprobe__/signout.row-decision.test.ts > sign-out decides from the Accounts row, whatever the account cache key holds > row absent, cache holds an account: no revoke, no update, two keys 1ms
+ ✓ |node| src/__crprobe__/signout.row-decision.test.ts > sign-out decides from the Accounts row, whatever the account cache key holds > revoke rejects: clear-out still runs 1ms
+ ✓ |node| src/__crprobe__/signout.row-decision.test.ts > sign-out decides from the Accounts row, whatever the account cache key holds > revoke 500: clear-out still runs 1ms
+ ✓ |node| src/__crprobe__/signout.row-decision.test.ts > sign-out decides from the Accounts row, whatever the account cache key holds > lookup error: two keys cleared, then the lookup error reaches the caller 1ms
+ ✓ |node| src/__crprobe__/signout.row-decision.test.ts > sign-out decides from the Accounts row, whatever the account cache key holds > lookup error and redis down: the lookup error, not redis, and nothing unhandled 22ms
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/__crprobe__/cookies.percent.test.ts [ src/__crprobe__/cookies.percent.test.ts ]
+Error: Cannot find module '~/utils/parseServerCookies' imported from /tmp/claude-1000/-usr-local-bin-hooks/0781c448-5d4c-4da0-83a3-d00ab415a21a/scratchpad/crprobe-579e8b2/src/__crprobe__/cookies.percent.test.ts
+ ❯ src/__crprobe__/cookies.percent.test.ts:3:1
+      1| import { describe, expect, it, vi } from 'vitest';
+      2|
+      3| import parseServerCookies from '~/utils/parseServerCookies';
+       | ^
+      4|
+      5| const header = vi.hoisted(() => ({ value: '' }));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { code: 'ERR_MODULE_NOT_FOUND' }
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 3 passed (4)
+      Tests  32 passed (32)
+   Start at  07:23:21
+   Duration  1.03s (transform 509ms, setup 0ms, import 1.86s, tests 114ms, environment 0ms)
+
+# vitest exit 1
