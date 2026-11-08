@@ -2,10 +2,10 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Status: Open
-Status-Detail: "Cycle 8 pass 1: delta-bounded read of revision 25 (018f72d..dd9e88a, --numstat 27/10, read whole; M6-a drops the title member under CR-23, the Exclusions standing constraint with X-16/X-21 clauses, W-7 cited in D34/X-20, X-22). Verdict APPROVED (after implementation approval). One LOW (L-C8-1): the title member's provenance is the research's F-38, not rev 4, and codeBlock was excluded from titles at 57b58d8, before d5f2dc8. Owed as a Planner batch row. M6-a may proceed against rev 25."
-Artifact-Revision: 25 — read at agent-output dd9e88a, the plan's tip at this read
-Reviewed-At: dd9e88a — repos=agent-output; website 24ac49f (chain/015-bug-evaluation-fixes tip, the M6 handoff tree; the M6-a mechanism read at 7ce866b, 57b58d8 and d5f2dc8), preview-image-generator 471578f (chain/015-bug-evaluation-fixes), unchanged since cycle 1
+Status: Resolved
+Status-Detail: "Cycle 8 closed after pass 1: revision 25 (dd9e88a) APPROVED; L-C8-1 LOW carried by Planner batch row R-11 (83c4c3e), both limbs and the cycle slip, landing at the next planning pass or the seam before the UAT anchor — landed-by-author at that fold, not critic-verified. Every finding carries a landing trigger recorded in the plan."
+Artifact-Revision: 25 — read at agent-output dd9e88a; R-11 (83c4c3e) adds the L-C8-1 batch row and two changelog lines, no requirement moved
+Reviewed-At: 83c4c3e — repos=agent-output; website 24ac49f (chain/015-bug-evaluation-fixes tip, the M6 handoff tree; the M6-a mechanism read at 7ce866b, 57b58d8 and d5f2dc8), preview-image-generator 471578f (chain/015-bug-evaluation-fixes), unchanged since cycle 1
 Verdict: APPROVED
 ---
 
@@ -18,6 +18,7 @@ Verdict: APPROVED
 | Date | Handoff | Request | Summary |
 |---|---|---|---|
 | 2026-11-08T08:29 | steering-hooks-015 (message, 08:27Z) | cycle 8 pass 1: delta over `018f72d..dd9e88a` (rev 25) | Delta-bounded pass. M6-a's title drop re-derived at website `7ce866b` (`parseEmbedTitle` omits `codeBlock`, `heading`, `list`) and in history (`57b58d8` introduced the `codeBlock` omit; `d5f2dc8` swapped `br` for `list`). The research's F-38 names `parseEmbedTitle`, so the member's provenance is the research, not rev 4: L-C8-1 LOW with the date slip. L-C7-1 verified landed (standing constraint; X-16, X-21 clauses). X-22's source read checked against the installed next 16.1.6 `layout-router.js`. RK-6: no new member. Verdict APPROVED. |
+| 2026-11-08T08:31 | planner-hooks-015 (message, 08:30Z) | Document closed | Status: Resolved. Plan R-11 (`83c4c3e`; `dd9e88a..83c4c3e --numstat 3/0`: a code-review Round 15 row, the R-11 line, the L-C8-1 batch row) read: the row carries both limbs — the research's F-38 as the title member's source, `57b58d8` as the exclusion's origin (the planner's own re-run of `git log -G` confirms it; its `-S` search had matched the exact three-item list) — the cycle slip, its source (`4429f17`) and a landing trigger. Nothing else is owed; the file moves to `critiques/closed/`. Noted for another domain: code review's Round 15 row (plan changelog; `code-review/…` at `1d0059a`) also says "first at `d5f2dc8`"; an INBOX.md entry is appended for the code-reviewer, since that document is not this gate's. |
 
 ## Boundary
 
@@ -48,7 +49,7 @@ This pass assumes the planner's source read of next 16.1.6 (`verification/015/m5
 ### Low
 
 **L-C8-1 LOW cycle 8 pass 1 — M6-a's title drop misnames its source and its date.**
-- **State**: OPEN.
+- **State**: OPEN with its landing trigger recorded — Planner batch row R-11 (plan `83c4c3e`), both limbs carried; folds at the next planning pass, at latest the seam before the UAT anchor. It closes landed-by-author at that fold, the discharging document being the plan revision that folds it; no critic pass verifies it.
 - **Location**: plan § M6-a, "`parseEmbedTitle` deliberately omits `codeBlock` … since `d5f2dc8` … (rev 4–24 named the title in error)"; changelog row rev 25, "Naming `parseEmbedTitle` in M6-a was the planner's error since rev 4: titles have omitted code blocks by design since `d5f2dc8`".
 - **Description**: (i) the title entered through the research's F-38 row, which asserts all three parsers are built from `staticBaseRules`; the plan quotes F-38's bold statement verbatim and carries the research as its source, so the superseded claim is the research's and the supersession is carried at the plan's point of citation (lifecycle: re-status the superseded claim where it stands — the research is ID-less and not edited), not attributed to a planning revision. (ii) `codeBlock` was excluded from titles at `57b58d8` (2023-03-23); `d5f2dc8` changed `br` → `list` with the exclusion already in place. One sentence each; no criterion moves.
 - **Impact**: a reader checking "by design since `d5f2dc8`" at that commit finds the exclusion on both sides of the diff and doubts the claim; the retrospective reads the error as the planner's where the research made it.
@@ -70,4 +71,8 @@ None: the rev 25 diff carries no `OPEN QUESTION` line.
 
 **Pass 1 — APPROVED** (cycle 8, pass 1; after implementation approval, REQUEST REVISION reserved for HIGH or CRITICAL, none raised). Sized to the ask: 47 of 50 plus the rider and M5-i; the title drop removes no delivered capability. M6-a's mechanism re-derived at `7ce866b` and in history; L-C7-1 verified landed as the standing constraint; W-7 citations and X-22 consistent with their reads. One LOW, L-C8-1 (source and date of the title exclusion), a Planner batch row. D24–D34 terminal; nothing here re-raises them. RK-6: no new member. No owner-needing item.
 
-**Next**: the implementer — M6-a is being fixed (CR-22) and rev 25 changes its member list; it may proceed against rev 25 (the next-act table: an approval after implementation approval goes to the implementer where the revision changed a milestone being coded). The planner: L-C8-1's batch row at its next pass.
+## Closure
+
+Closed 2026-11-08T08:31 at plan rev 25 with R-11 (`83c4c3e`): L-C8-1 carried by the plan's Planner batch row with its landing trigger. Items carried past this document: this pass's Assumption Not Checked (the next 16.1.6 keying conclusion, read not run) is X-22's stated limit with the planner as its owner while the plan is open; the code-review record's "first at `d5f2dc8`" is an INBOX.md entry for the code-reviewer. A later revision that changes criterion text, milestone scope or an instrument's form opens cycle 9 in a new file.
+
+**Next** (as written at pass 1): the implementer — M6-a is being fixed (CR-22) and rev 25 changes its member list; it may proceed against rev 25 (the next-act table: an approval after implementation approval goes to the implementer where the revision changed a milestone being coded). The planner: L-C8-1's batch row at its next pass.
