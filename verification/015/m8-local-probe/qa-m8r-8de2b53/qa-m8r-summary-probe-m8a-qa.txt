@@ -1,0 +1,13 @@
+export /tmp/claude-1000/-usr-local-bin-hooks/07779517-a93b-4582-8eaa-bb529d59396c/scratchpad/exports/pig-probe-8de2b53
+mutant set mutators/qa-m8r-mutants.json blob ea5d9b6ad8f6d27f5fbc22ba66d28ee9683efe15
+probe probe-m8a-qa.cjs blob bd39b7196cdce78199004eed9055181e1983c2c9
+probe probe-pages.cjs blob 9f41863e58dd2387fca1207acadb6e71319eecba
+control	SURVIVED	0 red	
+qa-m8a-once-guard-removed	KILLED	1 red	build/server.js 1a024e4f0be3->c9c9ec1f0c39
+    red: P1 idempotent (held drain): a shutdown message then SIGINT give one "Server received" line, then exit 0
+qa-m8a-pool-read-creates	KILLED	1 red	build/server.js 1a024e4f0be3->55427645fe0a
+    red: P3 idle: a process that served no request launches no browser at stop
+qa-m8a-handlers-registered-late	SURVIVED	0 red	build/server.js 1a024e4f0be3->3ca257832dc2
+qa-m8a-sigint-registered-late	KILLED	2 red	build/server.js 1a024e4f0be3->44b8ee777f59
+    red: P1 idempotent (held drain): a shutdown message then SIGINT give one "Server received" line, then exit 0
+    red: P4: a SIGINT sent in the tick the ready message arrives is handled (one "Server received SIGINT" line, exit 0)

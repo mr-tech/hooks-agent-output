@@ -1,0 +1,11 @@
+mutant qa-m8a-sigint-registered-late
+mutated build/server.js 1a024e4f0be3->44b8ee777f59
+isolation: non-lo links=0 default routes=0
+self-check: external lookup EAI_AGAIN
+CELL PASS P1 idempotent (held drain) liveness: the drain is still held when the second trigger is sent -- {"drained":0,"exited":null}
+CELL FAIL P1 idempotent (held drain): a shutdown message then SIGINT give one "Server received" line, then exit 0 -- {"received":1,"ex":{"code":null,"sig":"SIGINT"},"lines":1}
+CELL PASS P3 launch counter control: a process that served one /generate shows launches -- {"st":500,"launches":2}
+CELL PASS P3 idle: a process that served no request launches no browser at stop -- {"ex":{"code":0,"sig":null},"launches":0}
+CELL FAIL P4: a SIGINT sent in the tick the ready message arrives is handled (one "Server received SIGINT" line, exit 0) -- {"ex":{"code":null,"sig":"SIGINT"},"received":0}
+SUMMARY cells=5 failed=2
+exit 0
