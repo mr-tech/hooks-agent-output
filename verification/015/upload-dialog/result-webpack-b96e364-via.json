@@ -1,0 +1,211 @@
+{
+ "console": [
+  "log: [Vercel Speed Insights] Failed to load script from /_vercel/speed-insights/script.js. Please check if any content blockers are enabled and try again."
+ ],
+ "exceptions": [],
+ "steps": [
+  {
+   "step": "loaded",
+   "dialogText": false,
+   "dialogs": [
+    "",
+    "",
+    "",
+    ""
+   ],
+   "menu": [
+    "open sidebar",
+    "toggle site theme",
+    "user menu",
+    "reload messages",
+    "toggle message list view",
+    "sort by",
+    "new message",
+    "message actions",
+    "Ok, Got it."
+   ]
+  },
+  {
+   "step": "trigger",
+   "trig": {
+    "x": 1060,
+    "y": 212,
+    "disabled": null
+   }
+  },
+  {
+   "step": "menu-open",
+   "dialogText": false,
+   "dialogs": [
+    "",
+    "",
+    "New Message\nUpload Message",
+    ""
+   ],
+   "menu": [
+    "open sidebar",
+    "toggle site theme",
+    "user menu",
+    "reload messages",
+    "toggle message list view",
+    "sort by",
+    "new message",
+    "New Message",
+    "Upload Message",
+    "message actions",
+    "Ok, Got it."
+   ]
+  },
+  {
+   "step": "upload-button",
+   "up": {
+    "x": 976,
+    "y": 324,
+    "disabled": null
+   }
+  },
+  {
+   "step": "after-upload",
+   "dialogText": true,
+   "dialogs": [
+    "",
+    "",
+    "",
+    "",
+    "Create or upload a new message\nMessage Link\nURL\n(Requires bot.)\nWebhook\nMessage ",
+    ""
+   ],
+   "menu": [
+    "open sidebar",
+    "toggle site theme",
+    "user menu",
+    "reload messages",
+    "toggle message list view",
+    "sort by",
+    "new message",
+    "message actions",
+    "Ok, Got it.",
+    "",
+    "close modal",
+    "Continue",
+    ""
+   ]
+  }
+ ],
+ "cookieSet": {
+  "success": true
+ },
+ "via": {
+  "url": "http://127.0.0.1:3000/message/m/1/edit",
+  "links": [
+   "/message/f/0",
+   "/message/m/1/send"
+  ],
+  "link": {
+   "x": 28,
+   "y": 32,
+   "disabled": null
+  },
+  "link2": null,
+  "loadedFresh": "http://127.0.0.1:3000/message/m/1/edit"
+ },
+ "url": "http://127.0.0.1:3000/message/f/0",
+ "rects": [
+  [
+   "",
+   "react-aria-_R_1dimbsnn5tlb_ cls= [0,0,0,0] display=block pos=absolute",
+   "DIV cls=ml-2 min-w-0 [0,0,0,0] display=block pos=static",
+   "DIV cls=flex items-center min-w-0 [0,0,0,0] display=flex pos=static",
+   "DIV cls=flex items-center justify-between gap-4  [0,0,0,0] display=flex pos=static",
+   "S:1 cls= [0,0,0,0] display=none pos=static",
+   "app cls= [0,16,1280,64] display=block pos=static"
+  ],
+  [
+   "",
+   "react-aria-_R_b4mbsnn5tlb_ cls= [0,0,0,0] display=block pos=absolute",
+   "DIV cls=flex items-center gap-2 shrink-0 [0,0,0,0] display=flex pos=static",
+   "DIV cls=flex items-center justify-between gap-4  [0,0,0,0] display=flex pos=static",
+   "S:1 cls= [0,0,0,0] display=none pos=static",
+   "app cls= [0,16,1280,64] display=block pos=static"
+  ],
+  [
+   "",
+   "react-aria-_R_1dimbsnn5tlb_ cls= [0,0,0,0] display=block pos=absolute",
+   "_r_g_ cls= [0,64,1280,0] display=block pos=static",
+   "app cls= [0,0,1280,64] display=block pos=static"
+  ],
+  [
+   "Enter Image URLImage URLCancelClearSave",
+   "react-aria377492397-_r_1p_ cls=relative z-10 [0,0,0,0] display=none pos=relative",
+   "DIV cls= [0,64,1280,0] display=block pos=static",
+   "DIV cls= [0,64,1280,0] display=block pos=static",
+   "headlessui-portal-root cls= [0,64,1280,0] display=block pos=static",
+   "app cls= [0,0,1280,64] display=block pos=static"
+  ],
+  [
+   "",
+   "react-aria377492397-_r_2a_ cls= [0,0,0,0] display=block pos=absolute",
+   "DIV cls=flex items-center gap-2 [1188,18,76,36] display=flex pos=static",
+   "DIV cls=flex items-center justify-between gap-4  [0,0,1280,72] display=flex pos=static",
+   "MAIN cls= [0,0,1280,152] display=block pos=static",
+   "app cls= [0,0,1280,152] display=block pos=static"
+  ],
+  [
+   "",
+   "react-aria377492397-_r_2s_ cls= [0,96,0,0] display=block pos=absolute",
+   "DIV cls=flex [960,192,120,40] display=flex pos=static",
+   "DIV cls=flex items-center justify-between mx-2 m [200,192,880,40] display=flex pos=static",
+   "DIV cls=mx-auto w-full max-w-[896px] [192,192,896,144] display=block pos=static",
+   "DIV cls=my-6 [0,192,1280,144] display=block pos=static",
+   "DIV cls=relative w-full [0,96,1280,240] display=block pos=relative",
+   "MAIN cls= [0,0,1280,336] display=block pos=static",
+   "app cls= [0,0,1280,336] display=block pos=static"
+  ],
+  [
+   "",
+   "react-aria377492397-_r_31_ cls= [0,96,0,0] display=block pos=absolute",
+   "DIV cls=flex [960,192,120,40] display=flex pos=static",
+   "DIV cls=flex items-center justify-between mx-2 m [200,192,880,40] display=flex pos=static",
+   "DIV cls=mx-auto w-full max-w-[896px] [192,192,896,144] display=block pos=static",
+   "DIV cls=my-6 [0,192,1280,144] display=block pos=static",
+   "DIV cls=relative w-full [0,96,1280,240] display=block pos=relative",
+   "MAIN cls= [0,0,1280,336] display=block pos=static",
+   "app cls= [0,0,1280,336] display=block pos=static"
+  ],
+  [
+   "",
+   "react-aria377492397-_r_38_ cls= [0,96,0,0] display=block pos=absolute",
+   "DIV cls=flex items-center justify-between [544,500,192,32] display=flex pos=static",
+   "DIV cls=flex flex-col [544,480,192,52] display=flex pos=static",
+   "LI cls=flex flex-col gap-2 group [544,248,192,284] display=flex pos=static",
+   "UL cls=flex justify-center flex-wrap gap-6 mt-4 [192,248,896,284] display=flex pos=static",
+   "DIV cls=mx-auto w-full max-w-[896px] [192,192,896,340] display=block pos=static",
+   "DIV cls=my-6 [0,192,1280,340] display=block pos=static",
+   "DIV cls=relative w-full [0,96,1280,436] display=block pos=relative",
+   "MAIN cls= [0,0,1280,532] display=block pos=static",
+   "app cls= [0,0,1280,532] display=block pos=static"
+  ],
+  [
+   "Create or upload a new message\nMessage L",
+   "react-aria377492397-_r_35_ cls=relative z-10 [0,556,1280,0] display=block pos=relative",
+   "DIV cls= [0,556,1280,0] display=block pos=static",
+   "DIV cls= [0,556,1280,0] display=block pos=static",
+   "headlessui-portal-root cls= [0,556,1280,0] display=block pos=static",
+   "app cls= [0,0,1280,532] display=block pos=static"
+  ],
+  [
+   "",
+   "react-aria377492397-_r_4t_ cls= [0,0,0,0] display=block pos=absolute",
+   "_r_4u_ cls= [0,556,1280,0] display=block pos=static",
+   "app cls= [0,0,1280,532] display=block pos=static"
+  ]
+ ],
+ "hidden": {
+  "hidden": [],
+  "portalRootChildren": [
+   "<div data-headlessui-portal=\"\" aria-hidden=\"true\" inert=\"\"><section class=\"Toastify\" aria-live=\"polite\" aria-atomic=\"false\" aria-relevant=\"additions text\" aria-",
+   "<div data-headlessui-portal=\"\"><button type=\"button\" data-headlessui-focus-guard=\"true\" aria-hidden=\"true\" style=\"position: fixed; top: 1px; left: 1px; width: 1"
+  ],
+  "portalRootParent": "BODY"
+ }
+}

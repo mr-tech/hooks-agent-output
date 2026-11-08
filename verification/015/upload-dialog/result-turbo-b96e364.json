@@ -1,0 +1,87 @@
+{
+ "console": [
+  "log: [Vercel Speed Insights] Failed to load script from /_vercel/speed-insights/script.js. Please check if any content blockers are enabled and try again."
+ ],
+ "exceptions": [],
+ "steps": [
+  {
+   "step": "loaded",
+   "dialogText": false,
+   "dialogs": [
+    "",
+    "",
+    ""
+   ],
+   "menu": [
+    "open sidebar",
+    "toggle site theme",
+    "user menu",
+    "reload messages",
+    "toggle message list view",
+    "sort by",
+    "new message",
+    "Ok, Got it."
+   ]
+  },
+  {
+   "step": "trigger",
+   "trig": {
+    "x": 1060,
+    "y": 212,
+    "disabled": null
+   }
+  },
+  {
+   "step": "menu-open",
+   "dialogText": false,
+   "dialogs": [
+    "",
+    "",
+    "New Message\nUpload Message"
+   ],
+   "menu": [
+    "open sidebar",
+    "toggle site theme",
+    "user menu",
+    "reload messages",
+    "toggle message list view",
+    "sort by",
+    "new message",
+    "New Message",
+    "Upload Message",
+    "Ok, Got it."
+   ]
+  },
+  {
+   "step": "upload-button",
+   "up": {
+    "x": 976,
+    "y": 324,
+    "disabled": null
+   }
+  },
+  {
+   "step": "after-upload",
+   "dialogText": false,
+   "dialogs": [
+    "",
+    "",
+    ""
+   ],
+   "menu": [
+    "open sidebar",
+    "toggle site theme",
+    "user menu",
+    "reload messages",
+    "toggle message list view",
+    "sort by",
+    "new message",
+    "Ok, Got it."
+   ]
+  }
+ ],
+ "cookieSet": {
+  "success": true
+ },
+ "url": "http://127.0.0.1:3000/message/f/0"
+}

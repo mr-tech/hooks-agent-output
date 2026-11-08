@@ -1,0 +1,157 @@
+{
+ "console": [
+  "log: [Vercel Speed Insights] Failed to load script from /_vercel/speed-insights/script.js. Please check if any content blockers are enabled and try again.",
+  "log: [probe] page render open= false",
+  "log: [probe] page MOUNT",
+  "log: [probe] page render open= false",
+  "log: [probe] modal render open= false",
+  "log: [probe] page render open= false",
+  "log: [probe] page render open= false",
+  "log: [probe] modal render open= false",
+  "log: [probe] upload onPress",
+  "log: [probe] page render open= true",
+  "log: [probe] modal render open= true"
+ ],
+ "exceptions": [],
+ "steps": [
+  {
+   "step": "loaded",
+   "dialogText": false,
+   "dialogs": [
+    "",
+    "",
+    ""
+   ],
+   "menu": [
+    "open sidebar",
+    "toggle site theme",
+    "user menu",
+    "reload messages",
+    "toggle message list view",
+    "sort by",
+    "new message",
+    "Ok, Got it."
+   ]
+  },
+  {
+   "step": "trigger",
+   "trig": {
+    "x": 1060,
+    "y": 212,
+    "disabled": null
+   }
+  },
+  {
+   "step": "menu-open",
+   "dialogText": false,
+   "dialogs": [
+    "",
+    "",
+    "New Message\nUpload Message"
+   ],
+   "menu": [
+    "open sidebar",
+    "toggle site theme",
+    "user menu",
+    "reload messages",
+    "toggle message list view",
+    "sort by",
+    "new message",
+    "New Message",
+    "Upload Message",
+    "Ok, Got it."
+   ]
+  },
+  {
+   "step": "upload-button",
+   "up": {
+    "x": 976,
+    "y": 324,
+    "disabled": null
+   }
+  },
+  {
+   "step": "after-upload",
+   "dialogText": true,
+   "dialogs": [
+    "",
+    "",
+    "",
+    "Create or upload a new message\nMessage Link\nURL\n(Requires bot.)\nWebhook\nMessage ",
+    ""
+   ],
+   "menu": [
+    "open sidebar",
+    "toggle site theme",
+    "user menu",
+    "reload messages",
+    "toggle message list view",
+    "sort by",
+    "new message",
+    "Ok, Got it.",
+    "",
+    "close modal",
+    "Continue",
+    ""
+   ]
+  }
+ ],
+ "cookieSet": {
+  "success": true
+ },
+ "url": "http://127.0.0.1:3000/message/f/0",
+ "rects": [
+  [
+   "",
+   "react-aria-_R_5ml5tlb_ cls= [0,0,0,0] display=block pos=absolute",
+   "DIV cls=flex items-center gap-2 [0,0,0,0] display=flex pos=static",
+   "DIV cls=flex items-center justify-between gap-4  [0,0,0,0] display=flex pos=static",
+   "S:1 cls= [0,0,0,0] display=none pos=static",
+   "app cls= [0,16,1280,64] display=block pos=static"
+  ],
+  [
+   "",
+   "react-aria2193074222-_r_b_ cls= [0,96,0,0] display=block pos=absolute",
+   "DIV cls=flex [1080,198,0,0] display=flex pos=static",
+   "DIV cls=flex items-center justify-between mx-2 m [200,184,880,28] display=flex pos=static",
+   "DIV cls=mx-auto w-full max-w-[896px] [192,184,896,132] display=block pos=static",
+   "DIV cls=my-6 [0,184,1280,132] display=block pos=static",
+   "DIV cls=relative w-full [0,96,1280,220] display=block pos=relative",
+   "MAIN cls= [0,0,1280,316] display=block pos=static",
+   "app cls= [0,0,1280,316] display=block pos=static"
+  ],
+  [
+   "",
+   "react-aria2193074222-_r_e_ cls= [0,96,0,0] display=block pos=absolute",
+   "DIV cls=flex [1080,198,0,0] display=flex pos=static",
+   "DIV cls=flex items-center justify-between mx-2 m [200,184,880,28] display=flex pos=static",
+   "DIV cls=mx-auto w-full max-w-[896px] [192,184,896,132] display=block pos=static",
+   "DIV cls=my-6 [0,184,1280,132] display=block pos=static",
+   "DIV cls=relative w-full [0,96,1280,220] display=block pos=relative",
+   "MAIN cls= [0,0,1280,316] display=block pos=static",
+   "app cls= [0,0,1280,316] display=block pos=static"
+  ],
+  [
+   "Create or upload a new message\nMessage L",
+   "react-aria2193074222-_r_i_ cls=relative z-10 [0,392,1280,0] display=block pos=relative",
+   "DIV cls= [0,392,1280,0] display=block pos=static",
+   "DIV cls= [0,392,1280,0] display=block pos=static",
+   "headlessui-portal-root cls= [0,392,1280,0] display=block pos=static",
+   "app cls= [0,0,1280,368] display=block pos=static"
+  ],
+  [
+   "",
+   "react-aria2193074222-_r_37_ cls= [0,0,0,0] display=block pos=absolute",
+   "_r_3c_ cls= [0,392,1280,0] display=block pos=static",
+   "app cls= [0,0,1280,368] display=block pos=static"
+  ]
+ ],
+ "hidden": {
+  "hidden": [],
+  "portalRootChildren": [
+   "<div data-headlessui-portal=\"\" aria-hidden=\"true\" inert=\"\"><section class=\"Toastify\" aria-live=\"polite\" aria-atomic=\"false\" aria-relevant=\"additions text\" aria-",
+   "<div data-headlessui-portal=\"\"><button type=\"button\" data-headlessui-focus-guard=\"true\" aria-hidden=\"true\" style=\"position: fixed; top: 1px; left: 1px; width: 1"
+  ],
+  "portalRootParent": "BODY"
+ }
+}

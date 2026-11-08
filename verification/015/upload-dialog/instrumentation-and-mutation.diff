@@ -1,0 +1,53 @@
+diff -ru web-b96e364/src/app/message/_components/NewMessageModal.tsx web-inst/src/app/message/_components/NewMessageModal.tsx
+--- web-b96e364/src/app/message/_components/NewMessageModal.tsx	2026-11-08 14:35:08.000000000 +0000
++++ web-inst/src/app/message/_components/NewMessageModal.tsx	2026-11-08 20:57:57.169624526 +0000
+@@ -61,6 +61,7 @@
+ 
+ const NewMessageModal: FC<Props> = (props) => {
+   const { open, onClose, guildId = '' } = props;
++  console.log('[probe] modal render open=', open);
+   const { data: session } = useSession();
+   const router = useRouter();
+ 
+@@ -199,7 +200,7 @@
+     <PresetDialog
+       open={open}
+       title={pendingChoice ? 'Are you sure?' : 'Create or upload a new message'}
+-      onClose={pendingChoice ? cancelChoice : onClose}
++      onClose={() => { console.log('[probe] dialog onClose', new Error().stack?.split('\n').slice(1,6).join(' | ')); (pendingChoice ? cancelChoice : onClose)(); }}
+       afterLeave={useCallback(() => {
+         setPage(0);
+         setLoadOption(session ? 'bot' : 'webhook');
+diff -ru web-b96e364/src/app/message/f/[id]/page.tsx web-inst/src/app/message/f/[id]/page.tsx
+--- web-b96e364/src/app/message/f/[id]/page.tsx	2026-11-08 14:35:08.000000000 +0000
++++ web-inst/src/app/message/f/[id]/page.tsx	2026-11-08 20:57:57.169624526 +0000
+@@ -93,6 +93,8 @@
+     { setTrue: openNewMessageModal, setFalse: closeNewMessageModal },
+   ] = useToggleState();
+ 
++  console.log('[probe] page render open=', newMessageModalOpen);
++  useEffect(() => { console.log('[probe] page MOUNT'); return () => console.log('[probe] page UNMOUNT'); }, []);
+   const localStorage = useClientPreferences();
+   const {
+     message_f_view: listView,
+@@ -351,7 +353,7 @@
+                       New Message
+                     </Button>
+                     <Button
+-                      onPress={() => { openNewMessageModal(); close(); }}
++                      onPress={() => { console.log('[probe] upload onPress'); openNewMessageModal(); close(); }}
+                       className={classNames(styles.flex({ cy: true, gap: 4 }), styles.button.primaryHover, 'rounded p-4')}
+                       isDisabled={isMessageLoading}
+                     >
+diff -ru web-b96e364/src/components/AnchoredPopover/Child.tsx web-inst/src/components/AnchoredPopover/Child.tsx
+--- web-b96e364/src/components/AnchoredPopover/Child.tsx	2026-11-08 14:35:08.000000000 +0000
++++ web-inst/src/components/AnchoredPopover/Child.tsx	2026-11-08 21:03:42.244561502 +0000
+@@ -19,7 +19,7 @@
+ import { extractKeys } from '~/utils';
+ import { useMounted } from '~/utils/hooks';
+ 
+-const FloatingPortal = dynamic(() => import('@floating-ui/react').then((mod) => mod.FloatingPortal), { ssr: true });
++const FloatingPortal = dynamic(() => import('@floating-ui/react').then((mod) => mod.FloatingPortal), { ssr: true, loading: () => null });
+ 
+ const SHADOW_STYLE = 'shadow-md drop-shadow';
+ 

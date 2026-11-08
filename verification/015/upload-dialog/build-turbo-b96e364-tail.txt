@@ -1,0 +1,25 @@
+├ ○ /_not-found
+├ ○ /legal/privacy
+├ ○ /legal/terms
+├ ƒ /message
+├ ƒ /message/f/[id]
+├ ƒ /message/m/[id]/edit
+├ ƒ /message/m/[id]/send
+├ ƒ /message/m/new
+└ ○ /preview
+
+Route (pages)
+┌ ƒ /api/auth/[...nextauth]
+├ ƒ /api/cron
+├ ƒ /api/interactions-edge
+├ ƒ /api/interactions-server
+├ ƒ /api/messages/codes/[code]
+├ ƒ /api/trpc/[trpc]
+├ ƒ /api/v1/guilds/[guildId]/messages
+└ ƒ /api/v1/guilds/[guildId]/messages/[id]
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
