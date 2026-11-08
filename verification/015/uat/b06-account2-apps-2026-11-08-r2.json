@@ -1,0 +1,39 @@
+{
+ "steps": [
+  "22:55:38 messages visible: 7",
+  "22:56:12 apps submenu read",
+  "22:56:15 hooks.gg submenu read",
+  "22:56:15 done"
+ ],
+ "url": "https://discord.com/channels/1566742402180456559",
+ "title": "(4) Discord | #general | Claude",
+ "messageCount": 7,
+ "targetId": "chat-messages-1566742403195469906-1569123169493852221",
+ "targetAuthor": "(continuation)",
+ "menuItems": [
+  ":100:",
+  ":thumbsup: :+1: :thumbup: :thumbs_up:",
+  ":thumbsdown: :-1: :thumbdown: :thumbs_down:",
+  ":heart: :red_heart:",
+  "Add Reaction",
+  "Reply",
+  "Bookmark Message",
+  "Create Reminder",
+  "Apps",
+  "Mark Unread",
+  "Configure",
+  "Copy Message Link",
+  "Report Message"
+ ],
+ "menuCount": 2,
+ "appsSubmenu": [
+  "",
+  "Hooks.gg",
+  "Statbot"
+ ],
+ "hooksMenu": [
+  "Get Message"
+ ],
+ "getMessageListed": true,
+ "readAt": "2026-11-08T22:56:15.237Z"
+}

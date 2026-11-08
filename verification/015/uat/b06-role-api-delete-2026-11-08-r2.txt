@@ -1,0 +1,9 @@
+22:58:49Z bot 1558266761101447248 Statbot TEST
+22:58:49Z roles 200
+22:58:49Z bot member 200
+bot roles ['Claud Tester'] administrator True
+matching roles [('1569122601198952548', '32', 'no-admin', 'manage_guild')]
+22:58:50Z member 200 ['Manage Server (no admin)']
+22:58:50Z DELETE role 1569122601198952548 204 
+22:58:50Z role still present False
+22:58:51Z member roles after []
