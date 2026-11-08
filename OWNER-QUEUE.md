@@ -36,3 +36,26 @@ Statbot's own calls, which carry the key, still get through.
    That points to a key or host mismatch. The quick undo is to promote the previous deployment in Vercel.
 
 Does the list load? Tell steering "loads" or "empty / error".
+
+## Chain 015 — give UAT a Discord account that administers no server
+
+UAT has to check that the message list loads for someone who isn't admin of any server. The test
+account administers three, so it can't show this. You said you'd provide a new user.
+
+1. Make or choose a Discord account that administers no server.
+2. Tell steering-hooks-015 how UAT should sign in with it. Either sign it in yourself in the UAT
+   browser, or give the login.
+3. **Pass:** UAT signs in on the local build and the message list loads with no error. The website
+   release waits on this.
+
+Which account, and how should UAT sign in with it?
+
+## Generator host — remove claude-ro's read on the nodejs PM2 dump
+
+You chose to remove it yourself (05:21Z). Agents never open that file in the meantime.
+
+1. On 165.227.249.183 as root: `setfacl -x u:claude-ro /home/nodejs/.pm2/dump.pm2`. If that
+   reports no ACL, use `chmod o-r /home/nodejs/.pm2/dump.pm2` instead.
+2. **Pass:** `sudo -u claude-ro test -r /home/nodejs/.pm2/dump.pm2; echo $?` prints `1`.
+
+Is it done? Tell steering "done".
