@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Stage 1 done: chain 015 is committed on chain/015-bug-evaluation-fixes in website (b96e364) and preview-image-generator (8de2b53); nothing pushed, nothing merged. Stage 2 (release) waits on the owner's approval of the release itself, asked by devops-hooks-015."
+Status-Detail: "Owner approved the release 2026-11-08T21:38Z. Pushed: website master b96e364 (21:38:22Z) and preview-image-generator prod 8de2b53 (21:38:42Z). Phase 2C is not finished: the generator host showed no stop or process change 16 minutes after the push, and the D19 prod.yml re-run is held (gh cannot reach the repo). Phase 2D has not run."
 ---
 
 # Deployment Record: Plan 015 — Bug-evaluation fixes
@@ -139,3 +139,30 @@ Every act below is Mode A and runs only after the owner's release approval (Phas
 | R12 | Re-run `prod.yml` | `gh workflow run prod.yml --repo hooks-gg/preview-image-generator --ref prod` | gh refuses or the classifier denies it: report, never retry in other words | |
 | R13 | B-8 run 2 | the extended `pig-host-read.sh`, as `claude-ro`, anchored on stop (2) | the script is not yet extended or reviewed: do not run; report | |
 | R14 | Owner steps after the website release | `push-commands` (M7-a), the F-2 check, the M7-a Discord check | | |
+
+## Phase 2B: User Confirmation
+
+- **Summary presented** (selection prompt in devops-hooks-015's own session, as the role-internal ask): release identifier = the SHA on each serving ref moved; plan 015; environment production; website `master` 7ce866b → b96e364 (Vercel) and preview-image-generator `prod` 471578f → 8de2b53 (`prod.yml`); both fast-forwards; dry-runs, tip builds and reverse-patch checks passing; the generator push stops the running process; the D19 re-run described as a separate later step.
+- **Response, by selection, 2026-11-08T21:38Z:** release approval: "Yes, release both (Recommended)". D19 re-run: "Yes, approve it for later" (it runs only after the run-2 script extension is written and reviewed). The authorizer is the owner. The prompt's option texts are this stage's.
+- Mode: A, agent-executed.
+
+## Release Execution (Phase 2C, Mode A)
+
+Log: `verification/015/devops-2c-release-execution-2026-11-08.txt`. Authorizer: the owner (Phase 2B above). Release identifier: the SHA on each serving ref moved.
+
+| Repository | Ref | From | To | Pushed (release-move.js) | Read back |
+|---|---|---|---|---|---|
+| website | `master` | 7ce866b | `b96e36497d55075ae15753f99ec4148bf4ea60e8` | 2026-11-08T21:38:22Z, exit 0 | `git ls-remote origin refs/heads/master` = b96e364 at 21:38:29Z; tree on `master`, clean |
+| preview-image-generator | `prod` | 471578f | `8de2b5337179623f7fbd82904221078c2930214a` | 2026-11-08T21:38:42Z, exit 0 | `ls-remote` prod = 8de2b53, master = 87dcb41 (behind, on one line) at 21:38:52Z; tree on `prod`, clean |
+
+Both dry-runs were re-run immediately before each move (R2, R7) and passed. `release-move.js` switched each tree onto the moved branch itself ("tree on master", "tree on prod"), so runbook rows R4 and R8 are discharged by its output and the status reads (0 lines).
+
+**Deploy evidence.** The two pushes are the deployment: website `master` (Vercel) and generator `prod` (`prod.yml`), refs and SHAs above.
+
+**R10, the transition-stop read (read-only, `claude-ro`; the B-8 / RK-3 row, not a confirmation of serving state).** A bounded poll read the PM2 daemon log every 60 s for 15 reads, 21:39Z to 21:53Z (`verification/015/devops-2c-r10-transition-stop-read-2026-11-08.txt`). Prediction: a `Stopping app` line for the push's `startOrReload`, then `still alive` and a SIGKILL, then a new process. **Read: none of it.** No `pm2.log` line is dated 2026-11-08 after 04:17:40Z, and the generator process is unchanged (pid 1071971, started Sun Aug 23 04:18:19 2026). A further read at 21:54:44Z: `deployed/prod` and `dist/server.js` still carry mtime 2023-08-22, and the deployed `ecosystem.config.js` still reads `kill_timeout: 5000`. So at that minute 16 minutes after the push, the host shows none of the workflow's deploy steps (`deploy.sh` removes and recreates `deployed/prod` before its `pm2 startOrReload`). This is a reading, not a failure verdict: the runner's state is not read and is not carried as an open check. It means **B-8 has no stop to anchor on yet**.
+
+**D19 (the `prod.yml` re-run) is held, not run.** Two reasons:
+1. The re-run is defined to cause stop (2), the first stop of a process running the M8 commit, after stop (1) has happened (plan M8-0 "The two stops", RK-6). With no stop (1) on record, a re-run would queue behind or beside the push's own run and the two stops could not be told apart.
+2. The mechanism does not work from this session: `gh api repos/hooks-gg/preview-image-generator` and `gh run list --workflow prod.yml` both return HTTP 404 for the authenticated account (`mr-tech`), so `gh workflow run` cannot dispatch it. The dispatch would be the owner's act in the GitHub UI (Mode B for that one act) or a token with access, which is his to supply.
+
+The owner's approval of the re-run (2026-11-08T21:38Z, "Yes, approve it for later") stands for when stop (1) exists. The approved read instrument for run 2 is `verification/015/pig-host-read.sh` at agent-output f616d83 (code review f83fb09; CR-41, CR-42 resolved). Code review also asks for two checks when the run-2 capture is read: that [2] and [3] print `+0000` mtimes (D23), and that [4]'s prod `Stopping app` count is 4 (the push and the re-run each add one; if the push's `startOrReload` writes no such line, [6] has no stop (1) — code review's Assumption Not Checked, closed here at run 2).

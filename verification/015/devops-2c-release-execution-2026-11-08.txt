@@ -1,0 +1,66 @@
+# devops-hooks-015 Phase 2C execution log (Mode A), owner approval 2026-11-08T21:38Z
+## R2 website dry-run 2026-11-08T21:38:18Z
+repo     /usr/local/bin/hooks/website
+ref      master
+target   b96e36497d55075ae15753f99ec4148bf4ea60e8
+remote   origin/master 7ce866b5c28191390964a863397ca481731a21ab
+local    master 7ce866b5c28191390964a863397ca481731a21ab
+untracked 0 path(s) left alone
+checks   ff-from-remote ok; sibling serving refs (none) on one line ok
+workflows none — /usr/local/bin/hooks/website/.github/workflows absent: a push to master triggers no GitHub Actions workflow in this repository
+DRY RUN: every check passed; nothing moved
+exit:0
+
+## R3 website move 2026-11-08T21:38:22Z
+repo     /usr/local/bin/hooks/website
+ref      master
+target   b96e36497d55075ae15753f99ec4148bf4ea60e8
+remote   origin/master 7ce866b5c28191390964a863397ca481731a21ab
+local    master 7ce866b5c28191390964a863397ca481731a21ab
+untracked 0 path(s) left alone
+checks   ff-from-remote ok; sibling serving refs (none) on one line ok
+workflows none — /usr/local/bin/hooks/website/.github/workflows absent: a push to master triggers no GitHub Actions workflow in this repository
+OK moved master: 7ce866b5c28191390964a863397ca481731a21ab -> b96e36497d55075ae15753f99ec4148bf4ea60e8 on origin; tree on master
+exit:0
+
+## R4/R5 website verify 2026-11-08T21:38:29Z
+branch: master
+HEAD: b96e36497d55075ae15753f99ec4148bf4ea60e8
+status lines: 0
+b96e36497d55075ae15753f99ec4148bf4ea60e8	refs/heads/master
+
+## R6 generator re-baseline 2026-11-08T21:38:35Z
+error log lines: 110 mtime: 2026-11-08 17:27:00.943551936 +0000
+D36 err: 0 out: 0
+Server received: 0
+last Stopping app: 2026-06-15T10:02:36: PM2 log: Stopping app:hooks-image-preview-generator-prod id:0
+process: 1071971 Sun Aug 23 04:18:19 2026 node /usr/local/bin/hooks-image-preview-generator/deployed/prod/dist/server.js
+## R7 generator dry-run 2026-11-08T21:38:37Z
+repo     /usr/local/bin/hooks/preview-image-generator
+ref      prod
+target   8de2b5337179623f7fbd82904221078c2930214a
+remote   origin/prod 471578fa2ee430368686b8e4a28ed61237bc3d3a
+local    prod 471578fa2ee430368686b8e4a28ed61237bc3d3a
+untracked 0 path(s) left alone
+checks   ff-from-remote ok; sibling serving refs (master) on one line ok
+workflows prod.yml: on push to prod → run: npm ci --omit=optional ; run: | ; run: npm run build ; run: |
+DRY RUN: every check passed; nothing moved
+exit:0
+
+## R7 generator move 2026-11-08T21:38:42Z
+repo     /usr/local/bin/hooks/preview-image-generator
+ref      prod
+target   8de2b5337179623f7fbd82904221078c2930214a
+remote   origin/prod 471578fa2ee430368686b8e4a28ed61237bc3d3a
+local    prod 471578fa2ee430368686b8e4a28ed61237bc3d3a
+untracked 0 path(s) left alone
+checks   ff-from-remote ok; sibling serving refs (master) on one line ok
+workflows prod.yml: on push to prod → run: npm ci --omit=optional ; run: | ; run: npm run build ; run: |
+OK moved prod: 471578fa2ee430368686b8e4a28ed61237bc3d3a -> 8de2b5337179623f7fbd82904221078c2930214a on origin; tree on prod
+exit:0
+## R8/R9 verify 2026-11-08T21:38:52Z
+branch: prod
+HEAD: 8de2b5337179623f7fbd82904221078c2930214a
+status lines: 0
+87dcb410e8fd3e24d61ca94bcfeeecd2794921dd	refs/heads/master
+8de2b5337179623f7fbd82904221078c2930214a	refs/heads/prod
