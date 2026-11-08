@@ -1142,29 +1142,42 @@ is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, 
 
 ## Resumption State (checkpoint, planner-hooks-015)
 
-- **Done (checkpoint 2026-11-08T09:24).** The plan is at revision 26 (`c375d2c`). All four gates approved rev 25 (architect `5efb7ab`, code review Round 15 `1d0059a`, QA `983a84d`, critic cycle 8 `4429f17`). Revs 20–26 this generation:
-  - rev 20: CR-14/D29;
-  - rev 21: CR-16/D30 (M3 removed);
-  - rev 22: CR-18/D31/D32;
-  - rev 23: M5-h as a crash-set property; D33;
-  - rev 24: CR-21; M5-i; D34 with X-20 and `handoff/one-hooks-user-several-discord-accounts-2026-11-08.md`;
-  - rev 25: CR-23; L-C7-1; AF-28; X-22;
-  - rev 26: CR-29; D35; M8-d as a property; RK-8; L-C8-1.
-  Registrations R-6 to R-11 are all discharged; the Planner batch table has no open row. Planner reads committed: `verification/015/m5h-class-probe/` (44 rows, website `da24eb7`) and `verification/015/m5-modal-seed-next-keying-read.txt` (next 16.1.6 source).
-- **In flight.** Steering briefed rev 26 over `dd9e88a..c375d2c`: critic (cycle 9, new file), architect, code review gate read, QA re-key. Each gate delivers to the planner. On arrival:
-  - record each verdict in the rev 26 owed-verdicts row (it says "critic (cycle 8)", but steering briefed cycle 9; correct it then);
-  - park LOW findings that change no code as Planner batch rows (R-12 onward);
-  - fold anything that changes code or a criterion the implementer is waiting on, as rev 27, once every gate's verdict is in, or at once if it unblocks waiting code.
-- **Next.**
-  - **Standing rules.**
-    - Under D28, fold same-defect sibling sites without an owner question and report them.
-    - After implementation approval, park findings that change no code, test or pre-release verifier as Planner batch rows.
-    - Membership claims about code behaviour cite an executed read, never a source reading: rev 22, rev 23 and the 0-nodes misread each cost a round.
-    - A plan states properties, never mechanisms (the M8-d lesson).
-  - **Open, not a finding.** QA left "refused" open between a throw and an empty return in the CR-12 rider; pin it only if a gate asks.
+- **Done (checkpoint 2026-11-08T09:53Z; usage gate, resume after 2026-11-11T09:00Z).** The plan is at revision 27 (`18d361c`).
+  - All four gates passed rev 27:
+    - architect `b2add20`;
+    - QA `b21c7b5`;
+    - code review Round 20 `b5666ed`;
+    - critic cycle 9 pass 2 `c97c25a`.
+  - Registrations R-12 to R-23 are committed, the last at `4d506cf`.
+  - D35 was re-put ("lists pass", `c8c7649`), and D36 (startup line, `f5ab120`) and D37 (`355bcaf`) are registered.
+- **Next: the pre-UAT fold (D37).** It is one revision (rev 28) taken just before UAT, sharing one review round. Fold
+  every open Planner batch row:
+  - CR-32: widen M5-h (3)'s re-run trigger (preferred: any non-test change under website `src/`); cite
+    `class-noguard-run2-476c633.txt`; say "reverses the guard commit `09c7c45`".
+  - CR-33: (d)'s member is "`_waitingClientsQueue` with a callable `dequeue`"; second member
+    `rk8-method-mutant-6c613a5.txt`.
+  - QA's assumption: the RK-8 handoff runs the M8-d probe, not only reads the line.
+  - M-C9-3: parked unless code review's CR-27 sub-entry on `8de2b53` says (d) cannot be met. `checkPoolShape()` runs
+    before `server.listen` at `8de2b53`. If (d) cannot be met, the choice between (i) and (ii) goes to the owner
+    through steering.
+  - L-C9-2, CR-33's residue and the post-line hang go into one RK-8 residue sentence. At `8de2b53`, a missing member
+    means the named line, then F-34's hang and retry loop; CR-31's exit signature was for `6c613a5`.
+  - The D36 line goes to stderr: RK-8 and the M9 carrier line must name PM2's error log (RK-8 says "prod out log" now).
+  - A gate verdict that asks for a revision reopens D37 and folds everything with it.
+  Before the fold, read every row written since rev 27, including the QA row `c1c0851` and code review's CR-27
+  sub-entry.
+- **Standing rules.**
+  - Under D28, fold same-defect sibling sites without an owner question.
+  - After implementation approval, park findings that change no code, test or pre-release verifier.
+  - A claim about code behaviour cites an executed read at the current tip: check `git log` for newer commits before
+    reading. A stale `7e5ca5f` read cost a withdrawal (R-22).
+  - Take changelog stamps from `date -u` at write, never guessed (R-16 correction).
 - **Open with others.**
+  - The implementer: CR-22 (M6-a) and CR-27 (M8-a, carrying D36 at `8de2b53`).
+  - Code review: the CR-27 sub-entry, which decides M-C9-3.
+  - Steering: whether the owner sees one line that, after the D36 line, a Chromium outage brings back F-34's hang
+    (AF-31, which came after his selection). Sent at R-23; no answer yet.
   - None of the planner's questions to the owner are pending.
-  - With the implementer: CR-22 (M6-a empty-line fences) and CR-27 (M8-a). Both are code fixes with no plan change.
-  - Security: security-hooks-015 started on the generator change (steering's 09:22Z re-weigh). Its findings may reach the planner.
-- **Uncommitted, left in place.** `INBOX.md` holds this session's FYI entry: the research document's `pm2 show` advice. Per the inbox rule, the domain owner commits it. `tools/check-repo.js` reports 33 problems, none in planner documents; QA logged the item in INBOX.
-- **Branches.** The website and preview-image-generator chain branches are steering's. The planner touches no source. No process is running.
+- **Uncommitted, left in place.** `INBOX.md` (the planner's FYI on `pm2 show`, for its domain owner) and other
+  sessions' files. Heads: website `825a7d8` and preview-image-generator `8de2b53` (chain branches, steering's). The
+  planner touches no source. No process is running.
