@@ -2,9 +2,9 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Verified-At: "620b4ee,8de2b53 — repos=website,preview-image-generator; effort-final Phase 2. The production diffs 7ce866b..c5303ca (website) and 471578f..8de2b53 (generator) were swept at those tips in git-archive exports under unshare -rn. Website 620b4ee is c5303ca plus a test-only round (4 test files, 0 production paths), where the survivors were re-run and the suite ran"
-Status: QA Failed
-Status-Detail: "QA Failed: the a906b0c PASS is withdrawn. The owner-ruled plumbing sweep (13 mutants at website 620b4ee) left 2 survivors in scope: QAF-41 and QAF-42, MEDIUM, test-only, implementer. A third survivor is outside the sweep scope. Everything else stands: QAF-37 to QAF-40 RESOLVED, generator 8de2b53 swept. After the fix, the re-run covers the 2 survivors only."
+Verified-At: "b96e364,8de2b53 — repos=website,preview-image-generator; effort-final Phase 2. The production diffs 7ce866b..c5303ca (website) and 471578f..8de2b53 (generator) were swept at those tips in git-archive exports under unshare -rn. Website b96e364 is c5303ca plus three test-only rounds (620b4ee, 2b40dc5..b96e364; 0 production paths), where the survivors were re-run and the suite ran"
+Status: QA Complete
+Status-Detail: "QA Complete: PASS at website b96e364 and generator 8de2b53. QAF-41 and QAF-42 RESOLVED, with both plumbing survivors killed at b96e364. Suite 1130/1130, vitest exit 0, typecheck exit 0. QAF-37 to QAF-42 RESOLVED. UAT is next."
 Phase: 2
 ---
 
@@ -23,6 +23,7 @@ Phase: 2
 | 2026-11-08T12:40 | code-reviewer-hooks-015 (QAF-37 cell, `f77e71c`); implementer-hooks-015 (`8fb1eee`) | Website sweep result; QAF-37 re-run | QA Failed. Website: 256 of 265 killed. Of the 9 survivors, 6 are dispositioned and 3 raised as QAF-38, QAF-39 and QAF-40 (MEDIUM, test-only). QAF-37 RESOLVED. Two run false starts are disclosed and not scored. |
 | 2026-11-08T12:53 | code-reviewer-hooks-015 (`8f4578c`, website `620b4ee` APPROVED, test-only) | Fix-round re-run | **PASS.** The 5 survivors are killed at `620b4ee`, and QAF-38, QAF-39 and QAF-40 are RESOLVED. Suite 1128/1128, exit 0. Verdict re-anchored to `620b4ee`. |
 | 2026-11-08T14:24 | steering-hooks-015 (owner ruling, rulings block 14:18Z, `bab96e0`) | The plumbing-class sweep | **PASS withdrawn; QA Failed.** 13 plumbing mutants at `620b4ee`: 10 killed, 3 survived. QAF-41 and QAF-42 raised (MEDIUM, test-only); 1 survivor is outside the sweep scope. The method failure is recorded under the verdict. |
+| 2026-11-08T14:42 | code-reviewer-hooks-015 (website `b96e364` APPROVED, test-only, `c878f4a`); steering-hooks-015 | Survivor re-run after the QAF-41/42 fix | **PASS; QA Complete** at website `b96e364`. 2 of 2 survivors KILLED, suite 1130/1130 with exit 0, typecheck 0. Code review's dialect premise is checked by execution and holds. QAF-41 and QAF-42 RESOLVED. |
 
 ## Scope and criteria assessed
 
@@ -221,7 +222,38 @@ QAF-42 MEDIUM Phase 2 — the session callback's no-recent-messages path has no 
 
 **Withdrawal, and the method failure behind it.** The a906b0c PASS (`QA Complete`) is withdrawn. It rested on `gap-dispositions.md`'s plumbing class, which I wrote by reading each hunk and naming a neighbouring mutant that I judged decides it. I did not execute that claim, and for 2 of the 13 mutated hunks it was false. The neighbours named (`ef-shared-partial-*` for `shared.ts:157`, and the `m1h-*` mutants for `auth.ts:138`) decide a different property of the same statement. The class predicate, "a neighbouring mutant decides it", was never tested by mutating the line itself. That is the Assumption Not Checked this pass named and the owner's ruling closed. The retrospective's lesson: a disposition that a line is covered by its neighbour is a claim, and executing it is what makes it evidence.
 
+## Fix round, website `620b4ee..b96e364` (re-run 2026-11-08T14:42)
+
+Stage start: code review's sub-entry approving `b96e364` (agent-output `c878f4a`, `Reviewed-At` website `b96e364`; plan row `df12772`). `git diff --numstat 620b4ee b96e364` touches 2 files, both under `__tests__/`: `src/server/__tests__/auth.hydrated-session.test.ts` (+20 −2) and `src/server/api/utils/__tests__/shared.in-predicates.test.ts` (+5 −0). The two mutated production files show 0 changed lines over that range. Production code is unchanged since `c5303ca`, so the round re-runs only the 2 survivors it closes.
+- **The 2 survivors at `b96e364`:** `effort-final/website-plumbing-rerun-b96e364.json` (blob `4f7923d6`), taken from `website-plumbing-mutants.json` with each old string checked to occur exactly once at `b96e364`. The runner is `~/.claude/tools/mutation-run.py`, `--dep node_modules --timeout 300`, with the suite under `unshare -rn` and the non-lo link check. Outputs are in `effort-final/website-survivors-b96e364/` (`survivors-driver-b96e364.txt`, `out/`). The control is 1130/1130 in 116 files. **2 of 2 KILLED.** The denominator is mutants whose suite started under a passing control: 0 stillborn, 0 not applied, 0 aborted.
+  - `pl-shared-partial-guildid-unselected`: 2 red, the two `getPartialMessages` cells (no server, and some servers). The `getUserRecentMessages` cell is a different function, so it stays green under this mutant. Its own new assertion was seen red under code review's `recent-name-unselected` (`verification/015/cr-qaf-probes/cr40/summary-b96e364.txt`). So all three new select-clause assertions have been seen red.
+  - `pl-auth-message-promise-unwrapped`: 2 red, both new cells, with `TypeError: messagePromise.catch is not a function` at `src/server/auth.ts` `hydratedAuthCallback`.
+  - The kills come from the committed instruments at `b96e364`, so nothing needs a re-run after commit.
+- **Suite at `b96e364`:** `qa-m4-suite-run.sh` → `effort-final/qa-ef-suite-run-b96e364.txt` and `-testresults-b96e364.json`. The run gave 1130/1130 across 116 files, vitest exit 0 and typecheck exit 0 (both programs). The isolation counts are 0/0, there are 0 stderr lines, and the export blob check matches. Reconciled against `620b4ee` per file, by path membership: the same 116 files, and the one changed pass set is `auth.hydrated-session.test.ts`, 18 → 20 (the `it.each` cells "no preferences" and "empty preferences"). Nothing was removed. 1128 + 2 = 1130.
+- **Code review's Assumption Not Checked, closed by execution:** does the capturing driver's `PostgresQueryCompiler` text match production's `getPostgres()`? Evidence is in `effort-final/website-survivors-b96e364/dialect-premise-b96e364.txt`.
+  - The lockfile pins project-utils `749606d`. The installed package resolves to that commit, and its `src/postgres.ts` equals the pin's.
+  - `getPostgres()` builds `new Kysely({ dialect: new PostgresDialect(...), log })`, with no plugins (0 `plugins` occurrences in the installed `dist`).
+  - Both resolve the same `kysely@0.26.1`. `PostgresDialect#createQueryCompiler()` returns an instance of the class the driver constructs.
+  - So the literal is compiled by production's own compiler. The premise holds, and no finding is raised.
+- **Test audit (2 files):**
+  - Both are existing files, extended per the pattern-ladder rule. Basenames are unchanged and conform.
+  - Over the added lines, the ID-token scan has 1 hit, `recentMessageIds: ['m1']`. That is fixture data, under the named exemption.
+  - The tests are spec-form and their titles state behaviour.
+  - `PARTIAL_MESSAGE_SELECT` is a literal written out independently, not read from production source or computed by the query builder. So axiom (E) holds. Code review's added-column mutant shows the literal is not just a prefix check that tolerates drift.
+  - The QAF-42 cells assert guilds returned, `messages` empty, 0 recent-message lookups, and no unhandled rejection after a flush. The `hydrate(user)` default keeps every earlier caller's fixture, and the pass set confirms the 18 earlier cases are unchanged.
+  - No TDD table is owed, because the round is test-only with no new function.
+  - No finding.
+
+QAF-41 and QAF-42 RESOLVED (2026-11-08T14:42: website `b96e364`; code review `c878f4a`; each survivor killed above).
+
 ## Verdict
+
+**PASS (QA Complete)** at website `b96e364` and preview-image-generator `8de2b53`, plan rev 28. No production defect was found in either repository.
+- Website: 265 mutants were run over the whole production diff `7ce866b..c5303ca` (`src` and `bot`, excluding `__tests__`). 256 were killed at `c5303ca`, and the 5 actionable survivors were killed at `620b4ee`. The 4 others are dispositioned. The owner-ruled plumbing class has 16 hunks, and 13 of them carry a mutant. Of those 13, 10 were killed at `620b4ee` and 2 at `b96e364`. The last, `pl-button-style-dropped`, is outside the sweep scope as above. The 3 hunks without a mutant are dispositioned.
+- Generator: the whole diff `471578f..8de2b53` is swept, with QAF-37 RESOLVED.
+- The suite at `b96e364` is 1130/1130, with vitest exit 0 and typecheck exit 0.
+- The CR-12 belonging comparison, Discord's `color` contract and RK-7 hold, as recorded below.
+- One stated limit carries forward to UAT: the Assumption Not Checked below.
 
 *Withdrawn 2026-11-08T14:24 (plumbing sweep above):* **PASS (QA Complete)** at website `620b4ee` and preview-image-generator `8de2b53`. No production defect was found in either repository.
 - Website: of 265 mutants over the whole production diff, 256 were killed at `c5303ca` and the 5 actionable survivors at `620b4ee`. The 4 others are dispositioned (equivalent, contract-barred, or invisible in jsdom), and the 70 hunks with no mutant are dispositioned by class.
@@ -255,11 +287,11 @@ Checked in this pass rather than assumed:
 
 ## Handoff
 
-- **UAT is held (steering).** After the fix round for QAF-41 and QAF-42 and code review, QA re-runs those 2 survivors and the suite. Then UAT, with the details below. Website `620b4ee`, generator `8de2b53`, plan rev 28. The register is in `qa/015-bug-evaluation-fixes-qa.md` § Blocking-condition register.
+- **UAT is next (steering spawns it).** QA passed at 2026-11-08T14:42. UAT runs at website `b96e364`, generator `8de2b53`, plan rev 28, with the details below. *Superseded wording: "UAT is held. After the fix round for QAF-41 and QAF-42 and code review, QA re-runs those 2 survivors and the suite."* The register is in `qa/015-bug-evaluation-fixes-qa.md` § Blocking-condition register.
   - Pre-release rows for UAT's stage browser: B-1, B-2, B-4, B-5, B-9 to B-14. B-3 is withdrawn.
   - Post-deploy rows: B-6, B-7 and B-8. B-8 includes the rev 28 D36 limb and is devops's at M8-0 run 2.
   - Code review's CR-34 asks UAT to register an operator check on PM2's error log. It goes into that register as B-15 onward.
   - No row is appended by this pass.
-- **Steering:** the owner's word on the plumbing-class sweep (about 15 runs) is pending; my message is `c9f55546`. UAT needs a session (spawn cue).
+- **Steering:** the owner ruled on the plumbing-class sweep (14:18Z, `bab96e0`), and it has run. UAT needs a session, and this pass is the spawn cue.
 - **Rows inherited and not discharged:** B-1, B-2, B-4 to B-14.
 - **Roadmap:** none exists, so no epic criterion moves.

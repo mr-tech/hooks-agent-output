@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3cfa7ced-9b30-4312-b4d6-41110ec38224/scratchpad/mw/20261108T144019Z-p4184203/mutant-pl-auth-message-promise-unwrapped
+
+ ❯ |node| src/server/__tests__/auth.hydrated-session.test.ts (20 tests | 2 failed) 30ms
+     × returns the guilds and no messages for a user with no preferences 12ms
+     × returns the guilds and no messages for a user with empty preferences 1ms
+
+ Test Files  1 failed | 115 passed (116)
+      Tests  2 failed | 1128 passed (1130)
+   Start at  14:40:47
+   Duration  12.25s (transform 18.04s, setup 2.09s, import 93.58s, tests 22.46s, environment 54.05s)
+

@@ -1,0 +1,8 @@
+# Dialect premise (CR Assumption Not Checked) — website b96e364, run 2026-11-08T14:40:57Z
+lockfile pin: project-utils.git#749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f
+installed: /usr/local/bin/hooks/website/node_modules/.pnpm/project-utils@git+https+++git@github.com+hooks-gg+project-utils.git+749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f/node_modules/project-utils
+src/postgres.ts at pin == installed: yes
+dist files naming 'plugins': 0
+kysely (website): /usr/local/bin/hooks/website/node_modules/.pnpm/kysely@0.26.1/node_modules/kysely/dist/cjs/index.js
+kysely (project-utils): /usr/local/bin/hooks/website/node_modules/.pnpm/kysely@0.26.1/node_modules/kysely/dist/cjs/index.js
+PostgresDialect compiler instanceof driver PostgresQueryCompiler: true

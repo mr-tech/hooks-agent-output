@@ -1,0 +1,3 @@
+pl-shared-partial-guildid-unselected KILLED 13.21
+pl-auth-message-promise-unwrapped KILLED 13.32
+2 of 2 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; website-plumbing-rerun-b96e364.json (blob 4f7923d648e88da201972adf11fb1198f21dd805))

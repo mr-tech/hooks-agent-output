@@ -1,0 +1,14 @@
+[
+ {
+  "id": "pl-shared-partial-guildid-unselected",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "'Messages.previewImageNonce', 'Guilds.guildId as guildId',\n    ]);\n\n  const messages = await (guilds.length",
+  "new": "'Messages.previewImageNonce',\n    ]);\n\n  const messages = await (guilds.length"
+ },
+ {
+  "id": "pl-auth-message-promise-unwrapped",
+  "file": "src/server/auth.ts",
+  "old": "const messagePromise = Promise.resolve(preferences?.recentMessageIds",
+  "new": "const messagePromise = (preferences?.recentMessageIds"
+ }
+]

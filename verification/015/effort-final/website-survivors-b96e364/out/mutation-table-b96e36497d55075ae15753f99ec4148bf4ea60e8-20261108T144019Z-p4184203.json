@@ -1,0 +1,87 @@
+{
+ "sha": "b96e36497d55075ae15753f99ec4148bf4ea60e8",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/015/effort-final/website-plumbing-rerun-b96e364.json",
+ "command": [
+  "unshare",
+  "-rn",
+  "sh",
+  "-c",
+  "ip link set lo up && [ \"$(ip -o link show | grep -vc \": lo:\")\" = 0 ] && npx vitest run"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "timeout": 300.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "7d3dcf4f16bc57596eef09db0bfa9bd450b36bbb"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/015/effort-final/website-plumbing-rerun-b96e364.json",
+   "blob": "4f7923d648e88da201972adf11fb1198f21dd805"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/015/effort-final/website-survivors-b96e364/out/b96e36497d55075ae15753f99ec4148bf4ea60e8-20261108T144019Z-p4184203-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/015/effort-final/website-survivors-b96e364/out/b96e36497d55075ae15753f99ec4148bf4ea60e8-20261108T144019Z-p4184203-control-1.stderr",
+   "seconds": 12.97,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 1130,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "pl-shared-partial-guildid-unselected",
+   "file": "src/server/api/utils/shared.ts",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1130,
+   "control_tests_run": 1130,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 13.21,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/015/effort-final/website-survivors-b96e364/out/b96e36497d55075ae15753f99ec4148bf4ea60e8-20261108T144019Z-p4184203-mutant-pl-shared-partial-guildid-unselected.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/015/effort-final/website-survivors-b96e364/out/b96e36497d55075ae15753f99ec4148bf4ea60e8-20261108T144019Z-p4184203-mutant-pl-shared-partial-guildid-unselected.stderr"
+  },
+  {
+   "id": "pl-auth-message-promise-unwrapped",
+   "file": "src/server/auth.ts",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1130,
+   "control_tests_run": 1130,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 13.32,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/015/effort-final/website-survivors-b96e364/out/b96e36497d55075ae15753f99ec4148bf4ea60e8-20261108T144019Z-p4184203-mutant-pl-auth-message-promise-unwrapped.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/015/effort-final/website-survivors-b96e364/out/b96e36497d55075ae15753f99ec4148bf4ea60e8-20261108T144019Z-p4184203-mutant-pl-auth-message-promise-unwrapped.stderr"
+  }
+ ],
+ "score": "2 of 2 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; website-plumbing-rerun-b96e364.json (blob 4f7923d648e88da201972adf11fb1198f21dd805))"
+}

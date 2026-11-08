@@ -776,6 +776,7 @@ This pass assumes the live Postgres schema matches the Kysely `DatabaseSchema` t
 ## Resumption State (checkpoint, qa-hooks-015, 2026-11-08T14:27Z; /checkpoint on steering's request)
 
 **Current, read first.** This block supersedes the 10:32Z block below it.
+- *Discharged 2026-11-08T14:42:* the "Next" steps 1 to 5 below are done, at website `b96e364` (QAF-41/42 fix, code review `c878f4a`). The effort-final doc is QA Complete, the plan Status is QA Complete, and steering has the UAT cue.
 - **Done and committed this session:**
   - Phase 1 is re-keyed to plan rev 28 (`cfbdc7d`). It passes with no new finding. QAF-36 RESOLVED; B-8 gains the D36 absence limb. The interactive-parser coverage call: no cells owed (`verification/015/qa-rekey-rev28/`).
   - **Effort-final Phase 2**, `qa/015-bug-evaluation-fixes-effort-final-qa.md`, now **QA Failed**. Its PASS (`a906b0c`) was withdrawn at `da49f25` after the owner-ruled plumbing sweep (rulings 14:18Z, `bab96e0`). The plan Status is back to In Progress (`b522604`).

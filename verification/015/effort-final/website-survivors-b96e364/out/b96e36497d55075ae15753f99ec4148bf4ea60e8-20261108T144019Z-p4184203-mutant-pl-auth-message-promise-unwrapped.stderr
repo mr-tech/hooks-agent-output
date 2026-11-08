@@ -1,0 +1,18 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback, for a user with no recent messages > returns the guilds and no messages for a user with no preferences
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback, for a user with no recent messages > returns the guilds and no messages for a user with empty preferences
+TypeError: messagePromise.catch is not a function
+ ❯ Object.hydratedAuthCallback [as session] src/server/auth.ts:141:20
+    139|       ? getUserRecentMessages(preferences.recentMessageIds)
+    140|       : []);
+    141|     messagePromise.catch(() => {});
+       |                    ^
+    142|
+    143|     const userDbId = user.id;
+ ❯ hydrate src/server/__tests__/auth.hydrated-session.test.ts:45:41
+ ❯ src/server/__tests__/auth.hydrated-session.test.ts:149:27
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
