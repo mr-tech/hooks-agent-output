@@ -573,3 +573,11 @@ is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, 
 | Item | Source row | Disposition |
 |---|---|---|
 | D2's steering-go wording at § M8 (M8-c), § Testing Strategy and RK-5 is released by D20 | D20 | Discharged at rev 6 |
+
+## Resumption State (checkpoint, planner-hooks-015)
+
+- **Done.** Plan at revision 6 (agent-output `5d516d9`). The critique of rev 4 and rev 5 is closed, at `dee418b`. The architect approved rev 4 (`192ec29`). QA Phase 1 was written against rev 4 (`bf15750`); its batch QAF-1 to QAF-5 is folded in rev 6. Registrations so far: R-1 (D14, D15) and R-2 (D20). F-31 analysis: `analysis/015-bug-evaluation-fixes-analysis.md` (latest `1fc16f5`). M8-0 run 1 is captured at `verification/015/m8-0-run1-2026-11-08T0525Z.txt`, together with the script, at `fe27690`.
+- **Next.** Steering has been asked to route rev 6 to three gates: the critic (a new cycle, because criterion text changed), the architect (delta) and QA (Phase 1 confirmation re-keyed to rev 6). Fold their findings in one revision once all verdicts are in. Report "ready for implementation" only when all three have approved the same revision.
+- **Open with others.** None of the planner's questions to the owner are pending. The 69-day generator gap (X-15) went to him through steering as an FYI only.
+- **Uncommitted, left in place.** `INBOX.md` holds this session's FYI entry: the research document's `pm2 show` advice. Per the inbox rule, the domain owner commits it.
+- **Branches.** website and preview-image-generator: chain branches are created by steering. The planner touches no source.
