@@ -20,6 +20,8 @@ MUTANTS = {
     'r4-button-always-focus': [(BT, BT_EFFECT, 'useEffect(() => { localRef.current?.focus(); }, []);')],
     # Button: react-aria told autoFocus is true for every button (the negative half on the library path).
     'r4-button-aria-always': [(BT, BT_ARIA, 'useButton({ ...(_props as AriaButtonProps), autoFocus: true }, localRef)')],
+    # Button at c5303ca (CR-38 removed the effect): react-aria told autoFocus is false, the one remaining mechanism.
+    'r5-button-aria-off': [(BT, BT_ARIA, 'useButton({ ...(_props as AriaButtonProps), autoFocus: false }, localRef)')],
     # DiscordMessageEditor: onMount never called.
     'r4-editor-onmount-empty': [(ED, 'useEffect(() => { onMount?.(); }, []);', 'useEffect(() => {}, []);')],
     # DiscordMessageEditor: onMount called on every render (the [] dropped).

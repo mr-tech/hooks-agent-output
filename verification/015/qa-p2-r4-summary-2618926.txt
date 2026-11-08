@@ -1,0 +1,8 @@
+{'numTotalTests': 1122, 'numPassedTests': 1122, 'numFailedTests': 0, 'success': True} files 115
+added ['src/components/__tests__/Button.auto-focus.test.tsx', 'src/utils/redis/__tests__/formatKey.key-format.test.ts']
+removed ['src/utils/__tests__/formatKey.key-format.test.ts']
+Button.auto-focus 2 2
+page.invalid-data 57 57
+component-limit 23 23
+rules.multi-line-code-block 29 29
+formatKey 2 2
