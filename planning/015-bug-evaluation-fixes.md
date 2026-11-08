@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: UAT Approved
-Status-Detail: "UAT Approved, conditional (uat/015-bug-evaluation-fixes-uat.md, at website b96e364, generator 8de2b53): B-9, B-10 and the B-11 dialog leg must be EXECUTED before the website merge to master. B-10 also waits for his server name. B-1 EXECUTED PASS (tip limb; base red not reproducible, UAT-6). B-9, B-10 and the B-11 dialog leg: the D39 analysis has reported (analysis/015-bug-evaluation-fixes-upload-dialog-analysis.md, f2b0487). The cause is a pre-existing source defect, not the chain's. A local walk route without source exists: open an editor page, then follow the app's link to /message/f/0. UAT retries all three by that route (D39). UAT's D40 live check found the dialog fails on production too, after a fresh load. The defect is carried by handoff/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md. B-2, B-4, B-5, B-12, B-13, B-14 and the B-11 send-page leg PASS. B-6 to B-8 post-deploy."
+Status-Detail: "UAT Approved (uat/015-bug-evaluation-fixes-uat.md, f91b266, at website b96e364, generator 8de2b53): every pre-release register row is EXECUTED PASS, B-3 WITHDRAWN; no pre-release condition remains. B-9, B-10 and the B-11 dialog leg ran by the D39 route under next dev. B-1's base red was not reproducible (UAT-6). The Upload Message dialog defect is pre-existing and also in production; it is carried by handoff/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md. B-6 to B-8 are post-deploy, carried by devops's Stage 1 handoff."
 Revision: 29
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
@@ -164,6 +164,7 @@ Owed re-verdicts:
 | 2026-11-08T21:12 | R-28 | planner (planner-hooks-015) | Recorded that the D39 analysis has reported, in Status-Detail and a Planner batch row. Its words are in `analysis/015-bug-evaluation-fixes-upload-dialog-analysis.md` (`f2b0487`). Scope delta: none, registration only. |
 | 2026-11-08T21:14 | R-29 | planner (planner-hooks-015) | Registered D40, added the owner's 21:14Z confirmation to D39's route, and re-aimed the analysis row. Their words are in rulings block 21:14Z (`a33afc3`). Scope delta: none, registration only. |
 | 2026-11-08T21:15 | R-30 | planner (planner-hooks-015) | Recorded UAT's D40 live check and minted the dialog-fault handoff. Their words are in `handoff/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md` and `verification/015/uat/hooksgg-upload-fresh-load.js`. Scope delta: none, registration only. |
+| 2026-11-08T21:26 | uat | uat (uat-hooks-015) | Sixth UAT walk (`uat/015-bug-evaluation-fixes-uat.md`, f91b266). B-9, B-10 and the B-11 dialog leg EXECUTED PASS by the D39 route. No pre-release condition remains; the decision is APPROVED FOR RELEASE. Local stack cleaned up. Plan Status unmoved (UAT Approved). |
 
 ## Value Statement and Business Objective
 
