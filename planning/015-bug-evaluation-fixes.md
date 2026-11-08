@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: UAT Approved
-Status-Detail: "UAT Approved, conditional (uat/015-bug-evaluation-fixes-uat.md, at website b96e364, generator 8de2b53): B-1, B-2, B-9, B-10, B-14 and the B-11 dialog leg must be EXECUTED before the website merge to master (blocked by UAT-1, no local Postgres; route with the owner). B-4, B-5, B-12, B-13 and the B-11 send-page leg PASS. B-6 to B-8 post-deploy."
+Status-Detail: "UAT Approved, conditional (uat/015-bug-evaluation-fixes-uat.md, at website b96e364, generator 8de2b53): B-1, B-9, B-10, B-14 and the B-11 dialog leg must be EXECUTED before the website merge to master. These are the owner's walk or ruling: the test account lacks the subject for B-1 and B-14, and UAT-4 (New Message dialog not opening, pre-existing) blocks the rest. B-2, B-4, B-5, B-12, B-13 and the B-11 send-page leg PASS. B-6 to B-8 post-deploy."
 Revision: 28
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
@@ -156,6 +156,7 @@ Owed re-verdicts:
 | 2026-11-08T14:38 | cr | code-reviewer (code-reviewer-hooks-015) | Round 2 sub-entry at website `b96e364` (the CR-40 fix; test-only): APPROVED, and CR-40 RESOLVED. QA re-runs the QAF-41 and QAF-42 survivors and the suite. Plan Status unmoved. |
 | 2026-11-08T14:42 | qa | qa (qa-hooks-015) | **Effort-final PASS** (`qa/015-bug-evaluation-fixes-effort-final-qa.md`) at website `b96e364`, generator `8de2b53`, rev 28. Both plumbing survivors are KILLED at `b96e364`, so QAF-41 and QAF-42 are RESOLVED. The suite ran 1130/1130 with vitest exit 0 and typecheck exit 0. Code review's dialect premise is checked by execution and holds. **Plan Status set to QA Complete.** UAT is next. |
 | 2026-11-08T15:19 | uat | uat (uat-hooks-015) | **UAT: APPROVED FOR RELEASE, conditional** (`uat/015-bug-evaluation-fixes-uat.md`, 5de25d7) at website `b96e364`, generator `8de2b53`, rev 28. B-4, B-5, B-12, B-13 and the B-11 send-page leg EXECUTED PASS, each red at base `7ce866b`. B-1, B-2, B-9, B-10, B-14 and the B-11 dialog leg are NOT EXECUTED (UAT-1: no Postgres at 127.0.0.1:5432) and gate the website merge. **Plan Status set to UAT Approved.** |
+| 2026-11-08T20:02 | uat | uat (uat-hooks-015) | Second UAT walk on the recreated local Postgres (owner's route (a), 5d29306; `uat/015-bug-evaluation-fixes-uat.md`, d1f4b07). B-2 EXECUTED PASS (refused at base). B-1 and B-14 need the owner's walk. B-9, B-10 and the B-11 dialog leg are blocked by UAT-4 (pre-existing; owner asked). Decision unchanged, conditional. Plan Status unmoved. |
 
 ## Value Statement and Business Objective
 
