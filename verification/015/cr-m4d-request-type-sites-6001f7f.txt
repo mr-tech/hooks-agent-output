@@ -1,0 +1,9 @@
+# website 6001f7f: git grep -n 'request<' 6001f7f -- src bot (8 lines; lines 1-2 are a comment and prose, 6 live typed requests). Each read by hand for type vs endpoint: only redis/index.ts:338 (/channels/{id} typed Guild) mismatches. Blind spot: untyped request calls, and requests through other clients.
+6001f7f:bot/scripts/publishAppCommands.ts:21:    // const { data: commands } = await api.discord.request<ApplicationCommand[]>('GET', `applications/${BOT_ID}/guilds/${GUILD_ID}/commands`);
+6001f7f:src/app/legal/privacy/page.tsx:910:        <p>Verify Your identity or authority to make the request</p>
+6001f7f:src/server/api/routers/message.ts:87:      const { data: message, status } = await getApi().request<Message>('GET', `/channels/${channelId}/messages/${messageId}`, { validateStatus: null });
+6001f7f:src/utils/redis/index.ts:266:      const { data: guild, status } = await getApi().request<Guild>('GET', `/guilds/${guildId}`, { validateStatus: null });
+6001f7f:src/utils/redis/index.ts:299:        getApi().request<Channel[]>('GET', `/guilds/${guildId}/channels`),
+6001f7f:src/utils/redis/index.ts:300:        getApi().request<{ threads: Array<Channel & { parent_id: string }> }>('GET', `/guilds/${guildId}/threads/active`),
+6001f7f:src/utils/redis/index.ts:338:      const { data: channel, status } = await getApi().request<Guild>('GET', `/channels/${channelId}`, { validateStatus: null });
+6001f7f:src/utils/redis/index.ts:373:      const { data: webhooks, status } = await getApi().request<DiscordWebhook[]>('GET', `/guilds/${guildId}/webhooks`, { validateStatus: null });
