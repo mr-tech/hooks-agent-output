@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Delta pass on plan rev 20 (e118cc3): APPROVED, no plan change. AF-21 (the 'Invalid URL' copy drift and the unused language catalogue) is registered as a Problem Area. AF-18 (M1-c rebuild) is still recommended. A later revision is read on its delta."
+Status-Detail: "Delta pass on plan rev 21 (3d193f9, read from e118cc3): APPROVED, no plan change. AF-22 INFO (the inert Enter guard left by D30) is registered as a Problem Area. AF-18 (M1-c rebuild) is still recommended. A later revision is read on its delta."
 ---
 
 # Architecture Findings — Plan 015: Bug-evaluation fixes (conformance pass)
@@ -26,6 +26,32 @@ Status-Detail: "Delta pass on plan rev 20 (e118cc3): APPROVED, no plan change. A
 | 2026-11-08T07:03 | Delta pass, plan revs 17–18 (`67cb5e7`, read from `565e240`, one pass on steering-hooks-015's instruction) | Every limb conforms. The CR-12 rider's `fetchChannel` is the right primitive: the guild channel list misses archived threads. No sibling exists under D28, since every other bot-token call is guild-scoped. AF-20 LOW is recommended: correct `fetchChannel`'s `request<Guild>` generic, and give each mapped refusal status a cell. Landed `website.md` A-5. **APPROVED.** |
 | 2026-11-08T07:06 | Delta pass, plan rev 19 (`330348f`, read from `67cb5e7`), on steering-hooks-015's request | The CR-12 rider conforms. Belonging is now `guild_id` equality over the field's whole domain, so a DM or group-DM channel without `guild_id` is refused. The listed refusal texts match `fetchChannel` at `6001f7f`: 401/403 "Missing permissions…", 404 "Channel does not exist.", and any other status "An unknown error occurred…". AF-20's refusal-cell limb is folded; its type limb went to the implementer as code review CR-13. No findings. **APPROVED.** |
 | 2026-11-08T07:25 | Delta pass, plan rev 20 (`e118cc3`, read from `330348f`), on steering-hooks-015's request | D29's webhook-load limb conforms. It copies the literal "Invalid URL" into the New Message dialog, which follows the current pattern: inline error literals, with no shared definition. A `git grep` at `1e12837` finds the string at 8 non-test sites in two spellings, `Invalid URL` (3) and `Invalid URL.` (4 plus the router), and an `invalidUrl` key in `src/lang/generated/*.json` that nothing outside `src/lang` consumes. Centralising it would be a preferable deviation, so under the standing default the plan follows the current pattern. AF-21 INFO is registered as a Problem Area. No plan change. **APPROVED.** |
+| 2026-11-08T07:30 | Delta pass, plan rev 21 (`3d193f9`, read from `e118cc3`), on steering-hooks-015's request | CR-16 is folded as option (a). The dialog's "Invalid URL" goes on its existing shared error line, with no new field-level error. That follows the current pattern; option (b) would have been an avoidable deviation (new UI). Read at website `1e12837`: `NewMessageModal` `messageErrorString` = `discordMessageError ?? commandMessageError ?? webhookError ?? webhookMessageError`, rendered once below the load options; `errorMessage=` 0 in the file; the send page's field error is `WebhookMenu` `errorMessage` (`'Invalid URL'` on `url && !isWebhookLoading && selectedWebhook === null`). D30's removal of M3 changes no architecture. AF-22 INFO is registered as a Problem Area: the dead `tagName` compare stays at three sites, so whatever keeps Enter-on-Cancel safe is not that guard and has not been identified. **APPROVED.** |
+
+## Verdict (rev 21, `3d193f9`, one pass from rev 20 `e118cc3`): APPROVED
+
+These limbs conform:
+
+- **CR-16, option (a).** The webhook-load limb now places "Invalid URL" where each site already shows a webhook-load error.
+  - **Send page.** The custom-URL input's field error, `WebhookMenu` `errorMessage`, at website `1e12837`. M4-b's text and condition are unchanged.
+  - **New Message dialog.** Its one shared error line, `NewMessageModal` `messageErrorString`, rendered once below the load options. At `1e12837` it is `discordMessageError ?? commandMessageError ?? webhookError ?? webhookMessageError`. The new text reaches it through `useValidateWebhook`'s `webhookError`, whose `catch` sets `MESSAGE_LOAD_FAILED_ERROR` today. That is the one-site change D29 prices. The precedence stays as it is.
+  - **No field-level error is added.** `grep -c "errorMessage="` over `NewMessageModal.tsx` at `1e12837` returns 0, and the plan adds none.
+  - **Why (a) is the conforming form.** A dialog field error would be new UI, a second error place for one input class. That would be an avoidable deviation from the dialog's single-error-line pattern, and D29's "one small change" doesn't cover it. The cell's "fails if the text appears nowhere or anywhere else" pins the placement without reading the expected value from the code under test.
+- **D30, M3 removed.** No architecture line rested on M3. The removal is the owner's selection, made on the implementer's real-Chrome read (`verification/015/m3-chrome-read/README.md`, `8996505`). X-18 states the residue: the uploader's Clear button, a production build, and other browsers.
+
+AF-21's ninth "Invalid URL" copy, registered at rev 20, is the same copy rev 21 places. There is no tenth.
+
+### AF-22 INFO — the Enter guard D30 leaves is inert, and the real one is unidentified
+
+At website `1e12837`, `git grep -c "tagName !== '~/components/Button'"` returns one hit in each of `WarningDialog.tsx`, `ConfirmationDialog.tsx` and `ImageUploader.tsx`. A DOM `tagName` is an uppercase element name, never an import path, so each compare is always true. Read as written, every handler confirms on any Enter.
+
+The Chrome read shows that does not happen for Cancel. So something upstream stops the keydown before the `useHotkeys` listener. The implementer's jsdom probe shows it stopped in the capture phase at `document`. **What stops it is unread.** This pass did not establish whether it is `@react-aria/interactions`' press handling or the dialog primitive.
+
+**Architectural consequence.** The value statement "a Cancel key press never deletes" is carried as true (D30), and it is. But it holds through a mechanism nobody has named, it has no test, and the code carries a guard that reads as the protection while doing nothing. A dependency upgrade could remove the real mechanism without any signal.
+
+This is not a plan change: D30 is the owner's selection, and its option text named the dead code. It is registered in `system-architecture.md` § Problem Areas.
+
+**Fix shape for a later chain:** name the stopping mechanism, then delete the dead compare or make it a real check, under one real-browser cell.
 
 ## Verdict (revs 17–18, `67cb5e7`, one pass from rev 16 `565e240`): APPROVED
 
@@ -376,7 +402,7 @@ Each is recorded in `system-architecture.md` § Problem Areas:
     - `website.md`: A-4 and A-5 (agent-designed).
     - `preview-image-generator.md`: P-3 rewritten on the owner's selection "Agent: record intended" (05:18Z), and A-1 (the log-line interface).
 - **Next.**
-  - Rev 21 (the M3 drop) comes from steering-hooks-015: run a delta pass over `e118cc3`..rev 21.
+  - Rev 21 (`3d193f9`) was read on its delta from `e118cc3`: APPROVED, AF-22 INFO registered. A later revision is read on its delta from `3d193f9`.
   - **Method, per pass:**
     1. Write `git diff <from> <to> -- planning/015-bug-evaluation-fixes.md` to the scratchpad and Read it; the rtk filter mangles piped diffs.
     2. Read the code each changed limb names, at the SHA it names.
