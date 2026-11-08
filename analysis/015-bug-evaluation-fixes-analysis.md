@@ -4,7 +4,7 @@ Origin: 015
 UUID: 861e5f61
 Parent: codebase-bug-evaluation-2026-11-08.md
 Status: Active
-Status-Detail: "Answers the plan's F-31 REQUIRES ANALYSIS brief, questions 1–4. Finding: with shutdown_with_message true, PM2 sends only an IPC 'shutdown' message on stop or reload, never SIGINT, so shutdown() never runs. This holds in every version read (5.3.0, 5.4.3, 6.0.14, 7.1.2). Not yet confirmed on the host: that waits on the owner's read-only commands in § Host observation."
+Status-Detail: "Answers the plan's F-31 REQUIRES ANALYSIS brief, questions 1–4. Finding: with shutdown_with_message true, PM2 sends only an IPC 'shutdown' message on stop or reload, never SIGINT, so shutdown() never runs. Source-read at 5.2.2, 5.3.0, 5.4.3, 6.0.14 and 7.1.2. M8-0 run 1 (fe27690) observed it on the host: both recorded prod stops were SIGKILLed 5 s after 'Stopping app', and the out log has zero 'Server received' lines. That is CONFIRMED for the stop path. A deploy reload and the preview instance are still unobserved, so they are INCONCLUSIVE."
 ---
 
 # Analysis 015 — F-31: does preview-image-generator's graceful shutdown ever run under PM2?
@@ -17,6 +17,7 @@ item **REQUIRES ANALYSIS**, read together with § M8 (M8-a). The source finding 
 
 | Date (UTC) | Author | Change |
 |---|---|---|
+| 2026-11-08 | analyst (plan 015) | M8-0 run 1, taken over claude-ro (`hooks-pig`) per steering/015-rulings.md 05:20Z/05:21Z/05:24Z with no pm2 command. Script and capture: `verification/015/pig-host-read.sh` and `verification/015/m8-0-run1-2026-11-08T0525Z.txt` at `fe27690`. Added § M8-0 run 1. The prediction holds on both recorded prod stops, so V-1 is now Verified on the host for the stop path; a deploy reload and the preview instance are inconclusive. Added PM2 5.2.2 (the host's version) to the versions read; it is identical to 5.3.0 on every path cited. H-1 is marked not applicable at 5.2.2. H-2 is resolved. Root Cause now carries the observation. § Host observation is marked superseded by the claude-ro route; its owner commands are kept as written, for the record. After run 1, the script's [5] Chromium predicate was refined to exclude `chrome_crashpad`; that change is not part of the run-1 script. |
 | 2026-11-08 | analyst (plan 015) | Corrected § Host observation command 3. It previously listed `pm2 show <name>` beside the filtered `jlist`, which was defensible as a harmless way to read the log path. A re-read of `lib/API/UX/pm2-describe.js` for the owner script found that `pm2 show` prints the invoking shell's divergent environment values, so the command is removed. Class swept: `grep -c "pm2 show"` gave 2 hits here before (both in command 3) and 2 after (the warning in command 3 and this row); plan 015: 0; the research document has 2, and it is the researcher's, so they are routed and not edited. Added a pointer to `verification/015/pig-host-read.sh`. No finding changed. |
 | 2026-11-08 | analyst (plan 015) | Created. Answers brief items 1–4 from the PM2 source at four versions and from a local Node probe of the app's shutdown shape. F-31's premise is corrected: the drain never starts. Before this read, the open question was whether PM2's SIGKILL cuts the drain short. |
 
@@ -232,6 +233,10 @@ It is a property to state, not a likely failure.
   observation, command 6). Zero survivors disconfirms H-1.
 - Missing telemetry: process counts across a deploy.
 - This matters only if the host runs PM2 ≥ 7.
+- **Not applicable on this host (run 1):** the generator's daemon is PM2 5.2.2. In 5.2.2 `God.processIsDead` is
+  identical to 5.3.0 and SIGKILLs the whole tree. The four `chrome_crashpad` processes under pid 1 started
+  2026-10-25 and 2026-11-06, while the generator process had been running unstopped since 2026-08-23. They are
+  therefore not stop orphans. H-1 stays open only for a future PM2 ≥ 7 upgrade.
 
 **H-2 — the production process has never run `shutdown()` under PM2.**
 - Confidence: high, given that `shutdown_with_message: true` has been in the file since the stored configuration was
@@ -239,6 +244,11 @@ It is a property to state, not a likely failure.
 - The stored value could differ (V-3: stored values persist), or the daemon could have `PM2_KILL_USE_MESSAGE` or
   `PM2_KILL_SIGNAL` set.
 - Fastest test: § Host observation, commands 3–5.
+- **Resolved by run 1:**
+  - The dump stores `shutdown_with_message: true` and `kill_timeout: 5000`.
+  - The prod out log reaches back to the first start, 2023-08-22T01:57:43Z, and holds zero `Server received` lines.
+  - The process environment overrides were not read: the root daemon's `environ` is off-limits. They are moot,
+    because no stop reached a handler.
 
 ## Root Cause
 
@@ -247,7 +257,63 @@ listens for SIGINT, and the PM2 option set in the same repo (`shutdown_with_mess
 `'shutdown'` message instead.** The 5000 ms `kill_timeout` is a secondary defect: it would cut a 10 s fallback short
 *if* the drain ever started.
 
-It is not yet observed on the host. That observation is what the owner's commands below would supply.
+**Observed on the host by M8-0 run 1** (§ M8-0 run 1): two prod stops, each SIGKILLed at 5000 ms, with no shutdown
+line ever logged. For a deploy *reload* the root cause is still source-read. A fork-mode reload calls the same
+`God.stopProcessId` (V-1), but no reload is on record.
+
+## M8-0 run 1 — host observation against the prediction
+
+The read was taken 2026-11-08T05:25:52Z on host `hooks-preview-image-generator`, as `claude-ro`, through
+`ssh hooks-pig 'bash -s' < verification/015/pig-host-read.sh`. Script and capture are at `fe27690`, capture
+`verification/015/m8-0-run1-2026-11-08T0525Z.txt`. No pm2 command was run, nothing was written on the host, and
+`/home/nodejs/.pm2/dump.pm2` was not opened. Env is excluded from the capture by construction: the dump was
+extracted on the host by `/usr/bin/node` (jq is absent there) into three fields. A scan of the capture for
+key-shaped and `NAME=` content found 0 hits, and I read all 97 lines.
+
+**Observed**
+- The daemon is root's PM2 **v5.2.2**, `PM2_HOME` `/etc/.pm2`, started 2026-08-23 04:17:39.
+- The generator is pid 1071971, started 2026-08-23 04:18:19, running `deployed/prod/dist/server.js`. No preview
+  process is running.
+- The dump extract reads `{"name":"hooks-image-preview-generator-prod","kill_timeout":5000,"shutdown_with_message":true}`.
+  The dump's mtime is 2026-06-15T10:02:36.
+- `pm2.log` spans 2023-08-20T09:30:21 to 2026-11-08T04:17:40. It records **two** stops of
+  `hooks-image-preview-generator-prod`, and both behave the same way:
+
+  | Stop | `Stopping app` | `still alive after 5000ms, sending it SIGKILL now...` | `exited … via signal [SIGKILL]` |
+  |---|---|---|---|
+  | 1 | 2024-06-15T10:15:43 | 10:15:48 | 10:15:48 |
+  | 2 | 2026-06-15T10:02:36 | 10:02:41 | 10:02:41 |
+
+- The prod out log has 180,284 lines. Its first line is the 2023-08-22T01:57:43Z start, and it holds three starts:
+  2023-08-22, 2024-06-15 and 2026-08-23. That covers both stops. It contains **0** `Server received` lines and
+  **0** `Server closed` lines.
+- The preview out log holds six untimestamped `Server running at …:3001/` lines and nothing else, last written
+  2023-08-20. `pm2.log` records no preview stop.
+
+**Verdict against the prediction** (zero shutdown lines, SIGKILL after each stop):
+- **Prod stop path: CONFIRMED.**
+  - Each recorded stop ran its full 5000 ms and ended in SIGKILL.
+  - No shutdown line exists anywhere in a log that spans both stops.
+  - A SIGINT that reached the registered handler would have logged a line. A SIGINT reaching the process with no
+    handler would have ended it by signal before 5 s.
+  - Neither happened. Together with the stored `shutdown_with_message: true`, this is the message-only branch of V-1.
+  - V-1 moves from source-read inference to **Verified on the host** for stops.
+- **Deploy reload: INCONCLUSIVE.** Neither stop is a reload. The process came back 1 h 40 min later (2024) and
+  about 69 days later (2026), not immediately. ↺ 0 in the owner's `pm2 l` paste agrees: there has been no restart
+  since 2026-08-23. A reload uses the same stop function (V-1, `God.restartProcessId`), so the expectation carries
+  over, but it is not observed.
+- **Preview instance: INCONCLUSIVE.** No stop is on record. Zero shutdown lines there say nothing.
+- **Unattributed 2023 kills:** `pm2.log` 2023-08-20 to 2023-08-22 holds eight further `still alive` SIGKILLs. The
+  first four were at 10000 ms, the rest at 5000 ms. They do not name an app in the matched lines, and the earlier
+  ones precede the app's current name (`server-*.log`). They are not counted for or against the prediction.
+
+**Observed outside the brief, routed and not analysed.**
+- After stop 2 (2026-06-15T10:02:41), `pm2.log` shows no generator start until 2026-08-23T04:18:19. The root
+  daemon itself started 2026-08-23 04:17:39.
+- Read literally, the production generator was not running for about 69 days. The dump was saved in the same
+  second as that stop.
+- The cause is not in this read. The planner and steering should weigh it against the architecture record's
+  "previews observed generating normally" (2026-08-23).
 
 ## Determination for M8-a — the properties that must hold
 
@@ -283,6 +349,11 @@ cheap to state.
 is G-4 in the research document and is still open. The host's restart log, once read, gives the first data point.
 
 ## Host observation — read-only commands for the owner
+
+> **Superseded for this host by the claude-ro route** (steering/015-rulings.md 05:20Z–05:24Z). The generator runs
+> under root's daemon and agents never run a pm2 command there. `verification/015/pig-host-read.sh` (as run:
+> `fe27690`) reads the same facts from `ps` and from the files directly. The commands below are kept as written,
+> for the record.
 
 The `ps`, `grep`, `ls` and `tail` commands below write nothing. Commands 2–4 are `pm2` CLI commands, which connect to
 the daemon. Run them **as the user that owns the PM2 daemon** (found in command 1), with that user's `PM2_HOME`. Run
@@ -339,20 +410,21 @@ mechanism without the logs.
 
 ## Open Questions and remaining gaps
 
-**G-1 — the host's PM2 version.**
-- Why it is open: the version is unknown, and only the owner can read the host.
-- Why it matters less: the delivery behaviour (V-1) and the configuration-update behaviour (V-3) are the same in every
-  version read, from 5.3.0 to 7.1.2. The version matters only for H-1 (7.x).
-- What closes it: command 1.
-- I did not read versions before 5.3.0. If the daemon predates 2023, the code paths named here should be re-read at
-  that version.
+**G-1 — the host's PM2 version. CLOSED by run 1.** The daemon is v5.2.2 (2022-10-13). I packed and read 5.2.2:
+`God.killProcess` and `God.processIsDead` are identical to 5.3.0. So are `lib/God/Reload.js`, `ActionMethods.js`,
+`Utility.js`, `ForkMode.js`, `ProcessContainerFork.js`, `constants.js`, `_startJson` and
+`Common.mergeEnvironmentVariables`. V-1 and V-3 hold at the host's version.
 
-**G-2 — the stored versus file values on the live process (H-2).**
-- What closes it: command 3, and command 4 for the daemon overrides.
+**G-2 — the stored versus file values on the live process (H-2). CLOSED by run 1.** The dump stores `kill_timeout`
+5000 and `shutdown_with_message` true. The daemon's `PM2_KILL_*` environment remains unread, because the root
+daemon's `environ` is off-limits. That is moot for the observed stops (§ M8-0 run 1).
+
+**G-2b — a deploy reload and the preview instance, observed. OPEN.** Run 1 found no reload and no preview stop on
+record. What closes it: M8-0 run 2 after the preview push, which is the plan's criterion run.
 
 **G-3 — the real drain duration.** This is research G-4. It needs a stop that actually reaches `shutdown()`, so it
 cannot be measured until P1 holds. The first timed reload after the M8 deploy measures it, from the time between the
-`Server received SIGINT` and `Server closed` lines and PM2's `process killed` line.
+`Server received …` and `Server closed` lines and PM2's `process killed` line.
 
 **G-4 — Chromium's fate when its node parent is SIGKILLed (H-1).**
 - What closes it: command 6 on the host. Alternatively, read puppeteer 21's `BrowserLauncher` / `launch` for

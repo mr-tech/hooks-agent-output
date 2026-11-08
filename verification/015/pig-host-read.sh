@@ -44,7 +44,9 @@
 #   [3] one "Server received ..." line per reload (the stable prefix P1 requires), then "Server closed."
 #   [4] the reload's "Stopping app" followed by "msg=process killed" in under 12000 ms, with NO
 #       "still alive after" line
-#   [5] no Chromium process whose parent is pid 1
+#   [5] no Chromium process other than chrome_crashpad whose parent is pid 1. In run 1
+#       (fe27690), crashpad handlers sat under pid 1 while the generator had not been stopped since
+#       2026-08-23, so they are not stop orphans and are listed separately.
 
 set -u
 PATH=/usr/bin:/bin
@@ -131,9 +133,10 @@ else
 fi
 
 # --- [5] Chromium processes orphaned to pid 1 -----------------------------------------------------
-echo; echo "[5] chromium processes whose parent is pid 1 (pid ppid user start comm):"
-"$PS" -eo pid=,ppid=,user=,lstart=,comm= | "$AWK" '$2==1 && $NF ~ /chrom/' | "$HEAD" -n 20 | "$SED" 's/^/  /'
-echo "  count: $("$PS" -eo ppid=,comm= | "$AWK" '$1==1 && $2 ~ /chrom/' | "$GREP" -c .)"
+echo; echo "[5] chromium processes (not chrome_crashpad) whose parent is pid 1 (pid ppid user start comm):"
+"$PS" -eo pid=,ppid=,user=,lstart=,comm= | "$AWK" '$2==1 && $NF ~ /chrom/ && $NF != "chrome_crashpad"' | "$HEAD" -n 20 | "$SED" 's/^/  /'
+echo "  count: $("$PS" -eo ppid=,comm= | "$AWK" '$1==1 && $2 ~ /chrom/ && $2 != "chrome_crashpad"' | "$GREP" -c .)"
+echo "  chrome_crashpad under pid 1 (not a stop-orphan signal): $("$PS" -eo ppid=,comm= | "$AWK" '$1==1 && $2 == "chrome_crashpad"' | "$GREP" -c .)"
 echo "  all chromium processes: $("$PS" -eo comm= | "$GREP" -c chrom)"
 
 echo; echo "=== end"
