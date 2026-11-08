@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Delta pass on plan rev 9 + rev 10 (bceb84a): APPROVED_WITH_CHANGES. AF-17 is required: M1-c clears the session-scoped Redis keys for every member of the class, including a lookup error. It reopens delivered cell M1-c, so it went to steering as a possible owner-needing item."
+Status-Detail: "Delta pass on plan rev 11 (14fe94f): APPROVED, no findings. AF-17 is discharged by D22, which the owner chose. Every AF finding is folded. A later revision is read on its delta."
 ---
 
 # Architecture Findings — Plan 015: Bug-evaluation fixes (conformance pass)
@@ -20,6 +20,7 @@ Status-Detail: "Delta pass on plan rev 9 + rev 10 (bceb84a): APPROVED_WITH_CHANG
 | 2026-11-08T05:49 | Delta pass, plan rev 7 (`38b12e6`, read from `5d516d9`), on steering-hooks-015's request | AF-13 to AF-15 are folded as asked. AF-16 LOW is recommended: in the no-account cell, the session-row removal is the NextAuth adapter's (`signout.js` calls `deleteSession` before `events.signOut`, next-auth 4.24.5), not `removeUserSession`'s. **APPROVED.** |
 | 2026-11-08T05:52 | Delta pass, plan rev 8 (`1f7715b`, read from `38b12e6`), on steering-hooks-015's request | AF-16 is folded: the session row is attributed to next-auth's adapter, and the ordering anchor is now the `Accounts` update. The run-2 reads are bounded to the stopped process's span. `Created instance` was confirmed at `471578f` `src/getPool.ts`, logged by the factory's `create`. No findings. Landed `preview-image-generator.md` A-1 (agent-designed): the four log lines the host read matches are an interface. **APPROVED.** |
 | 2026-11-08T06:28 | Delta pass, plan rev 9 + rev 10 (`bceb84a`, read from rev 8 `1f7715b`, one pass on steering-hooks-015's instruction) | AF-17 MEDIUM is required. M1-c's lookup-error residue leaves `user-session-token`, `fetchAccountFromSession`'s 600 s session→account cache read by `authorizeGuildAdmin`, alive with an unrevoked token after sign-out. The two session-scoped keys must be cleared for every member of the class. The cache-invalidation class is registered as a Problem Area. Every other delta limb conforms. **APPROVED_WITH_CHANGES.** |
+| 2026-11-08T06:32 | Delta pass, plan rev 11 (`14fe94f`, read from rev 10 `bceb84a`), on steering-hooks-015's request | AF-17 is discharged by D22 and M1-c's lookup-error cell: both session-scoped keys are deleted before the rejection reaches the caller, and the residue is limited to `user-guilds`, the `Accounts` update and the revoke. M1-h's eight-row decision table, with its "or returns" trigger, conforms. The run-2 span is now anchored on `pm2.log`'s stop timestamps and checked against the out log's ISO stamps. Run 1's capture shows the two clocks agree: `pm2.log` 2023-08-22T01:57:43 `online` and out log `2023-08-22T01:57:43.367Z Server running at` are the same event, so no time-zone offset separates them. RK-7's reducing predicate and the re-derivation reading conform. No findings. **APPROVED.** |
 
 ## Verdict (rev 9 + rev 10, `bceb84a`, one pass from rev 8): APPROVED_WITH_CHANGES
 
