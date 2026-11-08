@@ -157,6 +157,8 @@ Score: 4 mutants over the round's one production hunk (`useValidateWebhook.ts`'s
 
 **Verdict:** M4 **PASS** at website `da24eb7`, milestone-scoped. B-9, B-10 and B-11 remain UAT's.
 
+*Reconcile 2026-11-08T08:12 (plan rev 24, `018f72d`, L-C5-1):* rev 24 adds one member to the D29 limb, a response whose body is not JSON. This PASS did not verify it. It stands for every limb and member it did verify. Production at `da24eb7` reaches "Invalid URL" on that member at both sites (read, not run: Phase 1 § M4's rev 24 reconcile). The member's cells are owed, and a scoped M4 pass over them follows when they land.
+
 ## Implementation Review (Post-Implementation)
 
 - **Per-limb, against the cells** (Phase 1 § M4 as reconciled to rev 19):
