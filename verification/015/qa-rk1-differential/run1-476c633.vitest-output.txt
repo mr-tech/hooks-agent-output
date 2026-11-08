@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/qa-rk1-export-476c633
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  09:20:55
+   Duration  1.80s (transform 426ms, setup 0ms, import 1.06s, tests 619ms, environment 0ms)
+
