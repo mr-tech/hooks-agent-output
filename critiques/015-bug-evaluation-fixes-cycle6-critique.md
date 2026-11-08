@@ -1,0 +1,89 @@
+---
+ID: 015
+Origin: 015
+UUID: 861e5f61
+Status: Open
+Status-Detail: "Cycle 6 pass 1: delta-bounded read of revision 22 (3d193f9..5201612, --numstat 52/7, read whole; M5-h's three classes and X-19, M6-l (vi), D31–D32). Verdict APPROVED (after implementation approval). One MEDIUM (M-C6-1): X-19's population rests on a probe that mocked the editor; the critic's real-editor run finds three members outside classes (1)–(3) that crash at render, while X-19's own member renders. One LOW (L-C6-1). Both owed at the planner's next pass; the scope question under steering's 07:30Z call is with steering."
+Artifact-Revision: 22 — read at agent-output 5201612; the plan is unchanged through 9f321b8
+Reviewed-At: 5201612 — repos=agent-output; website da24eb7 (chain/015-bug-evaluation-fixes, the M5 handoff tree the delta cites; tip 4fbc920), preview-image-generator 471578f (chain/015-bug-evaluation-fixes), unchanged since cycle 1
+Verdict: APPROVED
+---
+
+# Critique — Plan 015, Bug-evaluation fixes — cycle 6
+
+**Artifact**: `planning/015-bug-evaluation-fixes.md`, revision 22 (`5201612`). **Analysis**: none commissioned. **Prior cycles**: `critiques/closed/015-bug-evaluation-fixes-critique.md` (cycle 1), `…-cycle2-critique.md`, `…-cycle3-critique.md`, `…-cycle4-critique.md`, `…-cycle5-critique.md` (closed at rev 21 + R-6, `1b4b98d`). Cycle 5 resolved before this revision, so rev 22 opens cycle 6, pass 1 (steering's brief called it cycle 5's next pass; the pass count resets with the cycle). **Date**: 2026-11-08.
+
+## Changelog
+
+| Date | Handoff | Request | Summary |
+|---|---|---|---|
+| 2026-11-08T08:03 | steering-hooks-015 (message, 07:58Z) | cycle 6 pass 1: delta over `3d193f9..5201612` (rev 22: M5-h restated over three classes with X-19 after CR-18; M6-l (vi) under D32; D31, D32), with steering's question whether X-19's `{"components":[null]}` still crashes at render | Delta-bounded pass. Steering's question run, not routed: with the real editor mounted at `da24eb7`, `{"components":[null]}` renders (18 nodes, 0 console errors) — it does not crash. The same run finds five members that pass `makeEditable` and throw at render, three outside classes (1)–(3): M-C6-1 MEDIUM against X-19's population and the class boundary; L-C6-1 LOW on class (3)'s "cannot process" wording. M6-l (vi) verified against its sibling. RK-6: no new member. Verdict APPROVED; findings owed at the planner's next pass; the scope question to steering. |
+
+## Boundary
+
+Delta-bounded, the cycle's entry pass: `git diff --numstat 3d193f9..5201612 -- planning/015-bug-evaluation-fixes.md` = 52/7, read whole (`scratchpad/rev22-plan.diff`); `steering/015-rulings.md` 17/0 (blocks 07:30Z, 07:32Z, 07:42Z, 07:52Z, read). The delta rewrites M5-h, adds X-19, adds M6-l (vi), D31 and D32, one Owed re-verdicts row and four changelog rows (two code-review, R-6, rev 22). M5-h is reshaped, but the new text is fully readable in the diff, so the whole-document read is not taken. After `5201612` the plan is unchanged through `9f321b8` (`--numstat` empty); the 07:5xZ AF-25 ruling at `9f321b8` is not folded and is outside this pass. Standing exclusion carried: D23's run-2 UTC assumption is not re-read.
+
+## Pricing
+
+Sized to the ask: 47 of 50 fixed, F-15/F-39 closed under D30, plus the CR-12 rider. Rev 22 adds no scope of the planner's: the M5-h widening is steering's D28 call (rulings `a49da66`) plus the owner's D31; M6-l (vi) is the owner's D32. M-C6-1 below is a defect in what rev 22 states (a stated limit's population), not a wish for more; whether the members it surfaces ride M5-h or stay a stated limit is the question of the call's author, steering, and this critique designs nothing.
+
+## Value Statement Assessment
+
+Unchanged at rev 22. F-26's originating subject — "a `/preview` link whose `data` crashes the page" — is served by M5-h; the residue X-19 names what the fix still leaves crashing, which is why its population must be right (M-C6-1).
+
+## Assumption Not Checked
+
+This pass assumes the real-editor render under jsdom (`verification/015/critic-m5h-render-probes/`) throws where Chrome's does: the same JavaScript runs, but the probe substitutes `~/env.mjs` and `next/navigation`, and Suspense settles under `act`, not a browser scheduler. Falsity's signature: in Chrome, a member recorded THREW renders an editor, or a member recorded RENDERED blanks the page. Owner of closing it: QA Phase 2's M5-h cells at the fix SHA, and X-19's stated limit for the members left outside the class. A second premise settled in the pass rather than assumed: that the rig sees render-time throws at all — the throw control `{"embeds":5}` and `{"content":5}` (a throw in the editor, not in `makeEditable`) both surface as THREW.
+
+## Rev 22 read against its sources
+
+- **Steering's question (settled in the pass).** Does X-19's `{"components":[null]}` still crash at render? **No.** The code review's probe (`verification/015/cr-m5-probes/page.wrong-shape-probe.test.tsx`) mocks `DiscordMessageEditor` with a stub `<p data-testid="editor">`, so its "editor:undefined" means only that `makeEditable` returned (a `null` element spreads to `{}` in `injectComponentKeys`) and the stub printed `String(undefined)`; the editor never rendered. Re-run with the real editor and the real `MarkdownProvider` (`critic-m5h-render-probes/run4-da24eb7-outcomes.txt`, 12 members, 500 ms Suspense settle): `{"components":[null]}` → RENDERED, 18 nodes, 0 console errors — the same as the positive control `{"content":"hello"}`.
+- **Class (3) against `makeEditable` at `da24eb7`.** The six listed member shapes trace to the source: `embeds` iterated (`for … of casted.data.embeds ?? []`), each embed's `_key` written, `fields` iterated, each field's `_key` written, `components` `.map`ped when truthy, and `injectComponentKeys` writing `_key` on each child of a type-1 or type-9 `components` array, a type-12 `items` array, and recursing on type 17. Confirmed, with one precision (L-C6-1): two listed members, `embeds: ""` and `fields: ""`, iterate as empty strings without a throw in `makeEditable` and throw later, in the editor (`embeds.reduce is not a function`; `embed.fields?.reduce …`). The class as listed still refuses them; "cannot process, read from its source" is not where they fail.
+- **X-19's population.** The row states "one probed member, outcome under jsdom 'editor:undefined', not a throw". The probe it cites could not observe a render outcome (above), and the real-editor run finds five members that pass `makeEditable` and throw at render — two inside class (3) by wording (`embeds: ""`, `fields: ""`) and **three outside (1)–(3)**: `{"components":[{"type":1,"components":"x"}]}` (`row.components.map is not a function`), `{"components":[{"type":17,"components":5}]}` (`container.components.map …`), `{"content":5}` (`content.trim is not a function`). Each is a hand-made link that blanks the page at `da24eb7`, the F-26 defect by its originating statement. This is M-C6-1.
+- **M6-l (vi) against its sibling.** `DiscordMessageEditor/index.tsx` at `da24eb7`: `v2TextError` (line 200) renders at line 355–356 as `<div className="mt-1 text-xs font-semibold text-error">` under `NullableComponent`, and line 312 applies `styles.errorBorder` to the `discord-visualizer__accessories` div on `embedCharacterError || v2TextError` — the text-length error does carry a red border, as the implementer's read said. `canAddComponent = totalComponentCount < MAX_TOTAL_COMPONENTS` (line 192; the constant is 40) hides the Add Component menu at 40 and over, as (vi) states. The criterion names a literal text, two totals, the place and the sibling; the Send page's instance is asserted by the criterion but not read here (the planner marks the border as the implementer's read — honest).
+- **D31, D32.** Each carries the selection label, the rulings block by SHA (`c1be05e`), the route, "owner withdrawal only" and its effect row. D31's effect rests on the implementer's jsdom probe (`m5h-preview-data-probe-6c42032.txt`), named as such with real Chrome not read — consistent with the run above (`null`, `5`, `"x"`, `[]` all show the error line at `da24eb7`).
+- **PREMISE-STALE.** M5-h now refuses `/preview` inputs it rendered before — product behaviour on a page M8 screenshots. The planner's re-derivation (stored messages still render; M7, M9 read no `/preview` behaviour) is consistent with the run: the stored-shape controls render. No marking owed beyond the planner's.
+- **Owed re-verdicts.** The rev 22 row names the critic (cycle 5 — now cycle 6), architect, qa and code review; a wording slip only.
+
+## Findings
+
+### Medium
+
+**M-C6-1 MEDIUM cycle 6 pass 1 — X-19's population and outcome are read off a probe that could not see the editor render; three wrong-shape members outside M5-h's classes (1)–(3) crash the page at render.**
+- **State**: OPEN.
+- **Location**: plan § M5-h "Residue (X-19)" and § Exclusions row X-19 ("Population: one probed member, outcome under jsdom 'editor:undefined', not a throw"); class (3)'s nested-component bullet.
+- **Description**: the cited probe mocks the editor, so "editor:undefined" is `makeEditable` passing, not a render outcome. With the real editor at `da24eb7` (`verification/015/critic-m5h-render-probes/README.md`), X-19's member renders, and `{"content":5}`, a type-1 row whose `components` is not an array, and a type-17 container whose `components` is not an array each throw at render after passing `makeEditable`. Class (3) lists nested elements that are `null` or not an object, but not a nested `components` (or `items`) that is not an array, nor a non-string `content`; `injectComponentKeys` skips those silently (`Array.isArray` guards), which is why they pass.
+- **Impact**: a stated limit whose population is wrong in both directions misleads every reader — QA derives X-19 cells from it, UAT reads it as the accepted residue, and the owner's D31/steering's D28 call were made against it. Steering's 07:30Z call (`a49da66`) says valid JSON of the wrong shape that crashes rides M5-h under D28; three such members now have a probe showing the crash, so the call either admits them to M5-h's class or X-19 is restated as a stated limit with its true population and the call's boundary said out loud. Magnitude: 3 of 12 probed members, each a blank page from a hand-made link; user impact low (the code review's reading), the record's accuracy the cost.
+- **Recommendation**: (a) rewrite X-19's population from the real-editor run — the member it names renders; the members that crash are listed by shape, with the instrument and SHA; (b) put to steering, as the author of the 07:30Z call, whether the three render-crash members ride M5-h — the enumeration from the editor's own read set would be the planner's to derive if so, and the plan's own reason for not using the editor's render as the predicate stands as the alternative, stated as a limit with these members named. The critique proposes no guard. Landing: the planner's next pass, urgent only because M5-h's guard is being coded against rev 22 after CR-18; steering's answer first.
+- **Prediction carried to Risks**: not a Critical, so no RK row is required; the falsifier for X-19's restated population is a further hand-made member that passes the guard and blanks the page, found by QA's cells or a report, recorded under X-19.
+
+### Low
+
+**L-C6-1 LOW cycle 6 pass 1 — Class (3) is described as what `makeEditable` "cannot process", but two of its listed members pass `makeEditable` and fail in the editor.**
+- **State**: OPEN.
+- **Location**: plan § M5-h, class (3)'s opening sentence ("a JSON object that `makeEditable` … cannot process, read from its source").
+- **Description**: `embeds: ""` and an embed's `fields: ""` satisfy "present, not `null` and not an array" and are refused by the class as listed, but `for … of ""` iterates nothing, so `makeEditable` returns; the throw is the editor's (`embeds.reduce`, `embed.fields?.reduce`). The class's listed shape is right; its stated derivation is not the throw set.
+- **Impact**: a reader deriving cells from "what throws in `makeEditable`" drops two members the list carries; the mismatch is one sentence.
+- **Recommendation**: state class (3) as the plan's own shape predicate over the fields `makeEditable` reads (which the list already is), not as its throw set. Landing: Planner batch row or folded with M-C6-1.
+
+## Risks register
+
+RK-6 (the M8 wrong-stop class): rev 22 touches no M8 read; no new member.
+
+## Questions
+
+For steering (the author of the 07:30Z call, rulings `a49da66`), carried in the delivery: with three wrong-shape members now shown to crash at render after passing `makeEditable`, does the call admit them to M5-h's class, or does X-19 stand as a stated limit with its population corrected? Nothing for the owner unless steering routes it there.
+
+## Unresolved Open Questions
+
+None: the rev 22 diff carries no `OPEN QUESTION` line; the rev 21 counts stand (`grep -c 'OPEN QUESTION'` = 8, all `[RESOLVED]`/`[CLOSED]`).
+
+## Process facts (lodged in the round)
+
+- The critic's probe was run in this pass (`verification/015/critic-m5h-render-probes/`, jsdom, offline under `unshare -rn`, website export at `da24eb7`): runs 1–2 were instrument failures (console output not captured; the editor's `useMarkdown` missing under the code review's `MarkdownProvider` mock) and are not of record; run 3 is the first conclusive, run 4 the file of record. The probe is a critic's instrument for a reachability claim, not test design; file, fixture and cells remain QA's and the implementer's.
+
+## Verdict
+
+**Pass 1 — APPROVED** (cycle 6, pass 1; after implementation approval, REQUEST REVISION reserved for HIGH or CRITICAL, none raised). Sized to the ask: 47 of 50 plus the rider; rev 22's widening is D28 (steering's call) and D31, the owner's. Steering's question is answered by a run: X-19's member does not crash at render. One MEDIUM, M-C6-1 — X-19's population is read off a probe that mocked the editor, and three members outside classes (1)–(3) do crash at render — owed at the planner's next pass with steering's answer on the 07:30Z call's scope first; one LOW, L-C6-1, a derivation sentence. M6-l (vi), D31 and D32 verified against their sources. D24–D32 terminal; nothing here re-raises them. RK-6: no new member.
+
+**Next**: steering (the scope question above — a steering-needing item, routed to the owner only if steering so judges); the planner (M-C6-1's X-19 rewrite and L-C6-1 at its next pass). The implementer's M5-h guard against rev 22 may be touched by the answer; that sequencing is steering's and the planner's.

@@ -1,0 +1,12 @@
+PROBE "{\"content\":\"hello\"}" -> RENDERED nodes=18 len=63 consoleErrors=0 text="BOTToday at 8:02 AMThis username is too short or t"
+PROBE "{\"embeds\":5}" -> THREW:number 5 is not iterable (cannot read property Symbol(Symbol.iterator))
+PROBE "null" -> RENDERED nodes=2 len=21 consoleErrors=0 text="Invalid message data."
+PROBE "{\"components\":[null]}" -> RENDERED nodes=18 len=58 consoleErrors=0 text="BOTToday at 8:02 AMThis username is too short or t"
+PROBE "{\"components\":[{}]}" -> RENDERED nodes=18 len=58 consoleErrors=0 text="BOTToday at 8:02 AMThis username is too short or t"
+PROBE "{\"embeds\":\"\"}" -> THREW:embeds.reduce is not a function
+PROBE "{\"embeds\":[{\"fields\":\"\"}]}" -> THREW:embed.fields?.reduce is not a function
+PROBE "{\"components\":[{\"type\":1,\"components\":\"x\"}]}" -> THREW:row.components.map is not a function
+PROBE "{\"components\":[{\"type\":17,\"components\":5}]}" -> THREW:container.components.map is not a function
+PROBE "{\"components\":[{\"type\":9,\"components\":[null]}]}" -> THREW:Cannot read properties of null (reading '_key')
+PROBE "{\"content\":5}" -> THREW:content.trim is not a function
+PROBE "{\"embeds\":[{\"fields\":[{}]}]}" -> RENDERED nodes=17 len=58 consoleErrors=0 text="BOTToday at 8:02 AMThis username is too short or t"

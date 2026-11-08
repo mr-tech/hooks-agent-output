@@ -1,0 +1,13 @@
+sha da24eb7dd7e811a0dfc50b941ceba50aef3c6caf
+page.tsx export 0e3fc49d4c241d4ec58ed5d0942c7cf46f20406f
+mocks: env.mjs, next/navigation only; MarkdownProvider and DiscordMessageEditor real; 500 ms settle
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/b1e80596-ead3-4cec-9982-0d6d03ccb803/scratchpad/m5h-render/export-da24eb7
+
+
+ Test Files  1 passed (1)
+      Tests  12 passed (12)
+   Start at  08:01:59
+   Duration  5.27s (transform 954ms, setup 23ms, import 1.53s, tests 2.89s, environment 678ms)
+
+exit 0
