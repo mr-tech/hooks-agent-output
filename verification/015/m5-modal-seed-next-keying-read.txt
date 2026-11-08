@@ -1,0 +1,81 @@
+Planner source read, 2026-11-08T08:19Z. Not run in a browser.
+next version: 16.1.6 (website node_modules; website lockfile pins it)
+Question: does a client navigation /message/f/A -> /message/f/B remount app/message/f/[id]/page.tsx (and NewMessageModal)?
+
+== /usr/local/bin/hooks/website/node_modules/.pnpm/next@16.1.6_@babel+core@7.29.7_react-dom@19.2.4_react@19.2.4__react@19.2.4_sass@1.56.2/node_modules/next/dist/client/components/router-reducer/create-router-cache-key.js (createRouterCacheKey) ==
+const _segment = require("../../../shared/lib/segment");
+function createRouterCacheKey(segment, withoutSearchParameters = false) {
+    // if the segment is an array, it means it's a dynamic segment
+    // for example, ['lang', 'en', 'd']. We need to convert it to a string to store it as a cache node key.
+    if (Array.isArray(segment)) {
+        return `${segment[0]}|${segment[1]}|${segment[2]}`;
+    }
+    // Page segments might have search parameters, ie __PAGE__?foo=bar
+    // When `withoutSearchParameters` is true, we only want to return the page segment
+    if (withoutSearchParameters && segment.startsWith(_segment.PAGE_SEGMENT_KEY)) {
+        return _segment.PAGE_SEGMENT_KEY;
+    }
+
+== /usr/local/bin/hooks/website/node_modules/.pnpm/next@16.1.6_@babel+core@7.29.7_react-dom@19.2.4_react@19.2.4__react@19.2.4_sass@1.56.2/node_modules/next/dist/client/components/layout-router.js lines 373-389 (state key per segment) ==
+    const activeSegment = activeTree[0];
+    const activeStateKey = (0, _createroutercachekey.createRouterCacheKey)(activeSegment, true) // no search params
+    ;
+    // At each level of the route tree, not only do we render the currently
+    // active segment — we also render the last N segments that were active at
+    // this level inside a hidden <Activity> boundary, to preserve their state
+    // if or when the user navigates to them again.
+    //
+    // bfcacheEntry is a linked list of FlightRouterStates.
+    let bfcacheEntry = (0, _bfcache.useRouterBFCache)(activeTree, activeStateKey);
+    let children = [];
+    do {
+        const tree = bfcacheEntry.tree;
+        const stateKey = bfcacheEntry.stateKey;
+        const segment = tree[0];
+        const cacheKey = (0, _createroutercachekey.createRouterCacheKey)(segment);
+        // Read segment path from the parallel router cache node.
+
+== /usr/local/bin/hooks/website/node_modules/.pnpm/next@16.1.6_@babel+core@7.29.7_react-dom@19.2.4_react@19.2.4__react@19.2.4_sass@1.56.2/node_modules/next/dist/client/components/layout-router.js lines 470-510 (each segment child keyed by stateKey; inactive ones kept in a hidden <Activity>) ==
+                                            url: url,
+                                            tree: tree,
+                                            params: params,
+                                            cacheNode: cacheNode,
+                                            segmentPath: segmentPath,
+                                            debugNameContext: childDebugNameContext,
+                                            isActive: isActive && stateKey === activeStateKey
+                                        }),
+                                        segmentBoundaryTriggerNode
+                                    ]
+                                })
+                            })
+                        })
+                    }),
+                    segmentViewStateNode
+                ]
+            }),
+            children: [
+                templateStyles,
+                templateScripts,
+                template
+            ]
+        }, stateKey);
+        if (process.env.NODE_ENV !== 'production') {
+            const { SegmentStateProvider } = require('../../next-devtools/userspace/app/segment-explorer-node');
+            child = /*#__PURE__*/ (0, _jsxruntime.jsxs)(SegmentStateProvider, {
+                children: [
+                    child,
+                    segmentViewBoundaries
+                ]
+            }, stateKey);
+        }
+        if (process.env.__NEXT_CACHE_COMPONENTS) {
+            child = /*#__PURE__*/ (0, _jsxruntime.jsx)(_react.Activity, {
+                name: debugNameToDisplay,
+                mode: stateKey === activeStateKey ? 'visible' : 'hidden',
+                children: child
+            }, stateKey);
+        }
+        children.push(child);
+        bfcacheEntry = bfcacheEntry.next;
+
+Reading: a dynamic segment ['id','A','d'] keys as 'id|A|d', and ['id','B','d'] as 'id|B|d'. The active child is a different keyed element after A -> B, so React mounts B's page subtree fresh; A's is preserved hidden and restored with A's state on return. The modal's selectedGuildId seed is read at B's mount from B's guildId, so it does not go stale on a folder switch.
