@@ -337,3 +337,6 @@ Premises: QA's verdict was QA Failed on test adequacy (3e074cf, read). The count
 
 ## 2026-11-08T14:44Z — UAT started: QA effort-final PASS at website b96e364, generator 8de2b53
 QA's Verified-At "b96e364,8de2b53" (qa/015-bug-evaluation-fixes-effort-final-qa.md, 3cab676; plan Status QA Complete, 91c714d). It came after code review APPROVED b96e364 (c878f4a; CR-40 RESOLVED). The owner's plumbing sweep (bab96e0) is discharged: QAF-41 and QAF-42 RESOLVED, test-only. uat-hooks-015 spawned, delivering to devops. The Playwright rule (block 07:42Z) applies: steering asks steering-coordinator before any browser act.
+
+## 2026-11-08T14:45Z — Playwright go for UAT (steering-coordinator, block 07:42Z)
+Requested for uat-hooks-015: one MCP Chrome on profile mcp-chrome-313b550; next dev on 127.0.0.1:3000 from a git-archive export (b96e364, then 7ce866b briefly); setOffline() in that browser. Go given 14:45Z. The coordinator's reads: 0 matching processes, no Singleton locks, 0 listeners on :3000. Terms: chain 015 holds the profile and :3000 until UAT reports browser_close and the server stopped, and releases as soon as the walk ends (chain 069's production checks wait on the same profile). The live-DB saves are under the test account only (QA I-10, E-9).
