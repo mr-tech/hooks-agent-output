@@ -362,3 +362,32 @@ Each is recorded in `system-architecture.md` § Problem Areas:
 
 - **`system-architecture.md` § preview-image-generator.** Corrected in this pass to the mechanism read from code. The SIGINT handler exists. PM2's configured stop (`shutdown_with_message: true`) sends an IPC message instead; that is read from PM2 source in the analysis and is pending the host confirmation of M8-0. Deployment is `prod.yml` on a self-hosted runner: `npm ci` (skipped when the lockfile cache hits), `npm run build`, a copy to `deployed/prod`, then `pm2 startOrReload`. After M8 lands, the line is reconciled to the implemented stop path.
 - **`preview-image-generator.md` P-3 (confirmed inference).** What he ratified was *"a git checkout on the `prod` branch under PM2, with no build step — the checkout is production"*. `prod.yml` contradicts that in two parts: there is a build step, and the deployed tree is a copy of the build, not the checkout. Under that grade his "Intended." does not cover the mechanism that actually runs. **Resolved 2026-11-08T05:18Z, on the owner's selection "Agent: record intended".** P-3 was rewritten in place to the build-and-copy route. The prompt is quoted verbatim in the entry.
+
+---
+
+## Resumption State (checkpoint, architect-hooks-015, 2026-11-08T07:27)
+
+- **Done.**
+  - Conformance pass on plan rev 3, then a delta pass on every revision through rev 20 (`e118cc3`). The last verdict is APPROVED (commit `8affd6a`).
+  - Findings AF-1 to AF-21. Folded or discharged: AF-1 to AF-4, AF-11 to AF-17 (AF-17 by D22), AF-19 and AF-20 (AF-20's type limb is with the implementer as code review CR-13).
+  - **Still open as a recommendation: AF-18.** In the M1-c rebuild, read the `Accounts` row directly in `removeUserSession` and retire `fetchUserAccount`'s `skipUpdate`. Check whether it landed when M1-c's rebuild is reviewed.
+  - Records written this chain:
+    - `system-architecture.md`: the generator component line corrected, Problem Areas registered (AF-9a/b/c/d, X-16, the session cache, the `user-access-token` key, the session-cookie name, error-copy drift), and changelog rows.
+    - `website.md`: A-4 and A-5 (agent-designed).
+    - `preview-image-generator.md`: P-3 rewritten on the owner's selection "Agent: record intended" (05:18Z), and A-1 (the log-line interface).
+- **Next.**
+  - Rev 21 (the M3 drop) comes from steering-hooks-015: run a delta pass over `e118cc3`..rev 21.
+  - **Method, per pass:**
+    1. Write `git diff <from> <to> -- planning/015-bug-evaluation-fixes.md` to the scratchpad and Read it; the rtk filter mangles piped diffs.
+    2. Read the code each changed limb names, at the SHA it names.
+    3. Append a changelog row with `record-edit.js`, anchored after the last row (check the row's stamp first).
+    4. Add a "Verdict (rev N)" section above the previous one, and update Status-Detail.
+    5. Commit by pathspec, then SendMessage the verdict to planner-hooks-015. Owner-needing items go to steering-hooks-015.
+  - D23: never re-read the run-2 UTC assumption.
+- **Owed at chain close** (findings-document closure, by devops Stage 1):
+  - Reconcile `system-architecture.md` to the implemented state of chain 015. The generator's stop path after M8, and `getFromUrl`'s guild binding after M4, both change.
+  - Collapse the resolved AF entries to one line each, then close this document as `Resolved`.
+  - The reconciliation of chains 012–014 into the master document is also owed. It was outside this brief.
+- **Process disclosures:** two `sed -i` writes to record files, both recorded in the changelog (rows 05:15 and 05:44).
+- **Uncommitted / mutated:** none. Website tree at `chain/015-bug-evaluation-fixes` `579e8b2`; this session touched no source.
+- **Questions out:** none.
