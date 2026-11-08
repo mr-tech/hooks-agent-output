@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: In Progress
-Status-Detail: "M0 and M2 delivered; M1 is rebuilding M1-c and M1-h; M4 is being coded. Revision 18 registers D27 (CR-12, a cross-server read in getFromUrl, fixed in this chain as an M4-d rider) and D28 (a same-defect sibling site rides without an owner question), on top of rev 17's two-site M4-d. The critic, the architect, QA and code review read 565e240..rev 18 in one round. M3 is held for a real-Chrome read."
-Revision: 18
+Status-Detail: "M0 and M2 delivered; M1 is rebuilding M1-c and M1-h; M4 is being coded. Revision 19 states the CR-12 rider's belonging as guild_id equality over the field's whole domain (a DM channel with no guild_id is refused) and lists fetchChannel's mapped refusals. The critic, the architect, QA and code review read the rev 19 delta. M3 is held for a real-Chrome read."
+Revision: 19
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
 Lane: "standard — agent-output/README.md carries no small-lane section (grep -i small, 0 hits, 2026-11-08); the blast radius spans the save schema, a bot command's permissions and a production PM2 service, none a leaf"
@@ -42,7 +42,8 @@ Owed re-verdicts:
 | M1-c account decision from the `Accounts` row (CR-3), "falsy return" withdrawn, deletion-failure outcome (QAF-15); M1-h table row 6 timing (QAF-14); run-2 stop line (QAF-16) | rev 12, rev 13 | critic, architect, qa, code review (one round over `14fe94f`..rev 13) | approved (architect `f7e6602`; critic `6970763`, cycle 3 closed; QA `aad87b6`; code review `7976a9a`), with CR-6 to CR-8, QAF-17 and QAF-18 folded at rev 14 |
 | D23 clock assumption (no gate re-read, by D23's own terms); M1-i restated over the `cookies()` read; M2-a's colour class (third site); re-derivation after M2 | rev 13 | same round as above, except D23's assumption | approved (same round) |
 | M1-i "present" = `cookies()` and its residue; M2-a third colour member (Picker → M6-f); M3 premise unsettled and held for a Chrome read (rev 15); M4-c restated; M4-d over D24–D26: eight hosts, one widened shared constant, its two consumers (rev 16); M6-f covers colour 0; X-17 | rev 14–16 | critic (cycle 4), architect, qa, code review (one round over `9cbe755`..rev 16) | approved by the architect (`565e240` read), the critic (`28f0f16`) and QA (`e43f305`); code review Round 4 (`19dbf64` row): CR-11, folded at rev 17; CR-12 (HIGH, pre-existing) is with the owner. M-C4-1, L-C4-1, AF-19, QAF-21 and QAF-22 are folded at rev 17 |
-| M4-d over both F-27 predicate sites (D28); the CR-12 rider (D27, rev 18) (`WebhookProvider.tsx`, `useValidateWebhook.ts`); trim; refused-input display; guild/channel/message groups; id from the constant's group | rev 17, rev 18 | critic (cycle 4), architect, qa, code review (one round over `565e240`..rev 18) | open |
+| M4-d over both F-27 predicate sites (D28); the CR-12 rider (D27, rev 18) (`WebhookProvider.tsx`, `useValidateWebhook.ts`); trim; refused-input display; guild/channel/message groups; id from the constant's group | rev 17, rev 18 | critic (cycle 4), architect, qa, code review (one round over `565e240`..rev 18) | approved (architect, rev 17–18 read; critic `e05a8d4`; QA `31173a1`; code review `e343d2e` row); AF-20, QAF-23 and L-C4-2 folded at rev 19 |
+| CR-12 rider: belonging as `guild_id` equality, absent `guild_id` refused; `fetchChannel` refusals 401/403, 404 and other with their texts | rev 19 | critic, architect, qa, code review (delta only) | open |
 
 ## Changelog
 
@@ -80,6 +81,7 @@ Owed re-verdicts:
 | 2026-11-08T06:59 | cr | code-reviewer (code-reviewer-hooks-015) | Round 4 sub-entry at rev 17 (`94e9987`): CR-11 RESOLVED. M4-d's `getFromUrl` limb, restated by destination, names the guild id the gate reads. Round 4 is now APPROVED_WITH_COMMENTS (`code-review/015-bug-evaluation-fixes-code-review.md`, `49a25a0`). CR-12 HIGH is still with the owner through steering. Rev 17's two-site enumeration is outside this sub-entry. Milestone-scoped, so plan Status is unmoved. |
 | 2026-11-08T07:02 | 18 | planner (planner-hooks-015) | Registers D27 and D28 (rulings 07:01Z, `3d7af67`), and folds CR-12 into M4-d as a named rider. The rider has a property over three channel classes, the sibling read (no precedent; reuses `redis.fetchChannel`), an instrument, and a drop disposition priced in advance (a security handoff; the hole stays open in production). It is the eleventh revision since implementation approval. Steering briefs one round over `565e240`..rev 18. Scope delta: a pre-existing HIGH security defect outside F-1 to F-50 rides M4-d on the owner's selection, adding one change, review and QA. Rev 17's second F-27 site is confirmed by D28. Against the ask: 49 of 50 findings plus one rider (CR-12). |
 | 2026-11-08T07:04 | cr | code-reviewer (code-reviewer-hooks-015) | Round 5, the gate read of `565e240..67cb5e7` (rev 17–18, M4-d only), with mechanisms checked at website `6001f7f`: APPROVED_WITH_COMMENTS, `code-review/015-bug-evaluation-fixes-code-review.md` (`430c277`). M-C4-1's two sites reproduce. The D27 rider's property and cell are discriminating. CR-13 LOW goes to the implementer at M4: `redis.fetchChannel` types the channel as `Guild`, so retype it and compare `guild_id`. No plan change is owed. The M4 code review is Round 6, on the one-tree handoff. Milestone-scoped, so plan Status is unmoved. |
+| 2026-11-08T07:05 | 19 | planner (planner-hooks-015) | Folds the rev 17+18 verdicts' findings: QA QAF-23 (`31173a1`) and critic L-C4-2 (`e05a8d4`), the same member, plus architect AF-20. Code review (`e343d2e` row) had none for the plan. It is the twelfth revision since implementation approval, and it triggers one delta round per gate. Scope delta: in the CR-12 rider, belonging is equality over the field's domain, so an absent `guild_id` (a DM or group-DM channel) is refused, and the lookup's refusals are listed by status with their existing texts. No work is added to the rider. Against the ask: 49 of 50 findings plus one rider. |
 
 ## Value Statement and Business Objective
 
@@ -492,12 +494,19 @@ exists to fix once — `grep` above).
     - **The defect.** `getFromUrl` authorizes the link's guild id (`authorizeGuildAdmin`), then fetches
       `/channels/<channel>/messages/<message>` with the bot token. Nothing binds that channel to the authorized
       guild, so a manager of server A can read a message in server B that the bot can see.
-    - **Property.** For every admitted link, `getFromUrl` returns message content only when the channel the link
-      names belongs to the guild that passed `authorizeGuildAdmin`. Belonging is read from Discord's channel
-      object (`guild_id`). The input classes:
-      - the channel is in that guild: the message is returned as today;
-      - the channel is in another guild: refused, with no message content in the response;
-      - the channel's lookup is refused or fails: refused, with that refusal's existing text.
+    - **Property (rev 19: critic L-C4-2, QA QAF-23).** For every admitted link, `getFromUrl` returns message
+      content only when the channel object's `guild_id` equals the guild id that passed `authorizeGuildAdmin`.
+      The domain is every value of that field, and every other value is refused with no message content in the
+      response:
+      - a different guild id;
+      - no `guild_id` at all, which is what Discord's channel object carries for a DM or group-DM channel.
+      A first draft of the form "refuse only when `guild_id` is set and differs" fails this property.
+    - **The lookup fails (architect AF-20).** `redis.fetchChannel` has never run (uncalled at `6001f7f`), so each
+      of its mapped refusals is a member. Each is refused, with no content, and the caller receives its existing
+      text:
+      - 401 and 403: "Missing permissions. Make sure the bot has access to this channel in Discord.";
+      - 404: "Channel does not exist.";
+      - any other status: "An unknown error occurred. Please try again later or contact support."
       The check happens before the message fetch, or its result is discarded before anything is returned.
     - **Sibling.** No precedent binds a channel to an authorized guild:
       `git -C website grep -c "guild_id" 6001f7f -- src/server` returns no file. The channel lookup reuses the
@@ -927,8 +936,8 @@ is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, 
 
 ## Resumption State (checkpoint, planner-hooks-015)
 
-- **Done.** Plan at revision 18 (rev 17, plus D27's CR-12 rider and D28). Registrations: R-1 (D14, D15), R-2 (D20), R-3, R-4 and R-5. D21 to D28 were registered inside revs 10, 11 and 13 to 18. R-5's conclusion was withdrawn at 06:52Z. Handoff opened: `handoff/providers-query-params-header-decode-throws-2026-11-08.md` (X-17).
-- **Next.** Steering briefs the critic, the architect, QA and code review over `565e240`..rev 18. Fold the M3 Chrome read when it lands. Under D28, fold same-defect sibling sites without an owner question and report them. Fold any findings at the next planning pass.
+- **Done.** Plan at revision 19 (rev 18, plus the rider's equality form and refusal list). Revs 17 and 18 passed all four readers. Registrations: R-1 (D14, D15), R-2 (D20), R-3, R-4 and R-5. D21 to D28 were registered inside revs 10, 11 and 13 to 18. R-5's conclusion was withdrawn at 06:52Z. Handoff opened: `handoff/providers-query-params-header-decode-throws-2026-11-08.md` (X-17).
+- **Next.** Steering routes rev 19's delta to the critic, the architect, QA and code review. Fold the M3 Chrome read when it lands. Under D28, fold same-defect sibling sites without an owner question and report them. Fold any findings at the next planning pass.
 - **Open with others.** None of the planner's questions to the owner are pending (OQ-J answered: D26). The M3 Chrome read is with the implementer and QA.
 - **Uncommitted, left in place.** `INBOX.md` holds this session's FYI entry: the research document's `pm2 show` advice. Per the inbox rule, the domain owner commits it.
 - **Branches.** website and preview-image-generator: chain branches are created by steering. The planner touches no source.
