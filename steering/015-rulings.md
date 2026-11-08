@@ -347,3 +347,6 @@ Premises read by steering this turn: website/.env.local's live DATABASE_URL host
 The plan's Validation premise ("`.env.local`, whose database is the live one") and QA I-10 are false at this date. UAT records that as a finding for the planner.
 STEERING'S ERROR: uat-hooks-015 reported the browser and :3000 released at 15:16Z, and steering did not relay that to steering-coordinator until 19:4xZ, after the coordinator asked at 17:38Z.
 UAT's conditional approval (5de25d7; plan Status UAT Approved, bbf24a1) names the six rows. They must be EXECUTED before the website merge to master. devops-hooks-015 is not spawned until they are, because Stage 1 would otherwise run on a ledger with NOT EXECUTED rows.
+
+## 2026-11-08T19:50Z — coordinator go for UAT's six rows: browser, :3000, :5432 (block 07:42Z)
+steering-coordinator gave the go at 19:49Z for the MCP browser and next dev on 127.0.0.1:3000, and at ~19:50Z for :5432: a postgres:16 container `hooks-postgres-local`, loopback only, registered to chain 015 as the owner's standing local stack. Steering relayed both to uat-hooks-015. Source: steering's docket, written in the previous generation before its /clear; the coordinator's messages are not re-read here. uat-hooks-015 is walking B-1, B-2, B-9, B-10, B-14 and the B-11 dialog leg. On its browser release, steering tells the coordinator in that same turn.
