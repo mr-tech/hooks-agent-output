@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Delta pass on plan rev 21 (3d193f9, read from e118cc3): APPROVED, no plan change. AF-22 INFO (the inert Enter guard left by D30) is registered as a Problem Area. AF-18 (M1-c rebuild) is still recommended. A later revision is read on its delta."
+Status-Detail: "Delta pass on plan rev 22 (5201612, read from 3d193f9): APPROVED. Recommended, none blocking: AF-23 (M5-h class (3) as makeEditable's own throw), AF-24 (one validator for M6-l's text) and AF-25 (the over-40 chrome also shows on /preview; the D32 scope question is with steering). AF-18 is still recommended. A later revision is read on its delta."
 ---
 
 # Architecture Findings — Plan 015: Bug-evaluation fixes (conformance pass)
@@ -27,6 +27,47 @@ Status-Detail: "Delta pass on plan rev 21 (3d193f9, read from e118cc3): APPROVED
 | 2026-11-08T07:06 | Delta pass, plan rev 19 (`330348f`, read from `67cb5e7`), on steering-hooks-015's request | The CR-12 rider conforms. Belonging is now `guild_id` equality over the field's whole domain, so a DM or group-DM channel without `guild_id` is refused. The listed refusal texts match `fetchChannel` at `6001f7f`: 401/403 "Missing permissions…", 404 "Channel does not exist.", and any other status "An unknown error occurred…". AF-20's refusal-cell limb is folded; its type limb went to the implementer as code review CR-13. No findings. **APPROVED.** |
 | 2026-11-08T07:25 | Delta pass, plan rev 20 (`e118cc3`, read from `330348f`), on steering-hooks-015's request | D29's webhook-load limb conforms. It copies the literal "Invalid URL" into the New Message dialog, which follows the current pattern: inline error literals, with no shared definition. A `git grep` at `1e12837` finds the string at 8 non-test sites in two spellings, `Invalid URL` (3) and `Invalid URL.` (4 plus the router), and an `invalidUrl` key in `src/lang/generated/*.json` that nothing outside `src/lang` consumes. Centralising it would be a preferable deviation, so under the standing default the plan follows the current pattern. AF-21 INFO is registered as a Problem Area. No plan change. **APPROVED.** |
 | 2026-11-08T07:30 | Delta pass, plan rev 21 (`3d193f9`, read from `e118cc3`), on steering-hooks-015's request | CR-16 is folded as option (a). The dialog's "Invalid URL" goes on its existing shared error line, with no new field-level error. That follows the current pattern; option (b) would have been an avoidable deviation (new UI). Read at website `1e12837`: `NewMessageModal` `messageErrorString` = `discordMessageError ?? commandMessageError ?? webhookError ?? webhookMessageError`, rendered once below the load options; `errorMessage=` 0 in the file; the send page's field error is `WebhookMenu` `errorMessage` (`'Invalid URL'` on `url && !isWebhookLoading && selectedWebhook === null`). D30's removal of M3 changes no architecture. AF-22 INFO is registered as a Problem Area: the dead `tagName` compare stays at three sites, so whatever keeps Enter-on-Cancel safe is not that guard and has not been identified. **APPROVED.** |
+| 2026-11-08T08:00 | Delta pass, plan rev 22 (`5201612`, read from `3d193f9`), on steering-hooks-015's request | Read at website `da24eb7`. M5-h's classes, X-19 and M6-l (vi) conform. AF-23 LOW: class (3)'s conforming form is `parseMessageData`'s existing `try` widened over `makeEditable`, not a transcribed shape check. Two listed members are wider than its throws: an empty-string `embeds`/`fields`, and array elements. AF-24 LOW: (ii) and (vi) share one text, so it belongs in a `limits.tsx` validator beside `validateDisplayableTextCount`, called by `validateMessage` and the editor. The border sibling is confirmed by read, and the Send page gets the line through `MessagePreview`. AF-25 LOW: the line and border are not gated on `isEditing`, so `/preview` and the generated image (D-003) show them too, which D32's option text does not name. The scope judgement went to steering. One Problem Area registered. **APPROVED.** |
+
+## Verdict (rev 22, `5201612`, one pass from rev 21 `3d193f9`): APPROVED
+
+These limbs conform: M5-h's three classes (D31, D28 under steering's call), X-19 as its residue, and M6-l (vi)'s placement (D32). AF-23, AF-24 and AF-25 are recommended and do not block. AF-25 also carries a scope question for steering. All mechanism reads below are at website `da24eb7`.
+
+### AF-23 LOW — M5-h class (3): the conforming form is the existing `try` widened over `makeEditable`, and two listed members are wider than its throws
+
+**Pattern.** `src/app/preview/page.tsx` `parseMessageData` already decides refusal by the parser's own failure: `try { JSON.parse(query) } catch { return null }`, then the non-object test. The conforming form for class (3) is to run `makeEditable({ data })` inside that same `try`. Then the predicate is `makeEditable`'s own throw, by construction.
+
+A separate shape check that transcribes `makeEditable`'s field reads would be a second definition of its input domain. It would drift the first time `injectComponentKeys` learns a new component type. That makes it an avoidable deviation.
+
+**Where the plan's list and the throws differ.** Each claim below is read from `makeEditable` and `injectComponentKeys` in `src/utils/index.ts`.
+
+- **`embeds` or `fields` as an empty string.** The plan's member is "present, not null and not an array". But `for (const embed of casted.data.embeds ?? [])` iterates `""` zero times, so `makeEditable` returns normally. Every other non-array value throws: a number, a boolean or an object is not iterable, and a non-empty string throws on `embed._key = …` in strict module code. **Unread:** whether the editor then renders `{"embeds":""}` or crashes. `DiscordMessageEditor` reads `embeds.length` and `embeds.map`, and `"".map` is undefined. I did not run it.
+- **An array as an element** (in `embeds`, in `fields`, or as a type-1/9 child or a type-12 item). The plan's member is "null or not an object". In JS an array is an object, so `[]._key = …` succeeds and `makeEditable` does not throw. The plan uses "a JSON object" to exclude arrays in class (2). Read the same way here, the plan refuses arrays where the function does not throw.
+
+The rest of the list matches the function: `components` truthy and not an array (`.map` throws); `null` or primitive nested children (`child._key` throws); top-level elements never throw (`{ ...null }` is `{}`, as X-19 records); type-17 children recurse through `injectComponentKeys`.
+
+**Recommendation.** State class (3) as "`makeEditable` throws on it", and keep the listed members as the cells' examples. Or keep the list and exclude the two edges. Either way the planner's "anything that renders today still renders" holds only if the predicate is the throw. Under the `try` form, X-19's boundary is exact.
+
+### AF-24 LOW — M6-l (ii) and (vi) are one text, so it needs one definition, in the existing validator pair pattern
+
+(ii) has `validateMessage` return an error naming the count and the limit. (vi) shows "Message has N components; the limit is 40." in the editor. The current pattern for exactly this pair is in `src/utils/limits.tsx`:
+
+- `validateEmbedCharacterCount` and `validateDisplayableTextCount` are each called by `validateMessage`, which is the send gate and the stored `valid`.
+- `DiscordMessageEditor` (`index.tsx`) calls the same two functions directly for its red lines and the border.
+
+The conforming form is a third validator beside them, built on (iii)'s lifted counter. `validateMessage` and the editor both call it, so the disabled Send and the red line cannot disagree on the text or the threshold. A literal in the editor beside a second one in `validateMessage` would be an avoidable deviation.
+
+**Confirmed by read** (the plan marks it the implementer's read): the border is `styles.errorBorder` on `discord-visualizer__accessories`, keyed on `embedCharacterError || v2TextError`, so the new error joins that disjunction. "On the Send page" needs no second site. The Send page renders `MessagePreview`, which renders `~/components/dynamics/DiscordMessageEditor`.
+
+### AF-25 LOW — the over-40 line and border also render on `/preview`, which the generator screenshots (D-003)
+
+Neither the `v2TextError` line nor the `errorBorder` class is gated on `isEditing`. `src/app/preview/page.tsx` renders the same `DiscordMessageEditor`, and D-003 makes that route the source of every stored preview image.
+
+So under (vi), following its siblings, an over-40 message's preview image will carry the red line and the red border. A message over a text limit already does the same today.
+
+D32's option text names "the editor and the Send page" only. Following the siblings is the conforming form. Gating the chrome off the preview route would be a deviation that also changes the two sibling errors.
+
+**Recommendation.** (vi) states that `/preview` and the generated image show it too, as for the text-length errors. Whether that falls inside D32's selection is steering's judgement. The cross-cutting shape, validation chrome inside generated preview images, is registered as a Problem Area.
 
 ## Verdict (rev 21, `3d193f9`, one pass from rev 20 `e118cc3`): APPROVED
 
@@ -402,7 +443,7 @@ Each is recorded in `system-architecture.md` § Problem Areas:
     - `website.md`: A-4 and A-5 (agent-designed).
     - `preview-image-generator.md`: P-3 rewritten on the owner's selection "Agent: record intended" (05:18Z), and A-1 (the log-line interface).
 - **Next.**
-  - Rev 21 (`3d193f9`) was read on its delta from `e118cc3`: APPROVED, AF-22 INFO registered. A later revision is read on its delta from `3d193f9`.
+  - Rev 21 (`3d193f9`): APPROVED, AF-22 INFO registered. Rev 22 (`5201612`): APPROVED, with AF-23 to AF-25 recommended. A later revision is read on its delta from `5201612`. When it lands, check whether AF-23 to AF-25 were folded.
   - **Method, per pass:**
     1. Write `git diff <from> <to> -- planning/015-bug-evaluation-fixes.md` to the scratchpad and Read it; the rtk filter mangles piped diffs.
     2. Read the code each changed limb names, at the SHA it names.
