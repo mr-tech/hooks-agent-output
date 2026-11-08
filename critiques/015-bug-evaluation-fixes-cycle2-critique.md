@@ -21,6 +21,7 @@ Cycle 1 (passes 1–3, rev 3→5) is closed at `critiques/closed/015-bug-evaluat
 | Date | Handoff | Request | Summary |
 |---|---|---|---|
 | 2026-11-08T05:46 | steering-hooks-015 → critic-hooks-015 | New cycle on rev 6 | cycle 2 pass 1. Delta-bounded: the delta is fully readable in the diff; the whole-document read is the escalation, not taken. One premise measured in-pass (loopback inside `unshare -rn`). M-C2-1–M-C2-3, L-C2-1–L-C2-3 raised. REQUEST REVISION. Process disclosure: the first write of this row carried an estimated stamp (05:50 against a clock of 05:46); the stamp gate refused it and the row was re-stamped from `date -u` — a gate satisfied, not a control worked around. |
+| 2026-11-08T05:48 | qa-hooks-015 → critic-hooks-015 | M-C2-1 accepted; E-1 amended | State change only: M-C2-1 → ADDRESSED on QA's document (`2625ef1`, verified by reading E-1's reconcile note and the probe files' presence in the commit stat); OPEN against the plan until rev 7. QA also notes the plan file moved to `8d67ce5` with a Resumption State only, and raises QAF-6/QAF-7 (LOW) to the planner — outside this critique. No verdict change. |
 
 ## Assumption Not Checked
 
@@ -42,7 +43,7 @@ Unchanged at rev 6. No drift.
 
 ### Medium
 
-**M-C2-1 MEDIUM cycle 2 pass 1 — E-1's namespace, as written, leaves loopback down, so every HTTP probe on the local route fails under the control that protects the CDN.** State: OPEN.
+**M-C2-1 MEDIUM cycle 2 pass 1 — E-1's namespace, as written, leaves loopback down, so every HTTP probe on the local route fails under the control that protects the CDN.** State: ADDRESSED on QA's side — E-1 amended at `qa/015-bug-evaluation-fixes-qa.md` `2625ef1` (re-measured by QA: `verification/015/netns-loopback-probe.sh`, run beside it; full form: `-rn`, `lo` up, isolation check of 0 non-lo links and 0 default routes, loopback positive control; `-n` never dropped). OPEN against the plan until rev 7 carries the same form.
 - **Location**: § M8 "Entry condition for every local generator run (QA E-1, QAF-5)" — "happens in an export without the tree's `.env`, under `unshare -rn`"; "`PREVIEW_ENDPOINT` (a loopback URL)"; QA § Entry conditions E-1 (same text).
 - **Description**: a fresh network namespace has `lo` in `state DOWN`. Measured this pass (above): a connect to `127.0.0.1` fails with `Errno 101` until `ip link set lo up` is run inside the namespace. M8-b and M8-d are HTTP requests to the locally started server; P1's probe starts the server (which `listen`s — binding succeeds, connecting does not); M8-c's `goto` targets a loopback page. All four fail by construction under E-1 as written. The hazard is not the failure, which is found at the first run — it is what the first run does about it: the cheapest fix is dropping `-n`, and `-n` is the only limb of E-1 that stops a well-formed probe request from reaching the real S3 bucket when a probe value is mis-set (QA I-1: `deleteMessagePreviewImages` is awaited before the image, so the delete runs even when the launch fails). A control that blocks the legitimate run is the control most likely to be worked around.
 - **Impact**: magnitude — 4 of 4 HTTP-shaped probes on the route unreachable; one irreversible-delete control exposed to erosion at the first run.
