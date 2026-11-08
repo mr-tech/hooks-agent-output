@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: In Progress
-Status-Detail: "QA withdrew its effort-final PASS: the owner-ruled plumbing sweep found 2 test gaps (QAF-41, QAF-42, MEDIUM, test-only, implementer; qa/015-bug-evaluation-fixes-effort-final-qa.md). No production defect found. Code review of the fix (website 9b5e47f) REJECTED it on CR-40 MEDIUM, test-only: the select-list class has more members than guildId. After the CR-40 fix and code review, QA re-runs the survivors; then UAT. M0 and M2 delivered; M3 removed (D30)."
+Status-Detail: "QA withdrew its effort-final PASS: the owner-ruled plumbing sweep found 2 test gaps (QAF-41, QAF-42, MEDIUM, test-only, implementer; qa/015-bug-evaluation-fixes-effort-final-qa.md). No production defect found. Code review APPROVED the fix at website b96e364, with CR-40 (raised at 9b5e47f) RESOLVED. QA re-runs the survivors; then UAT. M0 and M2 delivered; M3 removed (D30)."
 Revision: 28
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
@@ -153,6 +153,7 @@ Owed re-verdicts:
 | 2026-11-08T12:53 | qa | qa (qa-hooks-015) | Effort-final Phase 2, re-run after the test-only fix round: **PASS** at website `620b4ee` and preview-image-generator `8de2b53` (`qa/015-bug-evaluation-fixes-effort-final-qa.md`). QAF-38, QAF-39 and QAF-40 are RESOLVED: the 5 survivors are killed at `620b4ee`. Suite 1128/1128, exit 0, typecheck 0. The whole production diff of each repository is swept. **Plan Status set to QA Complete** (this pass covers the whole plan). One stated limit is with steering for the owner: the plumbing-class sweep. UAT is next. |
 | 2026-11-08T14:25 | qa | qa (qa-hooks-015) | **Effort-final PASS withdrawn** (`qa/015-bug-evaluation-fixes-effort-final-qa.md`). The owner-ruled plumbing sweep (rulings 14:18Z, `bab96e0`) ran 13 mutants at website `620b4ee`: 10 killed and 2 gaps. **QAF-41**: no assertion on `getPartialMessages`'s selected `guildId`. **QAF-42**: no cell for a user with no recent messages on the session callback. Both are MEDIUM and test-only, for the implementer. No production defect. **Plan Status set back to In Progress** from QA Complete. The method failure, plumbing dispositions written by reading, is recorded in the QA document. |
 | 2026-11-08T14:32 | cr | code-reviewer (code-reviewer-hooks-015) | Round 2 sub-entry at website `9b5e47f` (QAF-41 and QAF-42; test-only): REJECTED on CR-40 MEDIUM. The QAF-41 sweep enumerated only `guildId`, and the other select columns of `getPartialMessages` and `getUserRecentMessages` are unasserted: 3 mutants survive. QAF-42 RESOLVED. Back to the implementer, test-only. Plan Status unmoved. |
+| 2026-11-08T14:38 | cr | code-reviewer (code-reviewer-hooks-015) | Round 2 sub-entry at website `b96e364` (the CR-40 fix; test-only): APPROVED, and CR-40 RESOLVED. QA re-runs the QAF-41 and QAF-42 survivors and the suite. Plan Status unmoved. |
 
 ## Value Statement and Business Objective
 
