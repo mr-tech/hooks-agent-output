@@ -141,3 +141,13 @@ confirmed with him.
   ↺ 0, status online, cpu 0%, memory 80.2mb.
   Steering's reading, marked as the thread's: this agrees with steering's 05:20Z ps read (one root-daemon process,
   deployed/prod). ↺ 0 means no restart counted since that process started. OQ-G stays unanswered and is re-put to him.
+
+## 2026-11-08T05:26Z — OQ-G: "straight to prod. delete the preview branch"
+His words, verbatim. He gave them after asking "The preview branch is vestigial, is it not?" and steering's answer:
+preview c233ec4 (2023-08-21) is 0 commits ahead of prod; no preview app is in root's dump.pm2; the preview logs were last
+written 2023-08-20. **OQ-G = straight to prod**: M8 deploys by a devops push of `prod`, with host log reads before and
+after. The shutdown check runs on the next stop of the new process.
+**Executed by steering on his word:** `git push origin --delete preview` (remote ref was c233ec4) and
+`git branch -d preview` in preview-image-generator. `git ls-remote origin refs/heads/preview` is now empty.
+Containment was read immediately before: `rev-list --count origin/prod..origin/preview` = 0. The `preview.yml` workflow
+file remains in the prod and master trees, and nothing now triggers it.
