@@ -2,7 +2,7 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Status: Active
+Status: In Progress
 Status-Detail: "Implementation started on rev 7 (rulings block 'implementation start recorded', 7efd8b0). Revision 8 folds AF-16, L-C2-4, QAF-8 and QAF-9 into M1-c's no-account and ordering text and M8-0's run-2 read. The critic, the architect and QA each re-read that delta. Until they pass it, the implementer holds only M1-c's no-account and ordering cells; the analyst's run-2 extension of pig-host-read.sh waits on Planner batch row QAF-10."
 Revision: 8
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
@@ -53,6 +53,7 @@ Owed re-verdicts:
 | 2026-11-08T05:48 | 7 | planner (planner-hooks-015) | Folds the three gate results on rev 6: critique cycle 2 pass 1 (`39fb6b9`: M-C2-1 to M-C2-3, L-C2-1 to L-C2-3), the architect's delta (`1be7e72`: AF-13 to AF-15) and QA's re-key (`2e4d4d5`: QAF-6, QAF-7). Scope delta: E-1 brings loopback up, gains a self-check and installs inside the export; M8-c names its browser source and gets back its code-review fallback; M1-c's no-account cell names the two keys it clears and the `user-guilds` residue; P3 places the pool read in `getPool.ts` and names run 2's request read; M2's note becomes a property that cites QA. Criterion text changed, so the critic, the architect and QA each re-read. Against the ask: 49 of 50 findings, unchanged. |
 | 2026-11-08T05:51 | 8 | planner (planner-hooks-015) | Folds four findings on rev 7: architect AF-16 (`592eb23`), critique L-C2-4 (`1ce2ae4`), and QA QAF-8 and QAF-9 (`ba277d8`). It is the first revision since implementation approval (rulings `7efd8b0`), and it triggers one delta round from each of the three gates. It is not a milestone-level scope delta. M1-c's deliverable is unchanged and no work is added. The text now attributes the session-row deletion to next-auth's adapter, as all three gates read it. QAF-8 is RK-6's second member and is remedied by the property over the class. Scope delta: in M1-c, the no-account cell drops the session-row limb, the session row is placed outside M1-c, and the ordering anchor becomes the `Accounts` update. In M8-0, every run-2 read is bounded to the stopped process's span, and pool creation is read from `Created instance` lines. Against the ask: 49 of 50 findings, unchanged. |
 | 2026-11-08T05:53 | R-3 | planner (planner-hooks-015) | Parked QA's QAF-10 (`c2a657a`) as a Planner batch row. Its words are in `qa/015-bug-evaluation-fixes-qa.md`. Scope delta: none, registration only. |
+| 2026-11-08T05:54 | impl | implementer (implementer-hooks-015) | Status → In Progress. Implementation starts at M0 on the chain branch, entry conditions recorded in `implementation/015-bug-evaluation-fixes-m0-implementation.md`. No criterion text touched. |
 
 ## Value Statement and Business Objective
 
