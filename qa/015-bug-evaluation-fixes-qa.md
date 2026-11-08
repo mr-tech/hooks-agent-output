@@ -397,6 +397,7 @@ The probes are QA Phase 2 instruments, captured under `verification/015/`. Each 
 - **QAF-2's cell.** A process that served **no** request is stopped. Its drain neither launches nor waits on a browser: the probe counts Chromium children, with the forcing condition that no browser is installed.
 - **M8-b.** A `/generate` with the correct auth and an unparsable body gets 500. A second, well-formed request after it still gets a response. On the base, the `JSON.parse` throw inside `req.on('end')` crashes the process, which makes the red run.
   - *Reconciled 2026-11-08T09:24 to rev 26 (D35).* Members: unparsable; `null` (F-32 under D28); a number, a string, a boolean, `[]` and `[{}]` (D35). Each gets 500, the process keeps serving, and no S3 call is attempted. The array members are QAF-33.
+  - *Reconciled 2026-11-08T09:40 to the D35 re-put (rulings 09:28Z, `c8c7649`; plan R-15, `a5864ba`), ahead of rev 27.* `[]` and `[{}]` leave the refused class: no cell asserts 500 for them, and none is written. The unparsable, `null`, number, string and boolean members stand. QAF-33 becomes an Exclusions stated limit at rev 27; the rev 27 re-key reads that row's text for any cell it asks of a list body.
 - **M8-d.** With no browser installed, a well-formed request gets 500, not a TypeError, and the server stays up.
   - *Reconciled 2026-11-08T09:24 to rev 26 (M8-d as a property; RK-8).*
     - (a) Every waiting request gets 500, with no hang and no `TypeError`: the rig's pool cells, plus a burst of 6 concurrent requests.
@@ -772,7 +773,7 @@ This pass assumes the live Postgres schema matches the Kysely `DatabaseSchema` t
 
 *Reconcile 2026-11-08T09:30, owner ruling on QAF-33 (rulings 09:28Z, `c8c7649`, relayed by steering): "Agent: as built, lists pass".* Array bodies are a known limit with no code, and M8-b narrows at rev 27. The `[]` and `[{}]` 500-cells are not owed; the string and boolean cells still stand under D35. QAF-33 is dispositioned when rev 27 lands; re-key then, and read the rev 27 text for any array cell it asks for.
 
-**Next after this pass:** M8-a after CR-27's fix (with D36's RK-8 guard and QAF-33's guard), sweeping the round's diff only; the M8-a guards are the implementer's list in the M8 document. Then the effort-final sweep (below). Phase 1 rev 27 re-key when briefed.
+**Next after this pass:** M8-a after CR-27's fix (with D36's RK-8 guard; *reconciled 09:40: QAF-33's guard is no longer owed, D35 re-put `c8c7649`*), sweeping the round's diff only; the M8-a guards are the implementer's list in the M8 document. Then the effort-final sweep (below). Phase 1 rev 27 re-key when briefed.
 
 **How a pass runs (instruments, committed under `verification/015/`)**
 - Suite: `qa-m4-suite-run.sh <sha> <EXPORT_ROOT> <out-prefix>` (export, `unshare -rn`, lo up, isolation counts, typecheck). Captures so far: `qa-p2-*-{3031878,da24eb7}`.
