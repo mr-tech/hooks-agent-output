@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Revision 7 folds the three gate results on rev 6: critique cycle 2 pass 1, the architect's AF-13 to AF-15 and QA's QAF-6 and QAF-7. Criterion text changed, so the critic (cycle 2 pass 2), the architect (delta read) and QA (Phase 1 re-key) each read rev 7. Implementation starts after all three approve it."
-Revision: 7
+Status-Detail: "Implementation started on rev 7 (rulings block 'implementation start recorded', 7efd8b0). Revision 8 folds AF-16, L-C2-4, QAF-8 and QAF-9 into M1-c's no-account and ordering text and M8-0's run-2 read. The critic, the architect and QA each re-read that delta. Until they pass it, the implementer holds only M1-c's no-account and ordering cells; the analyst's run-2 extension of pig-host-read.sh waits too."
+Revision: 8
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
 Lane: "standard — agent-output/README.md carries no small-lane section (grep -i small, 0 hits, 2026-11-08); the blast radius spans the save schema, a bot command's permissions and a production PM2 service, none a leaf"
@@ -35,7 +35,8 @@ Owed re-verdicts:
 | M6-l (iii)–(v) | rev 4 | critic, architect | approved (same) |
 | M8-a (2), M8-0 run 2, M9 (D19) | rev 5 | critic | approved (critique closed `dee418b`) |
 | M1-c clear-out cells; M1-d limit; M2 QAF-1 note; P3 idle cell; M8 E-1 and M8-c route | rev 6 | critic (new cycle), architect, qa | M1-d approved by all three. The rest drew findings (critic `39fb6b9`; architect `1be7e72`; QA `2e4d4d5`), folded at rev 7 |
-| M1-c no-account cell; M2 QAF-1 note; P3 pool read and run-2 read; M8 E-1 (loopback, self-check, install location); M8-c browser source and fallback | rev 7 | critic (cycle 2 pass 2), architect, qa | open |
+| M1-c no-account cell; M2 QAF-1 note; P3 pool read and run-2 read; M8 E-1 (loopback, self-check, install location); M8-c browser source and fallback | rev 7 | critic (cycle 2 pass 2), architect, qa | approved (critic `1ce2ae4`; architect `592eb23`; QA `ba277d8`), with AF-16, L-C2-4, QAF-8 and QAF-9 folded at rev 8 |
+| M1-c no-account cell and ordering anchor; the session row moved outside M1-c; M8-0 run-2 span and its pool-creation read | rev 8 | critic, architect, qa (delta only) | open |
 
 ## Changelog
 
@@ -50,6 +51,7 @@ Owed re-verdicts:
 | 2026-11-08T05:35 | R-2 | planner (planner-hooks-015) | Registered D20 from `steering/015-rulings.md` block "2026-11-08T05:33Z" (`d852da1`), plus a Planner batch row for the body text it releases. Scope delta: none, registration only. |
 | 2026-11-08T05:43 | 6 | planner (planner-hooks-015) | Folds QA Phase 1's batch QAF-1 to QAF-5 (`qa/015-bug-evaluation-fixes-qa.md`, `bf15750`; QA read rev 4) and the D20 Planner batch row. Scope delta: M1-c gains clear-out cells for a failed revoke and a missing account; P3 gains the idle-process cell; M8's local route carries entry condition E-1 (no credentials, no network, no CDN write); M2 names the transcribed-schema test it rewrites; M1-d and X-16 state the concurrency limit; M8-c runs locally with a browser under D20. Opens a new critique cycle (criterion text changed). Against the ask: 49 of 50 findings, unchanged. |
 | 2026-11-08T05:48 | 7 | planner (planner-hooks-015) | Folds the three gate results on rev 6: critique cycle 2 pass 1 (`39fb6b9`: M-C2-1 to M-C2-3, L-C2-1 to L-C2-3), the architect's delta (`1be7e72`: AF-13 to AF-15) and QA's re-key (`2e4d4d5`: QAF-6, QAF-7). Scope delta: E-1 brings loopback up, gains a self-check and installs inside the export; M8-c names its browser source and gets back its code-review fallback; M1-c's no-account cell names the two keys it clears and the `user-guilds` residue; P3 places the pool read in `getPool.ts` and names run 2's request read; M2's note becomes a property that cites QA. Criterion text changed, so the critic, the architect and QA each re-read. Against the ask: 49 of 50 findings, unchanged. |
+| 2026-11-08T05:51 | 8 | planner (planner-hooks-015) | Folds four findings on rev 7: architect AF-16 (`592eb23`), critique L-C2-4 (`1ce2ae4`), and QA QAF-8 and QAF-9 (`ba277d8`). It is the first revision since implementation approval (rulings `7efd8b0`), and it triggers one delta round from each of the three gates. It is not a milestone-level scope delta. M1-c's deliverable is unchanged and no work is added. The text now attributes the session-row deletion to next-auth's adapter, as all three gates read it. QAF-8 is RK-6's second member and is remedied by the property over the class. Scope delta: in M1-c, the no-account cell drops the session-row limb, the session row is placed outside M1-c, and the ordering anchor becomes the `Accounts` update. In M8-0, every run-2 read is bounded to the stopped process's span, and pool creation is read from `Created instance` lines. Against the ask: 49 of 50 findings, unchanged. |
 
 ## Value Statement and Business Objective
 
@@ -181,13 +183,18 @@ together, so the gate's population is empty; a milestone the owner withholds fro
     - no account found.
   - **The no-account cell (critic L-C2-1, architect AF-15, QA QAF-7).** `clearUser` (`src/utils/redis/index.ts`)
     deletes three keys, and the third, `user-guilds`, is keyed on the account's `providerAccountId`. The
-    `Accounts` update is keyed on it too. So with no account found, exactly two things happen: the
-    `user-access-token` and `user-session-token` keys are deleted, and the session's DB rows are removed. No
-    `Accounts` update is issued and no revoke is sent. Residue (stated limit): the `user-guilds` entry is not
-    addressable and expires on its own 600 s TTL (`fetchUserGuilds`, `expireSeconds: 600`, read at `7ce866b`).
-  - **Ordering.** A failed revoke never prevents sign-out. The token is read before the session's rows are
-    removed. At `7ce866b`, a rejected `fetch` aborts before the clear-out, and a missing account throws
-    `Expected to find account` (QA's read).
+    `Accounts` update is keyed on it too. So with no account found, `removeUserSession` deletes exactly the
+    `user-access-token` and `user-session-token` keys. It issues no `Accounts` update and sends no revoke.
+    Residue (stated limit): the `user-guilds` entry is not addressable and expires on its own 600 s TTL
+    (`fetchUserGuilds`, `expireSeconds: 600`, read at `7ce866b`).
+  - **The session row is outside M1-c (architect AF-16, critic L-C2-4, QA QAF-9).** next-auth 4.24.5 (installed)
+    deletes the `Sessions` row in its signout route, `adapter.deleteSession(sessionToken)`, and only then fires
+    `events.signOut`, which calls `removeUserSession` (`next-auth/core/routes/signout.js`, read by the planner,
+    the architect and QA). No cell of M1-c asserts the row's removal, and `removeUserSession` does not delete it
+    a second time.
+  - **Ordering.** A failed revoke never prevents sign-out. The access token is read before the `Accounts`
+    update sets `access_token` to null. At `7ce866b`, a rejected `fetch` aborts before the clear-out, and a
+    missing account throws `Expected to find account` (QA's read).
 - **M1-d (F-4, D5)** — the inputs are {existing message, new message} × {count < 1000, count = 1000} ×
   {user-scoped save, guild-scoped save}. The count is the owner's messages: the user's (`fk_users_id`) or the
   guild's (`fk_guilds_id`), per `upsertMessage`'s `isUserSelect(select)`. A new message is refused exactly when
@@ -400,11 +407,16 @@ Host facts (steering's standing `hooks-pig` reads, rulings blocks 05:20Z–05:24
       creates one. That read is a second export of `src/getPool.ts`, beside the `globalForPool` singleton and the
       default export that mirrors it (`preview-image-generator@471578f src/getPool.ts`). `server.ts` neither
       reaches into `globalForPool` nor keeps its own flag.
-    - **Run 2.** M8-0 run 2 records whether the stopped process had served a request, so that the
-      drain-complete figure is read for what it measures. The read (critic L-C2-2): in the app's out log, count
-      the `POST /generate` lines after the last `Server running at` line. `server.ts` logs `req.method, req.url`
-      for every request (`console.debug` in the request handler, `471578f`). `pig-host-read.sh` gains this read
-      before run 2; the analyst writes it and the code-reviewer reviews it with M8's code, as for run 1.
+    - **Run 2.** M8-0 run 2 records whether the stopped process had created its pool, so that the
+      drain-complete figure is read for what it measures. The read is bounded to the stopped process's span
+      (below, "Every run-2 read"):
+      - **Primary figure:** the `Created instance` lines in that span. The pool factory logs one per launched
+        Chromium (`getPool.ts` factory `create`, `console.debug`, `471578f`).
+      - **Secondary figure:** the `POST /generate` lines in that span. `server.ts` logs `req.method, req.url`
+        before its auth check, so this counts unauthenticated requests too and does not by itself show a pool
+        (QA QAF-8).
+      `pig-host-read.sh` gains this read before run 2. The analyst writes it and the code-reviewer reviews it with
+      M8's code, as for run 1.
   - **P4.** The stop handlers are registered no later than the `ready` message.
   - **Growth beyond the finding (critique L-5).** P3 and P4 go beyond F-31's statement. They are the analysis's
     V-4 and V-5.
@@ -429,6 +441,10 @@ Host facts (steering's standing `hooks-pig` reads, rulings blocks 05:20Z–05:24
       - This re-run is itself a second production deploy. Its `startOrReload` stops the *new* process, which
         handles the message, so the drain runs and the gap is the drain time (P3).
       - The architect's reading of stop (1)'s deployed-directory replacement carries over (AF-9d, low bearing).
+      **Every run-2 read** (RK-6's class; QA QAF-8) is bounded to the stopped process's own span in the shared
+      out log. The span runs from that process's `Server running at` line to its `Server received` line: the
+      last such pair before the ready line of the process the re-run started. No run-2 read is taken "after the
+      last" of any line. Once the re-run completes, the last ready line belongs to the new process.
       **Criterion, read by M8-0 run 2 on stop (2) only:**
       - the out log gains exactly one `Server received` line naming the trigger, plus the drain-complete line;
       - the process exits before 12000 ms;
@@ -556,7 +572,12 @@ can run the M8-b/d/e probes once the generator's dependencies are installed (M8 
 - **RK-6** (standing prediction, from critique cycle 1 H-1, stated as a class) — an M8 observation read off the
   wrong stop: the deploy's own stop of the old process, read as if it were a stop of the new code.
   - Falsifier: a host read whose verdict on P1 rests on a stop by a process that does not run the M8 commit.
-  - Record per review pass: cycle 1 pass 1 found one member (rev 3's M8-a criterion); remedied at rev 4.
+  - Record per review pass:
+    - cycle 1 pass 1 found one member (rev 3's M8-a criterion), remedied at rev 4;
+    - cycle 1 passes 2 and 3 and cycle 2 passes 1 and 2 found none;
+    - QA Phase 1's re-key to rev 7 (`ba277d8`, QAF-8) found one: the run-2 request read windowed "after the last
+      `Server running at`", which is the process the re-run started. Remedied at rev 8 by the property over the
+      class: every run-2 read is bounded to the stopped process's span (M8-a, "Every run-2 read").
 
 ## Exclusions
 
@@ -610,8 +631,8 @@ is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, 
 
 ## Resumption State (checkpoint, planner-hooks-015)
 
-- **Done.** Plan at revision 7, which folds the three gate results on rev 6: critique cycle 2 pass 1 (`39fb6b9`), architect `1be7e72` and QA `2e4d4d5`. The cycle 1 critique closed at `dee418b`. Registrations so far: R-1 (D14, D15) and R-2 (D20). F-31 analysis: `analysis/015-bug-evaluation-fixes-analysis.md` (latest `1fc16f5`). M8-0 run 1 is captured at `verification/015/m8-0-run1-2026-11-08T0525Z.txt`, together with the script, at `fe27690`.
-- **Next.** Steering routes rev 7 to the critic (cycle 2 pass 2), the architect (delta) and QA (Phase 1 re-key). Fold any findings in one revision once all three verdicts are in. Report "ready for implementation" only when all three have approved the same revision.
+- **Done.** Plan at revision 8. All three gates approved rev 7 (critic `1ce2ae4`, architect `592eb23`, QA `ba277d8`), and implementation started on it (`7efd8b0`). Rev 8 folds their four non-blocking findings. The cycle 1 critique closed at `dee418b`. Registrations so far: R-1 (D14, D15) and R-2 (D20). F-31 analysis: `analysis/015-bug-evaluation-fixes-analysis.md` (latest `1fc16f5`). M8-0 run 1 is captured at `verification/015/m8-0-run1-2026-11-08T0525Z.txt`, together with the script, at `fe27690`.
+- **Next.** Steering routes rev 8's delta to the critic, the architect and QA. Until they pass it, the implementer holds only M1-c's no-account and ordering cells. Fold any findings at the next planning pass. After implementation approval, findings that change no code, test or pre-release verifier are parked as Planner batch rows.
 - **Open with others.** None of the planner's questions to the owner are pending. The 69-day generator gap (X-15) went to him through steering as an FYI only.
 - **Uncommitted, left in place.** `INBOX.md` holds this session's FYI entry: the research document's `pm2 show` advice. Per the inbox rule, the domain owner commits it.
 - **Branches.** website and preview-image-generator: chain branches are created by steering. The planner touches no source.
