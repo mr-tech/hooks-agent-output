@@ -326,3 +326,7 @@ Premises read by steering this turn:
 - `ssh hooks-pig df -h /`: 49G free of 58G.
 - package-lock.json:3467: generic-pool resolves 3.9.0.
 "~100 bytes a line, so a few hours to fill the disk" was steering's assumption, and the option text said so. This rides the parked pre-UAT fold (block 09:40Z) as CR-34.
+
+## 2026-11-08T11:01Z — rev 28 (2a4533b) passed every gate; a commit-attribution slip recorded
+Approvals: code review Round 21 APPROVED_WITH_COMMENTS (d7b0c57), architect APPROVED (ca92900), critic cycle 9 pass 3 APPROVED (8b7f9b0), QA Phase 1 re-key (cfbdc7d). CR-39, AF-32 and L-C9-4 are parked for the RK-8 handoff text at M9: the drift probe is local only, never run on the host.
+Steering's observation, for the retrospective: QA's plan-row commit 4c23db0 also carried the planner's uncommitted R-26 hunks. The CLAUDE.md single-row exception requires the diff to hold only the stage's own row. Then the planner's 839e9f5 message misattributed QA's row; the planner disclosed this itself (message ~11:05Z). Content at HEAD is correct; no history rewritten.
