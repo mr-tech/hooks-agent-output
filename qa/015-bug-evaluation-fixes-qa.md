@@ -765,7 +765,40 @@ This pass assumes the live Postgres schema matches the Kysely `DatabaseSchema` t
 - **Rev 7 confirmation:** QA Phase 1 approves rev 7 (`38b12e6`) for implementation start. QAF-8 is owed before the run-2 read is scripted, and QAF-9 is LOW; neither blocks code. *(Superseded line, kept for the record:)* QA Phase 1 approves rev 6 for implementation start. The implementer is bound by E-1 to E-9, E-1's reconcile note included.
 - **Assumption Not Checked:** routed to UAT, through B-1 and B-2.
 
-## Resumption State (checkpoint, qa-hooks-015, 2026-11-08T09:28Z)
+## Resumption State (checkpoint, qa-hooks-015, 2026-11-08T09:53Z; usage gate, resumes after 2026-11-11T09:00Z)
+
+**Current, read first.** This block supersedes the "In flight" and "Still to do" items below. The progress, sweep and pass notes after them record how this state was reached.
+- **Done and committed:**
+  - Phase 1 is keyed to plan rev 27 (`b21c7b5`) and delivered to the planner.
+  - The Phase 2 pass at website `476c633` and generator `6c613a5` is written (`57caf5c`):
+    - M4 PASS (the non-JSON member);
+    - M5-h and M5-i PASS (QAF-35 LOW);
+    - M6-b to M6-l PASS (QAF-30 to QAF-32 RESOLVED);
+    - CR-24 PASS;
+    - M7 PASS (new document);
+    - M6-a QA Failed (QAF-34 MEDIUM);
+    - M8-b to M8-e PASS at `6c613a5` (new document), already expired by `8de2b53`.
+  - Plan row: `c1c0851`.
+  - New M8-b instrument: `verification/015/m8-local-probe/probe-body-class.cjs`, with `obs-preload.cjs` and `run-body-class-qa.sh`.
+  - Verdicts were delivered to steering-hooks-015 and implementer-hooks-015 (QAF-34, QAF-35).
+- **Next:**
+  1. **M8 round at generator `8de2b53`.** Start only from code review's committed verdict on it. Then:
+     - M8-a (CR-27);
+     - M8-d (d): member and non-member cells (Phase 1 § M8-d, rev 27 reconcile). The implementer built the server-start cells over a renamed copy of the library (`m8-implementation.md`, `9f431e7`). Audit them against that section, including the non-member cell and the cell seen red at `6c613a5`.
+     - A scoped refresh of M8-b to M8-e by differential over `6c613a5..8de2b53`;
+     - a sweep of that round's diff only, with the implementer's guard mutants (`m8-local-probe/m8-guard-mutants.sh`) re-run by QA;
+     - re-run `run-body-class-qa.sh` at `8de2b53`.
+     - Read code review CR-33: the D36 guard checks `dequeue` too. That may close the rev 27 Assumption Not Checked; dispose of it in the M8 document.
+  2. **QAF-34 re-run** after the implementer's test-only fix: M6-a's title cells, `rules-title-i`.
+  3. **QAF-35** before the effort-final pass.
+  4. **The effort-final pass**, owed items below.
+  5. Phase 1 re-keys whenever steering briefs one; the planner has a pre-UAT fold parked (R-22, R-23).
+- **Tree:**
+  - agent-output: all of QA's paths are committed. `verification/015/m8-local-probe/probe.cjs` and the untracked `cr-*` and `m8-local-probe/*` files are other sessions'. QA's own instruments read committed blobs only.
+  - No exports remain in the scratchpad, no process of QA's runs, and the stage browser was not used.
+- **Questions out:** none.
+
+### Earlier checkpoint (2026-11-08T09:28Z), kept for its how-to and owed lists
 
 **Done**
 - **Phase 1:** keyed to plan rev 26 (`c375d2c`, my re-key `9fdf439`). Approved except **QAF-33 MEDIUM**: an array `/generate` body passes M8-b's object test at generator `6c613a5` and reaches I-1's delete. The planner accepted it (agent-output `40cc9e9`, R-13): the guard goes to the implementer through steering, and D35's premise is corrected at rev 27. **The planner ruled the rig cells are QA's:** a string, a boolean, `[]` and `[{}]`, each asserting 500 and no S3 attempt, seen red at `6c613a5` for the arrays. D36 (`f5ab120`): RK-8's startup guard rides the CR-27 fix, with criterion text at rev 27.
