@@ -230,3 +230,7 @@ Premise read by steering at website origin/master 7ce866b (ls-remote): getFromUr
 
 ## 2026-11-08T07:01Z — M-C4-1 (F-27's second site, useValidateWebhook.ts): "I already ruled on this class of item. Yes fix."
 His own words, verbatim, in answer to steering's selection prompt (fix both boxes / send page only / neither). M4-d covers both sites, as rev 17 states. **Steering's error:** this was a same-defect-in-a-sibling item, which his mirror-the-siblings class ruling already decides. It should not have been put to him. From now on such items ride without a prompt.
+
+## 2026-11-08T07:24Z — CR-14 (webhook-URL network-failure text): "Invalid URL" at both sites (selection)
+Put ~07:22Z, answered by selection (options composed from planner-hooks-015's relay; label texts steering's). Options: Agent: 'Invalid URL' at both / Agent: new webhook text at both / Agent: leave it as built. Chosen **Agent: 'Invalid URL' at both**. Its description, verbatim: "Agent: the New Message dialog copies the send page. One small change and a test at each place. A dropped connection then tells the user the URL is wrong, as the send page already does today. Cost: a plan revision with a review round, then a code change, code review and QA re-run on M4 (planner's recommendation)."
+Premise: the site behaviour at website 1e12837 is the planner's code read (WebhookProvider useValue → "Invalid URL"; useValidateWebhook → D24's message text). Steering did not read it.
