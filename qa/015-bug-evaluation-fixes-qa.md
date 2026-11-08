@@ -416,3 +416,40 @@ This pass assumes the live Postgres schema matches the Kysely `DatabaseSchema` t
 - **Rev 8 delta:** passes for M1-c, which releases the implementer's held cells. QAF-10 (MEDIUM) is owed before run 2's script extension, not before code.
 - **Rev 7 confirmation:** QA Phase 1 approves rev 7 (`38b12e6`) for implementation start. QAF-8 is owed before the run-2 read is scripted, and QAF-9 is LOW; neither blocks code. *(Superseded line, kept for the record:)* QA Phase 1 approves rev 6 for implementation start. The implementer is bound by E-1 to E-9, E-1's reconcile note included.
 - **Assumption Not Checked:** routed to UAT, through B-1 and B-2.
+
+## Resumption State (checkpoint, qa-hooks-015, 2026-11-08T06:34Z)
+
+**Done**
+- **Phase 1:** keyed to plan rev 11 (`14fe94f`), last commit `22fef2d`, approved. QAF-1 to QAF-13 are RESOLVED.
+- **M0 Phase 2:** PASS at website `037935d`, in `qa/015-bug-evaluation-fixes-m0-qa.md` (`bf10a46`), with the plan row in the same commit.
+
+**Open findings, with owner**
+- QAF-11 MEDIUM: the implementer (sent 06:09Z). Wall-clock wait in `SectionEditor.auto-remove-dispatch.test.tsx` line 85. Owed by M6.
+- QAF-14, QAF-15, QAF-16, all LOW: planner-hooks-015 (sent at `22fef2d`). QAF-15 is wanted before M1-c's lookup-error test; QAF-16 before run 2 reads a span.
+
+**Next: M1 Phase 2, after the code re-review.**
+- **Document:** `qa/015-bug-evaluation-fixes-m1-qa.md`.
+- **Stage start:** the code review's committed verdict at its `Reviewed-At`, re-derived.
+- **Where to run:** in a `git archive <sha>` export, never the shared tree. Symlink `website/node_modules`, and copy the git-ignored `website/next-env.d.ts` in, or typecheck gives a false TS2307.
+- **Gate first:** the TDD gate on `implementation/015-bug-evaluation-fixes-m1-implementation.md`.
+- **Checks:**
+  - Suite counters, exit code and path membership against `verification/015/base-7ce866b-testresults-paths.txt` plus M1's new files.
+  - Per-criterion cells per § M1, as reconciled to rev 11.
+  - M1-h: the decision table, row by row, with the catch-and-rethrow mutation reddening rows 1–2 only.
+  - M1-c: the D22 lookup-error cell (identity of the error, exact key set), the `NoResultError` and falsy fixtures, and generic-error propagation.
+- **Mutation sweep:** owed only effort-final, plus Irreversible Side-Effect Register guards M1 changed. I-2 (revoke) and I-4 (insert cap) are M1's: give each a bounded sweep at M1. The implementer's mutation captures are under `verification/015/mutation-*`, untracked at 06:08Z and another session's. Read them, and do not adopt them as mine.
+- **Flake rule:** a red run whose only failure is QAF-11's signature is re-run, and the re-run is recorded.
+- **Assumption Not Checked:** M0's assumption (export ≡ shared tree) closes at M1 by re-deriving membership.
+
+**Instruments (committed, `verification/015/`)**
+- `qa-phase1-premises.sh`
+- `netns-loopback-probe.sh`
+- `qa-m0-bot-collection-probe.sh`
+- `qa-rk7-client-reach-run.sh` with `qa-rk7-client-reach.js`. Re-run it at the effort-final tree and at the Phase 3 tip.
+
+**State left**
+- Uncommitted by design: my FYI entry in `INBOX.md` (check-repo's 30 failures in other documents), for the record owner.
+- Scratch files under this session's scratchpad: plan diffs, the base and M0 JSON reports, edit files. None is needed: the base path list is committed. No export directory remains, and no process of mine is running.
+- Website tree: `chain/015-bug-evaluation-fixes` at `7befedb` when checked (moved by the implementer). preview-image-generator at `471578f`.
+
+**Questions out:** none to the owner. Planner items as above.
