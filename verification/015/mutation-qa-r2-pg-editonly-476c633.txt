@@ -1,0 +1,37 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-pg-editonly  sha: 476c633  label: qa-r2-pg-editonly  test: page.invalid-data  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-pg-editonly
+
+ ❯ |dom| src/app/preview/__tests__/page.invalid-data.test.tsx (55 tests | 1 failed) 1096ms
+     × shows the total and the limit with a red border above 40 components 72ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the component limit > shows the total and the limit with a red border above 40 components
+AssertionError: expected undefined to be 'Message has 41 components; the limit …' // Object.is equality
+
+- Expected:
+"Message has 41 components; the limit is 40."
+
++ Received:
+undefined
+
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:152:27
+    150|     const el = await mountWith(withComponents(41));
+    151|
+    152|     expect(countLine(el)).toBe('Message has 41 components; the limit i…
+       |                           ^
+    153|     expect(border(el)).toContain(styles.errorBorder);
+    154|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 54 passed (55)
+   Start at  09:24:22
+   Duration  3.23s (transform 778ms, setup 20ms, import 1.38s, tests 1.10s, environment 615ms)
+
+vitest exit 1

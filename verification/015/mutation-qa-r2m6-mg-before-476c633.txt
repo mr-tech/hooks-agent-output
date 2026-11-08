@@ -1,0 +1,34 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2m6-mg-before  sha: 476c633  label: qa-r2m6-mg-before  test: MediaGalleryEditor.duplicate-placement  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m6-supplement.py
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2m6-mg-before
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/MediaGalleryEditor.duplicate-placement.test.tsx (1 test | 1 failed) 53ms
+     × puts the copy directly after the original 51ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/MediaGalleryEditor.duplicate-placement.test.tsx > MediaGalleryEditor duplicate item > puts the copy directly after the original
+AssertionError: expected 'fd5df30a-6720-4939-8348-7c9b6153f932' to be 'd2cf5f4d-7c7d-43eb-a19d-8b7e8700b225' // Object.is equality
+
+Expected: "d2cf5f4d-7c7d-43eb-a19d-8b7e8700b225"
+Received: "fd5df30a-6720-4939-8348-7c9b6153f932"
+
+ ❯ src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/MediaGalleryEditor.duplicate-placement.test.tsx:47:26
+     45|       'https://example.com/c.png',
+     46|     ]);
+     47|     expect(next[1]._key).toBe(gallery.items[1]._key);
+       |                          ^
+     48|     expect(next[2]._key).not.toBe(gallery.items[1]._key);
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  09:23:23
+   Duration  1.56s (transform 150ms, setup 21ms, import 704ms, tests 53ms, environment 639ms)
+
+vitest exit 1

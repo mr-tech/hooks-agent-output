@@ -1,0 +1,37 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-cp-noop  sha: 476c633  label: qa-r2-cp-noop  test: ColorPicker.scroll-lock-release  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-cp-noop
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/ColorPicker.scroll-lock-release.test.tsx (2 tests | 1 failed) 187ms
+     × releases the lock when the picker is removed while open 46ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/ColorPicker.scroll-lock-release.test.tsx > colour picker, page scrolling while it is open > releases the lock when the picker is removed while open
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/ColorPicker.scroll-lock-release.test.tsx:54:28
+     52|     act(() => { handle.hide(); });
+     53|
+     54|     expect(scrollLocked()).toBe(false);
+       |                            ^
+     55|   });
+     56| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  09:26:45
+   Duration  1.63s (transform 183ms, setup 19ms, import 690ms, tests 187ms, environment 609ms)
+
+vitest exit 1

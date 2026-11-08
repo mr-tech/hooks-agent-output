@@ -1,0 +1,38 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-pg-array  sha: 476c633  label: qa-r2-pg-array  test: page.invalid-data  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-pg-array
+
+ ❯ |dom| src/app/preview/__tests__/page.invalid-data.test.tsx (55 tests | 1 failed) 1067ms
+     × shows one line of error text and no editor for a JSON array 64ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for a JSON array
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ expectOneErrorLine src/app/preview/__tests__/page.invalid-data.test.tsx:44:27
+     42|
+     43| function expectOneErrorLine(el: HTMLElement) {
+     44|   expect(editorShown(el)).toBe(false);
+       |                           ^
+     45|   const shown = Array.from(el.querySelectorAll('*'))
+     46|     .filter((e) => e.children.length === 0 && e.textContent === 'Inval…
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:78:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 54 passed (55)
+   Start at  09:26:16
+   Duration  3.24s (transform 813ms, setup 23ms, import 1.41s, tests 1.07s, environment 611ms)
+
+vitest exit 1

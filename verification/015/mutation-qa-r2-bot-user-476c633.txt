@@ -1,0 +1,41 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-bot-user  sha: 476c633  label: qa-r2-bot-user  test: bot/  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-bot-user
+
+ ❯ |node| bot/scripts/app_commands/__tests__/common.localized-strings.test.ts (3 tests | 1 failed) 9ms
+     × reads a user command's name from every language 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| bot/scripts/app_commands/__tests__/common.localized-strings.test.ts > getLocalizedStrings > reads a user command's name from every language
+AssertionError: expected { 'en-US': undefined, de: undefined } to deeply equal { 'en-US': 'user name', …(1) }
+
+- Expected
++ Received
+
+  {
+-   "de": "Nutzer-Name",
+-   "en-US": "user name",
++   "de": undefined,
++   "en-US": undefined,
+  }
+
+ ❯ bot/scripts/app_commands/__tests__/common.localized-strings.test.ts:35:69
+     33|
+     34|   it('reads a user command\'s name from every language', () => {
+     35|     expect(getLocalizedStrings('user', 'u' as UserCommand, 'name')).to…
+       |                                                                     ^
+     36|       'en-US': 'user name',
+     37|       de: 'Nutzer-Name',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 7 passed (8)
+   Start at  09:26:58
+   Duration  223ms (transform 149ms, setup 0ms, import 235ms, tests 18ms, environment 0ms)
+
+vitest exit 1

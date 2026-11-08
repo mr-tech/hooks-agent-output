@@ -1,0 +1,39 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-ef-or  sha: 476c633  label: qa-r2-ef-or  test: EmbedFields.read-only-field-index  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-ef-or
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx (16 tests | 1 failed) 42ms
+     × only the displayed fields are rendered when the first two fields are hidden 9ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx > EmbedFields read-only field actions > only the displayed fields are rendered when the first two fields are hidden
+AssertionError: expected [ 'b', 'c' ] to deeply equal [ 'c' ]
+
+- Expected
++ Received
+
+  [
++   "b",
+    "c",
+  ]
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx:57:38
+     55|     mountReadOnly(fields);
+     56|
+     57|     expect(Array.from(shown.keys())).toEqual(displayed);
+       |                                      ^
+     58|   });
+     59|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 15 passed (16)
+   Start at  09:24:31
+   Duration  1.55s (transform 185ms, setup 25ms, import 678ms, tests 42ms, environment 664ms)
+
+vitest exit 1

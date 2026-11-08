@@ -1,0 +1,40 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2m6-cl-lineabove  sha: 476c633  label: qa-r2m6-cl-lineabove  test: DiscordMessageEditor.component-limit  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m6-supplement.py
+ .../results.json => dev/null}                                       | 1 -
+ 2 files changed, 3 insertions(+), 4 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2m6-cl-lineabove
+
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (22 tests | 1 failed) 427ms
+     × shows the components line after the text-length line 22ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit, the error line > shows the components line after the text-length line
+AssertionError: expected [ …(2) ] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+  [
+-   "Components text exceeds 4000 characters.",
+    "Message has 41 components; the limit is 40.",
++   "Components text exceeds 4000 characters.",
+  ]
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:124:90
+    122|     const host = await mountV2(Array.from({ length: 41 }, () => makeTe…
+    123|
+    124|     expect(Array.from(host.querySelectorAll('.text-error')).map((el) =…
+       |                                                                                          ^
+    125|       'Components text exceeds 4000 characters.',
+    126|       'Message has 41 components; the limit is 40.',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 21 passed (22)
+   Start at  09:23:33
+   Duration  2.26s (transform 285ms, setup 28ms, import 992ms, tests 427ms, environment 678ms)
+
+vitest exit 1

@@ -1,0 +1,161 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-rules-single  sha: 476c633  label: qa-r2-rules-single  test: rules.multi-line-code-block  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py
+ .../website-476c633-qa-r2-rules-single}/src/utils/markdown/rules.tsx    | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-rules-single
+
+ ❯ |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts (27 tests | 22 failed) 45ms
+     × renders a code block for a tag and two lines 24ms
+     × renders a code block for no tag and two lines 1ms
+     × renders a code block for a tag and three lines 1ms
+     × renders a code block for no tag and three lines 1ms
+     × renders a code block for an empty line inside, no tag 1ms
+     × renders a code block for an empty line inside, a tag 1ms
+     × renders a code block for two empty lines inside 1ms
+     × renders a code block for a whitespace-only line inside, no tag 1ms
+     × renders a code block for a whitespace-only line inside, a tag 1ms
+     × renders a code block for text before and an empty line inside 0ms
+     × renders a code block for text after and an empty line inside 2ms
+     × renders a code block for a tag and two lines 1ms
+     × renders a code block for no tag and two lines 0ms
+     × renders a code block for a tag and three lines 0ms
+     × renders a code block for no tag and three lines 0ms
+     × renders a code block for an empty line inside, no tag 0ms
+     × renders a code block for an empty line inside, a tag 0ms
+     × renders a code block for two empty lines inside 0ms
+     × renders a code block for a whitespace-only line inside, no tag 0ms
+     × renders a code block for a whitespace-only line inside, a tag 1ms
+     × renders a code block for text before and an empty line inside 0ms
+     × renders a code block for text after and an empty line inside 1ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 22 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for a tag and two lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for no tag and two lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for a tag and two lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for no tag and two lines
+AssertionError: expected null to be 'foo\nbar' // Object.is equality
+
+- Expected:
+"foo
+bar"
+
++ Received:
+null
+
+ ❯ src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts:46:51
+     44| ])('%s fenced code blocks', (_name, parser) => {
+     45|   it.each(BODIES)('renders a code block for %s', (_title, source, expe…
+     46|     expect(codeBlockText(render(parser, source))).toBe(expected);
+       |                                                   ^
+     47|   });
+     48| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/22]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for a tag and three lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for no tag and three lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for a tag and three lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for no tag and three lines
+AssertionError: expected null to be 'a\nb\nc' // Object.is equality
+
+- Expected:
+"a
+b
+c"
+
++ Received:
+null
+
+ ❯ src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts:46:51
+     44| ])('%s fenced code blocks', (_name, parser) => {
+     45|   it.each(BODIES)('renders a code block for %s', (_title, source, expe…
+     46|     expect(codeBlockText(render(parser, source))).toBe(expected);
+       |                                                   ^
+     47|   });
+     48| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/22]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for an empty line inside, no tag
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for an empty line inside, a tag
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for text before and an empty line inside
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for text after and an empty line inside
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for an empty line inside, no tag
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for an empty line inside, a tag
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for text before and an empty line inside
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for text after and an empty line inside
+AssertionError: expected null to be 'foo\n\nbar' // Object.is equality
+
+- Expected:
+"foo
+
+bar"
+
++ Received:
+null
+
+ ❯ src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts:46:51
+     44| ])('%s fenced code blocks', (_name, parser) => {
+     45|   it.each(BODIES)('renders a code block for %s', (_title, source, expe…
+     46|     expect(codeBlockText(render(parser, source))).toBe(expected);
+       |                                                   ^
+     47|   });
+     48| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/22]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for two empty lines inside
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for two empty lines inside
+AssertionError: expected null to be 'foo\n\n\nbar' // Object.is equality
+
+- Expected:
+"foo
+
+
+bar"
+
++ Received:
+null
+
+ ❯ src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts:46:51
+     44| ])('%s fenced code blocks', (_name, parser) => {
+     45|   it.each(BODIES)('renders a code block for %s', (_title, source, expe…
+     46|     expect(codeBlockText(render(parser, source))).toBe(expected);
+       |                                                   ^
+     47|   });
+     48| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/22]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for a whitespace-only line inside, no tag
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for a whitespace-only line inside, a tag
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for a whitespace-only line inside, no tag
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for a whitespace-only line inside, a tag
+AssertionError: expected null to be 'foo\n \nbar' // Object.is equality
+
+- Expected:
+"foo
+ 
+bar"
+
++ Received:
+null
+
+ ❯ src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts:46:51
+     44| ])('%s fenced code blocks', (_name, parser) => {
+     45|   it.each(BODIES)('renders a code block for %s', (_title, source, expe…
+     46|     expect(codeBlockText(render(parser, source))).toBe(expected);
+       |                                                   ^
+     47|   });
+     48| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/22]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  22 failed | 5 passed (27)
+   Start at  09:24:44
+   Duration  1.45s (transform 475ms, setup 0ms, import 1.22s, tests 45ms, environment 0ms)
+
+vitest exit 1

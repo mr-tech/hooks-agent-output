@@ -1,0 +1,117 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-pg-refuseall  sha: 476c633  label: qa-r2-pg-refuseall  test: page.invalid-data  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-pg-refuseall
+
+ ❯ |dom| src/app/preview/__tests__/page.invalid-data.test.tsx (55 tests | 14 failed) 122ms
+     × renders the editor with the message for a JSON object 24ms
+     × still renders the editor and no error line when an empty object 2ms
+     × still renders the editor and no error line when embeds an empty array 2ms
+     × still renders the editor and no error line when an embed that is an array 2ms
+     × still renders the editor and no error line when a field that is an array 1ms
+     × still renders the editor and no error line when fields null 1ms
+     × still renders the editor and no error line when a component that is null 2ms
+     × still renders the editor and no error line when a component that is a number 2ms
+     × still renders the editor and no error line when a component that is an array 2ms
+     × still renders the editor and no error line when an action row child that is an array 2ms
+     × still renders the editor and no error line when a container child that is null 2ms
+     × still renders the editor and no error line when a container child that is a number 2ms
+     × shows the total and the limit with a red border above 40 components 3ms
+     × shows neither at 40 components 2ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 14 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > renders the editor with the message for a JSON object
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:56:29
+     54|     const el = await mountWith('{"content":"hello"}');
+     55|
+     56|     expect(editorShown(el)).toBe(true);
+       |                             ^
+     57|     await vi.waitFor(async () => {
+     58|       await act(async () => {});
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/14]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > still renders the editor and no error line when an empty object
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > still renders the editor and no error line when embeds an empty array
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > still renders the editor and no error line when an embed that is an array
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > still renders the editor and no error line when a field that is an array
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > still renders the editor and no error line when fields null
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > still renders the editor and no error line when a component that is null
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > still renders the editor and no error line when a component that is a number
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > still renders the editor and no error line when a component that is an array
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > still renders the editor and no error line when an action row child that is an array
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > still renders the editor and no error line when a container child that is null
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > still renders the editor and no error line when a container child that is a number
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:135:29
+    133|     const el = await mountWith(data);
+    134|
+    135|     expect(editorShown(el)).toBe(true);
+       |                             ^
+    136|     expect(el.textContent).not.toContain('Invalid message data.');
+    137|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/14]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the component limit > shows the total and the limit with a red border above 40 components
+AssertionError: expected undefined to be 'Message has 41 components; the limit …' // Object.is equality
+
+- Expected:
+"Message has 41 components; the limit is 40."
+
++ Received:
+undefined
+
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:152:27
+    150|     const el = await mountWith(withComponents(41));
+    151|
+    152|     expect(countLine(el)).toBe('Message has 41 components; the limit i…
+       |                           ^
+    153|     expect(border(el)).toContain(styles.errorBorder);
+    154|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/14]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the component limit > shows neither at 40 components
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:159:29
+    157|     const el = await mountWith(withComponents(40));
+    158|
+    159|     expect(editorShown(el)).toBe(true);
+       |                             ^
+    160|     expect(countLine(el)).toBeUndefined();
+    161|     expect(border(el)).not.toContain(styles.errorBorder);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/14]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  14 failed | 41 passed (55)
+   Start at  09:26:12
+   Duration  2.20s (transform 518ms, setup 21ms, import 1.32s, tests 122ms, environment 606ms)
+
+vitest exit 1

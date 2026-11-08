@@ -1,0 +1,37 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-cl-frozen  sha: 476c633  label: qa-r2-cl-frozen  test: DiscordMessageEditor.component-limit  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-cl-frozen
+
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (22 tests | 1 failed) 306ms
+     × drops the line and the border once the total is back to 40 16ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit, the error line > drops the line and the border once the total is back to 40
+AssertionError: expected 'Message has 41 components; the limit …' to be undefined
+
+- Expected:
+undefined
+
++ Received:
+"Message has 41 components; the limit is 40."
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:152:29
+    150|     await act(async () => { handle.setCount(40); });
+    151|
+    152|     expect(errorLine(host)).toBeUndefined();
+       |                             ^
+    153|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+    154|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 21 passed (22)
+   Start at  09:24:14
+   Duration  1.84s (transform 213ms, setup 19ms, import 787ms, tests 306ms, environment 606ms)
+
+vitest exit 1

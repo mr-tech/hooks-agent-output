@@ -1,0 +1,34 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-bp-noop  sha: 476c633  label: qa-r2-bp-noop  test: BottomPortal.unmount-cleanup  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-bp-noop
+
+ ❯ |dom| src/components/__tests__/BottomPortal.unmount-cleanup.test.tsx (2 tests | 1 failed) 48ms
+     × removes the entry when its owner unmounts while it is open 14ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/BottomPortal.unmount-cleanup.test.tsx > bottom portal, an entry whose owner unmounts > removes the entry when its owner unmounts while it is open
+AssertionError: expected 'Pick oneportal body' not to contain 'portal body'
+
+Expected: "portal body"
+Received: "Pick oneportal body"
+
+ ❯ src/components/__tests__/BottomPortal.unmount-cleanup.test.tsx:53:42
+     51|     act(() => { handle.hide(); });
+     52|
+     53|     expect(appContainer.textContent).not.toContain('portal body');
+       |                                          ^
+     54|   });
+     55| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  09:26:42
+   Duration  1.44s (transform 174ms, setup 22ms, import 652ms, tests 48ms, environment 589ms)
+
+vitest exit 1

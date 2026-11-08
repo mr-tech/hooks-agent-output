@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-ctl-rules  sha: 476c633  label: qa-r2-ctl-rules  test: rules.multi-line-code-block  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-ctl-rules
+
+
+ Test Files  1 passed (1)
+      Tests  27 passed (27)
+   Start at  09:23:51
+   Duration  1.34s (transform 453ms, setup 0ms, import 1.18s, tests 35ms, environment 0ms)
+
+vitest exit 0

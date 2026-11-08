@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-ctl-nm  sha: 476c633  label: qa-r2-ctl-nm  test: NewMessageModal.failed-webhook-load  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-ctl-nm
+
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  09:24:04
+   Duration  2.55s (transform 365ms, setup 24ms, import 1.10s, tests 642ms, environment 644ms)
+
+vitest exit 0

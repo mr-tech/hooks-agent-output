@@ -1,0 +1,35 @@
+ctl-pg	 Tests 55 passed (55)	0	vitest exit 0
+ctl-ef	 Tests 16 passed (16)	0	vitest exit 0
+ctl-rules	 Tests 27 passed (27)	0	vitest exit 0
+ctl-wm	 Tests 8 passed (8)	0	vitest exit 0
+ctl-bp	 Tests 2 passed (2)	0	vitest exit 0
+ctl-cp	 Tests 2 passed (2)	0	vitest exit 0
+ctl-nm	 Tests 3 passed (3)	0	vitest exit 0
+ctl-wf	 Tests 3 passed (3)	0	vitest exit 0
+ctl-bot	 Tests 8 passed (8)	0	vitest exit 0
+cl-frozen	 Tests 1 failed | 21 passed (22)	0	vitest exit 1
+pg-frozen	 Tests 55 passed (55)	0	vitest exit 0
+pg-editonly	 Tests 1 failed | 54 passed (55)	0	vitest exit 1
+cl-editonly	 Tests 1 failed | 21 passed (22)	0	vitest exit 1
+ef-or	 Tests 1 failed | 15 passed (16)	0	vitest exit 1
+rules-title-s	 Tests 1 failed | 26 passed (27)	0	vitest exit 1
+rules-title-i	 Tests 27 passed (27)	0	vitest exit 0
+rules-split	 Tests 14 failed | 13 passed (27)	0	vitest exit 1
+rules-single	 Tests 22 failed | 5 passed (27)	0	vitest exit 1
+pg-nobound	 Tests 11 failed | 44 passed (55)	0	vitest exit 1
+pg-blank	 Tests 11 failed | 44 passed (55)	0	vitest exit 1
+pg-refuseall	 Tests 14 failed | 41 passed (55)	0	vitest exit 1
+pg-array	 Tests 1 failed | 54 passed (55)	0	vitest exit 1
+wm-pick	 Tests 2 failed | 6 passed (8)	0	vitest exit 1
+wm-seed	 Tests 7 failed | 1 passed (8)	0	vitest exit 1
+wm-auth	 Tests 1 failed | 7 passed (8)	0	vitest exit 1
+wm-guild	 Tests 1 failed | 7 passed (8)	0	vitest exit 1
+wm-count	 Tests 3 failed | 5 passed (8)	0	vitest exit 1
+bp-noop	 Tests 1 failed | 1 passed (2)	0	vitest exit 1
+cp-noop	 Tests 1 failed | 1 passed (2)	0	vitest exit 1
+nm-nonjson	 Tests 1 failed | 2 passed (3)	0	vitest exit 1
+wf-nonjson	 Tests 1 failed | 2 passed (3)	0	vitest exit 1
+bot-admin	 Tests 2 failed | 6 passed (8)	0	vitest exit 1
+bot-user	 Tests 1 failed | 7 passed (8)	0	vitest exit 1
+bot-ts	 Tests 2 failed | 6 passed (8)	0	vitest exit 1
+done

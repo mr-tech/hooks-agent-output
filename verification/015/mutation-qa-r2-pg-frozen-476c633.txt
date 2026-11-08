@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-pg-frozen  sha: 476c633  label: qa-r2-pg-frozen  test: page.invalid-data  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-pg-frozen
+
+
+ Test Files  1 passed (1)
+      Tests  55 passed (55)
+   Start at  09:24:17
+   Duration  3.30s (transform 852ms, setup 22ms, import 1.45s, tests 1.07s, environment 629ms)
+
+vitest exit 0

@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-rules-title-i  sha: 476c633  label: qa-r2-rules-title-i  test: rules.multi-line-code-block  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py
+ .../website-476c633-qa-r2-rules-title-i}/src/utils/markdown/index.tsx   | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-rules-title-i
+
+
+ Test Files  1 passed (1)
+      Tests  27 passed (27)
+   Start at  09:24:38
+   Duration  1.36s (transform 460ms, setup 0ms, import 1.18s, tests 35ms, environment 0ms)
+
+vitest exit 0

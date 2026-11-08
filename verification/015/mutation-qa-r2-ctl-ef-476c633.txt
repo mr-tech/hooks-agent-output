@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-ctl-ef  sha: 476c633  label: qa-r2-ctl-ef  test: EmbedFields.read-only-field-index  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-ctl-ef
+
+
+ Test Files  1 passed (1)
+      Tests  16 passed (16)
+   Start at  09:23:47
+   Duration  1.51s (transform 190ms, setup 22ms, import 688ms, tests 44ms, environment 625ms)
+
+vitest exit 0

@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-ctl-pg  sha: 476c633  label: qa-r2-ctl-pg  test: page.invalid-data  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-ctl-pg
+
+
+ Test Files  1 passed (1)
+      Tests  55 passed (55)
+   Start at  09:23:42
+   Duration  3.44s (transform 858ms, setup 25ms, import 1.49s, tests 1.11s, environment 667ms)
+
+vitest exit 0

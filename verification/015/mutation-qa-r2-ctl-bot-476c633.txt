@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-ctl-bot  sha: 476c633  label: qa-r2-ctl-bot  test: bot/  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-ctl-bot
+
+
+ Test Files  3 passed (3)
+      Tests  8 passed (8)
+   Start at  09:24:11
+   Duration  227ms (transform 116ms, setup 0ms, import 222ms, tests 12ms, environment 0ms)
+
+vitest exit 0

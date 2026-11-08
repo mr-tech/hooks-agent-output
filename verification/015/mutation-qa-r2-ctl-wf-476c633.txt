@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-ctl-wf  sha: 476c633  label: qa-r2-ctl-wf  test: WebhookMenu.failed-webhook-load  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-ctl-wf
+
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  09:24:08
+   Duration  2.01s (transform 325ms, setup 21ms, import 1.11s, tests 120ms, environment 624ms)
+
+vitest exit 0

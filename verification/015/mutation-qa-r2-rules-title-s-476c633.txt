@@ -1,0 +1,38 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-rules-title-s  sha: 476c633  label: qa-r2-rules-title-s  test: rules.multi-line-code-block  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py
+ .../website-476c633-qa-r2-rules-title-s}/src/utils/markdown/index.tsx   | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-rules-title-s
+
+ ❯ |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts (27 tests | 1 failed) 41ms
+     × does not render a fence as a code block, since titles carry no code blocks 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedTitle fenced code blocks > does not render a fence as a code block, since titles carry no code blocks
+AssertionError: expected 'foo\nbar' to be null
+
+- Expected:
+null
+
++ Received:
+"foo
+bar"
+
+ ❯ src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts:52:90
+     50| describe('parseEmbedTitle fenced code blocks', () => {
+     51|   it('does not render a fence as a code block, since titles carry no c…
+     52|     expect(codeBlockText(render(markdown.static.parseEmbedTitle, '```\…
+       |                                                                                          ^
+     53|   });
+     54| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 26 passed (27)
+   Start at  09:24:34
+   Duration  1.39s (transform 470ms, setup 0ms, import 1.21s, tests 41ms, environment 0ms)
+
+vitest exit 1

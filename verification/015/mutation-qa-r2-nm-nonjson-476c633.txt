@@ -1,0 +1,37 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-nm-nonjson  sha: 476c633  label: qa-r2-nm-nonjson  test: NewMessageModal.failed-webhook-load  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py
+ .../src/utils/hooks/useValidateWebhook.ts                               | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-nm-nonjson
+
+ ❯ |dom| src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx (3 tests | 1 failed) 570ms
+     × shows "Invalid URL" once, on the shared error line, when the response body is not JSON 137ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx > NewMessageModal, a failed webhook load > shows "Invalid URL" once, on the shared error line, when the response body is not JSON
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx:68:19
+     66|
+     67|     const shown = leavesWithText('Invalid URL');
+     68|     expect(shown).toHaveLength(1);
+       |                   ^
+     69|     expect(shown[0]?.parentElement?.querySelectorAll('input').length).…
+     70|     expect(shown[0]?.classList.contains('text-error')).toBe(true);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  09:26:48
+   Duration  2.29s (transform 328ms, setup 19ms, import 993ms, tests 570ms, environment 574ms)
+
+vitest exit 1

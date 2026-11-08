@@ -1,0 +1,34 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2m6-ar-before  sha: 476c633  label: qa-r2m6-ar-before  test: ActionRowEditor.duplicate-placement  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m6-supplement.py
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2m6-ar-before
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/ActionRowEditor.duplicate-placement.test.tsx (1 test | 1 failed) 51ms
+     × puts the copy directly after the original 50ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/ActionRowEditor.duplicate-placement.test.tsx > ActionRowEditor duplicate button > puts the copy directly after the original
+AssertionError: expected '256b264e-2b8b-4a4e-9068-311b416a225f' to be 'a7ac02e3-422d-42e2-a24d-76ad2c053b13' // Object.is equality
+
+Expected: "a7ac02e3-422d-42e2-a24d-76ad2c053b13"
+Received: "256b264e-2b8b-4a4e-9068-311b416a225f"
+
+ ❯ src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/ActionRowEditor.duplicate-placement.test.tsx:52:26
+     50|     const next = (setRow.mock.calls[0][0] as EditableActionRow).compon…
+     51|     expect(next.map((b) => b.label)).toEqual(['first', 'middle', 'midd…
+     52|     expect(next[1]._key).toBe(row.components[1]._key);
+       |                          ^
+     53|     expect(next[2]._key).not.toBe(row.components[1]._key);
+     54|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  09:23:15
+   Duration  1.46s (transform 162ms, setup 20ms, import 647ms, tests 51ms, environment 607ms)
+
+vitest exit 1

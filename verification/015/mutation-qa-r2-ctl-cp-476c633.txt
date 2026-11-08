@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-ctl-cp  sha: 476c633  label: qa-r2-ctl-cp  test: ColorPicker.scroll-lock-release  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-ctl-cp
+
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  09:24:01
+   Duration  1.74s (transform 226ms, setup 24ms, import 751ms, tests 170ms, environment 655ms)
+
+vitest exit 0

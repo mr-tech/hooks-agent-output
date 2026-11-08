@@ -1,0 +1,51 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-pg-blank  sha: 476c633  label: qa-r2-pg-blank  test: page.invalid-data  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-pg-blank
+
+ ❯ |dom| src/app/preview/__tests__/page.invalid-data.test.tsx (55 tests | 11 failed) 55962ms
+     × shows one line of error text and no editor when embeds null 5005ms
+     × shows one line of error text and no editor when embeds an empty string 5002ms
+     × shows one line of error text and no editor when fields an empty string 5001ms
+     × shows one line of error text and no editor when content a number 5003ms
+     × shows one line of error text and no editor when components false 5002ms
+     × shows one line of error text and no editor when components zero 5003ms
+     × shows one line of error text and no editor when components an empty string 5003ms
+     × shows one line of error text and no editor when an action row whose components is a string 5002ms
+     × shows one line of error text and no editor when a section accessory that is null 5004ms
+     × shows one line of error text and no editor when a gallery whose items is a string 5002ms
+     × shows one line of error text and no editor when a container whose components is a number 5002ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 11 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when embeds null
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when embeds an empty string
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when fields an empty string
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when content a number
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when components false
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when components zero
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when components an empty string
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when an action row whose components is a string
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when a section accessory that is null
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when a gallery whose items is a string
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor when a container whose components is a number
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:116:5
+    114|     ['a container whose components is a number', '{"components":[{"typ…
+    115|     ['an action row nested in a container with a null child', '{"compo…
+    116|   ])('shows one line of error text and no editor when %s', async (_cas…
+       |     ^
+    117|     expectOneErrorLine(await mountWith(data));
+    118|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/11]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  11 failed | 44 passed (55)
+   Start at  09:25:12
+   Duration  58.05s (transform 772ms, setup 23ms, import 1.35s, tests 55.96s, environment 587ms)
+
+vitest exit 1

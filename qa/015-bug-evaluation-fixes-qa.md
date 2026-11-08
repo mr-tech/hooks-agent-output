@@ -747,26 +747,30 @@ This pass assumes the live Postgres schema matches the Kysely `DatabaseSchema` t
 - **Rev 7 confirmation:** QA Phase 1 approves rev 7 (`38b12e6`) for implementation start. QAF-8 is owed before the run-2 read is scripted, and QAF-9 is LOW; neither blocks code. *(Superseded line, kept for the record:)* QA Phase 1 approves rev 6 for implementation start. The implementer is bound by E-1 to E-9, E-1's reconcile note included.
 - **Assumption Not Checked:** routed to UAT, through B-1 and B-2.
 
-## Resumption State (checkpoint, qa-hooks-015, 2026-11-08T08:14Z)
+## Resumption State (checkpoint, qa-hooks-015, 2026-11-08T09:28Z)
 
-**Done** (agent-output `HEAD` `4d091e4` before this checkpoint)
-- **Phase 1:** keyed to plan rev 24 (`018f72d`) and approved, with no open Phase 1 finding. QAF-24 (= CR-16) and QAF-28 (= CR-20) are RESOLVED. The rev 23 pass corrected my own rev 22 M5-h controls: four of them crash the real page.
-- **Phase 2 verdicts, each in its own document:**
-  - M0 PASS at `037935d`.
-  - M2 PASS at `6001f7f`.
-  - **M4 PASS at `da24eb7`** (`qa/…-m4-qa.md`). QAF-25 RESOLVED. A rev 24 reconcile: the non-JSON member is unverified, so a scoped M4 pass is owed when its cells land.
-  - **M1 QA Failed at `3031878`** (`qa/…-m1-qa.md`). QAF-26 MEDIUM: survivors `i2-row-read-by-session-token` and `i4-user-count-unscoped`. QAF-27 LOW. The assumption about `Accounts` rows per user was answered by AF-26 and closed by D34/X-20.
-  - **M5-a to M5-g QA Failed at `da24eb7`** (`qa/…-m5-qa.md`). QAF-29 MEDIUM: survivor `m5e-utc-getters`. B-13 minted there.
-  - QAF-11 RESOLVED (M0 document).
-- **Register:** B-1 to B-14. B-3 withdrawn (D30). B-11 to B-14 minted today: D29 offline walk, M5-h `/preview`, M5-a Esc, M5-i first visit. Every browser row needs steering's Playwright go (rulings 07:42Z).
+**Done**
+- **Phase 1:** keyed to plan rev 26 (`c375d2c`, my re-key `9fdf439`). Approved except **QAF-33 MEDIUM**: an array `/generate` body passes M8-b's object test at generator `6c613a5` and reaches I-1's delete. The planner accepted it (agent-output `40cc9e9`, R-13): the guard goes to the implementer through steering, and D35's premise is corrected at rev 27. **The planner ruled the rig cells are QA's:** a string, a boolean, `[]` and `[{}]`, each asserting 500 and no S3 attempt, seen red at `6c613a5` for the arrays. D36 (`f5ab120`): RK-8's startup guard rides the CR-27 fix, with criterion text at rev 27.
+- **Phase 2 verdicts, each in its own document:** M0 PASS `037935d`; M2 PASS `6001f7f`; M1, M4 (CR-17 refresh) and M5-a to M5-g PASS at `24ac49f`; M6-b to M6-l QA Failed at `24ac49f` (QAF-30, QAF-31, QAF-32).
+- **Register:** B-1 to B-14 (B-3 withdrawn). B-4 has a `/preview` leg. Every browser row needs steering's Playwright go.
 
-**Next, in the order the pipeline brings them**
-1. *Done 08:36Z (`a7dfb4d`):* M1 and M5-a to M5-g PASS at `24ac49f`; M4 refreshed for CR-17; M6-b to M6-l QA Failed (QAF-30, QAF-31, QAF-32 to implementer-hooks-015); Phase 1 keyed to rev 25 (`983a84d`, delivered to planner-hooks-015).
-2. **M6-b to M6-l re-run** after the test-only fix: re-run the six survivors (`mutators/qa-m6-supplement.py`, labels in `qa-m6-sweep-summary-24ac49f.txt`). **M6-a** after CR-22's fix: unit members per § M6-a (rev 25 reconcile), the title preservation cell seen red, and RK-1's differential captured under `verification/015/`.
-3. **Scoped M4 pass** when the non-JSON cells land, one per site (Phase 1 § M4, rev 24 reconcile).
-4. **M5-h Phase 2** after code review clears its fix: cells per rev 23/24 read-backed members, with a presence landmark. Also **M5-i**: open-panel cells per Phase 1 § M5-i.
-5. **M6** (M6-l (vi) on editor, Send and `/preview`), M7, M8: per Phase 1.
-6. **Phase 1 re-keys** as steering briefs them.
+**In flight: the Phase 2 pass at website `476c633` and generator `6c613a5`.** The stage start is code review `2fa6d8b`: M5-h (CR-18 RESOLVED), M5-i (Round 16), M6-a and CR-24 (Round 14 sub-entry), M7 (Round 17) and the M4-d non-JSON cells (test-only) at `476c633`; M8-b to M8-e at `6c613a5`. M8-a is REJECTED (CR-27). b608555 (QAF-30 to QAF-32) is test-only. Executed and captured, **no document written yet**:
+- Suite: `qa-p2-r2-run-476c633.txt` and `-testresults-…json` give 1118/1118, 114 files, exit 0, typecheck exit 0. `qa-p2-r2-testresults-paths-476c633.txt` shows 6 files added since `24ac49f` (bot ×3, `WebhookMenu.open-category`, `ColorPicker.scroll-lock-release`, `BottomPortal.unmount-cleanup`) and 0 removed.
+- RK-1: `qa-rk1-differential/` (`run.sh`, the test file, `run1-{476c633,24ac49f,7ce866b}.txt`). The space is 6,243 members × 2 parsers. Differences: 0 at `476c633`; positive controls 4,546 at `24ac49f` and 6,402 at the base. Reference: the fence regex over the whole message in inline scope.
+- Sweeps (`qa-r2m6-sweep-summary-476c633.txt`, `qa-r2-sweep-summary-476c633.txt`, `mutation-qa-r2*-476c633.txt`; mutators `qa-m6-supplement.py`, `qa-r2-supplement.py`). All controls are green.
+  - Killed: the six earlier M6 survivors, so QAF-30, QAF-31 and QAF-32 are discriminated (`cl-gate40` 3, `cl-lineabove` 1, each `*-before` 1).
+  - Killed: `cl-frozen` 1 (live drop), `pg-editonly` 1 and `cl-editonly` 1 (`/preview`), `ef-or` 1 (QAF-32), `rules-title-s` 1, `rules-split` 14, `rules-single` 22.
+  - Killed: M5-h `pg-nobound` 11, `pg-blank` 11, `pg-refuseall` 14, `pg-array` 1.
+  - Killed: M5-i `wm-pick` 2, `wm-seed` 7, `wm-auth` 1, `wm-guild` 1, `wm-count` 3.
+  - Killed: CR-24 `bp-noop` 1 and `cp-noop` 1; M4-d `nm-nonjson` 1 and `wf-nonjson` 1; M7 `bot-admin` 2, `bot-user` 1, `bot-ts` 2.
+  - **Survived:** `pg-frozen`. The `/preview` data never changes after mount, so it is equivalent there; it is killed in the editor.
+  - **Survived:** `rules-title-i`. No cell covers the interactive title, which Phase 1 § M6-a (rev 25 reconcile) names. This is to be raised as a new finding (MEDIUM: a preserved behaviour with no assertion). Owed: a cell red under `m6a-title-codeblock-interactive`, or a shown equivalence (the interactive `codeBlock` rule matches the fence line only).
+- **Still to do for this pass:**
+  - (a) Cell audits against Phase 1 for M5-h (rev 23/24/26 member list with the presence landmark; `fields: null` now renders), M5-i (§ M5-i cells), M6-a (unit members incl. CR-22's), CR-24 and M7.
+  - (b) The M8 sweep: `qa-m8-sweep.sh <pig repo> 6c613a5 3926486 <abs path>/mutators/qa-m8-supplement.py ctl m8b-…:…`, labels as `label:mutant`. It pins the rig at the committed blob `a6da6bc` (the working copy is the implementer's CR-27 edit). Add QAF-33's rig cells first, and re-run code review's attack row A for M8-d (c).
+  - (c) Write the documents: `qa/…-m6-qa.md` (re-run section; QAF-30 to QAF-32 RESOLVED; the new finding), `qa/…-m4-qa.md` (scoped non-JSON pass), `qa/…-m5-qa.md` (M5-h and M5-i), a new `qa/…-m7-qa.md`, a new `qa/…-m8-qa.md`, a plan row, and deliver.
+
+**Next after this pass:** M8-a after CR-27's fix (with D36's RK-8 guard and QAF-33's guard), sweeping the round's diff only; the M8-a guards are the implementer's list in the M8 document. Then the effort-final sweep (below). Phase 1 rev 27 re-key when briefed.
 
 **How a pass runs (instruments, committed under `verification/015/`)**
 - Suite: `qa-m4-suite-run.sh <sha> <EXPORT_ROOT> <out-prefix>` (export, `unshare -rn`, lo up, isolation counts, typecheck). Captures so far: `qa-p2-*-{3031878,da24eb7}`.
@@ -781,8 +785,8 @@ This pass assumes the live Postgres schema matches the Kysely `DatabaseSchema` t
 - Re-run `qa-rk7-client-reach-run.sh` (also at the Phase 3 tip).
 
 **State left**
-- **website:** `chain/015-bug-evaluation-fixes` at `24ac49f` when checked, moved by others. Nothing of mine is mutated.
-- **agent-output:** every QA path is committed. Other sessions' staged and untracked files are in the index and tree; they are not mine.
-- **Scratchpad:** no exports remain, and no process of mine runs except the Playwright MCP server. The stage browser was closed at 07:27Z and its cache emptied.
+- **website:** `chain/015-bug-evaluation-fixes` at `476c633`; preview-image-generator at `7e5ca5f` when checked (the implementer's CR-27 work, not yet reviewed). Nothing of mine is mutated.
+- **agent-output:** every QA path is committed with this checkpoint. `verification/015/m8-local-probe/probe.cjs` is modified in the tree by the implementer, not by me.
+- **Scratchpad:** no exports remain, and no process of mine runs. The stage browser was not used this session.
 
-**Questions out:** none to the owner. Delivered and awaiting the implementer: QAF-26, QAF-27, QAF-29, and the M5-h cell correction. The architect's AF-26 answer is received and reconciled.
+**Questions out:** none to the owner. The planner has QAF-33 (accepted). The implementer owes QAF-27 and QAF-20 before the effort-final pass.

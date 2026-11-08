@@ -1,0 +1,61 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-wm-pick  sha: 476c633  label: qa-r2-wm-pick  test: WebhookMenu.open-category  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c0a55aec-9e85-48a3-b14e-8fb02d843dd0/scratchpad/exports/website-476c633-qa-r2-wm-pick
+
+ ❯ |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx (8 tests | 2 failed) 269ms
+     × keeps the pick when the guild's webhook list changes 41ms
+     × keeps the pick when webhooks arrive after it 39ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx > send page webhook menu, after the user picks a category > keeps the pick when the guild's webhook list changes
+AssertionError: expected [ 'Alpha' ] to deeply equal [ 'Custom Webhook' ]
+
+- Expected
++ Received
+
+  [
+-   "Custom Webhook",
++   "Alpha",
+  ]
+
+ ❯ src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx:143:28
+    141|     const el = mountWith({ guild: ALPHA, guildId: 'g1', webhooks: [hoo…
+    142|     pickCustom(el);
+    143|     expect(openTitles(el)).toEqual([CUSTOM]);
+       |                            ^
+    144|
+    145|     setWorld({ webhooks: [hook('w1', 'g1'), hook('w2', 'g1')] });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx > send page webhook menu, after the user picks a category > keeps the pick when webhooks arrive after it
+AssertionError: expected [ 'Alpha' ] to deeply equal [ 'Custom Webhook' ]
+
+- Expected
++ Received
+
+  [
+-   "Custom Webhook",
++   "Alpha",
+  ]
+
+ ❯ src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx:161:28
+    159|     setWorld({ webhooks: [hook('w1', 'g1')] });
+    160|
+    161|     expect(openTitles(el)).toEqual([CUSTOM]);
+       |                            ^
+    162|   });
+    163| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 6 passed (8)
+   Start at  09:26:21
+   Duration  2.08s (transform 309ms, setup 23ms, import 1.04s, tests 269ms, environment 606ms)
+
+vitest exit 1
