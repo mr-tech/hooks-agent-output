@@ -1,0 +1,5 @@
+control-partial-guildid-unselected-9b5e47f.txt: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯       Tests  2 failed | 2 passed (4) vitest exit 1 
+none-9b5e47f.txt:       Tests  4 passed (4) vitest exit 0 
+partial-name-unselected-9b5e47f.txt:       Tests  4 passed (4) vitest exit 0 
+partial-nonce-unselected-9b5e47f.txt:       Tests  4 passed (4) vitest exit 0 
+recent-name-unselected-9b5e47f.txt:       Tests  4 passed (4) vitest exit 0 

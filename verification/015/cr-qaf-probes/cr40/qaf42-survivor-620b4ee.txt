@@ -1,0 +1,18 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/f3ce59ea-00f4-4aad-a37f-4ad5eecd2506/scratchpad/website-620b4ee-cr-qaf42-probe  sha: 620b4ee  label: cr-qaf42-probe  test: src/server/__tests__/auth.hydrated-session.test.ts  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf38-40-apply-qa-mutant.py
+applied pl-auth-message-promise-unwrapped to src/server/auth.ts
+ .../src/server/auth.ts                             |  2 +-
+ 4 files changed, 3 insertions(+), 25 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/f3ce59ea-00f4-4aad-a37f-4ad5eecd2506/scratchpad/website-620b4ee-cr-qaf42-probe
+
+
+ Test Files  1 passed (1)
+      Tests  18 passed (18)
+   Start at  14:32:06
+   Duration  953ms (transform 384ms, setup 0ms, import 714ms, tests 23ms, environment 0ms)
+
+vitest exit 0
+138c138
+<     const messagePromise = Promise.resolve(preferences?.recentMessageIds
+---
+>     const messagePromise = (preferences?.recentMessageIds

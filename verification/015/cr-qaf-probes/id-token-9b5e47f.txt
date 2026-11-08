@@ -1,0 +1,15 @@
+== src/server/__tests__/auth.hydrated-session.test.ts
+43:function hydrate(user: object = { id: 'fixture-user', preferences: { recentMessageIds: ['m1'] } }) {
+82:    mocks.recentMessages.impl = async () => [{ id: 'm1' }];
+89:    expect(session.hydration.messages).toEqual([{ id: 'm1' }]);
+176:    mocks.recentMessages.impl = () => Promise.resolve([{ id: 'm1' }]);
+223:    mocks.recentMessages.impl = () => Promise.resolve([{ id: 'm1' }]);
+266:    mocks.recentMessages.impl = () => Promise.resolve([{ id: 'm1' }]);
+272:    expect(outcome.value.hydration.messages).toEqual([{ id: 'm1' }]);
+315:    mocks.recentMessages.impl = () => Promise.resolve([{ id: 'm1' }]);
+== src/server/api/utils/__tests__/shared.in-predicates.test.ts
+15:  id: 'm1',
+39:    const result = await getUserRecentMessages(['m1', 'm2']);
+43:    expect(captured.queries[0].parameters).toEqual(['m1', 'm2']);
+45:    expect(result.map(({ id }) => id)).toEqual(['m1']);
+60:    expect(result.map(({ id }) => id)).toEqual(['m1']);

@@ -1,0 +1,39 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/f3ce59ea-00f4-4aad-a37f-4ad5eecd2506/scratchpad/website-9b5e47f-cr-qaf42-probe  sha: 9b5e47f  label: cr-qaf42-probe  test: src/server/__tests__/auth.hydrated-session.test.ts  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf38-40-apply-qa-mutant.py
+applied pl-auth-message-promise-unwrapped to src/server/auth.ts
+ .../scratchpad/website-9b5e47f-cr-qaf42-probe}/src/server/auth.ts       | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/f3ce59ea-00f4-4aad-a37f-4ad5eecd2506/scratchpad/website-9b5e47f-cr-qaf42-probe
+
+ ❯ |node| src/server/__tests__/auth.hydrated-session.test.ts (20 tests | 2 failed) 49ms
+     × returns the guilds and no messages for a user with no preferences 25ms
+     × returns the guilds and no messages for a user with empty preferences 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback, for a user with no recent messages > returns the guilds and no messages for a user with no preferences
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback, for a user with no recent messages > returns the guilds and no messages for a user with empty preferences
+TypeError: messagePromise.catch is not a function
+ ❯ Object.hydratedAuthCallback [as session] src/server/auth.ts:141:20
+    139|       ? getUserRecentMessages(preferences.recentMessageIds)
+    140|       : []);
+    141|     messagePromise.catch(() => {});
+       |                    ^
+    142|
+    143|     const userDbId = user.id;
+ ❯ hydrate src/server/__tests__/auth.hydrated-session.test.ts:45:41
+ ❯ src/server/__tests__/auth.hydrated-session.test.ts:149:27
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 18 passed (20)
+   Start at  14:32:03
+   Duration  906ms (transform 303ms, setup 0ms, import 625ms, tests 49ms, environment 0ms)
+
+vitest exit 1
+138c138
+<     const messagePromise = Promise.resolve(preferences?.recentMessageIds
+---
+>     const messagePromise = (preferences?.recentMessageIds
