@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: UAT Complete
-Status-Detail: "Conditional approval. B-2, B-4, B-5, B-11 (send-page leg), B-12, B-13 and B-14 EXECUTED PASS at website b96e364, each red at base 7ce866b. B-1 waits for the owner's account. B-9, B-10 and the B-11 dialog leg need a route: the New Message dialog opens on production but not under local next dev (UAT-4). These must reach a terminal state before the website merge to master. Owner's route pending (steering-hooks-015, 20:34Z)."
+Status-Detail: "Conditional approval. B-2, B-4, B-5, B-11 (send-page leg), B-12, B-13 and B-14 EXECUTED PASS at website b96e364, each red at base 7ce866b. B-1 waits for the owner's account. B-9, B-10 and the B-11 dialog leg need a new route: the New Message dialog opens on production but not locally, under next dev or a next start build (UAT-4). These must reach a terminal state before the website merge to master. Owner's route pending (steering-hooks-015, 20:34Z)."
 Verified-At: "b96e364,8de2b53 — repos=website,preview-image-generator; flows driven on website b96e364 (base 7ce866b as the red side); generator 8de2b53 not driven (no browser surface; B-8 post-deploy)"
 Release-Decision: APPROVED FOR RELEASE
 ---
@@ -21,6 +21,7 @@ Release-Decision: APPROVED FOR RELEASE
 | 2026-11-08T15:17 | steering-hooks-015 (brief `brief-uat-hooks-015.md`; rulings 14:44Z) | UAT on the QA effort-final PASS at website `b96e364`, generator `8de2b53` | Ran the no-sign-in rows and flows in the stage browser, tip against base. B-4, B-5, B-11 (send-page leg), B-12 and B-13 EXECUTED PASS. The signed-in rows are blocked by UAT-1 (no Postgres at 127.0.0.1:5432), escalated to steering 14:5xZ. Decision: APPROVED FOR RELEASE, conditional on those rows before the merge. |
 | 2026-11-08T20:01 | steering-hooks-015 (owner's ruling on UAT-1, route (a), steering/015-rulings.md 5d29306; coordinator goes 19:48Z, 19:49Z) | Recreate the local Postgres and run the signed-in rows | `hooks-postgres-local` is recreated (left running). B-2 EXECUTED PASS (base red). B-1 and B-14 cannot run with the test account. B-9, B-10 and the B-11 dialog leg are blocked by UAT-4, a pre-existing dialog fault. Owner questions sent at 20:01Z. Decision unchanged, now conditional on B-1, B-9, B-10, B-14 and the B-11 dialog leg. |
 | 2026-11-08T20:35 | steering-hooks-015 (owner rulings 20:08Z ff6a1a7, 20:12Z 29eee04; coordinator go ~20:10Z) | B-14 on a test server; the live Upload Message check | B-14 EXECUTED PASS (base red), on the existing "Claude" server with the bot added (owner solved the hCaptcha) and one webhook. The Upload Message dialog opens on production hooks.gg, so UAT-4 is reclassified as local-only. B-9, B-10 and the B-11 dialog leg need a route (asked 20:34Z). Released 20:34Z. |
+| 2026-11-08T20:42 | steering-hooks-015 (owner ruling 20:38Z c68e0b7; coordinator go 20:38Z) | Route (a): B-9 and the B-11 dialog leg on a local production build | The build passes, but the dialog does not open under `next start` either, so B-9 and the B-11 dialog leg stay NOT EXECUTED. Route returned to the owner (20:41Z). Local-infra evaluation added (§ Local test infrastructure). Released 20:41Z. |
 
 ## Stage start and identity
 
@@ -76,6 +77,8 @@ The flows are the implementer's per-flow tables (M2, M4, M5, M6 implementation d
 | B-14 / M5-i first-visit tab | Route: the existing "Claude" server (the owner's "use the test server"; no new server). Added the Hooks.gg bot (Discord bot-authorize page; the owner solved its hCaptcha, alerted 20:11Z, resolved ~20:30Z) and one webhook ("Spidey Bot", #general; nothing posted). Save As a never-visited copy to Claude, open its send page in a fresh tab, read the panels for 9 s | The guild's webhook panel opens | Tip (message 6): Claude=expanded, Custom Webhook=collapsed, in all 6 samples. Base (message 5): Custom Webhook=expanded, Claude=collapsed | PASS |
 | UAT-4 live check | Production hooks.gg, test account signed in live (ruling 20:12Z), "new message" → "Upload Message" | Does the dialog open? | It opens: "Create or upload a new message", with Message Link, URL (Requires bot.), Webhook, Message Context Command, JSON and Continue (`hooksgg-upload-dialog.png`). Nothing saved | local-only fault |
 
+**Fourth walk, 2026-11-08T20:38–20:41Z** (owner ruling 20:38Z, c68e0b7: route (a), a local production build). The tip export was built with `next build --webpack` (exit 0, `build-b96e364.txt`) and served with `next start` on 127.0.0.1:3000 (`server-b96e364-start.txt`), with the test account signed in. "new message" → "Upload Message" opens nothing, by Playwright click, by a click in a fresh tab, and by a DOM `click()` after dismissing the cookie banner. "Create or upload a new message" appears nowhere in the DOM, and no console error shows other than Vercel speed-insights 404s (`newmessage-dialog-prodbuild.js`). So the local fault is not dev-mode. Its cause was not established, by time-box. B-9 and the B-11 dialog leg stay NOT EXECUTED, and the route goes back to the owner (20:41Z).
+
 Instrument note: `b14-first-visit-tab.js` on message 2, a message visited before, showed the webhook panel at **both** trees, so it does not discriminate and is not evidence. The fresh-message form is the one reported. Base's first fresh attempt copied message 1, whose black colour base refuses, so no message was created; it was re-run from message 4.
 
 Every UNVERIFIED row above has suite coverage, by QA's effort-final PASS, which is QA's to restate, not mine. None is a register row.
@@ -89,7 +92,7 @@ Every UNVERIFIED row above has suite coverage, by QA's effort-final PASS, which 
 | B-3 M3 | — | WITHDRAWN | rev 21, D30; the owner's ruling 07:26Z |
 | B-4 M6-l over 40 | pre-release | EXECUTED 2026-11-08 PASS | above. The total is 42, not 41; the prediction admits "or the actual total" |
 | B-5 M6-a code block | pre-release | EXECUTED 2026-11-08 PASS | above |
-| B-9, B-10 | pre-release | NOT EXECUTED | The dialog doesn't open under local `next dev`, but does on production (UAT-4, third walk). Route asked of the owner at 20:34Z: a local production build, post-deploy on production, or his walk. B-10 also needs a server with the bot where the test account is a non-admin member |
+| B-9, B-10 | pre-release | NOT EXECUTED | The dialog opens on production but not locally, under `next dev` or a `next start` build (UAT-4; third and fourth walks). Route (a) was tried and failed (20:41Z). Options back to the owner: post-deploy on hooks.gg, his walk, or an investigation of the local cause. B-10 also waits for his server name (ruling 20:38Z) |
 | B-14 | pre-release | EXECUTED 2026-11-08 PASS | third walk: tip opens the guild's webhook panel; base opens Custom Webhook |
 | B-11 M4-d offline URL | pre-release | send-page leg EXECUTED PASS; dialog leg NOT EXECUTED | dialog leg: as B-9 (UAT-4) |
 | B-12 M5-h | pre-release | EXECUTED 2026-11-08 PASS | above |
@@ -104,6 +107,20 @@ Inherited and not discharged by this pass: B-1, B-9, B-10, B-14, the B-11 dialog
 QA's handed observation (effort-final § Assumption Not Checked, `getCDNUrl` / `NEXT_PUBLIC_CDN_PORT`): the first walk did not observe it, because no page built a CDN URL. *Update 2026-11-08T20:01:* in the second walk, the message list built preview URLs of the form `https://cdn.hooks.gg/dev/previews/<id>/<nonce>.jpeg`, with no port. `NEXT_PUBLIC_CDN_PORT` is absent from `.env.local`. This shows the unset case only. QA's falsity signature ("no port when the variable is set") needs the variable set, and that case was not exercised. It stays an Assumption Not Checked for whoever sets the variable.
 
 Code review's Assumption Not Checked (CR-38 sub-entry: an `autoFocus` button under a screen reader's virtual cursor is focused after transitions): **unverified.** No screen reader is available on this machine. No criterion requires it, so it is a stated limit, owned by code review's Assumption Not Checked.
+
+## Local test infrastructure (owner's standing ruling, 20:38Z: tell him after, evaluate permanence, clean up)
+
+**Set up on this box by this stage:**
+- `postgres:16` container `hooks-postgres-local` on 127.0.0.1:5432, with the schema from `project-utils/prisma/schema.prisma`. Local test data: the test account's Users and Accounts rows, and messages 1–6.
+- Production build output in the scratch export `web-b96e364/.next`.
+- On Discord: the Hooks.gg bot in the test account's "Claude" server, and webhook "Spidey Bot" in #general.
+
+**Cleanup:** deferred until B-1 and B-10 close, because both need the DB, and B-10 may need the "Claude" setup as a control. Then:
+- the container is stopped and removed, and the image may stay;
+- the scratch exports are deleted;
+- the bot and webhook stay or go on the owner's word, since they're on his test server.
+
+**Evaluation, for the retrospective.** Yes, make it permanent. This chain lost about an hour to a premise ("`.env.local` is the live DB") that had silently gone stale. A record tool such as `tools/uat-local-stack.sh up|down|status` would take that hour back. It would start or reuse the container from `.env.local`'s URL without printing it, push the schema with `--skip-generate`, report table counts, and tear down. It should pair with a readiness check UAT runs first (a `pg_isready` on the URL's port). The unknown local fault behind UAT-4 argues for one more permanent item: a Vercel preview deploy of the chain branch as the walk surface. That is the plan's own named alternative; it would point at production data and needs the owner's say.
 
 ## Value Delivery Assessment
 
@@ -126,7 +143,7 @@ The wider "what I build is what previews" promise is borne out on every surface 
 
 UAT-1 MEDIUM — The plan's Validation premise "`.env.local`, whose database is the live one" is false at 2026-11-08. The only selectable `DATABASE_URL` points at 127.0.0.1:5432, the local stack the owner ruled "stay local" (`steering/014-rulings.md`, 2026-08-27). Nothing listens there, and `docker ps -a` lists no containers, so `hooks-postgres-local` (`uat/closed/014-test-suite-cleanup-uat.md`:428) is gone. Every signed-in pre-release row is blocked. Routed: environment choice to the owner via steering-hooks-015 (owner-needing, sent 14:5xZ); the Validation text to the planner through `INBOX.md` (entry "2026-11-08 — uat-hooks-015 — FYI"). *Environment limb resolved 2026-11-08T20:01:* the owner chose route (a) (steering/015-rulings.md, 5d29306), and `hooks-postgres-local` is recreated and running. The Validation-text limb stays with the planner.
 UAT-2 INFO — The implementation document's M6 flow line "At 39, adding a Section completes (41 in all)" understates the total, which is 42. The product text shows the actual total, as the criterion allows. No action beyond the record.
-UAT-4 MEDIUM — On the account folder page, "new message" → "Upload Message" opens nothing. That item's handler opens NewMessageModal, the surface of B-9, B-10 and the B-11 dialog leg. It fails by click, raw pointer press and Enter, with no console error, at website `b96e364` and equally at `7ce866b` (`verification/015/uat/newmessage-dialog-open.js`). So it predates the chain and is not its regression. Not established: whether it is a `next dev` artefact or a live production defect. Routed: the owner (via steering-hooks-015, 20:01Z), asked whether it opens on production. A pre-existing production defect becomes a handoff, minted once he answers. *Reconciled 2026-11-08T20:35:* it opens on production hooks.gg, which runs `7ce866b` (third walk), so the fault is local to `next dev` and is not a product defect. No handoff. Severity stays MEDIUM, as a block on three register rows' route, not as a defect.
+UAT-4 MEDIUM — On the account folder page, "new message" → "Upload Message" opens nothing. That item's handler opens NewMessageModal, the surface of B-9, B-10 and the B-11 dialog leg. It fails by click, raw pointer press and Enter, with no console error, at website `b96e364` and equally at `7ce866b` (`verification/015/uat/newmessage-dialog-open.js`). So it predates the chain and is not its regression. Not established: whether it is a `next dev` artefact or a live production defect. Routed: the owner (via steering-hooks-015, 20:01Z), asked whether it opens on production. A pre-existing production defect becomes a handoff, minted once he answers. *Reconciled 2026-11-08T20:35:* it opens on production hooks.gg (third walk), so the fault is local and not a product defect. *Reconciled 2026-11-08T20:41:* it also fails under a local `next start` production build, so it is not dev-mode. The local cause is unknown. "Production runs `7ce866b`" is the brief's and steering's reading of `master`; I did not read Vercel's deployed SHA. No handoff. Severity stays MEDIUM, as a block on three register rows' route, not as a defect.
 UAT-5 INFO — Save As to the test account's server named "AAAA…" (32 'A's) is refused with 400 `invalid_string` on `message.guildId`, at both trees. That server also has no folder link in the server list. Pre-existing, not a criterion. Recorded only.
 UAT-3 INFO — A React hydration-mismatch console error shows on first load of the editor in `next dev` at the tip (dev overlay "1 Issue"). Not compared at base and not a criterion. Recorded only.
 
@@ -151,7 +168,7 @@ UAT-3 INFO — A React hydration-mismatch console error shows on first load of t
 *Point-in-time list — later stage documents are authoritative on these items' current state.*
 - ~~Owner: choose the route for the signed-in rows~~ — answered: route (a), 5d29306.
 - ~~Owner (asked 20:01Z): B-1 account; B-14 guild; Upload Message on production~~ — answered 20:08Z and 20:12Z. B-14 and the live check are done.
-- Owner (via steering-hooks-015): supply the account for B-1; choose the route for B-9, B-10 and the B-11 dialog leg (asked 20:34Z).
+- Owner (via steering-hooks-015): supply the account for B-1; name the B-10 server; choose a new route for B-9, B-10 and the B-11 dialog leg, since route (a) failed (asked 20:41Z).
 - Profile state left by the third walk: the test account's hooks.gg production session (3 cookies), from the ruled live sign-in. On Discord: the Hooks.gg bot added to the "Claude" server, and webhook "Spidey Bot" in #general. Both stay for the condition rows.
 - uat: record his results here as they come, before the website merge.
 - devops: release per M9 once the condition is met; carry B-6, B-7 and B-8 (with B-15's signal) in the Stage 1 handoff.
