@@ -1,0 +1,64 @@
+== trees
+7ce866b5c28191390964a863397ca481731a21ab
+471578fa2ee430368686b8e4a28ed61237bc3d3a
+== M1-a: 'in', sites under src/server (grep -rc, nonzero files)
+/usr/local/bin/hooks/website/src/server/api/utils/user.ts:1
+/usr/local/bin/hooks/website/src/server/api/utils/authorizeGuildUser.ts:1
+/usr/local/bin/hooks/website/src/server/api/utils/shared.ts:2
+== M3: dead tagName compare sites
+/usr/local/bin/hooks/website/src/components/ImageUploader.tsx:1
+/usr/local/bin/hooks/website/src/components/WarningDialog.tsx:1
+/usr/local/bin/hooks/website/src/components/ConfirmationDialog.tsx:1
+== M6-i: duplicate handler definitions
+/usr/local/bin/hooks/website/src/components/DiscordMessageEditor/index.tsx:2
+/usr/local/bin/hooks/website/src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx:1
+/usr/local/bin/hooks/website/src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx:1
+/usr/local/bin/hooks/website/src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx:1
+/usr/local/bin/hooks/website/src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx:1
+== M5-e: getDateString copies
+/usr/local/bin/hooks/website/src/app/message/f/[id]/page.tsx:1
+/usr/local/bin/hooks/website/src/app/message/_layout/Header.tsx:1
+== M6-l: countTotalComponents definition sites
+/usr/local/bin/hooks/website/src/components/DiscordMessageEditor/index.tsx:1
+== M7: test collection scope (vitest include, tsconfig.test include)
+21:        include: ['src/**/*.test.ts'],
+26:        include: ['src/**/*.test.tsx'],
+4:    "src/**/__tests__/**/*.ts",
+5:    "src/**/__tests__/**/*.tsx",
+6:    "src/@types/**/*.d.ts",
+bot test files: 0
+== Transcribed embedShape in the standing suite (QAF-1)
+22:const embedShape = z.object({
+30:  color: z.number().int().positive().max(0xffffff).optional(),
+34:    text: z.string().trim().max(2048),
+/usr/local/bin/hooks/website/src/constants/index.ts:44:export const MAX_EMBED_FOOTER_TEXT_LENGTH = 256 as const;
+== ID-token negative form over test basenames, titles, comments (with planted control)
+control (expect 2): 2
+basenames: 0
+title/comment lines: 0
+== Generator .env key names (values never printed) and tracking
+ENV set
+SERVER_HOST set
+SERVER_PORT set
+PREVIEW_ENDPOINT set
+API_KEY set
+CDN_KEY set
+CDN_SECRET set
+CDN_BUCKET set
+CDN_ENDPOINT set
+.gitignore:58:.env*	.env
+== Generator call order: S3 delete starts before the image is awaited (generateImage default export)
+60:  const imagePromise = getPool().use((p) => generateMessagePreviewImage(p, message));
+62:  await deleteMessagePreviewImages(messageId);
+68:    Body: await imagePromise,
+66:    getPool().drain(),
+== puppeteer: skip-download predicate (M8 install premise)
+puppeteer@21.1.0 integrity matches lockfile
+43:    "postinstall": "node install.js",
+61:    configuration.skipDownload = Boolean(process.env['PUPPETEER_SKIP_DOWNLOAD'] ??
+local puppeteer cache present: 0; PUPPETEER_* env vars: 0
+== generic-pool: autostart creates min resources at createPool (QAF-2)
+generic-pool@3.9.0 integrity matches lockfile
+15:    this.autostart = true;
+127:    if (this._config.autostart === true) {
+23:  min = 2,
