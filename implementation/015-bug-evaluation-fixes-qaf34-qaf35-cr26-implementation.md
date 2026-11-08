@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "QAF-34 (MEDIUM), QAF-35 (LOW), CR-26 (LOW) and CR-35 (LOW) delivered on website's chain branch at b195eeb. QAF-34: the title case runs over both title parsers, red under m6a-title-codeblock-interactive (1 case) and under the static mutant (1 case), control 29 of 29. QAF-35: the two rows are red under named mutants, control 57 of 57. CR-26: no-restricted-imports bans react-use useMount and the three callers use useEffect; full gate at 86f5a6c 1119 of 1119, vitest exit 0, typecheck exit 0. CR-35: the formatKey test sits beside its module. CR-36 reconciled in the QAF document. Round 2 (CR-37 MEDIUM, code review REJECTED b195eeb for the CR-26 callers): spec-form cells for the editor `onMount` effect (red under the reviewer's mutator) and for Button `autoFocus` (the reviewer's mutator is equivalent: react-aria focuses on mount; the cell is red under a mutant that also stops autoFocus reaching react-aria); the lint ban also covers `react-use/lib` and `react-use/esm`. Full gate at 2618926: 1122 of 1122, 115 files, vitest exit 0, typecheck exit 0. Round 3 (CR-38): Button autoFocus effect deleted at c5303ca. Round 4 (QAF-38, QAF-39, QAF-40, QA effort-final Phase 2, test-only) at 620b4ee: five survivors each red in one existing or new cell and green at the tip; full gate 1128 of 1128, 116 files, vitest exit 0, typecheck exit 0. Round 5 (QAF-41, QAF-42, plumbing sweep, test-only) at 9b5e47f: both survivors red, full gate 1130 of 1130, 116 files, vitest exit 0, typecheck exit 0."
-Handoff-At: "9b5e47f — repos=website"
+Status-Detail: "QAF-34 (MEDIUM), QAF-35 (LOW), CR-26 (LOW) and CR-35 (LOW) delivered on website's chain branch at b195eeb. QAF-34: the title case runs over both title parsers, red under m6a-title-codeblock-interactive (1 case) and under the static mutant (1 case), control 29 of 29. QAF-35: the two rows are red under named mutants, control 57 of 57. CR-26: no-restricted-imports bans react-use useMount and the three callers use useEffect; full gate at 86f5a6c 1119 of 1119, vitest exit 0, typecheck exit 0. CR-35: the formatKey test sits beside its module. CR-36 reconciled in the QAF document. Round 2 (CR-37 MEDIUM, code review REJECTED b195eeb for the CR-26 callers): spec-form cells for the editor `onMount` effect (red under the reviewer's mutator) and for Button `autoFocus` (the reviewer's mutator is equivalent: react-aria focuses on mount; the cell is red under a mutant that also stops autoFocus reaching react-aria); the lint ban also covers `react-use/lib` and `react-use/esm`. Full gate at 2618926: 1122 of 1122, 115 files, vitest exit 0, typecheck exit 0. Round 3 (CR-38): Button autoFocus effect deleted at c5303ca. Round 4 (QAF-38, QAF-39, QAF-40, QA effort-final Phase 2, test-only) at 620b4ee: five survivors each red in one existing or new cell and green at the tip; full gate 1128 of 1128, 116 files, vitest exit 0, typecheck exit 0. Round 5 (QAF-41, QAF-42, plumbing sweep, test-only) at 9b5e47f: both survivors red, full gate 1130 of 1130, 116 files, vitest exit 0, typecheck exit 0. Round 6 (CR-40 MEDIUM, code review REJECTED 9b5e47f; QAF-42 RESOLVED) at b96e364: the partial-message select clause is asserted whole in all three cells; 10 of 10 select-column mutants and the reviewer's three mutators red, control 4 of 4; full gate 1130 of 1130, vitest exit 0, typecheck exit 0."
+Handoff-At: "b96e364 — repos=website"
 ---
 
 # Implementation 015 — QAF-34, QAF-35, CR-26 (website)
@@ -26,6 +26,7 @@ Handoff-At: "9b5e47f — repos=website"
 | 2026-11-08T10:36 | code-reviewer-hooks-015 → implementer-hooks-015 | CR-38 LOW (Round 14 sub-entry APPROVED_WITH_COMMENTS; CR-37, CR-26 RESOLVED) | `Button`'s redundant `autoFocus` effect deleted at `c5303ca`. See § Round 3. |
 | 2026-11-08T12:47 | qa-hooks-015 → implementer-hooks-015 | QAF-38, QAF-39, QAF-40 (MEDIUM, test-only; effort-final Phase 2 QA Failed) | Tests at `620b4ee`; mutator `verification/015/mutators/qaf38-40-apply-qa-mutant.py`. See § Round 4. |
 | 2026-11-08T14:29 | qa-hooks-015 → implementer-hooks-015 | QAF-41, QAF-42 (MEDIUM, test-only; plumbing sweep) | Tests at `2b40dc5`, one class-sweep assertion at `9b5e47f`. See § Round 5. |
+| 2026-11-08T14:37 | code-reviewer-hooks-015 → implementer-hooks-015 | CR-40 MEDIUM (REJECTED `9b5e47f`; QAF-42 RESOLVED) | Test at `b96e364`. See § Round 6. |
 
 ## Implementation Summary
 
@@ -236,6 +237,36 @@ The `Promise.resolve(` wrap is a two-input predicate (`recentMessageIds` present
 | QAF-42 (a value assumed to be a promise at a call site the chain added) | `git grep -n "Promise.resolve(\|\.catch(() => {})" 2b40dc5 -- src ':!**/__tests__/**'` (derived) | 1 `Promise.resolve(` (`auth.ts:138`) and 4 `.catch(() => {})` (`auth.ts:73`, `:85`, `:141`, `:176`) | 138 and 141: fixed (the wrap and the `.catch` it feeds). 73, 85, 176: `.catch` on `fetch`, `redis.clearUser` and `redis.fetchGuild`, each always a promise by construction, not an operand that can be an array. Residual: 0 |
 
 **Self-diagnosis (method).** Not an escaped defect: both lines are preserved behaviour that no earlier test of mine asserted, and the M1-a and M1 gates passed without a mutant on either. The check to apply first, for a rewrite that preserves behaviour: empty each preserved line and see which test fails, as was done for the `Button` effect.
+
+## Round 6 — CR-40, website `9b5e47f..b96e364`
+
+Source: `code-review/015-bug-evaluation-fixes-code-review.md` § Round 2 sub-entry (`822dcf7`); the reviewer's probes `verification/015/cr-qaf-probes/cr40/`. Test-only; no user-visible surface. The finding: my QAF-41 sweep enumerated the flagged instance's own phrasing (`guildId as guildId`); the class is any selected column of `getPartialMessages` and `getUserRecentMessages` (10 members besides `guildId`), and three executed mutants stayed 4 of 4 green. Preferred (structural) fix implemented, not the minimum.
+
+- **Change** (`shared.in-predicates.test.ts`, +5 −3): one typed literal, `PARTIAL_MESSAGE_SELECT`, the compiled select clause `select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."previewImageNonce", "Guilds"."guildId" as "guildId" from "Messages"`, asserted by `toContain` in the `getUserRecentMessages` cell and in both `getPartialMessages` cells. It replaces the three `guildId`-only assertions. The literal was read from the compiled SQL the three cells capture, then typed; it is not derived from the `.select` array in `shared.ts`.
+- **Mutants at `b96e364`** (each in an isolated export through `mutate-run.sh`; the capture names the SHA): control 4 of 4, exit 0 (`mutation-qaf41-control-b96e364.txt`).
+
+| Mutant set | Members | Result |
+|---|---|---|
+| The reviewer's `cr40` mutators: `partial-name-unselected`, `partial-nonce-unselected`, `recent-name-unselected`, and the `control-partial-guildid-unselected` control | 4 | 2 of 4, 2 of 4, 1 of 4, 2 of 4 failed (`mutation-cr40-*-b96e364.txt`): each red in its own function's cells |
+| Every other selected column in both functions, `mutators/qaf41-select-column-mutants.json` (5 columns × 2 functions: `id`, `createdAt`, `updatedAt`, `name`, `previewImageNonce`), each applied exactly once by `qaf38-40-apply-qa-mutant.py` | 10 | 10 of 10 red: the five `partial` mutants 2 of 4 each (both `getPartialMessages` cells), the five `recent` mutants 1 of 4 each (`mutation-qaf41-{recent,partial}-*-unselected-b96e364.txt`) |
+| `guildId` in each function (`pl-shared-partial-guildid-unselected`, `qaf41-recent-messages-guildid-unselected`) | 2 | 2 of 4 and 1 of 4 red |
+
+The reviewer's three survived at `9b5e47f` (their capture `cr-qaf-probes/cr40/summary-9b5e47f.txt`); I did not re-run those at `9b5e47f`.
+
+**TDD Compliance (Round 6).** No new function or class. The red for each row is the mutant named, against the code the finding concerns.
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|----------------|-----------|---------------------|-------------------|----------------|------------------|
+| `getPartialMessages` select columns (both branches) | `shared.in-predicates.test.ts` | No, red by mutant (production built) | Yes | `partial-name-unselected` (reviewer's): AssertionError, the select clause lacks `name`; the other nine members above likewise | Yes |
+| `getUserRecentMessages` select columns | `shared.in-predicates.test.ts` | No, red by mutant | Yes | `recent-name-unselected` (reviewer's): AssertionError | Yes |
+
+**Gate at `b96e364`.** `impl-suite-run.sh b96e364 <scratch> <abs>/cr40-final`: 1130 of 1130, 116 files (no case added: three assertions replaced), vitest exit 0, typecheck exit 0, isolation 0 and 0, stderr 0 bytes (`cr40-final-run-b96e364.txt`, `cr40-final-testresults-b96e364.json`). ESLint exit 0. `convention-check website --since=9b5e47f`: 0 FAIL, 0 CANDIDATE, 1 SKIP (no conventions file above the repo for the id-token and basename checks: unchecked, not a pass).
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---|---|---|---|
+| CR-40 (a selected column of the two chain-edited message queries with no assertion) | the reviewer's per-column count over the test file, re-run, then one mutant per column per function (derived: the select list is `shared.ts` `getUserRecentMessages` and `getPartialMessages`, six columns each; `getMessage` and `guild.ts` are not chain-edited) | The per-column `git grep -c -F` over the test file at `b96e364`: 1 hit for each of the five columns beyond the shared literal and for `guildId` (the literal), and 2 for `"Messages"."id"` (the literal and the in-predicate). That count is not the instrument: a column inside a shared literal counts once for 3 cells. The instrument is the mutants, 10 + 2 members, table above | 12 of 12 members red. Residual with no failing assertion: 0 (before: 10 green) |
+
+**Self-diagnosis (method).** I enumerated the class by the flagged instance's text (`guildId as guildId`) rather than by the property the finding named: the select list as a whole. The check to apply first: state the class as an effect over a surface ("any column removed from the select") before writing the grep, and run one mutant per member.
 
 ## Next Steps
 

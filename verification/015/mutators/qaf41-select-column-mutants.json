@@ -1,0 +1,62 @@
+[
+ {
+  "id": "qaf41-recent-id-unselected",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "      'Messages.id', 'Messages.createdAt', 'Messages.updatedAt', 'Messages.name',\n      'Messages.previewImageNonce', 'Guilds.guildId as guildId',\n    ])\n    .where('Messages.id', 'in', messageIds)",
+  "new": "      'Messages.createdAt', 'Messages.updatedAt', 'Messages.name',\n      'Messages.previewImageNonce', 'Guilds.guildId as guildId',\n    ])\n    .where('Messages.id', 'in', messageIds)"
+ },
+ {
+  "id": "qaf41-recent-createdAt-unselected",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "      'Messages.id', 'Messages.createdAt', 'Messages.updatedAt', 'Messages.name',\n      'Messages.previewImageNonce', 'Guilds.guildId as guildId',\n    ])\n    .where('Messages.id', 'in', messageIds)",
+  "new": "      'Messages.id', 'Messages.updatedAt', 'Messages.name',\n      'Messages.previewImageNonce', 'Guilds.guildId as guildId',\n    ])\n    .where('Messages.id', 'in', messageIds)"
+ },
+ {
+  "id": "qaf41-recent-updatedAt-unselected",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "      'Messages.id', 'Messages.createdAt', 'Messages.updatedAt', 'Messages.name',\n      'Messages.previewImageNonce', 'Guilds.guildId as guildId',\n    ])\n    .where('Messages.id', 'in', messageIds)",
+  "new": "      'Messages.id', 'Messages.createdAt', 'Messages.name',\n      'Messages.previewImageNonce', 'Guilds.guildId as guildId',\n    ])\n    .where('Messages.id', 'in', messageIds)"
+ },
+ {
+  "id": "qaf41-recent-name-unselected",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "      'Messages.id', 'Messages.createdAt', 'Messages.updatedAt', 'Messages.name',\n      'Messages.previewImageNonce', 'Guilds.guildId as guildId',\n    ])\n    .where('Messages.id', 'in', messageIds)",
+  "new": "      'Messages.id', 'Messages.createdAt', 'Messages.updatedAt', \n      'Messages.previewImageNonce', 'Guilds.guildId as guildId',\n    ])\n    .where('Messages.id', 'in', messageIds)"
+ },
+ {
+  "id": "qaf41-recent-previewImageNonce-unselected",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "      'Messages.id', 'Messages.createdAt', 'Messages.updatedAt', 'Messages.name',\n      'Messages.previewImageNonce', 'Guilds.guildId as guildId',\n    ])\n    .where('Messages.id', 'in', messageIds)",
+  "new": "      'Messages.id', 'Messages.createdAt', 'Messages.updatedAt', 'Messages.name',\n      'Guilds.guildId as guildId',\n    ])\n    .where('Messages.id', 'in', messageIds)"
+ },
+ {
+  "id": "qaf41-partial-id-unselected",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "      'Messages.id', 'Messages.createdAt', 'Messages.updatedAt', 'Messages.name',\n      'Messages.previewImageNonce', 'Guilds.guildId as guildId',\n    ]);\n\n  const messages = await (guilds.length",
+  "new": "      'Messages.createdAt', 'Messages.updatedAt', 'Messages.name',\n      'Messages.previewImageNonce', 'Guilds.guildId as guildId',\n    ]);\n\n  const messages = await (guilds.length"
+ },
+ {
+  "id": "qaf41-partial-createdAt-unselected",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "      'Messages.id', 'Messages.createdAt', 'Messages.updatedAt', 'Messages.name',\n      'Messages.previewImageNonce', 'Guilds.guildId as guildId',\n    ]);\n\n  const messages = await (guilds.length",
+  "new": "      'Messages.id', 'Messages.updatedAt', 'Messages.name',\n      'Messages.previewImageNonce', 'Guilds.guildId as guildId',\n    ]);\n\n  const messages = await (guilds.length"
+ },
+ {
+  "id": "qaf41-partial-updatedAt-unselected",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "      'Messages.id', 'Messages.createdAt', 'Messages.updatedAt', 'Messages.name',\n      'Messages.previewImageNonce', 'Guilds.guildId as guildId',\n    ]);\n\n  const messages = await (guilds.length",
+  "new": "      'Messages.id', 'Messages.createdAt', 'Messages.name',\n      'Messages.previewImageNonce', 'Guilds.guildId as guildId',\n    ]);\n\n  const messages = await (guilds.length"
+ },
+ {
+  "id": "qaf41-partial-name-unselected",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "      'Messages.id', 'Messages.createdAt', 'Messages.updatedAt', 'Messages.name',\n      'Messages.previewImageNonce', 'Guilds.guildId as guildId',\n    ]);\n\n  const messages = await (guilds.length",
+  "new": "      'Messages.id', 'Messages.createdAt', 'Messages.updatedAt', \n      'Messages.previewImageNonce', 'Guilds.guildId as guildId',\n    ]);\n\n  const messages = await (guilds.length"
+ },
+ {
+  "id": "qaf41-partial-previewImageNonce-unselected",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "      'Messages.id', 'Messages.createdAt', 'Messages.updatedAt', 'Messages.name',\n      'Messages.previewImageNonce', 'Guilds.guildId as guildId',\n    ]);\n\n  const messages = await (guilds.length",
+  "new": "      'Messages.id', 'Messages.createdAt', 'Messages.updatedAt', 'Messages.name',\n      'Guilds.guildId as guildId',\n    ]);\n\n  const messages = await (guilds.length"
+ }
+]
