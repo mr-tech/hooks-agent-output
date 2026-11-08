@@ -2,11 +2,11 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Reviewed-At: "579e8b2 — repos=website; Round 2 sub-entry (M1-c/M1-h rebuild) at 579e8b2 against plan rev 19 (330348f). Round 7 (M4) at 1e12837. Rounds 4–6 were plan gate reads (latest 330348f,6001f7f)"
+Reviewed-At: "e118cc3,1e12837 — repos=agent-output,website; Round 8 is the plan gate read of 330348f..e118cc3 (rev 20, D29), mechanisms at website 1e12837. Round 2 sub-entry at 579e8b2; Round 7 (M4) at 1e12837"
 Status: In Review
-Status-Detail: "M1 at 579e8b2 (Round 2 sub-entry, plan rev 19): APPROVED_WITH_COMMENTS — CR-3 RESOLVED (structural), M1-h meets all eight rows, CR-15 LOW; QA Phase 2 may take M1-c and M1-h at 579e8b2. M4 Round 7 at 1e12837: APPROVED_WITH_COMMENTS (CR-14 LOW, with the owner). Rounds 4–6 (plan gate reads) approved."
-Round: 7
-Verdict: APPROVED_WITH_COMMENTS
+Status-Detail: "Round 8 (plan rev 20 gate read, D29): REJECTED for the webhook-load limb only — CR-16 MEDIUM (the dialog has no field-level error; the plan says under the field). M1 at 579e8b2: APPROVED_WITH_COMMENTS (CR-15 LOW). M4 at 1e12837: APPROVED_WITH_COMMENTS, reopened for D29."
+Round: 8
+Verdict: REJECTED
 ---
 
 # Code Review: Plan 015 — Bug-evaluation fixes
@@ -42,6 +42,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-08T07:08 | qa-hooks-015 (message; Assumption Not Checked routed from `qa/015-bug-evaluation-fixes-qa.md` `a47f5e9`) | Round 6 sub-entry: `authorizeGuildAdmin`'s refusal path, read as the rider's premise | No finding. A signed-in non-owner, non-Administrator of server A is refused with FORBIDDEN before any message fetch. The admin-bit test was run on the real module, 6 of 6 as expected (`verification/015/cr-m4d-admin-bit-probe-run1-6001f7f.txt`). Stated residue: the 600 s `user-guilds` cache. |
 | 2026-11-08T07:21 | implementer-hooks-015 (message) handoff at website `1e12837`; steering-hooks-015 (Round 7 held for one tree, option (a)) | Round 7: review M4 (F-16, F-17, F-18, F-27 at both sites, D27 rider, CR-11, CR-13) against plan rev 19 | APPROVED_WITH_COMMENTS. Every limb is met. The rider was attacked on the real `getFromUrl` with only Redis, Postgres and Discord faked: 26 cases at `1e12837` all refused or were controls as expected, and the attack leaks at `6001f7f` (`cr-m4-getfromurl-attack-run2/3`). CR-14 LOW: the two F-27 sites answer a failed *webhook* fetch differently. CR-11 and CR-13 RESOLVED. |
 | 2026-11-08T07:25 | implementer-hooks-015 (message) handoff at website `579e8b2` (§ Fix Round 2, `c938573`) | Round 2 sub-entry: the M1-c and M1-h rebuild (`1e12837..579e8b2`), plus CR-9 and CR-6 | Round 2 is now APPROVED_WITH_COMMENTS for M1. CR-3 RESOLVED, structurally: sign-out decides from the `Accounts` row, and `skipUpdate` is gone. My probes give 9 of 9 rows as expected at `579e8b2`, and they go red at `6001f7f` on cached `null` and on the lookup error. M1-h: every one of the eight rows has a cell. CR-15 LOW: row 2's "M rejects after the function returned" member has no cell, and by reasoning it is covered by the during-A cells. CR-9 and CR-6 RESOLVED. |
+| 2026-11-08T07:26 | steering-hooks-015 (message) | Round 8: plan gate read, `330348f..e118cc3` (rev 20, D29 for CR-14) | REJECTED for the webhook-load limb only. CR-16 MEDIUM: the limb places "Invalid URL" "at the webhook URL field" and "under the field" at both sites, but at `1e12837` the New Message dialog has no field-level error. Its webhook errors render in one shared line below the load options. The rest of the delta (the old-message clause now scoped to the message fetch, D29's registration) is approved. |
 
 ## Round 1 (M0, website `037935d`) — dispositions
 
@@ -266,6 +267,27 @@ CR-5 LOW Round 2 DECLINED — by the implementer (§ Fix Round 1): the plan sets
   - The `useParsePathname` describe is converted to exercise the real hook, or deleted with the surface listed as outstanding.
   - QA decides the timing (now or with a later touch). Non-blocking for M2.
 
+## Round 8 (plan gate read, rev 20, agent-output `e118cc3`; mechanisms at website `1e12837`)
+
+- **Scope.** The delta `330348f..e118cc3`, written to a file and read: D29's registration, M4-d's network clause split into the old-message fetch (D24) and the webhook-URL load (D29), and the owed table. Ruling `27f8cd7` was read too.
+- **The old-message clause** is now scoped to the message fetch, which removes CR-14's ambiguity. No finding.
+- **Send page, re-read at `1e12837`.** The webhook `.catch(() => null)` leaves `selectedWebhook` null, so `WebhookMenu`'s `errorMessage` shows "Invalid URL" once loading settles. A Discord refusal yields `null` too, so it also shows "Invalid URL" (M4-b). This matches the plan.
+- **Dialog, re-read at `1e12837`.** A Discord refusal sets `webhookError` to Discord's `message`. This matches the plan.
+
+**CR-16 MEDIUM Round 8 Plan text, M4-d webhook-load limb (rev 20)**: the dialog has no "webhook URL field" error to show "Invalid URL" in
+- **Location**: plan § M4-d, "Network failure, webhook-URL load (D29, code review CR-14)": "shows exactly "Invalid URL" … at the webhook URL field", and the walk: "both the send page and the New Message dialog show "Invalid URL" under the field". Code: `src/app/message/_components/NewMessageModal.tsx` at `1e12837`.
+- **Class**: A criterion stating where a user sees an outcome, at a site that has no such place, so that no implementation can meet it as written without UI the plan does not name.
+- **Enumeration**: field-level `errorMessage=` props at the two sites (`git grep -c "errorMessage="` per file at `1e12837`). `WebhookMenu/index.tsx` has 1 (the custom-URL input). `NewMessageModal.tsx` has 0. The dialog's Webhook URL `TextField` has no error prop. `useValidateWebhook`'s `webhookError` reaches the user only through `messageErrorString` (`discordMessageError ?? commandMessageError ?? webhookError ?? webhookMessageError`). That is one shared `text-error` line rendered below the whole load-option accordion, under the Message Link field, not the Webhook URL field. 1 member. The predicate cannot see an error rendered by a wrapper component under another prop name.
+- **Issue**: The text an implementer would naturally write, `setWebhookError('Invalid URL')` in the catch, puts the literal in the shared line, not under the field. The walk as written then fails. Adding a field-level `errorMessage` to the dialog's Webhook URL input (the literal sibling, `WebhookMenu`'s prop) meets the words. But it is new UI the plan does not name, and it raises a second question: is the same failure then also shown in the shared line? Where the contract cannot settle this, the contract is the defect. The walk is human-observable, so the criterion fails as written: MEDIUM.
+- **Required Action (planner)**: state the dialog's display place as one of these:
+  - (a) the shared error line below the load options, with the walk worded to match; or
+  - (b) a field-level `errorMessage` on the dialog's Webhook URL input, mirroring `WebhookMenu`'s custom-URL input, with the shared line no longer carrying this failure.
+  - Either way, the verifying cell asserts the literal at the stated place, and it fails if the text appears anywhere else, or nowhere. (b) is new UI. Whether it needs the owner is steering's call (D29's description says "copies the send page", which reads closer to (b)).
+
+### Round 8 verdict
+
+REJECTED for the webhook-load limb (CR-16). The rest of the rev 20 delta is approved. The M4 change for D29 should wait for the fold.
+
 ## Round 7 (M4, website `1e12837`, plan rev 19)
 
 ### Scope and identity
@@ -434,6 +456,8 @@ APPROVED_WITH_COMMENTS for M4 at `1e12837`. CR-14 is LOW and changes no safety o
 M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d: REJECTED on CR-11 until it is folded. CR-12 does not hold rev 16; it holds whatever the owner decides about it. No limb of mine is reached by the M3 premise hold.
 
 ## Verdict
+
+**Round 8 (plan gate read, rev 20)**: REJECTED for M4-d's webhook-load limb only (CR-16 MEDIUM, planner).
 
 **Round 7 (M4, website `1e12837`, plan rev 19)**: APPROVED_WITH_COMMENTS (CR-14 LOW). CR-11 and CR-13 are RESOLVED in code.
 
