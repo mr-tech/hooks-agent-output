@@ -1,0 +1,45 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-fadee3e-m1d-cap-ignores-new-conjunct  sha: fadee3e  label: m1d-cap-ignores-new-conjunct  test: src/server/api/utils/__tests__/shared.message-cap.test.ts  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m1d-cap-ignores-new-conjunct.py
+ .../src/server/api/utils/shared.ts                                      | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-fadee3e-m1d-cap-ignores-new-conjunct
+
+ ❯ |node| src/server/api/utils/__tests__/shared.message-cap.test.ts (10 tests | 2 failed) 33ms
+     × never refuses a save of an existing user message at 1000 7ms
+     × never refuses a save of an existing guild message at 1000 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.message-cap.test.ts > the per-owner message cap on an existing message > never refuses a save of an existing user message at 1000
+TRPCError: You have reached the limit of 1000 messages per user.
+ ❯ Module.upsertMessage src/server/api/utils/shared.ts:254:11
+    252|   const { count: messageCount } = await messageCountQuery.executeTakeF…
+    253|   if (Number(messageCount) >= MAX_MESSAGES) {
+    254|     throw new TRPCError({
+       |           ^
+    255|       code: 'BAD_REQUEST',
+    256|       message: `You have reached the limit of ${MAX_MESSAGES} messages…
+ ❯ src/server/api/utils/__tests__/shared.message-cap.test.ts:113:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.message-cap.test.ts > the per-owner message cap on an existing message > never refuses a save of an existing guild message at 1000
+TRPCError: You have reached the limit of 1000 messages per guild.
+ ❯ Module.upsertMessage src/server/api/utils/shared.ts:254:11
+    252|   const { count: messageCount } = await messageCountQuery.executeTakeF…
+    253|   if (Number(messageCount) >= MAX_MESSAGES) {
+    254|     throw new TRPCError({
+       |           ^
+    255|       code: 'BAD_REQUEST',
+    256|       message: `You have reached the limit of ${MAX_MESSAGES} messages…
+ ❯ src/server/api/utils/__tests__/shared.message-cap.test.ts:113:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 8 passed (10)
+   Start at  06:04:29
+   Duration  978ms (transform 218ms, setup 0ms, import 787ms, tests 33ms, environment 0ms)
+
+vitest exit 1

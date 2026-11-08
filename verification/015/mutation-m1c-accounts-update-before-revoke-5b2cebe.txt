@@ -1,0 +1,121 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-5b2cebe-m1c-accounts-update-before-revoke  sha: 5b2cebe  label: m1c-accounts-update-before-revoke  test: src/server/__tests__/auth.sign-out.test.ts  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m1c-accounts-update-before-revoke.py
+ .../src/server/auth.ts                                             | 7 +++++++
+ 2 files changed, 7 insertions(+), 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-5b2cebe-m1c-accounts-update-before-revoke
+
+ ❯ |node| src/server/__tests__/auth.sign-out.test.ts (8 tests | 5 failed) 63ms
+     × clears the user keys and nulls the stored tokens after an accepted revoke 13ms
+     × clears out all the same after a refused revoke 4ms
+     × clears out all the same after a revoke that fails on the network 4ms
+     × sends no revoke for an account without an access token, and clears out 3ms
+     × reads the account, then revokes, then nulls the stored tokens 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > clears the user keys and nulls the stored tokens after an accepted revoke
+AssertionError: expected [ { query: { …(4) }, …(2) }, …(1) ] to have a length of 1 but got 2
+
+- Expected
++ Received
+
+- 1
++ 2
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:103:31
+    101|       'user-access-token-fixture-user', 'user-session-token-fixture-se…
+    102|     ]);
+    103|     expect(accountsUpdates()).toHaveLength(1);
+       |                               ^
+    104|     expect(accountsUpdates()[0].parameters).toContain('fixture-discord…
+    105|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > clears out all the same after a refused revoke
+AssertionError: expected [ { query: { …(4) }, …(2) }, …(1) ] to have a length of 1 but got 2
+
+- Expected
++ Received
+
+- 1
++ 2
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:113:31
+    111|
+    112|     expect(log.clearedKeys).toHaveLength(3);
+    113|     expect(accountsUpdates()).toHaveLength(1);
+       |                               ^
+    114|   });
+    115|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > clears out all the same after a revoke that fails on the network
+AssertionError: expected [ { query: { …(4) }, …(2) }, …(1) ] to have a length of 1 but got 2
+
+- Expected
++ Received
+
+- 1
++ 2
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:122:31
+    120|
+    121|     expect(log.clearedKeys).toHaveLength(3);
+    122|     expect(accountsUpdates()).toHaveLength(1);
+       |                               ^
+    123|   });
+    124|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > sends no revoke for an account without an access token, and clears out
+AssertionError: expected [ { query: { …(4) }, …(2) }, …(1) ] to have a length of 1 but got 2
+
+- Expected
++ Received
+
+- 1
++ 2
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:132:31
+    130|     expect(log.fetch).not.toHaveBeenCalled();
+    131|     expect(log.clearedKeys).toHaveLength(3);
+    132|     expect(accountsUpdates()).toHaveLength(1);
+       |                               ^
+    133|   });
+    134|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > reads the account, then revokes, then nulls the stored tokens
+AssertionError: expected [ 'account-read', 'revoke', …(2) ] to deeply equal [ 'account-read', 'revoke', …(1) ]
+
+- Expected
++ Received
+
+  [
+    "account-read",
+    "revoke",
+    "accounts-update",
++   "accounts-update",
+  ]
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:139:19
+    137|
+    138|     const order = log.events.filter((event) => event !== 'redis-clear'…
+    139|     expect(order).toEqual(['account-read', 'revoke', 'accounts-update'…
+       |                   ^
+    140|   });
+    141| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  5 failed | 3 passed (8)
+   Start at  06:03:43
+   Duration  3.40s (transform 783ms, setup 0ms, import 3.02s, tests 63ms, environment 0ms)
+
+vitest exit 1

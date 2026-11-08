@@ -1,0 +1,8 @@
+# M1 gate captures, website chain/015-bug-evaluation-fixes at be881c9 (taken 2026-11-08 by implementer-hooks-015)
+vitest run --reporter=json at be881c9: exit 0; numTotalTests 669, passed 669, failed 0; testResults entries 67
+path membership vs verification/015/base-7ce866b-testresults-paths.txt: 0 paths missing, 13 new (the M1 test files)
+pnpm run typecheck at be881c9: exit 0
+git diff --numstat 7ce866b -- pnpm-lock.yaml package-lock.json: empty (0 bytes)
+convention-check.js website --since=037935d: 0 FAIL, 0 CANDIDATE, 1 SKIP (id-token basename check: no agent-output/TEST-CONVENTIONS.md above the repository)
+ID-token negative form (CLAUDE.md regex) over basenames, it/describe/test title lines and comment lines of the 14 test files changed since 037935d: 0 hits (hand run; the regex was not given a planted control)
+Earlier full run at 9e4955a (before the lint-gate commit): exit 0, 669/669, 67 files

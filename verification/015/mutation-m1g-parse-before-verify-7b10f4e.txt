@@ -1,0 +1,45 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-7b10f4e-m1g-parse-before-verify  sha: 7b10f4e  label: m1g-parse-before-verify  test: src/server/api/__tests__/interactions-edge.signature-before-parse.test.ts  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m1g-parse-before-verify.py
+ .../src/pages/api/interactions-edge.ts                                | 4 ++--
+ 2 files changed, 2 insertions(+), 3 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-7b10f4e-m1g-parse-before-verify
+
+ ❯ |node| src/server/api/__tests__/interactions-edge.signature-before-parse.test.ts (6 tests | 2 failed) 17ms
+     × answers 401 to a request whose signature does not verify, with malformed JSON 6ms
+     × parses nothing from a request whose signature does not verify 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/__tests__/interactions-edge.signature-before-parse.test.ts > the interactions-edge handler > answers 401 to a request whose signature does not verify, with malformed JSON
+SyntaxError: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+ ❯ Module.handler src/pages/api/interactions-edge.ts:48:28
+     46|   );
+     47|
+     48|   const interaction = JSON.parse(rawBody) as IncomingInteraction;
+       |                            ^
+     49|
+     50|   if (!isValid || req.body === null) {
+ ❯ src/server/api/__tests__/interactions-edge.signature-before-parse.test.ts:34:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/__tests__/interactions-edge.signature-before-parse.test.ts > the interactions-edge handler > parses nothing from a request whose signature does not verify
+SyntaxError: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+ ❯ Module.handler src/pages/api/interactions-edge.ts:48:28
+     46|   );
+     47|
+     48|   const interaction = JSON.parse(rawBody) as IncomingInteraction;
+       |                            ^
+     49|
+     50|   if (!isValid || req.body === null) {
+ ❯ src/server/api/__tests__/interactions-edge.signature-before-parse.test.ts:42:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 4 passed (6)
+   Start at  06:07:44
+   Duration  557ms (transform 125ms, setup 0ms, import 245ms, tests 17ms, environment 0ms)
+
+vitest exit 1

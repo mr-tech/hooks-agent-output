@@ -1,0 +1,37 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-7b10f4e-m1g-drop-body-null-conjunct  sha: 7b10f4e  label: m1g-drop-body-null-conjunct  test: src/server/api/__tests__/interactions-edge.signature-before-parse.test.ts  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m1g-drop-body-null-conjunct.py
+ .../src/pages/api/interactions-edge.ts                                  | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-7b10f4e-m1g-drop-body-null-conjunct
+
+ ❯ |node| src/server/api/__tests__/interactions-edge.signature-before-parse.test.ts (6 tests | 1 failed) 24ms
+     × answers 401 to a verified request that has no body stream 9ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/__tests__/interactions-edge.signature-before-parse.test.ts > the interactions-edge handler > answers 401 to a verified request that has no body stream
+AssertionError: expected 200 to be 401 // Object.is equality
+
+- Expected
++ Received
+
+- 401
++ 200
+
+ ❯ src/server/api/__tests__/interactions-edge.signature-before-parse.test.ts:53:29
+     51|     const response = await handler(request(PING, { bodyStream: null })…
+     52|
+     53|     expect(response.status).toBe(401);
+       |                             ^
+     54|   });
+     55|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 5 passed (6)
+   Start at  06:07:38
+   Duration  472ms (transform 92ms, setup 0ms, import 184ms, tests 24ms, environment 0ms)
+
+vitest exit 1

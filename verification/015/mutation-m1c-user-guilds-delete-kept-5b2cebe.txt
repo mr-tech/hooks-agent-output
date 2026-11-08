@@ -1,0 +1,40 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-5b2cebe-m1c-user-guilds-delete-kept  sha: 5b2cebe  label: m1c-user-guilds-delete-kept  test: src/server/__tests__/auth.sign-out.test.ts  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m1c-user-guilds-delete-kept.py
+ .../src/utils/redis/index.ts                                            | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-5b2cebe-m1c-user-guilds-delete-kept
+
+ ❯ |node| src/server/__tests__/auth.sign-out.test.ts (8 tests | 1 failed) 65ms
+     × deletes exactly the user and session keys 12ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out a session whose account cannot be found > deletes exactly the user and session keys
+AssertionError: expected [ …(3) ] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+  [
+    "user-access-token-fixture-user",
+    "user-session-token-fixture-session",
++   "user-guilds-",
+  ]
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:149:29
+    147|     await signOut();
+    148|
+    149|     expect(log.clearedKeys).toEqual(['user-access-token-fixture-user',…
+       |                             ^
+    150|   });
+    151|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 7 passed (8)
+   Start at  06:03:37
+   Duration  3.54s (transform 730ms, setup 0ms, import 3.09s, tests 65ms, environment 0ms)
+
+vitest exit 1

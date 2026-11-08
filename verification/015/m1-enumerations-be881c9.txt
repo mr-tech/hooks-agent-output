@@ -1,0 +1,31 @@
+## E1 grep -rn "'in'," src bot (non-test)
+src/server/api/utils/shared.ts:115:    .where('Messages.id', 'in', messageIds)
+src/server/api/utils/shared.ts:172:        .where('Guilds.guildId', 'in', guilds.map(({ id }) => id))
+src/server/api/utils/user.ts:20:      .where('id', 'in', messageIds)
+src/server/api/utils/authorizeGuildUser.ts:19:    .where('Messages.id', 'in', messageIds)
+## E2 grep -rnE "'(not in|in)'" src bot (non-test, any quoting position)
+src/server/api/utils/authorizeGuildUser.ts:19:    .where('Messages.id', 'in', messageIds)
+src/server/api/utils/shared.ts:115:    .where('Messages.id', 'in', messageIds)
+src/server/api/utils/shared.ts:172:        .where('Guilds.guildId', 'in', guilds.map(({ id }) => id))
+src/server/api/utils/user.ts:20:      .where('id', 'in', messageIds)
+## E3 grep -rn "'=', null" src (non-test)
+## E4 grep -rnE '![A-Za-z_.]+ (===|!==) ' src bot --include=*.ts --include=*.tsx --include=*.mjs --include=*.js (non-test)
+src/env.mjs:101:if (!!process.env.SKIP_ENV_VALIDATION === false) {
+## E5 grep -rn 'JSON.parse' src/pages/api
+src/pages/api/interactions-edge.ts:52:  const interaction = JSON.parse(rawBody) as IncomingInteraction;
+## E6 grep -rnE '(Number\(.*\)|count|length) > MAX_|> MAX_' src
+src/server/api/utils/shapes.ts:177:  if (total > MAX_COMPONENTS_DISPLAYABLE_TEXT) {
+src/components/SlateEditor/index.tsx:131:            } else if (pastedText.length > MAX_PASTE_LENGTH) {
+src/app/message/_components/NewMessageModal.tsx:196:    || messageName.length > MAX_MESSAGE_NAME_LENGTH;
+src/app/message/_components/NewMessageModal.tsx:404:                subLabelClassName={messageName.length > MAX_MESSAGE_NAME_LENGTH ? 'text-error' : undefined}
+src/app/message/m/[id]/_layout/Navigation.tsx:226:  } else if (message && message.name?.length > MAX_MESSAGE_NAME_LENGTH) {
+src/app/message/m/[id]/_layout/Navigation.tsx:276:                subLabelClassName={(message?.name?.length ?? 0) > MAX_MESSAGE_NAME_LENGTH ? 'text-error' : undefined}
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx:91:  const error = localText.length > MAX_EMBED_FOOTER_TEXT_LENGTH ? `Footer text must be less than ${MAX_EMBED_FOOTER_TEXT_LENGTH} characters.` : undefined;
+src/app/message/m/[id]/_components/SaveAsMenu.tsx:72:    || messageName.length > MAX_MESSAGE_NAME_LENGTH;
+src/app/message/m/[id]/_components/SaveAsMenu.tsx:125:          subLabelClassName={messageName.length > MAX_MESSAGE_NAME_LENGTH ? 'text-error' : undefined}
+src/server/api/utils/shared.ts:253:  if (!message.id && Number(messageCount) >= MAX_MESSAGES) {
+## E7 grep -rn CDN_PORT src
+src/utils/getCDNUrl.ts:1:export default () => `${process.env.NEXT_PUBLIC_CDN_HOST ?? ''}${process.env.NEXT_PUBLIC_CDN_PORT ? `:${process.env.NEXT_PUBLIC_CDN_PORT}` : ''}${process.env.NODE_ENV === 'development' ? '/dev' : ''}`;
+src/utils/__tests__/getCDNUrl.port-and-environment.test.ts:12:  vi.stubEnv('NEXT_PUBLIC_CDN_PORT', port ?? '');
+## E8 grep -rn 'getItem(' src/utils/redis
+## E9 grep -rn "split('=')" src bot

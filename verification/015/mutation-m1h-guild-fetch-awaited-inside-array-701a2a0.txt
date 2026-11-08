@@ -1,0 +1,43 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-701a2a0-m1h-guild-fetch-awaited-inside-array  sha: 701a2a0  label: m1h-guild-fetch-awaited-inside-array  test: src/server/__tests__/auth.hydrated-session.test.ts  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m1h-guild-fetch-awaited-inside-array.py
+ .../src/server/auth.ts                                                  | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-701a2a0-m1h-guild-fetch-awaited-inside-array
+
+(node:4102336) PromiseRejectionHandledWarning: Promise rejection was handled asynchronously (rejection id: 1)
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ |node| src/server/__tests__/auth.hydrated-session.test.ts (3 tests | 1 failed) 21ms
+     × reports a recent-messages failure through the callback while the guild fetch is still running 14ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback > reports a recent-messages failure through the callback while the guild fetch is still running
+AssertionError: expected [ Error: recent messages failed ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   Error {
++     "message": "recent messages failed",
++   },
++ ]
+
+ ❯ src/server/__tests__/auth.hydrated-session.test.ts:105:23
+    103|
+    104|     expect(await outcome).toMatchObject({ message: 'recent messages fa…
+    105|     expect(unhandled).toEqual([]);
+       |                       ^
+    106|   });
+    107| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  06:11:38
+   Duration  935ms (transform 295ms, setup 0ms, import 688ms, tests 21ms, environment 0ms)
+
+vitest exit 1

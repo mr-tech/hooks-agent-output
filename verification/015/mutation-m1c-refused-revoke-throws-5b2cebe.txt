@@ -1,0 +1,55 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-5b2cebe-m1c-refused-revoke-throws  sha: 5b2cebe  label: m1c-refused-revoke-throws  test: src/server/__tests__/auth.sign-out.test.ts  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m1c-refused-revoke-throws.py
+ .../website-5b2cebe-m1c-refused-revoke-throws}/src/server/auth.ts       | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-5b2cebe-m1c-refused-revoke-throws
+
+ ❯ |node| src/server/__tests__/auth.sign-out.test.ts (8 tests | 2 failed) 97ms
+     × clears out all the same after a refused revoke 6ms
+     × clears out all the same after a revoke that fails on the network 15ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > clears out all the same after a refused revoke
+Error: revoke refused
+ ❯ src/server/auth.ts:74:41
+     72|     headers: myHeaders,
+     73|     body: urlencoded,
+     74|   }).then((res) => { if (!res.ok) throw new Error('revoke refused'); }…
+       |                                         ^
+     75| }
+     76|
+ ❯ revokeAccessToken src/server/auth.ts:70:3
+ ❯ removeUserSession src/server/auth.ts:88:29
+ ❯ Object.signOut src/server/auth.ts:252:9
+ ❯ src/server/__tests__/auth.sign-out.test.ts:110:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > clears out all the same after a revoke that fails on the network
+AssertionError: promise rejected "TypeError: fetch failed" instead of resolving
+ ❯ src/server/__tests__/auth.sign-out.test.ts:119:28
+    117|     stubRevoke(async () => { throw new TypeError('fetch failed'); });
+    118|
+    119|     await expect(signOut()).resolves.toBeUndefined();
+       |                            ^
+    120|
+    121|     expect(log.clearedKeys).toHaveLength(3);
+
+Caused by: TypeError: fetch failed
+ ❯ src/server/__tests__/auth.sign-out.test.ts:117:36
+ ❯ src/server/__tests__/auth.sign-out.test.ts:74:12
+ ❯ revokeAccessToken src/server/auth.ts:70:9
+ ❯ removeUserSession src/server/auth.ts:88:35
+ ❯ Object.signOut src/server/auth.ts:252:9
+ ❯ src/server/__tests__/auth.sign-out.test.ts:119:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 6 passed (8)
+   Start at  06:03:29
+   Duration  3.43s (transform 672ms, setup 0ms, import 3.08s, tests 97ms, environment 0ms)
+
+vitest exit 1

@@ -1,0 +1,89 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-fadee3e-m1d-cap-comparator-strict  sha: fadee3e  label: m1d-cap-comparator-strict  test: src/server/api/utils/__tests__/shared.message-cap.test.ts  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m1d-cap-comparator-strict.py
+ .../src/server/api/utils/shared.ts                                      | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-fadee3e-m1d-cap-comparator-strict
+
+ ❯ |node| src/server/api/utils/__tests__/shared.message-cap.test.ts (10 tests | 2 failed) 50ms
+     × refuses a new message when the user holds 1000, and inserts nothing 12ms
+     × refuses a new message when the server holds 1000, and inserts nothing 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.message-cap.test.ts > the per-owner message cap on a new user-scoped message > refuses a new message when the user holds 1000, and inserts nothing
+AssertionError: promise resolved "{ id: 'saved-id', createdAt: +0, …(7) }" instead of rejecting
+
+- Expected
++ Received
+
+- Error {
+-   "message": "rejected promise",
++ {
++   "createdAt": 0,
++   "data": {
++     "components": [],
++     "content": "Hi",
++     "embeds": [],
++     "username": "U",
++   },
++   "id": "saved-id",
++   "name": "n",
++   "previewImageNonce": null,
++   "recentMessageId": undefined,
++   "recentThreadId": undefined,
++   "recentWebhookId": undefined,
++   "updatedAt": 0,
+  }
+
+ ❯ src/server/api/utils/__tests__/shared.message-cap.test.ts:66:56
+     64|     useCounts({ user, guild: 0 });
+     65|
+     66|     await expect(upsertMessage(newMessage, userSelect)).rejects.toThro…
+       |                                                        ^
+     67|
+     68|     expect(insertedMessages()).toHaveLength(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.message-cap.test.ts > the per-owner message cap on a new guild-scoped message > refuses a new message when the server holds 1000, and inserts nothing
+AssertionError: promise resolved "{ id: 'saved-id', createdAt: +0, …(7) }" instead of rejecting
+
+- Expected
++ Received
+
+- Error {
+-   "message": "rejected promise",
++ {
++   "createdAt": 0,
++   "data": {
++     "components": [],
++     "content": "Hi",
++     "embeds": [],
++     "username": "U",
++   },
++   "id": "saved-id",
++   "name": "n",
++   "previewImageNonce": null,
++   "recentMessageId": undefined,
++   "recentThreadId": undefined,
++   "recentWebhookId": undefined,
++   "updatedAt": 0,
+  }
+
+ ❯ src/server/api/utils/__tests__/shared.message-cap.test.ts:92:57
+     90|     useCounts({ user: 0, guild: 1000 });
+     91|
+     92|     await expect(upsertMessage(newMessage, guildSelect)).rejects.toThr…
+       |                                                         ^
+     93|
+     94|     expect(insertedMessages()).toHaveLength(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 8 passed (10)
+   Start at  06:04:36
+   Duration  1.53s (transform 423ms, setup 0ms, import 1.21s, tests 50ms, environment 0ms)
+
+vitest exit 1

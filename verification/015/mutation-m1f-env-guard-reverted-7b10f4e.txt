@@ -1,0 +1,37 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-7b10f4e-m1f-env-guard-reverted  sha: 7b10f4e  label: m1f-env-guard-reverted  test: src/__tests__/env.client-proxy.test.ts  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m1f-env-guard-reverted.py
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-7b10f4e-m1f-env-guard-reverted
+
+ ❯ |node| src/__tests__/env.client-proxy.test.ts (3 tests | 1 failed) 74ms
+     × still refuses a read of a server key 11ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/__tests__/env.client-proxy.test.ts > the env proxy in the client branch > still refuses a read of a server key
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ src/__tests__/env.client-proxy.test.ts:34:45
+     32|     const { env } = await loadClientEnv();
+     33|
+     34|     expect(() => env.DISCORD_CLIENT_SECRET).toThrow('server-side envir…
+       |                                             ^
+     35|   });
+     36|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  06:07:35
+   Duration  365ms (transform 70ms, setup 0ms, import 45ms, tests 74ms, environment 0ms)
+
+vitest exit 1

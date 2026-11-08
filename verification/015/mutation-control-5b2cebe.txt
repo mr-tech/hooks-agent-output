@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-5b2cebe-control  sha: 5b2cebe  label: control  test: src/server/__tests__/auth.sign-out.test.ts  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-5b2cebe-control
+
+
+ Test Files  1 passed (1)
+      Tests  8 passed (8)
+   Start at  06:03:24
+   Duration  2.05s (transform 534ms, setup 0ms, import 1.76s, tests 55ms, environment 0ms)
+
+vitest exit 0
