@@ -405,3 +405,6 @@ Effect read by steering at 22:02:53Z over claude-ro: server.js mtime 2026-11-08 
 ## 2026-11-08T22:04Z — D19 re-run route: the owner dispatches prod.yml in GitHub (selection)
 Options: You: run it in GitHub / You: give devops access / Agent: skip the proof. Chosen **You: run it in GitHub**, by selection. Its description, verbatim: "You: on GitHub, preview-image-generator → Actions → prod.yml → Run workflow, on branch prod. Then tell me \"dispatched\". Devops reads the host logs over claude-ro afterwards to check the shutdown was clean."
 Premises: gh returns 404 for the repo (devops's read). Stop (1) at 22:02:25–37Z (steering's read, re-read by devops at 22:03:15Z).
+
+## 2026-11-08T22:06Z — D19 re-run: "it's ran"
+His words, verbatim, reporting the prod.yml dispatch. Effect read by steering over claude-ro: pm2.log 3191–3197. "Stopping app" at 22:04:49Z; pid 2502940 "exited with code [0] via signal [SIGINT]" at 22:04:49Z, under 1 s with no SIGKILL; online at 22:04:51Z; server.js mtime 22:04:49Z. That is stop (2). Run 2 and the clean-shutdown verdict are devops's. Relayed to devops-hooks-015.

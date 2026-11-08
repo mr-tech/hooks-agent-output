@@ -37,17 +37,6 @@ Statbot's own calls, which carry the key, still get through.
 
 Does the list load? Tell steering "loads" or "empty / error".
 
-## Chain 015 — re-run the image generator's deploy (proves clean shutdown)
-
-You chose to start this yourself, because devops's GitHub login can't see the repo.
-
-1. GitHub → hooks-gg/preview-image-generator → Actions → prod.yml → **Run workflow**, branch `prod`.
-2. Tell steering-hooks-015 "dispatched". Devops then reads the box's logs over claude-ro.
-3. **Pass** (devops reads it, not you): the running generator stops on its own within 12 seconds,
-   without being force-killed.
-
-Have you dispatched it?
-
 ## Chain 015 — publish the bot's commands to Discord
 
 The fix lets members with Manage Server (not only Administrator) use *Get Message*. It takes effect
