@@ -129,3 +129,5 @@ UAT-3 INFO — A React hydration-mismatch console error shows on first load of t
 - uat or owner: execute B-1, B-2, B-9, B-10, B-14 and the B-11 dialog leg before the website merge, and record them here.
 - devops: release per M9 once the condition is met; carry B-6, B-7 and B-8 (with B-15's signal) in the Stage 1 handoff.
 - planner: UAT-1's Validation text (`INBOX.md`, uat-hooks-015 entry).
+
+Delivery note: no devops session for chain 015 existed at 15:2xZ (ListAgents), so this report is lodged here. A spawn cue naming this document went to steering-hooks-015. The `b96e364` export stays in uat-hooks-015's scratchpad (`web-b96e364/`) for the condition rows' re-run; the `7ce866b` export is deleted.
