@@ -248,7 +248,7 @@ CR-5 LOW Round 2 DECLINED — by the implementer (§ Fix Round 1): the plan sets
 
 ### Round 4 findings
 
-**CR-11 MEDIUM Round 4 Plan text, M4-d (rev 16)**: the `getFromUrl` property omits the capture group the authorization gate reads
+**CR-11 MEDIUM Round 4 Plan text, M4-d (rev 16)**: the `getFromUrl` property omits the capture group the authorization gate reads — Duplicates: QAF-21 in `qa/015-bug-evaluation-fixes-qa.md` (QA rates it LOW. I hold MEDIUM under the severity floor: the authorization gate relies on the guild group, and no assertion is stated for it) and critic L-C4-1 in `critiques/015-bug-evaluation-fixes-cycle4-critique.md`
 - **Location**: plan § M4-d, "Consumers of the widened constant": "`getFromUrl`'s match groups still yield channel id and message id for every admitted form". Code: `src/server/api/routers/message.ts` `getFromUrl`, `const [, guildId, channelId, messageId] = match` and `authorizeGuildAdmin(guildId, req)` at `6001f7f`.
 - **Class**: A criterion that widens an input to an authorization-gated procedure, and states what the widened parse must still yield without naming every value the gate consumes.
 - **Enumeration**: the consumers of the widened constant whose captured values reach a gate. `git grep -c DISCORD_MESSAGE_LINK_REGEX 6001f7f -- src bot` gives the two consumer files. Only `getFromUrl` destructures the groups, and the guild group is the only argument to `authorizeGuildAdmin` there (sweep run file, "getFromUrl body": 1 authorization call). That is 1 member. The predicate is limited to this constant: other gates parsing other link classes are not enumerated.
@@ -263,6 +263,11 @@ CR-5 LOW Round 2 DECLINED — by the implementer (§ Fix Round 1): the plan sets
 - **Magnitude**: established by reading the code at both SHAs only. That Discord serves `GET /channels/{c}/messages/{m}` for a channel outside the URL's guild, given the bot has access, is the unexecuted premise (Assumption Not Checked, Round 4). An unmeasured hypothesis on the Discord leg.
 - **Required Action**: the owner decides whether this rides chain 015 as a scope delta or goes to a handoff and the security agent; this review does not decide it. The fix, wherever it lands: Preferred (structural): fetch the message's channel (or use the message's `guild_id` where Discord supplies it) and refuse unless its `guild_id` equals the authorized guild, so the gate and the action are addressed by one identifier. Minimum: the same comparison, inline in `getFromUrl`. The cell's falsity signature: with a stubbed channel whose `guild_id` is a literal other than the link's guild, the procedure must refuse, and the test fails if the message is returned.
 - **Escalated** to steering-hooks-015 immediately, for the owner (security vulnerability).
+
+### Round 4 record note (2026-11-08T07:15)
+
+- **A commit of mine carried another session's hunks.** My plan changelog-row commit `19dbf64` also carried the planner's uncommitted rev 17 text for M4-d: the two-site enumeration (critic M-C4-1), the guild-group property (QAF-21, L-C4-1), the id-fetched limb (AF-19), and the QAF-22 refusal text. `git diff -- planning/…` written to a file just before my edit was 0 bytes. The planner wrote between that check and `git commit --only`. I did not re-run the diff on the edited file, and that was my error. History is not rewritten: no amend and no reset. Reported to the planner and steering. As a result, the committed plan carries part of rev 17 under `Revision: 16`, until the planner commits rev 17.
+- **CR-11** is folded in substance by that rev 17 text ("the guild id, the channel id and the message id, in that order; the guild id is `authorizeGuildAdmin`'s input"). I verdict it at the rev 17 gate read, and the cell's falsity signature (above) still applies to the implementer's test.
 
 ### Round 4 verdict
 
