@@ -1,0 +1,95 @@
+{
+ "_scope": "QA effort-final Phase 2, preview-image-generator 8de2b53: the 9 M8-b to M8-e mutants of mutators/qa-m8-supplement.py (first run at 6c613a5), restated against the compiled build/ of a git-archive export at 8de2b53. m8d-no-create-error-handler is restated to the conditional registration (D36). m8b-* run under --probe probe-body-class.cjs (no S3 connect per refused member); the rest under probe.cjs.",
+ "mutants": [
+  {
+   "name": "m8b-object-test-dropped",
+   "file": "build/server.js",
+   "edits": [
+    [
+     "            if (typeof parsedBody !== 'object' || parsedBody === null)\n                throw new TypeError('Request body is not an object.');\n",
+     ""
+    ]
+   ]
+  },
+  {
+   "name": "m8b-null-conjunct-dropped",
+   "file": "build/server.js",
+   "edits": [
+    [
+     "if (typeof parsedBody !== 'object' || parsedBody === null)",
+     "if (typeof parsedBody !== 'object')"
+    ]
+   ]
+  },
+  {
+   "name": "m8b-catch-rethrows",
+   "file": "build/server.js",
+   "edits": [
+    [
+     "        catch (err) {\n            res.writeHead(500);\n            res.end();\n            console.error(err);\n            return;\n        }",
+     "        catch (err) {\n            throw err;\n        }"
+    ]
+   ]
+  },
+  {
+   "name": "m8c-finally-no-close",
+   "file": "build/generateImage.js",
+   "edits": [
+    [
+     "await page.close().catch((err) => { console.error(err); });",
+     "void 0;"
+    ]
+   ]
+  },
+  {
+   "name": "m8c-sequential-delete",
+   "file": "build/generateImage.js",
+   "edits": [
+    [
+     "    const [image] = await Promise.all([\n        (0, getPool_1.default)().use((p) => generateMessagePreviewImage(p, message)),\n        deleteMessagePreviewImages(messageId),\n    ]);",
+     "    const imagePromise = (0, getPool_1.default)().use((p) => generateMessagePreviewImage(p, message));\n    await deleteMessagePreviewImages(messageId);\n    const image = await imagePromise;"
+    ]
+   ]
+  },
+  {
+   "name": "m8d-factory-returns-null",
+   "file": "build/getPool.js",
+   "edits": [
+    [
+     "                throw err;",
+     "                return null;"
+    ]
+   ]
+  },
+  {
+   "name": "m8d-no-create-error-handler",
+   "file": "build/getPool.js",
+   "edits": [
+    [
+     "    if (dequeueWaiting)\n        pool.on('factoryCreateError', (err) => { dequeueWaiting()?.reject(err); });\n",
+     ""
+    ]
+   ]
+  },
+  {
+   "name": "m8e-gate-dropped",
+   "file": "build/config.js",
+   "edits": [
+    [
+     "if (!process.env.API_KEY) {",
+     "if (false) {"
+    ]
+   ]
+  },
+  {
+   "name": "m8e-empty-allowed",
+   "file": "build/config.js",
+   "edits": [
+    [
+     "if (!process.env.API_KEY) {",
+     "if (process.env.API_KEY === undefined) {"
+    ]
+   ]
+  }
+ ]
+}
