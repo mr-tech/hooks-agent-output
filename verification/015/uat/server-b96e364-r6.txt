@@ -1,0 +1,48 @@
+▲ Next.js 16.1.6 (webpack)
+- Local:         http://127.0.0.1:3000
+- Network:       http://127.0.0.1:3000
+- Environments: .env.local
+
+✓ Starting...
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+✓ Ready in 1404ms
+○ Compiling /message/m/[id]/edit ...
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 3.6ms
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 5.4ms
+kysely:query: select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."previewImageNonce", "Guilds"."guildId" as "guildId" from "Messages" left join "Guilds" on "Messages"."fk_guilds_id" = "Guilds"."id" where "Messages"."id" in ($1, $2, $3, $4, $5, $6)
+kysely:query: duration: 2.4ms
+kysely:query: select "id", "access_token", "refresh_token", "providerAccountId", "expires_at" from "Accounts" where "userId" = $1
+kysely:query: duration: 3.1ms
+ GET /api/auth/session?hydrate=true 200 in 2.5s (compile: 2.4s, render: 56ms)
+ GET /message/f/0 200 in 17.2s (compile: 14.0s, proxy.ts: 108ms, render: 3.0s)
+ GET /api/auth/session?hydrate=true 200 in 2.8s (compile: 2.4s, render: 384ms)
+ GET /message/m/0/edit 200 in 15.5s (compile: 12.4s, proxy.ts: 33ms, render: 3.0s)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 2.3ms
+kysely:query: select "userId" from "Accounts" where "provider" = $1 and "providerAccountId" = $2
+kysely:query: duration: 1.7ms
+kysely:query: select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."previewImageNonce" from "Messages" where "Messages"."fk_users_id" = $1
+kysely:query: duration: 0.9ms
+ GET /api/trpc/message.get?input=%7B%22json%22%3A%220%22%7D 200 in 1352ms (compile: 1323ms, render: 29ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 0.9ms
+ GET /api/auth/session 304 in 14ms (compile: 4ms, render: 10ms)
+ GET /message/f/0 200 in 200ms (compile: 147ms, proxy.ts: 14ms, render: 40ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 1.0ms
+kysely:query: select "userId" from "Accounts" where "provider" = $1 and "providerAccountId" = $2
+kysely:query: duration: 0.9ms
+kysely:query: select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."previewImageNonce" from "Messages" where "Messages"."fk_users_id" = $1
+kysely:query: duration: 0.6ms
+ GET /api/trpc/message.get?input=%7B%22json%22%3A%220%22%7D 200 in 12ms (compile: 1640µs, render: 10ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 1.1ms
+kysely:query: select "userId", "access_token", "providerAccountId" from "Accounts" where exists (select "id" from "Users" where exists (select "id" from "Sessions" where "sessionToken" = $1 and "Sessions"."userId" = "Users"."id") and "Users"."id" = "Accounts"."userId") limit $2
+kysely:query: duration: 1.0ms
+❌ tRPC failed on message.getFromUrl: User does not have permission to access to this server.
+ GET /api/trpc/message.getFromUrl?input=%7B%22json%22%3A%7B%22url%22%3A%22https%3A%2F%2Fdiscord.com%2Fchannels%2F1566742402180456559%2F1566742403195469906%2F1569090193250717909%22%7D%7D 403 in 21ms (compile: 2ms, render: 19ms)
+⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /preview 200 in 1750ms (compile: 1423ms, proxy.ts: 12ms, render: 316ms)
+[?25h

@@ -1,0 +1,15 @@
+{
+ "signedIn": true,
+ "saveToChoices": null,
+ "opened": true,
+ "route": "via /message/m/0/edit → in-app link → f/0, no reload",
+ "requests": [
+  {
+   "status": 403,
+   "hasMessageContent": false,
+   "errorMessage": "User does not have permission to access to this server."
+  }
+ ],
+ "dialogText": "Create or upload a new message\nMessage Link\nURL\n(Requires bot.)\nWebhook\nMessage Context Command\nJSON\nUser does not have permission to access to this server.\nContinue",
+ "continueEnabled": false
+}
