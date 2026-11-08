@@ -302,7 +302,7 @@ CR-5 LOW Round 2 DECLINED — by the implementer (§ Fix Round 1): the plan sets
 - **Enumeration**:
   - Rows in the cited reads with a render outcome below the positive control's node count: `m5h-class-probe/run1` has 1 (row 46, 0 nodes), and the critic's `run4` has 0. That is 1 member.
   - My run of that member with the real page and editor throws "gallery.items.map is not a function", in both orders (`reported-run1-da24eb7.txt`, `reported-run2-da24eb7.txt`). The `Array.isArray` guard in `injectComponentKeys` lets a string `items` through `makeEditable`, and the media-gallery renderer then calls `.map` on it.
-  - Blind spot: the predicate (node count below the positive control) cannot see a crash inside a subtree that an error boundary replaces with fallback content. The page has no error boundary I know of; I did not search for one.
+  - Blind spot: the predicate (node count below the positive control) cannot see a crash inside a subtree that an error boundary replaces with fallback content. The one boundary (around `DiscordContentEditor`) was checked in run 3: no member the plan lists as rendering shows its fallback.
 - **Issue**: The plan's property says every crash member is refused. X-19 says this member is not a crash, and that it stays unchanged. These cannot both hold. Read as written, the guard need not cover the member, and any cell built from the read's literal ("unchanged") would pin a crash (Axiom D). This is the CR-18 class again: a crash member left unrefused, inside the limb that claims to remove it: MEDIUM.
 - **Required Action (planner)**:
   - Move `{"components":[{"type":12,"items":"x"}]}` (a type-12 `items` that is not an array) into class (3)'s crashing members, citing `reported-run1-da24eb7.txt`.
