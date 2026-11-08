@@ -1,0 +1,8 @@
+# website 6001f7f src/utils/hasDiscordPermissions.ts, run 1
+ok   Administrator bit only perms=8 -> true (want true)
+ok   ManageGuild only (not admin) perms=32 -> false (want false)
+ok   no permissions perms=0 -> false (want false)
+ok   ManageMessages|SendMessages, no admin perms=10240 -> false (want false)
+ok   all bits incl. admin, above 2^53 perms=2251799813685247 -> true (want true)
+ok   high bit only (2^50), no admin perms=1125899906842624 -> false (want false)
+node v24.14.0; mismatches 0
