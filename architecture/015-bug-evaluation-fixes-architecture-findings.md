@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Delta pass on plan rev 27 (18d361c, read from c375d2c): APPROVED; nothing owner-needing (no new deviation). AF-31 LOW is recommended: D36's guard should log and keep serving. AF-30's guard is the owner's ruling (D36, f5ab120), and RK-8's failure mode is now settled as a process exit (CR-31). Still with code review against the code: AF-27 (M5-h) and AF-29 (M5-i). AF-26 is resolved (D34, website.md W-7). AF-18 is implemented at website 3031878. A later revision is read on its delta."
+Status-Detail: "Delta pass on plan rev 28 (2a4533b, the D37 pre-UAT fold, read from 18d361c): APPROVED; nothing owner-needing (no new deviation). AF-32 LOW is recommended: the RK-8 carrier's drift probe runs locally on an export of the deployed commit under the deployed Node version, never on the generator host, and is a measurement, not a pass/fail read. The master document's generic-pool Problem Area is restated to the 8de2b53 signature (hang and retry storm, CR-34). AF-27 and AF-29 stay with code review against the code. AF-26 is resolved (D34, website.md W-7); AF-18 is implemented at website 3031878; AF-31 is implemented at 8de2b53. A later revision is read on its delta."
 ---
 
 # Architecture Findings — Plan 015: Bug-evaluation fixes (conformance pass)
@@ -39,6 +39,39 @@ Status-Detail: "Delta pass on plan rev 27 (18d361c, read from c375d2c): APPROVED
 | 2026-11-08T09:24 | Delta pass, plan rev 26 (`c375d2c`, read from `dd9e88a`), on steering-hooks-015's request | Conforming: M5-h (3) anchored to the tip (CR-29), M8-b under D35, M8-d as a property, and the M6-a provenance correction. RK-8 was read at preview-image-generator `6c613a5`. `getPool.ts` reaches the private `_waitingClientsQueue` from the public `factoryCreateError` event. That is a necessary deviation, because no public API rejects a waiting acquire, and `acquireTimeoutMillis` would delay every failure to the timeout. Exposure: the lockfile resolves exactly 3.9.0, `prod.yml` runs `npm ci`, and 3.9.0 is the newest published version (`npm view`). AF-30 LOW: a startup guard that logs or refuses when the private shape is absent turns a silent hang into a log line; an exact pin is optional. One Problem Area registered. Nothing for the owner. **APPROVED.** |
 | 2026-11-08T09:25 | RK-8 ruled (steering-hooks-015, rulings `f5ab120`) | The owner chose "Agent: accept + startup guard". The private-field reach is accepted, the AF-30 startup guard is his ruling and rides the implementer's M8-a fix, and the exact pin was declined. **Correction, the error mine:** the rev 26 verdict rated the reach a necessary deviation and also said "Nothing needs the owner". Under steering.md's Conformance rule, a necessary deviation goes to him as a selection. Steering routed it. A future pass that rates a deviation necessary marks it owner-needing. |
 | 2026-11-08T09:37 | Delta pass, plan rev 27 (`18d361c`, read from `c375d2c`), on steering-hooks-015's request | These conform: M8-d (d) under D36; RK-8's signature, now settled by CR-31's executed mutant (exit code 1, not a hang), which retires AF-30's hang limb; the M9 RK-8 carrier; M5-h (3)'s enumerator and move rule; M8-b narrowed with X-23; and X-24. X-23 was read at preview-image-generator `6c613a5`: the S3 `Prefix` and `Key` are built from the body's `id`, so an array or id-less body works under `previews/undefined/`, behind `API_KEY`. No new deviation, so nothing is owner-needing. AF-31 LOW: D36's guard should log and serve, not refuse to start. Refusing would turn a dependency drift into a full outage, while serving fails only on the Chromium-outage path. One Problem Area registered: `/generate` trusts its body beyond object-ness. **APPROVED.** |
+| 2026-11-08T10:57 | Delta pass, plan rev 28 (`2a4533b`, the D37 pre-UAT fold, read from `18d361c`), briefed by steering-hooks-015 | The planner's claim of no milestone-level scope delta holds. M5-h (3)'s widened trigger, M8-d (d)'s two-level member and its startup grounding, RK-8's `8de2b53` signature, figures and residue class, and X-25/X-26 were read against preview-image-generator `8de2b53` and the cited probe files, and they conform. AF-32 LOW is recommended: the RK-8 drift probe runs locally on an export of the deployed commit, never on the generator host, and is a measurement, not a falsifier. The master Problem Area row for the generic-pool reach is restated to the shipped signature. Reconcile notes were added to the rev 27 RK-8 bullet and to AF-31, whose exit premise was `6c613a5`'s. **APPROVED.** Nothing is owner-needing. |
+
+## Verdict (rev 28, `2a4533b`, the D37 pre-UAT fold, one pass from rev 27 `18d361c`): APPROVED
+
+Read: `git diff 18d361c 2a4533b -- planning/015-bug-evaluation-fixes.md` (107 insertions, 51 deletions, numstat), written to a file and read whole. The code each changed limb names was read at preview-image-generator `8de2b53` (the chain tip) and in the probe files it cites.
+
+**The planner's claim of no milestone-level scope delta holds.** No milestone is added or removed and no code is owed. Two criteria change text: M5-h (3)'s re-run trigger widens, and M8-d (d) gains a second member. The built code already meets both (below). The rest is RK-8, the M9 carrier line, X-25, X-26 and registration rows.
+
+These limbs conform:
+
+- **M5-h (3), trigger widened to any non-test `src/` change (CR-32).** `verification/015/cr-m5-probes/run-class-guard-removed.sh` exports the tip and applies `git diff "$PRE" "$PRE^" -- src/app/preview/page.tsx`, so "reverses the guard commit in `page.tsx`" is what it does. The planner's `m5h-class-probe/noguard-run1-c5303ca.txt` reads 44 passed, exit 0. A path-independent trigger is the right altitude: the crash set is found by execution, so a trigger keyed to a path list fails exactly where CR-20 found a site outside it.
+- **M8-d (d), member at two levels, "at startup" grounded (CR-33, M-C9-3).** At `8de2b53`, `src/getPool.ts` `waitingQueueDequeue` reads `_waitingClientsQueue?.dequeue?.bind(queue)`, so the field and the callable are checked together. `checkPoolShape` builds its own pool with `autostart: false, min: 0, max: 1` and a rejecting `create`, so it launches nothing. `src/server.ts` calls `checkPoolShape()` immediately before `server.listen`. The line is `console.error`, which goes to stderr. Keeping "a log line" in the criterion and reading both PM2 logs is the right split (QAF-36): the criterion states the property, and the reader is robust to the stream.
+- **RK-8, "Signature at the M8 tip".** At `8de2b53`, `createPool` registers `factoryCreateError` only `if (dequeueWaiting)`, so when the member is absent no handler exists and generic-pool's own retry loop runs, as stated. The figures match the probe files: `drift-mutant-8de2b53-{1,2,3}.txt` read `DELTA3S preload=13631`, `14118` and `11015` (3,672 to 4,706 a second), `POOL … pending=1` at 3 s and at the end, `PROCESS alive at end`, `REQUEST status 500 after` 123, 146 and 123 ms, and `LINES … stderr=571609` and `681157` for runs 1 and 2 (run 3: `670663`, not cited, consistent). The stderr volume comes from the factory's `console.error(err)` on each failed launch, which is one line set per attempt with no rate limit. That is the owner's accepted cost (rulings 10:14Z); see the Problem Area below.
+- **RK-8 residue as one bounded class (L-C9-2, CR-33, QA's assumption).** A shape check at startup cannot see a change of meaning, and the M8-d probe can. Naming that class, with its signature (M8-d (a) failing with no line), is the correct completion of D36's guard, not a new mechanism.
+- **X-25.** `git diff --numstat 471578f 8de2b53` lists 5 paths (`ecosystem.config.js`, `src/config.ts`, `src/generateImage.ts`, `src/getPool.ts`, `src/server.ts`), with no lockfile and no workflow or `deploy.sh`, as stated. The handoff's Review-Trigger includes "when puppeteer or generic-pool is next bumped", so "the same event also triggers" it is true.
+- **X-26, the handoff enumeration re-run, D37 and the registration rows.** These are record-keeping and raise no pattern question.
+
+**Deviation rating.** Rev 28 introduces no new deviation from a current pattern. **Nothing in this pass is owner-needing.**
+
+AF-32 is recommended and does not block. One Problem Area row is restated.
+
+### AF-32 LOW — RK-8's drift probe: where it runs, and what it decides
+
+The M9 carrier line and RK-8's Instrument both say devops runs "code review's drift probe … against the deployed engine". As written, that phrase fits two readings: a run on the generator host, or a local run on an export of the deployed commit. `verification/015/cr-m8-probes/run-drift.sh` takes a local export directory, renames `_waitingClientsQueue` inside its `node_modules/generic-pool/lib/Pool.js` for the mutant, and runs under `unshare -rn`. Architecturally only the local reading is sound:
+
+1. **It must not run on the generator host.** By construction, the mutant produces thousands of Chromium launch attempts a second and hundreds of thousands of stderr lines. On the host, that sits beside the serving process, on a box whose Chrome runs as root with `--no-sandbox` (X-25, H-001). The standing rule for agent access there is reads only (rulings 05:21Z). The probe is therefore a local run on an export of the deployed commit, using the deployed Node version (18.17.1 at `8de2b53`, per the security audit's host read; whether that engine is installed on this box is unread).
+2. **It measures; it does not decide.** RK-8's Falsifier list does not include the drift probe. With the member present (the expected case after a lockfile move), the probe needs its rename step to show anything. The probe's output is the magnitude the owner accepted, re-measured on the new version, with the E-1 rate beside it. The pass/fail reads stay the startup line (both logs) and the M8-d probe.
+
+**Recommended to the planner** (carrier: planner-hooks-015, Planner batch; it can fold at the M9 carrier text or travel to devops as a note on the handoff it mints, with no review round of its own): in the M9 carrier line and RK-8's Instrument, replace "against the deployed engine" with "locally, on an export of the deployed commit under the deployed Node version, never on the generator host". Also mark the drift probe as a magnitude read, not a falsifier.
+
+### Restated: the generator pool's private-field Problem Area
+
+The master document's row stated `6c613a5`'s signature, "the process exits with code 1, so PM2 restarts it once per failing launch". The shipped signature at `8de2b53` is different: a hang and a retry storm. The row is replaced with the measured state (CR-34). A design note goes with it ("could be better", owner's ruling stands): the storm's normal telemetry is an unthrottled stack trace for each failed launch. That single channel is both the signal and the disk risk. A rate-limited aggregate line (count of failures per interval) would keep the signal and bound the volume. Unread: whether PM2 log rotation is installed on the host (no `pm2-logrotate` read is on record).
 
 ## Verdict (rev 27, `18d361c`, one pass from rev 26 `c375d2c`): APPROVED
 
@@ -46,6 +79,7 @@ These limbs conform:
 
 - **M8-d (d) under D36.** It is AF-30's guard as the owner ruled it, with a member/non-member pair and the line required at startup.
 - **RK-8's corrected signature (CR-31).** AF-30's failure mode was hedged ("a hang, or a TypeError … whose effect is unread"). Code review's executed mutant now settles it: the process exits with code 1 after 378 ms on node 24, which under PM2 is a restart per failing launch. The hang reading is retired. The `TypeError` limb was right.
+  - *Reconcile note (2026-11-08T10:57, rev 28 pass):* this bullet read the signature at preview-image-generator `6c613a5`, where the handler was attached unconditionally, and was right there. At `8de2b53` the D36 check attaches no handler when the member is absent, so the shipped signature is a pending acquire and a creation-retry storm, not an exit (CR-34; RK-8 at rev 28). The exit does not ship.
 - **The RK-8 carrier at M9.** Devops mints a handoff whose trigger is a lockfile move of generic-pool and whose read is the startup line. That puts the instrument where the risk enters, at a lockfile change.
 - **M5-h (3)'s deciding enumerator and two-way move rule (M-C9-1).** Membership stays an executed read, and code review owns the re-run trigger. AF-27's boundary form still satisfies the property, whatever the lists say.
 - **M8-b narrowed under the D35 re-put, with X-23.** This is the owner's ruling. Read at preview-image-generator `6c613a5`: `src/server.ts` refuses only `typeof parsedBody !== 'object' || parsedBody === null`, and `src/generateImage.ts` builds the S3 `Prefix` and `Key` from the destructured `id` (`previews/${messageId}/`). So an array, or an object without `id`, works under `previews/undefined/`, as X-23 states. Its reach is bounded by the `API_KEY` gate.
@@ -60,6 +94,7 @@ AF-31 is recommended and does not block. One Problem Area is registered.
 Rev 27 leaves "serve or refuse to start" to the implementer. The availability reading favours **serving**:
 
 - **With the private member missing and the process serving**, the generator works normally until a Chromium launch fails. Only then does the process exit (CR-31), and PM2 restarts it.
+  - *Reconcile note (2026-11-08T10:57, rev 28 pass):* the exit was `6c613a5`'s. At `8de2b53` the serving process instead leaves the acquire pending and retries creation (CR-34). The recommendation still holds: serving fails only during a Chromium outage and only on a drifted dependency, and then as F-34 did before this chain; refusing to start would be a full outage on the drift alone. AF-31 is implemented at `8de2b53`.
 - **If it refuses to start**, a dependency drift takes the generator down completely: a PM2 restart loop with no preview generation at all, during normal operation.
 
 M8-e refuses to start because a missing `API_KEY` makes every request wrong. A missing private member makes only the outage path wrong. So "log a named line, then serve" is the proportionate form. That is also D36's own wording ("logs a named error line"), which names no refusal.
@@ -593,45 +628,30 @@ Each is recorded in `system-architecture.md` § Problem Areas:
 
 ---
 
-## Resumption State (checkpoint, architect-hooks-015, 2026-11-08T09:53)
-
-Checkpointed on steering's usage gate (weekly_all 98%; resets 2026-11-11T09:00Z). Start nothing new until steering resumes the chain.
+## Resumption State (architect-hooks-015, after the rev 28 pass)
 
 - **Done.**
-  - The conformance pass on plan rev 3, then a delta pass on every revision through **rev 27 (`18d361c`)**. The last verdict is APPROVED (`b2add20`).
-  - Findings AF-1 to AF-31.
+  - Conformance pass on plan rev 3, then a delta pass on every revision through **rev 28 (`2a4533b`, the D37 pre-UAT fold)**. Latest verdict: APPROVED.
+  - Findings AF-1 to AF-32.
     - **Discharged or folded:** AF-1 to AF-4, AF-11 to AF-17, AF-19 to AF-21, AF-24, AF-25 and AF-28.
-    - **Implemented:** AF-18, at website `3031878`.
+    - **Implemented:** AF-18 at website `3031878`; AF-31 at preview-image-generator `8de2b53`.
     - **Withdrawn, my error:** AF-23's basis limb (CR-20).
-    - **Resolved by the owner:** AF-26 (D34; website.md W-7) and AF-30's guard (D36, `f5ab120`). RK-8's failure mode is settled as a process exit (CR-31).
-  - **Open recommendations, for code review to check against the code:**
-    - AF-27: M5-h's guard as `react-error-boundary`, with `makeEditable` inside it and the one-line fallback.
-    - AF-29: M5-i's derived default, with only the user's pick as state and the id `guild?.id ?? '0'`.
-    - AF-31: D36's guard logs and keeps serving, and does not refuse to start.
-  - **INFO, registered only:** AF-22 (the inert Enter guard).
-  - **Records written this chain:**
-    - `system-architecture.md`: Problem Areas for AF-9a–d, X-16, the session cache, `user-access-token`, the session cookie, error-copy drift (AF-21), the Enter guard (AF-22), validation chrome in previews (AF-25), several Discord accounts (AF-26, Low, owner's known limit, cites W-7), the stack-printing fallback (AF-27), the generic-pool private field (AF-30/D36), and `/generate` body trust (rev 27). Changelog rows for each.
-    - `website.md`: A-4 and A-5 (agent-designed), and **W-7** (owner-authored, `952e69f`).
-    - `preview-image-generator.md`: P-3 and A-1.
+    - **Resolved by the owner:** AF-26 (D34; website.md W-7) and AF-30's guard (D36, `f5ab120`).
+    - **Reconcile notes added at rev 28:** the rev 27 RK-8 bullet and AF-31's premise both read `6c613a5`'s exit signature; at `8de2b53` it is a hang plus retry storm (CR-34).
+  - **Open recommendations:**
+    - AF-27 (M5-h guard as `react-error-boundary`) and AF-29 (M5-i derived default), for code review against the code.
+    - AF-32 (rev 28): the RK-8 drift probe runs locally on an export of the deployed commit under the deployed Node, never on the generator host, and is a magnitude read. Carrier: the planner (Planner batch), or devops at the M9 handoff mint.
+  - **INFO, registered only:** AF-22.
+  - **Records written this chain:** `system-architecture.md` Problem Areas (AF-9a–d, X-16, session cache, `user-access-token`, session cookie, AF-21, AF-22, AF-25, AF-26, AF-27, the generic-pool reach restated at rev 28, `/generate` body trust); `website.md` A-4, A-5, W-7; `preview-image-generator.md` P-3, A-1.
 - **Next.**
-  - When steering resumes: re-arm the cache-warm wake, read the latest plan revision, and run a delta pass from `18d361c`.
-  - Check D36's guard and AF-31 when M8's next commit is reviewed. Check AF-27 when M5-h's code is reviewed, and AF-29 when M5-i's is.
-  - **Rule: a deviation rated necessary is owner-needing in the verdict itself** (steering.md Conformance; the error at rev 26).
-  - **Method, per pass:**
-    1. Write `git diff <from> <to> -- planning/015-bug-evaluation-fixes.md` to the scratchpad and Read it; the rtk filter mangles piped diffs.
-    2. Read the code each changed limb names, at the SHA it names.
-    3. Write the edits through `record-edit.js` from a JSON file built by a `python3 -I` script. Re-derive Status-Detail with an exact-match `assert`; a loose regex once dropped a sentence.
-    4. Add a "Verdict (rev N)" section above the previous one, plus a changelog row and the Status-Detail.
-    5. Commit by pathspec, then send the verdict to planner-hooks-015. Owner-needing items go to steering-hooks-015.
+  - Arm the cache-warm wake at every spawn or `/clear`.
+  - A later revision gets a delta pass from `2a4533b`. Method: write the diff to the scratchpad and Read it; read the code at the named SHA; edit through `record-edit.js` from JSON built by a `python3 -I` script with exact-match asserts; commit by pathspec; send to the planner, and owner-needing items to steering.
+  - Rule: a deviation rated necessary is owner-needing in the verdict itself.
   - D23: never re-read the run-2 UTC assumption.
-- **Owed at chain close** (findings-document closure, by devops Stage 1):
-  - Reconcile `system-architecture.md` to chain 015's implemented state: the generator's stop path (M8), `getFromUrl`'s guild binding (M4), the `user-access-token` row (AF-18 retired `skipUpdate`), and the `/preview` guard (M5-h).
-  - Collapse the resolved AF entries to one line each, then close this document as `Resolved`.
-  - The reconciliation of chains 012–014 into the master document is also owed. It was outside this brief.
-- **Process disclosures:** two `sed -i` writes to record files (rows 05:15 and 05:44). Two of my own errors, corrected in the changelog: AF-23's basis, and AF-26 option (b) under D28. One routing error: rev 26's "nothing for the owner" on a necessary deviation.
-- **Branches and HEADs (read 09:53Z):**
-  - website `chain/015-bug-evaluation-fixes` at `825a7d8`;
-  - preview-image-generator `chain/015-bug-evaluation-fixes` at `8de2b53`.
-  - This session touched no source.
-- **Uncommitted / mutated:** none of mine. Scratch files are only in the session scratchpad.
+- **Owed at chain close** (by devops Stage 1):
+  - Reconcile `system-architecture.md` to chain 015's implemented state: M8's stop path, M4's `getFromUrl` guild binding, the `user-access-token` row (AF-18), and the `/preview` guard (M5-h).
+  - Collapse the resolved AF entries, then close this document as `Resolved`. AF-32's carrier must be named in the `Status-Detail` if it is still unadopted.
+  - Reconciling chains 012–014 into the master document is also owed (outside this brief).
+- **Process disclosures:** two `sed -i` writes to record files (rows 05:15, 05:44). Errors I corrected: AF-23's basis; AF-26 option (b); rev 26's routing of a necessary deviation; the rev 27 exit premise (reconcile notes, rev 28).
+- **HEADs read this pass:** website chain branch `c5303ca`; preview-image-generator chain branch `8de2b53`. This session touched no source.
 - **Questions out:** none.
