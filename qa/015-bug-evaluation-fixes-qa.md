@@ -773,9 +773,35 @@ This pass assumes the live Postgres schema matches the Kysely `DatabaseSchema` t
 - **Rev 7 confirmation:** QA Phase 1 approves rev 7 (`38b12e6`) for implementation start. QAF-8 is owed before the run-2 read is scripted, and QAF-9 is LOW; neither blocks code. *(Superseded line, kept for the record:)* QA Phase 1 approves rev 6 for implementation start. The implementer is bound by E-1 to E-9, E-1's reconcile note included.
 - **Assumption Not Checked:** routed to UAT, through B-1 and B-2.
 
-## Resumption State (checkpoint, qa-hooks-015, 2026-11-08T10:32Z; brought current at the /clear checkpoint, 2026-11-08T10:48)
+## Resumption State (checkpoint, qa-hooks-015, 2026-11-08T14:27Z; /checkpoint on steering's request)
 
-**Current, read first.** This block supersedes the 09:53Z block, kept below it. The progress, sweep and pass notes after them record how this state was reached.
+**Current, read first.** This block supersedes the 10:32Z block below it.
+- **Done and committed this session:**
+  - Phase 1 is re-keyed to plan rev 28 (`cfbdc7d`). It passes with no new finding. QAF-36 RESOLVED; B-8 gains the D36 absence limb. The interactive-parser coverage call: no cells owed (`verification/015/qa-rekey-rev28/`).
+  - **Effort-final Phase 2**, `qa/015-bug-evaluation-fixes-effort-final-qa.md`, now **QA Failed**. Its PASS (`a906b0c`) was withdrawn at `da49f25` after the owner-ruled plumbing sweep (rulings 14:18Z, `bab96e0`). The plan Status is back to In Progress (`b522604`).
+    - Generator `8de2b53`: the whole diff is swept, and QAF-37 RESOLVED.
+    - Website: 265 mutants at `c5303ca`, 256 killed. QAF-38 to QAF-40 RESOLVED at `620b4ee` (5 survivors killed). Suite 1128/1128, exit 0.
+    - Plumbing sweep at `620b4ee`: 13 mutants, 10 killed. Open: **QAF-41 and QAF-42**, MEDIUM, test-only, with the implementer (msg `9750a64a`). The third survivor is outside the sweep scope.
+  - Discord's `color` contract holds, and RK-7 holds. The reformatting and import-only classes are checked by execution.
+- **Next, when the cue comes (code review's sub-entry on the QAF-41/42 fix):**
+  1. Stage start is code review's committed sub-entry on the new website tip. Check `git diff --numstat 620b4ee <tip>` is test-only.
+  2. Re-run **only** `pl-shared-partial-guildid-unselected` and `pl-auth-message-promise-unwrapped` (from `verification/015/effort-final/website-plumbing-mutants.json`) at the new tip, after checking each old string exactly once. Command: `mutation-run.py --repo website --sha <tip> --dep node_modules --timeout 300 -- unshare -rn sh -c 'ip link set lo up && [ "$(ip -o link show | grep -vc ": lo:")" = 0 ] && npx vitest run'`.
+  3. Suite: `EXPORT_ROOT=<scratch> verification/015/qa-m4-suite-run.sh <tip> <scratch> <abs out-prefix>`. Expect 1128 plus the new cases, vitest 0, typecheck 0.
+  4. Audit the new tests under the conventions and the TDD-shown-red evidence.
+  5. On a PASS: set the effort-final doc to QA Complete with `Verified-At` at the new tip; set the plan Status to QA Complete with a row; copy the outputs into `verification/015/effort-final/`; send steering the UAT spawn cue (UAT is held on QA).
+- **How to run, lessons from this session:**
+  - Mutant ids must contain no `:`: the runner names export dirs after the id, and `:` splits `PATH`.
+  - Run one shard alone, or cap vitest at `--maxWorkers=5` with 3 in parallel.
+  - Take every stamp from `date -u` by substitution; the stamp gate blocks typed ones.
+  - Check, commit and compare `--numstat` in one call on shared files (the `4c23db0` sweep slip).
+  - Never `pkill -f` a pattern; it matches the tool shell.
+- **Tree:** website shared tree at `620b4ee`, generator at `8de2b53`. QA mutated neither, and every run used git-archive exports. Scratch exports are deleted. agent-output: every QA path is committed. The untracked `cr37`/`cr38`/`qaf38-40` `.stderr` files under `verification/015/` are the implementer's, not QA's.
+- **Questions out:** none to the owner. Steering holds UAT until QA's re-run reports.
+- **The Assumption Not Checked (effort-final):** test-time transpilation against the Next production build, the `NEXT_PUBLIC_CDN_PORT` inlining. It is routed to UAT's walk.
+
+## Resumption State (checkpoint, qa-hooks-015, 2026-11-08T10:32Z; brought current at 10:48; superseded by the block above)
+
+**Then current.** This block superseded the 09:53Z block, kept below it. The progress, sweep and pass notes after them record how this state was reached.
 - **Done and committed this session:**
   - M8 round at generator `8de2b53`: M8-a to M8-e PASS (`qa/015-bug-evaluation-fixes-m8-qa.md`, re-anchored from `6c613a5`). Sweep: 22 mutants (`mutators/qa-m8r-mutants.json`, driver `m8-local-probe/qa-m8r-sweep.py`), 19 killed and 3 survivors dispositioned. The new QA cells for M8-a are `m8-local-probe/probe-m8a-qa.cjs`. QAF-36 LOW goes to the planner.
   - Website `4f9ed85` (test-only): QAF-27 and QAF-20 RESOLVED (`qa/015-bug-evaluation-fixes-m1-m2-qa-findings-qa.md`). Suite 1115/1115, exit 0; the 7 mutants re-run by `qa-r3-website-mutants.sh`, all killed.
