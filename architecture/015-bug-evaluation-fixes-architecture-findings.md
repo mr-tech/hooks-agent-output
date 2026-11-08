@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Delta pass on plan rev 6 (5d516d9): APPROVED_WITH_CHANGES. AF-13 (E-1 must bring loopback up inside the namespace) is required; AF-14 and AF-15 are recommended. No necessary deviation, so nothing goes to the owner."
+Status-Detail: "Delta pass on plan rev 7 (38b12e6): APPROVED. AF-13 to AF-15 are folded. AF-16 (who removes the session row on sign-out) is recommended and does not block. No necessary deviation, so nothing goes to the owner. A later revision is read on its delta."
 ---
 
 # Architecture Findings — Plan 015: Bug-evaluation fixes (conformance pass)
@@ -17,6 +17,35 @@ Status-Detail: "Delta pass on plan rev 6 (5d516d9): APPROVED_WITH_CHANGES. AF-13
 | 2026-11-08T05:29 | Delta pass, plan rev 4 (`f19e688`), on planner-hooks-015's request to read M8-a (1) against AF-9d | AF-1 to AF-4 are discharged as folded. AF-11 (LOW): the transition stop's stated limit gets the outage window wrong. AF-12 (INFO): the route M1-a gives for the two latent sites is wrong, though its conclusion holds. AF-9d's bearing on stop (1) was assessed as low. **APPROVED.** |
 | 2026-11-08T05:34 | Delta pass, plan rev 5 (`1d0f890`, read from `f19e688`), on steering-hooks-015's request | The delta is D19 (stop (2) caused by devops' `prod.yml` re-run), AF-11 and AF-12 folded as asked, D15's consequence, run 2's reader, and X-15. No criterion changed, and nothing new conflicts with the architecture. The plan applies my AF-9d reading to stop (2). Re-checked: it holds there with more force. A re-run of the same commit writes byte-identical `dist` and dependencies, and `startOrReload` runs after the copy has finished, so the new process drains entirely against identical files. **APPROVED**, no findings. |
 | 2026-11-08T05:44 | Delta pass, plan rev 6 (`5d516d9`, read from `1d0f890`), on steering-hooks-015's request (criterion text changed) | AF-13 MEDIUM is required: E-1's `unshare -rn` leaves `lo` down, shown by a run on this box. AF-14 LOW is recommended: a non-creating pool read, placed in `getPool.ts`. AF-15 LOW is recommended: M1-c's no-account cell. X-16 has been joined to AF-9a's Problem Area row. **APPROVED_WITH_CHANGES.** Process disclosure: one typo in the AF-13 heading was fixed with `sed -i`, not with the edit tools, which breaks the record-writing rule a second time this session. That was the only change it made, and the diff was read afterwards. |
+| 2026-11-08T05:49 | Delta pass, plan rev 7 (`38b12e6`, read from `5d516d9`), on steering-hooks-015's request | AF-13 to AF-15 are folded as asked. AF-16 LOW is recommended: in the no-account cell, the session-row removal is the NextAuth adapter's (`signout.js` calls `deleteSession` before `events.signOut`, next-auth 4.24.5), not `removeUserSession`'s. **APPROVED.** |
+
+## Verdict (rev 7, `38b12e6`): APPROVED
+
+This pass read only the delta from rev 6 (`5d516d9`). AF-13 to AF-15 are folded as asked:
+
+- **AF-13.** E-1 brings `lo` up, runs a self-check whose remedy is never dropping `-n`, and installs inside the export before entering the namespace.
+- **AF-14.** The non-creating pool read is a second export of `getPool.ts`.
+- **AF-15.** The no-account cell names the two keys it clears and states the `user-guilds` residue. That checks out against `clearUser` at `7ce866b`: three `del`s, the third keyed on `discordId`.
+
+M8-c's browser source, its compatibility check and its code-review fallback are all stated, with the unread points marked as unread. M8-c fits the architecture.
+
+AF-16 is recommended and does not block.
+
+### AF-16 LOW — In the no-account cell, "the session's DB rows are removed" is NextAuth's act, not `removeUserSession`'s
+
+Read at `7ce866b`, with next-auth 4.24.5 as installed in `website/node_modules`:
+
+- `removeUserSession` is called from `authOptions.events.signOut` (`src/server/auth.ts`).
+- In `next-auth/core/routes/signout.js`, the database-session branch calls `adapter.deleteSession(sessionToken)` and **then** calls `events.signOut`.
+
+So the session row is already gone when `removeUserSession` runs, and nothing inside that function removes it.
+
+As the cell reads now, a unit test of `removeUserSession` would expect a session-row deletion the function never makes. The obvious way to make that test pass is to add a second deletion that duplicates the adapter's. That would be a design deviation: two owners of one row.
+
+**Recommended to the planner:**
+
+- At the `removeUserSession` surface, the no-account cell expects exactly the two Redis deletions, with no `Accounts` update and no revoke.
+- The session-row removal is attributed to the adapter, which runs before the event, and the cell asserts nothing about it.
 
 ## Verdict (rev 6, `5d516d9`): APPROVED_WITH_CHANGES
 
