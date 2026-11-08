@@ -268,3 +268,6 @@ First prompt, ~08:10Z (revoke all / known limit / block a second link). He answe
 ## 2026-11-08T08:11Z — "one Discord account is one Hooks user" recorded as a standing design rule (selection)
 Proposed by architect-hooks-015 as website.md entry A-6, quoting his words: "If someone signs in with a different account, that's a different Hooks user." Options: Agent: yes, record the rule / Agent: no, it was just an answer. Chosen **Agent: yes, record the rule**, by selection. The architect lands A-6 with the sentence verbatim. Its read (0f893c8): send/page.tsx at 3031878 renders Log in only when session === null, which closes steering's unread site.
 Correction (08:12Z): the entry landed as website.md **W-7**, not A-6 (architect, 952e69f). The block above says "A-6"; read W-7.
+
+## 2026-11-08T08:15Z — M5-h and M5-i released on plan rev 24 (018f72d)
+Every gate has passed rev 24: code review Round 13 APPROVED (3960833), architect APPROVED (1a3bc68; AF-28/29 LOW), QA Phase 1 re-key approved with no new finding (4d091e4), and critic cycle 7 closed (0029245; L-C7-1 parked as R-9). M5-h (crash-set property) and M5-i (D28) are released to the implementer.
