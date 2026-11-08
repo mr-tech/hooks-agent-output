@@ -247,3 +247,6 @@ Steering's call, not his: valid JSON of the wrong shape (e.g. data=null) is the 
 
 ## 2026-11-08T07:32Z — M4's D29 change released on plan rev 21 (3d193f9)
 The rev 20 + 21 round has passed every gate: critic cycle 5 pass 2 APPROVED (79e8572), architect APPROVED (081bb4e), code review Round 9 APPROVED (22e086c), and QA's Phase 1 re-key to rev 21 (c4e82b3: QAF-24 resolved). M4 Phase 2 at 1e12837 failed on test coverage only (QAF-25 MEDIUM: 7 surviving mutants, 3 limbs). Those cells ride the D29 reopen. L-C5-1 LOW is a Planner batch row and does not block code.
+
+## 2026-11-08T07:42Z — steering-coordinator coordinates chain 015's Playwright use (owner confirmed, selection)
+steering-coordinator relayed his words: "You are to coordinate `steering-emoji-epic` and `steering-hooks-01` using memory only, namely around playwright coordination. Do not write files. Brief them of your existence." Steering confirmed it with him here by selection: **Agent: yes, accept it**. Scope is Playwright only: browser launches, e2e runs, browser installs, the dev-server ports a run binds, and shared browser profiles. Before any such act, a chain-015 stage asks steering, and steering asks steering-coordinator for a go. If the coordinator cannot be reached, that goes to the owner as a block. This narrows D20's free use of Playwright.
