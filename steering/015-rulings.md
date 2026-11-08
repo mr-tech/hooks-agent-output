@@ -90,3 +90,17 @@ preview.yml, `grep -c -i key` returns 6 each; the value was not read. The typech
 `chain/015-bug-evaluation-fixes` was created and checked out in website at 7ce866b (from master) and in
 preview-image-generator at 471578f (from prod). Both trees were clean just before the switch (`git status --porcelain`, 0 lines).
 project-utils has no branch, because plan rev 1 says project-utils ships nothing.
+
+## 2026-11-08T05:11Z — rev 2 deltas M8-0 and M6-l (one selection prompt, two questions)
+Premises: M8-0 and M6-l text, read by steering in `planning/015-bug-evaluation-fixes.md` at 5060be6.
+- **M8-0, the owner-run host script.** Options: Agent: keep M8-0 (Rec) / Agent: drop M8-0, code-only / Agent: drop F-31
+  (M8-a). Answered in **his own words**: "give me the code to add the ro user to the box, in addition to what firewall
+  rule(s) to add". So he will create a read-only user on the generator host himself, and steering supplies the commands.
+  This meets D12's reopen condition ("A read-only user created there") once the user exists and is confirmed by a
+  reachability read. Until then M8-0's route stays open, and the code-reviewer review of `verification/015/pig-host-read.sh`
+  (9b99acd) is held.
+- **M6-l, the reading of "allow, mark invalid".** Options: use this reading / also allow top-level / hold M6-l. Chosen
+  **Agent: use this reading**, by selection. Every add completes; the existing top-level refusal at 40 stays; over 40
+  fails validateMessage, so Send is blocked and valid is false.
+Steering's call, recorded: the critic and the architect start on rev 3 (800ca67) now, because M0–M7 do not depend on the
+host route. A later change to M8-0 will be a delta on M8 alone.
