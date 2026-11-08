@@ -1,0 +1,14 @@
+named	import { useMount } from 'react-use';\nexport function A() { useMount(() => {}); return null; }
+aliased	import { useMount as onMount } from 'react-use';\nexport function A() { onMount(() => {}); return null; }
+namespace	import * as R from 'react-use';\nexport function A() { R.useMount(() => {}); return null; }
+deep-lib	import useMount from 'react-use/lib/useMount';\nexport function A() { useMount(() => {}); return null; }
+deep-esm	import useMount from 'react-use/esm/useMount';\nexport function A() { useMount(() => {}); return null; }
+deep-lib-js	import useMount from 'react-use/lib/useMount.js';\nexport function A() { useMount(() => {}); return null; }
+lib-index	import { useMount } from 'react-use/lib';\nexport function A() { useMount(() => {}); return null; }
+esm-index	import { useMount } from 'react-use/esm';\nexport function A() { useMount(() => {}); return null; }
+export-from	export { useMount } from 'react-use';
+export-star	export * from 'react-use';
+require	const { useMount } = require('react-use');\nexport function A() { useMount(() => {}); return null; }
+dynamic	export async function A() { const m = await import('react-use'); m.useMount(() => {}); return null; }
+control-other-name	import { useEffectOnce } from 'react-use';\nexport function A() { useEffectOnce(() => {}); return null; }
+control-react	import { useEffect } from 'react';\nexport function A() { useEffect(() => {}, []); return null; }

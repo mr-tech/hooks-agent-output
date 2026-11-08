@@ -1,0 +1,284 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9cafa65b-95fb-4fa3-ab48-02bd3363438f/scratchpad/website-b195eeb-cr26-usemounted-effect-empty  sha: b195eeb  label: cr26-usemounted-effect-empty  test:   mutator: /usr/local/bin/hooks/agent-output/verification/015/cr-m6-probes/cr26-ban/mutators/usemounted-effect-empty.py
+ .../src/utils/hooks/index.ts                                      | 8 +-------
+ 2 files changed, 1 insertion(+), 8 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cafa65b-95fb-4fa3-ab48-02bd3363438f/scratchpad/website-b195eeb-cr26-usemounted-effect-empty
+
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (22 tests | 22 failed) 174ms
+     × offers adds only below the limit: 38 flat components 51ms
+     × offers adds only below the limit: 39 flat components 5ms
+     × offers adds only below the limit: 40 flat components 6ms
+     × offers adds only below the limit: 41 flat components 8ms
+     × offers adds only below the limit: 42 flat components 5ms
+     × offers adds only below the limit: a container holding 38 text displays (39 in all) 4ms
+     × offers adds only below the limit: a container holding 39 text displays (40 in all) 4ms
+     × offers adds only below the limit: a container holding 40 text displays (41 in all) 6ms
+     × offers adds only below the limit: 9 containers of one section each (36 in all) 5ms
+     × offers adds only below the limit: 10 containers of one section each (40 in all) 3ms
+     × shows no error at the limit: 40 flat components 11ms
+     × shows no error at the limit: a container holding 39 text displays 4ms
+     × shows the total and the limit with a red border above the limit: 41 flat components 5ms
+     × shows the total and the limit with a red border above the limit: a container holding 40 text displays 4ms
+     × shows the total and the limit with a red border above the limit: 11 containers of one section each 4ms
+     × shows the components line after the text-length line 6ms
+     × drops the line and the border once the total is back to 40 9ms
+     × completes an Add Component Section in full 10ms
+     × completes an Add Component Container in full 5ms
+     × completes an Add Component Action Row in full 6ms
+     × duplicates a container with all of its children 4ms
+     × shows the total and the limit with a red border, as on the preview page 5ms
+ ❯ |dom| src/app/message/f/[id]/__tests__/page.message-list.test.tsx (2 tests | 1 failed) 44ms
+     × shows "Today at" for a message updated today and a date for the same day of another month 12ms
+ ❯ |dom| src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx (1 test | 1 failed) 68ms
+     × shows a time for a message updated today and a date for the same day of another month 66ms
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.duplicate-placement.test.tsx (2 tests | 2 failed) 46ms
+     × puts a duplicated embed directly after the original 36ms
+     × puts a duplicated component directly after the original 8ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 26 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > offers adds only below the limit: 38 flat components
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > offers adds only below the limit: 39 flat components
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > offers adds only below the limit: a container holding 38 text displays (39 in all)
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > offers adds only below the limit: 9 containers of one section each (36 in all)
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:93:32
+     91|     const host = await mountV2(components);
+     92|
+     93|     expect(hasAddButton(host)).toBe(offered);
+       |                                ^
+     94|     expect((stubs.components.get('c0') as ComponentStub).canDuplicate)…
+     95|     expect((stubs.components.get('c0') as ComponentStub).canAddChild).…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/26]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > offers adds only below the limit: 40 flat components
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > offers adds only below the limit: 41 flat components
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > offers adds only below the limit: 42 flat components
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > offers adds only below the limit: a container holding 39 text displays (40 in all)
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > offers adds only below the limit: a container holding 40 text displays (41 in all)
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > offers adds only below the limit: 10 containers of one section each (40 in all)
+TypeError: Cannot read properties of undefined (reading 'canDuplicate')
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:94:39
+     92|
+     93|     expect(hasAddButton(host)).toBe(offered);
+     94|     expect((stubs.components.get('c0') as ComponentStub).canDuplicate)…
+       |                                       ^
+     95|     expect((stubs.components.get('c0') as ComponentStub).canAddChild).…
+     96|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/26]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows no error at the limit: 40 flat components
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows no error at the limit: a container holding 39 text displays
+AssertionError: the given combination of arguments (undefined and string) is invalid for this assertion. You can use an array, a map, an object, a set, a string, or a weakset instead of a string
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:105:83
+    103|
+    104|     expect(errorLine(host)).toBeUndefined();
+    105|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+       |                                                                                   ^
+    106|   });
+    107|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/26]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows the total and the limit with a red border above the limit: 41 flat components
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows the total and the limit with a red border above the limit: a container holding 40 text displays
+AssertionError: expected undefined to be 'Message has 41 components; the limit …' // Object.is equality
+
+- Expected:
+"Message has 41 components; the limit is 40."
+
++ Received:
+undefined
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:115:29
+    113|     const host = await mountV2(components);
+    114|
+    115|     expect(errorLine(host)).toBe(`Message has ${total} components; the…
+       |                             ^
+    116|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+    117|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/26]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows the total and the limit with a red border above the limit: 11 containers of one section each
+AssertionError: expected undefined to be 'Message has 44 components; the limit …' // Object.is equality
+
+- Expected:
+"Message has 44 components; the limit is 40."
+
++ Received:
+undefined
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:115:29
+    113|     const host = await mountV2(components);
+    114|
+    115|     expect(errorLine(host)).toBe(`Message has ${total} components; the…
+       |                             ^
+    116|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+    117|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/26]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit, the error line > shows the components line after the text-length line
+AssertionError: expected [] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+- [
+-   "Components text exceeds 4000 characters.",
+-   "Message has 41 components; the limit is 40.",
+- ]
++ []
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:124:90
+    122|     const host = await mountV2(Array.from({ length: 41 }, () => makeTe…
+    123|
+    124|     expect(Array.from(host.querySelectorAll('.text-error')).map((el) =…
+       |                                                                                          ^
+    125|       'Components text exceeds 4000 characters.',
+    126|       'Message has 41 components; the limit is 40.',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/26]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit, the error line > drops the line and the border once the total is back to 40
+AssertionError: expected undefined to be 'Message has 41 components; the limit …' // Object.is equality
+
+- Expected:
+"Message has 41 components; the limit is 40."
+
++ Received:
+undefined
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:147:29
+    145|     const host = mountDom(<Host />);
+    146|     await act(async () => {});
+    147|     expect(errorLine(host)).toBe('Message has 41 components; the limit…
+       |                             ^
+    148|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+    149|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/26]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor adds from 39 components > completes an Add Component Section in full
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor adds from 39 components > completes an Add Component Container in full
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor adds from 39 components > completes an Add Component Action Row in full
+TypeError: Cannot read properties of undefined (reading 'click')
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:168:22
+    166|     const open = Array.from(host.querySelectorAll('button'))
+    167|       .find((b) => b.textContent?.includes('Add Component')) as HTMLEl…
+    168|     act(() => { open.click(); });
+       |                      ^
+    169|     const item = Array.from(document.body.querySelectorAll('button'))
+    170|       .find((b) => b.textContent === label) as HTMLElement;
+ ❯ Proxy.process.env.NODE_ENV.exports.act ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:168:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/26]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor adds from 39 components > duplicates a container with all of its children
+TypeError: Cannot read properties of undefined (reading 'actions')
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:185:32
+    183|     await mountV2([makeContainer(texts(3)), ...texts(34)], setMessage);
+    184|
+    185|     (stubs.components.get('c0') as ComponentStub).actions.duplicate();
+       |                                ^
+    186|
+    187|     const sent = setMessage.mock.calls[0][0] as EditableMessageData;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/26]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit when not editing > shows the total and the limit with a red border, as on the preview page
+AssertionError: expected undefined to be 'Message has 41 components; the limit …' // Object.is equality
+
+- Expected:
+"Message has 41 components; the limit is 40."
+
++ Received:
+undefined
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:205:29
+    203|     await act(async () => {});
+    204|
+    205|     expect(errorLine(host)).toBe('Message has 41 components; the limit…
+       |                             ^
+    206|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+    207|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/26]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.duplicate-placement.test.tsx > DiscordMessageEditor top-level duplicate > puts a duplicated embed directly after the original
+TypeError: Cannot read properties of undefined (reading 'onDuplicate')
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.duplicate-placement.test.tsx:60:28
+     58|     await act(async () => {});
+     59|
+     60|     (stubs.embeds.get('e1') as EmbedStub).onDuplicate?.();
+       |                            ^
+     61|
+     62|     expect(setMessage).toHaveBeenCalledOnce();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/26]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.duplicate-placement.test.tsx > DiscordMessageEditor top-level duplicate > puts a duplicated component directly after the original
+TypeError: Cannot read properties of undefined (reading 'actions')
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.duplicate-placement.test.tsx:74:32
+     72|     await act(async () => {});
+     73|
+     74|     (stubs.components.get('c1') as ComponentStub).actions.duplicate();
+       |                                ^
+     75|
+     76|     expect(setMessage).toHaveBeenCalledOnce();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/26]⎯
+
+ FAIL  |dom| src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx > Header, the dates beside search results > shows a time for a message updated today and a date for the same day of another month
+TypeError: 'set value' called on an object that is not a valid instance of HTMLInputElement.
+ ❯ set value ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/jsdom@30.0.1/node_modules/jsdom/lib/generated/idl/HTMLInputElement.js:1565:15
+ ❯ src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx:35:13
+     33| function typeInto(input: HTMLInputElement, value: string) {
+     34|   act(() => {
+     35|     Reflect.set(HTMLInputElement.prototype, 'value', value, input);
+       |             ^
+     36|     input.dispatchEvent(new Event('input', { bubbles: true }));
+     37|   });
+ ❯ Proxy.process.env.NODE_ENV.exports.act ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ typeInto src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx:34:3
+ ❯ src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx:57:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/26]⎯
+
+ FAIL  |dom| src/app/message/f/[id]/__tests__/page.message-list.test.tsx > folder page, the message dates > shows "Today at" for a message updated today and a date for the same day of another month
+AssertionError: expected '' to contain 'Today at '
+
+- Expected
++ Received
+
+- Today at 
+
+ ❯ src/app/message/f/[id]/__tests__/page.message-list.test.tsx:107:28
+    105|     const el = await mount();
+    106|
+    107|     expect(el.textContent).toContain('Today at ');
+       |                            ^
+    108|     expect((el.textContent ?? '').split('Today at ')).toHaveLength(2);
+    109|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/26]⎯
+
+
+ Test Files  4 failed | 110 passed (114)
+      Tests  26 failed | 1093 passed (1119)
+   Start at  10:21:50
+   Duration  11.38s (transform 16.48s, setup 914ms, import 90.28s, tests 19.77s, environment 48.82s)
+
+vitest exit 1
+readback: /tmp/claude-1000/-usr-local-bin-hooks/9cafa65b-95fb-4fa3-ab48-02bd3363438f/scratchpad/website-b195eeb-cr26-usemounted-effect-empty/src/components/Button.tsx:0 /tmp/claude-1000/-usr-local-bin-hooks/9cafa65b-95fb-4fa3-ab48-02bd3363438f/scratchpad/website-b195eeb-cr26-usemounted-effect-empty/src/components/DiscordMessageEditor/index.tsx:0 /tmp/claude-1000/-usr-local-bin-hooks/9cafa65b-95fb-4fa3-ab48-02bd3363438f/scratchpad/website-b195eeb-cr26-usemounted-effect-empty/src/utils/hooks/index.ts:1 

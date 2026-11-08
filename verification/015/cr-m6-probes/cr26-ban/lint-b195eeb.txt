@@ -1,0 +1,15 @@
+website HEAD b195eeb; .eslintrc.json blob 4b157dec542fff7b76e736402f5c1644b59d9950 (b195eeb: 4b157dec542fff7b76e736402f5c1644b59d9950)
+named: no-restricted-imports=1 other=import/newline-after-import,import/prefer-default-export,react/function-component-definition
+aliased: no-restricted-imports=1 other=import/newline-after-import,import/prefer-default-export,react/function-component-definition
+namespace: no-restricted-imports=1 other=import/newline-after-import,import/prefer-default-export,react/function-component-definition
+deep-lib: no-restricted-imports=1 other=import/newline-after-import,import/prefer-default-export,react/function-component-definition
+deep-esm: no-restricted-imports=1 other=import/newline-after-import,import/prefer-default-export,react/function-component-definition
+deep-lib-js: no-restricted-imports=0 other=import/newline-after-import,import/extensions,import/prefer-default-export,react/function-component-definition
+lib-index: no-restricted-imports=0 other=import/newline-after-import,import/prefer-default-export,react/function-component-definition
+esm-index: no-restricted-imports=0 other=import/newline-after-import,import/prefer-default-export,react/function-component-definition
+export-from: no-restricted-imports=1 other=import/prefer-default-export
+export-star: no-restricted-imports=1 other=-
+require: no-restricted-imports=0 other=import/newline-after-import,@typescript-eslint/no-var-requires,import/prefer-default-export,react/function-component-definition,@typescript-eslint/no-unsafe-call
+dynamic: no-restricted-imports=0 other=import/prefer-default-export
+control-other-name: no-restricted-imports=0 other=import/newline-after-import,import/prefer-default-export,react/function-component-definition
+control-react: no-restricted-imports=0 other=import/newline-after-import,import/prefer-default-export,react/function-component-definition

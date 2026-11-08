@@ -1,0 +1,14 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9cafa65b-95fb-4fa3-ab48-02bd3363438f/scratchpad/website-b195eeb-cr26-button-autofocus-effect-empty  sha: b195eeb  label: cr26-button-autofocus-effect-empty  test:   mutator: /usr/local/bin/hooks/agent-output/verification/015/cr-m6-probes/cr26-ban/mutators/button-autofocus-effect-empty.py
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cafa65b-95fb-4fa3-ab48-02bd3363438f/scratchpad/website-b195eeb-cr26-button-autofocus-effect-empty
+
+
+ Test Files  114 passed (114)
+      Tests  1119 passed (1119)
+   Start at  10:21:25
+   Duration  11.18s (transform 17.70s, setup 978ms, import 85.21s, tests 21.16s, environment 47.73s)
+
+vitest exit 0
+readback: /tmp/claude-1000/-usr-local-bin-hooks/9cafa65b-95fb-4fa3-ab48-02bd3363438f/scratchpad/website-b195eeb-cr26-button-autofocus-effect-empty/src/components/Button.tsx:1 /tmp/claude-1000/-usr-local-bin-hooks/9cafa65b-95fb-4fa3-ab48-02bd3363438f/scratchpad/website-b195eeb-cr26-button-autofocus-effect-empty/src/components/DiscordMessageEditor/index.tsx:0 /tmp/claude-1000/-usr-local-bin-hooks/9cafa65b-95fb-4fa3-ab48-02bd3363438f/scratchpad/website-b195eeb-cr26-button-autofocus-effect-empty/src/utils/hooks/index.ts:0 
