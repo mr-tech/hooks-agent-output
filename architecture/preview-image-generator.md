@@ -1,6 +1,6 @@
 ---
 Status: Active
-Last Updated: 2026-08-24
+Last Updated: 2026-11-08
 Record-Type: owner-sourced architecture record
 Repo: preview-image-generator (hooks-gg/preview-image-generator, branch `prod`)
 ---
@@ -42,17 +42,26 @@ Six questions asked and answered 2026-08-24.
 
 ---
 
-## P-3 — Deploying by checkout on `prod` is intended
+## P-3 — Deploying by build-and-copy from a `prod` push is intended
 
-**Provenance**: ⚠️ **confirmed inference** — he ratified a described mechanism rather than stating one.
+**Provenance**: ⚠️ **confirmed inference**. He ratified a described mechanism; he did not state one.
 
-**What he was shown, verbatim** (steering-hooks-013's restatement; this is the whole of what he saw):
+**What he was shown, verbatim** (architect-hooks-015, selection prompt, 2026-11-08T05:18Z). This is everything he saw:
 
-> Deployment is a git checkout on the `prod` branch under PM2, with no build step — the checkout *is* production. Intended, or how it ended up?
+> Preview-image generator record (P-3): in August you approved "deploying is a git checkout on prod with no build step — the checkout is production". The workflow file says otherwise (read from prod.yml, not run): a push to prod installs packages, builds, copies the build into a separate deployed/prod folder, then reloads PM2. Is that build-and-copy route the one you intend?
 
-> "Intended."
+> Selected: "Agent: record intended" — Agent rewrites P-3 to the build-and-copy route, with your answer as the ratification.
 
-Under this grade, re-verify the mechanism rather than the agreement: the description above is what carries his ratification, and if it is wrong in any part, his answer does not repair that part. As of 2026-08-24 it holds — `prod` HEAD is `471578fa`, which the owner named as the running commit, with zero drift in either direction.
+**The mechanism**, read from `prod.yml` and `.github/deploy.sh` at `471578f`:
+
+1. A push to `prod` runs `prod.yml` on a self-hosted runner. `preview` runs `preview.yml` in the same way.
+2. The runner runs `npm ci --omit=optional`, skipped on a lockfile-keyed cache hit, then `npm run build`.
+3. `deploy.sh` replaces `deployed/<env>` with a copy of the built tree.
+4. `deploy.sh` runs `pm2 startOrReload --update-env`.
+
+Under this grade, re-verify the mechanism, not the agreement. If any part of the description is wrong, his answer does not repair that part.
+
+**Correction note.** This entry replaces the 2026-08-24 version in place. That version ratified "a git checkout on `prod` … with no build step — the checkout *is* production". The plan 015 conformance pass found that description contradicted by `prod.yml` (AF-10). The superseded wording is in git history before this commit.
 
 ---
 
