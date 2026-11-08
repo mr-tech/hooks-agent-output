@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: In Progress
-Status-Detail: "M0 and M2 delivered. Code review has approved M1 at 3031878, M4 with its D29 change at da24eb7, and M5-a to M5-g at da24eb7; QA Phase 2 may take them. M5-h was rejected (CR-18) and is restated at rev 22 over the inputs makeEditable cannot process (D31; D28). M6-l gains its error placement (D32) and is being coded. M3 is removed (D30). The rev 22 delta goes to the critic, the architect, QA and code review."
-Revision: 22
+Status-Detail: "M0 and M2 delivered. Code review has approved M1 at 3031878, and M4 and M5-a to M5-g at da24eb7; QA Phase 2 may take them. M5-h is held by steering until rev 23, which states its class as a property: any /preview data the real page crashes on shows the error line, and everything else renders as at da24eb7. M6-l is being coded with (vi) widened to /preview (D33). M3 is removed (D30). The rev 23 delta goes to the critic (cycle 6), the architect, QA and code review."
+Revision: 23
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
 Lane: "standard — agent-output/README.md carries no small-lane section (grep -i small, 0 hits, 2026-11-08); the blast radius spans the save schema, a bot command's permissions and a production PM2 service, none a leaf"
@@ -46,7 +46,8 @@ Owed re-verdicts:
 | CR-12 rider: belonging as `guild_id` equality, absent `guild_id` refused; `fetchChannel` refusals 401/403, 404 and other with their texts | rev 19 | critic, architect, qa, code review (delta only) | open |
 | M4-d webhook-URL load failure: "Invalid URL" at both sites (D29); the old-message network clause scoped to the message fetch | rev 20 | critic (cycle 5, new file), architect, qa, code review (delta only) | architect approved (`8affd6a`, AF-21 INFO, no plan change); code review REJECTED the limb's place (`e524a96`, CR-16), folded at rev 21; critic and qa read it in the rev 21 round |
 | M4-d webhook-load limb: each site's stated place, the dialog's on its shared error line (CR-16); M3 removed (D30); X-18 with its untested residue; the value-statement sentence carried as already true | rev 21 | critic (cycle 5), architect, qa, code review (one round over `e118cc3`..rev 21) | open |
-| M5-h restated over classes (1)–(3), with residue X-19 (D31, D28, CR-18); M6-l (vi) error placement (D32) | rev 22 | critic (cycle 5), architect, qa, code review (delta only) | open |
+| M5-h restated over classes (1)–(3), with residue X-19 (D31, D28, CR-18); M6-l (vi) error placement (D32) | rev 22 | critic (cycle 6), architect, qa, code review (delta only) | approved by all four: architect (`5581822`, AF-23 to AF-25), code review Round 11 (`9268f02`, CR-20), QA (`1017bdc`, QAF-28), critic cycle 6 pass 1 (`eee4a31`, M-C6-1, L-C6-1); all folded at rev 23 |
+| M5-h class (3) as the real page's crash set, members as read-backed illustrations, X-19 re-cited; M6-l (ii) one literal; M6-l (vi) on `/preview` (D33) | rev 23 | critic (cycle 6), architect, qa, code review (delta only) | open |
 
 ## Changelog
 
@@ -96,6 +97,7 @@ Owed re-verdicts:
 | 2026-11-08T07:56 | cr | code-reviewer (code-reviewer-hooks-015) | `code-review/015-bug-evaluation-fixes-code-review.md` (`d7708e8`), against rev 21. **Round 10, M5 at website `da24eb7`: REJECTED for M5-h only.** CR-18 MEDIUM: a `/preview` JSON object of the wrong shape still crashes the page (4 of 5 probed members throw in `makeEditable`, `verification/015/cr-m5-probes/run1-da24eb7.txt`). Steering's 07:30Z call puts that class in M5-h. **For the planner:** register in § M5-h the 07:52Z non-object ruling (`c1be05e`) and the wrong-shape class. M5-a to M5-g are met; CR-19 is LOW. **M4's D29 change and the QAF-25 cells** (a Round 7 sub-entry at `da24eb7`): M4 stays APPROVED_WITH_COMMENTS, CR-14 is RESOLVED, and CR-17 is LOW. **CR-15 is RESOLVED** at `3031878`. QA Phase 2 may take M4 and M5-a to M5-g at `da24eb7`, and M1 at `3031878`. This review is milestone-scoped, so plan Status is unmoved. |
 | 2026-11-08T07:57 | 22 | planner (planner-hooks-015) | Folds code review Round 10 CR-18 (`d7708e8`; plan row `31f9fc0`) and registers D31 and D32 (rulings block 07:52Z, `c1be05e`). It is taken at once, ahead of the item 3 probe steering asked to batch with it, because it unblocks waiting code: M5-h's fix after CR-18's rejection, and M6-l, now being coded. It is the fifteenth revision since implementation approval. Steering judged CR-18's member class a D28 sibling (`a49da66`), so it rides with no owner question. Scope delta: M5-h is restated over three refused classes, the third read from `makeEditable`'s source at `da24eb7`, so anything that renders today still renders. Re-derivation: M8 (stored messages screenshotted) keeps its premise, M7 and M9 read no `/preview` behaviour, so none is marked `PREMISE-STALE`. X-19 carries the render-time residue. M6-l gains (vi), the error's place and text. Against the ask: 47 of 50 findings fixed, F-15/F-39 closed as not reproducible, plus one rider. |
 | 2026-11-08T08:03 | cr | code-reviewer (code-reviewer-hooks-015) | Round 11, the gate read of `3d193f9..5201612` (rev 22): APPROVED_WITH_COMMENTS, `code-review/015-bug-evaluation-fixes-code-review.md` (`9268f02`). M5-h class (3): every listed member crashes the page at website `da24eb7`, by execution (`verification/015/cr-m5-probes/edge-run3-da24eb7.txt`, `real-run4-da24eb7.txt`). **For the planner: CR-20 LOW.** (a) `embeds:""` and `fields:""` crash in the editor's `validateEmbedCharacterCount`, not in `makeEditable`. State (3)'s basis as the page's crash set, and never as "`makeEditable` throws", which would leave both crashing. (b) Array elements of `embeds`, `fields` and a type-1 child, and a type-17 container's `null` direct child, all render; state them as rendered. (c) Re-cite X-19 to `real-run4-da24eb7.txt`: the cited `run1` stubbed the editor. M6-l (vi): no finding, because `v2TextError` and `errorBorder` reach the Send page through `MessagePreview`. Milestone-scoped, so plan Status is unmoved. |
+| 2026-11-08T08:05 | 23 | planner (planner-hooks-015) | Folds the rev 22 verdicts' findings: architect AF-23 to AF-25 (`5581822`), code review CR-20 (`9268f02`), QA QAF-28 (`1017bdc`) and critic M-C6-1 and L-C6-1 (`eee4a31`). It also registers D33 (rulings 08:02Z, `9f321b8`) and steering's M5-h restatement under `a49da66`. It is taken at once because the implementer holds M5-h on it, and it is the sixteenth revision since implementation approval. Rev 22's class (3) was the planner's source reading, and it was wrong in both directions. AF-23 (a makeEditable-only basis) and L-C6-1 (a shape predicate) are superseded by the executed reads and steering's property call, which CR-20 and QAF-28 resolve (`""` crashes the real page). Scope delta: M5-h class (3) becomes the real page's crash set at `da24eb7`, with members as illustrations from three executed reads (the planner's 44-row run, code review's, the critic's), so it gains `embeds`/`fields` `null`, falsy `components`, a section's null `accessory` and the critic's three render-time members; X-19 is re-cited. M6-l (ii) shares (vi)'s literal, and (vi) also shows on `/preview` (D33). Against the ask: 47 of 50 findings fixed, F-15/F-39 closed as not reproducible, plus one rider. |
 
 ## Value Statement and Business Objective
 
@@ -142,6 +144,7 @@ message builder that sends through webhooks.
 | D30 | M3 is removed from the chain. F-15/F-39 are recorded as not reproducible (dead code only). The value statement's "a Cancel key press never deletes" is kept as already true, with the real-Chrome read as its evidence. No code. | 2026-11-08 | "Agent: drop M3, not a defect" — selection relayed by steering-hooks-015, rulings block 07:26Z "M3: drop M3, not a defect" (`f005cef`). Description chosen: "Agent: M3 is removed from the chain, and F-15/F-39 are recorded as not reproducible (dead code only). The plan's promise 'a Cancel key press never deletes' is kept as already true, with the Chrome read as evidence. Cost: a small plan revision and a review round; no code (implementer's recommendation)." The option text is steering's (agent-authored). | A real-browser read in which Enter with focus on a dialog's non-confirm button runs the confirm action (the X-18 residue included), or a user report of it; owner withdrawal. | § M3 (removed), X-18. Evidence: `verification/015/m3-chrome-read/README.md` (`8996505`). |
 | D31 | M5-h: every `/preview` `data` value that is not a JSON object (a number, a string, a list, `null`) shows "Invalid message data.", as built; no code change. | 2026-11-08 | "Agent: error line for them too" — selection relayed by steering-hooks-015, rulings block 07:52Z (`c1be05e`). The option text is the planner's (agent-authored, relayed by steering). | Owner withdrawal only. | M5-h class (2). Its premise is the implementer's jsdom probe (`verification/015/m5h-preview-data-probe-6c42032.txt`); real Chrome was not read. |
 | D32 | M6-l: while the total exceeds 40, "Message has N components; the limit is 40." (N live) shows in red under the components, with a red border, in the editor and on the Send page, following the text-length errors; the Add Component button and counter still hide at 40 and over. | 2026-11-08 | "Agent: red line + red border" — selection relayed by steering-hooks-015, rulings block 07:52Z (`c1be05e`). The option text is the implementer's, relayed by steering (agent-authored). | Owner withdrawal only. | M6-l (vi). Its premise is the implementer's code read; steering did not read it. |
+| D33 | M6-l: the over-40 line and border also show on `/preview`, so an over-40 message's generated preview image carries them, exactly as the text-length errors already do. | 2026-11-08 | "Agent: same as siblings" — selection relayed by steering-hooks-015, rulings block 08:02Z "AF-25" (`9f321b8`). The option text is steering's (agent-authored). | Owner withdrawal only. | M6-l (vi). Its premise is the architect's read (`5581822`, D-003); steering did not read it. |
 
 ## Objective
 
@@ -540,36 +543,55 @@ are in X-18.
   copies (`Header.tsx`, `f/[id]/page.tsx` `getDateString`).
 - **M5-f (F-24)** — opening Save As proposes the message's current name and server.
 - **M5-g (F-25)** — the delete failure toast names the delete.
-- **M5-h (F-26, D31; D28's class under steering's call, rulings `a49da66`; code review CR-18)** — the originating
-  statement's subject is a `/preview` link whose `data` crashes the page. Rev 21's "not parsable JSON" is widened
-  by two rulings: D31 (every non-object value) and steering's D28 call (valid JSON of the wrong shape that
+- **M5-h (F-26, D31; D28's class under steering's call, rulings `a49da66`; code review CR-18, CR-20)** — the
+  originating statement's subject is a `/preview` link whose `data` crashes the page. Two rulings widen rev 21's
+  "not parsable JSON": D31 (every non-object value) and steering's D28 call (valid JSON of the wrong shape that
   crashes). For every non-empty `data`, the page shows exactly one line, "Invalid message data." (the inline
   text-error line on the existing dark background, as built at website `da24eb7`), and no editor, exactly when
   `data` is in one of these classes:
   - (1) not parsable JSON;
   - (2) parsable, but not a JSON object: `null`, a number, a string, a boolean, an array (D31);
-  - (3) a JSON object that `makeEditable` (`src/utils/index.ts` at `da24eb7`) cannot process, read from its
-    source. Its members are, by the field read:
-    - `embeds` is present, not `null` and not an array;
-    - an `embeds` element is `null` or not an object;
-    - an embed's `fields` is present, not `null` and not an array;
-    - a `fields` element is `null` or not an object;
-    - `components` is truthy and not an array;
-    - inside a top-level or container-nested component (`injectComponentKeys`): an element of the `components`
-      array of a type-1 or type-9 component, or of the `items` array of a type-12 component, is `null` or not an
-      object. A type-17 container's children are the same class, recursively.
+  - (3) a JSON object on which the real page at website `da24eb7` crashes, in `makeEditable` or in the editor's
+    render (steering's call under `a49da66`, restated after critique cycle 6 M-C6-1: every wrong-shape value that
+    crashes the real page rides M5-h). This is the property. Its members are illustrations, never the predicate, and
+    membership is decided by an executed read on the real editor, never a source reading. How the guard achieves it
+    is the implementer's. Whatever the mechanism, the refusal is the same one line on the existing background, as
+    the owner chose; a separate error page is the option he declined. The reads:
+    - `verification/015/m5h-class-probe/run1-da24eb7.txt`: the planner's run, 44 rows, exit 0, built on code
+      review's harness `verification/015/cr-m5-probes/`;
+    - code review's `real-run4-da24eb7.txt`;
+    - the critic's `verification/015/critic-m5h-render-probes/README.md`.
+    The crashing members they establish:
+    - `content` is a number (critic's read);
+    - a type-1 container's `components` is a string, or a type-17 container's `components` is a number (critic's
+      read: both pass `makeEditable` and throw at render);
+    - `embeds` is `null`, a number, `false`, `true`, `""`, a non-empty string, or an object;
+    - an `embeds` element is `null`, a number or a string;
+    - an embed's `fields` is `null`, a number, `""`, a non-empty string, or an object;
+    - a `fields` element is `null` or a number;
+    - `components` is `false`, `0`, `""`, a number, a string, or an object;
+    - a type-1 or type-9 component's `components` element is `null` or a number; a type-9 `accessory` is `null`;
+      a type-12 `items` element is `null` or a number;
+    - any of the previous member, nested inside a type-17 container (probed: a type-1 child `null` inside one).
 
-  Every other non-empty `data` renders the editor as at `da24eb7`. In particular, a stored message written under
-  an older schema renders as before, so M8's premise (the generator screenshots stored messages) does not move.
-  The full save schema (`embedShape`) is deliberately not the predicate.
-  - **Residue (X-19).** A `data` outside (1)–(3) that fails later, while the editor renders, is not in this class.
-    Code review's member `{"components":[null]}` passes `makeEditable` (a `null` top-level element spreads to
-    `{}`); its render outcome under jsdom was read as "editor:undefined", not a throw
-    (`verification/015/cr-m5-probes/run1-da24eb7.txt`).
-  - **Verification.** The cells' expected outcomes are literals, one per listed member: the error line or the
-    editor. They are never computed by calling the page's own predicate. A missing `data` still renders nothing.
-  - **Human-observable.** `/preview?data={"embeds":5}` shows "Invalid message data."; `/preview?data={}` shows an
-    empty editor. Walked on the locally served chain tip.
+  For every member the same read shows **rendering**, the editor renders as at `da24eb7`, with no error line:
+  - `{}`;
+  - `embeds` `[]`;
+  - an `embeds` element or a `fields` element that is an array;
+  - a top-level `components` element that is `null`, a number or an array;
+  - a type-1 child that is an array;
+  - a type-17 container's direct child that is `null` or a number.
+  A stored message that renders today still renders, so M8's premise (the generator screenshots stored messages)
+  does not move.
+  - **Residue (X-19).** Two classes are outside what the reads settle:
+    - `data` no read covers: other fields, other component types, deeper nesting. The property binds it, but it
+      carries no cell, and no instrument shows whether the guard catches it.
+    - A `data` that renders blank without throwing. The one read member is `{"components":[{"type":12,"items":"x"}]}`,
+      0 nodes. It is neither crashing nor in the class, and is unchanged.
+  - **Verification.** Each listed member's expected outcome, the error line or the editor, is the literal the read
+    records. It is never computed by calling the page's own predicate. A missing `data` still renders nothing.
+  - **Human-observable.** `/preview?data={"embeds":""}` shows "Invalid message data.", and
+    `/preview?data={"embeds":[[]]}` shows the editor. Walked on the locally served chain tip.
 
 ### M6 — Editor components and markdown (website): F-37, F-38, F-40, F-41, F-42, F-44, F-45–F-50
 
@@ -599,8 +621,10 @@ are in X-18.
     container duplicate and every nested add (`ActionRowEditor.addButton`, `SectionEditor.addTextComponent`).
     `canAddComponent`'s existing refusal of a top-level add at a total ≥ 40 is unchanged; D10 does not speak
     to it.
-  - (ii) `validateMessage` returns an error, which names the count and the 40 limit, exactly when the total
-    component count over every nesting level exceeds 40. So the send gate refuses such a message, and the stored
+  - (ii) `validateMessage` returns an error exactly when the total component count over every nesting level
+    exceeds 40. Its text is the same literal that (vi) shows, "Message has N components; the limit is 40.", from
+    one definition, not two copies (architect AF-24: the pattern in `limits.tsx`, where `validateMessage` and the
+    editor's error lines call the same validators). So the send gate refuses such a message, and the stored
     `valid` field (`isMessageValid` → `validateMessage`, `messageValidity.ts`) reads false.
   - (iii) The total is counted by one definition, shared by the editor's `canAddComponent` and
     `validateMessage`. That definition is today's `countTotalComponents` (`DiscordMessageEditor/index.tsx`,
@@ -621,10 +645,12 @@ are in X-18.
     `handoff/components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md` (X-14).
   - (vi) **Where the error shows (D32).** While the total exceeds 40, the text "Message has N components; the
     limit is 40.", with N the live total, shows in red under the components, and the components area takes a red
-    border. This holds in the editor and on the Send page. The text sits where the text-length errors do
-    (`DiscordMessageEditor` `v2TextError` line at website `da24eb7`, the sibling it mirrors). The border follows
-    the same errors' treatment (the implementer's code read; the planner did not read it). The line and the border
-    go away as soon as the total is 40 or fewer. The Add Component button and counter still hide at 40 and over.
+    border. This holds in the editor and on the Send page, and also on `/preview`, so an over-40 message's
+    generated preview image carries them too, exactly as the text-length errors already do (D33). The text sits
+    where the text-length errors do (`DiscordMessageEditor` `v2TextError` line at website `da24eb7`, the sibling
+    it mirrors). The border joins the same errors' treatment, `styles.errorBorder` keyed on `embedCharacterError
+    || v2TextError` (architect's read, AF-24). The Send page renders the same editor, so it is not a second site.
+    The line and the border go away as soon as the total is 40 or fewer. The Add Component button and counter still hide at 40 and over.
   Expected counts in the tests are literals; so is the error text for at least two totals (41 and one higher).
   Human-observable: at 39 components, add a Section. The add completes, Send is disabled, and the red line reads
   "Message has 41 components; the limit is 40." (or the actual total) under a red border, in the editor and on
@@ -939,7 +965,7 @@ can run the M8-b/d/e probes once the generator's dependencies are installed (M8 
 | X-16 | The message cap under concurrent saves | A constraint or a transaction is beyond F-4's comparator change (QA QAF-4) | Stated limit (M1-d) |
 | X-17 | `Providers.tsx` decoding a client-reachable `x-query-params` header (code review CR-6, `7976a9a`) | Outside F-1 to F-50 (D6). As a rider it would be a scope delta for the owner; the planner does not propose one | `handoff/providers-query-params-header-decode-throws-2026-11-08.md` |
 | X-18 | F-15, F-39 (Enter on a dialog's Cancel runs confirm; the dead `tagName` compare at three sites) | Not reproducible in real Chrome at `6001f7f` (`verification/015/m3-chrome-read/README.md`, `8996505`); removed by the owner (D30). Untested residue: Enter on the uploader's Clear button (the read tested Cancel only); a production build (the read ran `next dev --webpack`); browsers other than Chrome 156. | Stated limit (D30; reopened by the class D30 names) |
-| X-19 | `/preview` `data` that passes `makeEditable` but fails later, while the editor renders (code review's member `{"components":[null]}`) | M5-h's class is the inputs `makeEditable` cannot process (D31; D28 under steering's call); refusing more would need the editor's render as the predicate, and the full save schema would refuse stored messages M8 screenshots (code review CR-18). Population: one probed member, outcome under jsdom "editor:undefined", not a throw (`verification/015/cr-m5-probes/run1-da24eb7.txt`). | Stated limit (M5-h residue) |
+| X-19 | `/preview` `data` no executed read covers (other fields, other component types, deeper nesting), and `data` that renders blank without throwing | M5-h's property binds the first class, but no cell or instrument checks it. The second is not a crash, so it is outside the class. The one read member, `{"components":[{"type":12,"items":"x"}]}`, renders 0 nodes (`verification/015/m5h-class-probe/run1-da24eb7.txt`). `{"components":[null]}`, cited here at rev 22 from a stubbed-editor run, renders with the real editor (critic `verification/015/critic-m5h-render-probes/README.md`; code review `real-run4-da24eb7.txt`). | Stated limit (M5-h residue) |
 
 Not triggered, re-read 2026-11-08 against every milestone including M6-l: `backfill-valid-guard…` (`backfillValid.ts`
 is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, `fix-v1-guild-messages-auth-post-deploy`,
@@ -983,7 +1009,7 @@ is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, 
 - **Next.**
   - **Standing rules.** Under D28, fold same-defect sibling sites without an owner question and report them. After implementation approval, park findings that change no code, test or pre-release verifier as Planner batch rows.
   - **Open, not a finding.** QA left "refused" open between a throw and an empty return in the CR-12 rider; pin it only if a gate asks.
-- **Since the checkpoint.** Rev 20 folded CR-14 under D29; rev 21 folded CR-16 and D30 (M3 removed). Rev 22 folds CR-18 (M5-h's class) and D31/D32. Pending: the implementer's mount-time capture probe (`WebhookMenu` `selectedCategory`, `NewMessageModal` `selectedGuildId`; brief in the planner's message to steering on the M5 handoff), folded at the next pass with L-C5-1 (R-6) if that lands first.
+- **Since the checkpoint.** Revs 20–23: CR-14/D29, CR-16/D30 (M3 removed), CR-18/D31/D32, then rev 23 (M5-h as the real page's crash set; D33). Planner probe committed: `verification/015/m5h-class-probe/`. Pending: the implementer's mount-time capture probe (`WebhookMenu` `selectedCategory`, `NewMessageModal` `selectedGuildId`), folded at the next pass with R-6 (L-C5-1).
 - **Open with others.** None of the planner's questions to the owner are pending. Nothing of the planner's is held.
 - **Uncommitted, left in place.** `INBOX.md` holds this session's FYI entry: the research document's `pm2 show` advice. Per the inbox rule, the domain owner commits it.
 - **Branches.** website and preview-image-generator: chain branches are created by steering. The planner touches no source.

@@ -1,0 +1,56 @@
+sha da24eb7dd7e811a0dfc50b941ceba50aef3c6caf
+preview/page.tsx blob tree 0e3fc49d4c241d4ec58ed5d0942c7cf46f20406f export 0e3fc49d4c241d4ec58ed5d0942c7cf46f20406f
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/75eb73af-3fe3-4644-8dd2-de3ef71273ac/scratchpad/m5h-class-export-da24eb7
+
+REAL "{\"content\":\"hello\"}" -> rendered:18 nodes, text="BOTToday at 8:04 AMThis username is too "
+REAL "null" -> text:Invalid message data.
+REAL "{}" -> rendered:17 nodes, text="BOTToday at 8:04 AMThis username is too "
+REAL "{\"embeds\":null}" -> THREW:Cannot read properties of null (reading 'length')
+REAL "{\"embeds\":[]}" -> rendered:17 nodes, text="BOTToday at 8:04 AMThis username is too "
+REAL "{\"embeds\":5}" -> THREW:number 5 is not iterable (cannot read property Symbol(Symbol.iterator))
+REAL "{\"embeds\":false}" -> THREW:boolean false is not iterable (cannot read property Symbol(Symbol.iterator))
+REAL "{\"embeds\":true}" -> THREW:boolean true is not iterable (cannot read property Symbol(Symbol.iterator))
+REAL "{\"embeds\":\"\"}" -> THREW:embeds.reduce is not a function
+REAL "{\"embeds\":\"x\"}" -> THREW:Cannot create property '_key' on string 'x'
+REAL "{\"embeds\":{}}" -> THREW:object is not iterable (cannot read property Symbol(Symbol.iterator))
+REAL "{\"embeds\":[null]}" -> THREW:Cannot read properties of null (reading '_key')
+REAL "{\"embeds\":[5]}" -> THREW:Cannot create property '_key' on number '5'
+REAL "{\"embeds\":[\"x\"]}" -> THREW:Cannot create property '_key' on string 'x'
+REAL "{\"embeds\":[[]]}" -> rendered:19 nodes, text="BOTToday at 8:04 AMThis username is too "
+REAL "{\"embeds\":[{\"title\":\"t\",\"fields\":null}]}" -> THREW:fields is not iterable
+REAL "{\"embeds\":[{\"title\":\"t\",\"fields\":5}]}" -> THREW:number 5 is not iterable (cannot read property Symbol(Symbol.iterator))
+REAL "{\"embeds\":[{\"title\":\"t\",\"fields\":\"\"}]}" -> THREW:embed.fields?.reduce is not a function
+REAL "{\"embeds\":[{\"title\":\"t\",\"fields\":\"x\"}]}" -> THREW:Cannot create property '_key' on string 'x'
+REAL "{\"embeds\":[{\"title\":\"t\",\"fields\":{}}]}" -> THREW:object is not iterable (cannot read property Symbol(Symbol.iterator))
+REAL "{\"embeds\":[{\"title\":\"t\",\"fields\":[null]}]}" -> THREW:Cannot read properties of null (reading '_key')
+REAL "{\"embeds\":[{\"title\":\"t\",\"fields\":[5]}]}" -> THREW:Cannot create property '_key' on number '5'
+REAL "{\"embeds\":[{\"title\":\"t\",\"fields\":[[]]}]}" -> rendered:21 nodes, text="BOTToday at 8:04 AMThis username is too "
+REAL "{\"components\":false}" -> THREW:components.map is not a function
+REAL "{\"components\":0}" -> THREW:components.map is not a function
+REAL "{\"components\":\"\"}" -> THREW:components.map is not a function
+REAL "{\"components\":5}" -> THREW:casted.data.components.map is not a function
+REAL "{\"components\":\"x\"}" -> THREW:casted.data.components.map is not a function
+REAL "{\"components\":{}}" -> THREW:casted.data.components.map is not a function
+REAL "{\"components\":[null]}" -> rendered:18 nodes, text="BOTToday at 8:04 AMThis username is too "
+REAL "{\"components\":[5]}" -> rendered:18 nodes, text="BOTToday at 8:04 AMThis username is too "
+REAL "{\"components\":[[]]}" -> rendered:18 nodes, text="BOTToday at 8:04 AMThis username is too "
+REAL "{\"components\":[{\"type\":1,\"components\":[null]}]}" -> THREW:Cannot read properties of null (reading '_key')
+REAL "{\"components\":[{\"type\":1,\"components\":[5]}]}" -> THREW:Cannot create property '_key' on number '5'
+REAL "{\"components\":[{\"type\":1,\"components\":[[]]}]}" -> rendered:25 nodes, text="BOTToday at 8:04 AMThis username is too "
+REAL "{\"components\":[{\"type\":9,\"components\":[null]}]}" -> THREW:Cannot read properties of null (reading '_key')
+REAL "{\"components\":[{\"type\":9,\"components\":[5]}]}" -> THREW:Cannot create property '_key' on number '5'
+REAL "{\"components\":[{\"type\":9,\"components\":[],\"accessory\":null}]}" -> THREW:Cannot read properties of null (reading 'type')
+REAL "{\"components\":[{\"type\":12,\"items\":[null]}]}" -> THREW:Cannot read properties of null (reading '_key')
+REAL "{\"components\":[{\"type\":12,\"items\":[5]}]}" -> THREW:Cannot create property '_key' on number '5'
+REAL "{\"components\":[{\"type\":12,\"items\":\"x\"}]}" -> rendered:0 nodes, text=""
+REAL "{\"components\":[{\"type\":17,\"components\":[null]}]}" -> rendered:22 nodes, text="BOTToday at 8:04 AMThis username is too "
+REAL "{\"components\":[{\"type\":17,\"components\":[5]}]}" -> rendered:22 nodes, text="BOTToday at 8:04 AMThis username is too "
+REAL "{\"components\":[{\"type\":17,\"components\":[{\"type\":1,\"components\":[null]}]}]}" -> THREW:Cannot read properties of null (reading '_key')
+
+ Test Files  1 passed (1)
+      Tests  44 passed (44)
+   Start at  08:04:20
+   Duration  9.58s (transform 813ms, setup 21ms, import 1.42s, tests 7.35s, environment 650ms)
+
+exit 0
