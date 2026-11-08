@@ -109,6 +109,24 @@ Recorded in `system-architecture.md` as Runtime Flow 1b — the service was abse
 
 ---
 
+## W-7 — One Discord account is one Hooks user
+
+**Provenance**: owner-authored, recorded as a standing rule by his own selection. **Asked** 2026-11-08 (chain 015, architecture AF-26, put to him by steering): sign-out could revoke the wrong token when one Hooks user holds two Discord accounts. Should that be fixed, recorded as a known limit, or blocked? His answer opened with a question back, then the rule:
+
+> "what do you mean by \"linking a second Discord account\"? If someone signs in with a different account, that's a different Hooks user"
+
+**Confirmed as a rule, not only an answer.** Steering then asked whether to record that sentence as a standing design rule. The options were "Agent: yes, record the rule" and "Agent: no, it was just an answer". He chose **Agent: yes, record the rule** (`steering/015-rulings.md` block 2026-11-08T08:11Z, `dd2a337`).
+
+**Checked against the mechanism before recording** (website `3031878`):
+
+- **Where it holds.** The site's own sign-in entry points honour it: `NavMenu` signs out when a session exists, and the edit and send pages' Log in panels render only without a session (`session === null` on the send page).
+- **Where it does not.** next-auth 4.24.5 (`core/lib/callback-handler.js`) links a new Discord account to a user who is already signed in. `auth.ts` sets no `signIn` callback to refuse it, and `Account` is unique only on `(provider, providerAccountId)`. So a hand-made visit to the sign-in URL while signed in creates the shape this rule says does not exist.
+- **His ruling on the gap.** A known limit, with no code (`766bd4b`), carried by chain 015's handoff over `removeUserSession` and `fetchUserAccount`. It reopens if a user with two Discord rows is found or reported.
+
+**What it governs.** A Hooks user has at most one Discord account. Per-user reads that take "the user's Discord account" (`fetchUserAccount`, sign-out) rest on this rule, not on a schema constraint. A future surface that lets one user hold several Discord accounts, or a design that treats the hand-made link as supported, contradicts this rule and needs his ruling. Closing the gap (refusing the link, or a uniqueness constraint) enacts it and is not a new product decision.
+
+---
+
 ## Open questions for the owner
 
 None outstanding at 2026-08-24.
@@ -118,7 +136,7 @@ None outstanding at 2026-08-24.
 
 ## Recovered rationale — agent-derived, not owner testimony
 
-*The provenance-grade table above governs W-1…W-6 only; it does not apply to the entries below.*
+*The provenance-grade table above governs W-1…W-7 only; it does not apply to the entries below.*
 
 ### A-1 — Zod issues are formatted per issue and joined here; never split out of library output
 
@@ -249,3 +267,4 @@ Two consequences a reader cannot derive from the tree:
 | 2026-09-08 | 3 | steering-S038 | P-1 folded into the recovered-rationale section under the owner's 2026-09-08 placement rule (annotated lines only); its claim framing removed, substance unchanged. |
 | 2026-11-08T05:17 | 4 | architect-hooks-015 | Added `A-4` (agent-designed) from the plan 015 conformance pass: where message validity, its counters and its bounds live. |
 | 2026-11-08T07:03 | 5 | architect-hooks-015 | Added `A-5` (agent-designed) from the plan 015 rev 17–18 conformance pass: binding bot-token reads to the authorised guild. |
+| 2026-11-08T08:11 | 6 | architect-hooks-015 | Added `W-7` (owner-authored): one Discord account is one Hooks user. His sentence is verbatim, confirmed as a standing rule by his selection (`dd2a337`). Checked against the mechanism, and the next-auth linking gap is recorded as his known limit (`766bd4b`). |
