@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: In Progress
-Status-Detail: "M0 and M1 delivered (M1 at website be881c9, in code review). Revision 11 folds D22 (sign-out clears both session keys on a lookup error), M1-h's decision table (QAF-12, M-C3-2), the run-2 span anchored on pm2.log stop times (QAF-13), and L-C3-2 and L-C3-3. The gates re-read that delta. M1-c and M1-h reopen and wait on that round; nothing else is held."
-Revision: 11
+Status-Detail: "M0 delivered. M1 is REJECTED in code review Round 2 at website be881c9 (CR-3 to CR-5). Revision 12 folds CR-3 (sign-out decides from the Accounts row, never a cached value) and the rev-11 LOWs (QAF-14 to QAF-16, L-C3-4). The gates re-read that delta. M1-c and M1-h stay reopened and wait on it; nothing else is held."
+Revision: 12
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
 Lane: "standard — agent-output/README.md carries no small-lane section (grep -i small, 0 hits, 2026-11-08); the blast radius spans the save schema, a bot command's permissions and a production PM2 service, none a leaf"
@@ -38,7 +38,8 @@ Owed re-verdicts:
 | M1-c no-account cell; M2 QAF-1 note; P3 pool read and run-2 read; M8 E-1 (loopback, self-check, install location); M8-c browser source and fallback | rev 7 | critic (cycle 2 pass 2), architect, qa | approved (critic `1ce2ae4`; architect `592eb23`; QA `ba277d8`), with AF-16, L-C2-4, QAF-8 and QAF-9 folded at rev 8 |
 | M1-c no-account cell and ordering anchor; the session row moved outside M1-c; M8-0 run-2 span and its pool-creation read | rev 8 | critic, architect, qa (delta only) | approved (critic `f64ae27`; architect `ca8da09`; QA `c2a657a`); QAF-10, M-C3-1 and L-C3-1 folded at rev 9 |
 | M1-c "no account found" class and lookup-error residue; M1-f premise and RK-7; M1-h restated to D21's property (rev 10); re-derivation after M1; M8-a run-2 span bounds and its read list; P3 instrument liveness; Validation sign-out note | rev 9, rev 10 | critic, architect, qa (one delta round over both) | approved (architect `a34ca86`, QA `45d2d91`, critic `da1c87c`); AF-17 (D22), QAF-12, QAF-13, M-C3-2, L-C3-2 and L-C3-3 folded at rev 11 |
-| M1-c lookup-error cell (D22); M1-h trigger "or returns" and decision table; M8-a run-2 span anchored on stop (1) and stop (2) timestamps; RK-7 reducing predicate; re-derivation reading of block 05:50Z | rev 11 | critic, architect, qa (delta only) | open |
+| M1-c lookup-error cell (D22); M1-h trigger "or returns" and decision table; M8-a run-2 span anchored on stop (1) and stop (2) timestamps; RK-7 reducing predicate; re-derivation reading of block 05:50Z | rev 11 | critic, architect, qa (delta only) | approved (architect `8868b7d`, QA `22fef2d`, critic `d18de10`); QAF-14 to QAF-16 and L-C3-4 folded at rev 12 with CR-3 |
+| M1-c account decision from the `Accounts` row (CR-3), "falsy return" withdrawn, deletion-failure outcome (QAF-15); M1-h table row 6 timing (QAF-14); run-2 stop line, clock premise and `online`/ready check (QAF-16, L-C3-4) | rev 12 | critic, architect, qa (delta only) | open |
 
 ## Changelog
 
@@ -63,6 +64,7 @@ Owed re-verdicts:
 | 2026-11-08T06:26 | 10 | planner (planner-hooks-015) | Registers D21 from rulings block 06:25Z "OQ-I" (`33928c8`) and restates M1-h to its property. The criterion text moves, so this is a revision, not a registration. It is the third revision since implementation approval. It is a milestone-level scope delta on M1-h that the owner chose himself (D21): M1-h reopens for one change, one code-review round and one QA Phase 2 re-run. The gates read rev 9 and rev 10 in one delta round, not two. Scope delta: M1-h is restated as a property over the three promises `hydratedAuthCallback` starts, with four rejection inputs; OQ-I is closed. Against the ask: 49 of 50 findings, unchanged. |
 | 2026-11-08T06:31 | 11 | planner (planner-hooks-015) | Folds the three verdicts on revs 9 and 10 (architect `a34ca86` AF-17; QA `45d2d91` QAF-12, QAF-13; critic `da1c87c` M-C3-2, L-C3-2, L-C3-3) and registers D22 (rulings 06:29Z, `904ec0d`). It is the fourth revision since implementation approval, and it triggers one delta round per gate. M1-c reopens under D22, which the owner chose with its cost stated. M1-h's additions only complete D21, so they ride it. Scope delta: M1-c gains the lookup-error cell. M1-h's trigger becomes "awaits anything else or returns", and an eight-row decision table replaces the four inputs. The run-2 span is anchored on `pm2.log`'s stop timestamps with no positional bound; this is RK-6's fourth revision of that limb. RK-7 names QA's transitive scan as its predicate, and the re-derivation paragraph reads block 05:50Z instead of hedging. Against the ask: 49 of 50 findings, unchanged. |
 | 2026-11-08T06:33 | cr | code-reviewer (code-reviewer-hooks-015) | Round 2, M1, at website `be881c9`: REJECTED, `code-review/015-bug-evaluation-fixes-code-review.md` (`53ee954`). CR-3 MEDIUM: sign-out reads a cached `null` as "no account" and skips the revoke and the `Accounts` update for an existing row. This is the "falsy return" member of rev 9's M1-c class, and it needs a planner fold. CR-4 MEDIUM: the cookie parser throws on legal `%` octets (M1-i). CR-5 LOW. M1-a, b, d, e, f, g, j and k are met. M1-h was reopened by rev 10 and is not verdicted at `be881c9`. Round 1's CR-1 is RESOLVED. The review is milestone-scoped, so plan Status is unmoved. |
+| 2026-11-08T06:37 | 12 | planner (planner-hooks-015) | Folds code review Round 2 CR-3 (`53ee954`) and the rev-11 verdicts' findings: QA QAF-14 to QAF-16 (`22fef2d`) and critic L-C3-4 (`d18de10`, the same member as QAF-16). The architect (`8868b7d`) had none. It is the fifth revision since implementation approval, and it triggers one delta round per gate. CR-3 corrects a chain-introduced defect (M1-j, `a2592f0`) inside M1-c's reopen, which D22 already pays for, and does not change what D22 decided (steering's reading, which the planner concurs with). Scope delta: M1-c's account decision and token come from the `Accounts` row, never from the shared cache key, and rev 9's "falsy return" member is withdrawn. M1-c gains the deletion-failure outcome. M1-h's row 6 covers M rejecting after G settles; row 8 already covered it. The run-2 span names `Stopping app` as the stop line, states the UTC clock premise with run 1's reads, and adds the `date +%z` and `online`-versus-ready checks. Against the ask: 49 of 50 findings, unchanged. |
 
 ## Value Statement and Business Objective
 
@@ -220,8 +222,19 @@ any walk that signs out revokes that account's Discord token and must sign in ag
   - **"No account found" (implementation M1 Outstanding Item 1; confirmed).** At `7ce866b` an absent `Accounts`
     row never reaches `removeUserSession`'s `Expected to find account` throw. `fetchUserAccount`'s loader runs
     `executeTakeFirstOrThrow()` (`src/utils/redis/index.ts`), so it raises Kysely's `NoResultError` (read by the
-    planner at `7ce866b`). The no-account cell covers both members of the class: `NoResultError` from the lookup,
-    and a falsy return.
+    planner at `7ce866b`).
+  - **The account decision rests on the row (code review CR-3; rev 12).** Whether sign-out treats an account as
+    existing, and the access token it revokes and clears, are read from the `Accounts` row at sign-out. They are
+    never read from a value cached under `user-access-token:<userDbId>`.
+    - **Why.** That key is shared with the `skipUpdate = false` loader, which caches `null` for a usable-account
+      failure: no `refresh_token`, or a refused refresh (CR-3's enumeration at `be881c9`, 3 readers and 2
+      `null` producers). Since M1-j (`a2592f0`), sign-out read that `null` as "no account" and skipped the
+      revoke and the `Accounts` update for an existing row. Code review measured it at `7b10f4e` (full clear-out)
+      against `a2592f0` and `be881c9` (none); captures in `verification/015/cr-m1-probes/`.
+    - **The class.** The cache key holds nothing (a miss), holds an account, or holds `null` from either
+      producer. Every member gives the same outcome as the miss for the same `Accounts` row.
+    - **"No account found"** is exactly the row being absent (`NoResultError`). Rev 9's "falsy return" member is
+      withdrawn: it read the cached `null` as no account.
   - **A lookup error (D22; architect AF-17).** Any other lookup error, such as Postgres unreachable, still
     reaches the caller. Before it does, `removeUserSession` deletes both keys addressable from its own
     arguments: `user-access-token:<userDbId>` and `user-session-token:<sessionToken>`.
@@ -235,6 +248,8 @@ any walk that signs out revokes that account's Discord token and must sign in ag
       cannot be addressed without the account.
     - **Literal outcome for the input "the lookup rejects with an error other than `NoResultError`":** both keys
       are deleted, and then the caller receives that rejection.
+    - **If the key deletion also fails (QA QAF-15):** the caller still receives the lookup's rejection, not the
+      Redis error. No `unhandledRejection` is emitted.
   - **Ordering.** A failed revoke never prevents sign-out. The access token is read before the `Accounts`
     update sets `access_token` to null. At `7ce866b`, a rejected `fetch` aborts before the clear-out.
 - **M1-d (F-4, D5)** — the inputs are {existing message, new message} × {count < 1000, count = 1000} ×
@@ -285,7 +300,7 @@ any walk that signs out revokes that account's Discord token and must sign in ag
       | account, no access token | resolves | not started | the session |
       | account, no access token | rejects, at any time | not started | M's rejection |
       | account with token | resolves | resolves | the session |
-      | account with token | rejects during A or during G | resolves | M's rejection |
+      | account with token | rejects during A, during G, or after G has settled | resolves | M's rejection |
       | account with token | resolves | rejects | G's rejection |
       | account with token | rejects | rejects | the first of the two to settle (`Promise.all`) |
 
@@ -540,6 +555,16 @@ Host facts (steering's standing `hooks-pig` reads, rulings blocks 05:20Z–05:24
         `max_restarts: 10` in `ecosystem.config.js`). Each one is reported, and the read stops there; it never
         picks one.
       - **No span:** a missing Start or End is reported as no span, never filled from another stop.
+      - **The stop timestamp (QA QAF-16)** is `pm2.log`'s `Stopping app` line for the app: the earliest line of a
+        stop, and unambiguous. Run 1 counts 2 for the prod app.
+      - **The clock premise (QA QAF-16; critic L-C3-4).** `pm2.log`'s stamps are zone-less local time at second
+        resolution (`2026-11-08T04:17:40:`). The out log's stamps are UTC ISO. The comparison is valid only while
+        the host's local time is UTC. Run 1's capture supports it:
+        - the file mtimes carry `+0000`;
+        - at both process starts on record, `pm2.log`'s `online` stamp equals the out log's ready stamp to the
+          second: 2024-06-15T11:56:00, and 2026-08-23T04:18:22 (critic's read, capture lines 81/33 and 87/34).
+        Run 2 therefore first prints the host's `date +%z` and compares the End process's `pm2.log` `online` stamp
+        with its out-log ready stamp, to the second. A non-`+0000` offset or a disagreement is reported as no span.
       The reads this span bounds are every read run 2 takes: the `Server received` count, the drain-complete line
       and its elapsed figure, the `Created instance` count, the `POST /generate` count, and the exit time against
       the stop timestamp. A span with zero `Server received` lines is a valid read and refutes P1.
@@ -753,8 +778,8 @@ is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, 
 
 ## Resumption State (checkpoint, planner-hooks-015)
 
-- **Done.** Plan at revision 11. Revs 9 and 10 passed all three gates with findings (architect `a34ca86`, QA `45d2d91`, critic `da1c87c`), folded at rev 11 with D22. Registrations so far: R-1 (D14, D15), R-2 (D20), R-3 and R-4. D21 and D22 were registered inside revs 10 and 11. F-31 analysis: `analysis/015-bug-evaluation-fixes-analysis.md` (latest `1fc16f5`). M8-0 run 1 is captured at `verification/015/m8-0-run1-2026-11-08T0525Z.txt`.
-- **Next.** Steering routes rev 11's delta to the critic, the architect and QA. M1-c and M1-h reopen once it passes. Nothing else is held. Fold any findings at the next planning pass. After implementation approval, findings that change no code, test or pre-release verifier are parked as Planner batch rows.
+- **Done.** Plan at revision 12. Rev 11 passed all three gates (architect `8868b7d`, QA `22fef2d`, critic `d18de10`). Code review Round 2 rejected M1 at website `be881c9` (`53ee954`); its CR-3 is folded at rev 12. Registrations so far: R-1 (D14, D15), R-2 (D20), R-3 and R-4. D21 and D22 were registered inside revs 10 and 11. F-31 analysis: `analysis/015-bug-evaluation-fixes-analysis.md` (latest `1fc16f5`). M8-0 run 1 is captured at `verification/015/m8-0-run1-2026-11-08T0525Z.txt`.
+- **Next.** Steering routes rev 12's delta to the critic, the architect and QA. M1-c and M1-h are rebuilt once it passes. CR-4 and CR-5 are the implementer's; M1-i's criterion already covers CR-4. Fold any findings at the next planning pass. After implementation approval, findings that change no code, test or pre-release verifier are parked as Planner batch rows.
 - **Open with others.** None of the planner's questions to the owner are pending (OQ-I answered: D21). The 69-day generator gap (X-15) went to him through steering as an FYI only.
 - **Uncommitted, left in place.** `INBOX.md` holds this session's FYI entry: the research document's `pm2 show` advice. Per the inbox rule, the domain owner commits it.
 - **Branches.** website and preview-image-generator: chain branches are created by steering. The planner touches no source.
