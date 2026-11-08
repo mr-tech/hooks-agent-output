@@ -175,3 +175,10 @@ Non-blocking items go to the planner: QAF-8 (MEDIUM, owed before the M8-0 run-2 
 Trees: website and preview-image-generator are on chain/015-bug-evaluation-fixes at 7ce866b and 471578f, both clean.
 implementer-hooks-015 is spawned at M0. Before code on any milestone touching a user-visible surface, its flow questions
 come to the owner.
+
+## 2026-11-08T06:25Z — OQ-I (plan rev 9, 1b8b43b): how far the F-8 fix goes (selection)
+Options: Agent: fix both windows / Agent: stop, note the limit. The planner made no recommendation. Chosen **Agent: fix
+both windows**, by selection. The implementer also closes the account-lookup window in the same function. Code review and
+QA re-check that one item once.
+Premise read by steering this turn: verification/015/m1h-rejection-window-probe-run1.txt (planner, node v24.14.0) prints
+"UNHANDLED messages failed" and exit=0.
