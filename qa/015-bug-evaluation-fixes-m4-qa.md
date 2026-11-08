@@ -2,9 +2,9 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Verified-At: "24ac49f — repos=website; M4 only, run in git-archive exports of 24ac49f under unshare -rn, not the shared tree. Re-anchored from da24eb7 by the CR-17 refresh (a665901); earlier: 1e12837 (QA Failed)"
+Verified-At: "476c633 — repos=website; M4 scoped pass for the non-JSON member (rev 24), on the M4 PASS at 24ac49f; git-archive exports under unshare -rn"
 Status: QA Complete
-Status-Detail: "M4 (milestone-scoped) PASS, refreshed at website 24ac49f for CR-17 (a665901: one INVALID_URL_ERROR constant at both webhook-URL sites); a text mutant of the constant reddens both sites' cells. Still owed: rev 24's non-JSON member, one cell per site, and its scoped M4 pass. Earlier text, at da24eb7 against plan rev 22 (5201612; M4 unchanged since rev 21): The re-run after the D29 reopen: the round's one production change (useValidateWebhook's webhook-load catch) is killed by 4 of 4 QA mutants at both sites' cells, and QAF-25's 7 survivors are all killed by the new cells. QAF-25 RESOLVED. Suite 890/890, 89 files, exit 0; typecheck exit 0. Plan Status left alone."
+Status-Detail: "M4 (milestone-scoped) PASS at website 476c633. The scoped pass for rev 24's non-JSON member is done: 1968281, test-only, one cell per site, and nm-nonjson and wf-nonjson are each killed. The CR-17 refresh at 24ac49f stands for the rest of M4."
 Phase: 2
 ---
 
@@ -22,6 +22,7 @@ Phase: 2
 | 2026-11-08T07:30 | code-reviewer-hooks-015, steering-hooks-015 → qa-hooks-015 (messages) | QA Phase 2 for M4 at website `1e12837` | Phase 2, milestone-scoped (M4). The stage start was re-derived from `a99e9ff`. This document was created at this pass and first committed with Status QA Failed (M4 scope; plan Status left alone). QAF-25 MEDIUM goes to the implementer: test gaps only, with no production defect found. |
 | 2026-11-08T08:03 | code-reviewer-hooks-015 → qa-hooks-015 (message: `d7708e8`) | M4 re-run after the D29 reopen, at website `da24eb7` | Phase 2 re-run, scoped to the round's diff (`1e12837..da24eb7` over M4's production files: `useValidateWebhook.ts` only). Stage start re-derived at `d7708e8` (Round 7 sub-entry, `Reviewed-At: da24eb7`, M4 APPROVED_WITH_COMMENTS). Verdict PASS. QAF-25 RESOLVED. Status → QA Complete (M4 scope). See § Re-run after the D29 reopen. **Process disclosure:** QAF-25's collapse to a disposition line was a `python3` in-place edit, outside the edit tools and `record-edit.js`. |
 | 2026-11-08T08:34 | code-reviewer-hooks-015 → qa-hooks-015 (message: `e0054f7`) | Refresh after CR-17's production change (`a665901`), at website `24ac49f` | Refresh, scoped to CR-17. `useValidateWebhook.ts` and `WebhookMenu/index.tsx` now read one `INVALID_URL_ERROR`. The M4 cells are green in the full suite at `24ac49f`. The text mutant `m4-invalid-url-text` reddens `NewMessageModal.failed-webhook-load` (1), `WebhookMenu.failed-webhook-load` (2) and `useValidateWebhook.validation-effects` (1) (`qa-m6x-sweep-summary-24ac49f.txt`; the table is in `qa/015-bug-evaluation-fixes-m6-qa.md`). Verdict stands, re-anchored to `24ac49f`. The scoped pass for rev 24's non-JSON member is still owed. |
+| 2026-11-08T09:52 | code-reviewer-hooks-015 → qa-hooks-015 (`2fa6d8b`); steering-hooks-015 (brief at rev 27) | Scoped M4 pass for the non-JSON member at `476c633` | PASS. Both cells are present and seen red under their mutants. The suite is green. |
 
 ## Scope and criteria assessed
 
@@ -159,6 +160,14 @@ Score: 4 mutants over the round's one production hunk (`useValidateWebhook.ts`'s
 **Verdict:** M4 **PASS** at website `da24eb7`, milestone-scoped. B-9, B-10 and B-11 remain UAT's.
 
 *Reconcile 2026-11-08T08:12 (plan rev 24, `018f72d`, L-C5-1):* rev 24 adds one member to the D29 limb, a response whose body is not JSON. This PASS did not verify it. It stands for every limb and member it did verify. Production at `da24eb7` reaches "Invalid URL" on that member at both sites (read, not run: Phase 1 § M4's rev 24 reconcile). The member's cells are owed, and a scoped M4 pass over them follows when they land.
+
+## Scoped pass at `476c633`: the non-JSON member (rev 24)
+
+Stage start: code review `2fa6d8b` (Rounds 16 to 18), `Reviewed-At` `476c633` for the website, re-derived from the committed section. Suite at website `476c633` (git-archive export, `unshare -rn`): 1118/1118 cases in 114 files, vitest exit 0, `pnpm run typecheck` exit 0 (`verification/015/qa-p2-r2-run-476c633.txt`, `qa-p2-r2-testresults-476c633.json`). 6 files were added since `24ac49f` and 0 removed, compared by path membership (`qa-p2-r2-testresults-paths-476c633.txt`).
+- **Cells:** `NewMessageModal.failed-webhook-load.test.tsx` (the dialog) and `WebhookMenu.failed-webhook-load.test.tsx` (the send page) each carry a non-JSON body → "Invalid URL" member (`1968281`, test-only).
+- **TDD:** the implementation rows say "Written first: No". These cells are controls on behaviour the code already had, with no production change, so the red-first rule does not apply. A mutation gives each control's evidence instead.
+- **Seen red:** mutants `nm-nonjson` and `wf-nonjson` (`mutators/qa-r2-supplement.py`, `mutation-qa-r2*-476c633.txt`) each redden their site's cell, 1 each. The control is green.
+- **Verdict:** PASS at `476c633`.
 
 ## Implementation Review (Post-Implementation)
 

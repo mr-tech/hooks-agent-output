@@ -2,9 +2,9 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Verified-At: "24ac49f — repos=website; M5-a to M5-g only (M5-h and M5-i are later work), run in git-archive exports of 24ac49f under unshare -rn, not the shared tree. The earlier pass (QA Failed) was at da24eb7"
+Verified-At: "476c633 — repos=website; M5-h and M5-i (the M5-a to M5-g PASS at 24ac49f stands); git-archive exports under unshare -rn"
 Status: QA Complete
-Status-Detail: "M5-a to M5-g (milestone-scoped) PASS at website 24ac49f against plan rev 25 (dd9e88a; M5-a to M5-g unchanged since rev 22). QAF-29's fix (24ac49f): the cells run in America/Los_Angeles with members straddling UTC midnight, and m5e-utc-getters is killed (2 of 9). CR-19's change to M5-c (a665901, useLatest) is refreshed: a frozen-ref mutant is killed (2 of 4). The whole suite under TZ=America/Los_Angeles: 1029/1029. QAF-29 RESOLVED. B-13 stays open (UAT). Plan Status left alone."
+Status-Detail: "M5-h and M5-i (milestone-scoped) PASS at website 476c633 against plan rev 27 (18d361c). M5-h's crash-set cells cover every plan member except Phase 1's literals { and [{}] (QAF-35 LOW, non-blocking). Every M5-h and M5-i mutant is killed. The M5-a to M5-g PASS at 24ac49f stands."
 Phase: 2
 ---
 
@@ -21,6 +21,7 @@ Phase: 2
 |------|---------------|---------|---------|
 | 2026-11-08T08:07 | code-reviewer-hooks-015 → qa-hooks-015 (message: `d7708e8`) | QA Phase 2 for M5-a to M5-g at website `da24eb7` | Phase 2, milestone-scoped. Created and first committed with Status QA Failed (M5-a to M5-g scope; plan Status left alone). QAF-29 MEDIUM goes to the implementer. B-13 is minted in the chain's register. |
 | 2026-11-08T08:34 | code-reviewer-hooks-015, steering-hooks-015 → qa-hooks-015 (messages: `e0054f7`; resume brief) | M5-a to M5-g re-run after QAF-29's test-only fix (`24ac49f`), with CR-19's production change (`a665901`) | Phase 2 re-run. QAF-29's survivor is killed, and so is CR-19's refresh mutant. The whole suite also passes under `TZ=America/Los_Angeles`. QAF-29 RESOLVED. Verdict PASS; Status → QA Complete (M5-a to M5-g scope; plan Status left alone). See § Re-run at `24ac49f`. |
+| 2026-11-08T09:52 | code-reviewer-hooks-015 → qa-hooks-015 (`2fa6d8b`); steering-hooks-015 (brief at rev 27) | M5-h and M5-i at `476c633` | PASS. QAF-35 LOW is raised and does not block. |
 
 ## Scope and criteria assessed
 
@@ -99,6 +100,22 @@ Captures under `verification/015/`:
 
 **Verdict: PASS** for M5-a to M5-g at `24ac49f`, milestone-scoped. B-13 stays open and is UAT's.
 
+## M5-h and M5-i at `476c633`
+
+Stage start: code review `2fa6d8b` (Rounds 16 to 18), `Reviewed-At` `476c633` for the website, re-derived from the committed section. Suite at website `476c633` (git-archive export, `unshare -rn`): 1118/1118 cases in 114 files, vitest exit 0, `pnpm run typecheck` exit 0 (`verification/015/qa-p2-r2-run-476c633.txt`, `qa-p2-r2-testresults-476c633.json`). 6 files were added since `24ac49f` and 0 removed, compared by path membership (`qa-p2-r2-testresults-paths-476c633.txt`).
+- **TDD gate:** passed. The M5 implementation rows for the crash-set guard (M5-h) and the `WebhookMenu` open category (M5-i) are Yes/Yes, with assertion-level failure reasons.
+- **M5-h** (`page.invalid-data.test.tsx`), audited against rev 27 § M5-h (3)'s lists:
+  - Every crashing member and every rendering member has its own case, including `fields: null` as rendering (CR-29).
+  - A refused case asserts that the error line is present: exactly one `.text-error`, with the literal text. A rendering case asserts that the editor landmark `.discord-visualizer` is present. No case asserts only the absence of the other outcome.
+  - Mutants killed: `pg-nobound` 11, `pg-blank` 11, `pg-refuseall` 14, `pg-array` 1.
+  - Missing: Phase 1's literal members `{` (class 1) and `[{}]` (class 2). See QAF-35.
+- **M5-i** (`WebhookMenu.open-category.test.tsx`):
+  - Every cell reads the expanded panel from the DOM (`aria-expanded`).
+  - Cells cover webhooks arriving after mount, and each of the three `hasWebhooks` conjuncts going back to the custom tab. They also cover the guild arriving late, a guild switch, and a kept pick: the Custom/load tab, as Phase 1 names it.
+  - Mutants killed: `wm-pick` 2, `wm-seed` 7, `wm-auth` 1, `wm-guild` 1, `wm-count` 3.
+- **Naming and oracles:** there is no ID token in a basename, title or comment, and every expected value is a literal.
+- **Verdict:** M5-h PASS and M5-i PASS at `476c633`.
+
 ## Implementation Review (Post-Implementation)
 
 **Per criterion:**
@@ -111,6 +128,11 @@ Captures under `verification/015/`:
   - No finding and no row: no criterion is at stake.
 
 ## Findings
+
+QAF-35 LOW Phase 2 — M5-h's Phase 1 cell list names `{` (class 1) and `[{}]` (class 2). Neither has a case in `page.invalid-data.test.tsx` at `476c633`.
+- **Why it does not block:** both go through a branch that other members already discriminate. `{` throws in `JSON.parse`, as `{not json` does. `[{}]` takes the array refusal, as `[]` does, and `pg-array` is killed. The property is the class: § M5-h (3) treats its members as illustrations.
+- **The property it wants checked:** a `/preview` `data` that is a bare `{`, or a list holding an object, shows the one error line and no editor.
+- **Required (implementer):** two `it.each` rows in the existing table, tightening it rather than adding a file, green at the tip. Owed before the effort-final pass.
 
 QAF-29 MEDIUM Phase 2 RESOLVED (2026-11-08T08:34: website `24ac49f`; `m5e-utc-getters` killed, § Re-run at `24ac49f`) — M5-e's "today" is the user's calendar day, and no cell can tell local time from UTC. The suite runs in UTC (`date +%Z` on this box; no `TZ` in the vitest config). Every fixture is built with the local `Date` constructor, so local and UTC coincide, and the mutant `m5e-utc-getters` passes all 9 date cases.
 - **Production is correct.** `isSameLocalDay` uses local getters, as the base's `getDate()` did. The probe confirms local-day semantics in three zones, and a positive control shows the probe can fail.
@@ -132,6 +154,8 @@ This pass assumes that, in a real browser, Headless UI's dialog closes on Esc an
 B-13 is appended to the chain's register (`qa/015-bug-evaluation-fixes-qa.md`). Rows inherited by M5 and not discharged: B-12 (M5-h, held) and B-13. Both are UAT's.
 
 ## Handoff
+
+- **476c633 pass:** M5-h and M5-i PASS. QAF-35 LOW goes to the implementer (implementer-hooks-015). It is owed before the effort-final pass.
 
 - **Implementer (implementer-hooks-015):** QAF-29 MEDIUM. One cell tightened, then M5-a to M5-g's Phase 2 re-run on the round's diff, which also re-runs `m5e-utc-getters`.
 - **Verdict:** QA Failed for M5-a to M5-g at `da24eb7`, on suite coverage. No production defect was found.

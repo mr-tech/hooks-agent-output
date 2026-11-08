@@ -2,9 +2,9 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Verified-At: "24ac49f — repos=website; M6-b to M6-l only (M6-a REJECTED by code review CR-22; F-45's class CR-24 open), run in git-archive exports of 24ac49f under unshare -rn, not the shared tree (chain branch at 09c7c45 when read)"
+Verified-At: "476c633 — repos=website; M6-a, the M6-b to M6-l re-run (QAF-30 to QAF-32) and CR-24; git-archive exports under unshare -rn. Earlier: 24ac49f (QA Failed, M6-b to M6-l)"
 Status: QA Failed
-Status-Detail: "M6-b to M6-l (milestone-scoped) at website 24ac49f against plan rev 25 (dd9e88a; M6-b to M6-l unchanged since rev 23): QA Failed, on test coverage only. QAF-30 MEDIUM: M6-l (vi)'s add gate above 40, the line's place under the text-length error, the live drop and the /preview mount have no discriminating cell (two QA mutants survive). QAF-31 MEDIUM: the four nested duplicate cells cannot tell a copy placed before the original from one after (four survivors). QAF-32 LOW: M6-d's displayed-field expectation transcribes the production filter. No production defect found. Suite 1029/1029, 108 files, exit 0; typecheck exit 0; the same suite under TZ=America/Los_Angeles 1029/1029. Plan Status left alone."
+Status-Detail: "At website 476c633 against plan rev 27. M6-b to M6-l PASS: QAF-30, QAF-31 and QAF-32 RESOLVED, the six survivors killed. CR-24 (BottomPortal, ColorPicker) PASS. M6-a QA Failed on coverage: QAF-34 MEDIUM, the interactive title parser has no preservation cell and m6a-title-codeblock-interactive survives. RK-1 differential: 0 of 12,486 comparisons differ."
 Phase: 2
 ---
 
@@ -21,6 +21,7 @@ Phase: 2
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-08T08:33 | code-reviewer-hooks-015 → qa-hooks-015 (message: `e0054f7`); steering-hooks-015 (resume brief) | QA Phase 2 for M6-b to M6-l at website `24ac49f` | Phase 2, milestone-scoped. Created and first committed with Status QA Failed (M6-b to M6-l scope; plan Status left alone). QAF-30 and QAF-31 MEDIUM, QAF-32 LOW go to the implementer. B-4 gains a `/preview` leg (code review's routed assumption). |
+| 2026-11-08T09:52 | code-reviewer-hooks-015 → qa-hooks-015 (`2fa6d8b`); steering-hooks-015 (brief at rev 27) | Re-run of M6-b to M6-l (QAF-30 to QAF-32), M6-a and CR-24 at `476c633` | M6-b to M6-l PASS. CR-24 PASS. M6-a QA Failed (QAF-34 MEDIUM). |
 
 ## Scope and criteria assessed
 
@@ -111,6 +112,29 @@ Score: 11 QA mutants at sites matching "the four nested duplicate `splice` lines
 
 Both sites read the one constant, and the cells hold the text as a literal. M4's and M5-a to M5-g's verdicts are re-anchored at `24ac49f` in their own documents.
 
+## Re-run at `476c633`
+
+Stage start: code review `2fa6d8b` (Rounds 16 to 18), `Reviewed-At` `476c633` for the website, re-derived from the committed section. Suite at website `476c633` (git-archive export, `unshare -rn`): 1118/1118 cases in 114 files, vitest exit 0, `pnpm run typecheck` exit 0 (`verification/015/qa-p2-r2-run-476c633.txt`, `qa-p2-r2-testresults-476c633.json`). 6 files were added since `24ac49f` and 0 removed, compared by path membership (`qa-p2-r2-testresults-paths-476c633.txt`).
+- **TDD gate:** passed. The fix round's rows (CR-22's blank-line members, and both CR-24 cleanups) are Yes/Yes with assertion-level reasons (`m6-implementation.md`).
+- **M6-b to M6-l:**
+  - The six survivors from `24ac49f` are killed: `cl-gate40` 3, `cl-lineabove` 1, and each `*-before` 1.
+  - New mutants are killed: `cl-frozen` 1 (the live drop), `pg-editonly` 1 and `cl-editonly` 1 (`/preview`), and `ef-or` 1 (QAF-32).
+  - `pg-frozen` survives. It is equivalent on `/preview`, whose `data` never changes after mount, and the editor's cell kills it.
+  - **QAF-30, QAF-31 and QAF-32 are RESOLVED** (`b608555`, test-only). `EmbedFields` now asserts literal key lists, and the duplicate cells assert the original's `_key` at `idx`.
+  - A note, not a finding: the delete case's expected value, `fields.filter((_, i) => i !== slot)`, is a generic remove-at-index, and `slot` is a literal fixture column. The quantity under test (which slot) is not computed by production code.
+- **CR-24:**
+  - `BottomPortal.unmount-cleanup`: the entry is gone after its owner unmounts while it is open. A presence control runs first.
+  - `ColorPicker.scroll-lock-release`: the lock is released when the picker is removed while open. A presence control runs first.
+  - `bp-noop` 1 and `cp-noop` 1 are killed. PASS.
+- **M6-a** (`rules.multi-line-code-block.test.ts`):
+  - Unit members, over `parseContent` and `parseEmbedField`:
+    - 2-line, 3-line and 1-line bodies, with and without a tag. The tagged 1-line body is in the RK-1 space.
+    - CR-22's empty and whitespace-only interior lines.
+  - Mutants killed: `rules-split` 14, `rules-single` 22, `rules-title-s` 1.
+  - RK-1 (`qa-rk1-differential/`): 6,243 members × 2 parsers. The tags include `c++`, `c#` and `objective-c`. The space covers leading and trailing blanks, unterminated fences and CRLF. **0 differences at `476c633`.** Positive controls: 4,546 differences at `24ac49f` and 6,402 at the base.
+  - **Survivor:** `rules-title-i` (`m6a-title-codeblock-interactive`, which restores `codeBlock` to the interactive title rule set). No case calls `markdown.interactive`: `git grep -c interactive 476c633` over the markdown and component `__tests__` exits 1. See QAF-34.
+- **Verdict:** M6-b to M6-l PASS, CR-24 PASS, M6-a QA Failed.
+
 ## Implementation Review (Post-Implementation)
 
 **Per criterion** (assertions read in the test files at `24ac49f`):
@@ -132,6 +156,13 @@ Both sites read the one constant, and the cells hold the text as a literal. M4's
 - **M4** (`qa/015-bug-evaluation-fixes-m4-qa.md`): CR-17 refresh below.
 
 ## Findings
+
+QAF-34 MEDIUM Phase 2 — M6-a preserves "a title renders no code block, unchanged" for both title parsers. Only the static parser has a cell.
+- **Shown by:** mutant `m6a-title-codeblock-interactive` restores `codeBlock` to the interactive title rule set, and it survives the suite (`mutation-qa-r2*-476c633.txt`).
+- **Where:** the interactive parser is wired at `EmbedTitle` and `EmbedField` as `interactiveParser={markdown?.interactive.parseEmbedTitle}`. Phase 1 § M6-a (rev 25 reconcile) asks for the preservation cell "static and interactive".
+- **What a user would see under the mutant:** while the user edits an embed title, a fenced body renders as a code block in the editor, and not in Discord or the preview.
+- **Required (implementer):** in `rules.multi-line-code-block.test.ts`, tighten the title case to cover `markdown.interactive.parseEmbedTitle` as well, as one `describe.each` over both title parsers. The case must be seen red under the mutant and green at the tip. Otherwise, show by execution that the mutant is equivalent.
+- **Blocks:** M6-a's verdict. A behaviour the change claims to preserve has no assertion.
 
 QAF-30 MEDIUM Phase 2 — M6-l (vi) is the owner's ruling (D32, D33), and four of its Phase 1 cells have no assertion that fails when the behaviour is lost.
 - **(a) The add gate above 40.** D32: "the Add Component button and counter still hide at 40 and over". The cells check 38, 39 and 40 only. Mutant `m6l-add-gate-only-at-40` (`!==` for `<`) offers adds again at 41 and passes 17 of 17.
@@ -166,6 +197,8 @@ This pass assumes that the Add Component menu behaves in Chrome as it does under
 B-4 is reconciled in the chain's register (`qa/015-bug-evaluation-fixes-qa.md`). It gains a `/preview` leg, which is code review's routed assumption: "the M6-l red line is visible in a real browser on Send and `/preview`". No row is minted. Rows inherited by M6 and not discharged: B-4 and B-5 (M6-a). Both are UAT's.
 
 ## Handoff
+
+- **476c633 pass:** QAF-34 MEDIUM goes to the implementer (implementer-hooks-015), test-only. Then a scoped re-run of M6-a's title cells only, re-running `rules-title-i`.
 
 - **Implementer (implementer-hooks-015):** QAF-30 and QAF-31 MEDIUM, QAF-32 LOW. All are test-only. Then a re-run of M6-b to M6-l on the round's diff, re-running the six survivors (`mutators/qa-m6-supplement.py`, driver `qa-sweep.sh`).
 - **Verdict:** QA Failed for M6-b to M6-l at `24ac49f`, on suite coverage. No production defect was found.
