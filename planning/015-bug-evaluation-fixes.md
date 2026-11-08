@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: In Progress
-Status-Detail: "M0 and M2 delivered. Code review has approved M1, M4, M5-a to M5-g, M6-b to M6-l and M8-b to M8-e (M8-b at rev 27, Round 20). M8-b was narrowed by the D35 re-put, and M8-d gains limb (d) for D36. M8-a is with the implementer (CR-27, carrying the D36 guard) and M6-a (CR-22). All four gates passed rev 26 except M8-b's D35 limb, now superseded. Rev 27 is approved by the architect, QA and code review (Round 20, with CR-32 and CR-33 LOW, parked until the pass before UAT, D37). The critic approves it too (cycle 9 pass 2), and asks a fold at once for M-C9-3: at preview-image-generator 8de2b53 a startup shape check (checkPoolShape, before server.listen) may meet (d) as written; code review judges it at the CR-27 sub-entry, and M-C9-3 stays parked with the pre-UAT fold (D37) unless that verdict says (d) cannot be met. M3 is removed (D30)."
-Revision: 27
+Status-Detail: "M0 and M2 delivered. QA Phase 2 has passed every milestone after code review approved it, each in its own milestone-scoped pass (the latest at website c5303ca and preview-image-generator 8de2b53); the effort-final pass is QA's next. Rev 28 is the D37 pre-UAT fold: M5-h (3)'s re-run trigger widened to any non-test src/ change (CR-32), M8-d (d)'s member named at two levels (CR-33), RK-8 restated to the 8de2b53 signature with CR-34's measured retry rate, its residue class and a carrier that reads both PM2 logs and runs the M8-d and drift probes; X-25 and X-26 added. Rev 28 goes to its four gates (critic, architect, QA re-key, code review); UAT follows. M3 is removed (D30)."
+Revision: 28
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
 Lane: "standard — agent-output/README.md carries no small-lane section (grep -i small, 0 hits, 2026-11-08); the blast radius spans the save schema, a bot command's permissions and a production PM2 service, none a leaf"
@@ -52,6 +52,7 @@ Owed re-verdicts:
 | M6-a without the title member (CR-23); Exclusions standing constraint, X-16 and X-21 clauses (L-C7-1); X-20/D34 cite W-7 (AF-28); X-22 (modal seed) | rev 25 | critic (cycle 8), architect, qa, code review (delta only) | approved by all four: architect (`5efb7ab`), code review Round 15 (`1d0059a`), QA (`983a84d`), critic cycle 8 pass 1 (`4429f17`, L-C8-1, folded at rev 26) |
 | M5-h (3) anchored to the tip, `fields: null` moved (CR-29); M8-b non-objects (D35, D28 for `null`); M8-d as a property, with (c) and its unmeasured limb; RK-8; M6-a note (L-C8-1) | rev 26 | critic (cycle 9), architect, qa, code review (delta only) | all four passed except M8-b's D35 limb: architect (`7652b59`, AF-30), QA (`9fdf439`, QAF-33), critic cycle 9 pass 1 (`e233c82`; M-C9-1, M-C9-2, L-C9-1), code review Round 19 REJECTED for that limb (`5ab0802`, CR-30, CR-31). Folded at rev 27 |
 | M8-b narrowed (D35 re-put); M8-d (d) startup line (D36), X-24; RK-8 signature and carrier (CR-31, M-C9-2), M9 carrier line; M5-h (3) deciding read and move rule (M-C9-1); X-23 | rev 27 | critic (cycle 9 pass 2), architect, qa, code review (delta only) | architect approved (`b2add20`; AF-31 LOW for the implementer and code review, no plan text owed). QA approved, no new finding (`b21c7b5`; QAF-33 resolved; one Assumption Not Checked parked in Planner batch). Code review Round 20 APPROVED_WITH_COMMENTS (`b5666ed`; CR-32, CR-33 LOW, Planner batch). critic cycle 9 pass 2 approved (`c97c25a`; M-C9-1, M-C9-2, L-C9-1 verified landed; M-C9-3 MEDIUM asks a fold at once, L-C9-2 LOW, Planner batch) |
+| M5-h (3) re-run trigger widened, run 2 and the `c5303ca` run cited (CR-32); M8-d (d) member at two levels, "at startup" grounding, stream note (CR-33, M-C9-3, QAF-36); RK-8 restated: `8de2b53` signature with CR-34's measurement, residue class (L-C9-2, CR-33, QA's assumption), instrument over both PM2 logs and the probes; M9 carrier line; X-25, X-26 | rev 28 | critic (cycle 9 or a new cycle, the critic's call), architect, qa (re-key), code review (gate read) | open |
 
 ## Changelog
 
@@ -139,6 +140,7 @@ Owed re-verdicts:
 | 2026-11-08T11:20 | cr | code-reviewer (code-reviewer-hooks-015) | Round 14 sub-entry at website `c5303ca` (CR-38 fix; milestone-scoped): APPROVED. CR-38 is RESOLVED. Website `c5303ca` supersedes `2618926` for QA. Plan Status unmoved. |
 | 2026-11-08T10:33 | qa | qa (qa-hooks-015) | Phase 2, milestone-scoped. **M8-a to M8-e PASS** at preview-image-generator `8de2b53` (`qa/015-bug-evaluation-fixes-m8-qa.md`; M8-b to M8-e re-anchored from `6c613a5` on a differential). The sweep of 22 mutants over the fix round and M8-a's drain guards killed 19; QA built new M8-a cells (`probe-m8a-qa.cjs`). Of the 3 survivors, 2 are equivalent on node 24 and go to M8-0 run 2 for Node 18, and 1 is outside the criterion: **QAF-36 LOW (planner, D37 fold)**, which names the D36 line's stream where the RK-8 carrier names one. **QAF-27 and QAF-20 RESOLVED** at website `4f9ed85` (`qa/015-bug-evaluation-fixes-m1-m2-qa-findings-qa.md`; 1115/1115, exit 0; 7/7 mutants killed). Plan Status is left alone. (This row's stamp is the clock minute; the row above it is stamped ahead of the clock.) |
 | 2026-11-08T10:46 | qa | qa (qa-hooks-015) | Phase 2, milestone-scoped, at website `c5303ca` (`qa/015-bug-evaluation-fixes-qaf34-qaf35-cr26-qa.md`): **M6-a PASS** (QAF-34 RESOLVED, `m6a-title-codeblock-interactive` killed), **QAF-35 RESOLVED** (both rows seen red), **CR-26's three `useMount` callers PASS** (13 mutants: 11 killed, 2 equivalent). Suite 1122/1122, exit 0. No new finding. Plan Status left alone; the effort-final pass is next. |
+| 2026-11-08T10:52 | 28 | planner (planner-hooks-015) | The D37 pre-UAT fold. It folds CR-32 and CR-33 (code review `b5666ed`), CR-34 (`3540028`; rulings 10:14Z, `c0b4990`), QAF-36 (`6c11675`), QA's assumption (`b21c7b5`), L-C9-2 and M-C9-3 (critique `c97c25a`; M-C9-3 closed by code review's CR-27 sub-entry), the two R-23 rows, CR-35's earlier members, the security handoff (`f087a53`) and the implementer's parser note. The fold re-ran M5-h (3)'s enumerator at website `c5303ca`, with outcomes unchanged, and minted `handoff/website-tests-not-beside-their-module-2026-11-08.md`. Scope delta: M5-h (3)'s re-run trigger widens to any non-test `src/` change. M8-d (d) names its member at two levels and keeps "a log line". RK-8 is restated to the shipped signature, with its measured rate, a residue class and a carrier that reads both PM2 logs and runs two probes. M9's carrier line carries that read. X-25 and X-26 are added. No milestone is added or removed, no code is owed, and the plan stays inside the original 50-finding pool. |
 
 ## Value Statement and Business Objective
 
@@ -189,7 +191,7 @@ message builder that sends through webhooks.
 | D34 | AF-26: a Hooks user holding several Discord `Accounts` rows is a known limit, with no code in chain 015. An Exclusions row plus a handoff carry both sites (`removeUserSession`, `fetchUserAccount`), reopened if such a user is found or reported. | 2026-11-08 | "what do you mean by \"linking a second Discord account\"? If someone signs in with a different account, that's a different Hooks user" — his own words, then "Agent: record as known limit" by selection after steering's explanation; both relayed by steering-hooks-015, rulings block 08:10Z "AF-26" (`766bd4b`). The option text is steering's (agent-authored). | A user with more than one Discord row found or reported (the handoff's trigger); owner withdrawal. | X-20; the sentence is recorded as the standing rule `architecture/website.md` W-7 (`952e69f`); `handoff/one-hooks-user-several-discord-accounts-2026-11-08.md`. |
 | D35 | M8-b: a `/generate` body that is not parsable JSON, or parses to `null`, a number, a string or a boolean, gets 500. A body that parses to a list (an array) is not refused: it goes on to image generation as an object body does. | 2026-11-08 | First, "Agent: refuse all, as built", relayed by steering-hooks-015 in rulings block 09:22Z (`f502eb5`). Its stated cost, "no code change", was the planner's error: lists passed the built guard (QAF-33). Then, superseding it for lists only, "Agent: as built, lists pass", re-put with the corrected cost in rulings block 09:28Z (`c8c7649`). Its description, verbatim: "Agent: keep exactly what's built. Lists keep getting through to the image step, recorded as a known limit. Cost: a plan revision narrowing your earlier wording, and a review round." Both selections relayed by steering. Both option texts are agent-authored: the planner's, then steering's. | Owner withdrawal only. | M8-b; X-23. "Only the website calls `/generate`" is the planner's claim, unread; QA sends it to devops at release readiness. |
 | D36 | RK-8: M8-d keeps its private-field reach, and the generator gets a startup check that logs a named error line if that private part is missing. | 2026-11-08 | "Agent: accept + startup guard". This is a selection relayed by steering-hooks-015, rulings block 09:25Z "RK-8, the M8-d private-field reach" (`f5ab120`). The description chosen, verbatim: "Agent: keep the fix, and the implementer adds a check at startup. If a library upgrade ever removes the private part, the generator logs a named error line instead of failing silently (architect's AF-30). Cost: a few lines and one test, riding the M8-a fix already under way, with the same code review and QA." The option text is steering's, drawn from AF-30 (agent-authored). | A generic-pool release that adds a public way to reject a waiting acquire. RK-8's lockfile trigger observes it. | M8-d and RK-8. The guard rides the CR-27 fix. Its criterion is written at rev 27 (Planner batch). |
-| D37 | CR-32, CR-33 and QA's RK-8-probe item stay Planner batch rows, not criteria, and are folded in one pass just before UAT, sharing that pass's single review round. No rev 28 is taken for them on the critic's rev 27 verdict alone. | 2026-11-08 | "Agent: park, fold before UAT". This is a selection relayed by steering-hooks-015, rulings block 09:40Z "rev 28 fold" (`355bcaf`). The description chosen, verbatim: "Agent: the planner keeps the three LOW items as queued rows and folds them in one pass just before user acceptance testing, sharing that pass's single review round. Until then they're tracked in the plan, not yet criteria. Saves one full four-reviewer round now." The option text is steering's (agent-authored). | A gate's verdict that asks for a revision, which folds them with it; or owner withdrawal. | Planner batch rows CR-32, CR-33 and the QA assumption. Until the fold, M5-h (3)'s re-run trigger reads as at rev 27. The implementer builds CR-33's guard form under D36 regardless (`355bcaf`). |
+| D37 | CR-32, CR-33 and QA's RK-8-probe item stay Planner batch rows, not criteria, and are folded in one pass just before UAT, sharing that pass's single review round. No rev 28 is taken for them on the critic's rev 27 verdict alone. | 2026-11-08 | "Agent: park, fold before UAT". This is a selection relayed by steering-hooks-015, rulings block 09:40Z "rev 28 fold" (`355bcaf`). The description chosen, verbatim: "Agent: the planner keeps the three LOW items as queued rows and folds them in one pass just before user acceptance testing, sharing that pass's single review round. Until then they're tracked in the plan, not yet criteria. Saves one full four-reviewer round now." The option text is steering's (agent-authored). | A gate's verdict that asks for a revision, which folds them with it; or owner withdrawal. | Planner batch rows CR-32, CR-33 and the QA assumption. Folded at rev 28, with CR-34 (rulings 10:14Z) and the rows parked since. The implementer built CR-33's guard form under D36 (`8de2b53`). |
 
 ## Objective
 
@@ -602,10 +604,14 @@ are in X-18.
   - (3) a JSON object on which the real page crashes, on the tree the guard lands on with the guard removed (the chain
     tip, not a fixed SHA; code review CR-29), in `makeEditable` or in the editor's render. The deciding read is the
     guard-removed enumerator: code review's `verification/015/cr-m5-probes/run-class-guard-removed.sh`, which exports
-    the tip and restores `src/app/preview/page.tsx` from before the guard. Its last run is
-    `class-noguard-run1-476c633.txt` (44 cells, every one on the lists below; summary beside it). Code review re-runs it
-    at the tip in any review round where a website commit after its last run's SHA touches `src/app/preview/`,
-    `src/utils/index.ts` (`makeEditable`) or the editor components the page renders. A crashing member that renders at
+    the tip and reverses the guard commit `09c7c45` in `src/app/preview/page.tsx`, keeping every later change. Its
+    runs at `476c633` are `class-noguard-run1-476c633.txt` and `class-noguard-run2-476c633.txt` (44 cells each,
+    identical outcomes, every one on the lists below; summary beside them). Its last run is the planner's at website
+    `c5303ca`, 2026-11-08T10:50Z (`verification/015/m5h-class-probe/noguard-run1-c5303ca.txt`: 44 passed, exit 0;
+    every cell's outcome and node count equal to run 2 at `476c633`). Code review re-runs it at the tip in any review
+    round where a website commit after its last run's SHA changes any non-test file under `src/` (about 10 s a run;
+    the crash sites found by execution include `src/utils/limits.tsx` `validateEmbedCharacterCount`, code review
+    CR-20, so a narrower path list misses members, CR-32). A crashing member that renders at
     the re-run moves to the rendering list; a rendering member that crashes moves to the crashing list; the planner
     moves it at the next revision. The probe run with the guard present (`class-probe-run-476c633.txt`) shows that
     members render, and cannot decide crash membership. The reads below were taken at website `da24eb7`. The rule is
@@ -897,12 +903,19 @@ Host facts (steering's standing `hooks-pig` reads, rulings blocks 05:20Z–05:24
   pool factory", was a mechanism and was insufficient: generic-pool 3.9.0 leaves the waiting acquire pending and retries
   creation in a loop (the implementer's measurement, 11,654 attempts in 3 s). The mechanism is the implementer's; its
   dependency risk is RK-8.
-  (d) (D36) Whenever the pool lacks the private waiting-queue member the remedy reaches, the generator writes a log line
-  at startup, before it serves a request, that names the missing member. The line is required at startup whatever
-  happens after it; D36 names only the line, so whether the process then serves or refuses to start (as M8-e does) is
-  the implementer's choice. Member: the 3.9.0 tree with that member renamed, where code review's mutant
-  `verification/015/cr-m8-probes/rk8-field-mutant-6c613a5.txt` exits the process on the first failing launch with no
-  line naming the cause. Non-member: the 3.9.0 tree as resolved, which must write no such line.
+  (d) (D36) Whenever the pool lacks the private member the remedy reaches — `_waitingClientsQueue` with a callable
+  `dequeue` — the generator writes a log line at startup, before it serves a request, that names the missing member.
+  The line is required at startup whatever happens after it; D36 names only the line, so whether the process then
+  serves or refuses to start (as M8-e does) is the implementer's choice. Members, each on the 3.9.0 tree:
+  `_waitingClientsQueue` renamed (code review's mutant `verification/015/cr-m8-probes/rk8-field-mutant-6c613a5.txt`,
+  which at `6c613a5` exits the process on the first failing launch with no line naming the cause); and the field kept
+  with `dequeue` renamed (`rk8-method-mutant-6c613a5.txt`, the same exit, code 1 after 424 ms; code review CR-33).
+  Non-member: the 3.9.0 tree as resolved, which must write no such line. "At startup" holds although the serving pool
+  is created on the first `/generate`: at preview-image-generator `8de2b53` the check builds its own unstarted
+  generic-pool instance before `server.listen` and launches nothing (code review's CR-27 sub-entry, rig cells 33 to 36,
+  which met (d) as written; critique M-C9-3 closed). The criterion names no output stream. At `8de2b53` the line goes
+  to stderr, which is PM2's error log. Every read of the line covers both PM2 logs (RK-8, M9), so no read depends on
+  the stream and no cell is owed for it (QA QAF-36's stated-limit branch).
 - **M8-e (F-35)** — with `API_KEY` unset or empty, the server refuses to start, with a log line naming the variable.
   The refusal lives in `src/config.ts`, the generator's one reader of the environment (architect AF-4). The other
   values `config.ts` casts unvalidated are outside F-35 (architect AF-9b). `prod.yml` sets `API_KEY`, so the
@@ -963,7 +976,10 @@ therefore an operator-visible criterion. Where each is verified:
   - M8-0 run 2 reads it.
   `preview.yml` still sits in the tree, but nothing triggers it now that the branch is deleted.
 - **RK-8 carrier.** At closure, devops mints the handoff RK-8 names (Owning-Stage devops; event trigger: a lockfile move
-  of generic-pool), carrying M8-d (d)'s startup line as the read.
+  of generic-pool). It carries RK-8's read in full: M8-d (d)'s line in both PM2 logs, the error log first; the M8-d
+  probe (a failing factory with one waiting request); and the drift probe on the deployed engine
+  (`verification/015/cr-m8-probes/run-drift.sh`), with the measured E-1 rate beside it for comparison. It cites the
+  host security-posture handoff, which the same event triggers.
 - **Owner steps:**
   - `push-commands` (M7-a);
   - the F-2 check (limb 1, § Validation);
@@ -1052,16 +1068,35 @@ can run the M8-b/d/e probes once the generator's dependencies are installed (M8 
 - **RK-8** — M8-d's remedy uses generic-pool's README-documented `factoryCreateError` handler, which reaches the
   private `_waitingClientsQueue` of a dependency pinned as `generic-pool@^3.9.0` (implementer's M8 Outstanding Item 1;
   accepted by code review; accepted by the owner with a startup guard, D36). A minor or patch upgrade within the caret
-  range can rename or remove the field. If it does, the process exits, not hangs: on node 24, the first failing
-  Chromium launch throws a TypeError reading `dequeue` inside generic-pool's creation `.catch`, the waiting request gets
-  ECONNRESET, and the process exits with code 1 after 378 ms (code review CR-31,
-  `verification/015/cr-m8-probes/rk8-field-mutant-6c613a5.txt`; control `rk8-field-control-6c613a5.txt`: 500, alive).
-  Under PM2 that is a restart per failing launch. Instrument: M8-d (d)'s startup line in the prod out log. It is read at
-  the deploy of any preview-image-generator commit that moves the lockfile's resolved generic-pool version. While this
-  plan is open, that read is the planner's to route. After closure, its carrier is a handoff devops mints at M9
-  (Owning-Stage devops; Review-Trigger: a preview-image-generator commit that changes the generic-pool version its
-  lockfile resolves). The reader is the devops session deploying that commit. Falsifier: the startup line present, or a
-  prod exit whose log shows that TypeError. Passes since rev 26: none observed.
+  range can rename or remove the field, or its `dequeue`.
+  - **Signature at the M8 tip (`8de2b53`).** With the member absent (either form, M8-d (d)), the generator writes the
+    named line once, on stderr, before it is ready, attaches no creation-error handler, and keeps serving. A failing
+    Chromium launch then leaves the waiting acquire pending while the pool retries creation: F-34's original hang, the
+    cost the owner accepted as recorded (CR-34, "record it, no code", rulings 10:14Z). Measured by code review on node
+    v24.14.0 in E-1, where no browser binary exists (the fastest failure), three runs
+    (`verification/015/cr-m8-probes/drift-mutant-8de2b53-{1,2,3}.txt`, read 2026-11-08T10:51Z): pending stays 1 at 3 s
+    and at the run's end; 13,631, 14,118 and 11,015 launches in the 3 s after one request (preload counter), so
+    3,700 to 4,700 launches a second; 571,609 and 681,157 stderr lines by the end of runs 1 and 2 (about 36,000 a second
+    in run 1); the process stays alive. The controls (`drift-control-8de2b53-*.txt`) write no line and launch only the
+    pool's minimum. In E-1 the request still got 500 within 150 ms, because the S3 leg fails there; where S3 answers,
+    as in production, the request is expected to wait (inference, not run). Production's engine (Node 18.17.1) and
+    failure mode (Chrome 116 present: a crash or timeout, not a missing binary) are unmeasured, so its rate and log
+    volume are unknown (code review's Round 18 Assumption Not Checked). The exit signature CR-31 measured
+    (`rk8-field-mutant-6c613a5.txt`, code 1 after 378 ms) was `6c613a5`'s and does not ship.
+  - **Residue, a bounded class (critique L-C9-2, CR-33, QA's Assumption Not Checked at `b21c7b5`).** A generic-pool
+    version that keeps `_waitingClientsQueue` and a callable `dequeue` but changes what they mean — `factoryCreateError`'s
+    timing, what `dequeue` returns, or whether the dequeued request's `reject` rejects it — writes no line. Its
+    signature is M8-d (a) failing with no startup line. The startup check cannot see it; the M8-d probe (a failing
+    factory with one waiting request) can.
+  - **Instrument and carrier.** The read is M8-d (d)'s line in both PM2 logs, the error log first (where `8de2b53`
+    writes it), plus the M8-d probe and code review's drift probe run against the deployed engine. It is taken at the
+    deploy of any preview-image-generator commit that moves the lockfile's resolved generic-pool version (3.9.0 at
+    `8de2b53`, rulings 10:14Z). While this plan is open, that read is the planner's to route. After closure, its carrier
+    is a handoff devops mints at M9 (Owning-Stage devops; Review-Trigger: a preview-image-generator commit that changes
+    the generic-pool version its lockfile resolves); the reader is the devops session deploying that commit. The same
+    event also triggers `handoff/preview-image-generator-host-security-posture-2026-11-08.md` (X-25). Falsifier: the
+    line in either log; M8-d (a) failing at the probe; or, in production, a launch-error burst with requests left
+    unanswered. Passes since rev 26: none observed.
 
 ## Exclusions
 
@@ -1092,8 +1127,11 @@ fate after closure.
 | X-22 | `NewMessageModal`'s `selectedGuildId` seed on a folder switch (D28 candidate) | Not a defect: a client navigation `/message/f/A` → `/message/f/B` mounts B's page and modal fresh, so the seed reads B's `guildId` (planner's source read of next 16.1.6 `layout-router.js` and `createRouterCacheKey`, `verification/015/m5-modal-seed-next-keying-read.txt`, not run). The implementer's browser read could not decide it (`verification/015/d28-folder-switch/README.md`, `fbe28b4`). A report of a stale Save To default after a folder switch lands here; the planner acts while the plan is open; after closure it is a new defect report. | Stated limit (read from source) |
 | X-23 | A `/generate` body that parses to an array (`[]`, `[1,2]`, `[{}]`) | The owner's ruling (D35 re-put). Such a body proceeds as an object body does: it attempts a browser launch exactly like the object control (code review CR-30, `verification/015/cr-m8-probes/body-class-run1-6c613a5.txt`). It destructures to an undefined `id`, so the image step lists and deletes under `previews/undefined/` and then writes a PutObject there once a browser renders (QA QAF-33, `9fdf439`, code read, not run on S3). An object body without `id` takes the same path, and no criterion of this chain refuses it. While this plan is open, a report of objects under `previews/undefined/` lands here and the planner acts. After closure it is a new defect report against M8-b. | Stated limit (D35) |
 | X-24 | M8-d's launches per failing request (one or two) | No stage runs a per-request count of launch attempts and `Created instance` lines (critique L-C9-1). M8-d (a) to (c) hold whichever it is. While this plan is open, a report of launch-error volume during a Chromium outage lands here and the planner acts. After closure it is a new defect report against M8-d. | Stated limit (M8-d) |
+| X-25 | The generator host's security posture, H-001 to M-002 (`security/015-preview-image-generator-security-audit.md`, `d9e5184`): Chrome 116 as root with `--no-sandbox`, a reachable DevTools port, `:3000` open to the internet on EOL Node 18.17.1, world-readable `.env` and `dump.pm2`, a root Actions runner | Outside F-1 to F-50 (D6, X-8); the owner accepted them as recorded (rulings 09:43Z), selection "Agent: accept, record only". Not triggered by this chain: it edits no workflow file or `deploy.sh` and moves no puppeteer or generic-pool pin (`git diff --numstat 471578f 8de2b53`, 5 `src`/config paths, no lockfile) | `handoff/preview-image-generator-host-security-posture-2026-11-08.md` (security-hooks-015, `f087a53`) |
+| X-26 | Six website tests predating this chain that are likely not beside their module (code review CR-35's earlier members) | Outside F-1 to F-50 (D6); chain 015's own member was moved (CR-35 RESOLVED at `b195eeb`) | `handoff/website-tests-not-beside-their-module-2026-11-08.md` |
 
-Not triggered, re-read 2026-11-08 against every milestone including M6-l: `backfill-valid-guard…` (`backfillValid.ts`
+Enumeration re-run at rev 28 (2026-11-08T10:51Z, `find handoff -maxdepth 1 -name "*.md"`: 16 open, each dispositioned
+here or in a row above). Not triggered, re-read against every milestone including M6-l: `backfill-valid-guard…` (`backfillValid.ts`
 is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, `fix-v1-guild-messages-auth-post-deploy`,
 `message-init-cached-edits-lost`, `newmessagemodal-persist-gate…`, `v1-guild-messages-endpoints…`.
 
@@ -1139,52 +1177,33 @@ is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, 
 | M-C9-1 (MEDIUM). M5-h class (3) is anchored to the moving tip, but no step produces the tip read. It cites the guard-present probe, which cannot decide crash membership. Cite the guard-removed enumerator instead (`verification/015/cr-m5-probes/run-class-guard-removed.sh`, `class-noguard-run1-476c633.txt`, 44 cells). Name the gate that re-runs it if `src/app/preview` or the render path moves after `476c633`, and state the move rule in both directions. | critique cycle 9 (`e233c82`) | Discharged at rev 27 (M5-h (3)). |
 | M-C9-2 (MEDIUM). RK-8's post-release falsifier names no carrier or detection owner. After D36 the instrument exists: the startup error line. Still owed: who reads that line after a dependency bump once the chain is closed, and the row's fate after closure, in L-C7-1's standing form. | critique cycle 9 (`e233c82`) | Discharged at rev 27 (RK-8; M9 carrier line). |
 | L-C9-1 (LOW). M8-d's unmeasured per-request launch count names its instrument but no runner or stage. Either name the stage, or state it as a limit with a detection owner. | critique cycle 9 (`e233c82`) | Discharged at rev 27 (X-24). |
-| QA Assumption Not Checked (`b21c7b5`). D36's startup line sees only a missing member. A generic-pool release that keeps the member's name and changes its shape or meaning passes the line silently. RK-8's post-closure handoff (M9 carrier line) should therefore run the M8-d probe, a failing factory with a waiting request, at the lockfile-move deploy, and not only read the startup line. QA stated no severity. The planner rates it LOW: it bites only on a generic-pool move, which RK-8's carrier already catches, and it changes no code, test or pre-release verifier. | QA re-key (`b21c7b5`) | Open. Fold in the pass just before UAT (D37). |
-| M-C9-3 (MEDIUM, the critic asks a fold at once). M8-d (d) and RK-8 assume a pool exists at startup. It does not: the pool is created on the first `/generate` (`src/getPool.ts` default export, memoised; one caller, `src/generateImage.ts`), and at preview-image-generator `7e5ca5f` the guard throws inside that first request (planner's read at `7e5ca5f`). RK-8's deploy-time read therefore finds no line while the member is missing. Choose (i), the pool created at startup with the line written then, or (ii), the line written at first pool creation with RK-8's read moved to the first `/generate` after the deploy. Write the choice in M8-d (d), RK-8 and the M9 carrier line together. | critique cycle 9 pass 2 (`c97c25a`) | Open, parked with the pre-UAT fold (D37; steering's call). The planner's read was of `7e5ca5f` and was stale: `8de2b53` (09:40Z) calls `checkPoolShape()` before `server.listen`. It builds an unstarted probe pool (`autostart: false, min: 0, max: 1`) and logs a named line on a missing member (planner's read at `8de2b53`). Whether the probe has a started pool's private shape and launches nothing is code review's call at the CR-27 sub-entry. If that verdict says (d) cannot be met as written, the choice between (i) and (ii) goes to the owner. |
-| L-C9-2 (LOW). RK-8 names no residue for a version that keeps the member and changes `factoryCreateError`'s timing or `dequeue`'s return. Name it as a bounded class: its signature is M8-d (a) failing with no startup line, with the same devops reader, who runs the M8-d probe. One sentence can carry this and CR-33's residue. | critique cycle 9 pass 2 (`c97c25a`) | Open. Fold in the pass before UAT (D37). |
-| D36's startup line is written with `console.error`, so it goes to stderr, which is PM2's error log. RK-8 reads it "in the prod out log", so that read and the M9 carrier line must name the error log, or both logs. This changes no code. | implementer M8 fix round (agent-output `9f431e7`, preview-image-generator `8de2b53`), via steering | Open. Fold in the pass before UAT (D37). |
-| With the member absent at `8de2b53`, the handler is not attached. A launch failure then leaves waiting requests pending while creation retries, which is F-34's hang returning, after the named line. It is no longer the exit RK-8 now states (CR-31's signature was for `6c613a5`). This is AF-31's accepted cost (log and keep serving). RK-8's signature and residue are restated with L-C9-2 and CR-33's residue in one sentence. It is within D36's "logs a named error line instead of failing silently". | implementer M8 fix round (agent-output `9f431e7`, preview-image-generator `8de2b53`), via steering | Open. Fold in the pass before UAT (D37). |
-| CR-32 (LOW). M5-h (3)'s re-run trigger omits `src/utils/limits.tsx` (`validateEmbedCharacterCount` throws on `embeds: ""`, CR-20), which is one of the four crash sites found by execution. Preferred trigger: any non-test change under website `src/` after the last run's SHA (about 10 s per run). Also: cite `class-noguard-run2-476c633.txt`, and say the enumerator "reverses the guard commit" (`09c7c45`), not "restores page.tsx". This changes a pre-release verifier's trigger, not code. | code review Round 20 (`b5666ed`) | Open. Fold in the pass just before UAT (D37). |
-| CR-33 (LOW). M8-d (d)'s member is the renamed field alone. The remedy reaches `_waitingClientsQueue.dequeue`, and keeping the field while renaming `dequeue` exits the same way: code 1 after 424 ms (`verification/015/cr-m8-probes/rk8-method-mutant-6c613a5.txt`). Name the member "`_waitingClientsQueue` with a callable `dequeue`" and add that run as a second member. State the dequeued request's `reject`, which cannot be checked at startup, as RK-8 residue. This makes (d) meet D36's "removes the private part", so it rides D36. AF-30's guard form already checks `dequeue`; steering was told at once so the guard is built to it. | code review Round 20 (`b5666ed`) | Open. Fold in the pass just before UAT (D37). |
+| QA Assumption Not Checked (`b21c7b5`). D36's startup line sees only a missing member. A generic-pool release that keeps the member's name and changes its shape or meaning passes the line silently. RK-8's post-closure handoff (M9 carrier line) should therefore run the M8-d probe, a failing factory with a waiting request, at the lockfile-move deploy, and not only read the startup line. QA stated no severity. The planner rates it LOW: it bites only on a generic-pool move, which RK-8's carrier already catches, and it changes no code, test or pre-release verifier. | QA re-key (`b21c7b5`) | Discharged at rev 28 (RK-8 residue and carrier; M9 carrier line). |
+| M-C9-3 (MEDIUM, the critic asks a fold at once). M8-d (d) and RK-8 assume a pool exists at startup. It does not: the pool is created on the first `/generate` (`src/getPool.ts` default export, memoised; one caller, `src/generateImage.ts`), and at preview-image-generator `7e5ca5f` the guard throws inside that first request (planner's read at `7e5ca5f`). RK-8's deploy-time read therefore finds no line while the member is missing. Choose (i), the pool created at startup with the line written then, or (ii), the line written at first pool creation with RK-8's read moved to the first `/generate` after the deploy. Write the choice in M8-d (d), RK-8 and the M9 carrier line together. | critique cycle 9 pass 2 (`c97c25a`) | Discharged at rev 28: code review's CR-27 sub-entry at `8de2b53` (`3540028`) met (d) as written, so the conditional owner prompt is not owed (M8-d (d) "At startup" sentence). |
+| L-C9-2 (LOW). RK-8 names no residue for a version that keeps the member and changes `factoryCreateError`'s timing or `dequeue`'s return. Name it as a bounded class: its signature is M8-d (a) failing with no startup line, with the same devops reader, who runs the M8-d probe. One sentence can carry this and CR-33's residue. | critique cycle 9 pass 2 (`c97c25a`) | Discharged at rev 28 (RK-8 residue, one bounded class with CR-33 and QA's assumption). |
+| D36's startup line is written with `console.error`, so it goes to stderr, which is PM2's error log. RK-8 reads it "in the prod out log", so that read and the M9 carrier line must name the error log, or both logs. This changes no code. | implementer M8 fix round (agent-output `9f431e7`, preview-image-generator `8de2b53`), via steering | Discharged at rev 28 (M8-d (d) stream note; RK-8 and M9 read both PM2 logs, the error log first). |
+| With the member absent at `8de2b53`, the handler is not attached. A launch failure then leaves waiting requests pending while creation retries, which is F-34's hang returning, after the named line. It is no longer the exit RK-8 now states (CR-31's signature was for `6c613a5`). This is AF-31's accepted cost (log and keep serving). RK-8's signature and residue are restated with L-C9-2 and CR-33's residue in one sentence. It is within D36's "logs a named error line instead of failing silently". | implementer M8 fix round (agent-output `9f431e7`, preview-image-generator `8de2b53`), via steering | Discharged at rev 28 (RK-8 "Signature at the M8 tip", with CR-34's measurement). |
+| CR-32 (LOW). M5-h (3)'s re-run trigger omits `src/utils/limits.tsx` (`validateEmbedCharacterCount` throws on `embeds: ""`, CR-20), which is one of the four crash sites found by execution. Preferred trigger: any non-test change under website `src/` after the last run's SHA (about 10 s per run). Also: cite `class-noguard-run2-476c633.txt`, and say the enumerator "reverses the guard commit" (`09c7c45`), not "restores page.tsx". This changes a pre-release verifier's trigger, not code. | code review Round 20 (`b5666ed`) | Discharged at rev 28 (M5-h (3): any non-test `src/` change; run 2 cited; "reverses the guard commit `09c7c45`"; the planner's run at `c5303ca`). |
+| CR-33 (LOW). M8-d (d)'s member is the renamed field alone. The remedy reaches `_waitingClientsQueue.dequeue`, and keeping the field while renaming `dequeue` exits the same way: code 1 after 424 ms (`verification/015/cr-m8-probes/rk8-method-mutant-6c613a5.txt`). Name the member "`_waitingClientsQueue` with a callable `dequeue`" and add that run as a second member. State the dequeued request's `reject`, which cannot be checked at startup, as RK-8 residue. This makes (d) meet D36's "removes the private part", so it rides D36. AF-30's guard form already checks `dequeue`; steering was told at once so the guard is built to it. | code review Round 20 (`b5666ed`) | Discharged at rev 28 (M8-d (d) member and second member; the `reject` residue in RK-8). |
+| CR-34 (LOW). RK-8's member-absent residue carries no magnitude. Measured at `8de2b53` in E-1 on node 24: the acquire stays pending, 3,700 to 4,700 launches a second, about 36,000 stderr lines a second. The M9 carrier names PM2's error log, and UAT reads that stream as an operator-visible check. The owner chose "Agent: record it, no code" (rulings 10:14Z, `c0b4990`). | code review Round 18 sub-entry (`3540028`) | Discharged at rev 28 (RK-8 "Signature at the M8 tip"; M9 carrier line). The UAT check is UAT's to register; this plan adds no criterion for it. |
+| QAF-36 (LOW). D36's line has no cell that holds its stream. Where the carrier's read names a stream, (d) names it; if the plan keeps "a log line", the stream is a stated limit and nothing is owed. | `qa/015-bug-evaluation-fixes-m8-qa.md` (`6c11675`) | Discharged at rev 28 by the stated-limit branch: (d) keeps "a log line", and every read covers both PM2 logs (M8-d (d), RK-8, M9). No cell is owed. |
+| CR-35's six earlier likely members (tests not beside their module, predating this chain): `messageStore.dropped-set-report`, `messageValidity.predicate`, `useApiMethods.json-editor-repair`, `usePusher.hash-parity`, `cron.scheduled-selection`, `interactions-edge.signature-before-parse`. | code review Round 2/3 sub-entry at `4f9ed85` and the `b195eeb` sub-entry | Discharged at rev 28 (X-26; `handoff/website-tests-not-beside-their-module-2026-11-08.md`). |
+| The implementer's note: the interactive `parseEmbedField` and `parseContent` have no fence-body cells (only the AST-type control for `parseContent`). | `implementation/015-bug-evaluation-fixes-qaf34-qaf35-cr26-implementation.md` § Outstanding Items 1 | Discharged at rev 28, no plan text: M6-a's property already names both parsers without restricting them to the static family, so the interactive ones are inside it. Whether cells are owed is QA's coverage call (QA passed M6-a at `c5303ca`, `9d61184`); sent to QA with rev 28. |
 
 ## Resumption State (checkpoint, planner-hooks-015)
 
-- **Done (checkpoint 2026-11-08T09:53Z; usage gate, resume after 2026-11-11T09:00Z).** The plan is at revision 27 (`18d361c`).
-  - All four gates passed rev 27:
-    - architect `b2add20`;
-    - QA `b21c7b5`;
-    - code review Round 20 `b5666ed`;
-    - critic cycle 9 pass 2 `c97c25a`.
-  - Registrations R-12 to R-23 are committed, the last at `4d506cf`.
-  - D35 was re-put ("lists pass", `c8c7649`), and D36 (startup line, `f5ab120`) and D37 (`355bcaf`) are registered.
-- **Next: the pre-UAT fold (D37).** It is one revision (rev 28) taken just before UAT, sharing one review round. Fold
-  every open Planner batch row:
-  - CR-32: widen M5-h (3)'s re-run trigger (preferred: any non-test change under website `src/`); cite
-    `class-noguard-run2-476c633.txt`; say "reverses the guard commit `09c7c45`".
-  - CR-33: (d)'s member is "`_waitingClientsQueue` with a callable `dequeue`"; second member
-    `rk8-method-mutant-6c613a5.txt`.
-  - QA's assumption: the RK-8 handoff runs the M8-d probe, not only reads the line.
-  - M-C9-3: parked unless code review's CR-27 sub-entry on `8de2b53` says (d) cannot be met. `checkPoolShape()` runs
-    before `server.listen` at `8de2b53`. If (d) cannot be met, the choice between (i) and (ii) goes to the owner
-    through steering.
-  - L-C9-2, CR-33's residue and the post-line hang go into one RK-8 residue sentence. At `8de2b53`, a missing member
-    means the named line, then F-34's hang and retry loop; CR-31's exit signature was for `6c613a5`.
-  - The D36 line goes to stderr: RK-8 and the M9 carrier line must name PM2's error log (RK-8 says "prod out log" now).
-  - A gate verdict that asks for a revision reopens D37 and folds everything with it.
-  Before the fold, read every row written since rev 27, including the QA row `c1c0851` and code review's CR-27
-  sub-entry.
+- **Done (2026-11-08T10:52Z).** Revision 28, the D37 pre-UAT fold, is written. Every Planner batch row parked
+  since rev 27 is discharged. The planner's M5-h (3) enumerator run at website `c5303ca` is
+  `verification/015/m5h-class-probe/noguard-run1-c5303ca.txt`. `handoff/website-tests-not-beside-their-module-2026-11-08.md`
+  is minted (X-26).
+- **Next.** Rev 28 goes to its four gates: critic, architect conformance, QA Phase 1 re-key, and the code review gate
+  read. Steering spawns the critic and the architect. The planner folds their verdicts only if one asks for a
+  revision. Otherwise the plan is ready for UAT.
 - **Standing rules.**
   - Under D28, fold same-defect sibling sites without an owner question.
   - After implementation approval, park findings that change no code, test or pre-release verifier.
-  - A claim about code behaviour cites an executed read at the current tip: check `git log` for newer commits before
-    reading. A stale `7e5ca5f` read cost a withdrawal (R-22).
-  - Take changelog stamps from `date -u` at write, never guessed (R-16 correction).
-- **Open with others.**
-  - The implementer: CR-22 (M6-a) and CR-27 (M8-a, carrying D36 at `8de2b53`).
-  - Code review: the CR-27 sub-entry, which decides M-C9-3.
-  - Steering: whether the owner sees one line that, after the D36 line, a Chromium outage brings back F-34's hang
-    (AF-31, which came after his selection). Sent at R-23; no answer yet.
-  - None of the planner's questions to the owner are pending.
+  - A claim about code behaviour cites an executed read at the current tip. Check `git log` for newer commits first.
+  - Take changelog stamps from `date -u` at write.
+- **Open with others.** QA has the implementer's interactive-parser note, a coverage call (Planner batch). UAT has
+  CR-34's operator-visible check on PM2's error log, which UAT registers. No planner question to the owner is pending.
 - **Uncommitted, left in place.** `INBOX.md` (the planner's FYI on `pm2 show`, for its domain owner) and other
-  sessions' files. Heads: website `825a7d8` and preview-image-generator `8de2b53` (chain branches, steering's). The
-  planner touches no source. No process is running.
+  sessions' files. Heads: website `c5303ca` and preview-image-generator `8de2b53`. The planner touches no source.
