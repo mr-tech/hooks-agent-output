@@ -1,0 +1,6 @@
+ef-header-other-bypasses-formatter KILLED 15.75
+ef-folder-list-drops-prefix KILLED 14.1
+ef-redis-wait-falsy-miss KILLED 14.21
+ef-redis-wait-timeout-falsy-miss KILLED 14.09
+ef-imageuploader-validation-bypassed KILLED 14.17
+5 of 5 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; website-survivors-rerun-620b4ee.json (blob f3cdc39e74ce8428500ab162e1f87bd217f84419))

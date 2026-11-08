@@ -1,0 +1,2 @@
+ FAIL  |dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.png.html without loading it
+ FAIL  |dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.txt?file=b.png without loading it

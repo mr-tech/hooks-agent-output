@@ -4,7 +4,7 @@ Origin: 015
 UUID: 861e5f61
 Verified-At: "6001f7f,471578f — repos=website,preview-image-generator; Phase 1 premise reads only (no verdict on code): the base 7ce866b, and the chain tip 6001f7f for the rev 12/13 delta"
 Status: Awaiting Implementation
-Status-Detail: "Phase 1 keyed to plan rev 28 (2a4533b), approved, no new finding; QAF-36 RESOLVED (stated-limit branch). Register B-1 to B-14 (B-3 withdrawn; B-4 gains a /preview leg; B-8 gains the D36 absence limb). Phase 2, each pass in its own document: M0, M2 PASS; M1, M4, M5-a to M5-g PASS at 24ac49f; M4 non-JSON, M5-h, M5-i, M6-b to M6-l, CR-24, M7 PASS at 476c633; M8-a to M8-e PASS at generator 8de2b53 (QAF-36 LOW, planner); QAF-27, QAF-20 RESOLVED at 4f9ed85; M6-a PASS with QAF-34, QAF-35 RESOLVED and CR-26's callers at c5303ca. Effort-final Phase 2 QA Failed on test adequacy at c5303ca and 8de2b53 (QAF-38 to QAF-40 MEDIUM, test-only, implementer; QAF-37 RESOLVED; qa/015-bug-evaluation-fixes-effort-final-qa.md). Owed: the 5-survivor re-run after the fix round."
+Status-Detail: "Phase 1 keyed to plan rev 28 (2a4533b), approved, no new finding; QAF-36 RESOLVED (stated-limit branch). Register B-1 to B-14 (B-3 withdrawn; B-4 gains a /preview leg; B-8 gains the D36 absence limb). Phase 2, each pass in its own document: M0, M2 PASS; M1, M4, M5-a to M5-g PASS at 24ac49f; M4 non-JSON, M5-h, M5-i, M6-b to M6-l, CR-24, M7 PASS at 476c633; M8-a to M8-e PASS at generator 8de2b53 (QAF-36 LOW, planner); QAF-27, QAF-20 RESOLVED at 4f9ed85; M6-a PASS with QAF-34, QAF-35 RESOLVED and CR-26's callers at c5303ca. Effort-final Phase 2 PASS at website 620b4ee and generator 8de2b53 (qa/015-bug-evaluation-fixes-effort-final-qa.md; QAF-37 to QAF-40 RESOLVED). UAT next."
 Phase: 1
 ---
 

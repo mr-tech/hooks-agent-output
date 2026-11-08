@@ -1,0 +1,1 @@
+ FAIL  |dom| src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx > Header, the dates beside search results > shows a time for a message updated today and a date for the same day of another month, in the current folder and in other folders

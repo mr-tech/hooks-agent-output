@@ -1,0 +1,141 @@
+{
+ "sha": "620b4eeb50d13d0526c032e94f12a657dc4ec8a9",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/015/effort-final/website-survivors-rerun-620b4ee.json",
+ "command": [
+  "unshare",
+  "-rn",
+  "sh",
+  "-c",
+  "ip link set lo up && [ \"$(ip -o link show | grep -vc \": lo:\")\" = 0 ] && npx vitest run"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "timeout": 300.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "7d3dcf4f16bc57596eef09db0bfa9bd450b36bbb"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/015/effort-final/website-survivors-rerun-620b4ee.json",
+   "blob": "f3cdc39e74ce8428500ab162e1f87bd217f84419"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/fix/out/620b4eeb50d13d0526c032e94f12a657dc4ec8a9-20261108T125000Z-p3377817-control-1.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/fix/out/620b4eeb50d13d0526c032e94f12a657dc4ec8a9-20261108T125000Z-p3377817-control-1.stderr",
+   "seconds": 28.66,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 1128,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "ef-header-other-bypasses-formatter",
+   "file": "src/app/message/_layout/Header.tsx",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1128,
+   "control_tests_run": 1128,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 15.75,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/fix/out/620b4eeb50d13d0526c032e94f12a657dc4ec8a9-20261108T125000Z-p3377817-mutant-ef-header-other-bypasses-formatter.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/fix/out/620b4eeb50d13d0526c032e94f12a657dc4ec8a9-20261108T125000Z-p3377817-mutant-ef-header-other-bypasses-formatter.stderr"
+  },
+  {
+   "id": "ef-folder-list-drops-prefix",
+   "file": "src/app/message/f/[id]/page.tsx",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1128,
+   "control_tests_run": 1128,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 14.1,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/fix/out/620b4eeb50d13d0526c032e94f12a657dc4ec8a9-20261108T125000Z-p3377817-mutant-ef-folder-list-drops-prefix.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/fix/out/620b4eeb50d13d0526c032e94f12a657dc4ec8a9-20261108T125000Z-p3377817-mutant-ef-folder-list-drops-prefix.stderr"
+  },
+  {
+   "id": "ef-redis-wait-falsy-miss",
+   "file": "src/utils/redis/index.ts",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1128,
+   "control_tests_run": 1128,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 14.21,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/fix/out/620b4eeb50d13d0526c032e94f12a657dc4ec8a9-20261108T125000Z-p3377817-mutant-ef-redis-wait-falsy-miss.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/fix/out/620b4eeb50d13d0526c032e94f12a657dc4ec8a9-20261108T125000Z-p3377817-mutant-ef-redis-wait-falsy-miss.stderr"
+  },
+  {
+   "id": "ef-redis-wait-timeout-falsy-miss",
+   "file": "src/utils/redis/index.ts",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1128,
+   "control_tests_run": 1128,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 14.09,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/fix/out/620b4eeb50d13d0526c032e94f12a657dc4ec8a9-20261108T125000Z-p3377817-mutant-ef-redis-wait-timeout-falsy-miss.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/fix/out/620b4eeb50d13d0526c032e94f12a657dc4ec8a9-20261108T125000Z-p3377817-mutant-ef-redis-wait-timeout-falsy-miss.stderr"
+  },
+  {
+   "id": "ef-imageuploader-validation-bypassed",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1128,
+   "control_tests_run": 1128,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 14.17,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/fix/out/620b4eeb50d13d0526c032e94f12a657dc4ec8a9-20261108T125000Z-p3377817-mutant-ef-imageuploader-validation-bypassed.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/fix/out/620b4eeb50d13d0526c032e94f12a657dc4ec8a9-20261108T125000Z-p3377817-mutant-ef-imageuploader-validation-bypassed.stderr"
+  }
+ ],
+ "score": "5 of 5 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; website-survivors-rerun-620b4ee.json (blob f3cdc39e74ce8428500ab162e1f87bd217f84419))"
+}

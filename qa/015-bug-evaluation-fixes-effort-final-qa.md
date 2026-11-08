@@ -2,9 +2,9 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Verified-At: "c5303ca,8de2b53 — repos=website,preview-image-generator; effort-final Phase 2: the production diffs 7ce866b..c5303ca (website) and 471578f..8de2b53 (generator), swept at those tips in git-archive exports under unshare -rn"
-Status: QA Failed
-Status-Detail: "QA Failed on test adequacy alone, with no production defect. Website c5303ca: 265 mutants over 7ce866b..c5303ca, 256 killed and 9 survived. 6 survivors are dispositioned; 3 are QAF-38, QAF-39 and QAF-40 (MEDIUM, test-only, implementer). Generator 8de2b53: whole diff swept, QAF-37 RESOLVED. The re-run after the fix covers the 5 survivors only."
+Verified-At: "620b4ee,8de2b53 — repos=website,preview-image-generator; effort-final Phase 2. The production diffs 7ce866b..c5303ca (website) and 471578f..8de2b53 (generator) were swept at those tips in git-archive exports under unshare -rn. Website 620b4ee is c5303ca plus a test-only round (4 test files, 0 production paths), where the survivors were re-run and the suite ran"
+Status: QA Complete
+Status-Detail: "PASS at website 620b4ee and generator 8de2b53. Website: 265 mutants over 7ce866b..c5303ca, 256 killed; the 5 actionable survivors (QAF-38 to QAF-40) killed at 620b4ee; 4 dispositioned. Generator: whole diff swept, QAF-37 RESOLVED. Suite 1128/1128, 116 files, vitest 0, typecheck 0. One stated limit, the plumbing-class assumption, awaiting the owner's word."
 Phase: 2
 ---
 
@@ -21,6 +21,7 @@ Phase: 2
 |------|---------------|---------|---------|
 | 2026-11-08T11:19 | steering-hooks-015 (brief after the /clear); planner-hooks-015 (rev 28) | QA effort-final Phase 2 | Created with the generator half, the owed checks and the website sweep's inputs. The website sweep is running. |
 | 2026-11-08T12:40 | code-reviewer-hooks-015 (QAF-37 cell, `f77e71c`); implementer-hooks-015 (`8fb1eee`) | Website sweep result; QAF-37 re-run | QA Failed. Website: 256 of 265 killed. Of the 9 survivors, 6 are dispositioned and 3 raised as QAF-38, QAF-39 and QAF-40 (MEDIUM, test-only). QAF-37 RESOLVED. Two run false starts are disclosed and not scored. |
+| 2026-11-08T12:53 | code-reviewer-hooks-015 (`8f4578c`, website `620b4ee` APPROVED, test-only) | Fix-round re-run | **PASS.** The 5 survivors are killed at `620b4ee`, and QAF-38, QAF-39 and QAF-40 are RESOLVED. Suite 1128/1128, exit 0. Verdict re-anchored to `620b4ee`. |
 
 ## Scope and criteria assessed
 
@@ -155,9 +156,36 @@ QAF-37 RESOLVED (2026-11-08T12:38: preview-image-generator `8de2b53` unchanged; 
 
 *Reconcile 2026-11-08T12:42 (record check):* the output files under `gen-sweep-8de2b53/{gap,qaf37,rig}/` and `website-sweep-c5303ca/{firstpass,rerun}/` carry their directory as a prefix, and `clear-orphan-probe/run.sh` is now `run-clear-orphans.sh`. This clears the duplicate-basename failures `tools/check-repo.js` raised against this run's files. Content is unchanged. Messages sent before the rename cite the old names.
 
+## Fix round, website `c5303ca..620b4ee` (re-run 2026-11-08T12:53)
+
+Stage start: code review's sub-entry approving `620b4ee`, test-only with no finding (agent-output `8f4578c`). `git diff --numstat c5303ca 620b4ee` touches 4 files, all under `__tests__/`; 0 lines are outside `__tests__`. Production code is unchanged, so the sweep's results at `c5303ca` stand, and only the survivors this round closes are re-run.
+- **The 5 survivors, each alone, at `620b4ee`:** `effort-final/website-survivors-rerun-620b4ee.json` (`cfc82e2`; each old string checked exactly once at `620b4ee`). Runner table and failing cases are in `effort-final/website-survivors-620b4ee/`. The control is 1128/1128. **5 of 5 KILLED:**
+  - `ef-header-other-bypasses-formatter`: the Header dates case.
+  - `ef-folder-list-drops-prefix`: the folder dates case, "in the list view".
+  - `ef-redis-wait-falsy-miss`: "is answered null at once when the value is cached by the time the wait starts".
+  - `ef-redis-wait-timeout-falsy-miss`: "is answered null when the value is cached by the time the wait times out". Each wait site is killed by its own case alone.
+  - `ef-imageuploader-validation-bypassed`: both refusal members, `a.png.html` and `a.txt?file=b.png`.
+- **Suite at `620b4ee`:** `qa-m4-suite-run.sh` → `effort-final/qa-ef-suite-run-620b4ee.txt` and `-testresults-620b4ee.json`. 1128/1128 across 116 files, vitest exit 0, typecheck exit 0 (both programs), isolation counts 0/0, 0 stderr lines. Reconciled against `c5303ca`'s 1122 cases in 115 files: + 1 (folder `it.each`, now grid and list) + 3 (`ImageUploader.url-validation`, a new file) + 2 (redis waiter) = 1128 cases, and 116 files. The Header case was extended, not added.
+- **Test audit (4 files):**
+  - Names take the positive form, with no ID token in a basename or a title. Placement is beside each module.
+  - Spec-form throughout, and each expectation is a literal.
+  - The redis `TIMEOUT_MS` drives the fake timer. It is not the quantity under test (the null hit is), so axiom (E) is not engaged.
+  - The fake timers are deterministic, so there is no wall-clock cell.
+  - `ImageUploader`'s `FakeImage` stub fires `onload`, so it is a present-and-firing substitute. Its accepted-URL control proves the load path runs.
+  - The folder list case first asserts that the list rendered, a liveness check before the date read.
+  - No finding.
+
+QAF-38, QAF-39 and QAF-40 RESOLVED (2026-11-08T12:53: website `620b4ee`; code review `8f4578c`; each survivor killed above).
+
 ## Verdict
 
-**QA Failed** at website `c5303ca` and preview-image-generator `8de2b53`. It fails on test adequacy alone: QAF-38, QAF-39 and QAF-40 are each MEDIUM, test-only and routed to the implementer. No production defect was found in either repository. Every other criterion this pass assessed is met:
+**PASS (QA Complete)** at website `620b4ee` and preview-image-generator `8de2b53`. No production defect was found in either repository.
+- Website: of 265 mutants over the whole production diff, 256 were killed at `c5303ca` and the 5 actionable survivors at `620b4ee`. The 4 others are dispositioned (equivalent, contract-barred, or invisible in jsdom), and the 70 hunks with no mutant are dispositioned by class.
+- Generator: the whole diff is swept, with QAF-37 RESOLVED.
+- The CR-12 belonging comparison is killed in every form. Discord's `color` contract holds, and so does RK-7.
+- One stated limit carries forward: the plumbing-class Assumption Not Checked below. The owner's word on widening the sweep is with steering. If he says yes and a new mutant survives, this verdict is withdrawn.
+
+*Superseded verdict, kept as the record of 12:40:* **QA Failed** at website `c5303ca` and preview-image-generator `8de2b53`. It fails on test adequacy alone: QAF-38, QAF-39 and QAF-40 are each MEDIUM, test-only and routed to the implementer. No production defect was found in either repository. Every other criterion this pass assessed is met:
 - the generator's whole production diff is swept at the tip, with QAF-37 RESOLVED;
 - the website sweep's other survivors are dispositioned;
 - the CR-12 belonging comparison is killed under every form, 5 mutants;
@@ -178,8 +206,11 @@ Checked in this pass rather than assumed (under a minute):
 
 ## Handoff
 
-- **Implementer** (implementer-hooks-015): QAF-38, QAF-39 and QAF-40, all test-only on the website chain branch, then to code review as usual.
-- **Code review:** the fix round's test diff, under its scoped check.
-- **QA:** after code review's sub-entry, the five-survivor re-run and the suite at the new tip. Then the effort-final verdict, and UAT's hand-off.
-- **Register:** `qa/015-bug-evaluation-fixes-qa.md`. No row is appended by this pass. Rows inherited and not discharged: B-1, B-2, B-4 to B-14 (B-3 withdrawn). B-8 carries the rev 28 D36 limb.
-- **Roadmap:** no roadmap exists (plan `Epic-Alignment`), so no epic acceptance criterion moves.
+- **UAT is next.** Website `620b4ee`, generator `8de2b53`, plan rev 28. The register is in `qa/015-bug-evaluation-fixes-qa.md` § Blocking-condition register.
+  - Pre-release rows for UAT's stage browser: B-1, B-2, B-4, B-5, B-9 to B-14. B-3 is withdrawn.
+  - Post-deploy rows: B-6, B-7 and B-8. B-8 includes the rev 28 D36 limb and is devops's at M8-0 run 2.
+  - Code review's CR-34 asks UAT to register an operator check on PM2's error log. It goes into that register as B-15 onward.
+  - No row is appended by this pass.
+- **Steering:** the owner's word on the plumbing-class sweep (about 15 runs) is pending; my message is `c9f55546`. UAT needs a session (spawn cue).
+- **Rows inherited and not discharged:** B-1, B-2, B-4 to B-14.
+- **Roadmap:** none exists, so no epic criterion moves.
