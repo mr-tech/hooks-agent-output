@@ -424,3 +424,6 @@ NOT DONE: deleting the chain sessions' /tmp/claude-1000/-usr-local-bin-hooks/<se
 Retrospective: retrospectives/015-bug-evaluation-fixes-retrospective.md (08848b8), Status Active, 14 recommendations for pi on his word. Its owner item: the generator API key is in at least two transcripts.
 - **Key.** Options: You: rotate it / Agent: record, no rotation / You: decide later. Chosen **Agent: record, no rotation**, by selection. Its description, verbatim: "Agent: the handoff gets one line noting the transcript copies. The key stays as it is, and the handoff waits for its next trigger." Line added to handoff/preview-image-generator-api-key-in-workflow-files-2026-11-08.md.
 - **B-7, who checks.** Options: Agent: UAT, account 2 / You: do it yourself. His answer, verbatim: "why are you asking?". Steering's answer goes to him in this session.
+
+## 2026-11-08T22:36Z — "yes, test accounts can sign in live. they can write to the database without asking as long as it's not customer's data"
+His words, verbatim: a standing ruling. Test accounts may sign in on live hooks.gg, and agents may write to the production database through them without asking, provided it is not customers' data. Applied now: UAT is respawned for B-7 with account 2 on hooks.gg. Lodged in ~/.claude/agents/INBOX.md.
