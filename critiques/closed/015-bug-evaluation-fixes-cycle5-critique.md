@@ -2,10 +2,10 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Status: Open
-Status-Detail: "Cycle 5 pass 2: delta-bounded read of revision 21 (e118cc3..3d193f9, --numstat 42/60, read whole; the CR-16 fold and D30, M3 removed). Verdict APPROVED (after implementation approval). M-C5-1 verified landed → RESOLVED. L-C5-1 LOW stays OPEN, owed as a Planner batch row at the planner's next pass (rev 21 predates pass 1). No new finding. Closes when that row is read."
-Artifact-Revision: 21 — read at agent-output 3d193f9; the plan body is unchanged through 081bb4e (architecture's rev 21 row)
-Reviewed-At: 3d193f9 — repos=agent-output; website 3031878 (chain/015-bug-evaluation-fixes tip; the M4 tree the delta cites is 1e12837, and 1e12837..3031878 touches only src/server/__tests__/auth.hydrated-session.test.ts), preview-image-generator 471578f (chain/015-bug-evaluation-fixes), unchanged since cycle 1
+Status: Resolved
+Status-Detail: "Cycle 5 closed after pass 2: revision 21 (3d193f9) APPROVED; M-C5-1 RESOLVED (rev 21's CR-16 fold); L-C5-1 LOW carried by Planner batch row R-6 (daa9012), landing at the next planning pass or the seam before the UAT anchor — landed-by-author at that fold, not critic-verified. Every finding is resolved or carries a landing trigger recorded in the plan."
+Artifact-Revision: 21 — read at agent-output 3d193f9; R-6 (daa9012) adds the L-C5-1 batch row and a code-review row, no requirement moved
+Reviewed-At: daa9012 — repos=agent-output; website 3031878 (chain/015-bug-evaluation-fixes tip; the M4 tree the delta cites is 1e12837, and 1e12837..3031878 touches only src/server/__tests__/auth.hydrated-session.test.ts), preview-image-generator 471578f (chain/015-bug-evaluation-fixes), unchanged since cycle 1
 Verdict: APPROVED
 ---
 
@@ -19,6 +19,7 @@ Verdict: APPROVED
 |---|---|---|---|
 | 2026-11-08T07:31 | steering-hooks-015 (message, 07:25Z) | cycle 5 pass 1: open cycle 5 as a delta read over `330348f..e118cc3` (rev 20: D29, the "Invalid URL" webhook-load limb at both F-27 sites) | Delta-bounded pass. Both sites' failure behaviour re-derived at website `1e12837`: the D29 premise holds. One MEDIUM (M-C5-1, duplicates CR-16): the limb places the text "at the webhook URL field" / "under the field" at both sites, and the New Message dialog has no such surface. One LOW (L-C5-1): the failure class names only "no response" where the dialog's catch also fires on a non-JSON response; D29's attribution precision. RK-6: no new member. Verdict APPROVED; both findings owed at the CR-16 fold. |
 | 2026-11-08T07:31 | steering-hooks-015 (message, 07:29Z) | cycle 5 pass 2: read `e118cc3..3d193f9` (rev 21: the CR-16 fold, D30 — M3 removed, X-18) | Delta-bounded pass. M-C5-1 verified landed (each site's place stated; the dialog's on its shared error line, matching the `1e12837` read) → RESOLVED. D30 and X-18 read against `verification/015/m3-chrome-read/README.md` (`8996505`): the plan's restatement matches the capture; the dead compare's class re-counted at `6001f7f` = 3 sites; the dropped WIP test lives only under `verification/`, so "no test in this chain" holds. L-C5-1 not folded (rev 21 predates pass 1): OPEN, a Planner batch row owed. No new finding; RK-6 no new member. Verdict APPROVED. |
+| 2026-11-08T07:34 | planner-hooks-015 (message, 07:33Z) | Document closed | Status: Resolved. Plan R-6 (`daa9012`, `--numstat 3/0`: one code-review Round 9 row, the R-6 changelog line, the L-C5-1 batch row) read: the row carries both limbs of L-C5-1, its source (`79e8572`) and a landing trigger — the next planning pass, at latest the seam before the UAT anchor. Nothing else is owed; the file moves to `critiques/closed/`. |
 
 ## Boundary (pass 2, rev 21)
 
@@ -73,7 +74,7 @@ D29's row says the site behaviour "is the planner's code read at `1e12837`, not 
 ### Low
 
 **L-C5-1 LOW cycle 5 pass 1 — Two precisions in the D29 limb and row.**
-- **State**: OPEN at pass 2 — rev 21 (`3d193f9`) was written before pass 1 was committed (`6a4c245`) and does not fold it; the limb still reads "fails with no response" and D29 still reads "The option text is the planner's". Landing: a Planner batch row at the planner's next pass; this critique closes when the row is read.
+- **State**: OPEN with its landing trigger recorded — Planner batch row R-6 (plan `daa9012`), both limbs carried verbatim in substance; folds at the next planning pass, at latest the seam before the UAT anchor. It closes landed-by-author at that fold, the discharging document being the plan revision that folds it; no critic pass verifies it (rev 21 `3d193f9` predates pass 1's commit `6a4c245` and so does not fold it).
 - **Location**: plan § M4-d, the D29 limb; Decisions Register D29, verbatim column.
 - **Description**: (i) The limb's class is "a webhook-URL fetch that fails with no response". At the dialog the same `catch` also fires when a response arrives whose body is not JSON (`res.json()` throws — a proxy's HTML error page); at the send page that member already shows "Invalid URL" (non-200 → `null`; 200 non-JSON → `catch` → `null`). The residue is unnamed, so the two sites' domains are not stated as the same class though the fix will make them so. (ii) The rulings block (`27f8cd7`) says the option label texts are steering's and the description the planner's; D29 says "The option text is the planner's, relayed by steering". The label "Agent: 'Invalid URL' at both" is steering's.
 - **Impact**: (i) one unstated member per site in QA's derivation; (ii) a register attribution that misnames an author by one word.
@@ -100,7 +101,11 @@ None: `grep -c 'OPEN QUESTION'` = 8, `grep -c 'OPEN QUESTION \['` = 8, bold open
 
 **Pass 2 — APPROVED** (cycle 5, pass 2; after implementation approval, REQUEST REVISION reserved for HIGH or CRITICAL, none raised). Sized to the ask: 47 of 50 fixed, F-15/F-39 closed as not reproducible under D30, plus the CR-12 rider; rev 21 adds no work and removes M3's. M-C5-1 verified landed → RESOLVED. D30's restatement of the Chrome read matches the capture, the dead compare's class is three sites and the read covers all three, and X-18 names the residue with D30 the row a report lands under. L-C5-1 LOW stays OPEN as a Planner batch row owed at the planner's next pass, which this critique closes on. D24–D30 terminal; nothing here re-raises them. RK-6: no new member. No owner-needing item.
 
-**Next**: the planner (L-C5-1's batch row at its next pass; nothing else is owed from this gate). The implementer's D29 change at both sites may proceed against rev 21, as the code review's Round 8 conditioned it on this fold; QA reads rev 21 for its M4 re-key and the M3 cells' retirement.
+## Closure
+
+Closed 2026-11-08T07:34 at plan rev 21 with R-6 (`daa9012`): M-C5-1 RESOLVED; L-C5-1 carried by the plan's Planner batch row with its landing trigger. Items carried past this document: pass 2's Assumption Not Checked (dev-server versus production focus routing in the three dialogs) is X-18's stated limit under D30; pass 1's (`messageErrorString` precedence in the dialog) is QA Phase 2's dialog cell at the D29 fix SHA. A later revision that changes criterion text, milestone scope or an instrument's form opens cycle 6 in a new file.
+
+**Next** (as written at pass 2): the planner (L-C5-1's batch row at its next pass; nothing else is owed from this gate). The implementer's D29 change at both sites may proceed against rev 21, as the code review's Round 8 conditioned it on this fold; QA reads rev 21 for its M4 re-key and the M3 cells' retirement.
 
 ---
 
