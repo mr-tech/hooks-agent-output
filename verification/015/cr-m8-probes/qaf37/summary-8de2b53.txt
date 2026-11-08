@@ -1,0 +1,24 @@
+== control-8de2b53.txt: sha 8de2b5337179623f7fbd82904221078c2930214a
+CELL PASS P1 drain never settles: the 10 s fallback exits the process with code 0 -- {"code":0,"sig":null,"at":1794137129663}
+CELL PASS P1 drain never settles: the exit comes after the drain wait and before the 12 s kill_timeout -- 10030 ms
+CELL PASS P1 drain never settles: no drain-complete line and no drain-failed line
+CELL PASS M8-d pool: no creation retry storm and nothing left pending -- SUMMARY creates=2 pending=0 ms=2006
+SUMMARY cells=35 failed=0
+== variant-13e3-8de2b53.txt: variant 13e3; fallback lines now: 0 at 10e3, 1 at 13e3
+CELL PASS P1 drain never settles: the 10 s fallback exits the process with code 0 -- {"code":0,"sig":null,"at":1794137228012}
+CELL FAIL P1 drain never settles: the exit comes after the drain wait and before the 12 s kill_timeout -- 13038 ms
+CELL PASS P1 drain never settles: no drain-complete line and no drain-failed line
+CELL PASS M8-d pool: no creation retry storm and nothing left pending -- SUMMARY creates=2 pending=0 ms=2005
+SUMMARY cells=35 failed=1
+== variant-5e3-8de2b53.txt: variant 5e3; fallback lines now: 0 at 10e3, 1 at 5e3
+CELL PASS P1 drain never settles: the 10 s fallback exits the process with code 0 -- {"code":0,"sig":null,"at":1794137189566}
+CELL FAIL P1 drain never settles: the exit comes after the drain wait and before the 12 s kill_timeout -- 5020 ms
+CELL PASS P1 drain never settles: no drain-complete line and no drain-failed line
+CELL PASS M8-d pool: no creation retry storm and nothing left pending -- SUMMARY creates=2 pending=0 ms=2004
+SUMMARY cells=35 failed=1
+== variant-removed-8de2b53.txt: variant removed; fallback lines now: 0 at 10e3, 0 at removed
+CELL FAIL P1 drain never settles: the 10 s fallback exits the process with code 0 -- null
+CELL FAIL P1 drain never settles: the exit comes after the drain wait and before the 12 s kill_timeout -- null ms
+CELL PASS P1 drain never settles: no drain-complete line and no drain-failed line
+CELL PASS M8-d pool: no creation retry storm and nothing left pending -- SUMMARY creates=2 pending=0 ms=2007
+SUMMARY cells=35 failed=2
