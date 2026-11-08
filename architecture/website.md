@@ -218,6 +218,14 @@ Two consequences a reader cannot derive from the tree:
    The copy the edit superseded held no divergence; three hand-edits in one commit produced one.
    That is the concrete evidence that this string wants a single definition.
 
+### A-4 — Message validity lives in one module, and its counters and bounds have fixed homes
+
+**Grade**: agent-designed — a pattern read from code at `7ce866b`, not his intent; re-verify against the code.
+
+**Mechanism**: `src/utils/limits.tsx` `validateMessage` is the single validity predicate. It is read by the send gate, by `isMessageValid` (`src/server/api/utils/messageValidity.ts`, which writes the stored `valid` column on save) and by `src/scripts/backfillValid.ts`. A counter that a validator needs lives in that module beside the validator, typed structurally (`sumDisplayableText`), so the same helper accepts editor drafts and stored `MessageData`. Bounds are constants in `~/constants` (which re-exports `./messageLimits`), and the editor and the save schema (`shapes.ts`) read the same constant for the same bound.
+
+**Consequence a change must carry**: a change to `validateMessage`'s refusal set changes stored `valid` only for rows saved afterwards. The backfill re-derives `valid IS NULL` rows only, and the public v1 API serves the stored value. A predicate change therefore states its residue for already-stored rows (plan 015 AF-1).
+
 ---
 
 ## Addendum changelog
@@ -227,3 +235,4 @@ Two consequences a reader cannot derive from the tree:
 | 2026-09-08 | 1 | Added `A-1`…`A-3` and `P-1`, recovered from design rationale this repo had carried in its source comments. Agent-derived; not owner testimony. |
 | 2026-09-08 | 2 | `P-1` corrected on the owner's own account of the code, his words: *"it's my edit of agent copy (agent's was the previous effort)"*. Superseded wording claimed the notice string was his authorship rather than his edit of an agent's. Consequence 1 stands. Consequence 2 stands and is now stated from `2d90e8a`'s diff. |
 | 2026-09-08 | 3 | steering-S038 | P-1 folded into the recovered-rationale section under the owner's 2026-09-08 placement rule (annotated lines only); its claim framing removed, substance unchanged. |
+| 2026-11-08T05:17 | 4 | architect-hooks-015 | Added `A-4` (agent-designed) from the plan 015 conformance pass: where message validity, its counters and its bounds live. |
