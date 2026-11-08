@@ -1,0 +1,152 @@
+# website 6001f7f, 2026-11-08T07:19Z, node v24.14.0
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/0781c448-5d4c-4da0-83a3-d00ab415a21a/scratchpad/crprobe-6001f7f
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > positive control > admin of A reads a message in 301 (a channel of A)
+PROBE 301 {"value":{"guildId":"100000000000000001","message":{"username":"x","content":"SECRET-301","embeds":[]},"droppedComponent messageCalls 1
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > positive control > admin of A reads a message in 303 (a channel of A)
+PROBE 303 {"value":{"guildId":"100000000000000001","message":{"username":"x","content":"SECRET-303","embeds":[]},"droppedComponent messageCalls 1
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 302
+PROBE 302 {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Invalid\",\n    \"path\": [\n      \"url\"\n    ]\n  }\n]"}} messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 304
+PROBE 304 {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Invalid\",\n    \"path\": [\n      \"url\"\n    ]\n  }\n]"}} messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 305
+PROBE 305 {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Invalid\",\n    \"path\": [\n      \"url\"\n    ]\n  }\n]"}} messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 306
+PROBE 306 {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Invalid\",\n    \"path\": [\n      \"url\"\n    ]\n  }\n]"}} messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 307
+PROBE 307 {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Invalid\",\n    \"path\": [\n      \"url\"\n    ]\n  }\n]"}} messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 308
+PROBE 308 {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Invalid\",\n    \"path\": [\n      \"url\"\n    ]\n  }\n]"}} messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 309
+PROBE 309 {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Invalid\",\n    \"path\": [\n      \"url\"\n    ]\n  }\n]"}} messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 310
+PROBE 310 {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Invalid\",\n    \"path\": [\n      \"url\"\n    ]\n  }\n]"}} messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: the gate > non-admin (Manage Server only) of A is refused before any channel lookup
+PROBE member {"error":{"code":"FORBIDDEN","message":"User does not have permission to access to this server."}} apiCalls ["/guilds/100000000000000001"]
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: the gate > a link naming B (user is not admin of B) is refused
+PROBE B-link {"error":{"code":"FORBIDDEN","message":"User does not have permission to access to this server."}} apiCalls ["/guilds/200000000000000002"]
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: the gate > no session cookie is refused
+PROBE no-cookie {"error":{"code":"UNAUTHORIZED","message":"No session token provided."}}
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/100000000000000001/302/5"
+PROBE "https://discord.com/channels/100000000000000001/302/5" {"value":{"guildId":"100000000000000001","message":{"username":"x","content":"SECRET-302","embeds":[]},"droppedComponentTypes":[]}} messageCalls 1
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/100000000000000001/301/5\n"
+PROBE "https://discord.com/channels/100000000000000001/301/5\n" {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Inva messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/100000000000000001/301/5/"
+PROBE "https://discord.com/channels/100000000000000001/301/5/" {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Inva messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com.evil.example/channels/100000000000000001/301/5"
+PROBE "https://discord.com.evil.example/channels/100000000000000001/301/5" {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Inva messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com@evil.example/channels/100000000000000001/301/5"
+PROBE "https://discord.com@evil.example/channels/100000000000000001/301/5" {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Inva messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://evil.example/https://discord.com/channels/100000000000000001/301/5"
+PROBE "https://evil.example/https://discord.com/channels/100000000000000001/301/5" {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Inva messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://DISCORD.com/channels/100000000000000001/301/5"
+PROBE "https://DISCORD.com/channels/100000000000000001/301/5" {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Inva messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/100000000000000001/１/5"
+PROBE "https://discord.com/channels/100000000000000001/１/5" {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Inva messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/0100000000000000001/301/5"
+PROBE "https://discord.com/channels/0100000000000000001/301/5" {"error":{"code":"NOT_FOUND","message":"The bot is not in this server."}} messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/100000000000000001/301/5?x=1"
+PROBE "https://discord.com/channels/100000000000000001/301/5?x=1" {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Inva messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/100000000000000001/301/5#x"
+PROBE "https://discord.com/channels/100000000000000001/301/5#x" {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Inva messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://media.discordapp.com/channels/100000000000000001/301/5"
+PROBE "https://media.discordapp.com/channels/100000000000000001/301/5" {"error":{"code":"BAD_REQUEST","message":"[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Inva messageCalls 0
+
+stdout | src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cache lock held for the channel key > a held channel mutex times out to a refusal, never content
+PROBE mutex {"value":{"guildId":"100000000000000001","message":{"username":"x","content":"SECRET-302","embeds":[]},"droppedComponentTypes":[]}} keysBefore ["channel:302-mutex","channel-302-mutex"] messageCalls 1
+
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > positive control > admin of A reads a message in 301 (a channel of A) 6ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > positive control > admin of A reads a message in 303 (a channel of A) 1ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 302 2ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 304 1ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 305 1ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 306 1ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 307 1ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 308 0ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 309 1ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cross-guild and guildless channels via a link naming A > channel 310 1ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: the gate > non-admin (Manage Server only) of A is refused before any channel lookup 1ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: the gate > a link naming B (user is not admin of B) is refused 1ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: the gate > no session cookie is refused 0ms
+ × |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/100000000000000001/302/5" 6ms
+   → expected '{"value":{"guildId":"1000000000000000…' not to contain 'SECRET'
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/100000000000000001/301/5\n" 1ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/100000000000000001/301/5/" 0ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com.evil.example/channels/100000000000000001/301/5" 0ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com@evil.example/channels/100000000000000001/301/5" 0ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://evil.example/https://discord.com/channels/100000000000000001/301/5" 0ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://DISCORD.com/channels/100000000000000001/301/5" 0ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/100000000000000001/１/5" 1ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/0100000000000000001/301/5" 1ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/100000000000000001/301/5?x=1" 0ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/100000000000000001/301/5#x" 0ms
+ ✓ |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://media.discordapp.com/channels/100000000000000001/301/5" 0ms
+ × |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cache lock held for the channel key > a held channel mutex times out to a refusal, never content 1ms
+   → expected '{"value":{"guildId":"1000000000000000…' not to contain 'SECRET'
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: link shapes > "https://discord.com/channels/100000000000000001/302/5"
+AssertionError: expected '{"value":{"guildId":"1000000000000000…' not to contain 'SECRET'
+
+Expected: "SECRET"
+Received: "{"value":{"guildId":"100000000000000001","message":{"username":"x","content":"SECRET-302","embeds":[]},"droppedComponentTypes":[]}}"
+
+ ❯ src/__crprobe__/getFromUrl.cross-guild.attack.test.ts:156:35
+    154|     const r = await attempt(url);
+    155|     console.log('PROBE', JSON.stringify(url), JSON.stringify(r).slice(…
+    156|     expect(JSON.stringify(r)).not.toContain('SECRET');
+       |                                   ^
+    157|   });
+    158| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/__crprobe__/getFromUrl.cross-guild.attack.test.ts > attack: cache lock held for the channel key > a held channel mutex times out to a refusal, never content
+AssertionError: expected '{"value":{"guildId":"1000000000000000…' not to contain 'SECRET'
+
+Expected: "SECRET"
+Received: "{"value":{"guildId":"100000000000000001","message":{"username":"x","content":"SECRET-302","embeds":[]},"droppedComponentTypes":[]}}"
+
+ ❯ src/__crprobe__/getFromUrl.cross-guild.attack.test.ts:167:35
+    165|     const r = await attempt(`https://discord.com/channels/${A}/302/5`);
+    166|     console.log('PROBE mutex', JSON.stringify(r), 'keysBefore', JSON.s…
+    167|     expect(JSON.stringify(r)).not.toContain('SECRET');
+       |                                   ^
+    168|     expect(messageCalls()).toHaveLength(0);
+    169|   }, 30000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 24 passed (26)
+   Start at  07:19:28
+   Duration  1.13s (transform 241ms, setup 0ms, import 967ms, tests 30ms, environment 0ms)
+
+# vitest exit 1

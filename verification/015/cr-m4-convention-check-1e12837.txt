@@ -1,0 +1,4 @@
+SKIP node_modules: not examined — extension (none) is outside the examined set
+SKIP id-token, basename: no agent-output/TEST-CONVENTIONS.md above this repository — conventions not in force here
+SKIP eslint: exited 2 with no JSON — Oops! Something went wrong! :(
+convention-check: 15 file(s) examined, 1 not examined, 7 test file(s); 0 FAIL, 0 CANDIDATE, 3 SKIP
