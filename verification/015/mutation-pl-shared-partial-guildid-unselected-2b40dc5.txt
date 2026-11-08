@@ -1,0 +1,52 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-2b40dc5-pl-shared-partial-guildid-unselected  sha: 2b40dc5  label: pl-shared-partial-guildid-unselected  test: src/server/api/utils/__tests__/shared.in-predicates.test.ts  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf38-40-apply-qa-mutant.py
+applied pl-shared-partial-guildid-unselected to src/server/api/utils/shared.ts
+ .../src/server/api/utils/shared.ts                                      | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-2b40dc5-pl-shared-partial-guildid-unselected
+
+ ❯ |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts (4 tests | 2 failed) 17ms
+     × selects only the user's own messages when the user administers no server 7ms
+     × selects the user's own messages or those of the user's servers when there are some 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getPartialMessages > selects only the user's own messages when the user administers no server
+AssertionError: expected 'select "Messages"."id", "Messages"."c…' to contain '"Guilds"."guildId" as "guildId"'
+
+Expected: ""Guilds"."guildId" as "guildId""
+Received: "select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."previewImageNonce" from "Messages" left join "Guilds" on "Messages"."fk_guilds_id" = "Guilds"."id" where "Messages"."fk_users_id" = $1"
+
+ ❯ src/server/api/utils/__tests__/shared.in-predicates.test.ts:58:17
+     56|     expect(sql).toContain('"Messages"."fk_users_id" = $1');
+     57|     expect(parameters).toEqual(['u1']);
+     58|     expect(sql).toContain('"Guilds"."guildId" as "guildId"');
+       |                 ^
+     59|     expect(result.map(({ id }) => id)).toEqual(['m1']);
+     60|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getPartialMessages > selects the user's own messages or those of the user's servers when there are some
+AssertionError: expected 'select "Messages"."id", "Messages"."c…' to contain '"Guilds"."guildId" as "guildId"'
+
+Expected: ""Guilds"."guildId" as "guildId""
+Received: "select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."previewImageNonce" from "Messages" left join "Guilds" on "Messages"."fk_guilds_id" = "Guilds"."id" where ("Messages"."fk_users_id" = $1 or exists (select "Guilds"."id" from "Guilds" where "Guilds"."guildId" in ($2, $3) and "Messages"."fk_guilds_id" = "Guilds"."id"))"
+
+ ❯ src/server/api/utils/__tests__/shared.in-predicates.test.ts:70:17
+     68|     expect(sql).toContain('"Guilds"."guildId" in ($2, $3)');
+     69|     expect(parameters).toEqual(['u1', 'g1', 'g2']);
+     70|     expect(sql).toContain('"Guilds"."guildId" as "guildId"');
+       |                 ^
+     71|   });
+     72| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 2 passed (4)
+   Start at  14:27:27
+   Duration  706ms (transform 135ms, setup 0ms, import 567ms, tests 17ms, environment 0ms)
+
+vitest exit 1

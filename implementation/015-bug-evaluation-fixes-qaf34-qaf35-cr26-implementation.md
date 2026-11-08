@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "QAF-34 (MEDIUM), QAF-35 (LOW), CR-26 (LOW) and CR-35 (LOW) delivered on website's chain branch at b195eeb. QAF-34: the title case runs over both title parsers, red under m6a-title-codeblock-interactive (1 case) and under the static mutant (1 case), control 29 of 29. QAF-35: the two rows are red under named mutants, control 57 of 57. CR-26: no-restricted-imports bans react-use useMount and the three callers use useEffect; full gate at 86f5a6c 1119 of 1119, vitest exit 0, typecheck exit 0. CR-35: the formatKey test sits beside its module. CR-36 reconciled in the QAF document. Round 2 (CR-37 MEDIUM, code review REJECTED b195eeb for the CR-26 callers): spec-form cells for the editor `onMount` effect (red under the reviewer's mutator) and for Button `autoFocus` (the reviewer's mutator is equivalent: react-aria focuses on mount; the cell is red under a mutant that also stops autoFocus reaching react-aria); the lint ban also covers `react-use/lib` and `react-use/esm`. Full gate at 2618926: 1122 of 1122, 115 files, vitest exit 0, typecheck exit 0. Round 3 (CR-38): Button autoFocus effect deleted at c5303ca. Round 4 (QAF-38, QAF-39, QAF-40, QA effort-final Phase 2, test-only) at 620b4ee: five survivors each red in one existing or new cell and green at the tip; full gate 1128 of 1128, 116 files, vitest exit 0, typecheck exit 0."
-Handoff-At: "620b4ee — repos=website"
+Status-Detail: "QAF-34 (MEDIUM), QAF-35 (LOW), CR-26 (LOW) and CR-35 (LOW) delivered on website's chain branch at b195eeb. QAF-34: the title case runs over both title parsers, red under m6a-title-codeblock-interactive (1 case) and under the static mutant (1 case), control 29 of 29. QAF-35: the two rows are red under named mutants, control 57 of 57. CR-26: no-restricted-imports bans react-use useMount and the three callers use useEffect; full gate at 86f5a6c 1119 of 1119, vitest exit 0, typecheck exit 0. CR-35: the formatKey test sits beside its module. CR-36 reconciled in the QAF document. Round 2 (CR-37 MEDIUM, code review REJECTED b195eeb for the CR-26 callers): spec-form cells for the editor `onMount` effect (red under the reviewer's mutator) and for Button `autoFocus` (the reviewer's mutator is equivalent: react-aria focuses on mount; the cell is red under a mutant that also stops autoFocus reaching react-aria); the lint ban also covers `react-use/lib` and `react-use/esm`. Full gate at 2618926: 1122 of 1122, 115 files, vitest exit 0, typecheck exit 0. Round 3 (CR-38): Button autoFocus effect deleted at c5303ca. Round 4 (QAF-38, QAF-39, QAF-40, QA effort-final Phase 2, test-only) at 620b4ee: five survivors each red in one existing or new cell and green at the tip; full gate 1128 of 1128, 116 files, vitest exit 0, typecheck exit 0. Round 5 (QAF-41, QAF-42, plumbing sweep, test-only) at 9b5e47f: both survivors red, full gate 1130 of 1130, 116 files, vitest exit 0, typecheck exit 0."
+Handoff-At: "9b5e47f — repos=website"
 ---
 
 # Implementation 015 — QAF-34, QAF-35, CR-26 (website)
@@ -25,6 +25,7 @@ Handoff-At: "620b4ee — repos=website"
 | 2026-11-08T10:30 | code-reviewer-hooks-015 → implementer-hooks-015 | CR-37 MEDIUM (REJECTED `b195eeb`), CR-26 narrowed | Cells at `87b662f`; lint paths at `2618926`. See § Round 2. |
 | 2026-11-08T10:36 | code-reviewer-hooks-015 → implementer-hooks-015 | CR-38 LOW (Round 14 sub-entry APPROVED_WITH_COMMENTS; CR-37, CR-26 RESOLVED) | `Button`'s redundant `autoFocus` effect deleted at `c5303ca`. See § Round 3. |
 | 2026-11-08T12:47 | qa-hooks-015 → implementer-hooks-015 | QAF-38, QAF-39, QAF-40 (MEDIUM, test-only; effort-final Phase 2 QA Failed) | Tests at `620b4ee`; mutator `verification/015/mutators/qaf38-40-apply-qa-mutant.py`. See § Round 4. |
+| 2026-11-08T14:29 | qa-hooks-015 → implementer-hooks-015 | QAF-41, QAF-42 (MEDIUM, test-only; plumbing sweep) | Tests at `2b40dc5`, one class-sweep assertion at `9b5e47f`. See § Round 5. |
 
 ## Implementation Summary
 
@@ -201,6 +202,40 @@ The finding for `checkImage`'s guard is a one-conjunct predicate (`!isValidImage
 **Outstanding.** (1) The `Image` stub is mine: jsdom does not load images, so the accepted-URL cell asserts the component's reaction to a load the stub reports, not a browser's load; the refused cells assert that no load is attempted, which holds in any environment. This follows the conventions' environment-fidelity rule: the load success path itself is not asserted against jsdom. (2) The folder page's list-view cell reaches the list through the page's own toggle button, with `detail: 0` click events, rather than by seeding `localStorage`. (3) QA re-runs the five survivors and the suite once at the new tip.
 
 **Self-diagnosis (method).** None escaped: no defect reached a later gate in this round. The two redis cells needed a store that answers a scripted miss-then-hit; I named the two mutants before writing either cell, so the two cells split on the check each mutant narrows (the "at once" cell cannot kill the timeout mutant, and the reverse).
+
+## Round 5 — QAF-41, QAF-42 (plumbing sweep), website `620b4ee..9b5e47f`
+
+Source: `qa/015-bug-evaluation-fixes-effort-final-qa.md` § Plumbing sweep (`da49f25`); mutants in `effort-final/website-plumbing-mutants.json`. Test-only: `git diff --stat 620b4ee 9b5e47f` is three test-file changes in two files, no production change. Stage start: QA's message to this session naming both findings. Test-only round; no user-visible surface touched.
+
+**Patterns Extended.** Both findings named the file to extend: `shared.in-predicates.test.ts` (its two `getPartialMessages` cells already capture the compiled SQL and parameters; the new line is another `toContain` on `sql`) and `auth.hydrated-session.test.ts` (its `hydrate()` fixture took a hard-coded user; it now takes the user as an optional argument defaulting to that same user, and the new cases pass their own).
+
+| Finding | Cell | What it asserts | Survivor it is red under | Red (cases failed / run) at `9b5e47f` | Control |
+|---|---|---|---|---|---|
+| QAF-41 | `shared.in-predicates.test.ts`, both existing `getPartialMessages` cells | the compiled query selects `"Guilds"."guildId" as "guildId"` with guilds empty and with guilds present | `pl-shared-partial-guildid-unselected` | 2 of 4, one per branch (`mutation-pl-shared-partial-guildid-unselected-9b5e47f.txt`; also red at `2b40dc5`) | 4 of 4 exit 0 at `2b40dc5` (`mutation-qaf41-42-control-shared-2b40dc5.txt`) |
+| QAF-42 | `auth.hydrated-session.test.ts`, new `it.each` describe: a user with no `preferences`, and one with `preferences: {}` | the session resolves with the guilds, `hydration.messages` equal to `[]`, no recent-messages fetch, no unhandled rejection | `pl-auth-message-promise-unwrapped` | 2 of 20, both new cells; the TypeError rejects the callback (`mutation-pl-auth-message-promise-unwrapped-9b5e47f.txt`; also red at `2b40dc5`) | 20 of 20 exit 0 at `2b40dc5` (`mutation-qaf41-42-control-auth-2b40dc5.txt`) |
+
+Each mutant ran in an isolated `git archive` export through `mutate-run.sh`, applied by `mutators/qaf38-40-apply-qa-mutant.py` with `MUTANTS` pointing at QA's committed file. The runs are not network-isolated; `getPostgres` and redis are mocked in both files, so no cell has an outbound path. The full gate is isolated.
+
+**TDD Compliance (Round 5).** No new function or class. Each row's red is a named survivor against the existing code, one mutant per row.
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|----------------|-----------|---------------------|-------------------|----------------|------------------|
+| `getPartialMessages` select list | `shared.in-predicates.test.ts` | No, red by mutant (production built) | Yes | `pl-shared-partial-guildid-unselected`: AssertionError, SQL lacks the column | Yes |
+| `getUserRecentMessages` select list (class-sweep member) | `shared.in-predicates.test.ts` | No, red by mutant | Yes | `qaf41-recent-messages-guildid-unselected` (`mutators/qaf41-recent-messages-guildid-unselected.json`): 1 of 4, AssertionError | Yes |
+| `hydratedAuthCallback` no-recent-messages path | `auth.hydrated-session.test.ts` | No, red by mutant | Yes | `pl-auth-message-promise-unwrapped`: TypeError `.catch` of an array, surfaced as a rejected session | Yes |
+
+The `Promise.resolve(` wrap is a two-input predicate (`recentMessageIds` present, or not); the two new cells are the "not" class, one per way of being absent (`preferences` undefined, `preferences` present without the field). The "present" side is the existing cells. The wrapped value is only wrong on the "not" side, so no third fixture is owed.
+
+**Gate at `9b5e47f`.** `impl-suite-run.sh 9b5e47f <scratch> <abs>/qaf41-42-final`: 1130 of 1130, 116 files (1128 and 116 at `620b4ee`; +2 are the auth cells; the extra assertions add no cases), vitest exit 0, typecheck exit 0, isolation 0 and 0, stderr 0 bytes (`qaf41-42-final-run-9b5e47f.txt`, `qaf41-42-final-testresults-9b5e47f.json`). ESLint over both files exit 0. `convention-check website --since=620b4ee`: 0 FAIL, 0 CANDIDATE, 1 SKIP (no conventions file above the repo for the id-token and basename checks: unchecked, not a pass).
+
+**Class sweep.**
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---|---|---|---|
+| QAF-41 (a select column the rewrite preserved, with no assertion) | `git grep -n "guildId as guildId" 2b40dc5 -- src ':!**/__tests__/**'` (derived), then `git diff -U0 7ce866b 2b40dc5` over the two files | 4 lines: `shared.ts:113` (`getUserRecentMessages`), `:143` (`getMessage`), `:162` (`getPartialMessages`), `guild.ts:59` | 162: fixed. 113: the chain edited this function (added the empty-list return), so a member; assertion added at `9b5e47f`, red under its own mutant. 143 and `guild.ts:59`: not touched by the chain (0 of the diff hunks hold the column, `guild.ts` has no change), so not members of the chain's changed surface. Residual: 0 |
+| QAF-42 (a value assumed to be a promise at a call site the chain added) | `git grep -n "Promise.resolve(\|\.catch(() => {})" 2b40dc5 -- src ':!**/__tests__/**'` (derived) | 1 `Promise.resolve(` (`auth.ts:138`) and 4 `.catch(() => {})` (`auth.ts:73`, `:85`, `:141`, `:176`) | 138 and 141: fixed (the wrap and the `.catch` it feeds). 73, 85, 176: `.catch` on `fetch`, `redis.clearUser` and `redis.fetchGuild`, each always a promise by construction, not an operand that can be an array. Residual: 0 |
+
+**Self-diagnosis (method).** Not an escaped defect: both lines are preserved behaviour that no earlier test of mine asserted, and the M1-a and M1 gates passed without a mutant on either. The check to apply first, for a rewrite that preserves behaviour: empty each preserved line and see which test fails, as was done for the `Button` effect.
 
 ## Next Steps
 

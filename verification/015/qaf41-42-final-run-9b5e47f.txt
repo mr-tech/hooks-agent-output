@@ -1,0 +1,10 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-9b5e47f-suite  sha: 9b5e47fb7953b99a7f87587416017f36d48df12c
+blob check src/server/api/routers/message.ts: tree 3e6b41b556d9353fab3f99fa1e740a250614b670 export 3e6b41b556d9353fab3f99fa1e740a250614b670
+isolation: non-lo links=0 default routes=0
+vitest exit 0
+typecheck exit 0
+
+> website@ typecheck /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-9b5e47f-suite
+> tsc --noEmit && tsc --noEmit -p tsconfig.test.json
+
+stderr lines: 0
