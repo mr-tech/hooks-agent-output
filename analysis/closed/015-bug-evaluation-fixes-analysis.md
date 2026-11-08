@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Parent: codebase-bug-evaluation-2026-11-08.md
-Status: Active
-Status-Detail: "Answers the plan's F-31 REQUIRES ANALYSIS brief, questions 1–4. Finding: with shutdown_with_message true, PM2 sends only an IPC 'shutdown' message on stop or reload, never SIGINT, so shutdown() never runs. Source-read at 5.2.2, 5.3.0, 5.4.3, 6.0.14 and 7.1.2. M8-0 run 1 (fe27690) observed it on the host: both recorded prod stops were SIGKILLed 5 s after 'Stopping app', and the out log has zero 'Server received' lines. That is CONFIRMED for the stop path. A deploy reload and the preview instance are still unobserved, so they are INCONCLUSIVE."
+Status: Released
+Status-Detail: "Released with chain 015 (preview-image-generator prod 8de2b53). F-31 finding: under shutdown_with_message PM2 sent only an IPC message, so the drain never ran. Confirmed by M8-0 run 1 and fixed by M8. M8-0 run 2 (22:04:49Z) observed the fixed reload drain: one 'Server received' line, a 1 ms idle drain, a SIGINT exit, no SIGKILL. Two items are unobserved and carried by handoff/preview-image-generator-drain-under-load-unobserved-2026-11-08.md: the drain under load (G-3) and Chromium after a SIGKILL with live browsers (G-4)."
 ---
 
 # Analysis 015 — F-31: does preview-image-generator's graceful shutdown ever run under PM2?
@@ -17,6 +17,7 @@ item **REQUIRES ANALYSIS**, read together with § M8 (M8-a). The source finding 
 
 | Date (UTC) | Author | Change |
 |---|---|---|
+| 2026-11-08T22:14 | analyst-hooks-015 | Document closed. Status: Released. Chain 015 released (deployment record `2e11427`); M8-0 run 2 B-8 PASS. G-2b and G-5 closed; G-3 and G-4 residue routed to `handoff/preview-image-generator-drain-under-load-unobserved-2026-11-08.md`. Closed on steering-hooks-015's closure brief. |
 | 2026-11-08T21:46 | analyst-hooks-015 | Code review: CR-41 and CR-42 RESOLVED, and `pig-host-read.sh` at `f616d83` APPROVED with no new finding (record `f83fb09`; the fixture outputs reproduced byte for byte). Run 2 uses the script at `f616d83`. This row was first written with a typed, future stamp (21:49). The stamp-gate hook refused it, and it is now restamped from `date -u`. |
 | 2026-11-08T21:45 | analyst-hooks-015 | Code review at `49e7fab` APPROVED_WITH_COMMENTS. CR-41 fixed: a boundary owned by another process now prints NO SPAN, with both guards fixture-proven. CR-42: fixture driver committed under `verification/015/pig-span-read-fixture/`. Host re-run 21:44Z is unchanged (227). |
 | 2026-11-08T21:40 | analyst-hooks-015 | `pig-host-read.sh` gains section [6], the per-process span read for M8-0 run 2 (§ "M8-0 run 2 instrument"). Fixture-checked locally. First host run 21:39Z: `Created instance` 227 in the 2024–2026 process span (L-C3-1 liveness met), cross-checked by line range. |
@@ -485,6 +486,20 @@ that `deploy.sh`'s `pm2 reset` resets counters, not logs. Either way, the config
 mechanism without the logs.
 
 ## Open Questions and remaining gaps
+
+**At closure (2026-11-08, after the chain-015 release; `deployment/closed/015-bug-evaluation-fixes-deployment.md`).**
+- **G-2b: CLOSED by M8-0 run 2.**
+  - Both deploy stops are observed. Stop (1), the transition, SIGKILLed after 12000 ms with no shutdown line, as
+    predicted.
+  - Stop (2), the D19 re-run's reload, showed one `Server received`, `Drain complete in 1ms.`, an exit via SIGINT, and
+    no `still alive` line.
+  - The preview instance no longer exists (D16).
+- **G-3: residue routed.** Run 2's drain was an idle process's: 0 `Created instance` in its span. The drain under load
+  is carried by `handoff/preview-image-generator-drain-under-load-unobserved-2026-11-08.md`.
+- **G-4: residue routed to the same handoff.** Run 2's SIGKILL hit a process with no Chromium, so the tree-kill claim
+  is still a source read.
+- **G-5: CLOSED.** V-1's PM2 half was observed by run 1 and confirmed again by run 2's stop (1).
+- **G-1 and G-2** were closed by run 1 (below).
 
 **G-1 — the host's PM2 version. CLOSED by run 1.** The daemon is v5.2.2 (2022-10-13). I packed and read 5.2.2:
 `God.killProcess` and `God.processIsDead` are identical to 5.3.0. So are `lib/God/Reload.js`, `ActionMethods.js`,

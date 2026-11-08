@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Parent: 015-bug-evaluation-fixes-uat.md
-Status: Active
-Status-Detail: "Answers plan 015 § Validation REQUIRES ANALYSIS (D39, rev 29), limbs 1–3, at website b96e364 and 7ce866b. Limb 1 PROVEN: a first-time lazy load of FloatingPortal suspends past every inner boundary; React hides the page tree, the dialog's portal included; Headless UI's useOnDisappear then closes the Dialog. Limb 2: live serves 7ce866b-equivalent code (23 of 24 f/0 chunks hash-identical), so the difference is not code; what lets live open on a full load is NOT established (hypotheses H-1 to H-3). Limb 3 PROVEN: reach the folder page by in-app navigation from an editor page, with no reload, and the dialog opens at b96e364 under both bundlers. No source or env change. The source defect is pre-existing (since 2023), not the chain's; whether it is a production defect is the owner's question."
+Status: Released
+Status-Detail: "Released with chain 015 (website b96e364). Mechanism proven: a first lazy load of FloatingPortal suspends, React hides the dialog, and useOnDisappear closes it. The via-editor route let UAT execute B-9, B-10 and B-11. The production defect, confirmed on a fresh live load (D40), is carried by handoff/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md."
 ---
 
 # Analysis 015 — UAT-4: why "Upload Message" opens no dialog locally
@@ -20,6 +20,7 @@ second analysis document; the first, `015-bug-evaluation-fixes-analysis.md`, ans
 |---|---|---|---|
 | 2026-11-08T21:10 | analyst-hooks-015 | Created | Limbs 1–3 answered by executed probes. Browser and :3000 under steering-coordinator's go (20:53Z). |
 | 2026-11-08T21:14 | analyst-hooks-015 (owner ruling relayed by steering-hooks-015, `steering/015-rulings.md` block 21:14Z, `a33afc3`) | Gaps routed | UAT retries B-9, B-10 and the B-11 dialog leg by the limb 3 route, under D39's existing approval. Gaps 1 and 3 (why live opens; user impact) go to a UAT live check without saving, then a handoff. Gaps 4 and 5 stay with that retry. No further analyst work is owed. |
+| 2026-11-08T22:14 | analyst-hooks-015 (steering-hooks-015's closure brief) | Document closed | Status: Released. Chain 015 released (deployment record `2e11427`). Gaps 1 and 3 were resolved by the D40 live check and carried by `handoff/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md`; gap 2 is moot; gaps 4 and 5 were resolved by UAT's sixth walk. |
 
 ## Value Statement and Business Objective
 
@@ -181,6 +182,20 @@ defect owed a handoff, and whether the walk-procedure route is acceptable eviden
 owner's questions, carried by steering (D39's resolution clause).
 
 ## Open Questions and remaining gaps
+
+**At closure (2026-11-08, after the chain-015 release).** Each gap is resolved or carried:
+- **Gaps 1 and 3: resolved by UAT's D40 live check, a fresh load on production.**
+  - The dialog does not open there either, so real users hit it, and H-3 held: UAT's earlier live success was not a
+    cold page lifetime.
+  - The defect is carried by `handoff/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md` (Owning-Stage:
+    planner).
+- **Gap 2 (Vercel's deployed SHA): moot.** Website master moved to `b96e364` at the release (21:38:22Z), and the
+  live check above answered the question it served.
+- **Gaps 4 and 5: resolved by UAT's sixth walk** (`uat/closed/015-bug-evaluation-fixes-uat.md`).
+  - B-9 ran by the via-editor route under `next dev` from `/message/m/1/edit`, and B-10 from `/message/m/0/edit`.
+  - Both were EXECUTED PASS.
+- **System Weaknesses and Recommendations.** These are advice, not owed items. The `SaveAsMenu` and `ColorPicker`
+  members ride the same handoff as likely members.
 
 | # | Unknown | Blocker | Required action | Owner |
 |---|---|---|---|---|
