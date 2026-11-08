@@ -1,0 +1,14 @@
+export /tmp/claude-1000/-usr-local-bin-hooks/9cafa65b-95fb-4fa3-ab48-02bd3363438f/scratchpad/pig-probe-8de2b53; Pool.js _waitingClientsQueue occurrences: 8; renamed: 0; getPool.js blob 39f82d557f2165a1a56369fe43c56fd8b96d2c74
+v24.14.0
+GUARD stdout=0 stderr=0 beforeReady=true
+REQUEST status 500 after 14 ms
+LAUNCH preload: atRequest=0 at3s=2 atEnd=2
+LAUNCH stderr-chrome: atRequest=0 at3s=3 atEnd=3
+DELTA3S preload=2 stderr-chrome=3
+POOL at3s pending=0 size=0 (snapshot age 239 ms); atEnd pending=0 size=0 (age 162 ms)
+PROCESS alive at end
+LINES stdout=2 stderr=27
+    chrome-line ready=true | Error: Could not find Chrome (ver. 116.0.5845.96). This can occur if either
+    chrome-line ready=true | Error: Could not find Chrome (ver. 116.0.5845.96). This can occur if either
+    chrome-line ready=true | Error: Could not find Chrome (ver. 116.0.5845.96). This can occur if either
+probe exit 0

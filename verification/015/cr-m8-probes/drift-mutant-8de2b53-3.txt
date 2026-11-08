@@ -1,0 +1,12 @@
+export /tmp/claude-1000/-usr-local-bin-hooks/9cafa65b-95fb-4fa3-ab48-02bd3363438f/scratchpad/pig-drift-8de2b53; Pool.js _waitingClientsQueue occurrences: 0; renamed: 8; getPool.js blob 39f82d557f2165a1a56369fe43c56fd8b96d2c74
+v24.14.0
+GUARD stdout=0 stderr=1 beforeReady=true
+REQUEST status 500 after 123 ms
+LAUNCH preload: atRequest=0 at3s=11015 atEnd=73569
+LAUNCH stderr-chrome: atRequest=0 at3s=12270 atEnd=74517
+DELTA3S preload=11015 stderr-chrome=12270
+POOL at3s pending=1 size=1 (snapshot age 258 ms); atEnd pending=1 size=1 (age 498 ms)
+PROCESS alive at end
+LINES stdout=2 stderr=670663
+    | generic-pool no longer exposes _waitingClientsQueue.dequeue, which the browser-launch failure handler needs. A failed browser launch will not reject the waiting
+probe exit 0

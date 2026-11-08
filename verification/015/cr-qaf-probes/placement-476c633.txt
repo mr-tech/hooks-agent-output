@@ -1,0 +1,39 @@
+sha 476c633 tests 111 misplaced 15 no-module 23
+MISPLACED src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx -> module in src/components/dynamics
+MISPLACED src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.duplicate-placement.test.tsx -> module in src/components/dynamics
+MISPLACED src/constants/__tests__/constants.discord-message-link.test.ts -> module in src/components/EmojiPicker/Picker/components/EmojiList
+MISPLACED src/server/api/__tests__/cron.scheduled-selection.test.ts -> module in src/pages/api
+MISPLACED src/server/api/__tests__/interactions-edge.signature-before-parse.test.ts -> module in src/pages/api
+MISPLACED src/utils/__tests__/messageStore.dropped-set-report.test.ts -> module in src/utils/redis
+MISPLACED src/utils/__tests__/messageValidity.predicate.test.ts -> module in src/server/api/utils
+MISPLACED src/utils/__tests__/useApiMethods.json-editor-repair.test.ts -> module in src/providers/MessageProvider
+MISPLACED src/utils/__tests__/usePusher.hash-parity.test.ts -> module in src/providers/MessageProvider
+MISPLACED src/utils/__tests__/utils.disposition-notices.test.ts -> module in src/components/AnchoredPopover, src/components/EmojiPicker, src/utils/markdown
+MISPLACED src/utils/__tests__/utils.disposition-resolver.test.ts -> module in src/components/AnchoredPopover, src/components/EmojiPicker, src/utils/markdown
+MISPLACED src/utils/__tests__/utils.mutual-exclusivity.test.ts -> module in src/components/AnchoredPopover, src/components/EmojiPicker, src/utils/markdown
+MISPLACED src/utils/__tests__/utils.rowd-load-disposition.test.ts -> module in src/components/AnchoredPopover, src/components/EmojiPicker, src/utils/markdown
+MISPLACED src/utils/__tests__/utils.save-payload-and-seed.test.ts -> module in src/components/AnchoredPopover, src/components/EmojiPicker, src/utils/markdown
+MISPLACED src/utils/__tests__/utils.transport-form.test.ts -> module in src/components/AnchoredPopover, src/components/EmojiPicker, src/utils/markdown
+NO-MODULE src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx
+NO-MODULE src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx
+NO-MODULE src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.url-and-thread-controls.test.tsx
+NO-MODULE src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/ColorPicker.scroll-lock-release.test.tsx
+NO-MODULE src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.border-colour.test.tsx
+NO-MODULE src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.empty-embed-hidden.test.tsx
+NO-MODULE src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx
+NO-MODULE src/server/api/messages/__tests__/messageCodes.malformed-query.test.ts
+NO-MODULE src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts
+NO-MODULE src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts
+NO-MODULE src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts
+NO-MODULE src/utils/__tests__/bugFixCoverage.supplemental.test.ts
+NO-MODULE src/utils/__tests__/componentsV2.data-layer.test.ts
+NO-MODULE src/utils/__tests__/editableComponents.operations.test.ts
+NO-MODULE src/utils/__tests__/editableComponents.sub-component-actions.test.ts
+NO-MODULE src/utils/__tests__/gateBeforePersist.thumbnail.test.ts
+NO-MODULE src/utils/__tests__/loadDiff.diff-summary.test.ts
+NO-MODULE src/utils/__tests__/loadDiff.independent-oracle.test.ts
+NO-MODULE src/utils/__tests__/loadDiff.mode-naming.test.ts
+NO-MODULE src/utils/__tests__/redis.cached-null-hit.test.ts
+NO-MODULE src/utils/__tests__/serverCommands.get-message.test.ts
+NO-MODULE src/utils/__tests__/supportedTypes.parity.test.ts
+NO-MODULE src/utils/redis/__tests__/redis.fetch-channel.test.ts

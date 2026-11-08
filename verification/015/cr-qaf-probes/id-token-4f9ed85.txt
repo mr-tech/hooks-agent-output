@@ -1,0 +1,17 @@
+src/app/_navigation/Redirects/__tests__/Server.session-cookie-redirect.test.ts basename-hits 0
+  title-lines-hit 0
+  comment-lines-hit(excl escaped) 0
+  comment-lines-total 0
+src/server/__tests__/auth.sign-out.test.ts basename-hits 0
+  title-lines-hit 0
+  comment-lines-hit(excl escaped) 0
+  comment-lines-total 0
+src/utils/__tests__/constructImageUrl.default-avatar.test.ts basename-hits 0
+  title-lines-hit 0
+  comment-lines-hit(excl escaped) 0
+  comment-lines-total 9
+src/utils/__tests__/formatKey.key-format.test.ts basename-hits 0
+  title-lines-hit 0
+  comment-lines-hit(excl escaped) 0
+  comment-lines-total 0
+positive control: 1

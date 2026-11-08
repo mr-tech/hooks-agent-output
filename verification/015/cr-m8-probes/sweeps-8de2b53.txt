@@ -1,0 +1,16 @@
+git grep -n '\._[a-zA-Z]' 8de2b53 -- src
+8de2b53:src/getPool.ts:21:  const queue = (pool as unknown as { _waitingClientsQueue?: WaitingQueue })._waitingClientsQueue;
+8de2b53:src/getPool.ts:46:        tmp._useCount = 0;
+8de2b53:src/getPool.ts:47:        tmp._id = ++currentId;
+8de2b53:src/getPool.ts:48:        console.debug(`Created instance ${tmp._id}. Active instances: ${poolRef.pool.size}.`);
+8de2b53:src/getPool.ts:57:      console.debug(`Destroying instance ${instance._id}. Active instances: ${poolRef.pool.size}.`);
+8de2b53:src/getPool.ts:61:      .then((valid) => Promise.resolve(valid && (maxUses <= 0 || instance._useCount < maxUses))),
+8de2b53:src/getPool.ts:76:    console.debug(`Acquired instance ${instance._id}.`);
+8de2b53:src/getPool.ts:77:    instance._useCount += 1;
+8de2b53:src/getPool.ts:82:    console.debug(`Releasing instance ${instance._id}.`);
+-- count
+8de2b53:src/getPool.ts:9
+-- bracket form
+rc 1
+-- Drain complete
+8de2b53:src/server.ts:75:    console.debug(`Drain complete in ${Date.now() - start}ms.`);
