@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Delta pass on plan rev 23 (39dbc0d, read from 5201612): APPROVED. AF-27 LOW (the crash-set guard as an error boundary with the one-line fallback) is recommended. AF-23's makeEditable basis is withdrawn, the error mine (CR-20). AF-26 is resolved by the owner's ruling (766bd4b): a known limit, carried by the plan's Exclusions row and a handoff at rev 24. AF-18 is implemented at website 3031878. A later revision is read on its delta."
+Status-Detail: "Delta pass on plan rev 24 (018f72d, read from 39dbc0d): APPROVED. Recommended, none blocking: AF-27 (the crash-set guard as an error boundary, for code review to check), AF-28 (the AF-26 handoff cites W-7 and reverses its disposal limb) and AF-29 (M5-i's derived default, with only the user's pick as state). AF-26 is resolved as the owner's known limit (D34, website.md W-7). AF-18 is implemented at website 3031878. A later revision is read on its delta."
 ---
 
 # Architecture Findings — Plan 015: Bug-evaluation fixes (conformance pass)
@@ -33,6 +33,39 @@ Status-Detail: "Delta pass on plan rev 23 (39dbc0d, read from 5201612): APPROVED
 | 2026-11-08T08:08 | AF-26 disposition, from planner-hooks-015's reply | AF-26 is disposed by routing. The planner put it to the owner through steering at about 08:10Z. **Correction, the error mine:** AF-26's option (b) fixed sign-out alone and said it "does not touch the sibling". Under D28 (the same defect fixed at every sibling site), it must also cover `fetchUserAccount`. The planner's (b') does that. The options put to him are (a) a stated limit plus a handoff carrying both sites, (b') both sites fixed in chain 015, and (c) a `signIn` refusal, which still needs (a) or (b') for rows that already exist. An owner-run population count was suggested. AF-27 is taken as code review's to check, with no plan text owed. |
 | 2026-11-08T08:10 | AF-26 ruled (steering-hooks-015, rulings `766bd4b`) | The owner chose "Agent: record as known limit". No code. Rev 24 adds an Exclusions row and a handoff that carries both sites. His own words: "If someone signs in with a different account, that's a different Hooks user". Steering's read had left `send/page.tsx` unread. I read it at website `3031878`: its Log in panel renders only under `session === null`. So all three of the site's own sign-in entry points (NavMenu, the edit page's panel, the send page's panel) offer `signIn('discord')` only without a session. The second row arises only from a hand-made sign-in visit while signed in. The master document's Problem Area row is updated to the ruling, with severity lowered from Medium to Low. His sentence is proposed to steering as a `website.md` owner-authored entry, waiting for his confirmation of the wording, and not landed. |
 | 2026-11-08T08:12 | W-7 landed (steering-hooks-015 relay; rulings `dd2a337`) | The owner chose "Agent: yes, record the rule". His sentence lands verbatim in `website.md` as **W-7**, owner-authored. I had proposed it as "A-6", but `website.md`'s owner-authored entries are numbered W-n and the A-n section holds agent-derived rationale, so it is W-7. It was checked against the mechanism before landing, and its gap (the next-auth hand-made link) is his known limit. The master Problem Area cites W-7. |
+| 2026-11-08T08:13 | Delta pass, plan rev 24 (`018f72d`, read from `39dbc0d`), on steering-hooks-015's request | These conform: CR-21's fold (the type-12 member, X-19 restated, the presence rule), L-C5-1, D34 and X-20, M5-i and X-21. M5-i's open panel does follow `selected`, because `StyledAccordion` sets `dangerouslySetExpanded` from it (read at website `ef5a9cc`). AF-28 LOW: the AF-26 handoff does not cite W-7 as the brief said. Under W-7, refusing the hand-made link enacts his rule, and it is accepting several accounts that needs his ruling. Its "`send/page.tsx` was not read" is closed at `0f893c8`. AF-29 LOW: M5-i's conforming form is M5-d's derive-from-input, holding only the user's pick as state. An effect re-seed would be an avoidable deviation. The default should use the category's own id expression (`guild?.id ?? '0'`, against the seed's `?? ''`). Nothing for the owner. **APPROVED.** |
+
+## Verdict (rev 24, `018f72d`, one pass from rev 23 `39dbc0d`): APPROVED
+
+These limbs conform:
+
+- **CR-21's fold.** The type-12 `items` member joins class (3), X-19 drops its blank-render class, and Verification's presence rule now requires each cell to assert that its outcome is present: the error line or the editor's content. That rule also fits AF-27's boundary form: the fallback line is an outcome that is present.
+- **L-C5-1's non-JSON response.** It reaches the dialog through `useValidateWebhook`'s existing `catch`, the one place D29 already prices, so no new error place is added.
+- **D34 and X-20.**
+- **M5-i** as a D28 sibling. Its mechanism was read at website `ef5a9cc`. `WebhookMenu` passes `selected={selectedCategory}` to `StyledAccordion`, which controls expansion through `dangerouslySetExpanded={selected ? item.id === selected : undefined}`. So a corrected `selectedCategory` does change which panel is open. `preExpanded`, which is read only at mount, is not what governs it.
+- **X-21.**
+
+AF-28 and AF-29 are recommended and do not block. No item needs the owner.
+
+### AF-28 LOW — the AF-26 handoff should cite W-7, and W-7 changes how the hand-made link is disposed
+
+The brief says the handoff cites W-7. `handoff/one-hooks-user-several-discord-accounts-2026-11-08.md` at `018f72d` does not mention it. Two of its lines read differently against the owner's standing rule, `website.md` W-7 ("If someone signs in with a different account, that's a different Hooks user", confirmed as a rule at `dd2a337`):
+
+- *"disposes the hand-made link (refuse it, or accept and handle it). Refusing the link is a product rule for the owner."* Under W-7, refusing the link **enacts** his existing rule; it is not a new product decision. *Accepting* several Discord accounts per user is the option that contradicts W-7, and that one needs his ruling.
+- *"`send/page.tsx` was not read there."* It was read at `0f893c8`. Its Log in panel renders only under `session === null`, so all three of the site's own sign-in entry points need no session. X-20's "steering's read" can cite the same.
+
+The handoff is the planner's document. The fix is to cite W-7 and turn the disposal limb around: refusing the link enacts W-7, and accepting it needs his ruling.
+
+### AF-29 LOW — M5-i's conforming form: derive the default, and keep only the user's pick as state
+
+The property is "follow the inputs until the user picks, then keep the pick". There are two shapes for that:
+
+- **Derived, conforming.** M5-d's form is to follow the input by deriving from it, as in `Header.tsx`'s `const guilds = session?.user.guilds ?? []`. Applied here: a state holds only the user's pick, `null` until `onChange` fires. The open category is `pick ?? (hasWebhooks ? <guild category id> : 'load')`. The default follows `hasWebhooks` and the guild on the same render, and "keep the pick" holds by construction.
+- **Effect re-seed, an avoidable deviation.** M5-f's `useEffect` re-seed (`SaveAsMenu.tsx`, on `isOpen`) fits an *event* that refills. Here the trigger is continuous input. An effect writing `selectedCategory` on every input change would need a separate "touched" flag to keep the pick, and would show the stale tab for one render.
+
+**One key definition.** The default must use the same id expression as the category it opens. `useReduceCategories` gives the guild category `id: guild?.id ?? '0'`, while the seed at `ef5a9cc` uses `guild?.id ?? ''`. An empty `selected` turns `StyledAccordion` back to uncontrolled (`dangerouslySetExpanded` becomes `undefined`). **Unread:** whether `hasWebhooks` can hold while `guild` is still undefined. The probe report says the webhooks query is enabled only once the guild resolves, which would make the mismatch unreachable. Under the derived form it is one expression either way.
+
+**X-21 under this form.** A pick made under guild g1 persists after the guild changes to g2 and names a category g2's list doesn't have. That is the residue X-21 already states. Keying the pick by guild would close it, and it remains a stated limit until someone chooses to.
 
 ## Verdict (rev 23, `39dbc0d`, one pass from rev 22 `5201612`): APPROVED
 
@@ -497,7 +530,7 @@ Each is recorded in `system-architecture.md` § Problem Areas:
     - `website.md`: A-4 and A-5 (agent-designed).
     - `preview-image-generator.md`: P-3 rewritten on the owner's selection "Agent: record intended" (05:18Z), and A-1 (the log-line interface).
 - **Next.**
-  - Rev 21 (`3d193f9`): APPROVED, AF-22 INFO registered. Rev 22 (`5201612`): APPROVED, with AF-23 to AF-25 recommended. Rev 23 (`39dbc0d`): APPROVED. AF-24 and AF-25 are folded, AF-23's basis is withdrawn (the error mine), and AF-27 is recommended. A later revision is read on its delta from `39dbc0d`. When it lands, check how AF-26 was disposed. When M5-h's code is reviewed, check AF-27.
+  - Rev 21 (`3d193f9`): APPROVED, AF-22 INFO registered. Rev 22 (`5201612`): APPROVED, with AF-23 to AF-25 recommended. Rev 23 (`39dbc0d`): APPROVED. AF-24 and AF-25 are folded, AF-23's basis is withdrawn (the error mine), and AF-27 is recommended. Rev 24 (`018f72d`): APPROVED, with AF-28 and AF-29 recommended. AF-26 is resolved: D34 and website.md W-7 (`952e69f`). A later revision is read on its delta from `018f72d`. When it lands, check AF-28 (the handoff) and AF-29 (M5-i's form). When M5-h's code is reviewed, check AF-27.
   - AF-18 is implemented at website `3031878` (on the chain branch, not yet released). At chain close, reconcile the master document's `user-access-token` Problem Area row.
   - **Method, per pass:**
     1. Write `git diff <from> <to> -- planning/015-bug-evaluation-fixes.md` to the scratchpad and Read it; the rtk filter mangles piped diffs.
