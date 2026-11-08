@@ -1,0 +1,14 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-12ac7ed-m1r-m1c-accounts-update-dropped  sha: 12ac7ed  label: m1r-m1c-accounts-update-dropped  test: auth.sign-out auth.hydrated-session  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m1-rebuild-table.py
+mutated m1c-accounts-update-dropped
+ .../src/server/auth.ts                             |   2 +-
+ 3 files changed, 1 insertion(+), 198 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-12ac7ed-m1r-m1c-accounts-update-dropped
+
+
+ Test Files  2 passed (2)
+      Tests  29 passed (29)
+   Start at  07:19:49
+   Duration  1.00s (transform 298ms, setup 0ms, import 1.12s, tests 43ms, environment 0ms)
+
+vitest exit 0

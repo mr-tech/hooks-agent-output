@@ -1,0 +1,14 @@
+## fetchUserAccount( callers at 579e8b2
+579e8b2:src/server/auth.ts:114:    const account = await redis.fetchUserAccount(user.id as unknown as string);
+579e8b2:src/server/auth.ts:144:    const account = await redis.fetchUserAccount(userDbId);
+579e8b2:src/utils/redis/index.ts:188:function fetchUserAccount(userId: DatabaseId) {
+## at 6001f7f
+6001f7f:src/server/auth.ts:78:  const account = await redis.fetchUserAccount(userDbId, true).catch((err: unknown) => {
+6001f7f:src/server/auth.ts:108:    const account = await redis.fetchUserAccount(user.id as unknown as string);
+6001f7f:src/server/auth.ts:138:    const account = await redis.fetchUserAccount(userDbId);
+6001f7f:src/utils/redis/index.ts:188:function fetchUserAccount(userId: DatabaseId, skipUpdate = false) {
+## skipUpdate at 579e8b2
+count: 0
+## decodeURI
+579e8b2:src/app/_components/Providers.tsx:34:    const params = queryString.parse(decodeURIComponent(encodedQuery)) as { code?: string };
+579e8b2:src/components/SlateEditor/utils/onCopy.ts:26:      const decoded = decodeURIComponent(window.atob(fragment));

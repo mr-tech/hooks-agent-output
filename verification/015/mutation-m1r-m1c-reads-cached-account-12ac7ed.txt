@@ -1,0 +1,202 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-12ac7ed-m1r-m1c-reads-cached-account  sha: 12ac7ed  label: m1r-m1c-reads-cached-account  test: auth.sign-out auth.hydrated-session  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m1-rebuild-table.py
+mutated m1c-reads-cached-account
+ .../src/server/auth.ts                             |   6 +-
+ 3 files changed, 1 insertion(+), 202 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-12ac7ed-m1r-m1c-reads-cached-account
+
+ ❯ |node| src/server/__tests__/auth.sign-out.test.ts (12 tests | 10 failed) 39ms
+     × sends one revoke request carrying the account's access token 20ms
+     × clears the user keys and nulls the stored tokens after an accepted revoke 1ms
+     × clears out all the same after a refused revoke 1ms
+     × clears out all the same after a revoke that fails on the network 3ms
+     × sends no revoke for an account without an access token, and clears out 1ms
+     × reads the account, then revokes, then nulls the stored tokens 1ms
+     × deletes exactly the user and session keys 1ms
+     × sends no revoke and issues no Accounts update 1ms
+     × revokes the row's token and clears out in full when the cache holds null (what a refused refresh stores) 1ms
+     × revokes the row's token and clears out in full when the cache holds an account holding another token 4ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > sends one revoke request carrying the account's access token
+TypeError: response.json is not a function
+ ❯ src/utils/redis/index.ts:159:34
+    157|     body: urlencoded,
+    158|   })
+    159|     .then((response) => response.json() as Promise<RefreshTokenRespons…
+       |                                  ^
+    160|   if ('error' in res) {
+    161|     console.error(res.error);
+ ❯ refreshUserAccessToken src/utils/redis/index.ts:154:15
+ ❯ src/utils/redis/index.ts:201:32
+ ❯ getFromCache src/utils/redis/index.ts:127:18
+ ❯ removeUserSession src/server/auth.ts:79:16
+ ❯ Object.signOut src/server/auth.ts:257:9
+ ❯ src/server/__tests__/auth.sign-out.test.ts:103:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > clears the user keys and nulls the stored tokens after an accepted revoke
+TypeError: response.json is not a function
+ ❯ src/utils/redis/index.ts:159:34
+    157|     body: urlencoded,
+    158|   })
+    159|     .then((response) => response.json() as Promise<RefreshTokenRespons…
+       |                                  ^
+    160|   if ('error' in res) {
+    161|     console.error(res.error);
+ ❯ refreshUserAccessToken src/utils/redis/index.ts:154:15
+ ❯ src/utils/redis/index.ts:201:32
+ ❯ getFromCache src/utils/redis/index.ts:127:18
+ ❯ removeUserSession src/server/auth.ts:79:16
+ ❯ Object.signOut src/server/auth.ts:257:9
+ ❯ src/server/__tests__/auth.sign-out.test.ts:111:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/10]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > clears out all the same after a refused revoke
+TypeError: response.json is not a function
+ ❯ src/utils/redis/index.ts:159:34
+    157|     body: urlencoded,
+    158|   })
+    159|     .then((response) => response.json() as Promise<RefreshTokenRespons…
+       |                                  ^
+    160|   if ('error' in res) {
+    161|     console.error(res.error);
+ ❯ refreshUserAccessToken src/utils/redis/index.ts:154:15
+ ❯ src/utils/redis/index.ts:201:32
+ ❯ getFromCache src/utils/redis/index.ts:127:18
+ ❯ removeUserSession src/server/auth.ts:79:16
+ ❯ Object.signOut src/server/auth.ts:257:9
+ ❯ src/server/__tests__/auth.sign-out.test.ts:123:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/10]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > clears out all the same after a revoke that fails on the network
+AssertionError: promise rejected "TypeError: fetch failed" instead of resolving
+ ❯ src/server/__tests__/auth.sign-out.test.ts:132:28
+    130|     stubRevoke(async () => { throw new TypeError('fetch failed'); });
+    131|
+    132|     await expect(signOut()).resolves.toBeUndefined();
+       |                            ^
+    133|
+    134|     expect(log.clearedKeys).toHaveLength(3);
+
+Caused by: TypeError: fetch failed
+ ❯ src/server/__tests__/auth.sign-out.test.ts:130:36
+ ❯ src/server/__tests__/auth.sign-out.test.ts:85:12
+ ❯ refreshUserAccessToken src/utils/redis/index.ts:154:21
+ ❯ src/utils/redis/index.ts:201:38
+ ❯ getFromCache src/utils/redis/index.ts:127:18
+ ❯ removeUserSession src/server/auth.ts:79:16
+ ❯ Object.signOut src/server/auth.ts:257:9
+ ❯ src/server/__tests__/auth.sign-out.test.ts:132:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/10]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > sends no revoke for an account without an access token, and clears out
+TypeError: response.json is not a function
+ ❯ src/utils/redis/index.ts:159:34
+    157|     body: urlencoded,
+    158|   })
+    159|     .then((response) => response.json() as Promise<RefreshTokenRespons…
+       |                                  ^
+    160|   if ('error' in res) {
+    161|     console.error(res.error);
+ ❯ refreshUserAccessToken src/utils/redis/index.ts:154:15
+ ❯ src/utils/redis/index.ts:201:32
+ ❯ getFromCache src/utils/redis/index.ts:127:18
+ ❯ removeUserSession src/server/auth.ts:79:16
+ ❯ Object.signOut src/server/auth.ts:257:9
+ ❯ src/server/__tests__/auth.sign-out.test.ts:141:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/10]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > reads the account, then revokes, then nulls the stored tokens
+TypeError: response.json is not a function
+ ❯ src/utils/redis/index.ts:159:34
+    157|     body: urlencoded,
+    158|   })
+    159|     .then((response) => response.json() as Promise<RefreshTokenRespons…
+       |                                  ^
+    160|   if ('error' in res) {
+    161|     console.error(res.error);
+ ❯ refreshUserAccessToken src/utils/redis/index.ts:154:15
+ ❯ src/utils/redis/index.ts:201:32
+ ❯ getFromCache src/utils/redis/index.ts:127:18
+ ❯ removeUserSession src/server/auth.ts:79:16
+ ❯ Object.signOut src/server/auth.ts:257:9
+ ❯ src/server/__tests__/auth.sign-out.test.ts:149:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/10]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out a session whose account cannot be found > deletes exactly the user and session keys
+Error: no result
+ ❯ SelectQueryBuilder.executeTakeFirstOrThrow ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/kysely@0.26.1/node_modules/kysely/dist/esm/query-builder/select-query-builder.js:1157:19
+ ❯ src/utils/redis/index.ts:193:23
+    191|     { expireSeconds: 600 },
+    192|     async () => {
+    193|       const account = await getPostgres().selectFrom('Accounts')
+       |                       ^
+    194|         .select(['id', 'access_token', 'refresh_token', 'providerAccou…
+    195|         .where('userId', '=', `${userId}`)
+ ❯ getFromCache src/utils/redis/index.ts:127:18
+ ❯ removeUserSession src/server/auth.ts:79:16
+ ❯ Object.signOut src/server/auth.ts:257:9
+ ❯ src/server/__tests__/auth.sign-out.test.ts:160:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/10]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out a session whose account cannot be found > sends no revoke and issues no Accounts update
+Error: no result
+ ❯ SelectQueryBuilder.executeTakeFirstOrThrow ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/kysely@0.26.1/node_modules/kysely/dist/esm/query-builder/select-query-builder.js:1157:19
+ ❯ src/utils/redis/index.ts:193:23
+    191|     { expireSeconds: 600 },
+    192|     async () => {
+    193|       const account = await getPostgres().selectFrom('Accounts')
+       |                       ^
+    194|         .select(['id', 'access_token', 'refresh_token', 'providerAccou…
+    195|         .where('userId', '=', `${userId}`)
+ ❯ getFromCache src/utils/redis/index.ts:127:18
+ ❯ removeUserSession src/server/auth.ts:79:16
+ ❯ Object.signOut src/server/auth.ts:257:9
+ ❯ src/server/__tests__/auth.sign-out.test.ts:166:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/10]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out an account whose cached account entry is not the row > revokes the row's token and clears out in full when the cache holds null (what a refused refresh stores)
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ src/server/__tests__/auth.sign-out.test.ts:184:23
+    182|     await signOut();
+    183|
+    184|     expect(log.fetch).toHaveBeenCalledTimes(1);
+       |                       ^
+    185|     expect(revokeBody().get('token')).toBe(ACCESS_TOKEN);
+    186|     expect(accountsUpdates()).toHaveLength(1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/10]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out an account whose cached account entry is not the row > revokes the row's token and clears out in full when the cache holds an account holding another token
+AssertionError: expected 'stale-cached-token' to be 'fixture-access-token' // Object.is equality
+
+Expected: "fixture-access-token"
+Received: "stale-cached-token"
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:185:39
+    183|
+    184|     expect(log.fetch).toHaveBeenCalledTimes(1);
+    185|     expect(revokeBody().get('token')).toBe(ACCESS_TOKEN);
+       |                                       ^
+    186|     expect(accountsUpdates()).toHaveLength(1);
+    187|     expect(accountsUpdates()[0].parameters).toContain('fixture-discord…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/10]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  10 failed | 19 passed (29)
+   Start at  07:19:51
+   Duration  1.04s (transform 263ms, setup 0ms, import 1.14s, tests 51ms, environment 0ms)
+
+vitest exit 1

@@ -1,0 +1,41 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-12ac7ed-m1r-m1c-lookup-error-keys-kept  sha: 12ac7ed  label: m1r-m1c-lookup-error-keys-kept  test: auth.sign-out auth.hydrated-session  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m1-rebuild-table.py
+mutated m1c-lookup-error-keys-kept
+ .../src/server/auth.ts                             |   1 -
+ 3 files changed, 198 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-12ac7ed-m1r-m1c-lookup-error-keys-kept
+
+ ❯ |node| src/server/__tests__/auth.sign-out.test.ts (12 tests | 1 failed) 34ms
+     × deletes the user and session keys, then rejects with the lookup's error 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out when the account lookup fails with an error other than a missing row > deletes the user and session keys, then rejects with the lookup's error
+AssertionError: expected [] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+- [
+-   "user-access-token-fixture-user",
+-   "user-session-token-fixture-session",
+- ]
++ []
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:202:29
+    200|     await expect(signOut()).rejects.toBe(FAILURE);
+    201|
+    202|     expect(log.clearedKeys).toEqual(['user-access-token-fixture-user',…
+       |                             ^
+    203|     expect(log.fetch).not.toHaveBeenCalled();
+    204|     expect(accountsUpdates()).toHaveLength(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 28 passed (29)
+   Start at  07:19:37
+   Duration  993ms (transform 295ms, setup 0ms, import 1.12s, tests 45ms, environment 0ms)
+
+vitest exit 1

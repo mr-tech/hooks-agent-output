@@ -1,0 +1,40 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-12ac7ed-m1r-m1c-lookup-error-clear-unswallowed  sha: 12ac7ed  label: m1r-m1c-lookup-error-clear-unswallowed  test: auth.sign-out auth.hydrated-session  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m1-rebuild-table.py
+mutated m1c-lookup-error-clear-unswallowed
+ .../src/server/auth.ts                             |   2 +-
+ 3 files changed, 1 insertion(+), 198 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-12ac7ed-m1r-m1c-lookup-error-clear-unswallowed
+
+ ❯ |node| src/server/__tests__/auth.sign-out.test.ts (12 tests | 1 failed) 36ms
+     × rejects with the lookup's error, not the key deletion's, when the deletion also fails 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out when the account lookup fails with an error other than a missing row > rejects with the lookup's error, not the key deletion's, when the deletion also fails
+AssertionError: expected Error: redis unreachable to be Error: connection refused // Object.is equality
+
+- Expected
++ Received
+
+  Error {
+-   "message": "connection refused",
++   "message": "redis unreachable",
+  }
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:213:28
+    211|     process.on('unhandledRejection', onUnhandled);
+    212|
+    213|     await expect(signOut()).rejects.toBe(FAILURE);
+       |                            ^
+    214|     await new Promise<void>((resolve) => { setImmediate(resolve); });
+    215|     process.off('unhandledRejection', onUnhandled);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 28 passed (29)
+   Start at  07:19:39
+   Duration  1.13s (transform 337ms, setup 0ms, import 1.26s, tests 48ms, environment 0ms)
+
+vitest exit 1

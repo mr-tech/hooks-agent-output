@@ -1,0 +1,126 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-12ac7ed-m1r-m1c-guilds-key-dropped  sha: 12ac7ed  label: m1r-m1c-guilds-key-dropped  test: auth.sign-out auth.hydrated-session  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m1-rebuild-table.py
+mutated m1c-guilds-key-dropped
+ .../src/server/auth.ts                             |   2 +-
+ 3 files changed, 1 insertion(+), 198 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-12ac7ed-m1r-m1c-guilds-key-dropped
+
+ ❯ |node| src/server/__tests__/auth.sign-out.test.ts (12 tests | 6 failed) 41ms
+     × clears the user keys and nulls the stored tokens after an accepted revoke 7ms
+     × clears out all the same after a refused revoke 3ms
+     × clears out all the same after a revoke that fails on the network 2ms
+     × sends no revoke for an account without an access token, and clears out 1ms
+     × revokes the row's token and clears out in full when the cache holds null (what a refused refresh stores) 3ms
+     × revokes the row's token and clears out in full when the cache holds an account holding another token 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > clears the user keys and nulls the stored tokens after an accepted revoke
+AssertionError: expected [ …(2) ] to deeply equal [ …(3) ]
+
+- Expected
++ Received
+
+  [
+    "user-access-token-fixture-user",
+    "user-session-token-fixture-session",
+-   "user-guilds-fixture-discord",
+  ]
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:113:29
+    111|     await signOut();
+    112|
+    113|     expect(log.clearedKeys).toEqual([
+       |                             ^
+    114|       'user-access-token-fixture-user', 'user-session-token-fixture-se…
+    115|     ]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > clears out all the same after a refused revoke
+AssertionError: expected [ …(2) ] to have a length of 3 but got 2
+
+- Expected
++ Received
+
+- 3
++ 2
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:125:29
+    123|     await signOut();
+    124|
+    125|     expect(log.clearedKeys).toHaveLength(3);
+       |                             ^
+    126|     expect(accountsUpdates()).toHaveLength(1);
+    127|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > clears out all the same after a revoke that fails on the network
+AssertionError: expected [ …(2) ] to have a length of 3 but got 2
+
+- Expected
++ Received
+
+- 3
++ 2
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:134:29
+    132|     await expect(signOut()).resolves.toBeUndefined();
+    133|
+    134|     expect(log.clearedKeys).toHaveLength(3);
+       |                             ^
+    135|     expect(accountsUpdates()).toHaveLength(1);
+    136|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > sends no revoke for an account without an access token, and clears out
+AssertionError: expected [ …(2) ] to have a length of 3 but got 2
+
+- Expected
++ Received
+
+- 3
++ 2
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:144:29
+    142|
+    143|     expect(log.fetch).not.toHaveBeenCalled();
+    144|     expect(log.clearedKeys).toHaveLength(3);
+       |                             ^
+    145|     expect(accountsUpdates()).toHaveLength(1);
+    146|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out an account whose cached account entry is not the row > revokes the row's token and clears out in full when the cache holds null (what a refused refresh stores)
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out an account whose cached account entry is not the row > revokes the row's token and clears out in full when the cache holds an account holding another token
+AssertionError: expected [ …(2) ] to deeply equal [ …(3) ]
+
+- Expected
++ Received
+
+  [
+    "user-access-token-fixture-user",
+    "user-session-token-fixture-session",
+-   "user-guilds-fixture-discord",
+  ]
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:188:29
+    186|     expect(accountsUpdates()).toHaveLength(1);
+    187|     expect(accountsUpdates()[0].parameters).toContain('fixture-discord…
+    188|     expect(log.clearedKeys).toEqual([
+       |                             ^
+    189|       'user-access-token-fixture-user', 'user-session-token-fixture-se…
+    190|     ]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  6 failed | 23 passed (29)
+   Start at  07:19:46
+   Duration  1.19s (transform 420ms, setup 0ms, import 1.39s, tests 56ms, environment 0ms)
+
+vitest exit 1

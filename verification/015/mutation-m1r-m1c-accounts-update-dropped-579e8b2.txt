@@ -1,0 +1,42 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-579e8b2-m1r-m1c-accounts-update-dropped  sha: 579e8b2  label: m1r-m1c-accounts-update-dropped  test: auth.sign-out auth.hydrated-session  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m1-rebuild-table.py
+mutated m1c-accounts-update-dropped
+ .../src/server/auth.ts                             |   2 +-
+ 3 files changed, 1 insertion(+), 198 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-579e8b2-m1r-m1c-accounts-update-dropped
+
+ ❯ |node| src/server/__tests__/auth.sign-out.test.ts (12 tests | 1 failed) 32ms
+     × clears the user keys and nulls the stored tokens after an accepted revoke 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > clears the user keys and nulls the stored tokens after an accepted revoke
+AssertionError: expected [ 'discord', 'fixture-discord' ] to deeply equal [ null, null, 'discord', …(1) ]
+
+- Expected
++ Received
+
+  [
+-   null,
+-   null,
+    "discord",
+    "fixture-discord",
+  ]
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:117:45
+    115|     ]);
+    116|     expect(accountsUpdates()).toHaveLength(1);
+    117|     expect(accountsUpdates()[0].parameters).toEqual([null, null, 'disc…
+       |                                             ^
+    118|   });
+    119|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 28 passed (29)
+   Start at  07:20:19
+   Duration  1.02s (transform 309ms, setup 0ms, import 1.14s, tests 44ms, environment 0ms)
+
+vitest exit 1

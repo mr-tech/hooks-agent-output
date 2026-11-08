@@ -1,0 +1,158 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-12ac7ed-m1r-m1h-message-awaited-before-account  sha: 12ac7ed  label: m1r-m1h-message-awaited-before-account  test: auth.sign-out auth.hydrated-session  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m1-rebuild-table.py
+mutated m1h-message-awaited-before-account
+ .../src/server/auth.ts                             |   1 +
+ 3 files changed, 1 insertion(+), 197 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-12ac7ed-m1r-m1h-message-awaited-before-account
+
+(node:476405) PromiseRejectionHandledWarning: Promise rejection was handled asynchronously (rejection id: 2)
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ |node| src/server/__tests__/auth.hydrated-session.test.ts (17 tests | 7 failed) 5027ms
+     × starts the guild fetch and the recent-messages fetch before either has finished 7ms
+     × leaves no rejection unhandled when the account is not found after a recent-messages failure 1ms
+     × rejects with the lookup's error when the recent messages reject before it 5ms
+     × rejects with the lookup's error when the recent messages reject after the function has left 5001ms
+     × returns an empty session when no account is found and the recent messages rejected earlier 1ms
+     × rejects with the guild fetch' error when it rejects first and the other rejects too 1ms
+     × rejects with the recent messages' error when it rejects first and the other rejects too 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback > starts the guild fetch and the recent-messages fetch before either has finished
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ src/server/__tests__/auth.hydrated-session.test.ts:73:35
+     71|     await flush();
+     72|
+     73|     expect(mocks.fetchUserGuilds).toHaveBeenCalledTimes(1);
+       |                                   ^
+     74|     expect(mocks.recentMessages.calls).toBe(1);
+     75|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback > leaves no rejection unhandled when the account is not found after a recent-messages failure
+Error: recent messages failed
+ ❯ src/server/__tests__/auth.hydrated-session.test.ts:134:21
+    132|     const outcome = Promise.resolve(hydrate());
+    133|     await flush();
+    134|     messages.reject(new Error('recent messages failed'));
+       |                     ^
+    135|     await flush();
+    136|     account.resolve(null);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback, by how the account lookup, the recent messages and the guild fetch end > rejects with the lookup's error when the recent messages reject before it
+AssertionError: expected { Object (error) } to match object { Object (error) }
+
+- Expected
++ Received
+
+  {
+-   "error": {
+-     "message": "account lookup failed",
++   "error": Error {
++     "message": "recent messages failed",
+    },
+  }
+
+ ❯ src/server/__tests__/auth.hydrated-session.test.ts:182:27
+    180|     account.reject(new Error('account lookup failed'));
+    181|
+    182|     expect(await outcome).toMatchObject({ error: { message: 'account l…
+       |                           ^
+    183|     await settle();
+    184|     expect(unhandled).toEqual([]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback, by how the account lookup, the recent messages and the guild fetch end > rejects with the lookup's error when the recent messages reject after the function has left
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/server/__tests__/auth.hydrated-session.test.ts:187:3
+    185|   });
+    186|
+    187|   it('rejects with the lookup\'s error when the recent messages reject…
+       |   ^
+    188|     const account = deferred<unknown>();
+    189|     const messages = deferred<unknown[]>();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback, by how the account lookup, the recent messages and the guild fetch end > returns an empty session when no account is found and the recent messages rejected earlier
+AssertionError: expected { Object (error) } to deeply equal { value: {} }
+
+- Expected
++ Received
+
+  {
+-   "value": {},
++   "error": Error {
++     "message": "recent messages failed",
++   },
+  }
+
+ ❯ src/server/__tests__/auth.hydrated-session.test.ts:225:27
+    223|     account.resolve(null);
+    224|
+    225|     expect(await outcome).toEqual({ value: {} });
+       |                           ^
+    226|     await settle();
+    227|     expect(unhandled).toEqual([]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/7]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback, by how the account lookup, the recent messages and the guild fetch end > rejects with the guild fetch' error when it rejects first and the other rejects too
+AssertionError: expected { Object (error) } to match object { Object (error) }
+
+- Expected
++ Received
+
+  {
+-   "error": {
+-     "message": "guild fetch failed",
++   "error": Error {
++     "message": "recent messages failed",
+    },
+  }
+
+ ❯ src/server/__tests__/auth.hydrated-session.test.ts:307:27
+    305|     secondDeferred.reject(new Error(secondMessage));
+    306|
+    307|     expect(await outcome).toMatchObject({ error: { message: firstMessa…
+       |                           ^
+    308|     await settle();
+    309|     expect(unhandled).toEqual([]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/7]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback, by how the account lookup, the recent messages and the guild fetch end > rejects with the recent messages' error when it rejects first and the other rejects too
+AssertionError: expected [ Error: guild fetch failed ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   Error {
++     "message": "guild fetch failed",
++   },
++ ]
+
+ ❯ src/server/__tests__/auth.hydrated-session.test.ts:309:23
+    307|     expect(await outcome).toMatchObject({ error: { message: firstMessa…
+    308|     await settle();
+    309|     expect(unhandled).toEqual([]);
+       |                       ^
+    310|   });
+    311| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/7]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  7 failed | 22 passed (29)
+   Start at  07:19:59
+   Duration  5.47s (transform 288ms, setup 0ms, import 1.22s, tests 5.06s, environment 0ms)
+
+vitest exit 1

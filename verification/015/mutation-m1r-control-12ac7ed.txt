@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-12ac7ed-m1r-control  sha: 12ac7ed  label: m1r-control  test: auth.sign-out auth.hydrated-session  mutator: none
+ .../results.json => dev/null}                      |   1 -
+ 2 files changed, 197 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-12ac7ed-m1r-control
+
+
+ Test Files  2 passed (2)
+      Tests  29 passed (29)
+   Start at  07:19:34
+   Duration  976ms (transform 269ms, setup 0ms, import 1.11s, tests 39ms, environment 0ms)
+
+vitest exit 0

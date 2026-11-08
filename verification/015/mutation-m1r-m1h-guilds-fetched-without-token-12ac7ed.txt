@@ -1,0 +1,72 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-12ac7ed-m1r-m1h-guilds-fetched-without-token  sha: 12ac7ed  label: m1r-m1h-guilds-fetched-without-token  test: auth.sign-out auth.hydrated-session  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m1-rebuild-table.py
+mutated m1h-guilds-fetched-without-token
+ .../src/server/auth.ts                             |   2 +-
+ 3 files changed, 1 insertion(+), 198 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-12ac7ed-m1r-m1h-guilds-fetched-without-token
+
+ ❯ |node| src/server/__tests__/auth.hydrated-session.test.ts (17 tests | 3 failed) 16ms
+     × returns the session without guilds for an account with no access token 5ms
+     × rejects with the recent messages' error for an account with no access token when they reject (rejects at once) 1ms
+     × rejects with the recent messages' error for an account with no access token when they reject (rejects after the function has awaited it) 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback, by how the account lookup, the recent messages and the guild fetch end > returns the session without guilds for an account with no access token
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      "fixture-discord",
+      null,
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/server/__tests__/auth.hydrated-session.test.ts:239:39
+    237|     expect(outcome.value.user.guilds).toEqual([]);
+    238|     expect(outcome.value.hydration.messages).toEqual([{ id: 'm1' }]);
+    239|     expect(mocks.fetchUserGuilds).not.toHaveBeenCalled();
+       |                                       ^
+    240|     await settle();
+    241|     expect(unhandled).toEqual([]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback, by how the account lookup, the recent messages and the guild fetch end > rejects with the recent messages' error for an account with no access token when they reject (rejects at once)
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback, by how the account lookup, the recent messages and the guild fetch end > rejects with the recent messages' error for an account with no access token when they reject (rejects after the function has awaited it)
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      "fixture-discord",
+      null,
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/server/__tests__/auth.hydrated-session.test.ts:258:39
+    256|
+    257|     expect(await outcome).toMatchObject({ error: { message: 'recent me…
+    258|     expect(mocks.fetchUserGuilds).not.toHaveBeenCalled();
+       |                                       ^
+    259|     await settle();
+    260|     expect(unhandled).toEqual([]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  3 failed | 26 passed (29)
+   Start at  07:19:57
+   Duration  1.04s (transform 324ms, setup 0ms, import 1.18s, tests 49ms, environment 0ms)
+
+vitest exit 1

@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Fix round 1 after code review Round 2 (REJECTED at be881c9): CR-4 fixed, M1-h reopened and re-fixed under the owner's OQ-I ruling, handed over at 6001f7f. CR-3 waits for the planner (sign-out reading a cached null); CR-5 declined as optional."
-Handoff-At: "6001f7f — repos=website"
+Status-Detail: "Fix round 2 (plan rev 13, released by steering): M1-c rebuilt (sign-out reads the Accounts row; D22 lookup-error cell; deletion-failure outcome; AF-18) and M1-h's eight decision-table rows each have a cell, handed over at 579e8b2 with CR-9. CR-4 and M1-i were resolved at Round 3; CR-5 declined as optional. CR-6 (the sweep line) is corrected."
+Handoff-At: "579e8b2 — repos=website"
 ---
 
 # Implementation 015 — M1 (server and data path)
@@ -23,6 +23,47 @@ Handoff-At: "6001f7f — repos=website"
 |------|---------------|---------|---------|
 | 2026-11-08T06:20 | steering-hooks-015 → implementer-hooks-015 (brief) | Implement M1 | M1-a to M1-k delivered at website `be881c9`. CR-1 (M0 path list) closed at `96e123d`. QAF-11 (flaky wait in `SectionEditor.auto-remove-dispatch.test.tsx`) fixed at `9e4955a`. The M1-c no-account and ordering cells were held until steering lifted the hold (rev 8's gates passed: critic `f64ae27`, architect `ca8da09`, QA `c2a657a`); they are built to rev 8's text. |
 | 2026-11-08T06:37 | code-reviewer-hooks-015 → implementer-hooks-015 (message) | Code review Round 2 of M1 at `be881c9`: REJECTED | Fix round 1. CR-4 fixed at `6001f7f` (structural). M1-h's account-lookup window closed at `69b17af` (owner ruling OQ-I, "fix both windows"). CR-3 is held for the planner; CR-5 declined. See § Fix Round 1. |
+| 2026-11-08T07:21 | steering-hooks-015 → implementer-hooks-015 (message) | Rebuild M1-c and M1-h to rev 13 | Fix round 2 at website `12ac7ed`/`579e8b2`; see § Fix Round 2. CR-9 and CR-6 (code review Round 3) taken in the same round. |
+
+## Fix Round 2 (plan rev 13: M1-c under D22 + CR-3, M1-h under D21's eight rows)
+
+Released by steering (rulings block "M1-c and M1-h released"; gates: critic `6970763`, architect `f7e6602`, QA `aad87b6`). Commits: `12ac7ed` (code and cells), `579e8b2` (one test tightened after a surviving mutant).
+
+| Item | Disposition |
+|---|---|
+| **M1-c: the account decision rests on the `Accounts` row (CR-3, AF-18)** | `removeUserSession` selects `access_token` and `providerAccountId` from `Accounts` for the user directly and never reads `user-access-token:<id>`. The row's token is revoked; the same row's id is cleared. `fetchUserAccount` lost its `skipUpdate` parameter and branch (its one caller was `removeUserSession`; `grep -rn "fetchUserAccount(" src bot`: 2 callers remain, both the default mode). The unused `NoResultError` import is gone |
+| **M1-c: lookup error (D22; QAF-15)** | Any error from the row read deletes `user-access-token:<userDbId>` and `user-session-token:<sessionToken>` (`clearUser` without a provider id), swallowing a failure of that deletion, then rejects with the lookup's error. `user-guilds`, the revoke and the `Accounts` update are not addressable and are not attempted (the plan's stated residue) |
+| **M1-c: no account found** | The row being absent (`executeTakeFirst` returns undefined) deletes exactly the two keys and returns, as before |
+| **M1-h: the eight rows** | The code was complete at `69b17af` (reviewer's reading). Each row now has a cell in `auth.hydrated-session.test.ts`, 12 added (17 in the file): row 1 (3: M resolves; M rejects before; M rejects after the function has left), row 2 (2), row 3, row 4 (2: at once, later), row 5 (existing), row 6 (existing two plus "after the guild fetch has settled"), row 7, row 8 (2: the guild fetch first, the messages first). Each asserts the caller's outcome as a literal and an `unhandledRejection` count of 0 after a further flush |
+| **CR-9 (LOW)** | Deleted `validateEmbed` and its `eslint-disable-next-line` from `src/utils/limits.tsx` (`git grep -nw validateEmbed`: 0 hits after) |
+| **CR-6 (LOW)** | The CR-4 sweep line in Fix Round 1 said `Providers.tsx`'s `x-query-params` "is always well-formed". That was wrong: `middleware.ts` clones the inbound headers, sets the header only when there is a query string, and its matcher skips most paths, so a client-sent `x-query-params: %` reaches `decodeURIComponent`. The CR-4 row is corrected in place. Whether the middleware should delete the inbound header is the planner's call (handoff X-17) |
+
+### TDD rows added in this round
+
+Mutants run through `mutate-run.sh` in isolated exports of `12ac7ed` / `579e8b2` (table `mutators/m1-rebuild-table.py`; controls `mutation-m1r-control-12ac7ed.txt` and `-579e8b2.txt`, 29 of 29).
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|---|---|---|---|---|---|
+| `removeUserSession`, cached `null` for an existing row | `auth.sign-out.test.ts` | Yes | Yes | At `6001f7f`: `expected "vi.fn()" to be called 1 times, but got 0 times` (no revoke). Mutant `m1c-reads-cached-account` (10 failed across the file) | Yes |
+| `removeUserSession`, cached account with another token | same | Yes | Yes | At `6001f7f`: `expected 'stale-cached-token' to be 'fixture-access-token'`. Same mutant | Yes |
+| `removeUserSession`, lookup error | same | Yes | Yes | At `6001f7f`: `expected [] to deeply equal [ …(2) ]` (no key deleted). Mutant `m1c-lookup-error-keys-kept` (1 failed) | Yes |
+| `removeUserSession`, lookup error and a failing deletion | same | Yes | No | Green at `6001f7f` (it rejects with the lookup's error before any deletion): a control for the swallow. Mutant `m1c-lookup-error-clear-unswallowed` (1 failed: the caller gets the Redis error) | Yes |
+| `removeUserSession`, the existing cells | same | Yes | Yes | Tightened after a surviving mutant: the stored-token update's parameters are asserted as the literal `[null, null, 'discord', 'fixture-discord']`. Mutant `m1c-accounts-update-dropped` (`.set({})`) survived the first version (29 passed, `mutation-m1r-m1c-accounts-update-dropped-12ac7ed.txt`) and is red after it (1 failed, `…-579e8b2.txt`). Also `m1c-no-account-keys-kept` (1), `m1c-revoke-never-sent` (4), `m1c-guilds-key-dropped` (6) | Yes |
+| `hydratedAuthCallback`, rows 1, 2, 3, 4, 6 (after G), 7, 8 | `auth.hydrated-session.test.ts` | Yes | No | Green at `6001f7f`: the code already met the table (`69b17af`), so these are discriminated by mutants, not a base red. `m1h-message-handler-dropped` (5 failed), `m1h-guilds-fetched-without-token` (3), `m1h-message-awaited-before-account` (7) | Yes |
+
+**Ordering disclosure (TDD).** The M1-h cells were written after the code (it predates the table); their evidence is the three mutants above. I wrote no mutant for row 8's "first of the two to settle", which the two cells decide through `Promise.all`'s own behaviour.
+
+### Class Sweep (CR-3, CR-6)
+
+Enumerations: `verification/015/m1r-enumerations-579e8b2.txt`.
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---|---|---|---|
+| CR-3: a reader of the shared `user-access-token` key | `git grep -n "fetchUserAccount(" <sha> -- src bot` (non-test) | At `579e8b2`: `auth.ts:114` (`authCallback`), `auth.ts:144` (`hydratedAuthCallback`), plus the definition. At `6001f7f` the third reader was `removeUserSession` | The two remaining readers are the session callbacks, whose job is the cached usable account; they are not the sign-out path. Not applicable. The `null` producers (the loader's no-`refresh_token` and refused-refresh returns) are unchanged |
+| CR-3: `skipUpdate` modes | `git grep -n skipUpdate 579e8b2 -- src bot` | 0 hits | The parameter is removed |
+| CR-6: decode of a client-reachable header | `git grep -nE "decodeURI(Component)?\(" 579e8b2 -- src bot` (non-test) | 2 hits: `Providers.tsx:34`, `onCopy.ts:26` | Disposition corrected in Fix Round 1. Not fixed here: the header decode is outside F-1 to F-50; handoff X-17 carries it |
+
+Test results: `m1r-testresults-579e8b2.json`, `m1r-testresults-paths-579e8b2.txt`, `m1r-vitest-stdout-579e8b2.txt`, `m1r-typecheck-579e8b2.txt`, `m1r-convention-check-579e8b2.txt`. vitest at `579e8b2`: 851 tests, 851 passed, 0 failed, 79 files, exit 0; path membership identical to the M4 tip's list (`m4-testresults-paths-1e12837.txt`); `pnpm run typecheck` exit 0; lockfiles unmoved (`git diff --numstat 6001f7f -- pnpm-lock.yaml package-lock.json` empty); convention-check 0 FAIL outside the untracked M3 work-in-progress file (7 FAIL in it), 0 CANDIDATE.
 
 ## Fix Round 1 (code review Round 2, REJECTED at `be881c9`)
 
@@ -52,7 +93,7 @@ The reviewer's finding names one parser; the class is a decode or parse of exter
 
 | Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
 |---|---|---|---|
-| CR-4 | `grep -rnE "decodeURI(Component)?\(" src bot` (non-test) | 2 hits: `Providers.tsx:34`, `onCopy.ts:26` | `Providers.tsx:34` decodes `x-query-params`, which `src/middleware.ts:20` writes with `encodeURIComponent`, so it is always well-formed. Not applicable. `onCopy.ts:26` decodes a Slate fragment the editor itself encodes. Not applicable |
+| CR-4 | `grep -rnE "decodeURI(Component)?\(" src bot` (non-test) | 2 hits: `Providers.tsx:34`, `onCopy.ts:26` | `Providers.tsx:34` decodes `x-query-params`. **Corrected (code review CR-6):** the header is not always well-formed: `middleware.ts` clones the inbound headers, sets it only when there is a query string, and its matcher skips most paths, so a client-sent `x-query-params: %` reaches `decodeURIComponent`. Reaching the decode is a self-inflicted 500; carried by handoff X-17, not fixed here. `onCopy.ts:26` decodes a Slate fragment the editor itself encodes. Not applicable |
 | CR-4 | `grep -rn "parseServerCookies" src` | 0 hits (was 1 production hit and 1 test) | Residual 0 |
 
 
