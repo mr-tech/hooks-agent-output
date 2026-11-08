@@ -770,6 +770,8 @@ This pass assumes the live Postgres schema matches the Kysely `DatabaseSchema` t
   - (b) The M8 sweep: `qa-m8-sweep.sh <pig repo> 6c613a5 3926486 <abs path>/mutators/qa-m8-supplement.py ctl m8b-…:…`, labels as `label:mutant`. It pins the rig at the committed blob `a6da6bc` (the working copy is the implementer's CR-27 edit). Add QAF-33's rig cells first, and re-run code review's attack row A for M8-d (c).
   - (c) Write the documents: `qa/…-m6-qa.md` (re-run section; QAF-30 to QAF-32 RESOLVED; the new finding), `qa/…-m4-qa.md` (scoped non-JSON pass), `qa/…-m5-qa.md` (M5-h and M5-i), a new `qa/…-m7-qa.md`, a new `qa/…-m8-qa.md`, a plan row, and deliver.
 
+*Reconcile 2026-11-08T09:30, owner ruling on QAF-33 (rulings 09:28Z, `c8c7649`, relayed by steering): "Agent: as built, lists pass".* Array bodies are a known limit with no code, and M8-b narrows at rev 27. The `[]` and `[{}]` 500-cells are not owed; the string and boolean cells still stand under D35. QAF-33 is dispositioned when rev 27 lands; re-key then, and read the rev 27 text for any array cell it asks for.
+
 **Next after this pass:** M8-a after CR-27's fix (with D36's RK-8 guard and QAF-33's guard), sweeping the round's diff only; the M8-a guards are the implementer's list in the M8 document. Then the effort-final sweep (below). Phase 1 rev 27 re-key when briefed.
 
 **How a pass runs (instruments, committed under `verification/015/`)**
