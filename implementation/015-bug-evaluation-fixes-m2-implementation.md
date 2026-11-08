@@ -146,3 +146,28 @@ Raw outputs: `agent-output/verification/015/m2-testresults-paths-6001f7f.txt`. C
 ## Next Steps
 
 Code review of `6001f7f`, then QA Phase 2 for M2. Then M3 (DOM, three dialogs; its flows hold a decision to check before code).
+
+## Resumption State (checkpoint 2026-11-08T06:40Z, implementer-hooks-015)
+
+- **Done.** M0 (`037935d`), M1 (`be881c9`, fix round to `6001f7f`), M2 (`7befedb`, same tip). Documents: the M0, M1 and M2 implementation documents under `implementation/`. Website chain tip `6001f7f` on `chain/015-bug-evaluation-fixes`, handed to code-reviewer-hooks-015 by message (M1 fix round: CR-4, M1-h's second window; M2). preview-image-generator is untouched at `471578f`. Gate at `6001f7f`: vitest 720/720, 71 files, exit 0; typecheck 0; convention-check 0 FAIL.
+- **Waiting on others.**
+  - Code review of `6001f7f` (a combined M1 sub-entry and M2).
+  - CR-3 (sign-out reading a cached null): folded by the planner in plan rev 12 (`c5d6acd`), gate round pending. Do not touch `removeUserSession` until the gates pass it; steering will say.
+  - M1-i: the planner restates it, since `parseServerCookies` is deleted.
+  - CR-5 declined (optional).
+- **Next: M3** (F-15, F-39: Enter on a dialog must not confirm from another button).
+  - Fix: at each of the three sites (`ConfirmationDialog.tsx` `Inner`, `WarningDialog.tsx`, `ImageUploader.tsx`), change the guard from `document.activeElement?.tagName !== '~/components/Button'` to `!== 'BUTTON'`, one token per site, mirroring the per-dialog hook (the plan says no shared helper exists).
+  - Flows (no decision found; rung 1 each): Enter with a button focused runs only that button's action. Enter with no button focused is unchanged (the dialog's confirm or submit). Ask steering only if a decision appears.
+  - The decision table is 3 dialogs × 3 focus states, plus Clear in the uploader (10 cells).
+- **In flight, uncommitted, untracked:** `website/src/components/__tests__/dialogs.enter-key.test.tsx` (the 10 cells; not linted, not yet committed).
+  - At the base, 4 of 10 pass: the three no-button-focused cells and the Clear cell. Six fail with `expected "vi.fn()" to be called 1 times, but got 0 times` or `no set button`. That is a defect in my helper, not yet a red against production code.
+  - `pressEnter` dispatches keydown plus a `click` with `detail: 0`. react-aria's Button does not fire `onPress` from it under jsdom.
+  - The SectionEditor test (`SectionEditor.auto-remove-dispatch.test.tsx`, `pressDelete`) presses a Button with `pointerdown`, `pointerup` and a click with `detail: 1`. Try that sequence for the button's own activation, after the keydown that react-hotkeys-hook listens for. Check that a real Enter on a focused button does both: the keydown reaches the hotkey and the press runs the button.
+  - The uploader's save button is labelled `Save` (my test looks for `/set/i`). Its Cancel and Clear are found by label.
+  - react-hotkeys-hook ignores events whose target is an input, textarea or select by default, so the uploader's "no button focused" cell must blur to `document.body`, as written.
+  - Get the cells red against the base before the fix (assertion-level), then apply the one-token fixes. Name the mutants for the cells green at the base.
+- **Evidence not yet recorded.** None outstanding. Mutation exports under the scratchpad are deleted. `verification/015/mutate-run.sh` takes `EXPORT_ROOT` and `MUT_ID` from the environment.
+- **Held state.** `website/node_modules` untouched. `.next/dev/types` deleted at M0 per D7 (record: the M0 document).
+- **Questions sent.** To steering: M1 and M2 summaries, the planner asks (answered in rev 9), M1-i's restatement (passed to the planner). No open question to the owner from me.
+- **Remaining after M3.** M4 (send page; user-visible, check flows first), M5, M6 (QAF-11 is already fixed, so no longer owed there), M7 (bot; tests now collected), M8 (preview-image-generator: E-1 applies from the first local run; export without `.env`, install inside the export, `unshare -rn`, `ip link set lo up`, self-check).
+
