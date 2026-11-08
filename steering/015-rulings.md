@@ -258,3 +258,6 @@ Both answered by selection; labels and descriptions are steering's, the options 
 
 ## 2026-11-08T08:02Z — AF-25 (over-40 error on /preview and in generated images): same as siblings (selection)
 Put ~08:00Z, answered by selection (option texts steering's). Options: Agent: same as siblings / Agent: hide all on /preview / Agent: hide only the new one. Chosen **Agent: same as siblings**: the over-40 line and border also show on /preview, so an over-40 message's generated preview image carries them, exactly as the existing text-length errors already do. No extra work. Premise: the architect's read (5581822, D-003), which steering did not read.
+
+## 2026-11-08T08:03Z — steering's relay error: M5-h correction withdrawn
+At ~08:01Z steering relayed the planner's AF-23 correction to implementer-hooks-015 as an instruction: "do NOT refuse embeds/fields \"\"; the predicate is makeEditable's throw". That was a peer's claim, relayed without a read. Code review Round 11 (9268f02, CR-20) then executed the real page at da24eb7: embeds:"" and fields:"" crash it, in validateEmbedCharacterCount. Steering withdrew the instruction and told the implementer to hold M5-h until rev 23.
