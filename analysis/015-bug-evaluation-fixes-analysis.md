@@ -17,6 +17,7 @@ item **REQUIRES ANALYSIS**, read together with § M8 (M8-a). The source finding 
 
 | Date (UTC) | Author | Change |
 |---|---|---|
+| 2026-11-08T21:40 | analyst-hooks-015 | `pig-host-read.sh` gains section [6], the per-process span read for M8-0 run 2 (§ "M8-0 run 2 instrument"). Fixture-checked locally. First host run 21:39Z: `Created instance` 227 in the 2024–2026 process span (L-C3-1 liveness met), cross-checked by line range. |
 | 2026-11-08 | analyst (plan 015) | M8-0 run 1, taken over claude-ro (`hooks-pig`) per steering/015-rulings.md 05:20Z/05:21Z/05:24Z with no pm2 command. Script and capture: `verification/015/pig-host-read.sh` and `verification/015/m8-0-run1-2026-11-08T0525Z.txt` at `fe27690`. Added § M8-0 run 1. The prediction holds on both recorded prod stops, so V-1 is now Verified on the host for the stop path; a deploy reload and the preview instance are inconclusive. Added PM2 5.2.2 (the host's version) to the versions read; it is identical to 5.3.0 on every path cited. H-1 is marked not applicable at 5.2.2. H-2 is resolved. Root Cause now carries the observation. § Host observation is marked superseded by the claude-ro route; its owner commands are kept as written, for the record. After run 1, the script's [5] Chromium predicate was refined to exclude `chrome_crashpad`; that change is not part of the run-1 script. |
 | 2026-11-08 | analyst (plan 015) | Corrected § Host observation command 3. It previously listed `pm2 show <name>` beside the filtered `jlist`, which was defensible as a harmless way to read the log path. A re-read of `lib/API/UX/pm2-describe.js` for the owner script found that `pm2 show` prints the invoking shell's divergent environment values, so the command is removed. Class swept: `grep -c "pm2 show"` gave 2 hits here before (both in command 3) and 2 after (the warning in command 3 and this row); plan 015: 0; the research document has 2, and it is the researcher's, so they are routed and not edited. Added a pointer to `verification/015/pig-host-read.sh`. No finding changed. |
 | 2026-11-08 | analyst (plan 015) | Created. Answers brief items 1–4 from the PM2 source at four versions and from a local Node probe of the app's shutdown shape. F-31's premise is corrected: the drain never starts. Before this read, the open question was whether PM2's SIGKILL cuts the drain short. |
@@ -314,6 +315,59 @@ key-shaped and `NAME=` content found 0 hits, and I read all 97 lines.
   second as that stop.
 - The cause is not in this read. The planner and steering should weigh it against the architecture record's
   "previews observed generating normally" (2026-08-23).
+
+## M8-0 run 2 instrument — the per-process span read (section [6])
+
+Commissioned by steering-hooks-015 (brief ~21:38Z, on devops-hooks-015's spawn cue). The read is the plan's § M8-0
+"Every run-2 read" (QA QAF-8, QAF-10, QAF-13, QAF-16; critic M-C3-1, L-C3-1), in
+`planning/closed/015-bug-evaluation-fixes.md`. `verification/015/pig-host-read.sh` gains section [6]; sections [1]–[5]
+are unchanged. Its header note marks the old "run 2 for the -preview app" expectation as superseded by D16.
+
+**What [6] reads.** It reads each consecutive pair of the prod app's `pm2.log` `Stopping app` lines (stop A, stop B):
+- **Start and End.** Start is the earliest out-log `Server running at` line stamped at or after stop A's second; End
+  is the same for stop B. Both are chosen by timestamp minimum, not by line order. pm2.log stamps are truncated
+  seconds, so "at or after the second" stands in for "after", and D23's UTC assumption is restated in the script.
+- **The figures.** In-span lines are those with `Start <= ISO stamp < End`. The figures are:
+  - `Server received`, by message prefix, plus an any-position cross-check;
+  - `Drain complete` and `Drain failed` lines with their elapsed time;
+  - `Created instance` (primary);
+  - `POST /generate`, exact message (secondary);
+  - the exit time from pm2.log's `exited with code` line against stop B, in whole seconds (±1 s), with any `still
+    alive`/SIGKILL line between them.
+- **Restarts and gaps.** A ready line strictly inside a span is listed as a restart, and that span's figures are not
+  read. A missing Start or End prints NO SPAN.
+- **Untimestamped lines** between the Start and End lines are counted apart and enter no figure.
+
+The script stays reads-only, with no temp files: the loop is fed by process substitution, not a here-doc.
+
+**Fixture check, local, before any host run.** I ran a scratch copy with `H` pointed at synthetic logs and the
+`claude-ro` refusal removed. Every branch printed as constructed:
+- the clean span gave 1/1/1/1 with drain line `734ms`, exit Δ 3 s;
+- the restart span printed RESTARTS 1 and withheld its figures;
+- the trailing stop printed NO SPAN with End `(none)`;
+- one untimestamped `POST /generate` was kept out of the figure.
+
+The fixture is not committed; its construction is stated here.
+
+**Liveness (L-C3-1), first host run.** 2026-11-08T21:39Z, as `claude-ro` over `hooks-pig`, no pm2 command. Capture:
+`verification/015/m8-0-span-liveness-2026-11-08T2139Z.txt`. Two prod stops are on record, so there is one span: the
+process stopped on 2026-06-15.
+
+| Read | Value |
+|---|---|
+| Start / End | out line 28898 at 2024-06-15T11:56:00.002Z / line 146790 at 2026-08-23T04:18:22.785Z; no restarts |
+| `Created instance` (primary) | **227** (non-zero: the figure is live) |
+| `POST /generate` (secondary) | 11,324 |
+| `Server received`, drain lines | 0, 0, consistent with run 1 |
+| Exit against stop B | 5 s; `still alive after 5000ms` → SIGKILL, as in run 1 |
+
+**Cross-check by an independent instrument.** On the host, a line-range `sed -n '28898,146789p' | grep -c` over the
+same out log gave `Created instance` 227 and `POST /generate` 11,324, identical. Log-wide totals were 339 and 16,771,
+which match devops's 21:35Z baseline. The two methods bound the span differently, by timestamp and by line position,
+and agree.
+
+**For run 2.** After the push (stop 1) and the `prod.yml` re-run (stop 2), [6] prints a new span for the process
+stop 2 stopped. That span is the one the § M8-0 criterion reads. Earlier spans print too and are history.
 
 ## Determination for M8-a — the properties that must hold
 

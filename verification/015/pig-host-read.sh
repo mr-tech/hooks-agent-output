@@ -39,6 +39,8 @@
 #   - a log whose coverage (first timestamp) starts after the last deploy.
 #   Zero shutdown lines with no recorded stop says nothing about V-1.
 #
+# [Superseded for run 2 by D16 (no preview instance): run 2 reads the PROD app's stop (2) through [6]; the
+#  plan's criterion is in planning/closed/015-bug-evaluation-fixes.md § M8-0 "Criterion". Original text kept:]
 # EXPECTED for run 2, after the M8 preview push (plan M8-a criterion), for the -preview app:
 #   [2] shutdown_with_message set explicitly, kill_timeout: 12000
 #   [3] one "Server received ..." line per reload (the stable prefix P1 requires), then "Server closed."
@@ -138,5 +140,103 @@ echo; echo "[5] chromium processes (not chrome_crashpad) whose parent is pid 1 (
 echo "  count: $("$PS" -eo ppid=,comm= | "$AWK" '$1==1 && $2 ~ /chrom/ && $2 != "chrome_crashpad"' | "$GREP" -c .)"
 echo "  chrome_crashpad under pid 1 (not a stop-orphan signal): $("$PS" -eo ppid=,comm= | "$AWK" '$1==1 && $2 == "chrome_crashpad"' | "$GREP" -c .)"
 echo "  all chromium processes: $("$PS" -eo comm= | "$GREP" -c chrom)"
+
+# --- [6] per-process span reads (plan 015 § M8-0 "Every run-2 read"; QAF-8, QAF-10, QAF-13, QAF-16; M-C3-1) ---
+# For each consecutive pair of the PROD app's pm2.log "Stopping app" lines (stop A, stop B), this reads the
+# process that stop B stopped:
+#   Start = the earliest out-log "Server running at" line whose timestamp is at or after stop A's second;
+#   End   = the earliest "Server running at" line whose timestamp is at or after stop B's second.
+#   pm2.log stamps are whole seconds, zone-less local time (D23: the host runs UTC). Out-log stamps are UTC
+#   ISO with ms (server.ts console.debug override). "At or after the stop's second" is used because the
+#   stamp is truncated. No ready line of the stopped process can fall in its own stop's second.
+#   Boundaries are chosen by timestamp (minimum over the log), never by line order.
+# In-span lines are those whose ISO stamp satisfies Start <= stamp < End. Lines with no ISO stamp cannot be
+# placed by time; they are counted separately (by line position between Start and End) and never enter a figure.
+# A ready line strictly between Start and End is a crash-restart: each is listed, and that span's figures are
+# NOT read (the read never picks one). A missing Start or End is reported as NO SPAN, never filled.
+# Figures: 'Server received' (message begins with it) [plus any line containing it, as a cross-check];
+# drain-complete / drain-failed lines with their elapsed ms; 'Created instance' (PRIMARY pool figure);
+# 'POST /generate' (SECONDARY, counts unauthenticated requests too); and the exit time against stop B
+# from pm2.log (whole seconds, so +/-1 s), with any 'still alive' line between stop B and the exit.
+# Liveness (critic L-C3-1): 'Created instance' must read non-zero in some earlier span before run 2 relies on
+# it; if every span reads zero, run 2 reports pool creation as not established.
+PROD=hooks-image-preview-generator-prod
+OUT="$H/logs/$PROD-out.log"
+echo; echo "[6] per-process span reads for $PROD (stop pairs from $H/pm2.log; lines from $OUT):"
+if [ ! -r "$H/pm2.log" ] || [ ! -r "$OUT" ]; then
+  echo "  pm2.log or out log not readable; no span read"
+else
+  STOPS="$("$GREP" -n "PM2 log: Stopping app:$PROD id:" "$H/pm2.log" | "$SED" -n 's/^\([0-9]*\):\([0-9-]*T[0-9:]*\): .*/\1 \2/p' | "$SED" 's/:$//')"
+  NSTOPS="$(printf '%s\n' "$STOPS" | "$GREP" -c .)"
+  echo "  prod stops in pm2.log (line stamp): $NSTOPS"
+  printf '%s\n' "$STOPS" | "$GREP" . | "$SED" 's/^/    /'
+  READY_ISO='^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]T[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\.[0-9][0-9][0-9]Z Server running at '
+  READIES="$("$GREP" -n "$READY_ISO" "$OUT" | "$AWK" -F: '{ print $1" "substr($0, length($1)+2, 24) }')"
+  echo "  timestamped ready lines in out log: $(printf '%s\n' "$READIES" | "$GREP" -c .)"
+  echo "  untimestamped ready lines in out log (not placeable): $("$GREP" -c '^Server running at ' "$OUT")"
+  i=0; PREV_TS=""
+  while read -r SLINE STS; do
+    [ -n "${SLINE:-}" ] || continue
+    i=$((i+1))
+    if [ -z "$PREV_TS" ]; then PREV_TS="$STS"; continue; fi
+    echo "  -- span $((i-1)): process stopped by stop B=$STS (pm2.log line $SLINE); started after stop A=$PREV_TS"
+    # earliest ready at/after each stop second (by timestamp, not line order)
+    START="$(printf '%s\n' "$READIES" | "$AWK" -v s="$PREV_TS" 'NF==2 && substr($2,1,19) >= s { if (best=="" || $2 < best) { best=$2; ln=$1 } } END { if (best!="") print ln" "best }')"
+    END_="$(printf '%s\n' "$READIES" | "$AWK" -v s="$STS" 'NF==2 && substr($2,1,19) >= s { if (best=="" || $2 < best) { best=$2; ln=$1 } } END { if (best!="") print ln" "best }')"
+    if [ -z "$START" ] || [ -z "$END_" ]; then
+      echo "     NO SPAN: Start=${START:-(none)} End=${END_:-(none)}"
+      PREV_TS="$STS"; continue
+    fi
+    set -- $START; S_LN=$1; S_TS=$2; set -- $END_; E_LN=$1; E_TS=$2
+    echo "     Start: out line $S_LN at $S_TS   End: out line $E_LN at $E_TS"
+    RESTARTS="$(printf '%s\n' "$READIES" | "$AWK" -v a="$S_TS" -v b="$E_TS" 'NF==2 && $2 > a && $2 < b { print "line "$1" at "$2 }')"
+    NR_="$(printf '%s\n' "$RESTARTS" | "$GREP" -c .)"
+    if [ "$NR_" -gt 0 ]; then
+      echo "     RESTARTS inside span: $NR_ (figures NOT read for this span):"
+      printf '%s\n' "$RESTARTS" | "$SED" 's/^/       /'
+      PREV_TS="$STS"; continue
+    fi
+    "$AWK" -v a="$S_TS" -v b="$E_TS" -v sl="$S_LN" -v el="$E_LN" '
+      function iso(s) { return s ~ /^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]T[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\.[0-9][0-9][0-9]Z / }
+      {
+        if (iso($0)) {
+          ts = substr($0, 1, 24); msg = substr($0, 26)
+          if (ts < a || ts >= b) next
+          n++
+          if (index(msg, "Server received") == 1) recv++
+          if (index(msg, "Server received") > 0) recvAny++
+          if (index(msg, "Drain complete in ") == 1) { dc++; dcl = dcl "       " $0 "\n" }
+          if (index(msg, "Drain failed after ") == 1) { df++; dfl = dfl "       " $0 "\n" }
+          if (index(msg, "Created instance ") == 1) ci++
+          if (msg == "POST /generate") pg++
+          last = ts
+        } else if (NR > sl && NR < el) {
+          u++
+          if (index($0, "Server received") > 0 || index($0, "Created instance") > 0 || index($0, "POST /generate") > 0 || index($0, "Drain ") > 0) um++
+        }
+      }
+      END {
+        printf "     timestamped lines in span: %d   last stamp in span: %s\n", n, (last == "" ? "(none)" : last)
+        printf "     Server received (message begins with): %d   [any line containing it: %d]\n", recv, recvAny
+        printf "     Drain complete lines: %d\n%s", dc, dcl
+        printf "     Drain failed lines: %d\n%s", df, dfl
+        printf "     Created instance (PRIMARY pool figure): %d\n", ci
+        printf "     POST /generate (SECONDARY; includes unauthenticated): %d\n", pg
+        printf "     untimestamped lines between Start and End lines (not counted above): %d, of which matching a figure word: %d\n", u, um
+      }' "$OUT"
+    # exit time against stop B, from pm2.log (whole seconds)
+    EXITLN="$("$AWK" -v from="$SLINE" -v app="$PROD" 'NR > from && index($0, "App [" app ":") && index($0, "] exited with code") { print NR": "$0; exit }' "$H/pm2.log")"
+    echo "     pm2.log exit line after stop B: ${EXITLN:-(none found)}"
+    if [ -n "$EXITLN" ]; then
+      X_TS="$(printf '%s' "$EXITLN" | "$SED" -n 's/^[0-9]*: \([0-9-]*T[0-9:]*\): .*/\1/p' | "$SED" 's/:$//')"
+      X_LN="${EXITLN%%:*}"
+      A_S="$("$DATE" -u -d "${STS/T/ }" +%s 2>/dev/null)"; B_S="$("$DATE" -u -d "${X_TS/T/ }" +%s 2>/dev/null)"
+      if [ -n "$A_S" ] && [ -n "$B_S" ]; then echo "     exit - stop B: $((B_S - A_S)) s (pm2.log whole-second stamps, +/-1 s)"; else echo "     exit - stop B: not computable"; fi
+      echo "     'still alive' / SIGKILL lines between stop B and the exit line:"
+      "$AWK" -v a="$SLINE" -v b="$X_LN" 'NR > a && NR <= b && (index($0, "still alive after") || index($0, "SIGKILL"))' "$H/pm2.log" | "$SED" 's/^/       /'
+    fi
+    PREV_TS="$STS"
+  done < <(printf '%s\n' "$STOPS")   # process substitution: a pipe, no here-doc temp file
+fi
 
 echo; echo "=== end"

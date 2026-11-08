@@ -1,0 +1,115 @@
+=== pig-host-read.sh  host=hooks-preview-image-generator  at=2026-11-08T21:39:45Z  as=claude-ro
+--- tools: ps=/usr/bin/ps grep=/usr/bin/grep awk=/usr/bin/awk sed=/usr/bin/sed tail=/usr/bin/tail head=/usr/bin/head ls=/usr/bin/ls id=/usr/bin/id date=/usr/bin/date hostname=/usr/bin/hostname jq=(absent) node=/usr/bin/node
+--- never opened: /home/nodejs/.pm2/dump.pm2 ; no pm2 command is run
+
+[1] PM2 daemons (title 'PM2 v<ver>: God Daemon (<PM2_HOME>)'):
+  nodejs       914 Mon Jun 15 21:14:36 2026 PM2 v5.2.2: God Daemon (/home/nodejs/.pm2)
+  root     1071944 Sun Aug 23 04:17:39 2026 PM2 v5.2.2: God Daemon (/etc/.pm2)
+  generator processes (pid ppid user start args):
+  1071971 1071944 root     Sun Aug 23 04:18:19 2026 node /usr/local/bin/hooks-image-preview-generator/deployed/prod/dist/server.js
+
+[2] /etc/.pm2/dump.pm2 extract (name, kill_timeout, shutdown_with_message only; saved by the last 'pm2 save'):
+  file: 2026-06-15T10:02:36+0000 size=10084
+  parser: node
+  {"name":"hooks-image-preview-generator-prod","kill_timeout":5000,"shutdown_with_message":true}
+  node exit=0
+
+[3] /etc/.pm2/logs (names, sizes, mtimes):
+  2023-08-20T07:20:39+0000  0  hooks-image-preview-generator-preview-error.log
+  2023-08-20T07:36:33+0000  234  hooks-image-preview-generator-preview-out.log
+  2026-11-08T17:27:00+0000  10825  hooks-image-preview-generator-prod-error.log
+  2026-11-08T21:37:00+0000  8875695  hooks-image-preview-generator-prod-out.log
+  2023-08-20T09:29:56+0000  0  server-error-0.log
+  2023-08-22T01:56:04+0000  14760  server-error.log
+  2023-08-20T09:45:35+0000  442  server-out-0.log
+  2023-08-22T01:57:12+0000  1734  server-out.log
+  -- hooks-image-preview-generator-prod
+     out log lines: 180488
+     'Server received' count: 0
+     'Server closed' count:   0
+     'Server running at' count (starts): 3
+     last shutdown/start lines:
+       1:2023-08-22T01:57:43.367Z Server running at http://0.0.0.0:3000/
+       28898:2024-06-15T11:56:00.002Z Server running at http://0.0.0.0:3000/
+       146790:2026-08-23T04:18:22.785Z Server running at http://0.0.0.0:3000/
+  -- hooks-image-preview-generator-preview
+     out log lines: 6
+     'Server received' count: 0
+     'Server closed' count:   0
+     'Server running at' count (starts): 6
+     last shutdown/start lines:
+       1:Server running at http://0.0.0.0:3001/
+       2:Server running at http://0.0.0.0:3001/
+       3:Server running at http://0.0.0.0:3001/
+       4:Server running at http://0.0.0.0:3001/
+       5:Server running at http://0.0.0.0:3001/
+       6:Server running at http://0.0.0.0:3001/
+
+[4] /etc/.pm2/pm2.log:
+  coverage: first timestamped line / last timestamped line:
+    first: 2023-08-20T09:30:21:
+    last:  2026-11-08T04:17:40:
+  -- hooks-image-preview-generator-prod: 'Stopping app' count: 2
+  -- hooks-image-preview-generator-preview: 'Stopping app' count: 0
+  'still alive after' count: 10
+  'msg=process killed' count: 11
+  stop/kill/lifecycle lines for the generator, last 40:
+    8:2023-08-20T09:30:23: PM2 log: pid=45422 msg=process killed
+    109:2023-08-20T09:34:43: PM2 log: Process with pid 51878 still alive after 10000ms, sending it SIGKILL now...
+    113:2023-08-20T09:34:43: PM2 log: pid=51878 msg=process killed
+    216:2023-08-20T09:36:34: PM2 log: Process with pid 71111 still alive after 10000ms, sending it SIGKILL now...
+    220:2023-08-20T09:36:35: PM2 log: pid=71111 msg=process killed
+    325:2023-08-20T09:46:05: PM2 log: Process with pid 83767 still alive after 10000ms, sending it SIGKILL now...
+    329:2023-08-20T09:46:05: PM2 log: pid=83767 msg=process killed
+    450:2023-08-20T09:48:24: PM2 log: Process with pid 87448 still alive after 10000ms, sending it SIGKILL now...
+    453:2023-08-20T09:48:25: PM2 log: pid=87448 msg=process killed
+    509:2023-08-21T00:18:36: PM2 log: Process with pid 124982 still alive after 5000ms, sending it SIGKILL now...
+    512:2023-08-21T00:18:36: PM2 log: pid=124982 msg=process killed
+    569:2023-08-22T01:49:30: PM2 log: Process with pid 133673 still alive after 5000ms, sending it SIGKILL now...
+    572:2023-08-22T01:49:30: PM2 log: pid=133673 msg=process killed
+    627:2023-08-22T01:57:10: PM2 log: Process with pid 152849 still alive after 5000ms, sending it SIGKILL now...
+    630:2023-08-22T01:57:10: PM2 log: pid=152849 msg=process killed
+    683:2023-08-22T01:57:27: PM2 log: Process with pid 153736 still alive after 5000ms, sending it SIGKILL now...
+    685:2023-08-22T01:57:27: PM2 log: pid=153736 msg=process killed
+    703:2023-08-22T01:57:41: PM2 log: App [hooks-image-preview-generator-prod:0] starting in -fork mode-
+    704:2023-08-22T01:57:43: PM2 log: App [hooks-image-preview-generator-prod:0] online
+    1303:2024-06-15T10:15:43: PM2 log: Stopping app:hooks-image-preview-generator-prod id:0
+    1353:2024-06-15T10:15:48: PM2 log: Process with pid 154150 still alive after 5000ms, sending it SIGKILL now...
+    1354:2024-06-15T10:15:48: PM2 log: App [hooks-image-preview-generator-prod:0] exited with code [0] via signal [SIGKILL]
+    1356:2024-06-15T10:15:48: PM2 log: pid=154150 msg=process killed
+    1374:2024-06-15T11:55:58: PM2 log: App [hooks-image-preview-generator-prod:0] starting in -fork mode-
+    1375:2024-06-15T11:56:00: PM2 log: App [hooks-image-preview-generator-prod:0] online
+    2836:2026-06-15T10:02:36: PM2 log: Stopping app:hooks-image-preview-generator-prod id:0
+    2886:2026-06-15T10:02:41: PM2 log: Process with pid 1544 still alive after 5000ms, sending it SIGKILL now...
+    2887:2026-06-15T10:02:41: PM2 log: App [hooks-image-preview-generator-prod:0] exited with code [0] via signal [SIGKILL]
+    2889:2026-06-15T10:02:41: PM2 log: pid=1544 msg=process killed
+    2907:2026-08-23T04:18:19: PM2 log: App [hooks-image-preview-generator-prod:0] starting in -fork mode-
+    2908:2026-08-23T04:18:22: PM2 log: App [hooks-image-preview-generator-prod:0] online
+
+[5] chromium processes (not chrome_crashpad) whose parent is pid 1 (pid ppid user start comm):
+  count: 0
+  chrome_crashpad under pid 1 (not a stop-orphan signal): 4
+  all chromium processes: 14
+
+[6] per-process span reads for hooks-image-preview-generator-prod (stop pairs from /etc/.pm2/pm2.log; lines from /etc/.pm2/logs/hooks-image-preview-generator-prod-out.log):
+  prod stops in pm2.log (line stamp): 2
+    1303 2024-06-15T10:15:43
+    2836 2026-06-15T10:02:36
+  timestamped ready lines in out log: 3
+  untimestamped ready lines in out log (not placeable): 0
+  -- span 1: process stopped by stop B=2026-06-15T10:02:36 (pm2.log line 2836); started after stop A=2024-06-15T10:15:43
+     Start: out line 28898 at 2024-06-15T11:56:00.002Z   End: out line 146790 at 2026-08-23T04:18:22.785Z
+     timestamped lines in span: 117892   last stamp in span: 2026-06-15T09:33:04.974Z
+     Server received (message begins with): 0   [any line containing it: 0]
+     Drain complete lines: 0
+     Drain failed lines: 0
+     Created instance (PRIMARY pool figure): 227
+     POST /generate (SECONDARY; includes unauthenticated): 11324
+     untimestamped lines between Start and End lines (not counted above): 0, of which matching a figure word: 0
+     pm2.log exit line after stop B: 2887: 2026-06-15T10:02:41: PM2 log: App [hooks-image-preview-generator-prod:0] exited with code [0] via signal [SIGKILL]
+     exit - stop B: 5 s (pm2.log whole-second stamps, +/-1 s)
+     'still alive' / SIGKILL lines between stop B and the exit line:
+       2026-06-15T10:02:41: PM2 log: Process with pid 1544 still alive after 5000ms, sending it SIGKILL now...
+       2026-06-15T10:02:41: PM2 log: App [hooks-image-preview-generator-prod:0] exited with code [0] via signal [SIGKILL]
+
+=== end
