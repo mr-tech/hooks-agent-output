@@ -1,0 +1,11 @@
+export /tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/gen/pig-probe-8de2b53
+mutant set verification/015/effort-final/gen-qaf37-mutants-8de2b53.json blob 70a98919d39f7684bbe82346c5f5ef5b5bab313e
+probe probe.cjs blob 14f5cfce874d61fcc0a452dc907cfc44f885bd02
+probe probe-pages.cjs blob 9f41863e58dd2387fca1207acadb6e71319eecba
+control	SURVIVED	0 red	
+qa-ef-fallback-timer-removed	KILLED	2 red	build/server.js 1a024e4f0be3->2fc446eb7651
+    red: P1 drain never settles: the 10 s fallback exits the process with code 0
+    red: P1 drain never settles: the exit comes after the drain wait and before the 12 s kill_timeout
+qa-ef-close-not-awaited	KILLED	2 red	build/server.js 1a024e4f0be3->e7c86dd34634
+    red: P1 drain never settles: the exit comes after the drain wait and before the 12 s kill_timeout
+    red: P1 drain never settles: no drain-complete line and no drain-failed line

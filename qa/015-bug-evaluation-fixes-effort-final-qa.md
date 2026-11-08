@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Verified-At: "c5303ca,8de2b53 — repos=website,preview-image-generator; effort-final Phase 2: the production diffs 7ce866b..c5303ca (website) and 471578f..8de2b53 (generator), swept at those tips in git-archive exports under unshare -rn"
-Status: Testing In Progress
-Status-Detail: "Effort-final Phase 2 in progress. Generator half run: 9 earlier M8-b to M8-e mutants all killed at 8de2b53, and 4 gap mutants: 2 killed (timeout), 1 equivalent by execution, 1 survivor (QAF-37 MEDIUM, implementer, test-only). Website sweep of 265 mutants at c5303ca running."
+Status: QA Failed
+Status-Detail: "QA Failed on test adequacy alone, with no production defect. Website c5303ca: 265 mutants over 7ce866b..c5303ca, 256 killed and 9 survived. 6 survivors are dispositioned; 3 are QAF-38, QAF-39 and QAF-40 (MEDIUM, test-only, implementer). Generator 8de2b53: whole diff swept, QAF-37 RESOLVED. The re-run after the fix covers the 5 survivors only."
 Phase: 2
 ---
 
@@ -20,6 +20,7 @@ Phase: 2
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-08T11:19 | steering-hooks-015 (brief after the /clear); planner-hooks-015 (rev 28) | QA effort-final Phase 2 | Created with the generator half, the owed checks and the website sweep's inputs. The website sweep is running. |
+| 2026-11-08T12:41 | code-reviewer-hooks-015 (QAF-37 cell, `f77e71c`); implementer-hooks-015 (`8fb1eee`) | Website sweep result; QAF-37 re-run | QA Failed. Website: 256 of 265 killed. Of the 9 survivors, 6 are dispositioned and 3 raised as QAF-38, QAF-39 and QAF-40 (MEDIUM, test-only). QAF-37 RESOLVED. Two run false starts are disclosed and not scored. |
 
 ## Scope and criteria assessed
 
@@ -92,7 +93,29 @@ The CR-12 belonging comparison (`routers/message.ts`, `channel.guild_id !== guil
 
 Runner: `~/.claude/tools/mutation-run.py`, `--dep node_modules`, `--timeout 300`. The suite command is `unshare -rn sh -c 'ip link set lo up && [ <non-lo links> = 0 ] && npx vitest run'` (`effort-final/run-shard.sh`), in 3 shards. A test-fire on `ef-cron-error-eq-null` gave control 1122/1122, and the mutant KILLED with 1 failed and 1121 passed.
 
-*Results: pending (running).*
+**Result: 265 mutants. 256 KILLED, 9 SURVIVED, 0 STILLBORN, 0 ABORTED, 0 CONTROL-FAILED.** Kill table: `effort-final/website-killtable.tsv`, built by `killtable.py` from the six runner tables in `effort-final/website-sweep-c5303ca/{firstpass,rerun}/table*.json`. Each killed row names its failing cases, read from the run's stderr ` FAIL ` lines. Cross-check against a second instrument, the runner's own summary lines (`driver*.txt`): the re-run killed 78 + 76 + 75 = 229 of 232, and the first pass killed 8 + 11 + 8 = 27 of the 33 ids that ran. That gives 256 killed and 9 survived, matching the table. The runner's own 'instruments' field in each table records the blob identity of the mutants file and the lock manifest. Raw per-run output was left in the scratchpad and is not committed (about 530 runs × 2 files).
+
+How the run went, two disclosed false starts, neither scored:
+1. Three shards ran in parallel at vitest's default worker count, and every control failed. Under the load, `NewMessageModal.persist-gate-wiring` "a classic draft loaded via the JSON tab writes through Save" timed out at 5000 ms. `run-shard.sh` now caps each shard at `--maxWorkers=5` (`25949f2`), and every control then passed at 1122/1122.
+2. In the first capped pass, 232 of 265 rows were ABORTED with exit 127 in 0.45 s (`sh: 1: vitest: not found`). The runner names each export directory after the mutant id. The consolidated ids carry a `:`, which split `PATH` inside the export. Only the 33 colon-free `ef-*` ids ran. The 232 were re-run under ids with `:` replaced by `__` (`website-sweep-mutants-rerun.json`, `8b5ca5d`; the original id is kept as `orig_id`). The ABORTED rows are superseded and excluded from the table.
+
+Kills to read with care:
+- `ef-author-effect-deps-dropped`: KILLED by the 300 s timeout (count unknown). With `[]` dropped, the effect re-runs after every render, and its `setTs` re-renders, so the suite never finishes.
+- `m4-table__m4a-catch-dropped`, `m4-table__m4d-webhook-catch-dropped`, `qa-m4-supplement__i3-catch-dropped`: KILLED with every case passing (count checked, 1122). vitest reports "Unhandled Rejection", so the process exits non-zero. These are real kills: the suite run is red, and the conventions' "a green pass set is not a green run" is exactly this.
+
+Survivors (9), each dispositioned:
+
+| Mutant | Disposition |
+|---|---|
+| `ef-embedfooter-iconurl-falsy` (`val === '' ? undefined : val` → `val \|\| undefined`) | **Equivalent.** `EmbedFooterType['icon_url']` is `string \| undefined`, and the two forms agree on every string and on `undefined`. |
+| `qa-m4-supplement__rider-loose-inequality` | Dispositioned at M4 (`qa/015-bug-evaluation-fixes-m4-qa.md`): it differs only for a non-string `guild_id`, which Discord's contract bars. |
+| `qa-r4-supplement__r4-mounted-every-render` | Equivalent, dispositioned at the CR-26 pass (`qa/015-bug-evaluation-fixes-qaf34-qaf35-cr26-qa.md`). |
+| `m5-table__m5f-save-as-refills-on-close-too` | Dispositioned at M5 (`qa/015-bug-evaluation-fixes-m5-qa.md`): the extra refill runs during the leave transition, which jsdom does not render. That is a stated limit under the environment-fidelity convention. |
+| `ef-header-other-bypasses-formatter`, `ef-folder-list-drops-prefix` | **QAF-38** |
+| `ef-redis-wait-falsy-miss`, `ef-redis-wait-timeout-falsy-miss` | **QAF-39** |
+| `ef-imageuploader-validation-bypassed` | **QAF-40** |
+
+Each survivor of the first pass was judged against the tip source before this table was written. The siblings on the same surface were killed: `ef-header-recent-bypasses-formatter` (1 case), `ef-folder-grid-drops-prefix` (1) and `ef-redis-getfromcache-falsy-miss` (2). So each finding below is a site its sibling's cell does not reach, not a surface with no cell at all.
 
 ### Owed checks
 
@@ -106,10 +129,53 @@ QAF-37 MEDIUM Phase 2 — the shutdown path's 10 s fallback exit (`src/server.ts
 - **Shown by:** the mutant survives with the control at 32 cells and 0 failed. The P1 failed-drain cell covers a drain that rejects, not one that never settles.
 - **Owed (implementer, test-only):** a rig cell whose drain never settles (for example a held `/generate` whose page never reaches network idle, or a stubbed pool whose `drain` never resolves), asserting that the process exits with code 0 by about 10 s and before 12 s. It must be shown red under `qa-ef-fallback-timer-removed` and green at `8de2b53`. QA re-runs that mutant alone after the fix.
 
+QAF-38 MEDIUM Phase 2 — M5-e's "Today" rule has no cell at one call site on each page that carries it. The `Header.tsx` "other matches" list (`{formatMessageDate(msg.updatedAt)}` under `otherMatches.map`) and the folder page's list view (`f/[id]/page.tsx`, the `text-sm text-mute` site passing `'Today at '`) can each bypass the formatter, or drop the prefix, with the suite green.
+- **Why it matters:** M5-e names both copies, `Header.tsx` and `f/[id]/page.tsx`. Each copy now has two call sites into `formatMessageDate`, and each call site is a member: a user sees the date at all four. The recent-matches site and the grid site have cells; their siblings do not. This is a behaviour the change relies on with no assertion that fails when it is lost.
+- **Shown by:** `ef-header-other-bypasses-formatter` and `ef-folder-list-drops-prefix` survive, while `ef-header-recent-bypasses-formatter` and `ef-folder-grid-drops-prefix` are each killed by 1 case (`website-killtable.tsv`).
+- **Owed (implementer, test-only):** extend the existing cells that kill the siblings, rather than adding new files. Each extended cell must reach the other-matches entry and the list view, be shown red under its survivor, and be green at `c5303ca`.
+
+QAF-39 MEDIUM Phase 2 — the hot cache's waiter path does not treat a cached falsy value as a hit under any assertion. In `src/utils/redis/index.ts` `wait`, both sites read `cached.item` behind `if (cached)`: the immediate check after the waiter registers, and the timeout check. Either can be narrowed to `cached?.item`, which makes a cached `null` a miss, and the suite stays green.
+- **Why it matters:** the `{ item }` wrapper is CR-3's fix (sign-out read a cached `null` as "no account"). The chain applies it at three sites: `getFromCache` and the two in `wait`. With the narrowing, a request that waits on another's mutex for a key whose cached value is `null` gets a rejection ("fetch timed out") after `timeoutSeconds` instead of `null`. Only `getFromCache`'s site has a cell.
+- **Shown by:** `ef-redis-wait-falsy-miss` and `ef-redis-wait-timeout-falsy-miss` survive, and `ef-redis-getfromcache-falsy-miss` is killed (2 cases).
+- **Owed (implementer, test-only):** in the existing cache test that kills `ef-redis-getfromcache-falsy-miss`, add a waiter case. The mutex must be held, so the call goes to `wait`, and the cached value must be `null`, set before and after the waiter registers. Assert it resolves `null`, with no rejection. Each case must be shown red under its survivor.
+
+QAF-40 MEDIUM Phase 2 — the M6-b predicate has no cell at the point where it reaches a user. `src/components/ImageUploader.tsx` `checkImage` refuses a URL that `isValidImageUrl` rejects before loading it. With the guard removed (`if (false)`), the suite is green.
+- **Why it matters:** M6-b states the predicate ("a URL is valid exactly when its path's final segment ends in one of …"), and `isValidImageUrl.ts` has its unit cells. The chain moved the predicate out of `ImageUploader` into its own module. The uploader's call site is what makes M6-b observable: a refused URL is never loaded and shows "Invalid url.". No cell asserts that the uploader consults the predicate.
+- **Shown by:** `ef-imageuploader-validation-bypassed` survives.
+- **Owed (implementer, test-only):** an `ImageUploader` cell (DOM harness) with a URL the predicate refuses, for example `a.png.html` from M6-b's members. It asserts the URL is refused without an image load, alongside a control URL the predicate accepts. It must be shown red under the survivor and green at `c5303ca`.
+
+QAF-37 RESOLVED (2026-11-08T12:38: preview-image-generator `8de2b53` unchanged; the rig cell at agent-output `8fb1eee`, code review Round 18 sub-entry `f77e71c`).
+- Re-run by QA with the committed probe blob `14f5cfc` (`effort-final/gen-qaf37-mutants-8de2b53.json`, `gen-sweep-8de2b53/qaf37/`), one run at a time.
+- The control is 35 cells with 0 failed, and the fallback exits at 10,029 ms.
+- `qa-ef-fallback-timer-removed` is KILLED, with 2 red: the code-0 exit and the window.
+- The adequacy mutant `qa-ef-close-not-awaited` (the drain no longer waits for `server.close`) is KILLED, with 2 red: the window, and "no drain-complete line and no drain-failed line". So each of the cell's three checks has been seen red at least once. This answers code review's adequacy note.
+- Load during the run: load average 9.95 at the start and 8.33 at the end on 18 cores, from other sessions. The box was not idle.
+
+## Verdict
+
+**QA Failed** at website `c5303ca` and preview-image-generator `8de2b53`. It fails on test adequacy alone: QAF-38, QAF-39 and QAF-40 are each MEDIUM, test-only and routed to the implementer. No production defect was found in either repository. Every other criterion this pass assessed is met:
+- the generator's whole production diff is swept at the tip, with QAF-37 RESOLVED;
+- the website sweep's other survivors are dispositioned;
+- the CR-12 belonging comparison is killed under every form, 5 mutants;
+- Discord's `color` contract holds;
+- RK-7 holds.
+
+Re-run scope after the fix round: the round changes no production code, so only the five survivors it closes are re-run, each alone against the committed tests. Those are `ef-header-other-bypasses-formatter`, `ef-folder-list-drops-prefix`, `ef-redis-wait-falsy-miss`, `ef-redis-wait-timeout-falsy-miss` and `ef-imageuploader-validation-bypassed`. A wider sweep runs only on the owner's word. The suite is re-run once at the new tip, for counts and exit code.
+
 ## Assumption Not Checked
 
-*Pending until the website half is in.*
+This pass assumes that each hunk in `effort-final/gap-dispositions.md`'s "wrapper or plumbing whose behaviour a neighbouring mutant decides" class is in fact decided by the neighbour it names. That is about 15 hunks, including `JsonModalBody`'s `copyText` memo, the `let isStale` declarations, the redis `{ item }` construction and `auth.ts`'s `Promise.resolve(` wrap. The pass does not test it: those lines carry no mutant of their own.
+- **Signature of its falsity:** a mutant written on one of those lines that survives while the named neighbour is killed.
+- **Owner of closing:** the owner's word, through steering. Mutating those lines widens the sweep beyond the survivors the fix round closes, which the sweep rule reserves to him. The cost is about 15 runs (about 10 minutes, one shard). Without his word, it stands as a stated limit of this pass, and the Phase 3 release-tip verdict inherits it by name.
+
+Checked in this pass rather than assumed (under a minute):
+- **Failing-case attribution.** Over the 255 killed rows that did not time out, none has `N failed` > 0 on its `Tests` line with no stderr `FAIL` line. The only rows with 0 `FAIL` lines are the 3 unhandled-rejection kills, each 1122 passed.
+- **The code-moved class's new homes are swept.** The mutant counts per file in `website-sweep-mutants.json` are: `formatMessageDate.ts` 5, `isValidImageUrl.ts` 7, `messageLimits.ts` 3, `parseMessageId.ts` 3, and `limits.tsx` 9, of which 5 are on the component-count logic.
 
 ## Handoff
 
-*Pending.*
+- **Implementer** (implementer-hooks-015): QAF-38, QAF-39 and QAF-40, all test-only on the website chain branch, then to code review as usual.
+- **Code review:** the fix round's test diff, under its scoped check.
+- **QA:** after code review's sub-entry, the five-survivor re-run and the suite at the new tip. Then the effort-final verdict, and UAT's hand-off.
+- **Register:** `qa/015-bug-evaluation-fixes-qa.md`. No row is appended by this pass. Rows inherited and not discharged: B-1, B-2, B-4 to B-14 (B-3 withdrawn). B-8 carries the rev 28 D36 limb.
+- **Roadmap:** no roadmap exists (plan `Epic-Alignment`), so no epic acceptance criterion moves.

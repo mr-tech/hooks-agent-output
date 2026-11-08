@@ -1,0 +1,1589 @@
+{
+ "sha": "c5303caef4b138c8d76e3595ebcc85bcd8090cad",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/shard2.json",
+ "command": [
+  "unshare",
+  "-rn",
+  "sh",
+  "-c",
+  "ip link set lo up && [ \"$(ip -o link show | grep -vc \": lo:\")\" = 0 ] && npx vitest run --maxWorkers=5"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "timeout": 300.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "7d3dcf4f16bc57596eef09db0bfa9bd450b36bbb"
+  },
+  {
+   "kind": "mutants",
+   "path": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/shard2.json",
+   "blob": "db5a98cba8353d743b689718f7b15886a3639fbc"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-control-1.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-control-1.stderr",
+   "seconds": 51.24,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 1122,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "m1-rebuild-table__m1c-lookup-error-clear-unswallowed",
+   "file": "src/server/auth.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "m1-rebuild-table:m1c-lookup-error-clear-unswallowed"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 41.94,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m1-rebuild-table__m1c-lookup-error-clear-unswallowed.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m1-rebuild-table__m1c-lookup-error-clear-unswallowed.stderr"
+  },
+  {
+   "id": "m1-rebuild-table__m1c-guilds-key-dropped",
+   "file": "src/server/auth.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "m1-rebuild-table:m1c-guilds-key-dropped"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 42.88,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m1-rebuild-table__m1c-guilds-key-dropped.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m1-rebuild-table__m1c-guilds-key-dropped.stderr"
+  },
+  {
+   "id": "m1-rebuild-table__m1h-message-handler-dropped",
+   "file": "src/server/auth.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "m1-rebuild-table:m1h-message-handler-dropped"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 50.73,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m1-rebuild-table__m1h-message-handler-dropped.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m1-rebuild-table__m1h-message-handler-dropped.stderr"
+  },
+  {
+   "id": "m1c-accounts-update-before-revoke__m1c-accounts-update-before-revoke",
+   "file": "src/server/auth.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "m1c-accounts-update-before-revoke:m1c-accounts-update-before-revoke"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 41.66,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m1c-accounts-update-before-revoke__m1c-accounts-update-before-revoke.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m1c-accounts-update-before-revoke__m1c-accounts-update-before-revoke.stderr"
+  },
+  {
+   "id": "m1d-cap-comparator-strict__m1d-cap-comparator-strict",
+   "file": "src/server/api/utils/shared.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "m1d-cap-comparator-strict:m1d-cap-comparator-strict"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 40.65,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m1d-cap-comparator-strict__m1d-cap-comparator-strict.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m1d-cap-comparator-strict__m1d-cap-comparator-strict.stderr"
+  },
+  {
+   "id": "m1f-env-guard-reverted__m1f-env-guard-reverted",
+   "file": "src/env.mjs",
+   "tests": [],
+   "carried": {
+    "orig_id": "m1f-env-guard-reverted:m1f-env-guard-reverted"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 50.86,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m1f-env-guard-reverted__m1f-env-guard-reverted.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m1f-env-guard-reverted__m1f-env-guard-reverted.stderr"
+  },
+  {
+   "id": "m1g-parse-before-verify__m1g-parse-before-verify",
+   "file": "src/pages/api/interactions-edge.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "m1g-parse-before-verify:m1g-parse-before-verify"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 41.04,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m1g-parse-before-verify__m1g-parse-before-verify.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m1g-parse-before-verify__m1g-parse-before-verify.stderr"
+  },
+  {
+   "id": "m2-embedshape-table__image-url-unchecked",
+   "file": "src/server/api/utils/shapes.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "m2-embedshape-table:image-url-unchecked"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 42.86,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m2-embedshape-table__image-url-unchecked.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m2-embedshape-table__image-url-unchecked.stderr"
+  },
+  {
+   "id": "m2-embedshape-table__footer-icon-unchecked",
+   "file": "src/server/api/utils/shapes.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "m2-embedshape-table:footer-icon-unchecked"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 50.7,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m2-embedshape-table__footer-icon-unchecked.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m2-embedshape-table__footer-icon-unchecked.stderr"
+  },
+  {
+   "id": "m2-embedshape-table__author-icon-required",
+   "file": "src/server/api/utils/shapes.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "m2-embedshape-table:author-icon-required"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 41.13,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m2-embedshape-table__author-icon-required.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m2-embedshape-table__author-icon-required.stderr"
+  },
+  {
+   "id": "m2-embedshape-table__colour-ceiling-lowered",
+   "file": "src/server/api/utils/shapes.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "m2-embedshape-table:colour-ceiling-lowered"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 41.6,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m2-embedshape-table__colour-ceiling-lowered.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m2-embedshape-table__colour-ceiling-lowered.stderr"
+  },
+  {
+   "id": "m2-embedshape-table__author-bound-80",
+   "file": "src/utils/limits.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m2-embedshape-table:author-bound-80"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 51.53,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m2-embedshape-table__author-bound-80.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m2-embedshape-table__author-bound-80.stderr"
+  },
+  {
+   "id": "m2-embedshape-table__ingress-colour-truthy",
+   "file": "src/utils/discordResponseToMessage.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "m2-embedshape-table:ingress-colour-truthy"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 41.01,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m2-embedshape-table__ingress-colour-truthy.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m2-embedshape-table__ingress-colour-truthy.stderr"
+  },
+  {
+   "id": "m4-d29-table__d29-dialog-error-line-drops-webhook-error",
+   "file": "src/app/message/_components/NewMessageModal.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m4-d29-table:d29-dialog-error-line-drops-webhook-error"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 42.11,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m4-d29-table__d29-dialog-error-line-drops-webhook-error.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m4-d29-table__d29-dialog-error-line-drops-webhook-error.stderr"
+  },
+  {
+   "id": "m4-table__m4a-disable-dropped",
+   "file": "src/app/message/m/[id]/send/page.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m4-table:m4a-disable-dropped"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 51.59,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m4-table__m4a-disable-dropped.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m4-table__m4a-disable-dropped.stderr"
+  },
+  {
+   "id": "m4-table__m4c-clear-on-name",
+   "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m4-table:m4c-clear-on-name"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 40.65,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m4-table__m4c-clear-on-name.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m4-table__m4c-clear-on-name.stderr"
+  },
+  {
+   "id": "m4-table__rider-compares-channel-id",
+   "file": "src/server/api/routers/message.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "m4-table:rider-compares-channel-id"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 42.7,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m4-table__rider-compares-channel-id.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m4-table__rider-compares-channel-id.stderr"
+  },
+  {
+   "id": "m4-table__rider-group-swap",
+   "file": "src/server/api/routers/message.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "m4-table:rider-group-swap"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 53.18,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m4-table__rider-group-swap.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m4-table__rider-group-swap.stderr"
+  },
+  {
+   "id": "m4-table__hook-message-catch-dropped",
+   "file": "src/utils/hooks/useValidateWebhook.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "m4-table:hook-message-catch-dropped"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 41.03,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m4-table__hook-message-catch-dropped.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m4-table__hook-message-catch-dropped.stderr"
+  },
+  {
+   "id": "m4-table__m4d-message-text-provider",
+   "file": "src/providers/WebhookProvider.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m4-table:m4d-message-text-provider"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 42.91,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m4-table__m4d-message-text-provider.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m4-table__m4d-message-text-provider.stderr"
+  },
+  {
+   "id": "m4-table__m4d-regex-narrow",
+   "file": "src/constants/index.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "m4-table:m4d-regex-narrow"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 54.44,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m4-table__m4d-regex-narrow.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m4-table__m4d-regex-narrow.stderr"
+  },
+  {
+   "id": "m4-table__m4d-regex-http",
+   "file": "src/constants/index.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "m4-table:m4d-regex-http"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 42.74,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m4-table__m4d-regex-http.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m4-table__m4d-regex-http.stderr"
+  },
+  {
+   "id": "m4-table__m4d-parse-untrimmed",
+   "file": "src/utils/parseMessageId.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "m4-table:m4d-parse-untrimmed"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 43.51,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m4-table__m4d-parse-untrimmed.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m4-table__m4d-parse-untrimmed.stderr"
+  },
+  {
+   "id": "m4-table__m4d-webhook-catch-dropped",
+   "file": "src/providers/WebhookProvider.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m4-table:m4d-webhook-catch-dropped"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 56.79,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m4-table__m4d-webhook-catch-dropped.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m4-table__m4d-webhook-catch-dropped.stderr"
+  },
+  {
+   "id": "m5-table__m5b-copy-disabled-only-when-unparsable",
+   "file": "src/app/message/m/[id]/_components/JsonModalBody.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m5-table:m5b-copy-disabled-only-when-unparsable"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 42.75,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m5-table__m5b-copy-disabled-only-when-unparsable.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m5-table__m5b-copy-disabled-only-when-unparsable.stderr"
+  },
+  {
+   "id": "m5-table__m5c-pusher-ref-never-updated",
+   "file": "src/providers/MessageProvider/usePusher.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "m5-table:m5c-pusher-ref-never-updated"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 42.45,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m5-table__m5c-pusher-ref-never-updated.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m5-table__m5c-pusher-ref-never-updated.stderr"
+  },
+  {
+   "id": "m5-table__m5e-month-dropped",
+   "file": "src/utils/formatMessageDate.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "m5-table:m5e-month-dropped"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 56.28,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m5-table__m5e-month-dropped.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m5-table__m5e-month-dropped.stderr"
+  },
+  {
+   "id": "m5-table__m5f-save-as-name-not-refilled",
+   "file": "src/app/message/m/[id]/_components/SaveAsMenu.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m5-table:m5f-save-as-name-not-refilled"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 43.37,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m5-table__m5f-save-as-name-not-refilled.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m5-table__m5f-save-as-name-not-refilled.stderr"
+  },
+  {
+   "id": "m5-table__m5f-save-as-refills-on-close-too",
+   "file": "src/app/message/m/[id]/_components/SaveAsMenu.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m5-table:m5f-save-as-refills-on-close-too"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 50.86,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m5-table__m5f-save-as-refills-on-close-too.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m5-table__m5f-save-as-refills-on-close-too.stderr"
+  },
+  {
+   "id": "m5-table__m5i-seeded-at-mount",
+   "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m5-table:m5i-seeded-at-mount"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 53.07,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m5-table__m5i-seeded-at-mount.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m5-table__m5i-seeded-at-mount.stderr"
+  },
+  {
+   "id": "m5-table__m5i-guild-dropped",
+   "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m5-table:m5i-guild-dropped"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 41.08,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m5-table__m5i-guild-dropped.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m5-table__m5i-guild-dropped.stderr"
+  },
+  {
+   "id": "m5-table__m5h-primitive-passes",
+   "file": "src/app/preview/page.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m5-table:m5h-primitive-passes"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 42.52,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m5-table__m5h-primitive-passes.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m5-table__m5h-primitive-passes.stderr"
+  },
+  {
+   "id": "m5-table__m5h-boundary-removed",
+   "file": "src/app/preview/page.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m5-table:m5h-boundary-removed"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 57.93,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m5-table__m5h-boundary-removed.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m5-table__m5h-boundary-removed.stderr"
+  },
+  {
+   "id": "m5-table__m5h-error-not-text-error",
+   "file": "src/app/preview/page.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m5-table:m5h-error-not-text-error"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 38.59,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m5-table__m5h-error-not-text-error.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m5-table__m5h-error-not-text-error.stderr"
+  },
+  {
+   "id": "m6-table__m6d-displayed-fields-or",
+   "file": "src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m6-table:m6d-displayed-fields-or"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 37.83,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6d-displayed-fields-or.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6d-displayed-fields-or.stderr"
+  },
+  {
+   "id": "m6-table__m6e-colorpicker-cleanup-dropped",
+   "file": "src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m6-table:m6e-colorpicker-cleanup-dropped"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 47.21,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6e-colorpicker-cleanup-dropped.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6e-colorpicker-cleanup-dropped.stderr"
+  },
+  {
+   "id": "m6-table__m6b-query-kept",
+   "file": "src/utils/isValidImageUrl.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "m6-table:m6b-query-kept"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 33.02,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6b-query-kept.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6b-query-kept.stderr"
+  },
+  {
+   "id": "m6-table__m6b-webp-dropped",
+   "file": "src/utils/isValidImageUrl.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "m6-table:m6b-webp-dropped"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 32.64,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6b-webp-dropped.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6b-webp-dropped.stderr"
+  },
+  {
+   "id": "m6-table__m6c-name-or-value",
+   "file": "src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m6-table:m6c-name-or-value"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 47.48,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6c-name-or-value.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6c-name-or-value.stderr"
+  },
+  {
+   "id": "m6-table__m6d-move-left-shifted",
+   "file": "src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m6-table:m6d-move-left-shifted"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 42.32,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6d-move-left-shifted.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6d-move-left-shifted.stderr"
+  },
+  {
+   "id": "m6-table__m6e-timeout-not-cleared",
+   "file": "src/components/DiscordMessageEditor/components/Author.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m6-table:m6e-timeout-not-cleared"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 41.71,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6e-timeout-not-cleared.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6e-timeout-not-cleared.stderr"
+  },
+  {
+   "id": "m6-table__m6f-truthiness-nonblack-fallback",
+   "file": "src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m6-table:m6f-truthiness-nonblack-fallback"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 50.9,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6f-truthiness-nonblack-fallback.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6f-truthiness-nonblack-fallback.stderr"
+  },
+  {
+   "id": "m6-table__m6g-sort-removed",
+   "file": "src/utils/markdown/emoji.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m6-table:m6g-sort-removed"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 46.48,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6g-sort-removed.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6g-sort-removed.stderr"
+  },
+  {
+   "id": "m6-table__m6h-aria-inverted",
+   "file": "src/utils/markdown/components/MarkdownSpoiler.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m6-table:m6h-aria-inverted"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 41.16,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6h-aria-inverted.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6h-aria-inverted.stderr"
+  },
+  {
+   "id": "m6-table__m6i-actionrow-copy-last",
+   "file": "src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m6-table:m6i-actionrow-copy-last"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 47.4,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6i-actionrow-copy-last.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6i-actionrow-copy-last.stderr"
+  },
+  {
+   "id": "m6-table__m6i-container-copy-last",
+   "file": "src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m6-table:m6i-container-copy-last"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 46.07,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6i-container-copy-last.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6i-container-copy-last.stderr"
+  },
+  {
+   "id": "m6-table__m6k-falsy-inner-key-is-absent",
+   "file": "src/utils/maps/UpsertMapMap.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "m6-table:m6k-falsy-inner-key-is-absent"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 41.13,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6k-falsy-inner-key-is-absent.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6k-falsy-inner-key-is-absent.stderr"
+  },
+  {
+   "id": "m6-table__m6l-top-accessory-uncounted",
+   "file": "src/utils/limits.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m6-table:m6l-top-accessory-uncounted"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 46.44,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6l-top-accessory-uncounted.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6l-top-accessory-uncounted.stderr"
+  },
+  {
+   "id": "m6-table__m6l-error-names-limit-not-total",
+   "file": "src/utils/limits.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m6-table:m6l-error-names-limit-not-total"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 47.24,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6l-error-names-limit-not-total.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6l-error-names-limit-not-total.stderr"
+  },
+  {
+   "id": "m6-table__m6l-editor-offers-at-limit",
+   "file": "src/components/DiscordMessageEditor/index.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m6-table:m6l-editor-offers-at-limit"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 40.81,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6l-editor-offers-at-limit.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6l-editor-offers-at-limit.stderr"
+  },
+  {
+   "id": "m6-table__m6l-actionrow-add-stricter",
+   "file": "src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "m6-table:m6l-actionrow-add-stricter"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 43.86,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6l-actionrow-add-stricter.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m6-table__m6l-actionrow-add-stricter.stderr"
+  },
+  {
+   "id": "m7-table__m7a-administrator-only",
+   "file": "bot/scripts/app_commands/common.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "m7-table:m7a-administrator-only"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 49.79,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m7-table__m7a-administrator-only.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m7-table__m7a-administrator-only.stderr"
+  },
+  {
+   "id": "m7-table__m7b-timestamp-ignores-argument",
+   "file": "bot/utils/DiscordEmbed.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "m7-table:m7b-timestamp-ignores-argument"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 41.02,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m7-table__m7b-timestamp-ignores-argument.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-m7-table__m7b-timestamp-ignores-argument.stderr"
+  },
+  {
+   "id": "qa-m1-supplement__i2-token-is-provider-id",
+   "file": "src/server/auth.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "qa-m1-supplement:i2-token-is-provider-id"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 43.56,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m1-supplement__i2-token-is-provider-id.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m1-supplement__i2-token-is-provider-id.stderr"
+  },
+  {
+   "id": "qa-m1-supplement__i2-row-read-by-session-token",
+   "file": "src/server/auth.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "qa-m1-supplement:i2-row-read-by-session-token"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 52.85,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m1-supplement__i2-row-read-by-session-token.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m1-supplement__i2-row-read-by-session-token.stderr"
+  },
+  {
+   "id": "qa-m1-supplement__i4-cap-constant-1001",
+   "file": "src/constants/index.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "qa-m1-supplement:i4-cap-constant-1001"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 41.63,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m1-supplement__i4-cap-constant-1001.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m1-supplement__i4-cap-constant-1001.stderr"
+  },
+  {
+   "id": "qa-m1-supplement__m1a-partial-empty-returns-early",
+   "file": "src/server/api/utils/shared.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "qa-m1-supplement:m1a-partial-empty-returns-early"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 40.65,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m1-supplement__m1a-partial-empty-returns-early.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m1-supplement__m1a-partial-empty-returns-early.stderr"
+  },
+  {
+   "id": "qa-m2-supplement__colour-int-dropped",
+   "file": "src/server/api/utils/shapes.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "qa-m2-supplement:colour-int-dropped"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 52.53,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m2-supplement__colour-int-dropped.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m2-supplement__colour-int-dropped.stderr"
+  },
+  {
+   "id": "qa-m2-supplement__border-colour-fixed",
+   "file": "src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "qa-m2-supplement:border-colour-fixed"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 42.47,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m2-supplement__border-colour-fixed.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m2-supplement__border-colour-fixed.stderr"
+  },
+  {
+   "id": "qa-m4-supplement__rider-loose-inequality",
+   "file": "src/server/api/routers/message.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "qa-m4-supplement:rider-loose-inequality"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 40.96,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m4-supplement__rider-loose-inequality.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m4-supplement__rider-loose-inequality.stderr"
+  },
+  {
+   "id": "qa-m4-supplement__provider-401-text",
+   "file": "src/providers/WebhookProvider.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "qa-m4-supplement:provider-401-text"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 45.27,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m4-supplement__provider-401-text.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m4-supplement__provider-401-text.stderr"
+  },
+  {
+   "id": "qa-m4-supplement__provider-refused-shows-error",
+   "file": "src/providers/WebhookProvider.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "qa-m4-supplement:provider-refused-shows-error"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 49.23,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m4-supplement__provider-refused-shows-error.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m4-supplement__provider-refused-shows-error.stderr"
+  },
+  {
+   "id": "qa-m6-supplement__m6i-container-copy-before",
+   "file": "src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "qa-m6-supplement:m6i-container-copy-before"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 41.37,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m6-supplement__m6i-container-copy-before.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m6-supplement__m6i-container-copy-before.stderr"
+  },
+  {
+   "id": "qa-m6-supplement__m6l-add-gate-only-at-40",
+   "file": "src/components/DiscordMessageEditor/index.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "qa-m6-supplement:m6l-add-gate-only-at-40"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 42.7,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m6-supplement__m6l-add-gate-only-at-40.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m6-supplement__m6l-add-gate-only-at-40.stderr"
+  },
+  {
+   "id": "qa-m6-supplement__m6l-nesting-recursion-removed",
+   "file": "src/utils/limits.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "qa-m6-supplement:m6l-nesting-recursion-removed"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 59.55,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m6-supplement__m6l-nesting-recursion-removed.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m6-supplement__m6l-nesting-recursion-removed.stderr"
+  },
+  {
+   "id": "qa-r2-supplement__m6d-filter-name-or-value",
+   "file": "src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "qa-r2-supplement:m6d-filter-name-or-value"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 41.2,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-r2-supplement__m6d-filter-name-or-value.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-r2-supplement__m6d-filter-name-or-value.stderr"
+  },
+  {
+   "id": "qa-r2-supplement__m6a-paragraph-splits-fence",
+   "file": "src/utils/markdown/rules.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "qa-r2-supplement:m6a-paragraph-splits-fence"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 41.01,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-r2-supplement__m6a-paragraph-splits-fence.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-r2-supplement__m6a-paragraph-splits-fence.stderr"
+  },
+  {
+   "id": "qa-r2-supplement__m5h-array-allowed",
+   "file": "src/app/preview/page.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "qa-r2-supplement:m5h-array-allowed"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 48.24,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-r2-supplement__m5h-array-allowed.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-r2-supplement__m5h-array-allowed.stderr"
+  },
+  {
+   "id": "qa-r2-supplement__m5i-no-auth-conjunct",
+   "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "qa-r2-supplement:m5i-no-auth-conjunct"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 49.44,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-r2-supplement__m5i-no-auth-conjunct.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-r2-supplement__m5i-no-auth-conjunct.stderr"
+  },
+  {
+   "id": "qa-r2-supplement__cr24-portal-cleanup-noop",
+   "file": "src/components/BottomPortal.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "qa-r2-supplement:cr24-portal-cleanup-noop"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 40.63,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-r2-supplement__cr24-portal-cleanup-noop.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-r2-supplement__cr24-portal-cleanup-noop.stderr"
+  },
+  {
+   "id": "qa-r2-supplement__m7a-admin-only",
+   "file": "bot/scripts/app_commands/common.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "qa-r2-supplement:m7a-admin-only"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 42.32,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-r2-supplement__m7a-admin-only.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-r2-supplement__m7a-admin-only.stderr"
+  },
+  {
+   "id": "qa-r4-supplement__r5-button-aria-off",
+   "file": "src/components/Button.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "qa-r4-supplement:r5-button-aria-off"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 58.7,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-r4-supplement__r5-button-aria-off.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-r4-supplement__r5-button-aria-off.stderr"
+  },
+  {
+   "id": "qa-r4-supplement__r4-editor-onmount-every-render",
+   "file": "src/components/DiscordMessageEditor/index.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "qa-r4-supplement:r4-editor-onmount-every-render"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 42.92,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-r4-supplement__r4-editor-onmount-every-render.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-r4-supplement__r4-editor-onmount-every-render.stderr"
+  },
+  {
+   "id": "qaf20-constructimageurl-discriminator-parse-dropped__qaf20-constructimageurl-discriminator-parse-dropped",
+   "file": "src/utils/constructImageUrl.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "qaf20-constructimageurl-discriminator-parse-dropped:qaf20-constructimageurl-discriminator-parse-dropped"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 41.55,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qaf20-constructimageurl-discriminator-parse-dropped__qaf20-constructimageurl-discriminator-parse-dropped.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qaf20-constructimageurl-discriminator-parse-dropped__qaf20-constructimageurl-discriminator-parse-dropped.stderr"
+  },
+  {
+   "id": "qaf27-m1c-sessions-delete-added__qaf27-m1c-sessions-delete-added",
+   "file": "src/server/auth.ts",
+   "tests": [],
+   "carried": {
+    "orig_id": "qaf27-m1c-sessions-delete-added:qaf27-m1c-sessions-delete-added"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 47.1,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qaf27-m1c-sessions-delete-added__qaf27-m1c-sessions-delete-added.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qaf27-m1c-sessions-delete-added__qaf27-m1c-sessions-delete-added.stderr"
+  },
+  {
+   "id": "qaf27-m1i-raw-header-regex__qaf27-m1i-raw-header-regex",
+   "file": "src/app/_navigation/Redirects/Server.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "qaf27-m1i-raw-header-regex:qaf27-m1i-raw-header-regex"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 51.85,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qaf27-m1i-raw-header-regex__qaf27-m1i-raw-header-regex.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qaf27-m1i-raw-header-regex__qaf27-m1i-raw-header-regex.stderr"
+  },
+  {
+   "id": "qa-m4-supplement__i3-stuck-disabled",
+   "file": "src/app/message/m/[id]/send/page.tsx",
+   "tests": [],
+   "carried": {
+    "orig_id": "qa-m4-supplement:i3-stuck-disabled"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1122,
+   "control_tests_run": 1122,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 40.76,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m4-supplement__i3-stuck-disabled.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks/becdccfe-da14-4b60-a468-0d3f66e83564/scratchpad/wsweep/out2/c5303caef4b138c8d76e3595ebcc85bcd8090cad-20261108T113346Z-p2709092-mutant-qa-m4-supplement__i3-stuck-disabled.stderr"
+  }
+ ],
+ "score": "75 of 77 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; shard2.json (blob db5a98cba8353d743b689718f7b15886a3639fbc))"
+}
