@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: In Progress
-Status-Detail: "M0 and M2 delivered; M1 is rebuilding M1-c and M1-h. Revision 14 registers D24 (M4-d's accepted inputs and network-error text), restates M4-c, folds the rev 12+13 gate findings (CR-6 to CR-8, QAF-17, QAF-18) and the M3 premise note (R-5), and opens X-17 for CR-6. Criterion text changed in M1-i, M4-c, M4-d and M6-f, so the critic (cycle 4), the architect, QA and code review read the rev 14 delta. M4 waits on it; M1-c and M1-h do not."
-Revision: 14
+Status-Detail: "M0 and M2 delivered; M1 is rebuilding M1-c and M1-h. Revision 15 sits on rev 14. It registers D25 (M4-d also admits discordapp.com links), opens OQ-J (whether the shared link pattern widens: a scope question for the owner, holding M4-d's code only), and replaces rev 14's M3 premise note: M3 is held for a real-Chrome read. The critic (cycle 4), the architect, QA and code review read 9cbe755..rev 15 in one round."
+Revision: 15
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
 Lane: "standard — agent-output/README.md carries no small-lane section (grep -i small, 0 hits, 2026-11-08); the blast radius spans the save schema, a bot command's permissions and a production PM2 service, none a leaf"
@@ -41,7 +41,7 @@ Owed re-verdicts:
 | M1-c lookup-error cell (D22); M1-h trigger "or returns" and decision table; M8-a run-2 span anchored on stop (1) and stop (2) timestamps; RK-7 reducing predicate; re-derivation reading of block 05:50Z | rev 11 | critic, architect, qa (delta only) | approved (architect `8868b7d`, QA `22fef2d`, critic `d18de10`); QAF-14 to QAF-16 and L-C3-4 folded at rev 12 with CR-3 |
 | M1-c account decision from the `Accounts` row (CR-3), "falsy return" withdrawn, deletion-failure outcome (QAF-15); M1-h table row 6 timing (QAF-14); run-2 stop line (QAF-16) | rev 12, rev 13 | critic, architect, qa, code review (one round over `14fe94f`..rev 13) | approved (architect `f7e6602`; critic `6970763`, cycle 3 closed; QA `aad87b6`; code review `7976a9a`), with CR-6 to CR-8, QAF-17 and QAF-18 folded at rev 14 |
 | D23 clock assumption (no gate re-read, by D23's own terms); M1-i restated over the `cookies()` read; M2-a's colour class (third site); re-derivation after M2 | rev 13 | same round as above, except D23's assumption | approved (same round) |
-| M1-i "present" = `cookies()` and its residue; M2-a third colour member (Picker → M6-f); M3 premise note; M4-c restated; M4-d over D24 and the shared link regex; M6-f covers colour 0; X-17 | rev 14 | critic (cycle 4), architect, qa, code review | open |
+| M1-i "present" = `cookies()` and its residue; M2-a third colour member (Picker → M6-f); M3 premise unsettled and held for a Chrome read (rev 15); M4-c restated; M4-d over D24 and D25 (hosts), OQ-J open (rev 15); M6-f covers colour 0; X-17 | rev 14, rev 15 | critic (cycle 4), architect, qa, code review (one round over `9cbe755`..rev 15) | open |
 
 ## Changelog
 
@@ -71,6 +71,7 @@ Owed re-verdicts:
 | 2026-11-08T06:44 | R-5 | planner (planner-hooks-015) | Parked the M3 premise read as a Planner batch row; its words and reads are in that row and `verification/015/m3-same-node-propagation-probe-run1.txt`. Scope delta: none, registration only. |
 | 2026-11-08T06:44 | cr | code-reviewer (code-reviewer-hooks-015) | Round 3, M2, at website `6001f7f` against rev 13: APPROVED_WITH_COMMENTS (CR-8, CR-9 and CR-10 LOW), `code-review/015-bug-evaluation-fixes-code-review.md` (`7976a9a`). Round 2 sub-entry at `6001f7f`: CR-4 RESOLVED and M1-i met under rev 13. Round 2's REJECTED stands for M1-c (CR-3) and M1-h, both held for the rev 13 round. For the planner: CR-7 LOW (M1-i's "present" is wider than what `cookies()` reports) and CR-8 LOW (M2-a's enumeration misses `Picker.tsx`, outcome-neutral, fixed at M6-f). Milestone-scoped, so plan Status is unmoved. |
 | 2026-11-08T06:48 | 14 | planner (planner-hooks-015) | Registers D24 (rulings 06:45Z, `9b94838`). It folds the rev 12+13 gate findings: code review CR-6 to CR-8 (`7976a9a`), and QA QAF-17 and QAF-18 (`aad87b6`), which duplicate CR-8 and CR-7. It folds the implementer's M4-c question and the R-5 batch row. The architect (`f7e6602`) and critic (`6970763`) had none. It is the seventh revision since implementation approval, and it opens critique cycle 4. Scope delta: M1-i defines "present" as what `cookies()` returns, with two residue classes. M2-a names `Picker.tsx` as a third member sent to M6-f. M3 gains its premise note. M4-c drops the non-existent name-view button. M4-d takes D24's inputs and text, with hosts mirroring `DISCORD_MESSAGE_LINK_REGEX`. CR-6 becomes X-17 with a handoff, not a rider. Against the ask: 49 of 50 findings, unchanged. |
+| 2026-11-08T06:51 | 15 | planner (planner-hooks-015) | Registers D25 (rulings 06:50Z, `9f97a5f`), and replaces rev 14's § M3 premise note. That note's reproduction conclusion was withdrawn at 06:52Z on the implementer's document-root probe; the error was the planner's. It is the eighth revision since implementation approval. Steering briefs one round over `9cbe755`..rev 15 in place of a rev 14 round. Scope delta: M4-d admits `discordapp.com`, and OQ-J goes to the owner. Widening the shared `DISCORD_MESSAGE_LINK_REGEX` would also change the New Message dialog and `message.getFromUrl`. M3 is held for a real-Chrome read, with QA's four cells per dialog and both outcomes routed. Against the ask: 49 of 50 findings, unchanged. |
 
 ## Value Statement and Business Objective
 
@@ -109,6 +110,7 @@ message builder that sends through webhooks.
 | D22 | M1-c is fixed in this chain: sign-out always clears both cached session entries (`user-access-token`, `user-session-token`), a database error included, and the error still reaches the caller. Residue: `user-guilds` (600 s), the revoke and the `Accounts` update on that path. | 2026-11-08 | "Agent: fix it in this chain" — selection relayed by steering-hooks-015, rulings block 06:29Z "AF-17 sign-out gap" (`904ec0d`). The option text is steering's (agent-authored), built from the planner's proposal. | Owner withdrawal only. | M1-c's lookup-error cell. M1-c reopens for one change, one code-review round and one QA Phase 2 re-run. |
 | D23 | The run-2 span's clock premise is recorded as a stated assumption beside the check — "the box runs in UTC" — with no rewrite of the requirement; the critic, the architect and QA do not re-read it again. | 2026-11-08 | "Agent: record as assumption" — selection relayed by steering-hooks-015, rulings block 06:39Z "L-C3-4" (`7faa2e0`). The option text is steering's (agent-authored): "Agent: the planner records 'the box runs in UTC' as a stated assumption beside the check, with no rewrite of the requirement. The critic, architect and QA don't re-read it again. If the box's time zone ever changes, the window could be off by the offset." Steering read the premise at 06:37Z (`Etc/UTC`). | Owner withdrawal; the host's time zone read as other than UTC. | Rev 12's added run-2 checks (`date +%z`, the `online`/ready comparison, no span on a mismatch) are withdrawn at rev 13. |
 | D24 | M4-d: an old-message fetch that fails with no response shows "Could not load the message. Check your connection and try again."; Discord refusals keep their texts; the message box accepts only an all-digits id or a Discord message link (discord.com/channels/<server>/<channel>/<message>), and anything else is refused before fetching. | 2026-11-08 | "Agent: implementer's text" and "Agent: digits or Discord link" — two selections relayed by steering-hooks-015, rulings block 06:45Z "M4-d flow questions" (`9b94838`). The option texts are steering's; the error text is the implementer's (agent-authored). | Owner withdrawal only. | M4-d. Hosts were not asked. The planner mirrors the shared `DISCORD_MESSAGE_LINK_REGEX` (§ M4-d), which D24's words do not settle; a different host set from the owner reopens that limb only. |
+| D25 | M4-d's message box also admits discordapp.com message links, beside the site's pattern (discord.com with optional www., canary. or ptb.). | 2026-11-08 | "Agent: also discordapp.com" — selection relayed by steering-hooks-015, rulings block 06:50Z "M4-d link hosts" (`9f97a5f`). The option text is steering's (agent-authored): "Agent: the site's pattern plus old discordapp.com links. The planner would then decide whether the New Message dialog gets the same change (a further scope question)." | Owner withdrawal only. | M4-d's host set. Where the pattern lives is OQ-J. Admitting `discordapp.com` without a subdomain prefix is the planner's literal reading. |
 
 ## Objective
 
@@ -395,15 +397,33 @@ Human-observable: in *Delete Embed*, Tab to Cancel, press Enter — the embed re
 chain tip. The fix lands at every member of the class (mirrors the existing per-dialog hook; no shared helper
 exists to fix once — `grep` above).
 
-**Premise read (rev 14, from R-5).** The defect reproduces in the app, read by the planner at website `6001f7f`.
-- next 16.1.6 hydrates the App Router with the React root on `document` (`client/app-index.js`:
-  `const appElement = document`), and the editor is an App Router page.
-- `@react-aria/interactions` 3.27.0 `usePress` `onKeyDown` calls `stopPropagation` from React's listener on
-  `document`.
-- That cannot stop react-hotkeys-hook 5.2.4's listener on the same node
-  (`verification/015/m3-same-node-propagation-probe-run1.txt`).
-So a cell whose React root is not the node the hotkey listens on cannot go red on the Cancel row. The
-environment-fidelity convention in `agent-output/CLAUDE.md` applies.
+**Premise: unsettled; M3 is held for a real-browser read (rev 15).**
+- **What is not established.** Whether Enter on a focused Cancel reaches the hotkey in the app.
+- **Two jsdom probes disagree, and neither settles it.**
+  - The planner's same-node listener probe (`verification/015/m3-same-node-propagation-probe-run1.txt`) does
+    not model the real dialog. Its conclusion, that F-15 reproduces, was withdrawn at 06:52Z, and the error was
+    the planner's.
+  - The implementer's document-root mount of the real `WarningDialog`
+    (`verification/015/m3-document-root-probe-6001f7f.txt`) shows the Cancel keydown stopped in the capture phase
+    at `document`, before the hotkey. What stops it is not established.
+  - jsdom has not been checked against Chrome for this path.
+- **The instrument (QA's red-evidence terms).** Real Chrome (Playwright, D20), against the unfixed tree, under
+  E-1 isolation with probe env only. Save and Send are never pressed (QA E-9). Preferred: the real editor page at
+  `/message/m/0/edit` under `next dev`. Fallback: a bundle of the dialog, mounted on `document` and in Chrome.
+- **Four cells per dialog:**
+  - (a) Tab to Cancel, then Enter — the subject;
+  - (b) Tab to the confirm button, then Enter — the positive control;
+  - (c) no focus, then Enter — the base outcome for the table's third row;
+  - (d) pointer click on Cancel — the negative control.
+- **Scope.** `ConfirmationDialog` and `ImageUploader` each get their own four cells, or a stated reason they
+  share `WarningDialog`'s path.
+- **Capture.** Under `verification/015/`, with the tree SHA and the Chrome version, committed before it is
+  cited.
+- **Outcomes:**
+  - **If (a) runs confirm,** F-15/F-39 reproduce, and M3 proceeds as written. A jsdom cell counts as red only
+    once it gives Chrome's (a) outcome at the unfixed tree.
+  - **If it does not,** F-15/F-39 are unreproduced in a real browser. The value-statement sentence "a Cancel key
+    press never deletes" goes to the owner through steering, with the read attached, before M3 is folded again.
 
 ### M4 — Send page and webhook menu (website): F-16, F-17, F-18, F-27
 
@@ -419,10 +439,16 @@ environment-fidelity convention in `agent-output/CLAUDE.md` applies.
 - **M4-d (F-27, D24)** — the message box accepts exactly two input classes, and refuses everything else before
   any fetch:
   - an all-digits id;
-  - a Discord message link as the shared `DISCORD_MESSAGE_LINK_REGEX` admits it (`src/constants/index.ts`,
-    used by `NewMessageModal` and `message.getFromUrl`): `https://`, an optional `www.`, `canary.` or `ptb.`,
-    then `discord.com/channels/<digits>/<digits>/<digits>`.
-  - **Hosts.** These mirror that sibling, which D24's words do not settle. `discordapp.com` is outside it.
+  - a Discord message link (D25): `https://`, then a host, then `/channels/<digits>/<digits>/<digits>`, with
+    nothing after it. The hosts are the shared `DISCORD_MESSAGE_LINK_REGEX`'s set (`src/constants/index.ts`: an
+    optional `www.`, `canary.` or `ptb.` before `discord.com`) plus `discordapp.com`.
+  - **The planner's literal reading of D25.** `discordapp.com` is admitted without a subdomain prefix, and
+    `ptb.discordapp.com`, `canary.discordapp.com` and `www.discordapp.com` are refused.
+  - **OPEN QUESTION OQ-J (to the owner through steering; holds M4-d's code, not its criterion).** Where the
+    widened pattern lives. Under the owner's mirror-the-siblings rule, the consistent form widens the shared
+    constant once, which also changes the New Message dialog's bot load (`NewMessageModal`) and the server's
+    `message.getFromUrl`. That is a scope delta. The other form is an M4-d-only pattern, a recorded deviation
+    from the shared one.
   - **Refused members:** text containing a digit; a URL on any other host; a message link with a trailing path.
   - **Network failure.** In either validation effect, a fetch that fails with no response shows exactly "Could
     not load the message. Check your connection and try again." (D24) and leaves no unhandled rejection. Discord
@@ -838,13 +864,13 @@ is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, 
 |---|---|---|
 | D2's steering-go wording at § M8 (M8-c), § Testing Strategy and RK-5 is released by D20 | D20 | Discharged at rev 6 |
 | QAF-10 (MEDIUM). Rev 8's run-2 span ends at the `Server received` line it counts, so "exactly one" cannot fail, and with no drain the span is undefined. This is RK-6's third member on the run-2 bounds (after rev 3's and QAF-8). It is remedied by the property over the class, not by another instance fix: every run-2 read is bounded only by events independent of any quantity counted inside it. Those events are the stopped process's own ready line, the last before the re-run's, and the re-run process's ready line, cross-checked against `pm2.log`'s timestamp for stop (2). Any extra ready line inside the span (`exp_backoff_restart_delay`, `max_restarts: 10`) is reported, never resolved by choosing one. The fold enumerates every read the span bounds: the `Server received` count, the drain-complete line and its elapsed figure (which rev 8's span leaves outside it), the `Created instance` and `POST /generate` counts, and the exit time. It also writes RK-6's record for both passes that reported this member. | `qa/015-bug-evaluation-fixes-qa.md` QAF-10 (`c2a657a`); critique cycle 3 M-C3-1 (`f64ae27`), the same member | Discharged at rev 9 (M8-a, "Every run-2 read"; RK-6's record). |
-| M3 premise question (implementer probe `verification/015/m3-premise-probe-6001f7f.txt`, via steering). The planner read it at 06:43Z, and F-15 reproduces in the app. next 16.1.6 hydrates the App Router with the React root on `document` (`client/app-index.js`: `const appElement = document`), and the editor is an App Router page. So usePress's `stopPropagation` (`@react-aria/interactions` 3.27.0 `usePress` `onKeyDown`) runs from React's listener on `document` and cannot stop react-hotkeys-hook 5.2.4's listener on the same node (`verification/015/m3-same-node-propagation-probe-run1.txt`). The probe mounted on a `div`, which is not the production root. M3's criterion is unchanged. | steering message 06:42Z; planner read | Discharged at rev 14 (§ M3, "Premise read"). |
+| M3 premise question (implementer probe `verification/015/m3-premise-probe-6001f7f.txt`, via steering). The planner read it at 06:43Z, and F-15 reproduces in the app. next 16.1.6 hydrates the App Router with the React root on `document` (`client/app-index.js`: `const appElement = document`), and the editor is an App Router page. So usePress's `stopPropagation` (`@react-aria/interactions` 3.27.0 `usePress` `onKeyDown`) runs from React's listener on `document` and cannot stop react-hotkeys-hook 5.2.4's listener on the same node (`verification/015/m3-same-node-propagation-probe-run1.txt`). The probe mounted on a `div`, which is not the production root. M3's criterion is unchanged. | steering message 06:42Z; planner read | Discharged at rev 14. **Superseded at rev 15:** this row's conclusion ("F-15 reproduces in the app") was withdrawn at 06:52Z on the implementer's document-root probe. See § M3, "Premise: unsettled". |
 | L-C3-1 (LOW). The `Created instance` primary figure cites no non-zero read from the production out log. Run 1's capture holds none (`grep -c "Created instance"`, 0 of 97 lines, 2026-11-08T05:56Z). | critique cycle 3 L-C3-1 (`f64ae27`) | Discharged at rev 9 (P3, "Instrument liveness"). |
 
 ## Resumption State (checkpoint, planner-hooks-015)
 
-- **Done.** Plan at revision 14. Revs 12 and 13 passed all four readers (architect `f7e6602`, critic `6970763`, QA `aad87b6`, code review `7976a9a`). Rev 14 folds their findings, D24 and the M3 premise note. Registrations: R-1 (D14, D15), R-2 (D20), R-3, R-4 and R-5. D21 to D24 were registered inside revs 10, 11, 13 and 14. Handoff opened: `handoff/providers-query-params-header-decode-throws-2026-11-08.md` (X-17).
-- **Next.** Steering routes rev 14's delta to the critic (cycle 4), the architect, QA and code review. M4 waits on it; M1-c and M1-h do not. Fold any findings at the next planning pass. After implementation approval, findings that change no code, test or pre-release verifier are parked as Planner batch rows.
-- **Open with others.** None of the planner's questions to the owner are pending (OQ-I answered: D21). The 69-day generator gap (X-15) went to him through steering as an FYI only.
+- **Done.** Plan at revision 15 (rev 14 plus D25, OQ-J and the M3 premise hold). Revs 12 and 13 passed all four readers. Registrations: R-1 (D14, D15), R-2 (D20), R-3, R-4 and R-5. D21 to D25 were registered inside revs 10, 11, 13, 14 and 15. R-5's conclusion was withdrawn at 06:52Z. Handoff opened: `handoff/providers-query-params-header-decode-throws-2026-11-08.md` (X-17).
+- **Next.** Steering briefs the critic (cycle 4), the architect, QA and code review over `9cbe755`..rev 15. Fold the M3 Chrome read when it lands. Register OQ-J's answer. Fold any findings at the next planning pass.
+- **Open with others.** OQ-J (where the widened link pattern lives) is with the owner through steering. The M3 Chrome read is with the implementer and QA.
 - **Uncommitted, left in place.** `INBOX.md` holds this session's FYI entry: the research document's `pm2 show` advice. Per the inbox rule, the domain owner commits it.
 - **Branches.** website and preview-image-generator: chain branches are created by steering. The planner touches no source.
