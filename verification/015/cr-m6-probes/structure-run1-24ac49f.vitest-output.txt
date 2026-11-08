@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/15124f78-e1a5-4ea9-912b-40c74860dffa/scratchpad/cr-m6-structure-export-24ac49f
+
+
+ Test Files  1 passed (1)
+      Tests  14 passed (14)
+   Start at  09:10:31
+   Duration  1.39s (transform 450ms, setup 0ms, import 1.11s, tests 153ms, environment 0ms)
+

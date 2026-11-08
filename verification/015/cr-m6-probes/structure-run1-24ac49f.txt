@@ -1,0 +1,34 @@
+sha 24ac49fb12ba0f075d54bbc32fef41fa078a67d8; rules.tsx blob 8784c74413644f9bbd455263424d70da878861b6 export 8784c74413644f9bbd455263424d70da878861b6
+parseContent "blank line inside": blocks=[] outside="|```\nfoo\n\n|bar\n```|"
+parseEmbedField "blank line inside": blocks=[] outside="|```\nfoo\n\n|bar\n```|"
+parseContent "blank line inside, tag": blocks=[] outside="|```js\nfoo\n\n|bar\n```|"
+parseEmbedField "blank line inside, tag": blocks=[] outside="|```js\nfoo\n\n|bar\n```|"
+parseContent "whitespace-only line inside": blocks=[] outside="|```\nfoo\n \n|bar\n```|"
+parseEmbedField "whitespace-only line inside": blocks=[] outside="|```\nfoo\n \n|bar\n```|"
+parseContent "text before, blank inside": blocks=[] outside="|hi\n```\nfoo\n\n|bar\n```|"
+parseEmbedField "text before, blank inside": blocks=[] outside="|hi\n```\nfoo\n\n|bar\n```|"
+parseContent "blank inside, text after on next paragraph": blocks=[] outside="|```\nfoo\n\n|bar\n```\n\n|after|"
+parseEmbedField "blank inside, text after on next paragraph": blocks=[] outside="|```\nfoo\n\n|bar\n```\n\n|after|"
+parseContent "two fences separated by a paragraph": blocks=["c"] outside="|```\na\n\n|b\n```\n\n|middle\n\n|"
+parseEmbedField "two fences separated by a paragraph": blocks=["c"] outside="|```\na\n\n|b\n```\n\n|middle\n\n|"
+parseContent "two fences, blank between": blocks=["a","b"] outside="|\n\n|"
+parseEmbedField "two fences, blank between": blocks=["a","b"] outside="|\n\n|"
+parseContent "two paragraphs each with a stray fence": blocks=[] outside="|one ``` stray\n\n|two ``` stray|"
+parseEmbedField "two paragraphs each with a stray fence": blocks=[] outside="|one ``` stray\n\n|two ``` stray|"
+parseContent "unterminated fence then paragraphs": blocks=[] outside="|```\nfoo\n\n|bar\n\n|baz|"
+parseEmbedField "unterminated fence then paragraphs": blocks=[] outside="|```\nfoo\n\n|bar\n\n|baz|"
+parseContent "CRLF blank inside": blocks=[] outside="|```\nfoo\n\n|bar\n```|"
+parseEmbedField "CRLF blank inside": blocks=[] outside="|```\nfoo\n\n|bar\n```|"
+parseContent "inline code spans across paragraphs": blocks=[] outside="|a |x| b\n\n|c |y| d|"
+parseEmbedField "inline code spans across paragraphs": blocks=[] outside="|a |x| b\n\n|c |y| d|"
+parseContent "list after blank-inside fence": blocks=[] outside="|```\nfoo\n\n|bar\n```\n|item\n\n|"
+parseEmbedField "list after blank-inside fence": blocks=[] outside="|```\nfoo\n\n|bar\n```\n|item\n\n|"
+parseContent "heading-like line inside fence": blocks=[] outside="|```\n|not a heading|x\n```|"
+parseEmbedField "heading-like line inside fence": blocks=[] outside="|```\n# not a heading\n\n|x\n```|"
+TIME 4000 backticks triples, no newline len=4000: 14.5 ms
+TIME 2000 x stray fence lines len=2400: 13.5 ms
+TIME fence-open then 4000 newlines len=4004: 53.1 ms
+TIME alternating ``` and blank len=4000: 33.2 ms
+TIME many backticks pairs len=3500: 8.9 ms
+TIME 4096 chars of x with a fence len=4084: 0.3 ms
+exit 0

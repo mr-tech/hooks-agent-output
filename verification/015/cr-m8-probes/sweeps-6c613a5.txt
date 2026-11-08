@@ -1,0 +1,13 @@
+# preview-image-generator 6c613a5
+== private dependency fields (._x)
+6c613a5:src/getPool.ts:40:        tmp._useCount = 0;
+6c613a5:src/getPool.ts:41:        tmp._id = ++currentId;
+6c613a5:src/getPool.ts:42:        console.debug(`Created instance ${tmp._id}. Active instances: ${poolRef.pool.size}.`);
+6c613a5:src/getPool.ts:51:      console.debug(`Destroying instance ${instance._id}. Active instances: ${poolRef.pool.size}.`);
+6c613a5:src/getPool.ts:55:      .then((valid) => Promise.resolve(valid && (maxUses <= 0 || instance._useCount < maxUses))),
+6c613a5:src/getPool.ts:70:    console.debug(`Acquired instance ${instance._id}.`);
+6c613a5:src/getPool.ts:71:    instance._useCount += 1;
+6c613a5:src/getPool.ts:76:    console.debug(`Releasing instance ${instance._id}.`);
+6c613a5:src/getPool.ts:90:  })._waitingClientsQueue;
+== drain-complete line sites
+6c613a5:src/server.ts:78:  console.debug(`Drain complete in ${Date.now() - start}ms.`);

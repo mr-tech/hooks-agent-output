@@ -1,0 +1,88 @@
+sha 476c633d62af6960317995225f1b0d7eb3e40df7
+preview/page.tsx blob tree df48c1210f75899317b2c60e6ecdfd616a59e30e export df48c1210f75899317b2c60e6ecdfd616a59e30e
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/15124f78-e1a5-4ea9-912b-40c74860dffa/scratchpad/cr-m5-unlisted-export-476c633
+
+UNLISTED "{\"content\":\"hello\"}" -> rendered:18 nodes
+UNLISTED "[1]" -> text:Invalid message data. (2 nodes)
+UNLISTED "{\"content\":{}}" -> text:Invalid message data. (2 nodes)
+UNLISTED "{\"content\":[\"a\"]}" -> text:Invalid message data. (2 nodes)
+UNLISTED "{\"content\":\"a\",\"username\":5}" -> rendered:17 nodes
+UNLISTED "{\"content\":\"a\",\"avatar_url\":5}" -> rendered:18 nodes
+UNLISTED "{\"content\":\"a\",\"flags\":\"x\"}" -> rendered:18 nodes
+UNLISTED "{\"embeds\":[{\"author\":5}]}" -> rendered:17 nodes
+UNLISTED "{\"embeds\":[{\"author\":{\"name\":{}}}]}" -> text:Invalid message data. (2 nodes)
+UNLISTED "{\"embeds\":[{\"footer\":\"x\"}]}" -> rendered:17 nodes
+UNLISTED "{\"embeds\":[{\"footer\":{\"text\":5}}]}" -> text:Invalid message data. (2 nodes)
+UNLISTED "{\"embeds\":[{\"image\":5}]}" -> rendered:17 nodes
+UNLISTED "{\"embeds\":[{\"image\":{\"url\":5}}]}" -> rendered:23 nodes
+UNLISTED "{\"embeds\":[{\"title\":\"t\",\"thumbnail\":null}]}" -> rendered:21 nodes
+UNLISTED "{\"embeds\":[{\"title\":\"t\",\"timestamp\":\"garbage\"}]}" -> rendered:23 nodes
+UNLISTED "{\"embeds\":[{\"title\":\"t\",\"color\":\"red\"}]}" -> rendered:21 nodes
+UNLISTED "{\"embeds\":[{\"title\":5}]}" -> text:Invalid message data. (2 nodes)
+UNLISTED "{\"embeds\":[{\"description\":{}}]}" -> text:Invalid message data. (2 nodes)
+UNLISTED "{\"embeds\":[{\"fields\":[{\"name\":5,\"value\":\"v\"}]}]}" -> text:Invalid message data. (2 nodes)
+UNLISTED "{\"embeds\":[{\"fields\":[{\"name\":\"n\",\"value\":{}}]}]}" -> text:Invalid message data. (2 nodes)
+UNLISTED "{\"flags\":32768,\"components\":[{\"type\":10,\"content\":5}]}" -> text:Invalid message data. (2 nodes)
+UNLISTED "{\"flags\":32768,\"components\":[{\"type\":10,\"content\":{}}]}" -> text:Invalid message data. (2 nodes)
+UNLISTED "{\"flags\":32768,\"components\":[{\"type\":1,\"components\":[{\"type\":2,\"style\":1,\"label\":{}}]}]}" -> text:Invalid message data. (2 nodes)
+UNLISTED "{\"flags\":32768,\"components\":[{\"type\":1,\"components\":[{\"type\":2,\"style\":\"x\",\"label\":\"a\"}]}]}" -> rendered:25 nodes
+UNLISTED "{\"flags\":32768,\"components\":[{\"type\":9,\"components\":[{\"type\":10,\"content\":\"a\"}],\"accessory\":5}]}" -> rendered:31 nodes
+UNLISTED "{\"flags\":32768,\"components\":[{\"type\":9,\"components\":[{\"type\":10,\"content\":\"a\"}],\"accessory\":{\"type\":11,\"media\":null}}]}" -> text:Invalid message data. (2 nodes)
+UNLISTED "{\"flags\":32768,\"components\":[{\"type\":12,\"items\":[{\"media\":null}]}]}" -> text:Invalid message data. (2 nodes)
+UNLISTED "{\"flags\":32768,\"components\":[{\"type\":13,\"file\":5}]}" -> rendered:22 nodes
+UNLISTED "{\"flags\":32768,\"components\":[{\"type\":14,\"spacing\":\"x\"}]}" -> rendered:20 nodes
+UNLISTED "{\"flags\":32768,\"components\":[{\"type\":99}]}" -> rendered:18 nodes
+UNLISTED "{\"flags\":32768,\"components\":[{\"type\":\"10\",\"content\":\"a\"}]}" -> rendered:18 nodes
+UNLISTED "{\"flags\":32768,\"components\":[{\"type\":17,\"components\":[{\"type\":9,\"components\":[],\"accessory\":null}]}]}" -> text:Invalid message data. (2 nodes)
+UNLISTED "{\"flags\":32768,\"components\":[{\"type\":17,\"components\":[{\"type\":12,\"items\":\"x\"}]}]}" -> text:Invalid message data. (2 nodes)
+UNLISTED "{\"flags\":32768,\"components\":[{\"type\":17,\"accent_color\":\"x\",\"components\":[]}]}" -> rendered:20 nodes
+UNLISTED "{\"flags\":32768,\"components\":[{\"type\":17,\"components\":[{\"type\":17,\"components\":[{\"type\":10,\"content\":\"a\"}]}]}]}" -> rendered:22 nodes
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 2 unhandled errors during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+TypeError: url.split is not a function
+ ❯ isValidImageUrl src/utils/isValidImageUrl.ts:4:20
+ ❯ src/components/ImageUploader.tsx:21:8
+ ❯ checkImage src/components/ImageUploader.tsx:20:37
+ ❯ src/components/ImageUploader.tsx:70:17
+ ❯ src/utils/voided.ts:2:35
+ ❯ Object.react_stack_bottom_frame ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25989:20
+ ❯ runWithFiberInDEV ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ commitHookEffectListMount ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:13249:29
+ ❯ commitHookPassiveMountEffects ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:13336:11
+
+This error originated in "src/app/preview/__tests__/page.unlisted-members-probe.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "avatar_url a number". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+TypeError: url.split is not a function
+ ❯ isValidImageUrl src/utils/isValidImageUrl.ts:4:20
+ ❯ src/components/ImageUploader.tsx:21:8
+ ❯ checkImage src/components/ImageUploader.tsx:20:37
+ ❯ src/components/ImageUploader.tsx:70:17
+ ❯ src/utils/voided.ts:2:35
+ ❯ Object.react_stack_bottom_frame ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25989:20
+ ❯ runWithFiberInDEV ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ commitHookEffectListMount ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:13249:29
+ ❯ commitHookPassiveMountEffects ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:13336:11
+
+This error originated in "src/app/preview/__tests__/page.unlisted-members-probe.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "embed image url a number". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  1 passed (1)
+      Tests  35 passed (35)
+     Errors  2 errors
+   Start at  09:08:49
+   Duration  21.56s (transform 723ms, setup 21ms, import 1.25s, tests 19.61s, environment 566ms)
+
+exit 1

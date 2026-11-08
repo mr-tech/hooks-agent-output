@@ -2,11 +2,11 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Reviewed-At: "dd9e88a,24ac49f — repos=agent-output,website; Round 15 is the plan gate read of 018f72d..dd9e88a (rev 25), mechanisms at website 24ac49f. Round 14 (M6) and the CR-17 and CR-19 sub-entries at website 24ac49f, criteria plan rev 24 (018f72d). Round 13 is the plan gate read of 39dbc0d..018f72d (rev 24). Round 10 (M5) and the Round 7 sub-entry (M4 D29, QAF-25) at da24eb7; the Round 2 sub-entry (CR-15) at 3031878"
+Reviewed-At: "dd9e88a,476c633,6c613a5 — repos=agent-output,website,preview-image-generator; Round 18 (M8) at preview-image-generator 6c613a5; Rounds 16 (M5-i) and 17 (M7) and the Round 10 (M5-h), Round 14 (CR-22/24/25) and Round 7 (M4-d non-JSON cells) sub-entries at website 476c633; criteria plan rev 25 (dd9e88a). Earlier: Round 14 at 24ac49f, Round 10 at da24eb7, the Round 2 sub-entry (CR-15) at 3031878"
 Status: In Review
-Status-Detail: "Round 15 (plan rev 25 gate read): APPROVED, CR-23 RESOLVED. Round 14 (M6 at 24ac49f): REJECTED for M6-a (CR-22 MEDIUM) and F-45's class under D28 (CR-24 MEDIUM); M6-b to M6-l met; CR-25 LOW record. CR-17 and CR-19 RESOLVED at 24ac49f. Round 13 (plan rev 24): APPROVED. Round 10 (M5): REJECTED for M5-h until its code fix. M4: APPROVED_WITH_COMMENTS; rev 24's non-JSON member owes a cell."
-Round: 15
-Verdict: APPROVED
+Status-Detail: "Round 18 (M8 at preview-image-generator 6c613a5): REJECTED for M8-a (CR-27 MEDIUM, the drain-complete line on a failed drain); M8-b to M8-e met, CR-28 LOW. Round 17 (M7): APPROVED. Round 16 (M5-i): APPROVED. M5-h: CR-18 RESOLVED at 476c633, Round 10 APPROVED_WITH_COMMENTS (CR-29 LOW, planner). M6: CR-22, CR-24, CR-25 RESOLVED, Round 14 APPROVED_WITH_COMMENTS (CR-26 LOW). Round 15 (rev 25): APPROVED."
+Round: 18
+Verdict: REJECTED
 ---
 
 # Code Review: Plan 015 — Bug-evaluation fixes
@@ -56,6 +56,12 @@ Verdict: APPROVED
 | 2026-11-08T08:23 | same handoff (`a665901`) | Round 7 sub-entry: CR-17 at `24ac49f` | CR-17 RESOLVED. One `INVALID_URL_ERROR` beside `MESSAGE_LOAD_FAILED_ERROR`, used at both webhook sites. The literal sweep (single, double and back quotes, production) leaves only the two embed-editor sites outside the class; the cells keep their literals. |
 | 2026-11-08T08:23 | same handoff (`a665901`) | Round 10 sub-entry: CR-19 at `24ac49f` | CR-19 RESOLVED. `usePusher` reads `useLatest(hasChanged)`. The re-expressed mutants are killed (`m5-sweep-summary-ef5a9cc.txt`). The two hand-written syncs that predate this change remain, not owed. |
 | 2026-11-08T08:27 | steering-hooks-015 (brief); planner-hooks-015 (message) | Round 15: plan gate read, `018f72d..dd9e88a` (rev 25): M6-a without the title member (CR-23), L-C7-1 clauses, W-7 cite (AF-28), X-22 | APPROVED, no findings. CR-23 RESOLVED: the omission is at `7ce866b` and first appears at `d5f2dc8`. CR-22 stands. X-22's keying claim holds against next 16.1.6 by reading (the modal mounts under `f/[id]`; the dynamic segment's key differs per id). |
+| 2026-11-08T09:17 | implementer-hooks-015 (message) handoff at website `476c633`, generator `6c613a5`; documents at agent-output `3926486` | Round 10 sub-entry: M5-h fix (CR-18) | CR-18 RESOLVED. Re-attacked: the class probe at the tip matches the plan's lists (44 rows), and 35 unlisted members all show the line or the editor, none blank (`cr-m5-probes/run-unlisted.sh`). CR-29 LOW (planner): `fields: null` now renders, against class (3)'s list. Round 10 is APPROVED_WITH_COMMENTS. |
+| 2026-11-08T09:17 | same handoff | Round 14 sub-entry: CR-22, CR-24, CR-25 (`9cc06d8`, `4aa9d3a`) | All three RESOLVED. The fence structure probe on both trees: one block per fence, inner text exact. The useMount sweep finds 0. CR-26 LOW: the lint guard flags 3 of 8 planted members. Round 14 is APPROVED_WITH_COMMENTS. |
+| 2026-11-08T09:17 | same handoff | Round 7 sub-entry: M4-d non-JSON cells (`1968281`) | Test-only; the rev 24 member is carried at both sites. |
+| 2026-11-08T09:17 | same handoff | Round 16: M5-i (`ad54eb3`) | APPROVED. A derived open category reaches the real accordion through `dangerouslySetExpanded`; the falsy `''` path is covered. |
+| 2026-11-08T09:17 | same handoff | Round 17: M7 (`a4b4434`) | APPROVED. `ADMIN_PERMS` is `"32"` with one consumer (`get_message`); no handler-side check, so Discord's gate is the only one (D4). M7-b and M7-c change no live path today. |
+| 2026-11-08T09:17 | same handoff | Round 18: M8 (preview-image-generator `471578f..6c613a5`) | REJECTED for M8-a. Stood up under E-1: the implementer's rig reproduces 25 of 25, and code review's attack (`cr-m8-probes/attack.cjs`) finds CR-27 MEDIUM: a failed drain still logs "Drain complete", the line run 2 counts. M8-d ruled: the `factoryCreateError` rejection is accepted (no storm under 6 concurrent requests), with CR-28 LOW (unguarded private field; the "README remedy" claim is false). |
 
 ## Round 1 (M0, website `037935d`) — dispositions
 
@@ -289,6 +295,89 @@ CR-5 LOW Round 2 DECLINED — by the implementer (§ Fix Round 1): the plan sets
   - The `useParsePathname` describe is converted to exercise the real hook, or deleted with the surface listed as outstanding.
   - QA decides the timing (now or with a later touch). Non-blocking for M2.
 
+## Round 18 (M8, preview-image-generator `6c613a5`, plan rev 25)
+
+### Scope and identity
+
+- **Stage start.** The handoff is from implementer-hooks-015 (message): `implementation/015-bug-evaluation-fixes-m8-implementation.md` at agent-output `3926486`, range `471578f..6c613a5`. It has 2 commits and 5 files (`server.ts`, `getPool.ts`, `generateImage.ts`, `config.ts`, `ecosystem.config.js`), read in full as one diff. The tree was checked at the start and the end; the repository has no uncommitted change.
+- **Criteria.** § M8 at plan rev 25 (`dd9e88a`), recorded before reading.
+- **Adversarial execution.** M8 changes a stop path (PM2 kill) and a production service's start gate, so I stood the service up and attacked it.
+  - **Process whose output is the evidence:** the generator built at `6c613a5` (`tsc -b`), under E-1. That is an export without `.env`, dependencies installed inside it, `unshare -rn` with loopback up, and a self-check: loopback answers and an external lookup gives `EAI_AGAIN`.
+  - **Reproduction:** the implementer's rig (`verification/015/m8-local-probe/run.sh`) at `6c613a5` gives 25 of 25 PASS (`cr-m8-probes/rig-reproduction-6c613a5.txt`).
+  - **My own instrument:** `cr-m8-probes/attack.cjs`, run by `run-attack.sh` in the same export (`attack-run1-6c613a5.txt`). Its input class:
+    - A: six concurrent `/generate` requests under launch failure, then 3 s idle;
+    - B: a stop with an in-flight request;
+    - C: B with `http.Server.prototype.closeIdleConnections` removed, the shape of a Node runtime before 18.2.
+  - **Oracle:** plan M8-a P1 and P3, and M8-d.
+- eslint over `src` in the export: exit 0, no output (`cr-m8-probes/eslint-6c613a5.txt`). convention-check: 0 FAIL, with the eslint SKIP closed by that run.
+- I read `prod.yml` for the env path. It carries the plaintext API key (D13, X-12), and no value from it is recorded here.
+
+### Per-limb result at `6c613a5`
+
+| Limb | Result | Evidence |
+|---|---|---|
+| M8-a P1 | **Not met** (CR-27) | The triggers, idempotence, the explicit `shutdown_with_message`, both log lines and the predicate hold on the success path (rig cells). On a failed drain, the drain-complete line is still logged (attack C). |
+| M8-a P2 | Met | `kill_timeout: 12000`. |
+| M8-a P3 | Met | An idle exit in 14 ms with no browser (rig). An in-flight request holds the drain to the 10 s fallback (attack B: exit at 10016 ms, no drain-complete line). The pool read is `getExistingPool()`, beside the singleton (AF-14). |
+| M8-a P4 | Met | Both handlers are registered before `listen`. |
+| M8-b | Met | Unparsable, `null` and number bodies give 500, and the process keeps serving (rig). |
+| M8-c | Met | `page.close()` is in `finally`. The rig's real-browser cells pass with `/usr/bin/google-chrome`. |
+| M8-d | Met; CR-28 | One request and six concurrent requests all get 500, and no launch is attempted while idle after the burst (attack A: 12 launch-error lines after the burst, 12 after 3 s idle). |
+| M8-e | Met | Unset and empty both exit 2 with a line naming `API_KEY`. `stop_exit_codes: [2]` (unchanged) keeps PM2 from restarting it. The check reads `process.env` at import, the same point the old `config.ts` read it, and PM2 passes `ecosystem.config.js`'s `dotenv` load to the app, so the env path is unchanged. |
+
+**M8-d mechanism (Outstanding Item 1, the implementer's question).** Ruling: the property binds, not the plan's sketch. A rethrow alone leaves the waiting client queued, and the pool re-dispenses, which the implementer measured at 11,654 attempts in 3 s. Rejecting the head waiting client on `factoryCreateError` meets "the next request gets 500" with no storm (attack A). I accept it, with CR-28.
+
+### Round 18 findings
+
+**CR-27 MEDIUM Round 18 Success signal on the failure path**: `shutdown()` logs "Drain complete in Nms." after a drain that failed
+- **Location**: `shutdown` in `src/server.ts` at `6c613a5`. The `catch` around `Promise.all` falls through to the drain-complete `console.debug` and `process.exit(0)`.
+- **Class**: a completion line written whether or not the work completed. Here it is the very line M8-a's production criterion (M8-0 run 2) counts as the drain having run.
+- **Enumeration**: `git grep -n "Drain complete" 6c613a5 -- src` gives 1 site, and the `catch` before it is the only failure path. Attack C reproduces it: with `closeIdleConnections` absent, the process exits in 11 ms, abandons the in-flight request, and logs `Drain complete in 1ms.`. The `TypeError` goes only to stderr, which PM2 writes to the error log, and run 2 reads the out log. The predicate cannot see other success-shaped lines; the generator has one.
+- **Magnitude**: measured locally on node 24 with the method removed. Whether the host's PM2 runs the app under a Node without it is unread (this round's Assumption Not Checked). `pool.drain()` rejecting takes the same path.
+- **Required Action (implementer, blocks M8-a)**:
+  - Preferred (structural): log the drain-complete line only on the success branch. Log a failure line on stdout that the out-log read can count (for example "Drain failed after Nms: <message>"), and keep the exit.
+  - Minimum: none narrower. `server.closeIdleConnections?.()` alone removes one cause and keeps the false line.
+  - The rig owes a cell that fails at `6c613a5`: attack C's shape, a failed drain, logs no drain-complete line.
+  - The plan's run-2 criterion already treats a missing drain-complete line as a failure, so no plan change is needed.
+
+**CR-28 LOW Round 18 Unguarded private API**: `getPool.ts` reaches generic-pool's private `_waitingClientsQueue` with no check that it exists
+- **Location**: `createPool` in `src/getPool.ts`, the `waitingClients` binding and the `factoryCreateError` handler, at `6c613a5`.
+- **Class**: a dependency's private field read without a presence check. It holds for 3.9.0, which the lockfile pins (`package.json` allows `^3.9.0`). If the field is renamed, the handler throws `TypeError` inside the pool's rejection path, and only at the first launch failure.
+- **Enumeration**: `git grep -n "\._[a-zA-Z]" 6c613a5 -- src` (`cr-m8-probes/sweeps-6c613a5.txt`) finds one private dependency field, this one. The `_useCount` and `_id` hits are the generator's own fields on its `Browser` type. A field reached by bracket notation would not be seen.
+- **Record**: the implementation document's Patterns Extended row calls this "generic-pool's own README remedy". The 3.9.0 README (§ pool.on, read in the export's `node_modules/generic-pool/README.md`) shows only a logging handler and does not mention `_waitingClientsQueue`. The claim is to be corrected.
+- **Required Action (implementer, non-blocking)**: fail at pool creation when `_waitingClientsQueue?.dequeue` is not a function, so a dependency bump fails at deploy and not at the first launch failure. Correct the Patterns row.
+
+### Round 18 verdict
+
+REJECTED for M8-a (CR-27). M8-b to M8-e are met. CR-28 is LOW. The M8-0 run-2 extension of `pig-host-read.sh` (the `Created instance` read) has not landed yet (`grep -c 'Created instance'` gives 0) and is reviewed when it does. Release consequences are devops's to establish.
+
+## Round 17 (M7, website `476c633`, plan rev 25)
+
+- **Scope.** `a4b4434`: `bot/scripts/app_commands/common.ts` and `bot/utils/DiscordEmbed.ts`, with their cells. The handoff is the implementer's message, with `implementation/015-bug-evaluation-fixes-m7-implementation.md` at agent-output `3926486`. Criteria: § M7 at rev 25.
+- **The gate (M7-a), which widens authorization.** `ADMIN_PERMS` went from `Administrator & ManageGuild`, which is `8n & 32n = 0n` and which Discord reads as administrators only, to `ManageGuild`, which is `"32"`. Its one consumer is `messageCommands.ts` (`get_message`).
+  - Neither handler (`bot/edgeCommands.ts`, `bot/serverCommands.ts` `get_message`) checks a permission. Discord's `default_member_permissions` is the only gate, and Discord applies it before dispatching the interaction.
+  - The command answers with the target message, which the invoking member can already see. D4 is the owner's ruling. I did not stand up Discord: the gate is Discord's, and pushing commands is the owner's step.
+- **M7-b and M7-c.** `setTimestamp` assigns where it compared. `isUserCommand` tests `'user'`. No bot caller of `setTimestamp` and no user command exist (`git grep` at `476c633`), so neither changes a live path today.
+- **Cells.** The literal `'32'` and the pushed payload's `default_member_permissions` are asserted. The convention check is clean.
+
+### Round 17 verdict
+
+APPROVED. M7-a to M7-c are met. M7-a's limb 2 is the owner's post-push attestation.
+
+## Round 16 (M5-i, website `476c633`, plan rev 25)
+
+- **Scope.** `ad54eb3`: `WebhookMenu/index.tsx` and `WebhookMenu.open-category.test.tsx`. The handoff is the implementer's message, with `implementation/015-bug-evaluation-fixes-m5-implementation.md` § Delivery 2 at agent-output `3926486`.
+- **The change.** Only the user's pick is state (`pickedCategory`). The open category is derived on every render: the pick, else the guild's id when `hasWebhooks`, else `'load'`.
+- **It reaches the control.** `StyledAccordion` sets `dangerouslySetExpanded={selected ? item.id === selected : undefined}`, so a truthy derived value controls the real `react-accessible-accordion` after mount.
+  - The one falsy value, `''`, arises when `hasWebhooks` holds but the guild object has not arrived. It falls back to the uncontrolled `preExpanded`.
+  - The cell "opens the guild's webhooks when the guild object arrives after its webhooks" covers that path with the real accordion.
+- **Pattern.** It mirrors M5-d and M5-f, deriving from inputs and keeping the user's value, as the plan names.
+- **Cells.** They read the expanded heading in the real accordion, with providers mocked. Covered: first visit, late guild, guild change, the three "load" causes, and the pick kept across changes. Residue X-21 is stated.
+
+### Round 16 verdict
+
+APPROVED. M5-i is met.
+
 ## Round 15 (plan gate read, rev 25, agent-output `dd9e88a`; mechanisms at website `24ac49f`)
 
 - **Scope.** The delta `018f72d..dd9e88a`, written to files and read in full. It includes the R-8 to R-10 rows and the code review rows already recorded. It covers M6-a without its title member (the CR-23 fold), the L-C7-1 standing constraint with its X-16 and X-21 clauses, X-20's W-7 cite (AF-28), and X-22 (the `NewMessageModal` seed).
@@ -410,6 +499,31 @@ ALIGNED. One counter, lifted and not copied (AF-4's destination). The validator 
 ### Round 14 verdict
 
 REJECTED for M6-a (CR-22) and for F-45's class under D28 (CR-24). M6-b to M6-l are met, M6-e as stated. QA Phase 2 may take M6-b to M6-l at `24ac49f`. The fixes are reviewed as a sub-entry of this round.
+
+### Round 14 sub-entry (CR-22, CR-24, CR-25; website `476c633`, fixes `9cc06d8` and `4aa9d3a`)
+
+- **Scope.** `rules.tsx`, `BottomPortal.tsx`, `ColorPicker/index.tsx` and `.eslintrc.json`, with their cells, read as the fix diff. `b608555` (QAF-30 to QAF-32) is test-only and QA's gate; its convention check gives 0 FAIL.
+- **CR-22 RESOLVED.** The paragraph rule now takes a whole fence as one unit, from the same `FENCE` pattern the code-block rule uses.
+  - `cr-m6-probes/run-fence.sh` run 2 at `476c633`: every member renders a code block, and the plain-text control does not.
+  - Re-attacked with a structure probe on both trees (`run-structure.sh`, `structure-run1-24ac49f.txt` and `-476c633.txt`). It records the blocks rendered and the text outside them, not just whether a code block appears.
+    - Every member renders one block with its inner text exact, including CRLF.
+    - Two fences stay two blocks, and the text around a fence stays outside it.
+    - A stray fence in each of two paragraphs now becomes one block spanning them. Discord has no paragraphs, so this matches its rendering. It is noted for QA's RK-1 differential.
+    - The parse cost of 4000-character adversarial inputs at the tip is at most 80 ms, against 53 ms at `24ac49f`.
+  - The cells add seven literal members. The check that fails if it returns: `rules.multi-line-code-block.test.ts`.
+- **CR-24 RESOLVED.** Both sites use `useEffect(() => cleanup, [])`. `usemount-cleanup-sweep.sh` at `476c633` finds 0 members, and its positive control gives 1. The checks that fail if it returns: `ColorPicker.scroll-lock-release.test.tsx` and `BottomPortal.unmount-cleanup.test.tsx`.
+- **CR-25 RESOLVED.** The dated reconcile note is in the M6 implementation document.
+
+**CR-26 LOW Round 14 (sub-entry) Guard narrower than its class**: the new `no-restricted-syntax` selectors catch a returned function literal only
+- **Location**: `no-restricted-syntax` in `.eslintrc.json` at `476c633`.
+- **Class**: a `useMount` callback that returns a function, in any spelling.
+- **Enumeration**: `cr-m6-probes/usemount-lint-planted.tsx`, 9 planted forms linted over stdin with the repo's config, which is the same file as at `476c633` (`usemount-lint-planted-476c633.txt`). It flags 3 of the 8 members: a concise arrow, a block `return` of an arrow, and a function expression. It misses 5:
+  - a returned identifier, concise and block (`() => cleanup`);
+  - an aliased import;
+  - a namespace call (`ReactUse.useMount`);
+  - a callback passed by reference.
+  The non-member control is not flagged.
+- **Required Action (implementer, non-blocking)**: Preferred (structural): `no-restricted-imports` for `useMount` from `react-use`. Only 3 live callers remain and none returns, so they move to `useEffect(…, [])` and the class becomes unrepresentable. Minimum: keep the selectors and state their blind spots beside the rule in the record. The falsity signature for a replacement rule: the planted file's 8 members all flagged, and the control not.
 
 ## Round 13 (plan gate read, rev 24, agent-output `018f72d`; mechanisms at website `da24eb7`)
 
@@ -612,6 +726,24 @@ REJECTED for M5-h only (CR-18 MEDIUM). M5-a to M5-g are met. CR-19 is LOW and no
 - **Sweep, re-run**: `git grep -nE '[A-Za-z]+Ref\.current = [A-Za-z]+;' 24ac49f -- src`, read by hand (`verification/015/cr-m6-probes/cr17-cr19-sweeps-24ac49f.txt`). `usePusher` no longer appears. The syncs that remain in render are `DiscordMessageEditor` `messageRef` and `GuildProvider` `guildIdRef`, which predate this change and are not owed. The other hits are assignments of literals or flags, not latest-value syncs.
 - **Disposition**: CR-19 RESOLVED. The check that fails if it returns: `usePusher.update-prompt.test.tsx` kills `m5c-pusher-reads-render-flag` and `m5c-pusher-ref-never-updated` (`m5-sweep-summary-ef5a9cc.txt`).
 
+### Round 10 sub-entry (M5-h fix, CR-18; website `476c633`, fix `09c7c45`, cells `a1456c9` and `476c633`)
+
+- **The fix.** `parseMessageData` runs `JSON.parse`, the object test and `makeEditable` inside one `try`. The editor is wrapped in `react-error-boundary`'s `ErrorBoundary`, whose fallback is the same one line, on the same background.
+- **Re-attacked from first principles**, against the real editor at `476c633`:
+  - The planner's class probe (`m5h-class-probe/run.sh`, output `cr-m5-probes/class-probe-run-476c633.txt`): 44 rows, exit 0. Every row matches the plan's lists except `{"embeds":[{"title":"t","fields":null}]}`, which renders (21 nodes) because M6-c removed its crash (CR-29).
+  - `run-real.sh` run 6 and `run-reported.sh` run 4 at `476c633` agree.
+  - **Members no earlier read lists**: `cr-m5-probes/page.unlisted-members-probe.test.tsx` via `run-unlisted.sh` (`unlisted-run1-476c633.txt`). It has 35 rows: other component types (10, 2, 11, 13, 14, unknown, a string type), embed sub-objects of the wrong type, and nested containers. Every row shows either the line (2 nodes) or the editor (17 nodes or more). None threw and none rendered blank, so the X-19 residue the property binds is met on everything probed.
+  - That run exits 1 with all 35 passing. The cause is two unhandled rejections from `ImageUploader`'s async effect (`isValidImageUrl` on a numeric URL, from `avatar_url: 5` and `image.url: 5`). They are outside React render, so no boundary catches them, and the page still renders the editor. The base threw the same way (`url.includes`), and the save schema admits no non-string URL. It is an observation and gives no finding.
+- **No reset path.** The boundary has no `resetKeys`, but nothing navigates to `/preview` on the client (`git grep` at `476c633`), so a stale error state cannot be reached.
+- **Cells.** 6 non-object members, 34 refused members and 11 rendering members, each asserting that its outcome is present (CR-21): exactly one `text-error` line and no editor, or the editor root and no line. The two convention-check CANDIDATEs are `vi.waitFor` condition waits whose 5000 ms only bounds a failure. Disposition: not a time-based cell.
+- **CR-18 RESOLVED.** The check that fails if it returns: `page.invalid-data.test.tsx`, plus `cr-m5-probes/run-unlisted.sh` for the members outside the list.
+
+**CR-29 LOW Round 10 (sub-entry) Criterion member contradicts the tip** (planner): M5-h class (3) lists `fields: null` as crashing, and at the tip it renders
+- **Location**: plan § M5-h class (3), "an embed's `fields` is `null`, …", read at `dd9e88a`; the cell "fields null" under "still renders the editor" in `page.invalid-data.test.tsx`.
+- **Class**: a class (3) member pinned to `da24eb7`'s crash set that no longer crashes, because a later milestone fixed it. "Exactly when" then makes the plan text and the tip disagree.
+- **Enumeration**: the class probe's rows at `da24eb7` (run 1) against `476c633`: 1 member moved, `fields: null`. It cannot see members outside its 44 rows.
+- **Required Action (planner)**: restate class (3) membership against the chain tip's real page, or move `fields: null` to the rendering list. The tip's behaviour is the better one, so the code does not change.
+
 ## Round 9 (plan gate read, rev 21, agent-output `3d193f9`; mechanisms at website `1e12837`)
 
 - **Scope.** The delta `e118cc3..3d193f9`, written to a file and read in full, with the ruling `f005cef`. It covers M4-d's webhook-load limb (the CR-16 fold) and D30 (M3 removed, X-18).
@@ -705,6 +837,10 @@ ALIGNED. One link definition (D26, A-3), now with named groups, as Round 4 prefe
 ### Round 7 verdict
 
 APPROVED_WITH_COMMENTS for M4 at `1e12837`. CR-14 is LOW and changes no safety outcome. QA Phase 2 may take M4 at `1e12837`.
+
+### Round 7 sub-entry (M4-d non-JSON cells, website `476c633`, `1968281`)
+
+- Test-only, with no production change. Both F-27 sites (`WebhookMenu.failed-webhook-load`, `NewMessageModal.failed-webhook-load`) gain a cell where the response's `json()` rejects. Each asserts "Invalid URL" present exactly once, in place, with the error class. This carries rev 24's non-JSON member (Round 13), and test adequacy is QA's.
 
 ### Round 7 sub-entry (CR-17, website `24ac49f`, fix `a665901`)
 
@@ -830,6 +966,16 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 
 ## Verdict
 
+**Round 18 (M8, preview-image-generator `6c613a5`)**: REJECTED for M8-a (CR-27 MEDIUM). M8-b to M8-e are met. CR-28 is LOW.
+
+**Round 17 (M7, website `476c633`)**: APPROVED.
+
+**Round 16 (M5-i, website `476c633`)**: APPROVED.
+
+**Round 14, after its sub-entry at `476c633`**: APPROVED_WITH_COMMENTS. CR-22, CR-24 and CR-25 are RESOLVED; CR-26 is LOW.
+
+**Round 10, after its sub-entry at `476c633`**: APPROVED_WITH_COMMENTS. CR-18 is RESOLVED; CR-29 is LOW (planner).
+
 **Round 15 (plan gate read, rev 25)**: APPROVED. CR-23 is RESOLVED.
 
 **Round 14 (M6, website `24ac49f`, plan rev 24)**: REJECTED for M6-a (CR-22 MEDIUM) and for F-45's class under D28 (CR-24 MEDIUM). M6-b to M6-l are met. CR-23 (planner) and CR-25 (record) are LOW. CR-17 and CR-19 are RESOLVED (sub-entries of Rounds 7 and 10).
@@ -865,14 +1011,22 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 
 ## Required Actions
 
-1. **Implementer, blocking M5-h:** CR-18. Its fix is reviewed as a Round 10 sub-entry.
-2. **Implementer, blocking M6-a and F-45's class:** CR-22 and CR-24, reviewed as a Round 14 sub-entry. CR-25 is a record note.
-3. **Implementer, non-blocking:** CR-10 as QA times it. CR-17 and CR-19 are RESOLVED.
-4. **Planner:** none open. CR-20, CR-21 and CR-23 are RESOLVED (revs 23, 24 and 25).
-5. **Implementer, from rev 24:** a cell for M4-d's non-JSON webhook response at both sites, and M5-i. Each is reviewed when it is handed off.
+1. **Implementer, blocking M8-a:** CR-27, reviewed as a Round 18 sub-entry.
+2. **Implementer, non-blocking:** CR-28 (a presence check on the private queue, and the Patterns row corrected), CR-26 (the lint guard's reach), and CR-10 as QA times it.
+3. **Planner:** CR-29 (M5-h class (3)'s `fields: null` member).
+4. **Analyst, before M8-0 run 2:** the `Created instance` read in `pig-host-read.sh`, reviewed when it lands. Each is reviewed when it is handed off.
 
 ## Assumption Not Checked
 
+- **Round 18:** This review assumes that the host's root PM2 daemon runs the generator on a Node runtime that has `http.Server.prototype.closeIdleConnections` (18.2 or later). `prod.yml`'s `setup-node` 18 sets the runner's PATH, not necessarily the daemon's interpreter. It does not read the host.
+  - Falsity signature: the generator's PM2 error log shows `TypeError: server.closeIdleConnections is not a function` at a stop. Until CR-27 is fixed, the out log shows a drain-complete line in a few ms with requests cut off.
+  - Owner: devops, by a `claude-ro` read of the daemon's interpreter version before the M9 push (M8-0's read-only route, D17).
+- **Round 17:** This review assumes that `pnpm run push-commands` replaces the existing *Get Message* command's `default_member_permissions` on Discord. A server's own per-command override, if any, persists. It does not push.
+  - Falsity signature: after the push, a member with Manage Server and without Administrator does not see *Get Message* in a server with no override.
+  - Owner: the owner's M7-a limb 2 attestation.
+- **Round 16:** This review assumes that `react-accessible-accordion`'s `dangerouslySetExpanded` opens the section in a real browser as it does under jsdom. It does not test this in a browser.
+  - Falsity signature: on a first visit to a send page whose guild has webhooks, the menu shows the custom-webhook ("load") section open.
+  - Owner: UAT, on M5-i's walk.
 - **Round 14:** This review assumes that the M6-l error line, which jsdom renders in the block below the components, is visible in a real browser on the Send page and on `/preview`, and is not clipped or hidden by layout. It does not test this in a browser.
   - Falsity signature: on the served chain tip with 41 components, the red border shows and no red line can be seen.
   - Owner: UAT, on M6-l's human-observable walk.
@@ -908,12 +1062,14 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 
 ## Next Steps
 
-- **Implementer** (implementer-hooks-015): CR-22 and CR-24, then a Round 14 sub-entry at the fix SHA. CR-25 as a dated note.
-- **Implementer:** CR-18, which blocks M5-h. Then a Round 10 sub-entry at the fix SHA.
+- **Implementer** (implementer-hooks-015): CR-27, then a Round 18 sub-entry at the fix SHA. CR-28 and CR-26 are non-blocking.
+- **Planner:** CR-29.
+- **Devops:** Round 18's Assumption Not Checked (the daemon's Node version) before the M9 push.
 - **Implementer:** M4-d's non-JSON cell and M5-i (rev 24). The chain tip `24ac49f` holds M6 and the CR-17/CR-19 work, which is reviewed when handed off.
 - **Implementer:** M5-h cells assert the presence of their outcome (CR-21).
 - **QA Phase 2** (qa-hooks-015):
-  - M6-b to M6-l at website `24ac49f`: Round 14. M6-a waits for CR-22.
+  - At website `476c633`: M6-a (CR-22 RESOLVED), M5-h (CR-18 RESOLVED), M5-i (Round 16), M7 (Round 17) and the M4-d non-JSON cells. M6-b to M6-l were already cleared at `24ac49f`.
+  - M8-b to M8-e at generator `6c613a5` (Round 18). M8-a waits for CR-27. RK-1 note: a stray fence in two paragraphs now renders one block.
   - M1 with the QAF-26 cells and M5-e with the QAF-29 cells at `24ac49f`: test-only, convention check clean. Test adequacy is QA's.
   - M4 at website `da24eb7`: Round 7 plus its sub-entry, APPROVED_WITH_COMMENTS.
   - M5-a to M5-g at `da24eb7`: Round 10.
@@ -921,18 +1077,22 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
   - Instrument for M5-h's later re-check: `verification/015/cr-m5-probes/`.
 - **UAT:** the Assumption Not Checked of Rounds 14 and 10, and those of the earlier rounds.
 
-## Resumption State (code-reviewer-hooks-015, 2026-11-08T08:24)
+## Resumption State (code-reviewer-hooks-015, 2026-11-08T09:18)
 
-- **Done, all committed** (this commit carries Round 14).
-  - M0: Round 1. M1: Round 2, APPROVED_WITH_COMMENTS. M2: Round 3. M4: Round 7 plus sub-entries, APPROVED_WITH_COMMENTS (CR-17 RESOLVED at `24ac49f`).
-  - M5: Round 10, REJECTED for M5-h only (CR-18 MEDIUM). CR-19 RESOLVED at `24ac49f`.
-  - M6: Round 14 at `24ac49f`, REJECTED for M6-a (CR-22) and F-45's class (CR-24). M6-b to M6-l met. CR-23 (planner) and CR-25 (record) LOW.
-  - Plan gate reads: Rounds 4, 5, 6, 8, 9, 11, 12, 13 (rev 24 APPROVED).
+- **Done, all committed** (this commit carries Rounds 16 to 18 and the sub-entries).
+  - M0: Round 1. M1: Round 2. M2: Round 3. M4: Round 7 plus sub-entries, APPROVED_WITH_COMMENTS.
+  - M5: Round 10 APPROVED_WITH_COMMENTS after the M5-h sub-entry (CR-18 RESOLVED; CR-29 LOW, planner). M5-i: Round 16 APPROVED.
+  - M6: Round 14 APPROVED_WITH_COMMENTS after its sub-entry (CR-22, CR-24 and CR-25 RESOLVED; CR-26 LOW).
+  - M7: Round 17 APPROVED.
+  - M8: Round 18 REJECTED for M8-a (CR-27 MEDIUM); CR-28 LOW.
+  - Plan gate reads: Rounds 4, 5, 6, 8, 9, 11, 12, 13, 15 (rev 25 APPROVED).
 - **Next.**
-  - The CR-22/CR-24 fix, as a Round 14 sub-entry. Re-run `cr-m6-probes/run-fence.sh` and `usemount-cleanup-sweep.sh` at the fix SHA, and break the new predicates.
-  - The M5-h fix (CR-18), as a Round 10 sub-entry, once the implementer hands it off. M5-h and M5-i are released on rev 24 (rulings `a4d800d`). The fix is committed at website `09c7c45` (preview files only) and is not yet handed off. Instruments: `cr-m5-probes/run-reported.sh`, `run-real.sh` and `run-edge.sh`. Re-attack from first principles, with presence assertions.
-  - Also owed, not in this range: M4-d's non-JSON cell (rev 24) and M5-i.
-  - CR-23 RESOLVED at rev 25 (Round 15). CR-22's alternative remedy (narrowing M6-a) is the planner's call; steering puts it to the owner only if the planner proposes it.
-- **Instruments.** `cr-m6-probes/` (fence probe and runner, `useMount` sweep, regex timing, class sweeps, CR-17/CR-19 sweeps), `cr-m5-probes/` (real run 5 at `24ac49f`), `cr-m4-probes/`, `cr-m1-probes/`.
-- **Hazards.** As before: stamps come from `record-edit.js`; re-diff the plan right before `commit --only`; the rtk filter breaks piped counts; convention-check's id-token check SKIPs, so run it by hand; vitest probes need `~/env.mjs` mocked and write rows through `EDGE_OUT` or `PROBE_OUT`; real-editor probes wait for Suspense.
+  - The CR-27 fix, as a Round 18 sub-entry. Re-run `cr-m8-probes/run-attack.sh`; it needs the rig's export first, from `m8-local-probe/run.sh`. Row C must PASS, with no drain-complete line on a failed drain and a failure line on stdout.
+  - The analyst's `pig-host-read.sh` extension (the `Created instance` read), reviewed when it lands.
+  - CR-29 at the next plan gate read.
+- **Instruments.** `cr-m8-probes/` (the attack, the closeIdle-less preload, eslint, sweeps, the rig reproduction). `cr-m6-probes/` (fence and structure probes, useMount sweep and planted lint file). `cr-m5-probes/` (real, reported, unlisted and class runs at `476c633`). Earlier: `cr-m4-probes/`, `cr-m1-probes/`.
+- **Hazards.** Everything from before still holds. In addition:
+  - `prod.yml` holds a plaintext key, so never quote it.
+  - A probe export with symlinked `node_modules` breaks eslint plugin resolution; lint planted text over stdin as an existing tsconfig member.
+  - Vitest probes can exit 1 with every case passing (unhandled rejections), so read the exit code.
 - **Questions out.** None.

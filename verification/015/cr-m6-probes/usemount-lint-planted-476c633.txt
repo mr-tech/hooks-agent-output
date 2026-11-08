@@ -1,0 +1,19 @@
+# planted forms linted over stdin as src/components/BottomPortal.tsx (an existing tsconfig member), website config = 476c633's .eslintrc.json (cmp identical)
+/usr/local/bin/hooks/website/src/components/BottomPortal.tsx:7:8: Function component is not an arrow function [Error/react/function-component-definition]
+/usr/local/bin/hooks/website/src/components/BottomPortal.tsx:7:32: react-use useMount discards the function its callback returns, so the cleanup never runs. Use useEffect(() => cleanup, []) instead. [Error/no-restricted-syntax]
+/usr/local/bin/hooks/website/src/components/BottomPortal.tsx:8:8: Function component is not an arrow function [Error/react/function-component-definition]
+/usr/local/bin/hooks/website/src/components/BottomPortal.tsx:8:38: Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`. [Error/arrow-body-style]
+/usr/local/bin/hooks/website/src/components/BottomPortal.tsx:8:40: react-use useMount discards the function its callback returns, so the cleanup never runs. Use useEffect(() => cleanup, []) instead. [Error/no-restricted-syntax]
+/usr/local/bin/hooks/website/src/components/BottomPortal.tsx:9:8: Function component is not an arrow function [Error/react/function-component-definition]
+/usr/local/bin/hooks/website/src/components/BottomPortal.tsx:10:8: Function component is not an arrow function [Error/react/function-component-definition]
+/usr/local/bin/hooks/website/src/components/BottomPortal.tsx:10:38: Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`. [Error/arrow-body-style]
+/usr/local/bin/hooks/website/src/components/BottomPortal.tsx:11:8: Function component is not an arrow function [Error/react/function-component-definition]
+/usr/local/bin/hooks/website/src/components/BottomPortal.tsx:12:8: Function component is not an arrow function [Error/react/function-component-definition]
+/usr/local/bin/hooks/website/src/components/BottomPortal.tsx:13:8: Function component is not an arrow function [Error/react/function-component-definition]
+/usr/local/bin/hooks/website/src/components/BottomPortal.tsx:14:8: Function component is not an arrow function [Error/react/function-component-definition]
+/usr/local/bin/hooks/website/src/components/BottomPortal.tsx:14:32: Unexpected function expression. [Error/prefer-arrow-callback]
+/usr/local/bin/hooks/website/src/components/BottomPortal.tsx:14:51: react-use useMount discards the function its callback returns, so the cleanup never runs. Use useEffect(() => cleanup, []) instead. [Error/no-restricted-syntax]
+/usr/local/bin/hooks/website/src/components/BottomPortal.tsx:15:8: Function component is not an arrow function [Error/react/function-component-definition]
+
+15 problems
+exit 1

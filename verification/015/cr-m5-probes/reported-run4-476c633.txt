@@ -1,0 +1,26 @@
+sha 476c633d62af6960317995225f1b0d7eb3e40df7
+preview/page.tsx blob tree df48c1210f75899317b2c60e6ecdfd616a59e30e export df48c1210f75899317b2c60e6ecdfd616a59e30e
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/15124f78-e1a5-4ea9-912b-40c74860dffa/scratchpad/cr-m5-reported-export-476c633
+
+REPORTED "{\"content\":\"hello\"}" -> rendered:18 nodes fallback=false | reported=0 []
+REPORTED "{\"embeds\":\"\"}" -> rendered:2 nodes fallback=false | reported=1 ["console:%o\n\n%s\n\n%s\n"]
+REPORTED "{}" -> rendered:17 nodes fallback=false | reported=0 []
+REPORTED "{\"embeds\":[]}" -> rendered:17 nodes fallback=false | reported=0 []
+REPORTED "{\"embeds\":[[]]}" -> rendered:17 nodes fallback=false | reported=0 []
+REPORTED "{\"embeds\":[{\"title\":\"t\",\"fields\":[[]]}]}" -> rendered:21 nodes fallback=false | reported=0 []
+REPORTED "{\"embeds\":[{\"fields\":[{}]}]}" -> rendered:17 nodes fallback=false | reported=0 []
+REPORTED "{\"components\":[null]}" -> rendered:18 nodes fallback=false | reported=0 []
+REPORTED "{\"components\":[5]}" -> rendered:18 nodes fallback=false | reported=0 []
+REPORTED "{\"components\":[[]]}" -> rendered:18 nodes fallback=false | reported=0 []
+REPORTED "{\"components\":[{}]}" -> rendered:18 nodes fallback=false | reported=0 []
+REPORTED "{\"components\":[{\"type\":1,\"components\":[[]]}]}" -> rendered:25 nodes fallback=false | reported=0 []
+REPORTED "{\"components\":[{\"type\":17,\"components\":[null]}]}" -> rendered:22 nodes fallback=false | reported=0 []
+REPORTED "{\"components\":[{\"type\":17,\"components\":[5]}]}" -> rendered:22 nodes fallback=false | reported=0 []
+
+ Test Files  1 passed (1)
+      Tests  14 passed (14)
+   Start at  09:07:48
+   Duration  9.95s (transform 821ms, setup 21ms, import 1.39s, tests 7.83s, environment 588ms)
+
+exit 0
