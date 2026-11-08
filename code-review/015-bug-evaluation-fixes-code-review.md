@@ -2,11 +2,11 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Reviewed-At: "018f72d,24ac49f — repos=agent-output,website; Round 14 (M6) and the CR-17 and CR-19 sub-entries at website 24ac49f, criteria plan rev 24 (018f72d). Round 13 is the plan gate read of 39dbc0d..018f72d (rev 24). Round 10 (M5) and the Round 7 sub-entry (M4 D29, QAF-25) at da24eb7; the Round 2 sub-entry (CR-15) at 3031878"
+Reviewed-At: "dd9e88a,24ac49f — repos=agent-output,website; Round 15 is the plan gate read of 018f72d..dd9e88a (rev 25), mechanisms at website 24ac49f. Round 14 (M6) and the CR-17 and CR-19 sub-entries at website 24ac49f, criteria plan rev 24 (018f72d). Round 13 is the plan gate read of 39dbc0d..018f72d (rev 24). Round 10 (M5) and the Round 7 sub-entry (M4 D29, QAF-25) at da24eb7; the Round 2 sub-entry (CR-15) at 3031878"
 Status: In Review
-Status-Detail: "Round 14 (M6 at 24ac49f): REJECTED for M6-a (CR-22 MEDIUM) and F-45's class under D28 (CR-24 MEDIUM); M6-b to M6-l met; CR-23 LOW to the planner, CR-25 LOW record. CR-17 and CR-19 RESOLVED at 24ac49f. Round 13 (plan rev 24): APPROVED. Round 10 (M5): REJECTED for M5-h until its code fix. M4: APPROVED_WITH_COMMENTS; rev 24's non-JSON member owes a cell."
-Round: 14
-Verdict: REJECTED
+Status-Detail: "Round 15 (plan rev 25 gate read): APPROVED, CR-23 RESOLVED. Round 14 (M6 at 24ac49f): REJECTED for M6-a (CR-22 MEDIUM) and F-45's class under D28 (CR-24 MEDIUM); M6-b to M6-l met; CR-25 LOW record. CR-17 and CR-19 RESOLVED at 24ac49f. Round 13 (plan rev 24): APPROVED. Round 10 (M5): REJECTED for M5-h until its code fix. M4: APPROVED_WITH_COMMENTS; rev 24's non-JSON member owes a cell."
+Round: 15
+Verdict: APPROVED
 ---
 
 # Code Review: Plan 015 — Bug-evaluation fixes
@@ -55,6 +55,7 @@ Verdict: REJECTED
 | 2026-11-08T08:23 | implementer-hooks-015 handoff at website `24ac49f` (`implementation/015-bug-evaluation-fixes-m6-implementation.md`, `eef8924`); steering-hooks-015 (resume brief) | Round 14: review M6 (F-37, F-38, F-40 to F-42, F-44 to F-50) against plan rev 24, `da24eb7..24ac49f` | REJECTED for M6-a and F-45's class. CR-22 MEDIUM: a fence with an empty or whitespace-only line inside still renders no code block (`cr-m6-probes/run-fence.sh`, 10 of 10). CR-24 MEDIUM: two `useMount` callbacks return cleanups react-use discards (`usemount-cleanup-sweep.sh`, 2 members; the implementer's sweep could not see the concise form). CR-23 LOW (planner): M6-a names `parseEmbedTitle`, which omits the rule. CR-25 LOW (record). M6-b to M6-l met; the `/preview` crash set is unchanged (`cr-m5-probes/real-run5-24ac49f.txt`). |
 | 2026-11-08T08:23 | same handoff (`a665901`) | Round 7 sub-entry: CR-17 at `24ac49f` | CR-17 RESOLVED. One `INVALID_URL_ERROR` beside `MESSAGE_LOAD_FAILED_ERROR`, used at both webhook sites. The literal sweep (single, double and back quotes, production) leaves only the two embed-editor sites outside the class; the cells keep their literals. |
 | 2026-11-08T08:23 | same handoff (`a665901`) | Round 10 sub-entry: CR-19 at `24ac49f` | CR-19 RESOLVED. `usePusher` reads `useLatest(hasChanged)`. The re-expressed mutants are killed (`m5-sweep-summary-ef5a9cc.txt`). The two hand-written syncs that predate this change remain, not owed. |
+| 2026-11-08T08:27 | steering-hooks-015 (brief); planner-hooks-015 (message) | Round 15: plan gate read, `018f72d..dd9e88a` (rev 25): M6-a without the title member (CR-23), L-C7-1 clauses, W-7 cite (AF-28), X-22 | APPROVED, no findings. CR-23 RESOLVED: the omission is at `7ce866b` and first appears at `d5f2dc8`. CR-22 stands. X-22's keying claim holds against next 16.1.6 by reading (the modal mounts under `f/[id]`; the dynamic segment's key differs per id). |
 
 ## Round 1 (M0, website `037935d`) — dispositions
 
@@ -287,6 +288,24 @@ CR-5 LOW Round 2 DECLINED — by the implementer (§ Fix Round 1): the plan sets
   - The two literal `formatKey` cases go to a `formatKey.*` file; the tautologies are deleted.
   - The `useParsePathname` describe is converted to exercise the real hook, or deleted with the surface listed as outstanding.
   - QA decides the timing (now or with a later touch). Non-blocking for M2.
+
+## Round 15 (plan gate read, rev 25, agent-output `dd9e88a`; mechanisms at website `24ac49f`)
+
+- **Scope.** The delta `018f72d..dd9e88a`, written to files and read in full. It includes the R-8 to R-10 rows and the code review rows already recorded. It covers M6-a without its title member (the CR-23 fold), the L-C7-1 standing constraint with its X-16 and X-21 clauses, X-20's W-7 cite (AF-28), and X-22 (the `NewMessageModal` seed).
+- **CR-23 RESOLVED.** M6-a now names `parseContent` and `parseEmbedField` only. It states titles as outside the property, by design. The base facts check out:
+  - `git show 7ce866b:src/utils/markdown/index.tsx` omits `codeBlock` from both `parseEmbedTitle` builders.
+  - `git log -S"'codeBlock', 'heading', 'list'"` first finds the omission at `d5f2dc8`, and the parent of `d5f2dc8` lacks it.
+  - The implementer's control cell ("does not render a fence as a code block") is now the title's spec. The M6-a title limb needs no further assessment.
+- **CR-22 is unaffected.** M6-a still binds "every fenced block … 1 to N content lines" in both parsers, and the planner keeps that property. CR-22 stays with the implementer, blocking.
+- **X-22, a mechanism check against the code at `24ac49f`, read only, not run.**
+  - `NewMessageModal` mounts inside `app/message/f/[id]/page.tsx` (`git grep`), under the dynamic segment.
+  - next 16.1.6 `createRouterCacheKey` keys a dynamic segment as `name|value|type`, so `/message/f/A` and `/message/f/B` have different keys, and B's page and modal mount fresh.
+  - The planner's read (`verification/015/m5-modal-seed-next-keying-read.txt`) also quotes the bfcache that keeps A's subtree in a hidden `Activity` boundary. On a return to A, A's state, including a user's pick, survives. That is consistent with M5-i's "keeps a user's pick" and is no finding.
+- **Exclusions text.** X-16 and X-21 each carry the three clauses L-C7-1 requires (where a report lands, the planner acts while the plan is open, after closure it is a new defect report). X-20 cites W-7 (`952e69f`) and the architect's `send/page.tsx` read. No finding.
+
+### Round 15 verdict
+
+APPROVED, no findings. CR-23 is RESOLVED. Round 14 stays REJECTED for M6-a (CR-22) and F-45's class (CR-24).
 
 ## Round 14 (M6, website `24ac49f`, plan rev 24)
 
@@ -811,6 +830,8 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 
 ## Verdict
 
+**Round 15 (plan gate read, rev 25)**: APPROVED. CR-23 is RESOLVED.
+
 **Round 14 (M6, website `24ac49f`, plan rev 24)**: REJECTED for M6-a (CR-22 MEDIUM) and for F-45's class under D28 (CR-24 MEDIUM). M6-b to M6-l are met. CR-23 (planner) and CR-25 (record) are LOW. CR-17 and CR-19 are RESOLVED (sub-entries of Rounds 7 and 10).
 
 **Round 13 (plan gate read, rev 24)**: APPROVED. CR-21 is RESOLVED.
@@ -847,7 +868,7 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 1. **Implementer, blocking M5-h:** CR-18. Its fix is reviewed as a Round 10 sub-entry.
 2. **Implementer, blocking M6-a and F-45's class:** CR-22 and CR-24, reviewed as a Round 14 sub-entry. CR-25 is a record note.
 3. **Implementer, non-blocking:** CR-10 as QA times it. CR-17 and CR-19 are RESOLVED.
-4. **Planner:** CR-23 (M6-a's `parseEmbedTitle` member). CR-20 and CR-21 are RESOLVED (revs 23 and 24).
+4. **Planner:** none open. CR-20, CR-21 and CR-23 are RESOLVED (revs 23, 24 and 25).
 5. **Implementer, from rev 24:** a cell for M4-d's non-JSON webhook response at both sites, and M5-i. Each is reviewed when it is handed off.
 
 ## Assumption Not Checked
@@ -889,7 +910,6 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 
 - **Implementer** (implementer-hooks-015): CR-22 and CR-24, then a Round 14 sub-entry at the fix SHA. CR-25 as a dated note.
 - **Implementer:** CR-18, which blocks M5-h. Then a Round 10 sub-entry at the fix SHA.
-- **Planner:** CR-23.
 - **Implementer:** M4-d's non-JSON cell and M5-i (rev 24). The chain tip `24ac49f` holds M6 and the CR-17/CR-19 work, which is reviewed when handed off.
 - **Implementer:** M5-h cells assert the presence of their outcome (CR-21).
 - **QA Phase 2** (qa-hooks-015):
@@ -912,7 +932,7 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
   - The CR-22/CR-24 fix, as a Round 14 sub-entry. Re-run `cr-m6-probes/run-fence.sh` and `usemount-cleanup-sweep.sh` at the fix SHA, and break the new predicates.
   - The M5-h fix (CR-18), as a Round 10 sub-entry, once the implementer hands it off. M5-h and M5-i are released on rev 24 (rulings `a4d800d`). The fix is committed at website `09c7c45` (preview files only) and is not yet handed off. Instruments: `cr-m5-probes/run-reported.sh`, `run-real.sh` and `run-edge.sh`. Re-attack from first principles, with presence assertions.
   - Also owed, not in this range: M4-d's non-JSON cell (rev 24) and M5-i.
-  - CR-23's restatement, at the next plan gate read. CR-22's alternative remedy (narrowing M6-a) is the planner's call; steering puts it to the owner only if the planner proposes it.
+  - CR-23 RESOLVED at rev 25 (Round 15). CR-22's alternative remedy (narrowing M6-a) is the planner's call; steering puts it to the owner only if the planner proposes it.
 - **Instruments.** `cr-m6-probes/` (fence probe and runner, `useMount` sweep, regex timing, class sweeps, CR-17/CR-19 sweeps), `cr-m5-probes/` (real run 5 at `24ac49f`), `cr-m4-probes/`, `cr-m1-probes/`.
 - **Hazards.** As before: stamps come from `record-edit.js`; re-diff the plan right before `commit --only`; the rtk filter breaks piped counts; convention-check's id-token check SKIPs, so run it by hand; vitest probes need `~/env.mjs` mocked and write rows through `EDGE_OUT` or `PROBE_OUT`; real-editor probes wait for Suspense.
 - **Questions out.** None.
