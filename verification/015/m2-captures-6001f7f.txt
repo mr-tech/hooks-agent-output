@@ -1,0 +1,7 @@
+# M2 gate captures, website chain/015-bug-evaluation-fixes at 6001f7f (taken 2026-11-08 by implementer-hooks-015)
+vitest run --reporter=json: exit 0; numTotalTests 720, passed 720, failed 0; testResults entries 71
+path membership vs m1-testresults-paths-be881c9.txt: 1 gone (parseServerCookies.cookie-header.test.ts, deleted with its module), 5 new
+pnpm run typecheck: exit 0
+git diff --numstat 7ce866b -- pnpm-lock.yaml package-lock.json: empty
+convention-check.js website --since=be881c9: 0 FAIL, 0 CANDIDATE, 4 SKIP
+ID-token negative form (CLAUDE.md regex, hand run) over the new test files' basenames, titles and comments: 0 hits (no planted control)

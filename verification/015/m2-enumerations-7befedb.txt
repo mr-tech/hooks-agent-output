@@ -1,0 +1,26 @@
+## E10 grep -rn 'z.number().int()' src (any copy of a colour schema, tests included)
+src/server/api/utils/shapes.ts:114:  accent_color: z.number().int().min(0).max(0xffffff)
+src/server/api/utils/shapes.ts:137:  color: z.number().int().min(0).max(0xffffff)
+src/server/api/utils/shapes.ts:201:  flags: z.number().int().nonnegative().optional(),
+## E11 grep -rln 'z.object' src --include=*.test.ts --include=*.test.tsx (tests building their own zod schemas)
+## E12 grep -rnE 'MAX_NAME_LENGTH' src (non-test)
+src/server/api/utils/shapes.ts:10:  MAX_MESSAGE_CONTENT_LENGTH, MAX_MESSAGE_NAME_LENGTH, MAX_NAME_LENGTH,
+src/server/api/utils/shapes.ts:191:  username: z.string().trim().max(MAX_NAME_LENGTH).optional(),
+src/utils/limits.tsx:11:  MAX_NAME_LENGTH, MIN_NAME_LENGTH, V2_COMPONENT_TYPE_VALUES,
+src/utils/limits.tsx:26:  if (username.length < MIN_NAME_LENGTH || username.length > MAX_NAME_LENGTH) return 'This username is too short or too long.';
+src/app/message/_layout/Header.tsx:25:import { BLUR_DATA_URL, MAX_NAME_LENGTH } from '~/constants';
+src/app/message/_layout/Header.tsx:110:                  maxLength={MAX_NAME_LENGTH}
+src/constants/messageLimits.ts:16:export const MAX_NAME_LENGTH = 80 as const;
+## E13 grep -rnE 'footer.*(256|2048)|FOOTER_TEXT' src (non-test)
+src/server/api/utils/shapes.ts:8:  MAX_EMBED_FOOTER_TEXT_LENGTH, MAX_EMBED_TITLE_LENGTH,
+src/server/api/utils/shapes.ts:149:    text: z.string().trim().max(MAX_EMBED_FOOTER_TEXT_LENGTH),
+src/constants/messageLimits.ts:7:export const MAX_EMBED_FOOTER_TEXT_LENGTH = 2048 as const;
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx:15:import { DEFAULT_IMAGE_URL, MAX_EMBED_FOOTER_TEXT_LENGTH } from '~/constants';
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx:24:const PLACEHOLDER_FOOTER_TEXT = 'Click or tap to edit footer text.';
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx:91:  const error = localText.length > MAX_EMBED_FOOTER_TEXT_LENGTH ? `Footer text must be less 
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx:117:            placeholder={PLACEHOLDER_FOOTER_TEXT}
+## E14 grep -rnE 'Name is too long' src (non-test)
+src/utils/limits.tsx:80:  if (nameErroring) error = 'Name is too long.';
+## E15 colour falsy-test enumeration (same grep as M2 sweep)
+src/@types/global.d.ts:271:    accent_color?: number;
+src/@types/global.d.ts:355:    accent_color?: number;

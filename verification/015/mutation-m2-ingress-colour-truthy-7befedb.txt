@@ -1,0 +1,37 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-7befedb-m2-ingress-colour-truthy  sha: 7befedb  label: m2-ingress-colour-truthy  test: src/server/api/utils/__tests__/shapes.embed-schema.test.ts src/utils/__tests__/limits.embed-text-errors.test.ts src/utils/__tests__/discordResponseToMessage.ingress.test.ts src/components/DiscordMessageEditor/components/EmbedEditor/__tests__  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py
+ .../src/utils/discordResponseToMessage.ts                               | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-7befedb-m2-ingress-colour-truthy
+
+ ❯ |node| src/utils/__tests__/discordResponseToMessage.ingress.test.ts (15 tests | 1 failed) 18ms
+     × keeps the colour 0 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/discordResponseToMessage.ingress.test.ts > discordResponseToMessage carries an embed colour whenever the response has the field > keeps the colour 0
+AssertionError: expected undefined to be +0 // Object.is equality
+
+- Expected:
+0
+
++ Received:
+undefined
+
+ ❯ src/utils/__tests__/discordResponseToMessage.ingress.test.ts:238:54
+    236|
+    237|   it.each([[0], [255], [16777215]])('keeps the colour %i', (color) => {
+    238|     expect(embedColor({ title: 'T', color })?.color).toBe(color);
+       |                                                      ^
+    239|   });
+    240|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  1 failed | 63 passed (64)
+   Start at  06:32:30
+   Duration  2.05s (transform 865ms, setup 15ms, import 2.48s, tests 367ms, environment 1.37s)
+
+vitest exit 1

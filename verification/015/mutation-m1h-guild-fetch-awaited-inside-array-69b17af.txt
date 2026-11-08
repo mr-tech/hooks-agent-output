@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-69b17af-m1h-guild-fetch-awaited-inside-array  sha: 69b17af  label: m1h-guild-fetch-awaited-inside-array  test: src/server/__tests__/auth.hydrated-session.test.ts  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m1h-guild-fetch-awaited-inside-array.py
+ .../src/utils/limits.tsx                           |   9 +-
+ 14 files changed, 173 insertions(+), 403 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-69b17af-m1h-guild-fetch-awaited-inside-array
+
+
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+   Start at  06:27:53
+   Duration  908ms (transform 264ms, setup 0ms, import 646ms, tests 9ms, environment 0ms)
+
+vitest exit 0

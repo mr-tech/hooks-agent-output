@@ -1,0 +1,17 @@
+## E16 grep -rnE 'decodeURI(Component)?\(' src bot (non-test)
+src/app/_components/Providers.tsx:34:    const params = queryString.parse(decodeURIComponent(encodedQuery)) as { code?: string };
+src/components/SlateEditor/utils/onCopy.ts:26:      const decoded = decodeURIComponent(window.atob(fragment));
+## E17 grep -rn 'parseServerCookies' src
+## E18 grep -rnE 'JSON.parse\(|atob\(|new URL\(' src/app src/pages (non-test) request-derived parses, for the class 'throws on legal input'
+src/app/message/m/[id]/_components/JsonModalBody.tsx:30:    JSON.parse(str);
+src/app/message/m/[id]/_components/JsonModalBody.tsx:129:      const rawParsed = JSON.parse(messageString) as { components?: unknown };
+src/app/message/m/[id]/_components/JsonModalBody.tsx:215:            onPress={() => updateDoc(JSON.stringify(JSON.parse(messageString), null, 2))}
+src/app/message/m/[id]/_components/JsonModalBody.tsx:258:              JSON.stringify(discordMessageImportShape.parse(JSON.parse(messageString)), null, 2),
+src/pages/api/interactions-edge.ts:52:  const interaction = JSON.parse(rawBody) as IncomingInteraction;
+src/app/layout.tsx:19:  metadataBase: new URL('https://hooks.gg'),
+src/app/preview/page.tsx:22:            message={makeEditable({ data: JSON.parse(query) } as ApiMessage).data}
+src/app/message/_components/NewMessageJsonInput.tsx:25:    JSON.parse(str);
+src/app/message/_components/NewMessageJsonInput.tsx:93:      const parsed = JSON.parse(jsonMessageString) as { components?: unknown };
+src/app/message/_components/NewMessageJsonInput.tsx:194:          onPress={() => updateDoc(JSON.stringify(JSON.parse(jsonMessageString), null, 2))}
+src/app/message/f/[id]/page.tsx:233:  const botInviteUrl = new URL(INVITE_URL);
+src/app/message/m/[id]/send/page.tsx:140:    const botInviteUrl = new URL(INVITE_URL);

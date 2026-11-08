@@ -20,7 +20,7 @@ ln -s "$WEBSITE/node_modules" "$EXPORT/node_modules"
   (cd "$EXPORT" && git -C "$WEBSITE" diff --no-index --stat "$WEBSITE/src" "$EXPORT/src" 2>/dev/null | tail -2)
 } > "$OUT" 2>&1
 cd "$EXPORT" || exit 2
-setsid npx vitest run "$TEST" >> "$OUT" 2>&1 &
+setsid npx vitest run $TEST >> "$OUT" 2>&1 &
 PID=$!
 for _ in $(seq "$TIMEOUT"); do kill -0 "$PID" 2>/dev/null || break; sleep 1; done
 if kill -0 "$PID" 2>/dev/null; then kill -TERM -- "-$PID" 2>/dev/null; sleep 2; kill -KILL -- "-$PID" 2>/dev/null; echo "TIMEOUT-KILL" >> "$OUT"; fi

@@ -1,0 +1,38 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-7befedb-m2-author-bound-80  sha: 7befedb  label: m2-author-bound-80  test: src/server/api/utils/__tests__/shapes.embed-schema.test.ts src/utils/__tests__/limits.embed-text-errors.test.ts src/utils/__tests__/discordResponseToMessage.ingress.test.ts src/components/DiscordMessageEditor/components/EmbedEditor/__tests__  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py
+ .../exports/website-7befedb-m2-author-bound-80}/src/utils/limits.tsx    | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-7befedb-m2-author-bound-80
+
+ ❯ |node| src/utils/__tests__/limits.embed-text-errors.test.ts (11 tests | 2 failed) 10ms
+     × shows no error for an author name of 81 characters 5ms
+     × shows no error for an author name of 256 characters 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/limits.embed-text-errors.test.ts > validateEmbedAuthor > shows no error for an author name of 81 characters
+ FAIL  |node| src/utils/__tests__/limits.embed-text-errors.test.ts > validateEmbedAuthor > shows no error for an author name of 256 characters
+AssertionError: expected 'Name is too long.' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Name is too long.
+
+ ❯ src/utils/__tests__/limits.embed-text-errors.test.ts:13:69
+     11| describe('validateEmbedAuthor', () => {
+     12|   it.each([[0], [80], [81], [256]])('shows no error for an author name…
+     13|     expect(validateEmbedAuthor({ name: 'a'.repeat(length) }).error).to…
+       |                                                                     ^
+     14|   });
+     15|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  2 failed | 62 passed (64)
+   Start at  06:32:19
+   Duration  1.90s (transform 585ms, setup 16ms, import 2.07s, tests 299ms, environment 1.41s)
+
+vitest exit 1

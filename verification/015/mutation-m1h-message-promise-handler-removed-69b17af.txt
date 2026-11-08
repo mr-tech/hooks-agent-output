@@ -1,0 +1,67 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-69b17af-m1h-message-promise-handler-removed  sha: 69b17af  label: m1h-message-promise-handler-removed  test: src/server/__tests__/auth.hydrated-session.test.ts  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m1h-message-promise-handler-removed.py
+ .../src/utils/limits.tsx                           |   9 +-
+ 14 files changed, 172 insertions(+), 403 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-69b17af-m1h-message-promise-handler-removed
+
+(node:36672) PromiseRejectionHandledWarning: Promise rejection was handled asynchronously (rejection id: 1)
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ |node| src/server/__tests__/auth.hydrated-session.test.ts (5 tests | 2 failed) 28ms
+     × reports a recent-messages failure through the callback while the account lookup is still running 13ms
+     × leaves no rejection unhandled when the account is not found after a recent-messages failure 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback > reports a recent-messages failure through the callback while the account lookup is still running
+AssertionError: expected [ Error: recent messages failed ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   Error {
++     "message": "recent messages failed",
++   },
++ ]
+
+ ❯ src/server/__tests__/auth.hydrated-session.test.ts:123:23
+    121|
+    122|     expect(await outcome).toMatchObject({ message: 'recent messages fa…
+    123|     expect(unhandled).toEqual([]);
+       |                       ^
+    124|   });
+    125|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback > leaves no rejection unhandled when the account is not found after a recent-messages failure
+AssertionError: expected [ Error: recent messages failed ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   Error {
++     "message": "recent messages failed",
++   },
++ ]
+
+ ❯ src/server/__tests__/auth.hydrated-session.test.ts:139:23
+    137|
+    138|     expect(await outcome).toEqual({});
+    139|     expect(unhandled).toEqual([]);
+       |                       ^
+    140|   });
+    141| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 3 passed (5)
+   Start at  06:27:50
+   Duration  856ms (transform 219ms, setup 0ms, import 587ms, tests 28ms, environment 0ms)
+
+vitest exit 1

@@ -1,0 +1,153 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-7befedb-m2-title-required  sha: 7befedb  label: m2-title-required  test: src/server/api/utils/__tests__/shapes.embed-schema.test.ts src/utils/__tests__/limits.embed-text-errors.test.ts src/utils/__tests__/discordResponseToMessage.ingress.test.ts src/components/DiscordMessageEditor/components/EmbedEditor/__tests__  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py
+ .../website-7befedb-m2-title-required}/src/server/api/utils/shapes.ts   | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-7befedb-m2-title-required
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts (29 tests | 14 failed) 21ms
+     × admits an author whose icon_url is undefined 6ms
+     × admits an author whose url is undefined 1ms
+     × admits a footer whose icon_url is undefined 1ms
+     × admits the integer colour 0 1ms
+     × admits the integer colour 1 0ms
+     × admits the integer colour 255 1ms
+     × admits the integer colour 16777215 0ms
+     × admits footer text of 0 characters 0ms
+     × admits footer text of 256 characters 0ms
+     × admits footer text of 257 characters 0ms
+     × admits footer text of 2048 characters 0ms
+     × admits an author name of 80 characters 0ms
+     × admits an author name of 81 characters 0ms
+     × admits an author name of 256 characters 0ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 14 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape URL fields > admits an author whose icon_url is undefined
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.embed-schema.test.ts:61:28
+     59|     };
+     60|     const result = embedShape.safeParse(embed);
+     61|     expect(result.success).toBe(true);
+       |                            ^
+     62|   });
+     63|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/14]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape URL fields > admits an author whose url is undefined
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.embed-schema.test.ts:77:28
+     75|     };
+     76|     const result = embedShape.safeParse(embed);
+     77|     expect(result.success).toBe(true);
+       |                            ^
+     78|   });
+     79|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/14]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape URL fields > admits a footer whose icon_url is undefined
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.embed-schema.test.ts:93:28
+     91|     };
+     92|     const result = embedShape.safeParse(embed);
+     93|     expect(result.success).toBe(true);
+       |                            ^
+     94|   });
+     95|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/14]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape colour > admits the integer colour 0
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape colour > admits the integer colour 1
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape colour > admits the integer colour 255
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape colour > admits the integer colour 16777215
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.embed-schema.test.ts:128:53
+    126| describe('embedShape colour', () => {
+    127|   it.each([[0], [1], [255], [16777215]])('admits the integer colour %i…
+    128|     expect(embedShape.safeParse({ color }).success).toBe(true);
+       |                                                     ^
+    129|   });
+    130|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/14]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape footer text > admits footer text of 0 characters
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape footer text > admits footer text of 256 characters
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape footer text > admits footer text of 257 characters
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape footer text > admits footer text of 2048 characters
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.embed-schema.test.ts:142:84
+    140| describe('embedShape footer text', () => {
+    141|   it.each([[0], [256], [257], [2048]])('admits footer text of %i chara…
+    142|     expect(embedShape.safeParse({ footer: { text: 'a'.repeat(length) }…
+       |                                                                                    ^
+    143|   });
+    144|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/14]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape author name > admits an author name of 80 characters
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape author name > admits an author name of 81 characters
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape author name > admits an author name of 256 characters
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.embed-schema.test.ts:152:84
+    150| describe('embedShape author name', () => {
+    151|   it.each([[80], [81], [256]])('admits an author name of %i characters…
+    152|     expect(embedShape.safeParse({ author: { name: 'a'.repeat(length) }…
+       |                                                                                    ^
+    153|   });
+    154|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/14]⎯
+
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  14 failed | 50 passed (64)
+   Start at  06:32:16
+   Duration  1.95s (transform 662ms, setup 29ms, import 2.20s, tests 328ms, environment 1.39s)
+
+vitest exit 1

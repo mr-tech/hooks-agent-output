@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "M1 (F-1 to F-11) delivered and committed on website chain/015-bug-evaluation-fixes; awaiting code review. Three plan-premise differences are declared in Outstanding Items (M1-c missing account, M1-f, M1-h) for the planner's confirmation; none blocks review. M2 onward is not started."
-Handoff-At: "be881c9 — repos=website"
+Status-Detail: "Fix round 1 after code review Round 2 (REJECTED at be881c9): CR-4 fixed, M1-h reopened and re-fixed under the owner's OQ-I ruling, handed over at 6001f7f. CR-3 waits for the planner (sign-out reading a cached null); CR-5 declined as optional."
+Handoff-At: "6001f7f — repos=website"
 ---
 
 # Implementation 015 — M1 (server and data path)
@@ -22,6 +22,39 @@ Handoff-At: "be881c9 — repos=website"
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-08T06:20 | steering-hooks-015 → implementer-hooks-015 (brief) | Implement M1 | M1-a to M1-k delivered at website `be881c9`. CR-1 (M0 path list) closed at `96e123d`. QAF-11 (flaky wait in `SectionEditor.auto-remove-dispatch.test.tsx`) fixed at `9e4955a`. The M1-c no-account and ordering cells were held until steering lifted the hold (rev 8's gates passed: critic `f64ae27`, architect `ca8da09`, QA `c2a657a`); they are built to rev 8's text. |
+| 2026-11-08T06:37 | code-reviewer-hooks-015 → implementer-hooks-015 (message) | Code review Round 2 of M1 at `be881c9`: REJECTED | Fix round 1. CR-4 fixed at `6001f7f` (structural). M1-h's account-lookup window closed at `69b17af` (owner ruling OQ-I, "fix both windows"). CR-3 is held for the planner; CR-5 declined. See § Fix Round 1. |
+
+## Fix Round 1 (code review Round 2, REJECTED at `be881c9`)
+
+Document: `agent-output/code-review/015-bug-evaluation-fixes-code-review.md` (`53ee954`). The M1 verdict is not issued at `be881c9`; the reviewer asked for `69b17af` or later, so the hand-over tip is `6001f7f`, which also carries M2.
+
+| Item | Disposition |
+|---|---|
+| **CR-4 (MEDIUM, M1-i)** | Fixed, structural option. `src/app/_navigation/Redirects/Server.tsx` reads the two session cookie names from `next/headers` `cookies()`. `parseServerCookies.ts` and its test are deleted (nothing else imported it: `grep -rn parseServerCookies src`, 0 hits). New test `src/app/_navigation/Redirects/__tests__/Server.session-cookie-redirect.test.ts` drives the real component with a real `NextRequest` cookie store. M1-i's cells (a `=` kept in a value, a segment with no `=`, an empty segment) are cells of that test. Commit `6001f7f` |
+| **CR-3 (MEDIUM, planner)** | Not touched. The reviewer and steering route it to the planner. The preferred fix (sign-out reads the `Accounts` row from Postgres, not through the cache) changes M1-c's "no account found" class, so I wait for the planner's text |
+| **CR-5 (LOW, optional)** | Declined: `revokeAccessToken` swallows a refused or failed revoke without a log line. The plan fixes that a failed revoke never prevents sign-out; it says nothing about logging, and no logging convention applies to this function. I can add one on request |
+| **M1-h reopened** (rev 9/10, owner ruling OQ-I `33928c8`: "fix both windows") | Fixed at `69b17af`: `messagePromise` gets a rejection handler the moment it exists, so neither the inner-`await` window nor the account-lookup window leaves it unhandled. Two cells added to `auth.hydrated-session.test.ts` (failure during the account lookup; account not found after a failure); both red at `be881c9` on `expected [ Error: recent messages failed ] to deeply equal []`. Mutant `m1h-message-promise-handler-removed` (the handler line deleted) reddens exactly those two (`mutation-m1h-message-promise-handler-removed-69b17af.txt`: 2 failed, 3 passed) |
+| **Formatting-only claim** | Confirmed by the reviewer (`cr-emit-compare-run-9e4955a-be881c9.txt`); no action |
+
+**Surviving mutant, stated.** With the handler in place, putting M1-h's original inner `await` back (`m1h-guild-fetch-awaited-inside-array`) reddens no cell (`mutation-m1h-guild-fetch-awaited-inside-array-69b17af.txt`: 5 passed). The `await` has no observable effect once the promise has a handler, because the recent-messages fetch is already running when the guild fetch starts. So that mutant is behaviourally equivalent to the fixed code under every property the plan states. I kept the `await` removed because F-8 names it.
+
+### TDD rows added in this round
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|---|---|---|---|---|---|
+| `Server` redirect, malformed `%` in an unrelated cookie (value, truncated escape, name) | `Server.session-cookie-redirect.test.ts` | Yes | Yes | At the pre-change `Server.tsx`: `URIError: URI malformed` for `pref=100%`, `x=%E0%A4%A` and `a%=1`, and the same error for the no-session malformed case (4 failed, 10 passed) | Yes |
+| `Server` redirect, benign cookies (10 cells) | same | Yes | Yes | Controls: green at the pre-change code, so they carry no red of their own; they pin what the new reader must still do (session found, redirect when absent, the two exempt paths) | Yes |
+| `hydratedAuthCallback`, account-lookup window (2 cells) | `auth.hydrated-session.test.ts` | Yes | Yes | `expected [ Error: recent messages failed ] to deeply equal []` at `be881c9` | Yes |
+
+### Class Sweep (CR-4)
+
+The reviewer's finding names one parser; the class is a decode or parse of externally supplied text that throws on a legal input. The enumeration is derived by me (the finding carries none). Full output: `verification/015/m1-cr4-enumeration-6001f7f.txt`.
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---|---|---|---|
+| CR-4 | `grep -rnE "decodeURI(Component)?\(" src bot` (non-test) | 2 hits: `Providers.tsx:34`, `onCopy.ts:26` | `Providers.tsx:34` decodes `x-query-params`, which `src/middleware.ts:20` writes with `encodeURIComponent`, so it is always well-formed. Not applicable. `onCopy.ts:26` decodes a Slate fragment the editor itself encodes. Not applicable |
+| CR-4 | `grep -rn "parseServerCookies" src` | 0 hits (was 1 production hit and 1 test) | Residual 0 |
+
 
 ## Implementation Summary
 
@@ -166,6 +199,8 @@ Not owed as a reviewer-finding round. For the gaps my own instruments exposed at
 
 ## Test Execution Results
 
+*Figures below are at the first handoff, `be881c9`. The tip's figures (`6001f7f`: 720 tests in 71 files, exit 0) are in `implementation/015-bug-evaluation-fixes-m2-implementation.md`.*
+
 Raw outputs: `agent-output/verification/015/m1-captures-be881c9.txt`. Counts come from the vitest JSON reporter (`numTotalTests`, `numPassedTests`, `numFailedTests`, `testResults.length`); path membership is a set difference over the sorted `testResults` names against `verification/015/base-7ce866b-testresults-paths.txt` (QA's list of the base).
 
 | Command | Result | Exit |
@@ -184,6 +219,8 @@ Raw outputs: `agent-output/verification/015/m1-captures-be881c9.txt`. Counts com
 
 ## Outstanding Items
 
+*Reconciled after plan rev 9 and the owner's OQ-I ruling:* item 1 is confirmed by the planner (the class is `NoResultError` or a falsy return; other lookup errors are a stated residue); item 3's premise is corrected in the plan (the refusal is new behaviour, RK-7); item 2 is settled by OQ-I ("fix both windows", closed at `69b17af`). The reviewer's CR-3 now challenges item 1's reading for a cached `null` (§ Fix Round 1).
+
 1. **M1-c, missing account (plan premise differs from the code).** The plan (and QA's read) says that at `7ce866b` a missing account "throws `Expected to find account`". Through the real stack that line is unreachable: `fetchUserAccount(…, true)` runs `getPostgres().selectFrom('Accounts')…executeTakeFirstOrThrow()` inside its loader, so an absent row raises Kysely's `NoResultError` (cell red reason `Error: no result`). I built the no-account cell on that real state: `removeUserSession` catches `NoResultError` only, treats it as no account, deletes the `user-access-token` and `user-session-token` keys, issues no `Accounts` update and sends no revoke. Any other error still propagates. The `!account` branch stays for a falsy return. This is inside rev 8's wording ("no account found") but it is a code path the plan did not name. **Asks the planner to confirm** the reading.
 2. **M1-h, the criterion's ordering clause is already true at the base.** The recent-messages fetch is started before the account lookup is awaited, and the guild fetch is started and awaited inside the array afterward, so "both started before either is awaited" holds at `7ce866b` and QA's "red against the sequential base" cell is green there (`auth.hydrated-session.test.ts` first cell, kept as a spec). What the inner `await` does change: the recent-messages promise has no handler while the guild fetch runs, so a failure in it during that window is an unhandled rejection. I fixed that (removing the inner `await`, which is what F-8 names) and made it the red cell. **Asks the planner** whether the criterion should read as the handler-attachment property. The residual: between the message fetch start and `Promise.all`, the `await fetchUserAccount` still leaves the promise unhandled for one tick; I did not change it (beyond F-8; severity 1).
 3. **M1-f, the base refused nothing.** The plan says reading other server keys "still is" refused. At `7ce866b` the guard `!prop === 'NODE_ENV'` is always false, so the proxy refused no key. The fix makes the refusal live for the first time. Sweep: the only client-reachable importers of `env.mjs`, `constants/index.ts` and `usePusher.ts`, read `NEXT_PUBLIC_` keys only (`grep -rl "env.mjs" src bot` and a read of both). Risk: a future client read of a server key now throws. Validation: UAT's walks load the editor in a browser (B-2 to B-5); a throw would show there.
@@ -194,4 +231,4 @@ Raw outputs: `agent-output/verification/015/m1-captures-be881c9.txt`. Counts com
 
 ## Next Steps
 
-Code review of `be881c9` (website), then QA Phase 2 for M1 (mutation sweep of the guards M1 changed: QA owns it). Then M2.
+Code review of `6001f7f` for the fix round (CR-4, M1-h); CR-3 follows the planner. Then QA Phase 2 for M1 (mutation sweep of the guards M1 changed: QA owns it).

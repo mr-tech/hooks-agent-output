@@ -1,0 +1,62 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-7befedb-m2-footer-constant-256  sha: 7befedb  label: m2-footer-constant-256  test: src/server/api/utils/__tests__/shapes.embed-schema.test.ts src/utils/__tests__/limits.embed-text-errors.test.ts src/utils/__tests__/discordResponseToMessage.ingress.test.ts src/components/DiscordMessageEditor/components/EmbedEditor/__tests__  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a5c59719-3874-4b81-b7db-fcb6f1a46f0b/scratchpad/exports/website-7befedb-m2-footer-constant-256
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts (29 tests | 2 failed) 17ms
+     × admits footer text of 257 characters 6ms
+     × admits footer text of 2048 characters 1ms
+ ❯ |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.length-error.test.tsx (5 tests | 2 failed) 233ms
+     × shows no error for footer text of 257 characters 28ms
+     × shows no error for footer text of 2048 characters 18ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.length-error.test.tsx > EmbedFooter length error > shows no error for footer text of 257 characters
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.length-error.test.tsx > EmbedFooter length error > shows no error for footer text of 2048 characters
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.length-error.test.tsx:47:57
+     45| describe('EmbedFooter length error', () => {
+     46|   it.each([[0], [256], [257], [2048]])('shows no error for footer text…
+     47|     expect(showsError(mountFooter('a'.repeat(length)))).toBe(false);
+       |                                                         ^
+     48|   });
+     49|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape footer text > admits footer text of 257 characters
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape footer text > admits footer text of 2048 characters
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.embed-schema.test.ts:142:84
+    140| describe('embedShape footer text', () => {
+    141|   it.each([[0], [256], [257], [2048]])('admits footer text of %i chara…
+    142|     expect(embedShape.safeParse({ footer: { text: 'a'.repeat(length) }…
+       |                                                                                    ^
+    143|   });
+    144|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+
+ Test Files  2 failed | 3 passed (5)
+      Tests  4 failed | 60 passed (64)
+   Start at  06:32:26
+   Duration  1.82s (transform 652ms, setup 15ms, import 2.05s, tests 321ms, environment 1.28s)
+
+vitest exit 1
