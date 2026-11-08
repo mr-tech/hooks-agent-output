@@ -1,0 +1,4 @@
+# planner-hooks-015, 2026-11-08T06:43Z, node v24.14.0, jsdom 30.0.1; cmd: timeout 20 node verification/015/m3-same-node-propagation-probe.cjs <jsdom api.js>
+# source reads: website node_modules next@16.1.6 dist/client/app-index.js 'const appElement = document' (hydrateRoot target); @react-aria/interactions@3.27.0 dist/usePress.mjs onKeyDown -> e.stopPropagation(); react-hotkeys-hook@5.2.4 dist/index.js listens on document (bubble, default options)
+["root-listener(stopPropagation)","hotkey-listener fired"]
+exit=0
