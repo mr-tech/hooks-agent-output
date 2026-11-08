@@ -5,9 +5,10 @@ Status-Detail: >-
   Sweep complete over website, project-utils and preview-image-generator at the SHAs in § Context.
   50 rated findings (F-1–F-50), every one read at the code by the researcher; the two SQL-shape
   defects and the code-block regex were proven by execution. Eight editor hypotheses (H-1–H-8) need a
-  running editor and are listed with their disconfirming tests, not counted. Three intent questions
-  stay with the owner (§ Open Questions). Nothing here is fixed; this is a research document, and
-  it stays Active until the owner's three answers land and the hypotheses are run.
+  running editor and are listed with their disconfirming tests, not counted. The owner answered all
+  three intent questions on 2026-11-08 (username required by design, so no defect; get_message
+  open to Manage Server; cap no stated preference). Nothing here is fixed; this is a research
+  document, and it stays Active until the hypotheses H-1 to H-8 are run (G-5).
 ---
 
 # Codebase bug evaluation — intention vs execution, rated for ease of fix and severity
@@ -19,6 +20,7 @@ Status-Detail: >-
 | 2026-11-08T01:34 | researcher | Created; question stated; sweep begun | Active |
 | 2026-11-08T01:48 | researcher | Findings 1–5 and 7, ratings, open questions and gaps written; editor-component sweep pending | Active |
 | 2026-11-08T01:50 | researcher | Editor sweep folded in (F-38–F-50, H-1–H-8); typecheck result recorded; G-2 resolved, G-5 added | Active |
+| 2026-11-08T04:07 | researcher | Owner answers to OQ-1–3 recorded verbatim; OQ-1 is no defect; F-28 intent corrected (`ManageGuild` alone, not `\|`, researcher's error); RBAC remark routed; G-3 resolved | Active |
 
 ## Question
 
@@ -121,7 +123,7 @@ semantic), **Hypothesis** (stated with its disconfirming test).
 
 | # | Defect — intent vs execution | Where | Confidence | Ease | Severity |
 |---|---|---|---|---|---|
-| F-28 | **`ADMIN_PERMS` ANDs two distinct bits.** `(PermissionFlagsBits.Administrator & PermissionFlagsBits.ManageGuild).toString()` = `(1n<<3n & 1n<<5n)` = `"0"`. Discord reads `default_member_permissions: "0"` as "administrators only", so the `get_message` message command is hidden from Manage Server moderators. Intent reads as `\|`. Fixing needs the `push-commands` script re-run (an owner action: it publishes to Discord). | `bot/scripts/app_commands/common.ts` — `ADMIN_PERMS` | Verified (arithmetic) | 9 | 3 |
+| F-28 | **`ADMIN_PERMS` ANDs two distinct bits.** `(PermissionFlagsBits.Administrator & PermissionFlagsBits.ManageGuild).toString()` = `(1n<<3n & 1n<<5n)` = `"0"`. Discord reads `default_member_permissions: "0"` as "administrators only", so the `get_message` message command is hidden from Manage Server moderators. **Owner-stated intent (OQ-2): Manage Server may use it.** _Corrected 2026-11-08T04:07 — this row first said "intent reads as `\|`"; that was the researcher's error. Discord requires a member to hold **every** bit in `default_member_permissions` (Administrator passes all checks), so `Administrator \| ManageGuild` would still exclude Manage-Server-only moderators. The value that matches the stated intent is `ManageGuild` alone (`"32"`)._ High-confidence inference from Discord's documented `default_member_permissions` semantics, not executed against Discord. Fixing needs the `push-commands` script re-run (an owner action: it publishes to Discord). | `bot/scripts/app_commands/common.ts` — `ADMIN_PERMS` | Verified (arithmetic) | 9 | 3 |
 | F-29 | **`setTimestamp` compares instead of assigning.** `this.#payload.timestamp === timestamp;`. Latent: no caller (`grep -rn "setTimestamp("` finds only a React setter in `EmbedFooter.tsx`). | `bot/utils/DiscordEmbed.ts` — `setTimestamp` | Verified | 10 | 1 |
 | F-30 | **`isUserCommand` tests for `'slash'`.** Latent: no user commands are published. | `bot/scripts/app_commands/common.ts` — `isUserCommand` | Verified | 10 | 1 |
 
@@ -188,9 +190,18 @@ finding. Confidence, fastest disconfirming test, and what would prove it:
 
 | # | Question | Why it is the owner's | What would close it |
 |---|---|---|---|
-| OQ-1 | **Is a username required to send?** `validateMessage` runs `validateUsername(username = '')`, so a message with no `username` fails the send gate ("This username is too short or too long.") and is written `valid = false` for Statbot — yet `discordMessageBaseShape.username` is `.optional()` and Discord's webhook API treats it as optional (the webhook's own name is used). The two surfaces disagree; which one states the product's intent is not readable from the code. | Product rule on a user-facing gate and on the `valid` column Statbot consumes (chain 012). | One sentence from the owner; then either the shape gains `.min(1)` or `validateMessage` skips the check when `username` is absent. |
-| OQ-2 | **F-28: should `get_message` be Administrator-only, or Administrator-or-Manage-Server?** `&` is a slip either way, but the fix differs (`Administrator` alone, or `Administrator \| ManageGuild`). | Who may use the bot command is a product decision; publishing the fix is an outbound act the owner performs (`pnpm run push-commands`). | Owner's choice; one script run. |
-| OQ-3 | **F-4: is the cap 1000 or 1001?** | The limit's text says 1000; whether the off-by-one is the intended bound is the owner's. | One word. |
+All three were answered by the owner on 2026-11-08; answers verbatim, with what each settles.
+
+| # | Question | Owner's answer (verbatim) | What it settles |
+|---|---|---|---|
+| OQ-1 | **Is a username required to send?** `validateMessage` fails a message with no `username`, while `discordMessageBaseShape.username` is `.optional()` and Discord treats it as optional. | *"Even though it's not required by Discord, it's not always possible to know what webhook the user is going to send it as ahead of time, and I don't think it's necessarily bad UX to just make them set it explicitly so they know for sure what it's going to look like. This is a WYSIWYG editor after all."* | **Not a defect.** The send gate requiring a username is intended (WYSIWYG: what is previewed is what is sent). The optional save schema is consistent with D-005 (a message may be saved in a bad state). A username-less record reading `valid = false` is therefore correct. No finding raised. |
+| OQ-2 | **F-28: who may use `get_message`?** | *"Manage Server is probably fine. Tengentially [sic] related, the system needs RBAC controls."* | F-28's fix target is `ManageGuild` alone (see the correction in F-28's row; the option this table first offered, `Administrator \| ManageGuild`, would not have met it). The RBAC remark is **product direction, not a finding of this research**; routed below. Related observation, not a defect: the website's own `fetchUserGuilds` admits only guild owners and Administrators, so a Manage-Server moderator could run the command but not open the result in the website's guild views. |
+| OQ-3 | **F-4: is the cap 1000 or 1001?** | *"idk"* | No stated intent beyond the code's own error text ("limit of 1000"), which is the only statement of intent there is. F-4 stays rated as is (Sev 1, Ease 10); aligning the comparison to the message text is the planner's call. |
+
+**Routed — the owner's RBAC remark.** *"the system needs RBAC controls"* is a capability statement
+with no effort behind it yet. It is not investigated here (out of this question's scope) and is
+carried to whoever plans the next effort; it bears on F-28 and on `fetchUserGuilds`' owner/Administrator
+filter, which are today the system's only two role gates.
 
 ## System Weaknesses
 
@@ -229,7 +240,7 @@ finding. Confidence, fastest disconfirming test, and what would prove it:
    `Get Message` context command. Owner-side.
 3. F-31 turns on PM2's kill sequence; `pm2 show <name>` on the production host would confirm the
    `kill_timeout` in force. Read-only, owner-sanctioned host access.
-4. OQ-1 needs the owner's sentence before anything else is planned on the `valid` column.
+4. ~~OQ-1 needs the owner's sentence~~ — answered 2026-11-08: the username requirement is intended; nothing to plan on the `valid` column from this research.
 
 ## Remaining Gaps
 
@@ -238,5 +249,5 @@ finding. Confidence, fastest disconfirming test, and what would prove it:
 | G-1 | Does F-2(a) fail in production for a no-admin-guild user, or does Redis/session state mask it? | No database or live account in this environment. | Run the compiled query against Postgres, or sign in with a test account that administers no guild. | owner |
 | G-2 | ~~Whether the editor-component sweep surfaces further defects.~~ **Resolved** — § Findings 6 (F-38–F-50, H-1–H-8). | — | — | — |
 | G-5 | Which of H-1…H-8 are live. | Each needs a running editor (browser or the vitest DOM project with Slate mounted); not executed in this run. | Run the disconfirming test in each row of the hypotheses table; H-1 and H-2 first (highest severity if true). | planner / qa |
-| G-3 | The intent behind OQ-1/OQ-2/OQ-3. | Owner-only. | One answer each. | owner |
+| G-3 | ~~The intent behind OQ-1/OQ-2/OQ-3.~~ **Resolved** 2026-11-08 by the owner — § Open Questions. | — | — | — |
 | G-4 | Whether F-31's cut-off actually truncates drains in production (drains may finish well inside 5 s). | Needs host observation. | `pm2 show` + a timed restart log read over `claude-ro`. | owner / devops |
