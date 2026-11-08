@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: In Progress
-Status-Detail: "M0 and M2 delivered. Code review has approved M1 at 3031878, M4 and M5-a to M5-g at da24eb7, M6-b to M6-l at 24ac49f, and M5-h, M5-i, M6-a and M7 at website 476c633 (Rounds 10, 14 sub-entries; 16; 17); QA Phase 2 may take them. M8 at preview-image-generator 6c613a5: M8-b to M8-e approved, M8-a rejected (CR-27). CR-29 is the planner's. M5-h and M5-i were approved for release by rev 24's round. AF-26 is a known limit (D34, X-20). M3 is removed (D30). The rev 25 delta goes to the critic (cycle 7), the architect, QA and code review."
-Revision: 25
+Status-Detail: "M0 and M2 delivered. Code review has approved M1, M4, M5-a to M5-g, M6-b to M6-l and M8-b to M8-e; M8-a is with the implementer (CR-27) and M6-a (CR-22). Rev 26 anchors M5-h to the tip (CR-29), registers D35 (M8-b refuses every non-object body), and restates M8-d as a property with RK-8. M3 is removed (D30). The rev 26 delta goes to the critic (cycle 8), the architect, QA and code review."
+Revision: 26
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
 Lane: "standard — agent-output/README.md carries no small-lane section (grep -i small, 0 hits, 2026-11-08); the blast radius spans the save schema, a bot command's permissions and a production PM2 service, none a leaf"
@@ -49,7 +49,8 @@ Owed re-verdicts:
 | M5-h restated over classes (1)–(3), with residue X-19 (D31, D28, CR-18); M6-l (vi) error placement (D32) | rev 22 | critic (cycle 6), architect, qa, code review (delta only) | approved by all four: architect (`5581822`, AF-23 to AF-25), code review Round 11 (`9268f02`, CR-20), QA (`1017bdc`, QAF-28), critic cycle 6 pass 1 (`eee4a31`, M-C6-1, L-C6-1); all folded at rev 23 |
 | M5-h class (3) as the real page's crash set, members as read-backed illustrations, X-19 re-cited; M6-l (ii) one literal; M6-l (vi) on `/preview` (D33) | rev 23 | critic (cycle 6), architect, qa, code review (delta only) | approved by the architect (`25b3e57`, AF-27 for code review), the critic (`0649ef4`, L-C6-2) and QA (`28be7bf`); code review Round 12 REJECTED (`1c1adb6`, CR-21); all folded at rev 24 |
 | M5-h (3) type-12 member, X-19 residue and Verification presence rule (CR-21); M4-d non-JSON member (L-C5-1); M5-i (new, D28); X-20/D34; X-21 | rev 24 | critic (cycle 7), architect, qa, code review (delta only) | approved by all four: architect (`1a3bc68`, AF-28, AF-29), QA (`4d091e4`), critic cycle 7 pass 1 (`1b5f3e8`, L-C7-1), code review Round 13 (`3960833`); folded at rev 25 |
-| M6-a without the title member (CR-23); Exclusions standing constraint, X-16 and X-21 clauses (L-C7-1); X-20/D34 cite W-7 (AF-28); X-22 (modal seed) | rev 25 | critic (cycle 7), architect, qa, code review (delta only) | open |
+| M6-a without the title member (CR-23); Exclusions standing constraint, X-16 and X-21 clauses (L-C7-1); X-20/D34 cite W-7 (AF-28); X-22 (modal seed) | rev 25 | critic (cycle 8), architect, qa, code review (delta only) | approved by all four: architect (`5efb7ab`), code review Round 15 (`1d0059a`), QA (`983a84d`), critic cycle 8 pass 1 (`4429f17`, L-C8-1, folded at rev 26) |
+| M5-h (3) anchored to the tip, `fields: null` moved (CR-29); M8-b non-objects (D35, D28 for `null`); M8-d as a property, with (c) and its unmeasured limb; RK-8; M6-a note (L-C8-1) | rev 26 | critic (cycle 8), architect, qa, code review (delta only) | open |
 
 ## Changelog
 
@@ -113,6 +114,7 @@ Owed re-verdicts:
 | 2026-11-08T08:30 | R-11 | planner (planner-hooks-015) | Parked critique cycle 8 L-C8-1 (LOW) as a Planner batch row; its words are in `critiques/015-bug-evaluation-fixes-cycle8-critique.md` (`4429f17`). Scope delta: none, registration only. |
 | 2026-11-08T08:36 | qa | qa (qa-hooks-015) | Phase 1 approves rev 25 (`983a84d`) with no new finding. Phase 2 at website `24ac49f`, milestone-scoped, each verdict in its own document. **M6-b to M6-l: QA Failed** on suite coverage (`qa/015-bug-evaluation-fixes-m6-qa.md`). QAF-30 MEDIUM: M6-l (vi)'s add gate above 40, the line's place, the live drop and `/preview` have no cell that discriminates them. QAF-31 MEDIUM: the nested duplicate cells cannot tell a copy placed before the original. QAF-32 LOW. No production defect was found. **M1 PASS** (QAF-26 RESOLVED). **M5-a to M5-g PASS** (QAF-29 RESOLVED; CR-19 refreshed). **M4's PASS is refreshed for CR-17**; its non-JSON member's scoped pass is still owed. Earlier milestone verdicts not rowed here: M4 Failed at `1e12837`, then PASS at `da24eb7`; M1 Failed at `3031878`; M5-a to M5-g Failed at `da24eb7`. Each is in its own document. Plan Status unmoved. |
 | 2026-11-08T09:18 | cr | code-reviewer (code-reviewer-hooks-015) | Rounds 16 to 18 and sub-entries at website `476c633` and preview-image-generator `6c613a5`, `code-review/015-bug-evaluation-fixes-code-review.md` (`2fa6d8b`). CR-18 (M5-h), CR-22, CR-24 and CR-25 are RESOLVED; M5-h, M5-i, M6 and M7 are approved. M8 is REJECTED for M8-a: CR-27 MEDIUM, a failed drain still logs the drain-complete line that M8-0 run 2 counts. M8-b to M8-e are met; M8-d's `factoryCreateError` mechanism is accepted over the plan's rethrow-only sketch (CR-28 LOW). **For the planner: CR-29 LOW**, M5-h class (3) lists `fields: null` as crashing, and at the tip it renders (M6-c): restate class (3) against the tip, or move the member. |
+| 2026-11-08T09:23 | 26 | planner (planner-hooks-015) | Folds the implementer's delivery 2 drifts (`3926486`), code review CR-29 and the M8-d wording read (`2fa6d8b`, plus its message on `min` 2), and critique L-C8-1 (R-11). It registers D35 (rulings 09:22Z, `f502eb5`). It is taken after all four gates approved rev 25, and it is the nineteenth revision since implementation approval. M8-d's "rejects in the pool factory" was a mechanism the plan should not have stated; the error was the planner's. Scope delta: M5-h (3) is anchored to the tip, and `fields: null` moves to rendering. M8-b refuses every non-object body (D35; `null` under D28). M8-d becomes a property with three limbs and an unmeasured per-request count. RK-8 is added. The M6-a note's provenance is corrected. No code changes. Against the ask: 47 of 50 findings fixed, F-15/F-39 closed as not reproducible, plus one rider and one D28 sibling. |
 
 ## Value Statement and Business Objective
 
@@ -161,6 +163,7 @@ message builder that sends through webhooks.
 | D32 | M6-l: while the total exceeds 40, "Message has N components; the limit is 40." (N live) shows in red under the components, with a red border, in the editor and on the Send page, following the text-length errors; the Add Component button and counter still hide at 40 and over. | 2026-11-08 | "Agent: red line + red border" — selection relayed by steering-hooks-015, rulings block 07:52Z (`c1be05e`). The option text is the implementer's, relayed by steering (agent-authored). | Owner withdrawal only. | M6-l (vi). Its premise is the implementer's code read; steering did not read it. |
 | D33 | M6-l: the over-40 line and border also show on `/preview`, so an over-40 message's generated preview image carries them, exactly as the text-length errors already do. | 2026-11-08 | "Agent: same as siblings" — selection relayed by steering-hooks-015, rulings block 08:02Z "AF-25" (`9f321b8`). The option text is steering's (agent-authored). | Owner withdrawal only. | M6-l (vi). Its premise is the architect's read (`5581822`, D-003); steering did not read it. |
 | D34 | AF-26: a Hooks user holding several Discord `Accounts` rows is a known limit, with no code in chain 015. An Exclusions row plus a handoff carry both sites (`removeUserSession`, `fetchUserAccount`), reopened if such a user is found or reported. | 2026-11-08 | "what do you mean by \"linking a second Discord account\"? If someone signs in with a different account, that's a different Hooks user" — his own words, then "Agent: record as known limit" by selection after steering's explanation; both relayed by steering-hooks-015, rulings block 08:10Z "AF-26" (`766bd4b`). The option text is steering's (agent-authored). | A user with more than one Discord row found or reported (the handoff's trigger); owner withdrawal. | X-20; the sentence is recorded as the standing rule `architecture/website.md` W-7 (`952e69f`); `handoff/one-hooks-user-several-discord-accounts-2026-11-08.md`. |
+| D35 | M8-b: every `/generate` body that is not a JSON object gets 500, as the implementer built it. | 2026-11-08 | "Agent: refuse all, as built" — selection relayed by steering-hooks-015, rulings block 09:22Z "/generate non-object bodies" (`f502eb5`, heading `d42657d`). Description chosen: "Agent: every body that isn't a JSON object gets a 500, as the implementer already built it. This matches your /preview ruling (non-object data shows the error line). Cost: no code change; it rides the plan revision the planner is already making, with that revision's normal review round." The option text is the planner's, relayed by steering (agent-authored). | Owner withdrawal only. | M8-b. "Only the website calls /generate" is the planner's claim, not read by steering. |
 
 ## Objective
 
@@ -570,9 +573,11 @@ are in X-18.
   `data` is in one of these classes:
   - (1) not parsable JSON;
   - (2) parsable, but not a JSON object: `null`, a number, a string, a boolean, an array (D31);
-  - (3) a JSON object on which the real page at website `da24eb7` crashes, in `makeEditable` or in the editor's
-    render (steering's call under `a49da66`, restated after critique cycle 6 M-C6-1: every wrong-shape value that
-    crashes the real page rides M5-h). This is the property. Its members are illustrations, never the predicate, and
+  - (3) a JSON object on which the real page crashes, on the tree the guard lands on with the guard removed (the chain
+    tip, not a fixed SHA; code review CR-29), in `makeEditable` or in the editor's render. The reads below were taken
+    at website `da24eb7`. A member that a later milestone made render moves to the rendering list. The rule is
+    steering's call under `a49da66`, restated after critique cycle 6 M-C6-1: every wrong-shape value that
+    crashes the real page rides M5-h. This is the property. Its members are illustrations, never the predicate, and
     membership is decided by an executed read on the real editor, never a source reading. How the guard achieves it
     is the implementer's. Whatever the mechanism, the refusal is the same one line on the existing background, as
     the owner chose; a separate error page is the option he declined. The reads:
@@ -589,20 +594,23 @@ are in X-18.
       recorded the emptied root as 0 nodes, CR-21);
     - `embeds` is `null`, a number, `false`, `true`, `""`, a non-empty string, or an object;
     - an `embeds` element is `null`, a number or a string;
-    - an embed's `fields` is `null`, a number, `""`, a non-empty string, or an object;
+    - an embed's `fields` is a number, `""`, a non-empty string, or an object;
     - a `fields` element is `null` or a number;
     - `components` is `false`, `0`, `""`, a number, a string, or an object;
     - a type-1 or type-9 component's `components` element is `null` or a number; a type-9 `accessory` is `null`;
       a type-12 `items` element is `null` or a number;
     - any of the previous member, nested inside a type-17 container (probed: a type-1 child `null` inside one).
 
-  For every member the same read shows **rendering**, the editor renders as at `da24eb7`, with no error line:
+  For every member the reads show **rendering**, the editor renders, with no error line:
   - `{}`;
   - `embeds` `[]`;
   - an `embeds` element or a `fields` element that is an array;
   - a top-level `components` element that is `null`, a number or an array;
   - a type-1 child that is an array;
   - a type-17 container's direct child that is `null` or a number.
+  - an embed's `fields` that is `null`. It crashed at `da24eb7` and renders at website `476c633`, after M6-c's
+    `hasValidField` rewrite (code review's re-run of the planner's probe, `verification/015/cr-m5-probes/class-probe-run-476c633.txt`,
+    21 nodes).
   A stored message that renders today still renders, so M8's premise (the generator screenshots stored messages)
   does not move.
   - **Residue (X-19).** `data` no read covers is outside what the reads settle: other fields, other component
@@ -637,8 +645,9 @@ are in X-18.
   Property: every fenced block — with or without a language tag, 1 to N content lines — parses as a code block in
   `parseContent` and `parseEmbedField`. Members: the research's three executed strings. Embed titles are outside
   the property: `parseEmbedTitle` deliberately omits `codeBlock` (with `heading` and `list`) at the base
-  (`src/utils/markdown/index.tsx` at website `7ce866b`, since `d5f2dc8`), so a title renders no code block, unchanged
-  (code review CR-23; rev 4–24 named the title in error).
+  (`src/utils/markdown/index.tsx` at website `7ce866b`; first excluded at `57b58d8`, 2023-03-23, by `git log -G"parseEmbedTitle.*codeBlock"`), so a title renders no code block, unchanged
+  (code review CR-23). The title member came from the research's F-38 mechanism sentence ("parseContent,
+  parseEmbedField and parseEmbedTitle … are built from staticBaseRules"), which is superseded on titles (critique L-C8-1).
   Human-observable: a two-line code block in the read-only preview renders as a block; also in the `/preview`
   screenshot after M8/production.
 - **M6-b (F-40, D8)** — a URL is valid exactly when its path's final segment ends in one of `.png .jpg .jpeg
@@ -838,10 +847,20 @@ Host facts (steering's standing `hooks-pig` reads, rulings blocks 05:20Z–05:24
       The drain-complete line's elapsed figure is the drain measurement.
   - **Rollback.** Devops reverts the M8 commit on `prod` and pushes, with the owner's approval as for any prod
     push. The reverted file restates the old values, so `--update-env` applies them.
-- **M8-b (F-32)** — a `/generate` request with an unparsable body gets 500 and the process keeps serving.
+- **M8-b (F-32, D35)** — a `/generate` request whose body is not parsable JSON, or parses to anything but a JSON object
+  (`null`, a number, a string, a boolean, an array), gets 500, and the process keeps serving. `null` crashed the process at
+  base `471578f` (destructuring in the `end` handler, `src/server.ts`; planner's and steering's code read, not run), so
+  it is F-32's defect under D28. The other non-objects did not crash; refusing them is D35.
 - **M8-c (F-33)** — a page is closed whether the screenshot succeeds or throws; no rejection is unhandled.
-- **M8-d (F-34)** — a Chromium launch failure rejects in the pool factory; the next request gets 500, not a
-  TypeError.
+- **M8-d (F-34)** — while Chromium launches fail: (a) every request waiting for a browser gets 500, never a hang and
+  never a `TypeError`; (b) the process keeps serving; (c) while no request waits, no launch is attempted, apart from the
+  pool creating its configured minimum (`min` 2). (c) is measured over a window: no new launch line in the 3 s after a
+  burst of 6 failing requests (code review's `verification/015/cr-m8-probes/attack-run1-6c613a5.txt`). Launches per
+  failing request are unmeasured: 12 launch-error lines for 6 requests do not separate two launches per request from two
+  lines per failure. The instrument that settles it is a per-request count of launch attempts and `Created instance`
+  lines. The plan's earlier sketch, "rejects in the pool factory", was a mechanism and was insufficient: generic-pool
+  3.9.0 leaves the waiting acquire pending and retries creation in a loop (the implementer's measurement, 11,654 attempts
+  in 3 s). The mechanism is the implementer's; its dependency risk is RK-8.
 - **M8-e (F-35)** — with `API_KEY` unset or empty, the server refuses to start, with a log line naming the variable.
   The refusal lives in `src/config.ts`, the generator's one reader of the environment (architect AF-4). The other
   values `config.ts` casts unvalidated are outside F-35 (architect AF-9b). `prod.yml` sets `API_KEY`, so the
@@ -986,6 +1005,11 @@ can run the M8-b/d/e probes once the generator's dependencies are installed (M8 
     `be881c9`, and three planted controls fire (`verification/015/qa-rk7-client-reach-run.sh`, QA `45d2d91`).
   - Falsifier: a page that throws on load with the guard's refusal. The editor walks (B-2 to B-5) load the
     client and would show it before release.
+- **RK-8** — M8-d's remedy uses generic-pool's README-documented `factoryCreateError` handler, which reaches the
+  private `_waitingClientsQueue` of a dependency pinned as `generic-pool@^3.9.0` (implementer's M8 Outstanding Item 1;
+  accepted by code review). A minor or patch upgrade within the caret range can change the private field silently,
+  and M8-d's (a) then fails as a hang. Instrument: the M8-d probe (a failing factory with a waiting request) run after
+  any change to the lockfile's resolved generic-pool version. No standing runner exists in the repo (§ M8).
 
 ## Exclusions
 
@@ -1054,7 +1078,7 @@ is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, 
 | `NewMessageModal` `selectedGuildId` seed (D28 candidate). The implementer's probe shows it never follows the `guildId` prop and keeps a user's pick. Whether a client navigation from `/message/f/A` to `/message/f/B` remounts the modal is not established. | `verification/015/d28-seed-probes/report.md`; implementer via steering | Discharged at rev 25 (X-22). The implementer's browser read could not decide it (logged-out redirect; `verification/015/d28-folder-switch/README.md`, `fbe28b4`). The planner's source read of next 16.1.6 settles it (`verification/015/m5-modal-seed-next-keying-read.txt`, read from source, not run): `layout-router.js` keys each segment's child by `createRouterCacheKey`, so `id|A|d` → `id|B|d` mounts B's page and modal fresh, and the seed reads B's `guildId`. By the disposition priced in advance, it becomes an Exclusions row citing both reads, not M5-j. |
 | AF-28 (LOW), plan side. X-20 and D34 cite `architecture/website.md` W-7 (`952e69f`), and X-20's "steering's read" adds the architect's read of `send/page.tsx` at website `3031878` (recorded at agent-output `0f893c8`) (Log in panel only without a session). | architect AF-28 (`1a3bc68`) | Discharged at rev 25. |
 | L-C7-1 (LOW), the second member of L-C6-2 (i)'s shape, remedied by the property. Every Exclusions row carried as a stated limit over a behavioural residue names three things: the row a report of a member lands under, who acts while the plan is open, and its fate after closure. This is a standing constraint on the register. The critic enumerated 18 rows: 8 stated limits, 4 behavioural residues. X-18 and X-19 comply; X-16 and X-21 owe one clause each. Also: rev 24's owed-verdicts row says critic "cycle 6"; it is cycle 7 (cycle 6 closed at `42a1783`). | critique cycle 7 L-C7-1 (`1b5f3e8`) | Discharged at rev 25. |
-| L-C8-1 (LOW). M6-a's title note: (i) the title member came from the research's F-38 mechanism sentence ("parseContent, parseEmbedField and parseEmbedTitle … are built from staticBaseRules"), not first from rev 4. Re-status the claim at the plan's citation. (ii) `codeBlock` was first excluded from `parseEmbedTitle` at website `57b58d8` (2023-03-23), not `d5f2dc8`: `git log -G"parseEmbedTitle.*codeBlock" 7ce866b -- src/utils/markdown/index.tsx`, the planner's re-run. The planner's `-S` search found the exact three-item list. Also: rev 25's owed-verdicts row says critic "cycle 7"; it is cycle 8 (cycle 7 closed at `0029245`). | critique cycle 8 L-C8-1 (`4429f17`) | Open. Folded at the next planning pass, at latest the seam before the UAT anchor. |
+| L-C8-1 (LOW). M6-a's title note: (i) the title member came from the research's F-38 mechanism sentence ("parseContent, parseEmbedField and parseEmbedTitle … are built from staticBaseRules"), not first from rev 4. Re-status the claim at the plan's citation. (ii) `codeBlock` was first excluded from `parseEmbedTitle` at website `57b58d8` (2023-03-23), not `d5f2dc8`: `git log -G"parseEmbedTitle.*codeBlock" 7ce866b -- src/utils/markdown/index.tsx`, the planner's re-run. The planner's `-S` search found the exact three-item list. Also: rev 25's owed-verdicts row says critic "cycle 7"; it is cycle 8 (cycle 7 closed at `0029245`). | critique cycle 8 L-C8-1 (`4429f17`) | Discharged at rev 26. |
 
 ## Resumption State (checkpoint, planner-hooks-015)
 
@@ -1062,7 +1086,7 @@ is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, 
 - **Next.**
   - **Standing rules.** Under D28, fold same-defect sibling sites without an owner question and report them. After implementation approval, park findings that change no code, test or pre-release verifier as Planner batch rows.
   - **Open, not a finding.** QA left "refused" open between a throw and an empty return in the CR-12 rider; pin it only if a gate asks.
-- **Since the checkpoint.** Revs 20–25: CR-14/D29, CR-16/D30 (M3 removed), CR-18/D31/D32, rev 23 (M5-h crash-set property; D33), rev 24 (CR-21; M5-i; D34, X-20 and its handoff), rev 25 (CR-23; L-C7-1; AF-28; X-22). Planner reads committed: `verification/015/m5h-class-probe/`, `verification/015/m5-modal-seed-next-keying-read.txt`. Nothing pending with the planner.
+- **Since the checkpoint.** Revs 20–25: CR-14/D29, CR-16/D30 (M3 removed), CR-18/D31/D32, rev 23 (M5-h crash-set property; D33), rev 24 (CR-21; M5-i; D34, X-20 and its handoff), rev 25 (CR-23; L-C7-1; AF-28; X-22), rev 26 (CR-29; D35; M8-d property; RK-8). Planner reads committed: `verification/015/m5h-class-probe/`, `verification/015/m5-modal-seed-next-keying-read.txt`. Nothing pending with the planner.
 - **Open with others.** None of the planner's questions to the owner are pending. Nothing of the planner's is held.
 - **Uncommitted, left in place.** `INBOX.md` holds this session's FYI entry: the research document's `pm2 show` advice. Per the inbox rule, the domain owner commits it.
 - **Branches.** website and preview-image-generator: chain branches are created by steering. The planner touches no source.
