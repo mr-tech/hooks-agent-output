@@ -85,3 +85,8 @@ preview.yml, `grep -c -i key` returns 6 each; the value was not read. The typech
   research document.
 - **API key in plain text in PIG workflows.** Options: handoff, out of chain / noted only / You: handle it yourself.
   Chosen **Agent: handoff, out of chain**, by selection. The handoff records no value.
+
+## 2026-11-08T04:52Z — chain branches created by steering
+`chain/015-bug-evaluation-fixes` was created and checked out in website at 7ce866b (from master) and in
+preview-image-generator at 471578f (from prod). Both trees were clean just before the switch (`git status --porcelain`, 0 lines).
+project-utils has no branch, because plan rev 1 says project-utils ships nothing.
