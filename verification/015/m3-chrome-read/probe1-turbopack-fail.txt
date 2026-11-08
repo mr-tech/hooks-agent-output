@@ -1,0 +1,5 @@
+nonloopback links: 0
+default routes: 0
+positive control GET /: 000
+GET edit: 000
+/tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/m3chrome/server.sh: line 20: kill: (338895) - No such process

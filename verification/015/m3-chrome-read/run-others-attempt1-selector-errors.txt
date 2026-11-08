@@ -1,0 +1,12 @@
+nonloopback links: 0
+default routes: 0
+positive control GET /: 200
+GET edit: 200
+{"surface":"ConfirmationDialog","cell":"a","before":"content-present","error":"locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('menuitem', { name: 'Clear' }).first()\u001b[22m\n"}
+{"surface":"ConfirmationDialog","cell":"b","before":"content-present","error":"locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('menuitem', { name: 'Clear' }).first()\u001b[22m\n"}
+{"surface":"ConfirmationDialog","cell":"c","before":"content-present","error":"locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('menuitem', { name: 'Clear' }).first()\u001b[22m\n"}
+{"surface":"ConfirmationDialog","cell":"d","before":"content-present","error":"locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('menuitem', { name: 'Clear' }).first()\u001b[22m\n"}
+{"surface":"ImageUploader","cell":"a","before":"0 embed-image(s) set","error":"locator.waitFor: Error: strict mode violation: getByLabel('Image URL') resolved to 18 elements:\n    1) <div hidden=\"\" role=\"dialog\" tabindex=\"-1\" class=\"relative z-10\" data-headlessui-state=\"\" id=\"react-aria1372858683-_r_7h_\" aria-labelledby=\"react-aria1372858683-_r_7h_-title\">…</div> aka locator('#"}
+{"surface":"ImageUploader","cell":"b","before":"0 embed-image(s) set","error":"locator.waitFor: Error: strict mode violation: getByLabel('Image URL') resolved to 18 elements:\n    1) <div hidden=\"\" role=\"dialog\" tabindex=\"-1\" class=\"relative z-10\" data-headlessui-state=\"\" id=\"react-aria5136103405-_r_7c_\" aria-labelledby=\"react-aria5136103405-_r_7c_-title\">…</div> aka locator('#"}
+{"surface":"ImageUploader","cell":"c","before":"0 embed-image(s) set","error":"locator.waitFor: Error: strict mode violation: getByLabel('Image URL') resolved to 18 elements:\n    1) <div hidden=\"\" role=\"dialog\" tabindex=\"-1\" class=\"relative z-10\" data-headlessui-state=\"\" id=\"react-aria3378459377-_r_7c_\" aria-labelledby=\"react-aria3378459377-_r_7c_-title\">…</div> aka locator('#"}
+{"surface":"ImageUploader","cell":"d","before":"0 embed-image(s) set","error":"locator.waitFor: Error: strict mode violation: getByLabel('Image URL') resolved to 18 elements:\n    1) <div hidden=\"\" role=\"dialog\" tabindex=\"-1\" class=\"relative z-10\" data-headlessui-state=\"\" id=\"react-aria8380855592-_r_39_\" aria-labelledby=\"react-aria8380855592-_r_39_-title\">…</div> aka locator('#"}

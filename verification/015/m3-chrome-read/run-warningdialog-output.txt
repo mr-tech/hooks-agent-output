@@ -1,0 +1,8 @@
+nonloopback links: 0
+default routes: 0
+positive control GET /: 200
+GET edit: 200
+{"cell":"a","embedsOnLoad":2,"embedsBefore":2,"focusAsserted":true,"focusTrail":["BUTTON:Delete","BUTTON:close modal","BUTTON:Cancel"],"embedsAfter":2,"sigBefore":"has-Server-Rules","sigAfter":"has-Server-Rules","dialogStillInDom":0,"outcome":"SURVIVED"}
+{"cell":"b","embedsOnLoad":2,"embedsBefore":2,"focusAsserted":true,"focusTrail":["BUTTON:Delete"],"embedsAfter":1,"sigBefore":"has-Server-Rules","sigAfter":"has-Server-Rules","dialogStillInDom":0,"outcome":"REMOVED"}
+{"cell":"c","embedsOnLoad":2,"embedsBefore":2,"focusAsserted":true,"focusTrail":["BODY:New Message\nFile\nEdit\nView\nHel"],"embedsAfter":1,"sigBefore":"has-Server-Rules","sigAfter":"has-Server-Rules","dialogStillInDom":0,"outcome":"REMOVED"}
+{"cell":"d","embedsOnLoad":2,"embedsBefore":2,"focusAsserted":true,"focusTrail":["pointer"],"embedsAfter":2,"sigBefore":"has-Server-Rules","sigAfter":"has-Server-Rules","dialogStillInDom":0,"outcome":"SURVIVED"}
