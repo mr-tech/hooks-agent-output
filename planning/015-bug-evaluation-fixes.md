@@ -3,15 +3,36 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Revision 3: the F-31 analysis is folded into M8-a. Ready for critique and the architect's conformance pass. M8's implementation also waits on the owner's first host read (M8-0)."
-Revision: 3
-Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml), preceded by preview (preview.yml). Neither package carries a version artefact."
+Status-Detail: "Revision 4: the critique (cycle 1 pass 1) and architect findings are folded, with the owner's OQ-G, OQ-H and host rulings (D16–D18) and M8-0 run 1. Ready for critique pass 2 and the architect's delta read."
+Revision: 4
+Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
 Lane: "standard — agent-output/README.md carries no small-lane section (grep -i small, 0 hits, 2026-11-08); the blast radius spans the save schema, a bot command's permissions and a production PM2 service, none a leaf"
 Architectural-Surface: "none added. Two record lines are touched — see § Architecture lines this chain touches"
 ---
 
 # Plan 015 — Bug-evaluation fixes (website, preview-image-generator)
+
+## Reading Order
+
+Authoritative routing for every consuming role. Sections not named here are reference, reached when a named
+section cites them; the critic reads the whole plan.
+
+| Role | Sections, in order |
+|---|---|
+| implementer | Decisions Register → Plan → the milestone being implemented (M0 first) → Testing Strategy → Exclusions |
+| code-reviewer | Decisions Register → the milestone under review → Testing Strategy → Architecture lines this chain touches |
+| qa | Testing Strategy → Plan → each milestone → Validation → Risks |
+| uat | Value Statement and Business Objective → Validation → M2 → M3 → M6 |
+| devops | M9 — Release (devops; owner steps named) → M8 → Entry work (2026-11-08) → Risks |
+
+Owed re-verdicts:
+
+| Limb | Decidable since | Owning gate | State |
+|---|---|---|---|
+| M8 (rewritten for D16–D18 and run 1) | rev 4 | critic, architect | open |
+| M1-a (widened to four sites) | rev 4 | critic, architect | open |
+| M6-l (iii)–(v) | rev 4 | critic, architect | open |
 
 ## Changelog
 
@@ -21,6 +42,7 @@ Architectural-Surface: "none added. Two record lines are touched — see § Arch
 | 2026-11-08T04:51 | 2 | planner (planner-hooks-015) | Folds the owner's answers in `steering/015-rulings.md` block "2026-11-08T04:49Z" (`e8631f8`): OQ-A–OQ-F closed, D3–D5 confirmed, D7–D13 registered, F-31 analyst commissioned, API-key handoff written (X-12). Scope delta: F-44 joins M6 as M6-l (allow the add, mark the message invalid); X-2 and X-3 removed; M8 gains M8-0, an owner-run read that replaces limb (3)'s `claude-ro` read; M0 is settled as deleting the stale directory. The plan now carries 49 of the 50 findings, the original ask being 50. |
 | 2026-11-08T04:58 | 3 | planner (planner-hooks-015) | Folds analysis `analysis/015-bug-evaluation-fixes-analysis.md` (`7e24de3`): under PM2 the drain never runs, because `shutdown_with_message` sends an IPC message, not SIGINT. Scope delta: M8-a is rewritten as P1–P4 with `kill_timeout` 12000 ms; M8-0's commands and prediction come from the analysis, which writes the script; RK-5 is added (Chromium after SIGKILL on PM2 7.x); the architecture-line entry now proposes the correction. Sized against the ask: 49 of 50 findings, unchanged. |
 | 2026-11-08T05:12 | R-1 | planner (planner-hooks-015) | Registered D14 and D15 from `steering/015-rulings.md` block "2026-11-08T05:11Z" (`9247ddb`). Scope delta: none, registration only. |
+| 2026-11-08T05:28 | 4 | planner (planner-hooks-015) | Folds critique `critiques/015-bug-evaluation-fixes-critique.md` cycle 1 pass 1 (`68308e8`): H-1, M-1 to M-4, L-1 to L-5 (L-2 is moot under D17), Q-2. Also folds the architect's findings (`b838a01`: AF-1 to AF-4), the rulings blocks 05:21Z, 05:24Z and 05:26Z (D16 to D18; D11 and D12 superseded), and M8-0 run 1 (`fe27690`, `1fc16f5`). Scope delta: M1-a widens to four `in` sites. M6-l gains its stored-`valid` residue (X-13), the no-live-sends constraint (X-14) and a home for the shared counter. M8 loses its preview leg, M8-0 becomes an agent read with run 1 done, and M8-a is bound to a verifying stop of the new code with a fixed log-line predicate. RK-6 and a Reading Order are added. Against the ask: 49 of 50 findings, unchanged. |
 
 ## Value Statement and Business Objective
 
@@ -45,11 +67,14 @@ message builder that sends through webhooks.
 | D8 | F-43: footer bound 2048 in both the editor and the save check. F-40: an image URL is valid when its path ends in png, jpg, jpeg, webp, gif, apng, tiff or webm, in any case, with the query string ignored; avif is excluded. | 2026-11-08 | "Agent: fix both" — selection, same block. The option text was the planner's (agent-authored, rev-1 relay). | Owner withdrawal; a Discord read showing a listed extension unrendered. | M2-d, M6-b. |
 | D9 | Every duplicate, top-level and nested, inserts the copy after the original. | 2026-11-08 | "Agent: both after" — selection, same block. | Owner withdrawal only. | M6-i. |
 | D10 | F-44: an add that crosses the 40-component cap goes through, and the message is marked invalid until fixed. | 2026-11-08 | "Agent: allow, mark invalid" — selection, same block, chosen against the planner's recommendation. | Owner withdrawal only. | M6-l. The criterion's wording is the planner's reading of "allow" (§ M6-l). |
-| D11 | M8 stays in the chain; it deploys to the preview instance first, then prod; the planner commissions the F-31 analyst. | 2026-11-08 | "Agent: keep, preview first" — selection, same block. | Owner withdrawal; the preview deploy failing (RK-3). | M8, M9. |
-| D12 | The generator host is a DigitalOcean box with no read-only user, so no agent reads it. | 2026-11-08 | "pretty sure it's a digital ocean box. there is no ro user on it" — his own words, relayed by steering, same block. | A read-only user created there. | Limb (3) is carried as owner step M8-0. |
+| D11 | M8 stays in the chain; it deploys to the preview instance first, then prod; the planner commissions the F-31 analyst. | 2026-11-08 | "Agent: keep, preview first" — selection, same block. | Owner withdrawal; the preview deploy failing (RK-3). | **Superseded by D16** (05:26Z): the preview leg is withdrawn; M8 stays and the analyst was commissioned. |
+| D12 | The generator host is a DigitalOcean box with no read-only user, so no agent reads it. | 2026-11-08 | "pretty sure it's a digital ocean box. there is no ro user on it" — his own words, relayed by steering, same block. | A read-only user created there. | **Reopened by its own class** (a read-only user created; reachability read 05:20Z) and **superseded by D17**. |
 | D13 | The plain-text API key in the generator's workflows goes to a handoff, out of chain, recording no value. | 2026-11-08 | "Agent: handoff, out of chain" — selection, same block. | Owner withdrawal only. | X-12. |
 | D14 | M6-l's reading of D10 stands: every add completes; the existing top-level refusal at 40 stays; a total over 40 fails `validateMessage`, so Send is blocked and `valid` is false. | 2026-11-08 | "Agent: use this reading" — selection relayed by steering-hooks-015, rulings block 05:11Z (`9247ddb`). The option text is steering's (agent-authored). | Owner withdrawal only. | M6-l unchanged; the reading is now his. |
 | D15 | He will create a read-only user on the generator host himself; steering supplies the commands and the firewall rules. | 2026-11-08 | "give me the code to add the ro user to the box, in addition to what firewall rule(s) to add" — his own words, relayed by steering-hooks-015, block 05:11Z (`9247ddb`). | Owner withdrawal; the user's absence on a reachability read. | D12's reopen condition is met only once a reachability read confirms the user. Until then M8-0 stays an owner step, and its review is held by steering. |
+| D16 | M8 deploys straight to prod, and the `preview` branch is deleted. | 2026-11-08 | "straight to prod. delete the preview branch" — his own words, relayed by steering-hooks-015, block 05:26Z (`a16e431`), given after steering told him the branch is 0 commits ahead of prod and no preview app exists. Steering deleted the branch on his word. | Owner withdrawal only. | M8 has no beta host. The transition stop and the verifying stop are both on production (M8-a). |
+| D17 | `claude-ro` reads on the generator host are standing: reads only, never a pm2 command, never a write. | 2026-11-08 | "Agent: standing reads" — selection relayed by steering-hooks-015, block 05:21Z (`42354bf`); the option text is steering's (agent-authored). | Owner withdrawal; the access removed. | M8-0 is an agent read. |
+| D18 | Root `dump.pm2` is read only through a host-side filter that prints name, `kill_timeout` and `shutdown_with_message` per app; env is never printed. `/home/nodejs/.pm2/dump.pm2` is never opened. | 2026-11-08 | "Agent: filtered extract only" — selection, block 05:24Z (`8d2d82f`); "You: remove the access" for the nodejs dump — selection, block 05:21Z. The option texts are steering's (agent-authored). | Owner withdrawal only. | M8-0's dump read. |
 
 ## Objective
 
@@ -62,7 +87,9 @@ owner-side checks the scoping admitted.
 Every finding's location and rating were read at the same SHAs as today's tips: website `7ce866b`,
 preview-image-generator `471578f` (prod), project-utils `749606d` (`git rev-parse`, 2026-11-08, equal to
 `git ls-remote` heads). The research's ratings are carried, not re-rated. Spot re-reads this pass (`grep -rn` at
-`7ce866b`): the dead literal `'~/components/Button'` at exactly three sites (`ConfirmationDialog.tsx` `Inner`,
+`7ce866b`): the dead compare `tagName !== '~/components/Button'` at exactly three sites (`grep -rc "tagName !==
+'~/components/Button'" src`, 3 files at 1 each, re-run 2026-11-08; `grep -rln "useHotkeys(\['enter'\]" src` names
+the same three) (`ConfirmationDialog.tsx` `Inner`,
 `WarningDialog.tsx` `WarningDialog`, `ImageUploader.tsx` hotkey handler); `ADMIN_PERMS` in
 `bot/scripts/app_commands/common.ts`, consumed by `messageCommands.ts` only; `MAX_EMBED_FOOTER_TEXT_LENGTH = 256`
 feeding `shapes.ts` `embedShape` and `EmbedFooter.tsx`; `~/components/Button` renders a `<button>` element
@@ -119,20 +146,31 @@ together, so the gate's population is empty; a milestone the owner withholds fro
 ### M1 — Server and data path (website): F-1, F-2, F-3, F-4, F-5, F-6, F-7, F-8, F-9, F-10, F-11
 
 - **M1-a (F-2)** — the originating statement, verbatim: *"Empty-array `in` predicates compile to `in ()`, a
-  Postgres syntax error."* Property: for every call of `getPartialMessages(userId, guilds)` and
-  `getUserRecentMessages(ids)` over the input class {empty array, non-empty array}, the compiled SQL contains no
-  `in ()`; with `guilds = []` the query returns exactly the user's own messages; with `ids = []` the result is
-  empty without a query error. Expectation independence: the expected SQL shape is a literal, never produced by
-  the function under test.
+  Postgres syntax error."*
+  - **The class.** Every Kysely `in` predicate under `src/server` over a list that can be empty. `grep -rn
+    "'in'," src/server` (architect AF-2, re-read by the planner at `7ce866b`) returns four sites:
+    - `shared.ts` `getPartialMessages` and `getUserRecentMessages`. These are live: a user who administers no
+      server reaches the first, and an empty `recentMessageIds` reaches the second.
+    - `user.ts` `authorizeUser` and `authorizeGuildUser.ts` `getOldMessages`. These are latent: their only route
+      is `message.ts` `authorizeAction`, whose one caller passes a single id from `z.object({ id: z.string() })`.
+      That id is wrapped as a one-item list, so no empty list reaches them at `7ce866b`.
+  - **Property.** At every member, for the inputs {empty list, non-empty list}, no compiled SQL contains `in ()`.
+    An empty list returns before the query is built, and the result is what an empty `in` set means at that site:
+    - `getPartialMessages` keeps the user's own messages and drops only the guild `exists` limb;
+    - `getUserRecentMessages` returns no messages;
+    - `authorizeUser` and `getOldMessages` treat the list as naming no messages.
+  - **Independence.** The expected SQL shape is a literal, never produced by the function under test.
 - **M1-b (F-1)** — every compiled cron selection filters `ScheduledMessages.error` with `is null`. Residue (stated
   limit): no producer inserts into `ScheduledMessages` (research F-1), so the fix has no observable effect in
   production.
 - **M1-c (F-3)** — the revoke request `removeUserSession` sends carries `token` set to the account's access token
   for every session with one; a session with no access token sends no revoke request. The DB and Redis clear-out
   still runs in both cases.
-- **M1-d (F-4, D5)** — over the class {existing message, new message} × {count < 1000, count = 1000}, a new
-  message is refused exactly when the count before insert is ≥ 1000, with today's error text; an existing
-  message is never refused by the cap.
+- **M1-d (F-4, D5)** — the inputs are {existing message, new message} × {count < 1000, count = 1000} ×
+  {user-scoped save, guild-scoped save}. The count is the owner's messages: the user's (`fk_users_id`) or the
+  guild's (`fk_guilds_id`), per `upsertMessage`'s `isUserSelect(select)`. A new message is refused exactly when
+  that count before the insert is ≥ 1000, with today's error text. An existing message is never refused by the
+  cap.
 - **M1-e (F-5)** — `userOrDiscordIdShape` accepts exactly `"0"` and strings of 17–23 decimal digits; every
   other string is refused (members: `"0abc"`, `"00"`, a 16-digit and a 24-digit string).
 - **M1-f (F-6)** — in the client branch of the `env.mjs` proxy, reading `NODE_ENV` is not refused; reading any
@@ -167,8 +205,9 @@ disposition X-9.
 ### M3 — Enter on a dialog never confirms from another button (website): F-15, F-39
 
 Originating statement: *"Enter on a focused Cancel button runs the confirm action."* The class: every
-`useHotkeys('enter')` handler in `src/` that guards on the focused element — enumerated by `grep -rc
-"'~/components/Button'" src` (3 at `7ce866b`, sites named above). Decision table, for each of the three dialogs:
+`useHotkeys('enter')` handler in `src/` that guards on the focused element. It is enumerated by `grep -rc
+"tagName !== '~/components/Button'" src`, which returned 3 at `7ce866b` (sites named above). The bare import path
+is not an enumerator: it matches 46 files. Decision table, for each of the three dialogs:
 
 | Focus at Enter | Outcome |
 |---|---|
@@ -242,6 +281,20 @@ exists to fix once — `grep` above).
   - (iii) The total is counted by one definition, shared by the editor's `canAddComponent` and
     `validateMessage`. That definition is today's `countTotalComponents` (`DiscordMessageEditor/index.tsx`,
     module-private at `7ce866b`), lifted rather than duplicated, as `website.md` A-3 did for the notice.
+    - **Destination** (architect AF-4): it is exported from `src/utils/limits.tsx`, beside `sumDisplayableText`,
+      the sibling counter that feeds a validator there. Its parameter type is structural, because
+      `validateMessage` receives `MessageData` components without `_key`.
+    - **The count.** At every nesting level it counts exactly what `countTotalComponents` counts at `7ce866b`.
+  - (iv) **The stored residue**, a stated limit (architect AF-1, recommended (a); critic L-3).
+    - **What it is.** `valid` is written at save time (`upsertMessage` → `isMessageValid`) and served by the v1
+      API. A message stored before the release with more than 40 components keeps `valid = true` until it is
+      next saved.
+    - **Population.** Unknown: no database instrument is reachable from this box.
+    - **Carrier.** Nothing in this chain re-derives stored rows. `backfillValid.ts` is untouched: it selects only
+      rows whose `valid` is null, so the trigger of `handoff/backfill-valid-guard-has-no-db-backed-instrument-2026-08-26.md`
+      does not fire. That handoff stays the carrier for any future re-derivation over non-null rows (X-13).
+  - (v) No M6-l criterion is settled by sending live messages to Discord. This is the constraint carried from
+    `handoff/components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md` (X-14).
   Expected counts in the tests are literals.
   Human-observable: at 39 components, add a Section. The add completes, Send is disabled, and the error names
   the count. Walked on the locally served chain tip.
@@ -256,69 +309,130 @@ exists to fix once — `grep` above).
 - **M7-b (F-29)** — `setTimestamp(t)` sets the payload's timestamp to `t`.
 - **M7-c (F-30)** — `isUserCommand` is true exactly for user commands.
 
-### M8 — preview-image-generator: F-31–F-35 (D11; implementation waits on M8-0's first run)
+### M8 — preview-image-generator: F-31–F-35 (D16: straight to prod; M8-0 run 1 done)
 
-- **M8-0 (owner step; limb 3 re-derived under D12)** — the scoping placed limb (3) as a read-only `claude-ro`
-  read. The host has no read-only user, so no agent can run it, and it becomes an owner step.
-  - **The script.** pig-host-read.sh, to be written under verification/015/ from the analysis's § Host
-    observation commands, written by the analyst. It is read-only, run as the user that owns the PM2 daemon: under any other user, `pm2`
-    spawns an empty daemon. The code-reviewer reviews it before he runs it.
-  - **What it reads.** The daemon's version and user (from `ps`); `pm2 jlist` filtered to `kill_timeout` and
-    `shutdown_with_message`; any `PM2_KILL_*` override; the app out-log count of the shutdown line; and
-    `pm2.log`'s `still alive after … SIGKILL` lines.
-  - **How the output is recorded.** He pastes it, and steering quotes it with the time into the rulings file. He
-    owes no file.
-  - **When it runs.** First, **before M8's implementation approval.** The prediction the analysis makes: zero
-    shutdown lines, and a SIGKILL after each stop. A shutdown line at a stop refutes it and re-opens M8-a.
-    Second, after the M9 preview push, for M8-a's criterion and the first drain-time measurement.
+Host facts (steering's standing `hooks-pig` reads, rulings blocks 05:20Z–05:24Z and OQ-G, `a16e431`):
+- The generator runs under **root's** PM2 daemon, version 5.2.2, with `PM2_HOME` `/etc/.pm2`. It is one app,
+  `hooks-image-preview-generator-prod`, with `kill_timeout` 5000 and `shutdown_with_message` true, read from
+  root's `dump.pm2` through the filtered extract.
+- PM2 5.2.2's `God.killProcess` is identical to 5.3.0's: the planner ran a `diff` of the function after
+  `npm pack pm2@5.2.2`. So the analysis holds at the host's version.
+- No preview instance exists, and the `preview` branch is deleted (D16).
+
+- **M8-0 (agent read, D17/D18; it replaces limb (3)'s owner step).**
+  - **The instrument.** `verification/015/pig-host-read.sh`, run as `claude-ro` over `hooks-pig`. It reads files
+    only, never calls `pm2` and never writes. It reads:
+    - `pm2.log`'s stop and kill lines for the app;
+    - the app's out log, the shutdown-line count by the predicate in P1;
+    - root `dump.pm2` through a host-side filter that prints only name, `kill_timeout` and
+      `shutdown_with_message`, per D18;
+    - Chromium processes whose parent is pid 1.
+    It never opens `/home/nodejs/.pm2/dump.pm2` (rulings 05:21Z). The analyst writes it, and the code-reviewer
+    reviews it with M8's code.
+  - **Run 1, done** (2026-11-08T05:25Z; capture `verification/015/m8-0-run1-2026-11-08T0525Z.txt`, `fe27690`;
+    result in the analysis, `1fc16f5`).
+    - **Confirmed for production stops.** The stored values are `kill_timeout` 5000 and `shutdown_with_message`
+      true. `pm2.log` records two stops of the prod app (2024-06-15, 2026-06-15), each `still alive after
+      5000ms` → SIGKILL. The out log, which runs from 2023-08-22 over both stops (180,284 lines), holds 0
+      `Server received` lines. The drain has never run.
+    - **Inconclusive.** No deploy reload is on record, so the reload path rests on PM2 source alone (5.2.2 =
+      5.3.0 on that path).
+    - **Unread.** The daemon's `PM2_KILL_*` environment: root's `environ` is off limits to `claude-ro`.
+      P1's fallback-signal limb therefore assumes SIGINT, the PM2 default, and the residue is a daemon
+      started with `PM2_KILL_SIGNAL` set. It is moot for the message path, which run 1 shows is the one in
+      use.
+  - **Run 2**, after the verifying stop (M9), by QA or devops: it reads M8-a's criterion and captures to
+    verification/015/.
 - **M8-a (F-31)** — the originating statement, verbatim: *"Graceful shutdown is cut off by PM2 before its own
   fallback."* Reframed by the analysis: the shutdown never starts under PM2. Properties (analysis § 3):
-  - **P1.** Every stop PM2 can send reaches `shutdown()`. That means the `'shutdown'` IPC message, plus SIGINT,
-    which is PM2's fallback when the message cannot be sent. `shutdown()` is idempotent, because both may
-    arrive. `ecosystem.config.js` states `shutdown_with_message` explicitly, since a deleted key keeps its
-    stored value.
-  - **P2, the window.** `kill_timeout` must outlast the app's own 10 s fallback. It is set to 12000 ms: 10 s
-    plus a 2 s margin. The margin is the planner's choice, not a measurement, and the real drain time cannot be
-    measured until P1 holds.
-  - **P3, what it must not slow.** The process exits as soon as the drain completes. The 10 s fallback is an
-    upper bound, never a floor. A fork-mode reload is stop-then-start, so the reload's gap is the drain time
-    itself.
-  - **P4.** The stop handler is registered no later than the `ready` message.
-
-  Criterion: on the first reload of the preview instance after the M9 push, the out log shows one shutdown line,
-  the process exits before 12000 ms, and `pm2.log` shows no SIGKILL for it. The owner observes this through
-  M8-0's second run; the exit time is the drain measurement. Rollback: revert the commit and push `preview` (or
-  `prod`); the reverted file restates the old values, so `--update-env` applies them.
+  - **P1.**
+    - **Triggers.** Every stop PM2 can send reaches `shutdown()`: the `'shutdown'` IPC message, and the signal
+      PM2 falls back to. That signal is SIGINT unless the daemon sets `PM2_KILL_SIGNAL`, which is unread
+      (M8-0 run 1; critique L-4).
+    - **Idempotent.** `shutdown()` is idempotent, because both triggers may arrive.
+    - **Stated explicitly.** `ecosystem.config.js` states `shutdown_with_message` explicitly, since a deleted
+      key keeps its stored value.
+    - **The log line.** Inside the idempotency guard, so once per drain, `shutdown()` logs a line that begins
+      with `Server received` and names the trigger. When the drain completes, it logs a second line giving the
+      elapsed milliseconds (architect AF-3).
+    - **The predicate.** M8-0 counts lines that begin with `Server received`; the `Server running at` ready line
+      is outside the class. The local probe exercises both members, sending a `'shutdown'` message to a
+      locally started server, before any host read relies on the predicate (critique M-3).
+  - **P2, the window.** `kill_timeout` is 12000 ms, outlasting the app's own 10 s fallback. The 2 s margin is
+    the planner's choice, not a measurement; the drain time is first measured at run 2.
+  - **P3, what it must not slow.** The process exits as soon as the drain completes, so the 10 s fallback is an
+    upper bound, never a floor. A fork-mode reload is stop-then-start, so the production gap at each deploy is
+    the drain time itself.
+  - **P4.** The stop handlers are registered no later than the `ready` message.
+  - **Growth beyond the finding (critique L-5).** P3 and P4 go beyond F-31's statement. They are the analysis's
+    V-4 and V-5.
+    - P3 cannot be dropped without re-pricing P2: without it, P1 and P2 turn today's ~5 s deploy gap into a
+      10 s floor.
+    - P4 can be dropped to a stated limit: a stop arriving between `listen` and handler registration kills the
+      process undrained.
+  - **The two stops (critique H-1; RK-6).**
+    - **(1) The transition stop.** It is the deploy's own `startOrReload`, which stops the *old* process. That
+      process has no `'message'` listener, and the new `kill_timeout` already applies to it (analysis V-3).
+      Expected signature: no shutdown line, then `still alive after 12000ms` → SIGKILL. This is **expected, not
+      a refutation.**
+      Stated limits:
+      - The production generator is down for about 12 s at the push, so previews saved in that window show
+        broken, not stale. That is handoff `preview-image-failure-shows-broken-not-stale`'s window (X-11).
+      - At PM2 5.2.2 the SIGKILL takes the whole process tree, Chromium included, so RK-5's orphans do not arise.
+    - **(2) The verifying stop.** It is the first stop of a process running the M8 commit. Who causes it:
+      - by default, the owner runs `pm2 reload hooks-image-preview-generator-prod` as root on the host, after
+        the M9 push. This is a host write, and no pipeline party runs it.
+      - alternatively, devops re-runs `prod.yml` through its `workflow_dispatch` trigger, with the owner's
+        approval as for any prod push.
+      **Criterion, read by M8-0 run 2 on stop (2) only:**
+      - the out log gains exactly one `Server received` line naming the trigger, plus the drain-complete line;
+      - the process exits before 12000 ms;
+      - `pm2.log` shows no `still alive` or SIGKILL line for that stop.
+      The drain-complete line's elapsed figure is the drain measurement.
+  - **Rollback.** Devops reverts the M8 commit on `prod` and pushes, with the owner's approval as for any prod
+    push. The reverted file restates the old values, so `--update-env` applies them.
 - **M8-b (F-32)** — a `/generate` request with an unparsable body gets 500 and the process keeps serving.
 - **M8-c (F-33)** — a page is closed whether the screenshot succeeds or throws; no rejection is unhandled.
 - **M8-d (F-34)** — a Chromium launch failure rejects in the pool factory; the next request gets 500, not a
   TypeError.
-- **M8-e (F-35)** — with `API_KEY` unset or empty the server refuses to start, with a log line naming the variable.
-  `prod.yml` and `preview.yml` both set it, so neither deploy is affected.
+- **M8-e (F-35)** — with `API_KEY` unset or empty, the server refuses to start, with a log line naming the variable.
+  The refusal lives in `src/config.ts`, the generator's one reader of the environment (architect AF-4). The other
+  values `config.ts` casts unvalidated are outside F-35 (architect AF-9b). `prod.yml` sets `API_KEY`, so the
+  deploy is unaffected.
 
 No automated coverage: the repo has no runner, and the chain declines to add one. Every branch above is
 therefore an operator-visible criterion. Where each is verified:
-- **Locally, no browser:** M8-b, M8-d and M8-e. Install with `npm ci --omit=optional` under
-  `PUPPETEER_SKIP_DOWNLOAD=1` into the generator tree (`node_modules` is git-ignored), so no browser is
-  downloaded. A launch then fails, which is M8-d's forcing condition.
-  - The variable is puppeteer's documented skip at 21.x (the lockfile pins `puppeteer` 21.1.0). That is recalled
-    from documentation, not read at 21.1.0. QA Phase 1 reads the install script at that version before any
-    install.
-  - That M8-b's path creates no pool before parsing is an unread inference (`getPool()` is called inside
-    `generateImage` and `shutdown`, per `grep -n` at `471578f`). The implementer confirms it at M8.
-- **On the preview instance:** M8-a and M8-c, which need a real browser. The owner observes through M8-0's script.
-  Any local browser launch needs a steering go first (D2).
+- **Locally, no browser:** M8-b, M8-d, M8-e, and P1's two log lines and predicate (a `'shutdown'` message sent
+  to a locally started server).
+  - **Install.** `npm ci --omit=optional` under `PUPPETEER_SKIP_DOWNLOAD=1`, into the generator tree
+    (`node_modules` is git-ignored), so no browser is downloaded. A launch then fails, which is M8-d's forcing
+    condition.
+  - **The variable.** It is puppeteer's documented skip at 21.x (the lockfile pins `puppeteer` 21.1.0). That is
+    recalled from documentation, not read at 21.1.0. QA Phase 1 reads the install script at that version before
+    any install.
+  - **No pool before parsing.** That M8-b's path creates no pool before parsing is an unread inference
+    (`getPool()` is called inside `generateImage` and `shutdown`, per `grep -n` at `471578f`). The implementer
+    confirms it at M8.
+- **M8-c needs a real browser.** It runs locally only after a steering go under D2. Without that go, M8-c is
+  verified by code review and stated as a limit.
+- **On production:** P1–P3, through M8-0 run 2 on stop (2).
 
 ### M9 — Release (devops; owner steps named)
 
-- website: the chain branch merges to `master`; the push deploys to Vercel production (owner-approved push).
-  Pre-push: `release-move.js website master <sha> --dry-run`.
-- preview-image-generator (D11): push to `preview` (beta; deploys the 3001 instance), the M8 checks
-  there, then push to `prod` (owner-approved). Gap: `pm2 startOrReload` replaces the running process; previews
-  requested during the reload fail and are not retried (the open handoff `preview-image-failure-shows-broken-not-stale`
-  names this window; X-11).
-- Owner steps: `push-commands` (M7-a); the F-2 check (limb 1, § Validation); the M7-a Discord check (limb 2);
-  the M8-0 reads (limb 3, D12) before M8's approval and after the preview push.
+- **website.** The chain branch merges to `master`, and the push deploys to Vercel production (owner-approved
+  push). Pre-push: `release-move.js website master <sha> --dry-run`.
+- **preview-image-generator (D16).** Devops pushes `prod` (owner-approved), with
+  `release-move.js preview-image-generator prod <sha> --dry-run` first. Then:
+  - the transition stop (M8-a (1)) happens;
+  - the verifying stop (M8-a (2)) follows;
+  - M8-0 run 2 reads it.
+  `preview.yml` still sits in the tree, but nothing triggers it now that the branch is deleted.
+- **Owner steps:**
+  - `push-commands` (M7-a);
+  - the F-2 check (limb 1, § Validation);
+  - the M7-a Discord check (limb 2);
+  - the verifying stop's `pm2 reload`, unless he picks devops' `workflow_dispatch` re-run.
+  Limb (3) is now agent-read (M8-0, D17).
 
 ## Testing Strategy
 
@@ -330,8 +444,8 @@ against a restored mutation, exit code recorded beside counters. Expected types:
 M6-b/f/g/k, M7; DOM component tests for M3, M4, M5, M6 components. The F-1/F-2 class (Kysely predicates over a
 nullable or a possibly-empty list) is covered by compiling the query, as the research's proof did — no database is
 reachable here. preview-image-generator has no runner (M8 note). Read instruments per host: website — vitest on
-this box (exists); Vercel production — the owner's browser; Discord — the owner's client; PIG preview/prod host —
-a DigitalOcean box with no read-only user (D12), so the only instrument there is the owner's M8-0 script; this box
+this box (exists); Vercel production — the owner's browser; Discord — the owner's client; the generator host —
+`claude-ro` file reads over `hooks-pig` (D17, M8-0); no pm2 command and no write; this box
 can run the M8-b/d/e probes once the generator's dependencies are installed (M8 note). Any agent browser use (UAT, QA) asks steering first (D2).
 
 ## Validation
@@ -355,16 +469,22 @@ can run the M8-b/d/e probes once the generator's dependencies are installed (M8 
 - **RK-2** — M2 widens what saves. Any consumer reading stored `color`/`footer.text` (statbot, chain 012's `valid`
   column) sees new values. Falsifier: a consumer refusing `color: 0` or a 2048-character footer.
 - **RK-3** — M8 is the first PIG deploy since 2023 on a self-hosted runner; the cache key means `npm ci` is
-  skipped on a lockfile hit. Falsifier: the preview deploy failing.
+  skipped on a lockfile hit. With no preview leg (D16), the first exercise of that path is the production push. Falsifier:
+  the `prod.yml` run failing, or the app not `online` in M8-0 run 2. The clearing act is devops' rollback (M8-a).
 - **RK-4** — M7-a's `push-commands` republishes every command, not only `get_message`. Falsifier: a command's
   definition differing after the push.
 - **RK-5** — a stop that ends in SIGKILL may leave Chromium behind.
   - Before PM2 7.x, PM2's SIGKILL took the whole process tree; at 7.1.2 it takes only the Node process (analysis
     § 1). So on 7.x, every stop that reaches SIGKILL may orphan Chromium processes. The analysis gives this
     low-to-moderate confidence and did not run it, because of D2.
-  - The host's PM2 version is unknown until M8-0. M8-a's P1–P3 remove the SIGKILL on the normal path.
+  - The host runs PM2 5.2.2 (rulings 05:20Z), whose SIGKILL takes the whole tree. So RK-5 does not arise at
+    this host unless its PM2 is upgraded to 7.x. M8-a's P1–P3 remove the SIGKILL on the normal path.
   - Falsifier: Chromium processes without a live parent on the host after a stop. This is read by M8-0's
     `ps`-based command.
+- **RK-6** (standing prediction, from critique cycle 1 H-1, stated as a class) — an M8 observation read off the
+  wrong stop: the deploy's own stop of the old process, read as if it were a stop of the new code.
+  - Falsifier: a host read whose verdict on P1 rests on a stop by a process that does not run the M8 commit.
+  - Record per review pass: cycle 1 pass 1 found one member (rev 3's M8-a criterion); remedied at rev 4.
 
 ## Exclusions
 
@@ -379,9 +499,11 @@ can run the M8-b/d/e probes once the generator's dependencies are installed (M8 
 | X-10 | `save-originating-tab-raises-its-own-update-prompt` and `unsaved-change-guards-disabled…` (triggers touch M5-c) | M5-c changes only which `hasChanged` value the prompt reads; the hash forms and the guard predicate stay | Those handoffs |
 | X-11 | `preview-image-failure-shows-broken-not-stale` (trigger fires on the M9 PIG redeploy) | Website-side nonce fix, outside the pool (D6) | That handoff |
 | X-12 | The plain-text API key in `prod.yml` / `preview.yml` | Out of chain by D13 | `handoff/preview-image-generator-api-key-in-workflow-files-2026-11-08.md` |
+| X-13 | Re-deriving stored `valid` for rows saved before M6-l | Stated limit (M6-l (iv)); a re-derivation over non-null rows would modify `backfillValid.ts` and is a scope change | `handoff/backfill-valid-guard-has-no-db-backed-instrument-2026-08-26.md` |
+| X-14 | `components-v2-emptiness…`, whose trigger fires on M6-l (a change to the send gate's predicate) | The emptiness class is outside the F-1–F-50 pool (D6); M6-l (v) carries its no-live-sends constraint | That handoff |
 
-Not triggered (read 2026-11-08): `backfill-valid-guard…`, `components-v2-emptiness…` (M4-a changes only the
-in-flight guard, not the validity predicate), `components-v2-invariant…`, `fix-v1-guild-messages-auth-post-deploy`,
+Not triggered, re-read 2026-11-08 against every milestone including M6-l: `backfill-valid-guard…` (`backfillValid.ts`
+is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, `fix-v1-guild-messages-auth-post-deploy`,
 `message-init-cached-edits-lost`, `newmessagemodal-persist-gate…`, `v1-guild-messages-endpoints…`.
 
 ## Architecture lines this chain touches
