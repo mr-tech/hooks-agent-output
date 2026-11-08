@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: In Progress
-Status-Detail: "M0 delivered. M1 is REJECTED in code review Round 2 at website be881c9 (CR-3 to CR-5). Revision 12 folds CR-3 (sign-out decides from the Accounts row, never a cached value) and the rev-11 LOWs (QAF-14 to QAF-16, L-C3-4). The gates re-read that delta. M1-c and M1-h stay reopened and wait on it; nothing else is held."
-Revision: 12
+Status-Detail: "M0 delivered; M1 fix round 1 and M2 delivered at website 6001f7f. Revision 13 brings the run-2 clock premise back to a stated assumption (D23), restates M1-i (the project cookie parser is deleted), adds M2-a's third colour site, and re-derives M3–M9 after M2. It sits on rev 12 (CR-3 and the rev-11 LOWs). The critic, the architect, QA and code review read 14fe94f..rev 13 in one round. M1-c and M1-h wait on it; nothing else is held."
+Revision: 13
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
 Lane: "standard — agent-output/README.md carries no small-lane section (grep -i small, 0 hits, 2026-11-08); the blast radius spans the save schema, a bot command's permissions and a production PM2 service, none a leaf"
@@ -39,7 +39,8 @@ Owed re-verdicts:
 | M1-c no-account cell and ordering anchor; the session row moved outside M1-c; M8-0 run-2 span and its pool-creation read | rev 8 | critic, architect, qa (delta only) | approved (critic `f64ae27`; architect `ca8da09`; QA `c2a657a`); QAF-10, M-C3-1 and L-C3-1 folded at rev 9 |
 | M1-c "no account found" class and lookup-error residue; M1-f premise and RK-7; M1-h restated to D21's property (rev 10); re-derivation after M1; M8-a run-2 span bounds and its read list; P3 instrument liveness; Validation sign-out note | rev 9, rev 10 | critic, architect, qa (one delta round over both) | approved (architect `a34ca86`, QA `45d2d91`, critic `da1c87c`); AF-17 (D22), QAF-12, QAF-13, M-C3-2, L-C3-2 and L-C3-3 folded at rev 11 |
 | M1-c lookup-error cell (D22); M1-h trigger "or returns" and decision table; M8-a run-2 span anchored on stop (1) and stop (2) timestamps; RK-7 reducing predicate; re-derivation reading of block 05:50Z | rev 11 | critic, architect, qa (delta only) | approved (architect `8868b7d`, QA `22fef2d`, critic `d18de10`); QAF-14 to QAF-16 and L-C3-4 folded at rev 12 with CR-3 |
-| M1-c account decision from the `Accounts` row (CR-3), "falsy return" withdrawn, deletion-failure outcome (QAF-15); M1-h table row 6 timing (QAF-14); run-2 stop line, clock premise and `online`/ready check (QAF-16, L-C3-4) | rev 12 | critic, architect, qa (delta only) | open |
+| M1-c account decision from the `Accounts` row (CR-3), "falsy return" withdrawn, deletion-failure outcome (QAF-15); M1-h table row 6 timing (QAF-14); run-2 stop line (QAF-16) | rev 12, rev 13 | critic, architect, qa, code review (one round over `14fe94f`..rev 13) | open |
+| D23 clock assumption (no gate re-read, by D23's own terms); M1-i restated over the `cookies()` read; M2-a's colour class (third site); re-derivation after M2 | rev 13 | same round as above, except D23's assumption | open |
 
 ## Changelog
 
@@ -65,6 +66,7 @@ Owed re-verdicts:
 | 2026-11-08T06:31 | 11 | planner (planner-hooks-015) | Folds the three verdicts on revs 9 and 10 (architect `a34ca86` AF-17; QA `45d2d91` QAF-12, QAF-13; critic `da1c87c` M-C3-2, L-C3-2, L-C3-3) and registers D22 (rulings 06:29Z, `904ec0d`). It is the fourth revision since implementation approval, and it triggers one delta round per gate. M1-c reopens under D22, which the owner chose with its cost stated. M1-h's additions only complete D21, so they ride it. Scope delta: M1-c gains the lookup-error cell. M1-h's trigger becomes "awaits anything else or returns", and an eight-row decision table replaces the four inputs. The run-2 span is anchored on `pm2.log`'s stop timestamps with no positional bound; this is RK-6's fourth revision of that limb. RK-7 names QA's transitive scan as its predicate, and the re-derivation paragraph reads block 05:50Z instead of hedging. Against the ask: 49 of 50 findings, unchanged. |
 | 2026-11-08T06:33 | cr | code-reviewer (code-reviewer-hooks-015) | Round 2, M1, at website `be881c9`: REJECTED, `code-review/015-bug-evaluation-fixes-code-review.md` (`53ee954`). CR-3 MEDIUM: sign-out reads a cached `null` as "no account" and skips the revoke and the `Accounts` update for an existing row. This is the "falsy return" member of rev 9's M1-c class, and it needs a planner fold. CR-4 MEDIUM: the cookie parser throws on legal `%` octets (M1-i). CR-5 LOW. M1-a, b, d, e, f, g, j and k are met. M1-h was reopened by rev 10 and is not verdicted at `be881c9`. Round 1's CR-1 is RESOLVED. The review is milestone-scoped, so plan Status is unmoved. |
 | 2026-11-08T06:37 | 12 | planner (planner-hooks-015) | Folds code review Round 2 CR-3 (`53ee954`) and the rev-11 verdicts' findings: QA QAF-14 to QAF-16 (`22fef2d`) and critic L-C3-4 (`d18de10`, the same member as QAF-16). The architect (`8868b7d`) had none. It is the fifth revision since implementation approval, and it triggers one delta round per gate. CR-3 corrects a chain-introduced defect (M1-j, `a2592f0`) inside M1-c's reopen, which D22 already pays for, and does not change what D22 decided (steering's reading, which the planner concurs with). Scope delta: M1-c's account decision and token come from the `Accounts` row, never from the shared cache key, and rev 9's "falsy return" member is withdrawn. M1-c gains the deletion-failure outcome. M1-h's row 6 covers M rejecting after G settles; row 8 already covered it. The run-2 span names `Stopping app` as the stop line, states the UTC clock premise with run 1's reads, and adds the `date +%z` and `online`-versus-ready checks. Against the ask: 49 of 50 findings, unchanged. |
+| 2026-11-08T06:40 | 13 | planner (planner-hooks-015) | Triggered by D23 (rulings 06:39Z, `7faa2e0`) and the implementer's M2 and M1 fix round 1 (website `6001f7f`; documents `3ba52f3`). It is the sixth revision since implementation approval, and steering briefs one round over `14fe94f`..rev 13 for the critic, the architect, QA and code review. Scope delta: rev 12's run-2 clock checks are withdrawn for D23's stated assumption. QAF-16's naming of `Stopping app` as the stop line is kept, as the planner's judgement against D23's words: it says which line is the stop, which the span needs whatever the clock, and it is not the clock rewrite D23 declined. M1-i is restated over the `cookies()` read, because CR-4's fix deleted the parser. M2-a names its colour class with the `EmbedEditor` border as the third site. A re-derivation paragraph after M2 marks nothing stale. Against the ask: 49 of 50 findings, unchanged. |
 
 ## Value Statement and Business Objective
 
@@ -101,6 +103,7 @@ message builder that sends through webhooks.
 | D20 | The Playwright constraint of D2 is lifted: chain-015 stages may use Playwright and browsers; installing or upgrading Playwright is not implied. | 2026-11-08 | "the researcher is done. playwright is now available" — his own words, relayed by steering-hooks-015, block 05:33Z (`d852da1`). | Owner withdrawal only. | Retires D2's constraint class. It releases the steering-go gates at § M8's verification paragraph (M8-c may run locally with a browser), § Testing Strategy (agent browser use) and RK-5's untested note. The body text is folded at the next planning pass (Planner batch). |
 | D21 | M1-h closes both rejection-handler windows in `hydratedAuthCallback`: during the guild fetch and during the account lookup. The implementer makes the further change; code review and QA re-check M1-h once. | 2026-11-08 | "Agent: fix both windows" — selection relayed by steering-hooks-015, rulings block 06:25Z "OQ-I" (`33928c8`). The option text is the planner's (agent-authored, rev 9 relay). The probe premise behind it is `verification/015/m1h-rejection-window-probe-run1.txt`, which steering read. | Owner withdrawal only. | M1-h's property (§ M1-h). OQ-I is closed. |
 | D22 | M1-c is fixed in this chain: sign-out always clears both cached session entries (`user-access-token`, `user-session-token`), a database error included, and the error still reaches the caller. Residue: `user-guilds` (600 s), the revoke and the `Accounts` update on that path. | 2026-11-08 | "Agent: fix it in this chain" — selection relayed by steering-hooks-015, rulings block 06:29Z "AF-17 sign-out gap" (`904ec0d`). The option text is steering's (agent-authored), built from the planner's proposal. | Owner withdrawal only. | M1-c's lookup-error cell. M1-c reopens for one change, one code-review round and one QA Phase 2 re-run. |
+| D23 | The run-2 span's clock premise is recorded as a stated assumption beside the check — "the box runs in UTC" — with no rewrite of the requirement; the critic, the architect and QA do not re-read it again. | 2026-11-08 | "Agent: record as assumption" — selection relayed by steering-hooks-015, rulings block 06:39Z "L-C3-4" (`7faa2e0`). The option text is steering's (agent-authored): "Agent: the planner records 'the box runs in UTC' as a stated assumption beside the check, with no rewrite of the requirement. The critic, architect and QA don't re-read it again. If the box's time zone ever changes, the window could be off by the offset." Steering read the premise at 06:37Z (`Etc/UTC`). | Owner withdrawal; the host's time zone read as other than UTC. | Rev 12's added run-2 checks (`date +%z`, the `online`/ready comparison, no span on a mismatch) are withdrawn at rev 13. |
 
 ## Objective
 
@@ -168,6 +171,17 @@ population. This paragraph is their re-argument, reviewed with rev 9. M2–M7 to
 the cap, the signature path, the account cache or a server env key from the client. So each still does what M1
 does not, and none of its premises moves. M8 is another repository. M9 and § Validation gain one consequence:
 any walk that signs out revokes that account's Discord token and must sign in again (QA I-2).
+
+**Re-derivation after M2 (rev 13).** M2, delivered at website `6001f7f`, ships four behaviours observable outside
+the source: colour 0 saves, colour 0 is kept on ingress, colour 0 draws a black border, and footer text of 2048
+and an author name of 256 are admitted in both the editor and the save schema.
+- M3 (dialog Enter), M4 (send page), M5 (pages and providers), M7 (bot) and M8 (generator) read no stored
+  colour or footer bound, so their premises do not move.
+- M6-f (the picker's six-digit default) now also sees colour 0 stored. Its property already covers every
+  integer colour, 0 included.
+- M6-j (a footer without `text`) and M6-c (hiding an embed with nothing displayable) do not read the bounds.
+- Downstream consumers of the stored values are RK-2.
+No milestone is marked `PREMISE-STALE`.
 
 ### M0 — Baseline and gate instrument (first; blocks every other milestone)
 
@@ -308,8 +322,15 @@ any walk that signs out revokes that account's Discord token and must sign in ag
       (a) and (b); M-C3-2). A catch-and-rethrow around A alone passes the other rows and fails these two.
     - **Reopening and cost.** M1-h reopens to close the account-lookup window: one further change in
       `hydratedAuthCallback`, one code-review round and one QA Phase 2 re-run for M1-h.
-- **M1-i (F-9)** — the cookie parser returns a value for every well-formed segment, keeps every `=` after the
-  first in a value, and skips a segment with no `=` without throwing.
+- **M1-i (F-9)** — originating statement, verbatim: *"Cookie parser throws on a nameless cookie and truncates
+  values containing `=`."*
+  - **Subject restated at rev 13.** Code review's CR-4 remedy (website `6001f7f`) deleted `parseServerCookies`.
+    `Redirects/Server.tsx`, its one caller, now reads the session cookie through Next's own `cookies()`
+    (`next/headers`). That mirrors the framework's parser and leaves no project parser to fix.
+  - **Property.** For every `Cookie` header the request grammar admits, the server redirect component renders
+    without throwing. That covers a segment with no `=`, `=` inside a value, legal `%` octets, and no cookie at
+    all. It redirects exactly when neither `__Secure-next-auth.session-token` nor `next-auth.session-token` is
+    present and the path is neither `/message/m/0/edit` nor `/message/m/0/send`.
 - **M1-j (F-10)** — a cached `null` is a hit: a second call within `expireSeconds` for an account with no refresh
   token, or a session with no account, does not query Postgres.
 - **M1-k (F-11)** — with `NEXT_PUBLIC_CDN_PORT` set in development, the URL is `<host>:<port>/dev/…`.
@@ -324,6 +345,11 @@ disposition X-9.
   `color: 0` saves; `discordResponseToMessage` keeps `color` whenever the response carries the field, 0
   included. Human-observable: pick black in the colour picker, save, reload — the embed is black. Walked on the
   locally served chain tip (§ Validation).
+  - **The class behind the observable (rev 13; implementation M2).** It is every site that tests an integer
+    colour for truthiness, so that 0 reads as "no colour". The implementer's sweep (E15 in the M2 implementation
+    document) found two members at `7ce866b`: `discordResponseToMessage.ts` and the `EmbedEditor` border
+    (`EmbedEditor/index.tsx`). For colour 0, the border draws black. `ContainerEditor` already tested
+    `accent_color != null`, and the border mirrors it.
   - **Standing-suite defect (QA QAF-1; critic L-C2-3).** The standing suite holds a transcription of
     `embedShape` that already diverges from it (Axiom E). Property: at M2, no expectation over `embedShape`'s
     admitted class is computed from a copy of the schema; every one runs against the real `embedShape`. The file,
@@ -557,14 +583,12 @@ Host facts (steering's standing `hooks-pig` reads, rulings blocks 05:20Z–05:24
       - **No span:** a missing Start or End is reported as no span, never filled from another stop.
       - **The stop timestamp (QA QAF-16)** is `pm2.log`'s `Stopping app` line for the app: the earliest line of a
         stop, and unambiguous. Run 1 counts 2 for the prod app.
-      - **The clock premise (QA QAF-16; critic L-C3-4).** `pm2.log`'s stamps are zone-less local time at second
-        resolution (`2026-11-08T04:17:40:`). The out log's stamps are UTC ISO. The comparison is valid only while
-        the host's local time is UTC. Run 1's capture supports it:
-        - the file mtimes carry `+0000`;
-        - at both process starts on record, `pm2.log`'s `online` stamp equals the out log's ready stamp to the
-          second: 2024-06-15T11:56:00, and 2026-08-23T04:18:22 (critic's read, capture lines 81/33 and 87/34).
-        Run 2 therefore first prints the host's `date +%z` and compares the End process's `pm2.log` `online` stamp
-        with its out-log ready stamp, to the second. A non-`+0000` offset or a disagreement is reported as no span.
+      - **Stated assumption (D23): the generator host runs in UTC.** `pm2.log`'s stamps are zone-less local time
+        (`2026-11-08T04:17:40:`), and the out log's are UTC ISO, so the span is right only while that holds.
+        - Read by steering at 06:37Z: `date` and `date -u` agree, `/etc/timezone` is `Etc/UTC`, and
+          `/etc/localtime` points at `zoneinfo/Etc/UTC`.
+        - If the host's time zone ever changes, the span could be off by the offset.
+        - The requirement itself is not rewritten for this.
       The reads this span bounds are every read run 2 takes: the `Server received` count, the drain-complete line
       and its elapsed figure, the `Created instance` count, the `POST /generate` count, and the exit time against
       the stop timestamp. A span with zero `Server received` lines is a valid read and refutes P1.
@@ -778,8 +802,8 @@ is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, 
 
 ## Resumption State (checkpoint, planner-hooks-015)
 
-- **Done.** Plan at revision 12. Rev 11 passed all three gates (architect `8868b7d`, QA `22fef2d`, critic `d18de10`). Code review Round 2 rejected M1 at website `be881c9` (`53ee954`); its CR-3 is folded at rev 12. Registrations so far: R-1 (D14, D15), R-2 (D20), R-3 and R-4. D21 and D22 were registered inside revs 10 and 11. F-31 analysis: `analysis/015-bug-evaluation-fixes-analysis.md` (latest `1fc16f5`). M8-0 run 1 is captured at `verification/015/m8-0-run1-2026-11-08T0525Z.txt`.
-- **Next.** Steering routes rev 12's delta to the critic, the architect and QA. M1-c and M1-h are rebuilt once it passes. CR-4 and CR-5 are the implementer's; M1-i's criterion already covers CR-4. Fold any findings at the next planning pass. After implementation approval, findings that change no code, test or pre-release verifier are parked as Planner batch rows.
+- **Done.** Plan at revision 13. Rev 11 passed all three gates. Rev 12 (CR-3, the rev-11 LOWs) and rev 13 (D23, M1-i, M2-a, re-derivation after M2) await one round over `14fe94f`..rev 13. Registrations: R-1 (D14, D15), R-2 (D20), R-3 and R-4; D21, D22 and D23 were registered inside revs 10, 11 and 13. F-31 analysis: `analysis/015-bug-evaluation-fixes-analysis.md` (latest `1fc16f5`). M8-0 run 1 is captured at `verification/015/m8-0-run1-2026-11-08T0525Z.txt`.
+- **Next.** Steering briefs the critic, the architect, QA and code review over `14fe94f`..rev 13 in one round. M1-c and M1-h are rebuilt once it passes. Fold any findings at the next planning pass. After implementation approval, findings that change no code, test or pre-release verifier are parked as Planner batch rows.
 - **Open with others.** None of the planner's questions to the owner are pending (OQ-I answered: D21). The 69-day generator gap (X-15) went to him through steering as an FYI only.
 - **Uncommitted, left in place.** `INBOX.md` holds this session's FYI entry: the research document's `pm2 show` advice. Per the inbox rule, the domain owner commits it.
 - **Branches.** website and preview-image-generator: chain branches are created by steering. The planner touches no source.
