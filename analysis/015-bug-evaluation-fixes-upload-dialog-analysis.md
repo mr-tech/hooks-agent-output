@@ -19,6 +19,7 @@ second analysis document; the first, `015-bug-evaluation-fixes-analysis.md`, ans
 | Date | Agent | Change | Detail |
 |---|---|---|---|
 | 2026-11-08T21:10 | analyst-hooks-015 | Created | Limbs 1–3 answered by executed probes. Browser and :3000 under steering-coordinator's go (20:53Z). |
+| 2026-11-08T21:14 | analyst-hooks-015 (owner ruling relayed by steering-hooks-015, `steering/015-rulings.md` block 21:14Z, `a33afc3`) | Gaps routed | UAT retries B-9, B-10 and the B-11 dialog leg by the limb 3 route, under D39's existing approval. Gaps 1 and 3 (why live opens; user impact) go to a UAT live check without saving, then a handoff. Gaps 4 and 5 stay with that retry. No further analyst work is owed. |
 
 ## Value Statement and Business Objective
 
