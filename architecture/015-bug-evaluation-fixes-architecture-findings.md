@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Delta pass on plan rev 8 (1f7715b): APPROVED, no findings. AF-1 to AF-4 and AF-11 to AF-16 are all folded. No necessary deviation, so nothing goes to the owner. A later revision is read on its delta."
+Status-Detail: "Delta pass on plan rev 9 + rev 10 (bceb84a): APPROVED_WITH_CHANGES. AF-17 is required: M1-c clears the session-scoped Redis keys for every member of the class, including a lookup error. It reopens delivered cell M1-c, so it went to steering as a possible owner-needing item."
 ---
 
 # Architecture Findings — Plan 015: Bug-evaluation fixes (conformance pass)
@@ -19,6 +19,40 @@ Status-Detail: "Delta pass on plan rev 8 (1f7715b): APPROVED, no findings. AF-1 
 | 2026-11-08T05:44 | Delta pass, plan rev 6 (`5d516d9`, read from `1d0f890`), on steering-hooks-015's request (criterion text changed) | AF-13 MEDIUM is required: E-1's `unshare -rn` leaves `lo` down, shown by a run on this box. AF-14 LOW is recommended: a non-creating pool read, placed in `getPool.ts`. AF-15 LOW is recommended: M1-c's no-account cell. X-16 has been joined to AF-9a's Problem Area row. **APPROVED_WITH_CHANGES.** Process disclosure: one typo in the AF-13 heading was fixed with `sed -i`, not with the edit tools, which breaks the record-writing rule a second time this session. That was the only change it made, and the diff was read afterwards. |
 | 2026-11-08T05:49 | Delta pass, plan rev 7 (`38b12e6`, read from `5d516d9`), on steering-hooks-015's request | AF-13 to AF-15 are folded as asked. AF-16 LOW is recommended: in the no-account cell, the session-row removal is the NextAuth adapter's (`signout.js` calls `deleteSession` before `events.signOut`, next-auth 4.24.5), not `removeUserSession`'s. **APPROVED.** |
 | 2026-11-08T05:52 | Delta pass, plan rev 8 (`1f7715b`, read from `38b12e6`), on steering-hooks-015's request | AF-16 is folded: the session row is attributed to next-auth's adapter, and the ordering anchor is now the `Accounts` update. The run-2 reads are bounded to the stopped process's span. `Created instance` was confirmed at `471578f` `src/getPool.ts`, logged by the factory's `create`. No findings. Landed `preview-image-generator.md` A-1 (agent-designed): the four log lines the host read matches are an interface. **APPROVED.** |
+| 2026-11-08T06:28 | Delta pass, plan rev 9 + rev 10 (`bceb84a`, read from rev 8 `1f7715b`, one pass on steering-hooks-015's instruction) | AF-17 MEDIUM is required. M1-c's lookup-error residue leaves `user-session-token`, `fetchAccountFromSession`'s 600 s session→account cache read by `authorizeGuildAdmin`, alive with an unrevoked token after sign-out. The two session-scoped keys must be cleared for every member of the class. The cache-invalidation class is registered as a Problem Area. Every other delta limb conforms. **APPROVED_WITH_CHANGES.** |
+
+## Verdict (rev 9 + rev 10, `bceb84a`, one pass from rev 8): APPROVED_WITH_CHANGES
+
+This pass read only the delta from rev 8 to rev 10. These limbs conform and need no change:
+
+- M1-c's "no account found" class (`NoResultError` or a falsy return);
+- M1-f's corrected premise and RK-7;
+- M1-h restated to D21's property over the three promises;
+- the re-derivation after M1;
+- M8-a's run-2 span, bounded only by ready lines and stop (2)'s `pm2.log` timestamp, with its reads listed;
+- P3's instrument-liveness check;
+- the sign-out note in Validation.
+
+AF-17 carries one required change, on the residue M1-c now states.
+
+### AF-17 MEDIUM — M1-c's lookup-error residue leaves a signed-out cookie able to pass the server-admin check for up to 600 s
+
+Read at website `be881c9`.
+
+- **What happens on a lookup error.** `removeUserSession` (`src/server/auth.ts`) first awaits `redis.fetchUserAccount(userDbId, true)`. It catches `NoResultError` only and rethrows anything else.
+- **So on any other lookup error,** such as Postgres unreachable, M1-c's stated residue applies: no Redis key is cleared and no revoke is sent.
+- **What the session key holds.** One of the keys left behind is `user-session-token:<sessionToken>`. It is `fetchAccountFromSession`'s 600 s cache entry (`src/utils/redis/index.ts`), which maps the session token to `{ userId, access_token, providerAccountId }`. Its one reader is `authorizeGuildAdmin` (`src/server/api/utils/authorizeGuildAdmin.ts`), which trusts the cached `access_token` and then the cached `user-guilds`.
+- **The window.** next-auth has already deleted the `Sessions` row (AF-16), and the token was not revoked. So until the entry expires, the cookie of a signed-out session still passes the guild-admin authorisation.
+
+The residue the plan states is narrower than the gap that is actually left. The plan calls it a cleanup that did not run. In effect, a signed-out session keeps its server-admin authorisation.
+
+**The fix stays within M1-c.** The two keys that carry a session's authority, `user-access-token` (keyed on `userDbId`) and `user-session-token` (keyed on `sessionToken`), come from `removeUserSession`'s own arguments, and neither depends on the account lookup.
+
+**Required of the planner.** M1-c's property clears those two keys for **every** member of the class, including a lookup error: before the lookup, or in a `finally` around it. The residue then shrinks to the account-keyed limbs: `user-guilds`, the `Accounts` update and the revoke. A test input for that cell is a lookup rejecting with a non-`NoResultError` error, expecting both deletions and then the rejection.
+
+The fix reopens a delivered cell: one change, one code-review round and one QA re-run, all for M1-c. Whether that is a milestone-level scope delta needing the owner's word is steering's call. It has been sent to steering-hooks-015 as a possible owner-needing item.
+
+**Registered in `system-architecture.md` § Problem Areas, beyond 015's scope.** `fetchAccountFromSession` caches a session-token-to-account mapping for 600 s, and nothing invalidates it except an explicit `clearUser`. Any end of a session that skips that call keeps the mapping alive until the TTL runs out, whether the session expired, was deleted by an adapter, or was removed by hand in the database. `authorizeGuildAdmin` does not re-check that the `Sessions` row still exists.
 
 ## Verdict (rev 7, `38b12e6`): APPROVED
 
