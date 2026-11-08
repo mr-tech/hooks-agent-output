@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Delta pass on plan rev 22 (5201612, read from 3d193f9): APPROVED. Recommended, none blocking: AF-23 (M5-h class (3) as makeEditable's own throw), AF-24 (one validator for M6-l's text) and AF-25 (the over-40 chrome also shows on /preview; the D32 scope question is with steering). AF-18 is still recommended. A later revision is read on its delta. AF-26 MEDIUM (one Discord Accounts row per user is not guaranteed; routed from QA) is with the planner and steering. AF-18 is implemented on the chain branch at website 3031878."
+Status-Detail: "Delta pass on plan rev 23 (39dbc0d, read from 5201612): APPROVED. AF-27 LOW (the crash-set guard as an error boundary with the one-line fallback) is recommended. AF-23's makeEditable basis is withdrawn, the error mine (CR-20). AF-26 MEDIUM (several Discord Accounts rows per user) is with the planner and steering. AF-18 is implemented at website 3031878. A later revision is read on its delta."
 ---
 
 # Architecture Findings — Plan 015: Bug-evaluation fixes (conformance pass)
@@ -29,6 +29,29 @@ Status-Detail: "Delta pass on plan rev 22 (5201612, read from 3d193f9): APPROVED
 | 2026-11-08T07:30 | Delta pass, plan rev 21 (`3d193f9`, read from `e118cc3`), on steering-hooks-015's request | CR-16 is folded as option (a). The dialog's "Invalid URL" goes on its existing shared error line, with no new field-level error. That follows the current pattern; option (b) would have been an avoidable deviation (new UI). Read at website `1e12837`: `NewMessageModal` `messageErrorString` = `discordMessageError ?? commandMessageError ?? webhookError ?? webhookMessageError`, rendered once below the load options; `errorMessage=` 0 in the file; the send page's field error is `WebhookMenu` `errorMessage` (`'Invalid URL'` on `url && !isWebhookLoading && selectedWebhook === null`). D30's removal of M3 changes no architecture. AF-22 INFO is registered as a Problem Area: the dead `tagName` compare stays at three sites, so whatever keeps Enter-on-Cancel safe is not that guard and has not been identified. **APPROVED.** |
 | 2026-11-08T08:00 | Delta pass, plan rev 22 (`5201612`, read from `3d193f9`), on steering-hooks-015's request | Read at website `da24eb7`. M5-h's classes, X-19 and M6-l (vi) conform. AF-23 LOW: class (3)'s conforming form is `parseMessageData`'s existing `try` widened over `makeEditable`, not a transcribed shape check. Two listed members are wider than its throws: an empty-string `embeds`/`fields`, and array elements. AF-24 LOW: (ii) and (vi) share one text, so it belongs in a `limits.tsx` validator beside `validateDisplayableTextCount`, called by `validateMessage` and the editor. The border sibling is confirmed by read, and the Send page gets the line through `MessagePreview`. AF-25 LOW: the line and border are not gated on `isEditing`, so `/preview` and the generated image (D-003) show them too, which D32's option text does not name. The scope judgement went to steering. One Problem Area registered. **APPROVED.** |
 | 2026-11-08T08:06 | QA's routed assumption (qa-hooks-015, `qa/015-bug-evaluation-fixes-m1-qa.md`, `1017bdc`) | AF-26 MEDIUM. The schema (`project-utils` `749606d`, the website's lockfile pin) holds only `@@unique([provider, providerAccountId])`, so it does not guarantee at most one Discord `Accounts` row per user. next-auth 4.24.5's callback handler links a second Discord account to an already signed-in user. Sign-out at website `3031878` reads by `userId` with `executeTakeFirst()`, so with two rows it revokes an arbitrary one. Pre-existing class (sibling `fetchUserAccount`). Routed to the planner as an M1-c premise, and to steering for the owner question. Live population unread. Also read: AF-18 is implemented at `3031878`. Sign-out reads the row directly, and `skipUpdate` has 0 hits (`git grep -c`). The master document's `user-access-token` row is reconciled at chain close, not before release. One Problem Area registered. |
+| 2026-11-08T08:07 | Delta pass, plan rev 23 (`39dbc0d`, read from `5201612`), on steering-hooks-015's request | AF-24 and AF-25 are folded: (ii) and (vi) share one literal, and (vi) reaches `/preview` under D33. M5-h class (3) is now the real page's crash set, which conforms. **AF-23's basis limb is withdrawn, the error mine.** `{"embeds":""}` crashes in `validateEmbedCharacterCount`, not `makeEditable` (CR-20, executed), so "`makeEditable` throws" would have left it crashing. AF-27 LOW is recommended: the conforming mechanism is the existing `react-error-boundary` (`~/components/ErrorBoundary`), with `makeEditable` inside the boundary and the one-line fallback, never the shared stack-printing `ErrorFallback`. A transcribed member check would be an avoidable deviation. Read at website `da24eb7`, with the page and wrapper unchanged at tip `ef5a9cc`. One Problem Area registered. **APPROVED.** |
+
+## Verdict (rev 23, `39dbc0d`, one pass from rev 22 `5201612`): APPROVED
+
+These limbs conform: M6-l (ii)'s one literal (AF-24 folded), (vi) on `/preview` under D33 (AF-25 folded), X-19 re-cited, and M5-h class (3) stated as the real page's crash set. AF-27 is recommended and does not block. All mechanism reads are at website `da24eb7`. The chain tip `ef5a9cc` has the same `src/app/preview/page.tsx` and `src/components/ErrorBoundary.tsx` (`git diff --stat`, empty).
+
+**AF-23 correction, the error mine.** At rev 22 I recommended stating class (3) as "`makeEditable` throws on it", and called `parseMessageData`'s `try` widened over `makeEditable` the conforming form. That was wrong. Code review CR-20 showed by execution (`verification/015/cr-m5-probes/edge-run3-da24eb7.txt`) that `{"embeds":""}` crashes the page in the editor's `validateEmbedCharacterCount`, not in `makeEditable`. My read had left that render outcome unread, but the recommendation did not depend on it, and it would have left that member crashing.
+
+AF-23's *basis* limb is withdrawn. Rev 23's property, the real page's crash set, is the right statement. Its *array-element* limb stands: those members render, as the reads now confirm.
+
+### AF-27 LOW — the conforming mechanism for the crash-set property is the existing error-boundary dependency, with a one-line fallback
+
+Rev 23 leaves the mechanism to the implementer. This is the pattern statement code review can check it against.
+
+- **Pattern.** `react-error-boundary` (`package.json`, `^6.1.1`) is in the tree, wrapped once as `src/components/ErrorBoundary.tsx` (`ErrorBoundaryHOC`) and used by `DiscordContentEditor`. A render-time throw is exactly what an error boundary catches. So a boundary around the `/preview` editor makes "the page crashes" and "the line shows" the same event by construction. That covers X-19's first class, data no read reaches, which a check of the listed members cannot.
+- **What the form must carry.**
+  - (1) `makeEditable` runs inside the boundary, for example in a child component. In `page.tsx` it is called in `Page`'s own render, outside anything that wraps only the editor.
+  - (2) The fallback is the existing single line ("Invalid message data." on the same dark background), never the shared `ErrorFallback`. That one prints `error.message` and `error.stack` with a "Try again" button, which is the separate error page the owner declined.
+  - The conforming way to get (2) is a fallback prop on the existing wrapper, or `ErrorBoundary` from `react-error-boundary` used directly. It is not a second hand-written boundary class.
+- **Deviation.** A pre-render shape check that encodes the listed members would be a transcription of the reads. It would drift with the editor and could not satisfy the property for unread data. That makes it an avoidable deviation.
+- **Unread.** Whether Next 16's dev overlay still surfaces a caught render error. That affects the local walk's appearance, not the property.
+
+The existing shared fallback's behaviour, a stack trace shown to users, is registered as a Problem Area.
 
 ## AF-26 MEDIUM — QA's routed assumption: one Discord `Accounts` row per user is not guaranteed
 
@@ -471,7 +494,7 @@ Each is recorded in `system-architecture.md` § Problem Areas:
     - `website.md`: A-4 and A-5 (agent-designed).
     - `preview-image-generator.md`: P-3 rewritten on the owner's selection "Agent: record intended" (05:18Z), and A-1 (the log-line interface).
 - **Next.**
-  - Rev 21 (`3d193f9`): APPROVED, AF-22 INFO registered. Rev 22 (`5201612`): APPROVED, with AF-23 to AF-25 recommended. A later revision is read on its delta from `5201612`. When it lands, check whether AF-23 to AF-25 were folded, and how AF-26 was disposed.
+  - Rev 21 (`3d193f9`): APPROVED, AF-22 INFO registered. Rev 22 (`5201612`): APPROVED, with AF-23 to AF-25 recommended. Rev 23 (`39dbc0d`): APPROVED. AF-24 and AF-25 are folded, AF-23's basis is withdrawn (the error mine), and AF-27 is recommended. A later revision is read on its delta from `39dbc0d`. When it lands, check how AF-26 was disposed. When M5-h's code is reviewed, check AF-27.
   - AF-18 is implemented at website `3031878` (on the chain branch, not yet released). At chain close, reconcile the master document's `user-access-token` Problem Area row.
   - **Method, per pass:**
     1. Write `git diff <from> <to> -- planning/015-bug-evaluation-fixes.md` to the scratchpad and Read it; the rtk filter mangles piped diffs.
