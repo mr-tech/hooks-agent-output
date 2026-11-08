@@ -2,11 +2,11 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Reviewed-At: "da24eb7 — repos=website; Round 10 (M5) and the Round 7 sub-entry (M4 D29, QAF-25) at da24eb7; the Round 2 sub-entry (CR-15) at 3031878; plan rev 21 (3d193f9), rulings read to agent-output c1be05e"
+Reviewed-At: "5201612,da24eb7 — repos=agent-output,website; Round 11 is the plan gate read of 3d193f9..5201612 (rev 22), mechanisms at website da24eb7. Round 10 (M5) and the Round 7 sub-entry (M4 D29, QAF-25) at da24eb7; the Round 2 sub-entry (CR-15) at 3031878; rulings read to agent-output c1be05e"
 Status: In Review
-Status-Detail: "Round 10 (M5 at da24eb7): REJECTED for M5-h only — CR-18 MEDIUM, JSON objects of the wrong shape still crash /preview; M5-a to M5-g met, CR-19 LOW. M4's D29 change and QAF-25 cells (Round 7 sub-entry at da24eb7): CR-14 RESOLVED, CR-17 LOW; M4 stays APPROVED_WITH_COMMENTS. CR-15 RESOLVED at 3031878."
-Round: 10
-Verdict: REJECTED
+Status-Detail: "Round 11 (plan rev 22 gate read): APPROVED_WITH_COMMENTS — CR-20 LOW (M5-h class (3): two crash members come from the editor's render, not makeEditable; four members left open; X-19 re-cite); M6-l (vi) no finding. Round 10 (M5 at da24eb7): REJECTED for M5-h only (CR-18 MEDIUM) until its code fix; M5-a to M5-g met, CR-19 LOW. M4 (Round 7 + sub-entry at da24eb7): APPROVED_WITH_COMMENTS, CR-17 LOW. CR-15 RESOLVED."
+Round: 11
+Verdict: APPROVED_WITH_COMMENTS
 ---
 
 # Code Review: Plan 015 — Bug-evaluation fixes
@@ -49,6 +49,7 @@ Verdict: REJECTED
 | 2026-11-08T07:55 | implementer-hooks-015 (message) handoff at website `6c42032` (M4 reopen) and `3031878` (M1); steering-hooks-015 (brief, after `/clear`) | Round 2 sub-entry: CR-15 at `3031878` | CR-15 RESOLVED. The row-2 after-return cell is red under `m1h-message-handler-dropped` (its title is among the 6 failures; control 30 of 30). |
 | 2026-11-08T07:55 | same handoff | Round 7 sub-entry: M4's D29 change and the QAF-25 cells (`579e8b2..46a9cab`, plus `6c42032`), bound to `da24eb7` | M4 stays APPROVED_WITH_COMMENTS. CR-14 RESOLVED: the dialog shows "Invalid URL" on its shared error line, no field error was added, and each site's cell asserts the literal exactly once, in place. CR-17 LOW: the two sites write the literal by hand, while D24's sibling text is a shared constant. The rider's files are unchanged, so the attack was not re-run. |
 | 2026-11-08T07:55 | implementer-hooks-015 (message) handoff at website `da24eb7`; steering-hooks-015 (brief) | Round 10: review M5 (F-19 to F-26) against plan rev 21, with the rulings `a49da66` and `c1be05e` recorded as growth | REJECTED for M5-h only. CR-18 MEDIUM: a `/preview` JSON object of the wrong shape still crashes the page. 4 of 5 probed members throw in `makeEditable`, with both controls as expected (`verification/015/cr-m5-probes/run1-da24eb7.txt`). Steering's 07:30Z call puts that class in M5-h. M5-a to M5-g are met. CR-19 LOW: a hand-rolled latest-value ref where `useLatest` is the repo's idiom. |
+| 2026-11-08T08:02 | steering-hooks-015 (brief); planner-hooks-015 (message) | Round 11: plan gate read, `3d193f9..5201612` (rev 22): M5-h classes (1)–(3) and X-19 (CR-18 fold, D31), M6-l (vi) (D32) | APPROVED_WITH_COMMENTS. CR-18's plan half is folded: every listed class (3) member crashes the page at `da24eb7`, by execution (`cr-m5-probes/edge-run3-da24eb7.txt`, `real-run4-da24eb7.txt`). CR-20 LOW: `embeds:""` and `fields:""` crash in the editor's `validateEmbedCharacterCount`, not in `makeEditable`, so "read from its source" is the wrong basis. Four members (array elements, a type-17 `null` direct child) render but are left open. X-19 cites my stubbed run. M6-l (vi): the sibling line and border reach the Send page through `MessagePreview`. No finding. |
 
 ## Round 1 (M0, website `037935d`) — dispositions
 
@@ -281,6 +282,47 @@ CR-5 LOW Round 2 DECLINED — by the implementer (§ Fix Round 1): the plan sets
   - The two literal `formatKey` cases go to a `formatKey.*` file; the tautologies are deleted.
   - The `useParsePathname` describe is converted to exercise the real hook, or deleted with the surface listed as outstanding.
   - QA decides the timing (now or with a later touch). Non-blocking for M2.
+
+## Round 11 (plan gate read, rev 22, agent-output `5201612`; mechanisms at website `da24eb7`)
+
+- **Scope.** The delta `3d193f9..5201612`, written to a file and read in full: M5-h restated over classes (1) to (3), with X-19 as residue (D31, D28, CR-18); M6-l (vi) (D32); and the rest of the delta (the owed-re-verdict row, the changelog rows, D31 and D32's registrations).
+- **Evidence process.** I checked the plan's mechanism claims against website `da24eb7` with `git show` and `git grep`, and executed two instruments in exports (`git archive`, `unshare -rn`). Both are in `verification/015/cr-m5-probes/`.
+  - **`makeEditable` alone:** `makeEditable.edge-probe.test.ts`, driver `run-edge.sh <website> <scratch> <sha> <out>`. Only `~/env.mjs` is mocked. Two rows are controls; the rest record what they observe.
+    - Run 1 is invalid: the env guard loads through `~/utils`.
+    - Run 2 is invalid: it recorded nothing.
+    - Run 3 (`edge-run3-da24eb7.txt`): 18 rows, both controls as expected. The export's blob of `utils/index.ts` equals the tree's (`702f8fa`).
+  - **The real page with the real editor:** `page.real-editor-probe.test.tsx`, driver `run-real.sh`. Only `~/env.mjs` and `next/navigation` are mocked. It waits 20 ticks of 25 ms for Suspense to settle.
+    - Run 1 is invalid: an incomplete `MarkdownProvider` mock, caught by the positive control.
+    - Runs 2 and 3 are superseded: run 2 did not wait for Suspense (its positive control showed 1 node); run 3 is a subset of run 4.
+    - Run 4 (`real-run4-da24eb7.txt`): 9 rows. Controls as expected: `{"content":"hello"}` renders the editor (18 nodes, its header text), and `null` shows the error line.
+- **M5-h (1) and (2): no finding.** They match what was built and D31.
+- **M5-h (3): CR-20 LOW.** These listed members are crash members at `da24eb7`, by execution:
+  - in `makeEditable` (edge run 3): `embeds` 5, 0 or `false`; an `embeds` element that is `null` or a string; `components` truthy and not an array; a type-1, 9 or 12 child that is `null`, including one inside a type-17 container;
+  - in the editor's render (real run 4): `{"embeds":""}` ("embeds.reduce is not a function") and an embed with `"fields":""` ("embed.fields?.reduce is not a function"), both in `src/utils/limits.tsx` `validateEmbedCharacterCount`.
+- **M6-l (vi): no finding.** The mechanism claims hold at `da24eb7`. I read the border too, which the planner says it did not.
+  - `DiscordMessageEditor` renders `v2TextError` as `mt-1 text-xs font-semibold text-error` below the `discord-visualizer__accessories` block, and that block takes `styles.errorBorder` when `embedCharacterError || v2TextError`. Neither depends on editing mode.
+  - The Send page renders the editor through `MessagePreview` → `dynamics/DiscordMessageEditor`, so the same line and border reach it.
+  - `canAddComponent = totalComponentCount < MAX_TOTAL_COMPONENTS` (40), so the button hides at 40 and over.
+  - The cell requirement of literal text for two totals (41 and higher) is discriminating against a fixed or off-by-one count.
+
+**CR-20 LOW Round 11 Plan text, M5-h class (3)**: the list is right about which inputs crash, but it cites the wrong source for two members and leaves four members' outcomes open
+- **Location**: plan § M5-h (3) and X-19 at rev 22 (`5201612`). Code at `da24eb7`: `src/utils/index.ts` `makeEditable` and `injectComponentKeys`, and `src/utils/limits.tsx` `validateEmbedCharacterCount`.
+- **Class**: A refused set defined as "what function F cannot process, read from F's source", whose crash set is in fact the union of F and a second reader. As a result, the stated basis misdescribes the residue's boundary, and members the list words ambiguously have no settled outcome.
+- **Enumeration**: 16 edge members run through `makeEditable` alone (edge run 3), and 7 through the real page (real run 4):
+  - **Listed, and they do crash, but not in `makeEditable`:** `{"embeds":""}` and an embed with `"fields":""`. `makeEditable` processes both (`?? []` lets `""` through), but the editor's render throws in `validateEmbedCharacterCount`. So the list is right, and "read from its source" (`makeEditable`) is not its basis. A predicate of "`makeEditable` throws" would leave both crashing.
+  - **Open in the plan, and they render at `da24eb7` (real run 4):**
+    - an `embeds` element that is an array;
+    - a `fields` element that is an array;
+    - a type-1 child that is an array (whether arrays are "not an object" reads either way);
+    - a type-17 container's direct child that is `null` ("a type-17 container's children are the same class, recursively" also reads either way).
+  - **X-19 cites my stubbed run.** It quotes `run1-da24eb7.txt`'s "editor:undefined", which came from a stubbed editor. Real run 4 now shows that `{"components":[null]}` does render under jsdom with the real editor (18 nodes), so the claim holds, but on that run, not on the one cited.
+  - Blind spots: my members are hand-picked edges. The editor's full read set (each component type's renderer) is not enumerated. That is X-19.
+- **Issue**: The four open members have no literal outcome the plan settles, and both outcomes avoid a crash: LOW.
+- **Required Action (planner)**:
+  - State (3)'s basis as the inputs the page crashes on at `da24eb7`: in `makeEditable`, or in the editor's render (`validateEmbedCharacterCount` for `""` `embeds` and `fields`). Keep the list. Do not restate it as "`makeEditable` throws".
+  - State the four open members as rendered. That keeps "every other `data` renders as at `da24eb7`" true. Word element members as "`null` or not an object or array", or name arrays explicitly.
+  - Re-cite X-19 to `real-run4-da24eb7.txt`.
+  - The cells' falsity signature: an array element and a type-17 `null` direct child, each expected to render, so a guard that refuses extra inputs fails; and `""` `embeds` and `fields`, each expected to show the error line, so a guard built on `makeEditable` alone fails.
 
 ## Round 10 (M5, website `da24eb7`, plan rev 21)
 
@@ -591,6 +633,8 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 
 ## Verdict
 
+**Round 11 (plan gate read, rev 22)**: APPROVED_WITH_COMMENTS (CR-20 LOW, for the planner). M5-h's plan text now carries CR-18's class. M5-h's code stays REJECTED under Round 10 until its fix.
+
 **Round 10 (M5, website `da24eb7`, plan rev 21)**: REJECTED for M5-h only (CR-18 MEDIUM). M5-a to M5-g are met; CR-19 is LOW.
 
 **Round 7 sub-entry (M4's D29 change and QAF-25 cells, `da24eb7`)**: Round 7 stays APPROVED_WITH_COMMENTS. CR-14 is RESOLVED; CR-17 is LOW.
@@ -618,10 +662,13 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 
 1. **Implementer, blocking M5-h:** CR-18. Its fix is reviewed as a Round 10 sub-entry.
 2. **Implementer, non-blocking:** CR-17 (one shared constant for the webhook-load text), CR-19 (`useLatest`), and CR-10 as QA times it.
-3. **Planner:** register in § M5-h the 07:52Z non-object ruling (`c1be05e`) and the wrong-shape class from the 07:30Z ruling (`a49da66`) (CR-18).
+3. **Planner:** CR-18's registration is done at rev 22. CR-20 (non-blocking): state class (3)'s basis as the page's crash set (`makeEditable` plus `validateEmbedCharacterCount`), never "`makeEditable` throws"; state the four open members as rendered; re-cite X-19 to `real-run4-da24eb7.txt`. Settle it before the implementer writes the M5-h cells if possible.
 
 ## Assumption Not Checked
 
+- **Round 11:** This review assumes that jsdom's render of the real `DiscordMessageEditor` stands in for a browser's, for the members that rendered in real run 4: `{"components":[null]}`, a type-17 `null` direct child, and array elements. It does not test this in a browser.
+  - Falsity signature: in Chrome, `/preview?data={"components":[null]}` shows a blank or crashed page.
+  - Owner: UAT, on M5-h's walk (served chain tip, a browser run through steering). The member is X-19's.
 - **Round 10:** This review assumes that `PresetDialog` (Headless UI) closes on Esc and on an outside click whenever `allowMenuClose` is true, so that the flag M5-a's cells assert is what the user's keypress reaches. It does not test this in a browser.
   - Falsity signature: after a confirmed Load, the user reopens the JSON dialog, presses Esc, and the dialog stays open.
   - Owner: UAT, on M5-a's walk against the served chain tip. A browser run goes through steering, under the 07:42Z Playwright ruling.
@@ -646,7 +693,7 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 ## Next Steps
 
 - **Implementer** (implementer-hooks-015): CR-18, which blocks M5-h. Then a Round 10 sub-entry at the fix SHA. CR-17 and CR-19 are non-blocking.
-- **Planner** (planner-hooks-015): register M5-h's two rulings (CR-18, Required Action 3).
+- **Planner** (planner-hooks-015): CR-20 (Required Action 3).
 - **QA Phase 2** (qa-hooks-015):
   - M4 at website `da24eb7`: Round 7 plus its sub-entry, APPROVED_WITH_COMMENTS.
   - M5-a to M5-g at `da24eb7`: Round 10.
@@ -662,7 +709,10 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
   - M2: Round 3.
   - M4: Round 7 plus its sub-entry, APPROVED_WITH_COMMENTS at `da24eb7`; CR-17 LOW open.
   - Plan gate reads: Rounds 4, 5, 6, 8 and 9.
-- **Open.** Round 10 (M5 at `da24eb7`): REJECTED for M5-h (CR-18 MEDIUM); CR-19 LOW.
+- **Open.**
+  - Round 10 (M5 at `da24eb7`): REJECTED for M5-h (CR-18 MEDIUM); CR-19 LOW.
+  - Round 11 (rev 22): APPROVED_WITH_COMMENTS, CR-20 LOW with the planner.
+  - Instruments for the M5-h fix: `cr-m5-probes/run-edge.sh` (`makeEditable` alone) and `run-real.sh` (the real page and editor; wait for Suspense). Check every class (3) member, the `""` members, and the four rendered members.
 - **Next.**
   - CR-18's fix, as a Round 10 sub-entry. Re-run `cr-m5-probes/run.sh <website> <scratch> <fix-sha> <out>`; every wrong-shape member must show the error line.
   - Re-attack from first principles, because the fix is a guard. Include members phrased outside my five: nested wrong shapes, `fields` holding `null`, and a container's child components.

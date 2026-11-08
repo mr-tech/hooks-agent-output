@@ -1,0 +1,21 @@
+sha da24eb7dd7e811a0dfc50b941ceba50aef3c6caf
+preview/page.tsx blob tree 0e3fc49d4c241d4ec58ed5d0942c7cf46f20406f export 0e3fc49d4c241d4ec58ed5d0942c7cf46f20406f
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/2387f43a-642b-48ff-b557-f5e4556d400c/scratchpad/cr-m5-real-export-da24eb7
+
+REAL "{\"content\":\"hello\"}" -> rendered:18 nodes, text="BOTToday at 8:02 AMThis username is too "
+REAL "null" -> text:Invalid message data.
+REAL "{\"components\":[null]}" -> rendered:18 nodes, text="BOTToday at 8:02 AMThis username is too "
+REAL "{\"components\":[{\"type\":17,\"components\":[null]}]}" -> rendered:22 nodes, text="BOTToday at 8:02 AMThis username is too "
+REAL "{\"embeds\":\"\"}" -> THREW:embeds.reduce is not a function
+REAL "{\"embeds\":[[]]}" -> rendered:19 nodes, text="BOTToday at 8:02 AMThis username is too "
+REAL "{\"embeds\":[{\"title\":\"t\",\"fields\":\"\"}]}" -> THREW:embed.fields?.reduce is not a function
+REAL "{\"embeds\":[{\"title\":\"t\",\"fields\":[[]]}]}" -> rendered:21 nodes, text="BOTToday at 8:02 AMThis username is too "
+REAL "{\"components\":[{\"type\":1,\"components\":[[]]}]}" -> rendered:25 nodes, text="BOTToday at 8:02 AMThis username is too "
+
+ Test Files  1 passed (1)
+      Tests  9 passed (9)
+   Start at  08:02:20
+   Duration  6.21s (transform 773ms, setup 23ms, import 1.39s, tests 4.06s, environment 618ms)
+
+exit 0

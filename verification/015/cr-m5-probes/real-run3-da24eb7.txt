@@ -1,0 +1,18 @@
+sha da24eb7dd7e811a0dfc50b941ceba50aef3c6caf
+preview/page.tsx blob tree 0e3fc49d4c241d4ec58ed5d0942c7cf46f20406f export 0e3fc49d4c241d4ec58ed5d0942c7cf46f20406f
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/2387f43a-642b-48ff-b557-f5e4556d400c/scratchpad/cr-m5-real-export-da24eb7
+
+REAL "{\"content\":\"hello\"}" -> rendered:18 nodes, text="BOTToday at 8:01 AMThis username is too "
+REAL "null" -> text:Invalid message data.
+REAL "{\"components\":[null]}" -> rendered:18 nodes, text="BOTToday at 8:02 AMThis username is too "
+REAL "{\"components\":[{\"type\":17,\"components\":[null]}]}" -> rendered:22 nodes, text="BOTToday at 8:02 AMThis username is too "
+REAL "{\"embeds\":\"\"}" -> THREW:embeds.reduce is not a function
+REAL "{\"embeds\":[[]]}" -> rendered:19 nodes, text="BOTToday at 8:02 AMThis username is too "
+
+ Test Files  1 passed (1)
+      Tests  6 passed (6)
+   Start at  08:01:56
+   Duration  5.28s (transform 925ms, setup 22ms, import 1.52s, tests 2.97s, environment 650ms)
+
+exit 0

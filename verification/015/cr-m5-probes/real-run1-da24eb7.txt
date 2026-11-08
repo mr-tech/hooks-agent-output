@@ -1,0 +1,52 @@
+sha da24eb7dd7e811a0dfc50b941ceba50aef3c6caf
+preview/page.tsx blob tree 0e3fc49d4c241d4ec58ed5d0942c7cf46f20406f export 0e3fc49d4c241d4ec58ed5d0942c7cf46f20406f
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/2387f43a-642b-48ff-b557-f5e4556d400c/scratchpad/cr-m5-real-export-da24eb7
+
+REAL "{\"content\":\"hello\"}" -> THREW:[vitest] No "useMarkdown" export is defined on the "~/providers/MarkdownProvider" mock. Did you forget to return it from "vi.mock"?
+If you need to partially mock a module, you can use "importOriginal" helper inside:
+
+REAL "null" -> text:Invalid message data.
+REAL "{\"components\":[null]}" -> THREW:[vitest] No "useMarkdown" export is defined on the "~/providers/MarkdownProvider" mock. Did you forget to return it from "vi.mock"?
+If you need to partially mock a module, you can use "importOriginal" helper inside:
+
+REAL "{\"components\":[{\"type\":17,\"components\":[null]}]}" -> THREW:[vitest] No "useMarkdown" export is defined on the "~/providers/MarkdownProvider" mock. Did you forget to return it from "vi.mock"?
+If you need to partially mock a module, you can use "importOriginal" helper inside:
+
+REAL "{\"embeds\":\"\"}" -> THREW:[vitest] No "useMarkdown" export is defined on the "~/providers/MarkdownProvider" mock. Did you forget to return it from "vi.mock"?
+If you need to partially mock a module, you can use "importOriginal" helper inside:
+
+REAL "{\"embeds\":[[]]}" -> THREW:[vitest] No "useMarkdown" export is defined on the "~/providers/MarkdownProvider" mock. Did you forget to return it from "vi.mock"?
+If you need to partially mock a module, you can use "importOriginal" helper inside:
+
+ ❯ |dom| src/app/preview/__tests__/page.real-editor-probe.test.tsx (6 tests | 1 failed) 45ms
+     × positive control 27ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.real-editor-probe.test.tsx > preview page, the real editor, members that pass makeEditable > positive control
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/preview/__tests__/page.real-editor-probe.test.tsx:42:60
+     40|     const got = await outcome(data);
+     41|     appendFileSync(process.env.EDGE_OUT ?? '/dev/null', `REAL ${JSON.s…
+     42|     if (expected !== '?') expect(got.startsWith(expected)).toBe(true);
+       |                                                            ^
+     43|   });
+     44| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 5 passed (6)
+   Start at  08:01:23
+   Duration  2.30s (transform 591ms, setup 21ms, import 1.47s, tests 45ms, environment 619ms)
+
+exit 1

@@ -1,0 +1,30 @@
+sha da24eb7dd7e811a0dfc50b941ceba50aef3c6caf
+utils/index.ts blob tree 702f8fa6107e9132d4095c386feb5d0516df543f export 702f8fa6107e9132d4095c386feb5d0516df543f
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/2387f43a-642b-48ff-b557-f5e4556d400c/scratchpad/cr-m5-edge-export-da24eb7
+
+EDGE control: valid -> processed
+EDGE control: embeds a number -> THREW:number 5 is not iterable (cannot read property Symbol(Symbol.iterator))
+EDGE embeds empty string -> processed
+EDGE embeds false -> THREW:boolean false is not iterable (cannot read property Symbol(Symbol.iterator))
+EDGE embeds 0 -> THREW:number 0 is not iterable (cannot read property Symbol(Symbol.iterator))
+EDGE embed element an array -> processed
+EDGE embed element a string -> THREW:Cannot create property '_key' on string 'a'
+EDGE fields empty string -> processed
+EDGE field element an array -> processed
+EDGE components empty string -> processed
+EDGE top-level component a string -> processed
+EDGE type-17 child null -> processed
+EDGE type-17 child a string -> processed
+EDGE type-17 > type-1 child null -> THREW:Cannot read properties of null (reading '_key')
+EDGE type-1 child an array -> processed
+EDGE type-9 accessory null -> processed
+EDGE type-12 items a string -> processed
+EDGE type-12 item null -> THREW:Cannot read properties of null (reading '_key')
+
+ Test Files  1 passed (1)
+      Tests  18 passed (18)
+   Start at  07:59:47
+   Duration  599ms (transform 115ms, setup 0ms, import 471ms, tests 8ms, environment 0ms)
+
+exit 0

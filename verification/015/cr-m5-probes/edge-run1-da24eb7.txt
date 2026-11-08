@@ -1,0 +1,57 @@
+sha da24eb7dd7e811a0dfc50b941ceba50aef3c6caf
+utils/index.ts blob tree 702f8fa6107e9132d4095c386feb5d0516df543f export 702f8fa6107e9132d4095c386feb5d0516df543f
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/2387f43a-642b-48ff-b557-f5e4556d400c/scratchpad/cr-m5-edge-export-da24eb7
+
+stderr | src/utils/__tests__/makeEditable.edge-probe.test.ts
+❌ Invalid environment variables: {
+  DATABASE_URL: [ 'Required' ],
+  DISCORD_CLIENT_SECRET: [ 'Required' ],
+  DISCORD_URL: [ 'Required' ],
+  DISCORD_BOT_TOKEN: [ 'Required' ],
+  REDISHOST: [ 'Required' ],
+  REDISPORT: [ 'Required' ],
+  REDISUSER: [ 'Required' ],
+  REDISPASSWORD: [ 'Required' ],
+  CDN_KEY: [ 'Required' ],
+  CDN_SECRET: [ 'Required' ],
+  CDN_BUCKET: [ 'Required' ],
+  CDN_ENDPOINT: [ 'Required' ],
+  DISCORD_PUBLIC_KEY: [ 'Required' ],
+  ENCRYPTION_KEY: [ 'Required' ],
+  ENCRYPTION_IV: [ 'Required' ],
+  HOOKS_API_TOKEN: [ 'Required' ],
+  PUSHER_APP_ID: [ 'Required' ],
+  PUSHER_SECRET: [ 'Required' ],
+  PREVIEW_IMAGE_URL: [ 'Required' ],
+  PREVIEW_IMAGE_API_KEY: [ 'Required' ],
+  NEXT_PUBLIC_PUSHER_KEY: [ 'Required' ],
+  NEXT_PUBLIC_PUSHER_CLUSTER: [ 'Required' ],
+  NEXT_PUBLIC_DISCORD_CLIENT_ID: [ 'Required' ]
+}
+
+ ❯ |node| src/utils/__tests__/makeEditable.edge-probe.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/makeEditable.edge-probe.test.ts [ src/utils/__tests__/makeEditable.edge-probe.test.ts ]
+Error: Invalid environment variables
+ ❯ src/env.mjs:115:11
+    113|       parsed.error.flatten().fieldErrors,
+    114|     );
+    115|     throw new Error('Invalid environment variables');
+       |           ^
+    116|   }
+    117|
+ ❯ src/constants/index.ts:3:1
+ ❯ src/utils/index.ts:13:1
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  07:59:27
+   Duration  1.18s (transform 232ms, setup 0ms, import 0ms, tests 0ms, environment 0ms)
+
+exit 1
