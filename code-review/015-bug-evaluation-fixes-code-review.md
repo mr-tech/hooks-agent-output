@@ -2,11 +2,11 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Reviewed-At: "6001f7f — repos=website; Round 3 (M2) and the Round 2 sub-entry (M1 fix round 1), both against plan rev 13"
+Reviewed-At: "565e240,6001f7f — repos=agent-output,website; Round 4 is the plan gate read of 9cbe755..565e240 (revs 14–16), with mechanism claims checked at website 6001f7f. Rounds 2–3 were at 6001f7f against rev 13"
 Status: In Review
-Status-Detail: "M2 is APPROVED_WITH_COMMENTS at 6001f7f, and QA Phase 2 may take M2. For M1, Round 2's REJECTED stands for M1-c (CR-3) and M1-h only. Both are held for the rev 13 gate round and get re-verdicts at their rebuild SHA. M1-i now passes at 6001f7f (CR-4 RESOLVED). Every other M1 limb passed at be881c9."
-Round: 3
-Verdict: APPROVED_WITH_COMMENTS
+Status-Detail: "Round 4 (plan revs 14–16 gate read): M1-i and the M2-a/M6-f folds approved; M4-d REJECTED on CR-11 MEDIUM (planner); CR-12 HIGH (pre-existing getFromUrl cross-guild read) escalated to steering. M2 is APPROVED_WITH_COMMENTS at 6001f7f, and QA Phase 2 may take M2. For M1, Round 2's REJECTED stands for M1-c (CR-3) and M1-h only. Both are held for the rev 13 gate round and get re-verdicts at their rebuild SHA. M1-i now passes at 6001f7f (CR-4 RESOLVED). Every other M1 limb passed at be881c9."
+Round: 4
+Verdict: REJECTED
 ---
 
 # Code Review: Plan 015 — Bug-evaluation fixes
@@ -15,6 +15,7 @@ Verdict: APPROVED_WITH_COMMENTS
 - Round 1 read rev 8 at `ec45936`.
 - Round 2 recorded its criteria from rev 8 at `bf10a46` and read rev 9 and rev 10 at `bceb84a` as growth.
 - The Round 2 sub-entry and Round 3 review against rev 13 (`9cbe755`), whose delta `14fe94f..9cbe755` I also read as one of its gates (steering's brief, 2026-11-08).
+- Round 4 reads the delta `9cbe755..565e240` (revs 14–16) as one of its gates (steering's brief, 2026-11-08, after `/clear`).
 
 **Implementation References**:
 - `implementation/015-bug-evaluation-fixes-m0-implementation.md` (`6299c9b`, `Handoff-At` 037935d).
@@ -33,6 +34,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-08T06:32 | implementer-hooks-015 (message) handoff at website `be881c9` | Round 2: review M1 (F-1 to F-11), `037935d..be881c9` | REJECTED. CR-3 MEDIUM: sign-out with a cached `null` skips the revoke and the `Accounts` update. CR-4 MEDIUM: the cookie parser throws on legal `%` octets. CR-5 LOW: revoke failures are silent. M1-a, b, d, e, f, g, j and k pass. M1-h reopened under D21 (plan rev 10) and is re-checked at the fix SHA. The `be881c9` "formatting only" claim holds for production code. |
 | 2026-11-08T06:44 | implementer-hooks-015 (message) handoff at website `6001f7f`; steering-hooks-015 (message, review against plan rev 13 `9cbe755`) | Round 2 sub-entry: M1 fix round 1 (`be881c9..6001f7f`) | CR-4 RESOLVED (structural; re-attacked, `cr-m1-cookie-reattack-run1.txt`). M1-i is met under rev 13. CR-5 DECLINED by the implementer. CR-3 stays open: folded at rev 12, code held. M1-h is held for the rev 13 round, and the rebuild owes one cell per decision-table row. New: CR-6 LOW (the CR-4 sweep's `Providers.tsx` disposition) and CR-7 LOW (rev 13 M1-i's "present"). Round 2's REJECTED stands for M1-c and M1-h only. |
 | 2026-11-08T06:44 | implementer-hooks-015 (message) handoff at website `6001f7f` | Round 3: review M2 (F-12, F-13, F-14, F-43; QAF-1) against plan rev 13 | APPROVED_WITH_COMMENTS. M2-a to M2-d and QAF-1 are met. CR-8 LOW: the colour sweep misses `Picker.tsx`. CR-9 LOW: a lint suppression keeps the dead `validateEmbed`. CR-10 LOW: the touched supplemental test file keeps a transcription and tautologies. |
+| 2026-11-08T07:10 | steering-hooks-015 (message, after `/clear`) | Round 4: plan gate read, `9cbe755..565e240` (revs 14–16): M1-i (CR-7), M2-a/M6-f (CR-8), M4-d (D24–D26) | REJECTED for M4-d only. CR-6, CR-7 and CR-8 are dispositioned by the folds. CR-11 MEDIUM: M4-d's `getFromUrl` property names the channel and message groups but not the guild group, which is the only input to the authorization gate. CR-12 HIGH, pre-existing on `master`, escalated: `getFromUrl` authorizes the link's guild and fetches the link's channel with the bot token, and nothing ties the two together. Instrument: `verification/015/cr-m4d-link-class-sweep.sh`. |
 
 ## Round 1 (M0, website `037935d`) — dispositions
 
@@ -223,7 +225,52 @@ CR-5 LOW Round 2 DECLINED — by the implementer (§ Fix Round 1): the plan sets
   - The `useParsePathname` describe is converted to exercise the real hook, or deleted with the surface listed as outstanding.
   - QA decides the timing (now or with a later touch). Non-blocking for M2.
 
+## Round 4 (plan gate read, revs 14–16, agent-output `565e240`; mechanisms at website `6001f7f`)
+
+### Scope and identity
+
+- **Tree.** The plan at `565e240` (rev 16). Delta `9cbe755..565e240`, written to a file and read in full. Mechanism claims were checked at website `6001f7f` with `git show` and `git grep`; the working tree was not used. The website chain tip has moved to `b25f561`, which carries M4 work not yet handed off. That work is not reviewed here: M4 is Round 5, opened when its own handoff arrives.
+- **Limbs, as briefed:** M1-i (CR-7), M2-a and M6-f (CR-8), and M4-d (D24–D26), plus X-17 (CR-6).
+- **Evidence process.** The plan text, my own re-runs at `6001f7f`, and `verification/015/cr-m4d-link-class-sweep.sh`, which I wrote for this read. Its binding predicate fired on a planted control (2 of 2), recorded in its run file. It is a model of the code, not a probe of Discord: what Discord returns for a cross-guild channel is not tested (Assumption Not Checked, Round 4).
+
+### Dispositions
+
+- CR-6 LOW Round 2 ROUTED: X-17, `handoff/providers-query-params-header-decode-throws-2026-11-08.md`. The CR-6 Minimum (correcting the implementer's disposition line) is still the implementer's.
+- CR-7 LOW Round 2 RESOLVED: rev 14's M1-i defines "present" as what `cookies()` returns, with two residue classes. Both are shown in QA's `qa-m1i-cookie-presence-probe-run1.txt` (`next-auth.session-token`, no `=` → present `"true"`; `%zz` and a truncated escape → absent), and the `ab%` member is shown in my `cr-m1-cookie-reattack-run1.txt`. My re-attack also shows whitespace around `=` reading as absent. RFC 6265's `cookie-pair` has no whitespace around `=`, so that case is outside the grammar the residue is bounded by: no finding. Check that fails if it returns: QA's probe, run 1.
+- CR-8 LOW Round 3 RESOLVED: M2-a names `Picker.tsx` `Picker` as the third member, and M6-f's criterion now says "0 included" and covers that line. Re-read at `6001f7f`: `defaultColor={initColor ? `#${initColor.toString(16)}` : '#000000'}`. Check: `verification/015/qa-m2a-colour-truthiness-sweep.sh`, run 1.
+
+### M4-d (rev 16) against website `6001f7f`
+
+- **The shared constant.** `DISCORD_MESSAGE_LINK_REGEX` in `src/constants/index.ts` is `^https://(?:www\.|canary\.|ptb\.)?discord\.com/channels/(\d+)/(\d+)/(\d+)$`. It has no `g` flag, so `.test` keeps no `lastIndex` state across the two consumers. It is anchored, so the plan's statement that it is "still refused" holds for every refused class it names at `6001f7f`.
+- **Consumers.** `git grep -c` gives 2 in `NewMessageModal.tsx` (import, plus the `enabled` test of `getFromUrl.useQuery`), 3 in `message.ts` (import, the zod `.regex`, and `.match`), and 1 definition. This matches the plan and the architect's `565e240` pass.
+- **Hand copies.** Every non-test line naming a `discord(app).com` host is listed in `cr-m4d-link-class-sweep-6001f7f.txt`. Apart from the constant, the only `/channels` text is placeholder strings: `NewMessageModal.tsx` and `EditMessageMenu.tsx`. No second link parser exists, so D26's "widened once" can be met. The predicate cannot see a host assembled from parts, or a link test written without the host text.
+- **Placeholders.** The two `https://discord.com/channels/...` placeholders stay correct after the widening, because discord.com remains admitted. No finding.
+
+### Round 4 findings
+
+**CR-11 MEDIUM Round 4 Plan text, M4-d (rev 16)**: the `getFromUrl` property omits the capture group the authorization gate reads
+- **Location**: plan § M4-d, "Consumers of the widened constant": "`getFromUrl`'s match groups still yield channel id and message id for every admitted form". Code: `src/server/api/routers/message.ts` `getFromUrl`, `const [, guildId, channelId, messageId] = match` and `authorizeGuildAdmin(guildId, req)` at `6001f7f`.
+- **Class**: A criterion that widens an input to an authorization-gated procedure, and states what the widened parse must still yield without naming every value the gate consumes.
+- **Enumeration**: the consumers of the widened constant whose captured values reach a gate. `git grep -c DISCORD_MESSAGE_LINK_REGEX 6001f7f -- src bot` gives the two consumer files. Only `getFromUrl` destructures the groups, and the guild group is the only argument to `authorizeGuildAdmin` there (sweep run file, "getFromUrl body": 1 authorization call). That is 1 member. The predicate is limited to this constant: other gates parsing other link classes are not enumerated.
+- **Issue**: D26 widens the host part. Adding a capturing host group, which is the natural way to write `discord(app)?`, shifts every index. The plan's stated property catches a shift of the channel and message ids. It does not state that the first value is still the link's guild id, so a widening that reads channel and message by index from the end, or by named groups, while leaving `guildId` at index 1, passes the criterion as written and authorizes against the wrong value. By reading, the likely outcome is fail-closed: a host string is in no user's guild list, so the gate returns FORBIDDEN. That is a broken load for every link, not a bypass. The bypass shape is CR-12, which already exists. Either way, the code relies on this behaviour and no assertion fails when it is lost: severity floor MEDIUM.
+- **Required Action (planner)**: restate the limb as "for every admitted form, `getFromUrl` passes the link's own guild id to the authorization gate, and the link's channel and message ids to the request". State the falsity signature the cell must show: a test whose link's guild id differs from both its channel and message ids, using distinct literals with the guild group neither first nor last among the values asserted. The cell fails when the gate receives anything but the link's guild literal. The cell's expected values are literals written in the test, never re-derived by matching against the constant (Axiom E). Preferred (structural): named groups in the constant (`(?<guildId>\d+)` and so on), read by name at `getFromUrl`, so that a host group cannot shift what the gate reads. Minimum: the restated property and its cell.
+
+**CR-12 HIGH Round 4 Security, pre-existing (on `master`)**: `getFromUrl` authorizes the link's guild but fetches the link's channel, which can belong to any guild the bot can read
+- **Location**: `src/server/api/routers/message.ts` `getFromUrl` at `6001f7f` and at `master` (`cr-m4d-link-class-sweep-master.txt`): `authorizeGuildAdmin(guildId, req)`, then `getApi().request('GET', `/channels/${channelId}/messages/${messageId}`)` with the bot token (`src/utils/discord.ts` `getApi`, `new Api(env.DISCORD_BOT_TOKEN)`).
+- **Class**: An authorization decision made on one identifier of a request, while the protected action is addressed by another identifier of the same request that the code never binds to the first.
+- **Enumeration**: in `getFromUrl`, lines comparing `guild_id`, looking up a channel, or comparing `guildId`: **0** at `6001f7f` and at `master`. The predicate fired 2 of 2 on a planted control. It cannot see a binding done inside a helper under another name. Population beyond this procedure (other routers that authorize a guild and then act on a caller-supplied channel or message id): **not measured**. Security's to sweep.
+- **Issue**: a user who manages guild A, with the bot in A, submits `https://discord.com/channels/<A>/<channel in B>/<message in B>`. `authorizeGuildAdmin(A)` passes, `redis.fetchGuild(A)` passes, and the bot-token request returns the message from guild B whenever the bot can read that channel. The message content is returned to the caller. So it is a cross-guild read of any message the bot can see. It predates chain 015 and is outside F-1 to F-50 (D6). It matters to this round because D26 widens the inputs this procedure accepts, and the M4-d walk drives this procedure.
+- **Magnitude**: established by reading the code at both SHAs only. That Discord serves `GET /channels/{c}/messages/{m}` for a channel outside the URL's guild, given the bot has access, is the unexecuted premise (Assumption Not Checked, Round 4). An unmeasured hypothesis on the Discord leg.
+- **Required Action**: the owner decides whether this rides chain 015 as a scope delta or goes to a handoff and the security agent; this review does not decide it. The fix, wherever it lands: Preferred (structural): fetch the message's channel (or use the message's `guild_id` where Discord supplies it) and refuse unless its `guild_id` equals the authorized guild, so the gate and the action are addressed by one identifier. Minimum: the same comparison, inline in `getFromUrl`. The cell's falsity signature: with a stubbed channel whose `guild_id` is a literal other than the link's guild, the procedure must refuse, and the test fails if the message is returned.
+- **Escalated** to steering-hooks-015 immediately, for the owner (security vulnerability).
+
+### Round 4 verdict
+
+M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d: REJECTED on CR-11 until it is folded. CR-12 does not hold rev 16; it holds whatever the owner decides about it. No limb of mine is reached by the M3 premise hold.
+
 ## Verdict
+
+**Round 4 (plan gate read, revs 14–16)**: REJECTED for M4-d only (CR-11 MEDIUM, planner). CR-12 HIGH is pre-existing and escalated to the owner through steering. Every other briefed limb is approved.
 
 **Round 3 (M2) — Status**: APPROVED_WITH_COMMENTS
 **Rationale**: M2-a to M2-d and QAF-1 meet their rev 13 properties at `6001f7f`. CR-8, CR-9 and CR-10 are LOW and change no M2 outcome.
@@ -233,8 +280,9 @@ CR-5 LOW Round 2 DECLINED — by the implementer (§ Fix Round 1): the plan sets
 ## Required Actions
 
 1. **Implementer**, non-blocking: CR-9 (delete `validateEmbed`), CR-6 Minimum (correct the disposition line), and CR-10 as QA times it.
-2. **Planner**: CR-7 (bound "present"), CR-8 (name the picker member), and CR-6's Preferred action if it rides the chain.
+2. **Planner**: CR-11 (restate M4-d's `getFromUrl` limb over the guild group). CR-7, CR-8 and CR-6 were folded at rev 14.
 3. **M1-c and M1-h rebuild**, after the rev 13 round: one sub-entry each at its SHA. CR-3's cache-state cells, and one cell per M1-h decision-table row.
+4. **Owner, through steering**: CR-12, whether the cross-guild read rides chain 015 or goes to a handoff and security.
 
 ## Assumption Not Checked
 
@@ -248,32 +296,28 @@ CR-5 LOW Round 2 DECLINED — by the implementer (§ Fix Round 1): the plan sets
   - Falsity signature: the B-2 walk's reload shows the default border, or the stored message lacks `color`.
   - Owner: UAT (M2-a's human-observable limb, walked on the served chain tip).
 
+- **Round 4:** This review assumes that Discord's `GET /channels/{channel}/messages/{message}` with the bot token returns a message from a channel in a guild other than the link's, whenever the bot can read that channel. It does not test this.
+  - I read `getFromUrl` and `authorizeGuildAdmin` only, and did not drive a request.
+  - Falsity signature: the request returns 403 or 404 for a channel outside the link's guild while the bot has access to it. CR-12 would then fall to LOW.
+  - Owner: security (CR-12's routing), driven with a test guild pair, never against a live user's guild.
+
 ## Next Steps
 
 - **QA Phase 2** (qa-hooks-015): M2 at `6001f7f`, and M1-i at `6001f7f`. CR-10's timing is QA's call. M1-c and M1-h wait for their rebuild.
 - **Implementer** (implementer-hooks-015): CR-9 and CR-6 Minimum. Then M1-c and M1-h once steering releases them.
-- **Planner**, via the rev 13 gate round: CR-7 and CR-8.
+- **Planner**: CR-11 (M4-d). CR-7 and CR-8 were folded at rev 14.
+- **Steering, for the owner**: CR-12 (escalated by message).
 - **UAT**: the Round 2 and Round 3 Assumptions Not Checked; CR-5's declined log line.
 
-## Resumption State (checkpoint, code-reviewer-hooks-015, 2026-11-08T06:46)
+## Resumption State (checkpoint, code-reviewer-hooks-015, 2026-11-08T07:12)
 
 - **Done.**
-  - Round 1: M0 `037935d` APPROVED_WITH_COMMENTS. CR-1 RESOLVED; CR-2 routed to QA.
-  - Round 2: M1 `be881c9` REJECTED.
-  - Round 2 sub-entry at `6001f7f`: CR-4 RESOLVED; M1-i met under rev 13; CR-5 DECLINED by the implementer; CR-6 and CR-7 LOW raised.
-  - Round 3: M2 `6001f7f` APPROVED_WITH_COMMENTS (CR-8, CR-9 and CR-10 LOW).
-  - All committed: this document at `7976a9a`; plan rows `a8dd1fa`, `28e9d34` and `776e668`.
-  - Deliveries sent: QA (M2 and M1-i), the implementer (the LOWs and the rebuild cell lists), steering (CR-6, CR-7 and CR-8 for the planner).
-- **Open, mine to re-verify, each as a sub-entry at its handoff SHA:**
-  - M1-c (CR-3): plan rev 12 and 13 text. The cell needs a Redis stub that holds a value; red at `a2592f0` and `be881c9`, green at `7b10f4e`. Probe: `verification/015/cr-m1-probes/signout.cached-null.test.ts`, driver `cr-m1-probes/run.sh <repo> <scratch> <sha> <out>`.
-  - M1-h: rev 13's 8-row decision table. Cells exist for rows 2 and 6 (during A, during G) only.
-  - M1-c and M1-h are held by steering until the critic, the architect and QA pass rev 13.
-- **Next.** The next milestone handoff (M3) is a new Round 4. Read the plan at its latest revision and record its criteria at round open. Re-derive `Handoff-At` from the implementation document.
-- **Instruments, reusable.** `verification/015/cr-emit-compare.cjs <repo> <a> <b>` settles a behaviour-preserving claim by comparing syntax trees. `cr-m1-probes/cookie-parser-reattack.cjs <repo>`. `cr-m0-bot-typecheck-probe.sh`.
-- **Tree.** website `chain/015-bug-evaluation-fixes`; tip `6001f7f` at checkpoint, checked out (not moved by me). Nothing of mine is uncommitted. Scratch exports and worktrees are removed. No local mutation outstanding.
-- **Hazards met.**
-  - The rtk filter truncates `grep` output: use `grep -c` or write to a file and Read it.
-  - `record-edit.js` substitutes the now-token everywhere, including inside prose.
-  - Typed stamps are refused by the stamp gate.
-  - eslint needs `node_modules`: lint shared-tree files byte-identical to the SHA, or `git show <sha>:f | npx eslint --stdin`.
-- **Questions out.** None pending to the owner.
+  - Rounds 1–3 and the Round 2 sub-entry, as in the changelog (M0 and M2 APPROVED_WITH_COMMENTS; M1 REJECTED for M1-c and M1-h only).
+  - Round 4: plan gate read of `9cbe755..565e240`. REJECTED for M4-d (CR-11 MEDIUM, planner). CR-12 HIGH escalated to steering. CR-6 routed (X-17); CR-7 and CR-8 RESOLVED.
+- **Open, mine to re-verify:**
+  - M1-c (CR-3) and M1-h, each as a sub-entry at its rebuild SHA. The cells needed are listed under Round 2. Probe for M1-c: `verification/015/cr-m1-probes/signout.cached-null.test.ts`, driver `cr-m1-probes/run.sh`.
+  - M4: a new Round 5 when the implementer hands off. The tip `b25f561` already carries M4 commits, which are not reviewed until the handoff. Check CR-11's guild-group cell there, and that the widened constant has no capturing host group (or uses named groups).
+  - CR-11's fold, at the next plan revision.
+- **Instruments.** `cr-m4d-link-class-sweep.sh <repo> <sha>`; `cr-emit-compare.cjs`; `cr-m1-probes/cookie-parser-reattack.cjs`.
+- **Hazards.** As before: the rtk filter breaks counts taken from piped output; eslint needs `node_modules`.
+- **Questions out.** CR-12 is with steering for the owner.
