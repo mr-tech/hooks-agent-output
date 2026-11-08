@@ -37,6 +37,37 @@ Statbot's own calls, which carry the key, still get through.
 
 Does the list load? Tell steering "loads" or "empty / error".
 
+## Chain 015 — re-run the image generator's deploy (proves clean shutdown)
+
+You chose to start this yourself, because devops's GitHub login can't see the repo.
+
+1. GitHub → hooks-gg/preview-image-generator → Actions → prod.yml → **Run workflow**, branch `prod`.
+2. Tell steering-hooks-015 "dispatched". Devops then reads the box's logs over claude-ro.
+3. **Pass** (devops reads it, not you): the running generator stops on its own within 12 seconds,
+   without being force-killed.
+
+Have you dispatched it?
+
+## Chain 015 — publish the bot's commands to Discord
+
+The fix lets members with Manage Server (not only Administrator) use *Get Message*. It takes effect
+only once the commands are republished.
+
+1. In `/usr/local/bin/hooks/website`: `pnpm run push-commands`.
+2. In a server where someone has Manage Server but not Administrator, have them right-click a message
+   → Apps. **Pass:** *Get Message* is listed. Note the time.
+3. Undo, if needed: revert the commit and run `pnpm run push-commands` again.
+
+Did *Get Message* show up for them, and at what time?
+
+## Chain 015 — message list for an account that administers no server, on hooks.gg
+
+1. Sign in to hooks.gg with a Discord account that administers no server (your second test account
+   works), and open the message list.
+2. **Pass:** it loads your saved messages, or "No Messages", with no error. Note the time.
+
+Did it load, and at what time?
+
 ## Generator host — remove claude-ro's read on the nodejs PM2 dump
 
 You chose to remove it yourself (05:21Z). Agents never open that file in the meantime.
