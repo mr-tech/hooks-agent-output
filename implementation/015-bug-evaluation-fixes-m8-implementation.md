@@ -176,4 +176,6 @@ Code review of the QAF-37 rig cell (agent-output `8fb1eee`; no generator source 
 
 ## Resumption State (2026-11-08T09:58, implementer-hooks-015)
 
+*Superseded 2026-11-08T11:25: the current Resumption State is in `015-bug-evaluation-fixes-qaf34-qaf35-cr26-implementation.md`. Everything below was written at 09:58; QAF-34, QAF-35, CR-26 and QAF-37 are since done.*
+
 Superseded by the Resumption State in `015-bug-evaluation-fixes-m1-m2-qa-findings-implementation.md` (the checkpoint of record). M8 is complete at generator `8de2b53`, handed to code review; the open items are in Outstanding Item 7 above.
