@@ -1,0 +1,1626 @@
+[
+ {
+  "id": "cr38-button-autofocus-not-passed-to-usebutton__cr38-button-autofocus-not-passed-to-usebutton",
+  "file": "src/components/Button.tsx",
+  "old": "useButton(_props as AriaButtonProps, localRef)",
+  "new": "useButton({ ..._props, autoFocus: false } as AriaButtonProps, localRef)",
+  "orig_id": "cr38-button-autofocus-not-passed-to-usebutton:cr38-button-autofocus-not-passed-to-usebutton"
+ },
+ {
+  "id": "m1-rebuild-table__m1c-lookup-error-keys-kept",
+  "file": "src/server/auth.ts",
+  "old": "    await redis.clearUser(userDbId, sessionToken).catch(() => {});\n    throw err;",
+  "new": "    throw err;",
+  "orig_id": "m1-rebuild-table:m1c-lookup-error-keys-kept"
+ },
+ {
+  "id": "m1-rebuild-table__m1c-lookup-error-clear-unswallowed",
+  "file": "src/server/auth.ts",
+  "old": "await redis.clearUser(userDbId, sessionToken).catch(() => {});",
+  "new": "await redis.clearUser(userDbId, sessionToken);",
+  "orig_id": "m1-rebuild-table:m1c-lookup-error-clear-unswallowed"
+ },
+ {
+  "id": "m1-rebuild-table__m1c-no-account-keys-kept",
+  "file": "src/server/auth.ts",
+  "old": "  if (!account) {\n    await redis.clearUser(userDbId, sessionToken);\n    return;",
+  "new": "  if (!account) {\n    return;",
+  "orig_id": "m1-rebuild-table:m1c-no-account-keys-kept"
+ },
+ {
+  "id": "m1-rebuild-table__m1c-revoke-never-sent",
+  "file": "src/server/auth.ts",
+  "old": "if (account.access_token) await revokeAccessToken",
+  "new": "if (false) await revokeAccessToken",
+  "orig_id": "m1-rebuild-table:m1c-revoke-never-sent"
+ },
+ {
+  "id": "m1-rebuild-table__m1c-guilds-key-dropped",
+  "file": "src/server/auth.ts",
+  "old": "redis.clearUser(userDbId, sessionToken, account.providerAccountId),",
+  "new": "redis.clearUser(userDbId, sessionToken),",
+  "orig_id": "m1-rebuild-table:m1c-guilds-key-dropped"
+ },
+ {
+  "id": "m1-rebuild-table__m1c-accounts-update-dropped",
+  "file": "src/server/auth.ts",
+  "old": "      .set({ access_token: null, refresh_token: null })",
+  "new": "      .set({})",
+  "orig_id": "m1-rebuild-table:m1c-accounts-update-dropped"
+ },
+ {
+  "id": "m1-rebuild-table__m1c-reads-cached-account",
+  "file": "src/server/auth.ts",
+  "old": "account = await getPostgres()\n      .selectFrom('Accounts')\n      .select(['access_token', 'providerAccountId'])\n      .where('userId', '=', userDbId)\n      .executeTakeFirst();",
+  "new": "account = (await redis.fetchUserAccount(userDbId)) ?? undefined;",
+  "orig_id": "m1-rebuild-table:m1c-reads-cached-account"
+ },
+ {
+  "id": "m1-rebuild-table__m1h-message-handler-dropped",
+  "file": "src/server/auth.ts",
+  "old": "    messagePromise.catch(() => {});\n",
+  "new": "",
+  "orig_id": "m1-rebuild-table:m1h-message-handler-dropped"
+ },
+ {
+  "id": "m1-rebuild-table__m1h-guilds-fetched-without-token",
+  "file": "src/server/auth.ts",
+  "old": "access_token ? redis.fetchUserGuilds(providerAccountId, access_token)",
+  "new": "true ? redis.fetchUserGuilds(providerAccountId, access_token as string)",
+  "orig_id": "m1-rebuild-table:m1h-guilds-fetched-without-token"
+ },
+ {
+  "id": "m1-rebuild-table__m1h-message-awaited-before-account",
+  "file": "src/server/auth.ts",
+  "old": "    const account = await redis.fetchUserAccount(userDbId);\n\n    if (!account) {\n      // @ts-expect-error",
+  "new": "    await messagePromise;\n    const account = await redis.fetchUserAccount(userDbId);\n\n    if (!account) {\n      // @ts-expect-error",
+  "orig_id": "m1-rebuild-table:m1h-message-awaited-before-account"
+ },
+ {
+  "id": "m1c-accounts-update-before-revoke__m1c-accounts-update-before-revoke",
+  "file": "src/server/auth.ts",
+  "old": "  if (account.access_token) await revokeAccessToken(account.access_token);\n\n  await Promise.all([",
+  "new": "  const nulled = getPostgres()\n    .updateTable('Accounts')\n    .set({ access_token: null, refresh_token: null })\n    .where('provider', '=', 'discord')\n    .where('providerAccountId', '=', account.providerAccountId)\n    .execute();\n  if (account.access_token) await revokeAccessToken(account.access_token);\n  await nulled;\n\n  await Promise.all([",
+  "orig_id": "m1c-accounts-update-before-revoke:m1c-accounts-update-before-revoke"
+ },
+ {
+  "id": "m1c-refused-revoke-throws__m1c-refused-revoke-throws",
+  "file": "src/server/auth.ts",
+  "old": "  }).catch(() => {});\n}",
+  "new": "  }).then((res) => { if (!res.ok) throw new Error('revoke refused'); });\n}",
+  "orig_id": "m1c-refused-revoke-throws:m1c-refused-revoke-throws"
+ },
+ {
+  "id": "m1c-user-guilds-delete-kept__m1c-user-guilds-delete-kept",
+  "file": "src/utils/redis/index.ts",
+  "old": "  if (discordId) pipeline.del(formatKey('user-guilds', discordId));",
+  "new": "  pipeline.del(formatKey('user-guilds', discordId as string));",
+  "orig_id": "m1c-user-guilds-delete-kept:m1c-user-guilds-delete-kept"
+ },
+ {
+  "id": "m1d-cap-comparator-strict__m1d-cap-comparator-strict",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "Number(messageCount) >= MAX_MESSAGES",
+  "new": "Number(messageCount) > MAX_MESSAGES",
+  "orig_id": "m1d-cap-comparator-strict:m1d-cap-comparator-strict"
+ },
+ {
+  "id": "m1d-cap-counts-user-for-guild__m1d-cap-counts-user-for-guild",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "messageCountQuery.where('fk_guilds_id', '=', guildId)",
+  "new": "messageCountQuery.where('fk_users_id', '=', guildId)",
+  "orig_id": "m1d-cap-counts-user-for-guild:m1d-cap-counts-user-for-guild"
+ },
+ {
+  "id": "m1d-cap-ignores-new-conjunct__m1d-cap-ignores-new-conjunct",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "if (!message.id && Number(messageCount) >= MAX_MESSAGES)",
+  "new": "if (Number(messageCount) >= MAX_MESSAGES)",
+  "orig_id": "m1d-cap-ignores-new-conjunct:m1d-cap-ignores-new-conjunct"
+ },
+ {
+  "id": "m1f-env-guard-reverted__m1f-env-guard-reverted",
+  "file": "src/env.mjs",
+  "old": "prop !== 'NODE_ENV'",
+  "new": "!prop === 'NODE_ENV'",
+  "orig_id": "m1f-env-guard-reverted:m1f-env-guard-reverted"
+ },
+ {
+  "id": "m1g-drop-body-null-conjunct__m1g-drop-body-null-conjunct",
+  "file": "src/pages/api/interactions-edge.ts",
+  "old": "if (!isValid || req.body === null)",
+  "new": "if (!isValid)",
+  "orig_id": "m1g-drop-body-null-conjunct:m1g-drop-body-null-conjunct"
+ },
+ {
+  "id": "m1g-drop-isvalid-conjunct__m1g-drop-isvalid-conjunct",
+  "file": "src/pages/api/interactions-edge.ts",
+  "old": "if (!isValid || req.body === null)",
+  "new": "if (req.body === null)",
+  "orig_id": "m1g-drop-isvalid-conjunct:m1g-drop-isvalid-conjunct"
+ },
+ {
+  "id": "m1g-parse-before-verify__m1g-parse-before-verify",
+  "file": "src/pages/api/interactions-edge.ts",
+  "old": "  if (!isValid || req.body === null) {\n    return new NextResponse('invalid request signature', { status: 401 });\n  }\n\n  const interaction = JSON.parse(rawBody) as IncomingInteraction;\n",
+  "new": "  const interaction = JSON.parse(rawBody) as IncomingInteraction;\n\n  if (!isValid || req.body === null) {\n    return new NextResponse('invalid request signature', { status: 401 });\n  }\n",
+  "orig_id": "m1g-parse-before-verify:m1g-parse-before-verify"
+ },
+ {
+  "id": "m1h-guild-fetch-awaited-inside-array__m1h-guild-fetch-awaited-inside-array",
+  "file": "src/server/auth.ts",
+  "old": "access_token ? redis.fetchUserGuilds(providerAccountId, access_token) : ([] as UserGuild[]),",
+  "new": "access_token ? await redis.fetchUserGuilds(providerAccountId, access_token) : [],",
+  "orig_id": "m1h-guild-fetch-awaited-inside-array:m1h-guild-fetch-awaited-inside-array"
+ },
+ {
+  "id": "m2-embedshape-table__thumbnail-url-unchecked",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "thumbnail: z.object({\n    url: z.string().trim().url(),",
+  "new": "thumbnail: z.object({\n    url: z.string().trim(),",
+  "orig_id": "m2-embedshape-table:thumbnail-url-unchecked"
+ },
+ {
+  "id": "m2-embedshape-table__image-url-unchecked",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "image: z.object({\n    url: z.string().trim().url(),",
+  "new": "image: z.object({\n    url: z.string().trim(),",
+  "orig_id": "m2-embedshape-table:image-url-unchecked"
+ },
+ {
+  "id": "m2-embedshape-table__author-icon-unchecked",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "    url: z.string().trim().url().optional(),\n    icon_url: z.string().trim().url().optional(),\n  }).optional(),\n  url:",
+  "new": "    url: z.string().trim().url().optional(),\n    icon_url: z.string().trim().optional(),\n  }).optional(),\n  url:",
+  "orig_id": "m2-embedshape-table:author-icon-unchecked"
+ },
+ {
+  "id": "m2-embedshape-table__author-url-unchecked",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "    url: z.string().trim().url().optional(),\n    icon_url: z.string().trim().url().optional(),\n  }).optional(),\n  url:",
+  "new": "    url: z.string().trim().optional(),\n    icon_url: z.string().trim().url().optional(),\n  }).optional(),\n  url:",
+  "orig_id": "m2-embedshape-table:author-url-unchecked"
+ },
+ {
+  "id": "m2-embedshape-table__footer-icon-unchecked",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "    text: z.string().trim().max(MAX_EMBED_FOOTER_TEXT_LENGTH),\n    icon_url: z.string().trim().url().optional(),",
+  "new": "    text: z.string().trim().max(MAX_EMBED_FOOTER_TEXT_LENGTH),\n    icon_url: z.string().trim().optional(),",
+  "orig_id": "m2-embedshape-table:footer-icon-unchecked"
+ },
+ {
+  "id": "m2-embedshape-table__thumbnail-required",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "thumbnail: z.object({\n    url: z.string().trim().url(),\n  }).optional(),",
+  "new": "thumbnail: z.object({\n    url: z.string().trim().url(),\n  }),",
+  "orig_id": "m2-embedshape-table:thumbnail-required"
+ },
+ {
+  "id": "m2-embedshape-table__image-required",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "image: z.object({\n    url: z.string().trim().url(),\n  }).optional(),",
+  "new": "image: z.object({\n    url: z.string().trim().url(),\n  }),",
+  "orig_id": "m2-embedshape-table:image-required"
+ },
+ {
+  "id": "m2-embedshape-table__author-icon-required",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "    url: z.string().trim().url().optional(),\n    icon_url: z.string().trim().url().optional(),\n  }).optional(),\n  url:",
+  "new": "    url: z.string().trim().url().optional(),\n    icon_url: z.string().trim().url(),\n  }).optional(),\n  url:",
+  "orig_id": "m2-embedshape-table:author-icon-required"
+ },
+ {
+  "id": "m2-embedshape-table__author-url-required",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "    url: z.string().trim().url().optional(),\n    icon_url: z.string().trim().url().optional(),\n  }).optional(),\n  url:",
+  "new": "    url: z.string().trim().url(),\n    icon_url: z.string().trim().url().optional(),\n  }).optional(),\n  url:",
+  "orig_id": "m2-embedshape-table:author-url-required"
+ },
+ {
+  "id": "m2-embedshape-table__footer-icon-required",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "    text: z.string().trim().max(MAX_EMBED_FOOTER_TEXT_LENGTH),\n    icon_url: z.string().trim().url().optional(),",
+  "new": "    text: z.string().trim().max(MAX_EMBED_FOOTER_TEXT_LENGTH),\n    icon_url: z.string().trim().url(),",
+  "orig_id": "m2-embedshape-table:footer-icon-required"
+ },
+ {
+  "id": "m2-embedshape-table__colour-ceiling-lowered",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "\n  color: z.number().int().min(0).max(0xffffff)",
+  "new": "\n  color: z.number().int().min(0).max(0xfffff)",
+  "orig_id": "m2-embedshape-table:colour-ceiling-lowered"
+ },
+ {
+  "id": "m2-embedshape-table__colour-zero-refused",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "\n  color: z.number().int().min(0).max(0xffffff)",
+  "new": "\n  color: z.number().int().positive().max(0xffffff)",
+  "orig_id": "m2-embedshape-table:colour-zero-refused"
+ },
+ {
+  "id": "m2-embedshape-table__title-required",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "title: z.string().trim().max(MAX_EMBED_TITLE_LENGTH).optional(),",
+  "new": "title: z.string().trim().max(MAX_EMBED_TITLE_LENGTH),",
+  "orig_id": "m2-embedshape-table:title-required"
+ },
+ {
+  "id": "m2-embedshape-table__author-bound-80",
+  "file": "src/utils/limits.tsx",
+  "old": "name.length > MAX_EMBED_AUTHOR_NAME_LENGTH",
+  "new": "name.length > MAX_NAME_LENGTH",
+  "orig_id": "m2-embedshape-table:author-bound-80"
+ },
+ {
+  "id": "m2-embedshape-table__title-text-name",
+  "file": "src/utils/limits.tsx",
+  "old": "error = 'Title is too long.'",
+  "new": "error = 'Name is too long.'",
+  "orig_id": "m2-embedshape-table:title-text-name"
+ },
+ {
+  "id": "m2-embedshape-table__footer-constant-256",
+  "file": "src/constants/messageLimits.ts",
+  "old": "MAX_EMBED_FOOTER_TEXT_LENGTH = 2048",
+  "new": "MAX_EMBED_FOOTER_TEXT_LENGTH = 256",
+  "orig_id": "m2-embedshape-table:footer-constant-256"
+ },
+ {
+  "id": "m2-embedshape-table__ingress-colour-truthy",
+  "file": "src/utils/discordResponseToMessage.ts",
+  "old": "if (e.color !== undefined)",
+  "new": "if (e.color)",
+  "orig_id": "m2-embedshape-table:ingress-colour-truthy"
+ },
+ {
+  "id": "m2-embedshape-table__border-colour-truthy",
+  "file": "src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx",
+  "old": "color != null ? intToHex(color)",
+  "new": "color ? intToHex(color)",
+  "orig_id": "m2-embedshape-table:border-colour-truthy"
+ },
+ {
+  "id": "m4-d29-table__d29-hook-refusal-mapped-to-invalid",
+  "file": "src/utils/hooks/useValidateWebhook.ts",
+  "old": "if ('message' in wh) setWebhookError(wh.message);",
+  "new": "if ('message' in wh) setWebhookError('Invalid URL');",
+  "orig_id": "m4-d29-table:d29-hook-refusal-mapped-to-invalid"
+ },
+ {
+  "id": "m4-d29-table__d29-dialog-error-line-drops-webhook-error",
+  "file": "src/app/message/_components/NewMessageModal.tsx",
+  "old": "    ?? webhookError\n",
+  "new": "",
+  "orig_id": "m4-d29-table:d29-dialog-error-line-drops-webhook-error"
+ },
+ {
+  "id": "m4-nonjson-table__nj-hook-body-failure-is-refusal",
+  "file": "src/utils/hooks/useValidateWebhook.ts",
+  "old": ".then<DiscordWebhook | { message: string }>((res) => res.json()));",
+  "new": ".then<DiscordWebhook | { message: string }>((res) => res.json().catch(() => ({ message: 'bad body' }))));",
+  "orig_id": "m4-nonjson-table:nj-hook-body-failure-is-refusal"
+ },
+ {
+  "id": "m4-nonjson-table__nj-provider-body-failure-selects-webhook",
+  "file": "src/providers/WebhookProvider.tsx",
+  "old": "fetch(url).then<Webhook | null>((res) => (res.status === 200 ? res.json() : null)),",
+  "new": "fetch(url).then<Webhook | null>((res) => (res.status === 200 ? res.json().catch(() => ({ id: 'x' } as Webhook)) : null)),",
+  "orig_id": "m4-nonjson-table:nj-provider-body-failure-selects-webhook"
+ },
+ {
+  "id": "m4-table__m4a-disable-dropped",
+  "file": "src/app/message/m/[id]/send/page.tsx",
+  "old": "    && !isSending\n",
+  "new": "",
+  "orig_id": "m4-table:m4a-disable-dropped"
+ },
+ {
+  "id": "m4-table__m4a-catch-dropped",
+  "file": "src/app/message/m/[id]/send/page.tsx",
+  "old": "})).catch(() => null);",
+  "new": "}));",
+  "orig_id": "m4-table:m4a-catch-dropped"
+ },
+ {
+  "id": "m4-table__m4b-loading-conjunct-dropped",
+  "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+  "old": "url && !isWebhookLoading && selectedWebhook === null",
+  "new": "url && selectedWebhook === null",
+  "orig_id": "m4-table:m4b-loading-conjunct-dropped"
+ },
+ {
+  "id": "m4-table__m4c-clear-on-name",
+  "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+  "old": "isDisabled={isLoading || !threadId}",
+  "new": "isDisabled={isLoading || !threadName}",
+  "orig_id": "m4-table:m4c-clear-on-name"
+ },
+ {
+  "id": "m4-table__m4c-clear-loading-dropped",
+  "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+  "old": "isDisabled={isLoading || !threadId}",
+  "new": "isDisabled={!threadId}",
+  "orig_id": "m4-table:m4c-clear-loading-dropped"
+ },
+ {
+  "id": "m4-table__rider-guild-check-dropped",
+  "file": "src/server/api/routers/message.ts",
+  "old": "if (!('guild_id' in channel) || channel.guild_id !== guildId) {",
+  "new": "if (false) {",
+  "orig_id": "m4-table:rider-guild-check-dropped"
+ },
+ {
+  "id": "m4-table__rider-compares-channel-id",
+  "file": "src/server/api/routers/message.ts",
+  "old": "channel.guild_id !== guildId",
+  "new": "channel.id !== guildId",
+  "orig_id": "m4-table:rider-compares-channel-id"
+ },
+ {
+  "id": "m4-table__rider-refuses-only-when-set-and-differs",
+  "file": "src/server/api/routers/message.ts",
+  "old": "if (!('guild_id' in channel) || channel.guild_id !== guildId) {",
+  "new": "if ('guild_id' in channel && channel.guild_id !== guildId) {",
+  "orig_id": "m4-table:rider-refuses-only-when-set-and-differs"
+ },
+ {
+  "id": "m4-table__rider-check-after-message-fetch",
+  "file": "src/server/api/routers/message.ts",
+  "old": "      const channel = await redis.fetchChannel(channelId);\n",
+  "new": "      const channel = { guild_id: guildId };\n",
+  "orig_id": "m4-table:rider-check-after-message-fetch"
+ },
+ {
+  "id": "m4-table__rider-group-swap",
+  "file": "src/server/api/routers/message.ts",
+  "old": "const { guildId, channelId, messageId } = match.groups",
+  "new": "const { channelId: guildId, guildId: channelId, messageId } = match.groups",
+  "orig_id": "m4-table:rider-group-swap"
+ },
+ {
+  "id": "m4-table__hook-stale-webhook-guard-dropped",
+  "file": "src/utils/hooks/useValidateWebhook.ts",
+  "old": "          if (isStale) return;\n\n          if ('message' in wh)",
+  "new": "          if ('message' in wh)",
+  "orig_id": "m4-table:hook-stale-webhook-guard-dropped"
+ },
+ {
+  "id": "m4-table__hook-stale-message-guard-dropped",
+  "file": "src/utils/hooks/useValidateWebhook.ts",
+  "old": "          if (isStale) return;\n\n          if ('message' in msg)",
+  "new": "          if ('message' in msg)",
+  "orig_id": "m4-table:hook-stale-message-guard-dropped"
+ },
+ {
+  "id": "m4-table__hook-message-catch-dropped",
+  "file": "src/utils/hooks/useValidateWebhook.ts",
+  "old": "          if (!isStale) setMessageError(MESSAGE_LOAD_FAILED_ERROR);",
+  "new": "          throw new Error('x');",
+  "orig_id": "m4-table:hook-message-catch-dropped"
+ },
+ {
+  "id": "m4-table__hook-uses-own-id-test",
+  "file": "src/utils/hooks/useValidateWebhook.ts",
+  "old": "const messageId = parseMessageId(messageIdOrUrl);",
+  "new": "const messageId = /\\d+/.test(messageIdOrUrl.trim()) ? messageIdOrUrl.trim() : null;",
+  "orig_id": "m4-table:hook-uses-own-id-test"
+ },
+ {
+  "id": "m4-table__m4d-message-catch-dropped",
+  "file": "src/providers/WebhookProvider.tsx",
+  "old": "        })).catch(() => {\n          if (isStale) return;\n          setOldMessage(null);\n          setOldMessageError(MESSAGE_LOAD_FAILED_ERROR);\n        });",
+  "new": "        }));",
+  "orig_id": "m4-table:m4d-message-catch-dropped"
+ },
+ {
+  "id": "m4-table__m4d-message-text-provider",
+  "file": "src/providers/WebhookProvider.tsx",
+  "old": "setOldMessageError(MESSAGE_LOAD_FAILED_ERROR)",
+  "new": "setOldMessageError('Could not load')",
+  "orig_id": "m4-table:m4d-message-text-provider"
+ },
+ {
+  "id": "m4-table__m4d-failure-text-constant",
+  "file": "src/constants/index.ts",
+  "old": "Check your connection and try again.",
+  "new": "Check your network and try again.",
+  "orig_id": "m4-table:m4d-failure-text-constant"
+ },
+ {
+  "id": "m4-table__m4d-regex-end-unanchored",
+  "file": "src/constants/index.ts",
+  "old": "(?<messageId>\\d+)$/;",
+  "new": "(?<messageId>\\d+)/;",
+  "orig_id": "m4-table:m4d-regex-end-unanchored"
+ },
+ {
+  "id": "m4-table__m4d-regex-narrow",
+  "file": "src/constants/index.ts",
+  "old": "(?:(?:www|canary|ptb)\\.)?discord(?:app)?\\.com",
+  "new": "(?:www\\.|canary\\.|ptb\\.)?discord\\.com",
+  "orig_id": "m4-table:m4d-regex-narrow"
+ },
+ {
+  "id": "m4-table__m4d-regex-prefix-dropped",
+  "file": "src/constants/index.ts",
+  "old": "(?:(?:www|canary|ptb)\\.)?discord(?:app)?",
+  "new": "discord(?:app)?",
+  "orig_id": "m4-table:m4d-regex-prefix-dropped"
+ },
+ {
+  "id": "m4-table__m4d-regex-start-unanchored",
+  "file": "src/constants/index.ts",
+  "old": "LINK_REGEX = /^https:",
+  "new": "LINK_REGEX = /https:",
+  "orig_id": "m4-table:m4d-regex-start-unanchored"
+ },
+ {
+  "id": "m4-table__m4d-regex-http",
+  "file": "src/constants/index.ts",
+  "old": "LINK_REGEX = /^https:",
+  "new": "LINK_REGEX = /^https?:",
+  "orig_id": "m4-table:m4d-regex-http"
+ },
+ {
+  "id": "m4-table__m4d-parse-wrong-group",
+  "file": "src/utils/parseMessageId.ts",
+  "old": "?.groups?.messageId",
+  "new": "?.groups?.channelId",
+  "orig_id": "m4-table:m4d-parse-wrong-group"
+ },
+ {
+  "id": "m4-table__m4d-parse-unanchored-id",
+  "file": "src/utils/parseMessageId.ts",
+  "old": "/^\\d+$/.test(text)",
+  "new": "/\\d+/.test(text)",
+  "orig_id": "m4-table:m4d-parse-unanchored-id"
+ },
+ {
+  "id": "m4-table__m4d-parse-untrimmed",
+  "file": "src/utils/parseMessageId.ts",
+  "old": "input.trim()",
+  "new": "input",
+  "orig_id": "m4-table:m4d-parse-untrimmed"
+ },
+ {
+  "id": "m4-table__m4d-stale-webhook-guard-dropped",
+  "file": "src/providers/WebhookProvider.tsx",
+  "old": "        if (isStale) return;\n        if (wh) {",
+  "new": "        if (wh) {",
+  "orig_id": "m4-table:m4d-stale-webhook-guard-dropped"
+ },
+ {
+  "id": "m4-table__m4d-stale-message-guard-dropped",
+  "file": "src/providers/WebhookProvider.tsx",
+  "old": "          const data = await res.json();\n          if (isStale) return;\n",
+  "new": "          const data = await res.json();\n",
+  "orig_id": "m4-table:m4d-stale-message-guard-dropped"
+ },
+ {
+  "id": "m4-table__m4d-webhook-catch-dropped",
+  "file": "src/providers/WebhookProvider.tsx",
+  "old": ").catch(() => null);\n        if (isStale) return;",
+  "new": ");\n        if (isStale) return;",
+  "orig_id": "m4-table:m4d-webhook-catch-dropped"
+ },
+ {
+  "id": "m5-table__m5a-allow-close-not-reset",
+  "file": "src/app/message/m/[id]/_components/JsonModalBody.tsx",
+  "old": "    setAllowMenuClose(true);\n    onClose();",
+  "new": "    onClose();",
+  "orig_id": "m5-table:m5a-allow-close-not-reset"
+ },
+ {
+  "id": "m5-table__m5b-copy-always-enabled",
+  "file": "src/app/message/m/[id]/_components/JsonModalBody.tsx",
+  "old": "isDisabled={!!copyState || copyText === null}",
+  "new": "isDisabled={!!copyState}",
+  "orig_id": "m5-table:m5b-copy-always-enabled"
+ },
+ {
+  "id": "m5-table__m5b-copy-disabled-only-when-unparsable",
+  "file": "src/app/message/m/[id]/_components/JsonModalBody.tsx",
+  "old": "isDisabled={!!copyState || copyText === null}",
+  "new": "isDisabled={!!copyState || !isJSONParsable(messageString)}",
+  "orig_id": "m5-table:m5b-copy-disabled-only-when-unparsable"
+ },
+ {
+  "id": "m5-table__m5b-copy-copies-raw-draft",
+  "file": "src/app/message/m/[id]/_components/JsonModalBody.tsx",
+  "old": "void copy(copyText);",
+  "new": "void copy(messageString);",
+  "orig_id": "m5-table:m5b-copy-copies-raw-draft"
+ },
+ {
+  "id": "m5-table__m5c-pusher-reads-render-flag",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "${hasChangedRef.current ?",
+  "new": "${hasChanged ?",
+  "orig_id": "m5-table:m5c-pusher-reads-render-flag"
+ },
+ {
+  "id": "m5-table__m5c-pusher-ref-never-updated",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "const hasChangedRef = useLatest(hasChanged);",
+  "new": "const hasChangedRef = { current: hasChanged };",
+  "orig_id": "m5-table:m5c-pusher-ref-never-updated"
+ },
+ {
+  "id": "m5-table__m5d-dropdown-memo-once",
+  "file": "src/utils/hooks/useGuildDropdownItems.tsx",
+  "old": "  }, [session, setSelectedGuildId]);",
+  "new": "  }, []);",
+  "orig_id": "m5-table:m5d-dropdown-memo-once"
+ },
+ {
+  "id": "m5-table__m5e-day-of-month-only",
+  "file": "src/utils/formatMessageDate.ts",
+  "old": "  return a.getFullYear() === b.getFullYear()\n    && a.getMonth() === b.getMonth()\n    && a.getDate() === b.getDate();",
+  "new": "  return a.getDate() === b.getDate();",
+  "orig_id": "m5-table:m5e-day-of-month-only"
+ },
+ {
+  "id": "m5-table__m5e-month-dropped",
+  "file": "src/utils/formatMessageDate.ts",
+  "old": "    && a.getMonth() === b.getMonth()\n",
+  "new": "",
+  "orig_id": "m5-table:m5e-month-dropped"
+ },
+ {
+  "id": "m5-table__m5e-year-dropped",
+  "file": "src/utils/formatMessageDate.ts",
+  "old": "  return a.getFullYear() === b.getFullYear()\n    && a.getMonth()",
+  "new": "  return a.getMonth()",
+  "orig_id": "m5-table:m5e-year-dropped"
+ },
+ {
+  "id": "m5-table__m5e-prefix-ignored",
+  "file": "src/utils/formatMessageDate.ts",
+  "old": "return `${todayPrefix}${messageDate",
+  "new": "return `${messageDate",
+  "orig_id": "m5-table:m5e-prefix-ignored"
+ },
+ {
+  "id": "m5-table__m5f-save-as-name-not-refilled",
+  "file": "src/app/message/m/[id]/_components/SaveAsMenu.tsx",
+  "old": "    setMessageName(proposedName);\n",
+  "new": "",
+  "orig_id": "m5-table:m5f-save-as-name-not-refilled"
+ },
+ {
+  "id": "m5-table__m5f-save-as-server-not-refilled",
+  "file": "src/app/message/m/[id]/_components/SaveAsMenu.tsx",
+  "old": "    setSelectedGuildId(message.guildId ?? '');\n  }, [isOpen]);",
+  "new": "  }, [isOpen]);",
+  "orig_id": "m5-table:m5f-save-as-server-not-refilled"
+ },
+ {
+  "id": "m5-table__m5f-save-as-refills-only-at-mount",
+  "file": "src/app/message/m/[id]/_components/SaveAsMenu.tsx",
+  "old": "  }, [isOpen]);",
+  "new": "  }, []);",
+  "orig_id": "m5-table:m5f-save-as-refills-only-at-mount"
+ },
+ {
+  "id": "m5-table__m5f-save-as-refills-on-close-too",
+  "file": "src/app/message/m/[id]/_components/SaveAsMenu.tsx",
+  "old": "    if (!isOpen) return;\n    setMessageName",
+  "new": "    setMessageName",
+  "orig_id": "m5-table:m5f-save-as-refills-on-close-too"
+ },
+ {
+  "id": "m5-table__m5g-delete-toast-says-refresh",
+  "file": "src/app/message/f/[id]/page.tsx",
+  "old": "Failed to delete message. Please try again.",
+  "new": "Failed to refresh message. Please try again.",
+  "orig_id": "m5-table:m5g-delete-toast-says-refresh"
+ },
+ {
+  "id": "m5-table__m5i-pick-ignored",
+  "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+  "old": "pickedCategory ?? (hasWebhooks ? (guild?.id ?? '') : 'load')",
+  "new": "(hasWebhooks ? (guild?.id ?? '') : 'load')",
+  "orig_id": "m5-table:m5i-pick-ignored"
+ },
+ {
+  "id": "m5-table__m5i-seeded-at-mount",
+  "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+  "old": "const [pickedCategory, setPickedCategory] = useState<null | string>(null);\n  const selectedCategory = pickedCategory ?? (hasWebhooks ? (guild?.id ?? '') : 'load');",
+  "new": "const [selectedCategory, setPickedCategory] = useState((hasWebhooks ? (guild?.id ?? '') : 'load'));",
+  "orig_id": "m5-table:m5i-seeded-at-mount"
+ },
+ {
+  "id": "m5-table__m5i-count-only",
+  "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+  "old": "status === 'authenticated' && guildId && webhooks.length",
+  "new": "webhooks.length",
+  "orig_id": "m5-table:m5i-count-only"
+ },
+ {
+  "id": "m5-table__m5i-status-dropped",
+  "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+  "old": "status === 'authenticated' && guildId && webhooks.length",
+  "new": "guildId && webhooks.length",
+  "orig_id": "m5-table:m5i-status-dropped"
+ },
+ {
+  "id": "m5-table__m5i-guild-dropped",
+  "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+  "old": "status === 'authenticated' && guildId && webhooks.length",
+  "new": "status === 'authenticated' && webhooks.length",
+  "orig_id": "m5-table:m5i-guild-dropped"
+ },
+ {
+  "id": "m5-table__m5i-webhooks-dropped",
+  "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+  "old": "status === 'authenticated' && guildId && webhooks.length",
+  "new": "status === 'authenticated' && guildId",
+  "orig_id": "m5-table:m5i-webhooks-dropped"
+ },
+ {
+  "id": "m5-table__m5h-array-passes",
+  "file": "src/app/preview/page.tsx",
+  "old": "typeof parsed !== 'object' || Array.isArray(parsed)",
+  "new": "typeof parsed !== 'object'",
+  "orig_id": "m5-table:m5h-array-passes"
+ },
+ {
+  "id": "m5-table__m5h-primitive-passes",
+  "file": "src/app/preview/page.tsx",
+  "old": "typeof parsed !== 'object' || Array.isArray(parsed)",
+  "new": "Array.isArray(parsed)",
+  "orig_id": "m5-table:m5h-primitive-passes"
+ },
+ {
+  "id": "m5-table__m5h-parse-error-uncaught",
+  "file": "src/app/preview/page.tsx",
+  "old": "  } catch {\n    return null;\n  }",
+  "new": "  } finally {\n    // none\n  }",
+  "orig_id": "m5-table:m5h-parse-error-uncaught"
+ },
+ {
+  "id": "m5-table__m5h-boundary-fallback-empty",
+  "file": "src/app/preview/page.tsx",
+  "old": "<ErrorBoundary fallback={invalidData}>",
+  "new": "<ErrorBoundary fallback={null}>",
+  "orig_id": "m5-table:m5h-boundary-fallback-empty"
+ },
+ {
+  "id": "m5-table__m5h-boundary-removed",
+  "file": "src/app/preview/page.tsx",
+  "old": "import { ErrorBoundary } from 'react-error-boundary';",
+  "new": "import type { PropsWithChildren } from 'react';\nconst ErrorBoundary = (p: PropsWithChildren<{ fallback: unknown }>) => <>{p.children}</>;",
+  "orig_id": "m5-table:m5h-boundary-removed"
+ },
+ {
+  "id": "m5-table__m5h-make-editable-skipped-in-parse",
+  "file": "src/app/preview/page.tsx",
+  "old": "return makeEditable({ data: parsed } as ApiMessage).data;",
+  "new": "return parsed as ApiMessage['data'];",
+  "orig_id": "m5-table:m5h-make-editable-skipped-in-parse"
+ },
+ {
+  "id": "m5-table__m5h-error-text-changed",
+  "file": "src/app/preview/page.tsx",
+  "old": "Invalid message data.",
+  "new": "Bad data.",
+  "orig_id": "m5-table:m5h-error-text-changed"
+ },
+ {
+  "id": "m5-table__m5h-error-not-text-error",
+  "file": "src/app/preview/page.tsx",
+  "old": "className=\"text-sm text-error\"",
+  "new": "className=\"text-sm\"",
+  "orig_id": "m5-table:m5h-error-not-text-error"
+ },
+ {
+  "id": "m6-table__m6l-count-error-computed-once",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "const componentCountError = validateComponentCount(components);",
+  "new": "const componentCountError = useMemo(() => validateComponentCount(components), []);",
+  "orig_id": "m6-table:m6l-count-error-computed-once"
+ },
+ {
+  "id": "m6-table__m6l-count-error-only-when-editing",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "<NullableComponent show={componentCountError}>",
+  "new": "<NullableComponent show={isEditing && componentCountError}>",
+  "orig_id": "m6-table:m6l-count-error-only-when-editing"
+ },
+ {
+  "id": "m6-table__m6d-displayed-fields-or",
+  "file": "src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx",
+  "old": ".filter(({ field: { name, value } }) => showEdit || (name && value))",
+  "new": ".filter(({ field: { name, value } }) => showEdit || (name || value))",
+  "orig_id": "m6-table:m6d-displayed-fields-or"
+ },
+ {
+  "id": "m6-table__m6a-paragraph-splits-fence",
+  "file": "src/utils/markdown/rules.tsx",
+  "old": "((?:${FENCE}|[^\\\\n]|",
+  "new": "((?:[^\\\\n]|",
+  "orig_id": "m6-table:m6a-paragraph-splits-fence"
+ },
+ {
+  "id": "m6-table__m6e-bottomportal-cleanup-dropped",
+  "file": "src/components/BottomPortal.tsx",
+  "old": "  useEffect(() => () => {\n    setChildrenProps((prev) => (\n",
+  "new": "  useEffect(() => () => {\n    if (id) return;\n    setChildrenProps((prev) => (\n",
+  "orig_id": "m6-table:m6e-bottomportal-cleanup-dropped"
+ },
+ {
+  "id": "m6-table__m6e-colorpicker-cleanup-dropped",
+  "file": "src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx",
+  "old": "useEffect(() => () => removeBlockStyle(), []);",
+  "new": "useEffect(() => () => {}, []);",
+  "orig_id": "m6-table:m6e-colorpicker-cleanup-dropped"
+ },
+ {
+  "id": "m6-table__m6b-substring-match",
+  "file": "src/utils/isValidImageUrl.ts",
+  "old": "path.endsWith(ext)",
+  "new": "path.includes(ext)",
+  "orig_id": "m6-table:m6b-substring-match"
+ },
+ {
+  "id": "m6-table__m6b-case-sensitive",
+  "file": "src/utils/isValidImageUrl.ts",
+  "old": ".toLowerCase()",
+  "new": "",
+  "orig_id": "m6-table:m6b-case-sensitive"
+ },
+ {
+  "id": "m6-table__m6b-query-kept",
+  "file": "src/utils/isValidImageUrl.ts",
+  "old": "url.split(/[?#]/, 1)[0]",
+  "new": "url.split(/#/, 1)[0]",
+  "orig_id": "m6-table:m6b-query-kept"
+ },
+ {
+  "id": "m6-table__m6b-fragment-kept",
+  "file": "src/utils/isValidImageUrl.ts",
+  "old": "url.split(/[?#]/, 1)[0]",
+  "new": "url.split(/\\?/, 1)[0]",
+  "orig_id": "m6-table:m6b-fragment-kept"
+ },
+ {
+  "id": "m6-table__m6b-jpeg-dropped",
+  "file": "src/utils/isValidImageUrl.ts",
+  "old": "'jpg', 'jpeg', 'webp'",
+  "new": "'jpg', 'webp'",
+  "orig_id": "m6-table:m6b-jpeg-dropped"
+ },
+ {
+  "id": "m6-table__m6b-webp-dropped",
+  "file": "src/utils/isValidImageUrl.ts",
+  "old": "'jpeg', 'webp', 'gif'",
+  "new": "'jpeg', 'gif'",
+  "orig_id": "m6-table:m6b-webp-dropped"
+ },
+ {
+  "id": "m6-table__m6b-avif-added",
+  "file": "src/utils/isValidImageUrl.ts",
+  "old": "'tiff', 'webm']",
+  "new": "'tiff', 'webm', 'avif']",
+  "orig_id": "m6-table:m6b-avif-added"
+ },
+ {
+  "id": "m6-table__m6c-no-fields-counts-valid",
+  "file": "src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx",
+  "old": "return !!fields?.some((field) => field.name && field.value);",
+  "new": "return !fields?.length || fields.some((field) => field.name && field.value);",
+  "orig_id": "m6-table:m6c-no-fields-counts-valid"
+ },
+ {
+  "id": "m6-table__m6c-name-or-value",
+  "file": "src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx",
+  "old": "field.name && field.value);",
+  "new": "field.name || field.value);",
+  "orig_id": "m6-table:m6c-name-or-value"
+ },
+ {
+  "id": "m6-table__m6d-set-field-first-slot",
+  "file": "src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx",
+  "old": "setField={actions[idx].setField}",
+  "new": "setField={actions[0].setField}",
+  "orig_id": "m6-table:m6d-set-field-first-slot"
+ },
+ {
+  "id": "m6-table__m6d-delete-first-slot",
+  "file": "src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx",
+  "old": "onDelete={actions[idx].delete}",
+  "new": "onDelete={actions[0].delete}",
+  "orig_id": "m6-table:m6d-delete-first-slot"
+ },
+ {
+  "id": "m6-table__m6d-move-left-shifted",
+  "file": "src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx",
+  "old": "moveLeft={idx === 0 ? undefined",
+  "new": "moveLeft={idx === 1 ? undefined",
+  "orig_id": "m6-table:m6d-move-left-shifted"
+ },
+ {
+  "id": "m6-table__m6d-move-right-shifted",
+  "file": "src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx",
+  "old": "moveRight={idx === fields.length - 1 ?",
+  "new": "moveRight={idx === fields.length ?",
+  "orig_id": "m6-table:m6d-move-right-shifted"
+ },
+ {
+  "id": "m6-table__m6d-index-after-filter",
+  "file": "src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx",
+  "old": "        .map((entry, idx) => ({ ...entry, idx }))\n        .filter(({ field: { name, value } }) => showEdit || (name && value))\n        .map(({ gridColumn, field, idx }) => (",
+  "new": "        .filter(({ field: { name, value } }) => showEdit || (name && value))\n        .map(({ gridColumn, field }, idx) => (",
+  "orig_id": "m6-table:m6d-index-after-filter"
+ },
+ {
+  "id": "m6-table__m6e-timeout-not-cleared",
+  "file": "src/components/DiscordMessageEditor/components/Author.tsx",
+  "old": "      clearTimeout(timeout);\n",
+  "new": "",
+  "orig_id": "m6-table:m6e-timeout-not-cleared"
+ },
+ {
+  "id": "m6-table__m6e-interval-not-cleared",
+  "file": "src/components/DiscordMessageEditor/components/Author.tsx",
+  "old": "      clearInterval(interval);\n",
+  "new": "",
+  "orig_id": "m6-table:m6e-interval-not-cleared"
+ },
+ {
+  "id": "m6-table__m6e-clock-never-ticks",
+  "file": "src/components/DiscordMessageEditor/components/Author.tsx",
+  "old": "interval = setInterval(() => { setTs(new Date()); }, MINUTE_IN_MILLISECONDS);",
+  "new": "interval = setInterval(() => {}, MINUTE_IN_MILLISECONDS);",
+  "orig_id": "m6-table:m6e-clock-never-ticks"
+ },
+ {
+  "id": "m6-table__m6f-truthiness-nonblack-fallback",
+  "file": "src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx",
+  "old": "intToHex(initColor ?? 0)",
+  "new": "(initColor ? intToHex(initColor) : '#ffffff')",
+  "orig_id": "m6-table:m6f-truthiness-nonblack-fallback"
+ },
+ {
+  "id": "m6-table__m6f-unpadded",
+  "file": "src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx",
+  "old": "intToHex(initColor ?? 0)",
+  "new": "`#${(initColor ?? 0).toString(16)}`",
+  "orig_id": "m6-table:m6f-unpadded"
+ },
+ {
+  "id": "m6-table__m6f-undefined-is-white",
+  "file": "src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx",
+  "old": "intToHex(initColor ?? 0)",
+  "new": "intToHex(initColor ?? 0xffffff)",
+  "orig_id": "m6-table:m6f-undefined-is-white"
+ },
+ {
+  "id": "m6-table__m6g-sort-removed",
+  "file": "src/utils/markdown/emoji.tsx",
+  "old": "    .sort((a, b) => b.length - a.length)\n",
+  "new": "",
+  "orig_id": "m6-table:m6g-sort-removed"
+ },
+ {
+  "id": "m6-table__m6g-sort-ascending",
+  "file": "src/utils/markdown/emoji.tsx",
+  "old": "b.length - a.length",
+  "new": "a.length - b.length",
+  "orig_id": "m6-table:m6g-sort-ascending"
+ },
+ {
+  "id": "m6-table__m6g-sort-one-argument",
+  "file": "src/utils/markdown/emoji.tsx",
+  "old": ".sort((a, b) => b.length - a.length)",
+  "new": ".sort((surrogate) => -surrogate.length)",
+  "orig_id": "m6-table:m6g-sort-one-argument"
+ },
+ {
+  "id": "m6-table__m6h-aria-inverted",
+  "file": "src/utils/markdown/components/MarkdownSpoiler.tsx",
+  "old": "aria-expanded={isVisible}",
+  "new": "aria-expanded={!isVisible}",
+  "orig_id": "m6-table:m6h-aria-inverted"
+ },
+ {
+  "id": "m6-table__m6i-embed-copy-before",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "newEmbeds.splice(idx + 1, 0, newEmbed);",
+  "new": "newEmbeds.splice(idx, 0, newEmbed);",
+  "orig_id": "m6-table:m6i-embed-copy-before"
+ },
+ {
+  "id": "m6-table__m6i-component-copy-before",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "next.splice(idx + 1, 0, clone);",
+  "new": "next.splice(idx, 0, clone);",
+  "orig_id": "m6-table:m6i-component-copy-before"
+ },
+ {
+  "id": "m6-table__m6i-actionrow-copy-last",
+  "file": "src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx",
+  "old": "next.splice(idx + 1, 0, clone);",
+  "new": "next.push(clone);",
+  "orig_id": "m6-table:m6i-actionrow-copy-last"
+ },
+ {
+  "id": "m6-table__m6i-gallery-copy-last",
+  "file": "src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx",
+  "old": "next.splice(idx + 1, 0, clone);",
+  "new": "next.push(clone);",
+  "orig_id": "m6-table:m6i-gallery-copy-last"
+ },
+ {
+  "id": "m6-table__m6i-section-copy-last",
+  "file": "src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx",
+  "old": "next.splice(idx + 1, 0, clone);",
+  "new": "next.push(clone);",
+  "orig_id": "m6-table:m6i-section-copy-last"
+ },
+ {
+  "id": "m6-table__m6i-container-copy-last",
+  "file": "src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx",
+  "old": "next.splice(idx + 1, 0, clone);",
+  "new": "next.push(clone);",
+  "orig_id": "m6-table:m6i-container-copy-last"
+ },
+ {
+  "id": "m6-table__m6j-footer-text-unguarded",
+  "file": "src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx",
+  "old": "footer?.text?.trim()",
+  "new": "footer?.text.trim()",
+  "orig_id": "m6-table:m6j-footer-text-unguarded"
+ },
+ {
+  "id": "m6-table__m6k-delete-without-inner-key-noop",
+  "file": "src/utils/maps/UpsertMapMap.ts",
+  "old": "if (innerKey === undefined) this.#map.delete(key);",
+  "new": "if (innerKey === undefined) this.#map.get(key);",
+  "orig_id": "m6-table:m6k-delete-without-inner-key-noop"
+ },
+ {
+  "id": "m6-table__m6k-falsy-inner-key-is-absent",
+  "file": "src/utils/maps/UpsertMapMap.ts",
+  "old": "if (innerKey === undefined)",
+  "new": "if (!innerKey)",
+  "orig_id": "m6-table:m6k-falsy-inner-key-is-absent"
+ },
+ {
+  "id": "m6-table__m6l-comparator-at-limit",
+  "file": "src/utils/limits.tsx",
+  "old": "total > MAX_TOTAL_COMPONENTS ?",
+  "new": "total >= MAX_TOTAL_COMPONENTS ?",
+  "orig_id": "m6-table:m6l-comparator-at-limit"
+ },
+ {
+  "id": "m6-table__m6l-nesting-recursion-removed",
+  "file": "src/utils/limits.tsx",
+  "old": "        if ('components' in child && Array.isArray(child.components)) {\n          count += child.components.length;\n        }\n",
+  "new": "",
+  "orig_id": "m6-table:m6l-nesting-recursion-removed"
+ },
+ {
+  "id": "m6-table__m6l-top-accessory-uncounted",
+  "file": "src/utils/limits.tsx",
+  "old": "if ('accessory' in c && c.accessory) count += 1;\n    if ('components' in c",
+  "new": "if ('components' in c",
+  "orig_id": "m6-table:m6l-top-accessory-uncounted"
+ },
+ {
+  "id": "m6-table__m6l-child-accessory-uncounted",
+  "file": "src/utils/limits.tsx",
+  "old": "        if ('accessory' in child && child.accessory) count += 1;\n",
+  "new": "",
+  "orig_id": "m6-table:m6l-child-accessory-uncounted"
+ },
+ {
+  "id": "m6-table__m6l-validate-message-skips-count",
+  "file": "src/utils/limits.tsx",
+  "old": "  if (componentCountError) return componentCountError;\n",
+  "new": "",
+  "orig_id": "m6-table:m6l-validate-message-skips-count"
+ },
+ {
+  "id": "m6-table__m6l-error-names-limit-not-total",
+  "file": "src/utils/limits.tsx",
+  "old": "`Message has ${total} components;",
+  "new": "`Message has ${MAX_TOTAL_COMPONENTS} components;",
+  "orig_id": "m6-table:m6l-error-names-limit-not-total"
+ },
+ {
+  "id": "m6-table__m6l-editor-line-missing",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "{componentCountError}</div>",
+  "new": "{''}</div>",
+  "orig_id": "m6-table:m6l-editor-line-missing"
+ },
+ {
+  "id": "m6-table__m6l-editor-border-missing",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "(embedCharacterError || v2TextError || componentCountError) && styles.errorBorder",
+  "new": "(embedCharacterError || v2TextError) && styles.errorBorder",
+  "orig_id": "m6-table:m6l-editor-border-missing"
+ },
+ {
+  "id": "m6-table__m6l-editor-offers-at-limit",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "totalComponentCount < MAX_TOTAL_COMPONENTS",
+  "new": "totalComponentCount <= MAX_TOTAL_COMPONENTS",
+  "orig_id": "m6-table:m6l-editor-offers-at-limit"
+ },
+ {
+  "id": "m6-table__m6l-editor-counts-top-level-only",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "const totalComponentCount = countTotalComponents(components);",
+  "new": "const totalComponentCount = components.length;",
+  "orig_id": "m6-table:m6l-editor-counts-top-level-only"
+ },
+ {
+  "id": "m6-table__m6l-editor-add-refused-near-limit",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "[...components, factory() as EditableTopLevelComponent],",
+  "new": "totalComponentCount + 2 > MAX_TOTAL_COMPONENTS ? components : [...components, factory() as EditableTopLevelComponent],",
+  "orig_id": "m6-table:m6l-editor-add-refused-near-limit"
+ },
+ {
+  "id": "m6-table__m6l-actionrow-add-stricter",
+  "file": "src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx",
+  "old": "if (latestRow.current.components.length >= MAX_ACTION_ROW_BUTTONS) return;\n    setRow",
+  "new": "if (latestRow.current.components.length >= MAX_ACTION_ROW_BUTTONS - 1) return;\n    setRow",
+  "orig_id": "m6-table:m6l-actionrow-add-stricter"
+ },
+ {
+  "id": "m6-table__m6l-section-add-stricter",
+  "file": "src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx",
+  "old": "    if (latest.current.components.length >= MAX_SECTION_TEXT_COMPONENTS) return;\n    setSection({\n      ...latest.current,\n      components: [...latest.current.components, createTextDisplay()],",
+  "new": "    if (latest.current.components.length >= MAX_SECTION_TEXT_COMPONENTS - 1) return;\n    setSection({\n      ...latest.current,\n      components: [...latest.current.components, createTextDisplay()],",
+  "orig_id": "m6-table:m6l-section-add-stricter"
+ },
+ {
+  "id": "m7-table__m7a-and-of-two-bits",
+  "file": "bot/scripts/app_commands/common.ts",
+  "old": "PermissionFlagsBits.ManageGuild.toString()",
+  "new": "(PermissionFlagsBits.Administrator & PermissionFlagsBits.ManageGuild).toString()",
+  "orig_id": "m7-table:m7a-and-of-two-bits"
+ },
+ {
+  "id": "m7-table__m7a-administrator-only",
+  "file": "bot/scripts/app_commands/common.ts",
+  "old": "PermissionFlagsBits.ManageGuild.toString()",
+  "new": "PermissionFlagsBits.Administrator.toString()",
+  "orig_id": "m7-table:m7a-administrator-only"
+ },
+ {
+  "id": "m7-table__m7a-or-of-two-bits",
+  "file": "bot/scripts/app_commands/common.ts",
+  "old": "PermissionFlagsBits.ManageGuild.toString()",
+  "new": "(PermissionFlagsBits.Administrator | PermissionFlagsBits.ManageGuild).toString()",
+  "orig_id": "m7-table:m7a-or-of-two-bits"
+ },
+ {
+  "id": "m7-table__m7b-timestamp-compares",
+  "file": "bot/utils/DiscordEmbed.ts",
+  "old": "this.#payload.timestamp = timestamp;",
+  "new": "this.#payload.timestamp === timestamp;",
+  "orig_id": "m7-table:m7b-timestamp-compares"
+ },
+ {
+  "id": "m7-table__m7b-timestamp-ignores-argument",
+  "file": "bot/utils/DiscordEmbed.ts",
+  "old": "this.#payload.timestamp = timestamp;",
+  "new": "this.#payload.timestamp = new Date(0).toISOString();",
+  "orig_id": "m7-table:m7b-timestamp-ignores-argument"
+ },
+ {
+  "id": "m7-table__m7c-user-test-for-slash",
+  "file": "bot/scripts/app_commands/common.ts",
+  "old": "): command is UserCommand {\n  return commandType === 'user';",
+  "new": "): command is UserCommand {\n  return commandType === 'slash';",
+  "orig_id": "m7-table:m7c-user-test-for-slash"
+ },
+ {
+  "id": "m7-table__m7c-user-test-for-message",
+  "file": "bot/scripts/app_commands/common.ts",
+  "old": "): command is UserCommand {\n  return commandType === 'user';",
+  "new": "): command is UserCommand {\n  return commandType === 'message';",
+  "orig_id": "m7-table:m7c-user-test-for-message"
+ },
+ {
+  "id": "qa-m1-supplement__i2-token-is-provider-id",
+  "file": "src/server/auth.ts",
+  "old": "if (account.access_token) await revokeAccessToken(account.access_token);",
+  "new": "if (account.access_token) await revokeAccessToken(account.providerAccountId);",
+  "orig_id": "qa-m1-supplement:i2-token-is-provider-id"
+ },
+ {
+  "id": "qa-m1-supplement__i2-token-test-inverted",
+  "file": "src/server/auth.ts",
+  "old": "if (account.access_token) await revokeAccessToken(account.access_token);",
+  "new": "if (!account.access_token) await revokeAccessToken(account.access_token as unknown as string);",
+  "orig_id": "qa-m1-supplement:i2-token-test-inverted"
+ },
+ {
+  "id": "qa-m1-supplement__i2-tokenless-is-no-account",
+  "file": "src/server/auth.ts",
+  "old": "  if (!account) {\n    await redis.clearUser(userDbId, sessionToken);\n    return;\n  }",
+  "new": "  if (!account || !account.access_token) {\n    await redis.clearUser(userDbId, sessionToken);\n    return;\n  }",
+  "orig_id": "qa-m1-supplement:i2-tokenless-is-no-account"
+ },
+ {
+  "id": "qa-m1-supplement__i2-row-read-by-session-token",
+  "file": "src/server/auth.ts",
+  "old": "      .where('userId', '=', userDbId)\n      .executeTakeFirst();",
+  "new": "      .where('userId', '=', sessionToken)\n      .executeTakeFirst();",
+  "orig_id": "qa-m1-supplement:i2-row-read-by-session-token"
+ },
+ {
+  "id": "qa-m1-supplement__i2-lookup-error-swallowed",
+  "file": "src/server/auth.ts",
+  "old": "    await redis.clearUser(userDbId, sessionToken).catch(() => {});\n    throw err;",
+  "new": "    await redis.clearUser(userDbId, sessionToken).catch(() => {});\n    return;",
+  "orig_id": "qa-m1-supplement:i2-lookup-error-swallowed"
+ },
+ {
+  "id": "qa-m1-supplement__i2-update-unscoped",
+  "file": "src/server/auth.ts",
+  "old": "      .where('provider', '=', 'discord')\n      .where('providerAccountId', '=', account.providerAccountId)\n      .execute(),",
+  "new": "      .where('provider', '=', 'discord')\n      .execute(),",
+  "orig_id": "qa-m1-supplement:i2-update-unscoped"
+ },
+ {
+  "id": "qa-m1-supplement__i4-cap-constant-1001",
+  "file": "src/constants/index.ts",
+  "old": "export const MAX_MESSAGES = 1000 as const;",
+  "new": "export const MAX_MESSAGES = 1001 as const;",
+  "orig_id": "qa-m1-supplement:i4-cap-constant-1001"
+ },
+ {
+  "id": "qa-m1-supplement__i4-user-count-unscoped",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "    messageCountQuery = messageCountQuery.where('fk_users_id', '=', select.dbUserId);\n",
+  "new": "",
+  "orig_id": "qa-m1-supplement:i4-user-count-unscoped"
+ },
+ {
+  "id": "qa-m1-supplement__i4-guild-count-unscoped",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "    messageCountQuery = messageCountQuery.where('fk_guilds_id', '=', guildId);\n",
+  "new": "    void guildId;\n",
+  "orig_id": "qa-m1-supplement:i4-guild-count-unscoped"
+ },
+ {
+  "id": "qa-m1-supplement__m1a-partial-empty-returns-early",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "  const messages = await (guilds.length\n",
+  "new": "  if (!guilds.length) return [];\n  const messages = await (guilds.length\n",
+  "orig_id": "qa-m1-supplement:m1a-partial-empty-returns-early"
+ },
+ {
+  "id": "qa-m2-supplement__colour-floor-dropped",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "\n  color: z.number().int().min(0).max(0xffffff)",
+  "new": "\n  color: z.number().int().max(0xffffff)",
+  "orig_id": "qa-m2-supplement:colour-floor-dropped"
+ },
+ {
+  "id": "qa-m2-supplement__colour-ceiling-raised",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "\n  color: z.number().int().min(0).max(0xffffff)",
+  "new": "\n  color: z.number().int().min(0).max(0x1000000)",
+  "orig_id": "qa-m2-supplement:colour-ceiling-raised"
+ },
+ {
+  "id": "qa-m2-supplement__colour-int-dropped",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "\n  color: z.number().int().min(0).max(0xffffff)",
+  "new": "\n  color: z.number().min(0).max(0xffffff)",
+  "orig_id": "qa-m2-supplement:colour-int-dropped"
+ },
+ {
+  "id": "qa-m2-supplement__footer-constant-2049",
+  "file": "src/constants/messageLimits.ts",
+  "old": "MAX_EMBED_FOOTER_TEXT_LENGTH = 2048",
+  "new": "MAX_EMBED_FOOTER_TEXT_LENGTH = 2049",
+  "orig_id": "qa-m2-supplement:footer-constant-2049"
+ },
+ {
+  "id": "qa-m2-supplement__ingress-colour-always",
+  "file": "src/utils/discordResponseToMessage.ts",
+  "old": "if (e.color !== undefined) embed.color = e.color;",
+  "new": "embed.color = e.color;",
+  "orig_id": "qa-m2-supplement:ingress-colour-always"
+ },
+ {
+  "id": "qa-m2-supplement__border-colour-fixed",
+  "file": "src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx",
+  "old": "color != null ? intToHex(color)",
+  "new": "color != null ? intToHex(0)",
+  "orig_id": "qa-m2-supplement:border-colour-fixed"
+ },
+ {
+  "id": "qa-m4-supplement__i3-catch-dropped",
+  "file": "src/app/message/m/[id]/send/page.tsx",
+  "old": "      })).catch(() => null);",
+  "new": "      }));",
+  "orig_id": "qa-m4-supplement:i3-catch-dropped"
+ },
+ {
+  "id": "qa-m4-supplement__rider-null-passes",
+  "file": "src/server/api/routers/message.ts",
+  "old": "if (!('guild_id' in channel) || channel.guild_id !== guildId) {",
+  "new": "if (!('guild_id' in channel) || (channel.guild_id !== null && channel.guild_id !== guildId)) {",
+  "orig_id": "qa-m4-supplement:rider-null-passes"
+ },
+ {
+  "id": "qa-m4-supplement__rider-loose-inequality",
+  "file": "src/server/api/routers/message.ts",
+  "old": "channel.guild_id !== guildId) {",
+  "new": "channel.guild_id != guildId) {",
+  "orig_id": "qa-m4-supplement:rider-loose-inequality"
+ },
+ {
+  "id": "qa-m4-supplement__provider-404-text",
+  "file": "src/providers/WebhookProvider.tsx",
+  "old": "'Message not found. Hint: Webhooks can only edit their own messages.'",
+  "new": "'Message not found.'",
+  "orig_id": "qa-m4-supplement:provider-404-text"
+ },
+ {
+  "id": "qa-m4-supplement__provider-403-text",
+  "file": "src/providers/WebhookProvider.tsx",
+  "old": "'You do not have permission to view this message.'",
+  "new": "'Forbidden.'",
+  "orig_id": "qa-m4-supplement:provider-403-text"
+ },
+ {
+  "id": "qa-m4-supplement__provider-401-text",
+  "file": "src/providers/WebhookProvider.tsx",
+  "old": "'Invalid webhook token.'",
+  "new": "'Unauthorized.'",
+  "orig_id": "qa-m4-supplement:provider-401-text"
+ },
+ {
+  "id": "qa-m4-supplement__provider-400-text",
+  "file": "src/providers/WebhookProvider.tsx",
+  "old": "'Invalid webhook id.'",
+  "new": "'Bad request.'",
+  "orig_id": "qa-m4-supplement:provider-400-text"
+ },
+ {
+  "id": "qa-m4-supplement__provider-other-status-text",
+  "file": "src/providers/WebhookProvider.tsx",
+  "old": "setOldMessageError((data as { message: string }).message ?? res.statusText);",
+  "new": "setOldMessageError(res.statusText);",
+  "orig_id": "qa-m4-supplement:provider-other-status-text"
+ },
+ {
+  "id": "qa-m4-supplement__provider-refused-shows-error",
+  "file": "src/providers/WebhookProvider.tsx",
+  "old": "    } else {\n      setOldMessage(null);\n      setOldMessageError('');\n    }",
+  "new": "    } else {\n      setOldMessage(null);\n      setOldMessageError('Invalid message id or link.');\n    }",
+  "orig_id": "qa-m4-supplement:provider-refused-shows-error"
+ },
+ {
+  "id": "qa-m5-supplement__m5e-utc-getters",
+  "file": "src/utils/formatMessageDate.ts",
+  "old": "  return a.getFullYear() === b.getFullYear()\n    && a.getMonth() === b.getMonth()\n    && a.getDate() === b.getDate();",
+  "new": "  return a.getUTCFullYear() === b.getUTCFullYear()\n    && a.getUTCMonth() === b.getUTCMonth()\n    && a.getUTCDate() === b.getUTCDate();",
+  "orig_id": "qa-m5-supplement:m5e-utc-getters"
+ },
+ {
+  "id": "qa-m6-supplement__m6i-actionrow-copy-before",
+  "file": "src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx",
+  "old": "next.splice(idx + 1, 0, clone);",
+  "new": "next.splice(idx, 0, clone);",
+  "orig_id": "qa-m6-supplement:m6i-actionrow-copy-before"
+ },
+ {
+  "id": "qa-m6-supplement__m6i-container-copy-before",
+  "file": "src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx",
+  "old": "next.splice(idx + 1, 0, clone);",
+  "new": "next.splice(idx, 0, clone);",
+  "orig_id": "qa-m6-supplement:m6i-container-copy-before"
+ },
+ {
+  "id": "qa-m6-supplement__m6i-gallery-copy-before",
+  "file": "src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx",
+  "old": "next.splice(idx + 1, 0, clone);",
+  "new": "next.splice(idx, 0, clone);",
+  "orig_id": "qa-m6-supplement:m6i-gallery-copy-before"
+ },
+ {
+  "id": "qa-m6-supplement__m6i-section-copy-before",
+  "file": "src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx",
+  "old": "next.splice(idx + 1, 0, clone);",
+  "new": "next.splice(idx, 0, clone);",
+  "orig_id": "qa-m6-supplement:m6i-section-copy-before"
+ },
+ {
+  "id": "qa-m6-supplement__m6l-add-gate-only-at-40",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "totalComponentCount < MAX_TOTAL_COMPONENTS;",
+  "new": "totalComponentCount !== MAX_TOTAL_COMPONENTS;",
+  "orig_id": "qa-m6-supplement:m6l-add-gate-only-at-40"
+ },
+ {
+  "id": "qa-m6-supplement__m6l-line-above-text-error",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "          <NullableComponent show={v2TextError}>\n            <div className=\"mt-1 text-xs font-semibold text-error\">{v2TextError}</div>\n          </NullableComponent>\n          <NullableComponent show={componentCountError}>\n            <div className=\"mt-1 text-xs font-semibold text-error\">{componentCountError}</div>\n          </NullableComponent>\n",
+  "new": "          <NullableComponent show={componentCountError}>\n            <div className=\"mt-1 text-xs font-semibold text-error\">{componentCountError}</div>\n          </NullableComponent>\n          <NullableComponent show={v2TextError}>\n            <div className=\"mt-1 text-xs font-semibold text-error\">{v2TextError}</div>\n          </NullableComponent>\n",
+  "orig_id": "qa-m6-supplement:m6l-line-above-text-error"
+ },
+ {
+  "id": "qa-m6-supplement__m6l-border-dropped",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "v2TextError || componentCountError) && styles.errorBorder",
+  "new": "v2TextError) && styles.errorBorder",
+  "orig_id": "qa-m6-supplement:m6l-border-dropped"
+ },
+ {
+  "id": "qa-m6-supplement__m6l-nesting-recursion-removed",
+  "file": "src/utils/limits.tsx",
+  "old": "      for (const child of children) {\n        if ('accessory' in child && child.accessory) count += 1;\n        if ('components' in child && Array.isArray(child.components)) {\n          count += child.components.length;\n        }\n      }\n",
+  "new": "",
+  "orig_id": "qa-m6-supplement:m6l-nesting-recursion-removed"
+ },
+ {
+  "id": "qa-m6-supplement__i3-limit-41",
+  "file": "src/constants/messageLimits.ts",
+  "old": "MAX_TOTAL_COMPONENTS = 40 as const",
+  "new": "MAX_TOTAL_COMPONENTS = 41 as const",
+  "orig_id": "qa-m6-supplement:i3-limit-41"
+ },
+ {
+  "id": "qa-m6-supplement__m4-invalid-url-text",
+  "file": "src/constants/index.ts",
+  "old": "INVALID_URL_ERROR = 'Invalid URL' as const",
+  "new": "INVALID_URL_ERROR = 'Invalid url' as const",
+  "orig_id": "qa-m6-supplement:m4-invalid-url-text"
+ },
+ {
+  "id": "qa-r2-supplement__m6d-filter-name-or-value",
+  "file": "src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx",
+  "old": "showEdit || (name && value))",
+  "new": "showEdit || (name || value))",
+  "orig_id": "qa-r2-supplement:m6d-filter-name-or-value"
+ },
+ {
+  "id": "qa-r2-supplement__m6a-title-codeblock-static",
+  "file": "src/utils/markdown/index.tsx",
+  "old": "parseEmbedTitle: staticParserFor(omit(staticWithoutLinks, ['codeBlock', 'heading', 'list'])),",
+  "new": "parseEmbedTitle: staticParserFor(omit(staticWithoutLinks, ['heading', 'list'])),",
+  "orig_id": "qa-r2-supplement:m6a-title-codeblock-static"
+ },
+ {
+  "id": "qa-r2-supplement__m6a-title-codeblock-interactive",
+  "file": "src/utils/markdown/index.tsx",
+  "old": "parseEmbedTitle: interactiveParser(omit(interactiveWithoutLinks, ['codeBlock', 'heading', 'list'])),",
+  "new": "parseEmbedTitle: interactiveParser(omit(interactiveWithoutLinks, ['heading', 'list'])),",
+  "orig_id": "qa-r2-supplement:m6a-title-codeblock-interactive"
+ },
+ {
+  "id": "qa-r2-supplement__m6a-paragraph-splits-fence",
+  "file": "src/utils/markdown/rules.tsx",
+  "old": "(?:${FENCE}|[^\\\\n]|",
+  "new": "(?:[^\\\\n]|",
+  "orig_id": "qa-r2-supplement:m6a-paragraph-splits-fence"
+ },
+ {
+  "id": "qa-r2-supplement__m6a-content-single-line",
+  "file": "src/utils/markdown/rules.tsx",
+  "old": "\\\\n*([^\\\\n][^]*?)\\\\n*```",
+  "new": "\\\\n*([^\\\\n]+?)\\\\n*```",
+  "orig_id": "qa-r2-supplement:m6a-content-single-line"
+ },
+ {
+  "id": "qa-r2-supplement__m5h-refuse-all",
+  "file": "src/app/preview/page.tsx",
+  "old": "{data === null ? invalidData : (",
+  "new": "{true ? invalidData : (",
+  "orig_id": "qa-r2-supplement:m5h-refuse-all"
+ },
+ {
+  "id": "qa-r2-supplement__m5h-array-allowed",
+  "file": "src/app/preview/page.tsx",
+  "old": "if (typeof parsed !== 'object' || Array.isArray(parsed)) return null;",
+  "new": "if (typeof parsed !== 'object') return null;",
+  "orig_id": "qa-r2-supplement:m5h-array-allowed"
+ },
+ {
+  "id": "qa-r2-supplement__m5i-pick-ignored",
+  "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+  "old": "const selectedCategory = pickedCategory ?? (hasWebhooks",
+  "new": "const selectedCategory = (hasWebhooks",
+  "orig_id": "qa-r2-supplement:m5i-pick-ignored"
+ },
+ {
+  "id": "qa-r2-supplement__m5i-seeded-at-mount",
+  "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+  "old": "const [pickedCategory, setPickedCategory] = useState<null | string>(null);\n  const selectedCategory = pickedCategory ?? (hasWebhooks ? (guild?.id ?? '') : 'load');",
+  "new": "const [pickedCategory, setPickedCategory] = useState<null | string>(hasWebhooks ? (guild?.id ?? '') : 'load');\n  const selectedCategory = pickedCategory as string;",
+  "orig_id": "qa-r2-supplement:m5i-seeded-at-mount"
+ },
+ {
+  "id": "qa-r2-supplement__m5i-no-auth-conjunct",
+  "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+  "old": "const hasWebhooks = status === 'authenticated' && guildId && webhooks.length;",
+  "new": "const hasWebhooks = guildId && webhooks.length;",
+  "orig_id": "qa-r2-supplement:m5i-no-auth-conjunct"
+ },
+ {
+  "id": "qa-r2-supplement__m5i-no-guild-conjunct",
+  "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+  "old": "const hasWebhooks = status === 'authenticated' && guildId && webhooks.length;",
+  "new": "const hasWebhooks = status === 'authenticated' && webhooks.length;",
+  "orig_id": "qa-r2-supplement:m5i-no-guild-conjunct"
+ },
+ {
+  "id": "qa-r2-supplement__m5i-no-count-conjunct",
+  "file": "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx",
+  "old": "const hasWebhooks = status === 'authenticated' && guildId && webhooks.length;",
+  "new": "const hasWebhooks = status === 'authenticated' && guildId;",
+  "orig_id": "qa-r2-supplement:m5i-no-count-conjunct"
+ },
+ {
+  "id": "qa-r2-supplement__cr24-portal-cleanup-noop",
+  "file": "src/components/BottomPortal.tsx",
+  "old": "      prev.some((p) => p.id === id) ? prev.filter((p) => p.id !== id) : prev\n    ));\n  }, []);",
+  "new": "      prev\n    ));\n  }, []);",
+  "orig_id": "qa-r2-supplement:cr24-portal-cleanup-noop"
+ },
+ {
+  "id": "qa-r2-supplement__m4d-dialog-nonjson-as-message",
+  "file": "src/utils/hooks/useValidateWebhook.ts",
+  "old": ".then<DiscordWebhook | { message: string }>((res) => res.json()));",
+  "new": ".then<DiscordWebhook | { message: string }>((res) => res.json().catch(() => ({ message: 'Unknown' }))));",
+  "orig_id": "qa-r2-supplement:m4d-dialog-nonjson-as-message"
+ },
+ {
+  "id": "qa-r2-supplement__m4d-send-nonjson-as-object",
+  "file": "src/providers/WebhookProvider.tsx",
+  "old": "(res.status === 200 ? res.json() : null)",
+  "new": "(res.status === 200 ? res.json().catch(() => ({})) : null)",
+  "orig_id": "qa-r2-supplement:m4d-send-nonjson-as-object"
+ },
+ {
+  "id": "qa-r2-supplement__m7a-admin-only",
+  "file": "bot/scripts/app_commands/common.ts",
+  "old": "export const ADMIN_PERMS = PermissionFlagsBits.ManageGuild.toString();",
+  "new": "export const ADMIN_PERMS = PermissionFlagsBits.Administrator.toString();",
+  "orig_id": "qa-r2-supplement:m7a-admin-only"
+ },
+ {
+  "id": "qa-r2-supplement__m7c-user-is-slash",
+  "file": "bot/scripts/app_commands/common.ts",
+  "old": "  return commandType === 'user';",
+  "new": "  return commandType === 'slash';",
+  "orig_id": "qa-r2-supplement:m7c-user-is-slash"
+ },
+ {
+  "id": "qa-r4-supplement__r4-button-aria-always",
+  "file": "src/components/Button.tsx",
+  "old": "useButton(_props as AriaButtonProps, localRef)",
+  "new": "useButton({ ...(_props as AriaButtonProps), autoFocus: true }, localRef)",
+  "orig_id": "qa-r4-supplement:r4-button-aria-always"
+ },
+ {
+  "id": "qa-r4-supplement__r5-button-aria-off",
+  "file": "src/components/Button.tsx",
+  "old": "useButton(_props as AriaButtonProps, localRef)",
+  "new": "useButton({ ...(_props as AriaButtonProps), autoFocus: false }, localRef)",
+  "orig_id": "qa-r4-supplement:r5-button-aria-off"
+ },
+ {
+  "id": "qa-r4-supplement__r5-preview-parse-failure-rethrows",
+  "file": "src/app/preview/page.tsx",
+  "old": "  } catch {\n    return null;\n  }",
+  "new": "  } catch (err) {\n    throw err;\n  }",
+  "orig_id": "qa-r4-supplement:r5-preview-parse-failure-rethrows"
+ },
+ {
+  "id": "qa-r4-supplement__r4-editor-onmount-empty",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "useEffect(() => { onMount?.(); }, []);",
+  "new": "useEffect(() => {}, []);",
+  "orig_id": "qa-r4-supplement:r4-editor-onmount-empty"
+ },
+ {
+  "id": "qa-r4-supplement__r4-editor-onmount-every-render",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "useEffect(() => { onMount?.(); }, []);",
+  "new": "useEffect(() => { onMount?.(); });",
+  "orig_id": "qa-r4-supplement:r4-editor-onmount-every-render"
+ },
+ {
+  "id": "qa-r4-supplement__r4-mounted-never-without-delay",
+  "file": "src/utils/hooks/index.ts",
+  "old": "    if (!delay) {\n      setMounted(true);",
+  "new": "    if (!delay) {\n      setMounted(false);",
+  "orig_id": "qa-r4-supplement:r4-mounted-never-without-delay"
+ },
+ {
+  "id": "qa-r4-supplement__r4-mounted-every-render",
+  "file": "src/utils/hooks/index.ts",
+  "old": "      setTimeout(() => { setMounted(true); }, delay);\n    }\n  }, []);",
+  "new": "      setTimeout(() => { setMounted(true); }, delay);\n    }\n  });",
+  "orig_id": "qa-r4-supplement:r4-mounted-every-render"
+ },
+ {
+  "id": "qaf20-constructimageurl-discriminator-parse-dropped__qaf20-constructimageurl-discriminator-parse-dropped",
+  "file": "src/utils/constructImageUrl.ts",
+  "old": "typeof discriminator === 'number' ? discriminator : parseInt(discriminator, 10)",
+  "new": "discriminator as number",
+  "orig_id": "qaf20-constructimageurl-discriminator-parse-dropped:qaf20-constructimageurl-discriminator-parse-dropped"
+ },
+ {
+  "id": "qaf27-m1c-exec-errors-thrown__qaf27-m1c-exec-errors-thrown",
+  "file": "src/server/auth.ts",
+  "old": "    redis.clearUser(userDbId, sessionToken, account.providerAccountId),",
+  "new": "    redis.clearUser(userDbId, sessionToken, account.providerAccountId).then((results) => {\n      for (const [err] of results as unknown as [Error | null, unknown][]) if (err) throw err;\n    }),",
+  "orig_id": "qaf27-m1c-exec-errors-thrown:qaf27-m1c-exec-errors-thrown"
+ },
+ {
+  "id": "qaf27-m1c-lookup-failure-clear-unawaited__qaf27-m1c-lookup-failure-clear-unawaited",
+  "file": "src/server/auth.ts",
+  "old": "    await redis.clearUser(userDbId, sessionToken).catch(() => {});\n    throw err;",
+  "new": "    void redis.clearUser(userDbId, sessionToken);\n    throw err;",
+  "orig_id": "qaf27-m1c-lookup-failure-clear-unawaited:qaf27-m1c-lookup-failure-clear-unawaited"
+ },
+ {
+  "id": "qaf27-m1c-sessions-delete-added__qaf27-m1c-sessions-delete-added",
+  "file": "src/server/auth.ts",
+  "old": "      .execute(),\n  ]);\n}\n\ninterface AuthCallbackParams",
+  "new": "      .execute(),\n    getPostgres().deleteFrom('Sessions').where('userId', '=', userDbId).execute(),\n  ]);\n}\n\ninterface AuthCallbackParams",
+  "orig_id": "qaf27-m1c-sessions-delete-added:qaf27-m1c-sessions-delete-added"
+ },
+ {
+  "id": "qaf27-m1i-missing-pathname-defaults-to-editor__qaf27-m1i-missing-pathname-defaults-to-editor",
+  "file": "src/app/_navigation/Redirects/Server.tsx",
+  "old": "(await headers()).get('x-pathname') ?? ''",
+  "new": "(await headers()).get('x-pathname') ?? '/message/m/0/edit'",
+  "orig_id": "qaf27-m1i-missing-pathname-defaults-to-editor:qaf27-m1i-missing-pathname-defaults-to-editor"
+ },
+ {
+  "id": "qaf27-m1i-raw-header-plain-values__qaf27-m1i-raw-header-plain-values",
+  "file": "src/app/_navigation/Redirects/Server.tsx",
+  "old": "  const sessionCookie = cookieStore.get('__Secure-next-auth.session-token')\n    ?? cookieStore.get('next-auth.session-token');",
+  "new": "  void cookieStore;\n  const sessionCookie = /(^|;\\s*)(__Secure-)?next-auth\\.session-token=[A-Za-z0-9._=-]*(;|$)/.test((await headers()).get('cookie') ?? '');",
+  "orig_id": "qaf27-m1i-raw-header-plain-values:qaf27-m1i-raw-header-plain-values"
+ },
+ {
+  "id": "qaf27-m1i-raw-header-regex__qaf27-m1i-raw-header-regex",
+  "file": "src/app/_navigation/Redirects/Server.tsx",
+  "old": "  const sessionCookie = cookieStore.get('__Secure-next-auth.session-token')\n    ?? cookieStore.get('next-auth.session-token');",
+  "new": "  void cookieStore;\n  const sessionCookie = /(^|;\\s*)(__Secure-)?next-auth\\.session-token=/.test((await headers()).get('cookie') ?? '');",
+  "orig_id": "qaf27-m1i-raw-header-regex:qaf27-m1i-raw-header-regex"
+ },
+ {
+  "id": "qaf35-preview-parse-failure-renders-empty__qaf35-preview-parse-failure-renders-empty",
+  "file": "src/app/preview/page.tsx",
+  "old": "  } catch {\n    return null;\n  }",
+  "new": "  } catch {\n    return {};\n  }",
+  "orig_id": "qaf35-preview-parse-failure-renders-empty:qaf35-preview-parse-failure-renders-empty"
+ },
+ {
+  "id": "usemounted-effect-empty__usemounted-effect-empty",
+  "file": "src/utils/hooks/index.ts",
+  "old": "  useEffect(() => {\n    if (!delay) {\n      setMounted(true);\n    } else {\n      setTimeout(() => { setMounted(true); }, delay);\n    }\n  }, []);",
+  "new": "  useEffect(() => {}, []);",
+  "orig_id": "usemounted-effect-empty:usemounted-effect-empty"
+ },
+ {
+  "id": "qa-m4-supplement__i3-stuck-disabled",
+  "file": "src/app/message/m/[id]/send/page.tsx",
+  "old": "import { Fragment, useCallback, useEffect } from 'react';\n\nimport EditMessageMenu from './_components/EditMessageMenu';\nimport SendMenuTitle from './_components/SendMenuTitle';\nimport WebhookMenu from './_components/WebhookMenu';\n\nimport type { Session } from 'next-auth';\n\nimport { Container, ContainerSection } from '~/app/message/_layout/Container';\nimport DiscordIcon from '~/assets/svg/DiscordIcon';\nimport WebhookIcon from '~/assets/svg/WebhookIcon';\nimport Button from '~/components/Button';\nimport Checkbox from '~/components/Checkbox';\nimport InfoPanel from '~/components/InfoPanel';\nimport LoadingDots from '~/components/LoadingDots';\nimport MessagePreview from '~/components/MessagePreview';\nimport NullableComponent from '~/components/NullableComponent';\nimport StyledLink from '~/components/StyledLink';\nimport TransitionHeightElement from '~/components/TransitionHeightElement';\nimport { BLUR_DATA_URL, GUILD_FEATURES, INVITE_URL } from '~/constants';\nimport { useGuild } from '~/providers/GuildProvider';\nimport { useMessage } from '~/providers/MessageProvider';\nimport { useWebhook } from '~/providers/WebhookProvider';\nimport styles from '~/styles';\nimport {\n  constructGuildIcon, stripKeys, validateMessage,\n} from '~/utils';\nimport { useLoading, useToggleState } from '~/utils/hooks';\nimport { showV2PatchWarning as computeShowV2PatchWarning } from '~/utils/messageMode';\nimport sendWebhook from '~/utils/sendWebhook';\n\nfunction getGuildIcon(\n  session: Session | null | undefined,\n  guildId: string | null,\n  guild: Guild | null | undefined,\n  message: ActiveMessage | null,\n) {\n  const gId = message ? message.guildId : guildId;\n  const g = guild ?? (gId && session?.user.guilds.find(({ id }) => id === gId));\n  if (g) {\n    return (\n      <Image\n        aria-hidden\n        unoptimized={!!g.icon}\n        blurDataURL={BLUR_DATA_URL}\n        priority\n        src={constructGuildIcon(g, 24)}\n        width={24}\n        height={24}\n        alt={g.name}\n        className={classNames(styles.icon, 'mr-2 rounded-full')}\n      />\n    );\n  }\n  return null;\n}\n\nconst Page = () => {\n  const { data: session } = useSession();\n  const {\n    message, isLoading: isMessageLoading,\n    toggleSuppressPings, updateRecentMessageData,\n  } = useMessage();\n  const {\n    oldMessage, threadId, selectedWebhook, threadName,\n    setMessageIdOrUrl,\n  } = useWebhook();\n  const {\n    guild, isLoading: isGuildLoading, isLoadingChannels, hasLoaded,\n    refetchAll: refetch,\n  } = useGuild();\n\n  const [showEdit, { toggle: toggleShowEdit }] = useToggleState();\n\n  useEffect(() => {\n    if (message?.recentMessageId) {\n      setMessageIdOrUrl(message.recentMessageId);\n    }\n  }, [message?.recentMessageId, showEdit]);\n\n  const [isSending, withSending] = useLoading();",
+  "new": "import { Fragment, useCallback, useEffect, useRef } from 'react';\n\nimport EditMessageMenu from './_components/EditMessageMenu';\nimport SendMenuTitle from './_components/SendMenuTitle';\nimport WebhookMenu from './_components/WebhookMenu';\n\nimport type { Session } from 'next-auth';\n\nimport { Container, ContainerSection } from '~/app/message/_layout/Container';\nimport DiscordIcon from '~/assets/svg/DiscordIcon';\nimport WebhookIcon from '~/assets/svg/WebhookIcon';\nimport Button from '~/components/Button';\nimport Checkbox from '~/components/Checkbox';\nimport InfoPanel from '~/components/InfoPanel';\nimport LoadingDots from '~/components/LoadingDots';\nimport MessagePreview from '~/components/MessagePreview';\nimport NullableComponent from '~/components/NullableComponent';\nimport StyledLink from '~/components/StyledLink';\nimport TransitionHeightElement from '~/components/TransitionHeightElement';\nimport { BLUR_DATA_URL, GUILD_FEATURES, INVITE_URL } from '~/constants';\nimport { useGuild } from '~/providers/GuildProvider';\nimport { useMessage } from '~/providers/MessageProvider';\nimport { useWebhook } from '~/providers/WebhookProvider';\nimport styles from '~/styles';\nimport {\n  constructGuildIcon, stripKeys, validateMessage,\n} from '~/utils';\nimport { useLoading, useToggleState } from '~/utils/hooks';\nimport { showV2PatchWarning as computeShowV2PatchWarning } from '~/utils/messageMode';\nimport sendWebhook from '~/utils/sendWebhook';\n\nfunction getGuildIcon(\n  session: Session | null | undefined,\n  guildId: string | null,\n  guild: Guild | null | undefined,\n  message: ActiveMessage | null,\n) {\n  const gId = message ? message.guildId : guildId;\n  const g = guild ?? (gId && session?.user.guilds.find(({ id }) => id === gId));\n  if (g) {\n    return (\n      <Image\n        aria-hidden\n        unoptimized={!!g.icon}\n        blurDataURL={BLUR_DATA_URL}\n        priority\n        src={constructGuildIcon(g, 24)}\n        width={24}\n        height={24}\n        alt={g.name}\n        className={classNames(styles.icon, 'mr-2 rounded-full')}\n      />\n    );\n  }\n  return null;\n}\n\nconst Page = () => {\n  const { data: session } = useSession();\n  const {\n    message, isLoading: isMessageLoading,\n    toggleSuppressPings, updateRecentMessageData,\n  } = useMessage();\n  const {\n    oldMessage, threadId, selectedWebhook, threadName,\n    setMessageIdOrUrl,\n  } = useWebhook();\n  const {\n    guild, isLoading: isGuildLoading, isLoadingChannels, hasLoaded,\n    refetchAll: refetch,\n  } = useGuild();\n\n  const [showEdit, { toggle: toggleShowEdit }] = useToggleState();\n\n  useEffect(() => {\n    if (message?.recentMessageId) {\n      setMessageIdOrUrl(message.recentMessageId);\n    }\n  }, [message?.recentMessageId, showEdit]);\n\n  const [isSendingNow, withSending] = useLoading();\n  const everSent = useRef(false);\n  if (isSendingNow) everSent.current = true;\n  const isSending = isSendingNow || everSent.current;",
+  "orig_id": "qa-m4-supplement:i3-stuck-disabled"
+ },
+ {
+  "id": "qa-r2-supplement__m5h-no-boundary",
+  "file": "src/app/preview/page.tsx",
+  "old": "<ErrorBoundary fallback={invalidData}>\n          <Suspense fallback={null}>\n            <MarkdownProvider>\n              <DiscordMessageEditor\n                message={data}\n                setMessage={() => {}}\n                locale={locale}\n                // eslint-disable-next-line react/style-prop-object\n                onMount={() => {}}\n              />\n            </MarkdownProvider>\n          </Suspense>\n        </ErrorBoundary>",
+  "new": "<>\n          <Suspense fallback={null}>\n            <MarkdownProvider>\n              <DiscordMessageEditor\n                message={data}\n                setMessage={() => {}}\n                locale={locale}\n                // eslint-disable-next-line react/style-prop-object\n                onMount={() => {}}\n              />\n            </MarkdownProvider>\n          </Suspense>\n        </>",
+  "orig_id": "qa-r2-supplement:m5h-no-boundary"
+ }
+]
