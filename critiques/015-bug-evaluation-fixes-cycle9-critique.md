@@ -3,15 +3,15 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Open
-Status-Detail: "Cycle 9 pass 1 on revision 26 (c375d2c): APPROVED after implementation approval. Two MEDIUM and one LOW, none HIGH or CRITICAL, so no REQUEST REVISION; each goes to the plan's Planner batch for rev 27, where D36's criterion and the D35 re-put also land. Open until the batch rows carrying them are read; rev 27 is this cycle's pass 2."
-Artifact-Revision: 26 — read at agent-output c375d2c; R-12 to R-15 (40cc9e9, a5864ba) read as registrations, no requirement moved
-Reviewed-At: a5864ba — repos=agent-output; plan rev 26 at c375d2c, registrations to a5864ba; website 476c633 (chain tip code review read for Rounds 16–18; page.tsx history and probe files read there), preview-image-generator 6c613a5 (chain tip; src/server.ts, src/getPool.ts, package-lock.json, prod.yml read there) and 471578f (base; src/server.ts read)
+Status-Detail: "Cycle 9 pass 2 on revision 27 (18d361c): APPROVED after implementation approval. M-C9-1, M-C9-2 and L-C9-1 verified landed. New: M-C9-3 MEDIUM (M8-d (d) and RK-8 read the startup line at a point where no pool exists — the pool is created on the first /generate — so the instrument reads clean for the wrong reason; fold at once, a build is under review against it) and L-C9-2 LOW (RK-8's residue unnamed). Neither HIGH, so no REQUEST REVISION; Open until the batch rows or the fold carrying them are read."
+Artifact-Revision: 27 — read at agent-output 18d361c; R-17 (a2c60f1, the architect's rev 27 APPROVED) read as a registration, no requirement moved
+Reviewed-At: a2c60f1 — repos=agent-output; plan rev 27 at 18d361c, registration to a2c60f1; website 476c633 (chain tip code review read for Rounds 16–18; page.tsx history and probe files read there), preview-image-generator 7e5ca5f (chain tip, the CR-27 fix with the D36 guard; src/getPool.ts and src/generateImage.ts read there), 6c613a5 (src/server.ts, src/getPool.ts, package-lock.json, prod.yml read there) and 471578f (base; src/server.ts read)
 Verdict: APPROVED
 ---
 
 # Critique — Plan 015, Bug-evaluation fixes — cycle 9
 
-**Artifact**: `planning/015-bug-evaluation-fixes.md`, revision 26 (`c375d2c`). **Analysis**: none commissioned. **Prior cycles**: cycles 1–8 under `critiques/closed/` (cycle 8 closed at rev 25 + R-11, `1168da8`). Cycle 8 resolved before this revision, so rev 26 opens cycle 9, pass 1. **Date**: 2026-11-08.
+**Artifact**: `planning/015-bug-evaluation-fixes.md`, revision 26 (`c375d2c`) at pass 1, revision 27 (`18d361c`) at pass 2. **Analysis**: none commissioned. **Prior cycles**: cycles 1–8 under `critiques/closed/` (cycle 8 closed at rev 25 + R-11, `1168da8`). Cycle 8 resolved before this revision, so rev 26 opens cycle 9, pass 1. **Date**: 2026-11-08.
 
 ## Changelog
 
@@ -19,10 +19,13 @@ Verdict: APPROVED
 |---|---|---|---|
 | 2026-11-08T09:26 | steering-hooks-015 (message, ~09:24Z) | cycle 9 pass 1: delta over `dd9e88a..c375d2c` (rev 26) | Delta-bounded pass. M5-h class (3)'s tip anchor read against code review's two runs at website `476c633` (guard present and guard removed); `fields: null` renders in both (21 nodes). D35's premise read at preview-image-generator `471578f` and `6c613a5` (`src/server.ts`), the website's one caller found (`src/server/api/utils/shared.ts:postMessagePreviewImage`, an object always). M8-d's window read in `attack-run1-6c613a5.txt`; RK-8's mechanism read in `src/getPool.ts` and generic-pool 3.9.0's README and lockfile pin. L-C8-1 verified landed. Verdict APPROVED; M-C9-1, M-C9-2 MEDIUM and L-C9-1 LOW to the Planner batch. |
 | 2026-11-08T09:29 | seam read (plan moved to `a5864ba` while this pass wrote) | boundary line: R-12 to R-15 | `c375d2c..40cc9e9` 32/8 and `40cc9e9..a5864ba` 3/1, read whole (`scratchpad/r12-14.diff`, `r15.diff`): the architect's and QA's rev 26 verdicts recorded, the owed-verdicts row corrected to cycle 9, D36 registered (RK-8 startup guard, rulings 09:25Z `f5ab120`) with its criterion parked for rev 27, QAF-33 and the D35 re-put (rulings 09:28Z `c8c7649`, lists pass) parked for rev 27. Registrations: `Artifact-Revision` stays 26 and no findings pass is owed on them. **Correction, the error mine**: this pass's D35 bullet said "as the implementer built it" holds; QA's QAF-33 (`9fdf439`) shows arrays pass the tip's guard. Reconciled in place below. M-C9-2 re-scoped against D36. |
+| 2026-11-08T09:39 | steering-hooks-015 (message, ~09:37Z) | cycle 9 pass 2: delta over `c375d2c..18d361c` (rev 27), with R-17 (`a2c60f1`) | Delta-bounded pass (`a5864ba..18d361c` 59/24, 171 diff lines, read whole, `scratchpad/rev27.diff`; `18d361c..a2c60f1` 2/1, R-17, a registration). M-C9-1 (deciding enumerator, re-run trigger, two-way move rule), M-C9-2 (RK-8 carrier: planner while open, devops handoff minted at M9, reader named) and L-C9-1 (X-24) verified landed in the body — RESOLVED, critic-verified. D35 rewritten with both selections; M8-b narrowed with code review's executed reads (`body-class-run1-471578f.txt`: `null` exits base with "Cannot destructure property 'id'"; `body-class-run1-6c613a5.txt`: five refused members 500, alive; `[]` launches); X-23 carries three clauses. CR-31's exit signature read in `rk8-field-mutant-6c613a5.txt` (exit 1, 378 ms, TypeError reading `dequeue`) and its control. New: M-C9-3 MEDIUM — M8-d (d) "at startup, before it serves a request" and RK-8's "read at the deploy" rest on a pool that exists at startup, while `getPool()` is created on the first `/generate` (`generateImage.ts:62`, the one call site; memoised at `getPool.ts:146`) at base and at `7e5ca5f`; L-C9-2 LOW — RK-8 names no residue for a version that keeps the member. Verdict APPROVED. |
 
 ## Boundary
 
 Delta-bounded, the cycle's entry pass: `git diff --numstat dd9e88a..c375d2c -- planning/015-bug-evaluation-fixes.md` = 43/14, 151 diff lines, read whole (`scratchpad/rev26.diff`); the plan is unmoved past `c375d2c` (`--numstat c375d2c..HEAD` empty at 09:26Z). The delta touches the header and owed-verdicts table, four changelog rows (three other gates', one rev 26), D35, M5-h (3) and its rendering list, M6-a's title note, M8-b, M8-d, RK-8, one Planner batch row and the planner's Resumption State. No milestone is reshaped: M8-d is restated as a property over the same behaviour, M5-h's class keeps its predicate and moves one member. The whole-document read is not taken. Rulings file: block 09:22Z (`f502eb5`, heading `d42657d`) read.
+
+**Pass 2** — delta-bounded: `git diff --numstat a5864ba..18d361c` = 59/24 (171 diff lines, read whole), from the last registration this critique read; the commits between are R-16, code review's Round 19 row and rev 27 itself. R-17 (`a2c60f1`, 2/1) is the architect's rev 27 verdict recorded in the owed-verdicts row: a registration, `Artifact-Revision` moves to 27 on rev 27 alone. The delta touches the header, the owed-verdicts table, R-13 to R-15's stamps (corrected to commit times), D35 (rewritten), M5-h (3), M8-b, M8-d (X-24 and limb (d)), the M9 RK-8 carrier line, RK-8, X-23, X-24 and seven Planner batch rows. M8-d gains a limb; no milestone is reshaped. Rulings blocks 09:25Z (`f5ab120`) and 09:28Z (`c8c7649`) read.
 
 ## Pricing
 
@@ -49,9 +52,33 @@ Premises run in this pass rather than routed: `git log --oneline da24eb7..476c63
 - **PREMISE-STALE.** D35 is a product behaviour (an API response) and lands in M8-b; every downstream milestone (M8-a, M8-c to M8-e, M9) was authorised at implementation approval, and M8-0's run-2 reads count `POST /generate` lines, not statuses. None owed; the plan's "No milestone is marked" stands.
 - **Decisions Register.** D24–D35 terminal; nothing here names new evidence in a reopening class.
 
+## Rev 27 read against its sources
+
+- **Pricing.** Sized to the ask: unchanged — 47 of 50, F-15/F-39 under D30, the rider and M5-i. D36 adds "a few lines and one test" riding CR-27, priced to the owner in the 09:25Z selection; the D35 re-put narrows M8-b and adds no work. No new machinery.
+- **M5-h (3) (M-C9-1).** The deciding enumerator is named (`run-class-guard-removed.sh`, last run `class-noguard-run1-476c633.txt`, 44 cells), the guard-present probe is demoted to "shows that members render", the re-run trigger is placed with code review ("any review round where a website commit after its last run's SHA touches `src/app/preview/`, `src/utils/index.ts` (`makeEditable`) or the editor components the page renders"), and the move rule runs both ways. Landed. The trigger's third member, "the editor components the page renders", is not enumerated; code review reads every commit of the round, so the judgement sits with the stage that has the diff in hand — recorded here as the residue of known shape, not a finding.
+- **D35 / M8-b / X-23.** D35's title carries two operative clauses (five refused classes; lists pass), its route cites both selections with the corrected cost verbatim and the first cost named as the planner's error, reopening "owner withdrawal only". M8-b cites executed reads for both limbs: `body-class-run1-471578f.txt` shows `null` exiting base with `TypeError: Cannot destructure property 'id' of 'parsedBody' as it is null` (code 1), and `body-class-run1-6c613a5.txt` shows the five refused members at 500 with the process alive and `[]` proceeding to a launch attempt — the read matches the text. X-23 names the row a report lands under (`previews/undefined/` objects), the planner while open, a new defect report after closure, and marks its S3 consequence as a code read not run on S3. The QAF-33, D36 and D35 re-put batch rows read "Discharged at rev 27". Under the disposition order the array class is unreachable from the website's one caller, and the owner has ruled it a known limit; no finding.
+- **M8-d (d) and RK-8 (D36, CR-31, M-C9-2).** The criterion names a member (the renamed-field mutant, `rk8-field-mutant-6c613a5.txt`: ECONNRESET to the request, process exit code 1 in 378 ms, `TypeError: Cannot read properties of undefined (reading 'dequeue')`) and a non-member (3.9.0 as resolved; the control `rk8-field-control-6c613a5.txt`: 500, alive). RK-8's signature is corrected to an exit, its instrument is the startup line in the prod out log, its reader the devops session deploying a lockfile-moving commit, its carrier the handoff devops mints at M9 (the M9 carrier line is present), and the planner acts while open: M-C9-2's carrier clause is landed. One premise does not hold at the receiving end — M-C9-3. The class "rename or remove the field" names no residue — L-C9-2.
+- **X-24 (L-C9-1).** Stated limit with the three clauses; landed.
+- **Owed re-verdicts.** The rev 27 row says "critic (cycle 9 pass 2)" — correct; the lag is closed.
+- **PREMISE-STALE.** Rev 27's behaviour changes are M8-b's narrowing (the code already behaves so) and M8-d (d)'s startup line; every downstream milestone is authorised. None owed.
+- **Decisions Register.** D35 is rewritten by replacement on the owner's second selection, which is the reopening route a selection row admits; D36 terminal. Nothing here names new evidence in a reopening class.
+
 ## Findings
 
 ### Medium
+
+**M-C9-3 MEDIUM cycle 9 pass 2 — M8-d (d) and RK-8 read a startup line from a pool that does not exist at startup.**
+- **State**: OPEN. Landing: fold at once rather than park — a build carrying the D36 guard (`7e5ca5f`) is with code review against this criterion, so the text decides a round now; where the planner departs from the owner's word "startup", the departure goes to him through steering.
+- **Location**: plan § M8-d (d) ("writes a log line at startup, before it serves a request"); § Risks RK-8 ("Instrument: M8-d (d)'s startup line in the prod out log. It is read at the deploy of any preview-image-generator commit that moves the lockfile's resolved generic-pool version"); § M9 "RK-8 carrier".
+- **Description**: the check reads an instance field (`_waitingClientsQueue` is set in generic-pool's `Pool` constructor, `lib/Pool.js` line 61), so it can run only once a pool exists. At base `471578f` and at the tip `7e5ca5f` the pool is created lazily: `getPool()` memoises on first call (`src/getPool.ts` line 146, `if (!globalForPool.pool)`), and its one call site is `src/generateImage.ts` line 62, inside the `/generate` handler. At `7e5ca5f` the guard therefore throws inside the first request (`getPool.ts` lines 92–94: drain, then `throw new Error('generic-pool no longer exposes _waitingClientsQueue.dequeue …')`), which that request's catch turns into a 500 — the named line appears on the first `/generate` after start, not at startup. Two readers break: the criterion's "before it serves a request" cannot be met without moving pool creation to startup, and RK-8's deploy-time read of the out log would find no line while the member is missing, because no request has arrived yet. Verified at the receiving end, not from the plan's text. What a startup-time pool costs is also unstated: with `min: 2`, creating the pool at start launches two Chromiums at every process start, before any request, which run 2's `Created instance` read (M8-a) and X-24's launch-volume residue would both see.
+- **Impact**: RK-8's instrument passes for the wrong reason at exactly the event it exists for (a deploy that moved the dependency), and the criterion as written rejects the build under review.
+- **Recommendation**: state which of the two forms the plan requires — (i) the pool created at startup, with the line emitted then and its launch consequence named (two `Created instance` lines before `Server running at`, read by run 2); or (ii) the line emitted when the pool is first created, with RK-8's read window moved to "the first `/generate` after the deploy" and the reader told to send one — and name it in M8-d (d), RK-8 and the M9 carrier line together. (i) keeps the owner's word; (ii) departs from it and is his selection, through steering. The implementer's form at `7e5ca5f` is (ii) without the moved read window.
+
+**M-C9-1 MEDIUM cycle 9 pass 1 RESOLVED — M5-h class (3) names its deciding enumerator (`run-class-guard-removed.sh`, `class-noguard-run1-476c633.txt`), code review's re-run trigger and a two-way move rule; landed at rev 27 (`18d361c`), critic-verified at pass 2.**
+
+**M-C9-2 MEDIUM cycle 9 pass 1 RESOLVED — RK-8 names its reader (the devops session deploying a lockfile-moving commit), the planner while open, and a handoff devops mints at M9 as the post-closure carrier; the pin question closed by D36. Landed at rev 27 (`18d361c`), critic-verified at pass 2. Its instrument's placement is M-C9-3's subject.**
+
+<details><summary>Pass 1 argument for M-C9-1 and M-C9-2 (retired; the dispositions are the lines above)</summary>
 
 **M-C9-1 MEDIUM cycle 9 pass 1 — M5-h class (3) is anchored to the moving tip but names no step that produces the tip read, and cites the probe that cannot decide membership.**
 - **State**: OPEN. Landing: a Planner batch row at the planner's next pass; after implementation approval it moves no code, so it folds at the next planning pass or the seam before the UAT anchor.
@@ -68,7 +95,20 @@ Premises run in this pass rather than routed: `git log --oneline da24eb7..476c63
 - **Recommendation**: give RK-8 a carrier — an Exclusions-form stated-limit row (report lands under RK-8; the planner while open; after closure a handoff with `Owning-Stage` devops and `Review-Trigger` "`package-lock.json`'s resolved `generic-pool` version changes") — naming who runs the M8-d probe then and what they do on a hang. Whether a pin without the caret is wanted instead is a one-line owner question the row can carry; this critique proposes no runner.
 - **Re-scoped at the 09:29Z seam read (D36, `f5ab120`, registered at `40cc9e9`):** the owner chose the startup guard and declined the exact pin, so the pin question is closed and the detection instrument now exists in-process — a named error line at startup when the private member is missing. What remains of this finding is the carrier: who reads that line after a dependency bump once the chain is closed, and the row's fate after closure. The planner's batch row writes D36's criterion at rev 27; this gate reads the criterion there for its instrument (the line's text, where it is read, and that a start with the member present emits nothing) and for the carrier clause above.
 
+</details>
+
 ### Low
+
+**L-C9-2 LOW cycle 9 pass 2 — RK-8's class names no residue for a generic-pool change that keeps the member.**
+- **State**: OPEN. Landing: a Planner batch row at the planner's next pass (no code moves); it may ride the M-C9-3 fold.
+- **Location**: plan § Risks RK-8 ("A minor or patch upgrade within the caret range can rename or remove the field. If it does, the process exits …"); § M8-d (d).
+- **Description**: the startup check tests the member's presence (`dequeue` callable), and the mutant exercised is a rename. A version that keeps `_waitingClientsQueue.dequeue` but changes when `factoryCreateError` fires relative to the enqueue, or what `dequeue` returns, emits no startup line and is not in the stated class; the system cannot distinguish it at startup. planner.md asks that such a residue be named as a bounded class, not assumed empty.
+- **Impact**: a reader of RK-8 takes "no startup line" as "M8-d (a) holds" after a dependency move, where the residue's signature is M8-d (a)'s own failure — a hang or the CR-31 exit — with no line naming the cause.
+- **Recommendation**: one residue sentence in RK-8: the class the line does not cover, its signature (M8-d (a) failing with no startup line), and the same reader — the devops session deploying the lockfile-moving commit, who then runs M8-d's probe before the push. Naming the residue is not a new instrument.
+
+**L-C9-1 LOW cycle 9 pass 1 RESOLVED — the per-request launch count is X-24, a stated limit with its three clauses; landed at rev 27 (`18d361c`), critic-verified at pass 2.**
+
+<details><summary>Pass 1 argument for L-C9-1 (retired)</summary>
 
 **L-C9-1 LOW cycle 9 pass 1 — M8-d's unmeasured limb names its instrument and no runner.**
 - **State**: OPEN. Landing: a Planner batch row at the planner's next pass.
@@ -77,9 +117,13 @@ Premises run in this pass rather than routed: `git log --oneline da24eb7..476c63
 - **Impact**: F-34's remedy quality (one launch per request against two) stays unknown with nobody owed the read.
 - **Recommendation**: name the stage whose M8 run takes the per-request count (QA Phase 2 is the stage already running M8-d's cells), or state the limb as a stated limit with its detection owner.
 
+</details>
+
 ## Risks register
 
 RK-6 (the M8 wrong-stop class): rev 26 touches no run-2 read; no new member. RK-8 is new this revision and is M-C9-2's subject.
+
+Pass 2: RK-6 — rev 27 touches no run-2 read; no new member. RK-8 — its record line reads "Passes since rev 26: none observed"; this pass observed no member of its class (the lockfile still resolves 3.9.0), and raised M-C9-3 and L-C9-2 against the row's instrument and class, not as members.
 
 ## Questions
 
@@ -87,10 +131,18 @@ None for the owner.
 
 ## Unresolved Open Questions
 
-None: `grep -c 'OPEN QUESTION:'` over the plan at `c375d2c` is not re-run here; the rev 26 diff carries no `OPEN QUESTION` line, and the 08:37Z rulings block records 0 at rev 25.
+None: `grep -c 'OPEN QUESTION:'` over the plan at `c375d2c` is not re-run here; the rev 26 diff carries no `OPEN QUESTION` line, and the 08:37Z rulings block records 0 at rev 25. Pass 2: the rev 27 diff carries no `OPEN QUESTION` line.
+
+## Assumption Not Checked (pass 2)
+
+This pass assumes the M8-0 run-2 reads (M8-a, "Every run-2 read") are indifferent to two `Created instance` lines appearing before the first request — that no criterion of run 2 bounds that count — and does not re-read M8-a's criterion list beyond the three limbs quoted at pass 1 (`Server received`, drain-complete, exit before 12 s, no SIGKILL). Falsity's signature: a run-2 cell that asserts `Created instance` = 0 or = the request count, which a startup-created pool fails by 2. The planner owns it at the M-C9-3 fold, where the launch consequence is written; QA Phase 2's M8 cells would show it before release.
 
 ## Verdict
 
 **Pass 1 — APPROVED** (cycle 9, pass 1; after implementation approval, REQUEST REVISION is reserved for HIGH or CRITICAL, none raised). Sized to the ask: 47 of 50 plus the rider and M5-i; D35 adds a ruling, not work. M5-h's member move is confirmed at `476c633` in both of code review's runs; D35's premise holds at base and tip; M8-d's window is read from its capture; RK-8's mechanism is as stated. Three findings, none moving code: M-C9-1 (the tip-anchored class's enumerator and producing step), M-C9-2 (RK-8's carrier), L-C9-1 (the unmeasured limb's runner) — each a Planner batch row at the planner's next pass; this critique closes when the rows are read. D24–D35 terminal. RK-6: no new member. No owner-needing item.
 
-**Next**: the planner — three batch rows (M-C9-1, M-C9-2, L-C9-1). The implementer: rev 26 changes M8-b's and M8-d's text for milestones already built and reviewed (M8-b to M8-e met at `6c613a5`; M8-a with the implementer on CR-27), with no code change asked; it may proceed against rev 26.
+**Next** (as written at pass 1): the planner — three batch rows (M-C9-1, M-C9-2, L-C9-1). The implementer: rev 26 changes M8-b's and M8-d's text for milestones already built and reviewed (M8-b to M8-e met at `6c613a5`; M8-a with the implementer on CR-27), with no code change asked; it may proceed against rev 26.
+
+**Pass 2 — APPROVED** (cycle 9, pass 2; after implementation approval, REQUEST REVISION is reserved for HIGH or CRITICAL, none raised). Sized to the ask: unchanged, D36's few lines priced to the owner. M-C9-1, M-C9-2 and L-C9-1 verified landed at rev 27. Two new findings: M-C9-3 MEDIUM — M8-d (d)'s "at startup" and RK-8's deploy-time read rest on a pool that `getPool()` creates on the first `/generate` (one call site, `generateImage.ts:62`; memoised at `getPool.ts:146`), so the instrument reads clean for the wrong reason at the event it exists for, and the criterion as written rejects the `7e5ca5f` build — fold at once, since a build is under review against it, with the owner's "startup" either kept (pool at startup, launch consequence named) or put back to him through steering; L-C9-2 LOW — RK-8's residue (member present, behaviour changed) unnamed, a batch row. D24–D36 terminal. RK-6: no new member. No owner-needing item from this gate as it stands; one arises only if the planner chooses the first-request form of M8-d (d).
+
+**Next**: the planner — M-C9-3 folded at once (it decides code review's round on `7e5ca5f`), L-C9-2 a batch row. The code-reviewer reads this for M-C9-3's bearing on its CR-27 round at `7e5ca5f` when it next starts; nothing is sent to it, since the plan's text is the planner's to settle first.
