@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Revision 4: the critique (cycle 1 pass 1) and architect findings are folded, with the owner's OQ-G, OQ-H and host rulings (D16–D18) and M8-0 run 1. Ready for critique pass 2 and the architect's delta read."
-Revision: 4
+Status-Detail: "Revision 5 folds D19 and the last LOW findings. The critic and the architect approved rev 4; the critic's read of the rev-5 rows closes the critique. QA Phase 1 then reads this revision; implementation approval follows those gates."
+Revision: 5
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
 Lane: "standard — agent-output/README.md carries no small-lane section (grep -i small, 0 hits, 2026-11-08); the blast radius spans the save schema, a bot command's permissions and a production PM2 service, none a leaf"
@@ -30,9 +30,10 @@ Owed re-verdicts:
 
 | Limb | Decidable since | Owning gate | State |
 |---|---|---|---|
-| M8 (rewritten for D16–D18 and run 1) | rev 4 | critic, architect | open |
-| M1-a (widened to four sites) | rev 4 | critic, architect | open |
-| M6-l (iii)–(v) | rev 4 | critic, architect | open |
+| M8 (rewritten for D16–D18 and run 1) | rev 4 | critic, architect | approved (critic c1p2 `3398fc0`; architect `192ec29`) |
+| M1-a (widened to four sites) | rev 4 | critic, architect | approved (same) |
+| M6-l (iii)–(v) | rev 4 | critic, architect | approved (same) |
+| M8-a (2), M8-0 run 2, M9 (D19) | rev 5 | critic | open |
 
 ## Changelog
 
@@ -43,6 +44,7 @@ Owed re-verdicts:
 | 2026-11-08T04:58 | 3 | planner (planner-hooks-015) | Folds analysis `analysis/015-bug-evaluation-fixes-analysis.md` (`7e24de3`): under PM2 the drain never runs, because `shutdown_with_message` sends an IPC message, not SIGINT. Scope delta: M8-a is rewritten as P1–P4 with `kill_timeout` 12000 ms; M8-0's commands and prediction come from the analysis, which writes the script; RK-5 is added (Chromium after SIGKILL on PM2 7.x); the architecture-line entry now proposes the correction. Sized against the ask: 49 of 50 findings, unchanged. |
 | 2026-11-08T05:12 | R-1 | planner (planner-hooks-015) | Registered D14 and D15 from `steering/015-rulings.md` block "2026-11-08T05:11Z" (`9247ddb`). Scope delta: none, registration only. |
 | 2026-11-08T05:28 | 4 | planner (planner-hooks-015) | Folds critique `critiques/015-bug-evaluation-fixes-critique.md` cycle 1 pass 1 (`68308e8`): H-1, M-1 to M-4, L-1 to L-5 (L-2 is moot under D17), Q-2. Also folds the architect's findings (`b838a01`: AF-1 to AF-4), the rulings blocks 05:21Z, 05:24Z and 05:26Z (D16 to D18; D11 and D12 superseded), and M8-0 run 1 (`fe27690`, `1fc16f5`). Scope delta: M1-a widens to four `in` sites. M6-l gains its stored-`valid` residue (X-13), the no-live-sends constraint (X-14) and a home for the shared counter. M8 loses its preview leg, M8-0 becomes an agent read with run 1 done, and M8-a is bound to a verifying stop of the new code with a fixed log-line predicate. RK-6 and a Reading Order are added. Against the ask: 49 of 50 findings, unchanged. |
+| 2026-11-08T05:33 | 5 | planner (planner-hooks-015) | Folds D19 (rulings block 05:29Z, `fa693e0`: the verifying stop is devops' `prod.yml` re-run), critique cycle 1 pass 2 L-6 to L-9 (`3398fc0`), and architect AF-11 and AF-12 (`192ec29`). Scope delta: M8-a (2)'s cause moves from the owner's `pm2 reload` to a devops re-run, which is a second production deploy needing his approval. M8-0 run 2's reader is devops. Stop (1) is restated as a 12 s delay, not downtime. M1-a's route statement is corrected. D15 is brought current; X-15 carries the June–August gap. No criterion changes. Against the ask: 49 of 50 findings, unchanged. |
 
 ## Value Statement and Business Objective
 
@@ -71,10 +73,11 @@ message builder that sends through webhooks.
 | D12 | The generator host is a DigitalOcean box with no read-only user, so no agent reads it. | 2026-11-08 | "pretty sure it's a digital ocean box. there is no ro user on it" — his own words, relayed by steering, same block. | A read-only user created there. | **Reopened by its own class** (a read-only user created; reachability read 05:20Z) and **superseded by D17**. |
 | D13 | The plain-text API key in the generator's workflows goes to a handoff, out of chain, recording no value. | 2026-11-08 | "Agent: handoff, out of chain" — selection, same block. | Owner withdrawal only. | X-12. |
 | D14 | M6-l's reading of D10 stands: every add completes; the existing top-level refusal at 40 stays; a total over 40 fails `validateMessage`, so Send is blocked and `valid` is false. | 2026-11-08 | "Agent: use this reading" — selection relayed by steering-hooks-015, rulings block 05:11Z (`9247ddb`). The option text is steering's (agent-authored). | Owner withdrawal only. | M6-l unchanged; the reading is now his. |
-| D15 | He will create a read-only user on the generator host himself; steering supplies the commands and the firewall rules. | 2026-11-08 | "give me the code to add the ro user to the box, in addition to what firewall rule(s) to add" — his own words, relayed by steering-hooks-015, block 05:11Z (`9247ddb`). | Owner withdrawal; the user's absence on a reachability read. | D12's reopen condition is met only once a reachability read confirms the user. Until then M8-0 stays an owner step, and its review is held by steering. |
+| D15 | He will create a read-only user on the generator host himself; steering supplies the commands and the firewall rules. | 2026-11-08 | "give me the code to add the ro user to the box, in addition to what firewall rule(s) to add" — his own words, relayed by steering-hooks-015, block 05:11Z (`9247ddb`). | Owner withdrawal; the user's absence on a reachability read. | **Met** 05:20Z (steering's reachability read); for M8-0's route, **superseded by D17**. |
 | D16 | M8 deploys straight to prod, and the `preview` branch is deleted. | 2026-11-08 | "straight to prod. delete the preview branch" — his own words, relayed by steering-hooks-015, block 05:26Z (`a16e431`), given after steering told him the branch is 0 commits ahead of prod and no preview app exists. Steering deleted the branch on his word. | Owner withdrawal only. | M8 has no beta host. The transition stop and the verifying stop are both on production (M8-a). |
 | D17 | `claude-ro` reads on the generator host are standing: reads only, never a pm2 command, never a write. | 2026-11-08 | "Agent: standing reads" — selection relayed by steering-hooks-015, block 05:21Z (`42354bf`); the option text is steering's (agent-authored). | Owner withdrawal; the access removed. | M8-0 is an agent read. |
 | D18 | Root `dump.pm2` is read only through a host-side filter that prints name, `kill_timeout` and `shutdown_with_message` per app; env is never printed. `/home/nodejs/.pm2/dump.pm2` is never opened. | 2026-11-08 | "Agent: filtered extract only" — selection, block 05:24Z (`8d2d82f`); "You: remove the access" for the nodejs dump — selection, block 05:21Z. The option texts are steering's (agent-authored). | Owner withdrawal only. | M8-0's dump read. |
+| D19 | M8's verifying stop is caused by devops re-running `prod.yml` through `workflow_dispatch` after the prod push; that run is a second production deploy and needs his approval like any prod push; an agent reads the result over `claude-ro`. | 2026-11-08 | "Agent: re-run prod.yml" — selection relayed by steering-hooks-015, block 05:29Z (`fa693e0`); the option text is the planner's (agent-authored, rev-4 relay). | Owner withdrawal only. | M8-a (2), M8-0 run 2, M9. |
 
 ## Objective
 
@@ -152,8 +155,9 @@ together, so the gate's population is empty; a milestone the owner withholds fro
     - `shared.ts` `getPartialMessages` and `getUserRecentMessages`. These are live: a user who administers no
       server reaches the first, and an empty `recentMessageIds` reaches the second.
     - `user.ts` `authorizeUser` and `authorizeGuildUser.ts` `getOldMessages`. These are latent: their only route
-      is `message.ts` `authorizeAction`, whose one caller passes a single id from `z.object({ id: z.string() })`.
-      That id is wrapped as a one-item list, so no empty list reaches them at `7ce866b`.
+      is `message.ts`, through `authorizeAction` and through direct calls with `message.id` (architect AF-12).
+      Every caller passes a single id, never a list. That id is wrapped as a one-item list, so no empty list
+      reaches them at `7ce866b`.
   - **Property.** At every member, for the inputs {empty list, non-empty list}, no compiled SQL contains `in ()`.
     An empty list returns before the query is built, and the result is what an empty `in` set means at that site:
     - `getPartialMessages` keeps the user's own messages and drops only the guild `exists` limb;
@@ -341,8 +345,8 @@ Host facts (steering's standing `hooks-pig` reads, rulings blocks 05:20Z–05:24
       P1's fallback-signal limb therefore assumes SIGINT, the PM2 default, and the residue is a daemon
       started with `PM2_KILL_SIGNAL` set. It is moot for the message path, which run 1 shows is the one in
       use.
-  - **Run 2**, after the verifying stop (M9), by QA or devops: it reads M8-a's criterion and captures to
-    verification/015/.
+  - **Run 2**, by devops (critique L-6), after the `prod.yml` re-run of M8-a (2) completes and `pm2.log` shows the
+    app online. It reads M8-a's criterion and captures to verification/015/.
 - **M8-a (F-31)** — the originating statement, verbatim: *"Graceful shutdown is cut off by PM2 before its own
   fallback."* Reframed by the analysis: the shutdown never starts under PM2. Properties (analysis § 3):
   - **P1.**
@@ -376,14 +380,17 @@ Host facts (steering's standing `hooks-pig` reads, rulings blocks 05:20Z–05:24
       Expected signature: no shutdown line, then `still alive after 12000ms` → SIGKILL. This is **expected, not
       a refutation.**
       Stated limits:
-      - The production generator is down for about 12 s at the push, so previews saved in that window show
-        broken, not stale. That is handoff `preview-image-failure-shows-broken-not-stale`'s window (X-11).
+      - The push adds a 12 s delay before the switch-over, not 12 s of downtime (architect AF-11). The old process
+        ignores the message and keeps serving its old code until the SIGKILL. Previews break only for requests
+        in flight at the kill, and in the gap between the kill and the new process's `listen`. That is handoff
+        `preview-image-failure-shows-broken-not-stale`'s window (X-11).
       - At PM2 5.2.2 the SIGKILL takes the whole process tree, Chromium included, so RK-5's orphans do not arise.
-    - **(2) The verifying stop.** It is the first stop of a process running the M8 commit. Who causes it:
-      - by default, the owner runs `pm2 reload hooks-image-preview-generator-prod` as root on the host, after
-        the M9 push. This is a host write, and no pipeline party runs it.
-      - alternatively, devops re-runs `prod.yml` through its `workflow_dispatch` trigger, with the owner's
-        approval as for any prod push.
+    - **(2) The verifying stop (D19).** It is the first stop of a process running the M8 commit. Devops causes
+      it by re-running `prod.yml` through `workflow_dispatch` after the M9 push, with the owner's approval as for
+      any prod push.
+      - This re-run is itself a second production deploy. Its `startOrReload` stops the *new* process, which
+        handles the message, so the drain runs and the gap is the drain time (P3).
+      - The architect's reading of stop (1)'s deployed-directory replacement carries over (AF-9d, low bearing).
       **Criterion, read by M8-0 run 2 on stop (2) only:**
       - the out log gains exactly one `Server received` line naming the trigger, plus the drain-complete line;
       - the process exits before 12000 ms;
@@ -431,7 +438,7 @@ therefore an operator-visible criterion. Where each is verified:
   - `push-commands` (M7-a);
   - the F-2 check (limb 1, § Validation);
   - the M7-a Discord check (limb 2);
-  - the verifying stop's `pm2 reload`, unless he picks devops' `workflow_dispatch` re-run.
+  - approval of the second production deploy, devops' `prod.yml` re-run (D19).
   Limb (3) is now agent-read (M8-0, D17).
 
 ## Testing Strategy
@@ -501,6 +508,7 @@ can run the M8-b/d/e probes once the generator's dependencies are installed (M8 
 | X-12 | The plain-text API key in `prod.yml` / `preview.yml` | Out of chain by D13 | `handoff/preview-image-generator-api-key-in-workflow-files-2026-11-08.md` |
 | X-13 | Re-deriving stored `valid` for rows saved before M6-l | Stated limit (M6-l (iv)); a re-derivation over non-null rows would modify `backfillValid.ts` and is a scope change | `handoff/backfill-valid-guard-has-no-db-backed-instrument-2026-08-26.md` |
 | X-14 | `components-v2-emptiness…`, whose trigger fires on M6-l (a change to the send gate's predicate) | The emptiness class is outside the F-1–F-50 pool (D6); M6-l (v) carries its no-live-sends constraint | That handoff |
+| X-15 | The generator's 2026-06-15 → 2026-08-23 gap in `pm2.log` (analysis § M8-0 run 1) | Outside F-1–F-50 (D6); whether the generator was down for the whole gap is not established | Steering's FYI to the owner, rulings block 05:29Z (`fa693e0`) (critique L-8) |
 
 Not triggered, re-read 2026-11-08 against every milestone including M6-l: `backfill-valid-guard…` (`backfillValid.ts`
 is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, `fix-v1-guild-messages-auth-post-deploy`,
