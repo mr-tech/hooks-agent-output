@@ -1,0 +1,7 @@
+{'numTotalTests': 1115, 'numPassedTests': 1115, 'numFailedTests': 0, 'numPendingTests': 0, 'success': True} files 114
+auth.sign-out 13 Counter({'passed': 13})
+constructImageUrl.default-avatar 12 Counter({'passed': 12})
+formatKey.key-format 2 Counter({'passed': 2})
+Server.session-cookie-redirect 19 Counter({'passed': 19})
+added ['src/utils/__tests__/formatKey.key-format.test.ts']
+removed ['src/utils/__tests__/bugFixCoverage.supplemental.test.ts']

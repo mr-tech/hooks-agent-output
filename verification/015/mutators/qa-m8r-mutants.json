@@ -1,0 +1,34 @@
+{
+  "_scope": "QA Phase 2, M8 round at preview-image-generator 8de2b53. Production diff 6c613a5..8de2b53 (src/server.ts, src/getPool.ts) plus M8-a's drain guards from 471578f..6c613a5 in src/server.ts, which the 6c613a5 sweep deferred to this round. Edits apply to the compiled build/ of a git-archive export (tsc -b output), each old string exactly once. impl-* entries are the implementer's m8-guard-mutants.sh set restated as exact replacements.",
+  "mutants": [
+    {"name": "impl-complete-after-catch", "file": "build/server.js", "edits": [
+      ["        console.debug(`Drain complete in ${Date.now() - start}ms.`);\n", ""],
+      ["        console.error(err);\n    }\n    process.exit(0);", "        console.error(err);\n    }\n    console.debug(`Drain complete in ${Date.now() - start}ms.`); process.exit(0);"]]},
+    {"name": "impl-queue-optional-chain-removed", "file": "build/getPool.js", "edits": [["queue?.dequeue?.bind", "queue.dequeue?.bind"]]},
+    {"name": "impl-dequeue-optional-chain-removed", "file": "build/getPool.js", "edits": [["queue?.dequeue?.bind", "queue?.dequeue.bind"]]},
+    {"name": "impl-startup-check-removed", "file": "build/getPool.js", "edits": [["if (!waitingQueueDequeue(probe))", "if (false)"]]},
+    {"name": "impl-handler-registered-unconditionally", "file": "build/getPool.js", "edits": [["    if (dequeueWaiting)\n", "    if (true)\n"]]},
+    {"name": "impl-startup-check-inverted", "file": "build/getPool.js", "edits": [["if (!waitingQueueDequeue(probe))", "if (waitingQueueDequeue(probe))"]]},
+
+    {"name": "qa-d36-wrong-member-name", "file": "build/getPool.js", "edits": [["pool._waitingClientsQueue;", "pool._waitingClientQueue;"]]},
+    {"name": "qa-d36-call-site-removed", "file": "build/server.js", "edits": [["(0, getPool_1.checkPoolShape)();\n", ""]]},
+    {"name": "qa-d36-check-moved-to-first-pool", "file": "build/getPool.js", "edits": [["    if (!globalForPool.pool) {\n", "    if (!globalForPool.pool) {\n        (0, exports.checkPoolShape)();\n"]],
+     "extra": {"file": "build/server.js", "edits": [["(0, getPool_1.checkPoolShape)();\n", ""]]}},
+    {"name": "qa-d36-line-to-stdout", "file": "build/getPool.js", "edits": [["console.error('generic-pool no longer exposes", "console.debug('generic-pool no longer exposes"]]},
+    {"name": "qa-d36-handler-dequeues-without-reject", "file": "build/getPool.js", "edits": [["{ dequeueWaiting()?.reject(err); }", "{ dequeueWaiting(); }"]]},
+
+    {"name": "qa-cr27-failed-line-to-stderr", "file": "build/server.js", "edits": [["console.debug(`Drain failed after", "console.error(`Drain failed after"]]},
+    {"name": "qa-cr27-failed-line-no-cause", "file": "build/server.js", "edits": [["ms: ${err instanceof Error ? err.message : String(err)}`", "ms: `"]]},
+    {"name": "qa-cr27-failure-skips-exit", "file": "build/server.js", "edits": [["        console.error(err);\n    }\n    process.exit(0);", "        console.error(err);\n        return;\n    }\n    process.exit(0);"]]},
+
+    {"name": "qa-m8a-once-guard-removed", "file": "build/server.js", "edits": [["    if (shutdownStarted)\n        return;\n", ""]]},
+    {"name": "qa-m8a-message-test-wrong", "file": "build/server.js", "edits": [["if (message === 'shutdown')", "if (message === 'shutdown-x')"]]},
+    {"name": "qa-m8a-sigint-unregistered", "file": "build/server.js", "edits": [["process.on('SIGINT', () => { void shutdown('SIGINT'); });\n", ""]]},
+    {"name": "qa-m8a-pool-read-creates", "file": "build/server.js", "edits": [["const pool = (0, getPool_1.getExistingPool)();", "const pool = (0, getPool_1.default)();"]]},
+    {"name": "qa-m8a-success-exit-removed", "file": "build/server.js", "edits": [["        console.error(err);\n    }\n    process.exit(0);\n}", "        console.error(err);\n    }\n}"]]},
+    {"name": "qa-m8a-handlers-registered-late", "file": "build/server.js", "edits": [
+      ["process.on('message', (message) => {", "setTimeout(() => process.on('message', (message) => {"],
+      ["        void shutdown('shutdown message');\n});", "        void shutdown('shutdown message');\n}), 2000);"]]},
+    {"name": "qa-m8a-close-idle-dropped", "file": "build/server.js", "edits": [["        server.closeIdleConnections();\n", ""]]}
+  ]
+}
