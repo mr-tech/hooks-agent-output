@@ -1,0 +1,178 @@
+=== sec-host-read host=hooks-preview-image-generator at=2026-11-08T09:29:21Z as=claude-ro uid=1001
+[A] listening TCP sockets (ss -ltnH):
+  LISTEN     0          511                  0.0.0.0:80             0.0.0.0:*     
+  LISTEN     0          4096           127.0.0.53%lo:53             0.0.0.0:*     
+  LISTEN     0          128                  0.0.0.0:22             0.0.0.0:*     
+  LISTEN     0          10                 127.0.0.1:46423          0.0.0.0:*     
+  LISTEN     0          511                  0.0.0.0:3000           0.0.0.0:*     
+  LISTEN     0          10                 127.0.0.1:33933          0.0.0.0:*     
+  LISTEN     0          511                     [::]:80                [::]:*     
+  LISTEN     0          128                     [::]:22                [::]:*     
+  LISTEN     0          511                    [::1]:3000              [::]:*     
+[A2] /proc/net/tcp{,6} rows for :3000 (0BB8) and :22 (0016): local st uid
+  /proc/net/tcp local=00000000:0016 st=0A uid=0
+  /proc/net/tcp local=00000000:0BB8 st=0A uid=0
+  /proc/net/tcp local=398223A1:0016 st=01 uid=0
+  /proc/net/tcp local=0500110A:0016 st=01 uid=0
+  /proc/net/tcp local=398223A1:0016 st=01 uid=0
+  /proc/net/tcp6 local=00000000000000000000000000000000:0016 st=0A uid=0
+  /proc/net/tcp6 local=00000000000000000000000001000000:0BB8 st=0A uid=997
+[B] firewall:
+  systemctl is-active ufw: active
+  systemctl is-active nftables: inactive
+  systemctl is-active netfilter-persistent: inactive
+  systemctl is-active iptables: inactive
+  systemctl is-active firewalld: inactive
+  is-enabled ufw: enabled
+  /etc/ufw listing:
+    total 56
+    drwxr-xr-x   3 root root 4096 Aug 20  2023 .
+    drwxr-xr-x 103 root root 4096 Nov  8 05:15 ..
+    -rw-r-----   1 root root 1126 Jul 11  2022 after.init
+    -rw-r-----   1 root root 1004 Oct 25  2021 after.rules
+    -rw-r-----   1 root root  915 Oct 25  2021 after6.rules
+    drwxr-xr-x   2 root root 4096 Apr 25  2025 applications.d
+    -rw-r-----   1 root root 1130 Jul 11  2022 before.init
+    -rw-r-----   1 root root 2537 Oct 25  2021 before.rules
+    -rw-r-----   1 root root 6700 Oct 25  2021 before6.rules
+    -rw-r--r--   1 root root 1391 Jan 21  2020 sysctl.conf
+    -rw-r--r--   1 root root  313 Aug 20  2023 ufw.conf
+    -rw-r-----   1 root root 1979 Apr 25  2025 user.rules
+    -rw-r-----   1 root root 1971 Apr 25  2025 user6.rules
+  /etc/ufw/ufw.conf non-comment:
+    ENABLED=yes
+    LOGLEVEL=low
+  /etc/default/ufw non-comment:
+    IPV6=yes
+    DEFAULT_INPUT_POLICY="DROP"
+    DEFAULT_OUTPUT_POLICY="ACCEPT"
+    DEFAULT_FORWARD_POLICY="DROP"
+    DEFAULT_APPLICATION_POLICY="SKIP"
+    MANAGE_BUILTINS=no
+    IPT_SYSCTL=/etc/ufw/sysctl.conf
+    IPT_MODULES=""
+  user.rules readable: no; user6.rules readable: no
+  nft list ruleset: bash: line 15: nft: command not found
+  iptables -S: Fatal: can't open lock file /run/xtables.lock: Permission denied
+  /etc/iptables: ls: cannot access '/etc/iptables': No such file or directory|
+[C] daemons, generator, runner (user pid ppid lstart args):
+  nodejs       914       1 Mon Jun 15 21:14:36 2026 PM2 v5.2.2: God Daemon (/home/nodejs/.pm2)
+  root     1071944       1 Sun Aug 23 04:17:39 2026 PM2 v5.2.2: God Daemon (/etc/.pm2)
+  root     1071971 1071944 Sun Aug 23 04:18:19 2026 node /usr/local/bin/hooks-image-preview-generator/deployed/prod/dist/server.js
+  generator pid: 1071971
+  /proc/1071971/status:
+    Uid:	0	0	0	0
+    Gid:	0	0	0	0
+    VmRSS:	   81740 kB
+    Threads:	11
+    CapEff:	0000003fffffffff
+    CapBnd:	0000003fffffffff
+    NoNewPrivs:	0
+    Seccomp:	0
+  exe: 
+  cwd: 
+[D] chromium processes (user pid ppid comm):
+  root     2346103 1071971 chrome
+  root     2346114       1 chrome_crashpad
+  root     2346118       1 chrome_crashpad
+  root     2346141 2346103 chrome
+  root     2346160 2346103 chrome
+  root     2346196 2346103 chrome
+  root     2476749 1071971 chrome
+  root     2476763       1 chrome_crashpad
+  root     2476765       1 chrome_crashpad
+  root     2476788 2476749 chrome
+  root     2476808 2476749 chrome
+  root     2476843 2476749 chrome
+  count all chrom: 14
+  chromium binary paths (args field 1, distinct):
+    /root/.cache/puppeteer/chrome/linux-116.0.5845.96/chrome-linux64/chrome
+    /root/.cache/puppeteer/chrome/linux-116.0.5845.96/chrome-linux64/chrome_crashpad_handler
+  chromium args of interest (distinct flags no-sandbox/headless/remote-debugging):
+          2 --disable-setuid-sandbox
+          4 --headless=new
+         10 --no-sandbox
+          6 --remote-debugging-port=0
+[E] deployed tree (ls only):
+  total 12
+  drwxr-xr-x 3 root root 4096 Aug 20  2023 .
+  drwxr-xr-x 4 root root 4096 Aug 20  2023 ..
+  drwxr-xr-x 4 root root 4096 Aug 22  2023 deployed
+  total 16
+  drwxr-xr-x 4 root root 4096 Aug 22  2023 .
+  drwxr-xr-x 3 root root 4096 Aug 20  2023 ..
+  drwxr-xr-x 8 root root 4096 Aug 21  2023 preview
+  drwxr-xr-x 8 root root 4096 Aug 22  2023 prod
+  total 464
+  drwxr-xr-x   8 root root   4096 Aug 22  2023 .
+  drwxr-xr-x   4 root root   4096 Aug 22  2023 ..
+  -rw-r--r--   1 root root    311 Aug 22  2023 .env
+  -rw-r--r--   1 root root     62 Aug 22  2023 .eslintignore
+  -rw-r--r--   1 root root   5450 Aug 22  2023 .eslintrc.json
+  drwxr-xr-x   8 root root   4096 Aug 23 04:18 .git
+  drwxr-xr-x   3 root root   4096 Aug 22  2023 .github
+  -rw-r--r--   1 root root   1115 Aug 22  2023 .gitignore
+  -rw-r--r--   1 root root    489 Aug 22  2023 README.md
+  drwxr-xr-x   2 root root   4096 Aug 22  2023 build
+  drwxr-xr-x   2 root root   4096 Aug 22  2023 dist
+  -rw-r--r--   1 root root    590 Aug 22  2023 ecosystem.config.js
+  drwxr-xr-x 304 root root  16384 Aug 22  2023 node_modules
+  -rw-r--r--   1 root root 389277 Aug 22  2023 package-lock.json
+  -rw-r--r--   1 root root   1139 Aug 22  2023 package.json
+  drwxr-xr-x   2 root root   4096 Aug 22  2023 src
+  -rw-r--r--   1 root root    598 Aug 22  2023 tsconfig.json
+  deployed .env readable by claude-ro: yes (content not read)
+  deployed ecosystem.config.js lines:
+    10:    node_args: '--max-http-header-size=10000000 --max-old-space-size=1536',
+    19:    stop_exit_codes: [2],
+    24:    shutdown_with_message: true,
+    25:    kill_timeout: 5000,
+  deployed puppeteer:   "version": "21.1.0",
+  deployed puppeteer-core revisions: '116.0.5845.96' 
+  deployed generic-pool:   "version": "3.9.0",
+  deployed dist/server.js has closeIdleConnections: 0
+  deployed .git present: yes
+[F] node on PATH: v18.17.1 at /usr/bin/node -> /usr/bin/node
+  pm2.log 'Node.js version' lines (last 3):
+    691:2023-08-22T01:57:28: PM2 log: Node.js version      : 18.17.1
+    1362:2024-06-15T11:55:55: PM2 log: Node.js version      : 18.17.1
+    2895:2026-08-23T04:17:40: PM2 log: Node.js version      : 18.17.1
+  pm2.log 'PM2 version' lines (last 2):
+    1361:2024-06-15T11:55:55: PM2 log: PM2 version          : 5.2.2
+    2894:2026-08-23T04:17:40: PM2 log: PM2 version          : 5.2.2
+[G] resources: nproc=2; mem_total_mb=1971 used=599 avail=1197 swap_total_mb=0
+  uptime:  09:29:21 up 145 days, 12:14,  2 users,  load average: 0.00, 0.00, 0.00
+[H] /etc/.pm2 perms (ls only):
+  total 260
+  drwxr-xr-x   5 root root   4096 Aug 23 04:17 .
+  drwxr-xr-x 103 root root   4096 Nov  8 05:15 ..
+  -rw-r--r--   1 root root  10084 Jun 15 10:02 dump.pm2
+  -rw-r--r--   1 root root  10089 Jun 15 10:02 dump.pm2.bak
+  drwxr-xr-x   2 root root   4096 Aug 22  2023 logs
+  -rw-r--r--   1 root root      2 Aug 20  2023 module_conf.json
+  drwxr-xr-x   2 root root   4096 Aug 20  2023 modules
+  drwxr-xr-x   2 root root   4096 Aug 23 04:18 pids
+  -rw-r--r--   1 root root 204223 Nov  8 04:17 pm2.log
+  -rw-r--r--   1 root root      7 Aug 23 04:17 pm2.pid
+  srwxrwxr-x   1 root root      0 Aug 23 04:17 pub.sock
+  srwxrwxr-x   1 root root      0 Aug 23 04:17 rpc.sock
+  -rw-r--r--   1 root root     13 Aug 20  2023 touch
+[I] systemd units matching runner/pm2:
+  actions.runner.hooks-gg-preview-image-generator.hooks-preview-image-generator.service
+  pm2-nodejs.service
+  pm2-root.service
+  -- /etc/systemd/system/actions.runner.hooks-gg-preview-image-generator.hooks-preview-image-generator.service
+     ExecStart=/usr/local/bin/actions-runner/runsvc.sh
+     User=
+     WorkingDirectory=/usr/local/bin/actions-runner
+  -- /etc/systemd/system/pm2-nodejs.service
+     User=nodejs
+     Environment=PM2_HOME=/home/nodejs/.pm2
+     ExecStart=/usr/lib/node_modules/pm2/bin/pm2 resurrect
+  -- /etc/systemd/system/pm2-root.service
+     User=root
+     Environment=PM2_HOME=/etc/.pm2
+     ExecStart=/usr/lib/node_modules/pm2/bin/pm2 resurrect
+[J] ipv4 addrs: lo=127.0.0.1/8 eth0=161.35.130.57/20 eth0=10.17.0.5/16 eth1=10.132.171.224/16 
+  os: PRETTY_NAME="Ubuntu 20.04.6 LTS"; kernel: 5.4.0-216-generic
+=== end
