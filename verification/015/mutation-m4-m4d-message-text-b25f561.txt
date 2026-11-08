@@ -1,0 +1,35 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-b25f561-m4-m4d-message-text  sha: b25f561  label: m4-m4d-message-text  test: WebhookProvider.validation  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py
+mutated m4d-message-text
+ .../src/providers/WebhookProvider.tsx              |   2 +-
+ 3 files changed, 1 insertion(+), 198 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-b25f561-m4-m4d-message-text
+
+ ❯ |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx (24 tests | 1 failed) 182ms
+     × shows the connection error and no message when the fetch rejects 23ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message fetch failure > shows the connection error and no message when the fetch rejects
+AssertionError: expected 'Could not load the message. Check you…' to be 'Could not load the message. Check you…' // Object.is equality
+
+Expected: "Could not load the message. Check your connection and try again."
+Received: "Could not load the message. Check your network and try again."
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:170:35
+    168|     await act(async () => {});
+    169|     expect(state.oldMessage).toBeNull();
+    170|     expect(state.oldMessageError).toBe('Could not load the message. Ch…
+       |                                   ^
+    171|     expect(state.isOldMessageLoading).toBe(false);
+    172|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 23 passed (24)
+   Start at  06:53:16
+   Duration  2.82s (transform 428ms, setup 55ms, import 1.21s, tests 182ms, environment 1.11s)
+
+vitest exit 1

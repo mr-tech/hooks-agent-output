@@ -1,0 +1,16 @@
+## E16: voided(async with no catch in src (non-test)
+src/app/_components/NavMenu.tsx:138:            voided(async () => {
+src/providers/MessageProvider/useApiMethods.ts:23:  const reloadMessage = useCallback(voided(async () => {
+src/components/ImageUploader.tsx:74:  useEffect(voided(async () => {
+src/providers/WebhookProvider.tsx:71:      voided(async () => {
+src/providers/WebhookProvider.tsx:111:      voided(async () => {
+src/utils/hooks/useValidateWebhook.ts:22:  useEffect(voided(async () => {
+src/utils/hooks/useValidateWebhook.ts:35:  useEffect(voided(async () => {
+src/utils/redis/index.ts:58:  const timeout = setTimeout(voided(async () => {
+count: src/app/_components/NavMenu.tsx:1 src/providers/MessageProvider/useApiMethods.ts:1 src/providers/WebhookProvider.tsx:2 src/utils/hooks/useValidateWebhook.ts:2 src/utils/redis/index.ts:1 src/components/ImageUploader.tsx:1 
+## E17: unanchored digit tests on user text
+src/utils/hooks/useValidateWebhook.ts:40:    if (webhook && (isValidUrl(messageIdOrUrl) || /\d+/.test(messageIdOrUrl.trim()))) {
+## E18: isDisabled gated on a field that is not the one the handler writes (Clear/threadName)
+2:src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx:335:                isDisabled={!!threadName}
+## E19: errorMessage with !== null on selectedWebhook
+src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx:216:          errorMessage={url && !isWebhookLoading && selectedWebhook === null ? 'Invalid URL' : undefined}

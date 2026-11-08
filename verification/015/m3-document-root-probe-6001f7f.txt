@@ -1,0 +1,33 @@
+# M3 document-root probe, website 6001f7f (base), 2026-11-08T06:48:11Z
+import { act } from 'react';
+import { createRoot } from 'react-dom/client';
+import { it, vi } from 'vitest';
+
+vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+import WarningDialog from '../WarningDialog';
+
+it('probe', () => {
+  const onConfirm = vi.fn(); const onClose = vi.fn();
+  const reg: string[] = [];
+  for (const [name, node] of [['document', document], ['html', document.documentElement], ['body', document.body], ['window', window]] as const) {
+    const orig = node.addEventListener.bind(node);
+    (node as any).addEventListener = (t: string, ...rest: any[]) => { if (t === 'keydown') reg.push(name); return (orig as any)(t, ...rest); };
+  }
+  const r = createRoot(document);
+  act(() => { r.render(<html><body><WarningDialog title="t" message="m" open confirmText="Del" onClose={onClose} onConfirm={onConfirm} /></body></html>); });
+  const seen: string[] = [];
+  const tr = (name: string) => (e: Event) => seen.push(`${name} prevented=${e.defaultPrevented}`);
+  window.addEventListener('keydown', tr('window-capture'), true);
+  document.addEventListener('keydown', tr('doc-capture'), true);
+  document.addEventListener('keydown', tr('doc-bubble'));
+  window.addEventListener('keydown', tr('window-bubble'));
+  document.addEventListener('keydown', (e) => seen.push(`doc keydown ${(e.target as HTMLElement).tagName} prevented=${e.defaultPrevented}`));
+  const cancel = Array.from(document.querySelectorAll('button')).find((b) => b.textContent === 'Cancel')!;
+  act(() => { cancel.focus(); });
+  const init = { key: 'Enter', code: 'Enter', bubbles: true, cancelable: true };
+  act(() => { cancel.dispatchEvent(new KeyboardEvent('keydown', init)); });
+  require('node:fs').writeFileSync('/tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/probe2.txt', JSON.stringify({ reg, seen, confirm: onConfirm.mock.calls.length, buttons: document.querySelectorAll('button').length, html: document.documentElement.outerHTML.slice(0, 200) }));
+});
+
+# output:
+{"reg":["document","document","document","window","window","window","document","document","window","document"],"seen":["window-capture prevented=false","doc-capture prevented=false"],"confirm":0,"buttons":5,"html":"<html style=\"overflow: hidden; padding-right: 1024px;\" data-headlessui-focus-visible=\"\"><head><style data-nano-css-dev=\"\"></style><style data-nano-css-dev-tests=\"\"></style><style></style></head><body>"}

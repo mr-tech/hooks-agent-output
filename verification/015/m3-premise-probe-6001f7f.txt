@@ -1,0 +1,31 @@
+# M3 premise probe, website 6001f7f (base), 2026-11-08T06:42:16Z
+# source (deleted after the run):
+import { act } from 'react';
+import { createRoot } from 'react-dom/client';
+import { it, vi } from 'vitest';
+
+vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+import WarningDialog from '../WarningDialog';
+
+it('probe', () => {
+  const onConfirm = vi.fn(); const onClose = vi.fn();
+  const c = document.createElement('div'); document.body.appendChild(c);
+  const r = createRoot(c);
+  act(() => { r.render(<WarningDialog title="t" message="m" open confirmText="Del" onClose={onClose} onConfirm={onConfirm} />); });
+  const seen: string[] = [];
+  document.addEventListener('keydown', (e) => seen.push(`doc keydown ${(e.target as HTMLElement).tagName}`));
+  document.addEventListener('keyup', (e) => seen.push(`doc keyup ${(e.target as HTMLElement).tagName}`));
+  document.addEventListener('click', (e) => seen.push(`doc click ${(e.target as HTMLElement).tagName} detail=${e.detail}`));
+  const cancel = Array.from(document.querySelectorAll('button')).find((b) => b.textContent === 'Cancel')!;
+  act(() => { cancel.focus(); });
+  const init = { key: 'Enter', code: 'Enter', bubbles: true, cancelable: true };
+  const kd = new KeyboardEvent('keydown', init);
+  act(() => { cancel.dispatchEvent(kd); });
+  const closeAfterKeydown = onClose.mock.calls.length;
+  const ku = new KeyboardEvent('keyup', init);
+  act(() => { cancel.dispatchEvent(ku); });
+  require('node:fs').writeFileSync('/tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/probe.txt', JSON.stringify({ seen, kdPrevented: kd.defaultPrevented, closeAfterKeydown, synthetic: (() => { const before = onConfirm.mock.calls.length; act(() => { document.body.dispatchEvent(new KeyboardEvent('keydown', init)); }); return `${before}->${onConfirm.mock.calls.length}, active=${document.activeElement?.tagName}`; })(), active: document.activeElement?.tagName, confirm: onConfirm.mock.calls.length, close: onClose.mock.calls.length, mounted: document.querySelectorAll('button').length }));
+});
+
+# output:
+{"seen":["doc keyup BUTTON","doc keydown BODY"],"kdPrevented":true,"closeAfterKeydown":0,"synthetic":"0->1, active=BUTTON","active":"BUTTON","confirm":1,"close":1,"mounted":5}

@@ -1,0 +1,39 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-b25f561-m4-m4d-link-hosts-dropped  sha: b25f561  label: m4-m4d-link-hosts-dropped  test: WebhookProvider.validation  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py
+mutated m4d-link-hosts-dropped
+ .../src/providers/WebhookProvider.tsx              |   2 +-
+ 3 files changed, 1 insertion(+), 198 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-b25f561-m4-m4d-link-hosts-dropped
+
+ ❯ |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx (24 tests | 5 failed) 69ms
+     × fetches the message for the message link https://www.discord.com/channels/1/2/345678901234567890, using its last path segment 6ms
+     × fetches the message for the message link https://canary.discord.com/channels/1/2/345678901234567890, using its last path segment 3ms
+     × fetches the message for the message link https://ptb.discord.com/channels/1/2/345678901234567890, using its last path segment 2ms
+     × fetches the message for the message link https://discordapp.com/channels/1/2/345678901234567890, using its last path segment 2ms
+     × fetches the message for the message link https://ptb.discordapp.com/channels/1/2/345678901234567890, using its last path segment 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > fetches the message for the message link https://www.discord.com/channels/1/2/345678901234567890, using its last path segment
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > fetches the message for the message link https://canary.discord.com/channels/1/2/345678901234567890, using its last path segment
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > fetches the message for the message link https://ptb.discord.com/channels/1/2/345678901234567890, using its last path segment
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > fetches the message for the message link https://discordapp.com/channels/1/2/345678901234567890, using its last path segment
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > fetches the message for the message link https://ptb.discordapp.com/channels/1/2/345678901234567890, using its last path segment
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:94:23
+     92|     await select(WEBHOOK);
+     93|     await typeMessage(link);
+     94|     expect(fetchMock).toHaveBeenCalledTimes(1);
+       |                       ^
+     95|     expect(String(fetchMock.mock.calls[0][0])).toContain('/messages/34…
+     96|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  5 failed | 19 passed (24)
+   Start at  06:52:49
+   Duration  1.62s (transform 234ms, setup 24ms, import 710ms, tests 69ms, environment 676ms)
+
+vitest exit 1

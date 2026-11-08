@@ -1,0 +1,35 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-588d11a-m4e-m4d-stale-message-guard-dropped  sha: 588d11a  label: m4e-m4d-stale-message-guard-dropped  test: constants.discord-message-link message.get-from-url WebhookProvider.validation page.send-in-flight WebhookMenu.url-and  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py
+mutated m4d-stale-message-guard-dropped
+ .../src/providers/WebhookProvider.tsx              |   1 -
+ 3 files changed, 198 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-588d11a-m4e-m4d-stale-message-guard-dropped
+
+ ❯ |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx (26 tests | 1 failed) 177ms
+     × applies the latest input's message when an earlier input resolves last 17ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message validation > applies the latest input's message when an earlier input resolves last
+AssertionError: expected 'one' to be 'two' // Object.is equality
+
+Expected: "two"
+Received: "one"
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:160:39
+    158|     await act(async () => { first.resolve(jsonResponse(messageBody('on…
+    159|
+    160|     expect(state.oldMessage?.content).toBe('two');
+       |                                       ^
+    161|   });
+    162| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  1 failed | 71 passed (72)
+   Start at  06:58:08
+   Duration  4.24s (transform 1.98s, setup 45ms, import 7.31s, tests 1.28s, environment 3.92s)
+
+vitest exit 1

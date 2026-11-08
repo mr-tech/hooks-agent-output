@@ -1,0 +1,35 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-588d11a-m4e-m4d-message-text  sha: 588d11a  label: m4e-m4d-message-text  test: constants.discord-message-link message.get-from-url WebhookProvider.validation page.send-in-flight WebhookMenu.url-and  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py
+mutated m4d-message-text
+ .../src/providers/WebhookProvider.tsx              |   2 +-
+ 3 files changed, 1 insertion(+), 198 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-588d11a-m4e-m4d-message-text
+
+ ❯ |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx (26 tests | 1 failed) 80ms
+     × shows the connection error and no message when the fetch rejects 12ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message fetch failure > shows the connection error and no message when the fetch rejects
+AssertionError: expected 'Could not load the message. Check you…' to be 'Could not load the message. Check you…' // Object.is equality
+
+Expected: "Could not load the message. Check your connection and try again."
+Received: "Could not load the message. Check your network and try again."
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:172:35
+    170|     await act(async () => {});
+    171|     expect(state.oldMessage).toBeNull();
+    172|     expect(state.oldMessageError).toBe('Could not load the message. Ch…
+       |                                   ^
+    173|     expect(state.isOldMessageLoading).toBe(false);
+    174|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  1 failed | 71 passed (72)
+   Start at  06:58:26
+   Duration  2.26s (transform 783ms, setup 26ms, import 3.73s, tests 569ms, environment 2.33s)
+
+vitest exit 1

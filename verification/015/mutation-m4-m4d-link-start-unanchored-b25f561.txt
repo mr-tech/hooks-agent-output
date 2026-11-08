@@ -1,0 +1,43 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-b25f561-m4-m4d-link-start-unanchored  sha: b25f561  label: m4-m4d-link-start-unanchored  test: WebhookProvider.validation  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py
+mutated m4d-link-start-unanchored
+ .../src/providers/WebhookProvider.tsx              |   2 +-
+ 3 files changed, 1 insertion(+), 198 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-b25f561-m4-m4d-link-start-unanchored
+
+ ❯ |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx (24 tests | 1 failed) 175ms
+     × does not fetch for "see https://discord.com/channels/1/2/345678901234567890", refused before any fetch 10ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "see https://discord.com/channels/1/2/345678901234567890", refused before any fetch
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      "https://discord.com/api/v10/webhooks/1/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/messages/345678901234567890?wait=true",
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:115:27
+    113|     await select(WEBHOOK);
+    114|     await typeMessage(text);
+    115|     expect(fetchMock).not.toHaveBeenCalled();
+       |                           ^
+    116|     expect(state.oldMessage).toBeNull();
+    117|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 23 passed (24)
+   Start at  06:52:45
+   Duration  1.91s (transform 297ms, setup 21ms, import 976ms, tests 175ms, environment 604ms)
+
+vitest exit 1

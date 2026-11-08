@@ -1,0 +1,420 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-b25f561-m4-m4d-id-unanchored  sha: b25f561  label: m4-m4d-id-unanchored  test: WebhookProvider.validation  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py
+mutated m4d-id-unanchored
+ .../src/providers/WebhookProvider.tsx              |   2 +-
+ 3 files changed, 1 insertion(+), 198 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-b25f561-m4-m4d-id-unanchored
+
+ ❯ |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx (24 tests | 18 failed) 81ms
+     × fetches the message for the message link https://discord.com/channels/1/2/345678901234567890, using its last path segment 10ms
+     × fetches the message for the message link https://www.discord.com/channels/1/2/345678901234567890, using its last path segment 4ms
+     × fetches the message for the message link https://canary.discord.com/channels/1/2/345678901234567890, using its last path segment 3ms
+     × fetches the message for the message link https://ptb.discord.com/channels/1/2/345678901234567890, using its last path segment 4ms
+     × fetches the message for the message link https://discordapp.com/channels/1/2/345678901234567890, using its last path segment 3ms
+     × fetches the message for the message link https://ptb.discordapp.com/channels/1/2/345678901234567890, using its last path segment 3ms
+     × does not fetch for "see 12345 here", refused before any fetch 4ms
+     × does not fetch for "abc1", refused before any fetch 2ms
+     × does not fetch for "12 34", refused before any fetch 2ms
+     × does not fetch for "https://example.com/channels/1/2/345678901234567890", refused before any fetch 2ms
+     × does not fetch for "see https://discord.com/channels/1/2/345678901234567890", refused before any fetch 2ms
+     × does not fetch for "https://evil-discord.com/channels/1/2/345678901234567890", refused before any fetch 2ms
+     × does not fetch for "https://discord.com.evil.example/channels/1/2/345678901234567890", refused before any fetch 2ms
+     × does not fetch for "http://discord.com/channels/1/2/345678901234567890", refused before any fetch 1ms
+     × does not fetch for "https://discord.com/channels/1/2", refused before any fetch 2ms
+     × does not fetch for "https://discord.com/channels/1/2/3/extra", refused before any fetch 1ms
+     × does not fetch for "https://discord.com/channels/1/2/345 and more", refused before any fetch 2ms
+     × does not fetch for "https://discord.com/other/1/2/345678901234567890", refused before any fetch 2ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 18 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > fetches the message for the message link https://discord.com/channels/1/2/345678901234567890, using its last path segment
+AssertionError: expected 'https://discord.com/api/v10/webhooks/…' to contain '/messages/345678901234567890?'
+
+Expected: "/messages/345678901234567890?"
+Received: "https://discord.com/api/v10/webhooks/1/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/messages/https://discord.com/channels/1/2/345678901234567890?wait=true"
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:95:48
+     93|     await typeMessage(link);
+     94|     expect(fetchMock).toHaveBeenCalledTimes(1);
+     95|     expect(String(fetchMock.mock.calls[0][0])).toContain('/messages/34…
+       |                                                ^
+     96|   });
+     97|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/18]⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > fetches the message for the message link https://www.discord.com/channels/1/2/345678901234567890, using its last path segment
+AssertionError: expected 'https://discord.com/api/v10/webhooks/…' to contain '/messages/345678901234567890?'
+
+Expected: "/messages/345678901234567890?"
+Received: "https://discord.com/api/v10/webhooks/1/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/messages/https://www.discord.com/channels/1/2/345678901234567890?wait=true"
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:95:48
+     93|     await typeMessage(link);
+     94|     expect(fetchMock).toHaveBeenCalledTimes(1);
+     95|     expect(String(fetchMock.mock.calls[0][0])).toContain('/messages/34…
+       |                                                ^
+     96|   });
+     97|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/18]⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > fetches the message for the message link https://canary.discord.com/channels/1/2/345678901234567890, using its last path segment
+AssertionError: expected 'https://discord.com/api/v10/webhooks/…' to contain '/messages/345678901234567890?'
+
+Expected: "/messages/345678901234567890?"
+Received: "https://discord.com/api/v10/webhooks/1/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/messages/https://canary.discord.com/channels/1/2/345678901234567890?wait=true"
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:95:48
+     93|     await typeMessage(link);
+     94|     expect(fetchMock).toHaveBeenCalledTimes(1);
+     95|     expect(String(fetchMock.mock.calls[0][0])).toContain('/messages/34…
+       |                                                ^
+     96|   });
+     97|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/18]⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > fetches the message for the message link https://ptb.discord.com/channels/1/2/345678901234567890, using its last path segment
+AssertionError: expected 'https://discord.com/api/v10/webhooks/…' to contain '/messages/345678901234567890?'
+
+Expected: "/messages/345678901234567890?"
+Received: "https://discord.com/api/v10/webhooks/1/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/messages/https://ptb.discord.com/channels/1/2/345678901234567890?wait=true"
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:95:48
+     93|     await typeMessage(link);
+     94|     expect(fetchMock).toHaveBeenCalledTimes(1);
+     95|     expect(String(fetchMock.mock.calls[0][0])).toContain('/messages/34…
+       |                                                ^
+     96|   });
+     97|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/18]⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > fetches the message for the message link https://discordapp.com/channels/1/2/345678901234567890, using its last path segment
+AssertionError: expected 'https://discord.com/api/v10/webhooks/…' to contain '/messages/345678901234567890?'
+
+Expected: "/messages/345678901234567890?"
+Received: "https://discord.com/api/v10/webhooks/1/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/messages/https://discordapp.com/channels/1/2/345678901234567890?wait=true"
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:95:48
+     93|     await typeMessage(link);
+     94|     expect(fetchMock).toHaveBeenCalledTimes(1);
+     95|     expect(String(fetchMock.mock.calls[0][0])).toContain('/messages/34…
+       |                                                ^
+     96|   });
+     97|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/18]⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > fetches the message for the message link https://ptb.discordapp.com/channels/1/2/345678901234567890, using its last path segment
+AssertionError: expected 'https://discord.com/api/v10/webhooks/…' to contain '/messages/345678901234567890?'
+
+Expected: "/messages/345678901234567890?"
+Received: "https://discord.com/api/v10/webhooks/1/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/messages/https://ptb.discordapp.com/channels/1/2/345678901234567890?wait=true"
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:95:48
+     93|     await typeMessage(link);
+     94|     expect(fetchMock).toHaveBeenCalledTimes(1);
+     95|     expect(String(fetchMock.mock.calls[0][0])).toContain('/messages/34…
+       |                                                ^
+     96|   });
+     97|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/18]⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "see 12345 here", refused before any fetch
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      "https://discord.com/api/v10/webhooks/1/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/messages/see 12345 here?wait=true",
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:115:27
+    113|     await select(WEBHOOK);
+    114|     await typeMessage(text);
+    115|     expect(fetchMock).not.toHaveBeenCalled();
+       |                           ^
+    116|     expect(state.oldMessage).toBeNull();
+    117|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/18]⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "abc1", refused before any fetch
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      "https://discord.com/api/v10/webhooks/1/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/messages/abc1?wait=true",
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:115:27
+    113|     await select(WEBHOOK);
+    114|     await typeMessage(text);
+    115|     expect(fetchMock).not.toHaveBeenCalled();
+       |                           ^
+    116|     expect(state.oldMessage).toBeNull();
+    117|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/18]⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "12 34", refused before any fetch
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      "https://discord.com/api/v10/webhooks/1/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/messages/12 34?wait=true",
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:115:27
+    113|     await select(WEBHOOK);
+    114|     await typeMessage(text);
+    115|     expect(fetchMock).not.toHaveBeenCalled();
+       |                           ^
+    116|     expect(state.oldMessage).toBeNull();
+    117|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/18]⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "https://example.com/channels/1/2/345678901234567890", refused before any fetch
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      "https://discord.com/api/v10/webhooks/1/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/messages/https://example.com/channels/1/2/345678901234567890?wait=true",
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:115:27
+    113|     await select(WEBHOOK);
+    114|     await typeMessage(text);
+    115|     expect(fetchMock).not.toHaveBeenCalled();
+       |                           ^
+    116|     expect(state.oldMessage).toBeNull();
+    117|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/18]⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "see https://discord.com/channels/1/2/345678901234567890", refused before any fetch
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      "https://discord.com/api/v10/webhooks/1/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/messages/see https://discord.com/channels/1/2/345678901234567890?wait=true",
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:115:27
+    113|     await select(WEBHOOK);
+    114|     await typeMessage(text);
+    115|     expect(fetchMock).not.toHaveBeenCalled();
+       |                           ^
+    116|     expect(state.oldMessage).toBeNull();
+    117|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/18]⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "https://evil-discord.com/channels/1/2/345678901234567890", refused before any fetch
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      "https://discord.com/api/v10/webhooks/1/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/messages/https://evil-discord.com/channels/1/2/345678901234567890?wait=true",
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:115:27
+    113|     await select(WEBHOOK);
+    114|     await typeMessage(text);
+    115|     expect(fetchMock).not.toHaveBeenCalled();
+       |                           ^
+    116|     expect(state.oldMessage).toBeNull();
+    117|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/18]⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "https://discord.com.evil.example/channels/1/2/345678901234567890", refused before any fetch
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      "https://discord.com/api/v10/webhooks/1/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/messages/https://discord.com.evil.example/channels/1/2/345678901234567890?wait=true",
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:115:27
+    113|     await select(WEBHOOK);
+    114|     await typeMessage(text);
+    115|     expect(fetchMock).not.toHaveBeenCalled();
+       |                           ^
+    116|     expect(state.oldMessage).toBeNull();
+    117|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/18]⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "http://discord.com/channels/1/2/345678901234567890", refused before any fetch
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      "https://discord.com/api/v10/webhooks/1/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/messages/http://discord.com/channels/1/2/345678901234567890?wait=true",
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:115:27
+    113|     await select(WEBHOOK);
+    114|     await typeMessage(text);
+    115|     expect(fetchMock).not.toHaveBeenCalled();
+       |                           ^
+    116|     expect(state.oldMessage).toBeNull();
+    117|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/18]⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "https://discord.com/channels/1/2", refused before any fetch
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      "https://discord.com/api/v10/webhooks/1/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/messages/https://discord.com/channels/1/2?wait=true",
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:115:27
+    113|     await select(WEBHOOK);
+    114|     await typeMessage(text);
+    115|     expect(fetchMock).not.toHaveBeenCalled();
+       |                           ^
+    116|     expect(state.oldMessage).toBeNull();
+    117|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/18]⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "https://discord.com/channels/1/2/3/extra", refused before any fetch
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      "https://discord.com/api/v10/webhooks/1/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/messages/https://discord.com/channels/1/2/3/extra?wait=true",
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:115:27
+    113|     await select(WEBHOOK);
+    114|     await typeMessage(text);
+    115|     expect(fetchMock).not.toHaveBeenCalled();
+       |                           ^
+    116|     expect(state.oldMessage).toBeNull();
+    117|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/18]⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "https://discord.com/channels/1/2/345 and more", refused before any fetch
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      "https://discord.com/api/v10/webhooks/1/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/messages/https://discord.com/channels/1/2/345 and more?wait=true",
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:115:27
+    113|     await select(WEBHOOK);
+    114|     await typeMessage(text);
+    115|     expect(fetchMock).not.toHaveBeenCalled();
+       |                           ^
+    116|     expect(state.oldMessage).toBeNull();
+    117|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/18]⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "https://discord.com/other/1/2/345678901234567890", refused before any fetch
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      "https://discord.com/api/v10/webhooks/1/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/messages/https://discord.com/other/1/2/345678901234567890?wait=true",
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:115:27
+    113|     await select(WEBHOOK);
+    114|     await typeMessage(text);
+    115|     expect(fetchMock).not.toHaveBeenCalled();
+       |                           ^
+    116|     expect(state.oldMessage).toBeNull();
+    117|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/18]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  18 failed | 6 passed (24)
+   Start at  06:52:39
+   Duration  1.43s (transform 163ms, setup 21ms, import 544ms, tests 81ms, environment 620ms)
+
+vitest exit 1

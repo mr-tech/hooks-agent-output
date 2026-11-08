@@ -1,0 +1,68 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-b25f561-m4-m4d-link-end-unanchored  sha: b25f561  label: m4-m4d-link-end-unanchored  test: WebhookProvider.validation  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py
+mutated m4d-link-end-unanchored
+ .../src/providers/WebhookProvider.tsx              |   2 +-
+ 3 files changed, 1 insertion(+), 198 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-b25f561-m4-m4d-link-end-unanchored
+
+ ❯ |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx (24 tests | 2 failed) 72ms
+     × does not fetch for "https://discord.com/channels/1/2/3/extra", refused before any fetch 6ms
+     × does not fetch for "https://discord.com/channels/1/2/345 and more", refused before any fetch 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "https://discord.com/channels/1/2/3/extra", refused before any fetch
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      "https://discord.com/api/v10/webhooks/1/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/messages/3?wait=true",
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:115:27
+    113|     await select(WEBHOOK);
+    114|     await typeMessage(text);
+    115|     expect(fetchMock).not.toHaveBeenCalled();
+       |                           ^
+    116|     expect(state.oldMessage).toBeNull();
+    117|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "https://discord.com/channels/1/2/345 and more", refused before any fetch
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      "https://discord.com/api/v10/webhooks/1/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/messages/345?wait=true",
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:115:27
+    113|     await select(WEBHOOK);
+    114|     await typeMessage(text);
+    115|     expect(fetchMock).not.toHaveBeenCalled();
+       |                           ^
+    116|     expect(state.oldMessage).toBeNull();
+    117|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 22 passed (24)
+   Start at  06:52:42
+   Duration  1.39s (transform 169ms, setup 21ms, import 567ms, tests 72ms, environment 594ms)
+
+vitest exit 1

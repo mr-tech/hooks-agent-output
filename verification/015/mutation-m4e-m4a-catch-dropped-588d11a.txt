@@ -1,0 +1,37 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-588d11a-m4e-m4a-catch-dropped  sha: 588d11a  label: m4e-m4a-catch-dropped  test: constants.discord-message-link message.get-from-url WebhookProvider.validation page.send-in-flight WebhookMenu.url-and  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py
+mutated m4a-catch-dropped
+ .../results.json => dev/null}                      |   1 -
+ 3 files changed, 1 insertion(+), 198 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-588d11a-m4e-m4a-catch-dropped
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 1 unhandled error during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+Error: Bad Request
+ ❯ src/app/message/m/[id]/send/__tests__/page.send-in-flight.test.tsx:111:44
+ ❯ Proxy.process.env.NODE_ENV.exports.act ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ src/app/message/m/[id]/send/__tests__/page.send-in-flight.test.tsx:111:11
+ ❯ ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/@vitest+runner@4.1.2/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11
+ ❯ ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/@vitest+runner@4.1.2/node_modules/@vitest/runner/dist/chunk-artifact.js:1893:26
+ ❯ ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/@vitest+runner@4.1.2/node_modules/@vitest/runner/dist/chunk-artifact.js:2316:20
+ ❯ runWithCancel ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/@vitest+runner@4.1.2/node_modules/@vitest/runner/dist/chunk-artifact.js:2313:10
+ ❯ ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/@vitest+runner@4.1.2/node_modules/@vitest/runner/dist/chunk-artifact.js:2295:20
+
+This error originated in "src/app/message/m/[id]/send/__tests__/page.send-in-flight.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "re-enables Send after a failed send, and the failure is not left unhandled". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  5 passed (5)
+      Tests  72 passed (72)
+     Errors  1 error
+   Start at  06:58:34
+   Duration  2.03s (transform 665ms, setup 31ms, import 3.34s, tests 543ms, environment 1.97s)
+
+vitest exit 1

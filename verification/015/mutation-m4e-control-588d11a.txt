@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-588d11a-m4e-control  sha: 588d11a  label: m4e-control  test: constants.discord-message-link message.get-from-url WebhookProvider.validation page.send-in-flight WebhookMenu.url-and  mutator: none
+ .../results.json => dev/null}                      |   1 -
+ 2 files changed, 197 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-588d11a-m4e-control
+
+
+ Test Files  5 passed (5)
+      Tests  72 passed (72)
+   Start at  06:57:21
+   Duration  2.03s (transform 718ms, setup 26ms, import 3.41s, tests 526ms, environment 1.99s)
+
+vitest exit 0

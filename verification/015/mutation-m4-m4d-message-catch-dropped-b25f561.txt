@@ -1,0 +1,64 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-b25f561-m4-m4d-message-catch-dropped  sha: b25f561  label: m4-m4d-message-catch-dropped  test: WebhookProvider.validation  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py
+mutated m4d-message-catch-dropped
+ .../src/providers/WebhookProvider.tsx              |   6 +-
+ 3 files changed, 1 insertion(+), 202 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-b25f561-m4-m4d-message-catch-dropped
+
+ ❯ |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx (24 tests | 1 failed) 159ms
+     × shows the connection error and no message when the fetch rejects 17ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message fetch failure > shows the connection error and no message when the fetch rejects
+AssertionError: expected '' to be 'Could not load the message. Check you…' // Object.is equality
+
+- Expected
++ Received
+
+- Could not load the message. Check your connection and try again.
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:170:35
+    168|     await act(async () => {});
+    169|     expect(state.oldMessage).toBeNull();
+    170|     expect(state.oldMessageError).toBe('Could not load the message. Ch…
+       |                                   ^
+    171|     expect(state.isOldMessageLoading).toBe(false);
+    172|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 2 unhandled errors during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+Error: network down
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:166:33
+ ❯ ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/@vitest+runner@4.1.2/node_modules/@vitest/runner/dist/chunk-artifact.js:1893:20
+
+This error originated in "src/providers/__tests__/WebhookProvider.validation-effects.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "shows the connection error and no message when the fetch rejects". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+Error: network down
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:177:37
+ ❯ ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/@vitest+runner@4.1.2/node_modules/@vitest/runner/dist/chunk-artifact.js:1893:20
+
+This error originated in "src/providers/__tests__/WebhookProvider.validation-effects.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "clears the connection error once a later input loads". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 23 passed (24)
+     Errors  2 errors
+   Start at  06:53:11
+   Duration  2.60s (transform 355ms, setup 37ms, import 1.07s, tests 159ms, environment 1.08s)
+
+vitest exit 1

@@ -1,0 +1,37 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-b25f561-m4-m4d-webhook-catch-dropped  sha: b25f561  label: m4-m4d-webhook-catch-dropped  test: WebhookProvider.validation  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py
+mutated m4d-webhook-catch-dropped
+ .../src/providers/WebhookProvider.tsx              |   2 +-
+ 3 files changed, 1 insertion(+), 198 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-b25f561-m4-m4d-webhook-catch-dropped
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 1 unhandled error during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+Error: network down
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:122:33
+ ❯ ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/@vitest+runner@4.1.2/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11
+ ❯ ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/@vitest+runner@4.1.2/node_modules/@vitest/runner/dist/chunk-artifact.js:1893:26
+ ❯ ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/@vitest+runner@4.1.2/node_modules/@vitest/runner/dist/chunk-artifact.js:2316:20
+ ❯ runWithCancel ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/@vitest+runner@4.1.2/node_modules/@vitest/runner/dist/chunk-artifact.js:2313:10
+ ❯ ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/@vitest+runner@4.1.2/node_modules/@vitest/runner/dist/chunk-artifact.js:2295:20
+ ❯ runWithTimeout ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/@vitest+runner@4.1.2/node_modules/@vitest/runner/dist/chunk-artifact.js:2262:10
+ ❯ ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/@vitest+runner@4.1.2/node_modules/@vitest/runner/dist/chunk-artifact.js:2945:64
+
+This error originated in "src/providers/__tests__/WebhookProvider.validation-effects.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "settles with no webhook and stops loading when the fetch rejects". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  1 passed (1)
+      Tests  24 passed (24)
+     Errors  1 error
+   Start at  06:53:06
+   Duration  2.91s (transform 583ms, setup 50ms, import 1.28s, tests 168ms, environment 1.16s)
+
+vitest exit 1

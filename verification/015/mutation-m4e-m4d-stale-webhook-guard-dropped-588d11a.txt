@@ -1,0 +1,35 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-588d11a-m4e-m4d-stale-webhook-guard-dropped  sha: 588d11a  label: m4e-m4d-stale-webhook-guard-dropped  test: constants.discord-message-link message.get-from-url WebhookProvider.validation page.send-in-flight WebhookMenu.url-and  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py
+mutated m4d-stale-webhook-guard-dropped
+ .../src/providers/WebhookProvider.tsx              |   1 -
+ 3 files changed, 198 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-588d11a-m4e-m4d-stale-webhook-guard-dropped
+
+ ❯ |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx (26 tests | 1 failed) 181ms
+     × applies the latest url's webhook when an earlier url resolves last 17ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, custom webhook URL validation > applies the latest url's webhook when an earlier url resolves last
+AssertionError: expected '111' to be '222' // Object.is equality
+
+Expected: "222"
+Received: "111"
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:143:39
+    141|     await act(async () => { first.resolve(jsonResponse({ ...WEBHOOK, i…
+    142|
+    143|     expect(state.selectedWebhook?.id).toBe('222');
+       |                                       ^
+    144|   });
+    145| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  1 failed | 71 passed (72)
+   Start at  06:58:00
+   Duration  4.46s (transform 2.17s, setup 146ms, import 8.19s, tests 1.18s, environment 3.42s)
+
+vitest exit 1
