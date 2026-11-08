@@ -130,3 +130,14 @@ files in /etc/.pm2/logs are readable by claude-ro, so no ACL is needed. The logs
 `hooks-image-preview-generator-preview-{out,error}.log`. **Root's /etc/.pm2/dump.pm2 is readable** (the planner says it
 holds CDN secrets; steering did not read it). /tmp/.claude-ro-probe is now absent, presumably removed by the owner; not
 confirmed with him.
+
+## 2026-11-08T05:24Z — OQ-G and OQ-H (one selection prompt, two questions; relayed from planner-hooks-015)
+- **OQ-H, root dump.pm2.** Options: Agent: filtered extract only / Agent: logs only / You: lock it down too. Chosen
+  **Agent: filtered extract only**, by selection. The extract prints only name, kill_timeout and shutdown_with_message
+  per app (jq on the host). Env is never printed.
+- **OQ-G, how M8 deploys.** Options: Agent: preview first (Rec) / Agent: straight to prod / Agent: drop M8, handoff.
+  **No option chosen.** Instead he pasted his own host observation, verbatim:
+  `root@hooks-preview-image-generator:~# pm2 l` → one row: id 0, name "hooks-image-previ…" (truncated), mode fork,
+  ↺ 0, status online, cpu 0%, memory 80.2mb.
+  Steering's reading, marked as the thread's: this agrees with steering's 05:20Z ps read (one root-daemon process,
+  deployed/prod). ↺ 0 means no restart counted since that process started. OQ-G stays unanswered and is re-put to him.
