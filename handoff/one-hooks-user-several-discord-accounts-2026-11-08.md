@@ -28,7 +28,7 @@ holding several Discord rows contradicts it.
 
 How a second row can arise: through the site's own buttons, it cannot. A signed-in user is offered sign-out, not
 sign-in: `NavMenu.tsx` signs out when a session exists (steering's read). Both the edit page's and the send page's
-Log in panels render only without a session (the architect's read of `send/page.tsx` at website `0f893c8`). But
+Log in panels render only without a session (the architect's read of `send/page.tsx` at website `3031878` (recorded at agent-output `0f893c8`)). But
 next-auth 4.24.5 links a new Discord account to an already signed-in user when the sign-in URL is visited by hand
 while signed in. `src/server/auth.ts` has no `signIn` callback refusing it.
 
@@ -49,7 +49,7 @@ the count of `userId` values with more than one `Accounts` row where `provider =
   both read sites.
 - Steering's read of the site's sign-in paths and next-auth `core/lib/callback-handler.js`, recorded in
   `steering/015-rulings.md` block "2026-11-08T08:10Z — AF-26" (`766bd4b`); `send/page.tsx`, unread there, was read
-  by the architect at website `0f893c8` (AF-28, `1a3bc68`).
+  by the architect at website `3031878` (recorded at agent-output `0f893c8`) (AF-28, `1a3bc68`).
 
 ## Origin
 
@@ -62,3 +62,4 @@ The owner ruled it a known limit (plan D34, Exclusions X-20).
 |---|---|---|
 | 2026-11-08T08:11 | planner (planner-hooks-015) | Opened on the owner's AF-26 ruling (rulings `766bd4b`). |
 | 2026-11-08T08:14 | planner (planner-hooks-015) | Architect AF-28 (`1a3bc68`): cites W-7; corrects which choice needs his ruling (refusing the link enacts W-7); adds the architect's read of `send/page.tsx` at `0f893c8`. |
+| 2026-11-08T08:14 | planner (planner-hooks-015) | Corrected the SHA of the architect's `send/page.tsx` read: website `3031878`; `0f893c8` is the agent-output commit that recorded it. |
