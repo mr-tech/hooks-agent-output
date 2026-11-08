@@ -774,30 +774,35 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
   - Instrument for M5-h's later re-check: `verification/015/cr-m5-probes/`.
 - **UAT:** Round 10's Assumption Not Checked, and those of the earlier rounds.
 
-## Resumption State (code-reviewer-hooks-015, 2026-11-08T07:55)
+## Resumption State (checkpoint, code-reviewer-hooks-015, 2026-11-08T08:14)
 
-- **Done.**
-  - M0: Round 1.
-  - M1: Round 2, APPROVED_WITH_COMMENTS; CR-15 RESOLVED at `3031878`.
-  - M2: Round 3.
-  - M4: Round 7 plus its sub-entry, APPROVED_WITH_COMMENTS at `da24eb7`; CR-17 LOW open.
-  - Plan gate reads: Rounds 4, 5, 6, 8 and 9.
-- **Open.**
-  - Round 10 (M5 at `da24eb7`): REJECTED for M5-h (CR-18 MEDIUM); CR-19 LOW.
-  - Round 11 (rev 22): APPROVED_WITH_COMMENTS; CR-20 RESOLVED at rev 23.
-  - Round 12 (rev 23): CR-21, RESOLVED at rev 24 (Round 13, APPROVED).
-  - Next code reviews: the M5-h fix (a Round 10 sub-entry), M5-i, M6, CR-17 and CR-19 (`a665901`), and M4-d's non-JSON cell.
-  - `run-reported.sh` catches errors React reports without rethrowing; use it for the M5-h fix.
-  - Instruments for the M5-h fix: `cr-m5-probes/run-edge.sh` (`makeEditable` alone) and `run-real.sh` (the real page and editor; wait for Suspense). Check every class (3) member, the `""` members, and the four rendered members.
-- **Next.**
-  - CR-18's fix, as a Round 10 sub-entry. Re-run `cr-m5-probes/run.sh <website> <scratch> <fix-sha> <out>`; every wrong-shape member must show the error line.
-  - Re-attack from first principles, because the fix is a guard. Include members phrased outside my five: nested wrong shapes, `fields` holding `null`, and a container's child components.
-  - M6 when it is handed off: a new round.
-- **Tree.** website `chain/015-bug-evaluation-fixes` at `da24eb7`, clean. No export or worktree of mine remains to clean up in the shared tree. My export sits under the scratchpad.
-- **Instruments.** `cr-m5-probes/`, `cr-m4-probes/`, `cr-m1-probes/signout.row-decision.test.ts`, `cr-m4d-link-class-sweep.sh`, `cr-m4d-admin-bit-probe.mts`, `cr-emit-compare.cjs`.
+- **Done, all committed.** Latest review commit `3960833`; latest plan row `108bc68`.
+  - M0: Round 1. M1: Round 2, APPROVED_WITH_COMMENTS (CR-15 RESOLVED at `3031878`). M2: Round 3.
+  - M4: Round 7 plus its sub-entry, APPROVED_WITH_COMMENTS at `da24eb7` (CR-17 LOW).
+  - M5: Round 10, REJECTED for M5-h only (CR-18 MEDIUM). M5-a to M5-g are met (CR-19 LOW).
+  - Plan gate reads: Rounds 4, 5, 6, 8, 9, 11, 12 and 13. Round 13 (rev 24) is APPROVED; CR-20 and CR-21 are RESOLVED.
+- **In flight: M6.** The handoff is from implementer-hooks-015: website `24ac49f`, document `implementation/015-bug-evaluation-fixes-m6-implementation.md` (`eef8924`), range `dbaf58f..24ac49f` (base `da24eb7`). Nothing is written for it yet. Only the range has been sized: 40 files, a production diff of about 21 KB over 18 files, and a test diff of about 52 KB.
+  - **Open it as Round 14**, recording § M6 at plan rev 24 (`018f72d`, last plan commit `108bc68`) as its criteria.
+  - **Read first** (the implementer's list):
+    1. M6-a: `parseEmbedTitle` deliberately leaves out `codeBlock`. The title is left unchanged, with a control cell; the planner restates.
+    2. M6-l: `validateComponentCount` and `validateMessage`; the error line and border in the editor index; `MAX_TOTAL_COMPONENTS` moved to `messageLimits.ts`.
+    3. F-45 is wider than stated: `react-use`'s `useMount` drops the returned cleanup.
+    4. M6-g's first row passed at base; its red is mutant `m6g-sort-one-argument`.
+    5. A `ResizeObserver` no-op stub in `DiscordMessageEditor.component-limit.test.tsx`, which the environment-fidelity convention bears on.
+  - **The same range also carries:**
+    - CR-17 and CR-19 fixes (`a665901`), as Round 7 and Round 10 sub-entries;
+    - QA's QAF-26 (`13be10d`) and QAF-29 (`24ac49f`) cell tightenings, which are test-only;
+    - `ef5a9cc` (upload refactor).
+  - **Check against M6-l (vi):** Rounds 11 and 12 established that `v2TextError` and `errorBorder` reach `/preview` and the Send page.
+  - **Also open:** M4-d's non-JSON cell (rev 24 growth) and M5-i are not in this range.
+- **Next after M6.** The M5-h fix (a Round 10 sub-entry), which steering holds until rev 24's round passes. Instruments: `cr-m5-probes/run-reported.sh`, `run-real.sh` and `run-edge.sh`. Re-attack it from first principles, with presence assertions.
+- **Tree.** website `chain/015-bug-evaluation-fixes` at `24ac49f`, clean. My exports sit under the scratchpad only. No local mutation is outstanding. Nothing is uncommitted.
+- **Instruments.** `cr-m5-probes/` (edge, real, reported), `cr-m4-probes/`, `cr-m1-probes/signout.row-decision.test.ts`, `cr-m4d-link-class-sweep.sh`, `cr-m4d-admin-bit-probe.mts`, `cr-emit-compare.cjs`.
 - **Hazards.**
-  - Stamps come from `record-edit.js` `2026-11-08T07:55`.
+  - Stamps come from `record-edit.js` `2026-11-08T08:14`.
   - Re-diff the plan right before `commit --only`.
   - The rtk filter breaks piped counts.
   - convention-check's id-token check SKIPs, so run it by hand.
+  - A vitest probe needs `~/env.mjs` mocked, and writes its rows to a file through `EDGE_OUT` (console output is not captured).
+  - Real-editor probes must wait for Suspense; read 0 nodes as a crash.
 - **Questions out.** None.
