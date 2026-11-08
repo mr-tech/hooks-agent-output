@@ -1,0 +1,1 @@
+ FAIL  |dom| src/components/DiscordMessageEditor/components/__tests__/Author.timer-cleanup.test.tsx > Author clock > leaves no timer running when unmounted after the clock has started ticking

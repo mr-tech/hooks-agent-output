@@ -1,0 +1,19 @@
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx > NewMessageModal, a failed webhook load > shows Discord's own refusal on the shared error line, not "Invalid URL"
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx > NewMessageModal, a failed webhook load > shows "Invalid URL" once, on the shared error line, when the network fails
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx > NewMessageModal, a failed webhook load > shows "Invalid URL" once, on the shared error line, when the response body is not JSON
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, fetch failures > keeps Discord's own refusal text for a refused message
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, fetch failures > keeps Discord's own refusal text for a refused webhook url
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, fetch failures > shows "Invalid URL" and no webhook when the webhook fetch rejects
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, fetch failures > shows the connection error when the message fetch rejects
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > fetches the link's own message id for https://canary.discordapp.com links
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > fetches the link's own message id for https://canary.discord.com links
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > fetches the link's own message id for https://discordapp.com links
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > fetches the link's own message id for https://discord.com links
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > fetches the link's own message id for https://ptb.discordapp.com links
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > fetches the link's own message id for https://ptb.discord.com links
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > fetches the link's own message id for https://www.discordapp.com links
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > fetches the link's own message id for https://www.discord.com links
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > fetches the message for a whole-string id
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > trims surrounding whitespace before testing the id
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, overlapping validations > applies the latest input's message when an earlier input resolves last
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, overlapping validations > applies the latest url's webhook when an earlier url resolves last

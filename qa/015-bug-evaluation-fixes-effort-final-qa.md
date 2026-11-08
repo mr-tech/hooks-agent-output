@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Verified-At: "620b4ee,8de2b53 — repos=website,preview-image-generator; effort-final Phase 2. The production diffs 7ce866b..c5303ca (website) and 471578f..8de2b53 (generator) were swept at those tips in git-archive exports under unshare -rn. Website 620b4ee is c5303ca plus a test-only round (4 test files, 0 production paths), where the survivors were re-run and the suite ran"
-Status: QA Complete
-Status-Detail: "PASS at website 620b4ee and generator 8de2b53. Website: 265 mutants over 7ce866b..c5303ca, 256 killed; the 5 actionable survivors (QAF-38 to QAF-40) killed at 620b4ee; 4 dispositioned. Generator: whole diff swept, QAF-37 RESOLVED. Suite 1128/1128, 116 files, vitest 0, typecheck 0. One stated limit, the plumbing-class assumption, awaiting the owner's word."
+Status: QA Failed
+Status-Detail: "QA Failed: the a906b0c PASS is withdrawn. The owner-ruled plumbing sweep (13 mutants at website 620b4ee) left 2 survivors in scope: QAF-41 and QAF-42, MEDIUM, test-only, implementer. A third survivor is outside the sweep scope. Everything else stands: QAF-37 to QAF-40 RESOLVED, generator 8de2b53 swept. After the fix, the re-run covers the 2 survivors only."
 Phase: 2
 ---
 
@@ -22,6 +22,7 @@ Phase: 2
 | 2026-11-08T11:19 | steering-hooks-015 (brief after the /clear); planner-hooks-015 (rev 28) | QA effort-final Phase 2 | Created with the generator half, the owed checks and the website sweep's inputs. The website sweep is running. |
 | 2026-11-08T12:40 | code-reviewer-hooks-015 (QAF-37 cell, `f77e71c`); implementer-hooks-015 (`8fb1eee`) | Website sweep result; QAF-37 re-run | QA Failed. Website: 256 of 265 killed. Of the 9 survivors, 6 are dispositioned and 3 raised as QAF-38, QAF-39 and QAF-40 (MEDIUM, test-only). QAF-37 RESOLVED. Two run false starts are disclosed and not scored. |
 | 2026-11-08T12:53 | code-reviewer-hooks-015 (`8f4578c`, website `620b4ee` APPROVED, test-only) | Fix-round re-run | **PASS.** The 5 survivors are killed at `620b4ee`, and QAF-38, QAF-39 and QAF-40 are RESOLVED. Suite 1128/1128, exit 0. Verdict re-anchored to `620b4ee`. |
+| 2026-11-08T14:24 | steering-hooks-015 (owner ruling, rulings block 14:18Z, `bab96e0`) | The plumbing-class sweep | **PASS withdrawn; QA Failed.** 13 plumbing mutants at `620b4ee`: 10 killed, 3 survived. QAF-41 and QAF-42 raised (MEDIUM, test-only); 1 survivor is outside the sweep scope. The method failure is recorded under the verdict. |
 
 ## Scope and criteria assessed
 
@@ -177,9 +178,52 @@ Stage start: code review's sub-entry approving `620b4ee`, test-only with no find
 
 QAF-38, QAF-39 and QAF-40 RESOLVED (2026-11-08T12:53: website `620b4ee`; code review `8f4578c`; each survivor killed above).
 
+## Plumbing sweep, website `620b4ee` (owner ruling, 2026-11-08T14:24)
+
+The owner chose "Agent: QA runs the 15" (`steering/015-rulings.md` block 14:18Z, `bab96e0`).
+- **Population:** recounted from `gap-dispositions.md`'s "wrapper or plumbing" class, it is **16 hunks**, not my "about 15".
+- **13 get a mutant** (`plumbing-mutants.py` → `website-plumbing-mutants.json`, `30363d4`; each old string exactly once at `620b4ee`).
+- **3 do not:**
+  - `Button.tsx:54-55` is a pure deletion. Its present-tree counterpart is `cr38-button-autofocus-not-passed-to-usebutton`, KILLED in the main sweep.
+  - `shared.ts:175-176` has been reached by `ef-shared-partial-user-branch-unfiltered` (KILLED) since that mutant was added after the gap map.
+  - `redis:75` is the `getItem` return-type annotation. I misfiled it in the plumbing class; it is type-only.
+- **Runner:** as for the sweep, one process. Load average 8.30 at the start. Outputs are in `effort-final/website-plumbing-620b4ee/`.
+
+**Result: 10 of 13 KILLED, 3 SURVIVED.** The control is 1128/1128, and every kill names at least one failing case.
+
+| Mutant | Outcome | Failing cases |
+|---|---|---|
+| `pl-jsonmodal-copytext-deps-empty` | KILLED | 1 |
+| `pl-preview-data-ignores-query` | KILLED | 44 |
+| `pl-author-mount-ts-not-set` | KILLED | 1 |
+| `pl-author-interval-not-captured` | KILLED | 1 |
+| `pl-wp-url-starts-stale` | KILLED | 1 |
+| `pl-vw-url-starts-stale` | KILLED | 19 |
+| `pl-vw-message-starts-stale` | KILLED | 3 |
+| `pl-redis-getitem-falsy-value-miss` | KILLED | 4 |
+| `pl-redis-clearuser-pipeline-not-run` | KILLED | 8 |
+| `pl-auth-revoke-does-nothing` | KILLED | 4 |
+| `pl-button-style-dropped` | SURVIVED | outside the sweep scope, below |
+| `pl-shared-partial-guildid-unselected` | SURVIVED | **QAF-41** |
+| `pl-auth-message-promise-unwrapped` | SURVIVED | **QAF-42** |
+
+`pl-button-style-dropped` targets `style`, a token the chain did not change. The hunk's change on that line is `autoFocus` leaving the destructure, which the killed `cr38` mutant decides. The sweep covers only production code the effort changed, so this survivor is outside it. The mutant was badly aimed, and that is my error. Button's `style` passthrough is pre-existing, unchanged behaviour, and no finding is raised on it here.
+
+QAF-41 MEDIUM Phase 2 — `getPartialMessages`'s selected columns have no assertion. In `src/server/api/utils/shared.ts` `getPartialMessages`, the chain's M1-a rewrite split the statement into `const query = getPostgres()…` with two `where` branches. With `'Guilds.guildId as guildId'` removed from its select, the suite stays green.
+- **Why it matters:** each partial message's `guildId` is what places a message under its server rather than "My Account" in the message list. The rewrite claims to preserve the select list, which is identical at base (`7ce866b` `shared.ts`, the `'Guilds.guildId as guildId'` line in the same query). `shared.in-predicates.test.ts` covers this function's `in` predicates, not its columns. This is a preserved behaviour with no assertion that fails when it is lost.
+- **Shown by:** `pl-shared-partial-guildid-unselected` survives (`website-plumbing-620b4ee/`).
+- **Owed (implementer, test-only):** in `shared.in-predicates.test.ts`, the existing test on this function, assert that the compiled query selects `guildId` on both branches (guilds present, guilds empty). Show it red under the survivor and green at `620b4ee`.
+
+QAF-42 MEDIUM Phase 2 — the session callback's no-recent-messages path has no cell. In `src/server/auth.ts`, the chain added `messagePromise.catch(() => {})`, and it wrapped `preferences?.recentMessageIds ? getUserRecentMessages(…) : []` in `Promise.resolve(…)`. Without the wrap, a user with no `recentMessageIds` reaches `[].catch`, a TypeError, so the session callback throws. The suite stays green.
+- **Why it matters:** this is a behaviour the change relies on: its own new `.catch` needs a promise. The class it guards (a user with no recent messages, including every new user) cannot be expressed by the suite's fixture. `auth.hydrated-session.test.ts` builds its one user with `preferences: { recentMessageIds: ['m1'] }` (`git grep -n recentMessageIds 620b4ee -- '**/__tests__/**'`: 1 line).
+- **Shown by:** `pl-auth-message-promise-unwrapped` survives.
+- **Owed (implementer, test-only):** in `auth.hydrated-session.test.ts`, a case whose user has no `preferences` and one with `preferences: {}`. Each asserts that the session resolves with no throw. Show them red under the survivor and green at `620b4ee`.
+
+**Withdrawal, and the method failure behind it.** The a906b0c PASS (`QA Complete`) is withdrawn. It rested on `gap-dispositions.md`'s plumbing class, which I wrote by reading each hunk and naming a neighbouring mutant that I judged decides it. I did not execute that claim, and for 2 of the 13 mutated hunks it was false. The neighbours named (`ef-shared-partial-*` for `shared.ts:157`, and the `m1h-*` mutants for `auth.ts:138`) decide a different property of the same statement. The class predicate, "a neighbouring mutant decides it", was never tested by mutating the line itself. That is the Assumption Not Checked this pass named and the owner's ruling closed. The retrospective's lesson: a disposition that a line is covered by its neighbour is a claim, and executing it is what makes it evidence.
+
 ## Verdict
 
-**PASS (QA Complete)** at website `620b4ee` and preview-image-generator `8de2b53`. No production defect was found in either repository.
+*Withdrawn 2026-11-08T14:24 (plumbing sweep above):* **PASS (QA Complete)** at website `620b4ee` and preview-image-generator `8de2b53`. No production defect was found in either repository.
 - Website: of 265 mutants over the whole production diff, 256 were killed at `c5303ca` and the 5 actionable survivors at `620b4ee`. The 4 others are dispositioned (equivalent, contract-barred, or invisible in jsdom), and the 70 hunks with no mutant are dispositioned by class.
 - Generator: the whole diff is swept, with QAF-37 RESOLVED.
 - The CR-12 belonging comparison is killed in every form. Discord's `color` contract holds, and so does RK-7.
@@ -196,17 +240,22 @@ Re-run scope after the fix round: the round changes no production code, so only 
 
 ## Assumption Not Checked
 
-This pass assumes that each hunk in `effort-final/gap-dispositions.md`'s "wrapper or plumbing whose behaviour a neighbouring mutant decides" class is in fact decided by the neighbour it names. That is about 15 hunks, including `JsonModalBody`'s `copyText` memo, the `let isStale` declarations, the redis `{ item }` construction and `auth.ts`'s `Promise.resolve(` wrap. The pass does not test it: those lines carry no mutant of their own.
-- **Signature of its falsity:** a mutant written on one of those lines that survives while the named neighbour is killed.
-- **Owner of closing:** the owner's word, through steering. Mutating those lines widens the sweep beyond the survivors the fix round closes, which the sweep rule reserves to him. The cost is about 15 runs (about 10 minutes, one shard). Without his word, it stands as a stated limit of this pass, and the Phase 3 release-tip verdict inherits it by name.
+This pass assumes that the suite's view of the website, TypeScript source transpiled by vitest with `process.env` read at run time, matches the production build that Vercel serves. It does not test that.
+- **Where it bites:** Next inlines each `NEXT_PUBLIC_*` value into the client bundle at build time. The chain's `src/utils/getCDNUrl.ts` now reads `NEXT_PUBLIC_CDN_PORT`, and its cells set the variable at run time.
+- **Signature of its falsity:** in a running build, image and preview URLs built by `getCDNUrl` carry no port when the variable is set (or a stale one), while the cells pass.
+- **Owner of closing:** UAT, which drives the running build. The pre-release walks (B-2, B-4, B-5) load editor previews whose URLs pass through `getCDNUrl`. This is a stated observation for that walk, not a new row, because no criterion names the port.
 
-Checked in this pass rather than assumed (under a minute):
-- **Failing-case attribution.** Over the 255 killed rows that did not time out, none has `N failed` > 0 on its `Tests` line with no stderr `FAIL` line. The only rows with 0 `FAIL` lines are the 3 unhandled-rejection kills, each 1122 passed.
-- **The code-moved class's new homes are swept.** The mutant counts per file in `website-sweep-mutants.json` are: `formatMessageDate.ts` 5, `isValidImageUrl.ts` 7, `messageLimits.ts` 3, `parseMessageId.ts` 3, and `limits.tsx` 9, of which 5 are on the component-count logic.
+Checked in this pass rather than assumed:
+- **Plumbing class:** the owner-ruled sweep, 13 mutants, found 2 gaps: QAF-41 and QAF-42.
+- **Reformatting class:** `reformat-check.py` → `reformat-check-run1.txt`. Of 16 hunks compared as token multisets (ignoring whitespace and wrap-added `,` and `;`), 1 differs, a leading `|` added to a TypeScript union type in `BottomPortal.tsx:136`, which is type-only. The control (`cron.ts:26`, `=` → `is`) is reported.
+- **Import-only class:** `import-check.py` → `import-check-run1.txt`. 15 added import statements each resolve at `c5303ca` to a module exporting every name they bind, or to a package in `package.json`. The planted wrong name is reported.
+- **Failing-case attribution:** over the 255 killed rows that did not time out, none has failed cases without a `FAIL` line.
+- **The code-moved class's new homes are swept** (per-file counts above).
+- **The equivalent class:** `redis:188`/`199-206` rest on an executed `git grep` of callers.
 
 ## Handoff
 
-- **UAT is next.** Website `620b4ee`, generator `8de2b53`, plan rev 28. The register is in `qa/015-bug-evaluation-fixes-qa.md` § Blocking-condition register.
+- **UAT is held (steering).** After the fix round for QAF-41 and QAF-42 and code review, QA re-runs those 2 survivors and the suite. Then UAT, with the details below. Website `620b4ee`, generator `8de2b53`, plan rev 28. The register is in `qa/015-bug-evaluation-fixes-qa.md` § Blocking-condition register.
   - Pre-release rows for UAT's stage browser: B-1, B-2, B-4, B-5, B-9 to B-14. B-3 is withdrawn.
   - Post-deploy rows: B-6, B-7 and B-8. B-8 includes the rev 28 D36 limb and is devops's at M8-0 run 2.
   - Code review's CR-34 asks UAT to register an operator check on PM2's error log. It goes into that register as B-15 onward.

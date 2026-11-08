@@ -1,0 +1,14 @@
+pl-jsonmodal-copytext-deps-empty KILLED 13.81
+pl-preview-data-ignores-query KILLED 13.47
+pl-author-mount-ts-not-set KILLED 13.48
+pl-author-interval-not-captured KILLED 13.28
+pl-button-style-dropped SURVIVED 13.24
+pl-wp-url-starts-stale KILLED 14.04
+pl-vw-url-starts-stale KILLED 18.31
+pl-vw-message-starts-stale KILLED 16.64
+pl-shared-partial-guildid-unselected SURVIVED 13.66
+pl-redis-getitem-falsy-value-miss KILLED 13.53
+pl-redis-clearuser-pipeline-not-run KILLED 13.27
+pl-auth-revoke-does-nothing KILLED 13.19
+pl-auth-message-promise-unwrapped SURVIVED 13.48
+10 of 13 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; website-plumbing-mutants.json (blob 3062c6aadaf59b2e7d872b1f4ffe2b1cea0b11c6))

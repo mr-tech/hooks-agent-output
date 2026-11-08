@@ -1,0 +1,4 @@
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out an account whose cached account entry is not the row > revokes the row's token and clears out in full when the cache holds an account holding another token
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out an account whose cached account entry is not the row > revokes the row's token and clears out in full when the cache holds null (what a refused refresh stores)
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > reads the account, then revokes, then nulls the stored tokens
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > sends one revoke request carrying the account's access token

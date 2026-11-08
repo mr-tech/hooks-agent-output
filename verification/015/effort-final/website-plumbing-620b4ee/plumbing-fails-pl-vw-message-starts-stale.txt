@@ -1,0 +1,3 @@
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, fetch failures > keeps Discord's own refusal text for a refused message
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, fetch failures > shows the connection error when the message fetch rejects
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, overlapping validations > applies the latest input's message when an earlier input resolves last

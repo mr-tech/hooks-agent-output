@@ -1,0 +1,1 @@
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx > JsonModalBody — Copy to Clipboard needs a draft that parses and conforms > a conforming draft enables Copy, and pressing it copies the pretty-printed JSON
