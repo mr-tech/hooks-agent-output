@@ -741,8 +741,8 @@ This pass assumes the live Postgres schema matches the Kysely `DatabaseSchema` t
 - **Register:** B-1 to B-14. B-3 withdrawn (D30). B-11 to B-14 minted today: D29 offline walk, M5-h `/preview`, M5-a Esc, M5-i first visit. Every browser row needs steering's Playwright go (rulings 07:42Z).
 
 **Next, in the order the pipeline brings them**
-1. **M1 re-run** after code review approves the QAF-26 fix. Scope: the round's diff only, plus re-running `i2-row-read-by-session-token` and `i4-user-count-unscoped` (`mutators/qa-m1-supplement.py`).
-2. **M5-a to M5-g re-run** after the QAF-29 fix. Re-run `m5e-utc-getters` (`mutators/qa-m5-supplement.py`). The local-day probe is `verification/015/qa-m5e-local-day-probe/run.sh <sha> <out>`.
+1. *Done 08:36Z (`a7dfb4d`):* M1 and M5-a to M5-g PASS at `24ac49f`; M4 refreshed for CR-17; M6-b to M6-l QA Failed (QAF-30, QAF-31, QAF-32 to implementer-hooks-015); Phase 1 keyed to rev 25 (`983a84d`, delivered to planner-hooks-015).
+2. **M6-b to M6-l re-run** after the test-only fix: re-run the six survivors (`mutators/qa-m6-supplement.py`, labels in `qa-m6-sweep-summary-24ac49f.txt`). **M6-a** after CR-22's fix: unit members per § M6-a (rev 25 reconcile), the title preservation cell seen red, and RK-1's differential captured under `verification/015/`.
 3. **Scoped M4 pass** when the non-JSON cells land, one per site (Phase 1 § M4, rev 24 reconcile).
 4. **M5-h Phase 2** after code review clears its fix: cells per rev 23/24 read-backed members, with a presence landmark. Also **M5-i**: open-panel cells per Phase 1 § M5-i.
 5. **M6** (M6-l (vi) on editor, Send and `/preview`), M7, M8: per Phase 1.
