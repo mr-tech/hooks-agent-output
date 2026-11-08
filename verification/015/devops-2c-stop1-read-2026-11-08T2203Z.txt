@@ -1,0 +1,137 @@
+now: 2026-11-08T22:03:15Z
+dist/server.js mtime: 2026-11-08 22:02:24.524441262 +0000
+25:    kill_timeout: 12000,
+pm2.log since 21:55:
+2026-11-08T22:02:25: PM2 log: Process 0 in a stopped status, starting it
+2026-11-08T22:02:25: PM2 log: Stopping app:hooks-image-preview-generator-prod id:0
+2026-11-08T22:02:25: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:25: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:25: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:25: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:25: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:25: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:25: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:25: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:25: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:26: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:26: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:26: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:26: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:26: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:26: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:26: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:26: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:26: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:26: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:27: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:27: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:27: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:27: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:27: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:27: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:27: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:27: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:27: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:27: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:28: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:28: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:28: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:28: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:28: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:28: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:28: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:28: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:28: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:28: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:29: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:29: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:29: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:29: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:29: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:29: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:29: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:29: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:29: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:29: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:30: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:30: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:30: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:30: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:30: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:30: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:30: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:30: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:30: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:30: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:31: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:31: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:31: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:31: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:31: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:31: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:31: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:31: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:31: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:31: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:32: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:32: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:32: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:32: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:32: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:32: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:32: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:32: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:32: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:33: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:33: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:33: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:33: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:33: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:33: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:33: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:33: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:33: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:33: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:34: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:34: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:34: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:34: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:34: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:34: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:34: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:34: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:34: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:34: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:35: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:35: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:35: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:35: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:35: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:35: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:35: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:35: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:35: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:35: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:36: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:36: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:36: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:36: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:36: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:36: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:36: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:36: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:36: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:36: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:37: PM2 log: pid=1071971 msg=failed to kill - retrying in 100ms
+2026-11-08T22:02:37: PM2 log: Process with pid 1071971 still alive after 12000ms, sending it SIGKILL now...
+2026-11-08T22:02:37: PM2 log: App [hooks-image-preview-generator-prod:0] exited with code [0] via signal [SIGKILL]
+2026-11-08T22:02:37: PM2 log: App [hooks-image-preview-generator-prod:0] will restart in 500ms
+2026-11-08T22:02:37: PM2 log: pid=1071971 msg=process killed
+2026-11-08T22:02:37: PM2 log: App [hooks-image-preview-generator-prod:0] starting in -fork mode-
+2026-11-08T22:02:38: PM2 log: App [hooks-image-preview-generator-prod:0] online
+Stopping app lines for the prod app (count): 3
+process: 2502940 root     Sun Nov  8 22:02:36 2026 node /usr/local/bin/hooks-image-preview-generator/deployed/prod/dist/server.js
+error log lines: 110 mtime 2026-11-08 17:27:00.943551936 +0000
+D36 line err: 0 out: 0
+Server received: 0
+chromium ppid1 non-crashpad: 0

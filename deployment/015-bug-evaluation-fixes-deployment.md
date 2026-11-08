@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Owner approved the release 2026-11-08T21:38Z. Pushed: website master b96e364 (21:38:22Z) and preview-image-generator prod 8de2b53 (21:38:42Z). Phase 2C is not finished: the generator host showed no stop or process change 16 minutes after the push, and the D19 prod.yml re-run is held (gh cannot reach the repo). Phase 2D has not run."
+Status-Detail: "Owner approved the release 2026-11-08T21:38Z. Pushed: website master b96e364 (21:38:22Z) and preview-image-generator prod 8de2b53 (21:38:42Z). Phase 2C is not finished: the generator deployed at 22:02Z (stop (1) read: SIGKILL at 12000 ms, new pid 2502940) after the owner started the runner; the D19 prod.yml re-run is held for its dispatch route (gh cannot reach the repo). Phase 2D has not run."
 ---
 
 # Deployment Record: Plan 015 — Bug-evaluation fixes
@@ -166,3 +166,18 @@ Both dry-runs were re-run immediately before each move (R2, R7) and passed. `rel
 2. The mechanism does not work from this session: `gh api repos/hooks-gg/preview-image-generator` and `gh run list --workflow prod.yml` both return HTTP 404 for the authenticated account (`mr-tech`), so `gh workflow run` cannot dispatch it. The dispatch would be the owner's act in the GitHub UI (Mode B for that one act) or a token with access, which is his to supply.
 
 The owner's approval of the re-run (2026-11-08T21:38Z, "Yes, approve it for later") stands for when stop (1) exists. The approved read instrument for run 2 is `verification/015/pig-host-read.sh` at agent-output f616d83 (code review f83fb09; CR-41, CR-42 resolved). Code review also asks for two checks when the run-2 capture is read: that [2] and [3] print `+0000` mtimes (D23), and that [4]'s prod `Stopping app` count is 4 (the push and the re-run each add one; if the push's `startOrReload` writes no such line, [6] has no stop (1) — code review's Assumption Not Checked, closed here at run 2).
+
+### Stop (1) and the generator deploy (read 2026-11-08T22:03Z)
+
+The generator's deploy ran after the owner's statement in steering's session, "runner started. deploy complete" (steering/015-rulings.md, block 22:03Z, a relayed ruling; steering's own reads at 22:02:53Z are re-read here). The push at 21:38:42Z is the deploy evidence; the owner's statement says the workflow ran after he started the runner at about 22:02Z. My own read-only re-read at 22:03:15Z (`verification/015/devops-2c-stop1-read-2026-11-08T2203Z.txt`):
+
+- `deployed/prod/dist/server.js` mtime 2026-11-08 22:02:24Z; the deployed `ecosystem.config.js` now reads `kill_timeout: 12000`.
+- `pm2.log`: 22:02:25 `Stopping app:hooks-image-preview-generator-prod id:0`; repeated `failed to kill - retrying in 100ms` through 22:02:37; `Process with pid 1071971 still alive after 12000ms, sending it SIGKILL now...`; `exited with code [0] via signal [SIGKILL]`; restart; `online` at 22:02:38. New process pid 2502940, started Sun Nov 8 22:02:36 2026.
+- Counts: `Stopping app:hooks-image-preview-generator-prod` lines in `pm2.log` = 3 (2024-06-15, 2026-06-15, this one). The re-run is to make it 4 (code review's check).
+- This is stop (1), as the plan predicts: a SIGKILL at the full window, no shutdown line (`Server received` count 0 in the out log), and **the new `kill_timeout` of 12000 applied to the old process's stop** (the plan's V-3 claim, now read; the 21:54Z claim of 5000 in the host file was the pre-deploy tree).
+- PM2 error log: 110 lines, mtime 17:27:00Z, unchanged. The D36 line: 0 in the error log and 0 in the out log, read 31 seconds after the new process started. The final B-8 read of that count is run 2's.
+- Chromium with ppid 1 other than crashpad: 0.
+
+The 24-minute gap between the push and the deploy is the runner not running, which the owner then started; it is not carried as an open check. Nothing about it changes the pushed SHA.
+
+**State now.** Stop (2) (the D19 `prod.yml` re-run) has not happened. Its dispatch route is with the owner through steering (UI dispatch, or a credential for this session). Run 2 reads with `pig-host-read.sh` at f616d83 after it.
