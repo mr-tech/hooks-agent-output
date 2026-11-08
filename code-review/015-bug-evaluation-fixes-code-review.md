@@ -1392,21 +1392,39 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 - **UAT**: the D36 line on PM2's error log as an operator-visible check (CR-34, R-23). An `autoFocus` button under a screen reader's virtual cursor (the CR-38 sub-entry's Assumption Not Checked). The Assumptions Not Checked of Rounds 14 and 10, and those of the earlier rounds.
 - **Steering**: CR-34's magnitude, for its 09:49Z "not re-put" call.
 
-## Resumption State (code-reviewer-hooks-015, after the usage gate; last written at the Round 21 commit, d7b0c57)
+## Resumption State (checkpoint, code-reviewer-hooks-015, 2026-11-08T12:52Z, steering's context-threshold request)
 
-- **Tree.** website `chain/015-bug-evaluation-fixes` at `c5303ca`, reviewed. Mutant exports `website-b195eeb-cr26-*` are in the scratchpad. preview-image-generator at `8de2b53`, not pushed. No mutation in any shared tree. The detached worktree `web-4f9ed85` was removed. The exports `pig-probe-8de2b53` and `pig-drift-8de2b53` (the mutant copy) live in this session's scratchpad only. Rebuild them with `m8-local-probe/run.sh … 8de2b53` and `cp -a`, then rename `_waitingClientsQueue` in `node_modules/generic-pool/lib/Pool.js`.
-- **Done this session.** Round 21 (rev 28 gate read) is APPROVED_WITH_COMMENTS (CR-39 LOW). The Round 14 sub-entry at website `c5303ca` is APPROVED (CR-38 RESOLVED). The Round 14 sub-entry at website `2618926` is APPROVED_WITH_COMMENTS (CR-37 and CR-26 RESOLVED; CR-38 LOW). The sub-entry at website `b195eeb` is REJECTED on CR-37 (CR-26 narrowed; CR-35 and CR-36 RESOLVED). The Round 18 sub-entry is complete (M8 APPROVED_WITH_COMMENTS; CR-27 and CR-28 RESOLVED; CR-34 LOW). The Round 2/3 sub-entry at website `4f9ed85` is APPROVED_WITH_COMMENTS (CR-35, CR-36 LOW). Both are delivered to the implementer and QA, with CR-34's figures to steering.
-- **Done earlier, all committed.** M0: Round 1. M1: Round 2. M2: Round 3. M4: Round 7 plus sub-entries. M5: Round 10 plus the M5-h sub-entry; M5-i: Round 16. M6: Round 14 plus its sub-entry. M7: Round 17. M8: Round 18 plus this sub-entry. Plan gate reads: Rounds 4, 5, 6, 8, 9, 11, 12, 13, 15, 19, 20.
-- **Next.**
-  - The analyst's `pig-host-read.sh` extension, when it lands.
+- **Tree.** website `chain/015-bug-evaluation-fixes` at `620b4ee`, reviewed and clean. preview-image-generator at `8de2b53`, not pushed. agent-output: everything of mine is committed (last commit `8f4578c`, plan row `3566b27`). No mutation sits in any shared tree. Every export lives in this session's scratchpad only and is disposable: `pig-probe-8de2b53`, `pig-drift-8de2b53`, `pig-qaf37-*`, and the `website-*-cr26-*`, `-cr37-*` and `-cr38-*` exports. The detached worktree was removed.
+- **Done this session (all committed).**
+  - Round 18 sub-entries:
+    - CR-27 and CR-28 RESOLVED; D36 met; drift measured; CR-34 LOW. M8 APPROVED_WITH_COMMENTS.
+    - QAF-37 rig cell APPROVED.
+  - Round 2/3 sub-entry at website `4f9ed85`: QAF-27 and QAF-20. CR-35 and CR-36 are RESOLVED at `b195eeb`.
+  - Website `b195eeb`: REJECTED on CR-37 MEDIUM.
+  - Round 14 sub-entries:
+    - `2618926`: CR-37 and CR-26 RESOLVED. My Button-mutant evidence is corrected there; the mutant was equivalent.
+    - `c5303ca`: CR-38 RESOLVED, APPROVED.
+  - Website `620b4ee`: QAF-38 to QAF-40 APPROVED.
+  - Round 21 (plan rev 28 gate read): APPROVED_WITH_COMMENTS, CR-39 LOW. The planner parked it as R-24 for the M9 RK-8 handoff text.
+  - L-C9-3: all my changelog rows were restamped from their commit times (`9f27906`, `ce6cdfd`). The planner discharged it as R-27.
+- **Open findings.** None blocking. CR-39 LOW is with the planner and devops (the M9 handoff text). CR-26's residue, dynamic `import()`, is stated, not owed.
+- **Next.** Whatever the pipeline sends:
+  - A fix or delta sub-entry: re-run its instruments at the new SHA. The instruments are below.
+  - Any later plan revision: a gate read.
+  - The analyst's `pig-host-read.sh` extension, if it lands.
 - **Instruments.**
-  - `cr-m8-probes/`: the attack, `drift.cjs` + `drift-launch-count.cjs` + `run-drift.sh`, the RK-8 probes, sweeps, eslint.
-  - `cr-qaf-probes/`: `test-placement.py`, the id-token capture, the avatar literals.
-  - `cr-m5-probes/`, `cr-m6-probes/`, `cr-m4-probes/`, `cr-m1-probes/`.
+  - `cr-m8-probes/`: the attack; `drift.cjs` with `drift-launch-count.cjs` and `run-drift.sh`, which needs the `cp -a` export with `_waitingClientsQueue` renamed in `node_modules/generic-pool/lib/Pool.js`; `qaf37/run.sh`; sweeps; eslint.
+  - `cr-m6-probes/cr26-ban/`: `run.sh` (14 plants), and in `mutators/` `run-mutants.sh` and `run-fix-check.sh`.
+  - `cr-qaf-probes/`: `test-placement.py`, the id-token captures, the avatar literals.
+  - Also `cr-m5-probes/`, `cr-m6-probes/`, `cr-m4-probes/`, `cr-m1-probes/`.
+  - The implementer's `verification/015/mutate-run.sh` takes an absolute mutator path.
 - **Hazards.**
   - `prod.yml` holds a plaintext key, so never quote it.
-  - A probe export or worktree with symlinked `node_modules` breaks eslint plugin resolution.
-  - `convention-check.js` skips id-token in this workspace (no `TEST-CONVENTIONS.md`), so apply the class by hand.
-  - Vitest probes can exit 1 with every case passing, so read the exit code.
-  - In E-1, `/generate`'s HTTP status is decided by the S3 delete leg, so read the pool's `pending` for acquire state.
+  - A symlinked `node_modules` in an export or worktree breaks eslint plugin resolution, so lint over stdin in the shared tree.
+  - `convention-check.js` skips id-token here, so apply the class by hand.
+  - Vitest can exit 1 with every case passed, so read the exit code.
+  - In E-1, `/generate`'s status is decided by the S3 delete leg, so read pool `pending`.
+  - `git grep useMount` also matches `useMounted`, so use `-w`.
+  - Stamp changelog rows from `date -u` at write; never guess them (L-C9-3).
+- **Evidence run but not recorded.** None.
 - **Questions out.** None.
