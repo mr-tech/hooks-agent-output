@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export4/website-ef5a9cc-control-m5c  sha: ef5a9cc  label: control-m5c  test: usePusher.update-prompt  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export4/website-ef5a9cc-control-m5c
+
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  08:07:06
+   Duration  1.26s (transform 129ms, setup 19ms, import 503ms, tests 19ms, environment 601ms)
+
+vitest exit 0

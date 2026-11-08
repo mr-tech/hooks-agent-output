@@ -1,0 +1,40 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6c-no-fields-counts-valid  sha: 4fbc920  label: m6c-no-fields-counts-valid  test: EmbedEditor.empty-embed-hidden  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6c-no-fields-counts-valid
+ .../results.json => dev/null}                      |  1 -
+ 3 files changed, 1 insertion(+), 67 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6c-no-fields-counts-valid
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.empty-embed-hidden.test.tsx (12 tests | 2 failed) 119ms
+     × hides an embed with nothing displayable: no fields key 45ms
+     × hides an embed with nothing displayable: an empty field list 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.empty-embed-hidden.test.tsx > EmbedEditor read-only visibility > hides an embed with nothing displayable: no fields key
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.empty-embed-hidden.test.tsx > EmbedEditor read-only visibility > hides an embed with nothing displayable: an empty field list
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.empty-embed-hidden.test.tsx:66:45
+     64|     ['a field with a name only', { fields: [{ name: 'n', value: '', ..…
+     65|   ])('hides an embed with nothing displayable: %s', (_title, embed) =>…
+     66|     expect(shows(mountEmbed(embed, false))).toBe(false);
+       |                                             ^
+     67|   });
+     68|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 10 passed (12)
+   Start at  08:03:21
+   Duration  2.19s (transform 499ms, setup 26ms, import 1.28s, tests 119ms, environment 634ms)
+
+vitest exit 1

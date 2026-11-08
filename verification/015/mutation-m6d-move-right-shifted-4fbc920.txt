@@ -1,0 +1,44 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6d-move-right-shifted  sha: 4fbc920  label: m6d-move-right-shifted  test: EmbedFields.read-only-field-index  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6d-move-right-shifted
+ .../results.json => dev/null}                      |  1 -
+ 4 files changed, 20 insertions(+), 86 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6d-move-right-shifted
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx (16 tests | 4 failed) 43ms
+     × move actions are offered by position in the full list when the first field is hidden 5ms
+     × move actions are offered by position in the full list when the first two fields are hidden 2ms
+     × move actions are offered by position in the full list when a middle field is hidden 1ms
+     × move actions are offered by position in the full list when no field is hidden 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx > EmbedFields read-only field actions > move actions are offered by position in the full list when the first field is hidden
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx > EmbedFields read-only field actions > move actions are offered by position in the full list when the first two fields are hidden
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx > EmbedFields read-only field actions > move actions are offered by position in the full list when a middle field is hidden
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx > EmbedFields read-only field actions > move actions are offered by position in the full list when no field is hidden
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx:83:48
+     81|
+     82|     expect(props(key).moveLeft === undefined).toBe(slot === 0);
+     83|     expect(props(key).moveRight === undefined).toBe(slot === fields.le…
+       |                                                ^
+     84|   });
+     85| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 12 passed (16)
+   Start at  08:03:37
+   Duration  1.40s (transform 169ms, setup 23ms, import 611ms, tests 43ms, environment 589ms)
+
+vitest exit 1

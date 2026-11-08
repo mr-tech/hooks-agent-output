@@ -1,0 +1,39 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.duplicate-placement.test.tsx (2 tests | 2 failed) 47ms
+     × puts a duplicated embed directly after the original 38ms
+     × puts a duplicated component directly after the original 8ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.duplicate-placement.test.tsx > DiscordMessageEditor top-level duplicate > puts a duplicated embed directly after the original
+AssertionError: expected 'e1' not to be 'e1' // Object.is equality
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.duplicate-placement.test.tsx:62:30
+     60|     const next = (setMessage.mock.calls[0][0] as EditableMessageData).…
+     61|     expect(next.map((e) => e.title)).toEqual(['title e0', 'title e1', …
+     62|     expect(next[2]._key).not.toBe('e1');
+       |                              ^
+     63|   });
+     64|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.duplicate-placement.test.tsx > DiscordMessageEditor top-level duplicate > puts a duplicated component directly after the original
+AssertionError: expected 'c1' not to be 'c1' // Object.is equality
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.duplicate-placement.test.tsx:75:30
+     73|     const next = (setMessage.mock.calls[0][0] as EditableMessageData).…
+     74|     expect(next.map((c) => c.content)).toEqual(['text c0', 'text c1', …
+     75|     expect(next[2]._key).not.toBe('c1');
+       |                              ^
+     76|   });
+     77| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  2 failed | 4 passed (6)
+   Start at  07:55:32
+   Duration  1.77s (transform 690ms, setup 113ms, import 3.77s, tests 339ms, environment 3.14s)
+

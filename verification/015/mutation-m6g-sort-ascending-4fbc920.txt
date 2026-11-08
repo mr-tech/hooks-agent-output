@@ -1,0 +1,69 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6g-sort-ascending  sha: 4fbc920  label: m6g-sort-ascending  test: emoji.longest-sequence-first  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6g-sort-ascending
+ .../website-4fbc920-m6g-sort-ascending}/src/utils/markdown/emoji.tsx    | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6g-sort-ascending
+
+ ❯ |node| src/utils/markdown/__tests__/emoji.longest-sequence-first.test.ts (4 tests | 3 failed) 21ms
+     × translates a skin-tone sequence as one emoji 7ms
+     × translates a ZWJ sequence as one emoji 1ms
+     × translates a base followed by a skin-tone sequence 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/emoji.longest-sequence-first.test.ts > translateSurrogatesToInlineEmoji > translates a skin-tone sequence as one emoji
+AssertionError: expected ':thumbsup:🏽' to be ':thumbsup::skin-tone-3:' // Object.is equality
+
+Expected: ":thumbsup::skin-tone-3:"
+Received: ":thumbsup:🏽"
+
+ ❯ src/utils/markdown/__tests__/emoji.longest-sequence-first.test.ts:18:54
+     16|     ['a base followed by a skin-tone sequence', '👍👍🏿', ':thumbsup::…
+     17|   ])('translates %s', (_title, source, expected) => {
+     18|     expect(translateSurrogatesToInlineEmoji(source)).toBe(expected);
+       |                                                      ^
+     19|   });
+     20| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/emoji.longest-sequence-first.test.ts > translateSurrogatesToInlineEmoji > translates a ZWJ sequence as one emoji
+AssertionError: expected ':man:\u200d:woman:\u200d:girl:' to be ':family_mwg:' // Object.is equality
+
+Expected: ":family_mwg:"
+Received: ":man:‍:woman:‍:girl:"
+
+ ❯ src/utils/markdown/__tests__/emoji.longest-sequence-first.test.ts:18:54
+     16|     ['a base followed by a skin-tone sequence', '👍👍🏿', ':thumbsup::…
+     17|   ])('translates %s', (_title, source, expected) => {
+     18|     expect(translateSurrogatesToInlineEmoji(source)).toBe(expected);
+       |                                                      ^
+     19|   });
+     20| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/emoji.longest-sequence-first.test.ts > translateSurrogatesToInlineEmoji > translates a base followed by a skin-tone sequence
+AssertionError: expected ':thumbsup::thumbsup:🏿' to be ':thumbsup::thumbsup::skin-tone-5:' // Object.is equality
+
+Expected: ":thumbsup::thumbsup::skin-tone-5:"
+Received: ":thumbsup::thumbsup:🏿"
+
+ ❯ src/utils/markdown/__tests__/emoji.longest-sequence-first.test.ts:18:54
+     16|     ['a base followed by a skin-tone sequence', '👍👍🏿', ':thumbsup::…
+     17|   ])('translates %s', (_title, source, expected) => {
+     18|     expect(translateSurrogatesToInlineEmoji(source)).toBe(expected);
+       |                                                      ^
+     19|   });
+     20| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 1 passed (4)
+   Start at  08:04:04
+   Duration  552ms (transform 304ms, setup 0ms, import 389ms, tests 21ms, environment 0ms)
+
+vitest exit 1

@@ -1,0 +1,41 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6h-aria-inverted  sha: 4fbc920  label: m6h-aria-inverted  test: MarkdownSpoiler.aria-expanded  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6h-aria-inverted
+ .../src/utils/markdown/components/MarkdownSpoiler.tsx                   | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6h-aria-inverted
+
+ ❯ |dom| src/utils/markdown/components/__tests__/MarkdownSpoiler.aria-expanded.test.tsx (1 test | 1 failed) 35ms
+     × is true exactly when the content is visible 33ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/components/__tests__/MarkdownSpoiler.aria-expanded.test.tsx > MarkdownSpoiler aria-expanded > is true exactly when the content is visible
+AssertionError: expected [ 'true', 'true' ] to deeply equal [ 'false', 'true' ]
+
+- Expected
++ Received
+
+  [
+-   "false",
++   "true",
+    "true",
+  ]
+
+ ❯ src/utils/markdown/components/__tests__/MarkdownSpoiler.aria-expanded.test.tsx:19:8
+     17|
+     18|     expect([spoiler.getAttribute('aria-expanded'), content.getAttribut…
+     19|       .toEqual(['false', 'true']);
+       |        ^
+     20|
+     21|     act(() => { spoiler.click(); });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  08:04:08
+   Duration  855ms (transform 42ms, setup 21ms, import 64ms, tests 35ms, environment 610ms)
+
+vitest exit 1

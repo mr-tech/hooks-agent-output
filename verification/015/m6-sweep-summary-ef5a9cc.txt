@@ -1,0 +1,13 @@
+control-m6b	 Tests 31 passed (31)	0	vitest exit 0
+control-m6g	 Tests 5 passed (5)	0	vitest exit 0
+m6b-substring-match	 Tests 5 failed | 26 passed (31)	0	vitest exit 1
+m6b-case-sensitive	 Tests 9 failed | 22 passed (31)	0	vitest exit 1
+m6b-query-kept	 Tests 4 failed | 27 passed (31)	0	vitest exit 1
+m6b-fragment-kept	 Tests 1 failed | 30 passed (31)	0	vitest exit 1
+m6b-jpeg-dropped	 Tests 3 failed | 28 passed (31)	0	vitest exit 1
+m6b-webp-dropped	 Tests 3 failed | 28 passed (31)	0	vitest exit 1
+m6b-avif-added	 Tests 1 failed | 30 passed (31)	0	vitest exit 1
+m6g-sort-removed	 Tests 4 failed | 1 passed (5)	0	vitest exit 1
+m6g-sort-ascending	 Tests 4 failed | 1 passed (5)	0	vitest exit 1
+m6g-sort-one-argument	 Tests 1 failed | 4 passed (5)	0	vitest exit 1
+done

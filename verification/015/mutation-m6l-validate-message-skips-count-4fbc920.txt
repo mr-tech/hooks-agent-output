@@ -1,0 +1,58 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6l-validate-message-skips-count  sha: 4fbc920  label: m6l-validate-message-skips-count  test: limits.component-count DiscordMessageEditor.component-limit  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6l-validate-message-skips-count
+ .../src/utils/limits.tsx                                 |  1 -
+ 7 files changed, 6 insertions(+), 28 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6l-validate-message-skips-count
+
+ ❯ |node| src/utils/__tests__/limits.component-count.test.ts (13 tests | 3 failed) 12ms
+     × refuses 41 flat text displays naming the total and the limit 6ms
+     × refuses a container holding 40 text displays (41 in all) naming the total and the limit 1ms
+     × refuses 11 containers each holding a section (44 in all) naming the total and the limit 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > validateMessage component total > refuses 41 flat text displays naming the total and the limit
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > validateMessage component total > refuses a container holding 40 text displays (41 in all) naming the total and the limit
+AssertionError: expected '' to be 'Message has 41 components; the limit …' // Object.is equality
+
+- Expected
++ Received
+
+- Message has 41 components; the limit is 40.
+
+ ❯ src/utils/__tests__/limits.component-count.test.ts:45:51
+     43|     ['11 containers each holding a section (44 in all)', sectionContai…
+     44|   ])('refuses %s naming the total and the limit', (_title, components,…
+     45|     expect(validateMessage(data({ components }))).toBe(`Message has ${…
+       |                                                   ^
+     46|   });
+     47| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > validateMessage component total > refuses 11 containers each holding a section (44 in all) naming the total and the limit
+AssertionError: expected '' to be 'Message has 44 components; the limit …' // Object.is equality
+
+- Expected
++ Received
+
+- Message has 44 components; the limit is 40.
+
+ ❯ src/utils/__tests__/limits.component-count.test.ts:45:51
+     43|     ['11 containers each holding a section (44 in all)', sectionContai…
+     44|   ])('refuses %s naming the total and the limit', (_title, components,…
+     45|     expect(validateMessage(data({ components }))).toBe(`Message has ${…
+       |                                                   ^
+     46|   });
+     47| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  3 failed | 26 passed (29)
+   Start at  08:04:49
+   Duration  1.75s (transform 239ms, setup 13ms, import 823ms, tests 256ms, environment 618ms)
+
+vitest exit 1

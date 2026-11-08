@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-control-m6l  sha: 4fbc920  label: control-m6l  test: limits.component-count DiscordMessageEditor.component-limit  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-control-m6l
+
+
+ Test Files  2 passed (2)
+      Tests  29 passed (29)
+   Start at  08:02:57
+   Duration  1.77s (transform 236ms, setup 22ms, import 857ms, tests 249ms, environment 599ms)
+
+vitest exit 0

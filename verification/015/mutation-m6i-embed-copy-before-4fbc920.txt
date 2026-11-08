@@ -1,0 +1,35 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6i-embed-copy-before  sha: 4fbc920  label: m6i-embed-copy-before  test: duplicate-placement  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6i-embed-copy-before
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6i-embed-copy-before
+
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.duplicate-placement.test.tsx (2 tests | 1 failed) 49ms
+     × puts a duplicated embed directly after the original 39ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.duplicate-placement.test.tsx > DiscordMessageEditor top-level duplicate > puts a duplicated embed directly after the original
+AssertionError: expected 'b5ceba57-f274-4a96-94b9-a3d2b9b6b6a0' to be 'e1' // Object.is equality
+
+Expected: "e1"
+Received: "b5ceba57-f274-4a96-94b9-a3d2b9b6b6a0"
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.duplicate-placement.test.tsx:65:26
+     63|     const next = (setMessage.mock.calls[0][0] as EditableMessageData).…
+     64|     expect(next.map((e) => e.title)).toEqual(['title e0', 'title e1', …
+     65|     expect(next[1]._key).toBe('e1');
+       |                          ^
+     66|     expect(['e0', 'e1', 'e2']).not.toContain(next[2]._key);
+     67|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  1 failed | 5 passed (6)
+   Start at  08:04:10
+   Duration  1.89s (transform 825ms, setup 78ms, import 4.02s, tests 355ms, environment 3.56s)
+
+vitest exit 1

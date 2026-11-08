@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-control-m6h  sha: 4fbc920  label: control-m6h  test: MarkdownSpoiler.aria-expanded  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-control-m6h
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  08:02:46
+   Duration  931ms (transform 40ms, setup 24ms, import 64ms, tests 31ms, environment 684ms)
+
+vitest exit 0

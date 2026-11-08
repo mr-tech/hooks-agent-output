@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-control-m6b  sha: 4fbc920  label: control-m6b  test: isValidImageUrl.extensions  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-control-m6b
+
+
+ Test Files  1 passed (1)
+      Tests  31 passed (31)
+   Start at  08:02:29
+   Duration  168ms (transform 25ms, setup 0ms, import 38ms, tests 5ms, environment 0ms)
+
+vitest exit 0

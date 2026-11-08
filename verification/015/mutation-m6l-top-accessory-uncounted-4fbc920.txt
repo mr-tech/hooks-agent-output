@@ -1,0 +1,38 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6l-top-accessory-uncounted  sha: 4fbc920  label: m6l-top-accessory-uncounted  test: limits.component-count DiscordMessageEditor.component-limit  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6l-top-accessory-uncounted
+ .../src/utils/limits.tsx                                 |  1 -
+ 7 files changed, 6 insertions(+), 28 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6l-top-accessory-uncounted
+
+ ❯ |node| src/utils/__tests__/limits.component-count.test.ts (13 tests | 1 failed) 11ms
+     × counts a section with two texts and an accessory 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > countTotalComponents > counts a section with two texts and an accessory
+AssertionError: expected 3 to be 4 // Object.is equality
+
+- Expected
++ Received
+
+- 4
++ 3
+
+ ❯ src/utils/__tests__/limits.component-count.test.ts:27:55
+     25|     ['a media gallery counts as one', [makeMediaGallery(3)], 1],
+     26|   ])('counts %s', (_title, components, expected) => {
+     27|     expect(countTotalComponents(components as never)).toBe(expected);
+       |                                                       ^
+     28|   });
+     29| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 28 passed (29)
+   Start at  08:04:43
+   Duration  1.78s (transform 234ms, setup 8ms, import 856ms, tests 264ms, environment 624ms)
+
+vitest exit 1

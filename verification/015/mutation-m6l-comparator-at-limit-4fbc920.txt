@@ -1,0 +1,64 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6l-comparator-at-limit  sha: 4fbc920  label: m6l-comparator-at-limit  test: limits.component-count DiscordMessageEditor.component-limit  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6l-comparator-at-limit
+ .../website-4fbc920-m6l-comparator-at-limit}/src/utils/limits.tsx   | 2 +-
+ 6 files changed, 7 insertions(+), 12 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6l-comparator-at-limit
+
+ ❯ |node| src/utils/__tests__/limits.component-count.test.ts (13 tests | 3 failed) 10ms
+     × accepts 40 flat text displays 4ms
+     × accepts a container holding 39 text displays (40 in all) 1ms
+     × accepts 10 containers each holding a section (40 in all) 0ms
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (16 tests | 2 failed) 246ms
+     × shows no error at the limit: 40 flat components 13ms
+     × shows no error at the limit: a container holding 39 text displays 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows no error at the limit: 40 flat components
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows no error at the limit: a container holding 39 text displays
+AssertionError: expected 'Message has 40 components; the limit …' to be undefined
+
+- Expected:
+undefined
+
++ Received:
+"Message has 40 components; the limit is 40."
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:100:29
+     98|     const host = await mountV2(components);
+     99|
+    100|     expect(errorLine(host)).toBeUndefined();
+       |                             ^
+    101|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+    102|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > validateMessage component total > accepts 40 flat text displays
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > validateMessage component total > accepts a container holding 39 text displays (40 in all)
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > validateMessage component total > accepts 10 containers each holding a section (40 in all)
+AssertionError: expected 'Message has 40 components; the limit …' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Message has 40 components; the limit is 40.
+
+ ❯ src/utils/__tests__/limits.component-count.test.ts:37:51
+     35|     ['10 containers each holding a section (40 in all)', sectionContai…
+     36|   ])('accepts %s', (_title, components) => {
+     37|     expect(validateMessage(data({ components }))).toBe('');
+       |                                                   ^
+     38|   });
+     39|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  5 failed | 24 passed (29)
+   Start at  08:04:37
+   Duration  1.74s (transform 228ms, setup 10ms, import 827ms, tests 255ms, environment 601ms)
+
+vitest exit 1

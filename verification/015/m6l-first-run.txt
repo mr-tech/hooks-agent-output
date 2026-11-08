@@ -1,0 +1,121 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/utils/__tests__/limits.component-count.test.ts (13 tests | 10 failed) 11ms
+     × counts no components 4ms
+     × counts three flat text displays 0ms
+     × counts a section with two texts and an accessory 0ms
+     × counts an action row with two buttons 0ms
+     × counts a container with three text displays 0ms
+     × counts a container holding a section of one text and an accessory 0ms
+     × counts a media gallery counts as one 0ms
+     × refuses 41 flat text displays naming the total and the limit 2ms
+     × refuses a container holding 40 text displays (41 in all) naming the total and the limit 0ms
+     × refuses 11 containers each holding a section (44 in all) naming the total and the limit 0ms
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (12 tests | 3 failed) 137ms
+     × shows the total and the limit with a red border above the limit: 41 flat components 11ms
+     × shows the total and the limit with a red border above the limit: a container holding 40 text displays 5ms
+     × shows the total and the limit with a red border above the limit: 11 containers of one section each 5ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 13 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows the total and the limit with a red border above the limit: 41 flat components
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows the total and the limit with a red border above the limit: a container holding 40 text displays
+AssertionError: expected undefined to be 'Message has 41 components; the limit …' // Object.is equality
+
+- Expected:
+"Message has 41 components; the limit is 40."
+
++ Received:
+undefined
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:96:29
+     94|     const host = await mountV2(components);
+     95|
+     96|     expect(errorLine(host)).toBe(`Message has ${total} components; the…
+       |                             ^
+     97|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+     98|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/13]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows the total and the limit with a red border above the limit: 11 containers of one section each
+AssertionError: expected undefined to be 'Message has 44 components; the limit …' // Object.is equality
+
+- Expected:
+"Message has 44 components; the limit is 40."
+
++ Received:
+undefined
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:96:29
+     94|     const host = await mountV2(components);
+     95|
+     96|     expect(errorLine(host)).toBe(`Message has ${total} components; the…
+       |                             ^
+     97|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+     98|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/13]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > countTotalComponents > counts no components
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > countTotalComponents > counts three flat text displays
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > countTotalComponents > counts a section with two texts and an accessory
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > countTotalComponents > counts an action row with two buttons
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > countTotalComponents > counts a container with three text displays
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > countTotalComponents > counts a container holding a section of one text and an accessory
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > countTotalComponents > counts a media gallery counts as one
+TypeError: countTotalComponents is not a function
+ ❯ src/utils/__tests__/limits.component-count.test.ts:25:12
+     23|     ['a media gallery counts as one', [makeMediaGallery(3)], 1],
+     24|   ])('counts %s', (_title, components, expected) => {
+     25|     expect(countTotalComponents(components as never)).toBe(expected);
+       |            ^
+     26|   });
+     27| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/13]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > validateMessage component total > refuses 41 flat text displays naming the total and the limit
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > validateMessage component total > refuses a container holding 40 text displays (41 in all) naming the total and the limit
+AssertionError: expected '' to be 'Message has 41 components; the limit …' // Object.is equality
+
+- Expected
++ Received
+
+- Message has 41 components; the limit is 40.
+
+ ❯ src/utils/__tests__/limits.component-count.test.ts:43:51
+     41|     ['11 containers each holding a section (44 in all)', sectionContai…
+     42|   ])('refuses %s naming the total and the limit', (_title, components,…
+     43|     expect(validateMessage(data({ components }))).toBe(`Message has ${…
+       |                                                   ^
+     44|   });
+     45| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/13]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > validateMessage component total > refuses 11 containers each holding a section (44 in all) naming the total and the limit
+AssertionError: expected '' to be 'Message has 44 components; the limit …' // Object.is equality
+
+- Expected
++ Received
+
+- Message has 44 components; the limit is 40.
+
+ ❯ src/utils/__tests__/limits.component-count.test.ts:43:51
+     41|     ['11 containers each holding a section (44 in all)', sectionContai…
+     42|   ])('refuses %s naming the total and the limit', (_title, components,…
+     43|     expect(validateMessage(data({ components }))).toBe(`Message has ${…
+       |                                                   ^
+     44|   });
+     45| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/13]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  13 failed | 12 passed (25)
+   Start at  07:56:22
+   Duration  1.58s (transform 205ms, setup 7ms, import 797ms, tests 148ms, environment 592ms)
+

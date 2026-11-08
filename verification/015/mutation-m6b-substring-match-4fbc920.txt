@@ -1,0 +1,46 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6b-substring-match  sha: 4fbc920  label: m6b-substring-match  test: isValidImageUrl.extensions  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6b-substring-match
+ .../website-4fbc920-m6b-substring-match}/src/utils/isValidImageUrl.ts   | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6b-substring-match
+
+ ❯ |node| src/utils/__tests__/isValidImageUrl.extensions.test.ts (31 tests | 5 failed) 13ms
+     × refuses a.png.html 5ms
+     × refuses a.png/ 1ms
+     × refuses a.webmx 0ms
+     × refuses https://example.com/a.png/b 0ms
+     × refuses https://example.com/a.png.html?x=a.png 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/isValidImageUrl.extensions.test.ts > isValidImageUrl > refuses a.png.html
+ FAIL  |node| src/utils/__tests__/isValidImageUrl.extensions.test.ts > isValidImageUrl > refuses a.png/
+ FAIL  |node| src/utils/__tests__/isValidImageUrl.extensions.test.ts > isValidImageUrl > refuses a.webmx
+ FAIL  |node| src/utils/__tests__/isValidImageUrl.extensions.test.ts > isValidImageUrl > refuses https://example.com/a.png/b
+ FAIL  |node| src/utils/__tests__/isValidImageUrl.extensions.test.ts > isValidImageUrl > refuses https://example.com/a.png.html?x=a.png
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/isValidImageUrl.extensions.test.ts:38:34
+     36|     [''],
+     37|   ])('refuses %s', (url) => {
+     38|     expect(isValidImageUrl(url)).toBe(false);
+       |                                  ^
+     39|   });
+     40| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  5 failed | 26 passed (31)
+   Start at  08:03:03
+   Duration  192ms (transform 25ms, setup 0ms, import 39ms, tests 13ms, environment 0ms)
+
+vitest exit 1

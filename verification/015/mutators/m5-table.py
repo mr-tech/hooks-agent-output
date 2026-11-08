@@ -17,7 +17,7 @@ MUTANTS = {
     'm5b-copy-disabled-only-when-unparsable': (JSON_BODY, "isDisabled={!!copyState || copyText === null}", "isDisabled={!!copyState || !isJSONParsable(messageString)}", 1),
     'm5b-copy-copies-raw-draft': (JSON_BODY, "void copy(copyText);", "void copy(messageString);", 1),
     'm5c-pusher-reads-render-flag': (PUSHER, "${hasChangedRef.current ?", "${hasChanged ?", 1),
-    'm5c-pusher-ref-never-updated': (PUSHER, "  hasChangedRef.current = hasChanged;\n", "", 1),
+    'm5c-pusher-ref-never-updated': (PUSHER, "const hasChangedRef = useLatest(hasChanged);", "const hasChangedRef = { current: hasChanged };", 1),
     'm5d-dropdown-memo-once': (DROPDOWN, "  }, [session, setSelectedGuildId]);", "  }, []);", 1),
     'm5e-day-of-month-only': (DATE, "  return a.getFullYear() === b.getFullYear()\n    && a.getMonth() === b.getMonth()\n    && a.getDate() === b.getDate();", "  return a.getDate() === b.getDate();", 1),
     'm5e-month-dropped': (DATE, "    && a.getMonth() === b.getMonth()\n", "", 1),

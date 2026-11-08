@@ -1,0 +1,39 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6l-editor-border-missing  sha: 4fbc920  label: m6l-editor-border-missing  test: limits.component-count DiscordMessageEditor.component-limit  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6l-editor-border-missing
+ .../src/utils/hooks/useValidateWebhook.ts                |  4 ++--
+ 7 files changed, 7 insertions(+), 28 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6l-editor-border-missing
+
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (16 tests | 3 failed) 249ms
+     × shows the total and the limit with a red border above the limit: 41 flat components 13ms
+     × shows the total and the limit with a red border above the limit: a container holding 40 text displays 6ms
+     × shows the total and the limit with a red border above the limit: 11 containers of one section each 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows the total and the limit with a red border above the limit: 41 flat components
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows the total and the limit with a red border above the limit: a container holding 40 text displays
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows the total and the limit with a red border above the limit: 11 containers of one section each
+AssertionError: expected 'discord-visualizer__accessories' to contain 'transition-all rounded ring !ring-red…'
+
+Expected: "transition-all rounded ring !ring-red-500"
+Received: "discord-visualizer__accessories"
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:112:79
+    110|
+    111|     expect(errorLine(host)).toBe(`Message has ${total} components; the…
+    112|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+       |                                                                               ^
+    113|   });
+    114| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  3 failed | 26 passed (29)
+   Start at  08:04:59
+   Duration  1.74s (transform 226ms, setup 9ms, import 840ms, tests 253ms, environment 595ms)
+
+vitest exit 1

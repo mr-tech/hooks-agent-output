@@ -1,0 +1,38 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6e-interval-not-cleared  sha: 4fbc920  label: m6e-interval-not-cleared  test: Author.timer-cleanup  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6e-interval-not-cleared
+ .../results.json => dev/null}                      |  1 -
+ 4 files changed, 19 insertions(+), 86 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6e-interval-not-cleared
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/__tests__/Author.timer-cleanup.test.tsx (3 tests | 1 failed) 64ms
+     × leaves no timer running when unmounted after the clock has started ticking 11ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/__tests__/Author.timer-cleanup.test.tsx > Author clock > leaves no timer running when unmounted after the clock has started ticking
+AssertionError: expected 1 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ src/components/DiscordMessageEditor/components/__tests__/Author.timer-cleanup.test.tsx:66:32
+     64|     unmountDom();
+     65|
+     66|     expect(vi.getTimerCount()).toBe(0);
+       |                                ^
+     67|   });
+     68| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  08:03:47
+   Duration  1.49s (transform 188ms, setup 22ms, import 642ms, tests 64ms, environment 630ms)
+
+vitest exit 1

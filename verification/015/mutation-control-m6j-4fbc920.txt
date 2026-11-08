@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-control-m6j  sha: 4fbc920  label: control-m6j  test: EmbedFooter.missing-text  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-control-m6j
+
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  08:02:51
+   Duration  1.75s (transform 254ms, setup 23ms, import 832ms, tests 159ms, environment 601ms)
+
+vitest exit 0

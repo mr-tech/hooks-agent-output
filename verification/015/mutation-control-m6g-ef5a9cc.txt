@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export3/website-ef5a9cc-control-m6g  sha: ef5a9cc  label: control-m6g  test: emoji.longest-sequence-first  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export3/website-ef5a9cc-control-m6g
+
+
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+   Start at  08:06:36
+   Duration  512ms (transform 285ms, setup 0ms, import 374ms, tests 11ms, environment 0ms)
+
+vitest exit 0

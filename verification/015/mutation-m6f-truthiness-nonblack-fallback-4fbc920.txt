@@ -1,0 +1,37 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6f-truthiness-nonblack-fallback  sha: 4fbc920  label: m6f-truthiness-nonblack-fallback  test: Picker.default-colour  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6f-truthiness-nonblack-fallback
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6f-truthiness-nonblack-fallback
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx (7 tests | 2 failed) 28ms
+     × opens on the six-digit hex of undefined 18ms
+     × opens on the six-digit hex of 0 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx > Picker default colour > opens on the six-digit hex of undefined
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx > Picker default colour > opens on the six-digit hex of 0
+AssertionError: expected '#ffffff' to be '#000000' // Object.is equality
+
+Expected: "#000000"
+Received: "#ffffff"
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx:42:35
+     40|     mountDom(<Picker initColor={initColor} setColor={() => {}} />);
+     41|
+     42|     expect(chrome().defaultColor).toBe(expected);
+       |                                   ^
+     43|   });
+     44|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 5 passed (7)
+   Start at  08:03:53
+   Duration  1.29s (transform 118ms, setup 21ms, import 469ms, tests 28ms, environment 625ms)
+
+vitest exit 1

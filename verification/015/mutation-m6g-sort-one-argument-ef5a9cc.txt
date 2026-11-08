@@ -1,0 +1,35 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export3/website-ef5a9cc-m6g-sort-one-argument  sha: ef5a9cc  label: m6g-sort-one-argument  test: emoji.longest-sequence-first  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6g-sort-one-argument
+ .../website-ef5a9cc-m6g-sort-one-argument}/src/utils/markdown/emoji.tsx | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export3/website-ef5a9cc-m6g-sort-one-argument
+
+ ❯ |node| src/utils/markdown/__tests__/emoji.longest-sequence-first.test.ts (5 tests | 1 failed) 15ms
+     × translates a sequence that extends a shorter emoji 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/emoji.longest-sequence-first.test.ts > translateSurrogatesToInlineEmoji > translates a sequence that extends a shorter emoji
+AssertionError: expected ':no_mouth:\u200d:fog::skin-tone-5:' to be ':face_in_clouds::skin-tone-5:' // Object.is equality
+
+Expected: ":face_in_clouds::skin-tone-5:"
+Received: ":no_mouth:‍:fog::skin-tone-5:"
+
+ ❯ src/utils/markdown/__tests__/emoji.longest-sequence-first.test.ts:19:54
+     17|     ['a base followed by a skin-tone sequence', '👍👍🏿', ':thumbsup::…
+     18|   ])('translates %s', (_title, source, expected) => {
+     19|     expect(translateSurrogatesToInlineEmoji(source)).toBe(expected);
+       |                                                      ^
+     20|   });
+     21| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 4 passed (5)
+   Start at  08:06:58
+   Duration  506ms (transform 280ms, setup 0ms, import 365ms, tests 15ms, environment 0ms)
+
+vitest exit 1

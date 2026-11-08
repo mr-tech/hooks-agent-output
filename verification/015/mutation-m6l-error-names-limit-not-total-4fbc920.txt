@@ -1,0 +1,91 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6l-error-names-limit-not-total  sha: 4fbc920  label: m6l-error-names-limit-not-total  test: limits.component-count DiscordMessageEditor.component-limit  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6l-error-names-limit-not-total
+ .../src/utils/limits.tsx                                 |  2 +-
+ 7 files changed, 7 insertions(+), 28 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6l-error-names-limit-not-total
+
+ ❯ |node| src/utils/__tests__/limits.component-count.test.ts (13 tests | 3 failed) 11ms
+     × refuses 41 flat text displays naming the total and the limit 5ms
+     × refuses a container holding 40 text displays (41 in all) naming the total and the limit 1ms
+     × refuses 11 containers each holding a section (44 in all) naming the total and the limit 0ms
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (16 tests | 3 failed) 248ms
+     × shows the total and the limit with a red border above the limit: 41 flat components 13ms
+     × shows the total and the limit with a red border above the limit: a container holding 40 text displays 6ms
+     × shows the total and the limit with a red border above the limit: 11 containers of one section each 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows the total and the limit with a red border above the limit: 41 flat components
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows the total and the limit with a red border above the limit: a container holding 40 text displays
+AssertionError: expected 'Message has 40 components; the limit …' to be 'Message has 41 components; the limit …' // Object.is equality
+
+Expected: "Message has 41 components; the limit is 40."
+Received: "Message has 40 components; the limit is 40."
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:111:29
+    109|     const host = await mountV2(components);
+    110|
+    111|     expect(errorLine(host)).toBe(`Message has ${total} components; the…
+       |                             ^
+    112|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+    113|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows the total and the limit with a red border above the limit: 11 containers of one section each
+AssertionError: expected 'Message has 40 components; the limit …' to be 'Message has 44 components; the limit …' // Object.is equality
+
+Expected: "Message has 44 components; the limit is 40."
+Received: "Message has 40 components; the limit is 40."
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:111:29
+    109|     const host = await mountV2(components);
+    110|
+    111|     expect(errorLine(host)).toBe(`Message has ${total} components; the…
+       |                             ^
+    112|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+    113|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > validateMessage component total > refuses 41 flat text displays naming the total and the limit
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > validateMessage component total > refuses a container holding 40 text displays (41 in all) naming the total and the limit
+AssertionError: expected 'Message has 40 components; the limit …' to be 'Message has 41 components; the limit …' // Object.is equality
+
+Expected: "Message has 41 components; the limit is 40."
+Received: "Message has 40 components; the limit is 40."
+
+ ❯ src/utils/__tests__/limits.component-count.test.ts:45:51
+     43|     ['11 containers each holding a section (44 in all)', sectionContai…
+     44|   ])('refuses %s naming the total and the limit', (_title, components,…
+     45|     expect(validateMessage(data({ components }))).toBe(`Message has ${…
+       |                                                   ^
+     46|   });
+     47| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > validateMessage component total > refuses 11 containers each holding a section (44 in all) naming the total and the limit
+AssertionError: expected 'Message has 40 components; the limit …' to be 'Message has 44 components; the limit …' // Object.is equality
+
+Expected: "Message has 44 components; the limit is 40."
+Received: "Message has 40 components; the limit is 40."
+
+ ❯ src/utils/__tests__/limits.component-count.test.ts:45:51
+     43|     ['11 containers each holding a section (44 in all)', sectionContai…
+     44|   ])('refuses %s naming the total and the limit', (_title, components,…
+     45|     expect(validateMessage(data({ components }))).toBe(`Message has ${…
+       |                                                   ^
+     46|   });
+     47| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  6 failed | 23 passed (29)
+   Start at  08:04:53
+   Duration  1.69s (transform 218ms, setup 12ms, import 790ms, tests 260ms, environment 599ms)
+
+vitest exit 1

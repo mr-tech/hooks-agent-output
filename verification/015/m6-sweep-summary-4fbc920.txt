@@ -1,0 +1,61 @@
+control-m6a	 Tests 13 passed (13)	0	vitest exit 0
+control-m6b	 Tests 31 passed (31)	0	vitest exit 0
+control-m6c	 Tests 12 passed (12)	0	vitest exit 0
+control-m6d	 Tests 16 passed (16)	0	vitest exit 0
+control-m6e	 Tests 3 passed (3)	0	vitest exit 0
+control-m6f	 Tests 7 passed (7)	0	vitest exit 0
+control-m6g	 Tests 4 passed (4)	0	vitest exit 0
+control-m6h	 Tests 1 passed (1)	0	vitest exit 0
+control-m6i	 Tests 6 passed (6)	0	vitest exit 0
+control-m6j	 Tests 3 passed (3)	0	vitest exit 0
+control-m6k	 Tests 5 passed (5)	0	vitest exit 0
+control-m6l	 Tests 29 passed (29)	0	vitest exit 0
+m6a-content-single-line	 Tests 8 failed | 5 passed (13)	0	vitest exit 1
+m6b-substring-match	 Tests 5 failed | 26 passed (31)	0	vitest exit 1
+m6b-case-sensitive	 Tests 9 failed | 22 passed (31)	0	vitest exit 1
+m6b-query-kept	 Tests 4 failed | 27 passed (31)	0	vitest exit 1
+m6b-fragment-kept	 Tests 1 failed | 30 passed (31)	0	vitest exit 1
+m6b-whole-path	 Tests 31 passed (31)	0	vitest exit 0
+m6b-jpeg-dropped	 Tests 3 failed | 28 passed (31)	0	vitest exit 1
+m6b-webp-dropped	 Tests 3 failed | 28 passed (31)	0	vitest exit 1
+m6b-avif-added	 Tests 1 failed | 30 passed (31)	0	vitest exit 1
+m6c-no-fields-counts-valid	 Tests 2 failed | 10 passed (12)	0	vitest exit 1
+m6c-name-or-value	 Tests 1 failed | 11 passed (12)	0	vitest exit 1
+m6d-set-field-first-slot	 Tests 4 failed | 12 passed (16)	0	vitest exit 1
+m6d-delete-first-slot	 Tests 4 failed | 12 passed (16)	0	vitest exit 1
+m6d-move-left-shifted	 Tests 2 failed | 14 passed (16)	0	vitest exit 1
+m6d-move-right-shifted	 Tests 4 failed | 12 passed (16)	0	vitest exit 1
+m6d-index-after-filter	 Tests 9 failed | 7 passed (16)	0	vitest exit 1
+m6e-timeout-not-cleared	 Tests 1 failed | 2 passed (3)	0	vitest exit 1
+m6e-interval-not-cleared	 Tests 1 failed | 2 passed (3)	0	vitest exit 1
+m6e-clock-never-ticks	 Tests 1 failed | 2 passed (3)	0	vitest exit 1
+m6f-truthiness-nonblack-fallback	 Tests 2 failed | 5 passed (7)	0	vitest exit 1
+m6f-unpadded	 Tests 5 failed | 2 passed (7)	0	vitest exit 1
+m6f-undefined-is-white	 Tests 1 failed | 6 passed (7)	0	vitest exit 1
+m6g-sort-removed	 Tests 3 failed | 1 passed (4)	0	vitest exit 1
+m6g-sort-ascending	 Tests 3 failed | 1 passed (4)	0	vitest exit 1
+m6g-sort-one-argument	 Tests 4 passed (4)	0	vitest exit 0
+m6h-aria-inverted	 Tests 1 failed (1)	0	vitest exit 1
+m6i-embed-copy-before	 Tests 1 failed | 5 passed (6)	0	vitest exit 1
+m6i-component-copy-before	 Tests 1 failed | 5 passed (6)	0	vitest exit 1
+m6i-actionrow-copy-last	 Tests 1 failed | 5 passed (6)	0	vitest exit 1
+m6i-gallery-copy-last	 Tests 1 failed | 5 passed (6)	0	vitest exit 1
+m6i-section-copy-last	 Tests 1 failed | 5 passed (6)	0	vitest exit 1
+m6i-container-copy-last	 Tests 1 failed | 5 passed (6)	0	vitest exit 1
+m6j-footer-text-unguarded	 Tests 3 failed (3)	0	vitest exit 1
+m6k-delete-without-inner-key-noop	 Tests 1 failed | 4 passed (5)	0	vitest exit 1
+m6k-falsy-inner-key-is-absent	 Tests 1 failed | 4 passed (5)	0	vitest exit 1
+m6l-comparator-at-limit	 Tests 5 failed | 24 passed (29)	0	vitest exit 1
+m6l-nesting-recursion-removed	 Tests 4 failed | 25 passed (29)	0	vitest exit 1
+m6l-top-accessory-uncounted	 Tests 1 failed | 28 passed (29)	0	vitest exit 1
+m6l-child-accessory-uncounted	 Tests 4 failed | 25 passed (29)	0	vitest exit 1
+m6l-validate-message-skips-count	 Tests 3 failed | 26 passed (29)	0	vitest exit 1
+m6l-error-names-limit-not-total	 Tests 6 failed | 23 passed (29)	0	vitest exit 1
+m6l-editor-line-missing	 Tests 3 failed | 26 passed (29)	0	vitest exit 1
+m6l-editor-border-missing	 Tests 3 failed | 26 passed (29)	0	vitest exit 1
+m6l-editor-offers-at-limit	 Tests 3 failed | 26 passed (29)	0	vitest exit 1
+m6l-editor-counts-top-level-only	 Tests 2 failed | 27 passed (29)	0	vitest exit 1
+m6l-editor-add-refused-near-limit	 Tests 3 failed | 26 passed (29)	0	vitest exit 1
+m6l-actionrow-add-stricter	 Tests 1 failed | 1 passed (2)	0	vitest exit 1
+m6l-section-add-stricter	 Tests 1 failed | 1 passed (2)	0	vitest exit 1
+done

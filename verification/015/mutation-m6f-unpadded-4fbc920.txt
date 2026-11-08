@@ -1,0 +1,88 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6f-unpadded  sha: 4fbc920  label: m6f-unpadded  test: Picker.default-colour  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6f-unpadded
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6f-unpadded
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx (7 tests | 5 failed) 30ms
+     × opens on the six-digit hex of undefined 17ms
+     × opens on the six-digit hex of 0 3ms
+     × opens on the six-digit hex of 1 2ms
+     × opens on the six-digit hex of 255 2ms
+     × opens on the six-digit hex of 65280 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx > Picker default colour > opens on the six-digit hex of undefined
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx > Picker default colour > opens on the six-digit hex of 0
+AssertionError: expected '#0' to be '#000000' // Object.is equality
+
+Expected: "#000000"
+Received: "#0"
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx:42:35
+     40|     mountDom(<Picker initColor={initColor} setColor={() => {}} />);
+     41|
+     42|     expect(chrome().defaultColor).toBe(expected);
+       |                                   ^
+     43|   });
+     44|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx > Picker default colour > opens on the six-digit hex of 1
+AssertionError: expected '#1' to be '#000001' // Object.is equality
+
+Expected: "#000001"
+Received: "#1"
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx:42:35
+     40|     mountDom(<Picker initColor={initColor} setColor={() => {}} />);
+     41|
+     42|     expect(chrome().defaultColor).toBe(expected);
+       |                                   ^
+     43|   });
+     44|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx > Picker default colour > opens on the six-digit hex of 255
+AssertionError: expected '#ff' to be '#0000ff' // Object.is equality
+
+Expected: "#0000ff"
+Received: "#ff"
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx:42:35
+     40|     mountDom(<Picker initColor={initColor} setColor={() => {}} />);
+     41|
+     42|     expect(chrome().defaultColor).toBe(expected);
+       |                                   ^
+     43|   });
+     44|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx > Picker default colour > opens on the six-digit hex of 65280
+AssertionError: expected '#ff00' to be '#00ff00' // Object.is equality
+
+Expected: "#00ff00"
+Received: "#ff00"
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx:42:35
+     40|     mountDom(<Picker initColor={initColor} setColor={() => {}} />);
+     41|
+     42|     expect(chrome().defaultColor).toBe(expected);
+       |                                   ^
+     43|   });
+     44|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  5 failed | 2 passed (7)
+   Start at  08:03:56
+   Duration  872ms (transform 45ms, setup 20ms, import 74ms, tests 30ms, environment 605ms)
+
+vitest exit 1

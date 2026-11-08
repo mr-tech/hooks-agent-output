@@ -1,0 +1,40 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6d-move-left-shifted  sha: 4fbc920  label: m6d-move-left-shifted  test: EmbedFields.read-only-field-index  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6d-move-left-shifted
+ .../results.json => dev/null}                      |  1 -
+ 4 files changed, 20 insertions(+), 86 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6d-move-left-shifted
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx (16 tests | 2 failed) 48ms
+     × move actions are offered by position in the full list when the first field is hidden 7ms
+     × move actions are offered by position in the full list when no field is hidden 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx > EmbedFields read-only field actions > move actions are offered by position in the full list when the first field is hidden
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx > EmbedFields read-only field actions > move actions are offered by position in the full list when no field is hidden
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx:82:47
+     80|     mountReadOnly(fields);
+     81|
+     82|     expect(props(key).moveLeft === undefined).toBe(slot === 0);
+       |                                               ^
+     83|     expect(props(key).moveRight === undefined).toBe(slot === fields.le…
+     84|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 14 passed (16)
+   Start at  08:03:34
+   Duration  1.49s (transform 186ms, setup 23ms, import 663ms, tests 48ms, environment 625ms)
+
+vitest exit 1

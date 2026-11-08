@@ -1,0 +1,31 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6l-actionrow-add-stricter  sha: 4fbc920  label: m6l-actionrow-add-stricter  test: ActionRowEditor.add-button  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6l-actionrow-add-stricter
+ .../src/utils/hooks/useValidateWebhook.ts                |  4 ++--
+ 7 files changed, 7 insertions(+), 28 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6l-actionrow-add-stricter
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/ActionRowEditor.add-button.test.tsx (2 tests | 1 failed) 44ms
+     × adds a button to a row of four, completing the row 35ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/ActionRowEditor.add-button.test.tsx > ActionRowEditor add button > adds a button to a row of four, completing the row
+TypeError: Cannot read properties of undefined (reading '0')
+ ❯ src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/ActionRowEditor.add-button.test.tsx:44:31
+     42|     act(() => { addControl(host)?.click(); });
+     43|
+     44|     expect((setRow.mock.calls[0][0] as EditableActionRow).components).…
+       |                               ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  08:05:12
+   Duration  1.41s (transform 146ms, setup 21ms, import 622ms, tests 44ms, environment 600ms)
+
+vitest exit 1

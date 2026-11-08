@@ -1,0 +1,4 @@
+SKIP src/utils/parseServerCookies.ts: not examined — missing file
+SKIP tsconfig.test.json: not examined — extension .json is outside the examined set
+SKIP id-token, basename: no agent-output/TEST-CONVENTIONS.md above this repository — conventions not in force here
+convention-check: 101 file(s) examined, 2 not examined, 58 test file(s); 0 FAIL, 0 CANDIDATE, 3 SKIP

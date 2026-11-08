@@ -1,0 +1,152 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/utils/__tests__/isValidImageUrl.extensions.test.ts (0 test)
+ ❯ |node| src/utils/maps/__tests__/UpsertMapMap.delete.test.ts (5 tests | 2 failed) 9ms
+     × removes the whole entry for a key given without an inner key 6ms
+     × treats an inner key of 0 as an inner key, not as absent 1ms
+ ❯ |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts (15 tests | 10 failed) 27ms
+     × renders a code block for a tag and two lines 18ms
+     × renders a code block for no tag and two lines 1ms
+     × renders a code block for a tag and three lines 1ms
+     × renders a code block for no tag and three lines 1ms
+     × renders a code block for a blank line inside 1ms
+     × renders a code block for a tag and two lines 1ms
+     × renders a code block for no tag and two lines 1ms
+     × renders a code block for a tag and three lines 1ms
+     × renders a code block for no tag and three lines 0ms
+     × renders a code block for a blank line inside 1ms
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/isValidImageUrl.extensions.test.ts [ src/utils/__tests__/isValidImageUrl.extensions.test.ts ]
+Error: Cannot find module '../isValidImageUrl' imported from /usr/local/bin/hooks/website/src/utils/__tests__/isValidImageUrl.extensions.test.ts
+ ❯ src/utils/__tests__/isValidImageUrl.extensions.test.ts:3:1
+      1| import { describe, expect, it } from 'vitest';
+      2|
+      3| import isValidImageUrl from '../isValidImageUrl';
+       | ^
+      4|
+      5| const EXTENSIONS = ['png', 'jpg', 'jpeg', 'webp', 'gif', 'apng', 'tiff…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/13]⎯
+
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 12 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/maps/__tests__/UpsertMapMap.delete.test.ts > UpsertMapMap.delete > removes the whole entry for a key given without an inner key
+AssertionError: expected Map{ +0 => 'a0', 1 => 'a1' } to be undefined
+
+- Expected:
+undefined
+
++ Received:
+Map {
+  0 => "a0",
+  1 => "a1",
+}
+
+ ❯ src/utils/maps/__tests__/UpsertMapMap.delete.test.ts:19:26
+     17|     map.delete('a');
+     18|
+     19|     expect(map.get('a')).toBeUndefined();
+       |                          ^
+     20|     expect(map.size).toBe(1);
+     21|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/13]⎯
+
+ FAIL  |node| src/utils/maps/__tests__/UpsertMapMap.delete.test.ts > UpsertMapMap.delete > treats an inner key of 0 as an inner key, not as absent
+AssertionError: expected 'a0' to be undefined
+
+- Expected:
+undefined
+
++ Received:
+"a0"
+
+ ❯ src/utils/maps/__tests__/UpsertMapMap.delete.test.ts:45:29
+     43|     map.delete('a', 0);
+     44|
+     45|     expect(map.get('a', 0)).toBeUndefined();
+       |                             ^
+     46|     expect(map.get('a', 1)).toBe('a1');
+     47|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/13]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for a tag and two lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for no tag and two lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for a tag and two lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for no tag and two lines
+AssertionError: expected null to be 'foo\nbar' // Object.is equality
+
+- Expected:
+"foo
+bar"
+
++ Received:
+null
+
+ ❯ src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts:38:51
+     36| ])('%s fenced code blocks', (_name, parser) => {
+     37|   it.each(BODIES)('renders a code block for %s', (_title, source, expe…
+     38|     expect(codeBlockText(render(parser, source))).toBe(expected);
+       |                                                   ^
+     39|   });
+     40| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/13]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for a tag and three lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for no tag and three lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for a tag and three lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for no tag and three lines
+AssertionError: expected null to be 'a\nb\nc' // Object.is equality
+
+- Expected:
+"a
+b
+c"
+
++ Received:
+null
+
+ ❯ src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts:38:51
+     36| ])('%s fenced code blocks', (_name, parser) => {
+     37|   it.each(BODIES)('renders a code block for %s', (_title, source, expe…
+     38|     expect(codeBlockText(render(parser, source))).toBe(expected);
+       |                                                   ^
+     39|   });
+     40| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/13]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for a blank line inside
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for a blank line inside
+AssertionError: expected null to be 'foo\n\nbar' // Object.is equality
+
+- Expected:
+"foo
+
+bar"
+
++ Received:
+null
+
+ ❯ src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts:38:51
+     36| ])('%s fenced code blocks', (_name, parser) => {
+     37|   it.each(BODIES)('renders a code block for %s', (_title, source, expe…
+     38|     expect(codeBlockText(render(parser, source))).toBe(expected);
+       |                                                   ^
+     39|   });
+     40| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/13]⎯
+
+
+ Test Files  3 failed | 1 passed (4)
+      Tests  12 failed | 12 passed (24)
+   Start at  07:53:13
+   Duration  1.15s (transform 526ms, setup 0ms, import 1.43s, tests 48ms, environment 0ms)
+

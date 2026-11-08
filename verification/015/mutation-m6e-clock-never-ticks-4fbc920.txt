@@ -1,0 +1,35 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6e-clock-never-ticks  sha: 4fbc920  label: m6e-clock-never-ticks  test: Author.timer-cleanup  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6e-clock-never-ticks
+ .../results.json => dev/null}                      |  1 -
+ 4 files changed, 20 insertions(+), 86 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6e-clock-never-ticks
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/__tests__/Author.timer-cleanup.test.tsx (3 tests | 1 failed) 60ms
+     × updates the displayed time every minute while mounted 46ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/__tests__/Author.timer-cleanup.test.tsx > Author clock > updates the displayed time every minute while mounted
+AssertionError: expected '2025-03-04T10:00:30.000Z' to be '2025-03-04T10:02:00.000Z' // Object.is equality
+
+Expected: "2025-03-04T10:02:00.000Z"
+Received: "2025-03-04T10:00:30.000Z"
+
+ ❯ src/components/DiscordMessageEditor/components/__tests__/Author.timer-cleanup.test.tsx:47:21
+     45|     expect(stamp()).toBe('2025-03-04T10:00:30.000Z');
+     46|     act(() => { vi.advanceTimersByTime(MINUTE + 30_000); });
+     47|     expect(stamp()).toBe('2025-03-04T10:02:00.000Z');
+       |                     ^
+     48|   });
+     49|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  08:03:50
+   Duration  1.42s (transform 175ms, setup 23ms, import 581ms, tests 60ms, environment 621ms)
+
+vitest exit 1

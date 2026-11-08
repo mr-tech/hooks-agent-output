@@ -1,0 +1,43 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6i-gallery-copy-last  sha: 4fbc920  label: m6i-gallery-copy-last  test: duplicate-placement  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6i-gallery-copy-last
+ .../src/utils/hooks/useValidateWebhook.ts                           | 4 ++--
+ 6 files changed, 7 insertions(+), 10 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6i-gallery-copy-last
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/MediaGalleryEditor.duplicate-placement.test.tsx (1 test | 1 failed) 48ms
+     × puts the copy directly after the original 47ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/MediaGalleryEditor.duplicate-placement.test.tsx > MediaGalleryEditor duplicate item > puts the copy directly after the original
+AssertionError: expected [ 'https://example.com/a.png', …(3) ] to deeply equal [ 'https://example.com/a.png', …(3) ]
+
+- Expected
++ Received
+
+  [
+    "https://example.com/a.png",
+    "https://example.com/b.png",
+-   "https://example.com/b.png",
+    "https://example.com/c.png",
++   "https://example.com/b.png",
+  ]
+
+ ❯ src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/MediaGalleryEditor.duplicate-placement.test.tsx:41:42
+     39|     expect(setGallery).toHaveBeenCalledOnce();
+     40|     const next = (setGallery.mock.calls[0][0] as EditableMediaGallery)…
+     41|     expect(next.map((i) => i.media.url)).toEqual([
+       |                                          ^
+     42|       'https://example.com/a.png',
+     43|       'https://example.com/b.png',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  1 failed | 5 passed (6)
+   Start at  08:04:20
+   Duration  1.85s (transform 671ms, setup 92ms, import 3.96s, tests 358ms, environment 3.29s)
+
+vitest exit 1

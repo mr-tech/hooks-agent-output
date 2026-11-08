@@ -1,0 +1,31 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6l-section-add-stricter  sha: 4fbc920  label: m6l-section-add-stricter  test: SectionEditor.add-text-display  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6l-section-add-stricter
+ .../src/utils/hooks/useValidateWebhook.ts                |  4 ++--
+ 7 files changed, 7 insertions(+), 28 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6l-section-add-stricter
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.add-text-display.test.tsx (2 tests | 1 failed) 62ms
+     × adds a text display to a section of two, completing the section 51ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.add-text-display.test.tsx > SectionEditor add text display > adds a text display to a section of two, completing the section
+TypeError: Cannot read properties of undefined (reading '0')
+ ❯ src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.add-text-display.test.tsx:47:35
+     45|     act(() => { addControl(host)?.click(); });
+     46|
+     47|     expect((setSection.mock.calls[0][0] as EditableSection).components…
+       |                                   ^
+     48|   });
+     49|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  08:05:15
+   Duration  1.75s (transform 299ms, setup 22ms, import 930ms, tests 62ms, environment 606ms)
+
+vitest exit 1

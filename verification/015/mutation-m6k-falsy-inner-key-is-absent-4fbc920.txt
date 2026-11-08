@@ -1,0 +1,38 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6k-falsy-inner-key-is-absent  sha: 4fbc920  label: m6k-falsy-inner-key-is-absent  test: UpsertMapMap.delete  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6k-falsy-inner-key-is-absent
+ .../src/utils/maps/UpsertMapMap.ts                                  | 2 +-
+ 6 files changed, 7 insertions(+), 12 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6k-falsy-inner-key-is-absent
+
+ ❯ |node| src/utils/maps/__tests__/UpsertMapMap.delete.test.ts (5 tests | 1 failed) 9ms
+     × treats an inner key of 0 as an inner key, not as absent 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/maps/__tests__/UpsertMapMap.delete.test.ts > UpsertMapMap.delete > treats an inner key of 0 as an inner key, not as absent
+AssertionError: expected undefined to be 'a1' // Object.is equality
+
+- Expected:
+"a1"
+
++ Received:
+undefined
+
+ ❯ src/utils/maps/__tests__/UpsertMapMap.delete.test.ts:46:29
+     44|
+     45|     expect(map.get('a', 0)).toBeUndefined();
+     46|     expect(map.get('a', 1)).toBe('a1');
+       |                             ^
+     47|   });
+     48|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 4 passed (5)
+   Start at  08:04:35
+   Duration  214ms (transform 42ms, setup 0ms, import 59ms, tests 9ms, environment 0ms)
+
+vitest exit 1

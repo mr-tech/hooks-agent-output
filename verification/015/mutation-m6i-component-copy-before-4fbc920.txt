@@ -1,0 +1,35 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6i-component-copy-before  sha: 4fbc920  label: m6i-component-copy-before  test: duplicate-placement  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6i-component-copy-before
+ .../src/utils/hooks/useValidateWebhook.ts                           | 4 ++--
+ 6 files changed, 7 insertions(+), 10 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6i-component-copy-before
+
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.duplicate-placement.test.tsx (2 tests | 1 failed) 50ms
+     × puts a duplicated component directly after the original 13ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.duplicate-placement.test.tsx > DiscordMessageEditor top-level duplicate > puts a duplicated component directly after the original
+AssertionError: expected 'efae153b-c017-4914-b2e5-37ebd8f4c998' to be 'c1' // Object.is equality
+
+Expected: "c1"
+Received: "efae153b-c017-4914-b2e5-37ebd8f4c998"
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.duplicate-placement.test.tsx:80:26
+     78|     const next = sent.components as Array<{ content: string, _key: str…
+     79|     expect(next.map((c) => c.content)).toEqual(['text c0', 'text c1', …
+     80|     expect(next[1]._key).toBe('c1');
+       |                          ^
+     81|     expect(['c0', 'c1', 'c2']).not.toContain(next[2]._key);
+     82|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  1 failed | 5 passed (6)
+   Start at  08:04:14
+   Duration  2.01s (transform 744ms, setup 74ms, import 4.23s, tests 356ms, environment 3.75s)
+
+vitest exit 1

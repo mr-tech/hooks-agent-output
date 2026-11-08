@@ -1,0 +1,98 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6l-nesting-recursion-removed  sha: 4fbc920  label: m6l-nesting-recursion-removed  test: limits.component-count DiscordMessageEditor.component-limit  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6l-nesting-recursion-removed
+ .../src/utils/limits.tsx                                            | 3 ---
+ 6 files changed, 6 insertions(+), 14 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6l-nesting-recursion-removed
+
+ ❯ |node| src/utils/__tests__/limits.component-count.test.ts (13 tests | 2 failed) 11ms
+     × counts a container holding a section of one text and an accessory 6ms
+     × refuses 11 containers each holding a section (44 in all) naming the total and the limit 1ms
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (16 tests | 2 failed) 257ms
+     × offers adds only below the limit: 10 containers of one section each (40 in all) 14ms
+     × shows the total and the limit with a red border above the limit: 11 containers of one section each 9ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > offers adds only below the limit: 10 containers of one section each (40 in all)
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:89:32
+     87|     const host = await mountV2(components);
+     88|
+     89|     expect(hasAddButton(host)).toBe(offered);
+       |                                ^
+     90|     expect((stubs.components.get('c0') as ComponentStub).canDuplicate)…
+     91|     expect((stubs.components.get('c0') as ComponentStub).canAddChild).…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows the total and the limit with a red border above the limit: 11 containers of one section each
+AssertionError: expected undefined to be 'Message has 44 components; the limit …' // Object.is equality
+
+- Expected:
+"Message has 44 components; the limit is 40."
+
++ Received:
+undefined
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:111:29
+    109|     const host = await mountV2(components);
+    110|
+    111|     expect(errorLine(host)).toBe(`Message has ${total} components; the…
+       |                             ^
+    112|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+    113|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > countTotalComponents > counts a container holding a section of one text and an accessory
+AssertionError: expected 3 to be 4 // Object.is equality
+
+- Expected
++ Received
+
+- 4
++ 3
+
+ ❯ src/utils/__tests__/limits.component-count.test.ts:27:55
+     25|     ['a media gallery counts as one', [makeMediaGallery(3)], 1],
+     26|   ])('counts %s', (_title, components, expected) => {
+     27|     expect(countTotalComponents(components as never)).toBe(expected);
+       |                                                       ^
+     28|   });
+     29| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > validateMessage component total > refuses 11 containers each holding a section (44 in all) naming the total and the limit
+AssertionError: expected '' to be 'Message has 44 components; the limit …' // Object.is equality
+
+- Expected
++ Received
+
+- Message has 44 components; the limit is 40.
+
+ ❯ src/utils/__tests__/limits.component-count.test.ts:45:51
+     43|     ['11 containers each holding a section (44 in all)', sectionContai…
+     44|   ])('refuses %s naming the total and the limit', (_title, components,…
+     45|     expect(validateMessage(data({ components }))).toBe(`Message has ${…
+       |                                                   ^
+     46|   });
+     47| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  4 failed | 25 passed (29)
+   Start at  08:04:40
+   Duration  1.75s (transform 224ms, setup 15ms, import 823ms, tests 268ms, environment 611ms)
+
+vitest exit 1

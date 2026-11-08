@@ -1,0 +1,144 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/app/preview/__tests__/page.wrong-shape-data.test.tsx (12 tests | 6 failed) 3548ms
+     × shows the error line and no editor when embeds a number 10ms
+     × shows the error line and no editor when embeds a string 4ms
+     × shows the error line and no editor when an embed that is null 3ms
+     × shows the error line and no editor when fields a number 2ms
+     × shows the error line and no editor when fields a string 2ms
+     × shows the error line and no editor when components a string 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.wrong-shape-data.test.tsx > preview page with the real editor, JSON objects of the wrong shape > shows the error line and no editor when embeds a number
+TypeError: number 5 is not iterable (cannot read property Symbol(Symbol.iterator))
+ ❯ makeEditable src/utils/index.ts:543:35
+    541| ): ActiveMessage {
+    542|   const casted = JSON.parse(JSON.stringify(message)) as ActiveMessage;
+    543|   for (const embed of casted.data.embeds ?? []) {
+       |                                   ^
+    544|     if (!embed._key) embed._key = genUuid();
+    545|     for (const field of embed.fields ?? []) {
+ ❯ Page src/app/preview/page.tsx:41:22
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ beginWork node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18
+ ❯ runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+ ❯ workLoopSync node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41
+ ❯ renderRootSync node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17450:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.wrong-shape-data.test.tsx > preview page with the real editor, JSON objects of the wrong shape > shows the error line and no editor when embeds a string
+TypeError: embeds.reduce is not a function
+ ❯ validateEmbedCharacterCount src/utils/limits.tsx:31:38
+     29|
+     30| export function validateEmbedCharacterCount(embeds: Embed[]) {
+     31|   const embedCharacterCount = embeds.reduce((acc, embed) => {
+       |                                      ^
+     32|     const title = embed.title?.length ?? 0;
+     33|     const description = embed.description?.length ?? 0;
+ ❯ DiscordMessageEditor src/components/DiscordMessageEditor/index.tsx:180:31
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ updateSimpleMemoComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9830:14
+ ❯ updateMemoComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9763:13
+ ❯ beginWork node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:12204:18
+ ❯ runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.wrong-shape-data.test.tsx > preview page with the real editor, JSON objects of the wrong shape > shows the error line and no editor when an embed that is null
+TypeError: Cannot read properties of null (reading '_key')
+ ❯ makeEditable src/utils/index.ts:544:16
+    542|   const casted = JSON.parse(JSON.stringify(message)) as ActiveMessage;
+    543|   for (const embed of casted.data.embeds ?? []) {
+    544|     if (!embed._key) embed._key = genUuid();
+       |                ^
+    545|     for (const field of embed.fields ?? []) {
+    546|       if (!field._key) field._key = genUuid();
+ ❯ Page src/app/preview/page.tsx:41:22
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ beginWork node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18
+ ❯ runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+ ❯ workLoopSync node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41
+ ❯ renderRootSync node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17450:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.wrong-shape-data.test.tsx > preview page with the real editor, JSON objects of the wrong shape > shows the error line and no editor when fields a number
+TypeError: number 5 is not iterable (cannot read property Symbol(Symbol.iterator))
+ ❯ makeEditable src/utils/index.ts:545:31
+    543|   for (const embed of casted.data.embeds ?? []) {
+    544|     if (!embed._key) embed._key = genUuid();
+    545|     for (const field of embed.fields ?? []) {
+       |                               ^
+    546|       if (!field._key) field._key = genUuid();
+    547|     }
+ ❯ Page src/app/preview/page.tsx:41:22
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ beginWork node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18
+ ❯ runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+ ❯ workLoopSync node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41
+ ❯ renderRootSync node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17450:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.wrong-shape-data.test.tsx > preview page with the real editor, JSON objects of the wrong shape > shows the error line and no editor when fields a string
+TypeError: embed.fields?.reduce is not a function
+ ❯ src/utils/limits.tsx:34:34
+     32|     const title = embed.title?.length ?? 0;
+     33|     const description = embed.description?.length ?? 0;
+     34|     const fields = embed.fields?.reduce((a, f) => a + (f.name?.length …
+       |                                  ^
+     35|     const footer = embed.footer?.text?.length ?? 0;
+     36|     const author = embed.author?.name?.length ?? 0;
+ ❯ validateEmbedCharacterCount src/utils/limits.tsx:31:38
+ ❯ DiscordMessageEditor src/components/DiscordMessageEditor/index.tsx:180:31
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ updateSimpleMemoComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9830:14
+ ❯ updateMemoComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9763:13
+ ❯ beginWork node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:12204:18
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.wrong-shape-data.test.tsx > preview page with the real editor, JSON objects of the wrong shape > shows the error line and no editor when components a string
+TypeError: casted.data.components.map is not a function
+ ❯ makeEditable src/utils/index.ts:550:53
+    548|   }
+    549|   if (casted.data.components) {
+    550|     casted.data.components = casted.data.components.map(injectComponen…
+       |                                                     ^
+    551|   }
+    552|
+ ❯ Page src/app/preview/page.tsx:41:22
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ beginWork node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18
+ ❯ runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+ ❯ workLoopSync node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41
+ ❯ renderRootSync node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17450:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  6 failed | 6 passed (12)
+   Start at  08:03:20
+   Duration  5.76s (transform 865ms, setup 25ms, import 1.45s, tests 3.55s, environment 609ms)
+

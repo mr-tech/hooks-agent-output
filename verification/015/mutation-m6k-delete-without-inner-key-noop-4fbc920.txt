@@ -1,0 +1,41 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6k-delete-without-inner-key-noop  sha: 4fbc920  label: m6k-delete-without-inner-key-noop  test: UpsertMapMap.delete  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6k-delete-without-inner-key-noop
+ .../src/utils/maps/UpsertMapMap.ts                                  | 2 +-
+ 6 files changed, 7 insertions(+), 12 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6k-delete-without-inner-key-noop
+
+ ❯ |node| src/utils/maps/__tests__/UpsertMapMap.delete.test.ts (5 tests | 1 failed) 8ms
+     × removes the whole entry for a key given without an inner key 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/maps/__tests__/UpsertMapMap.delete.test.ts > UpsertMapMap.delete > removes the whole entry for a key given without an inner key
+AssertionError: expected Map{ +0 => 'a0', 1 => 'a1' } to be undefined
+
+- Expected:
+undefined
+
++ Received:
+Map {
+  0 => "a0",
+  1 => "a1",
+}
+
+ ❯ src/utils/maps/__tests__/UpsertMapMap.delete.test.ts:19:26
+     17|     map.delete('a');
+     18|
+     19|     expect(map.get('a')).toBeUndefined();
+       |                          ^
+     20|     expect(map.size).toBe(1);
+     21|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 4 passed (5)
+   Start at  08:04:32
+   Duration  192ms (transform 42ms, setup 0ms, import 56ms, tests 8ms, environment 0ms)
+
+vitest exit 1

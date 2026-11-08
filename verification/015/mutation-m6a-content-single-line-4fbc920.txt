@@ -1,0 +1,73 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6a-content-single-line  sha: 4fbc920  label: m6a-content-single-line  test: rules.multi-line-code-block  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6a-content-single-line
+ .../src/utils/markdown/rules.tsx                                        | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6a-content-single-line
+
+ ❯ |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts (13 tests | 8 failed) 28ms
+     × renders a code block for a tag and two lines 20ms
+     × renders a code block for no tag and two lines 1ms
+     × renders a code block for a tag and three lines 1ms
+     × renders a code block for no tag and three lines 1ms
+     × renders a code block for a tag and two lines 1ms
+     × renders a code block for no tag and two lines 1ms
+     × renders a code block for a tag and three lines 1ms
+     × renders a code block for no tag and three lines 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for a tag and two lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for no tag and two lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for a tag and two lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for no tag and two lines
+AssertionError: expected null to be 'foo\nbar' // Object.is equality
+
+- Expected:
+"foo
+bar"
+
++ Received:
+null
+
+ ❯ src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts:39:51
+     37| ])('%s fenced code blocks', (_name, parser) => {
+     38|   it.each(BODIES)('renders a code block for %s', (_title, source, expe…
+     39|     expect(codeBlockText(render(parser, source))).toBe(expected);
+       |                                                   ^
+     40|   });
+     41| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for a tag and three lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for no tag and three lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for a tag and three lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for no tag and three lines
+AssertionError: expected null to be 'a\nb\nc' // Object.is equality
+
+- Expected:
+"a
+b
+c"
+
++ Received:
+null
+
+ ❯ src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts:39:51
+     37| ])('%s fenced code blocks', (_name, parser) => {
+     38|   it.each(BODIES)('renders a code block for %s', (_title, source, expe…
+     39|     expect(codeBlockText(render(parser, source))).toBe(expected);
+       |                                                   ^
+     40|   });
+     41| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  8 failed | 5 passed (13)
+   Start at  08:03:00
+   Duration  1.44s (transform 510ms, setup 0ms, import 1.26s, tests 28ms, environment 0ms)
+
+vitest exit 1

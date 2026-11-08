@@ -1,0 +1,17 @@
+sha ef5a9cc9b2d12f6005e6ed3054a82c59ae2e3780
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/d28-seed-export-ef5a9cc
+
+(a) no webhooks at mount: selected="load"; webhooks arrive (guild g1), no input: selected="load"
+(a2) webhooks at mount (guild g1): selected="g1"; guild -> g2 with webhooks, no input: selected="g1"
+(b) user picked "custom-pick"; webhooks arrive: selected="custom-pick"
+(a) guildId 111 at mount: Save To shows "Alpha"; guildId prop -> 222, no input: shows "Alpha"
+(b) user picked 222 (shows "Beta"); then guildId prop -> 333: shows "Beta"
+(a0) no guildId at mount: shows "My Account"; guildId prop -> 111, no input: shows "My Account"
+
+ Test Files  2 passed (2)
+      Tests  6 passed (6)
+   Start at  08:09:02
+   Duration  2.82s (transform 781ms, setup 46ms, import 1.88s, tests 949ms, environment 1.23s)
+
+exit 0

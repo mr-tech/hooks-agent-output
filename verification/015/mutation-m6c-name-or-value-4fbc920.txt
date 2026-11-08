@@ -1,0 +1,38 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6c-name-or-value  sha: 4fbc920  label: m6c-name-or-value  test: EmbedEditor.empty-embed-hidden  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6c-name-or-value
+ .../results.json => dev/null}                      |  1 -
+ 3 files changed, 1 insertion(+), 67 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6c-name-or-value
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.empty-embed-hidden.test.tsx (12 tests | 1 failed) 89ms
+     × hides an embed with nothing displayable: a field with a name only 16ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.empty-embed-hidden.test.tsx > EmbedEditor read-only visibility > hides an embed with nothing displayable: a field with a name only
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.empty-embed-hidden.test.tsx:66:45
+     64|     ['a field with a name only', { fields: [{ name: 'n', value: '', ..…
+     65|   ])('hides an embed with nothing displayable: %s', (_title, embed) =>…
+     66|     expect(shows(mountEmbed(embed, false))).toBe(false);
+       |                                             ^
+     67|   });
+     68|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 11 passed (12)
+   Start at  08:03:25
+   Duration  2.00s (transform 449ms, setup 21ms, import 1.16s, tests 89ms, environment 600ms)
+
+vitest exit 1

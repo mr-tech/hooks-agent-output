@@ -1,0 +1,72 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export3/website-ef5a9cc-m6b-case-sensitive  sha: ef5a9cc  label: m6b-case-sensitive  test: isValidImageUrl.extensions  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6b-case-sensitive
+ .../website-ef5a9cc-m6b-case-sensitive}/src/utils/isValidImageUrl.ts    | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export3/website-ef5a9cc-m6b-case-sensitive
+
+ ❯ |node| src/utils/__tests__/isValidImageUrl.extensions.test.ts (31 tests | 9 failed) 12ms
+     × accepts a path ending in .png in upper case 5ms
+     × accepts a path ending in .jpg in upper case 1ms
+     × accepts a path ending in .jpeg in upper case 0ms
+     × accepts a path ending in .webp in upper case 0ms
+     × accepts a path ending in .gif in upper case 0ms
+     × accepts a path ending in .apng in upper case 0ms
+     × accepts a path ending in .tiff in upper case 0ms
+     × accepts a path ending in .webm in upper case 0ms
+     × accepts .PNG 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 9 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/isValidImageUrl.extensions.test.ts > isValidImageUrl > accepts a path ending in .png in upper case
+ FAIL  |node| src/utils/__tests__/isValidImageUrl.extensions.test.ts > isValidImageUrl > accepts a path ending in .jpg in upper case
+ FAIL  |node| src/utils/__tests__/isValidImageUrl.extensions.test.ts > isValidImageUrl > accepts a path ending in .jpeg in upper case
+ FAIL  |node| src/utils/__tests__/isValidImageUrl.extensions.test.ts > isValidImageUrl > accepts a path ending in .webp in upper case
+ FAIL  |node| src/utils/__tests__/isValidImageUrl.extensions.test.ts > isValidImageUrl > accepts a path ending in .gif in upper case
+ FAIL  |node| src/utils/__tests__/isValidImageUrl.extensions.test.ts > isValidImageUrl > accepts a path ending in .apng in upper case
+ FAIL  |node| src/utils/__tests__/isValidImageUrl.extensions.test.ts > isValidImageUrl > accepts a path ending in .tiff in upper case
+ FAIL  |node| src/utils/__tests__/isValidImageUrl.extensions.test.ts > isValidImageUrl > accepts a path ending in .webm in upper case
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/isValidImageUrl.extensions.test.ts:13:75
+     11|
+     12|   it.each(EXTENSIONS)('accepts a path ending in .%s in upper case', (e…
+     13|     expect(isValidImageUrl(`https://example.com/a.${ext.toUpperCase()}…
+       |                                                                           ^
+     14|   });
+     15|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/9]⎯
+
+ FAIL  |node| src/utils/__tests__/isValidImageUrl.extensions.test.ts > isValidImageUrl > accepts .PNG
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/isValidImageUrl.extensions.test.ts:24:34
+     22|     ['https://example.com/dir.html/a.webp'],
+     23|   ])('accepts %s', (url) => {
+     24|     expect(isValidImageUrl(url)).toBe(true);
+       |                                  ^
+     25|   });
+     26|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/9]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  9 failed | 22 passed (31)
+   Start at  08:06:40
+   Duration  210ms (transform 25ms, setup 0ms, import 39ms, tests 12ms, environment 0ms)
+
+vitest exit 1

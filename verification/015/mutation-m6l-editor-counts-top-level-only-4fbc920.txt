@@ -1,0 +1,40 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6l-editor-counts-top-level-only  sha: 4fbc920  label: m6l-editor-counts-top-level-only  test: limits.component-count DiscordMessageEditor.component-limit  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6l-editor-counts-top-level-only
+ .../src/utils/hooks/useValidateWebhook.ts                |  4 ++--
+ 7 files changed, 7 insertions(+), 28 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6l-editor-counts-top-level-only
+
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (16 tests | 2 failed) 264ms
+     × offers adds only below the limit: a container holding 39 text displays (40 in all) 16ms
+     × offers adds only below the limit: 10 containers of one section each (40 in all) 9ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > offers adds only below the limit: a container holding 39 text displays (40 in all)
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > offers adds only below the limit: 10 containers of one section each (40 in all)
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:89:32
+     87|     const host = await mountV2(components);
+     88|
+     89|     expect(hasAddButton(host)).toBe(offered);
+       |                                ^
+     90|     expect((stubs.components.get('c0') as ComponentStub).canDuplicate)…
+     91|     expect((stubs.components.get('c0') as ComponentStub).canAddChild).…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  2 failed | 27 passed (29)
+   Start at  08:05:05
+   Duration  1.78s (transform 225ms, setup 8ms, import 842ms, tests 268ms, environment 607ms)
+
+vitest exit 1

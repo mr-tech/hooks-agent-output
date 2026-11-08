@@ -1,0 +1,35 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6f-undefined-is-white  sha: 4fbc920  label: m6f-undefined-is-white  test: Picker.default-colour  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6f-undefined-is-white
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6f-undefined-is-white
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx (7 tests | 1 failed) 28ms
+     × opens on the six-digit hex of undefined 18ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx > Picker default colour > opens on the six-digit hex of undefined
+AssertionError: expected '#ffffff' to be '#000000' // Object.is equality
+
+Expected: "#000000"
+Received: "#ffffff"
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx:42:35
+     40|     mountDom(<Picker initColor={initColor} setColor={() => {}} />);
+     41|
+     42|     expect(chrome().defaultColor).toBe(expected);
+       |                                   ^
+     43|   });
+     44|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 6 passed (7)
+   Start at  08:03:59
+   Duration  1.27s (transform 120ms, setup 21ms, import 465ms, tests 28ms, environment 626ms)
+
+vitest exit 1

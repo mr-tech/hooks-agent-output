@@ -1,0 +1,114 @@
+### F-45 useMount callbacks that return a cleanup (react-use ignores the return)
+cmd: grep -rn -A12 'useMount(' src --include=*.tsx --include=*.ts | grep -v __tests__ | grep -E 'return \(\) =>|return clear'
+hits: 0
+
+### F-45 setInterval/setTimeout call sites outside tests
+cmd: grep -rn 'setInterval(\|setTimeout(' src --include=*.tsx --include=*.ts | grep -v __tests__
+hits: 14
+src/app/message/m/[id]/edit/page.tsx:112:      : (fn: VoidFunction) => setTimeout(fn, 1000);
+src/app/message/m/[id]/_layout/Navigation.tsx:155:      onPress: () => setTimeout(() => nameRef.current?.focus()),
+src/utils/hooks/useCopyToClipboard.ts:19:      setTimeout(() => { setCopyState(null); }, 2500);
+src/utils/hooks/index.ts:23:      setTimeout(() => { setMounted(true); }, delay);
+src/utils/hooks/index.ts:55:  const toggle = useCallback(() => { setShow((b) => { setTimeout(() => { cb(!b); }); return !b; }); }, []);
+src/utils/hooks/index.ts:158:    if (shouldSchedule) timerRef.current = setTimeout(voided(effect), timeout);
+src/utils/hooks/index.ts:166:    return promise.finally(delay ? () => { setTimeout(stop, delay); } : stop);
+src/utils/redis/index.ts:58:  const timeout = setTimeout(voided(async () => {
+src/components/BottomPortal.tsx:21:  if (!menuBar) return setTimeout(() => { tryHideSidebar(); }, 50);
+src/components/BottomPortal.tsx:164:          setTimeout(() => oldChild.setOpen(false));
+src/components/SlateEditor/index.tsx:68:    setTimeout(() => {
+src/components/AnimationWrapper.tsx:25:    setTimeout(() => setShowAnimation(false), options.animationDuration * 1e3);
+src/components/DiscordMessageEditor/components/Author.tsx:46:    const timeout = setTimeout(() => {
+src/components/DiscordMessageEditor/components/Author.tsx:47:      interval = setInterval(() => { setTs(new Date()); }, MINUTE_IN_MILLISECONDS);
+
+### F-46/M2-a hex built without padding
+cmd: grep -rn 'toString(16)' src --include=*.tsx --include=*.ts | grep -v __tests__
+hits: 2
+src/utils/index.ts:484:  return `#${int.toString(16).padStart(6, '0')}`;
+src/utils/index.ts:515:  return hash.toString(16);
+
+### M2-a integer colour tested for truthiness
+cmd: grep -rnE '(initColor|accent_color|color) \?[^?.]|!(embed\.)?color\b|\bcolor &&' src --include=*.tsx --include=*.ts | grep -v __tests__
+hits: 0
+
+### F-38 fenced-code regexes
+cmd: grep -rn '```' src --include=*.tsx --include=*.ts | grep -v __tests__ | grep -E 'Regex|RegExp|/\^'
+hits: 2
+src/utils/markdown/rules.tsx:88:      return SimpleMarkdown.inlineRegex(/^```(([a-z0-9-]+?)\n+)?\n*([^\n][^]*?)\n*```/i)(source, state, prev);
+src/utils/markdown/rules.tsx:495:      const res = SimpleMarkdown.anyScopeRegex(/^```([A-Za-z0-9-]*$)?/)(source, state, prev);
+
+### F-40 image extension checks by substring
+cmd: grep -rnE "includes\((ext|'\.)|VALID_EXTENSIONS|ANIMATED_EXTENSIONS|\.(png|jpg)" src --include=*.tsx --include=*.ts | grep -v __tests__ | grep -v constants/emoji
+hits: 17
+src/app/head.tsx:12:      {/* <meta property="og:image" content="https://example.com/image.jpg" /> */}
+src/app/head.tsx:19:      {/* <meta name="twitter:image" content="https://example.com/image.jpg" /> */}
+src/app/page.tsx:10:import productImage from '~/assets/img/product_image.png';
+src/app/page.tsx:148:        <img class="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10" src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png" alt="App screenshot" width="1824" height="1080" />
+src/utils/constructImageUrl.ts:7:    return `https://cdn.discordapp.com/embed/avatars/${defaultAvatarNumber}.png`;
+src/utils/constructImageUrl.ts:10:  return `https://cdn.discordapp.com/avatars/${id}/${avatar}.png`;
+src/constants/index.ts:10:export const DEFAULT_IMAGE_URL = 'https://cdn.discordapp.com/embed/avatars/0.png' as const;
+src/constants/index.ts:11:export const LOGO_IMAGE_URL = `${getBaseUrl()}/static/images/logo.png` as const;
+src/components/EmojiPicker/Picker/utils/index.ts:69:const mainEmojiUrl = 'url("/assets/emoji_sheet_1.png")';
+src/components/EmojiPicker/Picker/utils/index.ts:71:  'url("/assets/emoji_sheet_2.png")', 'url("/assets/emoji_sheet_3.png")',
+src/components/EmojiPicker/Picker/utils/index.ts:72:  'url("/assets/emoji_sheet_4.png")', 'url("/assets/emoji_sheet_5.png")',
+src/components/EmojiPicker/Picker/utils/index.ts:73:  'url("/assets/emoji_sheet_6.png")', 'url("/assets/emoji_sheet_7.png")',
+src/components/ImageUploader.tsx:106:          placeholder='https://example.com/image.png'
+src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx:39:        <Image className='!block' src="/assets/color_circle.png" alt="Color Picker" width="24" height="24" />
+src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx:62:                placeholder="https://example.com/image.png"
+src/components/DiscordMessageEditor/components/ComponentEditors/FileEditor.tsx:77:                placeholder="attachment://filename.png"
+src/components/DiscordMessageEditor/components/ComponentEditors/ThumbnailEditor.tsx:79:                placeholder="https://example.com/image.png"
+
+### F-42 index taken after a filter before map
+cmd: grep -rnE -B3 '\.map\(\(.*, idx\)' src --include=*.tsx | grep -E 'filter\('
+hits: 0
+
+### F-49 duplicates splicing at the original's own index
+cmd: grep -rnE 'splice\(idx, 0' src --include=*.tsx --include=*.ts | grep -v __tests__
+hits: 0
+
+### F-47 one-argument sort comparators
+cmd: grep -rnE '\.sort\(\([a-zA-Z_]+\) =>' src bot --include=*.tsx --include=*.ts | grep -v __tests__
+hits: 0
+
+### F-48 aria-expanded sites
+cmd: grep -rn 'aria-expanded' src --include=*.tsx | grep -v __tests__
+hits: 4
+src/utils/markdown/components/MarkdownSpoiler.tsx:14:      aria-expanded={isVisible}
+src/components/EmojiPicker/Picker/components/EmojiList/Section.tsx:69:      aria-expanded={!collapsed}
+src/components/StyledAccordion/StyledAccordionHeading.tsx:32:          'group w-full select-none bg-secondary p-2 text-sm text-mute shadow  group-first/accordion-section:rounded-t group-last/accordion-section:rounded-b aria-expanded:bg-secondary opened:text-default',
+src/components/StyledAccordion/StyledAccordionHeading.tsx:36:          altStyle ? 'dark:bg-quaternary' : 'dark:bg-tertiary dark:aria-expanded:bg-secondary-alt',
+
+### F-50 trim/length after an optional chain that can leave the property absent
+cmd: grep -rnE '\?\.[a-z_]+\.(trim|length|toLowerCase)' src --include=*.tsx --include=*.ts | grep -v __tests__
+hits: 2
+src/components/DiscordContentEditor/useCustomEmojis.ts:15:  const customCategories = useMemo<CustomCategory[]>(() => (!guild?.emojis.length ? [] : [{
+src/components/SlateEditor/utils/onChange.ts:16:      if (anchor?.path.length === 3) {
+
+### F-37 map delete methods keyed on truthiness
+cmd: grep -rn 'delete(' src/utils/maps
+hits: 8
+src/utils/maps/__tests__/UpsertMapMap.delete.test.ts:17:    map.delete('a');
+src/utils/maps/__tests__/UpsertMapMap.delete.test.ts:26:    map.delete('a');
+src/utils/maps/__tests__/UpsertMapMap.delete.test.ts:34:    map.delete('a', 1);
+src/utils/maps/__tests__/UpsertMapMap.delete.test.ts:43:    map.delete('a', 0);
+src/utils/maps/__tests__/UpsertMapMap.delete.test.ts:52:    map.delete('missing');
+src/utils/maps/UpsertMapMap.ts:67:  public delete(key: K, innerKey?: V) {
+src/utils/maps/UpsertMapMap.ts:68:    if (innerKey === undefined) this.#map.delete(key);
+src/utils/maps/UpsertMapMap.ts:69:    else this.#map.get(key)?.delete(innerKey);
+
+### F-44 component-count definitions
+cmd: grep -rnE 'countTotalComponents|MAX_TOTAL_COMPONENTS' src --include=*.tsx --include=*.ts | grep -v __tests__
+hits: 13
+src/server/api/utils/shapes.ts:13:  MAX_TOTAL_COMPONENTS,
+src/server/api/utils/shapes.ts:200:  components: z.array(topLevelComponentShape).max(MAX_TOTAL_COMPONENTS).optional(),
+src/server/api/utils/shapes.ts:331:    z.array(topLevelComponentShape).max(MAX_TOTAL_COMPONENTS).optional(),
+src/utils/limits.tsx:11:  MAX_NAME_LENGTH, MAX_TOTAL_COMPONENTS, MIN_NAME_LENGTH, V2_COMPONENT_TYPE_VALUES,
+src/utils/limits.tsx:67:export function countTotalComponents(components: readonly object[]): number {
+src/utils/limits.tsx:87:  const total = countTotalComponents(components);
+src/utils/limits.tsx:88:  return total > MAX_TOTAL_COMPONENTS ? `Message has ${total} components; the limit is ${MAX_TOTAL_COMPONENTS}.` : '';
+src/constants/messageLimits.ts:13:export const MAX_TOTAL_COMPONENTS = 40 as const;
+src/components/DiscordMessageEditor/index.tsx:34:  MAX_EMBEDS, MAX_MESSAGE_CONTENT_LENGTH, MAX_TOTAL_COMPONENTS,
+src/components/DiscordMessageEditor/index.tsx:41:  countTotalComponents, genUuid,
+src/components/DiscordMessageEditor/index.tsx:172:  const totalComponentCount = countTotalComponents(components);
+src/components/DiscordMessageEditor/index.tsx:173:  const canAddComponent = totalComponentCount < MAX_TOTAL_COMPONENTS;
+src/components/DiscordMessageEditor/index.tsx:380:              {MAX_TOTAL_COMPONENTS}
+

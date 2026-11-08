@@ -1,0 +1,4 @@
+control-m5c	 Tests 4 passed (4)	0	vitest exit 0
+m5c-pusher-reads-render-flag	 Tests 2 failed | 2 passed (4)	0	vitest exit 1
+m5c-pusher-ref-never-updated	 Tests 2 failed | 2 passed (4)	0	vitest exit 1
+done

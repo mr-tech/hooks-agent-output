@@ -1,0 +1,473 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx (7 tests | 3 failed) 30ms
+     × opens on the six-digit hex of 1 7ms
+     × opens on the six-digit hex of 255 3ms
+     × opens on the six-digit hex of 65280 2ms
+ ❯ |dom| src/utils/markdown/components/__tests__/MarkdownSpoiler.aria-expanded.test.tsx (1 test | 1 failed) 33ms
+     × is true exactly when the content is visible 31ms
+ ❯ |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.missing-text.test.tsx (3 tests | 3 failed) 26ms
+     × renders with showEdit true 19ms
+     × renders with showEdit false 3ms
+     × shows the timestamp alone when read-only 2ms
+ ❯ |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx (16 tests | 9 failed) 53ms
+     × an edit writes the displayed field itself when the first field is hidden 10ms
+     × an edit writes the displayed field itself when the first two fields are hidden 2ms
+     × an edit writes the displayed field itself when a middle field is hidden 2ms
+     × a delete removes the displayed field itself when the first field is hidden 2ms
+     × a delete removes the displayed field itself when the first two fields are hidden 2ms
+     × a delete removes the displayed field itself when a middle field is hidden 1ms
+     × move actions are offered by position in the full list when the first field is hidden 2ms
+     × move actions are offered by position in the full list when the first two fields are hidden 2ms
+     × move actions are offered by position in the full list when a middle field is hidden 2ms
+ ❯ |dom| src/components/DiscordMessageEditor/components/__tests__/Author.timer-cleanup.test.tsx (3 tests | 2 failed) 70ms
+     × leaves no timer running when unmounted before the first minute boundary 12ms
+     × leaves no timer running when unmounted after the clock has started ticking 9ms
+ ❯ |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.empty-embed-hidden.test.tsx (12 tests | 2 failed) 87ms
+     × hides an embed with nothing displayable: no fields key 33ms
+     × hides an embed with nothing displayable: an empty field list 4ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 20 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/__tests__/Author.timer-cleanup.test.tsx > Author clock > leaves no timer running when unmounted before the first minute boundary
+AssertionError: expected 1 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ src/components/DiscordMessageEditor/components/__tests__/Author.timer-cleanup.test.tsx:56:32
+     54|     unmountDom();
+     55|
+     56|     expect(vi.getTimerCount()).toBe(0);
+       |                                ^
+     57|   });
+     58|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/20]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/__tests__/Author.timer-cleanup.test.tsx > Author clock > leaves no timer running when unmounted after the clock has started ticking
+AssertionError: expected 1 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ src/components/DiscordMessageEditor/components/__tests__/Author.timer-cleanup.test.tsx:66:32
+     64|     unmountDom();
+     65|
+     66|     expect(vi.getTimerCount()).toBe(0);
+       |                                ^
+     67|   });
+     68| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/20]⎯
+
+ FAIL  |dom| src/utils/markdown/components/__tests__/MarkdownSpoiler.aria-expanded.test.tsx > MarkdownSpoiler aria-expanded > is true exactly when the content is visible
+AssertionError: expected [ 'true', 'true' ] to deeply equal [ 'false', 'true' ]
+
+- Expected
++ Received
+
+  [
+-   "false",
++   "true",
+    "true",
+  ]
+
+ ❯ src/utils/markdown/components/__tests__/MarkdownSpoiler.aria-expanded.test.tsx:17:8
+     15|
+     16|     expect([spoiler.getAttribute('aria-expanded'), content.getAttribut…
+     17|       .toEqual(['false', 'true']);
+       |        ^
+     18|
+     19|     act(() => { spoiler.click(); });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/20]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.empty-embed-hidden.test.tsx > EmbedEditor read-only visibility > hides an embed with nothing displayable: no fields key
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.empty-embed-hidden.test.tsx > EmbedEditor read-only visibility > hides an embed with nothing displayable: an empty field list
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.empty-embed-hidden.test.tsx:66:45
+     64|     ['a field with a name only', { fields: [{ name: 'n', value: '', ..…
+     65|   ])('hides an embed with nothing displayable: %s', (_title, embed) =>…
+     66|     expect(shows(mountEmbed(embed, false))).toBe(false);
+       |                                             ^
+     67|   });
+     68|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/20]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx > EmbedFields read-only field actions > an edit writes the displayed field itself when the first field is hidden
+AssertionError: expected "vi.fn()" to be called with arguments: [ [ …(2) ] ]
+
+Received:
+
+  1st vi.fn() call:
+
+  [
+    [
+      {
+-       "_key": "a",
++       "_key": "b",
+        "inline": false,
+-       "name": "",
+-       "value": "",
++       "name": "n",
++       "value": "edited",
+      },
+      {
+        "_key": "b",
+        "inline": false,
+        "name": "n",
+-       "value": "edited",
++       "value": "v",
+      },
+    ],
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx:68:23
+     66|
+     67|     const expected = fields.map((f, i) => (i === slot ? { ...f, value:…
+     68|     expect(setFields).toHaveBeenCalledWith(expected);
+       |                       ^
+     69|   });
+     70|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/20]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx > EmbedFields read-only field actions > an edit writes the displayed field itself when the first two fields are hidden
+AssertionError: expected "vi.fn()" to be called with arguments: [ [ …(3) ] ]
+
+Received:
+
+  1st vi.fn() call:
+
+@@ -1,12 +1,12 @@
+  [
+    [
+      {
+-       "_key": "a",
++       "_key": "c",
+        "inline": false,
+-       "name": "",
+-       "value": "",
++       "name": "n",
++       "value": "edited",
+      },
+      {
+        "_key": "b",
+        "inline": false,
+        "name": "n",
+@@ -14,9 +14,9 @@
+      },
+      {
+        "_key": "c",
+        "inline": false,
+        "name": "n",
+-       "value": "edited",
++       "value": "v",
+      },
+    ],
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx:68:23
+     66|
+     67|     const expected = fields.map((f, i) => (i === slot ? { ...f, value:…
+     68|     expect(setFields).toHaveBeenCalledWith(expected);
+       |                       ^
+     69|   });
+     70|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/20]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx > EmbedFields read-only field actions > an edit writes the displayed field itself when a middle field is hidden
+AssertionError: expected "vi.fn()" to be called with arguments: [ [ { name: 'n', …(3) }, …(2) ] ]
+
+Received:
+
+  1st vi.fn() call:
+
+@@ -5,18 +5,18 @@
+        "inline": false,
+        "name": "n",
+        "value": "v",
+      },
+      {
+-       "_key": "b",
++       "_key": "c",
+        "inline": false,
+-       "name": "",
+-       "value": "",
++       "name": "n",
++       "value": "edited",
+      },
+      {
+        "_key": "c",
+        "inline": false,
+        "name": "n",
+-       "value": "edited",
++       "value": "v",
+      },
+    ],
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx:68:23
+     66|
+     67|     const expected = fields.map((f, i) => (i === slot ? { ...f, value:…
+     68|     expect(setFields).toHaveBeenCalledWith(expected);
+       |                       ^
+     69|   });
+     70|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/20]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx > EmbedFields read-only field actions > a delete removes the displayed field itself when the first field is hidden
+AssertionError: expected "vi.fn()" to be called with arguments: [ [ { name: '', value: '', …(2) } ] ]
+
+Received:
+
+  1st vi.fn() call:
+
+  [
+    [
+      {
+-       "_key": "a",
++       "_key": "b",
+        "inline": false,
+-       "name": "",
+-       "value": "",
++       "name": "n",
++       "value": "v",
+      },
+    ],
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx:76:23
+     74|     props(key).onDelete();
+     75|
+     76|     expect(setFields).toHaveBeenCalledWith(fields.filter((_, i) => i !…
+       |                       ^
+     77|   });
+     78|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/20]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx > EmbedFields read-only field actions > a delete removes the displayed field itself when the first two fields are hidden
+AssertionError: expected "vi.fn()" to be called with arguments: [ [ …(2) ] ]
+
+Received:
+
+  1st vi.fn() call:
+
+  [
+    [
+      {
+-       "_key": "a",
++       "_key": "b",
+        "inline": false,
+-       "name": "",
++       "name": "n",
+        "value": "",
+      },
+      {
+-       "_key": "b",
++       "_key": "c",
+        "inline": false,
+        "name": "n",
+-       "value": "",
++       "value": "v",
+      },
+    ],
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx:76:23
+     74|     props(key).onDelete();
+     75|
+     76|     expect(setFields).toHaveBeenCalledWith(fields.filter((_, i) => i !…
+       |                       ^
+     77|   });
+     78|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/20]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx > EmbedFields read-only field actions > a delete removes the displayed field itself when a middle field is hidden
+AssertionError: expected "vi.fn()" to be called with arguments: [ [ { name: 'n', …(3) }, …(1) ] ]
+
+Received:
+
+  1st vi.fn() call:
+
+@@ -5,12 +5,12 @@
+        "inline": false,
+        "name": "n",
+        "value": "v",
+      },
+      {
+-       "_key": "b",
++       "_key": "c",
+        "inline": false,
+-       "name": "",
+-       "value": "",
++       "name": "n",
++       "value": "v",
+      },
+    ],
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx:76:23
+     74|     props(key).onDelete();
+     75|
+     76|     expect(setFields).toHaveBeenCalledWith(fields.filter((_, i) => i !…
+       |                       ^
+     77|   });
+     78|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/20]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx > EmbedFields read-only field actions > move actions are offered by position in the full list when the first field is hidden
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx > EmbedFields read-only field actions > move actions are offered by position in the full list when the first two fields are hidden
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx:82:47
+     80|     mountReadOnly(fields);
+     81|
+     82|     expect(props(key).moveLeft === undefined).toBe(slot === 0);
+       |                                               ^
+     83|     expect(props(key).moveRight === undefined).toBe(slot === fields.le…
+     84|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/20]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx > EmbedFields read-only field actions > move actions are offered by position in the full list when a middle field is hidden
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx:83:48
+     81|
+     82|     expect(props(key).moveLeft === undefined).toBe(slot === 0);
+     83|     expect(props(key).moveRight === undefined).toBe(slot === fields.le…
+       |                                                ^
+     84|   });
+     85| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/20]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.missing-text.test.tsx > EmbedFooter with a footer object that has no text > renders with showEdit true
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.missing-text.test.tsx > EmbedFooter with a footer object that has no text > renders with showEdit false
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.missing-text.test.tsx > EmbedFooter with a footer object that has no text > shows the timestamp alone when read-only
+TypeError: Cannot read properties of undefined (reading 'trim')
+ ❯ EmbedFooter src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx:45:32
+     43|   }] = useToggleState();
+     44|   const [_localText, setLocalText] = usePassedProp(footer?.text ?? '');
+     45|   const displayText = (footer?.text.trim() ?? '');
+       |                                ^
+     46|   const localText = _localText;
+     47|
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ beginWork node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18
+ ❯ runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+ ❯ workLoopSync node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41
+ ❯ renderRootSync node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17450:11
+ ❯ performWorkOnRoot node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:16583:35
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/20]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx > Picker default colour > opens on the six-digit hex of 1
+AssertionError: expected '#1' to be '#000001' // Object.is equality
+
+Expected: "#000001"
+Received: "#1"
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx:39:35
+     37|     mountDom(<Picker initColor={initColor} setColor={() => {}} />);
+     38|
+     39|     expect(chrome().defaultColor).toBe(expected);
+       |                                   ^
+     40|   });
+     41|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/20]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx > Picker default colour > opens on the six-digit hex of 255
+AssertionError: expected '#ff' to be '#0000ff' // Object.is equality
+
+Expected: "#0000ff"
+Received: "#ff"
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx:39:35
+     37|     mountDom(<Picker initColor={initColor} setColor={() => {}} />);
+     38|
+     39|     expect(chrome().defaultColor).toBe(expected);
+       |                                   ^
+     40|   });
+     41|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/20]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx > Picker default colour > opens on the six-digit hex of 65280
+AssertionError: expected '#ff00' to be '#00ff00' // Object.is equality
+
+Expected: "#00ff00"
+Received: "#ff00"
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx:39:35
+     37|     mountDom(<Picker initColor={initColor} setColor={() => {}} />);
+     38|
+     39|     expect(chrome().defaultColor).toBe(expected);
+       |                                   ^
+     40|   });
+     41|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/20]⎯
+
+
+ Test Files  6 failed | 2 passed (8)
+      Tests  20 failed | 31 passed (51)
+   Start at  07:54:20
+   Duration  2.06s (transform 1.07s, setup 110ms, import 5.10s, tests 573ms, environment 5.71s)
+

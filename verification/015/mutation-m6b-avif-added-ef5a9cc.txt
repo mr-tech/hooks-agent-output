@@ -1,0 +1,38 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export3/website-ef5a9cc-m6b-avif-added  sha: ef5a9cc  label: m6b-avif-added  test: isValidImageUrl.extensions  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6b-avif-added
+ .../website-ef5a9cc-m6b-avif-added}/src/utils/isValidImageUrl.ts        | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export3/website-ef5a9cc-m6b-avif-added
+
+ ❯ |node| src/utils/__tests__/isValidImageUrl.extensions.test.ts (31 tests | 1 failed) 11ms
+     × refuses a.avif 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/isValidImageUrl.extensions.test.ts > isValidImageUrl > refuses a.avif
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/isValidImageUrl.extensions.test.ts:38:34
+     36|     [''],
+     37|   ])('refuses %s', (url) => {
+     38|     expect(isValidImageUrl(url)).toBe(false);
+       |                                  ^
+     39|   });
+     40| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 30 passed (31)
+   Start at  08:06:51
+   Duration  187ms (transform 26ms, setup 0ms, import 44ms, tests 11ms, environment 0ms)
+
+vitest exit 1

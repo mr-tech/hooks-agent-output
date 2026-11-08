@@ -1,0 +1,311 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6d-index-after-filter  sha: 4fbc920  label: m6d-index-after-filter  test: EmbedFields.read-only-field-index  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6d-index-after-filter
+ .../results.json => dev/null}                      |  1 -
+ 4 files changed, 20 insertions(+), 87 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6d-index-after-filter
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx (16 tests | 9 failed) 51ms
+     × an edit writes the displayed field itself when the first field is hidden 10ms
+     × an edit writes the displayed field itself when the first two fields are hidden 3ms
+     × an edit writes the displayed field itself when a middle field is hidden 2ms
+     × a delete removes the displayed field itself when the first field is hidden 2ms
+     × a delete removes the displayed field itself when the first two fields are hidden 2ms
+     × a delete removes the displayed field itself when a middle field is hidden 1ms
+     × move actions are offered by position in the full list when the first field is hidden 2ms
+     × move actions are offered by position in the full list when the first two fields are hidden 1ms
+     × move actions are offered by position in the full list when a middle field is hidden 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 9 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx > EmbedFields read-only field actions > an edit writes the displayed field itself when the first field is hidden
+AssertionError: expected "vi.fn()" to be called with arguments: [ [ …(2) ] ]
+
+Received:
+
+  1st vi.fn() call:
+
+  [
+    [
+      {
+-       "_key": "a",
++       "_key": "b",
+        "inline": false,
+-       "name": "",
+-       "value": "",
++       "name": "n",
++       "value": "edited",
+      },
+      {
+        "_key": "b",
+        "inline": false,
+        "name": "n",
+-       "value": "edited",
++       "value": "v",
+      },
+    ],
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx:68:23
+     66|
+     67|     const expected = fields.map((f, i) => (i === slot ? { ...f, value:…
+     68|     expect(setFields).toHaveBeenCalledWith(expected);
+       |                       ^
+     69|   });
+     70|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/9]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx > EmbedFields read-only field actions > an edit writes the displayed field itself when the first two fields are hidden
+AssertionError: expected "vi.fn()" to be called with arguments: [ [ …(3) ] ]
+
+Received:
+
+  1st vi.fn() call:
+
+@@ -1,12 +1,12 @@
+  [
+    [
+      {
+-       "_key": "a",
++       "_key": "c",
+        "inline": false,
+-       "name": "",
+-       "value": "",
++       "name": "n",
++       "value": "edited",
+      },
+      {
+        "_key": "b",
+        "inline": false,
+        "name": "n",
+@@ -14,9 +14,9 @@
+      },
+      {
+        "_key": "c",
+        "inline": false,
+        "name": "n",
+-       "value": "edited",
++       "value": "v",
+      },
+    ],
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx:68:23
+     66|
+     67|     const expected = fields.map((f, i) => (i === slot ? { ...f, value:…
+     68|     expect(setFields).toHaveBeenCalledWith(expected);
+       |                       ^
+     69|   });
+     70|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/9]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx > EmbedFields read-only field actions > an edit writes the displayed field itself when a middle field is hidden
+AssertionError: expected "vi.fn()" to be called with arguments: [ [ { name: 'n', …(3) }, …(2) ] ]
+
+Received:
+
+  1st vi.fn() call:
+
+@@ -5,18 +5,18 @@
+        "inline": false,
+        "name": "n",
+        "value": "v",
+      },
+      {
+-       "_key": "b",
++       "_key": "c",
+        "inline": false,
+-       "name": "",
+-       "value": "",
++       "name": "n",
++       "value": "edited",
+      },
+      {
+        "_key": "c",
+        "inline": false,
+        "name": "n",
+-       "value": "edited",
++       "value": "v",
+      },
+    ],
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx:68:23
+     66|
+     67|     const expected = fields.map((f, i) => (i === slot ? { ...f, value:…
+     68|     expect(setFields).toHaveBeenCalledWith(expected);
+       |                       ^
+     69|   });
+     70|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/9]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx > EmbedFields read-only field actions > a delete removes the displayed field itself when the first field is hidden
+AssertionError: expected "vi.fn()" to be called with arguments: [ [ { name: '', value: '', …(2) } ] ]
+
+Received:
+
+  1st vi.fn() call:
+
+  [
+    [
+      {
+-       "_key": "a",
++       "_key": "b",
+        "inline": false,
+-       "name": "",
+-       "value": "",
++       "name": "n",
++       "value": "v",
+      },
+    ],
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx:76:23
+     74|     props(key).onDelete();
+     75|
+     76|     expect(setFields).toHaveBeenCalledWith(fields.filter((_, i) => i !…
+       |                       ^
+     77|   });
+     78|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/9]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx > EmbedFields read-only field actions > a delete removes the displayed field itself when the first two fields are hidden
+AssertionError: expected "vi.fn()" to be called with arguments: [ [ …(2) ] ]
+
+Received:
+
+  1st vi.fn() call:
+
+  [
+    [
+      {
+-       "_key": "a",
++       "_key": "b",
+        "inline": false,
+-       "name": "",
++       "name": "n",
+        "value": "",
+      },
+      {
+-       "_key": "b",
++       "_key": "c",
+        "inline": false,
+        "name": "n",
+-       "value": "",
++       "value": "v",
+      },
+    ],
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx:76:23
+     74|     props(key).onDelete();
+     75|
+     76|     expect(setFields).toHaveBeenCalledWith(fields.filter((_, i) => i !…
+       |                       ^
+     77|   });
+     78|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/9]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx > EmbedFields read-only field actions > a delete removes the displayed field itself when a middle field is hidden
+AssertionError: expected "vi.fn()" to be called with arguments: [ [ { name: 'n', …(3) }, …(1) ] ]
+
+Received:
+
+  1st vi.fn() call:
+
+@@ -5,12 +5,12 @@
+        "inline": false,
+        "name": "n",
+        "value": "v",
+      },
+      {
+-       "_key": "b",
++       "_key": "c",
+        "inline": false,
+-       "name": "",
+-       "value": "",
++       "name": "n",
++       "value": "v",
+      },
+    ],
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx:76:23
+     74|     props(key).onDelete();
+     75|
+     76|     expect(setFields).toHaveBeenCalledWith(fields.filter((_, i) => i !…
+       |                       ^
+     77|   });
+     78|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/9]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx > EmbedFields read-only field actions > move actions are offered by position in the full list when the first field is hidden
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx > EmbedFields read-only field actions > move actions are offered by position in the full list when the first two fields are hidden
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx:82:47
+     80|     mountReadOnly(fields);
+     81|
+     82|     expect(props(key).moveLeft === undefined).toBe(slot === 0);
+       |                                               ^
+     83|     expect(props(key).moveRight === undefined).toBe(slot === fields.le…
+     84|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/9]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx > EmbedFields read-only field actions > move actions are offered by position in the full list when a middle field is hidden
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx:83:48
+     81|
+     82|     expect(props(key).moveLeft === undefined).toBe(slot === 0);
+     83|     expect(props(key).moveRight === undefined).toBe(slot === fields.le…
+       |                                                ^
+     84|   });
+     85| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/9]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  9 failed | 7 passed (16)
+   Start at  08:03:41
+   Duration  1.52s (transform 200ms, setup 19ms, import 702ms, tests 51ms, environment 593ms)
+
+vitest exit 1

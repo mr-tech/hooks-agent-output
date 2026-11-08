@@ -1,0 +1,70 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 3 unhandled errors during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+ReferenceError: ResizeObserver is not defined
+ ❯ p node_modules/.pnpm/@headlessui+react@2.2.9_react-dom@19.2.4_react@19.2.4__react@19.2.4/node_modules/@headlessui/react/dist/utils/element-movement.js:1:332
+ ❯ node_modules/.pnpm/@headlessui+react@2.2.9_react-dom@19.2.4_react@19.2.4__react@19.2.4/node_modules/@headlessui/react/dist/components/menu/menu-machine.js:1:5597
+ ❯ h.send node_modules/.pnpm/@headlessui+react@2.2.9_react-dom@19.2.4_react@19.2.4__react@19.2.4/node_modules/@headlessui/react/dist/machine.js:1:1383
+ ❯ Object.current node_modules/.pnpm/@headlessui+react@2.2.9_react-dom@19.2.4_react@19.2.4__react@19.2.4/node_modules/@headlessui/react/dist/components/menu/menu.js:1:8580
+ ❯ node_modules/.pnpm/@headlessui+react@2.2.9_react-dom@19.2.4_react@19.2.4__react@19.2.4/node_modules/@headlessui/react/dist/hooks/use-event.js:1:137
+ ❯ onClick node_modules/.pnpm/@headlessui+react@2.2.9_react-dom@19.2.4_react@19.2.4__react@19.2.4/node_modules/@headlessui/react/dist/utils/render.js:4:1206
+ ❯ onClick node_modules/.pnpm/@headlessui+react@2.2.9_react-dom@19.2.4_react@19.2.4__react@19.2.4/node_modules/@headlessui/react/dist/utils/render.js:4:1206
+ ❯ executeDispatch node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:19116:9
+ ❯ runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ processDispatchQueue node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:19166:19
+
+This error originated in "src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "completes an Add Component Section in full". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+ReferenceError: ResizeObserver is not defined
+ ❯ p node_modules/.pnpm/@headlessui+react@2.2.9_react-dom@19.2.4_react@19.2.4__react@19.2.4/node_modules/@headlessui/react/dist/utils/element-movement.js:1:332
+ ❯ node_modules/.pnpm/@headlessui+react@2.2.9_react-dom@19.2.4_react@19.2.4__react@19.2.4/node_modules/@headlessui/react/dist/components/menu/menu-machine.js:1:5597
+ ❯ h.send node_modules/.pnpm/@headlessui+react@2.2.9_react-dom@19.2.4_react@19.2.4__react@19.2.4/node_modules/@headlessui/react/dist/machine.js:1:1383
+ ❯ Object.current node_modules/.pnpm/@headlessui+react@2.2.9_react-dom@19.2.4_react@19.2.4__react@19.2.4/node_modules/@headlessui/react/dist/components/menu/menu.js:1:8580
+ ❯ node_modules/.pnpm/@headlessui+react@2.2.9_react-dom@19.2.4_react@19.2.4__react@19.2.4/node_modules/@headlessui/react/dist/hooks/use-event.js:1:137
+ ❯ onClick node_modules/.pnpm/@headlessui+react@2.2.9_react-dom@19.2.4_react@19.2.4__react@19.2.4/node_modules/@headlessui/react/dist/utils/render.js:4:1206
+ ❯ onClick node_modules/.pnpm/@headlessui+react@2.2.9_react-dom@19.2.4_react@19.2.4__react@19.2.4/node_modules/@headlessui/react/dist/utils/render.js:4:1206
+ ❯ executeDispatch node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:19116:9
+ ❯ runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ processDispatchQueue node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:19166:19
+
+This error originated in "src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "completes an Add Component Container in full". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+ReferenceError: ResizeObserver is not defined
+ ❯ p node_modules/.pnpm/@headlessui+react@2.2.9_react-dom@19.2.4_react@19.2.4__react@19.2.4/node_modules/@headlessui/react/dist/utils/element-movement.js:1:332
+ ❯ node_modules/.pnpm/@headlessui+react@2.2.9_react-dom@19.2.4_react@19.2.4__react@19.2.4/node_modules/@headlessui/react/dist/components/menu/menu-machine.js:1:5597
+ ❯ h.send node_modules/.pnpm/@headlessui+react@2.2.9_react-dom@19.2.4_react@19.2.4__react@19.2.4/node_modules/@headlessui/react/dist/machine.js:1:1383
+ ❯ Object.current node_modules/.pnpm/@headlessui+react@2.2.9_react-dom@19.2.4_react@19.2.4__react@19.2.4/node_modules/@headlessui/react/dist/components/menu/menu.js:1:8580
+ ❯ node_modules/.pnpm/@headlessui+react@2.2.9_react-dom@19.2.4_react@19.2.4__react@19.2.4/node_modules/@headlessui/react/dist/hooks/use-event.js:1:137
+ ❯ onClick node_modules/.pnpm/@headlessui+react@2.2.9_react-dom@19.2.4_react@19.2.4__react@19.2.4/node_modules/@headlessui/react/dist/utils/render.js:4:1206
+ ❯ onClick node_modules/.pnpm/@headlessui+react@2.2.9_react-dom@19.2.4_react@19.2.4__react@19.2.4/node_modules/@headlessui/react/dist/utils/render.js:4:1206
+ ❯ executeDispatch node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:19116:9
+ ❯ runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ processDispatchQueue node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:19166:19
+
+This error originated in "src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "completes an Add Component Action Row in full". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  1 passed (1)
+      Tests  16 passed (16)
+     Errors  3 errors
+   Start at  08:00:43
+   Duration  1.88s (transform 212ms, setup 20ms, import 838ms, tests 261ms, environment 626ms)
+

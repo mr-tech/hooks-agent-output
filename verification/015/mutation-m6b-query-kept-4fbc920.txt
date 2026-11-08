@@ -1,0 +1,62 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6b-query-kept  sha: 4fbc920  label: m6b-query-kept  test: isValidImageUrl.extensions  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m6-table.py
+mutated m6b-query-kept
+ .../export/website-4fbc920-m6b-query-kept}/src/utils/isValidImageUrl.ts | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/20a3f61f-27d0-48a6-94fb-602a6563f79a/scratchpad/export/website-4fbc920-m6b-query-kept
+
+ ❯ |node| src/utils/__tests__/isValidImageUrl.extensions.test.ts (31 tests | 4 failed) 14ms
+     × accepts a.png?ex=1 6ms
+     × accepts https://example.com/a.png?x=1&y=a.html 1ms
+     × refuses https://example.com/?file=a.png 1ms
+     × refuses https://example.com/a.png.html?x=a.png 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/isValidImageUrl.extensions.test.ts > isValidImageUrl > accepts a.png?ex=1
+ FAIL  |node| src/utils/__tests__/isValidImageUrl.extensions.test.ts > isValidImageUrl > accepts https://example.com/a.png?x=1&y=a.html
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/isValidImageUrl.extensions.test.ts:24:34
+     22|     ['https://example.com/dir.html/a.webp'],
+     23|   ])('accepts %s', (url) => {
+     24|     expect(isValidImageUrl(url)).toBe(true);
+       |                                  ^
+     25|   });
+     26|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |node| src/utils/__tests__/isValidImageUrl.extensions.test.ts > isValidImageUrl > refuses https://example.com/?file=a.png
+ FAIL  |node| src/utils/__tests__/isValidImageUrl.extensions.test.ts > isValidImageUrl > refuses https://example.com/a.png.html?x=a.png
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/isValidImageUrl.extensions.test.ts:38:34
+     36|     [''],
+     37|   ])('refuses %s', (url) => {
+     38|     expect(isValidImageUrl(url)).toBe(false);
+       |                                  ^
+     39|   });
+     40| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 27 passed (31)
+   Start at  08:03:08
+   Duration  225ms (transform 32ms, setup 0ms, import 48ms, tests 14ms, environment 0ms)
+
+vitest exit 1
