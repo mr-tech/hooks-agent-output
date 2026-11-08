@@ -17,6 +17,7 @@ item **REQUIRES ANALYSIS**, read together with § M8 (M8-a). The source finding 
 
 | Date (UTC) | Author | Change |
 |---|---|---|
+| 2026-11-08T21:45 | analyst-hooks-015 | Code review at `49e7fab` APPROVED_WITH_COMMENTS. CR-41 fixed: a boundary owned by another process now prints NO SPAN, with both guards fixture-proven. CR-42: fixture driver committed under `verification/015/pig-span-read-fixture/`. Host re-run 21:44Z is unchanged (227). |
 | 2026-11-08T21:40 | analyst-hooks-015 | `pig-host-read.sh` gains section [6], the per-process span read for M8-0 run 2 (§ "M8-0 run 2 instrument"). Fixture-checked locally. First host run 21:39Z: `Created instance` 227 in the 2024–2026 process span (L-C3-1 liveness met), cross-checked by line range. |
 | 2026-11-08 | analyst (plan 015) | M8-0 run 1, taken over claude-ro (`hooks-pig`) per steering/015-rulings.md 05:20Z/05:21Z/05:24Z with no pm2 command. Script and capture: `verification/015/pig-host-read.sh` and `verification/015/m8-0-run1-2026-11-08T0525Z.txt` at `fe27690`. Added § M8-0 run 1. The prediction holds on both recorded prod stops, so V-1 is now Verified on the host for the stop path; a deploy reload and the preview instance are inconclusive. Added PM2 5.2.2 (the host's version) to the versions read; it is identical to 5.3.0 on every path cited. H-1 is marked not applicable at 5.2.2. H-2 is resolved. Root Cause now carries the observation. § Host observation is marked superseded by the claude-ro route; its owner commands are kept as written, for the record. After run 1, the script's [5] Chromium predicate was refined to exclude `chrome_crashpad`; that change is not part of the run-1 script. |
 | 2026-11-08 | analyst (plan 015) | Corrected § Host observation command 3. It previously listed `pm2 show <name>` beside the filtered `jlist`, which was defensible as a harmless way to read the log path. A re-read of `lib/API/UX/pm2-describe.js` for the owner script found that `pm2 show` prints the invoking shell's divergent environment values, so the command is removed. Class swept: `grep -c "pm2 show"` gave 2 hits here before (both in command 3) and 2 after (the warning in command 3 and this row); plan 015: 0; the research document has 2, and it is the researcher's, so they are routed and not edited. Added a pointer to `verification/015/pig-host-read.sh`. No finding changed. |
@@ -368,6 +369,26 @@ and agree.
 
 **For run 2.** After the push (stop 1) and the `prod.yml` re-run (stop 2), [6] prints a new span for the process
 stop 2 stopped. That span is the one the § M8-0 criterion reads. Earlier spans print too and are history.
+
+**Code review at `49e7fab`: APPROVED_WITH_COMMENTS** (`code-review/closed/015-bug-evaluation-fixes-code-review.md`,
+Round 18 sub-entry). Two LOW findings, both resolved:
+- **CR-41.** If a process never logs a ready line, the other processes' ready lines become its span's boundaries.
+  The span then reads zeros (the reviewer's fixture), or, worse, merges two processes' lines. My fixture 3 below:
+  span 1 read `Created instance` 2, one line from each of two processes. Fix: the stopped process must own both
+  boundaries. Start must be stamped before stop B's second, and End before the next stop's second where one
+  exists; otherwise the span prints NO SPAN with the reason.
+- **CR-42.** The fixture is now committed as `verification/015/pig-span-read-fixture/run.sh <sha|WORKTREE>`. It
+  holds three fixtures: mine (clean, restart, trailing no-span, untimestamped), the reviewer's CR-41 case, and an
+  End-guard case. It writes `span-read-<ref>.txt` beside itself.
+
+At `49e7fab` (`span-read-49e7fab.txt`):
+- fixture 2's span 1 reads all zeros between equal boundaries;
+- fixture 3's span 1 reads `Created instance` 2 and its span 2 reads 0.
+
+At the fix, both fixture-2 and fixture-3 cases print NO SPAN with their reasons, fixture 2's span 2 still reads
+`Created instance` 1, and fixture 1 is unchanged. Host re-run, 21:44Z
+(`verification/015/m8-0-span-liveness-2026-11-08T2144Z.txt`): the span, 227 and 11,324 are unchanged, and the
+capture's `ls` mtimes read `+0000` (D23's UTC holds at this read).
 
 ## Determination for M8-a — the properties that must hold
 

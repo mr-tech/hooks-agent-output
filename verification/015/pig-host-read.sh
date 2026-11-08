@@ -153,7 +153,9 @@ echo "  all chromium processes: $("$PS" -eo comm= | "$GREP" -c chrom)"
 # In-span lines are those whose ISO stamp satisfies Start <= stamp < End. Lines with no ISO stamp cannot be
 # placed by time; they are counted separately (by line position between Start and End) and never enter a figure.
 # A ready line strictly between Start and End is a crash-restart: each is listed, and that span's figures are
-# NOT read (the read never picks one). A missing Start or End is reported as NO SPAN, never filled.
+# NOT read (the read never picks one). A missing Start or End is reported as NO SPAN, never filled; so is a
+# Start not stamped before stop B's second, or an End not stamped before the next stop's second (CR-41: a
+# boundary that belongs to a later process).
 # Figures: 'Server received' (message begins with it) [plus any line containing it, as a cross-check];
 # drain-complete / drain-failed lines with their elapsed ms; 'Created instance' (PRIMARY pool figure);
 # 'POST /generate' (SECONDARY, counts unauthenticated requests too); and the exit time against stop B
@@ -189,6 +191,18 @@ else
     fi
     set -- $START; S_LN=$1; S_TS=$2; set -- $END_; E_LN=$1; E_TS=$2
     echo "     Start: out line $S_LN at $S_TS   End: out line $E_LN at $E_TS"
+    # The stopped process must own both boundaries (CR-41): Start must be stamped before stop B's second (else the
+    # process after stop A never logged ready, and Start is a later process's line), and End must be stamped before
+    # the next stop's second, where one exists (else the process after stop B never logged ready).
+    NEXT_TS="$(printf '%s\n' "$STOPS" | "$AWK" -v ln="$SLINE" 'f { print $2; exit } $1 == ln { f = 1 }')"
+    if [[ ! "${S_TS:0:19}" < "$STS" ]]; then
+      echo "     NO SPAN: Start is not stamped before stop B's second (the process started after stop A logged no ready line)"
+      PREV_TS="$STS"; continue
+    fi
+    if [ -n "$NEXT_TS" ] && [[ ! "${E_TS:0:19}" < "$NEXT_TS" ]]; then
+      echo "     NO SPAN: End is not stamped before the next stop's second $NEXT_TS (the process started after stop B logged no ready line)"
+      PREV_TS="$STS"; continue
+    fi
     RESTARTS="$(printf '%s\n' "$READIES" | "$AWK" -v a="$S_TS" -v b="$E_TS" 'NF==2 && $2 > a && $2 < b { print "line "$1" at "$2 }')"
     NR_="$(printf '%s\n' "$RESTARTS" | "$GREP" -c .)"
     if [ "$NR_" -gt 0 ]; then
