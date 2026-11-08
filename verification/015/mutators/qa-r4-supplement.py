@@ -22,6 +22,8 @@ MUTANTS = {
     'r4-button-aria-always': [(BT, BT_ARIA, 'useButton({ ...(_props as AriaButtonProps), autoFocus: true }, localRef)')],
     # Button at c5303ca (CR-38 removed the effect): react-aria told autoFocus is false, the one remaining mechanism.
     'r5-button-aria-off': [(BT, BT_ARIA, 'useButton({ ...(_props as AriaButtonProps), autoFocus: false }, localRef)')],
+    # /preview (QAF-35's `{` row): a data value that fails JSON.parse is rethrown instead of refused.
+    'r5-preview-parse-failure-rethrows': [('src/app/preview/page.tsx', '  } catch {\n    return null;\n  }', '  } catch (err) {\n    throw err;\n  }')],
     # DiscordMessageEditor: onMount never called.
     'r4-editor-onmount-empty': [(ED, 'useEffect(() => { onMount?.(); }, []);', 'useEffect(() => {}, []);')],
     # DiscordMessageEditor: onMount called on every render (the [] dropped).

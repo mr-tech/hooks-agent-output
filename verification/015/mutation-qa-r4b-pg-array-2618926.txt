@@ -1,0 +1,40 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/07779517-a93b-4582-8eaa-bb529d59396c/scratchpad/exports/website-2618926-qa-r4b-pg-array  sha: 2618926  label: qa-r4b-pg-array  test: src/app/preview  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py
+ .../results.json => dev/null}                                  |  1 -
+ 3 files changed, 9 insertions(+), 4 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/07779517-a93b-4582-8eaa-bb529d59396c/scratchpad/exports/website-2618926-qa-r4b-pg-array
+
+ ❯ |dom| src/app/preview/__tests__/page.invalid-data.test.tsx (57 tests | 2 failed) 1256ms
+     × shows one line of error text and no editor for a JSON array 30ms
+     × shows one line of error text and no editor for a JSON array holding an object 26ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for a JSON array
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for a JSON array holding an object
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ expectOneErrorLine src/app/preview/__tests__/page.invalid-data.test.tsx:44:27
+     42|
+     43| function expectOneErrorLine(el: HTMLElement) {
+     44|   expect(editorShown(el)).toBe(false);
+       |                           ^
+     45|   const shown = Array.from(el.querySelectorAll('*'))
+     46|     .filter((e) => e.children.length === 0 && e.textContent === 'Inval…
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:80:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 55 passed (57)
+   Start at  10:40:58
+   Duration  3.67s (transform 939ms, setup 26ms, import 1.61s, tests 1.26s, environment 653ms)
+
+vitest exit 1

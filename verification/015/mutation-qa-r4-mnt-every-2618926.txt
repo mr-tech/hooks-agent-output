@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/07779517-a93b-4582-8eaa-bb529d59396c/scratchpad/exports/website-2618926-qa-r4-mnt-every  sha: 2618926  label: qa-r4-mnt-every  test:   mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r4-supplement.py
+ .../website-2618926-qa-r4-mnt-every}/src/utils/hooks/index.ts  |  2 +-
+ 3 files changed, 9 insertions(+), 4 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/07779517-a93b-4582-8eaa-bb529d59396c/scratchpad/exports/website-2618926-qa-r4-mnt-every
+
+
+ Test Files  115 passed (115)
+      Tests  1122 passed (1122)
+   Start at  10:40:13
+   Duration  19.01s (transform 55.11s, setup 2.32s, import 170.92s, tests 33.37s, environment 70.95s)
+
+vitest exit 0

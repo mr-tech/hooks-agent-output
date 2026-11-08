@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/07779517-a93b-4582-8eaa-bb529d59396c/scratchpad/exports/website-2618926-qa-r4b-pg-control  sha: 2618926  label: qa-r4b-pg-control  test: src/app/preview  mutator: none
+ .../results.json => dev/null}                                  |  1 -
+ 2 files changed, 8 insertions(+), 3 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/07779517-a93b-4582-8eaa-bb529d59396c/scratchpad/exports/website-2618926-qa-r4b-pg-control
+
+
+ Test Files  1 passed (1)
+      Tests  57 passed (57)
+   Start at  10:40:53
+   Duration  3.67s (transform 959ms, setup 22ms, import 1.61s, tests 1.20s, environment 683ms)
+
+vitest exit 0

@@ -1,0 +1,47 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/07779517-a93b-4582-8eaa-bb529d59396c/scratchpad/exports/website-2618926-qa-r4-btn-noauto  sha: 2618926  label: qa-r4-btn-noauto  test:   mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r4-supplement.py
+ .../results.json => dev/null}                                |  1 -
+ 2 files changed, 9 insertions(+), 4 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/07779517-a93b-4582-8eaa-bb529d59396c/scratchpad/exports/website-2618926-qa-r4-btn-noauto
+
+ ❯ |dom| src/components/__tests__/Button.auto-focus.test.tsx (2 tests | 1 failed) 69ms
+     × is the focused element after mounting with autoFocus 61ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/Button.auto-focus.test.tsx > Button auto focus > is the focused element after mounting with autoFocus
+AssertionError: expected <button …(4)></button> to be <body><div>…(1)</div></body> // Object.is equality
+
+- Expected
++ Received
+
+- <body>
+-   <div>
+  <button
+    class="disabled:opacity-50"
+    data-react-aria-pressable="true"
+    tabindex="0"
+    type="button"
+  >
+    Go
+  </button>
+-   </div>
+- </body>
+
+ ❯ src/components/__tests__/Button.auto-focus.test.tsx:17:42
+     15|     const host = mountDom(<Button autoFocus>Go</Button>);
+     16|
+     17|     expect(host.querySelector('button')).toBe(document.activeElement);
+       |                                          ^
+     18|   });
+     19|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 114 passed (115)
+      Tests  1 failed | 1121 passed (1122)
+   Start at  10:38:05
+   Duration  20.14s (transform 48.61s, setup 2.56s, import 164.83s, tests 35.41s, environment 82.66s)
+
+vitest exit 1

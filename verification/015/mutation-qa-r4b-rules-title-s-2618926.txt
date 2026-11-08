@@ -1,0 +1,37 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/07779517-a93b-4582-8eaa-bb529d59396c/scratchpad/exports/website-2618926-qa-r4b-rules-title-s  sha: 2618926  label: qa-r4b-rules-title-s  test: src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-r2-supplement.py
+ .../src/utils/markdown/index.tsx                               |  2 +-
+ 3 files changed, 9 insertions(+), 4 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/07779517-a93b-4582-8eaa-bb529d59396c/scratchpad/exports/website-2618926-qa-r4b-rules-title-s
+
+ ❯ |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts (29 tests | 1 failed) 47ms
+     × does not render a fence as a code block, since titles carry no code blocks 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > static parseEmbedTitle fenced code blocks > does not render a fence as a code block, since titles carry no code blocks
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts:61:44
+     59| ])('%s parseEmbedTitle fenced code blocks', (_name, rendersCodeBlock) …
+     60|   it('does not render a fence as a code block, since titles carry no c…
+     61|     expect(rendersCodeBlock(FENCED_TITLE)).toBe(false);
+       |                                            ^
+     62|   });
+     63| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 28 passed (29)
+   Start at  10:40:50
+   Duration  1.54s (transform 492ms, setup 0ms, import 1.33s, tests 47ms, environment 0ms)
+
+vitest exit 1
