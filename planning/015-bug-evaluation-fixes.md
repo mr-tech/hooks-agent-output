@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: In Progress
-Status-Detail: "M0 and M2 delivered; M1 is rebuilding M1-c and M1-h; M4 is being coded. Revision 19 states the CR-12 rider's belonging as guild_id equality over the field's whole domain (a DM channel with no guild_id is refused) and lists fetchChannel's mapped refusals. The critic, the architect, QA and code review read the rev 19 delta. M3 is held for a real-Chrome read."
-Revision: 19
+Status-Detail: "M0 and M2 delivered; M1 is rebuilding M1-c and M1-h. M4 passed code review at 1e12837 and reopens for one change under D29 (CR-14): a failed webhook-URL load shows \"Invalid URL\" at both F-27 sites. The critic (cycle 5), the architect, QA and code review read the rev 20 delta. M3 is held for a real-Chrome read."
+Revision: 20
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
 Lane: "standard — agent-output/README.md carries no small-lane section (grep -i small, 0 hits, 2026-11-08); the blast radius spans the save schema, a bot command's permissions and a production PM2 service, none a leaf"
@@ -44,6 +44,7 @@ Owed re-verdicts:
 | M1-i "present" = `cookies()` and its residue; M2-a third colour member (Picker → M6-f); M3 premise unsettled and held for a Chrome read (rev 15); M4-c restated; M4-d over D24–D26: eight hosts, one widened shared constant, its two consumers (rev 16); M6-f covers colour 0; X-17 | rev 14–16 | critic (cycle 4), architect, qa, code review (one round over `9cbe755`..rev 16) | approved by the architect (`565e240` read), the critic (`28f0f16`) and QA (`e43f305`); code review Round 4 (`19dbf64` row): CR-11, folded at rev 17; CR-12 (HIGH, pre-existing) is with the owner. M-C4-1, L-C4-1, AF-19, QAF-21 and QAF-22 are folded at rev 17 |
 | M4-d over both F-27 predicate sites (D28); the CR-12 rider (D27, rev 18) (`WebhookProvider.tsx`, `useValidateWebhook.ts`); trim; refused-input display; guild/channel/message groups; id from the constant's group | rev 17, rev 18 | critic (cycle 4), architect, qa, code review (one round over `565e240`..rev 18) | approved (architect, rev 17–18 read; critic `e05a8d4`; QA `31173a1`; code review `e343d2e` row); AF-20, QAF-23 and L-C4-2 folded at rev 19 |
 | CR-12 rider: belonging as `guild_id` equality, absent `guild_id` refused; `fetchChannel` refusals 401/403, 404 and other with their texts | rev 19 | critic, architect, qa, code review (delta only) | open |
+| M4-d webhook-URL load failure: "Invalid URL" at both sites (D29); the old-message network clause scoped to the message fetch | rev 20 | critic (cycle 5, new file), architect, qa, code review (delta only) | open |
 
 ## Changelog
 
@@ -84,6 +85,7 @@ Owed re-verdicts:
 | 2026-11-08T07:05 | 19 | planner (planner-hooks-015) | Folds the rev 17+18 verdicts' findings: QA QAF-23 (`31173a1`) and critic L-C4-2 (`e05a8d4`), the same member, plus architect AF-20. Code review (`e343d2e` row) had none for the plan. It is the twelfth revision since implementation approval, and it triggers one delta round per gate. Scope delta: in the CR-12 rider, belonging is equality over the field's domain, so an absent `guild_id` (a DM or group-DM channel) is refused, and the lookup's refusals are listed by status with their existing texts. No work is added to the rider. Against the ask: 49 of 50 findings plus one rider. |
 | 2026-11-08T07:07 | cr | code-reviewer (code-reviewer-hooks-015) | Round 6, the gate read of `67cb5e7..330348f` (rev 19, CR-12 rider only), with mechanisms checked at website `6001f7f`: APPROVED, no findings, `code-review/015-bug-evaluation-fixes-code-review.md` (`7d26b77`). The `guild_id` equality refuses an absent field. The refusal texts match `fetchChannel` word for word. The unmapped failures throw before any content. The M4 code review is Round 7. Milestone-scoped, so plan Status is unmoved. |
 | 2026-11-08T07:22 | cr | code-reviewer (code-reviewer-hooks-015) | Round 7, M4 at website `1e12837` against rev 19: APPROVED_WITH_COMMENTS, `code-review/015-bug-evaluation-fixes-code-review.md` (`a99e9ff`). Every M4 limb is met, including both F-27 sites and the D27 rider. The rider was attacked on the real `getFromUrl` (only Redis, Postgres and Discord faked): 26 of 26 cases as expected at `1e12837`, and the probe leaks at `6001f7f`. CR-11 and CR-13 are RESOLVED in code. For the planner: CR-14 LOW. The two F-27 sites show different texts for a failed webhook-URL fetch, and rev 19's network clause does not say whether that fetch is in scope. State one text for both sites. QA Phase 2 may take M4 at `1e12837`. Milestone-scoped, so plan Status is unmoved. |
+| 2026-11-08T07:24 | 20 | planner (planner-hooks-015) | Folds code review Round 7 CR-14 (`a99e9ff`) and registers D29 (rulings block 07:24Z "CR-14", `27f8cd7`). Disclosure: the stamp gate refused this row's first, hand-typed stamp (07:27); it now carries `date -u`. It is the thirteenth revision since implementation approval. It is a milestone-level scope delta on open M4 that the owner chose with its cost stated: one change, one code-review round and one QA Phase 2 re-run on M4, after one delta round of the critic (cycle 5), the architect and QA. Scope delta: M4-d's network clause is scoped to the old-message fetch, and a new limb makes a failed webhook-URL load show "Invalid URL" at both F-27 sites; M4-b is unchanged. No downstream milestone rests on either site's error text (grep of the plan for `NewMessageModal`, `useValidateWebhook` and "Invalid URL": M4 only), so none is marked `PREMISE-STALE`. Against the ask: 49 of 50 findings plus one rider. |
 
 ## Value Statement and Business Objective
 
@@ -126,6 +128,7 @@ message builder that sends through webhooks.
 | D26 | OQ-J: the shared `DISCORD_MESSAGE_LINK_REGEX` widens once, so M4-d's edit box, the New Message dialog's link load and `message.getFromUrl` all accept discordapp.com links, the New Message dialog's behaviour change being accepted; and discordapp.com takes an optional www., canary. or ptb., as discord.com does. | 2026-11-08 | "Agent: widen the shared rule" and "Agent: all variants" — two selections relayed by steering-hooks-015, rulings block 06:52Z "OQ-J" (`7207289`). The option texts are steering's, drawn from the planner's relay (agent-authored). | Owner withdrawal only. | M4-d's link class and its two consumers (§ M4-d). OQ-J is closed. |
 | D27 | CR-12 is fixed in chain 015: M4-d refuses unless the fetched message's channel belongs to the server the caller was checked against; the hole stays open until chain 015 releases. | 2026-11-08 | "Agent: fix it in chain 015" — selection relayed by steering-hooks-015, rulings block 07:01Z "CR-12" (`3d7af67`). The option text is steering's (agent-authored): "Agent: the planner adds it to M4-d: refuse unless the fetched message's channel belongs to the server you were checked against. Cost: a plan revision with one more review round on M4-d, one change, code review and QA. It reaches production only when chain 015 releases, after all its milestones (hours at least), so the hole stays open until then." | Owner withdrawal only. | M4-d's named rider, with its drop disposition priced. |
 | D28 | The same defect at a sibling site of a finding the chain already fixes is fixed at every site without coming to the owner (the class of M-C4-1). | 2026-11-08 | "I already ruled on this class of item. Yes fix." — his own words, relayed by steering-hooks-015, rulings block 07:01Z "M-C4-1" (`3d7af67`). The class wording is steering's summary ("Same-defect-in-a-sibling items no longer come to him"), agent-authored. | Owner withdrawal only. | M4-d's two sites stand (rev 17). Later members of the class are folded and reported, never asked. |
+| D29 | CR-14: a webhook-URL load that fails with no response shows "Invalid URL" at both F-27 sites; the New Message dialog copies the send page. | 2026-11-08 | "Agent: 'Invalid URL' at both" — selection relayed by steering-hooks-015, rulings block 07:24Z "CR-14" (`27f8cd7`). Description chosen: "Agent: the New Message dialog copies the send page. One small change and a test at each place. A dropped connection then tells the user the URL is wrong, as the send page already does today. Cost: a plan revision with a review round, then a code change, code review and QA re-run on M4 (planner's recommendation)." The option text is the planner's, relayed by steering (agent-authored). | Owner withdrawal only. | M4-d's webhook-load limb. The site behaviour it rests on is the planner's code read at `1e12837`, not run. |
 
 ## Objective
 
@@ -487,9 +490,18 @@ exists to fix once — `grep` above).
     a message link with a trailing path.
   - **What a refused input shows (QA QAF-22 (2)).** No fetch, and the same as at `6001f7f`: the message and the
     error are both cleared, so nothing is shown. No new message text is added.
-  - **Network failure.** At both sites, a fetch that fails with no response shows exactly "Could not load the
-    message. Check your connection and try again." (D24) and leaves no unhandled rejection. Discord refusals keep
-    their existing texts.
+  - **Network failure, old-message fetch.** At both sites, an old-message fetch that fails with no response shows
+    exactly "Could not load the message. Check your connection and try again." (D24) and leaves no unhandled
+    rejection. Discord refusals keep their existing texts.
+  - **Network failure, webhook-URL load (D29, code review CR-14).** At both sites, a webhook-URL fetch that fails
+    with no response shows exactly "Invalid URL" (no trailing period) at the webhook URL field, and leaves no
+    unhandled rejection. The send page's text and condition are M4-b's, unchanged; the New Message dialog copies
+    that literal (sibling: `WebhookMenu` at website `1e12837`, the `errorMessage` of the custom-URL input). A
+    Discord refusal of the webhook URL keeps each site's existing text: "Invalid URL" on the send page (M4-b),
+    Discord's own message in the dialog. At each site, the verifying cell asserts the literal, never a value read
+    from the code under test. Human-observable: with the network cut after a valid-looking webhook URL is typed,
+    both the send page and the New Message dialog show "Invalid URL" under the field; walked on the locally
+    served chain tip, without sending.
   - **Ordering.** At both sites, of two overlapping validations only the latest input's result is applied.
   - **Named rider: the cross-server read in `getFromUrl` (code review CR-12, HIGH; D27).** This is a pre-existing
     defect on `master` (`7ce866b`), outside F-1 to F-50. It rides M4-d because M4-d already opens `getFromUrl`.
@@ -943,6 +955,7 @@ is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, 
   - **M3.** When the real-Chrome read lands (QA's four cells per dialog, § M3 "Premise: unsettled"): if (a) runs confirm, restate M3 to proceed and note the jsdom-fidelity requirement. If not, write the owner options (keep the guard fix as latent, or drop M3) for steering to put to him, against the value-statement sentence "a Cancel key press never deletes".
   - **Standing rules.** Under D28, fold same-defect sibling sites without an owner question and report them. After implementation approval, park findings that change no code, test or pre-release verifier as Planner batch rows.
   - **Open, not a finding.** QA left "refused" open between a throw and an empty return in the CR-12 rider; pin it only if a gate asks.
+- **Since the checkpoint.** Rev 20 folds CR-14 under D29 ("Invalid URL" at both F-27 sites for a failed webhook-URL load); its delta round is open.
 - **Open with others.** None of the planner's questions to the owner are pending. The M3 Chrome read is with the implementer and QA. Nothing of the planner's is held.
 - **Uncommitted, left in place.** `INBOX.md` holds this session's FYI entry: the research document's `pm2 show` advice. Per the inbox rule, the domain owner commits it.
 - **Branches.** website and preview-image-generator: chain branches are created by steering. The planner touches no source.
