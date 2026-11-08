@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Delta pass on plan revs 17–18 (67cb5e7): APPROVED. AF-18 (M1-c rebuild) and AF-20 (fetchChannel's type and refusal cells) are recommended and do not block; AF-19 is folded. A later revision is read on its delta."
+Status-Detail: "Delta pass on plan rev 19 (330348f): APPROVED, no findings. AF-19 and AF-20 are folded; AF-20's type limb is with the implementer as CR-13. AF-18 (M1-c rebuild) is still recommended. A later revision is read on its delta."
 ---
 
 # Architecture Findings — Plan 015: Bug-evaluation fixes (conformance pass)
@@ -24,6 +24,7 @@ Status-Detail: "Delta pass on plan revs 17–18 (67cb5e7): APPROVED. AF-18 (M1-c
 | 2026-11-08T06:42 | Delta pass, plan rev 12 + rev 13 (`9cbe755`, read from `14fe94f`, one pass on steering-hooks-015's instruction; D23's assumption not re-read) | Every limb conforms. AF-18 LOW is recommended for the M1-c rebuild: read the `Accounts` row directly in `removeUserSession` and retire `fetchUserAccount`'s now-callerless `skipUpdate` mode, which is CR-3's root, one cache key with two meanings. Two Problem Areas registered. **APPROVED.** |
 | 2026-11-08T06:54 | Delta pass, plan revs 14–16 (`565e240`, read from `9cbe755`, one pass on steering-hooks-015's instruction; D23's assumption not re-read) | Every limb conforms. D26's single widening of `DISCORD_MESSAGE_LINK_REGEX` follows A-3's one-definition pattern, and its consumer list matches `git grep` at `6001f7f`. AF-19 LOW is recommended: M4-d takes the id from the constant's capture group, as `getFromUrl` does, not from `split('/').pop()`. **APPROVED.** |
 | 2026-11-08T07:03 | Delta pass, plan revs 17–18 (`67cb5e7`, read from `565e240`, one pass on steering-hooks-015's instruction) | Every limb conforms. The CR-12 rider's `fetchChannel` is the right primitive: the guild channel list misses archived threads. No sibling exists under D28, since every other bot-token call is guild-scoped. AF-20 LOW is recommended: correct `fetchChannel`'s `request<Guild>` generic, and give each mapped refusal status a cell. Landed `website.md` A-5. **APPROVED.** |
+| 2026-11-08T07:06 | Delta pass, plan rev 19 (`330348f`, read from `67cb5e7`), on steering-hooks-015's request | The CR-12 rider conforms. Belonging is now `guild_id` equality over the field's whole domain, so a DM or group-DM channel without `guild_id` is refused. The listed refusal texts match `fetchChannel` at `6001f7f`: 401/403 "Missing permissions…", 404 "Channel does not exist.", and any other status "An unknown error occurred…". AF-20's refusal-cell limb is folded; its type limb went to the implementer as code review CR-13. No findings. **APPROVED.** |
 
 ## Verdict (revs 17–18, `67cb5e7`, one pass from rev 16 `565e240`): APPROVED
 
