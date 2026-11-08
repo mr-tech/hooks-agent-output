@@ -267,3 +267,4 @@ First prompt, ~08:10Z (revoke all / known limit / block a second link). He answe
 
 ## 2026-11-08T08:11Z — "one Discord account is one Hooks user" recorded as a standing design rule (selection)
 Proposed by architect-hooks-015 as website.md entry A-6, quoting his words: "If someone signs in with a different account, that's a different Hooks user." Options: Agent: yes, record the rule / Agent: no, it was just an answer. Chosen **Agent: yes, record the rule**, by selection. The architect lands A-6 with the sentence verbatim. Its read (0f893c8): send/page.tsx at 3031878 renders Log in only when session === null, which closes steering's unread site.
+Correction (08:12Z): the entry landed as website.md **W-7**, not A-6 (architect, 952e69f). The block above says "A-6"; read W-7.
