@@ -1,0 +1,12 @@
+parser node_modules/.pnpm/next@16.1.6_@babel+core@7.29.7_react-dom@19.2.4_react@19.2.4__react@19.2.4_sass@1.56.2/node_modules/next/dist/compiled/@edge-runtime/cookies/index.js 078a208032232fcedaa17a3471421688e4be15f5cb71cb1f189d0514b393ed94
+next 16.1.6
+positive control: plain token                    | "next-auth.session-token=abc"                      | present value="abc"
+secure name                                      | "__Secure-next-auth.session-token=abc"             | present value="abc"
+no cookie header value                           | ""                                                 | absent
+segment with no =                                | "junk; next-auth.session-token=abc"                | present value="abc"
+= inside value                                   | "a=x=y; next-auth.session-token=abc"               | present value="abc"
+legal % octet                                    | "a=%41; next-auth.session-token=abc"               | present value="abc"
+bare session name, no =                          | "next-auth.session-token"                          | present value="true"
+session value with undecodable % (%zz)           | "next-auth.session-token=%zz"                      | absent
+session value with truncated UTF-8 (%E0%A4%A)    | "next-auth.session-token=%E0%A4%A"                 | absent
+negative control: other cookie only              | "other=1"                                          | absent

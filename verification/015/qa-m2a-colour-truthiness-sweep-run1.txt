@@ -1,0 +1,14 @@
+== 7ce866b
+step1 lines (grep -c summed): 33
+truthiness hits:
+7ce866b:src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx:20:    defaultColor={initColor ? `#${initColor.toString(16)}` : '#000000'}
+7ce866b:src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx:90:  const borderColor = color ? intToHex(color) : undefined;
+7ce866b:src/@types/global.d.ts:271:    accent_color?: number;
+7ce866b:src/@types/global.d.ts:355:    accent_color?: number;
+7ce866b:src/utils/discordResponseToMessage.ts:133:      if (e.color) embed.color = e.color;
+== 6001f7f
+step1 lines (grep -c summed): 33
+truthiness hits:
+6001f7f:src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx:20:    defaultColor={initColor ? `#${initColor.toString(16)}` : '#000000'}
+6001f7f:src/@types/global.d.ts:271:    accent_color?: number;
+6001f7f:src/@types/global.d.ts:355:    accent_color?: number;
