@@ -1,0 +1,15 @@
+# next 16.1.6, node v24.14.0
+PROBE bare % in value :: session="abc"
+PROBE truncated escape in value :: session="abc"
+PROBE bare % in name :: session="abc"
+PROBE lone surrogate escape :: session="abc"
+PROBE segment with no = :: session="abc"
+PROBE empty segments :: session="abc"
+PROBE = in session value :: session="a=b"
+PROBE quoted value :: session="abc"
+PROBE duplicate session cookie, first wins? :: session="zzz" (expected "abc")
+PROBE whitespace around = :: session=null (expected "abc")
+PROBE secure prefix only :: session=null
+PROBE % in the session value itself :: session=null (expected "ab%")
+PROBE 10k segments :: session="abc"
+PROBE control: plain :: session="abc"
