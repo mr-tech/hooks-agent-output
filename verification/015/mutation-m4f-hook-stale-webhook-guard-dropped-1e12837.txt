@@ -1,0 +1,35 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-1e12837-m4f-hook-stale-webhook-guard-dropped  sha: 1e12837  label: m4f-hook-stale-webhook-guard-dropped  test: page.send-in-flight WebhookMenu.url-and WebhookProvider.validation useValidateWebhook.validation constants.discord message.get-from-url redis.fetch-channel  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py
+mutated hook-stale-webhook-guard-dropped
+ .../src/utils/hooks/useValidateWebhook.ts          |   2 -
+ 3 files changed, 199 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-1e12837-m4f-hook-stale-webhook-guard-dropped
+
+ ❯ |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx (20 tests | 1 failed) 65ms
+     × applies the latest url's webhook when an earlier url resolves last 8ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, overlapping validations > applies the latest url's webhook when an earlier url resolves last
+AssertionError: expected '111' to be '222' // Object.is equality
+
+Expected: "222"
+Received: "111"
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:165:32
+    163|     await act(async () => { second.resolve(jsonResponse(webhookBody('2…
+    164|     await act(async () => { first.resolve(jsonResponse(webhookBody('11…
+    165|     expect(result.webhook?.id).toBe('222');
+       |                                ^
+    166|   });
+    167|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 6 passed (7)
+      Tests  1 failed | 104 passed (105)
+   Start at  07:11:08
+   Duration  2.65s (transform 1.25s, setup 68ms, import 5.46s, tests 751ms, environment 3.40s)
+
+vitest exit 1

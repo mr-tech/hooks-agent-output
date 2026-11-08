@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-control-hook  sha: 46a9cab  label: control-hook  test: useValidateWebhook.validation-effects  mutator: none
+ .../src/utils/hooks/useGuildDropdownItems.tsx      |  2 +-
+ 12 files changed, 36 insertions(+), 468 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-control-hook
+
+
+ Test Files  1 passed (1)
+      Tests  21 passed (21)
+   Start at  07:35:12
+   Duration  1.36s (transform 165ms, setup 19ms, import 580ms, tests 43ms, environment 592ms)
+
+vitest exit 0

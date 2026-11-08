@@ -1,0 +1,7 @@
+control-m5h	 Tests 7 passed (7)	0	vitest exit 0
+m5h-array-passes	 Tests 1 failed | 6 passed (7)	0	vitest exit 1
+m5h-primitive-passes	 Tests 2 failed | 5 passed (7)	0	vitest exit 1
+m5h-parse-error-uncaught	 Tests 1 failed | 6 passed (7)	0	vitest exit 1
+m5h-error-text-changed	 Tests 5 failed | 2 passed (7)	0	vitest exit 1
+m5h-error-not-text-error	 Tests 5 failed | 2 passed (7)	0	vitest exit 1
+done

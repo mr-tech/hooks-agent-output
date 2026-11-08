@@ -1,0 +1,133 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+stderr | src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx > JsonModalBody — Copy to Clipboard needs a draft that parses and conforms > a draft that is not JSON disables Copy and Pretty print together
+TypeError: textRange(...).getClientRects is not a function
+    at textCoords (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:811:43)
+    at TextView.coordsAt (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:720:16)
+    at coordsInChildren (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:1094:23)
+    at LineView.coordsAt (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:1532:20)
+    at DocView.coordsAt (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:2774:30)
+    at EditorView.coordsAtPos (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:6954:33)
+    at RectangleMarker.forRange (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7541:28)
+    at Object.markers (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7783:51)
+    at LayerView.measure (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7691:27)
+    at file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:6655:34
+
+stderr | src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx > JsonModalBody — Copy to Clipboard needs a draft that parses and conforms > a draft that is JSON but does not conform disables Copy
+TypeError: textRange(...).getClientRects is not a function
+    at textCoords (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:811:43)
+    at TextView.coordsAt (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:720:16)
+    at coordsInChildren (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:1094:23)
+    at LineView.coordsAt (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:1532:20)
+    at DocView.coordsAt (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:2774:30)
+    at EditorView.coordsAtPos (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:6954:33)
+    at RectangleMarker.forRange (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7541:28)
+    at Object.markers (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7783:51)
+    at LayerView.measure (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7691:27)
+    at file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:6655:34
+
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx (5 tests | 2 failed) 306ms
+     × a draft that is not JSON disables Copy and Pretty print together 93ms
+     × a draft that is JSON but does not conform disables Copy 38ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx > JsonModalBody — Copy to Clipboard needs a draft that parses and conforms > a draft that is not JSON disables Copy and Pretty print together
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx:62:49
+     60|
+     61|     expect(isDisabled(el, 'Pretty print')).toBe(true);
+     62|     expect(isDisabled(el, 'Copy to Clipboard')).toBe(true);
+       |                                                 ^
+     63|   });
+     64|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx > JsonModalBody — Copy to Clipboard needs a draft that parses and conforms > a draft that is JSON but does not conform disables Copy
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx:70:49
+     68|
+     69|     expect(isDisabled(el, 'Pretty print')).toBe(false);
+     70|     expect(isDisabled(el, 'Copy to Clipboard')).toBe(true);
+       |                                                 ^
+     71|   });
+     72|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 2 unhandled errors during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+SyntaxError: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+ ❯ onPress src/app/message/m/[id]/_components/JsonModalBody.tsx:259:67
+ ❯ node_modules/.pnpm/@react-aria+interactions@3.27.0_react-dom@19.2.4_react@19.2.4__react@19.2.4/node_modules/@react-aria/interactions/dist/usePress.mjs:144:13
+ ❯ onClick node_modules/.pnpm/@react-aria+interactions@3.27.0_react-dom@19.2.4_react@19.2.4__react@19.2.4/node_modules/@react-aria/interactions/dist/usePress.mjs:397:44
+ ❯ executeDispatch node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:19116:9
+ ❯ runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ processDispatchQueue node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:19166:19
+ ❯ node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:19767:9
+ ❯ batchedUpdates$1 node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:3255:40
+ ❯ dispatchEventForPluginEventSystem node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:19320:7
+
+This error originated in "src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "pressing Copy on a draft that is not JSON copies nothing and throws nothing". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "number",
+    "path": [
+      "content"
+    ],
+    "message": "Expected string, received number"
+  }
+]
+ ❯ Object.get error [as error] node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:538:31
+ ❯ ZodEffects.parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:638:22
+ ❯ onPress src/app/message/m/[id]/_components/JsonModalBody.tsx:259:56
+ ❯ node_modules/.pnpm/@react-aria+interactions@3.27.0_react-dom@19.2.4_react@19.2.4__react@19.2.4/node_modules/@react-aria/interactions/dist/usePress.mjs:144:13
+ ❯ onClick node_modules/.pnpm/@react-aria+interactions@3.27.0_react-dom@19.2.4_react@19.2.4__react@19.2.4/node_modules/@react-aria/interactions/dist/usePress.mjs:397:44
+ ❯ executeDispatch node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:19116:9
+ ❯ runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ processDispatchQueue node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:19166:19
+ ❯ node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:19767:9
+ ❯ batchedUpdates$1 node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:3255:40
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { issues: [ { code: 'invalid_type', expected: 'string', received: 'number', path: [ 'content' ], message: 'Expected string, received number' } ], addIssue: 'Function<anonymous>', addIssues: 'Function<anonymous>', errors: [ { code: 'invalid_type', expected: 'string', received: 'number', path: [ 'content' ], message: 'Expected string, received number' } ], format: 'Function<format>', isEmpty: false, flatten: 'Function<flatten>', formErrors: { formErrors: [], fieldErrors: { content: [ 'Expected string, received number' ] } } }
+This error originated in "src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "pressing Copy on a draft that does not conform copies nothing and throws nothing". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 3 passed (5)
+     Errors  2 errors
+   Start at  07:30:45
+   Duration  2.07s (transform 295ms, setup 21ms, import 1.01s, tests 306ms, environment 598ms)
+

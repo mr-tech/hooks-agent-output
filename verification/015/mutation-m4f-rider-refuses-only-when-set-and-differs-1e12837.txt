@@ -1,0 +1,33 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-1e12837-m4f-rider-refuses-only-when-set-and-differs  sha: 1e12837  label: m4f-rider-refuses-only-when-set-and-differs  test: page.send-in-flight WebhookMenu.url-and WebhookProvider.validation useValidateWebhook.validation constants.discord message.get-from-url redis.fetch-channel  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py
+mutated rider-refuses-only-when-set-and-differs
+ .../src/server/api/routers/message.ts              |   2 +-
+ 3 files changed, 1 insertion(+), 198 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-1e12837-m4f-rider-refuses-only-when-set-and-differs
+
+ ❯ |node| src/server/api/routers/__tests__/message.get-from-url.test.ts (19 tests | 2 failed) 22ms
+     × refuses a direct-message channel, which has no guild_id, without any message content 4ms
+     × refuses a group direct-message channel, which has no guild_id, without any message content 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.get-from-url.test.ts > message.getFromUrl, the channel must belong to the authorized guild > refuses a direct-message channel, which has no guild_id, without any message content
+ FAIL  |node| src/server/api/routers/__tests__/message.get-from-url.test.ts > message.getFromUrl, the channel must belong to the authorized guild > refuses a group direct-message channel, which has no guild_id, without any message content
+AssertionError: expected { value: { guildId: '111', …(2) } } to have property "error"
+ ❯ src/server/api/routers/__tests__/message.get-from-url.test.ts:118:21
+    116|     );
+    117|
+    118|     expect(outcome).toHaveProperty('error');
+       |                     ^
+    119|     expect(JSON.stringify(outcome)).not.toContain('secret words');
+    120|     expect(mocks.request).not.toHaveBeenCalled();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed | 6 passed (7)
+      Tests  2 failed | 103 passed (105)
+   Start at  07:10:55
+   Duration  2.13s (transform 880ms, setup 42ms, import 4.31s, tests 612ms, environment 2.81s)
+
+vitest exit 1

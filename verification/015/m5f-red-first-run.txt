@@ -1,0 +1,81 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx (5 tests | 4 failed) 419ms
+     × proposes the renamed message's name when it was renamed while the dialog was closed 59ms
+     × proposes the message's server when it moved to one while the dialog was closed 55ms
+     × proposes the plain name for a message still named New Message 47ms
+     × drops a typed name when the dialog is closed and opened again 70ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx > SaveAsMenu, the name and server it opens with > proposes the renamed message's name when it was renamed while the dialog was closed
+AssertionError: expected 'First Copy' to be 'Renamed Copy' // Object.is equality
+
+Expected: "Renamed Copy"
+Received: "First Copy"
+
+ ❯ src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx:74:31
+     72|     render(true, messageOf('Renamed'));
+     73|
+     74|     expect(nameField().value).toBe('Renamed Copy');
+       |                               ^
+     75|   });
+     76|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx > SaveAsMenu, the name and server it opens with > proposes the message's server when it moved to one while the dialog was closed
+AssertionError: expected 'Save AsMessage Name(10 / 32)Save To(m…' to contain 'Guild Five'
+
+Expected: "Guild Five"
+Received: "Save AsMessage Name(10 / 32)Save To(max 50 per account / server)My AccountCancelSave"
+
+ ❯ src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx:83:39
+     81|     render(true, messageOf('First', '5'));
+     82|
+     83|     expect(document.body.textContent).toContain('Guild Five');
+       |                                       ^
+     84|   });
+     85|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx > SaveAsMenu, the name and server it opens with > proposes the plain name for a message still named New Message
+AssertionError: expected 'Old Copy' to be 'New Message' // Object.is equality
+
+Expected: "New Message"
+Received: "Old Copy"
+
+ ❯ src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx:92:31
+     90|     render(true, messageOf('New Message'));
+     91|
+     92|     expect(nameField().value).toBe('New Message');
+       |                               ^
+     93|   });
+     94|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx > SaveAsMenu, the name and server it opens with > drops a typed name when the dialog is closed and opened again
+AssertionError: expected 'Something typed' to be 'First Copy' // Object.is equality
+
+Expected: "First Copy"
+Received: "Something typed"
+
+ ❯ src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx:103:31
+    101|     render(true, messageOf('First'));
+    102|
+    103|     expect(nameField().value).toBe('First Copy');
+       |                               ^
+    104|   });
+    105| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 1 passed (5)
+   Start at  07:36:13
+   Duration  1.99s (transform 250ms, setup 23ms, import 822ms, tests 419ms, environment 589ms)
+

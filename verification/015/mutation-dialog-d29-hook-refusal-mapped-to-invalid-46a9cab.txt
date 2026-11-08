@@ -1,0 +1,38 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-dialog-d29-hook-refusal-mapped-to-invalid  sha: 46a9cab  label: dialog-d29-hook-refusal-mapped-to-invalid  test: NewMessageModal.failed-webhook-load  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-d29-table.py
+mutated d29-hook-refusal-mapped-to-invalid
+ .../src/utils/hooks/useValidateWebhook.ts          |   2 +-
+ 14 files changed, 37 insertions(+), 579 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-dialog-d29-hook-refusal-mapped-to-invalid
+
+ ❯ |dom| src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx (2 tests | 1 failed) 421ms
+     × shows Discord's own refusal on the shared error line, not "Invalid URL" 128ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx > NewMessageModal, a failed webhook load > shows Discord's own refusal on the shared error line, not "Invalid URL"
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx:68:19
+     66|
+     67|     const shown = leavesWithText('Unknown Webhook');
+     68|     expect(shown).toHaveLength(1);
+       |                   ^
+     69|     expect(shown[0]!.classList.contains('text-error')).toBe(true);
+     70|     expect(leavesWithText('Invalid URL')).toHaveLength(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  07:35:45
+   Duration  2.18s (transform 330ms, setup 19ms, import 1.01s, tests 421ms, environment 584ms)
+
+vitest exit 1

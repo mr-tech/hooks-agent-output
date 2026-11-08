@@ -1,0 +1,77 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5e-month-dropped  sha: 6c42032  label: m5e-month-dropped  test: formatMessageDate.same-day page.message-list Header.search-result-dates  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py
+mutated m5e-month-dropped
+ .../website-6c42032-m5e-month-dropped}/src/utils/formatMessageDate.ts    | 1 -
+ 2 files changed, 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5e-month-dropped
+
+ ❯ |node| src/utils/__tests__/formatMessageDate.same-day.test.ts (6 tests | 1 failed) 28ms
+     × the same day of the month in another month shows a date 6ms
+ ❯ |dom| src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx (1 test | 1 failed) 165ms
+     × shows a time for a message updated today and a date for the same day of another month 164ms
+ ❯ |dom| src/app/message/f/[id]/__tests__/page.message-list.test.tsx (2 tests | 1 failed) 196ms
+     × shows "Today at" for a message updated today and a date for the same day of another month 147ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx > Header, the dates beside search results > shows a time for a message updated today and a date for the same day of another month
+AssertionError: expected 'Alpha last monthMy Account9:05 AM' to contain '2026'
+
+Expected: "2026"
+Received: "Alpha last monthMy Account9:05 AM"
+
+ ❯ src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx:64:23
+     62|     const lastMonth = rows.find((r) => r.includes('Alpha last month'))…
+     63|     expect(today).not.toContain('2026');
+     64|     expect(lastMonth).toContain('2026');
+       |                       ^
+     65|   });
+     66| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/app/message/f/[id]/__tests__/page.message-list.test.tsx > folder page, the message dates > shows "Today at" for a message updated today and a date for the same day of another month
+AssertionError: expected [ …(3) ] to have a length of 2 but got 3
+
+- Expected
++ Received
+
+- 2
++ 3
+
+ ❯ src/app/message/f/[id]/__tests__/page.message-list.test.tsx:108:55
+    106|
+    107|     expect(el.textContent).toContain('Today at ');
+    108|     expect((el.textContent ?? '').split('Today at ')).toHaveLength(2);
+       |                                                       ^
+    109|   });
+    110| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |node| src/utils/__tests__/formatMessageDate.same-day.test.ts > formatMessageDate — "Today" is the same calendar day, not the same day of the month > the same day of the month in another month shows a date
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/formatMessageDate.same-day.test.ts:49:38
+     47|     const text = formatMessageDate(new Date(2026, 9, 8, 15, 30).getTim…
+     48|
+     49|     expect(text.startsWith('Today')).toBe(false);
+       |                                      ^
+     50|     expect(text).toContain('2026');
+     51|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  3 failed (3)
+      Tests  3 failed | 6 passed (9)
+   Start at  07:43:00
+   Duration  1.78s (transform 349ms, setup 21ms, import 1.73s, tests 389ms, environment 1.16s)
+
+vitest exit 1

@@ -1,0 +1,69 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-1e12837-m4f-rider-group-swap  sha: 1e12837  label: m4f-rider-group-swap  test: page.send-in-flight WebhookMenu.url-and WebhookProvider.validation useValidateWebhook.validation constants.discord message.get-from-url redis.fetch-channel  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py
+mutated rider-group-swap
+ .../src/server/api/routers/message.ts              |   2 +-
+ 3 files changed, 1 insertion(+), 198 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-1e12837-m4f-rider-group-swap
+
+ ❯ |node| src/server/api/routers/__tests__/message.get-from-url.test.ts (19 tests | 9 failed) 55ms
+     × looks up the channel message for https://discord.com links 21ms
+     × looks up the channel message for https://www.discord.com links 2ms
+     × looks up the channel message for https://canary.discord.com links 3ms
+     × looks up the channel message for https://ptb.discord.com links 2ms
+     × looks up the channel message for https://discordapp.com links 2ms
+     × looks up the channel message for https://www.discordapp.com links 1ms
+     × looks up the channel message for https://canary.discordapp.com links 3ms
+     × looks up the channel message for https://ptb.discordapp.com links 2ms
+     × returns the message when the channel is in the authorized guild 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 9 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.get-from-url.test.ts > message.getFromUrl, message link hosts > looks up the channel message for https://discord.com links
+ FAIL  |node| src/server/api/routers/__tests__/message.get-from-url.test.ts > message.getFromUrl, message link hosts > looks up the channel message for https://www.discord.com links
+ FAIL  |node| src/server/api/routers/__tests__/message.get-from-url.test.ts > message.getFromUrl, message link hosts > looks up the channel message for https://canary.discord.com links
+ FAIL  |node| src/server/api/routers/__tests__/message.get-from-url.test.ts > message.getFromUrl, message link hosts > looks up the channel message for https://ptb.discord.com links
+ FAIL  |node| src/server/api/routers/__tests__/message.get-from-url.test.ts > message.getFromUrl, message link hosts > looks up the channel message for https://discordapp.com links
+ FAIL  |node| src/server/api/routers/__tests__/message.get-from-url.test.ts > message.getFromUrl, message link hosts > looks up the channel message for https://www.discordapp.com links
+ FAIL  |node| src/server/api/routers/__tests__/message.get-from-url.test.ts > message.getFromUrl, message link hosts > looks up the channel message for https://canary.discordapp.com links
+ FAIL  |node| src/server/api/routers/__tests__/message.get-from-url.test.ts > message.getFromUrl, message link hosts > looks up the channel message for https://ptb.discordapp.com links
+AssertionError: expected '222' to be '111' // Object.is equality
+
+Expected: "111"
+Received: "222"
+
+ ❯ src/server/api/routers/__tests__/message.get-from-url.test.ts:52:56
+     50|     await expect(caller().getFromUrl({ url: `https://${host}/channels/…
+     51|       .rejects.toMatchObject({ code: 'NOT_FOUND' });
+     52|     expect(mocks.authorizeGuildAdmin.mock.calls[0][0]).toBe('111');
+       |                                                        ^
+     53|     expect(mocks.request).toHaveBeenCalledWith('GET', '/channels/222/m…
+     54|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/9]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.get-from-url.test.ts > message.getFromUrl, the channel must belong to the authorized guild > returns the message when the channel is in the authorized guild
+TRPCError: Message not found. Is the bot in this guild?
+ ❯ src/server/api/routers/message.ts:89:15
+     87|       const channel = await redis.fetchChannel(channelId);
+     88|       if (!('guild_id' in channel) || channel.guild_id !== guildId) {
+     89|         throw new TRPCError({
+       |               ^
+     90|           code: 'NOT_FOUND',
+     91|           message: 'Message not found. Is the bot in this guild?',
+ ❯ resolveMiddleware ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:576:21
+ ❯ callRecursive ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ callRecursive ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ callRecursive ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ procedure ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:682:19
+ ❯ ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/router.ts:474:19
+ ❯ src/server/api/routers/__tests__/message.get-from-url.test.ts:85:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/9]⎯
+
+
+ Test Files  1 failed | 6 passed (7)
+      Tests  9 failed | 96 passed (105)
+   Start at  07:11:03
+   Duration  3.64s (transform 1.96s, setup 52ms, import 8.02s, tests 861ms, environment 5.37s)
+
+vitest exit 1

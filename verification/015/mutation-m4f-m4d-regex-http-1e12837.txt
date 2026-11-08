@@ -1,0 +1,112 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-1e12837-m4f-m4d-regex-http  sha: 1e12837  label: m4f-m4d-regex-http  test: page.send-in-flight WebhookMenu.url-and WebhookProvider.validation useValidateWebhook.validation constants.discord message.get-from-url redis.fetch-channel  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py
+mutated m4d-regex-http
+ .../results.json => dev/null}                      |   1 -
+ 3 files changed, 1 insertion(+), 198 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-1e12837-m4f-m4d-regex-http
+
+ ❯ |node| src/constants/__tests__/constants.discord-message-link.test.ts (21 tests | 1 failed) 36ms
+     × refuses http 21ms
+ ❯ |node| src/server/api/routers/__tests__/message.get-from-url.test.ts (19 tests | 1 failed) 121ms
+     × refuses http://discord.com/channels/111/222/333 before any lookup 23ms
+ ❯ |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx (20 tests | 1 failed) 170ms
+     × does not fetch for "http://discord.com/channels/1/2/3", and shows nothing 42ms
+ ❯ |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx (26 tests | 1 failed) 244ms
+     × does not fetch for "http://discord.com/channels/1/2/345678901234567890", refused before any fetch 15ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "http://discord.com/channels/1/2/345678901234567890", refused before any fetch
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      "https://discord.com/api/v10/webhooks/1/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/messages/345678901234567890?wait=true",
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:117:27
+    115|     await select(WEBHOOK);
+    116|     await typeMessage(text);
+    117|     expect(fetchMock).not.toHaveBeenCalled();
+       |                           ^
+    118|     expect(state.oldMessage).toBeNull();
+    119|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > does not fetch for "http://discord.com/channels/1/2/3", and shows nothing
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "https://discord.com/api/webhooks/111/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/messages/3",
++ ]
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:116:30
+    114|     fetchMock.mockResolvedValueOnce(jsonResponse(webhookBody('111')));
+    115|     await render(HOOK_URL_A, input);
+    116|     expect(messageFetches()).toEqual([]);
+       |                              ^
+    117|     expect(result.message).toBeNull();
+    118|     expect(result.messageError).toBeNull();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |node| src/constants/__tests__/constants.discord-message-link.test.ts > DISCORD_MESSAGE_LINK_REGEX > refuses http
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/constants/__tests__/constants.discord-message-link.test.ts:41:52
+     39|     ['a query string', 'https://discord.com/channels/111/222/333?x=1'],
+     40|   ])('refuses %s', (_case, input) => {
+     41|     expect(DISCORD_MESSAGE_LINK_REGEX.test(input)).toBe(false);
+       |                                                    ^
+     42|   });
+     43| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.get-from-url.test.ts > message.getFromUrl, message link hosts > refuses http://discord.com/channels/111/222/333 before any lookup
+AssertionError: expected TRPCError: Message not found. Is the bot … { code: '…' } to match object { code: 'BAD_REQUEST' }
+(2 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
+-   "code": "BAD_REQUEST",
++ TRPCError {
++   "code": "NOT_FOUND",
+  }
+
+ ❯ src/server/api/routers/__tests__/message.get-from-url.test.ts:62:47
+     60|     'https://discord.com/channels/111/abc/333',
+     61|   ])('refuses %s before any lookup', async (url) => {
+     62|     await expect(caller().getFromUrl({ url })).rejects.toMatchObject({…
+       |                                               ^
+     63|     expect(mocks.authorizeGuildAdmin).not.toHaveBeenCalled();
+     64|     expect(mocks.request).not.toHaveBeenCalled();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  4 failed | 3 passed (7)
+      Tests  4 failed | 101 passed (105)
+   Start at  07:12:04
+   Duration  4.67s (transform 3.27s, setup 77ms, import 11.51s, tests 1.34s, environment 5.63s)
+
+vitest exit 1

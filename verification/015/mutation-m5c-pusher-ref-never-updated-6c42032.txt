@@ -1,0 +1,52 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5c-pusher-ref-never-updated  sha: 6c42032  label: m5c-pusher-ref-never-updated  test: usePusher.update-prompt  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py
+mutated m5c-pusher-ref-never-updated
+ .../src/providers/MessageProvider/usePusher.ts                           | 1 -
+ 2 files changed, 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5c-pusher-ref-never-updated
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx (4 tests | 2 failed) 25ms
+     × names the loss when the composer changed after the subscription was made 7ms
+     × does not name the loss when the composer returned to no changes after the subscription was made 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx > usePusher — the update prompt warns about unsaved changes exactly when there are some > names the loss when the composer changed after the subscription was made
+AssertionError: expected 'The message you are viewing has been …' to contain 'Any changes you have made will be los…'
+
+Expected: "Any changes you have made will be lost."
+Received: "The message you are viewing has been updated. Would you like to reload it?"
+
+ ❯ src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx:85:26
+     83|     renderWith(true);
+     84|
+     85|     expect(fireUpdate()).toContain(LOST);
+       |                          ^
+     86|   });
+     87|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx > usePusher — the update prompt warns about unsaved changes exactly when there are some > does not name the loss when the composer returned to no changes after the subscription was made
+AssertionError: expected 'The message you are viewing has been …' not to contain 'Any changes you have made will be los…'
+
+Expected: "Any changes you have made will be lost."
+Received: "The message you are viewing has been updated. Would you like to reload it? Any changes you have made will be lost."
+
+ ❯ src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx:98:30
+     96|     renderWith(false);
+     97|
+     98|     expect(fireUpdate()).not.toContain(LOST);
+       |                              ^
+     99|   });
+    100| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 2 passed (4)
+   Start at  07:42:50
+   Duration  1.17s (transform 117ms, setup 20ms, import 442ms, tests 25ms, environment 562ms)
+
+vitest exit 1

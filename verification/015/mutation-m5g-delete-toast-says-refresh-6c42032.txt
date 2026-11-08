@@ -1,0 +1,51 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5g-delete-toast-says-refresh  sha: 6c42032  label: m5g-delete-toast-says-refresh  test: page.message-list  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py
+mutated m5g-delete-toast-says-refresh
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5g-delete-toast-says-refresh
+
+ ❯ |dom| src/app/message/f/[id]/__tests__/page.message-list.test.tsx (2 tests | 1 failed) 162ms
+     × says the delete failed 51ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/f/[id]/__tests__/page.message-list.test.tsx > folder page, the delete failure toast > says the delete failed
+AssertionError: expected "Mock" to be called with arguments: [ 7, ObjectContaining{…} ]
+
+Received:
+
+  1st Mock call:
+
+  [
+    7,
+-   ObjectContaining {
+-     "render": "Error. Failed to delete message. Please try again.",
++   {
++     "autoClose": null,
++     "isLoading": false,
++     "render": "Error. Failed to refresh message. Please try again.",
+      "type": "error",
+    },
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/app/message/f/[id]/__tests__/page.message-list.test.tsx:92:20
+     90|
+     91|     expect(update).toHaveBeenCalledTimes(1);
+     92|     expect(update).toHaveBeenCalledWith(7, expect.objectContaining({
+       |                    ^
+     93|       type: 'error',
+     94|       render: 'Error. Failed to delete message. Please try again.',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  07:43:31
+   Duration  1.93s (transform 279ms, setup 19ms, import 1.01s, tests 162ms, environment 622ms)
+
+vitest exit 1

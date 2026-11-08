@@ -1,0 +1,39 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-da24eb7-m5h-parse-error-uncaught  sha: da24eb7  label: m5h-parse-error-uncaught  test: page.invalid-data  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py
+mutated m5h-parse-error-uncaught
+ .../results.json => dev/null}                                         | 1 -
+ 2 files changed, 2 insertions(+), 3 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-da24eb7-m5h-parse-error-uncaught
+
+ ❯ |dom| src/app/preview/__tests__/page.invalid-data.test.tsx (7 tests | 1 failed) 48ms
+     × shows one line of error text and no editor for text that is not JSON 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for text that is not JSON
+SyntaxError: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+ ❯ parseMessageData src/app/preview/page.tsx:13:34
+     11| function parseMessageData(query: string) {
+     12|   try {
+     13|     const parsed: unknown = JSON.parse(query);
+       |                                  ^
+     14|     if (typeof parsed !== 'object' || Array.isArray(parsed)) return nu…
+     15|     return parsed;
+ ❯ Page src/app/preview/page.tsx:27:16
+ ❯ Object.react_stack_bottom_frame ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ beginWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18
+ ❯ runWithFiberInDEV ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+ ❯ workLoopSync ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 6 passed (7)
+   Start at  07:44:42
+   Duration  1.37s (transform 140ms, setup 23ms, import 507ms, tests 48ms, environment 620ms)
+
+vitest exit 1

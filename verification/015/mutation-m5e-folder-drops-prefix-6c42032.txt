@@ -1,0 +1,35 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5e-folder-drops-prefix  sha: 6c42032  label: m5e-folder-drops-prefix  test: formatMessageDate.same-day page.message-list Header.search-result-dates  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py
+mutated m5e-folder-drops-prefix
+ .../results.json => dev/null}                                         | 1 -
+ 2 files changed, 2 insertions(+), 3 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5e-folder-drops-prefix
+
+ ❯ |dom| src/app/message/f/[id]/__tests__/page.message-list.test.tsx (2 tests | 1 failed) 199ms
+     × shows "Today at" for a message updated today and a date for the same day of another month 152ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/f/[id]/__tests__/page.message-list.test.tsx > folder page, the message dates > shows "Today at" for a message updated today and a date for the same day of another month
+AssertionError: expected 'Servers/My AccountMessages by Last Mo…' to contain 'Today at '
+
+Expected: "Today at "
+Received: "Servers/My AccountMessages by Last ModifiedAlpha9:05 AMBravo10/8/2026"
+
+ ❯ src/app/message/f/[id]/__tests__/page.message-list.test.tsx:107:28
+    105|     const el = await mount();
+    106|
+    107|     expect(el.textContent).toContain('Today at ');
+       |                            ^
+    108|     expect((el.textContent ?? '').split('Today at ')).toHaveLength(2);
+    109|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 8 passed (9)
+   Start at  07:43:16
+   Duration  1.86s (transform 336ms, setup 22ms, import 1.76s, tests 386ms, environment 1.26s)
+
+vitest exit 1

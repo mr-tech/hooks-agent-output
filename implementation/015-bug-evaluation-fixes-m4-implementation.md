@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "M4 passed code review Round 7 at 1e12837 and reopens for one change under D29 (a failed webhook-URL load shows 'Invalid URL' at both F-27 sites); the change is prepared uncommitted pending rev 20's gate round. M3 is dropped by the owner. See Resumption State."
-Handoff-At: "1e12837 — repos=website"
+Status-Detail: "M4 reopened under D29 (plan rev 21) and QA's QAF-25: a failed webhook-URL load shows 'Invalid URL' at each site's existing place, and the three uncovered limbs have cells. Delivered at 46a9cab, with a two-file lint cleanup in 6c42032; handed to code review as one tree. M3 is dropped by the owner (D30)."
+Handoff-At: "6c42032 — repos=website. M4 content is 46a9cab plus the two-file cleanup in 6c42032; the chain tip also holds M5 (23a621e), which is a separate handoff"
 ---
 
 # Implementation 015 — M4 (send page and webhook menu)
@@ -23,6 +23,7 @@ Handoff-At: "1e12837 — repos=website"
 |------|---------------|---------|---------|
 | 2026-11-08T07:00 | steering-hooks-015 → implementer-hooks-015 (message) | Work an unheld milestone while M3 is held | M4 taken. M4-a to M4-c at `9fe3fb9`; M4-d's strict id, failure text and ordering at `9fe3fb9`/`b25f561`; the widened shared link rule (D26) at `588d11a`. |
 | 2026-11-08T07:15 | steering-hooks-015 → implementer-hooks-015 (messages: rulings `3d7af67`, plan revs 17–19) | M4-d over both F-27 sites; D27 rider; CR-11, CR-13 | `useValidateWebhook` brought to the same class, one shared parser, named capture groups; `getFromUrl` bound to the authorized guild. Tip `1e12837`. |
+| 2026-11-08T07:43 | steering-hooks-015 → implementer-hooks-015 (messages: D29 released on plan rev 21 `3d193f9`, rulings `7e95151`; QA Phase 2 QAF-25 `c4e82b3`) | D29 change; QAF-25 cells | `useValidateWebhook`'s webhook catch shows 'Invalid URL' (the dialog's shared error line); the send page already showed it in the URL field. Cells at both sites mount the real surface; the provider's Discord refusal texts, the refused-input display and the router's `guild_id: null` member are tightened into the existing cells. Commit `46a9cab`; lint cleanup `6c42032`. |
 
 ## Implementation Summary
 
@@ -33,6 +34,8 @@ Handoff-At: "1e12837 — repos=website"
 - **Clear works for a picked thread (F-18).** Clear is enabled whenever a thread is selected.
 - **The message box takes only an id or a message link (F-27, D24–D26).** An all-digits id, or a `https://` link on one of eight hosts (`discord.com` and `discordapp.com`, each bare or with `www.`, `canary.` or `ptb.`) of the form `/channels/<digits>/<digits>/<digits>`. Anything else is refused before any fetch. Both validation effects catch a network failure; the message box shows "Could not load the message. Check your connection and try again." Of two overlapping validations, only the latest input's result is applied.
 - **One shared link rule (D26).** `DISCORD_MESSAGE_LINK_REGEX` is widened once. The send page's box uses it with no copy. `NewMessageModal`'s bot link load and `message.getFromUrl` inherit it.
+- **A failed webhook-URL load shows "Invalid URL" at both sites (D29, rev 21).** The send page's custom-URL field already did (M4-b). The New Message dialog's webhook effect now sets `Invalid URL` where it set the message-load text, and the dialog shows it on its one shared error line (`NewMessageModal`'s `messageErrorString`); no field-level error was added (CR-16). A Discord refusal of the webhook URL keeps Discord's own text in the dialog.
+- **QAF-25's three uncovered limbs have cells.** The send page's Discord refusal texts (404, 403, 401, 400, other), the refused-input display (`oldMessageError` is `''`), and the rider's `guild_id: null` member.
 
 ## Milestones Completed
 
@@ -78,6 +81,8 @@ Decisions asked and answered: wording of the failure text (owner's block `9b9483
 | `src/utils/hooks/useValidateWebhook.ts` | Both effects: `isStale` flag with cleanup, try/catch with the failure text, the id from `parseMessageId` | see diff |
 | `src/server/api/routers/message.ts` | `getFromUrl`: named groups; `redis.fetchChannel` then a `guild_id` equality check before the message request | +10 −1 |
 | `src/utils/redis/index.ts` | `fetchChannel` types the response as `Channel` (CR-13) | +1 −1 |
+| `src/utils/hooks/useValidateWebhook.ts` | (D29) the webhook effect's catch sets `'Invalid URL'` | +1 −1 |
+| `src/providers/__tests__/WebhookProvider.validation-effects.test.tsx`, `src/server/api/routers/__tests__/message.get-from-url.test.ts`, `src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx` | (QAF-25, D29) tightened in place: five refusal-text cells, `oldMessageError` `''` on refused input, a `guild_id: null` member; the hook's webhook-failure cell expects `'Invalid URL'` and gains a Discord-refusal control | +29 −3 |
 
 ## Files Created
 
@@ -92,6 +97,9 @@ Decisions asked and answered: wording of the failure text (owner's block `9b9483
 | `src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx` | M4-d at the dialog's site |
 | `src/utils/redis/__tests__/redis.fetch-channel.test.ts` | `fetchChannel`'s 200 and its four mapped refusals, texts as literals |
 | `agent-output/verification/015/mutators/m4-table.py`, `mutation-m4-*-b25f561.txt`, `mutation-m4e-*-588d11a.txt`, `m4-*` gate captures, `m4-enumerations-b25f561.txt`, `m3-premise-probe-6001f7f.txt`, `m3-document-root-probe-6001f7f.txt` | Mutants, gate captures and the M3 probes |
+| `src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx` | D29 at the dialog: mounts `NewMessageModal` for real, a failed webhook load shows `Invalid URL` once on the shared line (not in a field's container); Discord's refusal text shows there, and `Invalid URL` does not |
+| `src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx` | D29 at the send page: `WebhookMenu` under the real `WebhookProvider`, `Invalid URL` once, in the URL field's own container, for a network failure and for a Discord 404 |
+| `agent-output/verification/015/m4-d29-sweep.sh`, `mutators/m4-d29-table.py`, `mutation-*-46a9cab.txt`, `m4-d29-sweep-summary-46a9cab.txt`, `impl-suite-run.sh`, `m4r-*-46a9cab.*` | The D29 and QAF-25 mutants, their runs, and the gate run at 46a9cab |
 
 ## Patterns Extended
 
@@ -131,6 +139,12 @@ Mutants run through `verification/015/mutate-run.sh` in isolated exports (`EXPOR
 | `getFromUrl` D27: channel bound to the guild | same | Yes | Yes | Against the real base: `expected "vi.fn()" to be called with arguments: [ '222' ]`; `expected { value: … } to have property "error"`; `promise resolved … instead of rejecting` (DM channel); `expected TRPCError … to match object { code: 'FORBIDDEN' }` — 4 failed, 14 passed. Mutants: `rider-guild-check-dropped` (3), `rider-compares-channel-id` (9), `rider-refuses-only-when-set-and-differs` (2: the DM and group-DM cells), `rider-check-after-message-fetch` (5) | Yes |
 | `getFromUrl`: same answer as a missing message; no lookup when unauthorized | same | Yes | No | Both green once the rider exists and were written with it: the answer text is the router's existing `NOT_FOUND`; the unauthorized cell guards the order of the gate and the lookup. Controls; `rider-check-after-message-fetch` reddens the order cells | Yes |
 | `redis.fetchChannel` (CR-13 retype; refusals keep their texts) | `redis.fetch-channel.test.ts` | Yes | No | New module. Green at base: the retype is type-only and the four mapped refusals are unchanged, so these are regression controls with literal texts. They run the real `fetchChannel` with the Redis client stubbed in memory. No mutant of the retype exists: it is a type, checked by `pnpm run typecheck` (the router's `guild_id` access failed to compile on `APIChannel` until narrowed) | Yes |
+| Webhook-load failure text, hook site (D29) | `useValidateWebhook.validation-effects.test.tsx` | Yes | Yes | Against the code at `1e12837`, before the change: `expected 'Could not load the message. Check you…' to be 'Invalid URL'`. Recreated at the committed tip by mutant `d29-hook-webhook-text-message-load`: 1 failed of 21, same assertion (`mutation-hook-d29-hook-webhook-text-message-load-46a9cab.txt`). Mutants `d29-hook-webhook-catch-dropped` (1 failed, 1 Unhandled Rejection, exit 1) and `d29-hook-refusal-mapped-to-invalid` (1 failed: the Discord-refusal control) | Yes |
+| Webhook-load failure shows on the dialog's shared line (D29, CR-16) | `NewMessageModal.failed-webhook-load.test.tsx` | No | Yes | New module, first row. Written after the hook change, so no first run exists against the unchanged code. Closed as the spec asks: the pre-change code recreated at the tip by mutant `d29-hook-webhook-text-message-load` fails `expected [] to have a length of 1 but got +0` (no `Invalid URL` anywhere); green at the real code (2 of 2). Further mutants: `d29-hook-webhook-catch-dropped` (1 failed, Unhandled Rejection), `d29-hook-refusal-mapped-to-invalid` (1 failed: the refusal cell), `d29-dialog-error-line-drops-webhook-error` (2 failed) | Yes |
+| Webhook-load failure shows in the send page's URL field (D29) | `WebhookMenu.failed-webhook-load.test.tsx` | Yes | No | Written at the rev 20 checkpoint, green at `1e12837`: the send page already did this through M4-b's condition, so these are controls (the plan says so). They discriminate: `d29-menu-error-never` (2 failed), `d29-menu-text-changed` (2 failed), `m4b-url-error-inverted` (2 failed). `m4b-loading-conjunct-dropped` stays green here; its cell is `WebhookMenu.url-and-thread-controls` (killed at `1e12837`) | Yes |
+| Send page's Discord refusal texts (QAF-25 (1)) | `WebhookProvider.validation-effects.test.tsx` | No | Yes | The cells tighten the file in place and pass at the base: production was correct, QA's mutants survived. Red is QA's own named mutants, run with the same mutator at the new tip: `provider-404-text` (`expected 'Message not found.' to be 'Message not found. Hint: Webhooks can…'`), `provider-403-text`, `provider-401-text`, `provider-400-text`, `provider-other-status-text`: 1 failed each, exit 1 | Yes |
+| Refused input clears the error (QAF-25 (2)) | same | No | Yes | Mutant `provider-refused-shows-error`: 12 failed (every refusal member), e.g. `expected 'Invalid message id or link.' to be ''` | Yes |
+| Rider refuses `guild_id: null` (QAF-25 (3)) | `message.get-from-url.test.ts` | No | Yes | Mutant `rider-null-passes`: 1 failed, `expected { value: { guildId: '111', …(2) } } to have property "error"` | Yes |
 
 **Ordering disclosure (TDD).** `message.get-from-url.test.ts` and the link-form refusals in the provider test were written after the code they exercise (the widening, the anchored id); their reds are the named mutants. The `NewMessageModal` consumer has no DOM cell: its use is one expression, `DISCORD_MESSAGE_LINK_REGEX.test(messageIdOrUrl)`, in an `enabled` option, and driving it needs the dialog's load-option state and the tRPC query mock. That consumer is covered through the shared constant's test and walked by UAT (rev 16's human-observable limb). I list it as outstanding.
 
@@ -158,6 +172,10 @@ Raw outputs: `agent-output/verification/015/m4-testresults-paths-1e12837.txt`, `
 | `git diff --numstat 6001f7f -- pnpm-lock.yaml package-lock.json` | empty | — |
 | `node ~/.claude/tools/convention-check.js website --since=6001f7f` | 7 FAIL, all in the untracked M3 file `dialogs.enter-key.test.tsx` (not part of this handoff); 0 FAIL in the M4 files; 0 CANDIDATE; 1 SKIP | 1 |
 | Mutation runs on the M4 test files | Control green (105 of 105 across the seven M4 files, `mutation-m4f-control-1e12837.txt`); 34 mutants (the table `mutators/m4-table.py`), each reddened its named cases (`mutation-m4f-*-1e12837.txt`). Earlier sets: `mutation-m4e-*-588d11a.txt`, `mutation-m4-*-b25f561.txt` (their targets moved with later commits; kept as records) | — |
+| `impl-suite-run.sh 46a9cab` (export of the commit, `unshare -rn`, lo up, isolation counts 0 and 0; export blob of `message.ts` equals the tree's `3e6b41b`) | 853 tests, 853 passed, 0 failed, 80 files; stderr 0 lines (`m4r-testresults-46a9cab.json`, `m4r-run-46a9cab.txt`) | vitest 0 |
+| Path membership at `46a9cab` vs `m4-testresults-paths-1e12837.txt` | 0 gone; 2 added: `NewMessageModal.failed-webhook-load.test.tsx`, `WebhookMenu.failed-webhook-load.test.tsx`; 1 only in the older list, the untracked M3 file (10 cases, absent from an export and now deleted from the tree) (`m4r-testresults-paths-46a9cab.txt`) | — |
+| `pnpm run typecheck` in that export | clean (both programs) | 0 |
+| Mutants for the D29 reopen and QAF-25 (`m4-d29-sweep.sh 46a9cab`; summary `m4-d29-sweep-summary-46a9cab.txt`) | 5 controls green (hook 21, dialog 2, menu 2, provider 31, router 20). 19 mutant runs (`grep -c` of mutant lines in the summary: 19), 17 killed. Two survivors are not targets of the cell they ran against: `d29-dialog-error-line-drops-webhook-error` against the hook test (the dialog's file is the target; killed there, 2 failed), and `m4b-loading-conjunct-dropped` against the D29 menu cell (M4-b's own cell kills it) | — |
 
 - **Gate satisfaction, disclosed.** The convention-check's lint pass is whole-file. It flagged two Tailwind class orderings in `page.tsx` that I did not write; I reordered them. It rejected the comment `// shhhhh, just let it happen` in `WebhookProvider.tsx` (moved by my restructure); I removed it. My new test files were fixed with `eslint --fix` (import order, brace newlines) and the `vi.mock` calls kept above the imports they hoist over by moving the imports up.
 - **SKIP.** The id-token basename check is unchecked by the tool (as at M1 and M2); I ran the CLAUDE.md negative form by hand over the new files: 0 hits.
@@ -166,7 +184,7 @@ Raw outputs: `agent-output/verification/015/m4-testresults-paths-1e12837.txt`, `
 
 1. **M4-c "name view".** Rev 14 restated M4-c without a name-view button (the plan log's row 14 says it "drops the non-existent name-view button"), which matches what I coded: `isDisabled={isLoading || !threadId}`, no new control. Closed unless review reads otherwise.
 2. **`NewMessageModal`'s link-load `enabled` expression has no DOM cell.** The use is one expression, `DISCORD_MESSAGE_LINK_REGEX.test(messageIdOrUrl)`, in an `enabled` option, and driving it needs the dialog's load-option state and the tRPC query mock. It is covered through the shared constant's test and walked by UAT.
-3. **The send page's webhook-URL effect shows "Invalid URL" on a network failure, not the message-load text.** The plan's "at both sites a fetch that fails with no response shows exactly …" is a sentence about the message box; the send page has no error line for the webhook field other than "Invalid URL" (M4-b). In the New Message dialog the webhook effect's failure uses the same text in its existing error line. Review may read the plan more widely.
+3. **The send page's webhook-URL effect shows "Invalid URL" on a network failure, not the message-load text.** The plan's "at both sites a fetch that fails with no response shows exactly …" is a sentence about the message box; the send page has no error line for the webhook field other than "Invalid URL" (M4-b). In the New Message dialog the webhook effect's failure uses the same text in its existing error line. Review may read the plan more widely. **Superseded by D29 (rev 21):** the dialog's webhook effect now shows `Invalid URL` too, on its shared error line; the send page is unchanged.
 4. **A stuck-disabled Send guard is unmutated.** The re-press-after-settle case is a control without a mutant.
 5. **The Discord leg of the rider is unexecuted** (the plan says so): the tests supply the channel object. A real Discord response for a DM or a group DM is not read.
 6. **`eslint --fix` over directories (disclosure).** I ran `eslint --fix` on `src/utils`, `src/providers` and `src/constants` once; it reformatted 23 unrelated test files. I had written none of those changes and they were mine to undo: I reverted exactly those 23 paths with `git checkout --` before the next commit (the tree held no other uncommitted change besides the untracked M3 file; `git status` before and after is in the session log, not a capture). Later `--fix` runs named files only.
@@ -177,25 +195,4 @@ Raw outputs: `agent-output/verification/015/m4-testresults-paths-1e12837.txt`, `
 
 ## Next Steps
 
-Code review Round 7 on `1e12837` (one tree: both F-27 sites and the rider), then QA Phase 2 for M4.
-
-## Resumption State (checkpoint 2026-11-08T07:27Z, implementer-hooks-015)
-
-- **Branch and HEAD.** website `chain/015-bug-evaluation-fixes` at `3031878` (M4 `1e12837`, M1 rebuild `579e8b2`, CR-15 cell `3031878`). preview-image-generator untouched at `471578f`. agent-output committed through this checkpoint.
-- **Done and handed to review.** M0, M2; M4 at `1e12837` (code review Round 7 APPROVED_WITH_COMMENTS; QA Phase 2 may take it); M1 rebuild at `579e8b2`/`3031878` (code review Round 2 APPROVED_WITH_COMMENTS; CR-3, CR-9, CR-6 resolved; CR-15 cell added, to be confirmed as a Round 2 sub-entry by code-reviewer-hooks-015). Documents: the M0, M1 (§ Fix Round 2), M2 and M4 implementation documents.
-- **M3 is dropped by the owner** ("Agent: drop M3, not a defect", rulings `f005cef`; plan rev 21 folds it). No M3 code, ever. Evidence: `verification/015/m3-chrome-read/` (real Chrome, 8996505) and the two jsdom probes. My abandoned test is kept as `verification/015/m3-dropped-wip-dialogs.enter-key.test.tsx.txt` and deleted from the tree.
-- **UNCOMMITTED in website, mine, for D29 (plan rev 20, CR-14).** Do not commit until steering says rev 20's gate round has passed (it will say M4 reopens):
-  - `src/utils/hooks/useValidateWebhook.ts`: the webhook effect's catch sets `'Invalid URL'` (was the message-load text).
-  - `src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx`: the webhook-failure cell now expects `'Invalid URL'` (red before the change: `expected 'Could not load the message. Check you…' to be 'Invalid URL'`); a new cell for Discord's refusal text of the webhook URL.
-  - `src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx` (new, untracked): real `WebhookProvider` + `WebhookMenu`, a network failure and a Discord 404 both show "Invalid URL" (green at base: the send page already did this; a control). Typing uses `Reflect.set(HTMLInputElement.prototype, 'value', …)`.
-  - Still to do for D29: `git add --intent-to-add` the new test, run mutants (e.g. webhook-catch text back to the message-load text; catch dropped) via `mutate-run.sh` against the committed SHA with an entry added to `mutators/m4-table.py`, the full gate (typecheck, vitest JSON and exit code, path membership, convention-check, lockfiles), then update the M4 document (Handoff-At, a TDD row, Summary) and hand off to code-reviewer-hooks-015 (Round 7 sub-entry).
-- **Waiting on others.** Plan rev 20's gate round (critic cycle 5, architect, QA, code review) before D29 may be committed; rev 21 (M3 dropped); QA Phase 2 on M1 and M4; the planner's answer on nothing else open from me.
-- **Owed.** QAF-20 (before the effort-final QA pass): in `bugFixCoverage.supplemental.test.ts` delete the `useParsePathname` describe (list it as an untested surface) and the two `formatKey` self-comparison cases; rewrite the "0000" discriminator expectation as an independently derived literal URL and show it red under a one-token mutation; split the remnant into `constructImageUrl.<behaviour>.test.ts` and `formatKey.<behaviour>.test.ts`, keeping the `// escaped:` line with the constructImageUrl describe; record per-file case counts and pass sets before and after.
-- **Not started.** M5 (editor pages and providers; user-visible, so derive the flows and ask steering before code), M6 (QAF-11 already fixed), M7 (bot), M8 (preview-image-generator: E-1 from the first run, export without `.env`, install inside the export, `unshare -rn`, `ip link set lo up`, self-check).
-- **Lessons to keep.**
-  - `eslint --fix` only on named files (a directory run reformatted 23 unrelated tests; reverted).
-  - Use `git diff … > file` then read it: the rtk filter hides `+`/`-` lines in piped diffs.
-  - A date stamp typed by hand is refused by the stamp gate; use `date -u +%Y-%m-%dT%H:%M`.
-  - `mutate-run.sh` needs an absolute mutator path and a committed SHA; `EXPORT_ROOT` goes under the session scratchpad.
-- **Questions sent, unanswered.** None open to the owner from me. To steering: M4-c and the send-page webhook failure text were raised and then settled by D29.
-- **Evidence run but not recorded.** None outstanding.
+Code review of M4's reopen: `1e12837..46a9cab` plus the two-file cleanup in `6c42032` (D29 at both sites; QAF-25's cells), as one tree with Round 7's M4 content. Then QA Phase 2 for M4 (the re-run QA named), with `verification/015/m4-d29-sweep.sh` and `qa-m4-sweep.sh` as the mutant instruments.

@@ -1,0 +1,40 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-menu-m4b-url-error-inverted  sha: 46a9cab  label: menu-m4b-url-error-inverted  test: WebhookMenu.failed-webhook-load  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py
+mutated m4b-url-error-inverted
+ .../src/utils/hooks/useGuildDropdownItems.tsx      |   2 +-
+ 14 files changed, 38 insertions(+), 580 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-menu-m4b-url-error-inverted
+
+ ❯ |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx (2 tests | 2 failed) 87ms
+     × shows "Invalid URL" under the field when the network fails 62ms
+     × shows "Invalid URL" under the field when Discord refuses the webhook 24ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx > send page webhook URL field, a failed webhook load > shows "Invalid URL" under the field when the network fails
+ FAIL  |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx > send page webhook URL field, a failed webhook load > shows "Invalid URL" under the field when Discord refuses the webhook
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx:60:19
+     58|     const shown = Array.from(el.querySelectorAll('*'))
+     59|       .filter((e) => e.children.length === 0 && e.textContent === 'Inv…
+     60|     expect(shown).toHaveLength(1);
+       |                   ^
+     61|     expect(shown[0]!.parentElement!.contains(input)).toBe(true);
+     62|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed (2)
+   Start at  07:36:02
+   Duration  1.77s (transform 293ms, setup 21ms, import 972ms, tests 87ms, environment 567ms)
+
+vitest exit 1

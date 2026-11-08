@@ -1,0 +1,7 @@
+PROBE "{\"content\":\"hello\"}" rendered: 
+PROBE "null" THREW Cannot read properties of null (reading 'embeds')
+PROBE "5" rendered: 
+PROBE "\"x\"" rendered: 
+PROBE "[]" rendered: 
+PROBE "{}" rendered: 
+PROBE "{not json" THREW Expected property name or '}' in JSON at position 1 (line 1 column 2)

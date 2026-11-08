@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-control-provider  sha: 46a9cab  label: control-provider  test: WebhookProvider.validation-effects  mutator: none
+ .../src/utils/hooks/useGuildDropdownItems.tsx      |  2 +-
+ 12 files changed, 36 insertions(+), 468 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-control-provider
+
+
+ Test Files  1 passed (1)
+      Tests  31 passed (31)
+   Start at  07:35:23
+   Duration  1.31s (transform 158ms, setup 18ms, import 549ms, tests 62ms, environment 567ms)
+
+vitest exit 0

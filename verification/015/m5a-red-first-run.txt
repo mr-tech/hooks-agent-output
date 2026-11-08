@@ -1,0 +1,33 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.menu-close-after-load.test.tsx (3 tests | 1 failed) 174ms
+     × lets the menu close again after the Load is confirmed 38ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.menu-close-after-load.test.tsx > JsonModalBody — the menu may close once the Load confirmation resolves > lets the menu close again after the Load is confirmed
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/m/[id]/_components/__tests__/JsonModalBody.menu-close-after-load.test.tsx:80:34
+     78|
+     79|     expect(state.closed).toBe(true);
+     80|     expect(state.allowMenuClose).toBe(true);
+       |                                  ^
+     81|   });
+     82|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  07:30:19
+   Duration  1.83s (transform 254ms, setup 19ms, import 922ms, tests 174ms, environment 600ms)
+

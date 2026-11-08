@@ -1,0 +1,56 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5e-prefix-ignored  sha: 6c42032  label: m5e-prefix-ignored  test: formatMessageDate.same-day page.message-list Header.search-result-dates  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py
+mutated m5e-prefix-ignored
+ .../website-6c42032-m5e-prefix-ignored}/src/utils/formatMessageDate.ts  | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5e-prefix-ignored
+
+ ❯ |node| src/utils/__tests__/formatMessageDate.same-day.test.ts (6 tests | 1 failed) 27ms
+     × the same day shows the time under the given prefix 23ms
+ ❯ |dom| src/app/message/f/[id]/__tests__/page.message-list.test.tsx (2 tests | 1 failed) 197ms
+     × shows "Today at" for a message updated today and a date for the same day of another month 149ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/f/[id]/__tests__/page.message-list.test.tsx > folder page, the message dates > shows "Today at" for a message updated today and a date for the same day of another month
+AssertionError: expected 'Servers/My AccountMessages by Last Mo…' to contain 'Today at '
+
+Expected: "Today at "
+Received: "Servers/My AccountMessages by Last ModifiedAlpha9:05 AMBravo10/8/2026"
+
+ ❯ src/app/message/f/[id]/__tests__/page.message-list.test.tsx:107:28
+    105|     const el = await mount();
+    106|
+    107|     expect(el.textContent).toContain('Today at ');
+       |                            ^
+    108|     expect((el.textContent ?? '').split('Today at ')).toHaveLength(2);
+    109|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/__tests__/formatMessageDate.same-day.test.ts > formatMessageDate — "Today" is the same calendar day, not the same day of the month > the same day shows the time under the given prefix
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/formatMessageDate.same-day.test.ts:22:42
+     20|     const text = formatMessageDate(new Date(2026, 10, 8, 9, 5).getTime…
+     21|
+     22|     expect(text.startsWith('Today at ')).toBe(true);
+       |                                          ^
+     23|     expect(text).not.toContain('2026');
+     24|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed | 1 passed (3)
+      Tests  2 failed | 7 passed (9)
+   Start at  07:43:06
+   Duration  1.80s (transform 348ms, setup 22ms, import 1.73s, tests 393ms, environment 1.18s)
+
+vitest exit 1

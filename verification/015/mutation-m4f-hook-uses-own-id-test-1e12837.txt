@@ -1,0 +1,304 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-1e12837-m4f-hook-uses-own-id-test  sha: 1e12837  label: m4f-hook-uses-own-id-test  test: page.send-in-flight WebhookMenu.url-and WebhookProvider.validation useValidateWebhook.validation constants.discord message.get-from-url redis.fetch-channel  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py
+mutated hook-uses-own-id-test
+ .../src/utils/hooks/useValidateWebhook.ts          |   2 +-
+ 3 files changed, 1 insertion(+), 198 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-1e12837-m4f-hook-uses-own-id-test
+
+ ❯ |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx (20 tests | 13 failed) 138ms
+     × fetches the link's own message id for https://discord.com links 22ms
+     × fetches the link's own message id for https://www.discord.com links 7ms
+     × fetches the link's own message id for https://canary.discord.com links 9ms
+     × fetches the link's own message id for https://ptb.discord.com links 8ms
+     × fetches the link's own message id for https://discordapp.com links 4ms
+     × fetches the link's own message id for https://www.discordapp.com links 5ms
+     × fetches the link's own message id for https://canary.discordapp.com links 3ms
+     × fetches the link's own message id for https://ptb.discordapp.com links 5ms
+     × does not fetch for "abc123", and shows nothing 5ms
+     × does not fetch for "see 12345 here", and shows nothing 13ms
+     × does not fetch for "https://example.com/channels/1/2/3", and shows nothing 3ms
+     × does not fetch for "https://discord.com/channels/1/2/3/extra", and shows nothing 3ms
+     × does not fetch for "http://discord.com/channels/1/2/3", and shows nothing 2ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 13 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > fetches the link's own message id for https://discord.com links
+AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]
+
+- Expected
++ Received
+
+  [
+-   "https://discord.com/api/webhooks/111/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/messages/333",
++   "https://discord.com/api/webhooks/111/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/messages/https://discord.com/channels/111/222/333",
+  ]
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:104:30
+    102|     fetchMock.mockResolvedValue(jsonResponse(messageBody('m')));
+    103|     await render(HOOK_URL_A, `https://${host}/channels/111/222/333`);
+    104|     expect(messageFetches()).toEqual([`${HOOK_URL_A}/messages/333`]);
+       |                              ^
+    105|   });
+    106|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/13]⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > fetches the link's own message id for https://www.discord.com links
+AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]
+
+- Expected
++ Received
+
+  [
+-   "https://discord.com/api/webhooks/111/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/messages/333",
++   "https://discord.com/api/webhooks/111/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/messages/https://www.discord.com/channels/111/222/333",
+  ]
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:104:30
+    102|     fetchMock.mockResolvedValue(jsonResponse(messageBody('m')));
+    103|     await render(HOOK_URL_A, `https://${host}/channels/111/222/333`);
+    104|     expect(messageFetches()).toEqual([`${HOOK_URL_A}/messages/333`]);
+       |                              ^
+    105|   });
+    106|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/13]⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > fetches the link's own message id for https://canary.discord.com links
+AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]
+
+- Expected
++ Received
+
+  [
+-   "https://discord.com/api/webhooks/111/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/messages/333",
++   "https://discord.com/api/webhooks/111/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/messages/https://canary.discord.com/channels/111/222/333",
+  ]
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:104:30
+    102|     fetchMock.mockResolvedValue(jsonResponse(messageBody('m')));
+    103|     await render(HOOK_URL_A, `https://${host}/channels/111/222/333`);
+    104|     expect(messageFetches()).toEqual([`${HOOK_URL_A}/messages/333`]);
+       |                              ^
+    105|   });
+    106|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/13]⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > fetches the link's own message id for https://ptb.discord.com links
+AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]
+
+- Expected
++ Received
+
+  [
+-   "https://discord.com/api/webhooks/111/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/messages/333",
++   "https://discord.com/api/webhooks/111/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/messages/https://ptb.discord.com/channels/111/222/333",
+  ]
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:104:30
+    102|     fetchMock.mockResolvedValue(jsonResponse(messageBody('m')));
+    103|     await render(HOOK_URL_A, `https://${host}/channels/111/222/333`);
+    104|     expect(messageFetches()).toEqual([`${HOOK_URL_A}/messages/333`]);
+       |                              ^
+    105|   });
+    106|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/13]⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > fetches the link's own message id for https://discordapp.com links
+AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]
+
+- Expected
++ Received
+
+  [
+-   "https://discord.com/api/webhooks/111/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/messages/333",
++   "https://discord.com/api/webhooks/111/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/messages/https://discordapp.com/channels/111/222/333",
+  ]
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:104:30
+    102|     fetchMock.mockResolvedValue(jsonResponse(messageBody('m')));
+    103|     await render(HOOK_URL_A, `https://${host}/channels/111/222/333`);
+    104|     expect(messageFetches()).toEqual([`${HOOK_URL_A}/messages/333`]);
+       |                              ^
+    105|   });
+    106|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/13]⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > fetches the link's own message id for https://www.discordapp.com links
+AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]
+
+- Expected
++ Received
+
+  [
+-   "https://discord.com/api/webhooks/111/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/messages/333",
++   "https://discord.com/api/webhooks/111/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/messages/https://www.discordapp.com/channels/111/222/333",
+  ]
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:104:30
+    102|     fetchMock.mockResolvedValue(jsonResponse(messageBody('m')));
+    103|     await render(HOOK_URL_A, `https://${host}/channels/111/222/333`);
+    104|     expect(messageFetches()).toEqual([`${HOOK_URL_A}/messages/333`]);
+       |                              ^
+    105|   });
+    106|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/13]⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > fetches the link's own message id for https://canary.discordapp.com links
+AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]
+
+- Expected
++ Received
+
+  [
+-   "https://discord.com/api/webhooks/111/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/messages/333",
++   "https://discord.com/api/webhooks/111/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/messages/https://canary.discordapp.com/channels/111/222/333",
+  ]
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:104:30
+    102|     fetchMock.mockResolvedValue(jsonResponse(messageBody('m')));
+    103|     await render(HOOK_URL_A, `https://${host}/channels/111/222/333`);
+    104|     expect(messageFetches()).toEqual([`${HOOK_URL_A}/messages/333`]);
+       |                              ^
+    105|   });
+    106|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/13]⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > fetches the link's own message id for https://ptb.discordapp.com links
+AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]
+
+- Expected
++ Received
+
+  [
+-   "https://discord.com/api/webhooks/111/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/messages/333",
++   "https://discord.com/api/webhooks/111/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/messages/https://ptb.discordapp.com/channels/111/222/333",
+  ]
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:104:30
+    102|     fetchMock.mockResolvedValue(jsonResponse(messageBody('m')));
+    103|     await render(HOOK_URL_A, `https://${host}/channels/111/222/333`);
+    104|     expect(messageFetches()).toEqual([`${HOOK_URL_A}/messages/333`]);
+       |                              ^
+    105|   });
+    106|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/13]⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > does not fetch for "abc123", and shows nothing
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "https://discord.com/api/webhooks/111/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/messages/abc123",
++ ]
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:116:30
+    114|     fetchMock.mockResolvedValueOnce(jsonResponse(webhookBody('111')));
+    115|     await render(HOOK_URL_A, input);
+    116|     expect(messageFetches()).toEqual([]);
+       |                              ^
+    117|     expect(result.message).toBeNull();
+    118|     expect(result.messageError).toBeNull();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/13]⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > does not fetch for "see 12345 here", and shows nothing
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "https://discord.com/api/webhooks/111/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/messages/see 12345 here",
++ ]
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:116:30
+    114|     fetchMock.mockResolvedValueOnce(jsonResponse(webhookBody('111')));
+    115|     await render(HOOK_URL_A, input);
+    116|     expect(messageFetches()).toEqual([]);
+       |                              ^
+    117|     expect(result.message).toBeNull();
+    118|     expect(result.messageError).toBeNull();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/13]⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > does not fetch for "https://example.com/channels/1/2/3", and shows nothing
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "https://discord.com/api/webhooks/111/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/messages/https://example.com/channels/1/2/3",
++ ]
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:116:30
+    114|     fetchMock.mockResolvedValueOnce(jsonResponse(webhookBody('111')));
+    115|     await render(HOOK_URL_A, input);
+    116|     expect(messageFetches()).toEqual([]);
+       |                              ^
+    117|     expect(result.message).toBeNull();
+    118|     expect(result.messageError).toBeNull();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/13]⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > does not fetch for "https://discord.com/channels/1/2/3/extra", and shows nothing
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "https://discord.com/api/webhooks/111/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/messages/https://discord.com/channels/1/2/3/extra",
++ ]
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:116:30
+    114|     fetchMock.mockResolvedValueOnce(jsonResponse(webhookBody('111')));
+    115|     await render(HOOK_URL_A, input);
+    116|     expect(messageFetches()).toEqual([]);
+       |                              ^
+    117|     expect(result.message).toBeNull();
+    118|     expect(result.messageError).toBeNull();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/13]⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > does not fetch for "http://discord.com/channels/1/2/3", and shows nothing
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "https://discord.com/api/webhooks/111/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/messages/http://discord.com/channels/1/2/3",
++ ]
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:116:30
+    114|     fetchMock.mockResolvedValueOnce(jsonResponse(webhookBody('111')));
+    115|     await render(HOOK_URL_A, input);
+    116|     expect(messageFetches()).toEqual([]);
+       |                              ^
+    117|     expect(result.message).toBeNull();
+    118|     expect(result.messageError).toBeNull();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/13]⎯
+
+
+ Test Files  1 failed | 6 passed (7)
+      Tests  13 failed | 92 passed (105)
+   Start at  07:11:34
+   Duration  4.35s (transform 2.27s, setup 129ms, import 8.53s, tests 1.54s, environment 5.22s)
+
+vitest exit 1

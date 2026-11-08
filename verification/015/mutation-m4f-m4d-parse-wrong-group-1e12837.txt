@@ -1,0 +1,86 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-1e12837-m4f-m4d-parse-wrong-group  sha: 1e12837  label: m4f-m4d-parse-wrong-group  test: page.send-in-flight WebhookMenu.url-and WebhookProvider.validation useValidateWebhook.validation constants.discord message.get-from-url redis.fetch-channel  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py
+mutated m4d-parse-wrong-group
+ .../src/utils/parseMessageId.ts                    |   2 +-
+ 3 files changed, 1 insertion(+), 198 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-1e12837-m4f-m4d-parse-wrong-group
+
+ ❯ |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx (26 tests | 8 failed) 87ms
+     × fetches the message for the message link https://discord.com/channels/1/2/345678901234567890, using its last path segment 10ms
+     × fetches the message for the message link https://www.discord.com/channels/1/2/345678901234567890, using its last path segment 4ms
+     × fetches the message for the message link https://canary.discord.com/channels/1/2/345678901234567890, using its last path segment 3ms
+     × fetches the message for the message link https://ptb.discord.com/channels/1/2/345678901234567890, using its last path segment 3ms
+     × fetches the message for the message link https://discordapp.com/channels/1/2/345678901234567890, using its last path segment 3ms
+     × fetches the message for the message link https://ptb.discordapp.com/channels/1/2/345678901234567890, using its last path segment 3ms
+     × fetches the message for the message link https://www.discordapp.com/channels/1/2/345678901234567890, using its last path segment 2ms
+     × fetches the message for the message link https://canary.discordapp.com/channels/1/2/345678901234567890, using its last path segment 3ms
+ ❯ |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx (20 tests | 8 failed) 65ms
+     × fetches the link's own message id for https://discord.com links 10ms
+     × fetches the link's own message id for https://www.discord.com links 4ms
+     × fetches the link's own message id for https://canary.discord.com links 5ms
+     × fetches the link's own message id for https://ptb.discord.com links 4ms
+     × fetches the link's own message id for https://discordapp.com links 3ms
+     × fetches the link's own message id for https://www.discordapp.com links 2ms
+     × fetches the link's own message id for https://canary.discordapp.com links 2ms
+     × fetches the link's own message id for https://ptb.discordapp.com links 2ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 16 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > fetches the message for the message link https://discord.com/channels/1/2/345678901234567890, using its last path segment
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > fetches the message for the message link https://www.discord.com/channels/1/2/345678901234567890, using its last path segment
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > fetches the message for the message link https://canary.discord.com/channels/1/2/345678901234567890, using its last path segment
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > fetches the message for the message link https://ptb.discord.com/channels/1/2/345678901234567890, using its last path segment
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > fetches the message for the message link https://discordapp.com/channels/1/2/345678901234567890, using its last path segment
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > fetches the message for the message link https://ptb.discordapp.com/channels/1/2/345678901234567890, using its last path segment
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > fetches the message for the message link https://www.discordapp.com/channels/1/2/345678901234567890, using its last path segment
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > fetches the message for the message link https://canary.discordapp.com/channels/1/2/345678901234567890, using its last path segment
+AssertionError: expected 'https://discord.com/api/v10/webhooks/…' to contain '/messages/345678901234567890?'
+
+Expected: "/messages/345678901234567890?"
+Received: "https://discord.com/api/v10/webhooks/1/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/messages/2?wait=true"
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:97:48
+     95|     await typeMessage(link);
+     96|     expect(fetchMock).toHaveBeenCalledTimes(1);
+     97|     expect(String(fetchMock.mock.calls[0][0])).toContain('/messages/34…
+       |                                                ^
+     98|   });
+     99|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/16]⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > fetches the link's own message id for https://discord.com links
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > fetches the link's own message id for https://www.discord.com links
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > fetches the link's own message id for https://canary.discord.com links
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > fetches the link's own message id for https://ptb.discord.com links
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > fetches the link's own message id for https://discordapp.com links
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > fetches the link's own message id for https://www.discordapp.com links
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > fetches the link's own message id for https://canary.discordapp.com links
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > fetches the link's own message id for https://ptb.discordapp.com links
+AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]
+
+- Expected
++ Received
+
+  [
+-   "https://discord.com/api/webhooks/111/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/messages/333",
++   "https://discord.com/api/webhooks/111/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/messages/222",
+  ]
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:104:30
+    102|     fetchMock.mockResolvedValue(jsonResponse(messageBody('m')));
+    103|     await render(HOOK_URL_A, `https://${host}/channels/111/222/333`);
+    104|     expect(messageFetches()).toEqual([`${HOOK_URL_A}/messages/333`]);
+       |                              ^
+    105|   });
+    106|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/16]⎯
+
+
+ Test Files  2 failed | 5 passed (7)
+      Tests  16 failed | 89 passed (105)
+   Start at  07:12:10
+   Duration  2.34s (transform 1.14s, setup 55ms, import 4.87s, tests 667ms, environment 3.19s)
+
+vitest exit 1

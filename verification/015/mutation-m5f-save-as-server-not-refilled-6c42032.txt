@@ -1,0 +1,35 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5f-save-as-server-not-refilled  sha: 6c42032  label: m5f-save-as-server-not-refilled  test: SaveAsMenu.opens-with-current-values  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py
+mutated m5f-save-as-server-not-refilled
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 2 files changed, 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5f-save-as-server-not-refilled
+
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx (5 tests | 1 failed) 409ms
+     × proposes the message's server when it moved to one while the dialog was closed 57ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx > SaveAsMenu, the name and server it opens with > proposes the message's server when it moved to one while the dialog was closed
+AssertionError: expected 'Save AsMessage Name(10 / 32)Save To(m…' to contain 'Guild Five'
+
+Expected: "Guild Five"
+Received: "Save AsMessage Name(10 / 32)Save To(max 50 per account / server)My AccountCancelSave"
+
+ ❯ src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx:85:39
+     83|     render(true, messageOf('First', '5'));
+     84|
+     85|     expect(document.body.textContent).toContain('Guild Five');
+       |                                       ^
+     86|   });
+     87|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 4 passed (5)
+   Start at  07:43:22
+   Duration  1.92s (transform 224ms, setup 21ms, import 777ms, tests 409ms, environment 581ms)
+
+vitest exit 1

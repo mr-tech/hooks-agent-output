@@ -1,0 +1,35 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5e-header-bypasses-formatter  sha: 6c42032  label: m5e-header-bypasses-formatter  test: formatMessageDate.same-day page.message-list Header.search-result-dates  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py
+mutated m5e-header-bypasses-formatter
+ .../results.json => dev/null}                                         | 1 -
+ 2 files changed, 2 insertions(+), 3 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5e-header-bypasses-formatter
+
+ ❯ |dom| src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx (1 test | 1 failed) 159ms
+     × shows a time for a message updated today and a date for the same day of another month 158ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx > Header, the dates beside search results > shows a time for a message updated today and a date for the same day of another month
+AssertionError: expected 'Alpha todayMy Account11/8/2026' not to contain '2026'
+
+Expected: "2026"
+Received: "Alpha todayMy Account11/8/2026"
+
+ ❯ src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx:63:23
+     61|     const today = rows.find((r) => r.includes('Alpha today')) ?? '';
+     62|     const lastMonth = rows.find((r) => r.includes('Alpha last month'))…
+     63|     expect(today).not.toContain('2026');
+       |                       ^
+     64|     expect(lastMonth).toContain('2026');
+     65|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 8 passed (9)
+   Start at  07:43:09
+   Duration  1.85s (transform 344ms, setup 12ms, import 1.74s, tests 381ms, environment 1.19s)
+
+vitest exit 1

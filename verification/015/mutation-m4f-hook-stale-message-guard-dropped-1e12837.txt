@@ -1,0 +1,35 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-1e12837-m4f-hook-stale-message-guard-dropped  sha: 1e12837  label: m4f-hook-stale-message-guard-dropped  test: page.send-in-flight WebhookMenu.url-and WebhookProvider.validation useValidateWebhook.validation constants.discord message.get-from-url redis.fetch-channel  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py
+mutated hook-stale-message-guard-dropped
+ .../src/utils/hooks/useValidateWebhook.ts          |   2 -
+ 3 files changed, 199 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-1e12837-m4f-hook-stale-message-guard-dropped
+
+ ❯ |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx (20 tests | 1 failed) 156ms
+     × applies the latest input's message when an earlier input resolves last 15ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, overlapping validations > applies the latest input's message when an earlier input resolves last
+AssertionError: expected 'one' to be 'two' // Object.is equality
+
+Expected: "two"
+Received: "one"
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:178:37
+    176|     await act(async () => { second.resolve(jsonResponse(messageBody('t…
+    177|     await act(async () => { first.resolve(jsonResponse(messageBody('on…
+    178|     expect(result.message?.content).toBe('two');
+       |                                     ^
+    179|   });
+    180| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 6 passed (7)
+      Tests  1 failed | 104 passed (105)
+   Start at  07:11:12
+   Duration  3.86s (transform 2.63s, setup 42ms, import 8.85s, tests 1.29s, environment 4.02s)
+
+vitest exit 1

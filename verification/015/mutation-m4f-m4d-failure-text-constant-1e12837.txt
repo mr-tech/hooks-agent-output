@@ -1,0 +1,70 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-1e12837-m4f-m4d-failure-text-constant  sha: 1e12837  label: m4f-m4d-failure-text-constant  test: page.send-in-flight WebhookMenu.url-and WebhookProvider.validation useValidateWebhook.validation constants.discord message.get-from-url redis.fetch-channel  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py
+mutated m4d-failure-text-constant
+ .../results.json => dev/null}                      |   1 -
+ 3 files changed, 1 insertion(+), 198 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-1e12837-m4f-m4d-failure-text-constant
+
+ ❯ |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx (20 tests | 2 failed) 113ms
+     × shows the connection error when the webhook fetch rejects 17ms
+     × shows the connection error when the message fetch rejects 3ms
+ ❯ |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx (26 tests | 1 failed) 267ms
+     × shows the connection error and no message when the fetch rejects 84ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message fetch failure > shows the connection error and no message when the fetch rejects
+AssertionError: expected 'Could not load the message. Check you…' to be 'Could not load the message. Check you…' // Object.is equality
+
+Expected: "Could not load the message. Check your connection and try again."
+Received: "Could not load the message. Check your network and try again."
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:172:35
+    170|     await act(async () => {});
+    171|     expect(state.oldMessage).toBeNull();
+    172|     expect(state.oldMessageError).toBe('Could not load the message. Ch…
+       |                                   ^
+    173|     expect(state.isOldMessageLoading).toBe(false);
+    174|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, fetch failures > shows the connection error when the webhook fetch rejects
+AssertionError: expected 'Could not load the message. Check you…' to be 'Could not load the message. Check you…' // Object.is equality
+
+Expected: "Could not load the message. Check your connection and try again."
+Received: "Could not load the message. Check your network and try again."
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:135:33
+    133|     await act(async () => {});
+    134|     expect(result.webhook).toBeNull();
+    135|     expect(result.webhookError).toBe(FAILURE_TEXT);
+       |                                 ^
+    136|     expect(result.isLoading).toBe(false);
+    137|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, fetch failures > shows the connection error when the message fetch rejects
+AssertionError: expected 'Could not load the message. Check you…' to be 'Could not load the message. Check you…' // Object.is equality
+
+Expected: "Could not load the message. Check your connection and try again."
+Received: "Could not load the message. Check your network and try again."
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:145:33
+    143|     await act(async () => {});
+    144|     expect(result.message).toBeNull();
+    145|     expect(result.messageError).toBe(FAILURE_TEXT);
+       |                                 ^
+    146|   });
+    147|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  2 failed | 5 passed (7)
+      Tests  3 failed | 102 passed (105)
+   Start at  07:13:04
+   Duration  4.72s (transform 2.30s, setup 67ms, import 9.76s, tests 1.54s, environment 6.10s)
+
+vitest exit 1

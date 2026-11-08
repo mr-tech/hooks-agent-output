@@ -1,0 +1,58 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5e-year-dropped  sha: 6c42032  label: m5e-year-dropped  test: formatMessageDate.same-day page.message-list Header.search-result-dates  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py
+mutated m5e-year-dropped
+ .../website-6c42032-m5e-year-dropped}/src/utils/formatMessageDate.ts   | 3 +--
+ 2 files changed, 1 insertion(+), 3 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5e-year-dropped
+
+ ❯ |node| src/utils/__tests__/formatMessageDate.same-day.test.ts (6 tests | 2 failed) 28ms
+     × the same month and day in another year shows a date 5ms
+     × accepts an ISO string timestamp 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/formatMessageDate.same-day.test.ts > formatMessageDate — "Today" is the same calendar day, not the same day of the month > the same month and day in another year shows a date
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/formatMessageDate.same-day.test.ts:58:38
+     56|     const text = formatMessageDate(new Date(2025, 10, 8, 15, 30).getTi…
+     57|
+     58|     expect(text.startsWith('Today')).toBe(false);
+       |                                      ^
+     59|     expect(text).toContain('2025');
+     60|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/__tests__/formatMessageDate.same-day.test.ts > formatMessageDate — "Today" is the same calendar day, not the same day of the month > accepts an ISO string timestamp
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/formatMessageDate.same-day.test.ts:67:38
+     65|     const text = formatMessageDate(new Date(2025, 10, 8, 15, 30).toISO…
+     66|
+     67|     expect(text.startsWith('Today')).toBe(false);
+       |                                      ^
+     68|   });
+     69| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  2 failed | 7 passed (9)
+   Start at  07:43:03
+   Duration  1.80s (transform 356ms, setup 14ms, import 1.76s, tests 401ms, environment 1.16s)
+
+vitest exit 1

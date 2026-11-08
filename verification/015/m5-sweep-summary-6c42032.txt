@@ -1,0 +1,34 @@
+control-m5a	 Tests 3 passed (3)	0	vitest exit 0
+control-m5b	 Tests 5 passed (5)	0	vitest exit 0
+control-m5c	 Tests 4 passed (4)	0	vitest exit 0
+control-m5d	 Tests 4 passed (4)	0	vitest exit 0
+control-m5e	 Tests 9 passed (9)	0	vitest exit 0
+control-m5f	 Tests 5 passed (5)	0	vitest exit 0
+control-m5g	 Tests 2 passed (2)	0	vitest exit 0
+control-m5h	 Tests 7 passed (7)	0	vitest exit 0
+m5a-allow-close-not-reset	 Tests 1 failed | 2 passed (3)	0	vitest exit 1
+m5b-copy-always-enabled	 Tests 2 failed | 3 passed (5)	0	vitest exit 1
+m5b-copy-disabled-only-when-unparsable	 Tests 1 failed | 4 passed (5)	0	vitest exit 1
+m5b-copy-copies-raw-draft	 Tests 1 failed | 4 passed (5)	0	vitest exit 1
+m5c-pusher-reads-render-flag	 Tests 2 failed | 2 passed (4)	0	vitest exit 1
+m5c-pusher-ref-never-updated	 Tests 2 failed | 2 passed (4)	0	vitest exit 1
+m5d-dropdown-memo-once	 Tests 3 failed | 1 passed (4)	0	vitest exit 1
+m5e-day-of-month-only	 Tests 5 failed | 4 passed (9)	0	vitest exit 1
+m5e-month-dropped	 Tests 3 failed | 6 passed (9)	0	vitest exit 1
+m5e-year-dropped	 Tests 2 failed | 7 passed (9)	0	vitest exit 1
+m5e-prefix-ignored	 Tests 2 failed | 7 passed (9)	0	vitest exit 1
+m5e-header-bypasses-formatter	 Tests 1 failed | 8 passed (9)	0	vitest exit 1
+m5e-folder-bypasses-formatter	 Tests 1 failed | 8 passed (9)	0	vitest exit 1
+m5e-folder-drops-prefix	 Tests 1 failed | 8 passed (9)	0	vitest exit 1
+m5f-save-as-name-not-refilled	 Tests 3 failed | 2 passed (5)	0	vitest exit 1
+m5f-save-as-server-not-refilled	 Tests 1 failed | 4 passed (5)	0	vitest exit 1
+m5f-save-as-refills-only-at-mount	 Tests 4 failed | 1 passed (5)	0	vitest exit 1
+m5f-save-as-refills-on-close-too	 Tests 5 passed (5)	0	vitest exit 0
+m5g-delete-toast-says-refresh	 Tests 1 failed | 1 passed (2)	0	vitest exit 1
+m5h-null-passes	 Tests 7 passed (7)	0	vitest exit 0
+m5h-array-passes	 Tests 1 failed | 6 passed (7)	0	vitest exit 1
+m5h-primitive-passes	 Tests 2 failed | 5 passed (7)	0	vitest exit 1
+m5h-parse-error-uncaught	 Tests 1 failed | 6 passed (7)	0	vitest exit 1
+m5h-error-text-changed	 Tests 5 failed | 2 passed (7)	0	vitest exit 1
+m5h-error-not-text-error	 Tests 5 failed | 2 passed (7)	0	vitest exit 1
+done

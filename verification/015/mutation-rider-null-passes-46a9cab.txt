@@ -1,0 +1,30 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-rider-null-passes  sha: 46a9cab  label: rider-null-passes  test: message.get-from-url  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m4-supplement.py
+ .../src/utils/hooks/useGuildDropdownItems.tsx      |   2 +-
+ 16 files changed, 40 insertions(+), 696 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-rider-null-passes
+
+ ❯ |node| src/server/api/routers/__tests__/message.get-from-url.test.ts (20 tests | 1 failed) 22ms
+     × refuses a channel with guild_id null, which has no guild_id, without any message content 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.get-from-url.test.ts > message.getFromUrl, the channel must belong to the authorized guild > refuses a channel with guild_id null, which has no guild_id, without any message content
+AssertionError: expected { value: { guildId: '111', …(2) } } to have property "error"
+ ❯ src/server/api/routers/__tests__/message.get-from-url.test.ts:119:21
+    117|     );
+    118|
+    119|     expect(outcome).toHaveProperty('error');
+       |                     ^
+    120|     expect(JSON.stringify(outcome)).not.toContain('secret words');
+    121|     expect(mocks.request).not.toHaveBeenCalled();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 19 passed (20)
+   Start at  07:36:28
+   Duration  995ms (transform 176ms, setup 0ms, import 849ms, tests 22ms, environment 0ms)
+
+vitest exit 1

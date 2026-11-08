@@ -1,0 +1,35 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-hook-d29-hook-webhook-text-message-load  sha: 46a9cab  label: hook-d29-hook-webhook-text-message-load  test: useValidateWebhook.validation-effects  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-d29-table.py
+mutated d29-hook-webhook-text-message-load
+ .../src/utils/hooks/useValidateWebhook.ts          |  2 +-
+ 13 files changed, 37 insertions(+), 469 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-hook-d29-hook-webhook-text-message-load
+
+ ❯ |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx (21 tests | 1 failed) 47ms
+     × shows "Invalid URL" and no webhook when the webhook fetch rejects 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, fetch failures > shows "Invalid URL" and no webhook when the webhook fetch rejects
+AssertionError: expected 'Could not load the message. Check you…' to be 'Invalid URL' // Object.is equality
+
+Expected: "Invalid URL"
+Received: "Could not load the message. Check your connection and try again."
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:135:33
+    133|     await act(async () => {});
+    134|     expect(result.webhook).toBeNull();
+    135|     expect(result.webhookError).toBe('Invalid URL');
+       |                                 ^
+    136|     expect(result.isLoading).toBe(false);
+    137|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 20 passed (21)
+   Start at  07:35:28
+   Duration  1.34s (transform 158ms, setup 19ms, import 587ms, tests 47ms, environment 562ms)
+
+vitest exit 1

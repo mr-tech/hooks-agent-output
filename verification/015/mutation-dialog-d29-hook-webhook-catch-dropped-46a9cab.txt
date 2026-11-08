@@ -1,0 +1,55 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-dialog-d29-hook-webhook-catch-dropped  sha: 46a9cab  label: dialog-d29-hook-webhook-catch-dropped  test: NewMessageModal.failed-webhook-load  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-d29-table.py
+mutated d29-hook-webhook-catch-dropped
+ .../src/utils/hooks/useValidateWebhook.ts          |  2 +-
+ 13 files changed, 37 insertions(+), 469 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-dialog-d29-hook-webhook-catch-dropped
+
+ ❯ |dom| src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx (2 tests | 1 failed) 415ms
+     × shows "Invalid URL" once, on the shared error line, when the network fails 289ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx > NewMessageModal, a failed webhook load > shows "Invalid URL" once, on the shared error line, when the network fails
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx:59:19
+     57|
+     58|     const shown = leavesWithText('Invalid URL');
+     59|     expect(shown).toHaveLength(1);
+       |                   ^
+     60|     expect(shown[0]!.parentElement!.querySelectorAll('input').length).…
+     61|     expect(shown[0]!.classList.contains('text-error')).toBe(true);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 1 unhandled error during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+Error: x
+ ❯ src/utils/hooks/useValidateWebhook.ts:39:17
+ ❯ processTicksAndRejections node:internal/process/task_queues:104:5
+
+This error originated in "src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "shows "Invalid URL" once, on the shared error line, when the network fails". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+     Errors  1 error
+   Start at  07:35:37
+   Duration  2.14s (transform 326ms, setup 22ms, import 963ms, tests 415ms, environment 596ms)
+
+vitest exit 1

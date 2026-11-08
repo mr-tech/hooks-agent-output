@@ -1,0 +1,14 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-menu-m4b-loading-conjunct-dropped  sha: 46a9cab  label: menu-m4b-loading-conjunct-dropped  test: WebhookMenu.failed-webhook-load  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py
+mutated m4b-loading-conjunct-dropped
+ .../src/utils/hooks/useGuildDropdownItems.tsx      |   2 +-
+ 14 files changed, 38 insertions(+), 580 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-menu-m4b-loading-conjunct-dropped
+
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  07:36:06
+   Duration  1.82s (transform 296ms, setup 19ms, import 1.03s, tests 80ms, environment 574ms)
+
+vitest exit 0

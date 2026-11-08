@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-control-m5d  sha: 6c42032  label: control-m5d  test: useGuildDropdownItems.session-update  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-control-m5d
+
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  07:42:19
+   Duration  1.25s (transform 125ms, setup 21ms, import 500ms, tests 25ms, environment 581ms)
+
+vitest exit 0

@@ -1,0 +1,117 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5e-day-of-month-only  sha: 6c42032  label: m5e-day-of-month-only  test: formatMessageDate.same-day page.message-list Header.search-result-dates  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py
+mutated m5e-day-of-month-only
+ .../src/utils/formatMessageDate.ts                                    | 4 +---
+ 2 files changed, 1 insertion(+), 4 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5e-day-of-month-only
+
+ ❯ |node| src/utils/__tests__/formatMessageDate.same-day.test.ts (6 tests | 3 failed) 29ms
+     × the same day of the month in another month shows a date 6ms
+     × the same month and day in another year shows a date 1ms
+     × accepts an ISO string timestamp 1ms
+ ❯ |dom| src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx (1 test | 1 failed) 162ms
+     × shows a time for a message updated today and a date for the same day of another month 161ms
+ ❯ |dom| src/app/message/f/[id]/__tests__/page.message-list.test.tsx (2 tests | 1 failed) 195ms
+     × shows "Today at" for a message updated today and a date for the same day of another month 144ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx > Header, the dates beside search results > shows a time for a message updated today and a date for the same day of another month
+AssertionError: expected 'Alpha last monthMy Account9:05 AM' to contain '2026'
+
+Expected: "2026"
+Received: "Alpha last monthMy Account9:05 AM"
+
+ ❯ src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx:64:23
+     62|     const lastMonth = rows.find((r) => r.includes('Alpha last month'))…
+     63|     expect(today).not.toContain('2026');
+     64|     expect(lastMonth).toContain('2026');
+       |                       ^
+     65|   });
+     66| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |dom| src/app/message/f/[id]/__tests__/page.message-list.test.tsx > folder page, the message dates > shows "Today at" for a message updated today and a date for the same day of another month
+AssertionError: expected [ …(3) ] to have a length of 2 but got 3
+
+- Expected
++ Received
+
+- 2
++ 3
+
+ ❯ src/app/message/f/[id]/__tests__/page.message-list.test.tsx:108:55
+    106|
+    107|     expect(el.textContent).toContain('Today at ');
+    108|     expect((el.textContent ?? '').split('Today at ')).toHaveLength(2);
+       |                                                       ^
+    109|   });
+    110| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |node| src/utils/__tests__/formatMessageDate.same-day.test.ts > formatMessageDate — "Today" is the same calendar day, not the same day of the month > the same day of the month in another month shows a date
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/formatMessageDate.same-day.test.ts:49:38
+     47|     const text = formatMessageDate(new Date(2026, 9, 8, 15, 30).getTim…
+     48|
+     49|     expect(text.startsWith('Today')).toBe(false);
+       |                                      ^
+     50|     expect(text).toContain('2026');
+     51|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  |node| src/utils/__tests__/formatMessageDate.same-day.test.ts > formatMessageDate — "Today" is the same calendar day, not the same day of the month > the same month and day in another year shows a date
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/formatMessageDate.same-day.test.ts:58:38
+     56|     const text = formatMessageDate(new Date(2025, 10, 8, 15, 30).getTi…
+     57|
+     58|     expect(text.startsWith('Today')).toBe(false);
+       |                                      ^
+     59|     expect(text).toContain('2025');
+     60|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  |node| src/utils/__tests__/formatMessageDate.same-day.test.ts > formatMessageDate — "Today" is the same calendar day, not the same day of the month > accepts an ISO string timestamp
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/formatMessageDate.same-day.test.ts:67:38
+     65|     const text = formatMessageDate(new Date(2025, 10, 8, 15, 30).toISO…
+     66|
+     67|     expect(text.startsWith('Today')).toBe(false);
+       |                                      ^
+     68|   });
+     69| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  3 failed (3)
+      Tests  5 failed | 4 passed (9)
+   Start at  07:42:57
+   Duration  1.80s (transform 375ms, setup 15ms, import 1.76s, tests 387ms, environment 1.16s)
+
+vitest exit 1

@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-control-m5a  sha: 6c42032  label: control-m5a  test: JsonModalBody.menu-close-after-load  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-control-m5a
+
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  07:42:09
+   Duration  1.82s (transform 256ms, setup 19ms, import 885ms, tests 217ms, environment 581ms)
+
+vitest exit 0

@@ -1,0 +1,9 @@
+FAIL eslint src/components/__tests__/dialogs.enter-key.test.tsx:3 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/components/__tests__/dialogs.enter-key.test.tsx:3 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/components/__tests__/dialogs.enter-key.test.tsx:7 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/components/__tests__/dialogs.enter-key.test.tsx:8 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/components/__tests__/dialogs.enter-key.test.tsx:9 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/components/__tests__/dialogs.enter-key.test.tsx:11 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/components/__tests__/dialogs.enter-key.test.tsx:26 — jsx-a11y/html-has-lang: <html> elements must have the lang prop.
+SKIP id-token, basename: no agent-output/TEST-CONVENTIONS.md above this repository — conventions not in force here
+convention-check: 16 file(s) examined, 0 not examined, 8 test file(s); 7 FAIL, 0 CANDIDATE, 1 SKIP

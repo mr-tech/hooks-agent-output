@@ -1,0 +1,46 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5b-copy-copies-raw-draft  sha: 6c42032  label: m5b-copy-copies-raw-draft  test: JsonModalBody.copy-needs-valid-draft  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py
+mutated m5b-copy-copies-raw-draft
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5b-copy-copies-raw-draft
+
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx (5 tests | 1 failed) 266ms
+     × a conforming draft enables Copy, and pressing it copies the pretty-printed JSON 111ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx > JsonModalBody — Copy to Clipboard needs a draft that parses and conforms > a conforming draft enables Copy, and pressing it copies the pretty-printed JSON
+AssertionError: expected "vi.fn()" to be called with arguments: [ '{\n  "content": "hi"\n}' ]
+
+Received:
+
+  1st vi.fn() call:
+
+  [
+-   "{
+-   \"content\": \"hi\"
+- }",
++   "{\"content\":\"hi\"}",
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx:53:21
+     51|
+     52|     expect(copySpy).toHaveBeenCalledTimes(1);
+     53|     expect(copySpy).toHaveBeenCalledWith('{\n  "content": "hi"\n}');
+       |                     ^
+     54|   });
+     55|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 4 passed (5)
+   Start at  07:42:44
+   Duration  1.86s (transform 254ms, setup 20ms, import 889ms, tests 266ms, environment 566ms)
+
+vitest exit 1

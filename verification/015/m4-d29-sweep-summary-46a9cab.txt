@@ -1,0 +1,25 @@
+control-hook	 Tests 21 passed (21)	0	vitest exit 0
+control-dialog	 Tests 2 passed (2)	0	vitest exit 0
+control-menu	 Tests 2 passed (2)	0	vitest exit 0
+control-provider	 Tests 31 passed (31)	0	vitest exit 0
+control-router	 Tests 20 passed (20)	0	vitest exit 0
+hook-d29-hook-webhook-text-message-load	 Tests 1 failed | 20 passed (21)	0	vitest exit 1
+dialog-d29-hook-webhook-text-message-load	 Tests 1 failed | 1 passed (2)	0	vitest exit 1
+hook-d29-hook-webhook-catch-dropped	 Tests 1 failed | 20 passed (21)	1	vitest exit 1
+dialog-d29-hook-webhook-catch-dropped	 Tests 1 failed | 1 passed (2)	1	vitest exit 1
+hook-d29-hook-refusal-mapped-to-invalid	 Tests 1 failed | 20 passed (21)	0	vitest exit 1
+dialog-d29-hook-refusal-mapped-to-invalid	 Tests 1 failed | 1 passed (2)	0	vitest exit 1
+dialog-d29-dialog-error-line-drops-webhook-error	 Tests 2 failed (2)	0	vitest exit 1
+hook-d29-dialog-error-line-drops-webhook-error	 Tests 21 passed (21)	0	vitest exit 0
+menu-d29-menu-error-never	 Tests 2 failed (2)	0	vitest exit 1
+menu-d29-menu-text-changed	 Tests 2 failed (2)	0	vitest exit 1
+menu-m4b-url-error-inverted	 Tests 2 failed (2)	0	vitest exit 1
+menu-m4b-loading-conjunct-dropped	 Tests 2 passed (2)	0	vitest exit 0
+provider-404-text	 Tests 1 failed | 30 passed (31)	0	vitest exit 1
+provider-403-text	 Tests 1 failed | 30 passed (31)	0	vitest exit 1
+provider-401-text	 Tests 1 failed | 30 passed (31)	0	vitest exit 1
+provider-400-text	 Tests 1 failed | 30 passed (31)	0	vitest exit 1
+provider-other-status-text	 Tests 1 failed | 30 passed (31)	0	vitest exit 1
+provider-refused-shows-error	 Tests 12 failed | 19 passed (31)	0	vitest exit 1
+rider-null-passes	 Tests 1 failed | 19 passed (20)	0	vitest exit 1
+done

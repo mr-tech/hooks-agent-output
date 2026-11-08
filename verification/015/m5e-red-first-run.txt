@@ -1,0 +1,25 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/utils/__tests__/formatMessageDate.same-day.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/formatMessageDate.same-day.test.ts [ src/utils/__tests__/formatMessageDate.same-day.test.ts ]
+Error: Cannot find module '../formatMessageDate' imported from /usr/local/bin/hooks/website/src/utils/__tests__/formatMessageDate.same-day.test.ts
+ ❯ src/utils/__tests__/formatMessageDate.same-day.test.ts:5:1
+      3| } from 'vitest';
+      4|
+      5| import formatMessageDate from '../formatMessageDate';
+       | ^
+      6|
+      7| afterEach(() => { vi.useRealTimers(); });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  07:32:17
+   Duration  187ms (transform 25ms, setup 0ms, import 0ms, tests 0ms, environment 0ms)
+

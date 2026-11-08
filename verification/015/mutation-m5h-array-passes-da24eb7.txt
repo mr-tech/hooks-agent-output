@@ -1,0 +1,40 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-da24eb7-m5h-array-passes  sha: da24eb7  label: m5h-array-passes  test: page.invalid-data  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py
+mutated m5h-array-passes
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-da24eb7-m5h-array-passes
+
+ ❯ |dom| src/app/preview/__tests__/page.invalid-data.test.tsx (7 tests | 1 failed) 113ms
+     × shows one line of error text and no editor for a JSON array 17ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for a JSON array
+AssertionError: expected <p data-testid="editor"></p> to be null
+
+- Expected:
+null
+
++ Received:
+<p
+  data-testid="editor"
+/>
+
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:51:56
+     49|     const el = await mountWith(data);
+     50|
+     51|     expect(el.querySelector('[data-testid="editor"]')).toBeNull();
+       |                                                        ^
+     52|     const shown = Array.from(el.querySelectorAll('*'))
+     53|       .filter((e) => e.children.length === 0 && e.textContent === 'Inv…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 6 passed (7)
+   Start at  07:44:33
+   Duration  2.23s (transform 309ms, setup 22ms, import 834ms, tests 113ms, environment 1.06s)
+
+vitest exit 1

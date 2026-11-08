@@ -1,0 +1,14 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-hook-d29-dialog-error-line-drops-webhook-error  sha: 46a9cab  label: hook-d29-dialog-error-line-drops-webhook-error  test: useValidateWebhook.validation-effects  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-d29-table.py
+mutated d29-dialog-error-line-drops-webhook-error
+ .../src/utils/hooks/useGuildDropdownItems.tsx      |   2 +-
+ 14 files changed, 36 insertions(+), 579 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-hook-d29-dialog-error-line-drops-webhook-error
+
+
+ Test Files  1 passed (1)
+      Tests  21 passed (21)
+   Start at  07:35:53
+   Duration  1.41s (transform 181ms, setup 19ms, import 610ms, tests 49ms, environment 608ms)
+
+vitest exit 0

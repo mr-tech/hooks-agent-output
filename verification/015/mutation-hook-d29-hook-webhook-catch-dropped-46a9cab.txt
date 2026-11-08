@@ -1,0 +1,54 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-hook-d29-hook-webhook-catch-dropped  sha: 46a9cab  label: hook-d29-hook-webhook-catch-dropped  test: useValidateWebhook.validation-effects  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-d29-table.py
+mutated d29-hook-webhook-catch-dropped
+ .../src/utils/hooks/useValidateWebhook.ts          |  2 +-
+ 13 files changed, 37 insertions(+), 469 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-hook-d29-hook-webhook-catch-dropped
+
+ ❯ |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx (21 tests | 1 failed) 51ms
+     × shows "Invalid URL" and no webhook when the webhook fetch rejects 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, fetch failures > shows "Invalid URL" and no webhook when the webhook fetch rejects
+AssertionError: expected null to be 'Invalid URL' // Object.is equality
+
+- Expected:
+"Invalid URL"
+
++ Received:
+null
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:135:33
+    133|     await act(async () => {});
+    134|     expect(result.webhook).toBeNull();
+    135|     expect(result.webhookError).toBe('Invalid URL');
+       |                                 ^
+    136|     expect(result.isLoading).toBe(false);
+    137|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 1 unhandled error during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+Error: x
+ ❯ src/utils/hooks/useValidateWebhook.ts:39:17
+
+This error originated in "src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "shows "Invalid URL" and no webhook when the webhook fetch rejects". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 20 passed (21)
+     Errors  1 error
+   Start at  07:35:34
+   Duration  1.31s (transform 164ms, setup 22ms, import 535ms, tests 51ms, environment 580ms)
+
+vitest exit 1

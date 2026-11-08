@@ -1,0 +1,140 @@
+## F-19: dialogs that hold external close while a confirmation is pending
+$ git grep -n 'setAllowMenuClose\|disableExternalClose\|setAllowExternalClose' 6c42032 -- src ':!*__tests__*'
+6c42032:src/app/message/_components/NewMessageModal.tsx:208:      disableExternalClose={page > 0}
+6c42032:src/app/message/m/[id]/_components/JsonMenu.tsx:26:  const [allowExternalClose, setAllowExternalClose] = useState(true);
+6c42032:src/app/message/m/[id]/_components/JsonMenu.tsx:32:      disableExternalClose={!allowExternalClose}
+6c42032:src/app/message/m/[id]/_components/JsonMenu.tsx:36:        setAllowMenuClose={setAllowExternalClose}
+6c42032:src/app/message/m/[id]/_components/JsonModalBody.tsx:47:  setAllowMenuClose: (allow: boolean) => void;
+6c42032:src/app/message/m/[id]/_components/JsonModalBody.tsx:50:const JsonModalBody: FC<Props> = ({ onClose, setAllowMenuClose }) => {
+6c42032:src/app/message/m/[id]/_components/JsonModalBody.tsx:90:    setAllowMenuClose(true);
+6c42032:src/app/message/m/[id]/_components/JsonModalBody.tsx:98:    setAllowMenuClose(true);
+6c42032:src/app/message/m/[id]/_components/JsonModalBody.tsx:106:    setAllowMenuClose(true);
+6c42032:src/app/message/m/[id]/_components/JsonModalBody.tsx:113:    setAllowMenuClose(false);
+6c42032:src/app/message/m/[id]/_components/JsonModalBody.tsx:152:        setAllowMenuClose(true);
+6c42032:src/app/message/m/[id]/_components/JsonModalBody.tsx:281:              onTrigger: () => { setAllowMenuClose(false); },
+6c42032:src/app/message/m/[id]/_components/JsonModalBody.tsx:282:              onCancel: () => { setAllowMenuClose(true); },
+6c42032:src/components/ImageUploader.tsx:102:      disableExternalClose={localImage !== image}
+6c42032:src/components/PresetDialog.tsx:25:  disableExternalClose?: boolean;
+6c42032:src/components/PresetDialog.tsx:30:  children, id, title, open, unmount, disableExternalClose, onClose, wide, afterLeave,
+6c42032:src/components/PresetDialog.tsx:35:      <Dialog id={id} className="relative z-10" onClose={disableExternalClose || !onClose ? () => {} : onClose} unmount={unmount}>
+(exit 0)
+
+## F-20/F-26: JSON.parse inside a handler or render in tsx
+$ git grep -n 'JSON.parse' 6c42032 -- 'src/**/*.tsx' ':!*__tests__*'
+6c42032:src/app/message/_components/NewMessageJsonInput.tsx:25:    JSON.parse(str);
+6c42032:src/app/message/_components/NewMessageJsonInput.tsx:93:      const parsed = JSON.parse(jsonMessageString) as { components?: unknown };
+6c42032:src/app/message/_components/NewMessageJsonInput.tsx:194:          onPress={() => updateDoc(JSON.stringify(JSON.parse(jsonMessageString), null, 2))}
+6c42032:src/app/message/m/[id]/_components/JsonModalBody.tsx:30:    JSON.parse(str);
+6c42032:src/app/message/m/[id]/_components/JsonModalBody.tsx:39:    return JSON.stringify(discordMessageImportShape.parse(JSON.parse(str)), null, 2);
+6c42032:src/app/message/m/[id]/_components/JsonModalBody.tsx:139:      const rawParsed = JSON.parse(messageString) as { components?: unknown };
+6c42032:src/app/message/m/[id]/_components/JsonModalBody.tsx:225:            onPress={() => updateDoc(JSON.stringify(JSON.parse(messageString), null, 2))}
+6c42032:src/app/preview/page.tsx:13:    const parsed: unknown = JSON.parse(query);
+6c42032:src/components/DiscordMessageEditor/index.tsx:118:      const newEmbed = JSON.parse(JSON.stringify(newEmbeds[idx])) as EditableEmbed;
+(exit 0)
+
+## F-21: the hasChanged flag's readers
+$ git grep -n 'hasChanged' 6c42032 -- src ':!*__tests__*'
+6c42032:src/app/message/m/[id]/_layout/Navigation.tsx:81:    message, savedMessage, isSaving, editableState, visualStyle, hasChanged, isLoading,
+6c42032:src/app/message/m/[id]/_layout/Navigation.tsx:162:        enabled: hasChanged,
+6c42032:src/app/message/m/[id]/_layout/Navigation.tsx:177:  ], [hasChanged, message, nameRef.current]);
+6c42032:src/app/message/m/[id]/edit/page.tsx:92:    message, isLoading, hasChanged,
+6c42032:src/app/message/m/[id]/edit/page.tsx:100:  useUnloadAlert(hasChanged);
+6c42032:src/app/message/m/[id]/edit/page.tsx:215:                      {hasChanged || !message?.id ? (
+6c42032:src/providers/MessageProvider/index.tsx:67:  hasChanged: boolean;
+6c42032:src/providers/MessageProvider/index.tsx:112:  const hasChanged = useMemo(
+6c42032:src/providers/MessageProvider/index.tsx:274:  usePusher(messageRef, reloadMessage, hasChanged);
+6c42032:src/providers/MessageProvider/index.tsx:292:    hasChanged,
+6c42032:src/providers/MessageProvider/usePusher.ts:25:  hasChanged: boolean,
+6c42032:src/providers/MessageProvider/usePusher.ts:28:  const hasChangedRef = useRef(hasChanged);
+6c42032:src/providers/MessageProvider/usePusher.ts:29:  hasChangedRef.current = hasChanged;
+6c42032:src/providers/MessageProvider/usePusher.ts:50:          message: `The message you are viewing has been updated. Would you like to reload it?${hasChangedRef.current ? ' Any changes you have made will be lost.' : ''}`,
+6c42032:src/utils/hooks/index.ts:189://   const [hasChanged, setHasChanged] = useState(false);
+6c42032:src/utils/hooks/index.ts:191://   return hasChanged;
+(exit 0)
+
+## F-22: useMemo files that read the session
+$ git grep -ln 'useSession' 6c42032 -- 'src/**/*.tsx' 'src/**/*.ts' ':!*__tests__*'
+6c42032:src/app/_components/NavMenu.tsx
+6c42032:src/app/_navigation/Redirects/Client.tsx
+6c42032:src/app/message/_components/NewMessageModal.tsx
+6c42032:src/app/message/_layout/Header.tsx
+6c42032:src/app/message/_layout/Sidebar.tsx
+6c42032:src/app/message/f/[id]/page.tsx
+6c42032:src/app/message/m/[id]/_layout/Navigation.tsx
+6c42032:src/app/message/m/[id]/edit/page.tsx
+6c42032:src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx
+6c42032:src/app/message/m/[id]/send/page.tsx
+6c42032:src/app/message/m/new/page.tsx
+6c42032:src/app/message/page.tsx
+6c42032:src/providers/GuildProvider.tsx
+6c42032:src/providers/MessageProvider/index.tsx
+6c42032:src/providers/MessageProvider/usePreferences.ts
+6c42032:src/providers/MessagesProvider.tsx
+6c42032:src/utils/hooks/useGuildDropdownItems.tsx
+6c42032:src/utils/hooks/useUpdatePreferences.ts
+(exit 0)
+
+## F-22: empty-dependency useMemo in hooks
+$ git grep -n -B1 '}, \[\]);' 6c42032 -- 'src/utils/hooks/*.tsx' 'src/utils/hooks/*.ts'
+6c42032:src/utils/hooks/index.ts-40-    }
+6c42032:src/utils/hooks/index.ts:41:  }, []);
+--
+6c42032:src/utils/hooks/index.ts-54-  const [bool, setShow] = useState(initial);
+6c42032:src/utils/hooks/index.ts:55:  const toggle = useCallback(() => { setShow((b) => { setTimeout(() => { cb(!b); }); return !b; }); }, []);
+6c42032:src/utils/hooks/index.ts:56:  const setTrue = useCallback(() => { setShow(true); cb(true); }, []);
+6c42032:src/utils/hooks/index.ts:57:  const setFalse = useCallback(() => { setShow(false); cb(false); }, []);
+6c42032:src/utils/hooks/index.ts:58:  const set = useCallback((b: boolean) => { setShow(b); cb(b); }, []);
+--
+6c42032:src/utils/hooks/useCodeMirror.ts-29-    setElement(node);
+6c42032:src/utils/hooks/useCodeMirror.ts:30:  }, []);
+--
+6c42032:src/utils/hooks/useCopyToClipboard.ts-22-    }
+6c42032:src/utils/hooks/useCopyToClipboard.ts:23:  }, []);
+(exit 0)
+
+## F-23: day-of-month comparisons
+$ git grep -n 'getDate()' 6c42032 -- src ':!*__tests__*'
+6c42032:src/utils/formatMessageDate.ts:4:    && a.getDate() === b.getDate();
+(exit 0)
+
+## F-24: state seeded from a message prop
+$ git grep -n 'useState(message\.\|useState(.*\.guildId' 6c42032 -- src ':!*__tests__*'
+6c42032:src/app/message/m/[id]/_components/SaveAsMenu.tsx:34:  const [selectedGuildId, setSelectedGuildId] = useState(message.guildId ?? '');
+(exit 0)
+
+## F-25: toast texts naming a refresh
+$ git grep -n 'Failed to refresh' 6c42032 -- src ':!*__tests__*'
+6c42032:src/providers/MessageProvider/useApiMethods.ts:39:        render: 'Error. Failed to refresh message. Please try again.',
+(exit 0)
+
+## F-23 base (7ce866b): getDate() comparisons
+$ git grep -n 'getDate()' 7ce866b -- src ':!*__tests__*'
+7ce866b:src/app/message/_layout/Header.tsx:33:  if (messageDate.getDate() === new Date().getDate()) {
+7ce866b:src/app/message/f/[id]/page.tsx:56:  if (messageDate.getDate() === new Date().getDate()) {
+(exit 0)
+
+## F-22: useMemo calls with an empty dependency list in files that read the session (multi-line: the closing line)
+$ for f in $(git grep -l 'useSession' 6c42032 -- 'src/**/*.tsx' 'src/**/*.ts' ':!*__tests__*' | sed 's/^6c42032://'); do git grep -n -A0 '}, \[\]);' 6c42032 -- "$f"; done
+6c42032:src/app/message/m/[id]/edit/page.tsx:122:  }, []);
+6c42032:src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx:116:  }, []);
+6c42032:src/app/message/page.tsx:56:  useEffect(() => { void router.replace('/message'); }, []);
+(exit 1)
+
+## F-24: useState seeded from a prop or id in components
+$ git grep -n 'useState(guildId\|useState(props\.\|useState(.*Id ??\|useState(.*\.name' 6c42032 -- src ':!*__tests__*'
+6c42032:src/app/message/_components/NewMessageModal.tsx:74:  const [selectedGuildId, setSelectedGuildId] = useState(guildId ?? '0');
+6c42032:src/app/message/m/[id]/_components/SaveAsMenu.tsx:34:  const [selectedGuildId, setSelectedGuildId] = useState(message.guildId ?? '');
+(exit 0)
+
+## F-20: Pretty print / Copy handlers that parse without a guard
+$ git grep -n -B3 'JSON.parse(jsonMessageString), null' 6c42032 -- src/app/message/_components/NewMessageJsonInput.tsx
+6c42032:src/app/message/_components/NewMessageJsonInput.tsx-191-        </Button>
+6c42032:src/app/message/_components/NewMessageJsonInput.tsx-192-        <Button
+6c42032:src/app/message/_components/NewMessageJsonInput.tsx-193-          className={classNames(styles.hyperlink, 'py-2 px-4 text-sm')}
+6c42032:src/app/message/_components/NewMessageJsonInput.tsx:194:          onPress={() => updateDoc(JSON.stringify(JSON.parse(jsonMessageString), null, 2))}
+(exit 0)
+
+## F-21: useUnloadAlert
+$ git grep -n -A12 'useUnloadAlert' 6c42032 -- src/utils/hooks/index.ts
+(exit 1)
+

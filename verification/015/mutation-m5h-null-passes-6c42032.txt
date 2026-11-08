@@ -1,0 +1,14 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5h-null-passes  sha: 6c42032  label: m5h-null-passes  test: page.invalid-data  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py
+mutated m5h-null-passes
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5h-null-passes
+
+
+ Test Files  1 passed (1)
+      Tests  7 passed (7)
+   Start at  07:43:35
+   Duration  1.20s (transform 121ms, setup 21ms, import 423ms, tests 47ms, environment 588ms)
+
+vitest exit 0

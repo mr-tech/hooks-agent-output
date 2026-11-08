@@ -1,0 +1,46 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5h-error-not-text-error  sha: 6c42032  label: m5h-error-not-text-error  test: page.invalid-data  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py
+mutated m5h-error-not-text-error
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5h-error-not-text-error
+
+ ❯ |dom| src/app/preview/__tests__/page.invalid-data.test.tsx (7 tests | 5 failed) 49ms
+     × shows one line of error text and no editor for text that is not JSON 11ms
+     × shows one line of error text and no editor for the JSON null 3ms
+     × shows one line of error text and no editor for a JSON number 2ms
+     × shows one line of error text and no editor for a JSON string 2ms
+     × shows one line of error text and no editor for a JSON array 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for text that is not JSON
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for the JSON null
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for a JSON number
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for a JSON string
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for a JSON array
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:55:56
+     53|       .filter((e) => e.children.length === 0 && e.textContent === 'Inv…
+     54|     expect(shown).toHaveLength(1);
+     55|     expect(shown[0]?.classList.contains('text-error')).toBe(true);
+       |                                                        ^
+     56|     expect(el.textContent).toBe('Invalid message data.');
+     57|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  5 failed | 2 passed (7)
+   Start at  07:43:50
+   Duration  1.18s (transform 112ms, setup 23ms, import 407ms, tests 49ms, environment 571ms)
+
+vitest exit 1

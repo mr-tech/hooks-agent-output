@@ -1,0 +1,34 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-provider-other-status-text  sha: 46a9cab  label: provider-other-status-text  test: WebhookProvider.validation-effects  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m4-supplement.py
+ .../src/utils/hooks/useGuildDropdownItems.tsx      |   2 +-
+ 15 files changed, 38 insertions(+), 685 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-provider-other-status-text
+
+ ❯ |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx (31 tests | 1 failed) 67ms
+     × shows the refusal text for a 500 answer and no message 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message fetch failure > shows the refusal text for a 500 answer and no message
+AssertionError: expected 'x' to be 'Discord says no' // Object.is equality
+
+Expected: "Discord says no"
+Received: "x"
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:190:35
+    188|     await act(async () => {});
+    189|     expect(state.oldMessage).toBeNull();
+    190|     expect(state.oldMessageError).toBe(text);
+       |                                   ^
+    191|   });
+    192|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 30 passed (31)
+   Start at  07:36:21
+   Duration  1.32s (transform 158ms, setup 20ms, import 548ms, tests 67ms, environment 567ms)
+
+vitest exit 1

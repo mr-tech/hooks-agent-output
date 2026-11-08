@@ -1,0 +1,54 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-1e12837-m4f-hook-message-catch-dropped  sha: 1e12837  label: m4f-hook-message-catch-dropped  test: page.send-in-flight WebhookMenu.url-and WebhookProvider.validation useValidateWebhook.validation constants.discord message.get-from-url redis.fetch-channel  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py
+mutated hook-message-catch-dropped
+ .../src/utils/hooks/useValidateWebhook.ts          |   2 +-
+ 3 files changed, 1 insertion(+), 198 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-1e12837-m4f-hook-message-catch-dropped
+
+ ❯ |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx (20 tests | 1 failed) 173ms
+     × shows the connection error when the message fetch rejects 15ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, fetch failures > shows the connection error when the message fetch rejects
+AssertionError: expected null to be 'Could not load the message. Check you…' // Object.is equality
+
+- Expected:
+"Could not load the message. Check your connection and try again."
+
++ Received:
+null
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:145:33
+    143|     await act(async () => {});
+    144|     expect(result.message).toBeNull();
+    145|     expect(result.messageError).toBe(FAILURE_TEXT);
+       |                                 ^
+    146|   });
+    147|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 1 unhandled error during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+Error: x
+ ❯ src/utils/hooks/useValidateWebhook.ts:67:17
+
+This error originated in "src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "shows the connection error when the message fetch rejects". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  1 failed | 6 passed (7)
+      Tests  1 failed | 104 passed (105)
+     Errors  1 error
+   Start at  07:11:26
+   Duration  5.28s (transform 4.31s, setup 74ms, import 14.23s, tests 1.67s, environment 6.24s)
+
+vitest exit 1

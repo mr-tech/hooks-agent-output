@@ -1,0 +1,38 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5a-allow-close-not-reset  sha: 6c42032  label: m5a-allow-close-not-reset  test: JsonModalBody.menu-close-after-load  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py
+mutated m5a-allow-close-not-reset
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 2 files changed, 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5a-allow-close-not-reset
+
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.menu-close-after-load.test.tsx (3 tests | 1 failed) 178ms
+     × lets the menu close again after the Load is confirmed 39ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.menu-close-after-load.test.tsx > JsonModalBody — the menu may close once the Load confirmation resolves > lets the menu close again after the Load is confirmed
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/m/[id]/_components/__tests__/JsonModalBody.menu-close-after-load.test.tsx:79:34
+     77|
+     78|     expect(state.closed).toBe(true);
+     79|     expect(state.allowMenuClose).toBe(true);
+       |                                  ^
+     80|   });
+     81|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  07:42:35
+   Duration  1.78s (transform 248ms, setup 20ms, import 894ms, tests 178ms, environment 570ms)
+
+vitest exit 1

@@ -1,0 +1,35 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-hook-d29-hook-refusal-mapped-to-invalid  sha: 46a9cab  label: hook-d29-hook-refusal-mapped-to-invalid  test: useValidateWebhook.validation-effects  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-d29-table.py
+mutated d29-hook-refusal-mapped-to-invalid
+ .../src/utils/hooks/useValidateWebhook.ts          |  2 +-
+ 13 files changed, 37 insertions(+), 469 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-hook-d29-hook-refusal-mapped-to-invalid
+
+ ❯ |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx (21 tests | 1 failed) 45ms
+     × keeps Discord's own refusal text for a refused webhook url 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, fetch failures > keeps Discord's own refusal text for a refused webhook url
+AssertionError: expected 'Invalid URL' to be 'Unknown Webhook' // Object.is equality
+
+Expected: "Unknown Webhook"
+Received: "Invalid URL"
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:152:33
+    150|     await render(HOOK_URL_A, '');
+    151|     expect(result.webhook).toBeNull();
+    152|     expect(result.webhookError).toBe('Unknown Webhook');
+       |                                 ^
+    153|   });
+    154|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 20 passed (21)
+   Start at  07:35:42
+   Duration  1.32s (transform 157ms, setup 19ms, import 562ms, tests 45ms, environment 575ms)
+
+vitest exit 1

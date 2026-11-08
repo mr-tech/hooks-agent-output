@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-da24eb7-control-m5h  sha: da24eb7  label: control-m5h  test: page.invalid-data  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-da24eb7-control-m5h
+
+
+ Test Files  1 passed (1)
+      Tests  7 passed (7)
+   Start at  07:44:30
+   Duration  1.18s (transform 118ms, setup 19ms, import 431ms, tests 45ms, environment 569ms)
+
+vitest exit 0

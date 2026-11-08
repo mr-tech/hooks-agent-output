@@ -1,0 +1,40 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-1e12837-m4f-m4d-parse-untrimmed  sha: 1e12837  label: m4f-m4d-parse-untrimmed  test: page.send-in-flight WebhookMenu.url-and WebhookProvider.validation useValidateWebhook.validation constants.discord message.get-from-url redis.fetch-channel  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m4-table.py
+mutated m4d-parse-untrimmed
+ .../src/utils/parseMessageId.ts                    |   2 +-
+ 3 files changed, 1 insertion(+), 198 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-1e12837-m4f-m4d-parse-untrimmed
+
+ ❯ |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx (20 tests | 1 failed) 54ms
+     × trims surrounding whitespace before testing the id 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, message box input class > trims surrounding whitespace before testing the id
+AssertionError: expected [] to deeply equal [ Array(1) ]
+
+- Expected
++ Received
+
+- [
+-   "https://discord.com/api/webhooks/111/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/messages/123",
+- ]
++ []
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:125:30
+    123|     fetchMock.mockResolvedValue(jsonResponse(messageBody('m')));
+    124|     await render(HOOK_URL_A, '  123  ');
+    125|     expect(messageFetches()).toEqual([`${HOOK_URL_A}/messages/123`]);
+       |                              ^
+    126|   });
+    127| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 6 passed (7)
+      Tests  1 failed | 104 passed (105)
+   Start at  07:12:18
+   Duration  2.29s (transform 1.04s, setup 31ms, import 4.84s, tests 615ms, environment 3.06s)
+
+vitest exit 1

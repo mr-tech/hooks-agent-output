@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-1e12837-m4f-control  sha: 1e12837  label: m4f-control  test: page.send-in-flight WebhookMenu.url-and WebhookProvider.validation useValidateWebhook.validation constants.discord message.get-from-url redis.fetch-channel  mutator: none
+ .../results.json => dev/null}                      |   1 -
+ 2 files changed, 197 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dad059d-0010-4760-8ef1-ecf3d199c18a/scratchpad/exports/website-1e12837-m4f-control
+
+
+ Test Files  7 passed (7)
+      Tests  105 passed (105)
+   Start at  07:09:44
+   Duration  2.91s (transform 1.35s, setup 30ms, import 5.67s, tests 771ms, environment 3.40s)
+
+vitest exit 0

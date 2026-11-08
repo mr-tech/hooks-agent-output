@@ -1,0 +1,82 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/app/preview/__tests__/page.invalid-data.test.tsx (7 tests | 5 failed) 50ms
+     × shows one line of error text and no editor for text that is not JSON 6ms
+     × shows one line of error text and no editor for the JSON null 3ms
+     × shows one line of error text and no editor for a JSON number 7ms
+     × shows one line of error text and no editor for a JSON string 3ms
+     × shows one line of error text and no editor for a JSON array 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for text that is not JSON
+SyntaxError: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+ ❯ Page src/app/preview/page.tsx:22:48
+     20|         <MarkdownProvider>
+     21|           <DiscordMessageEditor
+     22|             message={makeEditable({ data: JSON.parse(query) } as ApiMe…
+       |                                                ^
+     23|             setMessage={() => {}}
+     24|             locale={locale}
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ beginWork node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18
+ ❯ runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+ ❯ workLoopSync node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41
+ ❯ renderRootSync node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17450:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for the JSON null
+TypeError: Cannot read properties of null (reading 'embeds')
+ ❯ makeEditable src/utils/index.ts:543:35
+    541| ): ActiveMessage {
+    542|   const casted = JSON.parse(JSON.stringify(message)) as ActiveMessage;
+    543|   for (const embed of casted.data.embeds ?? []) {
+       |                                   ^
+    544|     if (!embed._key) embed._key = genUuid();
+    545|     for (const field of embed.fields ?? []) {
+ ❯ Page src/app/preview/page.tsx:22:22
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ beginWork node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18
+ ❯ runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+ ❯ workLoopSync node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41
+ ❯ renderRootSync node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17450:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for a JSON number
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for a JSON string
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the data parameter > shows one line of error text and no editor for a JSON array
+AssertionError: expected <p data-testid="editor"></p> to be null
+
+- Expected:
+null
+
++ Received:
+<p
+  data-testid="editor"
+/>
+
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:51:56
+     49|     const el = await mountWith(data);
+     50|
+     51|     expect(el.querySelector('[data-testid="editor"]')).toBeNull();
+       |                                                        ^
+     52|     const shown = Array.from(el.querySelectorAll('*'))
+     53|       .filter((e) => e.children.length === 0 && e.textContent === 'Inv…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  5 failed | 2 passed (7)
+   Start at  07:37:06
+   Duration  1.25s (transform 128ms, setup 22ms, import 431ms, tests 50ms, environment 559ms)
+

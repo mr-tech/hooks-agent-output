@@ -1,0 +1,86 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5f-save-as-refills-only-at-mount  sha: 6c42032  label: m5f-save-as-refills-only-at-mount  test: SaveAsMenu.opens-with-current-values  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m5-table.py
+mutated m5f-save-as-refills-only-at-mount
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-m5f-save-as-refills-only-at-mount
+
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx (5 tests | 4 failed) 425ms
+     × proposes the renamed message's name when it was renamed while the dialog was closed 57ms
+     × proposes the message's server when it moved to one while the dialog was closed 49ms
+     × proposes the plain name for a message still named New Message 46ms
+     × drops a typed name when the dialog is closed and opened again 69ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx > SaveAsMenu, the name and server it opens with > proposes the renamed message's name when it was renamed while the dialog was closed
+AssertionError: expected 'First Copy' to be 'Renamed Copy' // Object.is equality
+
+Expected: "Renamed Copy"
+Received: "First Copy"
+
+ ❯ src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx:76:31
+     74|     render(true, messageOf('Renamed'));
+     75|
+     76|     expect(nameField().value).toBe('Renamed Copy');
+       |                               ^
+     77|   });
+     78|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx > SaveAsMenu, the name and server it opens with > proposes the message's server when it moved to one while the dialog was closed
+AssertionError: expected 'Save AsMessage Name(10 / 32)Save To(m…' to contain 'Guild Five'
+
+Expected: "Guild Five"
+Received: "Save AsMessage Name(10 / 32)Save To(max 50 per account / server)My AccountCancelSave"
+
+ ❯ src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx:85:39
+     83|     render(true, messageOf('First', '5'));
+     84|
+     85|     expect(document.body.textContent).toContain('Guild Five');
+       |                                       ^
+     86|   });
+     87|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx > SaveAsMenu, the name and server it opens with > proposes the plain name for a message still named New Message
+AssertionError: expected 'Old Copy' to be 'New Message' // Object.is equality
+
+Expected: "New Message"
+Received: "Old Copy"
+
+ ❯ src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx:94:31
+     92|     render(true, messageOf('New Message'));
+     93|
+     94|     expect(nameField().value).toBe('New Message');
+       |                               ^
+     95|   });
+     96|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx > SaveAsMenu, the name and server it opens with > drops a typed name when the dialog is closed and opened again
+AssertionError: expected 'Something typed' to be 'First Copy' // Object.is equality
+
+Expected: "First Copy"
+Received: "Something typed"
+
+ ❯ src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx:105:31
+    103|     render(true, messageOf('First'));
+    104|
+    105|     expect(nameField().value).toBe('First Copy');
+       |                               ^
+    106|   });
+    107| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 1 passed (5)
+   Start at  07:43:25
+   Duration  1.99s (transform 243ms, setup 19ms, import 814ms, tests 425ms, environment 599ms)
+
+vitest exit 1

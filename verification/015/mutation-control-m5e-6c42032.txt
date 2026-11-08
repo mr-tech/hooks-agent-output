@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-control-m5e  sha: 6c42032  label: control-m5e  test: formatMessageDate.same-day page.message-list Header.search-result-dates  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-6c42032-control-m5e
+
+
+ Test Files  3 passed (3)
+      Tests  9 passed (9)
+   Start at  07:42:22
+   Duration  1.81s (transform 341ms, setup 15ms, import 1.74s, tests 370ms, environment 1.20s)
+
+vitest exit 0

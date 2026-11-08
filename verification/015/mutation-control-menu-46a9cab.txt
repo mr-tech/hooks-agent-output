@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-control-menu  sha: 46a9cab  label: control-menu  test: WebhookMenu.failed-webhook-load  mutator: none
+ .../src/utils/hooks/useGuildDropdownItems.tsx      |  2 +-
+ 12 files changed, 36 insertions(+), 468 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1f0c73c4-1eac-479a-8153-1f08e26c667f/scratchpad/exp/website-46a9cab-control-menu
+
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  07:35:19
+   Duration  1.80s (transform 279ms, setup 20ms, import 972ms, tests 86ms, environment 595ms)
+
+vitest exit 0
