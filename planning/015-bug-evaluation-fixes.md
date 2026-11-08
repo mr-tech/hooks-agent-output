@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Revision 5 folds D19 and the last LOW findings. The critic and the architect approved rev 4; the critic's read of the rev-5 rows closes the critique. QA Phase 1 then reads this revision; implementation approval follows those gates."
-Revision: 5
+Status-Detail: "Revision 6 folds QA Phase 1's QAF-1 to QAF-5 and D20. Criterion text changed, so a new critique cycle reads it, with the architect's delta read and QA Phase 1's confirmation on this same revision. Implementation starts after all three."
+Revision: 6
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
 Lane: "standard — agent-output/README.md carries no small-lane section (grep -i small, 0 hits, 2026-11-08); the blast radius spans the save schema, a bot command's permissions and a production PM2 service, none a leaf"
@@ -33,7 +33,8 @@ Owed re-verdicts:
 | M8 (rewritten for D16–D18 and run 1) | rev 4 | critic, architect | approved (critic c1p2 `3398fc0`; architect `192ec29`) |
 | M1-a (widened to four sites) | rev 4 | critic, architect | approved (same) |
 | M6-l (iii)–(v) | rev 4 | critic, architect | approved (same) |
-| M8-a (2), M8-0 run 2, M9 (D19) | rev 5 | critic | open |
+| M8-a (2), M8-0 run 2, M9 (D19) | rev 5 | critic | approved (critique closed `dee418b`) |
+| M1-c clear-out cells; M1-d limit; M2 QAF-1 note; P3 idle cell; M8 E-1 and M8-c route | rev 6 | critic (new cycle), architect, qa | open |
 
 ## Changelog
 
@@ -46,6 +47,7 @@ Owed re-verdicts:
 | 2026-11-08T05:28 | 4 | planner (planner-hooks-015) | Folds critique `critiques/015-bug-evaluation-fixes-critique.md` cycle 1 pass 1 (`68308e8`): H-1, M-1 to M-4, L-1 to L-5 (L-2 is moot under D17), Q-2. Also folds the architect's findings (`b838a01`: AF-1 to AF-4), the rulings blocks 05:21Z, 05:24Z and 05:26Z (D16 to D18; D11 and D12 superseded), and M8-0 run 1 (`fe27690`, `1fc16f5`). Scope delta: M1-a widens to four `in` sites. M6-l gains its stored-`valid` residue (X-13), the no-live-sends constraint (X-14) and a home for the shared counter. M8 loses its preview leg, M8-0 becomes an agent read with run 1 done, and M8-a is bound to a verifying stop of the new code with a fixed log-line predicate. RK-6 and a Reading Order are added. Against the ask: 49 of 50 findings, unchanged. |
 | 2026-11-08T05:33 | 5 | planner (planner-hooks-015) | Folds D19 (rulings block 05:29Z, `fa693e0`: the verifying stop is devops' `prod.yml` re-run), critique cycle 1 pass 2 L-6 to L-9 (`3398fc0`), and architect AF-11 and AF-12 (`192ec29`). Scope delta: M8-a (2)'s cause moves from the owner's `pm2 reload` to a devops re-run, which is a second production deploy needing his approval. M8-0 run 2's reader is devops. Stop (1) is restated as a 12 s delay, not downtime. M1-a's route statement is corrected. D15 is brought current; X-15 carries the June–August gap. No criterion changes. Against the ask: 49 of 50 findings, unchanged. |
 | 2026-11-08T05:35 | R-2 | planner (planner-hooks-015) | Registered D20 from `steering/015-rulings.md` block "2026-11-08T05:33Z" (`d852da1`), plus a Planner batch row for the body text it releases. Scope delta: none, registration only. |
+| 2026-11-08T05:43 | 6 | planner (planner-hooks-015) | Folds QA Phase 1's batch QAF-1 to QAF-5 (`qa/015-bug-evaluation-fixes-qa.md`, `bf15750`; QA read rev 4) and the D20 Planner batch row. Scope delta: M1-c gains clear-out cells for a failed revoke and a missing account; P3 gains the idle-process cell; M8's local route carries entry condition E-1 (no credentials, no network, no CDN write); M2 names the transcribed-schema test it rewrites; M1-d and X-16 state the concurrency limit; M8-c runs locally with a browser under D20. Opens a new critique cycle (criterion text changed). Against the ask: 49 of 50 findings, unchanged. |
 
 ## Value Statement and Business Objective
 
@@ -170,13 +172,22 @@ together, so the gate's population is empty; a milestone the owner withholds fro
   limit): no producer inserts into `ScheduledMessages` (research F-1), so the fix has no observable effect in
   production.
 - **M1-c (F-3)** — the revoke request `removeUserSession` sends carries `token` set to the account's access token
-  for every session with one; a session with no access token sends no revoke request. The DB and Redis clear-out
-  still runs in both cases.
+  for every session with one; a session with no access token sends no revoke request.
+  - **Clear-out (QA QAF-3).** The DB and Redis clear-out runs for every session in the class:
+    - token present, with the revoke answering 2xx, answering non-2xx, or rejecting (a network failure);
+    - token absent;
+    - no account found.
+  - **Ordering.** A failed revoke never prevents sign-out. The token is read before the session's rows are
+    removed. At `7ce866b`, a rejected `fetch` aborts before the clear-out, and a missing account throws
+    `Expected to find account` (QA's read).
 - **M1-d (F-4, D5)** — the inputs are {existing message, new message} × {count < 1000, count = 1000} ×
   {user-scoped save, guild-scoped save}. The count is the owner's messages: the user's (`fk_users_id`) or the
   guild's (`fk_guilds_id`), per `upsertMessage`'s `isUserSelect(select)`. A new message is refused exactly when
   that count before the insert is ≥ 1000, with today's error text. An existing message is never refused by the
   cap.
+  - **Stated limit (QA QAF-4; X-16).** Concurrency is outside the property. `upsertMessage` counts, then inserts,
+    with no lock or constraint, so two concurrent saves at 999 can both pass. Fixing that needs a constraint or a
+    transaction, which is beyond F-4's comparator.
 - **M1-e (F-5)** — `userOrDiscordIdShape` accepts exactly `"0"` and strings of 17–23 decimal digits; every
   other string is refused (members: `"0abc"`, `"00"`, a 16-digit and a 24-digit string).
 - **M1-f (F-6)** — in the client branch of the `env.mjs` proxy, reading `NODE_ENV` is not refused; reading any
@@ -201,6 +212,10 @@ disposition X-9.
   `color: 0` saves; `discordResponseToMessage` keeps `color` whenever the response carries the field, 0
   included. Human-observable: pick black in the colour picker, save, reload — the embed is black. Walked on the
   locally served chain tip (§ Validation).
+  - **Standing-suite defect (QA QAF-1).** The existing describe "Embed Field Clearing" in
+    `src/utils/__tests__/bugFixCoverage.supplemental.test.ts` transcribes `embedShape` (Axiom E) and already
+    diverges from it. At M2 it imports the real `embedShape` from `~/server/api/utils/shapes`, keeping its
+    cases, and each case is shown red against a one-token mutation of the real schema.
 - **M2-b (F-13)** — the author-name error shows exactly when the name exceeds 256 characters (the save schema's
   bound, `MAX_EMBED_AUTHOR_NAME_LENGTH`).
 - **M2-c (F-14)** — `validateEmbedTitle`'s error names the title.
@@ -369,6 +384,12 @@ Host facts (steering's standing `hooks-pig` reads, rulings blocks 05:20Z–05:24
   - **P3, what it must not slow.** The process exits as soon as the drain completes, so the 10 s fallback is an
     upper bound, never a floor. A fork-mode reload is stop-then-start, so the production gap at each deploy is
     the drain time itself.
+    - **The idle cell (QA QAF-2).** A process that never created its pool launches no browser at stop: its
+      drain completes without one. At `471578f`, `getPool()` creates the pool on first call, and generic-pool
+      autostarts with `min = 2` (QA's read of 3.9.0). So today a drain of an idle process would first launch two
+      Chromiums.
+    - **Run 2.** M8-0 run 2 records whether the stopped process had served a request, so that the
+      drain-complete figure is read for what it measures.
   - **P4.** The stop handlers are registered no later than the `ready` message.
   - **Growth beyond the finding (critique L-5).** P3 and P4 go beyond F-31's statement. They are the analysis's
     V-4 and V-5.
@@ -411,8 +432,16 @@ Host facts (steering's standing `hooks-pig` reads, rulings blocks 05:20Z–05:24
 
 No automated coverage: the repo has no runner, and the chain declines to add one. Every branch above is
 therefore an operator-visible criterion. Where each is verified:
-- **Locally, no browser:** M8-b, M8-d, M8-e, and P1's two log lines and predicate (a `'shutdown'` message sent
-  to a locally started server).
+- **Entry condition for every local generator run (QA E-1, QAF-5).** The generator's real credentials and the
+  network are out of reach of any local run, because a well-formed `/generate` request reaches
+  `deleteMessagePreviewImages`, an S3 list-and-delete, even when the browser launch fails. So every local run:
+  - happens in an export without the tree's `.env`, under `unshare -rn`;
+  - sets every `CDN_*` variable, `PREVIEW_ENDPOINT` (a loopback URL) and `API_KEY` explicitly to probe values;
+  - never sources the shared tree's `.env`. `dotenv` does not override variables already set, and the export
+    carries no `.env`.
+  No probe of this chain may delete or write a CDN object.
+- **Locally, no browser:** M8-b, M8-d, M8-e, QAF-2's idle cell, and P1's two log lines and predicate (a
+  `'shutdown'` message sent to a locally started server).
   - **Install.** `npm ci --omit=optional` under `PUPPETEER_SKIP_DOWNLOAD=1`, into the generator tree
     (`node_modules` is git-ignored), so no browser is downloaded. A launch then fails, which is M8-d's forcing
     condition.
@@ -422,8 +451,8 @@ therefore an operator-visible criterion. Where each is verified:
   - **No pool before parsing.** That M8-b's path creates no pool before parsing is an unread inference
     (`getPool()` is called inside `generateImage` and `shutdown`, per `grep -n` at `471578f`). The implementer
     confirms it at M8.
-- **M8-c needs a real browser.** It runs locally only after a steering go under D2. Without that go, M8-c is
-  verified by code review and stated as a limit.
+- **M8-c needs a real browser.** It runs locally under E-1, with a browser available now that D20 has lifted the
+  Playwright constraint. Installing or upgrading Playwright is still not implied.
 - **On production:** P1–P3, through M8-0 run 2 on stop (2).
 
 ### M9 — Release (devops; owner steps named)
@@ -455,7 +484,7 @@ nullable or a possibly-empty list) is covered by compiling the query, as the res
 reachable here. preview-image-generator has no runner (M8 note). Read instruments per host: website — vitest on
 this box (exists); Vercel production — the owner's browser; Discord — the owner's client; the generator host —
 `claude-ro` file reads over `hooks-pig` (D17, M8-0); no pm2 command and no write; this box
-can run the M8-b/d/e probes once the generator's dependencies are installed (M8 note). Any agent browser use (UAT, QA) asks steering first (D2).
+can run the M8-b/d/e probes once the generator's dependencies are installed (M8 note). Agent browser use is open under D20.
 
 ## Validation
 
@@ -485,7 +514,7 @@ can run the M8-b/d/e probes once the generator's dependencies are installed (M8 
 - **RK-5** — a stop that ends in SIGKILL may leave Chromium behind.
   - Before PM2 7.x, PM2's SIGKILL took the whole process tree; at 7.1.2 it takes only the Node process (analysis
     § 1). So on 7.x, every stop that reaches SIGKILL may orphan Chromium processes. The analysis gives this
-    low-to-moderate confidence and did not run it, because of D2.
+    low-to-moderate confidence and did not run it, then under D2's constraint, which D20 has since lifted.
   - The host runs PM2 5.2.2 (rulings 05:20Z), whose SIGKILL takes the whole tree. So RK-5 does not arise at
     this host unless its PM2 is upgraded to 7.x. M8-a's P1–P3 remove the SIGKILL on the normal path.
   - Falsifier: Chromium processes without a live parent on the host after a stop. This is read by M8-0's
@@ -511,6 +540,7 @@ can run the M8-b/d/e probes once the generator's dependencies are installed (M8 
 | X-13 | Re-deriving stored `valid` for rows saved before M6-l | Stated limit (M6-l (iv)); a re-derivation over non-null rows would modify `backfillValid.ts` and is a scope change | `handoff/backfill-valid-guard-has-no-db-backed-instrument-2026-08-26.md` |
 | X-14 | `components-v2-emptiness…`, whose trigger fires on M6-l (a change to the send gate's predicate) | The emptiness class is outside the F-1–F-50 pool (D6); M6-l (v) carries its no-live-sends constraint | That handoff |
 | X-15 | The generator's 2026-06-15 → 2026-08-23 gap in `pm2.log` (analysis § M8-0 run 1) | Outside F-1–F-50 (D6); whether the generator was down for the whole gap is not established | Steering's FYI to the owner, rulings block 05:29Z (`fa693e0`) (critique L-8) |
+| X-16 | The message cap under concurrent saves | A constraint or a transaction is beyond F-4's comparator change (QA QAF-4) | Stated limit (M1-d) |
 
 Not triggered, re-read 2026-11-08 against every milestone including M6-l: `backfill-valid-guard…` (`backfillValid.ts`
 is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, `fix-v1-guild-messages-auth-post-deploy`,
@@ -542,4 +572,4 @@ is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, 
 
 | Item | Source row | Disposition |
 |---|---|---|
-| D2's steering-go wording at § M8 (M8-c), § Testing Strategy and RK-5 is released by D20 | D20 | Fold at the next planning pass, or before the implementer starts M8, whichever comes first |
+| D2's steering-go wording at § M8 (M8-c), § Testing Strategy and RK-5 is released by D20 | D20 | Discharged at rev 6 |
