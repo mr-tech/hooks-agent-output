@@ -1,0 +1,24 @@
+# release-move.js --dry-run, devops-hooks-015, 2026-11-08T2133Z
+## website master -> b96e364
+repo     /usr/local/bin/hooks/website
+ref      master
+target   b96e36497d55075ae15753f99ec4148bf4ea60e8
+remote   origin/master 7ce866b5c28191390964a863397ca481731a21ab
+local    master 7ce866b5c28191390964a863397ca481731a21ab
+untracked 0 path(s) left alone
+checks   ff-from-remote ok; sibling serving refs (none) on one line ok
+workflows none — /usr/local/bin/hooks/website/.github/workflows absent: a push to master triggers no GitHub Actions workflow in this repository
+DRY RUN: every check passed; nothing moved
+exit:0
+
+## preview-image-generator prod -> 8de2b53
+repo     /usr/local/bin/hooks/preview-image-generator
+ref      prod
+target   8de2b5337179623f7fbd82904221078c2930214a
+remote   origin/prod 471578fa2ee430368686b8e4a28ed61237bc3d3a
+local    prod 471578fa2ee430368686b8e4a28ed61237bc3d3a
+untracked 0 path(s) left alone
+checks   ff-from-remote ok; sibling serving refs (master) on one line ok
+workflows prod.yml: on push to prod → run: npm ci --omit=optional ; run: | ; run: npm run build ; run: |
+DRY RUN: every check passed; nothing moved
+exit:0

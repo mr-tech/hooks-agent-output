@@ -1,0 +1,24 @@
+start 2026-11-08T21:34:10Z node v24.14.0 npm 11.9.0
+
+added 453 packages, and audited 454 packages in 5s
+
+113 packages are looking for funding
+  run `npm fund` for details
+
+35 vulnerabilities (7 low, 8 moderate, 18 high, 2 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+npm ci exit 0
+
+> build
+> tsc -b && rimraf dist && cp -r build dist
+
+npm run build exit 0
+dist files: 8
+end 2026-11-08T21:34:18Z

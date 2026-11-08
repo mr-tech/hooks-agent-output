@@ -1,0 +1,17 @@
+date -u: 2026-11-08T21:35:42Z
+[a] error log lines: 110; mtime: 2026-11-08 17:27:00.943551936 +0000
+[b] D36 line count in error log: 0
+[c] D36 line count in out log: 0
+[d] out log lines: 180481; Server received: 0; Created instance: 339; POST /generate: 16771
+[e] pm2.log Stopping app lines (last 4):
+2023-08-22T01:57:05: PM2 log: Stopping app:server id:0
+2023-08-22T01:57:22: PM2 log: Stopping app:server id:0
+2024-06-15T10:15:43: PM2 log: Stopping app:hooks-image-preview-generator-prod id:0
+2026-06-15T10:02:36: PM2 log: Stopping app:hooks-image-preview-generator-prod id:0
+[f] pm2.log still-alive/SIGKILL lines (last 3):
+2024-06-15T10:15:48: PM2 log: App [hooks-image-preview-generator-prod:0] exited with code [0] via signal [SIGKILL]
+2026-06-15T10:02:41: PM2 log: Process with pid 1544 still alive after 5000ms, sending it SIGKILL now...
+2026-06-15T10:02:41: PM2 log: App [hooks-image-preview-generator-prod:0] exited with code [0] via signal [SIGKILL]
+[g] process:
+1071971 root     Sun Aug 23 04:18:19 2026 node /usr/local/bin/hooks-image-preview-generator/deployed/prod/dist/server.js
+[h] chromium with ppid 1 (not crashpad): 0
