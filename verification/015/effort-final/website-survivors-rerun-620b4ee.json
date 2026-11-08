@@ -1,0 +1,32 @@
+[
+ {
+  "id": "ef-header-other-bypasses-formatter",
+  "file": "src/app/message/_layout/Header.tsx",
+  "old": "{formatMessageDate(msg.updatedAt)}\n                            </div>\n                          </StyledLink>\n                        </li>\n                      );\n                    })}\n                  </NullableComponent>\n                  <NullableComponent show={matches.length + otherMatches.length === 0}",
+  "new": "{String(msg.updatedAt)}\n                            </div>\n                          </StyledLink>\n                        </li>\n                      );\n                    })}\n                  </NullableComponent>\n                  <NullableComponent show={matches.length + otherMatches.length === 0}"
+ },
+ {
+  "id": "ef-folder-list-drops-prefix",
+  "file": "src/app/message/f/[id]/page.tsx",
+  "old": "<div className=\"text-sm text-mute\">\n                        {`${orderProp === 'name' ? 'Last Modified: ' : ''}${formatMessageDate(orderProp === 'createdAt' ? msg.createdAt : msg.updatedAt, 'Today at ')}",
+  "new": "<div className=\"text-sm text-mute\">\n                        {`${orderProp === 'name' ? 'Last Modified: ' : ''}${formatMessageDate(orderProp === 'createdAt' ? msg.createdAt : msg.updatedAt)}"
+ },
+ {
+  "id": "ef-redis-wait-falsy-miss",
+  "file": "src/utils/redis/index.ts",
+  "old": "  if (cached) {\n    resolveDeferred(key, cached.item",
+  "new": "  if (cached?.item) {\n    resolveDeferred(key, cached.item"
+ },
+ {
+  "id": "ef-redis-wait-timeout-falsy-miss",
+  "file": "src/utils/redis/index.ts",
+  "old": "if (cached) resolveDeferred(key, cached.item",
+  "new": "if (cached?.item) resolveDeferred(key, cached.item"
+ },
+ {
+  "id": "ef-imageuploader-validation-bypassed",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "  if (!isValidImageUrl(url)) {",
+  "new": "  if (false) {"
+ }
+]
