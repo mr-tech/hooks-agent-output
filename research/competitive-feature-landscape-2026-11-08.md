@@ -2,7 +2,8 @@
 UUID: 6b1b833a
 Status: Active
 Status-Detail: >-
-  Landscape and scored feature list delivered (Findings F1–F7, Scored list S1–S24). Not Answered:
+  Landscape and scored feature list delivered (Findings F1–F9, Scored list S1–S28; F8/F9 from a
+  read-only pass over the Embed Generator Discord server). Not Answered:
   the value axis rests on competitor prevalence, not on Hooks.gg usage data (none exists in the
   tree — Gap G1), and two of the highest-value items (S11 interactive components via the bot, S23 a
   paid tier) turn on product-identity rulings only the owner can give (Open Questions Q1, Q2). Stays
@@ -17,6 +18,7 @@ Status-Detail: >-
 | When (UTC) | Who | What | Result |
 |---|---|---|---|
 | 2026-11-08T01:40 | researcher | Document created from five web sweeps, two reference clones and a read of the `website` tree at `7ce866b` | Status: Active |
+| 2026-11-08T01:52 | researcher | Owner granted the Discord test-account browser (*"You can use the discord account harness. The account is in the embeds.gg server."*); read Embed Generator's server read-only — `#changelogs`, `#suggestions`, `#feedback` — and added F8, F9, S26–S28, rescored S4/S9, closed G4, narrowed Q4 | Status: Active |
 
 ## Question
 
@@ -77,6 +79,16 @@ raise it: the owner himself opened roadmap work with this brief, and nothing her
   user, guild or message counts behind the value scores; no Discord server was read (no harness
   account in any relevant server — Q4); top.gg returned 403/429 to every helper, so no server
   counts for Hooks.gg or Discohook.
+- **Discord read (added 01:52Z).** The test account sits in one relevant server, listed in its
+  client as **Embed Generator** (guild `730045476459642900`) — the owner's "embeds.gg server". The
+  account is not in the Hooks.gg or Discohook servers. Read-only, by evaluating the page's DOM text
+  (message `innerText` + `<time datetime>`); nothing was typed, clicked into or sent and no
+  screenshot was taken. Captured: `#changelogs` **69 messages, 2022-06-07 → 2026-10-26** (complete:
+  scrolled until three passes added nothing); `#suggestions` forum **10 distinct posts** (the forum
+  list virtualises — a sample, **not** a census); `#feedback` **12 messages, 2026-04-05 →
+  2026-09-01** (complete). Counts are `len()` over the captured JSON. The raw captures were deleted
+  after reading because they carry third-party usernames; the quotes below are paraphrased or quoted
+  without names.
 - **Confidence labels** follow `analysis-methodology`: **Verified** (read from code or a fetched
   page), **Inference** (derived from documentation or pattern), **Hypothesis** (with disconfirming
   test). Ease and value scores are inferences by construction and say so.
@@ -156,7 +168,7 @@ columns carry the confidence of the F3 row they come from.
 | Share link to a message | ◐ ephemeral code via bot only | ✓ | ✓ (`/editor/share/:id`) | ? |
 | Scheduled send — one-off | ✗ UI (table + daily cron exist) | ✓ | ✓ free | ✓ (1 free) |
 | Scheduled send — recurring | ✗ UI (cron column exists) | ✓ ≥ 2 h interval | ✓ (count premium-gated) | ✓ |
-| Templates / gallery | ✗ (one canned intro) | ? | ? (helper unconfirmed) | ✓ marketplace |
+| Templates / gallery | ✗ (one canned intro) | ? | ✓ classic + V2 (2026-09-30, F8) | ✓ marketplace |
 | Variables / placeholders | ✗ | ✓ (flow variables) | ✓ (`{{ .Interaction.User.Mention }}`) | ? |
 | AI drafting | ✗ | ✗ | ✓ (few prompts/month free) | ✓ (Webhook Builder, EN/RU) |
 | JSON import / export | ✓ | ✓ | ✓ import (Discohook format) | ✓ + discord.js/py export |
@@ -200,6 +212,58 @@ peakbot). One search snippet suggested the top.gg listing points at `hook.gg` ra
 *"some parts of the Service are available only with a paid Subscription"* while no subscription
 exists in code — a prose/mechanism disagreement the owner may want to resolve either way.
 
+### F8 — Embed Generator is shipping fast, and toward our lane (Verified — its own `#changelogs`)
+
+Since 2026-09-21, dated by announcement:
+
+| Date | Shipped | Bearing on Hooks.gg |
+|---|---|---|
+| 2026-09-21 | **Components V2 shown in the message preview** (previously V2 was edited blind) | Their V2 preview is seven weeks old; ours *is* the editor (F5.1). |
+| 2026-09-21 | **Embed Links** with V2 — "fully customizable messages … share them with a link in any Discord server", no bot or permissions needed | Share links (S4) are now their headline feature. |
+| 2026-09-23 | Formatting controls for Text Display; markdown renderer fixes; failed requests shown, not silent | — |
+| 2026-09-25 | **Custom allowed mentions** (users / roles / everyone) | We have one all-or-nothing "Suppress Pings" toggle. |
+| 2026-09-25 | **Timezone for scheduled messages** | S1 must carry a timezone. |
+| 2026-09-29 | **AI assistant to free users: 5 prompts/month** (was Premium-only) | S14's competitor baseline is now free. |
+| 2026-09-30 | **Message templates** (classic and V2) on first open | S9. |
+| 2026-10-07 | **Version history for saved messages** (Premium) | New item S27. |
+| 2026-10-08 | **Scheduling overhaul**: real intervals, list of dates (≤100), schedule editor previewing the next sends, **calendar tab**, cron kept under "Advanced", error check on save | Raises the bar for S1/S2 well above a cron string. |
+| 2026-10-08 | Buttons can post to **another channel**; build button responses in the editor (Premium) | S11 family. |
+| 2026-10-26 | **Auto-publish** scheduled messages to announcement channels | New item S26 (it was a user suggestion first — F9). |
+
+Earlier history worth knowing: undo/redo (Premium, 2024-04-30), mention/role picker (2024-04-24),
+message variables (2024-04 → 2026-09, now "almost every field"), forum posts from schedules
+(2024-12-15), **Server Lifetime plan $99.99** (2024-11-28), Fluxer webhooks (2026-09-30). This closes
+G4: the reference clone (`8d64605`, 2025-11-13) predates everything in the table.
+
+### F9 — What Embed Generator's users ask for (Verified as text; a sample, not a census)
+
+From the `#suggestions` sample and `#feedback`. These are the closest thing this research has to
+user demand for this product category:
+
+- **Scheduled messages: auto-publish to announcement channels.** A user needed it to announce
+  events before they happen. It was shipped 2026-10-26.
+- **A button that posts to a different channel**, e.g. a staff channel. Tagged *done*; shipped
+  2026-10-08.
+- **V2 in shareable links.** Tagged *done*.
+- **Say why a role action failed** when the bot lacks permission or hierarchy. Open.
+- **Grey out servers the user can't access** in the server picker. Open.
+- **Server-saved messages reachable when a server fails to load.** Open, 11 reactions, the highest
+  count in the sample.
+- **The server list should refresh after the bot is invited.** Today the user has to log out and
+  back in.
+- **"Increasing … the visibility of the embed when creating [V2]"**, posted twice (April and June
+  2026), before their V2 preview shipped. This asks directly for what Hooks.gg's single tree already
+  does.
+- Praise: "no other bot gives the accessible saved messages option like this one", and the
+  formatting commands as a user-installed app.
+
+Two of these point at Hooks.gg's own surfaces (Hypothesis, confirm by reading):
+- **Server list refresh.** `session.user.guilds` comes from the session (`src/app/message/page.tsx`).
+  If it is filled only at sign-in, we have the same refresh gap (S28). Disconfirming test: invite the
+  bot to a new server while signed in and see whether `/message` lists it without signing out.
+- **Save version history.** We have no history behind `message.upsert`. The W-1 / D-005 rulings let
+  a user save a message in a bad state, so a history would give them a way back from one (S27).
+
 ## Scored feature list
 
 **How to read the scores.** *Ease* 5 = finish existing wiring or add one surface; 1 = a new
@@ -214,12 +278,12 @@ whether the item lives inside the single-tree editor (D-001) or beside it.
 | S1 | **Scheduled send, one-off** | Discohook, EG (free), WebhookStudio | `ScheduledMessages` table, `cron.ts` executor, read-side joins (F2) | 4 | 5 | beside (send page) | Needs a tRPC writer + a send-page control. **Granularity is daily** until the Vercel cron is made more frequent — plan tier decides (G2). `webhookUrl` is stored in plaintext on the row; a plan should weigh `src/utils/encryption.ts`. |
 | S2 | **Scheduled send, recurring** | Discohook (≥2 h), EG (premium count), Dyno automessage | `cron` column + `cron-parser` advance already in `cron.ts` | 3 | 4 | beside | Same cron-cadence dependency; needs a cron-expression UI (EG has `CronExpressionBuilder`) or a preset list. |
 | S3 | **Device uploads in V2 media gallery / thumbnail / file** | Discohook (explicit), EG | `ImageUploader` + base64 → `attachment://` already works for embeds (`sendWebhook.appendFile`) | 4 | 4 | inside | Extend `appendFile` walk into `components`; `File` component needs non-image MIME. Discord's 25 MB webhook limit applies. |
-| S4 | **Share link (read-only / copy-to-my-account)** | Discohook, EG | `ShareableLinks` table (F2); `/preview` route renders any message; Redis-code pattern | 4 | 4 | beside | A public page rendering the single tree in preview mode plus a "Copy to my messages" action; commented-out `expires`/`restrictions` columns show the owner already sketched the scope. |
+| S4 | **Share link (read-only / copy-to-my-account)** | Discohook, EG (V2 "Embed Links", their 2026-09-21 headline — F8) | `ShareableLinks` table (F2); `/preview` route renders any message; Redis-code pattern | 4 | 5 (was 4: rescored on F8/F9) | beside | A public page rendering the single tree in preview mode plus a "Copy to my messages" action; commented-out `expires`/`restrictions` columns show the owner already sketched the scope. |
 | S5 | **Webhook create / rename / delete in the UI** | Discohook, WebhookStudio | Read side exists (`/guilds/{id}/webhooks` via bot) | 3 | 3 | beside | Rename/avatar via the webhook token needs no new scope; **create/delete need the bot's `MANAGE_WEBHOOKS`** — invite scope check first (`INVITE_URL` in `src/constants`). |
 | S6 | **Import Discohook / Embed Generator formats** (JSON and share links) | EG ships a Discohook migration guide | JSON import with D17 disposition exists | 4 | 3 | beside | Acquisition lever against F7's zero footprint. Discohook backup JSON wraps `messages[].data`; map once. |
 | S7 | **Send to several webhooks / channels at once** | Discohook "Add Webhook" | `sendWebhook` takes one webhook | 4 | 3 | beside | Loop + per-target result; `recentWebhookId` becomes a list or stays "last". |
 | S8 | **Polls** | Webhook Builder, WebhookStudio | `poll` is in the webhook body (`RESTPostAPIWebhookWithTokenJSONBody`, discord-api-types `32975ae`); nothing here | 3 | 3 | inside | Neither major competitor confirmed — a possible differentiator. Needs preview rendering and a classic-only constraint (polls cannot combine with V2). |
-| S9 | **Templates / starter gallery** | WebhookStudio marketplace; EG "explore" (unconfirmed) | One canned intro (`copyIntroMessage.ts`), `PresetDialog.tsx` | 3 | 3 | beside | Curated set first (announcement, rules, welcome, patch notes); community gallery is a moderation commitment — owner call. |
+| S9 | **Templates / starter gallery** | WebhookStudio marketplace; EG templates, classic + V2 (2026-09-30 — F8) | One canned intro (`copyIntroMessage.ts`), `PresetDialog.tsx` | 3 | 4 (was 3: rescored on F8) | beside | Curated set first (announcement, rules, welcome, patch notes); community gallery is a moderation commitment — owner call. |
 | S10 | **Forum `applied_tags`** | none confirmed | `thread_name` supported; tags not | 4 | 2 | beside | Tag list comes with the forum channel the bot already lists. |
 | S11 | **Interactive components with actions** (non-link buttons, select menus → role toggle, reply, DM) | Discohook (free, flows), EG (10 action types) | Bot interaction endpoints exist (`interactions-edge`/`-server`) but handle 2 commands; link buttons only in editor | 1 | 5 | inside (editor) + new (bot) | **Webhooks cannot send interactive components — only an application can**, so this requires S12 and a bot-side action store/executor. Highest-value gap and the identity question (Q1). |
 | S12 | **Send as the bot into a channel** (no webhook) | Discohook, EG, Webhook Builder | Bot token present server-side; `getApi()` used for reads | 2 | 3 | beside | Prerequisite of S11; moves send server-side (today it is browser-issued — Runtime Flow 2), which also changes the error surface. Needs `SEND_MESSAGES` per channel and a permission check UI. |
@@ -236,12 +300,20 @@ whether the item lives inside the single-tree editor (D-001) or beside it.
 | S23 | **Paid tier** | Discohook $6, EG $4.99, WebhookStudio $2.99 | Terms promise one; nothing in code | 2 | — | across | Not scored for value: it is a monetisation decision (Q2), and competitors gate *limits* (saves, schedules, actions), not features. |
 | S24 | **Real-time collaborative editing** | none | Pusher staleness notice only | 1 | 2 | inside | W-6 rules this a new product decision; no competitor has it; listed to record that it was considered. |
 | S25 | **Welcome / leave triggers, reaction roles** | Discohook, Carl-bot, MEE6, Sapphire | none | 1 | 2 (for this identity) | new (bot) | General-bot territory; only coherent after Q1 answers "yes" to becoming a bot product. |
+| S26 | **Auto-publish to announcement channels** after send / scheduled send | EG (2026-10-26, user-requested — F9) | none | 4 | 3 | beside | `POST /channels/{id}/messages/{id}/crosspost` needs a bot with Manage Messages in that channel; a webhook cannot publish its own message. That is a small bot dependency, not the full S12. It pairs with S1. |
+| S27 | **Version history for saved messages** | EG (Premium, 2026-10-07) | none; `Messages` has one `data` column | 3 | 3 | beside | Needs a history table written on `upsert`, plus restore. The W-1/D-005 rulings allow bad-state saves, which makes undoing a save more valuable. It's an obvious paid-tier limit if Q2 says yes. |
+| S28 | **Refresh the server list without signing out** | EG users' complaint (F9) | `session.user.guilds` is read from the session | 4 | 3 | beside | **Hypothesis** that we share the gap (F9). Check that first. If it's real, this is a small fix to a first-run experience every new guild goes through. |
 
 **Reading the table as tiers** (ease × value, Inference):
 
-- **Tier A — finish what is wired (ease ≥ 4, value ≥ 4):** S1 scheduled one-off, S3 V2 uploads,
-  S4 share links, S16 guide/changelog/listing.
-- **Tier B — adjacent, inside the identity (ease 3–4, value 3–4):** S2 recurring schedule, S5
+- **Tier A — finish what is wired (ease ≥ 4, value ≥ 4):** S1 scheduled one-off (with a timezone —
+  F8), S3 V2 uploads, S4 share links, S16 guide/changelog/listing. S28 joins Tier A if its
+  Hypothesis is confirmed.
+- **Positioning note from F8/F9:** Embed Generator only began showing V2 in its preview on
+  2026-09-21, and its users asked for exactly that. The single-tree editor is the lead to put in
+  front of people (S16), and no item here should weaken it.
+- **Tier B — adjacent, inside the identity (ease 3–4, value 3–4):** S26 auto-publish, S27 version
+  history, S2 recurring schedule, S5
   webhook management, S6 competitor-format import, S7 multi-target send, S8 polls, S9 templates,
   S14 AI drafting (cost ruling), S17 undo/redo, S18 pickers.
 - **Tier C — owner rulings first:** S11 + S12 interactive components and bot sending (Q1), S23 paid
@@ -273,7 +345,7 @@ question.
 | Q1 | Does Hooks.gg stay "webhooks, no bot required", or does it become a bot that also sends — the precondition for S11/S12/S13/S25? | Product identity; the landing page's own promise | His ruling. Options the record supports: **(a) stay webhook-only** — Tier A + B only; **(b) bot-sending for interactive components, webhook default kept** — S12 then S11, architect consulted on the interaction store (the two endpoints exist); **(c) don't decide now** — Tier A proceeds either way. |
 | Q2 | Is a paid tier wanted, and if so gating what? | Monetisation; terms already promise one | His ruling. Competitor pattern (F3): limits, not features — saves (25/100), schedules, actions per component, upload size. |
 | Q3 | Is a recurring third-party API cost (AI drafting, S14) acceptable? | Spend | His ruling; EG caps it at a few prompts per server per month. |
-| Q4 | May the harness account read Discord servers for this research? | Outside the repo | **You:** add the harness account to (i) the Hooks.gg support server — `https://discord.gg/Yf7We6k2Nb` (`SUPPORT_LINK`, `src/constants/index.ts`), whose feedback channels are the only first-party source of user requests; (ii) Discohook's and Embed Generator's support servers — their announcement channels carry feature velocity the web sweeps could not date (I have no verified invite for either; both sites expose a `/discord` redirect that I did not follow). A follow-up researcher pass would read announcements and feature-request channels only. |
+| Q4 | Discord servers for this research — **partly answered 01:52Z**: the Embed Generator server was read (F8, F9) | Outside the repo | Still open: **You:** add the test account to (i) the **Hooks.gg support server**, `https://discord.gg/Yf7We6k2Nb` (`SUPPORT_LINK`, `src/constants/index.ts`). Its feedback channels are the only first-party source of our own users' requests, and they would re-rank Tier B. (ii) **Discohook's server**: I have no verified invite. Discohook's site exposes a `/discord` redirect I did not follow. The account is in neither server today (its guild list, read 01:50Z). |
 | Q5 | Does the top.gg listing point at `hook.gg`? | One click on his account; top.gg blocks the harness | **You:** open `https://top.gg/bot/1034527356381044828` and read the website field and server count. |
 | Q6 | Which Vercel plan runs the website (daily vs per-minute crons)? | Hosting account | **You:** read the project's plan in Vercel; or **Agent:** infer from a deploy log if one is in the record — none found. |
 
@@ -284,7 +356,7 @@ question.
 | G1 | Hooks.gg usage: users, guilds, messages, V2 share, sends/day, saves near the 1 000 cap | No telemetry; production DB read is gate-bound | **You:** run read-only counts on `Users`, `Guilds`, `Messages` (`valid`, `flags & 32768`, `updatedAt` by month) and hand the numbers back; or sanction a read-only pass | owner |
 | G2 | Vercel cron cadence available | Plan unknown | Q6 | owner |
 | G3 | Discohook Deluxe limits (unlabelled 10 vs 40 rows) and its server count | Site renders client-side; top.gg 429 | Q4 (announcements) or a manual read of `discohook.app/donate` | owner / researcher |
-| G4 | Embed Generator premium limits beyond the homepage; its 2025–26 changes (clone is 2025-11-13) | Premium page redirected to the App Directory | `git -C ../embed-generator fetch` and diff the clone's `EditorComponent*`/`ActionType*` against upstream — a researcher pass, read-only on a reference clone | researcher |
+| G4 | ~~Embed Generator's 2025–26 changes~~ **Resolved 01:52Z → F8** (its own `#changelogs`). Its monthly Premium limits beyond the homepage remain unconfirmed; the Lifetime price ($99.99) is now known | — | — | — |
 | G5 | Whether `SlateEditor` has any mention/channel picker (S18 is a Hypothesis) | Not read this run | Read `src/components/SlateEditor/index.tsx` (5.5 K) | researcher / planner |
 | G6 | Carl-bot / Dyno / Sapphire embed features | Official pages 403/empty | Low priority: they compete on bot features, not on the editor | — |
 
