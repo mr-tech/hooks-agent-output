@@ -1,9 +1,9 @@
 ---
 UUID: 84b2872f
 Status: Open
-Status-Detail: "Carries chain 015's three post-deploy rows (B-6, B-7, B-8) past the Stage 1 commit. Nothing is decided yet: the website and generator pushes have not been made. B-7 also carries QA's live-schema Assumption Not Checked; B-8 also carries B-15's PM2 error-log signal (B-15 is superseded by B-8)."
+Status-Detail: "Carries chain 015's post-deploy rows past the Stage 1 commit. B-8 EXECUTED PASS 2026-11-08T22:05Z (deployment/015-bug-evaluation-fixes-deployment.md). B-6 and B-7 are open: the website deployed on the push at 21:38:22Z (b96e364); B-6 waits on the owner's push-commands, B-7 on a sanctioned production sign-in. B-7 also carries QA's live-schema Assumption Not Checked."
 Owning-Stage: uat for B-6 and B-7 (the owner is the fallback subject); devops for B-8 (its reader, in the same session as the prod.yml re-run)
-Review-Trigger: B-6 and B-7 - when Vercel reports the production deployment of the chain-015 website master push as live; B-8 - when the prod.yml re-run (workflow_dispatch) has completed and the generator's pm2.log shows the app online after it
+Review-Trigger: B-6 - when the owner reports push-commands run after the chain-015 website release; B-7 - when the owner sanctions a production sign-in of the second test account (or runs the list check himself)
 ---
 
 # Post-deploy checks: chain 015 (bug-evaluation fixes)
@@ -42,6 +42,12 @@ Chain 015 ships website (Vercel, on a push to `master`) and preview-image-genera
 - **Operator signal (B-15, superseded by this limb).** The line above in the PM2 error log means the pool's failure handler is detached. From then on a Chromium launch failure leaves requests hanging and floods that log (measured locally at about 36,000 lines/s on Node 24 with no browser binary, CR-34; the rate on the host is unmeasured).
 - **Failure mode.** The drain never runs and deploys still kill in-flight previews; or, for the D36 limb, F-34's hang returns after one log line. A non-zero D36 count is routed to the planner as a production defect; the release consequence is devops's to establish.
 
+## Post-release falsifiers from the plan's Risks (carried here; no register row)
+
+- **RK-4** (M7-a's `push-commands` republishes every command, not only `get_message`). Falsifier: a command's definition differing after the push. Reader: the owner, who runs `push-commands`; instrument: his Discord client's command list for a changed definition, compared before and after. Rides B-6's `push-commands` act.
+- **RK-2** (M2 widens what saves: any consumer reading stored `color` or `footer.text` sees new values; statbot and chain 012's `valid` column are the named ones). Falsifier: a consumer refusing `color: 0` or a 2048-character footer. Reader: whoever next reports a statbot or `valid`-column failure on such a message; no instrument was named by the plan and none is invented here. It stays a stated residue with this record as its carrier.
+- RK-1, RK-3, RK-5 and RK-7 were decided before or at the release (UAT B-5, run 2's `online` and Chromium reads, QA's RK-7 scan); RK-6 is a standing prediction about how an M8 observation is read, discharged by run 2's anchoring on stop (2).
+
 ## Evidence
 
 - Register: `qa/015-bug-evaluation-fixes-qa.md` § Blocking-condition register, rows B-6, B-7, B-8 (with their reconciliations to rev 28); UAT copy: `uat/015-bug-evaluation-fixes-uat.md` § Blocking-condition register, including B-15 SUPERSEDED.
@@ -57,3 +63,4 @@ devops Stage 1, chain 015. The raising document is `deployment/015-bug-evaluatio
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-08T21:29 | devops-hooks-015 (Stage 1) | Created at the Stage 1 commit, carrying B-6, B-7 (with QA's live-schema residual) and B-8 (with B-15's signal) from the chain register in full. |
+| 2026-11-08T22:06 | devops-hooks-015 (Stage 2) | B-8 EXECUTED, PASS at stop (2) 22:04:49Z: one `Server received`, `Drain complete in 1ms`, exit 0 s via SIGINT, no `still alive`, D36 count 0 in the error and out logs (captures `verification/015/m8-0-run2-2026-11-08T2205Z.txt`, `devops-2c-b8-d36-count-2026-11-08T2205Z.txt`). Drain of an in-flight render not observed (idle process). B-6 and B-7 stay open. |

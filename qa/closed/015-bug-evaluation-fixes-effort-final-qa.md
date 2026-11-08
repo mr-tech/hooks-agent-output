@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Verified-At: "b96e364,8de2b53 — repos=website,preview-image-generator; effort-final Phase 2. The production diffs 7ce866b..c5303ca (website) and 471578f..8de2b53 (generator) were swept at those tips in git-archive exports under unshare -rn. Website b96e364 is c5303ca plus three test-only rounds (620b4ee, 2b40dc5..b96e364; 0 production paths), where the survivors were re-run and the suite ran"
-Status: Committed
-Status-Detail: "Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53); the verdict recorded in the body stands at its own Verified-At. Earlier detail is in the body and changelog."
+Status: Released
+Status-Detail: "Released with chain 015 at website b96e364 and preview-image-generator 8de2b53, the commits this release-tip record verified (QA Complete, PASS; suite 1130/1130). Release record: deployment/closed/015-bug-evaluation-fixes-deployment.md."
 Phase: 2
 ---
 
@@ -25,6 +25,7 @@ Phase: 2
 | 2026-11-08T14:24 | steering-hooks-015 (owner ruling, rulings block 14:18Z, `bab96e0`) | The plumbing-class sweep | **PASS withdrawn; QA Failed.** 13 plumbing mutants at `620b4ee`: 10 killed, 3 survived. QAF-41 and QAF-42 raised (MEDIUM, test-only); 1 survivor is outside the sweep scope. The method failure is recorded under the verdict. |
 | 2026-11-08T14:42 | code-reviewer-hooks-015 (website `b96e364` APPROVED, test-only, `c878f4a`); steering-hooks-015 | Survivor re-run after the QAF-41/42 fix | **PASS; QA Complete** at website `b96e364`. 2 of 2 survivors KILLED, suite 1130/1130 with exit 0, typecheck 0. Code review's dialect premise is checked by execution and holds. QAF-41 and QAF-42 RESOLVED. |
 | 2026-11-08T21:31 | devops-hooks-015 | Document closed | Status: Committed (was QA Complete). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
+| 2026-11-08T22:11 | devops-hooks-015 | Release-tip record closed | Status: Released (was Committed). The pushed commits equal this record's Verified-At commits (website master b96e364, generator prod 8de2b53). |
 
 ## Scope and criteria assessed
 

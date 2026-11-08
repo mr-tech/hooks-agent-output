@@ -2,8 +2,8 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Status: Committed
-Status-Detail: "Committed on chain/015-bug-evaluation-fixes (website b96e364 and preview-image-generator 8de2b53), not pushed and not merged. UAT-approved (uat f91b266) and QA Complete at those SHAs; release waits on the owner's approval of the release itself (deployment/015-bug-evaluation-fixes-deployment.md). Post-deploy rows B-6, B-7 and B-8 ride handoff/bug-evaluation-fixes-post-deploy-2026-11-08.md; RK-8 rides handoff/preview-image-generator-generic-pool-private-field-2026-11-08.md."
+Status: Released
+Status-Detail: "Released 2026-11-08: website master b96e364 (pushed 21:38:22Z) and preview-image-generator prod 8de2b53 (pushed 21:38:42Z, deployed 22:02Z, re-run 22:04:49Z). Record: deployment/closed/015-bug-evaluation-fixes-deployment.md. Post-deploy rows B-6 and B-7 ride handoff/bug-evaluation-fixes-post-deploy-2026-11-08.md; B-8 EXECUTED PASS at run 2. RK-8 rides handoff/preview-image-generator-generic-pool-private-field-2026-11-08.md; eight unclosed assumptions ride handoff/bug-evaluation-fixes-unclosed-assumptions-2026-11-08.md."
 Revision: 29
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
@@ -166,6 +166,7 @@ Owed re-verdicts:
 | 2026-11-08T21:15 | R-30 | planner (planner-hooks-015) | Recorded UAT's D40 live check and minted the dialog-fault handoff. Their words are in `handoff/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md` and `verification/015/uat/hooksgg-upload-fresh-load.js`. Scope delta: none, registration only. |
 | 2026-11-08T21:26 | uat | uat (uat-hooks-015) | Sixth UAT walk (`uat/015-bug-evaluation-fixes-uat.md`, f91b266). B-9, B-10 and the B-11 dialog leg EXECUTED PASS by the D39 route. No pre-release condition remains; the decision is APPROVED FOR RELEASE. Local stack cleaned up. Plan Status unmoved (UAT Approved). |
 | 2026-11-08T21:31 | 29 | devops-hooks-015 | Document closed. Status: Committed (was UAT Approved). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
+| 2026-11-08T22:11 | 29 | devops-hooks-015 | Phase 2D. Status: Released (was Committed). Both serving refs moved and the generator deployed; run 2 passed B-8. See deployment/closed/015-bug-evaluation-fixes-deployment.md. |
 
 ## Value Statement and Business Objective
 

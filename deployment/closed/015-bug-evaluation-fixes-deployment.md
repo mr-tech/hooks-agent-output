@@ -2,8 +2,8 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Status: Active
-Status-Detail: "Owner approved the release 2026-11-08T21:38Z. Pushed: website master b96e364 (21:38:22Z) and preview-image-generator prod 8de2b53 (21:38:42Z). Phase 2C is not finished: the generator deployed at 22:02Z (stop (1) read: SIGKILL at 12000 ms, new pid 2502940) after the owner started the runner; the D19 prod.yml re-run is held for its dispatch route (gh cannot reach the repo). Phase 2D has not run."
+Status: Released
+Status-Detail: "Released 2026-11-08: website master b96e364 (pushed 21:38:22Z), preview-image-generator prod 8de2b53 (pushed 21:38:42Z, deployed 22:02Z, re-run 22:04:49Z). Owner-authorized (21:38Z). B-8 EXECUTED PASS; B-6 and B-7 are post-deploy and ride handoff/bug-evaluation-fixes-post-deploy-2026-11-08.md."
 ---
 
 # Deployment Record: Plan 015 — Bug-evaluation fixes
@@ -28,6 +28,7 @@ Not assigned. Neither repository carries a version artefact; the identifier is t
 ## Repositories and SHAs: committed state (Stage 1)
 
 | Repository | Chain branch | Tip | Base | Commits | Worktree |
+| 2026-11-08T22:11 | devops-hooks-015 (Stage 2) | Phase 2D | Status: Released (was Active). Release executed, run 2 read, plan and release-tip QA record Released, obligations lodged, forward items carried. Moved to closed/. |
 |---|---|---|---|---|---|
 | website | `chain/015-bug-evaluation-fixes` | `b96e364` (2026-11-08T14:35:08Z) | `7ce866b` = `origin/master` | 57 | clean (`git status --porcelain`, 0 lines) |
 | preview-image-generator | `chain/015-bug-evaluation-fixes` | `8de2b53` (2026-11-08T09:40:15Z) | `471578f` = `origin/prod` | 4 | clean (0 lines) |
@@ -181,3 +182,104 @@ The generator's deploy ran after the owner's statement in steering's session, "r
 The 24-minute gap between the push and the deploy is the runner not running, which the owner then started; it is not carried as an open check. Nothing about it changes the pushed SHA.
 
 **State now.** Stop (2) (the D19 `prod.yml` re-run) has not happened. Its dispatch route is with the owner through steering (UI dispatch, or a credential for this session). Run 2 reads with `pig-host-read.sh` at f616d83 after it.
+
+### Stop (2), M8-0 run 2 and B-8 (executed 2026-11-08T22:05Z)
+
+The owner dispatched `prod.yml` on `prod` in the GitHub UI ("it's ran", relayed by steering; the D19 route he chose). The dispatch is his act; the approval it needed was his (21:38Z). Run 2 used the code-reviewed script `verification/015/pig-host-read.sh` at agent-output `f616d83` (code review f83fb09; identical to HEAD at run time, `git diff --quiet f616d83 HEAD -- <path>`), as `claude-ro` over `hooks-pig`, reads only. Captures: `verification/015/m8-0-run2-2026-11-08T2205Z.txt` and `verification/015/devops-2c-b8-d36-count-2026-11-08T2205Z.txt`.
+
+| B-8 prediction (QA register, rev 28 form) | Read |
+|---|---|
+| Exactly one `Server received` line naming the trigger on stop (2) | 1: `2026-11-08T22:04:49.988Z Server received shutdown message. Closing server.` (span 3) |
+| The drain-complete line | `22:04:49.989Z Drain complete in 1ms.`; `Server closed.` follows |
+| Exit before 12000 ms; no `still alive` and no SIGKILL for that stop | exit 0 s after `Stopping app` (22:04:49, +/-1 s), `exited with code [0] via signal [SIGINT]`; the `still alive` / SIGKILL list for the span is empty |
+| RK-3: app `online` after the re-run | `online` 22:04:51; new pid 2503931, started Sun Nov 8 22:04:49 2026 |
+| RK-5: no Chromium with ppid 1 other than `chrome_crashpad` | count 0 (and 0 Chromium processes at all) |
+| D36 limb: `grep -cF 'generic-pool no longer exposes _waitingClientsQueue.dequeue'` over the whole PM2 error log, predicted 0 | **0** in the error log (readable; 110 lines; mtime 2026-11-08T17:27:00Z, unchanged by either deploy) and 0 in the out log, read at 22:05:50Z, after two starts of the M8 build |
+| Stop (1) (expected, not a refutation) | span 2: `still alive after 12000ms`, SIGKILL, 12 s (+/-1 s), no `Server received` (the old process had no handler) |
+
+**Checks code review asked for.** [2] and [3] print `+0000` mtimes (D23's UTC assumption holds as read on this host). [4]'s prod `Stopping app` count is 4: the push's `startOrReload` did write a `Stopping app` line (22:02:25), so stop (1) exists and code review's Assumption Not Checked is closed here. [2]'s extract shows `kill_timeout` 12000 and `shutdown_with_message` true.
+
+**What stop (2) does not show.** Span 3 holds 0 `Created instance` and 0 `POST /generate` lines: the process stopped (pid 2502940, up 2 minutes) had served no request and created no pool. So the 1 ms drain-complete figure is an idle drain. The drain of an in-flight render is not observed; that is the plan's P3 idle cell, a stated limit of this read, and the QA register's reading rule for the figure. B-8 as written (one `Server received`, one drain-complete line, exit under 12000 ms, no `still alive`, plus the D36 limb) is met: **EXECUTED, PASS**.
+
+## Phase 2D: Post-Release (devops-hooks-015, 2026-11-08)
+
+### Release metadata
+
+- **Release identifier:** the SHA on each serving ref: website `master` `b96e36497d55075ae15753f99ec4148bf4ea60e8`; preview-image-generator `prod` `8de2b5337179623f7fbd82904221078c2930214a`. No tag, no version (neither package carries one). Plan 015 is the only included plan.
+- **Environment:** production. **Authorizer:** the owner (selection in this session, 2026-11-08T21:38Z, release and D19); the `prod.yml` dispatch was his own act in the GitHub UI.
+- **Timestamps:** website pushed 21:38:22Z; generator pushed 21:38:42Z; generator deployed 22:02:25Z to 22:02:38Z (stop (1)) after the owner started the runner; re-run stop (2) 22:04:49Z to 22:04:51Z.
+- **Plan Status:** `Released` (planning/closed/015-bug-evaluation-fixes.md). **Release-tip QA record:** `qa/closed/015-bug-evaluation-fixes-effort-final-qa.md`, `Released`.
+
+### Deployed reconciled against verified, per repository
+
+| Repository | Deployed ref and commit | Verdict SHA | Same? |
+|---|---|---|---|
+| website | `master` = `b96e364` (`git ls-remote origin refs/heads/master` at 21:38:29Z; the pushed commit, read from local git, standing as the serving commit on the push) | `Verified-At` `b96e364` (QA effort-final, UAT, code review) | **Yes, identical.** No diff owed. |
+| preview-image-generator | `prod` = `8de2b53` (`ls-remote` at 21:38:52Z) | `Verified-At` `8de2b53` | **Yes, identical.** No diff owed. |
+
+For the generator, the tree on the host is `deployed/prod`, which the workflow copies from its checkout. It is read through its effect (server.js and the ecosystem file replaced at 22:02:24Z, `kill_timeout` 12000, the M8 drain lines at stop (2)), not by hashing the host copy. The Vercel build of website `master` is not read; the push is the evidence (devops.md, "Deploy evidence").
+
+### Verify success
+
+- Deploy evidence: the two pushes; for the generator also the owner's "runner started. deploy complete" and the host reads above. Consumers: website's `project-utils` pin is `749606d`, equal to project-utils `master`, and unchanged by the chain. No `fix-` chain is in this release (`grep -l '^Origin: fix-'` over `implementation/` returns none), so no fix branch is merged or deleted. The chain branches `chain/015-bug-evaluation-fixes` in both repos equal their serving refs; they are left in place for the owner's decision.
+- Errors: the generator's PM2 error log is unchanged since 17:27:00Z (110 lines); the D36 line count is 0.
+
+### Release notes
+
+The repository carries no changelog file, so the notes live here (UAT's Key Changes, with the one conditional line resolved as UAT-6 left it):
+- Messages over 40 components can be built, but show "Message has N components; the limit is 40." and cannot be sent.
+- Bad `/preview` links show "Invalid message data." instead of crashing.
+- Multi-line code blocks render as blocks; empty embeds are no longer drawn.
+- Black embeds keep their colour. The embed footer limit is 2048 and the author name limit is 256.
+- The image URL check accepts .jpeg, .webp, upper case and query strings, and refuses .avif and look-alikes.
+- The JSON dialog closes on Esc and outside click after a Load.
+- discordapp.com message links load.
+- Users who administer no server can open their message list; moderators with Manage Server get *Get Message* after `push-commands`. **Conditional line (UAT-6):** at base, such a user was shown a phantom "AAAA…" server; whether production showed it is unestablished, and B-7 reads it. If production showed it, its disappearance is a user-visible change.
+- The preview generator drains in-flight renders before a stop (observed at stop (2), idle).
+- Operator signal: the line `generic-pool no longer exposes _waitingClientsQueue.dequeue` in the generator's PM2 error log means the pool's failure handler is detached (RK-8).
+
+### Architecture and roadmap obligations
+
+Lodged in the record's `INBOX.md` (devops-hooks-015 entries of 2026-11-08): the two `architecture/` lines this chain touches (`system-architecture.md` § Components, preview-image-generator, the drain line; `preview-image-generator.md` P-3), routed to the architect with the stop (2) evidence; the roadmap obligation (no roadmap exists; no epic criterion moves; released state recorded); and the closing routings below.
+
+### The chain's documents, by frontmatter ID 015 (`node tools/check-repo.js` population)
+
+| Kind | Documents | Terminal token or reason it stays open |
+|---|---|---|
+| planning | `015-bug-evaluation-fixes` | `Released` |
+| critiques | cycles 1 to 8 | `Resolved` (in `closed/`) |
+| critiques | cycle 9 | `Open`. Its stated closing condition (L-C9-3 carries a Planner batch row or lands) is met by the plan's row "Discharged"; routed to the critic (INBOX) |
+| implementation | m0, m1, m1-m2-qa-findings, m2, m4, m5, m6, m7, m8, qaf34-qaf35-cr26 | `Committed` (in `closed/`) |
+| code-review | `015-bug-evaluation-fixes-code-review` | `Committed` |
+| qa | effort-final | `Released` |
+| qa | main (Phase 1), m0, m1, m1-m2-qa-findings, m2, m4, m5, m6, m7, m8, qaf34-qaf35-cr26 | `Committed` |
+| uat | `015-bug-evaluation-fixes-uat` | `Committed` |
+| analysis | `...-analysis` (M8-0), `...-upload-dialog-analysis` (D39) | `Active`, questions answered; routed to the analyst (INBOX) |
+| architecture | `015-bug-evaluation-fixes-architecture-findings` | `Active`; routed to the architect (INBOX); never closed by devops |
+| security | `015-preview-image-generator-security-audit` | `Active`. Its stated closing condition ("devops records the prod push of a SHA this review covers") is met by § Release Execution: prod 471578f → 8de2b53, the reviewed tip; routed to security (INBOX) |
+| deployment | this record | `Released` |
+
+### Forward items beyond the register (step 5c)
+
+Found by instrument over the chain's documents: `grep -c 'Assumption Not Checked'` returns matches in 25 of them, and a read-only helper classified the 49 distinct items; the helper's CLOSED classifications were not all re-read (see the handoff). Each remaining item has a carrier:
+
+| Item | Carrier |
+|---|---|
+| B-6 (Get Message), B-7 (production list; QA's live-schema Assumption Not Checked; the `NEXT_PUBLIC_CDN_PORT` observation), RK-2 and RK-4 falsifiers | `handoff/bug-evaluation-fixes-post-deploy-2026-11-08.md` (B-8 closed there: EXECUTED PASS) |
+| RK-8 (generic-pool private field), CR-39, AF-32, L-C9-4, QA's `b21c7b5` item, CR-33/CR-34 residues | `handoff/preview-image-generator-generic-pool-private-field-2026-11-08.md` |
+| Eight Assumption Not Checked items no document closed | `handoff/bug-evaluation-fixes-unclosed-assumptions-2026-11-08.md` |
+| The plan's Planner-batch row for the D39 analysis (Open) | `handoff/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md` |
+| Plan Exclusions X-1 to X-26 | each row's own carrier named in the plan's Exclusions table (stated limits or handoffs; the handoffs it cites all exist and are Open, read at Stage 1) |
+| Host posture H-001 to M-002 | `handoff/preview-image-generator-host-security-posture-2026-11-08.md` |
+| The plaintext API key in the workflow files | `handoff/preview-image-generator-api-key-in-workflow-files-2026-11-08.md` |
+| QA's plumbing-sweep widening (the owner's word needed) | held in `qa/closed/015-bug-evaluation-fixes-effort-final-qa.md`; no run is owed without his word |
+| The CR-38 screen-reader observation | a stated limit in the UAT document (no screen reader on this machine); no carrier beyond that document |
+
+Nothing is written here as "closed by this work" that its target record does not carry.
+
+### Post-Release Status
+
+- **Status:** Released. website live on the push (Vercel; the build is not read); generator deployed 22:02Z and re-run 22:04:49Z, B-8 PASS.
+- **Known issues:** B-6 and B-7 are post-deploy and open in the handoff above (the owner's `push-commands`; a sanctioned production sign-in of the second test account). The Upload Message dialog does not open on a fresh load in production (pre-existing, 2023 code, not this chain's; handoff above). The generator deployed 24 minutes after the push because the self-hosted runner was not running until the owner started it. The drain of an in-flight render is unobserved (stop (2) was idle).
+- **Rollback plan:** website: a revert commit pushed through `release-move.js` (the reverse patch applies cleanly, exit 0), or Vercel's promote of the previous production deployment (the owner's console, not run). Generator: a revert pushed to `prod` and the runner running; that is another deploy with another stop. Both re-derived at Phase 2A.
+- **Next actions:** the owner's `push-commands`, F-2 check and M7-a Discord check; B-7's production sign-in sanction. Each has its carrier above.
