@@ -20,6 +20,7 @@ Phase: 2
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-08T06:52 | code-reviewer-hooks-015 → qa-hooks-015 (message) | QA Phase 2 for M2 at website `6001f7f` | Phase 2, milestone-scoped (M2). The stage start was re-derived from `7976a9a`. Verdict PASS. QAF-19 and QAF-20 (LOW) go to the implementer. Status → QA Complete (M2 scope; plan Status left alone). The plan moved to rev 16 during the pass. The diff `c971506..565e240` has no hunk in § M2, so the verdict names rev 16. **Process disclosure:** that re-key used a `python3` in-place replace on this document (3 anchored replacements, two of them with `count == 1` asserted), not the edit tools or `record-edit.js`, which breaks the record-writing rule. |
+| 2026-11-08T10:32 | code-reviewer-hooks-015 (Round 2/3 sub-entry, `3540028`); steering-hooks-015 (brief) | Re-run for QAF-20 at website `4f9ed85` | QAF-20 RESOLVED. Verified in `qa/015-bug-evaluation-fixes-m1-m2-qa-findings-qa.md`. This document's verdict and `Verified-At` are unchanged. |
 
 ## Scope and criteria assessed
 
@@ -146,7 +147,7 @@ The plan says ingress keeps `color` "whenever the response carries the field", a
 
 ## Findings
 
-QAF-20 LOW Phase 2 — `src/utils/__tests__/bugFixCoverage.supplemental.test.ts`, touched at `7befedb`, still holds cases that the conventions' class table dispositions. CR-10 names the first two classes; this pass adds a third. Duplicates: CR-10 in code-review/015-bug-evaluation-fixes-code-review.md
+QAF-20 LOW Phase 2 RESOLVED (2026-11-08T10:30: website `4f9ed85`; steps 1 to 5 delivered, the `'0000'` literal red under the discriminator-parse mutant, `qa/015-bug-evaluation-fixes-m1-m2-qa-findings-qa.md`) — `src/utils/__tests__/bugFixCoverage.supplemental.test.ts`, touched at `7befedb`, still holds cases that the conventions' class table dispositions. CR-10 names the first two classes; this pass adds a third. Duplicates: CR-10 in code-review/015-bug-evaluation-fixes-code-review.md
 - **Zero-production-import transcription.** describe "useParsePathname Regex Correctness" has 7 cases over local copies of the hook's regexes. It imports nothing from `src/utils/hooks`, and no other test covers `useParsePathname` (`git grep -l useParsePathname` over test paths: this file only).
 - **Cannot fail.** "formatKey matches clearUser key pattern …", twice: each compares `formatKey(k, x)` with itself.
 - **Self-referential oracle (added here).** "handles discriminator as string \"0000\"": the expected value is `constructImageUrl(…, 0)`, the function under test.

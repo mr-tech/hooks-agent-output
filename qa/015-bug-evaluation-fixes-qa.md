@@ -4,7 +4,7 @@ Origin: 015
 UUID: 861e5f61
 Verified-At: "6001f7f,471578f — repos=website,preview-image-generator; Phase 1 premise reads only (no verdict on code): the base 7ce866b, and the chain tip 6001f7f for the rev 12/13 delta"
 Status: Awaiting Implementation
-Status-Detail: "Phase 1 keyed to plan rev 27 (18d361c): approved, no new finding; QAF-33 RESOLVED by the D35 re-put (arrays a stated limit, X-23); M8-d (d) cells owed with the CR-27 round. Phase 2 at website 476c633 and generator 6c613a5 in progress (Resumption State). Register B-1 to B-14 (B-3 withdrawn; B-4 gains a /preview leg). Phase 2, each in its own document: M0 (037935d) and M2 (6001f7f) PASS; M1, M4 and M5-a to M5-g PASS at 24ac49f; M6-b to M6-l QA Failed at 24ac49f on suite coverage (QAF-30, QAF-31 MEDIUM)."
+Status-Detail: "Phase 1 keyed to plan rev 27 (18d361c), approved. Register B-1 to B-14 (B-3 withdrawn; B-4 gains a /preview leg). Phase 2, each pass in its own document: M0 (037935d), M2 (6001f7f) PASS; M1, M4, M5-a to M5-g PASS at 24ac49f; M4 non-JSON, M5-h, M5-i, M6-b to M6-l, CR-24, M7 PASS at 476c633; M6-a QA Failed at 476c633 (QAF-34 MEDIUM); M8-a to M8-e PASS at generator 8de2b53 (QAF-36 LOW, planner); QAF-27 and QAF-20 RESOLVED at 4f9ed85. Owed: QAF-34 re-run, QAF-35, the effort-final pass."
 Phase: 1
 ---
 
@@ -37,6 +37,7 @@ Phase: 1
 | 2026-11-08T09:24 | steering-hooks-015 → qa-hooks-015 (message) | Phase 1 delta re-key to plan rev 26 (`c375d2c`) | Phase 1 delta over `dd9e88a..c375d2c`, read in full (plan: 43 added, 14 removed; rulings: 11 added). D35 is an owner ruling, taken as given. Its "as built" premise was read at preview-image-generator `6c613a5` and is false for arrays: QAF-33 MEDIUM (an array body passes the object test and reaches I-1's delete under `previews/undefined/`). § M5-h: `fields: null` becomes a rendering cell (CR-29). § M8-b: D35's members, with no S3 attempt asserted. § M8-d: (a), (b), (c) with code review's attack row A as (c)'s instrument; RK-8 is a forward trigger. Approves rev 26 except QAF-33, which is owed before M8-b's verdict. |
 | 2026-11-08T09:38 | steering-hooks-015 → qa-hooks-015 (message); planner-hooks-015 (message) | Phase 1 delta re-key to plan rev 27 (`18d361c`) | Phase 1 delta over `c375d2c..18d361c`, read in full (plan: 85 added, 24 removed; rulings: 8 added). Passes, with no new finding. QAF-33 RESOLVED: the owner's D35 re-put (`c8c7649`) narrows M8-b, and arrays are X-23, a stated limit carrying L-C7-1's three clauses. § M8-b and § M8-d are reconciled: the array cells are dropped and no cell pins an array passing; M8-d (d) gets a member/non-member pair over a renamed field in generic-pool's own source, read with no request sent. X-24 retires the per-request launch count, which already had no cell. The RK-8 deploy read is not triggered by this chain: `package.json` and `package-lock.json` are unchanged over `471578f..6c613a5` (numstat empty), and the lockfile resolves generic-pool 3.9.0 at both ends. Every rev 27 citation into `verification/015/` is committed at `18d361c` (`git cat-file -e`, 8 paths). New Assumption Not Checked (RK-8's failure shape), routed to devops through the RK-8 carrier. Delivered to planner-hooks-015. |
 | 2026-11-08T08:34 | code-reviewer-hooks-015 → qa-hooks-015 (message: `e0054f7`) | Register reconcile from M6's Phase 2 | B-4 gains a `/preview` leg (D33), carrying code review's routed assumption. Phase 2 verdicts are in their own documents: M6-b to M6-l QA Failed at `24ac49f` (`qa/…-m6-qa.md`: QAF-30, QAF-31 MEDIUM; QAF-32 LOW). M1 PASS (QAF-26 RESOLVED), M5-a to M5-g PASS (QAF-29 RESOLVED) and M4 refreshed (CR-17), all at `24ac49f`. |
+| 2026-11-08T10:32 | code-reviewer-hooks-015 (`3540028`); steering-hooks-015 (brief after the usage gate) | Phase 2 at generator `8de2b53` and website `4f9ed85` | Rev 27 Assumption Not Checked reconciled (the dequeue level is held; the `reject` link is RK-8's residue). Status-Detail and Resumption State brought current. The verdicts are in the M8 document and the new m1-m2-qa-findings document. No register row. |
 
 ## Reading and sources
 
@@ -684,6 +685,7 @@ These five went to the planner as one batch with this document at rev 4 and are 
 *Rev 27 pass (2026-11-08T09:38).* This pass assumes that a generic-pool upgrade which breaks M8-d's reach does so by removing or renaming `_waitingClientsQueue`. That is the only failure D36's startup line can see, and the only shape of the member fixture. It does not test the other shape: the member is kept under its name with a different structure (for example, no `dequeue`). Under that shape the line stays silent and the code-review CR-31 failure mode (the process exits on the first failing launch) returns undetected at startup.
 - **Signature of its falsity:** after a generic-pool bump, the prod out log has no startup line but shows a `TypeError` inside generic-pool's creation `.catch` and a PM2 restart per failing launch. This is RK-8's second falsifier.
 - **Owner of closing:** devops, through the RK-8 handoff it mints at M9 (Review-Trigger: a lockfile move of generic-pool). The M8-d probe is run on that commit before deploy, not only the startup line read.
+- *Reconcile 2026-11-08T10:32, generator `8de2b53`:* the shape this assumption named (the field kept, no `dequeue`) is now held. `checkPoolShape` checks a callable `dequeue` (CR-33), and the rig's dequeue-rename cell is red at `6c613a5` and green at `8de2b53`, killed by `impl-dequeue-optional-chain-removed` (`qa/015-bug-evaluation-fixes-m8-qa.md`). What remains unseen at startup is the third link, a dequeued element without `reject`. That is CR-33's stated RK-8 residue (the planner's fold) and stays with the devops RK-8 handoff.
 
 *Rev 26 pass (2026-11-08T09:24).* This pass assumes D35's ruling note is right that only the website calls `/generate`, so refusing non-object bodies breaks no other caller. It does not test it: the generator's callers outside the website repository were not read (the planner's claim, which steering did not read).
 - **Signature of its falsity:** after release, another service's `/generate` calls start getting 500 where they previously got an image.
@@ -765,9 +767,28 @@ This pass assumes the live Postgres schema matches the Kysely `DatabaseSchema` t
 - **Rev 7 confirmation:** QA Phase 1 approves rev 7 (`38b12e6`) for implementation start. QAF-8 is owed before the run-2 read is scripted, and QAF-9 is LOW; neither blocks code. *(Superseded line, kept for the record:)* QA Phase 1 approves rev 6 for implementation start. The implementer is bound by E-1 to E-9, E-1's reconcile note included.
 - **Assumption Not Checked:** routed to UAT, through B-1 and B-2.
 
-## Resumption State (checkpoint, qa-hooks-015, 2026-11-08T09:53Z; usage gate, resumes after 2026-11-11T09:00Z)
+## Resumption State (checkpoint, qa-hooks-015, 2026-11-08T10:32Z)
 
-**Current, read first.** This block supersedes the "In flight" and "Still to do" items below. The progress, sweep and pass notes after them record how this state was reached.
+**Current, read first.** This block supersedes the 09:53Z block, kept below it. The progress, sweep and pass notes after them record how this state was reached.
+- **Done and committed this session:**
+  - M8 round at generator `8de2b53`: M8-a to M8-e PASS (`qa/015-bug-evaluation-fixes-m8-qa.md`, re-anchored from `6c613a5`). Sweep: 22 mutants (`mutators/qa-m8r-mutants.json`, driver `m8-local-probe/qa-m8r-sweep.py`), 19 killed and 3 survivors dispositioned. The new QA cells for M8-a are `m8-local-probe/probe-m8a-qa.cjs`. QAF-36 LOW goes to the planner.
+  - Website `4f9ed85` (test-only): QAF-27 and QAF-20 RESOLVED (`qa/015-bug-evaluation-fixes-m1-m2-qa-findings-qa.md`). Suite 1115/1115, exit 0; the 7 mutants re-run by `qa-r3-website-mutants.sh`, all killed.
+  - The rev 27 Assumption Not Checked is reconciled (the dequeue level now has a cell; the `reject` link is RK-8's residue).
+  - INBOX entry: the ID-token class misses `qaf` (left uncommitted, for the record's owner).
+- **Next:**
+  1. **QAF-34 re-run** (M6-a title cells, `rules-title-i`) and **QAF-35** at the website tip. The implementer's commits `b93e897` and `00c9bee` are their fixes, and `86f5a6c`/`2618926` are CR-26. Start only from code review's committed verdict on them.
+  2. **The effort-final pass** (owed list below; "QAF-20 landed" is discharged).
+  3. Phase 1 re-keys when briefed. The planner's pre-UAT fold (D37: CR-32, CR-33, CR-34, QAF-36) needs a delta re-key.
+- **How to run (additions this session):** M8 sweep: `python3 -I m8-local-probe/qa-m8r-sweep.py <export> mutators/qa-m8r-mutants.json <out> <agent-output> -j 4 [--probe probe-m8a-qa.cjs] [names]`, with the export built by `m8-local-probe/run.sh`. Website suite: pass `qa-m4-suite-run.sh` an **absolute** out-prefix (a relative one lands inside the export).
+- **Tree:**
+  - agent-output: all of QA's paths are committed except the INBOX entry, which is the inbox owner's to commit.
+  - The scratchpad export `pig-probe-*` is deleted at run end, and no process of QA's runs.
+  - The stage browser was not used.
+- **Questions out:** none.
+
+## Resumption State (checkpoint, qa-hooks-015, 2026-11-08T09:53Z; superseded by the block above)
+
+**Then current.** This block superseded the "In flight" and "Still to do" items below. The progress, sweep and pass notes after them record how this state was reached.
 - **Done and committed:**
   - Phase 1 is keyed to plan rev 27 (`b21c7b5`) and delivered to the planner.
   - The Phase 2 pass at website `476c633` and generator `6c613a5` is written (`57caf5c`):

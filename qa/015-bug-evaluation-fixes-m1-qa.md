@@ -21,6 +21,7 @@ Phase: 2
 |------|---------------|---------|---------|
 | 2026-11-08T08:02 | code-reviewer-hooks-015 → qa-hooks-015 (messages: `befc32f`, `d7708e8`) | QA Phase 2 for M1 at website `3031878` | Phase 2, milestone-scoped (M1). Created and first committed with Status QA Failed (M1 scope; plan Status left alone). QAF-26 MEDIUM and QAF-27 LOW go to the implementer. QAF-11 (M0 document) is RESOLVED. **Process disclosure:** QAF-11's collapse in the M0 document was a `python3` in-place edit, outside the edit tools and `record-edit.js`. |
 | 2026-11-08T08:34 | code-reviewer-hooks-015, steering-hooks-015 → qa-hooks-015 (messages: `e0054f7`; resume brief) | M1 re-run after QAF-26's test-only fix (`13be10d`), at website `24ac49f` | Phase 2 re-run, scoped to the two survivors (the round has no production line). Both are killed. QAF-26 RESOLVED. Verdict PASS; Status → QA Complete (M1 scope; plan Status left alone). See § Re-run after QAF-26's fix. |
+| 2026-11-08T10:32 | code-reviewer-hooks-015 (Round 2/3 sub-entry, `3540028`); steering-hooks-015 (brief) | Re-run for QAF-27 at website `4f9ed85` | QAF-27 RESOLVED. Verified in `qa/015-bug-evaluation-fixes-m1-m2-qa-findings-qa.md`. This document's verdict and `Verified-At` are unchanged. |
 
 ## Scope and criteria assessed
 
@@ -148,7 +149,7 @@ QAF-26 MEDIUM Phase 2 RESOLVED (2026-11-08T08:34: website `13be10d`; both mutant
   - (2) In `shared.message-cap.test.ts`, make the count stub key positively on `"fk_users_id" = $n` with the select's `dbUserId` (and on `fk_guilds_id` with the guild's id), answering nothing otherwise. Or assert both count queries' SQL and parameters.
   - Each must be seen red under the named mutant (`mutators/qa-m1-supplement.py`, driver `qa-sweep.sh`) and green at the fix tip.
 
-QAF-27 LOW Phase 2 — Phase 1 § M1 cells not built. None is reachable by a mutant that survives here, so none blocks.
+QAF-27 LOW Phase 2 RESOLVED (2026-11-08T10:30: website `4f9ed85`; each owed cell red under its mutant and green at the tip, `qa/015-bug-evaluation-fixes-m1-m2-qa-findings-qa.md`) — Phase 1 § M1 cells not built. None is reachable by a mutant that survives here, so none blocks.
 - **M1-c:**
   - the ioredis `[[err, null], …]` deletion-failure shape: `clearUser` returns `pipeline.exec()`, which resolves in that shape, so the outcome holds by construction;
   - the deletion-failure cell yields one `setImmediate` turn where Phase 1 named two;

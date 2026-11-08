@@ -2,84 +2,147 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Verified-At: "6c613a5 — repos=preview-image-generator; M8-b to M8-e only (M8-a REJECTED by code review CR-27); git-archive exports under unshare -rn. Expired by 8de2b53 (the M8 fix round, server.ts and getPool.ts), pending the scoped refresh with M8-a"
+Verified-At: "8de2b53 — repos=preview-image-generator; M8-a to M8-e (milestone-scoped); git-archive exports under unshare -rn on node v24.14.0; M8-b to M8-e re-anchored from 6c613a5 on the differential qa-rig-run-{6c613a5,8de2b53}.txt"
 Status: QA Complete
-Status-Detail: "M8-b to M8-e (milestone-scoped) PASS at preview-image-generator 6c613a5 against plan rev 27 (18d361c), on a 9 of 9 mutation sweep. The verdict is already expired by the fix round at 8de2b53. Its refresh, scoped to 6c613a5..8de2b53, runs with M8-a and M8-d (d) after code review reviews 8de2b53."
+Status-Detail: "M8-a to M8-e (milestone-scoped) PASS at preview-image-generator 8de2b53 against plan rev 27 (18d361c). Sweep: 22 mutants over the fix round's diff and M8-a's drain guards; 19 killed and 3 survivors dispositioned (2 are equivalent on node 24 and undecided on production's Node 18, routed to M8-0 run 2; 1 is outside the criterion, QAF-36 LOW for the planner). The production limbs P1 to P3 are M8-0 run 2's (devops, M9; B-8)."
 Phase: 2
 ---
 
-# QA Report: Plan 015 — M8 (preview-image-generator), M8-b to M8-e
+# QA Report: Plan 015 — M8 (preview-image-generator), M8-a to M8-e
 
-**Plan Reference**: `agent-output/planning/015-bug-evaluation-fixes.md`, revision 27 (agent-output `18d361c`), § M8, read in full. Rev 27 narrows M8-b (D35, X-23) and adds M8-d (d) (D36) and X-24.
-**Implementation**: `implementation/015-bug-evaluation-fixes-m8-implementation.md`. Delivery 1 is at `6c613a5`, which is this pass's tree. The fix round at `8de2b53` (`9f431e7`) is not covered by this pass.
-**Code review**: `code-review/015-bug-evaluation-fixes-code-review.md` Rounds 16 to 18 (`2fa6d8b`), `Reviewed-At` `6c613a5` for the generator. M8-b to M8-e are met. M8-a is REJECTED (CR-27). Re-derived from the committed section; this is the stage start.
-**Phase 1 and the chain's register**: `qa/015-bug-evaluation-fixes-qa.md` § M8 and the Irreversible Side-Effect Register (I-1), keyed to rev 27 at `b21c7b5`. No row is appended.
+**Plan Reference**: `agent-output/planning/015-bug-evaluation-fixes.md`, revision 27 (agent-output `18d361c`), § M8, read in full. The plan's later commits to `c3960b3` add batch rows, changelog rows and Status-Detail only (code review Round 18 sub-entry read the delta to `73435b3`; QA read `git log` to `c3960b3`, other stages' rows), so no M8 criterion moved.
+**Implementation**: `implementation/015-bug-evaluation-fixes-m8-implementation.md`, `Handoff-At` `8de2b53` (agent-output `9f431e7`). The fix round `6c613a5..8de2b53` is two commits: `src/server.ts` 4/2 and `src/getPool.ts` 18/4.
+**Code review**: `code-review/015-bug-evaluation-fixes-code-review.md`, the Round 18 sub-entry at `8de2b53`, M8 APPROVED_WITH_COMMENTS (committed `3540028`, re-derived from the committed section). This is the stage start.
+**Phase 1 and the chain's register**: `qa/015-bug-evaluation-fixes-qa.md` § M8 (rev 27 reconcile) and the Irreversible Side-Effect Register (I-1). No row is appended.
 
 ## Changelog
 
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-08T09:52 | code-reviewer-hooks-015 → qa-hooks-015 (`2fa6d8b`); steering-hooks-015 (brief at rev 27) | QA Phase 2 for M8-b to M8-e at `6c613a5` | Created. PASS, milestone-scoped; the plan Status is left alone. The verdict is expired at creation by `8de2b53`, so the refresh is owed with M8-a. |
+| 2026-11-08T10:27 | code-reviewer-hooks-015 (Round 18 sub-entry, `3540028`); steering-hooks-015 (brief after the usage gate) | QA Phase 2 for the M8 round at `8de2b53`: M8-a, M8-d (d), the scoped refresh of M8-b to M8-e | Phase 2 at `8de2b53`: M8-a to M8-e PASS. M8-a's cells for P1 idempotency, P3 idle and P4 by signal are built here (`probe-m8a-qa.cjs`), because the rig's cells do not fail under their guards' mutants. QAF-36 LOW. Re-anchored from `6c613a5`. |
 
 ## Scope and criteria assessed
 
 Fixed before execution (plan § M8, rev 27; Phase 1 § M8):
-- **M8-b.** A body that is not parsable JSON, or that parses to `null`, a number, a string or a boolean, gets 500. The process keeps serving, and no S3 call is attempted (I-1). An array is X-23, a stated limit, asserted in neither direction.
-- **M8-c.** A page is closed whether the screenshot succeeds or throws, and no rejection is unhandled.
-- **M8-d (a) to (c).** Every waiting request gets 500, with no hang and no `TypeError`. The process keeps serving. No launch is attempted while no request waits. (d) is D36's startup line, which rides the fix round and is not in this tree. The per-request launch count is X-24.
-- **M8-e.** An unset or empty `API_KEY` refuses start with a line naming it, and a set key starts.
+- **M8-a.** P1: both triggers (the `'shutdown'` message and SIGINT) reach `shutdown()`. `shutdown()` is idempotent. It logs one line beginning `Server received` that names the trigger. On success it logs a drain-complete line with the elapsed ms. The ready line is outside the predicate. P2: `kill_timeout` 12000 and an explicit `shutdown_with_message`. P3: exit as soon as the drain completes, and an idle process launches no browser at stop. P4: the handlers are registered no later than `ready`. CR-27: a failed drain logs `Drain failed after Nms: <message>` on stdout and no drain-complete line, and it still exits. The production limbs (P1 to P3 on stop (2)) are M8-0 run 2's, not this pass's.
+- **M8-b.** Unchanged in this round (`processImage` is untouched by `6c613a5..8de2b53`). The criterion is as at `6c613a5`: an unparsable body, `null`, a number, a string or a boolean gets 500 with no S3 attempt, and the process serves on. X-23 (arrays) is asserted in neither direction.
+- **M8-c.** Unchanged in this round (`generateImage.ts` untouched).
+- **M8-d.** (a) to (c), with the handler registration now conditional (`getPool.ts`). (d) (D36): a line naming the missing member at startup, before any request. Member: the field renamed, and also (CR-33) `dequeue` renamed with the field kept. Non-member: 3.9.0 as resolved, no line.
+- **M8-e.** Unchanged in this round (`config.ts` untouched).
 
 ## TDD compliance gate
 
-Passed. `m8-implementation.md` has Yes/Yes/Yes rows for the request handler's parse (M8-b), `generateMessagePreviewImage`/`generateImage` (M8-c), `factory.create`/`pool.use` (M8-d) and the `config.ts` refusal (M8-e). Each failure reason is a base run of the rig.
+Passed. The implementation's table has Yes/Yes/Yes rows for both new surfaces of the round:
+- `shutdown`'s failure branch (CR-27): red at `6c613a5`, `run-cr27-cr28-red-6c613a5.txt`.
+- `checkPoolShape`, `waitingQueueDequeue` and the conditional handler (D36): red at `6c613a5` and `7e5ca5f`, `run-d36-red-*.txt`.
+
+Each failure reason is assertion-level against the pre-change tree. QA's own differential reproduces those reds (below).
 
 ## Test Execution Results
 
-The generator has no test runner, so the probes are the evidence. Every run is a `git archive` of `6c613a5` with no `.env`, and `npm ci` runs outside the namespace. Each probe runs under `unshare -rn`, with lo up and the isolation counts checked.
+Every run is a `git archive` export with no `.env` (`env files in export: 0`). `npm ci --omit=optional` under `PUPPETEER_SKIP_DOWNLOAD=1` runs outside the namespace and exits 0, and `tsc -b` exits 0. The probe runs in `unshare -rn` with lo up: 0 non-loopback links, 0 default routes, loopback GET 200, external lookup `EAI_AGAIN`. The engine is node v24.14.0, and no browser cache is present (E-2).
 
-- **The rig** (`m8-local-probe/probe.cjs`, blob `a6da6bc`; `probe-pages.cjs` `9f41863`, with a real Chromium for M8-c), driven by `qa-m8-sweep.sh`: the control run is 25/25 (`qa-m8-sweep-summary-6c613a5.txt`).
-- **M8-b, QA's body-class probe** (`m8-local-probe/probe-body-class.cjs` blob `92d0273`, observer `obs-preload.cjs` `aa5f036`, runner `run-body-class-qa.sh`):
-  - **Why it replaces the rig's M8-b cells:** the rig asserts status only. In the isolated rig an unrefused body also gets 500, so the number cell could not discriminate the object test (Phase 1 § M8-b, instrument note).
-  - **Run 2:** 7/7. The object control makes 3 S3 connects, which shows the observer is live. Each refused member (unparsable, `null`, `5`, `"x"`, `true`, `false`) makes 0 S3 connects, gets 500, and leaves the process serving.
-  - **Run 1:** the liveness gate fired on a wrong auth form, so no cell was read.
-  - **Arrays:** `[]` and `[{}]` each made 3 S3 connects, printed as INFO only. This is X-23's consequence, now executed rather than read from the code.
-- **M8-d (a) and (c), code review's attack row A**, re-run by QA (`qa-m8d-attack-run-6c613a5.txt`): six concurrent failing requests all get 500 in 39 ms. The 12 launch-error lines after the burst are still 12 after 3 s idle, so no launch is attempted while nothing waits. The same file's row C fails: a failed drain still logs the drain-complete line. That is CR-27 and belongs to M8-a, not this scope.
+- **The rig, both trees** (`m8-local-probe/probe.cjs` blob `25218c6`, `probe-pages.cjs` `9f41863`, runner `run.sh` `14faf82`):
+  - `qa-rig-run-8de2b53.txt`: 32 cells, 32 pass.
+  - `qa-rig-run-6c613a5.txt`: 32 cells, 27 pass and 5 fail.
+  - The 5 that fail are the round's new cells: two `P1 failed drain` cells and three D36 cells. At `6c613a5` the drain-complete line is logged after a failed drain, the startup line count is 0 for both renamed libraries, and the failing-launch cell exits with status 1. These reproduce the implementer's recorded reds.
+  - Cell-name diff of the two runs: exactly those 5 rows differ. The other 27 pass on both trees, which makes this the differential for M8-b to M8-e.
+- **M8-b, QA's body-class probe** (`probe-body-class.cjs` `92d0273`, `obs-preload.cjs` `aa5f036`): `body-class-qa-run3-8de2b53.txt`, 7/7. The object control makes 3 S3 connects, which shows the observer is live. Each refused member makes 0 connects, gets 500 and serves on. The arrays make 3 connects each (INFO, X-23). This is identical to run 2 at `6c613a5`.
+- **M8-a, QA's cells** (`m8-local-probe/probe-m8a-qa.cjs` blob `bd39b71`; run through `qa-m8r-sweep.py --probe probe-m8a-qa.cjs`; the control is `qa-m8r-8de2b53/qa-m8r-control-probe-m8a-qa.txt`, 5/5):
+  - **P1 idempotent under a held drain.** An authorised `/generate` whose body never ends holds `server.close`. The probe sends `'shutdown'`, waits 500 ms, then sends SIGINT. Liveness: at the second trigger, 0 drain-complete lines and no exit. Result: one `Server received` line, then exit 0.
+  - **P3 idle.** A preload wraps `puppeteer.launch` (the shape of code review's `drift-launch-count.cjs`). Positive control: a process that served one `/generate` shows 2 launches. An idle process sent `'shutdown'` shows 0 launches and exits 0.
+  - **P4 by signal.** A SIGINT sent in the tick `ready` arrives gives `Server received SIGINT` and exit 0.
+  - **Why these exist.** They supersede the rig's P1-idempotent and P3-idle cells, and add P4's signal leg. The rig's cells pass under the mutants of the guards they name (sweep below):
+    - its idle drain ends in about 1 ms, so the second trigger never reaches a process that is still running;
+    - it counts `Created instance` lines, which never appear without a browser;
+    - its P4 cell uses the message path, which node 24's IPC channel holds until a listener is attached.
+  - Under Phase 1 § M8 the probes are QA's Phase 2 instruments, so this is a repair of QA's instrument and not a finding against another stage.
+- **M8-d (d), cell audit** against Phase 1 § M8-d (rev 27 reconcile), reading the rig at blob `25218c6`:
+  - The member fixtures rename generic-pool's own source in a copy and map `generic-pool` to it with a resolver preload, so the guard's input is never stubbed. The rename count is asserted (`filesRenamed` 1 and 2).
+  - The line is counted after `ready` plus 300 ms and before the first request is sent, so a lazy first-request check fails the cell. `qa-d36-check-moved-to-first-pool` (below) shows this.
+  - The line matches `_waitingClientsQueue.dequeue`, which names the member.
+  - The non-member cell runs on the tree as resolved. Seen red: the member cells at `6c613a5`, and the non-member cell under `impl-startup-check-inverted`.
+  - The preload maps the library: the same tree gives line count 1 with the fixture and 0 without it.
+- **Settled inline, not left as an assumption:** generic-pool 3.9.0 builds `_waitingClientsQueue` unconditionally in the `Pool` constructor (`lib/Pool.js`, `this._waitingClientsQueue = new PriorityQueue(this._config.priorityRange)`). So `checkPoolShape`'s throwaway pool (`autostart: false`, `min: 0`) has the served pool's shape, whatever the options.
 
-**Mutation sweep.** Production code the milestone changed over `471578f..6c613a5`, at I-1's guards: `src/server.ts`, `src/generateImage.ts`, `src/getPool.ts` and `src/config.ts`. The sweep ran the 9 mutants in `mutators/qa-m8-supplement.py` (blob `961689a`). It excludes M8-a's drain path (CR-27; it is swept with that round's diff), D36's guard (not in this tree) and an `Array.isArray` refusal (out of scope by ruling, X-23). **9 of 9 were killed and none survived.**
+**Mutation sweep.** *22 mutants in `mutators/qa-m8r-mutants.json` (blob `ea5d9b6`), each an exact-once replacement in the compiled `build/server.js` or `build/getPool.js` of the `8de2b53` export.*
+- *Scope:* the production diff `6c613a5..8de2b53` (CR-27's failure branch; D36's check, its call site and helper; the conditional handler registration), plus M8-a's drain guards from `471578f..6c613a5`, which the `6c613a5` sweep deferred to this round.
+- *Excluded:*
+  - M8-b, M8-c and M8-e's guards: swept 9/9 at `6c613a5`, and their files or functions are untouched by the round. The differential above covers them.
+  - Type-level mutants: the sweep runs on compiled JS.
 
-| Mutant | Killed by | Cells red |
+The implementer's six `m8-guard-mutants.sh` mutants are restated as `impl-*` and re-run here. Driver: `m8-local-probe/qa-m8r-sweep.py`. Each mutant runs in its own copy of the export, with the probe files written from agent-output HEAD blobs, under `unshare -rn`, in its own session, killed at 300 s. A helper ran the `probe.cjs` set; QA re-read the summary and the survivors' files. Results: `m8-local-probe/qa-m8r-8de2b53/qa-m8r-summary.txt` (probe.cjs) and `qa-m8r-summary-probe-m8a-qa.txt` (probe-m8a-qa.cjs). Both controls show 0 red.
+
+**19 killed, 3 survived, 0 stillborn.**
+
+| Mutant | Instrument | Cells red |
 |---|---|---|
-| `m8b-object-test-dropped` | body-class probe | 5 (`null` exits; the number, string, `true` and `false` bodies each reach S3) |
-| `m8b-null-conjunct-dropped` | body-class probe | 1 (`null`) |
-| `m8b-catch-rethrows` | body-class probe | 6 (every refused member exits the process) |
-| `m8c-finally-no-close` | rig | 2 (page closed after a throw; page closed after success) |
-| `m8c-sequential-delete` | rig | 2 (server-level 500s; no unhandled rejection) |
-| `m8d-factory-returns-null` | rig | 4 |
-| `m8d-no-create-error-handler` | rig | 2 (the launch error, not a `TypeError`; no retry storm) |
-| `m8e-gate-dropped` | rig | 2 (unset; empty) |
-| `m8e-empty-allowed` | rig | 1 (empty only) |
+| `impl-complete-after-catch` | rig | 1 (failed drain: no drain-complete line) |
+| `impl-queue-optional-chain-removed` | rig | 1 (field-rename startup) |
+| `impl-dequeue-optional-chain-removed` | rig | 2 (dequeue-rename startup; member absent, failing launch) |
+| `impl-startup-check-removed` | rig | 2 (both rename startup cells) |
+| `impl-handler-registered-unconditionally` | rig | 1 (member absent, failing launch) |
+| `impl-startup-check-inverted` | rig | 3 (both rename cells; non-member) |
+| `qa-d36-wrong-member-name` | rig | 3 (pool: launch error not TypeError; pool: no storm; non-member) |
+| `qa-d36-call-site-removed` | rig | 2 (both rename startup cells) |
+| `qa-d36-check-moved-to-first-pool` | rig | 2 (both rename startup cells: a lazy check writes no line before a request) |
+| `qa-d36-handler-dequeues-without-reject` | rig | 2 (pool cells) |
+| `qa-cr27-failed-line-to-stderr` | rig | 1 (one `Drain failed` line on stdout) |
+| `qa-cr27-failed-line-no-cause` | rig | 1 (the same cell: the cause is named) |
+| `qa-cr27-failure-skips-exit` | rig | 1 (failed drain exits before the fallback) |
+| `qa-m8a-message-test-wrong` | rig | 9 (every message-triggered cell) |
+| `qa-m8a-sigint-unregistered` | rig | 2 (SIGINT alone; idempotent) |
+| `qa-m8a-success-exit-removed` | rig | 2 (P3 idle exit time; failed-drain exit) |
+| `qa-m8a-once-guard-removed` | QA M8-a cells | 1 (held-drain idempotent). It survives the rig |
+| `qa-m8a-pool-read-creates` | QA M8-a cells | 1 (P3 idle, launch-counted). It survives the rig |
+| `qa-m8a-sigint-registered-late` | QA M8-a cells | 2 (P4 by signal; held-drain idempotent) |
+| `qa-d36-line-to-stdout` | — | **survived** |
+| `qa-m8a-handlers-registered-late` | — | **survived** (both instruments) |
+| `qa-m8a-close-idle-dropped` | — | **survived** |
 
-The rig mutants were run by a helper. QA re-read the summary file and confirmed the control's 25 PASS cells. Each conjunct carries the decision alone in at least one fixture: `m8e-empty-allowed` reddens the empty cell only, and `m8b-null-conjunct-dropped` reddens `null` only.
+Every conjunct of `queue?.dequeue?.bind(queue)` carries the decision alone in one fixture: the field rename for the first `?.` and the dequeue rename for the second. The check's condition and the registration condition each have a mutant killed by a different cell.
+
+**Survivors, dispositioned:**
+- `qa-d36-line-to-stdout`: **outside the criterion.** D36 (d) asks for "a log line", and the rig counts both streams. The implementer puts it on stderr (PM2's error log, "as M8-e's refusal line does"), and code review's CR-34 asks the M9 carrier's read to name the error log. If that read names a stream, the stream becomes load-bearing and no cell holds it. That is QAF-36 LOW (below).
+- `qa-m8a-handlers-registered-late` (the `'message'` listener registered 2 s late): **equivalent on node 24.** The run's P3-idle cell under this mutant exits 2008 ms after the message was sent, so the message waited in the IPC channel for the listener, then was handled. The registration time therefore cannot lose a message on this engine. The signal path, where it can, is held by `qa-m8a-sigint-registered-late` (killed). On production's Node 18 this is undecided: see the Assumption Not Checked.
+- `qa-m8a-close-idle-dropped`: **equivalent on node 24.** With the explicit call removed, the failed-drain fixture still fails with `server.closeIdleConnections is not a function`, so `server.close()` calls it itself (Node 19 and later). On Node 18.17.1 `server.close()` does not, so this is not equivalent there. The prediction is that an idle keep-alive connection holds the close for up to the 5 s keep-alive timeout. That is still inside the 10 s fallback and the 12 s `kill_timeout`, but not "as soon as the drain completes". It is undecided on this box, which has no Node 18. M8-0 run 2's drain-complete elapsed figure on stop (2) decides it (Assumption Not Checked).
 
 ## Implementation Review (Post-Implementation)
 
-M8-d's mechanism is the implementer's: the `factoryCreateError` handler plus a read of the private waiting queue. The plan states the property (rev 26) and the dependency risk (RK-8, D36). The plan's earlier "rejects in the pool factory" sketch was insufficient, as measured by the implementer, and code review accepts the mechanism (CR-28). There is no overreach in this tree.
+The round matches the plan:
+- CR-27 is a structural fix. The completion line sits on the success branch only (`git grep -n "Drain complete" 8de2b53 -- src`: 1 site, in the `try`, per code review's sweep).
+- D36 is met as written. The check runs on a real library instance before `listen`, at two levels (CR-33). AF-31's log-and-serve choice is the implementer's, which D36 permits.
+- No overreach.
+
+The degraded mode with the member absent (pending acquire, launch retries at about 3,700 to 4,700/s in E-1) is RK-8's accepted residue. Code review measured it (CR-34, the planner's). It is not a QA criterion.
 
 ## Findings
 
-None in this scope. The gap in QA's own rig (status-only M8-b cells) is fixed in this pass, so it is not a finding against another stage.
+QAF-36 LOW Phase 2 — D36's startup line has no cell that holds its stream. A mutant that moves it from stderr to stdout (`qa-d36-line-to-stdout`) passes every cell, because the rig counts both streams.
+- **Why it matters:** the plan's criterion names no stream, so this is no defect in the code. But code review's CR-34 asks the M9 carrier's read (the RK-8 handoff) to name PM2's error log, and R-23's stream row concurs. Once that read names a stream, a line on the other one is invisible to it, with no cell to catch the move.
+- **Required (planner, at the D37 fold with CR-34):** where the carrier's read names a stream, the criterion (d) names the same stream. QA then adds the stream to the startup cells (the probes are QA's instruments) and shows it red under `qa-d36-line-to-stdout`. If the plan keeps "a log line", the stream is a stated limit and nothing is owed.
+- **What it fails to check:** that the operator-visible log the carrier reads is the one the line is written to.
 
 ## Assumption Not Checked
 
-This pass assumes that the S3 client's first network act for a request is a TCP connect to `CDN_ENDPOINT`, which is what the observer counts. A client that failed before connecting, for example on signing or configuration, would show 0 connects for an unrefused body too. The positive control rules that out for this tree, since the object body makes 3 connects. It does not rule it out for another SDK version.
-- **Signature of its falsity:** after an `@aws-sdk` bump, the body-class probe's object control shows 0 connects, and the liveness gate stops the run.
-- **Owner of closing:** QA, at the next run of the probe. The gate is built in, so this is self-routing.
+This pass assumes that the probe outcomes measured on node v24.14.0 hold on production's Node 18 (`prod.yml` `node-version: "18"`; the host's 18.17.1 is code review's record) and does not test it. Two survivors above are equivalent only because of node 24 behaviour: `server.close()` closing idle connections, and the IPC channel holding a message for a late listener.
+- **Signature of its falsity:** at M8-0 run 2 on stop (2), the drain-complete line's elapsed figure is near 5000 ms instead of the drain's own time (an idle keep-alive connection held the close). Or a stop that reaches the new process just after start shows no `Server received` line.
+- **Owner of closing:** devops, at M8-0 run 2 (M9; register B-8), whose drain-complete figure is the measurement. A Node 18 local run would settle it earlier, but there is no Node 18 binary on this box and installing one is not implied.
+
+The `6c613a5` pass's assumption (the S3 client's first network act is a TCP connect) stands, unchanged: the body-class probe's liveness gate held at `8de2b53` (control: 3 connects).
 
 ## Blocking-condition register
 
-No row is appended. RK-8's post-closure read is the devops handoff minted at M9 (a forward expectation), which the register will cite once it is minted. This chain does not move generic-pool (Phase 1 § M8-d, rev 27 reconcile).
+No row is appended. Rows inherited and not discharged: B-8 (M8-0 run 2, devops). RK-8's post-closure read is the devops handoff minted at M9 (a forward expectation). The register cites it once it is minted.
 
 ## Handoff
 
-- **Verdict:** PASS for M8-b to M8-e at `6c613a5`, expired by `8de2b53`.
-- **Next:** after code review reviews `8de2b53`: M8-a, M8-d (d), and the scoped refresh of M8-b to M8-e. The sweep for that round covers the diff `6c613a5..8de2b53` only, and the M8-b to M8-e verdict is re-anchored on a differential.
+- **Verdict:** PASS for M8-a to M8-e at `8de2b53`, milestone-scoped. The plan Status is left alone. The plan's changelog carries the row.
+- **QAF-36 LOW:** to the planner (planner-hooks-015), with the D37 fold. It is non-blocking.
+- **Assumption Not Checked:** to devops through M8-0 run 2 (B-8), named again at M9.
+- **Not a QA item:** CR-34's magnitude (the planner's; the owner may rule).
+
+## Earlier pass at `6c613a5` (2026-11-08T09:52), kept as the record of how M8-b to M8-e were first verified
+
+That pass ran M8-b to M8-e with M8-a REJECTED (CR-27). Its sweep killed 9 of 9 mutants (`mutators/qa-m8-supplement.py` blob `961689a`) over `src/server.ts`, `src/generateImage.ts`, `src/getPool.ts` and `src/config.ts`, using the body-class probe for M8-b and the rig for the rest (`qa-m8-sweep-summary-6c613a5.txt`, `body-class-qa-mut-*-6c613a5.txt`). M8-d (a) and (c) were checked by re-running code review's attack row A (`qa-m8d-attack-run-6c613a5.txt`). The implementer later found that row A's second cell is timing-flaky at `6c613a5` and `7e5ca5f` (2 of 6 runs each, `attack-a-repeat.txt`). The flake is a false red (one line arrives a tick after the read), so it cannot have produced that pass's green. M8-d (c) was discriminated by the rig's `m8d-no-create-error-handler` kill, not by row A. Its verdict is superseded by this pass's re-anchor.
