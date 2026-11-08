@@ -2,16 +2,16 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Status: Open
-Status-Detail: "Cycle 1, pass 2, delta-bounded read of revision 4 (f19e688; boundary verified against b234e2b). Verdict APPROVED: H-1, M-1–M-4, L-1–L-5 verified landed → RESOLVED. Four new LOW (L-6–L-9) route to the planner for a fold or Planner batch rows with landing triggers; the critique stays Open until those rows are read. The 05:29Z selection (verifying stop = prod.yml re-run) post-dates rev 4 and is a registration the planner owes."
-Artifact-Revision: 4 — read at agent-output 192ec29 (f19e688 is rev 4; fa693e0 and 192ec29 on top are a rulings block and the architect's delta pass, neither a plan write)
-Reviewed-At: 192ec29 — repos=agent-output; website 7ce866b (chain/015-bug-evaluation-fixes), preview-image-generator 471578f (chain/015-bug-evaluation-fixes), unchanged since pass 1
+Status: Resolved
+Status-Detail: "Cycle 1, pass 3, delta-bounded read of revision 5 (1d0f890; boundary verified against 192ec29, plan 26/18, no criterion text changed). L-6–L-9 verified landed → RESOLVED; D19's limbs (M8-a (2), M8-0 run 2, M9) approved. Every finding RESOLVED. Verdict APPROVED; critique closed. Plan rev 5 1d0f890 is the approved plan."
+Artifact-Revision: 5 — read at agent-output 1d0f890
+Reviewed-At: 1d0f890 — repos=agent-output; website 7ce866b (chain/015-bug-evaluation-fixes), preview-image-generator 471578f (chain/015-bug-evaluation-fixes), unchanged since pass 1
 Verdict: APPROVED
 ---
 
 # Critique — Plan 015, Bug-evaluation fixes (website, preview-image-generator)
 
-**Artifact**: `agent-output/planning/015-bug-evaluation-fixes.md`, revision 4 (`f19e688`), read at `192ec29`. Pass 1 read revision 3 whole at `b234e2b`; pass 2 read the delta `b234e2b..f19e688` (`--numstat` 195/73 on the plan; the diff file was read whole) plus the architect's rev-3 and rev-4 findings (`b838a01`, `192ec29`), the rulings blocks 05:20Z–05:29Z, the M8-0 run 1 capture (`verification/015/m8-0-run1-2026-11-08T0525Z.txt`, 97 lines, read whole) and the revised `pig-host-read.sh`.
+**Artifact**: `agent-output/planning/015-bug-evaluation-fixes.md`, revision 5 (`1d0f890`), read at `1d0f890`; pass 3 read the delta `192ec29..1d0f890` whole (plan `--numstat` 26/18). Pass 1 read revision 3 whole at `b234e2b`; pass 2 read the delta `b234e2b..f19e688` (`--numstat` 195/73 on the plan; the diff file was read whole) plus the architect's rev-3 and rev-4 findings (`b838a01`, `192ec29`), the rulings blocks 05:20Z–05:29Z, the M8-0 run 1 capture (`verification/015/m8-0-run1-2026-11-08T0525Z.txt`, 97 lines, read whole) and the revised `pig-host-read.sh`.
 **Analysis**: `analysis/015-bug-evaluation-fixes-analysis.md` (`7e24de3`, amended `9b99acd`) — read whole.
 **Sources also read**: `research/codebase-bug-evaluation-2026-11-08.md` (`aea4a05`); `steering/015-rulings.md` (blocks 04:37Z, 04:49Z, 05:11Z); `architecture/system-architecture.md`, `architecture/website.md`, `architecture/preview-image-generator.md`; `verification/015/pig-host-read.sh` (`9b99acd`); the seven handoff triggers the plan dispositions. No roadmap exists (`agent-output/roadmap/` holds `.gitkeep` only), as the plan's header records; alignment is judged against the Master Product Objective as the workspace README states it.
 **Date**: 2026-11-08.
@@ -23,10 +23,14 @@ Verdict: APPROVED
 |---|---|---|---|
 | 2026-11-08T05:17 | steering-hooks-015 → critic-hooks-015 (brief) | Critique rev 3 | cycle 1 pass 1. Whole-document read (first pass of the cycle). Premises re-derived at the trees: M3's three sites, the limits constants, `ADMIN_PERMS`, `embedShape.color`, `countTotalComponents`, `isMessageValid`, the duplicate `splice` sites, `server.ts`/`ecosystem.config.js`/`deploy.sh`/`config.ts`. H-1, M-1–M-4, L-1–L-5 raised. REQUEST REVISION. |
 | 2026-11-08T05:33 | planner-hooks-015 → critic-hooks-015 | Critique rev 4 | cycle 1 pass 2. Delta-bounded: the delta is fully readable in the diff and no new cycle is owed (M8 is reshaped by owner rulings D16–D18 and run 1, but every changed limb is in the diff; the whole-document read is the escalation, not taken). Boundary: `git diff --numstat b234e2b..f19e688` lists the plan at 195/73 and no other plan write; `f19e688..192ec29` touches the plan 0 lines. Re-derived at the trees: the four `'in',` sites (`grep -rn "'in'," src/server` → 4), `authorizeAction`'s one call site. H-1, M-1–M-4, L-1–L-5 verified landed → RESOLVED. New: L-6–L-9. Owed re-verdicts table (M8, M1-a, M6-l (iii)–(v)): all three approved by this pass. APPROVED. |
+| 2026-11-08T05:36 | planner-hooks-015 → critic-hooks-015 | Read rev 5's rows | cycle 1 pass 3. Delta-bounded (`git diff --numstat 192ec29..1d0f890`: plan 26/18; the diff read whole; the M8-a criterion block and every other criterion are outside the hunks). D19 registered from `fa693e0` with its route; M8-a (2) is devops' `prod.yml` re-run stated as a second production deploy, AF-9d cited; stop (1) restated per AF-11; M8-0 run 2's reader is devops with its earliest read; M9's owner step is the approval; D15 current; X-15 carries the June–August gap to the 05:29Z block; M1-a's route corrected per AF-12. L-6–L-9 → RESOLVED. D19 limbs approved. APPROVED; document closed. Noted, not a finding: rulings `d852da1` lifts the Playwright constraint (D2's reopening class) — a registration for the planner's next pass, moving no criterion. |
+| 2026-11-08T05:36 | critic-hooks-015 | Document closed | Status: Resolved |
 
 ## Assumption Not Checked
 
-**Pass 2** assumes M8-0 run 1's capture is a faithful read of the host (the script ran as `claude-ro` and its output was committed by the analyst; this pass read the capture, not the host) and does not re-run it. Falsity signature: run 2's `[2]` extract or `[4]` stop lines contradicting run 1's figures for the same stops (2024-06-15, 2026-06-15). Owner of closing: the stage that runs M8-0 run 2 (L-6 asks the plan to name it) — named again in the handoff.
+**Pass 3** assumes nothing new: the delta was read whole and contains no code claim this pass did not already verify.
+
+**Pass 2** assumed M8-0 run 1's capture is a faithful read of the host (the script ran as `claude-ro` and its output was committed by the analyst; this pass read the capture, not the host) and does not re-run it. Falsity signature: run 2's `[2]` extract or `[4]` stop lines contradicting run 1's figures for the same stops (2024-06-15, 2026-06-15). Owner of closing: the stage that runs M8-0 run 2 (L-6 asks the plan to name it) — named again in the handoff.
 
 **Pass 1** assumed the research's statement of each of the 49 in-scope defects — site, mechanism and reachability as read at website `7ce866b` and preview-image-generator `471578f` — is correct, and re-reads only the sites named in the changelog row above; it also assumes the analysis's PM2 source reading (V-1, V-3) is correct, which the brief says no gate has checked. The signature of either's falsity: a milestone's first test written against the finding is **green at the base** (the defect is not where the plan says), or M8-0 run 1 shows a `Server received` line timed at a stop (PM2 did deliver a signal). The stage that owns closing: the implementer's red-at-base at each milestone (TDD), and, for M8, the owner's M8-0 run 1 — named again in the handoff.
 
@@ -63,15 +67,12 @@ L-3 LOW cycle 1 pass 1 RESOLVED — M6-l (iv) states the stored-`valid` residue 
 L-4 LOW cycle 1 pass 1 RESOLVED — P1's signal limb is SIGINT with the `PM2_KILL_SIGNAL` residue named as unread (root `environ` is off limits to `claude-ro`) and moot for the observed message path. Plan rev 4.
 L-5 LOW cycle 1 pass 1 RESOLVED — M8-a carries "Growth beyond the finding": P3 not droppable without re-pricing P2, P4 droppable to a stated limit. Plan rev 4.
 
-### Low (new at pass 2)
+### Resolved at pass 3 (disposition lines; the argument lives in `3398fc0`)
 
-**L-6 LOW cycle 1 pass 2 — M8-0 run 2's reader is "QA or devops".** State: OPEN. § M8-0 "Run 2, after the verifying stop (M9), by QA or devops". A timed observation names its reader (planner.md, Milestones). Under the 05:29Z selection the verifying stop is a devops act (a `prod.yml` re-run, owner-approved), and the read follows it in the same seam; the plan names one stage and the earliest read time (after `prod.yml`'s run completes and the app is `online` in `pm2.log`).
-
-**L-7 LOW cycle 1 pass 2 — D15's consequence cell is stale.** State: OPEN. It still reads "Until then M8-0 stays an owner step, and its review is held by steering", while D12's cell records its class reopened (05:20Z reachability read) and D17 made M8-0 an agent read. Bring D15's cell current (condition met at 05:20Z; superseded for M8-0's route by D17), as D11 and D12 were.
-
-**L-8 LOW cycle 1 pass 2 — The analysis's routed observation has no carrier in the plan.** State: OPEN. Analysis § M8-0 run 1, "Observed outside the brief, routed and not analysed": `pm2.log` shows the prod app stopped 2026-06-15T10:02:41 and next starting 2026-08-23T04:18:19, "read literally … not running for about 69 days", routed to the planner and steering to weigh against the architecture record's 2026-08-23 line. Steering relayed it to the owner as FYI (rulings 05:29Z: "whether the generator was down for the whole gap is not established"). The plan does not mention it (`grep -c "69 days"` → 0 at `f19e688`). One line naming the carrier closes it — the 05:29Z block, and an `INBOX.md` entry for the architect's record if the owner's answer bears on `system-architecture.md`'s "previews observed generating normally (2026-08-23)".
-
-**L-9 LOW cycle 1 pass 2 — The verifying stop's form moved after rev 4; the registration and two consequences are owed.** State: OPEN. Rev 4 defaults to the owner's `pm2 reload` with the `prod.yml` re-run as the alternative; the 05:29Z selection chose the re-run (`fa693e0`). The planner's registration (D19) re-aims: § M9's owner-steps bullet (the `pm2 reload` line falls away); L-6's reader; and the stated limit that the verifying stop is itself a second production deploy — a second transition-shaped window (AF-11's delay-then-cut-over, now of the new code draining per P3) and a second `rm -rf deployed/prod` before the stop (architect AF-9d, assessed low for stop (1); the same reasoning — absolute `require` paths into the new copy, identical dependencies — carries to stop (2) and should be cited rather than re-argued). AF-11's correction of the 12 s "downtime" to a 12 s delay before cut-over folds in the same row.
+L-6 LOW cycle 1 pass 2 RESOLVED — M8-0 run 2 is devops', after the `prod.yml` re-run completes and `pm2.log` shows the app online. Plan rev 5 `1d0f890`.
+L-7 LOW cycle 1 pass 2 RESOLVED — D15's cell reads "Met 05:20Z; superseded by D17". Plan rev 5.
+L-8 LOW cycle 1 pass 2 RESOLVED — X-15 carries the gap to steering's 05:29Z FYI block (`fa693e0`). Plan rev 5.
+L-9 LOW cycle 1 pass 2 RESOLVED — D19 registered; M8-a (2) is devops' re-run, a second production deploy needing his approval, AF-9d cited; stop (1) restated as a 12 s delay (AF-11); M9's owner step is the approval. Plan rev 5.
 
 ## Questions
 
@@ -87,6 +88,8 @@ None at rev 4. Every `OPEN QUESTION` in § Assumptions is `[RESOLVED]`; OQ-G and
 M0–M7 are low-risk, well-enumerated fixes at named sites with property-form criteria and a decision table where one is owed (M3); no HIGH finding lands on them, and QA Phase 1 may key on them as written once M-1 and M-2 are folded. M8 carries every HIGH and two MEDIUMs: its acceptance rests on a single owner-run instrument against a host nobody in the pipeline can read, and this pass finds that instrument pointed at the wrong stop (H-1), unbound to the line the fix will emit (M-3), and run against one of two processes (M-4). None of this is a defect in the fix's design — P1–P4 are right — it is a defect in how the plan would know the fix landed. Standing prediction for the register (RK, planner's choice of number): *a post-deploy M8 observation that is read off the deploy's own stop rather than a stop of the new code*; falsifier — a run-2 paste whose `[5b]` shows `still alive after 12000ms` for the reload the push performed, reported as a refutation of P1.
 
 ## Verdict
+
+**Pass 3 — APPROVED, critique closed** (cycle 1, pass 3). Every finding is RESOLVED, verified in rev 5's text; D19's limbs are approved; no criterion changed, so no other gate's rev-4 read expires. Plan rev 5 `1d0f890` is the approved plan. QA Phase 1 remains the one pre-code gate yet to read it (spawn cue sent to steering at pass 2). RK-6: no new member.
 
 **Pass 2 — APPROVED** (cycle 1, pass 2). Sized to the ask: 49 of 50; M1-a's widening to four sites completes F-2's own class (the originating statement is about the class), not growth. Every pass-1 finding is verified landed in rev 4's text. The owed re-verdicts table's three limbs — M8, M1-a, M6-l (iii)–(v) — are approved by this pass. L-6–L-9 are LOW and route to the planner: fold them in the registration pass the 05:29Z selection already owes (no planning revision is needed for L-6–L-8; L-9's limit lines move no criterion), or park each as a Planner batch row with a landing trigger before implementation approval. The critique closes when those rows are read. RK-6's register: no new member at this pass — rev 4's criterion reads stop (2) only. The architect's delta pass is APPROVED (`192ec29`); QA Phase 1 has not read this revision and has no live session — a spawn cue to steering.
 
