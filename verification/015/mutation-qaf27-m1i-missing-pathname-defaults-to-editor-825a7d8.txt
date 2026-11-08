@@ -1,0 +1,30 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/7ab2f8e5-9cb7-4bda-8c06-1fe0f88cd6fa/scratchpad/website-825a7d8-qaf27-m1i-missing-pathname-defaults-to-editor  sha: 825a7d8  label: qaf27-m1i-missing-pathname-defaults-to-editor  test: src/app/_navigation/Redirects/__tests__/Server.session-cookie-redirect.test.ts  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf27-m1i-missing-pathname-defaults-to-editor.py
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/7ab2f8e5-9cb7-4bda-8c06-1fe0f88cd6fa/scratchpad/website-825a7d8-qaf27-m1i-missing-pathname-defaults-to-editor
+
+ ❯ |node| src/app/_navigation/Redirects/__tests__/Server.session-cookie-redirect.test.ts (19 tests | 1 failed) 16ms
+     × sends a request carrying no x-pathname header to the new-message editor, once 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/app/_navigation/Redirects/__tests__/Server.session-cookie-redirect.test.ts > the server-side redirect to the new-message editor > sends a request carrying no x-pathname header to the new-message editor, once
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ src/app/_navigation/Redirects/__tests__/Server.session-cookie-redirect.test.ts:76:22
+     74|     await run(null, '');
+     75|
+     76|     expect(redirect).toHaveBeenCalledTimes(1);
+       |                      ^
+     77|     expect(redirect).toHaveBeenCalledWith('/message/m/0/edit', 'push');
+     78|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 18 passed (19)
+   Start at  09:52:11
+   Duration  237ms (transform 38ms, setup 0ms, import 90ms, tests 16ms, environment 0ms)
+
+vitest exit 1

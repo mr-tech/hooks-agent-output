@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/7ab2f8e5-9cb7-4bda-8c06-1fe0f88cd6fa/scratchpad/website-825a7d8-qaf-control  sha: 825a7d8  label: qaf-control  test: src/app/_navigation/Redirects/__tests__/Server.session-cookie-redirect.test.ts src/server/__tests__/auth.sign-out.test.ts src/utils/__tests__/constructImageUrl.default-avatar.test.ts src/utils/__tests__/formatKey.key-format.test.ts  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/7ab2f8e5-9cb7-4bda-8c06-1fe0f88cd6fa/scratchpad/website-825a7d8-qaf-control
+
+
+ Test Files  4 passed (4)
+      Tests  46 passed (46)
+   Start at  09:52:05
+   Duration  1.02s (transform 344ms, setup 0ms, import 1.12s, tests 51ms, environment 0ms)
+
+vitest exit 0

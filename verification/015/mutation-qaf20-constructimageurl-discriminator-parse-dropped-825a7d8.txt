@@ -1,0 +1,51 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/7ab2f8e5-9cb7-4bda-8c06-1fe0f88cd6fa/scratchpad/website-825a7d8-qaf20-constructimageurl-discriminator-parse-dropped  sha: 825a7d8  label: qaf20-constructimageurl-discriminator-parse-dropped  test: src/utils/__tests__/constructImageUrl.default-avatar.test.ts  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf20-constructimageurl-discriminator-parse-dropped.py
+ .../src/utils/constructImageUrl.ts                                      | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/7ab2f8e5-9cb7-4bda-8c06-1fe0f88cd6fa/scratchpad/website-825a7d8-qaf20-constructimageurl-discriminator-parse-dropped
+
+ ❯ |node| src/utils/__tests__/constructImageUrl.default-avatar.test.ts (12 tests | 2 failed) 12ms
+       × returns ID-based default avatar for discriminator "0" (string) 5ms
+     × parses a discriminator string with leading zeros as 0, giving the ID-based avatar 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/constructImageUrl.default-avatar.test.ts > constructImageUrl bug fixes > default avatar for migrated users > returns ID-based default avatar for discriminator "0" (string)
+AssertionError: expected 'https://cdn.discordapp.com/embed/avat…' to be 'https://cdn.discordapp.com/embed/avat…' // Object.is equality
+
+Expected: "https://cdn.discordapp.com/embed/avatars/1.png"
+Received: "https://cdn.discordapp.com/embed/avatars/0.png"
+
+ ❯ src/utils/__tests__/constructImageUrl.default-avatar.test.ts:19:19
+     17|       const id = '1000000000000000000';
+     18|       const url = constructImageUrl(id, null, '0');
+     19|       expect(url).toBe('https://cdn.discordapp.com/embed/avatars/1.png…
+       |                   ^
+     20|     });
+     21|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/__tests__/constructImageUrl.default-avatar.test.ts > constructImageUrl default avatar index > parses a discriminator string with leading zeros as 0, giving the ID-based avatar
+AssertionError: expected 'https://cdn.discordapp.com/embed/avat…' to be 'https://cdn.discordapp.com/embed/avat…' // Object.is equality
+
+Expected: "https://cdn.discordapp.com/embed/avatars/1.png"
+Received: "https://cdn.discordapp.com/embed/avatars/0.png"
+
+ ❯ src/utils/__tests__/constructImageUrl.default-avatar.test.ts:111:17
+    109|     // This ID's (BigInt(id) >> 22n) % 6n is 1; an unparsed '0000' wou…
+    110|     const url = constructImageUrl('1000000000000000000', null, '0000');
+    111|     expect(url).toBe('https://cdn.discordapp.com/embed/avatars/1.png');
+       |                 ^
+    112|   });
+    113| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 10 passed (12)
+   Start at  09:52:20
+   Duration  178ms (transform 29ms, setup 0ms, import 42ms, tests 12ms, environment 0ms)
+
+vitest exit 1

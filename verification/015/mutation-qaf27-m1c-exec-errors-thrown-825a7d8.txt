@@ -1,0 +1,33 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/7ab2f8e5-9cb7-4bda-8c06-1fe0f88cd6fa/scratchpad/website-825a7d8-qaf27-m1c-exec-errors-thrown  sha: 825a7d8  label: qaf27-m1c-exec-errors-thrown  test: src/server/__tests__/auth.sign-out.test.ts  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf27-m1c-exec-errors-thrown.py
+ .../website-825a7d8-qaf27-m1c-exec-errors-thrown}/src/server/auth.ts  | 4 +++-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/7ab2f8e5-9cb7-4bda-8c06-1fe0f88cd6fa/scratchpad/website-825a7d8-qaf27-m1c-exec-errors-thrown
+
+ ❯ |node| src/server/__tests__/auth.sign-out.test.ts (13 tests | 1 failed) 30ms
+     × clears out all the same when the key deletion resolves with per-command errors 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > clears out all the same when the key deletion resolves with per-command errors
+AssertionError: promise rejected "Error: WRONGTYPE" instead of resolving
+ ❯ src/server/__tests__/auth.sign-out.test.ts:128:28
+    126|     log.clearResult = [[new Error('WRONGTYPE'), null], [null, 1]];
+    127|
+    128|     await expect(signOut()).resolves.toBeUndefined();
+       |                            ^
+    129|
+    130|     expect(accountsUpdates()).toHaveLength(1);
+
+Caused by: Error: WRONGTYPE
+ ❯ src/server/__tests__/auth.sign-out.test.ts:126:25
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 12 passed (13)
+   Start at  09:52:16
+   Duration  954ms (transform 187ms, setup 0ms, import 797ms, tests 30ms, environment 0ms)
+
+vitest exit 1

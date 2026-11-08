@@ -1,0 +1,45 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/7ab2f8e5-9cb7-4bda-8c06-1fe0f88cd6fa/scratchpad/website-825a7d8-qaf27-m1i-raw-header-plain-values  sha: 825a7d8  label: qaf27-m1i-raw-header-plain-values  test: src/app/_navigation/Redirects/__tests__/Server.session-cookie-redirect.test.ts  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf27-m1i-raw-header-plain-values.py
+ .../results.json => dev/null}                                         | 1 -
+ 2 files changed, 2 insertions(+), 3 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/7ab2f8e5-9cb7-4bda-8c06-1fe0f88cd6fa/scratchpad/website-825a7d8-qaf27-m1i-raw-header-plain-values
+
+ ❯ |node| src/app/_navigation/Redirects/__tests__/Server.session-cookie-redirect.test.ts (19 tests | 2 failed) 17ms
+     × stays on the page for a session value holding a legal %41 octet 5ms
+     × stays on the page for a session cookie name with no = (Next reports it present) 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/app/_navigation/Redirects/__tests__/Server.session-cookie-redirect.test.ts > the server-side redirect to the new-message editor > stays on the page for a session value holding a legal %41 octet
+ FAIL  |node| src/app/_navigation/Redirects/__tests__/Server.session-cookie-redirect.test.ts > the server-side redirect to the new-message editor > stays on the page for a session cookie name with no = (Next reports it present)
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      "/message/m/0/edit",
+      "push",
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/app/_navigation/Redirects/__tests__/Server.session-cookie-redirect.test.ts:57:26
+     55|     await run(cookie);
+     56|
+     57|     expect(redirect).not.toHaveBeenCalled();
+       |                          ^
+     58|   });
+     59|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 17 passed (19)
+   Start at  09:52:09
+   Duration  235ms (transform 37ms, setup 0ms, import 90ms, tests 17ms, environment 0ms)
+
+vitest exit 1
