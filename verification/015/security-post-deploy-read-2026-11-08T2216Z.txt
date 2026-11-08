@@ -1,0 +1,36 @@
+== whoami / date
+claude-ro
+2026-11-08T22:16:55Z
+== deployed puppeteer-core package version
+  "version": "21.1.0",
+== deployed puppeteer package version
+  "version": "21.1.0",
+== revisions.js chrome line
+    chrome: '116.0.5845.96',
+== deployed tree mtimes and modes (no content)
+-rw-r--r-- 1 root root    311 2026-11-08T22:04:49Z /usr/local/bin/hooks-image-preview-generator/deployed/prod/.env
+-rw-r--r-- 1 root root   3285 2026-11-08T22:04:49Z /usr/local/bin/hooks-image-preview-generator/deployed/prod/dist/server.js
+-rw-r--r-- 1 root root    591 2026-11-08T22:04:49Z /usr/local/bin/hooks-image-preview-generator/deployed/prod/ecosystem.config.js
+-rw-r--r-- 1 root root 389277 2026-11-08T22:04:49Z /usr/local/bin/hooks-image-preview-generator/deployed/prod/package-lock.json
+.git present in deployed tree
+== kill_timeout / shutdown_with_message in deployed ecosystem
+24:    shutdown_with_message: true,
+25:    kill_timeout: 12000,
+== generator process
+root     2503931 Sun Nov  8 22:04:49 2026 node /usr/local/bin/hooks-image-preview-generator/deployed/prod/dist/server.js
+== chromium process count
+0
+== chromium binary path / user / flags of interest (uniq -c)
+== listeners
+LISTEN     0          511                  0.0.0.0:80             0.0.0.0:*     
+LISTEN     0          4096           127.0.0.53%lo:53             0.0.0.0:*     
+LISTEN     0          128                  0.0.0.0:22             0.0.0.0:*     
+LISTEN     0          511                  0.0.0.0:3000           0.0.0.0:*     
+LISTEN     0          511                     [::]:80                [::]:*     
+LISTEN     0          128                     [::]:22                [::]:*     
+LISTEN     0          511                    [::1]:3000              [::]:*     
+== node
+v18.17.1
+== /etc/.pm2 dump modes
+-rw-r--r-- 1 root root 12561 2026-11-08T22:04:51Z /etc/.pm2/dump.pm2
+-rw-r--r-- 1 root root 12535 2026-11-08T22:04:51Z /etc/.pm2/dump.pm2.bak
