@@ -1,0 +1,12 @@
+# QA Phase 2, plan 015 M0: full-suite runs at website 037935d content (git-archive export, node_modules symlinked read-only from website/).
+# Export blob identity: vitest.config.ts af9749bd2a49, tsconfig.test.json 10a1138cfe17, tsconfig.json 548c88f4e4cd (git rev-parse 037935d:<f> = git hash-object <f>).
+# Command: ./node_modules/.bin/vitest run --reporter=json --outputFile=<f>; counts from numTotalTests/numPassedTests/numFailedTests/testResults.length.
+run-1: tests=598 passed=597 failed=1 files=54 FAILED: src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.auto-remove-dispatch.test.tsx :: SectionEditor — auto-remove branch dispatch dispatches onAutoRemove (not setSection) when deleting the sole text display :: TypeError: Cannot read properties of undefined (reading 'dispatchEvent')
+run-2: tests=598 passed=598 failed=0 files=54
+run-3: tests=598 passed=598 failed=0 files=54
+run-4: tests=598 passed=598 failed=0 files=54
+# Process exits, recorded at the run: run-1 1, run-2 0, run-3 0, run-4 0 (ran between 06:04Z and 06:07Z).
+# Path membership, run-1: identical to verification/015/base-7ce866b-testresults-paths.txt (54 paths; diff empty).
+# Isolation: SectionEditor.auto-remove-dispatch.test.tsx alone, 3 runs, exit 0 each.
+# Typecheck in the export: first run exit 2, one TS2307 (src/app/page.tsx, ~/assets/img/product_image.png) because next-env.d.ts is git-ignored and absent from git archive;
+#   after copying website/next-env.d.ts (ignored, generated) into the export: pnpm run typecheck exit 0, 0 'error TS'. ls -d .next/dev/types: absent in the export (no .next) and absent in website/ (06:05Z).

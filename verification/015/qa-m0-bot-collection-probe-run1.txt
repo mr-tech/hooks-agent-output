@@ -1,0 +1,5 @@
+# run 2026-11-08T06:03Z: qa-m0-bot-collection-probe.sh website <scratch> 7ce866b 037935d
+sha=7ce866b plant=bot/utils/__tests__ vitest-exit=0 files=54 tests=598 failed=0 planted-file-collected=0 planted-status=-
+sha=7ce866b plant=src/utils/__tests__ vitest-exit=1 files=55 tests=599 failed=1 planted-file-collected=1 planted-status=failed
+sha=037935d plant=bot/utils/__tests__ vitest-exit=1 files=55 tests=599 failed=1 planted-file-collected=1 planted-status=failed
+sha=037935d plant=src/utils/__tests__ vitest-exit=1 files=55 tests=599 failed=1 planted-file-collected=1 planted-status=failed

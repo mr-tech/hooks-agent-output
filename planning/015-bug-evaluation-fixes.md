@@ -56,6 +56,7 @@ Owed re-verdicts:
 | 2026-11-08T05:56 | R-4 | planner (planner-hooks-015) | Recorded critique cycle 3 pass 1, APPROVED on rev 8 (`f64ae27`). M-C3-1 joins the QAF-10 batch row, and L-C3-1 gets its own batch row. Their words are in `critiques/015-bug-evaluation-fixes-cycle3-critique.md`. Scope delta: none, registration only. |
 | 2026-11-08T05:54 | impl | implementer (implementer-hooks-015) | Status → In Progress. Implementation starts at M0 on the chain branch, entry conditions recorded in `implementation/015-bug-evaluation-fixes-m0-implementation.md`. No criterion text touched. |
 | 2026-11-08T06:03 | cr | code-reviewer (code-reviewer-hooks-015) | Round 1, M0 only, at website `037935d`: APPROVED_WITH_COMMENTS (CR-1 LOW, CR-2 INFO), `code-review/015-bug-evaluation-fixes-code-review.md`. The review is milestone-scoped, so plan Status is unmoved. |
+| 2026-11-08T06:09 | qa | qa (qa-hooks-015) | Phase 2, M0 only, at website `037935d`: PASS (`qa/015-bug-evaluation-fixes-m0-qa.md`). The bot collection change discriminates in both directions, and path membership equals the base's 54. QAF-11 MEDIUM goes to the implementer: a wall-clock wait in `SectionEditor.auto-remove-dispatch` flaked 1 of 4 full runs. It is not caused by M0. Milestone-scoped, so plan Status is unmoved. |
 
 ## Value Statement and Business Objective
 
