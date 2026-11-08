@@ -254,3 +254,26 @@ CR-5 LOW Round 2 DECLINED — by the implementer (§ Fix Round 1): the plan sets
 - **Implementer** (implementer-hooks-015): CR-9 and CR-6 Minimum. Then M1-c and M1-h once steering releases them.
 - **Planner**, via the rev 13 gate round: CR-7 and CR-8.
 - **UAT**: the Round 2 and Round 3 Assumptions Not Checked; CR-5's declined log line.
+
+## Resumption State (checkpoint, code-reviewer-hooks-015, 2026-11-08T06:46)
+
+- **Done.**
+  - Round 1: M0 `037935d` APPROVED_WITH_COMMENTS. CR-1 RESOLVED; CR-2 routed to QA.
+  - Round 2: M1 `be881c9` REJECTED.
+  - Round 2 sub-entry at `6001f7f`: CR-4 RESOLVED; M1-i met under rev 13; CR-5 DECLINED by the implementer; CR-6 and CR-7 LOW raised.
+  - Round 3: M2 `6001f7f` APPROVED_WITH_COMMENTS (CR-8, CR-9 and CR-10 LOW).
+  - All committed: this document at `7976a9a`; plan rows `a8dd1fa`, `28e9d34` and `776e668`.
+  - Deliveries sent: QA (M2 and M1-i), the implementer (the LOWs and the rebuild cell lists), steering (CR-6, CR-7 and CR-8 for the planner).
+- **Open, mine to re-verify, each as a sub-entry at its handoff SHA:**
+  - M1-c (CR-3): plan rev 12 and 13 text. The cell needs a Redis stub that holds a value; red at `a2592f0` and `be881c9`, green at `7b10f4e`. Probe: `verification/015/cr-m1-probes/signout.cached-null.test.ts`, driver `cr-m1-probes/run.sh <repo> <scratch> <sha> <out>`.
+  - M1-h: rev 13's 8-row decision table. Cells exist for rows 2 and 6 (during A, during G) only.
+  - M1-c and M1-h are held by steering until the critic, the architect and QA pass rev 13.
+- **Next.** The next milestone handoff (M3) is a new Round 4. Read the plan at its latest revision and record its criteria at round open. Re-derive `Handoff-At` from the implementation document.
+- **Instruments, reusable.** `verification/015/cr-emit-compare.cjs <repo> <a> <b>` settles a behaviour-preserving claim by comparing syntax trees. `cr-m1-probes/cookie-parser-reattack.cjs <repo>`. `cr-m0-bot-typecheck-probe.sh`.
+- **Tree.** website `chain/015-bug-evaluation-fixes`; tip `6001f7f` at checkpoint, checked out (not moved by me). Nothing of mine is uncommitted. Scratch exports and worktrees are removed. No local mutation outstanding.
+- **Hazards met.**
+  - The rtk filter truncates `grep` output: use `grep -c` or write to a file and Read it.
+  - `record-edit.js` substitutes the now-token everywhere, including inside prose.
+  - Typed stamps are refused by the stamp gate.
+  - eslint needs `node_modules`: lint shared-tree files byte-identical to the SHA, or `git show <sha>:f | npx eslint --stdin`.
+- **Questions out.** None pending to the owner.
