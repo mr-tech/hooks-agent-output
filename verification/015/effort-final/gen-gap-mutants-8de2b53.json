@@ -1,0 +1,45 @@
+{
+ "_scope": "QA effort-final Phase 2, preview-image-generator 8de2b53: gap mutants over 471578f..8de2b53 sites no earlier set reaches (pool.use release in finally, both paths; the 10 s fallback exit; pool.clear after drain). Compiled build/ edits, each old string exactly once; run under probe.cjs.",
+ "mutants": [
+  {
+   "name": "qa-ef-use-release-dropped",
+   "file": "build/getPool.js",
+   "edits": [
+    [
+     "        finally {\n            await pool.release(resource);\n        }",
+     "        finally {\n        }"
+    ]
+   ]
+  },
+  {
+   "name": "qa-ef-use-release-success-only",
+   "file": "build/getPool.js",
+   "edits": [
+    [
+     "        try {\n            return await fn(resource);\n        }\n        finally {\n            await pool.release(resource);\n        }",
+     "        const result = await fn(resource);\n        await pool.release(resource);\n        return result;"
+    ]
+   ]
+  },
+  {
+   "name": "qa-ef-fallback-timer-removed",
+   "file": "build/server.js",
+   "edits": [
+    [
+     "    setTimeout(() => { process.exit(0); }, 10e3);\n",
+     ""
+    ]
+   ]
+  },
+  {
+   "name": "qa-ef-clear-dropped",
+   "file": "build/server.js",
+   "edits": [
+    [
+     "pool ? pool.drain().then(() => pool.clear()) : Promise.resolve()",
+     "pool ? pool.drain() : Promise.resolve()"
+    ]
+   ]
+  }
+ ]
+}
