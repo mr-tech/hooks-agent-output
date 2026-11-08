@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Delta pass on plan rev 25 (dd9e88a, read from 018f72d): APPROVED, no findings. AF-28 is fully discharged (handoff 116c361; plan D34 and X-20 at rev 25). Still with code review to check against the code: AF-27 (M5-h's error-boundary form) and AF-29 (M5-i's derived default). AF-26 is resolved as the owner's known limit (D34, website.md W-7). AF-18 is implemented at website 3031878. A later revision is read on its delta."
+Status-Detail: "Delta pass on plan rev 26 (c375d2c, read from dd9e88a): APPROVED. AF-30 LOW is recommended (RK-8: a startup guard on generic-pool's private queue, and an optional exact pin). Still with code review to check against the code: AF-27 (M5-h) and AF-29 (M5-i). AF-26 is resolved as the owner's known limit (D34, website.md W-7). AF-18 is implemented at website 3031878. A later revision is read on its delta."
 ---
 
 # Architecture Findings — Plan 015: Bug-evaluation fixes (conformance pass)
@@ -36,6 +36,37 @@ Status-Detail: "Delta pass on plan rev 25 (dd9e88a, read from 018f72d): APPROVED
 | 2026-11-08T08:13 | Delta pass, plan rev 24 (`018f72d`, read from `39dbc0d`), on steering-hooks-015's request | These conform: CR-21's fold (the type-12 member, X-19 restated, the presence rule), L-C5-1, D34 and X-20, M5-i and X-21. M5-i's open panel does follow `selected`, because `StyledAccordion` sets `dangerouslySetExpanded` from it (read at website `ef5a9cc`). AF-28 LOW: the AF-26 handoff does not cite W-7 as the brief said. Under W-7, refusing the hand-made link enacts his rule, and it is accepting several accounts that needs his ruling. Its "`send/page.tsx` was not read" is closed at `0f893c8`. AF-29 LOW: M5-i's conforming form is M5-d's derive-from-input, holding only the user's pick as state. An effect re-seed would be an avoidable deviation. The default should use the category's own id expression (`guild?.id ?? '0'`, against the seed's `?? ''`). Nothing for the owner. **APPROVED.** |
 | 2026-11-08T08:14 | AF-28 discharged (planner-hooks-015's reply) | Read at agent-output `116c361`: the handoff cites W-7 (`952e69f`), states that refusing the link enacts W-7 and that accepting several accounts needs his ruling, and adds my `send/page.tsx` read. One slip, sent to the planner: it cites that read as "website `0f893c8`", but `0f893c8` is the agent-output commit that recorded it, and the read was at website `3031878`. The plan-side limbs (D34 and X-20 citing W-7) are parked as plan R-8 (`b2833fa`). AF-29 is taken as the implementer's and code review's, with no plan text owed. |
 | 2026-11-08T08:27 | Delta pass, plan rev 25 (`dd9e88a`, read from `018f72d`), on steering-hooks-015's request | Every limb conforms, read at the SHAs it names. M6-a's title drop: `parseEmbedTitle` omits `codeBlock`, `heading` and `list` at website `7ce866b`, since `d5f2dc8` (`git log -S`). AF-28's plan side: D34 and X-20 cite W-7. X-22: `NewMessageModal` is mounted under `f/[id]/page.tsx`, and next 16.1.6 `createRouterCacheKey` keys the dynamic segment `id|A|d`, so a folder switch remounts it (source read). The Exclusions standing constraint conforms. No findings. **APPROVED.** |
+| 2026-11-08T09:24 | Delta pass, plan rev 26 (`c375d2c`, read from `dd9e88a`), on steering-hooks-015's request | Conforming: M5-h (3) anchored to the tip (CR-29), M8-b under D35, M8-d as a property, and the M6-a provenance correction. RK-8 was read at preview-image-generator `6c613a5`. `getPool.ts` reaches the private `_waitingClientsQueue` from the public `factoryCreateError` event. That is a necessary deviation, because no public API rejects a waiting acquire, and `acquireTimeoutMillis` would delay every failure to the timeout. Exposure: the lockfile resolves exactly 3.9.0, `prod.yml` runs `npm ci`, and 3.9.0 is the newest published version (`npm view`). AF-30 LOW: a startup guard that logs or refuses when the private shape is absent turns a silent hang into a log line; an exact pin is optional. One Problem Area registered. Nothing for the owner. **APPROVED.** |
+
+## Verdict (rev 26, `c375d2c`, one pass from rev 25 `dd9e88a`): APPROVED
+
+These limbs conform:
+
+- **M5-h class (3) anchored to the tip (CR-29).** The class is still decided by executed reads on the tree the guard lands on, so a member that a later milestone made render moves lists rather than being refused (`fields: null`, after M6-c). AF-27's boundary form satisfies this anchor without restating members.
+- **M8-b under D35.** It follows the owner's `/preview` ruling (D31) for the same input shape, a non-object body.
+- **M8-d restated as a property, with RK-8.** The plan states outcomes and gives the mechanism to the implementer, which is the right altitude. The earlier "rejects in the pool factory" sketch was a mechanism and was insufficient.
+- **The M6-a provenance correction (L-C8-1).**
+
+AF-30 is recommended and does not block. Nothing needs the owner.
+
+### AF-30 LOW — RK-8's coupling: make a drift loud at startup, and consider an exact pin
+
+**Read at preview-image-generator `6c613a5`.** `src/getPool.ts` `createPool` casts the pool to reach `_waitingClientsQueue` and registers `pool.on('factoryCreateError', (err) => { waitingClients.dequeue()?.reject(err); })`. The event is public. The queue is private. No public generic-pool API rejects a waiting acquire when creation fails. The one public lever, `acquireTimeoutMillis`, would delay every failure to the timeout and also cut off legitimate waits on a busy pool. So the deviation is **necessary**, and RK-8 is the right place to record it.
+
+**Exposure, measured.**
+
+- `package.json` has `"generic-pool": "^3.9.0"`. `package-lock.json` resolves `node_modules/generic-pool` to exactly `3.9.0`.
+- `.github/workflows/prod.yml` installs with `npm ci --omit=optional`, which is lockfile-exact, so prod cannot drift without a lockfile change.
+- `npm view generic-pool versions` lists `3.9.0` as the newest published version (2026-11-08).
+
+So the caret matters only on a deliberate `npm install` or `npm update` that rewrites the lockfile. RK-8's trigger, any change to the lockfile's resolved version, is correctly placed.
+
+**What would make it better.** These are recommended, at the implementer's and code review's discretion, and come as a pair to choose between.
+
+1. **Make a drift loud, not a hang** (observability; preferable). `createPool` checks once that `_waitingClientsQueue?.dequeue` is a function. If it is not, it logs a named error line, or refuses to start, as M8-e does for `API_KEY`. Today a changed private shape fails with no line naming the cause. Either the queue's shape changes and the waiting acquire hangs, as RK-8 says, or `waitingClients` is `undefined` and the listener throws a `TypeError` inside generic-pool's `emit`. What that throw then does is **unread**. One guard turns either case into a line the host's log read can see. *Follow the current pattern* (RK-8's probe as the only instrument) or *accept the deviation* (a startup guard, a few lines, plus one cell).
+2. **Exact pin `generic-pool@3.9.0`.** This makes an upgrade an explicit edit, not a side effect of `npm update`. It is a `package.json` and lockfile change that rides M8's next commit. Since 3.9.0 is the newest version and `npm ci` already pins prod, the gain is small. *Follow the current pattern* (caret) or *accept the deviation* (exact pin).
+
+Neither changes M8-d's property. The coupling is registered as a Problem Area.
 
 ## Verdict (rev 25, `dd9e88a`, one pass from rev 24 `018f72d`): APPROVED, no findings
 
@@ -543,7 +574,7 @@ Each is recorded in `system-architecture.md` § Problem Areas:
     - `website.md`: A-4 and A-5 (agent-designed).
     - `preview-image-generator.md`: P-3 rewritten on the owner's selection "Agent: record intended" (05:18Z), and A-1 (the log-line interface).
 - **Next.**
-  - Rev 21 (`3d193f9`): APPROVED, AF-22 INFO registered. Rev 22 (`5201612`): APPROVED, with AF-23 to AF-25 recommended. Rev 23 (`39dbc0d`): APPROVED. AF-24 and AF-25 are folded, AF-23's basis is withdrawn (the error mine), and AF-27 is recommended. Rev 24 (`018f72d`): APPROVED, with AF-28 and AF-29 recommended. AF-26 is resolved: D34 and website.md W-7 (`952e69f`). Rev 25 (`dd9e88a`): APPROVED, no findings, and AF-28 is fully discharged. A later revision is read on its delta from `dd9e88a`. Check AF-29 (M5-i's form) when M5-i's code is reviewed. When M5-h's code is reviewed, check AF-27.
+  - Rev 21 (`3d193f9`): APPROVED, AF-22 INFO registered. Rev 22 (`5201612`): APPROVED, with AF-23 to AF-25 recommended. Rev 23 (`39dbc0d`): APPROVED. AF-24 and AF-25 are folded, AF-23's basis is withdrawn (the error mine), and AF-27 is recommended. Rev 24 (`018f72d`): APPROVED, with AF-28 and AF-29 recommended. AF-26 is resolved: D34 and website.md W-7 (`952e69f`). Rev 25 (`dd9e88a`): APPROVED, no findings, and AF-28 is fully discharged. Rev 26 (`c375d2c`): APPROVED, with AF-30 recommended. A later revision is read on its delta from `c375d2c`. Check AF-30 when M8's next commit is reviewed. Check AF-29 (M5-i's form) when M5-i's code is reviewed. When M5-h's code is reviewed, check AF-27.
   - AF-18 is implemented at website `3031878` (on the chain branch, not yet released). At chain close, reconcile the master document's `user-access-token` Problem Area row.
   - **Method, per pass:**
     1. Write `git diff <from> <to> -- planning/015-bug-evaluation-fixes.md` to the scratchpad and Read it; the rtk filter mangles piped diffs.
