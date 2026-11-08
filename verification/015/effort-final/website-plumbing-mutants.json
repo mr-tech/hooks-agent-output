@@ -1,0 +1,80 @@
+[
+ {
+  "id": "pl-jsonmodal-copytext-deps-empty",
+  "file": "src/app/message/m/[id]/_components/JsonModalBody.tsx",
+  "old": "useMemo(() => toCopyText(messageString), [messageString])",
+  "new": "useMemo(() => toCopyText(messageString), [])"
+ },
+ {
+  "id": "pl-preview-data-ignores-query",
+  "file": "src/app/preview/page.tsx",
+  "old": "const data = parseMessageData(query);",
+  "new": "const data = parseMessageData('{}');"
+ },
+ {
+  "id": "pl-author-mount-ts-not-set",
+  "file": "src/components/DiscordMessageEditor/components/Author.tsx",
+  "old": "  useEffect(() => {\n    setTs(new Date());\n    let interval",
+  "new": "  useEffect(() => {\n    let interval"
+ },
+ {
+  "id": "pl-author-interval-not-captured",
+  "file": "src/components/DiscordMessageEditor/components/Author.tsx",
+  "old": "      interval = setInterval(",
+  "new": "      setInterval("
+ },
+ {
+  "id": "pl-button-style-dropped",
+  "file": "src/components/Button.tsx",
+  "old": "const { children, className, style } = props;",
+  "new": "const { children, className } = props;\n  const style = undefined;"
+ },
+ {
+  "id": "pl-wp-url-starts-stale",
+  "file": "src/providers/WebhookProvider.tsx",
+  "old": "useUpdateEffect(() => {\n    let isStale = false;\n    setSelectedWebhook(null);",
+  "new": "useUpdateEffect(() => {\n    let isStale = true;\n    setSelectedWebhook(null);"
+ },
+ {
+  "id": "pl-vw-url-starts-stale",
+  "file": "src/utils/hooks/useValidateWebhook.ts",
+  "old": "    let isStale = false;\n    setWebhook(null);",
+  "new": "    let isStale = true;\n    setWebhook(null);"
+ },
+ {
+  "id": "pl-vw-message-starts-stale",
+  "file": "src/utils/hooks/useValidateWebhook.ts",
+  "old": "    let isStale = false;\n    setMessage(null);",
+  "new": "    let isStale = true;\n    setMessage(null);"
+ },
+ {
+  "id": "pl-shared-partial-guildid-unselected",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "'Messages.previewImageNonce', 'Guilds.guildId as guildId',\n    ]);\n\n  const messages = await (guilds.length",
+  "new": "'Messages.previewImageNonce',\n    ]);\n\n  const messages = await (guilds.length"
+ },
+ {
+  "id": "pl-redis-getitem-falsy-value-miss",
+  "file": "src/utils/redis/index.ts",
+  "old": "      return { item: (typeof item === 'object' && !!item ? decompress(item) : item) as T };",
+  "new": "      const v = (typeof item === 'object' && !!item ? decompress(item) : item) as T;\n      return v ? { item: v } : null;"
+ },
+ {
+  "id": "pl-redis-clearuser-pipeline-not-run",
+  "file": "src/utils/redis/index.ts",
+  "old": "  if (discordId) pipeline.del(formatKey('user-guilds', discordId));\n  return pipeline.exec();",
+  "new": "  if (discordId) pipeline.del(formatKey('user-guilds', discordId));\n  return Promise.resolve([]);"
+ },
+ {
+  "id": "pl-auth-revoke-does-nothing",
+  "file": "src/server/auth.ts",
+  "old": "async function revokeAccessToken(accessToken: string) {\n",
+  "new": "async function revokeAccessToken(accessToken: string) {\n  return;\n"
+ },
+ {
+  "id": "pl-auth-message-promise-unwrapped",
+  "file": "src/server/auth.ts",
+  "old": "const messagePromise = Promise.resolve(preferences?.recentMessageIds",
+  "new": "const messagePromise = (preferences?.recentMessageIds"
+ }
+]
