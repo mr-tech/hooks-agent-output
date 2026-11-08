@@ -119,7 +119,7 @@ Steering read over `ssh -i ~/.ssh/id_ed25519_hooks_pig claude-ro@165.227.249.183
 the claude-ro reads-only rule. The file exists: 0 bytes, owner claude-ro, 05:18. It has not been removed, because
 removing it is another write. That is the owner's call.
 
-## 2026-11-08T05:27Z — generator host: standing reads; dump.pm2 (one selection prompt, two questions)
+## 2026-11-08T05:21Z — generator host: standing reads; dump.pm2 (one selection prompt, two questions)
 - **Standing reads.** Options: Agent: standing reads / Agent: ask each time / You: run M8-0 yourself. Chosen **Agent:
   standing reads**, by selection. Reads over claude-ro on 165.227.249.183 are standing, with the rule as the option
   stated it: reads only, never pm2 commands, never a write. Steering added `Host hooks-pig` to ~/.ssh/config.
