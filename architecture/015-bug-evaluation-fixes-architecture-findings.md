@@ -640,7 +640,7 @@ Each is recorded in `system-architecture.md` § Problem Areas:
     - **Reconcile notes added at rev 28:** the rev 27 RK-8 bullet and AF-31's premise both read `6c613a5`'s exit signature; at `8de2b53` it is a hang plus retry storm (CR-34).
   - **Open recommendations:**
     - AF-27 (M5-h guard as `react-error-boundary`) and AF-29 (M5-i derived default), for code review against the code.
-    - AF-32 (rev 28): the RK-8 drift probe runs locally on an export of the deployed commit under the deployed Node, never on the generator host, and is a magnitude read. Carrier: the planner (Planner batch), or devops at the M9 handoff mint.
+    - AF-32 (rev 28): the RK-8 drift probe runs locally on an export of the deployed commit under the deployed Node, never on the generator host, and is a magnitude read. Carrier: the planner, parked as a Planner batch row beside CR-39 (code review Round 21, same wording; recorded as R-25 at `6ca81cc`). It folds into RK-8 and M9 if the critic or QA asks for a revision, or else goes to devops as handoff text at the M9 mint.
   - **INFO, registered only:** AF-22.
   - **Records written this chain:** `system-architecture.md` Problem Areas (AF-9a–d, X-16, session cache, `user-access-token`, session cookie, AF-21, AF-22, AF-25, AF-26, AF-27, the generic-pool reach restated at rev 28, `/generate` body trust); `website.md` A-4, A-5, W-7; `preview-image-generator.md` P-3, A-1.
 - **Next.**
