@@ -1,0 +1,27 @@
+{
+ "phase": "explore",
+ "name": "uat-015 save-leg test",
+ "steps": [
+  "23:01:36 done"
+ ],
+ "trpc": [
+  "23:01:25 GET message.get 200"
+ ],
+ "listButtons": [
+  "open sidebar",
+  "toggle site theme",
+  "user menu",
+  "reload messages",
+  "toggle message list view",
+  "sort by",
+  "new message",
+  "Ok, Got it."
+ ],
+ "editorButtons": [
+  "open sidebar",
+  "toggle site theme",
+  "user menu",
+  "My Account",
+  "Ok, Got it."
+ ]
+}

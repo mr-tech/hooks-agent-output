@@ -1,0 +1,34 @@
+{
+ "phase": "delete",
+ "name": "x",
+ "steps": [
+  "23:03:09 explicit File > Save done",
+  "23:03:24 done"
+ ],
+ "trpc": [
+  "23:02:59 GET message.getOne 200",
+  "23:03:06 POST message.upsert 200",
+  "23:03:10 GET message.get 200",
+  "23:03:19 GET message.get 200"
+ ],
+ "explicitSaveErrors": [
+  "Message saved!"
+ ],
+ "actionsMenu": [
+  "open sidebar",
+  "toggle site theme",
+  "user menu",
+  "reload messages",
+  "toggle message list view",
+  "sort by",
+  "new message",
+  "message actions",
+  "Delete",
+  "Copy JSON",
+  "Ok, Got it."
+ ],
+ "confirmDialog": "",
+ "afterText": "Servers\n/\nMy Account\nMessages by Last Modified\nNo Messages\nCreate a new message or upload an existing one.\n\nThis website uses cookies to ensure that you get the best experience.\n\nLearn more\nOk, Got it.",
+ "afterLinks": [],
+ "afterErrors": []
+}
