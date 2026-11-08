@@ -1,0 +1,25 @@
+{
+ "label": "7ce866b",
+ "steps": [
+  "20:52:40 discord guilds read: 2",
+  "20:53:05 site signed in: true",
+  "20:53:26 done"
+ ],
+ "discordUrl": "https://discord.com/channels/@me",
+ "discordUserIdMatches": true,
+ "discordGuilds": [
+  "Claude\nC",
+  "4 mentions, Statbot"
+ ],
+ "siteSignedIn": true,
+ "siteServerChoices": [
+  "My Account",
+  "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+  "Ok, Got it."
+ ],
+ "listTrpc": [
+  "message.get 200"
+ ],
+ "listText": "Servers\n/\nMy Account\nMessages by Last Modified\nNo Messages\nCreate a new message or upload an existing one.\n\nThis website uses cookies to ensure that you get the best experience.\n\nLearn more\nOk, Got it.",
+ "listErrors": []
+}

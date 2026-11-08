@@ -1,0 +1,65 @@
+▲ Next.js 16.1.6 (webpack)
+- Local:         http://127.0.0.1:3000
+- Network:       http://127.0.0.1:3000
+- Environments: .env.local
+
+✓ Starting...
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+✓ Ready in 1496ms
+○ Compiling /message ...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+○ Compiling /api/auth/[...nextauth] ...
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 9.5ms
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 32.0ms
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 25.0ms
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 1.4ms
+ GET /api/auth/session?hydrate=true 200 in 232ms (compile: 6ms, render: 226ms)
+ GET /api/auth/session?hydrate=true 200 in 169ms (compile: 4ms, render: 165ms)
+ GET /api/auth/session?hydrate=true 200 in 73ms (compile: 5ms, render: 68ms)
+ GET /api/auth/session?hydrate=true 200 in 6.7s (compile: 5.5s, render: 1173ms)
+⨯ Error: [next-auth]: `useSession` must be wrapped in a <SessionProvider />
+    at Page (src/app/message/page.tsx:36:39)
+  34 |
+  35 | const Page: FC = () => {
+> 36 |   const { data: session } = useSession();
+     |                                       ^
+  37 |   const router = useRouter();
+  38 |   const isMobile = useIsMobile();
+  39 | {
+  digest: '1350687378'
+}
+ GET /message 200 in 483ms (compile: 25ms, render: 458ms)
+ GET /message 200 in 1287ms (compile: 767ms, render: 519ms)
+ GET /message 200 in 1439ms (compile: 93ms, render: 1346ms)
+ GET /message 200 in 14.1s (compile: 6.7s, render: 7.4s)
+ GET /message 200 in 15ms (compile: 3ms, render: 12ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 0.9ms
+ GET /api/auth/session 200 in 6ms (compile: 1336µs, render: 4ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 0.9ms
+ GET /api/auth/session 304 in 5ms (compile: 1189µs, render: 4ms)
+⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 2.9ms
+ GET /api/auth/session?hydrate=true 200 in 36ms (compile: 26ms, render: 10ms)
+ GET /message/m/new 200 in 1333ms (compile: 969ms, proxy.ts: 85ms, render: 279ms)
+○ Compiling /message/f/[id] ...
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 2.1ms
+ GET /api/auth/session?hydrate=true 200 in 40ms (compile: 16ms, render: 24ms)
+ GET /message/f/0 200 in 4.3s (compile: 3.9s, proxy.ts: 6ms, render: 309ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 1.5ms
+kysely:query: select "userId" from "Accounts" where "provider" = $1 and "providerAccountId" = $2
+kysely:query: duration: 2.0ms
+kysely:query: select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."previewImageNonce" from "Messages" where "Messages"."fk_users_id" = $1
+kysely:query: duration: 0.8ms
+ GET /api/trpc/message.get?input=%7B%22json%22%3A%220%22%7D 200 in 1260ms (compile: 1231ms, render: 28ms)
+[?25h

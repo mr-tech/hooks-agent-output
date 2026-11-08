@@ -1,0 +1,15 @@
+{
+ "label": "7ce866b",
+ "steps": [
+  "20:51:50 discord login page",
+  "20:52:02 discord guilds read: 2",
+  "20:52:18 error"
+ ],
+ "discordUrl": "https://discord.com/channels/@me",
+ "discordUserIdMatches": true,
+ "discordGuilds": [
+  "Claude\nC",
+  "4 mentions, Statbot"
+ ],
+ "error": "Error: page.evaluate: Execution context was destroyed, most likely because of a navigation"
+}
