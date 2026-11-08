@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Delta pass on plan rev 24 (018f72d, read from 39dbc0d): APPROVED. Recommended, none blocking: AF-27 (the crash-set guard as an error boundary, for code review to check) and AF-29 (M5-i's derived default, with only the user's pick as state). AF-26 is resolved as the owner's known limit (D34, website.md W-7). AF-18 is implemented at website 3031878. AF-28 is discharged in the handoff (116c361); its plan-side limbs are parked as R-8. A later revision is read on its delta."
+Status-Detail: "Delta pass on plan rev 25 (dd9e88a, read from 018f72d): APPROVED, no findings. AF-28 is fully discharged (handoff 116c361; plan D34 and X-20 at rev 25). Still with code review to check against the code: AF-27 (M5-h's error-boundary form) and AF-29 (M5-i's derived default). AF-26 is resolved as the owner's known limit (D34, website.md W-7). AF-18 is implemented at website 3031878. A later revision is read on its delta."
 ---
 
 # Architecture Findings — Plan 015: Bug-evaluation fixes (conformance pass)
@@ -35,6 +35,18 @@ Status-Detail: "Delta pass on plan rev 24 (018f72d, read from 39dbc0d): APPROVED
 | 2026-11-08T08:12 | W-7 landed (steering-hooks-015 relay; rulings `dd2a337`) | The owner chose "Agent: yes, record the rule". His sentence lands verbatim in `website.md` as **W-7**, owner-authored. I had proposed it as "A-6", but `website.md`'s owner-authored entries are numbered W-n and the A-n section holds agent-derived rationale, so it is W-7. It was checked against the mechanism before landing, and its gap (the next-auth hand-made link) is his known limit. The master Problem Area cites W-7. |
 | 2026-11-08T08:13 | Delta pass, plan rev 24 (`018f72d`, read from `39dbc0d`), on steering-hooks-015's request | These conform: CR-21's fold (the type-12 member, X-19 restated, the presence rule), L-C5-1, D34 and X-20, M5-i and X-21. M5-i's open panel does follow `selected`, because `StyledAccordion` sets `dangerouslySetExpanded` from it (read at website `ef5a9cc`). AF-28 LOW: the AF-26 handoff does not cite W-7 as the brief said. Under W-7, refusing the hand-made link enacts his rule, and it is accepting several accounts that needs his ruling. Its "`send/page.tsx` was not read" is closed at `0f893c8`. AF-29 LOW: M5-i's conforming form is M5-d's derive-from-input, holding only the user's pick as state. An effect re-seed would be an avoidable deviation. The default should use the category's own id expression (`guild?.id ?? '0'`, against the seed's `?? ''`). Nothing for the owner. **APPROVED.** |
 | 2026-11-08T08:14 | AF-28 discharged (planner-hooks-015's reply) | Read at agent-output `116c361`: the handoff cites W-7 (`952e69f`), states that refusing the link enacts W-7 and that accepting several accounts needs his ruling, and adds my `send/page.tsx` read. One slip, sent to the planner: it cites that read as "website `0f893c8`", but `0f893c8` is the agent-output commit that recorded it, and the read was at website `3031878`. The plan-side limbs (D34 and X-20 citing W-7) are parked as plan R-8 (`b2833fa`). AF-29 is taken as the implementer's and code review's, with no plan text owed. |
+| 2026-11-08T08:27 | Delta pass, plan rev 25 (`dd9e88a`, read from `018f72d`), on steering-hooks-015's request | Every limb conforms, read at the SHAs it names. M6-a's title drop: `parseEmbedTitle` omits `codeBlock`, `heading` and `list` at website `7ce866b`, since `d5f2dc8` (`git log -S`). AF-28's plan side: D34 and X-20 cite W-7. X-22: `NewMessageModal` is mounted under `f/[id]/page.tsx`, and next 16.1.6 `createRouterCacheKey` keys the dynamic segment `id|A|d`, so a folder switch remounts it (source read). The Exclusions standing constraint conforms. No findings. **APPROVED.** |
+
+## Verdict (rev 25, `dd9e88a`, one pass from rev 24 `018f72d`): APPROVED, no findings
+
+Each limb was read at the SHA it names:
+
+- **M6-a drops the title member (CR-23).** At website `7ce866b`, `src/utils/markdown/index.tsx` builds `parseEmbedTitle` with `omit(…, ['codeBlock', 'heading', 'list'])` in both the static and the interactive parser. `git log -S` traces that list to `d5f2dc8`. Titles render no code block by design. Leaving the base alone follows the current pattern, and nothing in the architecture rested on the dropped member.
+- **AF-28's plan side.** D34 and X-20 cite `website.md` W-7 (`952e69f`), and X-20 cites the send-page read at website `3031878`. AF-28 is fully discharged.
+- **X-22, the modal seed, is not a defect.** Confirmed by my own read. `NewMessageModal` with a `guildId` is mounted only in `src/app/message/f/[id]/page.tsx` at `ef5a9cc`, below the dynamic `[id]` segment. next 16.1.6's `createRouterCacheKey` keys an array segment as `` `${segment[0]}|${segment[1]}|${segment[2]}` ``, so `/message/f/A` → `/message/f/B` changes the key and mounts the page and its modal fresh. This is a source read, not run; the implementer's browser read could not decide it.
+- **The Exclusions standing constraint and the X-16 and X-21 clauses.** These are register hygiene with no architectural bearing, so they conform.
+
+AF-27 and AF-29 remain with code review to check against the M5-h and M5-i code.
 
 ## Verdict (rev 24, `018f72d`, one pass from rev 23 `39dbc0d`): APPROVED
 
@@ -531,7 +543,7 @@ Each is recorded in `system-architecture.md` § Problem Areas:
     - `website.md`: A-4 and A-5 (agent-designed).
     - `preview-image-generator.md`: P-3 rewritten on the owner's selection "Agent: record intended" (05:18Z), and A-1 (the log-line interface).
 - **Next.**
-  - Rev 21 (`3d193f9`): APPROVED, AF-22 INFO registered. Rev 22 (`5201612`): APPROVED, with AF-23 to AF-25 recommended. Rev 23 (`39dbc0d`): APPROVED. AF-24 and AF-25 are folded, AF-23's basis is withdrawn (the error mine), and AF-27 is recommended. Rev 24 (`018f72d`): APPROVED, with AF-28 and AF-29 recommended. AF-26 is resolved: D34 and website.md W-7 (`952e69f`). A later revision is read on its delta from `018f72d`. When it lands, check AF-28 (the handoff) and AF-29 (M5-i's form). When M5-h's code is reviewed, check AF-27.
+  - Rev 21 (`3d193f9`): APPROVED, AF-22 INFO registered. Rev 22 (`5201612`): APPROVED, with AF-23 to AF-25 recommended. Rev 23 (`39dbc0d`): APPROVED. AF-24 and AF-25 are folded, AF-23's basis is withdrawn (the error mine), and AF-27 is recommended. Rev 24 (`018f72d`): APPROVED, with AF-28 and AF-29 recommended. AF-26 is resolved: D34 and website.md W-7 (`952e69f`). Rev 25 (`dd9e88a`): APPROVED, no findings, and AF-28 is fully discharged. A later revision is read on its delta from `dd9e88a`. Check AF-29 (M5-i's form) when M5-i's code is reviewed. When M5-h's code is reviewed, check AF-27.
   - AF-18 is implemented at website `3031878` (on the chain branch, not yet released). At chain close, reconcile the master document's `user-access-token` Problem Area row.
   - **Method, per pass:**
     1. Write `git diff <from> <to> -- planning/015-bug-evaluation-fixes.md` to the scratchpad and Read it; the rtk filter mangles piped diffs.
