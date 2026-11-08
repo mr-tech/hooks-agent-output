@@ -3,7 +3,7 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: Active
-Status-Detail: "Delta pass on plan rev 4 (f19e688): APPROVED. AF-1 to AF-4 are folded. AF-11 (a restatement of the transition-stop limit) is recommended and does not block. No necessary deviation, so nothing goes to the owner. A later revision is read on its delta."
+Status-Detail: "Delta pass on plan rev 5 (1d0f890): APPROVED, no findings. AF-1 to AF-4, AF-11 and AF-12 are all folded. No necessary deviation, so nothing goes to the owner. A later revision is read on its delta."
 ---
 
 # Architecture Findings — Plan 015: Bug-evaluation fixes (conformance pass)
@@ -15,6 +15,7 @@ Status-Detail: "Delta pass on plan rev 4 (f19e688): APPROVED. AF-1 to AF-4 are f
 | 2026-11-08T05:15 | Conformance pass, plan rev 3 (agent-output `800ca67`), briefed by steering-hooks-015 | Every concrete form the plan writes was read against website `7ce866b` and preview-image-generator `471578f`, which are the chain branches' current HEADs. Result: two required changes (AF-1, AF-2), two recommended (AF-3, AF-4), and four conforming forms recorded (AF-5 to AF-8). Two Problem Areas registered: AF-9, and the master-document correction in AF-10. `system-architecture.md` § preview-image-generator was corrected to the read mechanism. The P-3 wording was proposed, not landed. **APPROVED_WITH_CHANGES.** Process disclosure: this run changed the master document's `Last Updated` header with an in-place `sed -i`, not with `record-edit.js` or the edit tools, which breaks the record-writing rule. The diff was read afterwards (7 insertions, 2 deletions), and that change is the only one outside the `record-edit.js` edits. |
 | 2026-11-08T05:18 | P-3 put to the owner (role-internal selection prompt) | He selected "Agent: record intended". `preview-image-generator.md` P-3 was rewritten in place to the build-and-copy route, with his prompt quoted verbatim, which closes AF-10's second limb. |
 | 2026-11-08T05:29 | Delta pass, plan rev 4 (`f19e688`), on planner-hooks-015's request to read M8-a (1) against AF-9d | AF-1 to AF-4 are discharged as folded. AF-11 (LOW): the transition stop's stated limit gets the outage window wrong. AF-12 (INFO): the route M1-a gives for the two latent sites is wrong, though its conclusion holds. AF-9d's bearing on stop (1) was assessed as low. **APPROVED.** |
+| 2026-11-08T05:34 | Delta pass, plan rev 5 (`1d0f890`, read from `f19e688`), on steering-hooks-015's request | The delta is D19 (stop (2) caused by devops' `prod.yml` re-run), AF-11 and AF-12 folded as asked, D15's consequence, run 2's reader, and X-15. No criterion changed, and nothing new conflicts with the architecture. The plan applies my AF-9d reading to stop (2). Re-checked: it holds there with more force. A re-run of the same commit writes byte-identical `dist` and dependencies, and `startOrReload` runs after the copy has finished, so the new process drains entirely against identical files. **APPROVED**, no findings. |
 
 ## Verdict (rev 4, `f19e688`): APPROVED
 
