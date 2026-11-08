@@ -22,15 +22,22 @@ the first row returned, with no order:
 The two sites share the defect. Under the owner's standing rule, a bug in a shared pattern is fixed at both sites
 together, never at one alone.
 
+The owner's standing rule, `architecture/website.md` W-7 ("One Discord account is one Hooks user"; agent-output
+`952e69f`), in his words: "If someone signs in with a different account, that's a different Hooks user". A user
+holding several Discord rows contradicts it.
+
 How a second row can arise: through the site's own buttons, it cannot. A signed-in user is offered sign-out, not
-sign-in. But next-auth 4.24.5 links a new Discord account to an already signed-in user when the sign-in URL is
-visited by hand while signed in. `src/server/auth.ts` has no `signIn` callback refusing it.
+sign-in: `NavMenu.tsx` signs out when a session exists (steering's read). Both the edit page's and the send page's
+Log in panels render only without a session (the architect's read of `send/page.tsx` at website `0f893c8`). But
+next-auth 4.24.5 links a new Discord account to an already signed-in user when the sign-in URL is visited by hand
+while signed in. `src/server/auth.ts` has no `signIn` callback refusing it.
 
 When the trigger fires, the work is a plan that, at minimum:
 - revokes and nulls every Discord row of the user on sign-out;
 - gives the lookup a defined choice among several rows;
-- disposes the hand-made link (refuse it, or accept and handle it).
-Refusing the link is a product rule for the owner, and it leaves existing rows in place.
+- disposes the hand-made link.
+Refusing the link enacts W-7. Accepting several Discord accounts per user is what would contradict W-7 and needs
+his ruling. Either way, rows that already exist remain, so the first two items stand (architect AF-28).
 
 Population: unread. No database instrument is reachable from the agents' box. The read that would settle it is
 the count of `userId` values with more than one `Accounts` row where `provider = 'discord'`.
@@ -41,7 +48,8 @@ the count of `userId` values with more than one `Accounts` row where `provider =
   `1e80a16`, option (b) corrected at `9c84362`): the schema (project-utils `749606d`), next-auth's linking, and
   both read sites.
 - Steering's read of the site's sign-in paths and next-auth `core/lib/callback-handler.js`, recorded in
-  `steering/015-rulings.md` block "2026-11-08T08:10Z — AF-26" (`766bd4b`). `send/page.tsx` was not read there.
+  `steering/015-rulings.md` block "2026-11-08T08:10Z — AF-26" (`766bd4b`); `send/page.tsx`, unread there, was read
+  by the architect at website `0f893c8` (AF-28, `1a3bc68`).
 
 ## Origin
 
@@ -53,3 +61,4 @@ The owner ruled it a known limit (plan D34, Exclusions X-20).
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-08T08:11 | planner (planner-hooks-015) | Opened on the owner's AF-26 ruling (rulings `766bd4b`). |
+| 2026-11-08T08:14 | planner (planner-hooks-015) | Architect AF-28 (`1a3bc68`): cites W-7; corrects which choice needs his ruling (refusing the link enacts W-7); adds the architect's read of `send/page.tsx` at `0f893c8`. |
