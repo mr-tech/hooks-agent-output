@@ -44,3 +44,4 @@ owner chose "Agent: handoff, out of chain" at 2026-11-08T04:49Z; the record is
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-08T04:50 | planner (planner-hooks-015) | Created on the owner's selection; no value recorded |
+| 2026-11-08T22:35 | steering (steering-hooks-015) | The retrospective (08848b8) found the key printed into at least two agent session transcripts on this machine: a critic cycle 1 read and devops at release. Both are disclosed in their records. The owner's ruling, by selection: "Agent: record, no rotation" (rulings 015, block 2026-11-08T22:35). The key stays as is; the triggers are unchanged. No value recorded. |
