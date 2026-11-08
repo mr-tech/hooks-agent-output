@@ -251,7 +251,7 @@ exists to fix once — `grep` above).
 
 - **M8-0 (owner step; limb 3 re-derived under D12)** — the scoping placed limb (3) as a read-only `claude-ro`
   read. The host has no read-only user, so no agent can run it, and it becomes an owner step. The script is
-  `verification/015/pig-host-read.sh`. The analyst drafts its commands; the code-reviewer reviews it before he
+  pig-host-read.sh, to be written under verification/015/. The analyst drafts its commands; the code-reviewer reviews it before he
   runs it; it is read-only (`pm2 -v`, `pm2 show hooks-image-preview-generator-prod`, and a read of the app log
   for the shutdown line across the last reload). He pastes the output, and steering quotes it with the time into
   the rulings file; no file is owed by him. It runs **before M8's implementation approval**, because M8-a's value
