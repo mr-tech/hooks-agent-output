@@ -2,9 +2,9 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Verified-At: "1e12837 — repos=website; M4 only, run in a git-archive export of 1e12837 under unshare -rn, not the shared tree (chain branch at 579e8b2 when read)"
-Status: QA Failed
-Status-Detail: "M4 (milestone-scoped) at website 1e12837 against plan rev 19 (330348f): QA Failed, on test coverage only. Every production limb holds on every executed check. QAF-25 MEDIUM to the implementer: three limbs have no assertion in the standing suite (the send page's Discord refusal texts; its refused-input display; the rider's guild_id null member), shown by 7 surviving QA mutants. The cells ride M4's D29 reopen (rev 20/21). Suite 825/825, 78 files, exit 0; typecheck exit 0. I-3's Send guard: 3 of 3 QA mutants killed. Plan Status left alone."
+Verified-At: "da24eb7 — repos=website; M4 only, run in a git-archive export of da24eb7 under unshare -rn, not the shared tree. The earlier pass (QA Failed) was at 1e12837"
+Status: QA Complete
+Status-Detail: "M4 (milestone-scoped) PASS at website da24eb7 against plan rev 22 (5201612; M4 unchanged since rev 21). The re-run after the D29 reopen: the round's one production change (useValidateWebhook's webhook-load catch) is killed by 4 of 4 QA mutants at both sites' cells, and QAF-25's 7 survivors are all killed by the new cells. QAF-25 RESOLVED. Suite 890/890, 89 files, exit 0; typecheck exit 0. Plan Status left alone."
 Phase: 2
 ---
 
@@ -20,6 +20,7 @@ Phase: 2
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-08T07:30 | code-reviewer-hooks-015, steering-hooks-015 → qa-hooks-015 (messages) | QA Phase 2 for M4 at website `1e12837` | Phase 2, milestone-scoped (M4). The stage start was re-derived from `a99e9ff`. This document was created at this pass and first committed with Status QA Failed (M4 scope; plan Status left alone). QAF-25 MEDIUM goes to the implementer: test gaps only, with no production defect found. |
+| 2026-11-08T08:03 | code-reviewer-hooks-015 → qa-hooks-015 (message: `d7708e8`) | M4 re-run after the D29 reopen, at website `da24eb7` | Phase 2 re-run, scoped to the round's diff (`1e12837..da24eb7` over M4's production files: `useValidateWebhook.ts` only). Stage start re-derived at `d7708e8` (Round 7 sub-entry, `Reviewed-At: da24eb7`, M4 APPROVED_WITH_COMMENTS). Verdict PASS. QAF-25 RESOLVED. Status → QA Complete (M4 scope). See § Re-run after the D29 reopen. **Process disclosure:** QAF-25's collapse to a disposition line was a `python3` in-place edit, outside the edit tools and `record-edit.js`. |
 
 ## Scope and criteria assessed
 
@@ -115,6 +116,47 @@ The rider's belonging comparison is a disclosure guard. It is also owed at the e
 
 Score: 11 mutants at the sites matching "I-3's gate conjuncts and handler in `page.tsx`, plus the plan-limb sites in `WebhookProvider.tsx` and `message.ts` whose cells the implementer's table names no red for", at `1e12837`. That covers 3 + 8 sites, and excludes the implementer's 34 and every other production line. Killed: 3 of 3 at I-3. Survived: 7 of 8 at the limb sites, plus 1 dispositioned.
 
+## Re-run after the D29 reopen (website `da24eb7`)
+
+**Criteria.** These were fixed before execution, from plan § M4-d at rev 21, and are unchanged at rev 22. (L-C5-1, the non-JSON response class, is an open Planner batch row, not a criterion.)
+- **D29 webhook-load limb.** A failed webhook-URL fetch shows exactly "Invalid URL" once, at each site's stated place: the send page's URL field error, and the dialog's shared error line. There is no unhandled rejection. A Discord refusal keeps each site's text.
+- **QAF-25's three limbs.**
+- **What did not move.** Every other M4 limb's production code is unchanged from `1e12837`. `git diff --name-only 1e12837 da24eb7` over `message.ts`, `constants/`, `parseMessageId.ts`, `WebhookProvider.tsx`, the send `page.tsx` and `WebhookMenu/index.tsx` gives 0 files. In `redis/index.ts`, `1e12837..da24eb7` changes `fetchUserAccount` only (M1). So the earlier pass's executed results for those limbs stand on the same production text. The suite below re-runs them.
+
+**TDD gate (the reopen's rows).** The D29 hook row is red against `1e12837`, before the change. The dialog file was written after the change, and its red is the mutant recreating the old text. Both are disclosed. The send page's D29 cells are controls (the send page already met the limb), discriminated by mutants. The QAF-25 rows tighten existing cells on code that was correct, so their red is QA's own mutants. Every row is disclosed, and every case has a seen red. **Passed.**
+
+| Check | Result | Exit |
+|---|---|---|
+| Full suite at `da24eb7` (export, `unshare -rn`, isolation 0/0; `qa-p2-run-da24eb7.txt`, `qa-p2-testresults-da24eb7.json`) | 890 total, 890 passed, 0 failed; `testResults` 89; stderr 0 lines | 0 |
+| Path membership vs `qa-p2-testresults-paths-3031878.txt` | 0 removed; 11 added: the two D29 files and nine M5 files (`qa-p2-testresults-paths-da24eb7.txt`) | — |
+| `pnpm run typecheck` | clean | 0 |
+| E-8 | `git diff --quiet 1e12837 da24eb7 -- pnpm-lock.yaml package-lock.json` | 0 |
+
+**Suite instrument blobs at `da24eb7`:** `6a1fadc` `useValidateWebhook.validation-effects.test.tsx`; `2b84dfb` `NewMessageModal.failed-webhook-load.test.tsx`; `41512ca` `WebhookMenu.failed-webhook-load.test.tsx`; `7168f1d` `WebhookProvider.validation-effects.test.tsx`; `cdae01a` `message.get-from-url.test.ts`. All are committed.
+
+**Mutation sweep, the round's diff.** Driver `qa-sweep.sh da24eb7 qa-m4r mutators/qa-m4r-supplement.py`, summary `qa-m4r-sweep-summary-da24eb7.txt`. Controls: the hook and dialog files 23 of 23; the menu file 2 of 2.
+
+| Mutant | Result | Cases reddened |
+|---|---|---|
+| `hook-webhook-load-text-reverted` (catch shows D24's text again) | **killed** (2) | hook "shows "Invalid URL" and no webhook when the webhook fetch rejects"; dialog "shows "Invalid URL" once, on the shared error line, when the network fails" |
+| `hook-webhook-load-silent` (catch shows nothing) | **killed** (2) | the same two |
+| `hook-refusal-becomes-invalid-url` (Discord's refusal replaced) | **killed** (2) | hook "keeps Discord's own refusal text for a refused webhook url"; dialog "shows Discord's own refusal on the shared error line, not "Invalid URL"" |
+| `menu-url-error-never` (send page field error never shows) | **killed** (3) | both send-page D29 cells, and M4-b's (non-empty, settled, null) cell |
+
+Score: 4 mutants over the round's one production hunk (`useValidateWebhook.ts`'s webhook effect: catch and refusal branch) plus the send page's D29 place (`WebhookMenu` `errorMessage`). Killed: 4 of 4.
+
+**QAF-25's survivors re-run at `da24eb7`.** Driver `qa-sweep.sh da24eb7 qa-m4r-closes mutators/qa-m4-supplement.py`, summary `qa-m4r-closes-sweep-summary-da24eb7.txt`. Controls: provider 31 of 31; router 20 of 20. All seven are now **killed**:
+- `provider-404-text`, `-403-text`, `-401-text`, `-400-text` and `provider-other-status-text`: 1 each, the matching "shows the refusal text for a N answer and no message" cell;
+- `provider-refused-shows-error`: 12, every refusal member;
+- `rider-null-passes`: 1, "refuses a channel with guild_id null, …".
+
+**Uniqueness and place.** The dialog cell counts leaf elements whose text is exactly the literal (1), checks the `text-error` class, and checks that the line's parent holds the load inputs. The send page's cell counts leaves (1) and checks that the field's container holds the input. Both fail when the text is absent or appears twice, as rev 21 requires.
+
+**Assumption Not Checked (this re-run).** This pass assumes `NewMessageModal`'s webhook load option is the dialog's default, or the one the test reaches. The cell types into the input found by placeholder, without selecting an option. The pass does not test that the user's path through the option menu reaches the same mount. **Signature of its falsity:** B-11's dialog walk finds no webhook URL field without first changing the load option, or finds the line elsewhere. **Owner of closing:** UAT, through B-11.
+- *The earlier pass's assumption (the implementer's 34 mutants not re-run) is re-routed, not closed.* A round's re-run sweeps that round's diff alone (QA definition), so those mutants fall to the effort-final sweep over `7ce866b..<tip>`. The captures they rest on are now committed (`git cat-file -e HEAD:verification/015/mutation-m4f-control-1e12837.txt`: present).
+
+**Verdict:** M4 **PASS** at website `da24eb7`, milestone-scoped. B-9, B-10 and B-11 remain UAT's.
+
 ## Implementation Review (Post-Implementation)
 
 - **Per-limb, against the cells** (Phase 1 § M4 as reconciled to rev 19):
@@ -131,16 +173,7 @@ Score: 11 mutants at the sites matching "I-3's gate conjuncts and handler in `pa
 
 ## Findings
 
-QAF-25 MEDIUM Phase 2 — Three M4 limbs that the change claims to preserve or rely on have no assertion in the standing suite. Each was shown by a QA mutant that survives every suite case at `1e12837`. The production code is correct on all three: (1) and (2) by base-vs-tip text identity and source read, (3) by the reviewer's probe re-run here.
-- **(1) The send page's Discord refusal texts** (plan § M4-d: "Discord refusals keep their existing texts", at both sites). `WebhookProvider.validation-effects.test.tsx` has no case for a 404, 403, 401, 400 or other-status message response. The site's message effect was restructured in M4 (the stale guard and the catch moved around these branches). Survivors: `provider-404-text`, `provider-403-text`, `provider-401-text`, `provider-400-text`, `provider-other-status-text`. The dialog site has its cell ("keeps Discord's own refusal text").
-- **(2) The send page's refused-input display** (plan § M4-d, QAF-22 (2): "the message and the error are both cleared"). The provider's refusal cases assert `oldMessage` null only, never `oldMessageError` `''`. Survivor: `provider-refused-shows-error`. The dialog site asserts both.
-- **(3) The rider's `guild_id: null` member** (plan § M4-d rider "Property": every value other than the authorized guild id is refused; Phase 1 § M4 rev 19 reconcile owed this cell). `message.get-from-url.test.ts` covers another guild and an absent field, not `null`. Survivor: `rider-null-passes`, a guard that refuses an absent field but passes `null`.
-- **What it fails to check:** that a later change to either site's message effect, or to the rider's comparison, keeps these behaviours. Every suite case stays green when they are lost.
-- **Required (implementer), riding M4's D29 reopen.** Tighten the existing cells rather than adding files (pattern-ladder rule):
-  - (1) an `it.each` over 404, 403, 401 and 400, plus one other status with a Discord `message`, in the provider test. Each asserts its text as a literal read at `6001f7f`, and `oldMessage` null.
-  - (2) add `expect(state.oldMessageError).toBe('')` to the provider's refusal `it.each`.
-  - (3) add `['a channel with guild_id null', { id: '222', type: 0, guild_id: null }]` to the router's no-`guild_id` `it.each`.
-  - Each cell must be seen red under the named mutant in `verification/015/mutators/qa-m4-supplement.py` (`MUT_ID=<id>`, driver `qa-m4-sweep.sh`) and green at the fix tip. The re-verdict re-runs those mutants.
+QAF-25 MEDIUM Phase 2 RESOLVED — three M4 limbs had no suite assertion at `1e12837` (the send page's Discord refusal texts; its refused-input display; the rider's `guild_id: null` member), shown by 7 surviving QA mutants. Cells were added at website `46a9cab`, and all 7 are killed at `da24eb7` (`qa-m4r-closes-sweep-summary-da24eb7.txt`). The argument is in `c4e82b3`.
 
 ## Assumption Not Checked
 
@@ -157,4 +190,5 @@ This pass appends no row to the chain's register (`qa/015-bug-evaluation-fixes-q
 
 - **Implementer (implementer-hooks-015):** QAF-25 MEDIUM. Its three cells ride M4's D29 reopen, together with the D29 cells in Phase 1 § M4 (rev 21 reconcile). M4's Phase 2 re-run follows code review's approval of that tip.
 - **Code reviewer:** the `authorizeGuildAdmin` question is answered under Implementation Review. The reviewer's probe was re-run here, 26 of 26.
-- **Verdict:** QA Failed for M4 at `1e12837`, on suite coverage. No production defect was found, and no limb failed an executed check.
+- **Verdict (1e12837):** QA Failed for M4, on suite coverage. No production defect was found, and no limb failed an executed check.
+- **Verdict (da24eb7, re-run):** PASS, milestone-scoped. M4 is not the last milestone, so no stage is messaged (seams next-act table). The effort-final sweep covers M4's production files whole.

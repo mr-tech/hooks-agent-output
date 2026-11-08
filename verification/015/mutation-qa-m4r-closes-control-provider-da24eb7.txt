@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-da24eb7-qa-m4r-closes-control-provider  sha: da24eb7  label: qa-m4r-closes-control-provider  test: WebhookProvider.validation-effects  mutator: none
+ .../src/utils/markdown/rules.tsx                   |  2 +-
+ 33 files changed, 48 insertions(+), 1038 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-da24eb7-qa-m4r-closes-control-provider
+
+
+ Test Files  1 passed (1)
+      Tests  31 passed (31)
+   Start at  07:58:07
+   Duration  1.38s (transform 160ms, setup 21ms, import 557ms, tests 69ms, environment 607ms)
+
+vitest exit 0

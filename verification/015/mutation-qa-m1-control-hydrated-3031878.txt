@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-3031878-qa-m1-control-hydrated  sha: 3031878  label: qa-m1-control-hydrated  test: auth.hydrated-session  mutator: none
+ .../src/utils/markdown/rules.tsx                   |   2 +-
+ 56 files changed, 104 insertions(+), 2074 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-3031878-qa-m1-control-hydrated
+
+
+ Test Files  1 passed (1)
+      Tests  18 passed (18)
+   Start at  07:59:19
+   Duration  403ms (transform 96ms, setup 0ms, import 261ms, tests 11ms, environment 0ms)
+
+vitest exit 0

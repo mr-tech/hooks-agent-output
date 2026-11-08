@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-da24eb7-qa-m4r-control-menu  sha: da24eb7  label: qa-m4r-control-menu  test: WebhookMenu.failed-webhook-load  mutator: none
+ .../src/utils/markdown/rules.tsx                   |  2 +-
+ 33 files changed, 48 insertions(+), 1030 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-da24eb7-qa-m4r-control-menu
+
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  07:57:45
+   Duration  1.88s (transform 297ms, setup 19ms, import 1.02s, tests 86ms, environment 621ms)
+
+vitest exit 0

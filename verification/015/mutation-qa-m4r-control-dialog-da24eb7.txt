@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-da24eb7-qa-m4r-control-dialog  sha: da24eb7  label: qa-m4r-control-dialog  test: useValidateWebhook.validation-effects NewMessageModal.failed-webhook-load  mutator: none
+ .../src/utils/markdown/rules.tsx                   |  2 +-
+ 33 files changed, 48 insertions(+), 1030 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-da24eb7-qa-m4r-control-dialog
+
+
+ Test Files  2 passed (2)
+      Tests  23 passed (23)
+   Start at  07:57:41
+   Duration  2.21s (transform 425ms, setup 31ms, import 1.62s, tests 508ms, environment 1.21s)
+
+vitest exit 0

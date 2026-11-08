@@ -1,0 +1,16 @@
+control-signout	 Tests 12 passed (12)	0	vitest exit 0
+control-cap	 Tests 10 passed (10)	0	vitest exit 0
+control-in	 Tests 4 passed (4)	0	vitest exit 0
+control-hydrated	 Tests 18 passed (18)	0	vitest exit 0
+i2-token-is-provider-id	 Tests 3 failed | 9 passed (12)	0	vitest exit 1
+i2-token-test-inverted	 Tests 5 failed | 7 passed (12)	0	vitest exit 1
+i2-tokenless-is-no-account	 Tests 1 failed | 11 passed (12)	0	vitest exit 1
+i2-row-read-by-session-token	 Tests 12 passed (12)	0	vitest exit 0
+i2-lookup-error-swallowed	 Tests 2 failed | 10 passed (12)	0	vitest exit 1
+i2-update-unscoped	 Tests 3 failed | 9 passed (12)	0	vitest exit 1
+i4-cap-constant-1001	 Tests 3 failed | 7 passed (10)	0	vitest exit 1
+i4-user-count-unscoped	 Tests 10 passed (10)	0	vitest exit 0
+i4-guild-count-unscoped	 Tests 2 failed | 8 passed (10)	0	vitest exit 1
+m1a-partial-empty-returns-early	 Tests 1 failed | 3 passed (4)	0	vitest exit 1
+m1h-message-handler-dropped	 Tests 6 failed | 12 passed (18)	0	vitest exit 1
+done

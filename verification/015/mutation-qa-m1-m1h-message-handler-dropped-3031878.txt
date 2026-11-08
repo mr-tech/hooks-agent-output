@@ -1,0 +1,163 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-3031878-qa-m1-m1h-message-handler-dropped  sha: 3031878  label: qa-m1-m1h-message-handler-dropped  test: auth.hydrated-session  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m1-supplement.py
+ .../src/utils/markdown/rules.tsx                   |   2 +-
+ 57 files changed, 104 insertions(+), 2075 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-3031878-qa-m1-m1h-message-handler-dropped
+
+(node:841025) PromiseRejectionHandledWarning: Promise rejection was handled asynchronously (rejection id: 1)
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ |node| src/server/__tests__/auth.hydrated-session.test.ts (18 tests | 6 failed) 22ms
+     × reports a recent-messages failure through the callback while the account lookup is still running 7ms
+     × leaves no rejection unhandled when the account is not found after a recent-messages failure 2ms
+     × rejects with the lookup's error when the recent messages reject before it 1ms
+     × rejects with the lookup's error when the recent messages reject after the function has left 1ms
+     × returns an empty session when no account is found and the recent messages rejected earlier 1ms
+     × returns an empty session when no account is found and the recent messages reject after the function has left 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback > reports a recent-messages failure through the callback while the account lookup is still running
+AssertionError: expected [ Error: recent messages failed ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   Error {
++     "message": "recent messages failed",
++   },
++ ]
+
+ ❯ src/server/__tests__/auth.hydrated-session.test.ts:123:23
+    121|
+    122|     expect(await outcome).toMatchObject({ message: 'recent messages fa…
+    123|     expect(unhandled).toEqual([]);
+       |                       ^
+    124|   });
+    125|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback > leaves no rejection unhandled when the account is not found after a recent-messages failure
+AssertionError: expected [ Error: recent messages failed ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   Error {
++     "message": "recent messages failed",
++   },
++ ]
+
+ ❯ src/server/__tests__/auth.hydrated-session.test.ts:139:23
+    137|
+    138|     expect(await outcome).toEqual({});
+    139|     expect(unhandled).toEqual([]);
+       |                       ^
+    140|   });
+    141| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback, by how the account lookup, the recent messages and the guild fetch end > rejects with the lookup's error when the recent messages reject before it
+AssertionError: expected [ Error: recent messages failed ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   Error {
++     "message": "recent messages failed",
++   },
++ ]
+
+ ❯ src/server/__tests__/auth.hydrated-session.test.ts:184:23
+    182|     expect(await outcome).toMatchObject({ error: { message: 'account l…
+    183|     await settle();
+    184|     expect(unhandled).toEqual([]);
+       |                       ^
+    185|   });
+    186|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback, by how the account lookup, the recent messages and the guild fetch end > rejects with the lookup's error when the recent messages reject after the function has left
+AssertionError: expected [ Error: recent messages failed ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   Error {
++     "message": "recent messages failed",
++   },
++ ]
+
+ ❯ src/server/__tests__/auth.hydrated-session.test.ts:200:23
+    198|     await settle();
+    199|
+    200|     expect(unhandled).toEqual([]);
+       |                       ^
+    201|   });
+    202|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback, by how the account lookup, the recent messages and the guild fetch end > returns an empty session when no account is found and the recent messages rejected earlier
+AssertionError: expected [ Error: recent messages failed ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   Error {
++     "message": "recent messages failed",
++   },
++ ]
+
+ ❯ src/server/__tests__/auth.hydrated-session.test.ts:227:23
+    225|     expect(await outcome).toEqual({ value: {} });
+    226|     await settle();
+    227|     expect(unhandled).toEqual([]);
+       |                       ^
+    228|   });
+    229|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback, by how the account lookup, the recent messages and the guild fetch end > returns an empty session when no account is found and the recent messages reject after the function has left
+AssertionError: expected [ Error: recent messages failed ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   Error {
++     "message": "recent messages failed",
++   },
++ ]
+
+ ❯ src/server/__tests__/auth.hydrated-session.test.ts:243:23
+    241|     await settle();
+    242|
+    243|     expect(unhandled).toEqual([]);
+       |                       ^
+    244|   });
+    245|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  6 failed | 12 passed (18)
+   Start at  07:59:48
+   Duration  422ms (transform 101ms, setup 0ms, import 270ms, tests 22ms, environment 0ms)
+
+vitest exit 1

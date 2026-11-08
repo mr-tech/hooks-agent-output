@@ -1,0 +1,10 @@
+control-provider	 Tests 31 passed (31)	0	vitest exit 0
+control-router	 Tests 20 passed (20)	0	vitest exit 0
+provider-404-text	 Tests 1 failed | 30 passed (31)	0	vitest exit 1
+provider-403-text	 Tests 1 failed | 30 passed (31)	0	vitest exit 1
+provider-401-text	 Tests 1 failed | 30 passed (31)	0	vitest exit 1
+provider-400-text	 Tests 1 failed | 30 passed (31)	0	vitest exit 1
+provider-other-status-text	 Tests 1 failed | 30 passed (31)	0	vitest exit 1
+provider-refused-shows-error	 Tests 12 failed | 19 passed (31)	0	vitest exit 1
+rider-null-passes	 Tests 1 failed | 19 passed (20)	0	vitest exit 1
+done

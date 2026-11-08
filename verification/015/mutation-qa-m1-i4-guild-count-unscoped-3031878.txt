@@ -1,0 +1,67 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-3031878-qa-m1-i4-guild-count-unscoped  sha: 3031878  label: qa-m1-i4-guild-count-unscoped  test: shared.message-cap  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m1-supplement.py
+ .../src/utils/markdown/rules.tsx                   |   2 +-
+ 57 files changed, 105 insertions(+), 2075 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-3031878-qa-m1-i4-guild-count-unscoped
+
+ ❯ |node| src/server/api/utils/__tests__/shared.message-cap.test.ts (10 tests | 2 failed) 26ms
+     × refuses a new message when the server holds 1000, and inserts nothing 8ms
+     × counts the server's messages, not the user's 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.message-cap.test.ts > the per-owner message cap on a new guild-scoped message > refuses a new message when the server holds 1000, and inserts nothing
+AssertionError: promise resolved "{ id: 'saved-id', createdAt: +0, …(7) }" instead of rejecting
+
+- Expected
++ Received
+
+- Error {
+-   "message": "rejected promise",
++ {
++   "createdAt": 0,
++   "data": {
++     "components": [],
++     "content": "Hi",
++     "embeds": [],
++     "username": "U",
++   },
++   "id": "saved-id",
++   "name": "n",
++   "previewImageNonce": null,
++   "recentMessageId": undefined,
++   "recentThreadId": undefined,
++   "recentWebhookId": undefined,
++   "updatedAt": 0,
+  }
+
+ ❯ src/server/api/utils/__tests__/shared.message-cap.test.ts:92:57
+     90|     useCounts({ user: 0, guild: 1000 });
+     91|
+     92|     await expect(upsertMessage(newMessage, guildSelect)).rejects.toThr…
+       |                                                         ^
+     93|
+     94|     expect(insertedMessages()).toHaveLength(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.message-cap.test.ts > the per-owner message cap on a new guild-scoped message > counts the server's messages, not the user's
+TRPCError: You have reached the limit of 1000 messages per guild.
+ ❯ Module.upsertMessage src/server/api/utils/shared.ts:254:11
+    252|   const { count: messageCount } = await messageCountQuery.executeTakeF…
+    253|   if (!message.id && Number(messageCount) >= MAX_MESSAGES) {
+    254|     throw new TRPCError({
+       |           ^
+    255|       code: 'BAD_REQUEST',
+    256|       message: `You have reached the limit of ${MAX_MESSAGES} messages…
+ ❯ src/server/api/utils/__tests__/shared.message-cap.test.ts:100:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 8 passed (10)
+   Start at  07:59:44
+   Duration  732ms (transform 140ms, setup 0ms, import 574ms, tests 26ms, environment 0ms)
+
+vitest exit 1

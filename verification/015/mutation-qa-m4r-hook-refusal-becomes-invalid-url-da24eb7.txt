@@ -1,0 +1,55 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-da24eb7-qa-m4r-hook-refusal-becomes-invalid-url  sha: da24eb7  label: qa-m4r-hook-refusal-becomes-invalid-url  test: useValidateWebhook.validation-effects NewMessageModal.failed-webhook-load  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m4r-supplement.py
+ .../src/utils/markdown/rules.tsx                   |  2 +-
+ 34 files changed, 49 insertions(+), 1031 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-da24eb7-qa-m4r-hook-refusal-becomes-invalid-url
+
+ ❯ |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx (21 tests | 1 failed) 71ms
+     × keeps Discord's own refusal text for a refused webhook url 9ms
+ ❯ |dom| src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx (2 tests | 1 failed) 484ms
+     × shows Discord's own refusal on the shared error line, not "Invalid URL" 144ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, fetch failures > keeps Discord's own refusal text for a refused webhook url
+AssertionError: expected 'Invalid URL' to be 'Unknown Webhook' // Object.is equality
+
+Expected: "Unknown Webhook"
+Received: "Invalid URL"
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:152:33
+    150|     await render(HOOK_URL_A, '');
+    151|     expect(result.webhook).toBeNull();
+    152|     expect(result.webhookError).toBe('Unknown Webhook');
+       |                                 ^
+    153|   });
+    154|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx > NewMessageModal, a failed webhook load > shows Discord's own refusal on the shared error line, not "Invalid URL"
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx:68:19
+     66|
+     67|     const shown = leavesWithText('Unknown Webhook');
+     68|     expect(shown).toHaveLength(1);
+       |                   ^
+     69|     expect(shown[0]?.classList.contains('text-error')).toBe(true);
+     70|     expect(leavesWithText('Invalid URL')).toHaveLength(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  2 failed | 21 passed (23)
+   Start at  07:57:52
+   Duration  2.46s (transform 450ms, setup 31ms, import 1.90s, tests 555ms, environment 1.27s)
+
+vitest exit 1

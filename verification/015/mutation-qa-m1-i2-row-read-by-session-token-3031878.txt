@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-3031878-qa-m1-i2-row-read-by-session-token  sha: 3031878  label: qa-m1-i2-row-read-by-session-token  test: auth.sign-out  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m1-supplement.py
+ .../src/utils/markdown/rules.tsx                   |   2 +-
+ 57 files changed, 105 insertions(+), 2075 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-3031878-qa-m1-i2-row-read-by-session-token
+
+
+ Test Files  1 passed (1)
+      Tests  12 passed (12)
+   Start at  07:59:32
+   Duration  1.66s (transform 419ms, setup 0ms, import 1.42s, tests 44ms, environment 0ms)
+
+vitest exit 0

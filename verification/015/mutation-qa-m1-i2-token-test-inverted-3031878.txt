@@ -1,0 +1,98 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-3031878-qa-m1-i2-token-test-inverted  sha: 3031878  label: qa-m1-i2-token-test-inverted  test: auth.sign-out  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m1-supplement.py
+ .../src/utils/markdown/rules.tsx                   |   2 +-
+ 57 files changed, 105 insertions(+), 2075 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-3031878-qa-m1-i2-token-test-inverted
+
+ ❯ |node| src/server/__tests__/auth.sign-out.test.ts (12 tests | 5 failed) 57ms
+     × sends one revoke request carrying the account's access token 16ms
+     × sends no revoke for an account without an access token, and clears out 20ms
+     × reads the account, then revokes, then nulls the stored tokens 3ms
+     × revokes the row's token and clears out in full when the cache holds null (what a refused refresh stores) 1ms
+     × revokes the row's token and clears out in full when the cache holds an account holding another token 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > sends one revoke request carrying the account's access token
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ src/server/__tests__/auth.sign-out.test.ts:105:23
+    103|     await signOut();
+    104|
+    105|     expect(log.fetch).toHaveBeenCalledTimes(1);
+       |                       ^
+    106|     expect((log.fetch.mock.calls[0] as unknown as [string])[0]).toBe(R…
+    107|     expect(revokeBody().get('token')).toBe(ACCESS_TOKEN);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > sends no revoke for an account without an access token, and clears out
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      "https://discord.com/api/v10/oauth2/token/revoke",
+      Object {
+        "body": URLSearchParams {},
+        "headers": Headers {},
+        "method": "POST",
+      },
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:143:27
+    141|     await signOut();
+    142|
+    143|     expect(log.fetch).not.toHaveBeenCalled();
+       |                           ^
+    144|     expect(log.clearedKeys).toHaveLength(3);
+    145|     expect(accountsUpdates()).toHaveLength(1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > reads the account, then revokes, then nulls the stored tokens
+AssertionError: expected [ 'account-read', 'accounts-update' ] to deeply equal [ 'account-read', 'revoke', …(1) ]
+
+- Expected
++ Received
+
+  [
+    "account-read",
+-   "revoke",
+    "accounts-update",
+  ]
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:152:19
+    150|
+    151|     const order = log.events.filter((event) => event !== 'redis-clear'…
+    152|     expect(order).toEqual(['account-read', 'revoke', 'accounts-update'…
+       |                   ^
+    153|   });
+    154| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out an account whose cached account entry is not the row > revokes the row's token and clears out in full when the cache holds null (what a refused refresh stores)
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out an account whose cached account entry is not the row > revokes the row's token and clears out in full when the cache holds an account holding another token
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ src/server/__tests__/auth.sign-out.test.ts:184:23
+    182|     await signOut();
+    183|
+    184|     expect(log.fetch).toHaveBeenCalledTimes(1);
+       |                       ^
+    185|     expect(revokeBody().get('token')).toBe(ACCESS_TOKEN);
+    186|     expect(accountsUpdates()).toHaveLength(1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  5 failed | 7 passed (12)
+   Start at  07:59:23
+   Duration  2.01s (transform 530ms, setup 0ms, import 1.78s, tests 57ms, environment 0ms)
+
+vitest exit 1

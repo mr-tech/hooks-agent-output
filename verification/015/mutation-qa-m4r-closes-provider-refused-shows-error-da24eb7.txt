@@ -1,0 +1,58 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-da24eb7-qa-m4r-closes-provider-refused-shows-error  sha: da24eb7  label: qa-m4r-closes-provider-refused-shows-error  test: WebhookProvider.validation-effects  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m4-supplement.py
+ .../src/utils/markdown/rules.tsx                   |  2 +-
+ 34 files changed, 51 insertions(+), 1044 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-da24eb7-qa-m4r-closes-provider-refused-shows-error
+
+ ❯ |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx (31 tests | 12 failed) 82ms
+     × does not fetch for "see 12345 here", refused before any fetch 8ms
+     × does not fetch for "abc1", refused before any fetch 3ms
+     × does not fetch for "12 34", refused before any fetch 1ms
+     × does not fetch for "https://example.com/channels/1/2/345678901234567890", refused before any fetch 2ms
+     × does not fetch for "see https://discord.com/channels/1/2/345678901234567890", refused before any fetch 2ms
+     × does not fetch for "https://evil-discord.com/channels/1/2/345678901234567890", refused before any fetch 2ms
+     × does not fetch for "https://discord.com.evil.example/channels/1/2/345678901234567890", refused before any fetch 2ms
+     × does not fetch for "http://discord.com/channels/1/2/345678901234567890", refused before any fetch 1ms
+     × does not fetch for "https://discord.com/channels/1/2", refused before any fetch 1ms
+     × does not fetch for "https://discord.com/channels/1/2/3/extra", refused before any fetch 2ms
+     × does not fetch for "https://discord.com/channels/1/2/345 and more", refused before any fetch 2ms
+     × does not fetch for "https://discord.com/other/1/2/345678901234567890", refused before any fetch 1ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 12 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "see 12345 here", refused before any fetch
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "abc1", refused before any fetch
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "12 34", refused before any fetch
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "https://example.com/channels/1/2/345678901234567890", refused before any fetch
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "see https://discord.com/channels/1/2/345678901234567890", refused before any fetch
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "https://evil-discord.com/channels/1/2/345678901234567890", refused before any fetch
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "https://discord.com.evil.example/channels/1/2/345678901234567890", refused before any fetch
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "http://discord.com/channels/1/2/345678901234567890", refused before any fetch
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "https://discord.com/channels/1/2", refused before any fetch
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "https://discord.com/channels/1/2/3/extra", refused before any fetch
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "https://discord.com/channels/1/2/345 and more", refused before any fetch
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message id check > does not fetch for "https://discord.com/other/1/2/345678901234567890", refused before any fetch
+AssertionError: expected 'Invalid message id or link.' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Invalid message id or link.
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:119:35
+    117|     expect(fetchMock).not.toHaveBeenCalled();
+    118|     expect(state.oldMessage).toBeNull();
+    119|     expect(state.oldMessageError).toBe('');
+       |                                   ^
+    120|   });
+    121| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/12]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  12 failed | 19 passed (31)
+   Start at  07:58:28
+   Duration  1.46s (transform 170ms, setup 22ms, import 591ms, tests 82ms, environment 611ms)
+
+vitest exit 1

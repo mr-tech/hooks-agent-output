@@ -1,0 +1,60 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-da24eb7-qa-m4r-menu-url-error-never  sha: da24eb7  label: qa-m4r-menu-url-error-never  test: WebhookMenu.failed-webhook-load WebhookMenu.url-and-thread-controls  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m4r-supplement.py
+ .../src/utils/markdown/rules.tsx                   |  2 +-
+ 34 files changed, 49 insertions(+), 1031 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-da24eb7-qa-m4r-menu-url-error-never
+
+ ❯ |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx (2 tests | 2 failed) 96ms
+     × shows "Invalid URL" under the field when the network fails 68ms
+     × shows "Invalid URL" under the field when Discord refuses the webhook 27ms
+ ❯ |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.url-and-thread-controls.test.tsx (10 tests | 1 failed) 288ms
+     × url "'https://discord.com/api/webhooks/1/abc'" loading=false no webhook selected: invalid-url error shown=true 15ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx > send page webhook URL field, a failed webhook load > shows "Invalid URL" under the field when the network fails
+ FAIL  |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx > send page webhook URL field, a failed webhook load > shows "Invalid URL" under the field when Discord refuses the webhook
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx:60:19
+     58|     const shown = Array.from(el.querySelectorAll('*'))
+     59|       .filter((e) => e.children.length === 0 && e.textContent === 'Inv…
+     60|     expect(shown).toHaveLength(1);
+       |                   ^
+     61|     expect(shown[0]?.parentElement?.contains(input)).toBe(true);
+     62|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.url-and-thread-controls.test.tsx > WebhookMenu, custom webhook URL error > url "'https://discord.com/api/webhooks/1/abc'" loading=false no webhook selected: invalid-url error shown=true
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.url-and-thread-controls.test.tsx:87:55
+     85|       setWebhookState({ url, isWebhookLoading: loading, selectedWebhoo…
+     86|       const el = mountDom(<WebhookMenu />);
+     87|       expect(el.textContent?.includes('Invalid URL')).toBe(shows);
+       |                                                       ^
+     88|     },
+     89|   );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  3 failed | 9 passed (12)
+   Start at  07:58:01
+   Duration  2.06s (transform 571ms, setup 40ms, import 2.02s, tests 384ms, environment 1.22s)
+
+vitest exit 1

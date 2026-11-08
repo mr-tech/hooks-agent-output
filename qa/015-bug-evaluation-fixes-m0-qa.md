@@ -65,13 +65,7 @@ All counts are re-derived by this pass. Captures:
 
 ## Findings
 
-QAF-11 MEDIUM Phase 2 — `src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.auto-remove-dispatch.test.tsx` waits on the wall clock. Its mount helper awaits `setTimeout(r, 100)`, at line 85 at `037935d`, for `next/dynamic`'s Tooltip import to resolve before querying `[aria-label="delete text display"]`.
-- **The flake.** In 1 of 4 full-suite runs at `037935d`, the query returned nothing, `pressDelete`'s `btn` was `undefined`, and the case failed with `TypeError: Cannot read properties of undefined (reading 'dispatchEvent')`. The process exited 1.
-- **Not from M0.** Run alone 3 times, the case passed each time. M0 adds no test, so it changes nothing this test touches.
-- **Why it matters.** This is a time-based cell in the standing suite (testing-patterns, "Time-Based Tests"). It makes E-7's "vitest exit 0" gate unattributable at every milestone: a red gate may be this cell.
-- **What it fails to check:** a deterministic wait for the condition the test needs. It should await the element, or mock the dynamic import, not a fixed delay.
-- **Disposition:** the implementer, on the existing test (extend, do not add). Its surface, `SectionEditor`, is touched at M6 (M6-i `duplicateTextComponent`, M6-l `addTextComponent`). It is owed no later than M6 and is cheapest now.
-- **Until it is fixed:** a red E-7 run whose only failure is this case with this signature is re-run, and the re-run is recorded. It is never read as a milestone defect, and never dismissed without the record.
+QAF-11 MEDIUM Phase 2 RESOLVED — the wall-clock wait in `SectionEditor.auto-remove-dispatch.test.tsx` was replaced by an element wait at website `9e4955a`; `git grep -c setTimeout` over the file is 0 at `3031878` (M1 Phase 2, 2026-11-08T08:02), and the flake signature did not occur in the full-suite runs at `6001f7f`, `1e12837`, `3031878` or `da24eb7`. Argument retired from this revision; it is in `bf10a46`.
 
 ## Register
 

@@ -1,0 +1,30 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-da24eb7-qa-m4r-closes-rider-null-passes  sha: da24eb7  label: qa-m4r-closes-rider-null-passes  test: message.get-from-url  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m4-supplement.py
+ .../src/utils/markdown/rules.tsx                   |  2 +-
+ 34 files changed, 51 insertions(+), 1044 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-da24eb7-qa-m4r-closes-rider-null-passes
+
+ ❯ |node| src/server/api/routers/__tests__/message.get-from-url.test.ts (20 tests | 1 failed) 22ms
+     × refuses a channel with guild_id null, which has no guild_id, without any message content 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.get-from-url.test.ts > message.getFromUrl, the channel must belong to the authorized guild > refuses a channel with guild_id null, which has no guild_id, without any message content
+AssertionError: expected { value: { guildId: '111', …(2) } } to have property "error"
+ ❯ src/server/api/routers/__tests__/message.get-from-url.test.ts:119:21
+    117|     );
+    118|
+    119|     expect(outcome).toHaveProperty('error');
+       |                     ^
+    120|     expect(JSON.stringify(outcome)).not.toContain('secret words');
+    121|     expect(mocks.request).not.toHaveBeenCalled();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 19 passed (20)
+   Start at  07:58:31
+   Duration  1.16s (transform 230ms, setup 0ms, import 1.02s, tests 22ms, environment 0ms)
+
+vitest exit 1

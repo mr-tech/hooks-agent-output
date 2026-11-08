@@ -1,0 +1,58 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-da24eb7-qa-m4r-hook-webhook-load-silent  sha: da24eb7  label: qa-m4r-hook-webhook-load-silent  test: useValidateWebhook.validation-effects NewMessageModal.failed-webhook-load  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m4r-supplement.py
+ .../src/utils/markdown/rules.tsx                   |  2 +-
+ 34 files changed, 49 insertions(+), 1031 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-da24eb7-qa-m4r-hook-webhook-load-silent
+
+ ❯ |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx (21 tests | 1 failed) 48ms
+     × shows "Invalid URL" and no webhook when the webhook fetch rejects 5ms
+ ❯ |dom| src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx (2 tests | 1 failed) 462ms
+     × shows "Invalid URL" once, on the shared error line, when the network fails 318ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx > useValidateWebhook, fetch failures > shows "Invalid URL" and no webhook when the webhook fetch rejects
+AssertionError: expected null to be 'Invalid URL' // Object.is equality
+
+- Expected:
+"Invalid URL"
+
++ Received:
+null
+
+ ❯ src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:135:33
+    133|     await act(async () => {});
+    134|     expect(result.webhook).toBeNull();
+    135|     expect(result.webhookError).toBe('Invalid URL');
+       |                                 ^
+    136|     expect(result.isLoading).toBe(false);
+    137|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx > NewMessageModal, a failed webhook load > shows "Invalid URL" once, on the shared error line, when the network fails
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx:59:19
+     57|
+     58|     const shown = leavesWithText('Invalid URL');
+     59|     expect(shown).toHaveLength(1);
+       |                   ^
+     60|     expect(shown[0]?.parentElement?.querySelectorAll('input').length).…
+     61|     expect(shown[0]?.classList.contains('text-error')).toBe(true);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  2 failed | 21 passed (23)
+   Start at  07:57:57
+   Duration  2.24s (transform 440ms, setup 45ms, import 1.65s, tests 510ms, environment 1.22s)
+
+vitest exit 1

@@ -1,0 +1,37 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-3031878-qa-m1-m1a-partial-empty-returns-early  sha: 3031878  label: qa-m1-m1a-partial-empty-returns-early  test: shared.in-predicates  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m1-supplement.py
+ .../src/utils/markdown/rules.tsx                   |   2 +-
+ 57 files changed, 105 insertions(+), 2074 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-3031878-qa-m1-m1a-partial-empty-returns-early
+
+ ❯ |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts (4 tests | 1 failed) 14ms
+     × selects only the user's own messages when the user administers no server 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getPartialMessages > selects only the user's own messages when the user administers no server
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/server/api/utils/__tests__/shared.in-predicates.test.ts:52:30
+     50|     const result = await getPartialMessages('u1', []);
+     51|
+     52|     expect(captured.queries).toHaveLength(1);
+       |                              ^
+     53|     const [{ sql, parameters }] = captured.queries;
+     54|     expect(sql).not.toMatch(/\bin \(\)/);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Start at  07:59:46
+   Duration  704ms (transform 130ms, setup 0ms, import 560ms, tests 14ms, environment 0ms)
+
+vitest exit 1

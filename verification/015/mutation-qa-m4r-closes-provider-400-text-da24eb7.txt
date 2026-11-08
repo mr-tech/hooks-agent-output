@@ -1,0 +1,34 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-da24eb7-qa-m4r-closes-provider-400-text  sha: da24eb7  label: qa-m4r-closes-provider-400-text  test: WebhookProvider.validation-effects  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m4-supplement.py
+ .../src/utils/markdown/rules.tsx                   |  2 +-
+ 34 files changed, 51 insertions(+), 1044 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-da24eb7-qa-m4r-closes-provider-400-text
+
+ ❯ |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx (31 tests | 1 failed) 82ms
+     × shows the refusal text for a 400 answer and no message 8ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/WebhookProvider.validation-effects.test.tsx > WebhookProvider, message fetch failure > shows the refusal text for a 400 answer and no message
+AssertionError: expected 'Bad request.' to be 'Invalid webhook id.' // Object.is equality
+
+Expected: "Invalid webhook id."
+Received: "Bad request."
+
+ ❯ src/providers/__tests__/WebhookProvider.validation-effects.test.tsx:190:35
+    188|     await act(async () => {});
+    189|     expect(state.oldMessage).toBeNull();
+    190|     expect(state.oldMessageError).toBe(text);
+       |                                   ^
+    191|   });
+    192|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 30 passed (31)
+   Start at  07:58:22
+   Duration  1.45s (transform 176ms, setup 21ms, import 595ms, tests 82ms, environment 628ms)
+
+vitest exit 1

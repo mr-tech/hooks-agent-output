@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-da24eb7-qa-m4r-closes-control-router  sha: da24eb7  label: qa-m4r-closes-control-router  test: message.get-from-url  mutator: none
+ .../src/utils/markdown/rules.tsx                   |  2 +-
+ 33 files changed, 48 insertions(+), 1038 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-da24eb7-qa-m4r-closes-control-router
+
+
+ Test Files  1 passed (1)
+      Tests  20 passed (20)
+   Start at  07:58:10
+   Duration  1.07s (transform 194ms, setup 0ms, import 918ms, tests 19ms, environment 0ms)
+
+vitest exit 0

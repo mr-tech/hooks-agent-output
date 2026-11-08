@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-3031878-qa-m1-control-in  sha: 3031878  label: qa-m1-control-in  test: shared.in-predicates  mutator: none
+ .../src/utils/markdown/rules.tsx                   |   2 +-
+ 56 files changed, 104 insertions(+), 2074 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-3031878-qa-m1-control-in
+
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  07:59:17
+   Duration  707ms (transform 138ms, setup 0ms, import 568ms, tests 10ms, environment 0ms)
+
+vitest exit 0

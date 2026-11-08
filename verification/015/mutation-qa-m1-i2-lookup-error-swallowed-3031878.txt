@@ -1,0 +1,61 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-3031878-qa-m1-i2-lookup-error-swallowed  sha: 3031878  label: qa-m1-i2-lookup-error-swallowed  test: auth.sign-out  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m1-supplement.py
+ .../src/utils/markdown/rules.tsx                   |   2 +-
+ 57 files changed, 105 insertions(+), 2075 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-3031878-qa-m1-i2-lookup-error-swallowed
+
+ ❯ |node| src/server/__tests__/auth.sign-out.test.ts (12 tests | 2 failed) 35ms
+     × deletes the user and session keys, then rejects with the lookup's error 5ms
+     × rejects with the lookup's error, not the key deletion's, when the deletion also fails 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out when the account lookup fails with an error other than a missing row > deletes the user and session keys, then rejects with the lookup's error
+AssertionError: promise resolved "undefined" instead of rejecting
+
+- Expected:
+Error {
+  "message": "rejected promise",
+}
+
++ Received:
+undefined
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:200:28
+    198|
+    199|   it('deletes the user and session keys, then rejects with the lookup\…
+    200|     await expect(signOut()).rejects.toBe(FAILURE);
+       |                            ^
+    201|
+    202|     expect(log.clearedKeys).toEqual(['user-access-token-fixture-user',…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out when the account lookup fails with an error other than a missing row > rejects with the lookup's error, not the key deletion's, when the deletion also fails
+AssertionError: promise resolved "undefined" instead of rejecting
+
+- Expected:
+Error {
+  "message": "rejected promise",
+}
+
++ Received:
+undefined
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:213:28
+    211|     process.on('unhandledRejection', onUnhandled);
+    212|
+    213|     await expect(signOut()).rejects.toBe(FAILURE);
+       |                            ^
+    214|     await new Promise<void>((resolve) => { setImmediate(resolve); });
+    215|     process.off('unhandledRejection', onUnhandled);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 10 passed (12)
+   Start at  07:59:35
+   Duration  1.03s (transform 207ms, setup 0ms, import 857ms, tests 35ms, environment 0ms)
+
+vitest exit 1

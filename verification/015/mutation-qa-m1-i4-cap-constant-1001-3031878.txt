@@ -1,0 +1,106 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-3031878-qa-m1-i4-cap-constant-1001  sha: 3031878  label: qa-m1-i4-cap-constant-1001  test: shared.message-cap  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m1-supplement.py
+ .../src/utils/markdown/rules.tsx                   |   2 +-
+ 56 files changed, 105 insertions(+), 2075 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-3031878-qa-m1-i4-cap-constant-1001
+
+ ❯ |node| src/server/api/utils/__tests__/shared.message-cap.test.ts (10 tests | 3 failed) 29ms
+     × refuses a new message when the user holds 1000, and inserts nothing 8ms
+     × refuses a new message when the user holds 1001, and inserts nothing 4ms
+     × refuses a new message when the server holds 1000, and inserts nothing 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.message-cap.test.ts > the per-owner message cap on a new user-scoped message > refuses a new message when the user holds 1000, and inserts nothing
+AssertionError: promise resolved "{ id: 'saved-id', createdAt: +0, …(7) }" instead of rejecting
+
+- Expected
++ Received
+
+- Error {
+-   "message": "rejected promise",
++ {
++   "createdAt": 0,
++   "data": {
++     "components": [],
++     "content": "Hi",
++     "embeds": [],
++     "username": "U",
++   },
++   "id": "saved-id",
++   "name": "n",
++   "previewImageNonce": null,
++   "recentMessageId": undefined,
++   "recentThreadId": undefined,
++   "recentWebhookId": undefined,
++   "updatedAt": 0,
+  }
+
+ ❯ src/server/api/utils/__tests__/shared.message-cap.test.ts:66:56
+     64|     useCounts({ user, guild: 0 });
+     65|
+     66|     await expect(upsertMessage(newMessage, userSelect)).rejects.toThro…
+       |                                                        ^
+     67|
+     68|     expect(insertedMessages()).toHaveLength(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.message-cap.test.ts > the per-owner message cap on a new user-scoped message > refuses a new message when the user holds 1001, and inserts nothing
+AssertionError: expected [Function] to throw error including 'You have reached the limit of 1000 me…' but got 'You have reached the limit of 1001 me…'
+
+Expected: "You have reached the limit of 1000 messages per user."
+Received: "You have reached the limit of 1001 messages per user."
+
+ ❯ src/server/api/utils/__tests__/shared.message-cap.test.ts:66:56
+     64|     useCounts({ user, guild: 0 });
+     65|
+     66|     await expect(upsertMessage(newMessage, userSelect)).rejects.toThro…
+       |                                                        ^
+     67|
+     68|     expect(insertedMessages()).toHaveLength(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.message-cap.test.ts > the per-owner message cap on a new guild-scoped message > refuses a new message when the server holds 1000, and inserts nothing
+AssertionError: promise resolved "{ id: 'saved-id', createdAt: +0, …(7) }" instead of rejecting
+
+- Expected
++ Received
+
+- Error {
+-   "message": "rejected promise",
++ {
++   "createdAt": 0,
++   "data": {
++     "components": [],
++     "content": "Hi",
++     "embeds": [],
++     "username": "U",
++   },
++   "id": "saved-id",
++   "name": "n",
++   "previewImageNonce": null,
++   "recentMessageId": undefined,
++   "recentThreadId": undefined,
++   "recentWebhookId": undefined,
++   "updatedAt": 0,
+  }
+
+ ❯ src/server/api/utils/__tests__/shared.message-cap.test.ts:92:57
+     90|     useCounts({ user: 0, guild: 1000 });
+     91|
+     92|     await expect(upsertMessage(newMessage, guildSelect)).rejects.toThr…
+       |                                                         ^
+     93|
+     94|     expect(insertedMessages()).toHaveLength(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 7 passed (10)
+   Start at  07:59:40
+   Duration  711ms (transform 135ms, setup 0ms, import 538ms, tests 29ms, environment 0ms)
+
+vitest exit 1

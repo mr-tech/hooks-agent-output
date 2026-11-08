@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-3031878-qa-m1-control-cap  sha: 3031878  label: qa-m1-control-cap  test: shared.message-cap  mutator: none
+ .../src/utils/markdown/rules.tsx                   |   2 +-
+ 56 files changed, 104 insertions(+), 2074 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a0be29a6-e4c6-497a-b1f2-3a0e41ca7504/scratchpad/exports/website-3031878-qa-m1-control-cap
+
+
+ Test Files  1 passed (1)
+      Tests  10 passed (10)
+   Start at  07:59:15
+   Duration  694ms (transform 142ms, setup 0ms, import 545ms, tests 19ms, environment 0ms)
+
+vitest exit 0

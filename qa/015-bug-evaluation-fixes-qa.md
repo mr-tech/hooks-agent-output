@@ -4,13 +4,13 @@ Origin: 015
 UUID: 861e5f61
 Verified-At: "6001f7f,471578f — repos=website,preview-image-generator; Phase 1 premise reads only (no verdict on code): the base 7ce866b, and the chain tip 6001f7f for the rev 12/13 delta"
 Status: Awaiting Implementation
-Status-Detail: "Phase 1 delta re-key to plan rev 21 (3d193f9), one round over 330348f..3d193f9: D29 ('Invalid URL' at each F-27 site's existing error place on a failed webhook-URL load, CR-16) and D30 (M3 removed, X-18). Approved with no open finding: QAF-24 was raised on rev 20 and is RESOLVED at rev 21 (= CR-16). Register: B-11 minted (offline walk, both sites); B-3 withdrawn (D30). M4 Phase 2 at 1e12837 is QA Failed in its own document (QAF-25 MEDIUM, test gaps only, no production defect). M0 and M2 Phase 2 PASS are in their own documents."
+Status-Detail: "Phase 1 delta re-key to plan rev 22 (5201612): M5-h over three refused classes (D31; CR-18) and M6-l (vi) (D32). Approved with QAF-28 LOW for the planner (empty-string embeds/fields in class (3)), owed before M5-h's fix is coded. Register B-1 to B-12 (B-12 minted for M5-h; B-4 reconciled; B-3 withdrawn). Phase 2: M0, M2 and M4 (da24eb7) PASS; M1 (3031878) QA Failed on suite coverage (QAF-26 MEDIUM), each in its own document."
 Phase: 1
 ---
 
 # QA Report: Plan 015 — Bug-evaluation fixes (website, preview-image-generator)
 
-**Plan Reference**: `agent-output/planning/015-bug-evaluation-fixes.md`, revision 21 (agent-output `3d193f9`). The rev 20 + 21 re-key is one delta round over `330348f..3d193f9`, read in full: `330348f..e118cc3` (plan: 26 added, 8 removed; rulings: 4 added, block 07:24Z, `27f8cd7`) and `e118cc3..3d193f9` (plan: 42 added, 60 removed; rulings: 4 added, block 07:26Z, `f005cef`). Revision 19 (`330348f`) was the previous key. The rev 19 re-key is delta-only over `67cb5e7..330348f`, read in full (plan: 23 added, 13 removed). Revision 18 (`67cb5e7`) was the previous key. The rev 17 + 18 re-key is delta-only over `565e240..67cb5e7`, read in full (plan: 62 added, 14 removed; rulings: 7 added, block 07:01Z, `3d7af67`). Revision 16 (`565e240`) was the previous key. The rev 14–16 re-key is delta-only over `9cbe755..565e240`, as steering briefed, read in full (plan: 91 added, 15 removed; rulings: 22 added). Revision 13 (agent-output `9cbe755`) was the previous key. The rev 12 + 13 re-key is delta-only over `14fe94f..9cbe755`, as steering briefed, read in full (`git diff --numstat` on the plan: 60 added, 10 removed), with the rulings delta (13 added: blocks 06:32Z, 06:34Z, 06:39Z). Revision 11 (agent-output `14fe94f`) was the previous key. The rev 11 re-key is delta-only over `bceb84a..14fe94f` (`git diff --numstat`: 75 added, 29 removed), read in full. Revision 10 (agent-output `bceb84a`) was the previous key. The rev 9 + 10 re-key is delta-only, one round as steering briefed. It read the whole diff `1f7715b..1b8b43b` (rev 9: 87 added, 16 removed) and `1b8b43b..bceb84a` (rev 10: 25 added, 21 removed); steering named the range `3a805b5..bceb84a`, which adds only registration rows R-3 and R-4 and other stages' changelog rows. The rev 8 re-key is delta-only, as steering briefed: `38b12e6..1f7715b`, read in full (`git diff --numstat`: 39 added, 18 removed). The rev 7 re-key read the whole diff `8d67ce5..38b12e6` (`git diff --numstat`: 53 added, 19 removed). Earlier keys: rev 6 (`5d516d9`) and rev 4 (`f19e688`). The strategy was first written against rev 4. The re-key read the whole diff `f19e688..5d516d9` (`git diff --numstat`: 67 added, 27 removed), plus `5d516d9..8d67ce5`, which only appends the planner's Resumption State (8 lines added, 0 removed).
+**Plan Reference**: `agent-output/planning/015-bug-evaluation-fixes.md`, revision 22 (agent-output `5201612`). The rev 22 re-key is delta-only over `3d193f9..5201612`, read in full (plan: 52 added, 7 removed; rulings: 17 added, blocks 07:30Z, 07:32Z, 07:42Z and 07:52Z, `c1be05e`). Revision 21 (`3d193f9`) was the previous key. The rev 20 + 21 re-key is one delta round over `330348f..3d193f9`, read in full: `330348f..e118cc3` (plan: 26 added, 8 removed; rulings: 4 added, block 07:24Z, `27f8cd7`) and `e118cc3..3d193f9` (plan: 42 added, 60 removed; rulings: 4 added, block 07:26Z, `f005cef`). Revision 19 (`330348f`) was the previous key. The rev 19 re-key is delta-only over `67cb5e7..330348f`, read in full (plan: 23 added, 13 removed). Revision 18 (`67cb5e7`) was the previous key. The rev 17 + 18 re-key is delta-only over `565e240..67cb5e7`, read in full (plan: 62 added, 14 removed; rulings: 7 added, block 07:01Z, `3d7af67`). Revision 16 (`565e240`) was the previous key. The rev 14–16 re-key is delta-only over `9cbe755..565e240`, as steering briefed, read in full (plan: 91 added, 15 removed; rulings: 22 added). Revision 13 (agent-output `9cbe755`) was the previous key. The rev 12 + 13 re-key is delta-only over `14fe94f..9cbe755`, as steering briefed, read in full (`git diff --numstat` on the plan: 60 added, 10 removed), with the rulings delta (13 added: blocks 06:32Z, 06:34Z, 06:39Z). Revision 11 (agent-output `14fe94f`) was the previous key. The rev 11 re-key is delta-only over `bceb84a..14fe94f` (`git diff --numstat`: 75 added, 29 removed), read in full. Revision 10 (agent-output `bceb84a`) was the previous key. The rev 9 + 10 re-key is delta-only, one round as steering briefed. It read the whole diff `1f7715b..1b8b43b` (rev 9: 87 added, 16 removed) and `1b8b43b..bceb84a` (rev 10: 25 added, 21 removed); steering named the range `3a805b5..bceb84a`, which adds only registration rows R-3 and R-4 and other stages' changelog rows. The rev 8 re-key is delta-only, as steering briefed: `38b12e6..1f7715b`, read in full (`git diff --numstat`: 39 added, 18 removed). The rev 7 re-key read the whole diff `8d67ce5..38b12e6` (`git diff --numstat`: 53 added, 19 removed). Earlier keys: rev 6 (`5d516d9`) and rev 4 (`f19e688`). The strategy was first written against rev 4. The re-key read the whole diff `f19e688..5d516d9` (`git diff --numstat`: 67 added, 27 removed), plus `5d516d9..8d67ce5`, which only appends the planner's Resumption State (8 lines added, 0 removed).
 
 ## Changelog
 
@@ -30,6 +30,7 @@ Phase: 1
 | 2026-11-08T07:06 | steering-hooks-015 → qa-hooks-015 (message) | Phase 1 delta re-key to plan rev 19 (`330348f`) | Phase 1 delta over `67cb5e7..330348f`, read in full. It touches the CR-12 rider only. Belonging is now `guild_id` equality over the field's domain, with absent refused, so QAF-23 is RESOLVED. `fetchChannel`'s three refusal texts match the source read at `6001f7f`. Cell set reconciled: `guild_id: null`, a 401 cell, and the refusal asserted shape-free. Approves the rev 19 delta with no new finding. The plan's two code-review rows were restamped in this range (07:12 → 06:57, 07:20 → 06:59), so my `INBOX.md` FYI about them is withdrawn. It was uncommitted, so I removed my own text. |
 | 2026-11-08T07:08 | code-reviewer-hooks-015 → qa-hooks-015 (message) | Routed assumption checked (`27c07b0`) | Reconcile. The rev 19 pass's Assumption Not Checked (`authorizeGuildAdmin`'s refusal) is closed by code review's Round 6 sub-entry: the source was read and the permission-bit predicate run, 6 of 6 with a committed probe. Its onward premise (Discord's guild list is truthful) is minted as register row B-10, uat's, with a NOT RUN rule if the test account has no qualifying server. "Round 6" in the routing is corrected: the M4 code review is Round 7. |
 | 2026-11-08T07:27 | steering-hooks-015 → qa-hooks-015 (messages) | Phase 1 delta re-key to plan rev 20 (`e118cc3`), then rev 21 (`3d193f9`) | Phase 1 delta over `330348f..e118cc3`, read in full. D29 is an owner ruling and was taken as given. Premises checked at website `1e12837`: the send page's webhook-URL failure goes through `.catch(() => null)` to M4-b's "Invalid URL" (`WebhookProvider.tsx`, `WebhookMenu/index.tsx`). The dialog's `webhookError` renders in one shared error line, `messageErrorString` in `NewMessageModal.tsx`, which has no error at the webhook URL input. New: QAF-24 LOW (rev 20's "at the webhook URL field" has no such display in the dialog), owed before the D29 change is coded. § M4 has the D29 cells. B-11 is minted, and its instrument was run once in the stage browser (`verification/015/qa-m4-offline-instrument-run1.txt`). Approves the rev 20 delta. **Rev 21 folded before commit, as steering asked (one round over `330348f..3d193f9`):** CR-16 places the dialog's text on its shared error line, which resolves QAF-24 (a duplicate of CR-16). The D29 cells now assert place and uniqueness, and the dialog's verifying cell is a `NewMessageModal` mount. D30 removes M3: § M3 is reconciled and register row B-3 is withdrawn. Approves the rev 20 + 21 delta with no open finding. **Process disclosure:** I first inserted this row above the 07:08 row. A `python3` in-place swap moved it below, which is a scripted edit outside the edit tools and `record-edit.js`. |
+| 2026-11-08T08:03 | steering-hooks-015 → qa-hooks-015 (message) | Phase 1 delta re-key to plan rev 22 (`5201612`) | Phase 1 delta over `3d193f9..5201612`, read in full. D31 and D32 are owner rulings and were taken as given. Premises read at website `da24eb7`: `preview/page.tsx`'s `parseMessageData` and error line, and `makeEditable` with `injectComponentKeys`. The plan's class (3) list matches the source, except the empty string (QAF-28 LOW, for the planner, owed before M5-h's fix is coded). § M5-h has the cells per member with a sibling control per conjunct. § M6-l (vi) has the cells at 40, 41 and 45, the live drop, the order against a text-length error, and the border compared between mounted states. Register: B-12 minted (M5-h walk), and B-4's predicted value reconciled to (vi). Approves the rev 22 delta. Not acted on here: rev 22's L-C5-1 Planner batch row (open; M4's verdict does not rest on it). |
 
 ## Reading and sources
 
@@ -267,6 +268,33 @@ The approach is the plan's Testing Strategy, and each milestone carries the obli
 - M5-f: Save As opens with the current name and server.
 - M5-g: the toast text is a literal.
 - M5-h: a `/preview?data=` value that is not JSON renders the error state without throwing; valid JSON is the control.
+  - *Reconciled 2026-11-08T08:03 to rev 22 (D31; CR-18 under D28; X-19).* Premises read at `da24eb7`: `src/app/preview/page.tsx` (`parseMessageData` returns `null` for unparsable text, non-objects and arrays, and the page then renders one `text-error` line), and `makeEditable` with `injectComponentKeys` (`src/utils/index.ts`). The plan's class (3) list matches the source, member by member, with one exception (QAF-28). Its "not an object" members throw only because assigning `_key` to a primitive throws in strict mode, and both the module and vitest run as ES modules. Every cell asserts the outcome as a literal: exactly one "Invalid message data." and no editor, or the editor and no error line. No cell computes its expected value from the page's predicate.
+    - **Class (1):** `{`, `not json` → error line.
+    - **Class (2):** `null`, `5`, `"s"`, `true`, `[]`, `[{}]` → error line (D31).
+    - **Class (3), one cell per listed member:**
+      - `{"embeds":5}`, `{"embeds":{}}`, `{"embeds":true}`;
+      - `{"embeds":[null]}`, `{"embeds":[5]}`;
+      - `{"embeds":[{"fields":5}]}`;
+      - `{"embeds":[{"fields":[null]}]}`, `{"embeds":[{"fields":["x"]}]}`;
+      - `{"components":5}`, `{"components":"x"}`, `{"components":{}}`;
+      - a type-1 component with `components: [null]`; a type-9 with `components: [5]`; a type-12 with `items: [null]`;
+      - a type-17 container holding a type-1 with `components: [null]` (the recursion).
+      
+      Each → error line.
+    - **Controls, the sibling of each conjunct, each → editor:**
+      - `{}`;
+      - `{"embeds":null}` and `{"embeds":[]}` (the `null` exemption);
+      - `{"embeds":[{"fields":null}]}`;
+      - `{"components":0}` and `{"components":false}` (the "truthy" conjunct);
+      - `{"components":[null]}` (X-19's member: a top-level `null` spreads to `{}`);
+      - a type-2 component with `components: [null]` (the type set);
+      - a type-9 with `accessory: null`;
+      - a type-17 with `components: [null]` (the container's own children spread);
+      - one stored message in the current schema, with embeds, fields and a container (M8's premise).
+      
+      A predicate that refuses a whole class blindly fails at least one of these.
+    - **Missing `data`:** renders nothing (unchanged).
+    - **Human-observable:** register row B-12.
 
 ### M6 — editor components and markdown
 - **M6-a (and RK-1).** Two instruments:
@@ -286,6 +314,16 @@ The approach is the plan's Testing Strategy, and each milestone carries the obli
   - (ii): `validateMessage` over totals of 40 and 41 (the boundary pair). The 41 case must be reached by **nesting**: a top-level count ≤ 40 with nested children making 41. A flat 41 cannot tell a top-level-only count from the total. The error text names 41 and 40, as literals.
   - (iii): `canAddComponent` and `validateMessage` import the one exported counter. Mutating its nesting recursion must redden cases in both consumers.
   - (iv) and (v) are stated limits, with no cells. No case sends.
+  - *Reconciled 2026-11-08T08:03 to rev 22 (D32, (vi)).* The error line and the border, in both the editor and the Send page:
+    - total 40 → no line, and the components area's border equals the no-error border;
+    - total 41 → exactly one "Message has 41 components; the limit is 40." (literal);
+    - a higher total (e.g. 45) → its own literal;
+    - live: from 41, remove one component → the line and the red border are gone;
+    - place: with a text-length error present as well, the components line follows it, under the components;
+    - border: with over-40 alone, the border equals the one a text-length error produces in the same mount, and differs from the no-error border. The comparison is between two mounted states, never a class name read from the source;
+    - the Add Component button and counter hide at 40 and at 41 (unchanged).
+    
+    B-4's predicted value is reconciled to (vi).
 
 ### M7 — bot (node project, after the collection change)
 - M7-a: `ADMIN_PERMS === "32"`, a literal. M7-b: `setTimestamp(t)` then the payload's `timestamp` equals `t`. M7-c: `isUserCommand` over a user command, a slash command and a message command; true only for the first.
@@ -386,7 +424,8 @@ The plan's Validation lines and human-observable limbs map to rows as follows:
 - M8-0 run 2 → B-8;
 - M4-d's human-observable walk (rev 16, D26) → B-9;
 - the CR-12 rider's gate on live data (code review's routed premise) → B-10;
-- M4-d's webhook-URL offline walk (rev 20, D29) → B-11.
+- M4-d's webhook-URL offline walk (rev 20, D29) → B-11;
+- M5-h's human-observable walk (rev 22, D31) → B-12. M6-l's walk stays B-4, reconciled to (vi).
 
 *Reconciled 2026-11-08T06:31 to rev 9 (§ Validation; M1-c from `be881c9`):* in any walk, B-1 to B-5 and B-7, signing out revokes the walking account's Discord OAuth token for this app (I-2), and the walker signs in again. Only the app's token is revoked: the Discord session in the stage browser is unaffected. A walk that signs out mid-row records the re-sign-in, never reads it as a row failure.
 
@@ -410,6 +449,10 @@ Instruments shown working at minting:
 
 | B-11 | observable pre-release | **M4-d webhook-URL load (D29)**: "with the network cut after a valid-looking webhook URL is typed, both the send page and the New Message dialog show 'Invalid URL' under the field". Settles rev 20's human-observable limb, and code review Round 7's Assumption Not Checked (a rejected fetch in the DOM tests stands in for a real browser's offline failure) | Stage browser on the locally served chain tip. On each page: page loaded online, then `page.context().setOffline(true)` (Playwright, `browser_run_code_unsafe`), then a valid-looking webhook URL typed (`https://discord.com/api/webhooks/<digits>/<token>`), then the error text read from the DOM, then `setOffline(false)` | Test account, signed in / owner | Tip served locally with the D29 change delivered. *Reconcile 2026-11-08T07:29 (rev 21, CR-16):* the dialog's text is read from its shared error line below the load options, and the send page's from the custom-URL field error. Same run, as the control: with the network back, the same URL gives each site's existing refusal (send page "Invalid URL"; dialog Discord's own message, for example "Unknown Webhook") | Tip: send page and dialog each show exactly `Invalid URL` while offline. At `1e12837` the dialog shows D24's "Could not load the message. …" (red by construction). One offline read with any other text at either site refutes | If the dialog still names a message when the URL fetch fails, the user is told to check a message that was never loaded, and the two sites disagree | uat | UAT document for 015 | open |
 
+| B-12 | observable pre-release | **M5-h (D31; CR-18)**: "`/preview?data={\"embeds\":5}` shows 'Invalid message data.'; `/preview?data={}` shows an empty editor". Settles M5-h's human-observable limb | Stage browser on the locally served chain tip: the two `/preview` URLs (URL-encoded `data`), then the page's text and the presence of the editor read from the DOM | Test account (the page needs no sign-in) / owner | Tip served locally with M5-h's fix delivered. A Playwright act: steering's go first (rulings 07:42Z) | `{"embeds":5}`: one line "Invalid message data." and no editor. `{}`: the editor, with no error line. At `da24eb7`, `{"embeds":5}` throws in `makeEditable` (code review's probe, `verification/015/cr-m5-probes/run1-da24eb7.txt`), which is red by construction. One crash or blank page on the first URL refutes | If the page still crashes, a shared preview link with a mis-shaped message still breaks the page | uat | UAT document for 015 | open |
+
+*B-12 minted 2026-11-08T08:03 (rev 22).* Not run at minting: M5-h's fix is not delivered, and any browser act now needs steering's go. The code-review probe cited above is jsdom, the same as the suite. A real-Chrome read is this row's addition. *Reconcile 2026-11-08T08:03 (rev 22, D32):* B-4's predicted value adds (vi). At 41, the red line reads "Message has 41 components; the limit is 40." (or the actual total) under a red border, in the editor and on the Send page. Send is never pressed (E-9).
+
 *B-11 minted 2026-11-08T07:27 (rev 20, D29).* Instrument shown working at minting: in the kept-profile Chrome, `setOffline(true)` makes a page `fetch` reject with `TypeError: Failed to fetch`, and the online probes before and after return 200 (`verification/015/qa-m4-offline-instrument-run1.txt`). The tip pages themselves were not run: the D29 change is not delivered. The walk never sends (E-9). The webhook URL fetch is a Discord GET, so the control's online leg is a read.
 
 *B-10 minted 2026-11-08T07:08 (rev 19, code review's routed premise).* Not run at minting. It is the stage browser's, like B-9. Its control on the same run is B-9's own-server load, which must succeed.
@@ -419,6 +462,10 @@ Instruments shown working at minting:
 Liveness for B-8, whose pass form includes an absence (no `still alive`): run 1 shows the instrument sees `pm2.log` stop lines (two members, 2024-06-15 and 2026-06-15). Stop (1)'s predicted SIGKILL line at the push is the same-run positive control.
 
 ## Findings
+
+QAF-28 LOW Phase 1 — Rev 22's M5-h class (3) refuses "`embeds` … present, not `null` and not an array", and "an embed's `fields` … present, not `null` and not an array". At `da24eb7`, `makeEditable` processes `embeds: ""` and `fields: ""` without throwing: `for (const embed of casted.data.embeds ?? [])` iterates an empty string zero times.
+- **What it fails to check:** whether `{"embeds":""}` (and `{"embeds":[{"fields":""}]}`) shows the error line or the editor. By the member's words it is refused. By the plan's own rule, "the third read from `makeEditable`'s source … so anything that renders today still renders", it may not be. Whether the editor then renders or throws later is X-19's territory and was not read.
+- **Asked of the planner:** state the empty string's side for both fields, for example "not an array and not an empty string" or "empty string included". The cell's literal follows. Owed before M5-h's fix is coded.
 
 QAF-24 LOW Phase 1 RESOLVED — folded at rev 21 (`3d193f9`), M4-d webhook-load limb: each site's stated place, the dialog's on its shared error line. Rev 20 put the dialog's "Invalid URL" "at the webhook URL field", which the dialog does not have. Duplicates: CR-16 in code-review/015-bug-evaluation-fixes-code-review.md
 
@@ -542,6 +589,10 @@ These five went to the planner as one batch with this document at rev 4 and are 
 
 ## Assumption Not Checked
 
+*Rev 22 pass (2026-11-08T08:03).* This pass assumes that, in real Chrome, a `/preview` `data` in class (3) fails in `makeEditable` the way it does under jsdom and vitest. Both strict-mode primitive assignment and iterating a non-iterable throw a `TypeError`. It does not test this, because a browser read now needs steering's go.
+- **Signature of its falsity:** B-12's first URL renders the editor, or a blank page, in Chrome rather than the error line.
+- **Owner of closing:** UAT, through B-12.
+
 *Rev 20 pass (2026-11-08T07:27).* This pass assumes that, in the locally served tip, a `fetch` to a Discord webhook URL with the network up and an invalid token resolves with a JSON body carrying `message`, rather than failing CORS and rejecting. It does not test this. If the request rejects, the dialog's "Discord refusal keeps Discord's own message" limb is unreachable in a real browser, and every bad webhook URL shows "Invalid URL" there.
 - **Signature of its falsity:** in B-11's online control leg, the dialog shows "Invalid URL" for a well-formed URL with a wrong token, where "Unknown Webhook" or a similar Discord text was predicted.
 - **Owner of closing:** UAT, through B-11's control leg.
@@ -585,6 +636,7 @@ This pass assumes the live Postgres schema matches the Kysely `DatabaseSchema` t
 
 - **Next stage:** the implementer. No session exists yet, so steering gets a spawn cue to start from M0.
 - **Planner (through steering):** at rev 4, QAF-1 to QAF-5, now folded at rev 6. At rev 6, QAF-6 and QAF-7, both LOW and non-blocking. B-8's reader is fixed by D19 and L-6.
+- **Rev 22 delta:** passes. QAF-28 LOW goes to the planner (planner-hooks-015), owed before M5-h's fix is coded. B-12 is minted; B-4 is reconciled to M6-l (vi). The Assumption Not Checked for this pass goes to UAT through B-12.
 - **Rev 20 + 21 delta (one round):** passes. QAF-24, raised on rev 20, is RESOLVED at rev 21 and duplicates CR-16. B-11 is minted, owner uat; B-3 is withdrawn (D30). The D29 cells owed by the implementer are in § M4 (rev 21 reconcile). The Assumption Not Checked for this pass goes to UAT through B-11's control leg. Delivered to planner-hooks-015.
 - **Rev 19 delta:** passes, with no new finding. QAF-23 is RESOLVED. The Assumption Not Checked (the `authorizeGuildAdmin` gate itself) goes to code review's M4 Round 6.
 - **Rev 17 + 18 delta:** passes. QAF-23 MEDIUM goes to the planner (planner-hooks-015), owed before the CR-12 rider's code is reviewed. AF-19's id-source limb is code review's to verify by reading the source; QA owes no test for it. The Assumption Not Checked for this pass goes to UAT through B-9.
