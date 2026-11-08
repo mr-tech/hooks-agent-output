@@ -715,50 +715,42 @@ This pass assumes the live Postgres schema matches the Kysely `DatabaseSchema` t
 - **Rev 7 confirmation:** QA Phase 1 approves rev 7 (`38b12e6`) for implementation start. QAF-8 is owed before the run-2 read is scripted, and QAF-9 is LOW; neither blocks code. *(Superseded line, kept for the record:)* QA Phase 1 approves rev 6 for implementation start. The implementer is bound by E-1 to E-9, E-1's reconcile note included.
 - **Assumption Not Checked:** routed to UAT, through B-1 and B-2.
 
-## Resumption State (checkpoint, qa-hooks-015, 2026-11-08T07:14Z)
+## Resumption State (checkpoint, qa-hooks-015, 2026-11-08T08:14Z)
 
-**Done** (agent-output `HEAD` `8cefdb6` at checkpoint)
-- **Phase 1:** keyed to plan rev 19 (`330348f`) and approved. Last re-key `a47f5e9`, plus the reconcile `8cefdb6`. QAF-1 to QAF-18 and QAF-21 to QAF-23 are RESOLVED.
-- **M0 Phase 2:** PASS at website `037935d` (`qa/015-bug-evaluation-fixes-m0-qa.md`, `bf10a46`).
-- **M2 Phase 2:** PASS at website `6001f7f` against rev 16 (`qa/015-bug-evaluation-fixes-m2-qa.md`, `298912a`, plan row in the same commit). 18 of 18 implementer mutants and 6 of 6 QA mutants were killed (`verification/015/mutation-qa-m2*-6001f7f.txt`, mutator `mutators/qa-m2-supplement.py`).
-- **M3 red evidence:** QA's terms (real Chrome, four cells per dialog; jsdom does not count) went to the implementer and the planner. They are in § M3 and in plan rev 15+.
-- **Register:** B-1 to B-10. B-9 (D26 walk) and B-10 (the rider's gate on live data) were minted today.
+**Done** (agent-output `HEAD` `4d091e4` before this checkpoint)
+- **Phase 1:** keyed to plan rev 24 (`018f72d`) and approved, with no open Phase 1 finding. QAF-24 (= CR-16) and QAF-28 (= CR-20) are RESOLVED. The rev 23 pass corrected my own rev 22 M5-h controls: four of them crash the real page.
+- **Phase 2 verdicts, each in its own document:**
+  - M0 PASS at `037935d`.
+  - M2 PASS at `6001f7f`.
+  - **M4 PASS at `da24eb7`** (`qa/…-m4-qa.md`). QAF-25 RESOLVED. A rev 24 reconcile: the non-JSON member is unverified, so a scoped M4 pass is owed when its cells land.
+  - **M1 QA Failed at `3031878`** (`qa/…-m1-qa.md`). QAF-26 MEDIUM: survivors `i2-row-read-by-session-token` and `i4-user-count-unscoped`. QAF-27 LOW. The assumption about `Accounts` rows per user was answered by AF-26 and closed by D34/X-20.
+  - **M5-a to M5-g QA Failed at `da24eb7`** (`qa/…-m5-qa.md`). QAF-29 MEDIUM: survivor `m5e-utc-getters`. B-13 minted there.
+  - QAF-11 RESOLVED (M0 document).
+- **Register:** B-1 to B-14. B-3 withdrawn (D30). B-11 to B-14 minted today: D29 offline walk, M5-h `/preview`, M5-a Esc, M5-i first visit. Every browser row needs steering's Playwright go (rulings 07:42Z).
 
-**Open findings, with owner**
-- QAF-11 MEDIUM, the implementer: the wall-clock wait. `9e4955a` replaced the `setTimeout` (0 hits at `6001f7f`). Confirm and mark it RESOLVED at M1 Phase 2, which covers that commit.
-- QAF-19 LOW and QAF-20 LOW, the implementer (sent 06:56Z). QAF-20 (= CR-10) is owed before the effort-final pass.
+**Next, in the order the pipeline brings them**
+1. **M1 re-run** after code review approves the QAF-26 fix. Scope: the round's diff only, plus re-running `i2-row-read-by-session-token` and `i4-user-count-unscoped` (`mutators/qa-m1-supplement.py`).
+2. **M5-a to M5-g re-run** after the QAF-29 fix. Re-run `m5e-utc-getters` (`mutators/qa-m5-supplement.py`). The local-day probe is `verification/015/qa-m5e-local-day-probe/run.sh <sha> <out>`.
+3. **Scoped M4 pass** when the non-JSON cells land, one per site (Phase 1 § M4, rev 24 reconcile).
+4. **M5-h Phase 2** after code review clears its fix: cells per rev 23/24 read-backed members, with a presence landmark. Also **M5-i**: open-panel cells per Phase 1 § M5-i.
+5. **M6** (M6-l (vi) on editor, Send and `/preview`), M7, M8: per Phase 1.
+6. **Phase 1 re-keys** as steering briefs them.
 
-**Next, in the order the pipeline will bring them**
-1. **M1 Phase 2**, after code review approves the M1-c/M1-h rebuild. Its stage start is the review's committed verdict at its `Reviewed-At`, re-derived. The document is a new M1 delivery document under `qa/`, named like the M2 one with `m1`; it does not exist yet.
-   - **Gate:** the TDD table in `implementation/015-bug-evaluation-fixes-m1-implementation.md`.
-   - **Cells:** per § M1 as reconciled to rev 19.
-     - M1-c: the CR-3 cache-state × row fixtures; the token taken from the row; cache-account with row-absent; the deletion-failure cells in both ioredis shapes; the lookup-error identity and key set.
-     - M1-h: the decision table row by row, with the catch-and-rethrow mutation reddening rows 1 and 2 only.
-     - M1-i: through the real `RequestCookies` harness, with the decided residue cells.
-   - **Sweep:** bounded mutation sweeps for I-2 (revoke; seeded at the account decision and the token source) and I-4 (insert cap).
-   - **Run:** in an export, under `unshare -rn` with `lo` up, with the isolation counts checked. Symlink `node_modules` and copy `next-env.d.ts`. The driver is `verification/015/mutate-run.sh`, with `EXPORT_ROOT` in this session's scratchpad.
-2. **M4 Phase 2**, after code review Round 7 approves M4. § M4 holds the cells: M4-c, M4-d per site (both sites), the 8 hosts, the guild-group cell, the CR-12 rider's equality domain (other guild, absent, `null`), and the 401/403/404/500 lookup cells.
-3. **M3:** read the implementer's Chrome capture against QA's four-cell terms before any M3 verdict.
-4. **Phase 1 re-keys**, as steering briefs them.
+**How a pass runs (instruments, committed under `verification/015/`)**
+- Suite: `qa-m4-suite-run.sh <sha> <EXPORT_ROOT> <out-prefix>` (export, `unshare -rn`, lo up, isolation counts, typecheck). Captures so far: `qa-p2-*-{3031878,da24eb7}`.
+- Sweep: `qa-sweep.sh <sha> <tag> <mutator> "label:filter[:mutant]"…`, run by a `general-purpose` helper with lower effort. `EXPORT_ROOT` goes under this session's scratchpad `exports/`, deleted at run end.
+- Mutators: `qa-m4-supplement.py`, `qa-m4r-supplement.py`, `qa-m1-supplement.py`, `qa-m5-supplement.py`.
+- Cell audits: a `general-purpose-sonnet` helper maps Phase 1 cells to quoted assertions via `git show <sha>:<path>`. Spot-check every gap it reports.
 
 **Owed by QA at the effort-final Phase 2**
-- Discord's Embed `color` contract (`null`?), from M2's Assumption Not Checked.
+- The production-diff mutation sweep over `7ce866b..<tip>`. It includes the implementer mutants not re-run here (M4's 34, M1's, M5's 25) and the CR-12 belonging comparison.
+- Discord's Embed `color` contract (from M2's Assumption Not Checked).
 - QAF-20 landed.
 - Re-run `qa-rk7-client-reach-run.sh` (also at the Phase 3 tip).
-- The production-diff mutation sweep over `7ce866b..<tip>`, the CR-12 belonging comparison included.
-
-**Instruments (committed, `verification/015/`)**
-- `qa-phase1-premises.sh`
-- `netns-loopback-probe.sh`
-- `qa-m0-bot-collection-probe.sh`
-- `qa-rk7-client-reach-run.sh` and `qa-rk7-client-reach.js`
-- `qa-m1i-cookie-presence-probe.cjs`
-- `qa-m2a-colour-truthiness-sweep.sh`
-- `mutators/qa-m2-supplement.py`
 
 **State left**
-- **Website:** the tree is on `chain/015-bug-evaluation-fixes` at `1e12837` when checked, moved by others. preview-image-generator is at `471578f`. Nothing of mine is mutated or uncommitted in either.
-- **agent-output:** my earlier `INBOX.md` FYI (check-repo failures in other documents) is uncommitted by design, for the record owner. The future-stamp FYI was withdrawn and removed.
-- **Scratchpad:** diffs, the M2 JSON report and edit files, none needed. No export directory remains. No process of mine runs except the session's own Playwright MCP server.
+- **website:** `chain/015-bug-evaluation-fixes` at `24ac49f` when checked, moved by others. Nothing of mine is mutated.
+- **agent-output:** every QA path is committed. Other sessions' staged and untracked files are in the index and tree; they are not mine.
+- **Scratchpad:** no exports remain, and no process of mine runs except the Playwright MCP server. The stage browser was closed at 07:27Z and its cache emptied.
 
-**Questions out:** none to the owner. None pending with the planner.
+**Questions out:** none to the owner. Delivered and awaiting the implementer: QAF-26, QAF-27, QAF-29, and the M5-h cell correction. The architect's AF-26 answer is received and reconciled.
