@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Status: In Progress
-Status-Detail: "M0 and M2 delivered; M1 is rebuilding M1-c and M1-h. Revision 16 registers D26 (OQ-J: widen the shared link rule once; discordapp.com takes www./canary./ptb.) and restates M4-d over the shared constant and its two consumers. It sits on revs 14 and 15. M3 is held for a real-Chrome read. The critic (cycle 4), the architect, QA and code review read 9cbe755..rev 16 in one round."
-Revision: 16
+Status-Detail: "M0 and M2 delivered; M1 is rebuilding M1-c and M1-h; M4 is being coded. Revision 17 widens M4-d to both sites of F-27's predicate (critic M-C4-1): a second site, the New Message dialog's webhook load, joins an open milestone, routed to steering as a scope delta. It also folds L-C4-1, AF-19, QAF-21 and QAF-22. The implementer holds the second site until the gates pass rev 17. M3 is held for a real-Chrome read."
+Revision: 17
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
 Lane: "standard — agent-output/README.md carries no small-lane section (grep -i small, 0 hits, 2026-11-08); the blast radius spans the save schema, a bot command's permissions and a production PM2 service, none a leaf"
@@ -41,7 +41,8 @@ Owed re-verdicts:
 | M1-c lookup-error cell (D22); M1-h trigger "or returns" and decision table; M8-a run-2 span anchored on stop (1) and stop (2) timestamps; RK-7 reducing predicate; re-derivation reading of block 05:50Z | rev 11 | critic, architect, qa (delta only) | approved (architect `8868b7d`, QA `22fef2d`, critic `d18de10`); QAF-14 to QAF-16 and L-C3-4 folded at rev 12 with CR-3 |
 | M1-c account decision from the `Accounts` row (CR-3), "falsy return" withdrawn, deletion-failure outcome (QAF-15); M1-h table row 6 timing (QAF-14); run-2 stop line (QAF-16) | rev 12, rev 13 | critic, architect, qa, code review (one round over `14fe94f`..rev 13) | approved (architect `f7e6602`; critic `6970763`, cycle 3 closed; QA `aad87b6`; code review `7976a9a`), with CR-6 to CR-8, QAF-17 and QAF-18 folded at rev 14 |
 | D23 clock assumption (no gate re-read, by D23's own terms); M1-i restated over the `cookies()` read; M2-a's colour class (third site); re-derivation after M2 | rev 13 | same round as above, except D23's assumption | approved (same round) |
-| M1-i "present" = `cookies()` and its residue; M2-a third colour member (Picker → M6-f); M3 premise unsettled and held for a Chrome read (rev 15); M4-c restated; M4-d over D24–D26: eight hosts, one widened shared constant, its two consumers (rev 16); M6-f covers colour 0; X-17 | rev 14–16 | critic (cycle 4), architect, qa, code review (one round over `9cbe755`..rev 16) | open |
+| M1-i "present" = `cookies()` and its residue; M2-a third colour member (Picker → M6-f); M3 premise unsettled and held for a Chrome read (rev 15); M4-c restated; M4-d over D24–D26: eight hosts, one widened shared constant, its two consumers (rev 16); M6-f covers colour 0; X-17 | rev 14–16 | critic (cycle 4), architect, qa, code review (one round over `9cbe755`..rev 16) | approved by the architect (`565e240` read), the critic (`28f0f16`) and QA (`e43f305`); code review Round 4 (`19dbf64` row): CR-11, folded at rev 17; CR-12 (HIGH, pre-existing) is with the owner. M-C4-1, L-C4-1, AF-19, QAF-21 and QAF-22 are folded at rev 17 |
+| M4-d over both F-27 predicate sites (`WebhookProvider.tsx`, `useValidateWebhook.ts`); trim; refused-input display; guild/channel/message groups; id from the constant's group | rev 17 | critic (cycle 4), architect, qa, code review (with its rev 14–16 read) | open |
 
 ## Changelog
 
@@ -75,6 +76,7 @@ Owed re-verdicts:
 | 2026-11-08T06:53 | 16 | planner (planner-hooks-015) | Registers D26 (rulings 06:52Z, `7207289`) and restates M4-d. It is the ninth revision since implementation approval. Steering briefs one round over `9cbe755`..rev 16. Scope delta: M4-d's link class becomes eight hosts in the one shared constant. The New Message dialog's link load and `message.getFromUrl` join M4-d's criterion as the constant's consumers, with a human-observable walk; the owner accepted that change as stated, at no extra milestone or round. D25's bare-host reading is overridden. Against the ask: 49 of 50 findings, unchanged. |
 | 2026-11-08T07:12 | cr | code-reviewer (code-reviewer-hooks-015) | Round 4, the gate read of `9cbe755..565e240` (revs 14–16), mechanisms at website `6001f7f`: REJECTED for M4-d only, `code-review/015-bug-evaluation-fixes-code-review.md` (`32efd0b`). For the planner: CR-11 MEDIUM. M4-d's `getFromUrl` limb names the channel and message groups but not the guild group, the only input to `authorizeGuildAdmin`. Restate it over all three, with a guild-group cell. M1-i, M2-a/M6-f, M4-c and X-17 are approved: CR-7 and CR-8 RESOLVED, CR-6 routed. CR-12 HIGH, pre-existing on `master` and outside D6, escalated to steering for the owner: `getFromUrl` authorizes the link's guild but fetches the link's channel with the bot token, unbound. Milestone-scoped, so plan Status is unmoved. |
 | 2026-11-08T06:54 | qa | qa (qa-hooks-015) | Phase 2, M2 only, at website `6001f7f` against rev 16 (§ M2 unchanged since rev 14): PASS (`qa/015-bug-evaluation-fixes-m2-qa.md`). Suite 720/720, 71 files, exit 0. 18/18 implementer mutants and 6/6 QA mutants were killed at `6001f7f`. QAF-19 and QAF-20 (LOW) go to the implementer; QAF-20 duplicates CR-10 and times it before the effort-final pass. Milestone-scoped, so plan Status is unmoved. |
+| 2026-11-08T06:57 | 17 | planner (planner-hooks-015) | Folds critique cycle 4 pass 1 (`28f0f16`: M-C4-1, L-C4-1), architect AF-19 (`565e240` read), QA QAF-21 and QAF-22 (`e43f305`), and code review Round 4 CR-11 (`19dbf64` row), which duplicates QAF-21. CR-12 (HIGH, pre-existing on `master`) is with steering for the owner and is not folded. Disclosure: rev 17's M4-d body edits were committed inside code review's row commit `19dbf64`, before this row; M-C4-1 is taken at once as a milestone-level scope delta on open M4. It is the tenth revision since implementation approval, and it triggers one delta round per gate. Scope delta: M4-d now covers both sites of F-27's predicate. The New Message dialog's webhook load gains the anchored test, the D24 network text and ordering. The planner judges that the owner's standing mirror rule and D24 ("anything else is refused before fetching") compel it, and routes it to steering for the owner if steering judges otherwise. QAF-22 is settled as the base behaviour (trim, nothing shown on refusal), so no new flow. Against the ask: 49 of 50 findings, unchanged; F-27 is sized to both of its sites. |
 
 ## Value Statement and Business Objective
 
@@ -463,8 +465,8 @@ exists to fix once — `grep` above).
     - `message.getFromUrl` (its zod input and its `match`).
     For each, every one of the eight host forms is admitted. Every input the constant refused at `6001f7f` on
     other grounds is still refused: another host, `http://`, a trailing path, a non-digit id. For every admitted
-    form, `getFromUrl`'s match groups still yield the guild id, the channel id and the message id, in that order;
-    the guild id is `authorizeGuildAdmin`'s input (QA QAF-21; critic L-C4-1).
+    form, `getFromUrl` passes the link's own guild id to the authorization gate (`authorizeGuildAdmin`), and the
+    link's own channel id and message id to the request (code review CR-11; QA QAF-21; critic L-C4-1).
   - **The id fetched.** At both M4-d sites, for every admitted link, the message id fetched is the constant's
     message-id capture group, and no second parser derives it (architect AF-19).
   - **Human-observable (D26: the New Message dialog's change is accepted).** In the New Message dialog, a
@@ -895,8 +897,8 @@ is not modified; its stored-residue tie is X-13), `components-v2-invariant…`, 
 
 ## Resumption State (checkpoint, planner-hooks-015)
 
-- **Done.** Plan at revision 16 (rev 14, plus rev 15's D25 and M3 hold, plus rev 16's D26 for M4-d). Revs 12 and 13 passed all four readers. Registrations: R-1 (D14, D15), R-2 (D20), R-3, R-4 and R-5. D21 to D26 were registered inside revs 10, 11 and 13 to 16. R-5's conclusion was withdrawn at 06:52Z. Handoff opened: `handoff/providers-query-params-header-decode-throws-2026-11-08.md` (X-17).
-- **Next.** Steering briefs the critic (cycle 4), the architect, QA and code review over `9cbe755`..rev 16. Fold the M3 Chrome read when it lands. Fold any findings at the next planning pass.
+- **Done.** Plan at revision 17 (revs 14–16, plus rev 17's M4-d over both F-27 sites). Registrations: R-1 (D14, D15), R-2 (D20), R-3, R-4 and R-5. D21 to D26 were registered inside revs 10, 11 and 13 to 16. R-5's conclusion was withdrawn at 06:52Z. Handoff opened: `handoff/providers-query-params-header-decode-throws-2026-11-08.md` (X-17).
+- **Next.** Steering routes rev 17's delta to the critic, the architect, QA and code review, and the second-site scope delta to the owner if steering judges it his. Fold the M3 Chrome read when it lands. Fold any findings at the next planning pass.
 - **Open with others.** None of the planner's questions to the owner are pending (OQ-J answered: D26). The M3 Chrome read is with the implementer and QA.
 - **Uncommitted, left in place.** `INBOX.md` holds this session's FYI entry: the research document's `pm2 show` advice. Per the inbox rule, the domain owner commits it.
 - **Branches.** website and preview-image-generator: chain branches are created by steering. The planner touches no source.
