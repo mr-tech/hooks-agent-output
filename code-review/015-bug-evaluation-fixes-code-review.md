@@ -264,6 +264,7 @@ CR-5 LOW Round 2 DECLINED — by the implementer (§ Fix Round 1): the plan sets
 - **Magnitude**: established by reading the code at both SHAs only. That Discord serves `GET /channels/{c}/messages/{m}` for a channel outside the URL's guild, given the bot has access, is the unexecuted premise (Assumption Not Checked, Round 4). An unmeasured hypothesis on the Discord leg.
 - **Required Action**: the owner decides whether this rides chain 015 as a scope delta or goes to a handoff and the security agent; this review does not decide it. The fix, wherever it lands: Preferred (structural): fetch the message's channel (or use the message's `guild_id` where Discord supplies it) and refuse unless its `guild_id` equals the authorized guild, so the gate and the action are addressed by one identifier. Minimum: the same comparison, inline in `getFromUrl`. The cell's falsity signature: with a stubbed channel whose `guild_id` is a literal other than the link's guild, the procedure must refuse, and the test fails if the message is returned.
 - **Escalated** to steering-hooks-015 immediately, for the owner (security vulnerability).
+- CR-12 HIGH Round 4 ROUTED: the owner chose to fix it in chain 015 as an M4-d rider (rulings 07:01Z, `3d7af67`). The planner folds it at the next revision. Code review checks it at the gate read steering briefs over `565e240..<that tip>`, and the class sweep and re-attack run at Round 5. The check that fails if it returns is the implementer's cell with Round 4's falsity signature.
 
 ### Round 4 record note (2026-11-08T07:15)
 
@@ -294,7 +295,7 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 1. **Implementer**, non-blocking: CR-9 (delete `validateEmbed`), CR-6 Minimum (correct the disposition line), and CR-10 as QA times it.
 2. **Planner**: none outstanding. CR-11 was folded at rev 17, and CR-6 to CR-8 at rev 14.
 3. **M1-c and M1-h rebuild**, after the rev 13 round: one sub-entry each at its SHA. CR-3's cache-state cells, and one cell per M1-h decision-table row.
-4. **Owner, through steering**: CR-12, whether the cross-guild read rides chain 015 or goes to a handoff and security.
+4. **CR-12**: ruled by the owner to ride chain 015 as an M4-d rider (`3d7af67`). The planner folds it, then the implementer builds it.
 
 ## Assumption Not Checked
 
@@ -331,4 +332,4 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
   - M4: a new Round 5 when the implementer hands off. The tip `b25f561` already carries M4 commits, which are not reviewed until the handoff. Check CR-11's guild-group cell there, and that the widened constant has no capturing host group (or uses named groups).
 - **Instruments.** `cr-m4d-link-class-sweep.sh <repo> <sha>`; `cr-emit-compare.cjs`; `cr-m1-probes/cookie-parser-reattack.cjs`.
 - **Hazards.** As before: the rtk filter breaks counts taken from piped output; eslint needs `node_modules`.
-- **Questions out.** CR-12 is with steering for the owner.
+- **Questions out.** None. CR-12 was ruled into chain 015 (`3d7af67`). Steering ruled Round 5 option (a): hold until the implementer delivers M4 with both F-27 sites and the CR-12 rider against the coming revision, then review one tree. The next gate read is over `565e240..<next plan tip>`, and covers the M-C4-1 text and the CR-12 fold.
