@@ -64,11 +64,11 @@ Mutant sets, all committed before their runs:
 | `qa-ef-clear-dropped` | **equivalent on this engine** (by execution, below) | 0 |
 | `qa-ef-fallback-timer-removed` | **SURVIVED** | 0: QAF-37 |
 
-Controls: the rig control in the gap run is 32 cells, 0 failed (`gap/qa-m8r-control.txt`). The body-class control is 7/7 (`body/bodyclass-control-8de2b53.txt`). The first attempt at the 3 m8b mutants went through `qa-m8r-sweep.py --probe probe-body-class.cjs`, and all 3 were ABORTED: that driver copies `probe.cjs` and `probe-pages.cjs` but not `obs-preload.cjs`, so the server never started and the observer was never live (`body/qa-m8r-*-probe-body-class.txt`). Those rows are superseded by the `run-body-class-qa.sh` runs and are not scored.
+Controls: the rig control in the gap run is 32 cells, 0 failed (`gap/gap-qa-m8r-control.txt`). The body-class control is 7/7 (`body/bodyclass-control-8de2b53.txt`). The first attempt at the 3 m8b mutants went through `qa-m8r-sweep.py --probe probe-body-class.cjs`, and all 3 were ABORTED: that driver copies `probe.cjs` and `probe-pages.cjs` but not `obs-preload.cjs`, so the server never started and the observer was never live (`body/qa-m8r-*-probe-body-class.txt`). Those rows are superseded by the `run-body-class-qa.sh` runs and are not scored.
 
 Outside the local instrument: `ecosystem.config.js` `kill_timeout` 12000 is a PM2 setting that the rig does not run. Register B-8's "exit before 12000 ms, no SIGKILL for stop (2)" decides it in production.
 
-**`qa-ef-clear-dropped` (drain without `pool.clear()`) is equivalent for the orphan outcome.** Probe: `effort-final/clear-orphan-probe/run.sh` and `probe-clear-orphans.cjs`, run 3 (`run3-8de2b53.txt`). One `/generate` launches Chrome (12 new `chrome` processes, counted by exact process name against a start baseline). Results:
+**`qa-ef-clear-dropped` (drain without `pool.clear()`) is equivalent for the orphan outcome.** Probe: `effort-final/clear-orphan-probe/run-clear-orphans.sh` and `probe-clear-orphans.cjs`, run 3 (`run3-8de2b53.txt`). One `/generate` launches Chrome (12 new `chrome` processes, counted by exact process name against a start baseline). Results:
 
 | Run | Exit | Chrome left 3 s after exit |
 |---|---|---|
@@ -93,7 +93,7 @@ The CR-12 belonging comparison (`routers/message.ts`, `channel.guild_id !== guil
 
 Runner: `~/.claude/tools/mutation-run.py`, `--dep node_modules`, `--timeout 300`. The suite command is `unshare -rn sh -c 'ip link set lo up && [ <non-lo links> = 0 ] && npx vitest run'` (`effort-final/run-shard.sh`), in 3 shards. A test-fire on `ef-cron-error-eq-null` gave control 1122/1122, and the mutant KILLED with 1 failed and 1121 passed.
 
-**Result: 265 mutants. 256 KILLED, 9 SURVIVED, 0 STILLBORN, 0 ABORTED, 0 CONTROL-FAILED.** Kill table: `effort-final/website-killtable.tsv`, built by `killtable.py` from the six runner tables in `effort-final/website-sweep-c5303ca/{firstpass,rerun}/table*.json`. Each killed row names its failing cases, read from the run's stderr ` FAIL ` lines. Cross-check against a second instrument, the runner's own summary lines (`driver*.txt`): the re-run killed 78 + 76 + 75 = 229 of 232, and the first pass killed 8 + 11 + 8 = 27 of the 33 ids that ran. That gives 256 killed and 9 survived, matching the table. The runner's own 'instruments' field in each table records the blob identity of the mutants file and the lock manifest. Raw per-run output was left in the scratchpad and is not committed (about 530 runs × 2 files).
+**Result: 265 mutants. 256 KILLED, 9 SURVIVED, 0 STILLBORN, 0 ABORTED, 0 CONTROL-FAILED.** Kill table: `effort-final/website-killtable.tsv`, built by `killtable.py` from the six runner tables in `effort-final/website-sweep-c5303ca/{firstpass,rerun}/{firstpass,rerun}-table*.json`. Each killed row names its failing cases, read from the run's stderr ` FAIL ` lines. Cross-check against a second instrument, the runner's own summary lines (`{firstpass,rerun}-driver*.txt`): the re-run killed 78 + 76 + 75 = 229 of 232, and the first pass killed 8 + 11 + 8 = 27 of the 33 ids that ran. That gives 256 killed and 9 survived, matching the table. The runner's own 'instruments' field in each table records the blob identity of the mutants file and the lock manifest. Raw per-run output was left in the scratchpad and is not committed (about 530 runs × 2 files).
 
 How the run went, two disclosed false starts, neither scored:
 1. Three shards ran in parallel at vitest's default worker count, and every control failed. Under the load, `NewMessageModal.persist-gate-wiring` "a classic draft loaded via the JSON tab writes through Save" timed out at 5000 ms. `run-shard.sh` now caps each shard at `--maxWorkers=5` (`25949f2`), and every control then passed at 1122/1122.
@@ -124,7 +124,7 @@ Each survivor of the first pass was judged against the tip source before this ta
 
 ## Findings
 
-QAF-37 MEDIUM Phase 2 — the shutdown path's 10 s fallback exit (`src/server.ts` `shutdown`, `setTimeout(() => { process.exit(0); }, 10e3)`) has no cell. Removing it (`qa-ef-fallback-timer-removed`) passes every rig cell (`gen-sweep-8de2b53/gap/qa-m8r-summary.txt`).
+QAF-37 MEDIUM Phase 2 — the shutdown path's 10 s fallback exit (`src/server.ts` `shutdown`, `setTimeout(() => { process.exit(0); }, 10e3)`) has no cell. Removing it (`qa-ef-fallback-timer-removed`) passes every rig cell (`gen-sweep-8de2b53/gap/gap-qa-m8r-summary.txt`).
 - **Why it matters:** the base has the same fallback, so the change preserves it, and M8-a's "exit before 12000 ms, no SIGKILL" (register B-8) relies on it whenever the drain does not settle. The drain waits for borrowed browsers, and a request held in `page.goto` (`networkidle0`, puppeteer's 30 s default navigation timeout) holds it past 10 s. Without the fallback, PM2 SIGKILLs at `kill_timeout` 12000 ms. This is a preserved behaviour with no assertion that fails when it is lost, which puts it at least MEDIUM.
 - **Shown by:** the mutant survives with the control at 32 cells and 0 failed. The P1 failed-drain cell covers a drain that rejects, not one that never settles.
 - **Owed (implementer, test-only):** a rig cell whose drain never settles (for example a held `/generate` whose page never reaches network idle, or a stubbed pool whose `drain` never resolves), asserting that the process exits with code 0 by about 10 s and before 12 s. It must be shown red under `qa-ef-fallback-timer-removed` and green at `8de2b53`. QA re-runs that mutant alone after the fix.
@@ -145,13 +145,15 @@ QAF-40 MEDIUM Phase 2 — the M6-b predicate has no cell at the point where it r
 - **Owed (implementer, test-only):** an `ImageUploader` cell (DOM harness) with a URL the predicate refuses, for example `a.png.html` from M6-b's members. It asserts the URL is refused without an image load, alongside a control URL the predicate accepts. It must be shown red under the survivor and green at `c5303ca`.
 
 QAF-37 RESOLVED (2026-11-08T12:38: preview-image-generator `8de2b53` unchanged; the rig cell at agent-output `8fb1eee`, code review Round 18 sub-entry `f77e71c`).
-- Re-run by QA with the committed probe blob `14f5cfc` (`effort-final/gen-qaf37-mutants-8de2b53.json`, `gen-sweep-8de2b53/qaf37/`), one run at a time.
+- Re-run by QA with the committed probe blob `14f5cfc` (`effort-final/gen-qaf37-mutants-8de2b53.json`, `gen-sweep-8de2b53/qaf37/` (files prefixed `qaf37-`)), one run at a time.
 - The control is 35 cells with 0 failed, and the fallback exits at 10,029 ms.
 - `qa-ef-fallback-timer-removed` is KILLED, with 2 red: the code-0 exit and the window.
 - The adequacy mutant `qa-ef-close-not-awaited` (the drain no longer waits for `server.close`) is KILLED, with 2 red: the window, and "no drain-complete line and no drain-failed line". So each of the cell's three checks has been seen red at least once. This answers code review's adequacy note.
 - Load during the run: load average 9.95 at the start and 8.33 at the end on 18 cores, from other sessions. The box was not idle.
 
 *Disclosed 2026-11-08T12:40, a gate satisfied:* this document's second changelog row and the plan's QA row were typed as 12:41 and 12:45 while the clock read 12:40. The stamp-gate PostToolUse hook blocked the plan edit on the future stamp. Both rows are re-stamped from `date -u` (`726f4d5`), and the plan row's first commit `c2e7f69` carried the typed stamp. Nothing else changed.
+
+*Reconcile 2026-11-08T12:42 (record check):* the output files under `gen-sweep-8de2b53/{gap,qaf37,rig}/` and `website-sweep-c5303ca/{firstpass,rerun}/` carry their directory as a prefix, and `clear-orphan-probe/run.sh` is now `run-clear-orphans.sh`. This clears the duplicate-basename failures `tools/check-repo.js` raised against this run's files. Content is unchanged. Messages sent before the rename cite the old names.
 
 ## Verdict
 
