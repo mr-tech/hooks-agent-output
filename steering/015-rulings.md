@@ -396,3 +396,8 @@ Local infra under the 20:38Z ruling, per uat's report. Removed: hooks-postgres-l
 
 ## 2026-11-08T21:30Z — "keep them in the server"
 His words, verbatim, answering whether the Hooks.gg bot and the "Spidey Bot" webhook UAT added to the "Claude" server stay. They stay, as standing test fixtures. Also his words, lodged in ~/.claude/agents/INBOX.md: "every pi batch should be looking for opportunities to build testing infra (docker, etc.) to safe time and tokens".
+
+## 2026-11-08T22:03Z — generator push did not deploy until the owner started the runner (selection, answered in his words)
+Source: devops-hooks-015's message (~21:55Z). Both production pushes were done at 21:38Z (website master 7ce866b→b96e364; generator prod 471578f→8de2b53). D19's re-run is held: gh returns 404 for the repo, and no stop (1) was seen. Steering's reads (claude-ro, 21:55Z): deployed/prod/dist/server.js mtime 2023-08-22; no runner process or service (ps, systemctl). prod.yml says `runs-on: self-hosted` (read at prod). Remote prod = 8de2b53 (ls-remote).
+Options: You: start the runner / You: look, tell me / Agent: leave undeployed. Answered in **his own words**: "runner started. deploy complete".
+Effect read by steering at 22:02:53Z over claude-ro: server.js mtime 2026-11-08 22:02:24Z; ecosystem.config.js kill_timeout 12000; pm2.log 22:02:37 old pid 1071971 "exited with code [0] via signal [SIGKILL]", restarted, online 22:02:38; new process pid 2502940 started 22:02:36. That is stop (1), under the pre-deploy daemon config. Recipient: devops-hooks-015.
