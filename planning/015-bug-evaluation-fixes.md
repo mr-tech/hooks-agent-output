@@ -2,8 +2,8 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Status: In Progress
-Status-Detail: "M0 and M2 delivered. QA Phase 2 has passed every milestone after code review approved it, each in its own milestone-scoped pass (the latest at website c5303ca and preview-image-generator 8de2b53); the effort-final pass is QA's next. Rev 28 is the D37 pre-UAT fold: M5-h (3)'s re-run trigger widened to any non-test src/ change (CR-32), M8-d (d)'s member named at two levels (CR-33), RK-8 restated to the 8de2b53 signature with CR-34's measured retry rate, its residue class and a carrier that reads both PM2 logs and runs the M8-d and drift probes; X-25 and X-26 added. All four gates approved rev 28 (code review Round 21, architect ca92900, critic cycle 9 pass 3, QA re-key cfbdc7d). UAT may anchor on it. CR-39, AF-32 and L-C9-4 go to devops as the RK-8 handoff's text at the M9 mint. M3 is removed (D30)."
+Status: QA Complete
+Status-Detail: "QA Complete: the effort-final Phase 2 passed at website 620b4ee and preview-image-generator 8de2b53 (qa/015-bug-evaluation-fixes-effort-final-qa.md). M0 and M2 delivered; every milestone passed QA after code review. UAT is next. M3 is removed (D30)."
 Revision: 28
 Target Release: "website master → the chain-015 merge SHA (Vercel production); preview-image-generator prod → the chain-015 merge SHA (prod.yml; no preview leg, D16). Neither package carries a version artefact."
 Epic-Alignment: "none registered — no roadmap exists (agent-output/roadmap holds only .gitkeep, read 2026-11-08); the source of the effort is research/codebase-bug-evaluation-2026-11-08.md (aea4a05)"
@@ -150,6 +150,7 @@ Owed re-verdicts:
 | 2026-11-08T11:01 | R-26 | planner (planner-hooks-015) | Recorded critique cycle 9 pass 3, APPROVED, in the owed re-verdicts row, and parked L-C9-3 and L-C9-4 (LOW) as Planner batch rows. Their words are in `critiques/015-bug-evaluation-fixes-cycle9-critique.md` (`8b7f9b0`). Scope delta: none, registration only. |
 | 2026-11-08T11:02 | R-27 | planner (planner-hooks-015) | Discharged L-C9-3: code review's restamped rows, `ce6cdfd`, were checked against their commit times. Scope delta: none, registration only. |
 | 2026-11-08T12:40 | qa | qa (qa-hooks-015) | Effort-final Phase 2 at website `c5303ca` and preview-image-generator `8de2b53` (`qa/015-bug-evaluation-fixes-effort-final-qa.md`): **QA Failed on test adequacy alone; no production defect found.** Website sweep of 265 mutants over `7ce866b..c5303ca`: 256 killed. Of the 9 survivors, 6 are dispositioned and 3 raised for the implementer, all MEDIUM and test-only. **QAF-38**: M5-e has no cell at the Header "other matches" call site or the folder list-view call site. **QAF-39**: the redis waiter path treats a cached falsy value as a hit under no assertion (CR-3's sibling sites). **QAF-40**: M6-b's predicate has no cell at `ImageUploader`. Generator: the whole diff is swept, and **QAF-37 is RESOLVED** (rig cell `8fb1eee`). Discord's `color` contract holds (M2's assumption), and RK-7 holds. After the test-only fix round, QA re-runs only the 5 survivors. Plan Status left alone. |
+| 2026-11-08T12:53 | qa | qa (qa-hooks-015) | Effort-final Phase 2, re-run after the test-only fix round: **PASS** at website `620b4ee` and preview-image-generator `8de2b53` (`qa/015-bug-evaluation-fixes-effort-final-qa.md`). QAF-38, QAF-39 and QAF-40 are RESOLVED: the 5 survivors are killed at `620b4ee`. Suite 1128/1128, exit 0, typecheck 0. The whole production diff of each repository is swept. **Plan Status set to QA Complete** (this pass covers the whole plan). One stated limit is with steering for the owner: the plumbing-class sweep. UAT is next. |
 
 ## Value Statement and Business Objective
 
