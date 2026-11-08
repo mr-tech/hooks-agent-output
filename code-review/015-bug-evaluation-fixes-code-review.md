@@ -2,11 +2,11 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Reviewed-At: "e118cc3,1e12837 — repos=agent-output,website; Round 8 is the plan gate read of 330348f..e118cc3 (rev 20, D29), mechanisms at website 1e12837. Round 2 sub-entry at 579e8b2; Round 7 (M4) at 1e12837"
+Reviewed-At: "3d193f9,1e12837 — repos=agent-output,website; Round 9 is the plan gate read of e118cc3..3d193f9 (rev 21: CR-16 fold, D30), mechanisms at website 1e12837. Round 2 sub-entry at 579e8b2; Round 7 (M4) at 1e12837"
 Status: In Review
-Status-Detail: "Round 8 (plan rev 20 gate read, D29): REJECTED for the webhook-load limb only — CR-16 MEDIUM (the dialog has no field-level error; the plan says under the field). M1 at 579e8b2: APPROVED_WITH_COMMENTS (CR-15 LOW). M4 at 1e12837: APPROVED_WITH_COMMENTS, reopened for D29."
-Round: 8
-Verdict: REJECTED
+Status-Detail: "Round 9 (plan rev 21 gate read): APPROVED — CR-16 RESOLVED (dialog shared error line), D30 (M3 removed) no finding. M1 at 579e8b2: APPROVED_WITH_COMMENTS (CR-15 LOW). M4 at 1e12837: APPROVED_WITH_COMMENTS, reopened for D29; its change is a Round 7 sub-entry."
+Round: 9
+Verdict: APPROVED
 ---
 
 # Code Review: Plan 015 — Bug-evaluation fixes
@@ -43,6 +43,7 @@ Verdict: REJECTED
 | 2026-11-08T07:21 | implementer-hooks-015 (message) handoff at website `1e12837`; steering-hooks-015 (Round 7 held for one tree, option (a)) | Round 7: review M4 (F-16, F-17, F-18, F-27 at both sites, D27 rider, CR-11, CR-13) against plan rev 19 | APPROVED_WITH_COMMENTS. Every limb is met. The rider was attacked on the real `getFromUrl` with only Redis, Postgres and Discord faked: 26 cases at `1e12837` all refused or were controls as expected, and the attack leaks at `6001f7f` (`cr-m4-getfromurl-attack-run2/3`). CR-14 LOW: the two F-27 sites answer a failed *webhook* fetch differently. CR-11 and CR-13 RESOLVED. |
 | 2026-11-08T07:25 | implementer-hooks-015 (message) handoff at website `579e8b2` (§ Fix Round 2, `c938573`) | Round 2 sub-entry: the M1-c and M1-h rebuild (`1e12837..579e8b2`), plus CR-9 and CR-6 | Round 2 is now APPROVED_WITH_COMMENTS for M1. CR-3 RESOLVED, structurally: sign-out decides from the `Accounts` row, and `skipUpdate` is gone. My probes give 9 of 9 rows as expected at `579e8b2`, and they go red at `6001f7f` on cached `null` and on the lookup error. M1-h: every one of the eight rows has a cell. CR-15 LOW: row 2's "M rejects after the function returned" member has no cell, and by reasoning it is covered by the during-A cells. CR-9 and CR-6 RESOLVED. |
 | 2026-11-08T07:26 | steering-hooks-015 (message) | Round 8: plan gate read, `330348f..e118cc3` (rev 20, D29 for CR-14) | REJECTED for the webhook-load limb only. CR-16 MEDIUM: the limb places "Invalid URL" "at the webhook URL field" and "under the field" at both sites, but at `1e12837` the New Message dialog has no field-level error. Its webhook errors render in one shared line below the load options. The rest of the delta (the old-message clause now scoped to the message fetch, D29's registration) is approved. |
+| 2026-11-08T07:29 | steering-hooks-015 (message); planner-hooks-015 (message) | Round 9: plan gate read, `e118cc3..3d193f9` (rev 21: the CR-16 fold, D30) | APPROVED, no findings. CR-16 RESOLVED, option (a): the dialog's "Invalid URL" goes on its shared error line, and the send page keeps its field error. D30 removes M3, which carried no code-review limb. Its evidence (`m3-chrome-read/README.md`, `8996505`) exists and states what the plan cites. No M3 code is on the chain branch. |
 
 ## Round 1 (M0, website `037935d`) — dispositions
 
@@ -267,6 +268,15 @@ CR-5 LOW Round 2 DECLINED — by the implementer (§ Fix Round 1): the plan sets
   - The `useParsePathname` describe is converted to exercise the real hook, or deleted with the surface listed as outstanding.
   - QA decides the timing (now or with a later touch). Non-blocking for M2.
 
+## Round 9 (plan gate read, rev 21, agent-output `3d193f9`; mechanisms at website `1e12837`)
+
+- **Scope.** The delta `e118cc3..3d193f9`, written to a file and read in full, with the ruling `f005cef`. It covers M4-d's webhook-load limb (the CR-16 fold) and D30 (M3 removed, X-18).
+- **CR-16 MEDIUM Round 8 RESOLVED.** Option (a): each site's existing place. The send page uses `WebhookMenu`'s custom-URL `errorMessage`, under M4-b. The dialog uses `NewMessageModal` `messageErrorString`, the one error line below the load options, with its precedence unchanged and no field error added. The walk is reworded to match. Each cell asserts the literal at its stated place, and fails if the text appears elsewhere or nowhere. The places were re-read at `1e12837` in Round 8. The checks that fail if it returns are the implementer's two cells, confirmed at the D29 code change (a Round 7 sub-entry).
+- **D30: no finding.** M3 carried no code-review limb, and none is lost. Checked:
+  - The cited evidence exists: `verification/015/m3-chrome-read/README.md` at `8996505` (website `6001f7f`, Chrome 156.0.8078.47, three dialogs, cells a–d, a fresh context per cell).
+  - No M3 file is on the chain branch: `git ls-tree -r` of the tip, `enter-key` → 0.
+  - The dead `tagName` compare stays in the code by the owner's choice. X-18 names the residue: the uploader's Clear, a production build, and other browsers.
+
 ## Round 8 (plan gate read, rev 20, agent-output `e118cc3`; mechanisms at website `1e12837`)
 
 - **Scope.** The delta `330348f..e118cc3`, written to a file and read: D29's registration, M4-d's network clause split into the old-message fetch (D24) and the webhook-URL load (D29), and the owed table. Ruling `27f8cd7` was read too.
@@ -456,6 +466,8 @@ APPROVED_WITH_COMMENTS for M4 at `1e12837`. CR-14 is LOW and changes no safety o
 M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d: REJECTED on CR-11 until it is folded. CR-12 does not hold rev 16; it holds whatever the owner decides about it. No limb of mine is reached by the M3 premise hold.
 
 ## Verdict
+
+**Round 9 (plan gate read, rev 21)**: APPROVED. CR-16 is RESOLVED, and D30 has no finding. Round 8's REJECTED is cleared by it.
 
 **Round 8 (plan gate read, rev 20)**: REJECTED for M4-d's webhook-load limb only (CR-16 MEDIUM, planner).
 
