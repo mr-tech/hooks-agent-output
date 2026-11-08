@@ -1,0 +1,4 @@
+sha=7ce866b plant=bot/utils/__tests__ test-program-exit=0 planted-TS2322=0 all-error-TS=0
+sha=7ce866b plant=src/utils/__tests__ test-program-exit=2 planted-TS2322=1 all-error-TS=1
+sha=037935d plant=bot/utils/__tests__ test-program-exit=2 planted-TS2322=1 all-error-TS=1
+sha=037935d plant=src/utils/__tests__ test-program-exit=2 planted-TS2322=1 all-error-TS=1
