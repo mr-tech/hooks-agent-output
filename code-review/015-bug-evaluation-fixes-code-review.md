@@ -2,11 +2,11 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Reviewed-At: "565e240,6001f7f — repos=agent-output,website; Round 4 is the plan gate read of 9cbe755..565e240 (revs 14–16), with mechanism claims checked at website 6001f7f. Rounds 2–3 were at 6001f7f against rev 13"
+Reviewed-At: "94e9987,6001f7f — repos=agent-output,website; Round 4 sub-entry (CR-11 fix) at plan rev 17 94e9987; Round 4 is the plan gate read of 9cbe755..565e240 (revs 14–16), with mechanism claims checked at website 6001f7f. Rounds 2–3 were at 6001f7f against rev 13"
 Status: In Review
-Status-Detail: "Round 4 (plan revs 14–16 gate read): M1-i and the M2-a/M6-f folds approved; M4-d REJECTED on CR-11 MEDIUM (planner); CR-12 HIGH (pre-existing getFromUrl cross-guild read) escalated to steering. M2 is APPROVED_WITH_COMMENTS at 6001f7f, and QA Phase 2 may take M2. For M1, Round 2's REJECTED stands for M1-c (CR-3) and M1-h only. Both are held for the rev 13 gate round and get re-verdicts at their rebuild SHA. M1-i now passes at 6001f7f (CR-4 RESOLVED). Every other M1 limb passed at be881c9."
+Status-Detail: "Round 4 (plan revs 14–16 gate read), after its sub-entry at rev 17 (94e9987): APPROVED_WITH_COMMENTS — CR-11 RESOLVED; CR-12 HIGH (pre-existing getFromUrl cross-guild read) escalated to steering. M2 is APPROVED_WITH_COMMENTS at 6001f7f, and QA Phase 2 may take M2. For M1, Round 2's REJECTED stands for M1-c (CR-3) and M1-h only. Both are held for the rev 13 gate round and get re-verdicts at their rebuild SHA. M1-i now passes at 6001f7f (CR-4 RESOLVED). Every other M1 limb passed at be881c9."
 Round: 4
-Verdict: REJECTED
+Verdict: APPROVED_WITH_COMMENTS
 ---
 
 # Code Review: Plan 015 — Bug-evaluation fixes
@@ -35,6 +35,7 @@ Verdict: REJECTED
 | 2026-11-08T06:44 | implementer-hooks-015 (message) handoff at website `6001f7f`; steering-hooks-015 (message, review against plan rev 13 `9cbe755`) | Round 2 sub-entry: M1 fix round 1 (`be881c9..6001f7f`) | CR-4 RESOLVED (structural; re-attacked, `cr-m1-cookie-reattack-run1.txt`). M1-i is met under rev 13. CR-5 DECLINED by the implementer. CR-3 stays open: folded at rev 12, code held. M1-h is held for the rev 13 round, and the rebuild owes one cell per decision-table row. New: CR-6 LOW (the CR-4 sweep's `Providers.tsx` disposition) and CR-7 LOW (rev 13 M1-i's "present"). Round 2's REJECTED stands for M1-c and M1-h only. |
 | 2026-11-08T06:44 | implementer-hooks-015 (message) handoff at website `6001f7f` | Round 3: review M2 (F-12, F-13, F-14, F-43; QAF-1) against plan rev 13 | APPROVED_WITH_COMMENTS. M2-a to M2-d and QAF-1 are met. CR-8 LOW: the colour sweep misses `Picker.tsx`. CR-9 LOW: a lint suppression keeps the dead `validateEmbed`. CR-10 LOW: the touched supplemental test file keeps a transcription and tautologies. |
 | 2026-11-08T07:10 | steering-hooks-015 (message, after `/clear`) | Round 4: plan gate read, `9cbe755..565e240` (revs 14–16): M1-i (CR-7), M2-a/M6-f (CR-8), M4-d (D24–D26) | REJECTED for M4-d only. CR-6, CR-7 and CR-8 are dispositioned by the folds. CR-11 MEDIUM: M4-d's `getFromUrl` property names the channel and message groups but not the guild group, which is the only input to the authorization gate. CR-12 HIGH, pre-existing on `master`, escalated: `getFromUrl` authorizes the link's guild and fetches the link's channel with the bot token, and nothing ties the two together. Instrument: `verification/015/cr-m4d-link-class-sweep.sh`. |
+| 2026-11-08T07:20 | planner-hooks-015 (message), plan rev 17 at `94e9987` | Round 4 sub-entry: CR-11 fix confirmation | CR-11 RESOLVED. M4-d's `getFromUrl` limb is now restated by destination: the link's own guild id goes to `authorizeGuildAdmin`, and its channel and message ids go to the request. Round 4 is now APPROVED_WITH_COMMENTS. CR-12 is with the owner. The rest of rev 17 (the two-site enumeration, M-C4-1) is outside this sub-entry. |
 
 ## Round 1 (M0, website `037935d`) — dispositions
 
@@ -269,13 +270,19 @@ CR-5 LOW Round 2 DECLINED — by the implementer (§ Fix Round 1): the plan sets
 - **A commit of mine carried another session's hunks.** My plan changelog-row commit `19dbf64` also carried the planner's uncommitted rev 17 text for M4-d: the two-site enumeration (critic M-C4-1), the guild-group property (QAF-21, L-C4-1), the id-fetched limb (AF-19), and the QAF-22 refusal text. `git diff -- planning/…` written to a file just before my edit was 0 bytes. The planner wrote between that check and `git commit --only`. I did not re-run the diff on the edited file, and that was my error. History is not rewritten: no amend and no reset. Reported to the planner and steering. As a result, the committed plan carries part of rev 17 under `Revision: 16`, until the planner commits rev 17.
 - **CR-11** is folded in substance by that rev 17 text ("the guild id, the channel id and the message id, in that order; the guild id is `authorizeGuildAdmin`'s input"). I verdict it at the rev 17 gate read, and the cell's falsity signature (above) still applies to the implementer's test.
 
+### Round 4 sub-entry (CR-11 fix, plan rev 17 at `94e9987`)
+
+- **Scope.** The CR-11 limb only: § M4-d, "Consumers of the widened constant", read with `git show 94e9987:planning/…`.
+- CR-11 MEDIUM Round 4 RESOLVED. The text: "For every admitted form, `getFromUrl` passes the link's own guild id to the authorization gate (`authorizeGuildAdmin`), and the link's own channel id and message id to the request." It names every value the gate and the action consume, by where each goes rather than by group position. So a host group that shifts the indices cannot satisfy it. The class has one member (the Round 4 enumeration), and the sweep (`cr-m4d-link-class-sweep.sh`) has no other consumer that destructures the groups. The check that fails if it returns is `no test` at plan level. The implementer's M4 cell carries it, with the Round 4 falsity signature (distinct literals, and the cell fails if the gate receives any other value), and Round 5 checks it. The named-groups preference stays a build recommendation, which the planner rightly keeps out of the plan text.
+- **Not covered here.** Rev 17's two-site enumeration (critic M-C4-1, a scope delta with steering) and its other M4-d text are a criterion change. They are read at the next gate read steering briefs, or at Round 5's criteria record.
+
 ### Round 4 verdict
 
 M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d: REJECTED on CR-11 until it is folded. CR-12 does not hold rev 16; it holds whatever the owner decides about it. No limb of mine is reached by the M3 premise hold.
 
 ## Verdict
 
-**Round 4 (plan gate read, revs 14–16)**: REJECTED for M4-d only (CR-11 MEDIUM, planner). CR-12 HIGH is pre-existing and escalated to the owner through steering. Every other briefed limb is approved.
+**Round 4 (plan gate read, revs 14–16), after its sub-entry at rev 17**: APPROVED_WITH_COMMENTS. CR-11 is RESOLVED at `94e9987`. CR-12 HIGH is pre-existing and escalated to the owner through steering. Every other briefed limb is approved.
 
 **Round 3 (M2) — Status**: APPROVED_WITH_COMMENTS
 **Rationale**: M2-a to M2-d and QAF-1 meet their rev 13 properties at `6001f7f`. CR-8, CR-9 and CR-10 are LOW and change no M2 outcome.
@@ -285,7 +292,7 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 ## Required Actions
 
 1. **Implementer**, non-blocking: CR-9 (delete `validateEmbed`), CR-6 Minimum (correct the disposition line), and CR-10 as QA times it.
-2. **Planner**: CR-11 (restate M4-d's `getFromUrl` limb over the guild group). CR-7, CR-8 and CR-6 were folded at rev 14.
+2. **Planner**: none outstanding. CR-11 was folded at rev 17, and CR-6 to CR-8 at rev 14.
 3. **M1-c and M1-h rebuild**, after the rev 13 round: one sub-entry each at its SHA. CR-3's cache-state cells, and one cell per M1-h decision-table row.
 4. **Owner, through steering**: CR-12, whether the cross-guild read rides chain 015 or goes to a handoff and security.
 
@@ -310,7 +317,7 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 
 - **QA Phase 2** (qa-hooks-015): M2 at `6001f7f`, and M1-i at `6001f7f`. CR-10's timing is QA's call. M1-c and M1-h wait for their rebuild.
 - **Implementer** (implementer-hooks-015): CR-9 and CR-6 Minimum. Then M1-c and M1-h once steering releases them.
-- **Planner**: CR-11 (M4-d). CR-7 and CR-8 were folded at rev 14.
+- **Implementer, at M4**: CR-11's guild-group cell, with the Round 4 falsity signature.
 - **Steering, for the owner**: CR-12 (escalated by message).
 - **UAT**: the Round 2 and Round 3 Assumptions Not Checked; CR-5's declined log line.
 
@@ -318,11 +325,10 @@ M1-i, M2-a and M6-f (the folds of CR-7 and CR-8), M4-c and X-17: approved. M4-d:
 
 - **Done.**
   - Rounds 1–3 and the Round 2 sub-entry, as in the changelog (M0 and M2 APPROVED_WITH_COMMENTS; M1 REJECTED for M1-c and M1-h only).
-  - Round 4: plan gate read of `9cbe755..565e240`. REJECTED for M4-d (CR-11 MEDIUM, planner). CR-12 HIGH escalated to steering. CR-6 routed (X-17); CR-7 and CR-8 RESOLVED.
+  - Round 4: plan gate read of `9cbe755..565e240`. After its sub-entry at rev 17 `94e9987`, it is APPROVED_WITH_COMMENTS, with CR-11 RESOLVED. CR-12 HIGH escalated to steering. CR-6 routed (X-17); CR-7 and CR-8 RESOLVED.
 - **Open, mine to re-verify:**
   - M1-c (CR-3) and M1-h, each as a sub-entry at its rebuild SHA. The cells needed are listed under Round 2. Probe for M1-c: `verification/015/cr-m1-probes/signout.cached-null.test.ts`, driver `cr-m1-probes/run.sh`.
   - M4: a new Round 5 when the implementer hands off. The tip `b25f561` already carries M4 commits, which are not reviewed until the handoff. Check CR-11's guild-group cell there, and that the widened constant has no capturing host group (or uses named groups).
-  - CR-11's fold, at the next plan revision.
 - **Instruments.** `cr-m4d-link-class-sweep.sh <repo> <sha>`; `cr-emit-compare.cjs`; `cr-m1-probes/cookie-parser-reattack.cjs`.
 - **Hazards.** As before: the rtk filter breaks counts taken from piped output; eslint needs `node_modules`.
 - **Questions out.** CR-12 is with steering for the owner.
