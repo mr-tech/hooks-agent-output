@@ -3,8 +3,8 @@ ID: 015
 Origin: 015
 UUID: 861e5f61
 Verified-At: "476c633 — repos=website; M6-a, the M6-b to M6-l re-run (QAF-30 to QAF-32) and CR-24; git-archive exports under unshare -rn. Earlier: 24ac49f (QA Failed, M6-b to M6-l)"
-Status: QA Failed
-Status-Detail: "At website 476c633 against plan rev 27. M6-b to M6-l PASS: QAF-30, QAF-31 and QAF-32 RESOLVED, the six survivors killed. CR-24 (BottomPortal, ColorPicker) PASS. M6-a QA Failed on coverage: QAF-34 MEDIUM, the interactive title parser has no preservation cell and m6a-title-codeblock-interactive survives. RK-1 differential: 0 of 12,486 comparisons differ."
+Status: QA Complete
+Status-Detail: "At website 476c633 against plan rev 27: M6-b to M6-l PASS (QAF-30 to QAF-32 RESOLVED), CR-24 PASS; M6-a QA Failed there on QAF-34. M6-a PASS at c5303ca (QAF-34 RESOLVED) in qa/015-bug-evaluation-fixes-qaf34-qaf35-cr26-qa.md, with CR-26's callers; M6-a production unchanged since 476c633. RK-1 differential: 0 of 12,486 comparisons differ."
 Phase: 2
 ---
 
@@ -22,6 +22,7 @@ Phase: 2
 |------|---------------|---------|---------|
 | 2026-11-08T08:33 | code-reviewer-hooks-015 → qa-hooks-015 (message: `e0054f7`); steering-hooks-015 (resume brief) | QA Phase 2 for M6-b to M6-l at website `24ac49f` | Phase 2, milestone-scoped. Created and first committed with Status QA Failed (M6-b to M6-l scope; plan Status left alone). QAF-30 and QAF-31 MEDIUM, QAF-32 LOW go to the implementer. B-4 gains a `/preview` leg (code review's routed assumption). |
 | 2026-11-08T09:52 | code-reviewer-hooks-015 → qa-hooks-015 (`2fa6d8b`); steering-hooks-015 (brief at rev 27) | Re-run of M6-b to M6-l (QAF-30 to QAF-32), M6-a and CR-24 at `476c633` | M6-b to M6-l PASS. CR-24 PASS. M6-a QA Failed (QAF-34 MEDIUM). |
+| 2026-11-08T10:46 | code-reviewer-hooks-015 (`8367242`, `9b4d808`); steering-hooks-015 | M6-a re-run after QAF-34's fix, at website `c5303ca` | QAF-34 RESOLVED. M6-a PASS at `c5303ca`, verified in `qa/015-bug-evaluation-fixes-qaf34-qaf35-cr26-qa.md`. Status → QA Complete. `Verified-At` here is unchanged (`476c633`); the M6-a verdict's tree is the new document's. |
 
 ## Scope and criteria assessed
 
@@ -157,7 +158,7 @@ Stage start: code review `2fa6d8b` (Rounds 16 to 18), `Reviewed-At` `476c633` fo
 
 ## Findings
 
-QAF-34 MEDIUM Phase 2 — M6-a preserves "a title renders no code block, unchanged" for both title parsers. Only the static parser has a cell.
+QAF-34 MEDIUM Phase 2 RESOLVED (2026-11-08T10:47: website `c5303ca`; the `describe.each` over both title parsers, `m6a-title-codeblock-interactive` killed, `qa/015-bug-evaluation-fixes-qaf34-qaf35-cr26-qa.md`) — M6-a preserves "a title renders no code block, unchanged" for both title parsers. Only the static parser has a cell.
 - **Shown by:** mutant `m6a-title-codeblock-interactive` restores `codeBlock` to the interactive title rule set, and it survives the suite (`mutation-qa-r2*-476c633.txt`).
 - **Where:** the interactive parser is wired at `EmbedTitle` and `EmbedField` as `interactiveParser={markdown?.interactive.parseEmbedTitle}`. Phase 1 § M6-a (rev 25 reconcile) asks for the preservation cell "static and interactive".
 - **What a user would see under the mutant:** while the user edits an embed title, a fenced body renders as a code block in the editor, and not in Discord or the preview.

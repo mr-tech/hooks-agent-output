@@ -4,7 +4,7 @@ Origin: 015
 UUID: 861e5f61
 Verified-At: "6001f7f,471578f — repos=website,preview-image-generator; Phase 1 premise reads only (no verdict on code): the base 7ce866b, and the chain tip 6001f7f for the rev 12/13 delta"
 Status: Awaiting Implementation
-Status-Detail: "Phase 1 keyed to plan rev 27 (18d361c), approved. Register B-1 to B-14 (B-3 withdrawn; B-4 gains a /preview leg). Phase 2, each pass in its own document: M0 (037935d), M2 (6001f7f) PASS; M1, M4, M5-a to M5-g PASS at 24ac49f; M4 non-JSON, M5-h, M5-i, M6-b to M6-l, CR-24, M7 PASS at 476c633; M6-a QA Failed at 476c633 (QAF-34 MEDIUM); M8-a to M8-e PASS at generator 8de2b53 (QAF-36 LOW, planner); QAF-27 and QAF-20 RESOLVED at 4f9ed85. Owed: QAF-34 re-run, QAF-35, the effort-final pass."
+Status-Detail: "Phase 1 keyed to plan rev 27 (18d361c), approved. Register B-1 to B-14 (B-3 withdrawn; B-4 gains a /preview leg). Phase 2, each pass in its own document: M0, M2 PASS; M1, M4, M5-a to M5-g PASS at 24ac49f; M4 non-JSON, M5-h, M5-i, M6-b to M6-l, CR-24, M7 PASS at 476c633; M8-a to M8-e PASS at generator 8de2b53 (QAF-36 LOW, planner); QAF-27, QAF-20 RESOLVED at 4f9ed85; M6-a PASS with QAF-34, QAF-35 RESOLVED and CR-26's callers at c5303ca. Owed: the effort-final pass."
 Phase: 1
 ---
 
@@ -776,8 +776,8 @@ This pass assumes the live Postgres schema matches the Kysely `DatabaseSchema` t
   - The rev 27 Assumption Not Checked is reconciled (the dequeue level now has a cell; the `reject` link is RK-8's residue).
   - INBOX entry: the ID-token class misses `qaf` (left uncommitted, for the record's owner).
 - **Next:**
-  1. **QAF-34 re-run** (M6-a title cells, `rules-title-i`) and **QAF-35** at the website tip. The implementer's commits `b93e897` and `00c9bee` are their fixes, and `86f5a6c`/`2618926` are CR-26. Start only from code review's committed verdict on them.
-  2. **The effort-final pass** (owed list below; "QAF-20 landed" is discharged).
+  1. *Done 2026-11-08T10:48:* QAF-34 and QAF-35 RESOLVED and CR-26's callers PASS at website `c5303ca` (`qa/015-bug-evaluation-fixes-qaf34-qaf35-cr26-qa.md`; mutators `qa-r4-supplement.py`, summaries `qa-r4*-sweep-summary-2618926.txt`, `qa-r5-sweep-summary-c5303ca.txt`).
+  2. **The effort-final pass** (owed list below; "QAF-20 landed" is discharged). Nothing else is owed before it.
   3. Phase 1 re-keys when briefed. The planner's pre-UAT fold (D37: CR-32, CR-33, CR-34, QAF-36) needs a delta re-key.
 - **How to run (additions this session):** M8 sweep: `python3 -I m8-local-probe/qa-m8r-sweep.py <export> mutators/qa-m8r-mutants.json <out> <agent-output> -j 4 [--probe probe-m8a-qa.cjs] [names]`, with the export built by `m8-local-probe/run.sh`. Website suite: pass `qa-m4-suite-run.sh` an **absolute** out-prefix (a relative one lands inside the export).
 - **Tree:**
