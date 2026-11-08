@@ -1,0 +1,36 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a24fbcf6-39c0-4565-bbc2-f392291c4e1a/scratchpad/mutexports/website-6001f7f-qa-m2-border-colour-truthy  sha: 6001f7f  label: qa-m2-border-colour-truthy  test: src/server/api/utils/__tests__/shapes.embed-schema.test.ts src/utils/__tests__/limits.embed-text-errors.test.ts src/utils/__tests__/discordResponseToMessage.ingress.test.ts src/components/DiscordMessageEditor/components/EmbedEditor/__tests__  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py
+ .../null}                                          | 175 ------------------
+ 9 files changed, 48 insertions(+), 685 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a24fbcf6-39c0-4565-bbc2-f392291c4e1a/scratchpad/mutexports/website-6001f7f-qa-m2-border-colour-truthy
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.border-colour.test.tsx (4 tests | 1 failed) 58ms
+     × is drawn in the embed colour 0 36ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.border-colour.test.tsx > EmbedEditor border > is drawn in the embed colour 0
+AssertionError: expected '' to be 'rgb(0, 0, 0)' // Object.is equality
+
+- Expected
++ Received
+
+- rgb(0, 0, 0)
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.border-colour.test.tsx:62:53
+     60|     [16777215, 'rgb(255, 255, 255)'],
+     61|   ])('is drawn in the embed colour %i', (color, rgb) => {
+     62|     expect(mountEmbed({ color }).style.borderColor).toBe(rgb);
+       |                                                     ^
+     63|   });
+     64|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  1 failed | 63 passed (64)
+   Start at  06:50:22
+   Duration  1.90s (transform 698ms, setup 14ms, import 2.16s, tests 329ms, environment 1.33s)
+
+vitest exit 1

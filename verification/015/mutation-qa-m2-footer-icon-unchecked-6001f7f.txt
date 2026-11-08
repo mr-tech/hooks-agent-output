@@ -1,0 +1,37 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a24fbcf6-39c0-4565-bbc2-f392291c4e1a/scratchpad/mutexports/website-6001f7f-qa-m2-footer-icon-unchecked  sha: 6001f7f  label: qa-m2-footer-icon-unchecked  test: src/server/api/utils/__tests__/shapes.embed-schema.test.ts src/utils/__tests__/limits.embed-text-errors.test.ts src/utils/__tests__/discordResponseToMessage.ingress.test.ts src/components/DiscordMessageEditor/components/EmbedEditor/__tests__  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py
+ .../src/server/api/utils/shapes.ts                 |   2 +-
+ 9 files changed, 46 insertions(+), 674 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a24fbcf6-39c0-4565-bbc2-f392291c4e1a/scratchpad/mutexports/website-6001f7f-qa-m2-footer-icon-unchecked
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts (29 tests | 1 failed) 15ms
+     × refuses a footer with an empty-string icon_url 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape URL fields > refuses a footer with an empty-string icon_url
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/server/api/utils/__tests__/shapes.embed-schema.test.ts:85:28
+     83|     };
+     84|     const result = embedShape.safeParse(embed);
+     85|     expect(result.success).toBe(false);
+       |                            ^
+     86|   });
+     87|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  1 failed | 63 passed (64)
+   Start at  06:49:10
+   Duration  1.85s (transform 579ms, setup 20ms, import 2.02s, tests 307ms, environment 1.32s)
+
+vitest exit 1

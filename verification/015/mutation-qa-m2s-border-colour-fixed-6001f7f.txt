@@ -1,0 +1,51 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a24fbcf6-39c0-4565-bbc2-f392291c4e1a/scratchpad/mutexports/website-6001f7f-qa-m2s-border-colour-fixed  sha: 6001f7f  label: qa-m2s-border-colour-fixed  test: src/server/api/utils/__tests__/shapes.embed-schema.test.ts src/utils/__tests__/limits.embed-text-errors.test.ts src/utils/__tests__/discordResponseToMessage.ingress.test.ts src/components/DiscordMessageEditor/components/EmbedEditor/__tests__  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m2-supplement.py
+ .../null}                                          | 186 -------------------
+ 9 files changed, 48 insertions(+), 696 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a24fbcf6-39c0-4565-bbc2-f392291c4e1a/scratchpad/mutexports/website-6001f7f-qa-m2s-border-colour-fixed
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.border-colour.test.tsx (4 tests | 2 failed) 58ms
+     × is drawn in the embed colour 255 10ms
+     × is drawn in the embed colour 16777215 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.border-colour.test.tsx > EmbedEditor border > is drawn in the embed colour 255
+AssertionError: expected 'rgb(0, 0, 0)' to be 'rgb(0, 0, 255)' // Object.is equality
+
+Expected: "rgb(0, 0, 255)"
+Received: "rgb(0, 0, 0)"
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.border-colour.test.tsx:62:53
+     60|     [16777215, 'rgb(255, 255, 255)'],
+     61|   ])('is drawn in the embed colour %i', (color, rgb) => {
+     62|     expect(mountEmbed({ color }).style.borderColor).toBe(rgb);
+       |                                                     ^
+     63|   });
+     64|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.border-colour.test.tsx > EmbedEditor border > is drawn in the embed colour 16777215
+AssertionError: expected 'rgb(0, 0, 0)' to be 'rgb(255, 255, 255)' // Object.is equality
+
+Expected: "rgb(255, 255, 255)"
+Received: "rgb(0, 0, 0)"
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.border-colour.test.tsx:62:53
+     60|     [16777215, 'rgb(255, 255, 255)'],
+     61|   ])('is drawn in the embed colour %i', (color, rgb) => {
+     62|     expect(mountEmbed({ color }).style.borderColor).toBe(rgb);
+       |                                                     ^
+     63|   });
+     64|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  2 failed | 62 passed (64)
+   Start at  06:51:39
+   Duration  2.66s (transform 1.08s, setup 19ms, import 3.73s, tests 324ms, environment 1.27s)
+
+vitest exit 1

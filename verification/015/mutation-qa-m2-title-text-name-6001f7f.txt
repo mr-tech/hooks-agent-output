@@ -1,0 +1,34 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a24fbcf6-39c0-4565-bbc2-f392291c4e1a/scratchpad/mutexports/website-6001f7f-qa-m2-title-text-name  sha: 6001f7f  label: qa-m2-title-text-name  test: src/server/api/utils/__tests__/shapes.embed-schema.test.ts src/utils/__tests__/limits.embed-text-errors.test.ts src/utils/__tests__/discordResponseToMessage.ingress.test.ts src/components/DiscordMessageEditor/components/EmbedEditor/__tests__  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py
+ .../src/utils/limits.tsx                           |   2 +-
+ 9 files changed, 48 insertions(+), 685 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a24fbcf6-39c0-4565-bbc2-f392291c4e1a/scratchpad/mutexports/website-6001f7f-qa-m2-title-text-name
+
+ ❯ |node| src/utils/__tests__/limits.embed-text-errors.test.ts (11 tests | 1 failed) 41ms
+     × names the title when it is over 256 characters 31ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/limits.embed-text-errors.test.ts > validateEmbedTitle > names the title when it is over 256 characters
+AssertionError: expected 'Name is too long.' to be 'Title is too long.' // Object.is equality
+
+Expected: "Title is too long."
+Received: "Name is too long."
+
+ ❯ src/utils/__tests__/limits.embed-text-errors.test.ts:38:66
+     36|
+     37|   it('names the title when it is over 256 characters', () => {
+     38|     expect(validateEmbedTitle('a'.repeat(257), undefined).error).toBe(…
+       |                                                                  ^
+     39|   });
+     40|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  1 failed | 63 passed (64)
+   Start at  06:50:06
+   Duration  3.85s (transform 1.67s, setup 35ms, import 4.54s, tests 733ms, environment 2.66s)
+
+vitest exit 1

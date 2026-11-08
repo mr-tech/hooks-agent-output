@@ -1,0 +1,37 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a24fbcf6-39c0-4565-bbc2-f392291c4e1a/scratchpad/mutexports/website-6001f7f-qa-m2s-colour-floor-dropped  sha: 6001f7f  label: qa-m2s-colour-floor-dropped  test: src/server/api/utils/__tests__/shapes.embed-schema.test.ts src/utils/__tests__/limits.embed-text-errors.test.ts src/utils/__tests__/discordResponseToMessage.ingress.test.ts src/components/DiscordMessageEditor/components/EmbedEditor/__tests__  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m2-supplement.py
+ .../src/server/api/utils/shapes.ts                 |   2 +-
+ 9 files changed, 48 insertions(+), 695 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a24fbcf6-39c0-4565-bbc2-f392291c4e1a/scratchpad/mutexports/website-6001f7f-qa-m2s-colour-floor-dropped
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts (29 tests | 1 failed) 27ms
+     × refuses the colour -1 9ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape colour > refuses the colour -1
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/server/api/utils/__tests__/shapes.embed-schema.test.ts:132:53
+    130|
+    131|   it.each([[-1], [16777216], [1.5]])('refuses the colour %s', (color) …
+    132|     expect(embedShape.safeParse({ color }).success).toBe(false);
+       |                                                     ^
+    133|   });
+    134|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  1 failed | 63 passed (64)
+   Start at  06:51:21
+   Duration  3.43s (transform 1.51s, setup 40ms, import 4.59s, tests 492ms, environment 2.23s)
+
+vitest exit 1

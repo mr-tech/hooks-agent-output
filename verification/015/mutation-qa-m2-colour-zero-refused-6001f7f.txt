@@ -1,0 +1,37 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a24fbcf6-39c0-4565-bbc2-f392291c4e1a/scratchpad/mutexports/website-6001f7f-qa-m2-colour-zero-refused  sha: 6001f7f  label: qa-m2-colour-zero-refused  test: src/server/api/utils/__tests__/shapes.embed-schema.test.ts src/utils/__tests__/limits.embed-text-errors.test.ts src/utils/__tests__/discordResponseToMessage.ingress.test.ts src/components/DiscordMessageEditor/components/EmbedEditor/__tests__  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py
+ .../src/server/api/utils/shapes.ts                 |   2 +-
+ 9 files changed, 46 insertions(+), 674 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a24fbcf6-39c0-4565-bbc2-f392291c4e1a/scratchpad/mutexports/website-6001f7f-qa-m2-colour-zero-refused
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts (29 tests | 1 failed) 30ms
+     × admits the integer colour 0 9ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape colour > admits the integer colour 0
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.embed-schema.test.ts:128:53
+    126| describe('embedShape colour', () => {
+    127|   it.each([[0], [1], [255], [16777215]])('admits the integer colour %i…
+    128|     expect(embedShape.safeParse({ color }).success).toBe(true);
+       |                                                     ^
+    129|   });
+    130|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  1 failed | 63 passed (64)
+   Start at  06:49:45
+   Duration  3.80s (transform 2.01s, setup 26ms, import 4.90s, tests 814ms, environment 2.28s)
+
+vitest exit 1

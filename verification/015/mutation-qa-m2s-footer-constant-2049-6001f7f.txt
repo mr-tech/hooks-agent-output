@@ -1,0 +1,58 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a24fbcf6-39c0-4565-bbc2-f392291c4e1a/scratchpad/mutexports/website-6001f7f-qa-m2s-footer-constant-2049  sha: 6001f7f  label: qa-m2s-footer-constant-2049  test: src/server/api/utils/__tests__/shapes.embed-schema.test.ts src/utils/__tests__/limits.embed-text-errors.test.ts src/utils/__tests__/discordResponseToMessage.ingress.test.ts src/components/DiscordMessageEditor/components/EmbedEditor/__tests__  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qa-m2-supplement.py
+ .../null}                                          | 185 -------------------
+ 9 files changed, 48 insertions(+), 695 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a24fbcf6-39c0-4565-bbc2-f392291c4e1a/scratchpad/mutexports/website-6001f7f-qa-m2s-footer-constant-2049
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts (29 tests | 1 failed) 17ms
+     × refuses footer text of 2049 characters 6ms
+ ❯ |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.length-error.test.tsx (5 tests | 1 failed) 242ms
+     × shows the error for footer text of 2049 characters 23ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.length-error.test.tsx > EmbedFooter length error > shows the error for footer text of 2049 characters
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.length-error.test.tsx:51:55
+     49|
+     50|   it('shows the error for footer text of 2049 characters', () => {
+     51|     expect(showsError(mountFooter('a'.repeat(2049)))).toBe(true);
+       |                                                       ^
+     52|   });
+     53| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape footer text > refuses footer text of 2049 characters
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/server/api/utils/__tests__/shapes.embed-schema.test.ts:146:82
+    144|
+    145|   it('refuses footer text of 2049 characters', () => {
+    146|     expect(embedShape.safeParse({ footer: { text: 'a'.repeat(2049) } }…
+       |                                                                                  ^
+    147|   });
+    148| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed | 3 passed (5)
+      Tests  2 failed | 62 passed (64)
+   Start at  06:51:32
+   Duration  1.87s (transform 688ms, setup 19ms, import 2.14s, tests 330ms, environment 1.29s)
+
+vitest exit 1

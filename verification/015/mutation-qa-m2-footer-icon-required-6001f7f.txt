@@ -1,0 +1,63 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a24fbcf6-39c0-4565-bbc2-f392291c4e1a/scratchpad/mutexports/website-6001f7f-qa-m2-footer-icon-required  sha: 6001f7f  label: qa-m2-footer-icon-required  test: src/server/api/utils/__tests__/shapes.embed-schema.test.ts src/utils/__tests__/limits.embed-text-errors.test.ts src/utils/__tests__/discordResponseToMessage.ingress.test.ts src/components/DiscordMessageEditor/components/EmbedEditor/__tests__  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py
+ .../src/server/api/utils/shapes.ts                 |   2 +-
+ 9 files changed, 46 insertions(+), 674 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a24fbcf6-39c0-4565-bbc2-f392291c4e1a/scratchpad/mutexports/website-6001f7f-qa-m2-footer-icon-required
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts (29 tests | 5 failed) 102ms
+     × admits a footer whose icon_url is undefined 39ms
+     × admits footer text of 0 characters 1ms
+     × admits footer text of 256 characters 2ms
+     × admits footer text of 257 characters 1ms
+     × admits footer text of 2048 characters 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape URL fields > admits a footer whose icon_url is undefined
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.embed-schema.test.ts:93:28
+     91|     };
+     92|     const result = embedShape.safeParse(embed);
+     93|     expect(result.success).toBe(true);
+       |                            ^
+     94|   });
+     95|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape footer text > admits footer text of 0 characters
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape footer text > admits footer text of 256 characters
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape footer text > admits footer text of 257 characters
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape footer text > admits footer text of 2048 characters
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.embed-schema.test.ts:142:84
+    140| describe('embedShape footer text', () => {
+    141|   it.each([[0], [256], [257], [2048]])('admits footer text of %i chara…
+    142|     expect(embedShape.safeParse({ footer: { text: 'a'.repeat(length) }…
+       |                                                                                    ^
+    143|   });
+    144|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  5 failed | 59 passed (64)
+   Start at  06:49:33
+   Duration  3.93s (transform 1.89s, setup 29ms, import 5.02s, tests 804ms, environment 2.60s)
+
+vitest exit 1

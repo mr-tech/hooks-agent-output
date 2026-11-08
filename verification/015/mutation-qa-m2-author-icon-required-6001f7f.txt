@@ -1,0 +1,81 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/a24fbcf6-39c0-4565-bbc2-f392291c4e1a/scratchpad/mutexports/website-6001f7f-qa-m2-author-icon-required  sha: 6001f7f  label: qa-m2-author-icon-required  test: src/server/api/utils/__tests__/shapes.embed-schema.test.ts src/utils/__tests__/limits.embed-text-errors.test.ts src/utils/__tests__/discordResponseToMessage.ingress.test.ts src/components/DiscordMessageEditor/components/EmbedEditor/__tests__  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/m2-embedshape-table.py
+ .../src/server/api/utils/shapes.ts                 |   2 +-
+ 9 files changed, 46 insertions(+), 674 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/a24fbcf6-39c0-4565-bbc2-f392291c4e1a/scratchpad/mutexports/website-6001f7f-qa-m2-author-icon-required
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts (29 tests | 5 failed) 26ms
+     × admits an author whose icon_url is undefined 8ms
+     × admits an author whose url is undefined 1ms
+     × admits an author name of 80 characters 1ms
+     × admits an author name of 81 characters 1ms
+     × admits an author name of 256 characters 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape URL fields > admits an author whose icon_url is undefined
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.embed-schema.test.ts:61:28
+     59|     };
+     60|     const result = embedShape.safeParse(embed);
+     61|     expect(result.success).toBe(true);
+       |                            ^
+     62|   });
+     63|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape URL fields > admits an author whose url is undefined
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.embed-schema.test.ts:77:28
+     75|     };
+     76|     const result = embedShape.safeParse(embed);
+     77|     expect(result.success).toBe(true);
+       |                            ^
+     78|   });
+     79|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape author name > admits an author name of 80 characters
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape author name > admits an author name of 81 characters
+ FAIL  |node| src/server/api/utils/__tests__/shapes.embed-schema.test.ts > embedShape author name > admits an author name of 256 characters
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.embed-schema.test.ts:152:84
+    150| describe('embedShape author name', () => {
+    151|   it.each([[80], [81], [256]])('admits an author name of %i characters…
+    152|     expect(embedShape.safeParse({ author: { name: 'a'.repeat(length) }…
+       |                                                                                    ^
+    153|   });
+    154|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  5 failed | 59 passed (64)
+   Start at  06:49:21
+   Duration  2.68s (transform 1.19s, setup 21ms, import 3.32s, tests 599ms, environment 1.57s)
+
+vitest exit 1
