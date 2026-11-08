@@ -192,3 +192,6 @@ Premises, read by steering this turn at website be881c9 (code read, not run): re
 ## 2026-11-08T06:32Z — rev 11 (14fe94f): steering's weighing, no owner prompt
 - M8-0 run-2 span is in its fourth revision (RK-6; revs 8, 9, 11). Steering weighed the cost: the fold adds no gate round of its own, because the rev 11 round runs anyway for M1-c/M1-h. So it was not put to him as "fix vs stated limit". A fifth revision of this limb goes to him as that cost question before it is folded.
 - M1-h's no-account and early-return rows (M-C3-2, QAF-12) ride D21 ("fix both windows") as the same class, completing a property he chose. This is steering's and the planner's judgement, not his words.
+
+## 2026-11-08T06:34Z — CR-3 (code review Round 2 REJECTED M1 at be881c9, 53ee954): routed to the planner, no owner prompt
+CR-3 MEDIUM: sign-out reads a cached null in user-access-token as "no account" and skips the revoke, the Accounts update and the user-guilds clear. The reviewer's executed probe dates it to M1-j (a2592f0). Steering's judgement: this fixes the chain's own regression within M1-c, and the M1-c re-review that D22 already costs covers it, so it is not a scope delta for the owner. If the planner's fold widens M1-c beyond that, it comes back to him.
