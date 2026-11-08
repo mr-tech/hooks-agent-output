@@ -25,5 +25,5 @@ exists; the outcome lines are the evidence).
 | `{"content":5}` | **THREW at render** (`content.trim`); passes `makeEditable` | **outside** (1)–(3) |
 | `{"components":[{"type":9,"components":[null]}]}` | THREW in `makeEditable` | (3) |
 
-Rig: `run.sh <website> <scratch> da24eb7 <out-dir>`; `mountDom` from `src/components/__tests__/helpers/dom` surfaces
+Rig: `run-real-editor-probe.sh <website> <scratch> da24eb7 <out-dir>`; `mountDom` from `src/components/__tests__/helpers/dom` surfaces
 render throws (the throw control shows it).
