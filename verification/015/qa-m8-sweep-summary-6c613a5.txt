@@ -1,0 +1,11 @@
+sha 6c613a516bcb466ea9310a8ec9d934e1fdd0d0a2; env files in export: 0
+rig HEAD: probe.cjs a6da6bc0787ebd27d9c50d863f1101b66e2cbbeb probe-pages.cjs 9f41863e58dd2387fca1207acadb6e71319eecba
+npm ci exit 0
+ctl	SUMMARY cells=25 failed=0	
+m8c-close	SUMMARY cells=25 failed=2	M8-c a page opened by a request whose navigation throws is closed;M8-c a page whose screenshot succeeded is closed
+m8c-seqdel	SUMMARY cells=25 failed=2	M8-d/M8-c server level: two failing generate requests get 500, process alive;M8-c no unhandled rejection when both the image and the S3 delete fail
+m8d-null	SUMMARY cells=25 failed=4	M8-d/M8-c server level: two failing generate requests get 500, process alive;M8-d: no "Cannot read properties" in the log after those requests;M8-d pool: a launch failure rejects the request with the launch error, not a TypeError;M8-d pool: no creation retry storm and nothing left pending
+m8d-noh	SUMMARY cells=25 failed=2	M8-d pool: a launch failure rejects the request with the launch error, not a TypeError;M8-d pool: no creation retry storm and nothing left pending
+m8e-gate	SUMMARY cells=25 failed=2	M8-e API_KEY unset: refuses to start, exit code 2, a line names API_KEY;M8-e API_KEY empty: refuses to start, exit code 2, a line names API_KEY
+m8e-empty	SUMMARY cells=25 failed=1	M8-e API_KEY empty: refuses to start, exit code 2, a line names API_KEY
+done
