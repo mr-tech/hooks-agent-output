@@ -208,3 +208,7 @@ Put ~06:47Z, answered 2026-11-08T06:45Z, **by selection** (labels and descriptio
 - **What the box accepts.** Options: Agent: digits-only id, any URL / Agent: digits or Discord link / Agent: leave as is. Chosen **Agent: digits or Discord link**. An id must be all digits, and a URL must be a Discord message link (discord.com/channels/<server>/<channel>/<message>). Anything else is refused before fetching.
 Premise read by steering at website 6001f7f (code read, not run): WebhookProvider.tsx:100 and useValidateWebhook.ts:40 test `isValidUrl(x) || /\d+/.test(x.trim())`; WebhookProvider.tsx:98-127 sets oldMessageError per status and has no catch.
 This sharpens M4-d's "message URL", so it goes to the planner to register. Which hosts count as a "Discord message link" (ptb/canary, discordapp.com) was not asked; that is the planner's to state, or to bring back to him.
+
+## 2026-11-08T06:46Z — M1-c and M1-h released on plan rev 13 (9cbe755)
+Every pre-code gate has passed rev 13: critic cycle 3 closed APPROVED (6970763), architect APPROVED (f7e6602), QA Phase 1 re-key passes with QAF-17/18 LOW to the planner, not blocking code (aad87b6). No OPEN QUESTION is open (planner's report). M3 was released by the planner's R-5 (a07e9c3). Pending registration, not blocking M1: M4-d (9b94838), and M4-c's "name view" question.
+Steering's error, recorded: on 06:44Z I told code-reviewer-hooks-015 that 6001f7f carried neither M1-c nor M1-h. In fact it carries the M1-h change 69b17af. I withdrew that to the reviewer.
