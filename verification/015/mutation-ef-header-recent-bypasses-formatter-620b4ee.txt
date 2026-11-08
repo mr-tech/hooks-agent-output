@@ -1,0 +1,35 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-620b4ee-ef-header-recent-bypasses-formatter  sha: 620b4ee  label: ef-header-recent-bypasses-formatter  test: src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf38-40-apply-qa-mutant.py
+applied ef-header-recent-bypasses-formatter to src/app/message/_layout/Header.tsx
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-620b4ee-ef-header-recent-bypasses-formatter
+
+ ❯ |dom| src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx (1 test | 1 failed) 170ms
+     × shows a time for a message updated today and a date for the same day of another month, in the current folder and in other folders 168ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx > Header, the dates beside search results > shows a time for a message updated today and a date for the same day of another month, in the current folder and in other folders
+AssertionError: expected 'Alpha last monthMy Account17914503000…' to contain '2026'
+
+Expected: "2026"
+Received: "Alpha last monthMy Account1791450300000"
+
+ ❯ src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx:66:23
+     64|     const lastMonth = rows.find((r) => r.includes('Alpha last month'))…
+     65|     expect(today).not.toContain('2026');
+     66|     expect(lastMonth).toContain('2026');
+       |                       ^
+     67|
+     68|     const otherToday = rows.find((r) => r.includes('Alpha other folder…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  12:44:43
+   Duration  1.77s (transform 228ms, setup 20ms, import 865ms, tests 170ms, environment 586ms)
+
+vitest exit 1

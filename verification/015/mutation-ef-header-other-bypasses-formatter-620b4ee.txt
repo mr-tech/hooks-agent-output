@@ -1,0 +1,35 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-620b4ee-ef-header-other-bypasses-formatter  sha: 620b4ee  label: ef-header-other-bypasses-formatter  test: src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf38-40-apply-qa-mutant.py
+applied ef-header-other-bypasses-formatter to src/app/message/_layout/Header.tsx
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-620b4ee-ef-header-other-bypasses-formatter
+
+ ❯ |dom| src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx (1 test | 1 failed) 175ms
+     × shows a time for a message updated today and a date for the same day of another month, in the current folder and in other folders 174ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx > Header, the dates beside search results > shows a time for a message updated today and a date for the same day of another month, in the current folder and in other folders
+AssertionError: expected 'Alpha other folder last monthMy Accou…' to contain '2026'
+
+Expected: "2026"
+Received: "Alpha other folder last monthMy Account1791450300000"
+
+ ❯ src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx:71:28
+     69|     const otherLastMonth = rows.find((r) => r.includes('Alpha other fo…
+     70|     expect(otherToday).not.toContain('2026');
+     71|     expect(otherLastMonth).toContain('2026');
+       |                            ^
+     72|   });
+     73| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  12:44:40
+   Duration  1.88s (transform 253ms, setup 23ms, import 918ms, tests 175ms, environment 639ms)
+
+vitest exit 1

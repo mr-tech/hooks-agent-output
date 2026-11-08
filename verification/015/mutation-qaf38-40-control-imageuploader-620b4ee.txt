@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-620b4ee-qaf38-40-control-imageuploader  sha: 620b4ee  label: qaf38-40-control-imageuploader  test: src/components/__tests__/ImageUploader.url-validation.test.tsx  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-620b4ee-qaf38-40-control-imageuploader
+
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  12:45:13
+   Duration  1.66s (transform 206ms, setup 21ms, import 761ms, tests 157ms, environment 607ms)
+
+vitest exit 0

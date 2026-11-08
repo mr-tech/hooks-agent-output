@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-620b4ee-qaf38-40-control-redis  sha: 620b4ee  label: qaf38-40-control-redis  test: src/utils/__tests__/redis.cached-null-hit.test.ts  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-620b4ee-qaf38-40-control-redis
+
+
+ Test Files  1 passed (1)
+      Tests  6 passed (6)
+   Start at  12:45:05
+   Duration  380ms (transform 111ms, setup 0ms, import 241ms, tests 13ms, environment 0ms)
+
+vitest exit 0

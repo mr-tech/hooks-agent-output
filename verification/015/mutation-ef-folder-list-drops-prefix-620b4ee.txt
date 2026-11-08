@@ -1,0 +1,35 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-620b4ee-ef-folder-list-drops-prefix  sha: 620b4ee  label: ef-folder-list-drops-prefix  test: page.message-list  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf38-40-apply-qa-mutant.py
+applied ef-folder-list-drops-prefix to src/app/message/f/[id]/page.tsx
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-620b4ee-ef-folder-list-drops-prefix
+
+ ❯ |dom| src/app/message/f/[id]/__tests__/page.message-list.test.tsx (3 tests | 1 failed) 305ms
+     × shows "Today at" for a message updated today and a date for the same day of another month in the list view 111ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/f/[id]/__tests__/page.message-list.test.tsx > folder page, the message dates > shows "Today at" for a message updated today and a date for the same day of another month in the list view
+AssertionError: expected 'Servers/My AccountMessages by Last Mo…' to contain 'Today at '
+
+Expected: "Today at "
+Received: "Servers/My AccountMessages by Last ModifiedAlpha9:05 AMBravo10/8/2026"
+
+ ❯ src/app/message/f/[id]/__tests__/page.message-list.test.tsx:114:28
+    112|     }
+    113|
+    114|     expect(el.textContent).toContain('Today at ');
+       |                            ^
+    115|     expect((el.textContent ?? '').split('Today at ')).toHaveLength(2);
+    116|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  12:44:56
+   Duration  2.10s (transform 320ms, setup 20ms, import 1.05s, tests 305ms, environment 609ms)
+
+vitest exit 1

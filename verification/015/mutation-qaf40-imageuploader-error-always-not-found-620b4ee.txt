@@ -1,0 +1,37 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-620b4ee-qaf40-imageuploader-error-always-not-found  sha: 620b4ee  label: qaf40-imageuploader-error-always-not-found  test: src/components/__tests__/ImageUploader.url-validation.test.tsx  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf38-40-apply-qa-mutant.py
+applied qaf40-imageuploader-error-always-not-found to src/components/ImageUploader.tsx
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-620b4ee-qaf40-imageuploader-error-always-not-found
+
+ ❯ |dom| src/components/__tests__/ImageUploader.url-validation.test.tsx (3 tests | 2 failed) 158ms
+     × refuses https://example.com/a.png.html without loading it 98ms
+     × refuses https://example.com/a.txt?file=b.png without loading it 31ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.png.html without loading it
+ FAIL  |dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.txt?file=b.png without loading it
+AssertionError: expected 'Enter Image URLImage URLImage not fou…' to contain 'Invalid url.'
+
+Expected: "Invalid url."
+Received: "Enter Image URLImage URLImage not found.CancelClearSave"
+
+ ❯ src/components/__tests__/ImageUploader.url-validation.test.tsx:60:39
+     58|
+     59|     expect(loads).toEqual([]);
+     60|     expect(document.body.textContent).toContain('Invalid url.');
+       |                                       ^
+     61|     expect(document.body.querySelector('img[alt="upload preview"]')).t…
+     62|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 1 passed (3)
+   Start at  12:46:31
+   Duration  1.68s (transform 215ms, setup 21ms, import 777ms, tests 158ms, environment 587ms)
+
+vitest exit 1

@@ -1,0 +1,41 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-620b4ee-ef-redis-wait-timeout-falsy-miss  sha: 620b4ee  label: ef-redis-wait-timeout-falsy-miss  test: src/utils/__tests__/redis.cached-null-hit.test.ts  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf38-40-apply-qa-mutant.py
+applied ef-redis-wait-timeout-falsy-miss to src/utils/redis/index.ts
+ .../src/utils/redis/index.ts                                            | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-620b4ee-ef-redis-wait-timeout-falsy-miss
+
+ ❯ |node| src/utils/__tests__/redis.cached-null-hit.test.ts (6 tests | 1 failed) 21ms
+     × is answered null when the value is cached by the time the wait times out 8ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/redis.cached-null-hit.test.ts > a request that waits for another request fetching a value that is null > is answered null when the value is cached by the time the wait times out
+AssertionError: expected { settled: true, …(1) } to deeply equal { value: null, settled: true }
+
+- Expected
++ Received
+
+  {
++   "error": "fetch timed out. key: user-access-token-u1",
+    "settled": true,
+-   "value": null,
+  }
+
+ ❯ src/utils/__tests__/redis.cached-null-hit.test.ts:136:21
+    134|     await vi.advanceTimersByTimeAsync(TIMEOUT_MS);
+    135|
+    136|     expect(outcome).toEqual({ value: null, settled: true });
+       |                     ^
+    137|   });
+    138| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 5 passed (6)
+   Start at  12:45:09
+   Duration  405ms (transform 118ms, setup 0ms, import 248ms, tests 21ms, environment 0ms)
+
+vitest exit 1

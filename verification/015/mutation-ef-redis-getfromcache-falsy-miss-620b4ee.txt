@@ -1,0 +1,58 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-620b4ee-ef-redis-getfromcache-falsy-miss  sha: 620b4ee  label: ef-redis-getfromcache-falsy-miss  test: src/utils/__tests__/redis.cached-null-hit.test.ts  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf38-40-apply-qa-mutant.py
+applied ef-redis-getfromcache-falsy-miss to src/utils/redis/index.ts
+ .../src/utils/redis/index.ts                                            | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-620b4ee-ef-redis-getfromcache-falsy-miss
+
+ ❯ |node| src/utils/__tests__/redis.cached-null-hit.test.ts (6 tests | 2 failed) 20ms
+     × is looked up once and then answered from the cache as null 10ms
+     × is looked up once and then answered from the cache as null 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/redis.cached-null-hit.test.ts > an account that has no refresh token > is looked up once and then answered from the cache as null
+AssertionError: expected [ { query: { …(4) }, …(2) }, …(1) ] to have a length of 1 but got 2
+
+- Expected
++ Received
+
+- 1
++ 2
+
+ ❯ src/utils/__tests__/redis.cached-null-hit.test.ts:71:30
+     69|
+     70|     expect([first, second]).toEqual([null, null]);
+     71|     expect(captured.queries).toHaveLength(1);
+       |                              ^
+     72|   });
+     73|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/__tests__/redis.cached-null-hit.test.ts > a session that has no account > is looked up once and then answered from the cache as null
+AssertionError: expected [ { query: { …(5) }, …(2) }, …(1) ] to have a length of 1 but got 2
+
+- Expected
++ Received
+
+- 1
++ 2
+
+ ❯ src/utils/__tests__/redis.cached-null-hit.test.ts:91:30
+     89|     expect(first ?? null).toBeNull();
+     90|     expect(second ?? null).toBeNull();
+     91|     expect(captured.queries).toHaveLength(1);
+       |                              ^
+     92|   });
+     93| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 4 passed (6)
+   Start at  12:45:11
+   Duration  395ms (transform 115ms, setup 0ms, import 242ms, tests 20ms, environment 0ms)
+
+vitest exit 1

@@ -1,0 +1,1 @@
+[{"id":"qaf40-imageuploader-error-always-not-found","file":"src/components/ImageUploader.tsx","old":"setImageError(isValidImageUrl(imageInput) ? 'Image not found.' : 'Invalid url.');","new":"setImageError('Image not found.');"}]

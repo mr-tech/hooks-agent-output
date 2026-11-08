@@ -1,0 +1,62 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-620b4ee-ef-imageuploader-validation-bypassed  sha: 620b4ee  label: ef-imageuploader-validation-bypassed  test: src/components/__tests__/ImageUploader.url-validation.test.tsx  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf38-40-apply-qa-mutant.py
+applied ef-imageuploader-validation-bypassed to src/components/ImageUploader.tsx
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-620b4ee-ef-imageuploader-validation-bypassed
+
+ ❯ |dom| src/components/__tests__/ImageUploader.url-validation.test.tsx (3 tests | 2 failed) 167ms
+     × refuses https://example.com/a.png.html without loading it 104ms
+     × refuses https://example.com/a.txt?file=b.png without loading it 34ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.png.html without loading it
+AssertionError: expected [ 'https://example.com/a.png.html' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "https://example.com/a.png.html",
++ ]
+
+ ❯ src/components/__tests__/ImageUploader.url-validation.test.tsx:59:19
+     57|     await enterUrl(url);
+     58|
+     59|     expect(loads).toEqual([]);
+       |                   ^
+     60|     expect(document.body.textContent).toContain('Invalid url.');
+     61|     expect(document.body.querySelector('img[alt="upload preview"]')).t…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.txt?file=b.png without loading it
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "https://example.com/a.txt?file=b.png",
++ ]
+
+ ❯ src/components/__tests__/ImageUploader.url-validation.test.tsx:59:19
+     57|     await enterUrl(url);
+     58|
+     59|     expect(loads).toEqual([]);
+       |                   ^
+     60|     expect(document.body.textContent).toContain('Invalid url.');
+     61|     expect(document.body.querySelector('img[alt="upload preview"]')).t…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 1 passed (3)
+   Start at  12:45:16
+   Duration  1.67s (transform 198ms, setup 24ms, import 756ms, tests 167ms, environment 604ms)
+
+vitest exit 1

@@ -1,0 +1,41 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-620b4ee-ef-redis-wait-falsy-miss  sha: 620b4ee  label: ef-redis-wait-falsy-miss  test: src/utils/__tests__/redis.cached-null-hit.test.ts  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf38-40-apply-qa-mutant.py
+applied ef-redis-wait-falsy-miss to src/utils/redis/index.ts
+ .../website-620b4ee-ef-redis-wait-falsy-miss}/src/utils/redis/index.ts  | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-620b4ee-ef-redis-wait-falsy-miss
+
+ ❯ |node| src/utils/__tests__/redis.cached-null-hit.test.ts (6 tests | 1 failed) 19ms
+     × is answered null at once when the value is cached by the time the wait starts 8ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/redis.cached-null-hit.test.ts > a request that waits for another request fetching a value that is null > is answered null at once when the value is cached by the time the wait starts
+AssertionError: expected { settled: false } to deeply equal { value: null, settled: true }
+
+- Expected
++ Received
+
+  {
+-   "settled": true,
+-   "value": null,
++   "settled": false,
+  }
+
+ ❯ src/utils/__tests__/redis.cached-null-hit.test.ts:127:21
+    125|     const outcome = await waitForNull([null, 'null']);
+    126|
+    127|     expect(outcome).toEqual({ value: null, settled: true });
+       |                     ^
+    128|   });
+    129|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 5 passed (6)
+   Start at  12:45:07
+   Duration  388ms (transform 110ms, setup 0ms, import 238ms, tests 19ms, environment 0ms)
+
+vitest exit 1

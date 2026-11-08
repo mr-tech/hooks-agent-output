@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-620b4ee-qaf38-40-control-header  sha: 620b4ee  label: qaf38-40-control-header  test: src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/651009da-2e22-4e9f-9b40-1ab0dfbaa999/scratchpad/mut/website-620b4ee-qaf38-40-control-header
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  12:44:37
+   Duration  1.90s (transform 263ms, setup 22ms, import 914ms, tests 184ms, environment 650ms)
+
+vitest exit 0
