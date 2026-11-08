@@ -77,6 +77,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-08T14:32 | implementer-hooks-015 (message): website `9b5e47f` (§ Round 5, `3c7b54d`); steering-hooks-015 (pointer, after `/clear`) | Round 2 sub-entry: QAF-41 (M1-a select list) and QAF-42 (M1-h falsy operand), `620b4ee..9b5e47f`, test-only | REJECTED. QAF-42 RESOLVED: its survivor is red in the two new cells at `9b5e47f` and green at `620b4ee`, and the widened sweep has 1 member. CR-40 MEDIUM: the QAF-41 sweep enumerated only `guildId`, and 3 executed mutants dropping `name` or `previewImageNonce` from either function stay 4 of 4 green (`cr-qaf-probes/cr40/`). |
 | 2026-11-08T14:38 | implementer-hooks-015 (message): website `b96e364` (§ Round 6, `a807ea4`) | Round 2 sub-entry: the CR-40 fix, `9b5e47f..b96e364`, test-only | APPROVED. CR-40 RESOLVED: one typed select-clause literal. All 4 of my mutators and the 10 per-column mutants are red, an added column is red too, and the control is 4 of 4 (`cr-qaf-probes/cr40/summary-b96e364.txt`, `class-b96e364.txt`). |
 | 2026-11-08T21:31 | devops-hooks-015 | Document closed | Status: Committed (was In Review). Stage 1 closure: chain 015 committed on chain/015-bug-evaluation-fixes at website b96e364 and preview-image-generator 8de2b53, not pushed or merged. Moved to closed/. |
+| 2026-11-08T21:42 | analyst-hooks-015 (message): agent-output `49e7fab` | Round 18 sub-entry: `pig-host-read.sh` [6], the M8-0 run-2 span read | APPROVED_WITH_COMMENTS. The span matches the spec on the host log, and every figure line is timestamped. CR-41 LOW: when a process has no ready line, its span reads as all zeros instead of NO SPAN (fixture `cr-m8-probes/span-read/`). CR-42 LOW: the analyst's fixture is not captured. Document Status unchanged (closed). |
 
 ## Round 1 (M0, website `037935d`) — dispositions
 
@@ -309,6 +310,35 @@ CR-5 LOW Round 2 DECLINED — by the implementer (§ Fix Round 1): the plan sets
   - The two literal `formatKey` cases go to a `formatKey.*` file; the tautologies are deleted.
   - The `useParsePathname` describe is converted to exercise the real hook, or deleted with the surface listed as outstanding.
   - QA decides the timing (now or with a later touch). Non-blocking for M2.
+
+## Round 18 sub-entry (`pig-host-read.sh` section [6], the M8-0 run-2 span read; agent-output `49e7fab`): APPROVED_WITH_COMMENTS
+
+- **Stage start.** analyst-hooks-015 sent a message (cross-session) naming `verification/015/pig-host-read.sh` at agent-output `49e7fab`, § "M8-0 run 2 instrument" of `analysis/015-bug-evaluation-fixes-analysis.md`, and the host capture `m8-0-span-liveness-2026-11-08T2139Z.txt`. The spec is `planning/closed/015-bug-evaluation-fixes.md` § M8-0, "Every run-2 read". The diff (+100) adds [6] and one superseded-by-D16 header note. I read it whole; [1] to [5] are unchanged. This is an instrument, so I ran it, not only read it. It is scoped as a sub-entry of Round 18 (M8). This document and the plan are already closed (devops, 21:31Z). So the plan gets no row, and this document's Status stays Committed.
+- **The evidence is the script's own output** over a fixture I wrote (`verification/015/cr-m8-probes/span-read/run.sh 49e7fab`). It runs the committed blob with `H` re-pointed and the `claude-ro` refusal removed (the capture's first line is 1, which confirms the re-point). The analyst's fixture is not committed, so it could not be re-run (CR-42).
+- **Read against the spec and the generator at `8de2b53`.**
+  - Start and End follow the spec: the first `Server running at` line at or after each stop's second, chosen by timestamp minimum. The `>=` stands in for the spec's "after". That is sound because pm2 truncates its stamps.
+  - Restarts are listed and their figures withheld, and NO SPAN is printed for a missing bound. Both match the spec.
+  - Every counted message, and the ready line, is written through `console.debug`: `Server received`, `Drain complete in`, `Drain failed after` and `Server running at` in `server.ts`, `Created instance` in `getPool.ts`, and `req.method, req.url`. `server.ts` overrides `console.debug` to prefix `new Date()`. So no figure line is untimestamped, and keeping untimestamped lines out of every figure loses none of them.
+  - The stopped process's own `Server received` and drain lines are written after stop B and before End. They fall inside `[Start, End)`, which is what the spec intends.
+  - The exit line is the first `exited with code` after stop B. Process substitution keeps the no-temp-file rule.
+- **D23 (UTC) at read time is observable in the capture itself.** [2] and [3] print mtimes with `ls --time-style=…%z`, which is the host's local zone. At 21:39Z every mtime reads `+0000`. Whoever reads the run-2 capture should confirm `+0000` there before trusting [6]'s spans. This needs no change to the script.
+
+CR-41 LOW Round 18 — a span bound can be taken from a process other than the stopped one, and the span then reads as all zeros instead of NO SPAN.
+- *Location:* `verification/015/pig-host-read.sh` [6]: the `START` and `END_` selections (`substr($2,1,19) >= s`) and the `NO SPAN` test after them.
+- *Class:* a span bound that is accepted without checking that it belongs to the right process. Start must be stamped before stop B, and End before the next stop, where there is one.
+- *Enumeration:* `grep -cF 'substr($2,1,19) >= s'` over the blob gives 2, which is the two bounds and the whole class. It cannot see a bound chosen by some other expression; [6] has none.
+- *Shown by:* the fixture (`span-read-49e7fab.txt`). The process started after stop A never logs a ready line, but it does log `Created instance` at 10:30 and `Server received` at 11:00:00.5. Span 1 prints `Start: out line 4 … End: out line 4`, then `timestamped lines in span: 0`, and every figure 0, with no NO SPAN. Its two lines are lost. Span 2 reads correctly.
+- *Magnitude:* this is an unmeasured hypothesis about run 2. In run 2 it is reached only if the process the M9 push started never logs a ready line. Even then it errs toward a criterion failure (`Server received` 0), not a false pass. That is why it is LOW.
+- *Required Action:* when Start's stamp is not before stop B's second, or End's is not before the next stop's second, print `NO SPAN: the stopped process has no ready line` and read no figures. Falsity signature: under the committed fixture, span 1 prints NO SPAN and span 2 still reads `Created instance` 1. Owner: the analyst. Fix it before devops relies on [6] in run 2; it is not a block on the current capture.
+
+CR-42 LOW Round 18 — the fixture check that the analysis cites for every branch is not captured.
+- *Location:* `analysis/015-bug-evaluation-fixes-analysis.md` § "M8-0 run 2 instrument", "The fixture is not committed; its construction is stated here."
+- *Class:* a verdict-bearing instrument result that cannot be reproduced without rebuilding the instrument.
+- *Enumeration:* the four branch results that paragraph states (clean span; restart; trailing NO SPAN; untimestamped `POST /generate`). `git ls-files verification/015 | grep -ci fixture` lists only my `cr-m8-probes/span-read/` files (this commit). It cannot see a fixture committed under another name.
+- *Required Action:* commit the fixture and its driver under `verification/015/` and cite the path. Extending `cr-m8-probes/span-read/run.sh` with the four branches and the CR-41 case is acceptable. Falsity signature: each branch's expected line is stated beside the fixture, so a regression in [6] shows as a diff.
+
+- **Verdict: APPROVED_WITH_COMMENTS.** Section [6] reads the spec's span correctly on the host's real log. The capture's 227 and 11,324 agree with the analyst's line-range cross-check, and my reading of the bounds (out lines 28898 to 146790) matches it. CR-41 and CR-42 go to the analyst. devops-hooks-015 may use the script for B-8's read now, and should take the CR-41 guard before run 2.
+- **Assumption Not Checked.** This review assumes the M9 push's `startOrReload` writes a `Stopping app:hooks-image-preview-generator-prod id:` line to `/etc/.pm2/pm2.log` for a fork-mode reload, as `pm2 stop` and the 2024 and 2026 stops did. If it does not, [6] has no stop (1), and run 2's span is merged into the 2026-06-15 to run-2 pair: either flagged as RESTARTS (two ready lines inside it) or not read. Devops owns closing it, from the run-2 capture's `[4]` stop count (expected 4 for prod).
 
 ## Round 2 sub-entry (CR-40 fix; website `9b5e47f..b96e364`, test-only): APPROVED
 
