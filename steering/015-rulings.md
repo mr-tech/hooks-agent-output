@@ -151,3 +151,12 @@ after. The shutdown check runs on the next stop of the new process.
 `git branch -d preview` in preview-image-generator. `git ls-remote origin refs/heads/preview` is now empty.
 Containment was read immediately before: `rev-list --count origin/prod..origin/preview` = 0. The `preview.yml` workflow
 file remains in the prod and master trees, and nothing now triggers it.
+
+## 2026-11-08T05:29Z — M8's verifying stop of the new process (selection; relayed from planner-hooks-015, rev 4 f19e688)
+Options: You: pm2 reload once (plan default) / Agent: re-run prod.yml / Agent: skip the proof. Chosen **Agent: re-run
+prod.yml**, by selection. After the prod push, devops re-runs prod.yml through workflow_dispatch. That is a second
+production deploy and needs his approval like any prod push. An agent reads the result over claude-ro.
+Premise read this turn: `workflow_dispatch:` is at prod.yml line 12 (grep).
+FYI relayed to him, as the planner's and analyst's claim: pm2.log in verification/015/m8-0-run1-2026-11-08T0525Z.txt
+shows "Stopping app ... id:0" with a SIGKILL at 2026-06-15T10:02:41, then the next "starting" at 2026-08-23T04:18:19
+(steering read those lines in the file). Whether the generator was down for the whole gap is not established.
