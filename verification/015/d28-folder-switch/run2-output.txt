@@ -1,0 +1,48 @@
+env files in export: 0
+sha 24ac49fb12ba0f075d54bbc32fef41fa078a67d8
+nonloopback links: 0
+default routes: 0
+positive control GET /: 200
+GET /message/f/111: 200
+outline of main at /message/f/111:
+main children=2
+  div.flex.items-center children=2
+    div.flex.items-center children=3
+      div.hidden.shrink-0 children=0
+      a children=1
+        svg children=1
+          path children=0
+      div.ml-2.min-w-0 children=2
+        div.flex.items-center children=2
+          br.hidden children=0
+          div children=0
+        ul.flex children=5
+          li.[&:not(:disabled)]:hover:bg-primary.[&:not(:disabled)]:[&.focus-visible]:bg-primary children=1
+          li.[&:not(:disabled)]:hover:bg-primary.[&:not(:disabled)]:[&.focus-visible]:bg-primary children=1
+          li.[&:not(:disabled)]:hover:bg-primary.[&:not(:disabled)]:[&.focus-visible]:bg-primary children=1
+          li.[&:not(:disabled)]:hover:bg-primary.[&:not(:disabled)]:[&.focus-visible]:bg-primary children=1
+          li.[&:not(:disabled)]:hover:bg-primary.[&:not(:disabled)]:[&.focus-visible]:bg-primary children=1
+    div.flex.items-center children=3
+      button.flex.justify-center children=2
+        svg children=1
+          path children=0
+        svg children=1
+          path children=0
+      button.flex.justify-center children=1
+        div.relative.hover:will-change-transform children=2
+          svg children=1
+          svg children=1
+      div children=0
+  div.fixed.inset-0 children=1
+    div.relative.flex children=1
+      div.relative.z-0 children=1
+        div.absolute.inset-0 children=1
+          div.relative.flex children=1
+path now: /message/m/0/edit
+window.next.router present: function
+marks {"outsideTag":"DIV","insideTag":"DIV","kids":2,"same":false}
+before {"path":"/message/m/0/edit","outside":true,"inside":true}
+after push f/111?x=1 (same segment, control) {"path":"/message/f/111","outside":false,"inside":false}
+after push f/222 {"path":"/message/m/0/edit","outside":false,"inside":false}
+log []
+exit 0
