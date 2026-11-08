@@ -582,7 +582,7 @@ This pass assumes the live Postgres schema matches the Kysely `DatabaseSchema` t
 - QAF-19 LOW and QAF-20 LOW, the implementer (sent 06:56Z). QAF-20 (= CR-10) is owed before the effort-final pass.
 
 **Next, in the order the pipeline will bring them**
-1. **M1 Phase 2**, after code review approves the M1-c/M1-h rebuild. Its stage start is the review's committed verdict at its `Reviewed-At`, re-derived. The document is a new `qa/015-bug-evaluation-fixes-m1-qa.md`.
+1. **M1 Phase 2**, after code review approves the M1-c/M1-h rebuild. Its stage start is the review's committed verdict at its `Reviewed-At`, re-derived. The document is a new M1 delivery document under `qa/`, named like the M2 one with `m1`; it does not exist yet.
    - **Gate:** the TDD table in `implementation/015-bug-evaluation-fixes-m1-implementation.md`.
    - **Cells:** per § M1 as reconciled to rev 19.
      - M1-c: the CR-3 cache-state × row fixtures; the token taken from the row; cache-account with row-absent; the deletion-failure cells in both ioredis shapes; the lookup-error identity and key set.
