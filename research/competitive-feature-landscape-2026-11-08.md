@@ -23,6 +23,7 @@ Status-Detail: >-
 | 2026-11-08T04:58 | researcher | Two corrections to the 04:56 write. (1) The Status-Detail totals had been typed, not computed: 10,512 forum messages and 3,357 channel messages. Recomputed from the capture files they are **10,734** (Embed Generator 1,503 + Hooks.gg 58 + 606 + Discohook 343 + 8,224) and **3,438** (channels 1 + 8 + 87 + 2 + 9 + 3,250, plus Embed Generator 69 + 12 from the 01:52 pass). The post total, 1,098, was right. (2) One token in Status-Detail (`F1–F14` → `F1–F15`) was changed with a shell `sed -i`, against the rule that record documents are edited only with the file-editing tools. The change itself is correct; the method is recorded here. F15 (Webhook Builder chat) was added in the same pass | Status: Active |
 | 2026-11-08T05:14 | researcher | Owner rulings recorded verbatim. **Q1** *"sure"*, to *"does Hooks.gg start sending as a bot, so it can offer interactive buttons?"*: S12/S11 move to "design first" and the architect is recommended. The ruling's open scope is listed in the Q1 row, not inferred. **Q2** *"no, no paid tier. everything free forever. this project is a loss leader for Statbot."*: S23 withdrawn, S27 note updated, Tier 0 weighted by the Statbot dependency. Q3 marked moot. Q7 added (the terms page's paid-subscription clauses contradict Q2) | Status: Active |
 | 2026-11-08T05:32 | researcher | **Q7** ruled, verbatim: *"eh, there's no legal risk in keeping the language"*. The terms text stays and no item is raised | Status: Active |
+| 2026-11-08T05:48 | researcher | Owner asked for a 1–10 rerate (*"1 is easiest, least valuable. 10 is hardest, most valuable"*). Added "Rerated on the owner's 1–10 scale", which supersedes the 1–5 columns where they disagree. R0 (reliability) is now rated explicitly | Status: Active |
 
 ## Question
 
@@ -566,6 +567,51 @@ whether the item lives inside the single-tree editor (D-001) or beside it.
 - **Withdrawn by ruling:** S23 paid tier (Q2, *"no paid tier. everything free forever"*).
 - **Tier D — recorded, not recommended on this evidence:** S8 polls, S14 AI drafting (both
   demoted on F12), S10, S13, S20, S21, S22, S24, S25, S28.
+
+### Rerated on the owner's 1–10 scale (2026-11-08)
+
+He asked, verbatim: *"rerate everything 1-10. 1 is easiest, least valuable. 10 is hardest, most
+valuable"*. **Difficulty** runs 1 (easiest) to 10 (hardest); **Value** runs 1 (least) to 10 (most),
+weighed under the Q2 ruling (free forever, a loss leader for Statbot). Both are Inference, from the
+same evidence as the 1–5 columns above. This table supersedes them where the two disagree.
+
+| Item | Difficulty | Value |
+|---|---|---|
+| R0 sign-in and send reliability, plus failure telemetry (F10.1/F10.2) | 5 | 10 |
+| S11 interactive components (includes S12) | 10 | 10 |
+| S16 guide and changelog | 3 | 9 |
+| S30 actionable errors | 2 | 8 |
+| S4 share links | 4 | 8 |
+| S1 one-off scheduling, with timezone | 4 | 8 |
+| S29 non-admin access (permission threshold; role-based ≈ 7 difficulty) | 4 | 8 |
+| S3 V2 uploads | 3 | 7 |
+| S5 webhook management | 4 | 7 |
+| S9 templates | 4 | 7 |
+| S12 bot sending, alone | 7 | 6 |
+| S2 recurring scheduling | 5 | 6 |
+| S18 mention picker | 5 | 6 |
+| S17 undo/redo | 6 | 6 |
+| S31 message as image | 2 | 5 |
+| S33 timestamp picker | 2 | 5 |
+| S32 copy/paste components | 3 | 5 |
+| S26 auto-publish | 3 | 5 |
+| S6 competitor-format import | 3 | 5 |
+| S27 version history | 5 | 5 |
+| S15 localisation | 7 | 5 |
+| S21 multi-message document | 7 | 5 |
+| S7 multi-target send | 3 | 4 |
+| S13 variables (rises with S11) | 6 | 4 |
+| S25 welcome / reaction roles | 8 | 4 |
+| S19 flags toggles (W-5) | 1 | 3 |
+| S10 forum tags | 2 | 3 |
+| S22 message organisation | 4 | 3 |
+| S8 polls | 5 | 3 |
+| S24 collaborative editing | 10 | 3 |
+| S28 server-list refresh | 1 | 2 |
+| S20 code export | 3 | 2 |
+| S14 AI drafting | 5 | 2 |
+
+S23 is withdrawn (Q2).
 
 ## System Weaknesses (bearing on the roadmap, not defects of this question)
 
