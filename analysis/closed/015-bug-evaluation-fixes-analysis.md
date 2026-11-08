@@ -17,6 +17,7 @@ item **REQUIRES ANALYSIS**, read together with § M8 (M8-a). The source finding 
 
 | Date (UTC) | Author | Change |
 |---|---|---|
+| 2026-11-08T22:16 | analyst-hooks-015 | After closure: the fixture outputs were renamed `span-read-<ref>.txt` → `pig-span-read-<ref>.txt`, because check-repo reported basename collisions with the code reviewer's `cr-m8-probes/span-read/` outputs. Citations here and in the driver were updated; content is unchanged. |
 | 2026-11-08T22:14 | analyst-hooks-015 | Document closed. Status: Released. Chain 015 released (deployment record `2e11427`); M8-0 run 2 B-8 PASS. G-2b and G-5 closed; G-3 and G-4 residue routed to `handoff/preview-image-generator-drain-under-load-unobserved-2026-11-08.md`. Closed on steering-hooks-015's closure brief. |
 | 2026-11-08T21:46 | analyst-hooks-015 | Code review: CR-41 and CR-42 RESOLVED, and `pig-host-read.sh` at `f616d83` APPROVED with no new finding (record `f83fb09`; the fixture outputs reproduced byte for byte). Run 2 uses the script at `f616d83`. This row was first written with a typed, future stamp (21:49). The stamp-gate hook refused it, and it is now restamped from `date -u`. |
 | 2026-11-08T21:45 | analyst-hooks-015 | Code review at `49e7fab` APPROVED_WITH_COMMENTS. CR-41 fixed: a boundary owned by another process now prints NO SPAN, with both guards fixture-proven. CR-42: fixture driver committed under `verification/015/pig-span-read-fixture/`. Host re-run 21:44Z is unchanged (227). |
@@ -381,9 +382,10 @@ Round 18 sub-entry). Two LOW findings, both resolved:
   exists; otherwise the span prints NO SPAN with the reason.
 - **CR-42.** The fixture is now committed as `verification/015/pig-span-read-fixture/run.sh <sha|WORKTREE>`. It
   holds three fixtures: mine (clean, restart, trailing no-span, untimestamped), the reviewer's CR-41 case, and an
-  End-guard case. It writes `span-read-<ref>.txt` beside itself.
+  End-guard case. It writes `pig-span-read-<ref>.txt` beside itself (renamed at closure from `span-read-<ref>.txt`,
+  a basename collision with the code reviewer's outputs).
 
-At `49e7fab` (`span-read-49e7fab.txt`):
+At `49e7fab` (`pig-span-read-49e7fab.txt`):
 - fixture 2's span 1 reads all zeros between equal boundaries;
 - fixture 3's span 1 reads `Created instance` 2 and its span 2 reads 0.
 

@@ -2,7 +2,8 @@
 # Usage: run.sh <agent-output sha | WORKTREE>
 # Runs verification/015/pig-host-read.sh (at that commit, or the working tree) against two synthetic PM2_HOMEs,
 # with H pointed at the fixture and the claude-ro refusal removed, and prints only section [6].
-# Output: span-read-<sha|WORKTREE>.txt beside this script. Fixtures are built in a mktemp dir and removed.
+# Output: pig-span-read-<sha|WORKTREE>.txt beside this script (renamed from span-read-*.txt, which collided with
+# the code reviewer's verification/015/cr-m8-probes/span-read/ outputs). Fixtures are built in a mktemp dir and removed.
 #
 # Fixture 1 (the analyst's, first run 2026-11-08 before the 21:39Z host run): four prod stops, Jan/Feb/Mar/Apr.
 #   span 1 (Jan->Feb): clean. Expected: Server received 1, Drain complete 1 (734ms), Created instance 1,
@@ -17,7 +18,7 @@ REF=${1:?usage: run.sh <sha|WORKTREE>}
 HERE=$(cd "$(dirname "$0")" && pwd); R=/usr/local/bin/hooks/agent-output
 P=hooks-image-preview-generator-prod
 T=$(mktemp -d); trap 'rm -rf "$T"' EXIT
-OUTF="$HERE/span-read-$REF.txt"; : > "$OUTF"
+OUTF="$HERE/pig-span-read-$REF.txt"; : > "$OUTF"
 
 mkfx() { mkdir -p "$T/$1/logs"; : > "$T/$1/logs/$P-error.log"; }
 mkfx fx1
