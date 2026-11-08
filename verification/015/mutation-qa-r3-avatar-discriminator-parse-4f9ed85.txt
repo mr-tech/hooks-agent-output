@@ -1,0 +1,51 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/07779517-a93b-4582-8eaa-bb529d59396c/scratchpad/exports/website-4f9ed85-qa-r3-avatar-discriminator-parse  sha: 4f9ed85  label: qa-r3-avatar-discriminator-parse  test: src/utils/__tests__/constructImageUrl.default-avatar.test.ts  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf20-constructimageurl-discriminator-parse-dropped.py
+ .../__tests__/rules.multi-line-code-block.test.ts   | 21 +++------------------
+ 8 files changed, 13 insertions(+), 30 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/07779517-a93b-4582-8eaa-bb529d59396c/scratchpad/exports/website-4f9ed85-qa-r3-avatar-discriminator-parse
+
+ ❯ |node| src/utils/__tests__/constructImageUrl.default-avatar.test.ts (12 tests | 2 failed) 13ms
+       × returns ID-based default avatar for discriminator "0" (string) 6ms
+     × parses a discriminator string with leading zeros as 0, giving the ID-based avatar 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/constructImageUrl.default-avatar.test.ts > constructImageUrl bug fixes > default avatar for migrated users > returns ID-based default avatar for discriminator "0" (string)
+AssertionError: expected 'https://cdn.discordapp.com/embed/avat…' to be 'https://cdn.discordapp.com/embed/avat…' // Object.is equality
+
+Expected: "https://cdn.discordapp.com/embed/avatars/1.png"
+Received: "https://cdn.discordapp.com/embed/avatars/0.png"
+
+ ❯ src/utils/__tests__/constructImageUrl.default-avatar.test.ts:19:19
+     17|       const id = '1000000000000000000';
+     18|       const url = constructImageUrl(id, null, '0');
+     19|       expect(url).toBe('https://cdn.discordapp.com/embed/avatars/1.png…
+       |                   ^
+     20|     });
+     21|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/__tests__/constructImageUrl.default-avatar.test.ts > constructImageUrl default avatar index > parses a discriminator string with leading zeros as 0, giving the ID-based avatar
+AssertionError: expected 'https://cdn.discordapp.com/embed/avat…' to be 'https://cdn.discordapp.com/embed/avat…' // Object.is equality
+
+Expected: "https://cdn.discordapp.com/embed/avatars/1.png"
+Received: "https://cdn.discordapp.com/embed/avatars/0.png"
+
+ ❯ src/utils/__tests__/constructImageUrl.default-avatar.test.ts:106:17
+    104|   it('parses a discriminator string with leading zeros as 0, giving th…
+    105|     const url = constructImageUrl('1000000000000000000', null, '0000');
+    106|     expect(url).toBe('https://cdn.discordapp.com/embed/avatars/1.png');
+       |                 ^
+    107|   });
+    108| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 10 passed (12)
+   Start at  10:22:21
+   Duration  207ms (transform 35ms, setup 0ms, import 50ms, tests 13ms, environment 0ms)
+
+vitest exit 1

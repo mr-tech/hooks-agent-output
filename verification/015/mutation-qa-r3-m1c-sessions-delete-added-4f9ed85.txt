@@ -1,0 +1,81 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/07779517-a93b-4582-8eaa-bb529d59396c/scratchpad/exports/website-4f9ed85-qa-r3-m1c-sessions-delete-added  sha: 4f9ed85  label: qa-r3-m1c-sessions-delete-added  test: src/server/__tests__/auth.sign-out.test.ts  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf27-m1c-sessions-delete-added.py
+ .../__tests__/rules.multi-line-code-block.test.ts   | 21 +++------------------
+ 8 files changed, 13 insertions(+), 29 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/07779517-a93b-4582-8eaa-bb529d59396c/scratchpad/exports/website-4f9ed85-qa-r3-m1c-sessions-delete-added
+
+ ❯ |node| src/server/__tests__/auth.sign-out.test.ts (13 tests | 3 failed) 35ms
+     × clears the user keys and nulls the stored tokens after an accepted revoke 7ms
+     × clears out all the same when the key deletion resolves with per-command errors 2ms
+     × reads the account, then revokes, then nulls the stored tokens 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > clears the user keys and nulls the stored tokens after an accepted revoke
+AssertionError: expected [ { query: { …(3) }, …(2) } ] to have a length of +0 but got 1
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:122:34
+    120|     expect(accountsUpdates()).toHaveLength(1);
+    121|     expect(accountsUpdates()[0].parameters).toEqual([null, null, 'disc…
+    122|     expect(sessionsStatements()).toHaveLength(0);
+       |                                  ^
+    123|   });
+    124|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > clears out all the same when the key deletion resolves with per-command errors
+AssertionError: expected [ { query: { …(3) }, …(2) } ] to have a length of +0 but got 1
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:131:34
+    129|
+    130|     expect(accountsUpdates()).toHaveLength(1);
+    131|     expect(sessionsStatements()).toHaveLength(0);
+       |                                  ^
+    132|   });
+    133|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > reads the account, then revokes, then nulls the stored tokens
+AssertionError: expected [ 'account-read', 'revoke', …(2) ] to deeply equal [ 'account-read', 'revoke', …(1) ]
+
+- Expected
++ Received
+
+  [
+    "account-read",
+    "revoke",
+    "accounts-update",
++   "accounts-update",
+  ]
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:166:19
+    164|
+    165|     const order = log.events.filter((event) => event !== 'redis-clear'…
+    166|     expect(order).toEqual(['account-read', 'revoke', 'accounts-update'…
+       |                   ^
+    167|   });
+    168| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 10 passed (13)
+   Start at  10:22:15
+   Duration  956ms (transform 185ms, setup 0ms, import 790ms, tests 35ms, environment 0ms)
+
+vitest exit 1

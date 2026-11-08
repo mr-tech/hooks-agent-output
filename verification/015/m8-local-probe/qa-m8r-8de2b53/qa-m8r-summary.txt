@@ -1,0 +1,61 @@
+export /tmp/claude-1000/-usr-local-bin-hooks/07779517-a93b-4582-8eaa-bb529d59396c/scratchpad/exports/pig-probe-8de2b53
+mutant set mutators/qa-m8r-mutants.json blob 60622da8b8757a109a0cae15d3d0d068f00d1051
+probe probe.cjs blob 25218c6826e5241da0da78410fe6e71822d2471f
+probe probe-pages.cjs blob 9f41863e58dd2387fca1207acadb6e71319eecba
+control	SURVIVED	0 red	
+impl-complete-after-catch	KILLED	1 red	build/server.js 1a024e4f0be3->f02496df737f
+    red: P1 failed drain: no drain-complete line on stdout or stderr
+impl-queue-optional-chain-removed	KILLED	1 red	build/getPool.js 448b9c936152->b0024ff538e7
+    red: M8-d (d) startup: the library renames _waitingClientsQueue: one named line before any request, and the server keeps serving
+impl-dequeue-optional-chain-removed	KILLED	2 red	build/getPool.js 448b9c936152->9ad1aa830f1d
+    red: M8-d (d) startup: the library renames the queue's dequeue, the field kept: one named line before any request, and the server keeps serving
+    red: M8-d (d) member absent: a failing browser launch does not crash the process
+impl-startup-check-removed	KILLED	2 red	build/getPool.js 448b9c936152->e622d9dbdc3d
+    red: M8-d (d) startup: the library renames _waitingClientsQueue: one named line before any request, and the server keeps serving
+    red: M8-d (d) startup: the library renames the queue's dequeue, the field kept: one named line before any request, and the server keeps serving
+impl-handler-registered-unconditionally	KILLED	1 red	build/getPool.js 448b9c936152->7048e2464f9a
+    red: M8-d (d) member absent: a failing browser launch does not crash the process
+impl-startup-check-inverted	KILLED	3 red	build/getPool.js 448b9c936152->0170d23d34b5
+    red: M8-d (d) startup: the library renames _waitingClientsQueue: one named line before any request, and the server keeps serving
+    red: M8-d (d) startup: the library renames the queue's dequeue, the field kept: one named line before any request, and the server keeps serving
+    red: M8-d (d) startup non-member: the 3.9.0 tree as resolved writes no such line and reaches ready
+qa-d36-wrong-member-name	KILLED	3 red	build/getPool.js 448b9c936152->3eabaaf54ba7
+    red: M8-d pool: a launch failure rejects the request with the launch error, not a TypeError
+    red: M8-d pool: no creation retry storm and nothing left pending
+    red: M8-d (d) startup non-member: the 3.9.0 tree as resolved writes no such line and reaches ready
+qa-d36-call-site-removed	KILLED	2 red	build/server.js 1a024e4f0be3->a0ba864ab002
+    red: M8-d (d) startup: the library renames _waitingClientsQueue: one named line before any request, and the server keeps serving
+    red: M8-d (d) startup: the library renames the queue's dequeue, the field kept: one named line before any request, and the server keeps serving
+qa-d36-check-moved-to-first-pool	KILLED	2 red	build/getPool.js 448b9c936152->8a09d0ca31c4; build/server.js 1a024e4f0be3->a0ba864ab002
+    red: M8-d (d) startup: the library renames _waitingClientsQueue: one named line before any request, and the server keeps serving
+    red: M8-d (d) startup: the library renames the queue's dequeue, the field kept: one named line before any request, and the server keeps serving
+qa-d36-line-to-stdout	SURVIVED	0 red	build/getPool.js 448b9c936152->0748592c35c6
+qa-d36-handler-dequeues-without-reject	KILLED	2 red	build/getPool.js 448b9c936152->8072ed5a4381
+    red: M8-d pool: a launch failure rejects the request with the launch error, not a TypeError
+    red: M8-d pool: no creation retry storm and nothing left pending
+qa-cr27-failed-line-to-stderr	KILLED	1 red	build/server.js 1a024e4f0be3->b2e7e0515a28
+    red: P1 failed drain: one "Drain failed after Nms: <message>" line on stdout, naming the cause
+qa-cr27-failed-line-no-cause	KILLED	1 red	build/server.js 1a024e4f0be3->9084b4613304
+    red: P1 failed drain: one "Drain failed after Nms: <message>" line on stdout, naming the cause
+qa-cr27-failure-skips-exit	KILLED	1 red	build/server.js 1a024e4f0be3->de42abbed4b4
+    red: P1 failed drain: the process still exits, code 0, before the 10 s fallback
+qa-m8a-once-guard-removed	SURVIVED	0 red	build/server.js 1a024e4f0be3->c9c9ec1f0c39
+qa-m8a-message-test-wrong	KILLED	9 red	build/server.js 1a024e4f0be3->54168ae40279
+    red: P1 shutdown message: exit code 0
+    red: P1: exactly one "Server received" line, naming the trigger
+    red: P1: exactly one drain-complete line with an elapsed figure
+    red: P1 predicate: the ready line "Server running at" is not a member
+    red: P3 idle: exits well before the 10 s fallback and launches no browser
+    red: P4: a shutdown message sent in the tick the ready message arrives is handled
+    red: P1 failed drain: no drain-complete line on stdout or stderr
+    red: P1 failed drain: one "Drain failed after Nms: <message>" line on stdout, naming the cause
+    red: P1 failed drain: the process still exits, code 0, before the 10 s fallback
+qa-m8a-sigint-unregistered	KILLED	2 red	build/server.js 1a024e4f0be3->3c1abf0a85af
+    red: P1 idempotent: shutdown message then SIGINT gives one "Server received" line and exit 0
+    red: P1 SIGINT alone: one "Server received" line naming SIGINT, exit 0
+qa-m8a-pool-read-creates	SURVIVED	0 red	build/server.js 1a024e4f0be3->55427645fe0a
+qa-m8a-success-exit-removed	KILLED	2 red	build/server.js 1a024e4f0be3->0064acbdad8d
+    red: P3 idle: exits well before the 10 s fallback and launches no browser
+    red: P1 failed drain: the process still exits, code 0, before the 10 s fallback
+qa-m8a-handlers-registered-late	SURVIVED	0 red	build/server.js 1a024e4f0be3->3ca257832dc2
+qa-m8a-close-idle-dropped	SURVIVED	0 red	build/server.js 1a024e4f0be3->b1c804d992a0

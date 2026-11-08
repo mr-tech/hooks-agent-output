@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/07779517-a93b-4582-8eaa-bb529d59396c/scratchpad/exports/website-4f9ed85-qa-r3-control-avatar  sha: 4f9ed85  label: qa-r3-control-avatar  test: src/utils/__tests__/constructImageUrl.default-avatar.test.ts  mutator: none
+ .../__tests__/rules.multi-line-code-block.test.ts   | 21 +++------------------
+ 7 files changed, 12 insertions(+), 29 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/07779517-a93b-4582-8eaa-bb529d59396c/scratchpad/exports/website-4f9ed85-qa-r3-control-avatar
+
+
+ Test Files  1 passed (1)
+      Tests  12 passed (12)
+   Start at  10:22:05
+   Duration  170ms (transform 28ms, setup 0ms, import 41ms, tests 5ms, environment 0ms)
+
+vitest exit 0

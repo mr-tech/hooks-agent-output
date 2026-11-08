@@ -29,6 +29,7 @@
     {"name": "qa-m8a-handlers-registered-late", "file": "build/server.js", "edits": [
       ["process.on('message', (message) => {", "setTimeout(() => process.on('message', (message) => {"],
       ["        void shutdown('shutdown message');\n});", "        void shutdown('shutdown message');\n}), 2000);"]]},
+    {"name": "qa-m8a-sigint-registered-late", "file": "build/server.js", "edits": [["process.on('SIGINT', () => { void shutdown('SIGINT'); });", "setTimeout(() => process.on('SIGINT', () => { void shutdown('SIGINT'); }), 2000);"]]},
     {"name": "qa-m8a-close-idle-dropped", "file": "build/server.js", "edits": [["        server.closeIdleConnections();\n", ""]]}
   ]
 }

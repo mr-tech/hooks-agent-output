@@ -1,0 +1,38 @@
+control-redirect	 Tests 19 passed (19)	0	vitest exit 0
+control-signout	 Tests 13 passed (13)	0	vitest exit 0
+control-avatar	 Tests 12 passed (12)	0	vitest exit 0
+control-formatkey	 Tests 2 passed (2)	0	vitest exit 0
+m1i-raw-header-regex	 Tests 3 failed | 16 passed (19)	0	vitest exit 1
+         × stays on the page for a session cookie name with no = (Next reports it present) 4ms
+         × sends a session value that fails to decode (Next reports it absent) to the new-message editor, once 1ms
+         × sends a session value %zz that fails to decode to the new-message editor, once 1ms
+     FAIL  |node| src/app/_navigation/Redirects/__tests__/Server.session-cookie-redirect.test.ts > the server-side redirect to the new-message editor > stays on the page for a session cookie name with no = (Next reports it present)
+     FAIL  |node| src/app/_navigation/Redirects/__tests__/Server.session-cookie-redirect.test.ts > the server-side redirect to the new-message editor > sends a session value that fails to decode (Next reports it absent) to the new-message editor, once
+     FAIL  |node| src/app/_navigation/Redirects/__tests__/Server.session-cookie-redirect.test.ts > the server-side redirect to the new-message editor > sends a session value %zz that fails to decode to the new-message editor, once
+m1i-raw-header-plain-values	 Tests 2 failed | 17 passed (19)	0	vitest exit 1
+         × stays on the page for a session value holding a legal %41 octet 4ms
+         × stays on the page for a session cookie name with no = (Next reports it present) 1ms
+     FAIL  |node| src/app/_navigation/Redirects/__tests__/Server.session-cookie-redirect.test.ts > the server-side redirect to the new-message editor > stays on the page for a session value holding a legal %41 octet
+     FAIL  |node| src/app/_navigation/Redirects/__tests__/Server.session-cookie-redirect.test.ts > the server-side redirect to the new-message editor > stays on the page for a session cookie name with no = (Next reports it present)
+m1i-missing-pathname	 Tests 1 failed | 18 passed (19)	0	vitest exit 1
+         × sends a request carrying no x-pathname header to the new-message editor, once 3ms
+     FAIL  |node| src/app/_navigation/Redirects/__tests__/Server.session-cookie-redirect.test.ts > the server-side redirect to the new-message editor > sends a request carrying no x-pathname header to the new-message editor, once
+m1c-sessions-delete-added	 Tests 3 failed | 10 passed (13)	0	vitest exit 1
+         × clears the user keys and nulls the stored tokens after an accepted revoke 7ms
+         × clears out all the same when the key deletion resolves with per-command errors 2ms
+         × reads the account, then revokes, then nulls the stored tokens 2ms
+     FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > clears the user keys and nulls the stored tokens after an accepted revoke
+     FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > clears out all the same when the key deletion resolves with per-command errors
+     FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > reads the account, then revokes, then nulls the stored tokens
+m1c-exec-errors-thrown	 Tests 1 failed | 12 passed (13)	0	vitest exit 1
+         × clears out all the same when the key deletion resolves with per-command errors 5ms
+     FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out revokes the account's access token and clears the session > clears out all the same when the key deletion resolves with per-command errors
+m1c-lookup-failure-unawaited	 Tests 1 failed | 12 passed (13)	0	vitest exit 1
+         × rejects with the lookup's error, not the key deletion's, when the deletion also fails 6ms
+     FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out when the account lookup fails with an error other than a missing row > rejects with the lookup's error, not the key deletion's, when the deletion also fails
+avatar-discriminator-parse	 Tests 2 failed | 10 passed (12)	0	vitest exit 1
+           × returns ID-based default avatar for discriminator "0" (string) 6ms
+         × parses a discriminator string with leading zeros as 0, giving the ID-based avatar 1ms
+     FAIL  |node| src/utils/__tests__/constructImageUrl.default-avatar.test.ts > constructImageUrl bug fixes > default avatar for migrated users > returns ID-based default avatar for discriminator "0" (string)
+     FAIL  |node| src/utils/__tests__/constructImageUrl.default-avatar.test.ts > constructImageUrl default avatar index > parses a discriminator string with leading zeros as 0, giving the ID-based avatar
+done

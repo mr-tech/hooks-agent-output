@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/07779517-a93b-4582-8eaa-bb529d59396c/scratchpad/exports/website-4f9ed85-qa-r3-control-signout  sha: 4f9ed85  label: qa-r3-control-signout  test: src/server/__tests__/auth.sign-out.test.ts  mutator: none
+ .../__tests__/rules.multi-line-code-block.test.ts   | 21 +++------------------
+ 7 files changed, 12 insertions(+), 29 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/07779517-a93b-4582-8eaa-bb529d59396c/scratchpad/exports/website-4f9ed85-qa-r3-control-signout
+
+
+ Test Files  1 passed (1)
+      Tests  13 passed (13)
+   Start at  10:22:03
+   Duration  965ms (transform 192ms, setup 0ms, import 804ms, tests 28ms, environment 0ms)
+
+vitest exit 0

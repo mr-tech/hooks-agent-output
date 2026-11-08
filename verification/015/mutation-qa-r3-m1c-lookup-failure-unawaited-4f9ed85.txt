@@ -1,0 +1,41 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/07779517-a93b-4582-8eaa-bb529d59396c/scratchpad/exports/website-4f9ed85-qa-r3-m1c-lookup-failure-unawaited  sha: 4f9ed85  label: qa-r3-m1c-lookup-failure-unawaited  test: src/server/__tests__/auth.sign-out.test.ts  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/qaf27-m1c-lookup-failure-clear-unawaited.py
+ .../__tests__/rules.multi-line-code-block.test.ts   | 21 +++------------------
+ 8 files changed, 13 insertions(+), 30 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/07779517-a93b-4582-8eaa-bb529d59396c/scratchpad/exports/website-4f9ed85-qa-r3-m1c-lookup-failure-unawaited
+
+ ❯ |node| src/server/__tests__/auth.sign-out.test.ts (13 tests | 1 failed) 32ms
+     × rejects with the lookup's error, not the key deletion's, when the deletion also fails 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.sign-out.test.ts > signing out when the account lookup fails with an error other than a missing row > rejects with the lookup's error, not the key deletion's, when the deletion also fails
+AssertionError: expected [ Error: redis unreachable ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   Error {
++     "message": "redis unreachable",
++   },
++ ]
+
+ ❯ src/server/__tests__/auth.sign-out.test.ts:232:23
+    230|     process.off('unhandledRejection', onUnhandled);
+    231|
+    232|     expect(unhandled).toEqual([]);
+       |                       ^
+    233|   });
+    234| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 12 passed (13)
+   Start at  10:22:19
+   Duration  956ms (transform 190ms, setup 0ms, import 804ms, tests 32ms, environment 0ms)
+
+vitest exit 1
