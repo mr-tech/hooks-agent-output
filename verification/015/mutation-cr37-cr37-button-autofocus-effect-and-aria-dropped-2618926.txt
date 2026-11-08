@@ -1,0 +1,48 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9cafa65b-95fb-4fa3-ab48-02bd3363438f/scratchpad/website-2618926-cr37-cr37-button-autofocus-effect-and-aria-dropped  sha: 2618926  label: cr37-cr37-button-autofocus-effect-and-aria-dropped  test: src/components/__tests__/Button.auto-focus.test.tsx src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx  mutator: /usr/local/bin/hooks/agent-output/verification/015/mutators/cr37-button-autofocus-effect-and-aria-dropped.py
+ .../results.json => dev/null}                                         | 1 -
+ 2 files changed, 2 insertions(+), 3 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cafa65b-95fb-4fa3-ab48-02bd3363438f/scratchpad/website-2618926-cr37-cr37-button-autofocus-effect-and-aria-dropped
+
+ ❯ |dom| src/components/__tests__/Button.auto-focus.test.tsx (2 tests | 1 failed) 33ms
+     × is the focused element after mounting with autoFocus 28ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/Button.auto-focus.test.tsx > Button auto focus > is the focused element after mounting with autoFocus
+AssertionError: expected <button …(4)></button> to be <body><div>…(1)</div></body> // Object.is equality
+
+- Expected
++ Received
+
+- <body>
+-   <div>
+  <button
+    class="disabled:opacity-50"
+    data-react-aria-pressable="true"
+    tabindex="0"
+    type="button"
+  >
+    Go
+  </button>
+-   </div>
+- </body>
+
+ ❯ src/components/__tests__/Button.auto-focus.test.tsx:17:42
+     15|     const host = mountDom(<Button autoFocus>Go</Button>);
+     16|
+     17|     expect(host.querySelector('button')).toBe(document.activeElement);
+       |                                          ^
+     18|   });
+     19|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 24 passed (25)
+   Start at  10:31:43
+   Duration  1.74s (transform 253ms, setup 30ms, import 1.27s, tests 329ms, environment 1.24s)
+
+vitest exit 1
+readback Button: 2; editor: 0

@@ -1,0 +1,31 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9cafa65b-95fb-4fa3-ab48-02bd3363438f/scratchpad/website-2618926-cr37-editor-onmount-effect-empty  sha: 2618926  label: cr37-editor-onmount-effect-empty  test: src/components/__tests__/Button.auto-focus.test.tsx src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx  mutator: /usr/local/bin/hooks/agent-output/verification/015/cr-m6-probes/cr26-ban/mutators/editor-onmount-effect-empty.py
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cafa65b-95fb-4fa3-ab48-02bd3363438f/scratchpad/website-2618926-cr37-editor-onmount-effect-empty
+
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (23 tests | 1 failed) 276ms
+     × calls onMount once after mounting and not again when it re-renders 8ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor mount callback > calls onMount once after mounting and not again when it re-renders
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:228:21
+    226|     await act(async () => {});
+    227|
+    228|     expect(onMount).toHaveBeenCalledTimes(1);
+       |                     ^
+    229|
+    230|     await act(async () => { handle.setCount(2); });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 24 passed (25)
+   Start at  10:31:46
+   Duration  1.68s (transform 259ms, setup 42ms, import 1.23s, tests 304ms, environment 1.19s)
+
+vitest exit 1
+readback Button: 0; editor: 1

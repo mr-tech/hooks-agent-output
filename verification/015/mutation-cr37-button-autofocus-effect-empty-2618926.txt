@@ -1,0 +1,14 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9cafa65b-95fb-4fa3-ab48-02bd3363438f/scratchpad/website-2618926-cr37-button-autofocus-effect-empty  sha: 2618926  label: cr37-button-autofocus-effect-empty  test: src/components/__tests__/Button.auto-focus.test.tsx src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx  mutator: /usr/local/bin/hooks/agent-output/verification/015/cr-m6-probes/cr26-ban/mutators/button-autofocus-effect-empty.py
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cafa65b-95fb-4fa3-ab48-02bd3363438f/scratchpad/website-2618926-cr37-button-autofocus-effect-empty
+
+
+ Test Files  2 passed (2)
+      Tests  25 passed (25)
+   Start at  10:31:39
+   Duration  1.69s (transform 260ms, setup 39ms, import 1.26s, tests 315ms, environment 1.18s)
+
+vitest exit 0
+readback Button: 1; editor: 0

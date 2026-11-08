@@ -1,0 +1,13 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks/9cafa65b-95fb-4fa3-ab48-02bd3363438f/scratchpad/website-2618926-cr37-control  sha: 2618926  label: cr37-control  test: src/components/__tests__/Button.auto-focus.test.tsx src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx  mutator: none
+ .../da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json => dev/null}   | 1 -
+ 1 file changed, 1 deletion(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cafa65b-95fb-4fa3-ab48-02bd3363438f/scratchpad/website-2618926-cr37-control
+
+
+ Test Files  2 passed (2)
+      Tests  25 passed (25)
+   Start at  10:31:36
+   Duration  1.67s (transform 258ms, setup 37ms, import 1.23s, tests 310ms, environment 1.16s)
+
+vitest exit 0
