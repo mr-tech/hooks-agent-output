@@ -1,0 +1,9 @@
+sha 6c613a516bcb466ea9310a8ec9d934e1fdd0d0a2 mutant none; .env in export: 0
+probe-body-class.cjs blob 858a32ec97f2521b40ea4d13adb507f10c9e355b
+obs-preload.cjs blob aa5f036413c9475995a1f89c5ccc99d1fe7599c6
+npm ci exit 0
+tsc exit 0
+CELL FAIL control: an object body with an id attempts S3 (observer live) -- {"ready":true,"st":404,"conns":0,"after":404,"exited":null}
+OBSERVER NOT LIVE, no refused cell read
+SUMMARY 0/1 pass
+probe exit 3

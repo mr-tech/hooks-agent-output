@@ -29,7 +29,7 @@ function start() {
   o.exited = new Promise((resolve) => child.on('exit', (code, sig) => { o.exit = { code, sig }; resolve(o.exit); }));
   return o;
 }
-function request(p, { method = 'POST', path: u = '/generate', auth = 'probe-key', body = '' } = {}) {
+function request(p, { method = 'POST', path: u = '/generate', auth = 'Bearer probe-key', body = '' } = {}) {
   return new Promise((resolve) => {
     const req = http.request({ host: '127.0.0.1', port: p, method, path: u, headers: auth ? { authorization: auth } : {} }, (res) => { res.resume(); res.on('end', () => resolve(res.statusCode)); });
     req.on('error', (e) => resolve(`error:${e.code}`));
