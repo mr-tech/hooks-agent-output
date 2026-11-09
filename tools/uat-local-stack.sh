@@ -140,10 +140,12 @@ table_count() {
 
 undo() {
   if [ "$CREATED" = 1 ]; then
-    if inspect && [ "$LABELLED" = 1 ]; then
-      "$DOCKER" rm -f "$NAME" >/dev/null 2>&1 && echo "removed the container this call created"
-    else
-      echo "container $NAME not removed: it no longer carries the tool's label"
+    if inspect; then
+      if [ "$LABELLED" = 1 ]; then
+        "$DOCKER" rm -f "$NAME" >/dev/null 2>&1 && echo "removed the container this call created"
+      else
+        echo "container $NAME not removed: it no longer carries the tool's label"
+      fi
     fi
   elif [ "$STARTED" = 1 ]; then
     if inspect && [ "$LABELLED" = 1 ]; then
@@ -184,10 +186,10 @@ cmd_up() {
     esac
   else
     if listening; then die "$HOSTPORT is held by another listener, not this tool's container; nothing was changed"; fi
+    CREATED=1
     POSTGRES_PASSWORD=$DB_PASS POSTGRES_USER=$DB_USER POSTGRES_DB=$DB_NAME "$DOCKER" run -d --name "$NAME" \
       --label "$LABEL_KEY=$LABEL_VAL" -e POSTGRES_PASSWORD -e POSTGRES_USER -e POSTGRES_DB \
       -p "$HOSTPORT:5432" "$IMAGE" >/dev/null 2>&1 || fail "docker run failed"
-    CREATED=1
   fi
 
   local i=0

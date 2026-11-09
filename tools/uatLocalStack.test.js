@@ -5,7 +5,7 @@ const fs = require('node:fs');
 const net = require('node:net');
 const os = require('node:os');
 const path = require('node:path');
-const { describe, it, before, after } = require('node:test');
+const { describe, it, before, after, afterEach } = require('node:test');
 const { execFileSync, spawn, spawnSync } = require('node:child_process');
 
 const SCRIPT = path.join(__dirname, 'uat-local-stack.sh');
@@ -44,6 +44,7 @@ case "$cmd" in
     printf '%s' "$lbl" > "$S/label"
     printf '%s\\n' "\${pub%:*}" | sed 's/$//' > "$S/published"
     [ -n "\${STUB_RELABEL_AFTER_RUN:-}" ] && printf 'someone-else=1' > "$S/label"
+    [ -n "\${STUB_RUN_CREATES_THEN_FAILS:-}" ] && { echo "docker: start failed" >&2; exit 1; }
     echo "stubcontainerid"
     ;;
   start)
@@ -83,6 +84,11 @@ echo "Datasource db at $DATABASE_URL"
 exit "\${STUB_PRISMA_EXIT:-0}"
 `;
 
+const POISON = `#!/bin/sh
+printf '%s %s\\n' "$0" "$*" >> "$POISON_MARK"
+exit 97
+`;
+
 const free = () => new Promise((resolve) => {
   const s = net.createServer();
   s.listen(0, '127.0.0.1', () => { const { port } = s.address(); s.close(() => resolve(port)); });
@@ -93,6 +99,8 @@ describe('uat-local-stack.sh', () => {
   let bin;
   let port;
   let outputs;
+  let poison;
+  const marker = () => path.join(root, 'poison.marker');
   const sh = (p, body) => { fs.writeFileSync(p, body, { mode: 0o755 }); };
   const url = (host = '127.0.0.1', p = port, pw = PASSWORD_ENCODED) => `postgresql://hooksuser:${pw}@${host}:${p}/railway?schema=public`;
   const envFile = (databaseUrl) => path.join(root, 'website', '.env.local') && (() => {
@@ -116,7 +124,8 @@ describe('uat-local-stack.sh', () => {
       cwd: path.join(root, 'website'),
       encoding: 'utf8',
       env: {
-        PATH: '/usr/bin:/bin',
+        PATH: `${poison}:/usr/bin:/bin`,
+        POISON_MARK: marker(),
         ULS_DOCKER: path.join(bin, 'docker'),
         HOME: root,
         TMPDIR: path.join(root, 'tmp'),
@@ -177,10 +186,17 @@ describe('uat-local-stack.sh', () => {
   before(async () => {
     root = setup(os.tmpdir());
     bin = path.join(root, 'bin');
+    poison = fs.mkdtempSync('/tmp/uls-poison-');
+    sh(path.join(poison, 'docker'), POISON);
+    sh(path.join(poison, 'prisma'), POISON);
     outputs = [];
   });
 
-  after(() => { fs.rmSync(root, { recursive: true, force: true }); });
+  afterEach(() => {
+    assert.strictEqual(fs.existsSync(marker()), false, 'a bare docker or prisma was run: the host binary would have been reached');
+  });
+
+  after(() => { fs.rmSync(root, { recursive: true, force: true }); fs.rmSync(poison, { recursive: true, force: true }); });
 
   const fresh = async (databaseUrl) => {
     port = await free();
@@ -631,6 +647,31 @@ describe('uat-local-stack.sh', () => {
       assert.strictEqual(r.status, 0);
       assert.match(r.stdout, /no container named hooks-postgres-local/);
       assert.deepStrictEqual(mutating(), []);
+    });
+  });
+
+  describe('AC-9.5 / CR-6, CR-7', () => {
+    it('a docker run that creates the container and then fails leaves none behind and says so', async () => {
+      await fresh();
+      const r = run(['up'], { STUB_RUN_CREATES_THEN_FAILS: '1' });
+      assert.strictEqual(r.status, 1);
+      assert.strictEqual(fs.existsSync(path.join(root, 'state', 'exists')), false, 'the stub still lists the container');
+      assert.match(r.out, /removed the container this call created/);
+    });
+
+    it('a docker run that fails before creating anything reports no removal and removes nothing', async () => {
+      await fresh();
+      const r = run(['up'], { STUB_RUN_FAILS: '1' });
+      assert.strictEqual(r.status, 1);
+      assert.doesNotMatch(r.out, /removed the container|not removed/);
+      assert.deepStrictEqual(mutating().filter((v) => v === 'rm'), []);
+    });
+
+    it('the poison docker on the children\'s PATH fires when the override is ignored, so the guard is observed to work', async () => {
+      await fresh();
+      run(['status'], { ULS_DOCKER: '' });
+      assert.strictEqual(fs.existsSync(marker()), true, 'a bare docker did not reach the poison stub');
+      fs.rmSync(marker());
     });
   });
 
