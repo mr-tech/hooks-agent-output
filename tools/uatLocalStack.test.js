@@ -116,7 +116,8 @@ describe('uat-local-stack.sh', () => {
       cwd: path.join(root, 'website'),
       encoding: 'utf8',
       env: {
-        PATH: `${bin}:/usr/bin:/bin`,
+        PATH: '/usr/bin:/bin',
+        ULS_DOCKER: path.join(bin, 'docker'),
         HOME: root,
         TMPDIR: path.join(root, 'tmp'),
         STUB_STATE: path.join(root, 'state'),
@@ -157,20 +158,25 @@ describe('uat-local-stack.sh', () => {
   const dockerVerbs = () => docker().map((l) => l.split(' ')[0]);
   const mutating = () => dockerVerbs().filter((v) => ['run', 'start', 'stop', 'rm'].includes(v));
 
-  before(async () => {
-    root = fs.mkdtempSync(path.join(os.tmpdir(), 'uls-'));
-    bin = path.join(root, 'bin');
-    for (const d of ['bin', 'state', 'tmp', 'website', path.join('project-utils', 'prisma'), 'record']) fs.mkdirSync(path.join(root, d), { recursive: true });
+  const setup = (parent) => {
+    const made = fs.mkdtempSync(path.join(parent, 'uls-'));
+    for (const d of ['bin', 'state', 'tmp', 'website', path.join('project-utils', 'prisma'), 'record']) fs.mkdirSync(path.join(made, d), { recursive: true });
     for (const d of ['website', 'project-utils', 'record']) {
-      execFileSync('git', ['init', '-q'], { cwd: path.join(root, d) });
-      fs.writeFileSync(path.join(root, d, 'README'), 'fixture\n');
-      execFileSync('git', ['-c', 'user.name=f', '-c', 'user.email=f@example.invalid', 'add', '-A'], { cwd: path.join(root, d) });
-      execFileSync('git', ['-c', 'user.name=f', '-c', 'user.email=f@example.invalid', 'commit', '-q', '-m', 'fixture'], { cwd: path.join(root, d) });
+      execFileSync('git', ['init', '-q'], { cwd: path.join(made, d) });
+      fs.writeFileSync(path.join(made, d, 'README'), 'fixture\n');
+      execFileSync('git', ['-c', 'user.name=f', '-c', 'user.email=f@example.invalid', 'add', '-A'], { cwd: path.join(made, d) });
+      execFileSync('git', ['-c', 'user.name=f', '-c', 'user.email=f@example.invalid', 'commit', '-q', '-m', 'fixture'], { cwd: path.join(made, d) });
     }
-    fs.writeFileSync(path.join(root, 'project-utils', 'prisma', 'schema.prisma'), 'datasource db { provider = "postgresql" url = env("DATABASE_URL") }\n');
-    fs.writeFileSync(path.join(root, 'seed.sql'), "insert into \"Users\" values ('synthetic');\n");
-    sh(path.join(bin, 'docker'), DOCKER_STUB.replace('echo "$NAME_ARG"', `echo ${NAME}`));
-    sh(path.join(bin, 'prisma'), PRISMA_STUB);
+    fs.writeFileSync(path.join(made, 'project-utils', 'prisma', 'schema.prisma'), 'datasource db { provider = "postgresql" url = env("DATABASE_URL") }\n');
+    fs.writeFileSync(path.join(made, 'seed.sql'), "insert into \"Users\" values ('synthetic');\n");
+    sh(path.join(made, 'bin', 'docker'), DOCKER_STUB.replace('echo "$NAME_ARG"', `echo ${NAME}`));
+    sh(path.join(made, 'bin', 'prisma'), PRISMA_STUB);
+    return made;
+  };
+
+  before(async () => {
+    root = setup(os.tmpdir());
+    bin = path.join(root, 'bin');
     outputs = [];
   });
 
@@ -651,6 +657,31 @@ describe('uat-local-stack.sh', () => {
       assert.strictEqual(count('postgresql://'), 0);
       assert.ok(docker().some((l) => l.startsWith('run ')) && prisma().length >= 1, 'the verbs ran');
       assert.match(all, /tables: 7/);
+    });
+  });
+
+  describe('AC-8.8 / D-16 stubs are found whatever the temp path holds', () => {
+    it('with the fixture under a folder named with a colon, every docker and prisma the verbs run is the fixture stub', async () => {
+      const parent = fs.mkdtempSync(path.join(os.tmpdir(), 'uls-colon-'));
+      const saved = { root, bin };
+      try {
+        const colon = path.join(parent, 'a:b');
+        fs.mkdirSync(colon);
+        root = setup(colon);
+        bin = path.join(root, 'bin');
+        assert.ok(root.includes(':'), 'positive control: the fixture path holds a colon');
+        await fresh();
+        const status = run(['status']);
+        const up = run(['up']);
+        assert.ok(docker().length > 0, 'the stub docker was called');
+        assert.strictEqual(status.status, 0, status.out);
+        assert.strictEqual(up.status, 0, up.out);
+        assert.ok(dockerVerbs().includes('inspect') && dockerVerbs().includes('run'), `stub docker saw ${dockerVerbs().join(',')}`);
+        assert.ok(prisma().some((l) => l.startsWith('db push')), 'the stub prisma was called');
+      } finally {
+        ({ root, bin } = saved);
+        fs.rmSync(parent, { recursive: true, force: true });
+      }
     });
   });
 });

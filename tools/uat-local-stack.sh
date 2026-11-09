@@ -21,6 +21,7 @@ LABEL_VAL=1
 IMAGE=postgres:16
 ENV_FILE=${ULS_ENV_FILE:-/usr/local/bin/hooks/website/.env.local}
 SCHEMA=${ULS_SCHEMA:-/usr/local/bin/hooks/project-utils/prisma/schema.prisma}
+DOCKER=${ULS_DOCKER:-docker}
 PRISMA=${ULS_PRISMA:-/usr/local/bin/hooks/website/node_modules/.bin/prisma}
 SEED_FILE=${ULS_SEED:-/usr/local/bin/hooks/agent-output/verification/015/upload-dialog/seed.sql}
 READY_TRIES=${ULS_READY_TRIES:-60}
@@ -116,13 +117,13 @@ LABELLED=0
 inspect() {
   local line
   STATE=""; LABELLED=0
-  line=$(docker inspect --type container --format "{{.State.Status}} {{index .Config.Labels \"$LABEL_KEY\"}}" "$NAME" 2>/dev/null) || return 1
+  line=$("$DOCKER" inspect --type container --format "{{.State.Status}} {{index .Config.Labels \"$LABEL_KEY\"}}" "$NAME" 2>/dev/null) || return 1
   STATE=${line%% *}
   [ "${line#* }" = "$LABEL_VAL" ] && LABELLED=1
   return 0
 }
 
-publishes() { docker port "$NAME" 5432/tcp 2>/dev/null | grep -Fxq -- "$HOSTPORT"; }
+publishes() { "$DOCKER" port "$NAME" 5432/tcp 2>/dev/null | grep -Fxq -- "$HOSTPORT"; }
 
 listening() {
   local h=${BIND#\[}
@@ -130,23 +131,23 @@ listening() {
   timeout 2 bash -c 'exec 3<>"/dev/tcp/$1/$2"' _ "$h" "$DB_PORT" 2>/dev/null
 }
 
-pg_ready() { docker exec "$NAME" pg_isready -h 127.0.0.1 -p 5432 -U "$DB_USER" -d "$DB_NAME" >/dev/null 2>&1; }
+pg_ready() { "$DOCKER" exec "$NAME" pg_isready -h 127.0.0.1 -p 5432 -U "$DB_USER" -d "$DB_NAME" >/dev/null 2>&1; }
 
 table_count() {
-  PGPASSWORD=$DB_PASS docker exec -e PGPASSWORD "$NAME" psql -U "$DB_USER" -d "$DB_NAME" -tAc \
+  PGPASSWORD=$DB_PASS "$DOCKER" exec -e PGPASSWORD "$NAME" psql -U "$DB_USER" -d "$DB_NAME" -tAc \
     "select count(*) from information_schema.tables where table_schema = 'public'" 2>/dev/null | tr -d '[:space:]'
 }
 
 undo() {
   if [ "$CREATED" = 1 ]; then
     if inspect && [ "$LABELLED" = 1 ]; then
-      docker rm -f "$NAME" >/dev/null 2>&1 && echo "removed the container this call created"
+      "$DOCKER" rm -f "$NAME" >/dev/null 2>&1 && echo "removed the container this call created"
     else
       echo "container $NAME not removed: it no longer carries the tool's label"
     fi
   elif [ "$STARTED" = 1 ]; then
     if inspect && [ "$LABELLED" = 1 ]; then
-      docker stop "$NAME" >/dev/null 2>&1 && echo "stopped the container this call started"
+      "$DOCKER" stop "$NAME" >/dev/null 2>&1 && echo "stopped the container this call started"
     else
       echo "container $NAME not stopped: it no longer carries the tool's label"
     fi
@@ -176,14 +177,14 @@ cmd_up() {
         publishes || die "the tool's container is not publishing $HOSTPORT; nothing was changed" ;;
       exited|created)
         if listening; then die "$HOSTPORT is held by another listener, not this tool's container; nothing was changed"; fi
-        docker start "$NAME" >/dev/null 2>&1 || fail "docker start failed"
+        "$DOCKER" start "$NAME" >/dev/null 2>&1 || fail "docker start failed"
         STARTED=1
         publishes || fail "the started container is not publishing $HOSTPORT" ;;
       *) die "the tool's container is in state $STATE; nothing was changed" ;;
     esac
   else
     if listening; then die "$HOSTPORT is held by another listener, not this tool's container; nothing was changed"; fi
-    POSTGRES_PASSWORD=$DB_PASS POSTGRES_USER=$DB_USER POSTGRES_DB=$DB_NAME docker run -d --name "$NAME" \
+    POSTGRES_PASSWORD=$DB_PASS POSTGRES_USER=$DB_USER POSTGRES_DB=$DB_NAME "$DOCKER" run -d --name "$NAME" \
       --label "$LABEL_KEY=$LABEL_VAL" -e POSTGRES_PASSWORD -e POSTGRES_USER -e POSTGRES_DB \
       -p "$HOSTPORT:5432" "$IMAGE" >/dev/null 2>&1 || fail "docker run failed"
     CREATED=1
@@ -203,7 +204,7 @@ cmd_up() {
   echo "schema push: ok"
 
   if [ "$SEED" = 1 ]; then
-    PGPASSWORD=$DB_PASS docker exec -i -e PGPASSWORD "$NAME" psql -v ON_ERROR_STOP=1 -U "$DB_USER" -d "$DB_NAME" <"$SEED_FILE" >/dev/null 2>&1 \
+    PGPASSWORD=$DB_PASS "$DOCKER" exec -i -e PGPASSWORD "$NAME" psql -v ON_ERROR_STOP=1 -U "$DB_USER" -d "$DB_NAME" <"$SEED_FILE" >/dev/null 2>&1 \
       || fail "seed failed"
     echo "seed: applied"
   fi
@@ -266,7 +267,7 @@ cmd_status() {
 cmd_down() {
   if ! inspect; then echo "down: no container named $NAME"; return; fi
   [ "$LABELLED" = 1 ] || die "a container named $NAME exists and is not this tool's (no label); not removed"
-  docker rm -f "$NAME" >/dev/null 2>&1 || fail "docker rm failed"
+  "$DOCKER" rm -f "$NAME" >/dev/null 2>&1 || fail "docker rm failed"
   echo "down: removed $NAME (the image stays)"
 }
 
