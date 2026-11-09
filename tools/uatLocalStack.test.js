@@ -141,8 +141,15 @@ describe('uat-local-stack.sh', () => {
     await new Promise((resolve) => server.listen(p, '127.0.0.1', resolve));
     return server;
   };
-  const pongServer = (p) => new Promise((resolve, reject) => {
-    const code = `require('net').createServer((c) => c.on('data', (d) => { if (/PING/i.test(d.toString())) c.write('+PONG\\r\\n'); })).listen(${p}, '127.0.0.1', () => console.log('up'));`;
+  const pongServer = (p, mode = 'open') => new Promise((resolve, reject) => {
+    const code = `
+      const mode = ${JSON.stringify(mode)};
+      require('net').createServer((c) => { let authed = mode !== 'auth'; c.on('data', (d) => {
+        const t = d.toString();
+        if (mode === 'error') return c.write('-NOAUTH Authentication required.\\r\\n');
+        if (/^AUTH secret-redis/i.test(t)) { authed = true; c.write('+OK\\r\\n'); return; }
+        if (/PING/i.test(t)) c.write(authed ? '+PONG\\r\\n' : '-NOAUTH Authentication required.\\r\\n');
+      }); }).listen(${p}, '127.0.0.1', () => console.log('up'));`;
     const child = spawn(process.execPath, ['-e', code], { stdio: ['ignore', 'pipe', 'inherit'] });
     child.stdout.once('data', () => resolve(child));
     child.once('error', reject);
@@ -232,6 +239,24 @@ describe('uat-local-stack.sh', () => {
       assert.strictEqual(r.status, 2);
       assert.strictEqual((r.out.match(/junk-fragment-4417/g) || []).length, 0);
       assert.deepStrictEqual(docker(), []);
+    });
+
+    it('refuses a URL that is not a postgres URL, or has no user, password or database', async () => {
+      for (const bad of [`mysql://hooksuser:${PASSWORD_ENCODED}@127.0.0.1:3306/railway`, 'postgresql://hooksuser@127.0.0.1:1/railway', 'postgresql://:pw@127.0.0.1:1/railway', 'postgresql://hooksuser:pw@127.0.0.1:1/']) {
+        await fresh(bad);
+        const r = run(['status']);
+        assert.strictEqual(r.status, 2, bad.replace(/:[^:@/]*@/, ':…@'));
+        assert.deepStrictEqual(docker(), []);
+      }
+    });
+
+    it('takes the last DATABASE_URL line, with an export prefix and single quotes read off', async () => {
+      await fresh();
+      fs.writeFileSync(path.join(root, 'website', '.env.local'), [
+        `DATABASE_URL=${url('prod.db.example')}`, `export DATABASE_URL='${url('127.0.0.1', port)}'`, ''].join('\n'));
+      const r = run(['up']);
+      assert.strictEqual(r.status, 0, r.out);
+      assert.ok(docker().find((l) => l.startsWith('run ')).includes(`-p 127.0.0.1:${port}:5432`));
     });
 
     it('refuses a file with no DATABASE_URL line', async () => {
@@ -489,7 +514,7 @@ describe('uat-local-stack.sh', () => {
         assert.match(l[2], new RegExp(`^ready: yes \\(pg_isready in the container, 127\\.0\\.0\\.1:${port}\\)$`));
         assert.match(l[3], /^tables: 7$/);
         assert.match(l[4], /^redis: 127\.0\.0\.1:\d+ answered PING$/);
-        assert.ok(docker().some((x) => /^exec .*pg_isready/.test(x)));
+        assert.ok(docker().some((x) => /^exec hooks-postgres-local pg_isready -h 127\.0\.0\.1 -p 5432 -U hooksuser -d railway$/.test(x)), docker().join('\n'));
         assert.deepStrictEqual(mutating(), []);
         assert.deepStrictEqual(prisma(), []);
       } finally { redis.kill(); pg.close(); }
@@ -532,6 +557,37 @@ describe('uat-local-stack.sh', () => {
         const l = lines(run(['status']));
         assert.match(l[1], new RegExp(`^listener: 127\\.0\\.0\\.1:${port} held by another listener$`));
       } finally { server.close(); }
+    });
+
+    it('a redis that needs AUTH is answered with REDISPASSWORD sent, not by a bare PING', async () => {
+      await fresh();
+      container('running');
+      fs.appendFileSync(path.join(root, 'website', '.env.local'), 'REDISPASSWORD=secret-redis\n');
+      const redis = await pongServer(port + 1, 'auth');
+      try {
+        assert.match(lines(run(['status']))[4], /^redis: 127\.0\.0\.1:\d+ answered PING$/);
+      } finally { redis.kill(); }
+    });
+
+    it('a redis that replies with an error is named as an error, not as no answer and not as ready', async () => {
+      await fresh();
+      const redis = await pongServer(port + 1, 'error');
+      try {
+        assert.match(lines(run(['status']))[4], /^redis: 127\.0\.0\.1:\d+ replied with an error to PING$/);
+      } finally { redis.kill(); }
+    });
+
+    it('a REDISHOST that is not loopback is not contacted and is named', async () => {
+      await fresh();
+      fs.appendFileSync(path.join(root, 'website', '.env.local'), 'REDISHOST=10.9.9.9\nREDISPASSWORD=secret-redis\n');
+      const r = run(['status']);
+      assert.match(lines(r)[4], /^redis: 10\.9\.9\.9:\d+ not checked \(REDISHOST is not loopback\)$/);
+    });
+
+    it('missing REDISHOST or REDISPORT is named, not reported ready', async () => {
+      await fresh();
+      fs.writeFileSync(path.join(root, 'website', '.env.local'), `DATABASE_URL="${url('127.0.0.1', port)}"\n`);
+      assert.match(lines(run(['status']))[4], /^redis: not configured/);
     });
 
     it('a redis that does not answer is named, not reported ready', async () => {
