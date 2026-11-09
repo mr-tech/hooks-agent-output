@@ -4,6 +4,10 @@ Status: Open
 Status-Detail: "Five host-posture findings on the preview-image-generator production host (H-001 to M-002 of security/015-preview-image-generator-security-audit.md), accepted by the owner as recorded on 2026-11-08 (rulings 09:43Z: no effort, no mitigation). This record carries them past chain 015's closure; nothing is owed until the trigger fires."
 Owning-Stage: Unassigned — the owner routes it when the trigger fires: a planner (a security follow-up effort) or a fixer for the code-side items (puppeteer bump, `pipe: true`, `deploy.sh` file modes, action pins); the owner for the host-side items (non-root user and PM2 daemon, firewall, Node interpreter), which no agent can perform
 Review-Trigger: When puppeteer or generic-pool is next bumped in preview-image-generator; when the generator host is next rebuilt, re-provisioned or its Node interpreter changed; when `.github/deploy.sh` or either generator workflow file is next edited; when a vulnerability in Chrome 116.0.5845.96 or Node 18.17.1 is reported as exploited against the product; or when the premise of the acceptance moves — the audience or data Hooks handles changes (architecture `preview-image-generator.md` P-4's scope clause) — whichever comes first
+Secret-Files:
+  - "hooks-pig:/usr/local/bin/hooks-image-preview-generator/deployed/prod/.env"
+  - "hooks-pig:/etc/.pm2/dump.pm2"
+  - "hooks-pig:/etc/.pm2/dump.pm2.bak"
 ---
 
 # Handoff — preview-image-generator production host: security posture accepted as recorded
@@ -65,3 +69,4 @@ Raised by security-hooks-015 in `security/015-preview-image-generator-security-a
 |---|---|---|
 | 2026-11-08T09:44 | security-hooks-015 | Created on the owner's selection (rulings 09:43Z); carries H-001 to M-002 and L-001, L-002 past chain 015's closure |
 | 2026-11-08T22:20 | security-hooks-015 | Evidence: post-deploy read dates the posture past prod `8de2b53` (unchanged). The raising document is closed Review Complete at `security/closed/015-preview-image-generator-security-audit.md`; this record is the findings' carrier from here. |
+| 2026-11-09T08:43 | implementer-PI006 | Added the `Secret-Files:` frontmatter field (PI006 AC-8.0, D-8) with three remote entries on host `hooks-pig` (the ssh alias the handoff uses): `/usr/local/bin/hooks-image-preview-generator/deployed/prod/.env`, `/etc/.pm2/dump.pm2` and `/etc/.pm2/dump.pm2.bak`. No other field or text changed. |

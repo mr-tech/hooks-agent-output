@@ -4,6 +4,9 @@ Status: Open
 Status-Detail: "preview-image-generator's two deploy workflows carry the /generate API key as a literal, not a GitHub secret. Out of chain 015 by the owner's selection; nothing is changed. This record carries no key value."
 Owning-Stage: Unassigned — the owner routes it (fixer or implementer for the workflow change; the owner for rotation, which no agent can perform)
 Review-Trigger: When either preview-image-generator workflow file is next edited, when the generator's API key is rotated, or when the repository's visibility is changed or reviewed — whichever comes first.
+Secret-Files:
+  - "/usr/local/bin/hooks/preview-image-generator/.github/workflows/prod.yml"
+  - "/usr/local/bin/hooks/preview-image-generator/.github/workflows/preview.yml"
 ---
 
 # Handoff — preview-image-generator API key held as a literal in its workflow files
@@ -45,3 +48,4 @@ owner chose "Agent: handoff, out of chain" at 2026-11-08T04:49Z; the record is
 |---|---|---|
 | 2026-11-08T04:50 | planner (planner-hooks-015) | Created on the owner's selection; no value recorded |
 | 2026-11-08T22:35 | steering (steering-hooks-015) | The retrospective (08848b8) found the key printed into at least two agent session transcripts on this machine: a critic cycle 1 read and devops at release. Both are disclosed in their records. The owner's ruling, by selection: "Agent: record, no rotation" (rulings 015, block 2026-11-08T22:35). The key stays as is; the triggers are unchanged. No value recorded. |
+| 2026-11-09T08:43 | implementer-PI006 | Added the `Secret-Files:` frontmatter field (PI006 AC-8.0, D-8) with two local entries, the workflow files that carry the API key as a literal: `/usr/local/bin/hooks/preview-image-generator/.github/workflows/prod.yml` and `preview.yml`. No other field or text changed. |
