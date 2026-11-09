@@ -2,8 +2,8 @@
 ID: 015
 Origin: 015
 UUID: 861e5f61
-Status: Active
-Status-Detail: "Written after chain 015's closure (rulings block 22:24Z). Awaits pi, which runs on the owner's word only. Nothing is owed by this document in the meantime."
+Status: Processed
+Status-Detail: "Processed by pi batch 31 (pi-batch): R1–R5, R9 and R12 are drafted as C10–C14 and C18, R6 as C21, R7, R10 and R11–R14 are decisions D4, D7 and D8, R9's hook D6, R12's CLAUDE.md wording D10, and R8 is routed to the record inbox for the architect in `/usr/local/bin/statbot/agent-output/process-improvement/batch31-pi-batch-process-improvement-analysis.md`. Landing is on the owner's selections there."
 ---
 
 # Retrospective 015: Bug-evaluation fixes
@@ -16,6 +16,7 @@ Status-Detail: "Written after chain 015's closure (rulings block 22:24Z). Awaits
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-08T22:32 | steering-hooks-015 | Retrospective after chain closure (critique `85ae3e7`, analyses `ea9a824`, architecture findings `dfd42a6`, security audit `65f8322`) | First write. Covers the corpus, value, timeline, the steering error record, the cost readout and 14 recommendations, each naming the file it would change. No handoff minted. |
+| 2026-11-09T02:53 | pi-batch (pi batch 31) | Document closed | Status: Processed. Recommendations dispositioned in `/usr/local/bin/statbot/agent-output/process-improvement/batch31-pi-batch-process-improvement-analysis.md` |
 
 ## Summary
 
