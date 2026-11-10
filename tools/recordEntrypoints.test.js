@@ -114,11 +114,28 @@ describe('record entrypoints load the shared engine', () => {
     assert.doesNotMatch(basenames, /verification\//);
   });
 
-  it('check-repo.js passes the committed record with its baseline and no stale baseline entry', () => {
+  it('check-repo.js passes the committed record with its baseline, no stale baseline entry and the document rules armed', () => {
     const r = run('check-repo.js', [], {});
     assert.strictEqual(r.status, 0, r.stdout);
     assert.match(r.stdout, /PASS — no new failures \(\d+ baselined\)\./);
     assert.doesNotMatch(r.stdout, /BASELINE — /);
+    assert.match(r.stdout, /^ {2}origin-uuid: \d+ Origin group\(s\) with an open document read$/m);
+    assert.match(r.stdout, /^ {2}duplicate-id: \d+ Rev or D table\(s\) read in \d+ open document\(s\)$/m);
+    assert.match(r.stdout, /^ {2}handoff-priority: \d+ handoff\(s\) carrying a Priority field checked$/m);
+    assert.doesNotMatch(r.stdout, /not armed/);
+  });
+
+  it('check-repo.js raises no frontmatter failure for a release tip record whose ID is none', () => {
+    const planted = path.join(work, 'qa', 'closed', 'release-0000000-tip-verification.md');
+    fs.writeFileSync(planted, ['---', 'ID: none', 'UUID: 0a1b2c3d', 'Status: Released', '---', '', '# Release tip', ''].join('\n'));
+    try {
+      const r = run('check-repo.js', ['--full'], {});
+      const out = `${r.stdout}${r.stderr}`;
+      assert.match(out, /^ {2}frontmatter: \d+ documents carry frontmatter/m);
+      assert.doesNotMatch(out, /release-0000000-tip-verification\.md: ID/);
+    } finally {
+      fs.rmSync(planted, { force: true });
+    }
   });
 
   it('every baseline entry names only documents of chains before 012 or one of the four closed documents without a stage suffix', () => {
