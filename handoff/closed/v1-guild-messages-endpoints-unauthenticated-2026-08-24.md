@@ -1,12 +1,7 @@
 ---
 UUID: 8818bd89
-Status: Open
-Status-Detail: >-
-  A live, long-standing authorization gap in `website`: the two v1 guild-messages API endpoints have
-  no authorization at all, and the middleware that is supposed to guard them cannot fire. Found by
-  `code-reviewer-hooks-013-2` during chain 013's adversarial-execution round, in a file chain 013
-  never touched. The owner ruled this a handoff rather than a chain or an immediate fix, so nothing
-  is built and no chain is minted. The exposure is UNCHANGED as of this writing.
+Status: Addressed
+Status-Detail: "Addressed: both v1 guild-messages handlers require the Statbot key since website 1acffee, live since 2026-10-10 (unauthenticated request: 401, 0 bytes). The open questions are answered in steering/v1-guild-messages-auth-rulings.md, block 2026-11-10: the owner rules the key is not treated as compromised; of the other matchers, /message and /preview are live and /api/guilds is a dead pattern that guards nothing. The remaining post-deploy check (Statbot's own calls) rides handoff/fix-v1-guild-messages-auth-post-deploy-2026-10-10.md."
 Owning-Stage: >-
   Unassigned. The next step is implementation plus one piece of establishment, in that order of
   weight: the fix is known in shape, but whether the endpoints are reachable in the DEPLOYED
@@ -125,3 +120,9 @@ this document — they share only the general shape "the server trusts its calle
 - `website` `8f28066` — unrelated to this defect, but cited here as a caution for anyone editing
   `tsconfig.json` while in the same area: the `**/__tests__` exclusion exists to fix the Vercel
   build, and removing it breaks the deploy.
+
+## Changelog
+
+| Date | Author | Change |
+|---|---|---|
+| 2026-11-10T09:44 | steering-cleanup-hooks | Closed `Addressed`. The defect was fixed by the fixer chain `fix-v1-guild-messages-auth` (website `1acffee`, released at `ddbd750`, B-3 PASS 2026-10-10T16:52Z). This document's three open questions: deployed reachability is settled by that fix and probe; the dead-matcher audit was read by steering at website `master` `b96e364` (only `/api/guilds/(.*)` is dead, and the middleware holds no authorization today); the owner answered "No" to treating the Statbot key as compromised. `Status-Detail` replaced; body unchanged. |

@@ -126,3 +126,23 @@ Steering ran `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website 
 unchanged: exit 0, "OK moved master: f2c85f5… -> ddbd750… on origin; tree on master", no workflows. ls-remote confirms origin
 master = ddbd750. The owner, asked via OWNER-QUEUE whether Vercel's Production deployment for ddbd750 was Ready: "Yes, it's live"
 (his words). B-3 is cleared to run under the B-3 waiver.
+
+## 2026-11-10T09:44Z — the v1 handoff's two leftover questions: his answers, and steering's read
+Put in `OWNER-QUEUE.md` (project cleanup 2026-11-10) and explained to him in the steering session.
+His words, verbatim, to steering-cleanup-hooks:
+- "Are the middleware's other matchers also dead?" — "I don't know."
+- "Should the Statbot key be treated as compromised" — "No."
+
+Steering's read for the first, at website `master` `b96e364` (`git show master:src/middleware.ts`,
+`git ls-tree -r master -- src/app src/pages`; read from code, not run):
+- `/message/(.*)` and `/preview` are live: `src/app/message/…` and `src/app/preview/page.tsx` exist.
+- `/api/guilds/(.*)` is dead: no route lives under `/api/guilds`; the guild routes are
+  `src/pages/api/v1/guilds/[guildId]/messages.ts` and `…/messages/[id].ts`, which that pattern does
+  not match. `git grep "api/guilds" master -- src` finds the pattern only in the matcher itself.
+- It guards nothing either way: the middleware today contains no authorization. It only copies the
+  pathname and query string into the `x-pathname` and `x-query-params` headers, read by
+  `src/app/_components/Providers.tsx` and `src/app/_navigation/Redirects/Server.tsx`. The v1 handlers
+  check the key themselves since website `1acffee`.
+With the defect fixed and live (B-3 PASS 2026-10-10) and both questions answered, the handoff
+`handoff/v1-guild-messages-endpoints-unauthenticated-2026-08-24.md` is closed `Addressed` by this
+thread. The dead matcher entry is lodged in `TODO.md` as a one-line tidy.
