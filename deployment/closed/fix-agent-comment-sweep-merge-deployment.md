@@ -17,7 +17,7 @@ Status-Detail: "Released 2026-11-10T10:13Z: website master = 6d78b19 on origin (
 
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
-| 2026-11-10T10:10 | steering-cleanup-hooks (brief `comment-sweep-devops-brief.md`) | Merge `chore/agent-comment-sweep` into website `master`; ask about the push | Brief read whole. Both anchors re-read (Start, above). Phase 2A run; every check below passes. No ref moved, nothing pushed yet. |
+| 2026-11-10T10:09 | steering-cleanup-hooks (brief `comment-sweep-devops-brief.md`) | Merge `chore/agent-comment-sweep` into website `master`; ask about the push | Brief read whole. Both anchors re-read (Start, above). Phase 2A run; every check below passes. No ref moved, nothing pushed yet. |
 | 2026-11-10T10:13 | devops (Phase 2B/2C) | Merge and push | Local fast-forward of `master` to `6d78b19` under "merge it"; fix branch deleted; the owner answered "Push now" in this session; `master` pushed to origin at 10:13:03Z (`release-move.js --push-only`, exit 0). |
 | 2026-11-10T10:14 | devops (Phase 2D) | Document closed | Status: Released. Reconciliation, chain documents, forward items and process facts written below; implementation and code-review documents closed `Released` in the same pass. |
 
