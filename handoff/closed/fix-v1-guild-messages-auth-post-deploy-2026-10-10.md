@@ -1,7 +1,7 @@
 ---
 UUID: 7be7102d
-Status: Open
-Status-Detail: "Carries the post-deploy rows for the website v1 guild-messages auth fix, deployed at ddbd750. B-3 PASS (401, 16:52Z). B-4 (Statbot's own calls still succeed) is open, awaiting the owner's dashboard check."
+Status: Addressed
+Status-Detail: "Both rows terminal. B-3 PASS (401, 2026-10-10T16:52Z). B-4 PASS: the owner observed the statrole editor loading hooks.gg messages (2026-11-10, rulings 633ab08). The 24-hour Vercel-log fallback lapsed unread on 2026-10-11 and is superseded by that observation, not owed."
 Owning-Stage: devops (Stage 2 post-release, for B-3 and B-4's fallback); the owner is B-4's observing subject
 Review-Trigger: when Vercel reports the production deployment of the website master push carrying ddbd750 as live
 ---
@@ -53,3 +53,4 @@ devops Stage 1, step 8, chain `fix-v1-guild-messages-auth`. The raising document
 |---|---|---|
 | 2026-10-10T15:47 | devops (Stage 1) | Created at the Stage 1 commit, carrying B-3 and B-4 from the chain register in full. |
 | 2026-10-10T16:52 | devops (Stage 2) | The trigger fired: master = ddbd750 on origin, and the owner said "Yes, it's live". **B-3 EXECUTED, PASS**: 401, 0 B, 16:52:28Z (`deployment/fix-v1-guild-messages-auth-deployment.md`). B-4 is open with the owner (OWNER-QUEUE). |
+| 2026-11-10T09:47 | devops (Phase 2D) | **B-4 EXECUTED, PASS.** The owner's words, to `steering-cleanup-hooks`: "the statrole editor still loads hooks.gg messages" (rulings 633ab08). That is the row's primary instrument and its pass condition (the hooks.gg message list populates). **The fallback** (Vercel request-log count, 24 h after the deploy) lapsed unread on 2026-10-11. It is **SUPERSEDED** by the direct observation: it was an alternative instrument for the same row, so no read is owed and no count exists. Not covered by this row, accepted as a named risk in the deployment record's "B-4 execution record": statroles and unread statbot hosts. Both rows are in the deployment record's Post-Release Status. Document closed, Status: Addressed. |
