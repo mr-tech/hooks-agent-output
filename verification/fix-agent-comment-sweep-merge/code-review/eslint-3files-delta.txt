@@ -1,0 +1,3 @@
+19,20d18
+< no-multi-spaces|Multiple spaces found before '// the message...'.
+< no-multi-spaces|Multiple spaces found before '// <- the user...'.

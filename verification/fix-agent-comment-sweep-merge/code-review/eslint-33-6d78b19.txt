@@ -1,0 +1,214 @@
+src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx|import/first|2|Import in body of module; reorder to top.
+src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx|import/order|2|`../NewMessageJsonInput` import should occur before import of `~/components/__tests__/helpers/dom`
+src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx|import/order|2|There should be no empty line within import group
+src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx|object-curly-newline|2|Expected a line break after this opening brace.
+src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx|object-curly-newline|2|Expected a line break before this closing brace.
+src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx|@typescript-eslint/no-non-null-assertion|1|Forbidden non-null assertion.
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.choice-rewrites-editor.test.tsx|import/first|2|Import in body of module; reorder to top.
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.choice-rewrites-editor.test.tsx|import/order|2|`../JsonModalBody` import should occur before import of `~/components/__tests__/helpers/dom`
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.choice-rewrites-editor.test.tsx|import/order|2|There should be no empty line within import group
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.choice-rewrites-editor.test.tsx|@typescript-eslint/no-base-to-string|2|'view.state.doc' will evaluate to '[object Object]' when stringified.
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.choice-rewrites-editor.test.tsx|@typescript-eslint/no-non-null-assertion|1|Forbidden non-null assertion.
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.choice-rewrites-editor.test.tsx|@typescript-eslint/no-non-null-assertion|1|Forbidden non-null assertion.
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx|import/first|2|Import in body of module; reorder to top.
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx|import/order|2|`../JsonModalBody` import should occur before import of `~/components/__tests__/helpers/dom`
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx|import/order|2|There should be no empty line within import group
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx|@typescript-eslint/no-non-null-assertion|1|Forbidden non-null assertion.
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx|import/first|2|Import in body of module; reorder to top.
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx|import/order|2|`../JsonModalBody` import should occur before import of `~/components/__tests__/helpers/dom`
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx|import/order|2|There should be no empty line within import group
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx|object-curly-newline|2|Expected a line break after this opening brace.
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx|object-curly-newline|2|Expected a line break before this closing brace.
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx|@typescript-eslint/no-non-null-assertion|1|Forbidden non-null assertion.
+src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx|import/first|2|Import in body of module; reorder to top.
+src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx|import/order|2|There should be no empty line within import group
+src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx|react/function-component-definition|2|Function component is not an arrow function
+src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx|@typescript-eslint/no-non-null-assertion|1|Forbidden non-null assertion.
+src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx|@typescript-eslint/no-non-null-assertion|1|Forbidden non-null assertion.
+src/scripts/__tests__/backfillValid.classify.test.ts|import/first|2|Import in body of module; reorder to top.
+src/scripts/__tests__/backfillValid.classify.test.ts|import/first|2|Import in body of module; reorder to top.
+src/scripts/__tests__/backfillValid.classify.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/scripts/__tests__/backfillValid.classify.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/scripts/__tests__/backfillValid.evaluation-failure-category.test.ts|import/first|2|Import in body of module; reorder to top.
+src/scripts/__tests__/backfillValid.evaluation-failure-category.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/scripts/__tests__/backfillValid.evaluation-failure-category.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/scripts/__tests__/backfillValid.report-and-target-guards.test.ts|import/first|2|Import in body of module; reorder to top.
+src/scripts/__tests__/backfillValid.report-and-target-guards.test.ts|import/first|2|Import in body of module; reorder to top.
+src/scripts/__tests__/backfillValid.report-and-target-guards.test.ts|import/first|2|Import in body of module; reorder to top.
+src/scripts/__tests__/backfillValid.report-and-target-guards.test.ts|import/first|2|Import in body of module; reorder to top.
+src/scripts/__tests__/backfillValid.report-and-target-guards.test.ts|import/order|2|There should be no empty line within import group
+src/scripts/__tests__/backfillValid.report-and-target-guards.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/scripts/__tests__/backfillValid.report-and-target-guards.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/server/api/utils/__tests__/shared.upsert-valid.test.ts|import/first|2|Import in body of module; reorder to top.
+src/server/api/utils/__tests__/shared.upsert-valid.test.ts|import/first|2|Import in body of module; reorder to top.
+src/server/api/utils/__tests__/shared.upsert-valid.test.ts|import/first|2|Import in body of module; reorder to top.
+src/server/api/utils/__tests__/shared.upsert-valid.test.ts|import/order|2|There should be no empty line within import group
+src/server/api/utils/__tests__/shared.upsert-valid.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/server/api/utils/__tests__/shared.upsert-valid.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/server/api/utils/__tests__/shared.upsert-valid.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/server/api/utils/__tests__/shared.upsert-valid.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/server/api/utils/__tests__/shared.upsert-valid.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/server/api/utils/__tests__/shared.upsert-valid.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/server/api/utils/__tests__/shared.upsert-valid.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/server/api/utils/__tests__/shared.upsert-valid.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts|@typescript-eslint/member-delimiter-style|2|Expected a comma.
+src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts|@typescript-eslint/member-delimiter-style|2|Expected a comma.
+src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts|@typescript-eslint/member-delimiter-style|2|Expected a comma.
+src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts|@typescript-eslint/member-delimiter-style|2|Expected a comma.
+src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts|@typescript-eslint/no-unsafe-return|2|Unsafe return of an `any` typed value.
+src/utils/index.ts|import/no-cycle|2|Dependency cycle detected.
+src/utils/index.ts|no-nested-ternary|2|Do not nest ternary expressions.
+src/utils/__tests__/gateBeforePersist.thumbnail.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/gateBeforePersist.thumbnail.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/helpers/discord.ts|import/prefer-default-export|2|Prefer default export on a file with single export.
+src/utils/__tests__/helpers/messageData.ts|import/prefer-default-export|2|Prefer default export on a file with single export.
+src/utils/__tests__/limits.import-validation.test.ts|import/first|2|Import in body of module; reorder to top.
+src/utils/__tests__/limits.import-validation.test.ts|import/order|2|There should be no empty line within import group
+src/utils/__tests__/limits.import-validation.test.ts|@typescript-eslint/no-non-null-assertion|1|Forbidden non-null assertion.
+src/utils/__tests__/limits.import-validation.test.ts|@typescript-eslint/no-non-null-assertion|1|Forbidden non-null assertion.
+src/utils/__tests__/limits.import-validation.test.ts|@typescript-eslint/no-non-null-assertion|1|Forbidden non-null assertion.
+src/utils/__tests__/limits.import-validation.test.ts|@typescript-eslint/no-non-null-assertion|1|Forbidden non-null assertion.
+src/utils/__tests__/limits.import-validation.test.ts|@typescript-eslint/no-non-null-assertion|1|Forbidden non-null assertion.
+src/utils/__tests__/limits.send-gate-partition.test.ts|import/first|2|Import in body of module; reorder to top.
+src/utils/__tests__/limits.send-gate-partition.test.ts|import/first|2|Import in body of module; reorder to top.
+src/utils/__tests__/limits.send-gate-partition.test.ts|import/first|2|Import in body of module; reorder to top.
+src/utils/__tests__/limits.send-gate-partition.test.ts|import/first|2|Import in body of module; reorder to top.
+src/utils/__tests__/limits.send-gate-partition.test.ts|import/first|2|Import in body of module; reorder to top.
+src/utils/__tests__/limits.send-gate-partition.test.ts|import/order|2|There should be at least one empty line between import groups
+src/utils/__tests__/limits.send-gate-partition.test.ts|max-len|1|This line has a length of 103. Maximum allowed is 100.
+src/utils/__tests__/limits.send-gate-partition.test.ts|no-multi-spaces|2|Multiple spaces found before '// v2 -> class...'.
+src/utils/__tests__/limits.send-gate-partition.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/limits.send-gate-partition.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/limits.send-gate-partition.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/limits.send-gate-partition.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/limits.send-gate-partition.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/limits.send-gate-partition.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/limits.send-gate-partition.test.ts|@typescript-eslint/member-delimiter-style|2|Expected a comma.
+src/utils/__tests__/limits.send-gate-partition.test.ts|@typescript-eslint/member-delimiter-style|2|Expected a comma.
+src/utils/__tests__/limits.send-gate-partition.test.ts|@typescript-eslint/member-delimiter-style|2|Expected a comma.
+src/utils/__tests__/loadDiff.independent-oracle.test.ts|max-len|1|This line has a length of 109. Maximum allowed is 100.
+src/utils/__tests__/loadDiff.independent-oracle.test.ts|@typescript-eslint/no-unsafe-call|2|Unsafe call of an `any` typed value.
+src/utils/__tests__/loadDiff.independent-oracle.test.ts|@typescript-eslint/no-unsafe-call|2|Unsafe call of an `any` typed value.
+src/utils/__tests__/loadDiff.independent-oracle.test.ts|@typescript-eslint/no-unsafe-call|2|Unsafe call of an `any` typed value.
+src/utils/__tests__/loadDiff.independent-oracle.test.ts|@typescript-eslint/no-unsafe-call|2|Unsafe call of an `any` typed value.
+src/utils/__tests__/loadDiff.independent-oracle.test.ts|@typescript-eslint/no-unused-vars|2|'ACTION_ROW' is assigned a value but never used. Allowed unused vars must match /^_/u.
+src/utils/__tests__/loadDiff.independent-oracle.test.ts|@typescript-eslint/no-var-requires|2|Require statement not part of import statement.
+src/utils/__tests__/messageMode.switch.test.ts|max-len|1|This line has a length of 103. Maximum allowed is 100.
+src/utils/__tests__/messageMode.switch.test.ts|max-len|1|This line has a length of 112. Maximum allowed is 100.
+src/utils/__tests__/messageMode.switch.test.ts|max-len|1|This line has a length of 123. Maximum allowed is 100.
+src/utils/__tests__/messageMode.switch.test.ts|max-len|1|This line has a length of 123. Maximum allowed is 100.
+src/utils/__tests__/messageValidity.predicate.test.ts|import/first|2|Import in body of module; reorder to top.
+src/utils/__tests__/messageValidity.predicate.test.ts|import/first|2|Import in body of module; reorder to top.
+src/utils/__tests__/messageValidity.predicate.test.ts|import/first|2|Import in body of module; reorder to top.
+src/utils/__tests__/messageValidity.predicate.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/messageValidity.predicate.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/messageValidity.predicate.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/messageValidity.predicate.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/supportedTypes.parity.test.ts|import/first|2|Import in body of module; reorder to top.
+src/utils/__tests__/supportedTypes.parity.test.ts|import/first|2|Import in body of module; reorder to top.
+src/utils/__tests__/supportedTypes.parity.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/supportedTypes.parity.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|function-paren-newline|2|Unexpected newline after '('.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|function-paren-newline|2|Unexpected newline before ')'.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|import/first|2|Import in body of module; reorder to top.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|import/first|2|Import in body of module; reorder to top.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|import/first|2|Import in body of module; reorder to top.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|import/first|2|Import in body of module; reorder to top.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|import/first|2|Import in body of module; reorder to top.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|import/first|2|Import in body of module; reorder to top.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|max-len|1|This line has a length of 103. Maximum allowed is 100.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|react-hooks/rules-of-hooks|2|React Hook "useApiMethods" is called in function "loadAndSaveViaShippedProvider" that is neither a React function component nor a custom React Hook function. React component names must start with an uppercase letter. React Hook names must start with the word "use".
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/member-delimiter-style|2|Expected a comma.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/member-delimiter-style|2|Expected a comma.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/member-delimiter-style|2|Expected a comma.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/no-explicit-any|1|Unexpected any. Specify a different type.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/no-explicit-any|1|Unexpected any. Specify a different type.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/no-explicit-any|1|Unexpected any. Specify a different type.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/no-explicit-any|1|Unexpected any. Specify a different type.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/no-explicit-any|1|Unexpected any. Specify a different type.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/no-explicit-any|1|Unexpected any. Specify a different type.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/no-explicit-any|1|Unexpected any. Specify a different type.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/no-explicit-any|1|Unexpected any. Specify a different type.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/no-explicit-any|1|Unexpected any. Specify a different type.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/no-explicit-any|1|Unexpected any. Specify a different type.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/no-explicit-any|1|Unexpected any. Specify a different type.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/no-explicit-any|1|Unexpected any. Specify a different type.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/no-non-null-assertion|1|Forbidden non-null assertion.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/no-unsafe-argument|2|Unsafe argument of type `any` assigned to a parameter of type `ActiveMessage | null | undefined`.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/no-unsafe-argument|2|Unsafe argument of type `any` assigned to a parameter of type `MutableRefObject<ActiveMessage | null>`.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/no-unsafe-argument|2|Unsafe argument of type `any` assigned to a parameter of type `MutableRefObject<boolean>`.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/no-unsafe-argument|2|Unsafe argument of type `any` assigned to a parameter of type `number | undefined`.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/no-unsafe-argument|2|Unsafe argument of type `any` assigned to a parameter of type `Partial<ApiMessage | ActiveMessage>`.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/no-unsafe-argument|2|Unsafe argument of type `any` assigned to a parameter of type `StateSetter<ActiveMessage | null>`.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/no-unsafe-argument|2|Unsafe argument of type `any` assigned to a parameter of type `string | undefined`.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/no-unsafe-argument|2|Unsafe argument of type `any` assigned to a parameter of type `{ type: number; }[] | undefined`.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/no-unsafe-argument|2|Unsafe argument of type `any` assigned to a parameter of type `unknown[] | undefined`.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/no-unsafe-call|2|Unsafe call of an `any` typed value.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/no-unsafe-return|2|Unsafe return of an `any` typed value.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|@typescript-eslint/no-unused-vars|2|'stripKeys' is defined but never used. Allowed unused vars must match /^_/u.
+src/utils/__tests__/usePusher.hash-parity.test.ts|import/first|2|Import in body of module; reorder to top.
+src/utils/__tests__/usePusher.hash-parity.test.ts|import/first|2|Import in body of module; reorder to top.
+src/utils/__tests__/usePusher.hash-parity.test.ts|import/first|2|Import in body of module; reorder to top.
+src/utils/__tests__/usePusher.hash-parity.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/usePusher.hash-parity.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/usePusher.hash-parity.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/usePusher.hash-parity.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/usePusher.hash-parity.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/usePusher.hash-parity.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/usePusher.hash-parity.test.ts|object-property-newline|2|Object properties must go on a new line if they aren't all on the same line.
+src/utils/__tests__/usePusher.hash-parity.test.ts|object-property-newline|2|Object properties must go on a new line if they aren't all on the same line.
+src/utils/__tests__/utils.disposition-resolver.test.ts|import/first|2|Import in body of module; reorder to top.
+src/utils/__tests__/utils.disposition-resolver.test.ts|import/first|2|Import in body of module; reorder to top.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts|@typescript-eslint/no-non-null-assertion|1|Forbidden non-null assertion.
+src/utils/__tests__/utils.disposition-resolver.test.ts|@typescript-eslint/no-non-null-assertion|1|Forbidden non-null assertion.
+src/utils/__tests__/utils.disposition-resolver.test.ts|@typescript-eslint/no-non-null-assertion|1|Forbidden non-null assertion.
+src/utils/__tests__/utils.disposition-resolver.test.ts|@typescript-eslint/no-non-null-assertion|1|Forbidden non-null assertion.
+src/utils/__tests__/utils.rowd-load-disposition.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/utils.rowd-load-disposition.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/utils.rowd-load-disposition.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/utils.rowd-load-disposition.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/utils.rowd-load-disposition.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/utils.rowd-load-disposition.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/utils.rowd-load-disposition.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/utils.rowd-load-disposition.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/utils.rowd-load-disposition.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/utils.rowd-load-disposition.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/utils.rowd-load-disposition.test.ts|@typescript-eslint/no-unsafe-argument|2|Unsafe argument of type `any` assigned to a parameter of type `Pick<MessageData, "content" | "flags" | "embeds" | "components">`.
+src/utils/__tests__/utils.rowd-load-disposition.test.ts|@typescript-eslint/no-unsafe-return|2|Unsafe return of an `any` typed value.
+src/utils/__tests__/utils.save-payload-and-seed.test.ts|import/first|2|Import in body of module; reorder to top.
+src/utils/__tests__/utils.save-payload-and-seed.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/utils.save-payload-and-seed.test.ts|object-curly-newline|2|Expected a line break before this closing brace.
+src/utils/__tests__/utils.transport-form.test.ts|import/first|2|Import in body of module; reorder to top.
+src/utils/__tests__/utils.transport-form.test.ts|import/first|2|Import in body of module; reorder to top.
+src/utils/__tests__/utils.transport-form.test.ts|object-curly-newline|2|Expected a line break after this opening brace.
+src/utils/__tests__/utils.transport-form.test.ts|object-curly-newline|2|Expected a line break before this closing brace.

@@ -1,0 +1,66 @@
+@typescript-eslint/no-non-null-assertion|Forbidden non-null assertion.
+@typescript-eslint/no-non-null-assertion|Forbidden non-null assertion.
+@typescript-eslint/no-non-null-assertion|Forbidden non-null assertion.
+@typescript-eslint/no-non-null-assertion|Forbidden non-null assertion.
+@typescript-eslint/no-non-null-assertion|Forbidden non-null assertion.
+import/first|Import in body of module; reorder to top.
+import/order|There should be no empty line within import group
+@typescript-eslint/member-delimiter-style|Expected a comma.
+@typescript-eslint/member-delimiter-style|Expected a comma.
+@typescript-eslint/member-delimiter-style|Expected a comma.
+import/first|Import in body of module; reorder to top.
+import/first|Import in body of module; reorder to top.
+import/first|Import in body of module; reorder to top.
+import/first|Import in body of module; reorder to top.
+import/first|Import in body of module; reorder to top.
+import/order|There should be at least one empty line between import groups
+max-len|This line has a length of 103. Maximum allowed is 100.
+no-multi-spaces|Multiple spaces found before '// v2 -> class...'.
+object-curly-newline|Expected a line break after this opening brace.
+object-curly-newline|Expected a line break after this opening brace.
+object-curly-newline|Expected a line break after this opening brace.
+object-curly-newline|Expected a line break before this closing brace.
+object-curly-newline|Expected a line break before this closing brace.
+object-curly-newline|Expected a line break before this closing brace.
+@typescript-eslint/member-delimiter-style|Expected a comma.
+@typescript-eslint/member-delimiter-style|Expected a comma.
+@typescript-eslint/member-delimiter-style|Expected a comma.
+@typescript-eslint/no-explicit-any|Unexpected any. Specify a different type.
+@typescript-eslint/no-explicit-any|Unexpected any. Specify a different type.
+@typescript-eslint/no-explicit-any|Unexpected any. Specify a different type.
+@typescript-eslint/no-explicit-any|Unexpected any. Specify a different type.
+@typescript-eslint/no-explicit-any|Unexpected any. Specify a different type.
+@typescript-eslint/no-explicit-any|Unexpected any. Specify a different type.
+@typescript-eslint/no-explicit-any|Unexpected any. Specify a different type.
+@typescript-eslint/no-explicit-any|Unexpected any. Specify a different type.
+@typescript-eslint/no-explicit-any|Unexpected any. Specify a different type.
+@typescript-eslint/no-explicit-any|Unexpected any. Specify a different type.
+@typescript-eslint/no-explicit-any|Unexpected any. Specify a different type.
+@typescript-eslint/no-explicit-any|Unexpected any. Specify a different type.
+@typescript-eslint/no-non-null-assertion|Forbidden non-null assertion.
+@typescript-eslint/no-unsafe-argument|Unsafe argument of type `any` assigned to a parameter of type `ActiveMessage | null | undefined`.
+@typescript-eslint/no-unsafe-argument|Unsafe argument of type `any` assigned to a parameter of type `MutableRefObject<ActiveMessage | null>`.
+@typescript-eslint/no-unsafe-argument|Unsafe argument of type `any` assigned to a parameter of type `MutableRefObject<boolean>`.
+@typescript-eslint/no-unsafe-argument|Unsafe argument of type `any` assigned to a parameter of type `Partial<ApiMessage | ActiveMessage>`.
+@typescript-eslint/no-unsafe-argument|Unsafe argument of type `any` assigned to a parameter of type `StateSetter<ActiveMessage | null>`.
+@typescript-eslint/no-unsafe-argument|Unsafe argument of type `any` assigned to a parameter of type `number | undefined`.
+@typescript-eslint/no-unsafe-argument|Unsafe argument of type `any` assigned to a parameter of type `string | undefined`.
+@typescript-eslint/no-unsafe-argument|Unsafe argument of type `any` assigned to a parameter of type `unknown[] | undefined`.
+@typescript-eslint/no-unsafe-argument|Unsafe argument of type `any` assigned to a parameter of type `{ type: number; }[] | undefined`.
+@typescript-eslint/no-unsafe-call|Unsafe call of an `any` typed value.
+@typescript-eslint/no-unsafe-return|Unsafe return of an `any` typed value.
+@typescript-eslint/no-unused-vars|'stripKeys' is defined but never used. Allowed unused vars must match /^_/u.
+function-paren-newline|Unexpected newline after '('.
+function-paren-newline|Unexpected newline before ')'.
+import/first|Import in body of module; reorder to top.
+import/first|Import in body of module; reorder to top.
+import/first|Import in body of module; reorder to top.
+import/first|Import in body of module; reorder to top.
+import/first|Import in body of module; reorder to top.
+import/first|Import in body of module; reorder to top.
+max-len|This line has a length of 103. Maximum allowed is 100.
+object-curly-newline|Expected a line break after this opening brace.
+object-curly-newline|Expected a line break after this opening brace.
+object-curly-newline|Expected a line break before this closing brace.
+object-curly-newline|Expected a line break before this closing brace.
+react-hooks/rules-of-hooks|React Hook "useApiMethods" is called in function "loadAndSaveViaShippedProvider" that is neither a React function component nor a custom React Hook function. React component names must start with an uppercase letter. React Hook names must start with the word "use".

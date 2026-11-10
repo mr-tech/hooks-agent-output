@@ -1,0 +1,2 @@
+src/utils/__tests__/limits.send-gate-partition.test.ts|no-multi-spaces|2|Multiple spaces found before '// <- the user...'.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts|no-multi-spaces|2|Multiple spaces found before '// the message...'.

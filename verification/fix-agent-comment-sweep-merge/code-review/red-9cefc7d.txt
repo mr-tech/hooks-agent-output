@@ -1,0 +1,324 @@
+FAIL .eslintrc.json
+  non-JS/TS path
+FAIL bot/scripts/app_commands/__tests__/common.admin-permissions.test.ts
+  added-or-deleted path
+FAIL bot/scripts/app_commands/__tests__/common.localized-strings.test.ts
+  added-or-deleted path
+FAIL bot/scripts/app_commands/common.ts
+  TOKENS differ at leaf 26: before="80:PermissionFlagsBits" after="21:("
+  path outside sweep range
+FAIL bot/utils/DiscordEmbed.ts
+  TOKENS differ at leaf 418: before="64:=" after="37:==="
+  path outside sweep range
+FAIL bot/utils/__tests__/DiscordEmbed.set-timestamp.test.ts
+  added-or-deleted path
+FAIL src/__tests__/env.client-proxy.test.ts
+  added-or-deleted path
+FAIL src/app/_navigation/Redirects/Server.tsx
+  TOKENS differ at leaf 2: before="80:cookies" after="80:redirect"
+  path outside sweep range
+FAIL src/app/_navigation/Redirects/__tests__/Server.session-cookie-redirect.test.ts
+  added-or-deleted path
+FAIL src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx
+  added-or-deleted path
+FAIL src/app/message/_layout/Header.tsx
+  TOKENS differ at leaf 147: before="80:formatMessageDate" after="19:{"
+  path outside sweep range
+FAIL src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx
+  added-or-deleted path
+FAIL src/app/message/f/[id]/__tests__/page.message-list.test.tsx
+  TOKENS differ at leaf 0: before="102:import" after="353:"
+  path outside sweep range
+FAIL src/app/message/f/[id]/page.tsx
+  TOKENS differ at leaf 233: before="80:formatMessageDate" after="19:{"
+  path outside sweep range
+FAIL src/app/message/m/[id]/_components/JsonModalBody.tsx
+  TOKENS differ at leaf 18: before="80:useMemo" after="80:useState"
+  path outside sweep range
+FAIL src/app/message/m/[id]/_components/SaveAsMenu.tsx
+  TOKENS differ at leaf 22: before="80:useEffect" after="80:useState"
+  path outside sweep range
+FAIL src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx
+  TOKENS differ at leaf 0: before="102:import" after="353:"
+  path outside sweep range
+FAIL src/app/message/m/[id]/_components/__tests__/JsonModalBody.menu-close-after-load.test.tsx
+  TOKENS differ at leaf 0: before="102:import" after="353:"
+  path outside sweep range
+FAIL src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx
+  TOKENS differ at leaf 0: before="102:import" after="353:"
+  path outside sweep range
+FAIL src/app/message/m/[id]/send/__tests__/page.send-in-flight.test.tsx
+  TOKENS differ at leaf 0: before="102:import" after="353:"
+  path outside sweep range
+FAIL src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx
+  TOKENS differ at leaf 0: before="102:import" after="353:"
+  path outside sweep range
+FAIL src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx
+  TOKENS differ at leaf 0: before="102:import" after="353:"
+  path outside sweep range
+FAIL src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.url-and-thread-controls.test.tsx
+  TOKENS differ at leaf 0: before="102:import" after="353:"
+  path outside sweep range
+FAIL src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx
+  TOKENS differ at leaf 155: before="80:INVALID_URL_ERROR" after="80:useGuild"
+  path outside sweep range
+FAIL src/app/message/m/[id]/send/page.tsx
+  TOKENS differ at leaf 185: before="80:useLoading" after="80:useToggleState"
+  path outside sweep range
+FAIL src/app/preview/__tests__/page.invalid-data.test.tsx
+  added-or-deleted path
+FAIL src/app/preview/page.tsx
+  TOKENS differ at leaf 24: before="19:{" after="80:DiscordMessageEditor"
+  path outside sweep range
+FAIL src/components/BottomPortal.tsx
+  TOKENS differ at leaf 49: before="80:Button" after="19:{"
+  path outside sweep range
+FAIL src/components/Button.tsx
+  TOKENS differ at leaf 40: before="80:Tooltip" after="19:{"
+  path outside sweep range
+FAIL src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx
+  added-or-deleted path
+FAIL src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.duplicate-placement.test.tsx
+  added-or-deleted path
+FAIL src/components/DiscordMessageEditor/components/Author.tsx
+  TOKENS differ at leaf 23: before="80:useEffect" after="80:useState"
+  path outside sweep range
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/ActionRowEditor.add-button.test.tsx
+  added-or-deleted path
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/ActionRowEditor.duplicate-placement.test.tsx
+  added-or-deleted path
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/ContainerEditor.duplicate-placement.test.tsx
+  added-or-deleted path
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/MediaGalleryEditor.duplicate-placement.test.tsx
+  added-or-deleted path
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.add-text-display.test.tsx
+  added-or-deleted path
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.auto-remove-dispatch.test.tsx
+  TOKENS differ at leaf 30: before="102:import" after="80:vi"
+  ADDED comments: ["// `SectionEditor`'s per-button Tooltip wrapper is `next/dynamic`-loaded (`ssr: true, loading: () =>","// null`); the delete/duplicate/move controls it wraps are absent from the tree until that async","// import resolves, so every mount settles one macrotask before its controls are queryable."]
+  path outside sweep range
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.duplicate-placement.test.tsx
+  added-or-deleted path
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx
+  TOKENS differ at leaf 22: before="102:import" after="100:function"
+  path outside sweep range
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/ColorPicker.scroll-lock-release.test.tsx
+  added-or-deleted path
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx
+  added-or-deleted path
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx
+  TOKENS differ at leaf 22: before="80:Picker" after="19:{"
+  path outside sweep range
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx
+  TOKENS differ at leaf 220: before="54:!" after="80:fields"
+  path outside sweep range
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx
+  TOKENS differ at leaf 877: before="80:map" after="80:filter"
+  path outside sweep range
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx
+  TOKENS differ at leaf 270: before="29:?." after="25:."
+  path outside sweep range
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.border-colour.test.tsx
+  added-or-deleted path
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.empty-embed-hidden.test.tsx
+  added-or-deleted path
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx
+  added-or-deleted path
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.length-error.test.tsx
+  added-or-deleted path
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.missing-text.test.tsx
+  added-or-deleted path
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx
+  TOKENS differ at leaf 640: before="36:!=" after="58:?"
+  path outside sweep range
+FAIL src/components/DiscordMessageEditor/components/__tests__/Author.timer-cleanup.test.tsx
+  added-or-deleted path
+FAIL src/components/DiscordMessageEditor/index.tsx
+  TOKENS differ at leaf 38: before="80:useEffect" after="80:useMemo"
+  ADDED comments: ["// Recurse for containers (which hold children that may have sub-components)"]
+  path outside sweep range
+FAIL src/components/ImageUploader.tsx
+  TOKENS differ at leaf 76: before="102:import" after="87:const"
+  path outside sweep range
+FAIL src/components/__tests__/BottomPortal.unmount-cleanup.test.tsx
+  added-or-deleted path
+FAIL src/components/__tests__/Button.auto-focus.test.tsx
+  added-or-deleted path
+FAIL src/components/__tests__/ImageUploader.url-validation.test.tsx
+  added-or-deleted path
+FAIL src/constants/__tests__/constants.discord-message-link.test.ts
+  added-or-deleted path
+FAIL src/constants/index.ts
+  TOKENS differ at leaf 182: before="14:/^https:\\/\\/(?:(?:www|canary|ptb)\\.)?discord(?:app)?\\.com\\/channels\\/(?<guildId>\\d+)\\/(?<channelId>\\d+)\\/(?<messageId>\\d+)$/" after="14:/^https:\\/\\/(?:www\\.|canary\\.|ptb\\.)?discord\\.com\\/channels\\/(\\d+)\\/(\\d+)\\/(\\d+)$/"
+  path outside sweep range
+FAIL src/constants/messageLimits.ts
+  TOKENS differ at leaf 34: before="80:MAX_EMBED_AUTHOR_NAME_LENGTH" after="80:MAX_EMBED_FIELD_NAME_LENGTH"
+  path outside sweep range
+FAIL src/env.mjs
+  TOKENS differ at leaf 701: before="80:prop" after="54:!"
+  path outside sweep range
+FAIL src/middleware.ts
+  TOKENS differ at leaf 15: before="95:export" after="87:const"
+  path outside sweep range
+FAIL src/pages/api/cron.ts
+  TOKENS differ at leaf 165: before="11:'is'" after="11:'='"
+  path outside sweep range
+FAIL src/pages/api/interactions-edge.ts
+  TOKENS differ at leaf 248: before="101:if" after="87:const"
+  path outside sweep range
+FAIL src/pages/api/messages/codes/[code].ts
+  TOKENS differ at leaf 158: before="25:." after="27:;"
+  path outside sweep range
+FAIL src/pages/api/v1/guilds/[guildId]/messages.ts
+  TOKENS differ at leaf 105: before="87:const" after="101:if"
+  path outside sweep range
+FAIL src/pages/api/v1/guilds/[guildId]/messages/[id].ts
+  TOKENS differ at leaf 120: before="87:const" after="101:if"
+  path outside sweep range
+FAIL src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx
+  added-or-deleted path
+FAIL src/providers/MessageProvider/usePusher.ts
+  TOKENS differ at leaf 14: before="80:useLatest" after="80:useConfirmation"
+  path outside sweep range
+FAIL src/providers/WebhookProvider.tsx
+  TOKENS differ at leaf 49: before="80:MESSAGE_LOAD_FAILED_ERROR" after="80:useGuild"
+  ADDED comments: ["// shhhhh, just let it happen"]
+  path outside sweep range
+FAIL src/providers/__tests__/WebhookProvider.validation-effects.test.tsx
+  added-or-deleted path
+FAIL src/server/__tests__/auth.hydrated-session.test.ts
+  added-or-deleted path
+FAIL src/server/__tests__/auth.sign-out.test.ts
+  added-or-deleted path
+FAIL src/server/api/__tests__/cron.scheduled-selection.test.ts
+  added-or-deleted path
+FAIL src/server/api/__tests__/interactions-edge.signature-before-parse.test.ts
+  added-or-deleted path
+FAIL src/server/api/messages/__tests__/messageCodes.malformed-query.test.ts
+  added-or-deleted path
+FAIL src/server/api/routers/__tests__/message.get-from-url.test.ts
+  added-or-deleted path
+FAIL src/server/api/routers/message.ts
+  TOKENS differ at leaf 527: before="19:{" after="23:["
+  path outside sweep range
+FAIL src/server/api/utils/__tests__/authorizeGuildUser.in-predicate.test.ts
+  added-or-deleted path
+FAIL src/server/api/utils/__tests__/helpers/capturingDatabase.ts
+  added-or-deleted path
+FAIL src/server/api/utils/__tests__/shapes.embed-schema.test.ts
+  added-or-deleted path
+FAIL src/server/api/utils/__tests__/shapes.user-or-discord-id.test.ts
+  added-or-deleted path
+FAIL src/server/api/utils/__tests__/shared.in-predicates.test.ts
+  added-or-deleted path
+FAIL src/server/api/utils/__tests__/shared.message-cap.test.ts
+  added-or-deleted path
+FAIL src/server/api/utils/__tests__/user.in-predicate.test.ts
+  added-or-deleted path
+FAIL src/server/api/utils/authorizeGuildUser.ts
+  TOKENS differ at leaf 58: before="101:if" after="87:const"
+  path outside sweep range
+FAIL src/server/api/utils/shapes.ts
+  TOKENS differ at leaf 143: before="14:/^(0|[0-9]{17,23})$/" after="14:/^(0|[0-9]{17,23}$)/"
+FAIL src/server/api/utils/shared.ts
+  TOKENS differ at leaf 507: before="101:if" after="87:const"
+  path outside sweep range
+FAIL src/server/api/utils/user.ts
+  TOKENS differ at leaf 68: before="101:if" after="87:const"
+  path outside sweep range
+FAIL src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts
+  added-or-deleted path
+FAIL src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts
+  added-or-deleted path
+FAIL src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts
+  TOKENS differ at leaf 2: before="80:afterEach" after="80:describe"
+FAIL src/server/api/v1/__tests__/helpers/apiResponse.ts
+  added-or-deleted path
+FAIL src/server/auth.ts
+  TOKENS differ at leaf 205: before="80:revokeAccessToken" after="80:removeUserSession"
+  path outside sweep range
+FAIL src/utils/__tests__/bugFixCoverage.supplemental.test.ts
+  added-or-deleted path
+FAIL src/utils/__tests__/constructImageUrl.default-avatar.test.ts
+  TOKENS differ at leaf 305: before="80:describe" after="1:"
+  DIRECTIVE removed: "// escaped: analysis/closed/005-user-reported-bugs-analysis.md"
+  path outside sweep range
+FAIL src/utils/__tests__/discordResponseToMessage.ingress.test.ts
+  TOKENS differ at leaf 9: before="28:," after="20:}"
+  path outside sweep range
+FAIL src/utils/__tests__/formatMessageDate.same-day.test.ts
+  added-or-deleted path
+FAIL src/utils/__tests__/getCDNUrl.port-and-environment.test.ts
+  added-or-deleted path
+FAIL src/utils/__tests__/isValidImageUrl.extensions.test.ts
+  added-or-deleted path
+FAIL src/utils/__tests__/limits.component-count.test.ts
+  added-or-deleted path
+FAIL src/utils/__tests__/limits.embed-text-errors.test.ts
+  added-or-deleted path
+FAIL src/utils/__tests__/redis.cached-null-hit.test.ts
+  added-or-deleted path
+FAIL src/utils/discordResponseToMessage.ts
+  TOKENS differ at leaf 938: before="38:!==" after="22:)"
+  path outside sweep range
+FAIL src/utils/formatMessageDate.ts
+  added-or-deleted path
+FAIL src/utils/getCDNUrl.ts
+  TOKENS differ at leaf 19: before="80:NEXT_PUBLIC_CDN_PORT" after="80:NODE_ENV"
+  path outside sweep range
+FAIL src/utils/hooks/__tests__/useGuildDropdownItems.session-update.test.tsx
+  added-or-deleted path
+FAIL src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx
+  added-or-deleted path
+FAIL src/utils/hooks/index.ts
+  TOKENS differ at leaf 31: before="80:voided" after="19:{"
+  path outside sweep range
+FAIL src/utils/hooks/useGuildDropdownItems.tsx
+  TOKENS differ at leaf 431: before="80:session" after="353:"
+  path outside sweep range
+FAIL src/utils/hooks/useValidateWebhook.ts
+  TOKENS differ at leaf 27: before="80:INVALID_URL_ERROR" after="80:isValidUrl"
+  path outside sweep range
+FAIL src/utils/isValidImageUrl.ts
+  added-or-deleted path
+FAIL src/utils/limits.tsx
+  TOKENS differ at leaf 23: before="80:MAX_EMBED_AUTHOR_NAME_LENGTH" after="80:MAX_EMBED_CHARACTERS"
+  path outside sweep range
+FAIL src/utils/maps/UpsertMapMap.ts
+  TOKENS differ at leaf 442: before="37:===" after="22:)"
+  path outside sweep range
+FAIL src/utils/maps/__tests__/UpsertMapMap.delete.test.ts
+  added-or-deleted path
+FAIL src/utils/markdown/__tests__/emoji.longest-sequence-first.test.ts
+  added-or-deleted path
+FAIL src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts
+  added-or-deleted path
+FAIL src/utils/markdown/components/MarkdownSpoiler.tsx
+  TOKENS differ at leaf 96: before="80:isVisible" after="54:!"
+  path outside sweep range
+FAIL src/utils/markdown/components/__tests__/MarkdownSpoiler.aria-expanded.test.tsx
+  added-or-deleted path
+FAIL src/utils/markdown/emoji.tsx
+  TOKENS differ at leaf 467: before="80:a" after="80:surrogate"
+  path outside sweep range
+FAIL src/utils/markdown/rules.tsx
+  TOKENS differ at leaf 91: before="80:FENCE" after="80:LIST_BULLET"
+  ADDED comments: ["// match(source, state, prevCapture) {","//   if (state._inParagraph) return null;","//   return SimpleMarkdown.blockRegex(/^((?:[^\\n]|\\n(?! *\\n))+(?:\\n *)+\\n)/)(source, state, prevCapture);","// },"]
+  path outside sweep range
+FAIL src/utils/parseMessageId.ts
+  added-or-deleted path
+FAIL src/utils/parseServerCookies.ts
+  added-or-deleted path
+FAIL src/utils/redis/__tests__/formatKey.key-format.test.ts
+  added-or-deleted path
+FAIL src/utils/redis/__tests__/redis.fetch-channel.test.ts
+  added-or-deleted path
+FAIL src/utils/redis/index.ts
+  TOKENS differ at leaf 334: before="80:cached" after="80:item"
+  path outside sweep range
+FAIL tsconfig.test.json
+  non-JS/TS path
+FAIL vitest.config.ts
+  TOKENS differ at leaf 85: before="28:," after="24:]"
+  path outside sweep range
+FAIL: 161 paths, 129 failing, 175 comments removed
