@@ -1,7 +1,7 @@
 # Rulings — chain 015, bug-evaluation fixes
 
 Steering session alias chain: steering-bug-fixes → steering-hooks-015 (pending; tmux-agent refuses while busy).
-Planner: planner-hooks-new → planner-hooks-015 (pending, same reason). File was `steering/bug-fixes-rulings.md` until minting.
+Planner: planner-hooks-new → planner-hooks-015 (pending, same reason). File was `steering/bug-fixes-rulings.md` until minting. <!-- check-repo:ignore — names a path that is absent on purpose: this file's own former name, kept as the alias record (project cleanup 2026-11-10) -->
 Source document: `research/codebase-bug-evaluation-2026-11-08.md` (agent-output `aea4a05`, Status Active).
 
 ## 2026-11-08T04:37Z — "Start the chain. Note that `researcher-competitors` is currently using playwright."

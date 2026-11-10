@@ -100,7 +100,7 @@ error path end to end:
 - stdout printed the accumulated (empty, since no batch was read) report **and** a `console.error`
   of the underlying `ECONNREFUSED` error;
 - the report was **persisted to disk** at
-  `agent-output/verification/012/backfill-report.md` — verified present immediately after the run,
+  `agent-output/verification/012/backfill-report.md` — verified present immediately after the run, <!-- check-repo:ignore — names a path that is absent on purpose: the text says the file was verified present and then deleted (project cleanup 2026-11-10) -->
   then deleted (it is a dead-DB test artifact, not real backfill evidence, and leaving it in place
   would misrepresent a fake, all-zero, `interrupted: true` report as if a real run had produced it);
 - the persisted/printed content carried `"interrupted": true` and `"tableWideRowCount": -1` (the

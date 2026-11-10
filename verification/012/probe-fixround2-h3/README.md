@@ -62,7 +62,7 @@ Error: connect ECONNREFUSED 127.0.0.1:1
 }
 ```
 
-**Persisted**: `agent-output/verification/012/backfill-report.md` was written with the identical
+**Persisted**: `agent-output/verification/012/backfill-report.md` was written with the identical <!-- check-repo:ignore — names a path that is absent on purpose: the text says the file was read and then deleted (project cleanup 2026-11-10) -->
 content (verified via `cat` before deletion). Copied here as
 `observed-interrupted-report.json` and deleted from the gate's own path immediately — the same
 disclosed-and-removed pattern the implementer's round-1 drive and the reviewer's own round-2 drive

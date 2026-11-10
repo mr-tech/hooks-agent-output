@@ -28,7 +28,7 @@ failure must be **named** rather than swallowed. Observed — stdout carried the
 exit 1. The persisted file was compared to stdout with `diff` and is **byte-identical**.
 
 **Disclosure.** The shipped `reportPath` is a fixed `resolve()` with no override, so this drive
-necessarily wrote into the owner's gate directory: `verification/012/backfill-report-1787475923901-y27oe6.md`.
+necessarily wrote into the owner's gate directory: `verification/012/backfill-report-1787475923901-y27oe6.md`. <!-- check-repo:ignore — names a path that is absent on purpose: the text says the file was captured elsewhere and deleted (project cleanup 2026-11-10) -->
 It was captured here as `observed-leg1-report.json` and deleted; the directory listing was diffed
 against a baseline taken before the run and is restored. This is the **third consecutive round** in
 which an agent had to write a fake report into the gate directory to verify the script — the cost
