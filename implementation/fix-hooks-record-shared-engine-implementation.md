@@ -184,6 +184,8 @@ deliberate statement of the scope ("exits 0 on this record"), not a unit propert
 - **Lint**: the record has no lint script and no eslint config. `node ~/.claude/tools/convention-check.js /usr/local/bin/hooks/agent-output --since=7b4419a` exited 0 with 0 FAIL, 0 CANDIDATE, 11 SKIP: the three `.js` files are "under a record repository — exempt from every check", and the ID-token/basename check did not run. **The comment gate, test-naming rules and eslint are therefore unchecked on these files.** Substitutes run: `node --check` on all three files passes, and `grep -n -E '^\s*(//|/\*|\*)'` over them finds no comment line (exit 1).
 - **Check**: `node tools/check-repo.js` exit 0, "PASS — no new failures (256 baselined).", with one INDEX staleness warning (steering's). `--full` reports the 256.
 
+**Set up and removed on this box.** A detached worktree of the record at 8af81c0 in the session scratchpad, used for the index diff; removed with `git worktree remove`, and `git worktree list` shows only the main tree. Scratch engine directories and the dry entrypoints in the scratchpad, deleted after their captures were committed. Five `/tmp` directories that the first red run left (`record-entrypoints-czuVt9`, `engine-bare-hCC68L`, `engine-sentinel-OBtjU1`, `engine-absent-RTo9cA`, `engine-absent-kbfK9H`, all 09:00:43Z; its `process.exit` skipped the test's `after()`), removed by literal path. No process was left running.
+
 ## User-visible flows
 
 None: record tooling only.
@@ -201,3 +203,4 @@ None: record tooling only.
 | 2026-11-10T09:01 | Document opened. | fixer-hooks-record-engine |
 | 2026-11-10T09:05 | Dry measurement, Diagnosis, Change, Test and Verification written; `BLOCKED:` on two strict-YAML entries sent to steering-cleanup-hooks (msg 6680fbac) and answered (option 2, corrected at 7b4419a). | fixer-hooks-record-engine |
 | 2026-11-10T09:05 | Source committed at d96b799; green run at d96b799 13/13 exit 0; Handoff-At d96b799; handed to code-reviewer-hooks-record-engine. | fixer-hooks-record-engine |
+| 2026-11-10T09:06 | Box cleanup recorded (worktree, scratch, five /tmp test directories). | fixer-hooks-record-engine |
