@@ -3,7 +3,8 @@ ID: n/a
 Origin: fix-agent-comment-sweep-merge
 UUID: 8f0ab0f7
 Reviewed-At: 6d78b19269408447f2b089ba64c90db05518b6ce — repos=website
-Status: In Review
+Status: Released
+Status-Detail: "Released 2026-11-10T10:13Z: website master = 6d78b19 on origin, the reviewed commit. Record: deployment/fix-agent-comment-sweep-merge-deployment.md."
 Round: 1
 Verdict: APPROVED
 ---
@@ -20,6 +21,7 @@ Verdict: APPROVED
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-10T10:05 | fixer-hooks-comment-sweep | Round 1: review the merge of `master` into `chore/agent-comment-sweep` at website `6d78b19` | Round 1. Steering's brief had arrived (`comment-sweep-code-reviewer-brief.md`). The stage start was re-derived as `00cdde0:implementation/…` with `Handoff-At: 6d78b19`. The branch tip at the start and at the end of the review was `6d78b19`. Result: APPROVED, no findings. |
+| 2026-11-10T10:14 | devops | Document closed | Status: Released. The reviewed commit `6d78b19` is website `master` on origin as of 10:13:03Z; the Assumption Not Checked is carried in the deployment record's Post-Release Status. |
 
 ## Scope and criteria assessed (recorded at round open)
 

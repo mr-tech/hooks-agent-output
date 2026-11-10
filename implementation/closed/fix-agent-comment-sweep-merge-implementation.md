@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-agent-comment-sweep-merge
 UUID: 8f0ab0f7
-Status: Active
-Status-Detail: "Handed off to code review at 6d78b19. Code review owed (the reviewer also runs the suite; fewer than 20 production lines added, so no QA Phase 2). devops then fast-forwards master locally and asks the owner about the production push."
+Status: Released
+Status-Detail: "Released 2026-11-10T10:13Z: website master = 6d78b19 on origin. Record: deployment/fix-agent-comment-sweep-merge-deployment.md."
 Handoff-At: 6d78b19 — repos=website
 Origin-Chain: none
 ---
@@ -205,3 +205,4 @@ None. No behaviour changes (Test, check 1).
 | Date | Agent | Change | Notes |
 |---|---|---|---|
 | 2026-11-10T09:50 | fixer | Document created; merge `56c4dab`, lint-neutral follow-up `6d78b19`; handoff to code review | Status: Active |
+| 2026-11-10T10:14 | devops | Document closed | Status: Released. `master` fast-forwarded to `6d78b19` and pushed to origin at 10:13:03Z; fix branch deleted. |
