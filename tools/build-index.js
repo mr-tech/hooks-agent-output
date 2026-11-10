@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 
-const REVIEW = 'pending review at 7b4419a';
+const REVIEW = 'reviewed';
 
 const fs = require('fs');
 const os = require('os');
