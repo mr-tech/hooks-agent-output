@@ -98,3 +98,15 @@ Sessions (category `fix-hooks-record-shared-engine`): `fixer-hooks-record-engine
 nothing root executes. This thread keeps the name `steering-cleanup` (a second live session of that
 name runs in `/usr/local/bin/statbot`, so `tmux-agent rename` has two matches); stages address it by
 `[ref]`.
+
+## 2026-11-10T08:58Z — fixer BLOCKED on two strict-YAML failures: answered from the record, not put to the owner
+The fixer's dry run of the engine (262 failures: 252 pre-012 legacy, the 4 unsuffixed documents, 3
+citations of its own not-yet-written document, 1 `.gitignore` pair, 2 strict-YAML frontmatter)
+asked whether to baseline the two strict-YAML failures in `analysis/closed/014-test-suite-cleanup-analysis.md`
+and `planning/closed/014-test-suite-cleanup.md`. Its options: baseline them / a quoting-only
+correction outside the chain / stop. Decided by steering as the second: the project-cleanup skill the
+owner invoked says a failure is cleared "by correcting the document, never by ... adding to the
+baseline", and its pass 9 is this thread's; the same quoting fix was made to a handoff earlier today.
+Done by this thread: both `Status-Detail` values quoted, a changelog row in each, no baseline entry.
+Agent-authored decision; his words here are only "Do what's necessary to make the record healthy."
+The baseline stays limited to the pre-012 documents and the 4 unsuffixed ones.
