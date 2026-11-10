@@ -147,13 +147,14 @@ undo() {
     for id in $("$DOCKER" ps -aq --filter "label=$CALL_KEY=$CALL_VAL" 2>/dev/null); do
       case "$id" in ''|*[!A-Za-z0-9]*) continue ;; esac
       mine=1
-      "$DOCKER" rm -f "$id" >/dev/null 2>&1 && gone=1
+      if "$DOCKER" rm -f "$id" >/dev/null 2>&1; then gone=1; else echo "container $id could not be removed (docker rm failed); it is left behind"; fi
     done
     if [ "$gone" = 1 ]; then echo "removed the container this call created"
     elif [ "$mine" = 0 ] && [ "$NOTED" = 0 ] && inspect; then echo "container $NAME not removed: it does not carry this call's label"; fi
   elif [ "$STARTED" = 1 ]; then
     if inspect && [ "$LABELLED" = 1 ]; then
-      "$DOCKER" stop "$NAME" >/dev/null 2>&1 && echo "stopped the container this call started"
+      if "$DOCKER" stop "$NAME" >/dev/null 2>&1; then echo "stopped the container this call started"
+      else echo "container $NAME could not be stopped (docker stop failed); it is left running"; fi
     else
       echo "container $NAME not stopped: it no longer carries the tool's label"
     fi

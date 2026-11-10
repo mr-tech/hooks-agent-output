@@ -72,16 +72,18 @@ case "$cmd" in
     want=""; prev=""
     for a in "$@"; do [ "$prev" = "--filter" ] && want="\${a#label=}"; prev="$a"; done
     [ -n "\${STUB_PS_JUNK:-}" ] && { echo 'WARNING:'; echo '--volumes'; echo '../x'; }
-    [ -n "$want" ] && grep -Fxq -- "$want" "$S/labels" 2>/dev/null && echo stubcontainerid
+    [ -n "$want" ] && grep -Fxq -- "$want" "$S/labels" 2>/dev/null && { echo stubcontainerid; [ -n "\${STUB_PS_TWO:-}" ] && echo stubsecondid; }
     exit 0
     ;;
   stop)
     has exists || exit 1
+    [ -n "\${STUB_STOP_FAILS:-}" ] && { echo "docker: stop refused" >&2; exit 1; }
     echo exited > "$S/state"
     ;;
   rm)
     has exists || exit 1
     [ -n "\${STUB_RM_FAILS:-}" ] && { echo "docker: rm refused" >&2; exit 1; }
+    [ -n "\${STUB_RM_FAILS_ID:-}" ] && [ "\${!#}" = "$STUB_RM_FAILS_ID" ] && { echo "docker: rm refused" >&2; exit 1; }
     rm -f "$S/exists" "$S/state" "$S/label" "$S/labels" "$S/published"
     ;;
   exec)
@@ -821,12 +823,32 @@ describe('uat-local-stack.sh', () => {
       assert.strictEqual(fs.existsSync(path.join(root, 'state', 'exists')), true);
     });
 
-    it('a removal docker refuses is not reported as done and not blamed on the label, and the container is still there', async () => {
+    it('a removal docker refuses is not reported as done, is reported as left behind by id, and the container is still there', async () => {
       await fresh();
       const r = run(['up'], { STUB_RUN_CREATES_THEN_FAILS: '1', STUB_RM_FAILS: '1' });
       assert.strictEqual(r.status, 1);
       assert.doesNotMatch(r.out, /removed the container|not removed|left as found/);
+      assert.match(r.out, /container stubcontainerid could not be removed \(docker rm failed\); it is left behind/);
       assert.strictEqual(fs.existsSync(path.join(root, 'state', 'exists')), true);
+    });
+
+    it('when one of two containers carrying the call\'s label is removed and the other refused, the refused one is named', async () => {
+      await fresh();
+      const r = run(['up'], { STUB_RUN_CREATES_THEN_FAILS: '1', STUB_PS_TWO: '1', STUB_RM_FAILS_ID: 'stubsecondid' });
+      assert.strictEqual(r.status, 1);
+      assert.match(r.out, /removed the container this call created/);
+      assert.match(r.out, /container stubsecondid could not be removed/);
+      assert.doesNotMatch(r.out, /container stubcontainerid could not be removed/);
+    });
+
+    it('a stop docker refuses is reported as left running, with the container named, and the call still fails', async () => {
+      await fresh();
+      container('exited');
+      const r = run(['up'], { STUB_PRISMA_EXIT: '1', STUB_STOP_FAILS: '1' });
+      assert.notStrictEqual(r.status, 0);
+      assert.doesNotMatch(r.out, /stopped the container this call started/);
+      assert.match(r.out, new RegExp(`container ${NAME} could not be stopped \\(docker stop failed\\); it is left running`));
+      assert.strictEqual(stateOf('state').trim(), 'running');
     });
 
     it('a lookup line that is not a container id is never handed to docker rm', async () => {
