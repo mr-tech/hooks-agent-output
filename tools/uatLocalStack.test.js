@@ -36,6 +36,7 @@ case "$cmd" in
     [ -n "\${STUB_RUN_FAILS:-}" ] && { echo "docker: run refused" >&2; exit 125; }
     [ -n "\${STUB_RUN_CLASH:-}" ] && {
       : > "$S/exists"; echo running > "$S/state"; printf 'hooks.uat-local-stack=1' > "$S/label"; : > "$S/published"
+      [ -n "\${STUB_RUN_JUNK_STDOUT:-}" ] && echo 'WARNING: the requested image platform does not match the host'
       echo 'docker: Error response from daemon: Conflict. The container name "/hooks-postgres-local" is already in use' >&2; exit 125; }
     : > "$S/exists"; echo running > "$S/state"
     lbl=""; pub=""; prev=""
@@ -46,6 +47,7 @@ case "$cmd" in
     done
     printf '%s' "$lbl" > "$S/label"
     printf '%s\\n' "\${pub%:*}" | sed 's/$//' > "$S/published"
+    [ -n "\${STUB_RUN_PRINTS_NOTHING:-}" ] && exit 0
     [ -n "\${STUB_RELABEL_AFTER_RUN:-}" ] && printf 'someone-else=1' > "$S/label"
     [ -n "\${STUB_RUN_CREATES_THEN_FAILS:-}" ] && { echo "stubcontainerid"; echo "docker: start failed" >&2; exit 125; }
     echo "stubcontainerid"
@@ -740,6 +742,7 @@ describe('uat-local-stack.sh', () => {
       const r = run(['up'], { STUB_RUN_CREATES_THEN_FAILS: '1' });
       assert.strictEqual(r.status, 1);
       assert.deepStrictEqual(docker().filter((l) => l.startsWith('rm ')), ['rm -f stubcontainerid']);
+      assert.doesNotMatch(r.out, /not created by this call/);
     });
 
     it('a same-named, tool-labelled container another session created in the gap is left as found, and the call fails naming it', async () => {
@@ -750,6 +753,22 @@ describe('uat-local-stack.sh', () => {
       assert.strictEqual(fs.existsSync(path.join(root, 'state', 'exists')), true, 'the other session\'s container was removed');
       assert.match(r.out, new RegExp(`${NAME}.*not created by this call`));
       assert.doesNotMatch(r.out, /removed the container/);
+    });
+
+    it('a docker run that succeeds and prints no id is identified by the name it was given, and removed when the push fails', async () => {
+      await fresh();
+      const r = run(['up'], { STUB_RUN_PRINTS_NOTHING: '1', STUB_PRISMA_EXIT: '1' });
+      assert.notStrictEqual(r.status, 0);
+      assert.deepStrictEqual(docker().filter((l) => l.startsWith('rm ')), ['rm -f hooks-postgres-local']);
+      assert.strictEqual(fs.existsSync(path.join(root, 'state', 'exists')), false);
+    });
+
+    it('text on the failed docker run\'s stdout that is not an id identifies nothing: another session\'s container is left as found', async () => {
+      await fresh();
+      const r = run(['up'], { STUB_RUN_CLASH: '1', STUB_RUN_JUNK_STDOUT: '1' });
+      assert.strictEqual(r.status, 1, r.out);
+      assert.deepStrictEqual(mutating(), ['run']);
+      assert.strictEqual(fs.existsSync(path.join(root, 'state', 'exists')), true);
     });
 
     it('a docker run that fails before creating anything reports no removal and removes nothing', async () => {
