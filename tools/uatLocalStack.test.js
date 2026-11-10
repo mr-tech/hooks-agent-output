@@ -71,7 +71,7 @@ case "$cmd" in
     has exists || exit 0
     want=""; prev=""
     for a in "$@"; do [ "$prev" = "--filter" ] && want="\${a#label=}"; prev="$a"; done
-    [ -n "\${STUB_PS_JUNK:-}" ] && { echo 'WARNING: a daemon notice'; echo '--volumes'; }
+    [ -n "\${STUB_PS_JUNK:-}" ] && { echo 'WARNING:'; echo '--volumes'; echo '../x'; }
     [ -n "$want" ] && grep -Fxq -- "$want" "$S/labels" 2>/dev/null && echo stubcontainerid
     exit 0
     ;;
