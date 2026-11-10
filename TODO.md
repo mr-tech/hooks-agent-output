@@ -220,3 +220,12 @@ of chains before 012 …") would match the bare-`0NN` ID-token class. Either sta
 tools' tests fall outside the conventions, or say which rules bind them. Raised as residue by
 `qa-hooks-record-engine` (`qa/closed/fix-hooks-record-shared-engine-qa.md`, Residue) and by the code
 review's CR-4; lodged by `steering-cleanup-hooks`, 2026-11-10.
+
+## website `src/middleware.ts` carries a dead matcher entry
+
+`matcher: ['/message/(.*)', '/api/guilds/(.*)', '/preview']` — no route lives under `/api/guilds`
+(the guild routes are `/api/v1/guilds/…`), and nothing else in `src` names that path (`git grep
+"api/guilds" master -- src`, website `b96e364`). It guards nothing: the middleware only forwards the
+pathname and query string as headers. Removing the entry is a one-line tidy for the next website
+effort that touches the file; it is not a security item. Read by `steering-cleanup-hooks`,
+2026-11-10, while closing the v1 guild-messages handoff.

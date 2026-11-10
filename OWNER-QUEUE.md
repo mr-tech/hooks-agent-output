@@ -59,20 +59,3 @@ until you do.
 2. Tell steering the item numbers to plan, or "none".
 
 Which items do you want planned — or none, and the research closes?
-
-## The comment-sweep branch you put on hold
-
-On 2026-10-10 you asked to merge `chore/agent-comment-sweep` into website `master`, then chose Hold.
-It is still unmerged: one commit that strips trailing comments from 34 files. `master` has since
-moved on by the November bug-fix release, so it is no longer a plain fast-forward.
-
-Merge it, keep holding, or drop the branch?
-
-## The old "v1 endpoints have no authorization" handoff
-
-The defect it reported is fixed and live since 2026-10-10 (an unauthenticated request gets 401). The
-handoff is still open because the cleanup found no document answering two side questions in it: whether other
-middleware matchers are dead in the same way, and whether the Statbot key should be treated as
-compromised given the endpoints were open.
-
-Close it as addressed, or keep it open for those two questions?
