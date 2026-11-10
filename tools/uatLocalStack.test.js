@@ -743,6 +743,7 @@ describe('uat-local-stack.sh', () => {
       assert.strictEqual(r.status, 1);
       assert.deepStrictEqual(docker().filter((l) => l.startsWith('rm ')), ['rm -f stubcontainerid']);
       assert.doesNotMatch(r.out, /not created by this call/);
+      assert.match(docker().filter((l) => l.startsWith('inspect ')).pop(), / stubcontainerid$/, 'the label check reads the container by the id it will remove');
     });
 
     it('a same-named, tool-labelled container another session created in the gap is left as found, and the call fails naming it', async () => {
