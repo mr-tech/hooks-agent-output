@@ -3,7 +3,8 @@ ID: n/a
 Origin: fix-hooks-record-shared-engine
 UUID: 2b33b8c9
 Status: Active
-Status-Detail: "Entrypoints moved onto the shared engine; check exits 0 with 256 baselined. Owed: code review, QA Phase 2."
+Status-Detail: "Handed to code review at d96b799; check exits 0 with 256 baselined. Owed: code review, QA Phase 2."
+Handoff-At: d96b799 — repos=agent-output
 Origin-Chain: none
 ---
 
@@ -163,7 +164,7 @@ The statbot `package.json` case is dropped, because this record has no such mani
 |---|---|---|---|
 | Red | 7b4419a with the old tools, plus the new test | 13 tests, 2 pass, 11 fail, exit 1 | `verification/fix-hooks-record-shared-engine/red-run.txt` |
 | Green, before commit | new tools, uncommitted | 12 pass, 1 fail. The full-pass case saw this document's 3 citations, absent from the committed clone (expected), exit 1. | `green-run-precommit.txt` |
-| Green, committed | `Handoff-At` | see Verification | `green-run.txt` |
+| Green, committed | d96b799 | 13 tests, 13 pass, 0 fail, exit 0 | `green-run.txt` |
 | Control | `RECORD_ENGINE_DIR` → a sentinel engine (record-engine.js prints only `SENTINEL …`), selecting only the two cases green at both trees | 2 tests, 0 pass, 2 fail, exit 1 | `control-preservation-cases.txt` |
 
 The two cases green on both trees, `--status` and `--tracked --check`, guard behaviour the brief says
@@ -189,7 +190,7 @@ None: record tooling only.
 
 ## Handoff
 
-- Handoff-At: recorded in the header at the handoff commit.
+- Handoff-At: d96b799 (source and this document as handed; the commit after it adds only the green-run captures and these rows). At d96b799: `node tools/check-repo.js` exit 0 (`check-repo-at-d96b799.txt`), `--status` exit 0, `build-index.js --tracked --check` exit 1 (stale, steering's rebuild).
 - Reviews: `code-reviewer-hooks-record-engine`, then `qa-hooks-record-engine` (QA Phase 2; the change exceeds 20 production lines).
 - Merges: nothing to merge, since the commits are on `master`. Steering pushes; the record has no workflow files, so the push deploys nothing.
 
@@ -199,3 +200,4 @@ None: record tooling only.
 |---|---|---|
 | 2026-11-10T09:01 | Document opened. | fixer-hooks-record-engine |
 | 2026-11-10T09:05 | Dry measurement, Diagnosis, Change, Test and Verification written; `BLOCKED:` on two strict-YAML entries sent to steering-cleanup-hooks (msg 6680fbac) and answered (option 2, corrected at 7b4419a). | fixer-hooks-record-engine |
+| 2026-11-10T09:05 | Source committed at d96b799; green run at d96b799 13/13 exit 0; Handoff-At d96b799; handed to code-reviewer-hooks-record-engine. | fixer-hooks-record-engine |
