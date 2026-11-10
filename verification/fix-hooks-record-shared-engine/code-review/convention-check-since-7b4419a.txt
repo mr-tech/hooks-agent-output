@@ -1,0 +1,24 @@
+SKIP README.md: not examined — extension .md is outside the examined set
+SKIP implementation/fix-hooks-record-shared-engine-implementation.md: not examined — extension .md is outside the examined set
+SKIP tools/check-repo-baseline.json: not examined — extension .json is outside the examined set
+SKIP verification/fix-hooks-record-shared-engine/control-preservation-cases.txt: not examined — extension .txt is outside the examined set
+SKIP verification/fix-hooks-record-shared-engine/dry-engine-at-7b4419a.txt: not examined — extension .txt is outside the examined set
+SKIP verification/fix-hooks-record-shared-engine/dry-engine-at-8af81c0.txt: not examined — extension .txt is outside the examined set
+SKIP verification/fix-hooks-record-shared-engine/dry-engine-no-instants-at-8af81c0.txt: not examined — extension .txt is outside the examined set
+SKIP verification/fix-hooks-record-shared-engine/green-run-precommit.txt: not examined — extension .txt is outside the examined set
+SKIP verification/fix-hooks-record-shared-engine/index-diff-old-vs-engine-nonhandoff-rows.txt: not examined — extension .txt is outside the examined set
+SKIP verification/fix-hooks-record-shared-engine/index-diff-old-vs-engine.txt: not examined — extension .txt is outside the examined set
+SKIP verification/fix-hooks-record-shared-engine/new-entrypoint-default-precommit.txt: not examined — extension .txt is outside the examined set
+SKIP verification/fix-hooks-record-shared-engine/new-entrypoint-full-precommit.txt: not examined — extension .txt is outside the examined set
+SKIP verification/fix-hooks-record-shared-engine/red-run.txt: not examined — extension .txt is outside the examined set
+SKIP verification/fix-hooks-record-shared-engine/status-engine-at-8af81c0.txt: not examined — extension .txt is outside the examined set
+SKIP verification/fix-hooks-record-shared-engine/status-old-vs-engine.diff: not examined — extension .diff is outside the examined set
+SKIP tools/build-index.js: under a record repository — exempt from every check
+SKIP tools/check-repo.js: under a record repository — exempt from every check
+SKIP tools/recordEntrypoints.test.js: under a record repository — exempt from every check
+SKIP verification/fix-hooks-record-shared-engine/classify-engine-failures.js: under a record repository — exempt from every check
+SKIP verification/fix-hooks-record-shared-engine/dry-entrypoint-check.js: under a record repository — exempt from every check
+SKIP verification/fix-hooks-record-shared-engine/dry-entrypoint-index.js: under a record repository — exempt from every check
+SKIP verification/fix-hooks-record-shared-engine/make-engine-baseline.js: under a record repository — exempt from every check
+SKIP id-token, basename: no agent-output/TEST-CONVENTIONS.md above this repository — conventions not in force here
+convention-check: 0 file(s) examined, 22 not examined, 0 test file(s); 0 FAIL, 0 CANDIDATE, 23 SKIP

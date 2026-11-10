@@ -1,0 +1,602 @@
+  links: 837 in-repo citations checked across 291 documents; 377 resolved across a closure (open↔closed identity); 14 external (sibling-repo) links noted but not verified; 11 deliberately suppressed; 0 backticked, unverified
+  basenames: 1965 distinct, 8 unexpected collisions, 21 shared only across different verification/ folders (allowed), 2 declared exceptions
+  origin-uuid: 3 Origin group(s) with an open document read
+  frontmatter: 188 documents carry frontmatter, 16 distinct chains
+  scope suffixes: 0 document(s) carry one, all validated against their plan
+  duplicate-id: 1 Rev or D table(s) read in 133 open document(s)
+  handoff-priority: 1 handoff(s) carrying a Priority field checked
+  index: stale (node tools/build-index.js --tracked --check)
+  out-of-scope: 0 milestone block(s) in 0 open plan(s) read
+  changelog-rows: gate tree empty; 287 file(s) with judged lines of 291 markdown file(s); 970 changelog row(s) and 5220 heading(s) judged
+  changelog-future-timestamp: 466 table row(s) with a timestamp-shaped first cell checked
+  status-length: 33 non-closed document(s) with a Status field checked
+  terminal-status-negated-act: 0 document(s) with a terminal-looking Status checked
+  status-vocabulary: 187 document(s) checked against seam.js --vocabulary (158 closed since the vocabulary instant)
+
+  INDEX — 1 warning(s)
+    INDEX.md is stale — run `node tools/build-index.js --tracked` and commit it.
+
+  baseline: 256 pre-existing failure(s) suppressed (see tools/check-repo-baseline.json; run with --full to see everything)
+
+  CHANGELOG-ROW-FORM — 516 failure(s)
+    analysis/closed/002-embeds-components-v2-mutual-exclusivity.md:14  ->  changelog row first cell '2026-04-02' is not a full YYYY-MM-DDTHH:MM stamp
+    analysis/closed/002-embeds-components-v2-mutual-exclusivity.md:15  ->  changelog row first cell '2026-04-03' is not a full YYYY-MM-DDTHH:MM stamp
+    analysis/closed/004-lazy-loading-technical-analysis.md:14  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    analysis/closed/004-lazy-loading-technical-analysis.md:15  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    analysis/closed/005-user-reported-bugs-analysis.md:14  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    analysis/closed/005-user-reported-bugs-analysis.md:15  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    analysis/closed/006-avatar-undefined-regression.md:14  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    analysis/closed/006-avatar-undefined-regression.md:15  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    analysis/closed/007-components-v2-displayable-text-limit-analysis.md:14  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    analysis/closed/008-section-text-display-delete-analysis.md:14  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    analysis/closed/008-section-text-display-delete-analysis.md:15  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    analysis/closed/008-section-text-display-delete-analysis.md:16  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    analysis/closed/009-send-page-hasloaded-stuck-analysis.md:14  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    analysis/closed/009-send-page-hasloaded-stuck-analysis.md:15  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    analysis/closed/010-infopanel-overlap-on-initial-load-analysis.md:14  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    analysis/closed/010-infopanel-overlap-on-initial-load-analysis.md:15  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    analysis/closed/011-transition-height-react-style-conflict-analysis.md:14  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    analysis/closed/011-transition-height-react-style-conflict-analysis.md:18  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    analysis/closed/014-test-suite-cleanup-analysis.md:20  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    analysis/closed/014-test-suite-cleanup-analysis.md:21  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    analysis/closed/014-test-suite-cleanup-analysis.md:22  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    analysis/closed/015-bug-evaluation-fixes-analysis.md:25  ->  changelog row first cell '2026-11-08' is not a full YYYY-MM-DDTHH:MM stamp
+    analysis/closed/015-bug-evaluation-fixes-analysis.md:26  ->  changelog row first cell '2026-11-08' is not a full YYYY-MM-DDTHH:MM stamp
+    analysis/closed/015-bug-evaluation-fixes-analysis.md:27  ->  changelog row first cell '2026-11-08' is not a full YYYY-MM-DDTHH:MM stamp
+    analysis/test-inventory-2026-08-26.md:12  ->  changelog row first cell '2026-08-26' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/013-components-v2-editing-surfaces-architecture-findings.md:14  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/013-components-v2-editing-surfaces-architecture-findings.md:15  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/013-components-v2-editing-surfaces-architecture-findings.md:16  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/closed/001-components-v2-architecture-findings.md:14  ->  changelog row first cell '2025-07-15' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/closed/001-components-v2-architecture-findings.md:15  ->  changelog row first cell '2026-04-01' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/closed/001-components-v2-architecture-findings.md:16  ->  changelog row first cell '2026-04-01' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/closed/004-lazy-loading-architecture-findings.md:16  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/closed/004-lazy-loading-architecture-findings.md:17  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/system-architecture.md:26  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/system-architecture.md:27  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/system-architecture.md:28  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/system-architecture.md:29  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/system-architecture.md:30  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/system-architecture.md:31  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/system-architecture.md:32  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/system-architecture.md:33  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/system-architecture.md:34  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/system-architecture.md:35  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/system-architecture.md:36  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/system-architecture.md:37  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/system-architecture.md:38  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/system-architecture.md:39  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/system-architecture.md:40  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/system-architecture.md:41  ->  changelog row first cell '2025-07-15' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/website.md:265  ->  changelog row first cell '2026-09-08' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/website.md:266  ->  changelog row first cell '2026-09-08' is not a full YYYY-MM-DDTHH:MM stamp
+    architecture/website.md:267  ->  changelog row first cell '2026-09-08' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/006-avatar-undefined-hotfix-code-review.md:18  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/007-components-v2-displayable-text-limit-code-review.md:23  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/009-send-page-hasloaded-fix-code-review.md:26  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/010-infopanel-overlap-fix-code-review.md:26  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/010-infopanel-overlap-fix-code-review.md:27  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:185  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:186  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:187  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:188  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:189  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:190  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:191  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:192  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:193  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:194  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:195  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:196  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:197  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:198  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:199  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:200  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:201  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:202  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:203  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:204  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:205  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:206  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:207  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:208  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:209  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:210  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:211  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:212  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:213  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:214  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md:215  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/001-actions-menu-ux-redesign-critique.md:19  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/001-actions-menu-ux-redesign-critique.md:20  ->  changelog row first cell '2025-07-24' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/001-components-v2-state-management-critique.md:20  ->  changelog row first cell '2026-04-01' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/001-components-v2-state-management-critique.md:21  ->  changelog row first cell '2026-04-01' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/001-components-v2-state-management-critique.md:22  ->  changelog row first cell '2026-04-03' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/001-components-v2-state-management-critique.md:23  ->  changelog row first cell '2026-04-03' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/001-components-v2-state-management-critique.md:216  ->  changelog row first cell '2026-04-01' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/001-components-v2-state-management-critique.md:217  ->  changelog row first cell '2026-04-03' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/001-components-v2-state-management-critique.md:218  ->  changelog row first cell '2026-04-03' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/003-actions-menu-critique-remediation-critique.md:19  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/003-actions-menu-critique-remediation-critique.md:20  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/003-actions-menu-critique-remediation-critique.md:21  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/003-actions-menu-critique-remediation-critique.md:22  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/003-actions-menu-critique-remediation-critique.md:23  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/004-lazy-loading-preload-overhaul-critique.md:19  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/004-lazy-loading-preload-overhaul-critique.md:20  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/004-lazy-loading-preload-overhaul-critique.md:185  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/004-lazy-loading-preload-overhaul-critique.md:186  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/005-user-reported-bug-fixes-critique.md:19  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/005-user-reported-bug-fixes-critique.md:20  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/005-user-reported-bug-fixes-critique.md:187  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/005-user-reported-bug-fixes-critique.md:188  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/006-avatar-undefined-hotfix-critique.md:19  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/006-avatar-undefined-hotfix-critique.md:20  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/007-components-v2-displayable-text-limit-critique.md:19  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/007-components-v2-displayable-text-limit-critique.md:20  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/008-sub-component-crud-actions-critique.md:30  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/008-sub-component-crud-actions-critique.md:31  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/009-send-page-hasloaded-fix-critique.md:30  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/010-infopanel-overlap-fix-critique.md:30  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/010-infopanel-overlap-fix-critique.md:31  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/010-infopanel-overlap-fix-critique.md:32  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/010-infopanel-overlap-fix-critique.md:169  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/010-infopanel-overlap-fix-critique.md:170  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/010-infopanel-overlap-fix-critique.md:171  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/012-message-valid-field-critique.md:29  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/012-message-valid-field-critique.md:30  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/012-message-valid-field-critique.md:31  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/012-message-valid-field-critique.md:32  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/012-message-valid-field-critique.md:33  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/012-message-valid-field-critique.md:339  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/012-message-valid-field-critique.md:340  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/012-message-valid-field-critique.md:341  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/012-message-valid-field-critique.md:342  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/012-message-valid-field-critique.md:343  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/013-components-v2-editing-surfaces-critique.md:26  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/013-components-v2-editing-surfaces-critique.md:27  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/013-components-v2-editing-surfaces-critique.md:28  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/013-components-v2-editing-surfaces-critique.md:29  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/013-components-v2-editing-surfaces-critique.md:30  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    critiques/closed/013-components-v2-editing-surfaces-critique.md:31  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    deployment/closed/014-test-suite-cleanup-readiness.md:506  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    deployment/closed/014-test-suite-cleanup-readiness.md:507  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    deployment/closed/014-test-suite-cleanup-readiness.md:508  ->  changelog row first cell '**2026-08-27**' is not a full YYYY-MM-DDTHH:MM stamp
+    handoff/closed/components-v2-editing-support-2026-08-23.md:122  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    handoff/closed/components-v2-editing-support-2026-08-23.md:123  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    handoff/closed/json-editor-bad-configurations-2026-08-23.md:139  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    handoff/closed/json-editor-bad-configurations-2026-08-23.md:140  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    handoff/closed/message-valid-field-for-statbot-2026-08-23.md:202  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    handoff/closed/message-valid-field-for-statbot-2026-08-23.md:203  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    handoff/closed/message-valid-field-for-statbot-2026-08-23.md:204  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    handoff/closed/message-valid-field-for-statbot-2026-08-23.md:205  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    handoff/closed/message-valid-field-for-statbot-2026-08-23.md:206  ->  changelog row first cell '2026-08-26' is not a full YYYY-MM-DDTHH:MM stamp
+    handoff/components-v2-invariant-for-system-architecture-2026-08-24.md:73  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/001-components-v2-state-management.md:22  ->  changelog row first cell '2026-04-01' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/001-components-v2-state-management.md:23  ->  changelog row first cell '2026-04-01' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/001-components-v2-state-management.md:24  ->  changelog row first cell '2026-04-01' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/001-components-v2-state-management.md:25  ->  changelog row first cell '2026-04-02' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/001-components-v2-state-management.md:26  ->  changelog row first cell '2026-04-03' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/001-components-v2-state-management.md:27  ->  changelog row first cell '2026-04-03' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/001-components-v2-state-management.md:28  ->  changelog row first cell '2026-04-03' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/003-actions-menu-critique-remediation.md:17  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/003-actions-menu-critique-remediation.md:18  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/003-actions-menu-critique-remediation.md:19  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/005-user-reported-bug-fixes.md:22  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/005-user-reported-bug-fixes.md:23  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/006-avatar-undefined-hotfix.md:22  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/007-components-v2-displayable-text-limit.md:22  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/008-sub-component-crud-actions.md:22  ->  changelog row first cell '2026-04-10' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/009-send-page-hasloaded-fix.md:22  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/010-infopanel-overlap-fix.md:22  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/010-infopanel-overlap-fix.md:23  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/010-infopanel-overlap-fix.md:24  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/012-message-valid-field-implementation.md:20  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/012-message-valid-field-implementation.md:21  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/012-message-valid-field-implementation.md:22  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/012-message-valid-field-implementation.md:23  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/012-message-valid-field-implementation.md:24  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/012-message-valid-field-implementation.md:25  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/012-message-valid-field-implementation.md:26  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/012-message-valid-field-implementation.md:27  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/012-message-valid-field-implementation.md:28  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/013-components-v2-editing-surfaces-implementation.md:31  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/013-components-v2-editing-surfaces-implementation.md:32  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/013-components-v2-editing-surfaces-implementation.md:33  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/013-components-v2-editing-surfaces-implementation.md:34  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/013-components-v2-editing-surfaces-implementation.md:35  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/013-components-v2-editing-surfaces-implementation.md:36  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/013-components-v2-editing-surfaces-implementation.md:37  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/014-test-suite-cleanup-implementation.md:35  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/014-test-suite-cleanup-implementation.md:36  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/014-test-suite-cleanup-implementation.md:37  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/014-test-suite-cleanup-implementation.md:38  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/014-test-suite-cleanup-implementation.md:39  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/014-test-suite-cleanup-implementation.md:40  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/014-test-suite-cleanup-implementation.md:41  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/014-test-suite-cleanup-implementation.md:42  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/014-test-suite-cleanup-implementation.md:43  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/014-test-suite-cleanup-implementation.md:44  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/014-test-suite-cleanup-implementation.md:45  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/014-test-suite-cleanup-implementation.md:46  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/014-test-suite-cleanup-implementation.md:47  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/014-test-suite-cleanup-implementation.md:48  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/014-test-suite-cleanup-implementation.md:49  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/014-test-suite-cleanup-implementation.md:50  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/014-test-suite-cleanup-implementation.md:51  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    implementation/closed/014-test-suite-cleanup-implementation.md:52  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/001-components-v2-state-management.md:16  ->  changelog row first cell '2025-07-15' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/001-components-v2-state-management.md:17  ->  changelog row first cell '2026-04-01' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/001-components-v2-state-management.md:18  ->  changelog row first cell '2026-04-01' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/001-components-v2-state-management.md:19  ->  changelog row first cell '2026-04-03' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/001-components-v2-state-management.md:20  ->  changelog row first cell '2026-04-03' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/003-actions-menu-critique-remediation.md:20  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/003-actions-menu-critique-remediation.md:21  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/003-actions-menu-critique-remediation.md:22  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/004-lazy-loading-preload-overhaul.md:16  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/004-lazy-loading-preload-overhaul.md:17  ->  changelog row first cell '' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/004-lazy-loading-preload-overhaul.md:18  ->  changelog row first cell '' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/004-lazy-loading-preload-overhaul.md:19  ->  changelog row first cell '' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/004-lazy-loading-preload-overhaul.md:20  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/004-lazy-loading-preload-overhaul.md:21  ->  changelog row first cell '' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/004-lazy-loading-preload-overhaul.md:22  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/004-lazy-loading-preload-overhaul.md:23  ->  changelog row first cell '' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/004-lazy-loading-preload-overhaul.md:24  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/004-lazy-loading-preload-overhaul.md:25  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/005-user-reported-bug-fixes.md:16  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/005-user-reported-bug-fixes.md:17  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/005-user-reported-bug-fixes.md:18  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/005-user-reported-bug-fixes.md:19  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/005-user-reported-bug-fixes.md:20  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/005-user-reported-bug-fixes.md:21  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/006-avatar-undefined-hotfix.md:16  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/006-avatar-undefined-hotfix.md:17  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/006-avatar-undefined-hotfix.md:18  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/006-avatar-undefined-hotfix.md:19  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/006-avatar-undefined-hotfix.md:20  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/006-avatar-undefined-hotfix.md:21  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/007-components-v2-displayable-text-limit.md:16  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/007-components-v2-displayable-text-limit.md:17  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/007-components-v2-displayable-text-limit.md:18  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/007-components-v2-displayable-text-limit.md:19  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/007-components-v2-displayable-text-limit.md:20  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/007-components-v2-displayable-text-limit.md:21  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/008-sub-component-crud-actions.md:16  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/008-sub-component-crud-actions.md:17  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/008-sub-component-crud-actions.md:18  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/008-sub-component-crud-actions.md:19  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/008-sub-component-crud-actions.md:20  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/009-send-page-hasloaded-fix.md:16  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/009-send-page-hasloaded-fix.md:17  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/009-send-page-hasloaded-fix.md:18  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/009-send-page-hasloaded-fix.md:19  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/009-send-page-hasloaded-fix.md:20  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/010-infopanel-overlap-fix.md:16  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/010-infopanel-overlap-fix.md:17  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/010-infopanel-overlap-fix.md:18  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/010-infopanel-overlap-fix.md:19  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/010-infopanel-overlap-fix.md:20  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/010-infopanel-overlap-fix.md:21  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/010-infopanel-overlap-fix.md:22  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/010-infopanel-overlap-fix.md:23  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/010-infopanel-overlap-fix.md:24  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:97  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:98  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:99  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:100  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:101  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:102  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:103  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:104  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:105  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:106  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:107  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:108  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:109  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:110  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:111  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:112  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:113  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:114  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:115  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:116  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:117  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:118  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:119  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:120  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:121  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:122  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:123  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:124  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:125  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:126  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:127  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:128  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:129  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:130  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:131  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:132  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:133  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:134  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:135  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:136  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:137  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:138  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:139  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:140  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:141  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:142  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:143  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:144  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/012-message-valid-field.md:145  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:28  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:29  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:30  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:31  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:32  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:33  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:34  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:35  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:36  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:37  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:38  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:39  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:40  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:41  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:42  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:43  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:44  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:45  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:46  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:47  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:48  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:49  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:50  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:51  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:52  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:53  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:54  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:55  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:56  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:57  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:58  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:59  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:60  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:61  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:62  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:63  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:64  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:65  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:66  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:67  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:68  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:69  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:70  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:71  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:72  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:73  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:74  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:75  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:76  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:77  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/013-components-v2-editing-surfaces.md:78  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/014-test-suite-cleanup.md:25  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/014-test-suite-cleanup.md:26  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/014-test-suite-cleanup.md:27  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/014-test-suite-cleanup.md:28  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/014-test-suite-cleanup.md:29  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/014-test-suite-cleanup.md:30  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/014-test-suite-cleanup.md:31  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/014-test-suite-cleanup.md:32  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/014-test-suite-cleanup.md:33  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/014-test-suite-cleanup.md:34  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/014-test-suite-cleanup.md:36  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/014-test-suite-cleanup.md:37  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/014-test-suite-cleanup.md:38  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/014-test-suite-cleanup.md:39  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/014-test-suite-cleanup.md:40  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/014-test-suite-cleanup.md:41  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/014-test-suite-cleanup.md:42  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/014-test-suite-cleanup.md:43  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/014-test-suite-cleanup.md:44  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/014-test-suite-cleanup.md:45  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/014-test-suite-cleanup.md:46  ->  changelog row first cell '2026-08-27' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/014-test-suite-cleanup.md:47  ->  changelog row first cell '2026-08-26' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/014-test-suite-cleanup.md:48  ->  changelog row first cell '2026-08-26' is not a full YYYY-MM-DDTHH:MM stamp
+    planning/closed/014-test-suite-cleanup.md:49  ->  changelog row first cell '2026-08-26' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/001-components-v2-state-management-qa.md:19  ->  changelog row first cell '2026-04-01' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/001-components-v2-state-management-qa.md:20  ->  changelog row first cell '2026-04-03' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/003-actions-menu-critique-remediation-qa.md:20  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/004-lazy-loading-preload-overhaul-qa.md:18  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/005-send-page-refresh-bugs-qa.md:17  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/005-send-page-refresh-bugs-qa.md:18  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/005-user-reported-bug-fixes-qa.md:19  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/006-avatar-undefined-hotfix-qa.md:18  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/007-components-v2-displayable-text-limit-qa.md:18  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/008-sub-component-crud-actions.md:20  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/008-sub-component-crud-actions.md:21  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/009-send-page-hasloaded-fix-qa.md:20  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/010-infopanel-overlap-fix-qa.md:20  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/010-infopanel-overlap-fix-qa.md:21  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/010-infopanel-overlap-fix-qa.md:22  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/012-message-valid-field-qa.md:87  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/012-message-valid-field-qa.md:88  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/012-message-valid-field-qa.md:89  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/012-message-valid-field-qa.md:90  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/012-message-valid-field-qa.md:91  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/012-message-valid-field-qa.md:92  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/012-message-valid-field-qa.md:93  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/012-message-valid-field-qa.md:94  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/012-message-valid-field-qa.md:95  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/012-message-valid-field-qa.md:96  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/012-message-valid-field-qa.md:97  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/012-message-valid-field-qa.md:98  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/012-message-valid-field-qa.md:99  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/012-message-valid-field-qa.md:100  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/012-message-valid-field-qa.md:101  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/013-components-v2-editing-surfaces-qa.md:92  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/013-components-v2-editing-surfaces-qa.md:93  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/013-components-v2-editing-surfaces-qa.md:94  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/013-components-v2-editing-surfaces-qa.md:95  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/013-components-v2-editing-surfaces-qa.md:96  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/013-components-v2-editing-surfaces-qa.md:97  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/013-components-v2-editing-surfaces-qa.md:98  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/013-components-v2-editing-surfaces-qa.md:99  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/013-components-v2-editing-surfaces-qa.md:100  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/013-components-v2-editing-surfaces-qa.md:101  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/013-components-v2-editing-surfaces-qa.md:102  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/release-4a7126b-tip-verification.md:205  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    qa/closed/release-b56570d-tip-verification.md:280  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    research/closed/components-v2-editing-flows-2026-08-23.md:19  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    research/closed/components-v2-editing-flows-2026-08-23.md:20  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    research/closed/components-v2-editing-flows-2026-08-23.md:21  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    research/closed/json-editor-flag-mint-2026-08-23.md:19  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    research/competitive-feature-landscape-2026-11-08.md:263  ->  changelog row first cell '2026-09-21' is not a full YYYY-MM-DDTHH:MM stamp
+    research/competitive-feature-landscape-2026-11-08.md:264  ->  changelog row first cell '2026-09-21' is not a full YYYY-MM-DDTHH:MM stamp
+    research/competitive-feature-landscape-2026-11-08.md:265  ->  changelog row first cell '2026-09-23' is not a full YYYY-MM-DDTHH:MM stamp
+    research/competitive-feature-landscape-2026-11-08.md:266  ->  changelog row first cell '2026-09-25' is not a full YYYY-MM-DDTHH:MM stamp
+    research/competitive-feature-landscape-2026-11-08.md:267  ->  changelog row first cell '2026-09-25' is not a full YYYY-MM-DDTHH:MM stamp
+    research/competitive-feature-landscape-2026-11-08.md:268  ->  changelog row first cell '2026-09-29' is not a full YYYY-MM-DDTHH:MM stamp
+    research/competitive-feature-landscape-2026-11-08.md:269  ->  changelog row first cell '2026-09-30' is not a full YYYY-MM-DDTHH:MM stamp
+    research/competitive-feature-landscape-2026-11-08.md:270  ->  changelog row first cell '2026-10-07' is not a full YYYY-MM-DDTHH:MM stamp
+    research/competitive-feature-landscape-2026-11-08.md:271  ->  changelog row first cell '2026-10-08' is not a full YYYY-MM-DDTHH:MM stamp
+    research/competitive-feature-landscape-2026-11-08.md:272  ->  changelog row first cell '2026-10-08' is not a full YYYY-MM-DDTHH:MM stamp
+    research/competitive-feature-landscape-2026-11-08.md:273  ->  changelog row first cell '2026-10-26' is not a full YYYY-MM-DDTHH:MM stamp
+    retrospectives/closed/012-message-valid-field-retrospective.md:22  ->  changelog row first cell '2026-08-26' is not a full YYYY-MM-DDTHH:MM stamp
+    retrospectives/closed/013-components-v2-editing-surfaces-retrospective.md:21  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    retrospectives/closed/013-components-v2-editing-surfaces-retrospective.md:22  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    retrospectives/closed/014-test-suite-cleanup-retrospective.md:18  ->  changelog row first cell '2026-08-30' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/001-components-v2-state-management-uat.md:18  ->  changelog row first cell '2026-04-03' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/003-actions-menu-critique-remediation-uat.md:18  ->  changelog row first cell '2026-04-06' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/005-user-reported-bug-fixes-uat.md:18  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/005-user-reported-bug-fixes-uat.md:19  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/006-avatar-undefined-hotfix-uat.md:18  ->  changelog row first cell '2026-04-07' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/007-components-v2-displayable-text-limit-uat.md:18  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/008-sub-component-crud-actions.md:18  ->  changelog row first cell '2026-04-09' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/009-send-page-hasloaded-fix-uat.md:18  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/010-infopanel-overlap-fix-uat.md:18  ->  changelog row first cell '2026-04-12' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/012-message-valid-field-uat.md:58  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/012-message-valid-field-uat.md:59  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/012-message-valid-field-uat.md:60  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/012-message-valid-field-uat.md:61  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/012-message-valid-field-uat.md:62  ->  changelog row first cell '2026-08-23' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/012-message-valid-field-uat.md:63  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/012-message-valid-field-uat.md:64  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:859  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:860  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:861  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:862  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:863  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:864  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:865  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:866  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:867  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:868  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:869  ->  changelog row first cell '2026-08-24' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:870  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:871  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:872  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:873  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:874  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:875  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:876  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:877  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:878  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:879  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:880  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:881  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:882  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:883  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:884  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:885  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:886  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:887  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:888  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:889  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:890  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:891  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:892  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:893  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:894  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:895  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:896  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:897  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:898  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:899  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:900  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:901  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:902  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:903  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:904  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:905  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:906  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:907  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:908  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:909  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:910  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:911  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+    uat/closed/013-components-v2-editing-surfaces-uat.md:912  ->  changelog row first cell '2026-08-25' is not a full YYYY-MM-DDTHH:MM stamp
+
+  CHANGELOG-ROW-VS-COMMIT — 27 failure(s)
+    code-review/closed/015-bug-evaluation-fixes-code-review.md:67  ->  changelog row stamp 2026-11-08T09:55 is later than the commit that introduced it (2026-11-08T09:54Z)
+    critiques/closed/015-bug-evaluation-fixes-critique.md:25  ->  changelog row stamp 2026-11-08T05:33 is later than the commit that introduced it (2026-11-08T05:32Z)
+    critiques/closed/015-bug-evaluation-fixes-critique.md:26  ->  changelog row stamp 2026-11-08T05:36 is later than the commit that introduced it (2026-11-08T05:34Z)
+    critiques/closed/015-bug-evaluation-fixes-critique.md:27  ->  changelog row stamp 2026-11-08T05:36 is later than the commit that introduced it (2026-11-08T05:34Z)
+    critiques/closed/015-bug-evaluation-fixes-cycle5-critique.md:20  ->  changelog row stamp 2026-11-08T07:31 is later than the commit that introduced it (2026-11-08T07:29Z)
+    critiques/closed/015-bug-evaluation-fixes-cycle5-critique.md:22  ->  changelog row stamp 2026-11-08T07:34 is later than the commit that introduced it (2026-11-08T07:33Z)
+    critiques/closed/015-bug-evaluation-fixes-cycle7-critique.md:21  ->  changelog row stamp 2026-11-08T08:16 is later than the commit that introduced it (2026-11-08T08:15Z)
+    critiques/closed/015-bug-evaluation-fixes-cycle8-critique.md:21  ->  changelog row stamp 2026-11-08T08:31 is later than the commit that introduced it (2026-11-08T08:30Z)
+    handoff/closed/bug-evaluation-fixes-post-deploy-2026-11-08.md:71  ->  changelog row stamp 2026-11-08T22:40 is later than the commit that introduced it (2026-11-08T22:38Z)
+    handoff/closed/bug-evaluation-fixes-post-deploy-2026-11-08.md:73  ->  changelog row stamp 2026-11-08T23:01 is later than the commit that introduced it (2026-11-08T23:00Z)
+    handoff/closed/bug-evaluation-fixes-post-deploy-2026-11-08.md:74  ->  changelog row stamp 2026-11-08T23:05 is later than the commit that introduced it (2026-11-08T23:04Z)
+    handoff/closed/bug-evaluation-fixes-post-deploy-2026-11-08.md:75  ->  changelog row stamp 2026-11-08T23:05 is later than the commit that introduced it (2026-11-08T23:04Z)
+    handoff/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md:64  ->  changelog row stamp 2026-11-08T21:16 is later than the commit that introduced it (2026-11-08T21:15Z)
+    implementation/closed/015-bug-evaluation-fixes-m0-implementation.md:24  ->  changelog row stamp 2026-11-08T05:57 is later than the commit that introduced it (2026-11-08T05:56Z)
+    implementation/closed/015-bug-evaluation-fixes-m1-m2-qa-findings-implementation.md:24  ->  changelog row stamp 2026-11-08T09:55 is later than the commit that introduced it (2026-11-08T09:54Z)
+    planning/closed/015-bug-evaluation-fixes.md:75  ->  changelog row stamp 2026-11-08T06:03 is later than the commit that introduced it (2026-11-08T06:02Z)
+    planning/closed/015-bug-evaluation-fixes.md:76  ->  changelog row stamp 2026-11-08T06:09 is later than the commit that introduced it (2026-11-08T06:08Z)
+    planning/closed/015-bug-evaluation-fixes.md:135  ->  changelog row stamp 2026-11-08T09:40 is later than the commit that introduced it (2026-11-08T09:38Z)
+    qa/closed/015-bug-evaluation-fixes-qa.md:20  ->  changelog row stamp 2026-11-08T05:46 is later than the commit that introduced it (2026-11-08T05:45Z)
+    qa/closed/015-bug-evaluation-fixes-qa.md:21  ->  changelog row stamp 2026-11-08T05:48 is later than the commit that introduced it (2026-11-08T05:47Z)
+    qa/closed/015-bug-evaluation-fixes-qa.md:22  ->  changelog row stamp 2026-11-08T05:52 is later than the commit that introduced it (2026-11-08T05:50Z)
+    qa/closed/015-bug-evaluation-fixes-qa.md:23  ->  changelog row stamp 2026-11-08T05:55 is later than the commit that introduced it (2026-11-08T05:53Z)
+    qa/closed/015-bug-evaluation-fixes-qa.md:24  ->  changelog row stamp 2026-11-08T06:31 is later than the commit that introduced it (2026-11-08T06:29Z)
+    qa/closed/015-bug-evaluation-fixes-qa.md:25  ->  changelog row stamp 2026-11-08T06:38 is later than the commit that introduced it (2026-11-08T06:33Z)
+    uat/closed/015-bug-evaluation-fixes-uat.md:23  ->  changelog row stamp 2026-11-08T20:35 is later than the commit that introduced it (2026-11-08T20:34Z)
+    uat/closed/015-bug-evaluation-fixes-uat.md:28  ->  changelog row stamp 2026-11-08T22:40 is later than the commit that introduced it (2026-11-08T22:38Z)
+    uat/closed/015-bug-evaluation-fixes-uat.md:30  ->  changelog row stamp 2026-11-08T23:05 is later than the commit that introduced it (2026-11-08T23:04Z)
+
+  STATUS-VOCABULARY — 32 failure(s)
+    analysis/closed/002-embeds-components-v2-mutual-exclusivity.md: Status 'Planned' is not one of Active | Committed | Released | Abandoned | Superseded
+    analysis/closed/004-lazy-loading-technical-analysis.md: Status 'Planned' is not one of Active | Committed | Released | Abandoned | Superseded
+    analysis/closed/005-user-reported-bugs-analysis.md: Status 'Planned' is not one of Active | Committed | Released | Abandoned | Superseded
+    analysis/closed/006-avatar-undefined-regression.md: Status 'Planned' is not one of Active | Committed | Released | Abandoned | Superseded
+    analysis/closed/007-components-v2-displayable-text-limit-analysis.md: Status 'Planned' is not one of Active | Committed | Released | Abandoned | Superseded
+    analysis/closed/008-section-text-display-delete-analysis.md: Status 'Planned' is not one of Active | Committed | Released | Abandoned | Superseded
+    analysis/closed/009-send-page-hasloaded-stuck-analysis.md: Status 'Planned' is not one of Active | Committed | Released | Abandoned | Superseded
+    analysis/closed/010-infopanel-overlap-on-initial-load-analysis.md: Status 'Planned' is not one of Active | Committed | Released | Abandoned | Superseded
+    analysis/closed/011-transition-height-react-style-conflict-analysis.md: Status 'Planned' is not one of Active | Committed | Released | Abandoned | Superseded
+    analysis/closed/014-test-suite-cleanup-analysis.md: Status 'Planned' is not one of Active | Committed | Released | Abandoned | Superseded
+    code-review/closed/012-message-valid-field-code-review.md: Reviewed-At — first token 'Round 7 (delta): website `c85945f` on `c' is not a SHA
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md: Status 'Code Review Approved' is not one of In Review | Committed | Released | Superseded
+    code-review/closed/013-components-v2-editing-surfaces-code-review.md: Reviewed-At — first token 'Round 25 (current, binding): TREE b56570' is not a SHA
+    code-review/closed/014-test-suite-cleanup-code-review.md: Reviewed-At — first token 'website e6163fd (chain/014-test-suite-cl' is not a SHA
+    critiques/closed/001-actions-menu-ux-redesign-critique.md: Status 'Planned' is not one of Open | Resolved | Superseded
+    critiques/closed/001-components-v2-state-management-critique.md: Status 'OPEN' is not one of Open | Resolved | Superseded
+    critiques/closed/003-actions-menu-critique-remediation-critique.md: Status 'OPEN' is not one of Open | Resolved | Superseded
+    critiques/closed/004-lazy-loading-preload-overhaul-critique.md: Status 'RESOLVED' is not one of Open | Resolved | Superseded
+    critiques/closed/005-user-reported-bug-fixes-critique.md: Status 'CLOSED' is not one of Open | Resolved | Superseded
+    critiques/closed/007-components-v2-displayable-text-limit-critique.md: Status 'Released' is not one of Open | Resolved | Superseded
+    critiques/closed/008-sub-component-crud-actions-critique.md: Status 'OPEN' is not one of Open | Resolved | Superseded
+    critiques/closed/009-send-page-hasloaded-fix-critique.md: Status 'OPEN' is not one of Open | Resolved | Superseded
+    critiques/closed/010-infopanel-overlap-fix-critique.md: Status 'RESOLVED' is not one of Open | Resolved | Superseded
+    deployment/closed/012-message-valid-field-readiness.md: Status 'Superseded by 012-message-valid-field-deployment.md — releas' is not one of Active | Committed | Released | Abandoned | Superseded
+    deployment/closed/013-components-v2-editing-surfaces-readiness.md: Status 'Superseded by 013-components-v2-editing-surfaces-deployment.' is not one of Active | Committed | Released | Abandoned | Superseded
+    deployment/closed/014-test-suite-cleanup-deployment.md: Status 'Released — chain closed 2026-08-27; every register row termi' is not one of Active | Committed | Released | Abandoned | Superseded
+    deployment/closed/014-test-suite-cleanup-readiness.md: Status 'Superseded by 014-test-suite-cleanup-deployment.md — release' is not one of Active | Committed | Released | Abandoned | Superseded
+    qa/closed/001-components-v2-ui-bugs-findings.md: Status 'Findings Documented' is not one of Test Strategy Development | Awaiting Implementation | Testing In Progress | QA Complete | QA Failed | Release Verified | Release Verification Failed | Committed | Released | Superseded
+    qa/closed/012-message-valid-field-qa.md: Verified-At — first token 'website chain/012-message-valid-field @ ' is not a SHA
+    uat/closed/012-message-valid-field-uat.md: Verified-At — first token 'Re-derived from the tree 2026-08-25 by t' is not a SHA
+    uat/closed/013-components-v2-editing-surfaces-uat.md: Verified-At — first token '**CURRENT (rev 19/20/21).** **Rev 21 exe' is not a SHA
+    uat/closed/014-test-suite-cleanup-uat.md: Verified-At — first token 'website f2c85f5c7e3ad03879845ae1116518dc' is not a SHA
+
+  FAIL — 575 problem(s) (831 total, 256 baselined).

@@ -1,0 +1,3 @@
+entries 1; distinct files 1; outside both classes 1
+  scope planning/015-x.md
+missing on disk 1

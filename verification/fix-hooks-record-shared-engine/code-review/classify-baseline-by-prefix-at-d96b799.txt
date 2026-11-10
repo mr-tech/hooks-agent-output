@@ -1,0 +1,2 @@
+entries 256; distinct files 72; outside both classes 0
+missing on disk 0
