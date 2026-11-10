@@ -1,0 +1,54 @@
+control B: same export; both entrypoints' default engine directory mutated to a silent engine (runCheck/runIndex print nothing, exit 0); override cases selected; 2026-11-10T09:13:08Z
+▶ record entrypoints load the shared engine
+  ✖ check-repo.js loads the engine the override names, and the live engine without it (51.079982ms)
+  ✖ build-index.js loads the engine the override names, and the live engine without it (52.078761ms)
+✖ record entrypoints load the shared engine (716.937661ms)
+ℹ tests 2
+ℹ suites 1
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 775.332135
+
+✖ failing tests:
+
+test at tools/recordEntrypoints.test.js:78:5
+✖ check-repo.js loads the engine the override names, and the live engine without it (51.079982ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /^usage: node tools\/check-repo\.js \[--status \| --full\]\n/. Input:
+  
+  ''
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/a6c89c34-7fca-4cc0-92e6-69b1aab394a5/scratchpad/ctl/tools/recordEntrypoints.test.js:84:14)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Promise.all (index 2)
+      at async Suite.run (node:internal/test_runner/test:1533:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: /^usage: node tools\/check-repo\.js \[--status \| --full\]\n/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:78:5
+✖ build-index.js loads the engine the override names, and the live engine without it (52.078761ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /^usage: node tools\/build-index\.js \[--tracked\] \[--check\]\n/. Input:
+  
+  ''
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/a6c89c34-7fca-4cc0-92e6-69b1aab394a5/scratchpad/ctl/tools/recordEntrypoints.test.js:84:14)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: /^usage: node tools\/build-index\.js \[--tracked\] \[--check\]\n/,
+    operator: 'match',
+    diff: 'simple'
+  }
+exit 1

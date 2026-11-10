@@ -1,0 +1,71 @@
+tree: f824d3d + CR-1/CR-2 edits to tools/check-repo.js, tools/build-index.js, tools/recordEntrypoints.test.js, README.md (uncommitted); 2026-11-10T09:12:36Z
+▶ record entrypoints load the shared engine
+  ✔ check-repo.js exits non-zero naming the engine path and the box binding when the engine is absent (29.582287ms)
+  ✔ check-repo.js exits 2 naming the engine-side install command when js-yaml cannot load (58.412974ms)
+  ✔ check-repo.js loads the engine the override names, and the live engine without it (75.466727ms)
+  ✔ requiring check-repo.js writes nothing, prints nothing and exits 0 (152.988222ms)
+  ✔ build-index.js exits non-zero naming the engine path and the box binding when the engine is absent (32.998143ms)
+  ✔ build-index.js exits 2 naming the engine-side install command when js-yaml cannot load (65.201904ms)
+  ✔ build-index.js loads the engine the override names, and the live engine without it (70.541909ms)
+  ✔ requiring build-index.js writes nothing, prints nothing and exits 0 (48.055134ms)
+  ✔ check-repo.js carries a gate instant and a vocabulary instant that are UTC instants no later than now (28.886463ms)
+  ✔ check-repo.js raises no basename failure for the root and probe .gitignore files or the verification probe folders (1668.755786ms)
+  ✖ check-repo.js passes the committed record with its baseline and no stale baseline entry (1654.661191ms)
+  ✔ every baseline entry names only documents of chains before 012 or one of the four closed documents without a stage suffix (2.878218ms)
+  ✔ check-repo.js reaches the engine in status mode with this record's settings (130.585133ms)
+  ✔ build-index.js --tracked --check reads the committed tree through the engine (161.50358ms)
+✖ record entrypoints load the shared engine (4859.257817ms)
+ℹ tests 14
+ℹ suites 1
+ℹ pass 13
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4920.7938
+
+✖ failing tests:
+
+test at tools/recordEntrypoints.test.js:117:3
+✖ check-repo.js passes the committed record with its baseline and no stale baseline entry (1654.661191ms)
+  AssertionError [ERR_ASSERTION]:   links: 847 in-repo citations checked across 292 documents; 377 resolved across a closure (open↔closed identity); 14 external (sibling-repo) links noted but not verified; 11 deliberately suppressed; 0 backticked, unverified
+    basenames: 1978 distinct, 8 unexpected collisions, 21 shared only across different verification/ folders (allowed), 2 declared exceptions
+    origin-uuid: 4 Origin group(s) with an open document read
+    frontmatter: 189 documents carry frontmatter, 16 distinct chains
+    scope suffixes: 0 document(s) carry one, all validated against their plan
+    duplicate-id: 1 Rev or D table(s) read in 134 open document(s)
+    handoff-priority: 1 handoff(s) carrying a Priority field checked
+    index: stale (node tools/build-index.js --tracked --check)
+    out-of-scope: 0 milestone block(s) in 0 open plan(s) read
+    changelog-rows: gate tree 7b4419a; 3 file(s) with judged lines of 292 markdown file(s); 5 changelog row(s) and 7 heading(s) judged
+    changelog-future-timestamp: 469 table row(s) with a timestamp-shaped first cell checked
+    status-length: 34 non-closed document(s) with a Status field checked
+    terminal-status-negated-act: 0 document(s) with a terminal-looking Status checked
+    status-vocabulary: 33 document(s) checked against seam.js --vocabulary (0 closed since the vocabulary instant)
+  
+    INDEX — 1 warning(s)
+      INDEX.md is stale — run `node tools/build-index.js --tracked` and commit it.
+  
+    baseline: 256 pre-existing failure(s) suppressed (see tools/check-repo-baseline.json; run with --full to see everything)
+  
+    LINKS — 2 failure(s)
+      code-review/fix-hooks-record-shared-engine-code-review.md:43  ->  code-review/classify-baseline-by-prefix.js   (backticked, resolves to code-review/classify-baseline-by-prefix.js)
+      code-review/fix-hooks-record-shared-engine-code-review.md:43  ->  planning/015-x.md   (backticked, resolves to planning/015-x.md)
+  
+    FAIL — 2 problem(s) (258 total, 256 baselined).
+  
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/recordEntrypoints.test.js:119:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+exit 1

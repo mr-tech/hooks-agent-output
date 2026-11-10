@@ -226,12 +226,12 @@ Historical records are not retrofitted to a later convention. Read them as what 
 
 Two self-maintenance scripts, both acting on this repository and nothing else. Each is a thin
 entrypoint that holds this record's settings and calls the shared record engine,
-`~/.claude/tools/record-engine.js`, which the Agents domain owns. The engine lives on this box only
-and has no remote. Either script exits 2, naming the engine path, when the engine is absent.
+`~/.claude/tools/record-engine.js`, which the Agents domain owns. The tooling is bound to this box:
+the engine's git remote is a backup, not a second home. Either script exits 2, naming the engine path, when the engine is absent.
 
 | Script | What it does |
 |---|---|
-| `check-repo.js` | Citations resolve · basenames unique · frontmatter consistent · stage suffixes present · one UUID per chain, plus the engine's later rules (status vocabulary, changelog-row stamps and order, duplicate R-n/D-n, handoff `Priority`), each armed from this record's adoption instant. Exits non-zero on any failure that is not baselined; `--full` prints the baselined ones too. `--status` reports chain state instead and is a separate check. |
+| `check-repo.js` | Citations resolve · basenames unique · frontmatter consistent · stage suffixes present · one UUID per chain, plus the engine's later rules: status vocabulary on open documents; changelog-row stamps and order, judged only on lines added after the adoption instant (`gateInstant`); status vocabulary on documents closed after that instant (`vocabularyInstant`); duplicate R-n/D-n in open documents and handoff `Priority`, armed by `documentRules` over all history, with no instant. Exits non-zero on any failure that is not baselined; `--full` prints the baselined ones too. `--status` reports chain state instead and is a separate check. |
 | `build-index.js` | Generates `INDEX.md`. **The committed index is generated with `--tracked`** — tracked documents only, so it is correct in a fresh clone — and verified with `--tracked --check`. The default mode includes untracked documents and is a live lookup, never committed. |
 
 **`check-repo.js` exits 0 against this repository.** The failures no correction can clear are listed

@@ -1,0 +1,39 @@
+control A: export of f824d3d with the CR-round test and tools; tools/check-repo-baseline.json + one planted entry 'planning/015-planted-chain-document.md: no UUID field'; only the baseline-class case selected; 2026-11-10T09:13:07Z
+▶ record entrypoints load the shared engine
+  ✖ every baseline entry names only documents of chains before 012 or one of the four closed documents without a stage suffix (3.636773ms)
+✖ record entrypoints load the shared engine (672.746405ms)
+ℹ tests 1
+ℹ suites 1
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 726.842153
+
+✖ failing tests:
+
+test at tools/recordEntrypoints.test.js:124:3
+✖ every baseline entry names only documents of chains before 012 or one of the four closed documents without a stage suffix (3.636773ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + [
+  +   'frontmatter: planning/015-planted-chain-document.md: no UUID field'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/a6c89c34-7fca-4cc0-92e6-69b1aab394a5/scratchpad/ctl/tools/recordEntrypoints.test.js:143:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Promise.all (index 11)
+      at async Suite.run (node:internal/test_runner/test:1533:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'frontmatter: planning/015-planted-chain-document.md: no UUID field' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+exit 1

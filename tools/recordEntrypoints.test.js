@@ -78,8 +78,12 @@ describe('record entrypoints load the shared engine', () => {
     it(`${tool} loads the engine the override names, and the live engine without it`, () => {
       const overridden = run(tool, [], { RECORD_ENGINE_DIR: sentinelEngine });
       assert.match(overridden.stdout, /^SENTINEL (check|index) [a-z]+\n$/);
-      const live = run(tool, tool === 'check-repo.js' ? ['--status'] : ['--tracked', '--check'], {});
+      const live = run(tool, ['--help'], {});
+      assert.strictEqual(live.status, 0, live.stderr);
       assert.doesNotMatch(live.stdout, /SENTINEL/);
+      assert.match(live.stdout, tool === 'check-repo.js'
+        ? /^usage: node tools\/check-repo\.js \[--status \| --full\]\n/
+        : /^usage: node tools\/build-index\.js \[--tracked\] \[--check\]\n/);
     });
 
     it(`requiring ${tool} writes nothing, prints nothing and exits 0`, () => {
@@ -110,11 +114,33 @@ describe('record entrypoints load the shared engine', () => {
     assert.doesNotMatch(basenames, /verification\//);
   });
 
-  it('check-repo.js passes the committed record with its baseline, every baselined failure predating the move', () => {
+  it('check-repo.js passes the committed record with its baseline and no stale baseline entry', () => {
     const r = run('check-repo.js', [], {});
     assert.strictEqual(r.status, 0, r.stdout);
     assert.match(r.stdout, /PASS — no new failures \(\d+ baselined\)\./);
     assert.doesNotMatch(r.stdout, /BASELINE — /);
+  });
+
+  it('every baseline entry names only documents of chains before 012 or one of the four closed documents without a stage suffix', () => {
+    const unsuffixed = new Set([
+      'code-review/closed/012-carry-forward-to-post-refresh-pass.md',
+      'deployment/closed/012-message-valid-field-readiness.md',
+      'deployment/closed/013-components-v2-editing-surfaces-readiness.md',
+      'deployment/closed/014-test-suite-cleanup-readiness.md',
+    ]);
+    const beforeChain12 = (p) => /^(?:00\d|01[01])-/.test(path.posix.basename(p)) || /-plan-(?:00\d|01[01])\.md$/.test(p);
+    const entries = JSON.parse(fs.readFileSync(path.join(work, 'tools', 'check-repo-baseline.json'), 'utf8'));
+    assert.ok(entries.length > 0);
+    const outside = [];
+    for (const entry of entries) {
+      const documents = entry.check === 'basenames'
+        ? entry.detail.split('\n').slice(1).map((l) => l.trim())
+        : [(entry.detail.match(/^(\S+?\.md)(?::\d+)?(?=[\s:]|$)/) || [])[1]];
+      assert.ok(documents.length > 0 && documents.every(Boolean), `no document in: ${entry.detail}`);
+      const covered = entry.check === 'scope' && documents.every((d) => unsuffixed.has(d));
+      if (!covered && !documents.every(beforeChain12)) outside.push(`${entry.check}: ${entry.detail.split('\n')[0]}`);
+    }
+    assert.deepStrictEqual(outside, []);
   });
 
   it('check-repo.js reaches the engine in status mode with this record\'s settings', () => {

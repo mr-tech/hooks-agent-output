@@ -37,7 +37,7 @@ const SETTINGS = {
 
 function main() {
   if (!fs.existsSync(ENGINE)) {
-    console.error(`record engine not found at ${ENGINE}. The record tooling is bound to this box: the engine lives in ~/.claude/tools, which has no remote.`);
+    console.error(`record engine not found at ${ENGINE}. The record tooling is bound to this box: the engine lives in ~/.claude/tools, and its git remote is a backup, not a second home.`);
     process.exit(2);
   }
   require(ENGINE).runCheck(SETTINGS);
