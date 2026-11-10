@@ -35,7 +35,7 @@ case "$cmd" in
   run)
     [ -n "\${STUB_RUN_FAILS:-}" ] && { echo "docker: run refused" >&2; exit 125; }
     [ -n "\${STUB_RUN_CLASH:-}" ] && {
-      : > "$S/exists"; echo running > "$S/state"; printf 'hooks.uat-local-stack=1' > "$S/label"; : > "$S/published"
+      : > "$S/exists"; echo running > "$S/state"; printf 'hooks.uat-local-stack=1' > "$S/label"; printf 'hooks.uat-local-stack=1\\n' > "$S/labels"; : > "$S/published"
       [ -n "\${STUB_RUN_JUNK_STDOUT:-}" ] && echo 'WARNING: the requested image platform does not match the host'
       echo 'docker: Error response from daemon: Conflict. The container name "/hooks-postgres-local" is already in use' >&2; exit 125; }
     : > "$S/exists"; echo running > "$S/state"
@@ -71,6 +71,7 @@ case "$cmd" in
     has exists || exit 0
     want=""; prev=""
     for a in "$@"; do [ "$prev" = "--filter" ] && want="\${a#label=}"; prev="$a"; done
+    [ -n "\${STUB_PS_JUNK:-}" ] && { echo 'WARNING: a daemon notice'; echo '--volumes'; }
     [ -n "$want" ] && grep -Fxq -- "$want" "$S/labels" 2>/dev/null && echo stubcontainerid
     exit 0
     ;;
@@ -80,6 +81,7 @@ case "$cmd" in
     ;;
   rm)
     has exists || exit 1
+    [ -n "\${STUB_RM_FAILS:-}" ] && { echo "docker: rm refused" >&2; exit 1; }
     rm -f "$S/exists" "$S/state" "$S/label" "$S/labels" "$S/published"
     ;;
   exec)
@@ -817,6 +819,21 @@ describe('uat-local-stack.sh', () => {
       assert.strictEqual(r.status, 1, r.out);
       assert.deepStrictEqual(mutating(), ['run']);
       assert.strictEqual(fs.existsSync(path.join(root, 'state', 'exists')), true);
+    });
+
+    it('a removal docker refuses is not reported as done and not blamed on the label, and the container is still there', async () => {
+      await fresh();
+      const r = run(['up'], { STUB_RUN_CREATES_THEN_FAILS: '1', STUB_RM_FAILS: '1' });
+      assert.strictEqual(r.status, 1);
+      assert.doesNotMatch(r.out, /removed the container|not removed|left as found/);
+      assert.strictEqual(fs.existsSync(path.join(root, 'state', 'exists')), true);
+    });
+
+    it('a lookup line that is not a container id is never handed to docker rm', async () => {
+      await fresh();
+      const r = run(['up'], { STUB_RUN_CREATES_THEN_FAILS: '1', STUB_PS_JUNK: '1' });
+      assert.strictEqual(r.status, 1);
+      assert.deepStrictEqual(docker().filter((l) => l.startsWith('rm ')), ['rm -f stubcontainerid']);
     });
 
     it('a docker run that fails before creating anything reports no removal and removes nothing', async () => {
