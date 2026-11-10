@@ -7,7 +7,7 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-222 documents · 15 numbered chains · 83 unnumbered.
+223 documents · 15 numbered chains · 84 unnumbered.
 
 ---
 
@@ -291,6 +291,7 @@ they are the ID-less artifacts that root new efforts.
 | research | `research/closed/v1-guild-messages-auth-exposure-2026-10-10.md` | Answered — (a) ANSWERED, Proven: production answers the list endpoint with no key — one sanctioned GET returned HTTP 200 application/json from the Next.js handler (x-matched-path on the route, no 404 rewrite, no edge block). The deployed exposure is LIVE. (b) owner-needing: key equality (statbot HOOKS_API_KEY vs website STATBOT_API_KEY) cannot be established by any instrument available to this run without exposing a secret, and is additionally unobservable through the live system because the only code that compares the two keys is unreachable in production. The instrument that could settle it is named below and marked owner-needing. |
 | research | `research/codebase-bug-evaluation-2026-11-08.md` | Active — Sweep complete over website, project-utils and preview-image-generator at the SHAs in § Context. 50 rated findings (F-1–F-50), every one read at the code by the researcher; the two SQL-shape defects and the code-block regex were proven by execution. Eight editor hypotheses (H-1–H-8) need a running editor and are listed with their disconfirming tests, not counted. The owner answered all three intent questions on 2026-11-08 (username required by design, so no defect; get_message open to Manage Server; cap no stated preference). Nothing here is fixed; this is a research document, and it stays Active until the hypotheses H-1 to H-8 are run (G-5). |
 | research | `research/competitive-feature-landscape-2026-11-08.md` | Active — Landscape and scored feature list delivered (Findings F1–F15, Scored list S1–S33). Value now rests on a census of user demand: 1,098 forum posts / 10,734 forum messages and 3,438 channel messages across four Discord communities (ours included), checked post by post against Discord's own message counts. Owner ruled 2026-11-08: Q1 bot sending for interactive buttons ("sure"), Q2 no paid tier, ever ("a loss leader for Statbot"). Not Answered: no Hooks.gg usage data exists (G1), and the owner has not yet selected items to plan against. Stays Active until he does; the planner then cites this document and it closes Answered. |
+| retrospective | `retrospectives/fix-hooks-record-shared-engine-retrospective.md` | Active |
 | — | `steering/014-rulings.md` | — |
 | — | `steering/015-rulings.md` | — |
 | — | `steering/015-security-brief.md` | — |
@@ -493,6 +494,7 @@ they are the ID-less artifacts that root new efforts.
 | `fix-hooks-record-shared-engine-code-review.md` | `code-review/closed/fix-hooks-record-shared-engine-code-review.md` |
 | `fix-hooks-record-shared-engine-implementation.md` | `implementation/closed/fix-hooks-record-shared-engine-implementation.md` |
 | `fix-hooks-record-shared-engine-qa.md` | `qa/closed/fix-hooks-record-shared-engine-qa.md` |
+| `fix-hooks-record-shared-engine-retrospective.md` | `retrospectives/fix-hooks-record-shared-engine-retrospective.md` |
 | `fix-v1-guild-messages-auth-code-review.md` | `code-review/closed/fix-v1-guild-messages-auth-code-review.md` |
 | `fix-v1-guild-messages-auth-deployment.md` | `deployment/fix-v1-guild-messages-auth-deployment.md` |
 | `fix-v1-guild-messages-auth-implementation.md` | `implementation/closed/fix-v1-guild-messages-auth-implementation.md` |
