@@ -800,6 +800,7 @@ describe('uat-local-stack.sh', () => {
       assert.strictEqual(fs.existsSync(path.join(root, 'state', 'exists')), true, 'the other session\'s container was removed');
       assert.match(r.out, new RegExp(`${NAME}.*not created by this call`));
       assert.doesNotMatch(r.out, /removed the container/);
+      assert.strictEqual(r.out.split('\n').filter((l) => l.includes(NAME)).length, 1, 'the container is named once');
     });
 
     it('a docker run that succeeds and prints no id is found by the call\'s label, and removed when the push fails', async () => {
