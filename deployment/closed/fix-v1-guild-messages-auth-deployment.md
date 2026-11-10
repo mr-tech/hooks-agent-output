@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-v1-guild-messages-auth
 UUID: 9c90dfa0
-Status: Active
-Status-Detail: "Released: website master = ddbd750 on origin (move by steering, f4b7fb0); owner confirms Vercel live. B-3 PASS (401, 0 B, 16:52Z). Phase 2D held until B-4 (owner's dashboard check) is terminal."
+Status: Released
+Status-Detail: "Released 2026-10-10: website master = ddbd750 on origin (move by steering, f4b7fb0); owner confirmed Vercel live. Every register row terminal: B-3 PASS (401, 16:52Z); B-4 PASS (owner's observation, 2026-11-10). Phase 2D complete."
 ---
 
 # Deployment Record: fix-v1-guild-messages-auth
@@ -23,6 +23,8 @@ Status-Detail: "Released: website master = ddbd750 on origin (move by steering, 
 | 2026-10-10T15:47 | steering (message: B-1 answered) | Finish Stage 1 | **B-1 EXECUTED.** The owner answered "match" (his words, 2026-10-10T15:46Z, rulings block "B-1 answered: key match (his words)", 5d4cb30; no values recorded). Every pre-release row is now terminal, so the step 2b gate passes. Release tip re-derived: website HEAD = ddbd750 on the chain branch with 0 porcelain lines; remote `master` = f2c85f5 (`ls-remote`); `qa/website-2026-10-10-release-tip-qa.md` is Release Verified at ddbd750 (0006119), with its capture `qa-suite-ddbd750.json` read by `node` as 598/598, 0 failed, 54 files, success true. Exit 0 is QA's record, since the JSON carries no exit code. **Stage 1 committed**: chain branch `fix/v1-guild-messages-auth` at `ddbd750c1ab4808317f3408524cf5f9b7d8d0935`. Closed: implementation, code-review and qa (plan-level) documents, Status Committed, moved to `closed/`. Created carrier `handoff/fix-v1-guild-messages-auth-post-deploy-2026-10-10.md` for B-3 and B-4. No ref moved and nothing pushed. Stage 2 is not approved. Process fact: I repointed this record's and the handoff's paths to `qa/closed/…` with an in-place `sed -i`. That breaches the lifecycle form, which requires the file-editing tools for record documents under auto mode. I checked the result by `grep -c` (2 here, 1 in the handoff), and this sentence was written with the Edit tool. `qa/website-2026-10-10-release-tip-qa.md` (QA's) still cites the pre-move path; it is not mine to edit. |
 | 2026-10-10T15:56 | steering (message: release approved; B-3 waiver) | Stage 2 for website master f2c85f5 → ddbd750 | Read rulings block "release approval and B-3 waiver (by selection)" (464f9ba). **Phase 2A ran and stopped at two blocks.** (1) **Build gate (step 5) BLOCKED.** The first `next build` (Next 16.1.6, Turbopack) in an isolated export exited 1: "Symlink node_modules is invalid, it points out of the filesystem root". A non-symlinked copy needs about 920M (`du -sh node_modules`) plus build output, and the root filesystem has 155M free (`df -h /`, 100% used). I did not run a smaller substitute (a `--webpack` build is not the build Vercel runs) and did not build in the shared tree. The export and the panic log were removed. (2) **Move sanction.** The approval reached this session relayed by steering. My definition requires the move to run in the session the owner sanctioned it in, or to be handed to the steering thread that holds his words. The waivers on record cover the B-2 reads, the pre-deploy curl and B-3, not the move. The other Phase 2A checks pass (see "Stage 2 readiness"). Nothing moved, nothing was pushed, and no production request was sent. |
 | 2026-10-10T16:52 | steering (message: move done, Vercel live) | Record the move and the build waiver; run B-3 | **Build gate**: the owner waived the local build (rulings "local build waived (by selection; reopens the build selection)", e2e727c), so Vercel's build at ddbd750 is the only build. **Move, actor steering** (rulings "release move executed by steering; Vercel live (his words)", f4b7fb0): runbook step 3 run unchanged in steering's session on the owner's sanction there. Exit 0, "OK moved master: f2c85f5… -> ddbd750… on origin; tree on master". I re-derived it: `ls-remote origin refs/heads/master` = ddbd750c1ab4…; local `master` = HEAD = ddbd750; the tree is on `master` with 0 porcelain lines. **Serving state VERIFIED** on the push and the owner's statement "Yes, it's live" (his words). **B-3 EXECUTED, PASS** (probe anchor 16:52:28Z): one unauthenticated `GET https://hooks.gg/api/v1/guilds/9999999999999999999/messages` returned status `401`, body 0 bytes, curl exit 0. Sent once, under the B-3 waiver (464f9ba). The production exposure is closed. B-4 is next, as the owner's check. |
+| 2026-11-10T09:46 | steering (brief: Phase 2D close-out) | Register B-4; judge closure | Read the rulings' last block and the register row's own pass condition (QA register B-4). **B-4 EXECUTED, PASS** on the owner's direct observation (his words, rulings 633ab08). Its Vercel-log fallback lapsed unread and is SUPERSEDED, not owed. Phase 2D worked in order: reconciliation (deployed = verified = `ddbd750`), fix branch already merged and deleted, chain documents enumerated, forward items swept, post-release status written (sections below). Record closed `Released`. |
+| 2026-11-10T09:49 | devops (Phase 2D) | Document closed | Status: Released. Carrier handoff closed first (`handoff/closed/fix-v1-guild-messages-auth-post-deploy-2026-10-10.md`, Addressed, 34bd602). |
 
 ## Stage 1 verification (website, at ddbd750)
 
@@ -47,7 +49,7 @@ Standing note: point-in-time; a later write to the QA register or to this record
 | B-1 (owner's key comparison, "match") | pre-release | **EXECUTED 2026-10-10T15:46Z: "match"** (his words; rulings 5d4cb30). The four production statbot env files were named in the ask (OWNER-QUEUE, f7767c0) | Terminal |
 | B-2 (`grep -cx 'HOOKS_HOST=hooks.gg'` on the statbot-api and statroles hosts, count only) | pre-release | **EXECUTED 2026-10-10T08:37:12Z, result 1 per consumer** (see "B-2 execution record" below) | Terminal. No longer blocks |
 | B-3 (unauthenticated GET → 401) | post-deploy | **EXECUTED 2026-10-10T16:52:28Z, PASS: 401, 0 B** | Terminal |
-| B-4 (Statbot's own calls still succeed) | post-deploy | Open (B-1 and B-2 are now terminal) | As B-3 |
+| B-4 (Statbot's own calls still succeed) | post-deploy | **EXECUTED 2026-11-10 (between 09:44Z and 09:47Z), PASS: the owner observed "the statrole editor still loads hooks.gg messages"** (his words; rulings 633ab08, last block). Pass condition re-read at `qa/closed/fix-v1-guild-messages-auth-qa.md`, register row B-4: the hooks.gg message list populates. The fallback (Vercel request-log count) is SUPERSEDED by the direct observation. See "B-4 execution record" below | Terminal |
 
 **Pre-deploy redirect probe (QA, Assumption Not Checked): EXECUTED 2026-10-10T08:32:08Z.** `curl -sI http://hooks.gg/` returned status line `HTTP/1.0 308 Permanent Redirect` and `Location: https://hooks.gg/`, with curl exit 0. Only the status line and the location were recorded. The redirect is same-host, apex to apex. That is QA's SUBJECT shape, under which both consumers' axios keep `Authorization` (`qa-redirect-auth-probe.out`). So the assumption holds, provided B-2 = 1 on both hosts.
 
@@ -124,4 +126,69 @@ Release identifier: website `master` → `ddbd750c1ab4808317f3408524cf5f9b7d8d09
 | 3 | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master ddbd750c1ab4808317f3408524cf5f9b7d8d0935` (moves local master, pushes, switches the tree back to master) | exit 2 → nothing moved, stop; exit 1 → read the report for ref state, route to the owner | Run by steering: exit 0, "OK moved master: f2c85f5… -> ddbd750… on origin; tree on master" (f4b7fb0); ls-remote re-derived 16:52 |
 | 4 | Vercel shows ddbd750 live (the owner's statement) | — | "Yes, it's live" (his words, f4b7fb0) |
 | 5 | B-3: one `GET https://hooks.gg/api/v1/guilds/9999999999999999999/messages`, status and body length only | ≠ 401 → exposure still live; route to the owner | 401, 0 B, 16:52:28Z: PASS |
-| 6 | B-4: the owner's dashboard check | fails → Vercel promote of the previous deployment | |
+| 6 | B-4: the owner's dashboard check | fails → Vercel promote of the previous deployment | PASS, 2026-11-10: "the statrole editor still loads hooks.gg messages" (his words; rulings 633ab08). Abort criterion not met |
+
+## B-4 execution record
+
+**Authority**: the owner's words, verbatim, typed to `steering-cleanup-hooks` and witnessed there: "the statrole editor still loads hooks.gg messages" (`steering/v1-guild-messages-auth-rulings.md`, last block, 633ab08, read at write time). It answers the `OWNER-QUEUE.md` item "Check the statrole editor still loads hooks.gg messages", whose pass condition is that the hooks.gg message list populates. That is the same condition as the register row. He is the instrument; no log was read and no request was sent by this stage.
+
+**Judgement: the pass condition is met.** The row's instrument is the owner opening the statrole editor and seeing the hooks.gg message list populate. That path runs statbot-api → `/api/v1/guilds/:id/messages`. B-3 had shown the endpoint refusing an unauthenticated request (401, 2026-10-10). A populated list therefore means Statbot's authenticated call was accepted by the guarded handler, which refutes a key or `HOOKS_HOST` mismatch for statbot-api by construction (QA register row B-4, "Predicted value"). It also observes both of B-2's named limits for statbot-api: a second `HOOKS_HOST=` line, and a stale process environment, would each have broken the call.
+
+**Scope of the observation (named limits, none of which blocks the row):**
+- **Time.** He observed it on 2026-11-10, a month after the deploy, not at deploy time. The serving line has since moved: `merge-base --is-ancestor ddbd750 b96e364` exit 0 (website `master` and `origin/master` both at `b96e364`, `rev-parse` and `ls-remote`), and `git diff --quiet ddbd750 b96e364 -- src/pages/api/v1 src/server/api/v1` exit 0. The v1 handlers he exercised are byte-identical to the released ones, so the observation binds the released guard. It does not show what the first hour after the deploy looked like.
+- **Subject.** He gave no guild. One populated list is the row's own sufficient condition.
+- **Other consumers.** statroles (and any statbot host B-2 did not read) is not observed by this row. The register said it "is covered only by the fallback, or by a statrole notification that sends". The fallback's 24-hour window lapsed unread on 2026-10-11, so no 401/200 count exists and none is owed: the fallback was an alternative instrument for the same row, and the primary instrument has now returned its result. The statroles gap is accepted as written, a named risk. A 401 there would show as a failing statrole notification send, in normal operation.
+
+## Phase 2D — release metadata and reconciliation
+
+Standing note: point-in-time as of 2026-11-10T09:46Z; the serving line has moved since the release and later releases' records are authoritative on their own refs.
+
+| Field | Value |
+|---|---|
+| Release identifier | website `master` → `ddbd750c1ab4808317f3408524cf5f9b7d8d0935` (no version field, no tags; none created) |
+| Environment / serving ref | production (Vercel); `master`, the sole serving ref (`merge-base --is-ancestor` has no sibling to split, release-move dry-run) |
+| Release date | 2026-10-10; the move ran before the 16:52Z verification row (steering, rulings f4b7fb0) |
+| Execution mode | Mode A, agent-executed; the move was run by the steering thread in its own session on the owner's sanction there (changelog 15:56 and 16:52) |
+| Authorizer | the owner: "Approve release" by selection (rulings 464f9ba) |
+| Included plans | none; chain `fix-v1-guild-messages-auth` only (fixer route, `ID: n/a`) |
+| Repositories and SHAs shipped | `website` only: `f2c85f5` → `ddbd750` (1acffee, c8c3d70, 7606149, ddbd750). `agent-output` is the record, not a shipped repository |
+
+**Deployed against verified, per repository (website).** Deployed ref `master`; the pushed commit is `ddbd750`, read from `ls-remote` at the move (16:52 row) and standing as the serving commit on the push and the owner's "Yes, it's live". The release-tip verdict's `Verified-At` is `ddbd750` (`qa/closed/website-2026-10-10-release-tip-qa.md`). **The two are the same commit**, so no diff of the surface is owed. The plan-level QA verdict binds `7606149`; `git diff --quiet 7606149 ddbd750 -- src/middleware.ts src/pages` exit 0 (Stage 1 table), so production bytes are identical.
+
+**Serving state**: VERIFIED on the push and the owner's statements (16:52 row; B-4 above). Never marked NOT VERIFIED.
+
+**Fix branch.** `fix/v1-guild-messages-auth` is merged (`merge-base --is-ancestor ddbd750 b96e364` exit 0 in the direction of the serving line) and deleted: `git -C website branch -a --list '*v1-guild*'` prints nothing, and `ls-remote origin refs/heads/master refs/heads/fix/v1-guild-messages-auth` returns only `master`. It was already gone when this phase began, so this run deleted nothing.
+
+**Architecture lines.** `grep -n -i` of `architecture/website.md` and `architecture/system-architecture.md` for the v1 guild-messages routes, the Statbot key, `HOOKS_HOST` and the middleware finds no line the fix closes or invalidates, so no architect entry is lodged.
+
+## Chain documents and terminal tokens (Phase 2D steps 5b, 5c)
+
+Enumerated by frontmatter `Origin: fix-v1-guild-messages-auth` (`grep -rl`), then each one's header read:
+
+| Document | Terminal token | Where |
+|---|---|---|
+| `implementation/…-implementation.md` | Committed | `implementation/closed/` |
+| `code-review/…-code-review.md` | Committed | `code-review/closed/` |
+| `qa/…-qa.md` (Phase 2) | Committed | `qa/closed/` |
+| `qa/website-2026-10-10-release-tip-qa.md` (Phase 3) | Released | `qa/closed/` |
+| this deployment record | Released | closed by this run |
+| `handoff/…-post-deploy-2026-10-10.md` | Addressed | `handoff/closed/`, 34bd602 |
+
+`fix-` chains whose `Handoff-At` is an ancestor of `ddbd750` (`git merge-base --is-ancestor`, loop over every `Origin: fix-` document that carries one): only this chain returns exit 0. `fix-hooks-record-shared-engine` carries an `agent-output` SHA (`fdab24b`), which is not in `website`, and returns 128.
+
+**Forward items beyond the register**, found by `grep` over the chain's documents:
+- Three Assumptions Not Checked, all discharged at this record: the redirect premise (QA Phase 2) by the pre-deploy probe, 308 to the same host (08:32:08Z); the deployed-build unauthenticated GET (code review) by B-3, 401 (16:52:28Z); the Vercel-builds-the-tip premise (release-tip QA) by B-3, whose 401 on the guarded route is the signature the premise predicted. The code review's other half, that the production runtime reads `STATBOT_API_KEY` at request time, is shown for the correct key by B-4's populated list.
+- CR-2 to CR-5 (four open LOW items) have their carrier: `handoff/website-api-handler-hardening-2026-10-10.md` (Open, `Owning-Stage` Unassigned pending the owner's routing, event-form `Review-Trigger`). It is not discharged here and nothing in this record says it is.
+- The `handoff/closed/v1-guild-messages-endpoints-unauthenticated-2026-08-24.md` defect handoff is `Addressed` (steering, rulings 2026-11-10T09:44Z). The dead `/api/guilds/(.*)` matcher entry is lodged in `TODO.md` (steering).
+- No post-release falsifier, deferral phrase or record landing beyond these remains uncarried.
+
+## Post-Release Status
+
+- **Status**: Released and verified. 2026-11-10T09:46Z. Every register row is terminal: B-1 "match", B-2 = 1 per consumer, B-3 401, B-4 PASS.
+- **Known issues**: none open in this chain. Named, accepted limits: statroles not directly observed by B-4 (fallback lapsed); B-4 observed a month after deploy against byte-identical v1 handlers.
+- **Rollback plan**: Vercel promote of the previous deployment. It was never exercised. It is moot for this record, because the abort criterion was not met.
+
+## Next Actions
+
+Standing note: later documents are authoritative on current state.
+- Nothing has a trigger at or after this record's closure that lacks a carrier. The only live forward item is the hardening handoff above, which has its own carrier.
