@@ -9,7 +9,7 @@ repository** — every git command against a repo in this workspace must be run 
 | `website` | **Yes** — the only tested repo in this workspace. See Test Conventions below. |
 | `project-utils` | No. |
 | `preview-image-generator` | No. |
-| `agent-output` | No. This is the workspace's own planning/analysis/QA/implementation record. |
+| `agent-output` | No product tests. This is the workspace's own planning/analysis/QA/implementation record; its record tools under `tools/` carry their own `node --test` files. |
 
 This file is canonical at `agent-output/CLAUDE.md` and appears at the workspace root only as a
 symlink. If the root symlink is ever missing, recreate it (do not copy the file):

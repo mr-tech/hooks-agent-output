@@ -110,3 +110,14 @@ baseline", and its pass 9 is this thread's; the same quoting fix was made to a h
 Done by this thread: both `Status-Detail` values quoted, a changelog row in each, no baseline entry.
 Agent-authored decision; his words here are only "Do what's necessary to make the record healthy."
 The baseline stays limited to the pre-012 documents and the 4 unsuffixed ones.
+
+## 2026-11-10T09:11Z — reconcile note: "`~/.claude/tools`, which has no remote" was wrong (steering's error)
+The scoping determination above and the code-reviewer brief said the engine's repository has no
+remote. It has: `git -C ~/.claude/tools remote -v` → `git@github.com:mr-tech/agent-tools.git`. The
+claim was taken from the error text in the statbot record's entrypoint ("which has no remote"), prose
+about the mechanism, and not checked at the mechanism. Found by the code review (CR-1,
+`code-review/fix-hooks-record-shared-engine-code-review.md`). The blast-radius statement otherwise
+stands: the dependency is outside this repository. The brief is corrected by replacement; the
+statbot entrypoints' text is routed to `~/.claude/agents/INBOX.md`. Also from the review: CR-4,
+the workspace table in `CLAUDE.md` said this record carries no tests; corrected to name the record
+tools' own test files.

@@ -13,6 +13,6 @@ You are `code-reviewer-hooks-record-engine`. A fixer chain: no plan and no criti
 - A directory exemption for duplicate names should be no wider than the probe folders that need it.
 - Rule instants set at adoption switch rules off for history: check they are not set later than the adoption commit.
 - `node tools/check-repo.js` exit 0, `--status`, and `node tools/build-index.js --tracked` are what other stages and steering run; an `INDEX.md` format change is a behaviour change to name.
-- The new entrypoints depend on `~/.claude/tools/record-engine.js`, which has no remote.
+- The new entrypoints depend on `~/.claude/tools/record-engine.js`, outside this repository (its repo has a remote, `mr-tech/agent-tools`; this line first said it had none, which the review's CR-1 corrected).
 
 **Architecture**: `~/.claude/agents/record-tools-architecture.md`. **Not checked by this brief**: anything about the engine's behaviour on this record; the brief's hazards are candidates, not findings.
