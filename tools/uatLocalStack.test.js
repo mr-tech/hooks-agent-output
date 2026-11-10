@@ -636,6 +636,17 @@ describe('uat-local-stack.sh', () => {
       } finally { pg.close(); }
     });
 
+    it('a running container of the tool\'s that does not publish the URL\'s host and port, with a stub holding the port, reads as another listener', async () => {
+      await fresh();
+      container('running', LABEL, `127.0.0.1:${port + 7}`);
+      const pg = await hold(port);
+      try {
+        const l = lines(run(['status']));
+        assert.match(l[0], /^container: running \(the tool's\)$/);
+        assert.match(l[1], new RegExp(`^listener: 127\\.0\\.0\\.1:${port} held by another listener$`));
+      } finally { pg.close(); }
+    });
+
     it('a stub holding the port with no container reads as another listener', async () => {
       await fresh();
       const server = net.createServer((c) => c.end());
