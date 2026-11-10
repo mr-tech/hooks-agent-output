@@ -6,7 +6,7 @@ You are `code-reviewer-hooks-record-engine`. A fixer chain: no plan and no criti
 
 **Scope the fix is held to**: `steering/record-tools-shared-engine-rulings.md` (the scoping determination and the block headed "Do what's necessary to make the record healthy."), and the fixer's brief beside this file, `steering/record-engine-briefs/record-engine-fixer-brief.md` — its "Out" list is the exclusion in sweep form: no engine edit, no chain document or evidence edited to make a check pass, PI006's two `tools/uat*` files untouched, `INDEX.md` untouched. The tree is the record repository's `master`; there is no fix branch.
 
-**Stage set**: fixer → code review → QA Phase 2. Your verdict is delivered to `qa-hooks-record-engine` on approval, to the fixer on rejection. Owner-needing items and spawn cues: the `steering-cleanup` session standing in `/usr/local/bin/hooks` (two sessions carry that name; use the `[ref]` of the non-statbot row).
+**Stage set**: fixer → code review → QA Phase 2. Your verdict is delivered to `qa-hooks-record-engine` on approval, to the fixer on rejection. Owner-needing items and spawn cues: `steering-cleanup-hooks` (named `steering-cleanup` until 2026-11-10T08:53Z).
 
 **Hazards (steering's analysis — re-derive each):**
 - A baseline can hide a real defect. Every baselined entry should be a failure that existed before the move and that no document correction can clear; the brief sanctions only the 4 unsuffixed documents and pre-012 legacy documents.

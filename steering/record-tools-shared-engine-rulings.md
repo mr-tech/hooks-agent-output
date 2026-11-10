@@ -1,6 +1,6 @@
 # Rulings — hooks record tools onto the shared engine (no chain yet)
 
-Steering session: steering-cleanup (cwd `/usr/local/bin/hooks`). Opened from the 2026-11-10 project
+Steering session alias chain: steering-cleanup → steering-cleanup-hooks (renamed 2026-11-10T08:53Z, read from `ListAgents`; cwd `/usr/local/bin/hooks`). Opened from the 2026-11-10 project
 cleanup (`steering/cleanup-2026-11-10.md`, pass 9).
 
 ## 2026-11-10T08:47Z — closing prompt of the project cleanup: four selections

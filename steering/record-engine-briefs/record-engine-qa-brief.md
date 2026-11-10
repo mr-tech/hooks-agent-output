@@ -6,7 +6,7 @@ You are `qa-hooks-record-engine`. Your start is the code reviewer's approval, de
 
 **Scope**: `steering/record-tools-shared-engine-rulings.md` (scoping determination; the owner's "Do what's necessary to make the record healthy.") and `steering/record-engine-briefs/record-engine-fixer-brief.md`. The suite here is the record tools' own tests (`node --test` over the entrypoint test the fix adds); the website suite is not in scope.
 
-**Stage set**: fixer → code review → QA Phase 2; no UAT, no devops stage. Your verdict with `Verified-At` goes to the `steering-cleanup` session standing in `/usr/local/bin/hooks` (two sessions carry that name; use the `[ref]` of the non-statbot row), which pushes and closes the chain.
+**Stage set**: fixer → code review → QA Phase 2; no UAT, no devops stage. Your verdict with `Verified-At` goes to `steering-cleanup-hooks` (named `steering-cleanup` until 2026-11-10T08:53Z), which pushes and closes the chain.
 
 **Hazards (steering's analysis — re-derive each):** the property the owner asked for is that `node tools/check-repo.js` exits 0 on this record *because the record is sound*, not because the check stopped looking: show the new check still fails on a planted defect of each class it claims to check (a broken link, an unexempted duplicate name, a bad ID), and that each baseline entry and exemption matches a failure that existed before the move (`verification/cleanup-2026-11-10/after-check-repo.txt`). `--status` and `build-index.js --tracked` must still run; an `INDEX.md` rebuilt by the new tool should differ from the committed one only as the fix's document explains.
 

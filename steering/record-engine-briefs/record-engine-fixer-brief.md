@@ -19,7 +19,7 @@ You are `fixer-hooks-record-engine`. Work from `/usr/local/bin/hooks/agent-outpu
 
 **Stage set**: fixer → code review → QA Phase 2 (the change is over 20 lines). No plan, critic, Phase 1, UAT, deweeder. End step: your commits on `master`; steering pushes (the record has no workflow files, so a push deploys nothing).
 
-**Consuming stage**: `code-reviewer-hooks-record-engine`, by SendMessage naming your document and `Handoff-At`. **Return channel** for `BLOCKED:` and owner-needing items: the `steering-cleanup` session standing in `/usr/local/bin/hooks`. `ListAgents` shows two sessions of that name; address the one whose row is not the statbot one by its `[ref]` (5d9148 when this brief was written — re-read it).
+**Consuming stage**: `code-reviewer-hooks-record-engine`, by SendMessage naming your document and `Handoff-At`. **Return channel** for `BLOCKED:` and owner-needing items: `steering-cleanup-hooks` (this thread's name since 2026-11-10T08:53Z; it was `steering-cleanup` when this brief was first written).
 
 **Architecture**: `~/.claude/agents/record-tools-architecture.md` (the engine and entrypoint design); `architecture/system-architecture.md` holds nothing about record tools.
 
