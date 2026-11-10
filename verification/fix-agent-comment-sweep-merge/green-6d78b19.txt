@@ -1,0 +1,37 @@
+before=b96e36497d55075ae15753f99ec4148bf4ea60e8 after=6d78b19269408447f2b089ba64c90db05518b6ce
+sweep=f2c85f5c7e3ad03879845ae1116518dc71cf2077..9cefc7d4cd910dff30770eff1c8f85a2ccf6be44 sweepFiles=34
+files=33 commentsRemoved=173 addedLines=13 unmatched=0
+src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx: removed=2 addedLines=0 unmatched=0
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.choice-rewrites-editor.test.tsx: removed=5 addedLines=0 unmatched=0
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx: removed=4 addedLines=0 unmatched=0
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx: removed=7 addedLines=0 unmatched=0
+src/components/__tests__/helpers/press.ts: removed=5 addedLines=0 unmatched=0
+src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx: removed=5 addedLines=0 unmatched=0
+src/providers/MessageProvider/__tests__/helpers/messageProviderDeps.ts: removed=10 addedLines=0 unmatched=0
+src/scripts/__tests__/backfillValid.classify.test.ts: removed=2 addedLines=0 unmatched=0
+src/scripts/__tests__/backfillValid.evaluation-failure-category.test.ts: removed=4 addedLines=0 unmatched=0
+src/scripts/__tests__/backfillValid.report-and-target-guards.test.ts: removed=3 addedLines=0 unmatched=0
+src/server/api/utils/__tests__/shapes.dropped-types-notice.test.ts: removed=1 addedLines=0 unmatched=0
+src/server/api/utils/__tests__/shared.upsert-valid.test.ts: removed=5 addedLines=0 unmatched=0
+src/server/api/utils/shapes.ts: removed=3 addedLines=0 unmatched=0
+src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts: removed=1 addedLines=0 unmatched=0
+src/utils/__tests__/formatMutationError.zod-issues.test.ts: removed=3 addedLines=0 unmatched=0
+src/utils/__tests__/gateBeforePersist.thumbnail.test.ts: removed=1 addedLines=0 unmatched=0
+src/utils/__tests__/helpers/components.ts: removed=2 addedLines=0 unmatched=0
+src/utils/__tests__/helpers/discord.ts: removed=1 addedLines=0 unmatched=0
+src/utils/__tests__/helpers/messageData.ts: removed=1 addedLines=0 unmatched=0
+src/utils/__tests__/limits.import-validation.test.ts: removed=7 addedLines=7 unmatched=0
+src/utils/__tests__/limits.send-gate-partition.test.ts: removed=39 addedLines=2 unmatched=0
+src/utils/__tests__/loadDiff.independent-oracle.test.ts: removed=11 addedLines=0 unmatched=0
+src/utils/__tests__/messageMode.switch.test.ts: removed=3 addedLines=0 unmatched=0
+src/utils/__tests__/messageValidity.predicate.test.ts: removed=1 addedLines=0 unmatched=0
+src/utils/__tests__/supportedTypes.parity.test.ts: removed=1 addedLines=0 unmatched=0
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts: removed=18 addedLines=4 unmatched=0
+src/utils/__tests__/usePusher.hash-parity.test.ts: removed=1 addedLines=0 unmatched=0
+src/utils/__tests__/utils.disposition-resolver.test.ts: removed=1 addedLines=0 unmatched=0
+src/utils/__tests__/utils.rowd-load-disposition.test.ts: removed=7 addedLines=0 unmatched=0
+src/utils/__tests__/utils.save-payload-and-seed.test.ts: removed=1 addedLines=0 unmatched=0
+src/utils/__tests__/utils.transport-form.test.ts: removed=4 addedLines=0 unmatched=0
+src/utils/formatMutationError.ts: removed=5 addedLines=0 unmatched=0
+src/utils/index.ts: removed=9 addedLines=0 unmatched=0
+RESULT PASS

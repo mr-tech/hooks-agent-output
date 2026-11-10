@@ -1,0 +1,696 @@
+fatal: path 'bot/scripts/app_commands/__tests__/common.admin-permissions.test.ts' does not exist in '9cefc7d'
+fatal: path 'bot/scripts/app_commands/__tests__/common.localized-strings.test.ts' does not exist in '9cefc7d'
+fatal: path 'bot/utils/__tests__/DiscordEmbed.set-timestamp.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/__tests__/env.client-proxy.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/app/_navigation/Redirects/__tests__/Server.session-cookie-redirect.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/app/preview/__tests__/page.invalid-data.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.duplicate-placement.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/ActionRowEditor.add-button.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/ActionRowEditor.duplicate-placement.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/ContainerEditor.duplicate-placement.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/MediaGalleryEditor.duplicate-placement.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.add-text-display.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.duplicate-placement.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/ColorPicker.scroll-lock-release.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.border-colour.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.empty-embed-hidden.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.length-error.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.missing-text.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/components/DiscordMessageEditor/components/__tests__/Author.timer-cleanup.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/components/__tests__/BottomPortal.unmount-cleanup.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/components/__tests__/Button.auto-focus.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/components/__tests__/ImageUploader.url-validation.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/constants/__tests__/constants.discord-message-link.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/providers/__tests__/WebhookProvider.validation-effects.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/server/__tests__/auth.hydrated-session.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/server/__tests__/auth.sign-out.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/server/api/__tests__/cron.scheduled-selection.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/server/api/__tests__/interactions-edge.signature-before-parse.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/server/api/messages/__tests__/messageCodes.malformed-query.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/server/api/routers/__tests__/message.get-from-url.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/server/api/utils/__tests__/authorizeGuildUser.in-predicate.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/server/api/utils/__tests__/helpers/capturingDatabase.ts' does not exist in '9cefc7d'
+fatal: path 'src/server/api/utils/__tests__/shapes.embed-schema.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/server/api/utils/__tests__/shapes.user-or-discord-id.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/server/api/utils/__tests__/shared.in-predicates.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/server/api/utils/__tests__/shared.message-cap.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/server/api/utils/__tests__/user.in-predicate.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/server/api/v1/__tests__/helpers/apiResponse.ts' does not exist in '9cefc7d'
+fatal: path 'src/utils/__tests__/bugFixCoverage.supplemental.test.ts' exists on disk, but not in 'b96e364'
+fatal: path 'src/utils/__tests__/formatMessageDate.same-day.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/utils/__tests__/getCDNUrl.port-and-environment.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/utils/__tests__/isValidImageUrl.extensions.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/utils/__tests__/limits.component-count.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/utils/__tests__/limits.embed-text-errors.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/utils/__tests__/redis.cached-null-hit.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/utils/formatMessageDate.ts' does not exist in '9cefc7d'
+fatal: path 'src/utils/hooks/__tests__/useGuildDropdownItems.session-update.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/utils/isValidImageUrl.ts' does not exist in '9cefc7d'
+fatal: path 'src/utils/maps/__tests__/UpsertMapMap.delete.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/utils/markdown/__tests__/emoji.longest-sequence-first.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/utils/markdown/components/__tests__/MarkdownSpoiler.aria-expanded.test.tsx' does not exist in '9cefc7d'
+fatal: path 'src/utils/parseMessageId.ts' does not exist in '9cefc7d'
+fatal: path 'src/utils/parseServerCookies.ts' exists on disk, but not in 'b96e364'
+fatal: path 'src/utils/redis/__tests__/formatKey.key-format.test.ts' does not exist in '9cefc7d'
+fatal: path 'src/utils/redis/__tests__/redis.fetch-channel.test.ts' does not exist in '9cefc7d'
+before=b96e36497d55075ae15753f99ec4148bf4ea60e8 after=9cefc7d4cd910dff30770eff1c8f85a2ccf6be44
+sweep=f2c85f5c7e3ad03879845ae1116518dc71cf2077..9cefc7d4cd910dff30770eff1c8f85a2ccf6be44 sweepFiles=34
+files=161 commentsRemoved=175 addedLines=348 unmatched=1
+bot/scripts/app_commands/common.ts: removed=0 addedLines=4 unmatched=0
+bot/utils/DiscordEmbed.ts: removed=0 addedLines=1 unmatched=0
+src/app/_navigation/Redirects/Server.tsx: removed=0 addedLines=5 unmatched=0
+src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx: removed=2 addedLines=0 unmatched=0
+src/app/message/_layout/Header.tsx: removed=0 addedLines=14 unmatched=0
+src/app/message/f/[id]/__tests__/page.message-list.test.tsx: removed=0 addedLines=0 unmatched=0
+src/app/message/f/[id]/page.tsx: removed=0 addedLines=16 unmatched=0
+src/app/message/m/[id]/_components/JsonModalBody.tsx: removed=0 addedLines=5 unmatched=0
+src/app/message/m/[id]/_components/SaveAsMenu.tsx: removed=0 addedLines=2 unmatched=0
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.choice-rewrites-editor.test.tsx: removed=5 addedLines=0 unmatched=0
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx: removed=4 addedLines=0 unmatched=0
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx: removed=0 addedLines=0 unmatched=0
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx: removed=7 addedLines=0 unmatched=0
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.menu-close-after-load.test.tsx: removed=0 addedLines=0 unmatched=0
+src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx: removed=0 addedLines=0 unmatched=0
+src/app/message/m/[id]/send/__tests__/page.send-in-flight.test.tsx: removed=0 addedLines=0 unmatched=0
+src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx: removed=0 addedLines=0 unmatched=0
+src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx: removed=0 addedLines=0 unmatched=0
+src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.url-and-thread-controls.test.tsx: removed=0 addedLines=0 unmatched=0
+src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx: removed=0 addedLines=4 unmatched=0
+src/app/message/m/[id]/send/page.tsx: removed=0 addedLines=5 unmatched=0
+src/app/preview/page.tsx: removed=0 addedLines=11 unmatched=0
+src/components/BottomPortal.tsx: removed=0 addedLines=6 unmatched=0
+src/components/Button.tsx: removed=0 addedLines=6 unmatched=0
+src/components/DiscordMessageEditor/components/Author.tsx: removed=0 addedLines=6 unmatched=0
+src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.auto-remove-dispatch.test.tsx: removed=0 addedLines=14 unmatched=0
+src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx: removed=0 addedLines=12 unmatched=0
+src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx: removed=0 addedLines=2 unmatched=0
+src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx: removed=0 addedLines=1 unmatched=0
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx: removed=0 addedLines=1 unmatched=0
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx: removed=0 addedLines=2 unmatched=0
+src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx: removed=0 addedLines=1 unmatched=0
+src/components/DiscordMessageEditor/index.tsx: removed=0 addedLines=27 unmatched=0
+src/components/ImageUploader.tsx: removed=0 addedLines=7 unmatched=0
+src/components/__tests__/helpers/press.ts: removed=5 addedLines=0 unmatched=0
+src/constants/index.ts: removed=0 addedLines=5 unmatched=0
+src/constants/messageLimits.ts: removed=0 addedLines=0 unmatched=0
+src/env.mjs: removed=0 addedLines=1 unmatched=0
+src/middleware.ts: removed=0 addedLines=9 unmatched=0
+src/pages/api/cron.ts: removed=0 addedLines=1 unmatched=0
+src/pages/api/interactions-edge.ts: removed=0 addedLines=2 unmatched=0
+src/pages/api/messages/codes/[code].ts: removed=0 addedLines=1 unmatched=0
+src/pages/api/v1/guilds/[guildId]/messages.ts: removed=0 addedLines=1 unmatched=0
+src/pages/api/v1/guilds/[guildId]/messages/[id].ts: removed=0 addedLines=1 unmatched=0
+src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx: removed=5 addedLines=0 unmatched=0
+src/providers/MessageProvider/__tests__/helpers/messageProviderDeps.ts: removed=10 addedLines=0 unmatched=0
+src/providers/MessageProvider/usePusher.ts: removed=0 addedLines=1 unmatched=0
+src/providers/WebhookProvider.tsx: removed=0 addedLines=40 unmatched=0
+src/scripts/__tests__/backfillValid.classify.test.ts: removed=2 addedLines=0 unmatched=0
+src/scripts/__tests__/backfillValid.evaluation-failure-category.test.ts: removed=4 addedLines=0 unmatched=0
+src/scripts/__tests__/backfillValid.report-and-target-guards.test.ts: removed=3 addedLines=0 unmatched=0
+src/scripts/backfillValid.ts: removed=1 addedLines=1 unmatched=0
+src/server/api/routers/message.ts: removed=0 addedLines=1 unmatched=0
+src/server/api/utils/__tests__/shapes.dropped-types-notice.test.ts: removed=1 addedLines=0 unmatched=0
+src/server/api/utils/__tests__/shared.upsert-valid.test.ts: removed=5 addedLines=0 unmatched=0
+src/server/api/utils/authorizeGuildUser.ts: removed=0 addedLines=0 unmatched=0
+src/server/api/utils/shapes.ts: removed=3 addedLines=8 unmatched=0
+src/server/api/utils/shared.ts: removed=0 addedLines=5 unmatched=0
+src/server/api/utils/user.ts: removed=0 addedLines=0 unmatched=0
+src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts: removed=1 addedLines=11 unmatched=0
+src/server/auth.ts: removed=0 addedLines=8 unmatched=0
+src/utils/__tests__/constructImageUrl.default-avatar.test.ts: removed=1 addedLines=0 unmatched=1
+  UNMATCHED "// escaped: analysis/closed/005-user-reported-bugs-analysis.md"
+src/utils/__tests__/discordResponseToMessage.ingress.test.ts: removed=0 addedLines=12 unmatched=0
+src/utils/__tests__/formatMutationError.zod-issues.test.ts: removed=3 addedLines=0 unmatched=0
+src/utils/__tests__/gateBeforePersist.thumbnail.test.ts: removed=1 addedLines=0 unmatched=0
+src/utils/__tests__/helpers/components.ts: removed=2 addedLines=0 unmatched=0
+src/utils/__tests__/helpers/discord.ts: removed=1 addedLines=0 unmatched=0
+src/utils/__tests__/helpers/messageData.ts: removed=1 addedLines=0 unmatched=0
+src/utils/__tests__/limits.import-validation.test.ts: removed=7 addedLines=7 unmatched=0
+src/utils/__tests__/limits.send-gate-partition.test.ts: removed=39 addedLines=2 unmatched=0
+src/utils/__tests__/loadDiff.independent-oracle.test.ts: removed=11 addedLines=0 unmatched=0
+src/utils/__tests__/messageMode.switch.test.ts: removed=3 addedLines=0 unmatched=0
+src/utils/__tests__/messageValidity.predicate.test.ts: removed=1 addedLines=0 unmatched=0
+src/utils/__tests__/supportedTypes.parity.test.ts: removed=1 addedLines=0 unmatched=0
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts: removed=18 addedLines=4 unmatched=0
+src/utils/__tests__/usePusher.hash-parity.test.ts: removed=1 addedLines=0 unmatched=0
+src/utils/__tests__/utils.disposition-resolver.test.ts: removed=1 addedLines=0 unmatched=0
+src/utils/__tests__/utils.rowd-load-disposition.test.ts: removed=7 addedLines=0 unmatched=0
+src/utils/__tests__/utils.save-payload-and-seed.test.ts: removed=1 addedLines=0 unmatched=0
+src/utils/__tests__/utils.transport-form.test.ts: removed=4 addedLines=0 unmatched=0
+src/utils/discordResponseToMessage.ts: removed=0 addedLines=2 unmatched=0
+src/utils/formatMutationError.ts: removed=5 addedLines=0 unmatched=0
+src/utils/getCDNUrl.ts: removed=0 addedLines=1 unmatched=0
+src/utils/hooks/index.ts: removed=0 addedLines=3 unmatched=0
+src/utils/hooks/useGuildDropdownItems.tsx: removed=0 addedLines=1 unmatched=0
+src/utils/hooks/useValidateWebhook.ts: removed=0 addedLines=19 unmatched=0
+src/utils/index.ts: removed=9 addedLines=0 unmatched=0
+src/utils/limits.tsx: removed=0 addedLines=13 unmatched=0
+src/utils/maps/UpsertMapMap.ts: removed=0 addedLines=2 unmatched=0
+src/utils/markdown/components/MarkdownSpoiler.tsx: removed=0 addedLines=1 unmatched=0
+src/utils/markdown/emoji.tsx: removed=0 addedLines=1 unmatched=0
+src/utils/markdown/rules.tsx: removed=0 addedLines=5 unmatched=0
+src/utils/redis/index.ts: removed=0 addedLines=26 unmatched=0
+vitest.config.ts: removed=0 addedLines=1 unmatched=0
+FAIL .eslintrc.json: not a JS/TS source file
+FAIL bot/scripts/app_commands/__tests__/common.admin-permissions.test.ts: absent on one side (9cefc7d)
+FAIL bot/scripts/app_commands/__tests__/common.localized-strings.test.ts: absent on one side (9cefc7d)
+FAIL bot/scripts/app_commands/common.ts: changed here but not by the sweep range
+FAIL bot/scripts/app_commands/common.ts: code differs with comments removed
+FAIL bot/scripts/app_commands/common.ts: added line is no removed line minus a removed comment: "export const ADMIN_PERMS = (PermissionFlagsBits.Administrator & PermissionFlagsBits.ManageGuild).toString();"
+FAIL bot/scripts/app_commands/common.ts: added line is no removed line minus a removed comment: "function isSlashCommand(commandType: CommandType, command: SlashCommand | UserCommand | MessageCommand): command is Slas"
+FAIL bot/scripts/app_commands/common.ts: added line is no removed line minus a removed comment: "function isUserCommand(commandType: CommandType, command: SlashCommand | UserCommand | MessageCommand): command is UserC"
+FAIL bot/scripts/app_commands/common.ts: added line is no removed line minus a removed comment: "  return commandType === 'slash';"
+FAIL bot/utils/DiscordEmbed.ts: changed here but not by the sweep range
+FAIL bot/utils/DiscordEmbed.ts: code differs with comments removed
+FAIL bot/utils/DiscordEmbed.ts: added line is no removed line minus a removed comment: "    this.#payload.timestamp === timestamp;"
+FAIL bot/utils/__tests__/DiscordEmbed.set-timestamp.test.ts: absent on one side (9cefc7d)
+FAIL src/__tests__/env.client-proxy.test.ts: absent on one side (9cefc7d)
+FAIL src/app/_navigation/Redirects/Server.tsx: changed here but not by the sweep range
+FAIL src/app/_navigation/Redirects/Server.tsx: code differs with comments removed
+FAIL src/app/_navigation/Redirects/Server.tsx: added line is no removed line minus a removed comment: "import { headers } from 'next/headers';"
+FAIL src/app/_navigation/Redirects/Server.tsx: added line is no removed line minus a removed comment: ""
+FAIL src/app/_navigation/Redirects/Server.tsx: added line is no removed line minus a removed comment: "import parseServerCookies from '~/utils/parseServerCookies';"
+FAIL src/app/_navigation/Redirects/Server.tsx: added line is no removed line minus a removed comment: "  const cookieMap = await parseServerCookies();"
+FAIL src/app/_navigation/Redirects/Server.tsx: added line is no removed line minus a removed comment: "  const sessionCookie = cookieMap.get('__Secure-next-auth.session-token') ?? cookieMap.get('next-auth.session-token');"
+FAIL src/app/_navigation/Redirects/__tests__/Server.session-cookie-redirect.test.ts: absent on one side (9cefc7d)
+FAIL src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx: absent on one side (9cefc7d)
+FAIL src/app/message/_layout/Header.tsx: changed here but not by the sweep range
+FAIL src/app/message/_layout/Header.tsx: code differs with comments removed
+FAIL src/app/message/_layout/Header.tsx: added line is no removed line minus a removed comment: "function getDateString(timestamp: string | number) {"
+FAIL src/app/message/_layout/Header.tsx: added line is no removed line minus a removed comment: "  const messageDate = new Date(timestamp);"
+FAIL src/app/message/_layout/Header.tsx: added line is no removed line minus a removed comment: "  if (messageDate.getDate() === new Date().getDate()) {"
+FAIL src/app/message/_layout/Header.tsx: added line is no removed line minus a removed comment: "    return messageDate.toLocaleTimeString(undefined, {"
+FAIL src/app/message/_layout/Header.tsx: added line is no removed line minus a removed comment: "      hour: 'numeric', minute: 'numeric', second: undefined,"
+FAIL src/app/message/_layout/Header.tsx: added line is no removed line minus a removed comment: "    });"
+FAIL src/app/message/_layout/Header.tsx: added line is no removed line minus a removed comment: "  }"
+FAIL src/app/message/_layout/Header.tsx: added line is no removed line minus a removed comment: "  return messageDate.toLocaleDateString(undefined, {"
+FAIL src/app/message/_layout/Header.tsx: added line is no removed line minus a removed comment: "    weekday: undefined, year: 'numeric', day: 'numeric', month: 'numeric',"
+FAIL src/app/message/_layout/Header.tsx: added line is no removed line minus a removed comment: "  });"
+FAIL src/app/message/_layout/Header.tsx: added line is no removed line minus a removed comment: "}"
+FAIL src/app/message/_layout/Header.tsx: added line is no removed line minus a removed comment: ""
+FAIL src/app/message/_layout/Header.tsx: added line is no removed line minus a removed comment: "                              {getDateString(msg.updatedAt)}"
+FAIL src/app/message/_layout/Header.tsx: added line is no removed line minus a removed comment: "                              {getDateString(msg.updatedAt)}"
+FAIL src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx: absent on one side (9cefc7d)
+FAIL src/app/message/f/[id]/__tests__/page.message-list.test.tsx: changed here but not by the sweep range
+FAIL src/app/message/f/[id]/__tests__/page.message-list.test.tsx: code differs with comments removed
+FAIL src/app/message/f/[id]/page.tsx: changed here but not by the sweep range
+FAIL src/app/message/f/[id]/page.tsx: code differs with comments removed
+FAIL src/app/message/f/[id]/page.tsx: added line is no removed line minus a removed comment: "function getDateString(timestamp: string | number) {"
+FAIL src/app/message/f/[id]/page.tsx: added line is no removed line minus a removed comment: "  const messageDate = new Date(timestamp);"
+FAIL src/app/message/f/[id]/page.tsx: added line is no removed line minus a removed comment: "  if (messageDate.getDate() === new Date().getDate()) {"
+FAIL src/app/message/f/[id]/page.tsx: added line is no removed line minus a removed comment: "    return `Today at ${messageDate.toLocaleTimeString(undefined, {"
+FAIL src/app/message/f/[id]/page.tsx: added line is no removed line minus a removed comment: "      hour: 'numeric', minute: 'numeric', second: undefined,"
+FAIL src/app/message/f/[id]/page.tsx: added line is no removed line minus a removed comment: "    })}`;"
+FAIL src/app/message/f/[id]/page.tsx: added line is no removed line minus a removed comment: "  }"
+FAIL src/app/message/f/[id]/page.tsx: added line is no removed line minus a removed comment: "  return messageDate.toLocaleDateString(undefined, {"
+FAIL src/app/message/f/[id]/page.tsx: added line is no removed line minus a removed comment: "    weekday: undefined, year: 'numeric', day: 'numeric', month: 'numeric',"
+FAIL src/app/message/f/[id]/page.tsx: added line is no removed line minus a removed comment: "  });"
+FAIL src/app/message/f/[id]/page.tsx: added line is no removed line minus a removed comment: "}"
+FAIL src/app/message/f/[id]/page.tsx: added line is no removed line minus a removed comment: ""
+FAIL src/app/message/f/[id]/page.tsx: added line is no removed line minus a removed comment: "        render: 'Error. Failed to refresh message. Please try again.',"
+FAIL src/app/message/f/[id]/page.tsx: added line is no removed line minus a removed comment: "  const { isFetching: isCopying, data: copyData, error: copyError } = api.message.getOne.useQuery(copyMessageId, {"
+FAIL src/app/message/f/[id]/page.tsx: added line is no removed line minus a removed comment: "                        {`${orderProp === 'name' ? 'Last Modified: ' : ''}${getDateString(orderProp === 'createdAt' ? ms"
+FAIL src/app/message/f/[id]/page.tsx: added line is no removed line minus a removed comment: "                        <div className='text-xs'>{`${orderProp === 'name' ? 'Last Modified: ' : ''}${getDateString(order"
+FAIL src/app/message/m/[id]/_components/JsonModalBody.tsx: changed here but not by the sweep range
+FAIL src/app/message/m/[id]/_components/JsonModalBody.tsx: code differs with comments removed
+FAIL src/app/message/m/[id]/_components/JsonModalBody.tsx: added line is no removed line minus a removed comment: "import { useEffect, useState } from 'react';"
+FAIL src/app/message/m/[id]/_components/JsonModalBody.tsx: added line is no removed line minus a removed comment: "            onPress={() => copy("
+FAIL src/app/message/m/[id]/_components/JsonModalBody.tsx: added line is no removed line minus a removed comment: "              JSON.stringify(discordMessageImportShape.parse(JSON.parse(messageString)), null, 2),"
+FAIL src/app/message/m/[id]/_components/JsonModalBody.tsx: added line is no removed line minus a removed comment: "            )}"
+FAIL src/app/message/m/[id]/_components/JsonModalBody.tsx: added line is no removed line minus a removed comment: "            isDisabled={!!copyState}"
+FAIL src/app/message/m/[id]/_components/SaveAsMenu.tsx: changed here but not by the sweep range
+FAIL src/app/message/m/[id]/_components/SaveAsMenu.tsx: code differs with comments removed
+FAIL src/app/message/m/[id]/_components/SaveAsMenu.tsx: added line is no removed line minus a removed comment: "import { memo, useCallback, useState } from 'react';"
+FAIL src/app/message/m/[id]/_components/SaveAsMenu.tsx: added line is no removed line minus a removed comment: "  const [messageName, setMessageName] = useState(message.name === 'New Message' ? message.name : `${message.name} Copy`)"
+FAIL src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx: changed here but not by the sweep range
+FAIL src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx: code differs with comments removed
+FAIL src/app/message/m/[id]/_components/__tests__/JsonModalBody.menu-close-after-load.test.tsx: changed here but not by the sweep range
+FAIL src/app/message/m/[id]/_components/__tests__/JsonModalBody.menu-close-after-load.test.tsx: code differs with comments removed
+FAIL src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx: changed here but not by the sweep range
+FAIL src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx: code differs with comments removed
+FAIL src/app/message/m/[id]/send/__tests__/page.send-in-flight.test.tsx: changed here but not by the sweep range
+FAIL src/app/message/m/[id]/send/__tests__/page.send-in-flight.test.tsx: code differs with comments removed
+FAIL src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx: changed here but not by the sweep range
+FAIL src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx: code differs with comments removed
+FAIL src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx: changed here but not by the sweep range
+FAIL src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx: code differs with comments removed
+FAIL src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.url-and-thread-controls.test.tsx: changed here but not by the sweep range
+FAIL src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.url-and-thread-controls.test.tsx: code differs with comments removed
+FAIL src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx: changed here but not by the sweep range
+FAIL src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx: code differs with comments removed
+FAIL src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx: added line is no removed line minus a removed comment: "  const [selectedCategory, setSelectedCategory] = useState(hasWebhooks ? (guild?.id ?? '') : 'load');"
+FAIL src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx: added line is no removed line minus a removed comment: "          errorMessage={url && !isWebhookLoading && selectedWebhook !== null ? 'Invalid URL' : undefined}"
+FAIL src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx: added line is no removed line minus a removed comment: "          onChange={setSelectedCategory}"
+FAIL src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx: added line is no removed line minus a removed comment: "                  isDisabled={isLoading || !threadName}"
+FAIL src/app/message/m/[id]/send/page.tsx: changed here but not by the sweep range
+FAIL src/app/message/m/[id]/send/page.tsx: code differs with comments removed
+FAIL src/app/message/m/[id]/send/page.tsx: added line is no removed line minus a removed comment: "import { useToggleState } from '~/utils/hooks';"
+FAIL src/app/message/m/[id]/send/page.tsx: added line is no removed line minus a removed comment: "      const res = await sendWebhook({"
+FAIL src/app/message/m/[id]/send/page.tsx: added line is no removed line minus a removed comment: "      });"
+FAIL src/app/message/m/[id]/send/page.tsx: added line is no removed line minus a removed comment: "          <div className=\"text-warning text-sm font-semibold\">"
+FAIL src/app/message/m/[id]/send/page.tsx: added line is no removed line minus a removed comment: "          <div className=\"text-text-normal mt-1 text-sm\">"
+FAIL src/app/preview/__tests__/page.invalid-data.test.tsx: absent on one side (9cefc7d)
+FAIL src/app/preview/page.tsx: changed here but not by the sweep range
+FAIL src/app/preview/page.tsx: code differs with comments removed
+FAIL src/app/preview/page.tsx: added line is no removed line minus a removed comment: "      <Suspense fallback={null}>"
+FAIL src/app/preview/page.tsx: added line is no removed line minus a removed comment: "        <MarkdownProvider>"
+FAIL src/app/preview/page.tsx: added line is no removed line minus a removed comment: "          <DiscordMessageEditor"
+FAIL src/app/preview/page.tsx: added line is no removed line minus a removed comment: "            message={makeEditable({ data: JSON.parse(query) } as ApiMessage).data}"
+FAIL src/app/preview/page.tsx: added line is no removed line minus a removed comment: "            setMessage={() => {}}"
+FAIL src/app/preview/page.tsx: added line is no removed line minus a removed comment: "            locale={locale}"
+FAIL src/app/preview/page.tsx: added line is no removed line minus a removed comment: "            // eslint-disable-next-line react/style-prop-object"
+FAIL src/app/preview/page.tsx: added line is no removed line minus a removed comment: "            onMount={() => {}}"
+FAIL src/app/preview/page.tsx: added line is no removed line minus a removed comment: "          />"
+FAIL src/app/preview/page.tsx: added line is no removed line minus a removed comment: "        </MarkdownProvider>"
+FAIL src/app/preview/page.tsx: added line is no removed line minus a removed comment: "      </Suspense>"
+FAIL src/components/BottomPortal.tsx: changed here but not by the sweep range
+FAIL src/components/BottomPortal.tsx: code differs with comments removed
+FAIL src/components/BottomPortal.tsx: added line is no removed line minus a removed comment: "import { useMount } from 'react-use';"
+FAIL src/components/BottomPortal.tsx: added line is no removed line minus a removed comment: "  TitleIcon?: FC<{ className?: undefined | string }> | ComponentClass<{ className?: undefined | string }>;"
+FAIL src/components/BottomPortal.tsx: added line is no removed line minus a removed comment: "      setChildrenProps((prev) => (prev.some((p) => p.id === id) ? prev.filter((p) => p.id !== id) : prev));"
+FAIL src/components/BottomPortal.tsx: added line is no removed line minus a removed comment: "  useMount(() => () => {"
+FAIL src/components/BottomPortal.tsx: added line is no removed line minus a removed comment: "    setChildrenProps((prev) => (prev.some((p) => p.id === id) ? prev.filter((p) => p.id !== id) : prev));"
+FAIL src/components/BottomPortal.tsx: added line is no removed line minus a removed comment: "  });"
+FAIL src/components/Button.tsx: changed here but not by the sweep range
+FAIL src/components/Button.tsx: code differs with comments removed
+FAIL src/components/Button.tsx: added line is no removed line minus a removed comment: "import { useMount } from 'react-use';"
+FAIL src/components/Button.tsx: added line is no removed line minus a removed comment: "  const {"
+FAIL src/components/Button.tsx: added line is no removed line minus a removed comment: "    children, className, style, autoFocus,"
+FAIL src/components/Button.tsx: added line is no removed line minus a removed comment: "  } = props;"
+FAIL src/components/Button.tsx: added line is no removed line minus a removed comment: "  useMount(() => { if (autoFocus) localRef.current?.focus(); });"
+FAIL src/components/Button.tsx: added line is no removed line minus a removed comment: ""
+FAIL src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx: absent on one side (9cefc7d)
+FAIL src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.duplicate-placement.test.tsx: absent on one side (9cefc7d)
+FAIL src/components/DiscordMessageEditor/components/Author.tsx: changed here but not by the sweep range
+FAIL src/components/DiscordMessageEditor/components/Author.tsx: code differs with comments removed
+FAIL src/components/DiscordMessageEditor/components/Author.tsx: added line is no removed line minus a removed comment: "import { memo, useCallback, useState } from 'react';"
+FAIL src/components/DiscordMessageEditor/components/Author.tsx: added line is no removed line minus a removed comment: "import { useMount } from 'react-use';"
+FAIL src/components/DiscordMessageEditor/components/Author.tsx: added line is no removed line minus a removed comment: "  useMount(() => {"
+FAIL src/components/DiscordMessageEditor/components/Author.tsx: added line is no removed line minus a removed comment: "      setInterval(() => { setTs(new Date()); }, MINUTE_IN_MILLISECONDS);"
+FAIL src/components/DiscordMessageEditor/components/Author.tsx: added line is no removed line minus a removed comment: "    return () => clearTimeout(timeout);"
+FAIL src/components/DiscordMessageEditor/components/Author.tsx: added line is no removed line minus a removed comment: "  });"
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/ActionRowEditor.add-button.test.tsx: absent on one side (9cefc7d)
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/ActionRowEditor.duplicate-placement.test.tsx: absent on one side (9cefc7d)
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/ContainerEditor.duplicate-placement.test.tsx: absent on one side (9cefc7d)
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/MediaGalleryEditor.duplicate-placement.test.tsx: absent on one side (9cefc7d)
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.add-text-display.test.tsx: absent on one side (9cefc7d)
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.auto-remove-dispatch.test.tsx: changed here but not by the sweep range
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.auto-remove-dispatch.test.tsx: code differs with comments removed
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.auto-remove-dispatch.test.tsx: comment present after but not before: "// `SectionEditor`'s per-button Tooltip wrapper is `next/dynamic`-loaded (`ssr: "
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.auto-remove-dispatch.test.tsx: comment present after but not before: "// null`); the delete/duplicate/move controls it wraps are absent from the tree "
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.auto-remove-dispatch.test.tsx: comment present after but not before: "// import resolves, so every mount settles one macrotask before its controls are"
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.auto-remove-dispatch.test.tsx: added line is no removed line minus a removed comment: "import SectionEditor from '../SectionEditor';"
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.auto-remove-dispatch.test.tsx: added line is no removed line minus a removed comment: ""
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.auto-remove-dispatch.test.tsx: added line is no removed line minus a removed comment: "import { genUuid } from '~/utils';"
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.auto-remove-dispatch.test.tsx: added line is no removed line minus a removed comment: ""
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.auto-remove-dispatch.test.tsx: added line is no removed line minus a removed comment: "  if (root) act(() => { root!.unmount(); });"
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.auto-remove-dispatch.test.tsx: added line is no removed line minus a removed comment: "// `SectionEditor`'s per-button Tooltip wrapper is `next/dynamic`-loaded (`ssr: true, loading: () =>"
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.auto-remove-dispatch.test.tsx: added line is no removed line minus a removed comment: "// null`); the delete/duplicate/move controls it wraps are absent from the tree until that async"
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.auto-remove-dispatch.test.tsx: added line is no removed line minus a removed comment: "// import resolves, so every mount settles one macrotask before its controls are queryable."
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.auto-remove-dispatch.test.tsx: added line is no removed line minus a removed comment: "  container = document.createElement('div');"
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.auto-remove-dispatch.test.tsx: added line is no removed line minus a removed comment: "  document.body.appendChild(container);"
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.auto-remove-dispatch.test.tsx: added line is no removed line minus a removed comment: "  root = createRoot(container);"
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.auto-remove-dispatch.test.tsx: added line is no removed line minus a removed comment: "    root!.render("
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.auto-remove-dispatch.test.tsx: added line is no removed line minus a removed comment: "  await act(async () => { await new Promise((r) => { setTimeout(r, 100); }); });"
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.auto-remove-dispatch.test.tsx: added line is no removed line minus a removed comment: "  return container;"
+FAIL src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/SectionEditor.duplicate-placement.test.tsx: absent on one side (9cefc7d)
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx: changed here but not by the sweep range
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx: code differs with comments removed
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx: added line is no removed line minus a removed comment: "const Picker: FC<Props> = ({ initColor, setColor }) => ("
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx: added line is no removed line minus a removed comment: "  <ChromePicker"
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx: added line is no removed line minus a removed comment: "    styles={{"
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx: added line is no removed line minus a removed comment: "      picker: { fontFamily: '', boxShadow: '', borderRadius: '' },"
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx: added line is no removed line minus a removed comment: "      saturation: { borderRadius: '' },"
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx: added line is no removed line minus a removed comment: "    }}"
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx: added line is no removed line minus a removed comment: "    defaultColor={initColor ? `#${initColor.toString(16)}` : '#000000'}"
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx: added line is no removed line minus a removed comment: "    onChangeComplete={useCallback<((color: ColorResult) => void)>((color) => { setColor(hexToInt(color.hex)); }, [setCol"
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx: added line is no removed line minus a removed comment: "    className=\"discord-visualizer__embed-color-picker select-none overflow-hidden rounded-r\""
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx: added line is no removed line minus a removed comment: "    disableAlpha"
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx: added line is no removed line minus a removed comment: "  />"
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx: added line is no removed line minus a removed comment: ");"
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/ColorPicker.scroll-lock-release.test.tsx: absent on one side (9cefc7d)
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/Picker.default-colour.test.tsx: absent on one side (9cefc7d)
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx: changed here but not by the sweep range
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx: code differs with comments removed
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx: added line is no removed line minus a removed comment: "import { useMount } from 'react-use';"
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx: added line is no removed line minus a removed comment: "  useMount(() => () => removeBlockStyle());"
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx: changed here but not by the sweep range
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx: code differs with comments removed
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx: added line is no removed line minus a removed comment: "  return !fields?.length || fields.some((field) => field.name && field.value);"
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx: changed here but not by the sweep range
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx: code differs with comments removed
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx: added line is no removed line minus a removed comment: "        .map(({ gridColumn, field }, idx) => ("
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx: changed here but not by the sweep range
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx: code differs with comments removed
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx: added line is no removed line minus a removed comment: "  const displayText = (footer?.text.trim() ?? '');"
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx: added line is no removed line minus a removed comment: "  const setIconUrl = useCallback((val: EmbedFooterType['icon_url']) => _setIconUrl(val || undefined), [_setIconUrl]);"
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.border-colour.test.tsx: absent on one side (9cefc7d)
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.empty-embed-hidden.test.tsx: absent on one side (9cefc7d)
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFields.read-only-field-index.test.tsx: absent on one side (9cefc7d)
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.length-error.test.tsx: absent on one side (9cefc7d)
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.missing-text.test.tsx: absent on one side (9cefc7d)
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx: changed here but not by the sweep range
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx: code differs with comments removed
+FAIL src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx: added line is no removed line minus a removed comment: "  const borderColor = color ? intToHex(color) : undefined;"
+FAIL src/components/DiscordMessageEditor/components/__tests__/Author.timer-cleanup.test.tsx: absent on one side (9cefc7d)
+FAIL src/components/DiscordMessageEditor/index.tsx: changed here but not by the sweep range
+FAIL src/components/DiscordMessageEditor/index.tsx: code differs with comments removed
+FAIL src/components/DiscordMessageEditor/index.tsx: comment present after but not before: "// Recurse for containers (which hold children that may have sub-components)"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "  memo, use, useCallback, useMemo, useRef,"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "import { useMount } from 'react-use';"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "  genUuid,"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "  rekeyComponent, validateContentRequirements,"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "function countTotalComponents(components: EditableTopLevelComponent[]): number {"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "  let count = 0;"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "  for (const c of components) {"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "    count += 1;"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "    if ('accessory' in c && c.accessory) count += 1;"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "    if ('components' in c && Array.isArray(c.components)) {"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "      count += (c.components as EditableTopLevelComponent[]).length;"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "      // Recurse for containers (which hold children that may have sub-components)"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "      for (const child of c.components as EditableTopLevelComponent[]) {"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "        if ('accessory' in child && child.accessory) count += 1;"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "        if ('components' in child && Array.isArray(child.components)) {"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "          count += (child.components as EditableTopLevelComponent[]).length;"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "        }"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "      }"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "    }"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "  }"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "  return count;"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "}"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: ""
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "  useMount(() => onMount?.());"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "      newEmbeds.splice(idx, 0, newEmbed);"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "      next.splice(idx, 0, clone);"
+FAIL src/components/DiscordMessageEditor/index.tsx: added line is no removed line minus a removed comment: "          <div className={classNames('discord-visualizer__accessories', (embedCharacterError || v2TextError) && styles.e"
+FAIL src/components/ImageUploader.tsx: changed here but not by the sweep range
+FAIL src/components/ImageUploader.tsx: code differs with comments removed
+FAIL src/components/ImageUploader.tsx: added line is no removed line minus a removed comment: ""
+FAIL src/components/ImageUploader.tsx: added line is no removed line minus a removed comment: "const ANIMATED_EXTENSIONS = ['webm', 'gif', 'apng'];"
+FAIL src/components/ImageUploader.tsx: added line is no removed line minus a removed comment: "const VALID_EXTENSIONS = ['png', 'jpg', 'tiff', ...ANIMATED_EXTENSIONS].map((ext) => `.${ext}`);"
+FAIL src/components/ImageUploader.tsx: added line is no removed line minus a removed comment: ""
+FAIL src/components/ImageUploader.tsx: added line is no removed line minus a removed comment: "function isValidImageUrl(url: string) {"
+FAIL src/components/ImageUploader.tsx: added line is no removed line minus a removed comment: "  return VALID_EXTENSIONS.some((ext) => url.includes(ext));"
+FAIL src/components/ImageUploader.tsx: added line is no removed line minus a removed comment: "}"
+FAIL src/components/__tests__/BottomPortal.unmount-cleanup.test.tsx: absent on one side (9cefc7d)
+FAIL src/components/__tests__/Button.auto-focus.test.tsx: absent on one side (9cefc7d)
+FAIL src/components/__tests__/ImageUploader.url-validation.test.tsx: absent on one side (9cefc7d)
+FAIL src/constants/__tests__/constants.discord-message-link.test.ts: absent on one side (9cefc7d)
+FAIL src/constants/index.ts: changed here but not by the sweep range
+FAIL src/constants/index.ts: code differs with comments removed
+FAIL src/constants/index.ts: added line is no removed line minus a removed comment: "export const DISCORD_MESSAGE_LINK_REGEX = /^https:\\/\\/(?:www\\.|canary\\.|ptb\\.)?discord\\.com\\/channels\\/(\\d+)\\/(\\d+)\\/(\\d"
+FAIL src/constants/index.ts: added line is no removed line minus a removed comment: "export const MAX_EMBED_AUTHOR_NAME_LENGTH = 256 as const;"
+FAIL src/constants/index.ts: added line is no removed line minus a removed comment: "export const MAX_EMBED_FOOTER_TEXT_LENGTH = 256 as const;"
+FAIL src/constants/index.ts: added line is no removed line minus a removed comment: ""
+FAIL src/constants/index.ts: added line is no removed line minus a removed comment: "export const MAX_TOTAL_COMPONENTS = 40 as const;"
+FAIL src/constants/messageLimits.ts: changed here but not by the sweep range
+FAIL src/constants/messageLimits.ts: code differs with comments removed
+FAIL src/env.mjs: changed here but not by the sweep range
+FAIL src/env.mjs: code differs with comments removed
+FAIL src/env.mjs: added line is no removed line minus a removed comment: "      if (!isServer && !prop.startsWith('NEXT_PUBLIC_') && !prop === 'NODE_ENV') {"
+FAIL src/middleware.ts: changed here but not by the sweep range
+FAIL src/middleware.ts: code differs with comments removed
+FAIL src/middleware.ts: added line is no removed line minus a removed comment: "const { STATBOT_API_KEY } = process.env as Record<string, string>;"
+FAIL src/middleware.ts: added line is no removed line minus a removed comment: ""
+FAIL src/middleware.ts: added line is no removed line minus a removed comment: "  const url = new URL(request.url);"
+FAIL src/middleware.ts: added line is no removed line minus a removed comment: "  if (url.pathname.startsWith('/api/v1/*')) {"
+FAIL src/middleware.ts: added line is no removed line minus a removed comment: "    if (requestHeaders.get('authorization') !== `Bearer ${STATBOT_API_KEY}`) {"
+FAIL src/middleware.ts: added line is no removed line minus a removed comment: "      return NextResponse.rewrite('https://hooks.gg/404');"
+FAIL src/middleware.ts: added line is no removed line minus a removed comment: "    }"
+FAIL src/middleware.ts: added line is no removed line minus a removed comment: "  }"
+FAIL src/middleware.ts: added line is no removed line minus a removed comment: ""
+FAIL src/pages/api/cron.ts: changed here but not by the sweep range
+FAIL src/pages/api/cron.ts: code differs with comments removed
+FAIL src/pages/api/cron.ts: added line is no removed line minus a removed comment: "    .where('ScheduledMessages.error', '=', null)"
+FAIL src/pages/api/interactions-edge.ts: changed here but not by the sweep range
+FAIL src/pages/api/interactions-edge.ts: code differs with comments removed
+FAIL src/pages/api/interactions-edge.ts: added line is no removed line minus a removed comment: "  const interaction = JSON.parse(rawBody) as IncomingInteraction;"
+FAIL src/pages/api/interactions-edge.ts: added line is no removed line minus a removed comment: ""
+FAIL src/pages/api/messages/codes/[code].ts: changed here but not by the sweep range
+FAIL src/pages/api/messages/codes/[code].ts: code differs with comments removed
+FAIL src/pages/api/messages/codes/[code].ts: added line is no removed line minus a removed comment: "    if (error instanceof z.ZodError) return res.status(400);"
+FAIL src/pages/api/v1/guilds/[guildId]/messages.ts: changed here but not by the sweep range
+FAIL src/pages/api/v1/guilds/[guildId]/messages.ts: code differs with comments removed
+FAIL src/pages/api/v1/guilds/[guildId]/messages.ts: added line is no removed line minus a removed comment: "    if (error instanceof z.ZodError) return res.status(400);"
+FAIL src/pages/api/v1/guilds/[guildId]/messages/[id].ts: changed here but not by the sweep range
+FAIL src/pages/api/v1/guilds/[guildId]/messages/[id].ts: code differs with comments removed
+FAIL src/pages/api/v1/guilds/[guildId]/messages/[id].ts: added line is no removed line minus a removed comment: "    if (error instanceof z.ZodError) return res.status(400);"
+FAIL src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx: absent on one side (9cefc7d)
+FAIL src/providers/MessageProvider/usePusher.ts: changed here but not by the sweep range
+FAIL src/providers/MessageProvider/usePusher.ts: code differs with comments removed
+FAIL src/providers/MessageProvider/usePusher.ts: added line is no removed line minus a removed comment: "          message: `The message you are viewing has been updated. Would you like to reload it?${hasChanged ? ' Any chang"
+FAIL src/providers/WebhookProvider.tsx: changed here but not by the sweep range
+FAIL src/providers/WebhookProvider.tsx: code differs with comments removed
+FAIL src/providers/WebhookProvider.tsx: comment present after but not before: "// shhhhh, just let it happen"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "  useUpdateEffect(voided(async () => {"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "      const wh = await withLoadingWebhook(fetch(url).then<Webhook | null>((res) => (res.status === 200 ? res.json() : nu"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "      if (wh) {"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "        wh.channel = channels?.find((c) => c.id === wh.channel_id);"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "        wh.token = url.split('/').find((part) => part.length > 32)!;"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "      }"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "      return setSelectedWebhook(wh);"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "    }"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: ""
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "    if (url) {"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "      return setSelectedWebhook(null);"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: ""
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "    return undefined;"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "  }), [url]);"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "  useEffect(voided(async () => {"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "    if (selectedWebhook?.token && (isValidUrl(messageIdOrUrl) || /\\d+/.test(messageIdOrUrl.trim()))) {"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "      const messageId = (isValidUrl(messageIdOrUrl) ? (messageIdOrUrl.split('/').pop() as string) : messageIdOrUrl)?.tri"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "      await withLoadingMessage(fetch(`${constructWebhookUrl(selectedWebhook, messageId, threadId)}`).then(async (res) =>"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "        const data = await res.json();"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "        if (res.ok) {"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "          // shhhhh, just let it happen"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "          setOldMessage(makeEditable({"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "            data: { ...data, username: data.author.username },"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "          } as { data: MessageData }).data as OldMessage);"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "          setOldMessageError('');"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "        } else {"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "          setOldMessage(null);"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "          if (res.status === 404) {"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "            setOldMessageError('Message not found. Hint: Webhooks can only edit their own messages.');"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "          } else if (res.status === 403) {"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "            setOldMessageError('You do not have permission to view this message.');"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "          } else if (res.status === 401) {"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "            setOldMessageError('Invalid webhook token.');"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "          } else if (res.status === 400) {"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "            setOldMessageError('Invalid webhook id.');"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "            setOldMessageError((data as { message: string }).message ?? res.statusText);"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "        }"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "      }));"
+FAIL src/providers/WebhookProvider.tsx: added line is no removed line minus a removed comment: "  }), [selectedWebhook, messageIdOrUrl, threadId]);"
+FAIL src/providers/__tests__/WebhookProvider.validation-effects.test.tsx: absent on one side (9cefc7d)
+FAIL src/server/__tests__/auth.hydrated-session.test.ts: absent on one side (9cefc7d)
+FAIL src/server/__tests__/auth.sign-out.test.ts: absent on one side (9cefc7d)
+FAIL src/server/api/__tests__/cron.scheduled-selection.test.ts: absent on one side (9cefc7d)
+FAIL src/server/api/__tests__/interactions-edge.signature-before-parse.test.ts: absent on one side (9cefc7d)
+FAIL src/server/api/messages/__tests__/messageCodes.malformed-query.test.ts: absent on one side (9cefc7d)
+FAIL src/server/api/routers/__tests__/message.get-from-url.test.ts: absent on one side (9cefc7d)
+FAIL src/server/api/routers/message.ts: changed here but not by the sweep range
+FAIL src/server/api/routers/message.ts: code differs with comments removed
+FAIL src/server/api/routers/message.ts: added line is no removed line minus a removed comment: "      const [, guildId, channelId, messageId] = match;"
+FAIL src/server/api/utils/__tests__/authorizeGuildUser.in-predicate.test.ts: absent on one side (9cefc7d)
+FAIL src/server/api/utils/__tests__/helpers/capturingDatabase.ts: absent on one side (9cefc7d)
+FAIL src/server/api/utils/__tests__/shapes.embed-schema.test.ts: absent on one side (9cefc7d)
+FAIL src/server/api/utils/__tests__/shapes.user-or-discord-id.test.ts: absent on one side (9cefc7d)
+FAIL src/server/api/utils/__tests__/shared.in-predicates.test.ts: absent on one side (9cefc7d)
+FAIL src/server/api/utils/__tests__/shared.message-cap.test.ts: absent on one side (9cefc7d)
+FAIL src/server/api/utils/__tests__/user.in-predicate.test.ts: absent on one side (9cefc7d)
+FAIL src/server/api/utils/authorizeGuildUser.ts: changed here but not by the sweep range
+FAIL src/server/api/utils/authorizeGuildUser.ts: code differs with comments removed
+FAIL src/server/api/utils/shapes.ts: code differs with comments removed
+FAIL src/server/api/utils/shapes.ts: added line is no removed line minus a removed comment: "export const userOrDiscordIdShape = z.string().regex(/^(0|[0-9]{17,23}$)/);"
+FAIL src/server/api/utils/shapes.ts: added line is no removed line minus a removed comment: "const embedShape = z.object({"
+FAIL src/server/api/utils/shapes.ts: added line is no removed line minus a removed comment: "  color: z.number().int().positive().max(0xffffff)"
+FAIL src/server/api/utils/shapes.ts: added line is no removed line minus a removed comment: "function sumDisplayableText(components: { type: number, content?: string, components?: unknown[] }[]): number {"
+FAIL src/server/api/utils/shapes.ts: added line is no removed line minus a removed comment: "function filterActionRowButtons(row: Record<string, unknown>, dropped?: Set<string>): Record<string, unknown> | null {"
+FAIL src/server/api/utils/shapes.ts: added line is no removed line minus a removed comment: "function filterSection(section: Record<string, unknown>, dropped?: Set<string>): Record<string, unknown> | null {"
+FAIL src/server/api/utils/shapes.ts: added line is no removed line minus a removed comment: "function filterContainerChild(child: Record<string, unknown>, dropped?: Set<string>): Record<string, unknown> | null {"
+FAIL src/server/api/utils/shapes.ts: added line is no removed line minus a removed comment: "export function describeDroppedComponentTypesNotice(droppedComponentTypes: readonly string[]): string {"
+FAIL src/server/api/utils/shared.ts: changed here but not by the sweep range
+FAIL src/server/api/utils/shared.ts: code differs with comments removed
+FAIL src/server/api/utils/shared.ts: added line is no removed line minus a removed comment: "  const messages = await getPostgres()"
+FAIL src/server/api/utils/shared.ts: added line is no removed line minus a removed comment: "    ])"
+FAIL src/server/api/utils/shared.ts: added line is no removed line minus a removed comment: "    .where(({"
+FAIL src/server/api/utils/shared.ts: added line is no removed line minus a removed comment: "    .execute();"
+FAIL src/server/api/utils/shared.ts: added line is no removed line minus a removed comment: "  if (!message.id && Number(messageCount) > MAX_MESSAGES) {"
+FAIL src/server/api/utils/user.ts: changed here but not by the sweep range
+FAIL src/server/api/utils/user.ts: code differs with comments removed
+FAIL src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts: absent on one side (9cefc7d)
+FAIL src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts: absent on one side (9cefc7d)
+FAIL src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts: code differs with comments removed
+FAIL src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts: added line is no removed line minus a removed comment: "import { describe, it, expect, vi } from 'vitest';"
+FAIL src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts: added line is no removed line minus a removed comment: "function makeRes() {"
+FAIL src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts: added line is no removed line minus a removed comment: "  const res: { statusCode?: number; body?: unknown; status: (n: number) => typeof res; json: (b: unknown) => typeof res;"
+FAIL src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts: added line is no removed line minus a removed comment: "    status(n: number) { this.statusCode = n; return this; },"
+FAIL src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts: added line is no removed line minus a removed comment: "    json(b: unknown) { this.body = b; return this; },"
+FAIL src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts: added line is no removed line minus a removed comment: "    end() { return this; },"
+FAIL src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts: added line is no removed line minus a removed comment: "  };"
+FAIL src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts: added line is no removed line minus a removed comment: "  return res;"
+FAIL src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts: added line is no removed line minus a removed comment: "}"
+FAIL src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts: added line is no removed line minus a removed comment: "    const req = { method: 'GET', query: { guildId: '123456789012345678' } } as never;"
+FAIL src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts: added line is no removed line minus a removed comment: "    const req = { method: 'GET', query: { guildId: '123456789012345678', id: '1' } } as never;"
+FAIL src/server/api/v1/__tests__/helpers/apiResponse.ts: absent on one side (9cefc7d)
+FAIL src/server/auth.ts: changed here but not by the sweep range
+FAIL src/server/auth.ts: code differs with comments removed
+FAIL src/server/auth.ts: added line is no removed line minus a removed comment: "async function removeUserSession(sessionToken: string, userDbId: string) {"
+FAIL src/server/auth.ts: added line is no removed line minus a removed comment: "  });"
+FAIL src/server/auth.ts: added line is no removed line minus a removed comment: "  const account = await redis.fetchUserAccount(userDbId, true);"
+FAIL src/server/auth.ts: added line is no removed line minus a removed comment: "  if (!account) throw new Error('Expected to find account');"
+FAIL src/server/auth.ts: added line is no removed line minus a removed comment: "    const messagePromise = preferences?.recentMessageIds"
+FAIL src/server/auth.ts: added line is no removed line minus a removed comment: "      : [];"
+FAIL src/server/auth.ts: added line is no removed line minus a removed comment: "      access_token ? await redis.fetchUserGuilds(providerAccountId, access_token) : [],"
+FAIL src/server/auth.ts: added line is no removed line minus a removed comment: "    signIn: async ({ user, account, profile, isNewUser }) => {"
+FAIL src/utils/__tests__/bugFixCoverage.supplemental.test.ts: absent on one side (b96e364)
+FAIL src/utils/__tests__/constructImageUrl.default-avatar.test.ts: changed here but not by the sweep range
+FAIL src/utils/__tests__/constructImageUrl.default-avatar.test.ts: code differs with comments removed
+FAIL src/utils/__tests__/discordResponseToMessage.ingress.test.ts: changed here but not by the sweep range
+FAIL src/utils/__tests__/discordResponseToMessage.ingress.test.ts: code differs with comments removed
+FAIL src/utils/__tests__/discordResponseToMessage.ingress.test.ts: added line is no removed line minus a removed comment: "import { describe, it, expect, vi } from 'vitest';"
+FAIL src/utils/__tests__/discordResponseToMessage.ingress.test.ts: added line is no removed line minus a removed comment: "import { IS_COMPONENTS_V2_FLAG } from '~/constants';"
+FAIL src/utils/__tests__/discordResponseToMessage.ingress.test.ts: added line is no removed line minus a removed comment: "import discordResponseToMessage from '~/utils/discordResponseToMessage';"
+FAIL src/utils/__tests__/discordResponseToMessage.ingress.test.ts: added line is no removed line minus a removed comment: "import { author } from '~/utils/__tests__/helpers/discord';"
+FAIL src/utils/__tests__/discordResponseToMessage.ingress.test.ts: added line is no removed line minus a removed comment: ""
+FAIL src/utils/__tests__/discordResponseToMessage.ingress.test.ts: added line is no removed line minus a removed comment: "      components: [{ type: 1, components: [{ type: 2, style: 5, url: 'https://example.com', label: 'Go' }] }],"
+FAIL src/utils/__tests__/discordResponseToMessage.ingress.test.ts: added line is no removed line minus a removed comment: "      { type: 1, components: [{ type: 2, style: 5, url: 'https://example.com', label: 'Go' }] },"
+FAIL src/utils/__tests__/discordResponseToMessage.ingress.test.ts: added line is no removed line minus a removed comment: "            { type: 2, style: 1, custom_id: 'click', label: 'Custom' },"
+FAIL src/utils/__tests__/discordResponseToMessage.ingress.test.ts: added line is no removed line minus a removed comment: "            { type: 2, style: 5, url: 'https://example.com', label: 'Link' },"
+FAIL src/utils/__tests__/discordResponseToMessage.ingress.test.ts: added line is no removed line minus a removed comment: "      { type: 1, components: [{ type: 2, style: 5, url: 'https://example.com', label: 'Link' }] },"
+FAIL src/utils/__tests__/discordResponseToMessage.ingress.test.ts: added line is no removed line minus a removed comment: "          accessory: { type: 2, style: 1, custom_id: 'click', label: 'Custom' },"
+FAIL src/utils/__tests__/discordResponseToMessage.ingress.test.ts: added line is no removed line minus a removed comment: "              accessory: { type: 2, style: 1, custom_id: 'click', label: 'Custom' },"
+FAIL src/utils/__tests__/formatMessageDate.same-day.test.ts: absent on one side (9cefc7d)
+FAIL src/utils/__tests__/getCDNUrl.port-and-environment.test.ts: absent on one side (9cefc7d)
+FAIL src/utils/__tests__/isValidImageUrl.extensions.test.ts: absent on one side (9cefc7d)
+FAIL src/utils/__tests__/limits.component-count.test.ts: absent on one side (9cefc7d)
+FAIL src/utils/__tests__/limits.embed-text-errors.test.ts: absent on one side (9cefc7d)
+FAIL src/utils/__tests__/redis.cached-null-hit.test.ts: absent on one side (9cefc7d)
+FAIL src/utils/discordResponseToMessage.ts: changed here but not by the sweep range
+FAIL src/utils/discordResponseToMessage.ts: code differs with comments removed
+FAIL src/utils/discordResponseToMessage.ts: added line is no removed line minus a removed comment: "      if (e.color) embed.color = e.color;"
+FAIL src/utils/discordResponseToMessage.ts: added line is no removed line minus a removed comment: "    message.avatar_url = constructImageUrl(discordMessage.author.id, discordMessage.author.avatar, discordMessage.author"
+FAIL src/utils/formatMessageDate.ts: absent on one side (9cefc7d)
+FAIL src/utils/getCDNUrl.ts: changed here but not by the sweep range
+FAIL src/utils/getCDNUrl.ts: code differs with comments removed
+FAIL src/utils/getCDNUrl.ts: added line is no removed line minus a removed comment: "export default () => `${process.env.NEXT_PUBLIC_CDN_HOST ?? ''}${process.env.NODE_ENV === 'development' ? '/dev' : ''}${"
+FAIL src/utils/hooks/__tests__/useGuildDropdownItems.session-update.test.tsx: absent on one side (9cefc7d)
+FAIL src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx: absent on one side (9cefc7d)
+FAIL src/utils/hooks/index.ts: changed here but not by the sweep range
+FAIL src/utils/hooks/index.ts: code differs with comments removed
+FAIL src/utils/hooks/index.ts: added line is no removed line minus a removed comment: "import { useMount } from 'react-use';"
+FAIL src/utils/hooks/index.ts: added line is no removed line minus a removed comment: "  useMount(() => {"
+FAIL src/utils/hooks/index.ts: added line is no removed line minus a removed comment: "  });"
+FAIL src/utils/hooks/useGuildDropdownItems.tsx: changed here but not by the sweep range
+FAIL src/utils/hooks/useGuildDropdownItems.tsx: code differs with comments removed
+FAIL src/utils/hooks/useGuildDropdownItems.tsx: added line is no removed line minus a removed comment: "  }, []);"
+FAIL src/utils/hooks/useValidateWebhook.ts: changed here but not by the sweep range
+FAIL src/utils/hooks/useValidateWebhook.ts: code differs with comments removed
+FAIL src/utils/hooks/useValidateWebhook.ts: added line is no removed line minus a removed comment: "  useEffect(voided(async () => {"
+FAIL src/utils/hooks/useValidateWebhook.ts: added line is no removed line minus a removed comment: "      const wh = await withLoadingWebhook(fetch(url)"
+FAIL src/utils/hooks/useValidateWebhook.ts: added line is no removed line minus a removed comment: "        .then<DiscordWebhook | { message: string }>((res) => res.json()));"
+FAIL src/utils/hooks/useValidateWebhook.ts: added line is no removed line minus a removed comment: "      if ('message' in wh) setWebhookError(wh.message);"
+FAIL src/utils/hooks/useValidateWebhook.ts: added line is no removed line minus a removed comment: "      else setWebhook(wh);"
+FAIL src/utils/hooks/useValidateWebhook.ts: added line is no removed line minus a removed comment: "  }), [url]);"
+FAIL src/utils/hooks/useValidateWebhook.ts: added line is no removed line minus a removed comment: "  useEffect(voided(async () => {"
+FAIL src/utils/hooks/useValidateWebhook.ts: added line is no removed line minus a removed comment: "    if (webhook && (isValidUrl(messageIdOrUrl) || /\\d+/.test(messageIdOrUrl.trim()))) {"
+FAIL src/utils/hooks/useValidateWebhook.ts: added line is no removed line minus a removed comment: "      const messageId = (isValidUrl(messageIdOrUrl) ? (messageIdOrUrl.split('/').pop() as string) : messageIdOrUrl)?.tri"
+FAIL src/utils/hooks/useValidateWebhook.ts: added line is no removed line minus a removed comment: "      const msg = await withLoadingMessage(fetch(`${url}/messages/${messageId}`)"
+FAIL src/utils/hooks/useValidateWebhook.ts: added line is no removed line minus a removed comment: "        .then<Message | { message: string }>((res) => res.json()));"
+FAIL src/utils/hooks/useValidateWebhook.ts: added line is no removed line minus a removed comment: ""
+FAIL src/utils/hooks/useValidateWebhook.ts: added line is no removed line minus a removed comment: "      if ('message' in msg) setMessageError(msg.message);"
+FAIL src/utils/hooks/useValidateWebhook.ts: added line is no removed line minus a removed comment: "      else {"
+FAIL src/utils/hooks/useValidateWebhook.ts: added line is no removed line minus a removed comment: "        const converted = discordResponseToMessage(msg);"
+FAIL src/utils/hooks/useValidateWebhook.ts: added line is no removed line minus a removed comment: "        setMessage(converted.data);"
+FAIL src/utils/hooks/useValidateWebhook.ts: added line is no removed line minus a removed comment: "        setDroppedComponentTypes(converted.droppedComponentTypes);"
+FAIL src/utils/hooks/useValidateWebhook.ts: added line is no removed line minus a removed comment: "      }"
+FAIL src/utils/hooks/useValidateWebhook.ts: added line is no removed line minus a removed comment: "  }), [webhook, url, messageIdOrUrl]);"
+FAIL src/utils/isValidImageUrl.ts: absent on one side (9cefc7d)
+FAIL src/utils/limits.tsx: changed here but not by the sweep range
+FAIL src/utils/limits.tsx: code differs with comments removed
+FAIL src/utils/limits.tsx: added line is no removed line minus a removed comment: "  MAX_EMBED_CHARACTERS, MAX_EMBED_DESCRIPTION_LENGTH, MAX_EMBED_FIELD_NAME_LENGTH,"
+FAIL src/utils/limits.tsx: added line is no removed line minus a removed comment: "  MAX_NAME_LENGTH, MIN_NAME_LENGTH, V2_COMPONENT_TYPE_VALUES,"
+FAIL src/utils/limits.tsx: added line is no removed line minus a removed comment: "function sumDisplayableText(components: { type: number; content?: string; components?: { type: number; content?: string;"
+FAIL src/utils/limits.tsx: added line is no removed line minus a removed comment: "  const total = sumDisplayableText(components as unknown as Parameters<typeof sumDisplayableText>[0]);"
+FAIL src/utils/limits.tsx: added line is no removed line minus a removed comment: "  return name && name.length > MAX_NAME_LENGTH;"
+FAIL src/utils/limits.tsx: added line is no removed line minus a removed comment: "  if (titleErroring) error = 'Name is too long.';"
+FAIL src/utils/limits.tsx: added line is no removed line minus a removed comment: "function validateEmbed(embed: Embed) {"
+FAIL src/utils/limits.tsx: added line is no removed line minus a removed comment: "  return validateEmbedAuthor(embed.author)"
+FAIL src/utils/limits.tsx: added line is no removed line minus a removed comment: "  && validateEmbedTitle(embed.title, embed.url)"
+FAIL src/utils/limits.tsx: added line is no removed line minus a removed comment: "  && embed.fields?.map(validateEmbedField);"
+FAIL src/utils/limits.tsx: added line is no removed line minus a removed comment: "}"
+FAIL src/utils/limits.tsx: added line is no removed line minus a removed comment: ""
+FAIL src/utils/limits.tsx: added line is no removed line minus a removed comment: "  const displayableTextError = validateDisplayableTextCount(components as SupportedTopLevelComponent[]);"
+FAIL src/utils/maps/UpsertMapMap.ts: changed here but not by the sweep range
+FAIL src/utils/maps/UpsertMapMap.ts: code differs with comments removed
+FAIL src/utils/maps/UpsertMapMap.ts: added line is no removed line minus a removed comment: "    if (innerKey) this.#map.get(key)?.delete(innerKey);"
+FAIL src/utils/maps/UpsertMapMap.ts: added line is no removed line minus a removed comment: "    else this.#map.get(key);"
+FAIL src/utils/maps/__tests__/UpsertMapMap.delete.test.ts: absent on one side (9cefc7d)
+FAIL src/utils/markdown/__tests__/emoji.longest-sequence-first.test.ts: absent on one side (9cefc7d)
+FAIL src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts: absent on one side (9cefc7d)
+FAIL src/utils/markdown/components/MarkdownSpoiler.tsx: changed here but not by the sweep range
+FAIL src/utils/markdown/components/MarkdownSpoiler.tsx: code differs with comments removed
+FAIL src/utils/markdown/components/MarkdownSpoiler.tsx: added line is no removed line minus a removed comment: "      aria-expanded={!isVisible}"
+FAIL src/utils/markdown/components/__tests__/MarkdownSpoiler.aria-expanded.test.tsx: absent on one side (9cefc7d)
+FAIL src/utils/markdown/emoji.tsx: changed here but not by the sweep range
+FAIL src/utils/markdown/emoji.tsx: code differs with comments removed
+FAIL src/utils/markdown/emoji.tsx: added line is no removed line minus a removed comment: "    .sort((surrogate) => -surrogate.length)"
+FAIL src/utils/markdown/rules.tsx: changed here but not by the sweep range
+FAIL src/utils/markdown/rules.tsx: code differs with comments removed
+FAIL src/utils/markdown/rules.tsx: comment present after but not before: "// match(source, state, prevCapture) {"
+FAIL src/utils/markdown/rules.tsx: comment present after but not before: "//   if (state._inParagraph) return null;"
+FAIL src/utils/markdown/rules.tsx: comment present after but not before: "//   return SimpleMarkdown.blockRegex(/^((?:[^\\n]|\\n(?! *\\n))+(?:\\n *)+\\n)/)(sou"
+FAIL src/utils/markdown/rules.tsx: comment present after but not before: "// },"
+FAIL src/utils/markdown/rules.tsx: added line is no removed line minus a removed comment: "      return SimpleMarkdown.inlineRegex(/^```(([a-z0-9-]+?)\\n+)?\\n*([^\\n]+?)\\n*```/i)(source, state, prev);"
+FAIL src/utils/markdown/rules.tsx: added line is no removed line minus a removed comment: "    // match(source, state, prevCapture) {"
+FAIL src/utils/markdown/rules.tsx: added line is no removed line minus a removed comment: "    //   if (state._inParagraph) return null;"
+FAIL src/utils/markdown/rules.tsx: added line is no removed line minus a removed comment: "    //   return SimpleMarkdown.blockRegex(/^((?:[^\\n]|\\n(?! *\\n))+(?:\\n *)+\\n)/)(source, state, prevCapture);"
+FAIL src/utils/markdown/rules.tsx: added line is no removed line minus a removed comment: "    // },"
+FAIL src/utils/parseMessageId.ts: absent on one side (9cefc7d)
+FAIL src/utils/parseServerCookies.ts: absent on one side (b96e364)
+FAIL src/utils/redis/__tests__/formatKey.key-format.test.ts: absent on one side (9cefc7d)
+FAIL src/utils/redis/__tests__/redis.fetch-channel.test.ts: absent on one side (9cefc7d)
+FAIL src/utils/redis/index.ts: changed here but not by the sweep range
+FAIL src/utils/redis/index.ts: code differs with comments removed
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "    const item = await getItem<T>(key);"
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "    if (item) resolveDeferred(key, item, WAITING_MAP.get(key) ?? []);"
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "  const item = await getItem<T>(key);"
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "  if (item) {"
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "    resolveDeferred(key, item, WAITING_MAP.get(key) ?? []);"
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "async function getItem<T>(key: string): Promise<T | null> {"
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "      return (typeof item === 'object' && !!item ? decompress(item) : item) as T;"
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "  return cachedItem;"
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "  if (cachedItem) return cachedItem;"
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "function fetchUserAccount(userId: DatabaseId, skipUpdate = false) {"
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "      if (!skipUpdate) {"
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "        if (!account.refresh_token) return null;"
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "        if (!account.expires_at || (account.expires_at * 1e3) < Date.now()) {"
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "          const updatedAccount = await refreshUserAccessToken(id, account.refresh_token);"
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "          if (!updatedAccount) return null;"
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "          return {"
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "            ...rest,"
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "            ...updatedAccount,"
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "          };"
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "        }"
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "function clearUser(userId: DatabaseId, sessionToken: string, discordId: string) {"
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "  return getClient().pipeline()"
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "    .del(formatKey('user-session-token', sessionToken))"
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "    .del(formatKey('user-guilds', discordId))"
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "    .exec();"
+FAIL src/utils/redis/index.ts: added line is no removed line minus a removed comment: "      const { data: channel, status } = await getApi().request<Guild>('GET', `/channels/${channelId}`, { validateStatus:"
+FAIL tsconfig.test.json: not a JS/TS source file
+FAIL vitest.config.ts: changed here but not by the sweep range
+FAIL vitest.config.ts: code differs with comments removed
+FAIL vitest.config.ts: added line is no removed line minus a removed comment: "        include: ['src/**/*.test.ts'],"
+RESULT FAIL (532)

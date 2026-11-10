@@ -1,0 +1,99 @@
+FAIL eslint src/scripts/backfillValid.ts:95 — no-empty: Empty block statement.
+FAIL eslint src/utils/__tests__/limits.import-validation.test.ts:9 — import/order: There should be no empty line within import group
+FAIL eslint src/utils/__tests__/limits.import-validation.test.ts:22 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/utils/__tests__/limits.import-validation.test.ts:72 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/utils/__tests__/limits.import-validation.test.ts:115 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/utils/__tests__/limits.import-validation.test.ts:254 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/utils/__tests__/limits.import-validation.test.ts:264 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/utils/__tests__/limits.import-validation.test.ts:285 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/utils/__tests__/limits.send-gate-partition.test.ts:1 — import/order: There should be at least one empty line between import groups
+FAIL eslint src/utils/__tests__/limits.send-gate-partition.test.ts:1 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/limits.send-gate-partition.test.ts:1 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/limits.send-gate-partition.test.ts:6 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/utils/__tests__/limits.send-gate-partition.test.ts:7 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/utils/__tests__/limits.send-gate-partition.test.ts:8 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/utils/__tests__/limits.send-gate-partition.test.ts:9 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/utils/__tests__/limits.send-gate-partition.test.ts:10 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/utils/__tests__/limits.send-gate-partition.test.ts:25 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/limits.send-gate-partition.test.ts:25 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/limits.send-gate-partition.test.ts:208 — max-len: This line has a length of 103. Maximum allowed is 100.
+FAIL eslint src/utils/__tests__/limits.send-gate-partition.test.ts:208 — @typescript-eslint/member-delimiter-style: Expected a comma.
+FAIL eslint src/utils/__tests__/limits.send-gate-partition.test.ts:208 — @typescript-eslint/member-delimiter-style: Expected a comma.
+FAIL eslint src/utils/__tests__/limits.send-gate-partition.test.ts:208 — @typescript-eslint/member-delimiter-style: Expected a comma.
+FAIL eslint src/utils/__tests__/limits.send-gate-partition.test.ts:239 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/limits.send-gate-partition.test.ts:239 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/limits.send-gate-partition.test.ts:258 — no-multi-spaces: Multiple spaces found before '// v2 -> class...'.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:1 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:1 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:28 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:29 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:30 — @typescript-eslint/no-unused-vars: 'stripKeys' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:32 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:33 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:34 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:35 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:37 — max-len: This line has a length of 103. Maximum allowed is 100.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:37 — @typescript-eslint/member-delimiter-style: Expected a comma.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:37 — @typescript-eslint/member-delimiter-style: Expected a comma.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:37 — @typescript-eslint/member-delimiter-style: Expected a comma.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:40 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:41 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:42 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:43 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:43 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:44 — @typescript-eslint/no-unsafe-call: Unsafe call of an `any` typed value.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:47 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:48 — react-hooks/rules-of-hooks: React Hook "useApiMethods" is called in function "loadAndSaveViaShippedProvider" that is neither a React function component nor a custom React Hook function. React component names must start with an uppercase letter. React Hook names must start with the word "use".
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:49 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `MutableRefObject<ActiveMessage | null>`.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:50 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `MutableRefObject<boolean>`.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:50 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:51 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `StateSetter<ActiveMessage | null>`.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:53 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:55 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `Partial<ApiMessage | ActiveMessage>`.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:55 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:58 — @typescript-eslint/no-unsafe-return: Unsafe return of an `any` typed value.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:61 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:62 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `ActiveMessage | null | undefined`.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:64 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:65 — function-paren-newline: Unexpected newline after '('.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:66 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `number | undefined`.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:66 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `{ type: number; }[] | undefined`.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:66 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `string | undefined`.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:66 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `unknown[] | undefined`.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:67 — function-paren-newline: Unexpected newline before ')'.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:117 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:117 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:127 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:136 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+SKIP src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx: not examined — no added lines
+SKIP src/app/message/m/[id]/_components/__tests__/JsonModalBody.choice-rewrites-editor.test.tsx: not examined — no added lines
+SKIP src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx: not examined — no added lines
+SKIP src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx: not examined — no added lines
+SKIP src/components/__tests__/helpers/press.ts: not examined — no added lines
+SKIP src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx: not examined — no added lines
+SKIP src/providers/MessageProvider/__tests__/helpers/messageProviderDeps.ts: not examined — no added lines
+SKIP src/scripts/__tests__/backfillValid.classify.test.ts: not examined — no added lines
+SKIP src/scripts/__tests__/backfillValid.evaluation-failure-category.test.ts: not examined — no added lines
+SKIP src/scripts/__tests__/backfillValid.report-and-target-guards.test.ts: not examined — no added lines
+SKIP src/server/api/utils/__tests__/shapes.dropped-types-notice.test.ts: not examined — no added lines
+SKIP src/server/api/utils/__tests__/shared.upsert-valid.test.ts: not examined — no added lines
+SKIP src/server/api/utils/shapes.ts: not examined — no added lines
+SKIP src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts: not examined — no added lines
+SKIP src/utils/__tests__/formatMutationError.zod-issues.test.ts: not examined — no added lines
+SKIP src/utils/__tests__/gateBeforePersist.thumbnail.test.ts: not examined — no added lines
+SKIP src/utils/__tests__/helpers/components.ts: not examined — no added lines
+SKIP src/utils/__tests__/helpers/discord.ts: not examined — no added lines
+SKIP src/utils/__tests__/helpers/messageData.ts: not examined — no added lines
+SKIP src/utils/__tests__/loadDiff.independent-oracle.test.ts: not examined — no added lines
+SKIP src/utils/__tests__/messageMode.switch.test.ts: not examined — no added lines
+SKIP src/utils/__tests__/messageValidity.predicate.test.ts: not examined — no added lines
+SKIP src/utils/__tests__/supportedTypes.parity.test.ts: not examined — no added lines
+SKIP src/utils/__tests__/usePusher.hash-parity.test.ts: not examined — no added lines
+SKIP src/utils/__tests__/utils.disposition-resolver.test.ts: not examined — no added lines
+SKIP src/utils/__tests__/utils.rowd-load-disposition.test.ts: not examined — no added lines
+SKIP src/utils/__tests__/utils.save-payload-and-seed.test.ts: not examined — no added lines
+SKIP src/utils/__tests__/utils.transport-form.test.ts: not examined — no added lines
+SKIP src/utils/formatMutationError.ts: not examined — no added lines
+SKIP src/utils/index.ts: not examined — no added lines
+SKIP id-token, basename: /usr/local/bin/hooks/agent-output/CLAUDE.md states an ID-token class this checker does not implement verbatim (the hooks line at cca22fd) — the checks did not run
+convention-check: 4 file(s) examined, 30 not examined, 3 test file(s); 67 FAIL, 0 CANDIDATE, 31 SKIP

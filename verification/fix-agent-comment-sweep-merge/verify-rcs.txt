@@ -1,0 +1,4 @@
+suite rc=0
+typecheck rc=0
+eslint rc=1
+0

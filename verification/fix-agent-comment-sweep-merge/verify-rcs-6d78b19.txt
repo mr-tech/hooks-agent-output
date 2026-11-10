@@ -1,0 +1,5 @@
+suite rc=0
+typecheck rc=0
+convention-check rc=1
+build rc=0
+shared-tree status lines=0
