@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-hooks-record-shared-engine
 UUID: 2b33b8c9
 Status: Active
-Status-Detail: "Handed to code review at d96b799; check exits 0 with 256 baselined. Owed: code review, QA Phase 2."
-Handoff-At: d96b799 — repos=agent-output
+Status-Detail: "Code review Round 1 APPROVED_WITH_COMMENTS at d96b799; CR-1/CR-2 fixed at 7dab510. Owed: reviewer's fix confirmation, QA Phase 2."
+Handoff-At: 7dab510 — repos=agent-output; code review Round 1 fixes over d96b799
 Origin-Chain: none
 ---
 
@@ -156,7 +156,9 @@ added for this record:
 - no `.gitignore` or `verification/` basename failure under `--full`;
 - the committed record passes with its baseline and no stale entry;
 - `--status` exits 0 and reaches the engine;
-- `build-index.js --tracked --check` reads through the engine.
+- `build-index.js --tracked --check` reads through the engine;
+- (code review Round 1, CR-2) every baseline entry names only pre-012 documents or one of the four named unsuffixed documents. The predicate is written in the test from literal patterns (`^(?:00\d|01[01])-` on the basename, `-plan-(?:00\d|01[01])\.md$`) and the four literal paths, independent of `make-engine-baseline.js`'s `chainOf`;
+- (CR-2) the override case's live leg runs `--help` and asserts exit 0 and the engine's own usage line, which the old tools did not print.
 
 The statbot `package.json` case is dropped, because this record has no such manifests.
 
@@ -176,6 +178,20 @@ was moved into a subprocess, and the capture above is the re-run.
 
 The full-pass case depends on the whole record staying healthy, as the check itself does. This is a
 deliberate statement of the scope ("exits 0 on this record"), not a unit property.
+
+### Code review Round 1 (CR-1, CR-2)
+
+The review (`code-review/fix-hooks-record-shared-engine-code-review.md`, APPROVED_WITH_COMMENTS at d96b799) raised two LOW items. Both were verified at the mechanism before acting:
+- **CR-1**: `git -C ~/.claude/tools remote -v` shows `origin git@github.com:mr-tech/agent-tools.git`, so the "has no remote" text was wrong. It came from the statbot entrypoints, and I copied it unchecked. Corrected in both entrypoints' engine-absent message and in README § `tools/`, in RQ-3's sense: "bound to this box; its git remote is a backup, not a second home". The README's "each armed from this record's adoption instant" was also wrong: `record-engine.js` lines 811 and 836 arm duplicate-id and handoff-priority on `documentRules` alone, and `checkStatusVocabulary` judges open documents with no instant. The README now states which instant, if any, arms each rule.
+- **CR-2**: the preferred fix was taken (the two test cases above). The full-pass case was retitled to what it asserts.
+
+| Run | Tree | Result | Capture |
+|---|---|---|---|
+| Green | f824d3d + the CR edits, uncommitted (committed as 7dab510) | 14 tests, 13 pass, 1 fail, exit 1. The failing case is the whole-record pass: 2 LINKS in the code reviewer's own document (`code-review/fix-hooks-record-shared-engine-code-review.md:43` cites `code-review/classify-baseline-by-prefix.js` and `planning/015-x.md`, which do not exist). `node tools/check-repo.js` on the working tree reports the same 2. Not this change's, and routed to the reviewer. | `green-run-cr-round1.txt` |
+| Control A | export of f824d3d + the CR edits, baseline + one planted entry `planning/015-planted-chain-document.md: no UUID field`, baseline-class case only | 1 test, 0 pass, 1 fail: `outside` holds exactly the planted entry | `control-baseline-planted-entry.txt` |
+| Control B | same export, both entrypoints' default engine directory mutated to a silent engine (prints nothing, exits 0), override cases only | 2 tests, 0 pass, 2 fail at the usage-line assertion. The pre-round assertion (`doesNotMatch SENTINEL`) would have passed. | `control-live-leg-silent-engine.txt` |
+
+The export was removed with `git worktree remove`, and the silent engine was deleted.
 
 ## Verification
 
@@ -204,3 +220,5 @@ None: record tooling only.
 | 2026-11-10T09:05 | Dry measurement, Diagnosis, Change, Test and Verification written; `BLOCKED:` on two strict-YAML entries sent to steering-cleanup-hooks (msg 6680fbac) and answered (option 2, corrected at 7b4419a). | fixer-hooks-record-engine |
 | 2026-11-10T09:05 | Source committed at d96b799; green run at d96b799 13/13 exit 0; Handoff-At d96b799; handed to code-reviewer-hooks-record-engine. | fixer-hooks-record-engine |
 | 2026-11-10T09:06 | Box cleanup recorded (worktree, scratch, five /tmp test directories). | fixer-hooks-record-engine |
+| 2026-11-10T09:13 | Code review Round 1: CR-1 corrected (four texts), CR-2 preferred fix taken (two cases); green 13/14 (the 1 is the reviewer document's 2 LINKS); controls A and B red. | fixer-hooks-record-engine |
+| 2026-11-10T09:14 | CR fixes committed at 7dab510; Handoff-At moved to 7dab510; fix confirmation sent to code-reviewer-hooks-record-engine. | fixer-hooks-record-engine |
