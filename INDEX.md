@@ -7,7 +7,7 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-208 documents · 15 numbered chains · 69 unnumbered.
+211 documents · 15 numbered chains · 72 unnumbered.
 
 ---
 
@@ -289,6 +289,7 @@ they are the ID-less artifacts that root new efforts.
 | steering | `steering/015-rulings.md` | — |
 | steering | `steering/015-security-brief.md` | — |
 | steering | `steering/chore-agent-comment-sweep-rulings.md` | — |
+| steering | `steering/cleanup-2026-11-10.md` | — |
 | steering | `steering/v1-guild-messages-auth-rulings.md` | — |
 | UAT | `uat/closed/004-lazy-loading-preload-overhaul-uat.md` | — |
 | verification | `verification/012/backfill-report-1787522824426-i0womw.md` | — |
@@ -303,6 +304,8 @@ they are the ID-less artifacts that root new efforts.
 | verification | `verification/014/m0-baseline.md` | — |
 | verification | `verification/015/d28-seed-probes/report.md` | — |
 | verification | `verification/015/effort-final/gap-dispositions.md` | — |
+| verification | `verification/cleanup-2026-11-10/handoffs-survey.md` | — |
+| verification | `verification/cleanup-2026-11-10/open-documents-survey.md` | — |
 
 ## By name
 
@@ -468,6 +471,7 @@ they are the ID-less artifacts that root new efforts.
 | `bug-evaluation-research-pm2-show-lines-2026-11-10.md` | `handoff/bug-evaluation-research-pm2-show-lines-2026-11-10.md` |
 | `chore-agent-comment-sweep-rulings.md` | `steering/chore-agent-comment-sweep-rulings.md` |
 | `CLAUDE.md` | `CLAUDE.md` |
+| `cleanup-2026-11-10.md` | `steering/cleanup-2026-11-10.md` |
 | `codebase-bug-evaluation-2026-11-08.md` | `research/codebase-bug-evaluation-2026-11-08.md` |
 | `competitive-feature-landscape-2026-11-08.md` | `research/competitive-feature-landscape-2026-11-08.md` |
 | `components-v2-editing-flows-2026-08-23.md` | `research/closed/components-v2-editing-flows-2026-08-23.md` |
@@ -481,6 +485,7 @@ they are the ID-less artifacts that root new efforts.
 | `fix-v1-guild-messages-auth-post-deploy-2026-10-10.md` | `handoff/fix-v1-guild-messages-auth-post-deploy-2026-10-10.md` |
 | `fix-v1-guild-messages-auth-qa.md` | `qa/closed/fix-v1-guild-messages-auth-qa.md` |
 | `gap-dispositions.md` | `verification/015/effort-final/gap-dispositions.md` |
+| `handoffs-survey.md` | `verification/cleanup-2026-11-10/handoffs-survey.md` |
 | `json-editor-bad-configurations-2026-08-23.md` | `handoff/closed/json-editor-bad-configurations-2026-08-23.md` |
 | `json-editor-flag-mint-2026-08-23.md` | `research/closed/json-editor-flag-mint-2026-08-23.md` |
 | `m0-baseline.md` | `verification/014/m0-baseline.md` |
@@ -488,6 +493,7 @@ they are the ID-less artifacts that root new efforts.
 | `message-valid-field-for-statbot-2026-08-23.md` | `handoff/closed/message-valid-field-for-statbot-2026-08-23.md` |
 | `newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md` | `handoff/newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md` |
 | `one-hooks-user-several-discord-accounts-2026-11-08.md` | `handoff/one-hooks-user-several-discord-accounts-2026-11-08.md` |
+| `open-documents-survey.md` | `verification/cleanup-2026-11-10/open-documents-survey.md` |
 | `preview-image-failure-shows-broken-not-stale-2026-08-24.md` | `handoff/preview-image-failure-shows-broken-not-stale-2026-08-24.md` |
 | `preview-image-generator-api-key-in-workflow-files-2026-11-08.md` | `handoff/preview-image-generator-api-key-in-workflow-files-2026-11-08.md` |
 | `preview-image-generator-drain-under-load-unobserved-2026-11-08.md` | `handoff/preview-image-generator-drain-under-load-unobserved-2026-11-08.md` |
