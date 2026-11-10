@@ -1,0 +1,26 @@
+diff --git a/tools/build-index.js b/tools/build-index.js
+index abda4c7..846eea3 100755
+--- a/tools/build-index.js
++++ b/tools/build-index.js
+@@ -1,7 +1,7 @@
+ #!/usr/bin/env node
+ 'use strict';
+ 
+-const REVIEW = 'pending review at 7b4419a';
++const REVIEW = 'reviewed';
+ 
+ const fs = require('fs');
+ const os = require('os');
+diff --git a/tools/check-repo.js b/tools/check-repo.js
+index f395f33..ee116c5 100755
+--- a/tools/check-repo.js
++++ b/tools/check-repo.js
+@@ -1,7 +1,7 @@
+ #!/usr/bin/env node
+ 'use strict';
+ 
+-const REVIEW = 'pending review at 7b4419a';
++const REVIEW = 'reviewed';
+ 
+ const fs = require('fs');
+ const os = require('os');

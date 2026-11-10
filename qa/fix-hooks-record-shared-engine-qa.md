@@ -2,9 +2,9 @@
 ID: n/a
 Origin: fix-hooks-record-shared-engine
 UUID: 2b33b8c9
-Verified-At: c444457 — repos=agent-output; production source identical to Handoff-At fdab24b and 7dab510 (the fdab24b round touched tools/recordEntrypoints.test.js only); engine ~/.claude/tools a34093d, record-engine.js sha256 9c1a94ac…, seam.js cddce599…, both clean
+Verified-At: 0f09e6c — repos=agent-output; refresh over the REVIEW flip 05a4a05 (diff c444457..05a4a05 is the two REVIEW strings only); full pass at c444457; engine ~/.claude/tools a34093d, record-engine.js sha256 9c1a94ac…, seam.js cddce599…, both clean
 Status: QA Complete
-Status-Detail: "Phase 2 PASS at c444457. The fixer's REVIEW-marker flip expires it; a refresh here precedes steering's push."
+Status-Detail: "Phase 2 PASS at c444457, refreshed at 0f09e6c over the REVIEW flip. Next: steering pushes and closes the chain."
 Phase: 2
 ---
 
@@ -21,6 +21,7 @@ Phase: 2
 |------|---------------|---------|---------|
 | 2026-11-10T09:19 | code-reviewer-hooks-record-engine (SendMessage: APPROVED_WITH_COMMENTS at d96b799, then sub-entry 1.1 at 7dab510) | QA Phase 2 | Phase 2: QA Failed at e44a867. Suite 14/14 exit 0; check exits 0; planted defects 9/9 caught; baseline 256/256 predates the move; sweep 23/27 killed, 4 survivors; QAF-1 MEDIUM raised. Steering's brief arrived first. |
 | 2026-11-10T09:27 | code-reviewer-hooks-record-engine (SendMessage: sub-entry 1.2 at fdab24b, test-only) | QAF-1 re-run | Phase 2: QA Complete at c444457. Suite 15/15 exit 0; check exit 0; 3/3 named survivors killed; QAF-1 RESOLVED. |
+| 2026-11-10T09:30 | fixer-hooks-record-engine (SendMessage: REVIEW flip at 05a4a05) | Scoped refresh | Phase 2 refresh: PASS at 0f09e6c. Diff c444457..05a4a05 is the two REVIEW strings only; suite 15/15 exit 0; check exit 0. |
 
 ## Process note
 
@@ -130,6 +131,8 @@ Final sweep tally: "27 mutants over `tools/` lines added in 7b4419a..d96b799 plu
 
 **Freshness.** Flipping the `REVIEW` constants to `'reviewed'` (implementation document, "Review marker") changes production source and expires this verdict. Before steering's push, a refresh here re-runs the suite and the default check at the flipped tree, and confirms with `git diff` that the only change is the two `REVIEW` strings.
 
+**Refresh at 0f09e6c (REVIEW flip 05a4a05).** The production diff `git diff --numstat c444457 05a4a05 -- tools README.md` is 1/1 in each of `tools/check-repo.js` and `tools/build-index.js`. Both hunks are `const REVIEW = 'pending review at 7b4419a';` → `'reviewed'` (`refresh-diff-c444457..05a4a05.diff`). `git grep REVIEW` finds the constant only in its own declaration and in `module.exports`, so nothing reads it. `git diff --stat 05a4a05 0f09e6c -- tools README.md` is empty. At 0f09e6c: suite 15/15, exit 0 (`suite-at-0f09e6c.txt`); default check exit 0, "PASS — no new failures (256 baselined)." (`check-default-at-0f09e6c.txt`); `--status` exit 0; `--tracked --check` exit 1, stale, which is steering's rebuild. The engine is unchanged (`engine-identity-at-0f09e6c.txt`). No mutant is owed, because the diff is string literals only. **The verdict stands at 0f09e6c.**
+
 ### Residue (not blocking)
 
 - P10: any name collision confined to `verification/` passes. This is the engine's rule, not this change's.
@@ -142,5 +145,5 @@ This pass assumes that the box's `~/.claude/tools` engine stays at a34093d / 9c1
 
 ## Handoff
 
-- `fixer-hooks-record-engine`: flip both `REVIEW` constants. Then this stage runs the refresh (Verdict, Freshness).
-- `steering-cleanup-hooks` receives the refreshed verdict, which it needs for the push. It also gets the residue above and the Assumption Not Checked. There is no owner-needing item.
+- The `REVIEW` flip is done (05a4a05), and its refresh passed at 0f09e6c.
+- `steering-cleanup-hooks` receives the verdict at 0f09e6c, for the push and the chain's closure. It also gets the residue above and the Assumption Not Checked. There is no owner-needing item.
