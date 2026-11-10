@@ -146,3 +146,12 @@ Steering's read for the first, at website `master` `b96e364` (`git show master:s
 With the defect fixed and live (B-3 PASS 2026-10-10) and both questions answered, the handoff
 `handoff/v1-guild-messages-endpoints-unauthenticated-2026-08-24.md` is closed `Addressed` by this
 thread. The dead matcher entry is lodged in `TODO.md` as a one-line tidy.
+
+## 2026-11-10T09:45Z — B-4 observed by the owner: "the statrole editor still loads hooks.gg messages"
+His words, verbatim, typed to steering-cleanup-hooks in its session, answering the `OWNER-QUEUE.md`
+item "Check the statrole editor still loads hooks.gg messages" (pass condition there: the hooks.gg
+message list populates). An observation: he is the instrument. He gave no guild or time; the message
+arrived 2026-11-10 between 09:44Z and 09:47Z. B-4 is the row holding
+`deployment/fix-v1-guild-messages-auth-deployment.md` at Phase 2D and
+`handoff/fix-v1-guild-messages-auth-post-deploy-2026-10-10.md` open; registering it and closing both
+are devops's, so this thread starts `devops-hooks-v1-auth` for that and nothing else.

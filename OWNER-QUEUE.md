@@ -26,18 +26,6 @@ lines about items nobody is waiting on.** If it does not need the owner to act, 
 
 ---
 
-## Check the statrole editor still loads hooks.gg messages
-
-The hooks.gg auth fix is live, and a request without the key is now refused. This check confirms that
-Statbot's own calls, which carry the key, still get through. It is the last thing holding the
-2026-10-10 release record open.
-
-1. Open the Statbot dashboard's statrole editor for a guild that has hooks.gg messages.
-2. **Pass:** the hooks.gg message list populates. **Fail:** it errors, or it's empty where messages exist.
-   That points to a key or host mismatch. The quick undo is to promote the previous deployment in Vercel.
-
-Does the list load? Tell steering "loads" or "empty / error".
-
 ## Generator host — remove claude-ro's read on the nodejs PM2 dump
 
 You chose to remove it yourself (2026-11-08, 05:21Z). It was still readable to claude-ro on
