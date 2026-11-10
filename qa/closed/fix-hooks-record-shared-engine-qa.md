@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-hooks-record-shared-engine
 UUID: 2b33b8c9
 Verified-At: 0f09e6c — repos=agent-output; refresh over the REVIEW flip 05a4a05 (diff c444457..05a4a05 is the two REVIEW strings only); full pass at c444457; engine ~/.claude/tools a34093d, record-engine.js sha256 9c1a94ac…, seam.js cddce599…, both clean
-Status: QA Complete
-Status-Detail: "Phase 2 PASS at c444457, refreshed at 0f09e6c over the REVIEW flip. Next: steering pushes and closes the chain."
+Status: Released
+Status-Detail: "Released with the chain: Phase 2 PASS at c444457, refreshed at 0f09e6c over the REVIEW flip; on origin master at 1611473."
 Phase: 2
 ---
 
@@ -22,6 +22,7 @@ Phase: 2
 | 2026-11-10T09:19 | code-reviewer-hooks-record-engine (SendMessage: APPROVED_WITH_COMMENTS at d96b799, then sub-entry 1.1 at 7dab510) | QA Phase 2 | Phase 2: QA Failed at e44a867. Suite 14/14 exit 0; check exits 0; planted defects 9/9 caught; baseline 256/256 predates the move; sweep 23/27 killed, 4 survivors; QAF-1 MEDIUM raised. Steering's brief arrived first. |
 | 2026-11-10T09:27 | code-reviewer-hooks-record-engine (SendMessage: sub-entry 1.2 at fdab24b, test-only) | QAF-1 re-run | Phase 2: QA Complete at c444457. Suite 15/15 exit 0; check exit 0; 3/3 named survivors killed; QAF-1 RESOLVED. |
 | 2026-11-10T09:30 | fixer-hooks-record-engine (SendMessage: REVIEW flip at 05a4a05) | Scoped refresh | Phase 2 refresh: PASS at 0f09e6c. Diff c444457..05a4a05 is the two REVIEW strings only; suite 15/15 exit 0; check exit 0. |
+| 2026-11-10T09:32 | steering-cleanup-hooks (chain closure) | Document closed | Status: Released (was `QA Complete`, which stays the verdict of record). The chain's end step ran: `master` pushed to origin at 1611473 (steering, 2026-11-10T09:31Z; the record has no workflow files, so nothing deploys). Code review APPROVED_WITH_COMMENTS at fdab24b; QA Phase 2 PASS, Verified-At 0f09e6c; `node tools/check-repo.js` exits 0. |
 
 ## Process note
 

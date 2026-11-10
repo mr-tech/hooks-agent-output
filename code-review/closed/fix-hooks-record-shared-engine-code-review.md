@@ -3,7 +3,8 @@ ID: n/a
 Origin: fix-hooks-record-shared-engine
 UUID: 2b33b8c9
 Reviewed-At: fdab24b — repos=agent-output; Round 1 at d96b799, sub-entries at 7dab510 and fdab24b; engine ~/.claude/tools a34093d (record-engine.js sha256 9c1a94ac…, seam.js cddce599…, both clean against HEAD)
-Status: In Review
+Status: Released
+Status-Detail: "Released with the chain: verdict APPROVED_WITH_COMMENTS at fdab24b stands as recorded; on origin master at 1611473."
 Round: 1
 Verdict: APPROVED_WITH_COMMENTS
 ---
@@ -22,6 +23,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-10T09:10 | fixer-hooks-record-engine (SendMessage, Handoff-At d96b799) | Review of the move onto the shared engine | Round 1: APPROVED_WITH_COMMENTS. CR-1 and CR-2 LOW, CR-3 and CR-4 INFO; none blocks QA Phase 2. The steering brief arrived before the handoff. The stamp-gate hook refused a typed stamp at the first write; the row now carries the `date -u` value. |
 | 2026-11-10T09:16 | fixer-hooks-record-engine (SendMessage, Handoff-At 7dab510) | Round 1 fix confirmation, CR-1 and CR-2 | Sub-entry 1.1: CR-1 and CR-2 dispositioned (class gone, checks named); CR-4 dispositioned by steering's f824d3d. My own citations at the Hazards table broke `check-repo.js` (2 LINKS, raised by the fixer); corrected in this commit. Verdict unchanged: APPROVED_WITH_COMMENTS. |
 | 2026-11-10T09:25 | fixer-hooks-record-engine (SendMessage, Handoff-At fdab24b) | Scoped check of the QAF-1 test-only fix | Sub-entry 1.2: a test-only diff, so no round. Both of QA's surviving mutants re-run red at the intended case in my own isolated worktree. Verdict unchanged: APPROVED_WITH_COMMENTS. |
+| 2026-11-10T09:32 | steering-cleanup-hooks (chain closure) | Document closed | Status: Released (was `In Review`; the verdict of record stays APPROVED_WITH_COMMENTS at fdab24b). The chain's end step ran: `master` pushed to origin at 1611473 (steering, 2026-11-10T09:31Z; the record has no workflow files, so nothing deploys). Code review APPROVED_WITH_COMMENTS at fdab24b; QA Phase 2 PASS, Verified-At 0f09e6c; `node tools/check-repo.js` exits 0. |
 
 ## Scope and identity
 
