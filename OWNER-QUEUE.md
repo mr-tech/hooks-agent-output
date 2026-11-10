@@ -29,7 +29,8 @@ lines about items nobody is waiting on.** If it does not need the owner to act, 
 ## Check the statrole editor still loads hooks.gg messages
 
 The hooks.gg auth fix is live, and a request without the key is now refused. This check confirms that
-Statbot's own calls, which carry the key, still get through.
+Statbot's own calls, which carry the key, still get through. It is the last thing holding the
+2026-10-10 release record open.
 
 1. Open the Statbot dashboard's statrole editor for a guild that has hooks.gg messages.
 2. **Pass:** the hooks.gg message list populates. **Fail:** it errors, or it's empty where messages exist.
@@ -39,10 +40,39 @@ Does the list load? Tell steering "loads" or "empty / error".
 
 ## Generator host — remove claude-ro's read on the nodejs PM2 dump
 
-You chose to remove it yourself (05:21Z). Agents never open that file in the meantime.
+You chose to remove it yourself (2026-11-08, 05:21Z). It was still readable to claude-ro on
+2026-11-10 (a `test -r` only; agents never open that file).
 
 1. On 165.227.249.183 as root: `setfacl -x u:claude-ro /home/nodejs/.pm2/dump.pm2`. If that
    reports no ACL, use `chmod o-r /home/nodejs/.pm2/dump.pm2` instead.
 2. **Pass:** `sudo -u claude-ro test -r /home/nodejs/.pm2/dump.pm2; echo $?` prints `1`.
 
 Is it done? Tell steering "done".
+
+## Pick the competitor-research features you want planned
+
+The competitive feature research (`research/competitive-feature-landscape-2026-11-08.md`) delivered a
+scored list, S1 to S33, and has waited since 2026-11-08 for you to choose what to plan. It stays open
+until you do.
+
+1. Read the scored list in that document.
+2. Tell steering the item numbers to plan, or "none".
+
+Which items do you want planned — or none, and the research closes?
+
+## The comment-sweep branch you put on hold
+
+On 2026-10-10 you asked to merge `chore/agent-comment-sweep` into website `master`, then chose Hold.
+It is still unmerged: one commit that strips trailing comments from 34 files. `master` has since
+moved on by the November bug-fix release, so it is no longer a plain fast-forward.
+
+Merge it, keep holding, or drop the branch?
+
+## The old "v1 endpoints have no authorization" handoff
+
+The defect it reported is fixed and live since 2026-10-10 (an unauthenticated request gets 401). The
+handoff is still open because the cleanup found no document answering two side questions in it: whether other
+middleware matchers are dead in the same way, and whether the Statbot key should be treated as
+compromised given the endpoints were open.
+
+Close it as addressed, or keep it open for those two questions?
