@@ -39,16 +39,20 @@ case "$cmd" in
       [ -n "\${STUB_RUN_JUNK_STDOUT:-}" ] && echo 'WARNING: the requested image platform does not match the host'
       echo 'docker: Error response from daemon: Conflict. The container name "/hooks-postgres-local" is already in use' >&2; exit 125; }
     : > "$S/exists"; echo running > "$S/state"
-    lbl=""; pub=""; prev=""
+    lbl=""; pub=""; prev=""; : > "$S/labels"
     for a in "$@"; do
-      [ "$prev" = "--label" ] && lbl="$a"
+      [ "$prev" = "--label" ] && { printf '%s\\n' "$a" >> "$S/labels"; case "$a" in hooks.uat-local-stack=*) lbl="$a" ;; esac; }
       [ "$prev" = "-p" ] && pub="$a"
       prev="$a"
     done
     printf '%s' "$lbl" > "$S/label"
     printf '%s\\n' "\${pub%:*}" | sed 's/$//' > "$S/published"
+    if [ -n "\${STUB_RUN_HOLDS:-}" ]; then
+      : > "$S/run.created"
+      for _ in $(seq 1 400); do [ -e "$S/run.go" ] && break; sleep 0.05; done
+    fi
     [ -n "\${STUB_RUN_PRINTS_NOTHING:-}" ] && exit 0
-    [ -n "\${STUB_RELABEL_AFTER_RUN:-}" ] && printf 'someone-else=1' > "$S/label"
+    [ -n "\${STUB_RELABEL_AFTER_RUN:-}" ] && { printf 'someone-else=1' > "$S/label"; printf 'someone-else=1\\n' > "$S/labels"; }
     [ -n "\${STUB_RUN_CREATES_THEN_FAILS:-}" ] && { echo "stubcontainerid"; echo "docker: start failed" >&2; exit 125; }
     echo "stubcontainerid"
     ;;
@@ -56,7 +60,19 @@ case "$cmd" in
     has exists || exit 1
     [ -n "\${STUB_START_FAILS:-}" ] && { echo "docker: start refused" >&2; exit 1; }
     if [ -n "\${STUB_RELABEL_AFTER_START:-}" ]; then printf 'someone-else=1' > "$S/label"; fi
-    echo running > "$S/state"; echo "$NAME_ARG"
+    echo running > "$S/state"
+    if [ -n "\${STUB_START_HOLDS:-}" ]; then
+      : > "$S/start.began"
+      for _ in $(seq 1 400); do [ -e "$S/start.go" ] && break; sleep 0.05; done
+    fi
+    echo "$NAME_ARG"
+    ;;
+  ps)
+    has exists || exit 0
+    want=""; prev=""
+    for a in "$@"; do [ "$prev" = "--filter" ] && want="\${a#label=}"; prev="$a"; done
+    [ -n "$want" ] && grep -Fxq -- "$want" "$S/labels" 2>/dev/null && echo stubcontainerid
+    exit 0
     ;;
   stop)
     has exists || exit 1
@@ -64,7 +80,7 @@ case "$cmd" in
     ;;
   rm)
     has exists || exit 1
-    rm -f "$S/exists" "$S/state" "$S/label" "$S/published"
+    rm -f "$S/exists" "$S/state" "$S/label" "$S/labels" "$S/published"
     ;;
   exec)
     has exists || exit 1
@@ -127,25 +143,48 @@ describe('uat-local-stack.sh', () => {
     fs.writeFileSync(path.join(s, 'label'), label);
     fs.writeFileSync(path.join(s, 'published'), `${published}\n`);
   };
+  const envFor = (extraEnv = {}) => ({
+    PATH: `${poison}:/usr/bin:/bin`,
+    POISON_MARK: marker(),
+    ULS_DOCKER: path.join(bin, 'docker'),
+    HOME: root,
+    TMPDIR: path.join(root, 'tmp'),
+    STUB_STATE: path.join(root, 'state'),
+    ULS_ENV_FILE: path.join(root, 'website', '.env.local'),
+    ULS_SCHEMA: path.join(root, 'project-utils', 'prisma', 'schema.prisma'),
+    ULS_PRISMA: path.join(bin, 'prisma'),
+    ULS_SEED: path.join(root, 'seed.sql'),
+    ULS_READY_TRIES: '2',
+    ULS_READY_PAUSE: '0',
+    ...extraEnv,
+  });
+  const appeared = async (name, ms = 10000) => {
+    const end = Date.now() + ms;
+    while (!fs.existsSync(path.join(root, 'state', name))) {
+      if (Date.now() > end) throw new Error(`${name} never appeared`);
+      await new Promise((resolve) => setTimeout(resolve, 20));
+    }
+  };
+  // Signals the script once the stub has made the change (its marker file appears) and before the stub's docker call
+  // returns; the stub returns when the go file appears. The signal lands inside the call, never at its start or end.
+  const interrupted = async (args, extraEnv, signal, ready, go) => {
+    const child = spawn('bash', [SCRIPT, ...args], { cwd: path.join(root, 'website'), env: envFor(extraEnv), stdio: ['ignore', 'pipe', 'pipe'] });
+    let out = '';
+    child.stdout.on('data', (d) => { out += d; });
+    child.stderr.on('data', (d) => { out += d; });
+    const closed = new Promise((resolve) => child.on('close', (status) => resolve(status)));
+    await appeared(ready);
+    child.kill(signal);
+    fs.writeFileSync(path.join(root, 'state', go), '');
+    const status = await closed;
+    outputs.push(out);
+    return { status, out };
+  };
   const run = (args, extraEnv = {}) => {
     const r = spawnSync('bash', [SCRIPT, ...args], {
       cwd: path.join(root, 'website'),
       encoding: 'utf8',
-      env: {
-        PATH: `${poison}:/usr/bin:/bin`,
-        POISON_MARK: marker(),
-        ULS_DOCKER: path.join(bin, 'docker'),
-        HOME: root,
-        TMPDIR: path.join(root, 'tmp'),
-        STUB_STATE: path.join(root, 'state'),
-        ULS_ENV_FILE: path.join(root, 'website', '.env.local'),
-        ULS_SCHEMA: path.join(root, 'project-utils', 'prisma', 'schema.prisma'),
-        ULS_PRISMA: path.join(bin, 'prisma'),
-        ULS_SEED: path.join(root, 'seed.sql'),
-        ULS_READY_TRIES: '2',
-        ULS_READY_PAUSE: '0',
-        ...extraEnv,
-      },
+      env: envFor(extraEnv),
       timeout: 30000,
     });
     const out = `${r.stdout}${r.stderr}`;
@@ -508,13 +547,13 @@ describe('uat-local-stack.sh', () => {
       assert.strictEqual(stateOf('state').trim(), 'exited');
     });
 
-    it('cleanup removes only a container still carrying the label: one relabelled after run is left, and the call says so', async () => {
+    it('cleanup removes only a container carrying this call\'s label: one relabelled after run is left, and the call says so', async () => {
       await fresh();
       const r = run(['up'], { STUB_PRISMA_EXIT: '1', STUB_RELABEL_AFTER_RUN: '1' });
       assert.notStrictEqual(r.status, 0);
       assert.deepStrictEqual(mutating(), ['run']);
       assert.strictEqual(fs.existsSync(path.join(root, 'state', 'exists')), true);
-      assert.match(r.out, /not removed: it no longer carries the tool's label/);
+      assert.match(r.out, /not removed: it does not carry this call's label/);
     });
 
     it('the tool\'s stopped container that starts but does not publish the URL\'s host and port: up fails, stops it again and pushes nothing', async () => {
@@ -737,13 +776,20 @@ describe('uat-local-stack.sh', () => {
       assert.match(r.out, /removed the container this call created/);
     });
 
-    it('a docker run that creates the container and then fails removes it by the id docker printed, and by no other name', async () => {
+    it('a docker run that creates the container and then fails removes it by the label value unique to the call, never by the name', async () => {
       await fresh();
       const r = run(['up'], { STUB_RUN_CREATES_THEN_FAILS: '1' });
       assert.strictEqual(r.status, 1);
+      const value = (lines) => lines.map((l) => (l.match(/hooks\.uat-local-stack\.call=(\S+)/) || [])[1]).filter(Boolean);
+      const given = value(docker().filter((l) => l.startsWith('run ')));
+      assert.strictEqual(given.length, 1, 'run carries one per-call label');
+      const looked = value(docker().filter((l) => l.startsWith('ps ')));
+      assert.ok(looked.length >= 1 && looked.every((v) => v === given[0]), 'every lookup filters on the value run was given');
       assert.deepStrictEqual(docker().filter((l) => l.startsWith('rm ')), ['rm -f stubcontainerid']);
       assert.doesNotMatch(r.out, /not created by this call/);
-      assert.match(docker().filter((l) => l.startsWith('inspect ')).pop(), / stubcontainerid$/, 'the label check reads the container by the id it will remove');
+      await fresh();
+      run(['up'], { STUB_RUN_CREATES_THEN_FAILS: '1' });
+      assert.notStrictEqual(given[0], value(docker().filter((l) => l.startsWith('run ')))[0], 'two calls share a per-call value');
     });
 
     it('a same-named, tool-labelled container another session created in the gap is left as found, and the call fails naming it', async () => {
@@ -756,11 +802,11 @@ describe('uat-local-stack.sh', () => {
       assert.doesNotMatch(r.out, /removed the container/);
     });
 
-    it('a docker run that succeeds and prints no id is identified by the name it was given, and removed when the push fails', async () => {
+    it('a docker run that succeeds and prints no id is found by the call\'s label, and removed when the push fails', async () => {
       await fresh();
       const r = run(['up'], { STUB_RUN_PRINTS_NOTHING: '1', STUB_PRISMA_EXIT: '1' });
       assert.notStrictEqual(r.status, 0);
-      assert.deepStrictEqual(docker().filter((l) => l.startsWith('rm ')), ['rm -f hooks-postgres-local']);
+      assert.deepStrictEqual(docker().filter((l) => l.startsWith('rm ')), ['rm -f stubcontainerid']);
       assert.strictEqual(fs.existsSync(path.join(root, 'state', 'exists')), false);
     });
 
@@ -776,9 +822,31 @@ describe('uat-local-stack.sh', () => {
       await fresh();
       const r = run(['up'], { STUB_RUN_FAILS: '1' });
       assert.strictEqual(r.status, 1);
-      assert.doesNotMatch(r.out, /removed the container|not removed/);
+      assert.match(r.out, /docker run failed/);
+      assert.doesNotMatch(r.out, /removed the container|not removed|left as found|not created by this call/);
       assert.deepStrictEqual(mutating().filter((v) => v === 'rm'), []);
     });
+
+    for (const [signal, code] of [['SIGTERM', 143], ['SIGINT', 130], ['SIGHUP', 129]]) {
+      it(`a ${signal} while docker run is in flight removes the container that call created, and says so`, async () => {
+        await fresh();
+        const r = await interrupted(['up'], { STUB_RUN_HOLDS: '1' }, signal, 'run.created', 'run.go');
+        assert.strictEqual(r.status, code, r.out);
+        assert.strictEqual(fs.existsSync(path.join(root, 'state', 'exists')), false, 'the container the call created is left behind');
+        assert.match(r.out, /removed the container this call created/);
+        assert.deepStrictEqual(docker().filter((l) => l.startsWith('rm ')), ['rm -f stubcontainerid']);
+      });
+
+      it(`a ${signal} while docker start is in flight stops the container that call started, and says so`, async () => {
+        await fresh();
+        container('exited');
+        const r = await interrupted(['up'], { STUB_START_HOLDS: '1' }, signal, 'start.began', 'start.go');
+        assert.strictEqual(r.status, code, r.out);
+        assert.strictEqual(stateOf('state').trim(), 'exited', 'the container the call started is left running');
+        assert.match(r.out, /stopped the container this call started/);
+        assert.deepStrictEqual(mutating(), ['start', 'stop']);
+      });
+    }
 
     it('the poison docker on the children\'s PATH fires when the override is ignored, so the guard is observed to work', async () => {
       await fresh();

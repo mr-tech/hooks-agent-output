@@ -18,6 +18,7 @@ set -uo pipefail
 NAME=hooks-postgres-local
 LABEL_KEY=hooks.uat-local-stack
 LABEL_VAL=1
+CALL_KEY=hooks.uat-local-stack.call
 IMAGE=postgres:16
 ENV_FILE=${ULS_ENV_FILE:-/usr/local/bin/hooks/website/.env.local}
 SCHEMA=${ULS_SCHEMA:-/usr/local/bin/hooks/project-utils/prisma/schema.prisma}
@@ -108,12 +109,13 @@ case "$DB_HOST" in
 esac
 HOSTPORT="$BIND:$DB_PORT"
 
-CREATED=0
-CID=""
+RUN_BEGUN=0
+CALL_VAL=""
 STARTED=0
 OK=0
 STATE=""
 LABELLED=0
+NOTED=0
 
 inspect() {
   local line
@@ -140,14 +142,15 @@ table_count() {
 }
 
 undo() {
-  if [ "$CREATED" = 1 ]; then
-    if inspect "$CID"; then
-      if [ "$LABELLED" = 1 ]; then
-        "$DOCKER" rm -f "$CID" >/dev/null 2>&1 && echo "removed the container this call created"
-      else
-        echo "container $NAME not removed: it no longer carries the tool's label"
-      fi
-    fi
+  if [ "$RUN_BEGUN" = 1 ]; then
+    local id gone=0 mine=0
+    for id in $("$DOCKER" ps -aq --filter "label=$CALL_KEY=$CALL_VAL" 2>/dev/null); do
+      case "$id" in ''|*[!A-Za-z0-9]*) continue ;; esac
+      mine=1
+      "$DOCKER" rm -f "$id" >/dev/null 2>&1 && gone=1
+    done
+    if [ "$gone" = 1 ]; then echo "removed the container this call created"
+    elif [ "$mine" = 0 ] && [ "$NOTED" = 0 ] && inspect; then echo "container $NAME not removed: it does not carry this call's label"; fi
   elif [ "$STARTED" = 1 ]; then
     if inspect && [ "$LABELLED" = 1 ]; then
       "$DOCKER" stop "$NAME" >/dev/null 2>&1 && echo "stopped the container this call started"
@@ -155,7 +158,7 @@ undo() {
       echo "container $NAME not stopped: it no longer carries the tool's label"
     fi
   fi
-  CREATED=0; CID=""; STARTED=0
+  RUN_BEGUN=0; STARTED=0
 }
 
 finish() {
@@ -180,23 +183,25 @@ cmd_up() {
         publishes || die "the tool's container is not publishing $HOSTPORT; nothing was changed" ;;
       exited|created)
         if listening; then die "$HOSTPORT is held by another listener, not this tool's container; nothing was changed"; fi
-        "$DOCKER" start "$NAME" >/dev/null 2>&1 || fail "docker start failed"
         STARTED=1
+        "$DOCKER" start "$NAME" >/dev/null 2>&1 || { STARTED=0; fail "docker start failed"; }
         publishes || fail "the started container is not publishing $HOSTPORT" ;;
       *) die "the tool's container is in state $STATE; nothing was changed" ;;
     esac
   else
     if listening; then die "$HOSTPORT is held by another listener, not this tool's container; nothing was changed"; fi
-    local made rc
-    made=$(POSTGRES_PASSWORD=$DB_PASS POSTGRES_USER=$DB_USER POSTGRES_DB=$DB_NAME "$DOCKER" run -d --name "$NAME" \
-      --label "$LABEL_KEY=$LABEL_VAL" -e POSTGRES_PASSWORD -e POSTGRES_USER -e POSTGRES_DB \
-      -p "$HOSTPORT:5432" "$IMAGE" 2>/dev/null)
+    local rc
+    printf -v CALL_VAL '%s-%(%s)T-%s%s' "$$" -1 "$RANDOM" "$RANDOM"
+    RUN_BEGUN=1
+    POSTGRES_PASSWORD=$DB_PASS POSTGRES_USER=$DB_USER POSTGRES_DB=$DB_NAME "$DOCKER" run -d --name "$NAME" \
+      --label "$LABEL_KEY=$LABEL_VAL" --label "$CALL_KEY=$CALL_VAL" -e POSTGRES_PASSWORD -e POSTGRES_USER -e POSTGRES_DB \
+      -p "$HOSTPORT:5432" "$IMAGE" >/dev/null 2>&1
     rc=$?
-    made=$(printf '%s' "$made" | tr -d '[:space:]')
-    if [ -z "$made" ] && [ "$rc" = 0 ]; then made=$NAME; fi
-    case "$made" in ''|*[!A-Za-z0-9-]*) ;; *) CID=$made; CREATED=1 ;; esac
     if [ "$rc" != 0 ]; then
-      if [ -z "$CID" ] && inspect; then fail "docker run failed; the container named $NAME was not created by this call and is left as found"; fi
+      if [ -z "$("$DOCKER" ps -aq --filter "label=$CALL_KEY=$CALL_VAL" 2>/dev/null)" ] && inspect; then
+        NOTED=1
+        fail "docker run failed; the container named $NAME was not created by this call and is left as found"
+      fi
       fail "docker run failed"
     fi
   fi
