@@ -34,6 +34,9 @@ case "$cmd" in
     ;;
   run)
     [ -n "\${STUB_RUN_FAILS:-}" ] && { echo "docker: run refused" >&2; exit 125; }
+    [ -n "\${STUB_RUN_CLASH:-}" ] && {
+      : > "$S/exists"; echo running > "$S/state"; printf 'hooks.uat-local-stack=1' > "$S/label"; : > "$S/published"
+      echo 'docker: Error response from daemon: Conflict. The container name "/hooks-postgres-local" is already in use' >&2; exit 125; }
     : > "$S/exists"; echo running > "$S/state"
     lbl=""; pub=""; prev=""
     for a in "$@"; do
@@ -44,11 +47,13 @@ case "$cmd" in
     printf '%s' "$lbl" > "$S/label"
     printf '%s\\n' "\${pub%:*}" | sed 's/$//' > "$S/published"
     [ -n "\${STUB_RELABEL_AFTER_RUN:-}" ] && printf 'someone-else=1' > "$S/label"
-    [ -n "\${STUB_RUN_CREATES_THEN_FAILS:-}" ] && { echo "docker: start failed" >&2; exit 1; }
+    [ -n "\${STUB_RUN_CREATES_THEN_FAILS:-}" ] && { echo "stubcontainerid"; echo "docker: start failed" >&2; exit 125; }
     echo "stubcontainerid"
     ;;
   start)
     has exists || exit 1
+    [ -n "\${STUB_START_FAILS:-}" ] && { echo "docker: start refused" >&2; exit 1; }
+    if [ -n "\${STUB_RELABEL_AFTER_START:-}" ]; then printf 'someone-else=1' > "$S/label"; fi
     echo running > "$S/state"; echo "$NAME_ARG"
     ;;
   stop)
@@ -69,6 +74,7 @@ case "$cmd" in
       *psql*)
         if [ -n "\${STUB_SEED_FAILS:-}" ] && [[ "$all" == *ON_ERROR_STOP* ]]; then cat > /dev/null; exit 3; fi
         if [[ "$all" == *ON_ERROR_STOP* ]]; then cat > "$S/seed.stdin"; exit 0; fi
+        [ -n "\${STUB_TABLES_EMPTY:-}" ] && exit 0
         echo "\${STUB_TABLES:-7}"; exit 0 ;;
     esac
     ;;
@@ -206,7 +212,7 @@ describe('uat-local-stack.sh', () => {
   const freshAt = async (host) => { port = await free(); for (const f of fs.readdirSync(path.join(root, 'state'))) fs.rmSync(path.join(root, 'state', f)); envFile(url(host, port)); };
 
   describe('arguments', () => {
-    for (const args of [[], ['bogus'], ['up', '--bogus'], ['down', '--seed'], ['status', 'extra'], ['up', 'up']]) {
+    for (const args of [[], ['bogus'], ['up', '--bogus'], ['down', '--seed'], ['status', 'extra'], ['up', 'up'], ['up', '--seed', '--seed']]) {
       it(`exits 2 for ${JSON.stringify(args)}, names the usage and touches nothing`, async () => {
         await fresh();
         const before = repoState();
@@ -254,6 +260,24 @@ describe('uat-local-stack.sh', () => {
         assert.ok(docker().length > 0);
       });
     }
+
+    for (const [host, bind] of [['localhost', '127.0.0.1'], ['[::1]', '[::1]'], ['127.0.0.2', '127.0.0.2']]) {
+      it(`takes ${host} as local through up: the container is published on ${bind}, and status then finds it there`, async () => {
+        await freshAt(host);
+        const r = run(['up']);
+        assert.strictEqual(r.status, 0, r.out);
+        assert.ok(docker().find((l) => l.startsWith('run ')).includes(`-p ${bind}:${port}:5432`), docker().join('\n'));
+        assert.match(r.stdout, new RegExp(`container: ${NAME} ready at ${bind.replace(/[[\]]/g, '\\$&')}:${port}`));
+        assert.match(run(['status']).stdout, /container: running \(the tool's\)/);
+      });
+    }
+
+    it('a URL with no port takes 5432', async () => {
+      await fresh(`postgresql://hooksuser:${PASSWORD_ENCODED}@127.0.0.1/railway`);
+      const r = run(['status']);
+      assert.strictEqual(r.status, 0, r.out);
+      assert.match(r.stdout, /^listener: 127\.0\.0\.1:5432 /m);
+    });
 
     it('refuses a DATABASE_URL that cannot be parsed without echoing any part of it', async () => {
       await fresh('not a url at all %%junk-fragment-4417');
@@ -491,6 +515,47 @@ describe('uat-local-stack.sh', () => {
       assert.match(r.out, /not removed: it no longer carries the tool's label/);
     });
 
+    it('the tool\'s stopped container that starts but does not publish the URL\'s host and port: up fails, stops it again and pushes nothing', async () => {
+      await fresh();
+      container('exited', LABEL, `127.0.0.1:${port + 7}`);
+      const r = run(['up']);
+      assert.strictEqual(r.status, 1, r.out);
+      assert.match(r.out, /the started container is not publishing/);
+      assert.deepStrictEqual(mutating(), ['start', 'stop']);
+      assert.deepStrictEqual(prisma(), []);
+      assert.strictEqual(stateOf('state').trim(), 'exited');
+    });
+
+    it('an empty table count after the push fails the call, and the container it created is removed', async () => {
+      await fresh();
+      const r = run(['up'], { STUB_TABLES_EMPTY: '1' });
+      assert.strictEqual(r.status, 1, r.out);
+      assert.match(r.out, /table count failed/);
+      assert.doesNotMatch(r.stdout, /^tables:/m);
+      assert.deepStrictEqual(mutating(), ['run', 'rm']);
+    });
+
+    it('a docker start that fails is named as that, exits 1, and has nothing to stop', async () => {
+      await fresh();
+      container('exited');
+      const r = run(['up'], { STUB_START_FAILS: '1' });
+      assert.strictEqual(r.status, 1, r.out);
+      assert.match(r.out, /docker start failed/);
+      assert.doesNotMatch(r.out, /not publishing/);
+      assert.deepStrictEqual(mutating(), ['start']);
+      assert.deepStrictEqual(prisma(), []);
+    });
+
+    it('cleanup stops a container it started only while it carries the label: one relabelled after start is left, and the call says so', async () => {
+      await fresh();
+      container('exited');
+      const r = run(['up'], { STUB_PRISMA_EXIT: '1', STUB_RELABEL_AFTER_START: '1' });
+      assert.notStrictEqual(r.status, 0);
+      assert.deepStrictEqual(mutating(), ['start']);
+      assert.strictEqual(stateOf('state').trim(), 'running');
+      assert.match(r.out, /not stopped: it no longer carries the tool's label/);
+    });
+
     it('every verb writes nothing in website, project-utils, the record or TMPDIR', async () => {
       await fresh();
       const before = repoState();
@@ -659,6 +724,23 @@ describe('uat-local-stack.sh', () => {
       assert.match(r.out, /removed the container this call created/);
     });
 
+    it('a docker run that creates the container and then fails removes it by the id docker printed, and by no other name', async () => {
+      await fresh();
+      const r = run(['up'], { STUB_RUN_CREATES_THEN_FAILS: '1' });
+      assert.strictEqual(r.status, 1);
+      assert.deepStrictEqual(docker().filter((l) => l.startsWith('rm ')), ['rm -f stubcontainerid']);
+    });
+
+    it('a same-named, tool-labelled container another session created in the gap is left as found, and the call fails naming it', async () => {
+      await fresh();
+      const r = run(['up'], { STUB_RUN_CLASH: '1' });
+      assert.strictEqual(r.status, 1, r.out);
+      assert.deepStrictEqual(mutating(), ['run']);
+      assert.strictEqual(fs.existsSync(path.join(root, 'state', 'exists')), true, 'the other session\'s container was removed');
+      assert.match(r.out, new RegExp(`${NAME}.*not created by this call`));
+      assert.doesNotMatch(r.out, /removed the container/);
+    });
+
     it('a docker run that fails before creating anything reports no removal and removes nothing', async () => {
       await fresh();
       const r = run(['up'], { STUB_RUN_FAILS: '1' });
@@ -699,6 +781,33 @@ describe('uat-local-stack.sh', () => {
       assert.ok(docker().some((l) => l.startsWith('run ')) && prisma().length >= 1, 'the verbs ran');
       assert.match(all, /tables: 7/);
     });
+  });
+
+  describe('AC-9.1 prints no credential: each failure path of up', () => {
+    const paths = [
+      ['a non-loopback host', () => url('db.example.com', 5432), ['up'], {}, 2],
+      ['a LAN host', () => url('10.0.0.5', 5432), ['up'], {}, 2],
+      ['an unparsable URL', () => `postgresql://hooksuser:${PASSWORD_ENCODED}@[::1:${port}/railway`, ['up'], {}, 2],
+      ['a URL with no scheme', () => `hooksuser:${PASSWORD_ENCODED}@127.0.0.1:${port}/railway`, ['status'], {}, 2],
+      ['a docker run that fails', () => url('127.0.0.1', port), ['up'], { STUB_RUN_FAILS: '1' }, 1],
+      ['a docker run that creates and then fails', () => url('127.0.0.1', port), ['up'], { STUB_RUN_CREATES_THEN_FAILS: '1' }, 1],
+      ['a docker run that meets another session\'s container', () => url('127.0.0.1', port), ['up'], { STUB_RUN_CLASH: '1' }, 1],
+      ['a schema push that fails', () => url('127.0.0.1', port), ['up'], { STUB_PRISMA_EXIT: '1' }, 1],
+      ['a seed that fails', () => url('127.0.0.1', port), ['up', '--seed'], { STUB_SEED_FAILS: '1' }, 1],
+      ['a container that never becomes ready', () => url('127.0.0.1', port), ['up'], { STUB_NOT_READY: '1' }, 1],
+      ['an empty table count', () => url('127.0.0.1', port), ['up'], { STUB_TABLES_EMPTY: '1' }, 1],
+    ];
+    for (const [label, makeUrl, args, extra, code] of paths) {
+      it(`${label}: exit ${code} and no output carries the password (either form), the URL's userinfo or a postgresql:// URL`, async () => {
+        await fresh();
+        envFile(makeUrl());
+        const fixture = fs.readFileSync(path.join(root, 'website', '.env.local'), 'utf8');
+        assert.ok(fixture.includes(PASSWORD_ENCODED), 'positive control: the fixture holds the password');
+        const r = run(args, extra);
+        assert.strictEqual(r.status, code, r.out);
+        for (const needle of [PASSWORD, PASSWORD_ENCODED, 'hooksuser:', 'postgresql://']) assert.strictEqual(r.out.split(needle).length - 1, 0, `output carries ${needle.slice(0, 6)}…`);
+      });
+    }
   });
 
   describe('AC-8.8 / D-16 stubs are found whatever the temp path holds', () => {
