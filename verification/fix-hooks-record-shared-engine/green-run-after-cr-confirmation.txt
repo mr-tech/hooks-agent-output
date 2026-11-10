@@ -1,0 +1,26 @@
+tree: e44a867 (includes 7dab510 and e44a867); 2026-11-10T09:17:14Z
+▶ record entrypoints load the shared engine
+  ✔ check-repo.js exits non-zero naming the engine path and the box binding when the engine is absent (26.943121ms)
+  ✔ check-repo.js exits 2 naming the engine-side install command when js-yaml cannot load (55.012587ms)
+  ✔ check-repo.js loads the engine the override names, and the live engine without it (67.05431ms)
+  ✔ requiring check-repo.js writes nothing, prints nothing and exits 0 (46.897786ms)
+  ✔ build-index.js exits non-zero naming the engine path and the box binding when the engine is absent (26.400301ms)
+  ✔ build-index.js exits 2 naming the engine-side install command when js-yaml cannot load (54.907085ms)
+  ✔ build-index.js loads the engine the override names, and the live engine without it (66.822722ms)
+  ✔ requiring build-index.js writes nothing, prints nothing and exits 0 (45.865375ms)
+  ✔ check-repo.js carries a gate instant and a vocabulary instant that are UTC instants no later than now (27.123581ms)
+  ✔ check-repo.js raises no basename failure for the root and probe .gitignore files or the verification probe folders (1705.289754ms)
+  ✔ check-repo.js passes the committed record with its baseline and no stale baseline entry (1670.156745ms)
+  ✔ every baseline entry names only documents of chains before 012 or one of the four closed documents without a stage suffix (3.296008ms)
+  ✔ check-repo.js reaches the engine in status mode with this record's settings (129.199557ms)
+  ✔ build-index.js --tracked --check reads the committed tree through the engine (135.262955ms)
+✔ record entrypoints load the shared engine (4619.719675ms)
+ℹ tests 14
+ℹ suites 1
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4674.957433
+exit 0

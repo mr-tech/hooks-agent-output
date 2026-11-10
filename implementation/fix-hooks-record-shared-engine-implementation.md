@@ -3,7 +3,7 @@ ID: n/a
 Origin: fix-hooks-record-shared-engine
 UUID: 2b33b8c9
 Status: Active
-Status-Detail: "Code review Round 1 APPROVED_WITH_COMMENTS at d96b799; CR-1/CR-2 fixed at 7dab510. Owed: reviewer's fix confirmation, QA Phase 2."
+Status-Detail: "Code review Round 1 APPROVED_WITH_COMMENTS; CR-1/CR-2 fixed at 7dab510, confirmed (sub-entry 1.1, e44a867). Owed: QA Phase 2."
 Handoff-At: 7dab510 — repos=agent-output; code review Round 1 fixes over d96b799
 Origin-Chain: none
 ---
@@ -188,6 +188,7 @@ The review (`code-review/fix-hooks-record-shared-engine-code-review.md`, APPROVE
 | Run | Tree | Result | Capture |
 |---|---|---|---|
 | Green | f824d3d + the CR edits, uncommitted (committed as 7dab510) | 14 tests, 13 pass, 1 fail, exit 1. The failing case is the whole-record pass: 2 LINKS in the code reviewer's own document (`code-review/fix-hooks-record-shared-engine-code-review.md:43` cites `code-review/classify-baseline-by-prefix.js` and `planning/015-x.md`, which do not exist). `node tools/check-repo.js` on the working tree reports the same 2. Not this change's, and routed to the reviewer. <!-- check-repo:ignore — quotes the reviewer document's two dangling citations as the evidence of that failure --> | `green-run-cr-round1.txt` |
+| Green | e44a867 (7dab510 plus the reviewer's citation fix) | 14 tests, 14 pass, 0 fail, exit 0; `node tools/check-repo.js` exit 0, 256 baselined | `green-run-after-cr-confirmation.txt` |
 | Control A | export of f824d3d + the CR edits, baseline + one planted entry `planning/015-planted-chain-document.md: no UUID field`, baseline-class case only | 1 test, 0 pass, 1 fail: `outside` holds exactly the planted entry | `control-baseline-planted-entry.txt` |
 | Control B | same export, both entrypoints' default engine directory mutated to a silent engine (prints nothing, exits 0), override cases only | 2 tests, 0 pass, 2 fail at the usage-line assertion. The pre-round assertion (`doesNotMatch SENTINEL`) would have passed. | `control-live-leg-silent-engine.txt` |
 
@@ -222,3 +223,4 @@ None: record tooling only.
 | 2026-11-10T09:06 | Box cleanup recorded (worktree, scratch, five /tmp test directories). | fixer-hooks-record-engine |
 | 2026-11-10T09:13 | Code review Round 1: CR-1 corrected (four texts), CR-2 preferred fix taken (two cases); green 13/14 (the 1 is the reviewer document's 2 LINKS); controls A and B red. | fixer-hooks-record-engine |
 | 2026-11-10T09:14 | CR fixes committed at 7dab510; Handoff-At moved to 7dab510; fix confirmation sent to code-reviewer-hooks-record-engine. | fixer-hooks-record-engine |
+| 2026-11-10T09:17 | Reviewer confirmed CR-1/CR-2 fixed (sub-entry 1.1, e44a867) and corrected its two citations; green at e44a867 14/14 exit 0, check exit 0. | fixer-hooks-record-engine |
