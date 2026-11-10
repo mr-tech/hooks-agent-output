@@ -52,3 +52,4 @@ plan 015's Planner batch; the planner excluded them from the chain at plan revis
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-08T10:49 | planner (planner-hooks-015) | Created from CR-35's six earlier members, at plan 015 revision 28. |
+| 2026-11-10T10:15 | steering-cleanup-hooks | `Review-Trigger` fired and was read: the comment sweep (website `6d78b19`, chain `fix-agent-comment-sweep-merge`) edited three of the six files — `messageValidity.predicate`, `useApiMethods.json-editor-repair`, `usePusher.hash-parity` — by removing comments only; none was moved (devops's read, `deployment/closed/fix-agent-comment-sweep-merge-deployment.md`). The relocation this handoff carries is still owed; it stays Open for the planner, and the trigger can fire again. |
