@@ -76,3 +76,25 @@ pass. If the dry measurement shows the engine needs a change to be usable here, 
 the item goes to `~/.claude/agents/INBOX.md`.
 
 **Not started.** Per the option he chose, this comes back to him before any stage starts.
+
+## 2026-11-10T08:53Z — "Do what's necessary to make the record healthy."
+Owner's words, verbatim, given after the cleanup report that listed the record check's 26 failures and
+the scoping determination above as awaiting him. Read as: the determination stands and the chain
+opens — fixer `fix-hooks-record-shared-engine`, then code review, then QA Phase 2. Steering's
+reading, not his words: "what's necessary" covers baselining the failures no document correction can
+clear (the 4 unsuffixed documents, and the pre-012 documents if the engine has no omission for them),
+since without that the check cannot exit 0; it does not cover an engine edit, which is the Agents
+domain's.
+
+Chain paths on `master` (the record repository has no chain branch): `tools/check-repo.js`,
+`tools/build-index.js`, the entrypoint test and the baseline file the move creates under `tools/`,
+`implementation/fix-hooks-record-shared-engine-implementation.md`,
+`verification/fix-hooks-record-shared-engine/`, and `README.md` only where a line states the old
+checker's behaviour. Nothing else. `tools/uat-local-stack.sh` and `tools/uatLocalStack.test.js` are
+chain PI006's and out.
+
+Sessions (category `fix-hooks-record-shared-engine`): `fixer-hooks-record-engine`,
+`code-reviewer-hooks-record-engine`, `qa-hooks-record-engine`. Security not started: the chain ships
+nothing root executes. This thread keeps the name `steering-cleanup` (a second live session of that
+name runs in `/usr/local/bin/statbot`, so `tmux-agent rename` has two matches); stages address it by
+`[ref]`.
