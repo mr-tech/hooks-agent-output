@@ -211,3 +211,12 @@ branch, so it falls under the standing gate rather than the agent-output-documen
 `REJECTED`. That record is accurate; editing an accurate record to satisfy a naive matcher is
 corrupting the record to please the instrument. If the owner nevertheless wants the field reworded,
 it is the planner's body text and needs a planner pass, not a steering registration.
+
+## The record tools' tests have no stated naming convention
+
+`tools/recordEntrypoints.test.js` and `tools/uatLocalStack.test.js` are `node --test` files; the
+Test Conventions in `CLAUDE.md` are scoped to `website`. Under that scope one new title ("… documents
+of chains before 012 …") would match the bare-`0NN` ID-token class. Either state that the record
+tools' tests fall outside the conventions, or say which rules bind them. Raised as residue by
+`qa-hooks-record-engine` (`qa/closed/fix-hooks-record-shared-engine-qa.md`, Residue) and by the code
+review's CR-4; lodged by `steering-cleanup-hooks`, 2026-11-10.

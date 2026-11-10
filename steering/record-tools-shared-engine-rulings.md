@@ -121,3 +121,16 @@ stands: the dependency is outside this repository. The brief is corrected by rep
 statbot entrypoints' text is routed to `~/.claude/agents/INBOX.md`. Also from the review: CR-4,
 the workspace table in `CLAUDE.md` said this record carries no tests; corrected to name the record
 tools' own test files.
+
+## 2026-11-10T09:32Z — chain closed (steering's record; no owner words in this block)
+Start recorded late: the fixer started 08:55Z on the scoping determination; QA Phase 2 failed once
+(QAF-1, a test gap, fixed at `fdab24b`) and passed at `c444457`, refreshed at `0f09e6c` over the
+review-marker flip. Push: `git push origin master` at 09:31Z, `HEAD` = `origin/master` = `1611473`
+(`git rev-parse`, `git ls-remote`); no workflow files, nothing deploys. Engine at the push:
+`~/.claude/tools` `a34093d`, `record-engine.js` sha256 `9c1a94ac…`, clean — QA's Assumption Not
+Checked read once here. The three chain documents are `Released` in `closed/`.
+Steering's own error, for the retrospective: the closure script stopped on its own check after the
+first document and the shell went on to move and commit all three, so two documents sat in `closed/`
+with a working `Status` for one commit; completed in the next commit.
+Residue routed: the record tests' naming convention → `TODO.md`; the engine's `verification/`
+rule and the index-format change → `~/.claude/agents/INBOX.md`.
