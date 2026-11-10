@@ -7,7 +7,7 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-226 documents · 15 numbered chains · 87 unnumbered.
+230 documents · 15 numbered chains · 91 unnumbered.
 
 ---
 
@@ -241,11 +241,13 @@ they are the ID-less artifacts that root new efforts.
 | — | `CLAUDE.md` | — |
 | code review | `code-review/closed/001-components-v2-state-management-code-review.md` | — |
 | code review | `code-review/closed/012-carry-forward-to-post-refresh-pass.md` | — |
+| code review | `code-review/closed/fix-agent-comment-sweep-merge-code-review.md` | Released — Released 2026-11-10T10:13Z: website master = 6d78b19 on origin, the reviewed commit. Record: deployment/fix-agent-comment-sweep-merge-deployment.md. |
 | code review | `code-review/closed/fix-hooks-record-shared-engine-code-review.md` | Released — Released with the chain: verdict APPROVED_WITH_COMMENTS at fdab24b stands as recorded; on origin master at 1611473. |
 | code review | `code-review/closed/fix-v1-guild-messages-auth-code-review.md` | Committed |
 | deployment | `deployment/closed/2026-04-07-plan-005.md` | Released |
 | deployment | `deployment/closed/2026-04-07-plan-006.md` | Released |
 | deployment | `deployment/closed/2026-04-07-plans-001-003-004.md` | Released |
+| deployment | `deployment/closed/fix-agent-comment-sweep-merge-deployment.md` | Released — Released 2026-11-10T10:13Z: website master = 6d78b19 on origin (push by devops, Mode A, on the owner's 'merge it' and 'Push now'). Fix branch merged and deleted. Phase 2D complete. |
 | deployment | `deployment/closed/fix-v1-guild-messages-auth-deployment.md` | Released — Released 2026-10-10: website master = ddbd750 on origin (move by steering, f4b7fb0); owner confirmed Vercel live. Every register row terminal: B-3 PASS (401, 16:52Z); B-4 PASS (owner's observation, 2026-11-10). Phase 2D complete. |
 | handoff | `handoff/architecture-record-reconciliation-owed-2026-11-10.md` | Open · priority normal — Six architecture items routed to the architect while no architect session was running: system-architecture.md is not reconciled to chains 012-014, the chain-013 findings document is still Active, and four record lines are stale or incomplete. Nothing blocks on them; a brief citing the architecture record reads stale text until they land. |
 | handoff | `handoff/backfill-valid-guard-has-no-db-backed-instrument-2026-08-26.md` | Open · priority normal — Two chain-012 items were each explicitly routed to "handoff material under D18" and no handoff was ever created, so both survived only inside documents that are now in `closed/`. This document is that destination, written after the fact. Both concern the same file - `src/scripts/backfillValid.ts` in `website` - and both are unclosed for the same underlying reason: **no DB-backed instrument exists in this environment**, so neither can be settled by the unit suite that closed everything else on chain 012. Neither is a defect in shipped behaviour; chain 012 released with both known, bounded and accepted on the record. Nothing here reopens chain 012 or amends any of its findings. |
@@ -274,6 +276,7 @@ they are the ID-less artifacts that root new efforts.
 | handoff | `handoff/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md` | Open · priority normal — On production hooks.gg, 'new message' → 'Upload Message' on the account folder page opens no dialog after a fresh page load. Cause: a portaled popover's first lazy load of FloatingPortal suspends to the layout boundary, which hides the open Headless UI Dialog, and the Dialog closes itself. The code dates from 2023, before chain 015, and lies outside its pool (D6). Nothing in chain 015 blocks on it. |
 | handoff | `handoff/website-api-handler-hardening-2026-10-10.md` | Open · priority normal — Four open LOW items (2 to 5) in website's API handlers and tests, raised by the fix-v1-guild-messages-auth code review and kept out of that fix's owner-bound scope. Item 1 was discharged by owner rider 2 at website 7606149. Nothing blocks the v1 auth fix's release. |
 | handoff | `handoff/website-tests-not-beside-their-module-2026-11-08.md` | Open · priority normal — Six website test files that predate chain 015 likely sit in a __tests__/ directory other than the one beside their production module (Test Conventions, Placement). Each needs a read to confirm its module, then a rename with identical per-file case count and pass set. Outside plan 015's pool (D6); nothing blocks on it. |
+| implementation | `implementation/closed/fix-agent-comment-sweep-merge-implementation.md` | Released — Released 2026-11-10T10:13Z: website master = 6d78b19 on origin. Record: deployment/fix-agent-comment-sweep-merge-deployment.md. |
 | implementation | `implementation/closed/fix-hooks-record-shared-engine-implementation.md` | Released — Released: on origin master at 1611473. Code review approved at fdab24b, QA Phase 2 PASS at 0f09e6c (refresh over the REVIEW flip 05a4a05). The record check exits 0 with 256 baselined. |
 | implementation | `implementation/closed/fix-v1-guild-messages-auth-implementation.md` | Committed — Committed for release on website fix/v1-guild-messages-auth at ddbd750 (devops Stage 1, 2026-10-10). The owner's key check returned 'match'. Release (merge to master, push) awaits the owner's approval. |
 | — | `INBOX.md` | — |
@@ -298,6 +301,7 @@ they are the ID-less artifacts that root new efforts.
 | — | `steering/chore-agent-comment-sweep-rulings.md` | — |
 | — | `steering/cleanup-2026-11-10.md` | — |
 | — | `steering/comment-sweep-briefs/comment-sweep-code-reviewer-brief.md` | — |
+| — | `steering/comment-sweep-briefs/comment-sweep-devops-brief.md` | — |
 | — | `steering/comment-sweep-briefs/comment-sweep-fixer-brief.md` | — |
 | — | `steering/record-engine-briefs/record-engine-code-reviewer-brief.md` | — |
 | — | `steering/record-engine-briefs/record-engine-fixer-brief.md` | — |
@@ -489,6 +493,7 @@ they are the ID-less artifacts that root new efforts.
 | `cleanup-2026-11-10.md` | `steering/cleanup-2026-11-10.md` |
 | `codebase-bug-evaluation-2026-11-08.md` | `research/codebase-bug-evaluation-2026-11-08.md` |
 | `comment-sweep-code-reviewer-brief.md` | `steering/comment-sweep-briefs/comment-sweep-code-reviewer-brief.md` |
+| `comment-sweep-devops-brief.md` | `steering/comment-sweep-briefs/comment-sweep-devops-brief.md` |
 | `comment-sweep-fixer-brief.md` | `steering/comment-sweep-briefs/comment-sweep-fixer-brief.md` |
 | `competitive-feature-landscape-2026-11-08.md` | `research/competitive-feature-landscape-2026-11-08.md` |
 | `components-v2-editing-flows-2026-08-23.md` | `research/closed/components-v2-editing-flows-2026-08-23.md` |
@@ -496,6 +501,9 @@ they are the ID-less artifacts that root new efforts.
 | `components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md` | `handoff/components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md` |
 | `components-v2-invariant-for-system-architecture-2026-08-24.md` | `handoff/components-v2-invariant-for-system-architecture-2026-08-24.md` |
 | `disposition-table.md` | `verification/014/disposition-table.md` |
+| `fix-agent-comment-sweep-merge-code-review.md` | `code-review/closed/fix-agent-comment-sweep-merge-code-review.md` |
+| `fix-agent-comment-sweep-merge-deployment.md` | `deployment/closed/fix-agent-comment-sweep-merge-deployment.md` |
+| `fix-agent-comment-sweep-merge-implementation.md` | `implementation/closed/fix-agent-comment-sweep-merge-implementation.md` |
 | `fix-hooks-record-shared-engine-code-review.md` | `code-review/closed/fix-hooks-record-shared-engine-code-review.md` |
 | `fix-hooks-record-shared-engine-implementation.md` | `implementation/closed/fix-hooks-record-shared-engine-implementation.md` |
 | `fix-hooks-record-shared-engine-qa.md` | `qa/closed/fix-hooks-record-shared-engine-qa.md` |
