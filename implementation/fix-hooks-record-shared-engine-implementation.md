@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-hooks-record-shared-engine
 UUID: 2b33b8c9
 Status: Active
-Status-Detail: "Code review Round 1 APPROVED_WITH_COMMENTS; CR-1/CR-2 fixed at 7dab510, confirmed (sub-entry 1.1, e44a867). Owed: QA Phase 2."
-Handoff-At: 7dab510 — repos=agent-output; code review Round 1 fixes over d96b799
+Status-Detail: "QA Phase 2 QA Failed at e44a867 on QAF-1; fixed at fdab24b (two settings now asserted, survivors re-run red). Owed: code review of fdab24b, QA re-run."
+Handoff-At: fdab24b — repos=agent-output; QA Phase 2 QAF-1 fix over 7dab510
 Origin-Chain: none
 ---
 
@@ -194,6 +194,21 @@ The review (`code-review/fix-hooks-record-shared-engine-code-review.md`, APPROVE
 
 The export was removed with `git worktree remove`, and the silent engine was deleted.
 
+### QA Phase 2 round (QAF-1)
+
+QA (`qa/fix-hooks-record-shared-engine-qa.md`, QA Failed at e44a867) found that two settings with a stated purpose survived its mutation sweep: `documentRules: false` (`check-repo.js:20:true`) and `releaseJoinExemption: false` (`check-repo.js:22:true`, `hand-14`) each passed 14/14. Verified first at the mechanism: `record-engine.js` lines 423, 811 and 836 print `not armed` notes when `documentRules` is off, and the default run at e44a867 prints the three armed notes. QA's own probe shows the exemption decides a `release-*` record with `ID: none` (`qa/release-join-probe-{true,false}.txt`).
+
+Fix in `tools/recordEntrypoints.test.js` only:
+- the existing full-pass case now also asserts the armed `origin-uuid`, `duplicate-id` and `handoff-priority` notes and no `not armed` line (which also covers the gate instant's `changelog-rows` note), and is retitled to say so;
+- a new case plants `qa/closed/release-0000000-tip-verification.md` (`ID: none`) in the test's own clone, asserts no frontmatter failure for it under `--full`, and removes it in `finally`. <!-- check-repo:ignore — the planted path exists only inside the test's scratch clone --> No existing case exercised the release join, and the plant would otherwise leak into the clone the other cases share.
+
+| Run | Tree | Result | Capture |
+|---|---|---|---|
+| Green | 7712cb3 + the QAF-1 test (committed as fdab24b) | 15 tests, 15 pass, 0 fail, exit 0 | `green-run-qaf1.txt` |
+| QA's survivors, re-run | detached export of 7712cb3 + the QAF-1 test; each mutant applied with QA's own old/new strings from `verification/fix-hooks-record-shared-engine/qa/mutants-survivors-at-e44a867.json`, full suite | `check-repo.js:20:true` exit 1 (fails the full-pass case); `check-repo.js:22:true` exit 1 and `hand-14` exit 1 (both fail the release-tip case); `hand-8` exit 0, which QA dispositioned equivalent | `mutants-qaf1-rerun.json` |
+
+The export was removed with `git worktree remove`, and the source was restored and asserted unchanged before removal.
+
 ## Verification
 
 - **Existing tests of the surface**: none existed (the old tools had no test). `tools/uatLocalStack.test.js` is chain PI006's and tests a different surface. Not run.
@@ -224,3 +239,4 @@ None: record tooling only.
 | 2026-11-10T09:13 | Code review Round 1: CR-1 corrected (four texts), CR-2 preferred fix taken (two cases); green 13/14 (the 1 is the reviewer document's 2 LINKS); controls A and B red. | fixer-hooks-record-engine |
 | 2026-11-10T09:14 | CR fixes committed at 7dab510; Handoff-At moved to 7dab510; fix confirmation sent to code-reviewer-hooks-record-engine. | fixer-hooks-record-engine |
 | 2026-11-10T09:17 | Reviewer confirmed CR-1/CR-2 fixed (sub-entry 1.1, e44a867) and corrected its two citations; green at e44a867 14/14 exit 0, check exit 0. | fixer-hooks-record-engine |
+| 2026-11-10T09:24 | QA Phase 2 QA Failed at e44a867 (QAF-1); test tightened at fdab24b, green 15/15, QA's three survivors re-run red; Handoff-At fdab24b; handed to code review. | fixer-hooks-record-engine |
