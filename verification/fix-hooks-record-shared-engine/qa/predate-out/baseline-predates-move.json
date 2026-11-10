@@ -1,0 +1,31 @@
+{
+ "entries": 256,
+ "legA": {
+  "exit": 1,
+  "baselined": 256,
+  "stale_block": false
+ },
+ "legA_control": {
+  "exit": 1,
+  "stale_block": true,
+  "names_planted": true
+ },
+ "legacy_files": 83,
+ "scope4": [
+  "code-review/closed/012-carry-forward-to-post-refresh-pass.md",
+  "deployment/closed/012-message-valid-field-readiness.md",
+  "deployment/closed/013-components-v2-editing-surfaces-readiness.md",
+  "deployment/closed/014-test-suite-cleanup-readiness.md"
+ ],
+ "legB_outside": [],
+ "legB_control": [
+  [
+   "deployment/closed/015-new-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)",
+   "deployment/closed/015-new-readiness.md"
+  ],
+  [
+   "planning/015-x.md:3  ->  ../nowhere.md   (markdown-link, resolves to nowhere.md)",
+   "planning/015-x.md"
+  ]
+ ]
+}

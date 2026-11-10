@@ -1,0 +1,187 @@
+Note: switching to 'd96b7996525569621c6cd1315e6d9fe3ba215e23'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+▶ record entrypoints load the shared engine
+  ✔ check-repo.js exits non-zero naming the engine path and the box binding when the engine is absent (28.756339ms)
+  ✔ check-repo.js exits 2 naming the engine-side install command when js-yaml cannot load (58.007309ms)
+  ✔ check-repo.js loads the engine the override names, and the live engine without it (156.192388ms)
+  ✔ requiring check-repo.js writes nothing, prints nothing and exits 0 (52.590133ms)
+  ✔ build-index.js exits non-zero naming the engine path and the box binding when the engine is absent (28.272811ms)
+  ✔ build-index.js exits 2 naming the engine-side install command when js-yaml cannot load (56.121634ms)
+  ✔ build-index.js loads the engine the override names, and the live engine without it (174.969083ms)
+  ✔ requiring build-index.js writes nothing, prints nothing and exits 0 (47.624841ms)
+  ✔ check-repo.js carries a gate instant and a vocabulary instant that are UTC instants no later than now (29.481305ms)
+  ✖ check-repo.js raises no basename failure for the root and probe .gitignore files or the verification probe folders (1683.280537ms)
+  ✖ check-repo.js passes the committed record with its baseline, every baselined failure predating the move (1671.246228ms)
+  ✔ check-repo.js reaches the engine in status mode with this record's settings (130.724995ms)
+  ✔ build-index.js --tracked --check reads the committed tree through the engine (144.303124ms)
+✖ record entrypoints load the shared engine (4830.697539ms)
+ℹ tests 13
+ℹ suites 1
+ℹ pass 11
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4889.574712
+
+✖ failing tests:
+
+test at tools/recordEntrypoints.test.js:105:3
+✖ check-repo.js raises no basename failure for the root and probe .gitignore files or the verification probe folders (1683.280537ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /'\.gitignore' appears/. Input:
+  
+  '  links: 837 in-repo citations checked across 291 documents; 377 resolved across a closure (open↔closed identity); 14 external (sibling-repo) links noted but not verified; 11 deliberately suppressed; 0 backticked, unverified\n' +
+    '  basenames: 1965 distinct, 9 unexpected collisions, 21 shared only across different verification/ folders (allowed), 2 declared exceptions\n' +
+    '  origin-uuid: 3 Origin group(s) with an open document read\n' +
+    '  frontmatter: 188 documents carry frontmatter, 16 distinct chains\n' +
+    '  scope suffixes: 0 document(s) carry one, all validated against their plan\n' +
+    '  duplicate-id: 1 Rev or D table(s) read in 133 open document(s)\n' +
+    '  handoff-priority: 1 handoff(s) carrying a Priority field checked\n' +
+    '  index: stale (node tools/build-index.js --tracked --check)\n' +
+    '  out-of-scope: 0 milestone block(s) in 0 open plan(s) read\n' +
+    '  changelog-rows: gate tree 7b4419a; 1 file(s) with judged lines of 291 markdown file(s); 2 changelog row(s) and 2 heading(s) judged\n' +
+    '  changelog-future-timestamp: 466 table row(s) with a timestamp-shaped first cell checked\n' +
+    '  status-length: 33 non-closed document(s) with a Status field checked\n' +
+    '  terminal-status-negated-act: 0 document(s) with a terminal-looking Status checked\n' +
+    '  status-vocabulary: 32 document(s) checked against seam.js --vocabulary (0 closed since the vocabulary instant)\n' +
+    '\n' +
+    '  INDEX — 1 warning(s)\n' +
+    '    INDEX.md is stale — run `node tools/build-index.js --tracked` and commit it.\n' +
+    '\n' +
+    '  LINKS — 30 failure(s)\n' +
+    '    code-review/closed/006-avatar-undefined-hotfix-code-review.md:10  ->  ../planning/006-avatar-undefined-hotfix.md   (markdown-link, resolves to code-review/planning/006-avatar-undefined-hotfix.md)\n' +
+    '    code-review/closed/006-avatar-undefined-hotfix-code-review.md:11  ->  ../implementation/006-avatar-undefined-hotfix.md   (markdown-link, resolves to code-review/implementation/006-avatar-undefined-hotfix.md)\n' +
+    '    code-review/closed/007-components-v2-displayable-text-limit-code-review.md:12  ->  ../planning/007-components-v2-displayable-text-limit.md   (markdown-link, resolves to code-review/planning/007-components-v2-displayable-text-limit.md)\n' +
+    '    code-review/closed/007-components-v2-displayable-text-limit-code-review.md:13  ->  ../implementation/007-components-v2-displayable-text-limit.md   (markdown-link, resolves to code-review/implementation/007-components-v2-displayable-text-limit.md)\n' +
+    '    code-review/closed/008-sub-component-crud-actions.md:12  ->  ../planning/008-sub-component-crud-actions.md   (markdown-link, resolves to code-review/planning/008-sub-component-crud-actions.md)\n' +
+    '    code-review/closed/008-sub-component-crud-actions.md:13  ->  ../implementation/008-sub-component-crud-actions.md   (markdown-link, resolves to code-review/implementation/008-sub-component-crud-actions.md)\n' +
+    '    code-review/closed/008-sub-component-crud-actions.md:14  ->  ../architecture/system-architecture.md   (markdown-link, resolves to code-review/architecture/system-architecture.md)\n' +
+    '    critiques/closed/001-actions-menu-ux-redesign-critique.md:11  ->  ../planning/001-components-v2-state-management.md   (markdown-link, resolves to critiques/planning/001-components-v2-state-management.md)\n' +
+    '    critiques/closed/001-components-v2-state-management-critique.md:10  ->  ../planning/001-components-v2-state-management.md   (markdown-link, resolves to critiques/planning/001-components-v2-state-management.md)\n' +
+    '    critiques/closed/001-components-v2-state-management-critique.md:11  ->  ../architecture/001-components-v2-architecture-findings.md   (markdown-link, resolves to critiques/architecture/001-components-v2-architecture-findings.md)\n' +
+    '    critiques/closed/001-components-v2-state-management-critique.md:12  ->  ../analysis/closed/002-embeds-components-v2-mutual-exclusivity.md   (markdown-link, resolves to critiques/analysis/closed/002-embeds-components-v2-mutual-exclusivity.md)\n' +
+    '    critiques/closed/003-actions-menu-critique-remediation-critique.md:10  ->  ../planning/003-actions-menu-critique-remediation.md   (markdown-link, resolves to critiques/planning/003-actions-menu-critique-remediation.md)\n' +
+    '    critiques/closed/004-lazy-loading-preload-overhaul-critique.md:10  ->  ../planning/004-lazy-loading-preload-overhaul.md   (markdown-link, resolves to critiques/planning/004-lazy-loading-preload-overhaul.md)\n' +
+    '    critiques/closed/004-lazy-loading-preload-overhaul-critique.md:11  ->  ../analysis/closed/004-lazy-loading-technical-analysis.md   (markdown-link, resolves to critiques/analysis/closed/004-lazy-loading-technical-analysis.md)\n' +
+    '    critiques/closed/004-lazy-loading-preload-overhaul-critique.md:151  ->  ../architecture/004-lazy-loading-architecture-findings.md   (markdown-link, resolves to critiques/architecture/004-lazy-loading-architecture-findings.md)\n' +
+    '    critiques/closed/005-user-reported-bug-fixes-critique.md:10  ->  ../planning/005-user-reported-bug-fixes.md   (markdown-link, resolves to critiques/planning/005-user-reported-bug-fixes.md)\n' +
+    '    critiques/closed/005-user-reported-bug-fixes-critique.md:11  ->  ../analysis/closed/005-user-reported-bugs-analysis.md   (markdown-link, resolves to critiques/analysis/closed/005-user-reported-bugs-analysis.md)\n' +
+    '    implementation/closed/001-components-v2-state-management.md:12  ->  ../planning/001-components-v2-state-management.md   (markdown-link, resolves to implementation/planning/001-components-v2-state-management.md)\n' +
+    '    implementation/closed/003-actions-menu-critique-remediation.md:10  ->  ../planning/003-actions-menu-critique-remediation.md   (markdown-link, resolves to implementation/planning/003-actions-menu-critique-remediation.md)\n' +
+    '    implementation/closed/005-user-reported-bug-fixes.md:12  ->  ../planning/005-user-reported-bug-fixes.md   (markdown-link, resolves to implementation/planning/005-user-reported-bug-fixes.md)\n' +
+    '    implementation/closed/006-avatar-undefined-hotfix.md:12  ->  ../planning/006-avatar-undefined-hotfix.md   (markdown-link, resolves to implementation/planning/006-avatar-undefined-hotfix.md)\n' +
+    '    implementation/closed/007-components-v2-displayable-text-limit.md:12  ->  ../planning/007-components-v2-displayable-text-limit.md   (markdown-link, resolves to implementation/planning/007-components-v2-displayable-text-limit.md)\n' +
+    '    implementation/closed/008-sub-component-crud-actions.md:12  ->  ../planning/008-sub-component-crud-actions.md   (markdown-link, resolves to implementation/planning/008-sub-component-crud-actions.md)\n' +
+    '    planning/closed/001-components-v2-state-management.md:17  ->  ../architecture/001-components-v2-architecture-findings.md   (markdown-link, resolves to planning/architecture/001-components-v2-architecture-findings.md)\n' +
+    '    planning/closed/001-components-v2-state-management.md:18  ->  ../critiques/001-components-v2-state-management-critique.md   (markdown-link, resolves to planning/critiques/001-components-v2-state-management-critique.md)\n' +
+    '    planning/closed/001-components-v2-state-management.md:19  ->  ../analysis/002-embeds-components-v2-mutual-exclusivity.md   (markdown-link, resolves to planning/analysis/002-embeds-components-v2-mutual-exclusivity.md)\n' +
+    '    planning/closed/001-components-v2-state-management.md:20  ->  ../implementation/001-components-v2-state-management.md   (markdown-link, resolves to planning/implementation/001-components-v2-state-management.md)\n' +
+    '    planning/closed/003-actions-menu-critique-remediation.md:12  ->  ../critiques/001-actions-menu-ux-redesign-critique.md   (markdown-link, resolves to planning/critiques/001-actions-menu-ux-redesign-critique.md)\n' +
+    '    planning/closed/004-lazy-loading-preload-overhaul.md:257  ->  ../analysis/004-lazy-loading-technical-analysis.md   (markdown-link, resolves to planning/analysis/004-lazy-loading-technical-analysis.md)\n' +
+    '    planning/closed/004-lazy-loading-preload-overhaul.md:269  ->  ../architecture/004-lazy-loading-architecture-findings.md   (markdown-link, resolves to planning/architecture/004-lazy-loading-architecture-findings.md)\n' +
+    '\n' +
+    '  BASENAMES — 9 failure(s)\n' +
+    "    '.gitignore' appears 2 times, 1 of them covered by a declared exception:\n" +
+    '        verification/014/.gitignore\n' +
+    "    '008-sub-component-crud-actions.md' appears 5 times:\n" +
+    '        code-review/closed/008-sub-component-crud-actions.md\n' +
+    '        implementation/closed/008-sub-component-crud-actions.md\n' +
+    '        planning/closed/008-sub-component-crud-actions.md\n' +
+    '        qa/closed/008-sub-component-crud-actions.md\n' +
+    '        uat/closed/008-sub-component-crud-actions.md\n' +
+    "    '001-components-v2-state-management.md' appears 2 times:\n" +
+    '        implementation/closed/001-components-v2-state-management.md\n' +
+    '        planning/closed/001-components-v2-state-management.md\n' +
+    "    '003-actions-menu-critique-remediation.md' appears 2 times:\n" +
+    '        implementation/closed/003-actions-menu-critique-remediation.md\n' +
+    '        planning/closed/003-actions-menu-critique-remediation.md\n' +
+    "    '005-user-reported-bug-fixes.md' appears 2 times:\n" +
+    '        implementation/closed/005-user-reported-bug-fixes.md\n' +
+    '        planning/closed/005-user-reported-bug-fixes.md\n' +
+    "    '006-avatar-undefined-hotfix.md' appears 2 times:\n" +
+    '        implementation/closed/006-avatar-undefined-hotfix.md\n' +
+    '        planning/closed/006-avatar-undefined-hotfix.md\n' +
+    "    '007-components-v2-displayable-text-limit.md' appears 2 times:\n" +
+    '        implementation/closed/007-components-v2-displayable-text-limit.md\n' +
+    '        planning/closed/007-components-v2-displayable-text-limit.md\n' +
+    "    '009-send-page-hasloaded-fix.md' appears 2 times:\n" +
+    '        implementation/closed/009-send-page-hasloaded-fix.md\n' +
+    '        planning/closed/009-send-page-hasloaded-fix.md\n' +
+    "    '010-infopanel-overlap-fix.md' appears 2 times:\n" +
+    '        implementation/closed/010-infopanel-overlap-fix.md\n' +
+    '        planning/closed/010-infopanel-overlap-fix.md\n' +
+    '\n' +
+    '  FRONTMATTER — 200 failure(s)\n' +
+    "    analysis/closed/002-embeds-components-v2-mutual-exclusivity.md: ID '2' is not three-digit zero-padded\n" +
+    "    analysis/closed/002-embeds-components-v2-mutual-exclusivity.md: Origin '1' is not three-digit zero-padded\n" +
+    '    analysis/closed/002-embeds-components-v2-mutual-exclusivity.md: filename '... 21684 more characters
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-14/tools/recordEntrypoints.test.js:108:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "  links: 837 in-repo citations checked across 291 documents; 377 resolved across a closure (open↔closed identity); 14 external (sibling-repo) links noted but not verified; 11 deliberately suppressed; 0 backticked, unverified\n  basenames: 1965 distinct, 9 unexpected collisions, 21 shared only across different verification/ folders (allowed), 2 declared exceptions\n  origin-uuid: 3 Origin group(s) with an open document read\n  frontmatter: 188 documents carry frontmatter, 16 distinct chains\n  scope suffixes: 0 document(s) carry one, all validated against their plan\n  duplicate-id: 1 Rev or D table(s) read in 133 open document(s)\n  handoff-priority: 1 handoff(s) carrying a Priority field checked\n  index: stale (node tools/build-index.js --tracked --check)\n  out-of-scope: 0 milestone block(s) in 0 open plan(s) read\n  changelog-rows: gate tree 7b4419a; 1 file(s) with judged lines of 291 markdown file(s); 2 changelog row(s) and 2 heading(s) judged\n  changelog-future-timestamp: 466 table row(s) with a timestamp-shaped first cell checked\n  status-length: 33 non-closed document(s) with a Status field checked\n  terminal-status-negated-act: 0 document(s) with a terminal-looking Status checked\n  status-vocabulary: 32 document(s) checked against seam.js --vocabulary (0 closed since the vocabulary instant)\n\n  INDEX — 1 warning(s)\n    INDEX.md is stale — run `node tools/build-index.js --tracked` and commit it.\n\n  LINKS — 30 failure(s)\n    code-review/closed/006-avatar-undefined-hotfix-code-review.md:10  ->  ../planning/006-avatar-undefined-hotfix.md   (markdown-link, resolves to code-review/planning/006-avatar-undefined-hotfix.md)\n    code-review/closed/006-avatar-undefined-hotfix-code-review.md:11  ->  ../implementation/006-avatar-undefined-hotfix.md   (markdown-link, resolves to code-review/implementation/006-avatar-undefined-hotfix.md)\n    code-review/closed/007-components-v2-displayable-text-limit-code-review.md:12  ->  ../planning/007-components-v2-displayable-text-limit.md   (markdown-link, resolves to code-review/planning/007-components-v2-displayable-text-limit.md)\n    code-review/closed/007-components-v2-displayable-text-limit-code-review.md:13  ->  ../implementation/007-components-v2-displayable-text-limit.md   (markdown-link, resolves to code-review/implementation/007-components-v2-displayable-text-limit.md)\n    code-review/closed/008-sub-component-crud-actions.md:12  ->  ../planning/008-sub-component-crud-actions.md   (markdown-link, resolves to code-review/planning/008-sub-component-crud-actions.md)\n    code-review/closed/008-sub-component-crud-actions.md:13  ->  ../implementation/008-sub-component-crud-actions.md   (markdown-link, resolves to code-review/implementation/008-sub-component-crud-actions.md)\n    code-review/closed/008-sub-component-crud-actions.md:14  ->  ../architecture/system-architecture.md   (markdown-link, resolves to code-review/architecture/system-architecture.md)\n    critiques/closed/001-actions-menu-ux-redesign-critique.md:11  ->  ../planning/001-components-v2-state-management.md   (markdown-link, resolves to critiques/planning/001-components-v2-state-management.md)\n    critiques/closed/001-components-v2-state-management-critique.md:10  ->  ../planning/001-components-v2-state-management.md   (markdown-link, resolves to critiques/planning/001-components-v2-state-management.md)\n    critiques/closed/001-components-v2-state-management-critique.md:11  ->  ../architecture/001-components-v2-architecture-findings.md   (markdown-link, resolves to critiques/architecture/001-components-v2-architecture-findings.md)\n    critiques/closed/001-components-v2-state-management-critique.md:12  ->  ../analysis/closed/002-embeds-components-v2-mutual-exclusivity.md   (markdown-link, resolves to critiques/analysis/closed/002-embeds-components-v2-mutual-exclusivity.md)\n    critiques/closed/003-actions-menu-critique-remediation-critique.md:10  ->  ../planning/003-actions-menu-critique-remediation.md   (markdown-link, resolves to critiques/planning/003-actions-menu-critique-remediation.md)\n    critiques/closed/004-lazy-loading-preload-overhaul-critique.md:10  ->  ../planning/004-lazy-loading-preload-overhaul.md   (markdown-link, resolves to critiques/planning/004-lazy-loading-preload-overhaul.md)\n    critiques/closed/004-lazy-loading-preload-overhaul-critique.md:11  ->  ../analysis/closed/004-lazy-loading-technical-analysis.md   (markdown-link, resolves to critiques/analysis/closed/004-lazy-loading-technical-analysis.md)\n    critiques/closed/004-lazy-loading-preload-overhaul-critique.md:151  ->  ../architecture/004-lazy-loading-architecture-findings.md   (markdown-link, resolves to critiques/architecture/004-lazy-loading-architecture-findings.md)\n    critiques/closed/005-user-reported-bug-fixes-critique.md:10  ->  ../planning/005-user-reported-bug-fixes.md   (markdown-link, resolves to critiques/planning/005-user-reported-bug-fixes.md)\n    critiques/closed/005-user-reported-bug-fixes-critique.md:11  ->  ../analysis/closed/005-user-reported-bugs-analysis.md   (markdown-link, resolves to critiques/analysis/closed/005-user-reported-bugs-analysis.md)\n    implementation/closed/001-components-v2-state-management.md:12  ->  ../planning/001-components-v2-state-management.md   (markdown-link, resolves to implementation/planning/001-components-v2-state-management.md)\n    implementation/closed/003-actions-menu-critique-remediation.md:10  ->  ../planning/003-actions-menu-critique-remediation.md   (markdown-link, resolves to implementation/planning/003-actions-menu-critique-remediation.md)\n    implementation/closed/005-user-reported-bug-fixes.md:12  ->  ../planning/005-user-reported-bug-fixes.md   (markdown-link, resolves to implementation/planning/005-user-reported-bug-fixes.md)\n    implementation/closed/006-avatar-undefined-hotfix.md:12  ->  ../planning/006-avatar-undefined-hotfix.md   (markdown-link, resolves to implementation/planning/006-avatar-undefined-hotfix.md)\n    implementation/closed/007-components-v2-displayable-text-limit.md:12  ->  ../planning/007-components-v2-displayable-text-limit.md   (markdown-link, resolves to implementation/planning/007-components-v2-displayable-text-limit.md)\n    implementation/closed/008-sub-component-crud-actions.md:12  ->  ../planning/008-sub-component-crud-actions.md   (markdown-link, resolves to implementation/planning/008-sub-component-crud-actions.md)\n    planning/closed/001-components-v2-state-management.md:17  ->  ../architecture/001-components-v2-architecture-findings.md   (markdown-link, resolves to planning/architecture/001-components-v2-architecture-findings.md)\n    planning/closed/001-components-v2-state-management.md:18  ->  ../critiques/001-components-v2-state-management-critique.md   (markdown-link, resolves to planning/critiques/001-components-v2-state-management-critique.md)\n    planning/closed/001-components-v2-state-management.md:19  ->  ../analysis/002-embeds-components-v2-mutual-exclusivity.md   (markdown-link, resolves to planning/analysis/002-embeds-components-v2-mutual-exclusivity.md)\n    planning/closed/001-components-v2-state-management.md:20  ->  ../implementation/001-components-v2-state-management.md   (markdown-link, resolves to planning/implementation/001-components-v2-state-management.md)\n    planning/closed/003-actions-menu-critique-remediation.md:12  ->  ../critiques/001-actions-menu-ux-redesign-critique.md   (markdown-link, resolves to planning/critiques/001-actions-menu-ux-redesign-critique.md)\n    planning/closed/004-lazy-loading-preload-overhaul.md:257  ->  ../analysis/004-lazy-loading-technical-analysis.md   (markdown-link, resolves to planning/analysis/004-lazy-loading-technical-analysis.md)\n    planning/closed/004-lazy-loading-preload-overhaul.md:269  ->  ../architecture/004-lazy-loading-architecture-findings.md   (markdown-link, resolves to planning/architecture/004-lazy-loading-architecture-findings.md)\n\n  BASENAMES — 9 failure(s)\n    '.gitignore' appears 2 times, 1 of them covered by a declared exception:\n        verification/014/.gitignore\n    '008-sub-component-crud-actions.md' appears 5 times:\n        code-review/closed/008-sub-component-crud-actions.md\n        implementation/closed/008-sub-component-crud-actions.md\n        planning/closed/008-sub-component-crud-actions.md\n        qa/closed/008-sub-component-crud-actions.md\n        uat/closed/008-sub-component-crud-actions.md\n    '001-components-v2-state-management.md' appears 2 times:\n        implementation/closed/001-components-v2-state-management.md\n        planning/closed/001-components-v2-state-management.md\n    '003-actions-menu-critique-remediation.md' appears 2 times:\n        implementation/closed/003-actions-menu-critique-remediation.md\n        planning/closed/003-actions-menu-critique-remediation.md\n    '005-user-reported-bug-fixes.md' appears 2 times:\n        implementation/closed/005-user-reported-bug-fixes.md\n        planning/closed/005-user-reported-bug-fixes.md\n    '006-avatar-undefined-hotfix.md' appears 2 times:\n        implementation/closed/006-avatar-undefined-hotfix.md\n        planning/closed/006-avatar-undefined-hotfix.md\n    '007-components-v2-displayable-text-limit.md' appears 2 times:\n        implementation/closed/007-components-v2-displayable-text-limit.md\n        planning/closed/007-components-v2-displayable-text-limit.md\n    '009-send-page-hasloaded-fix.md' appears 2 times:\n        implementation/closed/009-send-page-hasloaded-fix.md\n        planning/closed/009-send-page-hasloaded-fix.md\n    '010-infopanel-overlap-fix.md' appears 2 times:\n        implementation/closed/010-infopanel-overlap-fix.md\n        planning/closed/010-infopanel-overlap-fix.md\n\n  FRONTMATTER — 200 failure(s)\n    analysis/closed/002-embeds-components-v2-mutual-exclusivity.md: ID '2' is not three-digit zero-padded\n    analysis/closed/002-embeds-components-v2-mutual-exclusivity.md: Origin '1' is not three-digit zero-padded\n    analysis/closed/002-embeds-components-v2-mutual-exclusivity.md: filename "... 21684 more characters,
+    expected: /'\.gitignore' appears/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:113:3
+✖ check-repo.js passes the committed record with its baseline, every baselined failure predating the move (1671.246228ms)
+  AssertionError [ERR_ASSERTION]:   links: 837 in-repo citations checked across 291 documents; 377 resolved across a closure (open↔closed identity); 14 external (sibling-repo) links noted but not verified; 11 deliberately suppressed; 0 backticked, unverified
+    basenames: 1965 distinct, 9 unexpected collisions, 21 shared only across different verification/ folders (allowed), 2 declared exceptions
+    origin-uuid: 3 Origin group(s) with an open document read
+    frontmatter: 188 documents carry frontmatter, 16 distinct chains
+    scope suffixes: 0 document(s) carry one, all validated against their plan
+    duplicate-id: 1 Rev or D table(s) read in 133 open document(s)
+    handoff-priority: 1 handoff(s) carrying a Priority field checked
+    index: stale (node tools/build-index.js --tracked --check)
+    out-of-scope: 0 milestone block(s) in 0 open plan(s) read
+    changelog-rows: gate tree 7b4419a; 1 file(s) with judged lines of 291 markdown file(s); 2 changelog row(s) and 2 heading(s) judged
+    changelog-future-timestamp: 466 table row(s) with a timestamp-shaped first cell checked
+    status-length: 33 non-closed document(s) with a Status field checked
+    terminal-status-negated-act: 0 document(s) with a terminal-looking Status checked
+    status-vocabulary: 32 document(s) checked against seam.js --vocabulary (0 closed since the vocabulary instant)
+  
+    INDEX — 1 warning(s)
+      INDEX.md is stale — run `node tools/build-index.js --tracked` and commit it.
+  
+    baseline: 256 pre-existing failure(s) suppressed (see tools/check-repo-baseline.json; run with --full to see everything)
+  
+    BASENAMES — 1 failure(s)
+      '.gitignore' appears 2 times, 1 of them covered by a declared exception:
+          verification/014/.gitignore
+  
+    FAIL — 1 problem(s) (257 total, 256 baselined).
+  
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-14/tools/recordEntrypoints.test.js:115:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,90 @@
+Note: switching to 'd96b7996525569621c6cd1315e6d9fe3ba215e23'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+▶ record entrypoints load the shared engine
+  ✔ check-repo.js exits non-zero naming the engine path and the box binding when the engine is absent (32.308346ms)
+  ✔ check-repo.js exits 2 naming the engine-side install command when js-yaml cannot load (55.377413ms)
+  ✔ check-repo.js loads the engine the override names, and the live engine without it (149.398849ms)
+  ✔ requiring check-repo.js writes nothing, prints nothing and exits 0 (269.655992ms)
+  ✔ build-index.js exits non-zero naming the engine path and the box binding when the engine is absent (25.392012ms)
+  ✔ build-index.js exits 2 naming the engine-side install command when js-yaml cannot load (55.939622ms)
+  ✔ build-index.js loads the engine the override names, and the live engine without it (174.682954ms)
+  ✔ requiring build-index.js writes nothing, prints nothing and exits 0 (48.920643ms)
+  ✔ check-repo.js carries a gate instant and a vocabulary instant that are UTC instants no later than now (27.822889ms)
+  ✔ check-repo.js raises no basename failure for the root and probe .gitignore files or the verification probe folders (1666.336577ms)
+  ✖ check-repo.js passes the committed record with its baseline, every baselined failure predating the move (1654.625699ms)
+  ✔ check-repo.js reaches the engine in status mode with this record's settings (120.382605ms)
+  ✔ build-index.js --tracked --check reads the committed tree through the engine (150.515495ms)
+✖ record entrypoints load the shared engine (5079.845245ms)
+ℹ tests 13
+ℹ suites 1
+ℹ pass 12
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5142.286271
+
+✖ failing tests:
+
+test at tools/recordEntrypoints.test.js:113:3
+✖ check-repo.js passes the committed record with its baseline, every baselined failure predating the move (1654.625699ms)
+  AssertionError [ERR_ASSERTION]:   links: 843 in-repo citations checked across 291 documents; 377 resolved across a closure (open↔closed identity); 8 external (sibling-repo) links noted but not verified; 11 deliberately suppressed; 0 backticked, unverified
+    basenames: 1965 distinct, 8 unexpected collisions, 21 shared only across different verification/ folders (allowed), 2 declared exceptions
+    origin-uuid: 3 Origin group(s) with an open document read
+    frontmatter: 188 documents carry frontmatter, 16 distinct chains
+    scope suffixes: 0 document(s) carry one, all validated against their plan
+    duplicate-id: 1 Rev or D table(s) read in 133 open document(s)
+    handoff-priority: 1 handoff(s) carrying a Priority field checked
+    index: stale (node tools/build-index.js --tracked --check)
+    out-of-scope: 0 milestone block(s) in 0 open plan(s) read
+    changelog-rows: gate tree 7b4419a; 1 file(s) with judged lines of 291 markdown file(s); 2 changelog row(s) and 2 heading(s) judged
+    changelog-future-timestamp: 466 table row(s) with a timestamp-shaped first cell checked
+    status-length: 33 non-closed document(s) with a Status field checked
+    terminal-status-negated-act: 0 document(s) with a terminal-looking Status checked
+    status-vocabulary: 32 document(s) checked against seam.js --vocabulary (0 closed since the vocabulary instant)
+  
+    INDEX — 1 warning(s)
+      INDEX.md is stale — run `node tools/build-index.js --tracked` and commit it.
+  
+    baseline: 256 pre-existing failure(s) suppressed (see tools/check-repo-baseline.json; run with --full to see everything)
+  
+    LINKS — 7 failure(s)
+      handoff/closed/message-valid-field-for-statbot-2026-08-23.md:35  ->  planning/023-statrole-cv2-notification-refix.md   (repo-rooted, resolves to planning/023-statrole-cv2-notification-refix.md)
+      handoff/closed/message-valid-field-for-statbot-2026-08-23.md:84  ->  user-files/023/hooksgg-sweep.js   (repo-rooted, resolves to user-files/023/hooksgg-sweep.js)
+      handoff/qa-014-bc7-closing-observation-and-test-inventory-2026-11-10.md:13  ->  planning/024-test-conventions.md   (repo-rooted, resolves to planning/024-test-conventions.md)
+      planning/closed/012-message-valid-field.md:217  ->  user-files/023/hooksgg-sweep.js   (repo-rooted, resolves to user-files/023/hooksgg-sweep.js)
+      process-improvement/closed/012-013-batch7-agent-instruction-updates.md:14  ->  process-improvement/closed/023-012-013-batch7-process-improvement-analysis.md   (repo-rooted, resolves to process-improvement/closed/023-012-013-batch7-process-improvement-analysis.md)
+      process-improvement/closed/014-batch10-agent-instruction-updates.md:15  ->  process-improvement/closed/014-batch10-process-improvement-analysis.md   (repo-rooted, resolves to process-improvement/closed/014-batch10-process-improvement-analysis.md)
+      retrospectives/closed/015-bug-evaluation-fixes-retrospective.md:6  ->  process-improvement/batch31-pi-batch-process-improvement-analysis.md   (repo-rooted, resolves to process-improvement/batch31-pi-batch-process-improvement-analysis.md)
+  
+    FAIL — 7 problem(s) (263 total, 256 baselined).
+  
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-22/tools/recordEntrypoints.test.js:115:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

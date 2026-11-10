@@ -1,0 +1,55 @@
+[
+ {
+  "run": "control",
+  "exit": 0,
+  "timed_out": false,
+  "tests": 14,
+  "fail": 0,
+  "failing": [],
+  "id": "control"
+ },
+ {
+  "run": "mutant-1",
+  "exit": 0,
+  "timed_out": false,
+  "tests": 14,
+  "fail": 0,
+  "failing": [],
+  "id": "check-repo.js:20:true",
+  "file": "tools/check-repo.js",
+  "outcome": "SURVIVED"
+ },
+ {
+  "run": "mutant-2",
+  "exit": 0,
+  "timed_out": false,
+  "tests": 14,
+  "fail": 0,
+  "failing": [],
+  "id": "check-repo.js:22:true",
+  "file": "tools/check-repo.js",
+  "outcome": "SURVIVED"
+ },
+ {
+  "run": "mutant-3",
+  "exit": 0,
+  "timed_out": false,
+  "tests": 14,
+  "fail": 0,
+  "failing": [],
+  "id": "hand-8",
+  "file": "tools/check-repo.js",
+  "outcome": "SURVIVED"
+ },
+ {
+  "run": "mutant-4",
+  "exit": 0,
+  "timed_out": false,
+  "tests": 14,
+  "fail": 0,
+  "failing": [],
+  "id": "hand-14",
+  "file": "tools/check-repo.js",
+  "outcome": "SURVIVED"
+ }
+]

@@ -1,0 +1,84 @@
+Note: switching to 'd96b7996525569621c6cd1315e6d9fe3ba215e23'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+▶ record entrypoints load the shared engine
+  ✔ check-repo.js exits non-zero naming the engine path and the box binding when the engine is absent (27.499776ms)
+  ✔ check-repo.js exits 2 naming the engine-side install command when js-yaml cannot load (66.388043ms)
+  ✔ check-repo.js loads the engine the override names, and the live engine without it (152.716147ms)
+  ✔ requiring check-repo.js writes nothing, prints nothing and exits 0 (49.713317ms)
+  ✔ build-index.js exits non-zero naming the engine path and the box binding when the engine is absent (28.180788ms)
+  ✔ build-index.js exits 2 naming the engine-side install command when js-yaml cannot load (54.567825ms)
+  ✔ build-index.js loads the engine the override names, and the live engine without it (186.288174ms)
+  ✔ requiring build-index.js writes nothing, prints nothing and exits 0 (46.437367ms)
+  ✔ check-repo.js carries a gate instant and a vocabulary instant that are UTC instants no later than now (28.566546ms)
+  ✔ check-repo.js raises no basename failure for the root and probe .gitignore files or the verification probe folders (1720.025033ms)
+  ✖ check-repo.js passes the committed record with its baseline, every baselined failure predating the move (1670.541715ms)
+  ✔ check-repo.js reaches the engine in status mode with this record's settings (131.124294ms)
+  ✔ build-index.js --tracked --check reads the committed tree through the engine (141.984201ms)
+✖ record entrypoints load the shared engine (4981.653848ms)
+ℹ tests 13
+ℹ suites 1
+ℹ pass 12
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5042.662293
+
+✖ failing tests:
+
+test at tools/recordEntrypoints.test.js:113:3
+✖ check-repo.js passes the committed record with its baseline, every baselined failure predating the move (1670.541715ms)
+  AssertionError [ERR_ASSERTION]:   links: 837 in-repo citations checked across 291 documents; 377 resolved across a closure (open↔closed identity); 14 external (sibling-repo) links noted but not verified; 11 deliberately suppressed; 0 backticked, unverified
+    basenames: 1965 distinct, 8 unexpected collisions, 21 shared only across different verification/ folders (allowed), 2 declared exceptions
+    origin-uuid: 3 Origin group(s) with an open document read
+    frontmatter: 188 documents carry frontmatter, 16 distinct chains
+    scope suffixes: 0 document(s) carry one, all validated against their plan
+    duplicate-id: 1 Rev or D table(s) read in 133 open document(s)
+    handoff-priority: 1 handoff(s) carrying a Priority field checked
+    index: stale (node tools/build-index.js --tracked --check)
+    out-of-scope: 0 milestone block(s) in 0 open plan(s) read
+    changelog-rows: gate tree 7b4419a; 1 file(s) with judged lines of 291 markdown file(s); 2 changelog row(s) and 2 heading(s) judged
+    changelog-future-timestamp: 466 table row(s) with a timestamp-shaped first cell checked
+    status-length: 33 non-closed document(s) with a Status field checked
+    terminal-status-negated-act: 0 document(s) with a terminal-looking Status checked
+    status-vocabulary: 32 document(s) checked against seam.js --vocabulary (0 closed since the vocabulary instant)
+  
+    INDEX — 1 warning(s)
+      INDEX.md is stale — run `node tools/build-index.js --tracked` and commit it.
+  
+    baseline: 255 pre-existing failure(s) suppressed (see tools/check-repo-baseline.json; run with --full to see everything)
+  
+    SCOPE — 1 failure(s)
+      code-review/closed/012-carry-forward-to-post-refresh-pass.md: no recognised stage suffix for 'code-review/' (expected one of code-review)
+  
+    FAIL — 1 problem(s) (256 total, 255 baselined).
+  
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-26/tools/recordEntrypoints.test.js:115:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

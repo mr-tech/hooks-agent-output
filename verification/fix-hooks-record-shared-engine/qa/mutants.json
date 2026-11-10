@@ -1,0 +1,231 @@
+[
+ {
+  "id": "build-index.js:10:||",
+  "file": "tools/build-index.js",
+  "old": "||",
+  "new": "&&",
+  "op": "||",
+  "line": 10,
+  "text": "const ENGINE = path.join(process.env.RECORD_ENGINE_DIR || path.join(os.homedir(), '.claude', 'tools'), 'record-engine.js');"
+ },
+ {
+  "id": "build-index.js:17:if-false",
+  "file": "tools/build-index.js",
+  "old": " if (!",
+  "new": " if (false && !",
+  "op": "if-false",
+  "line": 17,
+  "text": "if (!fs.existsSync(ENGINE)) {"
+ },
+ {
+  "id": "build-index.js:17:not",
+  "file": "tools/build-index.js",
+  "old": "(!f",
+  "new": "(f",
+  "op": "not",
+  "line": 17,
+  "text": "if (!fs.existsSync(ENGINE)) {"
+ },
+ {
+  "id": "build-index.js:19:num",
+  "file": "tools/build-index.js",
+  "old": "2",
+  "new": "3",
+  "op": "num",
+  "line": 19,
+  "text": "process.exit(2);"
+ },
+ {
+  "id": "build-index.js:26:if-false",
+  "file": "tools/build-index.js",
+  "old": "\nif (r",
+  "new": "\nif (false && r",
+  "op": "if-false",
+  "line": 26,
+  "text": "if (require.main === module) main();"
+ },
+ {
+  "id": "build-index.js:26:===",
+  "file": "tools/build-index.js",
+  "old": "===",
+  "new": "!==",
+  "op": "===",
+  "line": 26,
+  "text": "if (require.main === module) main();"
+ },
+ {
+  "id": "check-repo.js:12:||",
+  "file": "tools/check-repo.js",
+  "old": "||",
+  "new": "&&",
+  "op": "||",
+  "line": 12,
+  "text": "const ENGINE = path.join(process.env.RECORD_ENGINE_DIR || path.join(os.homedir(), '.claude', 'tools'), 'record-engine.js');"
+ },
+ {
+  "id": "check-repo.js:20:true",
+  "file": "tools/check-repo.js",
+  "old": "s: true,\n ",
+  "new": "s: false,\n ",
+  "op": "true",
+  "line": 20,
+  "text": "documentRules: true,"
+ },
+ {
+  "id": "check-repo.js:22:true",
+  "file": "tools/check-repo.js",
+  "old": "n: true,\n ",
+  "new": "n: false,\n ",
+  "op": "true",
+  "line": 22,
+  "text": "releaseJoinExemption: true,"
+ },
+ {
+  "id": "check-repo.js:39:if-false",
+  "file": "tools/check-repo.js",
+  "old": " if (!",
+  "new": " if (false && !",
+  "op": "if-false",
+  "line": 39,
+  "text": "if (!fs.existsSync(ENGINE)) {"
+ },
+ {
+  "id": "check-repo.js:39:not",
+  "file": "tools/check-repo.js",
+  "old": "(!f",
+  "new": "(f",
+  "op": "not",
+  "line": 39,
+  "text": "if (!fs.existsSync(ENGINE)) {"
+ },
+ {
+  "id": "check-repo.js:48:if-false",
+  "file": "tools/check-repo.js",
+  "old": "\nif (r",
+  "new": "\nif (false && r",
+  "op": "if-false",
+  "line": 48,
+  "text": "if (require.main === module) main();"
+ },
+ {
+  "id": "check-repo.js:48:===",
+  "file": "tools/check-repo.js",
+  "old": "===",
+  "new": "!==",
+  "op": "===",
+  "line": 48,
+  "text": "if (require.main === module) main();"
+ },
+ {
+  "id": "hand-1",
+  "file": "tools/check-repo.js",
+  "old": "        'verification/014/.gitignore',\n",
+  "new": "",
+  "op": "hand",
+  "why": ".gitignore exception narrowed to one path"
+ },
+ {
+  "id": "hand-2",
+  "file": "tools/check-repo.js",
+  "old": "        '.gitignore',\n        'verification",
+  "new": "        'verification",
+  "op": "hand",
+  "why": ".gitignore exception loses the root path"
+ },
+ {
+  "id": "hand-3",
+  "file": "tools/check-repo.js",
+  "old": "gateInstant: '2026-11-10T09:01:13Z'",
+  "new": "gateInstant: '2099-01-01T00:00:00Z'",
+  "op": "hand",
+  "why": "gate instant in the future"
+ },
+ {
+  "id": "hand-4",
+  "file": "tools/check-repo.js",
+  "old": "vocabularyInstant: '2026-11-10T09:01:13Z'",
+  "new": "vocabularyInstant: '2099-01-01T00:00:00Z'",
+  "op": "hand",
+  "why": "vocabulary instant in the future"
+ },
+ {
+  "id": "hand-5",
+  "file": "tools/check-repo.js",
+  "old": "gateInstant: '2026-11-10T09:01:13Z'",
+  "new": "gateInstant: '2026-08-01T00:00:00Z'",
+  "op": "hand",
+  "why": "gate instant moved back over closed history"
+ },
+ {
+  "id": "hand-6",
+  "file": "tools/check-repo.js",
+  "old": "vocabularyInstant: '2026-11-10T09:01:13Z'",
+  "new": "vocabularyInstant: '2026-08-01T00:00:00Z'",
+  "op": "hand",
+  "why": "vocabulary instant moved back over closed history"
+ },
+ {
+  "id": "hand-7",
+  "file": "tools/check-repo.js",
+  "old": "'WORKING-NOTES.md', 'INDEX.md', '.gitkeep'",
+  "new": "'WORKING-NOTES.md', 'INDEX.md'",
+  "op": "hand",
+  "why": ".gitkeep no longer not-a-document"
+ },
+ {
+  "id": "hand-8",
+  "file": "tools/check-repo.js",
+  "old": "'WORKING-NOTES.md', 'INDEX.md', '.gitkeep'",
+  "new": "'WORKING-NOTES.md', '.gitkeep'",
+  "op": "hand",
+  "why": "INDEX.md no longer not-a-document"
+ },
+ {
+  "id": "hand-9",
+  "file": "tools/check-repo.js",
+  "old": "selfName: 'hooks'",
+  "new": "selfName: 'statbot'",
+  "op": "hand",
+  "why": "selfName names another record"
+ },
+ {
+  "id": "hand-10",
+  "file": "tools/check-repo.js",
+  "old": "    ['README.md', 'Directory-level READMEs: the repository root, user-files/, verification/. Not chain documents.'],\n",
+  "new": "",
+  "op": "hand",
+  "why": "README.md exception removed"
+ },
+ {
+  "id": "hand-11",
+  "file": "tools/check-repo-baseline.json",
+  "old": "  {\n    \"check\": \"links\",\n    \"detail\": \"code-review/closed/006-avatar-undefined-hotfix-code-review.md:10  ->  ../planning/006-avatar-undefined-hotfix.md   (markdown-link, resolves to code-review/planning/006-avatar-undefined-hotfix.md)\",\n    \"_why\": \"Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired.\"\n  },\n",
+  "new": "",
+  "op": "hand",
+  "why": "first baseline entry removed (a legacy link)"
+ },
+ {
+  "id": "hand-12",
+  "file": "tools/check-repo-baseline.json",
+  "old": "[\n  {",
+  "new": "[\n  {\"check\": \"links\", \"detail\": \"planning/closed/001-nonexistent.md:1  ->  x.md   (markdown-link, resolves to planning/closed/x.md)\", \"_why\": \"planted\"},\n  {",
+  "op": "hand",
+  "why": "stale entry added to the baseline"
+ },
+ {
+  "id": "hand-13",
+  "file": "tools/check-repo-baseline.json",
+  "old": "  {\n    \"check\": \"scope\",\n    \"detail\": \"code-review/closed/012-carry-forward-to-post-refresh-pass.md: no recognised stage suffix for 'code-review/' (expected one of code-review)\",\n    \"_why\": \"A closed chain document with no stage suffix the engine's table accepts for its directory. No correction short of a rename can clear it, and a rename breaks its citations. Baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). A new suffix would be an engine change (the Agents domain).\"\n  },\n",
+  "new": "",
+  "op": "hand",
+  "why": "one of the four named SCOPE entries removed"
+ },
+ {
+  "id": "hand-14",
+  "file": "tools/check-repo.js",
+  "old": "releaseJoinExemption: true",
+  "new": "releaseJoinExemption: false",
+  "op": "hand",
+  "why": "release-join exemption off"
+ }
+]

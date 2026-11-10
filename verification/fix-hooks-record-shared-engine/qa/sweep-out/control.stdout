@@ -1,0 +1,40 @@
+Note: switching to 'd96b7996525569621c6cd1315e6d9fe3ba215e23'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+▶ record entrypoints load the shared engine
+  ✔ check-repo.js exits non-zero naming the engine path and the box binding when the engine is absent (28.890964ms)
+  ✔ check-repo.js exits 2 naming the engine-side install command when js-yaml cannot load (58.673218ms)
+  ✔ check-repo.js loads the engine the override names, and the live engine without it (150.162351ms)
+  ✔ requiring check-repo.js writes nothing, prints nothing and exits 0 (147.530857ms)
+  ✔ build-index.js exits non-zero naming the engine path and the box binding when the engine is absent (24.419393ms)
+  ✔ build-index.js exits 2 naming the engine-side install command when js-yaml cannot load (57.200944ms)
+  ✔ build-index.js loads the engine the override names, and the live engine without it (166.309856ms)
+  ✔ requiring build-index.js writes nothing, prints nothing and exits 0 (44.508516ms)
+  ✔ check-repo.js carries a gate instant and a vocabulary instant that are UTC instants no later than now (28.634496ms)
+  ✔ check-repo.js raises no basename failure for the root and probe .gitignore files or the verification probe folders (1713.395987ms)
+  ✔ check-repo.js passes the committed record with its baseline, every baselined failure predating the move (1694.540634ms)
+  ✔ check-repo.js reaches the engine in status mode with this record's settings (130.726911ms)
+  ✔ build-index.js --tracked --check reads the committed tree through the engine (150.612479ms)
+✔ record entrypoints load the shared engine (5041.818018ms)
+ℹ tests 13
+ℹ suites 1
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5102.67392

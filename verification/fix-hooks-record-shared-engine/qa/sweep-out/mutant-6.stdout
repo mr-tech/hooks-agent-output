@@ -1,0 +1,199 @@
+Note: switching to 'd96b7996525569621c6cd1315e6d9fe3ba215e23'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+▶ record entrypoints load the shared engine
+  ✔ check-repo.js exits non-zero naming the engine path and the box binding when the engine is absent (26.714092ms)
+  ✔ check-repo.js exits 2 naming the engine-side install command when js-yaml cannot load (55.385755ms)
+  ✖ check-repo.js loads the engine the override names, and the live engine without it (30.755488ms)
+  ✖ requiring check-repo.js writes nothing, prints nothing and exits 0 (120.374245ms)
+  ✖ build-index.js exits non-zero naming the engine path and the box binding when the engine is absent (23.001596ms)
+  ✖ build-index.js exits 2 naming the engine-side install command when js-yaml cannot load (50.157831ms)
+  ✖ build-index.js loads the engine the override names, and the live engine without it (22.52299ms)
+  ✖ requiring build-index.js writes nothing, prints nothing and exits 0 (106.732113ms)
+  ✖ check-repo.js carries a gate instant and a vocabulary instant that are UTC instants no later than now (103.619172ms)
+  ✔ check-repo.js raises no basename failure for the root and probe .gitignore files or the verification probe folders (39.858985ms)
+  ✔ check-repo.js passes the committed record with its baseline, every baselined failure predating the move (1737.604686ms)
+  ✖ check-repo.js reaches the engine in status mode with this record's settings (39.583137ms)
+  ✖ build-index.js --tracked --check reads the committed tree through the engine (23.941013ms)
+✖ record entrypoints load the shared engine (3044.972575ms)
+ℹ tests 13
+ℹ suites 1
+ℹ pass 4
+ℹ fail 9
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3105.031705
+
+✖ failing tests:
+
+test at tools/recordEntrypoints.test.js:78:5
+✖ check-repo.js loads the engine the override names, and the live engine without it (30.755488ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /^SENTINEL (check|index) [a-z]+\n$/. Input:
+  
+  'SENTINEL index root\nSENTINEL check hooks\n'
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-6/tools/recordEntrypoints.test.js:80:14)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'SENTINEL index root\nSENTINEL check hooks\n',
+    expected: /^SENTINEL (check|index) [a-z]+\n$/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:85:5
+✖ requiring check-repo.js writes nothing, prints nothing and exits 0 (120.374245ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + '  wrote INDEX.md (543 lines, default)\n'
+  - ''
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-6/tools/recordEntrypoints.test.js:90:14)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '  wrote INDEX.md (543 lines, default)\n',
+    expected: '',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:59:5
+✖ build-index.js exits non-zero naming the engine path and the box binding when the engine is absent (23.001596ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 2
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-6/tools/recordEntrypoints.test.js:62:14)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:68:5
+✖ build-index.js exits 2 naming the engine-side install command when js-yaml cannot load (50.157831ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 2
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-6/tools/recordEntrypoints.test.js:72:14)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:78:5
+✖ build-index.js loads the engine the override names, and the live engine without it (22.52299ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /^SENTINEL (check|index) [a-z]+\n$/. Input:
+  
+  ''
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-6/tools/recordEntrypoints.test.js:80:14)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: /^SENTINEL (check|index) [a-z]+\n$/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:85:5
+✖ requiring build-index.js writes nothing, prints nothing and exits 0 (106.732113ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + '  wrote INDEX.md (543 lines, default)\n'
+  - ''
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-6/tools/recordEntrypoints.test.js:90:14)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '  wrote INDEX.md (543 lines, default)\n',
+    expected: '',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:96:3
+✖ check-repo.js carries a gate instant and a vocabulary instant that are UTC instants no later than now (103.619172ms)
+  SyntaxError: Unexpected token 'w', "  wrote INDE"... is not valid JSON
+      at JSON.parse (<anonymous>)
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-6/tools/recordEntrypoints.test.js:99:32)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at tools/recordEntrypoints.test.js:120:3
+✖ check-repo.js reaches the engine in status mode with this record's settings (39.583137ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  2 !== 0
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-6/tools/recordEntrypoints.test.js:122:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:126:3
+✖ build-index.js --tracked --check reads the committed tree through the engine (23.941013ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /INDEX\.md is (current|STALE) \(--tracked\)/. Input:
+  
+  ''
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-6/tools/recordEntrypoints.test.js:128:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: /INDEX\.md is (current|STALE) \(--tracked\)/,
+    operator: 'match',
+    diff: 'simple'
+  }

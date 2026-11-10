@@ -1,0 +1,134 @@
+Note: switching to 'd96b7996525569621c6cd1315e6d9fe3ba215e23'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+▶ record entrypoints load the shared engine
+  ✖ check-repo.js exits non-zero naming the engine path and the box binding when the engine is absent (24.715837ms)
+  ✖ check-repo.js exits 2 naming the engine-side install command when js-yaml cannot load (55.647826ms)
+  ✖ check-repo.js loads the engine the override names, and the live engine without it (24.52462ms)
+  ✔ requiring check-repo.js writes nothing, prints nothing and exits 0 (156.502652ms)
+  ✔ build-index.js exits non-zero naming the engine path and the box binding when the engine is absent (25.214748ms)
+  ✔ build-index.js exits 2 naming the engine-side install command when js-yaml cannot load (61.679828ms)
+  ✔ build-index.js loads the engine the override names, and the live engine without it (159.53689ms)
+  ✔ requiring build-index.js writes nothing, prints nothing and exits 0 (44.811943ms)
+  ✔ check-repo.js carries a gate instant and a vocabulary instant that are UTC instants no later than now (26.538376ms)
+  ✔ check-repo.js raises no basename failure for the root and probe .gitignore files or the verification probe folders (22.250284ms)
+  ✖ check-repo.js passes the committed record with its baseline, every baselined failure predating the move (22.408848ms)
+  ✖ check-repo.js reaches the engine in status mode with this record's settings (23.461674ms)
+  ✔ build-index.js --tracked --check reads the committed tree through the engine (135.662952ms)
+✖ record entrypoints load the shared engine (1490.80185ms)
+ℹ tests 13
+ℹ suites 1
+ℹ pass 8
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1549.929671
+
+✖ failing tests:
+
+test at tools/recordEntrypoints.test.js:59:5
+✖ check-repo.js exits non-zero naming the engine path and the box binding when the engine is absent (24.715837ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 2
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-12/tools/recordEntrypoints.test.js:62:14)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1533:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:68:5
+✖ check-repo.js exits 2 naming the engine-side install command when js-yaml cannot load (55.647826ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 2
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-12/tools/recordEntrypoints.test.js:72:14)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:78:5
+✖ check-repo.js loads the engine the override names, and the live engine without it (24.52462ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /^SENTINEL (check|index) [a-z]+\n$/. Input:
+  
+  ''
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-12/tools/recordEntrypoints.test.js:80:14)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: /^SENTINEL (check|index) [a-z]+\n$/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:113:3
+✖ check-repo.js passes the committed record with its baseline, every baselined failure predating the move (22.408848ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /PASS — no new failures \(\d+ baselined\)\./. Input:
+  
+  ''
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-12/tools/recordEntrypoints.test.js:116:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: /PASS — no new failures \(\d+ baselined\)\./,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:120:3
+✖ check-repo.js reaches the engine in status mode with this record's settings (23.461674ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /open handoffs:/. Input:
+  
+  ''
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-12/tools/recordEntrypoints.test.js:123:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: /open handoffs:/,
+    operator: 'match',
+    diff: 'simple'
+  }

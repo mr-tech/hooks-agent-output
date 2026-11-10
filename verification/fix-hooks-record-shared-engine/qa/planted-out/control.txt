@@ -1,0 +1,23 @@
+  links: 846 in-repo citations checked across 292 documents; 377 resolved across a closure (open↔closed identity); 14 external (sibling-repo) links noted but not verified; 13 deliberately suppressed; 0 backticked, unverified
+  basenames: 1981 distinct, 8 unexpected collisions, 21 shared only across different verification/ folders (allowed), 2 declared exceptions
+  origin-uuid: 4 Origin group(s) with an open document read
+  frontmatter: 189 documents carry frontmatter, 16 distinct chains
+  scope suffixes: 0 document(s) carry one, all validated against their plan
+  duplicate-id: 1 Rev or D table(s) read in 134 open document(s)
+  handoff-priority: 1 handoff(s) carrying a Priority field checked
+  index: stale (node tools/build-index.js --tracked --check)
+  out-of-scope: 0 milestone block(s) in 0 open plan(s) read
+  changelog-rows: gate tree 7b4419a; 3 file(s) with judged lines of 292 markdown file(s); 7 changelog row(s) and 8 heading(s) judged
+  changelog-future-timestamp: 471 table row(s) with a timestamp-shaped first cell checked
+  status-length: 34 non-closed document(s) with a Status field checked
+  terminal-status-negated-act: 0 document(s) with a terminal-looking Status checked
+  status-vocabulary: 33 document(s) checked against seam.js --vocabulary (0 closed since the vocabulary instant)
+
+  INDEX — 1 warning(s)
+    INDEX.md is stale — run `node tools/build-index.js --tracked` and commit it.
+
+  baseline: 256 pre-existing failure(s) suppressed (see tools/check-repo-baseline.json; run with --full to see everything)
+
+  PASS — no new failures (256 baselined).
+
+exit=0

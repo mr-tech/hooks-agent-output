@@ -1,0 +1,115 @@
+Note: switching to 'd96b7996525569621c6cd1315e6d9fe3ba215e23'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+▶ record entrypoints load the shared engine
+  ✔ check-repo.js exits non-zero naming the engine path and the box binding when the engine is absent (27.272999ms)
+  ✔ check-repo.js exits 2 naming the engine-side install command when js-yaml cannot load (56.882761ms)
+  ✔ check-repo.js loads the engine the override names, and the live engine without it (145.934043ms)
+  ✔ requiring check-repo.js writes nothing, prints nothing and exits 0 (258.275974ms)
+  ✔ build-index.js exits non-zero naming the engine path and the box binding when the engine is absent (28.225931ms)
+  ✔ build-index.js exits 2 naming the engine-side install command when js-yaml cannot load (62.208957ms)
+  ✔ build-index.js loads the engine the override names, and the live engine without it (178.841681ms)
+  ✔ requiring build-index.js writes nothing, prints nothing and exits 0 (44.927333ms)
+  ✔ check-repo.js carries a gate instant and a vocabulary instant that are UTC instants no later than now (27.478647ms)
+  ✔ check-repo.js raises no basename failure for the root and probe .gitignore files or the verification probe folders (1704.759876ms)
+  ✖ check-repo.js passes the committed record with its baseline, every baselined failure predating the move (1701.215892ms)
+  ✔ check-repo.js reaches the engine in status mode with this record's settings (124.401438ms)
+  ✔ build-index.js --tracked --check reads the committed tree through the engine (139.877743ms)
+✖ record entrypoints load the shared engine (5150.123292ms)
+ℹ tests 13
+ℹ suites 1
+ℹ pass 12
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5212.19827
+
+✖ failing tests:
+
+test at tools/recordEntrypoints.test.js:113:3
+✖ check-repo.js passes the committed record with its baseline, every baselined failure predating the move (1701.215892ms)
+  AssertionError [ERR_ASSERTION]:   links: 837 in-repo citations checked across 291 documents; 377 resolved across a closure (open↔closed identity); 14 external (sibling-repo) links noted but not verified; 11 deliberately suppressed; 0 backticked, unverified
+    basenames: 1965 distinct, 8 unexpected collisions, 21 shared only across different verification/ folders (allowed), 2 declared exceptions
+    origin-uuid: 3 Origin group(s) with an open document read
+    frontmatter: 188 documents carry frontmatter, 16 distinct chains
+    scope suffixes: 0 document(s) carry one, all validated against their plan
+    duplicate-id: 1 Rev or D table(s) read in 133 open document(s)
+    handoff-priority: 1 handoff(s) carrying a Priority field checked
+    index: stale (node tools/build-index.js --tracked --check)
+    out-of-scope: 0 milestone block(s) in 0 open plan(s) read
+    changelog-rows: gate tree 7b4419a; 1 file(s) with judged lines of 291 markdown file(s); 2 changelog row(s) and 2 heading(s) judged
+    changelog-future-timestamp: 466 table row(s) with a timestamp-shaped first cell checked
+    status-length: 33 non-closed document(s) with a Status field checked
+    terminal-status-negated-act: 0 document(s) with a terminal-looking Status checked
+    status-vocabulary: 187 document(s) checked against seam.js --vocabulary (158 closed since the vocabulary instant)
+  
+    INDEX — 1 warning(s)
+      INDEX.md is stale — run `node tools/build-index.js --tracked` and commit it.
+  
+    baseline: 256 pre-existing failure(s) suppressed (see tools/check-repo-baseline.json; run with --full to see everything)
+  
+    STATUS-VOCABULARY — 32 failure(s)
+      analysis/closed/002-embeds-components-v2-mutual-exclusivity.md: Status 'Planned' is not one of Active | Committed | Released | Abandoned | Superseded
+      analysis/closed/004-lazy-loading-technical-analysis.md: Status 'Planned' is not one of Active | Committed | Released | Abandoned | Superseded
+      analysis/closed/005-user-reported-bugs-analysis.md: Status 'Planned' is not one of Active | Committed | Released | Abandoned | Superseded
+      analysis/closed/006-avatar-undefined-regression.md: Status 'Planned' is not one of Active | Committed | Released | Abandoned | Superseded
+      analysis/closed/007-components-v2-displayable-text-limit-analysis.md: Status 'Planned' is not one of Active | Committed | Released | Abandoned | Superseded
+      analysis/closed/008-section-text-display-delete-analysis.md: Status 'Planned' is not one of Active | Committed | Released | Abandoned | Superseded
+      analysis/closed/009-send-page-hasloaded-stuck-analysis.md: Status 'Planned' is not one of Active | Committed | Released | Abandoned | Superseded
+      analysis/closed/010-infopanel-overlap-on-initial-load-analysis.md: Status 'Planned' is not one of Active | Committed | Released | Abandoned | Superseded
+      analysis/closed/011-transition-height-react-style-conflict-analysis.md: Status 'Planned' is not one of Active | Committed | Released | Abandoned | Superseded
+      analysis/closed/014-test-suite-cleanup-analysis.md: Status 'Planned' is not one of Active | Committed | Released | Abandoned | Superseded
+      code-review/closed/012-message-valid-field-code-review.md: Reviewed-At — first token 'Round 7 (delta): website `c85945f` on `c' is not a SHA
+      code-review/closed/013-components-v2-editing-surfaces-code-review.md: Status 'Code Review Approved' is not one of In Review | Committed | Released | Superseded
+      code-review/closed/013-components-v2-editing-surfaces-code-review.md: Reviewed-At — first token 'Round 25 (current, binding): TREE b56570' is not a SHA
+      code-review/closed/014-test-suite-cleanup-code-review.md: Reviewed-At — first token 'website e6163fd (chain/014-test-suite-cl' is not a SHA
+      critiques/closed/001-actions-menu-ux-redesign-critique.md: Status 'Planned' is not one of Open | Resolved | Superseded
+      critiques/closed/001-components-v2-state-management-critique.md: Status 'OPEN' is not one of Open | Resolved | Superseded
+      critiques/closed/003-actions-menu-critique-remediation-critique.md: Status 'OPEN' is not one of Open | Resolved | Superseded
+      critiques/closed/004-lazy-loading-preload-overhaul-critique.md: Status 'RESOLVED' is not one of Open | Resolved | Superseded
+      critiques/closed/005-user-reported-bug-fixes-critique.md: Status 'CLOSED' is not one of Open | Resolved | Superseded
+      critiques/closed/007-components-v2-displayable-text-limit-critique.md: Status 'Released' is not one of Open | Resolved | Superseded
+      critiques/closed/008-sub-component-crud-actions-critique.md: Status 'OPEN' is not one of Open | Resolved | Superseded
+      critiques/closed/009-send-page-hasloaded-fix-critique.md: Status 'OPEN' is not one of Open | Resolved | Superseded
+      critiques/closed/010-infopanel-overlap-fix-critique.md: Status 'RESOLVED' is not one of Open | Resolved | Superseded
+      deployment/closed/012-message-valid-field-readiness.md: Status 'Superseded by 012-message-valid-field-deployment.md — releas' is not one of Active | Committed | Released | Abandoned | Superseded
+      deployment/closed/013-components-v2-editing-surfaces-readiness.md: Status 'Superseded by 013-components-v2-editing-surfaces-deployment.' is not one of Active | Committed | Released | Abandoned | Superseded
+      deployment/closed/014-test-suite-cleanup-deployment.md: Status 'Released — chain closed 2026-08-27; every register row termi' is not one of Active | Committed | Released | Abandoned | Superseded
+      deployment/closed/014-test-suite-cleanup-readiness.md: Status 'Superseded by 014-test-suite-cleanup-deployment.md — release' is not one of Active | Committed | Released | Abandoned | Superseded
+      qa/closed/001-components-v2-ui-bugs-findings.md: Status 'Findings Documented' is not one of Test Strategy Development | Awaiting Implementation | Testing In Progress | QA Complete | QA Failed | Release Verified | Release Verification Failed | Committed | Released | Superseded
+      qa/closed/012-message-valid-field-qa.md: Verified-At — first token 'website chain/012-message-valid-field @ ' is not a SHA
+      uat/closed/012-message-valid-field-uat.md: Verified-At — first token 'Re-derived from the tree 2026-08-25 by t' is not a SHA
+      uat/closed/013-components-v2-editing-surfaces-uat.md: Verified-At — first token '**CURRENT (rev 19/20/21).** **Rev 21 exe' is not a SHA
+      uat/closed/014-test-suite-cleanup-uat.md: Verified-At — first token 'website f2c85f5c7e3ad03879845ae1116518dc' is not a SHA
+  
+    FAIL — 32 problem(s) (288 total, 256 baselined).
+  
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-19/tools/recordEntrypoints.test.js:115:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,399 @@
+[
+ {
+  "run": "control",
+  "exit": 0,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 0,
+  "failing": [],
+  "id": "control"
+ },
+ {
+  "run": "mutant-1",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 9,
+  "failing": [
+   "build-index.js --tracked --check reads the committed tree through the engine",
+   "build-index.js exits 2 naming the engine-side install command when js-yaml cannot load",
+   "build-index.js exits non-zero naming the engine path and the box binding when the engine is absent",
+   "build-index.js loads the engine the override names, and the live engine without it",
+   "check-repo.js carries a gate instant and a vocabulary instant that are UTC instants no later than now",
+   "check-repo.js passes the committed record with its baseline, every baselined failure predating the move",
+   "check-repo.js reaches the engine in status mode with this record's settings",
+   "requiring build-index.js writes nothing, prints nothing and exits 0",
+   "requiring check-repo.js writes nothing, prints nothing and exits 0"
+  ],
+  "id": "build-index.js:10:||",
+  "file": "tools/build-index.js",
+  "outcome": "KILLED"
+ },
+ {
+  "run": "mutant-2",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 1,
+  "failing": [
+   "build-index.js exits non-zero naming the engine path and the box binding when the engine is absent"
+  ],
+  "id": "build-index.js:17:if-false",
+  "file": "tools/build-index.js",
+  "outcome": "KILLED"
+ },
+ {
+  "run": "mutant-3",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 4,
+  "failing": [
+   "build-index.js --tracked --check reads the committed tree through the engine",
+   "build-index.js exits 2 naming the engine-side install command when js-yaml cannot load",
+   "build-index.js exits non-zero naming the engine path and the box binding when the engine is absent",
+   "build-index.js loads the engine the override names, and the live engine without it"
+  ],
+  "id": "build-index.js:17:not",
+  "file": "tools/build-index.js",
+  "outcome": "KILLED"
+ },
+ {
+  "run": "mutant-4",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 1,
+  "failing": [
+   "build-index.js exits non-zero naming the engine path and the box binding when the engine is absent"
+  ],
+  "id": "build-index.js:19:num",
+  "file": "tools/build-index.js",
+  "outcome": "KILLED"
+ },
+ {
+  "run": "mutant-5",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 4,
+  "failing": [
+   "build-index.js --tracked --check reads the committed tree through the engine",
+   "build-index.js exits 2 naming the engine-side install command when js-yaml cannot load",
+   "build-index.js exits non-zero naming the engine path and the box binding when the engine is absent",
+   "build-index.js loads the engine the override names, and the live engine without it"
+  ],
+  "id": "build-index.js:26:if-false",
+  "file": "tools/build-index.js",
+  "outcome": "KILLED"
+ },
+ {
+  "run": "mutant-6",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 9,
+  "failing": [
+   "build-index.js --tracked --check reads the committed tree through the engine",
+   "build-index.js exits 2 naming the engine-side install command when js-yaml cannot load",
+   "build-index.js exits non-zero naming the engine path and the box binding when the engine is absent",
+   "build-index.js loads the engine the override names, and the live engine without it",
+   "check-repo.js carries a gate instant and a vocabulary instant that are UTC instants no later than now",
+   "check-repo.js loads the engine the override names, and the live engine without it",
+   "check-repo.js reaches the engine in status mode with this record's settings",
+   "requiring build-index.js writes nothing, prints nothing and exits 0",
+   "requiring check-repo.js writes nothing, prints nothing and exits 0"
+  ],
+  "id": "build-index.js:26:===",
+  "file": "tools/build-index.js",
+  "outcome": "KILLED"
+ },
+ {
+  "run": "mutant-7",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 7,
+  "failing": [
+   "check-repo.js carries a gate instant and a vocabulary instant that are UTC instants no later than now",
+   "check-repo.js exits 2 naming the engine-side install command when js-yaml cannot load",
+   "check-repo.js exits non-zero naming the engine path and the box binding when the engine is absent",
+   "check-repo.js loads the engine the override names, and the live engine without it",
+   "check-repo.js passes the committed record with its baseline, every baselined failure predating the move",
+   "check-repo.js reaches the engine in status mode with this record's settings",
+   "requiring check-repo.js writes nothing, prints nothing and exits 0"
+  ],
+  "id": "check-repo.js:12:||",
+  "file": "tools/check-repo.js",
+  "outcome": "KILLED"
+ },
+ {
+  "run": "mutant-8",
+  "exit": 0,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 0,
+  "failing": [],
+  "id": "check-repo.js:20:true",
+  "file": "tools/check-repo.js",
+  "outcome": "SURVIVED"
+ },
+ {
+  "run": "mutant-9",
+  "exit": 0,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 0,
+  "failing": [],
+  "id": "check-repo.js:22:true",
+  "file": "tools/check-repo.js",
+  "outcome": "SURVIVED"
+ },
+ {
+  "run": "mutant-10",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 1,
+  "failing": [
+   "check-repo.js exits non-zero naming the engine path and the box binding when the engine is absent"
+  ],
+  "id": "check-repo.js:39:if-false",
+  "file": "tools/check-repo.js",
+  "outcome": "KILLED"
+ },
+ {
+  "run": "mutant-11",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 5,
+  "failing": [
+   "check-repo.js exits 2 naming the engine-side install command when js-yaml cannot load",
+   "check-repo.js exits non-zero naming the engine path and the box binding when the engine is absent",
+   "check-repo.js loads the engine the override names, and the live engine without it",
+   "check-repo.js passes the committed record with its baseline, every baselined failure predating the move",
+   "check-repo.js reaches the engine in status mode with this record's settings"
+  ],
+  "id": "check-repo.js:39:not",
+  "file": "tools/check-repo.js",
+  "outcome": "KILLED"
+ },
+ {
+  "run": "mutant-12",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 5,
+  "failing": [
+   "check-repo.js exits 2 naming the engine-side install command when js-yaml cannot load",
+   "check-repo.js exits non-zero naming the engine path and the box binding when the engine is absent",
+   "check-repo.js loads the engine the override names, and the live engine without it",
+   "check-repo.js passes the committed record with its baseline, every baselined failure predating the move",
+   "check-repo.js reaches the engine in status mode with this record's settings"
+  ],
+  "id": "check-repo.js:48:if-false",
+  "file": "tools/check-repo.js",
+  "outcome": "KILLED"
+ },
+ {
+  "run": "mutant-13",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 7,
+  "failing": [
+   "check-repo.js carries a gate instant and a vocabulary instant that are UTC instants no later than now",
+   "check-repo.js exits 2 naming the engine-side install command when js-yaml cannot load",
+   "check-repo.js exits non-zero naming the engine path and the box binding when the engine is absent",
+   "check-repo.js loads the engine the override names, and the live engine without it",
+   "check-repo.js passes the committed record with its baseline, every baselined failure predating the move",
+   "check-repo.js reaches the engine in status mode with this record's settings",
+   "requiring check-repo.js writes nothing, prints nothing and exits 0"
+  ],
+  "id": "check-repo.js:48:===",
+  "file": "tools/check-repo.js",
+  "outcome": "KILLED"
+ },
+ {
+  "run": "mutant-14",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 2,
+  "failing": [
+   "check-repo.js passes the committed record with its baseline, every baselined failure predating the move",
+   "check-repo.js raises no basename failure for the root and probe .gitignore files or the verification probe folders"
+  ],
+  "id": "hand-1",
+  "file": "tools/check-repo.js",
+  "outcome": "KILLED"
+ },
+ {
+  "run": "mutant-15",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 2,
+  "failing": [
+   "check-repo.js passes the committed record with its baseline, every baselined failure predating the move",
+   "check-repo.js raises no basename failure for the root and probe .gitignore files or the verification probe folders"
+  ],
+  "id": "hand-2",
+  "file": "tools/check-repo.js",
+  "outcome": "KILLED"
+ },
+ {
+  "run": "mutant-16",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 1,
+  "failing": [
+   "check-repo.js carries a gate instant and a vocabulary instant that are UTC instants no later than now"
+  ],
+  "id": "hand-3",
+  "file": "tools/check-repo.js",
+  "outcome": "KILLED"
+ },
+ {
+  "run": "mutant-17",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 1,
+  "failing": [
+   "check-repo.js carries a gate instant and a vocabulary instant that are UTC instants no later than now"
+  ],
+  "id": "hand-4",
+  "file": "tools/check-repo.js",
+  "outcome": "KILLED"
+ },
+ {
+  "run": "mutant-18",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 1,
+  "failing": [
+   "check-repo.js passes the committed record with its baseline, every baselined failure predating the move"
+  ],
+  "id": "hand-5",
+  "file": "tools/check-repo.js",
+  "outcome": "KILLED"
+ },
+ {
+  "run": "mutant-19",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 1,
+  "failing": [
+   "check-repo.js passes the committed record with its baseline, every baselined failure predating the move"
+  ],
+  "id": "hand-6",
+  "file": "tools/check-repo.js",
+  "outcome": "KILLED"
+ },
+ {
+  "run": "mutant-20",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 1,
+  "failing": [
+   "check-repo.js passes the committed record with its baseline, every baselined failure predating the move"
+  ],
+  "id": "hand-7",
+  "file": "tools/check-repo.js",
+  "outcome": "KILLED"
+ },
+ {
+  "run": "mutant-21",
+  "exit": 0,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 0,
+  "failing": [],
+  "id": "hand-8",
+  "file": "tools/check-repo.js",
+  "outcome": "SURVIVED"
+ },
+ {
+  "run": "mutant-22",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 1,
+  "failing": [
+   "check-repo.js passes the committed record with its baseline, every baselined failure predating the move"
+  ],
+  "id": "hand-9",
+  "file": "tools/check-repo.js",
+  "outcome": "KILLED"
+ },
+ {
+  "run": "mutant-23",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 2,
+  "failing": [
+   "check-repo.js passes the committed record with its baseline, every baselined failure predating the move",
+   "check-repo.js raises no basename failure for the root and probe .gitignore files or the verification probe folders"
+  ],
+  "id": "hand-10",
+  "file": "tools/check-repo.js",
+  "outcome": "KILLED"
+ },
+ {
+  "run": "mutant-24",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 1,
+  "failing": [
+   "check-repo.js passes the committed record with its baseline, every baselined failure predating the move"
+  ],
+  "id": "hand-11",
+  "file": "tools/check-repo-baseline.json",
+  "outcome": "KILLED"
+ },
+ {
+  "run": "mutant-25",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 1,
+  "failing": [
+   "check-repo.js passes the committed record with its baseline, every baselined failure predating the move"
+  ],
+  "id": "hand-12",
+  "file": "tools/check-repo-baseline.json",
+  "outcome": "KILLED"
+ },
+ {
+  "run": "mutant-26",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 1,
+  "failing": [
+   "check-repo.js passes the committed record with its baseline, every baselined failure predating the move"
+  ],
+  "id": "hand-13",
+  "file": "tools/check-repo-baseline.json",
+  "outcome": "KILLED"
+ },
+ {
+  "run": "mutant-27",
+  "exit": 0,
+  "timed_out": false,
+  "tests": 13,
+  "fail": 0,
+  "failing": [],
+  "id": "hand-14",
+  "file": "tools/check-repo.js",
+  "outcome": "SURVIVED"
+ }
+]

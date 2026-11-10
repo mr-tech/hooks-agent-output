@@ -1,0 +1,183 @@
+Note: switching to 'd96b7996525569621c6cd1315e6d9fe3ba215e23'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+▶ record entrypoints load the shared engine
+  ✖ check-repo.js exits non-zero naming the engine path and the box binding when the engine is absent (24.911764ms)
+  ✖ check-repo.js exits 2 naming the engine-side install command when js-yaml cannot load (50.346591ms)
+  ✖ check-repo.js loads the engine the override names, and the live engine without it (24.042497ms)
+  ✖ requiring check-repo.js writes nothing, prints nothing and exits 0 (1751.536774ms)
+  ✔ build-index.js exits non-zero naming the engine path and the box binding when the engine is absent (25.516679ms)
+  ✔ build-index.js exits 2 naming the engine-side install command when js-yaml cannot load (53.946187ms)
+  ✔ build-index.js loads the engine the override names, and the live engine without it (171.284321ms)
+  ✔ requiring build-index.js writes nothing, prints nothing and exits 0 (49.226023ms)
+  ✖ check-repo.js carries a gate instant and a vocabulary instant that are UTC instants no later than now (1691.544713ms)
+  ✔ check-repo.js raises no basename failure for the root and probe .gitignore files or the verification probe folders (23.515199ms)
+  ✖ check-repo.js passes the committed record with its baseline, every baselined failure predating the move (23.386743ms)
+  ✖ check-repo.js reaches the engine in status mode with this record's settings (22.654269ms)
+  ✔ build-index.js --tracked --check reads the committed tree through the engine (138.11013ms)
+✖ record entrypoints load the shared engine (4695.165033ms)
+ℹ tests 13
+ℹ suites 1
+ℹ pass 6
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4749.149793
+
+✖ failing tests:
+
+test at tools/recordEntrypoints.test.js:59:5
+✖ check-repo.js exits non-zero naming the engine path and the box binding when the engine is absent (24.911764ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 2
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-13/tools/recordEntrypoints.test.js:62:14)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1533:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:68:5
+✖ check-repo.js exits 2 naming the engine-side install command when js-yaml cannot load (50.346591ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 2
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-13/tools/recordEntrypoints.test.js:72:14)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:78:5
+✖ check-repo.js loads the engine the override names, and the live engine without it (24.042497ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /^SENTINEL (check|index) [a-z]+\n$/. Input:
+  
+  ''
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-13/tools/recordEntrypoints.test.js:80:14)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: /^SENTINEL (check|index) [a-z]+\n$/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:85:5
+✖ requiring check-repo.js writes nothing, prints nothing and exits 0 (1751.536774ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + '  links: 837 in-repo citations checked across 291 documents; 377 resolved across a closure (open↔closed identity); 14 external (sibling-repo) links noted but not verified; 11 deliberately suppressed; 0 backticked, unverified\n' +
+  +   '  basenames: 1965 distinct, 8 unexpected collisions, 21 shared only across different verification/ folders (allowed), 2 declared exceptions\n' +
+  +   '  origin-uuid: 3 Origin group(s) with an open document read\n' +
+  +   '  frontmatter: 188 documents carry frontmatter, 16 distinct chains\n' +
+  +   '  scope suffixes: 0 document(s) carry one, all validated against their plan\n' +
+  +   '  duplicate-id: 1 Rev or D table(s) read in 133 open document(s)\n' +
+  +   '  handoff-priority: 1 handoff(s) carrying a Priority field checked\n' +
+  +   '  index: stale (node tools/build-index.js --tracked --check)\n' +
+  +   '  out-of-scope: 0 milestone block(s) in 0 open plan(s) read\n' +
+  +   '  changelog-rows: gate tree 7b4419a; 1 file(s) with judged lines of 291 markdown file(s); 2 changelog row(s) and 2 heading(s) judged\n' +
+  +   '  changelog-future-timestamp: 466 table row(s) with a timestamp-shaped first cell checked\n' +
+  +   '  status-length: 33 non-closed document(s) with a Status field checked\n' +
+  +   '  terminal-status-negated-act: 0 document(s) with a terminal-looking Status checked\n' +
+  +   '  status-vocabulary: 32 document(s) checked against seam.js --vocabulary (0 closed since the vocabulary instant)\n' +
+  +   '\n' +
+  +   '  INDEX — 1 warning(s)\n' +
+  +   '    INDEX.md is stale — run `node tools/build-index.js --tracked` and commit it.\n' +
+  +   '\n' +
+  +   '  baseline: 256 pre-existing failure(s) suppressed (see tools/check-repo-baseline.json; run with --full to see everything)\n' +
+  +   '\n' +
+  +   '  PASS — no new failures (256 baselined).\n'
+  - ''
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-13/tools/recordEntrypoints.test.js:90:14)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '  links: 837 in-repo citations checked across 291 documents; 377 resolved across a closure (open↔closed identity); 14 external (sibling-repo) links noted but not verified; 11 deliberately suppressed; 0 backticked, unverified\n  basenames: 1965 distinct, 8 unexpected collisions, 21 shared only across different verification/ folders (allowed), 2 declared exceptions\n  origin-uuid: 3 Origin group(s) with an open document read\n  frontmatter: 188 documents carry frontmatter, 16 distinct chains\n  scope suffixes: 0 document(s) carry one, all validated against their plan\n  duplicate-id: 1 Rev or D table(s) read in 133 open document(s)\n  handoff-priority: 1 handoff(s) carrying a Priority field checked\n  index: stale (node tools/build-index.js --tracked --check)\n  out-of-scope: 0 milestone block(s) in 0 open plan(s) read\n  changelog-rows: gate tree 7b4419a; 1 file(s) with judged lines of 291 markdown file(s); 2 changelog row(s) and 2 heading(s) judged\n  changelog-future-timestamp: 466 table row(s) with a timestamp-shaped first cell checked\n  status-length: 33 non-closed document(s) with a Status field checked\n  terminal-status-negated-act: 0 document(s) with a terminal-looking Status checked\n  status-vocabulary: 32 document(s) checked against seam.js --vocabulary (0 closed since the vocabulary instant)\n\n  INDEX — 1 warning(s)\n    INDEX.md is stale — run `node tools/build-index.js --tracked` and commit it.\n\n  baseline: 256 pre-existing failure(s) suppressed (see tools/check-repo-baseline.json; run with --full to see everything)\n\n  PASS — no new failures (256 baselined).\n',
+    expected: '',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:96:3
+✖ check-repo.js carries a gate instant and a vocabulary instant that are UTC instants no later than now (1691.544713ms)
+  SyntaxError: Unexpected token 'l', "  links: 837"... is not valid JSON
+      at JSON.parse (<anonymous>)
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-13/tools/recordEntrypoints.test.js:99:32)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at tools/recordEntrypoints.test.js:113:3
+✖ check-repo.js passes the committed record with its baseline, every baselined failure predating the move (23.386743ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /PASS — no new failures \(\d+ baselined\)\./. Input:
+  
+  ''
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-13/tools/recordEntrypoints.test.js:116:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: /PASS — no new failures \(\d+ baselined\)\./,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:120:3
+✖ check-repo.js reaches the engine in status mode with this record's settings (22.654269ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /open handoffs:/. Input:
+  
+  ''
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-13/tools/recordEntrypoints.test.js:123:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: /open handoffs:/,
+    operator: 'match',
+    diff: 'simple'
+  }

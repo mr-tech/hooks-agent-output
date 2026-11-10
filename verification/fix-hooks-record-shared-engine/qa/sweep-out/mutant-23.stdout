@@ -1,0 +1,272 @@
+Note: switching to 'd96b7996525569621c6cd1315e6d9fe3ba215e23'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+▶ record entrypoints load the shared engine
+  ✔ check-repo.js exits non-zero naming the engine path and the box binding when the engine is absent (27.626974ms)
+  ✔ check-repo.js exits 2 naming the engine-side install command when js-yaml cannot load (54.369241ms)
+  ✔ check-repo.js loads the engine the override names, and the live engine without it (151.444057ms)
+  ✔ requiring check-repo.js writes nothing, prints nothing and exits 0 (46.397567ms)
+  ✔ build-index.js exits non-zero naming the engine path and the box binding when the engine is absent (32.8136ms)
+  ✔ build-index.js exits 2 naming the engine-side install command when js-yaml cannot load (54.643728ms)
+  ✔ build-index.js loads the engine the override names, and the live engine without it (162.396811ms)
+  ✔ requiring build-index.js writes nothing, prints nothing and exits 0 (45.41954ms)
+  ✔ check-repo.js carries a gate instant and a vocabulary instant that are UTC instants no later than now (27.902145ms)
+  ✖ check-repo.js raises no basename failure for the root and probe .gitignore files or the verification probe folders (1645.244143ms)
+  ✖ check-repo.js passes the committed record with its baseline, every baselined failure predating the move (1650.489549ms)
+  ✔ check-repo.js reaches the engine in status mode with this record's settings (124.463868ms)
+  ✔ build-index.js --tracked --check reads the committed tree through the engine (143.062945ms)
+✖ record entrypoints load the shared engine (4724.57398ms)
+ℹ tests 13
+ℹ suites 1
+ℹ pass 11
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4783.835829
+
+✖ failing tests:
+
+test at tools/recordEntrypoints.test.js:105:3
+✖ check-repo.js raises no basename failure for the root and probe .gitignore files or the verification probe folders (1645.244143ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /verification\//. Input:
+  
+  '  BASENAMES — 9 failure(s)\n' +
+    "    'README.md' appears 71 times:\n" +
+    '        README.md\n' +
+    '        qa/README.md\n' +
+    '        user-files/README.md\n' +
+    '        verification/012/README.md\n' +
+    '        verification/012/guidance-class-route-a/README.md\n' +
+    '        verification/012/probe-alias-resolution/README.md\n' +
+    '        verification/012/probe-cr2-h3-persist-ordering/README.md\n' +
+    '        verification/012/probe-cr2-modeswitch-differential/README.md\n' +
+    '        verification/012/probe-cr2-require-esm/README.md\n' +
+    '        verification/012/probe-cr3-h3-and-default-target/README.md\n' +
+    '        verification/012/probe-cr4-guard-attack/README.md\n' +
+    '        verification/012/probe-cr5-override-guard/README.md\n' +
+    '        verification/012/probe-cr6-dial-target/README.md\n' +
+    '        verification/012/probe-cr7-tracked-spec-typecheck/README.md\n' +
+    '        verification/012/probe-fix-round-h1-h2/README.md\n' +
+    '        verification/012/probe-fixround2-h3/README.md\n' +
+    '        verification/012/probe-fixround3-m4-and-m5/README.md\n' +
+    '        verification/012/probe-fixround4-m6-l10/README.md\n' +
+    '        verification/012/probe-report-truncation/README.md\n' +
+    '        verification/012/qa-phase2-reanchor-c85945f/README.md\n' +
+    '        verification/012/scratch-subject-SCR1/README.md\n' +
+    '        verification/013/README.md\n' +
+    '        verification/013/baseline-expected-six/README.md\n' +
+    '        verification/013/probe-cr1-hash-producer-consumer/README.md\n' +
+    '        verification/013/probe-cr10-notice-guard/README.md\n' +
+    '        verification/013/probe-cr11-guard-closure/README.md\n' +
+    '        verification/013/probe-cr12-load-confirmation/README.md\n' +
+    '        verification/013/probe-cr13-overwrite-closure/README.md\n' +
+    '        verification/013/probe-cr14-env-precedence/README.md\n' +
+    '        verification/013/probe-cr15-unload-guard/README.md\n' +
+    '        verification/013/probe-cr16-persist-gate/README.md\n' +
+    '        verification/013/probe-cr17-ingress/README.md\n' +
+    '        verification/013/probe-cr18-loadgate-choice/README.md\n' +
+    '        verification/013/probe-cr19-loadgate-fix/README.md\n' +
+    '        verification/013/probe-cr2-m1bc-extraction-equivalence/README.md\n' +
+    '        verification/013/probe-cr20-item7-discharge/README.md\n' +
+    '        verification/013/probe-cr21-fqa15-closure/README.md\n' +
+    '        verification/013/probe-cr22-render-instrument-nonvacuity/README.md\n' +
+    '        verification/013/probe-cr23-paste-surface-nonvacuity/README.md\n' +
+    '        verification/013/probe-cr24-drift-loudness/README.md\n' +
+    '        verification/013/probe-cr3-mode-predicate/README.md\n' +
+    '        verification/013/probe-cr4-disposition-gate/README.md\n' +
+    '        verification/013/probe-cr4-disposition-gate/gates/README.md\n' +
+    '        verification/013/probe-cr5-application-half/README.md\n' +
+    '        verification/013/probe-cr6-derivation-round/README.md\n' +
+    '        verification/013/probe-cr7-wiring-and-boundary/README.md\n' +
+    '        verification/013/probe-cr8-deletion-coverage/README.md\n' +
+    '        verification/013/probe-cr9-paste-surface/README.md\n' +
+    '        verification/013/probe-preexisting-seed-route/README.md\n' +
+    '        verification/013/probe-qa-bc4-json-tab-fixture/README.md\n' +
+    '        verification/013/probe-qa-criteria-rev49-rev50/README.md\n' +
+    '        verification/013/probe-qa-p2-med6-loadgate/README.md\n' +
+    '        verification/013/probe-qa-p2-rowd-load-gate/README.md\n' +
+    '        verification/013/probe-qa-p3-delimiter-class-sweep/README.md\n' +
+    '        verification/013/probe-qa-p3-fixverify/README.md\n' +
+    '        verification/013/probe-qa-p3-render-instrument-reduction/README.md\n' +
+    '        verification/013/probe-qa-p3-stale-prediction-differential/README.md\n' +
+    '        verification/013/probe-qa-paste-surface-render/README.md\n' +
+    '        verification/013/probe-qa-release-tip-b56570d/README.md\n' +
+    '        verification/013/probe-qa-toast-vessel-render/README.md\n' +
+    '        verification/013/probe-qa-verify-rider2/README.md\n' +
+    '        verification/014/README.md\n' +
+    '        verification/014/code-review-m2/README.md\n' +
+    '        verification/014/qa-phase1/README.md\n' +
+    '        verification/014/qa-phase2/README.md\n' +
+    '        verification/015/critic-m5h-render-probes/README.md\n' +
+    '        verification/015/d28-folder-switch/README.md\n' +
+    '        verification/015/m3-chrome-read/README.md\n' +
+    '        verification/015/qa-rekey-rev28/README.md\n' +
+    '        verification/015/uat/README.md\n' +
+    '        verification/README.md\n' +
+    "    '008-sub-component-crud-actions.md' appears 5 times:\n" +
+    '        code-review/closed/008-sub-component-crud-actions.md\n' +
+    '        implementation/closed/008-sub-component-crud-actions.md\n' +
+    '        planning/closed/008-sub-component-crud-actions.md\n' +
+    '        qa/closed/008-sub-component-crud-actions.md\n' +
+    '        uat/closed/008-sub-component-crud-actions.md\n' +
+    "    '001-components-v2-state-management.md' appears 2 times:\n" +
+    '        implementation/closed/001-components-v2-state-management.md\n' +
+    '        planning/closed/001-components-v2-state-management.md\n' +
+    "    '003-actions-menu-critique-remediation.md' appears 2 times:\n" +
+    '        implementation/closed/003-actions-menu-critique-remediation.md\n' +
+    '        planning/closed/003-actions-menu-critique-remediation.md\n' +
+    "    '005-user-reported-bug-fixes.md' appears 2 times:\n" +
+    '        implementation/closed/005-user-reported-bug-fixes.md\n' +
+    '        planning/closed/005-user-reported-bug-fixes.md\n' +
+    "    '006-avatar-undefined-hotfix.md' appears 2 times:\n" +
+    '        implementation/closed/006-avatar-undefined-hotfix.md\n' +
+    '        planning/closed/006-avatar-undefined-hotfix.md\n' +
+    "    '007-components-v2-displayable-text-limit.md' appears 2 times:\n" +
+    '        implementation/closed/007-components-v2-displayable-text-limit.md\n' +
+    '        planning/closed/007-components-v2-displayable-text-limit.md\n' +
+    "    '009-send-page-hasloaded-fix.md' appears 2 times:\n" +
+    '        implementation/closed/009-send-page-hasloaded-fix.md\n' +
+    '        planning/closed/009-send-page-hasloaded-fix.md\n' +
+    "    '010-infopanel-overlap-fix.md' appears 2 times:\n" +
+    '        implementation/closed/010-infopanel-overlap-fix.md\n' +
+    '        planning/closed/010-infopanel-overlap-fix.md'
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-23/tools/recordEntrypoints.test.js:110:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "  BASENAMES — 9 failure(s)\n    'README.md' appears 71 times:\n        README.md\n        qa/README.md\n        user-files/README.md\n        verification/012/README.md\n        verification/012/guidance-class-route-a/README.md\n        verification/012/probe-alias-resolution/README.md\n        verification/012/probe-cr2-h3-persist-ordering/README.md\n        verification/012/probe-cr2-modeswitch-differential/README.md\n        verification/012/probe-cr2-require-esm/README.md\n        verification/012/probe-cr3-h3-and-default-target/README.md\n        verification/012/probe-cr4-guard-attack/README.md\n        verification/012/probe-cr5-override-guard/README.md\n        verification/012/probe-cr6-dial-target/README.md\n        verification/012/probe-cr7-tracked-spec-typecheck/README.md\n        verification/012/probe-fix-round-h1-h2/README.md\n        verification/012/probe-fixround2-h3/README.md\n        verification/012/probe-fixround3-m4-and-m5/README.md\n        verification/012/probe-fixround4-m6-l10/README.md\n        verification/012/probe-report-truncation/README.md\n        verification/012/qa-phase2-reanchor-c85945f/README.md\n        verification/012/scratch-subject-SCR1/README.md\n        verification/013/README.md\n        verification/013/baseline-expected-six/README.md\n        verification/013/probe-cr1-hash-producer-consumer/README.md\n        verification/013/probe-cr10-notice-guard/README.md\n        verification/013/probe-cr11-guard-closure/README.md\n        verification/013/probe-cr12-load-confirmation/README.md\n        verification/013/probe-cr13-overwrite-closure/README.md\n        verification/013/probe-cr14-env-precedence/README.md\n        verification/013/probe-cr15-unload-guard/README.md\n        verification/013/probe-cr16-persist-gate/README.md\n        verification/013/probe-cr17-ingress/README.md\n        verification/013/probe-cr18-loadgate-choice/README.md\n        verification/013/probe-cr19-loadgate-fix/README.md\n        verification/013/probe-cr2-m1bc-extraction-equivalence/README.md\n        verification/013/probe-cr20-item7-discharge/README.md\n        verification/013/probe-cr21-fqa15-closure/README.md\n        verification/013/probe-cr22-render-instrument-nonvacuity/README.md\n        verification/013/probe-cr23-paste-surface-nonvacuity/README.md\n        verification/013/probe-cr24-drift-loudness/README.md\n        verification/013/probe-cr3-mode-predicate/README.md\n        verification/013/probe-cr4-disposition-gate/README.md\n        verification/013/probe-cr4-disposition-gate/gates/README.md\n        verification/013/probe-cr5-application-half/README.md\n        verification/013/probe-cr6-derivation-round/README.md\n        verification/013/probe-cr7-wiring-and-boundary/README.md\n        verification/013/probe-cr8-deletion-coverage/README.md\n        verification/013/probe-cr9-paste-surface/README.md\n        verification/013/probe-preexisting-seed-route/README.md\n        verification/013/probe-qa-bc4-json-tab-fixture/README.md\n        verification/013/probe-qa-criteria-rev49-rev50/README.md\n        verification/013/probe-qa-p2-med6-loadgate/README.md\n        verification/013/probe-qa-p2-rowd-load-gate/README.md\n        verification/013/probe-qa-p3-delimiter-class-sweep/README.md\n        verification/013/probe-qa-p3-fixverify/README.md\n        verification/013/probe-qa-p3-render-instrument-reduction/README.md\n        verification/013/probe-qa-p3-stale-prediction-differential/README.md\n        verification/013/probe-qa-paste-surface-render/README.md\n        verification/013/probe-qa-release-tip-b56570d/README.md\n        verification/013/probe-qa-toast-vessel-render/README.md\n        verification/013/probe-qa-verify-rider2/README.md\n        verification/014/README.md\n        verification/014/code-review-m2/README.md\n        verification/014/qa-phase1/README.md\n        verification/014/qa-phase2/README.md\n        verification/015/critic-m5h-render-probes/README.md\n        verification/015/d28-folder-switch/README.md\n        verification/015/m3-chrome-read/README.md\n        verification/015/qa-rekey-rev28/README.md\n        verification/015/uat/README.md\n        verification/README.md\n    '008-sub-component-crud-actions.md' appears 5 times:\n        code-review/closed/008-sub-component-crud-actions.md\n        implementation/closed/008-sub-component-crud-actions.md\n        planning/closed/008-sub-component-crud-actions.md\n        qa/closed/008-sub-component-crud-actions.md\n        uat/closed/008-sub-component-crud-actions.md\n    '001-components-v2-state-management.md' appears 2 times:\n        implementation/closed/001-components-v2-state-management.md\n        planning/closed/001-components-v2-state-management.md\n    '003-actions-menu-critique-remediation.md' appears 2 times:\n        implementation/closed/003-actions-menu-critique-remediation.md\n        planning/closed/003-actions-menu-critique-remediation.md\n    '005-user-reported-bug-fixes.md' appears 2 times:\n        implementation/closed/005-user-reported-bug-fixes.md\n        planning/closed/005-user-reported-bug-fixes.md\n    '006-avatar-undefined-hotfix.md' appears 2 times:\n        implementation/closed/006-avatar-undefined-hotfix.md\n        planning/closed/006-avatar-undefined-hotfix.md\n    '007-components-v2-displayable-text-limit.md' appears 2 times:\n        implementation/closed/007-components-v2-displayable-text-limit.md\n        planning/closed/007-components-v2-displayable-text-limit.md\n    '009-send-page-hasloaded-fix.md' appears 2 times:\n        implementation/closed/009-send-page-hasloaded-fix.md\n        planning/closed/009-send-page-hasloaded-fix.md\n    '010-infopanel-overlap-fix.md' appears 2 times:\n        implementation/closed/010-infopanel-overlap-fix.md\n        planning/closed/010-infopanel-overlap-fix.md",
+    expected: /verification\//,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:113:3
+✖ check-repo.js passes the committed record with its baseline, every baselined failure predating the move (1650.489549ms)
+  AssertionError [ERR_ASSERTION]:   links: 837 in-repo citations checked across 291 documents; 377 resolved across a closure (open↔closed identity); 14 external (sibling-repo) links noted but not verified; 11 deliberately suppressed; 0 backticked, unverified
+    basenames: 1965 distinct, 9 unexpected collisions, 21 shared only across different verification/ folders (allowed), 1 declared exceptions
+    origin-uuid: 3 Origin group(s) with an open document read
+    frontmatter: 188 documents carry frontmatter, 16 distinct chains
+    scope suffixes: 0 document(s) carry one, all validated against their plan
+    duplicate-id: 1 Rev or D table(s) read in 133 open document(s)
+    handoff-priority: 1 handoff(s) carrying a Priority field checked
+    index: stale (node tools/build-index.js --tracked --check)
+    out-of-scope: 0 milestone block(s) in 0 open plan(s) read
+    changelog-rows: gate tree 7b4419a; 1 file(s) with judged lines of 291 markdown file(s); 2 changelog row(s) and 2 heading(s) judged
+    changelog-future-timestamp: 466 table row(s) with a timestamp-shaped first cell checked
+    status-length: 33 non-closed document(s) with a Status field checked
+    terminal-status-negated-act: 0 document(s) with a terminal-looking Status checked
+    status-vocabulary: 32 document(s) checked against seam.js --vocabulary (0 closed since the vocabulary instant)
+  
+    INDEX — 1 warning(s)
+      INDEX.md is stale — run `node tools/build-index.js --tracked` and commit it.
+  
+    baseline: 256 pre-existing failure(s) suppressed (see tools/check-repo-baseline.json; run with --full to see everything)
+  
+    BASENAMES — 1 failure(s)
+      'README.md' appears 71 times:
+          README.md
+          qa/README.md
+          user-files/README.md
+          verification/012/README.md
+          verification/012/guidance-class-route-a/README.md
+          verification/012/probe-alias-resolution/README.md
+          verification/012/probe-cr2-h3-persist-ordering/README.md
+          verification/012/probe-cr2-modeswitch-differential/README.md
+          verification/012/probe-cr2-require-esm/README.md
+          verification/012/probe-cr3-h3-and-default-target/README.md
+          verification/012/probe-cr4-guard-attack/README.md
+          verification/012/probe-cr5-override-guard/README.md
+          verification/012/probe-cr6-dial-target/README.md
+          verification/012/probe-cr7-tracked-spec-typecheck/README.md
+          verification/012/probe-fix-round-h1-h2/README.md
+          verification/012/probe-fixround2-h3/README.md
+          verification/012/probe-fixround3-m4-and-m5/README.md
+          verification/012/probe-fixround4-m6-l10/README.md
+          verification/012/probe-report-truncation/README.md
+          verification/012/qa-phase2-reanchor-c85945f/README.md
+          verification/012/scratch-subject-SCR1/README.md
+          verification/013/README.md
+          verification/013/baseline-expected-six/README.md
+          verification/013/probe-cr1-hash-producer-consumer/README.md
+          verification/013/probe-cr10-notice-guard/README.md
+          verification/013/probe-cr11-guard-closure/README.md
+          verification/013/probe-cr12-load-confirmation/README.md
+          verification/013/probe-cr13-overwrite-closure/README.md
+          verification/013/probe-cr14-env-precedence/README.md
+          verification/013/probe-cr15-unload-guard/README.md
+          verification/013/probe-cr16-persist-gate/README.md
+          verification/013/probe-cr17-ingress/README.md
+          verification/013/probe-cr18-loadgate-choice/README.md
+          verification/013/probe-cr19-loadgate-fix/README.md
+          verification/013/probe-cr2-m1bc-extraction-equivalence/README.md
+          verification/013/probe-cr20-item7-discharge/README.md
+          verification/013/probe-cr21-fqa15-closure/README.md
+          verification/013/probe-cr22-render-instrument-nonvacuity/README.md
+          verification/013/probe-cr23-paste-surface-nonvacuity/README.md
+          verification/013/probe-cr24-drift-loudness/README.md
+          verification/013/probe-cr3-mode-predicate/README.md
+          verification/013/probe-cr4-disposition-gate/README.md
+          verification/013/probe-cr4-disposition-gate/gates/README.md
+          verification/013/probe-cr5-application-half/README.md
+          verification/013/probe-cr6-derivation-round/README.md
+          verification/013/probe-cr7-wiring-and-boundary/README.md
+          verification/013/probe-cr8-deletion-coverage/README.md
+          verification/013/probe-cr9-paste-surface/README.md
+          verification/013/probe-preexisting-seed-route/README.md
+          verification/013/probe-qa-bc4-json-tab-fixture/README.md
+          verification/013/probe-qa-criteria-rev49-rev50/README.md
+          verification/013/probe-qa-p2-med6-loadgate/README.md
+          verification/013/probe-qa-p2-rowd-load-gate/README.md
+          verification/013/probe-qa-p3-delimiter-class-sweep/README.md
+          verification/013/probe-qa-p3-fixverify/README.md
+          verification/013/probe-qa-p3-render-instrument-reduction/README.md
+          verification/013/probe-qa-p3-stale-prediction-differential/README.md
+          verification/013/probe-qa-paste-surface-render/README.md
+          verification/013/probe-qa-release-tip-b56570d/README.md
+          verification/013/probe-qa-toast-vessel-render/README.md
+          verification/013/probe-qa-verify-rider2/README.md
+          verification/014/README.md
+          verification/014/code-review-m2/README.md
+          verification/014/qa-phase1/README.md
+          verification/014/qa-phase2/README.md
+          verification/015/critic-m5h-render-probes/README.md
+          verification/015/d28-folder-switch/README.md
+          verification/015/m3-chrome-read/README.md
+          verification/015/qa-rekey-rev28/README.md
+          verification/015/uat/README.md
+          verification/README.md
+  
+    FAIL — 1 problem(s) (257 total, 256 baselined).
+  
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-23/tools/recordEntrypoints.test.js:115:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

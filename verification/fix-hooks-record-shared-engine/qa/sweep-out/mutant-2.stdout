@@ -1,0 +1,60 @@
+Note: switching to 'd96b7996525569621c6cd1315e6d9fe3ba215e23'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+▶ record entrypoints load the shared engine
+  ✔ check-repo.js exits non-zero naming the engine path and the box binding when the engine is absent (28.150169ms)
+  ✔ check-repo.js exits 2 naming the engine-side install command when js-yaml cannot load (59.190291ms)
+  ✔ check-repo.js loads the engine the override names, and the live engine without it (149.267113ms)
+  ✔ requiring check-repo.js writes nothing, prints nothing and exits 0 (260.024337ms)
+  ✖ build-index.js exits non-zero naming the engine path and the box binding when the engine is absent (25.106787ms)
+  ✔ build-index.js exits 2 naming the engine-side install command when js-yaml cannot load (54.336727ms)
+  ✔ build-index.js loads the engine the override names, and the live engine without it (161.430582ms)
+  ✔ requiring build-index.js writes nothing, prints nothing and exits 0 (49.605955ms)
+  ✔ check-repo.js carries a gate instant and a vocabulary instant that are UTC instants no later than now (35.395502ms)
+  ✔ check-repo.js raises no basename failure for the root and probe .gitignore files or the verification probe folders (1684.97302ms)
+  ✔ check-repo.js passes the committed record with its baseline, every baselined failure predating the move (1691.967029ms)
+  ✔ check-repo.js reaches the engine in status mode with this record's settings (128.584336ms)
+  ✔ build-index.js --tracked --check reads the committed tree through the engine (147.276404ms)
+✖ record entrypoints load the shared engine (5143.660961ms)
+ℹ tests 13
+ℹ suites 1
+ℹ pass 12
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5206.649281
+
+✖ failing tests:
+
+test at tools/recordEntrypoints.test.js:59:5
+✖ build-index.js exits non-zero naming the engine path and the box binding when the engine is absent (25.106787ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 2
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work/mutant-2/tools/recordEntrypoints.test.js:62:14)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

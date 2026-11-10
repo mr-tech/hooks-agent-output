@@ -1,0 +1,100 @@
+[
+ {
+  "plant": "control",
+  "exit": 0
+ },
+ {
+  "plant": "P1 broken link, open chain document",
+  "expect": "CAUGHT",
+  "outcome": "CAUGHT",
+  "exit": 1,
+  "new_lines": [
+   "implementation/fix-hooks-record-shared-engine-implementation.md:226  ->  ../planning/no-such-plan.md   (markdown-link, resolves to planning/no-such-plan.md)"
+  ]
+ },
+ {
+  "plant": "P2 broken link, closed chain-014 document",
+  "expect": "CAUGHT",
+  "outcome": "CAUGHT",
+  "exit": 1,
+  "new_lines": [
+   "planning/closed/014-test-suite-cleanup.md:265  ->  ../no-such-dir/no-such.md   (markdown-link, resolves to planning/no-such-dir/no-such.md)"
+  ]
+ },
+ {
+  "plant": "P3 new broken link in a baselined pre-012 document",
+  "expect": "CAUGHT",
+  "outcome": "CAUGHT",
+  "exit": 1,
+  "new_lines": [
+   "planning/closed/008-sub-component-crud-actions.md:193  ->  no-such-planted.md   (markdown-link, resolves to planning/closed/no-such-planted.md)"
+  ]
+ },
+ {
+  "plant": "P4 duplicate document name in two stage directories",
+  "expect": "CAUGHT",
+  "outcome": "CAUGHT",
+  "exit": 1,
+  "new_lines": [
+   "steering/014-test-suite-cleanup.md",
+   "steering/014-test-suite-cleanup.md: Status begins 'Released' but frontmatter contains 'NOT EXECUTED'"
+  ]
+ },
+ {
+  "plant": "P5 third .gitignore outside the two exempted paths",
+  "expect": "CAUGHT",
+  "outcome": "CAUGHT",
+  "exit": 1,
+  "new_lines": [
+   "user-files/.gitignore"
+  ]
+ },
+ {
+  "plant": "P6 name shared by a verification/ file and a file outside verification/",
+  "expect": "CAUGHT",
+  "outcome": "CAUGHT",
+  "exit": 1,
+  "new_lines": [
+   "'planted-shared.md' appears 2 times:",
+   "steering/planted-shared.md",
+   "verification/015/planted-shared.md"
+  ]
+ },
+ {
+  "plant": "P7 bad ID: not three digits",
+  "expect": "CAUGHT",
+  "outcome": "CAUGHT",
+  "exit": 1,
+  "new_lines": [
+   "qa/closed/014-test-suite-cleanup-qa.md: ID '14' is not three-digit zero-padded",
+   "qa/closed/014-test-suite-cleanup-qa.md: filename says 014 but ID says 14"
+  ]
+ },
+ {
+  "plant": "P8 bad ID: disagrees with the filename",
+  "expect": "CAUGHT",
+  "outcome": "CAUGHT",
+  "exit": 1,
+  "new_lines": [
+   "analysis/closed/014-test-suite-cleanup-analysis.md: filename says 014 but ID says 015"
+  ]
+ },
+ {
+  "plant": "P9 a fifth document with no stage suffix",
+  "expect": "CAUGHT",
+  "outcome": "CAUGHT",
+  "exit": 1,
+  "new_lines": [
+   "deployment/closed/015-planted-readiness.md: filename says 015 but ID says 014",
+   "deployment/closed/015-planted-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)",
+   "deployment/closed/015-planted-readiness.md: Status 'Superseded by 014-test-suite-cleanup-deployment.md \u2014 release' is not one of Active | Committed | Released | Abandoned | Superseded"
+  ]
+ },
+ {
+  "plant": "P10 name shared only across two verification/ folders (engine rule: allowed)",
+  "expect": "ALLOWED",
+  "outcome": "ALLOWED",
+  "exit": 0,
+  "new_lines": []
+ }
+]
