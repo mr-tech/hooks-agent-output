@@ -7,7 +7,7 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-211 documents · 15 numbered chains · 72 unnumbered.
+212 documents · 15 numbered chains · 73 unnumbered.
 
 ---
 
@@ -290,6 +290,7 @@ they are the ID-less artifacts that root new efforts.
 | steering | `steering/015-security-brief.md` | — |
 | steering | `steering/chore-agent-comment-sweep-rulings.md` | — |
 | steering | `steering/cleanup-2026-11-10.md` | — |
+| steering | `steering/record-tools-shared-engine-rulings.md` | — |
 | steering | `steering/v1-guild-messages-auth-rulings.md` | — |
 | UAT | `uat/closed/004-lazy-loading-preload-overhaul-uat.md` | — |
 | verification | `verification/012/backfill-report-1787522824426-i0womw.md` | — |
@@ -503,6 +504,7 @@ they are the ID-less artifacts that root new efforts.
 | `providers-query-params-header-decode-throws-2026-11-08.md` | `handoff/providers-query-params-header-decode-throws-2026-11-08.md` |
 | `qa-014-bc7-closing-observation-and-test-inventory-2026-11-10.md` | `handoff/qa-014-bc7-closing-observation-and-test-inventory-2026-11-10.md` |
 | `README-code-review-instruments.md` | `verification/013/README-code-review-instruments.md` |
+| `record-tools-shared-engine-rulings.md` | `steering/record-tools-shared-engine-rulings.md` |
 | `release-4a7126b-tip-verification.md` | `qa/closed/release-4a7126b-tip-verification.md` |
 | `release-b56570d-tip-verification.md` | `qa/closed/release-b56570d-tip-verification.md` |
 | `report.md` | `verification/015/d28-seed-probes/report.md` |
