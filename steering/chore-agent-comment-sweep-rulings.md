@@ -11,3 +11,40 @@ merge-base == f2c85f5; one commit 9cefc7d ahead, so a fast-forward; diff 34 file
 line is its removed line with a trailing comment stripped (diff written to a file, then grepped);
 no `.github` in master (on disk and via `ls-tree`); `vercel.json` present, Vercel integration
 unverified; no hooks devops process in the /proc sweep.
+
+## 2026-11-10T09:40Z — "merge it"
+Owner's words, verbatim, to steering-cleanup-hooks, answering its report that
+`chore/agent-comment-sweep` is not merged (website `9cefc7d`, one commit, local only). This reopens
+the 2026-10-10 Hold. His words name the merge into `master`; they do not name a push. The 2026-10-10
+push answer was "Local only", by selection; the production push stays a separate question, put by the
+devops session in its own session.
+
+### Scoping determination (agent-authored; he vetoes from this record)
+- **Shape.** Hygiene: one commit removing agent-authored source comments from 34 files (+14/−446
+  against `f2c85f5`, `git diff --shortstat`). No behaviour change is intended.
+- **Why it is not a plain merge.** `master` is 62 commits past the branch's base (`git rev-list
+  --count chore/agent-comment-sweep..master`). A trial merge (`git merge-tree --write-tree master
+  chore/agent-comment-sweep`, nothing written to the tree) exits 1 with content conflicts in
+  `src/server/api/utils/shapes.ts` and `src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts`
+  — the two files both sides changed. `release-move.js website master 9cefc7d --dry-run`: REFUSED,
+  not a fast-forward (the ref would split).
+- **Blast radius.** website only. `master` is the production line: `vercel.json` is present and the
+  2026-10-10 release went live from a push of `master`; `.github/` holds only `prompts/`, no workflows.
+- **Released chains that touched these files.** Chain 015 (released 2026-11-08) is what moved
+  `master`; its open carriers are the handoffs its Exclusions table names, none on these two files'
+  conflict (unread beyond the file list).
+- **Pipeline: the `fixer` agent, then code review, then devops.** The fixer merges `master` into the
+  branch (no rebase: the branch's history is not rewritten), resolving the two conflicts so the
+  result is `master`'s code with the sweep's comment removals and nothing else. Code review at that
+  SHA; the change adds fewer than 20 production lines, so the reviewer also runs the suite and no
+  QA Phase 2 runs. Then a devops session fast-forwards `master` to the reviewed tip locally and
+  asks him, in its own session, about the production push. No plan, critic, Phase 1, UAT.
+- **Bounded scope.** In: the merge commit on `chore/agent-comment-sweep`, the two conflicted files'
+  resolution, removing agent-authored comments in lines the sweep already touched. Out: any code
+  change, any comment sweep of files chain 015 added since, `project-utils`,
+  `preview-image-generator`, a push.
+- **Tree.** website was on `master`, clean (0 lines of `git status --porcelain`, read through a
+  file); this thread checks out `chore/agent-comment-sweep` now, as the fix branch.
+- **Sessions** (category `chore-agent-comment-sweep`, spawned at `/usr/local/bin/hooks`):
+  `fixer-hooks-comment-sweep`, `code-reviewer-hooks-comment-sweep`; `devops-hooks-comment-sweep`
+  when the review approves.
