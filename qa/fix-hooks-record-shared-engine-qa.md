@@ -2,9 +2,9 @@
 ID: n/a
 Origin: fix-hooks-record-shared-engine
 UUID: 2b33b8c9
-Verified-At: e44a867 — repos=agent-output; tools identical to Handoff-At 7dab510 (git diff --stat 7dab510 e44a867 -- tools README.md empty); engine ~/.claude/tools a34093d, record-engine.js sha256 9c1a94ac…, seam.js cddce599…, both clean
-Status: QA Failed
-Status-Detail: "Phase 2 at e44a867: QAF-1 MEDIUM blocks (two settings with a stated purpose have no failing assertion). Owed: fixer round, then a survivor-scoped re-run here."
+Verified-At: c444457 — repos=agent-output; production source identical to Handoff-At fdab24b and 7dab510 (the fdab24b round touched tools/recordEntrypoints.test.js only); engine ~/.claude/tools a34093d, record-engine.js sha256 9c1a94ac…, seam.js cddce599…, both clean
+Status: QA Complete
+Status-Detail: "Phase 2 PASS at c444457. The fixer's REVIEW-marker flip expires it; a refresh here precedes steering's push."
 Phase: 2
 ---
 
@@ -20,6 +20,7 @@ Phase: 2
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-10T09:19 | code-reviewer-hooks-record-engine (SendMessage: APPROVED_WITH_COMMENTS at d96b799, then sub-entry 1.1 at 7dab510) | QA Phase 2 | Phase 2: QA Failed at e44a867. Suite 14/14 exit 0; check exits 0; planted defects 9/9 caught; baseline 256/256 predates the move; sweep 23/27 killed, 4 survivors; QAF-1 MEDIUM raised. Steering's brief arrived first. |
+| 2026-11-10T09:27 | code-reviewer-hooks-record-engine (SendMessage: sub-entry 1.2 at fdab24b, test-only) | QAF-1 re-run | Phase 2: QA Complete at c444457. Suite 15/15 exit 0; check exit 0; 3/3 named survivors killed; QAF-1 RESOLVED. |
 
 ## Process note
 
@@ -108,11 +109,26 @@ Seen-red per case (round 0; computed from `sweep-out/kill-table.json` against th
 
 ## Findings
 
-QAF-1 MEDIUM Phase 2 — Two settings with a stated purpose have no assertion that fails when they are lost: `documentRules` and `releaseJoinExemption` in `tools/check-repo.js` `SETTINGS`.
-- **Property to check.** (a) The README § `tools/` (as corrected in Round 1) and the implementation document state that `documentRules: true` arms origin-uuid, duplicate-id and handoff-priority on this record. The suite passes 14/14 with it set to `false`. (b) The implementation document states that `releaseJoinExemption: true` is "kept so a future release-tip record with `ID: none` passes". The suite passes 14/14 with it set to `false`, and the QA probe above shows the setting decides that case.
-- **Failure scenario.** A later edit drops either setting. The default check still exits 0 on today's record, and the three document rules, or the release-record exemption, silently stop applying. The first symptom is a missed duplicate R-n/D-n, or a Phase 3 record failing the check.
-- **Severity floor.** These are behaviours the change claims, with no failing assertion (qa.md Deliverables), so the finding is MEDIUM and blocks the verdict.
-- **Remedy (fixer's).** Tighten an existing case before adding one (workspace convention, "Before adding a test"). For (a), assert in the whole-record or `--status`-reaching case that the output carries the armed notes (`origin-uuid: N Origin group(s)`, and `duplicate-id:` and `handoff-priority:` lines without "not armed"). For (b), a case that plants a `release-*` file with `ID: none` in the test's own clone and asserts no FRONTMATTER failure for it. Each is to be seen red under its mutant: `check-repo.js:20:true`, and `check-repo.js:22:true`/`hand-14`, in `verification/fix-hooks-record-shared-engine/qa/mutants-survivors-at-e44a867.json`.
+QAF-1 MEDIUM Phase 2 RESOLVED — `documentRules` and `releaseJoinExemption` had no failing assertion. Fixed at fdab24b: the whole-record case now asserts the armed notes, and a new case covers a release-tip record with `ID: none`. All three named survivors were killed at c444457 (§ Re-run at c444457). The argument stays in 7712cb3.
+
+### Re-run at c444457 (QAF-1 round)
+
+Round diff `git diff --stat 7dab510 fdab24b -- tools README.md`: `tools/recordEntrypoints.test.js` only, with no production change. So only the survivors it closes are re-run (`check-repo.js:20:true`, `check-repo.js:22:true`, `hand-14`; hand-8 stays equivalent). The run was executed by a helper.
+
+| Run | Tree | Result | Capture (under `verification/fix-hooks-record-shared-engine/qa/`) |
+|---|---|---|---|
+| Suite | c444457 | 15 tests, 15 pass, 0 fail, **exit 0** | `suite-at-c444457.txt` |
+| Default check | c444457 | **exit 0**, "PASS — no new failures (256 baselined)." | `check-default-at-c444457.txt` |
+| Survivors (suite blob at c444457) | c444457 | 3 of 3 killed, control 15/15 exit 0. `check-repo.js:20:true` reddens the whole-record case; `check-repo.js:22:true` and `hand-14` redden the release-tip case. | `mutants-survivors-at-c444457.json`, `sweep-out-survivors-at-c444457/kill-table.json` |
+| Engine identity | at run | record-engine.js 9c1a94ac…, seam.js cddce599…, a34093d, clean | `engine-identity-at-c444457.txt` |
+
+Final sweep tally: "27 mutants over `tools/` lines added in 7b4419a..d96b799 plus 14 hand mutants, excluding string literals: 26 killed, 1 equivalent (hand-8), 0 surviving". It is read across the round-0 table and the c444457 re-run, with the code reviewer's sub-entry 1.2 probes (`code-review/qaf1-probe-*-at-fdab24b.txt`) as the second instrument for the same two kills. The new test titles carry no ID token.
+
+## Verdict
+
+**PASS — QA Complete at c444457.** All five criteria are met: exit 0, planted defects caught, the baseline predates the move and is in its classes, `--status` and the index behave as documented, and every setting and guard the change introduces has a failing assertion.
+
+**Freshness.** Flipping the `REVIEW` constants to `'reviewed'` (implementation document, "Review marker") changes production source and expires this verdict. Before steering's push, a refresh here re-runs the suite and the default check at the flipped tree, and confirms with `git diff` that the only change is the two `REVIEW` strings.
 
 ### Residue (not blocking)
 
@@ -126,6 +142,5 @@ This pass assumes that the box's `~/.claude/tools` engine stays at a34093d / 9c1
 
 ## Handoff
 
-- QAF-1 goes to `fixer-hooks-record-engine`. After the fix: code review of the round, then a re-run here scoped to the round's diff and the 3 surviving mutant IDs, plus the suite and the default check at the new tip.
-- Steering: the residue above, and the Assumption Not Checked. There is no owner-needing item.
-- The `REVIEW` markers stay `pending review at 7b4419a` until a passing verdict.
+- `fixer-hooks-record-engine`: flip both `REVIEW` constants. Then this stage runs the refresh (Verdict, Freshness).
+- `steering-cleanup-hooks` receives the refreshed verdict, which it needs for the push. It also gets the residue above and the Assumption Not Checked. There is no owner-needing item.

@@ -1,0 +1,28 @@
+[
+ {
+  "id": "check-repo.js:20:true",
+  "file": "tools/check-repo.js",
+  "old": "s: true,\n ",
+  "new": "s: false,\n ",
+  "op": "true",
+  "line": 20,
+  "text": "documentRules: true,"
+ },
+ {
+  "id": "check-repo.js:22:true",
+  "file": "tools/check-repo.js",
+  "old": "n: true,\n ",
+  "new": "n: false,\n ",
+  "op": "true",
+  "line": 22,
+  "text": "releaseJoinExemption: true,"
+ },
+ {
+  "id": "hand-14",
+  "file": "tools/check-repo.js",
+  "old": "releaseJoinExemption: true",
+  "new": "releaseJoinExemption: false",
+  "op": "hand",
+  "why": "release-join exemption off"
+ }
+]

@@ -1,0 +1,65 @@
+▶ record entrypoints load the shared engine
+  ✔ check-repo.js exits non-zero naming the engine path and the box binding when the engine is absent (27.157288ms)
+  ✔ check-repo.js exits 2 naming the engine-side install command when js-yaml cannot load (55.510501ms)
+  ✔ check-repo.js loads the engine the override names, and the live engine without it (67.899991ms)
+  ✔ requiring check-repo.js writes nothing, prints nothing and exits 0 (266.663278ms)
+  ✔ build-index.js exits non-zero naming the engine path and the box binding when the engine is absent (27.985873ms)
+  ✔ build-index.js exits 2 naming the engine-side install command when js-yaml cannot load (58.11184ms)
+  ✔ build-index.js loads the engine the override names, and the live engine without it (70.201215ms)
+  ✔ requiring build-index.js writes nothing, prints nothing and exits 0 (56.449086ms)
+  ✔ check-repo.js carries a gate instant and a vocabulary instant that are UTC instants no later than now (29.117774ms)
+  ✔ check-repo.js raises no basename failure for the root and probe .gitignore files or the verification probe folders (1696.910137ms)
+  ✖ check-repo.js passes the committed record with its baseline, no stale baseline entry and the document rules armed (1695.701178ms)
+  ✔ check-repo.js raises no frontmatter failure for a release tip record whose ID is none (1766.213047ms)
+  ✔ every baseline entry names only documents of chains before 012 or one of the four closed documents without a stage suffix (2.558136ms)
+  ✔ check-repo.js reaches the engine in status mode with this record's settings (145.466631ms)
+  ✔ build-index.js --tracked --check reads the committed tree through the engine (174.146259ms)
+✖ record entrypoints load the shared engine (6859.937749ms)
+ℹ tests 15
+ℹ suites 1
+ℹ pass 14
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6923.220247
+
+✖ failing tests:
+
+test at tools/recordEntrypoints.test.js:117:3
+✖ check-repo.js passes the committed record with its baseline, no stale baseline entry and the document rules armed (1695.701178ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /^ {2}origin-uuid: \d+ Origin group\(s\) with an open document read$/m. Input:
+  
+  '  links: 857 in-repo citations checked across 293 documents; 377 resolved across a closure (open↔closed identity); 14 external (sibling-repo) links noted but not verified; 14 deliberately suppressed; 0 backticked, unverified\n' +
+    '  basenames: 2082 distinct, 8 unexpected collisions, 32 shared only across different verification/ folders (allowed), 2 declared exceptions\n' +
+    '  origin-uuid: not armed\n' +
+    '  frontmatter: 190 documents carry frontmatter, 15 distinct chains\n' +
+    '  scope suffixes: 0 document(s) carry one, all validated against their plan\n' +
+    "  duplicate-id: not armed (this record's settings do not enable the document rules)\n" +
+    '  handoff-priority: not armed\n' +
+    '  index: stale (node tools/build-index.js --tracked --check)\n' +
+    '  out-of-scope: 0 milestone block(s) in 0 open plan(s) read\n' +
+    '  changelog-rows: gate tree 7b4419a; 4 file(s) with judged lines of 293 markdown file(s); 12 changelog row(s) and 20 heading(s) judged\n' +
+    '  changelog-future-timestamp: 476 table row(s) with a timestamp-shaped first cell checked\n' +
+    '  status-length: 35 non-closed document(s) with a Status field checked\n' +
+    '  terminal-status-negated-act: 0 document(s) with a terminal-looking Status checked\n' +
+    '  status-vocabulary: 34 document(s) checked against seam.js --vocabulary (0 closed since the vocabulary instant)\n' +
+    '\n' +
+    '  INDEX — 1 warning(s)\n' +
+    '    INDEX.md is stale — run `node tools/build-index.js --tracked` and commit it.\n' +
+    '\n' +
+    '  baseline: 256 pre-existing failure(s) suppressed (see tools/check-repo-baseline.json; run with --full to see everything)\n' +
+    '\n' +
+    '  PASS — no new failures (256 baselined).\n'
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/430c24de-15fe-4738-9ebd-13ebd799f6bc/scratchpad/sweep-work-3/mutant-1/tools/recordEntrypoints.test.js:122:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "  links: 857 in-repo citations checked across 293 documents; 377 resolved across a closure (open↔closed identity); 14 external (sibling-repo) links noted but not verified; 14 deliberately suppressed; 0 backticked, unverified\n  basenames: 2082 distinct, 8 unexpected collisions, 32 shared only across different verification/ folders (allowed), 2 declared exceptions\n  origin-uuid: not armed\n  frontmatter: 190 documents carry frontmatter, 15 distinct chains\n  scope suffixes: 0 document(s) carry one, all validated against their plan\n  duplicate-id: not armed (this record's settings do not enable the document rules)\n  handoff-priority: not armed\n  index: stale (node tools/build-index.js --tracked --check)\n  out-of-scope: 0 milestone block(s) in 0 open plan(s) read\n  changelog-rows: gate tree 7b4419a; 4 file(s) with judged lines of 293 markdown file(s); 12 changelog row(s) and 20 heading(s) judged\n  changelog-future-timestamp: 476 table row(s) with a timestamp-shaped first cell checked\n  status-length: 35 non-closed document(s) with a Status field checked\n  terminal-status-negated-act: 0 document(s) with a terminal-looking Status checked\n  status-vocabulary: 34 document(s) checked against seam.js --vocabulary (0 closed since the vocabulary instant)\n\n  INDEX — 1 warning(s)\n    INDEX.md is stale — run `node tools/build-index.js --tracked` and commit it.\n\n  baseline: 256 pre-existing failure(s) suppressed (see tools/check-repo-baseline.json; run with --full to see everything)\n\n  PASS — no new failures (256 baselined).\n",
+    expected: /^ {2}origin-uuid: \d+ Origin group\(s\) with an open document read$/m,
+    operator: 'match',
+    diff: 'simple'
+  }

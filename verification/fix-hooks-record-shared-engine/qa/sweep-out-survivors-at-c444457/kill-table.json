@@ -1,0 +1,50 @@
+[
+ {
+  "run": "control",
+  "exit": 0,
+  "timed_out": false,
+  "tests": 15,
+  "fail": 0,
+  "failing": [],
+  "id": "control"
+ },
+ {
+  "run": "mutant-1",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 15,
+  "fail": 1,
+  "failing": [
+   "check-repo.js passes the committed record with its baseline, no stale baseline entry and the document rules armed"
+  ],
+  "id": "check-repo.js:20:true",
+  "file": "tools/check-repo.js",
+  "outcome": "KILLED"
+ },
+ {
+  "run": "mutant-2",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 15,
+  "fail": 1,
+  "failing": [
+   "check-repo.js raises no frontmatter failure for a release tip record whose ID is none"
+  ],
+  "id": "check-repo.js:22:true",
+  "file": "tools/check-repo.js",
+  "outcome": "KILLED"
+ },
+ {
+  "run": "mutant-3",
+  "exit": 1,
+  "timed_out": false,
+  "tests": 15,
+  "fail": 1,
+  "failing": [
+   "check-repo.js raises no frontmatter failure for a release tip record whose ID is none"
+  ],
+  "id": "hand-14",
+  "file": "tools/check-repo.js",
+  "outcome": "KILLED"
+ }
+]
