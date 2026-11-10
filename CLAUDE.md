@@ -61,7 +61,7 @@ token) and `JsonModalBody.load-settled-notice.test.tsx`. A name whose behaviour 
 names a review round, a milestone, or a ticket fails the check even where the shape otherwise
 matches.
 
-**ID-token class** (case-insensitive): `\b(m|ms|cr|qa|fqa|f-qa|ec|d|l|plan|rider)-?[0-9]+[a-z]?\b`,
+**ID-token class** (case-insensitive): `\b(m|ms|cr|qa|qaf|fqa|f-qa|ec|d|l|plan|rider)-?[0-9]+[a-z]?\b`,
 or a bare three-digit `0NN` number, or a `YYYY-MM-DD` date. This class names a chain, milestone,
 review round, ticket, agent handoff or calendar date — never a surface or a behaviour, so it never
 belongs in a test's identity.
