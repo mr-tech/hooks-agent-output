@@ -134,3 +134,11 @@ first document and the shell went on to move and commit all three, so two docume
 with a working `Status` for one commit; completed in the next commit.
 Residue routed: the record tests' naming convention → `TODO.md`; the engine's `verification/`
 rule and the index-format change → `~/.claude/agents/INBOX.md`.
+
+## 2026-11-10T09:38Z — thread close-out (steering-cleanup-hooks)
+Close-out commit: `3964803` (index rebuilt after the retrospective `25daf04`), pushed; `HEAD` =
+`origin/master`. The three chain sessions are stopped, the standing check is deleted, this thread's
+docket and its index line are deleted. Carriers still open: `OWNER-QUEUE.md` (five items; any
+hooks steering thread takes his answers), `OPEN_QUESTIONS.md` (five), 23 open handoffs, the
+retrospective at `Active`, and `steering/selection-ledger/2026-11-10.md`, uncommitted until its UTC
+day ends, then committed whole by whichever steering thread next stands here.
