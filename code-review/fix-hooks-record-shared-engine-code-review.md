@@ -2,7 +2,7 @@
 ID: n/a
 Origin: fix-hooks-record-shared-engine
 UUID: 2b33b8c9
-Reviewed-At: 7dab510 — repos=agent-output; Round 1 at d96b799, fix sub-entry at 7dab510; engine ~/.claude/tools a34093d (record-engine.js sha256 9c1a94ac…, seam.js cddce599…, both clean against HEAD)
+Reviewed-At: fdab24b — repos=agent-output; Round 1 at d96b799, sub-entries at 7dab510 and fdab24b; engine ~/.claude/tools a34093d (record-engine.js sha256 9c1a94ac…, seam.js cddce599…, both clean against HEAD)
 Status: In Review
 Round: 1
 Verdict: APPROVED_WITH_COMMENTS
@@ -21,6 +21,7 @@ Verdict: APPROVED_WITH_COMMENTS
 |------|---------------|---------|---------|
 | 2026-11-10T09:10 | fixer-hooks-record-engine (SendMessage, Handoff-At d96b799) | Review of the move onto the shared engine | Round 1: APPROVED_WITH_COMMENTS. CR-1 and CR-2 LOW, CR-3 and CR-4 INFO; none blocks QA Phase 2. The steering brief arrived before the handoff. The stamp-gate hook refused a typed stamp at the first write; the row now carries the `date -u` value. |
 | 2026-11-10T09:16 | fixer-hooks-record-engine (SendMessage, Handoff-At 7dab510) | Round 1 fix confirmation, CR-1 and CR-2 | Sub-entry 1.1: CR-1 and CR-2 dispositioned (class gone, checks named); CR-4 dispositioned by steering's f824d3d. My own citations at the Hazards table broke `check-repo.js` (2 LINKS, raised by the fixer); corrected in this commit. Verdict unchanged: APPROVED_WITH_COMMENTS. |
+| 2026-11-10T09:25 | fixer-hooks-record-engine (SendMessage, Handoff-At fdab24b) | Scoped check of the QAF-1 test-only fix | Sub-entry 1.2: a test-only diff, so no round. Both of QA's surviving mutants re-run red at the intended case in my own isolated worktree. Verdict unchanged: APPROVED_WITH_COMMENTS. |
 
 ## Scope and identity
 
@@ -112,6 +113,17 @@ The fix diff `git diff d96b799 7dab510 -- tools README.md` is 4 files, +33/−7.
 - **CR-3**: open with steering (the `INDEX.md` rebuild).
 - **CR-4, dispositioned by steering.** The workspace `CLAUDE.md` row now reads "No product tests … its record tools under `tools/` carry their own `node --test` files" (f824d3d). Check: `no test`.
 - **Correction to this document.** The Hazards table cited two backticked paths that do not resolve: the classifier script by a path missing its `verification/fix-hooks-record-shared-engine/` prefix, and the planted control's chain-015 planning path, which by design does not exist. At 7dab510, `node tools/check-repo.js` exits 1 with 2 LINKS (`check-default-at-7dab510.txt`), and that also failed the suite's whole-record case (fixer's `green-run-cr-round1.txt`, 13/14). Both citations are corrected here: the first to its full path, the second to prose. `node tools/check-repo.js` on the working tree with this edit exits 0, "PASS — no new failures (256 baselined)."
+
+### Round 1 sub-entry 1.2: QAF-1 test-only fix at fdab24b
+
+`git diff --stat 7dab510 fdab24b -- tools README.md` is `tools/recordEntrypoints.test.js` only (+18/−1). A test-only diff takes the scoped check and opens no round, and judging test adequacy is QA's. The full-pass case now asserts the three document-rule notes and that no "not armed" line appears. The new case plants an untracked `release-*` record with `ID: none` in the test's own clone, asserts that the frontmatter check ran and raised no ID failure for it, and removes it in `finally`. The titles carry no ID token, and the planted filename is fixture data.
+
+I re-attacked in a detached worktree at fdab24b with one-token edits to `tools/check-repo.js` `SETTINGS`, restored afterwards (`git diff --quiet` 0):
+- at head, both cases pass (1/1 each);
+- with `documentRules: false`, the full-pass case fails (0/1);
+- with `releaseJoinExemption: false`, the release case fails (0/1) on the `: ID` assertion, which shows the planted file is read and the case is not vacuous.
+
+Captures: `verification/fix-hooks-record-shared-engine/code-review/qaf1-probe-{head-armed,head-release,docrules-false,releasejoin-false}-at-fdab24b.txt`. `node tools/check-repo.js` at HEAD exits 0. The check that fails if this regresses is the two cases above in `tools/recordEntrypoints.test.js`. QA re-runs.
 
 ## Verdict
 

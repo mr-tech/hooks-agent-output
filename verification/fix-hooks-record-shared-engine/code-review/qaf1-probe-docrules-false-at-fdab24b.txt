@@ -1,0 +1,70 @@
+Note: switching to 'fdab24ba375ee15edf1b74856abc7e0d56ca9bf6'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+▶ record entrypoints load the shared engine
+  ✖ check-repo.js passes the committed record with its baseline, no stale baseline entry and the document rules armed (1680.400369ms)
+✖ record entrypoints load the shared engine (2264.684878ms)
+ℹ tests 1
+ℹ suites 1
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2327.014521
+
+✖ failing tests:
+
+test at tools/recordEntrypoints.test.js:117:3
+✖ check-repo.js passes the committed record with its baseline, no stale baseline entry and the document rules armed (1680.400369ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /^ {2}origin-uuid: \d+ Origin group\(s\) with an open document read$/m. Input:
+  
+  '  links: 855 in-repo citations checked across 293 documents; 377 resolved across a closure (open↔closed identity); 14 external (sibling-repo) links noted but not verified; 13 deliberately suppressed; 0 backticked, unverified\n' +
+    '  basenames: 2078 distinct, 8 unexpected collisions, 32 shared only across different verification/ folders (allowed), 2 declared exceptions\n' +
+    '  origin-uuid: not armed\n' +
+    '  frontmatter: 190 documents carry frontmatter, 15 distinct chains\n' +
+    '  scope suffixes: 0 document(s) carry one, all validated against their plan\n' +
+    "  duplicate-id: not armed (this record's settings do not enable the document rules)\n" +
+    '  handoff-priority: not armed\n' +
+    '  index: stale (node tools/build-index.js --tracked --check)\n' +
+    '  out-of-scope: 0 milestone block(s) in 0 open plan(s) read\n' +
+    '  changelog-rows: gate tree 7b4419a; 4 file(s) with judged lines of 293 markdown file(s); 10 changelog row(s) and 18 heading(s) judged\n' +
+    '  changelog-future-timestamp: 474 table row(s) with a timestamp-shaped first cell checked\n' +
+    '  status-length: 35 non-closed document(s) with a Status field checked\n' +
+    '  terminal-status-negated-act: 0 document(s) with a terminal-looking Status checked\n' +
+    '  status-vocabulary: 34 document(s) checked against seam.js --vocabulary (0 closed since the vocabulary instant)\n' +
+    '\n' +
+    '  INDEX — 1 warning(s)\n' +
+    '    INDEX.md is stale — run `node tools/build-index.js --tracked` and commit it.\n' +
+    '\n' +
+    '  baseline: 256 pre-existing failure(s) suppressed (see tools/check-repo-baseline.json; run with --full to see everything)\n' +
+    '\n' +
+    '  PASS — no new failures (256 baselined).\n'
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b2f043fc-4672-438a-bf80-90f2e3cf637e/scratchpad/wt-fda/tools/recordEntrypoints.test.js:122:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Promise.all (index 10)
+      at async Suite.run (node:internal/test_runner/test:1533:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "  links: 855 in-repo citations checked across 293 documents; 377 resolved across a closure (open↔closed identity); 14 external (sibling-repo) links noted but not verified; 13 deliberately suppressed; 0 backticked, unverified\n  basenames: 2078 distinct, 8 unexpected collisions, 32 shared only across different verification/ folders (allowed), 2 declared exceptions\n  origin-uuid: not armed\n  frontmatter: 190 documents carry frontmatter, 15 distinct chains\n  scope suffixes: 0 document(s) carry one, all validated against their plan\n  duplicate-id: not armed (this record's settings do not enable the document rules)\n  handoff-priority: not armed\n  index: stale (node tools/build-index.js --tracked --check)\n  out-of-scope: 0 milestone block(s) in 0 open plan(s) read\n  changelog-rows: gate tree 7b4419a; 4 file(s) with judged lines of 293 markdown file(s); 10 changelog row(s) and 18 heading(s) judged\n  changelog-future-timestamp: 474 table row(s) with a timestamp-shaped first cell checked\n  status-length: 35 non-closed document(s) with a Status field checked\n  terminal-status-negated-act: 0 document(s) with a terminal-looking Status checked\n  status-vocabulary: 34 document(s) checked against seam.js --vocabulary (0 closed since the vocabulary instant)\n\n  INDEX — 1 warning(s)\n    INDEX.md is stale — run `node tools/build-index.js --tracked` and commit it.\n\n  baseline: 256 pre-existing failure(s) suppressed (see tools/check-repo-baseline.json; run with --full to see everything)\n\n  PASS — no new failures (256 baselined).\n",
+    expected: /^ {2}origin-uuid: \d+ Origin group\(s\) with an open document read$/m,
+    operator: 'match',
+    diff: 'simple'
+  }

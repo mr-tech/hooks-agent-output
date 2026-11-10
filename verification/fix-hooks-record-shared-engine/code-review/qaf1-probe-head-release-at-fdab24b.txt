@@ -1,0 +1,28 @@
+Note: switching to 'fdab24ba375ee15edf1b74856abc7e0d56ca9bf6'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+▶ record entrypoints load the shared engine
+  ✔ check-repo.js raises no frontmatter failure for a release tip record whose ID is none (1648.212674ms)
+✔ record entrypoints load the shared engine (2313.166042ms)
+ℹ tests 1
+ℹ suites 1
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2363.756844
