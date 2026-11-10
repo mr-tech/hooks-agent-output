@@ -1,0 +1,54 @@
+control: RECORD_ENGINE_DIR=<scratch>/ctl-engine (record-engine.js a sentinel printing only 'SENTINEL ...'; seam.js the live copy); only the two preservation cases selected; 2026-11-10T09:03:08Z
+▶ record entrypoints load the shared engine
+  ✖ check-repo.js reaches the engine in status mode with this record's settings (28.319937ms)
+  ✖ build-index.js --tracked --check reads the committed tree through the engine (27.054396ms)
+✖ record entrypoints load the shared engine (522.112095ms)
+ℹ tests 2
+ℹ suites 1
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 576.638997
+
+✖ failing tests:
+
+test at tools/recordEntrypoints.test.js:120:3
+✖ check-repo.js reaches the engine in status mode with this record's settings (28.319937ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /open handoffs:/. Input:
+  
+  'SENTINEL check\n'
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/recordEntrypoints.test.js:123:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Promise.all (index 11)
+      at async Suite.run (node:internal/test_runner/test:1533:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'SENTINEL check\n',
+    expected: /open handoffs:/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:126:3
+✖ build-index.js --tracked --check reads the committed tree through the engine (27.054396ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /INDEX\.md is (current|STALE) \(--tracked\)/. Input:
+  
+  'SENTINEL index\n'
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/recordEntrypoints.test.js:128:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'SENTINEL index\n',
+    expected: /INDEX\.md is (current|STALE) \(--tracked\)/,
+    operator: 'match',
+    diff: 'simple'
+  }
+exit 1

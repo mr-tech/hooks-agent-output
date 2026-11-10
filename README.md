@@ -224,18 +224,23 @@ Historical records are not retrofitted to a later convention. Read them as what 
 
 ## `tools/`
 
-Two self-maintenance scripts, both acting on this repository and nothing else.
+Two self-maintenance scripts, both acting on this repository and nothing else. Each is a thin
+entrypoint that holds this record's settings and calls the shared record engine,
+`~/.claude/tools/record-engine.js`, which the Agents domain owns. The engine lives on this box only
+and has no remote. Either script exits 2, naming the engine path, when the engine is absent.
 
 | Script | What it does |
 |---|---|
-| `check-repo.js` | Citations resolve · basenames unique · frontmatter consistent · stage suffixes present · one UUID per chain. Exits non-zero on any failure. `--status` reports chain state instead and is a separate check. |
+| `check-repo.js` | Citations resolve · basenames unique · frontmatter consistent · stage suffixes present · one UUID per chain, plus the engine's later rules (status vocabulary, changelog-row stamps and order, duplicate R-n/D-n, handoff `Priority`), each armed from this record's adoption instant. Exits non-zero on any failure that is not baselined; `--full` prints the baselined ones too. `--status` reports chain state instead and is a separate check. |
 | `build-index.js` | Generates `INDEX.md`. **The committed index is generated with `--tracked`** — tracked documents only, so it is correct in a fresh clone — and verified with `--tracked --check`. The default mode includes untracked documents and is a live lookup, never committed. |
 
-**`check-repo.js` currently exits 1 against this repository, and that is expected.** The failures are
-in the predecessor-era documents described above, not in the tooling. A stage agent runs it to
-validate **its own output** — the documents its run wrote — and fixes its own defects before handing
-back. Failures in documents it did not write are not its findings to carry: they go to `INBOX.md`,
-never into a chain's stage document.
+**`check-repo.js` exits 0 against this repository.** The failures no correction can clear are listed
+in `tools/check-repo-baseline.json`, one entry per failure, each with its reason. These are the
+predecessor-era documents of chains before 012 described above, and four closed chain documents that
+carry no stage suffix. A baseline entry that matches no current failure is printed as a `BASELINE`
+warning. A stage agent runs the check to validate **its own output** (the documents its run wrote)
+and fixes its own defects before handing back. Failures in documents it did not write are not its
+findings to carry: they go to `INBOX.md`, never into a chain's stage document.
 
 ## Coordination files
 

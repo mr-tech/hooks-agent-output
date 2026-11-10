@@ -1,0 +1,310 @@
+  links: 823 in-repo citations checked across 291 documents; 377 resolved across a closure (open↔closed identity); 14 external (sibling-repo) links noted but not verified; 11 deliberately suppressed; 0 backticked, unverified
+  basenames: 1947 distinct, 9 unexpected collisions, 21 shared only across different verification/ folders (allowed), 1 declared exceptions
+  origin-uuid: 3 Origin group(s) with an open document read
+  frontmatter: 187 documents carry frontmatter, 15 distinct chains
+  scope suffixes: 0 document(s) carry one, all validated against their plan
+  duplicate-id: 1 Rev or D table(s) read in 133 open document(s)
+  handoff-priority: 1 handoff(s) carrying a Priority field checked
+  index: stale (node tools/build-index.js --tracked --check)
+  out-of-scope: 0 milestone block(s) in 0 open plan(s) read
+  changelog-rows: gate tree 8af81c0; 1 file(s) with judged lines of 291 markdown file(s); 0 changelog row(s) and 2 heading(s) judged
+  changelog-future-timestamp: 462 table row(s) with a timestamp-shaped first cell checked
+  status-length: 32 non-closed document(s) with a Status field checked
+  terminal-status-negated-act: 0 document(s) with a terminal-looking Status checked
+  status-vocabulary: 31 document(s) checked against seam.js --vocabulary (0 closed since the vocabulary instant)
+
+  INDEX — 1 warning(s)
+    INDEX.md is stale — run `node tools/build-index.js --tracked` and commit it.
+
+  LINKS — 33 failure(s)
+    code-review/closed/006-avatar-undefined-hotfix-code-review.md:10  ->  ../planning/006-avatar-undefined-hotfix.md   (markdown-link, resolves to code-review/planning/006-avatar-undefined-hotfix.md)
+    code-review/closed/006-avatar-undefined-hotfix-code-review.md:11  ->  ../implementation/006-avatar-undefined-hotfix.md   (markdown-link, resolves to code-review/implementation/006-avatar-undefined-hotfix.md)
+    code-review/closed/007-components-v2-displayable-text-limit-code-review.md:12  ->  ../planning/007-components-v2-displayable-text-limit.md   (markdown-link, resolves to code-review/planning/007-components-v2-displayable-text-limit.md)
+    code-review/closed/007-components-v2-displayable-text-limit-code-review.md:13  ->  ../implementation/007-components-v2-displayable-text-limit.md   (markdown-link, resolves to code-review/implementation/007-components-v2-displayable-text-limit.md)
+    code-review/closed/008-sub-component-crud-actions.md:12  ->  ../planning/008-sub-component-crud-actions.md   (markdown-link, resolves to code-review/planning/008-sub-component-crud-actions.md)
+    code-review/closed/008-sub-component-crud-actions.md:13  ->  ../implementation/008-sub-component-crud-actions.md   (markdown-link, resolves to code-review/implementation/008-sub-component-crud-actions.md)
+    code-review/closed/008-sub-component-crud-actions.md:14  ->  ../architecture/system-architecture.md   (markdown-link, resolves to code-review/architecture/system-architecture.md)
+    critiques/closed/001-actions-menu-ux-redesign-critique.md:11  ->  ../planning/001-components-v2-state-management.md   (markdown-link, resolves to critiques/planning/001-components-v2-state-management.md)
+    critiques/closed/001-components-v2-state-management-critique.md:10  ->  ../planning/001-components-v2-state-management.md   (markdown-link, resolves to critiques/planning/001-components-v2-state-management.md)
+    critiques/closed/001-components-v2-state-management-critique.md:11  ->  ../architecture/001-components-v2-architecture-findings.md   (markdown-link, resolves to critiques/architecture/001-components-v2-architecture-findings.md)
+    critiques/closed/001-components-v2-state-management-critique.md:12  ->  ../analysis/closed/002-embeds-components-v2-mutual-exclusivity.md   (markdown-link, resolves to critiques/analysis/closed/002-embeds-components-v2-mutual-exclusivity.md)
+    critiques/closed/003-actions-menu-critique-remediation-critique.md:10  ->  ../planning/003-actions-menu-critique-remediation.md   (markdown-link, resolves to critiques/planning/003-actions-menu-critique-remediation.md)
+    critiques/closed/004-lazy-loading-preload-overhaul-critique.md:10  ->  ../planning/004-lazy-loading-preload-overhaul.md   (markdown-link, resolves to critiques/planning/004-lazy-loading-preload-overhaul.md)
+    critiques/closed/004-lazy-loading-preload-overhaul-critique.md:11  ->  ../analysis/closed/004-lazy-loading-technical-analysis.md   (markdown-link, resolves to critiques/analysis/closed/004-lazy-loading-technical-analysis.md)
+    critiques/closed/004-lazy-loading-preload-overhaul-critique.md:151  ->  ../architecture/004-lazy-loading-architecture-findings.md   (markdown-link, resolves to critiques/architecture/004-lazy-loading-architecture-findings.md)
+    critiques/closed/005-user-reported-bug-fixes-critique.md:10  ->  ../planning/005-user-reported-bug-fixes.md   (markdown-link, resolves to critiques/planning/005-user-reported-bug-fixes.md)
+    critiques/closed/005-user-reported-bug-fixes-critique.md:11  ->  ../analysis/closed/005-user-reported-bugs-analysis.md   (markdown-link, resolves to critiques/analysis/closed/005-user-reported-bugs-analysis.md)
+    implementation/closed/001-components-v2-state-management.md:12  ->  ../planning/001-components-v2-state-management.md   (markdown-link, resolves to implementation/planning/001-components-v2-state-management.md)
+    implementation/closed/003-actions-menu-critique-remediation.md:10  ->  ../planning/003-actions-menu-critique-remediation.md   (markdown-link, resolves to implementation/planning/003-actions-menu-critique-remediation.md)
+    implementation/closed/005-user-reported-bug-fixes.md:12  ->  ../planning/005-user-reported-bug-fixes.md   (markdown-link, resolves to implementation/planning/005-user-reported-bug-fixes.md)
+    implementation/closed/006-avatar-undefined-hotfix.md:12  ->  ../planning/006-avatar-undefined-hotfix.md   (markdown-link, resolves to implementation/planning/006-avatar-undefined-hotfix.md)
+    implementation/closed/007-components-v2-displayable-text-limit.md:12  ->  ../planning/007-components-v2-displayable-text-limit.md   (markdown-link, resolves to implementation/planning/007-components-v2-displayable-text-limit.md)
+    implementation/closed/008-sub-component-crud-actions.md:12  ->  ../planning/008-sub-component-crud-actions.md   (markdown-link, resolves to implementation/planning/008-sub-component-crud-actions.md)
+    planning/closed/001-components-v2-state-management.md:17  ->  ../architecture/001-components-v2-architecture-findings.md   (markdown-link, resolves to planning/architecture/001-components-v2-architecture-findings.md)
+    planning/closed/001-components-v2-state-management.md:18  ->  ../critiques/001-components-v2-state-management-critique.md   (markdown-link, resolves to planning/critiques/001-components-v2-state-management-critique.md)
+    planning/closed/001-components-v2-state-management.md:19  ->  ../analysis/002-embeds-components-v2-mutual-exclusivity.md   (markdown-link, resolves to planning/analysis/002-embeds-components-v2-mutual-exclusivity.md)
+    planning/closed/001-components-v2-state-management.md:20  ->  ../implementation/001-components-v2-state-management.md   (markdown-link, resolves to planning/implementation/001-components-v2-state-management.md)
+    planning/closed/003-actions-menu-critique-remediation.md:12  ->  ../critiques/001-actions-menu-ux-redesign-critique.md   (markdown-link, resolves to planning/critiques/001-actions-menu-ux-redesign-critique.md)
+    planning/closed/004-lazy-loading-preload-overhaul.md:257  ->  ../analysis/004-lazy-loading-technical-analysis.md   (markdown-link, resolves to planning/analysis/004-lazy-loading-technical-analysis.md)
+    planning/closed/004-lazy-loading-preload-overhaul.md:269  ->  ../architecture/004-lazy-loading-architecture-findings.md   (markdown-link, resolves to planning/architecture/004-lazy-loading-architecture-findings.md)
+    steering/record-engine-briefs/record-engine-code-reviewer-brief.md:5  ->  implementation/fix-hooks-record-shared-engine-implementation.md   (backticked, resolves to implementation/fix-hooks-record-shared-engine-implementation.md)
+    steering/record-engine-briefs/record-engine-qa-brief.md:5  ->  implementation/fix-hooks-record-shared-engine-implementation.md   (backticked, resolves to implementation/fix-hooks-record-shared-engine-implementation.md)
+    steering/record-tools-shared-engine-rulings.md:91  ->  implementation/fix-hooks-record-shared-engine-implementation.md   (backticked, resolves to implementation/fix-hooks-record-shared-engine-implementation.md)
+
+  BASENAMES — 9 failure(s)
+    '.gitignore' appears 2 times:
+        .gitignore
+        verification/014/.gitignore
+    '008-sub-component-crud-actions.md' appears 5 times:
+        code-review/closed/008-sub-component-crud-actions.md
+        implementation/closed/008-sub-component-crud-actions.md
+        planning/closed/008-sub-component-crud-actions.md
+        qa/closed/008-sub-component-crud-actions.md
+        uat/closed/008-sub-component-crud-actions.md
+    '001-components-v2-state-management.md' appears 2 times:
+        implementation/closed/001-components-v2-state-management.md
+        planning/closed/001-components-v2-state-management.md
+    '003-actions-menu-critique-remediation.md' appears 2 times:
+        implementation/closed/003-actions-menu-critique-remediation.md
+        planning/closed/003-actions-menu-critique-remediation.md
+    '005-user-reported-bug-fixes.md' appears 2 times:
+        implementation/closed/005-user-reported-bug-fixes.md
+        planning/closed/005-user-reported-bug-fixes.md
+    '006-avatar-undefined-hotfix.md' appears 2 times:
+        implementation/closed/006-avatar-undefined-hotfix.md
+        planning/closed/006-avatar-undefined-hotfix.md
+    '007-components-v2-displayable-text-limit.md' appears 2 times:
+        implementation/closed/007-components-v2-displayable-text-limit.md
+        planning/closed/007-components-v2-displayable-text-limit.md
+    '009-send-page-hasloaded-fix.md' appears 2 times:
+        implementation/closed/009-send-page-hasloaded-fix.md
+        planning/closed/009-send-page-hasloaded-fix.md
+    '010-infopanel-overlap-fix.md' appears 2 times:
+        implementation/closed/010-infopanel-overlap-fix.md
+        planning/closed/010-infopanel-overlap-fix.md
+
+  FRONTMATTER — 202 failure(s)
+    analysis/closed/002-embeds-components-v2-mutual-exclusivity.md: ID '2' is not three-digit zero-padded
+    analysis/closed/002-embeds-components-v2-mutual-exclusivity.md: Origin '1' is not three-digit zero-padded
+    analysis/closed/002-embeds-components-v2-mutual-exclusivity.md: filename says 002 but ID says 2
+    analysis/closed/004-lazy-loading-technical-analysis.md: ID '4' is not three-digit zero-padded
+    analysis/closed/004-lazy-loading-technical-analysis.md: Origin '4' is not three-digit zero-padded
+    analysis/closed/004-lazy-loading-technical-analysis.md: filename says 004 but ID says 4
+    analysis/closed/005-user-reported-bugs-analysis.md: ID '5' is not three-digit zero-padded
+    analysis/closed/005-user-reported-bugs-analysis.md: Origin '5' is not three-digit zero-padded
+    analysis/closed/005-user-reported-bugs-analysis.md: filename says 005 but ID says 5
+    analysis/closed/006-avatar-undefined-regression.md: ID '6' is not three-digit zero-padded
+    analysis/closed/006-avatar-undefined-regression.md: Origin '6' is not three-digit zero-padded
+    analysis/closed/006-avatar-undefined-regression.md: filename says 006 but ID says 6
+    analysis/closed/007-components-v2-displayable-text-limit-analysis.md: ID '7' is not three-digit zero-padded
+    analysis/closed/007-components-v2-displayable-text-limit-analysis.md: Origin '7' is not three-digit zero-padded
+    analysis/closed/007-components-v2-displayable-text-limit-analysis.md: filename says 007 but ID says 7
+    analysis/closed/008-section-text-display-delete-analysis.md: ID '8' is not three-digit zero-padded
+    analysis/closed/008-section-text-display-delete-analysis.md: Origin '8' is not three-digit zero-padded
+    analysis/closed/008-section-text-display-delete-analysis.md: filename says 008 but ID says 8
+    analysis/closed/009-send-page-hasloaded-stuck-analysis.md: ID '9' is not three-digit zero-padded
+    analysis/closed/009-send-page-hasloaded-stuck-analysis.md: Origin '9' is not three-digit zero-padded
+    analysis/closed/009-send-page-hasloaded-stuck-analysis.md: filename says 009 but ID says 9
+    analysis/closed/010-infopanel-overlap-on-initial-load-analysis.md: ID '10' is not three-digit zero-padded
+    analysis/closed/010-infopanel-overlap-on-initial-load-analysis.md: Origin '10' is not three-digit zero-padded
+    analysis/closed/010-infopanel-overlap-on-initial-load-analysis.md: filename says 010 but ID says 10
+    analysis/closed/011-transition-height-react-style-conflict-analysis.md: ID '11' is not three-digit zero-padded
+    analysis/closed/011-transition-height-react-style-conflict-analysis.md: Origin '10' is not three-digit zero-padded
+    analysis/closed/011-transition-height-react-style-conflict-analysis.md: filename says 011 but ID says 11
+    analysis/closed/014-test-suite-cleanup-analysis.md: not strict YAML — bad indentation of a mapping entry (6:114)
+    architecture/closed/001-components-v2-architecture-findings.md: ID '1' is not three-digit zero-padded
+    architecture/closed/001-components-v2-architecture-findings.md: Origin '1' is not three-digit zero-padded
+    architecture/closed/001-components-v2-architecture-findings.md: filename says 001 but ID says 1
+    architecture/closed/004-lazy-loading-architecture-findings.md: ID '4' is not three-digit zero-padded
+    architecture/closed/004-lazy-loading-architecture-findings.md: Origin '4' is not three-digit zero-padded
+    architecture/closed/004-lazy-loading-architecture-findings.md: filename says 004 but ID says 4
+    code-review/closed/003-actions-menu-critique-remediation-code-review.md: ID '3' is not three-digit zero-padded
+    code-review/closed/003-actions-menu-critique-remediation-code-review.md: Origin '1' is not three-digit zero-padded
+    code-review/closed/003-actions-menu-critique-remediation-code-review.md: filename says 003 but ID says 3
+    code-review/closed/004-lazy-loading-preload-code-review.md: ID '4' is not three-digit zero-padded
+    code-review/closed/004-lazy-loading-preload-code-review.md: Origin '4' is not three-digit zero-padded
+    code-review/closed/004-lazy-loading-preload-code-review.md: filename says 004 but ID says 4
+    code-review/closed/006-avatar-undefined-hotfix-code-review.md: ID '6' is not three-digit zero-padded
+    code-review/closed/006-avatar-undefined-hotfix-code-review.md: Origin '6' is not three-digit zero-padded
+    code-review/closed/006-avatar-undefined-hotfix-code-review.md: filename says 006 but ID says 6
+    code-review/closed/007-components-v2-displayable-text-limit-code-review.md: ID '7' is not three-digit zero-padded
+    code-review/closed/007-components-v2-displayable-text-limit-code-review.md: Origin '7' is not three-digit zero-padded
+    code-review/closed/007-components-v2-displayable-text-limit-code-review.md: filename says 007 but ID says 7
+    code-review/closed/008-sub-component-crud-actions.md: ID '8' is not three-digit zero-padded
+    code-review/closed/008-sub-component-crud-actions.md: Origin '8' is not three-digit zero-padded
+    code-review/closed/008-sub-component-crud-actions.md: filename says 008 but ID says 8
+    code-review/closed/009-send-page-hasloaded-fix-code-review.md: ID '9' is not three-digit zero-padded
+    code-review/closed/009-send-page-hasloaded-fix-code-review.md: Origin '9' is not three-digit zero-padded
+    code-review/closed/009-send-page-hasloaded-fix-code-review.md: filename says 009 but ID says 9
+    code-review/closed/010-infopanel-overlap-fix-code-review.md: ID '10' is not three-digit zero-padded
+    code-review/closed/010-infopanel-overlap-fix-code-review.md: Origin '10' is not three-digit zero-padded
+    code-review/closed/010-infopanel-overlap-fix-code-review.md: filename says 010 but ID says 10
+    critiques/closed/001-actions-menu-ux-redesign-critique.md: ID '1' is not three-digit zero-padded
+    critiques/closed/001-actions-menu-ux-redesign-critique.md: Origin '1' is not three-digit zero-padded
+    critiques/closed/001-actions-menu-ux-redesign-critique.md: filename says 001 but ID says 1
+    critiques/closed/001-components-v2-state-management-critique.md: ID '1' is not three-digit zero-padded
+    critiques/closed/001-components-v2-state-management-critique.md: Origin '1' is not three-digit zero-padded
+    critiques/closed/001-components-v2-state-management-critique.md: filename says 001 but ID says 1
+    critiques/closed/003-actions-menu-critique-remediation-critique.md: ID '3' is not three-digit zero-padded
+    critiques/closed/003-actions-menu-critique-remediation-critique.md: Origin '1' is not three-digit zero-padded
+    critiques/closed/003-actions-menu-critique-remediation-critique.md: filename says 003 but ID says 3
+    critiques/closed/004-lazy-loading-preload-overhaul-critique.md: ID '4' is not three-digit zero-padded
+    critiques/closed/004-lazy-loading-preload-overhaul-critique.md: Origin '4' is not three-digit zero-padded
+    critiques/closed/004-lazy-loading-preload-overhaul-critique.md: filename says 004 but ID says 4
+    critiques/closed/005-user-reported-bug-fixes-critique.md: ID '5' is not three-digit zero-padded
+    critiques/closed/005-user-reported-bug-fixes-critique.md: Origin '5' is not three-digit zero-padded
+    critiques/closed/005-user-reported-bug-fixes-critique.md: filename says 005 but ID says 5
+    critiques/closed/006-avatar-undefined-hotfix-critique.md: ID '6' is not three-digit zero-padded
+    critiques/closed/006-avatar-undefined-hotfix-critique.md: Origin '6' is not three-digit zero-padded
+    critiques/closed/006-avatar-undefined-hotfix-critique.md: filename says 006 but ID says 6
+    critiques/closed/007-components-v2-displayable-text-limit-critique.md: ID '7' is not three-digit zero-padded
+    critiques/closed/007-components-v2-displayable-text-limit-critique.md: Origin '7' is not three-digit zero-padded
+    critiques/closed/007-components-v2-displayable-text-limit-critique.md: filename says 007 but ID says 7
+    critiques/closed/008-sub-component-crud-actions-critique.md: ID '8' is not three-digit zero-padded
+    critiques/closed/008-sub-component-crud-actions-critique.md: Origin '8' is not three-digit zero-padded
+    critiques/closed/008-sub-component-crud-actions-critique.md: filename says 008 but ID says 8
+    critiques/closed/009-send-page-hasloaded-fix-critique.md: ID '9' is not three-digit zero-padded
+    critiques/closed/009-send-page-hasloaded-fix-critique.md: Origin '9' is not three-digit zero-padded
+    critiques/closed/009-send-page-hasloaded-fix-critique.md: filename says 009 but ID says 9
+    critiques/closed/010-infopanel-overlap-fix-critique.md: ID '10' is not three-digit zero-padded
+    critiques/closed/010-infopanel-overlap-fix-critique.md: Origin '10' is not three-digit zero-padded
+    critiques/closed/010-infopanel-overlap-fix-critique.md: filename says 010 but ID says 10
+    deployment/closed/2026-04-07-plan-007.md: ID '7' is not three-digit zero-padded
+    deployment/closed/2026-04-07-plan-007.md: Origin '7' is not three-digit zero-padded
+    deployment/closed/2026-04-09-plan-008.md: ID '8' is not three-digit zero-padded
+    deployment/closed/2026-04-09-plan-008.md: Origin '8' is not three-digit zero-padded
+    deployment/closed/2026-04-12-plan-009.md: ID '9' is not three-digit zero-padded
+    deployment/closed/2026-04-12-plan-009.md: Origin '9' is not three-digit zero-padded
+    deployment/closed/2026-04-12-plan-010.md: ID '10' is not three-digit zero-padded
+    deployment/closed/2026-04-12-plan-010.md: Origin '10' is not three-digit zero-padded
+    implementation/closed/001-components-v2-state-management.md: ID '1' is not three-digit zero-padded
+    implementation/closed/001-components-v2-state-management.md: Origin '1' is not three-digit zero-padded
+    implementation/closed/001-components-v2-state-management.md: filename says 001 but ID says 1
+    implementation/closed/003-actions-menu-critique-remediation.md: ID '3' is not three-digit zero-padded
+    implementation/closed/003-actions-menu-critique-remediation.md: Origin '1' is not three-digit zero-padded
+    implementation/closed/003-actions-menu-critique-remediation.md: filename says 003 but ID says 3
+    implementation/closed/005-user-reported-bug-fixes.md: ID '5' is not three-digit zero-padded
+    implementation/closed/005-user-reported-bug-fixes.md: Origin '5' is not three-digit zero-padded
+    implementation/closed/005-user-reported-bug-fixes.md: filename says 005 but ID says 5
+    implementation/closed/006-avatar-undefined-hotfix.md: ID '6' is not three-digit zero-padded
+    implementation/closed/006-avatar-undefined-hotfix.md: Origin '6' is not three-digit zero-padded
+    implementation/closed/006-avatar-undefined-hotfix.md: filename says 006 but ID says 6
+    implementation/closed/007-components-v2-displayable-text-limit.md: ID '7' is not three-digit zero-padded
+    implementation/closed/007-components-v2-displayable-text-limit.md: Origin '7' is not three-digit zero-padded
+    implementation/closed/007-components-v2-displayable-text-limit.md: filename says 007 but ID says 7
+    implementation/closed/008-sub-component-crud-actions.md: ID '8' is not three-digit zero-padded
+    implementation/closed/008-sub-component-crud-actions.md: Origin '8' is not three-digit zero-padded
+    implementation/closed/008-sub-component-crud-actions.md: filename says 008 but ID says 8
+    implementation/closed/009-send-page-hasloaded-fix.md: ID '9' is not three-digit zero-padded
+    implementation/closed/009-send-page-hasloaded-fix.md: Origin '9' is not three-digit zero-padded
+    implementation/closed/009-send-page-hasloaded-fix.md: filename says 009 but ID says 9
+    implementation/closed/010-infopanel-overlap-fix.md: ID '10' is not three-digit zero-padded
+    implementation/closed/010-infopanel-overlap-fix.md: Origin '10' is not three-digit zero-padded
+    implementation/closed/010-infopanel-overlap-fix.md: filename says 010 but ID says 10
+    planning/closed/001-components-v2-state-management.md: ID '1' is not three-digit zero-padded
+    planning/closed/001-components-v2-state-management.md: Origin '1' is not three-digit zero-padded
+    planning/closed/001-components-v2-state-management.md: filename says 001 but ID says 1
+    planning/closed/003-actions-menu-critique-remediation.md: ID '3' is not three-digit zero-padded
+    planning/closed/003-actions-menu-critique-remediation.md: Origin '1' is not three-digit zero-padded
+    planning/closed/003-actions-menu-critique-remediation.md: filename says 003 but ID says 3
+    planning/closed/004-lazy-loading-preload-overhaul.md: ID '4' is not three-digit zero-padded
+    planning/closed/004-lazy-loading-preload-overhaul.md: Origin '4' is not three-digit zero-padded
+    planning/closed/004-lazy-loading-preload-overhaul.md: filename says 004 but ID says 4
+    planning/closed/005-user-reported-bug-fixes.md: ID '5' is not three-digit zero-padded
+    planning/closed/005-user-reported-bug-fixes.md: Origin '5' is not three-digit zero-padded
+    planning/closed/005-user-reported-bug-fixes.md: filename says 005 but ID says 5
+    planning/closed/006-avatar-undefined-hotfix.md: ID '6' is not three-digit zero-padded
+    planning/closed/006-avatar-undefined-hotfix.md: Origin '6' is not three-digit zero-padded
+    planning/closed/006-avatar-undefined-hotfix.md: filename says 006 but ID says 6
+    planning/closed/007-components-v2-displayable-text-limit.md: ID '7' is not three-digit zero-padded
+    planning/closed/007-components-v2-displayable-text-limit.md: Origin '7' is not three-digit zero-padded
+    planning/closed/007-components-v2-displayable-text-limit.md: filename says 007 but ID says 7
+    planning/closed/008-sub-component-crud-actions.md: ID '8' is not three-digit zero-padded
+    planning/closed/008-sub-component-crud-actions.md: Origin '8' is not three-digit zero-padded
+    planning/closed/008-sub-component-crud-actions.md: filename says 008 but ID says 8
+    planning/closed/009-send-page-hasloaded-fix.md: ID '9' is not three-digit zero-padded
+    planning/closed/009-send-page-hasloaded-fix.md: Origin '9' is not three-digit zero-padded
+    planning/closed/009-send-page-hasloaded-fix.md: filename says 009 but ID says 9
+    planning/closed/010-infopanel-overlap-fix.md: ID '10' is not three-digit zero-padded
+    planning/closed/010-infopanel-overlap-fix.md: Origin '10' is not three-digit zero-padded
+    planning/closed/010-infopanel-overlap-fix.md: filename says 010 but ID says 10
+    planning/closed/014-test-suite-cleanup.md: not strict YAML — bad indentation of a mapping entry (5:132)
+    qa/closed/001-components-v2-state-management-qa.md: ID '1' is not three-digit zero-padded
+    qa/closed/001-components-v2-state-management-qa.md: Origin '1' is not three-digit zero-padded
+    qa/closed/001-components-v2-state-management-qa.md: filename says 001 but ID says 1
+    qa/closed/001-components-v2-ui-bugs-findings.md: ID '1' is not three-digit zero-padded
+    qa/closed/001-components-v2-ui-bugs-findings.md: Origin '1' is not three-digit zero-padded
+    qa/closed/001-components-v2-ui-bugs-findings.md: filename says 001 but ID says 1
+    qa/closed/003-actions-menu-critique-remediation-qa.md: ID '3' is not three-digit zero-padded
+    qa/closed/003-actions-menu-critique-remediation-qa.md: Origin '1' is not three-digit zero-padded
+    qa/closed/003-actions-menu-critique-remediation-qa.md: filename says 003 but ID says 3
+    qa/closed/004-lazy-loading-preload-overhaul-qa.md: ID '4' is not three-digit zero-padded
+    qa/closed/004-lazy-loading-preload-overhaul-qa.md: Origin '4' is not three-digit zero-padded
+    qa/closed/004-lazy-loading-preload-overhaul-qa.md: filename says 004 but ID says 4
+    qa/closed/005-send-page-refresh-bugs-qa.md: ID '5' is not three-digit zero-padded
+    qa/closed/005-send-page-refresh-bugs-qa.md: Origin '5' is not three-digit zero-padded
+    qa/closed/005-send-page-refresh-bugs-qa.md: filename says 005 but ID says 5
+    qa/closed/005-user-reported-bug-fixes-qa.md: ID '5' is not three-digit zero-padded
+    qa/closed/005-user-reported-bug-fixes-qa.md: Origin '5' is not three-digit zero-padded
+    qa/closed/005-user-reported-bug-fixes-qa.md: filename says 005 but ID says 5
+    qa/closed/006-avatar-undefined-hotfix-qa.md: ID '6' is not three-digit zero-padded
+    qa/closed/006-avatar-undefined-hotfix-qa.md: Origin '6' is not three-digit zero-padded
+    qa/closed/006-avatar-undefined-hotfix-qa.md: filename says 006 but ID says 6
+    qa/closed/007-components-v2-displayable-text-limit-qa.md: ID '7' is not three-digit zero-padded
+    qa/closed/007-components-v2-displayable-text-limit-qa.md: Origin '7' is not three-digit zero-padded
+    qa/closed/007-components-v2-displayable-text-limit-qa.md: filename says 007 but ID says 7
+    qa/closed/008-sub-component-crud-actions.md: ID '8' is not three-digit zero-padded
+    qa/closed/008-sub-component-crud-actions.md: Origin '8' is not three-digit zero-padded
+    qa/closed/008-sub-component-crud-actions.md: filename says 008 but ID says 8
+    qa/closed/009-send-page-hasloaded-fix-qa.md: ID '9' is not three-digit zero-padded
+    qa/closed/009-send-page-hasloaded-fix-qa.md: Origin '9' is not three-digit zero-padded
+    qa/closed/009-send-page-hasloaded-fix-qa.md: filename says 009 but ID says 9
+    qa/closed/010-infopanel-overlap-fix-qa.md: ID '10' is not three-digit zero-padded
+    qa/closed/010-infopanel-overlap-fix-qa.md: Origin '10' is not three-digit zero-padded
+    qa/closed/010-infopanel-overlap-fix-qa.md: filename says 010 but ID says 10
+    uat/closed/001-components-v2-state-management-uat.md: ID '1' is not three-digit zero-padded
+    uat/closed/001-components-v2-state-management-uat.md: Origin '1' is not three-digit zero-padded
+    uat/closed/001-components-v2-state-management-uat.md: filename says 001 but ID says 1
+    uat/closed/003-actions-menu-critique-remediation-uat.md: ID '3' is not three-digit zero-padded
+    uat/closed/003-actions-menu-critique-remediation-uat.md: Origin '1' is not three-digit zero-padded
+    uat/closed/003-actions-menu-critique-remediation-uat.md: filename says 003 but ID says 3
+    uat/closed/005-user-reported-bug-fixes-uat.md: ID '5' is not three-digit zero-padded
+    uat/closed/005-user-reported-bug-fixes-uat.md: Origin '5' is not three-digit zero-padded
+    uat/closed/005-user-reported-bug-fixes-uat.md: filename says 005 but ID says 5
+    uat/closed/006-avatar-undefined-hotfix-uat.md: ID '6' is not three-digit zero-padded
+    uat/closed/006-avatar-undefined-hotfix-uat.md: Origin '6' is not three-digit zero-padded
+    uat/closed/006-avatar-undefined-hotfix-uat.md: filename says 006 but ID says 6
+    uat/closed/007-components-v2-displayable-text-limit-uat.md: ID '7' is not three-digit zero-padded
+    uat/closed/007-components-v2-displayable-text-limit-uat.md: Origin '7' is not three-digit zero-padded
+    uat/closed/007-components-v2-displayable-text-limit-uat.md: filename says 007 but ID says 7
+    uat/closed/008-sub-component-crud-actions.md: ID '8' is not three-digit zero-padded
+    uat/closed/008-sub-component-crud-actions.md: Origin '8' is not three-digit zero-padded
+    uat/closed/008-sub-component-crud-actions.md: filename says 008 but ID says 8
+    uat/closed/009-send-page-hasloaded-fix-uat.md: ID '9' is not three-digit zero-padded
+    uat/closed/009-send-page-hasloaded-fix-uat.md: Origin '9' is not three-digit zero-padded
+    uat/closed/009-send-page-hasloaded-fix-uat.md: filename says 009 but ID says 9
+    uat/closed/010-infopanel-overlap-fix-uat.md: ID '10' is not three-digit zero-padded
+    uat/closed/010-infopanel-overlap-fix-uat.md: Origin '10' is not three-digit zero-padded
+    uat/closed/010-infopanel-overlap-fix-uat.md: filename says 010 but ID says 10
+
+  SCOPE — 18 failure(s)
+    analysis/closed/002-embeds-components-v2-mutual-exclusivity.md: no recognised stage suffix for 'analysis/' (expected one of analysis)
+    analysis/closed/006-avatar-undefined-regression.md: no recognised stage suffix for 'analysis/' (expected one of analysis)
+    code-review/closed/008-sub-component-crud-actions.md: no recognised stage suffix for 'code-review/' (expected one of code-review)
+    code-review/closed/012-carry-forward-to-post-refresh-pass.md: no recognised stage suffix for 'code-review/' (expected one of code-review)
+    deployment/closed/012-message-valid-field-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)
+    deployment/closed/013-components-v2-editing-surfaces-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)
+    deployment/closed/014-test-suite-cleanup-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)
+    implementation/closed/001-components-v2-state-management.md: no recognised stage suffix for 'implementation/' (expected one of implementation)
+    implementation/closed/003-actions-menu-critique-remediation.md: no recognised stage suffix for 'implementation/' (expected one of implementation)
+    implementation/closed/005-user-reported-bug-fixes.md: no recognised stage suffix for 'implementation/' (expected one of implementation)
+    implementation/closed/006-avatar-undefined-hotfix.md: no recognised stage suffix for 'implementation/' (expected one of implementation)
+    implementation/closed/007-components-v2-displayable-text-limit.md: no recognised stage suffix for 'implementation/' (expected one of implementation)
+    implementation/closed/008-sub-component-crud-actions.md: no recognised stage suffix for 'implementation/' (expected one of implementation)
+    implementation/closed/009-send-page-hasloaded-fix.md: no recognised stage suffix for 'implementation/' (expected one of implementation)
+    implementation/closed/010-infopanel-overlap-fix.md: no recognised stage suffix for 'implementation/' (expected one of implementation)
+    qa/closed/001-components-v2-ui-bugs-findings.md: no recognised stage suffix for 'qa/' (expected one of qa)
+    qa/closed/008-sub-component-crud-actions.md: no recognised stage suffix for 'qa/' (expected one of qa)
+    uat/closed/008-sub-component-crud-actions.md: no recognised stage suffix for 'uat/' (expected one of uat)
+
+  FAIL — 262 problem(s) (262 total, 0 baselined).

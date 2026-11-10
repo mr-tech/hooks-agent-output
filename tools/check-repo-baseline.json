@@ -1,0 +1,1282 @@
+[
+  {
+    "check": "links",
+    "detail": "code-review/closed/006-avatar-undefined-hotfix-code-review.md:10  ->  ../planning/006-avatar-undefined-hotfix.md   (markdown-link, resolves to code-review/planning/006-avatar-undefined-hotfix.md)",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "code-review/closed/006-avatar-undefined-hotfix-code-review.md:11  ->  ../implementation/006-avatar-undefined-hotfix.md   (markdown-link, resolves to code-review/implementation/006-avatar-undefined-hotfix.md)",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "code-review/closed/007-components-v2-displayable-text-limit-code-review.md:12  ->  ../planning/007-components-v2-displayable-text-limit.md   (markdown-link, resolves to code-review/planning/007-components-v2-displayable-text-limit.md)",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "code-review/closed/007-components-v2-displayable-text-limit-code-review.md:13  ->  ../implementation/007-components-v2-displayable-text-limit.md   (markdown-link, resolves to code-review/implementation/007-components-v2-displayable-text-limit.md)",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "code-review/closed/008-sub-component-crud-actions.md:12  ->  ../planning/008-sub-component-crud-actions.md   (markdown-link, resolves to code-review/planning/008-sub-component-crud-actions.md)",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "code-review/closed/008-sub-component-crud-actions.md:13  ->  ../implementation/008-sub-component-crud-actions.md   (markdown-link, resolves to code-review/implementation/008-sub-component-crud-actions.md)",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "code-review/closed/008-sub-component-crud-actions.md:14  ->  ../architecture/system-architecture.md   (markdown-link, resolves to code-review/architecture/system-architecture.md)",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "critiques/closed/001-actions-menu-ux-redesign-critique.md:11  ->  ../planning/001-components-v2-state-management.md   (markdown-link, resolves to critiques/planning/001-components-v2-state-management.md)",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "critiques/closed/001-components-v2-state-management-critique.md:10  ->  ../planning/001-components-v2-state-management.md   (markdown-link, resolves to critiques/planning/001-components-v2-state-management.md)",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "critiques/closed/001-components-v2-state-management-critique.md:11  ->  ../architecture/001-components-v2-architecture-findings.md   (markdown-link, resolves to critiques/architecture/001-components-v2-architecture-findings.md)",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "critiques/closed/001-components-v2-state-management-critique.md:12  ->  ../analysis/closed/002-embeds-components-v2-mutual-exclusivity.md   (markdown-link, resolves to critiques/analysis/closed/002-embeds-components-v2-mutual-exclusivity.md)",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "critiques/closed/003-actions-menu-critique-remediation-critique.md:10  ->  ../planning/003-actions-menu-critique-remediation.md   (markdown-link, resolves to critiques/planning/003-actions-menu-critique-remediation.md)",
+    "_why": "Chain 003 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "critiques/closed/004-lazy-loading-preload-overhaul-critique.md:10  ->  ../planning/004-lazy-loading-preload-overhaul.md   (markdown-link, resolves to critiques/planning/004-lazy-loading-preload-overhaul.md)",
+    "_why": "Chain 004 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "critiques/closed/004-lazy-loading-preload-overhaul-critique.md:11  ->  ../analysis/closed/004-lazy-loading-technical-analysis.md   (markdown-link, resolves to critiques/analysis/closed/004-lazy-loading-technical-analysis.md)",
+    "_why": "Chain 004 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "critiques/closed/004-lazy-loading-preload-overhaul-critique.md:151  ->  ../architecture/004-lazy-loading-architecture-findings.md   (markdown-link, resolves to critiques/architecture/004-lazy-loading-architecture-findings.md)",
+    "_why": "Chain 004 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "critiques/closed/005-user-reported-bug-fixes-critique.md:10  ->  ../planning/005-user-reported-bug-fixes.md   (markdown-link, resolves to critiques/planning/005-user-reported-bug-fixes.md)",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "critiques/closed/005-user-reported-bug-fixes-critique.md:11  ->  ../analysis/closed/005-user-reported-bugs-analysis.md   (markdown-link, resolves to critiques/analysis/closed/005-user-reported-bugs-analysis.md)",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "implementation/closed/001-components-v2-state-management.md:12  ->  ../planning/001-components-v2-state-management.md   (markdown-link, resolves to implementation/planning/001-components-v2-state-management.md)",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "implementation/closed/003-actions-menu-critique-remediation.md:10  ->  ../planning/003-actions-menu-critique-remediation.md   (markdown-link, resolves to implementation/planning/003-actions-menu-critique-remediation.md)",
+    "_why": "Chain 003 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "implementation/closed/005-user-reported-bug-fixes.md:12  ->  ../planning/005-user-reported-bug-fixes.md   (markdown-link, resolves to implementation/planning/005-user-reported-bug-fixes.md)",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "implementation/closed/006-avatar-undefined-hotfix.md:12  ->  ../planning/006-avatar-undefined-hotfix.md   (markdown-link, resolves to implementation/planning/006-avatar-undefined-hotfix.md)",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "implementation/closed/007-components-v2-displayable-text-limit.md:12  ->  ../planning/007-components-v2-displayable-text-limit.md   (markdown-link, resolves to implementation/planning/007-components-v2-displayable-text-limit.md)",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "implementation/closed/008-sub-component-crud-actions.md:12  ->  ../planning/008-sub-component-crud-actions.md   (markdown-link, resolves to implementation/planning/008-sub-component-crud-actions.md)",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "planning/closed/001-components-v2-state-management.md:17  ->  ../architecture/001-components-v2-architecture-findings.md   (markdown-link, resolves to planning/architecture/001-components-v2-architecture-findings.md)",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "planning/closed/001-components-v2-state-management.md:18  ->  ../critiques/001-components-v2-state-management-critique.md   (markdown-link, resolves to planning/critiques/001-components-v2-state-management-critique.md)",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "planning/closed/001-components-v2-state-management.md:19  ->  ../analysis/002-embeds-components-v2-mutual-exclusivity.md   (markdown-link, resolves to planning/analysis/002-embeds-components-v2-mutual-exclusivity.md)",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "planning/closed/001-components-v2-state-management.md:20  ->  ../implementation/001-components-v2-state-management.md   (markdown-link, resolves to planning/implementation/001-components-v2-state-management.md)",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "planning/closed/003-actions-menu-critique-remediation.md:12  ->  ../critiques/001-actions-menu-ux-redesign-critique.md   (markdown-link, resolves to planning/critiques/001-actions-menu-ux-redesign-critique.md)",
+    "_why": "Chain 003 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "planning/closed/004-lazy-loading-preload-overhaul.md:257  ->  ../analysis/004-lazy-loading-technical-analysis.md   (markdown-link, resolves to planning/analysis/004-lazy-loading-technical-analysis.md)",
+    "_why": "Chain 004 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "links",
+    "detail": "planning/closed/004-lazy-loading-preload-overhaul.md:269  ->  ../architecture/004-lazy-loading-architecture-findings.md   (markdown-link, resolves to planning/architecture/004-lazy-loading-architecture-findings.md)",
+    "_why": "Chain 004 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "basenames",
+    "detail": "'008-sub-component-crud-actions.md' appears 5 times:\n        code-review/closed/008-sub-component-crud-actions.md\n        implementation/closed/008-sub-component-crud-actions.md\n        planning/closed/008-sub-component-crud-actions.md\n        qa/closed/008-sub-component-crud-actions.md\n        uat/closed/008-sub-component-crud-actions.md",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "basenames",
+    "detail": "'001-components-v2-state-management.md' appears 2 times:\n        implementation/closed/001-components-v2-state-management.md\n        planning/closed/001-components-v2-state-management.md",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "basenames",
+    "detail": "'003-actions-menu-critique-remediation.md' appears 2 times:\n        implementation/closed/003-actions-menu-critique-remediation.md\n        planning/closed/003-actions-menu-critique-remediation.md",
+    "_why": "Chain 003 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "basenames",
+    "detail": "'005-user-reported-bug-fixes.md' appears 2 times:\n        implementation/closed/005-user-reported-bug-fixes.md\n        planning/closed/005-user-reported-bug-fixes.md",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "basenames",
+    "detail": "'006-avatar-undefined-hotfix.md' appears 2 times:\n        implementation/closed/006-avatar-undefined-hotfix.md\n        planning/closed/006-avatar-undefined-hotfix.md",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "basenames",
+    "detail": "'007-components-v2-displayable-text-limit.md' appears 2 times:\n        implementation/closed/007-components-v2-displayable-text-limit.md\n        planning/closed/007-components-v2-displayable-text-limit.md",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "basenames",
+    "detail": "'009-send-page-hasloaded-fix.md' appears 2 times:\n        implementation/closed/009-send-page-hasloaded-fix.md\n        planning/closed/009-send-page-hasloaded-fix.md",
+    "_why": "Chain 009 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "basenames",
+    "detail": "'010-infopanel-overlap-fix.md' appears 2 times:\n        implementation/closed/010-infopanel-overlap-fix.md\n        planning/closed/010-infopanel-overlap-fix.md",
+    "_why": "Chain 010 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/002-embeds-components-v2-mutual-exclusivity.md: ID '2' is not three-digit zero-padded",
+    "_why": "Chain 002 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/002-embeds-components-v2-mutual-exclusivity.md: Origin '1' is not three-digit zero-padded",
+    "_why": "Chain 002 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/002-embeds-components-v2-mutual-exclusivity.md: filename says 002 but ID says 2",
+    "_why": "Chain 002 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/004-lazy-loading-technical-analysis.md: ID '4' is not three-digit zero-padded",
+    "_why": "Chain 004 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/004-lazy-loading-technical-analysis.md: Origin '4' is not three-digit zero-padded",
+    "_why": "Chain 004 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/004-lazy-loading-technical-analysis.md: filename says 004 but ID says 4",
+    "_why": "Chain 004 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/005-user-reported-bugs-analysis.md: ID '5' is not three-digit zero-padded",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/005-user-reported-bugs-analysis.md: Origin '5' is not three-digit zero-padded",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/005-user-reported-bugs-analysis.md: filename says 005 but ID says 5",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/006-avatar-undefined-regression.md: ID '6' is not three-digit zero-padded",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/006-avatar-undefined-regression.md: Origin '6' is not three-digit zero-padded",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/006-avatar-undefined-regression.md: filename says 006 but ID says 6",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/007-components-v2-displayable-text-limit-analysis.md: ID '7' is not three-digit zero-padded",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/007-components-v2-displayable-text-limit-analysis.md: Origin '7' is not three-digit zero-padded",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/007-components-v2-displayable-text-limit-analysis.md: filename says 007 but ID says 7",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/008-section-text-display-delete-analysis.md: ID '8' is not three-digit zero-padded",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/008-section-text-display-delete-analysis.md: Origin '8' is not three-digit zero-padded",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/008-section-text-display-delete-analysis.md: filename says 008 but ID says 8",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/009-send-page-hasloaded-stuck-analysis.md: ID '9' is not three-digit zero-padded",
+    "_why": "Chain 009 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/009-send-page-hasloaded-stuck-analysis.md: Origin '9' is not three-digit zero-padded",
+    "_why": "Chain 009 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/009-send-page-hasloaded-stuck-analysis.md: filename says 009 but ID says 9",
+    "_why": "Chain 009 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/010-infopanel-overlap-on-initial-load-analysis.md: ID '10' is not three-digit zero-padded",
+    "_why": "Chain 010 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/010-infopanel-overlap-on-initial-load-analysis.md: Origin '10' is not three-digit zero-padded",
+    "_why": "Chain 010 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/010-infopanel-overlap-on-initial-load-analysis.md: filename says 010 but ID says 10",
+    "_why": "Chain 010 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/011-transition-height-react-style-conflict-analysis.md: ID '11' is not three-digit zero-padded",
+    "_why": "Chain 011 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/011-transition-height-react-style-conflict-analysis.md: Origin '10' is not three-digit zero-padded",
+    "_why": "Chain 011 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "analysis/closed/011-transition-height-react-style-conflict-analysis.md: filename says 011 but ID says 11",
+    "_why": "Chain 011 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "architecture/closed/001-components-v2-architecture-findings.md: ID '1' is not three-digit zero-padded",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "architecture/closed/001-components-v2-architecture-findings.md: Origin '1' is not three-digit zero-padded",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "architecture/closed/001-components-v2-architecture-findings.md: filename says 001 but ID says 1",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "architecture/closed/004-lazy-loading-architecture-findings.md: ID '4' is not three-digit zero-padded",
+    "_why": "Chain 004 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "architecture/closed/004-lazy-loading-architecture-findings.md: Origin '4' is not three-digit zero-padded",
+    "_why": "Chain 004 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "architecture/closed/004-lazy-loading-architecture-findings.md: filename says 004 but ID says 4",
+    "_why": "Chain 004 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "code-review/closed/003-actions-menu-critique-remediation-code-review.md: ID '3' is not three-digit zero-padded",
+    "_why": "Chain 003 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "code-review/closed/003-actions-menu-critique-remediation-code-review.md: Origin '1' is not three-digit zero-padded",
+    "_why": "Chain 003 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "code-review/closed/003-actions-menu-critique-remediation-code-review.md: filename says 003 but ID says 3",
+    "_why": "Chain 003 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "code-review/closed/004-lazy-loading-preload-code-review.md: ID '4' is not three-digit zero-padded",
+    "_why": "Chain 004 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "code-review/closed/004-lazy-loading-preload-code-review.md: Origin '4' is not three-digit zero-padded",
+    "_why": "Chain 004 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "code-review/closed/004-lazy-loading-preload-code-review.md: filename says 004 but ID says 4",
+    "_why": "Chain 004 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "code-review/closed/006-avatar-undefined-hotfix-code-review.md: ID '6' is not three-digit zero-padded",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "code-review/closed/006-avatar-undefined-hotfix-code-review.md: Origin '6' is not three-digit zero-padded",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "code-review/closed/006-avatar-undefined-hotfix-code-review.md: filename says 006 but ID says 6",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "code-review/closed/007-components-v2-displayable-text-limit-code-review.md: ID '7' is not three-digit zero-padded",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "code-review/closed/007-components-v2-displayable-text-limit-code-review.md: Origin '7' is not three-digit zero-padded",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "code-review/closed/007-components-v2-displayable-text-limit-code-review.md: filename says 007 but ID says 7",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "code-review/closed/008-sub-component-crud-actions.md: ID '8' is not three-digit zero-padded",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "code-review/closed/008-sub-component-crud-actions.md: Origin '8' is not three-digit zero-padded",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "code-review/closed/008-sub-component-crud-actions.md: filename says 008 but ID says 8",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "code-review/closed/009-send-page-hasloaded-fix-code-review.md: ID '9' is not three-digit zero-padded",
+    "_why": "Chain 009 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "code-review/closed/009-send-page-hasloaded-fix-code-review.md: Origin '9' is not three-digit zero-padded",
+    "_why": "Chain 009 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "code-review/closed/009-send-page-hasloaded-fix-code-review.md: filename says 009 but ID says 9",
+    "_why": "Chain 009 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "code-review/closed/010-infopanel-overlap-fix-code-review.md: ID '10' is not three-digit zero-padded",
+    "_why": "Chain 010 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "code-review/closed/010-infopanel-overlap-fix-code-review.md: Origin '10' is not three-digit zero-padded",
+    "_why": "Chain 010 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "code-review/closed/010-infopanel-overlap-fix-code-review.md: filename says 010 but ID says 10",
+    "_why": "Chain 010 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/001-actions-menu-ux-redesign-critique.md: ID '1' is not three-digit zero-padded",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/001-actions-menu-ux-redesign-critique.md: Origin '1' is not three-digit zero-padded",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/001-actions-menu-ux-redesign-critique.md: filename says 001 but ID says 1",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/001-components-v2-state-management-critique.md: ID '1' is not three-digit zero-padded",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/001-components-v2-state-management-critique.md: Origin '1' is not three-digit zero-padded",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/001-components-v2-state-management-critique.md: filename says 001 but ID says 1",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/003-actions-menu-critique-remediation-critique.md: ID '3' is not three-digit zero-padded",
+    "_why": "Chain 003 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/003-actions-menu-critique-remediation-critique.md: Origin '1' is not three-digit zero-padded",
+    "_why": "Chain 003 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/003-actions-menu-critique-remediation-critique.md: filename says 003 but ID says 3",
+    "_why": "Chain 003 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/004-lazy-loading-preload-overhaul-critique.md: ID '4' is not three-digit zero-padded",
+    "_why": "Chain 004 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/004-lazy-loading-preload-overhaul-critique.md: Origin '4' is not three-digit zero-padded",
+    "_why": "Chain 004 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/004-lazy-loading-preload-overhaul-critique.md: filename says 004 but ID says 4",
+    "_why": "Chain 004 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/005-user-reported-bug-fixes-critique.md: ID '5' is not three-digit zero-padded",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/005-user-reported-bug-fixes-critique.md: Origin '5' is not three-digit zero-padded",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/005-user-reported-bug-fixes-critique.md: filename says 005 but ID says 5",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/006-avatar-undefined-hotfix-critique.md: ID '6' is not three-digit zero-padded",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/006-avatar-undefined-hotfix-critique.md: Origin '6' is not three-digit zero-padded",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/006-avatar-undefined-hotfix-critique.md: filename says 006 but ID says 6",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/007-components-v2-displayable-text-limit-critique.md: ID '7' is not three-digit zero-padded",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/007-components-v2-displayable-text-limit-critique.md: Origin '7' is not three-digit zero-padded",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/007-components-v2-displayable-text-limit-critique.md: filename says 007 but ID says 7",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/008-sub-component-crud-actions-critique.md: ID '8' is not three-digit zero-padded",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/008-sub-component-crud-actions-critique.md: Origin '8' is not three-digit zero-padded",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/008-sub-component-crud-actions-critique.md: filename says 008 but ID says 8",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/009-send-page-hasloaded-fix-critique.md: ID '9' is not three-digit zero-padded",
+    "_why": "Chain 009 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/009-send-page-hasloaded-fix-critique.md: Origin '9' is not three-digit zero-padded",
+    "_why": "Chain 009 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/009-send-page-hasloaded-fix-critique.md: filename says 009 but ID says 9",
+    "_why": "Chain 009 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/010-infopanel-overlap-fix-critique.md: ID '10' is not three-digit zero-padded",
+    "_why": "Chain 010 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/010-infopanel-overlap-fix-critique.md: Origin '10' is not three-digit zero-padded",
+    "_why": "Chain 010 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "critiques/closed/010-infopanel-overlap-fix-critique.md: filename says 010 but ID says 10",
+    "_why": "Chain 010 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "deployment/closed/2026-04-07-plan-007.md: ID '7' is not three-digit zero-padded",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "deployment/closed/2026-04-07-plan-007.md: Origin '7' is not three-digit zero-padded",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "deployment/closed/2026-04-09-plan-008.md: ID '8' is not three-digit zero-padded",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "deployment/closed/2026-04-09-plan-008.md: Origin '8' is not three-digit zero-padded",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "deployment/closed/2026-04-12-plan-009.md: ID '9' is not three-digit zero-padded",
+    "_why": "Chain 009 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "deployment/closed/2026-04-12-plan-009.md: Origin '9' is not three-digit zero-padded",
+    "_why": "Chain 009 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "deployment/closed/2026-04-12-plan-010.md: ID '10' is not three-digit zero-padded",
+    "_why": "Chain 010 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "deployment/closed/2026-04-12-plan-010.md: Origin '10' is not three-digit zero-padded",
+    "_why": "Chain 010 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "implementation/closed/001-components-v2-state-management.md: ID '1' is not three-digit zero-padded",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "implementation/closed/001-components-v2-state-management.md: Origin '1' is not three-digit zero-padded",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "implementation/closed/001-components-v2-state-management.md: filename says 001 but ID says 1",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "implementation/closed/003-actions-menu-critique-remediation.md: ID '3' is not three-digit zero-padded",
+    "_why": "Chain 003 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "implementation/closed/003-actions-menu-critique-remediation.md: Origin '1' is not three-digit zero-padded",
+    "_why": "Chain 003 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "implementation/closed/003-actions-menu-critique-remediation.md: filename says 003 but ID says 3",
+    "_why": "Chain 003 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "implementation/closed/005-user-reported-bug-fixes.md: ID '5' is not three-digit zero-padded",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "implementation/closed/005-user-reported-bug-fixes.md: Origin '5' is not three-digit zero-padded",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "implementation/closed/005-user-reported-bug-fixes.md: filename says 005 but ID says 5",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "implementation/closed/006-avatar-undefined-hotfix.md: ID '6' is not three-digit zero-padded",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "implementation/closed/006-avatar-undefined-hotfix.md: Origin '6' is not three-digit zero-padded",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "implementation/closed/006-avatar-undefined-hotfix.md: filename says 006 but ID says 6",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "implementation/closed/007-components-v2-displayable-text-limit.md: ID '7' is not three-digit zero-padded",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "implementation/closed/007-components-v2-displayable-text-limit.md: Origin '7' is not three-digit zero-padded",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "implementation/closed/007-components-v2-displayable-text-limit.md: filename says 007 but ID says 7",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "implementation/closed/008-sub-component-crud-actions.md: ID '8' is not three-digit zero-padded",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "implementation/closed/008-sub-component-crud-actions.md: Origin '8' is not three-digit zero-padded",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "implementation/closed/008-sub-component-crud-actions.md: filename says 008 but ID says 8",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "implementation/closed/009-send-page-hasloaded-fix.md: ID '9' is not three-digit zero-padded",
+    "_why": "Chain 009 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "implementation/closed/009-send-page-hasloaded-fix.md: Origin '9' is not three-digit zero-padded",
+    "_why": "Chain 009 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "implementation/closed/009-send-page-hasloaded-fix.md: filename says 009 but ID says 9",
+    "_why": "Chain 009 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "implementation/closed/010-infopanel-overlap-fix.md: ID '10' is not three-digit zero-padded",
+    "_why": "Chain 010 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "implementation/closed/010-infopanel-overlap-fix.md: Origin '10' is not three-digit zero-padded",
+    "_why": "Chain 010 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "implementation/closed/010-infopanel-overlap-fix.md: filename says 010 but ID says 10",
+    "_why": "Chain 010 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/001-components-v2-state-management.md: ID '1' is not three-digit zero-padded",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/001-components-v2-state-management.md: Origin '1' is not three-digit zero-padded",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/001-components-v2-state-management.md: filename says 001 but ID says 1",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/003-actions-menu-critique-remediation.md: ID '3' is not three-digit zero-padded",
+    "_why": "Chain 003 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/003-actions-menu-critique-remediation.md: Origin '1' is not three-digit zero-padded",
+    "_why": "Chain 003 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/003-actions-menu-critique-remediation.md: filename says 003 but ID says 3",
+    "_why": "Chain 003 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/004-lazy-loading-preload-overhaul.md: ID '4' is not three-digit zero-padded",
+    "_why": "Chain 004 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/004-lazy-loading-preload-overhaul.md: Origin '4' is not three-digit zero-padded",
+    "_why": "Chain 004 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/004-lazy-loading-preload-overhaul.md: filename says 004 but ID says 4",
+    "_why": "Chain 004 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/005-user-reported-bug-fixes.md: ID '5' is not three-digit zero-padded",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/005-user-reported-bug-fixes.md: Origin '5' is not three-digit zero-padded",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/005-user-reported-bug-fixes.md: filename says 005 but ID says 5",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/006-avatar-undefined-hotfix.md: ID '6' is not three-digit zero-padded",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/006-avatar-undefined-hotfix.md: Origin '6' is not three-digit zero-padded",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/006-avatar-undefined-hotfix.md: filename says 006 but ID says 6",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/007-components-v2-displayable-text-limit.md: ID '7' is not three-digit zero-padded",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/007-components-v2-displayable-text-limit.md: Origin '7' is not three-digit zero-padded",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/007-components-v2-displayable-text-limit.md: filename says 007 but ID says 7",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/008-sub-component-crud-actions.md: ID '8' is not three-digit zero-padded",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/008-sub-component-crud-actions.md: Origin '8' is not three-digit zero-padded",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/008-sub-component-crud-actions.md: filename says 008 but ID says 8",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/009-send-page-hasloaded-fix.md: ID '9' is not three-digit zero-padded",
+    "_why": "Chain 009 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/009-send-page-hasloaded-fix.md: Origin '9' is not three-digit zero-padded",
+    "_why": "Chain 009 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/009-send-page-hasloaded-fix.md: filename says 009 but ID says 9",
+    "_why": "Chain 009 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/010-infopanel-overlap-fix.md: ID '10' is not three-digit zero-padded",
+    "_why": "Chain 010 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/010-infopanel-overlap-fix.md: Origin '10' is not three-digit zero-padded",
+    "_why": "Chain 010 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "planning/closed/010-infopanel-overlap-fix.md: filename says 010 but ID says 10",
+    "_why": "Chain 010 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/001-components-v2-state-management-qa.md: ID '1' is not three-digit zero-padded",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/001-components-v2-state-management-qa.md: Origin '1' is not three-digit zero-padded",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/001-components-v2-state-management-qa.md: filename says 001 but ID says 1",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/001-components-v2-ui-bugs-findings.md: ID '1' is not three-digit zero-padded",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/001-components-v2-ui-bugs-findings.md: Origin '1' is not three-digit zero-padded",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/001-components-v2-ui-bugs-findings.md: filename says 001 but ID says 1",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/003-actions-menu-critique-remediation-qa.md: ID '3' is not three-digit zero-padded",
+    "_why": "Chain 003 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/003-actions-menu-critique-remediation-qa.md: Origin '1' is not three-digit zero-padded",
+    "_why": "Chain 003 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/003-actions-menu-critique-remediation-qa.md: filename says 003 but ID says 3",
+    "_why": "Chain 003 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/004-lazy-loading-preload-overhaul-qa.md: ID '4' is not three-digit zero-padded",
+    "_why": "Chain 004 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/004-lazy-loading-preload-overhaul-qa.md: Origin '4' is not three-digit zero-padded",
+    "_why": "Chain 004 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/004-lazy-loading-preload-overhaul-qa.md: filename says 004 but ID says 4",
+    "_why": "Chain 004 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/005-send-page-refresh-bugs-qa.md: ID '5' is not three-digit zero-padded",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/005-send-page-refresh-bugs-qa.md: Origin '5' is not three-digit zero-padded",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/005-send-page-refresh-bugs-qa.md: filename says 005 but ID says 5",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/005-user-reported-bug-fixes-qa.md: ID '5' is not three-digit zero-padded",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/005-user-reported-bug-fixes-qa.md: Origin '5' is not three-digit zero-padded",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/005-user-reported-bug-fixes-qa.md: filename says 005 but ID says 5",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/006-avatar-undefined-hotfix-qa.md: ID '6' is not three-digit zero-padded",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/006-avatar-undefined-hotfix-qa.md: Origin '6' is not three-digit zero-padded",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/006-avatar-undefined-hotfix-qa.md: filename says 006 but ID says 6",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/007-components-v2-displayable-text-limit-qa.md: ID '7' is not three-digit zero-padded",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/007-components-v2-displayable-text-limit-qa.md: Origin '7' is not three-digit zero-padded",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/007-components-v2-displayable-text-limit-qa.md: filename says 007 but ID says 7",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/008-sub-component-crud-actions.md: ID '8' is not three-digit zero-padded",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/008-sub-component-crud-actions.md: Origin '8' is not three-digit zero-padded",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/008-sub-component-crud-actions.md: filename says 008 but ID says 8",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/009-send-page-hasloaded-fix-qa.md: ID '9' is not three-digit zero-padded",
+    "_why": "Chain 009 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/009-send-page-hasloaded-fix-qa.md: Origin '9' is not three-digit zero-padded",
+    "_why": "Chain 009 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/009-send-page-hasloaded-fix-qa.md: filename says 009 but ID says 9",
+    "_why": "Chain 009 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/010-infopanel-overlap-fix-qa.md: ID '10' is not three-digit zero-padded",
+    "_why": "Chain 010 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/010-infopanel-overlap-fix-qa.md: Origin '10' is not three-digit zero-padded",
+    "_why": "Chain 010 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "qa/closed/010-infopanel-overlap-fix-qa.md: filename says 010 but ID says 10",
+    "_why": "Chain 010 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "uat/closed/001-components-v2-state-management-uat.md: ID '1' is not three-digit zero-padded",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "uat/closed/001-components-v2-state-management-uat.md: Origin '1' is not three-digit zero-padded",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "uat/closed/001-components-v2-state-management-uat.md: filename says 001 but ID says 1",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "uat/closed/003-actions-menu-critique-remediation-uat.md: ID '3' is not three-digit zero-padded",
+    "_why": "Chain 003 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "uat/closed/003-actions-menu-critique-remediation-uat.md: Origin '1' is not three-digit zero-padded",
+    "_why": "Chain 003 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "uat/closed/003-actions-menu-critique-remediation-uat.md: filename says 003 but ID says 3",
+    "_why": "Chain 003 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "uat/closed/005-user-reported-bug-fixes-uat.md: ID '5' is not three-digit zero-padded",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "uat/closed/005-user-reported-bug-fixes-uat.md: Origin '5' is not three-digit zero-padded",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "uat/closed/005-user-reported-bug-fixes-uat.md: filename says 005 but ID says 5",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "uat/closed/006-avatar-undefined-hotfix-uat.md: ID '6' is not three-digit zero-padded",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "uat/closed/006-avatar-undefined-hotfix-uat.md: Origin '6' is not three-digit zero-padded",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "uat/closed/006-avatar-undefined-hotfix-uat.md: filename says 006 but ID says 6",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "uat/closed/007-components-v2-displayable-text-limit-uat.md: ID '7' is not three-digit zero-padded",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "uat/closed/007-components-v2-displayable-text-limit-uat.md: Origin '7' is not three-digit zero-padded",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "uat/closed/007-components-v2-displayable-text-limit-uat.md: filename says 007 but ID says 7",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "uat/closed/008-sub-component-crud-actions.md: ID '8' is not three-digit zero-padded",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "uat/closed/008-sub-component-crud-actions.md: Origin '8' is not three-digit zero-padded",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "uat/closed/008-sub-component-crud-actions.md: filename says 008 but ID says 8",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "uat/closed/009-send-page-hasloaded-fix-uat.md: ID '9' is not three-digit zero-padded",
+    "_why": "Chain 009 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "uat/closed/009-send-page-hasloaded-fix-uat.md: Origin '9' is not three-digit zero-padded",
+    "_why": "Chain 009 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "uat/closed/009-send-page-hasloaded-fix-uat.md: filename says 009 but ID says 9",
+    "_why": "Chain 009 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "uat/closed/010-infopanel-overlap-fix-uat.md: ID '10' is not three-digit zero-padded",
+    "_why": "Chain 010 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "uat/closed/010-infopanel-overlap-fix-uat.md: Origin '10' is not three-digit zero-padded",
+    "_why": "Chain 010 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "frontmatter",
+    "detail": "uat/closed/010-infopanel-overlap-fix-uat.md: filename says 010 but ID says 10",
+    "_why": "Chain 010 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "scope",
+    "detail": "analysis/closed/002-embeds-components-v2-mutual-exclusivity.md: no recognised stage suffix for 'analysis/' (expected one of analysis)",
+    "_why": "Chain 002 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "scope",
+    "detail": "analysis/closed/006-avatar-undefined-regression.md: no recognised stage suffix for 'analysis/' (expected one of analysis)",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "scope",
+    "detail": "code-review/closed/008-sub-component-crud-actions.md: no recognised stage suffix for 'code-review/' (expected one of code-review)",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "scope",
+    "detail": "code-review/closed/012-carry-forward-to-post-refresh-pass.md: no recognised stage suffix for 'code-review/' (expected one of code-review)",
+    "_why": "A closed chain document with no stage suffix the engine's table accepts for its directory. No correction short of a rename can clear it, and a rename breaks its citations. Baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). A new suffix would be an engine change (the Agents domain)."
+  },
+  {
+    "check": "scope",
+    "detail": "deployment/closed/012-message-valid-field-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)",
+    "_why": "A closed chain document with no stage suffix the engine's table accepts for its directory. No correction short of a rename can clear it, and a rename breaks its citations. Baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). A new suffix would be an engine change (the Agents domain)."
+  },
+  {
+    "check": "scope",
+    "detail": "deployment/closed/013-components-v2-editing-surfaces-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)",
+    "_why": "A closed chain document with no stage suffix the engine's table accepts for its directory. No correction short of a rename can clear it, and a rename breaks its citations. Baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). A new suffix would be an engine change (the Agents domain)."
+  },
+  {
+    "check": "scope",
+    "detail": "deployment/closed/014-test-suite-cleanup-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)",
+    "_why": "A closed chain document with no stage suffix the engine's table accepts for its directory. No correction short of a rename can clear it, and a rename breaks its citations. Baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). A new suffix would be an engine change (the Agents domain)."
+  },
+  {
+    "check": "scope",
+    "detail": "implementation/closed/001-components-v2-state-management.md: no recognised stage suffix for 'implementation/' (expected one of implementation)",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "scope",
+    "detail": "implementation/closed/003-actions-menu-critique-remediation.md: no recognised stage suffix for 'implementation/' (expected one of implementation)",
+    "_why": "Chain 003 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "scope",
+    "detail": "implementation/closed/005-user-reported-bug-fixes.md: no recognised stage suffix for 'implementation/' (expected one of implementation)",
+    "_why": "Chain 005 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "scope",
+    "detail": "implementation/closed/006-avatar-undefined-hotfix.md: no recognised stage suffix for 'implementation/' (expected one of implementation)",
+    "_why": "Chain 006 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "scope",
+    "detail": "implementation/closed/007-components-v2-displayable-text-limit.md: no recognised stage suffix for 'implementation/' (expected one of implementation)",
+    "_why": "Chain 007 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "scope",
+    "detail": "implementation/closed/008-sub-component-crud-actions.md: no recognised stage suffix for 'implementation/' (expected one of implementation)",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "scope",
+    "detail": "implementation/closed/009-send-page-hasloaded-fix.md: no recognised stage suffix for 'implementation/' (expected one of implementation)",
+    "_why": "Chain 009 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "scope",
+    "detail": "implementation/closed/010-infopanel-overlap-fix.md: no recognised stage suffix for 'implementation/' (expected one of implementation)",
+    "_why": "Chain 010 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "scope",
+    "detail": "qa/closed/001-components-v2-ui-bugs-findings.md: no recognised stage suffix for 'qa/' (expected one of qa)",
+    "_why": "Chain 001 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "scope",
+    "detail": "qa/closed/008-sub-component-crud-actions.md: no recognised stage suffix for 'qa/' (expected one of qa)",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  },
+  {
+    "check": "scope",
+    "detail": "uat/closed/008-sub-component-crud-actions.md: no recognised stage suffix for 'uat/' (expected one of uat)",
+    "_why": "Chain 008 predates chain 012: a predecessor-workflow document the record's own checker omitted (FIRST_CHECKED_CHAIN = 12, owner ruling 2026-08-24). The engine has no such omission, so it is baselined at the move to the engine (steering/record-tools-shared-engine-rulings.md, block 2026-11-10T08:53Z). Closed history, not to be repaired."
+  }
+]

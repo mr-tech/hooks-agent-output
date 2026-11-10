@@ -1,0 +1,594 @@
+tree: 7b4419a + tools/recordEntrypoints.test.js (uncommitted), old tools/check-repo.js and tools/build-index.js; 2026-11-10T09:01:04Z
+▶ record entrypoints load the shared engine
+  ✖ check-repo.js exits non-zero naming the engine path and the box binding when the engine is absent (115.603365ms)
+  ✖ check-repo.js exits 2 naming the engine-side install command when js-yaml cannot load (128.730015ms)
+  ✖ check-repo.js loads the engine the override names, and the live engine without it (261.056334ms)
+  ✖ requiring check-repo.js writes nothing, prints nothing and exits 0 (359.590349ms)
+  ✖ build-index.js exits non-zero naming the engine path and the box binding when the engine is absent (77.883167ms)
+  ✖ build-index.js exits 2 naming the engine-side install command when js-yaml cannot load (119.977667ms)
+  ✖ build-index.js loads the engine the override names, and the live engine without it (84.973876ms)
+  ✖ requiring build-index.js writes nothing, prints nothing and exits 0 (91.917489ms)
+  ✖ check-repo.js carries a gate instant and a vocabulary instant that are UTC instants no later than now (252.459564ms)
+  ✖ check-repo.js raises no basename failure for the root and probe .gitignore files or the verification probe folders (251.036182ms)
+  ✖ check-repo.js passes the committed record with its baseline, every baselined failure predating the move (251.904397ms)
+  ✔ check-repo.js reaches the engine in status mode with this record's settings (105.86363ms)
+  ✔ build-index.js --tracked --check reads the committed tree through the engine (76.267444ms)
+✖ record entrypoints load the shared engine (2805.955503ms)
+ℹ tests 13
+ℹ suites 1
+ℹ pass 2
+ℹ fail 11
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2866.771015
+
+✖ failing tests:
+
+test at tools/recordEntrypoints.test.js:59:5
+✖ check-repo.js exits non-zero naming the engine path and the box binding when the engine is absent (115.603365ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 2
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/recordEntrypoints.test.js:62:14)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1533:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:68:5
+✖ check-repo.js exits 2 naming the engine-side install command when js-yaml cannot load (128.730015ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 2
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/recordEntrypoints.test.js:72:14)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:78:5
+✖ check-repo.js loads the engine the override names, and the live engine without it (261.056334ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /^SENTINEL (check|index) [a-z]+\n$/. Input:
+  
+  '  legacy: 83 file(s) from chains before 012 omitted — predecessor-workflow documents, not repaired and not checked (owner ruling 2026-08-24)\n' +
+    '  links: 597 in-repo citations checked across 218 documents; 238 resolved across a closure (open↔closed identity); 0 external (workspace / sibling-repo) links noted but not verified; 7 deliberately suppressed\n' +
+    '  basenames: 1874 distinct, 22 unexpected collisions, 1 declared exceptions\n' +
+    '  frontmatter: 117 documents carry frontmatter, 4 distinct chains; 101 document(s) carry none; 40 carry frontmatter but no ID field (reported, not failed)\n' +
+    '  scope suffixes: 0 document(s) carry one, all validated against their plan\n' +
+    '\n' +
+    '  LINKS — 4 failure(s)\n' +
+    '    steering/record-engine-briefs/record-engine-code-reviewer-brief.md:5  ->  implementation/fix-hooks-record-shared-engine-implementation.md   (backticked, resolves to implementation/fix-hooks-record-shared-engine-implementation.md)\n' +
+    '    steering/record-engine-briefs/record-engine-qa-brief.md:5  ->  implementation/fix-hooks-record-shared-engine-implementation.md   (backticked, resolves to implementation/fix-hooks-record-shared-engine-implementation.md)\n' +
+    '    steering/record-tools-shared-engine-rulings.md:9  ->  steering/selection-ledger/2026-11-10.md   (backticked, resolves to steering/selection-ledger/2026-11-10.md)\n' +
+    '    steering/record-tools-shared-engine-rulings.md:91  ->  implementation/fix-hooks-record-shared-engine-implementation.md   (backticked, resolves to implementation/fix-hooks-record-shared-engine-implementation.md)\n' +
+    '\n' +
+    '  BASENAMES — 22 failure(s)\n' +
+    "    '.gitignore' appears 2 times:\n" +
+    '        .gitignore\n' +
+    '        verification/014/.gitignore\n' +
+    "    'observed-interrupted-report.json' appears 2 times:\n" +
+    '        verification/012/probe-cr2-require-esm/observed-interrupted-report.json\n' +
+    '        verification/012/probe-fixround2-h3/observed-interrupted-report.json\n' +
+    "    'run-typecheck-8-errors.txt' appears 3 times:\n" +
+    '        verification/012/probe-cr3-h3-and-default-target/run-typecheck-8-errors.txt\n' +
+    '        verification/012/probe-cr4-guard-attack/run-typecheck-8-errors.txt\n' +
+    '        verification/012/probe-cr5-override-guard/run-typecheck-8-errors.txt\n' +
+    "    'run-attack-sweep.txt' appears 2 times:\n" +
+    '        verification/012/probe-cr4-guard-attack/run-attack-sweep.txt\n' +
+    '        verification/012/probe-cr5-override-guard/run-attack-sweep.txt\n' +
+    "    'vitest.config.ts' appears 4 times:\n" +
+    '        verification/013/probe-cr21-fqa15-closure/vitest.config.ts\n' +
+    '        verification/013/probe-cr22-render-instrument-nonvacuity/vitest.config.ts\n' +
+    '        verification/013/probe-cr23-paste-surface-nonvacuity/vitest.config.ts\n' +
+    '        verification/013/probe-cr24-drift-loudness/vitest.config.ts\n' +
+    "    'RUN.md' appears 4 times:\n" +
+    '        verification/013/probe-cr25-mutation-error-readability/RUN.md\n' +
+    '        verification/013/probe-cr26-delimiter-class-eliminated/RUN.md\n' +
+    '        verification/013/probe-cr27-settledmode-reachability/RUN.md\n' +
+    '        verification/013/probe-cr28-oracle-arming/RUN.md\n' +
+    "    'output.txt' appears 3 times:\n" +
+    '        verification/013/probe-cr25-mutation-error-readability/output.txt\n' +
+    '        verification/013/probe-cr26-delimiter-class-eliminated/output.txt\n' +
+    '        verification/013/probe-cr27-settledmode-reachability/output.txt\n' +
+    "    'probe.ts' appears 3 times:\n" +
+    '        verification/013/probe-cr25-mutation-error-readability/probe.ts\n' +
+    '        verification/013/probe-cr26-delimiter-class-eliminated/probe.ts\n' +
+    '        verification/013/probe-cr27-settledmode-reachability/probe.ts\n' +
+    "    'manifest-sha256.txt' appears 13 times:\n" +
+    '        verification/013/probe-preexisting-seed-route/manifest-sha256.txt\n' +
+    '        verification/013/probe-qa-bc4-json-tab-fixture/manifest-sha256.txt\n' +
+    '        verification/013/probe-qa-criteria-rev49-rev50/manifest-sha256.txt\n' +
+    '        verification/013/probe-qa-p2-med6-loadgate/manifest-sha256.txt\n' +
+    '        verification/013/probe-qa-p2-rowd-load-gate/manifest-sha256.txt\n' +
+    '        verification/013/probe-qa-p3-delimiter-class-sweep/manifest-sha256.txt\n' +
+    '        verification/013/probe-qa-p3-fixverify/manifest-sha256.txt\n' +
+    '        verification/013/probe-qa-p3-render-instrument-reduction/manifest-sha256.txt\n' +
+    '        verification/013/probe-qa-p3-stale-prediction-differential/manifest-sha256.txt\n' +
+    '        verification/013/probe-qa-paste-surface-render/manifest-sha256.txt\n' +
+    '        verification/013/probe-qa-release-tip-b56570d/manifest-sha256.txt\n' +
+    '        verification/013/probe-qa-toast-vessel-render/manifest-sha256.txt\n' +
+    '        verification/013/probe-qa-verify-rider2/manifest-sha256.txt\n' +
+    "    'run-green.txt' appears 7 times:\n" +
+    '        verification/013/probe-preexisting-seed-route/run-green.txt\n' +
+    '        verification/013/probe-qa-bc4-json-tab-fixture/run-green.txt\n' +
+    '        verification/013/probe-qa-p2-med6-loadgate/run-green.txt\n' +
+    '        verification/013/probe-qa-p2-rowd-load-gate/run-green.txt\n' +
+    '        verification/013/probe-qa-p3-fixverify/run-green.txt\n' +
+    '        verification/013/probe-qa-paste-surface-render/run-green.txt\n' +
+    '        verification/013/probe-qa-toast-vessel-render/run-green.txt\n' +
+    "    'run-mutant-R2.txt' appears 2 times:\n" +
+    '        verification/013/probe-qa-p2-rowd-load-gate/run-mutant-R2.txt\n' +
+    '        verification/013/probe-qa-toast-vessel-render/run-mutant-R2.txt\n' +
+    "    'run-mutant-R3.txt' appears 2 times:\n" +
+    '        verification/013/probe-qa-p2-rowd-load-gate/run-mutant-R3.txt\n' +
+    '        verification/013/probe-qa-toast-vessel-render/run-mutant-R3.txt\n' +
+    "    'report-2d90e8a.txt' appears 2 times:\n" +
+    '        verification/013/probe-qa-p3-delimiter-class-sweep/report-2d90e8a.txt\n' +
+    '        verification/013/probe-qa-p3-stale-prediction-differential/report-2d90e8a.txt\n' +
+    "    'run-2d90e8a.txt' appears 3 times:\n" +
+    '        verification/013/probe-qa-p3-delimiter-class-sweep/run-2d90e8a.txt\n' +
+    '        verification/013/probe-qa-p3-render-instrument-reduction/run-2d90e8a.txt\n' +
+    '        verification/013/probe-qa-p3-stale-prediction-differential/run-2d90e8a.txt\n' +
+    "    'diff-4a7126b-to-2d90e8a.txt' appears 2 times:\n" +
+    '        verification/013/probe-qa-p3-render-instrument-reduction/diff-4a7126b-to-2d90e8a.txt\n' +
+    '        verification/013/probe-qa-p3-stale-prediction-differential/diff-4a7126b-to-2d90e8a.txt\n' +
+    "    'run-4a7126b.txt' appears 2 times:\n" +
+    '        verification/013/probe-qa-p3-render-instrument-reduction/run-4a7126b.txt\n' +
+    '        verification/013/probe-qa-p3-stale-prediction-differential/run-4a7126b.txt\n' +
+    "    'run.sh' appears 13 times:\n" +
+    '        verification/015/cr-m1-probes/run.sh\n' +
+    '        verification/015/cr-m4-probes/run.sh\n' +
+    '        verification/015/cr-m5-probes/run.sh\n' +
+    '        verification/015/cr-m6-probes/cr26-ban/run.sh\n' +
+    '        verification/015/cr-m8-probes/qaf37/run.sh\n' +
+    '        verification/015/cr-m8-probes/span-read/run.sh\n' +
+    '        verification/015/cr-qaf-probes/cr40/run.sh\n' +
+    '        verification/015/d28-seed-probes/run.sh\n' +
+    '        verification/015/m5h-class-probe/run.sh\n' +
+    '        verification/015/m8-local-probe/run.sh\n' +
+    '        verification/015/pig-span-read-fixture/run.sh\n' +
+    '        verification/015/qa-m5e-local-day-probe/run.sh\n' +
+    '        verification/015/qa-rk1-differential/run.sh\n' +
+    "    'run1-da24eb7.txt' appears 3 times:\n" +
+    '        verification/015/cr-m5-probes/run1-da24eb7.txt\n' +
+    '        verification/015/m5h-class-probe/run1-da24eb7.txt\n' +
+    '        verification/015/qa-m5e-local-day-probe/run1-da24eb7.txt\n' +
+    "    'server.sh' appears 2 times:\n" +
+    '        verification/015/d28-folder-switch/server.sh\n' +
+    '        verification/015/m3-chrome-read/server.sh\n' +
+    "    'tree-sha.txt' appears 2 times:\n" +
+    '        verification/015/d28-folder-switch/tree-sha.txt\n' +
+    '        verification/015/m3-chrome-read/tree-sha.txt\n' +
+    "    'qa-m8r-control.txt' appears 2 times:\n" +
+    '        verification/015/m8-local-probe/qa-m8r-8de2b53/qa-m8r-control.txt\n' +
+    '        verification/015/qaf37/qa-m8r-control.txt\n' +
+    "    'qa-m8r-summary.txt' appears 2 times:\n" +
+    '        verification/015/m8-local-probe/qa-m8r-8de2b53/qa-m8r-summary.txt\n' +
+    '        verification/015/qaf37/qa-m8r-summary.txt\n' +
+    '\n' +
+    '  SCOPE — 4 failure(s)\n' +
+    "    code-review/closed/012-carry-forward-to-post-refresh-pass.md: no recognised stage suffix for 'code-review/' (expected one of code-review)\n" +
+    "    deployment/closed/012-message-valid-field-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)\n" +
+    "    deployment/closed/013-components-v2-editing-surfaces-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)\n" +
+    "    deployment/closed/014-test-suite-cleanup-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)\n" +
+    '\n' +
+    '  FAIL — 30 problem(s).\n'
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/recordEntrypoints.test.js:80:14)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "  legacy: 83 file(s) from chains before 012 omitted — predecessor-workflow documents, not repaired and not checked (owner ruling 2026-08-24)\n  links: 597 in-repo citations checked across 218 documents; 238 resolved across a closure (open↔closed identity); 0 external (workspace / sibling-repo) links noted but not verified; 7 deliberately suppressed\n  basenames: 1874 distinct, 22 unexpected collisions, 1 declared exceptions\n  frontmatter: 117 documents carry frontmatter, 4 distinct chains; 101 document(s) carry none; 40 carry frontmatter but no ID field (reported, not failed)\n  scope suffixes: 0 document(s) carry one, all validated against their plan\n\n  LINKS — 4 failure(s)\n    steering/record-engine-briefs/record-engine-code-reviewer-brief.md:5  ->  implementation/fix-hooks-record-shared-engine-implementation.md   (backticked, resolves to implementation/fix-hooks-record-shared-engine-implementation.md)\n    steering/record-engine-briefs/record-engine-qa-brief.md:5  ->  implementation/fix-hooks-record-shared-engine-implementation.md   (backticked, resolves to implementation/fix-hooks-record-shared-engine-implementation.md)\n    steering/record-tools-shared-engine-rulings.md:9  ->  steering/selection-ledger/2026-11-10.md   (backticked, resolves to steering/selection-ledger/2026-11-10.md)\n    steering/record-tools-shared-engine-rulings.md:91  ->  implementation/fix-hooks-record-shared-engine-implementation.md   (backticked, resolves to implementation/fix-hooks-record-shared-engine-implementation.md)\n\n  BASENAMES — 22 failure(s)\n    '.gitignore' appears 2 times:\n        .gitignore\n        verification/014/.gitignore\n    'observed-interrupted-report.json' appears 2 times:\n        verification/012/probe-cr2-require-esm/observed-interrupted-report.json\n        verification/012/probe-fixround2-h3/observed-interrupted-report.json\n    'run-typecheck-8-errors.txt' appears 3 times:\n        verification/012/probe-cr3-h3-and-default-target/run-typecheck-8-errors.txt\n        verification/012/probe-cr4-guard-attack/run-typecheck-8-errors.txt\n        verification/012/probe-cr5-override-guard/run-typecheck-8-errors.txt\n    'run-attack-sweep.txt' appears 2 times:\n        verification/012/probe-cr4-guard-attack/run-attack-sweep.txt\n        verification/012/probe-cr5-override-guard/run-attack-sweep.txt\n    'vitest.config.ts' appears 4 times:\n        verification/013/probe-cr21-fqa15-closure/vitest.config.ts\n        verification/013/probe-cr22-render-instrument-nonvacuity/vitest.config.ts\n        verification/013/probe-cr23-paste-surface-nonvacuity/vitest.config.ts\n        verification/013/probe-cr24-drift-loudness/vitest.config.ts\n    'RUN.md' appears 4 times:\n        verification/013/probe-cr25-mutation-error-readability/RUN.md\n        verification/013/probe-cr26-delimiter-class-eliminated/RUN.md\n        verification/013/probe-cr27-settledmode-reachability/RUN.md\n        verification/013/probe-cr28-oracle-arming/RUN.md\n    'output.txt' appears 3 times:\n        verification/013/probe-cr25-mutation-error-readability/output.txt\n        verification/013/probe-cr26-delimiter-class-eliminated/output.txt\n        verification/013/probe-cr27-settledmode-reachability/output.txt\n    'probe.ts' appears 3 times:\n        verification/013/probe-cr25-mutation-error-readability/probe.ts\n        verification/013/probe-cr26-delimiter-class-eliminated/probe.ts\n        verification/013/probe-cr27-settledmode-reachability/probe.ts\n    'manifest-sha256.txt' appears 13 times:\n        verification/013/probe-preexisting-seed-route/manifest-sha256.txt\n        verification/013/probe-qa-bc4-json-tab-fixture/manifest-sha256.txt\n        verification/013/probe-qa-criteria-rev49-rev50/manifest-sha256.txt\n        verification/013/probe-qa-p2-med6-loadgate/manifest-sha256.txt\n        verification/013/probe-qa-p2-rowd-load-gate/manifest-sha256.txt\n        verification/013/probe-qa-p3-delimiter-class-sweep/manifest-sha256.txt\n        verification/013/probe-qa-p3-fixverify/manifest-sha256.txt\n        verification/013/probe-qa-p3-render-instrument-reduction/manifest-sha256.txt\n        verification/013/probe-qa-p3-stale-prediction-differential/manifest-sha256.txt\n        verification/013/probe-qa-paste-surface-render/manifest-sha256.txt\n        verification/013/probe-qa-release-tip-b56570d/manifest-sha256.txt\n        verification/013/probe-qa-toast-vessel-render/manifest-sha256.txt\n        verification/013/probe-qa-verify-rider2/manifest-sha256.txt\n    'run-green.txt' appears 7 times:\n        verification/013/probe-preexisting-seed-route/run-green.txt\n        verification/013/probe-qa-bc4-json-tab-fixture/run-green.txt\n        verification/013/probe-qa-p2-med6-loadgate/run-green.txt\n        verification/013/probe-qa-p2-rowd-load-gate/run-green.txt\n        verification/013/probe-qa-p3-fixverify/run-green.txt\n        verification/013/probe-qa-paste-surface-render/run-green.txt\n        verification/013/probe-qa-toast-vessel-render/run-green.txt\n    'run-mutant-R2.txt' appears 2 times:\n        verification/013/probe-qa-p2-rowd-load-gate/run-mutant-R2.txt\n        verification/013/probe-qa-toast-vessel-render/run-mutant-R2.txt\n    'run-mutant-R3.txt' appears 2 times:\n        verification/013/probe-qa-p2-rowd-load-gate/run-mutant-R3.txt\n        verification/013/probe-qa-toast-vessel-render/run-mutant-R3.txt\n    'report-2d90e8a.txt' appears 2 times:\n        verification/013/probe-qa-p3-delimiter-class-sweep/report-2d90e8a.txt\n        verification/013/probe-qa-p3-stale-prediction-differential/report-2d90e8a.txt\n    'run-2d90e8a.txt' appears 3 times:\n        verification/013/probe-qa-p3-delimiter-class-sweep/run-2d90e8a.txt\n        verification/013/probe-qa-p3-render-instrument-reduction/run-2d90e8a.txt\n        verification/013/probe-qa-p3-stale-prediction-differential/run-2d90e8a.txt\n    'diff-4a7126b-to-2d90e8a.txt' appears 2 times:\n        verification/013/probe-qa-p3-render-instrument-reduction/diff-4a7126b-to-2d90e8a.txt\n        verification/013/probe-qa-p3-stale-prediction-differential/diff-4a7126b-to-2d90e8a.txt\n    'run-4a7126b.txt' appears 2 times:\n        verification/013/probe-qa-p3-render-instrument-reduction/run-4a7126b.txt\n        verification/013/probe-qa-p3-stale-prediction-differential/run-4a7126b.txt\n    'run.sh' appears 13 times:\n        verification/015/cr-m1-probes/run.sh\n        verification/015/cr-m4-probes/run.sh\n        verification/015/cr-m5-probes/run.sh\n        verification/015/cr-m6-probes/cr26-ban/run.sh\n        verification/015/cr-m8-probes/qaf37/run.sh\n        verification/015/cr-m8-probes/span-read/run.sh\n        verification/015/cr-qaf-probes/cr40/run.sh\n        verification/015/d28-seed-probes/run.sh\n        verification/015/m5h-class-probe/run.sh\n        verification/015/m8-local-probe/run.sh\n        verification/015/pig-span-read-fixture/run.sh\n        verification/015/qa-m5e-local-day-probe/run.sh\n        verification/015/qa-rk1-differential/run.sh\n    'run1-da24eb7.txt' appears 3 times:\n        verification/015/cr-m5-probes/run1-da24eb7.txt\n        verification/015/m5h-class-probe/run1-da24eb7.txt\n        verification/015/qa-m5e-local-day-probe/run1-da24eb7.txt\n    'server.sh' appears 2 times:\n        verification/015/d28-folder-switch/server.sh\n        verification/015/m3-chrome-read/server.sh\n    'tree-sha.txt' appears 2 times:\n        verification/015/d28-folder-switch/tree-sha.txt\n        verification/015/m3-chrome-read/tree-sha.txt\n    'qa-m8r-control.txt' appears 2 times:\n        verification/015/m8-local-probe/qa-m8r-8de2b53/qa-m8r-control.txt\n        verification/015/qaf37/qa-m8r-control.txt\n    'qa-m8r-summary.txt' appears 2 times:\n        verification/015/m8-local-probe/qa-m8r-8de2b53/qa-m8r-summary.txt\n        verification/015/qaf37/qa-m8r-summary.txt\n\n  SCOPE — 4 failure(s)\n    code-review/closed/012-carry-forward-to-post-refresh-pass.md: no recognised stage suffix for 'code-review/' (expected one of code-review)\n    deployment/closed/012-message-valid-field-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)\n    deployment/closed/013-components-v2-editing-surfaces-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)\n    deployment/closed/014-test-suite-cleanup-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)\n\n  FAIL — 30 problem(s).\n",
+    expected: /^SENTINEL (check|index) [a-z]+\n$/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:85:5
+✖ requiring check-repo.js writes nothing, prints nothing and exits 0 (359.590349ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/recordEntrypoints.test.js:89:14)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:59:5
+✖ build-index.js exits non-zero naming the engine path and the box binding when the engine is absent (77.883167ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 2
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/recordEntrypoints.test.js:62:14)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:68:5
+✖ build-index.js exits 2 naming the engine-side install command when js-yaml cannot load (119.977667ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 2
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/recordEntrypoints.test.js:72:14)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:78:5
+✖ build-index.js loads the engine the override names, and the live engine without it (84.973876ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /^SENTINEL (check|index) [a-z]+\n$/. Input:
+  
+  '  wrote INDEX.md (533 lines, default)\n'
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/recordEntrypoints.test.js:80:14)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '  wrote INDEX.md (533 lines, default)\n',
+    expected: /^SENTINEL (check|index) [a-z]+\n$/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:85:5
+✖ requiring build-index.js writes nothing, prints nothing and exits 0 (91.917489ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  3 !== 0
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/recordEntrypoints.test.js:89:14)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 3,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:96:3
+✖ check-repo.js carries a gate instant and a vocabulary instant that are UTC instants no later than now (252.459564ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/recordEntrypoints.test.js:98:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:105:3
+✖ check-repo.js raises no basename failure for the root and probe .gitignore files or the verification probe folders (251.036182ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /'\.gitignore' appears/. Input:
+  
+  '  legacy: 83 file(s) from chains before 012 omitted — predecessor-workflow documents, not repaired and not checked (owner ruling 2026-08-24)\n' +
+    '  links: 597 in-repo citations checked across 218 documents; 238 resolved across a closure (open↔closed identity); 0 external (workspace / sibling-repo) links noted but not verified; 7 deliberately suppressed\n' +
+    '  basenames: 1874 distinct, 22 unexpected collisions, 1 declared exceptions\n' +
+    '  frontmatter: 117 documents carry frontmatter, 4 distinct chains; 101 document(s) carry none; 40 carry frontmatter but no ID field (reported, not failed)\n' +
+    '  scope suffixes: 0 document(s) carry one, all validated against their plan\n' +
+    '\n' +
+    '  LINKS — 4 failure(s)\n' +
+    '    steering/record-engine-briefs/record-engine-code-reviewer-brief.md:5  ->  implementation/fix-hooks-record-shared-engine-implementation.md   (backticked, resolves to implementation/fix-hooks-record-shared-engine-implementation.md)\n' +
+    '    steering/record-engine-briefs/record-engine-qa-brief.md:5  ->  implementation/fix-hooks-record-shared-engine-implementation.md   (backticked, resolves to implementation/fix-hooks-record-shared-engine-implementation.md)\n' +
+    '    steering/record-tools-shared-engine-rulings.md:9  ->  steering/selection-ledger/2026-11-10.md   (backticked, resolves to steering/selection-ledger/2026-11-10.md)\n' +
+    '    steering/record-tools-shared-engine-rulings.md:91  ->  implementation/fix-hooks-record-shared-engine-implementation.md   (backticked, resolves to implementation/fix-hooks-record-shared-engine-implementation.md)\n' +
+    '\n' +
+    '  BASENAMES — 22 failure(s)\n' +
+    "    '.gitignore' appears 2 times:\n" +
+    '        .gitignore\n' +
+    '        verification/014/.gitignore\n' +
+    "    'observed-interrupted-report.json' appears 2 times:\n" +
+    '        verification/012/probe-cr2-require-esm/observed-interrupted-report.json\n' +
+    '        verification/012/probe-fixround2-h3/observed-interrupted-report.json\n' +
+    "    'run-typecheck-8-errors.txt' appears 3 times:\n" +
+    '        verification/012/probe-cr3-h3-and-default-target/run-typecheck-8-errors.txt\n' +
+    '        verification/012/probe-cr4-guard-attack/run-typecheck-8-errors.txt\n' +
+    '        verification/012/probe-cr5-override-guard/run-typecheck-8-errors.txt\n' +
+    "    'run-attack-sweep.txt' appears 2 times:\n" +
+    '        verification/012/probe-cr4-guard-attack/run-attack-sweep.txt\n' +
+    '        verification/012/probe-cr5-override-guard/run-attack-sweep.txt\n' +
+    "    'vitest.config.ts' appears 4 times:\n" +
+    '        verification/013/probe-cr21-fqa15-closure/vitest.config.ts\n' +
+    '        verification/013/probe-cr22-render-instrument-nonvacuity/vitest.config.ts\n' +
+    '        verification/013/probe-cr23-paste-surface-nonvacuity/vitest.config.ts\n' +
+    '        verification/013/probe-cr24-drift-loudness/vitest.config.ts\n' +
+    "    'RUN.md' appears 4 times:\n" +
+    '        verification/013/probe-cr25-mutation-error-readability/RUN.md\n' +
+    '        verification/013/probe-cr26-delimiter-class-eliminated/RUN.md\n' +
+    '        verification/013/probe-cr27-settledmode-reachability/RUN.md\n' +
+    '        verification/013/probe-cr28-oracle-arming/RUN.md\n' +
+    "    'output.txt' appears 3 times:\n" +
+    '        verification/013/probe-cr25-mutation-error-readability/output.txt\n' +
+    '        verification/013/probe-cr26-delimiter-class-eliminated/output.txt\n' +
+    '        verification/013/probe-cr27-settledmode-reachability/output.txt\n' +
+    "    'probe.ts' appears 3 times:\n" +
+    '        verification/013/probe-cr25-mutation-error-readability/probe.ts\n' +
+    '        verification/013/probe-cr26-delimiter-class-eliminated/probe.ts\n' +
+    '        verification/013/probe-cr27-settledmode-reachability/probe.ts\n' +
+    "    'manifest-sha256.txt' appears 13 times:\n" +
+    '        verification/013/probe-preexisting-seed-route/manifest-sha256.txt\n' +
+    '        verification/013/probe-qa-bc4-json-tab-fixture/manifest-sha256.txt\n' +
+    '        verification/013/probe-qa-criteria-rev49-rev50/manifest-sha256.txt\n' +
+    '        verification/013/probe-qa-p2-med6-loadgate/manifest-sha256.txt\n' +
+    '        verification/013/probe-qa-p2-rowd-load-gate/manifest-sha256.txt\n' +
+    '        verification/013/probe-qa-p3-delimiter-class-sweep/manifest-sha256.txt\n' +
+    '        verification/013/probe-qa-p3-fixverify/manifest-sha256.txt\n' +
+    '        verification/013/probe-qa-p3-render-instrument-reduction/manifest-sha256.txt\n' +
+    '        verification/013/probe-qa-p3-stale-prediction-differential/manifest-sha256.txt\n' +
+    '        verification/013/probe-qa-paste-surface-render/manifest-sha256.txt\n' +
+    '        verification/013/probe-qa-release-tip-b56570d/manifest-sha256.txt\n' +
+    '        verification/013/probe-qa-toast-vessel-render/manifest-sha256.txt\n' +
+    '        verification/013/probe-qa-verify-rider2/manifest-sha256.txt\n' +
+    "    'run-green.txt' appears 7 times:\n" +
+    '        verification/013/probe-preexisting-seed-route/run-green.txt\n' +
+    '        verification/013/probe-qa-bc4-json-tab-fixture/run-green.txt\n' +
+    '        verification/013/probe-qa-p2-med6-loadgate/run-green.txt\n' +
+    '        verification/013/probe-qa-p2-rowd-load-gate/run-green.txt\n' +
+    '        verification/013/probe-qa-p3-fixverify/run-green.txt\n' +
+    '        verification/013/probe-qa-paste-surface-render/run-green.txt\n' +
+    '        verification/013/probe-qa-toast-vessel-render/run-green.txt\n' +
+    "    'run-mutant-R2.txt' appears 2 times:\n" +
+    '        verification/013/probe-qa-p2-rowd-load-gate/run-mutant-R2.txt\n' +
+    '        verification/013/probe-qa-toast-vessel-render/run-mutant-R2.txt\n' +
+    "    'run-mutant-R3.txt' appears 2 times:\n" +
+    '        verification/013/probe-qa-p2-rowd-load-gate/run-mutant-R3.txt\n' +
+    '        verification/013/probe-qa-toast-vessel-render/run-mutant-R3.txt\n' +
+    "    'report-2d90e8a.txt' appears 2 times:\n" +
+    '        verification/013/probe-qa-p3-delimiter-class-sweep/report-2d90e8a.txt\n' +
+    '        verification/013/probe-qa-p3-stale-prediction-differential/report-2d90e8a.txt\n' +
+    "    'run-2d90e8a.txt' appears 3 times:\n" +
+    '        verification/013/probe-qa-p3-delimiter-class-sweep/run-2d90e8a.txt\n' +
+    '        verification/013/probe-qa-p3-render-instrument-reduction/run-2d90e8a.txt\n' +
+    '        verification/013/probe-qa-p3-stale-prediction-differential/run-2d90e8a.txt\n' +
+    "    'diff-4a7126b-to-2d90e8a.txt' appears 2 times:\n" +
+    '        verification/013/probe-qa-p3-render-instrument-reduction/diff-4a7126b-to-2d90e8a.txt\n' +
+    '        verification/013/probe-qa-p3-stale-prediction-differential/diff-4a7126b-to-2d90e8a.txt\n' +
+    "    'run-4a7126b.txt' appears 2 times:\n" +
+    '        verification/013/probe-qa-p3-render-instrument-reduction/run-4a7126b.txt\n' +
+    '        verification/013/probe-qa-p3-stale-prediction-differential/run-4a7126b.txt\n' +
+    "    'run.sh' appears 13 times:\n" +
+    '        verification/015/cr-m1-probes/run.sh\n' +
+    '        verification/015/cr-m4-probes/run.sh\n' +
+    '        verification/015/cr-m5-probes/run.sh\n' +
+    '        verification/015/cr-m6-probes/cr26-ban/run.sh\n' +
+    '        verification/015/cr-m8-probes/qaf37/run.sh\n' +
+    '        verification/015/cr-m8-probes/span-read/run.sh\n' +
+    '        verification/015/cr-qaf-probes/cr40/run.sh\n' +
+    '        verification/015/d28-seed-probes/run.sh\n' +
+    '        verification/015/m5h-class-probe/run.sh\n' +
+    '        verification/015/m8-local-probe/run.sh\n' +
+    '        verification/015/pig-span-read-fixture/run.sh\n' +
+    '        verification/015/qa-m5e-local-day-probe/run.sh\n' +
+    '        verification/015/qa-rk1-differential/run.sh\n' +
+    "    'run1-da24eb7.txt' appears 3 times:\n" +
+    '        verification/015/cr-m5-probes/run1-da24eb7.txt\n' +
+    '        verification/015/m5h-class-probe/run1-da24eb7.txt\n' +
+    '        verification/015/qa-m5e-local-day-probe/run1-da24eb7.txt\n' +
+    "    'server.sh' appears 2 times:\n" +
+    '        verification/015/d28-folder-switch/server.sh\n' +
+    '        verification/015/m3-chrome-read/server.sh\n' +
+    "    'tree-sha.txt' appears 2 times:\n" +
+    '        verification/015/d28-folder-switch/tree-sha.txt\n' +
+    '        verification/015/m3-chrome-read/tree-sha.txt\n' +
+    "    'qa-m8r-control.txt' appears 2 times:\n" +
+    '        verification/015/m8-local-probe/qa-m8r-8de2b53/qa-m8r-control.txt\n' +
+    '        verification/015/qaf37/qa-m8r-control.txt\n' +
+    "    'qa-m8r-summary.txt' appears 2 times:\n" +
+    '        verification/015/m8-local-probe/qa-m8r-8de2b53/qa-m8r-summary.txt\n' +
+    '        verification/015/qaf37/qa-m8r-summary.txt\n' +
+    '\n' +
+    '  SCOPE — 4 failure(s)\n' +
+    "    code-review/closed/012-carry-forward-to-post-refresh-pass.md: no recognised stage suffix for 'code-review/' (expected one of code-review)\n" +
+    "    deployment/closed/012-message-valid-field-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)\n" +
+    "    deployment/closed/013-components-v2-editing-surfaces-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)\n" +
+    "    deployment/closed/014-test-suite-cleanup-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)\n" +
+    '\n' +
+    '  FAIL — 30 problem(s).\n'
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/recordEntrypoints.test.js:108:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "  legacy: 83 file(s) from chains before 012 omitted — predecessor-workflow documents, not repaired and not checked (owner ruling 2026-08-24)\n  links: 597 in-repo citations checked across 218 documents; 238 resolved across a closure (open↔closed identity); 0 external (workspace / sibling-repo) links noted but not verified; 7 deliberately suppressed\n  basenames: 1874 distinct, 22 unexpected collisions, 1 declared exceptions\n  frontmatter: 117 documents carry frontmatter, 4 distinct chains; 101 document(s) carry none; 40 carry frontmatter but no ID field (reported, not failed)\n  scope suffixes: 0 document(s) carry one, all validated against their plan\n\n  LINKS — 4 failure(s)\n    steering/record-engine-briefs/record-engine-code-reviewer-brief.md:5  ->  implementation/fix-hooks-record-shared-engine-implementation.md   (backticked, resolves to implementation/fix-hooks-record-shared-engine-implementation.md)\n    steering/record-engine-briefs/record-engine-qa-brief.md:5  ->  implementation/fix-hooks-record-shared-engine-implementation.md   (backticked, resolves to implementation/fix-hooks-record-shared-engine-implementation.md)\n    steering/record-tools-shared-engine-rulings.md:9  ->  steering/selection-ledger/2026-11-10.md   (backticked, resolves to steering/selection-ledger/2026-11-10.md)\n    steering/record-tools-shared-engine-rulings.md:91  ->  implementation/fix-hooks-record-shared-engine-implementation.md   (backticked, resolves to implementation/fix-hooks-record-shared-engine-implementation.md)\n\n  BASENAMES — 22 failure(s)\n    '.gitignore' appears 2 times:\n        .gitignore\n        verification/014/.gitignore\n    'observed-interrupted-report.json' appears 2 times:\n        verification/012/probe-cr2-require-esm/observed-interrupted-report.json\n        verification/012/probe-fixround2-h3/observed-interrupted-report.json\n    'run-typecheck-8-errors.txt' appears 3 times:\n        verification/012/probe-cr3-h3-and-default-target/run-typecheck-8-errors.txt\n        verification/012/probe-cr4-guard-attack/run-typecheck-8-errors.txt\n        verification/012/probe-cr5-override-guard/run-typecheck-8-errors.txt\n    'run-attack-sweep.txt' appears 2 times:\n        verification/012/probe-cr4-guard-attack/run-attack-sweep.txt\n        verification/012/probe-cr5-override-guard/run-attack-sweep.txt\n    'vitest.config.ts' appears 4 times:\n        verification/013/probe-cr21-fqa15-closure/vitest.config.ts\n        verification/013/probe-cr22-render-instrument-nonvacuity/vitest.config.ts\n        verification/013/probe-cr23-paste-surface-nonvacuity/vitest.config.ts\n        verification/013/probe-cr24-drift-loudness/vitest.config.ts\n    'RUN.md' appears 4 times:\n        verification/013/probe-cr25-mutation-error-readability/RUN.md\n        verification/013/probe-cr26-delimiter-class-eliminated/RUN.md\n        verification/013/probe-cr27-settledmode-reachability/RUN.md\n        verification/013/probe-cr28-oracle-arming/RUN.md\n    'output.txt' appears 3 times:\n        verification/013/probe-cr25-mutation-error-readability/output.txt\n        verification/013/probe-cr26-delimiter-class-eliminated/output.txt\n        verification/013/probe-cr27-settledmode-reachability/output.txt\n    'probe.ts' appears 3 times:\n        verification/013/probe-cr25-mutation-error-readability/probe.ts\n        verification/013/probe-cr26-delimiter-class-eliminated/probe.ts\n        verification/013/probe-cr27-settledmode-reachability/probe.ts\n    'manifest-sha256.txt' appears 13 times:\n        verification/013/probe-preexisting-seed-route/manifest-sha256.txt\n        verification/013/probe-qa-bc4-json-tab-fixture/manifest-sha256.txt\n        verification/013/probe-qa-criteria-rev49-rev50/manifest-sha256.txt\n        verification/013/probe-qa-p2-med6-loadgate/manifest-sha256.txt\n        verification/013/probe-qa-p2-rowd-load-gate/manifest-sha256.txt\n        verification/013/probe-qa-p3-delimiter-class-sweep/manifest-sha256.txt\n        verification/013/probe-qa-p3-fixverify/manifest-sha256.txt\n        verification/013/probe-qa-p3-render-instrument-reduction/manifest-sha256.txt\n        verification/013/probe-qa-p3-stale-prediction-differential/manifest-sha256.txt\n        verification/013/probe-qa-paste-surface-render/manifest-sha256.txt\n        verification/013/probe-qa-release-tip-b56570d/manifest-sha256.txt\n        verification/013/probe-qa-toast-vessel-render/manifest-sha256.txt\n        verification/013/probe-qa-verify-rider2/manifest-sha256.txt\n    'run-green.txt' appears 7 times:\n        verification/013/probe-preexisting-seed-route/run-green.txt\n        verification/013/probe-qa-bc4-json-tab-fixture/run-green.txt\n        verification/013/probe-qa-p2-med6-loadgate/run-green.txt\n        verification/013/probe-qa-p2-rowd-load-gate/run-green.txt\n        verification/013/probe-qa-p3-fixverify/run-green.txt\n        verification/013/probe-qa-paste-surface-render/run-green.txt\n        verification/013/probe-qa-toast-vessel-render/run-green.txt\n    'run-mutant-R2.txt' appears 2 times:\n        verification/013/probe-qa-p2-rowd-load-gate/run-mutant-R2.txt\n        verification/013/probe-qa-toast-vessel-render/run-mutant-R2.txt\n    'run-mutant-R3.txt' appears 2 times:\n        verification/013/probe-qa-p2-rowd-load-gate/run-mutant-R3.txt\n        verification/013/probe-qa-toast-vessel-render/run-mutant-R3.txt\n    'report-2d90e8a.txt' appears 2 times:\n        verification/013/probe-qa-p3-delimiter-class-sweep/report-2d90e8a.txt\n        verification/013/probe-qa-p3-stale-prediction-differential/report-2d90e8a.txt\n    'run-2d90e8a.txt' appears 3 times:\n        verification/013/probe-qa-p3-delimiter-class-sweep/run-2d90e8a.txt\n        verification/013/probe-qa-p3-render-instrument-reduction/run-2d90e8a.txt\n        verification/013/probe-qa-p3-stale-prediction-differential/run-2d90e8a.txt\n    'diff-4a7126b-to-2d90e8a.txt' appears 2 times:\n        verification/013/probe-qa-p3-render-instrument-reduction/diff-4a7126b-to-2d90e8a.txt\n        verification/013/probe-qa-p3-stale-prediction-differential/diff-4a7126b-to-2d90e8a.txt\n    'run-4a7126b.txt' appears 2 times:\n        verification/013/probe-qa-p3-render-instrument-reduction/run-4a7126b.txt\n        verification/013/probe-qa-p3-stale-prediction-differential/run-4a7126b.txt\n    'run.sh' appears 13 times:\n        verification/015/cr-m1-probes/run.sh\n        verification/015/cr-m4-probes/run.sh\n        verification/015/cr-m5-probes/run.sh\n        verification/015/cr-m6-probes/cr26-ban/run.sh\n        verification/015/cr-m8-probes/qaf37/run.sh\n        verification/015/cr-m8-probes/span-read/run.sh\n        verification/015/cr-qaf-probes/cr40/run.sh\n        verification/015/d28-seed-probes/run.sh\n        verification/015/m5h-class-probe/run.sh\n        verification/015/m8-local-probe/run.sh\n        verification/015/pig-span-read-fixture/run.sh\n        verification/015/qa-m5e-local-day-probe/run.sh\n        verification/015/qa-rk1-differential/run.sh\n    'run1-da24eb7.txt' appears 3 times:\n        verification/015/cr-m5-probes/run1-da24eb7.txt\n        verification/015/m5h-class-probe/run1-da24eb7.txt\n        verification/015/qa-m5e-local-day-probe/run1-da24eb7.txt\n    'server.sh' appears 2 times:\n        verification/015/d28-folder-switch/server.sh\n        verification/015/m3-chrome-read/server.sh\n    'tree-sha.txt' appears 2 times:\n        verification/015/d28-folder-switch/tree-sha.txt\n        verification/015/m3-chrome-read/tree-sha.txt\n    'qa-m8r-control.txt' appears 2 times:\n        verification/015/m8-local-probe/qa-m8r-8de2b53/qa-m8r-control.txt\n        verification/015/qaf37/qa-m8r-control.txt\n    'qa-m8r-summary.txt' appears 2 times:\n        verification/015/m8-local-probe/qa-m8r-8de2b53/qa-m8r-summary.txt\n        verification/015/qaf37/qa-m8r-summary.txt\n\n  SCOPE — 4 failure(s)\n    code-review/closed/012-carry-forward-to-post-refresh-pass.md: no recognised stage suffix for 'code-review/' (expected one of code-review)\n    deployment/closed/012-message-valid-field-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)\n    deployment/closed/013-components-v2-editing-surfaces-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)\n    deployment/closed/014-test-suite-cleanup-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)\n\n  FAIL — 30 problem(s).\n",
+    expected: /'\.gitignore' appears/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at tools/recordEntrypoints.test.js:113:3
+✖ check-repo.js passes the committed record with its baseline, every baselined failure predating the move (251.904397ms)
+  AssertionError [ERR_ASSERTION]:   legacy: 83 file(s) from chains before 012 omitted — predecessor-workflow documents, not repaired and not checked (owner ruling 2026-08-24)
+    links: 597 in-repo citations checked across 218 documents; 238 resolved across a closure (open↔closed identity); 0 external (workspace / sibling-repo) links noted but not verified; 7 deliberately suppressed
+    basenames: 1874 distinct, 22 unexpected collisions, 1 declared exceptions
+    frontmatter: 117 documents carry frontmatter, 4 distinct chains; 101 document(s) carry none; 40 carry frontmatter but no ID field (reported, not failed)
+    scope suffixes: 0 document(s) carry one, all validated against their plan
+  
+    LINKS — 4 failure(s)
+      steering/record-engine-briefs/record-engine-code-reviewer-brief.md:5  ->  implementation/fix-hooks-record-shared-engine-implementation.md   (backticked, resolves to implementation/fix-hooks-record-shared-engine-implementation.md)
+      steering/record-engine-briefs/record-engine-qa-brief.md:5  ->  implementation/fix-hooks-record-shared-engine-implementation.md   (backticked, resolves to implementation/fix-hooks-record-shared-engine-implementation.md)
+      steering/record-tools-shared-engine-rulings.md:9  ->  steering/selection-ledger/2026-11-10.md   (backticked, resolves to steering/selection-ledger/2026-11-10.md)
+      steering/record-tools-shared-engine-rulings.md:91  ->  implementation/fix-hooks-record-shared-engine-implementation.md   (backticked, resolves to implementation/fix-hooks-record-shared-engine-implementation.md)
+  
+    BASENAMES — 22 failure(s)
+      '.gitignore' appears 2 times:
+          .gitignore
+          verification/014/.gitignore
+      'observed-interrupted-report.json' appears 2 times:
+          verification/012/probe-cr2-require-esm/observed-interrupted-report.json
+          verification/012/probe-fixround2-h3/observed-interrupted-report.json
+      'run-typecheck-8-errors.txt' appears 3 times:
+          verification/012/probe-cr3-h3-and-default-target/run-typecheck-8-errors.txt
+          verification/012/probe-cr4-guard-attack/run-typecheck-8-errors.txt
+          verification/012/probe-cr5-override-guard/run-typecheck-8-errors.txt
+      'run-attack-sweep.txt' appears 2 times:
+          verification/012/probe-cr4-guard-attack/run-attack-sweep.txt
+          verification/012/probe-cr5-override-guard/run-attack-sweep.txt
+      'vitest.config.ts' appears 4 times:
+          verification/013/probe-cr21-fqa15-closure/vitest.config.ts
+          verification/013/probe-cr22-render-instrument-nonvacuity/vitest.config.ts
+          verification/013/probe-cr23-paste-surface-nonvacuity/vitest.config.ts
+          verification/013/probe-cr24-drift-loudness/vitest.config.ts
+      'RUN.md' appears 4 times:
+          verification/013/probe-cr25-mutation-error-readability/RUN.md
+          verification/013/probe-cr26-delimiter-class-eliminated/RUN.md
+          verification/013/probe-cr27-settledmode-reachability/RUN.md
+          verification/013/probe-cr28-oracle-arming/RUN.md
+      'output.txt' appears 3 times:
+          verification/013/probe-cr25-mutation-error-readability/output.txt
+          verification/013/probe-cr26-delimiter-class-eliminated/output.txt
+          verification/013/probe-cr27-settledmode-reachability/output.txt
+      'probe.ts' appears 3 times:
+          verification/013/probe-cr25-mutation-error-readability/probe.ts
+          verification/013/probe-cr26-delimiter-class-eliminated/probe.ts
+          verification/013/probe-cr27-settledmode-reachability/probe.ts
+      'manifest-sha256.txt' appears 13 times:
+          verification/013/probe-preexisting-seed-route/manifest-sha256.txt
+          verification/013/probe-qa-bc4-json-tab-fixture/manifest-sha256.txt
+          verification/013/probe-qa-criteria-rev49-rev50/manifest-sha256.txt
+          verification/013/probe-qa-p2-med6-loadgate/manifest-sha256.txt
+          verification/013/probe-qa-p2-rowd-load-gate/manifest-sha256.txt
+          verification/013/probe-qa-p3-delimiter-class-sweep/manifest-sha256.txt
+          verification/013/probe-qa-p3-fixverify/manifest-sha256.txt
+          verification/013/probe-qa-p3-render-instrument-reduction/manifest-sha256.txt
+          verification/013/probe-qa-p3-stale-prediction-differential/manifest-sha256.txt
+          verification/013/probe-qa-paste-surface-render/manifest-sha256.txt
+          verification/013/probe-qa-release-tip-b56570d/manifest-sha256.txt
+          verification/013/probe-qa-toast-vessel-render/manifest-sha256.txt
+          verification/013/probe-qa-verify-rider2/manifest-sha256.txt
+      'run-green.txt' appears 7 times:
+          verification/013/probe-preexisting-seed-route/run-green.txt
+          verification/013/probe-qa-bc4-json-tab-fixture/run-green.txt
+          verification/013/probe-qa-p2-med6-loadgate/run-green.txt
+          verification/013/probe-qa-p2-rowd-load-gate/run-green.txt
+          verification/013/probe-qa-p3-fixverify/run-green.txt
+          verification/013/probe-qa-paste-surface-render/run-green.txt
+          verification/013/probe-qa-toast-vessel-render/run-green.txt
+      'run-mutant-R2.txt' appears 2 times:
+          verification/013/probe-qa-p2-rowd-load-gate/run-mutant-R2.txt
+          verification/013/probe-qa-toast-vessel-render/run-mutant-R2.txt
+      'run-mutant-R3.txt' appears 2 times:
+          verification/013/probe-qa-p2-rowd-load-gate/run-mutant-R3.txt
+          verification/013/probe-qa-toast-vessel-render/run-mutant-R3.txt
+      'report-2d90e8a.txt' appears 2 times:
+          verification/013/probe-qa-p3-delimiter-class-sweep/report-2d90e8a.txt
+          verification/013/probe-qa-p3-stale-prediction-differential/report-2d90e8a.txt
+      'run-2d90e8a.txt' appears 3 times:
+          verification/013/probe-qa-p3-delimiter-class-sweep/run-2d90e8a.txt
+          verification/013/probe-qa-p3-render-instrument-reduction/run-2d90e8a.txt
+          verification/013/probe-qa-p3-stale-prediction-differential/run-2d90e8a.txt
+      'diff-4a7126b-to-2d90e8a.txt' appears 2 times:
+          verification/013/probe-qa-p3-render-instrument-reduction/diff-4a7126b-to-2d90e8a.txt
+          verification/013/probe-qa-p3-stale-prediction-differential/diff-4a7126b-to-2d90e8a.txt
+      'run-4a7126b.txt' appears 2 times:
+          verification/013/probe-qa-p3-render-instrument-reduction/run-4a7126b.txt
+          verification/013/probe-qa-p3-stale-prediction-differential/run-4a7126b.txt
+      'run.sh' appears 13 times:
+          verification/015/cr-m1-probes/run.sh
+          verification/015/cr-m4-probes/run.sh
+          verification/015/cr-m5-probes/run.sh
+          verification/015/cr-m6-probes/cr26-ban/run.sh
+          verification/015/cr-m8-probes/qaf37/run.sh
+          verification/015/cr-m8-probes/span-read/run.sh
+          verification/015/cr-qaf-probes/cr40/run.sh
+          verification/015/d28-seed-probes/run.sh
+          verification/015/m5h-class-probe/run.sh
+          verification/015/m8-local-probe/run.sh
+          verification/015/pig-span-read-fixture/run.sh
+          verification/015/qa-m5e-local-day-probe/run.sh
+          verification/015/qa-rk1-differential/run.sh
+      'run1-da24eb7.txt' appears 3 times:
+          verification/015/cr-m5-probes/run1-da24eb7.txt
+          verification/015/m5h-class-probe/run1-da24eb7.txt
+          verification/015/qa-m5e-local-day-probe/run1-da24eb7.txt
+      'server.sh' appears 2 times:
+          verification/015/d28-folder-switch/server.sh
+          verification/015/m3-chrome-read/server.sh
+      'tree-sha.txt' appears 2 times:
+          verification/015/d28-folder-switch/tree-sha.txt
+          verification/015/m3-chrome-read/tree-sha.txt
+      'qa-m8r-control.txt' appears 2 times:
+          verification/015/m8-local-probe/qa-m8r-8de2b53/qa-m8r-control.txt
+          verification/015/qaf37/qa-m8r-control.txt
+      'qa-m8r-summary.txt' appears 2 times:
+          verification/015/m8-local-probe/qa-m8r-8de2b53/qa-m8r-summary.txt
+          verification/015/qaf37/qa-m8r-summary.txt
+  
+    SCOPE — 4 failure(s)
+      code-review/closed/012-carry-forward-to-post-refresh-pass.md: no recognised stage suffix for 'code-review/' (expected one of code-review)
+      deployment/closed/012-message-valid-field-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)
+      deployment/closed/013-components-v2-editing-surfaces-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)
+      deployment/closed/014-test-suite-cleanup-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)
+  
+    FAIL — 30 problem(s).
+  
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/recordEntrypoints.test.js:115:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+exit 1
