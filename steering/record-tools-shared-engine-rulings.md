@@ -35,7 +35,7 @@ record's own `tools/check-repo.js` can only exempt a file name everywhere, never
 **What the move is.** Replace this record's `tools/check-repo.js` (846 lines) and
 `tools/build-index.js` with thin entrypoints that set `SETTINGS` and call
 `~/.claude/tools/record-engine.js`, in the form of the statbot record's entrypoints, and bring over
-`tools/recordEntrypoints.test.js`.
+`tools/recordEntrypoints.test.js`. <!-- check-repo:ignore — a file the move would create; it does not exist in this record yet -->
 
 **What it clears, and what it does not.**
 - 22 BASENAMES: clearable. The engine takes `duplicateBasenameExemptDirectories`
@@ -43,7 +43,7 @@ record's own `tools/check-repo.js` can only exempt a file name everywhere, never
   `verification/`.
 - 4 SCOPE: **not cleared.** The engine's `STAGE_SUFFIXES` (`record-engine.js:427-439`) is the same
   table as this record's: `deployment/` accepts only `-deployment`. Those four need either an entry
-  in the engine's baseline file (`tools/check-repo-baseline.json`; adding to a baseline is the
+  in the engine's baseline file (`tools/check-repo-baseline.json`; adding to a baseline is the <!-- check-repo:ignore — a file the move would create; it does not exist in this record yet -->
   owner's decision) or a suffix added in the engine, which the Agents domain owns.
 - New failures: **unmeasured.** The engine adds rules this record has never been checked against
   (changelog-row and heading stamps from a gate instant, duplicate R-n/D-n, status vocabulary on
