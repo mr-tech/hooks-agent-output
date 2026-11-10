@@ -1,0 +1,3 @@
+?? steering/cleanup-2026-11-10.md
+?? steering/selection-ledger/
+?? verification/cleanup-2026-11-10/

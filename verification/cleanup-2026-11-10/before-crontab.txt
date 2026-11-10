@@ -1,0 +1,49 @@
+# Edit this file to introduce tasks to be run by cron.
+# 
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+# 
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').# 
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+# 
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+# 
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+# 
+# For more information see the manual pages of crontab(5) and cron(8)
+# 
+# m h  dom mon dow   commandi
+
+@reboot root /usr/sbin/ntpd -n
+*/5 * * * * ~/scripts/warm_lambda.sh
+# Disabled 2026-09-05: standup-baseline pre-change sampler. Its baseline was complete
+# on 2026-08-17 (n=52); 116 further samples moved p10 by 0.1pp. Re-enable this line for a
+# few days AFTER the boot-buffer/digest change ships to get a comparable after-picture.
+# 41 3,7,11,15,19,23 * * * /usr/local/bin/node /usr/local/bin/statbot/statbot-v3/tools/standup-baseline/sample.js >> /usr/local/bin/statbot/statbot-v3/tools/standup-baseline/cron.log 2>&1
+*/5 * * * * /usr/bin/flock -n /home/dev/.warm-watchdog/.lock /usr/bin/python3 /usr/local/bin/warm-watchdog/cc-warm-watchdog.py >> /home/dev/.warm-watchdog/log 2>&1
+# plan 055 post-deploy readers (steering-coordinator-handoffs, owner selection 2026-10-29T00:50Z "Agent: crontab readers"); B-6 pending his 117 yes
+26 0 12-14 11 * cd /usr/local/bin/statbot/agent-output && /usr/local/bin/node /home/dev/.claude/tools/post-deploy-launcher.js verification/055/post-deploy/kit-hosts/briefs/B11.md >> verification/055/post-deploy/kit-hosts/out/cron.log 2>&1
+# plan 054 post-deploy readers (steering-coordinator-handoffs, owner selection 2026-10-29T03:08Z re-put after correction, "Agent: crontab readers"; Loki yes for B-2)
+19 4 28-30 11 * cd /usr/local/bin/statbot/agent-output && /usr/local/bin/node /home/dev/.claude/tools/post-deploy-launcher.js verification/054/post-deploy/kit-replica/briefs/B5.md >> verification/054/post-deploy/kit-replica/out/cron.log 2>&1
+47 8,20 * * * /usr/local/bin/statbot/agent-output/verification/058/post-deploy/kit/retain-pull.sh
+
+# M9 kicked-cohort 30-day re-install check (research/closed/bot-removal-kicked-cohort-2026-11-01.md). No-op until 2026-12-01T05:30Z and after results exist; safe to delete once results are in.
+15 6 * * * /usr/local/bin/node /usr/local/bin/statbot/agent-output/tools/kicked-cohort-reinstall-check.js >> /home/dev/.local/state/kicked-cohort-reinstall-check.log 2>&1
+10 6 * * * /usr/local/bin/node /home/dev/.claude/tools/post-deploy-launcher.js /usr/local/bin/statbot/agent-output/verification/065/post-deploy/kit/briefs/PD-A.md >> /usr/local/bin/statbot/agent-output/verification/065/post-deploy/kit/out/cron.log 2>&1
+40 6 * * * /usr/local/bin/node /home/dev/.claude/tools/post-deploy-launcher.js /usr/local/bin/statbot/agent-output/verification/065/post-deploy/kit/briefs/PD-B.md >> /usr/local/bin/statbot/agent-output/verification/065/post-deploy/kit/out/cron.log 2>&1
+10 7 * * * /usr/local/bin/node /home/dev/.claude/tools/post-deploy-launcher.js /usr/local/bin/statbot/agent-output/verification/065/post-deploy/kit/briefs/PD-C.md >> /usr/local/bin/statbot/agent-output/verification/065/post-deploy/kit/out/cron.log 2>&1
+
+# /usage history for the economics platform (owner approved 2026-11-04; research/theo-workflow-economics-2026-11-04.md)
+7 * * * * /usr/bin/python3 /home/dev/.claude/tools/plan-usage.py --log --max-age 0 >/dev/null 2>&1
+# PI003 economics platform: daily collect (owner selection D-3, 2026-11-04); remove with: crontab -l > f && grep -v PI003 f > g && crontab g
+23 4 * * * /usr/bin/python3 /home/dev/.claude/tools/econ.py collect >/dev/null 2>>/home/dev/.claude/tools/econ.log # PI003
+10 5 12-14 11 * cd /usr/local/bin/statbot/agent-output && /usr/local/bin/node /home/dev/.claude/tools/post-deploy-launcher.js verification/PI004/post-deploy/kit/briefs/B3.md >> verification/PI004/post-deploy/kit/out/cron.log 2>&1 # PI004
+# PI006 value-limb 14-day read (one-time; remove after 2026-11-24) — steering-PI006, on his word 2026-11-10
+15 5 24 11 * cd /home/dev/.claude/agents && /home/dev/.local/bin/claude -p "$(cat /usr/local/bin/statbot/agent-output/steering/tools-chain-2-briefs/value-limb-read-2026-11-24.md)" --agent steering --permission-mode bypassPermissions >> /home/dev/.claude/logs/value-limb-read-2026-11-24.log 2>&1

@@ -1,0 +1,172 @@
+  chain 012 — 0 open, 9 closed; latest stage: retrospectives
+    · planning             Released — APPROVED FOR IMPLEMENTATION (critique cycle 2 pass 2, `a4bec32`); assembled scop…    ⚠ FAILING/BLOCKING
+    · critiques            Resolved — Cycle 2 closed at rev 9 (commit b5d8a6e): F10/F11 verified landed in Validation …  
+    · implementation       Released  
+    · code-review          Released  
+    · qa                   Released — Phase 1 rev 3. Strategy complete and re-derived against plan rev 6 (`7af8936`), …   [Verified-At: website chain/012-message-valid-field @ c85945f (committed c] 
+    · uat                  Released — UAT Complete. **APPROVED FOR RELEASE — UNCONDITIONAL** (2026-08-25). The 2026-08…   [Verified-At: Re-derived from the tree 2026-08-25 by the Addendum 5 pass, ] 
+    · deployment           Released — Released 2026-08-23; **chain closed 2026-08-25** (Addendum A). `website` `master…  
+    · deployment           Superseded by 012-message-valid-field-deployment.md — release executed 2026-08-23 — Release assembled and verified. **Nothing has been pushed.** All artifact-side g…  
+    · retrospectives       Processed — Rev 2. Processed by pi batch 7 on 2026-08-26T01:40 — R1..R9 dispositioned in the…  
+
+  chain 013 — 1 open, 8 closed; latest stage: retrospectives
+    ▶ architecture         Active  
+    · planning             Released — Rev 51. **RELEASED 2026-08-25 20:30:01 UTC — `website` `master` `2d90e8a` → `b56…  
+    · critiques            Resolved — Cycle 1, pass 5 (rung 1–5), scoped to pass 4's two M2 clauses plus rev 11's fore…  
+    · implementation       Released — Terminal `Status` set 2026-08-25 by `devops-hooks-013-3`, discharging **U-C6** (…  
+    · qa                   QA Complete — Phase 1 rev 1, written against plan rev 12 (`4906fbc`, Status `Approved`) and cr…   [Verified-At: b56570dfa916368e9942e671d594112750567923]   ⚠ FAILING/BLOCKING
+    · uat                  Released — **LIFECYCLE: `Released` — TERMINAL, set at rev 53 on the owner's ruling *"Close …   [Verified-At: **CURRENT (rev 19/20/21).** **Rev 21 executed D44 (plan rev ]   ⚠ FAILING/BLOCKING
+    · deployment           Released — Deployment record for the release that ran on 2026-08-25 at 00:56:37 UTC: `websi…    ⚠ FAILING/BLOCKING
+    · deployment           Superseded by 013-components-v2-editing-surfaces-deployment.md — release executed 2026-08-25 — Readiness assessment only, prepared 2026-08-24 while the chain is still open (M4…  
+    · retrospectives       Processed — Rev 3. Processed by pi batch 7 on 2026-08-26T01:40 — P-1..P-19 dispositioned in …  
+
+  chain 014 — 1 open, 11 closed; latest stage: retrospectives
+    ▶ verification         Complete  
+    · planning             Released — UAT Complete at website `f2c85f5` (uat-hooks-014), tree identity re-derived not …    ⚠ FAILING/BLOCKING
+    · analysis             Planned — Complete for the commissioned brief (a)–(e), and CONSUMED by the planner at plan…  
+    · critiques            Resolved — Cycle 1, pass 4 (rung 1–5), scoped to the rev 5→6 delta. Verdict APPROVE. All fi…  
+    · critiques            Resolved — Cycle 2, pass 2 (rung 1–5), scoped to the rev 7→8 delta. Verdict APPROVE. M-13, …  
+    · implementation       Committed  
+    · code-review          Committed  
+    · qa                   Committed — Phase 1 complete against plan rev 8. Test strategy, Irreversible Side-Effect Reg…   [Verified-At: f2c85f5c7e3ad03879845ae1116518dc71cf2077 (website, chain bra] 
+    · uat                  Committed   [Verified-At: website f2c85f5c7e3ad03879845ae1116518dc71cf2077 (chain/014-] 
+    · deployment           Released — chain closed 2026-08-27; every register row terminal — **RELEASED 2026-08-27T05:19:56Z.** `website` serving ref `master` moved **`a74b9…   [Verified-At: website f2c85f5c7e3ad03879845ae1116518dc71cf2077 — the QA-ve] 
+    · deployment           Superseded by 014-test-suite-cleanup-deployment.md — release executed 2026-08-27T05:19:56Z — **Stage 1 only. Nothing was merged, switched, tagged or pushed.** Committed stat…   [Verified-At: website f2c85f5c7e3ad03879845ae1116518dc71cf2077 (chain/014-] 
+    · retrospectives       Processed  
+
+  chain 015 — 0 open, 40 closed; latest stage: retrospectives
+    · architecture         Resolved — Resolved at chain 015's release (website b96e364, preview-image-generator 8de2b5…  
+    · planning             Released — Released 2026-11-08: website master b96e364 (pushed 21:38:22Z) and preview-image…  
+    · analysis             Released — Released with chain 015 (preview-image-generator prod 8de2b53). F-31 finding: un…  
+    · analysis             Released — Released with chain 015 (website b96e364). Mechanism proven: a first lazy load o…  
+    · critiques            Resolved — Cycle 1, pass 3, delta-bounded read of revision 5 (1d0f890; boundary verified ag…  
+    · critiques            Resolved — Cycle 2 closed at plan revision 8 (1f7715b): L-C2-4 verified landed in M1-c (ses…  
+    · critiques            Resolved — Cycle 3 closed at pass 4: delta-bounded read of revisions 12 and 13 as one round…  
+    · critiques            Resolved — Cycle 4 closed at pass 3: delta-bounded read of revision 19 (67cb5e7..330348f, -…  
+    · critiques            Resolved — Cycle 5 closed after pass 2: revision 21 (3d193f9) APPROVED; M-C5-1 RESOLVED (re…  
+    · critiques            Resolved — Cycle 6 closed after pass 2: revision 23 (39dbc0d) APPROVED; M-C6-1 and L-C6-1 R…  
+    · critiques            Resolved — Cycle 7 closed after pass 1: revision 24 (018f72d) APPROVED; L-C7-1 LOW carried …  
+    · critiques            Resolved — Cycle 8 closed after pass 1: revision 25 (dd9e88a) APPROVED; L-C8-1 LOW carried …  
+    · critiques            Resolved — Cycle 9 closed at the chain's release (plan Released, planning/closed/, 2e11427)…  
+    · implementation       Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). …  
+    · implementation       Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). …  
+    · implementation       Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). …  
+    · implementation       Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). …  
+    · implementation       Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). …  
+    · implementation       Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). …  
+    · implementation       Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). …  
+    · implementation       Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). …  
+    · implementation       Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). …  
+    · implementation       Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). …  
+    · code-review          Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53); …  
+    · qa                   Released — Released with chain 015 at website b96e364 and preview-image-generator 8de2b53, …   [Verified-At: b96e364,8de2b53 — repos=website,preview-image-generator; eff] 
+    · qa                   Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53); …   [Verified-At: 037935d — repos=website; M0 only, run in a git-archive expor] 
+    · qa                   Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53); …   [Verified-At: 4f9ed85 — repos=website; test-only round (QAF-27 for M1, QAF] 
+    · qa                   Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53); …   [Verified-At: 24ac49f — repos=website; M1 only, run in git-archive exports] 
+    · qa                   Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53); …   [Verified-At: 6001f7f — repos=website; M2 only, run in a git-archive expor] 
+    · qa                   Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53); …   [Verified-At: 476c633 — repos=website; M4 scoped pass for the non-JSON mem] 
+    · qa                   Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53); …   [Verified-At: 476c633 — repos=website; M5-h and M5-i (the M5-a to M5-g PAS] 
+    · qa                   Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53); …   [Verified-At: 476c633 — repos=website; M6-a, the M6-b to M6-l re-run (QAF-] 
+    · qa                   Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53); …   [Verified-At: 476c633 — repos=website; M7 only, run in git-archive exports] 
+    · qa                   Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53); …   [Verified-At: 8de2b53 — repos=preview-image-generator; M8-a to M8-e (miles] 
+    · qa                   Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). …   [Verified-At: 6001f7f,471578f — repos=website,preview-image-generator; Pha] 
+    · qa                   Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53); …   [Verified-At: c5303ca — repos=website; QAF-34 (M6-a), QAF-35 (M5-h), CR-26] 
+    · security             Review Complete — Review Complete 2026-11-08: targeted review of preview-image-generator 471578f..…  
+    · uat                  Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). …   [Verified-At: b96e364,8de2b53 — repos=website,preview-image-generator; flo] 
+    · deployment           Released — Released 2026-11-08: website master b96e364 (pushed 21:38:22Z), preview-image-ge…  
+    · retrospectives       Processed — Processed by pi batch 31 (pi-batch): R1–R5, R9 and R12 are drafted as C10–C14 an…  
+
+  chain 1 — 0 open, 8 closed; latest stage: uat
+    · architecture         Active  
+    · planning             Released  
+    · critiques            Planned  
+    · critiques            OPEN  
+    · implementation       Released  
+    · qa                   Released  
+    · qa                   Findings Documented  
+    · uat                  Released  
+
+  chain 10 — 0 open, 8 closed; latest stage: deployment
+    · planning             Released  
+    · analysis             Planned  
+    · critiques            RESOLVED  
+    · implementation       Released  
+    · code-review          Released  
+    · qa                   Released  
+    · uat                  Released  
+    · deployment           Released  
+
+  chain 11 — 0 open, 2 closed; latest stage: code-review
+    · analysis             Planned  
+    · code-review          Code Review Approved — Round 25 (binding) at TREE b56570d / CRITERIA rev 49: APPROVED, SCOPED, test-onl…  
+
+  chain 2 — 0 open, 1 closed; latest stage: analysis
+    · analysis             Planned  
+
+  chain 3 — 0 open, 6 closed; latest stage: uat
+    · planning             Released  
+    · critiques            OPEN  
+    · implementation       Released  
+    · code-review          Released  
+    · qa                   Released  
+    · uat                  Released  
+
+  chain 4 — 0 open, 6 closed; latest stage: qa
+    · architecture         Active  
+    · planning             Released  
+    · analysis             Planned  
+    · critiques            RESOLVED  
+    · code-review          Released  
+    · qa                   Released  
+
+  chain 5 — 0 open, 7 closed; latest stage: uat
+    · planning             Committed  
+    · analysis             Planned  
+    · critiques            CLOSED  
+    · implementation       Committed  
+    · qa                   QA Failed    ⚠ FAILING/BLOCKING
+    · qa                   Committed  
+    · uat                  Committed  
+
+  chain 6 — 0 open, 7 closed; latest stage: uat
+    · planning             Released  
+    · analysis             Planned  
+    · critiques            Resolved  
+    · implementation       Committed  
+    · code-review          Committed  
+    · qa                   Committed  
+    · uat                  Committed  
+
+  chain 7 — 0 open, 8 closed; latest stage: deployment
+    · planning             Released  
+    · analysis             Planned  
+    · critiques            Released  
+    · implementation       Released  
+    · code-review          Released  
+    · qa                   Released  
+    · uat                  Released  
+    · deployment           Released  
+
+  chain 8 — 0 open, 8 closed; latest stage: deployment
+    · planning             Released  
+    · analysis             Planned  
+    · critiques            OPEN  
+    · implementation       Committed  
+    · code-review          Committed  
+    · qa                   Committed  
+    · uat                  Committed  
+    · deployment           Released  
+
+  chain 9 — 0 open, 8 closed; latest stage: deployment
+    · planning             Released  
+    · analysis             Planned  
+    · critiques            OPEN  
+    · implementation       Committed  
+    · code-review          In Review  
+    · qa                   Committed  
+    · uat                  Committed  
+    · deployment           Released  
+
+  open handoffs: backfill-valid-guard-has-no-db-backed-instrument-2026-08-26.md, bug-evaluation-fixes-unclosed-assumptions-2026-11-08.md, components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md, components-v2-invariant-for-system-architecture-2026-08-24.md, fix-v1-guild-messages-auth-post-deploy-2026-10-10.md, message-init-cached-edits-lost-2026-08-27.md, newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md, one-hooks-user-several-discord-accounts-2026-11-08.md, preview-image-failure-shows-broken-not-stale-2026-08-24.md, preview-image-generator-api-key-in-workflow-files-2026-11-08.md, preview-image-generator-drain-under-load-unobserved-2026-11-08.md, preview-image-generator-generic-pool-private-field-2026-11-08.md, preview-image-generator-host-security-posture-2026-11-08.md, providers-query-params-header-decode-throws-2026-11-08.md, save-originating-tab-raises-its-own-update-prompt-2026-08-25.md, unsaved-change-guards-disabled-for-unauthenticated-users-2026-08-24.md, upload-message-dialog-closes-on-first-portal-load-2026-11-08.md, v1-guild-messages-endpoints-unauthenticated-2026-08-24.md, website-api-handler-hardening-2026-10-10.md, website-tests-not-beside-their-module-2026-11-08.md
+
+  PASS — every failing or blocking verdict has an open handoff carrying it.

@@ -1,0 +1,118 @@
+  legacy: 83 file(s) from chains before 012 omitted — predecessor-workflow documents, not repaired and not checked (owner ruling 2026-08-24)
+  links: 747 in-repo citations checked across 215 documents; 326 resolved across a closure (open↔closed identity); 13 external (workspace / sibling-repo) links noted but not verified; 10 deliberately suppressed
+  basenames: 1867 distinct, 22 unexpected collisions, 1 declared exceptions
+  frontmatter: 117 documents carry frontmatter, 4 distinct chains; 98 document(s) carry none; 40 carry frontmatter but no ID field (reported, not failed)
+  scope suffixes: 0 document(s) carry one, all validated against their plan
+
+  BASENAMES — 22 failure(s)
+    '.gitignore' appears 2 times:
+        .gitignore
+        verification/014/.gitignore
+    'observed-interrupted-report.json' appears 2 times:
+        verification/012/probe-cr2-require-esm/observed-interrupted-report.json
+        verification/012/probe-fixround2-h3/observed-interrupted-report.json
+    'run-typecheck-8-errors.txt' appears 3 times:
+        verification/012/probe-cr3-h3-and-default-target/run-typecheck-8-errors.txt
+        verification/012/probe-cr4-guard-attack/run-typecheck-8-errors.txt
+        verification/012/probe-cr5-override-guard/run-typecheck-8-errors.txt
+    'run-attack-sweep.txt' appears 2 times:
+        verification/012/probe-cr4-guard-attack/run-attack-sweep.txt
+        verification/012/probe-cr5-override-guard/run-attack-sweep.txt
+    'vitest.config.ts' appears 4 times:
+        verification/013/probe-cr21-fqa15-closure/vitest.config.ts
+        verification/013/probe-cr22-render-instrument-nonvacuity/vitest.config.ts
+        verification/013/probe-cr23-paste-surface-nonvacuity/vitest.config.ts
+        verification/013/probe-cr24-drift-loudness/vitest.config.ts
+    'RUN.md' appears 4 times:
+        verification/013/probe-cr25-mutation-error-readability/RUN.md
+        verification/013/probe-cr26-delimiter-class-eliminated/RUN.md
+        verification/013/probe-cr27-settledmode-reachability/RUN.md
+        verification/013/probe-cr28-oracle-arming/RUN.md
+    'output.txt' appears 3 times:
+        verification/013/probe-cr25-mutation-error-readability/output.txt
+        verification/013/probe-cr26-delimiter-class-eliminated/output.txt
+        verification/013/probe-cr27-settledmode-reachability/output.txt
+    'probe.ts' appears 3 times:
+        verification/013/probe-cr25-mutation-error-readability/probe.ts
+        verification/013/probe-cr26-delimiter-class-eliminated/probe.ts
+        verification/013/probe-cr27-settledmode-reachability/probe.ts
+    'manifest-sha256.txt' appears 13 times:
+        verification/013/probe-preexisting-seed-route/manifest-sha256.txt
+        verification/013/probe-qa-bc4-json-tab-fixture/manifest-sha256.txt
+        verification/013/probe-qa-criteria-rev49-rev50/manifest-sha256.txt
+        verification/013/probe-qa-p2-med6-loadgate/manifest-sha256.txt
+        verification/013/probe-qa-p2-rowd-load-gate/manifest-sha256.txt
+        verification/013/probe-qa-p3-delimiter-class-sweep/manifest-sha256.txt
+        verification/013/probe-qa-p3-fixverify/manifest-sha256.txt
+        verification/013/probe-qa-p3-render-instrument-reduction/manifest-sha256.txt
+        verification/013/probe-qa-p3-stale-prediction-differential/manifest-sha256.txt
+        verification/013/probe-qa-paste-surface-render/manifest-sha256.txt
+        verification/013/probe-qa-release-tip-b56570d/manifest-sha256.txt
+        verification/013/probe-qa-toast-vessel-render/manifest-sha256.txt
+        verification/013/probe-qa-verify-rider2/manifest-sha256.txt
+    'run-green.txt' appears 7 times:
+        verification/013/probe-preexisting-seed-route/run-green.txt
+        verification/013/probe-qa-bc4-json-tab-fixture/run-green.txt
+        verification/013/probe-qa-p2-med6-loadgate/run-green.txt
+        verification/013/probe-qa-p2-rowd-load-gate/run-green.txt
+        verification/013/probe-qa-p3-fixverify/run-green.txt
+        verification/013/probe-qa-paste-surface-render/run-green.txt
+        verification/013/probe-qa-toast-vessel-render/run-green.txt
+    'run-mutant-R2.txt' appears 2 times:
+        verification/013/probe-qa-p2-rowd-load-gate/run-mutant-R2.txt
+        verification/013/probe-qa-toast-vessel-render/run-mutant-R2.txt
+    'run-mutant-R3.txt' appears 2 times:
+        verification/013/probe-qa-p2-rowd-load-gate/run-mutant-R3.txt
+        verification/013/probe-qa-toast-vessel-render/run-mutant-R3.txt
+    'report-2d90e8a.txt' appears 2 times:
+        verification/013/probe-qa-p3-delimiter-class-sweep/report-2d90e8a.txt
+        verification/013/probe-qa-p3-stale-prediction-differential/report-2d90e8a.txt
+    'run-2d90e8a.txt' appears 3 times:
+        verification/013/probe-qa-p3-delimiter-class-sweep/run-2d90e8a.txt
+        verification/013/probe-qa-p3-render-instrument-reduction/run-2d90e8a.txt
+        verification/013/probe-qa-p3-stale-prediction-differential/run-2d90e8a.txt
+    'diff-4a7126b-to-2d90e8a.txt' appears 2 times:
+        verification/013/probe-qa-p3-render-instrument-reduction/diff-4a7126b-to-2d90e8a.txt
+        verification/013/probe-qa-p3-stale-prediction-differential/diff-4a7126b-to-2d90e8a.txt
+    'run-4a7126b.txt' appears 2 times:
+        verification/013/probe-qa-p3-render-instrument-reduction/run-4a7126b.txt
+        verification/013/probe-qa-p3-stale-prediction-differential/run-4a7126b.txt
+    'run.sh' appears 13 times:
+        verification/015/cr-m1-probes/run.sh
+        verification/015/cr-m4-probes/run.sh
+        verification/015/cr-m5-probes/run.sh
+        verification/015/cr-m6-probes/cr26-ban/run.sh
+        verification/015/cr-m8-probes/qaf37/run.sh
+        verification/015/cr-m8-probes/span-read/run.sh
+        verification/015/cr-qaf-probes/cr40/run.sh
+        verification/015/d28-seed-probes/run.sh
+        verification/015/m5h-class-probe/run.sh
+        verification/015/m8-local-probe/run.sh
+        verification/015/pig-span-read-fixture/run.sh
+        verification/015/qa-m5e-local-day-probe/run.sh
+        verification/015/qa-rk1-differential/run.sh
+    'run1-da24eb7.txt' appears 3 times:
+        verification/015/cr-m5-probes/run1-da24eb7.txt
+        verification/015/m5h-class-probe/run1-da24eb7.txt
+        verification/015/qa-m5e-local-day-probe/run1-da24eb7.txt
+    'server.sh' appears 2 times:
+        verification/015/d28-folder-switch/server.sh
+        verification/015/m3-chrome-read/server.sh
+    'tree-sha.txt' appears 2 times:
+        verification/015/d28-folder-switch/tree-sha.txt
+        verification/015/m3-chrome-read/tree-sha.txt
+    'qa-m8r-control.txt' appears 2 times:
+        verification/015/m8-local-probe/qa-m8r-8de2b53/qa-m8r-control.txt
+        verification/015/qaf37/qa-m8r-control.txt
+    'qa-m8r-summary.txt' appears 2 times:
+        verification/015/m8-local-probe/qa-m8r-8de2b53/qa-m8r-summary.txt
+        verification/015/qaf37/qa-m8r-summary.txt
+
+  SCOPE — 4 failure(s)
+    code-review/closed/012-carry-forward-to-post-refresh-pass.md: no recognised stage suffix for 'code-review/' (expected one of code-review)
+    deployment/closed/012-message-valid-field-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)
+    deployment/closed/013-components-v2-editing-surfaces-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)
+    deployment/closed/014-test-suite-cleanup-readiness.md: no recognised stage suffix for 'deployment/' (expected one of deployment)
+
+  FAIL — 26 problem(s).
+exit 1
