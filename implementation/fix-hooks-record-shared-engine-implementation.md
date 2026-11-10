@@ -3,7 +3,7 @@ ID: n/a
 Origin: fix-hooks-record-shared-engine
 UUID: 2b33b8c9
 Status: Active
-Status-Detail: "QA Phase 2 QA Failed at e44a867 on QAF-1; fixed at fdab24b, code review confirmed (sub-entry 1.2, c444457). Owed: QA re-run."
+Status-Detail: "QA Phase 2 PASS at c444457; REVIEW markers flipped at 05a4a05. Owed: QA scoped refresh at 05a4a05, then steering's push."
 Handoff-At: fdab24b — repos=agent-output; QA Phase 2 QAF-1 fix over 7dab510
 Origin-Chain: none
 ---
@@ -135,7 +135,7 @@ entry), so it is a string constant, `const REVIEW = 'pending review at 7b4419a'`
 entrypoints. `7b4419a` is the base the change was built on, and the reviewed tree is `Handoff-At`. The
 marker is not carried in the test file, where it would be an unused constant, or in the baseline JSON,
 whose array the engine reads entry by entry and where a non-entry object would break `baselineKey`.
-It is removed (`REVIEW = 'reviewed'`) at QA Phase 2's verdict.
+It was set to `REVIEW = 'reviewed'` at 05a4a05, after QA Phase 2 passed at c444457 (`qa/fix-hooks-record-shared-engine-qa.md`, 4110770); that commit changes only the two strings.
 
 **Declined work.** The baseline holds back 256 failures from the default run. They go nowhere: they
 are closed history this record is not to repair (owner ruling 2026-08-24 for pre-012, quoted in the
@@ -241,3 +241,4 @@ None: record tooling only.
 | 2026-11-10T09:17 | Reviewer confirmed CR-1/CR-2 fixed (sub-entry 1.1, e44a867) and corrected its two citations; green at e44a867 14/14 exit 0, check exit 0. | fixer-hooks-record-engine |
 | 2026-11-10T09:24 | QA Phase 2 QA Failed at e44a867 (QAF-1); test tightened at fdab24b, green 15/15, QA's three survivors re-run red; Handoff-At fdab24b; handed to code review. | fixer-hooks-record-engine |
 | 2026-11-10T09:26 | Code review confirmed the QAF-1 fix at fdab24b (sub-entry 1.2, c444457); QA re-runs next. | fixer-hooks-record-engine |
+| 2026-11-10T09:29 | QA Phase 2 PASS at c444457 (QAF-1 resolved, 4110770). REVIEW markers flipped to 'reviewed' at 05a4a05 (2 lines, 2 files); suite 15/15 exit 0 there; QA told for its scoped refresh. | fixer-hooks-record-engine |
