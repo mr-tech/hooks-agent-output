@@ -2,7 +2,7 @@
 ID: n/a
 Origin: fix-hooks-record-shared-engine
 UUID: 2b33b8c9
-Reviewed-At: d96b799 — repos=agent-output; engine ~/.claude/tools a34093d (record-engine.js sha256 9c1a94ac…, seam.js cddce599…, both clean against HEAD)
+Reviewed-At: 7dab510 — repos=agent-output; Round 1 at d96b799, fix sub-entry at 7dab510; engine ~/.claude/tools a34093d (record-engine.js sha256 9c1a94ac…, seam.js cddce599…, both clean against HEAD)
 Status: In Review
 Round: 1
 Verdict: APPROVED_WITH_COMMENTS
@@ -20,6 +20,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-10T09:10 | fixer-hooks-record-engine (SendMessage, Handoff-At d96b799) | Review of the move onto the shared engine | Round 1: APPROVED_WITH_COMMENTS. CR-1 and CR-2 LOW, CR-3 and CR-4 INFO; none blocks QA Phase 2. The steering brief arrived before the handoff. The stamp-gate hook refused a typed stamp at the first write; the row now carries the `date -u` value. |
+| 2026-11-10T09:16 | fixer-hooks-record-engine (SendMessage, Handoff-At 7dab510) | Round 1 fix confirmation, CR-1 and CR-2 | Sub-entry 1.1: CR-1 and CR-2 dispositioned (class gone, checks named); CR-4 dispositioned by steering's f824d3d. My own citations at the Hazards table broke `check-repo.js` (2 LINKS, raised by the fixer); corrected in this commit. Verdict unchanged: APPROVED_WITH_COMMENTS. |
 
 ## Scope and identity
 
@@ -40,7 +41,7 @@ The mirror claim holds. Diffed against the statbot record's entrypoints at 8eeeb
 
 | Hazard | Result | Instrument |
 |---|---|---|
-| A baseline hides a real defect | Not found. All 256 entries fall in the two sanctioned classes, across 72 distinct files that all exist on disk. | `code-review/classify-baseline-by-prefix.js`: a basename-prefix predicate, not the fixer's `chainOf`. 0 hits outside the classes (`classify-baseline-by-prefix-at-d96b799.txt`). A planted `planning/015-x.md` entry is flagged (`classify-baseline-positive-control.txt`). Blind spot: the predicate reads only the first path of a non-basenames entry, and every non-basenames detail names one document. |
+| A baseline hides a real defect | Not found. All 256 entries fall in the two sanctioned classes, across 72 distinct files that all exist on disk. | `verification/fix-hooks-record-shared-engine/code-review/classify-baseline-by-prefix.js`: a basename-prefix predicate, not the fixer's `chainOf`. 0 hits outside the classes (`classify-baseline-by-prefix-at-d96b799.txt`). A planted entry for a chain-015 planning document, which does not exist, is flagged (`classify-baseline-positive-control.txt`). Blind spot: the predicate reads only the first path of a non-basenames entry, and every non-basenames detail names one document. |
 | A directory exemption wider than the probe folders | The change adds none. The 21 probe-folder names pass under the engine's built-in rule ("21 shared only across different verification/ folders (allowed)", `check-full-at-d96b799.txt`). That rule is the engine's, the same as in statbot, and it is not this change's. `.gitignore` is limited to its 2 paths. | `--full` notes line |
 | Instants later than the adoption commit | No. Both are 2026-11-10T09:01:13Z, and the d96b799 commit time is 09:05:23Z (`git log -1 --format=%cI`). Moving both instants back to 2026-08-01 arms 575 failures in history (516 changelog-row-form, 27 changelog-row-vs-commit, 32 status-vocabulary). The adoption instant switches these off, as steering's guidance intends. | `check-instants-2026-08-01-at-d96b799.txt` (isolated worktree, restored, `git diff --quiet` 0) |
 | Exit 0, `--status`, `--tracked` | Default run exits 0, "PASS — no new failures (256 baselined)". `--full` exits 1 with 256. `--status` exits 0, byte-identical to the old tool on the same tree (`diff` exit 0). `--tracked --check` exits 1 (stale). | `check-default-…`, `check-full-…`, `status-old-7b4419a-vs-new-d96b799.diff` |
@@ -101,6 +102,16 @@ None
 - **Enumeration**: `git ls-tree -r --name-only d96b799 tools/ | grep '\.test\.js$'` finds 2 files (`recordEntrypoints.test.js` from this chain, `uatLocalStack.test.js` from PI006).
 - **Issue**: Under the workspace rule, the artefact wins and the file is wrong. The record's tests also have no stated runner or naming convention, so no convention exists for this review to check them against.
 - **Required Action**: Steering, which owns `CLAUDE.md`, corrects the table row. This chain makes no change.
+
+### Round 1 sub-entry 1.1: fix confirmation at 7dab510
+
+The fix diff `git diff d96b799 7dab510 -- tools README.md` is 4 files, +33/−7. Nothing in it reaches beyond CR-1 and CR-2, so no new round opens. `git diff --stat 7dab510 HEAD -- tools README.md` is empty at e80ea98.
+
+- **CR-1, fixed.** The class is gone: `git grep -n "no remote" 7dab510 -- README.md tools/` finds 0 hits (exit 1). I checked each new arming clause in the README table against the engine. Status vocabulary judges open documents always and closed documents only from `vocabularyInstant` (`checkStatusVocabulary` / `closedDocumentsJudged`). Duplicate R-n/D-n covers open documents with no instant (`checkDuplicateIds`). Handoff `Priority` covers every handoff under `documentRules` (`checkHandoffPriority`). All match. Check that fails if it returns: `no test`. The texts are prose, and the sweep above is the instrument. Statbot's 2 copies were routed to steering.
+- **CR-2, fixed.** The class is gone: the full-pass case is retitled to what it asserts. The new case "every baseline entry names only documents of chains before 012 or one of the four closed documents without a stage suffix" asserts the class. The live leg asserts exit 0 and the engine's usage line on `--help`. I re-attacked the new case in a detached worktree at 7dab510 with my own planted entries, none of them the fixer's. It passes at head (1/1). It fails on a fifth unsuffixed `scope` entry (`deployment/closed/015-…-readiness.md`), on a `basenames` entry pairing chains 009 and 016, and on a non-scope entry against one of the 4 named documents (0/1 each). Captures: `verification/fix-hooks-record-shared-engine/code-review/cr2-probe-{head,fifth-scope,mixed-basenames,named-nonscope}-at-7dab510.txt`. For the live leg, `--help` exits 0 with the usage line on both tools, and an engine that prints nothing produces empty stdout, which fails the usage regex. Check that fails if it returns: `tools/recordEntrypoints.test.js`, the two cases above.
+- **CR-3**: open with steering (the `INDEX.md` rebuild).
+- **CR-4, dispositioned by steering.** The workspace `CLAUDE.md` row now reads "No product tests … its record tools under `tools/` carry their own `node --test` files" (f824d3d). Check: `no test`.
+- **Correction to this document.** The Hazards table cited two backticked paths that do not resolve: the classifier script by a path missing its `verification/fix-hooks-record-shared-engine/` prefix, and the planted control's chain-015 planning path, which by design does not exist. At 7dab510, `node tools/check-repo.js` exits 1 with 2 LINKS (`check-default-at-7dab510.txt`), and that also failed the suite's whole-record case (fixer's `green-run-cr-round1.txt`, 13/14). Both citations are corrected here: the first to its full path, the second to prose. `node tools/check-repo.js` on the working tree with this edit exits 0, "PASS — no new failures (256 baselined)."
 
 ## Verdict
 

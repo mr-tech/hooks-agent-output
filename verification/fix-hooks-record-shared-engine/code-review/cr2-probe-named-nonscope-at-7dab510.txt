@@ -1,0 +1,54 @@
+Note: switching to '7dab5106416fcc33c22761b324bec3811b92bfa7'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+▶ record entrypoints load the shared engine
+  ✖ every baseline entry names only documents of chains before 012 or one of the four closed documents without a stage suffix (4.325199ms)
+✖ record entrypoints load the shared engine (543.583793ms)
+ℹ tests 1
+ℹ suites 1
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 606.701873
+
+✖ failing tests:
+
+test at tools/recordEntrypoints.test.js:124:3
+✖ every baseline entry names only documents of chains before 012 or one of the four closed documents without a stage suffix (4.325199ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + [
+  +   'frontmatter: deployment/closed/012-message-valid-field-readiness.md: planted non-scope finding on a named document'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b2f043fc-4672-438a-bf80-90f2e3cf637e/scratchpad/wt-7da/tools/recordEntrypoints.test.js:143:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Promise.all (index 11)
+      at async Suite.run (node:internal/test_runner/test:1533:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'frontmatter: deployment/closed/012-message-valid-field-readiness.md: planted non-scope finding on a named document' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
