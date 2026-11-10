@@ -3,7 +3,7 @@ ID: n/a
 Origin: fix-hooks-record-shared-engine
 UUID: 2b33b8c9
 Status: Active
-Status-Detail: "QA Phase 2 QA Failed at e44a867 on QAF-1; fixed at fdab24b (two settings now asserted, survivors re-run red). Owed: code review of fdab24b, QA re-run."
+Status-Detail: "QA Phase 2 QA Failed at e44a867 on QAF-1; fixed at fdab24b, code review confirmed (sub-entry 1.2, c444457). Owed: QA re-run."
 Handoff-At: fdab24b — repos=agent-output; QA Phase 2 QAF-1 fix over 7dab510
 Origin-Chain: none
 ---
@@ -240,3 +240,4 @@ None: record tooling only.
 | 2026-11-10T09:14 | CR fixes committed at 7dab510; Handoff-At moved to 7dab510; fix confirmation sent to code-reviewer-hooks-record-engine. | fixer-hooks-record-engine |
 | 2026-11-10T09:17 | Reviewer confirmed CR-1/CR-2 fixed (sub-entry 1.1, e44a867) and corrected its two citations; green at e44a867 14/14 exit 0, check exit 0. | fixer-hooks-record-engine |
 | 2026-11-10T09:24 | QA Phase 2 QA Failed at e44a867 (QAF-1); test tightened at fdab24b, green 15/15, QA's three survivors re-run red; Handoff-At fdab24b; handed to code review. | fixer-hooks-record-engine |
+| 2026-11-10T09:26 | Code review confirmed the QAF-1 fix at fdab24b (sub-entry 1.2, c444457); QA re-runs next. | fixer-hooks-record-engine |
