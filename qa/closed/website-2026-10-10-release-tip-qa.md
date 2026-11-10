@@ -2,8 +2,8 @@
 Origin: fix-v1-guild-messages-auth
 UUID: 9c90dfa0
 Verified-At: ddbd750c1ab4808317f3408524cf5f9b7d8d0935
-Status: Release Verified
-Status-Detail: "Release tip website ddbd750 (fast-forward of master f2c85f5) verified. The deploy stays held on blocking release conditions B-1 and B-2 (chain register, qa/fix-v1-guild-messages-auth-qa.md)."
+Status: Released
+Status-Detail: "Released: website master moved to ddbd750, the tip this document verified (deployment/fix-v1-guild-messages-auth-deployment.md, changelog 2026-10-10T16:52). B-1 and B-2 are terminal; B-3 and B-4 ride handoff/fix-v1-guild-messages-auth-post-deploy-2026-10-10.md. The verdict of record stays 'Release Verified at ddbd750' in the Changelog."
 Phase: 3
 Release: "website — `master`, `f2c85f5` → `ddbd750` (fast-forward; no version field, no tags)"
 ---
@@ -19,6 +19,7 @@ Release: "website — `master`, `f2c85f5` → `ddbd750` (fast-forward; no versio
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-10-10T08:29 | steering (message: devops Stage 1 needs a verdict naming ddbd750) | Release-tip verdict at website ddbd750 | **Release Verified at ddbd750.** The full suite was executed at the tip: 598/598, 54 files, exit 0. Typecheck is clean. QAF-1 is discharged by blob equality, so the production bytes equal the tree verified at 7606149. |
+| 2026-11-10T08:40 | steering-cleanup (project cleanup, on the owner's word) | Document closed | Status: Released (was `Release Verified`, which stays the verdict of record). The release executed at exactly the verified tip `ddbd750` (deployment record, changelog 2026-10-10T16:52: master = ddbd750 on origin, Vercel live). `Status-Detail` replaced: it still said the deploy was held on B-1 and B-2, both terminal since 2026-10-10. No verdict or body text changed. |
 
 ## The tip
 
