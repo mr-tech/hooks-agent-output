@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-hooks-record-shared-engine
 UUID: 2b33b8c9
-Status: Active
-Status-Detail: "QA Phase 2 PASS at c444457; REVIEW markers flipped at 05a4a05. Owed: QA scoped refresh at 05a4a05, then steering's push."
+Status: Released
+Status-Detail: "Released: on origin master at 1611473. Code review approved at fdab24b, QA Phase 2 PASS at 0f09e6c (refresh over the REVIEW flip 05a4a05). The record check exits 0 with 256 baselined."
 Handoff-At: fdab24b — repos=agent-output; QA Phase 2 QAF-1 fix over 7dab510
 Origin-Chain: none
 ---
@@ -242,3 +242,4 @@ None: record tooling only.
 | 2026-11-10T09:24 | QA Phase 2 QA Failed at e44a867 (QAF-1); test tightened at fdab24b, green 15/15, QA's three survivors re-run red; Handoff-At fdab24b; handed to code review. | fixer-hooks-record-engine |
 | 2026-11-10T09:26 | Code review confirmed the QAF-1 fix at fdab24b (sub-entry 1.2, c444457); QA re-runs next. | fixer-hooks-record-engine |
 | 2026-11-10T09:29 | QA Phase 2 PASS at c444457 (QAF-1 resolved, 4110770). REVIEW markers flipped to 'reviewed' at 05a4a05 (2 lines, 2 files); suite 15/15 exit 0 there; QA told for its scoped refresh. | fixer-hooks-record-engine |
+| 2026-11-10T09:31 | Document closed. Status: Released. The chain's end step ran: `master` pushed to origin at 1611473 (steering, 2026-11-10T09:31Z; the record has no workflow files, so nothing deploys). Code review APPROVED_WITH_COMMENTS at fdab24b; QA Phase 2 PASS, Verified-At 0f09e6c; `node tools/check-repo.js` exits 0. | steering-cleanup-hooks |
