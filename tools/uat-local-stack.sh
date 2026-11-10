@@ -109,6 +109,7 @@ esac
 HOSTPORT="$BIND:$DB_PORT"
 
 CREATED=0
+CID=""
 STARTED=0
 OK=0
 STATE=""
@@ -117,7 +118,7 @@ LABELLED=0
 inspect() {
   local line
   STATE=""; LABELLED=0
-  line=$("$DOCKER" inspect --type container --format "{{.State.Status}} {{index .Config.Labels \"$LABEL_KEY\"}}" "$NAME" 2>/dev/null) || return 1
+  line=$("$DOCKER" inspect --type container --format "{{.State.Status}} {{index .Config.Labels \"$LABEL_KEY\"}}" "${1:-$NAME}" 2>/dev/null) || return 1
   STATE=${line%% *}
   [ "${line#* }" = "$LABEL_VAL" ] && LABELLED=1
   return 0
@@ -140,9 +141,9 @@ table_count() {
 
 undo() {
   if [ "$CREATED" = 1 ]; then
-    if inspect; then
+    if inspect "$CID"; then
       if [ "$LABELLED" = 1 ]; then
-        "$DOCKER" rm -f "$NAME" >/dev/null 2>&1 && echo "removed the container this call created"
+        "$DOCKER" rm -f "$CID" >/dev/null 2>&1 && echo "removed the container this call created"
       else
         echo "container $NAME not removed: it no longer carries the tool's label"
       fi
@@ -154,7 +155,7 @@ undo() {
       echo "container $NAME not stopped: it no longer carries the tool's label"
     fi
   fi
-  CREATED=0; STARTED=0
+  CREATED=0; CID=""; STARTED=0
 }
 
 finish() {
@@ -186,10 +187,18 @@ cmd_up() {
     esac
   else
     if listening; then die "$HOSTPORT is held by another listener, not this tool's container; nothing was changed"; fi
-    CREATED=1
-    POSTGRES_PASSWORD=$DB_PASS POSTGRES_USER=$DB_USER POSTGRES_DB=$DB_NAME "$DOCKER" run -d --name "$NAME" \
+    local made rc
+    made=$(POSTGRES_PASSWORD=$DB_PASS POSTGRES_USER=$DB_USER POSTGRES_DB=$DB_NAME "$DOCKER" run -d --name "$NAME" \
       --label "$LABEL_KEY=$LABEL_VAL" -e POSTGRES_PASSWORD -e POSTGRES_USER -e POSTGRES_DB \
-      -p "$HOSTPORT:5432" "$IMAGE" >/dev/null 2>&1 || fail "docker run failed"
+      -p "$HOSTPORT:5432" "$IMAGE" 2>/dev/null)
+    rc=$?
+    made=$(printf '%s' "$made" | tr -d '[:space:]')
+    if [ -z "$made" ] && [ "$rc" = 0 ]; then made=$NAME; fi
+    case "$made" in ''|*[!A-Za-z0-9-]*) ;; *) CID=$made; CREATED=1 ;; esac
+    if [ "$rc" != 0 ]; then
+      if [ -z "$CID" ] && inspect; then fail "docker run failed; the container named $NAME was not created by this call and is left as found"; fi
+      fail "docker run failed"
+    fi
   fi
 
   local i=0
