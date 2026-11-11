@@ -61,6 +61,7 @@ Owed re-verdicts:
 | 2026-11-11T11:57 | R-9 | planner-hooks-016 | Registration: two Planner batch rows from the V-101 Opus critic pass on revision 6 (rulings block "2026-11-11T11:57Z — V-101 trial block", `c70c535`): F-2 LOW and F-4 INFO, both parked to the seam before the UAT anchor. No requirement changed; the revision stays 6. |
 | 2026-11-11T12:58 | 7 | planner-hooks-016 | Folds code review Round 1's CR-1 MEDIUM (`code-review/016-send-check-validity-code-review.md`, website `ee114ff`): the fixture's header comment failed the comment gate. QA regenerated the fixture with no comment lines and lint-clean output, the data unchanged (`188bc93`, its `regen-*.txt` captures), so AC1-1 records the new sha256 and blob and AC1-11 exempts nothing. X-12 is retired. Correction, from the V-101 Opus critic's F-2: revision 6's scope-delta line left out AC1-11's added clause "(zero for a file the chain adds)", which stands. Scope delta: AC1-1's recorded identity changes, the data does not; AC1-11's population returns to every changed file. No milestone moves and no product behaviour changes. Since approval of the value statement: seven revisions and six gate rounds. Size against the original ask: unchanged. |
 | 2026-11-11T12:59 | R-10 | planner-hooks-016 | Verdict: QA re-keyed Phase 1 to revision 7 with no finding (`qa/016-send-check-validity-qa.md`, record `13674b8`). No requirement changed; the revision stays 7. |
+| 2026-11-11T12:59 | R-11 | planner-hooks-016 | Registration: steering caps M1 at its second post-approval revision (`steering/queue-hooks-rulings.md`, block "2026-11-11T12:59Z — plan 016 revision 7 read; milestone M1 capped", record `855adb8`; agent-authored, steering's). The binding text, the reason and the exceptions are in that block. No requirement changed; the revision stays 7. |
 
 ## Value Statement and Business Objective
 
@@ -586,6 +587,10 @@ Updated at revision 6, `planner-hooks-016`. Implementation is running on revisio
 - **Next:** the critic (cycle 5) and QA read revision 7. The implementer re-copies the fixture on
   the digest I sent. QA's regeneration addresses AF-14's Problem Area in
   `architecture/system-architecture.md`, and the architect is told so.
+- **Standing for M1** (steering's cap, R-11): a gate finding below HIGH on M1 goes to the Planner
+  batch as a stated limit, with no revision. HIGH, CRITICAL and severity-floor findings keep their
+  route. Findings already in a round finish as started. Its stated reason is the second
+  post-approval revision; the block names no voiding event other than steering's own withdrawal.
 - **Open to the owner:** nothing.
 
 ## Planner batch
