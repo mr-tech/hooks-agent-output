@@ -1290,3 +1290,29 @@ limit reading 97%; `plan-usage.py --json` read `weekly_all` 71%, source live, at
 
 Started `fixer-fix-uat-local-stack-id-sequence` with `tmux-agent spawn`, category `fix-uat-local-stack-id-sequence`, cwd
 `/usr/local/bin/hooks/agent-output`, brief `steering/queue-hooks-briefs/fixer-uat-local-stack-brief.md`.
+
+## 2026-11-11T19:48Z — `fix-uat-local-stack-id-sequence` re-scoped by this thread: the seed's message id joins the fix
+
+The fixer's handoff (`implementation/fix-uat-local-stack-id-sequence-implementation.md`,
+`Status: Active`, fix at `1fee252`; `git diff --numstat 68d737f 1fee252`: the tool 10/2, its test
+57/1, five capture files) routed one item: `verification/015/upload-dialog/seed.sql` line 8
+inserts a "Messages" row with id 1 (read this turn), so `up --seed` hands back a database holding
+a message in production's id range whatever the sequence reads. Only the tool and the fixer's
+document name that seed (`grep -rl` over the record).
+
+**Decided by this thread, not asked** (a test-estate change inside the rule the fix serves;
+lifecycle `references/escalation.md`, Standing Defaults; told to him, his to veto): the fixer's
+options (a) and (b) together, as one more round before any review.
+- The seed's "Messages" id moves to 900000000000001 or above, with any row that refers to it.
+- After a seed, `up` fails where a stored "Messages" id is below 900000000000001 (the scope
+  statement's "or fails").
+- Path added to the chain's set: `verification/015/upload-dialog/seed.sql`. Not edited: any other
+  file under `verification/015/`; a script there that expects message 1 is named in the fixer's
+  document, not changed.
+- **This thread's error:** the brief's fence named three paths and left out the fixer's own
+  capture directory, which its definition requires. `verification/fix-uat-local-stack-id-sequence/`
+  is in the chain's set; the five files stay.
+
+The code reviewer is not started at `1fee252`: it starts on the fixer's next handoff, so the
+review reads one tree. If the added round takes the fix to 20 production lines or more, QA
+Phase 2 follows review, as the determination says.
