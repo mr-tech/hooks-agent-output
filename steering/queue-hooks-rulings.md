@@ -1034,3 +1034,23 @@ Pre-code flow questions: none came to him. The implementation document records t
 user-visible flows and "no flow holds a decision, so no ask went to the owner" (its lines 116 to
 121, read at 11:59Z from the working tree); that reading is the implementer's. Implementation ran
 11:43Z to 2026-11-11T12:41Z; review and QA time for the cap count starts here.
+
+## 2026-11-11T12:54Z — code review Round 1 REJECTED at `ee114ff`; a revision 7 is coming, and M1's cap falls on it
+
+Read this turn: `code-review/016-send-check-validity-code-review.md` (record `0ccd5ee`),
+`Verdict: REJECTED`, `Reviewed-At: "ee114ff — repos=website"`, `Status: In Review`; finding
+headings only: CR-1 MEDIUM (the corpus fixture's header comment fails the comment gate), CR-2
+MEDIUM (no case places a fault before a valid sibling), CR-3 LOW (two test titles). This is M1's
+first code-review rejection. The implementer, cleared at 12:42Z, is working again at a 112K
+prefix with its wake armed (`cc-usage.py sessions` and `wakes`, pane read); the reviewer's
+delivery woke it, not this thread.
+
+By the planner's message (a candidate until its revision is committed): QA regenerates the corpus
+fixture without the header comment, lint-clean if it can, and the planner then writes revision 7
+(AC1-1's digest; X-12 and AC1-11 if lint-clean lands). The plan reads `Revision: 6` at `HEAD`.
+
+**Revision 7 will be M1's second post-approval revision, which is the cap condition** (steering.md,
+Standing check). When it is committed this thread caps M1: recorded here, told to the milestone's
+gates, each further gap below HIGH going to the Planner batch as a stated limit without a round,
+and told to him with the spend and hours. Spend so far, `cc-usage.py chain 016` at 2026-11-11T12:54Z: TOTAL
+$94.38 over 899 requests (all of the chain's sessions since the planner's first, 10:19Z).
