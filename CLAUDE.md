@@ -156,6 +156,24 @@ ever ran. A substitute browser environment is adopted for this suite only where 
 has been checked to match a real browser; where it does not, the test does not assert that path, and
 the surface is recorded as an outstanding item instead of asserted against a fake that lies.
 
+## Local builds of `website` — before the first save
+
+A locally served build publishes its save event to the Pusher app named in `website/.env.local`, on
+the channel `message-update-<message id>`, and a fresh local database numbers messages from 1.
+Whether that Pusher app is production's is not established on this box, so treat it as production's:
+a local save on a low id can raise "Message Update Detected" for a real user editing the production
+message with the same id.
+
+**Before any save on a local build, move the local message ids out of production's range**:
+
+```sql
+ALTER SEQUENCE "Messages_id_seq" RESTART WITH 900000000000001;
+```
+
+Run it after the schema is pushed and before the first save, and record in the stage document the
+id range the walk wrote. A local database that already holds low-numbered messages is recreated, not
+reused. `.env.local` holds credentials: read key names, hosts and ports only, never a value.
+
 ---
 *Evergreen conventions only. Which files are in which class, per-file disposition tables, review or
 milestone identifiers, and dated register entries live in the planning and verification record, not

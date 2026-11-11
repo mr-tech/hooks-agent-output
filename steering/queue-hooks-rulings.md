@@ -498,3 +498,31 @@ still read `963a25c`). The production push is that session's own ask to him.
 
 QA's non-gating items: QAF-1 resolved in its pass; QAF-2 INFO, no action owed, in its document;
 its inbox entry on local walks and Pusher is this thread's to process (next block).
+
+## 2026-11-11T10:13Z — selection 16: local website builds and Pusher (put 10:09Z, answered 10:10Z)
+
+Ledger: `steering/selection-ledger/2026-11-11.md`, block "2026-11-11T10:10Z — steering-queue-hooks".
+Source: an inbox entry of `qa-fix-website-save-gate-embeds` (FYI, uncommitted when processed; its
+substance is in `qa/fix-website-save-gate-embeds-qa.md`, "Browser walk", Environment).
+
+Options: *Agent: add the id-offset rule (Recommended)* ("I add a short rule to the hooks workspace
+CLAUDE.md, which every session here loads: before any save on a local build, restart the message id
+numbering far above production's range, as QA did today. Nothing for you to do. Limit: it protects
+only as far as each test follows the rule, and it does not tell us whether the Pusher app is
+production's.") / *You: give local builds their own Pusher app* (he creates a separate app and puts
+its keys in `website/.env.local`; the offset rule applies until then) / *Agent: leave it as
+recorded* (the hazard stays only in today's QA document).
+**Chosen: "Agent: add the id-offset rule (Recommended)"** (selection).
+
+Premises and reads, this turn: the save event's trigger, website `963a25c` `src/server/api/utils/shared.ts`
+line 290, and the channel key, `src/utils/index.ts` lines 493 to 494 (`git grep -n`, read from code,
+not run); ids are `BigInt @id @default(autoincrement())` in `project-utils/prisma/schema.prisma`
+(model `Message`, line 98 onward; `git grep -n`); chain 015's local test data was "messages 1–6" and
+its UAT document names no sequence restart (`uat/closed/015-bug-evaluation-fixes-uat.md` line 138;
+`grep -c` for `RESTART|Messages_id_seq`: 0). Unread, and marked so in the prompt: whether
+`.env.local`'s Pusher app is production's, and that its keys are non-empty (QA's claim). The
+sequence name `Messages_id_seq` and today's id range are QA's, from its document, not run here.
+
+Done: the rule is in `CLAUDE.md`, section "Local builds of `website` — before the first save". The
+inbox entry is deleted. Not established by anyone: whether a production user saw a prompt from
+chain 015's walks.
