@@ -3,7 +3,7 @@ ID: 016
 Origin: 016
 UUID: 54673438
 Status: Active
-Status-Detail: "Delta pass on plan 016 revision 6 (record 07e2e41): APPROVED; AF-14 LOW declined for this chain (plan R-8), carried by its Problem Area. Owed after implementation, by devops Stage 1: AF-4's D-10 clause in website.md A-4, the preview-chrome Problem Area's closure, and the /preview signal under D-001. AF-4's A-4 clause lands at this chain's reconciliation, no later than devops Stage 1."
+Status-Detail: "Delta pass on plan 016 revision 6 (record 07e2e41): APPROVED. Revision 7 (record 9fd96d5) read: no architectural surface; AF-14 adopted through QA's regeneration, and its Problem Area retires at reconciliation. Owed after implementation, by devops Stage 1: AF-4's D-10 clause in website.md A-4, the preview-chrome Problem Area's closure, and the /preview signal under D-001. AF-4's A-4 clause lands at this chain's reconciliation, no later than devops Stage 1."
 ---
 
 # Architecture Findings — Plan 016: the send check refuses what Discord refuses (conformance pass)
@@ -21,6 +21,7 @@ Status-Detail: "Delta pass on plan 016 revision 6 (record 07e2e41): APPROVED; AF
 | 2026-11-11T11:41 | Delta pass, plan rev 5 (`b2d78b0`, read as the diff from `a9bb644`; R-2's `c249af3`..`a9bb644` read too), by a fresh generation (brief `steering/queue-hooks-briefs/architect-016-respawn-brief.md`) | QAF-12's fold conforms. AC1b-1 checks Author's compact branch at the component, with the signal passed as a prop beside `showEdit` (AF-13). That follows the existing isolated sub-component test form. R-2 is editorial. Nothing my rev 4 pass rested on moved. **APPROVED.** |
 | 2026-11-11T11:53 | Delta pass, plan rev 6 (`07e2e41`, read as the diff from `678c8b4`), started by steering-queue-hooks (criterion-changing revision; the planner did not cue it) | The narrowing of AC1-11 and X-12 add no architectural surface, and X-12's claims about the code hold at `0e3d903`. AF-14 LOW: a generated, byte-pinned fixture inside `eslint --fix`'s scope can be rewritten away from its generator. This is a design variant on a form the delta did not change, so it is lodged as a Problem Area and no revision is asked for. **APPROVED.** |
 | 2026-11-11T11:55 | AF-14 dispositioned (planner-hooks-016's message; plan R-8, `343d62e`) | Declined for this chain. It is carried after closure by the Problem Area, which X-12 names. |
+| 2026-11-11T12:58 | Plan rev 7 (`9fd96d5`) read as the diff from `07e2e41`, on planner-hooks-016's message (no pass requested) | AF-14 is adopted after all: QA regenerated the fixture through the generator for code review CR-1 (`188bc93`). I checked the sha256, the blob and the zero comment lines myself. AC1-11's exemption and X-12 are gone. There is no architectural surface, so no verdict is owed. The Problem Area is marked mitigated, and it retires at reconciliation. |
 
 ## Verdict (rev 6, `07e2e41`, read as the diff from `678c8b4`): APPROVED
 
@@ -72,6 +73,18 @@ edit and a re-pin. The choice is theirs. My verdict does not depend on it.
 re-open AC1-1 in the middle of implementation, and QA concurred. Its carrier after closure is the
 Problem Area in `system-architecture.md`, which X-12 names. Nothing of AF-14 stays open in this
 document.
+
+**Superseded by adoption** (plan revision 7, `9fd96d5`). Code review CR-1, a comment-gate failure in
+the fixture's header, required a regeneration anyway. QA took option 1: `make_fixture.py` now emits
+lint-clean output with no comment lines. The 120 members are deep-equal, shown with three planted
+controls (`verification/016/corpus/regen-compare.txt`), and eslint gives 0 errors and 0 warnings
+(`regen-eslint.txt`), at record `188bc93`. My reads at `188bc93`: sha256 `9ab22baa…a77afe` and blob
+`7fcf64f`, matching AC1-1, and `grep -c` gives 0 comment lines. AC1-11 exempts nothing, and X-12 is
+retired. The Problem Area is marked mitigated and is deleted at this chain's reconciliation, beside
+the three items owed there.
+
+Text slip (QA's): `regen-eslint.txt` and `regen-compare.txt` abbreviate the digest as `9ab22baa…fafe`.
+The file's digest ends `…a77afe`, as the plan records.
 
 ## Verdict (rev 5, `b2d78b0`, read as the diff from `a9bb644`): APPROVED
 
@@ -482,7 +495,7 @@ names a component type, not user text.
 Updated 2026-11-11T11:41Z, `architect-hooks-016` (fresh generation; the chain is running, rulings block "2026-11-11T11:24Z").
 
 - **Done:** conformance pass on rev 1 (`c61a96f`); delta passes on rev 2 (`2520ac7`), rev 3 (`0bb1084`, AF-12's range corrected at `ccaa340`), rev 4 (`47c7a4c`, **APPROVED**, with AF-12's member list withdrawn because the error was mine) rev 5 (`1492d33`, **APPROVED**; R-2 read too) and rev 6 (11:53 write, **APPROVED**, AF-14 LOW lodged as a Problem Area in `system-architecture.md`). Every verdict was delivered to planner-hooks-016 by SendMessage. Also done, outside the pass: the reconciliation handoff, all six items (`f6fab66`), and `website.md` A-6.
-- **Next:** read any later plan revision as `git diff 07e2e41 HEAD -- planning/016-send-check-validity.md`. After implementation, and no later than devops Stage 1, land three items: AF-4's D-10 clause in `website.md` A-4; the closure of the Problem Area "Validation errors render into generated preview images" (M1b), with RK-5 as residue; and the `/preview` signal on `VisualizerProps` under D-001's consequences in `system-architecture.md`. Then close this document `Resolved`.
+- **Next:** read any later plan revision as `git diff 9fd96d5 HEAD -- planning/016-send-check-validity.md`. At reconciliation, also delete the fixture Problem Area row (mitigated, `188bc93`). After implementation, and no later than devops Stage 1, land three items: AF-4's D-10 clause in `website.md` A-4; the closure of the Problem Area "Validation errors render into generated preview images" (M1b), with RK-5 as residue; and the `/preview` signal on `VisualizerProps` under D-001's consequences in `system-architecture.md`. Then close this document `Resolved`.
 - **Trees:** website on `master` at `0e3d903`, untouched by this session. Nothing of mine is uncommitted in agent-output. The evidence I ran is committed: `verification/016/architect-conformance/ts-node-import-probe.txt`.
 - **Questions out:** none. No owner-needing item.
 
