@@ -1020,3 +1020,17 @@ Row V-101 (`~/.claude/agents/TODO.md`, read 11:53Z: open, "0 of 3"). Same revisi
 
 Inbox: `critic-hooks-016`'s FYI (the deweeder brief linked a file not yet created, failing
 `check-repo.js` LINKS) is acted on: the brief's line is reworded so it carries no link; entry deleted.
+
+## 2026-11-11T12:41Z — implementation handed off at `ee114ff`; code reviewer started
+
+Read this turn at `HEAD`: `implementation/016-send-check-validity-implementation.md` (record
+`1212bf6`), `Status: Active`, `Handoff-At: "ee114ff — repos=website"`; the website tree is on
+`chain/016-send-check-validity` at `ee114ff`. The implementer's spawn cue arrived by message (no
+code-reviewer session live). Started `code-reviewer-hooks-016` with `tmux-agent spawn`, category
+`S016-sendcheck`, cwd `/usr/local/bin/hooks/website`, brief
+`steering/queue-hooks-briefs/code-reviewer-016-brief.md`.
+
+Pre-code flow questions: none came to him. The implementation document records three
+user-visible flows and "no flow holds a decision, so no ask went to the owner" (its lines 116 to
+121, read at 11:59Z from the working tree); that reading is the implementer's. Implementation ran
+11:43Z to 2026-11-11T12:41Z; review and QA time for the cap count starts here.
