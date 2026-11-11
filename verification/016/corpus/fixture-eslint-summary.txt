@@ -1,0 +1,16 @@
+# eslint over the corpus fixture at its shipped path (QA Phase 1 re-key on plan 016 revision 6)
+# file: verification/016/corpus/fixture/discordV2SendCorpus.ts (sha256 49b54f8e6b7226f1..., blob 9fb22ae)
+# command, from website/ (read-only, no --fix; the export route failed: duplicate eslint-plugin-react under a symlinked node_modules):
+#   unshare -rn npx eslint --stdin --stdin-filename src/utils/__tests__/helpers/discordV2SendCorpus.ts --format json < <fixture>
+# config: the website tree as checked out at the run (chain/016 working tree; .eslintrc.json and .eslintignore not in its modified set)
+# exit 1
+errorCount 7078
+warningCount 1
+fixableErrorCount 7078
+fixableWarningCount 0
+by rule (rule, severity): count
+  quotes 2: 3501
+  quote-props 2: 2395
+  comma-dangle 2: 1180
+  @typescript-eslint/member-delimiter-style 2: 2
+  max-len 1: 1
