@@ -105,8 +105,8 @@ insert, not a container an older tool actually left.
   Predicate broken by hand: no `exec … psql` outside those 6 lines. Check: `no test`. This is a
   structural refactor, and the suite exercising all three callers is what guards their behaviour.
 
-INFO (sub-entry 1, outside the diff), routed to QA as test adequacy, for the next chain that edits
-`tools/uatLocalStack.test.js`: the file's free-port helper (`net.createServer().listen(0)`, then
+INFO (sub-entry 1, outside the diff), routed to `handoff/uat-local-stack-test-free-port-race-2026-11-11.md`
+(test adequacy; owned by the next chain that edits `tools/uatLocalStack.test.js`, with qa judging): the file's free-port helper (`net.createServer().listen(0)`, then
 `close`, then a later `listen(port)` with no `error` handler) can lose its port to another process.
 The `listen` then throws EADDRINUSE and the file hangs to the runner's cap. Observed once in this
 sub-entry (`suite-7d59233-attempt1-eaddrinuse.txt`). The helper is unchanged since `68d737f`.
