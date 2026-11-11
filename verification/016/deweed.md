@@ -3,7 +3,7 @@
 Written by `deweeder-hooks-016`. One section per round, appended. A row scores one test case, or a
 group of `it.each` rows that share a score, a reason and a disposition.
 
-## Round 1 — 2026-11-11T12:10Z
+## Round 1 — 2026-11-11T12:04Z
 
 - **Repository:** `website`
 - **Range:** `0e3d903..df0fc0b` on `chain/016-send-check-validity` (M1 `ae7c8fe`, M1b `44ecd05`, M2 `df0fc0b`)
