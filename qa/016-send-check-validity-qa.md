@@ -3,9 +3,9 @@ ID: 016
 Origin: 016
 UUID: 54673438
 Verified-At: "0e3d903 — repos=website; Phase 1 strategy, read at this base tree; no verdict issued"
-Status: Awaiting Implementation
-Status-Detail: "Phase 1 re-keyed to plan revision 7 (record 9fd96d5). AC1-1's fixture identity checked equal to the regenerated fixture (sha256 9ab22baa…a77afe, blob 7fcf64f, record 188bc93). AC1-11's row reconciled to no exemption. No finding open; QAF-1 to QAF-12 RESOLVED. This document holds the chain's blocking-condition register (B-1 to B-6)."
-Phase: 1
+Status: Testing In Progress
+Status-Detail: "Phase 2 in progress at website 395510e (code review APPROVED, record 892daad). TDD gate passed; suite 1506 of 1506, exit 0; mutation sweep running. This document holds the chain's blocking-condition register (B-1 to B-6)."
+Phase: 2
 ---
 
 # QA Report: Plan 016 — the send check refuses what Discord refuses
@@ -25,6 +25,7 @@ read as its diff from revision 2 (`git diff 6b07655 21db6c8`). Revision 2 was re
 | 2026-11-11T11:54 | planner-hooks-016 → qa-hooks-016 | Re-key AC1-11's row on revision 6 (`07e2e41`) | Phase 1 re-key of one criterion, read as `git diff fcbb6b2 07e2e41` (covers R-4 and R-5). The premise was measured: the fixture at its shipped path has 7078 errors (all auto-fixable: `quotes`, `quote-props`, `comma-dangle`, `member-delimiter-style`) and 1 `max-len` warning (`verification/016/corpus/fixture-eslint-summary.txt`). AC1-11's row now excludes the fixture, which the Phase 2 sha256 and blob check decides, and its instrument is re-specified: a per-file export lint fails on a duplicate react plugin. No finding. |
 | 2026-11-11T12:56 | planner-hooks-016 → qa-hooks-016 | Regenerate the corpus fixture for code review CR-1 (`code-review/016-send-check-validity-code-review.md`, website `ee114ff`) | `make_fixture.py` now emits no comment line, in the website's eslint style. The fixture is regenerated (sha256 `9ab22baa…a77afe`, blob `7fcf64f`). Data is identical to the previous fixture by `compare_fixture.mjs` (120 of 120 members deep-equal, same order, 34 accepted and 86 refused), and three planted controls each report their one member. The fixture lints 0/0, its comment gate is clean (the previous fixture is the failing control), and `tsc -p tsconfig.test.json` exits 0. Captures are `verification/016/corpus/regen-*.txt`. The plan's digest moves at revision 7, which is the planner's. |
 | 2026-11-11T12:58 | planner-hooks-016 → qa-hooks-016 | Re-key on revision 7 (`9fd96d5`) | Read as `git diff 07e2e41 9fd96d5`, which covers R-6 to R-9. The digest was checked: `git show 188bc93:<fixture> \| sha256sum` gives `9ab22baa9c81…d693fa77afe`, and `git rev-parse` gives `7fcf64f`, both equal to AC1-1's line. The comparison base AC1-1 names, `77b1fd6`, is blob `9fb22ae`, the file `regen-compare.txt` compared against. AC1-11's row is reconciled to no exemption. Correction: this document and the three `regen-*.txt` headers had abbreviated the new sha256 as `9ab22baa…fafe`, which is not its tail. It now reads `…a77afe`; the full value is in `fixture/discordV2SendCorpus.ts.sha256`. No finding. |
+| 2026-11-11T13:08 | code-reviewer-hooks-016 → qa-hooks-016 | Phase 2 at website `395510e` | Phase 2 starts at the code review's committed APPROVED verdict (record `892daad`, `Reviewed-At: 395510e`, re-derived at the record). There is no steering brief for Phase 2: `steering/queue-hooks-briefs/` holds only the Phase 1 brief. So this pass read the plan's Decisions Register and the review's Assumption Not Checked itself; the latter is routed to UAT B-1 by the review. The criteria are listed in § Phase 2 before execution. TDD gate passed. |
 
 ## Reading
 
@@ -403,8 +404,22 @@ files: these plus `useApiMethods.json-editor-repair` and `utils.mutual-exclusivi
 - No secret printed or written: the bot token and the webhook token were held in the probe's memory
   only.
 
-## Assumption Not Checked
+## Phase 2 — execution at website `395510e` (plan revision 7)
 
+**Criteria this pass assesses, listed before execution** (step 3). Anything added after this list is growth.
+- M1: AC1-1, AC1-2 (each extended placement marked), AC1-3, AC1-4, AC1-5, AC1-7, AC1-8, AC1-9 (two-tree differential), AC1-10 (ts-node probe), AC1-11 (per-file eslint, no exemption). AC1-6 and AC1-6p are UAT's and devops's rows (B-1, B-3, B-4): checked as rows only.
+- M1b: AC1b-1 (the by-render probe at the tip), AC1b-2 (each render site without the signal, base vs tip), AC1b-3 (the call sites of the signal). AC1b-4 is UAT's rows (B-5, B-6): checked as rows only.
+- M2: AC2-1, AC2-2's suite half (the browser half is B-2, UAT's), AC2-3.
+- Across all of them: the fixture's identity (sha256 and blob), the test audit against the workspace's Test Conventions and the deweeder's table, the effort-final mutation sweep over `git diff 0e3d903..395510e` production paths, and the whole-corpus re-send that Phase 1's assumption owes.
+
+**TDD compliance gate: passed.** The implementation document (record `1212bf6` and later) has a row for every new function or class, each Written First Yes, Failure Verified Yes and Pass After Yes.
+- The three verdict-bearing failure reasons are assertion failures, not compile failures: `validateV2Components` (80 of 121 corpus cases red), the editor reason line (5 of 7), `hideValidation` on the editor (7 of 8) and on `Author` (2 of 6), and both `maxLength` rows (`expected -1 to be 1024`).
+- `isV2Message`'s exemption claims behaviour-preserving extraction. That is established by execution, not by reading: the code review's extraction differential ran both trees over 20,000 seeded members, with 0 changed results on the content check. This pass's AC1-9 differential also covers `validateContentRequirements` (AC1-8).
+- The `MAX_COMPONENT_DESCRIPTION_LENGTH` row reads "via the rows above". A constant carries no branch of its own, and its consumers' rows are red. Accepted.
+- The AC2-3 never-red guard row reads "pending" in the table but is resolved in § Mutation Self-Check: both schema `.max(1024)` mutants are killed. The same sweep checks it here.
+- The two `7c66b68` rows take their red from a surviving mutant at `4cdb81a`, which is valid red evidence.
+
+**Assumption Not Checked
 Re-key pass on revision 7: this pass assumes the implementer's re-copy of the fixture into the website is byte-identical to `188bc93`'s, and does not check the chain branch, where the re-copy is pending. If false, AC1-1 runs over a different file. The signature is Phase 2's sha256 and blob check failing on `src/utils/__tests__/helpers/discordV2SendCorpus.ts`. Owner of closing it: QA Phase 2, by that check at the tip.
 
 Regeneration pass: this pass assumes the website's test suite reads the fixture only through `DISCORD_V2_SEND_CORPUS`'s values, never its text (a file read or a source pattern match), and does not test it against the implementer's suite. Data identity holds by construction, but text identity does not. If false, a case that reads the fixture's text changes result on the re-copy. The signature is a suite case going red or green on the re-copy alone. Owner of closing it: the implementer, by the suite run on the re-copy, then QA Phase 2's audit (such a case would also be a source-text assertion under the Test Conventions).
