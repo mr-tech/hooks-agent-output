@@ -26,24 +26,4 @@ lines about items nobody is waiting on.** If it does not need the owner to act, 
 
 ---
 
-## Generator host — remove claude-ro's read on the nodejs PM2 dump
-
-You chose to remove it yourself (2026-11-08, 05:21Z). It was still readable to claude-ro on
-2026-11-10 (a `test -r` only; agents never open that file).
-
-1. On 165.227.249.183 as root: `setfacl -x u:claude-ro /home/nodejs/.pm2/dump.pm2`. If that
-   reports no ACL, use `chmod o-r /home/nodejs/.pm2/dump.pm2` instead.
-2. **Pass:** `sudo -u claude-ro test -r /home/nodejs/.pm2/dump.pm2; echo $?` prints `1`.
-
-Is it done? Tell steering "done".
-
-## Pick the competitor-research features you want planned
-
-The competitive feature research (`research/competitive-feature-landscape-2026-11-08.md`) delivered a
-scored list, S1 to S33, and has waited since 2026-11-08 for you to choose what to plan. It stays open
-until you do.
-
-1. Read the scored list in that document.
-2. Tell steering the item numbers to plan, or "none".
-
-Which items do you want planned — or none, and the research closes?
+Nothing is waiting on you.

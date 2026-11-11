@@ -9,6 +9,7 @@ Status-Detail: >-
   exists in this environment**, so neither can be settled by the unit suite that closed everything
   else on chain 012. Neither is a defect in shipped behaviour; chain 012 released with both known,
   bounded and accepted on the record. Nothing here reopens chain 012 or amends any of its findings.
+  A third item, from chain 013, was added on 2026-11-11 by owner selection (Item 3).
 Owning-Stage: >-
   Unassigned. The next step is one decision - whether a DB-backed integration harness is worth
   building in this repo at all - and only then implementation. Deliberately NOT scoped or sized here:
@@ -78,6 +79,30 @@ and is deliberately cited rather than re-derived here.**
 
 ---
 
+## Item 3 — plan 013 assumption 7's falsifier cannot be read
+
+**Source:** `TODO.md` at agent-output `a22fb73`, "The held 013 planner queue", item 6, written by
+`steering-hooks-013-2` on 2026-08-25. Added here on 2026-11-11 by the owner's selection
+(`steering/queue-hooks-rulings.md`, prompt 9). It is a chain-013 item, not a chain-012 one; it sits
+here because it concerns the same script and is open for the same reason.
+
+Assumption 7's falsifier is *the classifier reading `> 0` after the owner declares the D19 repair
+done*. The repair ran on 2026-08-25 (plan 013 **D43**). But `runBackfill` in
+`src/scripts/backfillValid.ts` selects `.where('valid','is',null)` and accumulates its diagnostics
+only over the rows in that batch, so every category in a report covers `rowsClassifiedThisRun`, not
+the table. Every row now carries a non-null `valid`, so a run classifies nothing and reports zeroes
+over an empty set, and an empty measurement is byte-indistinguishable from a pass in the report's
+own JSON. The owner's post-repair run read `count: 0` over `rowsClassifiedThisRun: 2` against
+`tableWideRowCount: 4839`.
+
+**Do not quote a zero from that report as evidence of anything.**
+
+**What would close it:** a read-only table-wide classifier. Setting `valid = NULL` across the table
+is a write, not a measurement, and is not authorised. Neither exists. The detector-selection
+disposition is QA's and UAT's.
+
+---
+
 ## What is NOT being claimed
 
 - **Neither item is a defect in shipped behaviour.** Chain 012 released with both known and accepted
@@ -95,3 +120,6 @@ Found by the chain 012 retrospective as finding P5 and reported to `steering-hoo
 verified independently that both items appear only in chain-012 documents now in `closed/` before
 writing this. The retrospective's broader observation — that routing to a destination nothing is
 obliged to create loses items silently — is recorded in the retrospective itself, not here.
+
+Item 3 was added on 2026-11-11 by `steering-queue-hooks` on the owner's selection; "neither item" and
+"both" above refer to Items 1 and 2 only.

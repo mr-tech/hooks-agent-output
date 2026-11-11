@@ -7,50 +7,14 @@ This file holds work an agent could do. Decisions only the owner can take go in 
 
 ---
 
-## The held 013 planner queue — five items with no register row
+## Put the competitor-research feature selection to the owner — last
 
-Added 2026-08-25 by `steering-hooks-013-2`, moved out of the steering docket because **unstarted work
-is not docket material** and the docket was at twice its ceiling carrying them. Four sibling items
-**are** registered — read **D23/D24/D25** in `planning/013-components-v2-editing-surfaces.md` rather
-than restating them. These five have no row anywhere, so their evidence is written out once here.
-
-**Status: still held.** Owner, 2026-08-24: *"Hold everything, as before."* **D24 killed the automatic
-trigger — only an owner ruling starts the pass.** As of 2026-08-25 the planner session he elected to
-spawn (`planner-hooks-013-2`) has never appeared across five polls, and three stages have since run
-work with no plan revision behind it.
-
-1. **The persist API accepts the 5712 shape from any caller.** D18/D19 is a **client convention, not a
-   server-enforced invariant**. `79bbcaf`.
-3. **M4-b's disclosure residual, and it is the owner's call.** The disclosure pass shares
-   `filterSupportedComponents`' exact recursion, so disclosure cannot drift from the drop (`5913892`,
-   `probe-cr20` 10/10). **Residual: an empty-as-pasted `{type:17,components:[]}` is dropped whole with
-   no named type and still flips row E silently.** Nothing renderable is lost. **Hold it as its own
-   line or close it as degenerate — never close it by silence.**
-4. **MEDIUM-4 — a confirmed hit on a D18 Risks row the plan cannot record.** The persist gate's
-   `hasClassicContent` is narrower than `validateContentRequirements`; they disagree on empty-ish
-   embeds, so a pasted V2 component plus an empty embed persists unsendable with no choice shown.
-   `probe-cr16-persist-gate/` 21/21. **Whether M4-c's predicate-agreement subsumes it is an UNVERIFIED
-   candidate — a held item assumed discharged is worse than one still held.**
-5. **F-QA11 — pre-existing at `c85945f`, OUTSIDE 013's scope, and it must not become a 013 fix round.**
-   `NewMessageModal.tsx:143` sends `guildId: '0'`, refused by `discordIdShape`, while `disableSave`
-   does not check the guild. **Two of the four sibling sites guard that exact `'0'` sentinel**
-   (`SaveAsMenu.tsx:41`, `f/[id]/page.tsx:354`), which is what makes it an oversight rather than a
-   design, and a cheap fix.
-
-6. **Plan 013 assumption 7's falsifier is UNREADABLE, and no instrument on this machine can read it.**
-   Its signature is *the classifier reading `> 0` after the owner declares the D19 repair done*. The
-   repair ran on 2026-08-25 (**D43**, plan rev 37/38/40). But `backfillValid.ts:192-198` selects
-   `.where('valid','is',null)` and accumulates diagnostics **only over rows in that batch**, so every
-   category in a report covers `rowsClassifiedThisRun`, not the table. Every row now carries a non-null
-   `valid`, so the next run classifies nothing and reports zeroes over an empty set — **and an empty
-   measurement is byte-indistinguishable from a pass in the report's own JSON.** The owner's post-repair
-   run reads `count: 0` over `rowsClassifiedThisRun: 2` against `tableWideRowCount: 4839`.
-   **Reading it would take a read-only table-wide classifier, or setting `valid = NULL` across 4839 rows
-   — which is a write, not a measurement, and is not obviously safe. Neither exists and neither is
-   authorised.** **This is not a 013 fix round and must not become one**; it is recorded so a future
-   stage does not quote a zero from that report as evidence of anything. The detector-selection
-   disposition is QA's and `uat`'s. **Not reached by D44** — D44 struck two record IDs and their
-   dependents; this is a defect in the instrument, which has no struck subject.
+Lodged 2026-11-11 by `steering-queue-hooks`. `research/competitive-feature-landscape-2026-11-08.md`
+still waits on his pick of S1 to S33 (and R0). His words when asked on 2026-11-11: "move this to the
+end of questions and after any other work in this project is completed. in other words, this new
+stuff is planned after the existing items are handled" (`steering/queue-hooks-rulings.md`, selections
+1 to 4, prompt 2). Do not put it to him while other work in this project is open; when none is, ask
+which items to plan, or none and the research closes.
 
 ## `check-repo.js` CHECK 4 has no stage suffix for two artifact kinds stages actually produce
 
