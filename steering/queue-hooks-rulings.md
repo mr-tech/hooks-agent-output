@@ -685,3 +685,16 @@ once, and he is told in this turn's report.
 
 Usage at this point: `plan-usage.py --json`, 10:38Z: `weekly_all` 92% (it read 90% at 10:07Z), resets
 2026-11-14T17:00Z; the gate is 98%.
+
+## 2026-11-11T11:02Z — his command: the 98% weekly gate does not stop this thread's chains
+
+His typed words, in this session, after this thread reported the weekly figure and the gate:
+
+> "do not stop at 98%"
+
+Effect, read narrowly: at 98% of `weekly_all` this thread does not checkpoint and close chain 016,
+stops none of its stage sessions and keeps its standing check; the chain runs on. His words name
+the 98% gate alone, so the 90% session-limit hold (steering.md, Usage gates) stands as written.
+`plan-usage.py --json` at 11:02Z: `weekly_all` 97%, `weekly_scoped:Fable` 93%. No stage was told of
+a gate, so none is told of this. Not put to him: what happens at 100%, which is the plan's own
+limit and not a rule of this thread's.
