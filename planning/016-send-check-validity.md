@@ -58,6 +58,7 @@ No re-verdict is owed at revision 6.
 | 2026-11-11T11:54 | R-6 | planner-hooks-016 | Verdict: QA re-keyed AC1-11 on revision 6 with no finding (`qa/016-send-check-validity-qa.md`, record `a3b7586`; capture `verification/016/corpus/fixture-eslint-summary.txt`). QA's offer to regenerate the fixture lint-clean is declined for this chain: it would re-open AC1-1 mid-implementation. No requirement changed; the revision stays 6. |
 | 2026-11-11T11:55 | R-7 | planner-hooks-016 | Verdict: critique cycle 4 pass 1 APPROVED revision 6 (`critiques/016-send-check-validity-cycle4-critique.md`, `94403d2`). Its F-16 LOW, the owed re-verdicts table showing revision 5 as still owed, is fixed in place: every row reads discharged. No requirement changed; the revision stays 6. |
 | 2026-11-11T11:55 | R-8 | planner-hooks-016 | Verdict: the architect's delta pass APPROVED revision 6 (`architecture/016-send-check-validity-architecture-findings.md`, `ff9d4f7`). Its AF-14 LOW (have the generator emit lint-clean output) is declined for this chain, because it would re-open AC1-1 mid-implementation. Its carrier after closure is the Problem Area it lodged, named on X-12. No requirement changed; the revision stays 6. |
+| 2026-11-11T11:57 | R-9 | planner-hooks-016 | Registration: two Planner batch rows from the V-101 Opus critic pass on revision 6 (rulings block "2026-11-11T11:57Z — V-101 trial block", `c70c535`): F-2 LOW and F-4 INFO, both parked to the seam before the UAT anchor. No requirement changed; the revision stays 6. |
 
 ## Value Statement and Business Objective
 
@@ -588,4 +589,5 @@ Updated at revision 6, `planner-hooks-016`. Implementation is running on revisio
 
 | Item | Source row | Disposition |
 |---|---|---|
-| — | — | none registered |
+| Revision 6's changelog row: its scope-delta line omits AC1-11's added clause "(zero for a file the chain adds)" (LOW) | V-101 Opus critic pass, F-2 (`steering/queue-hooks-rulings.md`, block "2026-11-11T11:57Z — V-101 trial block", record `c70c535`) | Parked: it changes no code, test or verifier. Folded at the seam before the UAT anchor, as a correction row naming the omitted clause |
+| X-12's 7078 count carries no date or SHA (INFO) | Same block, F-4, not routed; taken up under the planner's count rule | Parked with the row above. At the seam it cites QA's capture `verification/016/corpus/fixture-eslint-summary.txt` (`a3b7586`) |
