@@ -2,9 +2,9 @@
 ID: 016
 Origin: 016
 UUID: 54673438
-Verified-At: "0e3d903 — repos=website; Phase 1 strategy, read at this base tree; no verdict issued"
-Status: Testing In Progress
-Status-Detail: "Phase 2 in progress at website 395510e (code review APPROVED, record 892daad). TDD gate passed; suite 1506 of 1506, exit 0; mutation sweep running. This document holds the chain's blocking-condition register (B-1 to B-6)."
+Verified-At: "395510e — repos=website; Phase 2 verdict PASS at chain/016-send-check-validity, plan revision 7"
+Status: QA Complete
+Status-Detail: "Phase 2 PASS at website 395510e (plan revision 7). Every criterion this pass assesses holds; the effort-final mutation sweep killed 120 of 128 started mutants, every survivor dispositioned. One LOW finding (QAF-13) goes to the Planner batch under steering's M1 cap. UAT next, with register rows B-1, B-2 and B-5 pre-release and B-3, B-4 and B-6 post-deploy. This document holds the chain's blocking-condition register (B-1 to B-6)."
 Phase: 2
 ---
 
@@ -26,6 +26,7 @@ read as its diff from revision 2 (`git diff 6b07655 21db6c8`). Revision 2 was re
 | 2026-11-11T12:56 | planner-hooks-016 → qa-hooks-016 | Regenerate the corpus fixture for code review CR-1 (`code-review/016-send-check-validity-code-review.md`, website `ee114ff`) | `make_fixture.py` now emits no comment line, in the website's eslint style. The fixture is regenerated (sha256 `9ab22baa…a77afe`, blob `7fcf64f`). Data is identical to the previous fixture by `compare_fixture.mjs` (120 of 120 members deep-equal, same order, 34 accepted and 86 refused), and three planted controls each report their one member. The fixture lints 0/0, its comment gate is clean (the previous fixture is the failing control), and `tsc -p tsconfig.test.json` exits 0. Captures are `verification/016/corpus/regen-*.txt`. The plan's digest moves at revision 7, which is the planner's. |
 | 2026-11-11T12:58 | planner-hooks-016 → qa-hooks-016 | Re-key on revision 7 (`9fd96d5`) | Read as `git diff 07e2e41 9fd96d5`, which covers R-6 to R-9. The digest was checked: `git show 188bc93:<fixture> \| sha256sum` gives `9ab22baa9c81…d693fa77afe`, and `git rev-parse` gives `7fcf64f`, both equal to AC1-1's line. The comparison base AC1-1 names, `77b1fd6`, is blob `9fb22ae`, the file `regen-compare.txt` compared against. AC1-11's row is reconciled to no exemption. Correction: this document and the three `regen-*.txt` headers had abbreviated the new sha256 as `9ab22baa…fafe`, which is not its tail. It now reads `…a77afe`; the full value is in `fixture/discordV2SendCorpus.ts.sha256`. No finding. |
 | 2026-11-11T13:08 | code-reviewer-hooks-016 → qa-hooks-016 | Phase 2 at website `395510e` | Phase 2 starts at the code review's committed APPROVED verdict (record `892daad`, `Reviewed-At: 395510e`, re-derived at the record). There is no steering brief for Phase 2: `steering/queue-hooks-briefs/` holds only the Phase 1 brief. So this pass read the plan's Decisions Register and the review's Assumption Not Checked itself; the latter is routed to UAT B-1 by the review. The criteria are listed in § Phase 2 before execution. TDD gate passed. |
+| 2026-11-11T13:48 | qa-hooks-016 → uat | Phase 2 verdict | Phase 2 PASS at `395510e`, recorded in § Phase 2 — results. The sweep's runs went to a helper; it polled the `setsid` parent's PID, which exits at once, and switched to the child's, without restarting or killing anything. QAF-13 LOW goes to the Planner batch (the M1 cap). |
 
 ## Reading
 
@@ -419,7 +420,63 @@ files: these plus `useApiMethods.json-editor-repair` and `utils.mutual-exclusivi
 - The AC2-3 never-red guard row reads "pending" in the table but is resolved in § Mutation Self-Check: both schema `.max(1024)` mutants are killed. The same sweep checks it here.
 - The two `7c66b68` rows take their red from a surviving mutant at `4cdb81a`, which is valid red evidence.
 
+### Phase 2 — results
+
+| Criterion | Instrument (capture under `verification/016/`) | Result |
+|---|---|---|
+| Fixture identity | `sha256sum` and `git hash-object` in the export of `395510e` | `9ab22baa…a77afe`, blob `7fcf64f`: equal to revision 7 |
+| Suite | `npx vitest run --reporter=json` in an export of `395510e`, `unshare -rn` | exit 0; `numTotalTests` 1506, passed 1506; 122 `testResults` entries, 0 failed. Re-derived, and equal to the implementer's figure |
+| AC1-1, AC1-4, AC1-7 | the suite's corpus cases (86 refused, 34 accepted, `validateMessage` and `isMessageValid`), and the corpus re-sent to Discord (`qa-phase2/resend-phase2-*.txt`) | Green. Re-send at 13:22Z: 120 of 120 verdicts equal to the fixture's `discord` field; research 76 of 76, and 52 of 52 error bodies identical; 34 accepted, each deleted. Phase 1's assumption that Discord's verdicts are stable is closed |
+| AC1-2 | `qa-phase2/placement_probe.mjs`: constructed members for every limb at every placement the ledger's Placement paragraph names, each list-hosted fault first, middle and last, beside valid controls | Tip: 188 of 188 fault rows refused, 85 of 85 control rows sent. Base `0e3d903`: 0 of 188 refused, which is the instrument's control. **Extended from the schema** (no corpus member): every row the probe constructs at a placement the ledger's measured list does not name, notably link-button faults as a Section accessory other than an empty URL (the deweeder removed the suite's 2 rows for that placement, `deweed.md` Round 1; the corpus keeps C6 and Q-sec-btn-url-empty) |
+| AC1-3 | corpus members B6, C4, D6, G3 and QA's seven absent forms; the probe's absent rows; the suite's "same reason as the empty form" case | Refused, each with the empty form's reason |
+| AC1-5 | `qa-phase2/ac1-5-reasons.txt`, over the probe's 188 refusals | 19 distinct reasons; no reason shared between (limb, component type) pairs; 0 equal to a base-tree reason literal; each names its type |
+| AC1-8, AC1-9 | `differential/`: `make_inputs.py` (seed 16), `evaluate.mjs` per tree, `compare.py` | (a) 20,000 classic messages, (b) the 168 distinct inputs the base suite passes to `validateMessage` and `validateContentRequirements` (captured by a recording wrapper in a base export; the base suite ran 1145 of 1145 with it), (c) the 34 accepted members: **0 moved**, `validateContentRequirements` included. In class (a), 2125 inputs that carry an L5 to L8-shaped classic Action Row pass every earlier check at base, so reach is exercised. Control (`compare-control-reach-always.txt`): with the reach test removed at the tip, 2443 class (a) inputs move and the comparer exits 1. Residue: inputs outside (a) to (c), by the criterion |
+| AC1-10 | `qa-phase2/ac1-10-tip.txt` | `ok`, exit 0. Red control (`ac1-10-control-env-import.txt`): an `~/env.mjs` import planted in `limits.tsx` gives exit 1 (`ERR_REQUIRE_ESM`) |
+| AC1-11 | `qa-phase2/ac1-11-eslint-per-file.tsv`: per file, `git show <sha>:<path> \| npx eslint --stdin`; `.eslintrc.json` and `.eslintignore` unchanged in the range | 15 changed files, none above its base count. The 6 added files are 0 and 0, the fixture included. The base-red files are equal: shapes test 10 and 7 at both; the two editors 0 and 2 at both |
+| AC1b-1, AC1b-2 | `preview-chrome/render-sites.preview-chrome.test.tsx` at both trees; `compare_render_sites.py` | The real `/preview` page at the tip: 0 of 31 fixtures with any chrome (base: 9 with an error line, 3 with the border). The message-preview mount (the send page, EditMessageMenu, NewMessageModal) and the edit mount in classic and V2: every base chrome element unchanged; the tip adds only M1's line and border, on the 6 V2 refusal fixtures each (18 rows), with no other movement. Edit-mode mounts need `IsMobileProvider`, which the app's layout supplies; added to the harness |
+| AC1b-3 | `git grep -n hideValidation 395510e -- src ':!**/__tests__/**'` | Passed only by `src/app/preview/page.tsx`. It reaches both `Author` sites: directly in the V2 branch, and through `ContentBody`'s props spread |
+| AC2-1 | read at `395510e` | `MAX_COMPONENT_DESCRIPTION_LENGTH` is in `src/constants/messageLimits.ts`, re-exported by `src/constants/index.ts` (`export *`), and read by `descriptionReason` and both inputs |
+| AC2-2 (suite half) | `ThumbnailEditor` and `MediaGalleryEditor` `description-limit` tests | `maxLength` 1024, asserted as a literal |
+| AC2-3 | `git diff --quiet 0e3d903 395510e -- src/server/api/utils/shapes.ts`, and the shapes test | Unedited; the schema admits 1025 for both |
+| Coverage | `check-coverage.sh` in the tip export | **Not measured:** no vitest coverage provider is installed. Installing one would change the shared `node_modules`, so it was not done. The sweep stands in |
+
+**Effort-final mutation sweep.** Range `git diff 0e3d903..395510e`, production paths only: `src/utils/limits.tsx`, `src/components/DiscordMessageEditor/index.tsx`, `.../components/Author.tsx`, `src/app/preview/page.tsx`, `.../ComponentEditors/ThumbnailEditor.tsx`, `.../MediaGalleryEditor.tsx` and `src/constants/messageLimits.ts`.
+- **Set:** 135 mutants (`qa-sweep-395510e/mutants-all.json`, blob `63eb2412`). 79 come from `mutant-gen.js --range 0e3d903..395510e`, which matches comparison, logical, unary, boolean, number and `if` operators on the range's added lines (it excludes `??`, `?.` and `=>`). 56 are QA's (`qa_mutants.py`):
+  - coupling mutants that make each conjunct of `isV2Message`, `isWhitespaceEmpty`, `isMissing`, `hasEmoji`, the label-and-emoji conjunction and `imageReason` the sole carrier;
+  - the scheme set's members;
+  - each walk dropped, or limited to the first or last item;
+  - the description bound at 1023 and 1025;
+  - every `hideValidation` pass and default, the page's pass, the editor line, the editor border and flags, and both `maxLength` attributes.
+- **Run:** `mutation-run.py` (blob `b47679a2`) over the whole suite (`vitest.sweep.config.mts`, blob `3d49c03d`), `--dep node_modules` under bwrap, 240 s timeout. Its control ran 1506 of 1506 in 122 files. Table: `qa-sweep-395510e/kill-table-395510e.json`.
+- **Score:** 120 of 128 started mutants killed (7 aborted, 0 stillborn, 0 timeout), counted with `grep -c` over the table's `outcome` field. Every QA coupling and wiring mutant is killed except the two residue rows below.
+
+Every non-kill, dispositioned:
+- **7 ABORTED**, not guards: `limits.tsx:147` `<` and `>` (the generic `Record<string, unknown>`), and `index.tsx:298/347/348/348:2/349` `<` (a JSX tag's opening bracket). The file no longer parses, and 356 or 1409 tests run.
+- **`limits.tsx:228:num` SURVIVED**, equivalent: the default `flags = 0` becomes `1`, and `1 & 32768` is 0.
+- **`index.tsx:298/347/348/348:2/349` `>` → `>=` SURVIVED (5).** Each puts a literal "=" into the rendered tree: inside the accessories container (298), and inside the reason line (347, 348 ×2). On 349 it lands after the line's `NullableComponent`, so every editor render carries it, preview images included. No case asserts the exact text of the reason line or of the render around it. This is QAF-13.
+- **`qa-url-no-trim` SURVIVED**, residue: dropping `.trim()` from L7's predicate changes the verdict only for URLs padded with whitespace that `URL` does not strip, such as U+00A0. The ledger's Residue paragraph places URL forms other than empty, `abc` and `ftp://` outside the measured class, so a suite case would pin an unmeasured verdict.
+- **`qa-scheme-drop-discord` SURVIVED**, residue: removing `discord:` from the allowed schemes. The ledger's Residue paragraph names `discord://` as unmeasured, and this pass's placement probe carries the `discord://` control (sent at the tip). No suite case is owed against an unmeasured Discord verdict.
+- No survivor is one that only a case the deweeder removed would kill. The removed Section-accessory rows are covered by the corpus, and `qa-section-accessory-dispatch-swapped` is killed.
+
+**Findings raised at Phase 2:**
+
+QAF-13 LOW Phase 2 — **No case checks that the editor's reason line, and the render around it, carry only the reason text.** Five generated mutants that add a literal "=" survive (`index.tsx:298`, `347`, `348` ×2, `349` at `395510e`; `qa-sweep-395510e/kill-table-395510e.json`). The property is that the reason line's text equals the validator's reason exactly, and that the editor renders no text outside its elements. The editor tests assert `toContain('Text Display')` and a line count, and neither can see a stray character. Under steering's M1 cap (`steering/queue-hooks-rulings.md`, block "2026-11-11T12:59Z", record `855adb8`), this is below HIGH and not this gate's severity-floor class: no behaviour the change claims to preserve is unasserted. It goes to the plan's Planner batch as a stated limit, with no round. The sibling lines at base share the exposure, since the generator mutates only the chain's lines.
+
+**Severity-floor check.** The change claims to preserve:
+- classic messages and every other message's result (AC1-9): asserted by the suite's classic case and decided by the differential; `qa-v2-reach-always` and both single-conjunct reach mutants are killed;
+- `validateContentRequirements` (AC1-8): the differential's `vcr` column, with 0 moved;
+- the other render sites' chrome (AC1b-2): the render comparison, with `qa-hide-default-true` and `qa-author-hide-default-true` killed;
+- the save schema (AC2-3): asserted by the shapes test.
+
+None is unasserted, so no MEDIUM floor finding.
+
+**Register.** No row is discharged at this pass. B-1, B-2 and B-5 are UAT's, observable pre-release. B-3, B-4 and B-6 are post-deploy, with devops's Stage 1 carrier. B-3's and B-6's minting reads against production stay owed to the first stage-browser pass before release, as each row's state says. Rows inherited and not discharged: B-1 to B-6. The plan's Assumptions do not move any row's premise at this pass.
+
+**Release consequence:** devops's to establish. The plan's M3 records Vercel production on a push of `master`, by devops's earlier records.
+
 ## Assumption Not Checked
+
+Phase 2: this pass assumes that the runtimes that execute the check in production judge whitespace as Node 24 does: the user's browser on the send page, and the server's Node for `isMessageValid` at save. It does not test that. Every run here was Node 24.14.0, and `isWhitespaceEmpty` rests on `String.prototype.trim`'s set. If false, a whitespace-only Text Display or label is refused in one runtime and sent or stored valid in another. The signature is UAT's B-1 send, or a production row, disagreeing with the corpus on a whitespace member. Owner of closing it: devops, by reading the deployed Node major, and UAT, by B-1 in a real browser. This is the implementer's stated gap, routed.
 
 Re-key pass on revision 7: this pass assumes the implementer's re-copy of the fixture into the website is byte-identical to `188bc93`'s, and does not check the chain branch, where the re-copy is pending. If false, AC1-1 runs over a different file. The signature is Phase 2's sha256 and blob check failing on `src/utils/__tests__/helpers/discordV2SendCorpus.ts`. Owner of closing it: QA Phase 2, by that check at the tip.
 
@@ -453,15 +510,17 @@ any difference. This is also the critic's routed assumption.
 - Assumption Not Checked → UAT (B-1) or the next QA pass, named above.
 - Next stage after the plan is approved: the implementer, with the fixture, the entry conditions and
   the register as input.
+- **Phase 2 (PASS at `395510e`):**
+  - next stage: UAT, with B-1, B-2 and B-5 to execute and record before merge;
+  - QAF-13 LOW → `planner-hooks-016` for the Planner batch;
+  - the Phase 2 Assumption Not Checked → devops (the deployed Node major) and UAT (B-1 in a real browser).
 
 ## Resumption State
 
-Written 2026-11-11T12:58 at the end of the re-key on revision 7. Read this first on resume.
+Written 2026-11-11T13:48 at the end of Phase 2. Read this first on resume.
 
-- **Done:** Phase 1 on revisions 1 to 7. QAF-1 to QAF-12 RESOLVED; no finding open. The fixture is regenerated (`188bc93`, sha256 `9ab22baa…a77afe`, blob `7fcf64f`), AC1-1's identity is checked, and AC1-11 has no exemption. Status `Awaiting Implementation`. The plan is `In Progress`.
-- **Sent:** the rev-7 result → `planner-hooks-016`.
-- **Routing for M1 (steering's cap, `steering/queue-hooks-rulings.md` block "2026-11-11T12:59Z", record `855adb8`):** from that block on, an M1 finding below HIGH goes to the plan's Planner batch as a stated limit, with no revision or round. HIGH and CRITICAL findings keep the normal route, as does this gate's severity-floor finding (a preserved or relied-on behaviour with no failing assertion, MEDIUM, which blocks the verdict). M1b, M2 and M3 are not capped by this block.
-- **Next:** the code review's committed verdict (the Phase 2 start). A further plan revision is read as `git diff 9fd96d5 <rev> -- planning/016-send-check-validity.md`.
-- **Trees:** website on `chain/016-send-check-validity` with the implementer's work; read only. No export or process left.
-- **Owed later:** B-3 and B-6's production minting reads. At Phase 2: the whole-corpus re-send, the AC1-9 differential, AC1-10's probe, AC1-11's per-file eslint counts (no exemption), the fixture's sha256 and blob check (`9ab22baa…a77afe`, `7fcf64f`), the mutation sweep, and the by-render probe re-run at the tip.
-- **Cache-warm wake:** armed (`2edc251f`).
+- **Done:** Phase 2 PASS at website `395510e`, plan revision 7, recorded in § Phase 2 — results. QAF-13 LOW goes to the Planner batch. Status `QA Complete`. The plan's Status is written `QA Complete` by `plan-row-commit.js`.
+- **Sent:** the verdict → `steering-queue-hooks` (spawn cue for UAT) and `planner-hooks-016` (QAF-13 for the Planner batch).
+- **Next:** nothing owed by QA until UAT or devops asks. Phase 3 comes at release readiness on devops's request. A production change after `395510e` expires this verdict; a refresh pass with a new SHA comes before UAT.
+- **Trees:** website on `chain/016-send-check-validity` at `395510e`; this session only read it. The scratch exports are deleted at run end. No process is left.
+- **Cache-warm wake:** armed (`e44403bb`).
