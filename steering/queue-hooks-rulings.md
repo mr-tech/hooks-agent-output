@@ -479,7 +479,11 @@ Started `qa-fix-website-save-gate-embeds` with `tmux-agent spawn`, category
 `steering/queue-hooks-briefs/qa-save-gate-embeds-brief.md`. The reviewer's two INFO items and both
 Assumptions Not Checked name QA Phase 2 in the review document; no finding is left without a path.
 
-## 2026-11-11T10:10Z — QA Phase 2 PASS at `0e3d903`; devops started
+## 2026-11-11T10:08Z — QA Phase 2 PASS at `0e3d903`; devops started
+
+Reconcile, 10:09Z: this heading and the devops brief were written with times of 10:09Z and 10:10Z
+that this thread estimated; `date -u` at the write read 10:08:43Z. Both corrected to 10:08Z. The
+same error as selection 14's heading: a time typed, not read.
 
 Read this turn: `qa/fix-website-save-gate-embeds-qa.md` whole at record `86aff70`, header re-read at
 `6ed8112`: `Status: QA Complete`, `Verified-At` `0e3d903` (the reviewed `963a25c` plus one

@@ -2,7 +2,7 @@
 
 Duties negated: none.
 
-From `steering-queue-hooks`, 2026-11-11T10:10Z. You are the session
+From `steering-queue-hooks`, 2026-11-11T10:08Z. You are the session
 `devops-fix-website-save-gate-embeds`, launched in `/usr/local/bin/hooks/website`, started on QA's
 spawn cue. Repositories: `/usr/local/bin/hooks/website` (source) and
 `/usr/local/bin/hooks/agent-output` (record). `/usr/local/bin/hooks` is not a repository:
@@ -44,13 +44,13 @@ The fixer's document: `agent-output/implementation/fix-website-save-gate-embeds-
 
 Website is on `fix/website-save-gate-embeds` at `0e3d903` (10:08Z). The switch back to `master` at
 the merge is yours, and the fix branch is deleted after the merge (fixer.md, "The fix branch").
-Remote `master` read `6d78b19` by `git ls-remote origin master` at 10:09Z.
+Remote `master` read `6d78b19` by `git ls-remote origin master` at 10:08Z.
 
 ## What a push of website `master` triggers
 
 `release-move.js /usr/local/bin/hooks/website master 6d78b19… --dry-run` at 09:16Z printed
 "workflows none — /usr/local/bin/hooks/website/.github/workflows absent". `vercel.json` is present
-(`ls -d`, 10:09Z). That a push of `master` goes live in production through Vercel is the statement
+(`ls -d`, 10:08Z). That a push of `master` goes live in production through Vercel is the statement
 of earlier deployment records (`agent-output/deployment/closed/fix-agent-comment-sweep-merge-deployment.md`,
 `fix-v1-guild-messages-auth-deployment.md`), not re-read by this thread today. Re-derive it.
 
