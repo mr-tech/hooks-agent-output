@@ -786,3 +786,31 @@ judgement, named as his in the question. Gate state put in the question: critiqu
 under its stop authority. The plan defines "whitespace-empty" twice and the two wordings differ on
 one unmeasured kind of string (U+0085, other whitespace, U+0085); the implementer follows the formal
 definition. The critique's words: "Nothing routes to the owner from this critique."
+
+## 2026-11-11T11:15Z — plan 016 revision 3: scope delta read against selection 23; no further prompt
+
+Read this turn: plan 016 revision 3 (record `21db6c8`, `Status: Active`, `Revision: 3`, no open
+`OPEN QUESTION`: `grep -c 'OPEN QUESTION'` 5 at both revisions, all `[RESOLVED]` forms), as its
+whole diff against revision 2 (`git diff 6b07655 21db6c8`, 72/36), changelog row included.
+
+- **Milestone M1b added** (the preview route shows no validation chrome), registered as D-14 on
+  his selection 23. Its class is the four existing error lines (`noContentError`,
+  `embedCharacterError`, `v2TextError`, `componentCountError`), M1's new line and the red border;
+  only `src/app/preview/page.tsx` turns them off (AC1b-1 to AC1b-4). This is the option he chose
+  ("no error lines or red border at all, the existing over-limit ones included"; "the editor and
+  the send page keep every line"), so the milestone is not put to him again. Named for his sight:
+  the no-content line of an empty message is an existing line that is not an over-limit one, and
+  it leaves preview images too, under "no error lines … at all".
+- QAF-9 folded: the whitespace rule is judged per character, so the string the critic's F-11 left
+  as residue (U+0085, space, U+0085) is now refused, as QA measured Discord refusing it (the
+  plan's citation of `verification/016/corpus/whitespace-rule-check.txt`, not read here). The
+  corpus is 120 members (86 refused, 34 accepted; the plan's figures).
+- X-8: the planner read `preview-image-generator` at `8de2b53` with a pathspec leaving out
+  `.github`; it is not edited.
+
+**The whitespace limb (L1, with L8) has now been revised in revisions 1, 2 and 3.** Under
+steering.md (Standing check) a further finding on it is decided by this thread before the planner
+folds: another gate round, or the gap recorded as a stated limit.
+
+Gates at 11:15Z (`ListAgents`): the critic, the architect and QA are busy on revision 3. The
+planner is idle at a 333K prefix (threshold 325K) and was asked to run `/checkpoint`.
