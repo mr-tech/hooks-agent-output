@@ -251,3 +251,42 @@ meanwhile) / *You: leave the handoff as is*.
 Started as a second question to the live researcher session, brief
 `steering/queue-hooks-briefs/researcher-v2-validity-brief.md`, sent when that session is idle after
 closing its first document. Why a researcher: the class is unknown, so there is nothing to plan yet.
+
+## 2026-11-11T09:04Z — code review round 1 REJECTED; CR-1 decided (selection 13, put 09:02:23Z, answered 09:04Z)
+
+Ledger: `steering/selection-ledger/2026-11-11.md`, this thread's latest block. Read this turn:
+`code-review/fix-website-save-gate-embeds-code-review.md` (record `d1af1b3`, `Verdict: REJECTED`,
+`Reviewed-At: 460000b — repos=website`), finding CR-1 whole; plan 013 D17 in his words.
+
+**The JSON surfaces: decided by this thread on D17, not asked.** His ruling of 2026-08-24: "fail
+gracefully when no content will be lost. If content must be lost to fulfill the request, block,
+notify, and present the user with a choice." An embed with nothing in it carries no content, so
+pasted JSON holding V2 components beside only-empty embeds lands as V2 with no choice, as at
+`6d78b19`. The reviewer's option (a) is excluded; plan 013 M8's reading (1) stands uncorrected.
+
+**Save: his selection.** Options: *Agent: drop the empty embed (Recommended)* / *Agent: ask at Save
+only* (the 'Save as Classic' choice would drop the components to keep an empty embed; whether
+Discord accepts that is unmeasured) / *Agent: withdraw the fix* (such a message keeps saving
+unsendable, which his bad-state ruling allows). **Chosen: "Agent: drop the empty embed
+(Recommended)"**, put to him as: "Save stores it as V2 without the empty embed and shows no prompt,
+following your 'no content lost, fail gracefully' rule. Only embeds with nothing in them are
+removed. The reviewer does not recommend the broad form of this (a quiet repair at Save that would
+also touch the outlier-shaped rows), so this is limited to empty embeds; whether it can be built
+that narrowly is untested, and if not it comes back to you. Cost: one more fixer round and a
+re-review."
+
+**Revised bounded scope statement** (replaces the first; this thread's wording around his choice):
+a draft holding V2 components beside embeds that are all empty is saved as V2 without those embeds,
+with no prompt. The two JSON surfaces behave as at `6d78b19`.
+- Limits: only embeds that are empty by `hasClassicContent`'s own test are removed, and only where
+  V2 components are present. A row-D save (flag, content, no V2 components) is not touched and the
+  flag is not changed by this fix (plan 013 D19, D15). Nothing with content is removed (W-1).
+- If it cannot be built inside those limits, the fixer blocks and it returns to him.
+- The reviewer's Minimum stands in its second form: a test on each JSON surface for a V2 container
+  beside `{}` stating "lands V2 with no choice", by extending the two existing
+  `conflict-resting-state` tests.
+- Mechanism is the fixer's. The re-review is a sub-entry of Round 1, as the reviewer set it.
+
+**This thread's error, kept:** prompt 7 and the first scope statement framed the defect as "no choice
+shown", which pointed the fixer at showing one. D17's principle was on record and unread by this
+thread when it wrote them.
