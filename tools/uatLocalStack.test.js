@@ -96,6 +96,10 @@ case "$cmd" in
       *psql*)
         if [ -n "\${STUB_SEED_FAILS:-}" ] && [[ "$all" == *ON_ERROR_STOP* ]]; then cat > /dev/null; exit 3; fi
         if [[ "$all" == *ON_ERROR_STOP* ]]; then cat > "$S/seed.stdin"; echo seed >> "$S/order"; exit 0; fi
+        if [[ "$all" == *'from "Messages" where id <'* ]]; then
+          echo low-ids >> "$S/order"
+          echo "\${STUB_LOW_IDS:-0}"; exit 0
+        fi
         if [[ "$all" == *Messages_id_seq* ]]; then
           echo sequence >> "$S/order"
           [ -n "\${STUB_SEQ_FAILS:-}" ] && exit 1
@@ -415,7 +419,7 @@ describe('uat-local-stack.sh', () => {
 
     const sequenceCases = [
       ['up on a container it creates', ['up'], null, ['push', 'sequence']],
-      ['up --seed', ['up', '--seed'], null, ['push', 'seed', 'sequence']],
+      ['up --seed', ['up', '--seed'], null, ['push', 'seed', 'low-ids', 'sequence']],
       ['up reusing the tool\'s running container', ['up'], 'running', ['push', 'sequence']],
       ['up starting the tool\'s stopped container', ['up'], 'exited', ['push', 'sequence']],
     ];
@@ -623,6 +627,18 @@ describe('uat-local-stack.sh', () => {
         assert.strictEqual(r.status, 1, r.out);
         assert.match(r.out, /message-id sequence/);
         assert.doesNotMatch(r.stdout, /^(tables|message ids):/m);
+        assert.deepStrictEqual(mutating(), ['run', 'rm']);
+      });
+    }
+
+    for (const [label, lowIds] of [['a seed that leaves a message below the floor', '1'], ['a seed whose low-id count is not a number', 'x']]) {
+      it(`${label} fails up --seed before the sequence move, and the container it created is removed`, async () => {
+        await fresh();
+        const r = run(['up', '--seed'], { STUB_LOW_IDS: lowIds });
+        assert.strictEqual(r.status, 1, r.out);
+        assert.match(r.out, /below 900000000000001/);
+        assert.doesNotMatch(r.stdout, /^(tables|message ids):/m);
+        assert.deepStrictEqual(stateOf('order').split('\n').filter(Boolean), ['push', 'seed', 'low-ids']);
         assert.deepStrictEqual(mutating(), ['run', 'rm']);
       });
     }
@@ -991,6 +1007,7 @@ describe('uat-local-stack.sh', () => {
       ['a container that never becomes ready', () => url('127.0.0.1', port), ['up'], { STUB_NOT_READY: '1' }, 1],
       ['an empty table count', () => url('127.0.0.1', port), ['up'], { STUB_TABLES_EMPTY: '1' }, 1],
       ['a sequence move that fails', () => url('127.0.0.1', port), ['up'], { STUB_SEQ_FAILS: '1' }, 1],
+      ['a seed that leaves a message below the floor', () => url('127.0.0.1', port), ['up', '--seed'], { STUB_LOW_IDS: '1' }, 1],
     ];
     for (const [label, makeUrl, args, extra, code] of paths) {
       it(`${label}: exit ${code} and no output carries the password (either form), the URL's userinfo or a postgresql:// URL`, async () => {

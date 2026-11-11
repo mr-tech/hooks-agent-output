@@ -8,7 +8,8 @@
 #   up           create (labelled), or reuse or start the tool's own container, wait until it accepts connections,
 #                push project-utils/prisma/schema.prisma (db push --skip-generate), move "Messages_id_seq" so the next
 #                id is at least 900000000000001 and past every stored id, print the next id and the table count
-#   up --seed    the same, applying seed.sql before the sequence move; only to an empty container this call created
+#   up --seed    the same, applying seed.sql before the sequence move and failing if a seeded message id is below
+#                900000000000001; only to an empty container this call created
 #   status       five lines: container, listener, ready, tables, redis. Changes nothing
 #   down         stop and remove the tool's container; the image stays. Refuses a same-named container it did not label
 #
@@ -225,6 +226,10 @@ cmd_up() {
     PGPASSWORD=$DB_PASS "$DOCKER" exec -i -e PGPASSWORD "$NAME" psql -v ON_ERROR_STOP=1 -U "$DB_USER" -d "$DB_NAME" <"$SEED_FILE" >/dev/null 2>&1 \
       || fail "seed failed"
     echo "seed: applied"
+    local low
+    low=$(PGPASSWORD=$DB_PASS "$DOCKER" exec -e PGPASSWORD "$NAME" psql -U "$DB_USER" -d "$DB_NAME" -tAc \
+      'select count(*) from "Messages" where id < 900000000000001' 2>/dev/null | tr -d '[:space:]')
+    [ "$low" = 0 ] || fail "the seed leaves stored message ids below 900000000000001 (count: ${low:-unread})"
   fi
 
   local floor=900000000000000 v

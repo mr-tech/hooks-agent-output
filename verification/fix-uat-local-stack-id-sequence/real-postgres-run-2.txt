@@ -1,0 +1,23 @@
+== up --seed with the record's seed.sql (port 40973)
+schema push: ok
+seed: applied
+message ids: next 900000000000002
+container: hooks-postgres-local ready at 127.0.0.1:40973
+tables: 9
+rc 0
+== stored message ids
+900000000000001
+== a default-id insert
+900000000000002
+INSERT 0 1
+== down
+down: removed hooks-postgres-local (the image stays)
+rc 0
+== up --seed with the seed.sql of 05582c6 (message id 1)
+schema push: ok
+seed: applied
+uat-local-stack: the seed leaves stored message ids below 900000000000001 (count: 1)
+removed the container this call created
+rc 1
+== containers named hooks-postgres-local after that
+0
