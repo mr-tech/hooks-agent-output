@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-website-save-gate-embeds
 UUID: 07e578ce
-Status: Committed
-Status-Detail: "Committed on chain branch fix/website-save-gate-embeds, tip website 0e3d903 (devops Stage 1, 2026-11-11T10:12Z). Release identifier: website master -> 0e3d903ce98e108c7ca848b992ad89ac538f4b44, owner's release answer pending; deployment record deployment/fix-website-save-gate-embeds-deployment.md."
+Status: Released
+Status-Detail: "Released 2026-11-11T10:13Z: website master 6d78b19 -> 0e3d903ce98e108c7ca848b992ad89ac538f4b44 on origin; fix branch merged and deleted. Deployment record deployment/fix-website-save-gate-embeds-deployment.md."
 Handoff-At: 963a25c — repos=website
 Origin-Chain: 013
 ---
@@ -258,3 +258,4 @@ match the positive form, and no new title carries an ID token.
 | 2026-11-11T09:35 | fixer | Selection 15 lifted the `commitSaveChoice` hold (rulings `67220b7`); steering ruled option 1 on my BLOCKED (09:27Z, `93c81f3`). Committed at website `963a25c` (commit time): one shared save step in `useApiMethods` for `saveMessage` and `commitSaveChoice` that sets the editor's message and mode to the stored data; `MessageProvider` passes `editableState.setMessageMode`; `MessageProvider.save-step.test.tsx` replaces `MessageProvider.save-empty-embeds.test.tsx`. Comment gate satisfied by deleting the dead `toastIdRef` comment line (disclosed under Verification). Captures in `round1-subentry3/`: red at `6d78b19` 12, `460000b` 14, `4b9fadd` 3, `abdb71b` 2; mutations no-write-back 3, no-mode-set 1, no-v2-guard 2, no-content-guard 1 (each exit 1); green 58/58 exit 0; suite 1144/1144 exit 0; typecheck 0; lint 86 = 86. 44 production lines added. Status → Active, Handoff-At → `963a25c`. Re-handed off to the reviewer. |
 | 2026-11-11T09:41 | fixer | Code review Round 1 sub-entry 2 APPROVED_WITH_COMMENTS at `963a25c` (review record `5849cb7`). CR-4, CR-5 and CR-6 dispositioned; nothing owed by the fixer. The two INFO items (the editor updates before the upsert resolves; the test's hash oracle is the client's normalisation) are routed to QA Phase 2. |
 | 2026-11-11T10:12 | devops | Document closed (Stage 1). Status: Committed. Chain branch `fix/website-save-gate-embeds`, tip `0e3d903` (QA added the last test-only commit; production identical to `Handoff-At 963a25c`). Nothing pushed; the merge and push wait for the owner's release answer. |
+| 2026-11-11T10:14 | devops | Released (Phase 2D). Pushed 2026-11-11T10:13Z; origin `master` = `0e3d903`; fix branch merged (`git branch -d`) and deleted. |

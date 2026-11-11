@@ -100,3 +100,13 @@ ordering have no behavioural coverage after this conversion (checked: `grep -rl 
 src --include='*.test.ts*'` names only this file and the logic-only reachability file, neither of
 which drives a conflicting draft through the real Save button to a real write). Recorded per plan
 014 AC3 rather than silently dropped.
+
+## Reconcile note, 2026-11-11T10:14 (devops, release of `fix-website-save-gate-embeds`)
+
+Website `0e3d903` changed `NewMessageModal.onSubmit` to submit `gate.data` (code review CR-6). That
+line is unreachable through the UI while `contentFloorError` runs on the raw draft: QA's mutation
+H11 (`NewMessageModal` submitting the raw draft instead of `gate.data`) survived as equivalent in
+reachable behaviour (`qa/closed/fix-website-save-gate-embeds-qa.md`, "Mutation sweep"). **When this
+handoff's work makes the choice path reachable, it owes a test that fails if `onSubmit` submits the
+raw draft instead of `gate.data`** (a V2 draft beside only-empty embeds must be written without
+them). The handoff stays Open.

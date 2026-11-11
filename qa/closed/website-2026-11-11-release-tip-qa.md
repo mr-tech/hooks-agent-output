@@ -3,8 +3,8 @@ ID: n/a
 Origin: release website master -> 0e3d903ce98e108c7ca848b992ad89ac538f4b44
 UUID: 4bfba90e
 Verified-At: "0e3d903 — repos=website; tip tree 50c575b3 = the Phase 2 Verified-At tree"
-Status: Release Verified
-Status-Detail: "Phase 3 for the release of fix-website-save-gate-embeds: steps 1b and 2 (gated set) only, the tip being the Phase 2 tree. Closes with its deployment record at release (devops)."
+Status: Released
+Status-Detail: "Released 2026-11-11T10:13Z: website master 6d78b19 -> 0e3d903 on origin (devops, deployment/fix-website-save-gate-embeds-deployment.md). The Assumption Not Checked (remote master unmoved until the push) is closed there: ls-remote 6d78b19 at 10:13:23Z and release-move's fast-forward check passed."
 Phase: 3
 ---
 
@@ -20,6 +20,7 @@ Phase: 3
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-11T10:10 | devops-fix-website-save-gate-embeds (message) | Phase 3 release-tip verdict | Release Verified at `0e3d903`. The tip is the Phase 2 tree, so steps 3 and 5 have nothing to compare. Step 1b: 0 of 21 open handoffs have a trigger naming this verdict or a website production push. Step 2: no gated time-based set in this workspace. |
+| 2026-11-11T10:14 | devops | Document closed (Phase 2D). Status: Released. Pushed 2026-11-11T10:13Z; origin `master` = `0e3d903` (`git ls-remote`). |
 
 ## Tip identity (re-derived, not carried from the request)
 
