@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-uat-local-stack-id-sequence
 UUID: 860d4569
 Status: Active
-Status-Detail: "Round 2 (re-scope 2026-11-11T19:48Z) committed at 71b61b9 on master; awaiting code review (the reviewer also runs the suite and both red runs: 11 code lines plus 4 header lines added since 68d737f, under 20, so no QA Phase 2)."
-Handoff-At: 71b61b9 — repos=agent-output; round 1 at 1fee252, not reviewed
+Status-Detail: "Round 3 (ruling 2026-11-11T19:57Z, CR-1 and CR-2) committed at 7d59233 on master; awaiting re-review by code-reviewer-fix-uat-local-stack-id-sequence. The tool is +15/-5 by git diff --numstat 68d737f, under 20 added, so no QA Phase 2."
+Handoff-At: 7d59233 — repos=agent-output; round 2 reviewed at 71b61b9 (APPROVED_WITH_COMMENTS), round 1 at 1fee252 not reviewed
 Origin-Chain: PI006
 ---
 
@@ -221,18 +221,74 @@ throwaway containers in round 2's runs, two of them created by `up --seed`, all 
 `.sql`, so the header comment and the seed are **unchecked** by it, and it exempts the test file as
 before.
 
+## Round 3 — every `up` checks for low ids; one `psql_value`
+
+**Authority.** `steering/queue-hooks-rulings.md`, block "2026-11-11T19:57Z" (record `7cb07bc`),
+relayed by SendMessage. The specification is "What would discharge it" in
+`handoff/uat-local-stack-up-reuses-low-message-ids-2026-11-11.md` (record `0f75a2c`), which carries
+CR-1 and CR-2 from `code-review/fix-uat-local-stack-id-sequence-code-review.md`, Reviewed-At
+`71b61b9`. No paths were added, so this round does not edit the handoff document. Its closure is
+steering's or the reviewer's, at re-review.
+
+**Change.**
+- CR-1: the low-id count moved out of the `--seed` branch. It now runs once on every `up` path,
+  after the push and any seed and before the sequence move. Its failure message now names both
+  cases: "the database holds stored message ids below 900000000000001 (count: …); recreate it, do
+  not reuse it". On a reused running container, the existing undo leaves it as found; on one this
+  call started, undo stops it again; on one this call created, undo removes it.
+- CR-2: `psql_value "<sql>"` is the single `-tAc` invocation. `table_count` is now a one-line call
+  of it, and the low-id count and the sequence move call it. The seed's `-i -v ON_ERROR_STOP=1`
+  call stays as it was, per the handoff. Enumeration at `7d59233`: `grep -cF 'psql -U "$DB_USER"
+  -d "$DB_NAME" -tAc' tools/uat-local-stack.sh` → 1 (it was 3 at `71b61b9`); `grep -cF psql` → 6
+  (the function's name accounts for 4 of those matches: its definition and three calls).
+- Usage header: the id check is named for every `up`.
+- **Tool's added-line count from `68d737f`, by `git diff --numstat 68d737f 7d59233 --
+  tools/uat-local-stack.sh`:** 15 added, 5 removed. That is under 20, so no QA Phase 2.
+- Test: the three non-seed order cases now expect `push, low-ids, sequence`. A new pair, "up
+  reusing the tool's running container / starting the tool's stopped container that holds a
+  message below the floor fails before the sequence move and leaves the container as found",
+  runs with `STUB_LOW_IDS=1`. It expects exit 1, the order `push, low-ids`, no `tables:` or
+  `message ids:` line, and the mutations `[]` (running) or `start, stop` (started), with the state
+  as found.
+
+Work declined: a reused database holding a low id is not handed back. `up` exits 1 and the
+container is left as found, or stopped again. The caller runs `down` and then `up`, as the message
+says.
+
+**Red run** with the `71b61b9` tool and the new test file → exit 1; tests 111, pass 106, fail 5.
+The failures are the 3 order cases and the 2 new cases, which meets the handoff's falsity signature
+(the new case must fail at `71b61b9`). Capture: `red-run-3.txt`.
+
+**Green run** at `7d59233` → exit 0; tests 111, pass 111, fail 0. Capture: `green-run-3.txt`.
+
+**Reviewer's probe** (`code-review-round1/reuse-low-id-probe.sh`, run unedited against the fixed
+tool): the first `up` gives rc 0 and `next 900000000000001`. After explicit inserts at id 1, the
+second `up` (reuse, running) prints "the database holds stored message ids below 900000000000001
+(count: 1); recreate it, do not reuse it" with **rc 1**, as the handoff requires. `down` rc 0, 0
+containers left. The probe's own exit code is 1 because its last line is `grep -c .` over an empty
+listing. Capture: `reuse-low-id-probe-round3.txt`.
+
+**Real Postgres, `up --seed`** with the record's seed → rc 0, `next 900000000000002`; `down` rc 0;
+0 containers left. Capture: `real-postgres-run-3.txt`. This round created two throwaway
+`hooks-postgres-local` containers, one in the probe and one here, and both were removed.
+
+**Convention check** (`convention-check-3.txt`): exit 0, 0 FAIL or CANDIDATE lines. `.sh` is
+skipped, so it remains **unchecked**, as before.
+
+All captures named in this section are under `verification/fix-uat-local-stack-id-sequence/`.
+
 ## User-visible flows
 
 None: a record tool. The one visible change is a new `up` output line, `message ids: next <n>`.
 
 ## Handoff
 
-- **SHA:** `71b61b9` (agent-output, `master`). Round 1's `1fee252` was not reviewed; steering
-  held the review for one tree.
-- **Reviews:** code review at `71b61b9`. The reviewer also runs `node --test
-  tools/uatLocalStack.test.js` and both red runs: the `68d737f` tool and the `1fee252` tool, each
-  with this test file. No QA Phase 2: 11 code lines plus 4 header lines added since `68d737f`,
-  under 20.
+- **SHA:** `7d59233` (agent-output, `master`). Earlier rounds: `1fee252`, not reviewed; `71b61b9`,
+  APPROVED_WITH_COMMENTS with CR-1 and CR-2, which round 3 discharges.
+- **Reviews:** re-review at `7d59233` by `code-reviewer-fix-uat-local-stack-id-sequence`. No QA
+  Phase 2: the tool is +15/-5 by `git diff --numstat 68d737f 7d59233`, under 20 added.
+- **Delivery, round 3:** handoff sent to `code-reviewer-fix-uat-local-stack-id-sequence` by
+  SendMessage, as the ruling directs.
 - **Merges:** nothing to merge. The commit is on the record repository's `master`, whose push
   deploys nothing (`ls -d .github` fails, per the determination). No push was made.
 - **Delivery:** no reviewer session is live, so a spawn cue goes to `steering-queue-hooks` by
@@ -247,3 +303,4 @@ None: a record tool. The one visible change is a new `up` output line, `message 
 |---|---|---|
 | 2026-11-11T19:47 | 1 | Fix and tests committed at `1fee252`; red, green and real-Postgres runs captured; handoff to code review via a spawn cue to steering; seed finding routed |
 | 2026-11-11T19:50 | 2 | Re-scope (steering, 2026-11-11T19:48Z, `05582c6`): seed's message id → 900000000000001; `up --seed` fails on a stored message id below it; committed at `71b61b9`; red, green and real-Postgres runs captured; Handoff-At moved to `71b61b9`; spawn cue to steering |
+| 2026-11-11T20:00 | 3 | Ruling 2026-11-11T19:57Z (`7cb07bc`): CR-1, every `up` checks for low ids; CR-2, one `psql_value`; committed at `7d59233`; red 5/111 at `71b61b9`, green 111/111; reviewer's probe second `up` rc 1; Handoff-At moved to `7d59233`; handed to the code reviewer |
