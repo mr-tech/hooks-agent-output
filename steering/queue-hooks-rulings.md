@@ -552,3 +552,17 @@ session's own prompt ("Agent: push master to 0e3d903 (Recommended)"), not throug
   all four after); no open handoff or docket cited a `/tmp/claude-` path (`grep -l`, exit 1).
 - The retrospective is started next, as this thread's subagent. The send-check validity chain may
   start: the website tree is free.
+
+## 2026-11-11T10:19Z — send-check validity chain started: planner spawned
+
+The start condition of the 09:17Z determination is met: the website tree is on `master` at
+`0e3d903`, clean, the earlier chain released (close-out block above). `release-move.js
+/usr/local/bin/hooks/website master 0e3d903… --dry-run`, 10:18Z: exit 0, "ff-from-remote ok;
+sibling serving refs (none)", "workflows none". He has not vetoed the determination.
+
+Started `planner-hooks-new` with `tmux-agent spawn`, category `S016-sendcheck` (anticipating
+`.next-id`, which read 16; the planner mints), cwd `/usr/local/bin/hooks/website`, brief
+`steering/queue-hooks-briefs/planner-send-check-validity-brief.md`. The `TODO.md` carrier is
+deleted in this commit: it carried the start step, which is now done; the determination stays in
+the 09:17Z block. The retrospective for `fix-website-save-gate-embeds` was started at 10:18Z as
+this thread's subagent.
