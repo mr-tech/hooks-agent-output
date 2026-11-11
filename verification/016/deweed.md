@@ -125,3 +125,29 @@ byte-identical by AC1-1; `sha256sum` at `df0fc0b` gave `49b54f8e…15bb9b`. Unto
   title before writing; the resulting diff was read whole before the commit.
 - **No red run.** The suite was green on the first run after the deletions, so no deletion was
   undone for redness.
+
+## Round 2 — 2026-11-11T12:23Z
+
+- **Repository:** `website`
+- **Range:** `4cdb81a..7c66b68` on `chain/016-send-check-validity` (one commit, parent `4cdb81a`)
+- **Paths and limits:** none named; the commit changes one file,
+  `src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx`.
+- **Tree check:** branch `chain/016-send-check-validity`, `HEAD` `7c66b68` at round start;
+  `git status --porcelain` showed only the untracked `.playwright-mcp/`.
+- **Read for this round:** the range as its diff. The plan, QA's document and `CLAUDE.md` have no
+  diff since the round 1 table's commit (`git diff --stat 2f22beb HEAD` over the three paths, empty);
+  the implementation document is still untracked, its mtime (11:59 local) earlier than my round 1 read.
+- **Held:** none. The implementer's message names no required-test case in this round.
+- **Deletion commit:** `ee114ff` (`git diff --numstat 7c66b68 ee114ff`: the file, 1/1).
+- **Suite at `ee114ff`:** `npx vitest run --reporter=json`, exit 0, `numTotalTests` 1503, passed
+  1503, failed 0, 122 `testResults` entries. `pnpm run typecheck`, exit 0.
+
+| Case | Score | Reason | Covered by / left unasserted | Disposition |
+|---|---|---|---|---|
+| `shows the text-length line with a red border for Text Displays over 4000 characters` | 9 | The one fixture where the text-length error alone decides the border; the existing text-length case also exceeds 40 components | — | kept |
+| `gives the V2 editing Author hideValidation true` | 7 | Only assertion that the signal reaches the Author the editor renders in V2 edit mode (AC1b-3). It reads a stub's props, and no render site passes the signal while editing, so whether a user could see a regression is not decidable from the code | — | kept |
+| `gives the V2 editing Author hideValidation false` | 7 | Fails if the prop is hard-set on that Author, which would hide the username line in the V2 editor; no other case renders that Author through the editor | — | kept |
+| `gives the message body hideValidation false` | 7 | Fails if the prop is hard-set or dropped on the message body, which would hide the username line on the send page and in the classic editor; the `/preview` rows cannot see that | — | kept |
+| `gives the message body hideValidation true` | 5 | The real `/preview` page case fails first when the pass to the message body is removed or hard-set false | `page.invalid-data.test.tsx` › `shows no error line and no red border for an empty username` | removed |
+
+The stubs for `Author` and `ContentBody` and their reset in `afterEach` stay: the kept rows use them.
