@@ -1,0 +1,52 @@
+== original
+     × V2 components beside an empty embed persist as V2 without the embed, with no choice
+     × V2 components beside an embed with only an empty title persist as V2 without the embed, with no choice
+     × V2 components beside an embed carrying only its editor key persist as V2 without the embed, with no choice
+     × V2 components beside an embed with an empty fields array persist as V2 without the embed, with no choice
+     × V2 components beside an empty embed keep a clear flag clear when the embed is dropped
+     × V2 components beside one empty and one real embed still ask, and persist nothing dropped
+     × an empty embed with no V2 components is kept, flag and content unchanged (a row-D draft)
+     × an empty embed beside an Action Row only is kept (no V2 components present)
+     × writes it as V2 without the embed, and the editor holds exactly what was written
+     × Save writes at once, as V2 without the empty embed, and shows no choice
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  10 failed | 38 passed (48)
+exit=1
+== rejected
+     × V2 components beside an empty embed persist as V2 without the embed, with no choice
+     × V2 components beside an embed with only an empty title persist as V2 without the embed, with no choice
+     × V2 components beside an embed carrying only its editor key persist as V2 without the embed, with no choice
+     × V2 components beside an embed with an empty fields array persist as V2 without the embed, with no choice
+     × V2 components beside an empty embed keep a clear flag clear when the embed is dropped
+     × V2 components beside one empty and one real embed still ask, and persist nothing dropped
+     × an empty embed with no V2 components is kept, flag and content unchanged (a row-D draft)
+     × an empty embed beside an Action Row only is kept (no V2 components present)
+     × writes it as V2 without the embed, and the editor holds exactly what was written
+     × V2 components beside an empty embed land as V2 with no choice
+     × Save writes at once, as V2 without the empty embed, and shows no choice
+     × V2 components beside an empty embed land as V2 with no choice
+⎯⎯⎯⎯⎯⎯ Failed Tests 12 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  12 failed | 36 passed (48)
+exit=1
+== unwired
+     × writes it as V2 without the embed, and the editor holds exactly what was written
+     × Save writes at once, as V2 without the empty embed, and shows no choice
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  2 failed | 46 passed (48)
+exit=1
+== prior-tip
+     × writes it as V2 without the embed, and the editor holds exactly what was written
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  1 failed | 47 passed (48)
+exit=1
+== no-v2-guard
+     × an empty embed with no V2 components is kept, flag and content unchanged (a row-D draft)
+     × an empty embed beside an Action Row only is kept (no V2 components present)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  2 failed | 46 passed (48)
+exit=1
+== no-content-guard
+     × V2 components beside one empty and one real embed still ask, and persist nothing dropped
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  1 failed | 47 passed (48)
+exit=1

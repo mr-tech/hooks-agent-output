@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-website-save-gate-embeds
 UUID: 07e578ce
-Status: Active
-Status-Detail: "Re-handed off for the Round 1 re-review at website 4b9fadd. The revision adds 21 production lines against 6d78b19, so QA Phase 2 is now owed after review. Then the merge at release (devops, under the owner's approval)."
+Status: Blocked
+Status-Detail: "Round 1 sub-entry REJECTED at 4b9fadd (CR-4 HIGH; CR-5, CR-6 LOW). CR-4 at saveMessage, CR-5 and CR-6 committed at website abdb71b (checkpoint, not handed off). commitSaveChoice joins the fix by selection 15 (rulings 67220b7). Blocked: BLOCKED to steering-queue-hooks at 09:31Z (msg bfcd2b1d) on whether the editor mode follows a Classic choice. Handoff held until that answer."
 Handoff-At: 4b9fadd — repos=website
 Origin-Chain: 013
 ---
@@ -199,3 +199,4 @@ match the positive form, and no new title carries an ID token.
 | 2026-11-11T08:44 | fixer | Document created. Fix committed at website `460000b` (commit time). Handed off to code review. |
 | 2026-11-11T09:01 | fixer | Code review Round 1 REJECTED at `460000b`. CR-2: test moved to `src/providers/MessageProvider/__tests__/` at website `08b0d7f`, sha256 unchanged; pass set identical before and after (1/1 passed, exit 0 both; `verification/fix-website-save-gate-embeds/move-compare.txt`); typecheck and eslint exit 0 after. CR-3 lint-breakdown correction applied. CR-1 held for steering's decision. Status → Blocked. |
 | 2026-11-11T09:12 | fixer | CR-1 decided (rulings `43daf3d`); scope statement replaced. Revision committed at website `4b9fadd` (commit time): row E restored; Save drops embeds that are all empty beside V2 components; JSON-surface tests extended. Red (A)/(B)/(C)/(M) and green recorded under `round1-rereview/`. 21 production lines added, so QA Phase 2 is owed. Status → Active, Handoff-At → `4b9fadd`. |
+| 2026-11-11T09:26 | fixer | Round 1 sub-entry REJECTED at `4b9fadd` (review record `65e719a`). Steering fenced CR-4 at `saveMessage`, CR-5 and CR-6 inside scope. Committed at website `abdb71b` (checkpoint): `saveMessage` sets the editor's message to `gate.data` when the gate changed it; `gateBeforePersist` always calls `dropEmptyEmbedsBesideV2`; `NewMessageModal.onSubmit` submits `gate.data`; `MessageProvider.save-empty-embeds.test.tsx` (provider mount, stored message with an id) replaces `useApiMethods.save-empty-embeds.test.tsx`. Captures in `verification/fix-website-save-gate-embeds/round1-subentry2/`: red (A) `6d78b19` 10 failed, (B) `460000b` 12, (C) unwired 2, (D) `4b9fadd` 1 (the provider test only), (M) no V2 guard 2, (M2) no content guard 1 (the mixed-embeds case), each exit 1; green 49/49 exit 0 (with `NewMessageModal.persist-gate-wiring`); suite 1142/1142 exit 0; typecheck 0; lint 44 = 44. CR-6 cannot be shown red through the UI: for this shape `NewMessageModal`'s Save is disabled by `contentFloorError`. Selection 15 (rulings `67220b7`) lifted the hold on `commitSaveChoice`; BLOCKED to steering on the editor mode after a Classic choice (msg `bfcd2b1d`). Status → Blocked. |

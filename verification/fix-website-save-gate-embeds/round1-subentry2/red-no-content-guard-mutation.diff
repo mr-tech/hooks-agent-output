@@ -1,0 +1,21 @@
+diff --git a/src/utils/index.ts b/src/utils/index.ts
+index 934d75c..528d8f5 100644
+--- a/src/utils/index.ts
++++ b/src/utils/index.ts
+@@ -186,7 +186,6 @@ export function dropEmptyEmbedsBesideV2<T extends Pick<Partial<MessageData>, 'co
+ ): T {
+   if (!hasV2Components(draft.components as undefined | { type: number }[])) return draft;
+   if (!draft.embeds || draft.embeds.length === 0) return draft;
+-  if (draft.embeds.some((embed) => hasClassicContent({ embeds: [embed] }))) return draft;
+   return { ...draft, embeds: [] };
+ }
+ 
+@@ -204,7 +203,7 @@ export function gateBeforePersist<
+   return {
+     mustAsk: disposition.requiresChoice,
+     options: disposition.options,
+-    data: disposition.requiresChoice ? draft : dropEmptyEmbedsBesideV2(draft),
++    data: dropEmptyEmbedsBesideV2(draft),
+   };
+ }
+ 

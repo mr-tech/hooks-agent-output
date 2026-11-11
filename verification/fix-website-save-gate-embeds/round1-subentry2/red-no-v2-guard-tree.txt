@@ -1,0 +1,5 @@
+label=no-v2-guard base=4b9fadd mode=mutate
+ M src/providers/MessageProvider/useApiMethods.ts
+ M src/utils/index.ts
+?? node_modules
+?? src/providers/MessageProvider/__tests__/MessageProvider.save-empty-embeds.test.tsx

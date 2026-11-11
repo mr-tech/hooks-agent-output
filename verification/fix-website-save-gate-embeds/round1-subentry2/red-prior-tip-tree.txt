@@ -1,0 +1,3 @@
+label=prior-tip base=4b9fadd mode=none
+?? node_modules
+?? src/providers/MessageProvider/__tests__/MessageProvider.save-empty-embeds.test.tsx
