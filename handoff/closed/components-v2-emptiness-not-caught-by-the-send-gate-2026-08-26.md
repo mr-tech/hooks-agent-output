@@ -1,7 +1,8 @@
 ---
 UUID: 14b1eac9
-Status: Open
+Status: Addressed
 Status-Detail: >-
+  Addressed by chain 016 (plan M3), released website master 395510e; B-3's fixed read on hooks.gg (uat, 2026-11-11T18:35Z, handoff/send-check-validity-post-deploy-2026-11-11.md) shows "A Text Display is empty." for the owner's instance. The text below is as written 2026-08-26.
   A Components V2 message can be assembled in the composer in a state Discord rejects on send, and
   the send gate does not catch it. The owner's instance: a V2 message whose only component is an
   EMPTY Text Display. Empty `content` and empty embeds ARE caught by the existing gate; the V2
@@ -130,3 +131,7 @@ Cited rather than summarised, because these are the authorities and this documen
 - **It does not claim severity.** Whether this is user-visible pain or an edge case depends on how
   many real records sit in the state, and nobody has counted.
 - **It does not reopen chain 012**, which is released, declared live and fully closed.
+
+## Closure (devops, 2026-11-11T18:44)
+
+The owner's instance (a V2 message whose only component is an empty Text Display) now shows the reason line "A Text Display is empty." in production, with the unfixed read (no line, 0e3d903, 2026-11-11T14:07Z) recorded beforehand: B-3 EXECUTED, PASS at website master `395510e`, UAT's changelog row of 2026-11-11T18:35 in `handoff/send-check-validity-post-deploy-2026-11-11.md`. The class was established by the researcher's measurement (`research/closed/components-v2-send-validity-2026-11-11.md`) and fixed by chain 016 (deployment record `deployment/closed/016-send-check-validity-deployment.md`). Plan 016's stated limits (RK-1, RK-3 to RK-5, X-1 to X-11) are carried in that plan and its handoffs, not here.
