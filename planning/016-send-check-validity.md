@@ -31,7 +31,7 @@ Owed re-verdicts:
 | Limb | Decidable since | Owning gate | State |
 |---|---|---|---|
 | M1b's class as a property, seven members, settled by render (AC1b-1) | revision 4 | QA (by-render enumeration), critic, architect | QA found exactly seven (`96fbc66`); critic and architect approved revision 4 (`01eeaad`, `47c7a4c`); revision 5 owed to all three |
-| AC1b-1's Author limb: cozy on `/preview`, compact at the component (QAF-12) | revision 5 | QA, critic, architect | QA approved revision 5 (`97343f0`); critic and architect open |
+| AC1b-1's Author limb: cozy on `/preview`, compact at the component (QAF-12) | revision 5 | QA, critic, architect | QA approved revision 5 (`97343f0`), architect approved (`1492d33`); critic open |
 | AC1b-3's signal form (AF-13) | revision 4 | architect | approved (`47c7a4c`); revision 5 owed |
 | AC1b-4's post-deploy member (b) | revision 4 | QA (B-6), critic (F-13) | critic resolved F-13 (`01eeaad`); QA carries it in B-6 (`96fbc66`); revision 5 owed |
 | RK-5, X-11 | revision 4 | critic | approved (`01eeaad`); revision 5 owed |
@@ -49,6 +49,7 @@ Owed re-verdicts:
 | 2026-11-11T11:21 | R-2 | planner-hooks-016 | Verdicts on revision 4: the architect APPROVED with no findings (`architecture/016-send-check-validity-architecture-findings.md`, `47c7a4c`), and critique cycle 2 pass 2 APPROVED (`critiques/016-send-check-validity-cycle2-critique.md`, `01eeaad`). Editorial changes: a duplicated Testing Strategy sentence removed (architect's note), and M1 and M2 added to the Reading Order's uat row (critique F-15). No requirement changed; the revision stays 4. |
 | 2026-11-11T11:40 | 5 | planner-hooks-016 | Folds QAF-12 LOW from QA's re-key on revision 4 (`qa/016-send-check-validity-qa.md`, record `96fbc66`), the one finding of the three gate reads of revision 4 (critic `01eeaad` and architect `47c7a4c` approved). AC1b-1's Author limb is checked on `/preview` in cozy, the only style the route renders, and in compact at the component, as QA asked; M1b's table records that QA's render settled the seven members. Scope delta: AC1b-1's wording only, no milestone added, removed or widened; the whitespace limb is not touched. Since approval of the value statement: five revisions and four gate rounds. Size against the original ask: unchanged from revision 3. |
 | 2026-11-11T11:41 | R-3 | planner-hooks-016 | Verdict: QA's Phase 1 re-key on revision 5 resolves QAF-12 and leaves no finding open (`qa/016-send-check-validity-qa.md`, record `97343f0`). Correction: the times on revision 5's row, the Resumption State and the page read were typed ahead of the clock; they now read the commit time, 11:40Z (QA's note). No requirement changed; the revision stays 5. |
+| 2026-11-11T11:43 | R-4 | planner-hooks-016 | Verdict: the architect's delta pass on revision 5 APPROVED with no finding (`architecture/016-send-check-validity-architecture-findings.md`, record `1492d33`, section "Verdict (rev 5 …)"). Its note on the typed 11:44 stamp was already corrected at R-3. No requirement changed; the revision stays 5. |
 
 ## Value Statement and Business Objective
 
