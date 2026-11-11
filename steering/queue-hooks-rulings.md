@@ -1354,3 +1354,32 @@ round discharges that handoff whole, then a re-review.
 The reviewer's Assumption Not Checked (a save carrying a client-sent id the local database does
 not hold creates a low id after `up`; website `upsertMessage`, its code read) is carried for the
 next UAT walk's brief in this workspace's `hazards.md` memory file.
+
+## 2026-11-11T20:11Z — chain `fix-uat-local-stack-id-sequence` close-out; retrospective started
+
+Read this turn at `HEAD`: code review `Verdict: APPROVED`, `Reviewed-At: 7d59233` (Round 1
+sub-entry 1, record `1f5b0c3`; header and changelog rows read, the body not);
+`git diff --numstat 68d737f HEAD -- tools/uat-local-stack.sh`: 15/5, so no QA Phase 2. The
+reviewer's suite (111/111, exit 0) and red run (5 of 111 fail with the `71b61b9` tool) are its
+document's, not re-run here.
+
+- Stage documents, both under `closed/`, closed by this thread: implementation `Committed`
+  (`b78ea0f`), code review `Committed`. No plan, QA, UAT or deployment document by the
+  determination; nothing is deployed.
+- Handoffs the chain created: `uat-local-stack-up-reuses-low-message-ids-2026-11-11.md`,
+  `Addressed` under `handoff/closed/` (the reviewer's closure, third round);
+  `handoff/uat-local-stack-test-free-port-race-2026-11-11.md`, `Open`, carrier of the review's INFO
+  (written on this thread's return of a finding routed without a path). No other open handoff
+  names the tool (`grep -l`), so no trigger fired.
+- Forward items: the reviewer's Assumption Not Checked (a client-sent message id on a local
+  save) is in this workspace's `hazards.md` memory file for the next UAT brief. No roadmap or
+  architecture obligation: a record tool.
+- `TODO.md`: the item "`tools/uat-local-stack.sh` does not restart the message-id sequence" is
+  deleted in this commit. `OWNER-QUEUE.md`: the chain adds nothing for him; unchanged.
+- Sessions stopped with `tmux-agent stop` (exit 0 each): the fixer and the code reviewer. On the
+  box: `docker ps -a` lists no container. Scratch: the two sessions' directories under
+  `/tmp/claude-1000/-usr-local-bin-hooks-agent-output/` deleted (`du -s` 12K and 588K before;
+  `ls -d` fails after); no open handoff or docket cites a `/tmp/claude-` path (`grep -rl`, exit 1).
+- `check-repo.js` exit 0 at 20:11Z.
+
+The retrospective is started as this thread's subagent (`retrospective-fix-uat-local-stack-id-sequence`).

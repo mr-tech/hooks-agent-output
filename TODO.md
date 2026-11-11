@@ -16,21 +16,6 @@ stuff is planned after the existing items are handled" (`steering/queue-hooks-ru
 1 to 4, prompt 2). Do not put it to him while other work in this project is open; when none is, ask
 which items to plan, or none and the research closes.
 
-## `tools/uat-local-stack.sh` does not restart the message-id sequence
-
-Lodged 2026-11-11 by `steering-queue-hooks` from an inbox entry of `qa-hooks-016`. `CLAUDE.md`,
-"Local builds of `website` — before the first save", requires `ALTER SEQUENCE "Messages_id_seq"
-RESTART WITH 900000000000001` after the schema push and before the first save; the tool that stands
-the local stack up does not run it (`grep -c -E "RESTART|Messages_id_seq" tools/uat-local-stack.sh`
-→ 0, re-read 2026-11-11T11:03Z; the schema push is its line 218, the optional seed follows at 224).
-QA's ask: the tool runs the restart after the schema push, or refuses to hand back a database whose
-sequence has not been restarted. Shape: a small `fixer` chain in this repository, paths
-`tools/uat-local-stack.sh` and `tools/uatLocalStack.test.js`, then code review; a test-estate
-change, so not asked of the owner (lifecycle `references/escalation.md`, Standing Defaults), and
-told to him. Not started on 2026-11-11: weekly usage read 97% and chain 016 is covered without it
-(its QA register row B-1 makes the restart and the recorded id range a precondition of the UAT
-walk). Start it when the weekly limit has reset (2026-11-14T17:00Z), or sooner on his word.
-
 ## website lint debt in `src/utils/index.ts` and its resolver test
 
 Lodged 2026-11-11 by `steering-queue-hooks` from an inbox entry of
