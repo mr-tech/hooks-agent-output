@@ -3,7 +3,7 @@ ID: 016
 Origin: 016
 UUID: 54673438
 Status: Active
-Status-Detail: "Delta pass on plan 016 revision 4 (record c249af3): APPROVED. Owed after implementation, by devops Stage 1: AF-4's D-10 clause in website.md A-4, the preview-chrome Problem Area's closure, and the /preview signal under D-001. AF-4's A-4 clause lands at this chain's reconciliation, no later than devops Stage 1."
+Status-Detail: "Delta pass on plan 016 revision 5 (record b2d78b0): APPROVED. Owed after implementation, by devops Stage 1: AF-4's D-10 clause in website.md A-4, the preview-chrome Problem Area's closure, and the /preview signal under D-001. AF-4's A-4 clause lands at this chain's reconciliation, no later than devops Stage 1."
 ---
 
 # Architecture Findings — Plan 016: the send check refuses what Discord refuses (conformance pass)
@@ -18,6 +18,43 @@ Status-Detail: "Delta pass on plan 016 revision 4 (record c249af3): APPROVED. Ow
 | 2026-11-11T11:15 | Delta pass, plan rev 3 (`21db6c8`, read as the diff from `6b07655`), on planner-hooks-016's request | M1b's design (a signal only `/preview` passes, D-14) conforms, and so do QAF-9's predicate and the corpus re-pin. AF-12 MEDIUM is required: M1b's class misses the sub-components' validation lines and the `data-erroring-state` ring (Author, EmbedField, EmbedTitle, EmbedAuthor, EmbedFooter), which render on `/preview` regardless of edit mode. AF-13 LOW is recommended: drill one `VisualizerProps` input beside `showEdit`. **APPROVED_WITH_CHANGES.** |
 | 2026-11-11T11:17 | AF-12 instrument corrected (planner-hooks-016's message) | The range I gave, the `DiscordMessageEditor` directory, missed `src/components/DiscordContentEditor/{Desktop,Mobile}.tsx`, which carries the ring, an erroring counter and "Too long.". The error was mine. The range is now the editor's render tree (its import closure under `src/components`), as the planner proposed for rev 4. |
 | 2026-11-11T11:21 | Delta pass, plan rev 4 (`c249af3`, read as the diff from `0c01944`), on planner-hooks-016's request | AF-12 is folded as a property settled by render, with seven members. **AF-12's sub-component member list is withdrawn; the error was mine.** The embed parts and DiscordContentEditor return under `if (!showEdit)` before their chrome, and Author's ring is never painted read-only. AF-13 is folded. SE-6, RK-5, X-11 and AC1b-4 conform. **APPROVED.** The post-implementation reconciliation items are listed in the verdict. |
+| 2026-11-11T11:41 | Delta pass, plan rev 5 (`b2d78b0`, read as the diff from `a9bb644`; R-2's `c249af3`..`a9bb644` read too), by a fresh generation (brief `steering/queue-hooks-briefs/architect-016-respawn-brief.md`) | QAF-12's fold conforms. AC1b-1 checks Author's compact branch at the component, with the signal passed as a prop beside `showEdit` (AF-13). That follows the existing isolated sub-component test form. R-2 is editorial. Nothing my rev 4 pass rested on moved. **APPROVED.** |
+
+## Verdict (rev 5, `b2d78b0`, read as the diff from `a9bb644`): APPROVED
+
+I read the delta in two parts: R-2 (`git diff c249af3 a9bb644`, 22/16) and revision 5
+(`git diff a9bb644 b2d78b0`, 45/32). The plan has not changed between `b2d78b0` and record `HEAD`
+(`git diff --quiet`).
+
+- **R-2 is editorial.** It covers the owed-re-verdict states, the Reading Order's uat row (F-15)
+  and the removal of the duplicated sentence I flagged. Nothing changes form.
+- **AC1b-1's compact limb, checked at the `Author` component (QAF-12), conforms.** Read at website
+  `0e3d903`:
+  - `src/app/preview/page.tsx` passes no `visualStyle` (`grep -c` over `git show 0e3d903:src/app/preview/page.tsx`: 0).
+  - `DiscordMessageEditor` defaults it with `visualStyle = 'cozy'` and passes it to `Author`.
+  - `Author` takes `visualStyle` and `showEdit` as props (`AuthorProps`). Its compact branch is
+    the fall-through after `if (visualStyle === 'cozy')`.
+
+  So the route cannot reach compact, and a component-level check is the only render that exercises
+  it. Under AF-13 the signal reaches `Author` as a prop beside `showEdit`. "Rendered compact with
+  the signal set as `/preview` sets it" therefore means passing one prop, with no context to
+  provide and no route to fake. The criterion's form depends on AF-13's prop route and confirms it.
+  A context route (AF-13's avoidable deviation) would have made this check need a provider.
+- **The test's form follows the current pattern.** A sub-component mounted alone has a precedent
+  in its own sibling `__tests__/`:
+  `src/components/DiscordMessageEditor/components/__tests__/Author.timer-cleanup.test.tsx`, with
+  `EmbedFooter.length-error.test.tsx` beside the embed parts. Where the case goes is QA's.
+- **The cozy-only note conforms as a declaration.** It keeps the compact branch inside D-14's
+  class, because a later change could pass a style to `/preview`. It is the same reasoning as
+  "a member found later is inside M1b". It is a code read, and the render (QA `96fbc66`) is what
+  settles it.
+- **The rev 4 pass's foundations.** These are AF-12's property, AF-13's signal route, SE-6, RK-5,
+  X-11 and AC1b-4. The delta changes none of them except AC1b-1's wording and the record of QA's
+  render. The reconciliation items owed after implementation are unchanged (rev 4 verdict, below).
+
+**Text slip, not a finding (the planner's).** Revision 5's changelog row and its Resumption State
+are stamped 11:44. The commit `b2d78b0` is at 11:40:24Z, and my clock read 11:41Z after it. So the
+stamp was typed, not taken.
 
 ## Verdict (rev 4, `c249af3`, read as the diff from `0c01944`): APPROVED
 
@@ -389,10 +426,10 @@ names a component type, not user text.
 
 ## Resumption State
 
-Checkpoint 2026-11-11T11:23Z, `architect-hooks-016`, on steering-queue-hooks's stop (weekly usage gate; rulings block "2026-11-11T11:22Z", record `13ec4bd`).
+Updated 2026-11-11T11:41Z, `architect-hooks-016` (fresh generation; the chain is running, rulings block "2026-11-11T11:24Z").
 
-- **Done:** conformance pass on rev 1 (`c61a96f`); delta passes on rev 2 (`2520ac7`), rev 3 (`0bb1084`, AF-12's range corrected at `ccaa340`) and rev 4 (`47c7a4c`, **APPROVED**, with AF-12's member list withdrawn because the error was mine). Every verdict was delivered to planner-hooks-016 by SendMessage. Also done, outside the pass: the reconciliation handoff, all six items (`f6fab66`), and `website.md` A-6.
-- **Next:** read any later plan revision as `git diff c249af3 HEAD -- planning/016-send-check-validity.md` (R-2 at `5f95a30` records approvals and editorial fixes only, so it is not yet read here). After implementation, and no later than devops Stage 1, land three items: AF-4's D-10 clause in `website.md` A-4; the closure of the Problem Area "Validation errors render into generated preview images" (M1b), with RK-5 as residue; and the `/preview` signal on `VisualizerProps` under D-001's consequences in `system-architecture.md`. Then close this document `Resolved`.
+- **Done:** conformance pass on rev 1 (`c61a96f`); delta passes on rev 2 (`2520ac7`), rev 3 (`0bb1084`, AF-12's range corrected at `ccaa340`), rev 4 (`47c7a4c`, **APPROVED**, with AF-12's member list withdrawn because the error was mine) and rev 5 (this write, **APPROVED**; R-2 read too). Every verdict was delivered to planner-hooks-016 by SendMessage. Also done, outside the pass: the reconciliation handoff, all six items (`f6fab66`), and `website.md` A-6.
+- **Next:** read any later plan revision as `git diff b2d78b0 HEAD -- planning/016-send-check-validity.md`. After implementation, and no later than devops Stage 1, land three items: AF-4's D-10 clause in `website.md` A-4; the closure of the Problem Area "Validation errors render into generated preview images" (M1b), with RK-5 as residue; and the `/preview` signal on `VisualizerProps` under D-001's consequences in `system-architecture.md`. Then close this document `Resolved`.
 - **Trees:** website on `master` at `0e3d903`, untouched by this session. Nothing of mine is uncommitted in agent-output. The evidence I ran is committed: `verification/016/architect-conformance/ts-node-import-probe.txt`.
 - **Questions out:** none. No owner-needing item.
 
