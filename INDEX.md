@@ -7,7 +7,7 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-279 documents · 16 numbered chains · 128 unnumbered.
+280 documents · 16 numbered chains · 128 unnumbered.
 
 ---
 
@@ -104,7 +104,7 @@ closed. A document's path changes when it closes; its name does not.
 | security | `security/closed/015-preview-image-generator-security-audit.md` | Review Complete — Review Complete 2026-11-08: targeted review of preview-image-generator 471578f..8de2b53 APPROVED (no finding above LOW in the five files). The reviewed tip is the SHA serving on prod: own git ls-remote refs/heads/prod = 8de2b53 at 22:16Z; deployment/closed/015-bug-evaluation-fixes-deployment.md § Release Execution (pushed 21:38:42Z, deployed 22:02Z, re-run 22:04:49Z). Host posture H-001 to M-002 accepted record-only (rulings 09:43Z), carried by handoff/preview-image-generator-host-security-posture-2026-11-08.md (Open) and dated past the deploy by verification/015/security-post-deploy-read-2026-11-08T2216Z.txt (unchanged). Nothing is owed by this document. |
 | UAT | `uat/closed/015-bug-evaluation-fixes-uat.md` | Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). Release-Decision APPROVED FOR RELEASE stands; post-deploy rows B-6, B-7 and B-8 ride handoff/bug-evaluation-fixes-post-deploy-2026-11-08.md. Earlier detail is in the body and changelog. |
 
-### 016 — 0 open, 12 closed
+### 016 — 1 open, 12 closed
 
 | Stage | Location | Status |
 |---|---|---|
@@ -119,6 +119,7 @@ closed. A document's path changes when it closes; its name does not.
 | implementation | `implementation/closed/016-send-check-validity-implementation.md` | Released — Committed at website chain/016-send-check-validity tip 395510e (devops Stage 1); released at devops Phase 2D (pushed 2026-11-11T18:29:46Z). |
 | plan | `planning/closed/016-send-check-validity.md` | Released — Released: website master -> 395510e97f82a5177d5edbb38b5d44858f745f3d, pushed 2026-11-11T18:29:46Z on the owner's release answer. Post-deploy rows B-3, B-4 and B-6 ride handoff/send-check-validity-post-deploy-2026-11-11.md. No OPEN QUESTION remains. |
 | QA | `qa/closed/016-send-check-validity-qa.md` | Released — Phase 2 PASS at website 395510e (plan revision 7), released at devops Phase 2D (pushed 2026-11-11T18:29:46Z). Effort-final sweep 120 of 128 mutants killed, every survivor dispositioned; QAF-13 LOW carried by handoff/editor-error-lines-render-text-unasserted-2026-11-11.md. Register: B-1, B-2, B-5 EXECUTED (UAT); B-3, B-4, B-6 post-deploy, carried by handoff/send-check-validity-post-deploy-2026-11-11.md. The Phase 3 release-tip record is a separate document. |
+| retrospective | `retrospectives/016-send-check-validity-retrospective.md` | Active |
 | UAT | `uat/closed/016-send-check-validity-uat.md` | Released — APPROVED FOR RELEASE at website 395510e (plan revision 7), released at devops Phase 2D (pushed 2026-11-11T18:29:46Z). Pre-release rows B-1, B-2 and B-5 EXECUTED and PASS. Post-deploy rows B-3, B-4 and B-6 ride handoff/send-check-validity-post-deploy-2026-11-11.md with their unfixed values; UAT-1 LOW (B-6(b) is read on the red border, subject message 5996) is carried there. |
 
 ### 1 — 0 open, 8 closed
@@ -536,6 +537,7 @@ they are the ID-less artifacts that root new efforts.
 | `016-send-check-validity-deployment.md` | `deployment/closed/016-send-check-validity-deployment.md` |
 | `016-send-check-validity-implementation.md` | `implementation/closed/016-send-check-validity-implementation.md` |
 | `016-send-check-validity-qa.md` | `qa/closed/016-send-check-validity-qa.md` |
+| `016-send-check-validity-retrospective.md` | `retrospectives/016-send-check-validity-retrospective.md` |
 | `016-send-check-validity-uat.md` | `uat/closed/016-send-check-validity-uat.md` |
 | `016-send-check-validity.md` | `planning/closed/016-send-check-validity.md` |
 | `2026-04-07-plan-005.md` | `deployment/closed/2026-04-07-plan-005.md` |

@@ -1244,3 +1244,17 @@ Read this turn at `HEAD` (record `f31abf7`):
 - M1's cap ended at the plan's terminal `Status` (block 13:00Z, event 3).
 
 The retrospective is started as this thread's subagent (`retrospective-016`).
+
+## 2026-11-11T19:40Z — retrospective for chain 016 written; chain 016 is finished for this thread
+
+Read this turn: `retrospectives/016-send-check-validity-retrospective.md` is in `HEAD` at record
+`62301b2` (`git cat-file -e`, `git diff --quiet HEAD`), `Status: Active` (line 5); its line 123
+reads "Owner-needing: nothing." The body was not read by this thread. By the subagent's report
+(not re-read): value delivered YES, seven recommendations each naming a standing file, no handoff
+created. They reach their files through pi, which runs on his word alone. `INDEX.md` rebuilt with
+`--tracked`, diff read (4/2: this document).
+
+Nothing of chain 016 is in flight. Open carriers it leaves: the two handoffs named in the
+close-out block. Close-out commit `e5dd517`. Next for this thread: `TODO.md`,
+"`tools/uat-local-stack.sh` does not restart the message-id sequence" (its hold on the weekly
+limit no longer applies: `weekly_all` read 71% live at 19:28Z).
