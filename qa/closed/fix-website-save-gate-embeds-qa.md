@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-website-save-gate-embeds
 UUID: 07e578ce
 Verified-At: "0e3d903 — repos=website; production files identical to 963a25c (git diff --numstat 963a25c 0e3d903: one test file, 6/0)"
-Status: QA Complete
-Status-Detail: "Phase 2 PASS at website 0e3d903 (the reviewed 963a25c plus QA's one test case). QAF-1 raised and resolved in this pass. Next: devops at release, under the owner's approval."
+Status: Committed
+Status-Detail: "Phase 2 PASS at website 0e3d903, committed with the chain (devops Stage 1, 2026-11-11T10:12Z). QAF-1 resolved in the pass. Assumption Not Checked (Pusher on hooks.gg) is carried by deployment/fix-website-save-gate-embeds-deployment.md, Owner checks."
 Phase: 2
 ---
 
@@ -22,6 +22,7 @@ editor's mode", read at the file this pass.
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-11T10:02 | steering-queue-hooks (brief above; stage start = the review's committed verdict at `Reviewed-At 963a25c`, re-derived: `git rev-parse HEAD` = `963a25c3…`, tree clean) | Phase 2 on a fixer chain (44 production lines) | Phase 2 PASS at `0e3d903`. Suite 1144/1144, exit 0 at `963a25c`; typecheck 0. Sweep: 19 of 22 killed; 2 survivors closed by QA's case at `0e3d903` (QAF-1 MEDIUM, resolved), 1 equivalent by reachability. Browser walk on a local build: both of the reviewer's Assumptions Not Checked closed, with a base-tree red; the first INFO item observed. Captures in `verification/fix-website-save-gate-embeds/qa-phase2/`. |
+| 2026-11-11T10:12 | devops | Document closed (Stage 1). Status: Committed. Verdict unchanged. Release-tip record: `qa/website-2026-11-11-release-tip-qa.md` (`fc154a2`). |
 
 ## Route and what this pass is
 

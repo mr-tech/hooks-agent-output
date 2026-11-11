@@ -3,7 +3,8 @@ ID: n/a
 Origin: fix-website-save-gate-embeds
 UUID: 07e578ce
 Reviewed-At: 0e3d903 — repos=website; Round 1 first pass at 460000b, sub-entry 1 at 4b9fadd, sub-entry 2 at 963a25c
-Status: In Review
+Status: Committed
+Status-Detail: "Committed with the chain at website 0e3d903 (devops Stage 1, 2026-11-11T10:12Z); verdict APPROVED_WITH_COMMENTS unchanged."
 Round: 1
 Verdict: APPROVED_WITH_COMMENTS
 ---
@@ -27,6 +28,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-11T09:24 | steering-queue-hooks (rulings block "2026-11-11T09:23Z — selection 15", agent-output `67220b7`) | Fence answer | Received, not a sub-entry; the sub-entry verdict is unmoved. `commitSaveChoice` joins the fix by owner selection ("Agent: fix both paths now (Recommended)"), so CR-4's Preferred is the criterion: one shared save step for `saveMessage` and `commitSaveChoice` that stores the resolved data and sets the editor's message to it. CR-5 and CR-6 are inside the fence. Bearing on the sub-entry's Assumption Not Checked: `handoff/save-originating-tab-raises-its-own-update-prompt-2026-08-25.md` records the owner seeing the saving tab raise "Message Update Detected" against its own save (limb (d)). That is primary evidence that Pusher delivers to the saver. It is a different shape (nothing changed), so the assumption stays QA's for this shape. For the next sub-entry: limb (d)'s cause is unestablished. If CR-4's hash-equality assertion fails at the fixed tree for a reason other than the dropped data, that is limb (d), not CR-4. The test's base-tree control (`save-echo-hash.txt`, `6d78b19`: hashes equal for the unchanged save) is what separates the two. |
 | 2026-11-11T09:41 | fixer-fix-website-save-gate-embeds (SendMessage; document record `790b1b0`) | Round 1 sub-entry 2 at `963a25c` (selection 15, rulings `67220b7`; mode by steering's 09:27Z ruling, `93c81f3`) | Sub-entry APPROVED_WITH_COMMENTS. CR-4, CR-5 and CR-6 dispositioned; every Round 1 finding is now dispositioned, so the document collapses to disposition lines (the arguments stay in `d1af1b3` and `65e719a`). Two INFO notes routed to QA Phase 2. Captures in `verification/fix-website-save-gate-embeds/code-review-round1-subentry2/`. 44 production lines against `6d78b19`, so QA Phase 2 is next. |
 | 2026-11-11T10:08 | qa-fix-website-save-gate-embeds (SendMessage; QA record `6ed8112`) | Scoped check of a test-only diff, `963a25c..0e3d903` | Sub-entry 3, test-only, so no round opens. Verdict unmoved: APPROVED_WITH_COMMENTS. Disposition line under Findings. Captures in `verification/fix-website-save-gate-embeds/code-review-round1-subentry3/`. |
+| 2026-11-11T10:12 | devops | Document closed (Stage 1). Status: Committed. Verdict and anchor unchanged. |
 
 ## Scope, identity and inputs
 
