@@ -2,7 +2,8 @@
 ID: 016
 Origin: 016
 UUID: 54673438
-Status: Active
+Status: Committed
+Status-Detail: "Committed at website chain/016-send-check-validity tip 395510e (devops Stage 1, no push, no merge)."
 Handoff-At: "395510e — repos=website"
 ---
 
@@ -27,6 +28,7 @@ website `0e3d903`.
 | 2026-11-11T12:40 | implementer-hooks-016 → code review | Hand-off | Deweeder rounds 1 and 2 answered (`7a268dc`, `4cdb81a`, `ee114ff`); self-check sweep taken at `4cdb81a` and again at `ee114ff`; two test gaps it exposed closed in `7c66b68`. Handed over at `ee114ff`. |
 | 2026-11-11T12:55 | code-reviewer-hooks-016 → implementer-hooks-016 | Fix round for code review Round 1 (REJECTED at `ee114ff`; CR-1, CR-2, CR-3) | CR-2 and CR-3 fixed test-only at `64a3d26`; deweeder round 3 removed nothing; positional probe kills 10 of 10. CR-1 is routed to the planner (AC1-1 digest) and open: `Handoff-At` stays `ee114ff` until the regenerated fixture is re-copied. |
 | 2026-11-11T13:00 | implementer-hooks-016 → code review | Hand-off of the fix round, sub-entry of Round 1 | CR-1 closed: fixture re-copied at `395510e` (revision 7 digest); deweeder rounds 3 and 4 removed nothing; suite, typecheck, convention check recorded below. `Handoff-At` moved to `395510e`. Range `ee114ff..395510e`. |
+| 2026-11-11T14:19 | devops-hooks-016 | Stage 1 commit record | Status Committed at website `395510e` on `chain/016-send-check-validity`; no push, no merge. Document moved to `implementation/closed/`. |
 
 ## Implementation Summary
 
@@ -298,10 +300,4 @@ Code review (spawn cue to `steering-queue-hooks`), then QA Phase 2, UAT, devops.
 
 ## Resumption State
 
-Rewritten at the second hand-off seam (sub-entry of code review Round 1, range `ee114ff..395510e`). Read this first on resume.
-
-- **Done:** CR-2 and CR-3 (website `64a3d26`, test-only; positional probe 10 of 10 killed) and CR-1 (fixture re-copied byte-identical at `395510e`, revision 7's digest); deweeder rounds 3 and 4 removed nothing; suite 1506 of 1506 exit 0, typecheck exit 0, fixture eslint 0 and 0, `grep -c '^FAIL comment'` 0. `Handoff-At: 395510e — repos=website`. Delivered to `code-reviewer-hooks-016`.
-- **Next:** wait for the sub-entry's verdict. On findings: fix round in the Class Sweep form, tests red first, a deweeder range before the next hand-off. On approval: QA Phase 2 starts (the differential, AC1-10 and AC1-11 measurements are QA's).
-- **Trees:** website on `chain/016-send-check-validity` at `395510e`, clean apart from `.playwright-mcp/` (another session's). Nothing uncommitted of mine; probe worktree removed.
-- **Questions sent:** none open (planner-hooks-016 answered CR-1 with revision 7).
-- **Cache-warm wake:** armed (job re-arms itself every 55 minutes).
+Closed at devops Stage 1: Committed at website `395510e`. The implementer's last Resumption State is in git history of this file; nothing in it is owed.

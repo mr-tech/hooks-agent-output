@@ -3,8 +3,8 @@ ID: 016
 Origin: 016
 UUID: 54673438
 Verified-At: "395510e — repos=website; Phase 2 verdict PASS at chain/016-send-check-validity, plan revision 7"
-Status: QA Complete
-Status-Detail: "Phase 2 PASS at website 395510e (plan revision 7). Every criterion this pass assesses holds; the effort-final mutation sweep killed 120 of 128 started mutants, every survivor dispositioned. One LOW finding (QAF-13) goes to the Planner batch under steering's M1 cap. UAT next, with register rows B-1, B-2 and B-5 pre-release and B-3, B-4 and B-6 post-deploy. This document holds the chain's blocking-condition register (B-1 to B-6)."
+Status: Committed
+Status-Detail: "Phase 2 PASS at website 395510e (plan revision 7), committed at devops Stage 1 (no push, no merge). Effort-final sweep 120 of 128 mutants killed, every survivor dispositioned; QAF-13 LOW carried by handoff/editor-error-lines-render-text-unasserted-2026-11-11.md. Register: B-1, B-2, B-5 EXECUTED (UAT); B-3, B-4, B-6 post-deploy, carried by handoff/send-check-validity-post-deploy-2026-11-11.md. The Phase 3 release-tip record is a separate document."
 Phase: 2
 ---
 
@@ -27,6 +27,7 @@ read as its diff from revision 2 (`git diff 6b07655 21db6c8`). Revision 2 was re
 | 2026-11-11T12:58 | planner-hooks-016 → qa-hooks-016 | Re-key on revision 7 (`9fd96d5`) | Read as `git diff 07e2e41 9fd96d5`, which covers R-6 to R-9. The digest was checked: `git show 188bc93:<fixture> \| sha256sum` gives `9ab22baa9c81…d693fa77afe`, and `git rev-parse` gives `7fcf64f`, both equal to AC1-1's line. The comparison base AC1-1 names, `77b1fd6`, is blob `9fb22ae`, the file `regen-compare.txt` compared against. AC1-11's row is reconciled to no exemption. Correction: this document and the three `regen-*.txt` headers had abbreviated the new sha256 as `9ab22baa…fafe`, which is not its tail. It now reads `…a77afe`; the full value is in `fixture/discordV2SendCorpus.ts.sha256`. No finding. |
 | 2026-11-11T13:08 | code-reviewer-hooks-016 → qa-hooks-016 | Phase 2 at website `395510e` | Phase 2 starts at the code review's committed APPROVED verdict (record `892daad`, `Reviewed-At: 395510e`, re-derived at the record). There is no steering brief for Phase 2: `steering/queue-hooks-briefs/` holds only the Phase 1 brief. So this pass read the plan's Decisions Register and the review's Assumption Not Checked itself; the latter is routed to UAT B-1 by the review. The criteria are listed in § Phase 2 before execution. TDD gate passed. |
 | 2026-11-11T13:48 | qa-hooks-016 → uat | Phase 2 verdict | Phase 2 PASS at `395510e`, recorded in § Phase 2 — results. The sweep's runs went to a helper; it polled the `setsid` parent's PID, which exits at once, and switched to the child's, without restarting or killing anything. QAF-13 LOW goes to the Planner batch (the M1 cap). |
+| 2026-11-11T14:19 | devops-hooks-016 | Stage 1 commit record | Status Committed at website `395510e` (Verified-At carried unchanged); no push, no merge. Register rows B-3, B-4, B-6 carried by `handoff/send-check-validity-post-deploy-2026-11-11.md`. Document moved to `qa/closed/`. |
 
 ## Reading
 
@@ -518,18 +519,4 @@ any difference. This is also the critic's routed assumption.
 
 ## Resumption State
 
-Written 2026-11-11T13:49 at the checkpoint steering asked for (prefix past threshold, after Phase 2). Read this first on resume.
-
-- **Done:** Phase 1 on revisions 1 to 7. Phase 2 PASS at website `395510e`, plan revision 7 (§ Phase 2 — results, record `2af91e5`). Status `QA Complete`. The plan's Status is `QA Complete` (R-15, `b10b0f2`). QAF-1 to QAF-12 are RESOLVED. QAF-13 LOW is ROUTED: Planner batch R-16 (`9d5c73b`), with carrier handoff `editor-error-lines-render-text-unasserted-2026-11-11.md`.
-- **Sent:** the verdict → `steering-queue-hooks` (UAT cue) and `planner-hooks-016` (QAF-13). Both are acknowledged, the planner by R-16.
-- **Next:** nothing until the chain needs QA. The expected next call is Phase 3, the release-tip verdict, on devops's request: read `~/.claude/agent-skills/stage-procedures/qa-phase-3.md` first. If production changes after `395510e` before UAT, a refresh pass with a new SHA comes first; scope it with the captured instruments below.
-- **Instruments for a refresh or for Phase 3** (all under `verification/016/`):
-  - `differential/` (`make_inputs.py` seed 16, `evaluate.mjs`, `compare.py`);
-  - `qa-phase2/placement_probe.mjs`;
-  - `preview-chrome/render-sites.preview-chrome.test.tsx` with `compare_render_sites.py`;
-  - `qa-sweep-395510e/` (mutants, config, kill table);
-  - the AC1-11 stdin lint form.
-
-  Each runs in a `git archive` export with `node_modules` symlinked, under `unshare -rn`. ESLint cannot run in an export (the react plugin resolves twice), so lint is read from `website/` over stdin.
-- **Trees:** website on `chain/016-send-check-validity` at `395510e`, only read by this session. The exports are deleted. The scratchpad keeps disposable intermediates only. Nothing of this session's is running.
-- **Cache-warm wake:** deleted at this checkpoint. Re-arm on resume.
+Closed at devops Stage 1: Committed at website `395510e`. QA's Resumption State written 2026-11-11T13:49 is at record `500a501` (`git show 500a501:agent-output/qa/016-send-check-validity-qa.md`); its Phase 3 instruments are the directories it lists under `verification/016/`. The Phase 3 verdict is a separate release-tip record (`qa/website-395510e-release-tip-qa.md`). Nothing in the state is owed to this document.

@@ -2,8 +2,8 @@
 ID: 016
 Origin: 016
 UUID: 54673438
-Status: UAT Approved
-Status-Detail: "UAT APPROVED FOR RELEASE at website 395510e (uat/016-send-check-validity-uat.md); devops next. B-3, B-4 and B-6 are post-deploy rows for devops's Stage 1 carrier. QAF-13 LOW is for the Planner batch under the M1 cap. No OPEN QUESTION remains."
+Status: Committed
+Status-Detail: "Committed at website chain/016-send-check-validity tip 395510e (devops Stage 1, no push, no merge). Release identifier: website master -> 395510e on the owner's release answer. Post-deploy rows B-3, B-4 and B-6 ride handoff/send-check-validity-post-deploy-2026-11-11.md. No OPEN QUESTION remains."
 Revision: 7
 Target Release: "website master → this chain's merge SHA (Vercel production on a push of master). The package carries no version artefact (package.json has no version field, CHANGELOG absent; read 2026-11-11T10:22Z)."
 Epic-Alignment: "none registered. The workspace has no roadmap, by the owner's standing instruction (brief). Source of the effort: research/closed/components-v2-send-validity-2026-11-11.md and research/closed/components-v2-description-text-limit-2026-11-11.md; opened by selection 14 (rulings block 2026-11-11T09:09Z)."
@@ -68,6 +68,7 @@ Owed re-verdicts:
 | 2026-11-11T13:48 | R-15 | qa-hooks-016 | Status set to QA Complete: QA Phase 2 PASS at website `395510e` over every criterion it assesses (`qa/016-send-check-validity-qa.md` § Phase 2 — results, record `2af91e5`). Effort-final sweep: 120 of 128 started mutants killed, every survivor dispositioned. QAF-13 LOW is sent to the planner for the Planner batch under the M1 cap. No requirement changed; the revision stays 7. |
 | 2026-11-11T13:49 | R-16 | planner-hooks-016 | Registration: QAF-13 LOW (QA Phase 2, `2af91e5`) as a Planner batch stated limit under M1's cap, carried after closure by `handoff/editor-error-lines-render-text-unasserted-2026-11-11.md`. No requirement changed; the revision stays 7. |
 | 2026-11-11T14:13 | R-17 | uat-hooks-016 | Status set to UAT Approved: UAT APPROVED FOR RELEASE at website `395510e` (`uat/016-send-check-validity-uat.md`). B-1, B-2 and B-5 EXECUTED and PASS on a local build of the tip; B-3, B-4 and B-6 stay post-deploy, with their unfixed values recorded. UAT-1 LOW (B-6(b) reads on the red border) goes to devops's carrier. Plan read at revision 7. No requirement changed. |
+| 2026-11-11T14:19 | R-18 | devops-hooks-016 | Status set to Committed: devops Stage 1 on UAT APPROVED FOR RELEASE at website `395510e` (chain branch `chain/016-send-check-validity`, nine commits over `0e3d903`, a fast-forward). No push, no merge. Register: B-1, B-2, B-5 EXECUTED; B-3, B-4, B-6 carried by `handoff/send-check-validity-post-deploy-2026-11-11.md`. M1 cap ends with this terminal Status. |
 
 ## Value Statement and Business Objective
 
@@ -586,22 +587,7 @@ fixtures and coverage are QA's.
 
 ## Resumption State
 
-Updated at revision 7 (R-13), `planner-hooks-016`. Implementation is running
-(implementer-hooks-016, chain branch `chain/016-send-check-validity`); code review Round 1 is open.
-- **Done:** revision 7 (code review CR-1): AC1-1's fixture identity is now `9ab22baa…`/`7fcf64f`
-  (QA, `188bc93`), AC1-11 has no exemption, X-12 is retired, and the Planner batch is discharged.
-- **Gates on revision 7:** all three approved: QA `13674b8`, the architect `602ba1d`, critic cycle 5
-  `21ccc3a`. The implementer re-copies the fixture at the revision 7 digest.
-- **Next:** findings on M1 below HIGH go to the Planner batch (standing line below). Fold the batch
-  at the seam before the UAT anchor.
-- **Standing for M1** (steering's cap, R-11): a gate finding below HIGH on M1 goes to the Planner
-  batch as a stated limit, with no revision. HIGH, CRITICAL and severity-floor findings keep their
-  route. Findings already in a round finish as started. Its stated reason is the second
-  post-approval revision. It ends on the first of: the owner's word lifting or changing it;
-  steering's withdrawal, recorded in its rulings file; or the plan reaching a terminal `Status`. A
-  HIGH or CRITICAL finding does not void it (rulings block "2026-11-11T13:00Z — M1's cap: its
-  voiding events", record `308bb4b`).
-- **Open to the owner:** nothing.
+Closed at devops Stage 1: the plan reached `Committed` at website `395510e`, which is a terminal status and so ends M1's cap (rulings block "2026-11-11T13:00Z", voiding event 3). The planner's last Resumption State (written at R-13) is in this file's git history; nothing in it is owed.
 
 ## Planner batch
 

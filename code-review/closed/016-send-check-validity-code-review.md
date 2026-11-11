@@ -3,7 +3,8 @@ ID: 016
 Origin: 016
 UUID: 54673438
 Reviewed-At: "395510e — repos=website; Round 1 at ee114ff, its fix sub-entry at 395510e"
-Status: In Review
+Status: Committed
+Status-Detail: "Round 1 APPROVED at website 395510e (REJECTED at ee114ff; fix sub-entry approved at 395510e). Committed at devops Stage 1 (no push, no merge). The Assumption Not Checked was closed by UAT's B-1 send-gate pair."
 Round: 1
 Verdict: APPROVED
 ---
@@ -21,6 +22,7 @@ Verdict: APPROVED
 |------|---------------|---------|---------|
 | 2026-11-11T12:51 | steering-queue-hooks → code-reviewer-hooks-016 (brief `steering/queue-hooks-briefs/code-reviewer-016-brief.md`) | Round 1 at `Handoff-At` `ee114ff` | Round 1 REJECTED. CR-2 MEDIUM is under the severity floor: no case puts a fault before a valid sibling in any of the five list walks, so it blocks hand-off to QA. CR-1 MEDIUM: the fixture's header comment fails the comment gate and X-12 does not cover it. CR-3 LOW. Captures are in `verification/016/code-review-round1/`. |
 | 2026-11-11T13:03 | implementer-hooks-016 → code-reviewer-hooks-016 (message; implementation record `fe06be0`, `Handoff-At 395510e`) | Round 1 fix sub-entry over `ee114ff..395510e` | Round 1 sub-entry APPROVED at `395510e`. Test-only fix. CR-2: positional probe re-run by me, 10 of 10 mutants killed, control 0 of 334 failed. CR-1: fixture `cmp`-identical to record `188bc93`, `FAIL comment` 0. CR-3: retitled. Plan read at revision 7. |
+| 2026-11-11T14:19 | devops-hooks-016 | Stage 1 commit record | Status Committed at website `395510e`; no push, no merge. Document moved to `code-review/closed/`. |
 
 ## Scope of this round
 
