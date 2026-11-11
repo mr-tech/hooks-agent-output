@@ -36,3 +36,4 @@ then, a user can add a File component and the send page refuses the message with
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-11T10:32 | planner-hooks-new | Created at plan 016 revision 1. |
+| 2026-11-11T10:38 | steering-queue-hooks | The owner ruled on X-1 (this handoff's first trigger): the toast stays out of plan 016 and stays carried here, "Agent: keep it out (Recommended)" (plan 016 D-12; rulings block "2026-11-11T10:38Z — selections 21 and 22"). X-2 was not asked again; his prompt-2 ruling holds it. Stays Open. |

@@ -644,3 +644,44 @@ Not put, by the determination: Exclusion X-1 (the generic failure toast) goes to
 handoff) is its to settle in revision 1.
 
 Relayed to the planner by pointer to this block, his four chosen labels verbatim.
+
+## 2026-11-11T10:38Z — selections 21 and 22: revision 1's exclusion of the toast, and rider R1 (put 10:34Z, answered 10:37Z)
+
+Ledger: `steering/selection-ledger/2026-11-11.md`, block "2026-11-11T10:37Z — steering-queue-hooks".
+Both by selection; the option text is this thread's. Source: plan 016 revision 1 (record `4c9bcf2`,
+`Status: Active`, `Revision: 1`, no open `OPEN QUESTION`), read as its whole diff against revision
+0 (`git diff 0ae079d 4c9bcf2`, 69/75), and the handoff
+`handoff/send-check-validity-excluded-toast-and-file-upload-2026-11-11.md`, read whole. The
+planner's spawn cue arrived by message at 10:33Z. No gate had read the plan when the prompt was put.
+
+**21. The generic send-failure toast (Exclusion X-1).** Options: *Agent: keep it out (Recommended)*
+("I start the critic and the architect on revision 1 as it stands. The toast is carried for later
+by a handoff the planner already wrote (send-check-validity-excluded-toast-and-file-upload), which
+also carries the File upload path your earlier ruling put after the existing items. Nothing more is
+planned for the toast until that handoff is picked up.") / *Agent: add it to plan 016* (another
+planner revision before any review; adds a milestone; the toast's wording comes back to him;
+review, QA and his own check get wider) / *Agent: drop the toast item* (removed from the handoff,
+nothing carries it). **Chosen: "Agent: keep it out (Recommended)"**. Premise and read, this turn:
+website `0e3d903` `src/utils/sendWebhook.ts` lines 86 to 93 (`git show`, read from code, not run):
+any non-200 logs Discord's body with `console.error` and the toast reads "Failed to send message.
+Please try again or contact support." (or "edit"). X-2 (the File upload path) was named in the
+option as held by his prompt-2 ruling and not asked again. X-3 to X-9 are stated limits or existing
+carriers in the plan's Exclusions table; they were not put one by one.
+
+**22. Rider R1: move `messageValidity.predicate.test.ts` beside its module if the chain edits it.**
+Options: *Agent: keep the rider (Recommended)* ("the plan goes to review with the rider. Cost by
+the plan: one extra line for code review and a check that the file's test count and pass set are
+identical before and after the move. It drops on its own if the critic or reviewer objects. The
+other five files stay on the handoff.") / *Agent: drop the rider* (the file is left unedited, the
+handoff keeps all six, no added cost). **Chosen: "Agent: keep the rider (Recommended)"**. Premises
+and reads, this turn: both paths exist in the website tree (`ls -d`); the cost and the drop
+disposition are the plan's own text (Testing Strategy, "Rider R1"), quoted as the plan's.
+
+Registered by this thread as D-12 and D-13 in the plan (changelog R-1; the revision stays 1). The
+critic, the architect's conformance pass and QA Phase 1 are started on revision 1 (lifecycle
+`references/seams.md`, next-act table, the row for a plan revision before implementation approval).
+The option named the critic and the architect; QA Phase 1 is the third gate that table starts at
+once, and he is told in this turn's report.
+
+Usage at this point: `plan-usage.py --json`, 10:38Z: `weekly_all` 92% (it read 90% at 10:07Z), resets
+2026-11-14T17:00Z; the gate is 98%.
