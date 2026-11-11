@@ -25,6 +25,7 @@ website `0e3d903`.
 |------|---------------|---------|---------|
 | 2026-11-11T12:00 | steering-queue-hooks → implementer-hooks-016 | Implement revision 5 (brief `steering/queue-hooks-briefs/implementer-016-brief.md`) | M1 `ae7c8fe`, M1b `44ecd05`, M2 `df0fc0b` on the chain branch. Round 1 range sent to the deweeder. |
 | 2026-11-11T12:40 | implementer-hooks-016 → code review | Hand-off | Deweeder rounds 1 and 2 answered (`7a268dc`, `4cdb81a`, `ee114ff`); self-check sweep taken at `4cdb81a` and again at `ee114ff`; two test gaps it exposed closed in `7c66b68`. Handed over at `ee114ff`. |
+| 2026-11-11T12:55 | code-reviewer-hooks-016 → implementer-hooks-016 | Fix round for code review Round 1 (REJECTED at `ee114ff`; CR-1, CR-2, CR-3) | CR-2 and CR-3 fixed test-only at `64a3d26`; deweeder round 3 removed nothing; positional probe kills 10 of 10. CR-1 is routed to the planner (AC1-1 digest) and open: `Handoff-At` stays `ee114ff` until the regenerated fixture is re-copied. |
 
 ## Implementation Summary
 
@@ -229,14 +230,54 @@ row: killed), `x-page-hide`, `x-contentbody-hide`, `x-author-error-ignores-hide`
 ## Convention check
 
 `node ~/.claude/tools/convention-check.js /usr/local/bin/hooks/website --since=0e3d903`: 7101 FAIL,
-0 CANDIDATE, 2 SKIP. The FAILs by file: 7080 on the corpus fixture (byte-fixed by AC1-1, outside
-AC1-11 by plan revision 6 X-12; `git hash-object` equals `9fb22ae`), 17 on
+0 CANDIDATE, 2 SKIP. The FAILs by file: 7080 on the corpus fixture, corrected after code review Round 1 to 7079 eslint
+(`grep -c '^FAIL eslint src/utils/__tests__/helpers/discordV2SendCorpus'`) plus 1 comment-gate (the fixture's 4-line header, CR-1, open: the eslint part is byte-fixed by AC1-1 and outside
+AC1-11 by plan revision 6 X-12, the comment part is not covered by X-12; `git hash-object` equals `9fb22ae`), 17 on
 `shapes.message-validation.test.ts` (10 errors + 7 warnings at the base tree too; the lines are all
 before my appended lines and the per-file count is equal, which is AC1-11's measure) and 4 warnings on
 `ThumbnailEditor.tsx` and `MediaGalleryEditor.tsx` (2 each at the base too). I fixed none of the 21
 pre-existing findings: the plan scopes the base tree's lint red out (X-10). SKIP 1: the checker does not implement the
 ID-token class verbatim; I ran the class's own pattern (`grep -c -i -P`) over every changed file: 0 hits in
 each (14 files). SKIP 2: a `.yml` file outside the chain, another session's.
+
+## Fix Round: code review Round 1 (REJECTED at `ee114ff`)
+
+Record: `code-review/016-send-check-validity-code-review.md`. Fix commit `64a3d26` (test-only; `git diff --quiet 64a3d26 -- src/utils/limits.tsx` holds, and `git diff --stat ee114ff 64a3d26` touches three test files only).
+
+**CR-2 (MEDIUM).** The `place()` helper in `limits.v2-send-validity.test.ts` now puts the fault between valid siblings (`[ok, fault, ok]`) in the top-level list, the Container's children, the Action Row's buttons and the gallery's items, and a third placement, `section`, puts the two Text Display faults between two valid Text Displays in a Section's children (the Section walk had no case at all). The cases are the existing `each refused component fault at every placement` table; no new describe. Executed with the reviewer's own instrument, `verification/016/code-review-round1/positional-probe.sh` run in a `git worktree` export of `64a3d26` (removed after), output `verification/016/code-review-round1/positional-probe-64a3d26/`:
+
+| Mutant | ee114ff (review) | 64a3d26 |
+|---|---|---|
+| top-first | killed 42 | killed 89 of 334 |
+| top-last | survived | killed 47 |
+| container-first | killed 37 | killed 37 |
+| container-last | survived | killed 23 |
+| row-first | killed 16 | killed 16 |
+| row-last | survived | killed 16 |
+| gallery-first | killed 18 | killed 18 |
+| gallery-last | survived | killed 16 |
+| section-first | survived | killed 2 |
+| section-last | survived | killed 2 |
+
+All ten killed. The first-only and last-only mutants are the TDD rows' red against the pre-change shape (the `ee114ff` tests); production is unchanged, so the only red a test can have is against a mutant.
+
+**CR-3 (LOW).** Both "stops typing and pasting at 1024 characters" cases retitled "caps the description input at 1024 characters" (the assertion reads the `maxLength` attribute).
+
+**CR-1 (MEDIUM).** Routed to `planner-hooks-016` (AC1-1's identity) and `qa-hooks-016` (generator). The planner's decision: `make_fixture.py` stops emitting the header comment; QA regenerates with the data unchanged; the planner writes revision 7 with the new sha256 and blob; I hold the re-copy until that message. Not done at this commit.
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---------|---------------------|----------------------------------|--------------------------|
+| CR-2: a list walk with no case putting the fault neither first nor last | the reviewer's: `git grep -n -E '\.map\((componentReason\|linkButtonReason\|\(item\) => imageReason)' 64a3d26 -- src/utils/limits.tsx` | 5 hits: `limits.tsx` 207 (Section children), 213 (gallery items), 217 (Container children), 220 (Action Row buttons), 230 (top level) | all five covered by a middle-position case, shown by the probe above. Residual (hits with no killing case): 0 of 5. Widened by me: `git grep -n -E '\.(some\|every\|reduce\|forEach)\(\|for \(' 64a3d26 -- src/utils/limits.tsx` gives 7 hits (lines 34, 37, 53, 72, 78, 142 and the `for` loops), all in `validateDisplayableTextCount` / `validateComponentCount` / `isV2Message`, plan 007 code that this chain did not change; not applicable to the V2 validator |
+| CR-3: a title naming an observation where the assertion reads a precondition | `git grep -n "stops typing" -- 'src/**/__tests__/**'` | at `ee114ff`: 2 hits (`MediaGalleryEditor.description-limit.test.tsx:32`, `ThumbnailEditor.description-limit.test.tsx:29`); at `64a3d26`: 0 | both retitled. I read the other new titles in the diff for the same class and found none |
+| CR-1: prose source comments outside the allowlist | `grep -c '^FAIL comment'` over `convention-check` | at `ee114ff`: 1 (the fixture); at `64a3d26`: 1 (same file, `verification/016/implementer-fix-64a3d26/convention-check.txt`) | open, awaiting revision 7 and the regenerated fixture; this is the only member of the class in the chain's range |
+
+**Self-check sweep over the round's diff.** The round changed no production line, so `mutant-gen.js --range ee114ff..64a3d26` has nothing to generate; the mutants the review names are the ten above and all are killed.
+
+**Deweeder, round 3** (range `ee114ff..64a3d26`, table `verification/016/deweed.md` § "Round 3"): removed nothing; 48 rows held as answering CR-2; the three "sends a filled piece" rows kept as controls. The tree was untouched while it ran.
+
+**Test results at `64a3d26`** (`verification/016/implementer-fix-64a3d26/`): `npx vitest run --reporter=json` exit 0, 1506 of 1506 tests in 122 files (1503 at `ee114ff` plus 3 new `section` rows: two refusals and one control), `vitest.json` `numTotalTests`; `pnpm run typecheck` exit 0; `npx eslint` over the three changed files, no output; ID-token class (`grep -c -i -P`) 0 in each changed file; `convention-check` exit 1, the same 7101 FAIL as at `ee114ff` (`grep -c '^FAIL eslint'` 7100 = 7079 on the fixture + 21 pre-existing in the base tree's files, X-10; `grep -c '^FAIL comment'` 1 = the fixture), 0 CANDIDATE, 2 SKIP (as before).
+
+**Self-diagnosis (method).** I wrote the placement cases so that the fault sat last in each list, because that is the order in which the code reads naturally, and tested "a fault is refused" without testing "a fault is refused wherever it sits". I tested the plan's example rather than the property the criterion quantifies over ("every item").
 
 ## Outstanding Items
 
@@ -254,11 +295,10 @@ Code review (spawn cue to `steering-queue-hooks`), then QA Phase 2, UAT, devops.
 
 ## Resumption State
 
-Written 2026-11-11T12:45Z by `implementer-hooks-016` at the hand-off seam. Read this first on resume.
+Rewritten at the fix-round seam (after code review Round 1, REJECTED at `ee114ff`). Read this first on resume.
 
-- **Done:** M1 `ae7c8fe`, M1b `44ecd05`, M2 `df0fc0b`; deweeder rounds 1 and 2 answered (`7a268dc`, `4cdb81a`, `ee114ff`); my test-only `7c66b68`; self-check sweeps at `4cdb81a` and `ee114ff` recorded with every non-kill dispositioned; suite, typecheck, lint counts and convention-check recorded. `Handoff-At: ee114ff — repos=website`. Spawn cue sent to `steering-queue-hooks`; the code reviewer is started on it.
-- **Next:** wait for the code review (`code-review/016-…`). On `REJECTED` or findings: fix round in the Class Sweep form (enumeration, hits, residual re-run), tests red first, another deweeder range before the next hand-off, the sweep over the round's diff, `Handoff-At` moved. Then QA Phase 2.
-- **Trees:** website on `chain/016-send-check-validity` at `ee114ff`, clean apart from `.playwright-mcp/` (another session's). Nothing uncommitted of mine. Scratch exports deleted; no process of mine left running.
-- **Questions sent:** planner-hooks-016 (answered: plan rev 6, X-12). No question open.
-- **Evidence kept:** `verification/016/implementer-sweep-4cdb81a/` and `…-ee114ff/` (mutants, tables, config).
-- **Cache-warm wake:** deleted at this checkpoint; re-arm on resume.
+- **Done:** CR-2 and CR-3 fixed at website `64a3d26` (test-only), probe 10 of 10 killed, deweeder round 3 removed nothing, suite 1506 of 1506, typecheck and eslint clean; document updated (§ Fix Round).
+- **Open:** CR-1. `planner-hooks-016` decided the structural remedy; `qa-hooks-016` regenerates `verification/016/corpus/fixture/discordV2SendCorpus.ts` without the header comment (and lint-clean if it can, AF-14); the planner writes revision 7 and messages me the new sha256 and blob. **Hold the re-copy until that message; never edit the copy by hand.**
+- **Next on revision 7's digest:** `cp` the fixture into `src/utils/__tests__/helpers/discordV2SendCorpus.ts`, check `sha256sum` and `git hash-object` equal revision 7's, run the suite (the corpus cases need 86 and 34), typecheck, `convention-check` (`grep -c '^FAIL comment'` must be 0), commit by pathspec, send the new range to the deweeder (the fixture is not a test case but the helper changed), move `Handoff-At`, deliver to `code-reviewer-hooks-016` as a sub-entry of Round 1 scoped to `ee114ff..<tip>`.
+- **Trees:** website on `chain/016-send-check-validity` at `64a3d26`, clean apart from `.playwright-mcp/` (another session's). Probe worktree removed.
+- **Cache-warm wake:** armed (job re-arms itself every 55 minutes).
