@@ -100,3 +100,14 @@ passing one.
 
 **The user-reported defect BC-14 exists to confirm fixed in production is therefore confirmed only on
 the owner's "everything is fine", with one limb failing and one limb never numerically observed.**
+
+## Trigger read, 2026-11-11 (`steering-queue-hooks`)
+
+The `Review-Trigger` fired (work on the save path, chain `fix-website-save-gate-embeds`) and this
+document was read whole. A candidate mechanism for **one** path now exists, modelled by the code
+reviewer and not observed in a running instance: after a "Choose which to keep" save,
+`commitSaveChoice` stores data the editor does not hold, so the hash the server broadcasts differs
+from the saving tab's (`code-review/fix-website-save-gate-embeds-code-review.md`, CR-4). The owner
+chose to fix that path in that chain (`steering/queue-hooks-rulings.md`, selection 15). **It is not
+shown to explain limb (d)** above, which was a save with nothing changed; this handoff stays Open
+and nothing else in it is answered by this note.

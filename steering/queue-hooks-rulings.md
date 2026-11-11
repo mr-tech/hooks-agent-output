@@ -405,3 +405,42 @@ told him. The planner mints the ID then; this thread supplies none.
 **Not checked.** The send page's own code beyond the caller line; how sibling per-field limits are
 shown in the editor today; whether the website edits sent messages at all (F-10, N-5); the two
 handoffs marked unread; the research document's Evidence table (lines 270 to 390).
+
+## 2026-11-11T09:23Z — selection 15: the choice save joins the fix (put 09:23:10Z, answered 09:23Z)
+
+Ledger: `steering/selection-ledger/2026-11-11.md`, block "2026-11-11T09:23Z — steering-queue-hooks".
+Code review Round 1 sub-entry: `Verdict: REJECTED`, `Reviewed-At: 4b9fadd — repos=website`
+(`code-review/fix-website-save-gate-embeds-code-review.md`, record `65e719a`, lines 205 to 400 read)
+on CR-4: Save persists `gate.data` and never writes it back to the editor. The reviewer's fence
+question: whether CR-4's pre-existing member `commitSaveChoice` (chain 013, shipped) joins this fix.
+
+**Decided by this thread, not asked:** CR-4 at `saveMessage`, CR-5 and CR-6 are inside the scope
+statement (selection 13's "no prompt"; the caller clause). Sent to the fixer at 09:23Z with a hold
+on `commitSaveChoice` until his answer.
+
+**Put to him as a rider.** Options: *Agent: fix both paths now (Recommended)* ("The fixer gives
+Save and the choice dialog one shared save step that also updates the editor to what was stored.
+This changes shipped behaviour: after a choice, the content you chose to drop leaves the editor
+too, not only the saved message (by the reviewer's proposed mechanism, not built yet). Cost: it
+rides the fixer round already owed for the rejection, with a slightly wider re-review; QA covers
+both. Not established: whether this explains the reload prompt you reported on 2026-08-25, which
+was a save with nothing changed.") / *Agent: fix the new path only* (the choice dialog keeps
+prompting its saver to reload; the finding goes on the open handoff; fixing it later is its own
+small chain with its own review and release).
+**Chosen: "Agent: fix both paths now (Recommended)"** (selection).
+
+Premises and reads, this turn: both writers at website `4b9fadd`, `useApiMethods.ts` lines 63 to
+89 (`git show`, read from code, not run): neither calls `setMessage`; `commitSaveChoice` is present
+at `6d78b19` (`grep -n`, lines 79 to 85). The reload prompt on both trees for the choice save is
+the reviewer's model, `verification/fix-website-save-gate-embeds/code-review-round1-subentry/save-echo-hash.txt`
+(read; not run by this thread, and not an observation of a running instance). No ruling answered
+it: plan 013 names `commitSaveChoice` zero times (`grep -c`); plan 015's X-10 row leaves the handoff
+untouched. `handoff/save-originating-tab-raises-its-own-update-prompt-2026-08-25.md` read whole: its
+trigger (work on the save path) fired; his 2026-08-25 report was limb (d), a save with nothing
+changed, which this rider is not shown to explain.
+
+**Scope statement, extended by his selection** (this thread's wording around it): the editor's two
+persisting writers, `saveMessage` and `commitSaveChoice`, share one save step that stores the
+resolved data and sets the editor's message to it. Everything else in the 09:04Z statement stands.
+QA Phase 2 covers both paths; the reviewer's Assumption Not Checked (whether Pusher delivers the
+event to the saving client) is QA's, by a browser save.
