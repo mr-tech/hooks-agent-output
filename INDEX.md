@@ -7,7 +7,7 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-230 documents · 15 numbered chains · 91 unnumbered.
+234 documents · 15 numbered chains · 95 unnumbered.
 
 ---
 
@@ -250,7 +250,7 @@ they are the ID-less artifacts that root new efforts.
 | deployment | `deployment/closed/fix-agent-comment-sweep-merge-deployment.md` | Released — Released 2026-11-10T10:13Z: website master = 6d78b19 on origin (push by devops, Mode A, on the owner's 'merge it' and 'Push now'). Fix branch merged and deleted. Phase 2D complete. |
 | deployment | `deployment/closed/fix-v1-guild-messages-auth-deployment.md` | Released — Released 2026-10-10: website master = ddbd750 on origin (move by steering, f4b7fb0); owner confirmed Vercel live. Every register row terminal: B-3 PASS (401, 16:52Z); B-4 PASS (owner's observation, 2026-11-10). Phase 2D complete. |
 | handoff | `handoff/architecture-record-reconciliation-owed-2026-11-10.md` | Open · priority normal — Six architecture items routed to the architect while no architect session was running: system-architecture.md is not reconciled to chains 012-014, the chain-013 findings document is still Active, and four record lines are stale or incomplete. Nothing blocks on them; a brief citing the architecture record reads stale text until they land. |
-| handoff | `handoff/backfill-valid-guard-has-no-db-backed-instrument-2026-08-26.md` | Open · priority normal — Two chain-012 items were each explicitly routed to "handoff material under D18" and no handoff was ever created, so both survived only inside documents that are now in `closed/`. This document is that destination, written after the fact. Both concern the same file - `src/scripts/backfillValid.ts` in `website` - and both are unclosed for the same underlying reason: **no DB-backed instrument exists in this environment**, so neither can be settled by the unit suite that closed everything else on chain 012. Neither is a defect in shipped behaviour; chain 012 released with both known, bounded and accepted on the record. Nothing here reopens chain 012 or amends any of its findings. |
+| handoff | `handoff/backfill-valid-guard-has-no-db-backed-instrument-2026-08-26.md` | Open · priority normal — Two chain-012 items were each explicitly routed to "handoff material under D18" and no handoff was ever created, so both survived only inside documents that are now in `closed/`. This document is that destination, written after the fact. Both concern the same file - `src/scripts/backfillValid.ts` in `website` - and both are unclosed for the same underlying reason: **no DB-backed instrument exists in this environment**, so neither can be settled by the unit suite that closed everything else on chain 012. Neither is a defect in shipped behaviour; chain 012 released with both known, bounded and accepted on the record. Nothing here reopens chain 012 or amends any of its findings. A third item, from chain 013, was added on 2026-11-11 by owner selection (Item 3). |
 | handoff | `handoff/bug-evaluation-fixes-unclosed-assumptions-2026-11-08.md` | Open · priority normal — Eight Assumption Not Checked items from chain 015's QA and code-review documents that no later document closes and no other carrier holds, found by the Phase 2D sweep and re-read at their sources. Each names the instrument that would close it and the signature of its falsity. None gates anything shipped. |
 | handoff | `handoff/bug-evaluation-research-pm2-show-lines-2026-11-10.md` | Open · priority normal — The bug-evaluation research document still advises pm2 show for the F-31 host read in two places; pm2 show also prints environment values from the invoking shell. The lines are the researcher's to strike or re-point. Nothing runs that command today: the owner-side read is verification/015/pig-host-read.sh, which never calls it. |
 | handoff | `handoff/closed/bug-evaluation-fixes-post-deploy-2026-11-08.md` | Addressed · priority normal — All three post-deploy rows of chain 015 are EXECUTED PASS: B-8 (devops, 22:05Z), B-7 (uat, 22:38Z, with the save leg at 23:02-23:03Z discharging the live-schema residual) and B-6 (uat, 22:56Z, with a discriminating control at 22:59Z). Carried out, not discharged here: the NEXT_PUBLIC_CDN_PORT production read, which is the owner's and was routed to steering for the owner queue at closure. |
@@ -303,10 +303,14 @@ they are the ID-less artifacts that root new efforts.
 | — | `steering/comment-sweep-briefs/comment-sweep-code-reviewer-brief.md` | — |
 | — | `steering/comment-sweep-briefs/comment-sweep-devops-brief.md` | — |
 | — | `steering/comment-sweep-briefs/comment-sweep-fixer-brief.md` | — |
+| — | `steering/queue-hooks-briefs/fixer-save-gate-embeds-brief.md` | — |
+| — | `steering/queue-hooks-briefs/researcher-text-limit-brief.md` | — |
+| — | `steering/queue-hooks-rulings.md` | — |
 | — | `steering/record-engine-briefs/record-engine-code-reviewer-brief.md` | — |
 | — | `steering/record-engine-briefs/record-engine-fixer-brief.md` | — |
 | — | `steering/record-engine-briefs/record-engine-qa-brief.md` | — |
 | — | `steering/record-tools-shared-engine-rulings.md` | — |
+| — | `steering/selection-ledger/2026-11-10.md` | — |
 | — | `steering/v1-guild-messages-auth-devops-phase-2d-brief.md` | — |
 | — | `steering/v1-guild-messages-auth-rulings.md` | — |
 | — | `TODO.md` | — |
@@ -479,6 +483,7 @@ they are the ID-less artifacts that root new efforts.
 | `2026-04-09-plan-008.md` | `deployment/closed/2026-04-09-plan-008.md` |
 | `2026-04-12-plan-009.md` | `deployment/closed/2026-04-12-plan-009.md` |
 | `2026-04-12-plan-010.md` | `deployment/closed/2026-04-12-plan-010.md` |
+| `2026-11-10.md` | `steering/selection-ledger/2026-11-10.md` |
 | `architecture-record-reconciliation-owed-2026-11-10.md` | `handoff/architecture-record-reconciliation-owed-2026-11-10.md` |
 | `backfill-report-1787522824426-i0womw.md` | `verification/012/backfill-report-1787522824426-i0womw.md` |
 | `backfill-report-1787522866564-i3s31k.md` | `verification/012/backfill-report-1787522866564-i3s31k.md` |
@@ -513,6 +518,7 @@ they are the ID-less artifacts that root new efforts.
 | `fix-v1-guild-messages-auth-implementation.md` | `implementation/closed/fix-v1-guild-messages-auth-implementation.md` |
 | `fix-v1-guild-messages-auth-post-deploy-2026-10-10.md` | `handoff/closed/fix-v1-guild-messages-auth-post-deploy-2026-10-10.md` |
 | `fix-v1-guild-messages-auth-qa.md` | `qa/closed/fix-v1-guild-messages-auth-qa.md` |
+| `fixer-save-gate-embeds-brief.md` | `steering/queue-hooks-briefs/fixer-save-gate-embeds-brief.md` |
 | `gap-dispositions.md` | `verification/015/effort-final/gap-dispositions.md` |
 | `handoffs-survey.md` | `verification/cleanup-2026-11-10/handoffs-survey.md` |
 | `INBOX.md` | `INBOX.md` |
@@ -534,6 +540,7 @@ they are the ID-less artifacts that root new efforts.
 | `preview-image-generator.md` | `architecture/preview-image-generator.md` |
 | `providers-query-params-header-decode-throws-2026-11-08.md` | `handoff/providers-query-params-header-decode-throws-2026-11-08.md` |
 | `qa-014-bc7-closing-observation-and-test-inventory-2026-11-10.md` | `handoff/qa-014-bc7-closing-observation-and-test-inventory-2026-11-10.md` |
+| `queue-hooks-rulings.md` | `steering/queue-hooks-rulings.md` |
 | `README-code-review-instruments.md` | `verification/013/README-code-review-instruments.md` |
 | `record-engine-code-reviewer-brief.md` | `steering/record-engine-briefs/record-engine-code-reviewer-brief.md` |
 | `record-engine-fixer-brief.md` | `steering/record-engine-briefs/record-engine-fixer-brief.md` |
@@ -542,6 +549,7 @@ they are the ID-less artifacts that root new efforts.
 | `release-4a7126b-tip-verification.md` | `qa/closed/release-4a7126b-tip-verification.md` |
 | `release-b56570d-tip-verification.md` | `qa/closed/release-b56570d-tip-verification.md` |
 | `report.md` | `verification/015/d28-seed-probes/report.md` |
+| `researcher-text-limit-brief.md` | `steering/queue-hooks-briefs/researcher-text-limit-brief.md` |
 | `RUN.md` | `verification/013/probe-cr25-mutation-error-readability/RUN.md` |
 | `RUN.md` | `verification/013/probe-cr26-delimiter-class-eliminated/RUN.md` |
 | `RUN.md` | `verification/013/probe-cr27-settledmode-reachability/RUN.md` |
