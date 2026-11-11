@@ -2,8 +2,8 @@
 ID: 016
 Origin: 016
 UUID: 54673438
-Status: Active
-Status-Detail: "Delta pass on plan 016 revision 6 (record 07e2e41): APPROVED; delta pass on revision 7 (record 9fd96d5): APPROVED, no finding; AF-14 adopted through QA's regeneration, and its Problem Area retires at reconciliation. Owed after implementation, by devops Stage 1: AF-4's D-10 clause in website.md A-4, the preview-chrome Problem Area's closure, and the /preview signal under D-001. AF-4's A-4 clause lands at this chain's reconciliation, no later than devops Stage 1."
+Status: Resolved
+Status-Detail: "Every pass APPROVED (last: plan revision 7, record 9fd96d5). Reconciled to the release tree website 395510e at devops Stage 1 (record 436a30a): website.md A-4's D-10 clause, the /preview signal under D-001, the preview-chrome and fixture Problem Areas resolved. AF-2 (link-button predicate) and the send-refusal telemetry gap are carried by their Problem Area rows in system-architecture.md."
 ---
 
 # Architecture Findings — Plan 016: the send check refuses what Discord refuses (conformance pass)
@@ -23,6 +23,8 @@ Status-Detail: "Delta pass on plan 016 revision 6 (record 07e2e41): APPROVED; de
 | 2026-11-11T11:55 | AF-14 dispositioned (planner-hooks-016's message; plan R-8, `343d62e`) | Declined for this chain. It is carried after closure by the Problem Area, which X-12 names. |
 | 2026-11-11T12:58 | Plan rev 7 (`9fd96d5`) read as the diff from `07e2e41`, on planner-hooks-016's message (no pass requested) | AF-14 is adopted after all: QA regenerated the fixture through the generator for code review CR-1 (`188bc93`). I checked the sha256, the blob and the zero comment lines myself. AC1-11's exemption and X-12 are gone. There is no architectural surface, so no verdict is owed. The Problem Area is marked mitigated, and it retires at reconciliation. |
 | 2026-11-11T12:59 | Delta pass, plan rev 7 (`9fd96d5`, read as the diff from `a8468d0`; the 12:58 read covered `07e2e41`..`9fd96d5`), started by steering-queue-hooks; the M1 cap read (rulings block 12:59Z, `855adb8`) | The 12:58 read is made the formal pass. The fixture keeps its `.ts` form and its helpers path, and it still imports nothing (`grep -c`, 0). **APPROVED**, with no finding, so nothing is routed under the cap. |
+| 2026-11-11T14:22 | Reconciliation at devops Stage 1 (devops-hooks-016's message; Stage 1 at record `436a30a`; release tree website `395510e`) | All four owed items have landed. (1) The D-10 clause in `website.md` A-4, citing selection 19 verbatim. (2) The Problem Area "Validation errors render into generated preview images" is resolved to history, with RK-5 as its residue. (3) `hideValidation` is recorded under D-001 and in the editor bullet. (4) The fixture row is retired. Read at `395510e`: `hideValidation`'s sites (`git grep -n`; only `preview/page.tsx` sets it), the description bound's readers (`shapes.ts`: 0), the fixture blob `7fcf64f`, and the env-free probe (exit 0). Diagram unchanged. |
+| 2026-11-11T14:22 | architect-hooks-016 — Document closed | Status: Resolved |
 
 ## Verdict (rev 7, `9fd96d5`, read as the diff from `a8468d0`): APPROVED
 
@@ -505,12 +507,7 @@ names a component type, not user text.
 
 ## Resumption State
 
-Updated 2026-11-11T11:41Z, `architect-hooks-016` (fresh generation; the chain is running, rulings block "2026-11-11T11:24Z").
-
-- **Done:** conformance pass on rev 1 (`c61a96f`); delta passes on rev 2 (`2520ac7`), rev 3 (`0bb1084`, AF-12's range corrected at `ccaa340`), rev 4 (`47c7a4c`, **APPROVED**, with AF-12's member list withdrawn because the error was mine) rev 5 (`1492d33`, **APPROVED**; R-2 read too) and rev 6 (11:53 write, **APPROVED**, AF-14 LOW lodged as a Problem Area in `system-architecture.md`). Every verdict was delivered to planner-hooks-016 by SendMessage. Also done, outside the pass: the reconciliation handoff, all six items (`f6fab66`), and `website.md` A-6.
-- **Next:** read any later plan revision as `git diff 9fd96d5 HEAD -- planning/016-send-check-validity.md`. At reconciliation, also delete the fixture Problem Area row (mitigated, `188bc93`). After implementation, and no later than devops Stage 1, land three items: AF-4's D-10 clause in `website.md` A-4; the closure of the Problem Area "Validation errors render into generated preview images" (M1b), with RK-5 as residue; and the `/preview` signal on `VisualizerProps` under D-001's consequences in `system-architecture.md`. Then close this document `Resolved`.
-- **Trees:** website on `master` at `0e3d903`, untouched by this session. Nothing of mine is uncommitted in agent-output. The evidence I ran is committed: `verification/016/architect-conformance/ts-node-import-probe.txt`.
-- **Questions out:** none. No owner-needing item.
+Closed 2026-11-11T14:22Z, `Resolved`: every pass approved, and the reconciliation landed at devops Stage 1. Nothing is owed by this document.
 
 ## Process facts
 
