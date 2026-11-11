@@ -944,3 +944,29 @@ for the architect arrived by message.
 Started `architect-hooks-016` fresh with `tmux-agent spawn`, category `S016-sendcheck`, cwd
 `/usr/local/bin/hooks/website`, brief `steering/queue-hooks-briefs/architect-016-respawn-brief.md`,
 naming its Resumption State (`f79fc94`). The critic and QA are cued by the planner.
+
+## 2026-11-11T11:43Z — implementation start: plan 016 revision 5
+
+Every pre-code gate has approved the current revision, each read this turn at `HEAD` (record
+`678c8b4`), header fields only:
+- Plan `planning/016-send-check-validity.md`: `Revision: 5` (`b2d78b0`), `Status: Active`; the
+  four `OPEN QUESTION` lines all read `[RESOLVED]` (`grep -n`).
+- Critic: `critiques/closed/016-send-check-validity-cycle3-critique.md`, `Status: Resolved`,
+  `Verdict: APPROVED`, "Cycle 3 closed on plan revision 5: APPROVED at pass 1 with no finding"
+  (record `88b0da9`).
+- Architect: `architecture/016-send-check-validity-architecture-findings.md`, "Delta pass on plan
+  016 revision 5 (record b2d78b0): APPROVED" (record `1492d33`).
+- **QA Phase 1 document SHA: `97343f0`** (`qa/016-send-check-validity-qa.md`, `Awaiting
+  Implementation`, "Phase 1 re-keyed to plan revision 5 … no finding open").
+- No `handoff/` file was added after revision 5 (`git log --since=11:44Z --diff-filter=A --
+  handoff/`, empty).
+
+Website tree: `git switch -c chain/016-send-check-validity` at
+`0e3d903ce98e108c7ca848b992ad89ac538f4b44` (`master`; `git ls-remote origin master` the same).
+`git status --porcelain` identical before and after (`cmp`): one untracked path,
+`.playwright-mcp/`, another session's capture, left in place. Nothing pushed.
+
+Started with `tmux-agent spawn`, category `S016-sendcheck`, cwd `/usr/local/bin/hooks/website`:
+`implementer-hooks-016` (brief `steering/queue-hooks-briefs/implementer-016-brief.md`) and
+`deweeder-hooks-016` (brief `steering/queue-hooks-briefs/deweeder-016-brief.md`). The
+implementer's pre-code flow questions come to him as prompts through this thread.
