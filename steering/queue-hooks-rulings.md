@@ -872,3 +872,35 @@ this thread then stops each with `tmux-agent stop`, deletes its standing check, 
 Chain 016 stands at plan revision 4 (`c249af3`) with its gate round on that revision unfinished or
 part-finished; each stage's Resumption State says where it stopped. No implementation has started;
 the website tree is on `master` at `0e3d903`.
+
+## 2026-11-11T11:24Z — the gate had not fired: his observation, and this thread's wind-down withdrawn
+
+His typed words, in this session, at about 11:23Z, after this thread reported the wind-down:
+
+> "wait, the usage is 52% right now"
+
+His observation governs: at 52% the 98% weekly gate has not fired, and the 11:22Z block's "The gate
+has fired" is wrong. "Reinstate the 98% limit." stands as his ruling: the gate applies as
+steering.md writes it.
+
+**This thread's error, kept.** It judged the gate on `weekly_all` 99%, a `plan-usage.py --json`
+read at 11:12Z whose `source` field it had not captured (the 11:03Z read, 97%, printed
+`"source": "live"`). At 11:22Z and 11:23Z the tool's live fetch failed (`HTTPError`) and it served a
+cache 2560 seconds old (93%); this thread set that aside as stale and then acted on the older 99%
+without a live reading of now and without telling him the reading first. No instrument on this box
+gave a live figure at 11:22Z to 11:23Z; which meter reads 52% was not asked. A gate is judged only
+on a reading whose `source` is live.
+
+What the wrong wind-down did, and its undoing:
+- `planner-hooks-016` stopped at 11:23Z after its Checkpoint (`a9bb644`, plan `Revision: 4`,
+  R-2 at `5f95a30`). `architect-hooks-016` stopped at 11:23Z after its Checkpoint (`f79fc94`,
+  delta pass on revision 4 APPROVED at `47c7a4c`). Neither has work owed at 11:24Z; each is
+  spawned fresh with `tmux-agent spawn`, its brief naming its Resumption State, when the chain
+  next needs it. Cost: a cold start for each.
+- `critic-hooks-016`: cycle 2 closed `Resolved`, APPROVED on revision 4
+  (`critiques/closed/016-send-check-validity-cycle2-critique.md`, record `d9f2e86`); it had
+  checkpointed at a 336K prefix, past its 325K threshold, so it was cleared (`tmux-agent clear`,
+  11:24Z) as the threshold rule has it, not stopped.
+- `qa-hooks-016`: checkpointed at `cc91291` with its re-key on revision 4 in progress; the stop was
+  withdrawn by message at 11:23Z, the error named as this thread's, and it was told to carry on.
+- The standing check was re-armed (one-shot `6880eb0a`, 11:53Z) with the source rule in its prompt.
