@@ -1400,3 +1400,23 @@ fenced out unread; the 19:48Z narrowing), as the 19:48Z and 19:57Z blocks alread
 
 Nothing of this chain is in flight. No chain of this thread's is in flight: the standing check is
 deleted and the plain cache-warm wake armed in its place.
+
+## 2026-11-11T21:03Z — his word: an agent runs the Save-fix check on hooks.gg
+
+Asked what waits on him, he was shown `OWNER-QUEUE.md` item 1 (the Save flows on hooks.gg, carried
+by `handoff/save-gate-embeds-owner-checks-on-hooks-gg-2026-11-11.md`). His typed words, in this
+session:
+
+> "An agent can check this"
+
+Effect: check 1 of that handoff is run by an agent as the test account on hooks.gg, not by him.
+Read narrowly: his words cover the check he was shown (item 1); item 2, the optional live-database
+count, stays his, since no agent reads that database. Production writes are the test account's own
+saves, as chain 016's UAT made at 14:15Z.
+
+Stage: a UAT session (its definition acts on post-deploy rows from their handoff carrier), started
+with `tmux-agent spawn` as `uat-fix-website-save-gate-embeds`, category
+`fix-website-save-gate-embeds`, cwd `/usr/local/bin/hooks/website`, brief
+`steering/queue-hooks-briefs/uat-save-gate-embeds-hooks-gg-check-brief.md`. No security session:
+nothing is shipped. On its rows this thread closes the handoff and rewrites the queue. The
+standing check is armed again in place of the cache-warm wake while this session works.
