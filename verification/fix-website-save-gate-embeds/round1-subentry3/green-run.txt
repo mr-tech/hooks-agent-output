@@ -1,0 +1,10 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+
+ Test Files  7 passed (7)
+      Tests  58 passed (58)
+   Start at  09:32:40
+   Duration  2.26s (transform 925ms, setup 43ms, import 5.01s, tests 1.33s, environment 3.35s)
+
+exit=0

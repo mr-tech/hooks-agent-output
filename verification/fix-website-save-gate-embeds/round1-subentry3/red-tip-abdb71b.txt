@@ -1,0 +1,52 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/68038d82-ad5c-4f6b-a6e6-1014ed1a8269/scratchpad/f4
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx (3 tests | 2 failed) 133ms
+     × Save as Classic: the editor holds the classic message that was written, in Classic mode 66ms
+     × Save as Components V2: the editor holds the V2 message that was written, in V2 mode 27ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx > MessageProvider — the choice save of a stored V2 message with content > Save as Classic: the editor holds the classic message that was written, in Classic mode
+AssertionError: expected '-20d59e41' to be '-5d958a2b' // Object.is equality
+
+Expected: "-5d958a2b"
+Received: "-20d59e41"
+
+ ❯ writtenAndHeld src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx:76:47
+     74|   const written = (hoisted.inputs[0] as { message: ActiveMessage }).me…
+     75|   const held = current().message as ActiveMessage;
+     76|   expect(hashMessage(normalizeForHash(held))).toBe(hashMessage(normali…
+       |                                               ^
+     77|   return { written, held };
+     78| }
+ ❯ chooseAndSave src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx:111:12
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx:115:31
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx > MessageProvider — the choice save of a stored V2 message with content > Save as Components V2: the editor holds the V2 message that was written, in V2 mode
+AssertionError: expected '-20d59e41' to be '599547e0' // Object.is equality
+
+Expected: "599547e0"
+Received: "-20d59e41"
+
+ ❯ writtenAndHeld src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx:76:47
+     74|   const written = (hoisted.inputs[0] as { message: ActiveMessage }).me…
+     75|   const held = current().message as ActiveMessage;
+     76|   expect(hashMessage(normalizeForHash(held))).toBe(hashMessage(normali…
+       |                                               ^
+     77|   return { written, held };
+     78| }
+ ❯ chooseAndSave src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx:111:12
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx:124:31
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed | 6 passed (7)
+      Tests  2 failed | 56 passed (58)
+   Start at  09:33:29
+   Duration  2.41s (transform 947ms, setup 51ms, import 5.31s, tests 1.32s, environment 3.75s)
+
+exit=1

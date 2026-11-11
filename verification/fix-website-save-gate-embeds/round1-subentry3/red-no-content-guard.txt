@@ -1,0 +1,39 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/68038d82-ad5c-4f6b-a6e6-1014ed1a8269/scratchpad/f6
+
+ ❯ |node| src/utils/__tests__/utils.disposition-resolver.test.ts (39 tests | 1 failed) 25ms
+     × V2 components beside one empty and one real embed still ask, and persist nothing dropped 8ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/utils.disposition-resolver.test.ts > gateBeforePersist, the persist gate > V2 components beside one empty and one real embed still ask, and persist nothing dropped
+AssertionError: expected [] to deeply equal [ {}, { title: 'x' } ]
+
+- Expected
++ Received
+
+- [
+-   {},
+-   {
+-     "title": "x",
+-   },
+- ]
++ []
+
+ ❯ src/utils/__tests__/utils.disposition-resolver.test.ts:236:30
+    234|     const gate = gateBeforePersist(draft);
+    235|     expect(gate.mustAsk).toBe(true);
+    236|     expect(gate.data.embeds).toEqual([{}, { title: 'x' }]);
+       |                              ^
+    237|   });
+    238|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 6 passed (7)
+      Tests  1 failed | 57 passed (58)
+   Start at  09:33:35
+   Duration  2.44s (transform 995ms, setup 40ms, import 5.42s, tests 1.50s, environment 3.64s)
+
+exit=1

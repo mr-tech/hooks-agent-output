@@ -1,0 +1,89 @@
+FAIL eslint src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx:2 — import/order: There should be no empty line within import group
+FAIL eslint src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx:2 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx:2 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx:11 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx:11 — import/order: `../NewMessageJsonInput` import should occur before import of `~/components/__tests__/helpers/dom`
+FAIL eslint src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx:18 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx:2 — import/order: There should be no empty line within import group
+FAIL eslint src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx:20 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx:20 — import/order: `../JsonModalBody` import should occur before import of `~/components/__tests__/helpers/dom`
+FAIL eslint src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx:31 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:1 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:1 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:28 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:29 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:30 — @typescript-eslint/no-unused-vars: 'stripKeys' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:32 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:33 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:34 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:35 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:37 — max-len: This line has a length of 103. Maximum allowed is 100.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:37 — @typescript-eslint/member-delimiter-style: Expected a comma.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:37 — @typescript-eslint/member-delimiter-style: Expected a comma.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:37 — @typescript-eslint/member-delimiter-style: Expected a comma.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:40 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:41 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:42 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:43 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:43 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:44 — @typescript-eslint/no-unsafe-call: Unsafe call of an `any` typed value.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:47 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:48 — react-hooks/rules-of-hooks: React Hook "useApiMethods" is called in function "loadAndSaveViaShippedProvider" that is neither a React function component nor a custom React Hook function. React component names must start with an uppercase letter. React Hook names must start with the word "use".
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:49 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `MutableRefObject<ActiveMessage | null>`.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:50 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `MutableRefObject<boolean>`.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:50 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:51 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `StateSetter<ActiveMessage | null>`.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:53 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:56 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `Partial<ApiMessage | ActiveMessage>`.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:56 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:59 — @typescript-eslint/no-unsafe-return: Unsafe return of an `any` typed value.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:62 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:63 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `ActiveMessage | null | undefined`.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:65 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:66 — function-paren-newline: Unexpected newline after '('.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:67 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `number | undefined`.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:67 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `{ type: number; }[] | undefined`.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:67 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `string | undefined`.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:67 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `unknown[] | undefined`.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:68 — function-paren-newline: Unexpected newline before ')'.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:118 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:118 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:128 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:137 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:1 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:1 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:7 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:8 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:180 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:180 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:189 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:189 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:195 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:195 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:200 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:200 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:201 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:201 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:257 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:257 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:264 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:264 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:270 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:270 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:271 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:277 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:277 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:278 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:284 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:284 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:288 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:294 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:294 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:299 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:303 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:303 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/index.ts:17 — import/no-cycle: Dependency cycle detected.
+FAIL eslint src/utils/index.ts:273 — no-nested-ternary: Do not nest ternary expressions.
+SKIP id-token, basename: /usr/local/bin/hooks/agent-output/CLAUDE.md states an ID-token class this checker does not implement verbatim (the hooks line at cca22fd) — the checks did not run
+convention-check: 11 file(s) examined, 0 not examined, 6 test file(s); 86 FAIL, 0 CANDIDATE, 1 SKIP
+conv exit=1

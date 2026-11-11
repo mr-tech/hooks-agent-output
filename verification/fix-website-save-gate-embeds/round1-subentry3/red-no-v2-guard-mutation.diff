@@ -1,0 +1,12 @@
+diff --git a/src/utils/index.ts b/src/utils/index.ts
+index 024928f..45c666e 100644
+--- a/src/utils/index.ts
++++ b/src/utils/index.ts
+@@ -184,7 +184,6 @@ export function resolveContentLoss(
+ export function dropEmptyEmbedsBesideV2<T extends Pick<Partial<MessageData>, 'components' | 'embeds'>>(
+   draft: T,
+ ): T {
+-  if (!hasV2Components(draft.components as undefined | { type: number }[])) return draft;
+   if (!draft.embeds || draft.embeds.length === 0) return draft;
+   if (draft.embeds.some((embed) => hasClassicContent({ embeds: [embed] }))) return draft;
+   return { ...draft, embeds: [] };

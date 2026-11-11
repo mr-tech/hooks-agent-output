@@ -1,0 +1,12 @@
+diff --git a/src/providers/MessageProvider/useApiMethods.ts b/src/providers/MessageProvider/useApiMethods.ts
+index 8e0d4ee..dff4633 100644
+--- a/src/providers/MessageProvider/useApiMethods.ts
++++ b/src/providers/MessageProvider/useApiMethods.ts
+@@ -65,7 +65,6 @@ export default (
+     if (data !== draft.data) {
+       setMessage((oldMessage) => (oldMessage ? { ...oldMessage, data } : oldMessage));
+       const mode = detectMessageMode({ data });
+-      if (mode) setMessageMode(mode);
+     }
+     upsertMessage({ message: stripKeys({ ...draft, data }) });
+   }, []);

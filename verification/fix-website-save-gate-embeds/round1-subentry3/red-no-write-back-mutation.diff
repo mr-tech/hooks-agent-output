@@ -1,0 +1,12 @@
+diff --git a/src/providers/MessageProvider/useApiMethods.ts b/src/providers/MessageProvider/useApiMethods.ts
+index 8e0d4ee..487648f 100644
+--- a/src/providers/MessageProvider/useApiMethods.ts
++++ b/src/providers/MessageProvider/useApiMethods.ts
+@@ -63,7 +63,6 @@ export default (
+ 
+   const persist = useCallback((draft: ActiveMessage, data: ActiveMessage['data']) => {
+     if (data !== draft.data) {
+-      setMessage((oldMessage) => (oldMessage ? { ...oldMessage, data } : oldMessage));
+       const mode = detectMessageMode({ data });
+       if (mode) setMessageMode(mode);
+     }
