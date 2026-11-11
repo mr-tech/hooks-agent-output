@@ -814,3 +814,37 @@ folds: another gate round, or the gap recorded as a stated limit.
 
 Gates at 11:15Z (`ListAgents`): the critic, the architect and QA are busy on revision 3. The
 planner is idle at a 333K prefix (threshold 325K) and was asked to run `/checkpoint`.
+
+## 2026-11-11T11:21Z — plan 016 revision 4: scope delta read; inside selection 23, no prompt
+
+Read this turn at the commit (`git show c249af3:planning/016-send-check-validity.md`; the path is
+clean against `HEAD`; `git diff --numstat 0c01944 c249af3`: 106/33): `Revision: 4`, four milestone
+headings (M1, M1b, M2, M3, as at revision 3), the changelog row, X-11 and RK-5. M1b's body and
+criteria were read at 11:19Z from the working tree before the commit, not re-read at the commit.
+The gate reads it folds, each read at its document's header this turn or the last: architecture
+delta on revision 3 APPROVED_WITH_CHANGES (`0bb1084`; AF-12 required, read whole; AF-13
+recommended), critique cycle 2 pass 1 APPROVED (`critiques/016-send-check-validity-cycle2-critique.md`,
+`56b2916`, `Status: Open`; "None for the owner"), QA's re-key on revision 3 (`d5466ab`).
+
+- **No milestone added.** M1b's class becomes a property: nothing the editor renders on the
+  preview route carries an error line, border or ring. Seven members by the planner's code read
+  (the username line of `Author.tsx` added), membership settled by QA's render. This is his chosen
+  option's "no error lines or red border at all", so it is not put to him.
+- **For his sight, agent-authored, his to veto (the planner's X-11):** the preview route's own
+  "Invalid message data." text stays, because it shows in place of the editor when the data does
+  not parse, so it is not an error line on a message.
+- RK-5: preview images generated before release keep their error lines until the message is saved
+  again (the plan's stated limit, from critique F-14).
+- The whitespace limb is not touched by revision 4 (the planner's statement; the 11:19Z read of
+  the diff's M1b region did not cover L1).
+
+**This thread's errors, kept.** (1) At 11:19Z it told `qa-hooks-016`, just cleared, that the plan
+read `Revision: 4` and a re-key was owed; that was a working-tree read while `HEAD` read
+`Revision: 3`. Corrected to QA by message at 11:20Z; QA confirmed it had done no re-key work.
+(2) The 11:15Z block says the five `OPEN QUESTION` hits are "all `[RESOLVED]` forms"; four are, and
+the fifth is the Status-Detail's "No OPEN QUESTION remains."
+
+Sessions: `planner-hooks-016` and `qa-hooks-016` were each asked to run `/checkpoint` past the
+325K threshold (333K and 344K, `cc-usage.py sessions`) and cleared with `tmux-agent clear` after
+their Checkpoints (`0c01944`, `0e90085`); each was then sent a pointer to its Resumption State.
+At 11:21Z (`ListAgents`) the critic, the architect and QA are busy on revision 4.
