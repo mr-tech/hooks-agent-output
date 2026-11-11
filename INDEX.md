@@ -7,7 +7,7 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-248 documents · 15 numbered chains · 109 unnumbered.
+253 documents · 16 numbered chains · 113 unnumbered.
 
 ---
 
@@ -103,6 +103,12 @@ closed. A document's path changes when it closes; its name does not.
 | retrospective | `retrospectives/closed/015-bug-evaluation-fixes-retrospective.md` | Processed — Processed by pi batch 31 (pi-batch): R1–R5, R9 and R12 are drafted as C10–C14 and C18, R6 as C21, R7, R10 and R11–R14 are decisions D4, D7 and D8, R9's hook D6, R12's CLAUDE.md wording D10, and R8 is routed to the record inbox for the architect in `/usr/local/bin/statbot/agent-output/process-improvement/batch31-pi-batch-process-improvement-analysis.md`. Landing is on the owner's selections there. |
 | security | `security/closed/015-preview-image-generator-security-audit.md` | Review Complete — Review Complete 2026-11-08: targeted review of preview-image-generator 471578f..8de2b53 APPROVED (no finding above LOW in the five files). The reviewed tip is the SHA serving on prod: own git ls-remote refs/heads/prod = 8de2b53 at 22:16Z; deployment/closed/015-bug-evaluation-fixes-deployment.md § Release Execution (pushed 21:38:42Z, deployed 22:02Z, re-run 22:04:49Z). Host posture H-001 to M-002 accepted record-only (rulings 09:43Z), carried by handoff/preview-image-generator-host-security-posture-2026-11-08.md (Open) and dated past the deploy by verification/015/security-post-deploy-read-2026-11-08T2216Z.txt (unchanged). Nothing is owed by this document. |
 | UAT | `uat/closed/015-bug-evaluation-fixes-uat.md` | Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). Release-Decision APPROVED FOR RELEASE stands; post-deploy rows B-6, B-7 and B-8 ride handoff/bug-evaluation-fixes-post-deploy-2026-11-08.md. Earlier detail is in the body and changelog. |
+
+### 016 — 1 open, 0 closed
+
+| Stage | Location | Status |
+|---|---|---|
+| plan | `planning/016-send-check-validity.md` | Active — Revision 1, ready for critique and the architect's conformance pass, then QA Phase 1. No OPEN QUESTION remains. The Exclusions register (X-1 the generic toast, X-2 File upload) goes to the owner through steering. |
 
 ### 1 — 0 open, 8 closed
 
@@ -275,6 +281,7 @@ they are the ID-less artifacts that root new efforts.
 | handoff | `handoff/qa-014-bc7-closing-observation-and-test-inventory-2026-11-10.md` | Open · priority normal — Two chain-014 leftovers with no running stage: QA register row BC-7/AC8 has its closing observation but not its terminal write, and the ID-less test inventory that chain 014 consumed is still Active. Nothing blocks on either. |
 | handoff | `handoff/save-gate-embeds-owner-checks-on-hooks-gg-2026-11-11.md` | Open · priority normal — Released 2026-11-11T10:13Z (website master 0e3d903). Owed: the owner's own check on hooks.gg of the Save flows, which closes QA's Assumption Not Checked (Pusher), and his optional live-database read. Neither blocks anything; no stage is waiting. |
 | handoff | `handoff/save-originating-tab-raises-its-own-update-prompt-2026-08-25.md` | Open · priority normal — Issued 2026-08-25 by steering-hooks-013-3 at the owner's explicit direction ("Route 10 to a handoff"), during chain 013's closeout. Found in PRODUCTION by the owner while executing release condition BC-14, which is the only instrument in chain 013 that reaches this surface - no automated test in that chain covers it. The defect is NOT chain 013's to fix: the owner ruled 013 complete in the same message, and this handoff is the route he chose for the finding rather than a reopening. Nothing here is derived: the symptom is his sentence verbatim, and the two limbs it does not cover are stated as uncovered rather than inferred. |
+| handoff | `handoff/send-check-validity-excluded-toast-and-file-upload-2026-11-11.md` | Open · priority normal — Two items plan 016 excludes and does not discharge: the generic failure toast on a refused send (research F-14), and a File component's upload path (with removing File from the add menu). Neither blocks plan 016. The owner is shown both with plan 016 revision 1's Exclusions register. |
 | handoff | `handoff/unsaved-change-guards-disabled-for-unauthenticated-users-2026-08-24.md` | Open · priority normal — A pre-existing data-loss gap in `website`: every unsaved-changes guard in the message editor is gated on the user being authenticated, so for an unauthenticated user they are inert — one of them skips its confirmation dialog entirely and reloads. A fourth guard listed here is a SEPARATE defect that has never worked for anyone, and the predicate fix does not close it. Found by `code-reviewer-hooks-013-3` while breaking its own predicate during chain 013 round 12, in code chain 013 never touched. Written as a handoff on the owner's standing disposition for this class; nothing is built and no chain is minted. |
 | handoff | `handoff/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md` | Open · priority normal — On production hooks.gg, 'new message' → 'Upload Message' on the account folder page opens no dialog after a fresh page load. Cause: a portaled popover's first lazy load of FloatingPortal suspends to the layout boundary, which hides the open Headless UI Dialog, and the Dialog closes itself. The code dates from 2023, before chain 015, and lies outside its pool (D6). Nothing in chain 015 blocks on it. |
 | handoff | `handoff/website-api-handler-hardening-2026-10-10.md` | Open · priority normal — Four open LOW items (2 to 5) in website's API handlers and tests, raised by the fix-v1-guild-messages-auth code review and kept out of that fix's owner-bound scope. Item 1 was discharged by owner rider 2 at website 7606149. Nothing blocks the v1 auth fix's release. |
@@ -312,10 +319,13 @@ they are the ID-less artifacts that root new efforts.
 | — | `steering/comment-sweep-briefs/comment-sweep-code-reviewer-brief.md` | — |
 | — | `steering/comment-sweep-briefs/comment-sweep-devops-brief.md` | — |
 | — | `steering/comment-sweep-briefs/comment-sweep-fixer-brief.md` | — |
+| — | `steering/queue-hooks-briefs/architect-016-brief.md` | — |
 | — | `steering/queue-hooks-briefs/code-reviewer-save-gate-embeds-brief.md` | — |
+| — | `steering/queue-hooks-briefs/critic-016-brief.md` | — |
 | — | `steering/queue-hooks-briefs/devops-save-gate-embeds-brief.md` | — |
 | — | `steering/queue-hooks-briefs/fixer-save-gate-embeds-brief.md` | — |
 | — | `steering/queue-hooks-briefs/planner-send-check-validity-brief.md` | — |
+| — | `steering/queue-hooks-briefs/qa-016-brief.md` | — |
 | — | `steering/queue-hooks-briefs/qa-save-gate-embeds-brief.md` | — |
 | — | `steering/queue-hooks-briefs/researcher-text-limit-brief.md` | — |
 | — | `steering/queue-hooks-briefs/researcher-v2-validity-brief.md` | — |
@@ -490,6 +500,7 @@ they are the ID-less artifacts that root new efforts.
 | `015-preview-image-generator-security-audit.md` | `security/closed/015-preview-image-generator-security-audit.md` |
 | `015-rulings.md` | `steering/015-rulings.md` |
 | `015-security-brief.md` | `steering/015-security-brief.md` |
+| `016-send-check-validity.md` | `planning/016-send-check-validity.md` |
 | `2026-04-07-plan-005.md` | `deployment/closed/2026-04-07-plan-005.md` |
 | `2026-04-07-plan-006.md` | `deployment/closed/2026-04-07-plan-006.md` |
 | `2026-04-07-plan-007.md` | `deployment/closed/2026-04-07-plan-007.md` |
@@ -498,6 +509,7 @@ they are the ID-less artifacts that root new efforts.
 | `2026-04-12-plan-009.md` | `deployment/closed/2026-04-12-plan-009.md` |
 | `2026-04-12-plan-010.md` | `deployment/closed/2026-04-12-plan-010.md` |
 | `2026-11-10.md` | `steering/selection-ledger/2026-11-10.md` |
+| `architect-016-brief.md` | `steering/queue-hooks-briefs/architect-016-brief.md` |
 | `architecture-record-reconciliation-owed-2026-11-10.md` | `handoff/architecture-record-reconciliation-owed-2026-11-10.md` |
 | `backfill-report-1787522824426-i0womw.md` | `verification/012/backfill-report-1787522824426-i0womw.md` |
 | `backfill-report-1787522866564-i3s31k.md` | `verification/012/backfill-report-1787522866564-i3s31k.md` |
@@ -522,6 +534,7 @@ they are the ID-less artifacts that root new efforts.
 | `components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md` | `handoff/components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md` |
 | `components-v2-invariant-for-system-architecture-2026-08-24.md` | `handoff/components-v2-invariant-for-system-architecture-2026-08-24.md` |
 | `components-v2-send-validity-2026-11-11.md` | `research/closed/components-v2-send-validity-2026-11-11.md` |
+| `critic-016-brief.md` | `steering/queue-hooks-briefs/critic-016-brief.md` |
 | `devops-save-gate-embeds-brief.md` | `steering/queue-hooks-briefs/devops-save-gate-embeds-brief.md` |
 | `disposition-table.md` | `verification/014/disposition-table.md` |
 | `fix-agent-comment-sweep-merge-code-review.md` | `code-review/closed/fix-agent-comment-sweep-merge-code-review.md` |
@@ -564,6 +577,7 @@ they are the ID-less artifacts that root new efforts.
 | `preview-image-generator.md` | `architecture/preview-image-generator.md` |
 | `providers-query-params-header-decode-throws-2026-11-08.md` | `handoff/providers-query-params-header-decode-throws-2026-11-08.md` |
 | `qa-014-bc7-closing-observation-and-test-inventory-2026-11-10.md` | `handoff/qa-014-bc7-closing-observation-and-test-inventory-2026-11-10.md` |
+| `qa-016-brief.md` | `steering/queue-hooks-briefs/qa-016-brief.md` |
 | `qa-save-gate-embeds-brief.md` | `steering/queue-hooks-briefs/qa-save-gate-embeds-brief.md` |
 | `queue-hooks-rulings.md` | `steering/queue-hooks-rulings.md` |
 | `README-code-review-instruments.md` | `verification/013/README-code-review-instruments.md` |
@@ -582,6 +596,7 @@ they are the ID-less artifacts that root new efforts.
 | `RUN.md` | `verification/013/probe-cr28-oracle-arming/RUN.md` |
 | `save-gate-embeds-owner-checks-on-hooks-gg-2026-11-11.md` | `handoff/save-gate-embeds-owner-checks-on-hooks-gg-2026-11-11.md` |
 | `save-originating-tab-raises-its-own-update-prompt-2026-08-25.md` | `handoff/save-originating-tab-raises-its-own-update-prompt-2026-08-25.md` |
+| `send-check-validity-excluded-toast-and-file-upload-2026-11-11.md` | `handoff/send-check-validity-excluded-toast-and-file-upload-2026-11-11.md` |
 | `system-architecture.md` | `architecture/system-architecture.md` |
 | `test-inventory-2026-08-26.md` | `analysis/test-inventory-2026-08-26.md` |
 | `TODO.md` | `TODO.md` |
