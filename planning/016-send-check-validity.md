@@ -2,8 +2,8 @@
 ID: 016
 Origin: 016
 UUID: 54673438
-Status: In Progress
-Status-Detail: "Implementation in progress (implementer-hooks-016, chain/016-send-check-validity). Revision 7 records the regenerated corpus fixture's identity in AC1-1 (code review CR-1; QA regenerated it with no comment lines and lint-clean, data unchanged, record 188bc93). AC1-11 no longer exempts any file, and X-12 is retired. The critic and QA read it. No OPEN QUESTION remains."
+Status: Code Review Approved
+Status-Detail: "Code review approved at website 395510e (code-review/016-send-check-validity-code-review.md, Round 1 fix sub-entry, record 892daad); QA Phase 2 next. No OPEN QUESTION remains."
 Revision: 7
 Target Release: "website master → this chain's merge SHA (Vercel production on a push of master). The package carries no version artefact (package.json has no version field, CHANGELOG absent; read 2026-11-11T10:22Z)."
 Epic-Alignment: "none registered. The workspace has no roadmap, by the owner's standing instruction (brief). Source of the effort: research/closed/components-v2-send-validity-2026-11-11.md and research/closed/components-v2-description-text-limit-2026-11-11.md; opened by selection 14 (rulings block 2026-11-11T09:09Z)."
@@ -64,6 +64,7 @@ Owed re-verdicts:
 | 2026-11-11T12:59 | R-11 | planner-hooks-016 | Registration: steering caps M1 at its second post-approval revision (`steering/queue-hooks-rulings.md`, block "2026-11-11T12:59Z — plan 016 revision 7 read; milestone M1 capped", record `855adb8`; agent-authored, steering's). The binding text, the reason and the exceptions are in that block. No requirement changed; the revision stays 7. |
 | 2026-11-11T13:00 | R-12 | planner-hooks-016 | Registration: the M1 cap's voiding events (rulings block "2026-11-11T13:00Z — M1's cap: its voiding events", `308bb4b`), carried on the Resumption State's standing line. Verdict: the architect's delta pass APPROVED revision 7 with no finding (`architecture/016-send-check-validity-architecture-findings.md`, `602ba1d`). No requirement changed; the revision stays 7. |
 | 2026-11-11T13:03 | R-13 | planner-hooks-016 | Verdict: critique cycle 5 APPROVED revision 7 with no finding (`critiques/closed/016-send-check-validity-cycle5-critique.md`, `21ccc3a`). Registration and discharge of the V-101 Opus pass's F-1 to F-3 (rulings block "2026-11-11T13:02Z", `3f22f27`), all routing or status text, under M1's cap: Resumption State, the owed re-verdicts row and the Architectural-Surface line corrected in place. No requirement changed; the revision stays 7. |
+| 2026-11-11T13:03 | R-14 | code-reviewer-hooks-016 | Status set to Code Review Approved: code review Round 1 was REJECTED at website `ee114ff` (CR-1 to CR-3), and its fix sub-entry APPROVED at `395510e` (`code-review/016-send-check-validity-code-review.md`, record `892daad`). Plan read at revision 7. No requirement changed. |
 
 ## Value Statement and Business Objective
 
