@@ -2,8 +2,8 @@
 ID: 016
 Origin: 016
 UUID: 54673438
-Status: Committed
-Status-Detail: "APPROVED FOR RELEASE at website 395510e (plan revision 7), committed at devops Stage 1 (no push, no merge). Pre-release rows B-1, B-2 and B-5 EXECUTED and PASS. Post-deploy rows B-3, B-4 and B-6 ride handoff/send-check-validity-post-deploy-2026-11-11.md with their unfixed values; UAT-1 LOW (B-6(b) is read on the red border, subject message 5996) is carried there."
+Status: Released
+Status-Detail: "APPROVED FOR RELEASE at website 395510e (plan revision 7), released at devops Phase 2D (pushed 2026-11-11T18:29:46Z). Pre-release rows B-1, B-2 and B-5 EXECUTED and PASS. Post-deploy rows B-3, B-4 and B-6 ride handoff/send-check-validity-post-deploy-2026-11-11.md with their unfixed values; UAT-1 LOW (B-6(b) is read on the red border, subject message 5996) is carried there."
 Verified-At: "395510e — repos=website; plan revision 7; flows run on a next dev build of a git archive export of 395510e, base control 0e3d903"
 Release-Decision: APPROVED FOR RELEASE
 ---
@@ -20,6 +20,7 @@ Release-Decision: APPROVED FOR RELEASE
 |------|---------------|---------|---------|
 | 2026-11-11T14:12 | steering-queue-hooks → uat-hooks-016 (brief `steering/queue-hooks-briefs/uat-016-brief.md`) | UAT on QA Phase 2 PASS at website `395510e` (`qa/016-send-check-validity-qa.md`, `QA Complete`, record `2af91e5`, re-read `500a501`) | Stage start re-derived at the record. B-1, B-2 and B-5 executed on a local build of the tip and PASS. B-3's and B-6(b)'s unfixed values read on production before release. UAT-1 LOW raised. **APPROVED FOR RELEASE**, with B-3, B-4 and B-6 post-deploy. |
 | 2026-11-11T14:19 | devops-hooks-016 | Stage 1 commit record | Status Committed at website `395510e` (Verified-At carried unchanged); no push, no merge. B-3, B-4, B-6 and UAT-1 carried by `handoff/send-check-validity-post-deploy-2026-11-11.md`. Document moved to `uat/closed/`. |
+| 2026-11-11T18:30 | devops-hooks-016 | Release record | Status Released: website `master` pushed `0e3d903` -> `395510e` at 2026-11-11T18:29:46Z on the owner's release answer (selection prompt, 18:29Z); `deployment/016-send-check-validity-deployment.md`. |
 
 ## Reading
 

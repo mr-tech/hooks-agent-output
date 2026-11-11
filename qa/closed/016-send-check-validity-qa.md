@@ -3,8 +3,8 @@ ID: 016
 Origin: 016
 UUID: 54673438
 Verified-At: "395510e — repos=website; Phase 2 verdict PASS at chain/016-send-check-validity, plan revision 7"
-Status: Committed
-Status-Detail: "Phase 2 PASS at website 395510e (plan revision 7), committed at devops Stage 1 (no push, no merge). Effort-final sweep 120 of 128 mutants killed, every survivor dispositioned; QAF-13 LOW carried by handoff/editor-error-lines-render-text-unasserted-2026-11-11.md. Register: B-1, B-2, B-5 EXECUTED (UAT); B-3, B-4, B-6 post-deploy, carried by handoff/send-check-validity-post-deploy-2026-11-11.md. The Phase 3 release-tip record is a separate document."
+Status: Released
+Status-Detail: "Phase 2 PASS at website 395510e (plan revision 7), released at devops Phase 2D (pushed 2026-11-11T18:29:46Z). Effort-final sweep 120 of 128 mutants killed, every survivor dispositioned; QAF-13 LOW carried by handoff/editor-error-lines-render-text-unasserted-2026-11-11.md. Register: B-1, B-2, B-5 EXECUTED (UAT); B-3, B-4, B-6 post-deploy, carried by handoff/send-check-validity-post-deploy-2026-11-11.md. The Phase 3 release-tip record is a separate document."
 Phase: 2
 ---
 
@@ -28,6 +28,7 @@ read as its diff from revision 2 (`git diff 6b07655 21db6c8`). Revision 2 was re
 | 2026-11-11T13:08 | code-reviewer-hooks-016 → qa-hooks-016 | Phase 2 at website `395510e` | Phase 2 starts at the code review's committed APPROVED verdict (record `892daad`, `Reviewed-At: 395510e`, re-derived at the record). There is no steering brief for Phase 2: `steering/queue-hooks-briefs/` holds only the Phase 1 brief. So this pass read the plan's Decisions Register and the review's Assumption Not Checked itself; the latter is routed to UAT B-1 by the review. The criteria are listed in § Phase 2 before execution. TDD gate passed. |
 | 2026-11-11T13:48 | qa-hooks-016 → uat | Phase 2 verdict | Phase 2 PASS at `395510e`, recorded in § Phase 2 — results. The sweep's runs went to a helper; it polled the `setsid` parent's PID, which exits at once, and switched to the child's, without restarting or killing anything. QAF-13 LOW goes to the Planner batch (the M1 cap). |
 | 2026-11-11T14:19 | devops-hooks-016 | Stage 1 commit record | Status Committed at website `395510e` (Verified-At carried unchanged); no push, no merge. Register rows B-3, B-4, B-6 carried by `handoff/send-check-validity-post-deploy-2026-11-11.md`. Document moved to `qa/closed/`. |
+| 2026-11-11T18:30 | devops-hooks-016 | Release record | Status Released: website `master` pushed `0e3d903` -> `395510e` at 2026-11-11T18:29:46Z on the owner's release answer (selection prompt, 18:29Z); `deployment/016-send-check-validity-deployment.md`. |
 
 ## Reading
 

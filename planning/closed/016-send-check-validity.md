@@ -2,8 +2,8 @@
 ID: 016
 Origin: 016
 UUID: 54673438
-Status: Committed
-Status-Detail: "Committed at website chain/016-send-check-validity tip 395510e (devops Stage 1, no push, no merge). Release identifier: website master -> 395510e on the owner's release answer. Post-deploy rows B-3, B-4 and B-6 ride handoff/send-check-validity-post-deploy-2026-11-11.md. No OPEN QUESTION remains."
+Status: Released
+Status-Detail: "Released: website master -> 395510e97f82a5177d5edbb38b5d44858f745f3d, pushed 2026-11-11T18:29:46Z on the owner's release answer. Post-deploy rows B-3, B-4 and B-6 ride handoff/send-check-validity-post-deploy-2026-11-11.md. No OPEN QUESTION remains."
 Revision: 7
 Target Release: "website master → this chain's merge SHA (Vercel production on a push of master). The package carries no version artefact (package.json has no version field, CHANGELOG absent; read 2026-11-11T10:22Z)."
 Epic-Alignment: "none registered. The workspace has no roadmap, by the owner's standing instruction (brief). Source of the effort: research/closed/components-v2-send-validity-2026-11-11.md and research/closed/components-v2-description-text-limit-2026-11-11.md; opened by selection 14 (rulings block 2026-11-11T09:09Z)."
@@ -69,6 +69,7 @@ Owed re-verdicts:
 | 2026-11-11T13:49 | R-16 | planner-hooks-016 | Registration: QAF-13 LOW (QA Phase 2, `2af91e5`) as a Planner batch stated limit under M1's cap, carried after closure by `handoff/editor-error-lines-render-text-unasserted-2026-11-11.md`. No requirement changed; the revision stays 7. |
 | 2026-11-11T14:13 | R-17 | uat-hooks-016 | Status set to UAT Approved: UAT APPROVED FOR RELEASE at website `395510e` (`uat/016-send-check-validity-uat.md`). B-1, B-2 and B-5 EXECUTED and PASS on a local build of the tip; B-3, B-4 and B-6 stay post-deploy, with their unfixed values recorded. UAT-1 LOW (B-6(b) reads on the red border) goes to devops's carrier. Plan read at revision 7. No requirement changed. |
 | 2026-11-11T14:19 | R-18 | devops-hooks-016 | Status set to Committed: devops Stage 1 on UAT APPROVED FOR RELEASE at website `395510e` (chain branch `chain/016-send-check-validity`, nine commits over `0e3d903`, a fast-forward). No push, no merge. Register: B-1, B-2, B-5 EXECUTED; B-3, B-4, B-6 carried by `handoff/send-check-validity-post-deploy-2026-11-11.md`. M1 cap ends with this terminal Status. |
+| 2026-11-11T18:30 | R-19 | devops-hooks-016 | Status set to Released: website `master` moved `0e3d903` -> `395510e` and pushed to origin at 2026-11-11T18:29:46Z (`release-move.js`, exit 0; `git ls-remote origin refs/heads/master` read back `395510e`), on the owner's release answer (selection prompt, 18:29Z). Record: `deployment/016-send-check-validity-deployment.md`. |
 
 ## Value Statement and Business Objective
 

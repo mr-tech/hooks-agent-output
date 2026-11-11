@@ -2,8 +2,8 @@
 ID: 016
 Origin: 016
 UUID: 54673438
-Status: Committed
-Status-Detail: "Committed at website chain/016-send-check-validity tip 395510e (devops Stage 1, no push, no merge)."
+Status: Released
+Status-Detail: "Committed at website chain/016-send-check-validity tip 395510e (devops Stage 1); released at devops Phase 2D (pushed 2026-11-11T18:29:46Z)."
 Handoff-At: "395510e — repos=website"
 ---
 
@@ -29,6 +29,7 @@ website `0e3d903`.
 | 2026-11-11T12:55 | code-reviewer-hooks-016 → implementer-hooks-016 | Fix round for code review Round 1 (REJECTED at `ee114ff`; CR-1, CR-2, CR-3) | CR-2 and CR-3 fixed test-only at `64a3d26`; deweeder round 3 removed nothing; positional probe kills 10 of 10. CR-1 is routed to the planner (AC1-1 digest) and open: `Handoff-At` stays `ee114ff` until the regenerated fixture is re-copied. |
 | 2026-11-11T13:00 | implementer-hooks-016 → code review | Hand-off of the fix round, sub-entry of Round 1 | CR-1 closed: fixture re-copied at `395510e` (revision 7 digest); deweeder rounds 3 and 4 removed nothing; suite, typecheck, convention check recorded below. `Handoff-At` moved to `395510e`. Range `ee114ff..395510e`. |
 | 2026-11-11T14:19 | devops-hooks-016 | Stage 1 commit record | Status Committed at website `395510e` on `chain/016-send-check-validity`; no push, no merge. Document moved to `implementation/closed/`. |
+| 2026-11-11T18:30 | devops-hooks-016 | Release record | Status Released: website `master` pushed `0e3d903` -> `395510e` at 2026-11-11T18:29:46Z on the owner's release answer (selection prompt, 18:29Z); `deployment/016-send-check-validity-deployment.md`. |
 
 ## Implementation Summary
 

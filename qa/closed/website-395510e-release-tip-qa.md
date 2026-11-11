@@ -3,8 +3,8 @@ ID: n/a
 Origin: release website master -> 395510e97f82a5177d5edbb38b5d44858f745f3d
 UUID: c080fdf3
 Verified-At: "395510e — repos=website; tip tree 28b8af26 = the Phase 2 Verified-At tree"
-Status: Release Verified
-Status-Detail: "Release Verified at website 395510e (tree 28b8af26), a fast-forward of origin/master 0e3d903. Step 1b: 0 of 22 open handoffs are triggered by this verdict or a website production push. Step 2: this workspace has no gated time-based set. Push next (devops; the owner approves it)."
+Status: Released
+Status-Detail: "Release Verified at website 395510e (tree 28b8af26), a fast-forward of origin/master 0e3d903. Step 1b: 0 of 22 open handoffs are triggered by this verdict or a website production push. Step 2: this workspace has no gated time-based set. Pushed 2026-11-11T18:29:46Z on the owner's release answer; origin/master read back 395510e."
 Phase: 3
 ---
 
@@ -20,6 +20,7 @@ Phase: 3
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-11T14:18 | devops-hooks-016 (message) | Phase 3 release-tip verdict | Release Verified at `395510e`. The tip is the Phase 2 tree, so steps 3 and 5 have nothing to compare. Step 1b: 0 of 22 open handoffs are triggered by this verdict or a website production push. Step 2: this workspace has no gated time-based set. |
+| 2026-11-11T18:30 | devops-hooks-016 | Release record | Status Released: website `master` pushed `0e3d903` -> `395510e` at 2026-11-11T18:29:46Z (`release-move.js` exit 0; `git ls-remote origin refs/heads/master` = `395510e97f82a5177d5edbb38b5d44858f745f3d`). The Assumption Not Checked (remote `master` stays `0e3d903`) is closed: the remote read `0e3d903` at 18:29:34Z and the move was a fast-forward. Moved to `qa/closed/`. |
 
 ## Tip identity (re-derived here, not taken from the request)
 

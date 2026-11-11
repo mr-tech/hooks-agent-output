@@ -2,13 +2,13 @@
 ID: 016
 Origin: 016
 UUID: 54673438
-Status: Active
-Status-Detail: "Stage 1 committed (record 436a30a) and Phase 2A readiness written 2026-11-11T14:21Z. Awaiting the owner's release answer (Phase 2B); nothing pushed, nothing merged. Release identifier: website master -> 395510e97f82a5177d5edbb38b5d44858f745f3d."
+Status: Released
+Status-Detail: "Released 2026-11-11T18:29:46Z: website master 0e3d903 -> 395510e97f82a5177d5edbb38b5d44858f745f3d on the owner's release answer (selection prompt, 18:29Z). Post-deploy rows B-3, B-4, B-6 ride handoff/send-check-validity-post-deploy-2026-11-11.md (Open, owning stage uat)."
 ---
 
 # Deployment Record: plan 016, the send check refuses what Discord refuses
 
-**Plan Reference**: `agent-output/planning/closed/016-send-check-validity.md`, `Revision: 7`, `Status: Committed` (R-18).
+**Plan Reference**: `agent-output/planning/closed/016-send-check-validity.md`, `Revision: 7`, `Status: Released` (R-19; Committed at R-18).
 **Stage start**: the UAT document `uat/closed/016-send-check-validity-uat.md`, `Release-Decision: APPROVED FOR RELEASE`, `Verified-At 395510e` (record `ceb9d93`, re-read at `605ad1d`); QA Phase 2 `qa/closed/016-send-check-validity-qa.md`, `Verified-At 395510e` (record `2af91e5`); code review `Reviewed-At 395510e` (record `892daad`). All three re-derived at the record by header read at the write.
 **Roadmap**: `agent-output/roadmap` holds only `.gitkeep` for this workspace (the plan's Epic-Alignment: none registered; the workspace has no roadmap by the owner's standing instruction). Proceeding with reduced context; nothing is cited from it.
 **Release Identifier**: website `master` → `395510e97f82a5177d5edbb38b5d44858f745f3d` (a fast-forward of `0e3d903ce98e108c7ca848b992ad89ac538f4b44`). No `version` field, no tags, no CHANGELOG (plan M3); none synthesised.
@@ -20,6 +20,7 @@ Status-Detail: "Stage 1 committed (record 436a30a) and Phase 2A readiness writte
 | 2026-11-11T14:15 | steering-queue-hooks (brief `steering/queue-hooks-briefs/devops-016-brief.md`) | Stage 1 and Phase 2A for chain 016 at website `395510e` | Brief and rulings file read whole. Stage 1 recorded at `436a30a`: chain documents Committed and closed, post-deploy carrier minted, tip built. QA Phase 3 requested and returned: Release Verified at `395510e` (`qa/website-395510e-release-tip-qa.md`, record `596c23c`). Release ask prepared. Nothing pushed. |
 | 2026-11-11T14:25 | architect-hooks-016 → devops-hooks-016 (message) | Architecture reconciliation owed at Stage 1 | Landed at record `ab14544` against website `395510e`: `website.md` A-4's D-10 clause, the preview-chrome Problem Area resolved (RK-5 residue), `hideValidation` under D-001's consequences, the fixture Problem Area retired. Findings document `Resolved` under `architecture/closed/` (existence and status read here). Phase 2D step 5 is therefore discharged for chain 016: no further architect inbox line is owed. Release ask still unanswered. |
 | 2026-11-11T17:33 | steering-queue-hooks (brief `steering/queue-hooks-briefs/devops-016-respawn-brief.md`) | Respawn after a machine restart (boot 17:27Z); fresh session under the same name | First brief, rulings file and this record read whole. No answer of the owner's to the release ask is on record, so it is treated as unanswered. Runbook steps 1 and 2 re-derived at 17:32:59Z: website on `chain/016-send-check-validity` at `395510e97f82a5177d5edbb38b5d44858f745f3d`, tree `28b8af26…` (equal to the verdict's), `git status --porcelain` only `.playwright-mcp/`; `git ls-remote origin refs/heads/master` = `0e3d903…`; `git merge-base --is-ancestor 0e3d903 395510e` exit 0; `release-move.js … --dry-run` exit 0 ("ff-from-remote ok; sibling serving refs (none)"; "workflows none"). Prompts are off (`prompt-gate-off` present): the ask is put in plain text. Nothing pushed, nothing merged. |
+| 2026-11-11T18:32 | owner → devops-hooks-016 (selection prompt, 18:29Z) | Release answer, Phase 2C and 2D | Release answer "Push master to 395510e". Moved website `master` `0e3d903` -> `395510e` at 18:29:46Z (`release-move.js` exit 0); remote read back `395510e`; chain branch deleted. Documents set `Released` and closed, handoff updated, deployed-against-verified reconciled (same SHA). Status Released. UAT cue and retrospective cue go to steering. |
 
 ## Stage 1 verification (website, at 395510e)
 
@@ -64,11 +65,11 @@ Included: chain 016 only (1 of 1 committed). Execution mode: **Mode A, agent-exe
 |---|---|---|---|
 | 1 | `git -C /usr/local/bin/hooks/website ls-remote origin refs/heads/master` | not `0e3d903ce98e108c7ca848b992ad89ac538f4b44` → stop; the tip is no longer a fast-forward and the verdict must be re-taken | `0e3d903…` at 14:21:23Z (before the ask). Re-read just before the move |
 | 2 | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master 395510e97f82a5177d5edbb38b5d44858f745f3d --dry-run` | exit ≠ 0 → stop | exit 0 at 14:20Z ("every check passed; nothing moved"). Re-run just before the move |
-| 3 | the owner's yes to the release, in this session | no yes → Aborted; nothing moved | pending |
-| 4 | the same command without `--dry-run` (moves local `master`, pushes, switches the tree back to `master`) | exit 2 → nothing moved, stop; exit 1 → read the report for ref state, route to the owner | pending |
-| 5 | `git ls-remote origin refs/heads/master` equals `395510e…`; tree on `master`, `git status --porcelain` shows only `.playwright-mcp/` | any difference → route to the owner | pending |
-| 6 | `git branch -d chain/016-send-check-validity` (merged); `ls-remote --heads origin 'chain/*'` shows none | `-d` refuses → name it to the owner; do not force | pending |
-| 7 | cue `uat-hooks-016` with the handoff `handoff/send-check-validity-post-deploy-2026-11-11.md` (B-3, B-4, B-6; message 5996 re-saved, read on the red border) | a falsifier seen → Vercel promote of the previous deployment, the owner's call | pending |
+| 3 | the owner's yes to the release, in this session | no yes → Aborted; nothing moved | yes, 2026-11-11T18:29Z (selection prompt); steps 1 and 2 re-read 18:29:11Z to 18:29:34Z, unchanged |
+| 4 | the same command without `--dry-run` (moves local `master`, pushes, switches the tree back to `master`) | exit 2 → nothing moved, stop; exit 1 → read the report for ref state, route to the owner | `OK moved master: 0e3d903… -> 395510e…` on origin, tree on master, exit 0, 18:29:46Z |
+| 5 | `git ls-remote origin refs/heads/master` equals `395510e…`; tree on `master`, `git status --porcelain` shows only `.playwright-mcp/` | any difference → route to the owner | `ls-remote` = `395510e97f82a5177d5edbb38b5d44858f745f3d`; branch `master`; `git status --porcelain` only `.playwright-mcp/` (18:29:49Z) |
+| 6 | `git branch -d chain/016-send-check-validity` (merged); `ls-remote --heads origin 'chain/*'` shows none | `-d` refuses → name it to the owner; do not force | `git branch -d` exit 0; `ls-remote --heads origin 'chain/*'` empty; no local `chain/016*` (18:29:49Z) |
+| 7 | cue `uat-hooks-016` with the handoff `handoff/send-check-validity-post-deploy-2026-11-11.md` (B-3, B-4, B-6; message 5996 re-saved, read on the red border) | a falsifier seen → Vercel promote of the previous deployment, the owner's call | UAT has no live session: the spawn cue goes to `steering-queue-hooks` by message at the close of this turn, naming the handoff. Rows B-3, B-4, B-6 stay open on it |
 
 ## What changes for users (carried to the release ask)
 
@@ -82,8 +83,51 @@ From UAT's "Key Changes for Changelog" and the plan:
 
 ## User Confirmation
 
-Pending. Put to the owner directly by this session (Phase 2B) after the Phase 3 verdict, the tip build and the dry run.
+**Confirmed** by the owner in this session, selection prompt "Release 016", answer "Push master to 395510e (Recommended)", 2026-11-11T18:29Z (read back 18:29:34Z, remote `master` still `0e3d903`, HEAD `395510e`, dry run exit 0 at 18:29:11Z). The prompt stated the user-visible changes, the Vercel mechanism as accepted-as-written, and the rollback forms. (The earlier plain-text ask of 17:33Z went unseen as a prompt; a peer message from steering carried no answer.)
 
 ## Release Execution
 
-Pending the owner's answer.
+**Execution mode**: agent-executed (Mode A), in this session; authorizer: the owner (selection prompt, 2026-11-11T18:29Z). **Release date**: 2026-11-11, push at 18:29:46Z.
+
+| Item | Result |
+|---|---|
+| Command | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master 395510e97f82a5177d5edbb38b5d44858f745f3d` after its `--dry-run` (exit 0 at 18:29:11Z) |
+| Output | `OK moved master: 0e3d903ce98e108c7ca848b992ad89ac538f4b44 -> 395510e97f82a5177d5edbb38b5d44858f745f3d on origin; tree on master`, exit 0 |
+| Repository and SHA shipped | website only: `395510e97f82a5177d5edbb38b5d44858f745f3d` (nine commits, 7 production and 8 test or fixture paths). No other repository moved |
+| Serving ref at cutover | `master` at `395510e…`, read back with `git ls-remote origin refs/heads/master` at 18:29:49Z. The only serving ref; no sibling to order against |
+| Deploy evidence | The push to `master`, with the owner's answer; per the deploy-evidence rule it is the deployment. No host-side read was made or is owed. Named risk, accepted as written: that a push of `master` builds through Vercel's git integration (outside the repo, unread) |
+| Tree afterwards | on `master` at `395510e`; `git status --porcelain` only `.playwright-mcp/`; `chain/016-send-check-validity` deleted with `git branch -d` (merged), none on origin |
+| NOT VERIFIED | none. The deployed Node major stays an unread input to QA's routed assumption (named in the Phase 2C block), carried as a falsifier on the post-deploy handoff |
+
+## Deployed against verified (Phase 2D step 2)
+
+website: deployed ref `master`, commit at it `395510e97f82a5177d5edbb38b5d44858f745f3d` (the pushed commit, read from local git and `ls-remote`). The QA Phase 2, code-review, UAT and release-tip (Phase 3) verdicts all bind `395510e`: **the verdict's SHA is the deployed commit**, so there is no surface diff to take. Tip tree `28b8af26aa27587f5f7f34f5dc91383264ccd40b`, the Phase 2 tree.
+
+## Post-Release Status
+
+Released 2026-11-11T18:29:46Z. Post-deploy rows B-3, B-4 and B-6 are not read yet: they ride `handoff/send-check-validity-post-deploy-2026-11-11.md` (`Status: Open`, `Owning-Stage` uat, Review-Trigger met by this push). This record does not wait on them.
+
+- **Known issues / stated limits (plan Risks and Exclusions):** RK-1 (a File naming an existing attachment on an edit is refused; unmeasured), RK-3 (stored `valid` stale until next save), RK-4 (the editor's "Invalid URL." marker and the send check can disagree), RK-5 (preview images generated before release keep their chrome until the message is saved again), X-1 (generic send-failure toast), X-2 (File upload path and add-menu entry), X-10 (base tree's existing lint findings).
+- **Rollback plan:** Vercel promote of the previous deployment (the owner's call; not exercisable from here). The git form is a revert commit pushed as a fast-forward and is a new ask; the reversing patch was dry-run against the tree (`git apply --check -R`, exit 0, 27 paths). M1 never ships or stays live without M1b: revert the whole range or M1 alone, never M1b alone.
+
+## Phase 2D obligations
+
+- **Plans**: 016 only, `Released` (planning R-19). Chain documents by frontmatter `ID: 016`/`Origin: 016` (`grep -rl`): plan, implementation, code review, QA, UAT now `Released` and in `closed/`; the release-tip QA record `Released`, moved to `qa/closed/`; critiques (five) `Resolved` and the architecture findings `Resolved`, all under `closed/`. No `fix-` chain's `Handoff-At` was in scope of this range.
+- **Fixer branch**: none (a chain branch, deleted above).
+- **Architecture**: discharged at Stage 1 (record `ab14544`, changelog row of 14:25Z); no further architect line is owed.
+- **Roadmap**: the workspace has no roadmap (only `.gitkeep`, by the owner's standing instruction), so no roadmap obligation exists to lodge in `INBOX.md`.
+- **Forward items beyond the register** (swept by `grep -l 'Assumption Not Checked'` over the chain's documents and a read of the plan's Risks, Exclusions and Planner batch):
+  - QA Phase 2's Assumption Not Checked (deployed Node major, whitespace): carried as a falsifier on the post-deploy handoff, signature a B-3 or B-4 read disagreeing with the corpus. The deployed major itself is uncarried by any instrument (the Vercel setting is outside the repo).
+  - The earlier QA re-key passes' assumptions (fixture byte identity, text-reading suite cases, X-12, revision 4/5 reads): each owned by QA Phase 2 or UAT, whose PASS and APPROVED verdicts at `395510e` sit above them; their individual closures were not re-read here. The code review's is recorded closed by UAT's B-1 pair (its Status-Detail).
+  - Release-tip QA's remote-`master` assumption: closed at the push (remote read `0e3d903` at 18:29:34Z).
+  - RK-1 → `handoff/send-check-validity-excluded-toast-and-file-upload-2026-11-11.md` Item 2; X-1 → Item 1 of the same handoff (`Open`); QAF-13 → `handoff/editor-error-lines-render-text-unasserted-2026-11-11.md` (`Open`); X-9 → `handoff/website-tests-not-beside-their-module-2026-11-08.md` (`Open`); RK-3, RK-4, RK-5, X-3 to X-8, X-10, X-11: stated limits with no carrier beyond the plan.
+  - `handoff/components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md` (`Open`) closes on B-3's fixed read (plan M3); devops closes it on the executor's recorded result, not before.
+  - Planner batch: every row discharged or a stated limit (read in the closed plan).
+
+## Next Actions
+
+| Action | Owner | Carrier |
+|---|---|---|
+| Read B-3, B-4, B-6 in production; re-save message 5996 and read its new image on the red border | UAT stage (owner fallback only) | `handoff/send-check-validity-post-deploy-2026-11-11.md` (`Open`) |
+| Close the emptiness handoff on B-3's fixed read; close the post-deploy handoff on all three | devops, on the executor's message | the two handoffs above |
+| Retrospective for chain 016 | steering's spawn cue, sent with this close | this record's closing |
