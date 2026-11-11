@@ -3,12 +3,12 @@ ID: 016
 Origin: 016
 UUID: 54673438
 Status: Active
-Status-Detail: "Revision 2, ready for the critic's re-read, the architect's re-read and QA Phase 1's re-key. It folds critique cycle 1 pass 1, architecture conformance on rev 1 and QA Phase 1's findings. No OPEN QUESTION remains. X-1 is settled by D-12."
-Revision: 2
+Status-Detail: "Revision 3, ready for the critic, the architect and QA Phase 1 to read again. It adds M1b (the preview route shows no error chrome, by the owner's selection 23, D-14) and folds QAF-9 (the whitespace-empty predicate). Revision 2's approvals do not carry to it. No OPEN QUESTION remains."
+Revision: 3
 Target Release: "website master → this chain's merge SHA (Vercel production on a push of master). The package carries no version artefact (package.json has no version field, CHANGELOG absent; read 2026-11-11T10:22Z)."
 Epic-Alignment: "none registered. The workspace has no roadmap, by the owner's standing instruction (brief). Source of the effort: research/closed/components-v2-send-validity-2026-11-11.md and research/closed/components-v2-description-text-limit-2026-11-11.md; opened by selection 14 (rulings block 2026-11-11T09:09Z)."
 Lane: "standard. The scoping determination sets a full chain (rulings block 2026-11-11T09:17Z). The blast radius is a shared predicate: validateMessage feeds the send page, the stored valid column and the public v1 API, so this is not a leaf."
-Architectural-Surface: "none added. The plan stays inside the A-4 module and adds a validator beside the existing ones. Record lines touched: A-4 (its residue consequence is carried, § Stored rows and the public API); W-2 is applied to the description bound (D-10), which deviates from A-4's same-constant pattern. The architect corrected A-4's line at the conformance pass, and the D-10 clause lands at reconciliation after implementation (architect AF-4); the plan does not change for it."
+Architectural-Surface: "none added. The plan stays inside the A-4 module and adds a validator beside the existing ones. Record lines touched: A-4 (its residue consequence is carried, § Stored rows and the public API); W-2 is applied to the description bound (D-10), which deviates from A-4's same-constant pattern. The architect corrected A-4's line at the conformance pass, and the D-10 clause lands at reconciliation after implementation (architect AF-4); the plan does not change for it. M1b closes the system-architecture.md Problem Area 'Validation errors render into generated preview images' (raised to Medium at 11:09Z, 016 AF-11). The deployment record routes its closure to the architect."
 ---
 
 # Plan 016 — The send check refuses what Discord refuses (Components V2 validity, 1024 included)
@@ -21,6 +21,7 @@ Architectural-Surface: "none added. The plan stays inside the A-4 module and add
 | 2026-11-11T10:32 | 1 | planner-hooks-new | Folds selections 17 to 20 (rulings block "2026-11-11T10:30Z — selections 17 to 20", record `64cf040`) as D-8 to D-11, and resolves OQ-0 to OQ-3. X-1 and X-2 now have a carrier, `handoff/send-check-validity-excluded-toast-and-file-upload-2026-11-11.md`, and X-9 and rider R1 are added. Scope delta: M2's AC2-3 is settled (the save schema is not edited); M1's L1, L9, AC1-1 and AC1-4 now carry his whitespace and File rulings, with no whitespace residue; rider R1 is added. Size against the original ask: unchanged, one send-check change plus the 1024 bound. |
 | 2026-11-11T10:38 | R-1 | steering-queue-hooks | Registration: D-12 (X-1, the generic toast, stays excluded: selection 21) and D-13 (rider R1 kept: selection 22). His words are in rulings block "2026-11-11T10:38Z — selections 21 and 22". No requirement changed; the revision stays 1. |
 | 2026-11-11T11:05 | 2 | planner-hooks-016 | Folds three gate reads of revision 1: critique cycle 1 pass 1, F-1 to F-10 (`2e26556`); architecture conformance, AF-1 to AF-5 and AF-7 (`c61a96f`); QA Phase 1, QAF-1 to QAF-8 (`803a97c`). The arguments live in those documents. Scope delta: M1's measured population is now the 116-member corpus (AC1-1, AC1-4), placement covers every limb (AC1-2), L5 and L6 cover absent forms, and L8 defines an emoji and takes D-9's whitespace rule by riding selection 18. M1 gains AC1-6p (post-deploy), AC1-9 (every other message keeps today's result), AC1-10 (env-free imports) and AC1-11 (lint). The reason line's `/preview` surface is stated. M2's AC2-2 is split into a suite half and B-2. Rider R1 is dropped (F-6, D-13). Size against the original ask: unchanged, one send-check change plus the 1024 bound, with tighter criteria and no new milestone. |
+| 2026-11-11T11:13 | 3 | planner-hooks-016 | Folds the owner's selection 23 (rulings block "2026-11-11T11:11Z — selection 23", record `c966305`) as D-14, and QA's QAF-9 from its re-key on revision 2 (`77b1fd6`). The critique (`5c1512f`) and the architecture delta (`2520ac7`) approved revision 2. Scope delta: milestone M1b added (the preview route shows no validation chrome, every error line included), reversing plan 015 D33. M1's whitespace-empty predicate is restated per character, and the corpus is re-pinned to QA's 120 members. Since approval of the value statement: three revisions and two gate rounds; M1b is the one milestone added. Size against the original ask: one send-check change plus the 1024 bound, and by his word one shared preview-chrome change. |
 
 ## Value Statement and Business Objective
 
@@ -57,6 +58,7 @@ asked for this wider class ("making the send check refuse what Discord refuses, 
 | D-11 | The check refuses any message holding a File component, on a new send and on an edit | 2026-11-11 | "Agent: refuse File everywhere (Recommended)". Selection 20, same blocks. The option text he saw named the risk: "if Discord does accept a File naming an existing attachment on an edit, the site blocks an edit that would work; that is unmeasured". | A measurement of research N-5 showing Discord accepts such an edit, or a user report of a blocked edit holding a File (RK-1). |
 | D-12 | The generic send-failure toast stays out of this plan (X-1), carried by `handoff/send-check-validity-excluded-toast-and-file-upload-2026-11-11.md` | 2026-11-11 | "Agent: keep it out (Recommended)". Selection-prompt answer (selection 21): ledger block "2026-11-11T10:37Z — steering-queue-hooks"; rulings block "2026-11-11T10:38Z — selections 21 and 22". The option text he saw (steering's): "I start the critic and the architect on revision 1 as it stands. The toast is carried for later by a handoff the planner already wrote (send-check-validity-excluded-toast-and-file-upload), which also carries the File upload path your earlier ruling put after the existing items. Nothing more is planned for the toast until that handoff is picked up." | Owner withdrawal only. |
 | D-13 | Rider R1 stays: if the chain edits `messageValidity.predicate.test.ts`, the same commit moves it beside its module | 2026-11-11 | "Agent: keep the rider (Recommended)". Selection 22, same ledger and rulings blocks. The option text he saw (steering's): "the plan goes to review with the rider. Cost by the plan: one extra line for code review and a check that the file's test count and pass set are identical before and after the move. It drops on its own if the critic or reviewer objects. The other five files stay on the handoff." | Owner withdrawal; or an objection from critique or review, on which the rider drops (the plan's "Riders yield"). **Fired:** critique F-6 (`critiques/016-send-check-validity-critique.md`, `2e26556`). R1 is dropped at revision 2, under the drop disposition he was shown. |
+| D-14 | The preview route shows no error lines and no red border at all, the existing ones included, so no preview image carries them; the editor and the send page keep every line; built in this plan | 2026-11-11 | "Agent: hide all on preview, in 016 (Recommended)". Selection 23: ledger block "2026-11-11T11:11Z — steering-queue-hooks"; rulings block "2026-11-11T11:11Z — selection 23". The option text he saw (steering's): "the planner adds one change to plan 016: the preview route shows no error lines or red border at all, the existing over-limit ones included, so no preview image carries them. The editor and the send page keep every line. This reverses your 2026-11-08 choice for the over-40 line." | Owner withdrawal only. Consequence: M1b. It reverses plan 015 D33 (his "Agent: same as siblings", `steering/015-rulings.md` block 08:02Z, by steering's read), which is restated here as reversed. |
 
 ## Objective
 
@@ -74,10 +76,11 @@ Three things move with the predicate, because it has three production callers (`
 3. What the public v1 API serves: `src/pages/api/v1/guilds/[guildId]/messages.ts` and `…/messages/[id].ts` serve the stored `valid`.
    The backfill (`src/scripts/backfillValid.ts`) also calls the predicate, but only over rows whose `valid` is NULL.
 
-The reason line moves a fourth surface: the `/preview` route (`src/app/preview/page.tsx` renders
-`DiscordMessageEditor` with no `editableState`; read at `0e3d903`, 11:01Z). The preview-image
-service screenshots that route (`system-architecture.md` D-003, by the critic's read, F-1). See
-Assumptions, "The reason line".
+A fourth surface changes by his ruling D-14: the `/preview` route (`src/app/preview/page.tsx`
+renders `DiscordMessageEditor` with no `editableState`; read at `0e3d903`, 11:01Z) shows no error
+line and no red border, so no preview image carries them. The preview-image service screenshots
+that route, and a save generates an image in both branches of `upsertMessage`
+(`src/server/api/utils/shared.ts`; steering's read, rulings block 11:11Z). See M1b.
 
 ## Assumptions and open questions
 
@@ -126,33 +129,32 @@ recorded per the standing default in `references/escalation.md`):
   AF-5, A-4), so it accepts editor drafts and stored `MessageData` alike.
 - **The reason line.** It is one error line in `DiscordMessageEditor/index.tsx`, beside
   `v2TextError` and `componentCountError`, and it joins their `styles.errorBorder` union (sibling,
-  same file; architect AF-7). Like its siblings, it has no edit-mode condition, so it renders on
-  three surfaces. It shows in the editor, and on the send page through `MessagePreview`
-  (`src/components/MessagePreview.tsx` renders `DiscordMessageEditor`; read 10:23Z). It also shows
-  on `/preview` and therefore in a preview image generated from that route. As a consequence
-  (research F-12), a freshly added component other than a Separator shows the line until it is
-  filled in, and a draft saved in that state can get a preview image that carries the line. The
-  siblings do the same for their states (`noContentError` for a fresh empty message). Mirroring
-  them is D-5: whether error lines belong in preview images is a question about the shared
-  pattern, not about this line, so this plan does not gate one line alone. Stated limit, with an
-  observer: UAT records the `/preview` render of a draft with a fresh Text Display (B-1's walk).
-  The share of drafts whose image carries it is unknown (critic F-1: not checked when an image is
-  generated). This design choice is reported to the owner, who may veto it.
+  same file; architect AF-7). Like its siblings, it has no edit-mode condition. It shows in the
+  editor and wherever `MessagePreview` renders (`src/components/MessagePreview.tsx` renders
+  `DiscordMessageEditor`; read 10:23Z): the send page, the send page's Edit Message menu and the
+  New Message dialog. As a consequence (research F-12), a freshly added component other than a
+  Separator shows the line until it is filled in. On `/preview`, M1b removes every line, the new
+  one and its siblings alike, in the shared component (D-14, D-5).
 
 ## Requirement ledger — the refusal class
 
 The class is "every V2 shape Discord was measured refusing". Its measured population is the
-**corpus**: QA Phase 1's 116-member fixture,
-`verification/016/corpus/fixture/discordV2SendCorpus.ts` (sha256 `2043a8a8…990a6d`, git blob
-`00c45ad`, record `803a97c`). It holds 82 refused and 34 accepted members. It is made of the
-research's 76 (`research/closed/components-v2-send-validity-2026-11-11.md`, `c9f8e3a`), re-sent by
-QA with 76 of 76 verdicts and 52 of 52 error bodies matching, plus 40 members QA measured first
-(`qa/016-send-check-validity-qa.md`, "Members beyond the research"). Case ids below are the
-research's. QA's members are cited by that table's rows.
+**corpus**: QA Phase 1's 120-member fixture,
+`verification/016/corpus/fixture/discordV2SendCorpus.ts` (sha256 `49b54f8e…15bb9b`, git blob
+`9fb22ae`, record `77b1fd6`, as QA reported it). It holds 86 refused and 34 accepted members. It is
+made of the research's 76 (`research/closed/components-v2-send-validity-2026-11-11.md`, `c9f8e3a`),
+re-sent by QA with 76 of 76 verdicts and 52 of 52 error bodies matching, plus 44 members QA measured
+first (`qa/016-send-check-validity-qa.md`, "Members beyond the research", and the four U+0085-run
+members of QAF-9, measured 11:08Z). Case ids below are the research's. QA's members are cited by
+that document's rows.
 
-**Whitespace-empty**, used by L1 and L8: a string is whitespace-empty when, after `trim()`, every
-remaining character is U+0085, and the original string holds no U+FEFF. In plain terms, `trim()` with U+0085
-counted as whitespace and U+FEFF counted as content (D-9). L8 takes the same predicate. That
+**Whitespace-empty**, used by L1 and L8: a string is whitespace-empty when it holds no U+FEFF and
+every one of its characters `c` either satisfies `c.trim() === ''` or is U+0085. The empty string
+is whitespace-empty. In plain terms, this is `trim()`'s whitespace with U+0085 added and U+FEFF
+removed (D-9), judged per character, so a U+0085 does not shield the whitespace beside it (QAF-9:
+`"\u0085 \u0085"` is refused by Discord; over the corpus's 30 lone-Text-Display and label-only
+members, this form is wrong on 0, `verification/016/corpus/whitespace-rule-check.txt`). L8 takes
+the same predicate. That
 rides selection 18: its option text was "the new check uses trim() and treats those two characters
 as Discord does", and Discord treats them the same way in a label (QA QAF-3: label U+0085 refused,
 U+FEFF accepted). This is reported to the owner, who may veto it.
@@ -168,20 +170,20 @@ each one at Phase 2.
 
 | L | Limb (the check refuses when, anywhere in the tree, …) | Measured refused | Measured accepted, must pass | Carried by |
 |---|---|---|---|---|
-| L1 | a Text Display's `content` is absent or whitespace-empty | B1–B4, B6–B12, W1–W4, W6, W7, X7; QA's `"\u0085 "`, `" \u0085\n"` | B5, W5, W8; QA's `"﻿ "`, `"a\u0085"`, `"​ "` | M1 |
+| L1 | a Text Display's `content` is absent or whitespace-empty | B1–B4, B6–B12, W1–W4, W6, W7, X7; QA's `"\u0085 "`, `" \u0085\n"`, `"\u0085 \u0085"`, `" \u0085 \u0085 "`, `"\u0085\u0085"` | B5, W5, W8; QA's `"﻿ "`, `"a\u0085"`, `"​ "` | M1 |
 | L2 | a Section's `components` is empty or absent, or its `accessory` is absent | C2, C4; QA's Section no `components`; Section `[]` in a Container | C1, C5; QA's nested Section controls | M1 |
 | L3 | a Media Gallery's `items` is empty or absent | D2, D6, X3 | D1, N7; QA's nested gallery control | M1 |
 | L4 | a Container's `components` is empty or absent | G2, G3 | G1, X4 | M1 |
 | L5 | an Action Row's `components` is empty or absent | H2, X2; QA's Action Row no `components` | H1, H7; QA's nested Action Row control | M1 |
 | L6 | a required URL, or the object that holds it, is empty or absent: Thumbnail `media` / `media.url`, gallery item `media` / `media.url` (every item), link button `url` | C3, C6, D3, H3; QA's absent `url`, `media: {}`, no `media` (Thumbnail, gallery item), nested `''` members, second item `''` | — | M1 |
 | L7 | a required URL fails the save schema's URL predicate, or a link button's scheme is not http, https or discord | I1, I2, I3, X5; QA's nested `abc` and `ftp://` | X6 (an ftp Thumbnail URL is accepted, so the scheme limb is link buttons only) | M1 |
-| L8 | a link button has no emoji and its `label` is absent or whitespace-empty. A button **has an emoji** when `emoji` is present with a non-empty `id` or a non-empty `name` | C7–C9, H4–H6; QA's emoji `{}`, emoji `{name: ''}`, label U+00A0, U+0085, nested label absent and one space | X1; QA's label U+FEFF | M1 |
+| L8 | a link button has no emoji and its `label` is absent or whitespace-empty. A button **has an emoji** when `emoji` is present with a non-empty `id` or a non-empty `name` | C7–C9, H4–H6; QA's emoji `{}`, emoji `{name: ''}`, label U+00A0, U+0085, `"\u0085 \u0085"`, nested label absent and one space | X1; QA's label U+FEFF | M1 |
 | L9 | a File component is present, on a new send and on an edit (D-11) | E1, E2, E3; QA's no `file`, nested https | — | M1 |
 | L10 | a Thumbnail or gallery item `description` is the empty string, or longer than 1024 | C10, D4; QA's 1025 (Thumbnail, gallery item), nested `''` and 1025 | C11, D5 (one space); QA's 1024 (Thumbnail, gallery item) | M1 (check), M2 (inputs, constant; the save schema is not edited, D-10) |
 | L11 | already refused today, and must stay refused: no components; content beside V2; over 40 components | A3, A5, N2, N4, N6, N9 | A1, A2, A4, F1, F2, N1, N3, N5, N8 | unchanged; M1 must not regress them |
 
 The research's 76 are tallied across these cells (52 refused, 24 accepted, each id once), checked
-by QA's script (`verification/016/corpus/tally-3b4205d.txt`, exit 0). QA's 40 are cited by its
+by QA's script (`verification/016/corpus/tally-3b4205d.txt`, exit 0). QA's 44 are cited by its
 table rows and carried whole by the fixture, which is the enumerator.
 
 **L7's predicate is the save schema's, written once.** The validator calls a named helper in
@@ -206,8 +208,8 @@ page (Send disabled), shows one reason line in the editor and the send-page prev
 with `valid: false` at its next save. Every other message keeps today's result (AC1-9).
 
 Acceptance criteria (properties):
-- **AC1-1 (agreement with Discord over the measured class).** For every member of the corpus (116:
-  82 refused, 34 accepted), `validateMessage({ username: 'Probe', ...body })` is non-empty exactly
+- **AC1-1 (agreement with Discord over the measured class).** For every member of the corpus (120:
+  86 refused, 34 accepted), `validateMessage({ username: 'Probe', ...body })` is non-empty exactly
   when Discord refused the member. The expected verdict is the member's measured `discord` field,
   never a value the website computes (expectations independence). No member may differ. The
   implementer copies the fixture byte-identical to `src/utils/__tests__/helpers/discordV2SendCorpus.ts`,
@@ -283,6 +285,39 @@ previous deployment is his quick rollback (as recorded for the last chain,
 `handoff/save-gate-embeds-owner-checks-on-hooks-gg-2026-11-11.md`). Rows saved while M1 was live keep
 `valid: false` after a rollback until they are saved again (§ Stored rows).
 
+### M1b — The preview route shows no validation chrome (D-14)
+
+**What changes (product behaviour):** on `/preview`, and therefore in every preview image generated
+from it, none of the editor's error lines renders and the accessories container carries no red
+border. Every other surface keeps every line. This reverses plan 015 D33 for the over-40 line, by
+his word (D-14).
+
+**Re-derivation (M1 ships product behaviour; M1b is downstream):** M1 adds a line that fires for
+routine drafts (F-12). M1b's premise is exactly that: an image of a routine draft would carry it.
+M1's behaviour is the reason for M1b, so the premise holds.
+
+The class, enumerated at `0e3d903` (`DiscordMessageEditor/index.tsx`, read 11:15Z): the error lines
+`noContentError`, `embedCharacterError`, `v2TextError` and `componentCountError`, M1's new reason
+line, and the `styles.errorBorder` class on the accessories container. The render sites of
+`DiscordMessageEditor` outside tests (`git grep -n "<DiscordMessageEditor\b|<MessagePreview\b"`,
+11:15Z) are `src/app/preview/page.tsx`, `src/app/message/m/[id]/edit/page.tsx`, and through
+`MessagePreview` the send page, `send/_components/EditMessageMenu.tsx` and `NewMessageModal.tsx`.
+
+- **AC1b-1.** On `/preview`, for a message that triggers each member of the class, the member does
+  not render. Each of the six members is checked separately, with its trigger present.
+- **AC1b-2.** On every other render site listed above, each member renders exactly as at `0e3d903`,
+  and M1's new line renders as M1 specifies.
+- **AC1b-3.** Only `src/app/preview/page.tsx` turns the class off. No other render site passes the
+  signal. The mechanism is the architect's proposal (AF-11): a signal only the preview route passes,
+  not edit mode, because the send page's read-only preview needs the lines. Its form is the
+  implementer's.
+- **AC1b-4 (human-observable).** On a local build of the tip, `/preview` for a draft with a fresh
+  Text Display shows no red line or border, while the editor and the send page show the line. Walked
+  by UAT in B-1's session. After deploy, the preview image of a test-account V2 message saved with an
+  unfilled component carries no red line. QA registers both rows.
+
+Rollback: `git revert`, as M1. A revert brings the lines back into preview images.
+
 ### M2 — The 1024 description bound in the constant and both inputs (Save does not refuse)
 
 **Re-derivation (M1 ships product behaviour; M2 is downstream):** M1 already refuses an over-1024
@@ -338,6 +373,7 @@ The standard is the workspace's Test Conventions (`agent-output/CLAUDE.md`, "Tes
 (`website`)"): vitest, tests beside the module under `__tests__/`, the process exit code beside the
 counters, `pnpm run typecheck` for both programs. Expected test types: pure-logic tests of the
 predicate over the corpus and AC1-2's placements, a DOM test of the editor's reason line (AC1-5),
+DOM tests of M1b's six members on `/preview` and on the other render sites (AC1b-1, AC1b-2),
 the two-tree differential (AC1-9, QA's at Phase 2) and the ts-node import probe (AC1-10), which
 runs outside vitest. Before adding a test, extend the existing ones on this surface:
 `src/utils/__tests__/limits.send-gate-partition.test.ts` and `limits.component-count.test.ts`.
@@ -399,7 +435,7 @@ B-3 and B-4 (post-deploy). Cases, fixtures and coverage are QA's.
 | X-5 | The add menu's default factories | Determination out-clause | Stated limit (AC1-6 records what the user sees) |
 | X-6 | Classic messages; the save gate | Determination out-clause; chain `fix-website-save-gate-embeds` | Stated limit |
 | X-7 | Unmeasured refusals (N-3, N-8) | Determination: measured cases only | Ledger residue |
-| X-8 | `project-utils`, `preview-image-generator` | Determination. No copy of the check in `project-utils` (`git grep -l`, exit 1, steering's read). `preview-image-generator` was not read: a repository-wide grep there was refused by the secret-file gate. | Stated limit |
+| X-8 | `project-utils`, `preview-image-generator` | Determination. No copy of the check in `project-utils` (`git grep -l`, exit 1, steering's read). `preview-image-generator` at `8de2b53` was read with a pathspec that leaves out `.github`: `src/generateImage.ts` waits on `networkidle0` only, and keys on no error element (`git grep -n`, 11:14Z), so M1b's removal does not change what it waits for. It is not edited. | Stated limit |
 
 ## Entry work (2026-11-11)
 
