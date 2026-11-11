@@ -167,3 +167,28 @@ question sits upstream of any effort (whether a limit check is wrong at all).
   the owner's to answer; this thread typed nothing into the pane.
 - Standing check armed as a one-shot (id `961e52ef`, 09:07Z). Out-of-memory count at arming: 43
   (`grep -c 'invoked oom-killer' /var/log/kern.log`).
+
+## 2026-11-11T08:46Z — fixer handoff received; its three routed items
+
+The fixer's document `implementation/fix-website-save-gate-embeds-implementation.md` (record
+`522af59`) reads `Status: Active`, `Handoff-At: 460000b — repos=website`. Website diff
+`6d78b19..460000b` by `--numstat`: `src/utils/index.ts` 1/1, two test files 82/0 and 19/1. Its spawn
+cue arrived by message (no reviewer session live); the reviewer is started on it.
+
+1. **Its out-of-scope observation is answered by an existing ruling and is not re-asked.** A stored
+   draft with the V2 flag set, classic content and no V2 components saves unchanged and the send
+   check refuses it (its Diagnosis, last paragraph; read from code, not run). That is the
+   flag-over-body shape of plan 013 **D19**, his words of 2026-08-24: "We'll fix the two outliers and
+   the question becomes moot because that shape will be disallowed. Whatever default consequence
+   there then is does not need to be decided or reasoned around." D43 records his repair of both
+   rows. No re-scoping, no rider, no handoff; this block is the item's destination.
+2. **Live-state check.** The fix repairs no stored row; whether any stored message holds V2
+   components beside an empty embed is his to read against the live database. Carried to the release
+   step, where the read-only query is written out for him.
+3. **Lint deviation** (34 findings already present at `6d78b19`, left unfixed): the reviewer's to rule.
+
+Raised by this thread from the document's User-visible flows: pasted JSON holding V2 components
+plus an empty embed now shows the mixed-draft choice on the two JSON load paths, where before the
+empty embed was dropped silently. The fixer's brief said a change in what a user sees beyond the
+existing choice is a design decision; the fixer read this as the existing choice. Put to the
+reviewer as a candidate, and to him for his own check before release.
