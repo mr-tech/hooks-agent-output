@@ -3,8 +3,8 @@ ID: 016
 Origin: 016
 UUID: 54673438
 Status: Active
-Status-Detail: "Revision 4, ready for the critic, the architect and QA Phase 1 to read again. It restates M1b's class as a property over the whole rendered /preview tree (AF-12, F-12, QAF-10), with Author's username line as the seventh member. It adopts the showEdit prop route for the signal (AF-13), and folds F-13/QAF-11 and F-14. Revision 3's approvals do not carry to it. No OPEN QUESTION remains."
-Revision: 4
+Status-Detail: "Revision 5, ready for the critic, the architect and QA Phase 1 to read again. It folds QAF-12 (QA's re-key on revision 4, record 96fbc66): AC1b-1 checks Author's line on /preview in the cozy style the route renders, and its compact branch at the Author component with the signal set as /preview sets it. QA's by-render enumeration settled M1b's seven members. Revision 4's approvals do not carry to it. No OPEN QUESTION remains."
+Revision: 5
 Target Release: "website master → this chain's merge SHA (Vercel production on a push of master). The package carries no version artefact (package.json has no version field, CHANGELOG absent; read 2026-11-11T10:22Z)."
 Epic-Alignment: "none registered. The workspace has no roadmap, by the owner's standing instruction (brief). Source of the effort: research/closed/components-v2-send-validity-2026-11-11.md and research/closed/components-v2-description-text-limit-2026-11-11.md; opened by selection 14 (rulings block 2026-11-11T09:09Z)."
 Lane: "standard. The scoping determination sets a full chain (rulings block 2026-11-11T09:17Z). The blast radius is a shared predicate: validateMessage feeds the send page, the stored valid column and the public v1 API, so this is not a leaf."
@@ -30,10 +30,11 @@ Owed re-verdicts:
 
 | Limb | Decidable since | Owning gate | State |
 |---|---|---|---|
-| M1b's class as a property, with seven members by code read (AC1b-1) | revision 4 | QA (by-render enumeration), critic, architect | critic and architect approved (`01eeaad`, `47c7a4c`); QA open |
-| AC1b-3's signal form (AF-13) | revision 4 | architect | approved (`47c7a4c`) |
-| AC1b-4's post-deploy member (b) | revision 4 | QA (B-6), critic (F-13) | critic resolved F-13 (`01eeaad`); QA open |
-| RK-5, X-11 | revision 4 | critic | approved (`01eeaad`) |
+| M1b's class as a property, seven members, settled by render (AC1b-1) | revision 4 | QA (by-render enumeration), critic, architect | QA found exactly seven (`96fbc66`); critic and architect approved revision 4 (`01eeaad`, `47c7a4c`); revision 5 owed to all three |
+| AC1b-1's Author limb: cozy on `/preview`, compact at the component (QAF-12) | revision 5 | QA, critic, architect | open |
+| AC1b-3's signal form (AF-13) | revision 4 | architect | approved (`47c7a4c`); revision 5 owed |
+| AC1b-4's post-deploy member (b) | revision 4 | QA (B-6), critic (F-13) | critic resolved F-13 (`01eeaad`); QA carries it in B-6 (`96fbc66`); revision 5 owed |
+| RK-5, X-11 | revision 4 | critic | approved (`01eeaad`); revision 5 owed |
 
 ## Changelog
 
@@ -46,6 +47,7 @@ Owed re-verdicts:
 | 2026-11-11T11:13 | 3 | planner-hooks-016 | Folds the owner's selection 23 (rulings block "2026-11-11T11:11Z — selection 23", record `c966305`) as D-14, and QA's QAF-9 from its re-key on revision 2 (`77b1fd6`). The critique (`5c1512f`) and the architecture delta (`2520ac7`) approved revision 2. Scope delta: milestone M1b added (the preview route shows no validation chrome, every error line included), reversing plan 015 D33. M1's whitespace-empty predicate is restated per character, and the corpus is re-pinned to QA's 120 members. Since approval of the value statement: three revisions and two gate rounds; M1b is the one milestone added. Size against the original ask: one send-check change plus the 1024 bound, and by his word one shared preview-chrome change. |
 | 2026-11-11T11:18 | 4 | planner-hooks-016 | Folds the three gate reads of revision 3: architecture delta AF-12 and AF-13 (`0bb1084`, range corrected at `ccaa340`), critique cycle 2 pass 1 F-12 to F-14 (`56b2916`), and QA's re-key QAF-10, QAF-11 and SE-6 (`d5466ab`). The arguments live in those documents. Scope delta: M1b's class is now the property over everything `DiscordMessageEditor` renders on `/preview`, with seven members (Author's username line added) and each other candidate dispositioned from code at `0e3d903`. The signal takes the `showEdit` prop route (AC1b-3). AC1b-4's post-deploy limb gains the 41-component member that distinguishes fixed from unfixed. RK-5 states the residue in already-generated images, and M1b's rollback is tied to M1's (SE-6). This rides selection 23 ("no error lines or red border at all"), and no milestone is added. X-11 and a Reading Order are added (the body is past 500 lines). Since approval of the value statement: four revisions and three gate rounds. Size against the original ask: unchanged from revision 3. |
 | 2026-11-11T11:21 | R-2 | planner-hooks-016 | Verdicts on revision 4: the architect APPROVED with no findings (`architecture/016-send-check-validity-architecture-findings.md`, `47c7a4c`), and critique cycle 2 pass 2 APPROVED (`critiques/016-send-check-validity-cycle2-critique.md`, `01eeaad`). Editorial changes: a duplicated Testing Strategy sentence removed (architect's note), and M1 and M2 added to the Reading Order's uat row (critique F-15). No requirement changed; the revision stays 4. |
+| 2026-11-11T11:44 | 5 | planner-hooks-016 | Folds QAF-12 LOW from QA's re-key on revision 4 (`qa/016-send-check-validity-qa.md`, record `96fbc66`), the one finding of the three gate reads of revision 4 (critic `01eeaad` and architect `47c7a4c` approved). AC1b-1's Author limb is checked on `/preview` in cozy, the only style the route renders, and in compact at the component, as QA asked; M1b's table records that QA's render settled the seven members. Scope delta: AC1b-1's wording only, no milestone added, removed or widened; the whitespace limb is not touched. Since approval of the value statement: five revisions and four gate rounds. Size against the original ask: unchanged from revision 3. |
 
 ## Value Statement and Business Objective
 
@@ -329,14 +331,18 @@ one file or one directory. Membership is **settled by the render**: `/preview` i
 validator's trigger present, and every error element it emits is read. QA runs this at its re-key.
 A member found later, by anyone, is inside M1b, since D-14 already covers it.
 
-Members by code read at `0e3d903` (11:18Z). Candidates came from `git grep -l -E
+Members by code read at `0e3d903` (11:18Z), settled by QA's render at the same tree: the by-render
+enumeration through the real `/preview` page found exactly these seven and confirmed every "not
+rendered" and "not painted" row (`qa/016-send-check-validity-qa.md`, re-key on revision 4, record
+`96fbc66`; captures `verification/016/preview-chrome/by-render-results-0e3d903.json`, with an
+edit-mode mutant as its positive control). Candidates came from `git grep -l -E
 "text-error|data-erroring-state|errorStateBorder|errorBorder|text-red|ring-red" 0e3d903 -- src/components
 src/app/preview ':!**/__tests__/**'`, 15 files, each classified:
 
 | Candidate | On `/preview`? | Read |
 |---|---|---|
 | `index.tsx`: `noContentError`, `embedCharacterError`, `v2TextError`, `componentCountError`, M1's new line, `styles.errorBorder` on the accessories container | **Member** (six) | No edit-mode condition |
-| `Author.tsx`: the `validateUsername` line, cozy and compact | **Member** (seventh) | No `showEdit` condition. QA executed it: an empty username renders the line with `showEdit={false}` (`verification/016/preview-chrome/author-probe-0e3d903.txt`, 4 of 4) |
+| `Author.tsx`: the `validateUsername` line, cozy and compact | **Member** (seventh). `/preview` renders only cozy (below) | No `showEdit` condition. QA executed it: an empty username renders the line with `showEdit={false}` (`verification/016/preview-chrome/author-probe-0e3d903.txt`, 4 of 4) |
 | `Author.tsx`: `errorStateBorder` on the cozy header | Not painted | `data-erroring-state` is set only on the edit branch's input. No ancestor in `index.tsx`, `ContentBody.tsx` or the preview page sets it |
 | `EmbedTitle`, `EmbedAuthor`, `EmbedField`, `EmbedFooter`: lines, rings, link icons | Not rendered | Each returns a read-only render under `if (!showEdit)` before its chrome. `EmbedFooter`'s line is commented out |
 | `DiscordContentEditor` (`Desktop.tsx`, `Mobile.tsx`): counter, ring, "Too long." | Not rendered | `DiscordContentEditor/index.tsx` returns a static render under `if (!showEdit)` |
@@ -345,7 +351,14 @@ src/app/preview ':!**/__tests__/**'`, 15 files, each classified:
 | `ActionsMenu`, `ActionRowEditor`, `MediaGalleryEditor`: `text-red-400` | Not validation chrome | Delete affordances (`danger` menu items, "Delete Button", "Delete") |
 | `src/app/preview/page.tsx`: "Invalid message data." | Outside the class (X-11) | Rendered *instead of* `DiscordMessageEditor` when the data does not parse, so it is not chrome on a message |
 
-The rows marked "not rendered" and "not painted" are code reads. The render settles them.
+The rows marked "not rendered" and "not painted" were code reads; QA's render confirmed each.
+
+**Visual style on `/preview`.** `src/app/preview/page.tsx` passes no `visualStyle`, and
+`DiscordMessageEditor` defaults it to `'cozy'` (`website@0e3d903
+src/components/DiscordMessageEditor/index.tsx`, the `visualStyle = 'cozy'` default; page read at
+`0e3d903`, 11:41Z). So the route renders Author's cozy branch only, and no `/preview` render can
+reach the compact branch (QA QAF-12). The compact branch is still inside the class: it renders the
+same line, and a later change that passes a style to `/preview` would reach it.
 
 The render sites of `DiscordMessageEditor` outside tests (`git grep -n
 "<DiscordMessageEditor\b|<MessagePreview\b"`, 11:15Z; the critic matched it with an importer grep)
@@ -354,8 +367,12 @@ are `src/app/preview/page.tsx`, `src/app/message/m/[id]/edit/page.tsx`, and, thr
 
 - **AC1b-1.** On `/preview`, for each validator whose output the tree can render, a message carrying
   its trigger renders no error text and no error border or ring anywhere in the tree. The seven
-  members above are each checked separately, with their trigger present: Author's in both visual
-  styles. Any member the by-render enumeration adds is checked the same way.
+  members above are each checked separately on the route, with their trigger present; Author's is
+  checked there in the cozy style, the only one the route renders. Author's compact branch is
+  checked at the `Author` component itself, rendered compact with the signal set as `/preview` sets
+  it (lines hidden, AC1b-3) and the trigger present: it renders no username line and no border or ring (QAF-12; the form of QA's
+  probe `verification/016/preview-chrome/Author.preview-error-probe.test.tsx`, which renders
+  `Author` with `showEdit={false}`). A member found later is checked the same way.
 - **AC1b-2.** On every other render site listed above, each member renders exactly as at `0e3d903`,
   and M1's new line renders as M1 specifies.
 - **AC1b-3.** Only `src/app/preview/page.tsx` turns the class off, and no other render site passes the
@@ -453,8 +470,9 @@ share a commit; D-13's reopening class). The drop disposition priced in revision
 tests that call `isMessageValid`. `handoff/website-tests-not-beside-their-module-2026-11-08.md`
 stays as it is (X-9).
 
-QA sequencing: QA Phase 1 runs before implementation (D-2). It has read revisions 1 to 3, its
-findings are folded here, and it re-keys on revision 4, running M1b's by-render enumeration. The
+QA sequencing: QA Phase 1 runs before implementation (D-2). It has read revisions 1 to 4, its
+findings are folded here (QAF-12 at revision 5), and its by-render enumeration of M1b's class is run
+at `0e3d903` (record `96fbc66`). It re-keys on revision 5. The
 browser walks are B-1, B-2 and B-5 (UAT, pre-release) and B-3, B-4 and B-6 (post-deploy). Cases,
 fixtures and coverage are QA's.
 
@@ -545,25 +563,20 @@ fixtures and coverage are QA's.
 
 ## Resumption State
 
-Checkpoint 2026-11-11T11:22Z, `planner-hooks-016`. The chain stopped on the weekly usage gate
-(rulings block "2026-11-11T11:22Z", record `13ec4bd`).
-- **Done:** revision 4 (`c249af3`) folds all three revision-3 verdicts (architect `0bb1084`/`ccaa340`,
-  critic `56b2916`, QA `d5466ab`). It was delivered to `critic-hooks-016`, `architect-hooks-016` and
-  `qa-hooks-016`. On revision 4 the architect APPROVED with no findings (`47c7a4c`) and the critic
-  APPROVED (cycle 2 pass 2, `01eeaad`). R-2 (`5f95a30`) records both, plus two editorial fixes: the
-  duplicate sentence and F-15. The critic was told F-15 has landed.
-- **Next:** QA's re-key on revision 4 is pending. It includes M1b's by-render enumeration, which may
-  add members (they are inside M1b by its text). On QA's verdict: if it is clean, report the plan
-  ready for implementation to steering as the implementer's spawn cue. If it raises a finding that
-  changes a criterion, write revision 5 and re-cue all three gates. Each later read of the plan is
-  `git diff 5f95a30 HEAD -- planning/016-send-check-validity.md`.
-- **Open to the owner:** nothing to ask. X-11 (`/preview`'s "Invalid message data." fallback stays)
-  is agent-authored and was reported to steering for his sight. Design decision 2 (labels take D-9's
-  rule) stands (rulings block 11:11Z).
-- **Trees:** website on `master` at `0e3d903`, clean, with no chain branch yet (steering creates
-  it). The record has nothing uncommitted of this session's. My scratchpad holds only throwaway
-  captures (the base suite JSON, the eslint JSON, the diff extracts). Their numbers are recorded in
-  § Validation and the changelog rows.
+Updated 2026-11-11T11:44Z, `planner-hooks-016` (fresh generation, brief
+`steering/queue-hooks-briefs/planner-016-respawn-brief.md`). The chain is running; it did not stop
+on the usage gate (rulings block "2026-11-11T11:24Z").
+- **Done:** revision 5 folds QAF-12 (QA `96fbc66`) into AC1b-1 and records QA's by-render result in
+  M1b. Revision 4 had the critic's (`01eeaad`) and the architect's (`47c7a4c`) approvals; they do
+  not carry to revision 5.
+- **Next:** the critic (new cycle, since cycle 2 closed), the architect (stopped; spawn cue sent to
+  `steering-queue-hooks`) and QA read revision 5 as `git diff <R-2 head> <rev5> -- planning/016-send-check-validity.md`
+  (the R-2 head is `a9bb644`). When all three approve revision 5, send the implementer's spawn cue to
+  `steering-queue-hooks`. A finding that changes a criterion is folded in one revision 6.
+- **Open to the owner:** nothing. X-11 and design decision 2 stand as reported (rulings blocks
+  11:11Z, 11:21Z).
+- **Trees:** website on `master` at `0e3d903`, no chain branch yet. The record has nothing
+  uncommitted of this session's.
 
 ## Planner batch
 
