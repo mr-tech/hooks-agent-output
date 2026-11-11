@@ -2,8 +2,8 @@
 ID: 016
 Origin: 016
 UUID: 54673438
-Status: Code Review Approved
-Status-Detail: "Code review approved at website 395510e (code-review/016-send-check-validity-code-review.md, Round 1 fix sub-entry, record 892daad); QA Phase 2 next. No OPEN QUESTION remains."
+Status: QA Complete
+Status-Detail: "QA Phase 2 PASS at website 395510e (qa/016-send-check-validity-qa.md, record 2af91e5); UAT next. QAF-13 LOW is for the Planner batch under the M1 cap. No OPEN QUESTION remains."
 Revision: 7
 Target Release: "website master → this chain's merge SHA (Vercel production on a push of master). The package carries no version artefact (package.json has no version field, CHANGELOG absent; read 2026-11-11T10:22Z)."
 Epic-Alignment: "none registered. The workspace has no roadmap, by the owner's standing instruction (brief). Source of the effort: research/closed/components-v2-send-validity-2026-11-11.md and research/closed/components-v2-description-text-limit-2026-11-11.md; opened by selection 14 (rulings block 2026-11-11T09:09Z)."
@@ -65,6 +65,7 @@ Owed re-verdicts:
 | 2026-11-11T13:00 | R-12 | planner-hooks-016 | Registration: the M1 cap's voiding events (rulings block "2026-11-11T13:00Z — M1's cap: its voiding events", `308bb4b`), carried on the Resumption State's standing line. Verdict: the architect's delta pass APPROVED revision 7 with no finding (`architecture/016-send-check-validity-architecture-findings.md`, `602ba1d`). No requirement changed; the revision stays 7. |
 | 2026-11-11T13:03 | R-13 | planner-hooks-016 | Verdict: critique cycle 5 APPROVED revision 7 with no finding (`critiques/closed/016-send-check-validity-cycle5-critique.md`, `21ccc3a`). Registration and discharge of the V-101 Opus pass's F-1 to F-3 (rulings block "2026-11-11T13:02Z", `3f22f27`), all routing or status text, under M1's cap: Resumption State, the owed re-verdicts row and the Architectural-Surface line corrected in place. No requirement changed; the revision stays 7. |
 | 2026-11-11T13:03 | R-14 | code-reviewer-hooks-016 | Status set to Code Review Approved: code review Round 1 was REJECTED at website `ee114ff` (CR-1 to CR-3), and its fix sub-entry APPROVED at `395510e` (`code-review/016-send-check-validity-code-review.md`, record `892daad`). Plan read at revision 7. No requirement changed. |
+| 2026-11-11T13:48 | R-15 | qa-hooks-016 | Status set to QA Complete: QA Phase 2 PASS at website `395510e` over every criterion it assesses (`qa/016-send-check-validity-qa.md` § Phase 2 — results, record `2af91e5`). Effort-final sweep: 120 of 128 started mutants killed, every survivor dispositioned. QAF-13 LOW is sent to the planner for the Planner batch under the M1 cap. No requirement changed; the revision stays 7. |
 
 ## Value Statement and Business Objective
 
