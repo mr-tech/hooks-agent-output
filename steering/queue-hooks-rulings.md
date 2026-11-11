@@ -1212,3 +1212,35 @@ on devops's spawn cue; the carrier is `handoff/send-check-validity-post-deploy-2
 The retrospective waits on close-out: the post-deploy handoff and the emptiness handoff are
 decidable today, so they are read first, then every chain session is stopped. For his sight, from
 devops's message: the deployed Node major and Vercel's git integration stayed unread.
+
+## 2026-11-11T18:45Z — chain 016 close-out; retrospective started
+
+Read this turn at `HEAD` (record `f31abf7`):
+- Every numbered stage document of chain 016 is terminal and under `closed/` (`find -name '*016*'`,
+  each `Status` line read): plan, implementation, code review, QA, UAT and deployment `Released`;
+  five critiques and the architecture findings `Resolved`.
+- Post-deploy rows B-3, B-4 and B-6: EXECUTED, PASS on hooks.gg (UAT's changelog rows in the
+  post-deploy handoff, record `798ecc6`, read whole except where the read cut B-4's and B-6's last
+  sentences). Limit, UAT's: B-4's 200 is shown by the message existing in Discord, not by a status
+  read; no whitespace member was driven in production. Both handoffs (post-deploy, and
+  `components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md`) are `Addressed` under
+  `handoff/closed/` by devops (`ls`; devops's message).
+- Handoffs the chain created that stay `Open`, as carriers:
+  `send-check-validity-excluded-toast-and-file-upload-2026-11-11.md` (X-1, X-2, RK-1) and
+  `editor-error-lines-render-text-unasserted-2026-11-11.md` (QAF-13). Trigger fired during the
+  chain and dispositioned in the handoff: `qa-014-bc7-closing-observation-and-test-inventory-2026-11-10.md`
+  (QA's row of 10:57Z, its first line read).
+- Forward items beyond the register: swept by devops's Phase 2D (deployment record, "Phase 2D
+  obligations", read this turn). No roadmap or architecture obligation is left to lodge (its
+  Architecture and Roadmap lines). The deployed Node major stays unread by any instrument.
+- `OWNER-QUEUE.md` read whole: the chain adds nothing for him; items 1 and 2 (the earlier save-gate
+  fix) stand unchanged.
+- Sessions stopped with `tmux-agent stop`: `uat-hooks-016`, `devops-hooks-016` (the others died at
+  the restart). On the box: one container, `statbot-071-replica-app1-backupverify`, and no image
+  of this chain's (`docker ps -a`, `docker image ls`); nothing of the chain's under `/var/tmp`.
+  Scratch: the two stopped sessions' directories under
+  `/tmp/claude-1000/-usr-local-bin-hooks-website/` deleted (`du -s` 64K and 12K before; `ls -d`
+  fails after); no open handoff or docket cites a `/tmp/claude-` path (`grep -l`, exit 1).
+- M1's cap ended at the plan's terminal `Status` (block 13:00Z, event 3).
+
+The retrospective is started as this thread's subagent (`retrospective-016`).

@@ -7,7 +7,7 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-255 documents · 16 numbered chains · 113 unnumbered.
+279 documents · 16 numbered chains · 128 unnumbered.
 
 ---
 
@@ -104,13 +104,22 @@ closed. A document's path changes when it closes; its name does not.
 | security | `security/closed/015-preview-image-generator-security-audit.md` | Review Complete — Review Complete 2026-11-08: targeted review of preview-image-generator 471578f..8de2b53 APPROVED (no finding above LOW in the five files). The reviewed tip is the SHA serving on prod: own git ls-remote refs/heads/prod = 8de2b53 at 22:16Z; deployment/closed/015-bug-evaluation-fixes-deployment.md § Release Execution (pushed 21:38:42Z, deployed 22:02Z, re-run 22:04:49Z). Host posture H-001 to M-002 accepted record-only (rulings 09:43Z), carried by handoff/preview-image-generator-host-security-posture-2026-11-08.md (Open) and dated past the deploy by verification/015/security-post-deploy-read-2026-11-08T2216Z.txt (unchanged). Nothing is owed by this document. |
 | UAT | `uat/closed/015-bug-evaluation-fixes-uat.md` | Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). Release-Decision APPROVED FOR RELEASE stands; post-deploy rows B-6, B-7 and B-8 ride handoff/bug-evaluation-fixes-post-deploy-2026-11-08.md. Earlier detail is in the body and changelog. |
 
-### 016 — 3 open, 0 closed
+### 016 — 0 open, 12 closed
 
 | Stage | Location | Status |
 |---|---|---|
-| architecture | `architecture/016-send-check-validity-architecture-findings.md` | Active — Conformance pass on plan 016 revision 1 (record 3b4205d): APPROVED_WITH_CHANGES. AF-1 and AF-2 are required of the planner; AF-3 and AF-5 are recommended. AF-4's A-4 clause lands at this chain's reconciliation, no later than devops Stage 1. |
-| critique | `critiques/016-send-check-validity-critique.md` | Open — Cycle 1 pass 1 on plan revision 1: REQUEST REVISION. Five MEDIUM findings open (F-1 to F-5) and five LOW (F-6 to F-10). F-6 fires rider R1's own yield clause. Waits on the planner's next revision. |
-| plan | `planning/016-send-check-validity.md` | Active — Revision 1, ready for critique and the architect's conformance pass, then QA Phase 1. No OPEN QUESTION remains. The Exclusions register (X-1 the generic toast, X-2 File upload) goes to the owner through steering. |
+| architecture | `architecture/closed/016-send-check-validity-architecture-findings.md` | Resolved — Every pass APPROVED (last: plan revision 7, record 9fd96d5). Reconciled to the release tree website 395510e at devops Stage 1 (record 436a30a): website.md A-4's D-10 clause, the /preview signal under D-001, the preview-chrome and fixture Problem Areas resolved. AF-2 (link-button predicate) and the send-refusal telemetry gap are carried by their Problem Area rows in system-architecture.md. |
+| code review | `code-review/closed/016-send-check-validity-code-review.md` | Released — Round 1 APPROVED at website 395510e (REJECTED at ee114ff; fix sub-entry approved at 395510e). Released at devops Phase 2D (pushed 2026-11-11T18:29:46Z). The Assumption Not Checked was closed by UAT's B-1 send-gate pair. |
+| critique | `critiques/closed/016-send-check-validity-critique.md` | Resolved — Cycle 1 closed at pass 2 on plan revision 2: APPROVED. F-1 to F-10 are RESOLVED, each verified in the revision 2 diff. F-11 (LOW) is closed as a stated limit under the stop authority; the implementer follows the formal definition. |
+| critique | `critiques/closed/016-send-check-validity-cycle2-critique.md` | Resolved — Cycle 2 closed on plan revision 4: APPROVED at pass 2 (c249af3). F-12, F-13 and F-14 are RESOLVED, verified in the revision 4 diff. F-15 is RESOLVED, verified in registration R-2 (5f95a30), which moved no criterion. |
+| critique | `critiques/closed/016-send-check-validity-cycle3-critique.md` | Resolved — Cycle 3 closed on plan revision 5: APPROVED at pass 1 with no finding. Registration R-3 (fcbb6b2) read as a boundary line; it moved no criterion. |
+| critique | `critiques/closed/016-send-check-validity-cycle4-critique.md` | Resolved — Cycle 4 closed on plan revision 6: APPROVED at pass 1 (94403d2). F-16 is RESOLVED, verified in registration R-7. Registrations R-6 to R-8 (343d62e) moved no criterion. |
+| critique | `critiques/closed/016-send-check-validity-cycle5-critique.md` | Resolved — Cycle 5 closed on plan revision 7: APPROVED at pass 1 with no finding. The stop authority fired on a second instance of one shape (the byte-fixed fixture against a repository gate); revision 7 already carries the class remedy, and the property is stated and verified here. Registration R-10 (c088e04) read as a boundary line. |
+| deployment | `deployment/closed/016-send-check-validity-deployment.md` | Released — Released 2026-11-11T18:29:46Z: website master 0e3d903 -> 395510e97f82a5177d5edbb38b5d44858f745f3d on the owner's release answer (selection prompt, 18:29Z). Post-deploy rows B-3, B-4, B-6 ride handoff/send-check-validity-post-deploy-2026-11-11.md (Open, owning stage uat). |
+| implementation | `implementation/closed/016-send-check-validity-implementation.md` | Released — Committed at website chain/016-send-check-validity tip 395510e (devops Stage 1); released at devops Phase 2D (pushed 2026-11-11T18:29:46Z). |
+| plan | `planning/closed/016-send-check-validity.md` | Released — Released: website master -> 395510e97f82a5177d5edbb38b5d44858f745f3d, pushed 2026-11-11T18:29:46Z on the owner's release answer. Post-deploy rows B-3, B-4 and B-6 ride handoff/send-check-validity-post-deploy-2026-11-11.md. No OPEN QUESTION remains. |
+| QA | `qa/closed/016-send-check-validity-qa.md` | Released — Phase 2 PASS at website 395510e (plan revision 7), released at devops Phase 2D (pushed 2026-11-11T18:29:46Z). Effort-final sweep 120 of 128 mutants killed, every survivor dispositioned; QAF-13 LOW carried by handoff/editor-error-lines-render-text-unasserted-2026-11-11.md. Register: B-1, B-2, B-5 EXECUTED (UAT); B-3, B-4, B-6 post-deploy, carried by handoff/send-check-validity-post-deploy-2026-11-11.md. The Phase 3 release-tip record is a separate document. |
+| UAT | `uat/closed/016-send-check-validity-uat.md` | Released — APPROVED FOR RELEASE at website 395510e (plan revision 7), released at devops Phase 2D (pushed 2026-11-11T18:29:46Z). Pre-release rows B-1, B-2 and B-5 EXECUTED and PASS. Post-deploy rows B-3, B-4 and B-6 ride handoff/send-check-validity-post-deploy-2026-11-11.md with their unfixed values; UAT-1 LOW (B-6(b) is read on the red border, subject message 5996) is carried there. |
 
 ### 1 — 0 open, 8 closed
 
@@ -265,12 +274,14 @@ they are the ID-less artifacts that root new efforts.
 | handoff | `handoff/closed/architecture-record-reconciliation-owed-2026-11-10.md` | Addressed · priority normal — Addressed 2026-11-11 by architect-hooks-016 at the plan 016 conformance pass; each item's disposition is in the changelog row. Original detail: Six architecture items routed to the architect while no architect session was running: system-architecture.md is not reconciled to chains 012-014, the chain-013 findings document is still Active, and four record lines are stale or incomplete. Nothing blocks on them; a brief citing the architecture record reads stale text until they land. |
 | handoff | `handoff/closed/bug-evaluation-fixes-post-deploy-2026-11-08.md` | Addressed · priority normal — All three post-deploy rows of chain 015 are EXECUTED PASS: B-8 (devops, 22:05Z), B-7 (uat, 22:38Z, with the save leg at 23:02-23:03Z discharging the live-schema residual) and B-6 (uat, 22:56Z, with a discriminating control at 22:59Z). Carried out, not discharged here: the NEXT_PUBLIC_CDN_PORT production read, which is the owner's and was routed to steering for the owner queue at closure. |
 | handoff | `handoff/closed/components-v2-editing-support-2026-08-23.md` | Addressed · priority normal — Re-statused 2026-08-24 by steering-hooks-013-2 under plan 013's M6 (Record closure). No longer unassigned and no longer awaiting research: research 8311155a answered it, and plan 013 (013-components-v2-editing-surfaces.md) absorbed the result and has implemented against it. Per that plan, 013 addresses observations 1, 2, 5, 6 and 7 directly. Observation 3 (toggle to V2 clears content, with a prompt) is by design and untouched. Observation 4 is addressed on its stranded-flag half only (D15 + M7: a record whose bit is set without V2 components now opens in V2, and one toggle to Classic clears the bit losslessly); its other half - the indicator is the mode, and the toggle to V2 removes classic data by design - is unchanged, and a dedicated control is explicitly not in scope. TERMINAL 2026-08-25: chain 013 RELEASED - `website` serving ref `master` `2d90e8a` -> `b56570d`, 20:30:01 UTC, recorded at deployment record §16 and plan 013 rev 51, which are the authority for the release act and are not restated here. The release was the only condition this document held itself open against, so it is `Addressed` and moved to `closed/`. Nothing in the mapping above is re-derived, revisited or amended by that closure. |
+| handoff | `handoff/closed/components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md` | Addressed · priority normal — Addressed by chain 016 (plan M3), released website master 395510e; B-3's fixed read on hooks.gg (uat, 2026-11-11T18:35Z, handoff/send-check-validity-post-deploy-2026-11-11.md) shows "A Text Display is empty." for the owner's instance. The text below is as written 2026-08-26. A Components V2 message can be assembled in the composer in a state Discord rejects on send, and the send gate does not catch it. The owner's instance: a V2 message whose only component is an EMPTY Text Display. Empty `content` and empty embeds ARE caught by the existing gate; the V2 emptiness equivalent is not. This is stated as an owner observation of live behaviour, not as a derived conclusion - see "What is established and what is not" below. Nothing here is diagnosed: no agent has read the gate for this question, and the class of invalid V2 configurations has NOT been enumerated. The one instance is known; the class is not. |
 | handoff | `handoff/closed/components-v2-invariant-for-system-architecture-2026-08-24.md` | Addressed · priority normal — Addressed 2026-11-11 by architect-hooks-016: compared line by line with system-architecture.md at agent-output after this commit. The invariant is D-004 (the flag is the mode; D17's five rows; structure sets the bit). The no-removal clause is the Components 'One serialiser' bullet with website.md W-1. Both withdrawn statements appear only in D-004's Alternatives/Related and the changelog, marked withdrawn. The Data-flow bullet names one serialiser behind the persist gate. Original detail follows. Issued 2026-08-24 by steering-hooks-013-2 under plan 013's M6 (Record closure). Plan 013 established an architectural invariant that system-architecture.md does not yet record, and that supersedes two statements previously believed true. The correction is deliberately NOT made by chain 013 - M6's wording is that it "is handed to the architect (not made here)" - because the record is the architect's to write. Nothing here is derived by this thread: the content is plan 013's Handoff Notes verbatim in substance, and the plan is the authority. |
 | handoff | `handoff/closed/fix-v1-guild-messages-auth-post-deploy-2026-10-10.md` | Addressed · priority normal — Both rows terminal. B-3 PASS (401, 2026-10-10T16:52Z). B-4 PASS: the owner observed the statrole editor loading hooks.gg messages (2026-11-10, rulings 633ab08). The 24-hour Vercel-log fallback lapsed unread on 2026-10-11 and is superseded by that observation, not owed. |
 | handoff | `handoff/closed/json-editor-bad-configurations-2026-08-23.md` | Addressed · priority normal — Re-statused 2026-08-24 by steering-hooks-013-2 under plan 013's M6 (Record closure). No longer unassigned and no longer awaiting research: research 5c1e9d27 answered it and bounded it (F4) to one clause - what the JSON reconciler does with a flags bit that disagrees with structure - and plan 013 carried it as a rider from its first pass under D2. Plan 013 records that this handoff is closed by M8-B and M8-D, which are D17's own rows, delivered and code-reviewed. The rider structure itself was retired at plan rev 11 (critique M-9): D17 rules rows B and D directly, so there is no yield clause and no priced drop, and what remained of the attachment is traceability - which this line is. TERMINAL 2026-08-25: chain 013 RELEASED - `website` serving ref `master` `2d90e8a` -> `b56570d`, 20:30:01 UTC, recorded at deployment record §16 and plan 013 rev 51, which are the authority for the release act and are not restated here. The release was the only condition this document held itself open against, so it is `Addressed` and moved to `closed/`. M8-B and M8-D are not re-verified by that closure and are not re-stated as verified here. |
 | handoff | `handoff/closed/message-valid-field-for-statbot-2026-08-23.md` | Addressed · priority normal — Owner-directed work on the hooks.gg side, agreed in shape but not yet built. A `valid` boolean is to be added to stored message records so Statbot can refuse messages hooks.gg already knows cannot be sent. The shape below was proposed by statbot chain 023's planner and accepted by the owner unaltered on 2026-08-23; statbot chain 023 is proceeding in parallel against it as a settled contract. This document records what was agreed and why, so the hooks.gg implementation is not re-derived from a conversation. TERMINAL 2026-08-26: chain 012 is RELEASED and closed out, and the owner declared the field live in production - registered verbatim as plan 012 register row D29. The release act and its identity are recorded in `deployment/closed/012-message-valid-field-deployment.md`, which is the authority for them and is not restated here. Both open questions below were dispositioned in plan 012, as this document's own changelog already records; the second of them - a spot-check of the backfill against the composer UI before Statbot is told the field is live - was met by the owner-reviewed distribution report that gated the declaration. Nothing in the agreed shape is re-derived, revisited or amended by this closure. |
+| handoff | `handoff/closed/send-check-validity-post-deploy-2026-11-11.md` | Addressed · priority normal — Addressed: B-3, B-4 and B-6 EXECUTED and PASS on hooks.gg at website master 395510e (uat, 18:35Z to 18:43Z; commit 798ecc6). Carried chain 016's three post-deploy-observable register rows from devops Stage 1, 2026-11-11T14:17Z. Released: website master read 395510e at 2026-11-11T18:29:49Z (Review-Trigger met); the rows are decidable now. UAT is cued through steering as a spawn cue. The reader is the UAT stage (a session, not a scheduled run); the owner is the fallback only. |
 | handoff | `handoff/closed/v1-guild-messages-endpoints-unauthenticated-2026-08-24.md` | Addressed · priority normal — Addressed: both v1 guild-messages handlers require the Statbot key since website 1acffee, live since 2026-10-10 (unauthenticated request: 401, 0 bytes). The open questions are answered in steering/v1-guild-messages-auth-rulings.md, block 2026-11-10: the owner rules the key is not treated as compromised; of the other matchers, /message and /preview are live and /api/guilds is a dead pattern that guards nothing. The remaining post-deploy check (Statbot's own calls) rides handoff/fix-v1-guild-messages-auth-post-deploy-2026-10-10.md. |
-| handoff | `handoff/components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md` | Open · priority normal — A Components V2 message can be assembled in the composer in a state Discord rejects on send, and the send gate does not catch it. The owner's instance: a V2 message whose only component is an EMPTY Text Display. Empty `content` and empty embeds ARE caught by the existing gate; the V2 emptiness equivalent is not. This is stated as an owner observation of live behaviour, not as a derived conclusion - see "What is established and what is not" below. Nothing here is diagnosed: no agent has read the gate for this question, and the class of invalid V2 configurations has NOT been enumerated. The one instance is known; the class is not. |
+| handoff | `handoff/editor-error-lines-render-text-unasserted-2026-11-11.md` | Open · priority normal — No suite case asserts that DiscordMessageEditor's error lines, and the render around them, carry only their reason text. Five mutants survived plan 016's effort-final sweep on that surface (QAF-13 LOW). Plan 016 carries it as a stated limit under steering's M1 cap; this handoff carries it past that plan's closure. |
 | handoff | `handoff/message-init-cached-edits-lost-2026-08-27.md` | Open · priority normal — A test file (`website/src/utils/__tests__/message-init-route0.test.ts`) pinned a bug in its own transcription of MessageProvider's route-0 mount-effect logic, not in the production module itself — the file imported nothing from `~/` or `bot/`. The pin is deleted by plan 014 (D2: delete the pin, log the bug, no bug fixes in a test-cleanup chain). Whether the defect is live in production was NOT verified by chain 014 (out of scope by ruling); an informal, non-authoritative observation is recorded below and should not be read as a verification. |
 | handoff | `handoff/newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md` | Open · priority normal — Discovered while converting a source-text test (`013-fqa19-ingress-gate-reachability.test.ts`, plan 014 M4c row 19) to a real mount. The old test asserted `onSubmit`'s gate-then-write ordering by reading `NewMessageModal.tsx`'s own source text; it never actually rendered the component or clicked a real button. Mounting it for real (`src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx`) shows the gated choice UI the old test's ROUTE 1/ROUTE 2 cases described is unreachable via the Save button today. This chain does not fix product code (D2); logged here instead. |
 | handoff | `handoff/one-hooks-user-several-discord-accounts-2026-11-08.md` | Open · priority normal — Sign-out revokes and clears one arbitrary Discord account row when a Hooks user holds several, and the account lookup returns an arbitrary one. A known limit by the owner's ruling (chain 015 D34); nothing is owed unless such a user is found or reported. |
@@ -280,7 +291,7 @@ they are the ID-less artifacts that root new efforts.
 | handoff | `handoff/preview-image-generator-generic-pool-private-field-2026-11-08.md` | Open · priority normal — Carries chain 015's RK-8 past the chain: preview-image-generator's M8-d fix reaches a private member of generic-pool (_waitingClientsQueue, with a callable dequeue), which a generic-pool release within the ^3.9.0 range can rename or remove. The owner accepted the reach with a startup guard (D36, rulings 09:25Z). Minted at Stage 1 so CR-39, AF-32 and L-C9-4 have a carrier when the plan closes. |
 | handoff | `handoff/preview-image-generator-host-security-posture-2026-11-08.md` | Open · priority normal — Five host-posture findings on the preview-image-generator production host (H-001 to M-002 of security/015-preview-image-generator-security-audit.md), accepted by the owner as recorded on 2026-11-08 (rulings 09:43Z: no effort, no mitigation). This record carries them past chain 015's closure; nothing is owed until the trigger fires. |
 | handoff | `handoff/providers-query-params-header-decode-throws-2026-11-08.md` | Open · priority low — Providers.tsx decodes a client-reachable x-query-params header with decodeURIComponent; a malformed value throws during render. Outside plan 015's pool; nothing blocks on it. |
-| handoff | `handoff/qa-014-bc7-closing-observation-and-test-inventory-2026-11-10.md` | Open · priority normal — Two chain-014 leftovers with no running stage: QA register row BC-7/AC8 has its closing observation but not its terminal write, and the ID-less test inventory that chain 014 consumed is still Active. Nothing blocks on either. |
+| handoff | `handoff/qa-014-bc7-closing-observation-and-test-inventory-2026-11-10.md` | Open · priority normal — Item 1 (BC-7/AC8's terminal write) discharged by QA 2026-11-11. Left: the ID-less test inventory that chain 014 consumed is still Active (the analyst's), and item 3's vocabulary note. Nothing blocks on either. |
 | handoff | `handoff/save-gate-embeds-owner-checks-on-hooks-gg-2026-11-11.md` | Open · priority normal — Released 2026-11-11T10:13Z (website master 0e3d903). Owed: the owner's own check on hooks.gg of the Save flows, which closes QA's Assumption Not Checked (Pusher), and his optional live-database read. Neither blocks anything; no stage is waiting. |
 | handoff | `handoff/save-originating-tab-raises-its-own-update-prompt-2026-08-25.md` | Open · priority normal — Issued 2026-08-25 by steering-hooks-013-3 at the owner's explicit direction ("Route 10 to a handoff"), during chain 013's closeout. Found in PRODUCTION by the owner while executing release condition BC-14, which is the only instrument in chain 013 that reaches this surface - no automated test in that chain covers it. The defect is NOT chain 013's to fix: the owner ruled 013 complete in the same message, and this handoff is the route he chose for the finding rather than a reopening. Nothing here is derived: the symptom is his sentence verbatim, and the two limbs it does not cover are stated as uncovered rather than inferred. |
 | handoff | `handoff/send-check-validity-excluded-toast-and-file-upload-2026-11-11.md` | Open · priority normal — Two items plan 016 excludes and does not discharge: the generic failure toast on a refused send (research F-14), and a File component's upload path (with removing File from the add menu). Neither blocks plan 016. The owner is shown both with plan 016 revision 1's Exclusions register. |
@@ -304,6 +315,7 @@ they are the ID-less artifacts that root new efforts.
 | QA | `qa/closed/release-b56570d-tip-verification.md` | Released — Closed 2026-08-25 with chain 013. **This line previously read `Release Verified`. That was the verdict, it was correct when written, and it is NOT withdrawn** - `Status` carries lifecycle state, never the verdict, and the `Verified-At` and `Criteria-At` above are untouched. **The tip certified here IS the released tree**: `website` serving ref `master` `2d90e8a` -> `b56570d`, 20:30:01 UTC (deployment record §16), where deployed, verified and the UAT anchor are one object. **§6's three process conditions were never this document's to waive and are terminal at their own authorities, which are not restated here**: the push was made; `uat/closed/013-components-v2-editing-surfaces-uat.md` stands at rev 53 with the register closed and `NOT EXECUTED` nowhere; and **CR25-1/CR25-2 remain OPEN residual** under the standing *"record it, leave it"* ruling - unchanged by this closure and not closed by it. The `Assumption Not Checked` above was discharged by devops at the console immediately before the push (§16), which is where it was owed. |
 | QA | `qa/closed/website-2026-10-10-release-tip-qa.md` | Released — Released: website master moved to ddbd750, the tip this document verified (deployment/fix-v1-guild-messages-auth-deployment.md, changelog 2026-10-10T16:52). B-1 and B-2 are terminal; B-3 and B-4 ride handoff/fix-v1-guild-messages-auth-post-deploy-2026-10-10.md. The verdict of record stays 'Release Verified at ddbd750' in the Changelog. |
 | QA | `qa/closed/website-2026-11-11-release-tip-qa.md` | Released — Released 2026-11-11T10:13Z: website master 6d78b19 -> 0e3d903 on origin (devops, deployment/fix-website-save-gate-embeds-deployment.md). The Assumption Not Checked (remote master unmoved until the push) is closed there: ls-remote 6d78b19 at 10:13:23Z and release-move's fast-forward check passed. |
+| QA | `qa/closed/website-395510e-release-tip-qa.md` | Released — Release Verified at website 395510e (tree 28b8af26), a fast-forward of origin/master 0e3d903. Step 1b: 0 of 22 open handoffs are triggered by this verdict or a website production push. Step 2: this workspace has no gated time-based set. Pushed 2026-11-11T18:29:46Z on the owner's release answer; origin/master read back 395510e. |
 | research | `research/closed/components-v2-description-text-limit-2026-11-11.md` | Answered — Answered by measurement: Thumbnail and MediaGallery item descriptions do not count toward Discord's 4000-character Components V2 displayable-text total (F-1 to F-4). The adjacent finding F-6 (Discord bounds each description at 1024 characters and the website bounds neither) is carried by steering/queue-hooks-rulings.md, block "2026-11-11T08:48Z — selection 11", and TODO.md, section "Website fix: bound V2 description fields at 1024 characters". |
 | research | `research/closed/components-v2-editing-flows-2026-08-23.md` | Answered — Determination reached and executable: the load-edit-save-send-preview loop is Components V2 capable; every secondary surface that re-serialises message data (Save As, JSON view/copy/Load, import from Discord URL / webhook URL / bot code, cross-tab change hash) is V2-blind through two 2023 helpers the V2 chain never touched. One seam, five sites, three of them silent. Ready for a planner to cite; incidence in production and one UI-level confirmation remain open (Gaps table). |
 | research | `research/closed/components-v2-send-validity-2026-11-11.md` | Answered — Measured on the agents' test server: 76 Components V2 shapes, 52 refused by Discord. The website's send check blocks 6 of the 52 and lets 46 through; it has no test for emptiness inside a component. Whether and how the send check should change is the owner's question (OQ-1), carried by handoff/components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md. |
@@ -322,15 +334,24 @@ they are the ID-less artifacts that root new efforts.
 | — | `steering/comment-sweep-briefs/comment-sweep-devops-brief.md` | — |
 | — | `steering/comment-sweep-briefs/comment-sweep-fixer-brief.md` | — |
 | — | `steering/queue-hooks-briefs/architect-016-brief.md` | — |
+| — | `steering/queue-hooks-briefs/architect-016-respawn-brief.md` | — |
+| — | `steering/queue-hooks-briefs/code-reviewer-016-brief.md` | — |
 | — | `steering/queue-hooks-briefs/code-reviewer-save-gate-embeds-brief.md` | — |
 | — | `steering/queue-hooks-briefs/critic-016-brief.md` | — |
+| — | `steering/queue-hooks-briefs/devops-016-brief.md` | — |
+| — | `steering/queue-hooks-briefs/devops-016-respawn-brief.md` | — |
 | — | `steering/queue-hooks-briefs/devops-save-gate-embeds-brief.md` | — |
+| — | `steering/queue-hooks-briefs/deweeder-016-brief.md` | — |
 | — | `steering/queue-hooks-briefs/fixer-save-gate-embeds-brief.md` | — |
+| — | `steering/queue-hooks-briefs/implementer-016-brief.md` | — |
+| — | `steering/queue-hooks-briefs/planner-016-respawn-brief.md` | — |
 | — | `steering/queue-hooks-briefs/planner-send-check-validity-brief.md` | — |
 | — | `steering/queue-hooks-briefs/qa-016-brief.md` | — |
 | — | `steering/queue-hooks-briefs/qa-save-gate-embeds-brief.md` | — |
 | — | `steering/queue-hooks-briefs/researcher-text-limit-brief.md` | — |
 | — | `steering/queue-hooks-briefs/researcher-v2-validity-brief.md` | — |
+| — | `steering/queue-hooks-briefs/uat-016-brief.md` | — |
+| — | `steering/queue-hooks-briefs/uat-016-post-deploy-brief.md` | — |
 | — | `steering/queue-hooks-rulings.md` | — |
 | — | `steering/record-engine-briefs/record-engine-code-reviewer-brief.md` | — |
 | — | `steering/record-engine-briefs/record-engine-fixer-brief.md` | — |
@@ -353,6 +374,9 @@ they are the ID-less artifacts that root new efforts.
 | verification | `verification/014/m0-baseline.md` | — |
 | verification | `verification/015/d28-seed-probes/report.md` | — |
 | verification | `verification/015/effort-final/gap-dispositions.md` | — |
+| verification | `verification/016/deweed.md` | — |
+| verification | `verification/016/uat/walk-brief-production.md` | — |
+| verification | `verification/016/uat/walk-brief.md` | — |
 | verification | `verification/cleanup-2026-11-10/handoffs-survey.md` | — |
 | verification | `verification/cleanup-2026-11-10/open-documents-survey.md` | — |
 
@@ -502,9 +526,18 @@ they are the ID-less artifacts that root new efforts.
 | `015-preview-image-generator-security-audit.md` | `security/closed/015-preview-image-generator-security-audit.md` |
 | `015-rulings.md` | `steering/015-rulings.md` |
 | `015-security-brief.md` | `steering/015-security-brief.md` |
-| `016-send-check-validity-architecture-findings.md` | `architecture/016-send-check-validity-architecture-findings.md` |
-| `016-send-check-validity-critique.md` | `critiques/016-send-check-validity-critique.md` |
-| `016-send-check-validity.md` | `planning/016-send-check-validity.md` |
+| `016-send-check-validity-architecture-findings.md` | `architecture/closed/016-send-check-validity-architecture-findings.md` |
+| `016-send-check-validity-code-review.md` | `code-review/closed/016-send-check-validity-code-review.md` |
+| `016-send-check-validity-critique.md` | `critiques/closed/016-send-check-validity-critique.md` |
+| `016-send-check-validity-cycle2-critique.md` | `critiques/closed/016-send-check-validity-cycle2-critique.md` |
+| `016-send-check-validity-cycle3-critique.md` | `critiques/closed/016-send-check-validity-cycle3-critique.md` |
+| `016-send-check-validity-cycle4-critique.md` | `critiques/closed/016-send-check-validity-cycle4-critique.md` |
+| `016-send-check-validity-cycle5-critique.md` | `critiques/closed/016-send-check-validity-cycle5-critique.md` |
+| `016-send-check-validity-deployment.md` | `deployment/closed/016-send-check-validity-deployment.md` |
+| `016-send-check-validity-implementation.md` | `implementation/closed/016-send-check-validity-implementation.md` |
+| `016-send-check-validity-qa.md` | `qa/closed/016-send-check-validity-qa.md` |
+| `016-send-check-validity-uat.md` | `uat/closed/016-send-check-validity-uat.md` |
+| `016-send-check-validity.md` | `planning/closed/016-send-check-validity.md` |
 | `2026-04-07-plan-005.md` | `deployment/closed/2026-04-07-plan-005.md` |
 | `2026-04-07-plan-006.md` | `deployment/closed/2026-04-07-plan-006.md` |
 | `2026-04-07-plan-007.md` | `deployment/closed/2026-04-07-plan-007.md` |
@@ -514,6 +547,7 @@ they are the ID-less artifacts that root new efforts.
 | `2026-04-12-plan-010.md` | `deployment/closed/2026-04-12-plan-010.md` |
 | `2026-11-10.md` | `steering/selection-ledger/2026-11-10.md` |
 | `architect-016-brief.md` | `steering/queue-hooks-briefs/architect-016-brief.md` |
+| `architect-016-respawn-brief.md` | `steering/queue-hooks-briefs/architect-016-respawn-brief.md` |
 | `architecture-record-reconciliation-owed-2026-11-10.md` | `handoff/closed/architecture-record-reconciliation-owed-2026-11-10.md` |
 | `backfill-report-1787522824426-i0womw.md` | `verification/012/backfill-report-1787522824426-i0womw.md` |
 | `backfill-report-1787522866564-i3s31k.md` | `verification/012/backfill-report-1787522866564-i3s31k.md` |
@@ -526,6 +560,7 @@ they are the ID-less artifacts that root new efforts.
 | `chore-agent-comment-sweep-rulings.md` | `steering/chore-agent-comment-sweep-rulings.md` |
 | `CLAUDE.md` | `CLAUDE.md` |
 | `cleanup-2026-11-10.md` | `steering/cleanup-2026-11-10.md` |
+| `code-reviewer-016-brief.md` | `steering/queue-hooks-briefs/code-reviewer-016-brief.md` |
 | `code-reviewer-save-gate-embeds-brief.md` | `steering/queue-hooks-briefs/code-reviewer-save-gate-embeds-brief.md` |
 | `codebase-bug-evaluation-2026-11-08.md` | `research/codebase-bug-evaluation-2026-11-08.md` |
 | `comment-sweep-code-reviewer-brief.md` | `steering/comment-sweep-briefs/comment-sweep-code-reviewer-brief.md` |
@@ -535,12 +570,17 @@ they are the ID-less artifacts that root new efforts.
 | `components-v2-description-text-limit-2026-11-11.md` | `research/closed/components-v2-description-text-limit-2026-11-11.md` |
 | `components-v2-editing-flows-2026-08-23.md` | `research/closed/components-v2-editing-flows-2026-08-23.md` |
 | `components-v2-editing-support-2026-08-23.md` | `handoff/closed/components-v2-editing-support-2026-08-23.md` |
-| `components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md` | `handoff/components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md` |
+| `components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md` | `handoff/closed/components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md` |
 | `components-v2-invariant-for-system-architecture-2026-08-24.md` | `handoff/closed/components-v2-invariant-for-system-architecture-2026-08-24.md` |
 | `components-v2-send-validity-2026-11-11.md` | `research/closed/components-v2-send-validity-2026-11-11.md` |
 | `critic-016-brief.md` | `steering/queue-hooks-briefs/critic-016-brief.md` |
+| `devops-016-brief.md` | `steering/queue-hooks-briefs/devops-016-brief.md` |
+| `devops-016-respawn-brief.md` | `steering/queue-hooks-briefs/devops-016-respawn-brief.md` |
 | `devops-save-gate-embeds-brief.md` | `steering/queue-hooks-briefs/devops-save-gate-embeds-brief.md` |
+| `deweed.md` | `verification/016/deweed.md` |
+| `deweeder-016-brief.md` | `steering/queue-hooks-briefs/deweeder-016-brief.md` |
 | `disposition-table.md` | `verification/014/disposition-table.md` |
+| `editor-error-lines-render-text-unasserted-2026-11-11.md` | `handoff/editor-error-lines-render-text-unasserted-2026-11-11.md` |
 | `fix-agent-comment-sweep-merge-code-review.md` | `code-review/closed/fix-agent-comment-sweep-merge-code-review.md` |
 | `fix-agent-comment-sweep-merge-deployment.md` | `deployment/closed/fix-agent-comment-sweep-merge-deployment.md` |
 | `fix-agent-comment-sweep-merge-implementation.md` | `implementation/closed/fix-agent-comment-sweep-merge-implementation.md` |
@@ -561,6 +601,7 @@ they are the ID-less artifacts that root new efforts.
 | `fixer-save-gate-embeds-brief.md` | `steering/queue-hooks-briefs/fixer-save-gate-embeds-brief.md` |
 | `gap-dispositions.md` | `verification/015/effort-final/gap-dispositions.md` |
 | `handoffs-survey.md` | `verification/cleanup-2026-11-10/handoffs-survey.md` |
+| `implementer-016-brief.md` | `steering/queue-hooks-briefs/implementer-016-brief.md` |
 | `INBOX.md` | `INBOX.md` |
 | `json-editor-bad-configurations-2026-08-23.md` | `handoff/closed/json-editor-bad-configurations-2026-08-23.md` |
 | `json-editor-flag-mint-2026-08-23.md` | `research/closed/json-editor-flag-mint-2026-08-23.md` |
@@ -572,6 +613,7 @@ they are the ID-less artifacts that root new efforts.
 | `OPEN_QUESTIONS.md` | `OPEN_QUESTIONS.md` |
 | `open-documents-survey.md` | `verification/cleanup-2026-11-10/open-documents-survey.md` |
 | `OWNER-QUEUE.md` | `OWNER-QUEUE.md` |
+| `planner-016-respawn-brief.md` | `steering/queue-hooks-briefs/planner-016-respawn-brief.md` |
 | `planner-send-check-validity-brief.md` | `steering/queue-hooks-briefs/planner-send-check-validity-brief.md` |
 | `preview-image-failure-shows-broken-not-stale-2026-08-24.md` | `handoff/preview-image-failure-shows-broken-not-stale-2026-08-24.md` |
 | `preview-image-generator-api-key-in-workflow-files-2026-11-08.md` | `handoff/preview-image-generator-api-key-in-workflow-files-2026-11-08.md` |
@@ -601,17 +643,23 @@ they are the ID-less artifacts that root new efforts.
 | `save-gate-embeds-owner-checks-on-hooks-gg-2026-11-11.md` | `handoff/save-gate-embeds-owner-checks-on-hooks-gg-2026-11-11.md` |
 | `save-originating-tab-raises-its-own-update-prompt-2026-08-25.md` | `handoff/save-originating-tab-raises-its-own-update-prompt-2026-08-25.md` |
 | `send-check-validity-excluded-toast-and-file-upload-2026-11-11.md` | `handoff/send-check-validity-excluded-toast-and-file-upload-2026-11-11.md` |
+| `send-check-validity-post-deploy-2026-11-11.md` | `handoff/closed/send-check-validity-post-deploy-2026-11-11.md` |
 | `system-architecture.md` | `architecture/system-architecture.md` |
 | `test-inventory-2026-08-26.md` | `analysis/test-inventory-2026-08-26.md` |
 | `TODO.md` | `TODO.md` |
+| `uat-016-brief.md` | `steering/queue-hooks-briefs/uat-016-brief.md` |
+| `uat-016-post-deploy-brief.md` | `steering/queue-hooks-briefs/uat-016-post-deploy-brief.md` |
 | `unsaved-change-guards-disabled-for-unauthenticated-users-2026-08-24.md` | `handoff/unsaved-change-guards-disabled-for-unauthenticated-users-2026-08-24.md` |
 | `upload-message-dialog-closes-on-first-portal-load-2026-11-08.md` | `handoff/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md` |
 | `v1-guild-messages-auth-devops-phase-2d-brief.md` | `steering/v1-guild-messages-auth-devops-phase-2d-brief.md` |
 | `v1-guild-messages-auth-exposure-2026-10-10.md` | `research/closed/v1-guild-messages-auth-exposure-2026-10-10.md` |
 | `v1-guild-messages-auth-rulings.md` | `steering/v1-guild-messages-auth-rulings.md` |
 | `v1-guild-messages-endpoints-unauthenticated-2026-08-24.md` | `handoff/closed/v1-guild-messages-endpoints-unauthenticated-2026-08-24.md` |
+| `walk-brief-production.md` | `verification/016/uat/walk-brief-production.md` |
+| `walk-brief.md` | `verification/016/uat/walk-brief.md` |
 | `website-2026-10-10-release-tip-qa.md` | `qa/closed/website-2026-10-10-release-tip-qa.md` |
 | `website-2026-11-11-release-tip-qa.md` | `qa/closed/website-2026-11-11-release-tip-qa.md` |
+| `website-395510e-release-tip-qa.md` | `qa/closed/website-395510e-release-tip-qa.md` |
 | `website-api-handler-hardening-2026-10-10.md` | `handoff/website-api-handler-hardening-2026-10-10.md` |
 | `website-tests-not-beside-their-module-2026-11-08.md` | `handoff/website-tests-not-beside-their-module-2026-11-08.md` |
 | `website.md` | `architecture/website.md` |
