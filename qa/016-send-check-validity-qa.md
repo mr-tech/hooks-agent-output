@@ -461,6 +461,7 @@ Every non-kill, dispositioned:
 **Findings raised at Phase 2:**
 
 QAF-13 LOW Phase 2 — **No case checks that the editor's reason line, and the render around it, carry only the reason text.** Five generated mutants that add a literal "=" survive (`index.tsx:298`, `347`, `348` ×2, `349` at `395510e`; `qa-sweep-395510e/kill-table-395510e.json`). The property is that the reason line's text equals the validator's reason exactly, and that the editor renders no text outside its elements. The editor tests assert `toContain('Text Display')` and a line count, and neither can see a stray character. Under steering's M1 cap (`steering/queue-hooks-rulings.md`, block "2026-11-11T12:59Z", record `855adb8`), this is below HIGH and not this gate's severity-floor class: no behaviour the change claims to preserve is unasserted. It goes to the plan's Planner batch as a stated limit, with no round. The sibling lines at base share the exposure, since the generator mutates only the chain's lines.
+Reconcile 2026-11-11T13:49: the planner has registered QAF-13 as a Planner batch stated limit (plan R-16, record `9d5c73b`). Its carrier after closure is `handoff/editor-error-lines-render-text-unasserted-2026-11-11.md`. It is ROUTED, and nothing more is owed by QA.
 
 **Severity-floor check.** The change claims to preserve:
 - classic messages and every other message's result (AC1-9): asserted by the suite's classic case and decided by the differential; `qa-v2-reach-always` and both single-conjunct reach mutants are killed;
@@ -517,10 +518,18 @@ any difference. This is also the critic's routed assumption.
 
 ## Resumption State
 
-Written 2026-11-11T13:48 at the end of Phase 2. Read this first on resume.
+Written 2026-11-11T13:49 at the checkpoint steering asked for (prefix past threshold, after Phase 2). Read this first on resume.
 
-- **Done:** Phase 2 PASS at website `395510e`, plan revision 7, recorded in § Phase 2 — results. QAF-13 LOW goes to the Planner batch. Status `QA Complete`. The plan's Status is written `QA Complete` by `plan-row-commit.js`.
-- **Sent:** the verdict → `steering-queue-hooks` (spawn cue for UAT) and `planner-hooks-016` (QAF-13 for the Planner batch).
-- **Next:** nothing owed by QA until UAT or devops asks. Phase 3 comes at release readiness on devops's request. A production change after `395510e` expires this verdict; a refresh pass with a new SHA comes before UAT.
-- **Trees:** website on `chain/016-send-check-validity` at `395510e`; this session only read it. The scratch exports are deleted at run end. No process is left.
-- **Cache-warm wake:** armed (`e44403bb`).
+- **Done:** Phase 1 on revisions 1 to 7. Phase 2 PASS at website `395510e`, plan revision 7 (§ Phase 2 — results, record `2af91e5`). Status `QA Complete`. The plan's Status is `QA Complete` (R-15, `b10b0f2`). QAF-1 to QAF-12 are RESOLVED. QAF-13 LOW is ROUTED: Planner batch R-16 (`9d5c73b`), with carrier handoff `editor-error-lines-render-text-unasserted-2026-11-11.md`.
+- **Sent:** the verdict → `steering-queue-hooks` (UAT cue) and `planner-hooks-016` (QAF-13). Both are acknowledged, the planner by R-16.
+- **Next:** nothing until the chain needs QA. The expected next call is Phase 3, the release-tip verdict, on devops's request: read `~/.claude/agent-skills/stage-procedures/qa-phase-3.md` first. If production changes after `395510e` before UAT, a refresh pass with a new SHA comes first; scope it with the captured instruments below.
+- **Instruments for a refresh or for Phase 3** (all under `verification/016/`):
+  - `differential/` (`make_inputs.py` seed 16, `evaluate.mjs`, `compare.py`);
+  - `qa-phase2/placement_probe.mjs`;
+  - `preview-chrome/render-sites.preview-chrome.test.tsx` with `compare_render_sites.py`;
+  - `qa-sweep-395510e/` (mutants, config, kill table);
+  - the AC1-11 stdin lint form.
+
+  Each runs in a `git archive` export with `node_modules` symlinked, under `unshare -rn`. ESLint cannot run in an export (the react plugin resolves twice), so lint is read from `website/` over stdin.
+- **Trees:** website on `chain/016-send-check-validity` at `395510e`, only read by this session. The exports are deleted. The scratchpad keeps disposable intermediates only. Nothing of this session's is running.
+- **Cache-warm wake:** deleted at this checkpoint. Re-arm on resume.
