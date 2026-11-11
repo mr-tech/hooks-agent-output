@@ -1,0 +1,17 @@
+== up --seed (port 35721)
+schema push: ok
+seed: applied
+container: hooks-postgres-local ready at 127.0.0.1:35721
+tables: 9
+rc 0
+== sequence state
+1|f
+== stored message ids
+1
+== a default-id insert
+ERROR:  duplicate key value violates unique constraint "Messages_pkey"
+DETAIL:  Key (id)=(1) already exists.
+== down
+down: removed hooks-postgres-local (the image stays)
+rc 0
+0

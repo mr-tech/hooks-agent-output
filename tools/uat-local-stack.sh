@@ -6,8 +6,9 @@
 # loopback is refused before any container, network or schema act. The URL and its password are never printed.
 #
 #   up           create (labelled), or reuse or start the tool's own container, wait until it accepts connections,
-#                push project-utils/prisma/schema.prisma (db push --skip-generate), print the table count
-#   up --seed    the same, then apply seed.sql; only to an empty container this call created
+#                push project-utils/prisma/schema.prisma (db push --skip-generate), move "Messages_id_seq" so the next
+#                id is at least 900000000000001 and past every stored id, print the next id and the table count
+#   up --seed    the same, applying seed.sql before the sequence move; only to an empty container this call created
 #   status       five lines: container, listener, ready, tables, redis. Changes nothing
 #   down         stop and remove the tool's container; the image stays. Refuses a same-named container it did not label
 #
@@ -225,6 +226,13 @@ cmd_up() {
       || fail "seed failed"
     echo "seed: applied"
   fi
+
+  local floor=900000000000000 v
+  v=$(PGPASSWORD=$DB_PASS "$DOCKER" exec -e PGPASSWORD "$NAME" psql -U "$DB_USER" -d "$DB_NAME" -tAc \
+    "select setval('\"Messages_id_seq\"', greatest($floor, coalesce((select max(id) from \"Messages\"), 0)))" 2>/dev/null | tr -d '[:space:]')
+  case "$v" in ''|*[!0-9]*) fail "message-id sequence move failed" ;; esac
+  [ "$v" -ge "$floor" ] || fail "message-id sequence reads $v, inside production's range"
+  echo "message ids: next $((v + 1))"
 
   local n
   n=$(table_count)

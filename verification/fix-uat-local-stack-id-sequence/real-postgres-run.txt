@@ -1,0 +1,30 @@
+== up --seed (port 55085)
+schema push: ok
+seed: applied
+message ids: next 900000000000001
+container: hooks-postgres-local ready at 127.0.0.1:55085
+tables: 9
+rc 0
+== sequence state
+900000000000000|t
+== stored message ids
+1
+== a default-id insert
+900000000000001
+INSERT 0 1
+== explicit id past the floor
+900000000000041
+INSERT 0 1
+== up again (reuse)
+schema push: ok
+message ids: next 900000000000042
+container: hooks-postgres-local ready at 127.0.0.1:55085
+tables: 9
+rc 0
+== a default-id insert after reuse
+900000000000042
+INSERT 0 1
+== down
+down: removed hooks-postgres-local (the image stays)
+rc 0
+0

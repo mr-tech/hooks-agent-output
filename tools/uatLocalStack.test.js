@@ -95,7 +95,12 @@ case "$cmd" in
         echo "127.0.0.1:5432 - accepting connections"; exit 0 ;;
       *psql*)
         if [ -n "\${STUB_SEED_FAILS:-}" ] && [[ "$all" == *ON_ERROR_STOP* ]]; then cat > /dev/null; exit 3; fi
-        if [[ "$all" == *ON_ERROR_STOP* ]]; then cat > "$S/seed.stdin"; exit 0; fi
+        if [[ "$all" == *ON_ERROR_STOP* ]]; then cat > "$S/seed.stdin"; echo seed >> "$S/order"; exit 0; fi
+        if [[ "$all" == *Messages_id_seq* ]]; then
+          echo sequence >> "$S/order"
+          [ -n "\${STUB_SEQ_FAILS:-}" ] && exit 1
+          echo "\${STUB_SEQ_VALUE:-900000000000000}"; exit 0
+        fi
         [ -n "\${STUB_TABLES_EMPTY:-}" ] && exit 0
         echo "\${STUB_TABLES:-7}"; exit 0 ;;
     esac
@@ -107,6 +112,7 @@ esac
 const PRISMA_STUB = `#!/usr/bin/env bash
 S="$STUB_STATE"
 printf '%s\\n' "$*" >> "$S/prisma.argv"
+echo push >> "$S/order"
 printf 'DATABASE_URL set: %s\\n' "$([ -n "\${DATABASE_URL:-}" ] && echo yes || echo no)" >> "$S/prisma.env"
 echo "Datasource db at $DATABASE_URL"
 exit "\${STUB_PRISMA_EXIT:-0}"
@@ -407,6 +413,36 @@ describe('uat-local-stack.sh', () => {
       assert.ok(docker().findIndex((l) => l.includes('ON_ERROR_STOP')) > docker().findIndex((l) => l.startsWith('run ')));
     });
 
+    const sequenceCases = [
+      ['up on a container it creates', ['up'], null, ['push', 'sequence']],
+      ['up --seed', ['up', '--seed'], null, ['push', 'seed', 'sequence']],
+      ['up reusing the tool\'s running container', ['up'], 'running', ['push', 'sequence']],
+      ['up starting the tool\'s stopped container', ['up'], 'exited', ['push', 'sequence']],
+    ];
+    for (const [label, args, prior, order] of sequenceCases) {
+      it(`${label}: moves the message-id sequence out of production's range after the push and any seed, and prints the next id`, async () => {
+        await fresh();
+        if (prior) container(prior);
+        const r = run(args);
+        assert.strictEqual(r.status, 0, r.out);
+        const line = docker().find((l) => l.startsWith('exec ') && l.includes('Messages_id_seq'));
+        assert.ok(line, docker().join('\n'));
+        assert.match(line, /setval\('"Messages_id_seq"'/);
+        assert.match(line, /\b900000000000000\b/);
+        assert.deepStrictEqual(stateOf('order').split('\n').filter(Boolean), order);
+        assert.match(r.stdout, /^message ids: next 900000000000001$/m);
+        assert.ok(r.stdout.indexOf('message ids:') < r.stdout.indexOf('tables:'), r.stdout);
+      });
+    }
+
+    it('a reused database whose ids are already past the floor keeps counting from its own next id', async () => {
+      await fresh();
+      container('running');
+      const r = run(['up'], { STUB_SEQ_VALUE: '900000000000041' });
+      assert.strictEqual(r.status, 0, r.out);
+      assert.match(r.stdout, /^message ids: next 900000000000042$/m);
+    });
+
     it('the tool\'s container running: up reuses it (no run, no start), pushes and counts', async () => {
       await fresh();
       container('running');
@@ -578,6 +614,25 @@ describe('uat-local-stack.sh', () => {
       assert.match(r.out, /table count failed/);
       assert.doesNotMatch(r.stdout, /^tables:/m);
       assert.deepStrictEqual(mutating(), ['run', 'rm']);
+    });
+
+    for (const [label, extra] of [['a sequence move that fails', { STUB_SEQ_FAILS: '1' }], ['a sequence read back inside production\'s range', { STUB_SEQ_VALUE: '41' }], ['a sequence read back that is not a number', { STUB_SEQ_VALUE: 'x' }]]) {
+      it(`${label} fails the call before any table count, and the container it created is removed`, async () => {
+        await fresh();
+        const r = run(['up'], extra);
+        assert.strictEqual(r.status, 1, r.out);
+        assert.match(r.out, /message-id sequence/);
+        assert.doesNotMatch(r.stdout, /^(tables|message ids):/m);
+        assert.deepStrictEqual(mutating(), ['run', 'rm']);
+      });
+    }
+
+    it('a sequence move that fails on a container the call started stops it again', async () => {
+      await fresh();
+      container('exited');
+      const r = run(['up'], { STUB_SEQ_FAILS: '1' });
+      assert.strictEqual(r.status, 1, r.out);
+      assert.deepStrictEqual(mutating(), ['start', 'stop']);
     });
 
     it('a docker start that fails is named as that, exits 1, and has nothing to stop', async () => {
@@ -935,6 +990,7 @@ describe('uat-local-stack.sh', () => {
       ['a seed that fails', () => url('127.0.0.1', port), ['up', '--seed'], { STUB_SEED_FAILS: '1' }, 1],
       ['a container that never becomes ready', () => url('127.0.0.1', port), ['up'], { STUB_NOT_READY: '1' }, 1],
       ['an empty table count', () => url('127.0.0.1', port), ['up'], { STUB_TABLES_EMPTY: '1' }, 1],
+      ['a sequence move that fails', () => url('127.0.0.1', port), ['up'], { STUB_SEQ_FAILS: '1' }, 1],
     ];
     for (const [label, makeUrl, args, extra, code] of paths) {
       it(`${label}: exit ${code} and no output carries the password (either form), the URL's userinfo or a postgresql:// URL`, async () => {
