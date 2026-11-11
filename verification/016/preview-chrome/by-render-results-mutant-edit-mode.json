@@ -1,0 +1,498 @@
+{
+  "control classic (valid)": {
+    "textError": [],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 0,
+    "errorStateBorderUnpainted": 2,
+    "erroringState": [],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 1954,
+    "embeds": 0,
+    "components": 0
+  },
+  "control v2 (valid)": {
+    "textError": [],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 0,
+    "errorStateBorderUnpainted": 2,
+    "erroringState": [],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 1954,
+    "embeds": 0,
+    "components": 0
+  },
+  "control embed (valid)": {
+    "textError": [],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 0,
+    "errorStateBorderUnpainted": 4,
+    "erroringState": [],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 9607,
+    "embeds": 0,
+    "components": 0
+  },
+  "empty message": {
+    "textError": [
+      "Message must have content, embeds, or components."
+    ],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 0,
+    "errorStateBorderUnpainted": 2,
+    "erroringState": [],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 2003,
+    "embeds": 0,
+    "components": 0
+  },
+  "empty message, v2 flag": {
+    "textError": [
+      "Message must have content, embeds, or components."
+    ],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 0,
+    "errorStateBorderUnpainted": 2,
+    "erroringState": [],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 2003,
+    "embeds": 0,
+    "components": 0
+  },
+  "embeds over 6000": {
+    "textError": [
+      "Embeds exceed 6000 characters."
+    ],
+    "errorBorder": 1,
+    "errorStateBorderPainted": 0,
+    "errorStateBorderUnpainted": 6,
+    "erroringState": [],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 9658,
+    "embeds": 0,
+    "components": 0
+  },
+  "embed description over 4096": {
+    "textError": [],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 0,
+    "errorStateBorderUnpainted": 4,
+    "erroringState": [],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 5791,
+    "embeds": 0,
+    "components": 0
+  },
+  "embed title over 256": {
+    "textError": [
+      "Title is too long."
+    ],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 0,
+    "errorStateBorderUnpainted": 4,
+    "erroringState": [
+      "true"
+    ],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 5809,
+    "embeds": 0,
+    "components": 0
+  },
+  "embed title url invalid": {
+    "textError": [
+      "Invalid URL."
+    ],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 0,
+    "errorStateBorderUnpainted": 4,
+    "erroringState": [
+      "true",
+      "true"
+    ],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 5803,
+    "embeds": 0,
+    "components": 0
+  },
+  "embed url without title": {
+    "textError": [
+      "Title is required if URL is provided."
+    ],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 0,
+    "errorStateBorderUnpainted": 4,
+    "erroringState": [
+      "true"
+    ],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 5828,
+    "embeds": 0,
+    "components": 0
+  },
+  "embed author name over 256": {
+    "textError": [
+      "Name is too long."
+    ],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 1,
+    "errorStateBorderUnpainted": 3,
+    "erroringState": [
+      "true"
+    ],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 5808,
+    "embeds": 0,
+    "components": 0
+  },
+  "embed author url invalid": {
+    "textError": [
+      "Invalid URL."
+    ],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 1,
+    "errorStateBorderUnpainted": 3,
+    "erroringState": [
+      "true",
+      "true"
+    ],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 5803,
+    "embeds": 0,
+    "components": 0
+  },
+  "embed author url without name": {
+    "textError": [
+      "Name is required if URL is provided."
+    ],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 1,
+    "errorStateBorderUnpainted": 3,
+    "erroringState": [
+      "true"
+    ],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 5827,
+    "embeds": 0,
+    "components": 0
+  },
+  "embed field value without name": {
+    "textError": [
+      "Field name is required."
+    ],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 0,
+    "errorStateBorderUnpainted": 4,
+    "erroringState": [],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 9630,
+    "embeds": 0,
+    "components": 0
+  },
+  "embed field name without value": {
+    "textError": [
+      "Field value is required."
+    ],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 0,
+    "errorStateBorderUnpainted": 4,
+    "erroringState": [],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 9631,
+    "embeds": 0,
+    "components": 0
+  },
+  "embed field name over 256": {
+    "textError": [
+      "Field name must be 256 characters or less."
+    ],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 0,
+    "errorStateBorderUnpainted": 4,
+    "erroringState": [],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 9649,
+    "embeds": 0,
+    "components": 0
+  },
+  "embed field value over 1024": {
+    "textError": [
+      "Field value must be 1024 characters or less."
+    ],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 0,
+    "errorStateBorderUnpainted": 4,
+    "erroringState": [],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 9651,
+    "embeds": 0,
+    "components": 0
+  },
+  "embed footer over 2048": {
+    "textError": [],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 1,
+    "errorStateBorderUnpainted": 3,
+    "erroringState": [
+      "true"
+    ],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 5791,
+    "embeds": 0,
+    "components": 0
+  },
+  "v2 text over 4000": {
+    "textError": [
+      "Components text exceeds 4000 characters."
+    ],
+    "errorBorder": 1,
+    "errorStateBorderPainted": 0,
+    "errorStateBorderUnpainted": 2,
+    "erroringState": [],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 1994,
+    "embeds": 0,
+    "components": 0
+  },
+  "41 components": {
+    "textError": [
+      "Message has 41 components; the limit is 40."
+    ],
+    "errorBorder": 1,
+    "errorStateBorderPainted": 0,
+    "errorStateBorderUnpainted": 2,
+    "erroringState": [],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 1997,
+    "embeds": 0,
+    "components": 0
+  },
+  "fresh text display": {
+    "textError": [],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 0,
+    "errorStateBorderUnpainted": 2,
+    "erroringState": [],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 1954,
+    "embeds": 0,
+    "components": 0
+  },
+  "v2 link button without url or label": {
+    "textError": [],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 0,
+    "errorStateBorderUnpainted": 2,
+    "erroringState": [],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 1963,
+    "embeds": 0,
+    "components": 1
+  },
+  "v2 section accessory invalid url": {
+    "textError": [],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 0,
+    "errorStateBorderUnpainted": 2,
+    "erroringState": [],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 1954,
+    "embeds": 0,
+    "components": 0
+  },
+  "v2 empty media gallery": {
+    "textError": [],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 0,
+    "errorStateBorderUnpainted": 2,
+    "erroringState": [],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 1954,
+    "embeds": 0,
+    "components": 0
+  },
+  "v2 empty container": {
+    "textError": [],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 0,
+    "errorStateBorderUnpainted": 2,
+    "erroringState": [],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 1954,
+    "embeds": 0,
+    "components": 0
+  },
+  "v2 file without url": {
+    "textError": [],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 0,
+    "errorStateBorderUnpainted": 2,
+    "erroringState": [],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 1954,
+    "embeds": 0,
+    "components": 0
+  },
+  "empty username": {
+    "textError": [
+      "This username is too short or too long."
+    ],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 1,
+    "errorStateBorderUnpainted": 1,
+    "erroringState": [
+      "true"
+    ],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 1993,
+    "embeds": 0,
+    "components": 0
+  },
+  "username clyde": {
+    "textError": [
+      "This username contains invalid characters."
+    ],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 1,
+    "errorStateBorderUnpainted": 1,
+    "erroringState": [
+      "true"
+    ],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 1996,
+    "embeds": 0,
+    "components": 0
+  },
+  "username everyone": {
+    "textError": [
+      "This username is not allowed."
+    ],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 1,
+    "errorStateBorderUnpainted": 1,
+    "erroringState": [
+      "true"
+    ],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 1983,
+    "embeds": 0,
+    "components": 0
+  },
+  "empty username, v2": {
+    "textError": [
+      "This username is too short or too long."
+    ],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 1,
+    "errorStateBorderUnpainted": 1,
+    "erroringState": [
+      "true"
+    ],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 1993,
+    "embeds": 0,
+    "components": 0
+  },
+  "content over 2000": {
+    "textError": [],
+    "errorBorder": 0,
+    "errorStateBorderPainted": 0,
+    "errorStateBorderUnpainted": 2,
+    "erroringState": [],
+    "redText": [],
+    "ariaInvalid": 0,
+    "tooLong": 0,
+    "mounted": true,
+    "textLength": 1954,
+    "embeds": 0,
+    "components": 0
+  }
+}

@@ -77,6 +77,9 @@ interface Chrome {
   ariaInvalid: number;
   tooLong: number;
   mounted: boolean;
+  textLength: number;
+  embeds: number;
+  components: number;
 }
 
 function collect(host: HTMLElement): Chrome {
@@ -93,6 +96,9 @@ function collect(host: HTMLElement): Chrome {
     ariaInvalid: host.querySelectorAll('[aria-invalid="true"]').length,
     tooLong: all.filter((el) => el.children.length === 0 && /Too long\./.test(el.textContent ?? '')).length,
     mounted: !!host.querySelector('.discord-visualizer__accessories'),
+    textLength: (host.textContent ?? '').length,
+    embeds: host.querySelectorAll('.discord-visualizer__embed').length,
+    components: host.querySelector('.discord-visualizer__components')?.children.length ?? 0,
   };
 }
 
@@ -103,7 +109,13 @@ async function render(data: Record<string, unknown>) {
   const { default: Page } = await import('../page');
   const host = mountDom(<Page />);
   // let MarkdownProvider's dynamic import and Suspense settle
-  for (let i = 0; i < 5; i += 1) {
+  // until the editor tree (or the page's fallback) is in, at most 3 s, then two more ticks
+  for (let i = 0; i < 150 && !host.querySelector('.discord-visualizer__accessories')
+    && !host.textContent?.includes('Invalid message data.'); i += 1) {
+    // eslint-disable-next-line no-await-in-loop
+    await act(async () => { await new Promise((r) => { setTimeout(r, 20); }); });
+  }
+  for (let i = 0; i < 2; i += 1) {
     // eslint-disable-next-line no-await-in-loop
     await act(async () => { await new Promise((r) => { setTimeout(r, 20); }); });
   }
