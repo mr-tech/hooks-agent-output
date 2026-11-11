@@ -18,7 +18,7 @@ import sys
 corpus = json.load(open("corpus.json", encoding="utf-8"))
 rt = json.load(open("research-table.json", encoding="utf-8"))["rows"]
 measured = {}
-for f in ("resend-results.json", "resend-results-batch2.json"):
+for f in ("resend-results.json", "resend-results-batch2.json", "resend-results-batch3.json"):
     d = json.load(open(f, encoding="utf-8"))
     for r in d["results"]:
         measured[r["id"]] = (r["discord"], d["summary"]["started"][:10])
@@ -64,6 +64,10 @@ QA_SHAPES = {
     "Q2-td-ufeff-space": "only a Text Display of U+FEFF then a space",
     "Q2-td-u0085-in-text": "only a Text Display of 'a' then U+0085",
     "Q2-td-u200b-space": "only a Text Display of U+200B then a space",
+    "Q3-td-u0085-space-u0085": "only a Text Display of U+0085, a space, U+0085",
+    "Q3-td-space-u0085-space-u0085-space": "only a Text Display of a space, U+0085, a space, U+0085, a space",
+    "Q3-td-u0085-u0085": "only a Text Display of two U+0085",
+    "Q3-label-u0085-space-u0085": "link button label of U+0085, a space, U+0085",
 }
 
 members = []
@@ -85,7 +89,7 @@ head = """// Components V2 send bodies with the verdict Discord returned when ea
 
 export interface DiscordV2SendCorpusMember {
   readonly id: string;
-  readonly source: 'research' | 'qa-extra' | 'qa-extra-2';
+  readonly source: 'research' | 'qa-extra' | 'qa-extra-2' | 'qa-extra-3';
   readonly shape: string;
   readonly discord: 'accepted' | 'refused';
   readonly measuredOn: string;

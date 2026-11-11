@@ -215,6 +215,17 @@ EXTRA2 = {
 }
 
 
+# Third batch (re-key on plan revision 2): the revision's "whitespace-empty" wording ("after trim(),
+# every remaining character is U+0085") against U+0085 with whitespace between, which trim() cannot
+# reach because a U+0085 at the end stops it.
+EXTRA3 = {
+    "Q3-td-u0085-space-u0085": v2([td("\u0085 \u0085")]),
+    "Q3-td-space-u0085-space-u0085-space": v2([td(" \u0085 \u0085 ")]),
+    "Q3-td-u0085-u0085": v2([td("\u0085\u0085")]),
+    "Q3-label-u0085-space-u0085": v2([td(), row([button(label="\u0085 \u0085")])]),
+}
+
+
 def build():
     out = []
     for cid, body in RESEARCH.items():
@@ -223,6 +234,8 @@ def build():
         out.append({"id": cid, "set": "qa-extra", "body": body, "note": None})
     for cid, body in EXTRA2.items():
         out.append({"id": cid, "set": "qa-extra-2", "body": body, "note": None})
+    for cid, body in EXTRA3.items():
+        out.append({"id": cid, "set": "qa-extra-3", "body": body, "note": None})
     return out
 
 

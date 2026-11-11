@@ -4,21 +4,21 @@ Origin: 016
 UUID: 54673438
 Verified-At: "0e3d903 — repos=website; Phase 1 strategy, read at this base tree; no verdict issued"
 Status: Awaiting Implementation
-Status-Detail: "Phase 1 written on plan revision 1 (record 3b4205d). AC1-1's corpus is built and confirmed against Discord (76 of 76 verdicts, 52 of 52 error bodies byte-identical). Eight findings (QAF-1 to QAF-8, five MEDIUM) go to planner-hooks-016 as one batch. This document holds the chain's blocking-condition register (B-1 to B-4)."
+Status-Detail: "Phase 1 re-keyed to plan revision 2 (record 6b07655). QAF-1 to QAF-8 resolved there. One new finding, QAF-9 MEDIUM (the formal whitespace-empty predicate misses measured refusals), goes to planner-hooks-016, with the corpus fixture re-pinned at 120 members. This document holds the chain's blocking-condition register (B-1 to B-4)."
 Phase: 1
 ---
 
 # QA Report: Plan 016 — the send check refuses what Discord refuses
 
-**Plan Reference**: `agent-output/planning/016-send-check-validity.md`, `Revision: 1`, read whole at
-record `3b4205d` (the brief's anchor). Revision 1 was committed at `4c9bcf2`; `3b4205d` adds steering's
-R-1 registration (D-12, D-13), which changes no requirement.
+**Plan Reference**: `agent-output/planning/016-send-check-validity.md`, `Revision: 2` (record `6b07655`),
+read as its diff from revision 1 (`git diff 3b4205d 6b07655`). Revision 1 was read whole at record `3b4205d`.
 
 ## Changelog
 
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-11T11:00 | steering-queue-hooks → qa-hooks-016 | Phase 1 on revision 1 (brief `steering/queue-hooks-briefs/qa-016-brief.md`) | Phase 1. Corpus rebuilt and re-sent in the test server: 76 of 76 match Discord's earlier verdicts. 40 further members measured. Ledger tally by script: 52 + 24 = 76, each id once. Strategy per criterion, the Irreversible Side-Effect Register, register rows B-1 to B-4, and QAF-1 to QAF-8 (five MEDIUM, three LOW) for the planner. Status `Awaiting Implementation`. |
+| 2026-11-11T11:11 | planner-hooks-016 → qa-hooks-016 | Re-key Phase 1 to revision 2 (`6b07655`) | Phase 1 re-key. QAF-1 to QAF-8 read in the diff and collapsed as RESOLVED. Four members measured (batch 3); they found QAF-9 MEDIUM: revision 2's formal whitespace-empty predicate is wrong on 3 of 30 measured members. Fixture re-pinned at 120 members (`49b54f8e…`). Strategy rows for AC1-7 (rider R1 dropped), AC1-9, AC1-10 and AC1-11; B-1 amended for the `/preview` record. Status stays `Awaiting Implementation`. |
 
 ## Reading
 
@@ -105,6 +105,8 @@ exit 1. **The planner's hand tally holds.**
 
 ### The fixture the implementer ships
 
+Reconcile at the re-key: the fixture now holds 120 members (QAF-9 adds four `qa-extra-3` members), sha256 `49b54f8e6b7226f1258a497b6e2f01d73126a85c9e66c2ef1acbff32bb15bb9b`, git blob `9fb22ae`. That figure supersedes the 116-member hash below, which was this pass's first build.
+
 `make_fixture.py` writes `verification/016/corpus/fixture/discordV2SendCorpus.ts`: 116 members (34
 accepted, 82 refused), each with `id`, `source`, `shape`, Discord's **measured** `discord` verdict,
 `measuredOn` and `body`. sha256 `2043a8a84220660c9587f8b6f1b06ba8b0283b04e520790cf041e1af06990a6d`,
@@ -118,86 +120,46 @@ Test Conventions ID-token class zero times (`grep -c -P`, the class's own patter
 Phase 2 checks the sha256 and the blob. Test titles use `$shape`, never `$id`: research ids `D1` to
 `D6` and the ledger's `L1` to `L11` fall in the ID-token class, so they stay as data.
 
-## Findings (Phase 1, to the planner as one batch)
+## Findings
 
-QAF-1 MEDIUM Phase 1 — **AC1-2 enumerates placement for L1 to L5 only, and Discord refuses the L6 to L10
-faults inside a Container too.** All 14 nested faults above returned 400, each beside an accepted nested
-control. The research sent the L6 to L10 members only at top level or in a top-level Section. So a check
-that walks top-level link buttons, Thumbnails, galleries and Files but not a Container's children passes
-AC1-1 whole, while Discord refuses the nested form: the defect this chain exists to fix, one level down.
-The save schema admits each nested shape (`shapes.ts`, `containerChildShape`: Action Row, Section, Media
-Gallery, File; `sectionShape.accessory`: Thumbnail or link button). The same holds for "every item": a
-second gallery item with url `''` is refused, so a check that reads only `items[0]` passes D3. **Asked:**
-extend AC1-2 to every limb over the save schema's nesting (Action Row and Section accessory, top level and
-in a Container; Media Gallery and its every item, top level and in a Container; File, top level and in a
-Container). Mark L6 to L10's cells "anywhere in the tree" as L1, L3 and L5 are.
+Revision 1's batch, dispositioned at the re-key on revision 2 (record `6b07655`, each read in its diff
+`git diff 3b4205d 6b07655 -- planning/016-send-check-validity.md`):
 
-QAF-2 MEDIUM Phase 1 — **L8's "has no emoji" is undefined, and two members on each side of it are measured.**
-Discord refuses a label-less link button whose emoji is `{}` or `{name: ''}` (400
-`COMPONENT_INVALID_EMOJI`) and accepts one with a named emoji (X1). The save schema admits both refused
-forms (`emojiShape`, every key optional). The contract cannot say which way a check should go, so by the
-disposition order (step 2) the contract is the defect, not a guard behind it. These forms arrive only by
-JSON: `LinkButtonEditor.tsx` has no emoji control (research F-5). **Asked:** define "an emoji" for L8, for
-example an `emoji` with a non-empty `id` or `name`. State whether an invalid emoji beside a label is in
-the class. It is unmeasured, and residue if out.
+QAF-1 MEDIUM Phase 1 RESOLVED — ledger "Placement" paragraph and AC1-2 cover every limb at every schema placement, every gallery item included. Plan rev 2.
+QAF-2 MEDIUM Phase 1 RESOLVED — L8 defines "has an emoji" as a non-empty `id` or `name`; an invalid emoji beside a label is residue. Plan rev 2, L8 and Residue.
+QAF-3 MEDIUM Phase 1 RESOLVED — L8 takes D-9's whitespace-empty rule, riding selection 18, reported to the owner for veto (the planner's judgement, as asked). Plan rev 2, "Whitespace-empty". Its formal wording is QAF-9's subject.
+QAF-4 MEDIUM Phase 1 RESOLVED — AC1-1 and AC1-4's population is the corpus fixture. Plan rev 2, Requirement ledger and AC1-1. The fixture's sha256 moves with QAF-9.
+QAF-5 LOW Phase 1 RESOLVED — L5 and L6 cover absent forms; AC1-3 names the measured members. Plan rev 2.
+QAF-6 MEDIUM Phase 1 RESOLVED — AC1-9 states the preservation over three named input classes, decided by QA's two-tree differential at Phase 2. Plan rev 2.
+QAF-7 LOW Phase 1 RESOLVED — AC2-2 split into a suite half (`maxLength` 1024) and B-2. Plan rev 2.
+QAF-8 LOW Phase 1 RESOLVED — the reason unit is (limb, component type). Plan rev 2, AC1-5.
 
-QAF-3 MEDIUM Phase 1 — **L8's `trim()` disagrees with Discord on a label, for both of D-9's characters.**
-Measured: label U+0085 → Discord 400, but `trim()` leaves length 1, so an L8 check as written passes it
-(a missed refusal). Label U+FEFF → Discord **200**, but `trim()` empties it, so the check refuses it (a
-false refusal, RK-1's class, and a member AC1-4 would fail if the measured accepted set includes it).
-D-9 rules the two exceptions for a Text Display only, and his option text was about that check. Label
-U+00A0 is refused by both. **Asked:** whether L8 takes D-9's two exceptions. If extending a ruling the
-owner gave for one field needs his word, it is his; the planner judges that. Reachability: typed or
-pasted into the label input, which stores what it is given (research methodology, `typed`).
+Raised at the re-key, to the planner:
 
-QAF-4 MEDIUM Phase 1 — **AC1-1 and AC1-4 judge the research's 76 examples, not the class the limbs state.**
-Each L1 member is a single character. The rule D-9 states ("U+0085 counted as whitespace, U+FEFF counted
-as content") is a class, and its discriminating members are runs. Measured: `"\u0085 "` and
-`" \u0085\n"` refused, `"﻿ "`, `"a\u0085"` and `"​ "` accepted. Two implementations pass all
-76 and fail these: one that special-cases `content === '\u0085'`, and one that tests
-`/^[\s\u0085]*$/`, since JavaScript's `\s` contains U+FEFF and so refuses `"﻿ "`. The same gap covers
-the key-absent forms of AC1-3 (QAF-5) and the 1024/1025 boundary, which AC1-1's corpus does not hold.
-**Asked:** make AC1-1 and AC1-4's population the measured set in
-`verification/016/corpus/fixture/discordV2SendCorpus.ts`: the 76 plus this pass's 40, each with
-Discord's verdict. A member QAF-2 or QAF-3 leaves undecided goes out by name. A member whose ledger cell
-the plan does not change is residue, never a blocking finding.
+QAF-9 MEDIUM Phase 1 — **Revision 2's formal "whitespace-empty" predicate misses U+0085 with whitespace
+between, and Discord refuses those.** The wording is "after `trim()`, every remaining character is U+0085,
+and the original string holds no U+FEFF". `trim()` strips only from the ends, and a U+0085 at an end
+stops it. So `"\u0085 \u0085"` trims to itself, keeps its inner space, and counts as content. Measured
+11:08:17Z to 11:08:38Z (`resend-results-batch3.json`): Text Display `"\u0085 \u0085"` → 400,
+`" \u0085 \u0085 "` → 400, `"\u0085\u0085"` → 400, link-button label `"\u0085 \u0085"` → 400
+`BASE_TYPE_REQUIRED`. A check built to the formal wording passes three of these four, which are missed
+refusals. The plain-language gloss beside it ("`trim()` with U+0085 counted as whitespace and U+FEFF
+counted as content") is right. The critic's stated limit F-11 makes the formal wording govern over the
+gloss, which settles the conflict in the wrong direction. Instrument
+(`verification/016/corpus/whitespace_rule_check.mjs`, `whitespace-rule-check.txt`): over the 30 corpus
+members that are a lone Text Display or a label-only link button, the revision-2 predicate is wrong on 3
+(`Q3-td-u0085-space-u0085`, `Q3-td-space-u0085-space-u0085-space`, `Q3-label-u0085-space-u0085`). The
+per-character form, "every character `c` has `c.trim() === ''` or is U+0085, and none is U+FEFF", is
+wrong on 0. **Asked:** restate the formal predicate so that it agrees with the gloss and the measurements,
+and re-pin the fixture. It now holds these four members as `source: 'qa-extra-3'`: 120 members, 86
+refused, 34 accepted, sha256 `49b54f8e6b7226f1258a497b6e2f01d73126a85c9e66c2ef1acbff32bb15bb9b`, git blob
+`9fb22ae`. Re-checked in a fresh export of `0e3d903`: `tsc --noEmit -p tsconfig.test.json` exit 0, and the
+smoke run gives 120 members with the blocked set `A3 A5 N2 N4 N6 N9`, exit 0. The 116-member file revision 2
+pins (`2043a8a8…`) is superseded.
 
-QAF-5 LOW Phase 1 — **L5's limb says "empty" while AC1-3 requires every field of L1 to L6 to refuse
-key-absent too.** Discord refuses an Action Row with no `components` key (400 `BASE_TYPE_REQUIRED`,
-`Q2-row-components-absent`). It also refuses the other "not sent" absent forms: Section `components`,
-link-button `url`, Thumbnail `media` (absent and `{}`), gallery item `media`, File `file`. **Asked:** L5
-reads "empty or absent", and AC1-3's population names these measured members.
-
-QAF-6 MEDIUM Phase 1 — **M1's "Nothing else changes in what is sent, saved or refused" has no criterion.**
-AC1-8 covers `validateContentRequirements` only. The stated preservation is wider. A classic message
-(the *Reach* assumption: V2 by flag or by structure only) and a V2 message outside L1 to L10 must get
-the same `validateMessage` result as at `0e3d903`. With no assertion, a check that ignores `hasV2` and
-refuses a classic message's empty Action Row would pass every M1 criterion. By the severity floor, a
-claimed preservation with no failing assertion blocks. **Asked:** a criterion (AC1-9 or an AC1-8 limb)
-stating it, decided by a two-tree differential. QA builds the differential at Phase 2
-(`verification/016/differential/`): `validateMessage` at `0e3d903` and at the tip, over (a) the corpus
-with V2 structure replaced by classic analogues and the flag cleared, (b) every input the existing
-`limits.*`, `utils.mutual-exclusivity` and `messageValidity.predicate` tests pass to the predicate, and
-(c) the accepted corpus members. Movement is allowed only on members of an L1 to L10 refused class. A
-suite case that pins a classic link button with url `''` as sendable is not the instrument: Discord's
-verdict on it is unmeasured (X-6), so the pin could be known-wrong in waiting (Axiom D).
-
-QAF-7 LOW Phase 1 — **AC2-2 ("cap typed and pasted input") has no instrument that can see a paste.** jsdom
-does not apply `maxLength` to typing or paste (the environment-fidelity convention: assert only what the
-substitute environment does like a browser). The suite can assert the rendered `<input>`'s `maxLength`
-is 1024. That also catches a wrapper that drops the prop, which `LinkButtonEditor`'s sibling depends on
-for nothing. The cap itself is a browser fact. **Asked:** name the instrument. This pass mints it as
-register row B-2 (UAT, pre-release); the plan cites it.
-
-QAF-8 LOW Phase 1 — **AC1-5's unit is unclear: one reason per limb, or per limb and type.** L6, L7 and L10
-each span types (Thumbnail, gallery item, link button), and AC1-5 also says the reason "names the
-component type". Both readings are testable but they assert different populations. **Asked:** say which.
-Under either, the test asserts distinctness pairwise over the set and against the existing reasons
-(`validateContentRequirements`, `validateComponentCount`, `validateDisplayableTextCount`, username and
-embed reasons). It asserts the type word by a literal, never by importing the reason strings.
-
-No finding against D-10, AC2-3, rider R1 or the stored-row residue. AC2-3's "the save schema admits a
-1025-character description at the tip" is the owner's ruling (W-2, D-10), not a known-wrong pin.
+No finding against D-10, AC2-3, AC1-10, AC1-11, the stored-row residue, or rider R1's drop. AC2-3's "the
+save schema admits a 1025-character description at the tip" is the owner's ruling (W-2, D-10), not a
+known-wrong pin.
 
 ## Test Strategy (Pre-Implementation)
 
@@ -220,7 +182,7 @@ removing for M1 to land.
 | Surface | Sibling to extend | What goes there |
 |---|---|---|
 | `validateMessage`'s new validator (AC1-1 to AC1-5) | `src/utils/__tests__/limits.send-gate-partition.test.ts` or `limits.component-count.test.ts` (the plan-007 sibling shape) | `it.each` over the fixture: non-empty exactly when `discord === 'refused'` (AC1-1), and `''` for every accepted member (AC1-4) |
-| `isMessageValid` (AC1-7) | `messageValidity.predicate.test.ts` (rider R1 moves it to `src/server/api/utils/__tests__/` if edited) | `isMessageValid` against **Discord's verdict** (`discord === 'accepted'`), never against `validateMessage`'s result. The file's existing parity case states delegation and cannot fail on a predicate defect. |
+| `isMessageValid` (AC1-7) | Reconcile at the re-key: rider R1 is dropped, so `messageValidity.predicate.test.ts` is not edited, and AC1-7's cases go in the `limits.*` sibling, which imports `isMessageValid` (plan rev 2, Testing Strategy) | `isMessageValid` against **Discord's verdict** (`discord === 'accepted'`), never against `validateMessage`'s result. The file's existing parity case states delegation and cannot fail on a predicate defect. |
 | The reason line (AC1-5, AC1-6 in DOM) | `src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx` | Mounting the editor with a V2 message holding one empty Text Display shows one line with the Text Display reason. The same message filled shows no line. |
 | Description inputs (AC2-1, AC2-2) | `src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/` (`MediaGalleryEditor.duplicate-placement.test.tsx` is the gallery sibling; the Thumbnail editor has none) | The rendered `<input>`'s `maxLength === 1024` (a literal), for both |
 | Save schema (AC2-3) | `src/server/api/utils/__tests__/shapes.*` or the existing `limits.import-validation.test.ts` | `discordMessageShape.safeParse` of a 1025-character description succeeds |
@@ -236,6 +198,9 @@ removing for M1 to land.
 | AC1-5 | 10 limbs (or limb × type, QAF-8) | A fresh Section holds two faults at once (research N-4). The reason names one; the test asserts it is one of the two, never which, unless the plan orders them | Suite: pairwise distinct, with literal type words |
 | AC1-6 | One walk | Typing one space (N-2 recorded); Send disabled vs enabled; the send-page preview | Register B-1 (UAT) |
 | AC1-7 | Same population as AC1-1 | Expected from `m.discord`, not from `validateMessage` | Suite |
+| AC1-9 | Three named classes: (a) classic messages, with classic Action Rows in L5 to L8 shapes; (b) every input the existing `limits.*`, `utils.mutual-exclusivity` and `messageValidity.predicate` tests pass to the predicate; (c) the corpus's 34 accepted members | A classic message carrying an L5 to L8 Action Row (the reach limb's sole carrier, the flag clear); whitespace content beside V2 (A4) | Phase 2 two-tree differential, `verification/016/differential/` |
+| AC1-10 | `limits.tsx`'s import closure | A bound imported from `~/constants` (the barrel), or `shapes.ts`, either of which reaches `~/env.mjs` | `npx ts-node -r tsconfig-paths/register -T -e "require('~/utils/limits')"` from `website/`, exit 0 at the tip, outside vitest; its red member is the architect's capture. Placed by QA at Phase 2 |
+| AC1-11 | Each file the chain changes | A changed test file that is already red at base (`limits.send-gate-partition`, `limits.import-validation`) | `npx eslint <file> --format json` at `0e3d903` and at the tip, per file, counted from the JSON; never the `lint` script, which writes (`--fix`) |
 | AC1-8 | `validateContentRequirements`'s existing test classes (`limits.send-gate-partition` PARTITION and its extensions; `utils.mutual-exclusivity`) | Whitespace content beside V2 (A4: Discord accepts) | Phase 2 two-tree differential, plus the existing tests unchanged and green |
 | AC2-1 | One constant, two inputs, one check | 1024 passes, 1025 refused at Send, for both description fields | Suite (literals 1024 and 1025, never the constant read back) |
 | AC2-2 | Two inputs | Paste of 1100 characters; a stored over-1024 description is shown and editable | Suite (attribute) + B-2 (browser) |
@@ -317,7 +282,7 @@ row's execution state.
 
 | ID | Class | Condition | Primary instrument | Subject / fallback | Earliest-decidable condition | Predicted value | Failure mode | Owner | Discharging document | State |
 |---|---|---|---|---|---|---|---|---|---|---|
-| B-1 | observable pre-release | AC1-6: on a local build of the chain tip, a V2 message with a freshly added Text Display shows the reason line in the editor and the send-page preview, with Send disabled. Filled in, the line goes and Send is enabled, and the send to the test-server webhook returns 200. Record N-2 (one typed space reaches the data as a space or not) | Stage browser walk (browser-walker) on the local build, signed in as the test account | UAT; owner as fallback subject | Chain tip committed; local stack up with `ALTER SEQUENCE "Messages_id_seq" RESTART WITH 900000000000001` after the schema push and before the first save; the id range written recorded | Line present and Send disabled; line absent and Send enabled after filling; send 200 | If Send stays enabled on the fresh Text Display, the user still meets the generic toast and the fix buys him nothing. If the line never clears after filling, every V2 message is unsendable | uat | UAT pass of chain 016 (to be briefed; document not yet created) | open |
+| B-1 | observable pre-release | AC1-6: on a local build of the chain tip, a V2 message with a freshly added Text Display shows the reason line in the editor and the send-page preview, with Send disabled. Filled in, the line goes and Send is enabled, and the send to the test-server webhook returns 200. Record N-2 (one typed space reaches the data as a space or not). Amended at the re-key: the same walk also records the `/preview` render of the same draft (plan rev 2, AC1-6, "The reason line"); it is a record, not a pass condition | Stage browser walk (browser-walker) on the local build, signed in as the test account | UAT; owner as fallback subject | Chain tip committed; local stack up with `ALTER SEQUENCE "Messages_id_seq" RESTART WITH 900000000000001` after the schema push and before the first save; the id range written recorded | Line present and Send disabled; line absent and Send enabled after filling; send 200 | If Send stays enabled on the fresh Text Display, the user still meets the generic toast and the fix buys him nothing. If the line never clears after filling, every V2 message is unsendable | uat | UAT pass of chain 016 (to be briefed; document not yet created) | open |
 | B-2 | observable pre-release | AC2-2: pasting 1100 characters into the Thumbnail description and into a gallery item description leaves 1024 in each field. Typing at 1024 adds nothing | Same walk as B-1; field length read by `browser_evaluate` (`input.value.length`) | UAT; owner fallback | As B-1; depends on B-1's stack | 1024 and 1024 | If the paste lands whole, the user composes a description Discord refuses, and only Send's reason catches it | uat | UAT pass of chain 016 | open |
 | B-3 | post-deploy-observable | The user-reported defect (handoff `components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md`, his words) is fixed in production. On hooks.gg, a new V2 message with one fresh Text Display shows the Text Display reason line, and Send is disabled | Stage browser single look on `https://hooks.gg/message/m/new` → "My Account" → V2 → add Text Display; read `.text-error` lines. Read-only: no Save, no Send | UAT stage; owner fallback | Production serving the chain's merge SHA (how that is verified is devops's to establish) | **Fixed:** the line present. **Unfixed (`0e3d903`, by code read):** no line, since `DiscordMessageEditor/index.tsx`'s error lines are `noContentError`, `v2TextError` and `componentCountError`, and none fires for one empty Text Display. One observation decides | If no line shows after deploy, production is not running the fix, or the fix does not reach the editor | uat | Devops's Stage 1 carrier `handoff/<name>.md` | open. **Minting run attempted 10:52Z, not completed:** the page showed a "Select a Server" picker before the editor, and the walker was not authorised to choose. The browser server then disconnected. Owed: the first stage-browser pass of this chain runs the look once against production before release, read-only, and records the unfixed value beside this prediction |
 | B-4 | post-deploy-observable | Liveness beside B-3, which declines sends: in production a filled V2 message (one Text Display "hello") still sends. The test account's own message, sent to the test-server webhook, returns success | Stage browser walk on hooks.gg as the test account (its own row: `discord-test-browser` skill) | UAT stage; owner fallback | As B-3; same session as B-3 (B-3's refused member is the control) | Send enabled; Discord 200; message visible in `#general` | If a filled message cannot be sent, the change blocks every V2 user: the most-exposed class is every V2 sender | uat | Devops's Stage 1 carrier | open; depends on B-3's session |
@@ -353,8 +318,8 @@ files: these plus `useApiMethods.json-editor-repair` and `utils.mutual-exclusivi
   plan 024 lines 71 to 86 were read and agree. Items 2 and 3 are not QA's; the handoff stays `Open`,
   with a changelog row and `Status-Detail` brought into agreement.
 - `handoff/website-tests-not-beside-their-module-2026-11-08.md` (through rider R1). Nothing is owed by
-  QA at Phase 1. At Phase 2, the rename evidence is the per-file case count and pass set, identical
-  at the trees before and after the move.
+  QA at Phase 1. Reconcile at the re-key: rider R1 is dropped (plan rev 2, critique F-6), so the chain
+  edits none of the six files and no rename evidence is owed at Phase 2.
 
 ## Process facts of this pass
 
@@ -378,6 +343,13 @@ webhook (which the website's users can also hold) gets a different verdict or er
 member. The signature is a B-1 or B-4 send behaving unlike the corpus. Owner of closing it: UAT, whose
 B-1 send can use the other kind, or the next QA pass, by re-running `resend.py` on a bot-created
 webhook.
+
+Re-key pass on revision 2: this pass assumes Discord's verdicts on the 44 first-measured members (the
+40 plus batch 3's 4) are stable and not transient, and does not re-send them; each was sent once. If false,
+a member's recorded verdict is not what Discord returns now, and AC1-1 judges against a stale oracle. The
+signature is a re-send differing from `measuredOn`'s verdict. Owner of closing it: QA Phase 2, by
+re-running `resend.py` over the whole corpus once before its verdict, the plan's AC1-1 rule then deciding
+any difference. This is also the critic's routed assumption.
 
 ## Handoff
 

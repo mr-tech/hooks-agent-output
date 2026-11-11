@@ -5,7 +5,7 @@
 
 export interface DiscordV2SendCorpusMember {
   readonly id: string;
-  readonly source: 'research' | 'qa-extra' | 'qa-extra-2';
+  readonly source: 'research' | 'qa-extra' | 'qa-extra-2' | 'qa-extra-3';
   readonly shape: string;
   readonly discord: 'accepted' | 'refused';
   readonly measuredOn: string;
@@ -4206,6 +4206,81 @@ export const DISCORD_V2_SEND_CORPUS: readonly DiscordV2SendCorpusMember[] = [
         {
           "type": 10,
           "content": "\u200b "
+        }
+      ]
+    }
+  },
+  {
+    "id": "Q3-td-u0085-space-u0085",
+    "source": "qa-extra-3",
+    "shape": "only a Text Display of U+0085, a space, U+0085",
+    "discord": "refused",
+    "measuredOn": "2026-11-11",
+    "body": {
+      "flags": 32768,
+      "components": [
+        {
+          "type": 10,
+          "content": "\u0085 \u0085"
+        }
+      ]
+    }
+  },
+  {
+    "id": "Q3-td-space-u0085-space-u0085-space",
+    "source": "qa-extra-3",
+    "shape": "only a Text Display of a space, U+0085, a space, U+0085, a space",
+    "discord": "refused",
+    "measuredOn": "2026-11-11",
+    "body": {
+      "flags": 32768,
+      "components": [
+        {
+          "type": 10,
+          "content": " \u0085 \u0085 "
+        }
+      ]
+    }
+  },
+  {
+    "id": "Q3-td-u0085-u0085",
+    "source": "qa-extra-3",
+    "shape": "only a Text Display of two U+0085",
+    "discord": "refused",
+    "measuredOn": "2026-11-11",
+    "body": {
+      "flags": 32768,
+      "components": [
+        {
+          "type": 10,
+          "content": "\u0085\u0085"
+        }
+      ]
+    }
+  },
+  {
+    "id": "Q3-label-u0085-space-u0085",
+    "source": "qa-extra-3",
+    "shape": "link button label of U+0085, a space, U+0085",
+    "discord": "refused",
+    "measuredOn": "2026-11-11",
+    "body": {
+      "flags": 32768,
+      "components": [
+        {
+          "type": 10,
+          "content": "hello"
+        },
+        {
+          "type": 1,
+          "components": [
+            {
+              "type": 2,
+              "style": 5,
+              "label": "\u0085 \u0085",
+              "url": "https://hooks.gg"
+            }
+          ]
         }
       ]
     }

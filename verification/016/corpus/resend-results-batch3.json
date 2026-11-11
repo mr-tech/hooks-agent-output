@@ -1,0 +1,51 @@
+{
+ "summary": {
+  "started": "2026-11-11T11:08:17Z",
+  "ended": "2026-11-11T11:08:38Z",
+  "sender": "user-created webhook 'Spidey Bot', #general",
+  "requests": 4,
+  "accepted": 0,
+  "deleted_204": 0,
+  "retries_429": 0,
+  "research_cases": 0,
+  "research_verdict_match": 0,
+  "research_refused_with_identical_error_body": 0,
+  "research_refused": 0,
+  "webhooks_before": [
+   "Spidey Bot"
+  ],
+  "webhooks_after": [
+   "Spidey Bot"
+  ]
+ },
+ "results": [
+  {
+   "id": "Q3-td-u0085-space-u0085",
+   "set": "qa-extra-3",
+   "status": 400,
+   "discord": "refused",
+   "error_body": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"content\": {\"_errors\": [{\"code\": \"BASE_TYPE_BAD_LENGTH\", \"message\": \"Must be between 1 and 4000 in length.\"}]}}}}}"
+  },
+  {
+   "id": "Q3-td-space-u0085-space-u0085-space",
+   "set": "qa-extra-3",
+   "status": 400,
+   "discord": "refused",
+   "error_body": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"content\": {\"_errors\": [{\"code\": \"BASE_TYPE_BAD_LENGTH\", \"message\": \"Must be between 1 and 4000 in length.\"}]}}}}}"
+  },
+  {
+   "id": "Q3-td-u0085-u0085",
+   "set": "qa-extra-3",
+   "status": 400,
+   "discord": "refused",
+   "error_body": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"content\": {\"_errors\": [{\"code\": \"BASE_TYPE_BAD_LENGTH\", \"message\": \"Must be between 1 and 4000 in length.\"}]}}}}}"
+  },
+  {
+   "id": "Q3-label-u0085-space-u0085",
+   "set": "qa-extra-3",
+   "status": 400,
+   "discord": "refused",
+   "error_body": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"1\": {\"components\": {\"0\": {\"label\": {\"_errors\": [{\"code\": \"BASE_TYPE_REQUIRED\", \"message\": \"This field is required\"}]}}}}}}}"
+  }
+ ]
+}
