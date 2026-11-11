@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-uat-local-stack-id-sequence
 UUID: 860d4569
 Status: Active
-Status-Detail: "Fix committed at 1fee252 on master; awaiting code review (the reviewer also runs the suite and the red test: 7 production lines added, under 20, so no QA Phase 2). One finding outside scope routed to steering: the seed file's Message id 1."
-Handoff-At: 1fee252 — repos=agent-output
+Status-Detail: "Round 2 (re-scope 2026-11-11T19:48Z) committed at 71b61b9 on master; awaiting code review (the reviewer also runs the suite and both red runs: 11 code lines plus 4 header lines added since 68d737f, under 20, so no QA Phase 2)."
+Handoff-At: 71b61b9 — repos=agent-output; round 1 at 1fee252, not reviewed
 Origin-Chain: PI006
 ---
 
@@ -35,7 +35,27 @@ order does not change today's value.
 under `verification/fix-<slug>/`; the brief's fence names only three paths. I committed five new
 capture files under `verification/fix-uat-local-stack-id-sequence/` in `1fee252` without first
 asking. They are new files, edit nothing existing, and are named in Test and Verification below.
-Steering is told in the handoff message.
+Steering is told in the handoff message. Steering's answer: the omission was its brief's error, and
+the capture directory is in the chain's set (re-scope block below).
+
+**Re-scope, round 2.** `steering/queue-hooks-rulings.md`, block "2026-11-11T19:48Z —
+`fix-uat-local-stack-id-sequence` re-scoped by this thread: the seed's message id joins the fix"
+(record `05582c6`), relayed by SendMessage. Route: steering's decision under Standing Defaults,
+told to the owner, his to veto. Its limbs, quoted:
+
+> - The seed's "Messages" id moves to 900000000000001 or above, with any row that refers to it.
+> - After a seed, `up` fails where a stored "Messages" id is below 900000000000001 (the scope
+>   statement's "or fails").
+> - Path added to the chain's set: `verification/015/upload-dialog/seed.sql`. Not edited: any other
+>   file under `verification/015/`; a script there that expects message 1 is named in the fixer's
+>   document, not changed.
+
+Scripts that expect message 1: none in `verification/015/upload-dialog/`. `run-local-probe.sh`
+and `upload-dialog-cdp.mjs` use the session token and the folder path `/message/f/0`, not a
+message id (read at `05582c6`). One comment elsewhere names a message 1:
+`verification/015/uat/b14-fresh-message.js` line 1 ("message 1 is black, which base refuses"). It
+does not read this seed (`grep -rln seed.sql verification/ tools/` names only this chain's tool,
+test and captures), so it is named here and not changed.
 
 ## Entry Conditions
 
@@ -148,7 +168,7 @@ saved through one.
   Capture: `verification/fix-uat-local-stack-id-sequence/convention-check.txt`.
 - No package-manager operation; no lockfile.
 
-## Finding outside scope (routed, not absorbed)
+## Finding outside scope (routed, not absorbed; taken into scope by the re-scope, fixed in round 2)
 
 `verification/015/upload-dialog/seed.sql` (out of scope by name) inserts `"Messages"` row **id
 1**, along with `Users` id 1 and a session (its line 8, read at `68d737f`). So after `up --seed`
@@ -159,16 +179,60 @@ sequence moves, but the row stays. A save of that message on a local build would
 ground: either would widen the statement. Routed to `steering-queue-hooks` for re-scoping in the
 handoff message.
 
+## Round 2 — the seed's message id
+
+**Change.**
+- `verification/015/upload-dialog/seed.sql` line 8: the "Messages" row's `id` 1 →
+  900000000000001. No other seed row refers to a message id. `fk_users_id` 1 is the user's id, and
+  `Users`, `Accounts` and `Sessions` stay as they were: the rule is about message ids.
+- `tools/uat-local-stack.sh`, inside the `--seed` branch after `seed: applied`: one `psql` count
+  of `"Messages"` rows with `id < 900000000000001`. Anything other than `0` (a count, an empty or
+  unreadable answer) → `fail "the seed leaves stored message ids below 900000000000001 (count:
+  …)"`, before the sequence move, so the existing undo removes the container this call created.
+  `--seed` only ever runs on a container this call created (existing guard). 4 code lines, plus 2
+  header lines. Since `68d737f` the tool is 15 lines added and 2 removed (`git diff --numstat`): 11
+  code lines (one of them blank) and 4 usage-header lines (the header was rewrapped), under 20.
+- `tools/uatLocalStack.test.js`: the stub answers the count (`STUB_LOW_IDS`) and logs
+  `low-ids` in the call order. The `up --seed` order case now expects `push, seed, low-ids,
+  sequence`. New cases: `a seed that leaves a message below the floor` and `a seed whose low-id
+  count is not a number`, each "fails up --seed before the sequence move, and the container it
+  created is removed". Plus one credential-paths row.
+
+Work declined: a seed that leaves a low id gets no database. `up` exits 1 and the container is
+removed. The caller fixes the seed and runs `up --seed` again; nothing queues it.
+
+**Red run** with the `1fee252` tool and the new test file → exit 1; tests 109, pass 105, fail 4.
+The failures are the 3 new cases and the changed `up --seed` order case. Capture:
+`verification/fix-uat-local-stack-id-sequence/red-run-2.txt`.
+
+**Green run** at `71b61b9` → exit 0; tests 109, pass 109, fail 0. Capture: `green-run-2.txt`
+(same directory).
+
+**Real Postgres** (`real-postgres-run-2.txt`, same scratch-env method as round 1):
+- `up --seed` with the record's seed → `message ids: next 900000000000002`; the stored ids are
+  `900000000000001`; a default insert got 900000000000002; then `down`.
+- `up --seed` with the `05582c6` seed (message id 1, through `ULS_SEED`) → `the seed leaves stored
+  message ids below 900000000000001 (count: 1)`, `removed the container this call created`, rc 1.
+
+Afterwards `docker ps -a --filter name=hooks-postgres-local` lists 0 containers. That makes three
+throwaway containers in round 2's runs, two of them created by `up --seed`, all removed.
+
+**Convention check** (`convention-check-2.txt`): exit 0, no FAIL or CANDIDATE. It SKIPs `.sh` and
+`.sql`, so the header comment and the seed are **unchecked** by it, and it exempts the test file as
+before.
+
 ## User-visible flows
 
 None: a record tool. The one visible change is a new `up` output line, `message ids: next <n>`.
 
 ## Handoff
 
-- **SHA:** `1fee252` (agent-output, `master`).
-- **Reviews:** code review at `1fee252`. The reviewer also runs `node --test
-  tools/uatLocalStack.test.js` and the red test (the `68d737f` tool with this test file). No QA
-  Phase 2: 7 production lines added, under 20.
+- **SHA:** `71b61b9` (agent-output, `master`). Round 1's `1fee252` was not reviewed; steering
+  held the review for one tree.
+- **Reviews:** code review at `71b61b9`. The reviewer also runs `node --test
+  tools/uatLocalStack.test.js` and both red runs: the `68d737f` tool and the `1fee252` tool, each
+  with this test file. No QA Phase 2: 11 code lines plus 4 header lines added since `68d737f`,
+  under 20.
 - **Merges:** nothing to merge. The commit is on the record repository's `master`, whose push
   deploys nothing (`ls -d .github` fails, per the determination). No push was made.
 - **Delivery:** no reviewer session is live, so a spawn cue goes to `steering-queue-hooks` by
@@ -182,3 +246,4 @@ None: a record tool. The one visible change is a new `up` output line, `message 
 | Date (UTC) | Rev | Change |
 |---|---|---|
 | 2026-11-11T19:47 | 1 | Fix and tests committed at `1fee252`; red, green and real-Postgres runs captured; handoff to code review via a spawn cue to steering; seed finding routed |
+| 2026-11-11T19:50 | 2 | Re-scope (steering, 2026-11-11T19:48Z, `05582c6`): seed's message id → 900000000000001; `up --seed` fails on a stored message id below it; committed at `71b61b9`; red, green and real-Postgres runs captured; Handoff-At moved to `71b61b9`; spawn cue to steering |
