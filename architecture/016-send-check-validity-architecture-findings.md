@@ -16,6 +16,7 @@ Status-Detail: "Delta pass on plan 016 revision 3 (record 21db6c8): APPROVED_WIT
 | 2026-11-11T10:51 | Reconciliation, on the open handoff this pass triggers, plus the retrospective's routed candidate (brief, second item) | `handoff/architecture-record-reconciliation-owed-2026-11-10.md` is discharged, all six items (see its closing row). `system-architecture.md` and the diagram are reconciled to website `0e3d903`; the 013 findings document and the invariant handoff are closed; P-2 and P-3 are updated. `website.md` A-6 landed: the editor's one persisting step (agent-designed, shaped by his selection 15). |
 | 2026-11-11T11:09 | Delta pass, plan rev 2 (`6b07655`, read as the diff from `3b4205d`), on planner-hooks-016's request | AF-1 to AF-5 and AF-7 are folded as asked. The corpus helper, the whitespace-empty predicate and the new instruments conform. AF-11 INFO: the `/preview` reason line follows the current pattern (D-5), but it makes preview-image error chrome routine. The Problem Area is raised to Medium, and the owner's report should carry the frequency. **APPROVED.** |
 | 2026-11-11T11:15 | Delta pass, plan rev 3 (`21db6c8`, read as the diff from `6b07655`), on planner-hooks-016's request | M1b's design (a signal only `/preview` passes, D-14) conforms, and so do QAF-9's predicate and the corpus re-pin. AF-12 MEDIUM is required: M1b's class misses the sub-components' validation lines and the `data-erroring-state` ring (Author, EmbedField, EmbedTitle, EmbedAuthor, EmbedFooter), which render on `/preview` regardless of edit mode. AF-13 LOW is recommended: drill one `VisualizerProps` input beside `showEdit`. **APPROVED_WITH_CHANGES.** |
+| 2026-11-11T11:17 | AF-12 instrument corrected (planner-hooks-016's message) | The range I gave, the `DiscordMessageEditor` directory, missed `src/components/DiscordContentEditor/{Desktop,Mobile}.tsx`, which carries the ring, an erroring counter and "Too long.". The error was mine. The range is now the editor's render tree (its import closure under `src/components`), as the planner proposed for rev 4. |
 
 ## Verdict (rev 3, `21db6c8`, read as the diff from rev 2 `6b07655`): APPROVED_WITH_CHANGES
 
@@ -62,11 +63,16 @@ Problem Area M1b says it closes would stay open.
 - every sub-component validation line above;
 - the `data-erroring-state` / `errorStateBorder` ring wherever it is set.
 
-The enumeration instrument is a `git grep` over `src/components/DiscordMessageEditor`, tests
-excluded, for `text-error`, `data-erroring-state` and `errorStateBorder`. Each hit is classified as
+The enumeration range is `DiscordMessageEditor`'s render tree, meaning its import closure under
+`src/components`, tests excluded. The search is for `text-error`, `data-erroring-state`,
+`errorStateBorder` and `erroring:`. Each hit is classified as
 validation chrome or not. AC1b-1 checks each member with its trigger present, as it does now.
-**Unread by this pass:** whether `DiscordContentEditor`'s `limit` / `showLimit` counter renders an
-over-limit state outside edit mode, and whether a `ComponentEditors/*` editor renders an error
+**Correction, the error mine** (planner-hooks-016's message, verified at `0e3d903`): the instrument
+I first gave was the directory `src/components/DiscordMessageEditor`. `DiscordContentEditor` lives
+outside it, at `src/components/DiscordContentEditor/{Desktop,Mobile}.tsx`, and carries members of
+the class: `data-erroring-state`, `styles.errorStateBorder`, an `erroring:text-error` counter, and
+`Mobile.tsx`'s "Too long." line (`git grep -n`). The range above replaces the directory.
+**Unread by this pass:** whether a `ComponentEditors/*` editor renders an error
 outside its edit popover. The enumeration settles both.
 
 ### AF-13 LOW — The signal follows the `showEdit` route: one `VisualizerProps` input, drilled as `showEdit` is
