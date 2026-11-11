@@ -468,6 +468,24 @@ B-3 and B-4 (post-deploy). Cases, fixtures and coverage are QA's.
   superseded by D-6 for the test server), 013 and 015 (the save path; untouched).
 - One launch directory: `/usr/local/bin/hooks/website`. The record is reached by absolute path.
 
+## Resumption State
+
+Checkpoint 2026-11-11T11:15Z, `planner-hooks-016`, on steering's request.
+- **Done:** revision 3 committed (`21db6c8`) and delivered by SendMessage to `critic-hooks-016`
+  (a new critique cycle, because the rev-2 critique closed `Resolved` at `5c1512f`),
+  `architect-hooks-016` (rev 2 APPROVED at `2520ac7`) and `qa-hooks-016` (rev 2 re-key at `77b1fd6`).
+- **Next:** wait for all three verdicts on revision 3, then fold their findings into one revision
+  per the batching rule. A changelog `Rev` row is written only for a revision that moves a
+  requirement. Each later read of the plan is `git diff 21db6c8 HEAD -- planning/016-send-check-validity.md`.
+  When every pre-code gate has approved the same revision, report the plan ready for implementation
+  to steering, as a spawn cue for the implementer.
+- **Open to the owner:** nothing. Design decision 2 (labels take D-9's rule, riding selection 18)
+  was reported and stands (rulings block 11:11Z).
+- **Trees:** website on `master` at `0e3d903`, clean, with no chain branch yet (steering creates
+  it). The record has nothing uncommitted of this session's. My scratchpad holds only throwaway
+  captures (the base suite JSON, the eslint JSON, the diff extracts). Their numbers are recorded in
+  § Validation and the changelog rows.
+
 ## Planner batch
 
 | Item | Source row | Disposition |
