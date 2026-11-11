@@ -30,12 +30,14 @@ Owed re-verdicts:
 
 | Limb | Decidable since | Owning gate | State |
 |---|---|---|---|
-| M1b's class as a property, seven members, settled by render (AC1b-1) | revision 4 | QA (by-render enumeration), critic, architect | QA found exactly seven (`96fbc66`); critic and architect approved revision 4 (`01eeaad`, `47c7a4c`); revision 5 owed to all three |
-| AC1b-1's Author limb: cozy on `/preview`, compact at the component (QAF-12) | revision 5 | QA, critic, architect | QA approved revision 5 (`97343f0`), architect approved (`1492d33`); critic open |
-| AC1b-3's signal form (AF-13) | revision 4 | architect | approved (`47c7a4c`); revision 5 owed |
-| AC1b-4's post-deploy member (b) | revision 4 | QA (B-6), critic (F-13) | critic resolved F-13 (`01eeaad`); QA carries it in B-6 (`96fbc66`); revision 5 owed |
-| RK-5, X-11 | revision 4 | critic | approved (`01eeaad`); revision 5 owed |
-| AC1-11's population without the corpus fixture; X-12 | revision 6 | critic, QA (AC1-11's instrument at Phase 2) | QA re-keyed, no finding (`a3b7586`); critic open |
+| M1b's class as a property, seven members, settled by render (AC1b-1) | revision 4 | QA (by-render enumeration), critic, architect | discharged: QA `96fbc66`; revision 5 approved by critic `88b0da9`, architect `1492d33`, QA `97343f0` |
+| AC1b-1's Author limb: cozy on `/preview`, compact at the component (QAF-12) | revision 5 | QA, critic, architect | discharged: critic `88b0da9`, architect `1492d33`, QA `97343f0` |
+| AC1b-3's signal form (AF-13) | revision 4 | architect | discharged: `47c7a4c`, and revision 5 at `1492d33` |
+| AC1b-4's post-deploy member (b) | revision 4 | QA (B-6), critic (F-13) | discharged: critic `01eeaad`, QA B-6 (`96fbc66`); revision 5 approved by both |
+| RK-5, X-11 | revision 4 | critic | discharged: `01eeaad`, and revision 5 at `88b0da9` |
+| AC1-11's population without the corpus fixture; X-12 | revision 6 | critic, QA (AC1-11's instrument at Phase 2) | discharged: QA `a3b7586`, critic cycle 4 `94403d2` |
+
+No re-verdict is owed at revision 6.
 
 ## Changelog
 
@@ -54,6 +56,7 @@ Owed re-verdicts:
 | 2026-11-11T11:44 | R-5 | implementer-hooks-016 | Status set to In Progress: implementation starts on revision 5 at website `0e3d903`, chain branch `chain/016-send-check-validity`. Entry conditions recorded in the implementation document. No requirement changed. |
 | 2026-11-11T11:52 | 6 | planner-hooks-016 | Resolves the AC1-1/AC1-11 contradiction the implementer reported by message: the byte-identical corpus fixture carries 7078 eslint findings. AC1-11 now names the fixture as outside its population, and X-12 records why (AC1-1 fixes the bytes) and the `eslint --fix` hazard. Scope delta: AC1-11's population narrows by one file. No work is added, no product behaviour changes and no milestone moves, so it is not a milestone-level delta. The implementer's options (a) and (b), lint-config edits, are declined. Since approval of the value statement: six revisions and five gate rounds. Size against the original ask: unchanged. |
 | 2026-11-11T11:54 | R-6 | planner-hooks-016 | Verdict: QA re-keyed AC1-11 on revision 6 with no finding (`qa/016-send-check-validity-qa.md`, record `a3b7586`; capture `verification/016/corpus/fixture-eslint-summary.txt`). QA's offer to regenerate the fixture lint-clean is declined for this chain: it would re-open AC1-1 mid-implementation. No requirement changed; the revision stays 6. |
+| 2026-11-11T11:55 | R-7 | planner-hooks-016 | Verdict: critique cycle 4 pass 1 APPROVED revision 6 (`critiques/016-send-check-validity-cycle4-critique.md`, `94403d2`). Its F-16 LOW, the owed re-verdicts table showing revision 5 as still owed, is fixed in place: every row reads discharged. No requirement changed; the revision stays 6. |
 
 ## Value Statement and Business Objective
 
