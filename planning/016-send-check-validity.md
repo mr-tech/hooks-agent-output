@@ -36,7 +36,7 @@ Owed re-verdicts:
 | AC1b-4's post-deploy member (b) | revision 4 | QA (B-6), critic (F-13) | discharged: critic `01eeaad`, QA B-6 (`96fbc66`); revision 5 approved by both |
 | RK-5, X-11 | revision 4 | critic | discharged: `01eeaad`, and revision 5 at `88b0da9` |
 | AC1-11's population without the corpus fixture (superseded at revision 7: no exemption) | revision 6 | critic, QA (AC1-11's instrument at Phase 2) | discharged: QA `a3b7586`, critic cycle 4 `94403d2`, architect `ff9d4f7` |
-| AC1-1's fixture identity (`9ab22baa…`, `7fcf64f`); AC1-11 with no exemption | revision 7 | critic, QA | open |
+| AC1-1's fixture identity (`9ab22baa…`, `7fcf64f`); AC1-11 with no exemption | revision 7 | critic, QA | QA re-keyed, no finding (`13674b8`); critic open |
 
 
 ## Changelog
@@ -60,6 +60,7 @@ Owed re-verdicts:
 | 2026-11-11T11:55 | R-8 | planner-hooks-016 | Verdict: the architect's delta pass APPROVED revision 6 (`architecture/016-send-check-validity-architecture-findings.md`, `ff9d4f7`). Its AF-14 LOW (have the generator emit lint-clean output) is declined for this chain, because it would re-open AC1-1 mid-implementation. Its carrier after closure is the Problem Area it lodged, named on X-12. No requirement changed; the revision stays 6. |
 | 2026-11-11T11:57 | R-9 | planner-hooks-016 | Registration: two Planner batch rows from the V-101 Opus critic pass on revision 6 (rulings block "2026-11-11T11:57Z — V-101 trial block", `c70c535`): F-2 LOW and F-4 INFO, both parked to the seam before the UAT anchor. No requirement changed; the revision stays 6. |
 | 2026-11-11T12:58 | 7 | planner-hooks-016 | Folds code review Round 1's CR-1 MEDIUM (`code-review/016-send-check-validity-code-review.md`, website `ee114ff`): the fixture's header comment failed the comment gate. QA regenerated the fixture with no comment lines and lint-clean output, the data unchanged (`188bc93`, its `regen-*.txt` captures), so AC1-1 records the new sha256 and blob and AC1-11 exempts nothing. X-12 is retired. Correction, from the V-101 Opus critic's F-2: revision 6's scope-delta line left out AC1-11's added clause "(zero for a file the chain adds)", which stands. Scope delta: AC1-1's recorded identity changes, the data does not; AC1-11's population returns to every changed file. No milestone moves and no product behaviour changes. Since approval of the value statement: seven revisions and six gate rounds. Size against the original ask: unchanged. |
+| 2026-11-11T12:59 | R-10 | planner-hooks-016 | Verdict: QA re-keyed Phase 1 to revision 7 with no finding (`qa/016-send-check-validity-qa.md`, record `13674b8`). No requirement changed; the revision stays 7. |
 
 ## Value Statement and Business Objective
 
