@@ -1,0 +1,10 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/34dd76d3-24a6-444b-9698-edcf12b71f70/scratchpad/wt-green
+
+
+ Test Files  2 passed (2)
+      Tests  36 passed (36)
+   Start at  08:49:04
+   Duration  1.24s (transform 235ms, setup 8ms, import 953ms, tests 30ms, environment 645ms)
+
+exit=0

@@ -1,0 +1,6 @@
+numTotalTests 1135 passed 1130 failed 5 files 117
+failed utils/__tests__/useApiMethods.save-choice.test.tsx :: holds the save for a choice, and the chosen save writes a draft the send check accepts
+failed utils/__tests__/utils.disposition-resolver.test.ts :: mustAsk is true for V2 components beside an empty embed — the send check counts every embed
+failed utils/__tests__/utils.disposition-resolver.test.ts :: mustAsk is true for V2 components beside an embed with only an empty title — the send check counts every embed
+failed utils/__tests__/utils.disposition-resolver.test.ts :: mustAsk is true for V2 components beside an embed carrying only its editor key — the send check counts every embed
+failed utils/__tests__/utils.disposition-resolver.test.ts :: mustAsk is true for V2 components beside an embed with an empty fields array — the send check counts every embed

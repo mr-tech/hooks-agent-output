@@ -1,0 +1,22 @@
+## tree 460000b
+flags=undefined embed=empty: parsed embeds=[{}] row=E requiresChoice=true
+flags=undefined embed=emptyTitle: parsed embeds=[{"title":""}] row=E requiresChoice=true
+flags=undefined embed=keyOnly: parsed embeds=[{}] row=E requiresChoice=true
+flags=undefined embed=emptyFields: parsed embeds=[{"fields":[]}] row=E requiresChoice=true
+flags=undefined embed=titled: parsed embeds=[{"title":"t"}] row=E requiresChoice=true
+flags=32768 embed=empty: parsed embeds=[{}] row=E requiresChoice=true
+flags=32768 embed=emptyTitle: parsed embeds=[{"title":""}] row=E requiresChoice=true
+flags=32768 embed=keyOnly: parsed embeds=[{}] row=E requiresChoice=true
+flags=32768 embed=emptyFields: parsed embeds=[{"fields":[]}] row=E requiresChoice=true
+flags=32768 embed=titled: parsed embeds=[{"title":"t"}] row=E requiresChoice=true
+## tree 460000b with 6d78b19 src/utils/index.ts
+flags=undefined embed=empty: parsed embeds=[{}] row=B requiresChoice=false
+flags=undefined embed=emptyTitle: parsed embeds=[{"title":""}] row=B requiresChoice=false
+flags=undefined embed=keyOnly: parsed embeds=[{}] row=B requiresChoice=false
+flags=undefined embed=emptyFields: parsed embeds=[{"fields":[]}] row=B requiresChoice=false
+flags=undefined embed=titled: parsed embeds=[{"title":"t"}] row=E requiresChoice=true
+flags=32768 embed=empty: parsed embeds=[{}] row=C requiresChoice=false
+flags=32768 embed=emptyTitle: parsed embeds=[{"title":""}] row=C requiresChoice=false
+flags=32768 embed=keyOnly: parsed embeds=[{}] row=C requiresChoice=false
+flags=32768 embed=emptyFields: parsed embeds=[{"fields":[]}] row=C requiresChoice=false
+flags=32768 embed=titled: parsed embeds=[{"title":"t"}] row=E requiresChoice=true

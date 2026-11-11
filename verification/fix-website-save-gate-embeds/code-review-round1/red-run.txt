@@ -1,0 +1,61 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/34dd76d3-24a6-444b-9698-edcf12b71f70/scratchpad/wt-red
+
+ ❯ |node| src/utils/__tests__/utils.disposition-resolver.test.ts (35 tests | 4 failed) 19ms
+     × mustAsk is true for V2 components beside an empty embed — the send check counts every embed 5ms
+     × mustAsk is true for V2 components beside an embed with only an empty title — the send check counts every embed 1ms
+     × mustAsk is true for V2 components beside an embed carrying only its editor key — the send check counts every embed 1ms
+     × mustAsk is true for V2 components beside an embed with an empty fields array — the send check counts every embed 0ms
+ ❯ |dom| src/utils/__tests__/useApiMethods.save-choice.test.tsx (1 test | 1 failed) 25ms
+     × holds the save for a choice, and the chosen save writes a draft the send check accepts 24ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/useApiMethods.save-choice.test.tsx > editor Save of V2 components beside an empty embed > holds the save for a choice, and the chosen save writes a draft the send check accepts
+AssertionError: expected [ { message: { id: '1', …(2) } } ] to have a length of +0 but got 1
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ src/utils/__tests__/useApiMethods.save-choice.test.tsx:69:22
+     67|
+     68|     act(() => { methods().saveMessage(); });
+     69|     expect(upserted).toHaveLength(0);
+       |                      ^
+     70|     const pending = methods().pendingSaveChoice;
+     71|     expect(pending?.options.map((o) => o.mode)).toEqual(['classic', 'v…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |node| src/utils/__tests__/utils.disposition-resolver.test.ts > gateBeforePersist, the persist gate > mustAsk is true for V2 components beside an empty embed — the send check counts every embed
+ FAIL  |node| src/utils/__tests__/utils.disposition-resolver.test.ts > gateBeforePersist, the persist gate > mustAsk is true for V2 components beside an embed with only an empty title — the send check counts every embed
+ FAIL  |node| src/utils/__tests__/utils.disposition-resolver.test.ts > gateBeforePersist, the persist gate > mustAsk is true for V2 components beside an embed carrying only its editor key — the send check counts every embed
+ FAIL  |node| src/utils/__tests__/utils.disposition-resolver.test.ts > gateBeforePersist, the persist gate > mustAsk is true for V2 components beside an embed with an empty fields array — the send check counts every embed
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/utils.disposition-resolver.test.ts:214:26
+    212|     } as Pick<MessageData, 'flags' | 'components' | 'content' | 'embed…
+    213|     const gate = gateBeforePersist(draft);
+    214|     expect(gate.mustAsk).toBe(true);
+       |                          ^
+    215|     expect(gate.options).toEqual([
+    216|       { mode: 'classic', dropSet: ['components'] },
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  5 failed | 31 passed (36)
+   Start at  08:49:02
+   Duration  1.29s (transform 227ms, setup 11ms, import 965ms, tests 44ms, environment 655ms)
+
+exit=1
