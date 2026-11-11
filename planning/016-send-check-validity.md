@@ -2,8 +2,8 @@
 ID: 016
 Origin: 016
 UUID: 54673438
-Status: QA Complete
-Status-Detail: "QA Phase 2 PASS at website 395510e (qa/016-send-check-validity-qa.md, record 2af91e5); UAT next. QAF-13 LOW is for the Planner batch under the M1 cap. No OPEN QUESTION remains."
+Status: UAT Approved
+Status-Detail: "UAT APPROVED FOR RELEASE at website 395510e (uat/016-send-check-validity-uat.md); devops next. B-3, B-4 and B-6 are post-deploy rows for devops's Stage 1 carrier. QAF-13 LOW is for the Planner batch under the M1 cap. No OPEN QUESTION remains."
 Revision: 7
 Target Release: "website master → this chain's merge SHA (Vercel production on a push of master). The package carries no version artefact (package.json has no version field, CHANGELOG absent; read 2026-11-11T10:22Z)."
 Epic-Alignment: "none registered. The workspace has no roadmap, by the owner's standing instruction (brief). Source of the effort: research/closed/components-v2-send-validity-2026-11-11.md and research/closed/components-v2-description-text-limit-2026-11-11.md; opened by selection 14 (rulings block 2026-11-11T09:09Z)."
@@ -67,6 +67,7 @@ Owed re-verdicts:
 | 2026-11-11T13:03 | R-14 | code-reviewer-hooks-016 | Status set to Code Review Approved: code review Round 1 was REJECTED at website `ee114ff` (CR-1 to CR-3), and its fix sub-entry APPROVED at `395510e` (`code-review/016-send-check-validity-code-review.md`, record `892daad`). Plan read at revision 7. No requirement changed. |
 | 2026-11-11T13:48 | R-15 | qa-hooks-016 | Status set to QA Complete: QA Phase 2 PASS at website `395510e` over every criterion it assesses (`qa/016-send-check-validity-qa.md` § Phase 2 — results, record `2af91e5`). Effort-final sweep: 120 of 128 started mutants killed, every survivor dispositioned. QAF-13 LOW is sent to the planner for the Planner batch under the M1 cap. No requirement changed; the revision stays 7. |
 | 2026-11-11T13:49 | R-16 | planner-hooks-016 | Registration: QAF-13 LOW (QA Phase 2, `2af91e5`) as a Planner batch stated limit under M1's cap, carried after closure by `handoff/editor-error-lines-render-text-unasserted-2026-11-11.md`. No requirement changed; the revision stays 7. |
+| 2026-11-11T14:13 | R-17 | uat-hooks-016 | Status set to UAT Approved: UAT APPROVED FOR RELEASE at website `395510e` (`uat/016-send-check-validity-uat.md`). B-1, B-2 and B-5 EXECUTED and PASS on a local build of the tip; B-3, B-4 and B-6 stay post-deploy, with their unfixed values recorded. UAT-1 LOW (B-6(b) reads on the red border) goes to devops's carrier. Plan read at revision 7. No requirement changed. |
 
 ## Value Statement and Business Objective
 
