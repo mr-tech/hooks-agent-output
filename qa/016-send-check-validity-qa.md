@@ -444,6 +444,7 @@ Written 2026-11-11T12:58 at the end of the re-key on revision 7. Read this first
 
 - **Done:** Phase 1 on revisions 1 to 7. QAF-1 to QAF-12 RESOLVED; no finding open. The fixture is regenerated (`188bc93`, sha256 `9ab22baa…a77afe`, blob `7fcf64f`), AC1-1's identity is checked, and AC1-11 has no exemption. Status `Awaiting Implementation`. The plan is `In Progress`.
 - **Sent:** the rev-7 result → `planner-hooks-016`.
+- **Routing for M1 (steering's cap, `steering/queue-hooks-rulings.md` block "2026-11-11T12:59Z", record `855adb8`):** from that block on, an M1 finding below HIGH goes to the plan's Planner batch as a stated limit, with no revision or round. HIGH and CRITICAL findings keep the normal route, as does this gate's severity-floor finding (a preserved or relied-on behaviour with no failing assertion, MEDIUM, which blocks the verdict). M1b, M2 and M3 are not capped by this block.
 - **Next:** the code review's committed verdict (the Phase 2 start). A further plan revision is read as `git diff 9fd96d5 <rev> -- planning/016-send-check-validity.md`.
 - **Trees:** website on `chain/016-send-check-validity` with the implementer's work; read only. No export or process left.
 - **Owed later:** B-3 and B-6's production minting reads. At Phase 2: the whole-corpus re-send, the AC1-9 differential, AC1-10's probe, AC1-11's per-file eslint counts (no exemption), the fixture's sha256 and blob check (`9ab22baa…a77afe`, `7fcf64f`), the mutation sweep, and the by-render probe re-run at the tip.
