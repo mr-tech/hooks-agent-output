@@ -1,0 +1,4 @@
+230c230
+<   return asList(components).map(componentReason).find(Boolean) ?? '';
+---
+>   return componentReason(asList(components)[0]) ?? '';

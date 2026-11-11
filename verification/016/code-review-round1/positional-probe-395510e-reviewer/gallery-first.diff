@@ -1,0 +1,4 @@
+213c213
+<       return items.map((item) => imageReason(item, 'A Media Gallery item')).find(Boolean) ?? '';
+---
+>       return imageReason(items[0], "A Media Gallery item") ?? '';

@@ -2,10 +2,10 @@
 ID: 016
 Origin: 016
 UUID: 54673438
-Reviewed-At: "ee114ff — repos=website"
+Reviewed-At: "395510e — repos=website; Round 1 at ee114ff, its fix sub-entry at 395510e"
 Status: In Review
 Round: 1
-Verdict: REJECTED
+Verdict: APPROVED
 ---
 
 # Code Review: Plan 016, the send check refuses what Discord refuses
@@ -20,6 +20,7 @@ Verdict: REJECTED
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-11T12:51 | steering-queue-hooks → code-reviewer-hooks-016 (brief `steering/queue-hooks-briefs/code-reviewer-016-brief.md`) | Round 1 at `Handoff-At` `ee114ff` | Round 1 REJECTED. CR-2 MEDIUM is under the severity floor: no case puts a fault before a valid sibling in any of the five list walks, so it blocks hand-off to QA. CR-1 MEDIUM: the fixture's header comment fails the comment gate and X-12 does not cover it. CR-3 LOW. Captures are in `verification/016/code-review-round1/`. |
+| 2026-11-11T13:03 | implementer-hooks-016 → code-reviewer-hooks-016 (message; implementation record `fe06be0`, `Handoff-At 395510e`) | Round 1 fix sub-entry over `ee114ff..395510e` | Round 1 sub-entry APPROVED at `395510e`. Test-only fix. CR-2: positional probe re-run by me, 10 of 10 mutants killed, control 0 of 334 failed. CR-1: fixture `cmp`-identical to record `188bc93`, `FAIL comment` 0. CR-3: retitled. Plan read at revision 7. |
 
 ## Scope of this round
 
@@ -80,43 +81,20 @@ None.
 
 ### Medium
 
-**CR-2 MEDIUM Round 1 Checks That Cannot Fail**: no case places a fault before a valid sibling, so "every element is checked" has no failing assertion at any of the five list walks
-- **Location**: `src/utils/limits.tsx` at `ee114ff`, in `validateV2Components` (top-level walk) and `componentReason` (Section `children`, Media Gallery `items`, Container `children`, Action Row `children`). Tests: `src/utils/__tests__/limits.v2-send-validity.test.ts` › `place` and `faults`, plus the corpus cases.
-- **Class**: a selection over a list ("refuse when any element is faulty") whose fixtures put the faulty element only last, so a regression that reads one position passes the suite.
-- **Enumeration**: `git grep -n -E '\.map\((componentReason|linkButtonReason|\(item\) => imageReason)' ee114ff -- src/utils/limits.tsx` gives 5 hits, the five walks. I probed each with a first-only and a last-only mutant in a `git worktree` export, reading every mutant back from disk (`positional-probe.sh`; output in `positional-probe-ee114ff/summary.txt`, `per-mutant-counts.txt` and the `*.diff` files).
-  - Survived: `top-last`, `container-last`, `row-last`, `gallery-last`, `section-last` and `section-first` (each 0/331).
-  - Killed: `top-first` 42, `container-first` 37, `row-first` 16, `gallery-first` 18.
-  - The run covered only this test file, which includes all 120 corpus members.
-  - What the predicate cannot see: walks written in another form (`for`, `some`, `reduce`). Today there are none in `limits.tsx`, which I read whole.
-- **Issue**: AC1-2 and the ledger's Placement paragraph require refusal "at every placement … every item of a Media Gallery, not only the first". The code walks every element correctly today. But the property the change claims has no assertion that fails when it is lost: a last-only gallery read refuses no first-of-many faulty item and the suite stays green. By the severity floor (a behaviour the change relies on with no failing assertion), this is MEDIUM and blocks hand-off to QA.
-- **Required Action** (test-only; production is correct):
-  - **Minimum**: for each of the five walks, add constructed cases whose faulty element is neither first nor last in its list, with valid siblings on both sides. Example: three children with the fault in the middle; two in a Section, which holds at most 3 children. Expected value: refused (`not.toBe('')`).
-  - **Falsity signature**: every one of the ten mutants in `positional-probe.sh` is killed. Re-run it against the fixed SHA's export (usage in its header) and record the summary.
-  - Extend the existing `place`/`faults` table rather than adding a new describe (the pattern-ladder rule). The deweeder's table holds no removed case that covers this (`verification/016/deweed.md`, searched for position words).
-
-**CR-1 MEDIUM Round 1 Comments**: the corpus fixture's four-line header comment fails the comment gate, and nothing in the plan covers that FAIL
-- **Location**: `src/utils/__tests__/helpers/discordV2SendCorpus.ts`, the header comment (lines 1 to 4 at `ee114ff`; no symbol names the site). It comes from `agent-output/verification/016/corpus/make_fixture.py`.
-- **Class**: prose source comments outside the `comment-gate.js` `ALLOW` list in files the chain adds or changes.
-- **Enumeration**: `node ~/.claude/tools/convention-check.js /usr/local/bin/hooks/website --since=0e3d903` at `ee114ff` exited 1: 7101 FAIL, 0 CANDIDATE, 2 SKIP (`convention-check-ee114ff.txt`). Of those, `grep -c '^FAIL comment'` gives 1, this file. `node ~/.claude/tools/comment-gate.js … --files <fixture> --tests` lists 4 prose comments in it (`comment-gate-fixture.txt`). What the predicate cannot see: comments in files outside the chain's range.
-- **Issue**:
-  - The implementation document's Convention check section counts "7080 on the corpus fixture" and sends all of them to X-12. Measured, they are 7079 eslint FAILs plus this 1 comment-gate FAIL (`grep -c '^FAIL eslint src/utils/__tests__/helpers/discordV2SendCorpus'` gives 7079).
-  - X-12 covers the fixture's eslint findings only, and AC1-11 is an eslint criterion. The comment rule is the owner's allowlist ruling: a rejected comment is removed or moved elsewhere, never bypassed.
-  - The bytes are fixed by AC1-1 (sha256 `49b54f8e…`), so the implementer cannot edit the copy on its own.
-- **Required Action**:
-  - **Preferred (structural)**: `make_fixture.py` stops emitting the header comment. Its rationale already lives in `verification/016/README.md` ("corpus/", the `make_fixture.py` line), where the generator's description belongs. The fixture is regenerated and re-copied byte-identical. AC1-1's recorded sha256 and blob move with it.
-  - That is a planner decision (AC1-1's identity), with QA owning the generator. The implementer carries it to the planner as it did the X-12 contradiction.
-  - **Falsity signature**: `grep -c '^FAIL comment'` over the convention check's output is 0 at the fixed SHA, and Phase 2's sha256 check passes against the new recorded digest.
-  - **Minimum**: none. Leaving the comment and widening X-12 to cover it is the bypass the rule excludes.
-
-**CR-1 reconcile (2026-11-11T12:59, verdict unmoved):** plan revision 7 (record `9fd96d5`) records the regenerated fixture (QA record `188bc93`) as AC1-1's identity: sha256 `9ab22baa…`, blob `7fcf64f`, and it retires X-12. Read at record `HEAD`: that fixture holds 0 comment lines (`grep -c '^ *//'`), and its sha256 is `9ab22baa9c81157d09d38b2e0da655af8881bb28b389b8d6894d0d693fa77afe`. So the planner's and QA's parts of CR-1's Preferred action are done. What remains is the implementer's: copy that file byte-identical into the website and update the implementation document. The sub-entry checks the copy's digest and the convention check's `FAIL comment` count. Milestone M1 is capped by steering (rulings block "2026-11-11T12:59Z", record `855adb8`). CR-1 to CR-3 finish as started. A later finding on M1 below HIGH, other than a severity-floor finding, goes to the Planner batch.
+CR-2 MEDIUM Round 1 RESOLVED: the fault now sits between valid siblings at every walk, including a new `section` placement for the Section-children walk (website `64a3d26`, test-only; `limits.tsx` is byte-unchanged over `ee114ff..395510e`). Test that fails if the class returns: `positional-probe.sh`, which I re-ran myself in a fresh export of `395510e`. All 10 mutants were killed, and the unmutated control was 0 failed of 334 (`verification/016/code-review-round1/positional-probe-395510e-reviewer/`).
+CR-1 MEDIUM Round 1 RESOLVED: the website fixture is byte-identical to the regenerated one (`cmp` against record `188bc93`; sha256 `9ab22baa…`, blob `7fcf64fb…`, equal to plan revision 7's AC1-1). It has 0 comment lines, and at `395510e` the convention check reports `FAIL comment` 0 and fixture eslint 0 (`convention-check-395510e.txt`). Test that fails if the class returns: the convention check, plus Phase 2's sha256 check.
 
 ### Low/Info
 
-**CR-3 LOW Round 1 Naming**: two test titles claim a behaviour their assertion cannot observe
-- **Location**: `ThumbnailEditor.description-limit.test.tsx` and `MediaGalleryEditor.description-limit.test.tsx`, the case "stops typing and pasting at 1024 characters".
-- **Class**: a test title naming an observation (typing and paste stop) where the assertion reads a precondition (the `maxLength` attribute). jsdom applies no `maxLength` to input (plan QAF-7), and the observation is B-2's browser half.
-- **Enumeration**: `git grep -n "stops typing" ee114ff -- 'src/**/__tests__/**'` gives 2 hits. What the predicate cannot see: other titles that overclaim in different words. I read every new title in the diff and found none.
-- **Required Action**: retitle both to what is asserted, for example "caps the description input at 1024 characters". A test name names the surface and the behaviour under test.
+CR-3 LOW Round 1 RESOLVED: both titles now read "caps the description input at 1024 characters" (`395510e`; `git grep "stops typing"` returns 0 hits). No test (a title).
+
+### Round 1 argument (retired)
+
+The full argument for CR-1 to CR-3 is in this document as committed at record `0ccd5ee`. The Round 1 probe captures stay at `verification/016/code-review-round1/positional-probe-ee114ff/`.
+
+Steering capped milestone M1 (rulings block "2026-11-11T12:59Z", record `855adb8`). From that block on, an M1 finding below HIGH, other than a severity-floor finding, goes to the plan's Planner batch.
+
+### Notes
 
 **On the 21 pre-existing lint FAILs (the brief's candidate for a ruling): no finding.** I linted base and tip with eslint on stdin, so no file was written (`eslint-base-vs-tip.txt`). The counts are equal on all three files:
 - `shapes.message-validation.test.ts`: 10 errors and 7 warnings at both; same rules, same lines; the chain's lines are appended after line 558.
@@ -125,7 +103,7 @@ None.
 
 AC1-11's per-file measure holds for these files, and X-10 is their carrier.
 
-**Gate satisfied in this round (disclosed):** the record's stamp gate refused this document's first write because I had typed the changelog time (12:58) instead of reading the clock. The row now carries the `record-edit.js` `2026-11-11T12:51` minute.
+**Gate satisfied in this round (disclosed):** the record's stamp gate refused this document's first write because I had typed the changelog time (12:58) instead of reading the clock. The row now carries the clock minute, which `record-edit.js` substituted.
 
 **Reference-query instrument: not run.** `typescript-language-server` is not installed (the LSP tool returned `ENOENT`). The caller enumeration above rests on the text predicate plus `pnpm run typecheck`, which the implementer reports as exit 0 and which I did not re-run.
 
@@ -137,14 +115,19 @@ AC1-11's per-file measure holds for these files, and X-10 is their carrier.
 
 ## Verdict
 
-**Status**: REJECTED
-**Rationale**: CR-2 is a severity-floor finding. AC1-2's "every placement … every item" has no assertion that fails when a walk stops reading every element, and that blocks hand-off to QA. CR-1 is an allowlist FAIL whose remedy runs through the planner. The production code reads correctly, and the extraction is behaviour-preserving by execution.
+**Status**: APPROVED (Round 1 fix sub-entry, at website `395510e`)
+**Rationale**: Round 1 at `ee114ff` was REJECTED on CR-2, a severity-floor finding, and on CR-1. The fix range `ee114ff..395510e` touches only test files and the fixture: 4 paths by `--numstat`, and production is byte-unchanged. It resolves all three findings, each re-verified by my own instrument run. Production code was approved as read in Round 1, and the extraction is behaviour-preserving by execution.
+
+**Sub-entry scope.** I verified the fix diff only:
+- `git log ee114ff..395510e`: `64a3d26`, `395510e`
+- `git rev-parse HEAD` = `395510e…` at the start and at the end
+- plan read at revision 7 (record `9fd96d5`); the delta changes AC1-1's recorded fixture identity and AC1-11/X-12, and both were checked above
+
+The suite (1506/1506, exit 0) and the typecheck (exit 0) are the implementer's figures (`verification/016/implementer-fix-r7/`), not re-run by me.
 
 ## Required Actions
 
-1. **CR-2** (implementer, test-only): add constructed cases with the fault neither first nor last at each of the five walks. Shown by `positional-probe.sh` killing all ten mutants at the fixed SHA.
-2. **CR-1** (implementer to the planner; QA's generator): drop the fixture's header comment at `make_fixture.py`, regenerate, re-copy, and have the planner re-record AC1-1's digest. Correct the implementation document's 7080 attribution (7079 eslint plus 1 comment-gate).
-3. **CR-3** (implementer): retitle the two description-limit cases.
+None.
 
 ## Assumption Not Checked
 
@@ -154,7 +137,5 @@ Round 1 assumes the following and does not test it: the send page disables Send 
 
 ## Next Steps
 
-- **Implementer** (`implementer-hooks-016`): CR-2, CR-3 and the CR-1 hand-off to the planner. The re-verification is a sub-entry of Round 1, scoped to the fix diff, with the probe re-run.
-- **Planner** (through the implementer): AC1-1's digest after CR-1's regeneration.
+- **QA Phase 2** (`qa-hooks-016`) at website `395510e`.
 - **UAT**: this round's Assumption Not Checked, in B-1's walk.
-- QA Phase 2 starts only on an approving sub-entry.

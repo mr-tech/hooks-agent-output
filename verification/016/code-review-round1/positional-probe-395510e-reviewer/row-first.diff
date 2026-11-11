@@ -1,0 +1,4 @@
+220c220
+<       return children.map(linkButtonReason).find(Boolean) ?? '';
+---
+>       return linkButtonReason(children[0]) ?? '';

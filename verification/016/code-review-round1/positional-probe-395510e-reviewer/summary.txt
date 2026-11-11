@@ -1,0 +1,11 @@
+section-last exit=1 failed=2/334
+container-last exit=1 failed=23/334
+row-first exit=1 failed=16/334
+row-last exit=1 failed=16/334
+container-first exit=1 failed=37/334
+gallery-last exit=1 failed=16/334
+section-first exit=1 failed=2/334
+top-last exit=1 failed=47/334
+top-first exit=1 failed=89/334
+gallery-first exit=1 failed=18/334
+unmutated 0 334

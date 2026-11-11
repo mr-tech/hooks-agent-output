@@ -31,3 +31,4 @@ Later passes add `differential/` (Phase 2, two-tree runs) and `uat/` (plan AC1-6
   - `positional-probe.sh` and `positional-probe-ee114ff/`: first-only and last-only mutants of the five list walks in `validateV2Components` (CR-2). Run it in a `git worktree` export, never in the shared tree.
   - `extraction-differential.js`, `extraction-compare.js` and their output and hashes: a seeded two-tree run that verifies the `isV2Message` extraction is behaviour-preserving.
   - `eslint-base-vs-tip.txt`, `convention-check-ee114ff.txt` and `comment-gate-fixture.txt`: AC1-11 per file, and CR-1.
+  - `positional-probe-395510e-reviewer/` and `convention-check-395510e.txt`: the reviewer's own re-run for the Round 1 fix sub-entry. `unmutated` in the summary is the control.

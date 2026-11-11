@@ -1,0 +1,4 @@
+217c217
+<       return children.map(componentReason).find(Boolean) ?? '';
+---
+>       return componentReason(children[children.length - 1]) ?? '';
