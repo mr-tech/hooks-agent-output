@@ -8,7 +8,7 @@ Revision: 7
 Target Release: "website master → this chain's merge SHA (Vercel production on a push of master). The package carries no version artefact (package.json has no version field, CHANGELOG absent; read 2026-11-11T10:22Z)."
 Epic-Alignment: "none registered. The workspace has no roadmap, by the owner's standing instruction (brief). Source of the effort: research/closed/components-v2-send-validity-2026-11-11.md and research/closed/components-v2-description-text-limit-2026-11-11.md; opened by selection 14 (rulings block 2026-11-11T09:09Z)."
 Lane: "standard. The scoping determination sets a full chain (rulings block 2026-11-11T09:17Z). The blast radius is a shared predicate: validateMessage feeds the send page, the stored valid column and the public v1 API, so this is not a leaf."
-Architectural-Surface: "none added. The plan stays inside the A-4 module and adds a validator beside the existing ones. Record lines touched: A-4 (its residue consequence is carried, § Stored rows and the public API); W-2 is applied to the description bound (D-10), which deviates from A-4's same-constant pattern. The architect corrected A-4's line at the conformance pass, and the D-10 clause lands at reconciliation after implementation (architect AF-4); the plan does not change for it. M1b closes the system-architecture.md Problem Area 'Validation errors render into generated preview images' (raised to Medium at 11:09Z, 016 AF-11). The deployment record routes its closure to the architect."
+Architectural-Surface: "none added. The plan stays inside the A-4 module and adds a validator beside the existing ones. Record lines touched: A-4 (its residue consequence is carried, § Stored rows and the public API); W-2 is applied to the description bound (D-10), which deviates from A-4's same-constant pattern. The architect corrected A-4's line at the conformance pass, and the D-10 clause lands at reconciliation after implementation (architect AF-4); the plan does not change for it. M1b closes the system-architecture.md Problem Area 'Validation errors render into generated preview images' (raised to Medium at 11:09Z, 016 AF-11). The chain also closes the Problem Area 'A generated, byte-pinned test fixture sits inside `eslint --fix`'s scope' (016 AF-14), by QA's lint-clean regeneration; the architect marked it mitigated (5bb0e42) and deletes it at reconciliation. The deployment record routes its closure to the architect."
 ---
 
 # Plan 016 — The send check refuses what Discord refuses (Components V2 validity, 1024 included)
@@ -36,7 +36,7 @@ Owed re-verdicts:
 | AC1b-4's post-deploy member (b) | revision 4 | QA (B-6), critic (F-13) | discharged: critic `01eeaad`, QA B-6 (`96fbc66`); revision 5 approved by both |
 | RK-5, X-11 | revision 4 | critic | discharged: `01eeaad`, and revision 5 at `88b0da9` |
 | AC1-11's population without the corpus fixture (superseded at revision 7: no exemption) | revision 6 | critic, QA (AC1-11's instrument at Phase 2) | discharged: QA `a3b7586`, critic cycle 4 `94403d2`, architect `ff9d4f7` |
-| AC1-1's fixture identity (`9ab22baa…`, `7fcf64f`); AC1-11 with no exemption | revision 7 | critic, QA | QA re-keyed, no finding (`13674b8`); architect approved (`602ba1d`); critic open |
+| AC1-1's fixture identity (`9ab22baa…`, `7fcf64f`); AC1-11 with no exemption | revision 7 | critic, QA, architect | discharged: QA `13674b8`, architect `602ba1d`, critic cycle 5 `21ccc3a` |
 
 
 ## Changelog
@@ -63,6 +63,7 @@ Owed re-verdicts:
 | 2026-11-11T12:59 | R-10 | planner-hooks-016 | Verdict: QA re-keyed Phase 1 to revision 7 with no finding (`qa/016-send-check-validity-qa.md`, record `13674b8`). No requirement changed; the revision stays 7. |
 | 2026-11-11T12:59 | R-11 | planner-hooks-016 | Registration: steering caps M1 at its second post-approval revision (`steering/queue-hooks-rulings.md`, block "2026-11-11T12:59Z — plan 016 revision 7 read; milestone M1 capped", record `855adb8`; agent-authored, steering's). The binding text, the reason and the exceptions are in that block. No requirement changed; the revision stays 7. |
 | 2026-11-11T13:00 | R-12 | planner-hooks-016 | Registration: the M1 cap's voiding events (rulings block "2026-11-11T13:00Z — M1's cap: its voiding events", `308bb4b`), carried on the Resumption State's standing line. Verdict: the architect's delta pass APPROVED revision 7 with no finding (`architecture/016-send-check-validity-architecture-findings.md`, `602ba1d`). No requirement changed; the revision stays 7. |
+| 2026-11-11T13:03 | R-13 | planner-hooks-016 | Verdict: critique cycle 5 APPROVED revision 7 with no finding (`critiques/closed/016-send-check-validity-cycle5-critique.md`, `21ccc3a`). Registration and discharge of the V-101 Opus pass's F-1 to F-3 (rulings block "2026-11-11T13:02Z", `3f22f27`), all routing or status text, under M1's cap: Resumption State, the owed re-verdicts row and the Architectural-Surface line corrected in place. No requirement changed; the revision stays 7. |
 
 ## Value Statement and Business Objective
 
@@ -581,13 +582,14 @@ fixtures and coverage are QA's.
 
 ## Resumption State
 
-Updated at revision 6, `planner-hooks-016`. Implementation is running on revision 5's milestones
-(implementer-hooks-016, chain branch `chain/016-send-check-validity`).
+Updated at revision 7 (R-13), `planner-hooks-016`. Implementation is running
+(implementer-hooks-016, chain branch `chain/016-send-check-validity`); code review Round 1 is open.
 - **Done:** revision 7 (code review CR-1): AC1-1's fixture identity is now `9ab22baa…`/`7fcf64f`
   (QA, `188bc93`), AC1-11 has no exemption, X-12 is retired, and the Planner batch is discharged.
-- **Next:** the critic (cycle 5) and QA read revision 7. The implementer re-copies the fixture on
-  the digest I sent. QA's regeneration addresses AF-14's Problem Area in
-  `architecture/system-architecture.md`, and the architect is told so.
+- **Gates on revision 7:** all three approved: QA `13674b8`, the architect `602ba1d`, critic cycle 5
+  `21ccc3a`. The implementer re-copies the fixture at the revision 7 digest.
+- **Next:** findings on M1 below HIGH go to the Planner batch (standing line below). Fold the batch
+  at the seam before the UAT anchor.
 - **Standing for M1** (steering's cap, R-11): a gate finding below HIGH on M1 goes to the Planner
   batch as a stated limit, with no revision. HIGH, CRITICAL and severity-floor findings keep their
   route. Findings already in a round finish as started. Its stated reason is the second
@@ -603,3 +605,6 @@ Updated at revision 6, `planner-hooks-016`. Implementation is running on revisio
 |---|---|---|
 | Revision 6's changelog row: its scope-delta line omits AC1-11's added clause "(zero for a file the chain adds)" (LOW) | V-101 Opus critic pass, F-2 (`steering/queue-hooks-rulings.md`, block "2026-11-11T11:57Z — V-101 trial block", record `c70c535`) | Discharged at revision 7: its changelog row names the omitted clause |
 | X-12's 7078 count carries no date or SHA (INFO) | Same block, F-4 | Discharged at revision 7: X-12 is retired |
+| Resumption State opened "Updated at revision 6 … revision 5's milestones" (LOW) | V-101 Opus critic pass on revision 7, F-1 (`steering/queue-hooks-rulings.md`, block "2026-11-11T13:02Z — V-101 trial block", record `3f22f27`) | Discharged at R-13: Resumption State rewritten |
+| The owed re-verdicts row for revision 7 named no architect (LOW) | Same block, F-2 | Discharged at R-13: the row names the architect and reads discharged |
+| The header's Architectural-Surface line did not name the fixture Problem Area the chain closes (LOW) | Same block, F-3 | Discharged at R-13: the line names it (AF-14, `5bb0e42`) |
