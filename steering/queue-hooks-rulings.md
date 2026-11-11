@@ -1178,3 +1178,20 @@ has work before the push. This thread puts no release prompt of its own.
 Out-of-memory count 45 (`grep -c 'invoked oom-killer' /var/log/kern.log`, 17:32Z; 44 at 14:58Z):
 the new kill is a `python3`, pid 3035561; no chain 016 session was working, so no session is told.
 Usage, `plan-usage.py --json`, 17:32Z, `"source": "live"`: `weekly_all` 67%.
+
+## 2026-11-11T18:31Z — his observation and ruling: asks put as text become prompts when prompting returns
+
+His typed words, in this session:
+
+> "I have no prompts waiting on me"
+
+> "Lodge this in agent's inbox. When the prompting is turned back on, any prompts that were
+> originally put to me as text should then be put to me as prompts."
+
+The case: `devops-hooks-016` put chain 016's release ask in plain text at 17:33Z while
+`~/.claude/state/prompt-gate-off` existed (its pane, captured to a file and read this turn); the
+flag was gone at 17:51Z (`ls -d`, exit 2) and nothing re-put the ask. **This thread's error:** at
+17:51Z it read the flag absent and sent devops nothing, reporting the plain-text ask as sufficient.
+Acts: `devops-hooks-016` told by SendMessage to re-put the same ask as a selection prompt; the
+ruling lodged verbatim in `~/.claude/agents/INBOX.md` (its encoding is that domain's). Until it is
+encoded, this thread applies it to chain 016's sessions itself.
