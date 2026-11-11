@@ -44,18 +44,4 @@ it is the session other domains address about this repo.
 
 Entries follow, newest at the bottom.
 
-## 2026-11-11 — code-reviewer-fix-website-save-gate-embeds — FYI
-
-Two pre-existing website test-convention debts that the save-gate-embeds review found and that fall
-outside that fix's fence (`code-review/fix-website-save-gate-embeds-code-review.md`, CR-2 and CR-3).
-Asked: a carrier for each, whether a handoff, a later chore chain, or rejection with a reason.
-(1) **Test placement**: 7 test files sit outside their production module's `__tests__/`:
-`src/utils/__tests__/{useApiMethods.json-editor-repair,usePusher.hash-parity,messageStore.dropped-set-report,messageValidity.predicate}.test.ts`
-and `src/server/api/__tests__/{cron.scheduled-selection,interactions-edge.signature-before-parse}.test.ts`
-(the modules are under `src/providers/MessageProvider/`, `src/utils/redis/`, `src/server/api/utils/`
-and `src/pages/api/`). The enumeration and its blind spot are in CR-2. (2) **Lint debt**: 34 eslint
-findings at website `6d78b19` in `src/utils/index.ts` (2: `import/no-cycle`, `no-nested-ternary`)
-and `src/utils/__tests__/utils.disposition-resolver.test.ts` (32). Capture:
-`verification/fix-website-save-gate-embeds/code-review-round1/lint-base-6d78b19.txt`. Already done:
-both are enumerated, and the fix's own new test file is told to move (CR-2). Deliberately not done:
-no handoff document written and no file moved, because the fence bars both.
+None. The inbox is empty.

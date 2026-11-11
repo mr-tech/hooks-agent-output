@@ -23,6 +23,16 @@ determination, scope and evidence: `steering/queue-hooks-rulings.md`, block "sel
 measurement is F-6 of `research/components-v2-description-text-limit-2026-11-11.md`. A `fixer` chain,
 to start when the website tree is free of `fix/website-save-gate-embeds`.
 
+## website lint debt in `src/utils/index.ts` and its resolver test
+
+Lodged 2026-11-11 by `steering-queue-hooks` from an inbox entry of
+`code-reviewer-fix-website-save-gate-embeds` (its CR-3). 34 eslint findings at website `6d78b19`: 2 in
+`src/utils/index.ts` (`import/no-cycle`, `no-nested-ternary`) and 32 formatting findings in
+`src/utils/__tests__/utils.disposition-resolver.test.ts`. Capture:
+`verification/fix-website-save-gate-embeds/code-review-round1/lint-base-6d78b19.txt`. The reviewer
+ruled the save-gate fix lint-neutral against them. A chore for the next website effort that touches
+either file; the `import/no-cycle` one is a module-structure question, not a format fix.
+
 ## `check-repo.js` CHECK 4 has no stage suffix for two artifact kinds stages actually produce
 
 Demoted here from `INBOX.md` 2026-08-25 by steering-hooks-013-3, its author's ask having been
