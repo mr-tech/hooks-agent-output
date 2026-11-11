@@ -992,3 +992,31 @@ Read this turn at the commit: plan 016 revision 6 (record `07e2e41`, `Revision: 
 - **V-101 trial** (row read this turn in `~/.claude/agents/TODO.md`: open, "0 of 3"): a critic
   subagent on Opus (`critic-016`) is started over revision 6, briefed to write no file and not to
   read the cycle 4 critique. Its findings are recorded here beside the cycle 4 pass's when both land.
+
+## 2026-11-11T11:57Z — V-101 trial block: critique of plan 016 revision 6, both tiers
+
+Row V-101 (`~/.claude/agents/TODO.md`, read 11:53Z: open, "0 of 3"). Same revision, `07e2e41`.
+
+| Tier | Pass | Verdict | CRITICAL | HIGH | MEDIUM | LOW | INFO |
+|---|---|---|---|---|---|---|---|
+| Fable, `critic-hooks-016`, cycle 4 pass 1 (`critiques/closed/016-send-check-validity-cycle4-critique.md`, record `b38cdee`, header and finding lines read) | 1 | APPROVED | 0 | 0 | 0 | 1 (F-16) | 0 |
+| Opus, subagent `critic-016` (its report to this thread; no file) | 1 | APPROVED | 0 | 0 | 0 | 3 | 1 |
+
+- Shared: the owed re-verdicts table still read "revision 5 owed" (Fable F-16; Opus F-1). Fixed at
+  plan R-7 (`8902b62`).
+- Opus only, F-2 LOW: revision 6's changelog scope-delta line omits AC1-11's new clause "(zero for a
+  file the chain adds)". Open; routed to the planner by pointer to this block.
+- Opus only, F-3 LOW: X-12's effect outlasts the plan with a stated limit as its only carrier. The
+  architect raised the same ground as AF-14, and plan R-8 (`343d62e`) now names the Problem Area in
+  `architecture/system-architecture.md` as X-12's carrier after closure (X-12's cell read at
+  `HEAD`). Landed by another route; not routed again.
+- Opus only, F-4 INFO: X-12's 7078 figure carries no time or SHA. Not routed (INFO, form only).
+- Fable only: none. Neither tier raised a HIGH or CRITICAL finding.
+- Opus's Assumption Not Checked: nothing rewrites the corpus fixture between the implementer's copy
+  and Phase 2 (QA Phase 2 owns it). It also ran one premise: the production build does not lint
+  (`next` 16.1.6; no lint command under `node_modules/next/dist/cli`; its greps, not re-run here).
+- Cost: the subagent's run reported 105,063 tokens, 17 tool uses, 171 s (its completion notice).
+  `cc-usage.py chain 016` lists two `critic-hooks-016` generations; no per-pass split was taken.
+
+Inbox: `critic-hooks-016`'s FYI (the deweeder brief linked a file not yet created, failing
+`check-repo.js` LINKS) is acted on: the brief's line is reworded so it carries no link; entry deleted.
