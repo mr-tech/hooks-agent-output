@@ -22,6 +22,7 @@ thread" (`05582c6`), relayed in `steering/queue-hooks-briefs/code-reviewer-uat-l
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-11T19:58 | steering-queue-hooks (brief `code-reviewer-uat-local-stack-brief.md`, `cbfc8d7`) | Round 1: review at Handoff-At `71b61b9`; under-20 route, so the suite and both red runs are run here | Round 1 APPROVED_WITH_COMMENTS. The fix meets the scope as ruled: the sequence moves on every `up` path, and the seed's low id is refused. Suite 109/109, exit 0. Red: 13 fail with the `68d737f` tool, 4 with the `1fee252` tool. CR-1 LOW: `up` on a reused container does not fail when a stored message id is below the floor (the ruling scoped that check to "After a seed"; probed on real Postgres). CR-2 LOW: three copies of the psql value call. Both routed to `handoff/uat-local-stack-up-reuses-low-message-ids-2026-11-11.md`. Captures in `verification/fix-uat-local-stack-id-sequence/code-review-round1/`. 15 tool lines added, so no QA Phase 2. |
+| 2026-11-11T19:58 | steering-queue-hooks (rulings block "2026-11-11T19:57Z", record `7cb07bc`) | CR-1 decided | Received; this is not a sub-entry, and the verdict is unchanged. A third fixer round takes CR-1 and CR-2, using the handoff's "What would discharge it" as the specification. Re-review follows on the fixer's next handoff, as a sub-entry of Round 1, and checks the 20-line count from `68d737f`. The handoff's Status is judged there. |
 
 ## Scope, identity and inputs
 
