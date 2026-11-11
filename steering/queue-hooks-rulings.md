@@ -740,3 +740,49 @@ from this record.**
 
 Gates at 11:08Z (`ListAgents`): the critic, the architect and QA are busy re-reading revision 2;
 the planner is idle. Idle subscriptions held on the three gates.
+
+## 2026-11-11T11:11Z — selection 23: error lines leave preview images, inside plan 016 (put 11:11Z, answered 11:11Z)
+
+Ledger: `steering/selection-ledger/2026-11-11.md`, block "2026-11-11T11:11Z — steering-queue-hooks".
+By selection; the option text is this thread's. Source: the planner's message at 11:09Z asking that
+its design choice 1 (block 11:08Z above) be put to him, on the architect's AF-11
+(`architecture/016-send-check-validity-architecture-findings.md`, record `2520ac7`, `Status: Active`,
+delta pass on revision 2 APPROVED; AF-11 read whole). The 11:08Z block's "reported, not asked" for
+choice 1 is superseded by this selection; choice 2 (labels) stands as recorded there.
+
+Options: *Agent: hide all on preview, in 016 (Recommended)* ("the planner adds one change to plan
+016: the preview route shows no error lines or red border at all, the existing over-limit ones
+included, so no preview image carries them. The editor and the send page keep every line. This
+reverses your 2026-11-08 choice for the over-40 line. Cost: a third plan revision, and the critic,
+the architect and QA each read once more (the critic and architect have read twice so far).
+Mechanism is the architect's proposal (a signal only the preview route passes), not built.") /
+*Agent: ship 016, fix in a later chain* (the planner's recommendation; from 016's release until the
+later chain ships, a V2 draft saved with an unfilled component gets a preview image with the red
+line; later, its own small chain with its own review and release) / *Agent: keep same as siblings*
+(nothing added or planned; no cost) / *Agent: hide only the new line* (breaks his rule "Never fix
+or work around it in one feature only"; a third revision and one more read by each gate).
+**Chosen: "Agent: hide all on preview, in 016 (Recommended)"** (selection).
+
+Effect: a scope delta to plan 016 by his word, and a reversal of plan 015 D33 (his "Agent: same as
+siblings" of 2026-11-08, `steering/015-rulings.md` block 08:02Z, read this turn; its question then
+offered "Agent: hide all on /preview" and he declined it for the rare over-40 case). A planning
+revision: the planner is commissioned by pointer to this block. Revision 2's approvals do not carry
+to revision 3.
+
+Premises and reads, this turn, website `master` at `0e3d903` (`git show` and `git grep -n`, read from
+code, not run): `upsertMessage` calls `postMessagePreviewImage` in both branches
+(`src/server/api/utils/shared.ts` lines 269 and 277); `src/app/preview/page.tsx` renders
+`DiscordMessageEditor` with no `editableState`; the three existing error lines and the `errorBorder`
+carry no edit-mode condition (`DiscordMessageEditor/index.tsx` lines 290 to 293 and 336 to 340).
+The Problem Area "Validation errors render into generated preview images"
+(`architecture/system-architecture.md` line 195, raised to Medium by the architect at 11:09Z) and
+plan 016 D-5 (line 51) were read. Not read by this thread: research F-12's body (that a fresh
+component other than a Separator is refused); "routine while composing" is the architect's
+judgement, named as his in the question. Gate state put in the question: critique
+`Status: Resolved`, `Verdict: APPROVED` at `6b07655` (record `5c1512f`, now under
+`critiques/closed/`); QA busy (`ListAgents`, 11:08Z).
+
+**Critique cycle 1's stated limit, for his sight (no action asked):** F-11 LOW, closed by the critic
+under its stop authority. The plan defines "whitespace-empty" twice and the two wordings differ on
+one unmeasured kind of string (U+0085, other whitespace, U+0085); the implementer follows the formal
+definition. The critique's words: "Nothing routes to the owner from this critique."
