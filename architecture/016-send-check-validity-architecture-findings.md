@@ -3,7 +3,7 @@ ID: 016
 Origin: 016
 UUID: 54673438
 Status: Active
-Status-Detail: "Delta pass on plan 016 revision 3 (record 21db6c8): APPROVED_WITH_CHANGES. AF-12 is required (M1b's class covers the whole editor tree) and AF-13 is recommended (the signal's form). AF-4's A-4 clause lands at this chain's reconciliation, no later than devops Stage 1."
+Status-Detail: "Delta pass on plan 016 revision 4 (record c249af3): APPROVED. Owed after implementation, by devops Stage 1: AF-4's D-10 clause in website.md A-4, the preview-chrome Problem Area's closure, and the /preview signal under D-001. AF-4's A-4 clause lands at this chain's reconciliation, no later than devops Stage 1."
 ---
 
 # Architecture Findings — Plan 016: the send check refuses what Discord refuses (conformance pass)
@@ -17,6 +17,49 @@ Status-Detail: "Delta pass on plan 016 revision 3 (record 21db6c8): APPROVED_WIT
 | 2026-11-11T11:09 | Delta pass, plan rev 2 (`6b07655`, read as the diff from `3b4205d`), on planner-hooks-016's request | AF-1 to AF-5 and AF-7 are folded as asked. The corpus helper, the whitespace-empty predicate and the new instruments conform. AF-11 INFO: the `/preview` reason line follows the current pattern (D-5), but it makes preview-image error chrome routine. The Problem Area is raised to Medium, and the owner's report should carry the frequency. **APPROVED.** |
 | 2026-11-11T11:15 | Delta pass, plan rev 3 (`21db6c8`, read as the diff from `6b07655`), on planner-hooks-016's request | M1b's design (a signal only `/preview` passes, D-14) conforms, and so do QAF-9's predicate and the corpus re-pin. AF-12 MEDIUM is required: M1b's class misses the sub-components' validation lines and the `data-erroring-state` ring (Author, EmbedField, EmbedTitle, EmbedAuthor, EmbedFooter), which render on `/preview` regardless of edit mode. AF-13 LOW is recommended: drill one `VisualizerProps` input beside `showEdit`. **APPROVED_WITH_CHANGES.** |
 | 2026-11-11T11:17 | AF-12 instrument corrected (planner-hooks-016's message) | The range I gave, the `DiscordMessageEditor` directory, missed `src/components/DiscordContentEditor/{Desktop,Mobile}.tsx`, which carries the ring, an erroring counter and "Too long.". The error was mine. The range is now the editor's render tree (its import closure under `src/components`), as the planner proposed for rev 4. |
+| 2026-11-11T11:21 | Delta pass, plan rev 4 (`c249af3`, read as the diff from `0c01944`), on planner-hooks-016's request | AF-12 is folded as a property settled by render, with seven members. **AF-12's sub-component member list is withdrawn; the error was mine.** The embed parts and DiscordContentEditor return under `if (!showEdit)` before their chrome, and Author's ring is never painted read-only. AF-13 is folded. SE-6, RK-5, X-11 and AC1b-4 conform. **APPROVED.** The post-implementation reconciliation items are listed in the verdict. |
+
+## Verdict (rev 4, `c249af3`, read as the diff from `0c01944`): APPROVED
+
+**AF-12 is folded, in a stronger form than I asked for.** M1b's class is now a property over the
+editor's whole render tree, and the render settles membership, not a list. That is the right shape:
+a member found later is already inside D-14.
+
+**AF-12's member list is withdrawn; the error was mine.** I listed EmbedField, EmbedTitle,
+EmbedAuthor, EmbedFooter and Author's header ring as rendering on `/preview` because their chrome
+"checks no `showEdit`". I read the lines, not the functions. At `0e3d903`, each embed part returns a
+read-only render under `if (!showEdit)` before its chrome: `EmbedTitle.tsx` at line 48,
+`EmbedAuthor.tsx` 65, `EmbedField.tsx` 54, `EmbedFooter.tsx` 56. `DiscordContentEditor/index.tsx`
+does the same at line 49. Author sets `data-erroring-state` only on the edit branch's
+`ContentEditable`. The `erroring` variant is `&[data-erroring-state~="true"]` or
+`:where([data-erroring-state~="true"]) &` (`tailwind.config`), so the read-only header is never
+painted. The planner's table is correct. The finding's core stands: the class was wider than
+index.tsx, and Author's `validateUsername` line is the seventh member. QA executed it with
+`showEdit={false}`.
+
+**AF-13 is folded as recommended** (AC1b-3): one optional `VisualizerProps` input, set only by
+`preview/page.tsx`, drilled beside `showEdit`. It defaults to showing every line, so AC1b-2 and
+AC1b-3 hold by construction.
+
+The rest of the delta conforms:
+
+- **SE-6's coupling** ("M1 never ships or stays live without M1b"). It is a release constraint and
+  creates no code dependency. It is the right consequence of M1 making the chrome routine (AF-11).
+- **RK-5.** Already-generated images keep their chrome, stated as a limit with the same shape as
+  RK-3.
+- **X-11.** The parse-failure fallback is rendered instead of the editor, so it is outside the class.
+- **AC1b-4's 41-component member.** This is an instrument, so there is nothing to conform. It does
+  fix the fixed/unfixed discrimination.
+
+**Text slip, not a finding.** Testing Strategy's QA-sequencing paragraph ends with "Cases, fixtures
+and coverage are QA's." twice. It is the critic's, if it wants it.
+
+**Reconciliation owed after implementation**, carried by this document to devops Stage 1:
+
+- **AF-4's D-10 clause** in `website.md` A-4.
+- **The closure of the Problem Area** "Validation errors render into generated preview images"
+  (M1b, as the plan's header routes it), with RK-5 as its residue.
+- **The `/preview` signal on `VisualizerProps`**, recorded under D-001's consequences.
 
 ## Verdict (rev 3, `21db6c8`, read as the diff from rev 2 `6b07655`): APPROVED_WITH_CHANGES
 
