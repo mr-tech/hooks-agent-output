@@ -478,3 +478,19 @@ Started `qa-fix-website-save-gate-embeds` with `tmux-agent spawn`, category
 `fix-website-save-gate-embeds`, cwd `/usr/local/bin/hooks/website`, brief
 `steering/queue-hooks-briefs/qa-save-gate-embeds-brief.md`. The reviewer's two INFO items and both
 Assumptions Not Checked name QA Phase 2 in the review document; no finding is left without a path.
+
+## 2026-11-11T10:10Z — QA Phase 2 PASS at `0e3d903`; devops started
+
+Read this turn: `qa/fix-website-save-gate-embeds-qa.md` whole at record `86aff70`, header re-read at
+`6ed8112`: `Status: QA Complete`, `Verified-At` `0e3d903` (the reviewed `963a25c` plus one
+test-only commit of QA's, `git diff --numstat 963a25c 0e3d903`: one test file, 6/0). Its spawn cue
+arrived by message at 10:07Z; no devops session was live (`ListAgents`).
+
+Started `devops-fix-website-save-gate-embeds` with `tmux-agent spawn`, category
+`fix-website-save-gate-embeds`, cwd `/usr/local/bin/hooks/website`, brief
+`steering/queue-hooks-briefs/devops-save-gate-embeds-brief.md`. The brief conditions its release ask
+on the code reviewer's scoped check of `963a25c..0e3d903` (running at 10:08Z; the review anchor
+still read `963a25c`). The production push is that session's own ask to him.
+
+QA's non-gating items: QAF-1 resolved in its pass; QAF-2 INFO, no action owed, in its document;
+its inbox entry on local walks and Pusher is this thread's to process (next block).
