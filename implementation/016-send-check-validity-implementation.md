@@ -3,7 +3,7 @@ ID: 016
 Origin: 016
 UUID: 54673438
 Status: Active
-Handoff-At: "ee114ff — repos=website"
+Handoff-At: "395510e — repos=website"
 ---
 
 # Implementation: plan 016, the send check refuses what Discord refuses
@@ -26,6 +26,7 @@ website `0e3d903`.
 | 2026-11-11T12:00 | steering-queue-hooks → implementer-hooks-016 | Implement revision 5 (brief `steering/queue-hooks-briefs/implementer-016-brief.md`) | M1 `ae7c8fe`, M1b `44ecd05`, M2 `df0fc0b` on the chain branch. Round 1 range sent to the deweeder. |
 | 2026-11-11T12:40 | implementer-hooks-016 → code review | Hand-off | Deweeder rounds 1 and 2 answered (`7a268dc`, `4cdb81a`, `ee114ff`); self-check sweep taken at `4cdb81a` and again at `ee114ff`; two test gaps it exposed closed in `7c66b68`. Handed over at `ee114ff`. |
 | 2026-11-11T12:55 | code-reviewer-hooks-016 → implementer-hooks-016 | Fix round for code review Round 1 (REJECTED at `ee114ff`; CR-1, CR-2, CR-3) | CR-2 and CR-3 fixed test-only at `64a3d26`; deweeder round 3 removed nothing; positional probe kills 10 of 10. CR-1 is routed to the planner (AC1-1 digest) and open: `Handoff-At` stays `ee114ff` until the regenerated fixture is re-copied. |
+| 2026-11-11T13:00 | implementer-hooks-016 → code review | Hand-off of the fix round, sub-entry of Round 1 | CR-1 closed: fixture re-copied at `395510e` (revision 7 digest); deweeder rounds 3 and 4 removed nothing; suite, typecheck, convention check recorded below. `Handoff-At` moved to `395510e`. Range `ee114ff..395510e`. |
 
 ## Implementation Summary
 
@@ -77,7 +78,7 @@ counts below as entry evidence.
 | Plan Status `In Progress` with a changelog row | plan row R-5, record `9a3eb74` | n/a |
 | No open `OPEN QUESTION` | plan: four `[RESOLVED]`, none open | n/a |
 | Premise: no `PREMISE-STALE` marking | read the plan, none | n/a |
-| Corpus fixture byte-identical | `src/utils/__tests__/helpers/discordV2SendCorpus.ts` sha256 `49b54f8e6b7226f1258a497b6e2f01d73126a85c9e66c2ef1acbff32bb15bb9b`, blob `9fb22ae` (`sha256sum`, `git hash-object` on the copy) | `limits.v2-send-validity.test.ts` › "covers the whole measured population" (86 and 34) |
+| Corpus fixture byte-identical | `src/utils/__tests__/helpers/discordV2SendCorpus.ts` sha256 `9ab22baa9c81157d09d38b2e0da655af8881bb28b389b8d6894d0d693fa77afe`, blob `7fcf64fb6060a21c1aad8439d5ce9b563740e538` (plan revision 7, record `9fd96d5`; re-copied from record `188bc93` at `395510e` after CR-1; at `ee114ff` it was `49b54f8e…`, blob `9fb22ae`); `sha256sum` and `git hash-object` on the copy equal both | `limits.v2-send-validity.test.ts` › "covers the whole measured population" (86 and 34) |
 | QA entry 1: blocked set at the base is exactly A3 A5 N2 N4 N6 N9 | first red run: 80 of 86 refused members failed at the base tree, 86 − 80 = 6 already refused | the corpus refuse cases |
 | QA entry 2: the existing component-total line renders beside the new one | `component-limit.test.tsx` › "shows the line after the components-total line" | that case |
 | QA entry 3: the description input passes `maxLength` through to the DOM `<input>` | direct `<input>` elements; red run `expected -1 to be 1024` then green | `ThumbnailEditor.description-limit.test.tsx`, `MediaGalleryEditor.description-limit.test.tsx` |
@@ -179,7 +180,7 @@ No fix round, so no reviewer finding to sweep. Gaps my own instruments exposed d
 | tip `npx vitest run --reporter=json` at `ee114ff` (`Handoff-At`) | exit 0; 1503 of 1503; 122 files (1514 at `df0fc0b`; round 1 removed 15 executed cases, 1499 at `4cdb81a`; `7c66b68` added 5, round 2 removed 1, so 1503) |
 | `pnpm run typecheck` (both programs) | exit 0 |
 | `npx ts-node -r tsconfig-paths/register -T -e "require('~/utils/limits')"` | printed `ok` (AC1-10 entry evidence; QA places the instrument) |
-| `npx eslint <file> --format json` per changed file, base vs tip | equal counts on every changed file: `shapes.message-validation.test.ts` 10 errors 7 warnings both; `ThumbnailEditor.tsx` and `MediaGalleryEditor.tsx` 0 and 2 both; every other changed or new file 0 and 0; the corpus fixture is outside AC1-11 (X-12) |
+| `npx eslint <file> --format json` per changed file, base vs tip | equal counts on every changed file: `shapes.message-validation.test.ts` 10 errors 7 warnings both; `ThumbnailEditor.tsx` and `MediaGalleryEditor.tsx` 0 and 2 both; every other changed or new file 0 and 0; the corpus fixture was outside AC1-11 at `ee114ff` (X-12) and is 0 and 0 at `395510e` (`verification/016/implementer-fix-r7/eslint-fixture.json`; X-12 retired in revision 7) |
 
 The counts: 1514 is vitest's `numTotalTests`, where `it.each` rows are cases; test-file count is the
 reporter's `testResults` entries.
@@ -231,8 +232,8 @@ row: killed), `x-page-hide`, `x-contentbody-hide`, `x-author-error-ignores-hide`
 
 `node ~/.claude/tools/convention-check.js /usr/local/bin/hooks/website --since=0e3d903`: 7101 FAIL,
 0 CANDIDATE, 2 SKIP. The FAILs by file: 7080 on the corpus fixture, corrected after code review Round 1 to 7079 eslint
-(`grep -c '^FAIL eslint src/utils/__tests__/helpers/discordV2SendCorpus'`) plus 1 comment-gate (the fixture's 4-line header, CR-1, open: the eslint part is byte-fixed by AC1-1 and outside
-AC1-11 by plan revision 6 X-12, the comment part is not covered by X-12; `git hash-object` equals `9fb22ae`), 17 on
+(`grep -c '^FAIL eslint src/utils/__tests__/helpers/discordV2SendCorpus'`) plus 1 comment-gate (the fixture's 4-line header, CR-1; at `ee114ff` the eslint part was byte-fixed by AC1-1 and outside
+AC1-11 by plan revision 6 X-12, the comment part was not covered by X-12; both are gone at `395510e`, 21 FAIL remain, none on the fixture), 17 on
 `shapes.message-validation.test.ts` (10 errors + 7 warnings at the base tree too; the lines are all
 before my appended lines and the per-file count is equal, which is AC1-11's measure) and 4 warnings on
 `ThumbnailEditor.tsx` and `MediaGalleryEditor.tsx` (2 each at the base too). I fixed none of the 21
@@ -263,13 +264,13 @@ All ten killed. The first-only and last-only mutants are the TDD rows' red again
 
 **CR-3 (LOW).** Both "stops typing and pasting at 1024 characters" cases retitled "caps the description input at 1024 characters" (the assertion reads the `maxLength` attribute).
 
-**CR-1 (MEDIUM).** Routed to `planner-hooks-016` (AC1-1's identity) and `qa-hooks-016` (generator). The planner's decision: `make_fixture.py` stops emitting the header comment; QA regenerates with the data unchanged; the planner writes revision 7 with the new sha256 and blob; I hold the re-copy until that message. Not done at this commit.
+**CR-1 (MEDIUM).** Routed to `planner-hooks-016` (AC1-1's identity) and `qa-hooks-016` (generator). The planner's decision: `make_fixture.py` stops emitting the header comment; QA regenerates with the data unchanged (checked mechanically, and the deweeder compared the old and new arrays member by member, 120 of 120 equal in order); the planner recorded revision 7 (record `9fd96d5`). Closed at website `395510e`: the fixture is copied byte-identical from record `188bc93` (sha256 `9ab22baa…a77afe`, blob `7fcf64fb…`; both equal revision 7's), the copy was not edited by hand. Measured at `395510e` (`verification/016/implementer-fix-r7/`): `grep -c '^FAIL comment'` over the convention check 0; `npx eslint` on the fixture 0 errors 0 warnings; the convention check exit 1 with 21 FAIL, all of them the pre-existing base-tree lint findings (10 errors + 7 warnings on `shapes.message-validation.test.ts`, 2 + 2 warnings on the two editor files; X-10), 0 CANDIDATE, 2 SKIP; the suite 1506 of 1506, exit 0; typecheck exit 0. The suite run also closes QA's open assumption that no case reads the fixture's text: the corpus cases pass on the regenerated bytes. The earlier counts in this document ("7080 on the fixture") are corrected in § Convention check.
 
 | Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
 |---------|---------------------|----------------------------------|--------------------------|
 | CR-2: a list walk with no case putting the fault neither first nor last | the reviewer's: `git grep -n -E '\.map\((componentReason\|linkButtonReason\|\(item\) => imageReason)' 64a3d26 -- src/utils/limits.tsx` | 5 hits: `limits.tsx` 207 (Section children), 213 (gallery items), 217 (Container children), 220 (Action Row buttons), 230 (top level) | all five covered by a middle-position case, shown by the probe above. Residual (hits with no killing case): 0 of 5. Widened by me: `git grep -n -E '\.(some\|every\|reduce\|forEach)\(\|for \(' 64a3d26 -- src/utils/limits.tsx` gives 7 hits (lines 34, 37, 53, 72, 78, 142 and the `for` loops), all in `validateDisplayableTextCount` / `validateComponentCount` / `isV2Message`, plan 007 code that this chain did not change; not applicable to the V2 validator |
 | CR-3: a title naming an observation where the assertion reads a precondition | `git grep -n "stops typing" -- 'src/**/__tests__/**'` | at `ee114ff`: 2 hits (`MediaGalleryEditor.description-limit.test.tsx:32`, `ThumbnailEditor.description-limit.test.tsx:29`); at `64a3d26`: 0 | both retitled. I read the other new titles in the diff for the same class and found none |
-| CR-1: prose source comments outside the allowlist | `grep -c '^FAIL comment'` over `convention-check` | at `ee114ff`: 1 (the fixture); at `64a3d26`: 1 (same file, `verification/016/implementer-fix-64a3d26/convention-check.txt`) | open, awaiting revision 7 and the regenerated fixture; this is the only member of the class in the chain's range |
+| CR-1: prose source comments outside the allowlist | `grep -c '^FAIL comment'` over `convention-check` | at `ee114ff`: 1 (the fixture); at `64a3d26`: 1 (same file, `verification/016/implementer-fix-64a3d26/convention-check.txt`) | at `395510e`: 0 (`verification/016/implementer-fix-r7/convention-check.txt`); fixed by the structural remedy (the generator no longer emits the header) and the re-copy; it was the only member of the class in the chain's range, so residual 0 |
 
 **Self-check sweep over the round's diff.** The round changed no production line, so `mutant-gen.js --range ee114ff..64a3d26` has nothing to generate; the mutants the review names are the ten above and all are killed.
 
@@ -278,6 +279,8 @@ All ten killed. The first-only and last-only mutants are the TDD rows' red again
 **Test results at `64a3d26`** (`verification/016/implementer-fix-64a3d26/`): `npx vitest run --reporter=json` exit 0, 1506 of 1506 tests in 122 files (1503 at `ee114ff` plus 3 new `section` rows: two refusals and one control), `vitest.json` `numTotalTests`; `pnpm run typecheck` exit 0; `npx eslint` over the three changed files, no output; ID-token class (`grep -c -i -P`) 0 in each changed file; `convention-check` exit 1, the same 7101 FAIL as at `ee114ff` (`grep -c '^FAIL eslint'` 7100 = 7079 on the fixture + 21 pre-existing in the base tree's files, X-10; `grep -c '^FAIL comment'` 1 = the fixture), 0 CANDIDATE, 2 SKIP (as before).
 
 **Self-diagnosis (method).** I wrote the placement cases so that the fault sat last in each list, because that is the order in which the code reads naturally, and tested "a fault is refused" without testing "a fault is refused wherever it sits". I tested the plan's example rather than the property the criterion quantifies over ("every item").
+
+**Re-copy checks at `395510e`** (`verification/016/implementer-fix-r7/`): `npx vitest run --reporter=json` exit 0, 1506 of 1506 tests in 122 files; `pnpm run typecheck` exit 0; fixture eslint 0 errors 0 warnings; `convention-check` 21 FAIL (no comment FAIL), 0 CANDIDATE, 2 SKIP (the `.playwright-mcp` yml, another session's, and the checker's ID-token class note); the ID-token class over the fixture: 6 hits, the six `"id"` values `D1` to `D6` (fixture data under the bounded exemption, unchanged). **Deweeder round 4** (range `64a3d26..395510e`): removed nothing, the range adds no test case.
 
 ## Outstanding Items
 
@@ -295,10 +298,10 @@ Code review (spawn cue to `steering-queue-hooks`), then QA Phase 2, UAT, devops.
 
 ## Resumption State
 
-Rewritten at the fix-round seam (after code review Round 1, REJECTED at `ee114ff`). Read this first on resume.
+Rewritten at the second hand-off seam (sub-entry of code review Round 1, range `ee114ff..395510e`). Read this first on resume.
 
-- **Done:** CR-2 and CR-3 fixed at website `64a3d26` (test-only), probe 10 of 10 killed, deweeder round 3 removed nothing, suite 1506 of 1506, typecheck and eslint clean; document updated (§ Fix Round).
-- **Open:** CR-1. `planner-hooks-016` decided the structural remedy; `qa-hooks-016` regenerates `verification/016/corpus/fixture/discordV2SendCorpus.ts` without the header comment (and lint-clean if it can, AF-14); the planner writes revision 7 and messages me the new sha256 and blob. **Hold the re-copy until that message; never edit the copy by hand.**
-- **Next on revision 7's digest:** `cp` the fixture into `src/utils/__tests__/helpers/discordV2SendCorpus.ts`, check `sha256sum` and `git hash-object` equal revision 7's, run the suite (the corpus cases need 86 and 34), typecheck, `convention-check` (`grep -c '^FAIL comment'` must be 0), commit by pathspec, send the new range to the deweeder (the fixture is not a test case but the helper changed), move `Handoff-At`, deliver to `code-reviewer-hooks-016` as a sub-entry of Round 1 scoped to `ee114ff..<tip>`.
-- **Trees:** website on `chain/016-send-check-validity` at `64a3d26`, clean apart from `.playwright-mcp/` (another session's). Probe worktree removed.
+- **Done:** CR-2 and CR-3 (website `64a3d26`, test-only; positional probe 10 of 10 killed) and CR-1 (fixture re-copied byte-identical at `395510e`, revision 7's digest); deweeder rounds 3 and 4 removed nothing; suite 1506 of 1506 exit 0, typecheck exit 0, fixture eslint 0 and 0, `grep -c '^FAIL comment'` 0. `Handoff-At: 395510e — repos=website`. Delivered to `code-reviewer-hooks-016`.
+- **Next:** wait for the sub-entry's verdict. On findings: fix round in the Class Sweep form, tests red first, a deweeder range before the next hand-off. On approval: QA Phase 2 starts (the differential, AC1-10 and AC1-11 measurements are QA's).
+- **Trees:** website on `chain/016-send-check-validity` at `395510e`, clean apart from `.playwright-mcp/` (another session's). Nothing uncommitted of mine; probe worktree removed.
+- **Questions sent:** none open (planner-hooks-016 answered CR-1 with revision 7).
 - **Cache-warm wake:** armed (job re-arms itself every 55 minutes).
