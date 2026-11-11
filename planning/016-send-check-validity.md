@@ -3,8 +3,8 @@ ID: 016
 Origin: 016
 UUID: 54673438
 Status: In Progress
-Status-Detail: "Implementation started on revision 5 by implementer-hooks-016, chain branch chain/016-send-check-validity. Revision 5 was approved by the critic (88b0da9), the architect (1492d33) and QA Phase 1 (97343f0). Earlier text: Revision 5, ready for the critic, the architect and QA Phase 1 to read again. It folds QAF-12 (QA's re-key on revision 4, record 96fbc66): AC1b-1 checks Author's line on /preview in the cozy style the route renders, and its compact branch at the Author component with the signal set as /preview sets it. QA's by-render enumeration settled M1b's seven members. Revision 4's approvals do not carry to it. No OPEN QUESTION remains."
-Revision: 5
+Status-Detail: "Implementation in progress (implementer-hooks-016, chain/016-send-check-validity). Revision 6 resolves a contradiction the implementer reported between AC1-1 and AC1-11: the corpus fixture, whose bytes AC1-1 fixes, is outside AC1-11's population (X-12). It adds no work and changes no product behaviour. The critic and QA read it; revision 5's approvals stand for everything else. No OPEN QUESTION remains."
+Revision: 6
 Target Release: "website master → this chain's merge SHA (Vercel production on a push of master). The package carries no version artefact (package.json has no version field, CHANGELOG absent; read 2026-11-11T10:22Z)."
 Epic-Alignment: "none registered. The workspace has no roadmap, by the owner's standing instruction (brief). Source of the effort: research/closed/components-v2-send-validity-2026-11-11.md and research/closed/components-v2-description-text-limit-2026-11-11.md; opened by selection 14 (rulings block 2026-11-11T09:09Z)."
 Lane: "standard. The scoping determination sets a full chain (rulings block 2026-11-11T09:17Z). The blast radius is a shared predicate: validateMessage feeds the send page, the stored valid column and the public v1 API, so this is not a leaf."
@@ -35,6 +35,7 @@ Owed re-verdicts:
 | AC1b-3's signal form (AF-13) | revision 4 | architect | approved (`47c7a4c`); revision 5 owed |
 | AC1b-4's post-deploy member (b) | revision 4 | QA (B-6), critic (F-13) | critic resolved F-13 (`01eeaad`); QA carries it in B-6 (`96fbc66`); revision 5 owed |
 | RK-5, X-11 | revision 4 | critic | approved (`01eeaad`); revision 5 owed |
+| AC1-11's population without the corpus fixture; X-12 | revision 6 | critic, QA (AC1-11's instrument at Phase 2) | open |
 
 ## Changelog
 
@@ -51,6 +52,7 @@ Owed re-verdicts:
 | 2026-11-11T11:41 | R-3 | planner-hooks-016 | Verdict: QA's Phase 1 re-key on revision 5 resolves QAF-12 and leaves no finding open (`qa/016-send-check-validity-qa.md`, record `97343f0`). Correction: the times on revision 5's row, the Resumption State and the page read were typed ahead of the clock; they now read the commit time, 11:40Z (QA's note). No requirement changed; the revision stays 5. |
 | 2026-11-11T11:43 | R-4 | planner-hooks-016 | Verdict: the architect's delta pass on revision 5 APPROVED with no finding (`architecture/016-send-check-validity-architecture-findings.md`, record `1492d33`, section "Verdict (rev 5 …)"). Its note on the typed 11:44 stamp was already corrected at R-3. No requirement changed; the revision stays 5. |
 | 2026-11-11T11:44 | R-5 | implementer-hooks-016 | Status set to In Progress: implementation starts on revision 5 at website `0e3d903`, chain branch `chain/016-send-check-validity`. Entry conditions recorded in the implementation document. No requirement changed. |
+| 2026-11-11T11:52 | 6 | planner-hooks-016 | Resolves the AC1-1/AC1-11 contradiction the implementer reported by message: the byte-identical corpus fixture carries 7078 eslint findings. AC1-11 now names the fixture as outside its population, and X-12 records why (AC1-1 fixes the bytes) and the `eslint --fix` hazard. Scope delta: AC1-11's population narrows by one file. No work is added, no product behaviour changes and no milestone moves, so it is not a milestone-level delta. The implementer's options (a) and (b), lint-config edits, are declined. Since approval of the value statement: six revisions and five gate rounds. Size against the original ask: unchanged. |
 
 ## Value Statement and Business Objective
 
@@ -296,8 +298,10 @@ Acceptance criteria (properties):
   run from `website/`, exits 0 at the tip. Its red member is the architect's probe capture. No
   vitest case can see a breach, because every predicate test mocks `env.mjs`. QA places it.
 - **AC1-11 (lint).** The chain adds no eslint finding: for each file it changes, the finding count at
-  the tip does not exceed the count at `0e3d903`. The repository is red before the chain (§ Validation,
-  X-10).
+  the tip does not exceed the count at `0e3d903` (zero for a file the chain adds). The repository is
+  red before the chain (§ Validation, X-10). One file is outside this population: the corpus fixture
+  `src/utils/__tests__/helpers/discordV2SendCorpus.ts`, whose bytes AC1-1 fixes (X-12). Its findings
+  are those of QA's generated file and stay as they are; no lint configuration is edited for it.
 - **AC1-8 (the content-requirement check keeps its behaviour).** `validateContentRequirements`
   returns the same result as at `0e3d903` for every input in its existing test classes. Its three
   other callers therefore keep their behaviour; the design choice that keeps it so is under
@@ -525,6 +529,7 @@ fixtures and coverage are QA's.
 | X-2 | A File upload path; removing File from the add menu | New product work (D-3; D-2) | Same handoff, Item 2 |
 | X-9 | Relocating the six files of `handoff/website-tests-not-beside-their-module-2026-11-08.md` | Rider R1 dropped (critique F-6); the chain edits none of the six | That handoff, which stays Open |
 | X-10 | The base tree's existing eslint findings | Red before the chain opens, on files the plan does not otherwise touch, apart from two test files (§ Validation) | Stated limit; AC1-11 |
+| X-12 | The corpus fixture's eslint findings (7078 errors, 1 warning, `npx eslint <file> --format json` by the implementer on the chain branch; all but the warning auto-fixable, `--fix-dry-run`, planner, 11:52Z) | AC1-1 fixes the file byte-identical to QA's generated fixture (sha256 `49b54f8e…`), so a lint fix would fail AC1-1's Phase 2 check. Hazard, stated: the repository's `lint` script runs `eslint --fix .` and would rewrite the file; the script is already unrunnable as a check on this red tree (§ Validation). Signature: Phase 2's sha256 check fails. An `.eslintignore` entry was offered and declined: it is work the approved M1 does not carry, and `.eslintignore` lists only directories (no sibling file-level entry) | Stated limit; AC1-1's sha256 check |
 | X-11 | `/preview`'s own "Invalid message data." fallback | It is rendered instead of the editor when the data does not parse, so no message is shown and it is not chrome on one (M1b's class table). This is agent-authored and reported to the owner, who may veto it under D-14's "at all" | Stated limit |
 | X-3 | Any server-side refusal of a save | W-2 (D-4) | Stated limit |
 | X-4 | Counting or repairing stored rows | D-6. Research Recommendation 2 is out (determination). | Stated limit (§ Stored rows) |
@@ -566,20 +571,13 @@ fixtures and coverage are QA's.
 
 ## Resumption State
 
-Updated 2026-11-11T11:40Z, `planner-hooks-016` (fresh generation, brief
-`steering/queue-hooks-briefs/planner-016-respawn-brief.md`). The chain is running; it did not stop
-on the usage gate (rulings block "2026-11-11T11:24Z").
-- **Done:** revision 5 folds QAF-12 (QA `96fbc66`) into AC1b-1 and records QA's by-render result in
-  M1b. Revision 4 had the critic's (`01eeaad`) and the architect's (`47c7a4c`) approvals; they do
-  not carry to revision 5.
-- **Next:** the critic (new cycle, since cycle 2 closed), the architect (stopped; spawn cue sent to
-  `steering-queue-hooks`) and QA read revision 5 as `git diff <R-2 head> <rev5> -- planning/016-send-check-validity.md`
-  (the R-2 head is `a9bb644`). When all three approve revision 5, send the implementer's spawn cue to
-  `steering-queue-hooks`. A finding that changes a criterion is folded in one revision 6.
-- **Open to the owner:** nothing. X-11 and design decision 2 stand as reported (rulings blocks
-  11:11Z, 11:21Z).
-- **Trees:** website on `master` at `0e3d903`, no chain branch yet. The record has nothing
-  uncommitted of this session's.
+Updated at revision 6, `planner-hooks-016`. Implementation is running on revision 5's milestones
+(implementer-hooks-016, chain branch `chain/016-send-check-validity`).
+- **Done:** revisions 5 (QAF-12) and 6 (the AC1-1/AC1-11 contradiction, X-12). Revision 5 was
+  approved by the critic (cycle 3, `88b0da9`), the architect (`1492d33`) and QA (`97343f0`).
+- **Next:** the critic (cycle 4) and QA read revision 6 as its diff from R-5. The implementer was
+  answered by message: no lint config edit, and the fixture stays byte-identical.
+- **Open to the owner:** nothing.
 
 ## Planner batch
 
