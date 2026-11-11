@@ -7,7 +7,7 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-286 documents · 16 numbered chains · 134 unnumbered.
+288 documents · 16 numbered chains · 136 unnumbered.
 
 ---
 
@@ -285,6 +285,7 @@ they are the ID-less artifacts that root new efforts.
 | handoff | `handoff/closed/uat-local-stack-up-reuses-low-message-ids-2026-11-11.md` | Addressed · priority normal — Addressed 2026-11-11 by fix-uat-local-stack-id-sequence's third round at 7d59233 (steering's ruling 7cb07bc), and verified at code review Round 1 sub-entry 1. Original detail: tools/uat-local-stack.sh `up` exits 0 when it reuses its own container while \"Messages\" already holds an id below 900000000000001. Only `--seed` (fresh containers only) checks for low ids. Raised as CR-1 LOW in code-review/fix-uat-local-stack-id-sequence-code-review.md and routed here. |
 | handoff | `handoff/closed/v1-guild-messages-endpoints-unauthenticated-2026-08-24.md` | Addressed · priority normal — Addressed: both v1 guild-messages handlers require the Statbot key since website 1acffee, live since 2026-10-10 (unauthenticated request: 401, 0 bytes). The open questions are answered in steering/v1-guild-messages-auth-rulings.md, block 2026-11-10: the owner rules the key is not treated as compromised; of the other matchers, /message and /preview are live and /api/guilds is a dead pattern that guards nothing. The remaining post-deploy check (Statbot's own calls) rides handoff/fix-v1-guild-messages-auth-post-deploy-2026-10-10.md. |
 | handoff | `handoff/editor-error-lines-render-text-unasserted-2026-11-11.md` | Open · priority normal — No suite case asserts that DiscordMessageEditor's error lines, and the render around them, carry only their reason text. Five mutants survived plan 016's effort-final sweep on that surface (QAF-13 LOW). Plan 016 carries it as a stated limit under steering's M1 cap; this handoff carries it past that plan's closure. |
+| handoff | `handoff/local-walk-save-can-write-a-client-sent-low-message-id-2026-11-11.md` | Open · priority normal — Owed by the next UAT or QA browser walk on a stack built by tools/uat-local-stack.sh: record the first save's message id and the count of 'Messages' ids below 900000000000001 after it. Unchecked assumption of the fix-uat-local-stack-id-sequence code review; nothing blocks on it. |
 | handoff | `handoff/message-init-cached-edits-lost-2026-08-27.md` | Open · priority normal — A test file (`website/src/utils/__tests__/message-init-route0.test.ts`) pinned a bug in its own transcription of MessageProvider's route-0 mount-effect logic, not in the production module itself — the file imported nothing from `~/` or `bot/`. The pin is deleted by plan 014 (D2: delete the pin, log the bug, no bug fixes in a test-cleanup chain). Whether the defect is live in production was NOT verified by chain 014 (out of scope by ruling); an informal, non-authoritative observation is recorded below and should not be read as a verification. |
 | handoff | `handoff/newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md` | Open · priority normal — Discovered while converting a source-text test (`013-fqa19-ingress-gate-reachability.test.ts`, plan 014 M4c row 19) to a real mount. The old test asserted `onSubmit`'s gate-then-write ordering by reading `NewMessageModal.tsx`'s own source text; it never actually rendered the component or clicked a real button. Mounting it for real (`src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx`) shows the gated choice UI the old test's ROUTE 1/ROUTE 2 cases described is unreachable via the Save button today. This chain does not fix product code (D2); logged here instead. |
 | handoff | `handoff/one-hooks-user-several-discord-accounts-2026-11-08.md` | Open · priority normal — Sign-out revokes and clears one arbitrary Discord account row when a Hooks user holds several, and the account lookup returns an arbitrary one. A known limit by the owner's ruling (chain 015 D34); nothing is owed unless such a user is found or reported. |
@@ -329,6 +330,7 @@ they are the ID-less artifacts that root new efforts.
 | research | `research/codebase-bug-evaluation-2026-11-08.md` | Active — Sweep complete over website, project-utils and preview-image-generator at the SHAs in § Context. 50 rated findings (F-1–F-50), every one read at the code by the researcher; the two SQL-shape defects and the code-block regex were proven by execution. Eight editor hypotheses (H-1–H-8) need a running editor and are listed with their disconfirming tests, not counted. The owner answered all three intent questions on 2026-11-08 (username required by design, so no defect; get_message open to Manage Server; cap no stated preference). Nothing here is fixed; this is a research document, and it stays Active until the hypotheses H-1 to H-8 are run (G-5). |
 | research | `research/competitive-feature-landscape-2026-11-08.md` | Active — Landscape and scored feature list delivered (Findings F1–F15, Scored list S1–S33). Value now rests on a census of user demand: 1,098 forum posts / 10,734 forum messages and 3,438 channel messages across four Discord communities (ours included), checked post by post against Discord's own message counts. Owner ruled 2026-11-08: Q1 bot sending for interactive buttons ("sure"), Q2 no paid tier, ever ("a loss leader for Statbot"). Not Answered: no Hooks.gg usage data exists (G1), and the owner has not yet selected items to plan against. Stays Active until he does; the planner then cites this document and it closes Answered. |
 | retrospective | `retrospectives/fix-hooks-record-shared-engine-retrospective.md` | Active |
+| retrospective | `retrospectives/fix-uat-local-stack-id-sequence-retrospective.md` | Active |
 | retrospective | `retrospectives/fix-website-save-gate-embeds-retrospective.md` | Active |
 | — | `steering/014-rulings.md` | — |
 | — | `steering/015-rulings.md` | — |
@@ -599,6 +601,7 @@ they are the ID-less artifacts that root new efforts.
 | `fix-hooks-record-shared-engine-retrospective.md` | `retrospectives/fix-hooks-record-shared-engine-retrospective.md` |
 | `fix-uat-local-stack-id-sequence-code-review.md` | `code-review/closed/fix-uat-local-stack-id-sequence-code-review.md` |
 | `fix-uat-local-stack-id-sequence-implementation.md` | `implementation/closed/fix-uat-local-stack-id-sequence-implementation.md` |
+| `fix-uat-local-stack-id-sequence-retrospective.md` | `retrospectives/fix-uat-local-stack-id-sequence-retrospective.md` |
 | `fix-v1-guild-messages-auth-code-review.md` | `code-review/closed/fix-v1-guild-messages-auth-code-review.md` |
 | `fix-v1-guild-messages-auth-deployment.md` | `deployment/closed/fix-v1-guild-messages-auth-deployment.md` |
 | `fix-v1-guild-messages-auth-implementation.md` | `implementation/closed/fix-v1-guild-messages-auth-implementation.md` |
@@ -617,6 +620,7 @@ they are the ID-less artifacts that root new efforts.
 | `INBOX.md` | `INBOX.md` |
 | `json-editor-bad-configurations-2026-08-23.md` | `handoff/closed/json-editor-bad-configurations-2026-08-23.md` |
 | `json-editor-flag-mint-2026-08-23.md` | `research/closed/json-editor-flag-mint-2026-08-23.md` |
+| `local-walk-save-can-write-a-client-sent-low-message-id-2026-11-11.md` | `handoff/local-walk-save-can-write-a-client-sent-low-message-id-2026-11-11.md` |
 | `m0-baseline.md` | `verification/014/m0-baseline.md` |
 | `message-init-cached-edits-lost-2026-08-27.md` | `handoff/message-init-cached-edits-lost-2026-08-27.md` |
 | `message-valid-field-for-statbot-2026-08-23.md` | `handoff/closed/message-valid-field-for-statbot-2026-08-23.md` |
