@@ -1,0 +1,406 @@
+▶ uat-local-stack.sh
+  ▶ arguments
+    ✔ exits 2 for [], names the usage and touches nothing (32.119768ms)
+    ✔ exits 2 for ["bogus"], names the usage and touches nothing (25.979691ms)
+    ✔ exits 2 for ["up","--bogus"], names the usage and touches nothing (24.315379ms)
+    ✔ exits 2 for ["down","--seed"], names the usage and touches nothing (25.46534ms)
+    ✔ exits 2 for ["status","extra"], names the usage and touches nothing (26.523517ms)
+    ✔ exits 2 for ["up","up"], names the usage and touches nothing (27.512043ms)
+    ✔ exits 2 for ["up","--seed","--seed"], names the usage and touches nothing (27.427501ms)
+    ✔ -h prints the usage, exits 0 and touches nothing (27.732116ms)
+    ✔ --help prints the usage, exits 0 and touches nothing (24.411117ms)
+  ✔ arguments (242.652264ms)
+  ▶ AC-9.2 local only
+    ✔ refuses 0.0.0.0 with exit 2 before any docker, prisma or network act, and says "local only" (96.231784ms)
+    ✔ refuses 192.168.1.5 with exit 2 before any docker, prisma or network act, and says "local only" (99.620423ms)
+    ✔ refuses db.internal with exit 2 before any docker, prisma or network act, and says "local only" (96.483357ms)
+    ✔ refuses 10.0.0.7 with exit 2 before any docker, prisma or network act, and says "local only" (95.355454ms)
+    ✔ refuses railway.app with exit 2 before any docker, prisma or network act, and says "local only" (96.656609ms)
+    ✔ takes localhost as local: the verb proceeds to the docker act (35.038848ms)
+    ✔ takes [::1] as local: the verb proceeds to the docker act (36.733482ms)
+    ✔ takes 127.0.0.2 as local: the verb proceeds to the docker act (34.912648ms)
+    ✔ takes 127.0.0.1 as local: the verb proceeds to the docker act (34.36608ms)
+    ✔ takes localhost as local through up: the container is published on 127.0.0.1, and status then finds it there (104.390074ms)
+    ✔ takes [::1] as local through up: the container is published on [::1], and status then finds it there (108.959889ms)
+    ✔ takes 127.0.0.2 as local through up: the container is published on 127.0.0.2, and status then finds it there (100.779953ms)
+    ✔ a URL with no port takes 5432 (38.113317ms)
+    ✔ refuses a DATABASE_URL that cannot be parsed without echoing any part of it (24.625647ms)
+    ✔ refuses a URL that is not a postgres URL, or has no user, password or database (100.633884ms)
+    ✔ takes the last DATABASE_URL line, with an export prefix and single quotes read off (64.51883ms)
+    ✔ refuses a file with no DATABASE_URL line (26.458078ms)
+    ✔ reads the "# production"-labelled line of the real file shape: a loopback host there is taken, a remote host there is refused (62.944197ms)
+  ✔ AC-9.2 local only (1259.207858ms)
+  ▶ AC-9.1a up, by the state it finds
+    ✔ no container, port free: creates it labelled, publishes the URL host and port, passes the password by name, waits ready, pushes with --skip-generate and prints the count (58.986108ms)
+    ✔ never passes --accept-data-loss, and carries the password in no argv (56.903187ms)
+    ✔ up --seed on an empty container this call created applies seed.sql after the push (64.112099ms)
+    ✖ up on a container it creates: moves the message-id sequence out of production's range after the push and any seed, and prints the next id (60.332137ms)
+    ✖ up --seed: moves the message-id sequence out of production's range after the push and any seed, and prints the next id (66.443634ms)
+    ✖ up reusing the tool's running container: moves the message-id sequence out of production's range after the push and any seed, and prints the next id (57.876487ms)
+    ✖ up starting the tool's stopped container: moves the message-id sequence out of production's range after the push and any seed, and prints the next id (70.221159ms)
+    ✖ a reused database whose ids are already past the floor keeps counting from its own next id (58.104017ms)
+    ✔ the tool's container running: up reuses it (no run, no start), pushes and counts (58.830148ms)
+    ✔ the tool's container running: up --seed exits 2 before any act (no push, no seed, no mutation) (36.428282ms)
+    ✔ the tool's container stopped: up starts it, pushes and counts (61.713856ms)
+    ✔ the tool's container stopped: up --seed exits 2 without starting it (35.695168ms)
+    ✔ a container of that name without the tool's label: up exits 2 before any act and removes nothing (34.11834ms)
+    ✔ a container of that name without the tool's label: up --seed exits 2 before any act and removes nothing (34.735502ms)
+    ✔ the URL's port held by a stub listener, no container: up exits 2 and the prisma argv log is empty (72.077327ms)
+    ✔ the tool's container running but not publishing the URL's host and port: up exits 2 and the prisma argv log is empty (41.842501ms)
+    ✔ the tool's container stopped while a stub holds the port: up exits 2 without starting it (41.078846ms)
+  ✖ AC-9.1a up, by the state it finds (910.368459ms)
+  ▶ AC-9.5 a failed up leaves nothing it started
+    ✔ a container this call created is removed when the schema push fails, and the call reports it (66.828866ms)
+    ✔ a container this call created is removed when it never becomes ready (80.360872ms)
+    ✔ a container this call created is removed when the seed fails (73.789394ms)
+    ✔ a refused docker run leaves no container and reports the failure (65.727989ms)
+    ✔ a container the call only reused is left in place when the push fails (54.661936ms)
+    ✔ a container the call started is stopped again when the push fails (69.257731ms)
+    ✔ cleanup removes only a container carrying this call's label: one relabelled after run is left, and the call says so (65.019458ms)
+    ✔ the tool's stopped container that starts but does not publish the URL's host and port: up fails, stops it again and pushes nothing (65.035999ms)
+    ✔ an empty table count after the push fails the call, and the container it created is removed (78.074394ms)
+    ✖ a sequence move that fails fails the call before any table count, and the container it created is removed (61.866846ms)
+    ✖ a sequence read back inside production's range fails the call before any table count, and the container it created is removed (59.248087ms)
+    ✖ a sequence read back that is not a number fails the call before any table count, and the container it created is removed (55.290807ms)
+    ✖ a seed that leaves a message below the floor fails up --seed before the sequence move, and the container it created is removed (62.697916ms)
+    ✖ a seed whose low-id count is not a number fails up --seed before the sequence move, and the container it created is removed (65.105685ms)
+    ✖ a sequence move that fails on a container the call started stops it again (67.739813ms)
+    ✔ a docker start that fails is named as that, exits 1, and has nothing to stop (43.758434ms)
+    ✔ cleanup stops a container it started only while it carries the label: one relabelled after start is left, and the call says so (69.101877ms)
+    ✔ every verb writes nothing in website, project-utils, the record or TMPDIR (365.487906ms)
+  ✖ AC-9.5 a failed up leaves nothing it started (1469.962035ms)
+  ▶ AC-9.3 status
+    ✔ no container: five lines, each naming the missing piece, none reporting ready (35.98751ms)
+    ✔ a running, ready container with a redis that answers PING: all five lines read ready, the readiness taken by pg_isready inside the container (88.883526ms)
+    ✔ a running container that is not accepting connections: ready names it, tables are unknown (40.612669ms)
+    ✔ a stopped container is named stopped and not reported ready (37.749803ms)
+    ✔ a container without the tool's label is named as not the tool's (37.379081ms)
+    ✔ a running container of the tool's that does not publish the URL's host and port, with a stub holding the port, reads as another listener (54.490351ms)
+    ✔ a stub holding the port with no container reads as another listener (35.319765ms)
+    ✔ a redis that needs AUTH is answered with REDISPASSWORD sent, not by a bare PING (81.203213ms)
+    ✔ a redis that replies with an error is named as an error, not as no answer and not as ready (66.482218ms)
+    ✔ a REDISHOST that is not loopback is not contacted and is named (39.18257ms)
+    ✔ missing REDISHOST or REDISPORT is named, not reported ready (35.218101ms)
+    ✔ a redis that does not answer is named, not reported ready (33.972235ms)
+  ✔ AC-9.3 status (587.153604ms)
+  ▶ AC-9.4 down
+    ✔ stops and removes the tool's container, keeps the image, and status then reports no container and a free port (74.713709ms)
+    ✔ refuses to remove a same-named container it did not label, with exit 2 (34.160345ms)
+    ✔ with no container, reports that and exits 0 without a removal (30.212498ms)
+  ✔ AC-9.4 down (139.250931ms)
+  ▶ AC-9.5 / CR-6, CR-7
+    ✔ a docker run that creates the container and then fails leaves none behind and says so (62.930762ms)
+    ✔ a docker run that creates the container and then fails removes it by the label value unique to the call, never by the name (123.094486ms)
+    ✔ a same-named, tool-labelled container another session created in the gap is left as found, and the call fails naming it (66.501979ms)
+    ✔ a docker run that succeeds and prints no id is found by the call's label, and removed when the push fails (66.298679ms)
+    ✔ text on the failed docker run's stdout that is not an id identifies nothing: another session's container is left as found (66.294849ms)
+    ✔ a removal docker refuses is not reported as done, is reported as left behind by id, and the container is still there (60.822847ms)
+    ✔ when one of two containers carrying the call's label is removed and the other refused, the refused one is named (63.971448ms)
+    ✔ a stop docker refuses is reported as left running, with the container named, and the call still fails (69.118482ms)
+    ✔ a lookup line that is not a container id is never handed to docker rm (59.348907ms)
+    ✔ a docker run that fails before creating anything reports no removal and removes nothing (62.642479ms)
+    ✔ a SIGTERM while docker run is in flight removes the container that call created, and says so (113.333491ms)
+    ✔ a SIGTERM while docker start is in flight stops the container that call started, and says so (115.817982ms)
+    ✔ a SIGINT while docker run is in flight removes the container that call created, and says so (106.637066ms)
+    ✔ a SIGINT while docker start is in flight stops the container that call started, and says so (108.048279ms)
+    ✔ a SIGHUP while docker run is in flight removes the container that call created, and says so (110.619461ms)
+    ✔ a SIGHUP while docker start is in flight stops the container that call started, and says so (110.651375ms)
+    ✔ the poison docker on the children's PATH fires when the override is ignored, so the guard is observed to work (32.20256ms)
+  ✔ AC-9.5 / CR-6, CR-7 (1399.284391ms)
+  ▶ AC-9.1 prints no credential
+    ✔ across every verb, success and failure path, no output carries the password (either form) or the URL, and the fixture file does (551.504288ms)
+  ✔ AC-9.1 prints no credential (551.600594ms)
+  ▶ AC-9.1 prints no credential: each failure path of up
+    ✔ a non-loopback host: exit 2 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (25.863665ms)
+    ✔ a LAN host: exit 2 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (25.492982ms)
+    ✔ an unparsable URL: exit 2 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (23.872325ms)
+    ✔ a URL with no scheme: exit 2 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (24.573037ms)
+    ✔ a docker run that fails: exit 1 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (61.211304ms)
+    ✔ a docker run that creates and then fails: exit 1 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (61.106849ms)
+    ✔ a docker run that meets another session's container: exit 1 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (63.768337ms)
+    ✔ a schema push that fails: exit 1 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (63.90737ms)
+    ✔ a seed that fails: exit 1 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (76.830978ms)
+    ✔ a container that never becomes ready: exit 1 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (63.689508ms)
+    ✔ an empty table count: exit 1 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (68.590811ms)
+    ✖ a sequence move that fails: exit 1 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (55.771497ms)
+    ✖ a seed that leaves a message below the floor: exit 1 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (68.730229ms)
+  ✖ AC-9.1 prints no credential: each failure path of up (685.501559ms)
+  ▶ AC-8.8 / D-16 stubs are found whatever the temp path holds
+    ✔ with the fixture under a folder named with a colon, every docker and prisma the verbs run is the fixture stub (144.622523ms)
+  ✔ AC-8.8 / D-16 stubs are found whatever the temp path holds (144.726189ms)
+✖ uat-local-stack.sh (7441.481071ms)
+ℹ tests 109
+ℹ suites 11
+ℹ pass 96
+ℹ fail 13
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7504.253871
+
+✖ failing tests:
+
+test at tools/uatLocalStack.test.js:427:7
+✖ up on a container it creates: moves the message-id sequence out of production's range after the push and any seed, and prints the next id (60.332137ms)
+  AssertionError [ERR_ASSERTION]: inspect --type container --format {{.State.Status}} {{index .Config.Labels "hooks.uat-local-stack"}} hooks-postgres-local
+  run -d --name hooks-postgres-local --label hooks.uat-local-stack=1 --label hooks.uat-local-stack.call=4156821-1794426770-659332604 -e POSTGRES_PASSWORD -e POSTGRES_USER -e POSTGRES_DB -p 127.0.0.1:37593:5432 postgres:16
+  exec hooks-postgres-local pg_isready -h 127.0.0.1 -p 5432 -U hooksuser -d railway
+  exec -e PGPASSWORD hooks-postgres-local psql -U hooksuser -d railway -tAc select count(*) from information_schema.tables where table_schema = 'public'
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/e29fa2ba-ac57-4fd4-9055-2e9bac4314da/scratchpad/base/tools/uatLocalStack.test.js:433:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tools/uatLocalStack.test.js:427:7
+✖ up --seed: moves the message-id sequence out of production's range after the push and any seed, and prints the next id (66.443634ms)
+  AssertionError [ERR_ASSERTION]: inspect --type container --format {{.State.Status}} {{index .Config.Labels "hooks.uat-local-stack"}} hooks-postgres-local
+  run -d --name hooks-postgres-local --label hooks.uat-local-stack=1 --label hooks.uat-local-stack.call=4156942-1794426770-3017316961 -e POSTGRES_PASSWORD -e POSTGRES_USER -e POSTGRES_DB -p 127.0.0.1:45273:5432 postgres:16
+  exec hooks-postgres-local pg_isready -h 127.0.0.1 -p 5432 -U hooksuser -d railway
+  exec -i -e PGPASSWORD hooks-postgres-local psql -v ON_ERROR_STOP=1 -U hooksuser -d railway
+  exec -e PGPASSWORD hooks-postgres-local psql -U hooksuser -d railway -tAc select count(*) from information_schema.tables where table_schema = 'public'
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/e29fa2ba-ac57-4fd4-9055-2e9bac4314da/scratchpad/base/tools/uatLocalStack.test.js:433:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tools/uatLocalStack.test.js:427:7
+✖ up reusing the tool's running container: moves the message-id sequence out of production's range after the push and any seed, and prints the next id (57.876487ms)
+  AssertionError [ERR_ASSERTION]: inspect --type container --format {{.State.Status}} {{index .Config.Labels "hooks.uat-local-stack"}} hooks-postgres-local
+  port hooks-postgres-local 5432/tcp
+  exec hooks-postgres-local pg_isready -h 127.0.0.1 -p 5432 -U hooksuser -d railway
+  exec -e PGPASSWORD hooks-postgres-local psql -U hooksuser -d railway -tAc select count(*) from information_schema.tables where table_schema = 'public'
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/e29fa2ba-ac57-4fd4-9055-2e9bac4314da/scratchpad/base/tools/uatLocalStack.test.js:433:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tools/uatLocalStack.test.js:427:7
+✖ up starting the tool's stopped container: moves the message-id sequence out of production's range after the push and any seed, and prints the next id (70.221159ms)
+  AssertionError [ERR_ASSERTION]: inspect --type container --format {{.State.Status}} {{index .Config.Labels "hooks.uat-local-stack"}} hooks-postgres-local
+  start hooks-postgres-local
+  port hooks-postgres-local 5432/tcp
+  exec hooks-postgres-local pg_isready -h 127.0.0.1 -p 5432 -U hooksuser -d railway
+  exec -e PGPASSWORD hooks-postgres-local psql -U hooksuser -d railway -tAc select count(*) from information_schema.tables where table_schema = 'public'
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/e29fa2ba-ac57-4fd4-9055-2e9bac4314da/scratchpad/base/tools/uatLocalStack.test.js:433:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tools/uatLocalStack.test.js:442:5
+✖ a reused database whose ids are already past the floor keeps counting from its own next id (58.104017ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /^message ids: next 900000000000042$/m. Input:
+  
+  'schema push: ok\n' +
+    'container: hooks-postgres-local ready at 127.0.0.1:41217\n' +
+    'tables: 7\n'
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/e29fa2ba-ac57-4fd4-9055-2e9bac4314da/scratchpad/base/tools/uatLocalStack.test.js:447:14)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'schema push: ok\ncontainer: hooks-postgres-local ready at 127.0.0.1:41217\ntables: 7\n',
+    expected: /^message ids: next 900000000000042$/m,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/uatLocalStack.test.js:624:7
+✖ a sequence move that fails fails the call before any table count, and the container it created is removed (61.866846ms)
+  AssertionError [ERR_ASSERTION]: schema push: ok
+  container: hooks-postgres-local ready at 127.0.0.1:35973
+  tables: 7
+  
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/e29fa2ba-ac57-4fd4-9055-2e9bac4314da/scratchpad/base/tools/uatLocalStack.test.js:627:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/uatLocalStack.test.js:624:7
+✖ a sequence read back inside production's range fails the call before any table count, and the container it created is removed (59.248087ms)
+  AssertionError [ERR_ASSERTION]: schema push: ok
+  container: hooks-postgres-local ready at 127.0.0.1:33077
+  tables: 7
+  
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/e29fa2ba-ac57-4fd4-9055-2e9bac4314da/scratchpad/base/tools/uatLocalStack.test.js:627:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/uatLocalStack.test.js:624:7
+✖ a sequence read back that is not a number fails the call before any table count, and the container it created is removed (55.290807ms)
+  AssertionError [ERR_ASSERTION]: schema push: ok
+  container: hooks-postgres-local ready at 127.0.0.1:45943
+  tables: 7
+  
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/e29fa2ba-ac57-4fd4-9055-2e9bac4314da/scratchpad/base/tools/uatLocalStack.test.js:627:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/uatLocalStack.test.js:635:7
+✖ a seed that leaves a message below the floor fails up --seed before the sequence move, and the container it created is removed (62.697916ms)
+  AssertionError [ERR_ASSERTION]: schema push: ok
+  seed: applied
+  container: hooks-postgres-local ready at 127.0.0.1:32935
+  tables: 7
+  
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/e29fa2ba-ac57-4fd4-9055-2e9bac4314da/scratchpad/base/tools/uatLocalStack.test.js:638:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/uatLocalStack.test.js:635:7
+✖ a seed whose low-id count is not a number fails up --seed before the sequence move, and the container it created is removed (65.105685ms)
+  AssertionError [ERR_ASSERTION]: schema push: ok
+  seed: applied
+  container: hooks-postgres-local ready at 127.0.0.1:37469
+  tables: 7
+  
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/e29fa2ba-ac57-4fd4-9055-2e9bac4314da/scratchpad/base/tools/uatLocalStack.test.js:638:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/uatLocalStack.test.js:646:5
+✖ a sequence move that fails on a container the call started stops it again (67.739813ms)
+  AssertionError [ERR_ASSERTION]: schema push: ok
+  container: hooks-postgres-local ready at 127.0.0.1:38953
+  tables: 7
+  
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/e29fa2ba-ac57-4fd4-9055-2e9bac4314da/scratchpad/base/tools/uatLocalStack.test.js:650:14)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/uatLocalStack.test.js:1013:7
+✖ a sequence move that fails: exit 1 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (55.771497ms)
+  AssertionError [ERR_ASSERTION]: schema push: ok
+  container: hooks-postgres-local ready at 127.0.0.1:38339
+  tables: 7
+  
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/e29fa2ba-ac57-4fd4-9055-2e9bac4314da/scratchpad/base/tools/uatLocalStack.test.js:1019:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/uatLocalStack.test.js:1013:7
+✖ a seed that leaves a message below the floor: exit 1 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (68.730229ms)
+  AssertionError [ERR_ASSERTION]: schema push: ok
+  seed: applied
+  container: hooks-postgres-local ready at 127.0.0.1:35969
+  tables: 7
+  
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/e29fa2ba-ac57-4fd4-9055-2e9bac4314da/scratchpad/base/tools/uatLocalStack.test.js:1019:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
