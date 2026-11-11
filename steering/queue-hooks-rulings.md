@@ -1420,3 +1420,30 @@ with `tmux-agent spawn` as `uat-fix-website-save-gate-embeds`, category
 `steering/queue-hooks-briefs/uat-save-gate-embeds-hooks-gg-check-brief.md`. No security session:
 nothing is shipped. On its rows this thread closes the handoff and rewrites the queue. The
 standing check is armed again in place of the cache-warm wake while this session works.
+
+## 2026-11-11T21:18Z — selection 24: the hooks.gg Save check ends as checked (put 21:18Z, answered 21:18Z)
+
+Ledger: `steering/selection-ledger/2026-11-11.md`, block "2026-11-11T21:18Z — steering-queue-hooks".
+By selection; the option text is this thread's. Source: the UAT session's five changelog rows in
+`handoff/save-gate-embeds-owner-checks-on-hooks-gg-2026-11-11.md` (record `fa4d863`, read whole this
+turn): Flow 1 and Flow 2 NOT EXECUTED (shapes not constructible in the live editor); nearest
+observations on its own messages 6009 to 6011 passed; the saving tab received its own Pusher frame
+and no "Message Update Detected" showed; one tab; nothing sent. That no UI path builds the shapes
+is the UAT session's finding from its walk, marked so in the question, not re-run here.
+
+Options: *Agent: close it as checked (Recommended)* ("I close the check on these results and remove
+it from your queue. The two flows stay unobserved on hooks.gg; they were only ever exercised on a
+local copy (QA's browser run). If an old stored message in that state misbehaves on Save, you would
+hear of it from a user.") / *You: run the count first* (the read-only query; zero rows means that
+flow cannot occur today; the check stays queued until then) / *You: check a stored message* (the
+check stays queued, reworded, until he reports or drops it).
+**Chosen: "Agent: close it as checked (Recommended)"** (selection). A NOT EXECUTED row is his to
+withdraw; this selection is that withdrawal for check 1.
+
+Acts: the handoff's `Status-Detail` replaced and a changelog row added; it stays `Open` for check 2
+alone (his optional live-database count), which is `OWNER-QUEUE.md`'s one remaining item, still
+"want it or drop it". **This thread's error, kept:** `OWNER-QUEUE.md` item 1 step 1 told him to
+type classic content into a V2 message; by the UAT walk the live editor does not allow that, so
+the step as worded could not be performed. Left on hooks.gg: the test account's messages 6009 to
+6012 (6012 holds a stray username and an empty Text Display). The UAT session is stopped and its
+scratch deleted.

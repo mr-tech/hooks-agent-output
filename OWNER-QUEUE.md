@@ -26,25 +26,7 @@ lines about items nobody is waiting on.** If it does not need the owner to act, 
 
 ---
 
-## 1. Check the Save fix on hooks.gg (released 2026-11-11, nothing is blocked on it)
-
-The fix was tested in a browser on a local copy only, never on hooks.gg. Your check closes that gap.
-
-1. On hooks.gg, open a Components V2 message in the editor, type something into the classic content
-   so it holds both, and press Save. The "Choose which to keep" dialog should appear.
-2. Pick **Save as Classic**. Pass: the editor switches to Classic and keeps your content, and no
-   "Message Update Detected" appears.
-3. Repeat on another V2 message and pick **Save as Components V2**. Pass: it stays V2, keeps its
-   components, and no "Message Update Detected" appears.
-4. If you have a stored V2 message with an empty embed: Save it. Pass: no prompt, and Send accepts
-   it without a reload.
-
-Fail sign: "Message Update Detected" after your own save, or Send refusing until you reload. The
-quick way back is promoting the previous deployment in Vercel, which is your call.
-
-**What did you see?** Tell the hooks steering session "pass" or what went wrong.
-
-## 2. Optional: count the stored messages the fix will tidy
+## 1. Optional: count the stored messages the Save fix will tidy
 
 The fix repairs nothing already stored; a V2 message saved earlier beside an empty embed is cleaned
 only the next time someone saves it. If you want to know how many exist, run the read-only query in
