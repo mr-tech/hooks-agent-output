@@ -3,7 +3,7 @@ ID: 016
 Origin: 016
 UUID: 54673438
 Status: Active
-Status-Detail: "Delta pass on plan 016 revision 6 (record 07e2e41): APPROVED. Revision 7 (record 9fd96d5) read: no architectural surface; AF-14 adopted through QA's regeneration, and its Problem Area retires at reconciliation. Owed after implementation, by devops Stage 1: AF-4's D-10 clause in website.md A-4, the preview-chrome Problem Area's closure, and the /preview signal under D-001. AF-4's A-4 clause lands at this chain's reconciliation, no later than devops Stage 1."
+Status-Detail: "Delta pass on plan 016 revision 6 (record 07e2e41): APPROVED; delta pass on revision 7 (record 9fd96d5): APPROVED, no finding; AF-14 adopted through QA's regeneration, and its Problem Area retires at reconciliation. Owed after implementation, by devops Stage 1: AF-4's D-10 clause in website.md A-4, the preview-chrome Problem Area's closure, and the /preview signal under D-001. AF-4's A-4 clause lands at this chain's reconciliation, no later than devops Stage 1."
 ---
 
 # Architecture Findings — Plan 016: the send check refuses what Discord refuses (conformance pass)
@@ -22,6 +22,19 @@ Status-Detail: "Delta pass on plan 016 revision 6 (record 07e2e41): APPROVED. Re
 | 2026-11-11T11:53 | Delta pass, plan rev 6 (`07e2e41`, read as the diff from `678c8b4`), started by steering-queue-hooks (criterion-changing revision; the planner did not cue it) | The narrowing of AC1-11 and X-12 add no architectural surface, and X-12's claims about the code hold at `0e3d903`. AF-14 LOW: a generated, byte-pinned fixture inside `eslint --fix`'s scope can be rewritten away from its generator. This is a design variant on a form the delta did not change, so it is lodged as a Problem Area and no revision is asked for. **APPROVED.** |
 | 2026-11-11T11:55 | AF-14 dispositioned (planner-hooks-016's message; plan R-8, `343d62e`) | Declined for this chain. It is carried after closure by the Problem Area, which X-12 names. |
 | 2026-11-11T12:58 | Plan rev 7 (`9fd96d5`) read as the diff from `07e2e41`, on planner-hooks-016's message (no pass requested) | AF-14 is adopted after all: QA regenerated the fixture through the generator for code review CR-1 (`188bc93`). I checked the sha256, the blob and the zero comment lines myself. AC1-11's exemption and X-12 are gone. There is no architectural surface, so no verdict is owed. The Problem Area is marked mitigated, and it retires at reconciliation. |
+| 2026-11-11T12:59 | Delta pass, plan rev 7 (`9fd96d5`, read as the diff from `a8468d0`; the 12:58 read covered `07e2e41`..`9fd96d5`), started by steering-queue-hooks; the M1 cap read (rulings block 12:59Z, `855adb8`) | The 12:58 read is made the formal pass. The fixture keeps its `.ts` form and its helpers path, and it still imports nothing (`grep -c`, 0). **APPROVED**, with no finding, so nothing is routed under the cap. |
+
+## Verdict (rev 7, `9fd96d5`, read as the diff from `a8468d0`): APPROVED
+
+The delta records the regenerated fixture's identity in AC1-1, removes AC1-11's exemption and
+retires X-12. This is AF-14's option 1, taken by QA through the generator. The disposition and my
+reads (sha256, blob, zero comment lines, the deep-equal capture with its controls) are under AF-14
+below. The forms the rev 2 pass approved are unchanged:
+
+- the `.ts` helper at `src/utils/__tests__/helpers/discordV2SendCorpus.ts`;
+- an import closure that is still empty (`grep -c` of `import`/`require(` at `188bc93`: 0).
+
+There is no finding, so nothing routes under M1's cap (rulings block 12:59Z, read).
 
 ## Verdict (rev 6, `07e2e41`, read as the diff from `678c8b4`): APPROVED
 
