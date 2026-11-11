@@ -1,0 +1,142 @@
+{
+ "summary": {
+  "started": "2026-11-11T10:50:24Z",
+  "ended": "2026-11-11T10:50:54Z",
+  "sender": "user-created webhook 'Spidey Bot', #general",
+  "requests": 17,
+  "accepted": 4,
+  "deleted_204": 4,
+  "retries_429": 0,
+  "research_cases": 0,
+  "research_verdict_match": 0,
+  "research_refused_with_identical_error_body": 0,
+  "research_refused": 0,
+  "webhooks_before": [
+   "Spidey Bot"
+  ],
+  "webhooks_after": [
+   "Spidey Bot"
+  ]
+ },
+ "results": [
+  {
+   "id": "Q2-btn-emoji-empty-object",
+   "set": "qa-extra-2",
+   "status": 400,
+   "discord": "refused",
+   "error_body": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"1\": {\"components\": {\"0\": {\"emoji\": {\"name\": {\"_errors\": [{\"code\": \"COMPONENT_INVALID_EMOJI\", \"message\": \"Invalid emoji\"}]}}}}}}}}"
+  },
+  {
+   "id": "Q2-btn-emoji-name-empty",
+   "set": "qa-extra-2",
+   "status": 400,
+   "discord": "refused",
+   "error_body": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"1\": {\"components\": {\"0\": {\"emoji\": {\"name\": {\"_errors\": [{\"code\": \"COMPONENT_INVALID_EMOJI\", \"message\": \"Invalid emoji\"}]}}}}}}}}"
+  },
+  {
+   "id": "Q2-btn-url-absent",
+   "set": "qa-extra-2",
+   "status": 400,
+   "discord": "refused",
+   "error_body": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"1\": {\"components\": {\"0\": {\"url\": {\"_errors\": [{\"code\": \"BUTTON_COMPONENT_URL_REQUIRED\", \"message\": \"A url is required\"}]}}}}}}}"
+  },
+  {
+   "id": "Q2-thumb-media-empty-object",
+   "set": "qa-extra-2",
+   "status": 400,
+   "discord": "refused",
+   "error_body": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"accessory\": {\"media\": {\"url\": {\"_errors\": [{\"code\": \"BASE_TYPE_REQUIRED\", \"message\": \"This field is required\"}]}}}}}}}"
+  },
+  {
+   "id": "Q2-thumb-media-absent",
+   "set": "qa-extra-2",
+   "status": 400,
+   "discord": "refused",
+   "error_body": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"accessory\": {\"media\": {\"_errors\": [{\"code\": \"BASE_TYPE_REQUIRED\", \"message\": \"This field is required\"}]}}}}}}"
+  },
+  {
+   "id": "Q2-item-media-absent",
+   "set": "qa-extra-2",
+   "status": 400,
+   "discord": "refused",
+   "error_body": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"items\": {\"0\": {\"media\": {\"_errors\": [{\"code\": \"BASE_TYPE_REQUIRED\", \"message\": \"This field is required\"}]}}}}}}}"
+  },
+  {
+   "id": "Q2-file-key-absent",
+   "set": "qa-extra-2",
+   "status": 400,
+   "discord": "refused",
+   "error_body": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"1\": {\"file\": {\"_errors\": [{\"code\": \"BASE_TYPE_REQUIRED\", \"message\": \"This field is required\"}]}}}}}"
+  },
+  {
+   "id": "Q2-section-components-absent",
+   "set": "qa-extra-2",
+   "status": 400,
+   "discord": "refused",
+   "error_body": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"components\": {\"_errors\": [{\"code\": \"BASE_TYPE_REQUIRED\", \"message\": \"This field is required\"}]}}}}}"
+  },
+  {
+   "id": "Q2-row-components-absent",
+   "set": "qa-extra-2",
+   "status": 400,
+   "discord": "refused",
+   "error_body": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"1\": {\"components\": {\"_errors\": [{\"code\": \"BASE_TYPE_REQUIRED\", \"message\": \"This field is required\"}]}}}}}"
+  },
+  {
+   "id": "Q2-label-nbsp",
+   "set": "qa-extra-2",
+   "status": 400,
+   "discord": "refused",
+   "error_body": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"1\": {\"components\": {\"0\": {\"label\": {\"_errors\": [{\"code\": \"BASE_TYPE_REQUIRED\", \"message\": \"This field is required\"}]}}}}}}}"
+  },
+  {
+   "id": "Q2-label-u0085",
+   "set": "qa-extra-2",
+   "status": 400,
+   "discord": "refused",
+   "error_body": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"1\": {\"components\": {\"0\": {\"label\": {\"_errors\": [{\"code\": \"BASE_TYPE_REQUIRED\", \"message\": \"This field is required\"}]}}}}}}}"
+  },
+  {
+   "id": "Q2-label-ufeff",
+   "set": "qa-extra-2",
+   "status": 200,
+   "discord": "accepted",
+   "deleted": 204
+  },
+  {
+   "id": "Q2-td-u0085-space",
+   "set": "qa-extra-2",
+   "status": 400,
+   "discord": "refused",
+   "error_body": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"content\": {\"_errors\": [{\"code\": \"BASE_TYPE_BAD_LENGTH\", \"message\": \"Must be between 1 and 4000 in length.\"}]}}}}}"
+  },
+  {
+   "id": "Q2-td-space-u0085-newline",
+   "set": "qa-extra-2",
+   "status": 400,
+   "discord": "refused",
+   "error_body": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"content\": {\"_errors\": [{\"code\": \"BASE_TYPE_BAD_LENGTH\", \"message\": \"Must be between 1 and 4000 in length.\"}]}}}}}"
+  },
+  {
+   "id": "Q2-td-ufeff-space",
+   "set": "qa-extra-2",
+   "status": 200,
+   "discord": "accepted",
+   "deleted": 204
+  },
+  {
+   "id": "Q2-td-u0085-in-text",
+   "set": "qa-extra-2",
+   "status": 200,
+   "discord": "accepted",
+   "deleted": 204
+  },
+  {
+   "id": "Q2-td-u200b-space",
+   "set": "qa-extra-2",
+   "status": 200,
+   "discord": "accepted",
+   "deleted": 204
+  }
+ ]
+}

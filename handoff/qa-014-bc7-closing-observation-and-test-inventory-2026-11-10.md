@@ -1,7 +1,7 @@
 ---
 UUID: 8eba7253
 Status: Open
-Status-Detail: "Two chain-014 leftovers with no running stage: QA register row BC-7/AC8 has its closing observation but not its terminal write, and the ID-less test inventory that chain 014 consumed is still Active. Nothing blocks on either."
+Status-Detail: "Item 1 (BC-7/AC8's terminal write) discharged by QA 2026-11-11. Left: the ID-less test inventory that chain 014 consumed is still Active (the analyst's), and item 3's vocabulary note. Nothing blocks on either."
 Owning-Stage: qa (item 1); the analyst or the planner who next commissions one (item 2)
 Review-Trigger: when QA next runs in this record, or when the next website test effort is scoped
 ---
@@ -28,3 +28,4 @@ Record-inbox entry of planner-S024 (statbot), 2026-08-31, deleted in this pass (
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-10T08:40 | steering-cleanup | Created by the 2026-11-10 project cleanup from record-inbox entries routed to this stage while no session of it was running; the entries are deleted from `INBOX.md` in the same pass |
+| 2026-11-11T10:57 | qa-hooks-016 | `Review-Trigger` fired (QA ran, plan 016 Phase 1). **Item 1 discharged:** the BC-7/AC8 row of `qa/closed/014-test-suite-cleanup-qa.md` now carries its terminal write (DISCHARGED, observed as predicted; plan 015 line 1023 is the first post-014 citation in this workspace, and Statbot plan 024 lines 71–86 were read and confirm the entry's claim). Items 2 and 3 are not QA's (analyst; record vocabulary) and stay as seeded, so the handoff stays `Open`. |

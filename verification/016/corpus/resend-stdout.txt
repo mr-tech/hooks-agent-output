@@ -1,0 +1,2 @@
+{"started": "2026-11-11T10:46:13Z", "ended": "2026-11-11T10:49:35Z", "sender": "user-created webhook 'Spidey Bot', #general", "requests": 99, "accepted": 30, "deleted_204": 30, "retries_429": 0, "research_cases": 76, "research_verdict_match": 76, "research_refused_with_identical_error_body": 52, "research_refused": 52, "webhooks_before": ["Spidey Bot"], "webhooks_after": ["Spidey Bot"]}
+research cases differing (verdict or error body): []

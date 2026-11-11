@@ -1,0 +1,1042 @@
+[
+ {
+  "id": "A1",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "A2",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "A3",
+  "set": "research",
+  "sendCheck": "blocks",
+  "reason": "Message must have content, embeds, or components.",
+  "saveSchema": "admits",
+  "researchSendCheck": "blocks",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "A4",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "A5",
+  "set": "research",
+  "sendCheck": "blocks",
+  "reason": "Components V2 messages cannot contain embeds or content.",
+  "saveSchema": "admits",
+  "researchSendCheck": "blocks",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "B1",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "B2",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "B3",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "B4",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "B5",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "B6",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "rejects",
+  "match": true
+ },
+ {
+  "id": "B7",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "B8",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "B9",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "B10",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "B11",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "B12",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "C1",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "C2",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "C3",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "rejects",
+  "match": true
+ },
+ {
+  "id": "C4",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "rejects",
+  "match": true
+ },
+ {
+  "id": "C5",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "C6",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "rejects",
+  "match": true
+ },
+ {
+  "id": "C7",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "C8",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "C9",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "C10",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "C11",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "D1",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "D2",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "D3",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "rejects",
+  "match": true
+ },
+ {
+  "id": "D4",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "D5",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "D6",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "rejects",
+  "match": true
+ },
+ {
+  "id": "E1",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "rejects",
+  "match": true
+ },
+ {
+  "id": "E2",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "E3",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "F1",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "F2",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "G1",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "G2",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "G3",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "rejects",
+  "match": true
+ },
+ {
+  "id": "H1",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "H2",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "H3",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "rejects",
+  "match": true
+ },
+ {
+  "id": "H4",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "H5",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "H6",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "H7",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "I1",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "rejects",
+  "match": true
+ },
+ {
+  "id": "I2",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "rejects",
+  "match": true
+ },
+ {
+  "id": "I3",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "rejects",
+  "match": true
+ },
+ {
+  "id": "W1",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "W2",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "W3",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "W4",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "W5",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "W6",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "W7",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "W8",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "X1",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "X2",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "X3",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "X4",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "X5",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "X6",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "X7",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "N1",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "N2",
+  "set": "research",
+  "sendCheck": "blocks",
+  "reason": "Message has 41 components; the limit is 40.",
+  "saveSchema": "rejects",
+  "researchSendCheck": "blocks",
+  "researchSaveSchema": "rejects",
+  "match": true
+ },
+ {
+  "id": "N3",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "N4",
+  "set": "research",
+  "sendCheck": "blocks",
+  "reason": "Message has 41 components; the limit is 40.",
+  "saveSchema": "admits",
+  "researchSendCheck": "blocks",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "N5",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "N6",
+  "set": "research",
+  "sendCheck": "blocks",
+  "reason": "Message has 41 components; the limit is 40.",
+  "saveSchema": "admits",
+  "researchSendCheck": "blocks",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "N7",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "N8",
+  "set": "research",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits",
+  "researchSendCheck": "passes",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "N9",
+  "set": "research",
+  "sendCheck": "blocks",
+  "reason": "Message has 41 components; the limit is 40.",
+  "saveSchema": "admits",
+  "researchSendCheck": "blocks",
+  "researchSaveSchema": "admits",
+  "match": true
+ },
+ {
+  "id": "Q-ctl-row",
+  "set": "qa-extra",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ },
+ {
+  "id": "Q-ctl-sec-thumb",
+  "set": "qa-extra",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ },
+ {
+  "id": "Q-ctl-sec-btn",
+  "set": "qa-extra",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ },
+ {
+  "id": "Q-ctl-gal",
+  "set": "qa-extra",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ },
+ {
+  "id": "Q-row-url-empty",
+  "set": "qa-extra",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects"
+ },
+ {
+  "id": "Q-row-url-abc",
+  "set": "qa-extra",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects"
+ },
+ {
+  "id": "Q-row-url-ftp",
+  "set": "qa-extra",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ },
+ {
+  "id": "Q-row-label-absent",
+  "set": "qa-extra",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ },
+ {
+  "id": "Q-sec-btn-url-empty",
+  "set": "qa-extra",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects"
+ },
+ {
+  "id": "Q-sec-btn-label-space",
+  "set": "qa-extra",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ },
+ {
+  "id": "Q-sec-thumb-url-empty",
+  "set": "qa-extra",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects"
+ },
+ {
+  "id": "Q-sec-thumb-url-abc",
+  "set": "qa-extra",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects"
+ },
+ {
+  "id": "Q-sec-thumb-desc-empty",
+  "set": "qa-extra",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ },
+ {
+  "id": "Q-gal-url-empty",
+  "set": "qa-extra",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects"
+ },
+ {
+  "id": "Q-gal-desc-empty",
+  "set": "qa-extra",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ },
+ {
+  "id": "Q-gal-desc-1025",
+  "set": "qa-extra",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ },
+ {
+  "id": "Q-file-in-container",
+  "set": "qa-extra",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ },
+ {
+  "id": "Q-sec-empty-in-container",
+  "set": "qa-extra",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ },
+ {
+  "id": "Q-thumb-desc-1024",
+  "set": "qa-extra",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ },
+ {
+  "id": "Q-thumb-desc-1025",
+  "set": "qa-extra",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ },
+ {
+  "id": "Q-gal-desc-1024",
+  "set": "qa-extra",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ },
+ {
+  "id": "Q-gal-desc-1025-top",
+  "set": "qa-extra",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ },
+ {
+  "id": "Q-gal-second-item-url-empty",
+  "set": "qa-extra",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects"
+ },
+ {
+  "id": "Q2-btn-emoji-empty-object",
+  "set": "qa-extra-2",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ },
+ {
+  "id": "Q2-btn-emoji-name-empty",
+  "set": "qa-extra-2",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ },
+ {
+  "id": "Q2-btn-url-absent",
+  "set": "qa-extra-2",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects"
+ },
+ {
+  "id": "Q2-thumb-media-empty-object",
+  "set": "qa-extra-2",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects"
+ },
+ {
+  "id": "Q2-thumb-media-absent",
+  "set": "qa-extra-2",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects"
+ },
+ {
+  "id": "Q2-item-media-absent",
+  "set": "qa-extra-2",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects"
+ },
+ {
+  "id": "Q2-file-key-absent",
+  "set": "qa-extra-2",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects"
+ },
+ {
+  "id": "Q2-section-components-absent",
+  "set": "qa-extra-2",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects"
+ },
+ {
+  "id": "Q2-row-components-absent",
+  "set": "qa-extra-2",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "rejects"
+ },
+ {
+  "id": "Q2-label-nbsp",
+  "set": "qa-extra-2",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ },
+ {
+  "id": "Q2-label-u0085",
+  "set": "qa-extra-2",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ },
+ {
+  "id": "Q2-label-ufeff",
+  "set": "qa-extra-2",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ },
+ {
+  "id": "Q2-td-u0085-space",
+  "set": "qa-extra-2",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ },
+ {
+  "id": "Q2-td-space-u0085-newline",
+  "set": "qa-extra-2",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ },
+ {
+  "id": "Q2-td-ufeff-space",
+  "set": "qa-extra-2",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ },
+ {
+  "id": "Q2-td-u0085-in-text",
+  "set": "qa-extra-2",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ },
+ {
+  "id": "Q2-td-u200b-space",
+  "set": "qa-extra-2",
+  "sendCheck": "passes",
+  "reason": "",
+  "saveSchema": "admits"
+ }
+]

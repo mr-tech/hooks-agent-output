@@ -1,0 +1,3967 @@
+[
+ {
+  "id": "A1",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "A2",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    }
+   ],
+   "content": "",
+   "embeds": []
+  },
+  "note": "key order content, embeds after components; Discord reads JSON by key, order immaterial"
+ },
+ {
+  "id": "A3",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": []
+  },
+  "note": null
+ },
+ {
+  "id": "A4",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    }
+   ],
+   "content": " \n "
+  },
+  "note": null
+ },
+ {
+  "id": "A5",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    }
+   ],
+   "content": "x"
+  },
+  "note": null
+ },
+ {
+  "id": "B1",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": ""
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "B2",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": " "
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "B3",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "\n"
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "B4",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "\u00a0"
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "B5",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "\u200b"
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "B6",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "B7",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": ""
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "B8",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": " "
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "B9",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": ""
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "B10",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": " "
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "B11",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 10,
+       "content": ""
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "B12",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 10,
+       "content": " "
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "C1",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "C2",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 9,
+     "components": [],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "C3",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": ""
+      }
+     }
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "C4",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "C5",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 2,
+      "style": 5,
+      "label": "Link",
+      "url": "https://hooks.gg"
+     }
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "C6",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 2,
+      "style": 5,
+      "label": "Link",
+      "url": ""
+     }
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "C7",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 2,
+      "style": 5,
+      "url": "https://hooks.gg"
+     }
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "C8",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 2,
+      "style": 5,
+      "label": "",
+      "url": "https://hooks.gg"
+     }
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "C9",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 2,
+      "style": 5,
+      "label": " ",
+      "url": "https://hooks.gg"
+     }
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "C10",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      },
+      "description": ""
+     }
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "C11",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      },
+      "description": " "
+     }
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "D1",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 12,
+     "items": [
+      {
+       "media": {
+        "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "D2",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 12,
+     "items": []
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "D3",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 12,
+     "items": [
+      {
+       "media": {
+        "url": ""
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "D4",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 12,
+     "items": [
+      {
+       "media": {
+        "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+       },
+       "description": ""
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "D5",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 12,
+     "items": [
+      {
+       "media": {
+        "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+       },
+       "description": " "
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "D6",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 12
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "E1",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 13,
+     "file": {
+      "url": ""
+     }
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "E2",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 13,
+     "file": {
+      "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+     }
+    }
+   ]
+  },
+  "note": "the https URL is the Appendix's MEDIA constant (the Shape text says only 'an https file.url')"
+ },
+ {
+  "id": "E3",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 13,
+     "file": {
+      "url": "attachment://missing.png"
+     }
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "F1",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 14,
+     "divider": true,
+     "spacing": 1
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "F2",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 14,
+     "divider": true,
+     "spacing": 1
+    }
+   ]
+  },
+  "note": "Separator placed after the Text Display; no error path fixes the order (accepted shape)"
+ },
+ {
+  "id": "G1",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "G2",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": []
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "G3",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "H1",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 1,
+     "components": [
+      {
+       "type": 2,
+       "style": 5,
+       "label": "Link",
+       "url": "https://hooks.gg"
+      }
+     ]
+    }
+   ]
+  },
+  "note": "Text Display first, by H2-H6's error paths at components.1"
+ },
+ {
+  "id": "H2",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 1,
+     "components": []
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "H3",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 1,
+     "components": [
+      {
+       "type": 2,
+       "style": 5,
+       "label": "Link",
+       "url": ""
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "H4",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 1,
+     "components": [
+      {
+       "type": 2,
+       "style": 5,
+       "url": "https://hooks.gg"
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "H5",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 1,
+     "components": [
+      {
+       "type": 2,
+       "style": 5,
+       "label": "",
+       "url": "https://hooks.gg"
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "H6",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 1,
+     "components": [
+      {
+       "type": 2,
+       "style": 5,
+       "label": " ",
+       "url": "https://hooks.gg"
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "H7",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 1,
+     "components": [
+      {
+       "type": 2,
+       "style": 5,
+       "label": "Link",
+       "url": "https://hooks.gg"
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "I1",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 1,
+     "components": [
+      {
+       "type": 2,
+       "style": 5,
+       "label": "Link",
+       "url": "abc"
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "I2",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "abc"
+      }
+     }
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "I3",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 12,
+     "items": [
+      {
+       "media": {
+        "url": "abc"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "W1",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "\t"
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "W2",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "\r\n"
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "W3",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "\u3000"
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "W4",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "\u2003"
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "W5",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "\ufeff"
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "W6",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "\u0085"
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "W7",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "\u2028"
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "W8",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": " hello "
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "X1",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 1,
+     "components": [
+      {
+       "type": 2,
+       "style": 5,
+       "url": "https://hooks.gg",
+       "emoji": {
+        "name": "\ud83d\udc4d"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "note": "emoji is {name: thumbs-up}; the research does not record which emoji it used"
+ },
+ {
+  "id": "X2",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 1,
+       "components": []
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "X3",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 12,
+       "items": []
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "X4",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 14,
+       "divider": true,
+       "spacing": 1
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "X5",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 1,
+     "components": [
+      {
+       "type": 2,
+       "style": 5,
+       "label": "Link",
+       "url": "ftp://example.com"
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "X6",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "ftp://example.com/a.png"
+      }
+     }
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "X7",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 9,
+       "components": [
+        {
+         "type": 10,
+         "content": ""
+        }
+       ],
+       "accessory": {
+        "type": 11,
+        "media": {
+         "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "N1",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "N2",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "N3",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "N4",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "N5",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    }
+   ]
+  },
+  "note": "the extra Text Display(s) placed after the Sections; accepted/refused by count, not position"
+ },
+ {
+  "id": "N6",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "N7",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 12,
+     "items": [
+      {
+       "media": {
+        "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+       }
+      },
+      {
+       "media": {
+        "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+       }
+      },
+      {
+       "media": {
+        "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+       }
+      },
+      {
+       "media": {
+        "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+       }
+      },
+      {
+       "media": {
+        "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+       }
+      },
+      {
+       "media": {
+        "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+       }
+      },
+      {
+       "media": {
+        "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+       }
+      },
+      {
+       "media": {
+        "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+       }
+      },
+      {
+       "media": {
+        "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+       }
+      },
+      {
+       "media": {
+        "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "N8",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 1,
+     "components": [
+      {
+       "type": 2,
+       "style": 5,
+       "label": "Link",
+       "url": "https://hooks.gg"
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "N9",
+  "set": "research",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 1,
+     "components": [
+      {
+       "type": 2,
+       "style": 5,
+       "label": "Link",
+       "url": "https://hooks.gg"
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q-ctl-row",
+  "set": "qa-extra",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 1,
+       "components": [
+        {
+         "type": 2,
+         "style": 5,
+         "label": "Link",
+         "url": "https://hooks.gg"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q-ctl-sec-thumb",
+  "set": "qa-extra",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 9,
+       "components": [
+        {
+         "type": 10,
+         "content": "hello"
+        }
+       ],
+       "accessory": {
+        "type": 11,
+        "media": {
+         "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q-ctl-sec-btn",
+  "set": "qa-extra",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 9,
+       "components": [
+        {
+         "type": 10,
+         "content": "hello"
+        }
+       ],
+       "accessory": {
+        "type": 2,
+        "style": 5,
+        "label": "Link",
+        "url": "https://hooks.gg"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q-ctl-gal",
+  "set": "qa-extra",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 12,
+       "items": [
+        {
+         "media": {
+          "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q-row-url-empty",
+  "set": "qa-extra",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 1,
+       "components": [
+        {
+         "type": 2,
+         "style": 5,
+         "label": "Link",
+         "url": ""
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q-row-url-abc",
+  "set": "qa-extra",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 1,
+       "components": [
+        {
+         "type": 2,
+         "style": 5,
+         "label": "Link",
+         "url": "abc"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q-row-url-ftp",
+  "set": "qa-extra",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 1,
+       "components": [
+        {
+         "type": 2,
+         "style": 5,
+         "label": "Link",
+         "url": "ftp://example.com"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q-row-label-absent",
+  "set": "qa-extra",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 1,
+       "components": [
+        {
+         "type": 2,
+         "style": 5,
+         "url": "https://hooks.gg"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q-sec-btn-url-empty",
+  "set": "qa-extra",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 9,
+       "components": [
+        {
+         "type": 10,
+         "content": "hello"
+        }
+       ],
+       "accessory": {
+        "type": 2,
+        "style": 5,
+        "label": "Link",
+        "url": ""
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q-sec-btn-label-space",
+  "set": "qa-extra",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 9,
+       "components": [
+        {
+         "type": 10,
+         "content": "hello"
+        }
+       ],
+       "accessory": {
+        "type": 2,
+        "style": 5,
+        "label": " ",
+        "url": "https://hooks.gg"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q-sec-thumb-url-empty",
+  "set": "qa-extra",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 9,
+       "components": [
+        {
+         "type": 10,
+         "content": "hello"
+        }
+       ],
+       "accessory": {
+        "type": 11,
+        "media": {
+         "url": ""
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q-sec-thumb-url-abc",
+  "set": "qa-extra",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 9,
+       "components": [
+        {
+         "type": 10,
+         "content": "hello"
+        }
+       ],
+       "accessory": {
+        "type": 11,
+        "media": {
+         "url": "abc"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q-sec-thumb-desc-empty",
+  "set": "qa-extra",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 9,
+       "components": [
+        {
+         "type": 10,
+         "content": "hello"
+        }
+       ],
+       "accessory": {
+        "type": 11,
+        "media": {
+         "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+        },
+        "description": ""
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q-gal-url-empty",
+  "set": "qa-extra",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 12,
+       "items": [
+        {
+         "media": {
+          "url": ""
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q-gal-desc-empty",
+  "set": "qa-extra",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 12,
+       "items": [
+        {
+         "media": {
+          "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+         },
+         "description": ""
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q-gal-desc-1025",
+  "set": "qa-extra",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 12,
+       "items": [
+        {
+         "media": {
+          "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+         },
+         "description": "ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q-file-in-container",
+  "set": "qa-extra",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      },
+      {
+       "type": 13,
+       "file": {
+        "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q-sec-empty-in-container",
+  "set": "qa-extra",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 17,
+     "components": [
+      {
+       "type": 9,
+       "components": [],
+       "accessory": {
+        "type": 11,
+        "media": {
+         "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q-thumb-desc-1024",
+  "set": "qa-extra",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "a"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      },
+      "description": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+     }
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q-thumb-desc-1025",
+  "set": "qa-extra",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "a"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      },
+      "description": "ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+     }
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q-gal-desc-1024",
+  "set": "qa-extra",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "a"
+    },
+    {
+     "type": 12,
+     "items": [
+      {
+       "media": {
+        "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+       },
+       "description": "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q-gal-desc-1025-top",
+  "set": "qa-extra",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "a"
+    },
+    {
+     "type": 12,
+     "items": [
+      {
+       "media": {
+        "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+       },
+       "description": "ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q-gal-second-item-url-empty",
+  "set": "qa-extra",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 12,
+     "items": [
+      {
+       "media": {
+        "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+       }
+      },
+      {
+       "media": {
+        "url": ""
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q2-btn-emoji-empty-object",
+  "set": "qa-extra-2",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 1,
+     "components": [
+      {
+       "type": 2,
+       "style": 5,
+       "url": "https://hooks.gg",
+       "emoji": {}
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q2-btn-emoji-name-empty",
+  "set": "qa-extra-2",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 1,
+     "components": [
+      {
+       "type": 2,
+       "style": 5,
+       "url": "https://hooks.gg",
+       "emoji": {
+        "name": ""
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q2-btn-url-absent",
+  "set": "qa-extra-2",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 1,
+     "components": [
+      {
+       "type": 2,
+       "style": 5,
+       "label": "Link"
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q2-thumb-media-empty-object",
+  "set": "qa-extra-2",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11,
+      "media": {}
+     }
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q2-thumb-media-absent",
+  "set": "qa-extra-2",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 9,
+     "components": [
+      {
+       "type": 10,
+       "content": "hello"
+      }
+     ],
+     "accessory": {
+      "type": 11
+     }
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q2-item-media-absent",
+  "set": "qa-extra-2",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 12,
+     "items": [
+      {}
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q2-file-key-absent",
+  "set": "qa-extra-2",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 13
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q2-section-components-absent",
+  "set": "qa-extra-2",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 9,
+     "accessory": {
+      "type": 11,
+      "media": {
+       "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
+     }
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q2-row-components-absent",
+  "set": "qa-extra-2",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 1
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q2-label-nbsp",
+  "set": "qa-extra-2",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 1,
+     "components": [
+      {
+       "type": 2,
+       "style": 5,
+       "label": "\u00a0",
+       "url": "https://hooks.gg"
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q2-label-u0085",
+  "set": "qa-extra-2",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 1,
+     "components": [
+      {
+       "type": 2,
+       "style": 5,
+       "label": "\u0085",
+       "url": "https://hooks.gg"
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q2-label-ufeff",
+  "set": "qa-extra-2",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "hello"
+    },
+    {
+     "type": 1,
+     "components": [
+      {
+       "type": 2,
+       "style": 5,
+       "label": "\ufeff",
+       "url": "https://hooks.gg"
+      }
+     ]
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q2-td-u0085-space",
+  "set": "qa-extra-2",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "\u0085 "
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q2-td-space-u0085-newline",
+  "set": "qa-extra-2",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": " \u0085\n"
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q2-td-ufeff-space",
+  "set": "qa-extra-2",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "\ufeff "
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q2-td-u0085-in-text",
+  "set": "qa-extra-2",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "a\u0085"
+    }
+   ]
+  },
+  "note": null
+ },
+ {
+  "id": "Q2-td-u200b-space",
+  "set": "qa-extra-2",
+  "body": {
+   "flags": 32768,
+   "components": [
+    {
+     "type": 10,
+     "content": "\u200b "
+    }
+   ]
+  },
+  "note": null
+ }
+]

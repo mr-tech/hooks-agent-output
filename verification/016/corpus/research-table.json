@@ -1,0 +1,649 @@
+{
+ "commit": "c9f8e3a",
+ "path": "research/closed/components-v2-send-validity-2026-11-11.md",
+ "rows": {
+  "A1": {
+   "shape": "baseline: one Text Display 'hello'",
+   "discord": "accepted",
+   "error_ref": null,
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "A2": {
+   "shape": "website-shaped baseline: content '' and embeds [] beside one Text Display",
+   "discord": "accepted",
+   "error_ref": null,
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "A3": {
+   "shape": "V2 flag with components []",
+   "discord": "refused",
+   "error_ref": "E1",
+   "send_check": "blocks",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "A4": {
+   "shape": "whitespace-only content ' \\n ' beside one Text Display",
+   "discord": "accepted",
+   "error_ref": null,
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "A5": {
+   "shape": "non-empty content 'x' beside one Text Display",
+   "discord": "refused",
+   "error_ref": "E2",
+   "send_check": "blocks",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "B1": {
+   "shape": "only an empty Text Display ('')",
+   "discord": "refused",
+   "error_ref": "E3",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "B2": {
+   "shape": "only a Text Display of one space",
+   "discord": "refused",
+   "error_ref": "E3",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "B3": {
+   "shape": "only a Text Display of one newline",
+   "discord": "refused",
+   "error_ref": "E3",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "B4": {
+   "shape": "only a Text Display of one no-break space U+00A0",
+   "discord": "refused",
+   "error_ref": "E3",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "B5": {
+   "shape": "only a Text Display of one zero-width space U+200B",
+   "discord": "accepted",
+   "error_ref": null,
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "B6": {
+   "shape": "only a Text Display with no content key",
+   "discord": "refused",
+   "error_ref": "E4",
+   "send_check": "passes",
+   "save_schema": "rejects",
+   "senders": "both"
+  },
+  "B7": {
+   "shape": "empty Text Display beside a non-empty one",
+   "discord": "refused",
+   "error_ref": "E5",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "B8": {
+   "shape": "one-space Text Display beside a non-empty one",
+   "discord": "refused",
+   "error_ref": "E5",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "B9": {
+   "shape": "Section holding only an empty Text Display, valid Thumbnail",
+   "discord": "refused",
+   "error_ref": "E6",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "B10": {
+   "shape": "Section holding only a one-space Text Display, valid Thumbnail",
+   "discord": "refused",
+   "error_ref": "E6",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "B11": {
+   "shape": "Container holding only an empty Text Display",
+   "discord": "refused",
+   "error_ref": "E6",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "B12": {
+   "shape": "Container holding only a one-space Text Display",
+   "discord": "refused",
+   "error_ref": "E6",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "C1": {
+   "shape": "valid Section: one Text Display, valid Thumbnail",
+   "discord": "accepted",
+   "error_ref": null,
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "C2": {
+   "shape": "Section with components [] and a valid Thumbnail",
+   "discord": "refused",
+   "error_ref": "E7",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "C3": {
+   "shape": "Section whose Thumbnail media.url is ''",
+   "discord": "refused",
+   "error_ref": "E8",
+   "send_check": "passes",
+   "save_schema": "rejects",
+   "senders": "both"
+  },
+  "C4": {
+   "shape": "Section with no accessory key",
+   "discord": "refused",
+   "error_ref": "E9",
+   "send_check": "passes",
+   "save_schema": "rejects",
+   "senders": "both"
+  },
+  "C5": {
+   "shape": "Section whose accessory is a valid link button",
+   "discord": "accepted",
+   "error_ref": null,
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "C6": {
+   "shape": "Section accessory link button with url ''",
+   "discord": "refused",
+   "error_ref": "E10",
+   "send_check": "passes",
+   "save_schema": "rejects",
+   "senders": "both"
+  },
+  "C7": {
+   "shape": "Section accessory link button with no label key",
+   "discord": "refused",
+   "error_ref": "E11",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "C8": {
+   "shape": "Section accessory link button with label ''",
+   "discord": "refused",
+   "error_ref": "E11",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "C9": {
+   "shape": "Section accessory link button with label of one space",
+   "discord": "refused",
+   "error_ref": "E11",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "C10": {
+   "shape": "Thumbnail description ''",
+   "discord": "refused",
+   "error_ref": "E12",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "C11": {
+   "shape": "Thumbnail description of one space",
+   "discord": "accepted",
+   "error_ref": null,
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "D1": {
+   "shape": "valid Media Gallery: one item",
+   "discord": "accepted",
+   "error_ref": null,
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "D2": {
+   "shape": "Media Gallery with items []",
+   "discord": "refused",
+   "error_ref": "E13",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "D3": {
+   "shape": "Media Gallery item with media.url ''",
+   "discord": "refused",
+   "error_ref": "E14",
+   "send_check": "passes",
+   "save_schema": "rejects",
+   "senders": "both"
+  },
+  "D4": {
+   "shape": "Media Gallery item description ''",
+   "discord": "refused",
+   "error_ref": "E15",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "D5": {
+   "shape": "Media Gallery item description of one space",
+   "discord": "accepted",
+   "error_ref": null,
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "D6": {
+   "shape": "Media Gallery with no items key",
+   "discord": "refused",
+   "error_ref": "E16",
+   "send_check": "passes",
+   "save_schema": "rejects",
+   "senders": "both"
+  },
+  "E1": {
+   "shape": "File with file.url ''",
+   "discord": "refused",
+   "error_ref": "E17",
+   "send_check": "passes",
+   "save_schema": "rejects",
+   "senders": "both"
+  },
+  "E2": {
+   "shape": "File with an https file.url",
+   "discord": "refused",
+   "error_ref": "E18",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "E3": {
+   "shape": "File with attachment://missing.png and no upload",
+   "discord": "refused",
+   "error_ref": "E19",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "F1": {
+   "shape": "only a Separator",
+   "discord": "accepted",
+   "error_ref": null,
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "F2": {
+   "shape": "Separator beside a Text Display",
+   "discord": "accepted",
+   "error_ref": null,
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "G1": {
+   "shape": "valid Container: one Text Display",
+   "discord": "accepted",
+   "error_ref": null,
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "G2": {
+   "shape": "Container with components []",
+   "discord": "refused",
+   "error_ref": "E20",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "G3": {
+   "shape": "Container with no components key",
+   "discord": "refused",
+   "error_ref": "E21",
+   "send_check": "passes",
+   "save_schema": "rejects",
+   "senders": "both"
+  },
+  "H1": {
+   "shape": "valid Action Row with one link button, beside a Text Display",
+   "discord": "accepted",
+   "error_ref": null,
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "H2": {
+   "shape": "Action Row with components [], beside a Text Display",
+   "discord": "refused",
+   "error_ref": "E22",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "H3": {
+   "shape": "link button with url '', beside a Text Display",
+   "discord": "refused",
+   "error_ref": "E23",
+   "send_check": "passes",
+   "save_schema": "rejects",
+   "senders": "both"
+  },
+  "H4": {
+   "shape": "link button with no label key, beside a Text Display",
+   "discord": "refused",
+   "error_ref": "E24",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "H5": {
+   "shape": "link button with label '', beside a Text Display",
+   "discord": "refused",
+   "error_ref": "E24",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "H6": {
+   "shape": "link button with label of one space, beside a Text Display",
+   "discord": "refused",
+   "error_ref": "E24",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "H7": {
+   "shape": "V2 flag with only a valid Action Row",
+   "discord": "accepted",
+   "error_ref": null,
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "both"
+  },
+  "I1": {
+   "shape": "link button url 'abc'",
+   "discord": "refused",
+   "error_ref": "E25",
+   "send_check": "passes",
+   "save_schema": "rejects",
+   "senders": "both"
+  },
+  "I2": {
+   "shape": "Thumbnail media.url 'abc'",
+   "discord": "refused",
+   "error_ref": "E26",
+   "send_check": "passes",
+   "save_schema": "rejects",
+   "senders": "both"
+  },
+  "I3": {
+   "shape": "Media Gallery item media.url 'abc'",
+   "discord": "refused",
+   "error_ref": "E27",
+   "send_check": "passes",
+   "save_schema": "rejects",
+   "senders": "both"
+  },
+  "W1": {
+   "shape": "only a Text Display of one tab",
+   "discord": "refused",
+   "error_ref": "E3",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "user-created"
+  },
+  "W2": {
+   "shape": "only a Text Display of CR LF",
+   "discord": "refused",
+   "error_ref": "E3",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "user-created"
+  },
+  "W3": {
+   "shape": "only a Text Display of one ideographic space U+3000",
+   "discord": "refused",
+   "error_ref": "E3",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "user-created"
+  },
+  "W4": {
+   "shape": "only a Text Display of one em space U+2003",
+   "discord": "refused",
+   "error_ref": "E3",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "user-created"
+  },
+  "W5": {
+   "shape": "only a Text Display of one U+FEFF",
+   "discord": "accepted",
+   "error_ref": null,
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "user-created"
+  },
+  "W6": {
+   "shape": "only a Text Display of one next-line U+0085",
+   "discord": "refused",
+   "error_ref": "E3",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "user-created"
+  },
+  "W7": {
+   "shape": "only a Text Display of one line separator U+2028",
+   "discord": "refused",
+   "error_ref": "E3",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "user-created"
+  },
+  "W8": {
+   "shape": "Text Display ' hello ' with surrounding spaces",
+   "discord": "accepted",
+   "error_ref": null,
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "user-created"
+  },
+  "X1": {
+   "shape": "link button with an emoji and no label key",
+   "discord": "accepted",
+   "error_ref": null,
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "user-created"
+  },
+  "X2": {
+   "shape": "Container holding a Text Display and an Action Row with components []",
+   "discord": "refused",
+   "error_ref": "E28",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "user-created"
+  },
+  "X3": {
+   "shape": "Container holding a Text Display and a Media Gallery with items []",
+   "discord": "refused",
+   "error_ref": "E29",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "user-created"
+  },
+  "X4": {
+   "shape": "Container holding only a Separator",
+   "discord": "accepted",
+   "error_ref": null,
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "user-created"
+  },
+  "X5": {
+   "shape": "link button url 'ftp://example.com'",
+   "discord": "refused",
+   "error_ref": "E30",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "user-created"
+  },
+  "X6": {
+   "shape": "Thumbnail media.url 'ftp://example.com/a.png'",
+   "discord": "accepted",
+   "error_ref": null,
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "user-created"
+  },
+  "X7": {
+   "shape": "Container holding a Section whose only Text Display is empty, valid Thumbnail",
+   "discord": "refused",
+   "error_ref": "E31",
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "user-created"
+  },
+  "N1": {
+   "shape": "40 top-level Text Displays (site count 40)",
+   "discord": "accepted",
+   "error_ref": null,
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "user-created"
+  },
+  "N2": {
+   "shape": "41 top-level Text Displays (site count 41)",
+   "discord": "refused",
+   "error_ref": "E32",
+   "send_check": "blocks",
+   "save_schema": "rejects",
+   "senders": "user-created"
+  },
+  "N3": {
+   "shape": "Container holding 39 Text Displays (site count 40)",
+   "discord": "accepted",
+   "error_ref": null,
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "user-created"
+  },
+  "N4": {
+   "shape": "Container holding 40 Text Displays (site count 41)",
+   "discord": "refused",
+   "error_ref": "E33",
+   "send_check": "blocks",
+   "save_schema": "admits",
+   "senders": "user-created"
+  },
+  "N5": {
+   "shape": "13 Sections each with one Text Display and a Thumbnail, plus 1 Text Display (site count 40)",
+   "discord": "accepted",
+   "error_ref": null,
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "user-created"
+  },
+  "N6": {
+   "shape": "13 Sections each with one Text Display and a Thumbnail, plus 2 Text Displays (site count 41)",
+   "discord": "refused",
+   "error_ref": "E33",
+   "send_check": "blocks",
+   "save_schema": "admits",
+   "senders": "user-created"
+  },
+  "N7": {
+   "shape": "39 Text Displays plus a Media Gallery of 10 items (site count 40)",
+   "discord": "accepted",
+   "error_ref": null,
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "user-created"
+  },
+  "N8": {
+   "shape": "38 Text Displays plus an Action Row with one link button (site count 40)",
+   "discord": "accepted",
+   "error_ref": null,
+   "send_check": "passes",
+   "save_schema": "admits",
+   "senders": "user-created"
+  },
+  "N9": {
+   "shape": "39 Text Displays plus an Action Row with one link button (site count 41)",
+   "discord": "refused",
+   "error_ref": "E33",
+   "send_check": "blocks",
+   "save_schema": "admits",
+   "senders": "user-created"
+  }
+ },
+ "error_bodies": {
+  "E1": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"_errors\": [[\"Cannot send an empty message\", 50006]]}}}",
+  "E2": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"content\": {\"_errors\": [{\"code\": \"MESSAGE_CANNOT_USE_LEGACY_FIELDS_WITH_COMPONENTS_V2\", \"message\": \"The 'content' field cannot be used when using MessageFlags.IS_COMPONENTS_V2\"}]}}}",
+  "E3": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"content\": {\"_errors\": [{\"code\": \"BASE_TYPE_BAD_LENGTH\", \"message\": \"Must be between 1 and 4000 in length.\"}]}}}}}",
+  "E4": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"content\": {\"_errors\": [{\"code\": \"BASE_TYPE_REQUIRED\", \"message\": \"This field is required\"}]}}}}}",
+  "E5": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"1\": {\"content\": {\"_errors\": [{\"code\": \"BASE_TYPE_BAD_LENGTH\", \"message\": \"Must be between 1 and 4000 in length.\"}]}}}}}",
+  "E6": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"components\": {\"0\": {\"content\": {\"_errors\": [{\"code\": \"BASE_TYPE_BAD_LENGTH\", \"message\": \"Must be between 1 and 4000 in length.\"}]}}}}}}}",
+  "E7": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"components\": {\"_errors\": [{\"code\": \"BASE_TYPE_BAD_LENGTH\", \"message\": \"Must be between 1 and 3 in length.\"}]}}}}}",
+  "E8": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"accessory\": {\"media\": {\"url\": {\"_errors\": [{\"code\": \"BASE_TYPE_REQUIRED\", \"message\": \"This field is required\"}]}}}}}}}",
+  "E9": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"accessory\": {\"_errors\": [{\"code\": \"BASE_TYPE_REQUIRED\", \"message\": \"This field is required\"}]}}}}}",
+  "E10": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"accessory\": {\"url\": {\"_errors\": [{\"code\": \"BUTTON_COMPONENT_URL_REQUIRED\", \"message\": \"A url is required\"}]}}}}}}",
+  "E11": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"accessory\": {\"label\": {\"_errors\": [{\"code\": \"BASE_TYPE_REQUIRED\", \"message\": \"This field is required\"}]}}}}}}",
+  "E12": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"accessory\": {\"description\": {\"_errors\": [{\"code\": \"BASE_TYPE_BAD_LENGTH\", \"message\": \"Must be between 1 and 1024 in length.\"}]}}}}}}",
+  "E13": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"items\": {\"_errors\": [{\"code\": \"BASE_TYPE_BAD_LENGTH\", \"message\": \"Must be between 1 and 10 in length.\"}]}}}}}",
+  "E14": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"items\": {\"0\": {\"media\": {\"url\": {\"_errors\": [{\"code\": \"BASE_TYPE_REQUIRED\", \"message\": \"This field is required\"}]}}}}}}}}",
+  "E15": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"items\": {\"0\": {\"description\": {\"_errors\": [{\"code\": \"BASE_TYPE_BAD_LENGTH\", \"message\": \"Must be between 1 and 1024 in length.\"}]}}}}}}}",
+  "E16": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"items\": {\"_errors\": [{\"code\": \"BASE_TYPE_REQUIRED\", \"message\": \"This field is required\"}]}}}}}",
+  "E17": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"1\": {\"file\": {\"url\": {\"_errors\": [{\"code\": \"BASE_TYPE_REQUIRED\", \"message\": \"This field is required\"}]}}}}}}",
+  "E18": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"1\": {\"file\": {\"url\": {\"_errors\": [{\"code\": \"UNFURLED_MEDIA_ITEM_MUST_USE_ATTACHMENT_PROTOCOL\", \"message\": \"This UnfurledMediaItem does not support arbitrary external urls. You must use the `attachment://` reference system.\"}]}}}}}}",
+  "E19": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"1\": {\"file\": {\"url\": {\"_errors\": [{\"code\": \"UNFURLED_MEDIA_ITEM_REFERENCED_ATTACHMENT_NOT_FOUND\", \"message\": \"The referenced attachment (\\\"attachment://missing.png\\\") was not found\"}]}}}}}}",
+  "E20": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"components\": {\"_errors\": [{\"code\": \"BASE_TYPE_BAD_LENGTH\", \"message\": \"Must be between 1 and 40 in length.\"}]}}}}}",
+  "E21": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"components\": {\"_errors\": [{\"code\": \"BASE_TYPE_REQUIRED\", \"message\": \"This field is required\"}]}}}}}",
+  "E22": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"1\": {\"components\": {\"_errors\": [{\"code\": \"BASE_TYPE_BAD_LENGTH\", \"message\": \"Must be between 1 and 5 in length.\"}]}}}}}",
+  "E23": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"1\": {\"components\": {\"0\": {\"url\": {\"_errors\": [{\"code\": \"BUTTON_COMPONENT_URL_REQUIRED\", \"message\": \"A url is required\"}]}}}}}}}",
+  "E24": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"1\": {\"components\": {\"0\": {\"label\": {\"_errors\": [{\"code\": \"BASE_TYPE_REQUIRED\", \"message\": \"This field is required\"}]}}}}}}}",
+  "E25": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"1\": {\"components\": {\"0\": {\"url\": {\"_errors\": [{\"code\": \"URL_TYPE_INVALID_SCHEME\", \"message\": \"Scheme \\\"abc\\\" is not supported. Scheme must be one of ('http', 'https', 'discord').\"}, {\"code\": \"URL_TYPE_INVALID_URL\", \"message\": \"Not a well formed URL.\"}]}}}}}}}",
+  "E26": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"accessory\": {\"media\": {\"url\": {\"_errors\": [{\"code\": \"URL_TYPE_INVALID_URL\", \"message\": \"Not a well formed URL.\"}]}}}}}}}",
+  "E27": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"items\": {\"0\": {\"media\": {\"url\": {\"_errors\": [{\"code\": \"URL_TYPE_INVALID_URL\", \"message\": \"Not a well formed URL.\"}]}}}}}}}}",
+  "E28": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"components\": {\"1\": {\"components\": {\"_errors\": [{\"code\": \"BASE_TYPE_BAD_LENGTH\", \"message\": \"Must be between 1 and 5 in length.\"}]}}}}}}}",
+  "E29": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"components\": {\"1\": {\"items\": {\"_errors\": [{\"code\": \"BASE_TYPE_BAD_LENGTH\", \"message\": \"Must be between 1 and 10 in length.\"}]}}}}}}}",
+  "E30": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"1\": {\"components\": {\"0\": {\"url\": {\"_errors\": [{\"code\": \"URL_TYPE_INVALID_SCHEME\", \"message\": \"Scheme \\\"ftp\\\" is not supported. Scheme must be one of ('http', 'https', 'discord').\"}]}}}}}}}",
+  "E31": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"0\": {\"components\": {\"0\": {\"components\": {\"0\": {\"content\": {\"_errors\": [{\"code\": \"BASE_TYPE_BAD_LENGTH\", \"message\": \"Must be between 1 and 4000 in length.\"}]}}}}}}}}}",
+  "E32": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"_errors\": [{\"code\": \"BASE_TYPE_MAX_LENGTH\", \"message\": \"Must be 40 or fewer in length.\"}]}}}",
+  "E33": "{\"message\": \"Invalid Form Body\", \"code\": 50035, \"errors\": {\"components\": {\"_errors\": [{\"code\": \"COMPONENT_MAX_TOTAL_COMPONENTS_EXCEEDED\", \"message\": \"Total number of components cannot exceed 40\"}]}}}"
+ }
+}

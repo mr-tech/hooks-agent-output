@@ -44,4 +44,13 @@ it is the session other domains address about this repo.
 
 Entries follow, newest at the bottom.
 
-None. The inbox is empty.
+## 2026-11-11 — qa-hooks-016 — FYI
+
+`tools/uat-local-stack.sh` (record tool) does not apply the message-id sequence restart that
+`agent-output/CLAUDE.md` § "Local builds of `website` — before the first save" requires before the
+first save: `grep -c -E "RESTART|Messages_id_seq" tools/uat-local-stack.sh` → 0 at record `5a2f495`.
+This confirms the claim in the `fix-website-save-gate-embeds` retrospective. Asked: the tool's
+owner adds the restart after the schema push (or the tool refuses to hand back a database whose
+sequence has not been restarted). Done by this session: plan 016's QA register row B-1 makes the
+restart and the recorded id range a precondition of the UAT walk, so the chain is covered whether
+or not the tool changes. Not done: the tool is not edited (not this stage's file).

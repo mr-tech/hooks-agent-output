@@ -1,0 +1,6 @@
+prose  L7 accepted: "an ftp Thumbnail URL is accepted, so L7's scheme limb is link buttons only"
+prose  L10 refused: 'description research F-6, requests 25–36'
+prose  L10 refused: '1025 chars'
+prose  L10 accepted: 'one space'
+prose  L10 accepted: '1024 chars'
+ledger ids: refused=52 accepted=24 distinct=76; evidence rows=76

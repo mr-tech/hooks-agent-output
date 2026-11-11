@@ -1,0 +1,3 @@
+research=76 match=74 mismatches=2 blocks=5 rejects=12
+exit=1
+['A3', 'B6']
