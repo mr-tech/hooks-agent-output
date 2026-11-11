@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-website-save-gate-embeds
 UUID: 07e578ce
-Status: Active
-Status-Detail: "Handed off to code review at website 460000b. Owed: code review (the reviewer also runs the suite and the red test; 1 production line added, so no QA Phase 2), then the merge at release (devops, under the owner's approval)."
+Status: Blocked
+Status-Detail: "Code review Round 1 REJECTED at 460000b (code-review/fix-website-save-gate-embeds-code-review.md). CR-2 done at website 08b0d7f. Blocked on CR-1: steering-queue-hooks carries the row-E partition decision (options a/b/c); no code change for CR-1 until it reaches me. Then re-handoff for the Round 1 re-review."
 Handoff-At: 460000b — repos=website
 Origin-Chain: 013
 ---
@@ -99,7 +99,7 @@ statement (no embed is involved), so I sent it to steering for re-scoping.
   `hasComponents && (hasContent || (embeds?.length ?? 0) > 0)`. 1 line changed.
 - `src/utils/__tests__/utils.disposition-resolver.test.ts`: one `it.each` (4 cases) in the
   `gateBeforePersist` block. 19 lines added, 1 import line changed.
-- `src/utils/__tests__/useApiMethods.save-choice.test.tsx`: new, a DOM mount of `useApiMethods`.
+- `src/providers/MessageProvider/__tests__/useApiMethods.save-choice.test.tsx`: new, a DOM mount of `useApiMethods`. Added at `460000b` under `src/utils/__tests__/` and moved here unchanged at `08b0d7f` (CR-2).
 
 No caller changed: each of the three already routes `mustAsk` to its choice UI.
 
@@ -136,7 +136,7 @@ tests state the behaviour, not the bug.
 **Deviation, disclosed:** the convention check's rule is "every FAIL fixed". I left the 34
 pre-existing findings unfixed. Two are in production code outside the change (`import/no-cycle` at
 `index.ts:17`, a module-structure question, and `no-nested-ternary` at `index.ts:258`). The other 32
-are whole-file formatting in the existing test file. Fixing them would widen the diff well beyond the
+are in the existing test file: 26 formatting (`object-curly-newline`), 2 `import/first`, 4 `no-non-null-assertion` (corrected per the code review's CR-3; this document first called all 32 formatting). Fixing them would widen the diff well beyond the
 named defect. The change is lint-neutral against `6d78b19` (above). The reviewer may rule otherwise.
 
 **SKIP, unchecked by the tool:** the ID-token and basename checks did not run. Read by eye: the new
@@ -168,3 +168,4 @@ carries an ID token.
 | Date | Agent | Change |
 |---|---|---|
 | 2026-11-11T08:44 | fixer | Document created. Fix committed at website `460000b` (commit time). Handed off to code review. |
+| 2026-11-11T09:01 | fixer | Code review Round 1 REJECTED at `460000b`. CR-2: test moved to `src/providers/MessageProvider/__tests__/` at website `08b0d7f`, sha256 unchanged; pass set identical before and after (1/1 passed, exit 0 both; `verification/fix-website-save-gate-embeds/move-compare.txt`); typecheck and eslint exit 0 after. CR-3 lint-breakdown correction applied. CR-1 held for steering's decision. Status → Blocked. |

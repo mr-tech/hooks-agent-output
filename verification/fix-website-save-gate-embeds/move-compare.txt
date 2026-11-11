@@ -1,0 +1,2 @@
+{"n":1,"p":1,"files":1,"set":["editor Save of V2 components beside an empty embed holds the save for a choice, and the chosen save writes a draft the send check accepts :: passed"]}
+identical pass set: true 1 1 1
