@@ -2,19 +2,19 @@
 ID: 016
 Origin: 016
 UUID: 54673438
-Status: Open
-Status-Detail: "Cycle 4 pass 1 on plan revision 6: APPROVED. F-16 LOW is open and routed to the planner for the plan's Planner batch; the critique closes when the plan carries it."
-Artifact-Revision: 6 — read as the diff fcbb6b2..07e2e41
-Reviewed-At: "07e2e41 — repos=agent-output; website read on chain/016-send-check-validity at ae7c8fe, working tree"
+Status: Resolved
+Status-Detail: "Cycle 4 closed on plan revision 6: APPROVED at pass 1 (94403d2). F-16 is RESOLVED, verified in registration R-7. Registrations R-6 to R-8 (343d62e) moved no criterion."
+Artifact-Revision: 6 — verdict read as the diff fcbb6b2..07e2e41; R-6 to R-8 (343d62e) read as a boundary line at closure
+Reviewed-At: "343d62e — repos=agent-output; verdict reached at 07e2e41; website read on chain/016-send-check-validity at ae7c8fe, working tree"
 Verdict: APPROVED
 ---
 
 # Critique — Plan 016, the send check refuses what Discord refuses — cycle 4
 
 **Artifact**: `planning/016-send-check-validity.md`, revision 6 (`07e2e41`). **Analysis**: none
-commissioned. **Prior cycles**: `closed/016-send-check-validity-critique.md` (cycle 1),
-`closed/016-send-check-validity-cycle2-critique.md` (cycle 2) and
-`closed/016-send-check-validity-cycle3-critique.md` (cycle 3, resolved at revision 5, `88b0da9`).
+commissioned. **Prior cycles**: `./016-send-check-validity-critique.md` (cycle 1),
+`./016-send-check-validity-cycle2-critique.md` (cycle 2) and
+`./016-send-check-validity-cycle3-critique.md` (cycle 3, resolved at revision 5, `88b0da9`).
 **Date**: 2026-11-11.
 
 ## Changelog
@@ -22,6 +22,7 @@ commissioned. **Prior cycles**: `closed/016-send-check-validity-critique.md` (cy
 | Date | Handoff | Request | Summary |
 |---|---|---|---|
 | 2026-11-11T11:54 | planner-hooks-016 (message, after `07e2e41`) | cycle 4 pass 1: revision 6 | Delta-bounded pass; the delta is fully readable in the diff and reshapes no milestone. The planner named `9a3eb74` as the base. The diff was taken from `fcbb6b2`, the last state this critique read: `fcbb6b2..9a3eb74` (5/3, registrations R-4 and R-5, read whole) moves Status to In Progress, one owed-re-verdict cell and two changelog rows; `9a3eb74..07e2e41` (16/18) was read whole. The plan at `HEAD` (`1386a50`) is `07e2e41` (`git diff --numstat`, empty). Artifact changes: AC1-11 names the corpus fixture as outside its population and states zero as the base count for an added file; X-12 is added; one owed re-verdict row is added. Findings addressed: none were open. New finding: F-16 LOW. Verdict APPROVED. Pricing: sized to the ask. |
+| 2026-11-11T11:55 | planner-hooks-016 (message, after `343d62e`) | boundary line: `07e2e41..343d62e` (registrations R-6 to R-8) | The delta (12/7, read whole with `git diff -U0`, the X-12 row by word diff) rewrites the owed re-verdicts table, adds three changelog rows and adds a post-closure carrier to X-12 (the architect's Problem Area for AF-14). It falls outside milestone scope, criterion text, instrument form and register effect, so no findings pass is owed; `Artifact-Revision` stays 6. F-16 verified landed: every row of the table reads discharged with its SHAs. Document closed, Status: Resolved. |
 
 ## Verdict
 
@@ -34,8 +35,8 @@ configuration edits the implementer offered.
 This is not a milestone-level scope delta. The new text admits something the approved text refused
 (the fixture's findings); it refuses nothing new and changes nothing M1 delivers.
 
-Neither the hard stop nor the stop authority fired. Nothing routes to the owner. F-16 is LOW and
-goes to the plan's Planner batch; implementation is approved, so it draws no revision request.
+Neither the hard stop nor the stop authority fired. Nothing routes to the owner. F-16 was LOW and
+drew no revision request; the planner fixed it in place at R-7.
 
 ## Value Statement Assessment
 
@@ -68,22 +69,12 @@ Premises run in this pass (website working tree on `chain/016-send-check-validit
 
 ## Findings
 
-F-16 LOW cycle 4 pass 1 OPEN — **The owed re-verdicts table still shows revision 5 as owed.**
-- **Location**: plan § Reading Order, "Owed re-verdicts".
-- **Description**: four rows end "revision 5 owed" and the AC1b-1 Author row ends "critic open".
-  All three gates approved revision 5: the critic at `88b0da9`, the architect at `1492d33` and QA
-  at `97343f0`. The plan's own Status-Detail and R-3 to R-5 say so.
-- **Impact**: the table is the plan's one list of verdicts still owed. A reader taking it at its
-  word finds five limbs open when one is (the revision 6 row).
-- **Recommendation**: bring the five rows to their revision 5 state at the plan's next registration
-  or revision. Until then, a Planner batch row carries it.
-- **Landing**: Planner batch row in the plan, written by the planner. If the chain closes first, it
-  lapses: the table has no reader after closure.
+F-16 LOW cycle 4 pass 1 RESOLVED — the owed re-verdicts table showed revision 5 as still owed after all three gates approved it; every row now reads discharged with its SHAs. Plan registration R-7, § Reading Order "Owed re-verdicts" (verified in `07e2e41..343d62e`).
 
 ### Carried from earlier cycles
 
 F-11 to F-15 are RESOLVED; their disposition lines are in
-`closed/016-send-check-validity-cycle2-critique.md`.
+`./016-send-check-validity-cycle2-critique.md`.
 
 ## Review-method lines with no finding (revision 6 delta)
 
@@ -103,9 +94,8 @@ F-11 to F-15 are RESOLVED; their disposition lines are in
 
 None for the owner.
 
-## Resumption State
+## Closing line
 
-Cycle 4 pass 1 is committed with the verdict APPROVED. F-16 was sent to `planner-hooks-016`. When
-the plan carries F-16 (a Planner batch row, or the table corrected), verify it in the diff, set
-Status `Resolved` and move this file to `closed/`. A later revision is read as
-`git diff 07e2e41 <new> -- planning/016-send-check-validity.md`.
+Closed 2026-11-11T11:55Z. Nothing is owed by the critic on plan revision 6. A later revision that
+changes a criterion, a milestone or an instrument opens cycle 5 in a new critique, read as
+`git diff 343d62e <new> -- planning/016-send-check-validity.md`.
