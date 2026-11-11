@@ -3,7 +3,7 @@ ID: 016
 Origin: 016
 UUID: 54673438
 Status: Active
-Status-Detail: "Conformance pass on plan 016 revision 1 (record 3b4205d): APPROVED_WITH_CHANGES. AF-1 and AF-2 are required of the planner; AF-3 and AF-5 are recommended. AF-4's A-4 clause lands at this chain's reconciliation, no later than devops Stage 1."
+Status-Detail: "Delta pass on plan 016 revision 2 (record 6b07655): APPROVED. AF-1 to AF-5 and AF-7 are folded; AF-11 is INFO, with no plan change. AF-4's A-4 clause lands at this chain's reconciliation, no later than devops Stage 1."
 ---
 
 # Architecture Findings — Plan 016: the send check refuses what Discord refuses (conformance pass)
@@ -14,6 +14,61 @@ Status-Detail: "Conformance pass on plan 016 revision 1 (record 3b4205d): APPROV
 |---|---|---|
 | 2026-11-11T10:46 | Conformance pass, plan rev 1 (record `3b4205d`), briefed by steering-queue-hooks (`steering/queue-hooks-briefs/architect-016-brief.md`) | Every concrete form the plan writes was read against website `0e3d903`, which is `master` and the chain's base. Two changes are required (AF-1, AF-2) and two are recommended (AF-3, AF-5). AF-4 answers the plan's A-4 question. Five forms conform (AF-6 to AF-10). One Problem Area is lodged (send-refusal telemetry). **APPROVED_WITH_CHANGES.** |
 | 2026-11-11T10:51 | Reconciliation, on the open handoff this pass triggers, plus the retrospective's routed candidate (brief, second item) | `handoff/architecture-record-reconciliation-owed-2026-11-10.md` is discharged, all six items (see its closing row). `system-architecture.md` and the diagram are reconciled to website `0e3d903`; the 013 findings document and the invariant handoff are closed; P-2 and P-3 are updated. `website.md` A-6 landed: the editor's one persisting step (agent-designed, shaped by his selection 15). |
+| 2026-11-11T11:09 | Delta pass, plan rev 2 (`6b07655`, read as the diff from `3b4205d`), on planner-hooks-016's request | AF-1 to AF-5 and AF-7 are folded as asked. The corpus helper, the whitespace-empty predicate and the new instruments conform. AF-11 INFO: the `/preview` reason line follows the current pattern (D-5), but it makes preview-image error chrome routine. The Problem Area is raised to Medium, and the owner's report should carry the frequency. **APPROVED.** |
+
+## Verdict (rev 2, `6b07655`, read as the diff from rev 1 `3b4205d`): APPROVED
+
+AF-1 to AF-5 and AF-7 are folded as asked, and I re-read each at the plan text:
+
+- AF-1 is AC1-10 plus an Assumptions line, with the probe as the instrument and the capture as its
+  red member.
+- AF-2 takes option (a): L7's paragraph names the zod helper and why it is not `isValidUrl`, and
+  RK-4 records the marker divergence.
+- AF-3 is in AC2-1.
+- AF-4 is reflected in `Architectural-Surface`.
+- AF-5 and AF-7 are under Assumptions.
+
+The forms the delta adds conform:
+
+- **The corpus helper** (`src/utils/__tests__/helpers/discordV2SendCorpus.ts`). It goes in the
+  existing helpers directory beside `components.ts`, `discord.ts` and `messageData.ts`, as the Test
+  Conventions require. The fixture imports nothing (read at record `803a97c`), so it adds nothing to
+  any import closure.
+- **The "whitespace-empty" predicate.** It is defined once in the ledger and shared by L1 and L8.
+  The implementation follows the same one-definition form: one named helper in `limits.tsx`, which
+  is A-4's counter rule applied to a predicate. It is a deviation from the classic check's inline
+  `trim()`. The owner ruled that deviation (D-9), and the plan confines it to the new validator.
+- **AC1-9's differential, AC1-11's lint bound, AC1-6p's post-deploy pair.** These are instruments,
+  not code forms, so there is nothing to conform.
+
+One observation, AF-11, needs no plan change. The rider's drop changes no architecture.
+
+### AF-11 INFO — The `/preview` reason line follows the current pattern, and it raises how often an existing debt shows
+
+**What rev 2 says.** The new reason line mirrors its siblings (D-5) and renders on `/preview` as
+well. So a preview image can carry it.
+
+**What the code shows (website `0e3d903`).** `upsertMessage` (`src/server/api/utils/shared.ts`)
+calls `postMessagePreviewImage` on **every** save, in both the insert and the update branch. The
+generator screenshots `/preview` (D-003), and `/preview` renders `DiscordMessageEditor` (D-001). The
+existing error lines fire only for over-limit messages, which is rare. The new line fires for any
+draft saved with an unfilled component (F-12), which is the common state while a message is being
+composed. So the debt registered as "Validation errors render into generated preview images" (015
+AF-25) goes from occasional to routine.
+
+**Conformance.** "Follow the current pattern" is the right choice *for this plan*. It is D-5 in its
+own words: a shared bug is fixed once, in the shared code. Gating this one line alone would be the
+fix-in-one-feature that D-5 forbids.
+
+**The better path is still the shared fix, not this plan.** `/preview` would render without
+validation chrome, once, for every error line. It cannot be keyed on edit mode, because the send
+page's `MessagePreview` also renders read-only and needs the line. It needs an explicit signal from
+the `/preview` route, for example a prop that only `/preview` passes. Whether preview images should
+show error chrome at all is a product question, with no owner intent recorded. The plan already
+reports the design choice to him. I ask that the report carry the frequency fact above, because it
+is what changes his answer.
+
+Recorded: the Problem Area row is raised to Medium in `system-architecture.md`, with this reason.
 
 ## Verdict (rev 1, `3b4205d`): APPROVED_WITH_CHANGES
 
