@@ -147,3 +147,23 @@ loaded message's guild id can be `'0'`.
 
 **Researcher for the Discord test** (prompt 3): started on his selection. Why a researcher: the
 question sits upstream of any effort (whether a limit check is wrong at all).
+
+## 2026-11-11T08:35Z — acts performed on the selections
+
+- Record: `OWNER-QUEUE.md`, `OPEN_QUESTIONS.md`, `TODO.md`, the backfill handoff (Item 3), this file
+  and two briefs committed at `1f89106`; the final 2026-11-10 ledger day file at `54c16ba`; `INDEX.md`
+  rebuilt (`--tracked`, diff read) at `b157975`. `master` pushed to `origin` (`a22fb73..b157975`; the
+  record repository has no `.github` directory, `ls -d`), remote read back by `git ls-remote` as
+  `b157975`.
+- Website tree: `git switch -c fix/website-save-gate-embeds` at
+  `6d78b19269408447f2b089ba64c90db05518b6ce`, 08:35Z. `git status --porcelain` was empty before and
+  after (`cmp` of the two captures). Before: `master`. After: `fix/website-save-gate-embeds`, same
+  commit. Nothing pushed.
+- Sessions started with `tmux-agent spawn`: `researcher-hooks-text-limit` (category
+  `hooks-text-limit`, cwd `/usr/local/bin/hooks`, effort high as the tool printed it), live and busy
+  in `ListAgents` at 08:35Z; `fixer-fix-website-save-gate-embeds` (category
+  `fix-website-save-gate-embeds`, cwd `/usr/local/bin/hooks/website`, effort medium as printed),
+  stopped at Claude Code's folder-trust prompt for that directory (pane read 08:35Z). The prompt is
+  the owner's to answer; this thread typed nothing into the pane.
+- Standing check armed as a one-shot (id `961e52ef`, 09:07Z). Out-of-memory count at arming: 43
+  (`grep -c 'invoked oom-killer' /var/log/kern.log`).
