@@ -3,7 +3,7 @@ ID: 016
 Origin: 016
 UUID: 54673438
 Status: Active
-Status-Detail: "Delta pass on plan 016 revision 5 (record b2d78b0): APPROVED. Owed after implementation, by devops Stage 1: AF-4's D-10 clause in website.md A-4, the preview-chrome Problem Area's closure, and the /preview signal under D-001. AF-4's A-4 clause lands at this chain's reconciliation, no later than devops Stage 1."
+Status-Detail: "Delta pass on plan 016 revision 6 (record 07e2e41): APPROVED; AF-14 LOW lodged as a Problem Area. Owed after implementation, by devops Stage 1: AF-4's D-10 clause in website.md A-4, the preview-chrome Problem Area's closure, and the /preview signal under D-001. AF-4's A-4 clause lands at this chain's reconciliation, no later than devops Stage 1."
 ---
 
 # Architecture Findings — Plan 016: the send check refuses what Discord refuses (conformance pass)
@@ -19,6 +19,53 @@ Status-Detail: "Delta pass on plan 016 revision 5 (record b2d78b0): APPROVED. Ow
 | 2026-11-11T11:17 | AF-12 instrument corrected (planner-hooks-016's message) | The range I gave, the `DiscordMessageEditor` directory, missed `src/components/DiscordContentEditor/{Desktop,Mobile}.tsx`, which carries the ring, an erroring counter and "Too long.". The error was mine. The range is now the editor's render tree (its import closure under `src/components`), as the planner proposed for rev 4. |
 | 2026-11-11T11:21 | Delta pass, plan rev 4 (`c249af3`, read as the diff from `0c01944`), on planner-hooks-016's request | AF-12 is folded as a property settled by render, with seven members. **AF-12's sub-component member list is withdrawn; the error was mine.** The embed parts and DiscordContentEditor return under `if (!showEdit)` before their chrome, and Author's ring is never painted read-only. AF-13 is folded. SE-6, RK-5, X-11 and AC1b-4 conform. **APPROVED.** The post-implementation reconciliation items are listed in the verdict. |
 | 2026-11-11T11:41 | Delta pass, plan rev 5 (`b2d78b0`, read as the diff from `a9bb644`; R-2's `c249af3`..`a9bb644` read too), by a fresh generation (brief `steering/queue-hooks-briefs/architect-016-respawn-brief.md`) | QAF-12's fold conforms. AC1b-1 checks Author's compact branch at the component, with the signal passed as a prop beside `showEdit` (AF-13). That follows the existing isolated sub-component test form. R-2 is editorial. Nothing my rev 4 pass rested on moved. **APPROVED.** |
+| 2026-11-11T11:53 | Delta pass, plan rev 6 (`07e2e41`, read as the diff from `678c8b4`), started by steering-queue-hooks (criterion-changing revision; the planner did not cue it) | The narrowing of AC1-11 and X-12 add no architectural surface, and X-12's claims about the code hold at `0e3d903`. AF-14 LOW: a generated, byte-pinned fixture inside `eslint --fix`'s scope can be rewritten away from its generator. This is a design variant on a form the delta did not change, so it is lodged as a Problem Area and no revision is asked for. **APPROVED.** |
+
+## Verdict (rev 6, `07e2e41`, read as the diff from `678c8b4`): APPROVED
+
+The delta is 18 added and 19 removed (`--numstat`). The plan has not changed between `07e2e41` and
+record `HEAD` (`git diff --quiet`). It does three things:
+
+- it removes the corpus fixture from AC1-11's population;
+- it adds X-12;
+- it adds "(zero for a file the chain adds)".
+
+None of these changes a module boundary, an import, or a runtime path. X-12's claims about the code
+were read at website `0e3d903`:
+
+- The `lint` script is `eslint --fix . --max-warnings=0` (`package.json`).
+- `.eslintignore` lists nine directories and no files.
+- The fixture is present on `chain/016-send-check-validity` and its header reads "edit the
+  generator, not this file".
+
+The 7078 count and the sha256 were not re-run here. Declining the implementer's lint-config options
+is consistent with AF-1's reasoning, which keeps the chain's surface to what M1 carries.
+
+### AF-14 LOW — A generated, byte-pinned fixture sits inside `eslint --fix`'s scope
+
+**Recommended, and lodged rather than put for a revision.** The variant targets the fixture's form,
+which the rev 2 pass approved and this delta did not change (conformance rule, delta passes).
+
+**What X-12 leaves standing.** Any `pnpm lint` run after release rewrites the fixture. All but one of
+its findings are auto-fixable (X-12). The fixture's data survives the rewrite, but its byte identity
+with `make_fixture.py`'s output does not. Only the chain's Phase 2 sha256 check would see the drift,
+and that check is not a suite case, so after this chain nothing would see it. The file then
+contradicts its own header.
+
+**The better path, in order of preference:**
+
+1. **The generator emits lint-clean output.** That means one edit to `make_fixture.py`, one
+   regeneration and one sha256 re-pin. The `.ts` helper form and its placement (rev 2, conforming)
+   are kept. AC1-11 needs no exemption, and X-12's hazard goes away.
+2. **The fixture becomes a JSON data file**, imported by a thin typed helper in the same directory.
+   `resolveJsonModule` is on in `tsconfig.json`, and eslint does not lint `.json` here. ESLint 8.57.1 with
+   no `--ext` lints `.js` plus the override patterns, and `.eslintrc.json`'s are `*.ts` and
+   `*.tsx` (read at `0e3d903`; not run). This is a deviation, because the suite has no JSON fixture today
+   (`git ls-tree`, 0). Option 1 makes it unnecessary.
+
+**Disposition.** It is registered as a Problem Area in `system-architecture.md` (changelog
+2026-11-11T11:53). If the planner or QA chooses option 1 inside this chain, it costs a generator
+edit and a re-pin. The choice is theirs. My verdict does not depend on it.
 
 ## Verdict (rev 5, `b2d78b0`, read as the diff from `a9bb644`): APPROVED
 
@@ -428,8 +475,8 @@ names a component type, not user text.
 
 Updated 2026-11-11T11:41Z, `architect-hooks-016` (fresh generation; the chain is running, rulings block "2026-11-11T11:24Z").
 
-- **Done:** conformance pass on rev 1 (`c61a96f`); delta passes on rev 2 (`2520ac7`), rev 3 (`0bb1084`, AF-12's range corrected at `ccaa340`), rev 4 (`47c7a4c`, **APPROVED**, with AF-12's member list withdrawn because the error was mine) and rev 5 (this write, **APPROVED**; R-2 read too). Every verdict was delivered to planner-hooks-016 by SendMessage. Also done, outside the pass: the reconciliation handoff, all six items (`f6fab66`), and `website.md` A-6.
-- **Next:** read any later plan revision as `git diff b2d78b0 HEAD -- planning/016-send-check-validity.md`. After implementation, and no later than devops Stage 1, land three items: AF-4's D-10 clause in `website.md` A-4; the closure of the Problem Area "Validation errors render into generated preview images" (M1b), with RK-5 as residue; and the `/preview` signal on `VisualizerProps` under D-001's consequences in `system-architecture.md`. Then close this document `Resolved`.
+- **Done:** conformance pass on rev 1 (`c61a96f`); delta passes on rev 2 (`2520ac7`), rev 3 (`0bb1084`, AF-12's range corrected at `ccaa340`), rev 4 (`47c7a4c`, **APPROVED**, with AF-12's member list withdrawn because the error was mine) rev 5 (`1492d33`, **APPROVED**; R-2 read too) and rev 6 (11:53 write, **APPROVED**, AF-14 LOW lodged as a Problem Area in `system-architecture.md`). Every verdict was delivered to planner-hooks-016 by SendMessage. Also done, outside the pass: the reconciliation handoff, all six items (`f6fab66`), and `website.md` A-6.
+- **Next:** read any later plan revision as `git diff 07e2e41 HEAD -- planning/016-send-check-validity.md`. After implementation, and no later than devops Stage 1, land three items: AF-4's D-10 clause in `website.md` A-4; the closure of the Problem Area "Validation errors render into generated preview images" (M1b), with RK-5 as residue; and the `/preview` signal on `VisualizerProps` under D-001's consequences in `system-architecture.md`. Then close this document `Resolved`.
 - **Trees:** website on `master` at `0e3d903`, untouched by this session. Nothing of mine is uncommitted in agent-output. The evidence I ran is committed: `verification/016/architect-conformance/ts-node-import-probe.txt`.
 - **Questions out:** none. No owner-needing item.
 
