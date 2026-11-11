@@ -4,7 +4,6 @@ Status: Open
 Status-Detail: "The free-port helper in tools/uatLocalStack.test.js picks a port, releases it, and listens on it again later with no 'error' handler. If another process takes the port in between, the file hangs on EADDRINUSE until the runner's cap. This was seen once, at code review of fix-uat-local-stack-id-sequence. Nothing blocks on it; a run that hangs is repeated."
 Owning-Stage: fixer or implementer (the next chain that edits tools/uatLocalStack.test.js), with qa judging adequacy
 Review-Trigger: "when tools/uatLocalStack.test.js is next edited, or when a run of it next ends in EADDRINUSE or at a runner timeout"
-Priority: low
 ---
 
 # Handoff — `uatLocalStack.test.js`: free-port race hangs the file
