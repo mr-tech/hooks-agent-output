@@ -387,6 +387,15 @@ handoff as the natural carrier, since a toast change touches the same code.
 **Debug.** None is owed. Neither kind of telemetry would carry message content: a refusal reason
 names a component type, not user text.
 
+## Resumption State
+
+Checkpoint 2026-11-11T11:23Z, `architect-hooks-016`, on steering-queue-hooks's stop (weekly usage gate; rulings block "2026-11-11T11:22Z", record `13ec4bd`).
+
+- **Done:** conformance pass on rev 1 (`c61a96f`); delta passes on rev 2 (`2520ac7`), rev 3 (`0bb1084`, AF-12's range corrected at `ccaa340`) and rev 4 (`47c7a4c`, **APPROVED**, with AF-12's member list withdrawn because the error was mine). Every verdict was delivered to planner-hooks-016 by SendMessage. Also done, outside the pass: the reconciliation handoff, all six items (`f6fab66`), and `website.md` A-6.
+- **Next:** read any later plan revision as `git diff c249af3 HEAD -- planning/016-send-check-validity.md` (R-2 at `5f95a30` records approvals and editorial fixes only, so it is not yet read here). After implementation, and no later than devops Stage 1, land three items: AF-4's D-10 clause in `website.md` A-4; the closure of the Problem Area "Validation errors render into generated preview images" (M1b), with RK-5 as residue; and the `/preview` signal on `VisualizerProps` under D-001's consequences in `system-architecture.md`. Then close this document `Resolved`.
+- **Trees:** website on `master` at `0e3d903`, untouched by this session. Nothing of mine is uncommitted in agent-output. The evidence I ran is committed: `verification/016/architect-conformance/ts-node-import-probe.txt`.
+- **Questions out:** none. No owner-needing item.
+
 ## Process facts
 
 - I typed the changelog stamp on this pass's `system-architecture.md` row (10:52) instead of taking
