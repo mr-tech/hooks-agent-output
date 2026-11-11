@@ -848,3 +848,27 @@ Sessions: `planner-hooks-016` and `qa-hooks-016` were each asked to run `/checkp
 325K threshold (333K and 344K, `cc-usage.py sessions`) and cleared with `tmux-agent clear` after
 their Checkpoints (`0c01944`, `0e90085`); each was then sent a pointer to its Resumption State.
 At 11:21Z (`ListAgents`) the critic, the architect and QA are busy on revision 4.
+
+## 2026-11-11T11:22Z — his command: the 98% weekly gate is back in force; chain 016 checkpoints and closes
+
+His typed words, in this session, at about 11:22Z:
+
+> "Reinstate the 98% limit."
+
+Effect: the 11:02Z block ("do not stop at 98%") no longer holds. Steering.md's usage gate applies
+as written: at 98% of `weekly_all` every chain checkpoints and closes, stages reach a seam and stop,
+this thread stops its stage sessions and its own check, checkpoints and reports, and nothing is put
+to him meanwhile.
+
+**The gate has fired, on the last live reading.** `plan-usage.py --json` at 11:12Z read `weekly_all`
+99% (the standing check's read). At 11:22Z the same command read 93%, and `plan-usage.py --gate 98`
+printed "BELOW 98%: weekly_all 93% … (source claude-code-cache (live failed: HTTPError), 2560s
+old)": that 93% is a cached value about 43 minutes old, served because the live fetch failed, so it
+is not a reading of now and the gate is not judged on it. The limit resets 2026-11-14T17:00Z.
+
+Acts: each of chain 016's four stage sessions (`planner-hooks-016`, `critic-hooks-016`,
+`architect-hooks-016`, `qa-hooks-016`) is told to reach a seam, run `/checkpoint` and end its turn;
+this thread then stops each with `tmux-agent stop`, deletes its standing check, and checkpoints.
+Chain 016 stands at plan revision 4 (`c249af3`) with its gate round on that revision unfinished or
+part-finished; each stage's Resumption State says where it stopped. No implementation has started;
+the website tree is on `master` at `0e3d903`.
