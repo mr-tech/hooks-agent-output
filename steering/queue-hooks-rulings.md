@@ -1116,3 +1116,20 @@ Same revision, `9fd96d5`. Second post-approval pass of this chain under the tria
 - Opus also verified the fixture's sha256 and blob against the plan (its commands, not re-run here).
 - Neither tier raised a HIGH or CRITICAL finding. Cost: the subagent reported 106,923 tokens, 13
   tool uses, 158 s.
+
+## 2026-11-11T13:49Z — QA Phase 2 PASS at `395510e`; UAT started
+
+This thread was cleared at about 13:28Z and resumed from its docket; standing check re-armed.
+
+Read this turn at `HEAD` (record `b10b0f2`): `qa/016-send-check-validity-qa.md`,
+`Status: QA Complete`, `Verified-At: "395510e — repos=website; Phase 2 verdict PASS at
+chain/016-send-check-validity, plan revision 7"` (record `2af91e5`; header, register rows B-1 to
+B-6 and the sweep's range line read, the results body not). The effort-final mutation sweep is
+run, not owed (Status-Detail: 120 of 128 started mutants killed, "every survivor dispositioned").
+The verified tree is the reviewed tree (`Reviewed-At` `395510e`); the website tree is at
+`395510e`. Plan `Revision: 7`, `Status: QA Complete` (R-15). QA's spawn cue arrived by message.
+
+Started `uat-hooks-016` with `tmux-agent spawn`, category `S016-sendcheck`, cwd
+`/usr/local/bin/hooks/website`, brief `steering/queue-hooks-briefs/uat-016-brief.md`. B-1, B-2
+and B-5 travel by name; B-3, B-4 and B-6 are post-deploy. QAF-13 LOW goes to the Planner batch
+under M1's cap, by QA's own routing. Nothing was put to the owner.
