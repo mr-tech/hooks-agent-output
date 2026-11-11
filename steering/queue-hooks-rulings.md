@@ -1324,3 +1324,33 @@ message; its count (11 code lines and 4 header lines added to the tool since `68
 claim, handed to the reviewer with the instrument. Started `code-reviewer-fix-uat-local-stack-id-sequence` with
 `tmux-agent spawn`, category `fix-uat-local-stack-id-sequence`, cwd `/usr/local/bin/hooks/agent-output`, brief
 `steering/queue-hooks-briefs/code-reviewer-uat-local-stack-brief.md`.
+
+## 2026-11-11T19:57Z — `fix-uat-local-stack-id-sequence`: review APPROVED_WITH_COMMENTS at `71b61b9`; a third round opened by this thread for CR-1 and CR-2
+
+This thread was cleared at about 19:52Z and resumed from its docket; the standing check
+(`2e4b42bf`) survived the clear and the reviewer's idle subscription was re-taken.
+
+Read this turn at `HEAD` (record `0f75a2c`): `code-review/fix-uat-local-stack-id-sequence-code-review.md`
+header, `Verdict: APPROVED_WITH_COMMENTS`, `Reviewed-At: 71b61b9`, `Status: In Review` (the body
+not read); `handoff/uat-local-stack-up-reuses-low-message-ids-2026-11-11.md` whole;
+`git diff --numstat 68d737f 71b61b9`: the tool 15/2, its test 74/1, the seed 1/1. The reviewer's
+suite and red-run results are in its document and captures, not re-read here.
+
+**Decided by this thread, not asked** (a test-estate change inside the rule the fix serves;
+lifecycle `references/escalation.md`, Standing Defaults; told to him, his to veto): one more fixer
+round discharges that handoff whole, then a re-review.
+- CR-1: the low-id count runs on every `up` path, after the push and any seed and before the
+  sequence move, so a reused container holding a "Messages" id below 900000000000001 makes `up`
+  fail; the handoff's "What would discharge it" is the specification, its test and probe included.
+- CR-2: the three inline psql value calls become one function, as the handoff words it.
+- Paths: the chain's set as it stands (19:41Z and 19:48Z blocks); none added.
+- If the round takes the tool to 20 or more added lines from `68d737f`, QA Phase 2 follows review.
+- **This thread's error, kept:** the 19:48Z block wrote "After a seed", narrower than the 19:41Z
+  scope statement ("`up` hands back a database whose sequence is restarted … or fails") and than
+  the workspace rule's "recreated, not reused". The fixer built the narrower wording exactly.
+- Why a round and not the handoff: both sessions are live and warm, and the same four lines later
+  cost a new chain with its own review.
+
+The reviewer's Assumption Not Checked (a save carrying a client-sent id the local database does
+not hold creates a low id after `up`; website `upsertMessage`, its code read) is carried for the
+next UAT walk's brief in this workspace's `hazards.md` memory file.
