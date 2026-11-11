@@ -1,0 +1,7346 @@
+[
+ {
+  "cell": "undefined|none|undef|undef",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|undef|none",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|undef|empty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|undef|emptyTitle",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|undef|keyOnly",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|undef|emptyFields",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|undef|nullDesc",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|undef|twoEmpty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|undef|titled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|undef|emptyPlusTitled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|empty|undef",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|empty|none",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|empty|empty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|empty|emptyTitle",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|empty|keyOnly",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|empty|emptyFields",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|empty|nullDesc",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|empty|twoEmpty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|empty|titled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|empty|emptyPlusTitled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|blank|undef",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|blank|none",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|blank|empty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|blank|emptyTitle",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|blank|keyOnly",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|blank|emptyFields",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|blank|nullDesc",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|blank|twoEmpty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|blank|titled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|blank|emptyPlusTitled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|text|undef",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|text|none",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|text|empty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|text|emptyTitle",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|text|keyOnly",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|text|emptyFields",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|text|nullDesc",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|text|twoEmpty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|text|titled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|none|text|emptyPlusTitled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|undef|undef",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|undef|none",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|undef|empty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|undef|emptyTitle",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|undef|keyOnly",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|undef|emptyFields",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|undef|nullDesc",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|undef|twoEmpty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|undef|titled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|undef|emptyPlusTitled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|empty|undef",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|empty|none",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|empty|empty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|empty|emptyTitle",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|empty|keyOnly",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|empty|emptyFields",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|empty|nullDesc",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|empty|twoEmpty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|empty|titled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|empty|emptyPlusTitled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|blank|undef",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|blank|none",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|blank|empty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|blank|emptyTitle",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|blank|keyOnly",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|blank|emptyFields",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|blank|nullDesc",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|blank|twoEmpty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|blank|titled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|blank|emptyPlusTitled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|text|undef",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|text|none",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|text|empty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|text|emptyTitle",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|text|keyOnly",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|text|emptyFields",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|text|nullDesc",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|text|twoEmpty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|text|titled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|empty|text|emptyPlusTitled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|undef|undef",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|undef|none",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|undef|empty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|undef|emptyTitle",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|undef|keyOnly",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|undef|emptyFields",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|undef|nullDesc",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|undef|twoEmpty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|undef|titled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|undef|emptyPlusTitled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|empty|undef",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|empty|none",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|empty|empty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|empty|emptyTitle",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|empty|keyOnly",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|empty|emptyFields",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|empty|nullDesc",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|empty|twoEmpty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|empty|titled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|empty|emptyPlusTitled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|blank|undef",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|blank|none",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|blank|empty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|blank|emptyTitle",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|blank|keyOnly",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|blank|emptyFields",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|blank|nullDesc",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|blank|twoEmpty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|blank|titled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|blank|emptyPlusTitled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|text|undef",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|text|none",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|text|empty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|text|emptyTitle",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|text|keyOnly",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|text|emptyFields",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|text|nullDesc",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|text|twoEmpty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|text|titled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|actionRow|text|emptyPlusTitled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "undefined|container|undef|undef",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|container|undef|none",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|container|undef|empty",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|container|undef|emptyTitle",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|container|undef|keyOnly",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|container|undef|emptyFields",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|container|undef|nullDesc",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|container|undef|twoEmpty",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|container|undef|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|container|undef|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|container|empty|undef",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|container|empty|none",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|container|empty|empty",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|container|empty|emptyTitle",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|container|empty|keyOnly",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|container|empty|emptyFields",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|container|empty|nullDesc",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|container|empty|twoEmpty",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|container|empty|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|container|empty|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|container|blank|undef",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|container|blank|none",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|container|blank|empty",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|container|blank|emptyTitle",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|container|blank|keyOnly",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|container|blank|emptyFields",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|container|blank|nullDesc",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|container|blank|twoEmpty",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|container|blank|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|container|blank|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|container|text|undef",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|container|text|none",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|container|text|empty",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|container|text|emptyTitle",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|container|text|keyOnly",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|container|text|emptyFields",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|container|text|nullDesc",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|container|text|twoEmpty",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|container|text|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|container|text|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|textDisplay|undef|undef",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|textDisplay|undef|none",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|textDisplay|undef|empty",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|textDisplay|undef|emptyTitle",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|textDisplay|undef|keyOnly",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|textDisplay|undef|emptyFields",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|textDisplay|undef|nullDesc",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|textDisplay|undef|twoEmpty",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|textDisplay|undef|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|textDisplay|undef|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|textDisplay|empty|undef",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|textDisplay|empty|none",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|textDisplay|empty|empty",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|textDisplay|empty|emptyTitle",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|textDisplay|empty|keyOnly",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|textDisplay|empty|emptyFields",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|textDisplay|empty|nullDesc",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|textDisplay|empty|twoEmpty",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|textDisplay|empty|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|textDisplay|empty|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|textDisplay|blank|undef",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|textDisplay|blank|none",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|textDisplay|blank|empty",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|textDisplay|blank|emptyTitle",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|textDisplay|blank|keyOnly",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|textDisplay|blank|emptyFields",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|textDisplay|blank|nullDesc",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|textDisplay|blank|twoEmpty",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "undefined|textDisplay|blank|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|textDisplay|blank|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|textDisplay|text|undef",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|textDisplay|text|none",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|textDisplay|text|empty",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|textDisplay|text|emptyTitle",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|textDisplay|text|keyOnly",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|textDisplay|text|emptyFields",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|textDisplay|text|nullDesc",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|textDisplay|text|twoEmpty",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|textDisplay|text|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "undefined|textDisplay|text|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|none|undef|undef",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|undef|none",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|undef|empty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|undef|emptyTitle",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|undef|keyOnly",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|undef|emptyFields",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|undef|nullDesc",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|undef|twoEmpty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|undef|titled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|undef|emptyPlusTitled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|empty|undef",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|empty|none",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|empty|empty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|empty|emptyTitle",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|empty|keyOnly",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|empty|emptyFields",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|empty|nullDesc",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|empty|twoEmpty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|empty|titled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|empty|emptyPlusTitled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|blank|undef",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|blank|none",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|blank|empty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|blank|emptyTitle",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|blank|keyOnly",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|blank|emptyFields",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|blank|nullDesc",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|blank|twoEmpty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|blank|titled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|blank|emptyPlusTitled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|text|undef",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|text|none",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|text|empty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|text|emptyTitle",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|text|keyOnly",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|text|emptyFields",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|text|nullDesc",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|text|twoEmpty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|text|titled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|none|text|emptyPlusTitled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|undef|undef",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|undef|none",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|undef|empty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|undef|emptyTitle",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|undef|keyOnly",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|undef|emptyFields",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|undef|nullDesc",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|undef|twoEmpty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|undef|titled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|undef|emptyPlusTitled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|empty|undef",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|empty|none",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|empty|empty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|empty|emptyTitle",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|empty|keyOnly",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|empty|emptyFields",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|empty|nullDesc",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|empty|twoEmpty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|empty|titled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|empty|emptyPlusTitled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|blank|undef",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|blank|none",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|blank|empty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|blank|emptyTitle",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|blank|keyOnly",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|blank|emptyFields",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|blank|nullDesc",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|blank|twoEmpty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|blank|titled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|blank|emptyPlusTitled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|text|undef",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|text|none",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|text|empty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|text|emptyTitle",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|text|keyOnly",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|text|emptyFields",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|text|nullDesc",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|text|twoEmpty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|text|titled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|empty|text|emptyPlusTitled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|undef|undef",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|undef|none",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|undef|empty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|undef|emptyTitle",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|undef|keyOnly",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|undef|emptyFields",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|undef|nullDesc",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|undef|twoEmpty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|undef|titled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|undef|emptyPlusTitled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|empty|undef",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|empty|none",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|empty|empty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|empty|emptyTitle",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|empty|keyOnly",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|empty|emptyFields",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|empty|nullDesc",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|empty|twoEmpty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|empty|titled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|empty|emptyPlusTitled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|blank|undef",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|blank|none",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|blank|empty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|blank|emptyTitle",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|blank|keyOnly",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|blank|emptyFields",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|blank|nullDesc",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|blank|twoEmpty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|blank|titled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|blank|emptyPlusTitled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|text|undef",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|text|none",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|text|empty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|text|emptyTitle",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|text|keyOnly",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|text|emptyFields",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|text|nullDesc",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|text|twoEmpty",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|text|titled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|actionRow|text|emptyPlusTitled",
+  "row": "A",
+  "mode": "classic",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "0|container|undef|undef",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|container|undef|none",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|container|undef|empty",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|container|undef|emptyTitle",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|container|undef|keyOnly",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|container|undef|emptyFields",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|container|undef|nullDesc",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|container|undef|twoEmpty",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|container|undef|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|container|undef|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|container|empty|undef",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|container|empty|none",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|container|empty|empty",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|container|empty|emptyTitle",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|container|empty|keyOnly",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|container|empty|emptyFields",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|container|empty|nullDesc",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|container|empty|twoEmpty",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|container|empty|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|container|empty|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|container|blank|undef",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|container|blank|none",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|container|blank|empty",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|container|blank|emptyTitle",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|container|blank|keyOnly",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|container|blank|emptyFields",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|container|blank|nullDesc",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|container|blank|twoEmpty",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|container|blank|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|container|blank|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|container|text|undef",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|container|text|none",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|container|text|empty",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|container|text|emptyTitle",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|container|text|keyOnly",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|container|text|emptyFields",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|container|text|nullDesc",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|container|text|twoEmpty",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|container|text|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|container|text|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|textDisplay|undef|undef",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|textDisplay|undef|none",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|textDisplay|undef|empty",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|textDisplay|undef|emptyTitle",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|textDisplay|undef|keyOnly",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|textDisplay|undef|emptyFields",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|textDisplay|undef|nullDesc",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|textDisplay|undef|twoEmpty",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|textDisplay|undef|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|textDisplay|undef|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|textDisplay|empty|undef",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|textDisplay|empty|none",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|textDisplay|empty|empty",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|textDisplay|empty|emptyTitle",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|textDisplay|empty|keyOnly",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|textDisplay|empty|emptyFields",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|textDisplay|empty|nullDesc",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|textDisplay|empty|twoEmpty",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|textDisplay|empty|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|textDisplay|empty|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|textDisplay|blank|undef",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|textDisplay|blank|none",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|textDisplay|blank|empty",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|textDisplay|blank|emptyTitle",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|textDisplay|blank|keyOnly",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|textDisplay|blank|emptyFields",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|textDisplay|blank|nullDesc",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|textDisplay|blank|twoEmpty",
+  "row": "B",
+  "mode": "v2",
+  "notice": "warn-v2-flag-added",
+  "options": null
+ },
+ {
+  "cell": "0|textDisplay|blank|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|textDisplay|blank|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|textDisplay|text|undef",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|textDisplay|text|none",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|textDisplay|text|empty",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|textDisplay|text|emptyTitle",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|textDisplay|text|keyOnly",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|textDisplay|text|emptyFields",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|textDisplay|text|nullDesc",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|textDisplay|text|twoEmpty",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|textDisplay|text|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "0|textDisplay|text|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|none|undef|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|none|undef|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|none|undef|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|none|undef|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|none|undef|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|none|undef|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|none|undef|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|none|undef|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|none|undef|titled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|none|undef|emptyPlusTitled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|none|empty|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|none|empty|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|none|empty|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|none|empty|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|none|empty|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|none|empty|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|none|empty|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|none|empty|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|none|empty|titled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|none|empty|emptyPlusTitled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|none|blank|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|none|blank|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|none|blank|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|none|blank|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|none|blank|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|none|blank|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|none|blank|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|none|blank|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|none|blank|titled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|none|blank|emptyPlusTitled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|none|text|undef",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|none|text|none",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|none|text|empty",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|none|text|emptyTitle",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|none|text|keyOnly",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|none|text|emptyFields",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|none|text|nullDesc",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|none|text|twoEmpty",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|none|text|titled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|none|text|emptyPlusTitled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|undef|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|undef|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|undef|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|undef|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|undef|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|undef|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|undef|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|undef|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|undef|titled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|undef|emptyPlusTitled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|empty|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|empty|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|empty|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|empty|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|empty|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|empty|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|empty|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|empty|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|empty|titled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|empty|emptyPlusTitled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|blank|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|blank|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|blank|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|blank|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|blank|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|blank|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|blank|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|blank|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|blank|titled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|blank|emptyPlusTitled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|text|undef",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|text|none",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|text|empty",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|text|emptyTitle",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|text|keyOnly",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|text|emptyFields",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|text|nullDesc",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|text|twoEmpty",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|text|titled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|empty|text|emptyPlusTitled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|undef|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|undef|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|undef|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|undef|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|undef|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|undef|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|undef|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|undef|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|undef|titled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|undef|emptyPlusTitled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|empty|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|empty|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|empty|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|empty|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|empty|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|empty|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|empty|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|empty|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|empty|titled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|empty|emptyPlusTitled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|blank|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|blank|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|blank|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|blank|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|blank|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|blank|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|blank|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|blank|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|blank|titled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|blank|emptyPlusTitled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|text|undef",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|text|none",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|text|empty",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|text|emptyTitle",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|text|keyOnly",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|text|emptyFields",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|text|nullDesc",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|text|twoEmpty",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|text|titled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|actionRow|text|emptyPlusTitled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32768|container|undef|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|container|undef|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|container|undef|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|container|undef|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|container|undef|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|container|undef|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|container|undef|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|container|undef|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|container|undef|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|container|undef|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|container|empty|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|container|empty|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|container|empty|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|container|empty|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|container|empty|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|container|empty|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|container|empty|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|container|empty|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|container|empty|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|container|empty|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|container|blank|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|container|blank|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|container|blank|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|container|blank|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|container|blank|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|container|blank|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|container|blank|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|container|blank|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|container|blank|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|container|blank|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|container|text|undef",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|container|text|none",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|container|text|empty",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|container|text|emptyTitle",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|container|text|keyOnly",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|container|text|emptyFields",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|container|text|nullDesc",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|container|text|twoEmpty",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|container|text|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|container|text|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|textDisplay|undef|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|textDisplay|undef|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|textDisplay|undef|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|textDisplay|undef|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|textDisplay|undef|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|textDisplay|undef|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|textDisplay|undef|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|textDisplay|undef|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|textDisplay|undef|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|textDisplay|undef|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|textDisplay|empty|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|textDisplay|empty|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|textDisplay|empty|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|textDisplay|empty|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|textDisplay|empty|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|textDisplay|empty|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|textDisplay|empty|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|textDisplay|empty|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|textDisplay|empty|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|textDisplay|empty|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|textDisplay|blank|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|textDisplay|blank|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|textDisplay|blank|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|textDisplay|blank|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|textDisplay|blank|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|textDisplay|blank|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|textDisplay|blank|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|textDisplay|blank|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32768|textDisplay|blank|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|textDisplay|blank|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|textDisplay|text|undef",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|textDisplay|text|none",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|textDisplay|text|empty",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|textDisplay|text|emptyTitle",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|textDisplay|text|keyOnly",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|textDisplay|text|emptyFields",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|textDisplay|text|nullDesc",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|textDisplay|text|twoEmpty",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|textDisplay|text|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32768|textDisplay|text|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|none|undef|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|none|undef|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|none|undef|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|none|undef|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|none|undef|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|none|undef|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|none|undef|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|none|undef|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|none|undef|titled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|none|undef|emptyPlusTitled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|none|empty|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|none|empty|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|none|empty|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|none|empty|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|none|empty|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|none|empty|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|none|empty|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|none|empty|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|none|empty|titled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|none|empty|emptyPlusTitled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|none|blank|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|none|blank|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|none|blank|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|none|blank|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|none|blank|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|none|blank|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|none|blank|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|none|blank|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|none|blank|titled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|none|blank|emptyPlusTitled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|none|text|undef",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|none|text|none",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|none|text|empty",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|none|text|emptyTitle",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|none|text|keyOnly",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|none|text|emptyFields",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|none|text|nullDesc",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|none|text|twoEmpty",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|none|text|titled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|none|text|emptyPlusTitled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|undef|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|undef|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|undef|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|undef|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|undef|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|undef|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|undef|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|undef|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|undef|titled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|undef|emptyPlusTitled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|empty|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|empty|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|empty|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|empty|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|empty|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|empty|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|empty|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|empty|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|empty|titled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|empty|emptyPlusTitled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|blank|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|blank|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|blank|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|blank|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|blank|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|blank|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|blank|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|blank|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|blank|titled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|blank|emptyPlusTitled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|text|undef",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|text|none",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|text|empty",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|text|emptyTitle",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|text|keyOnly",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|text|emptyFields",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|text|nullDesc",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|text|twoEmpty",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|text|titled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|empty|text|emptyPlusTitled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|undef|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|undef|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|undef|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|undef|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|undef|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|undef|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|undef|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|undef|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|undef|titled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|undef|emptyPlusTitled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|empty|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|empty|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|empty|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|empty|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|empty|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|empty|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|empty|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|empty|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|empty|titled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|empty|emptyPlusTitled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|blank|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|blank|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|blank|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|blank|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|blank|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|blank|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|blank|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|blank|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|blank|titled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|blank|emptyPlusTitled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|text|undef",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|text|none",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|text|empty",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|text|emptyTitle",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|text|keyOnly",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|text|emptyFields",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|text|nullDesc",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|text|twoEmpty",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|text|titled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|actionRow|text|emptyPlusTitled",
+  "row": "D",
+  "mode": "classic",
+  "notice": "warn-v2-flag-conflict",
+  "options": null
+ },
+ {
+  "cell": "32772|container|undef|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|container|undef|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|container|undef|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|container|undef|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|container|undef|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|container|undef|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|container|undef|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|container|undef|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|container|undef|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|container|undef|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|container|empty|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|container|empty|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|container|empty|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|container|empty|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|container|empty|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|container|empty|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|container|empty|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|container|empty|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|container|empty|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|container|empty|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|container|blank|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|container|blank|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|container|blank|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|container|blank|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|container|blank|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|container|blank|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|container|blank|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|container|blank|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|container|blank|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|container|blank|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|container|text|undef",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|container|text|none",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|container|text|empty",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|container|text|emptyTitle",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|container|text|keyOnly",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|container|text|emptyFields",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|container|text|nullDesc",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|container|text|twoEmpty",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|container|text|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|container|text|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|textDisplay|undef|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|textDisplay|undef|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|textDisplay|undef|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|textDisplay|undef|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|textDisplay|undef|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|textDisplay|undef|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|textDisplay|undef|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|textDisplay|undef|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|textDisplay|undef|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|textDisplay|undef|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|textDisplay|empty|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|textDisplay|empty|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|textDisplay|empty|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|textDisplay|empty|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|textDisplay|empty|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|textDisplay|empty|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|textDisplay|empty|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|textDisplay|empty|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|textDisplay|empty|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|textDisplay|empty|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|textDisplay|blank|undef",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|textDisplay|blank|none",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|textDisplay|blank|empty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|textDisplay|blank|emptyTitle",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|textDisplay|blank|keyOnly",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|textDisplay|blank|emptyFields",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|textDisplay|blank|nullDesc",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|textDisplay|blank|twoEmpty",
+  "row": "C",
+  "mode": "v2",
+  "notice": "none",
+  "options": null
+ },
+ {
+  "cell": "32772|textDisplay|blank|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|textDisplay|blank|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|textDisplay|text|undef",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|textDisplay|text|none",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|textDisplay|text|empty",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|textDisplay|text|emptyTitle",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|textDisplay|text|keyOnly",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|textDisplay|text|emptyFields",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|textDisplay|text|nullDesc",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|textDisplay|text|twoEmpty",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|textDisplay|text|titled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ },
+ {
+  "cell": "32772|textDisplay|text|emptyPlusTitled",
+  "row": "E",
+  "mode": null,
+  "notice": "choice",
+  "options": [
+   {
+    "mode": "classic",
+    "dropSet": [
+     "components"
+    ]
+   },
+   {
+    "mode": "v2",
+    "dropSet": [
+     "content",
+     "embeds"
+    ]
+   }
+  ]
+ }
+]

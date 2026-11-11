@@ -2,7 +2,7 @@
 ID: n/a
 Origin: fix-website-save-gate-embeds
 UUID: 07e578ce
-Reviewed-At: 460000b — repos=website
+Reviewed-At: 4b9fadd — repos=website; Round 1 first pass at 460000b
 Status: In Review
 Round: 1
 Verdict: REJECTED
@@ -22,6 +22,7 @@ Verdict: REJECTED
 |------|---------------|---------|---------|
 | 2026-11-11T08:58 | steering-queue-hooks (brief `code-reviewer-save-gate-embeds-brief.md`) | Round 1: review the fix at `Handoff-At 460000b`, under-20 route (suite + red test run here) | Round 1 REJECTED on CR-1 (HIGH): the fix moves plan 013's owner-ruled row-E cell on the JSON surfaces, a design decision the fixer's brief required to be blocked on. The code is correct for the save defect, and the red and green runs reproduce. CR-2 (LOW, test placement) and CR-3 (LOW, 34 pre-existing lint FAILs, ruled lint-neutral and routed). Captures in `verification/fix-website-save-gate-embeds/code-review-round1/`. |
 | 2026-11-11T09:04 | steering-queue-hooks (rulings block "2026-11-11T09:04Z — code review round 1 REJECTED; CR-1 decided", agent-output `43daf3d`) | CR-1 decided | Received, not a sub-entry. Verdict unmoved. Option (a) is excluded. The JSON surfaces stay as at `6d78b19` (D17, M8 reading (1) stands). For Save, the owner chose a narrower form than my (c): drop only the embeds that are empty by `hasClassicContent`, only beside V2 components, with no prompt; row D and the flag are untouched. This is criterion growth, recorded as such: the sub-entry assesses the revised statement and its limits, not the round-open criterion. The sub-entry's checks: the row differential re-run against `6d78b19` must show 0 cells moved on the JSON surfaces; a test must fail if a removal reaches an embed with content or a row-D save; the Minimum's two JSON-surface tests must state "lands V2 with no choice"; and CR-2. |
+| 2026-11-11T09:21 | fixer-fix-website-save-gate-embeds (SendMessage; document record `a4d5774`) | Round 1 sub-entry at `4b9fadd` (revised statement, rulings `43daf3d`) | Sub-entry REJECTED. CR-1 dispositioned (0 of 800 resolver cells move against `6d78b19`), CR-2 dispositioned, CR-3 holds at 44 (lint-neutral). New: CR-4 HIGH, where Save writes a draft the editor does not hold, giving the saver a "Message Update Detected" prompt and leaving the send page refusing until reload; CR-5 LOW, a dead guard; CR-6 LOW, `NewMessageModal` ignores `gate.data`. Captures in `verification/fix-website-save-gate-embeds/code-review-round1-subentry/`. 21 production lines, so QA Phase 2 is owed after approval. |
 
 ## Scope, identity and inputs
 
@@ -201,6 +202,143 @@ received", item 1. A flag-only draft beside an empty embed and no V2 components 
 unchanged, refused by `hasFlagV2 && embeds.length > 0`) belongs to the same flag class and goes to
 the same destination. It is not this fix's.
 
+## Round 1 sub-entry — website `4b9fadd`
+
+**Identity**: `git rev-parse HEAD` = `4b9fadd0b140…` on `fix/website-save-gate-embeds`, `git status
+--short` empty, at the start and the end. Commits since `460000b`: `08b0d7f` (CR-2 move) and
+`4b9fadd`. Files read via `git show 4b9fadd:…`. Production against `6d78b19`, by `git diff
+--numstat`: `src/utils/index.ts` 19/4, `useApiMethods.ts` 1/1, `SaveAsMenu.tsx` 1/1. That is 21
+added lines, so this is no longer the under-20 route: **QA Phase 2 is owed**, and the suite is
+QA's. I did not run it. I cite the fixer's suite capture (`round1-rereview/suite-run.txt`) and
+have not reproduced it.
+
+**Criterion assessed** (growth, recorded in the changelog row of the CR-1 decision): the revised
+statement in rulings block 09:04Z (`43daf3d`). *"A draft holding V2 components beside embeds that
+are all empty is saved as V2 without those embeds, with no prompt. The two JSON surfaces behave as
+at `6d78b19`"*, with its limits.
+
+**Instruments, and whose process they evidence.** The resolver differential runs the production
+`resolveContentLoss`, so it is a probe of the resolver. The save-echo probe (`save-echo-hash.mjs`)
+composes production functions (`gateBeforePersist`, `stripKeys`, the router's
+`optionalIdMessageShape`, `hashMessage`, `usePusher`'s `normalizeForHash`) in the order
+`saveMessage` → `message.upsert` → `shared.ts` `upsertMessage`'s Pusher trigger → `usePusher`'s
+compare. The ordering is mine, read from those sources. It is therefore a model of the save
+round trip, not an observation of a running instance. Its Pusher-delivery step is the Assumption
+Not Checked below.
+
+### Dispositions
+
+- **CR-1: class gone.** `resolveContentLoss`'s row-E condition is back as at `6d78b19`. The
+  differential re-run (`row-differential.mjs`, 800 cells) shows **0 changed** between `6d78b19` and
+  `4b9fadd`. The same instrument found 144 at `460000b`, which is its positive control.
+  `import-shape-reach` is identical on both trees. A check that fails if it returns: the two
+  extended tests, `JsonModalBody.conflict-resting-state` and `NewMessageJsonInput.conflict-resting-state`
+  ("V2 components beside an empty embed land as V2 with no choice"). The fixer's run (B) shows both
+  red on `460000b` (`round1-rereview/red-summary.txt`). The fixture is a container beside `{}`, as
+  the Minimum asked.
+- **CR-2: class gone for this chain's files.** `08b0d7f` moved the file. `4b9fadd` replaced it with
+  `src/providers/MessageProvider/__tests__/useApiMethods.save-empty-embeds.test.tsx`, beside its
+  module, and added `SaveAsMenu.empty-embeds-beside-v2.test.tsx` beside its module. The 7
+  pre-existing members stay routed (`INBOX.md`). Check: `no test` (placement).
+- **CR-3: holds, ruled.** `convention-check … --since=6d78b19` gives 44 FAIL (all eslint; 45 lines
+  match `FAIL`, one of them the summary line), 0 CANDIDATE, 1 SKIP. The eslint `--stdin` multiset
+  over every touched file at `6d78b19` and at `4b9fadd` is 44 = 44, identical
+  (`lint-multiset.diff` empty). Lint-neutral, accepted. The 10 added count are pre-existing in files
+  this revision newly touches. ID-token class by hand over the added test lines and the new
+  basenames: 0 hits.
+
+### New findings
+
+CR-4 HIGH Round 1
+**CR-4 HIGH Round 1 Correctness**: Save persists a draft the editor does not hold. The saver is then prompted to reload, and the send page refuses until they do.
+- **Location**: `src/providers/MessageProvider/useApiMethods.ts` `saveMessage` (persists
+  `stripKeys({ ...draft, data: gate.data })` and never writes `gate.data` back), with
+  `MessageProvider` `upsert.useMutation` `onSuccess` (`setSavedMessage(message)`, the local message),
+  `usePusher`'s `message-update` handler, and `send/page.tsx` (`validateMessage(message.data)` over the
+  provider's local message, under the shared `m/[id]/layout.tsx` provider).
+- **Class**: A persisting writer that writes data different from the editor's message without
+  writing that data back to the editor. The editor, `savedMessage` and the stored row then
+  disagree, so every reader of the local message (the Pusher hash compare, the send check, the next
+  dirty check) sees the old draft.
+- **Enumeration**: every `upsertMessage(` call reached from the editor's provider:
+  `git grep -n "upsertMessage(" 4b9fadd -- src/providers` gives `useApiMethods.saveMessage` and
+  `useApiMethods.commitSaveChoice`. Both write a transformed draft (`gate.data`;
+  `applyDisposition(…, chosen)`), and neither updates the local message. **2 members**: `saveMessage`
+  is new in this revision, and `commitSaveChoice` is pre-existing (013 M8-G, shipped).
+  `SaveAsMenu`'s writers create a new id and `router.replace` to it, which loads the stored row, so
+  they are not members by read. The predicate cannot see writers outside `src/providers` that write
+  to the provider's message id. `NewMessageModal` creates, so it is not a member.
+  Magnitude, from the save-echo probe (`save-echo-hash.txt`):
+  - At `4b9fadd`, for the V2 + `{_key}` draft, the hash the server broadcasts (`-4e4e7fa5`) differs
+    from the local hash `usePusher` computes (`736739f9`), so `promptShown: true`. At `6d78b19` the
+    two are equal (`promptShown: false`).
+  - The send check over the local message still returns *"Components V2 messages cannot contain
+    embeds or content."* on both trees.
+  - The `commitSaveChoice` case shows `promptShown: true` on both trees.
+
+  This is deterministic for every editor Save of a stored message in the shape, conditional on
+  Pusher delivering the event to the saving client (the Assumption Not Checked).
+- **Issue**: The revised statement says *"with no prompt"*. After this fix, an editor Save of such a
+  message shows "Message saved!" and then "Message Update Detected … Would you like to reload it?",
+  for the user's own save. Going to Send in the same session still shows the V2 error, because the
+  send page validates the local message, which still carries the empty embed. The user sees the
+  outcome the fix exists to deliver only after a reload. The tests cannot see this:
+  `useApiMethods.save-empty-embeds` mounts `useApiMethods` with `setMessage: () => {}` and asserts
+  the upsert input only. That is a fixture that cannot represent the state that diverges.
+- **Required Action**: eliminate the class, so a writer's persisted data and the editor's message
+  cannot differ after a save.
+  - **Preferred (structural)**: one persist step in `useApiMethods` that both `saveMessage` and
+    `commitSaveChoice` use. It hands `message.upsert` the resolved data and, in the same step, sets
+    the editor's message to that data (through the `setMessage` the hook already receives). Then
+    `onSuccess`'s `setSavedMessage(message)`, `usePusher`'s hash and the send page all read what was
+    stored. `commitSaveChoice` is the gate's own wiring in the same file, inside the fence's "the
+    gate's three callers only where its wiring requires". If steering judges that member outside the
+    fence, it is routed, not dropped: it is the 013 path's shipped defect, and whether it escaped is
+    the record's to establish.
+  - **Minimum**: the same, at `saveMessage` only.
+  - **Test (expectations independence)**: extend the existing provider-level test, using
+    `MessageProvider/__tests__/helpers/mountMessageProvider.tsx` as `MessageProvider.transient-toast`
+    does, not the stubbed `setMessage` harness. After Save of a stored V2 message beside `{}`, assert
+    the provider's message `data.embeds` equals `[]` as a literal, and that
+    `hashMessage(normalizeForHash(<provider message>))` equals `hashMessage` of the captured upsert
+    input. Falsity signature: both assertions fail at `4b9fadd`. The fixture property: the dropped
+    set is non-empty and the draft has an `id` (a stored message), since a new message takes the
+    `router.replace` branch and cannot show the divergence.
+
+CR-5 LOW Round 1
+**CR-5 LOW Round 1 Checks That Cannot Fail**: `dropEmptyEmbedsBesideV2`'s content guard can never fire from its only caller.
+- **Location**: `src/utils/index.ts` `dropEmptyEmbedsBesideV2`, the
+  `draft.embeds.some((embed) => hasClassicContent({ embeds: [embed] }))` return.
+- **Class**: A guard whose only caller already guarantees its condition is false, so it is counted
+  as a control and has never been observed to fail.
+- **Enumeration**: `git grep -n dropEmptyEmbedsBesideV2 4b9fadd -- src` gives the definition and one
+  caller (`gateBeforePersist`, only when `!requiresChoice`). With V2 components present,
+  `!requiresChoice` implies `!hasClassicContent`, so the guard is false whenever it is reached. The
+  fixer's document says so ("Not separately discriminable"). The predicate cannot see future callers
+  of the export.
+- **Required Action**: make it discriminable or remove it. Preferred: `gateBeforePersist` returns
+  `dropEmptyEmbedsBesideV2(draft)` unconditionally (callers use `applyDisposition` on the row-E
+  path), so the existing mixed-embeds case ("one empty and one real embed … nothing dropped") becomes
+  the guard's red. Minimum: delete the guard and stop exporting the helper. Not blocking alone.
+
+CR-6 LOW Round 1
+**CR-6 LOW Round 1 Mirror**: `NewMessageModal.onSubmit` persists its input, not `gate.data`.
+- **Location**: `src/app/message/_components/NewMessageModal.tsx` `onSubmit` (`submitData(loadedMessage)`).
+- **Class**: A `gateBeforePersist` caller that discards the gate's `data` output.
+- **Enumeration**: `git grep -n -E "gateBeforePersist\(" 4b9fadd -- src ':!src/**/__tests__/**'`
+  gives 3 callers. `useApiMethods` and `SaveAsMenu` use `gate.data`, and `NewMessageModal` does not:
+  **1 member**. It is unreachable for this shape today, because Save is disabled by `contentFloorError`
+  computed on the raw `loadedMessage`. That is the subject of the out-of-scope handoff
+  `newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md`, whose fix would expose it.
+- **Required Action**: `submitData(gate.data)`, so all three callers honour one contract (one line,
+  inside the fence's caller clause). Not blocking alone.
+
+### Sub-entry verdict
+
+**REJECTED** on CR-4. CR-1 and CR-2 are gone, and the JSON surfaces are verified unchanged. The
+persist half writes the right row, but the user who saves does not get the outcome the statement
+promises ("no prompt"; a sendable message) until a reload.
+
 ## Verdict
 
 **Status**: REJECTED
@@ -213,12 +351,25 @@ the re-review is a sub-entry of this round (identity plus the CR-2 move).
 
 ## Required Actions
 
+Sub-entry at `4b9fadd` (current):
+1. **CR-4**: Preferred (both writers) or Minimum (`saveMessage`), with the provider-level test. The
+   fence question for `commitSaveChoice` goes to steering.
+2. **CR-5**, **CR-6**: recommended in the same commit (one line each). Not blocking alone.
+
+First pass at `460000b` (superseded):
+
 1. **CR-1**: to steering for the decision (a), (b) or (c). Then the fixer implements the decided option
    and the Minimum's JSON-surface test.
 2. **CR-2**: the fixer moves the new test file (any option).
 3. **CR-3**: none (ruled, routed).
 
 ## Assumption Not Checked
+
+Round 1 sub-entry: This review assumes that Pusher delivers `message-update` to the client whose
+save triggered it (`shared.ts` triggers with no `socket_id` exclusion). I did not observe it in a
+running instance. If this is false, CR-4's prompt limb does not occur, and only the send-page and
+local-state limb stands. Owner: QA Phase 2, by a browser save against a stored message in the shape.
+
 
 Round 1: This review assumes that the "Choose which to keep" UI on the editor Save and the Save-as
 dialog renders and works for these drafts the way it does for existing row-E drafts. I did not
@@ -228,6 +379,15 @@ writes nothing, or the dialog shows no options. Owner: devops's pre-release walk
 (the rulings file already carries his own check for this release), named again in Next Steps.
 
 ## Next Steps
+
+Sub-entry at `4b9fadd` (current):
+- **fixer-fix-website-save-gate-embeds**: CR-4, plus CR-5 and CR-6. The re-review is a further
+  sub-entry of Round 1, scoped to the fix diff with the probes re-run.
+- **steering-queue-hooks**: whether `commitSaveChoice` (CR-4's pre-existing member) is inside the
+  fence. Carry both Assumptions Not Checked to QA Phase 2 / release.
+- After approval: **qa** Phase 2 (21 production lines), then devops.
+
+First pass at `460000b` (superseded):
 
 - **steering-queue-hooks**: decide CR-1 (a)/(b)/(c), putting it to the owner if steering judges it his.
   Carry the Assumption Not Checked to the release step.

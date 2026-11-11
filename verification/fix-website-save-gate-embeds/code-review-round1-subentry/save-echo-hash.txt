@@ -1,0 +1,6 @@
+## tree 4b9fadd
+{"mustAsk":false,"sentEmbeds":[],"serverHash":"-4e4e7fa5","clientHash":"736739f9","promptShown":true,"sendCheckOnLocal":"Components V2 messages cannot contain embeds or content."}
+{"case":"commitSaveChoice v2","promptShown":true,"sendCheckOnLocal":"Components V2 messages cannot contain embeds or content."}
+## tree 6d78b19
+{"mustAsk":false,"sentEmbeds":[{}],"serverHash":"736739f9","clientHash":"736739f9","promptShown":false,"sendCheckOnLocal":"Components V2 messages cannot contain embeds or content."}
+{"case":"commitSaveChoice v2","promptShown":true,"sendCheckOnLocal":"Components V2 messages cannot contain embeds or content."}
