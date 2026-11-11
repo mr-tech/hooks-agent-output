@@ -99,8 +99,9 @@ Options: (a) **mirror the siblings**: the constant, a `maxLength` on both descri
 both description fields in the save schema. A save, or a pasted JSON, with a description over 1024
 is then refused, as an 81-character button label is today. (b) the constant, the input
 `maxLength` and the send check only, with the save schema left unbounded. Such a draft saves (W-2),
-is recorded `valid: false`, and is refused at Send. This deviates from A-4's pattern. Either way,
-the send check refuses over 1024. Planner's recommendation: (b), because it keeps W-2's wording and
+is recorded `valid: false`, and is refused at Send. This deviates from A-4's pattern. (c) no input cap and no
+schema bound: the send check alone refuses over 1024, so a user can type past the bound and learns
+of it only from the reason line. Under every option the send check refuses over 1024. Planner's recommendation: (b), because it keeps W-2's wording and
 the determination's out-clause. Not read: whether a stored row with a description over 1024 exists.
 No agent reads that database (D-6). If one exists, option (a) would also make it fail to load
 through the JSON paths, which run the same schema (read from code, not run).
