@@ -18,6 +18,7 @@ Status-Detail: "Stage 1 committed (record 436a30a) and Phase 2A readiness writte
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-11T14:15 | steering-queue-hooks (brief `steering/queue-hooks-briefs/devops-016-brief.md`) | Stage 1 and Phase 2A for chain 016 at website `395510e` | Brief and rulings file read whole. Stage 1 recorded at `436a30a`: chain documents Committed and closed, post-deploy carrier minted, tip built. QA Phase 3 requested and returned: Release Verified at `395510e` (`qa/website-395510e-release-tip-qa.md`, record `596c23c`). Release ask prepared. Nothing pushed. |
+| 2026-11-11T14:25 | architect-hooks-016 → devops-hooks-016 (message) | Architecture reconciliation owed at Stage 1 | Landed at record `ab14544` against website `395510e`: `website.md` A-4's D-10 clause, the preview-chrome Problem Area resolved (RK-5 residue), `hideValidation` under D-001's consequences, the fixture Problem Area retired. Findings document `Resolved` under `architecture/closed/` (existence and status read here). Phase 2D step 5 is therefore discharged for chain 016: no further architect inbox line is owed. Release ask still unanswered. |
 
 ## Stage 1 verification (website, at 395510e)
 
