@@ -3,8 +3,8 @@ ID: 016
 Origin: 016
 UUID: 54673438
 Status: Active
-Status-Detail: "Revision 3, ready for the critic, the architect and QA Phase 1 to read again. It adds M1b (the preview route shows no error chrome, by the owner's selection 23, D-14) and folds QAF-9 (the whitespace-empty predicate). Revision 2's approvals do not carry to it. No OPEN QUESTION remains."
-Revision: 3
+Status-Detail: "Revision 4, ready for the critic, the architect and QA Phase 1 to read again. It restates M1b's class as a property over the whole rendered /preview tree (AF-12, F-12, QAF-10), with Author's username line as the seventh member. It adopts the showEdit prop route for the signal (AF-13), and folds F-13/QAF-11 and F-14. Revision 3's approvals do not carry to it. No OPEN QUESTION remains."
+Revision: 4
 Target Release: "website master → this chain's merge SHA (Vercel production on a push of master). The package carries no version artefact (package.json has no version field, CHANGELOG absent; read 2026-11-11T10:22Z)."
 Epic-Alignment: "none registered. The workspace has no roadmap, by the owner's standing instruction (brief). Source of the effort: research/closed/components-v2-send-validity-2026-11-11.md and research/closed/components-v2-description-text-limit-2026-11-11.md; opened by selection 14 (rulings block 2026-11-11T09:09Z)."
 Lane: "standard. The scoping determination sets a full chain (rulings block 2026-11-11T09:17Z). The blast radius is a shared predicate: validateMessage feeds the send page, the stored valid column and the public v1 API, so this is not a leaf."
@@ -12,6 +12,28 @@ Architectural-Surface: "none added. The plan stays inside the A-4 module and add
 ---
 
 # Plan 016 — The send check refuses what Discord refuses (Components V2 validity, 1024 included)
+
+## Reading Order
+
+This is the plan's one routing surface. Sections not named here are reference, read when a named
+section cites them.
+
+| Role | Sections, in order |
+|---|---|
+| implementer | Decisions Register; Requirement ledger — the refusal class; M1 — The send check refuses the ledger's class and says which; M1b — The preview route shows no validation chrome (D-14); M2 — The 1024 description bound in the constant and both inputs (Save does not refuse) |
+| code-reviewer | Assumptions and open questions; M1 — The send check refuses the ledger's class and says which; M1b — The preview route shows no validation chrome (D-14); M2 — The 1024 description bound in the constant and both inputs (Save does not refuse); Exclusions |
+| qa | Requirement ledger — the refusal class; M1 — The send check refuses the ledger's class and says which; M1b — The preview route shows no validation chrome (D-14); Testing Strategy; Risks |
+| uat | Value Statement and Business Objective; Decisions Register; M1b — The preview route shows no validation chrome (D-14); Risks |
+| devops | M3 — Release (devops); M1b — The preview route shows no validation chrome (D-14) (its rollback paragraph, SE-6); Stored rows and the public API (A-4's consequence); Exclusions |
+
+Owed re-verdicts:
+
+| Limb | Decidable since | Owning gate | State |
+|---|---|---|---|
+| M1b's class as a property, with seven members by code read (AC1b-1) | revision 4 | QA (by-render enumeration), critic, architect | open |
+| AC1b-3's signal form (AF-13) | revision 4 | architect | open |
+| AC1b-4's post-deploy member (b) | revision 4 | QA (B-6), critic (F-13) | open |
+| RK-5, X-11 | revision 4 | critic | open |
 
 ## Changelog
 
@@ -22,6 +44,7 @@ Architectural-Surface: "none added. The plan stays inside the A-4 module and add
 | 2026-11-11T10:38 | R-1 | steering-queue-hooks | Registration: D-12 (X-1, the generic toast, stays excluded: selection 21) and D-13 (rider R1 kept: selection 22). His words are in rulings block "2026-11-11T10:38Z — selections 21 and 22". No requirement changed; the revision stays 1. |
 | 2026-11-11T11:05 | 2 | planner-hooks-016 | Folds three gate reads of revision 1: critique cycle 1 pass 1, F-1 to F-10 (`2e26556`); architecture conformance, AF-1 to AF-5 and AF-7 (`c61a96f`); QA Phase 1, QAF-1 to QAF-8 (`803a97c`). The arguments live in those documents. Scope delta: M1's measured population is now the 116-member corpus (AC1-1, AC1-4), placement covers every limb (AC1-2), L5 and L6 cover absent forms, and L8 defines an emoji and takes D-9's whitespace rule by riding selection 18. M1 gains AC1-6p (post-deploy), AC1-9 (every other message keeps today's result), AC1-10 (env-free imports) and AC1-11 (lint). The reason line's `/preview` surface is stated. M2's AC2-2 is split into a suite half and B-2. Rider R1 is dropped (F-6, D-13). Size against the original ask: unchanged, one send-check change plus the 1024 bound, with tighter criteria and no new milestone. |
 | 2026-11-11T11:13 | 3 | planner-hooks-016 | Folds the owner's selection 23 (rulings block "2026-11-11T11:11Z — selection 23", record `c966305`) as D-14, and QA's QAF-9 from its re-key on revision 2 (`77b1fd6`). The critique (`5c1512f`) and the architecture delta (`2520ac7`) approved revision 2. Scope delta: milestone M1b added (the preview route shows no validation chrome, every error line included), reversing plan 015 D33. M1's whitespace-empty predicate is restated per character, and the corpus is re-pinned to QA's 120 members. Since approval of the value statement: three revisions and two gate rounds; M1b is the one milestone added. Size against the original ask: one send-check change plus the 1024 bound, and by his word one shared preview-chrome change. |
+| 2026-11-11T11:18 | 4 | planner-hooks-016 | Folds the three gate reads of revision 3: architecture delta AF-12 and AF-13 (`0bb1084`, range corrected at `ccaa340`), critique cycle 2 pass 1 F-12 to F-14 (`56b2916`), and QA's re-key QAF-10, QAF-11 and SE-6 (`d5466ab`). The arguments live in those documents. Scope delta: M1b's class is now the property over everything `DiscordMessageEditor` renders on `/preview`, with seven members (Author's username line added) and each other candidate dispositioned from code at `0e3d903`. The signal takes the `showEdit` prop route (AC1b-3). AC1b-4's post-deploy limb gains the 41-component member that distinguishes fixed from unfixed. RK-5 states the residue in already-generated images, and M1b's rollback is tied to M1's (SE-6). This rides selection 23 ("no error lines or red border at all"), and no milestone is added. X-11 and a Reading Order are added (the body is past 500 lines). Since approval of the value statement: four revisions and three gate rounds. Size against the original ask: unchanged from revision 3. |
 
 ## Value Statement and Business Objective
 
@@ -58,7 +81,7 @@ asked for this wider class ("making the send check refuse what Discord refuses, 
 | D-11 | The check refuses any message holding a File component, on a new send and on an edit | 2026-11-11 | "Agent: refuse File everywhere (Recommended)". Selection 20, same blocks. The option text he saw named the risk: "if Discord does accept a File naming an existing attachment on an edit, the site blocks an edit that would work; that is unmeasured". | A measurement of research N-5 showing Discord accepts such an edit, or a user report of a blocked edit holding a File (RK-1). |
 | D-12 | The generic send-failure toast stays out of this plan (X-1), carried by `handoff/send-check-validity-excluded-toast-and-file-upload-2026-11-11.md` | 2026-11-11 | "Agent: keep it out (Recommended)". Selection-prompt answer (selection 21): ledger block "2026-11-11T10:37Z — steering-queue-hooks"; rulings block "2026-11-11T10:38Z — selections 21 and 22". The option text he saw (steering's): "I start the critic and the architect on revision 1 as it stands. The toast is carried for later by a handoff the planner already wrote (send-check-validity-excluded-toast-and-file-upload), which also carries the File upload path your earlier ruling put after the existing items. Nothing more is planned for the toast until that handoff is picked up." | Owner withdrawal only. |
 | D-13 | Rider R1 stays: if the chain edits `messageValidity.predicate.test.ts`, the same commit moves it beside its module | 2026-11-11 | "Agent: keep the rider (Recommended)". Selection 22, same ledger and rulings blocks. The option text he saw (steering's): "the plan goes to review with the rider. Cost by the plan: one extra line for code review and a check that the file's test count and pass set are identical before and after the move. It drops on its own if the critic or reviewer objects. The other five files stay on the handoff." | Owner withdrawal; or an objection from critique or review, on which the rider drops (the plan's "Riders yield"). **Fired:** critique F-6 (`critiques/016-send-check-validity-critique.md`, `2e26556`). R1 is dropped at revision 2, under the drop disposition he was shown. |
-| D-14 | The preview route shows no error lines and no red border at all, the existing ones included, so no preview image carries them; the editor and the send page keep every line; built in this plan | 2026-11-11 | "Agent: hide all on preview, in 016 (Recommended)". Selection 23: ledger block "2026-11-11T11:11Z — steering-queue-hooks"; rulings block "2026-11-11T11:11Z — selection 23". The option text he saw (steering's): "the planner adds one change to plan 016: the preview route shows no error lines or red border at all, the existing over-limit ones included, so no preview image carries them. The editor and the send page keep every line. This reverses your 2026-11-08 choice for the over-40 line." | Owner withdrawal only. Consequence: M1b. It reverses plan 015 D33 (his "Agent: same as siblings", `steering/015-rulings.md` block 08:02Z, by steering's read), which is restated here as reversed. |
+| D-14 | The preview route shows no error lines and no red border at all, the existing ones included, so no preview image carries them; the editor and the send page keep every line; built in this plan | 2026-11-11 | "Agent: hide all on preview, in 016 (Recommended)". Selection 23: ledger block "2026-11-11T11:11Z — steering-queue-hooks"; rulings block "2026-11-11T11:11Z — selection 23". The option text he saw (steering's): "the planner adds one change to plan 016: the preview route shows no error lines or red border at all, the existing over-limit ones included, so no preview image carries them. The editor and the send page keep every line. This reverses your 2026-11-08 choice for the over-40 line." | Owner withdrawal only. Consequence: M1b. Its class is everything the editor tree renders on `/preview`, not one file's lines (revision 4, riding this selection's "at all"). It reverses plan 015 D33 (his "Agent: same as siblings", `steering/015-rulings.md` block 08:02Z, by steering's read), which is restated here as reversed. |
 
 ## Objective
 
@@ -296,34 +319,77 @@ his word (D-14).
 routine drafts (F-12). M1b's premise is exactly that: an image of a routine draft would carry it.
 M1's behaviour is the reason for M1b, so the premise holds.
 
-The class, enumerated at `0e3d903` (`DiscordMessageEditor/index.tsx`, read 11:15Z): the error lines
-`noContentError`, `embedCharacterError`, `v2TextError` and `componentCountError`, M1's new reason
-line, and the `styles.errorBorder` class on the accessories container. The render sites of
-`DiscordMessageEditor` outside tests (`git grep -n "<DiscordMessageEditor\b|<MessagePreview\b"`,
-11:15Z) are `src/app/preview/page.tsx`, `src/app/message/m/[id]/edit/page.tsx`, and through
-`MessagePreview` the send page, `send/_components/EditMessageMenu.tsx` and `NewMessageModal.tsx`.
+**The class is a property, not a list** (architect AF-12, critique F-12, QA QAF-10). On `/preview`,
+nothing `DiscordMessageEditor` renders carries validation chrome: no validator's error text, and no
+error border or ring (`styles.errorBorder`; `styles.errorStateBorder`, which paints when the element
+or an ancestor carries `data-erroring-state="true"`, by the `erroring` variant in `tailwind.config.js`).
+The domain is the editor's whole render tree, meaning its import closure under `src/components`, not
+one file or one directory. Membership is **settled by the render**: `/preview` is rendered with each
+validator's trigger present, and every error element it emits is read. QA runs this at its re-key.
+A member found later, by anyone, is inside M1b, since D-14 already covers it.
 
-- **AC1b-1.** On `/preview`, for a message that triggers each member of the class, the member does
-  not render. Each of the six members is checked separately, with its trigger present.
+Members by code read at `0e3d903` (11:18Z). Candidates came from `git grep -l -E
+"text-error|data-erroring-state|errorStateBorder|errorBorder|text-red|ring-red" 0e3d903 -- src/components
+src/app/preview ':!**/__tests__/**'`, 15 files, each classified:
+
+| Candidate | On `/preview`? | Read |
+|---|---|---|
+| `index.tsx`: `noContentError`, `embedCharacterError`, `v2TextError`, `componentCountError`, M1's new line, `styles.errorBorder` on the accessories container | **Member** (six) | No edit-mode condition |
+| `Author.tsx`: the `validateUsername` line, cozy and compact | **Member** (seventh) | No `showEdit` condition. QA executed it: an empty username renders the line with `showEdit={false}` (`verification/016/preview-chrome/author-probe-0e3d903.txt`, 4 of 4) |
+| `Author.tsx`: `errorStateBorder` on the cozy header | Not painted | `data-erroring-state` is set only on the edit branch's input. No ancestor in `index.tsx`, `ContentBody.tsx` or the preview page sets it |
+| `EmbedTitle`, `EmbedAuthor`, `EmbedField`, `EmbedFooter`: lines, rings, link icons | Not rendered | Each returns a read-only render under `if (!showEdit)` before its chrome. `EmbedFooter`'s line is commented out |
+| `DiscordContentEditor` (`Desktop.tsx`, `Mobile.tsx`): counter, ring, "Too long." | Not rendered | `DiscordContentEditor/index.tsx` returns a static render under `if (!showEdit)` |
+| `LinkButtonEditor`: "URL is required.", "Invalid URL." | Not rendered | `ActionRowEditor` mounts it under `showEdit && focused` |
+| `ContentEditable.tsx`, `TextField.tsx`: `errorMessage` | Not rendered | Used inside the embed parts' edit branches and popovers |
+| `ActionsMenu`, `ActionRowEditor`, `MediaGalleryEditor`: `text-red-400` | Not validation chrome | Delete affordances (`danger` menu items, "Delete Button", "Delete") |
+| `src/app/preview/page.tsx`: "Invalid message data." | Outside the class (X-11) | Rendered *instead of* `DiscordMessageEditor` when the data does not parse, so it is not chrome on a message |
+
+The rows marked "not rendered" and "not painted" are code reads. The render settles them.
+
+The render sites of `DiscordMessageEditor` outside tests (`git grep -n
+"<DiscordMessageEditor\b|<MessagePreview\b"`, 11:15Z; the critic matched it with an importer grep)
+are `src/app/preview/page.tsx`, `src/app/message/m/[id]/edit/page.tsx`, and, through
+`MessagePreview`, the send page, `send/_components/EditMessageMenu.tsx` and `NewMessageModal.tsx`.
+
+- **AC1b-1.** On `/preview`, for each validator whose output the tree can render, a message carrying
+  its trigger renders no error text and no error border or ring anywhere in the tree. The seven
+  members above are each checked separately, with their trigger present: Author's in both visual
+  styles. Any member the by-render enumeration adds is checked the same way.
 - **AC1b-2.** On every other render site listed above, each member renders exactly as at `0e3d903`,
   and M1's new line renders as M1 specifies.
-- **AC1b-3.** Only `src/app/preview/page.tsx` turns the class off. No other render site passes the
-  signal. The mechanism is the architect's proposal (AF-11): a signal only the preview route passes,
-  not edit mode, because the send page's read-only preview needs the lines. Its form is the
-  implementer's.
-- **AC1b-4 (human-observable).** On a local build of the tip, `/preview` for a draft with a fresh
-  Text Display shows no red line or border, while the editor and the send page show the line. Walked
-  by UAT in B-1's session. After deploy, the preview image of a test-account V2 message saved with an
-  unfilled component carries no red line. QA registers both rows.
+- **AC1b-3.** Only `src/app/preview/page.tsx` turns the class off, and no other render site passes the
+  signal. The signal follows the current mode route (architect AF-13, mirroring
+  `website@0e3d903 src/components/DiscordMessageEditor/index.tsx`: `editableState` on
+  `VisualizerProps`, passed down as `showEdit`). It is one optional `VisualizerProps` input, which
+  defaults to showing every line and is passed beside `showEdit` to each sub-component member
+  (`Author` at `0e3d903`). Two forms are not used. A new React context would be a second mode
+  route, an avoidable deviation. CSS suppression would key on styling, not validation, and jsdom
+  cannot assert it.
+- **AC1b-4 (human-observable).** Before release, on a local build of the tip, `/preview` shows no
+  error element and no border class for three drafts: a fresh Text Display, 41 Text Displays and an
+  empty username. The editor and the send page show their lines. UAT walks this in B-1's session
+  (QA row B-5). After deploy, for a test-account V2 message with 41 Text Displays saved on
+  hooks.gg, the preview image carries no "Message has 41 components" line (QA row B-6, member b).
+  At `0e3d903` that image carries the line, so one observation tells fixed from unfixed. An
+  unfilled-component image is clean before and after, so it does not distinguish (QAF-11). The
+  image is read by eye from the downloaded file. The owed positive read is one B-6(b) image read
+  against production before release, recorded beside the prediction (B-6's state column, critique
+  F-13). Two premises are unverified, and B-6's executor establishes them first: where the image URL
+  of a saved message is found, and that a save regenerates the image (the critique's unchecked
+  assumption).
 
-Rollback: `git revert`, as M1. A revert brings the lines back into preview images.
+Rollback: `git revert` of M1b's commit, as M1, run by the implementer before release, or on `master`
+by devops after it. **M1 never ships or stays live without M1b** (QA SE-6). Without M1b, every saved
+draft with a fresh component would put M1's line into its preview image. So a revert of M1b also
+reverts M1, a revert of M1 alone is allowed, and devops pushes only a tip that carries both.
 
 ### M2 — The 1024 description bound in the constant and both inputs (Save does not refuse)
 
 **Re-derivation (M1 ships product behaviour; M2 is downstream):** M1 already refuses an over-1024
 description at Send. M2 adds what M1 does not: the user cannot type past 1024 in either description
 input, and the bound lives in one constant, so the editor and the check read the same number (A-4).
-That premise still holds against M1's behaviour.
+That premise still holds against M1's behaviour. It also holds against M1b's: M1b changes only what
+`/preview` renders, and neither the description inputs nor the constant are rendered there.
 
 - **AC2-1.** One constant for the 1024 bound sits in `src/constants/messageLimits.ts` (sibling:
   `MAX_EMBED_FIELD_VALUE_LENGTH`, same file). M1's L10 check and both inputs read it. It lives in
@@ -373,7 +439,7 @@ The standard is the workspace's Test Conventions (`agent-output/CLAUDE.md`, "Tes
 (`website`)"): vitest, tests beside the module under `__tests__/`, the process exit code beside the
 counters, `pnpm run typecheck` for both programs. Expected test types: pure-logic tests of the
 predicate over the corpus and AC1-2's placements, a DOM test of the editor's reason line (AC1-5),
-DOM tests of M1b's six members on `/preview` and on the other render sites (AC1b-1, AC1b-2),
+DOM tests of M1b's members on `/preview` and on the other render sites (AC1b-1, AC1b-2),
 the two-tree differential (AC1-9, QA's at Phase 2) and the ts-node import probe (AC1-10), which
 runs outside vitest. Before adding a test, extend the existing ones on this surface:
 `src/utils/__tests__/limits.send-gate-partition.test.ts` and `limits.component-count.test.ts`.
@@ -386,9 +452,10 @@ share a commit; D-13's reopening class). The drop disposition priced in revision
 tests that call `isMessageValid`. `handoff/website-tests-not-beside-their-module-2026-11-08.md`
 stays as it is (X-9).
 
-QA sequencing: QA Phase 1 ran before implementation (D-2) and read revision 1. Its findings are
-folded here, and it re-keys on revision 2. The browser walks are B-1 and B-2 (UAT, pre-release) and
-B-3 and B-4 (post-deploy). Cases, fixtures and coverage are QA's.
+QA sequencing: QA Phase 1 runs before implementation (D-2). It has read revisions 1 to 3, its
+findings are folded here, and it re-keys on revision 4, running M1b's by-render enumeration. The
+browser walks are B-1, B-2 and B-5 (UAT, pre-release) and B-3, B-4 and B-6 (post-deploy). Cases,
+fixtures and coverage are QA's. Cases, fixtures and coverage are QA's.
 
 ## Validation
 
@@ -421,6 +488,12 @@ B-3 and B-4 (post-deploy). Cases, fixtures and coverage are QA's.
   members are first measurements, so drift does not apply to them.
 - **RK-3 — stored `valid` stays stale** for rows saved before release (§ Stored rows). A stated
   limit, not a gate.
+- **RK-5 — preview images generated before release keep their chrome** (critique F-14). M1b changes
+  what `/preview` renders from release onward. An image already generated for a message in an
+  error state, such as an over-40 message, keeps its red line until the message is saved again,
+  if a save regenerates the image (AC1b-4's unverified premise). This is a stated limit, like RK-3.
+  No agent regenerates images (D-6). Its signature is a report of a red line in an image of a
+  message last saved before release.
 
 ## Exclusions
 
@@ -430,6 +503,7 @@ B-3 and B-4 (post-deploy). Cases, fixtures and coverage are QA's.
 | X-2 | A File upload path; removing File from the add menu | New product work (D-3; D-2) | Same handoff, Item 2 |
 | X-9 | Relocating the six files of `handoff/website-tests-not-beside-their-module-2026-11-08.md` | Rider R1 dropped (critique F-6); the chain edits none of the six | That handoff, which stays Open |
 | X-10 | The base tree's existing eslint findings | Red before the chain opens, on files the plan does not otherwise touch, apart from two test files (§ Validation) | Stated limit; AC1-11 |
+| X-11 | `/preview`'s own "Invalid message data." fallback | It is rendered instead of the editor when the data does not parse, so no message is shown and it is not chrome on one (M1b's class table). This is agent-authored and reported to the owner, who may veto it under D-14's "at all" | Stated limit |
 | X-3 | Any server-side refusal of a save | W-2 (D-4) | Stated limit |
 | X-4 | Counting or repairing stored rows | D-6. Research Recommendation 2 is out (determination). | Stated limit (§ Stored rows) |
 | X-5 | The add menu's default factories | Determination out-clause | Stated limit (AC1-6 records what the user sees) |
@@ -470,13 +544,12 @@ B-3 and B-4 (post-deploy). Cases, fixtures and coverage are QA's.
 
 ## Resumption State
 
-Checkpoint 2026-11-11T11:15Z, `planner-hooks-016`, on steering's request.
-- **Done:** revision 3 committed (`21db6c8`) and delivered by SendMessage to `critic-hooks-016`
-  (a new critique cycle, because the rev-2 critique closed `Resolved` at `5c1512f`),
-  `architect-hooks-016` (rev 2 APPROVED at `2520ac7`) and `qa-hooks-016` (rev 2 re-key at `77b1fd6`).
-- **Next:** wait for all three verdicts on revision 3, then fold their findings into one revision
-  per the batching rule. A changelog `Rev` row is written only for a revision that moves a
-  requirement. Each later read of the plan is `git diff 21db6c8 HEAD -- planning/016-send-check-validity.md`.
+Updated 2026-11-11T11:18Z, `planner-hooks-016`, at revision 4.
+- **Done:** revision 4 folds all three revision-3 verdicts (architect `0bb1084`/`ccaa340`, critic
+  `56b2916`, QA `d5466ab`) and is delivered by SendMessage to `critic-hooks-016`, `architect-hooks-016`
+  and `qa-hooks-016`.
+- **Next:** wait for all three verdicts on revision 4, then fold them into one revision. Each later
+  read of the plan is `git diff <rev-4 commit> HEAD -- planning/016-send-check-validity.md`.
   When every pre-code gate has approved the same revision, report the plan ready for implementation
   to steering, as a spawn cue for the implementer.
 - **Open to the owner:** nothing. Design decision 2 (labels take D-9's rule, riding selection 18)
