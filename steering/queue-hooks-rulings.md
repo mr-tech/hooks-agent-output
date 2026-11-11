@@ -904,3 +904,23 @@ What the wrong wind-down did, and its undoing:
 - `qa-hooks-016`: checkpointed at `cc91291` with its re-key on revision 4 in progress; the stop was
   withdrawn by message at 11:23Z, the error named as this thread's, and it was told to carry on.
 - The standing check was re-armed (one-shot `6880eb0a`, 11:53Z) with the source rule in its prompt.
+
+## 2026-11-11T11:38Z — new generation of this thread; QA's re-key read; planner respawned for QAF-12
+
+This thread was cleared and briefed again. By the brief (the owner's launch instruction),
+`steering-coordinator` now coordinates this thread and `steering-queue-statbot`, for `/clear`
+timing alone. Standing check re-armed (none was listed by `CronList`).
+
+Read this turn at `HEAD` (record `96fbc66`): `qa/016-send-check-validity-qa.md`, `Status: Awaiting
+Implementation`, Status-Detail "Phase 1 re-keyed to plan revision 4 (record c249af3)", with one new
+finding for the planner, QAF-12 LOW (line 205 read whole: AC1b-1 asks for a visual style the
+preview route never renders; "no owner question"). The plan reads `Revision: 4`, `Status: Active`;
+the architecture findings read APPROVED on revision 4; critique cycle 2 is under `critiques/closed/`.
+
+**Implementation is not started.** QA's document holds an open finding against a criterion of the
+current revision, so the planner dispositions it first. Started `planner-hooks-016` fresh with
+`tmux-agent spawn`, category `S016-sendcheck`, cwd `/usr/local/bin/hooks/website`, brief
+`steering/queue-hooks-briefs/planner-016-respawn-brief.md`, naming its Resumption State (`a9bb644`).
+
+Usage, `plan-usage.py --json`, 11:38Z, `"source": "live"`: `weekly_all` 55%. Out-of-memory count 43
+(`grep -c`), unchanged.
