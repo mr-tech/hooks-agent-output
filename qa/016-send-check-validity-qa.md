@@ -419,7 +419,8 @@ files: these plus `useApiMethods.json-editor-repair` and `utils.mutual-exclusivi
 - The AC2-3 never-red guard row reads "pending" in the table but is resolved in § Mutation Self-Check: both schema `.max(1024)` mutants are killed. The same sweep checks it here.
 - The two `7c66b68` rows take their red from a surviving mutant at `4cdb81a`, which is valid red evidence.
 
-**Assumption Not Checked
+## Assumption Not Checked
+
 Re-key pass on revision 7: this pass assumes the implementer's re-copy of the fixture into the website is byte-identical to `188bc93`'s, and does not check the chain branch, where the re-copy is pending. If false, AC1-1 runs over a different file. The signature is Phase 2's sha256 and blob check failing on `src/utils/__tests__/helpers/discordV2SendCorpus.ts`. Owner of closing it: QA Phase 2, by that check at the tip.
 
 Regeneration pass: this pass assumes the website's test suite reads the fixture only through `DISCORD_V2_SEND_CORPUS`'s values, never its text (a file read or a source pattern match), and does not test it against the implementer's suite. Data identity holds by construction, but text identity does not. If false, a case that reads the fixture's text changes result on the re-copy. The signature is a suite case going red or green on the re-copy alone. Owner of closing it: the implementer, by the suite run on the re-copy, then QA Phase 2's audit (such a case would also be a source-text assertion under the Test Conventions).
