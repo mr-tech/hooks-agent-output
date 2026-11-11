@@ -1447,3 +1447,14 @@ type classic content into a V2 message; by the UAT walk the live editor does not
 the step as worded could not be performed. Left on hooks.gg: the test account's messages 6009 to
 6012 (6012 holds a stray username and an empty Text Display). The UAT session is stopped and its
 scratch deleted.
+
+## 2026-11-11T21:26Z — his word: the optional live-database count is dropped
+
+His typed words, in this session, after being told the count was the one item left in his queue:
+
+> "drop it"
+
+Effect: check 2 of the owner-checks handoff is withdrawn by him; the query
+(`verification/fix-website-save-gate-embeds/devops/live-db-read.sql`) was not run and no count
+exists. The handoff is closed `Addressed` under `handoff/closed/`; `OWNER-QUEUE.md` holds no item.
+Nothing of this thread's waits on him.

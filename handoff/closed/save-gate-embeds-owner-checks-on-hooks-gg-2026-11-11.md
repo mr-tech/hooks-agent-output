@@ -1,7 +1,7 @@
 ---
 UUID: 76413abf
-Status: Open
-Status-Detail: "Released 2026-11-11T10:13Z (website master 0e3d903). Check 1 (the Save flows on hooks.gg) is closed by the owner's selection of 2026-11-11T21:18Z on an agent's run: ordinary saves passed, the two named flows NOT EXECUTED because the live editor cannot build their shapes; they stay unobserved on hooks.gg. Owed: only his optional live-database read (check 2), which blocks nothing."
+Status: Addressed
+Status-Detail: "Released 2026-11-11T10:13Z (website master 0e3d903). Check 1 (the Save flows on hooks.gg) is closed by the owner's selection of 2026-11-11T21:18Z on an agent's run: ordinary saves passed, the two named flows NOT EXECUTED because the live editor cannot build their shapes; they stay unobserved on hooks.gg. Check 2 (his optional live-database read) was dropped on his word the same day ('drop it'): not run, no count taken. Nothing is owed."
 Owning-Stage: Owner (his own checks); the steering thread carries it to him and closes this on his reported result
 Review-Trigger: when the owner next saves a Components V2 message on hooks.gg, or reports a "Message Update Detected" prompt after a save, or runs the live-database read
 ---
@@ -55,3 +55,4 @@ Raised by devops at the release of chain `fix-website-save-gate-embeds` (rulings
 | 2026-11-11T21:17 | uat-fix-website-save-gate-embeds | **Disclosures.** A `beforeunload` dialog blocked the walker twice. Two run outputs were lost and the saves behind them may have landed (6009, 6010). So 6010's recorded run started from an already-stored classic row, and runs A–C were rerun with the dialog auto-accepted. `run-B.json`, `run-C.json` and `run-D.json` are the walker's summaries of the tool output, not verbatim; 6012's frames were not captured. 6012 holds the username "uat save-gate D" and one empty Text Display (a mistyped field, the test account's own message). Screenshots stay uncommitted. |
 | 2026-11-11T21:18 | steering-queue-hooks | Check 1 closed on the owner's selection "Agent: close it as checked" (`steering/queue-hooks-rulings.md`, block 2026-11-11T21:18Z), on the rows above. Status-Detail replaced (its author session has exited). The handoff stays Open for check 2 alone; `OWNER-QUEUE.md` carries that as its one item. |
 | 2026-11-11T21:19 | steering-queue-hooks | Record correction: the five rows above carried the stamp 21:18, later than the commit that introduced them (`fa4d863`, 21:17Z; `check-repo.js` CHANGELOG-ROW-VS-COMMIT); stamps set to 21:17, their author session having exited. Their 'Build observed … 21:04–21:30Z' window cannot end after that commit; the text is left as written. |
+| 2026-11-11T21:26 | steering-queue-hooks | Handoff closed. Status: Addressed. Check 2 dropped on the owner's typed words "drop it" (`steering/queue-hooks-rulings.md`, the block after 2026-11-11T21:18Z); the query was not run by anyone. Check 1 closed earlier on his selection. |

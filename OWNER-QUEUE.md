@@ -25,12 +25,3 @@ commit message states what the deleted text carried and where it went. **The sam
 lines about items nobody is waiting on.** If it does not need the owner to act, it is not here.
 
 ---
-
-## 1. Optional: count the stored messages the Save fix will tidy
-
-The fix repairs nothing already stored; a V2 message saved earlier beside an empty embed is cleaned
-only the next time someone saves it. If you want to know how many exist, run the read-only query in
-`agent-output/verification/fix-website-save-gate-embeds/devops/live-db-read.sql` against the live
-database and tell the steering session the number of rows. No agent reads that database.
-
-**Do you want this count, or should it be dropped?** Say "drop it" and this item is deleted.
