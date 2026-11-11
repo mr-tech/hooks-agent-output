@@ -23,17 +23,17 @@ section cites them.
 | implementer | Decisions Register; Requirement ledger — the refusal class; M1 — The send check refuses the ledger's class and says which; M1b — The preview route shows no validation chrome (D-14); M2 — The 1024 description bound in the constant and both inputs (Save does not refuse) |
 | code-reviewer | Assumptions and open questions; M1 — The send check refuses the ledger's class and says which; M1b — The preview route shows no validation chrome (D-14); M2 — The 1024 description bound in the constant and both inputs (Save does not refuse); Exclusions |
 | qa | Requirement ledger — the refusal class; M1 — The send check refuses the ledger's class and says which; M1b — The preview route shows no validation chrome (D-14); Testing Strategy; Risks |
-| uat | Value Statement and Business Objective; Decisions Register; M1b — The preview route shows no validation chrome (D-14); Risks |
+| uat | Value Statement and Business Objective; M1 — The send check refuses the ledger's class and says which; M1b — The preview route shows no validation chrome (D-14); M2 — The 1024 description bound in the constant and both inputs (Save does not refuse); Risks |
 | devops | M3 — Release (devops); M1b — The preview route shows no validation chrome (D-14) (its rollback paragraph, SE-6); Stored rows and the public API (A-4's consequence); Exclusions |
 
 Owed re-verdicts:
 
 | Limb | Decidable since | Owning gate | State |
 |---|---|---|---|
-| M1b's class as a property, with seven members by code read (AC1b-1) | revision 4 | QA (by-render enumeration), critic, architect | open |
-| AC1b-3's signal form (AF-13) | revision 4 | architect | open |
-| AC1b-4's post-deploy member (b) | revision 4 | QA (B-6), critic (F-13) | open |
-| RK-5, X-11 | revision 4 | critic | open |
+| M1b's class as a property, with seven members by code read (AC1b-1) | revision 4 | QA (by-render enumeration), critic, architect | critic and architect approved (`01eeaad`, `47c7a4c`); QA open |
+| AC1b-3's signal form (AF-13) | revision 4 | architect | approved (`47c7a4c`) |
+| AC1b-4's post-deploy member (b) | revision 4 | QA (B-6), critic (F-13) | critic resolved F-13 (`01eeaad`); QA open |
+| RK-5, X-11 | revision 4 | critic | approved (`01eeaad`) |
 
 ## Changelog
 
@@ -45,6 +45,7 @@ Owed re-verdicts:
 | 2026-11-11T11:05 | 2 | planner-hooks-016 | Folds three gate reads of revision 1: critique cycle 1 pass 1, F-1 to F-10 (`2e26556`); architecture conformance, AF-1 to AF-5 and AF-7 (`c61a96f`); QA Phase 1, QAF-1 to QAF-8 (`803a97c`). The arguments live in those documents. Scope delta: M1's measured population is now the 116-member corpus (AC1-1, AC1-4), placement covers every limb (AC1-2), L5 and L6 cover absent forms, and L8 defines an emoji and takes D-9's whitespace rule by riding selection 18. M1 gains AC1-6p (post-deploy), AC1-9 (every other message keeps today's result), AC1-10 (env-free imports) and AC1-11 (lint). The reason line's `/preview` surface is stated. M2's AC2-2 is split into a suite half and B-2. Rider R1 is dropped (F-6, D-13). Size against the original ask: unchanged, one send-check change plus the 1024 bound, with tighter criteria and no new milestone. |
 | 2026-11-11T11:13 | 3 | planner-hooks-016 | Folds the owner's selection 23 (rulings block "2026-11-11T11:11Z — selection 23", record `c966305`) as D-14, and QA's QAF-9 from its re-key on revision 2 (`77b1fd6`). The critique (`5c1512f`) and the architecture delta (`2520ac7`) approved revision 2. Scope delta: milestone M1b added (the preview route shows no validation chrome, every error line included), reversing plan 015 D33. M1's whitespace-empty predicate is restated per character, and the corpus is re-pinned to QA's 120 members. Since approval of the value statement: three revisions and two gate rounds; M1b is the one milestone added. Size against the original ask: one send-check change plus the 1024 bound, and by his word one shared preview-chrome change. |
 | 2026-11-11T11:18 | 4 | planner-hooks-016 | Folds the three gate reads of revision 3: architecture delta AF-12 and AF-13 (`0bb1084`, range corrected at `ccaa340`), critique cycle 2 pass 1 F-12 to F-14 (`56b2916`), and QA's re-key QAF-10, QAF-11 and SE-6 (`d5466ab`). The arguments live in those documents. Scope delta: M1b's class is now the property over everything `DiscordMessageEditor` renders on `/preview`, with seven members (Author's username line added) and each other candidate dispositioned from code at `0e3d903`. The signal takes the `showEdit` prop route (AC1b-3). AC1b-4's post-deploy limb gains the 41-component member that distinguishes fixed from unfixed. RK-5 states the residue in already-generated images, and M1b's rollback is tied to M1's (SE-6). This rides selection 23 ("no error lines or red border at all"), and no milestone is added. X-11 and a Reading Order are added (the body is past 500 lines). Since approval of the value statement: four revisions and three gate rounds. Size against the original ask: unchanged from revision 3. |
+| 2026-11-11T11:21 | R-2 | planner-hooks-016 | Verdicts on revision 4: the architect APPROVED with no findings (`architecture/016-send-check-validity-architecture-findings.md`, `47c7a4c`), and critique cycle 2 pass 2 APPROVED (`critiques/016-send-check-validity-cycle2-critique.md`, `01eeaad`). Editorial changes: a duplicated Testing Strategy sentence removed (architect's note), and M1 and M2 added to the Reading Order's uat row (critique F-15). No requirement changed; the revision stays 4. |
 
 ## Value Statement and Business Objective
 
@@ -455,7 +456,7 @@ stays as it is (X-9).
 QA sequencing: QA Phase 1 runs before implementation (D-2). It has read revisions 1 to 3, its
 findings are folded here, and it re-keys on revision 4, running M1b's by-render enumeration. The
 browser walks are B-1, B-2 and B-5 (UAT, pre-release) and B-3, B-4 and B-6 (post-deploy). Cases,
-fixtures and coverage are QA's. Cases, fixtures and coverage are QA's.
+fixtures and coverage are QA's.
 
 ## Validation
 
@@ -549,7 +550,8 @@ Updated 2026-11-11T11:18Z, `planner-hooks-016`, at revision 4.
   `56b2916`, QA `d5466ab`) and is delivered by SendMessage to `critic-hooks-016`, `architect-hooks-016`
   and `qa-hooks-016`.
 - **Next:** wait for all three verdicts on revision 4, then fold them into one revision. Each later
-  read of the plan is `git diff <rev-4 commit> HEAD -- planning/016-send-check-validity.md`.
+  read of the plan is `git diff c249af3 HEAD -- planning/016-send-check-validity.md`. The architect
+  approved revision 4 (`47c7a4c`), as did the critic (`01eeaad`). QA is pending.
   When every pre-code gate has approved the same revision, report the plan ready for implementation
   to steering, as a spawn cue for the implementer.
 - **Open to the owner:** nothing. Design decision 2 (labels take D-9's rule, riding selection 18)
