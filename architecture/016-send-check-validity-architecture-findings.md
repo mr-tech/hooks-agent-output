@@ -3,7 +3,7 @@ ID: 016
 Origin: 016
 UUID: 54673438
 Status: Active
-Status-Detail: "Delta pass on plan 016 revision 6 (record 07e2e41): APPROVED; AF-14 LOW lodged as a Problem Area. Owed after implementation, by devops Stage 1: AF-4's D-10 clause in website.md A-4, the preview-chrome Problem Area's closure, and the /preview signal under D-001. AF-4's A-4 clause lands at this chain's reconciliation, no later than devops Stage 1."
+Status-Detail: "Delta pass on plan 016 revision 6 (record 07e2e41): APPROVED; AF-14 LOW declined for this chain (plan R-8), carried by its Problem Area. Owed after implementation, by devops Stage 1: AF-4's D-10 clause in website.md A-4, the preview-chrome Problem Area's closure, and the /preview signal under D-001. AF-4's A-4 clause lands at this chain's reconciliation, no later than devops Stage 1."
 ---
 
 # Architecture Findings — Plan 016: the send check refuses what Discord refuses (conformance pass)
@@ -20,6 +20,7 @@ Status-Detail: "Delta pass on plan 016 revision 6 (record 07e2e41): APPROVED; AF
 | 2026-11-11T11:21 | Delta pass, plan rev 4 (`c249af3`, read as the diff from `0c01944`), on planner-hooks-016's request | AF-12 is folded as a property settled by render, with seven members. **AF-12's sub-component member list is withdrawn; the error was mine.** The embed parts and DiscordContentEditor return under `if (!showEdit)` before their chrome, and Author's ring is never painted read-only. AF-13 is folded. SE-6, RK-5, X-11 and AC1b-4 conform. **APPROVED.** The post-implementation reconciliation items are listed in the verdict. |
 | 2026-11-11T11:41 | Delta pass, plan rev 5 (`b2d78b0`, read as the diff from `a9bb644`; R-2's `c249af3`..`a9bb644` read too), by a fresh generation (brief `steering/queue-hooks-briefs/architect-016-respawn-brief.md`) | QAF-12's fold conforms. AC1b-1 checks Author's compact branch at the component, with the signal passed as a prop beside `showEdit` (AF-13). That follows the existing isolated sub-component test form. R-2 is editorial. Nothing my rev 4 pass rested on moved. **APPROVED.** |
 | 2026-11-11T11:53 | Delta pass, plan rev 6 (`07e2e41`, read as the diff from `678c8b4`), started by steering-queue-hooks (criterion-changing revision; the planner did not cue it) | The narrowing of AC1-11 and X-12 add no architectural surface, and X-12's claims about the code hold at `0e3d903`. AF-14 LOW: a generated, byte-pinned fixture inside `eslint --fix`'s scope can be rewritten away from its generator. This is a design variant on a form the delta did not change, so it is lodged as a Problem Area and no revision is asked for. **APPROVED.** |
+| 2026-11-11T11:55 | AF-14 dispositioned (planner-hooks-016's message; plan R-8, `343d62e`) | Declined for this chain. It is carried after closure by the Problem Area, which X-12 names. |
 
 ## Verdict (rev 6, `07e2e41`, read as the diff from `678c8b4`): APPROVED
 
@@ -66,6 +67,11 @@ contradicts its own header.
 **Disposition.** It is registered as a Problem Area in `system-architecture.md` (changelog
 2026-11-11T11:53). If the planner or QA chooses option 1 inside this chain, it costs a generator
 edit and a re-pin. The choice is theirs. My verdict does not depend on it.
+
+**Dispositioned: declined for this chain** (planner, plan R-8, record `343d62e`). A re-pin would
+re-open AC1-1 in the middle of implementation, and QA concurred. Its carrier after closure is the
+Problem Area in `system-architecture.md`, which X-12 names. Nothing of AF-14 stays open in this
+document.
 
 ## Verdict (rev 5, `b2d78b0`, read as the diff from `a9bb644`): APPROVED
 
