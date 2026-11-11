@@ -1,14 +1,13 @@
 ---
 UUID: 4eb89197
 Parent: 007-components-v2-displayable-text-limit
-Status: Active
+Status: Answered
 Status-Detail: >-
-  The question is answered by measurement: Thumbnail and MediaGallery item descriptions do not
-  count toward Discord's 4000-character Components V2 displayable-text total (F-1 to F-4). The
-  document stays Active for one item only: F-6, an adjacent verified finding outside the brief's
-  question (Discord bounds each description at 1024 characters and the website bounds neither),
-  has no carrier this session may write. It was sent to steering-queue-hooks; the document closes
-  as Answered when F-6's carrier is named (OQ-1).
+  Answered by measurement: Thumbnail and MediaGallery item descriptions do not count toward
+  Discord's 4000-character Components V2 displayable-text total (F-1 to F-4). The adjacent finding
+  F-6 (Discord bounds each description at 1024 characters and the website bounds neither) is
+  carried by steering/queue-hooks-rulings.md, block "2026-11-11T08:48Z — selection 11", and
+  TODO.md, section "Website fix: bound V2 description fields at 1024 characters".
 ---
 
 # Do Thumbnail and MediaGallery descriptions count toward the Components V2 4000-character text total?
@@ -19,6 +18,7 @@ Status-Detail: >-
 |---|---|---|---|
 | 2026-11-11T08:44 | researcher-hooks-text-limit | Created with the question, three probe runs (36 requests), findings F-1 to F-6, process facts and the one open item | Active |
 | 2026-11-11T08:46 | researcher-hooks-text-limit | OQ-1 now cites the ruling read and why its words do not answer F-6 | Active |
+| 2026-11-11T08:48 | researcher-hooks-text-limit | OQ-1 resolved: F-6's carrier named by steering-queue-hooks and read at the files. Document closed | Status: Answered |
 
 ## Question
 
@@ -43,9 +43,9 @@ question as asked. One adjacent finding (F-6) does raise one.
 ## Context
 
 - The assumption under test is plan 007's Assumption 1
-  (`../planning/closed/007-components-v2-displayable-text-limit.md`): only `TextDisplay.content`
+  (`../../planning/closed/007-components-v2-displayable-text-limit.md`): only `TextDisplay.content`
   counts. Its paired analysis
-  (`../analysis/closed/007-components-v2-displayable-text-limit-analysis.md`, Open Questions 1)
+  (`../../analysis/closed/007-components-v2-displayable-text-limit-analysis.md`, Open Questions 1)
   recommended a live proof that was never run. The question was carried in `OPEN_QUESTIONS.md`
   until `a22fb73` (entry "one live send would close a four-month-old assumption") and deleted from
   that file when this session took it.
@@ -234,17 +234,14 @@ These bound the answer; none is part of the question as asked.
 
 ## Open Questions
 
-| # | Question | What would close it |
-|---|---|---|
-| OQ-1 | F-6 is a verified gap outside the brief's question, and whether and how the website should bound descriptions is the owner's. This session may write only research documents, so it cannot create F-6's carrier | `steering-queue-hooks` names the carrier (an owner-queue entry or a handoff path). This document then records it and closes as Answered |
+OQ-1 RESOLVED — F-6 (the 1024-character description limit the website does not enforce) went to
+the owner through `steering-queue-hooks`; he chose "Agent: scope a fix (Recommended)". Carried by
+`../../steering/queue-hooks-rulings.md`, block "2026-11-11T08:48Z — selection 11" (`74a4a44`), and
+`../../TODO.md`, section "Website fix: bound V2 description fields at 1024 characters". Both read
+by this session at 2026-11-11T08:48Z. The argument that stood here is in this document at
+`de54612`.
 
-Why no existing ruling answers OQ-1: the ruling read is `steering/queue-hooks-rulings.md`, block
-"selections 1 to 4", prompt 3. Its chosen option speaks only of whether descriptions count toward
-the 4000 total ("400 with 50035 means they do and the website's limit check is too generous, which
-comes back to you as a separate fix question"). F-6 is a different limit, the per-description
-length, which that option does not name. The rulings file mentions descriptions on two lines, both
-inside prompt 3 (`grep -n -i "1024\|description"`), and `OWNER-QUEUE.md`, `TODO.md` and `INBOX.md`
-mention neither "thumbnail" nor "gallery" (`grep -ci`, 0 each).
+None open.
 
 ## Process facts of this run
 
@@ -282,7 +279,7 @@ mention neither "thumbnail" nor "gallery" (`grep -ci`, 0 each).
 
 ## Recommendations (investigation only)
 
-1. Route F-6 (OQ-1). Nothing further needs investigating to state it.
+1. F-6 is routed (Open Questions, OQ-1). Nothing further needs investigating to state it.
 2. If the 4000 check is ever revisited, N-3 and N-1 are the two unmeasured ways it could still
    disagree with Discord. Each is one control pair plus one case with the probe below.
 
