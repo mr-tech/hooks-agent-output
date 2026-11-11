@@ -157,7 +157,7 @@ before their error lines when `!showEdit`. `EmbedFooter`'s line is commented out
 sits under `ComponentEditor`, which renders in edit mode. **Asked:** add Author's line as a seventh
 member (AC1b-1, AC1b-2, cozy and compact both). The alternative is to state it out, but that departs
 from D-14's "at all" and would need the owner. Also say whether `styles.errorStateBorder` on the
-author header is chrome. The code is unread past the class name, which is residue unless stated.
+author header is chrome. The code is unread past the class name, which is residue unless stated. Duplicates: F-12 in critiques/016-send-check-validity-cycle2-critique.md
 
 QAF-11 LOW Phase 1 — **AC1b-4's post-deploy member cannot tell fixed from unfixed.** It reads "the preview
 image of a test-account V2 message saved with an unfilled component carries no red line". At `0e3d903`
@@ -165,7 +165,9 @@ image of a test-account V2 message saved with an unfilled component carries no r
 other line fires for it (B-3's code read). So the image is clean before and after the release. A member
 whose line exists at the base does distinguish: 41 Text Displays (`componentCountError`, "Message has 41
 components; the limit is 40.") or an empty username (QAF-10). **Asked:** add one such member to
-AC1b-4's post-deploy limb. Register row B-6 carries both members now.
+AC1b-4's post-deploy limb. Register row B-6 carries both members now. Duplicates: F-13 in critiques/016-send-check-validity-cycle2-critique.md
+
+Reconcile at commit: the critic's cycle 2 pass (record `56b2916`, 8 s before this pass's `c121e92`) raised both independently. F-12 adds what this pass did not read: the architect's AF-12 names `src/components/DiscordContentEditor/{Desktop,Mobile}.tsx` (a ring, an erroring counter, "Too long."), and both gates route M1b's membership to a **by-render enumeration**. QA owes that enumeration at its re-key on the next revision: mount `DiscordMessageEditor` as `/preview` does over every validator's trigger and collect every `.text-error`, `errorBorder`, `errorStateBorder` and `data-erroring-state` it emits, beside a control that renders none.
 
 No finding against D-10, AC2-3, AC1-10, AC1-11, the stored-row residue, or rider R1's drop. AC2-3's "the
 save schema admits a 1025-character description at the tip" is the owner's ruling (W-2, D-10), not a
