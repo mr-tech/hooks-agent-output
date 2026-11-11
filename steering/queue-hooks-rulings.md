@@ -1084,3 +1084,10 @@ By the plan's changelog: seven revisions and six gate rounds since the value sta
 Conformance: the planner requested no architect pass on revision 7. This thread asks
 `architect-hooks-016` for the delta pass, as at revision 6 (a criterion's text changed). V-101: an
 Opus critic subagent is started over revision 7; its block follows.
+
+## 2026-11-11T13:00Z — M1's cap: its voiding events (asked by the planner for plan R-11)
+
+The cap of the 12:59Z block ends on the first of: (1) the owner's word lifting or changing it;
+(2) this thread's withdrawal, recorded in this file; (3) plan 016 reaching a terminal `Status`.
+A HIGH or CRITICAL finding on M1 does not void it: that finding takes its normal route and the cap
+stands for every other gap. This thread's wording; the 12:59Z block omitted it.
