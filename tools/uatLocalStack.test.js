@@ -418,10 +418,10 @@ describe('uat-local-stack.sh', () => {
     });
 
     const sequenceCases = [
-      ['up on a container it creates', ['up'], null, ['push', 'sequence']],
+      ['up on a container it creates', ['up'], null, ['push', 'low-ids', 'sequence']],
       ['up --seed', ['up', '--seed'], null, ['push', 'seed', 'low-ids', 'sequence']],
-      ['up reusing the tool\'s running container', ['up'], 'running', ['push', 'sequence']],
-      ['up starting the tool\'s stopped container', ['up'], 'exited', ['push', 'sequence']],
+      ['up reusing the tool\'s running container', ['up'], 'running', ['push', 'low-ids', 'sequence']],
+      ['up starting the tool\'s stopped container', ['up'], 'exited', ['push', 'low-ids', 'sequence']],
     ];
     for (const [label, args, prior, order] of sequenceCases) {
       it(`${label}: moves the message-id sequence out of production's range after the push and any seed, and prints the next id`, async () => {
@@ -640,6 +640,20 @@ describe('uat-local-stack.sh', () => {
         assert.doesNotMatch(r.stdout, /^(tables|message ids):/m);
         assert.deepStrictEqual(stateOf('order').split('\n').filter(Boolean), ['push', 'seed', 'low-ids']);
         assert.deepStrictEqual(mutating(), ['run', 'rm']);
+      });
+    }
+
+    for (const [label, prior, left, state] of [['reusing the tool\'s running container', 'running', [], 'running'], ['starting the tool\'s stopped container', 'exited', ['start', 'stop'], 'exited']]) {
+      it(`up ${label} that holds a message below the floor fails before the sequence move and leaves the container as found`, async () => {
+        await fresh();
+        container(prior);
+        const r = run(['up'], { STUB_LOW_IDS: '1' });
+        assert.strictEqual(r.status, 1, r.out);
+        assert.match(r.out, /below 900000000000001/);
+        assert.doesNotMatch(r.stdout, /^(tables|message ids):/m);
+        assert.deepStrictEqual(stateOf('order').split('\n').filter(Boolean), ['push', 'low-ids']);
+        assert.deepStrictEqual(mutating(), left);
+        assert.strictEqual(stateOf('state').trim(), state);
       });
     }
 

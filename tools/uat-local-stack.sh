@@ -6,10 +6,9 @@
 # loopback is refused before any container, network or schema act. The URL and its password are never printed.
 #
 #   up           create (labelled), or reuse or start the tool's own container, wait until it accepts connections,
-#                push project-utils/prisma/schema.prisma (db push --skip-generate), move "Messages_id_seq" so the next
-#                id is at least 900000000000001 and past every stored id, print the next id and the table count
-#   up --seed    the same, applying seed.sql before the sequence move and failing if a seeded message id is below
-#                900000000000001; only to an empty container this call created
+#                push project-utils/prisma/schema.prisma (db push --skip-generate), fail if a stored message id is below
+#                900000000000001, move "Messages_id_seq" past every stored id, print the next id and the table count
+#   up --seed    the same, applying seed.sql before the id check; only to an empty container this call created
 #   status       five lines: container, listener, ready, tables, redis. Changes nothing
 #   down         stop and remove the tool's container; the image stays. Refuses a same-named container it did not label
 #
@@ -138,10 +137,11 @@ listening() {
 
 pg_ready() { "$DOCKER" exec "$NAME" pg_isready -h 127.0.0.1 -p 5432 -U "$DB_USER" -d "$DB_NAME" >/dev/null 2>&1; }
 
-table_count() {
-  PGPASSWORD=$DB_PASS "$DOCKER" exec -e PGPASSWORD "$NAME" psql -U "$DB_USER" -d "$DB_NAME" -tAc \
-    "select count(*) from information_schema.tables where table_schema = 'public'" 2>/dev/null | tr -d '[:space:]'
+psql_value() {
+  PGPASSWORD=$DB_PASS "$DOCKER" exec -e PGPASSWORD "$NAME" psql -U "$DB_USER" -d "$DB_NAME" -tAc "$1" 2>/dev/null | tr -d '[:space:]'
 }
+
+table_count() { psql_value "select count(*) from information_schema.tables where table_schema = 'public'"; }
 
 undo() {
   if [ "$RUN_BEGUN" = 1 ]; then
@@ -226,15 +226,12 @@ cmd_up() {
     PGPASSWORD=$DB_PASS "$DOCKER" exec -i -e PGPASSWORD "$NAME" psql -v ON_ERROR_STOP=1 -U "$DB_USER" -d "$DB_NAME" <"$SEED_FILE" >/dev/null 2>&1 \
       || fail "seed failed"
     echo "seed: applied"
-    local low
-    low=$(PGPASSWORD=$DB_PASS "$DOCKER" exec -e PGPASSWORD "$NAME" psql -U "$DB_USER" -d "$DB_NAME" -tAc \
-      'select count(*) from "Messages" where id < 900000000000001' 2>/dev/null | tr -d '[:space:]')
-    [ "$low" = 0 ] || fail "the seed leaves stored message ids below 900000000000001 (count: ${low:-unread})"
   fi
 
-  local floor=900000000000000 v
-  v=$(PGPASSWORD=$DB_PASS "$DOCKER" exec -e PGPASSWORD "$NAME" psql -U "$DB_USER" -d "$DB_NAME" -tAc \
-    "select setval('\"Messages_id_seq\"', greatest($floor, coalesce((select max(id) from \"Messages\"), 0)))" 2>/dev/null | tr -d '[:space:]')
+  local low floor=900000000000000 v
+  low=$(psql_value 'select count(*) from "Messages" where id < 900000000000001')
+  [ "$low" = 0 ] || fail "the database holds stored message ids below 900000000000001 (count: ${low:-unread}); recreate it, do not reuse it"
+  v=$(psql_value "select setval('\"Messages_id_seq\"', greatest($floor, coalesce((select max(id) from \"Messages\"), 0)))")
   case "$v" in ''|*[!0-9]*) fail "message-id sequence move failed" ;; esac
   [ "$v" -ge "$floor" ] || fail "message-id sequence reads $v, inside production's range"
   echo "message ids: next $((v + 1))"

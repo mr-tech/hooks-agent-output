@@ -1,0 +1,25 @@
+port 39543
+$ up
+schema push: ok
+message ids: next 900000000000001
+container: hooks-postgres-local ready at 127.0.0.1:39543
+tables: 9
+rc 0
+$ insert explicit id 1 (stands for a save on a pre-fix container)
+INSERT 0 1
+INSERT 0 1
+$ up (reuse, running)
+schema push: ok
+uat-local-stack: the database holds stored message ids below 900000000000001 (count: 1); recreate it, do not reuse it
+rc 1
+$ ids below floor
+1
+$ empty Messages, low-id query on missing table
+ERROR:  relation "NoSuch" does not exist
+LINE 1: select count(*) from "NoSuch"
+                             ^
+psql rc 1
+$ down
+down: removed hooks-postgres-local (the image stays)
+rc 0
+0

@@ -1,0 +1,12 @@
+== up --seed with the record's seed (port 39619)
+schema push: ok
+seed: applied
+message ids: next 900000000000002
+container: hooks-postgres-local ready at 127.0.0.1:39619
+tables: 9
+rc 0
+== down
+down: removed hooks-postgres-local (the image stays)
+rc 0
+== containers left
+0

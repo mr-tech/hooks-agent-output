@@ -1,0 +1,257 @@
+▶ uat-local-stack.sh
+  ▶ arguments
+    ✔ exits 2 for [], names the usage and touches nothing (30.241155ms)
+    ✔ exits 2 for ["bogus"], names the usage and touches nothing (31.200425ms)
+    ✔ exits 2 for ["up","--bogus"], names the usage and touches nothing (26.110528ms)
+    ✔ exits 2 for ["down","--seed"], names the usage and touches nothing (26.364043ms)
+    ✔ exits 2 for ["status","extra"], names the usage and touches nothing (22.702702ms)
+    ✔ exits 2 for ["up","up"], names the usage and touches nothing (25.277181ms)
+    ✔ exits 2 for ["up","--seed","--seed"], names the usage and touches nothing (24.060166ms)
+    ✔ -h prints the usage, exits 0 and touches nothing (25.032424ms)
+    ✔ --help prints the usage, exits 0 and touches nothing (24.141747ms)
+  ✔ arguments (236.278529ms)
+  ▶ AC-9.2 local only
+    ✔ refuses 0.0.0.0 with exit 2 before any docker, prisma or network act, and says "local only" (98.359321ms)
+    ✔ refuses 192.168.1.5 with exit 2 before any docker, prisma or network act, and says "local only" (96.285058ms)
+    ✔ refuses db.internal with exit 2 before any docker, prisma or network act, and says "local only" (104.824676ms)
+    ✔ refuses 10.0.0.7 with exit 2 before any docker, prisma or network act, and says "local only" (103.178054ms)
+    ✔ refuses railway.app with exit 2 before any docker, prisma or network act, and says "local only" (96.268551ms)
+    ✔ takes localhost as local: the verb proceeds to the docker act (35.908839ms)
+    ✔ takes [::1] as local: the verb proceeds to the docker act (35.356271ms)
+    ✔ takes 127.0.0.2 as local: the verb proceeds to the docker act (34.498345ms)
+    ✔ takes 127.0.0.1 as local: the verb proceeds to the docker act (32.980029ms)
+    ✔ takes localhost as local through up: the container is published on 127.0.0.1, and status then finds it there (112.383659ms)
+    ✔ takes [::1] as local through up: the container is published on [::1], and status then finds it there (122.004406ms)
+    ✔ takes 127.0.0.2 as local through up: the container is published on 127.0.0.2, and status then finds it there (113.347657ms)
+    ✔ a URL with no port takes 5432 (36.520667ms)
+    ✔ refuses a DATABASE_URL that cannot be parsed without echoing any part of it (23.114104ms)
+    ✔ refuses a URL that is not a postgres URL, or has no user, password or database (97.321233ms)
+    ✔ takes the last DATABASE_URL line, with an export prefix and single quotes read off (62.653092ms)
+    ✔ refuses a file with no DATABASE_URL line (26.602251ms)
+    ✔ reads the "# production"-labelled line of the real file shape: a loopback host there is taken, a remote host there is refused (60.930336ms)
+  ✔ AC-9.2 local only (1293.464026ms)
+  ▶ AC-9.1a up, by the state it finds
+    ✔ no container, port free: creates it labelled, publishes the URL host and port, passes the password by name, waits ready, pushes with --skip-generate and prints the count (63.448177ms)
+    ✔ never passes --accept-data-loss, and carries the password in no argv (65.351963ms)
+    ✔ up --seed on an empty container this call created applies seed.sql after the push (75.849486ms)
+    ✖ up on a container it creates: moves the message-id sequence out of production's range after the push and any seed, and prints the next id (67.130947ms)
+    ✔ up --seed: moves the message-id sequence out of production's range after the push and any seed, and prints the next id (77.119045ms)
+    ✖ up reusing the tool's running container: moves the message-id sequence out of production's range after the push and any seed, and prints the next id (60.141151ms)
+    ✖ up starting the tool's stopped container: moves the message-id sequence out of production's range after the push and any seed, and prints the next id (72.106962ms)
+    ✔ a reused database whose ids are already past the floor keeps counting from its own next id (80.144616ms)
+    ✔ the tool's container running: up reuses it (no run, no start), pushes and counts (68.351645ms)
+    ✔ the tool's container running: up --seed exits 2 before any act (no push, no seed, no mutation) (33.45098ms)
+    ✔ the tool's container stopped: up starts it, pushes and counts (79.434806ms)
+    ✔ the tool's container stopped: up --seed exits 2 without starting it (34.367848ms)
+    ✔ a container of that name without the tool's label: up exits 2 before any act and removes nothing (35.076662ms)
+    ✔ a container of that name without the tool's label: up --seed exits 2 before any act and removes nothing (36.1026ms)
+    ✔ the URL's port held by a stub listener, no container: up exits 2 and the prisma argv log is empty (74.539877ms)
+    ✔ the tool's container running but not publishing the URL's host and port: up exits 2 and the prisma argv log is empty (41.396374ms)
+    ✔ the tool's container stopped while a stub holds the port: up exits 2 without starting it (38.502933ms)
+  ✖ AC-9.1a up, by the state it finds (1003.382248ms)
+  ▶ AC-9.5 a failed up leaves nothing it started
+    ✔ a container this call created is removed when the schema push fails, and the call reports it (62.962322ms)
+    ✔ a container this call created is removed when it never becomes ready (67.539198ms)
+    ✔ a container this call created is removed when the seed fails (67.43845ms)
+    ✔ a refused docker run leaves no container and reports the failure (61.876762ms)
+    ✔ a container the call only reused is left in place when the push fails (53.6676ms)
+    ✔ a container the call started is stopped again when the push fails (77.203643ms)
+    ✔ cleanup removes only a container carrying this call's label: one relabelled after run is left, and the call says so (79.985246ms)
+    ✔ the tool's stopped container that starts but does not publish the URL's host and port: up fails, stops it again and pushes nothing (65.630177ms)
+    ✔ an empty table count after the push fails the call, and the container it created is removed (77.74269ms)
+    ✔ a sequence move that fails fails the call before any table count, and the container it created is removed (79.557125ms)
+    ✔ a sequence read back inside production's range fails the call before any table count, and the container it created is removed (70.238809ms)
+    ✔ a sequence read back that is not a number fails the call before any table count, and the container it created is removed (70.630662ms)
+    ✔ a seed that leaves a message below the floor fails up --seed before the sequence move, and the container it created is removed (75.279582ms)
+    ✔ a seed whose low-id count is not a number fails up --seed before the sequence move, and the container it created is removed (79.17772ms)
+    ✖ up reusing the tool's running container that holds a message below the floor fails before the sequence move and leaves the container as found (60.090151ms)
+    ✖ up starting the tool's stopped container that holds a message below the floor fails before the sequence move and leaves the container as found (69.253254ms)
+    ✔ a sequence move that fails on a container the call started stops it again (80.362383ms)
+    ✔ a docker start that fails is named as that, exits 1, and has nothing to stop (43.490306ms)
+    ✔ cleanup stops a container it started only while it carries the label: one relabelled after start is left, and the call says so (68.091186ms)
+    ✔ every verb writes nothing in website, project-utils, the record or TMPDIR (395.779465ms)
+  ✖ AC-9.5 a failed up leaves nothing it started (1707.117236ms)
+  ▶ AC-9.3 status
+    ✔ no container: five lines, each naming the missing piece, none reporting ready (36.281975ms)
+    ✔ a running, ready container with a redis that answers PING: all five lines read ready, the readiness taken by pg_isready inside the container (95.516377ms)
+    ✔ a running container that is not accepting connections: ready names it, tables are unknown (46.210238ms)
+    ✔ a stopped container is named stopped and not reported ready (37.449996ms)
+    ✔ a container without the tool's label is named as not the tool's (40.689865ms)
+    ✔ a running container of the tool's that does not publish the URL's host and port, with a stub holding the port, reads as another listener (57.641595ms)
+    ✔ a stub holding the port with no container reads as another listener (35.401905ms)
+    ✔ a redis that needs AUTH is answered with REDISPASSWORD sent, not by a bare PING (78.659816ms)
+    ✔ a redis that replies with an error is named as an error, not as no answer and not as ready (63.257916ms)
+    ✔ a REDISHOST that is not loopback is not contacted and is named (33.666856ms)
+    ✔ missing REDISHOST or REDISPORT is named, not reported ready (36.655452ms)
+    ✔ a redis that does not answer is named, not reported ready (35.851438ms)
+  ✔ AC-9.3 status (598.037061ms)
+  ▶ AC-9.4 down
+    ✔ stops and removes the tool's container, keeps the image, and status then reports no container and a free port (72.52911ms)
+    ✔ refuses to remove a same-named container it did not label, with exit 2 (34.400203ms)
+    ✔ with no container, reports that and exits 0 without a removal (30.608857ms)
+  ✔ AC-9.4 down (137.706696ms)
+  ▶ AC-9.5 / CR-6, CR-7
+    ✔ a docker run that creates the container and then fails leaves none behind and says so (61.271184ms)
+    ✔ a docker run that creates the container and then fails removes it by the label value unique to the call, never by the name (126.692217ms)
+    ✔ a same-named, tool-labelled container another session created in the gap is left as found, and the call fails naming it (62.094401ms)
+    ✔ a docker run that succeeds and prints no id is found by the call's label, and removed when the push fails (69.791665ms)
+    ✔ text on the failed docker run's stdout that is not an id identifies nothing: another session's container is left as found (67.458274ms)
+    ✔ a removal docker refuses is not reported as done, is reported as left behind by id, and the container is still there (62.729509ms)
+    ✔ when one of two containers carrying the call's label is removed and the other refused, the refused one is named (65.972749ms)
+    ✔ a stop docker refuses is reported as left running, with the container named, and the call still fails (71.45553ms)
+    ✔ a lookup line that is not a container id is never handed to docker rm (60.875159ms)
+    ✔ a docker run that fails before creating anything reports no removal and removes nothing (61.6146ms)
+    ✔ a SIGTERM while docker run is in flight removes the container that call created, and says so (105.323608ms)
+    ✔ a SIGTERM while docker start is in flight stops the container that call started, and says so (110.842995ms)
+    ✔ a SIGINT while docker run is in flight removes the container that call created, and says so (109.01869ms)
+    ✔ a SIGINT while docker start is in flight stops the container that call started, and says so (108.888873ms)
+    ✔ a SIGHUP while docker run is in flight removes the container that call created, and says so (114.450982ms)
+    ✔ a SIGHUP while docker start is in flight stops the container that call started, and says so (108.675529ms)
+    ✔ the poison docker on the children's PATH fires when the override is ignored, so the guard is observed to work (31.09494ms)
+  ✔ AC-9.5 / CR-6, CR-7 (1399.255804ms)
+  ▶ AC-9.1 prints no credential
+    ✔ across every verb, success and failure path, no output carries the password (either form) or the URL, and the fixture file does (561.362828ms)
+  ✔ AC-9.1 prints no credential (561.456502ms)
+  ▶ AC-9.1 prints no credential: each failure path of up
+    ✔ a non-loopback host: exit 2 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (24.977042ms)
+    ✔ a LAN host: exit 2 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (25.857558ms)
+    ✔ an unparsable URL: exit 2 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (26.692572ms)
+    ✔ a URL with no scheme: exit 2 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (26.712944ms)
+    ✔ a docker run that fails: exit 1 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (62.877896ms)
+    ✔ a docker run that creates and then fails: exit 1 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (62.688329ms)
+    ✔ a docker run that meets another session's container: exit 1 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (63.01636ms)
+    ✔ a schema push that fails: exit 1 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (62.153864ms)
+    ✔ a seed that fails: exit 1 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (67.918111ms)
+    ✔ a container that never becomes ready: exit 1 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (63.640757ms)
+    ✔ an empty table count: exit 1 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (74.914209ms)
+    ✔ a sequence move that fails: exit 1 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (71.459614ms)
+    ✔ a seed that leaves a message below the floor: exit 1 and no output carries the password (either form), the URL's userinfo or a postgresql:// URL (81.167067ms)
+  ✔ AC-9.1 prints no credential: each failure path of up (714.817756ms)
+  ▶ AC-8.8 / D-16 stubs are found whatever the temp path holds
+    ✔ with the fixture under a folder named with a colon, every docker and prisma the verbs run is the fixture stub (146.36971ms)
+  ✔ AC-8.8 / D-16 stubs are found whatever the temp path holds (146.481053ms)
+✖ uat-local-stack.sh (7847.319165ms)
+ℹ tests 111
+ℹ suites 11
+ℹ pass 106
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7915.187615
+
+✖ failing tests:
+
+test at tools/uatLocalStack.test.js:427:7
+✖ up on a container it creates: moves the message-id sequence out of production's range after the push and any seed, and prints the next id (67.130947ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      'push',
+  -   'low-ids',
+      'sequence'
+    ]
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/uatLocalStack.test.js:436:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'push', 'sequence' ],
+    expected: [ 'push', 'low-ids', 'sequence' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tools/uatLocalStack.test.js:427:7
+✖ up reusing the tool's running container: moves the message-id sequence out of production's range after the push and any seed, and prints the next id (60.141151ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      'push',
+  -   'low-ids',
+      'sequence'
+    ]
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/uatLocalStack.test.js:436:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'push', 'sequence' ],
+    expected: [ 'push', 'low-ids', 'sequence' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tools/uatLocalStack.test.js:427:7
+✖ up starting the tool's stopped container: moves the message-id sequence out of production's range after the push and any seed, and prints the next id (72.106962ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      'push',
+  -   'low-ids',
+      'sequence'
+    ]
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/uatLocalStack.test.js:436:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'push', 'sequence' ],
+    expected: [ 'push', 'low-ids', 'sequence' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tools/uatLocalStack.test.js:647:7
+✖ up reusing the tool's running container that holds a message below the floor fails before the sequence move and leaves the container as found (60.090151ms)
+  AssertionError [ERR_ASSERTION]: schema push: ok
+  message ids: next 900000000000001
+  container: hooks-postgres-local ready at 127.0.0.1:39143
+  tables: 7
+  
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/uatLocalStack.test.js:651:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/uatLocalStack.test.js:647:7
+✖ up starting the tool's stopped container that holds a message below the floor fails before the sequence move and leaves the container as found (69.253254ms)
+  AssertionError [ERR_ASSERTION]: schema push: ok
+  message ids: next 900000000000001
+  container: hooks-postgres-local ready at 127.0.0.1:41371
+  tables: 7
+  
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/uatLocalStack.test.js:651:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+exit 1
