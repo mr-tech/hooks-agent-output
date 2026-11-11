@@ -31,7 +31,7 @@ Owed re-verdicts:
 | Limb | Decidable since | Owning gate | State |
 |---|---|---|---|
 | M1b's class as a property, seven members, settled by render (AC1b-1) | revision 4 | QA (by-render enumeration), critic, architect | QA found exactly seven (`96fbc66`); critic and architect approved revision 4 (`01eeaad`, `47c7a4c`); revision 5 owed to all three |
-| AC1b-1's Author limb: cozy on `/preview`, compact at the component (QAF-12) | revision 5 | QA, critic, architect | open |
+| AC1b-1's Author limb: cozy on `/preview`, compact at the component (QAF-12) | revision 5 | QA, critic, architect | QA approved revision 5 (`97343f0`); critic and architect open |
 | AC1b-3's signal form (AF-13) | revision 4 | architect | approved (`47c7a4c`); revision 5 owed |
 | AC1b-4's post-deploy member (b) | revision 4 | QA (B-6), critic (F-13) | critic resolved F-13 (`01eeaad`); QA carries it in B-6 (`96fbc66`); revision 5 owed |
 | RK-5, X-11 | revision 4 | critic | approved (`01eeaad`); revision 5 owed |
@@ -47,7 +47,8 @@ Owed re-verdicts:
 | 2026-11-11T11:13 | 3 | planner-hooks-016 | Folds the owner's selection 23 (rulings block "2026-11-11T11:11Z — selection 23", record `c966305`) as D-14, and QA's QAF-9 from its re-key on revision 2 (`77b1fd6`). The critique (`5c1512f`) and the architecture delta (`2520ac7`) approved revision 2. Scope delta: milestone M1b added (the preview route shows no validation chrome, every error line included), reversing plan 015 D33. M1's whitespace-empty predicate is restated per character, and the corpus is re-pinned to QA's 120 members. Since approval of the value statement: three revisions and two gate rounds; M1b is the one milestone added. Size against the original ask: one send-check change plus the 1024 bound, and by his word one shared preview-chrome change. |
 | 2026-11-11T11:18 | 4 | planner-hooks-016 | Folds the three gate reads of revision 3: architecture delta AF-12 and AF-13 (`0bb1084`, range corrected at `ccaa340`), critique cycle 2 pass 1 F-12 to F-14 (`56b2916`), and QA's re-key QAF-10, QAF-11 and SE-6 (`d5466ab`). The arguments live in those documents. Scope delta: M1b's class is now the property over everything `DiscordMessageEditor` renders on `/preview`, with seven members (Author's username line added) and each other candidate dispositioned from code at `0e3d903`. The signal takes the `showEdit` prop route (AC1b-3). AC1b-4's post-deploy limb gains the 41-component member that distinguishes fixed from unfixed. RK-5 states the residue in already-generated images, and M1b's rollback is tied to M1's (SE-6). This rides selection 23 ("no error lines or red border at all"), and no milestone is added. X-11 and a Reading Order are added (the body is past 500 lines). Since approval of the value statement: four revisions and three gate rounds. Size against the original ask: unchanged from revision 3. |
 | 2026-11-11T11:21 | R-2 | planner-hooks-016 | Verdicts on revision 4: the architect APPROVED with no findings (`architecture/016-send-check-validity-architecture-findings.md`, `47c7a4c`), and critique cycle 2 pass 2 APPROVED (`critiques/016-send-check-validity-cycle2-critique.md`, `01eeaad`). Editorial changes: a duplicated Testing Strategy sentence removed (architect's note), and M1 and M2 added to the Reading Order's uat row (critique F-15). No requirement changed; the revision stays 4. |
-| 2026-11-11T11:44 | 5 | planner-hooks-016 | Folds QAF-12 LOW from QA's re-key on revision 4 (`qa/016-send-check-validity-qa.md`, record `96fbc66`), the one finding of the three gate reads of revision 4 (critic `01eeaad` and architect `47c7a4c` approved). AC1b-1's Author limb is checked on `/preview` in cozy, the only style the route renders, and in compact at the component, as QA asked; M1b's table records that QA's render settled the seven members. Scope delta: AC1b-1's wording only, no milestone added, removed or widened; the whitespace limb is not touched. Since approval of the value statement: five revisions and four gate rounds. Size against the original ask: unchanged from revision 3. |
+| 2026-11-11T11:40 | 5 | planner-hooks-016 | Folds QAF-12 LOW from QA's re-key on revision 4 (`qa/016-send-check-validity-qa.md`, record `96fbc66`), the one finding of the three gate reads of revision 4 (critic `01eeaad` and architect `47c7a4c` approved). AC1b-1's Author limb is checked on `/preview` in cozy, the only style the route renders, and in compact at the component, as QA asked; M1b's table records that QA's render settled the seven members. Scope delta: AC1b-1's wording only, no milestone added, removed or widened; the whitespace limb is not touched. Since approval of the value statement: five revisions and four gate rounds. Size against the original ask: unchanged from revision 3. |
+| 2026-11-11T11:42 | R-3 | planner-hooks-016 | Verdict: QA's Phase 1 re-key on revision 5 resolves QAF-12 and leaves no finding open (`qa/016-send-check-validity-qa.md`, record `97343f0`). Correction: the times on revision 5's row, the Resumption State and the page read were typed ahead of the clock; they now read the commit time, 11:40Z (QA's note). No requirement changed; the revision stays 5. |
 
 ## Value Statement and Business Objective
 
@@ -356,7 +357,7 @@ The rows marked "not rendered" and "not painted" were code reads; QA's render co
 **Visual style on `/preview`.** `src/app/preview/page.tsx` passes no `visualStyle`, and
 `DiscordMessageEditor` defaults it to `'cozy'` (`website@0e3d903
 src/components/DiscordMessageEditor/index.tsx`, the `visualStyle = 'cozy'` default; page read at
-`0e3d903`, 11:41Z). So the route renders Author's cozy branch only, and no `/preview` render can
+`0e3d903`, before 11:40Z). So the route renders Author's cozy branch only, and no `/preview` render can
 reach the compact branch (QA QAF-12). The compact branch is still inside the class: it renders the
 same line, and a later change that passes a style to `/preview` would reach it.
 
@@ -563,7 +564,7 @@ fixtures and coverage are QA's.
 
 ## Resumption State
 
-Updated 2026-11-11T11:44Z, `planner-hooks-016` (fresh generation, brief
+Updated 2026-11-11T11:40Z, `planner-hooks-016` (fresh generation, brief
 `steering/queue-hooks-briefs/planner-016-respawn-brief.md`). The chain is running; it did not stop
 on the usage gate (rulings block "2026-11-11T11:24Z").
 - **Done:** revision 5 folds QAF-12 (QA `96fbc66`) into AC1b-1 and records QA's by-render result in
