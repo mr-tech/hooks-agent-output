@@ -1133,3 +1133,27 @@ Started `uat-hooks-016` with `tmux-agent spawn`, category `S016-sendcheck`, cwd
 `/usr/local/bin/hooks/website`, brief `steering/queue-hooks-briefs/uat-016-brief.md`. B-1, B-2
 and B-5 travel by name; B-3, B-4 and B-6 are post-deploy. QAF-13 LOW goes to the Planner batch
 under M1's cap, by QA's own routing. Nothing was put to the owner.
+
+## 2026-11-11T14:15Z — UAT APPROVED FOR RELEASE at `395510e`; devops started
+
+Read this turn at `HEAD` (record `605ad1d`): `uat/016-send-check-validity-uat.md` whole (record
+`ceb9d93`), `Status: UAT Complete`, `Release-Decision: APPROVED FOR RELEASE`, `Verified-At`
+`395510e`. Its per-flow table ran against a running local build of the tip; B-1, B-2 and B-5 read
+EXECUTED, PASS; B-3, B-4 and B-6 stay open post-deploy (no `NOT EXECUTED` pre-release row). Plan
+`Revision: 7`, `Status: UAT Approved` (R-17). UAT's spawn cue arrived by message; no devops
+session for the chain was live (`ListAgents`, 13:58Z listing and UAT's own read).
+
+For his sight, from UAT's document: it created and saved one draft on hooks.gg as the test
+account (message 5996, 41 components, kept as B-6's post-deploy subject) and sent nothing from
+production; UAT-1 LOW, B-6(b) is read on the red border. Local message ids written:
+900000000000001 to 900000000000002.
+
+Website at 14:14Z: `chain/016-send-check-validity` at `395510e`; `git ls-remote origin master`
+`0e3d903`; `release-move.js … master 395510e… --dry-run` exit 0, "ff-from-remote ok", "workflows
+none". No `handoff/` file added since 12:59Z other than the planner's own
+`editor-error-lines-render-text-unasserted-2026-11-11.md` (`git log --diff-filter=A`).
+
+Started `devops-hooks-016` with `tmux-agent spawn`, category `S016-sendcheck`, cwd
+`/usr/local/bin/hooks/website`, brief `steering/queue-hooks-briefs/devops-016-brief.md`. The
+production push is that session's own ask to him. `qa-hooks-016` was cleared at 13:50Z after its
+Checkpoint (`500a501`).
