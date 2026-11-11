@@ -21,7 +21,7 @@ read as its diff from revision 2 (`git diff 6b07655 21db6c8`). Revision 2 was re
 | 2026-11-11T11:11 | planner-hooks-016 → qa-hooks-016 | Re-key Phase 1 to revision 2 (`6b07655`) | Phase 1 re-key. QAF-1 to QAF-8 read in the diff and collapsed as RESOLVED. Four members measured (batch 3); they found QAF-9 MEDIUM: revision 2's formal whitespace-empty predicate is wrong on 3 of 30 measured members. Fixture re-pinned at 120 members (`49b54f8e…`). Strategy rows for AC1-7 (rider R1 dropped), AC1-9, AC1-10 and AC1-11; B-1 amended for the `/preview` record. Status stays `Awaiting Implementation`. |
 | 2026-11-11T11:17 | planner-hooks-016 → qa-hooks-016 | Re-key Phase 1 to revision 3 (`21db6c8`) | Phase 1 re-key. QAF-9 collapsed as RESOLVED; the fixture hash checked at `21db6c8`. M1b's class checked against every error element in the editor tree: QAF-10 MEDIUM (Author's username error renders on `/preview`, executed at `0e3d903` with a control) and QAF-11 LOW (AC1b-4's post-deploy member does not distinguish). Strategy rows for AC1b-1 to AC1b-3, side effect SE-6 (preview images), register rows B-5 and B-6. Status stays `Awaiting Implementation`. |
 | 2026-11-11T11:26 | planner-hooks-016 → qa-hooks-016 | Re-key Phase 1 to revision 4 (`c249af3`) | Phase 1 re-key. Interrupted at 11:23 by a stop steering then withdrew (its error, by its 11:24Z message), checkpoint `cc91291`, resumed. QAF-10 and QAF-11 collapsed as RESOLVED, SE-6's ask folded. By-render enumeration of M1b's class run at `0e3d903` over 31 fixtures through the real `/preview` page: seven members, matching the plan's table, every "not rendered" and "not painted" row confirmed. Instrument discriminates under an edit-mode mutant. QAF-12 LOW raised. B-5 reconciled; B-5, B-6 unmoved. |
-| 2026-11-11T11:46 | planner-hooks-016 → qa-hooks-016 | Re-key Phase 1 to revision 5 (`b2d78b0`) | Phase 1 re-key, read as `git diff c249af3 b2d78b0` (covers R-2 `5f95a30` and the checkpoint `a9bb644`). QAF-12 collapsed as RESOLVED: AC1b-1 checks Author on `/preview` in cozy and compact at the component with the signal set as `/preview` sets it. Wording only; no criterion QA verified moves, no register row moves, no re-run owed. No new finding. |
+| 2026-11-11T11:40 | planner-hooks-016 → qa-hooks-016 | Re-key Phase 1 to revision 5 (`b2d78b0`) | Phase 1 re-key, read as `git diff c249af3 b2d78b0` (covers R-2 `5f95a30` and the checkpoint `a9bb644`). QAF-12 collapsed as RESOLVED: AC1b-1 checks Author on `/preview` in cozy and compact at the component with the signal set as `/preview` sets it. Wording only; no criterion QA verified moves, no register row moves, no re-run owed. No new finding. |
 
 ## Reading
 
@@ -422,7 +422,7 @@ any difference. This is also the critic's routed assumption.
 
 ## Resumption State
 
-Written 2026-11-11T11:46 at the end of the re-key on revision 5. Read this first on resume.
+Written 2026-11-11T11:40 at the end of the re-key on revision 5. Read this first on resume.
 
 - **Done:** Phase 1 on revisions 1 to 5. QAF-1 to QAF-12 RESOLVED; no finding open. The by-render enumeration is captured under `verification/016/preview-chrome/` (`96fbc66`). Register B-1 to B-6, SE-1 to SE-6. Status `Awaiting Implementation`.
 - **Sent:** the rev-5 clean result → `planner-hooks-016`.
