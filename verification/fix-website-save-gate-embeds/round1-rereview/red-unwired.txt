@@ -1,0 +1,59 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/68038d82-ad5c-4f6b-a6e6-1014ed1a8269/scratchpad/exC
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/useApiMethods.save-empty-embeds.test.tsx (1 test | 1 failed) 31ms
+     × writes at once, as V2 without the empty embed, and the send check accepts it 29ms
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/SaveAsMenu.empty-embeds-beside-v2.test.tsx (1 test | 1 failed) 224ms
+     × Save writes at once, as V2 without the empty embed, and shows no choice 222ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/useApiMethods.save-empty-embeds.test.tsx > editor Save of V2 components beside an empty embed > writes at once, as V2 without the empty embed, and the send check accepts it
+AssertionError: expected [ {} ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {},
++ ]
+
+ ❯ src/providers/MessageProvider/__tests__/useApiMethods.save-empty-embeds.test.tsx:71:26
+     69|     expect(upserted).toHaveLength(1);
+     70|     const saved = upserted[0].message.data;
+     71|     expect(saved.embeds).toEqual([]);
+       |                          ^
+     72|     expect(saved.flags).toBe(IS_COMPONENTS_V2_FLAG);
+     73|     expect(saved.content).toBe('');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/SaveAsMenu.empty-embeds-beside-v2.test.tsx > SaveAsMenu — V2 components beside an empty embed > Save writes at once, as V2 without the empty embed, and shows no choice
+AssertionError: expected [ {} ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {},
++ ]
+
+ ❯ src/app/message/m/[id]/_components/__tests__/SaveAsMenu.empty-embeds-beside-v2.test.tsx:47:33
+     45|     expect(hoisted.inputs).toHaveLength(1);
+     46|     const { message } = hoisted.inputs[0] as { message: { data: Messag…
+     47|     expect(message.data.embeds).toEqual([]);
+       |                                 ^
+     48|     expect(message.data.flags).toBe(32768);
+     49|     expect(message.data.components).toEqual([{ type: 17, components: […
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed | 3 passed (5)
+      Tests  2 failed | 46 passed (48)
+   Start at  09:09:58
+   Duration  2.11s (transform 671ms, setup 29ms, import 3.77s, tests 805ms, environment 2.70s)
+
+exit=1

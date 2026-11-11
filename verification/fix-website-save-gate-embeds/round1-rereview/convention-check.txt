@@ -1,0 +1,47 @@
+FAIL eslint src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx:2 — import/order: There should be no empty line within import group
+FAIL eslint src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx:2 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx:2 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx:11 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx:11 — import/order: `../NewMessageJsonInput` import should occur before import of `~/components/__tests__/helpers/dom`
+FAIL eslint src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx:18 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx:2 — import/order: There should be no empty line within import group
+FAIL eslint src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx:20 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx:20 — import/order: `../JsonModalBody` import should occur before import of `~/components/__tests__/helpers/dom`
+FAIL eslint src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx:31 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:1 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:1 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:7 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:8 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:180 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:180 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:189 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:189 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:195 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:195 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:200 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:200 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:201 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:201 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:257 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:257 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:264 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:264 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:270 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:270 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:271 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:277 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:277 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:278 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:284 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:284 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:288 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:294 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:294 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:299 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:303 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/utils/__tests__/utils.disposition-resolver.test.ts:303 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/utils/index.ts:17 — import/no-cycle: Dependency cycle detected.
+FAIL eslint src/utils/index.ts:273 — no-nested-ternary: Do not nest ternary expressions.
+SKIP id-token, basename: /usr/local/bin/hooks/agent-output/CLAUDE.md states an ID-token class this checker does not implement verbatim (the hooks line at cca22fd) — the checks did not run
+convention-check: 8 file(s) examined, 0 not examined, 5 test file(s); 44 FAIL, 0 CANDIDATE, 1 SKIP
+conv exit=1

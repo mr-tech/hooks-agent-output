@@ -1,0 +1,2 @@
+JSON report written to /usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/round1-rereview/suite.json
+suite exit=0

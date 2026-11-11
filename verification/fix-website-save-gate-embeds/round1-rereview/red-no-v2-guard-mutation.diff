@@ -1,0 +1,48 @@
+diff --git a/src/utils/index.ts b/src/utils/index.ts
+index 79cddbc..ff43cc4 100644
+--- a/src/utils/index.ts
++++ b/src/utils/index.ts
+@@ -143,7 +143,7 @@ export function resolveContentLoss(
+   const hasComponents = hasV2Components(components);
+   const hasContent = hasClassicContent({ content, embeds });
+ 
+-  if (hasComponents && (hasContent || (embeds?.length ?? 0) > 0)) {
++  if (hasComponents && hasContent) {
+     return {
+       row: 'E',
+       mode: null,
+@@ -181,16 +181,30 @@ export function resolveContentLoss(
+   };
+ }
+ 
+-export function gateBeforePersist(
+-  draft: Pick<Partial<MessageData>, 'flags' | 'components' | 'content' | 'embeds'>,
+-): { mustAsk: boolean, options: readonly ContentLossOption[] | null } {
++export function dropEmptyEmbedsBesideV2<T extends Pick<Partial<MessageData>, 'components' | 'embeds'>>(
++  draft: T,
++): T {
++  if (!draft.embeds || draft.embeds.length === 0) return draft;
++  if (draft.embeds.some((embed) => hasClassicContent({ embeds: [embed] }))) return draft;
++  return { ...draft, embeds: [] };
++}
++
++export function gateBeforePersist<
++  T extends Pick<Partial<MessageData>, 'flags' | 'components' | 'content' | 'embeds'>,
++>(
++  draft: T,
++): { mustAsk: boolean, options: readonly ContentLossOption[] | null, data: T } {
+   const disposition = resolveContentLoss(
+     draft.flags as number | undefined,
+     draft.components as undefined | { type: number }[],
+     draft.content,
+     draft.embeds,
+   );
+-  return { mustAsk: disposition.requiresChoice, options: disposition.options };
++  return {
++    mustAsk: disposition.requiresChoice,
++    options: disposition.options,
++    data: disposition.requiresChoice ? draft : dropEmptyEmbedsBesideV2(draft),
++  };
+ }
+ 
+ export function applyDisposition<

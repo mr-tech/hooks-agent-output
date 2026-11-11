@@ -1,0 +1,255 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/68038d82-ad5c-4f6b-a6e6-1014ed1a8269/scratchpad/exB
+
+ ❯ |node| src/utils/__tests__/utils.disposition-resolver.test.ts (39 tests | 8 failed) 28ms
+     × V2 components beside an empty embed persist as V2 without the embed, with no choice 6ms
+     × V2 components beside an embed with only an empty title persist as V2 without the embed, with no choice 2ms
+     × V2 components beside an embed carrying only its editor key persist as V2 without the embed, with no choice 1ms
+     × V2 components beside an embed with an empty fields array persist as V2 without the embed, with no choice 1ms
+     × V2 components beside an empty embed keep a clear flag clear when the embed is dropped 1ms
+     × V2 components beside one empty and one real embed still ask, and persist nothing dropped 1ms
+     × an empty embed with no V2 components is kept, flag and content unchanged (a row-D draft) 3ms
+     × an empty embed beside an Action Row only is kept (no V2 components present) 0ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/useApiMethods.save-empty-embeds.test.tsx (1 test | 1 failed) 23ms
+     × writes at once, as V2 without the empty embed, and the send check accepts it 22ms
+stderr | src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx
+TypeError: textRange(...).getClientRects is not a function
+    at textCoords (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:811:43)
+    at TextView.coordsAt (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:720:16)
+    at coordsInChildren (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:1094:23)
+    at LineView.coordsAt (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:1532:20)
+    at DocView.coordsAt (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:2774:30)
+    at EditorView.coordsAtPos (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:6954:33)
+    at RectangleMarker.forRange (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7541:28)
+    at Object.markers (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7783:51)
+    at LayerView.measure (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7691:27)
+    at file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:6655:34
+
+ ❯ |dom| src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx (3 tests | 1 failed) 157ms
+     × V2 components beside an empty embed land as V2 with no choice 21ms
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/SaveAsMenu.empty-embeds-beside-v2.test.tsx (1 test | 1 failed) 225ms
+     × Save writes at once, as V2 without the empty embed, and shows no choice 224ms
+stderr | src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx > JsonModalBody — conflict resting state > V2 components beside an empty embed land as V2 with no choice
+TypeError: textRange(...).getClientRects is not a function
+    at textCoords (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:811:43)
+    at TextView.coordsAt (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:720:16)
+    at coordsInChildren (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:1094:23)
+    at LineView.coordsAt (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:1532:20)
+    at DocView.coordsAt (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:2774:30)
+    at EditorView.coordsAtPos (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:6954:33)
+    at RectangleMarker.forRange (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7541:28)
+    at Object.markers (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7783:51)
+    at LayerView.measure (file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7691:27)
+    at file:///usr/local/bin/hooks/website/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:6655:34
+
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx (4 tests | 1 failed) 289ms
+     × V2 components beside an empty embed land as V2 with no choice 39ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 12 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/useApiMethods.save-empty-embeds.test.tsx > editor Save of V2 components beside an empty embed > writes at once, as V2 without the empty embed, and the send check accepts it
+AssertionError: expected { draft: { id: '1', …(2) }, …(1) } to be null // Object.is equality
+
+- Expected:
+null
+
++ Received:
+{
+  "draft": {
+    "data": {
+      "components": [
+        {
+          "_key": "c1",
+          "components": [
+            {
+              "_key": "t1",
+              "content": "x",
+              "type": 10,
+            },
+          ],
+          "type": 17,
+        },
+      ],
+      "content": "",
+      "embeds": [
+        {
+          "_key": "k1",
+        },
+      ],
+      "flags": 32768,
+    },
+    "id": "1",
+    "name": "n",
+  },
+  "options": [
+    {
+      "dropSet": [
+        "components",
+      ],
+      "mode": "classic",
+    },
+    {
+      "dropSet": [
+        "embeds",
+      ],
+      "mode": "v2",
+    },
+  ],
+}
+
+ ❯ src/providers/MessageProvider/__tests__/useApiMethods.save-empty-embeds.test.tsx:68:41
+     66|     act(() => { methods().saveMessage(); });
+     67|
+     68|     expect(methods().pendingSaveChoice).toBe(null);
+       |                                         ^
+     69|     expect(upserted).toHaveLength(1);
+     70|     const saved = upserted[0].message.data;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/12]⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx > NewMessageJsonInput — conflict resting state > V2 components beside an empty embed land as V2 with no choice
+AssertionError: expected '{"flags":32768,"embeds":[{}],"compone…' not to contain 'nothing was created'
+
+Expected: "nothing was created"
+Received: "{"flags":32768,"embeds":[{}],"components":[{"type":17,"components":[{"type":10,"content":"x"}]}]}This message has both Components V2 and classic content — nothing was created. Choose which to keep, or edit the JSON. ResolveCopy to ClipboardPretty print"
+
+ ❯ src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx:59:32
+     57|     }));
+     58|
+     59|     expect(el.textContent).not.toContain('nothing was created');
+       |                                ^
+     60|     expect(el.textContent).not.toContain('Save as Classic');
+     61|     const landed = setMessage.mock.calls.at(-1)?.[0] as MessageData;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/12]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx > JsonModalBody — conflict resting state > V2 components beside an empty embed land as V2 with no choice
+AssertionError: expected '{"flags":32768,"embeds":[{}],"compone…' not to contain 'nothing was loaded'
+
+Expected: "nothing was loaded"
+Received: "{"flags":32768,"embeds":[{}],"components":[{"type":17,"components":[{"type":10,"content":"x"}]}]}Pretty printThis message has both Components V2 and classic content — nothing was loaded. Choose which to keep, or edit the JSON. ResolveCancelCopy to ClipboardLoad"
+
+ ❯ src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx:78:32
+     76|     }));
+     77|
+     78|     expect(el.textContent).not.toContain('nothing was loaded');
+       |                                ^
+     79|     expect(el.textContent).not.toContain('cannot contain embeds or con…
+     80|     expect(Array.from(el.querySelectorAll('button')).some((b) => b.tex…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/12]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/SaveAsMenu.empty-embeds-beside-v2.test.tsx > SaveAsMenu — V2 components beside an empty embed > Save writes at once, as V2 without the empty embed, and shows no choice
+AssertionError: expected 'Are you sure?This message has both Co…' not to contain 'Save as Classic'
+
+Expected: "Save as Classic"
+Received: "Are you sure?This message has both Components V2 and classic content (text or embeds) — Discord cannot show both. Choose which to keep; nothing is saved until you choose.Save as Classic — This will drop your Components V2 components.Save as Components V2 — This will drop your embeds.Cancel"
+
+ ❯ src/app/message/m/[id]/_components/__tests__/SaveAsMenu.empty-embeds-beside-v2.test.tsx:44:43
+     42|     press(findButton(document.body, 'Save'));
+     43|
+     44|     expect(document.body.textContent).not.toContain('Save as Classic');
+       |                                           ^
+     45|     expect(hoisted.inputs).toHaveLength(1);
+     46|     const { message } = hoisted.inputs[0] as { message: { data: Messag…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/12]⎯
+
+ FAIL  |node| src/utils/__tests__/utils.disposition-resolver.test.ts > gateBeforePersist, the persist gate > V2 components beside an empty embed persist as V2 without the embed, with no choice
+ FAIL  |node| src/utils/__tests__/utils.disposition-resolver.test.ts > gateBeforePersist, the persist gate > V2 components beside an embed with only an empty title persist as V2 without the embed, with no choice
+ FAIL  |node| src/utils/__tests__/utils.disposition-resolver.test.ts > gateBeforePersist, the persist gate > V2 components beside an embed carrying only its editor key persist as V2 without the embed, with no choice
+ FAIL  |node| src/utils/__tests__/utils.disposition-resolver.test.ts > gateBeforePersist, the persist gate > V2 components beside an embed with an empty fields array persist as V2 without the embed, with no choice
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/utils.disposition-resolver.test.ts:214:26
+    212|     } as Pick<MessageData, 'flags' | 'components' | 'content' | 'embed…
+    213|     const gate = gateBeforePersist(draft);
+    214|     expect(gate.mustAsk).toBe(false);
+       |                          ^
+    215|     expect(gate.data).toEqual({
+    216|       flags: BIT, components: [{ type: 17, components: [] }], content:…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/12]⎯
+
+ FAIL  |node| src/utils/__tests__/utils.disposition-resolver.test.ts > gateBeforePersist, the persist gate > V2 components beside an empty embed keep a clear flag clear when the embed is dropped
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/utils.disposition-resolver.test.ts:225:26
+    223|       flags: 0, components: V2_CONTAINER, content: '', embeds: [{}] as…
+    224|     });
+    225|     expect(gate.mustAsk).toBe(false);
+       |                          ^
+    226|     expect(gate.data.flags).toBe(0);
+    227|     expect(gate.data.embeds).toEqual([]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/12]⎯
+
+ FAIL  |node| src/utils/__tests__/utils.disposition-resolver.test.ts > gateBeforePersist, the persist gate > V2 components beside one empty and one real embed still ask, and persist nothing dropped
+TypeError: Cannot read properties of undefined (reading 'embeds')
+ ❯ src/utils/__tests__/utils.disposition-resolver.test.ts:236:22
+    234|     const gate = gateBeforePersist(draft);
+    235|     expect(gate.mustAsk).toBe(true);
+    236|     expect(gate.data.embeds).toEqual([{}, { title: 'x' }]);
+       |                      ^
+    237|   });
+    238|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/12]⎯
+
+ FAIL  |node| src/utils/__tests__/utils.disposition-resolver.test.ts > gateBeforePersist, the persist gate > an empty embed with no V2 components is kept, flag and content unchanged (a row-D draft)
+AssertionError: expected undefined to deeply equal { flags: 32768, components: [], …(2) }
+
+- Expected:
+{
+  "components": [],
+  "content": "hi",
+  "embeds": [
+    {},
+  ],
+  "flags": 32768,
+}
+
++ Received:
+undefined
+
+ ❯ src/utils/__tests__/utils.disposition-resolver.test.ts:244:23
+    242|     });
+    243|     expect(gate.mustAsk).toBe(false);
+    244|     expect(gate.data).toEqual({
+       |                       ^
+    245|       flags: BIT, components: [], content: 'hi', embeds: [{}],
+    246|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/12]⎯
+
+ FAIL  |node| src/utils/__tests__/utils.disposition-resolver.test.ts > gateBeforePersist, the persist gate > an empty embed beside an Action Row only is kept (no V2 components present)
+TypeError: Cannot read properties of undefined (reading 'embeds')
+ ❯ src/utils/__tests__/utils.disposition-resolver.test.ts:253:22
+    251|       flags: 0, components: ACTION_ROW, content: '', embeds: [{}] as M…
+    252|     });
+    253|     expect(gate.data.embeds).toEqual([{}]);
+       |                      ^
+    254|   });
+    255|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/12]⎯
+
+
+ Test Files  5 failed (5)
+      Tests  12 failed | 36 passed (48)
+   Start at  09:09:55
+   Duration  2.08s (transform 703ms, setup 56ms, import 3.62s, tests 722ms, environment 2.85s)
+
+exit=1
