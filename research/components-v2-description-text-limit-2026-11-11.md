@@ -18,6 +18,7 @@ Status-Detail: >-
 | Date | Agent | Change | Status |
 |---|---|---|---|
 | 2026-11-11T08:44 | researcher-hooks-text-limit | Created with the question, three probe runs (36 requests), findings F-1 to F-6, process facts and the one open item | Active |
+| 2026-11-11T08:46 | researcher-hooks-text-limit | OQ-1 now cites the ruling read and why its words do not answer F-6 | Active |
 
 ## Question
 
@@ -236,6 +237,14 @@ These bound the answer; none is part of the question as asked.
 | # | Question | What would close it |
 |---|---|---|
 | OQ-1 | F-6 is a verified gap outside the brief's question, and whether and how the website should bound descriptions is the owner's. This session may write only research documents, so it cannot create F-6's carrier | `steering-queue-hooks` names the carrier (an owner-queue entry or a handoff path). This document then records it and closes as Answered |
+
+Why no existing ruling answers OQ-1: the ruling read is `steering/queue-hooks-rulings.md`, block
+"selections 1 to 4", prompt 3. Its chosen option speaks only of whether descriptions count toward
+the 4000 total ("400 with 50035 means they do and the website's limit check is too generous, which
+comes back to you as a separate fix question"). F-6 is a different limit, the per-description
+length, which that option does not name. The rulings file mentions descriptions on two lines, both
+inside prompt 3 (`grep -n -i "1024\|description"`), and `OWNER-QUEUE.md`, `TODO.md` and `INBOX.md`
+mention neither "thumbnail" nor "gallery" (`grep -ci`, 0 each).
 
 ## Process facts of this run
 
