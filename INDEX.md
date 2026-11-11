@@ -7,7 +7,7 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-234 documents · 15 numbered chains · 95 unnumbered.
+240 documents · 15 numbered chains · 101 unnumbered.
 
 ---
 
@@ -244,6 +244,7 @@ they are the ID-less artifacts that root new efforts.
 | code review | `code-review/closed/fix-agent-comment-sweep-merge-code-review.md` | Released — Released 2026-11-10T10:13Z: website master = 6d78b19 on origin, the reviewed commit. Record: deployment/fix-agent-comment-sweep-merge-deployment.md. |
 | code review | `code-review/closed/fix-hooks-record-shared-engine-code-review.md` | Released — Released with the chain: verdict APPROVED_WITH_COMMENTS at fdab24b stands as recorded; on origin master at 1611473. |
 | code review | `code-review/closed/fix-v1-guild-messages-auth-code-review.md` | Committed |
+| code review | `code-review/fix-website-save-gate-embeds-code-review.md` | In Review |
 | deployment | `deployment/closed/2026-04-07-plan-005.md` | Released |
 | deployment | `deployment/closed/2026-04-07-plan-006.md` | Released |
 | deployment | `deployment/closed/2026-04-07-plans-001-003-004.md` | Released |
@@ -279,6 +280,7 @@ they are the ID-less artifacts that root new efforts.
 | implementation | `implementation/closed/fix-agent-comment-sweep-merge-implementation.md` | Released — Released 2026-11-10T10:13Z: website master = 6d78b19 on origin. Record: deployment/fix-agent-comment-sweep-merge-deployment.md. |
 | implementation | `implementation/closed/fix-hooks-record-shared-engine-implementation.md` | Released — Released: on origin master at 1611473. Code review approved at fdab24b, QA Phase 2 PASS at 0f09e6c (refresh over the REVIEW flip 05a4a05). The record check exits 0 with 256 baselined. |
 | implementation | `implementation/closed/fix-v1-guild-messages-auth-implementation.md` | Committed — Committed for release on website fix/v1-guild-messages-auth at ddbd750 (devops Stage 1, 2026-10-10). The owner's key check returned 'match'. Release (merge to master, push) awaits the owner's approval. |
+| implementation | `implementation/fix-website-save-gate-embeds-implementation.md` | Active — Re-handed off for the Round 1 re-review at website 4b9fadd. The revision adds 21 production lines against 6d78b19, so QA Phase 2 is now owed after review. Then the merge at release (devops, under the owner's approval). |
 | — | `INBOX.md` | — |
 | — | `OPEN_QUESTIONS.md` | — |
 | — | `OWNER-QUEUE.md` | — |
@@ -289,7 +291,9 @@ they are the ID-less artifacts that root new efforts.
 | QA | `qa/closed/release-4a7126b-tip-verification.md` | Released — Closed 2026-08-25 with chain 013. **This line previously read `Release Verified`. That was the verdict, it was correct when written, and it is NOT withdrawn** - `Status` carries lifecycle state, never the verdict, and the `Verified-At` above is untouched. The tip certified here reached production (`a151fb4` -> `4a7126b`, 04:14:02 UTC, deployment record §11) and was later superseded as the serving tip by `b56570d` (§16). **§5's process conditions were never this document's to waive and are terminal at their own authorities, which are not restated here**: the push was made, and `uat/closed/013-components-v2-editing-surfaces-uat.md` stands at rev 53 with the blocking-condition register closed and `NOT EXECUTED` nowhere. **BC-18/BC-19 reached that state AFTER the release act rather than before it**, which the deployment record records as a sequencing ruling by the owner, not a withdrawal - stated here so no reader takes this closure for the condition having been honoured in the order §5 wrote it. The `Assumption Not Checked` above is a standing suite-quality question and is **not** closed by this move. |
 | QA | `qa/closed/release-b56570d-tip-verification.md` | Released — Closed 2026-08-25 with chain 013. **This line previously read `Release Verified`. That was the verdict, it was correct when written, and it is NOT withdrawn** - `Status` carries lifecycle state, never the verdict, and the `Verified-At` and `Criteria-At` above are untouched. **The tip certified here IS the released tree**: `website` serving ref `master` `2d90e8a` -> `b56570d`, 20:30:01 UTC (deployment record §16), where deployed, verified and the UAT anchor are one object. **§6's three process conditions were never this document's to waive and are terminal at their own authorities, which are not restated here**: the push was made; `uat/closed/013-components-v2-editing-surfaces-uat.md` stands at rev 53 with the register closed and `NOT EXECUTED` nowhere; and **CR25-1/CR25-2 remain OPEN residual** under the standing *"record it, leave it"* ruling - unchanged by this closure and not closed by it. The `Assumption Not Checked` above was discharged by devops at the console immediately before the push (§16), which is where it was owed. |
 | QA | `qa/closed/website-2026-10-10-release-tip-qa.md` | Released — Released: website master moved to ddbd750, the tip this document verified (deployment/fix-v1-guild-messages-auth-deployment.md, changelog 2026-10-10T16:52). B-1 and B-2 are terminal; B-3 and B-4 ride handoff/fix-v1-guild-messages-auth-post-deploy-2026-10-10.md. The verdict of record stays 'Release Verified at ddbd750' in the Changelog. |
+| research | `research/closed/components-v2-description-text-limit-2026-11-11.md` | Answered — Answered by measurement: Thumbnail and MediaGallery item descriptions do not count toward Discord's 4000-character Components V2 displayable-text total (F-1 to F-4). The adjacent finding F-6 (Discord bounds each description at 1024 characters and the website bounds neither) is carried by steering/queue-hooks-rulings.md, block "2026-11-11T08:48Z — selection 11", and TODO.md, section "Website fix: bound V2 description fields at 1024 characters". |
 | research | `research/closed/components-v2-editing-flows-2026-08-23.md` | Answered — Determination reached and executable: the load-edit-save-send-preview loop is Components V2 capable; every secondary surface that re-serialises message data (Save As, JSON view/copy/Load, import from Discord URL / webhook URL / bot code, cross-tab change hash) is V2-blind through two 2023 helpers the V2 chain never touched. One seam, five sites, three of them silent. Ready for a planner to cite; incidence in production and one UI-level confirmation remain open (Gaps table). |
+| research | `research/closed/components-v2-send-validity-2026-11-11.md` | Answered — Measured on the agents' test server: 76 Components V2 shapes, 52 refused by Discord. The website's send check blocks 6 of the 52 and lets 46 through; it has no test for emptiness inside a component. Whether and how the send check should change is the owner's question (OQ-1), carried by handoff/components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md. |
 | research | `research/closed/json-editor-flag-mint-2026-08-23.md` | Answered — All three of the handoff's questions have determinations by execution: the JSON editing path (edit-page modal and new-message paste alike) stores a 5712-shaped record from hand-typed flags, through the same upsert the composer uses; the stored population is two rows. Origin of those two rows is not attributable from the tree. Assessed suitable as a rider on the components-v2 editing effort — it is a sub-case of that effort's invariant, not a separate one. |
 | research | `research/closed/v1-guild-messages-auth-exposure-2026-10-10.md` | Answered — (a) ANSWERED, Proven: production answers the list endpoint with no key — one sanctioned GET returned HTTP 200 application/json from the Next.js handler (x-matched-path on the route, no 404 rewrite, no edge block). The deployed exposure is LIVE. (b) owner-needing: key equality (statbot HOOKS_API_KEY vs website STATBOT_API_KEY) cannot be established by any instrument available to this run without exposing a secret, and is additionally unobservable through the live system because the only code that compares the two keys is unreachable in production. The instrument that could settle it is named below and marked owner-needing. |
 | research | `research/codebase-bug-evaluation-2026-11-08.md` | Active — Sweep complete over website, project-utils and preview-image-generator at the SHAs in § Context. 50 rated findings (F-1–F-50), every one read at the code by the researcher; the two SQL-shape defects and the code-block regex were proven by execution. Eight editor hypotheses (H-1–H-8) need a running editor and are listed with their disconfirming tests, not counted. The owner answered all three intent questions on 2026-11-08 (username required by design, so no defect; get_message open to Manage Server; cap no stated preference). Nothing here is fixed; this is a research document, and it stays Active until the hypotheses H-1 to H-8 are run (G-5). |
@@ -303,8 +307,10 @@ they are the ID-less artifacts that root new efforts.
 | — | `steering/comment-sweep-briefs/comment-sweep-code-reviewer-brief.md` | — |
 | — | `steering/comment-sweep-briefs/comment-sweep-devops-brief.md` | — |
 | — | `steering/comment-sweep-briefs/comment-sweep-fixer-brief.md` | — |
+| — | `steering/queue-hooks-briefs/code-reviewer-save-gate-embeds-brief.md` | — |
 | — | `steering/queue-hooks-briefs/fixer-save-gate-embeds-brief.md` | — |
 | — | `steering/queue-hooks-briefs/researcher-text-limit-brief.md` | — |
+| — | `steering/queue-hooks-briefs/researcher-v2-validity-brief.md` | — |
 | — | `steering/queue-hooks-rulings.md` | — |
 | — | `steering/record-engine-briefs/record-engine-code-reviewer-brief.md` | — |
 | — | `steering/record-engine-briefs/record-engine-fixer-brief.md` | — |
@@ -496,15 +502,18 @@ they are the ID-less artifacts that root new efforts.
 | `chore-agent-comment-sweep-rulings.md` | `steering/chore-agent-comment-sweep-rulings.md` |
 | `CLAUDE.md` | `CLAUDE.md` |
 | `cleanup-2026-11-10.md` | `steering/cleanup-2026-11-10.md` |
+| `code-reviewer-save-gate-embeds-brief.md` | `steering/queue-hooks-briefs/code-reviewer-save-gate-embeds-brief.md` |
 | `codebase-bug-evaluation-2026-11-08.md` | `research/codebase-bug-evaluation-2026-11-08.md` |
 | `comment-sweep-code-reviewer-brief.md` | `steering/comment-sweep-briefs/comment-sweep-code-reviewer-brief.md` |
 | `comment-sweep-devops-brief.md` | `steering/comment-sweep-briefs/comment-sweep-devops-brief.md` |
 | `comment-sweep-fixer-brief.md` | `steering/comment-sweep-briefs/comment-sweep-fixer-brief.md` |
 | `competitive-feature-landscape-2026-11-08.md` | `research/competitive-feature-landscape-2026-11-08.md` |
+| `components-v2-description-text-limit-2026-11-11.md` | `research/closed/components-v2-description-text-limit-2026-11-11.md` |
 | `components-v2-editing-flows-2026-08-23.md` | `research/closed/components-v2-editing-flows-2026-08-23.md` |
 | `components-v2-editing-support-2026-08-23.md` | `handoff/closed/components-v2-editing-support-2026-08-23.md` |
 | `components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md` | `handoff/components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md` |
 | `components-v2-invariant-for-system-architecture-2026-08-24.md` | `handoff/components-v2-invariant-for-system-architecture-2026-08-24.md` |
+| `components-v2-send-validity-2026-11-11.md` | `research/closed/components-v2-send-validity-2026-11-11.md` |
 | `disposition-table.md` | `verification/014/disposition-table.md` |
 | `fix-agent-comment-sweep-merge-code-review.md` | `code-review/closed/fix-agent-comment-sweep-merge-code-review.md` |
 | `fix-agent-comment-sweep-merge-deployment.md` | `deployment/closed/fix-agent-comment-sweep-merge-deployment.md` |
@@ -518,6 +527,8 @@ they are the ID-less artifacts that root new efforts.
 | `fix-v1-guild-messages-auth-implementation.md` | `implementation/closed/fix-v1-guild-messages-auth-implementation.md` |
 | `fix-v1-guild-messages-auth-post-deploy-2026-10-10.md` | `handoff/closed/fix-v1-guild-messages-auth-post-deploy-2026-10-10.md` |
 | `fix-v1-guild-messages-auth-qa.md` | `qa/closed/fix-v1-guild-messages-auth-qa.md` |
+| `fix-website-save-gate-embeds-code-review.md` | `code-review/fix-website-save-gate-embeds-code-review.md` |
+| `fix-website-save-gate-embeds-implementation.md` | `implementation/fix-website-save-gate-embeds-implementation.md` |
 | `fixer-save-gate-embeds-brief.md` | `steering/queue-hooks-briefs/fixer-save-gate-embeds-brief.md` |
 | `gap-dispositions.md` | `verification/015/effort-final/gap-dispositions.md` |
 | `handoffs-survey.md` | `verification/cleanup-2026-11-10/handoffs-survey.md` |
@@ -550,6 +561,7 @@ they are the ID-less artifacts that root new efforts.
 | `release-b56570d-tip-verification.md` | `qa/closed/release-b56570d-tip-verification.md` |
 | `report.md` | `verification/015/d28-seed-probes/report.md` |
 | `researcher-text-limit-brief.md` | `steering/queue-hooks-briefs/researcher-text-limit-brief.md` |
+| `researcher-v2-validity-brief.md` | `steering/queue-hooks-briefs/researcher-v2-validity-brief.md` |
 | `RUN.md` | `verification/013/probe-cr25-mutation-error-readability/RUN.md` |
 | `RUN.md` | `verification/013/probe-cr26-delimiter-class-eliminated/RUN.md` |
 | `RUN.md` | `verification/013/probe-cr27-settledmode-reachability/RUN.md` |

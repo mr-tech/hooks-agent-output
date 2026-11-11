@@ -291,7 +291,10 @@ with no prompt. The two JSON surfaces behave as at `6d78b19`.
 shown", which pointed the fixer at showing one. D17's principle was on record and unread by this
 thread when it wrote them.
 
-## 2026-11-11T09:10Z — selection 14: one send-check fix, 1024 included (put 09:08:56Z, answered 09:10Z)
+## 2026-11-11T09:09Z — selection 14: one send-check fix, 1024 included (put 09:08:56Z, answered 09:09Z)
+
+Reconcile, 09:17Z: this heading read "09:10Z" twice when written; `date -u` at the write was
+09:09:53Z. This thread's rounding error; the ledger block is the authority for the answer time.
 
 Ledger: `steering/selection-ledger/2026-11-11.md`, this thread's latest block. Read this turn:
 `research/closed/components-v2-send-validity-2026-11-11.md` (`c9f8e3a`, `Status: Answered`), its
@@ -314,3 +317,91 @@ send-check validity fix"). It must state the pipeline, the families in scope fro
 document, and the File component gap (its F-7) as in or out, before any stage starts.
 
 The researcher session's two documents are terminal; the session is stopped.
+
+## 2026-11-11T09:17Z — scoping determination: the send-check validity fix (owed by selection 14)
+
+Written after this thread's `/clear`, from the docket and the reads named here, all this turn. His
+word opening the chain is selection 14's chosen option, in the block above. He vetoes from this
+record. No stage has started.
+
+**Shape.** A defect class, not one defect: the send check (`validateMessage`,
+`src/utils/limits.tsx`) looks inside no V2 component. Cause proven by execution: the research
+document's F-1 (`research/closed/components-v2-send-validity-2026-11-11.md`, lines 35 to 268 read):
+of 76 shapes sent in the test server Discord refused 52, and the check, run over the same 76,
+blocks 6 of those 52 and passes 46. The 1024 bound is the earlier document's F-6
+(`research/closed/components-v2-description-text-limit-2026-11-11.md`, `Status: Answered`; its
+body not re-read this turn).
+
+**Blast radius.** `validateMessage` has three production callers at website `6d78b19`
+(`git grep -n` over `src`, tests excluded): the send page (`src/app/message/m/[id]/send/page.tsx`),
+`isMessageValid` (`src/server/api/utils/messageValidity.ts`, which writes the stored `valid` column
+on save) and `src/scripts/backfillValid.ts`. So the fix changes three things at once: what the send
+page refuses, what `valid` a save records, and what the public v1 API then serves
+(`architecture/website.md` A-4, lines 239 to 245 read). A-4's consequence binds the plan: it states
+the residue for rows already stored. No copy of the check in `project-utils` (`git grep -l`, exit
+1). `preview-image-generator` not read: the secret-file gate refused a repository-wide grep there
+and it was not retried.
+
+**Specification uncertainty: real, which is why this is not a fixer.**
+- Whitespace: Discord's strip and JavaScript's `trim()` differ on U+0085 and U+FEFF (F-2).
+- A component fresh from the add menu is refused, a Separator excepted (F-12): once the check
+  agrees with Discord, a draft with a just-added, unfilled component cannot be sent, and what the
+  send page tells the user for each family is a design decision.
+- The File component (below).
+- Whether stored rows are re-derived after the predicate changes (A-4). No agent reads that
+  database.
+
+**Pipeline: full chain.** Planner, critic, architect conformance, QA Phase 1, implementer with a
+deweeder, code review, QA Phase 2, UAT, devops, retrospective. Reasons: a class of families with
+open specification points; a user-visible surface (the send page's refusals); a stored column and
+a public API value that move with the predicate. Security: not started; the chain ships nothing
+root executes. Analyst: only if the plan commissions one.
+
+**Bounded scope statement.** One change: the website's send check refuses the V2 shapes Discord
+was measured refusing, and says which. Repository `website` only.
+- In, each by the research document's finding: Text Display content empty or whitespace-only,
+  anywhere in the tree (F-2); the four empty collections, Section, Media Gallery, Container, Action
+  Row (F-3); required URLs that are empty, and the measured non-URL and link-button scheme cases
+  (F-4, measured cases only); a link button with neither label nor emoji (F-5); a description that
+  is the empty string (F-6) or over 1024 characters (the earlier document's F-6); the key-absent
+  forms measured refused (B6, C4, D6, G3), where the plan finds them reachable.
+- **File component (F-7): in as a refusal, out as a capability.** In: the check refuses a message
+  holding a File component in the three measured forms, with its own reason, since no V2 send from
+  the website carries an attachment. Out: making a File sendable (an upload path) and removing File
+  from the add menu; both are new product work and sit behind his ruling of prompt 2 (new work
+  after the existing items). The unmeasured case, a File on an edit of a message that already has
+  attachments (N-5), is the planner's open question to him, not assumed either way.
+- In, as wiring only: the limit constants, the save schema and the editor inputs for the same
+  fields, exactly as far as sibling per-field limits already go (A-4: the editor and the save
+  schema read the same constant).
+- Out: any server-side refusal of a save (W-2, lines 46 to 54 read); any repair or count of stored
+  rows by an agent; the add menu's default factories; the generic failure toast in `sendWebhook`
+  (F-14), which goes to the plan's Exclusions register and reaches him with revision 1; refusals
+  not measured (N-3, N-8); classic messages and the save gate (chain
+  `fix-website-save-gate-embeds`); `project-utils`, `preview-image-generator`.
+
+**Limbs of the recommendation this derives from, marked.** The research document's Recommendations:
+1 (put OQ-1 to him) done, selection 14; 2 (a count of affected stored messages before deciding) out,
+his selection did not ask for it and N-1 names him as the reader; 3 (N-2, whether a user can type a
+whitespace-only Text Display, needs a browser) in, as a Phase 1 or UAT flow for the planner to place.
+
+**End step.** Production: a push of website `master`, which goes live through Vercel (devops's
+statement in earlier records, not re-read). `release-move.js /usr/local/bin/hooks/website master
+6d78b19… --dry-run`, 09:16Z: exit 0, "ff-from-remote ok", "workflows none"; remote `master` is
+`6d78b19` (`git ls-remote`). The verdict is re-taken once chain `fix-website-save-gate-embeds` has
+released, since that moves the base. The push is a devops session's own ask to him.
+
+**Released chains on this route** (closed plans naming `validateMessage`, `grep -l`): 001, 007, 012,
+013, 014, 015. Open handoffs naming the send check or gate (`grep -l` over `handoff/*.md`):
+`components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md` (read whole this turn; this
+chain is the fix it waits on, and it closes at release) and
+`newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md` (not read this turn; the planner
+dispositions it). Adjacent by subject, not by that grep and not read this turn:
+`backfill-valid-guard-has-no-db-backed-instrument-2026-08-26.md`.
+
+**Start.** When the website tree is free of `fix/website-save-gate-embeds`, as the selection's text
+told him. The planner mints the ID then; this thread supplies none.
+
+**Not checked.** The send page's own code beyond the caller line; how sibling per-field limits are
+shown in the editor today; whether the website edits sent messages at all (F-10, N-5); the two
+handoffs marked unread; the research document's Evidence table (lines 270 to 390).

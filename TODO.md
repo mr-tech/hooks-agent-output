@@ -22,10 +22,12 @@ Lodged 2026-11-11 by `steering-queue-hooks` on the owner's selections 11 and 14
 (`steering/queue-hooks-rulings.md`). One change to the send check so it refuses what Discord
 refuses: the emptiness families measured in
 `research/closed/components-v2-send-validity-2026-11-11.md` and the 1024-character description
-bound (F-6 of `research/closed/components-v2-description-text-limit-2026-11-11.md`). **Owed first:
-the scoping determination**, recorded in the rulings file before any stage starts: the pipeline
-(likely more than a fixer), the families in scope, and the File component gap (F-7) in or out. It
-starts when the website tree is free of `fix/website-save-gate-embeds`.
+bound (F-6 of `research/closed/components-v2-description-text-limit-2026-11-11.md`). The scoping
+determination is recorded (`steering/queue-hooks-rulings.md`, block "scoping determination: the
+send-check validity fix", 2026-11-11T09:17Z): full chain, its bounded scope statement there, the
+File component in as a refusal only. **To start**: when the website tree is free of
+`fix/website-save-gate-embeds`, re-run the `release-move.js --dry-run` the block names and spawn the
+planner on that block; the planner mints the ID.
 
 ## website lint debt in `src/utils/index.ts` and its resolver test
 
