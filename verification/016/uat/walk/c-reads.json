@@ -1,0 +1,8 @@
+{"note":"RING counts below include a header class 'erroring:!ring-red-500' (prefixed, not active); only 41-text-displays|tip has an unprefixed '!ring-red-500' on discord-visualizer__accessories",
+"fresh-text-display|tip":{"ERR":[],"ERRSTATE":0,"TOOLONG":false},"fresh-text-display|base":{"ERR":[],"ERRSTATE":0,"TOOLONG":false},
+"41-text-displays|tip":{"ERR":["Message has 41 components; the limit is 40."],"realRing":true,"ERRSTATE":0,"TOOLONG":false},
+"41-text-displays|base":{"ERR":[],"realRing":false,"captainHookVisible":false},
+"empty-username|tip":{"ERR":["This username is too short or too long."],"captainHookVisible":false},"empty-username|base":{"ERR":[]},
+"content-2100|tip":{"ERR":[]},"content-2100|base":{"ERR":[]},
+"embed-description-4097|tip":{"ERR":[]},"embed-description-4097|base":{"ERR":[],"captainHookVisible":false},
+"control-valid-v2|tip":{"ERR":[]},"control-valid-v2|base":{"ERR":[]}}

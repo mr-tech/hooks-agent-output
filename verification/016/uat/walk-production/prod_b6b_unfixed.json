@@ -1,0 +1,8 @@
+{
+ "steps": "prod_b6b_unfixed",
+ "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'save message', exact: true })\u001b[22m\n\n    at module.exports (/usr/local/bin/hooks/agent-output/verification/016/uat/steps/prod_b6b_unfixed.cjs:24:73)\n    at async /usr/local/bin/hooks/agent-output/verification/016/uat/kept_profile_run.cjs:32:14",
+ "log": [
+  "2026-11-11T14:10:22.140Z confirm button /^load$/i",
+  "2026-11-11T14:10:25.264Z {\"errEditor\":[\"Message has 41 components; the limit is 40.\"]}"
+ ]
+}

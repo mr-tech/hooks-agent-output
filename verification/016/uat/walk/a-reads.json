@@ -1,0 +1,7 @@
+{"A2":{"ERR":["A Text Display is empty."],"RING_real":3,"note":"screenshot a2-empty-textdisplay.png"},
+"A3":{"url":"http://127.0.0.1:3000/message/m/900000000000001/edit","id":900000000000001,"saved":"File>Save"},
+"A4":{"ERR":["A Text Display is empty."],"send":{"text":"Send","disabled":true,"aria-disabled":null,"data-disabled":null}},
+"A5":{"ERR_before_blur_and_after_save_reload":["A Text Display is empty."],"saved_text":" (single space, shown after reload)"},
+"A6":{"ERR_while_focused_after_typing_hello":["A Text Display is empty."],"ERR_after_blur":[]},
+"A7":{"ERR":[],"send_disabled_before_webhook_url":true,"send_disabled_after_webhook_url":false},
+"A8":{"sent_utc":"2026-11-11T13:58:34.973Z","toast":"Webhook sent!"}}

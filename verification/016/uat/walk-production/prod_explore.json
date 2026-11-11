@@ -1,0 +1,9 @@
+{
+ "steps": "prod_explore",
+ "result": {
+  "url": "https://hooks.gg/message/m/new",
+  "snap": "- main:\n  - button \"open sidebar\"\n  - textbox:\n    - /placeholder: Search\n    - text: Search\n  - button \"toggle site theme\"\n  - button \"user menu\":\n    - img \"User Avatar\"\n  - dialog\n  - heading \"Select a Server\" [level=2]\n  - button \"My Account\"\n  - button \"Claude\"\n  - button \"statbot-065-install-test\"\n- alert\n- paragraph: This website uses cookies to ensure that you get the best experience.\n- link \"Learn more\":\n  - /url: /legal/privacy\n- button \"Ok, Got it.\"\n- region \"Notifications Alt+T\""
+ },
+ "error": null,
+ "log": []
+}

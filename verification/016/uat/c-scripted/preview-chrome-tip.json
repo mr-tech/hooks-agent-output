@@ -1,0 +1,72 @@
+{
+ "side": "tip",
+ "read_at": "2026-11-11T14:02:27.430Z",
+ "results": {
+  "fresh-text-display": {
+   "href_tail": "/preview (data len 81)",
+   "bodyTextHead": "Captain Hook\nBOT\nToday at 2:02 PM",
+   "ERR": [],
+   "activeRing": 0,
+   "erroringPrefixedRing": 1,
+   "ERRSTATE": 0,
+   "TOOLONG": false,
+   "textRed": 0,
+   "rendered": true
+  },
+  "41-text-displays": {
+   "href_tail": "/preview (data len 1122)",
+   "bodyTextHead": "Captain Hook\nBOT\nToday at 2:02 PM\nx\nx\nx\nx\nx\nx\nx\nx\nx\nx\nx\nx\nx\n",
+   "ERR": [],
+   "activeRing": 0,
+   "erroringPrefixedRing": 1,
+   "ERRSTATE": 0,
+   "TOOLONG": false,
+   "textRed": 0,
+   "rendered": true
+  },
+  "empty-username": {
+   "href_tail": "/preview (data len 30)",
+   "bodyTextHead": "BOT\nToday at 2:02 PM\nhi",
+   "ERR": [],
+   "activeRing": 0,
+   "erroringPrefixedRing": 1,
+   "ERRSTATE": 0,
+   "TOOLONG": false,
+   "textRed": 0,
+   "rendered": true
+  },
+  "content-2100": {
+   "href_tail": "/preview (data len 2140)",
+   "bodyTextHead": "Captain Hook\nBOT\nToday at 2:02 PM\naaaaaaaaaaaaaaaaaaaaaaaaaa",
+   "ERR": [],
+   "activeRing": 0,
+   "erroringPrefixedRing": 1,
+   "ERRSTATE": 0,
+   "TOOLONG": false,
+   "textRed": 0,
+   "rendered": true
+  },
+  "embed-description-4097": {
+   "href_tail": "/preview (data len 4154)",
+   "bodyTextHead": "Captain Hook\nBOT\nToday at 2:02 PM\ndddddddddddddddddddddddddd",
+   "ERR": [],
+   "activeRing": 0,
+   "erroringPrefixedRing": 1,
+   "ERRSTATE": 0,
+   "TOOLONG": false,
+   "textRed": 0,
+   "rendered": true
+  },
+  "control-valid-v2": {
+   "href_tail": "/preview (data len 86)",
+   "bodyTextHead": "Captain Hook\nBOT\nToday at 2:02 PM\nhello",
+   "ERR": [],
+   "activeRing": 0,
+   "erroringPrefixedRing": 1,
+   "ERRSTATE": 0,
+   "TOOLONG": false,
+   "textRed": 0,
+   "rendered": true
+  }
+ }
+}

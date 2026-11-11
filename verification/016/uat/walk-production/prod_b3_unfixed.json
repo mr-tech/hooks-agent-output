@@ -1,0 +1,19 @@
+{
+ "steps": "prod_b3_unfixed",
+ "result": {
+  "url": "https://hooks.gg/message/m/5996/edit",
+  "before": [
+   "Message must have content, embeds, or components."
+  ],
+  "err": [],
+  "activeRing": 0,
+  "snap": "- main:\n  - link:\n    - /url: /message/f/0\n  - textbox \"Message Name\":\n    - /placeholder: New Message\n    - text: New Message New Message\n  - list:\n    - listitem:\n      - button \"File\"\n    - listitem:\n      - button \"Edit\"\n    - listitem:\n      - button \"View\"\n    - listitem:\n      - button \"Help\"\n    - listitem:\n      - link \"Send\":\n        - /url: /message/m/5996/send\n  - button \"toggle site theme\"\n  - button \"user menu\":\n    - img \"User Avatar\"\n  - dialog\n  - button \"Classic Components V2\"\n  - button \"edit avatar icon\":\n    - img \"user avatar\"\n  - text: Hooks.gg Bot BOT\n  - time: Today at 2:07 PM\n  - button \"Text Display actions\"\n  - button \"Text content...\"\n  - button \"Add Component\"\n  - text: 1/40\n  - button \"toggle message view mode\"\n  - button \"save message\"\n- alert\n- paragraph: This website uses cookies to ensure that you get the best experience.\n- link \"Learn more\":\n  - /url: /legal/privacy\n- button \"Ok, Got it.\"\n- region \"Notifications Alt+T\"\n- dialog"
+ },
+ "error": null,
+ "log": [
+  "2026-11-11T14:07:34.447Z after V2 click: [\"dialog\\n  - button \\\"Classic Components V2\\\"\\n  - button \\\"edit avatar icon\\\":\\n    - img \\\"user avatar\\\"\\n  - text: Hooks.gg Bot BOT\\n  - time: Today at 2:07 PM\\n  - text: Message must have content, embeds, or components.\\n  - button \\\"Add Component\\\"\\n  - text: 0/40\\n  - button \\\"toggle message view mode\\\"\\n  - button \\\"save message\\\"\\n- alert\\n- paragraph: This website uses cookies to ensure that you get the best experience\",\"dialog\"]",
+  "2026-11-11T14:07:34.462Z add component present: true",
+  "2026-11-11T14:07:35.716Z menu: menu \"Add Component\":\n    - menuitem \"Action Row\"\n    - menuitem \"Text Display\"\n    - menuitem \"Section\"\n    - menuitem \"Media Gallery\"\n    - menuitem \"File\"\n    - menuitem \"Separator\"\n    - menuitem \"Container\"\n- alert\n- paragraph: This website uses cookies to ensure that you get the best experience.\n- link \"Learn more\":\n  - /url: /legal/privacy\n- button \"Ok, Got it.\"\n- region \"Notifications Alt+T\"\n- dialog",
+  "2026-11-11T14:07:39.853Z {\"before\":[\"Message must have content, embeds, or components.\"],\"err\":[],\"ring\":0}"
+ ]
+}

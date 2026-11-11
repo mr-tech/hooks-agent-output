@@ -1,0 +1,10 @@
+{
+ "steps": "prod_json_modal",
+ "result": {
+  "modal": " - button \"Copy to Clipboard\"\n  - button \"Load\"\n- dialog",
+  "textareas": 0,
+  "cm": 1
+ },
+ "error": null,
+ "log": []
+}

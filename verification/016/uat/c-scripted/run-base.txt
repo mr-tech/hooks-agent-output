@@ -1,0 +1,7 @@
+base fresh-text-display {"rendered":true,"ERR":[],"activeRing":0,"ERRSTATE":0,"TOOLONG":false,"textRed":0}
+base 41-text-displays {"rendered":true,"ERR":["Message has 41 components; the limit is 40."],"activeRing":1,"ERRSTATE":0,"TOOLONG":false,"textRed":0}
+base empty-username {"rendered":true,"ERR":["This username is too short or too long."],"activeRing":0,"ERRSTATE":0,"TOOLONG":false,"textRed":0}
+base content-2100 {"rendered":true,"ERR":[],"activeRing":0,"ERRSTATE":0,"TOOLONG":false,"textRed":0}
+base embed-description-4097 {"rendered":true,"ERR":[],"activeRing":0,"ERRSTATE":0,"TOOLONG":false,"textRed":0}
+base control-valid-v2 {"rendered":true,"ERR":[],"activeRing":0,"ERRSTATE":0,"TOOLONG":false,"textRed":0}
+exit=0

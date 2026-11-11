@@ -1,0 +1,13 @@
+B-1 send-gate pair, website tip 395510e on 127.0.0.1:3000, message 900000000000001, kept test-account profile
+Runner: verification/016/uat/kept_profile_run.cjs; steps: verification/016/uat/steps/send_gate_with_webhook.cjs
+A temporary bot-created webhook "uat-016" in the test server's #general was created and deleted inside each run. Nothing was sent.
+The stored Text Display was set locally (UPDATE on the local Postgres) to "" for the first run and to "hello" for the second.
+(The runner's send_gate_with_webhook.json holds the second run only; the first run's stdout is copied here.)
+
+refused (content ""), 2026-11-11 ~14:10Z:
+{"label":"refused","errBefore":["A Text Display is empty."],"errAfter":["A Text Display is empty."],"send":{"text":"Send","disabled":true,"ariaDisabled":null,"dataDisabled":null},"webhookShown":true}
+screenshot: send-gate-refused.png
+
+accepted (content "hello"):
+{"label":"accepted","errBefore":[],"errAfter":[],"send":{"text":"Send","disabled":false,"ariaDisabled":null,"dataDisabled":null},"webhookShown":true}
+screenshot: send-gate-accepted.png

@@ -1,0 +1,30 @@
+{
+ "steps": "prod_list_read",
+ "result": {
+  "url": "https://hooks.gg/message",
+  "cards": [
+   {
+    "src": "https://cdn.discordapp.com/avatars/1219217003659788418/ecee167acb3b984ea2c28f12faa1cfa1.png?size=32",
+    "alt": "User Avatar",
+    "label": "Recent Messagesuat-016-b6b-41-componentsMy AccountServersMy AccountClaudestatbot-065-install-test"
+   },
+   {
+    "src": "https://cdn.hooks.gg/previews/5996/7211dcbd1a114090ad1b6ddc132a171d.jpeg",
+    "alt": "uat-016-b6b-41-components",
+    "label": "uat-016-b6b-41-componentsMy Account"
+   },
+   {
+    "src": "https://hooks.gg/_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Fembed%2Favatars%2F0.png&w=96&q=75",
+    "alt": "Claude",
+    "label": "Recent Messagesuat-016-b6b-41-componentsMy AccountServersMy AccountClaudestatbot-065-install-test"
+   },
+   {
+    "src": "https://hooks.gg/_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Fembed%2Favatars%2F0.png&w=96&q=75",
+    "alt": "statbot-065-install-test",
+    "label": "Recent Messagesuat-016-b6b-41-componentsMy AccountServersMy AccountClaudestatbot-065-install-test"
+   }
+  ]
+ },
+ "error": null,
+ "log": []
+}
