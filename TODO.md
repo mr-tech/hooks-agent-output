@@ -203,15 +203,3 @@ review's CR-4; lodged by `steering-cleanup-hooks`, 2026-11-10.
 pathname and query string as headers. Removing the entry is a one-line tidy for the next website
 effort that touches the file; it is not a security item. Read by `steering-cleanup-hooks`,
 2026-11-10, while closing the v1 guild-messages handoff.
-
-## Candidate `architecture/website.md` entry: the editor's one persisting step
-
-Routed by `retrospectives/fix-website-save-gate-embeds-retrospective.md` (record `c787c2d`, its
-"Next: the architect" line), to the architect, who stewards `architecture/website.md`. The claim, as
-the retrospective states it and not re-read at the code by steering: since website `963a25c` both of
-the editor's persisting writers go through one step in `useApiMethods` that leaves the editor
-holding exactly what was stored, mode included; a later writer that calls `upsertMessage` around
-that step brings back the self-raised "Message Update Detected" (the chain's code review, CR-4). The
-record does not state this. Act: hand it to chain 016's architect session as a second item when
-steering spawns it for conformance, citing the retrospective and the review; the architect decides
-whether it is an entry. Lodged by `steering-queue-hooks`, 2026-11-11T10:26Z.
