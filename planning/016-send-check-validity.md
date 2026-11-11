@@ -3,8 +3,8 @@ ID: 016
 Origin: 016
 UUID: 54673438
 Status: In Progress
-Status-Detail: "Implementation in progress (implementer-hooks-016, chain/016-send-check-validity). Revision 6 resolves a contradiction the implementer reported between AC1-1 and AC1-11: the corpus fixture, whose bytes AC1-1 fixes, is outside AC1-11's population (X-12). It adds no work and changes no product behaviour. The critic and QA read it; revision 5's approvals stand for everything else. No OPEN QUESTION remains."
-Revision: 6
+Status-Detail: "Implementation in progress (implementer-hooks-016, chain/016-send-check-validity). Revision 7 records the regenerated corpus fixture's identity in AC1-1 (code review CR-1; QA regenerated it with no comment lines and lint-clean, data unchanged, record 188bc93). AC1-11 no longer exempts any file, and X-12 is retired. The critic and QA read it. No OPEN QUESTION remains."
+Revision: 7
 Target Release: "website master → this chain's merge SHA (Vercel production on a push of master). The package carries no version artefact (package.json has no version field, CHANGELOG absent; read 2026-11-11T10:22Z)."
 Epic-Alignment: "none registered. The workspace has no roadmap, by the owner's standing instruction (brief). Source of the effort: research/closed/components-v2-send-validity-2026-11-11.md and research/closed/components-v2-description-text-limit-2026-11-11.md; opened by selection 14 (rulings block 2026-11-11T09:09Z)."
 Lane: "standard. The scoping determination sets a full chain (rulings block 2026-11-11T09:17Z). The blast radius is a shared predicate: validateMessage feeds the send page, the stored valid column and the public v1 API, so this is not a leaf."
@@ -35,9 +35,9 @@ Owed re-verdicts:
 | AC1b-3's signal form (AF-13) | revision 4 | architect | discharged: `47c7a4c`, and revision 5 at `1492d33` |
 | AC1b-4's post-deploy member (b) | revision 4 | QA (B-6), critic (F-13) | discharged: critic `01eeaad`, QA B-6 (`96fbc66`); revision 5 approved by both |
 | RK-5, X-11 | revision 4 | critic | discharged: `01eeaad`, and revision 5 at `88b0da9` |
-| AC1-11's population without the corpus fixture; X-12 | revision 6 | critic, QA (AC1-11's instrument at Phase 2) | discharged: QA `a3b7586`, critic cycle 4 `94403d2`, architect `ff9d4f7` |
+| AC1-11's population without the corpus fixture (superseded at revision 7: no exemption) | revision 6 | critic, QA (AC1-11's instrument at Phase 2) | discharged: QA `a3b7586`, critic cycle 4 `94403d2`, architect `ff9d4f7` |
+| AC1-1's fixture identity (`9ab22baa…`, `7fcf64f`); AC1-11 with no exemption | revision 7 | critic, QA | open |
 
-No re-verdict is owed at revision 6.
 
 ## Changelog
 
@@ -59,6 +59,7 @@ No re-verdict is owed at revision 6.
 | 2026-11-11T11:55 | R-7 | planner-hooks-016 | Verdict: critique cycle 4 pass 1 APPROVED revision 6 (`critiques/016-send-check-validity-cycle4-critique.md`, `94403d2`). Its F-16 LOW, the owed re-verdicts table showing revision 5 as still owed, is fixed in place: every row reads discharged. No requirement changed; the revision stays 6. |
 | 2026-11-11T11:55 | R-8 | planner-hooks-016 | Verdict: the architect's delta pass APPROVED revision 6 (`architecture/016-send-check-validity-architecture-findings.md`, `ff9d4f7`). Its AF-14 LOW (have the generator emit lint-clean output) is declined for this chain, because it would re-open AC1-1 mid-implementation. Its carrier after closure is the Problem Area it lodged, named on X-12. No requirement changed; the revision stays 6. |
 | 2026-11-11T11:57 | R-9 | planner-hooks-016 | Registration: two Planner batch rows from the V-101 Opus critic pass on revision 6 (rulings block "2026-11-11T11:57Z — V-101 trial block", `c70c535`): F-2 LOW and F-4 INFO, both parked to the seam before the UAT anchor. No requirement changed; the revision stays 6. |
+| 2026-11-11T12:58 | 7 | planner-hooks-016 | Folds code review Round 1's CR-1 MEDIUM (`code-review/016-send-check-validity-code-review.md`, website `ee114ff`): the fixture's header comment failed the comment gate. QA regenerated the fixture with no comment lines and lint-clean output, the data unchanged (`188bc93`, its `regen-*.txt` captures), so AC1-1 records the new sha256 and blob and AC1-11 exempts nothing. X-12 is retired. Correction, from the V-101 Opus critic's F-2: revision 6's scope-delta line left out AC1-11's added clause "(zero for a file the chain adds)", which stands. Scope delta: AC1-1's recorded identity changes, the data does not; AC1-11's population returns to every changed file. No milestone moves and no product behaviour changes. Since approval of the value statement: seven revisions and six gate rounds. Size against the original ask: unchanged. |
 
 ## Value Statement and Business Objective
 
@@ -177,8 +178,10 @@ recorded per the standing default in `references/escalation.md`):
 
 The class is "every V2 shape Discord was measured refusing". Its measured population is the
 **corpus**: QA Phase 1's 120-member fixture,
-`verification/016/corpus/fixture/discordV2SendCorpus.ts` (sha256 `49b54f8e…15bb9b`, git blob
-`9fb22ae`, record `77b1fd6`, as QA reported it). It holds 86 refused and 34 accepted members. It is
+`verification/016/corpus/fixture/discordV2SendCorpus.ts` (sha256 `9ab22baa…a77afe`, git blob
+`7fcf64f`, record `188bc93`; the planner's `sha256sum` and `git rev-parse` at that record, 12:58Z). QA
+regenerated it for code review CR-1 with no comment lines and lint-clean output, and its 120
+members are deep-equal to the `77b1fd6` fixture's (`verification/016/corpus/regen-compare.txt`). It holds 86 refused and 34 accepted members. It is
 made of the research's 76 (`research/closed/components-v2-send-validity-2026-11-11.md`, `c9f8e3a`),
 re-sent by QA with 76 of 76 verdicts and 52 of 52 error bodies matching, plus 44 members QA measured
 first (`qa/016-send-check-validity-qa.md`, "Members beyond the research", and the four U+0085-run
@@ -305,9 +308,8 @@ Acceptance criteria (properties):
   vitest case can see a breach, because every predicate test mocks `env.mjs`. QA places it.
 - **AC1-11 (lint).** The chain adds no eslint finding: for each file it changes, the finding count at
   the tip does not exceed the count at `0e3d903` (zero for a file the chain adds). The repository is
-  red before the chain (§ Validation, X-10). One file is outside this population: the corpus fixture
-  `src/utils/__tests__/helpers/discordV2SendCorpus.ts`, whose bytes AC1-1 fixes (X-12). Its findings
-  are those of QA's generated file and stay as they are; no lint configuration is edited for it.
+  red before the chain (§ Validation, X-10). No file is exempt: the corpus fixture is lint-clean
+  (`verification/016/corpus/regen-eslint.txt`, 0 errors and 0 warnings).
 - **AC1-8 (the content-requirement check keeps its behaviour).** `validateContentRequirements`
   returns the same result as at `0e3d903` for every input in its existing test classes. Its three
   other callers therefore keep their behaviour; the design choice that keeps it so is under
@@ -535,7 +537,6 @@ fixtures and coverage are QA's.
 | X-2 | A File upload path; removing File from the add menu | New product work (D-3; D-2) | Same handoff, Item 2 |
 | X-9 | Relocating the six files of `handoff/website-tests-not-beside-their-module-2026-11-08.md` | Rider R1 dropped (critique F-6); the chain edits none of the six | That handoff, which stays Open |
 | X-10 | The base tree's existing eslint findings | Red before the chain opens, on files the plan does not otherwise touch, apart from two test files (§ Validation) | Stated limit; AC1-11 |
-| X-12 | The corpus fixture's eslint findings (7078 errors, 1 warning, `npx eslint <file> --format json` by the implementer on the chain branch; all but the warning auto-fixable, `--fix-dry-run`, planner, 11:52Z) | AC1-1 fixes the file byte-identical to QA's generated fixture (sha256 `49b54f8e…`), so a lint fix would fail AC1-1's Phase 2 check. Hazard, stated: the repository's `lint` script runs `eslint --fix .` and would rewrite the file; the script is already unrunnable as a check on this red tree (§ Validation). Signature: Phase 2's sha256 check fails. An `.eslintignore` entry was offered and declined: it is work the approved M1 does not carry, and `.eslintignore` lists only directories (no sibling file-level entry) | Stated limit; AC1-1's sha256 check. After closure: the Problem Area the architect lodged for AF-14 in `architecture/system-architecture.md` (record `ff9d4f7`) |
 | X-11 | `/preview`'s own "Invalid message data." fallback | It is rendered instead of the editor when the data does not parse, so no message is shown and it is not chrome on one (M1b's class table). This is agent-authored and reported to the owner, who may veto it under D-14's "at all" | Stated limit |
 | X-3 | Any server-side refusal of a save | W-2 (D-4) | Stated limit |
 | X-4 | Counting or repairing stored rows | D-6. Research Recommendation 2 is out (determination). | Stated limit (§ Stored rows) |
@@ -579,15 +580,16 @@ fixtures and coverage are QA's.
 
 Updated at revision 6, `planner-hooks-016`. Implementation is running on revision 5's milestones
 (implementer-hooks-016, chain branch `chain/016-send-check-validity`).
-- **Done:** revisions 5 (QAF-12) and 6 (the AC1-1/AC1-11 contradiction, X-12). Revision 5 was
-  approved by the critic (cycle 3, `88b0da9`), the architect (`1492d33`) and QA (`97343f0`).
-- **Next:** the critic (cycle 4) and QA read revision 6 as its diff from R-5. The implementer was
-  answered by message: no lint config edit, and the fixture stays byte-identical.
+- **Done:** revision 7 (code review CR-1): AC1-1's fixture identity is now `9ab22baa…`/`7fcf64f`
+  (QA, `188bc93`), AC1-11 has no exemption, X-12 is retired, and the Planner batch is discharged.
+- **Next:** the critic (cycle 5) and QA read revision 7. The implementer re-copies the fixture on
+  the digest I sent. QA's regeneration addresses AF-14's Problem Area in
+  `architecture/system-architecture.md`, and the architect is told so.
 - **Open to the owner:** nothing.
 
 ## Planner batch
 
 | Item | Source row | Disposition |
 |---|---|---|
-| Revision 6's changelog row: its scope-delta line omits AC1-11's added clause "(zero for a file the chain adds)" (LOW) | V-101 Opus critic pass, F-2 (`steering/queue-hooks-rulings.md`, block "2026-11-11T11:57Z — V-101 trial block", record `c70c535`) | Parked: it changes no code, test or verifier. Folded at the seam before the UAT anchor, as a correction row naming the omitted clause |
-| X-12's 7078 count carries no date or SHA (INFO) | Same block, F-4, not routed; taken up under the planner's count rule | Parked with the row above. At the seam it cites QA's capture `verification/016/corpus/fixture-eslint-summary.txt` (`a3b7586`) |
+| Revision 6's changelog row: its scope-delta line omits AC1-11's added clause "(zero for a file the chain adds)" (LOW) | V-101 Opus critic pass, F-2 (`steering/queue-hooks-rulings.md`, block "2026-11-11T11:57Z — V-101 trial block", record `c70c535`) | Discharged at revision 7: its changelog row names the omitted clause |
+| X-12's 7078 count carries no date or SHA (INFO) | Same block, F-4 | Discharged at revision 7: X-12 is retired |
