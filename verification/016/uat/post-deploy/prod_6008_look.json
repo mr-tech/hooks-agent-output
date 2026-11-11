@@ -1,0 +1,12 @@
+{
+ "steps": "prod_6008_look",
+ "result": {
+  "url": "https://hooks.gg/message/m/6008/edit",
+  "err": [
+   "Message must have content, embeds, or components."
+  ],
+  "snap": "- main:\n  - link:\n    - /url: /message/f/0\n  - textbox \"Message Name\":\n    - /placeholder: New Message\n    - text: New Message New Message\n  - list:\n    - listitem:\n      - button \"File\"\n    - listitem:\n      - button \"Edit\"\n    - listitem:\n      - button \"View\"\n    - listitem:\n      - button \"Help\"\n    - listitem:\n      - link \"Send\":\n        - /url: /message/m/6008/send\n  - button \"toggle site theme\"\n  - button \"user menu\":\n    - img \"User Avatar\"\n  - dialog\n  - button \"Classic Components V2\"\n  - button \"edit avatar icon\":\n    - img \"user avatar\"\n  - text: Hooks.gg Bot BOT\n  - time: Today at 6:36 PM\n  - button \"Click or tap here to edit.\"\n  - text: Message must have content, embeds, or components.\n  - button \"Add Embed\"\n  - button \"toggle message view mode\"\n  - button \"save message\"\n- alert\n- paragraph: This website uses cookies to ensure that you get the best experience.\n- link \"Learn more\":\n  - /url: /legal/privacy\n- button \"Ok, Got it.\"\n- region \"Notifications Alt+T\"\n- dialog"
+ },
+ "error": null,
+ "log": []
+}

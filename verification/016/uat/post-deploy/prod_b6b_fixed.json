@@ -1,0 +1,18 @@
+{
+ "steps": "prod_b6b_fixed",
+ "result": {
+  "errEditor": [
+   "Message has 41 components; the limit is 40."
+  ],
+  "toasts": [],
+  "src": "https://cdn.hooks.gg/previews/5996/568077a666f7460d86dac15ad6e95230.jpeg"
+ },
+ "error": null,
+ "log": [
+  "2026-11-11T18:43:15.563Z confirm button /^load$/i",
+  "2026-11-11T18:43:18.681Z {\"errEditor\":[\"Message has 41 components; the limit is 40.\"]}",
+  "2026-11-11T18:43:18.733Z name now uat-016-b6b-41-components",
+  "2026-11-11T18:43:22.789Z {\"savedAt\":\"2026-11-11T18:43:22.789Z\",\"toasts\":[]}",
+  "2026-11-11T18:43:29.492Z attempt 0 src https://cdn.hooks.gg/previews/5996/568077a666f7460d86dac15ad6e95230.jpeg"
+ ]
+}

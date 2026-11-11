@@ -1,0 +1,20 @@
+{
+ "steps": "prod_b3_fixed",
+ "result": {
+  "url": "https://hooks.gg/message/m/6008/edit",
+  "before": [
+   "Message must have content, embeds, or components."
+  ],
+  "err": [
+   "A Text Display is empty."
+  ],
+  "activeRing": 1,
+  "counter": "1/40",
+  "snap": "- main:\n  - link:\n    - /url: /message/f/0\n  - textbox \"Message Name\":\n    - /placeholder: New Message\n    - text: New Message New Message\n  - list:\n    - listitem:\n      - button \"File\"\n    - listitem:\n      - button \"Edit\"\n    - listitem:\n      - button \"View\"\n    - listitem:\n      - button \"Help\"\n    - listitem:\n      - link \"Send\":\n        - /url: /message/m/6008/send\n  - button \"toggle site theme\"\n  - button \"user menu\":\n    - img \"User Avatar\"\n  - dialog\n  - button \"Classic Components V2\"\n  - button \"edit avatar icon\":\n    - img \"user avatar\"\n  - text: Hooks.gg Bot BOT\n  - time: Today at 6:34 PM\n  - button \"Text Display actions\"\n  - button \"Text content...\"\n  - text: A Text Display is empty.\n  - button \"Add Component\"\n  - text: 1/40\n  - button \"toggle message view mode\"\n  - button \"save message\"\n- alert\n- paragraph: This website uses cookies to ensure that you get the best experience.\n- link \"Learn more\":\n  - /url: /legal/privacy\n- button \"Ok, Got it.\"\n- region \"Notifications Alt+T\"\n- dialog"
+ },
+ "error": null,
+ "log": [
+  "2026-11-11T18:34:53.618Z editor url https://hooks.gg/message/m/6008/edit",
+  "2026-11-11T18:35:03.150Z {\"before\":[\"Message must have content, embeds, or components.\"],\"err\":[\"A Text Display is empty.\"],\"ring\":1,\"counter\":\"1/40\"}"
+ ]
+}

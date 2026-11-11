@@ -1,0 +1,58 @@
+{
+ "steps": "prod_b4_send",
+ "result": {
+  "editorEmpty": {
+   "err": [
+    "A Text Display is empty."
+   ],
+   "counter": "1/40",
+   "tdButtons": 1
+  },
+  "refused": {
+   "err": [
+    "A Text Display is empty."
+   ],
+   "send": {
+    "text": "Send",
+    "disabled": true
+   },
+   "webhookShown": true
+  },
+  "editorFilled": {
+   "err": [],
+   "counter": "1/40",
+   "tdButtons": 1
+  },
+  "accepted": {
+   "err": [],
+   "send": {
+    "text": "Send",
+    "disabled": false
+   },
+   "webhookShown": true
+  },
+  "sendHttp": null,
+  "toasts": [],
+  "sentAt": "2026-11-11T18:42:41.323Z",
+  "discord": {
+   "id": "1570146672271433962",
+   "timestamp": "2026-11-11T18:42:18.584000+00:00",
+   "author": "Hooks.gg Bot",
+   "flags": 32768,
+   "components": [
+    [
+     10,
+     "hello"
+    ]
+   ]
+  },
+  "deleteStatus": 204
+ },
+ "error": null,
+ "log": [
+  "2026-11-11T18:41:55.269Z refused {\"err\":[\"A Text Display is empty.\"],\"counter\":\"1/40\",\"tdButtons\":1} {\"err\":[\"A Text Display is empty.\"],\"send\":{\"text\":\"Send\",\"disabled\":true},\"webhookShown\":true}",
+  "2026-11-11T18:42:18.301Z accepted {\"err\":[],\"counter\":\"1/40\",\"tdButtons\":1} {\"err\":[],\"send\":{\"text\":\"Send\",\"disabled\":false},\"webhookShown\":true}",
+  "2026-11-11T18:42:41.866Z {\"editorEmpty\":{\"err\":[\"A Text Display is empty.\"],\"counter\":\"1/40\",\"tdButtons\":1},\"refused\":{\"err\":[\"A Text Display is empty.\"],\"send\":{\"text\":\"Send\",\"disabled\":true},\"webhookShown\":true},\"editorFilled\":{\"err\":[],\"counter\":\"1/40\",\"tdButtons\":1},\"accepted\":{\"err\":[],\"send\":{\"text\":\"Send\",\"disabled\":false},\"webhookShown\":true},\"sendHttp\":null,\"toasts\":[],\"sentAt\":\"2026-11-11T18:42:41.323Z\",\"discord\":{\"id\":\"1570146672271433962\",\"timestamp\":\"2026-11-11T18:42:18.584000+00:00\",\"author\":\"Hooks.gg Bot\",\"flags\":32768,\"components\":[[10,\"hello\"]]},\"deleteStatus\":204}",
+  "2026-11-11T18:42:42.393Z webhook delete 204 webhooks now [\"Spidey Bot\"]"
+ ]
+}
