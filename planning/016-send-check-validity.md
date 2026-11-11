@@ -35,7 +35,7 @@ Owed re-verdicts:
 | AC1b-3's signal form (AF-13) | revision 4 | architect | approved (`47c7a4c`); revision 5 owed |
 | AC1b-4's post-deploy member (b) | revision 4 | QA (B-6), critic (F-13) | critic resolved F-13 (`01eeaad`); QA carries it in B-6 (`96fbc66`); revision 5 owed |
 | RK-5, X-11 | revision 4 | critic | approved (`01eeaad`); revision 5 owed |
-| AC1-11's population without the corpus fixture; X-12 | revision 6 | critic, QA (AC1-11's instrument at Phase 2) | open |
+| AC1-11's population without the corpus fixture; X-12 | revision 6 | critic, QA (AC1-11's instrument at Phase 2) | QA re-keyed, no finding (`a3b7586`); critic open |
 
 ## Changelog
 
@@ -53,6 +53,7 @@ Owed re-verdicts:
 | 2026-11-11T11:43 | R-4 | planner-hooks-016 | Verdict: the architect's delta pass on revision 5 APPROVED with no finding (`architecture/016-send-check-validity-architecture-findings.md`, record `1492d33`, section "Verdict (rev 5 …)"). Its note on the typed 11:44 stamp was already corrected at R-3. No requirement changed; the revision stays 5. |
 | 2026-11-11T11:44 | R-5 | implementer-hooks-016 | Status set to In Progress: implementation starts on revision 5 at website `0e3d903`, chain branch `chain/016-send-check-validity`. Entry conditions recorded in the implementation document. No requirement changed. |
 | 2026-11-11T11:52 | 6 | planner-hooks-016 | Resolves the AC1-1/AC1-11 contradiction the implementer reported by message: the byte-identical corpus fixture carries 7078 eslint findings. AC1-11 now names the fixture as outside its population, and X-12 records why (AC1-1 fixes the bytes) and the `eslint --fix` hazard. Scope delta: AC1-11's population narrows by one file. No work is added, no product behaviour changes and no milestone moves, so it is not a milestone-level delta. The implementer's options (a) and (b), lint-config edits, are declined. Since approval of the value statement: six revisions and five gate rounds. Size against the original ask: unchanged. |
+| 2026-11-11T11:54 | R-6 | planner-hooks-016 | Verdict: QA re-keyed AC1-11 on revision 6 with no finding (`qa/016-send-check-validity-qa.md`, record `a3b7586`; capture `verification/016/corpus/fixture-eslint-summary.txt`). QA's offer to regenerate the fixture lint-clean is declined for this chain: it would re-open AC1-1 mid-implementation. No requirement changed; the revision stays 6. |
 
 ## Value Statement and Business Objective
 
