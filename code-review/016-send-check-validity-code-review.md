@@ -108,6 +108,8 @@ None.
   - **Falsity signature**: `grep -c '^FAIL comment'` over the convention check's output is 0 at the fixed SHA, and Phase 2's sha256 check passes against the new recorded digest.
   - **Minimum**: none. Leaving the comment and widening X-12 to cover it is the bypass the rule excludes.
 
+**CR-1 reconcile (2026-11-11T12:59, verdict unmoved):** plan revision 7 (record `9fd96d5`) records the regenerated fixture (QA record `188bc93`) as AC1-1's identity: sha256 `9ab22baa…`, blob `7fcf64f`, and it retires X-12. Read at record `HEAD`: that fixture holds 0 comment lines (`grep -c '^ *//'`), and its sha256 is `9ab22baa9c81157d09d38b2e0da655af8881bb28b389b8d6894d0d693fa77afe`. So the planner's and QA's parts of CR-1's Preferred action are done. What remains is the implementer's: copy that file byte-identical into the website and update the implementation document. The sub-entry checks the copy's digest and the convention check's `FAIL comment` count. Milestone M1 is capped by steering (rulings block "2026-11-11T12:59Z", record `855adb8`). CR-1 to CR-3 finish as started. A later finding on M1 below HIGH, other than a severity-floor finding, goes to the Planner batch.
+
 ### Low/Info
 
 **CR-3 LOW Round 1 Naming**: two test titles claim a behaviour their assertion cannot observe
