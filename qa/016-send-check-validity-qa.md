@@ -377,3 +377,15 @@ any difference. This is also the critic's routed assumption.
 - Assumption Not Checked → UAT (B-1) or the next QA pass, named above.
 - Next stage after the plan is approved: the implementer, with the fixture, the entry conditions and
   the register as input.
+
+## Resumption State
+
+Written 2026-11-11T11:19 at the checkpoint steering asked for (prefix past QA's threshold). Read this first on resume.
+
+- **Done:** Phase 1 on revision 1 (`803a97c`), re-keyed to revision 2 (`77b1fd6`) and revision 3 (`c121e92`, then `d5466ab`, the duplicate marks). Status `Awaiting Implementation`. The corpus fixture is final at 120 members (sha256 `49b54f8e…15bb9b`, blob `9fb22ae`). Register rows B-1 to B-6, side effects SE-1 to SE-6. QAF-1 to QAF-9 are RESOLVED. QAF-10 MEDIUM and QAF-11 LOW are open with the planner (duplicates of critique cycle 2 F-12 and F-13).
+- **Sent and awaited:** findings for revision 3 → `planner-hooks-016` (11:18Z). Nothing is pending with steering or the owner.
+- **Next, on the planner's revision 4:** read it as `git diff 21db6c8 <rev4> -- planning/016-send-check-validity.md`. Collapse QAF-10 and QAF-11 if landed. Then run the **by-render enumeration of M1b's class** that both gates route to this re-key (the QAF-11 reconcile note above): build a `git archive` export of `0e3d903` with `node_modules` symlinked and a jsdom vitest probe mounting `DiscordMessageEditor` the way `/preview` does (no `editableState`). Run it over every validator's trigger (empty message, embeds over 6000, V2 text over 4000, 41 components, a fresh Text Display at the tip only, an empty username, classic content over 2000 through `DiscordContentEditor` Desktop/Mobile per architect AF-12), and collect every `.text-error`, `errorBorder`, `errorStateBorder` and `data-erroring-state`, beside a valid control that renders none. Capture under `verification/016/preview-chrome/`. Then amend B-5 and B-6 if the class moves.
+- **Approach notes:** record edits through `node ~/.claude/tools/record-edit.js` with JSON built from exact file lines (the document holds literal U+FEFF and U+200B characters, which defeat hand-typed old strings). Changelog stamps via `2026-11-11T11:19`.
+- **Trees:** website on `master` at `0e3d903`, untouched by this session. The chain branch is not created. Nothing uncommitted of this session's in the record (a foreign untracked `steering/selection-ledger/2026-11-11.md` is steering's). No exports, containers or listeners left; scratchpad holds only disposable intermediates.
+- **Owed later (not at the re-key):** B-3 and B-6's production minting reads by the first stage-browser pass. At Phase 2: the whole-corpus re-send, the AC1-9 differential, AC1-10's ts-node probe, AC1-11's per-file eslint counts, the fixture's sha256 and blob check, and the mutation sweep.
+- **Cache-warm wake:** deleted at this checkpoint; re-arm on resume.
