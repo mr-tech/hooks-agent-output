@@ -1157,3 +1157,24 @@ Started `devops-hooks-016` with `tmux-agent spawn`, category `S016-sendcheck`, c
 `/usr/local/bin/hooks/website`, brief `steering/queue-hooks-briefs/devops-016-brief.md`. The
 production push is that session's own ask to him. `qa-hooks-016` was cleared at 13:50Z after its
 Checkpoint (`500a501`).
+
+## 2026-11-11T17:33Z — machine restart: new generation of this thread; devops respawned for the release ask
+
+This thread was respawned after a machine restart (boot 2026-11-11 17:27, by its launch brief) and
+resumed from its docket. `ListAgents` at 17:31Z: every `*-hooks-016` row offline; no stage session
+of chain 016 survived. `CronList`: no jobs; the standing check is re-armed.
+
+Read this turn at `HEAD` (record `86d16b8`): `deployment/016-send-check-validity-deployment.md`
+whole, `Status: Active`, "Awaiting the owner's release answer (Phase 2B); nothing pushed", runbook
+steps 3 to 7 pending. Website: `chain/016-send-check-validity` at `395510e`; `git ls-remote origin
+master` `0e3d903`; `release-move.js … master 395510e… --dry-run` exit 0, "workflows none" (17:32Z).
+No answer of his to the release ask is on record, so the chain's next act is still devops's ask.
+
+Started `devops-hooks-016` fresh with `tmux-agent spawn`, category `S016-sendcheck`, cwd
+`/usr/local/bin/hooks/website`, brief `steering/queue-hooks-briefs/devops-016-respawn-brief.md`.
+The other chain sessions (UAT for the post-deploy rows) are spawned when their act comes; none
+has work before the push. This thread puts no release prompt of its own.
+
+Out-of-memory count 45 (`grep -c 'invoked oom-killer' /var/log/kern.log`, 17:32Z; 44 at 14:58Z):
+the new kill is a `python3`, pid 3035561; no chain 016 session was working, so no session is told.
+Usage, `plan-usage.py --json`, 17:32Z, `"source": "live"`: `weekly_all` 67%.
