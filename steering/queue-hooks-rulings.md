@@ -924,3 +924,23 @@ current revision, so the planner dispositions it first. Started `planner-hooks-0
 
 Usage, `plan-usage.py --json`, 11:38Z, `"source": "live"`: `weekly_all` 55%. Out-of-memory count 43
 (`grep -c`), unchanged.
+
+## 2026-11-11T11:41Z — plan 016 revision 5: scope delta read; no prompt; architect respawned on the planner's cue
+
+Read this turn at the commit: plan 016 revision 5 (record `b2d78b0`, `Revision: 5`,
+`Status: Active`, "No OPEN QUESTION remains"), as its whole diff against the planner's Checkpoint
+(`git diff a9bb644 b2d78b0`, `--numstat` 45/32), changelog row included. The planner's spawn cue
+for the architect arrived by message.
+
+- **Criterion wording only; no milestone added, removed or widened** (four milestone headings, as
+  at revision 4). AC1b-1's Author limb is checked on `/preview` in cozy, the one style the route
+  renders, and in compact at the `Author` component with the preview signal set: QAF-12's first
+  form, which QA marked "no owner question". The compact branch stays inside M1b's class. This
+  rides selection 23, so it is not put to him.
+- The whitespace limb (L1, L8) is not in the diff.
+- Since approval of the value statement, by the plan's changelog: five revisions and four gate
+  rounds. No cap condition has fired: implementation has not started.
+
+Started `architect-hooks-016` fresh with `tmux-agent spawn`, category `S016-sendcheck`, cwd
+`/usr/local/bin/hooks/website`, brief `steering/queue-hooks-briefs/architect-016-respawn-brief.md`,
+naming its Resumption State (`f79fc94`). The critic and QA are cued by the planner.
