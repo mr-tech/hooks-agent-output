@@ -698,3 +698,45 @@ the 98% gate alone, so the 90% session-limit hold (steering.md, Usage gates) sta
 `plan-usage.py --json` at 11:02Z: `weekly_all` 97%, `weekly_scoped:Fable` 93%. No stage was told of
 a gate, so none is told of this. Not put to him: what happens at 100%, which is the plan's own
 limit and not a rule of this thread's.
+
+## 2026-11-11T11:08Z — plan 016 revision 2: scope delta read; not put to him as a prompt
+
+Read this turn, after this thread's `/clear`: plan 016 revision 2 (record `6b07655`, `Status:
+Active`, `Revision: 2`, no open `OPEN QUESTION`), as its whole diff against this thread's
+registration (`git diff 3b4205d 6b07655`, 192/104), its changelog row, value statement, Exclusions
+and Planner batch (none registered); QA register rows B-3 and B-4 (`qa/016-send-check-validity-qa.md`
+lines 322 and 323). The planner's message at 11:07Z carried the same delta and cued the three gates
+itself.
+
+**This thread's judgement: a criterion-level delta inside the class he approved, no milestone added
+or removed, so no selection prompt.** The limbs stay L1 to L10. What moved:
+- M1's measured population is QA's 116-member corpus (82 refused, 34 accepted; the plan's figures,
+  from QA's fixture), up from the research's 76 (52 and 24). His selection 17 option named "the 52
+  shapes Discord was measured refusing"; the value statement he approved reads "every V2 shape the
+  research measured Discord refusing". The 40 added members are QA's measurements of the same ten
+  limbs at nested placements and key-absent forms. Read as the same class with more of it measured,
+  not a new one; told to him so he can say otherwise.
+- New criteria on M1: AC1-6p (a post-deploy read on hooks.gg, rows B-3 and B-4, the UAT stage's
+  with him as fallback only, so nothing enters `OWNER-QUEUE.md`), AC1-9 (every other message keeps
+  today's result), AC1-10 (the import closure stays env-free), AC1-11 (the chain adds no lint
+  finding). M2's AC2-2 is split into a suite half and a browser half (B-2).
+- Rider R1 is dropped on critique F-6, under the drop disposition he was shown at selection 22
+  (plan D-13, "Fired").
+- Exclusions: X-9 now covers all six files of the tests handoff; X-10 (the base tree's existing
+  lint findings: 312 errors and 364 warnings in 109 files, the planner's count at `0e3d903`) is new,
+  a stated limit bounded by AC1-11.
+
+**Two design choices of the planner's, recorded as agent-authored and reported to him (lifecycle
+`references/escalation.md`, Standing Defaults: a design choice inside the agreed scope); he vetoes
+from this record.**
+1. The new reason line renders on `/preview` like its sibling error lines, so a draft saved with a
+   just-added, unfilled component can get a preview image carrying the red line. Not gated, by the
+   mirror-the-siblings rule (plan D-5). UAT records the `/preview` render in B-1's walk. The share
+   of drafts affected is unknown (the plan's words, from critic F-1).
+2. A link button's label takes selection 18's whitespace rule (U+0085 counts as empty, U+FEFF as
+   content). Selection 18's question named the Text Display; QA measured Discord treating a label
+   the same way (QAF-3, QA's measurement, not re-read here), and the goal he chose at selection 17
+   is agreement with Discord, so it is not re-asked.
+
+Gates at 11:08Z (`ListAgents`): the critic, the architect and QA are busy re-reading revision 2;
+the planner is idle. Idle subscriptions held on the three gates.
