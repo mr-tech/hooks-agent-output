@@ -189,3 +189,28 @@ Text Display faults with three placements: 21 × 2 + 2 × 3 = 48 rows.
 Which single row carries each walk is not unique: any one `top` row carries the top-level walk, any
 `container` row the Container walk, any link-button row the Action Row walk, any gallery-item row the
 gallery walk. The table scores one per walk at 9 and the rest by what else they add.
+
+## Round 4 — 2026-11-11T12:59Z
+
+- **Repository:** `website`
+- **Range:** `64a3d26..395510e` on `chain/016-send-check-validity` (one commit, parent `64a3d26`)
+- **Paths and limits:** none named; `git diff --numstat 64a3d26..395510e` lists one file,
+  `src/utils/__tests__/helpers/discordV2SendCorpus.ts` (3296/3297).
+- **Tree check:** branch `chain/016-send-check-validity`, `HEAD` `395510e` at round start;
+  `git status --porcelain` showed only the untracked `.playwright-mcp/`.
+- **Read for this round:** the plan, QA's document and the implementation document as their diff
+  since the round 3 table's commit (`git diff bdba4db HEAD`, plan revision 7 included); `CLAUDE.md`
+  has no diff. The range as its diff.
+- **Held:** none named by the implementer's round 4 message. Earlier holds stand.
+- **The round removed nothing.** No deletion commit; the suite was not run by this round; the tip
+  stays `395510e`.
+
+| Case | Score | Reason | Covered by / left unasserted | Disposition |
+|---|---|---|---|---|
+| none: the range adds or changes no test case | — | The one file changed is the corpus fixture, which every corpus case uses | — | — |
+
+The corpus cases scored in round 1 keep their scores. The fixture is data they exercise, so I
+compared it: the array literal of `64a3d26`'s file and of `395510e`'s, each evaluated and compared
+member by member through `JSON.stringify`, are equal for 120 of 120 in the same order, 86 of them
+refused. `sha256sum` of the file at `395510e` gives `9ab22baa…a77afe`, the value plan revision 7
+records. The change is the removed header comment and the formatting.
