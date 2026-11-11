@@ -1,0 +1,12 @@
+comment-gate — website
+  scope    named files only (1) — every comment in scope
+  files    1 named, tests included
+  skipped  outside root, extension outside EXT, missing, test files without --tests
+
+  4 prose comments in 1 files — 4 lines, 348 chars (~87 tokens)
+  0 tool-directed comments left alone
+
+   share   lines  file
+      0%       4  src/utils/__tests__/helpers/discordV2SendCorpus.ts
+                  └ L1, 1 lines: Components V2 send bodies with the verdict Discord returned …
+

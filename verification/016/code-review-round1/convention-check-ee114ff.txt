@@ -1,0 +1,27 @@
+command: node ~/.claude/tools/convention-check.js /usr/local/bin/hooks/website --since=0e3d903 (tree ee114ff), exit 1
+fixture eslint FAIL lines: 7079
+FAIL eslint src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx:38 — jsx-a11y/no-noninteractive-tabindex: `tabIndex` should only be declared on interactive elements.
+FAIL eslint src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx:50 — tailwindcss/classnames-order: Invalid Tailwind CSS classnames order
+FAIL eslint src/components/DiscordMessageEditor/components/ComponentEditors/ThumbnailEditor.tsx:48 — jsx-a11y/no-noninteractive-tabindex: `tabIndex` should only be declared on interactive elements.
+FAIL eslint src/components/DiscordMessageEditor/components/ComponentEditors/ThumbnailEditor.tsx:68 — tailwindcss/classnames-order: Invalid Tailwind CSS classnames order
+FAIL eslint src/server/api/utils/__tests__/shapes.message-validation.test.ts:1 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/server/api/utils/__tests__/shapes.message-validation.test.ts:1 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/server/api/utils/__tests__/shapes.message-validation.test.ts:14 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/server/api/utils/__tests__/shapes.message-validation.test.ts:15 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/server/api/utils/__tests__/shapes.message-validation.test.ts:141 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/server/api/utils/__tests__/shapes.message-validation.test.ts:141 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/server/api/utils/__tests__/shapes.message-validation.test.ts:164 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/server/api/utils/__tests__/shapes.message-validation.test.ts:164 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/server/api/utils/__tests__/shapes.message-validation.test.ts:227 — max-len: This line has a length of 104. Maximum allowed is 100.
+FAIL eslint src/server/api/utils/__tests__/shapes.message-validation.test.ts:238 — max-len: This line has a length of 102. Maximum allowed is 100.
+FAIL eslint src/server/api/utils/__tests__/shapes.message-validation.test.ts:279 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/server/api/utils/__tests__/shapes.message-validation.test.ts:280 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/server/api/utils/__tests__/shapes.message-validation.test.ts:298 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/server/api/utils/__tests__/shapes.message-validation.test.ts:309 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/server/api/utils/__tests__/shapes.message-validation.test.ts:309 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/server/api/utils/__tests__/shapes.message-validation.test.ts:319 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/server/api/utils/__tests__/shapes.message-validation.test.ts:535 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+SKIP .playwright-mcp/page-2026-11-11T10-52-48-027Z.yml: not examined — extension .yml is outside the examined set
+SKIP id-token, basename: /usr/local/bin/hooks/agent-output/CLAUDE.md states an ID-token class this checker does not implement verbatim (the hooks line at cca22fd) — the checks did not run
+convention-check: 15 file(s) examined, 1 not examined, 8 test file(s); 7101 FAIL, 0 CANDIDATE, 2 SKIP
+FAIL comment src/utils/__tests__/helpers/discordV2SendCorpus.ts:1 — 4 comment(s) outside the comment-gate allowlist; first: "// Components V2 send bodies with the verdict Discord returned when each was sent from a webhook" (full list: node /home/dev/.claude/tools/comment-gate.js /usr/local/bin/hooks/website --files src/utils/__tests__/helpers/discordV2SendCorpus.ts --tests)

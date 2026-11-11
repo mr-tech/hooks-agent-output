@@ -23,3 +23,8 @@ What belongs in the website suite instead: the assertions over the fixture (AC1-
 folder keeps the measurement and the generator; the suite keeps the tests.
 
 Later passes add `differential/` (Phase 2, two-tree runs) and `uat/` (plan AC1-6 captures).
+
+- `code-review-round1/`: code review Round 1 at website `ee114ff`.
+  - `positional-probe.sh` and `positional-probe-ee114ff/`: first-only and last-only mutants of the five list walks in `validateV2Components` (CR-2). Run it in a `git worktree` export, never in the shared tree.
+  - `extraction-differential.js`, `extraction-compare.js` and their output and hashes: a seeded two-tree run that verifies the `isV2Message` extraction is behaviour-preserving.
+  - `eslint-base-vs-tip.txt`, `convention-check-ee114ff.txt` and `comment-gate-fixture.txt`: AC1-11 per file, and CR-1.
