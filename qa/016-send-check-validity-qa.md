@@ -4,14 +4,14 @@ Origin: 016
 UUID: 54673438
 Verified-At: "0e3d903 — repos=website; Phase 1 strategy, read at this base tree; no verdict issued"
 Status: Awaiting Implementation
-Status-Detail: "Phase 1 re-keyed to plan revision 2 (record 6b07655). QAF-1 to QAF-8 resolved there. One new finding, QAF-9 MEDIUM (the formal whitespace-empty predicate misses measured refusals), goes to planner-hooks-016, with the corpus fixture re-pinned at 120 members. This document holds the chain's blocking-condition register (B-1 to B-4)."
+Status-Detail: "Phase 1 re-keyed to plan revision 3 (record 21db6c8). QAF-9 resolved there. Two new findings go to planner-hooks-016: QAF-10 MEDIUM (M1b's class leaves out Author's username error line, which renders on /preview, executed) and QAF-11 LOW. Register rows B-5 and B-6 added for AC1b-4. This document holds the chain's blocking-condition register (B-1 to B-6)."
 Phase: 1
 ---
 
 # QA Report: Plan 016 — the send check refuses what Discord refuses
 
-**Plan Reference**: `agent-output/planning/016-send-check-validity.md`, `Revision: 2` (record `6b07655`),
-read as its diff from revision 1 (`git diff 3b4205d 6b07655`). Revision 1 was read whole at record `3b4205d`.
+**Plan Reference**: `agent-output/planning/016-send-check-validity.md`, `Revision: 3` (record `21db6c8`),
+read as its diff from revision 2 (`git diff 6b07655 21db6c8`). Revision 2 was read as its diff from revision 1, and revision 1 whole at record `3b4205d`.
 
 ## Changelog
 
@@ -19,6 +19,7 @@ read as its diff from revision 1 (`git diff 3b4205d 6b07655`). Revision 1 was re
 |------|---------------|---------|---------|
 | 2026-11-11T11:00 | steering-queue-hooks → qa-hooks-016 | Phase 1 on revision 1 (brief `steering/queue-hooks-briefs/qa-016-brief.md`) | Phase 1. Corpus rebuilt and re-sent in the test server: 76 of 76 match Discord's earlier verdicts. 40 further members measured. Ledger tally by script: 52 + 24 = 76, each id once. Strategy per criterion, the Irreversible Side-Effect Register, register rows B-1 to B-4, and QAF-1 to QAF-8 (five MEDIUM, three LOW) for the planner. Status `Awaiting Implementation`. |
 | 2026-11-11T11:11 | planner-hooks-016 → qa-hooks-016 | Re-key Phase 1 to revision 2 (`6b07655`) | Phase 1 re-key. QAF-1 to QAF-8 read in the diff and collapsed as RESOLVED. Four members measured (batch 3); they found QAF-9 MEDIUM: revision 2's formal whitespace-empty predicate is wrong on 3 of 30 measured members. Fixture re-pinned at 120 members (`49b54f8e…`). Strategy rows for AC1-7 (rider R1 dropped), AC1-9, AC1-10 and AC1-11; B-1 amended for the `/preview` record. Status stays `Awaiting Implementation`. |
+| 2026-11-11T11:17 | planner-hooks-016 → qa-hooks-016 | Re-key Phase 1 to revision 3 (`21db6c8`) | Phase 1 re-key. QAF-9 collapsed as RESOLVED; the fixture hash checked at `21db6c8`. M1b's class checked against every error element in the editor tree: QAF-10 MEDIUM (Author's username error renders on `/preview`, executed at `0e3d903` with a control) and QAF-11 LOW (AC1b-4's post-deploy member does not distinguish). Strategy rows for AC1b-1 to AC1b-3, side effect SE-6 (preview images), register rows B-5 and B-6. Status stays `Awaiting Implementation`. |
 
 ## Reading
 
@@ -136,26 +137,35 @@ QAF-8 LOW Phase 1 RESOLVED — the reason unit is (limb, component type). Plan r
 
 Raised at the re-key, to the planner:
 
-QAF-9 MEDIUM Phase 1 — **Revision 2's formal "whitespace-empty" predicate misses U+0085 with whitespace
-between, and Discord refuses those.** The wording is "after `trim()`, every remaining character is U+0085,
-and the original string holds no U+FEFF". `trim()` strips only from the ends, and a U+0085 at an end
-stops it. So `"\u0085 \u0085"` trims to itself, keeps its inner space, and counts as content. Measured
-11:08:17Z to 11:08:38Z (`resend-results-batch3.json`): Text Display `"\u0085 \u0085"` → 400,
-`" \u0085 \u0085 "` → 400, `"\u0085\u0085"` → 400, link-button label `"\u0085 \u0085"` → 400
-`BASE_TYPE_REQUIRED`. A check built to the formal wording passes three of these four, which are missed
-refusals. The plain-language gloss beside it ("`trim()` with U+0085 counted as whitespace and U+FEFF
-counted as content") is right. The critic's stated limit F-11 makes the formal wording govern over the
-gloss, which settles the conflict in the wrong direction. Instrument
-(`verification/016/corpus/whitespace_rule_check.mjs`, `whitespace-rule-check.txt`): over the 30 corpus
-members that are a lone Text Display or a label-only link button, the revision-2 predicate is wrong on 3
-(`Q3-td-u0085-space-u0085`, `Q3-td-space-u0085-space-u0085-space`, `Q3-label-u0085-space-u0085`). The
-per-character form, "every character `c` has `c.trim() === ''` or is U+0085, and none is U+FEFF", is
-wrong on 0. **Asked:** restate the formal predicate so that it agrees with the gloss and the measurements,
-and re-pin the fixture. It now holds these four members as `source: 'qa-extra-3'`: 120 members, 86
-refused, 34 accepted, sha256 `49b54f8e6b7226f1258a497b6e2f01d73126a85c9e66c2ef1acbff32bb15bb9b`, git blob
-`9fb22ae`. Re-checked in a fresh export of `0e3d903`: `tsc --noEmit -p tsconfig.test.json` exit 0, and the
-smoke run gives 120 members with the blocked set `A3 A5 N2 N4 N6 N9`, exit 0. The 116-member file revision 2
-pins (`2043a8a8…`) is superseded.
+QAF-9 MEDIUM Phase 1 RESOLVED — whitespace-empty is restated per character (no U+FEFF, every character `c.trim() === ''` or U+0085); the four U+0085-run members are in L1 and L8; the corpus is re-pinned to 120 members. Plan rev 3 (`21db6c8`). The pinned hash checked at that commit: `git rev-parse 21db6c8:verification/016/corpus/fixture/discordV2SendCorpus.ts` → `9fb22ae…`, sha256 `49b54f8e…15bb9b`, equal to the plan's citation.
+
+Raised at the re-key on revision 3, to the planner:
+
+QAF-10 MEDIUM Phase 1 — **M1b's class leaves out an error line that renders on `/preview`: Author's username
+error.** `Author.tsx` computes `const error = validateUsername(username)` and renders
+`{error && <div className='mt-1 text-xs font-bold text-error'>{error}</div>}` in both `visualStyle`
+branches, with no `showEdit` condition (read at `0e3d903`). `/preview` mounts `DiscordMessageEditor`
+with no `editableState`, so a draft whose username is empty, `everyone` or `here`, or holds `@`, `#`,
+`:`, "discord" or "clyde" puts a red line in its preview image today. Executed at `0e3d903` (a
+`git archive` export, jsdom; `verification/016/preview-chrome/Author.preview-error-probe.test.tsx`,
+output `author-probe-0e3d903.txt`, exit 0, 4 of 4): with `showEdit={false}`, an empty username renders
+`["This username is too short or too long."]` in the cozy and compact styles, and the control username
+renders `[]` in both. M1b enumerates only `index.tsx`'s four lines, the new line and `errorBorder`, but
+D-14's words are "the preview route shows no error lines or red border at all". The other child error
+lines read at `0e3d903` do not reach `/preview`. `EmbedTitle`, `EmbedAuthor` and `EmbedField` return
+before their error lines when `!showEdit`. `EmbedFooter`'s line is commented out. `LinkButtonEditor`
+sits under `ComponentEditor`, which renders in edit mode. **Asked:** add Author's line as a seventh
+member (AC1b-1, AC1b-2, cozy and compact both). The alternative is to state it out, but that departs
+from D-14's "at all" and would need the owner. Also say whether `styles.errorStateBorder` on the
+author header is chrome. The code is unread past the class name, which is residue unless stated.
+
+QAF-11 LOW Phase 1 — **AC1b-4's post-deploy member cannot tell fixed from unfixed.** It reads "the preview
+image of a test-account V2 message saved with an unfilled component carries no red line". At `0e3d903`
+(production now) no line fires for an unfilled component either: M1's line does not exist there, and no
+other line fires for it (B-3's code read). So the image is clean before and after the release. A member
+whose line exists at the base does distinguish: 41 Text Displays (`componentCountError`, "Message has 41
+components; the limit is 40.") or an empty username (QAF-10). **Asked:** add one such member to
+AC1b-4's post-deploy limb. Register row B-6 carries both members now.
 
 No finding against D-10, AC2-3, AC1-10, AC1-11, the stored-row residue, or rider R1's drop. AC2-3's "the
 save schema admits a 1025-character description at the tip" is the owner's ruling (W-2, D-10), not a
@@ -205,6 +215,9 @@ removing for M1 to land.
 | AC2-1 | One constant, two inputs, one check | 1024 passes, 1025 refused at Send, for both description fields | Suite (literals 1024 and 1025, never the constant read back) |
 | AC2-2 | Two inputs | Paste of 1100 characters; a stored over-1024 description is shown and editable | Suite (attribute) + B-2 (browser) |
 | AC2-3 | The save schema | 1025 admits, and `isMessageValid` is false for it | Suite |
+| AC1b-1 | Six members as revision 3 enumerates them (seven with QAF-10), each with its own trigger: an empty message (`noContentError`), embed text over 6000 (`embedCharacterError`), V2 text over 4000 (`v2TextError`), 41 components (`componentCountError`), a fresh Text Display (M1's line), the `errorBorder` class from any of the last three; and Author's line from an empty username, cozy and compact | Each member checked alone, its trigger present, the others absent, so a mechanism that hides only some lines is caught; the border checked as a class on the accessories container, not by colour | DOM, mounting `DiscordMessageEditor` the way `src/app/preview/page.tsx` does (no `editableState`, plus the new signal); mount `Author` directly for its member |
+| AC1b-2 | The other render sites: the edit page, and through `MessagePreview` the send page, `EditMessageMenu` and `NewMessageModal` | The send page's read-only preview (no edit state, no signal) still shows every line. This is the case an edit-mode mechanism would get wrong, and why the signal is not edit mode | DOM over `MessagePreview` with each trigger (it covers three of the four sites); the edit page through `DiscordMessageEditor` with an `editableState` |
+| AC1b-3 | Only `src/app/preview/page.tsx` passes the signal | A second site passing it, which hides lines on the send page | Behaviourally, AC1b-2 at every site. The call-site enumeration (`git grep -n "<DiscordMessageEditor\b\|<MessagePreview\b"` over production paths) is code review's read, and QA re-runs it at Phase 2 against revision 3's six-path list |
 
 ### Coverage obligations — each conjunct carries the decision alone, controls both ways
 
@@ -247,6 +260,7 @@ Not applicable. The root cause is proven by execution (research F-1), and the ch
 | SE-3 | A Pusher "message updated" event on save | `shared.ts` (rulings 10:13Z, line 290 at `963a25c`), channel `message-update-<id>` | On a local build: the id sequence restarted above production's range (D-7, `CLAUDE.md`) | **Not enforced by the record tool.** `tools/uat-local-stack.sh` has no restart (`grep -c -E "RESTART\|Messages_id_seq"` → 0). B-1 carries it as a precondition, and an inbox entry goes to the tool's owner. |
 | SE-4 | `valid` written for NULL rows | `src/scripts/backfillValid.ts` | Not run by this chain, and not modified (plan, Entry work) | n/a |
 | SE-5 | This pass's own sends in the test server | `verification/016/corpus/resend.py` | The guild guard, the webhook guard, a delete for every 200 | 116 POSTs, 34 accepted, 34 deleted (204), webhooks unchanged |
+| SE-6 | A preview image generated on save and published (the preview-image service screenshots `/preview`; D-003) | `upsertMessage` (`src/server/api/utils/shared.ts`) triggers generation in both branches (plan rev 3, Objective, steering's read; not re-read by this pass) | What `/preview` renders at the moment of the save. An image keeps what it was generated with until the message is next saved | **M1 without M1b puts M1's line into the image of every draft saved with an unfilled component.** So M1b ships in the same release as M1, never after it. This is devops's to hold at the push, since one chain merge carries both. A rollback of M1b alone brings the lines back (plan rev 3, M1b Rollback). Images generated before the release keep any line they carry today (the four existing lines, and Author's) until the message is re-saved. That is a stated limit, the image-side counterpart of RK-3 |
 
 ## Testing Infrastructure Requirements
 
@@ -286,8 +300,10 @@ row's execution state.
 | B-2 | observable pre-release | AC2-2: pasting 1100 characters into the Thumbnail description and into a gallery item description leaves 1024 in each field. Typing at 1024 adds nothing | Same walk as B-1; field length read by `browser_evaluate` (`input.value.length`) | UAT; owner fallback | As B-1; depends on B-1's stack | 1024 and 1024 | If the paste lands whole, the user composes a description Discord refuses, and only Send's reason catches it | uat | UAT pass of chain 016 | open |
 | B-3 | post-deploy-observable | The user-reported defect (handoff `components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md`, his words) is fixed in production. On hooks.gg, a new V2 message with one fresh Text Display shows the Text Display reason line, and Send is disabled | Stage browser single look on `https://hooks.gg/message/m/new` → "My Account" → V2 → add Text Display; read `.text-error` lines. Read-only: no Save, no Send | UAT stage; owner fallback | Production serving the chain's merge SHA (how that is verified is devops's to establish) | **Fixed:** the line present. **Unfixed (`0e3d903`, by code read):** no line, since `DiscordMessageEditor/index.tsx`'s error lines are `noContentError`, `v2TextError` and `componentCountError`, and none fires for one empty Text Display. One observation decides | If no line shows after deploy, production is not running the fix, or the fix does not reach the editor | uat | Devops's Stage 1 carrier `handoff/<name>.md` | open. **Minting run attempted 10:52Z, not completed:** the page showed a "Select a Server" picker before the editor, and the walker was not authorised to choose. The browser server then disconnected. Owed: the first stage-browser pass of this chain runs the look once against production before release, read-only, and records the unfixed value beside this prediction |
 | B-4 | post-deploy-observable | Liveness beside B-3, which declines sends: in production a filled V2 message (one Text Display "hello") still sends. The test account's own message, sent to the test-server webhook, returns success | Stage browser walk on hooks.gg as the test account (its own row: `discord-test-browser` skill) | UAT stage; owner fallback | As B-3; same session as B-3 (B-3's refused member is the control) | Send enabled; Discord 200; message visible in `#general` | If a filled message cannot be sent, the change blocks every V2 user: the most-exposed class is every V2 sender | uat | Devops's Stage 1 carrier | open; depends on B-3's session |
+| B-5 | observable pre-release | AC1b-4 (local): on a local build of the tip, `/preview` for a draft with a fresh Text Display shows no `.text-error` element and no `errorBorder` class, while the editor and the send page show M1's line. The same `/preview` read for a 41-component draft and for an empty-username draft (QAF-10, if it lands) | Stage browser, in B-1's session (browser-walker): `browser_evaluate` of the `.text-error` texts and the accessories container's class list on each surface | UAT; owner fallback | As B-1 (same stack, id restart applied) | `/preview`: `[]` and no border class for each draft. Editor and send page: the line present | If `/preview` still shows the line, every saved draft with an unfilled component publishes a preview image carrying a red error | uat | UAT pass of chain 016 | open |
+| B-6 | post-deploy-observable | AC1b-4 (production): the preview image of a test-account V2 message saved on hooks.gg carries no red line, for (a) one unfilled Text Display and (b) 41 Text Displays | Stage browser on hooks.gg as the test account (its own rows, `discord-test-browser` skill): save each draft, open its generated preview image, read it by eye (the Read tool on the downloaded image) | UAT stage; owner fallback | Production serving the chain's merge SHA (devops's to establish); the image regenerated after that save | **Fixed:** no red line in either. **Unfixed (`0e3d903`):** (a) no line, which does not distinguish (QAF-11); (b) the red line "Message has 41 components; the limit is 40.", by the code read of `index.tsx` (`componentCountError`, no edit-mode condition). (b) decides in one observation | If (b)'s image still carries the line, production is not running M1b, or the image was not regenerated | uat | Devops's Stage 1 carrier `handoff/<name>.md` | open. Minting: not run. The browser server is disconnected in this session, and the run writes production rows. How the image URL is found for a saved message is **UNVERIFIED**; the executor establishes it first. Owed: the first stage-browser pass runs (b) once against production before release and records the unfixed value beside this prediction |
 
-Every plan validation line that designates an operator-observed check has a row: AC1-6 → B-1. AC2-2's
+Re-key on revision 3: AC1b-4's local limb → B-5, its post-deploy limb → B-6. Every plan validation line that designates an operator-observed check has a row: AC1-6 → B-1. AC2-2's
 browser half → B-2 (QAF-7). The defect's production observable → B-3, with its liveness row B-4. No
 other plan line designates one (plan read whole).
 
@@ -343,6 +359,8 @@ webhook (which the website's users can also hold) gets a different verdict or er
 member. The signature is a B-1 or B-4 send behaving unlike the corpus. Owner of closing it: UAT, whose
 B-1 send can use the other kind, or the next QA pass, by re-running `resend.py` on a bot-created
 webhook.
+
+Re-key pass on revision 3: this pass assumes the preview-image service screenshots exactly what `/preview` renders in jsdom-equivalent terms, i.e. no CSS rule in the image path re-shows a hidden line, and does not test it (the generator was not run). If false, an image carries a line the DOM tests say is absent. The signature is B-6 (b) still red with the tip serving. Owner of closing it: UAT, by B-5's browser read (real CSS) before release, and B-6 after.
 
 Re-key pass on revision 2: this pass assumes Discord's verdicts on the 44 first-measured members (the
 40 plus batch 3's 4) are stable and not transient, and does not re-send them; each was sent once. If false,
