@@ -234,3 +234,20 @@ acceptance rules by a live send, "a standing prohibition with no approval path".
 `CLAUDE.md` ("Outbound messages") now gives agents the Discord test server, and prompt 3 put the
 change to him in those terms before he chose the agent send. The handoff carries a dated note of
 this; its August text is left in place.
+
+## 2026-11-11T08:50Z — selection 12: measure the V2-validity class (put 08:48:53Z, answered 08:50Z)
+
+Ledger: `steering/selection-ledger/2026-11-11.md`, this thread's latest block. The prompt quoted his
+2026-08-26 words from `handoff/components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md`
+(read this turn) and said the live-send block is gone inside the test server.
+
+Options: *Agent: measure it now (Recommended)* (the researcher session measures which V2
+configurations Discord refuses, emptiness first, by sends in the agents' test server only; the 1024
+fix proceeds separately; any fix to the send check from the results returns to him as its own
+question) / *Agent: measure first, one fix after* (the 1024 fix waits; that gap stays open
+meanwhile) / *You: leave the handoff as is*.
+**Chosen: "Agent: measure it now (Recommended)"** (selection).
+
+Started as a second question to the live researcher session, brief
+`steering/queue-hooks-briefs/researcher-v2-validity-brief.md`, sent when that session is idle after
+closing its first document. Why a researcher: the class is unknown, so there is nothing to plan yet.
