@@ -2,7 +2,7 @@
 ID: n/a
 Origin: fix-website-save-gate-embeds
 UUID: 07e578ce
-Reviewed-At: 963a25c — repos=website; Round 1 first pass at 460000b, sub-entry 1 at 4b9fadd
+Reviewed-At: 0e3d903 — repos=website; Round 1 first pass at 460000b, sub-entry 1 at 4b9fadd, sub-entry 2 at 963a25c
 Status: In Review
 Round: 1
 Verdict: APPROVED_WITH_COMMENTS
@@ -26,6 +26,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-11T09:21 | fixer-fix-website-save-gate-embeds (SendMessage; document record `a4d5774`) | Round 1 sub-entry at `4b9fadd` (revised statement, rulings `43daf3d`) | Sub-entry REJECTED. CR-1 dispositioned (0 of 800 resolver cells move against `6d78b19`), CR-2 dispositioned, CR-3 holds at 44 (lint-neutral). New: CR-4 HIGH, where Save writes a draft the editor does not hold, giving the saver a "Message Update Detected" prompt and leaving the send page refusing until reload; CR-5 LOW, a dead guard; CR-6 LOW, `NewMessageModal` ignores `gate.data`. Captures in `verification/fix-website-save-gate-embeds/code-review-round1-subentry/`. 21 production lines, so QA Phase 2 is owed after approval. |
 | 2026-11-11T09:24 | steering-queue-hooks (rulings block "2026-11-11T09:23Z — selection 15", agent-output `67220b7`) | Fence answer | Received, not a sub-entry; the sub-entry verdict is unmoved. `commitSaveChoice` joins the fix by owner selection ("Agent: fix both paths now (Recommended)"), so CR-4's Preferred is the criterion: one shared save step for `saveMessage` and `commitSaveChoice` that stores the resolved data and sets the editor's message to it. CR-5 and CR-6 are inside the fence. Bearing on the sub-entry's Assumption Not Checked: `handoff/save-originating-tab-raises-its-own-update-prompt-2026-08-25.md` records the owner seeing the saving tab raise "Message Update Detected" against its own save (limb (d)). That is primary evidence that Pusher delivers to the saver. It is a different shape (nothing changed), so the assumption stays QA's for this shape. For the next sub-entry: limb (d)'s cause is unestablished. If CR-4's hash-equality assertion fails at the fixed tree for a reason other than the dropped data, that is limb (d), not CR-4. The test's base-tree control (`save-echo-hash.txt`, `6d78b19`: hashes equal for the unchanged save) is what separates the two. |
 | 2026-11-11T09:41 | fixer-fix-website-save-gate-embeds (SendMessage; document record `790b1b0`) | Round 1 sub-entry 2 at `963a25c` (selection 15, rulings `67220b7`; mode by steering's 09:27Z ruling, `93c81f3`) | Sub-entry APPROVED_WITH_COMMENTS. CR-4, CR-5 and CR-6 dispositioned; every Round 1 finding is now dispositioned, so the document collapses to disposition lines (the arguments stay in `d1af1b3` and `65e719a`). Two INFO notes routed to QA Phase 2. Captures in `verification/fix-website-save-gate-embeds/code-review-round1-subentry2/`. 44 production lines against `6d78b19`, so QA Phase 2 is next. |
+| 2026-11-11T10:08 | qa-fix-website-save-gate-embeds (SendMessage; QA record `6ed8112`) | Scoped check of a test-only diff, `963a25c..0e3d903` | Sub-entry 3, test-only, so no round opens. Verdict unmoved: APPROVED_WITH_COMMENTS. Disposition line under Findings. Captures in `verification/fix-website-save-gate-embeds/code-review-round1-subentry3/`. |
 
 ## Scope, identity and inputs
 
@@ -89,6 +90,17 @@ Verdict: APPROVED_WITH_COMMENTS
   submit `gate.data` or pass it to `persist`. Check: `no test` (the shape is unreachable there while the
   floor runs on the raw draft; that is the out-of-scope handoff).
 
+- Scoped check, sub-entry 3 (`963a25c..0e3d903`, test-only: `utils.disposition-resolver.test.ts`
+  6/0). QA's case "V2 components with no embeds key persist unchanged, with no choice" covers QAF-1
+  (mutants on `dropEmptyEmbedsBesideV2`'s `!draft.embeds || draft.embeds.length === 0` return
+  survived). It is spec-form, its expected value is a literal, it extends the existing file (no
+  new file), and its title has 0 ID-token hits. Re-attacked with my own probe (`no-embeds-key.mjs`):
+  at `0e3d903` the gate returns `mustAsk: false` with the draft unchanged, matching the case's
+  literal. Under `||` → `&&` (`mut-or-to-and.diff`) it throws `TypeError: Cannot read properties of
+  undefined (reading 'length')` (`no-embeds-key.txt`), so the case is red there. The production
+  code at the tip is correct; the gap was coverage only. eslint over the file's blob is 32 at
+  `963a25c` and 32 at `0e3d903`, identical. Check: that case.
+
 ### INFO, Round 1 sub-entry 2 (routed to QA Phase 2, no action owed by the fixer)
 
 - **The editor shows the dropped state before the save resolves.** `persist` calls `setMessage`
@@ -104,7 +116,7 @@ Verdict: APPROVED_WITH_COMMENTS
 
 ## Verdict
 
-**Status**: APPROVED_WITH_COMMENTS (Round 1, sub-entry 2, at website `963a25c`).
+**Status**: APPROVED_WITH_COMMENTS (Round 1, sub-entry 2 at website `963a25c`; sub-entry 3, a test-only scoped check, carries it to `0e3d903`).
 **Rationale**: every Round 1 finding is dispositioned with a check that fails if its class returns.
 The JSON surfaces are verified unchanged. Save and the choice save leave the editor holding exactly
 what was stored, so the saver gets no reload prompt by the model and the send check passes over
