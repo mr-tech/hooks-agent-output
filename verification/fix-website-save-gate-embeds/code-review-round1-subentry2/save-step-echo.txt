@@ -1,0 +1,12 @@
+## tree 963a25c
+{"label":"save, V2 beside {_key}","promptShown":false,"sendCheckOnHeld":null}
+{"label":"choice save, classic","promptShown":false,"sendCheckOnHeld":null}
+{"label":"choice save, v2","promptShown":false,"sendCheckOnHeld":null}
+{"label":"save, nothing to drop","promptShown":false,"sendCheckOnHeld":null}
+{"label":"row E, one empty + one real embed","mustAsk":true,"dataEmbeds":[{},{"title":"x"}]}
+## tree 963a25c, content guard deleted
+{"label":"save, V2 beside {_key}","promptShown":false,"sendCheckOnHeld":null}
+{"label":"choice save, classic","promptShown":false,"sendCheckOnHeld":null}
+{"label":"choice save, v2","promptShown":false,"sendCheckOnHeld":null}
+{"label":"save, nothing to drop","promptShown":false,"sendCheckOnHeld":null}
+{"label":"row E, one empty + one real embed","mustAsk":true,"dataEmbeds":[]}

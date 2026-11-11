@@ -1,0 +1,86 @@
+src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx | import/order | There should be no empty line within import group
+src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx | object-curly-newline | Expected a line break after this opening brace.
+src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx | object-curly-newline | Expected a line break before this closing brace.
+src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx | import/first | Import in body of module; reorder to top.
+src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx | import/order | `../NewMessageJsonInput` import should occur before import of `~/components/__tests__/helpers/dom`
+src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx | @typescript-eslint/no-non-null-assertion | Forbidden non-null assertion.
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx | import/order | There should be no empty line within import group
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx | import/first | Import in body of module; reorder to top.
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx | import/order | `../JsonModalBody` import should occur before import of `~/components/__tests__/helpers/dom`
+src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx | @typescript-eslint/no-non-null-assertion | Forbidden non-null assertion.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | object-curly-newline | Expected a line break after this opening brace.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | object-curly-newline | Expected a line break before this closing brace.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | import/first | Import in body of module; reorder to top.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | import/first | Import in body of module; reorder to top.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/no-unused-vars | 'stripKeys' is defined but never used. Allowed unused vars must match /^_/u.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | import/first | Import in body of module; reorder to top.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | import/first | Import in body of module; reorder to top.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | import/first | Import in body of module; reorder to top.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | import/first | Import in body of module; reorder to top.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | max-len | This line has a length of 103. Maximum allowed is 100.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/member-delimiter-style | Expected a comma.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/member-delimiter-style | Expected a comma.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/member-delimiter-style | Expected a comma.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/no-explicit-any | Unexpected any. Specify a different type.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/no-explicit-any | Unexpected any. Specify a different type.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/no-explicit-any | Unexpected any. Specify a different type.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/no-explicit-any | Unexpected any. Specify a different type.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/no-explicit-any | Unexpected any. Specify a different type.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/no-unsafe-call | Unsafe call of an `any` typed value.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/no-explicit-any | Unexpected any. Specify a different type.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | react-hooks/rules-of-hooks | React Hook "useApiMethods" is called in function "loadAndSaveViaShippedProvider" that is neither a React function component nor a custom React Hook function. React component names must start with an uppercase letter. React Hook names must start with the word "use".
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/no-unsafe-argument | Unsafe argument of type `any` assigned to a parameter of type `MutableRefObject<ActiveMessage | null>`.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/no-unsafe-argument | Unsafe argument of type `any` assigned to a parameter of type `MutableRefObject<boolean>`.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/no-explicit-any | Unexpected any. Specify a different type.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/no-unsafe-argument | Unsafe argument of type `any` assigned to a parameter of type `StateSetter<ActiveMessage | null>`.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/no-explicit-any | Unexpected any. Specify a different type.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/no-unsafe-argument | Unsafe argument of type `any` assigned to a parameter of type `Partial<ApiMessage | ActiveMessage>`.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/no-explicit-any | Unexpected any. Specify a different type.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/no-unsafe-return | Unsafe return of an `any` typed value.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/no-explicit-any | Unexpected any. Specify a different type.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/no-unsafe-argument | Unsafe argument of type `any` assigned to a parameter of type `ActiveMessage | null | undefined`.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/no-explicit-any | Unexpected any. Specify a different type.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | function-paren-newline | Unexpected newline after '('.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/no-unsafe-argument | Unsafe argument of type `any` assigned to a parameter of type `number | undefined`.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/no-unsafe-argument | Unsafe argument of type `any` assigned to a parameter of type `{ type: number; }[] | undefined`.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/no-unsafe-argument | Unsafe argument of type `any` assigned to a parameter of type `string | undefined`.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/no-unsafe-argument | Unsafe argument of type `any` assigned to a parameter of type `unknown[] | undefined`.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | function-paren-newline | Unexpected newline before ')'.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | object-curly-newline | Expected a line break after this opening brace.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | object-curly-newline | Expected a line break before this closing brace.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/no-explicit-any | Unexpected any. Specify a different type.
+src/utils/__tests__/useApiMethods.json-editor-repair.test.ts | @typescript-eslint/no-non-null-assertion | Forbidden non-null assertion.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break before this closing brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts | import/first | Import in body of module; reorder to top.
+src/utils/__tests__/utils.disposition-resolver.test.ts | import/first | Import in body of module; reorder to top.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break before this closing brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break before this closing brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break before this closing brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break before this closing brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break before this closing brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break before this closing brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break before this closing brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break before this closing brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts | @typescript-eslint/no-non-null-assertion | Forbidden non-null assertion.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break before this closing brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts | @typescript-eslint/no-non-null-assertion | Forbidden non-null assertion.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break before this closing brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts | @typescript-eslint/no-non-null-assertion | Forbidden non-null assertion.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break before this closing brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts | @typescript-eslint/no-non-null-assertion | Forbidden non-null assertion.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break after this opening brace.
+src/utils/__tests__/utils.disposition-resolver.test.ts | object-curly-newline | Expected a line break before this closing brace.
+src/utils/index.ts | import/no-cycle | Dependency cycle detected.
+src/utils/index.ts | no-nested-ternary | Do not nest ternary expressions.
