@@ -1,0 +1,24 @@
+useApiMethods.ts:65:if-false KILLED 13.81
+useApiMethods.ts:65:!== KILLED 13.77
+useApiMethods.ts:68:if-false KILLED 13.65
+index.ts:187:if-false KILLED 15.12
+index.ts:187:not KILLED 16.44
+index.ts:188:if-false SURVIVED 15.89
+index.ts:188:not KILLED 16.3
+index.ts:188:|| SURVIVED 15.42
+index.ts:188:=== KILLED 15.37
+index.ts:188:num KILLED 14.08
+index.ts:189:if-false KILLED 13.69
+H1-no-write-back KILLED 13.56
+H2-write-back-draft-data KILLED 13.45
+H3-upsert-draft-data KILLED 14.97
+H4-save-persists-raw KILLED 14.49
+H5-choice-persists-raw KILLED 13.24
+H6-mode-from-draft KILLED 13.32
+H7-drop-clears-flag KILLED 14.64
+H8-gate-data-undropped KILLED 13.47
+H9-content-guard-every KILLED 13.91
+H10-saveas-raw KILLED 13.51
+H11-newmodal-raw SURVIVED 13.47
+19 of 22 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants.json (blob 0641afbebfe01fc94ce2b7b6ad2881439caff92f))
+runner exit=0

@@ -1,0 +1,104 @@
+▲ Next.js 16.1.6 (webpack)
+- Local:         http://127.0.0.1:3000
+- Network:       http://127.0.0.1:3000
+- Environments: .env.local
+
+✓ Starting...
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+✓ Ready in 1230ms
+○ Compiling /message ...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+ GET /message 200 in 16.2s (compile: 15.8s, render: 395ms)
+○ Compiling /message/m/[id]/edit ...
+ GET /message/m/900000000000009/edit 200 in 8.3s (compile: 7.9s, proxy.ts: 94ms, render: 330ms)
+○ Compiling /api/auth/[...nextauth] ...
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 5.7ms
+kysely:query: select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."previewImageNonce", "Guilds"."guildId" as "guildId" from "Messages" left join "Guilds" on "Messages"."fk_guilds_id" = "Guilds"."id" where "Messages"."id" in ($1, $2, $3, $4, $5, $6)
+kysely:query: duration: 3.3ms
+ GET /api/auth/session?hydrate=true 200 in 4.0s (compile: 3.9s, render: 63ms)
+ GET /message/m/900000000000009/edit 200 in 4.5s (compile: 84ms, proxy.ts: 17ms, render: 4.4s)
+ GET /message/m/900000000000009/edit 200 in 415ms (compile: 289ms, proxy.ts: 12ms, render: 113ms)
+ GET /message/m/900000000000009/edit 200 in 63ms (compile: 13ms, proxy.ts: 8ms, render: 42ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 8.1ms
+kysely:query: select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."data", "Messages"."previewImageNonce", "Messages"."recentMessageId", "Messages"."recentThreadId", "Messages"."recentWebhookId", "Guilds"."guildId" as "guildId", "ScheduledMessages"."id" as "scheduledMessageId", "ScheduledMessages"."cron" as "scheduledMessageCron", "ScheduledMessages"."error" as "scheduledMessageError", "ScheduledMessages"."sendAt" as "scheduledMessageSendAt", "ScheduledMessages"."sent" as "scheduledMessageSent" from "Messages" left join "Guilds" on "Messages"."fk_guilds_id" = "Guilds"."id" left join "ScheduledMessages" on "ScheduledMessages"."fk_messages_id" = "Messages"."id" where "Messages"."id" = $1
+kysely:query: duration: 1.3ms
+kysely:query: select "userId" from "Accounts" where "provider" = $1 and "providerAccountId" = $2
+kysely:query: duration: 1.1ms
+ GET /api/trpc/message.getOne?input=%7B%22json%22%3A%22900000000000009%22%7D 200 in 1270ms (compile: 1237ms, render: 33ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 1.0ms
+kysely:query: select "userId" from "Accounts" where "provider" = $1 and "providerAccountId" = $2
+kysely:query: duration: 0.7ms
+kysely:query: select "preferences" from "Users" where "id" = $1
+kysely:query: duration: 0.7ms
+kysely:query: update "Users" set "preferences" = $1 where "id" = $2
+kysely:query: duration: 2.4ms
+ POST /api/trpc/user.updatePreferences 200 in 17ms (compile: 2ms, render: 15ms)
+ GET /api/auth/csrf 200 in 8ms (compile: 4ms, render: 3ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 1.0ms
+kysely:query: select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."previewImageNonce", "Guilds"."guildId" as "guildId" from "Messages" left join "Guilds" on "Messages"."fk_guilds_id" = "Guilds"."id" where "Messages"."id" in ($1, $2, $3, $4, $5, $6, $7)
+kysely:query: duration: 0.9ms
+ POST /api/auth/session 200 in 8ms (compile: 1383µs, render: 7ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 1.5ms
+kysely:query: select "userId" from "Accounts" where "provider" = $1 and "providerAccountId" = $2
+kysely:query: duration: 0.7ms
+kysely:query: select "fk_users_id" from "Messages" where "id" in ($1)
+kysely:query: duration: 0.5ms
+kysely:query: select count(*) as "count" from "Messages" where "fk_users_id" = $1
+kysely:query: duration: 0.8ms
+kysely:query: insert into "Messages" ("updatedAt", "name", "data", "valid", "fk_users_id", "previewImageNonce", "fk_guilds_id", "id") values ($1, $2, $3, $4, $5, $6, $7, $8) on conflict ("id") do update set "name" = $9, "data" = $10, "valid" = $11, "previewImageNonce" = $12, "updatedAt" = $13 returning "id"
+kysely:query: duration: 1.8ms
+kysely:query: select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."data", "Messages"."previewImageNonce", "Messages"."recentMessageId", "Messages"."recentThreadId", "Messages"."recentWebhookId", "Guilds"."guildId" as "guildId", "ScheduledMessages"."id" as "scheduledMessageId", "ScheduledMessages"."cron" as "scheduledMessageCron", "ScheduledMessages"."error" as "scheduledMessageError", "ScheduledMessages"."sendAt" as "scheduledMessageSendAt", "ScheduledMessages"."sent" as "scheduledMessageSent" from "Messages" left join "Guilds" on "Messages"."fk_guilds_id" = "Guilds"."id" left join "ScheduledMessages" on "ScheduledMessages"."fk_messages_id" = "Messages"."id" where "Messages"."id" = $1
+kysely:query: duration: 2.2ms
+ POST /api/trpc/message.upsert 200 in 373ms (compile: 6ms, render: 367ms)
+ GET /message/m/900000000000009/send 200 in 2.3s (compile: 2.3s, proxy.ts: 12ms, render: 35ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 2.7ms
+kysely:query: select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."previewImageNonce", "Guilds"."guildId" as "guildId" from "Messages" left join "Guilds" on "Messages"."fk_guilds_id" = "Guilds"."id" where "Messages"."id" in ($1, $2, $3, $4, $5, $6, $7)
+kysely:query: duration: 3.0ms
+kysely:query: select "id", "access_token", "refresh_token", "providerAccountId", "expires_at" from "Accounts" where "userId" = $1
+kysely:query: duration: 1.3ms
+ GET /api/auth/session?hydrate=true 200 in 607ms (compile: 24ms, render: 583ms)
+ GET /message/m/900000000000010/edit 200 in 1098ms (compile: 98ms, proxy.ts: 7ms, render: 993ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 1.1ms
+kysely:query: select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."data", "Messages"."previewImageNonce", "Messages"."recentMessageId", "Messages"."recentThreadId", "Messages"."recentWebhookId", "Guilds"."guildId" as "guildId", "ScheduledMessages"."id" as "scheduledMessageId", "ScheduledMessages"."cron" as "scheduledMessageCron", "ScheduledMessages"."error" as "scheduledMessageError", "ScheduledMessages"."sendAt" as "scheduledMessageSendAt", "ScheduledMessages"."sent" as "scheduledMessageSent" from "Messages" left join "Guilds" on "Messages"."fk_guilds_id" = "Guilds"."id" left join "ScheduledMessages" on "ScheduledMessages"."fk_messages_id" = "Messages"."id" where "Messages"."id" = $1
+kysely:query: duration: 1.6ms
+kysely:query: select "userId" from "Accounts" where "provider" = $1 and "providerAccountId" = $2
+kysely:query: duration: 1.1ms
+ GET /api/trpc/message.getOne?input=%7B%22json%22%3A%22900000000000010%22%7D 200 in 30ms (compile: 15ms, render: 15ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 1.3ms
+kysely:query: select "userId" from "Accounts" where "provider" = $1 and "providerAccountId" = $2
+kysely:query: duration: 0.9ms
+kysely:query: select "preferences" from "Users" where "id" = $1
+kysely:query: duration: 0.5ms
+kysely:query: update "Users" set "preferences" = $1 where "id" = $2
+kysely:query: duration: 1.9ms
+ POST /api/trpc/user.updatePreferences 200 in 15ms (compile: 2ms, render: 13ms)
+ GET /api/auth/csrf 304 in 4ms (compile: 1757µs, render: 2ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 1.6ms
+kysely:query: select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."previewImageNonce", "Guilds"."guildId" as "guildId" from "Messages" left join "Guilds" on "Messages"."fk_guilds_id" = "Guilds"."id" where "Messages"."id" in ($1, $2, $3, $4, $5, $6, $7, $8)
+kysely:query: duration: 0.6ms
+ POST /api/auth/session 200 in 8ms (compile: 1249µs, render: 7ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 0.8ms
+kysely:query: select "userId" from "Accounts" where "provider" = $1 and "providerAccountId" = $2
+kysely:query: duration: 0.5ms
+kysely:query: select "fk_users_id" from "Messages" where "id" in ($1)
+kysely:query: duration: 0.3ms
+kysely:query: select count(*) as "count" from "Messages" where "fk_users_id" = $1
+kysely:query: duration: 0.5ms
+kysely:query: insert into "Messages" ("updatedAt", "name", "data", "valid", "fk_users_id", "previewImageNonce", "fk_guilds_id", "id") values ($1, $2, $3, $4, $5, $6, $7, $8) on conflict ("id") do update set "name" = $9, "data" = $10, "valid" = $11, "previewImageNonce" = $12, "updatedAt" = $13 returning "id"
+kysely:query: duration: 1.5ms
+kysely:query: select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."data", "Messages"."previewImageNonce", "Messages"."recentMessageId", "Messages"."recentThreadId", "Messages"."recentWebhookId", "Guilds"."guildId" as "guildId", "ScheduledMessages"."id" as "scheduledMessageId", "ScheduledMessages"."cron" as "scheduledMessageCron", "ScheduledMessages"."error" as "scheduledMessageError", "ScheduledMessages"."sendAt" as "scheduledMessageSendAt", "ScheduledMessages"."sent" as "scheduledMessageSent" from "Messages" left join "Guilds" on "Messages"."fk_guilds_id" = "Guilds"."id" left join "ScheduledMessages" on "ScheduledMessages"."fk_messages_id" = "Messages"."id" where "Messages"."id" = $1
+kysely:query: duration: 0.8ms
+ POST /api/trpc/message.upsert 200 in 247ms (compile: 1382µs, render: 245ms)
+[?25h

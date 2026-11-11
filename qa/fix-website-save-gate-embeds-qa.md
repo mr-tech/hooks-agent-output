@@ -67,7 +67,7 @@ QAF-1.
 | Run | Tree | Result | Capture |
 |---|---|---|---|
 | Whole suite, `npx vitest run --reporter=json` | `963a25c` (shared tree, clean) | 118 files (`testResults`), 1144 / 1144 passed, 0 failed; **exit 0** | `qa-phase2/suite.json`, `suite-exit.txt` |
-| `pnpm run typecheck` (both programs) | `963a25c` | exit 0 | `typecheck.log`, `typecheck-exit.txt` |
+| `pnpm run typecheck` (both programs) | `963a25c` | exit 0 | `typecheck-log.txt`, `typecheck-exit.txt` |
 | Whole suite with QA's case | `0e3d903` content | 118 files, 1145 / 1145, **exit 0**; typecheck exit 0 | `suite-qaf1.json`, `suite-qaf1-exit.txt` |
 | eslint, the one file QA changed, against its `963a25c` blob via `--stdin` | `0e3d903` | 34 findings both sides, multiset diff empty (lint-neutral) | `lint-qaf1*.txt`, `lint-qaf1-multiset.diff` |
 

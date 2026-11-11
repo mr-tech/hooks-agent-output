@@ -1,0 +1,24 @@
+useApiMethods.ts:65:if-false CONTROL-FAILED 
+useApiMethods.ts:65:!== CONTROL-FAILED 
+useApiMethods.ts:68:if-false CONTROL-FAILED 
+index.ts:187:if-false CONTROL-FAILED 
+index.ts:187:not CONTROL-FAILED 
+index.ts:188:if-false CONTROL-FAILED 
+index.ts:188:not CONTROL-FAILED 
+index.ts:188:|| CONTROL-FAILED 
+index.ts:188:=== CONTROL-FAILED 
+index.ts:188:num CONTROL-FAILED 
+index.ts:189:if-false CONTROL-FAILED 
+H1-no-write-back CONTROL-FAILED 
+H2-write-back-draft-data CONTROL-FAILED 
+H3-upsert-draft-data CONTROL-FAILED 
+H4-save-persists-raw CONTROL-FAILED 
+H5-choice-persists-raw CONTROL-FAILED 
+H6-mode-from-draft CONTROL-FAILED 
+H7-drop-clears-flag CONTROL-FAILED 
+H8-gate-data-undropped CONTROL-FAILED 
+H9-content-guard-every CONTROL-FAILED 
+H10-saveas-raw CONTROL-FAILED 
+H11-newmodal-raw CONTROL-FAILED 
+0 of 0 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 22; mutants.json (blob 0641afbebfe01fc94ce2b7b6ad2881439caff92f))
+runner exit=1
