@@ -18,6 +18,9 @@ Instruments the chain's verdicts rest on. Read a script's header before running 
     (`website-side-0e3d903.json`; `website-side-control.txt` is its positive control).
   - `make_fixture.py` writes `fixture/discordV2SendCorpus.ts`; its sha256 is beside it. The website
     copy at `src/utils/__tests__/helpers/discordV2SendCorpus.ts` must be byte-identical.
+  - `compare_fixture.mjs` compares two fixture files' data, member by member (`regen-compare.txt`:
+    the regeneration for code review CR-1, with three planted controls; `regen-eslint.txt` and
+    `regen-comment-gate.txt` are the same file's lint and comment-gate reads).
 
 What belongs in the website suite instead: the assertions over the fixture (AC1-1 to AC1-7). This
 folder keeps the measurement and the generator; the suite keeps the tests.

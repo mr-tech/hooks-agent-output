@@ -4,7 +4,7 @@ Origin: 016
 UUID: 54673438
 Verified-At: "0e3d903 — repos=website; Phase 1 strategy, read at this base tree; no verdict issued"
 Status: Awaiting Implementation
-Status-Detail: "Phase 1 re-keyed to plan revision 6 (record 07e2e41): AC1-11's row re-keyed to exclude the corpus fixture (X-12), which the Phase 2 sha256 and blob check decides instead; the 7078-error premise measured. No finding open; QAF-1 to QAF-12 RESOLVED. Implementation is in progress on chain/016-send-check-validity. This document holds the chain's blocking-condition register (B-1 to B-6)."
+Status-Detail: "Corpus fixture regenerated for code review CR-1 at the planner's request: no comment lines, lint-clean (0 errors, 0 warnings), data identical by a captured mechanical comparison. New identity sha256 9ab22baa…fafe, blob 7fcf64f, awaiting the planner's revision 7. Phase 1 otherwise as at plan revision 6; no finding open. This document holds the chain's blocking-condition register (B-1 to B-6)."
 Phase: 1
 ---
 
@@ -23,6 +23,7 @@ read as its diff from revision 2 (`git diff 6b07655 21db6c8`). Revision 2 was re
 | 2026-11-11T11:26 | planner-hooks-016 → qa-hooks-016 | Re-key Phase 1 to revision 4 (`c249af3`) | Phase 1 re-key. Interrupted at 11:23 by a stop steering then withdrew (its error, by its 11:24Z message), checkpoint `cc91291`, resumed. QAF-10 and QAF-11 collapsed as RESOLVED, SE-6's ask folded. By-render enumeration of M1b's class run at `0e3d903` over 31 fixtures through the real `/preview` page: seven members, matching the plan's table, every "not rendered" and "not painted" row confirmed. Instrument discriminates under an edit-mode mutant. QAF-12 LOW raised. B-5 reconciled; B-5, B-6 unmoved. |
 | 2026-11-11T11:40 | planner-hooks-016 → qa-hooks-016 | Re-key Phase 1 to revision 5 (`b2d78b0`) | Phase 1 re-key, read as `git diff c249af3 b2d78b0` (covers R-2 `5f95a30` and the checkpoint `a9bb644`). QAF-12 collapsed as RESOLVED: AC1b-1 checks Author on `/preview` in cozy and compact at the component with the signal set as `/preview` sets it. Wording only; no criterion QA verified moves, no register row moves, no re-run owed. No new finding. |
 | 2026-11-11T11:54 | planner-hooks-016 → qa-hooks-016 | Re-key AC1-11's row on revision 6 (`07e2e41`) | Phase 1 re-key of one criterion, read as `git diff fcbb6b2 07e2e41` (covers R-4 and R-5). The premise was measured: the fixture at its shipped path has 7078 errors (all auto-fixable: `quotes`, `quote-props`, `comma-dangle`, `member-delimiter-style`) and 1 `max-len` warning (`verification/016/corpus/fixture-eslint-summary.txt`). AC1-11's row now excludes the fixture, which the Phase 2 sha256 and blob check decides, and its instrument is re-specified: a per-file export lint fails on a duplicate react plugin. No finding. |
+| 2026-11-11T12:56 | planner-hooks-016 → qa-hooks-016 | Regenerate the corpus fixture for code review CR-1 (`code-review/016-send-check-validity-code-review.md`, website `ee114ff`) | `make_fixture.py` now emits no comment line, in the website's eslint style. The fixture is regenerated (sha256 `9ab22baa…fafe`, blob `7fcf64f`). Data is identical to the previous fixture by `compare_fixture.mjs` (120 of 120 members deep-equal, same order, 34 accepted and 86 refused), and three planted controls each report their one member. The fixture lints 0/0, its comment gate is clean (the previous fixture is the failing control), and `tsc -p tsconfig.test.json` exits 0. Captures are `verification/016/corpus/regen-*.txt`. The plan's digest moves at revision 7, which is the planner's. |
 
 ## Reading
 
@@ -108,6 +109,15 @@ row `Z9` gave `PROBLEM L1 accepted: W5 is Discord-refused`, `PROBLEM Z9 appears 
 exit 1. **The planner's hand tally holds.**
 
 ### The fixture the implementer ships
+
+Reconcile 2026-11-11T12:56, regeneration for code review CR-1 at the planner's request. This supersedes the identity in the next paragraph. `make_fixture.py` now emits no comment line, and writes the website's eslint style: single quotes, or double where a string holds `'` and no `"`; unquoted identifier keys; trailing commas; a multiline `body` type. Every non-ASCII or control character is still `\uXXXX`-escaped. The data is unchanged.
+
+- **New identity:** sha256 `9ab22baa9c81157d09d38b2e0da655af8881bb28b389b8d6894d0d693fa77afe`, git blob `7fcf64fb6060a21c1aad8439d5ce9b563740e538` (in `fixture/discordV2SendCorpus.ts.sha256`). The generator re-run gives the same bytes.
+- **Data identical:** `compare_fixture.mjs` is new and takes the export's array literal into an empty vm context. Previous vs regenerated, 120 of 120 members are deep-equal in the same order (34 accepted, 86 refused), and the data digest `908bbb24…08ea` is equal on both sides. It was mutated before being trusted: a body character changed, a verdict flipped, and a `\u0085` escape changed to `\u0086`. Each reports exactly its one member, exit 1. Its first run reported all 120 as different, because a vm context's prototypes defeat `isDeepStrictEqual`; a JSON round trip into this realm fixed it. All of this is captured in `verification/016/corpus/regen-compare.txt`.
+- **Lint:** 0 errors, 0 warnings (was 7078 errors and 1 warning), read-only over stdin at the website path (`regen-eslint.txt`).
+- **Comment gate:** `--files <path> --tests --gate` is clean, exit 0. The previous fixture, as control, reports its 4 prose lines, exit 1 (`regen-comment-gate.txt`).
+- **Type-check:** `npx tsc --noEmit -p tsconfig.test.json` in a `git archive 0e3d903` export with the fixture at its website path: exit 0, 0 `error TS`.
+- **What it changes for this document:** at the plan's revision 7, the AC1-1 sha256 and blob check at Phase 2 reads the new identity. AC1-11's X-12 exclusion has no remaining reason, so it is the planner's to drop.
 
 Reconcile at the re-key: the fixture now holds 120 members (QAF-9 adds four `qa-extra-3` members), sha256 `49b54f8e6b7226f1258a497b6e2f01d73126a85c9e66c2ef1acbff32bb15bb9b`, git blob `9fb22ae`. That figure supersedes the 116-member hash below, which was this pass's first build.
 
@@ -394,6 +404,8 @@ files: these plus `useApiMethods.json-editor-repair` and `utils.mutual-exclusivi
 
 ## Assumption Not Checked
 
+Regeneration pass: this pass assumes the website's test suite reads the fixture only through `DISCORD_V2_SEND_CORPUS`'s values, never its text (a file read or a source pattern match), and does not test it against the implementer's suite. Data identity holds by construction, but text identity does not. If false, a case that reads the fixture's text changes result on the re-copy. The signature is a suite case going red or green on the re-copy alone. Owner of closing it: the implementer, by the suite run on the re-copy, then QA Phase 2's audit (such a case would also be a source-text assertion under the Test Conventions).
+
 Re-key pass on revision 6: this pass assumes the X-12 exclusion is the only file-level carve-out AC1-11 needs, i.e. that no other file the chain changes is red because of bytes another criterion fixes. It did not enumerate the implementer's changed set, which is in progress. If false, Phase 2 finds a second file over its base count with a reason like X-12's. The signature is a per-file count rising on a file whose content another criterion pins. Owner of closing it: QA Phase 2, by AC1-11's per-file run over the final range.
 
 Re-key pass on revision 5: this pass assumes that revision 5 changes only the AC1b-1 wording, the Reading Order, the owed-re-verdicts table, the changelog and the Resumption State, as its own changelog row says. It read the diff whole (`c249af3..b2d78b0`, 48/29) and did not re-run the by-render probe, since no criterion's population moved. If false, a criterion moved without a QA read. The signature is a later gate citing a revision 5 limb that is absent from this pass's changelog row. Owner of closing it: code review, against the plan revision it reads.
@@ -425,11 +437,11 @@ any difference. This is also the critic's routed assumption.
 
 ## Resumption State
 
-Written 2026-11-11T11:54 at the end of the re-key on revision 6. Read this first on resume.
+Written 2026-11-11T12:56 at the end of the fixture regeneration. Read this first on resume.
 
-- **Done:** Phase 1 on revisions 1 to 6. QAF-1 to QAF-12 RESOLVED; no finding open. AC1-11's row re-keyed to X-12, with its instrument re-specified. The by-render enumeration is captured under `verification/016/preview-chrome/` (`96fbc66`). Register B-1 to B-6, SE-1 to SE-6. Status `Awaiting Implementation`. The plan is `In Progress`, implementer-hooks-016 on `chain/016-send-check-validity`.
-- **Sent:** the rev-6 result → `planner-hooks-016`.
-- **Next:** the code review's committed verdict (Phase 2 start). A further plan revision is read as `git diff 07e2e41 <rev> -- planning/016-send-check-validity.md`.
-- **Trees:** the website working tree is on `chain/016-send-check-validity`, with the implementer's uncommitted changes. This session only read it: one `eslint --stdin`, no `--fix`, no write. No export, process or listener left.
-- **Owed later:** B-3 and B-6's production minting reads, done by the first stage-browser pass. At Phase 2: the whole-corpus re-send, the AC1-9 differential, AC1-10's probe, AC1-11's per-file eslint counts (stdin form, fixture excluded), the fixture's sha256 and blob check, the mutation sweep, and the by-render probe re-run at the tip as AC1b-1's differential.
-- **Cache-warm wake:** armed (`a4f06731`).
+- **Done:** Phase 1 on revisions 1 to 6. QAF-1 to QAF-12 RESOLVED; no finding open. The corpus fixture is regenerated for CR-1 (sha256 `9ab22baa…fafe`, blob `7fcf64f`), with data identical and the captures `verification/016/corpus/regen-*.txt`. Status `Awaiting Implementation`. The plan is `In Progress`.
+- **Sent:** the new identity and checks → `planner-hooks-016`, for revision 7.
+- **Next:** read revision 7 as `git diff 07e2e41 <rev7> -- planning/016-send-check-validity.md`. Check that its AC1-1 digest equals `9ab22baa…fafe` and blob `7fcf64f`, and whether X-12 is dropped. If so, reconcile AC1-11's row. Then wait for the code review's committed verdict (the Phase 2 start).
+- **Trees:** the website working tree is on `chain/016-send-check-validity`, with the implementer's changes. This session only read it (eslint over stdin). Its exports are deleted.
+- **Owed later:** B-3 and B-6's production minting reads. At Phase 2: the whole-corpus re-send, the AC1-9 differential, AC1-10's probe, AC1-11's per-file eslint counts, the fixture's sha256 and blob check against the new identity, the mutation sweep, and the by-render probe re-run at the tip.
+- **Cache-warm wake:** armed (`2edc251f`).

@@ -1,0 +1,25 @@
+# compare_fixture.mjs: previous fixture (sha256 49b54f8e…15bb9b, blob 9fb22ae) vs the regenerated one, then three planted controls
+# generator stdout: members=120 accepted=34 refused=86
+## real: previous vs regenerated (fixture/discordV2SendCorpus.ts, sha256 9ab22baa…fafe, blob 7fcf64f)
+old members=120 accepted=34 refused=86 data-sha256=908bbb24efd0530f553791081d41df8828e0734fae5feda2b14863367c7108ea
+new members=120 accepted=34 refused=86 data-sha256=908bbb24efd0530f553791081d41df8828e0734fae5feda2b14863367c7108ea
+IDENTICAL: every member deep-equal, same order
+exit=0
+## control 1: one body character changed in member 0 (content 'hello' -> 'hellp')
+old members=120 accepted=34 refused=86 data-sha256=908bbb24efd0530f553791081d41df8828e0734fae5feda2b14863367c7108ea
+new members=120 accepted=34 refused=86 data-sha256=e4832f025d9158dc2d70e62e20662a1dc76ead8862b9bd011eed2a71246b71ca
+DIFFER (1):
+member 0 (A1 / A1) differs
+exit=1
+## control 2: one verdict flipped (last 'refused' -> 'accepted')
+old members=120 accepted=34 refused=86 data-sha256=908bbb24efd0530f553791081d41df8828e0734fae5feda2b14863367c7108ea
+new members=120 accepted=35 refused=85 data-sha256=a3c8fe2e42e79d59e03478eb1a21550b30e5dd3a262657eed40f710d13bb575f
+DIFFER (1):
+member 119 (Q3-label-u0085-space-u0085 / Q3-label-u0085-space-u0085) differs
+exit=1
+## control 3: one escape changed (last \u0085 -> \u0086)
+old members=120 accepted=34 refused=86 data-sha256=908bbb24efd0530f553791081d41df8828e0734fae5feda2b14863367c7108ea
+new members=120 accepted=34 refused=86 data-sha256=c8eb4ee60b145976dbad22c2a0e6f73634ce7d1d346173a4ae2c34e095806824
+DIFFER (1):
+member 119 (Q3-label-u0085-space-u0085 / Q3-label-u0085-space-u0085) differs
+exit=1

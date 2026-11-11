@@ -1,0 +1,24 @@
+# node ~/.claude/tools/comment-gate.js <root> --files src/utils/__tests__/helpers/discordV2SendCorpus.ts --tests --gate, each fixture copied to that path under a scratch root
+## regenerated fixture (sha256 9ab22baa…fafe)
+comment-gate — cg-new
+  scope    named files only (1) — every comment in scope
+  files    1 named, tests included
+  skipped  outside root, extension outside EXT, missing, test files without --tests
+
+  clean — every comment present is one a tool consumes.
+
+exit=0
+## previous fixture, control (sha256 49b54f8e…15bb9b)
+comment-gate — cg-old
+  scope    named files only (1) — every comment in scope
+  files    1 named, tests included
+  skipped  outside root, extension outside EXT, missing, test files without --tests
+
+  4 prose comments in 1 files — 4 lines, 348 chars (~87 tokens)
+  0 tool-directed comments left alone
+
+   share   lines  file
+      0%       4  src/utils/__tests__/helpers/discordV2SendCorpus.ts
+                  └ L1, 1 lines: Components V2 send bodies with the verdict Discord returned …
+
+exit=1
