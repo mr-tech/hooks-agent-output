@@ -1258,3 +1258,35 @@ Nothing of chain 016 is in flight. Open carriers it leaves: the two handoffs nam
 close-out block. Close-out commit `e5dd517`. Next for this thread: `TODO.md`,
 "`tools/uat-local-stack.sh` does not restart the message-id sequence" (its hold on the weekly
 limit no longer applies: `weekly_all` read 71% live at 19:28Z).
+
+## 2026-11-11T19:41Z — scoping determination: `fix-uat-local-stack-id-sequence` (the `fixer` agent)
+
+Source: `TODO.md`, "`tools/uat-local-stack.sh` does not restart the message-id sequence" (QA's inbox
+entry of 2026-11-11; told to him at 11:05Z; a test-estate change, so not asked, by lifecycle
+`references/escalation.md` Standing Defaults). He vetoes from this record. Its hold was the weekly
+limit reading 97%; `plan-usage.py --json` read `weekly_all` 71%, source live, at 19:28Z.
+
+- **Shape:** defect in a record tool; cause proven by read: `grep -c -E 'RESTART|Messages_id_seq'
+  tools/uat-local-stack.sh` → 0 (19:41Z); the schema push is its line 218 and the optional seed
+  ends at 226 (`grep -n`). The rule it fails is `CLAUDE.md`, "Local builds of `website` — before
+  the first save". Specification uncertainty: one point, the fixer's to settle inside scope and
+  record: whether the restart runs after the seed as well as after the push (the seed may insert
+  rows with low ids; what the seed file holds was not read here).
+- **Blast radius:** the local UAT stack only; no product repository, nothing deployed.
+- **Pipeline:** `fixer`, then code review, the reviewer also running the tool's suite and the red
+  test where the fix adds fewer than 20 production lines; QA Phase 2 above that. No plan, critic,
+  Phase 1, UAT or devops: the end step is the fixer's own commits on the record repository's
+  `master`, whose push deploys nothing (`ls -d .github` fails, 19:26Z), so `release-move.js` has no
+  serving ref to judge. Security: not started; the tool runs as the session user.
+- **Bounded scope:** one defect. `up` hands back a database whose `"Messages_id_seq"` is restarted
+  at 900000000000001, or fails. Chain paths, whole, in the shared record repository on `master`
+  (no chain branch): `tools/uat-local-stack.sh`, `tools/uatLocalStack.test.js`, and the fixer's
+  document `implementation/fix-uat-local-stack-id-sequence-implementation.md`. Out: every other
+  file under `tools/`, `CLAUDE.md`, the seed file, `website`, `project-utils`,
+  `preview-image-generator`.
+- **Released chains on this route / open carriers:** no open handoff names the tool (`grep -l
+  uat-local-stack handoff/*.md`, no hit). Which chain added the tool was not read.
+- On its close the `TODO.md` item is deleted.
+
+Started `fixer-fix-uat-local-stack-id-sequence` with `tmux-agent spawn`, category `fix-uat-local-stack-id-sequence`, cwd
+`/usr/local/bin/hooks/agent-output`, brief `steering/queue-hooks-briefs/fixer-uat-local-stack-brief.md`.
