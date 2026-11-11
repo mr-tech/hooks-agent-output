@@ -1054,3 +1054,33 @@ Standing check). When it is committed this thread caps M1: recorded here, told t
 gates, each further gap below HIGH going to the Planner batch as a stated limit without a round,
 and told to him with the spend and hours. Spend so far, `cc-usage.py chain 016` at 2026-11-11T12:54Z: TOTAL
 $94.38 over 899 requests (all of the chain's sessions since the planner's first, 10:19Z).
+
+## 2026-11-11T12:59Z — plan 016 revision 7 read; milestone M1 capped (second post-approval revision)
+
+Read this turn at the commit: plan 016 revision 7 (record `9fd96d5`, `Revision: 7`,
+`Status: In Progress`), as its whole diff against R-9 (`git diff a8468d0 9fd96d5`, `--numstat`
+18/16). Criterion-level, no milestone moved, no product behaviour changed; not put to him. AC1-1
+records the regenerated fixture's identity (sha256 `9ab22baa…`, blob `7fcf64f`, QA's record
+`188bc93`; the plan says its 120 members are deep-equal to the earlier fixture's, citing
+`verification/016/corpus/regen-compare.txt`, not read here). AC1-11 exempts no file again and X-12
+is retired, so the `eslint --fix` hazard named at revision 6 no longer applies to the fixture (by
+the plan's citation of `regen-eslint.txt`, 0 findings; not read here). The V-101 items F-2 and F-4
+are discharged in the Planner batch.
+
+**Cap: M1 is capped by this thread** (steering.md, Standing check: a milestone's second
+post-approval revision; revisions 6 and 7 both change M1's criteria). From this block on, for M1:
+each further gap a gate finds below HIGH goes to the plan's Planner batch as a stated limit,
+without a revision or a gate round; a HIGH or CRITICAL finding, and a gate's own severity-floor
+finding, keep their normal route. Open findings already in a round (code review Round 1's CR-1 to
+CR-3, and the reads of revision 7 now in flight) finish as started. Told to: `critic-hooks-016`,
+`qa-hooks-016`, `code-reviewer-hooks-016`, `architect-hooks-016`, `planner-hooks-016`, each by
+pointer to this block.
+
+For him, at the next report: spend `cc-usage.py chain 016` at 12:58Z, TOTAL $97.75 over 941
+requests (every session of the chain since the planner's first at 10:19Z). Hours: planning and
+gates 10:19Z to 11:43Z; implementation 11:43Z to 12:40Z; code review since 12:40Z, one rejection.
+By the plan's changelog: seven revisions and six gate rounds since the value statement.
+
+Conformance: the planner requested no architect pass on revision 7. This thread asks
+`architect-hooks-016` for the delta pass, as at revision 6 (a criterion's text changed). V-101: an
+Opus critic subagent is started over revision 7; its block follows.
