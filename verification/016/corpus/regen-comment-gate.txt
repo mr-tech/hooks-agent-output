@@ -1,5 +1,5 @@
 # node ~/.claude/tools/comment-gate.js <root> --files src/utils/__tests__/helpers/discordV2SendCorpus.ts --tests --gate, each fixture copied to that path under a scratch root
-## regenerated fixture (sha256 9ab22baa…fafe)
+## regenerated fixture (sha256 9ab22baa…a77afe)
 comment-gate — cg-new
   scope    named files only (1) — every comment in scope
   files    1 named, tests included

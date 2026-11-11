@@ -1,4 +1,4 @@
-# eslint over the regenerated fixture at its website path (sha256 9ab22baa…fafe, blob 7fcf64f)
+# eslint over the regenerated fixture at its website path (sha256 9ab22baa…a77afe, blob 7fcf64f)
 # from website/, read-only (no --fix): unshare -rn npx eslint --stdin --stdin-filename src/utils/__tests__/helpers/discordV2SendCorpus.ts --format json < fixture/discordV2SendCorpus.ts
 # config: website working tree on chain/016-send-check-validity; .eslintrc.json and .eslintignore unmodified against HEAD
 # exit 0

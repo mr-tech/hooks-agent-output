@@ -1,6 +1,6 @@
 # compare_fixture.mjs: previous fixture (sha256 49b54f8e…15bb9b, blob 9fb22ae) vs the regenerated one, then three planted controls
 # generator stdout: members=120 accepted=34 refused=86
-## real: previous vs regenerated (fixture/discordV2SendCorpus.ts, sha256 9ab22baa…fafe, blob 7fcf64f)
+## real: previous vs regenerated (fixture/discordV2SendCorpus.ts, sha256 9ab22baa…a77afe, blob 7fcf64f)
 old members=120 accepted=34 refused=86 data-sha256=908bbb24efd0530f553791081d41df8828e0734fae5feda2b14863367c7108ea
 new members=120 accepted=34 refused=86 data-sha256=908bbb24efd0530f553791081d41df8828e0734fae5feda2b14863367c7108ea
 IDENTICAL: every member deep-equal, same order
