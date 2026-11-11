@@ -1091,3 +1091,28 @@ The cap of the 12:59Z block ends on the first of: (1) the owner's word lifting o
 (2) this thread's withdrawal, recorded in this file; (3) plan 016 reaching a terminal `Status`.
 A HIGH or CRITICAL finding on M1 does not void it: that finding takes its normal route and the cap
 stands for every other gap. This thread's wording; the 12:59Z block omitted it.
+
+## 2026-11-11T13:02Z — V-101 trial block: critique of plan 016 revision 7, both tiers
+
+Same revision, `9fd96d5`. Second post-approval pass of this chain under the trial.
+
+| Tier | Pass | Verdict | CRITICAL | HIGH | MEDIUM | LOW | INFO |
+|---|---|---|---|---|---|---|---|
+| Fable, `critic-hooks-016`, cycle 5 pass 1 (`critiques/closed/016-send-check-validity-cycle5-critique.md`, record `21ccc3a`; header, finding lines and its stop-authority and owner lines read) | 1 | APPROVED | 0 | 0 | 0 | 0 | 0 |
+| Opus, subagent `critic-016` (its report to this thread; no file) | 1 | APPROVED | 0 | 0 | 0 | 3 | 2 |
+
+- Fable: no finding. Its stop authority fired on the second instance of one shape (the byte-fixed
+  fixture against a repository gate), with the class remedy already in revision 7; "Nothing routes
+  to the owner from this pass."
+- Opus only, LOW, each a record point, routed to the planner for the Planner batch under M1's cap:
+  F-1, the Resumption State still opens "Updated at revision 6 … revision 5's milestones" (line 584
+  at `HEAD`, read this turn); F-2, the owed re-verdicts row for revision 7 names no architect,
+  though this thread asked for that pass and it ran (`602ba1d`, APPROVED by its commit subject);
+  F-3, the header's `Architectural-Surface` line does not name the fixture Problem Area the chain
+  now closes (the architect marked it mitigated at `5bb0e42`, by the Opus pass's read).
+- Opus only, INFO, not routed: F-4, three captures carried a wrong digest abbreviation at the plan
+  commit, since corrected by QA (`13674b8`); F-5, two discharged rows left in the Planner batch,
+  and row 7 does not say "not milestone-level".
+- Opus also verified the fixture's sha256 and blob against the plan (its commands, not re-run here).
+- Neither tier raised a HIGH or CRITICAL finding. Cost: the subagent reported 106,923 tokens, 13
+  tool uses, 158 s.
