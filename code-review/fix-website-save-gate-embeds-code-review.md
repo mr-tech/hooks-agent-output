@@ -233,3 +233,7 @@ writes nothing, or the dialog shows no options. Owner: devops's pre-release walk
 - **fixer-fix-website-save-gate-embeds**: CR-2 now. CR-1 once steering's decision arrives. Re-review
   is a sub-entry of Round 1.
 - No devops hand-off until approval.
+
+*Gate disclosure, Round 1*: the stamp-gate hook refused this document's first write because the
+changelog stamp was typed, not read from the clock. I substituted the stamp with `date -u` output.
+It is a gate whose remedy is the change it demands, so I satisfied it, not worked around it.
