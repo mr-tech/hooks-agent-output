@@ -4,7 +4,7 @@ Origin: 016
 UUID: 54673438
 Verified-At: "0e3d903 — repos=website; Phase 1 strategy, read at this base tree; no verdict issued"
 Status: Awaiting Implementation
-Status-Detail: "Phase 1 re-keyed to plan revision 4 (record c249af3). QAF-10 and QAF-11 resolved there; the by-render enumeration of M1b's class on /preview (verification/016/preview-chrome/) finds exactly the seven members the plan lists and nothing else, so B-5 and B-6 do not move. One new finding to planner-hooks-016: QAF-12 LOW (AC1b-1 asks for Author's compact style on /preview, which the route never renders). This document holds the chain's blocking-condition register (B-1 to B-6)."
+Status-Detail: "Phase 1 re-keyed to plan revision 5 (record b2d78b0). QAF-12 resolved there; no finding open. QAF-1 to QAF-12 RESOLVED. The by-render enumeration (re-key on revision 4, record 96fbc66) settled M1b's seven members. This document holds the chain's blocking-condition register (B-1 to B-6)."
 Phase: 1
 ---
 
@@ -21,6 +21,7 @@ read as its diff from revision 2 (`git diff 6b07655 21db6c8`). Revision 2 was re
 | 2026-11-11T11:11 | planner-hooks-016 → qa-hooks-016 | Re-key Phase 1 to revision 2 (`6b07655`) | Phase 1 re-key. QAF-1 to QAF-8 read in the diff and collapsed as RESOLVED. Four members measured (batch 3); they found QAF-9 MEDIUM: revision 2's formal whitespace-empty predicate is wrong on 3 of 30 measured members. Fixture re-pinned at 120 members (`49b54f8e…`). Strategy rows for AC1-7 (rider R1 dropped), AC1-9, AC1-10 and AC1-11; B-1 amended for the `/preview` record. Status stays `Awaiting Implementation`. |
 | 2026-11-11T11:17 | planner-hooks-016 → qa-hooks-016 | Re-key Phase 1 to revision 3 (`21db6c8`) | Phase 1 re-key. QAF-9 collapsed as RESOLVED; the fixture hash checked at `21db6c8`. M1b's class checked against every error element in the editor tree: QAF-10 MEDIUM (Author's username error renders on `/preview`, executed at `0e3d903` with a control) and QAF-11 LOW (AC1b-4's post-deploy member does not distinguish). Strategy rows for AC1b-1 to AC1b-3, side effect SE-6 (preview images), register rows B-5 and B-6. Status stays `Awaiting Implementation`. |
 | 2026-11-11T11:26 | planner-hooks-016 → qa-hooks-016 | Re-key Phase 1 to revision 4 (`c249af3`) | Phase 1 re-key. Interrupted at 11:23 by a stop steering then withdrew (its error, by its 11:24Z message), checkpoint `cc91291`, resumed. QAF-10 and QAF-11 collapsed as RESOLVED, SE-6's ask folded. By-render enumeration of M1b's class run at `0e3d903` over 31 fixtures through the real `/preview` page: seven members, matching the plan's table, every "not rendered" and "not painted" row confirmed. Instrument discriminates under an edit-mode mutant. QAF-12 LOW raised. B-5 reconciled; B-5, B-6 unmoved. |
+| 2026-11-11T11:46 | planner-hooks-016 → qa-hooks-016 | Re-key Phase 1 to revision 5 (`b2d78b0`) | Phase 1 re-key, read as `git diff c249af3 b2d78b0` (covers R-2 `5f95a30` and the checkpoint `a9bb644`). QAF-12 collapsed as RESOLVED: AC1b-1 checks Author on `/preview` in cozy and compact at the component with the signal set as `/preview` sets it. Wording only; no criterion QA verified moves, no register row moves, no re-run owed. No new finding. |
 
 ## Reading
 
@@ -202,7 +203,7 @@ So the probe sees exactly the chrome that `/preview` suppresses. **Bound:** unde
 
 Raised at the re-key on revision 4, to the planner:
 
-QAF-12 LOW Phase 1 — **AC1b-1 asks for Author's line "in both visual styles" on `/preview`, but the route renders only `cozy`.** `src/app/preview/page.tsx` at `0e3d903` passes no `visualStyle`, and `DiscordMessageEditor` defaults it to `'cozy'`. So a `/preview` render can never show the compact branch, and a test held to "on `/preview`" cannot exercise it. The by-render run shows one style only: the unpainted header and every username line come from the cozy branch. **Asked:** state that compact is checked at the component (`Author` with the preview signal off, as `verification/016/preview-chrome/Author.preview-error-probe.test.tsx` does with `showEdit={false}`). Alternatively, state the compact limb out as unreachable on the route. Either is the planner's wording; no owner question.
+QAF-12 LOW Phase 1 RESOLVED — **AC1b-1 asks for Author's line "in both visual styles" on `/preview`, but the route renders only `cozy`.** `src/app/preview/page.tsx` at `0e3d903` passes no `visualStyle`, and `DiscordMessageEditor` defaults it to `'cozy'`. So a `/preview` render can never show the compact branch, and a test held to "on `/preview`" cannot exercise it. The by-render run shows one style only: the unpainted header and every username line come from the cozy branch. **Asked:** state that compact is checked at the component (`Author` with the preview signal off, as `verification/016/preview-chrome/Author.preview-error-probe.test.tsx` does with `showEdit={false}`). Alternatively, state the compact limb out as unreachable on the route. Either is the planner's wording; no owner question. Resolved at plan rev 5 (`b2d78b0`), the first form: AC1b-1's Author limb is cozy on the route and compact at the component, and § M1b's "Visual style on `/preview`" paragraph cites the default.
 
 The duplicated sentence in the Testing Strategy's QA-sequencing paragraph is not raised here. The architect recorded it at `47c7a4c` and left it to the critic.
 
@@ -392,6 +393,8 @@ files: these plus `useApiMethods.json-editor-repair` and `utils.mutual-exclusivi
 
 ## Assumption Not Checked
 
+Re-key pass on revision 5: this pass assumes that revision 5 changes only the AC1b-1 wording, the Reading Order, the owed-re-verdicts table, the changelog and the Resumption State, as its own changelog row says. It read the diff whole (`c249af3..b2d78b0`, 48/29) and did not re-run the by-render probe, since no criterion's population moved. If false, a criterion moved without a QA read. The signature is a later gate citing a revision 5 limb that is absent from this pass's changelog row. Owner of closing it: code review, against the plan revision it reads.
+
 Re-key pass on revision 4: this pass assumes that `DiscordContentEditor`'s edit branch (`Desktop.tsx`, `Mobile.tsx`) is never reached on `/preview` for any input, i.e. that `showEdit` reaching it is always false there, and does not test that by a selector the run saw fire (the edit-mode mutant did not surface that component's chrome in jsdom). If false, a long description or content shows a counter, ring or "Too long." in a preview image. The signature is B-5's browser read on a long-content draft showing any of them. Owner of closing it: the implementer's AC1b-1 DOM tests and code review of the signal's route (AC1b-3), then UAT's B-5 read with real CSS.
 
 This pass assumes the research's recorded webhook-kind independence (F-11) still holds today, and does
@@ -419,11 +422,11 @@ any difference. This is also the critic's routed assumption.
 
 ## Resumption State
 
-Written 2026-11-11T11:26 at the end of the re-key on revision 4. Read this first on resume.
+Written 2026-11-11T11:46 at the end of the re-key on revision 5. Read this first on resume.
 
-- **Done:** Phase 1 on revisions 1 to 3, then the re-key on revision 4 (`c249af3`). QAF-1 to QAF-11 RESOLVED. The by-render enumeration is run and captured under `verification/016/preview-chrome/`. QAF-12 LOW is open with the planner. Register B-1 to B-6, of which only B-5 was reconciled at this pass. SE-1 to SE-6. Status `Awaiting Implementation`.
-- **Sent and awaited:** QAF-12 is for `planner-hooks-016`. Steering said the planner was stopped at 11:23Z and is respawned when this document shows something for it, so it is reported to `steering-queue-hooks`. The critic (`01eeaad`) and the architect (`47c7a4c`) approved revision 4.
-- **Next:** the planner's revision 5 for QAF-12 and the critic's F-15. Read it as `git diff c249af3 <rev5> -- planning/016-send-check-validity.md`, and collapse QAF-12 if landed. No re-run is owed for a wording-only fold.
-- **Trees:** website on `master` at `0e3d903`, untouched. The scratch export is deleted at run end. No process left running.
-- **Owed later:** B-3 and B-6's production minting reads, done by the first stage-browser pass. At Phase 2: the whole-corpus re-send, the AC1-9 differential, AC1-10's probe, AC1-11's eslint counts, the fixture's sha256 and blob check, and the mutation sweep. The by-render probe re-runs at the tip as the AC1b-1 differential.
-- **Cache-warm wake:** armed (`a4f06731`, 12:19 local).
+- **Done:** Phase 1 on revisions 1 to 5. QAF-1 to QAF-12 RESOLVED; no finding open. The by-render enumeration is captured under `verification/016/preview-chrome/` (`96fbc66`). Register B-1 to B-6, SE-1 to SE-6. Status `Awaiting Implementation`.
+- **Sent:** the rev-5 clean result → `planner-hooks-016`.
+- **Next:** wait for implementation and the code review's committed verdict (the Phase 2 start). A further plan revision is read as `git diff b2d78b0 <rev> -- planning/016-send-check-validity.md`.
+- **Trees:** website on `master` at `0e3d903`, untouched; no export, process or listener left.
+- **Owed later:** B-3 and B-6's production minting reads, done by the first stage-browser pass. At Phase 2: the whole-corpus re-send, the AC1-9 differential, AC1-10's probe, AC1-11's eslint counts, the fixture's sha256 and blob check, the mutation sweep, and the by-render probe re-run at the tip as AC1b-1's differential.
+- **Cache-warm wake:** armed (`a4f06731`).
