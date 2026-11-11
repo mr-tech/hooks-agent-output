@@ -1,6 +1,6 @@
 ---
 Status: Active
-Last Updated: 2026-11-08
+Last Updated: 2026-11-11
 Record-Type: owner-sourced architecture record
 Repo: preview-image-generator (hooks-gg/preview-image-generator, branch `prod`)
 ---
@@ -38,7 +38,7 @@ Six questions asked and answered 2026-08-24.
 
 **One fact, not two.** It is *not* deliberately frozen — nothing forced an update. But the reason the staleness has cost nothing is architectural: the service screenshots the website's own `/preview` route, so it inherits every change to the preview surface for free and needs no adjustment when the editor changes. It is downstream of D-001's single-component-tree property (`website.md` W-3).
 
-**What this governs**: the **functional-drift** risk from old dependencies is structurally nil, and will stay nil for as long as the reuse holds. **A change that broke the reuse would raise the dependency risk at the same moment** — those are one risk, not two, and a proposal that ends the reuse must price the toolchain update with it. Security and maintenance risk from 2023 dependencies on a live production service is a **separate** question this answer does not address and nobody has assessed.
+**What this governs**: the **functional-drift** risk from old dependencies is structurally nil, and will stay nil for as long as the reuse holds. **A change that broke the reuse would raise the dependency risk at the same moment** — those are one risk, not two, and a proposal that ends the reuse must price the toolchain update with it. Security and maintenance risk from 2023 dependencies on a live production service is a **separate** question this answer does not address. It is assessed in `security/closed/015-preview-image-generator-security-audit.md`: H-001 (unsandboxed root Chromium 116.0.5845.96 renders user-supplied image URLs) and H-003 (the plain-HTTP port is public, served as root by an end-of-life Node) are its dependency-age findings. The owner accepted them as recorded; the carrier is `handoff/preview-image-generator-host-security-posture-2026-11-08.md`.
 
 ---
 
@@ -60,6 +60,8 @@ Six questions asked and answered 2026-08-24.
 4. `deploy.sh` runs `pm2 startOrReload --update-env`.
 
 Under this grade, re-verify the mechanism, not the agreement. If any part of the description is wrong, his answer does not repair that part.
+
+**A deploy dependency he was not shown** (agent-read, not part of what he ratified): step 1 needs the self-hosted runner to be running. A push to `prod` while the runner is down queues the job and deploys nothing until the runner is started. At chain 015's release the generator deployed 24 minutes after the push, because the runner was down until the owner started it on the host (`retrospectives/closed/015-bug-evaluation-fixes-retrospective.md`, R8). A release that pushes `prod` confirms the deployed commit on the host, not only the push.
 
 **Correction note.** This entry replaces the 2026-08-24 version in place. That version ratified "a git checkout on `prod` … with no build step — the checkout *is* production". The plan 015 conformance pass found that description contradicted by `prod.yml` (AF-10). The superseded wording is in git history before this commit.
 

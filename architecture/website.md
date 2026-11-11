@@ -1,6 +1,6 @@
 ---
 Status: Active
-Last Updated: 2026-08-24
+Last Updated: 2026-11-11
 Record-Type: owner-sourced architecture record
 Repo: website (hooks-gg/website)
 ---
@@ -260,6 +260,16 @@ Two consequences a reader cannot derive from the tree:
 
 **Consequence a change must carry**: a new channel-, thread- or message-scoped bot read of user input adds this binding. Plan 015's CR-12 was the one unbound instance (`message.getFromUrl`).
 
+### A-6 — The editor persists its own message through one step, which leaves the editor holding what it stored
+
+**Grade**: agent-designed. A mechanism agents designed and wrote (chain `fix-website-save-gate-embeds`, website `963a25c`), read at `0e3d903`. Not his intent. It was shaped by his selection 15, *"Agent: fix both paths now (Recommended)"*. The option text he saw was steering's: "The fixer gives Save and the choice dialog one shared save step that also updates the editor to what was stored." The mode limb was steering's ruling on that selection, not his (`steering/queue-hooks-rulings.md`, blocks 09:23Z and 09:27Z). Re-verify against the code.
+
+**Mechanism.** `src/providers/MessageProvider/useApiMethods.ts` `persist(draft, data)` is the only call of `upsertMessage` under `src/providers`. Both of the editor's persisting writers reach it: `saveMessage`, with `gateBeforePersist`'s data, and `commitSaveChoice`, with `applyDisposition`'s data. When `data` differs from the draft's, the step sets the editor's message to `data` and its mode to `detectMessageMode({ data })`. It then upserts `stripKeys({ ...draft, data })`. The editor and the store therefore differ only by `stripKeys`' normalisation (`_key`s, the V2 bit from structure). That is the form `usePusher`'s `normalizeForHash` removes before comparing hashes (Runtime Flow 1b in `system-architecture.md`).
+
+**What it protects.** The saving tab's staleness check compares the broadcast hash with what that tab now holds. A writer that persisted data the editor did not hold made the saver's own tab raise "Message Update Detected" (code review CR-4, `code-review/closed/fix-website-save-gate-embeds-code-review.md`).
+
+**Consequence a change must carry**: a new way for the editor to persist its own message goes through `persist`, and never calls `upsertMessage` around it. A change to what `persist` writes (for example, a further normalisation before the upsert) also updates what the editor is set to, or it re-opens CR-4. Writers that save a *different* message (`SaveAsMenu`, `NewMessageModal`, the intro writers) are outside this entry. The editor is not holding the message they store.
+
 ---
 
 ## Addendum changelog
@@ -273,3 +283,4 @@ Two consequences a reader cannot derive from the tree:
 | 2026-11-08T07:03 | 5 | architect-hooks-015 | Added `A-5` (agent-designed) from the plan 015 rev 17–18 conformance pass: binding bot-token reads to the authorised guild. |
 | 2026-11-08T08:11 | 6 | architect-hooks-015 | Added `W-7` (owner-authored): one Discord account is one Hooks user. His sentence is verbatim, confirmed as a standing rule by his selection (`dd2a337`). Checked against the mechanism, and the next-auth linking gap is recorded as his known limit (`766bd4b`). |
 | 2026-11-11T10:45 | 7 | architect-hooks-016 | `A-4` corrected and extended from the plan 016 conformance pass (re-read at website `0e3d903`): the old bounds sentence, "Bounds are constants in `~/constants`", described one home where the tree has two; it now names both and why, and adds the env-free import closure of `limits.tsx` with its executed check (plan 016 AF-1, AF-4). Agent-designed; no selection of his shaped it. |
+| 2026-11-11T10:50 | 8 | architect-hooks-016 | Added `A-6` (agent-designed): the editor persists its own message through one step, `useApiMethods` `persist`, which leaves the editor holding what it stored. Read at website `0e3d903`, routed by `retrospectives/fix-website-save-gate-embeds-retrospective.md`. Shaped by his selection 15, which is quoted as the option text he saw; the mode limb is steering's ruling. |

@@ -1,4 +1,4 @@
-%% Hooks.gg workspace architecture — companion to system-architecture.md (2026-08-24)
+%% Hooks.gg workspace architecture — companion to system-architecture.md (2026-11-11, website 0e3d903)
 graph TB
     subgraph workspace["/usr/local/bin/hooks (plain directory, four sibling repos)"]
         subgraph website["website (hooks-gg/website, master) — Next.js 16 / React 19 — deploys on Vercel"]
@@ -32,5 +32,8 @@ graph TB
     edge --> botmod
     edge -->|server commands| srv
     browser -->|"stripKeys() applies V2 flag\nsendWebhook() → with_components=true"| discord
-    browser -->|"message.upsert (tRPC)"| api
+    browser -->|"gateBeforePersist() → stripKeys()\nmessage.upsert (tRPC)"| api
+    pusher["Pusher\nmessage-update-&lt;id&gt; channel"]
+    api -->|"hash of stored message"| pusher
+    pusher -->|"staleness notice"| browser
     website -.consults.-> refs

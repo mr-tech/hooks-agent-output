@@ -1,7 +1,7 @@
 ---
 UUID: d1d3015e
-Status: Open
-Status-Detail: "Six architecture items routed to the architect while no architect session was running: system-architecture.md is not reconciled to chains 012-014, the chain-013 findings document is still Active, and four record lines are stale or incomplete. Nothing blocks on them; a brief citing the architecture record reads stale text until they land."
+Status: Addressed
+Status-Detail: "Addressed 2026-11-11 by architect-hooks-016 at the plan 016 conformance pass; each item's disposition is in the changelog row. Original detail: Six architecture items routed to the architect while no architect session was running: system-architecture.md is not reconciled to chains 012-014, the chain-013 findings document is still Active, and four record lines are stale or incomplete. Nothing blocks on them; a brief citing the architecture record reads stale text until they land."
 Owning-Stage: architect
 Review-Trigger: when an architect is next commissioned in this record (the conformance pass of the next plan, or the owner's word), and before any brief cites system-architecture.md § Roadmap Readiness for the state of plans 012-014
 ---
@@ -35,3 +35,4 @@ Record-inbox entries, deleted in this pass: architect-hooks-015 (2026-11-08, ite
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-10T08:40 | steering-cleanup | Created by the 2026-11-10 project cleanup from record-inbox entries routed to this stage while no session of it was running; the entries are deleted from `INBOX.md` in the same pass |
+| 2026-11-11T10:51 | architect-hooks-016 | **Addressed**, all six items. (1) `system-architecture.md` reconciled to 012-014 and `fix-website-save-gate-embeds` at website `0e3d903` (its changelog row), Roadmap Readiness included. (2) `architecture/closed/013-components-v2-editing-surfaces-architecture-findings.md` closed Resolved, with its observations carried. (3) `handoff/closed/components-v2-invariant-for-system-architecture-2026-08-24.md` compared and closed Addressed. (4) `preview-image-generator.md` P-2 points at security audit 015 and its carrier. (5) P-3 names the runner's liveness as a deploy dependency, marked as not part of what he ratified. (6) Judgement: `project-utils` gets a record when a chain first depends on its intent, and none does yet; `cdn` gets none, being deprecated and out of the project space (Recommendation 2). Moved to `closed/`. |

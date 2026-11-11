@@ -1,7 +1,8 @@
 ---
 UUID: 7c4e1a92
-Status: Open
+Status: Addressed
 Status-Detail: >-
+  Addressed 2026-11-11 by architect-hooks-016: compared line by line with system-architecture.md at agent-output after this commit. The invariant is D-004 (the flag is the mode; D17's five rows; structure sets the bit). The no-removal clause is the Components 'One serialiser' bullet with website.md W-1. Both withdrawn statements appear only in D-004's Alternatives/Related and the changelog, marked withdrawn. The Data-flow bullet names one serialiser behind the persist gate. Original detail follows.
   Issued 2026-08-24 by steering-hooks-013-2 under plan 013's M6 (Record closure). Plan 013
   established an architectural invariant that system-architecture.md does not yet record, and that
   supersedes two statements previously believed true. The correction is deliberately NOT made by
@@ -71,3 +72,4 @@ the two records.
 | Date | Who | What |
 |---|---|---|
 | 2026-08-24 | **steering** (steering-hooks-013-2) | **Issued**, discharging plan 013's M6 acceptance clause *"the architect handoff is issued"*. Content is the plan's Handoff Notes entry for the architect; no part of it re-derived here. Issued as a document rather than by invoking an architect session, because M6's wording hands the correction over rather than making it, and because steering authors handoffs in this repo. **Recorded as steering's own reading**: an earlier reading of M6 treated this clause as requiring an architect *run*, which would have needed an owner selection prompt under the standing warmth rule and would have held M6 — and with it QA Phase 2 — until the owner was available. That reading was wrong and is corrected here. |
+| 2026-11-11T10:51 | architect-hooks-016 | **Addressed.** Read against `architecture/system-architecture.md` as reconciled in the same record commit: every 'What to record' item is present, and every 'What to remove' item survives only as a marked withdrawal. No finding against plan 013. Moved to `closed/`. |

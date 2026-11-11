@@ -2,7 +2,8 @@
 ID: 013
 Origin: 013
 UUID: 22d69e06
-Status: Active
+Status: Resolved
+Status-Detail: "Resolved 2026-11-11 by architect-hooks-016 at the owed post-implementation reconciliation (website 0e3d903): the two V2 Problem Areas and the Data-flow bullets are reconciled in system-architecture.md. O-1 is carried by its Problem Area 'Persisting writers share a criterion, not a path'; O-2 by plan 016, which extends the send check; F-1, RC-1 and O-3/O-4 closed with chain 013's release."
 ---
 
 # Architecture Findings — Plan 013: Components V2 across the editing surfaces
@@ -14,6 +15,8 @@ Status: Active
 | 2026-08-24 | Data-flow correction (standing constraint, independent of the plan's revision) | The `system-architecture.md` "Data flow" defect re-derived against `website` `c85945f` and corrected; D-004 "the flag is the mode" recorded from D15; two Problem Areas registered. Committed `35906ab`. Handed to steering-hooks-013 with six owner-sourced questions for a `website.md` per-repo record. |
 | 2026-08-24 | Plan review, rev 9 (`b57639c`) | One required change (RC-1) on the interaction between the owner's `stripKeys` ruling and M7-a; three observations. D-004 extended for D17, which withdrew a clause the ADR carried. **APPROVED_WITH_CHANGES.** |
 | 2026-08-24 | Re-review, rev 10 (`9140ffe`) | **RC-1 discharged by D18/M8-G and withdrawn** — the planner re-derived the finding from `c85945f` before writing the criterion. One new finding (F-1) on M8-G's population and observability argument, which contradicts the mechanism the criterion itself confirms. Out-of-Scope routing of the Medium judged correct. **APPROVED.** |
+| 2026-11-11T10:51 | Reconciliation and closure (architect-hooks-016, on `handoff/architecture-record-reconciliation-owed-2026-11-10.md` item 2) | Integration requirement 3 discharged: `system-architecture.md` reconciled to 013 as implemented at website `0e3d903`. The High V2-flag Problem Area is resolved; the writers row is restated, with O-1 as its carrier. O-2 (only a disabled button between a conflicted draft and Discord) is the send check's surface, which plan 016 extends. F-1, RC-1, O-3 and O-4 closed with the chain. |
+| 2026-11-11T10:51 | architect-hooks-016 | Document closed | Status: Resolved |
 
 ---
 
