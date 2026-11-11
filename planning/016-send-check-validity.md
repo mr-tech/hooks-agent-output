@@ -545,17 +545,21 @@ fixtures and coverage are QA's.
 
 ## Resumption State
 
-Updated 2026-11-11T11:18Z, `planner-hooks-016`, at revision 4.
-- **Done:** revision 4 folds all three revision-3 verdicts (architect `0bb1084`/`ccaa340`, critic
-  `56b2916`, QA `d5466ab`) and is delivered by SendMessage to `critic-hooks-016`, `architect-hooks-016`
-  and `qa-hooks-016`.
-- **Next:** wait for all three verdicts on revision 4, then fold them into one revision. Each later
-  read of the plan is `git diff c249af3 HEAD -- planning/016-send-check-validity.md`. The architect
-  approved revision 4 (`47c7a4c`), as did the critic (`01eeaad`). QA is pending.
-  When every pre-code gate has approved the same revision, report the plan ready for implementation
-  to steering, as a spawn cue for the implementer.
-- **Open to the owner:** nothing. Design decision 2 (labels take D-9's rule, riding selection 18)
-  was reported and stands (rulings block 11:11Z).
+Checkpoint 2026-11-11T11:22Z, `planner-hooks-016`. The chain stopped on the weekly usage gate
+(rulings block "2026-11-11T11:22Z", record `13ec4bd`).
+- **Done:** revision 4 (`c249af3`) folds all three revision-3 verdicts (architect `0bb1084`/`ccaa340`,
+  critic `56b2916`, QA `d5466ab`). It was delivered to `critic-hooks-016`, `architect-hooks-016` and
+  `qa-hooks-016`. On revision 4 the architect APPROVED with no findings (`47c7a4c`) and the critic
+  APPROVED (cycle 2 pass 2, `01eeaad`). R-2 (`5f95a30`) records both, plus two editorial fixes: the
+  duplicate sentence and F-15. The critic was told F-15 has landed.
+- **Next:** QA's re-key on revision 4 is pending. It includes M1b's by-render enumeration, which may
+  add members (they are inside M1b by its text). On QA's verdict: if it is clean, report the plan
+  ready for implementation to steering as the implementer's spawn cue. If it raises a finding that
+  changes a criterion, write revision 5 and re-cue all three gates. Each later read of the plan is
+  `git diff 5f95a30 HEAD -- planning/016-send-check-validity.md`.
+- **Open to the owner:** nothing to ask. X-11 (`/preview`'s "Invalid message data." fallback stays)
+  is agent-authored and was reported to steering for his sight. Design decision 2 (labels take D-9's
+  rule) stands (rulings block 11:11Z).
 - **Trees:** website on `master` at `0e3d903`, clean, with no chain branch yet (steering creates
   it). The record has nothing uncommitted of this session's. My scratchpad holds only throwaway
   captures (the base suite JSON, the eslint JSON, the diff extracts). Their numbers are recorded in
