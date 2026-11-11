@@ -73,6 +73,16 @@ more thorough. Whatever instrument is proposed must establish the class from doc
 the API's published rules, from observed rejections the owner has already collected, or from the
 product's own model — **not by probing Discord.**
 
+**Reconcile note, 2026-11-11 (`steering-queue-hooks`).** The section above was true when written:
+in August no agent could send anywhere. The owner's global instructions now make the Discord test
+server (guild `1566742402180456559`) the agents' own, and on 2026-11-11 he selected an agent send
+there (`steering/queue-hooks-rulings.md`, prompt 3). A researcher then measured two acceptance
+rules by live sends in that server: `research/components-v2-description-text-limit-2026-11-11.md`.
+So the class can now be established by sends in the test server and nowhere else. One member is
+measured and being fixed separately: a Thumbnail or MediaGallery description over 1024 characters is
+refused (that document's F-6). Whether Discord refuses an empty-string description is its N-4,
+not measured. Nothing else in this handoff is changed or answered by this note.
+
 ## What is established and what is not
 
 **Established:** the single instance, by the owner's own observation.

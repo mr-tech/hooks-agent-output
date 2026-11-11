@@ -192,3 +192,45 @@ plus an empty embed now shows the mixed-draft choice on the two JSON load paths,
 empty embed was dropped silently. The fixer's brief said a change in what a user sees beyond the
 existing choice is a design decision; the fixer read this as the existing choice. Put to the
 reviewer as a candidate, and to him for his own check before release.
+
+## 2026-11-11T08:48Z — selection 11: the 1024-character description limit (put 08:47:12Z, answered 08:47Z)
+
+Ledger: `steering/selection-ledger/2026-11-11.md`, this thread's block after "08:29Z".
+The research document `research/components-v2-description-text-limit-2026-11-11.md` (`de54612`,
+`Status: Active`, read this turn: Answer, Findings, Open Questions) answers the briefed question
+**No**: descriptions do not count toward the 4000 total, so no fix arises there. Its F-6, outside
+the brief and measured on the researcher's own decision: Discord refuses a description over 1024
+characters; the website bounds neither field (the researcher's code read at `6d78b19`, not run; its
+inference I-1 that a user can compose and fail to send one is untested).
+
+Options: *Agent: scope a fix (Recommended)* (a scoping decision for a small website fix that makes
+the editor's check catch descriptions over 1024; starts after the save-check fix now in review,
+because the website tree holds one branch at a time; its own small chain with its own review;
+nothing reaches production without his release answer) / *Agent: record it as a handoff* (sends
+with a longer description keep failing at Discord) / *Agent: drop it*.
+**Chosen: "Agent: scope a fix (Recommended)"** (selection).
+
+**Scoping determination: the `fixer` agent, queued.**
+- Shape: defect, a missing bound. Discord's half is measured (F-6, requests 25 to 36); the website's
+  half is a code read. The fixer's red test is the document's own disconfirming test for I-1.
+- Blast radius: `validateMessage` (`src/utils/limits.tsx`), the limit constants, the two description
+  inputs (`ThumbnailEditor.tsx`, `MediaGalleryEditor.tsx`), their tests. Specification uncertainty:
+  none beyond mirroring how sibling per-field limits are enforced and shown. W-2 holds: the save is
+  not refused for a bad state.
+- Pipeline: `fixer`, then code review; QA Phase 2 only at 20 or more added production lines.
+- Scope: one defect, `website` only. Out: the document's N-1 to N-4, the wider V2-validity class,
+  `src/server/**` beyond what the siblings do, the other repositories.
+- End step: production. `release-move.js … master 6d78b19… --dry-run` re-run 08:48Z: exit 0,
+  "workflows none".
+- Starts when the website tree is free of `fix/website-save-gate-embeds`. Carrier until then:
+  `TODO.md`, "Website fix: bound V2 description fields at 1024 characters".
+- Released chains on this route: 007, 012, 013. Open carrier whose trigger this fires:
+  `handoff/components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md` (work on the send
+  check), re-read this turn.
+
+**Conflict between records, named.** That handoff, `OPEN_QUESTIONS.md` as it stood at `a22fb73`,
+and (by the handoff's citation, not read here) plan 012 D14 say no agent may determine Discord's
+acceptance rules by a live send, "a standing prohibition with no approval path". The global
+`CLAUDE.md` ("Outbound messages") now gives agents the Discord test server, and prompt 3 put the
+change to him in those terms before he chose the agent send. The handoff carries a dated note of
+this; its August text is left in place.

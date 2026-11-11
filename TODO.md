@@ -16,6 +16,13 @@ stuff is planned after the existing items are handled" (`steering/queue-hooks-ru
 1 to 4, prompt 2). Do not put it to him while other work in this project is open; when none is, ask
 which items to plan, or none and the research closes.
 
+## Website fix: bound V2 description fields at 1024 characters
+
+Lodged 2026-11-11 by `steering-queue-hooks` on the owner's selection ("Agent: scope a fix"). Scoping
+determination, scope and evidence: `steering/queue-hooks-rulings.md`, block "selection 11"; the
+measurement is F-6 of `research/components-v2-description-text-limit-2026-11-11.md`. A `fixer` chain,
+to start when the website tree is free of `fix/website-save-gate-embeds`.
+
 ## `check-repo.js` CHECK 4 has no stage suffix for two artifact kinds stages actually produce
 
 Demoted here from `INBOX.md` 2026-08-25 by steering-hooks-013-3, its author's ask having been
