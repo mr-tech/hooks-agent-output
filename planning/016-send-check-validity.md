@@ -590,7 +590,7 @@ Updated at revision 6, `planner-hooks-016`. Implementation is running on revisio
 - **Standing for M1** (steering's cap, R-11): a gate finding below HIGH on M1 goes to the Planner
   batch as a stated limit, with no revision. HIGH, CRITICAL and severity-floor findings keep their
   route. Findings already in a round finish as started. Its stated reason is the second
-  post-approval revision; the block names no voiding event other than steering's own withdrawal.
+  post-approval revision. The block names no event that voids it (asked of steering).
 - **Open to the owner:** nothing.
 
 ## Planner batch
