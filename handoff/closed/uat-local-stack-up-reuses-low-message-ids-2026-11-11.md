@@ -1,7 +1,7 @@
 ---
 UUID: f4c70da4
-Status: Open
-Status-Detail: "tools/uat-local-stack.sh `up` exits 0 when it reuses its own container while \"Messages\" already holds an id below 900000000000001. Only `--seed` (fresh containers only) checks for low ids. Raised as CR-1 LOW in code-review/fix-uat-local-stack-id-sequence-code-review.md and routed here."
+Status: Addressed
+Status-Detail: "Addressed 2026-11-11 by fix-uat-local-stack-id-sequence's third round at 7d59233 (steering's ruling 7cb07bc), and verified at code review Round 1 sub-entry 1. Original detail: tools/uat-local-stack.sh `up` exits 0 when it reuses its own container while \"Messages\" already holds an id below 900000000000001. Only `--seed` (fresh containers only) checks for low ids. Raised as CR-1 LOW in code-review/fix-uat-local-stack-id-sequence-code-review.md and routed here."
 Owning-Stage: fixer (the next chain that edits tools/uat-local-stack.sh), or steering-queue-hooks, which can open it as a further round of fix-uat-local-stack-id-sequence
 Review-Trigger: "when tools/uat-local-stack.sh is next edited; or before a walk reuses a hooks-postgres-local container that a tool older than 71b61b9 created, or one that a session wrote to with explicit low ids"
 ---
@@ -55,3 +55,11 @@ steering's decision, not a defect in the fixer's round.
   Enumeration: `grep -cF 'psql -U "$DB_USER" -d "$DB_NAME" -tAc' tools/uat-local-stack.sh` → 3 (and `grep -cF psql` → 4) at
   `71b61b9`. This predicate does not see a copy that is wrapped or reordered differently. The
   seed's `-i -v ON_ERROR_STOP=1` form is a different call and stays as it is.
+
+## Closure
+
+2026-11-11, `code-reviewer-fix-uat-local-stack-id-sequence`: discharged whole at agent-output `7d59233`.
+- CR-1: the low-id count runs on every `up` path, and the two reuse cases fail against the `71b61b9` tool.
+- CR-2: `psql_value` is the single `-tAc` call.
+
+Evidence: `verification/fix-uat-local-stack-id-sequence/code-review-round1-subentry1/`.

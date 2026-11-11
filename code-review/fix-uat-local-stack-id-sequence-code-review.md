@@ -2,10 +2,10 @@
 ID: n/a
 Origin: fix-uat-local-stack-id-sequence
 UUID: 860d4569
-Reviewed-At: 71b61b9 — repos=agent-output; base 68d737f; round 1 of the fixer's at 1fee252 not reviewed separately (one tree)
+Reviewed-At: 7d59233 — repos=agent-output; base 68d737f; Round 1 first pass at 71b61b9, sub-entry 1 at 7d59233; the fixer's 1fee252 not reviewed separately (one tree)
 Status: In Review
 Round: 1
-Verdict: APPROVED_WITH_COMMENTS
+Verdict: APPROVED
 ---
 
 # Code Review: fix-uat-local-stack-id-sequence
@@ -13,7 +13,7 @@ Verdict: APPROVED_WITH_COMMENTS
 **Plan Reference**: none (fixer route). Scope: `steering/queue-hooks-rulings.md` blocks "2026-11-11T19:41Z
 — scoping determination: `fix-uat-local-stack-id-sequence`" and "2026-11-11T19:48Z — … re-scoped by this
 thread" (`05582c6`), relayed in `steering/queue-hooks-briefs/code-reviewer-uat-local-stack-brief.md`.
-**Implementation Reference**: `implementation/fix-uat-local-stack-id-sequence-implementation.md` (record `3e2bb91`, Handoff-At `71b61b9`)
+**Implementation Reference**: `implementation/fix-uat-local-stack-id-sequence-implementation.md` (record `41199fc`, Handoff-At `7d59233`; first pass read record `3e2bb91` at `71b61b9`)
 **Date**: 2026-11-11
 **Reviewer**: Code Reviewer (`code-reviewer-fix-uat-local-stack-id-sequence`)
 
@@ -21,11 +21,13 @@ thread" (`05582c6`), relayed in `steering/queue-hooks-briefs/code-reviewer-uat-l
 
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
-| 2026-11-11T19:58 | steering-queue-hooks (brief `code-reviewer-uat-local-stack-brief.md`, `cbfc8d7`) | Round 1: review at Handoff-At `71b61b9`; under-20 route, so the suite and both red runs are run here | Round 1 APPROVED_WITH_COMMENTS. The fix meets the scope as ruled: the sequence moves on every `up` path, and the seed's low id is refused. Suite 109/109, exit 0. Red: 13 fail with the `68d737f` tool, 4 with the `1fee252` tool. CR-1 LOW: `up` on a reused container does not fail when a stored message id is below the floor (the ruling scoped that check to "After a seed"; probed on real Postgres). CR-2 LOW: three copies of the psql value call. Both routed to `handoff/uat-local-stack-up-reuses-low-message-ids-2026-11-11.md`. Captures in `verification/fix-uat-local-stack-id-sequence/code-review-round1/`. 15 tool lines added, so no QA Phase 2. |
+| 2026-11-11T19:56 | steering-queue-hooks (brief `code-reviewer-uat-local-stack-brief.md`, `cbfc8d7`) | Round 1: review at Handoff-At `71b61b9`; under-20 route, so the suite and both red runs are run here | Round 1 APPROVED_WITH_COMMENTS. The fix meets the scope as ruled: the sequence moves on every `up` path, and the seed's low id is refused. Suite 109/109, exit 0. Red: 13 fail with the `68d737f` tool, 4 with the `1fee252` tool. CR-1 LOW: `up` on a reused container does not fail when a stored message id is below the floor (the ruling scoped that check to "After a seed"; probed on real Postgres). CR-2 LOW: three copies of the psql value call. Both routed to `handoff/uat-local-stack-up-reuses-low-message-ids-2026-11-11.md`. Captures in `verification/fix-uat-local-stack-id-sequence/code-review-round1/`. 15 tool lines added, so no QA Phase 2. |
 | 2026-11-11T19:58 | steering-queue-hooks (rulings block "2026-11-11T19:57Z", record `7cb07bc`) | CR-1 decided | Received; this is not a sub-entry, and the verdict is unchanged. A third fixer round takes CR-1 and CR-2, using the handoff's "What would discharge it" as the specification. Re-review follows on the fixer's next handoff, as a sub-entry of Round 1, and checks the 20-line count from `68d737f`. The handoff's Status is judged there. |
+| 2026-11-11T20:08 | fixer-fix-uat-local-stack-id-sequence (SendMessage; document record `41199fc`) | Round 1 sub-entry 1 at `7d59233` (rulings `7cb07bc`) | Sub-entry 1 APPROVED. CR-1 and CR-2 are dispositioned, and the document collapses to their disposition lines (the arguments stay in `0f75a2c`). Suite at `7d59233`: 111/111, exit 0. The first attempt timed out on EADDRINUSE in the test file's free-port helper, which this chain did not change (INFO below); the repeat passed. Red: the `71b61b9` tool fails 5 of 111. The round-1 probe, unedited, now gives rc 1 on reuse. The tool is at 15 added lines from `68d737f`, so there is no QA Phase 2. The handoff is closed as Addressed. The stamp on the 19:56 row is corrected to the time of the commit that introduced it (`check-repo.js`). Captures in `verification/fix-uat-local-stack-id-sequence/code-review-round1-subentry1/`. |
 
 ## Scope, identity and inputs
 
+- **Sub-entry 1 tree**: agent-output `7d59233`. Files were read via `git show 7d59233:…`, and the runs used scratch exports. `HEAD` was `41199fc` at the start and at the end. The fixer's commits `7d59233` and `41199fc` touch only the tool, its test, `verification/fix-uat-local-stack-id-sequence/` and the fixer's document, all in the chain's set. `git diff --numstat 68d737f 7d59233 -- tools/uat-local-stack.sh` → `15 5`. The bullets below are the first pass, at `71b61b9`.
 - **Tree**: agent-output `71b61b9`. Files were read via `git show 71b61b9:…`, and the runs used scratch
   exports, never the shared tree. `HEAD` was `cbfc8d7` at the start and at the end. The chain's paths
   have not changed since `71b61b9` (`git log -1 -- <chain paths>` → `71b61b9`), and the fixer's
@@ -85,39 +87,28 @@ insert, not a container an older tool actually left.
   and a synthetic password, and removed by the tool's `down`. Afterwards 0 remain. No website build
   ran and nothing was saved through one.
 
-## Findings
+## Findings (Round 1, all dispositioned)
 
-CR-1 LOW Round 1
-- **Location**: `tools/uat-local-stack.sh`, `cmd_up`, the low-id count inside `if [ "$SEED" = 1 ]`.
-- **Class**: `up` hands back a database that holds a stored "Messages" id below 900000000000001 on a
-  path the check does not cover. CLAUDE.md: "A local database that already holds low-numbered
-  messages is recreated, not reused."
-- **Enumeration**: `up`'s paths: create, create with `--seed`, reuse running, start stopped. The
-  low-id check covers 1 of the 4 (`--seed`), and `--seed` is refused on the two reuse paths. Reuse
-  running was probed on real Postgres: rc 0 with 1 low id remaining. Start stopped was not probed;
-  it runs the same post-push code. The predicate cannot see low ids in tables other than "Messages",
-  which the rule does not cover.
-- **Magnitude**: measured exposure on this box is 0, because `docker ps -a` lists no
-  `hooks-postgres-local`. From `71b61b9` the tool never hands back a low sequence, so a low id can
-  arise only from a hand-made explicit insert or a container kept from an older tool. Other boxes
-  were not measured.
-- **Why not the fixer's defect**: the re-scope (`05582c6`) rules "After a seed", and the fixer
-  implemented exactly that. Widening the check is steering's call.
-- **Required Action**: Preferred (structural): one unconditional low-id count after the push and any
-  seed, before the sequence move, on every path. Falsity signature: a reuse case with `STUB_LOW_IDS=1`
-  must fail against the `71b61b9` tool. Minimum: none short of that. Routed to
-  `handoff/uat-local-stack-up-reuses-low-message-ids-2026-11-11.md`. Steering may instead open it as
-  a further round, which keeps the change under 20 lines.
+- CR-1 LOW Round 1: `up` reused a database holding a "Messages" id below 900000000000001.
+  **Class gone** at `7d59233`: the low-id count in `cmd_up` sits outside the `--seed` branch, before
+  the sequence move, so every `up` path runs it (the diff `71b61b9..7d59233`). Re-run probe:
+  `code-review-round1-subentry1/reuse-low-id-probe.txt` gives rc 1, count 1. **Check that fails if
+  the class returns**: `tools/uatLocalStack.test.js`, "up reusing the tool's running container that
+  holds a message below the floor …" and "up starting the tool's stopped container that holds …".
+  Both fail against the `71b61b9` tool (`red-tool-71b61b9.txt`), and the three non-seed order cases
+  expect `push, low-ids, sequence`.
+- CR-2 LOW Round 1: three inline psql value calls. **Class gone** at `7d59233`: `psql_value` is the
+  one call, and `table_count`, the low-id count and the sequence move use it. Re-run sweep:
+  `grep -cF 'psql -U "$DB_USER" -d "$DB_NAME" -tAc'` → 1, and `grep -nF psql` lists 6 lines: the
+  function's two lines (name, invocation), its three callers and the seed's `-i -v ON_ERROR_STOP=1` call.
+  Predicate broken by hand: no `exec … psql` outside those 6 lines. Check: `no test`. This is a
+  structural refactor, and the suite exercising all three callers is what guards their behaviour.
 
-CR-2 LOW Round 1
-- **Location**: `tools/uat-local-stack.sh`: `table_count`, the low-id count and the sequence move in `cmd_up`.
-- **Class**: the psql single-value call (`PGPASSWORD=… exec -e PGPASSWORD "$NAME" psql -U … -d … -tAc …
-  2>/dev/null | tr -d '[:space:]'`) is written out inline instead of sharing one function.
-- **Enumeration**: `grep -cF 'psql -U "$DB_USER" -d "$DB_NAME" -tAc'` → 3 at `71b61b9`, and
-  `grep -cF psql` → 4. The fourth is the seed's `-i -v ON_ERROR_STOP=1` call, which is a different
-  call. The predicate misses a copy with its flags in another order.
-- **Required Action**: Preferred: `psql_value "<sql>"`, with `table_count` and the two new sites
-  calling it. Routed to the same handoff, to be done together with CR-1.
+INFO (sub-entry 1, outside the diff), routed to QA as test adequacy, for the next chain that edits
+`tools/uatLocalStack.test.js`: the file's free-port helper (`net.createServer().listen(0)`, then
+`close`, then a later `listen(port)` with no `error` handler) can lose its port to another process.
+The `listen` then throws EADDRINUSE and the file hangs to the runner's cap. Observed once in this
+sub-entry (`suite-7d59233-attempt1-eaddrinuse.txt`). The helper is unchanged since `68d737f`.
 
 ## Assumption Not Checked
 
@@ -137,13 +128,17 @@ first save wrote and the low-id count after it. Named in Next Steps.
 
 ## Verdict
 
+**Sub-entry 1, at `7d59233`: APPROVED.** CR-1 and CR-2 are dispositioned above. The tool is at 15 added lines from `68d737f`, so there is no QA Phase 2: steering closes the chain.
+
+First pass, at `71b61b9`:
+
 **APPROVED_WITH_COMMENTS** at `71b61b9`. The three ruled criteria are met and backed by executed
 evidence. CR-1 and CR-2 are LOW. They do not block, and they are routed to the handoff above. The
 tool gained 15 lines (< 20), so there is no QA Phase 2: steering closes the chain.
 
 ## Next Steps
 
-- steering-queue-hooks: close the chain, and decide CR-1 (handoff as written, or a further round).
+- steering-queue-hooks: close the chain (CR-1 was decided at 19:57Z and discharged at `7d59233`).
 - Next UAT walk on this tool's stack: record the first save's message id and `select count(*) from
   "Messages" where id < 900000000000001` after it (the Assumption Not Checked). Steering carries this
   to that walk's brief.

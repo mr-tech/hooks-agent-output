@@ -1,0 +1,116 @@
+▶ uat-local-stack.sh
+  ▶ arguments
+    ✔ exits 2 for [], names the usage and touches nothing (33.640117ms)
+    ✔ exits 2 for ["bogus"], names the usage and touches nothing (24.20445ms)
+    ✔ exits 2 for ["up","--bogus"], names the usage and touches nothing (23.126612ms)
+    ✔ exits 2 for ["down","--seed"], names the usage and touches nothing (23.942153ms)
+    ✔ exits 2 for ["status","extra"], names the usage and touches nothing (23.818326ms)
+    ✔ exits 2 for ["up","up"], names the usage and touches nothing (22.953424ms)
+    ✔ exits 2 for ["up","--seed","--seed"], names the usage and touches nothing (24.605996ms)
+    ✔ -h prints the usage, exits 0 and touches nothing (23.307709ms)
+    ✔ --help prints the usage, exits 0 and touches nothing (24.19411ms)
+  ✔ arguments (228.583807ms)
+  ▶ AC-9.2 local only
+    ✔ refuses 0.0.0.0 with exit 2 before any docker, prisma or network act, and says "local only" (96.123914ms)
+    ✔ refuses 192.168.1.5 with exit 2 before any docker, prisma or network act, and says "local only" (93.903833ms)
+    ✔ refuses db.internal with exit 2 before any docker, prisma or network act, and says "local only" (96.280494ms)
+    ✔ refuses 10.0.0.7 with exit 2 before any docker, prisma or network act, and says "local only" (103.342166ms)
+    ✔ refuses railway.app with exit 2 before any docker, prisma or network act, and says "local only" (97.701367ms)
+    ✔ takes localhost as local: the verb proceeds to the docker act (37.542882ms)
+    ✔ takes [::1] as local: the verb proceeds to the docker act (36.997012ms)
+    ✔ takes 127.0.0.2 as local: the verb proceeds to the docker act (35.998858ms)
+    ✔ takes 127.0.0.1 as local: the verb proceeds to the docker act (38.526677ms)
+    ✔ takes localhost as local through up: the container is published on 127.0.0.1, and status then finds it there (121.191363ms)
+    ✔ takes [::1] as local through up: the container is published on [::1], and status then finds it there (124.661851ms)
+    ✔ takes 127.0.0.2 as local through up: the container is published on 127.0.0.2, and status then finds it there (117.735867ms)
+    ✔ a URL with no port takes 5432 (47.154232ms)
+    ✔ refuses a DATABASE_URL that cannot be parsed without echoing any part of it (25.821844ms)
+    ✔ refuses a URL that is not a postgres URL, or has no user, password or database (102.388657ms)
+    ✔ takes the last DATABASE_URL line, with an export prefix and single quotes read off (78.920283ms)
+    ✔ refuses a file with no DATABASE_URL line (26.025802ms)
+    ✔ reads the "# production"-labelled line of the real file shape: a loopback host there is taken, a remote host there is refused (60.316876ms)
+  ✔ AC-9.2 local only (1341.709274ms)
+  ▶ AC-9.1a up, by the state it finds
+    ✔ no container, port free: creates it labelled, publishes the URL host and port, passes the password by name, waits ready, pushes with --skip-generate and prints the count (68.510896ms)
+    ✔ never passes --accept-data-loss, and carries the password in no argv (75.956809ms)
+    ✔ up --seed on an empty container this call created applies seed.sql after the push (80.968037ms)
+    ✔ up on a container it creates: moves the message-id sequence out of production's range after the push and any seed, and prints the next id (69.927538ms)
+    ✔ up --seed: moves the message-id sequence out of production's range after the push and any seed, and prints the next id (73.6871ms)
+    ✔ up reusing the tool's running container: moves the message-id sequence out of production's range after the push and any seed, and prints the next id (71.003723ms)
+    ✔ up starting the tool's stopped container: moves the message-id sequence out of production's range after the push and any seed, and prints the next id (73.880327ms)
+    ✔ a reused database whose ids are already past the floor keeps counting from its own next id (64.941869ms)
+    ✔ the tool's container running: up reuses it (no run, no start), pushes and counts (68.285397ms)
+    ✔ the tool's container running: up --seed exits 2 before any act (no push, no seed, no mutation) (36.169822ms)
+    ✔ the tool's container stopped: up starts it, pushes and counts (72.393791ms)
+    ✔ the tool's container stopped: up --seed exits 2 without starting it (34.686402ms)
+    ✔ a container of that name without the tool's label: up exits 2 before any act and removes nothing (32.143486ms)
+    ✔ a container of that name without the tool's label: up --seed exits 2 before any act and removes nothing (34.847702ms)
+    ✔ the URL's port held by a stub listener, no container: up exits 2 and the prisma argv log is empty (65.41378ms)
+    ✔ the tool's container running but not publishing the URL's host and port: up exits 2 and the prisma argv log is empty (39.516656ms)
+    ✔ the tool's container stopped while a stub holds the port: up exits 2 without starting it (38.550802ms)
+  ✔ AC-9.1a up, by the state it finds (1001.752269ms)
+  ▶ AC-9.5 a failed up leaves nothing it started
+    ✔ a container this call created is removed when the schema push fails, and the call reports it (62.997168ms)
+    ✔ a container this call created is removed when it never becomes ready (64.938363ms)
+    ✔ a container this call created is removed when the seed fails (68.023245ms)
+    ✔ a refused docker run leaves no container and reports the failure (64.470639ms)
+    ✔ a container the call only reused is left in place when the push fails (52.146692ms)
+    ✔ a container the call started is stopped again when the push fails (72.949627ms)
+    ✔ cleanup removes only a container carrying this call's label: one relabelled after run is left, and the call says so (71.066142ms)
+    ✔ the tool's stopped container that starts but does not publish the URL's host and port: up fails, stops it again and pushes nothing (62.721258ms)
+    ✔ an empty table count after the push fails the call, and the container it created is removed (81.247301ms)
+    ✔ a sequence move that fails fails the call before any table count, and the container it created is removed (76.122259ms)
+    ✔ a sequence read back inside production's range fails the call before any table count, and the container it created is removed (77.215304ms)
+    ✔ a sequence read back that is not a number fails the call before any table count, and the container it created is removed (76.757739ms)
+    ✔ a seed that leaves a message below the floor fails up --seed before the sequence move, and the container it created is removed (75.463102ms)
+    ✔ a seed whose low-id count is not a number fails up --seed before the sequence move, and the container it created is removed (84.771218ms)
+    ✔ up reusing the tool's running container that holds a message below the floor fails before the sequence move and leaves the container as found (57.060683ms)
+    ✔ up starting the tool's stopped container that holds a message below the floor fails before the sequence move and leaves the container as found (79.219614ms)
+    ✔ a sequence move that fails on a container the call started stops it again (81.959021ms)
+    ✔ a docker start that fails is named as that, exits 1, and has nothing to stop (44.059564ms)
+    ✔ cleanup stops a container it started only while it carries the label: one relabelled after start is left, and the call says so (72.851849ms)
+    ✔ every verb writes nothing in website, project-utils, the record or TMPDIR (399.121652ms)
+  ✔ AC-9.5 a failed up leaves nothing it started (1726.105165ms)
+  ▶ AC-9.3 status
+    ✔ no container: five lines, each naming the missing piece, none reporting ready (34.527995ms)
+    ✔ a running, ready container with a redis that answers PING: all five lines read ready, the readiness taken by pg_isready inside the container (90.91617ms)
+    ✔ a running container that is not accepting connections: ready names it, tables are unknown (44.404755ms)
+    ✔ a stopped container is named stopped and not reported ready (38.66621ms)
+    ✔ a container without the tool's label is named as not the tool's (38.005249ms)
+    ✔ a running container of the tool's that does not publish the URL's host and port, with a stub holding the port, reads as another listener (53.201241ms)
+    ✔ a stub holding the port with no container reads as another listener (34.884317ms)
+node:events:486
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 127.0.0.1:40194
+    at Server.setupListenHandle [as _listen2] (node:net:1948:16)
+    at listenInCluster (node:net:2005:12)
+    at node:net:2214:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1984:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '127.0.0.1',
+  port: 40194
+}
+
+Node.js v24.14.0
+✖ tools/uatLocalStack.test.js (299970.382964ms)
+ℹ tests 72
+ℹ suites 4
+ℹ pass 71
+ℹ fail 0
+ℹ cancelled 1
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 299977.007672
+
+✖ failing tests:
+
+test at tools/uatLocalStack.test.js:1:1
+✖ tools/uatLocalStack.test.js (299970.382964ms)
+  'Promise resolution is still pending but the event loop has already resolved'
