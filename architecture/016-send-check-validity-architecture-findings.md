@@ -3,7 +3,7 @@ ID: 016
 Origin: 016
 UUID: 54673438
 Status: Active
-Status-Detail: "Delta pass on plan 016 revision 2 (record 6b07655): APPROVED. AF-1 to AF-5 and AF-7 are folded; AF-11 is INFO, with no plan change. AF-4's A-4 clause lands at this chain's reconciliation, no later than devops Stage 1."
+Status-Detail: "Delta pass on plan 016 revision 3 (record 21db6c8): APPROVED_WITH_CHANGES. AF-12 is required (M1b's class covers the whole editor tree) and AF-13 is recommended (the signal's form). AF-4's A-4 clause lands at this chain's reconciliation, no later than devops Stage 1."
 ---
 
 # Architecture Findings — Plan 016: the send check refuses what Discord refuses (conformance pass)
@@ -15,6 +15,77 @@ Status-Detail: "Delta pass on plan 016 revision 2 (record 6b07655): APPROVED. AF
 | 2026-11-11T10:46 | Conformance pass, plan rev 1 (record `3b4205d`), briefed by steering-queue-hooks (`steering/queue-hooks-briefs/architect-016-brief.md`) | Every concrete form the plan writes was read against website `0e3d903`, which is `master` and the chain's base. Two changes are required (AF-1, AF-2) and two are recommended (AF-3, AF-5). AF-4 answers the plan's A-4 question. Five forms conform (AF-6 to AF-10). One Problem Area is lodged (send-refusal telemetry). **APPROVED_WITH_CHANGES.** |
 | 2026-11-11T10:51 | Reconciliation, on the open handoff this pass triggers, plus the retrospective's routed candidate (brief, second item) | `handoff/architecture-record-reconciliation-owed-2026-11-10.md` is discharged, all six items (see its closing row). `system-architecture.md` and the diagram are reconciled to website `0e3d903`; the 013 findings document and the invariant handoff are closed; P-2 and P-3 are updated. `website.md` A-6 landed: the editor's one persisting step (agent-designed, shaped by his selection 15). |
 | 2026-11-11T11:09 | Delta pass, plan rev 2 (`6b07655`, read as the diff from `3b4205d`), on planner-hooks-016's request | AF-1 to AF-5 and AF-7 are folded as asked. The corpus helper, the whitespace-empty predicate and the new instruments conform. AF-11 INFO: the `/preview` reason line follows the current pattern (D-5), but it makes preview-image error chrome routine. The Problem Area is raised to Medium, and the owner's report should carry the frequency. **APPROVED.** |
+| 2026-11-11T11:15 | Delta pass, plan rev 3 (`21db6c8`, read as the diff from `6b07655`), on planner-hooks-016's request | M1b's design (a signal only `/preview` passes, D-14) conforms, and so do QAF-9's predicate and the corpus re-pin. AF-12 MEDIUM is required: M1b's class misses the sub-components' validation lines and the `data-erroring-state` ring (Author, EmbedField, EmbedTitle, EmbedAuthor, EmbedFooter), which render on `/preview` regardless of edit mode. AF-13 LOW is recommended: drill one `VisualizerProps` input beside `showEdit`. **APPROVED_WITH_CHANGES.** |
+
+## Verdict (rev 3, `21db6c8`, read as the diff from rev 2 `6b07655`): APPROVED_WITH_CHANGES
+
+The rest of the delta conforms:
+
+- **QAF-9's restated whitespace-empty predicate.** It is still one definition, shared by L1 and L8,
+  and is now stated per character.
+- **The 120-member corpus re-pin.** The fixture is unchanged in form.
+- **X-8's read of the generator.** `networkidle0` keys on no error element, so M1b changes nothing
+  the generator waits for.
+- **M1b's design.** A signal that only `/preview` passes, not edit mode, is the shared fix AF-11
+  proposed. The owner chose it (D-14). It conforms to D-5 (fixed once, in the shared component) and
+  to D-001 (one tree, with a mode input). One change is required: AF-12, M1b's class is too narrow.
+  AF-13 states the signal's conforming form.
+
+### AF-12 MEDIUM — M1b's class lists index.tsx's six members; sub-components render their own validation chrome on `/preview` too
+
+**Required of the planner.** M1b enumerates the class from `DiscordMessageEditor/index.tsx` alone.
+But D-14's words are "no error lines or red border at all", and at website `0e3d903` sub-components
+of the same tree render validation lines and rings with **no edit-mode condition**. Read from code;
+each is inside a `NullableComponent show={error}` or `{error && …}`, and none checks `showEdit`:
+
+- `components/Author.tsx`: `validateUsername(username)` → a `text-error` line (both visual styles)
+  and `data-erroring-state` on the header, which carries `styles.errorStateBorder`.
+- `components/EmbedEditor/EmbedField.tsx`: `validateEmbedField` → the `nameError` and `valueError`
+  lines, plus `data-erroring-state` rings on both `DiscordContentEditor`s.
+- `components/EmbedEditor/EmbedTitle.tsx`: `validateEmbedTitle` → an error line and the erroring
+  link icon.
+- `components/EmbedEditor/EmbedAuthor.tsx`: `validateEmbedAuthor` → an error line, plus the ring and
+  link icon.
+- `components/EmbedEditor/EmbedFooter.tsx`: its error line is commented out, and it still carries
+  `data-erroring-state` (2 sites, `git grep -c`).
+- The ring is one mechanism: `styles.errorStateBorder`
+  (`erroring:ring erroring:!ring-red-500`, `src/styles/index.ts`), keyed on `data-erroring-state`.
+  It is in 5 files under `components/DiscordMessageEditor/components`, `git grep -c`.
+
+So under M1b as written, a classic message with an embed field missing its name still shows "Field
+name is required." and a red ring in its preview image. AC1b-1 to AC1b-4 would all pass. The
+Problem Area M1b says it closes would stay open.
+
+**The change.** M1b's class is enumerated over the **whole** `DiscordMessageEditor` tree:
+
+- the six index.tsx members;
+- every sub-component validation line above;
+- the `data-erroring-state` / `errorStateBorder` ring wherever it is set.
+
+The enumeration instrument is a `git grep` over `src/components/DiscordMessageEditor`, tests
+excluded, for `text-error`, `data-erroring-state` and `errorStateBorder`. Each hit is classified as
+validation chrome or not. AC1b-1 checks each member with its trigger present, as it does now.
+**Unread by this pass:** whether `DiscordContentEditor`'s `limit` / `showLimit` counter renders an
+over-limit state outside edit mode, and whether a `ComponentEditors/*` editor renders an error
+outside its edit popover. The enumeration settles both.
+
+### AF-13 LOW — The signal follows the `showEdit` route: one `VisualizerProps` input, drilled as `showEdit` is
+
+**Recommended. It keeps "its form is the implementer's" inside the current pattern.** Editor-wide
+mode flags reach sub-components as props. `DiscordMessageEditor` takes `editableState` on
+`VisualizerProps` and passes `showEdit={!!editableState?.showContentEditable}` to `Author` (and
+`showEdit` to the embed parts). No context in `components/DiscordMessageEditor` carries a mode; its
+only context is `ActionsMenuContext`, which is menu-local. So:
+
+- **Follow the current pattern.** Add one optional input on `VisualizerProps`, set only by
+  `src/app/preview/page.tsx`, and pass it beside `showEdit` to each member AF-12 enumerates. The
+  default keeps every line, so no other render site changes (AC1b-2, AC1b-3 hold by construction).
+- **Accept the deviation (avoidable).** A new React context for the flag. It saves the drilling, but
+  it adds a second route for mode into the tree, beside `editableState`.
+- **Rejected: CSS suppression.** A root class on `/preview` that hides `.text-error` and the
+  `erroring:` ring would be one change. But it keys on styling classes, not on validation: any red
+  text that is not validation would vanish too. And jsdom cannot assert it (Test Conventions,
+  environment fidelity).
 
 ## Verdict (rev 2, `6b07655`, read as the diff from rev 1 `3b4205d`): APPROVED
 
