@@ -1,0 +1,15 @@
+class a: n=20000 vm-or-vcr moved=2443 vcr moved=0
+   590 x 'PASS' -> 'A link button has no URL.'
+   487 x 'PASS' -> 'A link button has no label or emoji.'
+   444 x 'PASS' -> 'An Action Row has no buttons.'
+   309 x 'PASS' -> 'A link button URL must start with http, https or discord.'
+   305 x 'PASS' -> 'A link button has an invalid URL.'
+   95 x 'Message is too long.' -> 'A link button has no URL.'
+   66 x 'Message is too long.' -> 'A link button has no label or emoji.'
+   62 x 'Message is too long.' -> 'An Action Row has no buttons.'
+class b: n=168 vm-or-vcr moved=1 vcr moved=0
+   1 x 'PASS' -> 'An Action Row has no buttons.'
+   b moved: {"username": "TestUser", "content": "   ", "embeds": [], "components": [{"type": 1, "components": []}]}
+class c: n=34 vm-or-vcr moved=0 vcr moved=0
+VERDICT MOVEMENT IN A NO-MOVEMENT CLASS
+exit=1

@@ -1,0 +1,5 @@
+class a: n=20000 vm-or-vcr moved=0 vcr moved=0
+class b: n=168 vm-or-vcr moved=0 vcr moved=0
+class c: n=34 vm-or-vcr moved=0 vcr moved=0
+VERDICT no movement in (a) or (c)
+exit=0

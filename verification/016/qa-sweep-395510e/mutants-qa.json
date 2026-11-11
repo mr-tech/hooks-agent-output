@@ -1,0 +1,338 @@
+[
+ {
+  "id": "qa-reach-structural-only",
+  "file": "src/utils/limits.tsx",
+  "old": "return hasStructuralV2 || hasFlagV2;",
+  "new": "return hasStructuralV2;"
+ },
+ {
+  "id": "qa-reach-flag-only",
+  "file": "src/utils/limits.tsx",
+  "old": "return hasStructuralV2 || hasFlagV2;",
+  "new": "return hasFlagV2;"
+ },
+ {
+  "id": "qa-v2-reach-always",
+  "file": "src/utils/limits.tsx",
+  "old": "  if (!isV2Message(components, flags)) return '';\n  return asList",
+  "new": "  return asList"
+ },
+ {
+  "id": "qa-ws-no-feff-clause",
+  "file": "src/utils/limits.tsx",
+  "old": "return !value.includes('\\uFEFF') && value.replace",
+  "new": "return value.replace"
+ },
+ {
+  "id": "qa-ws-no-u0085-strip",
+  "file": "src/utils/limits.tsx",
+  "old": "value.replace(/\\u0085/g, '').trim() === ''",
+  "new": "value.trim() === ''"
+ },
+ {
+  "id": "qa-ws-nonstring-not-empty",
+  "file": "src/utils/limits.tsx",
+  "old": "  if (typeof value !== 'string') return true;\n  return !value",
+  "new": "  if (typeof value !== 'string') return false;\n  return !value"
+ },
+ {
+  "id": "qa-missing-type-only",
+  "file": "src/utils/limits.tsx",
+  "old": "typeof value !== 'string' || value.length === 0;",
+  "new": "typeof value !== 'string';"
+ },
+ {
+  "id": "qa-missing-empty-only",
+  "file": "src/utils/limits.tsx",
+  "old": "typeof value !== 'string' || value.length === 0;",
+  "new": "(value as string)?.length === 0;"
+ },
+ {
+  "id": "qa-url-no-trim",
+  "file": "src/utils/limits.tsx",
+  "old": "z.string().trim().url()",
+  "new": "z.string().url()"
+ },
+ {
+  "id": "qa-url-missing-check-dropped",
+  "file": "src/utils/limits.tsx",
+  "old": "  if (isMissing(url)) return `${subject} has no ${noun}.`;\n",
+  "new": ""
+ },
+ {
+  "id": "qa-url-invalid-check-dropped",
+  "file": "src/utils/limits.tsx",
+  "old": "  if (!requiredUrl.safeParse(url).success) return `${subject} has an invalid ${noun}.`;\n",
+  "new": ""
+ },
+ {
+  "id": "qa-scheme-drop-discord",
+  "file": "src/utils/limits.tsx",
+  "old": "new Set(['http:', 'https:', 'discord:'])",
+  "new": "new Set(['http:', 'https:'])"
+ },
+ {
+  "id": "qa-scheme-add-ftp",
+  "file": "src/utils/limits.tsx",
+  "old": "new Set(['http:', 'https:', 'discord:'])",
+  "new": "new Set(['http:', 'https:', 'discord:', 'ftp:'])"
+ },
+ {
+  "id": "qa-scheme-check-dropped",
+  "file": "src/utils/limits.tsx",
+  "old": "  if (!LINK_BUTTON_SCHEMES.has(protocol)) return 'A link button URL must start with http, https or discord.';\n",
+  "new": ""
+ },
+ {
+  "id": "qa-label-only",
+  "file": "src/utils/limits.tsx",
+  "old": "isWhitespaceEmpty(button.label) && !hasEmoji(button.emoji)",
+  "new": "isWhitespaceEmpty(button.label)"
+ },
+ {
+  "id": "qa-emoji-only",
+  "file": "src/utils/limits.tsx",
+  "old": "isWhitespaceEmpty(button.label) && !hasEmoji(button.emoji)",
+  "new": "!hasEmoji(button.emoji)"
+ },
+ {
+  "id": "qa-emoji-id-only",
+  "file": "src/utils/limits.tsx",
+  "old": "return !isMissing(id) || !isMissing(name);",
+  "new": "return !isMissing(id);"
+ },
+ {
+  "id": "qa-emoji-name-only",
+  "file": "src/utils/limits.tsx",
+  "old": "return !isMissing(id) || !isMissing(name);",
+  "new": "return !isMissing(name);"
+ },
+ {
+  "id": "qa-emoji-object-present",
+  "file": "src/utils/limits.tsx",
+  "old": "return !isMissing(id) || !isMissing(name);",
+  "new": "return emoji !== undefined;"
+ },
+ {
+  "id": "qa-desc-empty-dropped",
+  "file": "src/utils/limits.tsx",
+  "old": "  if (description === '') return `${subject} description is empty.`;\n",
+  "new": ""
+ },
+ {
+  "id": "qa-desc-whitespace-empty",
+  "file": "src/utils/limits.tsx",
+  "old": "if (description === '') return",
+  "new": "if (isWhitespaceEmpty(description) && description !== undefined) return"
+ },
+ {
+  "id": "qa-desc-bound-1023",
+  "file": "src/constants/messageLimits.ts",
+  "old": "MAX_COMPONENT_DESCRIPTION_LENGTH = 1024 as const;",
+  "new": "MAX_COMPONENT_DESCRIPTION_LENGTH = 1023 as const;"
+ },
+ {
+  "id": "qa-desc-bound-1025",
+  "file": "src/constants/messageLimits.ts",
+  "old": "MAX_COMPONENT_DESCRIPTION_LENGTH = 1024 as const;",
+  "new": "MAX_COMPONENT_DESCRIPTION_LENGTH = 1025 as const;"
+ },
+ {
+  "id": "qa-image-desc-dropped",
+  "file": "src/utils/limits.tsx",
+  "old": "  return urlReason(asObject(image.media).url, subject, 'image URL')\n    || descriptionReason(image.description, subject);",
+  "new": "  return urlReason(asObject(image.media).url, subject, 'image URL');"
+ },
+ {
+  "id": "qa-image-url-dropped",
+  "file": "src/utils/limits.tsx",
+  "old": "  return urlReason(asObject(image.media).url, subject, 'image URL')\n    || descriptionReason(image.description, subject);",
+  "new": "  return descriptionReason(image.description, subject);"
+ },
+ {
+  "id": "qa-section-children-empty-dropped",
+  "file": "src/utils/limits.tsx",
+  "old": "      if (children.length === 0) return 'A Section has no Text Display.';\n",
+  "new": ""
+ },
+ {
+  "id": "qa-section-accessory-absent-dropped",
+  "file": "src/utils/limits.tsx",
+  "old": "      if (!component.accessory) return 'A Section has no Thumbnail or button.';\n",
+  "new": ""
+ },
+ {
+  "id": "qa-section-children-unwalked",
+  "file": "src/utils/limits.tsx",
+  "old": "      return children.map(componentReason).find(Boolean)\n        ?? (accessory",
+  "new": "      return undefined\n        ?? (accessory"
+ },
+ {
+  "id": "qa-section-accessory-unwalked",
+  "file": "src/utils/limits.tsx",
+  "old": "?? (accessory.type === 2 ? linkButtonReason(accessory) : imageReason(accessory, 'A Thumbnail'));",
+  "new": "?? '';"
+ },
+ {
+  "id": "qa-section-accessory-dispatch-swapped",
+  "file": "src/utils/limits.tsx",
+  "old": "accessory.type === 2 ? linkButtonReason(accessory)",
+  "new": "accessory.type !== 2 ? linkButtonReason(accessory)"
+ },
+ {
+  "id": "qa-gallery-empty-dropped",
+  "file": "src/utils/limits.tsx",
+  "old": "      if (items.length === 0) return 'A Media Gallery has no items.';\n",
+  "new": ""
+ },
+ {
+  "id": "qa-gallery-first-item-only",
+  "file": "src/utils/limits.tsx",
+  "old": "return items.map((item) => imageReason(item, 'A Media Gallery item')).find(Boolean) ?? '';",
+  "new": "return items.slice(0, 1).map((item) => imageReason(item, 'A Media Gallery item')).find(Boolean) ?? '';"
+ },
+ {
+  "id": "qa-container-empty-dropped",
+  "file": "src/utils/limits.tsx",
+  "old": "      if (children.length === 0) return 'A Container is empty.';\n",
+  "new": ""
+ },
+ {
+  "id": "qa-container-unwalked",
+  "file": "src/utils/limits.tsx",
+  "old": "      if (children.length === 0) return 'A Container is empty.';\n      return children.map(componentReason).find(Boolean) ?? '';",
+  "new": "      if (children.length === 0) return 'A Container is empty.';\n      return '';"
+ },
+ {
+  "id": "qa-row-empty-dropped",
+  "file": "src/utils/limits.tsx",
+  "old": "      if (children.length === 0) return 'An Action Row has no buttons.';\n",
+  "new": ""
+ },
+ {
+  "id": "qa-row-unwalked",
+  "file": "src/utils/limits.tsx",
+  "old": "      return children.map(linkButtonReason).find(Boolean) ?? '';",
+  "new": "      return '';"
+ },
+ {
+  "id": "qa-file-allowed",
+  "file": "src/utils/limits.tsx",
+  "old": "      return 'A File component cannot be sent from the website.';",
+  "new": "      return '';"
+ },
+ {
+  "id": "qa-top-last-only",
+  "file": "src/utils/limits.tsx",
+  "old": "  return asList(components).map(componentReason).find(Boolean) ?? '';",
+  "new": "  return asList(components).slice(-1).map(componentReason).find(Boolean) ?? '';"
+ },
+ {
+  "id": "qa-v2-not-called",
+  "file": "src/utils/limits.tsx",
+  "old": "  const v2Error = validateV2Components(components, flags);\n  if (v2Error) return v2Error;\n",
+  "new": ""
+ },
+ {
+  "id": "qa-v2-flags-dropped",
+  "file": "src/utils/limits.tsx",
+  "old": "const v2Error = validateV2Components(components, flags);",
+  "new": "const v2Error = validateV2Components(components);"
+ },
+ {
+  "id": "qa-editor-line-dropped",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "          <NullableComponent show={v2ComponentError}>\n            <div className=\"mt-1 text-xs font-semibold text-error\">{v2ComponentError}</div>\n          </NullableComponent>\n",
+  "new": ""
+ },
+ {
+  "id": "qa-editor-flags-dropped",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "validateV2Components(components, message.flags)",
+  "new": "validateV2Components(components)"
+ },
+ {
+  "id": "qa-editor-border-no-v2",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "|| componentCountError || v2ComponentError) && styles.errorBorder",
+  "new": "|| componentCountError) && styles.errorBorder"
+ },
+ {
+  "id": "qa-hide-nocontent-ignored",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "const noContentError = hideValidation ? '' :",
+  "new": "const noContentError ="
+ },
+ {
+  "id": "qa-hide-embedchar-ignored",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "const embedCharacterError = hideValidation ? '' :",
+  "new": "const embedCharacterError ="
+ },
+ {
+  "id": "qa-hide-v2text-ignored",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "const v2TextError = hideValidation ? '' :",
+  "new": "const v2TextError ="
+ },
+ {
+  "id": "qa-hide-count-ignored",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "const componentCountError = hideValidation ? '' :",
+  "new": "const componentCountError ="
+ },
+ {
+  "id": "qa-hide-v2comp-ignored",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "const v2ComponentError = hideValidation ? '' :",
+  "new": "const v2ComponentError ="
+ },
+ {
+  "id": "qa-hide-default-true",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "editableState, hideValidation = false, onMount",
+  "new": "editableState, hideValidation = true, onMount"
+ },
+ {
+  "id": "qa-hide-not-to-contentbody",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "                && !!editableState?.showContentEditable}\n              hideValidation={hideValidation}\n",
+  "new": "                && !!editableState?.showContentEditable}\n"
+ },
+ {
+  "id": "qa-hide-not-to-v2-author",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "                showEdit={!!editableState?.showContentEditable}\n                hideValidation={hideValidation}\n",
+  "new": "                showEdit={!!editableState?.showContentEditable}\n"
+ },
+ {
+  "id": "qa-author-hide-ignored",
+  "file": "src/components/DiscordMessageEditor/components/Author.tsx",
+  "old": "const error = hideValidation ? '' : validateUsername(username);",
+  "new": "const error = validateUsername(username);"
+ },
+ {
+  "id": "qa-author-hide-default-true",
+  "file": "src/components/DiscordMessageEditor/components/Author.tsx",
+  "old": "showEdit, hideValidation = false, setUsername",
+  "new": "showEdit, hideValidation = true, setUsername"
+ },
+ {
+  "id": "qa-page-no-hide",
+  "file": "src/app/preview/page.tsx",
+  "old": "                hideValidation\n",
+  "new": ""
+ },
+ {
+  "id": "qa-thumb-maxlength-dropped",
+  "file": "src/components/DiscordMessageEditor/components/ComponentEditors/ThumbnailEditor.tsx",
+  "old": "                maxLength={MAX_COMPONENT_DESCRIPTION_LENGTH}\n",
+  "new": ""
+ },
+ {
+  "id": "qa-gallery-maxlength-dropped",
+  "file": "src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx",
+  "old": "                maxLength={MAX_COMPONENT_DESCRIPTION_LENGTH}\n",
+  "new": ""
+ }
+]

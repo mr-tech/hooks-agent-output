@@ -1,0 +1,31 @@
+fixtures per mode: 31; modes: ['edit-classic', 'edit-v2', 'message-preview', 'page']
+page mount at tip, fixtures with any chrome: 0
+allowed movement (M1's line added): 18
+  message-preview/fresh text display: + ['A Text Display is empty.'] border 0->1
+  message-preview/v2 link button without url or label: + ['A link button has no URL.'] border 0->1
+  message-preview/v2 section accessory invalid url: + ['A link button has an invalid URL.'] border 0->1
+  message-preview/v2 empty media gallery: + ['A Media Gallery has no items.'] border 0->1
+  message-preview/v2 empty container: + ['A Container is empty.'] border 0->1
+  message-preview/v2 file without url: + ['A File component cannot be sent from the website.'] border 0->1
+  edit-classic/fresh text display: + ['A Text Display is empty.'] border 0->1
+  edit-classic/v2 link button without url or label: + ['A link button has no URL.'] border 0->1
+  edit-classic/v2 section accessory invalid url: + ['A link button has an invalid URL.'] border 0->1
+  edit-classic/v2 empty media gallery: + ['A Media Gallery has no items.'] border 0->1
+  edit-classic/v2 empty container: + ['A Container is empty.'] border 0->1
+  edit-classic/v2 file without url: + ['A File component cannot be sent from the website.'] border 0->1
+  edit-v2/fresh text display: + ['A Text Display is empty.'] border 0->1
+  edit-v2/v2 link button without url or label: + ['A link button has no URL.'] border 0->1
+  edit-v2/v2 section accessory invalid url: + ['A link button has an invalid URL.'] border 0->1
+  edit-v2/v2 empty media gallery: + ['A Media Gallery has no items.'] border 0->1
+  edit-v2/v2 empty container: + ['A Container is empty.'] border 0->1
+  edit-v2/v2 file without url: + ['A File component cannot be sent from the website.'] border 0->1
+violations: 0
+exit=0
+0e3d903 page fixtures with text-error 9 border 3 painted 0
+0e3d903 message-preview fixtures with text-error 9 border 3 painted 0
+0e3d903 edit-classic fixtures with text-error 19 border 3 painted 8
+0e3d903 edit-v2 fixtures with text-error 9 border 3 painted 4
+395510e page fixtures with text-error 0 border 0 painted 0
+395510e message-preview fixtures with text-error 15 border 9 painted 0
+395510e edit-classic fixtures with text-error 25 border 9 painted 8
+395510e edit-v2 fixtures with text-error 15 border 9 painted 4

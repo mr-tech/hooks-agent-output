@@ -1,0 +1,2186 @@
+[
+ {
+  "limb": "L1",
+  "name": "Text Display content absent",
+  "place": "top-level",
+  "pos": "first",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content absent",
+  "place": "top-level",
+  "pos": "middle",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content absent",
+  "place": "top-level",
+  "pos": "last",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content absent",
+  "place": "in Container",
+  "pos": "first",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content absent",
+  "place": "in Container",
+  "pos": "middle",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content absent",
+  "place": "in Container",
+  "pos": "last",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content absent",
+  "place": "Section child, top-level",
+  "pos": "first",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content absent",
+  "place": "Section child, top-level",
+  "pos": "middle",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content absent",
+  "place": "Section child, top-level",
+  "pos": "last",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content absent",
+  "place": "Section child, in Container",
+  "pos": "first",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content absent",
+  "place": "Section child, in Container",
+  "pos": "middle",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content absent",
+  "place": "Section child, in Container",
+  "pos": "last",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content ''",
+  "place": "top-level",
+  "pos": "first",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content ''",
+  "place": "top-level",
+  "pos": "middle",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content ''",
+  "place": "top-level",
+  "pos": "last",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content ''",
+  "place": "in Container",
+  "pos": "first",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content ''",
+  "place": "in Container",
+  "pos": "middle",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content ''",
+  "place": "in Container",
+  "pos": "last",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content ''",
+  "place": "Section child, top-level",
+  "pos": "first",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content ''",
+  "place": "Section child, top-level",
+  "pos": "middle",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content ''",
+  "place": "Section child, top-level",
+  "pos": "last",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content ''",
+  "place": "Section child, in Container",
+  "pos": "first",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content ''",
+  "place": "Section child, in Container",
+  "pos": "middle",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content ''",
+  "place": "Section child, in Container",
+  "pos": "last",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content U+0085 then space",
+  "place": "top-level",
+  "pos": "first",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content U+0085 then space",
+  "place": "top-level",
+  "pos": "middle",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content U+0085 then space",
+  "place": "top-level",
+  "pos": "last",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content U+0085 then space",
+  "place": "in Container",
+  "pos": "first",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content U+0085 then space",
+  "place": "in Container",
+  "pos": "middle",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content U+0085 then space",
+  "place": "in Container",
+  "pos": "last",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content U+0085 then space",
+  "place": "Section child, top-level",
+  "pos": "first",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content U+0085 then space",
+  "place": "Section child, top-level",
+  "pos": "middle",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content U+0085 then space",
+  "place": "Section child, top-level",
+  "pos": "last",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content U+0085 then space",
+  "place": "Section child, in Container",
+  "pos": "first",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content U+0085 then space",
+  "place": "Section child, in Container",
+  "pos": "middle",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L1",
+  "name": "Text Display content U+0085 then space",
+  "place": "Section child, in Container",
+  "pos": "last",
+  "reason": "A Text Display is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L2",
+  "name": "Section components []",
+  "place": "top-level",
+  "pos": "first",
+  "reason": "A Section has no Text Display.",
+  "ok": true
+ },
+ {
+  "limb": "L2",
+  "name": "Section components []",
+  "place": "top-level",
+  "pos": "middle",
+  "reason": "A Section has no Text Display.",
+  "ok": true
+ },
+ {
+  "limb": "L2",
+  "name": "Section components []",
+  "place": "top-level",
+  "pos": "last",
+  "reason": "A Section has no Text Display.",
+  "ok": true
+ },
+ {
+  "limb": "L2",
+  "name": "Section components []",
+  "place": "in Container",
+  "pos": "first",
+  "reason": "A Section has no Text Display.",
+  "ok": true
+ },
+ {
+  "limb": "L2",
+  "name": "Section components []",
+  "place": "in Container",
+  "pos": "middle",
+  "reason": "A Section has no Text Display.",
+  "ok": true
+ },
+ {
+  "limb": "L2",
+  "name": "Section components []",
+  "place": "in Container",
+  "pos": "last",
+  "reason": "A Section has no Text Display.",
+  "ok": true
+ },
+ {
+  "limb": "L2",
+  "name": "Section components absent",
+  "place": "top-level",
+  "pos": "first",
+  "reason": "A Section has no Text Display.",
+  "ok": true
+ },
+ {
+  "limb": "L2",
+  "name": "Section components absent",
+  "place": "top-level",
+  "pos": "middle",
+  "reason": "A Section has no Text Display.",
+  "ok": true
+ },
+ {
+  "limb": "L2",
+  "name": "Section components absent",
+  "place": "top-level",
+  "pos": "last",
+  "reason": "A Section has no Text Display.",
+  "ok": true
+ },
+ {
+  "limb": "L2",
+  "name": "Section components absent",
+  "place": "in Container",
+  "pos": "first",
+  "reason": "A Section has no Text Display.",
+  "ok": true
+ },
+ {
+  "limb": "L2",
+  "name": "Section components absent",
+  "place": "in Container",
+  "pos": "middle",
+  "reason": "A Section has no Text Display.",
+  "ok": true
+ },
+ {
+  "limb": "L2",
+  "name": "Section components absent",
+  "place": "in Container",
+  "pos": "last",
+  "reason": "A Section has no Text Display.",
+  "ok": true
+ },
+ {
+  "limb": "L2",
+  "name": "Section accessory absent",
+  "place": "top-level",
+  "pos": "first",
+  "reason": "A Section has no Thumbnail or button.",
+  "ok": true
+ },
+ {
+  "limb": "L2",
+  "name": "Section accessory absent",
+  "place": "top-level",
+  "pos": "middle",
+  "reason": "A Section has no Thumbnail or button.",
+  "ok": true
+ },
+ {
+  "limb": "L2",
+  "name": "Section accessory absent",
+  "place": "top-level",
+  "pos": "last",
+  "reason": "A Section has no Thumbnail or button.",
+  "ok": true
+ },
+ {
+  "limb": "L2",
+  "name": "Section accessory absent",
+  "place": "in Container",
+  "pos": "first",
+  "reason": "A Section has no Thumbnail or button.",
+  "ok": true
+ },
+ {
+  "limb": "L2",
+  "name": "Section accessory absent",
+  "place": "in Container",
+  "pos": "middle",
+  "reason": "A Section has no Thumbnail or button.",
+  "ok": true
+ },
+ {
+  "limb": "L2",
+  "name": "Section accessory absent",
+  "place": "in Container",
+  "pos": "last",
+  "reason": "A Section has no Thumbnail or button.",
+  "ok": true
+ },
+ {
+  "limb": "L3",
+  "name": "Media Gallery items []",
+  "place": "top-level",
+  "pos": "first",
+  "reason": "A Media Gallery has no items.",
+  "ok": true
+ },
+ {
+  "limb": "L3",
+  "name": "Media Gallery items []",
+  "place": "top-level",
+  "pos": "middle",
+  "reason": "A Media Gallery has no items.",
+  "ok": true
+ },
+ {
+  "limb": "L3",
+  "name": "Media Gallery items []",
+  "place": "top-level",
+  "pos": "last",
+  "reason": "A Media Gallery has no items.",
+  "ok": true
+ },
+ {
+  "limb": "L3",
+  "name": "Media Gallery items []",
+  "place": "in Container",
+  "pos": "first",
+  "reason": "A Media Gallery has no items.",
+  "ok": true
+ },
+ {
+  "limb": "L3",
+  "name": "Media Gallery items []",
+  "place": "in Container",
+  "pos": "middle",
+  "reason": "A Media Gallery has no items.",
+  "ok": true
+ },
+ {
+  "limb": "L3",
+  "name": "Media Gallery items []",
+  "place": "in Container",
+  "pos": "last",
+  "reason": "A Media Gallery has no items.",
+  "ok": true
+ },
+ {
+  "limb": "L3",
+  "name": "Media Gallery items absent",
+  "place": "top-level",
+  "pos": "first",
+  "reason": "A Media Gallery has no items.",
+  "ok": true
+ },
+ {
+  "limb": "L3",
+  "name": "Media Gallery items absent",
+  "place": "top-level",
+  "pos": "middle",
+  "reason": "A Media Gallery has no items.",
+  "ok": true
+ },
+ {
+  "limb": "L3",
+  "name": "Media Gallery items absent",
+  "place": "top-level",
+  "pos": "last",
+  "reason": "A Media Gallery has no items.",
+  "ok": true
+ },
+ {
+  "limb": "L3",
+  "name": "Media Gallery items absent",
+  "place": "in Container",
+  "pos": "first",
+  "reason": "A Media Gallery has no items.",
+  "ok": true
+ },
+ {
+  "limb": "L3",
+  "name": "Media Gallery items absent",
+  "place": "in Container",
+  "pos": "middle",
+  "reason": "A Media Gallery has no items.",
+  "ok": true
+ },
+ {
+  "limb": "L3",
+  "name": "Media Gallery items absent",
+  "place": "in Container",
+  "pos": "last",
+  "reason": "A Media Gallery has no items.",
+  "ok": true
+ },
+ {
+  "limb": "L4",
+  "name": "Container components []",
+  "place": "top-level",
+  "pos": "first",
+  "reason": "A Container is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L4",
+  "name": "Container components []",
+  "place": "top-level",
+  "pos": "middle",
+  "reason": "A Container is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L4",
+  "name": "Container components []",
+  "place": "top-level",
+  "pos": "last",
+  "reason": "A Container is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L4",
+  "name": "Container components absent",
+  "place": "top-level",
+  "pos": "first",
+  "reason": "A Container is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L4",
+  "name": "Container components absent",
+  "place": "top-level",
+  "pos": "middle",
+  "reason": "A Container is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L4",
+  "name": "Container components absent",
+  "place": "top-level",
+  "pos": "last",
+  "reason": "A Container is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L5",
+  "name": "Action Row components []",
+  "place": "top-level",
+  "pos": "first",
+  "reason": "An Action Row has no buttons.",
+  "ok": true
+ },
+ {
+  "limb": "L5",
+  "name": "Action Row components []",
+  "place": "top-level",
+  "pos": "middle",
+  "reason": "An Action Row has no buttons.",
+  "ok": true
+ },
+ {
+  "limb": "L5",
+  "name": "Action Row components []",
+  "place": "top-level",
+  "pos": "last",
+  "reason": "An Action Row has no buttons.",
+  "ok": true
+ },
+ {
+  "limb": "L5",
+  "name": "Action Row components []",
+  "place": "in Container",
+  "pos": "first",
+  "reason": "An Action Row has no buttons.",
+  "ok": true
+ },
+ {
+  "limb": "L5",
+  "name": "Action Row components []",
+  "place": "in Container",
+  "pos": "middle",
+  "reason": "An Action Row has no buttons.",
+  "ok": true
+ },
+ {
+  "limb": "L5",
+  "name": "Action Row components []",
+  "place": "in Container",
+  "pos": "last",
+  "reason": "An Action Row has no buttons.",
+  "ok": true
+ },
+ {
+  "limb": "L5",
+  "name": "Action Row components absent",
+  "place": "top-level",
+  "pos": "first",
+  "reason": "An Action Row has no buttons.",
+  "ok": true
+ },
+ {
+  "limb": "L5",
+  "name": "Action Row components absent",
+  "place": "top-level",
+  "pos": "middle",
+  "reason": "An Action Row has no buttons.",
+  "ok": true
+ },
+ {
+  "limb": "L5",
+  "name": "Action Row components absent",
+  "place": "top-level",
+  "pos": "last",
+  "reason": "An Action Row has no buttons.",
+  "ok": true
+ },
+ {
+  "limb": "L5",
+  "name": "Action Row components absent",
+  "place": "in Container",
+  "pos": "first",
+  "reason": "An Action Row has no buttons.",
+  "ok": true
+ },
+ {
+  "limb": "L5",
+  "name": "Action Row components absent",
+  "place": "in Container",
+  "pos": "middle",
+  "reason": "An Action Row has no buttons.",
+  "ok": true
+ },
+ {
+  "limb": "L5",
+  "name": "Action Row components absent",
+  "place": "in Container",
+  "pos": "last",
+  "reason": "An Action Row has no buttons.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "Thumbnail media.url ''",
+  "place": "Section accessory, top-level",
+  "pos": "only",
+  "reason": "A Thumbnail has no image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "Thumbnail media.url ''",
+  "place": "Section accessory, in Container",
+  "pos": "only",
+  "reason": "A Thumbnail has no image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "Thumbnail media {}",
+  "place": "Section accessory, top-level",
+  "pos": "only",
+  "reason": "A Thumbnail has no image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "Thumbnail media {}",
+  "place": "Section accessory, in Container",
+  "pos": "only",
+  "reason": "A Thumbnail has no image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "Thumbnail media absent",
+  "place": "Section accessory, top-level",
+  "pos": "only",
+  "reason": "A Thumbnail has no image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "Thumbnail media absent",
+  "place": "Section accessory, in Container",
+  "pos": "only",
+  "reason": "A Thumbnail has no image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "gallery item media.url ''",
+  "place": "gallery item, top-level",
+  "pos": "first",
+  "reason": "A Media Gallery item has no image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "gallery item media.url ''",
+  "place": "gallery item, top-level",
+  "pos": "middle",
+  "reason": "A Media Gallery item has no image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "gallery item media.url ''",
+  "place": "gallery item, top-level",
+  "pos": "last",
+  "reason": "A Media Gallery item has no image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "gallery item media.url ''",
+  "place": "gallery item, in Container",
+  "pos": "first",
+  "reason": "A Media Gallery item has no image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "gallery item media.url ''",
+  "place": "gallery item, in Container",
+  "pos": "middle",
+  "reason": "A Media Gallery item has no image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "gallery item media.url ''",
+  "place": "gallery item, in Container",
+  "pos": "last",
+  "reason": "A Media Gallery item has no image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "gallery item media absent",
+  "place": "gallery item, top-level",
+  "pos": "first",
+  "reason": "A Media Gallery item has no image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "gallery item media absent",
+  "place": "gallery item, top-level",
+  "pos": "middle",
+  "reason": "A Media Gallery item has no image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "gallery item media absent",
+  "place": "gallery item, top-level",
+  "pos": "last",
+  "reason": "A Media Gallery item has no image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "gallery item media absent",
+  "place": "gallery item, in Container",
+  "pos": "first",
+  "reason": "A Media Gallery item has no image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "gallery item media absent",
+  "place": "gallery item, in Container",
+  "pos": "middle",
+  "reason": "A Media Gallery item has no image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "gallery item media absent",
+  "place": "gallery item, in Container",
+  "pos": "last",
+  "reason": "A Media Gallery item has no image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "link button url ''",
+  "place": "Action Row button, top-level",
+  "pos": "first",
+  "reason": "A link button has no URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "link button url ''",
+  "place": "Action Row button, top-level",
+  "pos": "middle",
+  "reason": "A link button has no URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "link button url ''",
+  "place": "Action Row button, top-level",
+  "pos": "last",
+  "reason": "A link button has no URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "link button url ''",
+  "place": "Action Row button, in Container",
+  "pos": "first",
+  "reason": "A link button has no URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "link button url ''",
+  "place": "Action Row button, in Container",
+  "pos": "middle",
+  "reason": "A link button has no URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "link button url ''",
+  "place": "Action Row button, in Container",
+  "pos": "last",
+  "reason": "A link button has no URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "link button url ''",
+  "place": "Section accessory, top-level",
+  "pos": "only",
+  "reason": "A link button has no URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "link button url ''",
+  "place": "Section accessory, in Container",
+  "pos": "only",
+  "reason": "A link button has no URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "link button url absent",
+  "place": "Action Row button, top-level",
+  "pos": "first",
+  "reason": "A link button has no URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "link button url absent",
+  "place": "Action Row button, top-level",
+  "pos": "middle",
+  "reason": "A link button has no URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "link button url absent",
+  "place": "Action Row button, top-level",
+  "pos": "last",
+  "reason": "A link button has no URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "link button url absent",
+  "place": "Action Row button, in Container",
+  "pos": "first",
+  "reason": "A link button has no URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "link button url absent",
+  "place": "Action Row button, in Container",
+  "pos": "middle",
+  "reason": "A link button has no URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "link button url absent",
+  "place": "Action Row button, in Container",
+  "pos": "last",
+  "reason": "A link button has no URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "link button url absent",
+  "place": "Section accessory, top-level",
+  "pos": "only",
+  "reason": "A link button has no URL.",
+  "ok": true
+ },
+ {
+  "limb": "L6",
+  "name": "link button url absent",
+  "place": "Section accessory, in Container",
+  "pos": "only",
+  "reason": "A link button has no URL.",
+  "ok": true
+ },
+ {
+  "limb": "L7",
+  "name": "Thumbnail media.url 'abc'",
+  "place": "Section accessory, top-level",
+  "pos": "only",
+  "reason": "A Thumbnail has an invalid image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L7",
+  "name": "Thumbnail media.url 'abc'",
+  "place": "Section accessory, in Container",
+  "pos": "only",
+  "reason": "A Thumbnail has an invalid image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L7",
+  "name": "gallery item media.url 'abc'",
+  "place": "gallery item, top-level",
+  "pos": "first",
+  "reason": "A Media Gallery item has an invalid image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L7",
+  "name": "gallery item media.url 'abc'",
+  "place": "gallery item, top-level",
+  "pos": "middle",
+  "reason": "A Media Gallery item has an invalid image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L7",
+  "name": "gallery item media.url 'abc'",
+  "place": "gallery item, top-level",
+  "pos": "last",
+  "reason": "A Media Gallery item has an invalid image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L7",
+  "name": "gallery item media.url 'abc'",
+  "place": "gallery item, in Container",
+  "pos": "first",
+  "reason": "A Media Gallery item has an invalid image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L7",
+  "name": "gallery item media.url 'abc'",
+  "place": "gallery item, in Container",
+  "pos": "middle",
+  "reason": "A Media Gallery item has an invalid image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L7",
+  "name": "gallery item media.url 'abc'",
+  "place": "gallery item, in Container",
+  "pos": "last",
+  "reason": "A Media Gallery item has an invalid image URL.",
+  "ok": true
+ },
+ {
+  "limb": "L7",
+  "name": "link button url 'abc'",
+  "place": "Action Row button, top-level",
+  "pos": "first",
+  "reason": "A link button has an invalid URL.",
+  "ok": true
+ },
+ {
+  "limb": "L7",
+  "name": "link button url 'abc'",
+  "place": "Action Row button, top-level",
+  "pos": "middle",
+  "reason": "A link button has an invalid URL.",
+  "ok": true
+ },
+ {
+  "limb": "L7",
+  "name": "link button url 'abc'",
+  "place": "Action Row button, top-level",
+  "pos": "last",
+  "reason": "A link button has an invalid URL.",
+  "ok": true
+ },
+ {
+  "limb": "L7",
+  "name": "link button url 'abc'",
+  "place": "Action Row button, in Container",
+  "pos": "first",
+  "reason": "A link button has an invalid URL.",
+  "ok": true
+ },
+ {
+  "limb": "L7",
+  "name": "link button url 'abc'",
+  "place": "Action Row button, in Container",
+  "pos": "middle",
+  "reason": "A link button has an invalid URL.",
+  "ok": true
+ },
+ {
+  "limb": "L7",
+  "name": "link button url 'abc'",
+  "place": "Action Row button, in Container",
+  "pos": "last",
+  "reason": "A link button has an invalid URL.",
+  "ok": true
+ },
+ {
+  "limb": "L7",
+  "name": "link button url 'abc'",
+  "place": "Section accessory, top-level",
+  "pos": "only",
+  "reason": "A link button has an invalid URL.",
+  "ok": true
+ },
+ {
+  "limb": "L7",
+  "name": "link button url 'abc'",
+  "place": "Section accessory, in Container",
+  "pos": "only",
+  "reason": "A link button has an invalid URL.",
+  "ok": true
+ },
+ {
+  "limb": "L7",
+  "name": "link button url ftp://",
+  "place": "Action Row button, top-level",
+  "pos": "first",
+  "reason": "A link button URL must start with http, https or discord.",
+  "ok": true
+ },
+ {
+  "limb": "L7",
+  "name": "link button url ftp://",
+  "place": "Action Row button, top-level",
+  "pos": "middle",
+  "reason": "A link button URL must start with http, https or discord.",
+  "ok": true
+ },
+ {
+  "limb": "L7",
+  "name": "link button url ftp://",
+  "place": "Action Row button, top-level",
+  "pos": "last",
+  "reason": "A link button URL must start with http, https or discord.",
+  "ok": true
+ },
+ {
+  "limb": "L7",
+  "name": "link button url ftp://",
+  "place": "Action Row button, in Container",
+  "pos": "first",
+  "reason": "A link button URL must start with http, https or discord.",
+  "ok": true
+ },
+ {
+  "limb": "L7",
+  "name": "link button url ftp://",
+  "place": "Action Row button, in Container",
+  "pos": "middle",
+  "reason": "A link button URL must start with http, https or discord.",
+  "ok": true
+ },
+ {
+  "limb": "L7",
+  "name": "link button url ftp://",
+  "place": "Action Row button, in Container",
+  "pos": "last",
+  "reason": "A link button URL must start with http, https or discord.",
+  "ok": true
+ },
+ {
+  "limb": "L7",
+  "name": "link button url ftp://",
+  "place": "Section accessory, top-level",
+  "pos": "only",
+  "reason": "A link button URL must start with http, https or discord.",
+  "ok": true
+ },
+ {
+  "limb": "L7",
+  "name": "link button url ftp://",
+  "place": "Section accessory, in Container",
+  "pos": "only",
+  "reason": "A link button URL must start with http, https or discord.",
+  "ok": true
+ },
+ {
+  "limb": "L8",
+  "name": "link button label absent, no emoji",
+  "place": "Action Row button, top-level",
+  "pos": "first",
+  "reason": "A link button has no label or emoji.",
+  "ok": true
+ },
+ {
+  "limb": "L8",
+  "name": "link button label absent, no emoji",
+  "place": "Action Row button, top-level",
+  "pos": "middle",
+  "reason": "A link button has no label or emoji.",
+  "ok": true
+ },
+ {
+  "limb": "L8",
+  "name": "link button label absent, no emoji",
+  "place": "Action Row button, top-level",
+  "pos": "last",
+  "reason": "A link button has no label or emoji.",
+  "ok": true
+ },
+ {
+  "limb": "L8",
+  "name": "link button label absent, no emoji",
+  "place": "Action Row button, in Container",
+  "pos": "first",
+  "reason": "A link button has no label or emoji.",
+  "ok": true
+ },
+ {
+  "limb": "L8",
+  "name": "link button label absent, no emoji",
+  "place": "Action Row button, in Container",
+  "pos": "middle",
+  "reason": "A link button has no label or emoji.",
+  "ok": true
+ },
+ {
+  "limb": "L8",
+  "name": "link button label absent, no emoji",
+  "place": "Action Row button, in Container",
+  "pos": "last",
+  "reason": "A link button has no label or emoji.",
+  "ok": true
+ },
+ {
+  "limb": "L8",
+  "name": "link button label absent, no emoji",
+  "place": "Section accessory, top-level",
+  "pos": "only",
+  "reason": "A link button has no label or emoji.",
+  "ok": true
+ },
+ {
+  "limb": "L8",
+  "name": "link button label absent, no emoji",
+  "place": "Section accessory, in Container",
+  "pos": "only",
+  "reason": "A link button has no label or emoji.",
+  "ok": true
+ },
+ {
+  "limb": "L8",
+  "name": "link button label one space, no emoji",
+  "place": "Action Row button, top-level",
+  "pos": "first",
+  "reason": "A link button has no label or emoji.",
+  "ok": true
+ },
+ {
+  "limb": "L8",
+  "name": "link button label one space, no emoji",
+  "place": "Action Row button, top-level",
+  "pos": "middle",
+  "reason": "A link button has no label or emoji.",
+  "ok": true
+ },
+ {
+  "limb": "L8",
+  "name": "link button label one space, no emoji",
+  "place": "Action Row button, top-level",
+  "pos": "last",
+  "reason": "A link button has no label or emoji.",
+  "ok": true
+ },
+ {
+  "limb": "L8",
+  "name": "link button label one space, no emoji",
+  "place": "Action Row button, in Container",
+  "pos": "first",
+  "reason": "A link button has no label or emoji.",
+  "ok": true
+ },
+ {
+  "limb": "L8",
+  "name": "link button label one space, no emoji",
+  "place": "Action Row button, in Container",
+  "pos": "middle",
+  "reason": "A link button has no label or emoji.",
+  "ok": true
+ },
+ {
+  "limb": "L8",
+  "name": "link button label one space, no emoji",
+  "place": "Action Row button, in Container",
+  "pos": "last",
+  "reason": "A link button has no label or emoji.",
+  "ok": true
+ },
+ {
+  "limb": "L8",
+  "name": "link button label one space, no emoji",
+  "place": "Section accessory, top-level",
+  "pos": "only",
+  "reason": "A link button has no label or emoji.",
+  "ok": true
+ },
+ {
+  "limb": "L8",
+  "name": "link button label one space, no emoji",
+  "place": "Section accessory, in Container",
+  "pos": "only",
+  "reason": "A link button has no label or emoji.",
+  "ok": true
+ },
+ {
+  "limb": "L8",
+  "name": "link button label absent, emoji {}",
+  "place": "Action Row button, top-level",
+  "pos": "first",
+  "reason": "A link button has no label or emoji.",
+  "ok": true
+ },
+ {
+  "limb": "L8",
+  "name": "link button label absent, emoji {}",
+  "place": "Action Row button, top-level",
+  "pos": "middle",
+  "reason": "A link button has no label or emoji.",
+  "ok": true
+ },
+ {
+  "limb": "L8",
+  "name": "link button label absent, emoji {}",
+  "place": "Action Row button, top-level",
+  "pos": "last",
+  "reason": "A link button has no label or emoji.",
+  "ok": true
+ },
+ {
+  "limb": "L8",
+  "name": "link button label absent, emoji {}",
+  "place": "Action Row button, in Container",
+  "pos": "first",
+  "reason": "A link button has no label or emoji.",
+  "ok": true
+ },
+ {
+  "limb": "L8",
+  "name": "link button label absent, emoji {}",
+  "place": "Action Row button, in Container",
+  "pos": "middle",
+  "reason": "A link button has no label or emoji.",
+  "ok": true
+ },
+ {
+  "limb": "L8",
+  "name": "link button label absent, emoji {}",
+  "place": "Action Row button, in Container",
+  "pos": "last",
+  "reason": "A link button has no label or emoji.",
+  "ok": true
+ },
+ {
+  "limb": "L8",
+  "name": "link button label absent, emoji {}",
+  "place": "Section accessory, top-level",
+  "pos": "only",
+  "reason": "A link button has no label or emoji.",
+  "ok": true
+ },
+ {
+  "limb": "L8",
+  "name": "link button label absent, emoji {}",
+  "place": "Section accessory, in Container",
+  "pos": "only",
+  "reason": "A link button has no label or emoji.",
+  "ok": true
+ },
+ {
+  "limb": "L9",
+  "name": "File",
+  "place": "top-level",
+  "pos": "first",
+  "reason": "A File component cannot be sent from the website.",
+  "ok": true
+ },
+ {
+  "limb": "L9",
+  "name": "File",
+  "place": "top-level",
+  "pos": "middle",
+  "reason": "A File component cannot be sent from the website.",
+  "ok": true
+ },
+ {
+  "limb": "L9",
+  "name": "File",
+  "place": "top-level",
+  "pos": "last",
+  "reason": "A File component cannot be sent from the website.",
+  "ok": true
+ },
+ {
+  "limb": "L9",
+  "name": "File",
+  "place": "in Container",
+  "pos": "first",
+  "reason": "A File component cannot be sent from the website.",
+  "ok": true
+ },
+ {
+  "limb": "L9",
+  "name": "File",
+  "place": "in Container",
+  "pos": "middle",
+  "reason": "A File component cannot be sent from the website.",
+  "ok": true
+ },
+ {
+  "limb": "L9",
+  "name": "File",
+  "place": "in Container",
+  "pos": "last",
+  "reason": "A File component cannot be sent from the website.",
+  "ok": true
+ },
+ {
+  "limb": "L10",
+  "name": "Thumbnail description ''",
+  "place": "Section accessory, top-level",
+  "pos": "only",
+  "reason": "A Thumbnail description is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L10",
+  "name": "Thumbnail description ''",
+  "place": "Section accessory, in Container",
+  "pos": "only",
+  "reason": "A Thumbnail description is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L10",
+  "name": "Thumbnail description 1025",
+  "place": "Section accessory, top-level",
+  "pos": "only",
+  "reason": "A Thumbnail description is over 1024 characters.",
+  "ok": true
+ },
+ {
+  "limb": "L10",
+  "name": "Thumbnail description 1025",
+  "place": "Section accessory, in Container",
+  "pos": "only",
+  "reason": "A Thumbnail description is over 1024 characters.",
+  "ok": true
+ },
+ {
+  "limb": "L10",
+  "name": "gallery item description ''",
+  "place": "gallery item, top-level",
+  "pos": "first",
+  "reason": "A Media Gallery item description is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L10",
+  "name": "gallery item description ''",
+  "place": "gallery item, top-level",
+  "pos": "middle",
+  "reason": "A Media Gallery item description is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L10",
+  "name": "gallery item description ''",
+  "place": "gallery item, top-level",
+  "pos": "last",
+  "reason": "A Media Gallery item description is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L10",
+  "name": "gallery item description ''",
+  "place": "gallery item, in Container",
+  "pos": "first",
+  "reason": "A Media Gallery item description is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L10",
+  "name": "gallery item description ''",
+  "place": "gallery item, in Container",
+  "pos": "middle",
+  "reason": "A Media Gallery item description is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L10",
+  "name": "gallery item description ''",
+  "place": "gallery item, in Container",
+  "pos": "last",
+  "reason": "A Media Gallery item description is empty.",
+  "ok": true
+ },
+ {
+  "limb": "L10",
+  "name": "gallery item description 1025",
+  "place": "gallery item, top-level",
+  "pos": "first",
+  "reason": "A Media Gallery item description is over 1024 characters.",
+  "ok": true
+ },
+ {
+  "limb": "L10",
+  "name": "gallery item description 1025",
+  "place": "gallery item, top-level",
+  "pos": "middle",
+  "reason": "A Media Gallery item description is over 1024 characters.",
+  "ok": true
+ },
+ {
+  "limb": "L10",
+  "name": "gallery item description 1025",
+  "place": "gallery item, top-level",
+  "pos": "last",
+  "reason": "A Media Gallery item description is over 1024 characters.",
+  "ok": true
+ },
+ {
+  "limb": "L10",
+  "name": "gallery item description 1025",
+  "place": "gallery item, in Container",
+  "pos": "first",
+  "reason": "A Media Gallery item description is over 1024 characters.",
+  "ok": true
+ },
+ {
+  "limb": "L10",
+  "name": "gallery item description 1025",
+  "place": "gallery item, in Container",
+  "pos": "middle",
+  "reason": "A Media Gallery item description is over 1024 characters.",
+  "ok": true
+ },
+ {
+  "limb": "L10",
+  "name": "gallery item description 1025",
+  "place": "gallery item, in Container",
+  "pos": "last",
+  "reason": "A Media Gallery item description is over 1024 characters.",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Text Display filled",
+  "place": "top-level",
+  "pos": "first",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Text Display filled",
+  "place": "top-level",
+  "pos": "middle",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Text Display filled",
+  "place": "top-level",
+  "pos": "last",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Text Display filled",
+  "place": "in Container",
+  "pos": "first",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Text Display filled",
+  "place": "in Container",
+  "pos": "middle",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Text Display filled",
+  "place": "in Container",
+  "pos": "last",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Text Display filled",
+  "place": "Section child, top-level",
+  "pos": "first",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Text Display filled",
+  "place": "Section child, top-level",
+  "pos": "middle",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Text Display filled",
+  "place": "Section child, top-level",
+  "pos": "last",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Text Display filled",
+  "place": "Section child, in Container",
+  "pos": "first",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Text Display filled",
+  "place": "Section child, in Container",
+  "pos": "middle",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Text Display filled",
+  "place": "Section child, in Container",
+  "pos": "last",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Section filled",
+  "place": "top-level",
+  "pos": "first",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Section filled",
+  "place": "top-level",
+  "pos": "middle",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Section filled",
+  "place": "top-level",
+  "pos": "last",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Section filled",
+  "place": "in Container",
+  "pos": "first",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Section filled",
+  "place": "in Container",
+  "pos": "middle",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Section filled",
+  "place": "in Container",
+  "pos": "last",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Media Gallery filled",
+  "place": "top-level",
+  "pos": "first",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Media Gallery filled",
+  "place": "top-level",
+  "pos": "middle",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Media Gallery filled",
+  "place": "top-level",
+  "pos": "last",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Media Gallery filled",
+  "place": "in Container",
+  "pos": "first",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Media Gallery filled",
+  "place": "in Container",
+  "pos": "middle",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Media Gallery filled",
+  "place": "in Container",
+  "pos": "last",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Container filled",
+  "place": "top-level",
+  "pos": "first",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Container filled",
+  "place": "top-level",
+  "pos": "middle",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Container filled",
+  "place": "top-level",
+  "pos": "last",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Action Row filled",
+  "place": "top-level",
+  "pos": "first",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Action Row filled",
+  "place": "top-level",
+  "pos": "middle",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Action Row filled",
+  "place": "top-level",
+  "pos": "last",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Action Row filled",
+  "place": "in Container",
+  "pos": "first",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Action Row filled",
+  "place": "in Container",
+  "pos": "middle",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Action Row filled",
+  "place": "in Container",
+  "pos": "last",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Thumbnail with an ftp URL (X6)",
+  "place": "Section accessory, top-level",
+  "pos": "only",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Thumbnail with an ftp URL (X6)",
+  "place": "Section accessory, in Container",
+  "pos": "only",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Thumbnail description 1024",
+  "place": "Section accessory, top-level",
+  "pos": "only",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Thumbnail description 1024",
+  "place": "Section accessory, in Container",
+  "pos": "only",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Thumbnail description one space",
+  "place": "Section accessory, top-level",
+  "pos": "only",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "Thumbnail description one space",
+  "place": "Section accessory, in Container",
+  "pos": "only",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "gallery item description 1024",
+  "place": "gallery item, top-level",
+  "pos": "first",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "gallery item description 1024",
+  "place": "gallery item, top-level",
+  "pos": "middle",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "gallery item description 1024",
+  "place": "gallery item, top-level",
+  "pos": "last",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "gallery item description 1024",
+  "place": "gallery item, in Container",
+  "pos": "first",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "gallery item description 1024",
+  "place": "gallery item, in Container",
+  "pos": "middle",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "gallery item description 1024",
+  "place": "gallery item, in Container",
+  "pos": "last",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button https",
+  "place": "Action Row button, top-level",
+  "pos": "first",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button https",
+  "place": "Action Row button, top-level",
+  "pos": "middle",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button https",
+  "place": "Action Row button, top-level",
+  "pos": "last",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button https",
+  "place": "Action Row button, in Container",
+  "pos": "first",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button https",
+  "place": "Action Row button, in Container",
+  "pos": "middle",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button https",
+  "place": "Action Row button, in Container",
+  "pos": "last",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button https",
+  "place": "Section accessory, top-level",
+  "pos": "only",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button https",
+  "place": "Section accessory, in Container",
+  "pos": "only",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button discord://",
+  "place": "Action Row button, top-level",
+  "pos": "first",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button discord://",
+  "place": "Action Row button, top-level",
+  "pos": "middle",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button discord://",
+  "place": "Action Row button, top-level",
+  "pos": "last",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button discord://",
+  "place": "Action Row button, in Container",
+  "pos": "first",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button discord://",
+  "place": "Action Row button, in Container",
+  "pos": "middle",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button discord://",
+  "place": "Action Row button, in Container",
+  "pos": "last",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button discord://",
+  "place": "Section accessory, top-level",
+  "pos": "only",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button discord://",
+  "place": "Section accessory, in Container",
+  "pos": "only",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button emoji name, no label",
+  "place": "Action Row button, top-level",
+  "pos": "first",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button emoji name, no label",
+  "place": "Action Row button, top-level",
+  "pos": "middle",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button emoji name, no label",
+  "place": "Action Row button, top-level",
+  "pos": "last",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button emoji name, no label",
+  "place": "Action Row button, in Container",
+  "pos": "first",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button emoji name, no label",
+  "place": "Action Row button, in Container",
+  "pos": "middle",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button emoji name, no label",
+  "place": "Action Row button, in Container",
+  "pos": "last",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button emoji name, no label",
+  "place": "Section accessory, top-level",
+  "pos": "only",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button emoji name, no label",
+  "place": "Section accessory, in Container",
+  "pos": "only",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button emoji id, no label",
+  "place": "Action Row button, top-level",
+  "pos": "first",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button emoji id, no label",
+  "place": "Action Row button, top-level",
+  "pos": "middle",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button emoji id, no label",
+  "place": "Action Row button, top-level",
+  "pos": "last",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button emoji id, no label",
+  "place": "Action Row button, in Container",
+  "pos": "first",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button emoji id, no label",
+  "place": "Action Row button, in Container",
+  "pos": "middle",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button emoji id, no label",
+  "place": "Action Row button, in Container",
+  "pos": "last",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button emoji id, no label",
+  "place": "Section accessory, top-level",
+  "pos": "only",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button emoji id, no label",
+  "place": "Section accessory, in Container",
+  "pos": "only",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button label U+FEFF",
+  "place": "Action Row button, top-level",
+  "pos": "first",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button label U+FEFF",
+  "place": "Action Row button, top-level",
+  "pos": "middle",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button label U+FEFF",
+  "place": "Action Row button, top-level",
+  "pos": "last",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button label U+FEFF",
+  "place": "Action Row button, in Container",
+  "pos": "first",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button label U+FEFF",
+  "place": "Action Row button, in Container",
+  "pos": "middle",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button label U+FEFF",
+  "place": "Action Row button, in Container",
+  "pos": "last",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button label U+FEFF",
+  "place": "Section accessory, top-level",
+  "pos": "only",
+  "reason": "",
+  "ok": true
+ },
+ {
+  "limb": "control",
+  "name": "link button label U+FEFF",
+  "place": "Section accessory, in Container",
+  "pos": "only",
+  "reason": "",
+  "ok": true
+ }
+]

@@ -1,0 +1,5 @@
+    at Object.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-website/a4f7960b-e81f-4ae6-a570-65cb62e593ff/scratchpad/export-395510e/src/utils/limits.tsx:1:1)
+    at Module._compile (node:internal/modules/cjs/loader:1812:14) {
+  code: 'ERR_REQUIRE_ESM'
+}
+exit=1

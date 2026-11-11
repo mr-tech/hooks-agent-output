@@ -1,0 +1,16 @@
+status	path	base_err	base_warn	tip_err	tip_warn
+M	src/app/preview/__tests__/page.invalid-data.test.tsx	0	0	0	0
+M	src/app/preview/page.tsx	0	0	0	0
+M	src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx	0	0	0	0
+M	src/components/DiscordMessageEditor/components/Author.tsx	0	0	0	0
+M	src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx	0	2	0	2
+M	src/components/DiscordMessageEditor/components/ComponentEditors/ThumbnailEditor.tsx	0	2	0	2
+A	src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/MediaGalleryEditor.description-limit.test.tsx	0	0	0	0
+A	src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/ThumbnailEditor.description-limit.test.tsx	0	0	0	0
+A	src/components/DiscordMessageEditor/components/__tests__/Author.username-error.test.tsx	0	0	0	0
+M	src/components/DiscordMessageEditor/index.tsx	0	0	0	0
+M	src/constants/messageLimits.ts	0	0	0	0
+M	src/server/api/utils/__tests__/shapes.message-validation.test.ts	10	7	10	7
+A	src/utils/__tests__/helpers/discordV2SendCorpus.ts	0	0	0	0
+A	src/utils/__tests__/limits.v2-send-validity.test.ts	0	0	0	0
+M	src/utils/limits.tsx	0	0	0	0
