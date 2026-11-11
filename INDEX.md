@@ -7,7 +7,7 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-246 documents · 15 numbered chains · 107 unnumbered.
+248 documents · 15 numbered chains · 109 unnumbered.
 
 ---
 
@@ -303,6 +303,7 @@ they are the ID-less artifacts that root new efforts.
 | research | `research/codebase-bug-evaluation-2026-11-08.md` | Active — Sweep complete over website, project-utils and preview-image-generator at the SHAs in § Context. 50 rated findings (F-1–F-50), every one read at the code by the researcher; the two SQL-shape defects and the code-block regex were proven by execution. Eight editor hypotheses (H-1–H-8) need a running editor and are listed with their disconfirming tests, not counted. The owner answered all three intent questions on 2026-11-08 (username required by design, so no defect; get_message open to Manage Server; cap no stated preference). Nothing here is fixed; this is a research document, and it stays Active until the hypotheses H-1 to H-8 are run (G-5). |
 | research | `research/competitive-feature-landscape-2026-11-08.md` | Active — Landscape and scored feature list delivered (Findings F1–F15, Scored list S1–S33). Value now rests on a census of user demand: 1,098 forum posts / 10,734 forum messages and 3,438 channel messages across four Discord communities (ours included), checked post by post against Discord's own message counts. Owner ruled 2026-11-08: Q1 bot sending for interactive buttons ("sure"), Q2 no paid tier, ever ("a loss leader for Statbot"). Not Answered: no Hooks.gg usage data exists (G1), and the owner has not yet selected items to plan against. Stays Active until he does; the planner then cites this document and it closes Answered. |
 | retrospective | `retrospectives/fix-hooks-record-shared-engine-retrospective.md` | Active |
+| retrospective | `retrospectives/fix-website-save-gate-embeds-retrospective.md` | Active |
 | — | `steering/014-rulings.md` | — |
 | — | `steering/015-rulings.md` | — |
 | — | `steering/015-security-brief.md` | — |
@@ -314,6 +315,7 @@ they are the ID-less artifacts that root new efforts.
 | — | `steering/queue-hooks-briefs/code-reviewer-save-gate-embeds-brief.md` | — |
 | — | `steering/queue-hooks-briefs/devops-save-gate-embeds-brief.md` | — |
 | — | `steering/queue-hooks-briefs/fixer-save-gate-embeds-brief.md` | — |
+| — | `steering/queue-hooks-briefs/planner-send-check-validity-brief.md` | — |
 | — | `steering/queue-hooks-briefs/qa-save-gate-embeds-brief.md` | — |
 | — | `steering/queue-hooks-briefs/researcher-text-limit-brief.md` | — |
 | — | `steering/queue-hooks-briefs/researcher-v2-validity-brief.md` | — |
@@ -538,6 +540,7 @@ they are the ID-less artifacts that root new efforts.
 | `fix-website-save-gate-embeds-deployment.md` | `deployment/closed/fix-website-save-gate-embeds-deployment.md` |
 | `fix-website-save-gate-embeds-implementation.md` | `implementation/closed/fix-website-save-gate-embeds-implementation.md` |
 | `fix-website-save-gate-embeds-qa.md` | `qa/closed/fix-website-save-gate-embeds-qa.md` |
+| `fix-website-save-gate-embeds-retrospective.md` | `retrospectives/fix-website-save-gate-embeds-retrospective.md` |
 | `fixer-save-gate-embeds-brief.md` | `steering/queue-hooks-briefs/fixer-save-gate-embeds-brief.md` |
 | `gap-dispositions.md` | `verification/015/effort-final/gap-dispositions.md` |
 | `handoffs-survey.md` | `verification/cleanup-2026-11-10/handoffs-survey.md` |
@@ -552,6 +555,7 @@ they are the ID-less artifacts that root new efforts.
 | `OPEN_QUESTIONS.md` | `OPEN_QUESTIONS.md` |
 | `open-documents-survey.md` | `verification/cleanup-2026-11-10/open-documents-survey.md` |
 | `OWNER-QUEUE.md` | `OWNER-QUEUE.md` |
+| `planner-send-check-validity-brief.md` | `steering/queue-hooks-briefs/planner-send-check-validity-brief.md` |
 | `preview-image-failure-shows-broken-not-stale-2026-08-24.md` | `handoff/preview-image-failure-shows-broken-not-stale-2026-08-24.md` |
 | `preview-image-generator-api-key-in-workflow-files-2026-11-08.md` | `handoff/preview-image-generator-api-key-in-workflow-files-2026-11-08.md` |
 | `preview-image-generator-drain-under-load-unobserved-2026-11-08.md` | `handoff/preview-image-generator-drain-under-load-unobserved-2026-11-08.md` |

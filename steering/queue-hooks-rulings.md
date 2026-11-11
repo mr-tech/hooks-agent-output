@@ -566,3 +566,18 @@ Started `planner-hooks-new` with `tmux-agent spawn`, category `S016-sendcheck` (
 deleted in this commit: it carried the start step, which is now done; the determination stays in
 the 09:17Z block. The retrospective for `fix-website-save-gate-embeds` was started at 10:18Z as
 this thread's subagent.
+
+## 2026-11-11T10:26Z — retrospective for `fix-website-save-gate-embeds` written; its routed item
+
+Read this turn, after this thread's `/clear`: `retrospectives/fix-website-save-gate-embeds-retrospective.md`
+is in `HEAD` at record `c787c2d` (`git cat-file -e`, `git diff --quiet HEAD`), `Status: Active`
+(line 5). Its header, its owner-needing line (164: "nothing new") and the lines naming the
+architect were read; the body was not read whole. `INDEX.md` rebuilt with `--tracked`, diff read
+(5/1: this document and the planner brief).
+
+- Its one routed item, a candidate `architecture/website.md` entry for the editor's single
+  persisting step, named a stage and no path. Carrier: `TODO.md`, "Candidate
+  `architecture/website.md` entry: the editor's one persisting step".
+- Its eight recommendations reach their files through pi, which runs on his word alone.
+- Nothing of this chain is left in flight for this thread. His two checks stay on
+  `handoff/save-gate-embeds-owner-checks-on-hooks-gg-2026-11-11.md` and in `OWNER-QUEUE.md`.
