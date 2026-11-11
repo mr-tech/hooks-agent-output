@@ -1,0 +1,17 @@
+failed to load config from /tmp/claude-1000/-usr-local-bin-hooks-website/641b069c-01d6-4191-b098-33f31f65da5c/scratchpad/mutwork/20261111T094556Z-p2384113/control-1/vitest.config.ts
+
+⎯⎯⎯⎯⎯⎯⎯ Startup Error ⎯⎯⎯⎯⎯⎯⎯⎯
+ReferenceError: __dirname is not defined
+    at eval (/tmp/claude-1000/-usr-local-bin-hooks-website/641b069c-01d6-4191-b098-33f31f65da5c/scratchpad/mutwork/20261111T094556Z-p2384113/control-1/vitest.config.ts:10:41)
+    at async ESModulesEvaluator.runInlinedModule (file:///tmp/claude-1000/-usr-local-bin-hooks-website/641b069c-01d6-4191-b098-33f31f65da5c/scratchpad/mutwork/20261111T094556Z-p2384113/control-1/node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/module-runner.js:992:3)
+    at async ModuleRunner.directRequest (file:///tmp/claude-1000/-usr-local-bin-hooks-website/641b069c-01d6-4191-b098-33f31f65da5c/scratchpad/mutwork/20261111T094556Z-p2384113/control-1/node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/module-runner.js:1247:59)
+    at async ModuleRunner.cachedRequest (file:///tmp/claude-1000/-usr-local-bin-hooks-website/641b069c-01d6-4191-b098-33f31f65da5c/scratchpad/mutwork/20261111T094556Z-p2384113/control-1/node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/module-runner.js:1154:73)
+    at async ModuleRunner.import (file:///tmp/claude-1000/-usr-local-bin-hooks-website/641b069c-01d6-4191-b098-33f31f65da5c/scratchpad/mutwork/20261111T094556Z-p2384113/control-1/node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/module-runner.js:1104:10)
+    at async runnerImport (file:///tmp/claude-1000/-usr-local-bin-hooks-website/641b069c-01d6-4191-b098-33f31f65da5c/scratchpad/mutwork/20261111T094556Z-p2384113/control-1/node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:33580:18)
+    at async runnerImportConfigFile (file:///tmp/claude-1000/-usr-local-bin-hooks-website/641b069c-01d6-4191-b098-33f31f65da5c/scratchpad/mutwork/20261111T094556Z-p2384113/control-1/node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:34427:35)
+    at async loadConfigFromFile (file:///tmp/claude-1000/-usr-local-bin-hooks-website/641b069c-01d6-4191-b098-33f31f65da5c/scratchpad/mutwork/20261111T094556Z-p2384113/control-1/node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:34404:42)
+    at async resolveConfig (file:///tmp/claude-1000/-usr-local-bin-hooks-website/641b069c-01d6-4191-b098-33f31f65da5c/scratchpad/mutwork/20261111T094556Z-p2384113/control-1/node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:34028:22)
+    at async _createServer (file:///tmp/claude-1000/-usr-local-bin-hooks-website/641b069c-01d6-4191-b098-33f31f65da5c/scratchpad/mutwork/20261111T094556Z-p2384113/control-1/node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:25917:65)
+
+
+

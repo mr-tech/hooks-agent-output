@@ -1,0 +1,20 @@
+[
+ {
+  "id": "index.ts:188:if-false",
+  "file": "src/utils/index.ts",
+  "old": "  if (!d",
+  "new": "  if (false && !d",
+  "op": "if-false",
+  "line": 188,
+  "text": "if (!draft.embeds || draft.embeds.length === 0) return draft;"
+ },
+ {
+  "id": "index.ts:188:||",
+  "file": "src/utils/index.ts",
+  "old": "s || d",
+  "new": "s && d",
+  "op": "||",
+  "line": 188,
+  "text": "if (!draft.embeds || draft.embeds.length === 0) return draft;"
+ }
+]

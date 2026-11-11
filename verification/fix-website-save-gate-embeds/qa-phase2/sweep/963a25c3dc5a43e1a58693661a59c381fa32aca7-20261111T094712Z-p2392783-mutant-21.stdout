@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/641b069c-01d6-4191-b098-33f31f65da5c/scratchpad/mutwork/20261111T094712Z-p2392783/mutant-21
+
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/SaveAsMenu.empty-embeds-beside-v2.test.tsx (1 test | 1 failed) 410ms
+     × Save writes at once, as V2 without the empty embed, and shows no choice 408ms
+
+ Test Files  1 failed | 117 passed (118)
+      Tests  1 failed | 1143 passed (1144)
+   Start at  09:52:19
+   Duration  12.20s (transform 15.74s, setup 1.07s, import 94.21s, tests 22.35s, environment 54.86s)
+

@@ -1,0 +1,312 @@
+import { describe, it, expect, vi } from 'vitest';
+
+vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
+vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
+
+import { IS_COMPONENTS_V2_FLAG } from '~/constants';
+import {
+  resolveContentLoss, gateBeforePersist, applyDisposition, validateContentRequirements,
+} from '~/utils';
+
+const V2_CONTAINER = [{ type: 17, components: [] }];
+const ACTION_ROW = [{ type: 1, components: [] }];
+const BIT = IS_COMPONENTS_V2_FLAG;
+
+describe('resolveContentLoss, all eight cells', () => {
+  it('row A: bit clear, no components, no content — lands unchanged, Classic, no notice', () => {
+    const d = resolveContentLoss(0, undefined, undefined, undefined);
+    expect(d.row).toBe('A');
+    expect(d.mode).toBe('classic');
+    expect(d.noticeClass).toBe('none');
+    expect(d.requiresChoice).toBe(false);
+    expect(d.options).toBe(null);
+  });
+
+  it('row A: bit clear, no components, WITH content — still A, Classic, no notice', () => {
+    const d = resolveContentLoss(0, undefined, 'hi', undefined);
+    expect(d.row).toBe('A');
+    expect(d.mode).toBe('classic');
+    expect(d.requiresChoice).toBe(false);
+    expect(d.noticeClass).toBe('none');
+  });
+
+  it('row B: bit clear, V2 components, no content — V2 with a warning', () => {
+    const d = resolveContentLoss(0, V2_CONTAINER, undefined, undefined);
+    expect(d.row).toBe('B');
+    expect(d.mode).toBe('v2');
+    expect(d.noticeClass).toBe('warn-v2-flag-added');
+    expect(d.requiresChoice).toBe(false);
+    expect(d.options).toBe(null);
+  });
+
+  it('row E: bit clear, V2 components AND content — the user chooses', () => {
+    const d = resolveContentLoss(0, V2_CONTAINER, 'hi', undefined);
+    expect(d.row).toBe('E');
+    expect(d.requiresChoice).toBe(true);
+    expect(d.mode).toBe(null);
+    expect(d.options).toEqual([
+      { mode: 'classic', dropSet: ['components'] },
+      { mode: 'v2', dropSet: ['content'] },
+    ]);
+    expect(d).not.toHaveProperty('dropSet');
+  });
+
+  it('row C: bit set, no V2 components, no content (Action Rows only) — V2 silently', () => {
+    const d = resolveContentLoss(BIT, ACTION_ROW, undefined, undefined);
+    expect(d.row).toBe('C');
+    expect(d.mode).toBe('v2');
+    expect(d.noticeClass).toBe('none');
+    expect(d.requiresChoice).toBe(false);
+  });
+
+  it('row C: bit set, no components at all, no content — V2 silently', () => {
+    const d = resolveContentLoss(BIT, undefined, undefined, undefined);
+    expect(d.row).toBe('C');
+    expect(d.mode).toBe('v2');
+    expect(d.noticeClass).toBe('none');
+  });
+
+  it('row D: bit set, no V2 components, WITH content — Classic, warning', () => {
+    const d = resolveContentLoss(BIT, undefined, 'hi', undefined);
+    expect(d.row).toBe('D');
+    expect(d.mode).toBe('classic');
+    expect(d.noticeClass).toBe('warn-v2-flag-conflict');
+    expect(d.requiresChoice).toBe(false);
+    expect(d.options).toBe(null);
+  });
+
+  it('row C: bit set, V2 components, no content — V2 silently kept', () => {
+    const d = resolveContentLoss(BIT, V2_CONTAINER, undefined, undefined);
+    expect(d.row).toBe('C');
+    expect(d.mode).toBe('v2');
+    expect(d.noticeClass).toBe('none');
+  });
+
+  it('row E: bit set, V2 components AND content — the user chooses', () => {
+    const d = resolveContentLoss(BIT, V2_CONTAINER, 'hi', undefined);
+    expect(d.row).toBe('E');
+    expect(d.requiresChoice).toBe(true);
+    expect(d.options).toEqual([
+      { mode: 'classic', dropSet: ['components'] },
+      { mode: 'v2', dropSet: ['content'] },
+    ]);
+  });
+
+  it('row E: dropSet reflects a PARTIAL components drop, not "all components" '
+    + '— a container alongside an Action Row: only the container is lost on "save as Classic"', () => {
+    const d = resolveContentLoss(0, [...V2_CONTAINER, ...ACTION_ROW], 'hi', undefined);
+    expect(d.row).toBe('E');
+    expect(d.options).toEqual([
+      { mode: 'classic', dropSet: ['components'] },
+      { mode: 'v2', dropSet: ['content'] },
+    ]);
+  });
+
+  it('row E: v2 option claims "embeds" only when the draft actually carries meaningful embeds '
+    + '— an empty embeds array is not a real loss', () => {
+    const withEmbeds = resolveContentLoss(0, V2_CONTAINER, undefined, [{ title: 'x' }]);
+    expect(withEmbeds.options).toEqual([
+      { mode: 'classic', dropSet: ['components'] },
+      { mode: 'v2', dropSet: ['embeds'] },
+    ]);
+    const withEmptyEmbeds = resolveContentLoss(0, V2_CONTAINER, 'hi', []);
+    expect(withEmptyEmbeds.options).toEqual([
+      { mode: 'classic', dropSet: ['components'] },
+      { mode: 'v2', dropSet: ['content'] },
+    ]);
+  });
+});
+
+describe('regression guard: the bit is masked, not truthy-tested', () => {
+  it('a residue bit (SUPPRESS_EMBEDS) alongside classic content is row A, not D', () => {
+    const SUPPRESS_EMBEDS = 4;
+    const d = resolveContentLoss(SUPPRESS_EMBEDS, undefined, 'hi', undefined);
+    expect(d.row).toBe('A');
+    expect(d.mode).toBe('classic');
+    expect(d.noticeClass).toBe('none');
+  });
+
+  it('the V2 bit combined with a residue bit is still row C (mask, not equality)', () => {
+    const SUPPRESS_EMBEDS = 4;
+    const d = resolveContentLoss(BIT | SUPPRESS_EMBEDS, undefined, undefined, undefined);
+    expect(d.row).toBe('C');
+    expect(d.mode).toBe('v2');
+  });
+
+  it('an undefined flags value behaves as 0 (row A, not D)', () => {
+    const d = resolveContentLoss(undefined, undefined, 'hi', undefined);
+    expect(d.row).toBe('A');
+  });
+});
+
+describe('conjunct isolation: the bit alone selects the row within each (components, content) combo', () => {
+  it('no components, no content: bit is the sole carrier between A and C', () => {
+    expect(resolveContentLoss(0, undefined, undefined, undefined).row).toBe('A');
+    expect(resolveContentLoss(BIT, undefined, undefined, undefined).row).toBe('C');
+  });
+
+  it('no components, with content: bit is the sole carrier between A and D', () => {
+    expect(resolveContentLoss(0, undefined, 'hi', undefined).row).toBe('A');
+    expect(resolveContentLoss(BIT, undefined, 'hi', undefined).row).toBe('D');
+  });
+
+  it('V2 components, no content: bit is the sole carrier between B and C', () => {
+    expect(resolveContentLoss(0, V2_CONTAINER, undefined, undefined).row).toBe('B');
+    expect(resolveContentLoss(BIT, V2_CONTAINER, undefined, undefined).row).toBe('C');
+  });
+
+  it('V2 components, with content: row is E regardless of the bit (both directions)', () => {
+    expect(resolveContentLoss(0, V2_CONTAINER, 'hi', undefined).row).toBe('E');
+    expect(resolveContentLoss(BIT, V2_CONTAINER, 'hi', undefined).row).toBe('E');
+  });
+});
+
+describe('both-directions obligation', () => {
+  it('row C is not re-admitted by an Action-Rows-only fixture ("not a conflict")', () => {
+    const d = resolveContentLoss(BIT, ACTION_ROW, undefined, undefined);
+    expect(d.row).toBe('C');
+    expect(d.noticeClass).toBe('none');
+  });
+
+  it('row A and row C together isolate row E: cells exist where requiresChoice is false and something lands immediately', () => {
+    expect(resolveContentLoss(0, undefined, undefined, undefined).requiresChoice).toBe(false);
+    expect(resolveContentLoss(BIT, V2_CONTAINER, undefined, undefined).requiresChoice).toBe(false);
+  });
+});
+
+describe('gateBeforePersist, the persist gate', () => {
+  it('mustAsk is true for a row-E draft (5712-shaped: V2 components retained alongside classic content)', () => {
+    const gate = gateBeforePersist({ flags: BIT, components: V2_CONTAINER, content: 'hi', embeds: [] });
+    expect(gate.mustAsk).toBe(true);
+    expect(gate.options).toEqual([
+      { mode: 'classic', dropSet: ['components'] },
+      { mode: 'v2', dropSet: ['content'] },
+    ]);
+  });
+
+  it('mustAsk is false for an ordinary classic draft (a canned-intro writer: never a member)', () => {
+    const gate = gateBeforePersist({ flags: 0, components: [], content: 'Welcome!', embeds: [] });
+    expect(gate.mustAsk).toBe(false);
+    expect(gate.options).toBe(null);
+  });
+
+  it('mustAsk is false for a pure V2 draft with no classic body', () => {
+    const gate = gateBeforePersist({ flags: BIT, components: V2_CONTAINER, content: '', embeds: [] });
+    expect(gate.mustAsk).toBe(false);
+  });
+
+  it('mustAsk is true regardless of whether the flag bit happens to be set (both row-E members)', () => {
+    expect(gateBeforePersist({ flags: 0, components: V2_CONTAINER, content: 'hi', embeds: [] }).mustAsk).toBe(true);
+    expect(gateBeforePersist({ flags: BIT, components: V2_CONTAINER, content: 'hi', embeds: [] }).mustAsk).toBe(true);
+  });
+
+  it.each([
+    ['an empty embed', {}],
+    ['an embed with only an empty title', { title: '' }],
+    ['an embed carrying only its editor key', { _key: 'k1' }],
+    ['an embed with an empty fields array', { fields: [] }],
+  ])('V2 components beside %s persist as V2 without the embed, with no choice', (_label, embed) => {
+    const draft = {
+      flags: BIT, components: V2_CONTAINER, content: '', embeds: [embed] as MessageData['embeds'],
+    } as Pick<MessageData, 'flags' | 'components' | 'content' | 'embeds'>;
+    const gate = gateBeforePersist(draft);
+    expect(gate.mustAsk).toBe(false);
+    expect(gate.data).toEqual({
+      flags: BIT, components: [{ type: 17, components: [] }], content: '', embeds: [],
+    });
+    expect(validateContentRequirements(gate.data)).toBeUndefined();
+  });
+
+  it('V2 components beside an empty embed keep a clear flag clear when the embed is dropped', () => {
+    const gate = gateBeforePersist({
+      flags: 0, components: V2_CONTAINER, content: '', embeds: [{}] as MessageData['embeds'],
+    });
+    expect(gate.mustAsk).toBe(false);
+    expect(gate.data.flags).toBe(0);
+    expect(gate.data.embeds).toEqual([]);
+  });
+
+  it('V2 components beside one empty and one real embed still ask, and persist nothing dropped', () => {
+    const draft = {
+      flags: BIT, components: V2_CONTAINER, content: '', embeds: [{}, { title: 'x' }] as MessageData['embeds'],
+    };
+    const gate = gateBeforePersist(draft);
+    expect(gate.mustAsk).toBe(true);
+    expect(gate.data.embeds).toEqual([{}, { title: 'x' }]);
+  });
+
+  it('an empty embed with no V2 components is kept, flag and content unchanged (a row-D draft)', () => {
+    const gate = gateBeforePersist({
+      flags: BIT, components: [], content: 'hi', embeds: [{}] as MessageData['embeds'],
+    });
+    expect(gate.mustAsk).toBe(false);
+    expect(gate.data).toEqual({
+      flags: BIT, components: [], content: 'hi', embeds: [{}],
+    });
+  });
+
+  it('an empty embed beside an Action Row only is kept (no V2 components present)', () => {
+    const gate = gateBeforePersist({
+      flags: 0, components: ACTION_ROW, content: '', embeds: [{}] as MessageData['embeds'],
+    });
+    expect(gate.data.embeds).toEqual([{}]);
+  });
+
+  it('V2 components with no embeds key persist unchanged, with no choice', () => {
+    const gate = gateBeforePersist({ flags: BIT, components: V2_CONTAINER, content: '' });
+    expect(gate.mustAsk).toBe(false);
+    expect(gate.data).toEqual({ flags: BIT, components: [{ type: 17, components: [] }], content: '' });
+  });
+
+  it('mustAsk is false for a residue-bit-only draft (mask regression, at the gate)', () => {
+    const gate = gateBeforePersist({ flags: 4, components: [], content: 'hi', embeds: [] });
+    expect(gate.mustAsk).toBe(false);
+  });
+});
+
+describe('applyDisposition, the application half', () => {
+  it('row A/settled: derives Classic from the draft itself and delegates to switchToClassic (no bit, no content change)', () => {
+    const next = applyDisposition({ flags: 0, content: 'hi', embeds: [], components: [] });
+    expect(next.flags).toBe(0);
+    expect(next.content).toBe('hi');
+  });
+
+  it('row B/C settled: derives V2 from the draft itself, sets the flag bit and clears content/embeds', () => {
+    const next = applyDisposition({ flags: 0, content: '', embeds: [], components: V2_CONTAINER });
+    expect(!!(next.flags! & BIT)).toBe(true);
+    expect(next.content).toBe('');
+    expect(next.embeds).toEqual([]);
+  });
+
+  it('row D settled: derives Classic from the draft itself and clears the bit', () => {
+    const next = applyDisposition({ flags: BIT, content: 'hi', embeds: [], components: [] });
+    expect(!!(next.flags! & BIT)).toBe(false);
+    expect(next.content).toBe('hi');
+  });
+
+  it('row E with the classic mode chosen: drops components, clears the bit', () => {
+    const next = applyDisposition(
+      { flags: 0, content: 'hi', embeds: [], components: V2_CONTAINER },
+      'classic',
+    );
+    expect(next.components).toEqual([]);
+    expect(!!(next.flags! & BIT)).toBe(false);
+    expect(next.content).toBe('hi');
+  });
+
+  it('row E with the v2 mode chosen: drops content/embeds, sets the bit', () => {
+    const next = applyDisposition(
+      { flags: 0, content: 'hi', embeds: [{ title: 'x' }], components: V2_CONTAINER },
+      'v2',
+    );
+    expect(next.content).toBe('');
+    expect(next.embeds).toEqual([]);
+    expect(!!(next.flags! & BIT)).toBe(true);
+  });
+
+  it('row E with no chosen mode throws — a choice cannot be applied without being made', () => {
+    expect(() => applyDisposition({ flags: 0, content: 'hi', embeds: [], components: V2_CONTAINER }))
+      .toThrow(/chosenMode/);
+  });
+});

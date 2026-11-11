@@ -1,0 +1,24 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx > MessageProvider — Save of a stored V2 message beside an empty embed > writes it as V2 without the embed, and the editor holds exactly what was written
+AssertionError: expected [ {} ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {},
++ ]
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx:90:33
+     88|     expect(hoisted.inputs).toHaveLength(1);
+     89|     const written = (hoisted.inputs[0] as { message: ActiveMessage }).…
+     90|     expect(written.data.embeds).toEqual([]);
+       |                                 ^
+     91|     expect(written.data.flags).toBe(32768);
+     92|     expect(written.data.components).toEqual([{ type: 17, components: […
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

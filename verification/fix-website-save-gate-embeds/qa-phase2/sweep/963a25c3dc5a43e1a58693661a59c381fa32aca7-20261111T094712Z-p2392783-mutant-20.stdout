@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/641b069c-01d6-4191-b098-33f31f65da5c/scratchpad/mutwork/20261111T094712Z-p2392783/mutant-20
+
+ ❯ |node| src/utils/__tests__/utils.disposition-resolver.test.ts (39 tests | 1 failed) 43ms
+     × V2 components beside one empty and one real embed still ask, and persist nothing dropped 25ms
+
+ Test Files  1 failed | 117 passed (118)
+      Tests  1 failed | 1143 passed (1144)
+   Start at  09:52:04
+   Duration  12.83s (transform 17.49s, setup 1.62s, import 98.35s, tests 23.55s, environment 58.74s)
+

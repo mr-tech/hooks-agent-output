@@ -1,0 +1,51 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/utils.disposition-resolver.test.ts > gateBeforePersist, the persist gate > V2 components beside an empty embed persist as V2 without the embed, with no choice
+ FAIL  |node| src/utils/__tests__/utils.disposition-resolver.test.ts > gateBeforePersist, the persist gate > V2 components beside an embed with only an empty title persist as V2 without the embed, with no choice
+ FAIL  |node| src/utils/__tests__/utils.disposition-resolver.test.ts > gateBeforePersist, the persist gate > V2 components beside an embed carrying only its editor key persist as V2 without the embed, with no choice
+ FAIL  |node| src/utils/__tests__/utils.disposition-resolver.test.ts > gateBeforePersist, the persist gate > V2 components beside an embed with an empty fields array persist as V2 without the embed, with no choice
+AssertionError: expected { flags: undefined, …(3) } to deeply equal { flags: 32768, …(3) }
+
+- Expected
++ Received
+
+@@ -5,7 +5,7 @@
+        "type": 17,
+      },
+    ],
+    "content": "",
+    "embeds": [],
+-   "flags": 32768,
++   "flags": undefined,
+  }
+
+ ❯ src/utils/__tests__/utils.disposition-resolver.test.ts:215:23
+    213|     const gate = gateBeforePersist(draft);
+    214|     expect(gate.mustAsk).toBe(false);
+    215|     expect(gate.data).toEqual({
+       |                       ^
+    216|       flags: BIT, components: [{ type: 17, components: [] }], content:…
+    217|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |node| src/utils/__tests__/utils.disposition-resolver.test.ts > gateBeforePersist, the persist gate > V2 components beside an empty embed keep a clear flag clear when the embed is dropped
+AssertionError: expected undefined to be +0 // Object.is equality
+
+- Expected:
+0
+
++ Received:
+undefined
+
+ ❯ src/utils/__tests__/utils.disposition-resolver.test.ts:226:29
+    224|     });
+    225|     expect(gate.mustAsk).toBe(false);
+    226|     expect(gate.data.flags).toBe(0);
+       |                             ^
+    227|     expect(gate.data.embeds).toEqual([]);
+    228|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+

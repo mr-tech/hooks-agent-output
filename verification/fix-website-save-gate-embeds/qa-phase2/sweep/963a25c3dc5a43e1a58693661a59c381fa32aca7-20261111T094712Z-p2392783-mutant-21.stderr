@@ -1,0 +1,24 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/SaveAsMenu.empty-embeds-beside-v2.test.tsx > SaveAsMenu — V2 components beside an empty embed > Save writes at once, as V2 without the empty embed, and shows no choice
+AssertionError: expected [ {} ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {},
++ ]
+
+ ❯ src/app/message/m/[id]/_components/__tests__/SaveAsMenu.empty-embeds-beside-v2.test.tsx:47:33
+     45|     expect(hoisted.inputs).toHaveLength(1);
+     46|     const { message } = hoisted.inputs[0] as { message: { data: Messag…
+     47|     expect(message.data.embeds).toEqual([]);
+       |                                 ^
+     48|     expect(message.data.flags).toBe(32768);
+     49|     expect(message.data.components).toEqual([{ type: 17, components: […
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

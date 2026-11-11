@@ -1,0 +1,540 @@
+{
+ "sha": "963a25c3dc5a43e1a58693661a59c381fa32aca7",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/mutants.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "--no-cache",
+  "--configLoader",
+  "runner",
+  "--config",
+  "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/vitest.sweep.config.mjs"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b47679a26c4f054627eccaee06812b4649521480"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/mutants.json",
+   "blob": "0641afbebfe01fc94ce2b7b6ad2881439caff92f"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  },
+  {
+   "kind": "argument",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/vitest.sweep.config.mjs",
+   "blob": "deb68513ce1971f52509a07d34690107876ee2e2"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-control-1.stderr",
+   "seconds": 13.74,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 1144,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "useApiMethods.ts:65:if-false",
+   "run": "mutant-1",
+   "file": "src/providers/MessageProvider/useApiMethods.ts",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 65,
+    "text": "if (data !== draft.data) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1144,
+   "control_tests_run": 1144,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 13.81,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-1.stderr"
+  },
+  {
+   "id": "useApiMethods.ts:65:!==",
+   "run": "mutant-2",
+   "file": "src/providers/MessageProvider/useApiMethods.ts",
+   "tests": [],
+   "carried": {
+    "op": "!==",
+    "line": 65,
+    "text": "if (data !== draft.data) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1144,
+   "control_tests_run": 1144,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 13.77,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-2.stderr"
+  },
+  {
+   "id": "useApiMethods.ts:68:if-false",
+   "run": "mutant-3",
+   "file": "src/providers/MessageProvider/useApiMethods.ts",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 68,
+    "text": "if (mode) setMessageMode(mode);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1144,
+   "control_tests_run": 1144,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 13.65,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-3.stderr"
+  },
+  {
+   "id": "index.ts:187:if-false",
+   "run": "mutant-4",
+   "file": "src/utils/index.ts",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 187,
+    "text": "if (!hasV2Components(draft.components as undefined | { type: number }[])) return draft;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1144,
+   "control_tests_run": 1144,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 15.12,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-4.stderr"
+  },
+  {
+   "id": "index.ts:187:not",
+   "run": "mutant-5",
+   "file": "src/utils/index.ts",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 187,
+    "text": "if (!hasV2Components(draft.components as undefined | { type: number }[])) return draft;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1144,
+   "control_tests_run": 1144,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 16.44,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-5.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-5.stderr"
+  },
+  {
+   "id": "index.ts:188:if-false",
+   "run": "mutant-6",
+   "file": "src/utils/index.ts",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 188,
+    "text": "if (!draft.embeds || draft.embeds.length === 0) return draft;"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 1144,
+   "control_tests_run": 1144,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 15.89,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-6.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-6.stderr"
+  },
+  {
+   "id": "index.ts:188:not",
+   "run": "mutant-7",
+   "file": "src/utils/index.ts",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 188,
+    "text": "if (!draft.embeds || draft.embeds.length === 0) return draft;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1144,
+   "control_tests_run": 1144,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 16.3,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-7.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-7.stderr"
+  },
+  {
+   "id": "index.ts:188:||",
+   "run": "mutant-8",
+   "file": "src/utils/index.ts",
+   "tests": [],
+   "carried": {
+    "op": "||",
+    "line": 188,
+    "text": "if (!draft.embeds || draft.embeds.length === 0) return draft;"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 1144,
+   "control_tests_run": 1144,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 15.42,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-8.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-8.stderr"
+  },
+  {
+   "id": "index.ts:188:===",
+   "run": "mutant-9",
+   "file": "src/utils/index.ts",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 188,
+    "text": "if (!draft.embeds || draft.embeds.length === 0) return draft;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1144,
+   "control_tests_run": 1144,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 15.37,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-9.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-9.stderr"
+  },
+  {
+   "id": "index.ts:188:num",
+   "run": "mutant-10",
+   "file": "src/utils/index.ts",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 188,
+    "text": "if (!draft.embeds || draft.embeds.length === 0) return draft;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1144,
+   "control_tests_run": 1144,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 14.08,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-10.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-10.stderr"
+  },
+  {
+   "id": "index.ts:189:if-false",
+   "run": "mutant-11",
+   "file": "src/utils/index.ts",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 189,
+    "text": "if (draft.embeds.some((embed) => hasClassicContent({ embeds: [embed] }))) return draft;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1144,
+   "control_tests_run": 1144,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 13.69,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-11.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-11.stderr"
+  },
+  {
+   "id": "H1-no-write-back",
+   "run": "mutant-12",
+   "file": "src/providers/MessageProvider/useApiMethods.ts",
+   "tests": [],
+   "carried": {
+    "op": "hand"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1144,
+   "control_tests_run": 1144,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 13.56,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-12.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-12.stderr"
+  },
+  {
+   "id": "H2-write-back-draft-data",
+   "run": "mutant-13",
+   "file": "src/providers/MessageProvider/useApiMethods.ts",
+   "tests": [],
+   "carried": {
+    "op": "hand"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1144,
+   "control_tests_run": 1144,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 13.45,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-13.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-13.stderr"
+  },
+  {
+   "id": "H3-upsert-draft-data",
+   "run": "mutant-14",
+   "file": "src/providers/MessageProvider/useApiMethods.ts",
+   "tests": [],
+   "carried": {
+    "op": "hand"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1144,
+   "control_tests_run": 1144,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 14.97,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-14.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-14.stderr"
+  },
+  {
+   "id": "H4-save-persists-raw",
+   "run": "mutant-15",
+   "file": "src/providers/MessageProvider/useApiMethods.ts",
+   "tests": [],
+   "carried": {
+    "op": "hand"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1144,
+   "control_tests_run": 1144,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 14.49,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-15.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-15.stderr"
+  },
+  {
+   "id": "H5-choice-persists-raw",
+   "run": "mutant-16",
+   "file": "src/providers/MessageProvider/useApiMethods.ts",
+   "tests": [],
+   "carried": {
+    "op": "hand"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1144,
+   "control_tests_run": 1144,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 13.24,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-16.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-16.stderr"
+  },
+  {
+   "id": "H6-mode-from-draft",
+   "run": "mutant-17",
+   "file": "src/providers/MessageProvider/useApiMethods.ts",
+   "tests": [],
+   "carried": {
+    "op": "hand"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1144,
+   "control_tests_run": 1144,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 13.32,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-17.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-17.stderr"
+  },
+  {
+   "id": "H7-drop-clears-flag",
+   "run": "mutant-18",
+   "file": "src/utils/index.ts",
+   "tests": [],
+   "carried": {
+    "op": "hand"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1144,
+   "control_tests_run": 1144,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 14.64,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-18.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-18.stderr"
+  },
+  {
+   "id": "H8-gate-data-undropped",
+   "run": "mutant-19",
+   "file": "src/utils/index.ts",
+   "tests": [],
+   "carried": {
+    "op": "hand"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1144,
+   "control_tests_run": 1144,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 13.47,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-19.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-19.stderr"
+  },
+  {
+   "id": "H9-content-guard-every",
+   "run": "mutant-20",
+   "file": "src/utils/index.ts",
+   "tests": [],
+   "carried": {
+    "op": "hand"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1144,
+   "control_tests_run": 1144,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 13.91,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-20.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-20.stderr"
+  },
+  {
+   "id": "H10-saveas-raw",
+   "run": "mutant-21",
+   "file": "src/app/message/m/[id]/_components/SaveAsMenu.tsx",
+   "tests": [],
+   "carried": {
+    "op": "hand"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1144,
+   "control_tests_run": 1144,
+   "outcome": "KILLED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 13.51,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-21.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-21.stderr"
+  },
+  {
+   "id": "H11-newmodal-raw",
+   "run": "mutant-22",
+   "file": "src/app/message/_components/NewMessageModal.tsx",
+   "tests": [],
+   "carried": {
+    "op": "hand"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 1144,
+   "control_tests_run": 1144,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 13.47,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-22.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-website-save-gate-embeds/qa-phase2/sweep/963a25c3dc5a43e1a58693661a59c381fa32aca7-20261111T094712Z-p2392783-mutant-22.stderr"
+  }
+ ],
+ "score": "19 of 22 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants.json (blob 0641afbebfe01fc94ce2b7b6ad2881439caff92f))"
+}

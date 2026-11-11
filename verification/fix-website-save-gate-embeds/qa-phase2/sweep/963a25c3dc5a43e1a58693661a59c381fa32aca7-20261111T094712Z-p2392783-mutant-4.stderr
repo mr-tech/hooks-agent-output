@@ -1,0 +1,50 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/utils.disposition-resolver.test.ts > gateBeforePersist, the persist gate > an empty embed with no V2 components is kept, flag and content unchanged (a row-D draft)
+AssertionError: expected { flags: 32768, components: [], …(2) } to deeply equal { flags: 32768, components: [], …(2) }
+
+- Expected
++ Received
+
+  {
+    "components": [],
+    "content": "hi",
+-   "embeds": [
+-     {},
+-   ],
++   "embeds": [],
+    "flags": 32768,
+  }
+
+ ❯ src/utils/__tests__/utils.disposition-resolver.test.ts:244:23
+    242|     });
+    243|     expect(gate.mustAsk).toBe(false);
+    244|     expect(gate.data).toEqual({
+       |                       ^
+    245|       flags: BIT, components: [], content: 'hi', embeds: [{}],
+    246|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/__tests__/utils.disposition-resolver.test.ts > gateBeforePersist, the persist gate > an empty embed beside an Action Row only is kept (no V2 components present)
+AssertionError: expected [] to deeply equal [ {} ]
+
+- Expected
++ Received
+
+- [
+-   {},
+- ]
++ []
+
+ ❯ src/utils/__tests__/utils.disposition-resolver.test.ts:253:30
+    251|       flags: 0, components: ACTION_ROW, content: '', embeds: [{}] as M…
+    252|     });
+    253|     expect(gate.data.embeds).toEqual([{}]);
+       |                              ^
+    254|   });
+    255|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

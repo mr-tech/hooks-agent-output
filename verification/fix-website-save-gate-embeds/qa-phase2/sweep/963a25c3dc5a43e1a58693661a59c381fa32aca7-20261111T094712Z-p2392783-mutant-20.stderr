@@ -1,0 +1,27 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/utils.disposition-resolver.test.ts > gateBeforePersist, the persist gate > V2 components beside one empty and one real embed still ask, and persist nothing dropped
+AssertionError: expected [] to deeply equal [ {}, { title: 'x' } ]
+
+- Expected
++ Received
+
+- [
+-   {},
+-   {
+-     "title": "x",
+-   },
+- ]
++ []
+
+ ❯ src/utils/__tests__/utils.disposition-resolver.test.ts:236:30
+    234|     const gate = gateBeforePersist(draft);
+    235|     expect(gate.mustAsk).toBe(true);
+    236|     expect(gate.data.embeds).toEqual([{}, { title: 'x' }]);
+       |                              ^
+    237|   });
+    238|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

@@ -1,0 +1,7 @@
+TimeoutError: locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator('a[href$="/send"]').first()
+    - locator resolved to <a class="px-2" href="/message/m/900000000000001/send">Send</a>
+    - attempting click action
+      - <div class="flex justify-center items-center min-h-screen xs:p-4">...</div> from <div id="headlessui-portal-root">...</div> subtree intercepts pointer events
+    (retried ~60 times, same interception)

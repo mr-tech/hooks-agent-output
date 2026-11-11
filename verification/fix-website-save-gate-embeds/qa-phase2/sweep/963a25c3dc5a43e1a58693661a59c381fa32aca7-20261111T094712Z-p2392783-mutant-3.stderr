@@ -1,0 +1,19 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx > MessageProvider — the choice save of a stored V2 message with content > Save as Classic: the editor holds the classic message that was written, in Classic mode
+AssertionError: expected 'v2' to be 'classic' // Object.is equality
+
+Expected: "classic"
+Received: "v2"
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx:120:49
+    118|     expect(held.data.components).toEqual([]);
+    119|     expect(held.data.content).toBe('hi');
+    120|     expect(current().editableState.messageMode).toBe('classic');
+       |                                                 ^
+    121|   });
+    122|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

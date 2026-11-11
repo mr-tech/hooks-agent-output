@@ -1,0 +1,23 @@
+2d1b84f63d94d86027a1273081a9c415558131843ffbb54dfe45f035f6b4b72f  /usr/local/bin/hooks/website/src/utils/__tests__/utils.disposition-resolver.test.ts
+green exit=0
+      Tests  40 passed (40)
+mutant-6 exit=1
+     × V2 components with no embeds key persist unchanged, with no choice 4ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  |node| src/utils/__tests__/utils.disposition-resolver.test.ts > gateBeforePersist, the persist gate > V2 components with no embeds key persist unchanged, with no choice
+      Tests  1 failed | 39 passed (40)
+188c188
+<   if (!draft.embeds || draft.embeds.length === 0) return draft;
+---
+>   if (false && (!draft.embeds || draft.embeds.length === 0)) return draft;
+mutant-8 exit=1
+     × V2 components with no embeds key persist unchanged, with no choice 3ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  |node| src/utils/__tests__/utils.disposition-resolver.test.ts > gateBeforePersist, the persist gate > V2 components with no embeds key persist unchanged, with no choice
+      Tests  1 failed | 39 passed (40)
+188c188
+<   if (!draft.embeds || draft.embeds.length === 0) return draft;
+---
+>   if (!draft.embeds && draft.embeds.length === 0) return draft;
+TypeError: Cannot read properties of undefined (reading 'some')
+TypeError: Cannot read properties of undefined (reading 'length')

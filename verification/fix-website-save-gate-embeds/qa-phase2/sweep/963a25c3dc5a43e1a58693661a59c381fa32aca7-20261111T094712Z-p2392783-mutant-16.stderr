@@ -1,0 +1,50 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx > MessageProvider — the choice save of a stored V2 message with content > Save as Classic: the editor holds the classic message that was written, in Classic mode
+AssertionError: expected [ { type: 17, …(1) } ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {
++     "components": [
++       {
++         "content": "x",
++         "type": 10,
++       },
++     ],
++     "type": 17,
++   },
++ ]
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx:116:37
+    114|   it('Save as Classic: the editor holds the classic message that was w…
+    115|     const { written, held } = chooseAndSave('classic');
+    116|     expect(written.data.components).toEqual([]);
+       |                                     ^
+    117|     expect(written.data.content).toBe('hi');
+    118|     expect(held.data.components).toEqual([]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx > MessageProvider — the choice save of a stored V2 message with content > Save as Components V2: the editor holds the V2 message that was written, in V2 mode
+AssertionError: expected 'hi' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ hi
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx:125:34
+    123|   it('Save as Components V2: the editor holds the V2 message that was …
+    124|     const { written, held } = chooseAndSave('v2');
+    125|     expect(written.data.content).toBe('');
+       |                                  ^
+    126|     expect(held.data.content).toBe('');
+    127|     expect(held.data.components).toHaveLength(1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

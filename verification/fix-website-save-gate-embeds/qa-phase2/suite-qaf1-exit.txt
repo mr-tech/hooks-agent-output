@@ -1,0 +1,4 @@
+suite exit=0
+typecheck exit=0
+eslint exit=1
+eslint base exit=1

@@ -1,0 +1,178 @@
+[
+ {
+  "id": "useApiMethods.ts:65:if-false",
+  "file": "src/providers/MessageProvider/useApiMethods.ts",
+  "old": " if (d",
+  "new": " if (false && d",
+  "op": "if-false",
+  "line": 65,
+  "text": "if (data !== draft.data) {"
+ },
+ {
+  "id": "useApiMethods.ts:65:!==",
+  "file": "src/providers/MessageProvider/useApiMethods.ts",
+  "old": "!==",
+  "new": "===",
+  "op": "!==",
+  "line": 65,
+  "text": "if (data !== draft.data) {"
+ },
+ {
+  "id": "useApiMethods.ts:68:if-false",
+  "file": "src/providers/MessageProvider/useApiMethods.ts",
+  "old": "  if (mo",
+  "new": "  if (false && mo",
+  "op": "if-false",
+  "line": 68,
+  "text": "if (mode) setMessageMode(mode);"
+ },
+ {
+  "id": "index.ts:187:if-false",
+  "file": "src/utils/index.ts",
+  "old": "{\n  if (!has",
+  "new": "{\n  if (false && !has",
+  "op": "if-false",
+  "line": 187,
+  "text": "if (!hasV2Components(draft.components as undefined | { type: number }[])) return draft;"
+ },
+ {
+  "id": "index.ts:187:not",
+  "file": "src/utils/index.ts",
+  "old": "if (!hasV",
+  "new": "if (hasV",
+  "op": "not",
+  "line": 187,
+  "text": "if (!hasV2Components(draft.components as undefined | { type: number }[])) return draft;"
+ },
+ {
+  "id": "index.ts:188:if-false",
+  "file": "src/utils/index.ts",
+  "old": "  if (!d",
+  "new": "  if (false && !d",
+  "op": "if-false",
+  "line": 188,
+  "text": "if (!draft.embeds || draft.embeds.length === 0) return draft;"
+ },
+ {
+  "id": "index.ts:188:not",
+  "file": "src/utils/index.ts",
+  "old": "(!d",
+  "new": "(d",
+  "op": "not",
+  "line": 188,
+  "text": "if (!draft.embeds || draft.embeds.length === 0) return draft;"
+ },
+ {
+  "id": "index.ts:188:||",
+  "file": "src/utils/index.ts",
+  "old": "s || d",
+  "new": "s && d",
+  "op": "||",
+  "line": 188,
+  "text": "if (!draft.embeds || draft.embeds.length === 0) return draft;"
+ },
+ {
+  "id": "index.ts:188:===",
+  "file": "src/utils/index.ts",
+  "old": "s.length === 0) retur",
+  "new": "s.length !== 0) retur",
+  "op": "===",
+  "line": 188,
+  "text": "if (!draft.embeds || draft.embeds.length === 0) return draft;"
+ },
+ {
+  "id": "index.ts:188:num",
+  "file": "src/utils/index.ts",
+  "old": "ength === 0) return d",
+  "new": "ength === 1) return d",
+  "op": "num",
+  "line": 188,
+  "text": "if (!draft.embeds || draft.embeds.length === 0) return draft;"
+ },
+ {
+  "id": "index.ts:189:if-false",
+  "file": "src/utils/index.ts",
+  "old": "\n  if (dra",
+  "new": "\n  if (false && dra",
+  "op": "if-false",
+  "line": 189,
+  "text": "if (draft.embeds.some((embed) => hasClassicContent({ embeds: [embed] }))) return draft;"
+ },
+ {
+  "id": "H1-no-write-back",
+  "file": "src/providers/MessageProvider/useApiMethods.ts",
+  "old": "setMessage((oldMessage) => (oldMessage ? { ...oldMessage, data } : oldMessage));",
+  "new": "",
+  "op": "hand"
+ },
+ {
+  "id": "H2-write-back-draft-data",
+  "file": "src/providers/MessageProvider/useApiMethods.ts",
+  "old": "{ ...oldMessage, data }",
+  "new": "{ ...oldMessage, data: draft.data }",
+  "op": "hand"
+ },
+ {
+  "id": "H3-upsert-draft-data",
+  "file": "src/providers/MessageProvider/useApiMethods.ts",
+  "old": "stripKeys({ ...draft, data })",
+  "new": "stripKeys(draft)",
+  "op": "hand"
+ },
+ {
+  "id": "H4-save-persists-raw",
+  "file": "src/providers/MessageProvider/useApiMethods.ts",
+  "old": "persist(draft, gate.data)",
+  "new": "persist(draft, draft.data)",
+  "op": "hand"
+ },
+ {
+  "id": "H5-choice-persists-raw",
+  "file": "src/providers/MessageProvider/useApiMethods.ts",
+  "old": "persist(pendingSaveChoice.draft, resolvedData)",
+  "new": "persist(pendingSaveChoice.draft, pendingSaveChoice.draft.data)",
+  "op": "hand"
+ },
+ {
+  "id": "H6-mode-from-draft",
+  "file": "src/providers/MessageProvider/useApiMethods.ts",
+  "old": "detectMessageMode({ data })",
+  "new": "detectMessageMode(draft)",
+  "op": "hand"
+ },
+ {
+  "id": "H7-drop-clears-flag",
+  "file": "src/utils/index.ts",
+  "old": "return { ...draft, embeds: [] };",
+  "new": "return { ...draft, embeds: [], flags: undefined };",
+  "op": "hand"
+ },
+ {
+  "id": "H8-gate-data-undropped",
+  "file": "src/utils/index.ts",
+  "old": "data: dropEmptyEmbedsBesideV2(draft),",
+  "new": "data: draft,",
+  "op": "hand"
+ },
+ {
+  "id": "H9-content-guard-every",
+  "file": "src/utils/index.ts",
+  "old": "if (draft.embeds.some((embed) => hasClassicContent({ embeds: [embed] }))) return draft;",
+  "new": "if (draft.embeds.every((embed) => hasClassicContent({ embeds: [embed] }))) return draft;",
+  "op": "hand"
+ },
+ {
+  "id": "H10-saveas-raw",
+  "file": "src/app/message/m/[id]/_components/SaveAsMenu.tsx",
+  "old": "submitData(gate.data)",
+  "new": "submitData(message.data)",
+  "op": "hand"
+ },
+ {
+  "id": "H11-newmodal-raw",
+  "file": "src/app/message/_components/NewMessageModal.tsx",
+  "old": "submitData(gate.data)",
+  "new": "submitData(loadedMessage)",
+  "op": "hand"
+ }
+]

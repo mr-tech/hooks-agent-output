@@ -1,0 +1,17 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/utils.disposition-resolver.test.ts > gateBeforePersist, the persist gate > V2 components with no embeds key persist unchanged, with no choice
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ dropEmptyEmbedsBesideV2 src/utils/index.ts:188:37
+    186| ): T {
+    187|   if (!hasV2Components(draft.components as undefined | { type: number …
+    188|   if (!draft.embeds && draft.embeds.length === 0) return draft;
+       |                                     ^
+    189|   if (draft.embeds.some((embed) => hasClassicContent({ embeds: [embed]…
+    190|   return { ...draft, embeds: [] };
+ ❯ Module.gateBeforePersist src/utils/index.ts:207:11
+ ❯ src/utils/__tests__/utils.disposition-resolver.test.ts:257:18
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

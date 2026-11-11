@@ -1,0 +1,19 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/641b069c-01d6-4191-b098-33f31f65da5c/scratchpad/mutwork/20261111T094712Z-p2392783/mutant-10
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx (3 tests | 1 failed) 219ms
+     × writes it as V2 without the embed, and the editor holds exactly what was written 59ms
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/SaveAsMenu.empty-embeds-beside-v2.test.tsx (1 test | 1 failed) 438ms
+     × Save writes at once, as V2 without the empty embed, and shows no choice 436ms
+ ❯ |node| src/utils/__tests__/utils.disposition-resolver.test.ts (39 tests | 5 failed) 43ms
+     × V2 components beside an empty embed persist as V2 without the embed, with no choice 19ms
+     × V2 components beside an embed with only an empty title persist as V2 without the embed, with no choice 2ms
+     × V2 components beside an embed carrying only its editor key persist as V2 without the embed, with no choice 2ms
+     × V2 components beside an embed with an empty fields array persist as V2 without the embed, with no choice 2ms
+     × V2 components beside an empty embed keep a clear flag clear when the embed is dropped 1ms
+
+ Test Files  3 failed | 115 passed (118)
+      Tests  7 failed | 1137 passed (1144)
+   Start at  09:49:44
+   Duration  12.87s (transform 16.55s, setup 1.36s, import 98.13s, tests 23.51s, environment 60.82s)
+

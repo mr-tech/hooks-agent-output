@@ -1,0 +1,38 @@
+
+/usr/local/bin/hooks/website/src/utils/__tests__/utils.disposition-resolver.test.ts
+    1:8    error    Expected a line break after this opening brace   object-curly-newline
+    1:35   error    Expected a line break before this closing brace  object-curly-newline
+    7:1    error    Import in body of module; reorder to top         import/first
+    8:1    error    Import in body of module; reorder to top         import/first
+  180:36   error    Expected a line break after this opening brace   object-curly-newline
+  180:102  error    Expected a line break before this closing brace  object-curly-newline
+  189:36   error    Expected a line break after this opening brace   object-curly-newline
+  189:96   error    Expected a line break before this closing brace  object-curly-newline
+  195:36   error    Expected a line break after this opening brace   object-curly-newline
+  195:100  error    Expected a line break before this closing brace  object-curly-newline
+  200:30   error    Expected a line break after this opening brace   object-curly-newline
+  200:94   error    Expected a line break before this closing brace  object-curly-newline
+  201:30   error    Expected a line break after this opening brace   object-curly-newline
+  201:96   error    Expected a line break before this closing brace  object-curly-newline
+  263:36   error    Expected a line break after this opening brace   object-curly-newline
+  263:90   error    Expected a line break before this closing brace  object-curly-newline
+  270:35   error    Expected a line break after this opening brace   object-curly-newline
+  270:89   error    Expected a line break before this closing brace  object-curly-newline
+  276:35   error    Expected a line break after this opening brace   object-curly-newline
+  276:97   error    Expected a line break before this closing brace  object-curly-newline
+  277:15   warning  Forbidden non-null assertion                     @typescript-eslint/no-non-null-assertion
+  283:35   error    Expected a line break after this opening brace   object-curly-newline
+  283:91   error    Expected a line break before this closing brace  object-curly-newline
+  284:15   warning  Forbidden non-null assertion                     @typescript-eslint/no-non-null-assertion
+  290:7    error    Expected a line break after this opening brace   object-curly-newline
+  290:71   error    Expected a line break before this closing brace  object-curly-newline
+  294:15   warning  Forbidden non-null assertion                     @typescript-eslint/no-non-null-assertion
+  300:7    error    Expected a line break after this opening brace   object-curly-newline
+  300:85   error    Expected a line break before this closing brace  object-curly-newline
+  305:15   warning  Forbidden non-null assertion                     @typescript-eslint/no-non-null-assertion
+  309:35   error    Expected a line break after this opening brace   object-curly-newline
+  309:99   error    Expected a line break before this closing brace  object-curly-newline
+
+✖ 32 problems (28 errors, 4 warnings)
+  28 errors and 0 warnings potentially fixable with the `--fix` option.
+
