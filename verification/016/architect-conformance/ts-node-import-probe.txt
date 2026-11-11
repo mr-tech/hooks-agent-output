@@ -1,0 +1,16 @@
+# ts-node import probe, website 0e3d903, 2026-11-11T10:44Z
+# runner: the backfill-valid script's own loader flags (package.json: ts-node -r tsconfig-paths/register)
+## require('~/utils/limits')
+loaded
+exit=0
+## require('~/constants/messageLimits')
+loaded
+exit=0
+## require('~/constants')
+Error [ERR_REQUIRE_ESM]: Must use import to load ES Module: /usr/local/bin/hooks/website/src/env.mjs
+  code: 'ERR_REQUIRE_ESM'
+exit=1
+## require('~/server/api/utils/shapes')
+Error [ERR_REQUIRE_ESM]: Must use import to load ES Module: /usr/local/bin/hooks/website/src/env.mjs
+  code: 'ERR_REQUIRE_ESM'
+exit=1

@@ -238,9 +238,13 @@ Two consequences a reader cannot derive from the tree:
 
 ### A-4 — Message validity lives in one module, and its counters and bounds have fixed homes
 
-**Grade**: agent-designed — a pattern read from code at `7ce866b`, not his intent; re-verify against the code.
+**Grade**: agent-designed — a pattern read from code at `7ce866b`, re-read at `0e3d903`; not his intent; re-verify against the code.
 
-**Mechanism**: `src/utils/limits.tsx` `validateMessage` is the single validity predicate. It is read by the send gate, by `isMessageValid` (`src/server/api/utils/messageValidity.ts`, which writes the stored `valid` column on save) and by `src/scripts/backfillValid.ts`. A counter that a validator needs lives in that module beside the validator, typed structurally (`sumDisplayableText`), so the same helper accepts editor drafts and stored `MessageData`. Bounds are constants in `~/constants` (which re-exports `./messageLimits`), and the editor and the save schema (`shapes.ts`) read the same constant for the same bound.
+**Mechanism**: `src/utils/limits.tsx` `validateMessage` is the single validity predicate. It is read by the send gate, by `isMessageValid` (`src/server/api/utils/messageValidity.ts`, which writes the stored `valid` column on save) and by `src/scripts/backfillValid.ts`. A counter that a validator needs lives in that module beside the validator, typed structurally (`sumDisplayableText`), so the same helper accepts editor drafts and stored `MessageData`.
+
+**Bounds have two homes, and the split is load-bearing.** A bound that `limits.tsx` reads is a constant in `src/constants/messageLimits.ts`; an editor-and-schema cap that no validator reads sits in the `~/constants` barrel's "Components V2 limits" block (`MAX_BUTTON_LABEL_LENGTH`, `MAX_MEDIA_GALLERY_ITEMS`, …). The barrel re-exports `./messageLimits`, so editor code imports either from `~/constants`. Where the editor and the save schema (`shapes.ts`) both enforce a bound, they read the same constant.
+
+**`limits.tsx`'s import closure is env-free.** It imports bounds from `~/constants/messageLimits` only — never from `~/constants` or `~/server/api/utils/shapes`, both of which reach the ES module `~/env.mjs`. `backfill-valid` runs `limits.tsx` under `ts-node -r tsconfig-paths/register`, whose CJS loader refuses that module (`ERR_REQUIRE_ESM`); `messageLimits.ts` was extracted for exactly this (`681c353`). Every test file of the predicate mocks `~/env.mjs`, so the suite cannot see a breach. The check: `npx ts-node -r tsconfig-paths/register -T -e "require('~/utils/limits')"` exits 0 (capture `verification/016/architect-conformance/ts-node-import-probe.txt`, plan 016 AF-1).
 
 **Consequence a change must carry**: a change to `validateMessage`'s refusal set changes stored `valid` only for rows saved afterwards. The backfill re-derives `valid IS NULL` rows only, and the public v1 API serves the stored value. A predicate change therefore states its residue for already-stored rows (plan 015 AF-1).
 
@@ -268,3 +272,4 @@ Two consequences a reader cannot derive from the tree:
 | 2026-11-08T05:17 | 4 | architect-hooks-015 | Added `A-4` (agent-designed) from the plan 015 conformance pass: where message validity, its counters and its bounds live. |
 | 2026-11-08T07:03 | 5 | architect-hooks-015 | Added `A-5` (agent-designed) from the plan 015 rev 17–18 conformance pass: binding bot-token reads to the authorised guild. |
 | 2026-11-08T08:11 | 6 | architect-hooks-015 | Added `W-7` (owner-authored): one Discord account is one Hooks user. His sentence is verbatim, confirmed as a standing rule by his selection (`dd2a337`). Checked against the mechanism, and the next-auth linking gap is recorded as his known limit (`766bd4b`). |
+| 2026-11-11T10:45 | 7 | architect-hooks-016 | `A-4` corrected and extended from the plan 016 conformance pass (re-read at website `0e3d903`): the old bounds sentence, "Bounds are constants in `~/constants`", described one home where the tree has two; it now names both and why, and adds the env-free import closure of `limits.tsx` with its executed check (plan 016 AF-1, AF-4). Agent-designed; no selection of his shaped it. |
