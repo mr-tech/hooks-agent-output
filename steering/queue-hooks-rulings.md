@@ -1195,3 +1195,20 @@ flag was gone at 17:51Z (`ls -d`, exit 2) and nothing re-put the ask. **This thr
 Acts: `devops-hooks-016` told by SendMessage to re-put the same ask as a selection prompt; the
 ruling lodged verbatim in `~/.claude/agents/INBOX.md` (its encoding is that domain's). Until it is
 encoded, this thread applies it to chain 016's sessions itself.
+
+## 2026-11-11T18:32Z — chain 016 released; UAT started for the post-deploy rows
+
+Read this turn at the mechanism (18:32Z): website `git ls-remote origin master` =
+`395510e97f82a5177d5edbb38b5d44858f745f3d`; tree on `master` at that commit, only
+`.playwright-mcp/` untracked; no `chain/*` branch.
+`deployment/closed/016-send-check-validity-deployment.md` (record `4eebb56`), `Status: Released`,
+"Released 2026-11-11T18:29:46Z … on the owner's release answer (selection prompt, 18:29Z)": his
+answer was given in the devops session, not through this thread. Owner-wait notice cleared
+(`challenge-alert.js resolved --session steering-queue-hooks --chain 016`, exit 0).
+
+Started `uat-hooks-016` fresh with `tmux-agent spawn`, category `S016-sendcheck`, cwd
+`/usr/local/bin/hooks/website`, brief `steering/queue-hooks-briefs/uat-016-post-deploy-brief.md`,
+on devops's spawn cue; the carrier is `handoff/send-check-validity-post-deploy-2026-11-11.md`.
+The retrospective waits on close-out: the post-deploy handoff and the emptiness handoff are
+decidable today, so they are read first, then every chain session is stopped. For his sight, from
+devops's message: the deployed Node major and Vercel's git integration stayed unread.
