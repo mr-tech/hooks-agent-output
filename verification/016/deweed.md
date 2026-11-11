@@ -151,3 +151,41 @@ byte-identical by AC1-1; `sha256sum` at `df0fc0b` gave `49b54f8e…15bb9b`. Unto
 | `gives the message body hideValidation true` | 5 | The real `/preview` page case fails first when the pass to the message body is removed or hard-set false | `page.invalid-data.test.tsx` › `shows no error line and no red border for an empty username` | removed |
 
 The stubs for `Author` and `ContentBody` and their reset in `afterEach` stay: the kept rows use them.
+
+## Round 3 — 2026-11-11T12:53Z
+
+- **Repository:** `website`
+- **Range:** `ee114ff..64a3d26` on `chain/016-send-check-validity` (one commit, parent `ee114ff`,
+  test files only: `git diff --numstat ee114ff..64a3d26` lists three test files)
+- **Paths and limits:** none named.
+- **Tree check:** branch `chain/016-send-check-validity`, `HEAD` `64a3d26` at round start;
+  `git status --porcelain` showed only the untracked `.playwright-mcp/`.
+- **Read for this round:** the range as its diff. The plan, QA's document and `CLAUDE.md` have no
+  diff since the round 2 table's commit (`git diff 9e17b72 HEAD` over the three paths, 0 lines).
+  The implementation document is now tracked; its Entry Conditions, TDD Compliance and Class Sweep
+  sections were read again and hold the same cases as in round 1. Code review Round 1's CR-2
+  (`code-review/016-send-check-validity-code-review.md`) read at its finding and required-fix lines.
+- **Held:** by the implementer's round 3 message (**msg3**), as answering blocking finding CR-2:
+  the `refuses a %s at section` rows and every `refuses a %s at %s` row whose fault now sits between
+  valid siblings, which is every row of that case. Round 1's holds stand.
+- **The round removed nothing.** No case below 7 is outside a hold, so no deletion commit exists
+  and the suite was not run by this round; the tip stays `64a3d26`.
+
+`place()` changed, so every `refuses a %s at %s` row is rescored. 23 fault entries, two of them
+Text Display faults with three placements: 21 × 2 + 2 × 3 = 48 rows.
+
+| Case | Score | Reason | Covered by / left unasserted | Disposition |
+|---|---|---|---|---|
+| `refuses a empty Text Display at section` | 9 | The one row in which the Section's child walk alone decides: fault between two valid Text Displays | — | held: msg3 (CR-2) |
+| `refuses a Text Display with no content at section` | 5 | Same walk and position with the key-absent form | the row above | held: msg3 (CR-2) |
+| `refuses a %s at top` and `at container`, one row per remaining walk (top-level list, Container children, Action Row buttons, gallery items) | 9 | The fault sits neither first nor last, so a walk that reads only its first or last element fails here | — | held: msg3 (CR-2) |
+| `refuses a %s at %s`, the other rows with no corpus member for their fault and placement (the 17 named in round 1) | 7 | Constructed placements AC1-2 extends from the schema; position now also carried by the rows above | — | held: msg3 (CR-2) |
+| `refuses a %s at %s`, the remaining rows | 5 | Fault and placement repeat a corpus member, position repeats the per-walk rows | the corpus rows named in round 1 and the per-walk rows above | held: msg3 (CR-2). Not separable in any case: generated from `faults` × placements |
+| `sends a filled piece of each kind at top` · `at container` | 9 | Discriminating control of the placement table with the new sibling hosts | — | kept |
+| `sends a filled piece of each kind at section` | 9 | Control for the new Section host: three valid Text Displays in a Section are accepted | — | kept |
+| `ThumbnailEditor.description-limit.test.tsx` › `caps the description input at 1024 characters` (retitled, body unchanged) | 9 | Score carried from round 1 | — | held: msg (round 1), EC (QA entry 3) |
+| `MediaGalleryEditor.description-limit.test.tsx` › `caps the description input at 1024 characters` (retitled, body unchanged) | 9 | Score carried from round 1 | — | held: msg (round 1), EC (QA entry 3) |
+
+Which single row carries each walk is not unique: any one `top` row carries the top-level walk, any
+`container` row the Container walk, any link-button row the Action Row walk, any gallery-item row the
+gallery walk. The table scores one per walk at 9 and the rest by what else they add.
